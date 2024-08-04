@@ -68,15 +68,14 @@
 
 /datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(.)
-		var/turf/open/current_turf = get_turf(user)
-		if(istype(current_turf) && current_turf.pollution)
-			if(iscarbon(user))
-				var/mob/living/carbon/carbon_user = user
-				if(carbon_user.internal) //Breathing from internals means we cant smell
-					return
-				carbon_user.next_smell = world.time + SMELL_COOLDOWN
-			current_turf.pollution.smell_act(user)
+	var/turf/open/current_turf = get_turf(user)
+	if(istype(current_turf) && current_turf.pollution)
+		if(iscarbon(user))
+			var/mob/living/carbon/carbon_user = user
+			if(carbon_user.internal) //Breathing from internals means we cant smell
+				return
+			carbon_user.next_smell = world.time + SMELL_COOLDOWN
+		current_turf.pollution.smell_act(user)
 
 
 /datum/emote/living/peep
@@ -122,6 +121,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/awoo.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/nya
 	key = "nya"
@@ -170,6 +170,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/bark2.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/squish
 	key = "squish"
@@ -276,7 +277,7 @@
 				'modular_nova/modules/emotes/sound/emotes/clap3.ogg',
 				'modular_nova/modules/emotes/sound/emotes/clap4.ogg')
 
-/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
@@ -294,7 +295,7 @@
 	return pick('modular_nova/modules/emotes/sound/emotes/claponce1.ogg',
 				'modular_nova/modules/emotes/sound/emotes/claponce2.ogg')
 
-/datum/emote/living/clap1/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/clap1/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
@@ -522,6 +523,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/goose_honk.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/mggaow
 	key = "mggaow"
@@ -530,6 +532,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/mggaow.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/mrrp
 	key = "mrrp"

@@ -1,6 +1,6 @@
 // Modular turf stuff
 
-// Reskinned soil to make it look like its turf, but its not!
+// Reskinned soil to make it look like it's turf, but it's not!
 /obj/machinery/hydroponics/soil/fake_turf
 	desc = "A patch of fertile soil that you can plant stuff in."
 	icon = 'icons/turf/floors.dmi' // This makes it look like the dirt floor

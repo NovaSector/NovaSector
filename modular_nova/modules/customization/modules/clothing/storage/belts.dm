@@ -110,7 +110,7 @@
 	desc = span_notice("Click on this to open your belt's inventory!")
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
-	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, its technically a belt
+	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, it's technically a belt
 	anchored = 1	//Dont want people taking it out with their hands
 
 /obj/item/storage/belt/storage_pouch/attack_hand(mob/user, list/modifiers)	//Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories

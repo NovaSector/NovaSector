@@ -120,6 +120,9 @@
 #define TRAIT_REVIVES_BY_HEALING "trait_revives_by_healing"
 #define TRAIT_ROBOTIC_DNA_ORGANS "trait_robotic_dna_organs"
 
+// Isolation trait for synths
+#define TRAIT_SYNTHETIC "trait_synthetic"
+
 /// Trait that changes the ending effects of twitch leaving your system
 #define TRAIT_TWITCH_ADAPTED "twitch_adapted"
 

@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(target_interested_atoms, typecacheof(list(/mob, /obj/machinery/
 /datum/ai_behavior/find_potential_targets/proc/failed_to_find_anyone(datum/ai_controller/controller, target_key, targeting_strategy_key, hiding_location_key)
 	var/aggro_range = controller.blackboard[aggro_range_key] || vision_range
 	// takes the larger between our range() input and our implicit hearers() input (world.view)
-	aggro_range = max(aggro_range, ROUND_UP(max(getviewsize(world.view)) / 2))
+	// aggro_range = max(aggro_range, ROUND_UP(max(getviewsize(world.view)) / 2)) // NOVA EDIT REMOVAL - This messes up the range of the stillcaps, will be possibly brought upstream as a result.
 	// Alright, here's the interesting bit
 	// We're gonna use this max range to hook into a proximity field so we can just await someone interesting to come along
 	// Rather then trying to check every few seconds
@@ -152,3 +152,15 @@ GLOBAL_LIST_INIT(target_interested_atoms, typecacheof(list(/mob, /obj/machinery/
 /// Returns the desired final target from the filtered list of targets
 /datum/ai_behavior/find_potential_targets/proc/pick_final_target(datum/ai_controller/controller, list/filtered_targets)
 	return pick(filtered_targets)
+
+/// Targets with the trait specified by the BB_TARGET_PRIORITY_TRAIT blackboard key will be prioritized over the rest.
+/datum/ai_behavior/find_potential_targets/prioritize_trait
+
+/datum/ai_behavior/find_potential_targets/prioritize_trait/pick_final_target(datum/ai_controller/controller, list/filtered_targets)
+	var/priority_targets = list()
+	for(var/atom/target as anything in filtered_targets)
+		if(HAS_TRAIT(target, controller.blackboard[BB_TARGET_PRIORITY_TRAIT]))
+			priority_targets += target
+	if(length(priority_targets))
+		return pick(priority_targets)
+	return ..()

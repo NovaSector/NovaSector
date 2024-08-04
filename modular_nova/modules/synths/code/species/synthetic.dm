@@ -17,6 +17,7 @@
 		TRAIT_LITERATE,
 		TRAIT_NOCRITDAMAGE, // We do our own handling of crit damage.
 		TRAIT_ROBOTIC_DNA_ORGANS,
+		TRAIT_SYNTHETIC,
 	)
 	mutant_bodyparts = list()
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -35,12 +36,12 @@
 	mutantappendix = null
 	exotic_blood = /datum/reagent/fuel/oil
 	bodypart_overrides = list(
-		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/synth,
-		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/synth,
-		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/robot/synth,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/robot/synth,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/robot/synth,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/synth,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/synth,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/synth,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/synth,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
 	)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	coldmod = 1.2
@@ -150,9 +151,12 @@
 		UnregisterSignal(human, COMSIG_LIVING_DEATH)
 
 /datum/species/synthetic/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(old_stomach.is_oversized) // don't override augments that are already oversized
+		return
+
 	var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
 
-	var/obj/item/organ/internal/stomach/synth/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	oversized_quirk.old_organs += list(old_stomach)
 
 	if(new_synth_stomach.Insert(human_holder, special = TRUE))

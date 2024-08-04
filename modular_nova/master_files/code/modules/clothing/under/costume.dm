@@ -19,7 +19,7 @@
 	desc = "Dedicate yourself to something better. To loyalty, honour, for it only dies when everyone abandons it."
 	icon_state = "cavalry" //specifically an 1890s US Army Cavalry Uniform
 
-/obj/item/clothing/under/costume/deckers/alt //not even going to bother re-pathing this one because its such a unique case of 'TGs item has something but this alt doesnt'
+/obj/item/clothing/under/costume/deckers/alt //not even going to bother re-pathing this one because it's such a unique case of 'TGs item has something but this alt doesnt'
 	name = "deckers maskless outfit"
 	desc = "A decker jumpsuit with neon blue coloring."
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/costume.dmi'

@@ -40,7 +40,7 @@
 			times_searched++
 			var/atom/recursive_loc = current_loc.loc
 
-			if (!recursive_loc || isarea(recursive_loc)) // if youre in something already, its fair to say you might be in, say, a pipe. you cant use that for emoting, so the floor will have to do
+			if (!recursive_loc || isarea(recursive_loc)) // if youre in something already, it's fair to say you might be in, say, a pipe. you cant use that for emoting, so the floor will have to do
 				break
 
 			locs_we_can_use += recursive_loc

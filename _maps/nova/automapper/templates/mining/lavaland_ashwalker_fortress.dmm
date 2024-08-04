@@ -2,12 +2,10 @@
 "ac" = (
 /obj/structure/table/wood,
 /obj/structure/stone_tile/block/cracked{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /obj/structure/stone_tile/block/cracked{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -35,7 +33,6 @@
 	},
 /obj/structure/stone_tile/burnt{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 3
 	},
 /obj/effect/mapping_helpers/no_lava,
@@ -202,9 +199,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "cF" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 2
-	},
+/obj/effect/turf_decal/siding/wood,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -325,9 +320,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ei" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 2
-	},
+/obj/effect/turf_decal/siding/wood,
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/effect/mapping_helpers/no_lava,
 /obj/item/stack/sheet/mineral/gold{
@@ -495,25 +488,19 @@
 /area/ruin/unpowered/ash_walkers)
 "gx" = (
 /obj/structure/rack/wooden,
-/obj/item/hatchet/wooden{
-	pixel_y = 0
-	},
+/obj/item/hatchet/wooden,
 /obj/item/shovel,
 /obj/item/hatchet/wooden{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/hatchet/wooden{
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "gC" = (
-/obj/structure/stone_tile/surrounding/cracked{
-	dir = 2
-	},
+/obj/structure/stone_tile/surrounding/cracked,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -633,14 +620,6 @@
 /area/ruin/unpowered/ash_walkers)
 "iN" = (
 /obj/structure/water_source/puddle,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"iO" = (
-/obj/structure/stone_tile/block/cracked{
-	dir = 1;
-	pixel_y = 0
-	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -822,7 +801,6 @@
 	},
 /obj/structure/stone_tile/surrounding_tile/burnt{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = -16
 	},
 /obj/structure/stone_tile/block/cracked{
@@ -1105,9 +1083,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "qb" = (
-/obj/structure/chair/pew/right{
-	dir = 2
-	},
+/obj/structure/chair/pew/right,
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /obj/structure/stone_tile/surrounding/cracked{
 	dir = 8
@@ -1144,8 +1120,7 @@
 /obj/structure/bed/maint,
 /obj/structure/curtain/bounty,
 /obj/structure/stone_tile/block/cracked{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -1214,9 +1189,7 @@
 /turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "rt" = (
-/obj/structure/chair/pew/left{
-	dir = 2
-	},
+/obj/structure/chair/pew/left,
 /obj/structure/stone_tile/block,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -1236,9 +1209,7 @@
 /obj/item/chair/wood{
 	dir = 8
 	},
-/obj/structure/stone_tile/surrounding/cracked{
-	dir = 2
-	},
+/obj/structure/stone_tile/surrounding/cracked,
 /obj/structure/stone_tile/center/burnt,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -1255,9 +1226,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "rW" = (
-/obj/structure/chair/pew/right{
-	dir = 2
-	},
+/obj/structure/chair/pew/right,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -1850,9 +1819,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "ze" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 2
-	},
+/obj/effect/turf_decal/siding/wood,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/floor/wood/lavaland,
@@ -2143,15 +2110,12 @@
 /area/ruin/unpowered/ash_walkers)
 "DD" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
-/obj/structure/stone_tile/surrounding/cracked{
-	dir = 2
-	},
+/obj/structure/stone_tile/surrounding/cracked,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "DI" = (
 /obj/structure/stone_tile/block/burnt{
-	pixel_y = 0;
 	pixel_x = 15
 	},
 /obj/structure/stone_tile/block/cracked{
@@ -2225,8 +2189,7 @@
 /area/ruin/unpowered/ash_walkers)
 "EI" = (
 /obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -2398,8 +2361,7 @@
 "Ic" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -2447,7 +2409,6 @@
 	pixel_x = 5
 	},
 /obj/item/food/grown/aloe{
-	pixel_y = 0;
 	pixel_x = 10
 	},
 /obj/effect/mapping_helpers/no_lava,
@@ -2478,8 +2439,7 @@
 /area/ruin/unpowered/ash_walkers)
 "Jn" = (
 /obj/structure/stone_tile/surrounding_tile/burnt{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -2529,9 +2489,7 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Ks" = (
-/obj/structure/chair/pew/left{
-	dir = 2
-	},
+/obj/structure/chair/pew/left,
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /obj/structure/stone_tile/surrounding/cracked{
 	dir = 1
@@ -2564,16 +2522,12 @@
 /turf/open/floor/grass/lavaland,
 /area/ruin/unpowered/ash_walkers)
 "KC" = (
-/obj/item/flashlight/lantern{
-	pixel_y = 0
-	},
+/obj/item/flashlight/lantern,
 /obj/structure/closet/crate/wooden,
 /obj/item/flashlight/lantern{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/flashlight/lantern{
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/structure/stone_tile/block{
@@ -2590,14 +2544,13 @@
 "KZ" = (
 /obj/structure/stone_tile/cracked{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -15
 	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "Lm" = (
-/obj/machinery/smartfridge/drying_rack,
+/obj/machinery/smartfridge/drying/rack,
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
 	},
@@ -2873,7 +2826,6 @@
 /area/ruin/unpowered/ash_walkers)
 "Pa" = (
 /obj/structure/stone_tile/block/burnt{
-	pixel_y = 0;
 	pixel_x = 7
 	},
 /obj/effect/mapping_helpers/no_lava,
@@ -2911,7 +2863,6 @@
 "PZ" = (
 /obj/structure/table/wood,
 /obj/item/plate/ceramic{
-	pixel_y = 0;
 	pixel_x = 3
 	},
 /obj/item/reagent_containers/cup/glass/trophy{
@@ -2941,9 +2892,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "QA" = (
-/obj/structure/chair/pew/right{
-	dir = 2
-	},
+/obj/structure/chair/pew/right,
 /obj/structure/stone_tile,
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -2968,7 +2917,6 @@
 	},
 /obj/structure/stone_tile/burnt{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 2
 	},
 /obj/effect/mapping_helpers/no_lava,
@@ -3255,7 +3203,6 @@
 	pixel_y = 4
 	},
 /obj/item/flashlight/flare/candle/infinite{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/effect/mapping_helpers/no_lava,
@@ -3676,14 +3623,6 @@
 /area/ruin/unpowered/ash_walkers)
 "Zo" = (
 /obj/structure/flora/ash/leaf_shroom,
-/obj/effect/mapping_helpers/no_lava,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered/ash_walkers)
-"Zr" = (
-/obj/structure/stone_tile/block/cracked{
-	dir = 2;
-	pixel_y = 0
-	},
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
@@ -4211,7 +4150,7 @@ sQ
 fB
 CV
 CV
-iO
+ED
 qg
 El
 Jn
@@ -4280,7 +4219,7 @@ CV
 CV
 ed
 xk
-Zr
+Ea
 CV
 Hv
 JC
