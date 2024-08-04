@@ -94,10 +94,10 @@
 
 			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
 			if(COOLDOWN_FINISHED(locate_incomplete, heating_remainder))
-				balloon_alert(user, "metal too cool")
+				balloon_alert(user, "metal too cool!")
 				locate_incomplete.times_hit -= 3
 				if(locate_incomplete.times_hit <= -locate_incomplete.average_hits)
-					balloon_alert_to_viewers("[locate_incomplete] breaks")
+					balloon_alert_to_viewers("workpiece breaks!")
 					qdel(locate_incomplete)
 					update_appearance()
 				return ITEM_INTERACT_SUCCESS
