@@ -32,16 +32,15 @@
 	)
 
 	// NOVA EDIT BEGIN - Universal medipen
-	///List containing chemicals which custom medipens can contain.
-	var/static/list/allowed_pen_medicine = list(
+	///Whitelist typecache of reagent types which are allowed to refill universal medipens.
+	var/static/list/medipen_reagent_whitelist = typecacheof(list(
 		/datum/reagent/medicine,
 		/datum/reagent/vaccine,
-	)
-	///Blacklist containing chemicals which custom medipens can't contain.
-	var/static/list/disallowed_pen_medicine = list(
-		/datum/reagent/inverse,
+	))
+	///Blacklist typecache of reagent types which are disallowed to refill universal medipens.
+	var/static/list/medipen_reagent_blacklist = typecacheof(list(
 		/datum/reagent/medicine/morphine,
-	)
+	))
 	// NOVA EDIT END
 
 /obj/machinery/medipen_refiller/Initialize(mapload)
@@ -102,26 +101,27 @@
 		if(medipen.reagents?.reagent_list.len)
 			balloon_alert(user, "medipen full!")
 			return
-		// NOVA EDIT BEGIN - Universal medipen
-		var/is_custom = istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal)
-		if(is_custom)
-			if(reagents.total_volume < medipen.volume)
-				balloon_alert(user, "not enough reagents!")
-				return
-			for(var/datum/reagent/meds in reagents.reagent_list)
-				if(!is_type_in_list(meds, allowed_pen_medicine) || is_type_in_list(meds, disallowed_pen_medicine))
-					balloon_alert(user, "reagents incompatible!")
-					return
-		// NOVA EDIT END
 		if(!reagents.has_reagent(allowed_pens[medipen.type], 10))
 			balloon_alert(user, "not enough reagents!")
 			return
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
 			medipen.used_up = FALSE
-			// NOVA EDIT BEGIN - Universal medipen
-			if(is_custom)
-				reagents.trans_to(medipen, medipen.volume)
+			if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
+				if(reagents.total_volume < medipen.volume)
+					balloon_alert(user, "not enough reagents!")
+					return
+				// Ignore reagents not in the whitelist
+				var/list/compatible_reagent_types = typecache_filter_list(reagents.reagent_list, medipen_reagent_whitelist)
+				// Ignore reagents in the blacklist
+				compatible_reagent_types = typecache_filter_list_reverse(compatible_reagent_types, medipen_reagent_blacklist)
+
+				// Ensure there is enough of the whitelisted reagents
+				if(!length(compatible_reagent_types))
+					balloon_alert(user, "reagents incompatible!")
+					return
+				// Transfer equal amounts of each reagent
+				reagents.trans_to_equal(target_atom = medipen, target_ids = compatible_reagent_types)
 			else
 				medipen.add_initial_reagents()
 				reagents.remove_reagent(allowed_pens[medipen.type], medipen.volume)
