@@ -105,7 +105,7 @@
 			locate_incomplete.times_hit++
 			user.mind.adjust_experience(/datum/skill/smithing, 1) //A good hit gives minimal experience
 
-		user.balloon_alert(user, "[locate_incomplete] sounds ready")
+		balloon_alert(user, "workpiece sounds ready")
 		return ITEM_INTERACT_SUCCESS
 
 	//okay, so we didn't find an incomplete item to hammer, do we have a hammerable item?
