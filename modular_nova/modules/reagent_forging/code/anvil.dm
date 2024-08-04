@@ -88,7 +88,7 @@
 				balloon_alert(user, "stopped hammering")
 				return ITEM_INTERACT_SUCCESS
 
-			if(!locate(locate_incomplete) in contents)
+			if(locate_incomplete.loc != src)
 				balloon_alert(user, "[locate_incomplete] was moved away!")
 				return ITEM_INTERACT_SUCCESS
 
