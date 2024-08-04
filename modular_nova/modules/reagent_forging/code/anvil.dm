@@ -89,7 +89,7 @@
 				return ITEM_INTERACT_SUCCESS
 
 			if(locate_incomplete.loc != src)
-				balloon_alert(user, "[locate_incomplete] was moved away!")
+				balloon_alert(user, "workpiece moved!")
 				return ITEM_INTERACT_SUCCESS
 
 			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
