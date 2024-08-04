@@ -160,10 +160,11 @@
 /datum/bodypart_overlay/mutant/genital/proc/underwear_check()
 	return TRUE
 
+/// Helper function - if the organ this overlay is tied to has been set to layer above clothing, return TRUE
 /datum/bodypart_overlay/mutant/genital/proc/layer_mode_check()
-	var/obj/item/organ/external/genital/owning_organ = owner.get_organ_slot(organ_slot)
-	if(istype(owning_organ))
-		if(owning_organ.layer_mode == GENITAL_LAYER_HIGH)
+	if(istype(owner))
+		var/obj/item/organ/external/genital/owning_organ = owner.get_organ_slot(organ_slot)
+		if(owning_organ?.layer_mode == GENITAL_LAYER_HIGH)
 			return TRUE
 	return FALSE
 
@@ -462,16 +463,6 @@
 	feature_key = ORGAN_SLOT_WOMB
 	layers = NONE
 
-/// Maybe a little bit unnecessary since this is always hidden, but completeness demands such
-/datum/bodypart_overlay/mutant/genital/womb/underwear_check()
-	if(!istype(owner))
-		return TRUE
-	else
-		if(owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT)
-			return FALSE
-		else
-			return TRUE
-
 /datum/bodypart_overlay/mutant/genital/womb/get_global_feature_list()
 	return SSaccessories.sprite_accessories[ORGAN_SLOT_WOMB]
 
@@ -492,16 +483,6 @@
 /datum/bodypart_overlay/mutant/genital/anus
 	feature_key = ORGAN_SLOT_ANUS
 	layers = NONE
-
-/// See above, here for completeness if a sprite is ever added
-/datum/bodypart_overlay/mutant/genital/anus/underwear_check()
-	if(!istype(owner))
-		return TRUE
-	else
-		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
-			return FALSE
-		else
-			return TRUE
 
 /obj/item/organ/external/genital/anus/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see an [LOWER_TEXT(genital_name)]."
