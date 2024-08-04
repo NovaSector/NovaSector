@@ -150,7 +150,7 @@
 	subdepartment_color = COLOR_ORANGE
 	sechud_icon_state = SECHUD_SAPPER
 	access = list(ACCESS_SAPPER_SHIP)
-	threat_modifier = 5 //gangs are illegal
+	threat_modifier = 2
 
 /datum/job/space_sapper
 	title = ROLE_SPACE_SAPPER

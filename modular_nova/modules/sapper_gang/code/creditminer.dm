@@ -57,21 +57,19 @@
 		cash_out = 0
 
 /obj/item/powersink/creditminer/drain_power()
-	// The net we're attached to
-	var/datum/powernet/powernet = attached.powernet
-	// How much raw energy we've siphoned
-	var/drained = 0
+	var/drained = 0 // How much raw energy we've siphoned
 	set_light(5)
 
 	drained = attached.newavail()
 	attached.add_delayedload(drained)
 
-	// If tried to drain more than available on powernet, now look for APCs and drain their cells
+	/* APC drain, disabled for now!
+	var/datum/powernet/powernet = attached.powernet
 	for(var/obj/machinery/power/terminal/terminal in powernet.nodes)
 		if(istype(terminal.master, /obj/machinery/power/apc))
 			var/obj/machinery/power/apc/apc = terminal.master
 			if(apc.operating && apc.cell)
-				drained += apc.cell.use(DRAIN_FORMULA, force = TRUE)
+				drained += apc.cell.use(DRAIN_FORMULA, force = TRUE) */
 	internal_heat += drained
 	var/cash_pulse = min(energy_to_power(drained) / POWER_FOR_PAYOUT, PAYOUT)
 	if(cash_pulse >= 1)
