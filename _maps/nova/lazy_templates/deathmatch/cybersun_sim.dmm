@@ -59,12 +59,11 @@
 /area/deathmatch)
 "gQ" = (
 /obj/structure/table/reinforced/ctf,
-/obj/item/storage/medkit{
-	pixel_y = 4;
-	pixel_x = 1
-	},
 /obj/structure/fluff/fake_camera{
 	dir = 4
+	},
+/obj/item/storage/medkit/civil_defense/stocked{
+	pixel_y = 3
 	},
 /turf/open/floor/engine,
 /area/deathmatch)
@@ -267,12 +266,11 @@
 /area/deathmatch)
 "tf" = (
 /obj/structure/table/reinforced/ctf,
-/obj/item/storage/medkit{
-	pixel_y = 4;
-	pixel_x = 1
-	},
 /obj/structure/fluff/fake_camera{
 	dir = 9
+	},
+/obj/item/storage/medkit/civil_defense/stocked{
+	pixel_y = 3
 	},
 /turf/open/floor/engine,
 /area/deathmatch)
@@ -387,12 +385,11 @@
 /area/deathmatch)
 "KD" = (
 /obj/structure/table/reinforced/ctf,
-/obj/item/storage/medkit{
-	pixel_y = 4;
-	pixel_x = 1
-	},
 /obj/structure/fluff/fake_camera{
 	dir = 10
+	},
+/obj/item/storage/medkit/civil_defense/stocked{
+	pixel_y = 3
 	},
 /turf/open/floor/engine,
 /area/deathmatch)
@@ -446,6 +443,18 @@
 /obj/effect/turf_decal/nova_decals/syndicate/middle/left,
 /turf/open/floor/mineral/plastitanium/red,
 /area/deathmatch)
+"Uc" = (
+/obj/structure/emergency_shield/timer,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/item/storage/medkit{
+	pixel_y = 4;
+	pixel_x = 1
+	},
+/turf/open/floor/plating,
+/area/deathmatch)
 "Un" = (
 /obj/effect/turf_decal/nova_decals/syndicate/top/right,
 /turf/open/floor/mineral/plastitanium/red,
@@ -456,11 +465,10 @@
 /area/deathmatch)
 "WB" = (
 /obj/structure/table/reinforced/ctf,
-/obj/item/storage/medkit{
-	pixel_y = 4;
-	pixel_x = 1
-	},
 /obj/structure/fluff/fake_camera,
+/obj/item/storage/medkit/civil_defense/stocked{
+	pixel_y = 3
+	},
 /turf/open/floor/engine,
 /area/deathmatch)
 "Xt" = (
@@ -709,7 +717,7 @@ Ke
 NR
 od
 HH
-zZ
+Uc
 Fw
 cB
 Ro
