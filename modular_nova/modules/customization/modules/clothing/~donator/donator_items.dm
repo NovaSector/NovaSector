@@ -257,7 +257,7 @@
 	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
 
 /obj/item/nanite_leg_reinforcement
-	name = "nanite leg teinforcement"
+	name = "nanite leg reinforcement"
 	desc = "Gives you the ability to channel your nanites into letting you stand for a time."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/nifs.dmi'
 	icon_state = "base_nif"
