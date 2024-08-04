@@ -196,6 +196,16 @@
 	. = ..()
 	RemoveElement(/datum/element/noticable_organ)
 
+/obj/item/organ/internal/tongue/carp/akula/on_mob_insert(mob/living/carbon/tongue_owner, special, movement_flags)
+	. = ..()
+	if(!ishuman(tongue_owner))
+		return
+	var/mob/living/carbon/human/human_receiver = tongue_owner
+	if(!human_receiver.can_mutate())
+		return
+	var/datum/species/rec_species = human_receiver.dna.species
+	rec_species.update_no_equip_flags(tongue_owner, initial(rec_species.no_equip_flags))
+
 //Lungs
 /obj/item/organ/internal/lungs/carp/akula
 	safe_oxygen_min = /obj/item/organ/internal/lungs::safe_oxygen_min
