@@ -4,7 +4,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "aZ" = (
 /obj/structure/fluff/fake_scrubber,
@@ -73,11 +73,11 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "hY" = (
 /obj/structure/table/reinforced/plastitaniumglass,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "hZ" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/shrink_cw{
@@ -95,7 +95,7 @@
 /area/deathmatch)
 "jp" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "jH" = (
 /obj/effect/turf_decal/nova_decals/syndicate/middle/right,
@@ -106,7 +106,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "kY" = (
 /obj/structure/rack/shelf,
@@ -136,7 +136,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "mv" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
@@ -156,7 +156,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "nf" = (
 /obj/structure/lattice,
@@ -167,7 +167,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "od" = (
 /obj/structure/rack,
@@ -192,7 +192,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "ot" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/warning,
@@ -226,7 +226,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "qz" = (
 /obj/structure/lattice,
@@ -288,21 +288,21 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "AS" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/siding/dark{
 	dir = 5
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Bc" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Bg" = (
 /obj/effect/turf_decal/nova_decals/syndicate/bottom/right,
@@ -313,14 +313,14 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Cz" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "CG" = (
 /obj/machinery/light/directional/south,
@@ -340,7 +340,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Fe" = (
 /obj/effect/turf_decal/stripes/red/line{
@@ -376,7 +376,7 @@
 "Jy" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding/dark,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Ke" = (
 /turf/open/ai_visible,
@@ -440,7 +440,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Tw" = (
 /obj/effect/turf_decal/nova_decals/syndicate/middle/left,
@@ -478,14 +478,14 @@
 "YG" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/siding/dark,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "YZ" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/deathmatch)
 "Zf" = (
 /turf/closed/indestructible/syndicate,
