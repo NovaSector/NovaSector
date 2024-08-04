@@ -334,6 +334,7 @@
 	. = ..()
 
 	can_hold = typecacheof(list(
+		/obj/item/autopsy_scanner,
 		/obj/item/blood_filter,
 		/obj/item/bonesetter,
 		/obj/item/cautery,
