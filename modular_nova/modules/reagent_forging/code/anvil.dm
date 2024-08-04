@@ -82,14 +82,20 @@
 	//do we have an incomplete item to hammer out? if so, here is our block of code
 	var/obj/item/forging/incomplete/locate_incomplete = locate() in contents
 	if(locate_incomplete)
+		if (locate_incomplete.in_use)
+			balloon_alert(user, "being worked on")
+			return ITEM_INTERACT_SUCCESS
+		locate_incomplete.in_use = TRUE
 		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * locate_incomplete.average_wait
 		while(locate_incomplete.times_hit < locate_incomplete.average_hits)
 			if(!do_after(user, skill_modifier * tool.toolspeed, src))
 				balloon_alert(user, "stopped hammering")
+				locate_incomplete.in_use = FALSE
 				return ITEM_INTERACT_SUCCESS
 
 			if(locate_incomplete.loc != src)
 				balloon_alert(user, "workpiece moved!")
+				locate_incomplete.in_use = FALSE
 				return ITEM_INTERACT_SUCCESS
 
 			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
@@ -106,6 +112,7 @@
 			user.mind.adjust_experience(/datum/skill/smithing, 1) //A good hit gives minimal experience
 
 		balloon_alert(user, "workpiece sounds ready")
+		locate_incomplete.in_use = FALSE
 		return ITEM_INTERACT_SUCCESS
 
 	//okay, so we didn't find an incomplete item to hammer, do we have a hammerable item?
