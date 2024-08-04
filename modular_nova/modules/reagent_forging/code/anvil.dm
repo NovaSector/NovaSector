@@ -82,10 +82,9 @@
 	//do we have an incomplete item to hammer out? if so, here is our block of code
 	var/obj/item/forging/incomplete/locate_incomplete = locate() in contents
 	if(locate_incomplete)
-		var/obj/item/forging/forge_item = tool
 		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * locate_incomplete.average_wait
 		while(locate_incomplete.times_hit < locate_incomplete.average_hits)
-			if(!do_after(user, skill_modifier * forge_item.toolspeed, src))
+			if(!do_after(user, skill_modifier * tool.toolspeed, src))
 				balloon_alert(user, "stopped hammering")
 				return ITEM_INTERACT_SUCCESS
 
