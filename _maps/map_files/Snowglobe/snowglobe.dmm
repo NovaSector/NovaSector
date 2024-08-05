@@ -35174,9 +35174,7 @@
 	},
 /area/station/hallway/primary/foreporthall)
 "jAv" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "jAA" = (
@@ -52287,6 +52285,9 @@
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 10
+	},
 /turf/open/floor/iron/edge{
 	dir = 1
 	},
@@ -57073,13 +57074,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
-"psj" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
-/turf/open/floor/iron,
-/area/station/engineering/atmos)
 "psk" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
@@ -61856,6 +61850,10 @@
 /obj/effect/turf_decal/trimline/blue/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "qMa" = (
@@ -72895,6 +72893,13 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/carpet/red,
 /area/station/service/quietroom)
+"tLA" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 1;
+	name = "O2 to Airmix"
+	},
+/turf/open/floor/iron/large,
+/area/station/engineering/atmos)
 "tLF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -87129,6 +87134,13 @@
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/iron/grimy,
 /area/station/maintenance/hiddenlibrary)
+"xzw" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 1;
+	name = "N2 to Airmix"
+	},
+/turf/open/floor/iron/large,
+/area/station/engineering/atmos)
 "xzx" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
@@ -188533,8 +188545,8 @@ auS
 xOW
 jth
 jth
-jth
 mTK
+xzw
 mQO
 nqq
 bgQ
@@ -188790,8 +188802,8 @@ jth
 xOW
 jth
 jth
-jth
 cGl
+jth
 sti
 jdX
 jdX
@@ -189047,8 +189059,8 @@ jth
 xOW
 jth
 jth
-jth
 cGl
+jth
 vgp
 mGH
 qbw
@@ -189304,8 +189316,8 @@ jth
 xOW
 jth
 jth
-jth
 cGl
+jth
 bYK
 cwA
 kQx
@@ -189561,8 +189573,8 @@ jth
 xOW
 jth
 jth
-jth
 fyj
+tLA
 mQO
 nqq
 kIa
@@ -189819,7 +189831,7 @@ cmE
 lrP
 xgC
 qLZ
-psj
+rfH
 mTJ
 jdX
 jdX
