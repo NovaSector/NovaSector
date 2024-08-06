@@ -90,6 +90,7 @@
 	stored_plasma = 55
 	max_plasma = 55
 	plasma_rate = 2
+	heal_rate = 1.5
 	actions_types = list(
 		/datum/action/cooldown/alien/make_structure/plant_weeds/roundstart,
 		/datum/action/cooldown/alien/transfer,
