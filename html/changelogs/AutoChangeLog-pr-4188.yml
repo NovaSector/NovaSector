@@ -1,0 +1,6 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - qol: "Collars use pen renaming, which also let you change their description"
+  - bugfix: "keys can actually be used on collars"
+  - bugfix: "shock collars no longer turn invisible when enabled/disabled"
