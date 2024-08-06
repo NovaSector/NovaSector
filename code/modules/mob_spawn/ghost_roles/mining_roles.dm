@@ -234,16 +234,6 @@
 	return FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
-	// NOVA EDIT ADDITION BEGIN
-	/*
-	 * 2024/01/03 TODO:
-	 * MOVE THE MODULAR STUFF IN THIS PROC TO
-	 * /modular_nova/master_files/code/modules/mob_spawn/ghost_roles/mining_roles.dm
-	 * There's an ashwalker camp section ready for you to slot it into
-	 */
-	spawned_human.fully_replace_character_name(null, spawned_human.generate_random_mob_name(TRUE)) // NOVA EDIT MOVE - Moving before parent call prevents char name randomization
-	quirks_enabled = TRUE // ghost role quirks
-	// NOVA EDIT ADDITION END
 	. = ..()
 	spawned_human.fully_replace_character_name(null, spawned_human.generate_random_mob_name(TRUE))
 	to_chat(spawned_human, "<b>Drag the corpses of men and beasts to your nest. It will absorb them to create more of your kind. Invade the strange structure of the outsiders if you must. Do not cause unnecessary destruction, as littering the wastes with ugly wreckage is certain to not gain you favor. Glory to the Necropolis!</b>")
