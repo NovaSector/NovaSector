@@ -1,17 +1,3 @@
-/datum/storage/pockets/small/collar
-	max_slots = 1
-
-/datum/storage/pockets/small/collar/New()
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie))
-
-/datum/storage/pockets/small/collar/locked/New()
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie,
-	/obj/item/key/collar))
-
 /obj/item/clothing/neck/human_petcollar
 	name = "pet collar"
 	desc = "It's for pets. Though you probably could wear it yourself, you'd doubtless be the subject of ridicule."
@@ -19,23 +5,25 @@
 	greyscale_config = /datum/greyscale_config/collar/pet
 	greyscale_config_worn = /datum/greyscale_config/collar/pet/worn
 	greyscale_colors = "#44BBEE#FFCC00"
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = UNDER_SUIT_LAYER
-	/// What's the name on the tag, if any?
-	var/tagname = null
 	/// What treat item spawns inside the collar?
 	var/treat_path = /obj/item/food/cookie
 
 /obj/item/clothing/neck/human_petcollar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/collar)
+	create_storage(storage_type = /datum/storage/pockets/small)
+	atom_storage.set_holdable(list(
+		/obj/item/food/cookie,
+		/obj/item/key/collar,
+	))
 	if(treat_path)
 		new treat_path(src)
 
-/obj/item/clothing/neck/human_petcollar/attack_self(mob/user)
-	tagname = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", "Spot", MAX_NAME_LEN)
-	if(tagname)
-		name = "[initial(name)] - [tagname]"
+// incompatible storage by default stops attack chain, but this does not, allows pen renaming
+/obj/item/clothing/neck/human_petcollar/storage_insert_on_interacted_with(datum/storage/storage, obj/item/inserted, mob/living/user)
+	return is_type_in_typecache(inserted, storage.can_hold)
 
 /obj/item/clothing/neck/human_petcollar/leather
 	name = "leather pet collar"
@@ -63,6 +51,7 @@
 /obj/item/key/collar
 	name = "collar key"
 	desc = "A key for a tiny lock on a collar or bag."
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 
 /obj/item/clothing/neck/human_petcollar/locked
 	name = "locked collar"
@@ -73,20 +62,27 @@
 
 /obj/item/clothing/neck/human_petcollar/locked/Initialize(mapload)
 	. = ..()
+	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(can_unequip))
 
-	create_storage(storage_type = /datum/storage/pockets/small/collar/locked)
+/obj/item/clothing/neck/human_petcollar/locked/proc/can_unequip(obj/item/source, force, atom/newloc, no_move, invdrop, silent)
+	var/mob/living/carbon/wearer = source.loc
+	if(istype(wearer) && wearer.wear_neck == source && locked)
+		to_chat(wearer, "The collar is locked! You'll need to unlock it before you can take it off!")
+		return COMPONENT_ITEM_BLOCK_UNEQUIP
+	return NONE
 
-/obj/item/clothing/neck/human_petcollar/locked/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/key/collar))
-		to_chat(user, span_warning("With a click, the collar [locked ? "unlocks" : "locks"]!"))
-		locked = !locked
-	return
+/obj/item/clothing/neck/human_petcollar/locked/canStrip(mob/stripper, mob/owner)
+	if(!locked)
+		return ..()
+	owner.balloon_alert(stripper, "locked!")
+	return FALSE
 
-/obj/item/clothing/neck/human_petcollar/locked/attack_hand(mob/user)
-	if(loc == user && user.get_item_by_slot(ITEM_SLOT_NECK) && locked)
-		to_chat(user, span_warning("The collar is locked! You'll need unlock the collar before you can take it off!"))
-		return
-	..()
+/obj/item/clothing/neck/human_petcollar/locked/tool_act(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/key/collar))
+		return ..()
+	to_chat(user, span_warning("With a click, the collar [locked ? "unlocks" : "locks"]!"))
+	locked = !locked
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/clothing/neck/human_petcollar/locked/examine(mob/user)
 	. = ..()

@@ -14,6 +14,7 @@
 	icon = 'icons/obj/storage/medkit.dmi'
 	icon_state = "medkit"
 	inhand_icon_state = "medkit"
+	worn_icon_state = "nothing" // NOVA EDIT ADDITION - Removes 'no texture' state from medkit worn sprite
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	throw_speed = 3

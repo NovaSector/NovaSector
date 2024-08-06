@@ -182,3 +182,6 @@
   - qol: Cable coil and welding tool healing now loops similarly to sutures/meshes
   - bugfix: Fixed cable coil/welding tool heal message not displaying when healing
       someone else
+2024-08-06:
+  SmArtKar:
+  - bugfix: Lizards no longer die from cold on icebox despite wearing insulation
