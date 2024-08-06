@@ -86,32 +86,7 @@
 			balloon_alert(user, "being worked on")
 			return ITEM_INTERACT_SUCCESS
 		locate_incomplete.in_use = TRUE
-		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * locate_incomplete.average_wait
-		while(locate_incomplete.times_hit < locate_incomplete.average_hits)
-			if(!do_after(user, skill_modifier * tool.toolspeed, src))
-				balloon_alert(user, "stopped hammering")
-				locate_incomplete.in_use = FALSE
-				return ITEM_INTERACT_SUCCESS
-
-			if(locate_incomplete.loc != src)
-				balloon_alert(user, "workpiece moved!")
-				locate_incomplete.in_use = FALSE
-				return ITEM_INTERACT_SUCCESS
-
-			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
-			if(COOLDOWN_FINISHED(locate_incomplete, heating_remainder))
-				balloon_alert(user, "metal too cool!")
-				locate_incomplete.times_hit -= 3
-				if(locate_incomplete.times_hit <= -locate_incomplete.average_hits)
-					balloon_alert_to_viewers("workpiece breaks!")
-					qdel(locate_incomplete)
-					update_appearance()
-				return ITEM_INTERACT_SUCCESS
-
-			locate_incomplete.times_hit++
-			user.mind.adjust_experience(/datum/skill/smithing, 1) //A good hit gives minimal experience
-
-		balloon_alert(user, "workpiece sounds ready")
+		do_hammer(user, tool, locate_incomplete)
 		locate_incomplete.in_use = FALSE
 		return ITEM_INTERACT_SUCCESS
 
@@ -132,6 +107,35 @@
 			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
 
 	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/reagent_anvil/proc/do_hammer(mob/living/user, obj/item/tool, obj/item/forging/incomplete/locate_incomplete)
+	while(locate_incomplete.times_hit < locate_incomplete.average_hits)
+		var/skill_modifier = user.mind.get_skill_modifier(/datum/skill/smithing, SKILL_SPEED_MODIFIER) * locate_incomplete.average_wait
+
+		if(!do_after(user, skill_modifier * tool.toolspeed, src))
+			balloon_alert(user, "stopped hammering")
+			locate_incomplete.in_use = FALSE
+			return ITEM_INTERACT_SUCCESS
+
+		if(locate_incomplete.loc != src)
+			balloon_alert(user, "workpiece moved!")
+			locate_incomplete.in_use = FALSE
+			return ITEM_INTERACT_SUCCESS
+
+		playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
+		if(COOLDOWN_FINISHED(locate_incomplete, heating_remainder))
+			balloon_alert(user, "metal too cool!")
+			locate_incomplete.times_hit -= 3
+			if(locate_incomplete.times_hit <= -locate_incomplete.average_hits)
+				balloon_alert_to_viewers("workpiece breaks!")
+				qdel(locate_incomplete)
+				update_appearance()
+			return ITEM_INTERACT_SUCCESS
+
+		locate_incomplete.times_hit++
+		user.mind.adjust_experience(/datum/skill/smithing, 1) //A good hit gives minimal experience
+
+	balloon_alert(user, "workpiece sounds ready")
 
 /obj/structure/reagent_anvil/hammer_act_secondary(mob/living/user, obj/item/tool)
 	hammer_act(user, tool)

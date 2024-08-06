@@ -224,6 +224,13 @@
 		return ITEM_INTERACT_SUCCESS
 
 	in_use = TRUE
+	do_hammer(user, selected_recipe, current_hits_to_completion)
+	in_use = FALSE
+	var/list/things_to_use = can_we_craft_this(selected_recipe.recipe_requirements, TRUE)
+	create_thing_from_requirements(things_to_use, selected_recipe, user, selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/reagent_crafting_bench/proc/do_hammer(mob/living/user, datum/crafting_bench_recipe/selected_recipe, current_hits_to_completion)
 	while(current_hits_to_completion < selected_recipe.required_good_hits)
 		var/skill_modifier = user.mind.get_skill_modifier(selected_recipe.relevant_skill, SKILL_SPEED_MODIFIER) * 1 SECONDS
 
@@ -240,11 +247,6 @@
 		playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE)
 		current_hits_to_completion++
 		user.mind.adjust_experience(selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward / 15)
-
-	in_use = FALSE
-	var/list/things_to_use = can_we_craft_this(selected_recipe.recipe_requirements, TRUE)
-	create_thing_from_requirements(things_to_use, selected_recipe, user, selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward)
-	return ITEM_INTERACT_SUCCESS
 
 /// Takes the given list of item requirements and checks the surroundings for them, returns TRUE unless return_ingredients_list is set, in which case a list of all the items to use is returned
 /obj/structure/reagent_crafting_bench/proc/can_we_craft_this(list/required_items, return_ingredients_list = FALSE)
