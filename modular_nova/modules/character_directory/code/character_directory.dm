@@ -101,6 +101,14 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		qdel(preview)
 	return ..()
 
+/atom/movable/screen/map_view/char_preview
+	/// Tracks a ref to the client ckey, for the character directory
+	var/client_ckey
+
+/atom/movable/screen/map_view/char_preview/Destroy(force)
+	GLOB.character_directory?.character_preview_views -= client_ckey
+	return ..()
+
 /// Makes a managed character preview view for a specific user
 /datum/character_directory/proc/create_character_preview_view(mob/user)
 	var/assigned_view = "preview_[user.ckey]_[REF(src)]_directory"
@@ -114,7 +122,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		qdel(old_view)
 
 	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
-	RegisterSignal(new_view, COMSIG_QDELETING, PROC_REF(on_char_preview_view_qdeleted))
+	new_view.client_ckey = user.ckey
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user)
 	return new_view
