@@ -278,7 +278,7 @@
 	qdel(src)
 
 /obj/item/lipstick/quantum/sqn
-	name = "SW:10KK Lipstick"
+	name = "\improper SW:10KK lipstick"
 	desc = "Starlight Wanderers brand Ten Thousand Kisses lipstick with adjustable pigmentation. Guaranteed not to smudge, stain, or leave lip prints unless you want it to. This tube looks heavily used."
 
 /obj/item/clothing/glasses/hud/ar/projector/science/sqn
