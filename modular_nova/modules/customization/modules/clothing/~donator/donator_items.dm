@@ -263,6 +263,7 @@
 	desc = "Gives you the ability to channel your nanites into letting you stand for a time."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/nifs.dmi'
 	icon_state = "base_nif"
+	/// Which action this item grants you.
 	var/action_to_grant = /datum/action/innate/nanite_leg_reinforcement
 
 /obj/item/nanite_leg_reinforcement/attack_self(mob/user, modifiers)
