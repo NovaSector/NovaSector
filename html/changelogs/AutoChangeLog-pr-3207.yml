@@ -1,0 +1,7 @@
+author: "MrSunabouzu"
+delete-after: True
+changes:
+  - rscadd: "Snowglobe Station, a new icemoon station"
+  - config: "adds new areas to station_areas in modular_nova"
+  - config: "adds snowglobe to maps.txt"
+  - config: "adds snowglobe to automapper blacklist"
