@@ -59,15 +59,3 @@
 	greyscale_colors = "#874f16"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER
-
-//DONATOR ITEM: One-Sleeved Leotard
-/obj/item/clothing/under/pants/half_leotard
-	name = "one-sleeved leotard"
-	desc = "A fancy, top-of-the-line leotard that some barbarian lopped one of the arms off of."
-	icon_state = "half_leotard"
-	greyscale_config = /datum/greyscale_config/half_leotard
-	greyscale_config_worn = /datum/greyscale_config/half_leotard/worn
-	greyscale_colors = "#80C7D0"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	supports_variations_flags = NONE
-	body_parts_covered = CHEST|ARM_RIGHT|HAND_RIGHT|GROIN
