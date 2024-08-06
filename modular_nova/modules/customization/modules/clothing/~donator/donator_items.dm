@@ -1,5 +1,5 @@
 //In the event someone needs one.
-/obj/item/storage/box/donator/
+/obj/item/storage/box/donator
 	name = "personal items box"
 	desc = "It's full of things you brought from home."
 
