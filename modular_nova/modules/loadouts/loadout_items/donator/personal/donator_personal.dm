@@ -858,5 +858,5 @@
 
 /datum/loadout_item/under/jumpsuit/half_leotard
 	name = "One-Sleeved Leotard"
-	item_path = /obj/item/clothing/under/pants/half_leotard
+	item_path = /obj/item/clothing/under/pants/half_leotard_cosmilaer
 	ckeywhitelist = list("cosmiclaer")

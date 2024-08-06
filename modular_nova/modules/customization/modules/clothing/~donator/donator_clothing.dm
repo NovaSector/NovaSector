@@ -2160,7 +2160,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "eldercoat"
 
 //donator reward for cosmiclaer
-/obj/item/clothing/under/pants/half_leotard
+/obj/item/clothing/under/pants/half_leotard_cosmilaer
 	name = "one-sleeved leotard"
 	desc = "A fancy, top-of-the-line leotard that some barbarian lopped one of the arms off of."
 	icon_state = "half_leotard"
