@@ -241,7 +241,9 @@
 	desc = "Gain the ability to stand temporarily."
 	button_icon = 'icons/obj/clothing/shoes.dmi'
 	button_icon_state = "jackboots"
+	/// Type of the quirk we want to stash away.
 	var/quirk_to_stash = /datum/quirk/paraplegic
+	/// Reference to the quirk that was stashed away.
 	var/datum/quirk/stashed_quirk
 
 /datum/action/innate/nanite_leg_reinforcement/Activate()
