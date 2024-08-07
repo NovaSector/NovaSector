@@ -10,6 +10,7 @@ Module ID: BITRUNNING_PREFS_DISKS <!-- Uppercase, UNDERSCORE_CONNECTED name of y
 
 Allows bitrunners to buy a personalized avatar disk, which lets them load in a given character preference, with all that entails.
 This includes even quirks through evil hacks, and optionally loadouts.
+Preference application and quirks are blocked if a domain blocks spells/abilities, loadouts are blocked if a domain blocks items.
 The evil hacks this performs are using a barebones mock client to allow for quirk assignment without forwarding or affecting the real client.
 
 <!-- Here, try to describe what your PR does, what features it provides and any other directly useful information. -->

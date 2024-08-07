@@ -141,7 +141,7 @@
 		to_chat(neo, span_warning("This domain forbids the use of [english_list(import_ban)], your disk [english_list(disk_ban)] will not be granted!"))
 
 	var/failed = FALSE
-	//NOVA EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - (Optional Reason/comment)
+	//NOVA EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - Track if we've used multiple avatar preference disks, for avoiding overrides and displaying the failure message.
 	var/duplicate_prefs = FALSE
 	//NOVA EDIT ADDITION END
 
@@ -173,7 +173,7 @@
 				continue
 
 			avatar.put_in_hands(new item_disk.granted_item())
-		//NOVA EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - (Optional Reason/comment)
+		//NOVA EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - Handles our avatar preference disks, if present.
 		if(istype(disk, /obj/item/bitrunning_disk/preferences))
 			var/obj/item/bitrunning_disk/preferences/prefs_disk = disk
 			var/datum/preferences/avatar_preference = prefs_disk.chosen_preference
