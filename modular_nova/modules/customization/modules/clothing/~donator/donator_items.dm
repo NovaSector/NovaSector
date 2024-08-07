@@ -1,3 +1,8 @@
+//In the event someone needs one.
+/obj/item/storage/box/donator
+	name = "personal items box"
+	desc = "It's full of things you brought from home."
+
 //Donator reward for UltramariFox
 /obj/item/cigarette/khi
 	name = "\improper Kitsuhana Singularity cigarette"
@@ -155,7 +160,15 @@
 #undef EXTEND_ANTENNA
 #undef SLAP_SIDE
 
-// Donation reward for SQNZTB
+// Donation rewards for SQNZTB
+/obj/item/storage/box/donator/sqn
+
+/obj/item/storage/box/donator/sqn/PopulateContents()
+	new /obj/item/holosign_creator/hardlight_wheelchair(src)
+	new /obj/item/nanite_leg_reinforcement(src)
+	new /obj/item/lipstick/quantum/sqn(src)
+	new /obj/item/clothing/glasses/hud/ar/projector/science/sqn(src)
+
 /obj/vehicle/ridden/wheelchair/hardlight
 	name = "hardlight wheelchair"
 	desc = "A wheelchair made out of hardlight, propulsed by miniaturized bluespace technology."
@@ -221,6 +234,58 @@
 	. = ..()
 	. += span_notice("<i>Etched underneath the handle is the following message:</i>\n")
 	. += span_smallnoticeital("\"I told you I would find a way to make it all easier.\" - A.H.")
+
+
+/datum/action/innate/nanite_leg_reinforcement
+	name = "Toggle Leg Reinforcement"
+	desc = "Gain the ability to stand temporarily."
+	button_icon = 'icons/obj/clothing/shoes.dmi'
+	button_icon_state = "jackboots"
+	/// Type of the quirk we want to stash away.
+	var/quirk_to_stash = /datum/quirk/paraplegic
+	/// Reference to the quirk that was stashed away.
+	var/datum/quirk/stashed_quirk
+
+/datum/action/innate/nanite_leg_reinforcement/Activate()
+	var/mob/living/living_owner = owner
+	stashed_quirk = living_owner.get_quirk(quirk_to_stash)
+	stashed_quirk.remove_from_current_holder(TRUE)
+	active = TRUE
+
+/datum/action/innate/nanite_leg_reinforcement/Deactivate()
+	stashed_quirk.add_to_holder(owner, TRUE)
+	stashed_quirk = null
+	active = FALSE
+	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
+
+/obj/item/nanite_leg_reinforcement
+	name = "nanite leg reinforcement"
+	desc = "Gives you the ability to channel your nanites into letting you stand for a time."
+	icon = 'modular_nova/modules/modular_implants/icons/obj/nifs.dmi'
+	icon_state = "base_nif"
+	/// Which action this item grants you.
+	var/action_to_grant = /datum/action/innate/nanite_leg_reinforcement
+
+/obj/item/nanite_leg_reinforcement/attack_self(mob/user, modifiers)
+	. = ..()
+	var/mob/living/living_user = user
+	if(!istype(user) || !living_user.has_quirk(/datum/quirk/paraplegic))
+		to_chat(user, "You feel like [src] wouldn't be very helpful to you.")
+		return
+	var/datum/action/action = new action_to_grant(user)
+	action.Grant(user)
+	to_chat(user, "[src] vanishes in a puff of smoke!")
+	qdel(src)
+
+/obj/item/lipstick/quantum/sqn
+	name = "\improper SW:10KK lipstick"
+	desc = "Starlight Wanderers brand Ten Thousand Kisses lipstick with adjustable pigmentation. Guaranteed not to smudge, stain, or leave lip prints unless you want it to. This tube looks heavily used."
+
+/obj/item/clothing/glasses/hud/ar/projector/science/sqn
+	name = "micro-retinal display"
+	desc = "A retinal display so small, it's invisible to everyone but you."
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/misc.dmi'
+	worn_icon_state = "gear_harness"
 
 /obj/item/instrument/piano_synth/headphones/catear_headphone
 	name = "Cat-Ear Headphones"

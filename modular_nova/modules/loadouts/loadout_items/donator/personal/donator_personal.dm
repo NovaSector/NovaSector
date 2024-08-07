@@ -749,9 +749,9 @@
 	item_path = /obj/item/stamp/cat
 	ckeywhitelist = list("kathrinbailey")
 
-/datum/loadout_item/inhand/hardlight_wheelchair
-	name = "Hardlight Wheelchair Projector"
-	item_path = /obj/item/holosign_creator/hardlight_wheelchair
+/datum/loadout_item/inhand/sqn_box
+	name = "A curious box of things."
+	item_path = /obj/item/storage/box/donator/sqn
 	ckeywhitelist = list("sqnztb")
 
 /datum/loadout_item/under/jumpsuit/noble_gambeson
