@@ -159,7 +159,7 @@
 	return markings
 
 /datum/species/akula/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
-	. = ..()
+	//should not call parent
 	if(job?.akula_outfit)
 		equipping.equipOutfit(job.akula_outfit, visuals_only)
 	else
@@ -218,7 +218,9 @@
 
 /obj/item/organ/internal/lungs/carp/akula/check_breath(datum/gas_mixture/breath, mob/living/carbon/human/breather)
 	if(!breather.has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
-		breath.gases &= ~/datum/gas/oxygen //be wet or choke
+		if(breath)
+			for(var/datum/gas/gas as anything in breath.gases)
+				breath.gases[gas][MOLES] = 0 //cant filter gas out of the air unless wet
 	return ..()
 
 
