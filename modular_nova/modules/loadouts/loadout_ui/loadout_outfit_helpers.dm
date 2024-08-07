@@ -86,6 +86,8 @@
 			continue
 
 		var/obj/item/equipped = locate(item.item_path) in new_contents
+		if (!isnull(erpbox) && item.erp_box)
+			equipped = locate(item.item_path) in erpbox
 		for(var/atom/equipped_item in new_contents)
 			if(equipped_item.type == item.item_path)
 				equipped = equipped_item
