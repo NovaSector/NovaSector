@@ -7039,6 +7039,7 @@
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\outfit.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\turf.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\virtual_domain.dm"
+#include "modular_nova\modules\bitrunning_prefs_disks\code\disks\prefs_disk.dm"
 #include "modular_nova\modules\blastwave_outfits\code\cargo_packs.dm"
 #include "modular_nova\modules\blastwave_outfits\code\clothing\blastwave_head.dm"
 #include "modular_nova\modules\blastwave_outfits\code\clothing\blastwave_mask.dm"

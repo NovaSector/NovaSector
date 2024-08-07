@@ -141,6 +141,9 @@
 		to_chat(neo, span_warning("This domain forbids the use of [english_list(import_ban)], your disk [english_list(disk_ban)] will not be granted!"))
 
 	var/failed = FALSE
+	//NOVA EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - (Optional Reason/comment)
+	var/duplicate_prefs = FALSE
+	//NOVA EDIT ADDITION END
 
 	// We don't need to bother going over the disks if neither of the types can be used.
 	if(domain_forbids_spells && domain_forbids_items)
@@ -170,6 +173,23 @@
 				continue
 
 			avatar.put_in_hands(new item_disk.granted_item())
+		//NOVA EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - (Optional Reason/comment)
+		if(istype(disk, /obj/item/bitrunning_disk/preferences))
+			var/obj/item/bitrunning_disk/preferences/prefs_disk = disk
+			var/datum/preferences/avatar_preference = prefs_disk.chosen_preference
+
+			if(isnull(avatar_preference) || duplicate_prefs)
+				failed = TRUE
+				continue
+
+			if(!domain_forbids_spells)
+				avatar_preference.safe_transfer_prefs_to(avatar)
+				SSquirks.AssignQuirks(avatar, prefs_disk.mock_client)
+			if(!domain_forbids_items && prefs_disk.include_loadout)
+				avatar.equip_outfit_and_loadout(/datum/outfit, avatar_preference)
+
+			duplicate_prefs = TRUE
+		//NOVA EDIT ADDITION END
 
 	if(failed)
 		to_chat(neo, span_warning("One of your disks failed to load. Check for duplicate or inactive disks."))
