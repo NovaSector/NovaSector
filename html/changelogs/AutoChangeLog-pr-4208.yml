@@ -1,4 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - qol: "Hides the 'no texture' checkerboard sprite when wearing medkits on the suitslot"

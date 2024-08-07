@@ -1,6 +1,0 @@
-author: "MortoSasye & Kaostico"
-delete-after: True
-changes:
-  - qol: "Swapped the hit-system for smithing with an automatic one, to avoid people going insane/getting carpal tunnel due to bad ping."
-  - bugfix: "Patched up an exploit re: to forging, where heating up an object repeatedly would quickly give you enough xp to reach legendary smith, in less than fifteen minutes in-game."
-  - bugfix: "You can no longer work on the same piece with multiple people at the same time."
