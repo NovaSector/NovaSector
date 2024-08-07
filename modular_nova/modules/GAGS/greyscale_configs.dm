@@ -1412,6 +1412,16 @@
 	name = "christmas_male (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
 
+//HALF-LEOTARD (DONATOR)
+/datum/greyscale_config/half_leotard
+	name = "One-Sleeved Leotard"
+	icon_file = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/fancy_under/half_leotard.json'
+
+/datum/greyscale_config/half_leotard/worn
+	name = "One-Sleeved Leotard (Worn)"
+	icon_file = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+
 //RELIGIOUS COSTUMES (MONK HABIT, ETC)
 /datum/greyscale_config/monk_habit
 	name = "Monk Habit"
