@@ -95,9 +95,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/Destroy(force)
 	for(var/ckey in character_preview_views)
 		var/atom/movable/screen/map_view/char_preview/preview = character_preview_views[ckey]
-		var/mob/user = get_mob_by_ckey(ckey)
-		if(user)
-			user.client?.screen_maps -= preview
 		qdel(preview)
 	return ..()
 
@@ -107,6 +104,9 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 /atom/movable/screen/map_view/char_preview/Destroy(force)
 	GLOB.character_directory?.character_preview_views -= client_ckey
+	var/mob/user = get_mob_by_ckey(client_ckey)
+	if(user)
+		user.client?.screen_maps -= src
 	return ..()
 
 /// Makes a managed character preview view for a specific user
@@ -126,13 +126,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user)
 	return new_view
-
-/datum/character_directory/proc/on_char_preview_view_qdeleted(atom/movable/screen/map_view/char_preview/source)
-	SIGNAL_HANDLER
-
-	for(var/key in character_preview_views)
-		if(character_preview_views[key] == source)
-			character_preview_views -= key
 
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
