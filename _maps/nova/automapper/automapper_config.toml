@@ -432,3 +432,20 @@ directory = "_maps/nova/automapper/templates/wawastation/"
 required_map = "wawastation.dmm"
 coordinates = [83, 92, 1]
 trait_name = "Station"
+
+# SNOWGLOBE STATION MAP EDITS
+# Icecats Camp Lower Level - Snowglobe
+[templates.snowglobe_icecats_lower]
+map_files = ["icemoon_underground_icewalker_lower.dmm"]
+directory = "_maps/RandomRuins/IceRuins/nova/"
+required_map = "snowglobe.dmm"
+coordinates = [202, 16, 1]
+trait_name = "Station"
+
+# Icecats Camp Upper Level - Snowglobe
+[templates.snowglobe_icecats_upper]
+map_files = ["icemoon_underground_icewalker_upper.dmm"]
+directory = "_maps/RandomRuins/IceRuins/nova/"
+required_map = "snowglobe.dmm"
+coordinates = [202, 16, 2]
+trait_name = "Station"

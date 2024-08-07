@@ -1,0 +1,5 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - rscadd: "a few donation items for sqn"
+  - rscadd: "Added a donator box for donator items. People with multiple Donator items can open a PR to create their own variant of it to contain all of their donator items, to avoid inventory clutter."

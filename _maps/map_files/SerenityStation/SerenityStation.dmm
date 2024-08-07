@@ -6567,11 +6567,11 @@
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "bSp" = (
-/obj/machinery/computer/med_data{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
+	},
+/obj/machinery/computer/records/medical{
+	dir = 8
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -42110,7 +42110,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "maZ" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
@@ -61270,7 +61270,7 @@
 	},
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/supplies,
-/obj/machinery/computer/med_data{
+/obj/machinery/computer/records/medical{
 	dir = 8
 	},
 /obj/machinery/computer/security/telescreen/med_sec/directional/north,
@@ -67413,9 +67413,9 @@
 /turf/open/misc/sandy_dirt/forest,
 /area/forestplanet/outdoors/nospawn)
 "tDx" = (
-/obj/machinery/computer/med_data/laptop{
-	dir = 1;
-	pixel_y = 4
+/obj/machinery/computer/records/medical{
+	pixel_y = 4;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,

@@ -12,6 +12,8 @@
 
 	anchored = TRUE
 	density = TRUE
+	///whether the crafting is being hammered
+	var/in_use = FALSE
 
 	/// What the currently picked recipe is
 	var/datum/crafting_bench_recipe/selected_recipe
@@ -108,6 +110,10 @@
 
 /obj/structure/reagent_crafting_bench/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
+	if(in_use)
+		balloon_alert(user, "already in use")
+		return
+
 	update_appearance()
 
 	if(length(contents))
@@ -141,6 +147,10 @@
 	current_hits_to_completion = 0
 
 /obj/structure/reagent_crafting_bench/attackby(obj/item/attacking_item, mob/user, params)
+	if(in_use)
+		balloon_alert(user, "already in use")
+		return
+
 	if(istype(attacking_item, /obj/item/forging/complete))
 		if(length(contents))
 			balloon_alert(user, "already full")
@@ -154,6 +164,10 @@
 	return ..()
 
 /obj/structure/reagent_crafting_bench/wrench_act(mob/living/user, obj/item/tool)
+	if(in_use)
+		balloon_alert(user, "it's currently in use!")
+		return
+
 	user.balloon_alert_to_viewers("disassembling...")
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 100))
 		return
@@ -165,7 +179,10 @@
 	new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 
 /obj/structure/reagent_crafting_bench/hammer_act(mob/living/user, obj/item/tool)
-	playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE)
+	if(in_use)
+		balloon_alert(user, "already in use")
+		return ITEM_INTERACT_SUCCESS
+
 	if(length(contents))
 		if(!istype(contents[1], /obj/item/forging/complete))
 			balloon_alert(user, "invalid item")
@@ -192,6 +209,8 @@
 			message_admins("[src] just tried to finish a weapon but somehow created nothing! This is not working as intended!")
 			return ITEM_INTERACT_SUCCESS
 
+		playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE)
+
 		balloon_alert_to_viewers("[thing_just_made] created")
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
@@ -204,31 +223,30 @@
 		balloon_alert(user, "missing ingredients")
 		return ITEM_INTERACT_SUCCESS
 
-	var/skill_modifier = user.mind.get_skill_modifier(selected_recipe.relevant_skill, SKILL_SPEED_MODIFIER) * 1 SECONDS
+	in_use = TRUE
+	do_hammer(user, selected_recipe, current_hits_to_completion)
+	in_use = FALSE
+	var/list/things_to_use = can_we_craft_this(selected_recipe.recipe_requirements, TRUE)
+	create_thing_from_requirements(things_to_use, selected_recipe, user, selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward)
+	return ITEM_INTERACT_SUCCESS
 
-	if(!COOLDOWN_FINISHED(src, hit_cooldown)) // If you hit it before the cooldown is done, you get a bad hit, setting you back three good hits
-		current_hits_to_completion -= BAD_HIT_PENALTY
+/obj/structure/reagent_crafting_bench/proc/do_hammer(mob/living/user, datum/crafting_bench_recipe/selected_recipe, current_hits_to_completion)
+	while(current_hits_to_completion < selected_recipe.required_good_hits)
+		var/skill_modifier = user.mind.get_skill_modifier(selected_recipe.relevant_skill, SKILL_SPEED_MODIFIER) * 1 SECONDS
 
-		if(current_hits_to_completion <= -(selected_recipe.required_good_hits))
-			balloon_alert_to_viewers("recipe failed")
-			clear_recipe()
+		if(!do_after(user, skill_modifier, src))
+			balloon_alert(user, "stopped hammering")
+			in_use = FALSE
 			return ITEM_INTERACT_SUCCESS
 
-		balloon_alert(user, "bad hit")
-		return ITEM_INTERACT_SUCCESS
+		if(!can_we_craft_this(selected_recipe.recipe_requirements))
+			balloon_alert(user, "missing ingredients")
+			in_use = FALSE
+			return ITEM_INTERACT_SUCCESS
 
-	COOLDOWN_START(src, hit_cooldown, skill_modifier)
-
-	if((current_hits_to_completion >= selected_recipe.required_good_hits) && !length(contents))
-		var/list/things_to_use = can_we_craft_this(selected_recipe.recipe_requirements, TRUE)
-
-		create_thing_from_requirements(things_to_use, selected_recipe, user, selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward)
-		return ITEM_INTERACT_SUCCESS
-
-	current_hits_to_completion++
-	balloon_alert(user, "good hit")
-	user.mind.adjust_experience(selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward / 15) // Good hits towards the current item grants experience in that skill
-	return ITEM_INTERACT_SUCCESS
+		playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE)
+		current_hits_to_completion++
+		user.mind.adjust_experience(selected_recipe.relevant_skill, selected_recipe.relevant_skill_reward / 15)
 
 /// Takes the given list of item requirements and checks the surroundings for them, returns TRUE unless return_ingredients_list is set, in which case a list of all the items to use is returned
 /obj/structure/reagent_crafting_bench/proc/can_we_craft_this(list/required_items, return_ingredients_list = FALSE)

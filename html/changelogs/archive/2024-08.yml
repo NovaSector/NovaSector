@@ -182,3 +182,34 @@
   - qol: Cable coil and welding tool healing now loops similarly to sutures/meshes
   - bugfix: Fixed cable coil/welding tool heal message not displaying when healing
       someone else
+2024-08-06:
+  SmArtKar:
+  - bugfix: Lizards no longer die from cold on icebox despite wearing insulation
+2024-08-07:
+  FearfulFurnishing:
+  - bugfix: fixes ghost roles sometimes being given random mutant body parts if no
+      selection for the part was made
+  FlufflesTheDog:
+  - qol: Collars use pen renaming, which also let you change their description
+  - bugfix: keys can actually be used on collars
+  - bugfix: shock collars no longer turn invisible when enabled/disabled
+  MortoSasye & Kaostico:
+  - qol: Swapped the hit-system for smithing with an automatic one, to avoid people
+      going insane/getting carpal tunnel due to bad ping.
+  - bugfix: 'Patched up an exploit re: to forging, where heating up an object repeatedly
+      would quickly give you enough xp to reach legendary smith, in less than fifteen
+      minutes in-game.'
+  - bugfix: You can no longer work on the same piece with multiple people at the same
+      time.
+  MrSunabouzu:
+  - rscadd: Snowglobe Station, a new icemoon station
+  - config: adds new areas to station_areas in modular_nova
+  - config: adds snowglobe to maps.txt
+  - config: adds snowglobe to automapper blacklist
+  RatFromTheJungle:
+  - qol: Let's the coroner store their autopsy scanner in the big-evil-medical-bag,
+      if they have it for some reason.
+  honkpocket:
+  - qol: Hides the 'no texture' checkerboard sprite when wearing medkits on the suitslot
+  rutek-code:
+  - bugfix: Fixes the broken medical record consoles in SerenityStation.
