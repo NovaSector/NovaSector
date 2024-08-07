@@ -36,6 +36,9 @@
 
 	meat = /obj/item/food/meat/slab/xeno
 	skinned_type = /obj/item/stack/sheet/animalhide/xeno
+	death_sound = 'sound/voice/hiss6.ogg'
+	gib_anim = "gibbed-a"
+	dust_anim = "dust-a"
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
@@ -81,6 +84,149 @@
 	xeno.dna.mutant_bodyparts["xenohead"] = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list(xeno_color, xeno_color, xeno_color))
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
+
+/datum/species/xeno/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
+	. = ..()
+	human_who_gained_species.gib_type = /obj/effect/decal/cleanable/xenoblood/xgibs
+
+/datum/species/xeno/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
+	. = ..()
+	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
+
+///Xenohybrid blood color tweaks
+//Spray blood with spreading Bump() function
+/mob/living/carbon/human/spray_blood(splatter_direction, splatter_strength = 3)
+	if(!isxenohybrid(src))
+		return ..()
+	if(!isturf(loc))
+		return
+	var/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/our_splatter = new(loc)
+	our_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
+	our_splatter.blood_dna_info = get_blood_dna_list()
+	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
+	our_splatter.fly_towards(targ, splatter_strength)
+
+/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Bump(atom/bumped_atom)
+	if(!iswallturf(bumped_atom) && !istype(bumped_atom, /obj/structure/window))
+		qdel(src)
+		return
+
+	if(istype(bumped_atom, /obj/structure/window))
+		var/obj/structure/window/bumped_window = bumped_atom
+		if(!bumped_window.fulltile)
+			hit_endpoint = TRUE
+			qdel(src)
+			return
+
+	hit_endpoint = TRUE
+	if(isturf(prev_loc))
+		abstract_move(bumped_atom)
+		skip = TRUE
+		//Adjust pixel offset to make splatters appear on the wall
+		if(istype(bumped_atom, /obj/structure/window))
+			land_on_window(bumped_atom)
+		else
+			var/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window/final_splatter = new(prev_loc)
+			final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
+			final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
+	else // This will only happen if prev_loc is not even a turf, which is highly unlikely.
+		abstract_move(bumped_atom)
+		qdel(src)
+
+//Window decal effect
+/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/land_on_window(obj/structure/window/the_window)
+	if(!the_window.fulltile)
+		return
+	var/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window/final_splatter = new
+	final_splatter.forceMove(the_window)
+	the_window.vis_contents += final_splatter
+	the_window.bloodied = TRUE
+	qdel(src)
+
+//Xenoblood version of hitsplatter subtype
+/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
+	desc = "It's green and gooey. Perhaps it's the chef's cooking?"
+	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
+	icon_state = "xhitsplatter1"
+	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
+
+/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window // special layer/plane set to appear on windows
+	layer = ABOVE_WINDOW_LAYER
+	plane = GAME_PLANE
+	vis_flags = VIS_INHERIT_PLANE
+	alpha = 180
+
+//Bleed onto the floor with dripping functionality
+/mob/living/carbon/human/add_splatter_floor(turf/target, small_drip)
+	if(!isxenohybrid(src))
+		return ..()
+	if(!target)
+		target = get_turf(src)
+	if(isclosedturf(target) || (isgroundlessturf(target) && !GET_TURF_BELOW(target)))
+		return
+
+	var/list/temp_blood_DNA
+	if(small_drip)
+		var/obj/effect/decal/cleanable/blood/drip/xenoblood/drop = locate() in target
+		if(drop)
+			if(drop.drips < 5)
+				drop.drips++
+				drop.add_overlay(pick(drop.random_icon_states))
+				drop.transfer_mob_blood_dna(src)
+				return
+			else
+				temp_blood_DNA = GET_ATOM_BLOOD_DNA(drop) //we transfer the dna from the drip to the splatter
+				qdel(drop)//the drip is replaced by a bigger splatter
+		else
+			drop = new(target, get_static_viruses())
+			drop.transfer_mob_blood_dna(src)
+			return
+
+	var/obj/effect/decal/cleanable/xenoblood/blood = locate() in target
+	if(!blood)
+		blood = new /obj/effect/decal/cleanable/xenoblood/xsplatter(target, get_static_viruses())
+	if(QDELETED(blood)) //Give it up
+		return
+	blood.bloodiness = min((blood.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
+	blood.transfer_mob_blood_dna(src) //give blood info to the blood decal.
+	if(temp_blood_DNA)
+		blood.add_blood_DNA(temp_blood_DNA)
+
+//Xenoblood version of blood drip drop subtype
+/obj/effect/decal/cleanable/blood/drip/xenoblood
+	name = "drips of blood"
+	desc = "It's green."
+	drydesc = "It's green."
+	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
+	icon_state = "xdrip5"
+	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
+
+//Xenoblood trails
+/mob/living/carbon/human/getTrail()
+	if(!isxenohybrid(src))
+		return ..()
+	if(getBruteLoss() < 300)
+		return pick (list("xltrails_1", "xltrails2"))
+	else
+		return pick (list("xttrails_1", "xttrails2"))
+
+///Xenohybrid gib and dust tweaks
+/mob/living/carbon/human/spawn_gibs(drop_bitflags=NONE)
+	if(!isxenohybrid(src))
+		return ..()
+	if(drop_bitflags & DROP_BODYPARTS)
+		new /obj/effect/gibspawner/xeno(drop_location(), src, get_static_viruses())
+	else
+		new /obj/effect/gibspawner/xeno/bodypartless(drop_location(), src, get_static_viruses())
+
+/mob/living/carbon/human/spawn_dust(just_ash = FALSE)
+	if(!isxenohybrid(src))
+		return ..()
+	if(just_ash)
+		new /obj/effect/decal/cleanable/ash(loc)
+	else
+		new /obj/effect/decal/remains/xeno(loc)
+
 
 ///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
