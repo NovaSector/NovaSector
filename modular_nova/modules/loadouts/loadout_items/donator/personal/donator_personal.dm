@@ -855,3 +855,8 @@
 	name = "Riva Family Cookbook"
 	item_path = /obj/item/book/granter/crafting_recipe/mrsanderp_donator_cookbook
 	ckeywhitelist = list("mrsanderp")
+
+/datum/loadout_item/under/jumpsuit/half_leotard
+	name = "One-Sleeved Leotard"
+	item_path = /obj/item/clothing/under/pants/half_leotard_cosmiclaer
+	ckeywhitelist = list("cosmiclaer")
