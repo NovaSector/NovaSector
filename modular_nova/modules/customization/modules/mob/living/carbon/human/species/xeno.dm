@@ -94,7 +94,7 @@
 	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
 
 ///Xenohybrid blood color tweaks
-//Spray blood with spreading Bump() function
+//Spray blood into a direction
 /mob/living/carbon/human/spray_blood(splatter_direction, splatter_strength = 3)
 	if(!isxenohybrid(src))
 		return ..()
@@ -106,6 +106,15 @@
 	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
 	our_splatter.fly_towards(targ, splatter_strength)
 
+//Xenoblood version of spraying hitsplatter
+/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
+	desc = "It's green and gooey. Perhaps it's the chef's cooking?"
+	should_dry = FALSE
+	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
+	icon_state = "xhitsplatter1"
+	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
+
+//Splatter into a window or wall
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Bump(atom/bumped_atom)
 	if(!iswallturf(bumped_atom) && !istype(bumped_atom, /obj/structure/window))
 		qdel(src)
@@ -142,13 +151,6 @@
 	the_window.vis_contents += final_splatter
 	the_window.bloodied = TRUE
 	qdel(src)
-
-//Xenoblood version of hitsplatter subtype
-/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	desc = "It's green and gooey. Perhaps it's the chef's cooking?"
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xhitsplatter1"
-	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
 
 /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window // special layer/plane set to appear on windows
 	layer = ABOVE_WINDOW_LAYER
@@ -192,11 +194,11 @@
 	if(temp_blood_DNA)
 		blood.add_blood_DNA(temp_blood_DNA)
 
-//Xenoblood version of blood drip drop subtype
+//Xenoblood version of blood drip drop
 /obj/effect/decal/cleanable/blood/drip/xenoblood
 	name = "drips of blood"
 	desc = "It's green."
-	drydesc = "It's green."
+	should_dry = FALSE
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xdrip5"
 	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
