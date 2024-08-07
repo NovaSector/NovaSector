@@ -40189,7 +40189,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/security)
 "kMM" = (
-/obj/machinery/door/window/brigdoor,
+/obj/machinery/door/window/brigdoor{
+	req_access = list("security")
+	},
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/dark/side,
 /area/station/security/checkpoint/service)
