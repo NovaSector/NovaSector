@@ -29,6 +29,11 @@
 	restricted_species = list(/datum/species/lizard/ashwalker)
 	random_appearance = FALSE
 
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/carbon/human/spawned_human)
+	spawned_human.fully_replace_character_name(null, spawned_human.generate_random_mob_name(TRUE))
+	quirks_enabled = TRUE // ghost role quirks
+	. = ..()
+
 /// Listening Outpost
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
