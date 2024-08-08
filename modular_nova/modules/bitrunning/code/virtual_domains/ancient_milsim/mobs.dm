@@ -32,9 +32,9 @@
 	/// Sound to play when firing weapon
 	var/projectilesound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
 	/// number of burst shots
-	var/burst_shots = 1
+	var/burst_shots = 2
 	/// Time between taking shots
-	var/ranged_cooldown = 0.3 SECONDS
+	var/ranged_cooldown = 0.45 SECONDS
 
 /mob/living/basic/trooper/cin_soldier/ranged/Initialize(mapload)
 	. = ..()

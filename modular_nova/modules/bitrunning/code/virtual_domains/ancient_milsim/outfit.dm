@@ -17,6 +17,14 @@
 	belt = null
 	id_trim = /datum/id_trim/solfed_bitrun
 
+/datum/outfit/solfed_bitrun/post_equip(mob/living/carbon/human/user, visualsOnly)
+	. = ..()
+	// make sure we update the ID's name too
+	var/obj/item/card/id/id_card = user.wear_id
+	if(istype(id_card))
+		id_card.registered_name = user.real_name
+		id_card.update_label()
+
 /datum/id_trim/solfed_bitrun
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "SolFed Marine"
@@ -46,17 +54,18 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/cybersun
-	glasses = /obj/item/clothing/glasses/hud/health
-	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne
+	mask = /obj/item/clothing/mask/balaclavaadjust
 	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
 	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
 	backpack_contents = list(
 		/obj/item/storage/box/nri_survival_pack/raider,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
-		/obj/item/ammo_box/magazine/recharge/plasma_battery = 2,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery = 3,
 	)
 	r_hand = null
 	l_hand = null
+	l_pocket = /obj/item/storage/pouch/ammo
 	belt = /obj/item/storage/belt/military/cin_surplus/forest
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/nri_raider/cin

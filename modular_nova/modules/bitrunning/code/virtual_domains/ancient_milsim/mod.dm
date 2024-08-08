@@ -8,15 +8,13 @@
 		/obj/item/mod/module/status_readout/operational,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/meson,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/meson,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	insignia_type = /obj/item/mod/module/insignia/engineer
-	additional_module = /obj/item/mod/module/dispenser/barrinade
+	additional_module = /obj/item/mod/module/dispenser/incendiary
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_trapper
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
@@ -28,12 +26,10 @@
 		/obj/item/mod/module/status_readout/operational,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/active_sonar,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/active_sonar,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	insignia_type = /obj/item/mod/module/insignia/commander
 	additional_module = /obj/item/mod/module/dispenser/landmine
@@ -48,15 +44,13 @@
 		/obj/item/mod/module/status_readout/operational,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/night,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/night,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	insignia_type = /obj/item/mod/module/insignia/security
-	additional_module = /obj/item/mod/module/dispenser/smoke
+	additional_module = /obj/item/mod/module/shooting_assistant
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_medic
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
@@ -68,26 +62,24 @@
 		/obj/item/mod/module/status_readout/operational,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/medhud,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/medhud,
-		/obj/item/mod/module/armor_booster/retractplates,
 	)
 	insignia_type = /obj/item/mod/module/insignia/medic
-	additional_module = /obj/item/mod/module/dispenser/legion_core
+	additional_module = /obj/item/mod/module/dispenser/hypospray
 
-/obj/item/mod/module/dispenser/barrinade
-	name = "MOD barricade grenade dispenser module"
-	desc = "This module can create activated security barricade grenades at the user's liking."
-	dispense_type = /obj/item/grenade/barrier
+/obj/item/mod/module/dispenser/incendiary
+	name = "MOD incendiary grenade dispenser module"
+	desc = "This module can create activated incendiary grenades at the user's liking."
+	dispense_type = /obj/item/grenade/chem_grenade/incendiary
 
 /obj/item/mod/module/dispenser/barrinade/on_use()
 	. = ..()
 	if(!.)
 		return
-	var/obj/item/grenade/barrier/grenade = .
+	var/obj/item/grenade/chem_grenade/incendiary/grenade = .
 	grenade.arm_grenade(mod.wearer)
 
 /obj/item/mod/module/dispenser/landmine
@@ -96,20 +88,16 @@
 	cooldown_time = 10 SECONDS
 	dispense_type = /obj/item/minespawner/ancient_milsim
 
-/obj/item/mod/module/dispenser/smoke
-	name = "MOD smoke bomb dispenser module"
-	desc = "This module can create activated smoke grenades at the user's liking."
-	dispense_type = /obj/item/grenade/smokebomb
+/obj/item/mod/module/dispenser/hypospray
+	name = "MOD custom hypospray dispenser module"
+	desc = "This module can create a single empty combat hypospray and additional cartridges at the user's liking."
+	cooldown_time = 5 SECONDS
+	dispense_type = /obj/item/hypospray/mkii/deluxe/cmo/combat
+	var/first_use = TRUE
 
-/obj/item/mod/module/dispenser/smoke/on_use()
+/obj/item/mod/module/dispenser/hypospray/on_use()
 	. = ..()
-	if(!.)
-		return
-	var/obj/item/grenade/smokebomb/grenade = .
-	grenade.arm_grenade(mod.wearer)
-
-/obj/item/mod/module/dispenser/legion_core
-	name = "MOD legion core dispenser module"
-	desc = "This module can create healing legion cores at the user's liking."
-	cooldown_time = 10 SECONDS
-	dispense_type = /obj/item/organ/internal/monster_core/regenerative_core/legion
+	if(first_use)
+		first_use = FALSE
+		cooldown_time = 15 SECONDS
+		dispense_type = /obj/item/reagent_containers/cup/vial/large/advomni
