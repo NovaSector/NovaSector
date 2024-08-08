@@ -69,8 +69,8 @@ In this example it should be `281dac4ed0e2976cdecb4777c93a19bc9b787db4`
 
 ### Doing a range of commits as a cherry pick
 
-For example, let's look for the Automatic Changelog commit from that same PR. 
-It is highly recommended to grab this because it will keep the author's name from TG instead of just putting yours in the changelog. 
+For example, let's look for the Automatic Changelog commit from that same PR.
+It is highly recommended to grab this because it will keep the author's name from TG instead of just putting yours in the changelog.
 **If you are doing more than one PR at a time, you -must- include the Autochangelogs.**
 
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/firefox_OfwBeopgiw.png)
@@ -84,8 +84,8 @@ Now that you have both the starting and ending commit hashes, simply run the fol
 
 `git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4^..66bc14224557ad041d4a146cf1bb079994740787`
 
-**NOTE: The *first* hash in the command -must- be the oldest commit, or else the command will just silently fail**
-The `^` is important, omitting that will cause commit `A` to be not included itself. Which for our purposes you don't generally want.
+**NOTE: The *first* hash in the command -must- be the oldest commit, or else the command will just silently fail.**
+The `^` is also important, omitting that will cause commit `A` to be not included itself. Which for our purposes you don't generally want.
 
 ### Pushing the changes to your remote
 
@@ -99,10 +99,14 @@ This is where `git rebase` comes in. Let's say you have a few commits that you g
 
 `git rebase -i HEAD~10`
 
-Running this command will open the interactive rebase text file, which has a list of commits prefaced by `pick` 
+Running this command will open the interactive rebase text file, which has a list of commits prefaced by `pick`
 ![notepad++_xuDB6Uymt4](https://github.com/user-attachments/assets/078d9f8e-df07-49fd-9e53-ae298f7f7804)
 
 Any commits that you want to get rid of, simply replace `pick` with `drop`, then save + close the file. Those commits should now be gone!
+
+From there do a force push to update your remote before opening your PR:
+
+`git push -f`
 
 ### What if there are merge conflicts?
 
