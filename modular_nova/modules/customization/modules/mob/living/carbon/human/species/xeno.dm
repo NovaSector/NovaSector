@@ -196,7 +196,6 @@
 	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
 	should_dry = FALSE //human only thing
 	blood_state = BLOOD_STATE_XENO
-	bloodiness = 0
 	beauty = -150
 
 /obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
