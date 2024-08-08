@@ -1,0 +1,4 @@
+author: "Iamgoofball"
+delete-after: True
+changes:
+  - bugfix: "Fixes Service Guards not being able to use their batons in the Bar Lounge or the Delta Service Promenade."

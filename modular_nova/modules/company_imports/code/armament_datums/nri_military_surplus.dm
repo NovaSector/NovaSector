@@ -79,9 +79,9 @@
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nri_surplus/misc/food_replicator
-	description = "Once widespread technology used by numerous fringe colonies of NRI origin and even in some SolFed territories, that ultimately went out of fashion due to \
-	SolFed propaganda deeming it unprofitable and imposing severe trading fees on anyone trying to sell them. A small portion of government-backed manufacturers still produce \
-	'food replicators' for private and government use; a few of them is selling this via us."
+	description = "A widespread technology previously used by far colonies on the NRI's borders, over time being shifted from the foundation of colonies \
+	to a simple disaster relief solution. It can turn spoiled or inedible plant matter into food, medical supplies, and other general items. \
+	These particular units were displaced during a stock count in an NRI warehouse."
 	item_type = /obj/item/circuitboard/machine/biogenerator/food_replicator
 	cost = CARGO_CRATE_VALUE * 9
 

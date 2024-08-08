@@ -26,6 +26,10 @@
 	name = "Ribbon"
 	item_path = /obj/item/clothing/accessory/medal/ribbon
 
+/datum/loadout_item/accessory/wetmaker
+	name = "Stardress hydro-vaporizer"
+	item_path = /obj/item/clothing/accessory/vaporizer
+
 /*
 *	ARMBANDS
 */

@@ -63674,6 +63674,10 @@
 /obj/structure/chair/stool/bar/directional/west,
 /turf/open/floor/iron,
 /area/station/command/captain_dining)
+"mkr" = (
+/obj/structure/water_source/puddle,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden/abandoned)
 "mky" = (
 /obj/structure/chair,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -72714,8 +72718,8 @@
 /area/station/commons/storage/primary)
 "nZg" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/status_display/evac/directional/north,
 /obj/machinery/recharge_station,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "nZh" = (
@@ -98538,6 +98542,7 @@
 /area/station/security/checkpoint/escape)
 "sTh" = (
 /obj/effect/turf_decal/bot_white,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/transit_tube)
 "sTk" = (
@@ -214864,7 +214869,7 @@ hDM
 wQE
 vXK
 vXK
-sPI
+mkr
 tGh
 gVx
 ipb

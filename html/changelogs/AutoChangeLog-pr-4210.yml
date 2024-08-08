@@ -1,0 +1,4 @@
+author: "honkpocket"
+delete-after: True
+changes:
+  - bugfix: "Snowglobe's service guard kiosk its windoor now requires security access to open"
