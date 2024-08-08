@@ -107,21 +107,22 @@
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
 			medipen.used_up = FALSE
+			// NOVA EDIT BEGIN - Universal medipen and lathe medipens
 			if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
 				if(reagents.total_volume < medipen.volume)
 					balloon_alert(user, "not enough reagents!")
 					return
-				// Ignore reagents not in the whitelist
-				var/list/compatible_reagent_types = typecache_filter_list(reagents.reagent_list, medipen_reagent_whitelist)
-				// Ignore reagents in the blacklist
-				compatible_reagent_types = typecache_filter_list_reverse(compatible_reagent_types, medipen_reagent_blacklist)
-
+				// Ignore reagents which aren't the blacklist or whitelist
+				var/list/compatible_reagents = typecache_filter_multi_list_exclusion(reagents.reagent_list, medipen_reagent_whitelist, medipen_reagent_blacklist)
 				// Ensure there is enough of the whitelisted reagents
-				if(!length(compatible_reagent_types))
+				if(!length(compatible_reagents))
 					balloon_alert(user, "reagents incompatible!")
 					return
+				var/list/datum/reagent/target_reagent_types = list()
+				for(var/datum/reagent/target_reagent in compatible_reagents)
+					target_reagent_types += target_reagent.type
 				// Transfer equal amounts of each reagent
-				reagents.trans_to_equal(target_atom = medipen, target_ids = compatible_reagent_types)
+				reagents.trans_to_equal(target_atom = medipen, target_ids = target_reagent_types)
 			else
 				medipen.add_initial_reagents()
 				reagents.remove_reagent(allowed_pens[medipen.type], medipen.volume)
