@@ -1,4 +1,0 @@
-author: "dis-integrates-the-integration-tests"
-delete-after: True
-changes:
-  - bugfix: "Shock Collar is now properly recognized as a lewd item, and thus can be removed using the Remove verb."

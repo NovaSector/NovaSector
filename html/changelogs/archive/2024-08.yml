@@ -213,3 +213,64 @@
   - qol: Hides the 'no texture' checkerboard sprite when wearing medkits on the suitslot
   rutek-code:
   - bugfix: Fixes the broken medical record consoles in SerenityStation.
+2024-08-08:
+  Absolucy:
+  - bugfix: Fixed a runtime error after draining a heretic influence.
+  Ben10Omintrix:
+  - bugfix: juvenile lobstrosities will now look for food
+  - refactor: refactors pet collars and cultist pets into elements
+  CliffracerX:
+  - rscadd: donator item for CosmicLAER
+  EnterTheJake:
+  - image: Ash Blade has received a new sprite.
+  Gaxeer:
+  - rscdel: Remove narsie and ratvar plushies from loadout
+  Iamgoofball:
+  - bugfix: Fixes Service Guards not being able to use their batons in the Bar Lounge
+      or the Delta Service Promenade.
+  LT3:
+  - bugfix: Fixed players being incorrectly immune to certain virus severities
+  Linkbro1:
+  - rscadd: wirecutters to the electrician toolset implant!
+  MTandi:
+  - bugfix: Smartfridges properly dispense `\Improper` items
+  MrMelbert, SmArtKar:
+  - bugfix: Holding someone at gunpoint no longer makes all shots count as point blank
+  OrionTheFox:
+  - image: added and updated belt/suit/mask storage sprites for several knives missing
+      them
+  Rhials:
+  - sound: Zipties no longer make handcuff noises when picked up or dropped.
+  SmArtKar:
+  - bugfix: Plasmamen helmets now display their smiles + can be painted with spraycans
+  - image: Resprited teleporter beacons
+  - code_imp: Removed multiple cases of unnecessary updatehealth
+  - image: Updated clipboard sprite, adds white and black clipboard skins for med/sci
+      and security
+  - bugfix: Bitrunning crate capture zones can no longer be destroyed
+  - bugfix: Lizards no longer die from cold on icebox despite wearing insulation
+  - bugfix: Tinacusiate no longer changes hearing spans for every single person in-game
+  - bugfix: Fixed handyman assistants spawning without a PDA
+  - bugfix: Elevator music no longer restarts when you take a step
+  Watermelon914:
+  - bugfix: Fixed an infinite TC glitch dupe
+  Y0SH1M4S73R:
+  - bugfix: lua scripting now works on linux
+  - admin: The "Suppress Runtime Logging" toggle in the lua editor actually does what
+      it says
+  dis-integrates-the-integration-tests:
+  - bugfix: Shock Collar is now properly recognized as a lewd item, and thus can be
+      removed using the Remove verb.
+  honkpocket:
+  - rscadd: '''Cybersun Training Sim'' DM arena'
+  - bugfix: Snowglobe's service guard kiosk its windoor now requires security access
+      to open
+  - balance: Xenohybrids inherit the initial heal factor of xenomorph resin weeds,
+      instead of 0
+  mc-oofert:
+  - admin: fix hard restart option
+  sqnztb:
+  - rscadd: a few donation items for sqn
+  - rscadd: Added a donator box for donator items. People with multiple Donator items
+      can open a PR to create their own variant of it to contain all of their donator
+      items, to avoid inventory clutter.
