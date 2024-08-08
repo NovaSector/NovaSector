@@ -1,6 +1,7 @@
 /// Modular Map Loader doesnt like subfolders
 /datum/lazy_template/virtual_domain/ancient_milsim
 	name = "Ancient Military Simulator"
+	announce_to_ghosts = TRUE
 	cost = BITRUNNER_COST_HIGH
 	desc = "Recreate the events of the Border War's 'hot' part-long-gone as a Solarian strike team sweeping CIN compounds; sponsored by the SolFed recreation enthusiasts. \
 	Multiplayer playthrough and proper preparation highly recommended."
