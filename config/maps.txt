@@ -83,3 +83,7 @@ endmap
 map serenitystation
 	votable
 endmap
+
+map snowglobe
+	votable
+endmap

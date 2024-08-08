@@ -1,0 +1,10 @@
+{
+	"half_leotard": [
+		{
+			"type": "icon_state",
+			"icon_state": "half_leotard",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}
