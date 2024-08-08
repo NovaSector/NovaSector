@@ -110,11 +110,8 @@
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xhitsplatter1"
 	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
-	should_dry = FALSE //human only thing
-
-/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Initialize(mapload)
-	. = ..()
-	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
+	blood_state = BLOOD_STATE_XENO
+	blood_dna_info = list("UNKNOWN DNA" = "X*")
 
 //Spray effect onto a structure
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Bump(atom/bumped_atom)
