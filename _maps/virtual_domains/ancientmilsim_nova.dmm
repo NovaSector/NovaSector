@@ -86,6 +86,7 @@
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/wylom,
 /obj/item/gun/ballistic/automatic/miecz,
+/obj/item/gun/ballistic/rifle/boltaction/sporterized,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "cV" = (
@@ -161,6 +162,10 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "eF" = (
 /turf/closed/wall/r_wall,
+/area/virtual_domain/ancient_milsim/snpc_garage)
+"eJ" = (
+/obj/effect/mob_spawn/ghost_role/human/ancient_milsim,
+/turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "eQ" = (
 /obj/structure/flora/bush/flowers_br/style_random,
@@ -344,6 +349,10 @@
 "ki" = (
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
+"kj" = (
+/obj/item/storage/box/nri_flares,
+/turf/open/floor/plating,
+/area/virtual_domain/ancient_milsim/snpc_garage)
 "kp" = (
 /obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/floor/iron/smooth_large,
@@ -1168,6 +1177,10 @@
 /obj/item/storage/box/nri_flares,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"DX" = (
+/obj/item/storage/toolbox/ammobox/strilka310,
+/turf/open/floor/iron,
+/area/virtual_domain/ancient_milsim/snpc_hallway)
 "Ee" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -1224,6 +1237,7 @@
 /area/virtual_domain/ancient_milsim/maintenance)
 "Fb" = (
 /obj/structure/reagent_dispensers/fueltank/large,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/misc/dirt/planet,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "Fc" = (
@@ -1297,6 +1311,10 @@
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/iron/smooth_half,
 /area/virtual_domain/ancient_milsim/atrium)
+"Gp" = (
+/obj/item/knife/combat,
+/turf/open/floor/iron,
+/area/virtual_domain/ancient_milsim/snpc_garage)
 "GJ" = (
 /obj/structure/railing{
 	dir = 8
@@ -2267,7 +2285,7 @@ Cd
 Cd
 eF
 kv
-gE
+Gp
 gE
 gE
 gE
@@ -2615,7 +2633,7 @@ qn
 qn
 aG
 Gd
-Gd
+kj
 jo
 jo
 Fr
@@ -2673,7 +2691,7 @@ qn
 qn
 aG
 Gd
-Gd
+eJ
 FG
 Gd
 FG
@@ -2969,7 +2987,7 @@ YY
 YY
 YY
 YY
-YY
+DX
 YY
 YY
 YY
@@ -3611,8 +3629,8 @@ dm
 Hd
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 cx
 kX
 kX
@@ -3669,8 +3687,8 @@ Hd
 Hd
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 ls
 kX
 XZ
@@ -3727,8 +3745,8 @@ Yl
 qZ
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 uz
 uz
 PE
@@ -3785,8 +3803,8 @@ Hd
 Hd
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 uz
 AW
 AW
@@ -3843,8 +3861,8 @@ Hd
 Hd
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 uz
 Do
 OG
@@ -3901,8 +3919,8 @@ Hd
 UX
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 uz
 AW
 AW
@@ -3959,8 +3977,8 @@ Hd
 Hd
 Hd
 Hd
-Hd
-Pt
+sY
+PS
 Sl
 uz
 sa
@@ -4017,8 +4035,8 @@ Hd
 Hd
 Hd
 Hd
-Pt
-Pt
+PS
+PS
 nA
 nA
 nA
@@ -4075,7 +4093,7 @@ Pt
 Hd
 Hd
 Pt
-Pt
+PS
 nA
 nA
 nA

@@ -1,6 +1,6 @@
 /obj/effect/mob_spawn/ghost_role/human/ancient_milsim
-	name = "corrupt asset"
-	desc = "Node graph out of Date. Rebuilding..."
+	name = "lagging asset"
+	desc = "A vaguely military humanoid shape with a static texture all over it. It's having some issues with compilation, give it some time."
 	prompt_name = "a weird compound operative"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "static"
