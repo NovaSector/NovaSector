@@ -25,6 +25,7 @@
 /obj/item/keycard/blue,
 /obj/machinery/light/small/dim/directional/north,
 /obj/item/construction/rld/mini,
+/obj/item/rcd_ammo,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "ba" = (
