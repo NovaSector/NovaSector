@@ -150,9 +150,9 @@ On the side panel where it lists remotes, click on the filter button with the to
 
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_8L4ULsFpcP.png)
 
-And then from the main view, simply hold Ctrl and click on the PR + its changelog for each and every Pull Request you wish to copy over to Nova. Then right click on oneand then click on Cherry Pick and then click Cerrypick commits on the resulting dialog.
+And then from the main view, simply hold Ctrl and click on the PR + its changelog for each and every Pull Request you wish to copy over to Nova. Right click on one and then click on Cherry Pick and then click Cherrypick commits on the resulting dialog.
 
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/Fork_ElARfHdxH1.png)
 ![Screenshot2](http://files.byondhome.com/SomeRandomOwl/Fork_08HRCEw9cF.png)
 
-Then from there, you can simple push changes and either fix any conflicts or errors, and then go to github to make a Pull Request to nova
+Then from there, you can simply push changes and either fix any conflicts or errors, and then use Fork, Github Desktop, or go to github to make your Pull Request to NovaSector.
