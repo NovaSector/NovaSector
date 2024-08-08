@@ -93,6 +93,7 @@
 	. = ..()
 	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
 
+
 ///Xenohybrid blood color tweaks
 //Spray blood into a direction
 /mob/living/carbon/human/spray_blood(splatter_direction, splatter_strength = 3)
@@ -104,18 +105,18 @@
 	var/turf/target = get_ranged_target_turf(src, splatter_direction, splatter_strength)
 	our_splatter.fly_towards(target, splatter_strength)
 
-//Xenoblood version of spraying hitsplatter
+//Xenoblood version of spray effect
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	desc = "It's green and gooey. Perhaps it's the chef's cooking?"
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xhitsplatter1"
 	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
+	should_dry = FALSE //human only thing
 
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Initialize(mapload)
 	. = ..()
 	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
 
-//Splatter into a window or wall
+//Spray effect onto a structure
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Bump(atom/bumped_atom)
 	if(!iswallturf(bumped_atom) && !istype(bumped_atom, /obj/structure/window))
 		qdel(src)
@@ -184,7 +185,7 @@
 	var/obj/effect/decal/cleanable/xenoblood/blood = locate() in target
 	if(!blood)
 		blood = new /obj/effect/decal/cleanable/xenoblood/xsplatter(target, get_static_viruses())
-	if(QDELETED(blood)) //Give it up
+	if(QDELETED(blood))
 		return
 	blood.bloodiness = min((blood.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
 
@@ -195,6 +196,10 @@
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xdrip5"
 	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
+	should_dry = FALSE //human only thing
+	blood_state = BLOOD_STATE_XENO
+	bloodiness = 0
+	beauty = -150
 
 /obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
 	. = ..()
