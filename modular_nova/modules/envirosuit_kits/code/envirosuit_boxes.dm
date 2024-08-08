@@ -44,7 +44,7 @@
 
 /// Khaki
 
-obj/item/storage/box/envirosuit/khaki
+/obj/item/storage/box/envirosuit/khaki
 	name = "khaki envirosuit kit"
 	desc = "A box containing a complete plasmaman envirosuit in a drab khaki. For the most adventurous of bones."
 
