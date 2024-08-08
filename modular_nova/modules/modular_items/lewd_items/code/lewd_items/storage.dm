@@ -3,4 +3,4 @@
 	desc = "A discrete box full of mysteries."
 	icon_state = "hugbox"
 	illustration = "heart"
-	foldable_result = null
+	foldable_result = /obj/item/stack/sheet/cardboard
