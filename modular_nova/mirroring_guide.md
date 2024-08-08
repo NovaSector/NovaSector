@@ -70,7 +70,8 @@ In this example it should be `281dac4ed0e2976cdecb4777c93a19bc9b787db4`
 ### Doing a range of commits as a cherry pick
 
 For example, let's look for the Automatic Changelog commit from that same PR. 
-It is highly recommended to grab this because it will keep the author's name from TG instead of just putting yours in the changelog. If you are doing more than one PR at a time, you -must- include the Autochangelogs.
+It is highly recommended to grab this because it will keep the author's name from TG instead of just putting yours in the changelog. 
+**If you are doing more than one PR at a time, you -must- include the Autochangelogs.**
 
 ![Screenshot](http://files.byondhome.com/SomeRandomOwl/firefox_OfwBeopgiw.png)
 
@@ -78,9 +79,12 @@ On that you can click on the words automatic changelog or the random hash at the
 In this example the hash for the changelog is this. `66bc14224557ad041d4a146cf1bb079994740787`
 
 Now that you have both the starting and ending commit hashes, simply run the following command to grab these commits and everything in between:
+
+`git cherry-pick A^..B` aka, in our case:
 `git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4^..66bc14224557ad041d4a146cf1bb079994740787`
 
 **NOTE: The *first* hash in the command -must- be the oldest commit, or else the command will just silently fail**
+The `^` is important, omitting that will cause commit `A` to be not included itself. Which for our purposes you don't generally want.
 
 ### Pushing the changes to your remote
 
