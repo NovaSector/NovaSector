@@ -106,7 +106,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	GLOB.character_directory?.character_preview_views -= client_ckey
 	var/mob/user = get_mob_by_ckey(client_ckey)
 	if(user)
-		user.client?.screen_maps -= src
+		user.client?.screen_maps -= "preview_[client_ckey]_[REF(GLOB.character_directory)]_directory"
 	return ..()
 
 /// Makes a managed character preview view for a specific user
@@ -118,7 +118,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/old_view = user.client?.screen_maps[assigned_view]
 	if(old_view)
 		character_preview_views -= user.ckey
-		user.client.screen_maps -= old_view
+		user.client.screen_maps -= assigned_view
 		qdel(old_view)
 
 	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
