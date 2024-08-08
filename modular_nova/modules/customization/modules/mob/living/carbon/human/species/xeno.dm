@@ -20,6 +20,7 @@
 		/obj/item/organ/internal/alien/hivenode,
 		)
 	exotic_blood = /datum/reagent/toxin/acid
+	exotic_bloodtype = "X*"
 	heatmod = 2.5
 	mutant_bodyparts = list()
 	external_organs = list()
