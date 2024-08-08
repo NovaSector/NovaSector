@@ -101,18 +101,19 @@
 	if(!isturf(loc))
 		return
 	var/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/our_splatter = new(loc)
-	our_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
-	our_splatter.blood_dna_info = get_blood_dna_list()
-	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
-	our_splatter.fly_towards(targ, splatter_strength)
+	var/turf/target = get_ranged_target_turf(src, splatter_direction, splatter_strength)
+	our_splatter.fly_towards(target, splatter_strength)
 
 //Xenoblood version of spraying hitsplatter
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
 	desc = "It's green and gooey. Perhaps it's the chef's cooking?"
-	should_dry = FALSE
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xhitsplatter1"
 	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
+
+/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Initialize(mapload)
+	. = ..()
+	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
 
 //Splatter into a window or wall
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Bump(atom/bumped_atom)
@@ -167,21 +168,17 @@
 	if(isclosedturf(target) || (isgroundlessturf(target) && !GET_TURF_BELOW(target)))
 		return
 
-	var/list/temp_blood_DNA
 	if(small_drip)
 		var/obj/effect/decal/cleanable/blood/drip/xenoblood/drop = locate() in target
 		if(drop)
 			if(drop.drips < 5)
 				drop.drips++
 				drop.add_overlay(pick(drop.random_icon_states))
-				drop.transfer_mob_blood_dna(src)
 				return
 			else
-				temp_blood_DNA = GET_ATOM_BLOOD_DNA(drop) //we transfer the dna from the drip to the splatter
 				qdel(drop)//the drip is replaced by a bigger splatter
 		else
 			drop = new(target, get_static_viruses())
-			drop.transfer_mob_blood_dna(src)
 			return
 
 	var/obj/effect/decal/cleanable/xenoblood/blood = locate() in target
@@ -190,18 +187,18 @@
 	if(QDELETED(blood)) //Give it up
 		return
 	blood.bloodiness = min((blood.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
-	blood.transfer_mob_blood_dna(src) //give blood info to the blood decal.
-	if(temp_blood_DNA)
-		blood.add_blood_DNA(temp_blood_DNA)
 
 //Xenoblood version of blood drip drop
 /obj/effect/decal/cleanable/blood/drip/xenoblood
 	name = "drips of blood"
 	desc = "It's green."
-	should_dry = FALSE
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xdrip5"
 	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
+
+/obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
+	. = ..()
+	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
 
 //Xenoblood trails
 /mob/living/carbon/human/getTrail()
