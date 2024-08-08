@@ -71,6 +71,7 @@
 	mock_client.prefs = chosen_preference
 
 	balloon_alert(user, "avatar set!")
+	playsound(user, 'sound/items/click.ogg', 50, TRUE)
 
 /obj/item/bitrunning_disk/preferences/item_ctrl_click(mob/user)
 	if(isturf(src.loc)) // If on a turf, we skip to dragging
@@ -80,6 +81,11 @@
 		return CLICK_ACTION_BLOCKING
 	include_loadout = !include_loadout
 	balloon_alert(user, include_loadout ? "loadout enabled!" : "loadout disabled!")
+
+	// High frequency range when enabled, low when disabled. More tactile.
+	var/toggle_frequency = include_loadout ? rand(45000, 55000) : rand(32000, 42000)
+	playsound(user, 'sound/items/click.ogg', 50, TRUE, frequency = toggle_frequency)
+
 	return CLICK_ACTION_SUCCESS
 
 /**
