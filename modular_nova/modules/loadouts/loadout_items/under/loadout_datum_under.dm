@@ -676,6 +676,16 @@
 	name = "Latex Catsuit"
 	item_path = /obj/item/clothing/under/misc/latex_catsuit
 
+/datum/loadout_item/under/miscellaneous/stripper_outfit
+	name = "Stripper Outfit"
+	item_path = /obj/item/clothing/under/stripper_outfit
+	erp_item = TRUE
+
+/datum/loadout_item/under/miscellaneous/lewdmaid
+	name = "Provocative Maid Uniform"
+	item_path = /obj/item/clothing/under/costume/lewdmaid
+	erp_item = TRUE
+
 /datum/loadout_item/under/miscellaneous/geisha_suit
 	name = "Geisha Suit"
 	item_path = /obj/item/clothing/under/costume/geisha
