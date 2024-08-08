@@ -1,3 +1,19 @@
+/**
+ * CYBERSUN SIM
+ */
+/datum/outfit/deathmatch_loadout/cybersun_sim
+	name = "DM: Cybersun Grunt"
+	display_name = "Cybersun Grunt"
+
+	uniform = /obj/item/clothing/under/syndicate/combat
+	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/combat
+	id = /obj/item/card/id/advanced/chameleon
+
+/**
+ * DEEPSPACE
+ */
 //Azulean Pirate
 /datum/outfit/deathmatch_loadout/azulean
 	name = "DM: Azulean Boarder"

@@ -837,6 +837,11 @@
 	// Here we check the item used on us (tongs) for an incomplete forge item of some kind to heat
 	var/obj/item/forging/incomplete/search_incomplete = locate(/obj/item/forging/incomplete) in forge_item.contents
 	if(search_incomplete)
+		if(!COOLDOWN_FINISHED(search_incomplete, heating_remainder))
+			fail_message(user, "metal doesn't need heating")
+			forge_item.in_use = FALSE
+			return ITEM_INTERACT_SUCCESS
+
 		balloon_alert_to_viewers("heating [search_incomplete]")
 
 		if(!do_after(user, skill_modifier * forge_item.toolspeed, target = src))
