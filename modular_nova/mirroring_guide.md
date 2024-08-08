@@ -33,7 +33,7 @@ This will simply grab an up to date set of refs that make up the history of the 
 
 ## Command-line
 
-This portion will teach you how to do everything through the command-line, which for some people is the fastest and easiest way. If you prefer to use a GUI, [skip ahead](https://github.com/NovaSector/NovaSector/pull/4185/files?short_path=7a122e8#diff-7a122e8b588f77e3a9945d206d791a87cc6f317533fb0640f056b8a0d7b3bbd3) to the next section.
+This portion will teach you how to do everything through the command-line, which for some people is the fastest and easiest way. If you prefer to use a GUI, [skip ahead](https://github.com/NovaSector/NovaSector/modular_nova/mirroring_guide#GUI-Guide-using-Git-Fork) to the next section.
 
 ### Create and checkout a branch
 
