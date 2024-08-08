@@ -140,7 +140,7 @@ From there, name the remote as you want I.E. 'tgstation' and for the repository 
 From there just click on add new remote.
 
 Now to to make the PR pulling changes from TG.
-Create a nw branch using either the Repository dropdown on the title bar -> New Branch. Or use the hotkey `Ctrl+shift+b` and name the branch whatever you want.
+Create a new branch using either the Repository dropdown on the title bar -> New Branch. Or use the hotkey `Ctrl+shift+b` and name the branch whatever you want.
 
 From here it is super simple to add in the the Pull requests from TG you wish to add to your pull request to merge into Nova.
 On the side panel where it lists remotes, click on the filter button with the tooltip `show branches from here only`
