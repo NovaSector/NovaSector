@@ -17,5 +17,10 @@
 		/obj/item/gun/ballistic/automatic/pistol/toy = 2,
 		/obj/item/clothing/under/sol_peacekeeper = 1,
 		/obj/item/clothing/under/syndicate/rus_army/cin_surplus/random_color = 1,
-		/obj/item/bitrunning_disk/item/ancient_milsim = 1,
+		/obj/item/clothing/gloves/frontier_colonist = 2,
+		/obj/item/clothing/shoes/jackboots/frontier_colonist = 2,
+		/obj/item/storage/box/colonial_rations = 2,
+		/obj/item/binoculars = 1,
+		/obj/item/trench_tool = 1,
+		/obj/item/bitrunning_disk/item/ancient_milsim = 3,
 	)

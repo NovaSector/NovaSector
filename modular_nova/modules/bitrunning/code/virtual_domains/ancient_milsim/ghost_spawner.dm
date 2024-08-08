@@ -1,8 +1,9 @@
 /obj/effect/mob_spawn/ghost_role/human/ancient_milsim
-	name = "Bitrunning SNPC CIN Operative"
+	name = "corrupt asset"
+	desc = "Node graph out of Date. Rebuilding..."
 	prompt_name = "a weird compound operative"
-	icon = 'icons/obj/machines/sleeper.dmi'
-	icon_state = "psykerpod"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "static"
 	outfit = /datum/outfit/cin_soldier_player
 	you_are_text = "You are a smart NPC guarding the exit of a simulated combat domain."
 	flavour_text = "You are a smart NPC loaded into the domain as a means of slowing down the bitrunning contestants' progression one way or another, be it combat or drawn out dialogues."

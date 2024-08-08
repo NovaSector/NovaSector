@@ -25,11 +25,11 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/status_readout/operational,
 		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/active_sonar,
+		/obj/item/mod/module/visor/thermal,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/active_sonar,
+		/obj/item/mod/module/visor/thermal,
 	)
 	insignia_type = /obj/item/mod/module/insignia/commander
 	additional_module = /obj/item/mod/module/dispenser/landmine
@@ -50,7 +50,7 @@
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/security
-	additional_module = /obj/item/mod/module/shooting_assistant
+	additional_module = /obj/item/mod/module/shooting_assistant/ancient_milsim
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_medic
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
@@ -70,9 +70,13 @@
 	insignia_type = /obj/item/mod/module/insignia/medic
 	additional_module = /obj/item/mod/module/dispenser/hypospray
 
+/obj/item/mod/module/shooting_assistant/ancient_milsim
+	removable = FALSE
+
 /obj/item/mod/module/dispenser/incendiary
 	name = "MOD incendiary grenade dispenser module"
 	desc = "This module can create activated incendiary grenades at the user's liking."
+	removable = FALSE
 	dispense_type = /obj/item/grenade/chem_grenade/incendiary
 
 /obj/item/mod/module/dispenser/barrinade/on_use()
@@ -85,12 +89,14 @@
 /obj/item/mod/module/dispenser/landmine
 	name = "MOD landmine dispenser module"
 	desc = "This module can create deactivated landmines at the user's liking."
+	removable = FALSE
 	cooldown_time = 10 SECONDS
 	dispense_type = /obj/item/minespawner/ancient_milsim
 
 /obj/item/mod/module/dispenser/hypospray
 	name = "MOD custom hypospray dispenser module"
-	desc = "This module can create a single empty combat hypospray and additional cartridges at the user's liking."
+	desc = "This module can create a single combat hypospray and additional cartridges at the user's liking."
+	removable = FALSE
 	cooldown_time = 5 SECONDS
 	dispense_type = /obj/item/hypospray/mkii/deluxe/cmo/combat
 	var/first_use = TRUE
@@ -100,4 +106,18 @@
 	if(first_use)
 		first_use = FALSE
 		cooldown_time = 15 SECONDS
-		dispense_type = /obj/item/reagent_containers/cup/vial/large/advomni
+		dispense_type = /obj/item/reagent_containers/cup/vial/large/ancient_milsim
+
+/obj/item/hypospray/mkii/deluxe/cmo/combat
+	start_vial = /obj/item/reagent_containers/cup/vial/large/ancient_milsim
+
+/obj/item/reagent_containers/cup/vial/large/ancient_milsim
+	name = "All-Heal-Virtual"
+	icon_state = "hypoviallarge-buff"
+	list_reagents = list(
+		/datum/reagent/medicine/muscle_stimulant = 15,
+		/datum/reagent/medicine/regen_jelly = 30,
+		/datum/reagent/iron = 25,
+		/datum/reagent/medicine/coagulant = 15,
+		/datum/reagent/medicine/c2/penthrite = 15,
+	)

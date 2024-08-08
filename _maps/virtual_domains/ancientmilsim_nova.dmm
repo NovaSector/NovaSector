@@ -188,7 +188,7 @@
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "fy" = (
-/mob/living/basic/crab,
+/mob/living/basic/crab/jon,
 /turf/open/floor/grass/fairy,
 /area/virtual_domain/protected_space/ancient_milsim)
 "fJ" = (
@@ -1481,6 +1481,10 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"Ma" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron/smooth,
+/area/virtual_domain/ancient_milsim/hallway)
 "Mi" = (
 /obj/item/storage/toolbox/ammobox/full/mosin,
 /turf/open/floor/plating,
@@ -1800,6 +1804,12 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
+"TT" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/virtual_domain/ancient_milsim/hallway)
 "TY" = (
 /obj/structure/railing{
 	dir = 10
@@ -1961,6 +1971,12 @@
 "YE" = (
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
+"YF" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/virtual_domain/ancient_milsim/hallway)
 "YY" = (
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
@@ -4624,9 +4640,9 @@ Fc
 XU
 dC
 ir
-dC
-dC
-dC
+Ma
+TT
+YF
 kT
 dd
 Pi
