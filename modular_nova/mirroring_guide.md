@@ -80,7 +80,8 @@ In this example the hash for the changelog is this. `66bc14224557ad041d4a146cf1b
 
 Now that you have both the starting and ending commit hashes, simply run the following command to grab these commits and everything in between:
 
-`git cherry-pick A^..B` aka, in our case:
+`git cherry-pick A^..B` where A is the start of the range, aka, in our case:
+
 `git cherry-pick -m 1 281dac4ed0e2976cdecb4777c93a19bc9b787db4^..66bc14224557ad041d4a146cf1bb079994740787`
 
 **NOTE: The *first* hash in the command -must- be the oldest commit, or else the command will just silently fail**
