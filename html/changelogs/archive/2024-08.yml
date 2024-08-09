@@ -274,3 +274,21 @@
   - rscadd: Added a donator box for donator items. People with multiple Donator items
       can open a PR to create their own variant of it to contain all of their donator
       items, to avoid inventory clutter.
+2024-08-09:
+  Linkbro1:
+  - spellcheck: made Miecz ammo boxes and magazines state the correct capacity
+  OrbisAnima:
+  - rscadd: "Presenting the Lustwish\u2122 Sponsored new Loadout Category, why buy\
+      \ your favorite items on station when you can do it from the security of your\
+      \ own home? We ship up to seven items from our catalog to any part of the Sector,\
+      \ and if you act now, we will offer them in our exclusive lavish box, completly\
+      \ free of charge and packpaged with love to ensure whats private remain private\
+      \ if you choose to!"
+  - rscadd: Added a few missing pieces of clothing to the Loadout (A maid uniform,
+      latex complementary items, a black belt, a strip outfit)
+  honkpocket:
+  - rscadd: Craftable cardboard 'flat' box that can be hidden beneath floor tiles
+  - rscadd: Changes the hiss1 emote to hiss and lets xenohybrids xenohiss
+  - rscadd: Xenohybrids now have a different gasp sound
+  - balance: removes the prybar frontier tool's availability from direct cargo imports
+  - balance: the colony fabricator flatpack is 25% more expensive (1500cr)
