@@ -339,7 +339,7 @@
 				var/splatter_dir = dir
 				if(starting)
 					splatter_dir = get_dir(starting, target_turf)
-				if(isalien(living_target))
+				if(isalien(living_target) || isxenohybrid(living_target)) // NOVA EDIT CHANGE - Xenohybrid blood color - Original line: if(isalien(living_target))
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_turf, splatter_dir)
 				else
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter(target_turf, splatter_dir)
