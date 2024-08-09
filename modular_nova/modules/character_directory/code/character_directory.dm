@@ -95,10 +95,18 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/Destroy(force)
 	for(var/ckey in character_preview_views)
 		var/atom/movable/screen/map_view/char_preview/preview = character_preview_views[ckey]
-		var/mob/user = get_mob_by_ckey(ckey)
-		if(user)
-			user.client?.screen_maps -= preview
 		qdel(preview)
+	return ..()
+
+/atom/movable/screen/map_view/char_preview
+	/// Tracks a ref to the client ckey, for the character directory
+	var/client_ckey
+
+/atom/movable/screen/map_view/char_preview/Destroy(force)
+	GLOB.character_directory?.character_preview_views -= client_ckey
+	var/mob/user = get_mob_by_ckey(client_ckey)
+	if(user)
+		user.client?.screen_maps -= "preview_[client_ckey]_[REF(GLOB.character_directory)]_directory"
 	return ..()
 
 /// Makes a managed character preview view for a specific user
@@ -109,11 +117,12 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	// let's clear those out, we always want a new one when calling this proc anyway.
 	var/old_view = user.client?.screen_maps[assigned_view]
 	if(old_view)
-		character_preview_views -= old_view
-		user.client.screen_maps -= old_view
+		character_preview_views -= user.ckey
+		user.client.screen_maps -= assigned_view
 		qdel(old_view)
 
 	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
+	new_view.client_ckey = user.ckey
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user)
 	return new_view

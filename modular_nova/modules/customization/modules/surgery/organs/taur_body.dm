@@ -107,7 +107,9 @@
 		external_bodyshapes |= BODYSHAPE_HIDE_SHOES
 
 	old_right_leg = receiver.get_bodypart(BODY_ZONE_R_LEG)
+	RegisterSignal(old_right_leg, COMSIG_QDELETING, PROC_REF(on_old_leg_qdeleting))
 	old_left_leg = receiver.get_bodypart(BODY_ZONE_L_LEG)
+	RegisterSignal(old_left_leg, COMSIG_QDELETING, PROC_REF(on_old_leg_qdeleting))
 	var/obj/item/bodypart/leg/left/taur/new_left_leg
 	var/obj/item/bodypart/leg/right/taur/new_right_leg
 
@@ -162,10 +164,12 @@
 
 	if(old_left_leg)
 		old_left_leg.replace_limb(organ_owner, TRUE)
+		UnregisterSignal(old_left_leg, COMSIG_QDELETING)
 		old_left_leg = null
 
 	if(old_right_leg)
 		old_right_leg.replace_limb(organ_owner, TRUE)
+		UnregisterSignal(old_right_leg, COMSIG_QDELETING)
 		old_right_leg = null
 
 	// We don't call `synchronize_bodytypes()` here, because it's already going to get called in the parent because `external_bodyshapes` has a value.
@@ -175,10 +179,20 @@
 /obj/item/organ/external/taur_body/Destroy()
 	. = ..()
 	if(old_left_leg)
-		QDEL_NULL(old_left_leg)
+		qdel(old_left_leg)
 
 	if(old_right_leg)
-		QDEL_NULL(old_right_leg)
+		qdel(old_right_leg)
+
+/obj/item/organ/external/taur_body/proc/on_old_leg_qdeleting(datum/source)
+	SIGNAL_HANDLER
+
+	if(source == old_left_leg)
+		UnregisterSignal(old_left_leg, COMSIG_QDELETING)
+		old_left_leg = null
+	else if(source == old_right_leg)
+		UnregisterSignal(old_right_leg, COMSIG_QDELETING)
+		old_right_leg = null
 
 /obj/item/organ/external/taur_body/proc/get_riding_offset(oversized = FALSE)
 	var/size_scaling = (owner.dna.features["body_size"] / BODY_SIZE_NORMAL) - 1
