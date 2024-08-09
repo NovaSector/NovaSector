@@ -1,5 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - balance: "removes the prybar frontier tool's availability from direct cargo imports"
-  - balance: "the colony fabricator flatpack is 25% more expensive (1500cr)"
