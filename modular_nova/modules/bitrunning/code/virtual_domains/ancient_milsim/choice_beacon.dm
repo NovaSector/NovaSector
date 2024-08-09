@@ -20,11 +20,8 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/mechanic/PopulateContents()
 	. = ..()
-	new /obj/item/gun/ballistic/automatic/pistol/sol/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/storage/pouch/ammo(src)
+	new /obj/item/knife/combat(src)
+	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim_mechanic(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/marksman
@@ -32,11 +29,8 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/marksman/PopulateContents()
 	. = ..()
-	new /obj/item/gun/ballistic/automatic/pistol/sol/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/storage/pouch/ammo(src)
+	new /obj/item/knife/combat(src)
+	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim_marksman(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/medic
@@ -44,11 +38,8 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/medic/PopulateContents()
 	. = ..()
-	new /obj/item/gun/ballistic/automatic/pistol/sol/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/storage/pouch/ammo(src)
+	new /obj/item/knife/combat(src)
+	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim_medic(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/trapper
@@ -56,9 +47,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/trapper/PopulateContents()
 	. = ..()
-	new /obj/item/gun/ballistic/automatic/pistol/sol/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/storage/pouch/ammo(src)
+	new /obj/item/knife/combat(src)
+	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim_trapper(src)
