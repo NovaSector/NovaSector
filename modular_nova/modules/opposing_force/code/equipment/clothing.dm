@@ -80,7 +80,7 @@
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/gloves/combat(src)
-	new /obj/item/clothing/mask/gas/sechailer/syndicate(src)
+	new /obj/item/clothing/mask/neck_gaiter(src)
 	new /obj/item/clothing/glasses/meson/night(src)
 	new /obj/item/storage/belt/military/assault(src)
 	new /obj/item/radio/headset/syndicate/alt(src)
