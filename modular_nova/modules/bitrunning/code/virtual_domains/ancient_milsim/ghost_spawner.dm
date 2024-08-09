@@ -11,16 +11,16 @@
 	restricted_species = list(/datum/species/human)
 	random_appearance = FALSE
 
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim/proc/apply_codename(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/proc/apply_codename(mob/living/carbon/human/spawned_human)
 	var/callsign = pick(GLOB.callsigns_nri)
 	var/number = pick(GLOB.phonetic_alphabet_numbers)
 	spawned_human.fully_replace_character_name(null, "[callsign] [number]")
 
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/special(mob/living/carbon/human/spawned_human)
 	. = ..()
 	spawned_human.grant_language(/datum/language/panslavic, source = LANGUAGE_SPAWNER)
 	apply_codename(spawned_human)
 
-/obj/effect/mob_spawn/ghost_role/human/ancient_milsim/post_transfer_prefs(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/ancient_milsim/post_transfer_prefs(mob/living/carbon/human/spawned_human)
 	. = ..()
 	apply_codename(spawned_human)
