@@ -30,3 +30,5 @@
 #define SECHUD_TELECOMMS_SPECIALIST "hudtelecommsspecialist"
 // Nova Medical
 #define SECHUD_VIROLOGIST "hudvirologist"
+// Nova Antags
+#define SECHUD_SAPPER "hudsapper"

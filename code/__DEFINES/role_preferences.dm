@@ -117,6 +117,7 @@
 #define ROLE_BLACK_MARKET_DEALER "Black Market Dealer"
 #define ROLE_FREIGHTER_CREW "Freighter Crew"
 #define ROLE_PORT_TARKON "Port Tarkon Survivor"
+#define ROLE_SPACE_SAPPER "Space Sapper"
 // NOVA EDIT ADDITION END
 #define ROLE_LIFEBRINGER "Lifebringer"
 #define ROLE_MAINTENANCE_DRONE "Maintenance Drone"
