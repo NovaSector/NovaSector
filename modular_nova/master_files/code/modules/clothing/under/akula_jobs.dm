@@ -62,9 +62,9 @@
 
 /// This will check the wearer's bodytype and change the wetsuit worn sprite according to if it's male/female
 /obj/item/clothing/under/akula_wetsuit/proc/check_physique(mob/living/carbon/human/user)
-	icon_state = base_icon_state
+	worn_icon_state = base_icon_state
 	if(user.physique == FEMALE)
-		icon_state = "[icon_state]_f"
+		worn_icon_state = "[base_icon_state]_f"
 	return TRUE
 
 /// If the wearer has a compatible tail for the `tail_overlay` variable, render it
@@ -87,7 +87,7 @@
 
 	if(tail_overlay)
 		user.add_overlay(tail_overlay)
-		icon_state = "[icon_state]_tail"
+		worn_icon_state = "[worn_icon_state]_tail"
 
 	/// Suit armor
 /datum/armor/clothing_under/wetsuit
