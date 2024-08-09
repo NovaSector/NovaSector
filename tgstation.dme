@@ -7593,6 +7593,8 @@
 #include "modular_nova\modules\encounters\code\nri_raiders.dm"
 #include "modular_nova\modules\energy_axe\code\energy_fireaxe.dm"
 #include "modular_nova\modules\energy_axe\code\energy_fireaxe_case.dm"
+#include "modular_nova\modules\envirosuit_kits\code\cosmetic_envirosuits.dm"
+#include "modular_nova\modules\envirosuit_kits\code\envirosuit_boxes.dm"
 #include "modular_nova\modules\escape_menu\code\escape_menu_nova.dm"
 #include "modular_nova\modules\events\code\_event_globalvars.dm"
 #include "modular_nova\modules\events\code\event_spawner.dm"
