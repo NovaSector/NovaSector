@@ -5,7 +5,7 @@
 	spawn_loot_count = 2
 	spawn_scatter_radius = 1
 	spawn_random_offset = TRUE
-	spawn_loot_chance = 40
+	spawn_loot_chance = 20
 
 /obj/effect/spawner/random/ancient_milsim/ranged
 	loot = list(
