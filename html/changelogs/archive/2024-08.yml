@@ -292,3 +292,6 @@
   - rscadd: Xenohybrids now have a different gasp sound
   - balance: removes the prybar frontier tool's availability from direct cargo imports
   - balance: the colony fabricator flatpack is 25% more expensive (1500cr)
+2024-08-10:
+  dis-integrates-the-integration-tests:
+  - qol: Shibari Rope stacks now fit in boxes.

@@ -1,4 +1,0 @@
-author: "dis-integrates-the-integration-tests"
-delete-after: True
-changes:
-  - qol: "Shibari Rope stacks now fit in boxes."
