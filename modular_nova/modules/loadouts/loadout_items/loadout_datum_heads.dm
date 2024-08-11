@@ -121,6 +121,10 @@
 	name = "Mothic Softcap"
 	item_path = /obj/item/clothing/head/mothcap
 
+/datum/loadout_item/head/colonialcap
+	name = "Colonial Cap"
+	item_path = /obj/item/clothing/head/hats/colonial
+
 /datum/loadout_item/head/frontiercap
 	name = "Frontier Cap"
 	item_path = /obj/item/clothing/head/soft/frontier_colonist
