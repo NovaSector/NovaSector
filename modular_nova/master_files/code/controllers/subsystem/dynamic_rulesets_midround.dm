@@ -8,10 +8,10 @@
  */
 /datum/dynamic_ruleset/midround/from_living/proc/poll_candidates_for_one(candidates)
 	message_admins("Attempting to poll [length(candidates)] people individually to become [name].")
-	var/list/yes_candidate = list()
+	var/list/yes_candidates = list()
 	for(var/mob/living/candidate in candidates)
 		current_polling += candidate
-		yes_candidate += SSpolling.poll_candidates(
+		yes_candidates += SSpolling.poll_candidates(
 		question = "Do you want to play as [name]? If you ignore this, you will be considered to have declined and will be inelegible for all future rolls this round.",
 		group = list(candidate),
 		poll_time = 15 SECONDS,
@@ -29,7 +29,7 @@
 		),
 		chat_text_border_icon = /obj/structure/sign/poster/contraband/gorlex_recruitment,
 	)
-		if(length(yes_candidate))
+		if(length(yes_candidates))
 			current_polling -= candidate
 			break
 		else
@@ -37,4 +37,4 @@
 			rejected_traitor += candidate
 			current_polling -= candidate
 
-	return yes_candidate
+	return yes_candidates
