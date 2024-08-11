@@ -121,6 +121,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/awoo.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/nya
 	key = "nya"
@@ -169,6 +170,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/bark2.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/squish
 	key = "squish"
@@ -188,13 +190,18 @@
 	sound = 'modular_nova/modules/emotes/sound/emotes/meow.ogg'
 
 /datum/emote/living/hiss
-	key = "hiss1"
+	key = "hiss"
 	key_third_person = "hisses"
 	message = "hisses!"
 	emote_type = EMOTE_AUDIBLE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/hiss.ogg'
+
+/datum/emote/living/hiss/get_sound(mob/living/user)
+	if(isxenohybrid(user))
+		return SFX_HISS
+	else
+		return 'modular_nova/modules/emotes/sound/emotes/hiss.ogg'
 
 /datum/emote/living/chitter
 	key = "chitter"
@@ -230,6 +237,10 @@
 
 /datum/emote/living/gasp/get_sound(mob/living/user)
 	if(iscarbon(user))
+		if(isxenohybrid(user))
+			return pick('sound/voice/lowHiss2.ogg',
+						'sound/voice/lowHiss3.ogg',
+						'sound/voice/lowHiss4.ogg')
 		if(user.gender == MALE)
 			return pick('modular_nova/modules/emotes/sound/emotes/male/gasp_m1.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m2.ogg',
@@ -521,6 +532,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/goose_honk.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/mggaow
 	key = "mggaow"
@@ -529,6 +541,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/mggaow.ogg'
+	sound_wall_ignore = TRUE
 
 /datum/emote/living/mrrp
 	key = "mrrp"

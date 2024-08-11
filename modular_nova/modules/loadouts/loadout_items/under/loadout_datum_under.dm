@@ -390,6 +390,18 @@
 	name = "Purple Shorts"
 	item_path = /obj/item/clothing/under/shorts/purple
 
+/datum/loadout_item/under/miscellaneous/yukata
+	name = "Yukata, Black"
+	item_path = /obj/item/clothing/under/costume/yukata
+
+/datum/loadout_item/under/miscellaneous/yukata/green
+	name = "Yukata, Green"
+	item_path = /obj/item/clothing/under/costume/yukata/green
+
+/datum/loadout_item/under/miscellaneous/yukata/white
+	name = "Yukata, White"
+	item_path = /obj/item/clothing/under/costume/yukata/white
+
 /datum/loadout_item/under/miscellaneous/recolorable_kilt
 	name = "Recolorable Kilt"
 	item_path = /obj/item/clothing/under/pants/nova/kilt
@@ -663,6 +675,16 @@
 /datum/loadout_item/under/miscellaneous/latex_catsuit
 	name = "Latex Catsuit"
 	item_path = /obj/item/clothing/under/misc/latex_catsuit
+
+/datum/loadout_item/under/miscellaneous/stripper_outfit
+	name = "Stripper Outfit"
+	item_path = /obj/item/clothing/under/stripper_outfit
+	erp_item = TRUE
+
+/datum/loadout_item/under/miscellaneous/lewdmaid
+	name = "Provocative Maid Uniform"
+	item_path = /obj/item/clothing/under/costume/lewdmaid
+	erp_item = TRUE
 
 /datum/loadout_item/under/miscellaneous/geisha_suit
 	name = "Geisha Suit"
@@ -1066,6 +1088,18 @@
 /datum/loadout_item/under/formal/pencil/green
 	name = "Green Pencilskirt"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/green
+
+/datum/loadout_item/under/formal/kimono
+	name = "Kimono, Black"
+	item_path = /obj/item/clothing/under/costume/kimono
+
+/datum/loadout_item/under/formal/kimono/red
+	name = "Kimono, Red"
+	item_path = /obj/item/clothing/under/costume/kimono/red
+
+/datum/loadout_item/under/formal/kimono/purple
+	name = "Kimono, Purple"
+	item_path = /obj/item/clothing/under/costume/kimono/purple
 
 /datum/loadout_item/under/formal/azulea_oldblood
 	name = " Oldblood's Royal regalia"

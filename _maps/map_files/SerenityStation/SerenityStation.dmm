@@ -6567,11 +6567,11 @@
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "bSp" = (
-/obj/machinery/computer/med_data{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
+	},
+/obj/machinery/computer/records/medical{
+	dir = 8
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -21743,7 +21743,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "gmv" = (
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/engine/plasma,
 /area/station/engineering/atmos)
 "gmB" = (
@@ -42110,7 +42110,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "maZ" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
@@ -47415,6 +47415,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/storage)
 "nKw" = (
+/obj/structure/water_source/puddle,
 /turf/open/floor/grass,
 /area/station/maintenance/department/crew_quarters/dorms)
 "nKz" = (
@@ -60425,6 +60426,10 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"rDw" = (
+/obj/structure/water_source/puddle,
+/turf/open/misc/asteroid/forest,
+/area/forestplanet/outdoors/nospawn)
 "rDy" = (
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/flora/grass/jungle,
@@ -61265,12 +61270,10 @@
 	},
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/supplies,
-/obj/machinery/computer/med_data{
+/obj/machinery/computer/records/medical{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen/cmo/directional/north{
-	name = "Medbay Monitor"
-	},
+/obj/machinery/computer/security/telescreen/med_sec/directional/north,
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
 "rRR" = (
@@ -67410,9 +67413,9 @@
 /turf/open/misc/sandy_dirt/forest,
 /area/forestplanet/outdoors/nospawn)
 "tDx" = (
-/obj/machinery/computer/med_data/laptop{
-	dir = 1;
-	pixel_y = 4
+/obj/machinery/computer/records/medical{
+	pixel_y = 4;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
@@ -109762,7 +109765,7 @@ sBE
 qCm
 sBE
 kxB
-kxB
+rDw
 iMY
 iMY
 iMY

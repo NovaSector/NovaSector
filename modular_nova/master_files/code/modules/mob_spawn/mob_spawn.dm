@@ -1,9 +1,11 @@
+/obj/effect/mob_spawn
+	/// Do we use a random appearance for this role?
+	var/random_appearance = TRUE
+
 /obj/effect/mob_spawn/ghost_role
 	/// set this to make the spawner use the outfit.name instead of its name var for things like cryo announcements and ghost records
 	/// modifying the actual name during the game will cause issues with the GLOB.mob_spawners associative list
 	var/use_outfit_name
-	/// Do we use a random appearance for this ghost role?
-	var/random_appearance = TRUE
 	/// Can we use our loadout for this role?
 	var/loadout_enabled = FALSE
 	/// Can we use our quirks for this role?

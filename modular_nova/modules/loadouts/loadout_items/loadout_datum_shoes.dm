@@ -212,6 +212,16 @@
 	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
 	erp_item = TRUE
 
+/datum/loadout_item/shoes/latex_socks
+	name = "Latex Socks"
+	item_path = /obj/item/clothing/shoes/latex_socks
+	erp_item = TRUE
+
+/datum/loadout_item/shoes/latex_heels
+	name = "Latex Heels"
+	item_path = /obj/item/clothing/shoes/latex_heels
+	erp_item = TRUE
+
 /datum/loadout_item/shoes/griffin
 	name = "Griffon Boots"
 	item_path = /obj/item/clothing/shoes/griffin
@@ -235,6 +245,10 @@
 /datum/loadout_item/shoes/jingleshoes
 	name = "Jester Shoes"
 	item_path = /obj/item/clothing/shoes/jester_shoes
+
+/datum/loadout_item/shoes/sandals_black
+	name = "Black Sandals"
+	item_path = /obj/item/clothing/shoes/sandal/alt
 
 /*
 *	SEASONAL
