@@ -37247,8 +37247,8 @@
 /obj/structure/mirror{
 	pixel_x = -28
 	},
-/obj/structure/sink/directional/west,
 /obj/effect/landmark/blobstart,
+/obj/structure/sink/directional/east,
 /turf/open/floor/iron/white,
 /area/station/science/breakroom)
 "lXe" = (
@@ -74399,9 +74399,6 @@
 /area/station/maintenance/aft/lesser)
 "xxI" = (
 /obj/effect/landmark/start/scientist,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 6
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
