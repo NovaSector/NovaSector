@@ -8,10 +8,8 @@
  */
 /datum/dynamic_ruleset/midround/from_living/proc/poll_candidates_for_one(candidates)
 	message_admins("Attempting to poll [length(candidates)] people individually to become [name].")
-	var/list/potential_candidates = candidates
 	var/list/yes_candidate = list()
-	for(var/mob/living/candidate in potential_candidates)
-		potential_candidates -= candidate
+	for(var/mob/living/candidate in candidates)
 		current_polling += candidate
 		yes_candidate += SSpolling.poll_candidates(
 		question = "Do you want to play as [name]? If you ignore this, you will be considered to have declined and will be inelegible for all future rolls this round.",
