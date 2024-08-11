@@ -196,7 +196,7 @@
  */
 /datum/round_event_control/obsessed
 	max_occurrences = 1
-	weight = VERY_LOW_EVENT_FREQ
+	weight = LOW_EVENT_FREQ
 
 /**
  * Medical
