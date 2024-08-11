@@ -40,6 +40,15 @@
 	print()
 	return CLICK_ACTION_SUCCESS
 
+/obj/item/powersink/creditminer/attack_hand(mob/user, list/modifiers)
+	. = ..()
+	switch(mode)
+		if(1) //On turning off
+			playsound(src.loc, 'modular_nova/master_files/sound/effects/creditminer_stop.wav', 50, FALSE)
+
+		if(2) //On turning on
+			playsound(src.loc, 'modular_nova/master_files/sound/effects/creditminer_start.wav', 50, FALSE)
+
 /obj/item/powersink/creditminer/process()
 	. = ..()
 	if(internal_heat > max_heat * RADIO_ALERT / 100)
@@ -75,6 +84,7 @@
 	if(cash_pulse >= 1)
 		cash_out += cash_pulse
 		balloon_alert_to_viewers("mined [trunc(cash_pulse)]cr")
+		playsound(src.loc, 'modular_nova/master_files/sound/effects/creditminer_drain.wav', 30, FALSE, 0, 12)
 
 /// Credit Miner crafting recipe (Incase the intial one explodes)
 /datum/crafting_recipe/credit_miner
