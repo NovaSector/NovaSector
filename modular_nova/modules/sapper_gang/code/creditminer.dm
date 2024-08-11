@@ -31,7 +31,9 @@
 /obj/item/powersink/creditminer/examine(mob/user)
 	. = ..()
 	if(cash_out)
-		. += span_blue("[src] has mined [trunc(cash_out)] credits, <b>Ctrl-click</b> to print a holochip.")
+		. += span_blue("[src] has mined [trunc(cash_out)] credits.")
+	if(mode) //can only print when in structure mode, not object mode
+		. += span_blue("<b>Ctrl-click</b> to print a holochip.")
 
 /obj/item/powersink/creditminer/item_ctrl_click(mob/user)
 	. = ..()
