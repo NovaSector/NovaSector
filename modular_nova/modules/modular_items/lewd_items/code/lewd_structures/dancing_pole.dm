@@ -109,7 +109,6 @@
 	dance_animate(user)
 	pole_in_use = FALSE
 	user.pixel_y = 0
-	//user.pixel_z = pseudo_z_axis //incase we are off it when we jump on!
 	dancer = null
 
 /// The proc used to make the user 'dance' on the pole. Basically just consists of pixel shifting them around a bunch and sleeping. Could probably be improved a lot.
