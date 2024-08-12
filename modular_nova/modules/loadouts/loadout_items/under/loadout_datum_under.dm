@@ -450,7 +450,11 @@
 
 /datum/loadout_item/under/miscellaneous/wedding_dress
 	name = "Wedding Dress"
-	item_path = /obj/item/clothing/under/dress/nova/wedding_dress
+	item_path = /obj/item/clothing/under/dress/wedding_dress
+
+/datum/loadout_item/under/miscellaneous/wedding_dress/ribbon
+	name = "Wedding Dress With Ribbon"
+	item_path = /obj/item/clothing/under/dress/wedding_dress/ribbon
 
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"

@@ -98,5 +98,5 @@
 	)
 
 	premium_nova = list(
-		/obj/item/clothing/under/dress/nova/wedding_dress = 1,
+		/obj/item/clothing/under/dress/wedding_dress/ribbon = 1,
 	)
