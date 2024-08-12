@@ -412,6 +412,13 @@
 	weight = MED_EVENT_FREQ
 
 /**
+ * Lavaland (Indecipheres) Portal Storm
+ */
+/datum/round_event_control/portal_storm_lavaland
+	max_occurrences = 2
+	weight = LOW_EVENT_FREQ
+
+/**
  * Radiation
  *
  * Disabled: Unintutivie design and incompatibility with this server
