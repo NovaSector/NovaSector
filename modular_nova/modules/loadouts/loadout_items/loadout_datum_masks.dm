@@ -91,8 +91,8 @@
 	name = "Half Mask Respirator"
 	item_path = /obj/item/clothing/mask/gas/respirator
 
-/datum/loadout_item/mask/half_mask
-	name = "Tacticool Neck Gaiter"
+/datum/loadout_item/mask/neck_gaiter
+	name = "Neck Gaiter"
 	item_path = /obj/item/clothing/mask/neck_gaiter
 
 /*

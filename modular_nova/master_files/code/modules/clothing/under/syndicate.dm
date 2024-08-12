@@ -129,10 +129,9 @@
 	. = ..()
 	. += span_notice("The armor has been removed from the fabric.")
 
-/obj/item/clothing/mask/neck_gaiter/tacticool
+/obj/item/clothing/mask/neck_gaiter/syndicate/tacticool
 	name = "tacticool neck gaiter"
-	desc = "A black techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
-
+	desc = "A techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
 /*
 *	TACTICAL (Real)
 */
