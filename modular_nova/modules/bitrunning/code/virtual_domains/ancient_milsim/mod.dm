@@ -1,4 +1,8 @@
+/datum/mod_theme/responsory/ancient_milsim
+	armor_type = /datum/armor/armor_sf_hardened
+
 /obj/item/mod/control/pre_equipped/responsory/milsim_mechanic
+	theme = /datum/mod_theme/responsory/ancient_milsim
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
 	req_access = null
@@ -14,9 +18,10 @@
 		/obj/item/mod/module/visor/meson,
 	)
 	insignia_type = /obj/item/mod/module/insignia/engineer
-	additional_module = /obj/item/mod/module/dispenser/incendiary
+	additional_module = /obj/item/mod/module/dispenser/emp
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_trapper
+	theme = /datum/mod_theme/responsory/ancient_milsim
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
 	req_access = null
@@ -35,6 +40,7 @@
 	additional_module = /obj/item/mod/module/dispenser/landmine
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_marksman
+	theme = /datum/mod_theme/responsory/ancient_milsim
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
 	req_access = null
@@ -50,9 +56,10 @@
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/security
-	additional_module = /obj/item/mod/module/shooting_assistant/ancient_milsim
+	additional_module = /obj/item/mod/module/stealth/ancient_milsim
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_medic
+	theme = /datum/mod_theme/responsory/ancient_milsim
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
 	req_access = null
@@ -70,20 +77,20 @@
 	insignia_type = /obj/item/mod/module/insignia/medic
 	additional_module = /obj/item/mod/module/dispenser/hypospray
 
-/obj/item/mod/module/shooting_assistant/ancient_milsim
+/obj/item/mod/module/stealth/ancient_milsim
 	removable = FALSE
 
-/obj/item/mod/module/dispenser/incendiary
-	name = "MOD incendiary grenade dispenser module"
-	desc = "This module can create activated incendiary grenades at the user's liking."
+/obj/item/mod/module/dispenser/emp
+	name = "MOD EMP grenade dispenser module"
+	desc = "This module can create activated EMP grenades at the user's liking."
 	removable = FALSE
-	dispense_type = /obj/item/grenade/chem_grenade/incendiary
+	dispense_type = /obj/item/grenade/empgrenade
 
-/obj/item/mod/module/dispenser/barrinade/on_use()
+/obj/item/mod/module/dispenser/emp/on_use()
 	. = ..()
 	if(!.)
 		return
-	var/obj/item/grenade/chem_grenade/incendiary/grenade = .
+	var/obj/item/grenade/empgrenade/grenade = .
 	grenade.arm_grenade(mod.wearer)
 
 /obj/item/mod/module/dispenser/landmine
