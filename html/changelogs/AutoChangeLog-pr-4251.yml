@@ -1,0 +1,5 @@
+author: "00-Steven"
+delete-after: True
+changes:
+  - bugfix: "(Nova) Fixes a host of things that are supposed to elevate you (like beds, crates, somesuch) not actually elevating you."
+  - qol: "(Nova) Changes the offsets for being on or being buckled to pillow piles."
