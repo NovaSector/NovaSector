@@ -100,3 +100,4 @@
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 	outfit = /datum/outfit/cin_soldier_corpse
+	mob_name = "Echo One"

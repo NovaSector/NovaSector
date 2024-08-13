@@ -47,21 +47,6 @@
 	id = /obj/item/card/id/advanced/centcom/ert/nri
 	id_trim = /datum/id_trim/nri/ancient_milsim
 
-/datum/outfit/cin_soldier_corpse/post_equip(mob/living/carbon/human/user, visualsOnly)
-	. = ..()
-	user.faction -= FACTION_NEUTRAL
-	user.faction |= ROLE_SYNDICATE
-
-	var/callsign = pick(GLOB.callsigns_nri)
-	var/number = pick(GLOB.phonetic_alphabet_numbers)
-	user.fully_replace_character_name(null, "[callsign] [number]")
-
-	// make sure we update the ID's name too
-	var/obj/item/card/id/id_card = user.wear_id
-	if(istype(id_card))
-		id_card.registered_name = user.real_name
-		id_card.update_label()
-
 /datum/outfit/cin_soldier_player
 	name = "Coalition Operative SNPC"
 	uniform = /obj/item/clothing/under/syndicate/rus_army/cin_surplus/forest
