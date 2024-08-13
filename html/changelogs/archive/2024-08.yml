@@ -292,3 +292,13 @@
   - rscadd: Xenohybrids now have a different gasp sound
   - balance: removes the prybar frontier tool's availability from direct cargo imports
   - balance: the colony fabricator flatpack is 25% more expensive (1500cr)
+2024-08-10:
+  dis-integrates-the-integration-tests:
+  - qol: Shibari Rope stacks now fit in boxes.
+  SmArtKar:
+  - bugfix: Circuit UI scale no longer has weird rounding
+  - bugfix: Circuit UI no longer gets covered by components menu
+  - bugfix: Fixed Charlie MOD installer not installing MODsuit unless you have a backpack
+      to drop
+  FlufflesTheDog:
+  - bugfix: tadpoles can actually be scooped from ponds
