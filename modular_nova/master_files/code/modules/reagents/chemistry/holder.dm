@@ -47,14 +47,16 @@ Final transfer volume for reach reagent:
 T"i = Ti + T'i
 */
 /**
- * Calculates and transfers even amounts of each reagent to the target atom. Calls trans_to() to do the actual transfer.
- * Unlike trans_to(), amount is auto-calculated, and target_id is replaced with list target_ids.
+ * Proportionally transfers each reagent to the target atom. Calls trans_to() to do the actual transfer.
+ * Unlike trans_to(), target_id is replaced with list target_ids.
  *
  * Arguments:
  * * obj/target - Target atom to attempt transfers to
+ * * amount - Maximum total reagent volume to transfer
  * * multiplier - multiplies each reagent amount by this number well byond their available volume before transfering. used to create reagents from thin air if you ever need to
  * * list/datum/reagent/target_ids - transfers only the listed reagent types in this holder leaving others untouched
- * * preserve_data - if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
+ * * preserve_data - if preserve_data=FALSE, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
+ * * proportional - if proportional=TRUE, the volume of each reagent will be distributed proportionally to each other. If FALSE, then the volumes will be strictly equal.
  * * no_react - passed through to [/datum/reagents/proc/add_reagent]
  * * mob/transferred_by - used for logging
  * * remove_blacklisted - skips transferring of reagents without REAGENT_CAN_BE_SYNTHESIZED in chemical_flags
@@ -62,10 +64,12 @@ T"i = Ti + T'i
  * * show_message - passed through to [/datum/reagents/proc/expose]
  * * ignore_stomach - when using methods INGEST will not use the stomach as the target
  */
-/datum/reagents/proc/trans_to_equal(
+/datum/reagents/proc/trans_to_multiple(
 	atom/target_atom,
+	amount = 1,
 	multiplier = 1,
 	list/datum/reagent/target_ids,
+	proportional = TRUE,
 	preserve_data = TRUE,
 	no_react = FALSE,
 	mob/transferred_by,
@@ -74,31 +78,44 @@ T"i = Ti + T'i
 	show_message = TRUE,
 	ignore_stomach = FALSE
 )
-	// Targeted atom can not hold reagents
-	if(isnull(target_atom.reagents))
+	// Nothing to transfer, or the targeted atom can't hold reagents
+	if(!total_volume || QDELETED(target_atom) || isnull(target_atom.reagents))
+		return FALSE
+
+	if(!IS_FINITE(amount))
+		stack_trace("non-number or infinite number passed to trans_to_equal: amount = [amount]")
+		return FALSE
+
+	// Ensure given amount is in a safe range
+	amount = round(amount, CHEMICAL_QUANTISATION_LEVEL)
+	if(amount <= 0)
 		return FALSE
 
 	// Maximum amount of reagents which can fit inside the target
-	var/max_volume = target_atom.reagents.maximum_volume
+	var/max_volume = min(amount, target_atom.reagents.maximum_volume)
 	// Total volume of the reagents already inside the target
 	var/current_volume = target_atom.reagents.total_volume
-	// Total volume of the empty space inside the target
-	var/empty_volume = max_volume - current_volume
+	// Total volume of fillable empty space inside the target, accounting for given maximum
+	var/empty_volume = max(0, max_volume - current_volume)
 
 	// Targeted atom is already full of reagents
-	if(empty_volume <= 0)
+	if(max_volume == 0 || empty_volume == 0)
 		return FALSE
 
 	// Total volume of transferable reagents after whitelisting and rounding
 	var/possible_transfer_volume = 0
-	// Organize targeted reagents into associative list of typepaths to datums
+	// Reagent typepaths to be transferred after whitelisting
 	var/list/datum/reagent/target_reagents = list()
-	// TRUE if a reagent whitelist was given
-	var/using_whitelist = length(target_ids) != 0
+	// Only FALSE if a reagent whitelist was given
+	var/ignore_whitelist = isnull(target_ids)
+
+	var/list/cached_reagents = reagent_list
 	// Perform whitelisting and rounding, then calculate total possible transfer volume
-	for(var/datum/reagent/reagent in reagent_list)
-		if(!using_whitelist || target_ids[reagent.type])
-			target_reagents[reagent.type] += reagent
+	for(var/datum/reagent/reagent in cached_reagents)
+		if(remove_blacklisted && !(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
+			continue
+		if(ignore_whitelist || is_type_in_list(reagent.type, target_ids))
+			target_reagents += reagent.type
 			possible_transfer_volume += round(reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 
 	// There are no transferable reagents
@@ -107,7 +124,7 @@ T"i = Ti + T'i
 
 	// Total transfer volume can't exceed capacity
 	possible_transfer_volume = min(empty_volume, possible_transfer_volume)
-	// Ensure there is enough reagent volume to transfer anything
+	// Insufficient reagent volume
 	if(possible_transfer_volume < CHEMICAL_QUANTISATION_LEVEL)
 		return FALSE
 
@@ -118,70 +135,61 @@ T"i = Ti + T'i
 	// Total deficit volume. Enables second pass if not zero.
 	var/deficit_transfer_volume = empty_volume
 	// Total quantity of reagents with volume above initial_target_volume.
-	var/excess_reagents = length(target_reagents)
+	var/excess_reagents = 0
 
-	// Organize transfer volumes into associative list of typepaths to volumes
-	// Used as a scratchpad to calculate transfer volumes and provide reagent transfer amounts to trans_to()
-	var/list/datum/reagent/transfer_volumes = list()
-
+	// Associative list of reagent typepaths to transfer volumes
+	// Used to provide reagent transfer amounts to trans_to()
+	var/list/transfer_volumes = list()
 	// First pass, calculate initial transfer volumes per reagent
 	// Account for reagents with insufficient and excess volumes
 	for(var/datum/reagent/reagent in target_reagents)
 		var/reagent_volume = round(reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 		var/transfer_volume = min(reagent_volume, initial_target_volume)
 		transfer_volumes[reagent.type] = transfer_volume
-		remaining_transfer_volume += reagent_volume - transfer_volume
+		remaining_transfer_volume += max(0, reagent_volume - transfer_volume)
 		// Account for insufficient reagent volume
-		deficit_transfer_volume = deficit_transfer_volume - transfer_volume
+		deficit_transfer_volume = max(0, deficit_transfer_volume - transfer_volume)
 		// This reagent has excess volume. Could be redistributed in the second pass
 		if(reagent_volume > initial_target_volume)
 			excess_reagents++
 
 	// Second pass, mitigate insufficient volumes via redistribution of excess volumes.
-	if((deficit_transfer_volume > 0) && (remaining_transfer_volume > 0))
+	if(proportional && (deficit_transfer_volume > 0) && (remaining_transfer_volume > 0))
+		// Total transfer volume is insufficient
+		// Increase transfer volumes of excess reagents to compensate for the deficit
 		for(var/datum/reagent/reagent in target_reagents)
 			var/transfer_volume = transfer_volumes[reagent.type]
-			// Transfer volume of this reagent is sufficient or higher, so skip it
-			if(transfer_volume >= initial_target_volume)
+			var/reagent_volume = round(reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
+
+			// This reagent has no excess volume, to skip it
+			var/remaining_reagent_volume = max(0, reagent_volume - transfer_volume)
+			if(remaining_reagent_volume == 0)
 				continue
-			// Transfer volume of this reagent is insufficient, so others must be increased
-			// Increase transfer volumes of excess reagents to compensate for the deficit
-			for(var/datum/reagent/sub_reagent in target_reagents)
-				var/sub_transfer_volume = transfer_volumes[sub_reagent.type]
-				var/sub_volume = round(sub_reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 
-				// This reagent has no excess volume, to skip it
-				var/remaining_reagent_volume = sub_volume - sub_transfer_volume
-				if(remaining_reagent_volume <= 0)
-					continue
+			// Only this reagent has excess volume, so we can skip a bunch of steps
+			if(excess_reagents == 1)
+				transfer_volumes[reagent.type] = min(reagent_volume, deficit_transfer_volume)
+				excess_reagents--
+				break
 
-				// Only this reagent has excess volume, so we can skip a bunch of steps
-				if(excess_reagents == 1)
-					transfer_volumes[sub_reagent.type] = min(sub_volume, deficit_transfer_volume)
-					excess_reagents--
-					break
+			// Calculate ideal volume adjustment based on deficit volume divided by quantity of excess reagents
+			var/proportional_volume_increase = round(deficit_transfer_volume / excess_reagents, CHEMICAL_QUANTISATION_LEVEL)
+			// Compensated on a best-effort basis
+			var/new_transfer_volume = min(reagent_volume, transfer_volume + proportional_volume_increase)
+			transfer_volumes[reagent.type] = new_transfer_volume
+			// Account for the remaining deficit
+			deficit_transfer_volume = max(0, deficit_transfer_volume - proportional_volume_increase)
 
-				// Calculate ideal volume adjustment based on deficit volume divided by quantity of excess reagents
-				var/proportional_volume_increase = round(deficit_transfer_volume / excess_reagents, CHEMICAL_QUANTISATION_LEVEL)
-				// Compensated on a best-effort basis
-				var/new_transfer_volume = min(sub_volume, sub_transfer_volume + proportional_volume_increase)
-				transfer_volumes[sub_reagent.type] = new_transfer_volume
-
-				// Account for the remaining deficit
-				deficit_transfer_volume = min(0, deficit_transfer_volume - proportional_volume_increase)
-				if(deficit_transfer_volume == 0)
-					break
-				// Depleted this reagent after increasing but there's still a deficit
-				if(new_transfer_volume == sub_volume)
-					// Subtracting increases the proportional adjustment
-					excess_reagents--
-
-			// Used up excess reagents in nested loop
+			// Fully fixed the deficit
+			if(deficit_transfer_volume == 0)
+				break
+			// Depleted this reagent after increasing but there's still a deficit
+			if(new_transfer_volume == reagent_volume)
+				// Subtracting increases the proportional adjustment
+				excess_reagents--
+			// Used up excess reagents
 			// This also implies that remaining_transfer_volume is zero
 			if(excess_reagents == 0)
-				break
-			// Fully fixed the deficit in nested loop
-			if(deficit_transfer_volume == 0)
 				break
 
 	// Actually perform the reagent transfers and return total volume transferred
