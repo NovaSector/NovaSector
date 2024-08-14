@@ -2,8 +2,8 @@
 /datum/round_event_control/portal_storm_lavaland
 	name = "Portal Storm: Curse of Indecipheres"
 	typepath = /datum/round_event/portal_storm/lavaland
-	min_players = 15
-	earliest_start = 10 MINUTES
+	min_players = 40 // Not on lowpop please
+	earliest_start = 30 MINUTES
 	category = EVENT_CATEGORY_ENTITIES
 	map_flags = EVENT_SPACE_ONLY // Need lavaland to be there
 	description = "The Necropolis curses the station, infesting it with monsters from Indecipheres."
