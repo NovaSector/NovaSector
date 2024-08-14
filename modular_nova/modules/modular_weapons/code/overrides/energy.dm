@@ -11,6 +11,3 @@
 	name = "\improper Allstar SC-2 energy carbine"
 	desc = "A basic hybrid energy carbine with two settings: disable and kill."
 	w_class = WEIGHT_CLASS_NORMAL
-
-/obj/item/gun/energy/xray
-	w_class = WEIGHT_CLASS_BULKY
