@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Loadout items that spawn nested in another item can be customized"

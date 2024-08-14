@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Serenity telecomms & AI sat have a properly charged SMES, that won't die as quickly at the beginning of the shift."

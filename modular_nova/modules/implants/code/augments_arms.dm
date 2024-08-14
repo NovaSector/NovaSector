@@ -156,10 +156,8 @@
 	items_to_create = list(/obj/item/pickaxe/drill/implant)
 	implant_overlay = null
 	implant_color = null
-	/// The bodypart overlay datum we should apply to whatever mob we are put into's left arm
-	var/datum/bodypart_overlay/simple/steel_drill/left/left_drill_overlay
-	/// The bodypart overlay datum we should apply to whatever mob we are put into's right arm
-	var/datum/bodypart_overlay/simple/steel_drill/right/right_drill_overlay
+	/// The bodypart overlay datum we should apply to whatever mob we are put into's someone's arm
+	var/datum/bodypart_overlay/simple/steel_drill/drill_overlay
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm //You know the drill.
     zone = BODY_ZONE_R_ARM
@@ -180,32 +178,21 @@
 	icon_state = "steel_right"
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	. = ..()
 	if(isteshari(owner))
-		return ..()
-	if(istype(limb, /obj/item/bodypart/arm/left))
-		left_drill_overlay = new()
-		limb.add_bodypart_overlay(left_drill_overlay)
+		return
+	if(zone == BODY_ZONE_L_ARM)
+		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/left
 	else
-		if(istype(limb, /obj/item/bodypart/arm/right))
-			right_drill_overlay = new()
-			limb.add_bodypart_overlay(right_drill_overlay)
-	owner.update_body_parts()
-	return ..()
+		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/right
+	limb.add_bodypart_overlay(drill_overlay)
+	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
-	if(isteshari(owner))
-		return ..()
-	if(istype(limb, /obj/item/bodypart/arm/left))
-		left_drill_overlay = new()
-		limb.remove_bodypart_overlay(left_drill_overlay)
-		QDEL_NULL(left_drill_overlay)
-	else
-		if(istype(limb, /obj/item/bodypart/arm/right))
-			right_drill_overlay = new()
-			limb.remove_bodypart_overlay(right_drill_overlay)
-			QDEL_NULL(left_drill_overlay)
-	owner.update_body_parts()
-	return ..()
+/obj/item/organ/internal/cyberimp/arm/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
+	. = ..()
+	bodypart_owner?.remove_bodypart_overlay(drill_overlay)
+	arm_owner.update_body_parts()
+	QDEL_NULL(drill_overlay)
 
 /obj/item/pickaxe/drill/implant
 	name = "integrated mining drill"
