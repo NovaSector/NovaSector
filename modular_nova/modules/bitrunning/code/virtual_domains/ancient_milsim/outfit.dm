@@ -44,7 +44,7 @@
 	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
 	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
 	belt = /obj/item/storage/belt/military/cin_surplus/forest
-	id = /obj/item/card/id/advanced/centcom/ert/nri
+	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/nri/ancient_milsim
 
 /datum/outfit/cin_soldier_player
