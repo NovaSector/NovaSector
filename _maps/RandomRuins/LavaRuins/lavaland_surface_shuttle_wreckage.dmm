@@ -14,6 +14,12 @@
 /obj/effect/decal/cleanable/rubble,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
+"dy" = (
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_x = -6
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered)
 "dI" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Emergency Shuttle Cockpit"
@@ -39,7 +45,9 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
 "fy" = (
-/obj/structure/door_assembly/door_assembly_shuttle,
+/obj/structure/door_assembly/door_assembly_shuttle{
+	dir = 4
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
 "fz" = (
@@ -97,6 +105,13 @@
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
 /area/ruin/unpowered)
+"oo" = (
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_y = 9;
+	pixel_x = -3
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered)
 "oE" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/ash,
@@ -130,6 +145,16 @@
 "sE" = (
 /obj/item/shard/titanium,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered)
+"sU" = (
+/obj/item/stack/sheet/mineral/titanium{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/mineral/titanium/yellow{
+	initial_gas_mix = "LAVALAND_ATMOS"
+	},
 /area/ruin/unpowered)
 "sZ" = (
 /turf/closed/mineral/random/volcanic,
@@ -177,6 +202,12 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
+"AB" = (
+/obj/item/stack/sheet/iron{
+	pixel_y = 5
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered)
 "Bb" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -200,12 +231,6 @@
 /area/ruin/unpowered)
 "Dq" = (
 /obj/effect/mapping_helpers/burnt_floor,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/ruin/unpowered)
-"Dy" = (
-/obj/item/shard/titanium,
-/obj/machinery/light/small/directional/east,
-/obj/effect/mapping_helpers/broken_floor,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
 "DL" = (
@@ -280,6 +305,13 @@
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
+"HE" = (
+/obj/item/stack/sheet/iron{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered)
 "HM" = (
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
@@ -288,6 +320,13 @@
 /mob/living/basic/mining/goliath,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
+"JK" = (
+/obj/item/food/meat/slab/human{
+	pixel_y = 13;
+	pixel_x = -4
+	},
+/turf/closed/mineral/volcanic/lava_land_surface,
+/area/lavaland/surface)
 "JN" = (
 /obj/item/shard/titanium,
 /obj/item/stack/sheet/mineral/titanium,
@@ -348,7 +387,7 @@
 /obj/structure/table,
 /obj/item/storage/medkit/regular{
 	pixel_x = 2;
-	pixel_y = 3
+	pixel_y = 11
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
@@ -393,6 +432,12 @@
 /turf/open/floor/mineral/plastitanium/red{
 	initial_gas_mix = "LAVALAND_ATMOS"
 	},
+/area/ruin/unpowered)
+"Vh" = (
+/obj/item/shard/titanium,
+/obj/effect/decal/cleanable/glass,
+/obj/machinery/light/small/directional/west,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered)
 "Vs" = (
 /obj/item/stack/sheet/mineral/titanium,
@@ -549,7 +594,7 @@ FL
 FL
 "}
 (6,1,1) = {"
-FL
+JK
 FL
 hT
 yZ
@@ -583,7 +628,7 @@ lu
 Vs
 dK
 Bb
-tp
+HE
 sE
 Lz
 eQ
@@ -627,10 +672,10 @@ lu
 lu
 lu
 sE
-tp
+AB
 se
 FR
-HM
+dy
 yZ
 yZ
 FL
@@ -649,10 +694,10 @@ lu
 lu
 lu
 Ma
-HM
+oo
 Pa
 yZ
-CX
+sU
 yZ
 yZ
 uh
@@ -688,7 +733,7 @@ gP
 VN
 Ee
 Hy
-eQ
+Vh
 rE
 rr
 Lz
@@ -734,7 +779,7 @@ lu
 lu
 Rm
 JN
-Dy
+Rm
 On
 Om
 GZ

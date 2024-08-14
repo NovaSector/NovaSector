@@ -15,7 +15,8 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	/obj/item/reagent_containers/hypospray/medipen, //letting medipens become edible opens them to being injected/drained with IV drip & saltshakers
 )))
 
-/obj/machinery/deepfryer//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/deepfryer //NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+	SET_BASE_VISUAL_PIXEL(0, DEPTH_OFFSET)
 	name = "deep fryer"
 	desc = "Deep fried <i>everything</i>."
 	icon = 'icons/obj/machines/kitchen.dmi'

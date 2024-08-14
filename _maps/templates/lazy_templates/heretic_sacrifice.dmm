@@ -686,6 +686,11 @@
 	slowdown = 0
 	},
 /area/centcom/heretic_sacrifice/ash)
+"VU" = (
+/turf/closed/indestructible/fakedoor/maintenance{
+	dir = 4
+	},
+/area/centcom/heretic_sacrifice/lock)
 "Wb" = (
 /turf/open/misc/asteroid,
 /area/centcom/heretic_sacrifice/void)
@@ -813,8 +818,8 @@ jt
 wo
 wo
 jt
-En
-En
+VU
+VU
 jt
 wo
 wo
@@ -1286,8 +1291,8 @@ jt
 wo
 wo
 jt
-En
-En
+VU
+VU
 jt
 wo
 wo

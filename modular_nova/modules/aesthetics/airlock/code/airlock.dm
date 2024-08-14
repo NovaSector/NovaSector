@@ -143,6 +143,7 @@
 					floorlight.pixel_x = -32
 					floorlight.pixel_y = 0
 			. += floorlight
+	update_greyscale()
 
 //STATION AIRLOCKS
 /obj/machinery/door/airlock
