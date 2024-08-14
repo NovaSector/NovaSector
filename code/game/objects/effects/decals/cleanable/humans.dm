@@ -466,5 +466,3 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 	the_window.vis_contents += final_splatter
 	the_window.bloodied = TRUE
 	qdel(src)
-
-
