@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Implants like drills and Qani-Laaca computers are no longer held in by glue, and can be dropped when removed."

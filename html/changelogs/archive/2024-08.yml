@@ -293,12 +293,54 @@
   - balance: removes the prybar frontier tool's availability from direct cargo imports
   - balance: the colony fabricator flatpack is 25% more expensive (1500cr)
 2024-08-10:
-  dis-integrates-the-integration-tests:
-  - qol: Shibari Rope stacks now fit in boxes.
+  FlufflesTheDog:
+  - bugfix: tadpoles can actually be scooped from ponds
   SmArtKar:
   - bugfix: Circuit UI scale no longer has weird rounding
   - bugfix: Circuit UI no longer gets covered by components menu
   - bugfix: Fixed Charlie MOD installer not installing MODsuit unless you have a backpack
       to drop
-  FlufflesTheDog:
-  - bugfix: tadpoles can actually be scooped from ponds
+  dis-integrates-the-integration-tests:
+  - qol: Shibari Rope stacks now fit in boxes.
+2024-08-14:
+  00-Steven:
+  - bugfix: (Nova) Fixes a host of things that are supposed to elevate you (like beds,
+      crates, somesuch) not actually elevating you.
+  - qol: (Nova) Changes the offsets for being on or being buckled to pillow piles.
+  - bugfix: (Nova) Fixed NIF persistence.
+  - bugfix: (Nova) Clothing that shows anthro ears no longer also hides belt items.
+      This would usually be hats.
+  BigAganoo:
+  - rscadd: Added four cosmetic versions of job-exclusive plasmaman envirosuits.
+  - rscadd: Added six plasmaman-exclusive envirosuit kits to the inhand loadout menu.
+      Dripless skeletons rejoice!
+  Draggeru:
+  - qol: Expands the ckey whitelist of the feathered serenity cloak
+  ? GoldenAlpharex for the code and additional sprite work, Halcyon for the original
+    sprite, Thlumyn for using it to update the regular wedding dress sprite
+  : - image: Updates the sprite of the wedding dress, making it recolorable and adding
+        it to the loadout.
+    - image: Adds an recolorable wedding dress with ribbon to the loadout and the
+        AutoDrobe, how cute!
+  Neocloudy:
+  - rscdel: (Nova) You can no longer randomly roll the Primal Instincts brain trauma
+  SmArtKar:
+  - bugfix: Circuit UI scale no longer has weird rounding
+  - bugfix: Circuit UI no longer gets covered by components menu
+  - bugfix: Fixed Charlie MOD installer not installing MODsuit unless you have a backpack
+      to drop
+  Stalkeros:
+  - rscadd: Added the entirety of colonial apparel, as well as colonial rations and
+      pouches to the loadout
+  - bugfix: Colonial pouch now can hold four small items, instead of four tiny items
+  grungussuss:
+  - sound: awoo, honk, mggaow and bark emote sounds no longer pierce through walls.
+  honkpocket:
+  - balance: Akulas **NEED** to be wet to breath Oxygen
+  - balance: Akulas inherit zero-g mobility from the carp traits
+  - balance: Akulas inherit biting with the mouth instead of punching with fists from
+      the carp traits
+  - balance: Akulas no longer default with the fishbowl, instead gaining the new Stardress
+      Vaporizer accessory
+  - bugfix: Akula wetsuit outfits no longer have an error icon_state
+  - bugfix: You no longer get dusted upon trying to store your supermatter sliver.

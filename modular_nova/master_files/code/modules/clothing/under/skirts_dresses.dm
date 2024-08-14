@@ -196,6 +196,26 @@
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/obj/item/clothing/under/dress/wedding_dress
+	icon_state = "wedding_dress"
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	greyscale_config = /datum/greyscale_config/wedding_dress
+	greyscale_config_worn = /datum/greyscale_config/wedding_dress/worn
+	greyscale_colors = "#FFFFFF"
+	body_parts_covered = CHEST|GROIN|LEGS
+	flags_inv = HIDESHOES
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/under/dress/wedding_dress/ribbon
+	name = "wedding dress with ribbon"
+	desc = "A luxurious gown for once-in-a-lifetime occasions. Now with a cute ribbon, because you deserve it!"
+	icon_state = "wedding_dress_with_ribbon"
+	greyscale_colors = "#FFFFFF#FF0000"
+	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
+	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
+
 /*
  *	Others
  */

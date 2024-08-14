@@ -121,7 +121,6 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/awoo.ogg'
-	sound_wall_ignore = TRUE
 
 /datum/emote/living/nya
 	key = "nya"
@@ -170,7 +169,6 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/bark2.ogg'
-	sound_wall_ignore = TRUE
 
 /datum/emote/living/squish
 	key = "squish"
@@ -532,7 +530,6 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/goose_honk.ogg'
-	sound_wall_ignore = TRUE
 
 /datum/emote/living/mggaow
 	key = "mggaow"
@@ -541,7 +538,6 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/mggaow.ogg'
-	sound_wall_ignore = TRUE
 
 /datum/emote/living/mrrp
 	key = "mrrp"
