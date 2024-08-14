@@ -79,5 +79,16 @@
 /obj/item/food/onion_slice
 	grind_results = list(/datum/reagent/consumable/onionjuice = 20)
 
+//this has been added in to avoid an error? apparently some weird subsystem decided the condiments are soups now so they need these, silly.
 
+/datum/glass_style/has_foodtype/soup/coconut_milk
+	required_drink_type = /datum/reagent/consumable/coconut_milk
+	drink_type = VEGETABLES
 
+/datum/glass_style/has_foodtype/soup/curry_powder
+	required_drink_type = /datum/reagent/consumable/curry_powder
+	drink_type = VEGETABLES
+
+/datum/glass_style/has_foodtype/soup/red_bay
+	required_drink_type = /datum/reagent/consumable/red_bay
+	drink_type = VEGETABLES

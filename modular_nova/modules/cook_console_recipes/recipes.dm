@@ -15,6 +15,7 @@
 	)
 
 /datum/crafting_recipe/food/reaction/soup/homemadedashi
+	result = /datum/reagent/consumable/nutriment/soup/dashi
 	reaction = /datum/chemical_reaction/food/soup/homemadedashi
 	category = CAT_MARTIAN
 
@@ -29,7 +30,8 @@
 		/datum/reagent/consumable/coconut_milk = 2,
 	)
 
-/datum/crafting_recipe/food/reaction/soup/substitutecoconutmilk
+/datum/crafting_recipe/food/reaction/food/substitutecoconutmilk
+	result = /datum/reagent/consumable/coconut_milk
 	reaction = /datum/chemical_reaction/food/soup/substitutecoconutmilk
 	category = CAT_MARTIAN
 
@@ -44,6 +46,7 @@
 	)
 
 /datum/crafting_recipe/food/reaction/soup/currypowder
+	result = /datum/reagent/consumable/curry_powder
 	reaction = /datum/chemical_reaction/food/soup/currypowder
 	category = CAT_MARTIAN
 
@@ -60,6 +63,7 @@
 	)
 
 /datum/crafting_recipe/food/reaction/soup/redbay
+	result = /datum/reagent/consumable/red_bay
 	reaction = /datum/chemical_reaction/food/soup/redbay
 	category = CAT_MARTIAN
 
