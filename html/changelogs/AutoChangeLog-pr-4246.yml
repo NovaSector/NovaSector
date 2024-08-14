@@ -1,5 +1,0 @@
-author: "GoldenAlpharex for the code and additional sprite work, Halcyon for the original sprite, Thlumyn for using it to update the regular wedding dress sprite"
-delete-after: True
-changes:
-  - image: "Updates the sprite of the wedding dress, making it recolorable and adding it to the loadout."
-  - image: "Adds an recolorable wedding dress with ribbon to the loadout and the AutoDrobe, how cute!"

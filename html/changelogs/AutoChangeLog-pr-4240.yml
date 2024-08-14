@@ -1,4 +1,0 @@
-author: "00-Steven"
-delete-after: True
-changes:
-  - bugfix: "(Nova) Clothing that shows anthro ears no longer also hides belt items. This would usually be hats."

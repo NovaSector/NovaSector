@@ -1,8 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - balance: "Akulas **NEED** to be wet to breath Oxygen"
-  - balance: "Akulas inherit zero-g mobility from the carp traits"
-  - balance: "Akulas inherit biting with the mouth instead of punching with fists from the carp traits"
-  - balance: "Akulas no longer default with the fishbowl, instead gaining the new Stardress Vaporizer accessory"
-  - bugfix: "Akula wetsuit outfits no longer have an error icon_state"

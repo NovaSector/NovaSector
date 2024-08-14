@@ -1,5 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - rscadd: "Added the entirety of colonial apparel, as well as colonial rations and pouches to the loadout"
-  - bugfix: "Colonial pouch now can hold four small items, instead of four tiny items"
