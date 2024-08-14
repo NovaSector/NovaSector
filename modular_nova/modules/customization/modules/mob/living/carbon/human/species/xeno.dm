@@ -94,19 +94,16 @@
 	. = ..()
 	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
 
-
-///Xenohybrid blood color tweaks
-//Spray blood into a direction
-/mob/living/carbon/human/spray_blood(splatter_direction, splatter_strength = 3)
-	if(!isxenohybrid(src))
+//Xenohybrid blood trails
+/mob/living/carbon/human/getTrail()
+	if(get_blood_id() != /datum/reagent/toxin/acid)
 		return ..()
-	if(!isturf(loc))
-		return
-	var/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/our_splatter = new(loc)
-	var/turf/target = get_ranged_target_turf(src, splatter_direction, splatter_strength)
-	our_splatter.fly_towards(target, splatter_strength)
+	if(getBruteLoss() < 300)
+		return pick (list("xltrails_1", "xltrails2"))
+	else
+		return pick (list("xttrails_1", "xttrails2"))
 
-//Xenoblood version of spray effect
+///Xenohybrid additional blood color decals
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
 	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
 	icon_state = "xhitsplatter1"
@@ -114,80 +111,12 @@
 	blood_state = BLOOD_STATE_XENO
 	blood_dna_info = list("UNKNOWN DNA" = "X*")
 
-//Spray effect onto a structure
-/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/Bump(atom/bumped_atom)
-	if(!iswallturf(bumped_atom) && !istype(bumped_atom, /obj/structure/window))
-		qdel(src)
-		return
-
-	if(istype(bumped_atom, /obj/structure/window))
-		var/obj/structure/window/bumped_window = bumped_atom
-		if(!bumped_window.fulltile)
-			hit_endpoint = TRUE
-			qdel(src)
-			return
-
-	hit_endpoint = TRUE
-	if(isturf(prev_loc))
-		abstract_move(bumped_atom)
-		skip = TRUE
-		//Adjust pixel offset to make splatters appear on the wall
-		if(istype(bumped_atom, /obj/structure/window))
-			land_on_window(bumped_atom)
-		else
-			var/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window/final_splatter = new(prev_loc)
-			final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
-			final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
-	else // This will only happen if prev_loc is not even a turf, which is highly unlikely.
-		abstract_move(bumped_atom)
-		qdel(src)
-
-//Window decal effect
-/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood/land_on_window(obj/structure/window/the_window)
-	if(!the_window.fulltile)
-		return
-	var/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window/final_splatter = new
-	final_splatter.forceMove(the_window)
-	the_window.vis_contents += final_splatter
-	the_window.bloodied = TRUE
-	qdel(src)
-
 /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window // special layer/plane set to appear on windows
 	layer = ABOVE_WINDOW_LAYER
 	plane = GAME_PLANE
 	vis_flags = VIS_INHERIT_PLANE
 	alpha = 180
 
-//Bleed onto the floor with dripping functionality
-/mob/living/carbon/human/add_splatter_floor(turf/target, small_drip)
-	if(!isxenohybrid(src))
-		return ..()
-	if(!target)
-		target = get_turf(src)
-	if(isclosedturf(target) || (isgroundlessturf(target) && !GET_TURF_BELOW(target)))
-		return
-
-	if(small_drip)
-		var/obj/effect/decal/cleanable/blood/drip/xenoblood/drop = locate() in target
-		if(drop)
-			if(drop.drips < 5)
-				drop.drips++
-				drop.add_overlay(pick(drop.random_icon_states))
-				return
-			else
-				qdel(drop)//the drip is replaced by a bigger splatter
-		else
-			drop = new(target, get_static_viruses())
-			return
-
-	var/obj/effect/decal/cleanable/xenoblood/blood = locate() in target
-	if(!blood)
-		blood = new /obj/effect/decal/cleanable/xenoblood/xsplatter(target, get_static_viruses())
-	if(QDELETED(blood))
-		return
-	blood.bloodiness = min((blood.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
-
-//Xenoblood version of blood drip drop
 /obj/effect/decal/cleanable/blood/drip/xenoblood
 	name = "drips of blood"
 	desc = "It's green."
@@ -201,33 +130,6 @@
 /obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
 	. = ..()
 	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
-
-//Xenoblood trails
-/mob/living/carbon/human/getTrail()
-	if(!isxenohybrid(src))
-		return ..()
-	if(getBruteLoss() < 300)
-		return pick (list("xltrails_1", "xltrails2"))
-	else
-		return pick (list("xttrails_1", "xttrails2"))
-
-///Xenohybrid gib and dust tweaks
-/mob/living/carbon/human/spawn_gibs(drop_bitflags=NONE)
-	if(!isxenohybrid(src))
-		return ..()
-	if(drop_bitflags & DROP_BODYPARTS)
-		new /obj/effect/gibspawner/xeno(drop_location(), src, get_static_viruses())
-	else
-		new /obj/effect/gibspawner/xeno/bodypartless(drop_location(), src, get_static_viruses())
-
-/mob/living/carbon/human/spawn_dust(just_ash = FALSE)
-	if(!isxenohybrid(src))
-		return ..()
-	if(just_ash)
-		new /obj/effect/decal/cleanable/ash(loc)
-	else
-		new /obj/effect/decal/remains/xeno(loc)
-
 
 ///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
@@ -285,3 +187,20 @@
 		chem.toxpwr = 0
 
 #undef BUILD_DURATION
+
+///Xenohybrid gib and dust tweaks
+/mob/living/carbon/human/spawn_gibs(drop_bitflags=NONE)
+	if(!isxenohybrid(src))
+		return ..()
+	if(drop_bitflags & DROP_BODYPARTS)
+		new /obj/effect/gibspawner/xeno(drop_location(), src, get_static_viruses())
+	else
+		new /obj/effect/gibspawner/xeno/bodypartless(drop_location(), src, get_static_viruses())
+
+/mob/living/carbon/human/spawn_dust(just_ash = FALSE)
+	if(!isxenohybrid(src))
+		return ..()
+	if(just_ash)
+		new /obj/effect/decal/cleanable/ash(loc)
+	else
+		new /obj/effect/decal/remains/xeno(loc)

@@ -151,7 +151,7 @@
 			if(14 to 19)
 				victim.visible_message("<span class='smalldanger'>Blood spews out of [victim]'s mouth from the blow to [victim.p_their()] chest!</span>", span_danger("You spit out a string of blood from the blow to your chest!"), vision_distance=COMBAT_MESSAGE_RANGE)
 				// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
-				if(isxenohybrid(victim))
+				if(victim.get_blood_id() == /datum/reagent/toxin/acid)
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(victim.loc, victim.dir)
 				else
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
@@ -161,7 +161,7 @@
 				victim.visible_message(span_danger("Blood spurts out of [victim]'s mouth from the blow to [victim.p_their()] chest!"), span_danger("<b>You choke up on a spray of blood from the blow to your chest!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled)
 				// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
-				if(isxenohybrid(victim))
+				if(victim.get_blood_id() == /datum/reagent/toxin/acid)
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(victim.loc, victim.dir)
 				else
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
