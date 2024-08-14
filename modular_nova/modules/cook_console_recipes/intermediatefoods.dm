@@ -1,7 +1,7 @@
 // a few simple food items/reagents used as ingredients. mostly dried forms of normal foods to give the new dehydrator a use.
 // they should be fine to use as normal foods and as ingredients for recipes, don't be shy!
 
-/obj/item/food/driedfish
+/obj/item/food/dried_fish
 	name = "dried fish fillet"
 	desc = "Technically fish jerky?"
 	icon = 'modular_nova/modules/cook_console_recipes/icons.dmi'
@@ -18,9 +18,9 @@
 
 /obj/item/food/fishmeat/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/dryable, /obj/item/food/driedfish)
+	AddElement(/datum/element/dryable, /obj/item/food/dried_fish)
 
-/obj/item/food/driedchili
+/obj/item/food/dried_chili
 	name = "dried chili"
 	desc = "It's spicy! Wait... it's dry too."
 	icon = 'modular_nova/modules/cook_console_recipes/icons.dmi'
@@ -31,13 +31,13 @@
 	)
 	tastes = list("dry heat" = 1)
 	foodtypes = FRUIT
-	grind_results = list(/datum/reagent/consumable/chilipowder = 20)
+	grind_results = list(/datum/reagent/consumable/chili_powder = 20)
 
 /obj/item/food/grown/chili/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/dryable, /obj/item/food/driedchili)
+	AddElement(/datum/element/dryable, /obj/item/food/dried_chili)
 
-/obj/item/food/driedherbs
+/obj/item/food/dried_herbs
 	name = "bundle of dried herbs"
 	desc = "A bundle of various dried herbs. shouldn't be too hard to crumble up the one you want."
 	icon = 'modular_nova/modules/cook_console_recipes/icons.dmi'
@@ -51,7 +51,7 @@
 
 /obj/item/food/grown/herbs/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/dryable, /obj/item/food/driedherbs)
+	AddElement(/datum/element/dryable, /obj/item/food/dried_herbs)
 
 
 /datum/reagent/consumable/bonito
@@ -62,7 +62,7 @@
 	taste_mult = 1.5
 
 
-/datum/reagent/consumable/chilipowder
+/datum/reagent/consumable/chili_powder
 	name = "Chili Powder"
 	description = "\"No, no, chili p's my signature!\""
 	color = "#88100a"
@@ -70,14 +70,14 @@
 	taste_mult = 1.5
 
 
-/datum/reagent/consumable/onionjuice
+/datum/reagent/consumable/onion_juice
 	name = "Onion Juice"
 	description = "Like tear juice but more palatable."
 	color = "#1bf5ea"
 	taste_description = "onion"
 
 /obj/item/food/onion_slice
-	grind_results = list(/datum/reagent/consumable/onionjuice = 20)
+	grind_results = list(/datum/reagent/consumable/onion_juice = 20)
 
 //this has been added in to avoid an error? apparently some weird subsystem decided the condiments are soups now so they need these, silly.
 
