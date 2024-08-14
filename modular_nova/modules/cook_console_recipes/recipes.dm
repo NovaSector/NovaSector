@@ -20,7 +20,7 @@
 	category = CAT_MARTIAN
 
 
-/datum/chemical_reaction/food/soup/substitute_coconutmilk
+/datum/chemical_reaction/food/soup/substitute_coconut_milk
 	required_reagents = list(
 		/datum/reagent/consumable/korta_milk = 1,
 		/datum/reagent/water = 1,
@@ -30,9 +30,9 @@
 		/datum/reagent/consumable/coconut_milk = 2,
 	)
 
-/datum/crafting_recipe/food/reaction/food/substitute_coconutmilk
+/datum/crafting_recipe/food/reaction/food/substitute_coconut_milk
 	result = /datum/reagent/consumable/coconut_milk
-	reaction = /datum/chemical_reaction/food/soup/substitute_coconutmilk
+	reaction = /datum/chemical_reaction/food/soup/substitute_coconut_milk
 	category = CAT_MARTIAN
 
 
@@ -93,7 +93,8 @@
 /datum/crafting_recipe/food/can_of_chap
 	name = "Can of CHAP"
 	time = 40
-	reqs = list(/obj/item/stack/sheet/iron = 1,
+	reqs = list(
+		/obj/item/stack/sheet/iron = 1,
 		/obj/item/food/meat/slab = 2
 	)
 	result = /obj/item/food/canned/chap
