@@ -413,7 +413,7 @@
 	icon_state = "moffra"
 
 /datum/sprite_accessory/wings/moth/lightbearer
-	name = "Lightbearer"
+	name = "Moth (Lightbearer)"
 	icon_state = "lightbearer"
 
 /datum/sprite_accessory/wings/mammal/top/arfel_harpy
