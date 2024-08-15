@@ -8,6 +8,7 @@
 /obj/item/bodypart/chest/lizard/ashwalker
 	brute_modifier = ASHWALKER_BRUTE_MODIFIER
 	burn_modifier = ASHWALKER_BURN_MODIFIER
+	bodypart_traits = list(TRAIT_NO_UNDERWEAR)
 
 /obj/item/bodypart/arm/left/lizard/ashwalker
 	brute_modifier = ASHWALKER_BRUTE_MODIFIER
