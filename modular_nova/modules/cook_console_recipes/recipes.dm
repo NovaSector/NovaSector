@@ -126,13 +126,13 @@
 	category = CAT_MARTIAN
 
 
-/datum/crafting_recipe/food/drying/driedchili
+/datum/crafting_recipe/food/drying/dried_chili
 	reqs = list(/obj/item/food/grown/chili = 1)
 	result = /obj/item/food/dried_chili
 	category = CAT_MARTIAN
 
 
-/datum/crafting_recipe/food/drying/driedherbs
+/datum/crafting_recipe/food/drying/dried_herbs
 	reqs = list(/obj/item/food/grown/herbs = 1)
 	result = /obj/item/food/dried_herbs
 	category = CAT_MARTIAN
