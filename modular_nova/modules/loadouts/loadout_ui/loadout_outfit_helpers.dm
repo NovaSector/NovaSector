@@ -46,36 +46,48 @@
 	var/list/loadout_list = preference_source?.read_preference(/datum/preference/loadout)
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
 	var/obj/item/storage/briefcase/empty/briefcase
+	var/obj/item/storage/box/erp/erpbox
+	var/erp_enabled = !CONFIG_GET(flag/disable_erp_preferences)
 	if(override_preference == LOADOUT_OVERRIDE_CASE && !visuals_only)
 		briefcase = new(loc)
-
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if (!item.can_be_applied_to(src, preference_source, equipping_job))
-				continue
-			new item.item_path(briefcase)
+			if (erp_enabled && item.erp_box == TRUE)
+				if (isnull(erpbox))
+					erpbox = new(loc)
+				new item.item_path(erpbox)
+			else
+				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+					continue
+				new item.item_path(briefcase)
 
 		briefcase.name = "[preference_source.read_preference(/datum/preference/name/real_name)]'s travel suitcase"
 		equipOutfit(equipped_outfit, visuals_only)
 		put_in_hands(briefcase)
 	else
 		for(var/datum/loadout_item/item as anything in loadout_datums)
-			if (!item.can_be_applied_to(src, preference_source, equipping_job))
-				continue
+			if (erp_enabled && item.erp_box == TRUE)
+				if (isnull(erpbox))
+					erpbox = new(loc)
+				new item.item_path(erpbox)
+			else
+				if (!item.can_be_applied_to(src, preference_source, equipping_job))
+					continue
 
-			// Make sure the item is not overriding an important for life outfit item
-			var/datum/outfit/outfit_important_for_life = dna.species.outfit_important_for_life
-			if(!outfit_important_for_life || !item.pre_equip_item(equipped_outfit, outfit_important_for_life, src, visuals_only))
-				item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
-
+				// Make sure the item is not overriding an important for life outfit item
+				var/datum/outfit/outfit_important_for_life = dna.species.outfit_important_for_life
+				if(!outfit_important_for_life || !item.pre_equip_item(equipped_outfit, outfit_important_for_life, src, visuals_only))
+					item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
 		equipOutfit(equipped_outfit, visuals_only)
 
-	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.contents
+	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.get_all_contents()
 
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
 			continue
 
 		var/obj/item/equipped = locate(item.item_path) in new_contents
+		if (!isnull(erpbox) && item.erp_box)
+			equipped = locate(item.item_path) in erpbox
 		for(var/atom/equipped_item in new_contents)
 			if(equipped_item.type == item.item_path)
 				equipped = equipped_item
@@ -95,6 +107,12 @@
 	if(preference_source?.read_preference(/datum/preference/toggle/green_pin))
 		var/obj/item/clothing/under/uniform = w_uniform
 		uniform?.attach_accessory(new /obj/item/clothing/accessory/green_pin(), src, FALSE)
+
+	if (!isnull(erpbox))
+		if (!isnull(briefcase))
+			briefcase.contents += erpbox
+		else
+			erpbox.equip_to_best_slot(src)
 
 	regenerate_icons()
 	return TRUE
