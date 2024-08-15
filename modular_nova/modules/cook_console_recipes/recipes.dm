@@ -19,7 +19,6 @@
 	reaction = /datum/chemical_reaction/food/soup/homemade_dashi
 	category = CAT_MARTIAN
 
-
 /datum/chemical_reaction/food/soup/substitute_coconut_milk
 	required_reagents = list(
 		/datum/reagent/consumable/korta_milk = 1,
@@ -35,7 +34,6 @@
 	reaction = /datum/chemical_reaction/food/soup/substitute_coconut_milk
 	category = CAT_MARTIAN
 
-
 /datum/chemical_reaction/food/soup/curry_powder
 	required_reagents = list(
 		/datum/reagent/consumable/chili_powder = 10,
@@ -49,7 +47,6 @@
 	result = /datum/reagent/consumable/curry_powder
 	reaction = /datum/chemical_reaction/food/soup/curry_powder
 	category = CAT_MARTIAN
-
 
 /datum/chemical_reaction/food/soup/red_bay
 	required_reagents = list(
@@ -66,7 +63,6 @@
 	result = /datum/reagent/consumable/red_bay
 	reaction = /datum/chemical_reaction/food/soup/red_bay
 	category = CAT_MARTIAN
-
 
 /datum/chemical_reaction/food/worcestershire_sauce
 	results = list(
@@ -100,7 +96,6 @@
 	result = /obj/item/food/canned/chap
 	category = CAT_MEAT
 
-
 /datum/crafting_recipe/food/grinder/chili_powder
 	reqs = list(/obj/item/food/dried_chili = 1)
 	result = /datum/reagent/consumable/chili_powder
@@ -108,7 +103,6 @@
 /datum/crafting_recipe/food/grinder/bonito
 	reqs = list(/obj/item/food/dried_fish = 1)
 	result = /datum/reagent/consumable/bonito
-
 
 /datum/food_processor_process/moonfish_eggs
 	input = /obj/item/fish/dwarf_moonfish
@@ -119,18 +113,15 @@
 	result = /obj/item/food/moonfish_eggs
 	category = CAT_SEAFOOD
 
-
 /datum/crafting_recipe/food/drying/dried_fish
 	reqs = list(/obj/item/food/fishmeat = 1)
 	result = /obj/item/food/dried_fish
 	category = CAT_MARTIAN
 
-
 /datum/crafting_recipe/food/drying/dried_chili
 	reqs = list(/obj/item/food/grown/chili = 1)
 	result = /obj/item/food/dried_chili
 	category = CAT_MARTIAN
-
 
 /datum/crafting_recipe/food/drying/dried_herbs
 	reqs = list(/obj/item/food/grown/herbs = 1)
