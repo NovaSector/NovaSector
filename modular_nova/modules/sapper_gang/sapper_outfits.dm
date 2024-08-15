@@ -100,6 +100,7 @@
 	desc = "Lace-up steel-tipped shiny black workboots, nothing can get through these."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "boots"
+	body_parts_covered = FEET|LEGS
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
 	inhand_icon_state = "jackboots"
 	armor_type = /datum/armor/shoes_combat
