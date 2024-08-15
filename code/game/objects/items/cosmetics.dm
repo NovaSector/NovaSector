@@ -111,6 +111,7 @@
 	icon_state = "slipstick"
 	lipstick_color = COLOR_SYNDIE_RED
 	lipstick_trait = TRAIT_SYNDIE_KISS
+	icon =  'icons/obj/cosmetic.dmi' // NOVA EDIT ADDITION - We do not have an icon for this, use TG's
 
 /obj/item/lipstick/random
 	name = "lipstick"
