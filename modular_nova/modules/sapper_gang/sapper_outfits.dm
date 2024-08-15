@@ -73,6 +73,7 @@
 	desc = "A sleek black jacket with <b>laser-reflective</b> 'heatsilk' lining and a high-visibility pair of slacks, comfortable, safe, efficient."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "suit_pants"
+	body_parts_covered = CHEST|GROIN|ARMS // The pants or skirt grant no protection, that's what the boots are for
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
 	inhand_icon_state = "engi_suit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -91,7 +92,6 @@
 	name = "\improper Sapper skirt"
 	desc = "A sleek black jacket with <b>laser-reflective</b> 'heatsilk' lining and a high-visibility skirt, comfortable, safe, efficient."
 	icon_state = "suit_skirt"
-	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 
