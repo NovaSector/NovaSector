@@ -70,7 +70,7 @@
 	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/left_arm
 
 /datum/augment_item/implant/l_arm/electrical_toolset
-	name = "Left Electrical Toolset Implant (Screwdriver + Multitool)"
+	name = "Left Electrical Toolset Implant (Screwdriver + Multitool + Wirecutters)"
 	cost = 8
 	path = /obj/item/organ/internal/cyberimp/arm/electrical_toolset/left_arm
 
@@ -129,7 +129,7 @@
 	path = /obj/item/organ/internal/cyberimp/arm/arc_welder/right_arm
 
 /datum/augment_item/implant/r_arm/electrical_toolset
-	name = "Right Electrical Toolset Implant (Screwdriver + Multitool)"
+	name = "Right Electrical Toolset Implant (Screwdriver + Multitool + Wirecutters)"
 	cost = 8
 	path = /obj/item/organ/internal/cyberimp/arm/electrical_toolset/right_arm
 

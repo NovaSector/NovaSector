@@ -213,3 +213,208 @@
   - qol: Hides the 'no texture' checkerboard sprite when wearing medkits on the suitslot
   rutek-code:
   - bugfix: Fixes the broken medical record consoles in SerenityStation.
+2024-08-08:
+  Absolucy:
+  - bugfix: Fixed a runtime error after draining a heretic influence.
+  Ben10Omintrix:
+  - bugfix: juvenile lobstrosities will now look for food
+  - refactor: refactors pet collars and cultist pets into elements
+  CliffracerX:
+  - rscadd: donator item for CosmicLAER
+  EnterTheJake:
+  - image: Ash Blade has received a new sprite.
+  Gaxeer:
+  - rscdel: Remove narsie and ratvar plushies from loadout
+  Iamgoofball:
+  - bugfix: Fixes Service Guards not being able to use their batons in the Bar Lounge
+      or the Delta Service Promenade.
+  LT3:
+  - bugfix: Fixed players being incorrectly immune to certain virus severities
+  Linkbro1:
+  - rscadd: wirecutters to the electrician toolset implant!
+  MTandi:
+  - bugfix: Smartfridges properly dispense `\Improper` items
+  MrMelbert, SmArtKar:
+  - bugfix: Holding someone at gunpoint no longer makes all shots count as point blank
+  OrionTheFox:
+  - image: added and updated belt/suit/mask storage sprites for several knives missing
+      them
+  Rhials:
+  - sound: Zipties no longer make handcuff noises when picked up or dropped.
+  SmArtKar:
+  - bugfix: Plasmamen helmets now display their smiles + can be painted with spraycans
+  - image: Resprited teleporter beacons
+  - code_imp: Removed multiple cases of unnecessary updatehealth
+  - image: Updated clipboard sprite, adds white and black clipboard skins for med/sci
+      and security
+  - bugfix: Bitrunning crate capture zones can no longer be destroyed
+  - bugfix: Lizards no longer die from cold on icebox despite wearing insulation
+  - bugfix: Tinacusiate no longer changes hearing spans for every single person in-game
+  - bugfix: Fixed handyman assistants spawning without a PDA
+  - bugfix: Elevator music no longer restarts when you take a step
+  Watermelon914:
+  - bugfix: Fixed an infinite TC glitch dupe
+  Y0SH1M4S73R:
+  - bugfix: lua scripting now works on linux
+  - admin: The "Suppress Runtime Logging" toggle in the lua editor actually does what
+      it says
+  dis-integrates-the-integration-tests:
+  - bugfix: Shock Collar is now properly recognized as a lewd item, and thus can be
+      removed using the Remove verb.
+  honkpocket:
+  - rscadd: '''Cybersun Training Sim'' DM arena'
+  - bugfix: Snowglobe's service guard kiosk its windoor now requires security access
+      to open
+  - balance: Xenohybrids inherit the initial heal factor of xenomorph resin weeds,
+      instead of 0
+  mc-oofert:
+  - admin: fix hard restart option
+  sqnztb:
+  - rscadd: a few donation items for sqn
+  - rscadd: Added a donator box for donator items. People with multiple Donator items
+      can open a PR to create their own variant of it to contain all of their donator
+      items, to avoid inventory clutter.
+2024-08-09:
+  Linkbro1:
+  - spellcheck: made Miecz ammo boxes and magazines state the correct capacity
+  OrbisAnima:
+  - rscadd: "Presenting the Lustwish\u2122 Sponsored new Loadout Category, why buy\
+      \ your favorite items on station when you can do it from the security of your\
+      \ own home? We ship up to seven items from our catalog to any part of the Sector,\
+      \ and if you act now, we will offer them in our exclusive lavish box, completly\
+      \ free of charge and packpaged with love to ensure whats private remain private\
+      \ if you choose to!"
+  - rscadd: Added a few missing pieces of clothing to the Loadout (A maid uniform,
+      latex complementary items, a black belt, a strip outfit)
+  honkpocket:
+  - rscadd: Craftable cardboard 'flat' box that can be hidden beneath floor tiles
+  - rscadd: Changes the hiss1 emote to hiss and lets xenohybrids xenohiss
+  - rscadd: Xenohybrids now have a different gasp sound
+  - balance: removes the prybar frontier tool's availability from direct cargo imports
+  - balance: the colony fabricator flatpack is 25% more expensive (1500cr)
+2024-08-10:
+  FlufflesTheDog:
+  - bugfix: tadpoles can actually be scooped from ponds
+  SmArtKar:
+  - bugfix: Circuit UI scale no longer has weird rounding
+  - bugfix: Circuit UI no longer gets covered by components menu
+  - bugfix: Fixed Charlie MOD installer not installing MODsuit unless you have a backpack
+      to drop
+  dis-integrates-the-integration-tests:
+  - qol: Shibari Rope stacks now fit in boxes.
+2024-08-14:
+  00-Steven:
+  - bugfix: (Nova) Fixes a host of things that are supposed to elevate you (like beds,
+      crates, somesuch) not actually elevating you.
+  - qol: (Nova) Changes the offsets for being on or being buckled to pillow piles.
+  - bugfix: (Nova) Fixed NIF persistence.
+  - bugfix: (Nova) Clothing that shows anthro ears no longer also hides belt items.
+      This would usually be hats.
+  BigAganoo:
+  - rscadd: Added four cosmetic versions of job-exclusive plasmaman envirosuits.
+  - rscadd: Added six plasmaman-exclusive envirosuit kits to the inhand loadout menu.
+      Dripless skeletons rejoice!
+  Draggeru:
+  - qol: Expands the ckey whitelist of the feathered serenity cloak
+  ? GoldenAlpharex for the code and additional sprite work, Halcyon for the original
+    sprite, Thlumyn for using it to update the regular wedding dress sprite
+  : - image: Updates the sprite of the wedding dress, making it recolorable and adding
+        it to the loadout.
+    - image: Adds an recolorable wedding dress with ribbon to the loadout and the
+        AutoDrobe, how cute!
+  Neocloudy:
+  - rscdel: (Nova) You can no longer randomly roll the Primal Instincts brain trauma
+  SmArtKar:
+  - bugfix: Circuit UI scale no longer has weird rounding
+  - bugfix: Circuit UI no longer gets covered by components menu
+  - bugfix: Fixed Charlie MOD installer not installing MODsuit unless you have a backpack
+      to drop
+  Stalkeros:
+  - rscadd: Added the entirety of colonial apparel, as well as colonial rations and
+      pouches to the loadout
+  - bugfix: Colonial pouch now can hold four small items, instead of four tiny items
+  grungussuss:
+  - sound: awoo, honk, mggaow and bark emote sounds no longer pierce through walls.
+  honkpocket:
+  - balance: Akulas **NEED** to be wet to breath Oxygen
+  - balance: Akulas inherit zero-g mobility from the carp traits
+  - balance: Akulas inherit biting with the mouth instead of punching with fists from
+      the carp traits
+  - balance: Akulas no longer default with the fishbowl, instead gaining the new Stardress
+      Vaporizer accessory
+  - bugfix: Akula wetsuit outfits no longer have an error icon_state
+  - bugfix: You no longer get dusted upon trying to store your supermatter sliver.
+2024-08-15:
+  Archemagus:
+  - bugfix: Strange zeros in paid off citations on sec records
+  - bugfix: Now invalidating citations works
+  - bugfix: You can change crimes description
+  - bugfix: Synths have 'armory access' for sec records logic
+  - qol: Paying off citation now automaticaly voiding it
+  - qol: Crime issuer can void the crime without armory access
+  - qol: In case of invalidation crime shows who voided it
+  Ben10Omintrix:
+  - bugfix: wolf AI will no longer get stuck
+  DaCoolBoss:
+  - spellcheck: fixed many incorrect spellings of Waffle Corp and Donk Co.
+  Dmeto:
+  - bugfix: Wawastation Science is connected to distro,Floor Electrical Relay cable
+      fixed
+  FlufflesTheDog:
+  - bugfix: Implants like drills and Qani-Laaca computers are no longer held in by
+      glue, and can be dropped when removed.
+  - bugfix: Loadout items that spawn nested in another item can be customized
+  - bugfix: Serenity telecomms & AI sat have a properly charged SMES, that won't die
+      as quickly at the beginning of the shift.
+  - bugfix: bows in the ashwalker camp are no longer invisible
+  - bugfix: A restraining order has been placed on medibots on behalf of synthetic
+      crew members due to reports of harassment.
+  Majkl-J:
+  - bugfix: Felinids no longer phase through diagonal gaps upon seeing a laser
+  Oxotnak:
+  - rscadd: Added moth bodyparts to synth species
+  Runi-c:
+  - bugfix: Wellcheers no longer does nothing half the time
+  SmArtKar:
+  - bugfix: Circuit health analyzer/state components now work on targets inside lockers
+  - image: Resprited all main assemblies
+  - bugfix: Ninjas can cloak again
+  - image: Durand shield got a glowup
+  - bugfix: Durand shield no longer instantly drains its battery
+  - bugfix: Mech UI no longer lies about the amount of power your mech has left
+  - bugfix: Fixed chanterelles runtiming upon being hollowed out with a spoon and
+      not spawning a hat
+  - bugfix: Ash drakes no longer get stuck in flight if their target changes Z levels
+      or is destroyed and doesn't spawn lavaland turfs after the lava arena attack
+      ends
+  - bugfix: Fixed shuttle loan paperwork being unstampable
+  - balance: Multiple gloves/shoes that had armor values but failed to apply them
+      got fixed
+  - bugfix: Bubblegum can no longer bloodcrawl to other Z levels
+  - bugfix: Fixed bileworms not having a deaggro range
+  - bugfix: You no longer kill yourself in cockroach form if you attempt to unposess
+      it
+  - bugfix: Fixed DNA samplers not being able to interact with non-scannable objects
+  - bugfix: Fake aurora caelus event no longer permanently paints space green
+  - bugfix: Fixed monk staffs not displaying a wielded sprite
+  - bugfix: You can no longer shove people into closets through directional glass
+  - bugfix: Slimes no longer can feed when they're inside of objects or attacking
+      a target that became invalid after they chose their dinner
+  Vekter:
+  - balance: Removes the research requirement from cyborg endoskeletons, meaning they
+      can be built at roundstart again.
+  grungussuss:
+  - sound: ore and sandstone blocks have their own sound
+  - balance: bushes and other flora have had their HP reduced from 150 to 100. Trees
+      still have 150 HP
+  - balance: flora now has an X4 modifier to damage from burn sources
+  - balance: MODsuits now deploy 2 times faster
+  - balance: The infiltrator MODsuit now deploys 4 times faster
+  grungussuss and kayozz:
+  - sound: white noise from some ambience sounds has been pruned
+  imedial:
+  - bugfix: fixed nested radios with encryption keys giving free comms
+  lbnesquik:
+  - rscadd: Added a cyborg plunger for janitorial modules
+  raffclar:
+  - bugfix: Various fixes to TGUI notepad

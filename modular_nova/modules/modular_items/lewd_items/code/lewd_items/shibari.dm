@@ -6,6 +6,7 @@
 /obj/item/stack/shibari_rope
 	name = "shibari ropes"
 	desc = "Coil of bondage ropes."
+	full_w_class = WEIGHT_CLASS_SMALL
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "shibari_rope"
 	amount = 1
@@ -39,6 +40,7 @@
 /obj/item/stack/shibari_rope/glow
 	name = "glowy shibari ropes"
 	singular_name = "glowy rope"
+	full_w_class = WEIGHT_CLASS_SMALL
 	merge_type = /obj/item/stack/shibari_rope/glow
 	icon_state = "shibari_rope_glow"
 	light_system = OVERLAY_LIGHT

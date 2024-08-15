@@ -33,20 +33,18 @@
 	)
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	. = ..()
 	if(isteshari(owner))
-		return ..()
+		return
 	bodypart_overlay = new()
 	limb.add_bodypart_overlay(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
-	if(isteshari(owner))
-		return ..()
-	limb.remove_bodypart_overlay(bodypart_overlay)
+/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
+	. = ..()
+	bodypart_owner?.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	organ_owner.update_body_parts()
 
 /obj/item/autosurgeon/syndicate/sandy
 	name = "\improper Qani-Laaca sensory computer autosurgeon"
@@ -142,20 +140,19 @@
 	var/datum/bodypart_overlay/simple/hackerman/bodypart_overlay
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	. = ..()
 	if(isteshari(owner))
-		return ..()
+		return
 	bodypart_overlay = new()
 	limb.add_bodypart_overlay(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
-	if(isteshari(owner))
-		return ..()
-	limb.remove_bodypart_overlay(bodypart_overlay)
+/obj/item/organ/internal/cyberimp/hackerman_deck/on_mob_remove(mob/living/carbon/organ_owner, special)
+	. = ..()
+	bodypart_owner?.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	organ_owner.update_body_parts()
+
 
 /datum/bodypart_overlay/simple/hackerman
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'

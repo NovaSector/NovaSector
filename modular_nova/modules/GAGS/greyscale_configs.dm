@@ -1290,6 +1290,25 @@
 	name = "Long Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/wedding_dress
+	name = "Wedding Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/wedding_dress.json'
+
+/datum/greyscale_config/wedding_dress/worn
+	name = "Wedding Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/wedding_dress_ribbon
+	name = "Wedding Dress With Ribbon"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/wedding_dress_ribbon.json'
+
+/datum/greyscale_config/wedding_dress_ribbon/worn
+	name = "Wedding Dress With Ribbon (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+
 // KILT
 // COSTUMES
 

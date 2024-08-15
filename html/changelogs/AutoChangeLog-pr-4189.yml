@@ -1,4 +1,0 @@
-author: "honkpocket"
-delete-after: True
-changes:
-  - balance: "Xenohybrids inherit the initial heal factor of xenomorph resin weeds, instead of 0"

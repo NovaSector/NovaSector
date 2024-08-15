@@ -15,7 +15,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	//The sound this plays on impact.
-	var/hitsound // NOVA EDIT CHANGE
+	var/hitsound // NOVA EDIT CHANGE - ORIGINAL: var/hitsound = 'sound/weapons/pierce.ogg'
 	var/hitsound_wall = ""
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -299,6 +299,11 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
+	if(isturf(target_turf) && hitsound_wall)
+		var/volume = clamp(vol_by_damage() + 20, 0, 100)
+		if(suppressed)
+			volume = 5
+		playsound(loc, hitsound_wall, volume, TRUE, -1)
 	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS
 	var/impact_sound
 	if(hitsound)
@@ -308,6 +313,8 @@
 		get_sfx()
 	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
+	/* NOVA EDIT REMOVAL START - We use our own sounds above
+	NOVA EDIT REMOVAL END */
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
 		var/turf/closed/wall/target_wall = target_turf
@@ -321,13 +328,6 @@
 	if(!isliving(target))
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_turf, hitx, hity)
-		/* NOVA EDIT REMOVAL - IMPACT SOUNDS
-		if(isturf(target) && hitsound_wall)
-			var/volume = clamp(vol_by_damage() + 20, 0, 100)
-			if(suppressed)
-				volume = 5
-			playsound(loc, hitsound_wall, volume, TRUE, -1)
-		NOVA EDIT REMOVAL END */
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -592,7 +592,7 @@
 		var/mob/M = firer
 		if((target == firer) || ((target == firer.loc) && ismecha(firer.loc)) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
 			return FALSE
-	if(ignored_factions?.len && ismob(target) && (!direct_target || ignore_direct_target)) //NOVA EDIT: ignore_direct_target
+	if(ignored_factions?.len && ismob(target) && (!direct_target || ignore_direct_target)) // NOVA EDIT CHANGE - ORIGINAL: if(ignored_factions?.len && ismob(target) && !direct_target)
 		var/mob/target_mob = target
 		if(faction_check(target_mob.faction, ignored_factions))
 			return FALSE
