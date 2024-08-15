@@ -53,7 +53,7 @@
 
 /obj/item/clothing/mask/gas/atmos/sapper
 	name = "\improper Sapper gas mask"
-	desc = "A modified black gas mask with a yellow painted bottom and digitally expressive eyes, its framing is laser-reflective."
+	desc = "A modified black gas mask with a yellow painted bottom and digitally expressive eyes, its framing is <b>laser-reflective</b>."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "mask_one"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
@@ -70,14 +70,14 @@
 
 /obj/item/clothing/under/sapper
 	name = "\improper Sapper slacks"
-	desc = "A sleek black jacket with <b>laser-reflective</b> AND <b>fire-proof</b> 'heatsilk' lining and a high-visibility pair of slacks, comfortable, safe, efficient."
+	desc = "A sleek black jacket with <b>laser-reflective</b> 'heatsilk' lining and a high-visibility pair of slacks, comfortable, safe, efficient."
 	icon = 'modular_nova/modules/sapper_gang/sapper_obj.dmi'
 	icon_state = "suit_pants"
 	worn_icon = 'modular_nova/modules/sapper_gang/sapper.dmi'
 	inhand_icon_state = "engi_suit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	has_sensor = NO_SENSORS
-	armor_type = /datum/armor/clothing_under/sapper
+	armor_type = /datum/armor/clothing_under/rank_security
 	can_adjust = FALSE
 	var/hit_reflect_chance = 55
 
@@ -89,18 +89,11 @@
 
 /obj/item/clothing/under/sapper/skirt
 	name = "\improper Sapper skirt"
-	desc = "A sleek black jacket with <b>laser-reflective</b> and <b>fire-proof</b> 'heatsilk' lining and a high-visibility skirt, comfortable, safe, efficient."
+	desc = "A sleek black jacket with <b>laser-reflective</b> 'heatsilk' lining and a high-visibility skirt, comfortable, safe, efficient."
 	icon_state = "suit_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
-
-/datum/armor/clothing_under/sapper
-	melee = 25
-	wound = 20
-	laser = 35
-	fire = 95
-	acid = 45
 
 /obj/item/clothing/shoes/workboots/sapper
 	name = "black work boots"
