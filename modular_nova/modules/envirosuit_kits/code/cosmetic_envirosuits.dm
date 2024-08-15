@@ -34,7 +34,7 @@
 	icon = 'icons/obj/clothing/head/plasmaman_hats.dmi'
 	icon_state = "explorer_envirohelm"
 
-/// Prototype Envirosuit, renamed Curator suit SUBTYPE
+/// Prototype Envirosuit, renamed Curator suit
 
 /obj/item/clothing/under/plasmaman/prototype
 	name = "protoype envirosuit"
