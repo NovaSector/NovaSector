@@ -91,7 +91,7 @@
 	time = 40
 	reqs = list(
 		/obj/item/stack/sheet/iron = 1,
-		/obj/item/food/meat/slab = 2
+		/obj/item/food/meat/slab = 2,
 	)
 	result = /obj/item/food/canned/chap
 	category = CAT_MEAT
