@@ -60,8 +60,8 @@
 	desc = "A box containing a complete prototype plasmaman envirosuit. For the most nostalgic of bones."
 
 /obj/item/storage/box/envirosuit/prototype/PopulateContents()
-	new /obj/item/clothing/under/plasmaman/prototype(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman/prototype(src)
+	new /obj/item/clothing/under/plasmaman/curator/prototype(src)
+	new /obj/item/clothing/head/helmet/space/plasmaman/curator/prototype(src)
 	new /obj/item/clothing/gloves/color/plasmaman/prototype(src)
 
 
