@@ -36,11 +36,18 @@
 
 /// Prototype Envirosuit, renamed Curator suit SUBTYPE
 
-/obj/item/clothing/under/plasmaman/curator/prototype
+/obj/item/clothing/under/plasmaman/prototype
 	name = "protoype envirosuit"
 	desc = "Made out of a modified voidsuit, this suit was Nanotrasen's first solution to the *logistical problems* that come with employing plasmamen. Due to the modifications, the suit is no longer space-worthy. Despite their limitations, these suits are still in use by historians and old-skool plasmamen alike."
+	icon = 'icons/obj/clothing/under/plasmaman.dmi'
+	icon_state = "prototype_envirosuit"
 
-/obj/item/clothing/head/helmet/space/plasmaman/curator/prototype
+/obj/item/clothing/head/helmet/space/plasmaman/prototype
 	name = "prototype plasma envirosuit helmet"
 	desc = "A slight modification on a traditional voidsuit helmet, this helmet was Nanotrasen's first solution to the *logistical problems* that come with employing plasmamen. Despite their limitations, these helmets still see use by historians and old-skool plasmamen alike."
+	icon_state = "prototype_envirohelm"
+	inhand_icon_state = "void_helmet"
+	actions_types = list(/datum/action/item_action/toggle_welding_screen)
+	smile_state = "prototype_smile"
+	visor_icon = "prototype_envisor"
 
