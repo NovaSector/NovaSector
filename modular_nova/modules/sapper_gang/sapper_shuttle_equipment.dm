@@ -41,20 +41,18 @@
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper
 	name = "offensive turret capsule"
-	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire .35 Sol ammunition."
+	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire <i>4.6x30mm</i> auto-rifle ammunition."
 	icon_state = "sapper_toolbox"
 	inhand_icon_state = null
-	mag_slots = 2
 	turret_safety = FALSE
 	faction = list(FACTION_SAPPER)
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
 	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/ammo_box/magazine/wt550m9,
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	new /obj/item/ammo_box/magazine/wt550m9(src)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
 	name = "\improper Sapper Spider Turret"
