@@ -150,6 +150,10 @@
 /obj/structure/fluff/beach_umbrella/cap,
 /turf/open/misc/beach/sand,
 /area/awaymission/beach)
+"cf" = (
+/obj/item/broken_bottle,
+/turf/open/misc/beach/sand,
+/area/awaymission/beach)
 "cj" = (
 /obj/effect/turf_decal/siding/dark_red{
 	dir = 4
@@ -277,16 +281,6 @@
 "dr" = (
 /obj/structure/musician/piano,
 /turf/open/floor/wood,
-/area/awaymission/beach)
-"dx" = (
-/obj/structure/sign/directions/dorms/directional/north{
-	pixel_y = 35
-	},
-/obj/structure/sign/directions/medical/directional/north{
-	pixel_y = 29
-	},
-/obj/machinery/computer/slot_machine,
-/turf/open/floor/wood/large,
 /area/awaymission/beach)
 "dL" = (
 /obj/machinery/door/airlock/public/glass{
@@ -2208,6 +2202,10 @@
 	dir = 8
 	},
 /area/awaymission/beach)
+"Ct" = (
+/obj/effect/spawner/random/trash/cigbutt,
+/turf/open/misc/beach/sand,
+/area/awaymission/beach)
 "Cv" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -2308,6 +2306,11 @@
 	pixel_x = -16
 	},
 /turf/open/floor/eighties,
+/area/awaymission/beach)
+"Dz" = (
+/obj/effect/mob_spawn/corpse/human/old_pirate_captain,
+/obj/structure/bed/maint,
+/turf/open/misc/beach/sand,
 /area/awaymission/beach)
 "DD" = (
 /obj/structure/closet{
@@ -3537,6 +3540,12 @@
 /obj/item/toy/plush/shark,
 /turf/open/floor/eighties,
 /area/awaymission/beach)
+"RT" = (
+/obj/item/fishing_rod,
+/obj/structure/closet/crate/trashcart,
+/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
+/turf/open/misc/beach/sand,
+/area/awaymission/beach)
 "Sg" = (
 /obj/structure/table/bronze,
 /obj/item/reagent_containers/cup/rag{
@@ -3757,6 +3766,17 @@
 	},
 /turf/open/misc/beach/sand,
 /area/awaymission/beach)
+"Vz" = (
+/obj/item/paper/fluff/old_pirate_note{
+	pixel_x = -5;
+	pixel_y = -7
+	},
+/obj/item/pen/fountain{
+	pixel_y = -11;
+	pixel_x = -8
+	},
+/turf/open/misc/beach/sand,
+/area/awaymission/beach)
 "VG" = (
 /obj/structure/tank_holder/extinguisher,
 /turf/open/floor/wood/large,
@@ -3767,6 +3787,16 @@
 	pixel_y = -5
 	},
 /turf/open/misc/beach/sand,
+/area/awaymission/beach)
+"VM" = (
+/obj/structure/sign/directions/dorms/directional/north{
+	pixel_y = 35
+	},
+/obj/structure/sign/directions/medical/directional/north{
+	pixel_y = 29
+	},
+/obj/machinery/computer/slot_machine,
+/turf/open/floor/wood/large,
 /area/awaymission/beach)
 "VP" = (
 /obj/structure/dresser,
@@ -7415,8 +7445,8 @@ XB
 XB
 Vf
 YV
-VY
-VY
+RT
+cf
 hL
 ni
 XB
@@ -7672,8 +7702,8 @@ XB
 XB
 Vf
 VY
-VY
-VY
+Ct
+Dz
 Er
 BK
 XB
@@ -7929,7 +7959,7 @@ XB
 XB
 Vf
 VY
-VY
+Vz
 VY
 VY
 BK
@@ -8187,7 +8217,7 @@ XB
 Vf
 IZ
 VY
-VY
+Ct
 VY
 BK
 XB
@@ -13210,7 +13240,7 @@ xv
 xv
 xv
 xv
-dx
+VM
 Zp
 Zp
 mb
