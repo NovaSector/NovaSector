@@ -1,6 +1,0 @@
-author: "Linkbro1"
-delete-after: True
-changes:
-  - rscadd: "Added various recipes for things that were previously exclusive to the produce orders console, such as dashi and coconut milk"
-  - rscadd: "added 3 new intermediate foods to support these recipes, all dried forms of regular foods"
-  - qol: "made existing recipes for vinegar and sake visible in the cookbook"
