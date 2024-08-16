@@ -45,5 +45,6 @@
 /obj/item/clothing/head/helmet/space/plasmaman/prototype
 	name = "prototype plasma envirosuit helmet"
 	desc = "A slight modification on a traditional voidsuit helmet, this helmet was Nanotrasen's first solution to the *logistical problems* that come with employing plasmamen. Despite their limitations, these helmets still see use by historians and old-skool plasmamen alike."
-	icon = 'icons/obj/clothing/head/plasmaman_hats.dmi'
 	icon_state = "prototype_envirohelm"
+	actions_types = list(/datum/action/item_action/toggle_welding_screen)
+
