@@ -171,9 +171,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 			charge_amount -= 15
 			playsound(src, 'sound/surgery/retractor1.ogg', 40, TRUE)
 			update_appearance()
-		else
-			balloon_alert(user, "no damage!")
-			return FALSE
+	else
+		balloon_alert(user, "no damage!")
+		return FALSE
 
 	return TRUE
 
