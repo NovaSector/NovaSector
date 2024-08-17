@@ -399,7 +399,7 @@
  * Sappers
  */
 /datum/round_event_control/sappers
-	max_occurrences = 1
+	max_occurrences = 0
 	weight = LOW_EVENT_FREQ
 
 /**
