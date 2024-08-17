@@ -564,3 +564,9 @@
       for the first time
   tmyqlfpir:
   - balance: Reduced pathfinding circuit component cooldown from 30 seconds to 5 seconds
+2024-08-17:
+  BigAganoo:
+  - bugfix: Removed an unintended helmet light button from the prototype plasmaman
+      envirosuit that led to a missing texture.
+  DaliIsTaken:
+  - bugfix: fixed missing Lightbearer wings and markings
