@@ -14,6 +14,6 @@
 	spawner_job_path = /datum/job/space_sapper
 	random_appearance = FALSE
 
-/obj/effect/mob_spawn/ghost_role/human/sapper/special(mob/living/spawned_mob, mob/mob_possessor)
+/obj/effect/mob_spawn/ghost_role/human/sapper(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	spawned_mob.mind.add_antag_datum(/datum/antagonist/sapper)
