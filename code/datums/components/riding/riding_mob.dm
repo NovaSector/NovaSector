@@ -551,9 +551,9 @@
 
 /datum/component/riding/creature/leaper/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE, potion_boost = FALSE)
 	. = ..()
-	RegisterSignal(riding_mob, COMSIG_MOB_POINTED, PROC_REF(attack_pointed))
+	RegisterSignal(riding_mob, COMSIG_MOVABLE_POINTED, PROC_REF(attack_pointed))
 
-/datum/component/riding/creature/leaper/proc/attack_pointed(mob/living/rider, atom/pointed)
+/datum/component/riding/creature/leaper/proc/attack_pointed(mob/living/rider, atom/pointed, obj/effect/temp_visual/point/point)
 	SIGNAL_HANDLER
 	if(!isclosedturf(pointed))
 		return
@@ -565,7 +565,7 @@
 
 /datum/component/riding/leaper/handle_unbuckle(mob/living/rider)
 	. = ..()
-	UnregisterSignal(rider,  COMSIG_MOB_POINTED)
+	UnregisterSignal(rider,  COMSIG_MOVABLE_POINTED)
 
 //NOVA EDIT ADDITION: Human Riding Defines
 #undef OVERSIZED_OFFSET
