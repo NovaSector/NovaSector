@@ -14,9 +14,9 @@
 	return ..()
 
 /datum/round_event/portal_storm/lavaland
+	boss_types = list(/mob/living/basic/mining/goliath = 1)
 	hostile_types = list(
 		/mob/living/basic/mining/lobstrosity/lava = 2,
-		/mob/living/basic/mining/goliath = 3,
 		/mob/living/basic/mining/brimdemon = 3,
 		/mob/living/basic/mining/legion = 4,
 		/mob/living/basic/mining/watcher = 4,
