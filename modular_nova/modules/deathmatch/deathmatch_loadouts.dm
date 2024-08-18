@@ -28,7 +28,6 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat
-	back = /obj/item/tank/jetpack/void
 	id = /obj/item/card/id/advanced/chameleon
 
 ///force the akula species onto the player

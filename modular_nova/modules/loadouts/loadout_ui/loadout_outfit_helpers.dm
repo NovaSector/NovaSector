@@ -79,7 +79,7 @@
 					item.insert_path_into_outfit(equipped_outfit, src, visuals_only, override_preference)
 		equipOutfit(equipped_outfit, visuals_only)
 
-	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.contents
+	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.get_all_contents()
 
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
