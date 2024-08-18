@@ -116,9 +116,7 @@
 
 	balloon_alert(user, "pAI removed from suit")
 	var/mob/living/silicon/pai/pai_helper = ai_assistant
-	//
-	//pai_helper.can_holo = TRUE
-	//NOVA EDIT REMOVAL END - pAI in modsuits can Holoform
+	//pai_helper.can_holo = TRUE //NOVA EDIT REMOVAL - pAI in modsuits can Holoform
 	pai_helper.card.forceMove(get_turf(src))
 	on_removed_assistant()
 
