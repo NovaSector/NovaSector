@@ -11,7 +11,7 @@
 
 	. = ..()
 	// And now, separately for cleanness, the lighting changing
-	if(!update_state)
+	if(!update_overlay)
 		switch(charging)
 			if(APC_NOT_CHARGING)
 				set_light_color(LIGHT_COLOR_INTENSE_RED)

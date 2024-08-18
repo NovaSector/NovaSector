@@ -197,7 +197,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/time_clock, 28)
 	desc = "Contains all of the parts needed to assemble a wall-mounted time clock"
 	icon_state = "unanchoredstatusdisplay"
 	result_path = /obj/machinery/time_clock
-	pixel_shift = 28
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,

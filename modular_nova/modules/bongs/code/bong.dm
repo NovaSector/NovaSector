@@ -195,7 +195,7 @@
 /// Fake steam effect
 /obj/effect/abstract/fake_steam
 	layer = FLY_LAYER
-	icon = 'icons/effects/atmospherics.dmi'
+	icon = 'icons/effects/atmos/atmospherics.dmi'
 	icon_state = "water_vapor"
 	blocks_emissive = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

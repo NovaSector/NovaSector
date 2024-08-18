@@ -1,6 +1,5 @@
 /turf/closed/wall
 	icon = 'modular_nova/modules/aesthetics/walls/icons/wall.dmi'
-	canSmoothWith = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 
 /turf/closed/wall/r_wall
 	icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi'
@@ -14,7 +13,6 @@
 	icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi'
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
-	base_decon_state = "r_wall"
 
 /turf/closed/wall/material
 	icon = 'modular_nova/modules/aesthetics/walls/icons/material_wall.dmi'

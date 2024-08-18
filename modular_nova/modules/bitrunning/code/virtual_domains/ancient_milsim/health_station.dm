@@ -185,4 +185,3 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	w_class = WEIGHT_CLASS_HUGE
 	result_path = /obj/machinery/health_station
 	wall_external = TRUE
-	pixel_shift = 32

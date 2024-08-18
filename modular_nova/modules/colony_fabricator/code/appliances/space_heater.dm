@@ -58,7 +58,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	icon_state = "sheater-off"
 	w_class = WEIGHT_CLASS_NORMAL
 	result_path = /obj/machinery/space_heater/wall_mounted
-	pixel_shift = 29
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,

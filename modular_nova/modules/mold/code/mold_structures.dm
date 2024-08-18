@@ -305,13 +305,13 @@
 /obj/structure/mold/structure/wall
 	name = "mold wall"
 	desc = "Looks like some kind of thick resin."
-	icon = 'icons/obj/smooth_structures/alien/resin_wall.dmi'
+	icon = 'icons/obj/smooth_structures/alien/resin_wall_1.dmi'
 	icon_state = "resin_wall-0"
 	base_icon_state = "resin_wall"
 	opacity = TRUE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_ALIEN_RESIN
-	canSmoothWith = SMOOTH_GROUP_ALIEN_RESIN
+	smoothing_groups = SMOOTH_GROUP_ALIEN_WALLS
+	canSmoothWith = SMOOTH_GROUP_ALIEN_WALLS
 	max_integrity = 200
 	can_atmos_pass = ATMOS_PASS_DENSITY
 

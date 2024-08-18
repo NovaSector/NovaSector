@@ -47,7 +47,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/biogenerator/medstation, 29)
 	icon_state = "biogenerator_parts"
 	w_class = WEIGHT_CLASS_NORMAL
 	result_path = /obj/machinery/biogenerator/medstation
-	pixel_shift = 29
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 3,

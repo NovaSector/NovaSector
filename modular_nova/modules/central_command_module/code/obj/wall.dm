@@ -12,7 +12,7 @@
 	flags_ricochet = RICOCHET_SHINY | RICOCHET_HARD
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
 	smoothing_groups = SMOOTH_GROUP_TITANIUM_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_TITANIUM_WALLS
+	canSmoothWith = SMOOTH_GROUP_TITANIUM_WALLS
 
 /turf/closed/indestructible/titanium/nodiagonal
 	icon = 'icons/turf/walls/shuttle_wall.dmi'

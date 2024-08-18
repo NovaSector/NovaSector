@@ -182,7 +182,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch/spawns_lit, 28)
 	icon_state = "walltorch_mount"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 	result_path = /obj/structure/wall_torch/mount_only
-	pixel_shift = 28
 
 
 /obj/item/wallframe/torch_mount/try_build(turf/on_wall, mob/user)

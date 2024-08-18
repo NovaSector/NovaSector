@@ -155,7 +155,6 @@
 	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "locker_mount"
 	result_path = /obj/structure/closet/generic/wall/empty
-	pixel_shift = 32
 
 /obj/item/wallframe/emcloset
 	name = "wall mounted emergency closet"
@@ -163,7 +162,6 @@
 	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "emergency_mount"
 	result_path = /obj/structure/closet/emcloset/wall/empty
-	pixel_shift = 32
 
 /obj/item/wallframe/firecloset
 	name = "wall mounted fire-safety closet"
@@ -171,4 +169,3 @@
 	icon = 'modular_nova/master_files/icons/obj/closet_wall.dmi'
 	icon_state = "fire_mount"
 	result_path = /obj/structure/closet/firecloset/wall/empty
-	pixel_shift = 32

@@ -46,7 +46,6 @@
 	name = "clockwork trap item"
 	desc = "It's a... Wait what?"
 	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
-	pixel_shift = 24
 	w_class = WEIGHT_CLASS_HUGE
 	result_path = /obj/structure/destructible/clockwork/trap
 	/// What to show the user if they are a clock cultist

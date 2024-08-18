@@ -53,7 +53,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi/wall_mounted, 29)
 	icon_state = "cell_charger_packed"
 	w_class = WEIGHT_CLASS_NORMAL
 	result_path = /obj/machinery/cell_charger_multi/wall_mounted
-	pixel_shift = 29
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,
