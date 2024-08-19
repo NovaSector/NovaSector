@@ -1,9 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - rscadd: "Ancient Military Simulator reward loadouts have been slightly rebalanced to -hopefully- be equally worthwhile and useful in the long run."
-  - rscdel: "Ancient MilSim's medic loadout's cores are now gone, as a result of that; as that's worth mentioning."
-  - balance: "Ancient MilSim has been insignificantly remapped in general, making the SNPCs (player antags) and NPCs more dangerous and prevalent."
-  - balance: "Ancient MilSim's reward disk has been hidden among the piles of secondary loot, attainable from encrypted curiosities over repeated playthroughs."
-  - balance: "Ancient MilSim's reward MODsuits have been reduced in armoring by a significant amount."
-  - bugfix: "Ancient Military Simulator now finally has a ghost interaction tag."
