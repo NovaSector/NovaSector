@@ -1,4 +1,0 @@
-author: "dis-integrates-the-integration-tests"
-delete-after: True
-changes:
-  - qol: "Meow faster! Scream faster! Mrrp faster! Everything faster! (Global Emote cooldowns 5s -> 2s)"
