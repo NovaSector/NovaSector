@@ -993,7 +993,7 @@
 			aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
 		markings_alpha = owner_species.markings_alpha
 	// NOVA EDIT END
-	recolor_external_organs()
+	recolor_bodypart_overlays()
 	return TRUE
 
 //to update the bodypart's icon when not attached to a mob
@@ -1371,7 +1371,7 @@
 		QDEL_NULL(current_gauze)
 
 ///Loops through all of the bodypart's external organs and update's their color.
-/obj/item/bodypart/proc/recolor_external_organs()
+/obj/item/bodypart/proc/recolor_bodypart_overlays()
 	for(var/datum/bodypart_overlay/mutant/overlay in bodypart_overlays)
 		overlay.inherit_color(src, force = TRUE)
 
