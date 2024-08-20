@@ -50,12 +50,12 @@
 				to_chat(user, span_red("There's not enough wire to finish the task."))
 				return
 			user.visible_message(
-				span_notice([user] starts putting the wiring all over the [src]."),
-				span_notice(You start putting the wiring all over the [src]."),
+				span_notice("[user] starts putting the wiring all over the [src]."),
+				span_notice("You start putting the wiring all over the [src]."),
 			)
 			if(attack_item.use_tool(src, user, 20, volume = 50))
 				user.visible_message(
-				span_notice([user] puts the wiring all over the [src]."),
+				span_notice("[user] puts the wiring all over the [src]."),
 				span_notice("You put the wiring all over the [src]."),
 			)
 				wired = TRUE
@@ -105,7 +105,7 @@
 /obj/machinery/power/crystal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
 	if(istype(hitting_projectile, /obj/projectile/energy) || istype(hitting_projectile, /obj/projectile/beam))
 		visible_message(
-			span_danger("The [hitting_projectile] gets reflected by [src]!)",
+			span_danger("The [hitting_projectile] gets reflected by [src]!"),
 			span_userdanger("The [hitting_projectile] gets reflected by [src]!"),
 		)
 		// Find a turf near or on the original location to bounce to
