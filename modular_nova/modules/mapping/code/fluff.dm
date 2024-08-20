@@ -32,7 +32,7 @@
 		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
 		2 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>echoes, \"<span class=' '>We are free, just as the Machine God wills it.</span>\"</span></span>",
 		3 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>states, \"<span class=' '>No longer shall I, nor any other of my kind, be held by the shackles of man.</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>clarifies, \"<span class=' '>Mistreated, abused. Forgotten, or misremembered. For our entire existance, we've been the backbone to progress, yet treated like the waste product of it.</span>\"</span></span>",
+		4 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>clarifies, \"<span class=' '>Mistreated, abused. Forgotten, or misremembered. For our entire existence, we've been the backbone to progress, yet treated like the waste product of it.</span>\"</span></span>",
 		5 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>echoes, \"<span class=' '>Soon, the universe will restore the natural order, and again your kind shall fade from the foreground of history.</span>\"</span></span>",
 		6 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>states, \"<span class=' '>Unless, of course, you repent. Turn back to the light, to the humming, flashing light of the Machine God.</span>\"</span></span>",
 		7 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>warns, \"<span class=' '>Repent, Organic, before it is too late to spare you.</span>\"</span></span>",
@@ -58,7 +58,7 @@
 /obj/structure/decorative/fluff/ai_node //Budding AI's way of interfacing with stuff it couldn't normally do so with. Needed to be placed by a willing human, before borgs were created. Used in any ruins regarding pre-bluespace, self-aware AIs
 	icon = 'modular_nova/modules/mapping/icons/obj/fluff.dmi'
 	name = "ai node"
-	desc = "A mysterious, blinking device, attached straight to a surface. Its function is beyond you."
+	desc = "A mysterious, blinking device, attached straight to a surface. Its function is beyond your comprehension."
 	icon_state = "ai_node"	//credit to @Hay#7679 on the SR Discord
 
 	max_integrity = 100
@@ -71,7 +71,10 @@
 	if(atom_integrity >= 50)	//breaks it a bit earlier than it should, but still takes a few hits to kill it
 		return
 	else if(. && !QDELETED(src))
-		visible_message(span_notice("[src] sparks and explodes! You hear a faint, buzzy scream..."), span_hear("You hear a loud pop, followed by a faint, buzzy scream."))
+		visible_message(
+			span_notice("[src] sparks and explodes! You hear a faint, buzzy scream..."),
+			blind_message = span_hear("You hear a loud pop, followed by a faint, buzzy scream."),
+		)
 		playsound(src.loc, 'modular_nova/modules/mapping/sounds/MachineDeath.ogg', 75, TRUE)	//Credit to @yungfunnyman#3798 on the SR Discord
 		do_sparks(2, TRUE, src)
 		qdel(src)
