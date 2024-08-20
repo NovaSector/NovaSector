@@ -96,18 +96,6 @@
 	name = "Space-Ruin Shuttle 8532"
 	description = "While nobody can predict what space has to offer for the sailors that ride its waves, nobody is quite expecting a meteroid half the size of your shuttle to split it in half."
 
-/datum/map_template/ruin/space/nova/ghostship
-	id = "ghostship"
-	suffix = "ghostship.dmm"
-	name = "Space-Ruin Ghost Ship"
-	description = "An ancient ship, seemingly pre-bluespace in design yet retrofitted with newer systems. Seemingly just up-and-abandoned in the middle of space..."
-
-/datum/map_template/ruin/space/nova/salvagepost
-	id = "salvagepost"
-	suffix = "salvagepost.dmm"
-	name = "Space-Ruin Pre-Bluespace Salvage Post"
-	description = "An extremely old, long forgotten post used to salvage damaged or decommissioned ships before bluespace transportation. Surprising it's stayed intact so long."
-
 /datum/map_template/ruin/space/nova/vaulttango
 	id = "vaulttango"
 	suffix = "vaulttango.dmm"
