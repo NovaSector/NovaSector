@@ -9,10 +9,8 @@
 // Large finds - (Potentially) active alien machinery from the dawn of time
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TO DO LIST:
-// * Consider about adding constructshell back
-// * Do something about hoverpod, its quite useless now. Maybe get a chance to find a space pod
-// * Consider adding more big artifacts
-// * Add more effects from /vg/
+// * More effects!!!
+// * More artifact types!!!
 //
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,16 +24,27 @@
 	density = TRUE
 	opacity = 1
 	anchored = TRUE
+	/// If TRUE - shows dug depth in description
 	var/measured = FALSE
+	/// If TRUE - shows approximate_excavation_level in description
 	var/holomark = FALSE
+	/// If TRUE - shows target_excavation_level in description
 	var/holomark_adv = FALSE
+	/// Is our boulder stabilized and ready to be uncovered
 	var/stabilised = FALSE
+	/// Currently dug depth
 	var/excavation_level = 0
+	/// How much do we need to dig
 	var/target_excavation_level = 0
+	/// Used to show target_excavation_level +- 15 cm
 	var/approximate_excavation_level = 0
+	/// Loot drop from boulder
 	var/artifact_find_type
+	/// Fluff text
 	var/artifact_id
+	/// What type of stabilization field we need to use
 	var/artifact_stabilizing_field
+	/// Fluff text
 	var/artifact_age
 
 /obj/structure/boulder/examine(mob/user)
@@ -97,14 +106,16 @@
 	else if(iscyborg(who_moved))
 		var/mob/living/silicon/robot/robot_mob = who_moved
 		if(istype(robot_mob.module_active, /obj/item/xenoarch/hammer))
-			attackby(robot_mob.module_active, Robot)
+			attackby(robot_mob.module_active, robot_mob)
 
+/// Adds holomark
 /obj/structure/boulder/proc/get_scanned(advanced)
 	if (advanced)
 		holomark_adv = TRUE
 	holomark = TRUE
 	return TRUE
 
+/// Stabilizes boulder
 /obj/structure/boulder/proc/get_stabilised()
 	if (stabilised)
 		return FALSE
@@ -112,6 +123,7 @@
 		stabilised = TRUE
 		return TRUE
 
+/// Adds holomark with dug depth
 /obj/structure/boulder/proc/get_measured()
 	if (measured)
 		return FALSE
@@ -119,6 +131,7 @@
 		measured = TRUE
 		return TRUE
 
+/// Proc name really says its all
 /obj/structure/boulder/proc/try_dig(dig_amount)
 	if(!dig_amount)
 		return DIG_UNDEFINED
@@ -128,6 +141,8 @@
 		return DIG_DELETE
 	return DIG_ROCK
 
+/// Trying to delete boulder and spawn artifact
+/// Fails if dug too deep and adds 1 cm
 /obj/structure/boulder/proc/try_uncover()
 	if(excavation_level > target_excavation_level)
 		qdel(src)
@@ -164,8 +179,8 @@
 			if(DIG_ROCK)
 				to_chat(user, span_notice("You successfully dig the boulder. The item inside seems to be still intact."))
 				user.visible_message(
-				span_notice("[user] successfully digs the [src]. The item inside seems to be still intact.")
-				span_notice("You successfully dig the [src]. The item inside seems to be still intact.")
+				span_notice("[user] successfully digs the [src]. The item inside seems to be still intact."),
+				span_notice("You successfully dig the [src]. The item inside seems to be still intact."),
 				blind_message = span_hear("You hear rocks crumbling."),
 			)
 

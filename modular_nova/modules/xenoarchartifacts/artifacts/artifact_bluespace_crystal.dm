@@ -11,7 +11,6 @@
 	max_integrity = 200
 	var/anomaly
 
-
 /obj/machinery/artifact/bluespace_crystal/Initialize(mapload)
 	. = ..()
 	anomaly = pick_weight(list(
