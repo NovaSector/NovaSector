@@ -6,10 +6,10 @@
 	. = ..()
 	if(!.)
 		return
-	for(var/obj/item/stock_parts/power_store/D in user.contents)
-		D.give(1e5)
+	for(var/obj/item/stock_parts/power_store/cell in user.contents)
+		cell.give(1e5)
 	if(issilicon(user))
-		to_chat(user, "<span class='notice'>SYSTEM ALERT: Energy boost detected!</span>")
+		to_chat(user, span_notice("SYSTEM ALERT: Energy boost detected!"))
 
 /datum/artifact_effect/cellcharge/DoEffectAura()
 	. = ..()
@@ -29,29 +29,29 @@
 
 /datum/artifact_effect/cellcharge/proc/try_give_charge(atom/reciever_atmon, power)
 	if(istype(reciever_atmon, /obj/item/stock_parts/power_store))
-		var/obj/item/stock_parts/power_store/C = reciever_atmon
-		C.give(power)
+		var/obj/item/stock_parts/power_store/cell = reciever_atmon
+		cell.give(power)
 	if(istype(reciever_atmon, /obj/machinery/power/apc))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.give(power)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+			cell.give(power)
 	if(istype(reciever_atmon, /obj/machinery/power/smes))
 		var/obj/item/stock_parts/power_store/lucky = reciever_atmon
 		lucky.charge += power
 	if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.give(power)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+			cell.give(power)
 	if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.give(power)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+			cell.give(power)
 	if(istype(reciever_atmon, /obj/item/mod/control))
 		var/obj/item/mod/control/luckymod = reciever_atmon
 		for(var/obj/item/mod/core/luckycore in luckymod.contents)
-			for(var/obj/item/stock_parts/power_store/C in luckycore.contents)
-				C.give(power)
+			for(var/obj/item/stock_parts/power_store/cell in luckycore.contents)
+				cell.give(power)
 	if(issilicon(reciever_atmon))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.give(power)
-		to_chat(reciever_atmon, "<span class='warning'>SYSTEM ALERT: Energy drain detected!</span>")
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+			cell.give(power)
+		to_chat(reciever_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
 
 /datum/artifact_effect/cellcharge/proc/recharge_everything_in_range(power, range)
 	var/turf/curr_turf = get_turf(holder)

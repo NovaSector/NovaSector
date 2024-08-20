@@ -14,7 +14,8 @@
 		"The light seems to flicker.",\
 		"The shadows seem to lengthen.",\
 		"The walls are getting closer.",\
-		"Something is wrong")
+		"Something is wrong",\
+)
 
 #define ARTIFACT_BAD_MESSAGES_MAJOR list(\
 		"You've got to get out of here!",\
@@ -22,7 +23,8 @@
 		"There's something out there!",\
 		"What's happening to you?",\
 		"OH GOD!",\
-		"HELP ME!")
+		"HELP ME!".\
+)
 
 #define ARTIFACT_GOOD_MESSAGES_MINOR list(\
 		"You feel good.",\
@@ -38,7 +40,8 @@
 		"Your scalp prickles.",\
 		"All the colours seem a bit more vibrant.",\
 		"Everything seems a little lighter.",\
-		"The troubles of the world seem to fade away.")
+		"The troubles of the world seem to fade away.",\
+)
 
 #define ARTIFACT_GOOD_MESSAGES_MAJOR list(\
 		"You want to hug everyone you meet!",\
@@ -46,7 +49,8 @@
 		"You feel euphoric.",\
 		"You feel giddy.",\
 		"You're so happy suddenly, you almost want to dance and sing.",\
-		"You feel like the world is out to help you.")
+		"You feel like the world is out to help you.",\
+)
 
 /datum/artifact_effect/feelings
 	type_name = ARTIFACT_EFFECT_PSIONIC
@@ -59,35 +63,35 @@
 		return
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
-	run_send_messages(H, 50, 80)
-	H.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
+	var/mob/living/carbon/human/human_mob = user
+	run_send_messages(human_mob, 50, 80)
+	human_mob.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
 
 /datum/artifact_effect/feelings/DoEffectAura()
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/carbon/human/H in range(range, curr_turf))
-		run_send_messages(H, 5, 10)
-		H.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
+	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
+		run_send_messages(human_mob, 5, 10)
+		human_mob.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
 
 /datum/artifact_effect/feelings/DoEffectPulse()
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/carbon/human/H in range(range, curr_turf))
-		run_send_messages(H, 80, 100)
-		H.adjust_dizzy_up_to(3 SECONDS, 10 SECONDS)
+	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
+		run_send_messages(human_mob, 80, 100)
+		human_mob.adjust_dizzy_up_to(3 SECONDS, 10 SECONDS)
 		if(prob(25))
-			H.adjust_dizzy_up_to(5 SECONDS, 30 SECONDS)
+			human_mob.adjust_dizzy_up_to(5 SECONDS, 30 SECONDS)
 
 /datum/artifact_effect/feelings/DoEffectDestroy()
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/carbon/human/H in range(7, curr_turf))
-		run_send_messages(H, 100, 0)
-		H.adjust_dizzy(30 SECONDS)
+	for(var/mob/living/carbon/human/human_mob in range(7, curr_turf))
+		run_send_messages(human_mob, 100, 0)
+		human_mob.adjust_dizzy(30 SECONDS)
 
 /datum/artifact_effect/feelings/proc/run_send_messages(mob/receiver, drastic_message_chance = 0, normal_message_chance = 0)
 	if(prob(drastic_message_chance))
@@ -131,22 +135,22 @@
 	living_target.add_mood_event("minor_effect_good", /datum/mood_event/artifact_effect_good_minor)
 
 /datum/mood_event/artifact_effect_good_major
-	description = "<span class='nicegreen'>Wooo! What is going on?</span>"
+	description = span_nicegreen("Wooo! What is going on?")
 	mood_change = 10
 	timeout = 10 MINUTES
 
 /datum/mood_event/artifact_effect_good_minor
-	description = "<span class='nicegreen'>I feel strange, but also very relaxed...</span>"
+	description = span_nicegreen("I feel strange, but also very relaxed...")
 	mood_change = 5
 	timeout = 5 MINUTES
 
 /datum/mood_event/artifact_effect_bad_major
-	description = "<span class='warning'>It feels like a gaggle of geese are pecking at my skull.</span>"
+	description = span_warning("It feels like a gaggle of geese are pecking at my skull...")
 	mood_change = -10
 	timeout = 10 MINUTES
 
 /datum/mood_event/artifact_effect_bad_minor
-	description = "<span class='warning'>I feel strange and uneasy...</span>"
+	description = span_warning("I feel strange and uneasy...")
 	mood_change = -5
 	timeout = 5 MINUTES
 

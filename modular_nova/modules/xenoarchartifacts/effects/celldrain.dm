@@ -6,8 +6,8 @@
 	. = ..()
 	if(!.)
 		return
-	for(var/obj/item/stock_parts/power_store/D in user.contents)
-		D.use(1e10) // uh oh
+	for(var/obj/item/stock_parts/power_store/cell in user.contents)
+		cell.use(1e10) // uh oh
 		if(issilicon(user))
 			to_chat(user, "<span class='notice'>SYSTEM ALERT: Massive energy drain detected!</span>")
 
@@ -29,29 +29,29 @@
 
 /datum/artifact_effect/celldrain/proc/try_use_charge(atom/reciever_atmon, power)
 	if(istype(reciever_atmon, /obj/item/stock_parts/power_store))
-		var/obj/item/stock_parts/power_store/C = reciever_atmon
-		C.use(power)
+		var/obj/item/stock_parts/power_store/cell = reciever_atmon
+		cell.use(power)
 	if(istype(reciever_atmon, /obj/machinery/power/apc))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.use(power)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+			cell.use(power)
 	if(istype(reciever_atmon, /obj/machinery/power/smes))
 		var/obj/machinery/power/smes/unlucky = reciever_atmon
 		unlucky.charge -= power
 	if(istype(reciever_atmon, /obj/item/gun/energy))
 		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.use(power)
+			cell.use(power)
 	if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.use(power)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+			cell.use(power)
 	if(istype(reciever_atmon, /obj/item/mod/control))
 		var/obj/item/mod/control/unluckymod = reciever_atmon
 		for(var/obj/item/mod/core/unluckycore in unluckymod.contents)
-			for(var/obj/item/stock_parts/power_store/C in unluckycore.contents)
-				C.use(power)
+			for(var/obj/item/stock_parts/power_store/cell in unluckycore.contents)
+				cell.use(power)
 	if(issilicon(reciever_atmon))
 		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
-			C.use(power)
-		to_chat(reciever_atmon, "<span class='warning'>SYSTEM ALERT: Energy drain detected!</span>")
+			cell.use(power)
+		to_chat(reciever_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
 
 /datum/artifact_effect/celldrain/proc/discharge_everything_in_range(power, range, center)
 	var/turf/curr_turf = get_turf(holder)

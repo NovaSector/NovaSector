@@ -4,7 +4,7 @@
 	type_name = ARTIFACT_EFFECT_ORGANIC
 
 /datum/artifact_effect/bodyhorror/New()
-	..()
+	. = ..()
 	release_method = ARTIFACT_EFFECT_PULSE
 	range = rand(2,5)
 
@@ -19,12 +19,12 @@
 
 /datum/artifact_effect/bodyhorror/proc/mutatelimbs(add_range)
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/carbon/Hooman in range(range + add_range, curr_turf))
-		var/weakness = get_anomaly_protection(Hooman)
-		if(weakness <= 0.5 || Hooman.stat == DEAD || HAS_TRAIT(Hooman, TRAIT_NODISMEMBER))
+	for(var/mob/living/carbon/carbon_mob in range(range + add_range, curr_turf))
+		var/weakness = get_anomaly_protection(carbon_mob)
+		if(weakness <= 0.5 || carbon_mob.stat == DEAD || HAS_TRAIT(carbon_mob, TRAIT_NODISMEMBER))
 			continue
 
-		var/list/zone_candidates = Hooman.get_missing_limbs()
+		var/list/zone_candidates = carbon_mob.get_missing_limbs()
 		for(var/obj/item/bodypart/bodypart in Hooman.bodyparts)
 			if(bodypart.body_zone == BODY_ZONE_HEAD || bodypart.body_zone == BODY_ZONE_CHEST)
 				continue
@@ -38,9 +38,9 @@
 			continue
 
 		var/target_zone = pick(zone_candidates)
-		var/obj/item/bodypart/target_part = Hooman.get_bodypart(target_zone)
+		var/obj/item/bodypart/target_part = carbon_mob.get_bodypart(target_zone)
 		if(isnull(target_part))
-			Hooman.emote("scream") // dismember already makes them scream so only do this if we aren't doing that
+			carbon_mob.emote("scream") // dismember already makes them scream so only do this if we aren't doing that
 		else
 			target_part.dismember()
 
@@ -55,12 +55,11 @@
 			if(BODY_ZONE_R_LEG)
 				part_type = /obj/item/bodypart/leg/right/flesh
 
-		Hooman.visible_message(span_danger("[Hooman][Hooman.p_s()] limb suddenly swells and rips apart, revealing a brand new red bloody flesh!"))
+		carbon_mob.visible_message(span_danger("[carbon_mob][carbon_mob.p_s()] limb suddenly swells and rips apart, revealing brand new red bloody flesh!"))
 		var/obj/item/bodypart/new_bodypart = new part_type()
 		var/mob/living/basic/living_limb_flesh/parasite = new /mob/living/basic/living_limb_flesh
 		parasite.forceMove(new_bodypart)
-		new_bodypart.replace_limb(Hooman, TRUE)
+		new_bodypart.replace_limb(carbon_mob, TRUE)
 		parasite.register_to_limb(new_bodypart)
 		return TRUE
-
 

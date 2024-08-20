@@ -38,8 +38,8 @@
 	// 0 = full protection on both
 	// 2 = zero protection summary
 	if(weakness_caster + weakness_to_swap < 1) { // Either one is fully protected, or they have total protection < 1
-		to_chat(caster, "<span class='notice'>You feel like you've just dodged a bullet.</span>")
-		to_chat(to_swap, "<span class='notice'>You feel like you've just dodged a bullet.</span>")
+		to_chat(caster, span_warning("You feel like you've just dodged a bullet."))
+		to_chat(to_swap, span_warning("You feel like you've just dodged a bullet."))
 		return FALSE
 	}
 
@@ -48,6 +48,17 @@
 		to_swap.mind_initialize()
 	if(!caster.mind)
 		to_swap.mind_initialize()
+
+	var/datum/mind/mind_to_swap = to_swap.mind
+	if(to_swap.can_block_magic(antimagic_flags) \
+		|| mind_to_swap.has_antag_datum(/datum/antagonist/wizard) \
+		|| mind_to_swap.has_antag_datum(/datum/antagonist/cult) \
+		|| mind_to_swap.has_antag_datum(/datum/antagonist/changeling) \
+		|| mind_to_swap.has_antag_datum(/datum/antagonist/rev) \
+		|| mind_to_swap.key?[1] == "@" \
+	)
+		balloon_alert(src, "fizzles out!")
+		return FALSE
 
 	// MIND TRANSFER BEGIN
 
