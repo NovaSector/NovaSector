@@ -1,13 +1,6 @@
 //File for miscellaneous fluff objects, both item and structure
 //This one is specifically for ruin-specific items, such as ID, lore, or super-specific decorations
 
-/* ----------------- ID Cards ----------------- */
-/obj/item/card/id/away/old/salvagepod	//Used for salvagepost ruin access	-- NOT WORKING YET REE
-	name = "Cutter's Pod access card"
-	desc = "An ancient access card with the words \"Cutter's Pod\" printed on in big bold letters. It'll be a miracle if this still works."
-	trim = /datum/id_trim/away/old/eng
-
-
 /* ----------------- Lore ----------------- */
 //Tape subtype for adding ruin lore -- the variables below are the ones you need to change
 /obj/item/tape/ruins
@@ -30,31 +23,6 @@
 	. = ..()
 //End of lore tape subtype
 
-/obj/item/tape/ruins/salvagepost	//End of the cutters shift and he done goofed, left a message for the next one - who never arrived
-	icon_state = "tape_yellow"
-	desc = "The tape is lazily labelled with \"Msg for my replacement\""
-
-	used_capacity = 380
-	storedinfo = list(
-		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
-		2 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>cheerily says, \"<span class=' '>Hey, Cutter! If you're reading this, congratulations on taking over my post. Was waiting to move out to a new system.</span>\"</span></span>",
-		3 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>sighs, \"<span class=' '>Listen, I'll just put it straight - I've left this place in a sorrier state than you deserve.</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>says, \"<span class=' '>We hauled in this big rigger, y'see, and, uh.. the backroom was full of some robotic freakyshit. I panicked and cut a gas line, dropped my grav-cannon...</span>\"</span></span>",
-		5 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>warns, \"<span class=' '>Look, just - be careful when, or if, you crack that thing open. Drain the fuel from the air before it has a chance to light, then... well... I hope you have a gun or some shit for the drones or whatever.</span>\"</span></span>",
-		6 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>states, \"<span class=' '>Anyways, probably droning on at this point, so I'll get out of your hair. Noah's out, off to Mars for this cutter!</span>\"</span></span>",
-		7 = "<span class='game say'><span class='name'>Distorted Voice</span> <span class='message'>warns, \"<span class=' '>Oh, and one last thing! The corpo's at the top left us some of this new experimental \"mindbreaker\", some recreational drug that supposedly can improve your worktime and yada-yada... don't touch it. Gave me a terrible headache. Best of luck!</span>\"</span></span>",
-		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
-	)
-	timestamp = list(
-		1 = 0,
-		2 = 30,
-		3 = 130,
-		4 = 180,
-		5 = 230,
-		6 = 280,
-		7 = 330,
-		8 = 380
-	)
 /obj/item/tape/ruins/ghostship	//An early 'AI' that gained self-awareness, praising the Machine God. Yes, this whole map is a Hardspace Shipbreaker reference.
 	icon_state = "tape_blue"
 	desc = "The tape, aside from some grime, has a... binary label? \"01001101 01100001 01100011 01101000 01101001 01101110 01100101 01000111 01101111 01100100 01000011 01101111 01101101 01100101 01110011\""
