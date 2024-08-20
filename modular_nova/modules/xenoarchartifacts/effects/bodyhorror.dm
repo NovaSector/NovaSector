@@ -25,7 +25,7 @@
 			continue
 
 		var/list/zone_candidates = carbon_mob.get_missing_limbs()
-		for(var/obj/item/bodypart/bodypart in Hooman.bodyparts)
+		for(var/obj/item/bodypart/bodypart in carbon_mob.bodyparts)
 			if(bodypart.body_zone == BODY_ZONE_HEAD || bodypart.body_zone == BODY_ZONE_CHEST)
 				continue
 			if(HAS_TRAIT(bodypart, TRAIT_IGNORED_BY_LIVING_FLESH))

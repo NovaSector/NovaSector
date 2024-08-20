@@ -38,7 +38,7 @@
 		var/obj/machinery/power/smes/unlucky = reciever_atmon
 		unlucky.charge -= power
 	if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
 			cell.use(power)
 	if(istype(reciever_atmon, /obj/item/gun/energy))
 		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
@@ -49,7 +49,7 @@
 			for(var/obj/item/stock_parts/power_store/cell in unluckycore.contents)
 				cell.use(power)
 	if(issilicon(reciever_atmon))
-		for(var/obj/item/stock_parts/power_store/C in reciever_atmon.contents)
+		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
 			cell.use(power)
 		to_chat(reciever_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
 

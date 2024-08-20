@@ -23,7 +23,7 @@
 		"There's something out there!",\
 		"What's happening to you?",\
 		"OH GOD!",\
-		"HELP ME!".\
+		"HELP ME!",\
 )
 
 #define ARTIFACT_GOOD_MESSAGES_MINOR list(\
