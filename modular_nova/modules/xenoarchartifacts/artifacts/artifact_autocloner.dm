@@ -1,6 +1,6 @@
 /obj/machinery/auto_cloner
 	name = "mysterious pod"
-	desc = "It's full of a viscous liquid, but appears dark and silent. Also suprisingly lightweight."
+	desc = "It's full of a viscous liquid, but appears dark and silent. Also surprisingly lightweight."
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/artifacts_64x32.dmi'
 	icon_state = "autocloner_off"
 	var/spawn_type
@@ -73,7 +73,8 @@
 		/mob/living/basic/sheep,
 		/mob/living/basic/alien/maid,
 		/mob/living/carbon/human/species/monkey,
-		/mob/living/basic/pet/cat/fennec)
+		/mob/living/basic/pet/cat/fennec,
+	)
 
 /obj/machinery/auto_cloner/process()
 	if(powered(power_channel))

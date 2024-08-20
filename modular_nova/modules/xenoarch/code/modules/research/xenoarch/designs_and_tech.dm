@@ -86,7 +86,7 @@
 
 /datum/design/xenoarch/tool/particles_battery
 	name = "Exotic particles power battery"
-	desc = "A battery, that can collect exotic particles and release them later, if used proreply."
+	desc = "A battery, that can collect exotic particles and release them later, if used properly."
 	id = "xenoarch_particles_battery"
 	build_path = /obj/item/xenoarch/particles_battery
 	materials = list(

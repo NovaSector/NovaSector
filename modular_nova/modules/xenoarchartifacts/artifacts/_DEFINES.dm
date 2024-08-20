@@ -8,7 +8,8 @@
 #define ARTIFACT_ALL_RELEASE_METHODS list(\
     ARTIFACT_EFFECT_TOUCH,\
     ARTIFACT_EFFECT_AURA,\
-    ARTIFACT_EFFECT_PULSE)
+    ARTIFACT_EFFECT_PULSE,\
+    )
 
 ///artifact trigger types
 #define TRIGGER_TOUCH (1<<2)
@@ -43,7 +44,8 @@
     TRIGGER_PHORON,\
     TRIGGER_OXY,\
     TRIGGER_CO2,\
-    TRIGGER_NITRO)
+    TRIGGER_NITRO,\
+    )
 
 ///artifact icon_num defines
 #define ARTIFACT_WIZARD_LARGE 1
@@ -95,8 +97,8 @@ GLOBAL_LIST_INIT(valid_primary_effect_types, list(
 	/datum/artifact_effect/bodyhorror,
 	/datum/artifact_effect/machinery_mess,
 	/datum/artifact_effect/blood_regen,
-	/datum/artifact_effect/blood_drain
-	))
+	/datum/artifact_effect/blood_drain,
+))
 
 GLOBAL_LIST_INIT(valid_secondary_effect_types, list(
 	/datum/artifact_effect/feelings/bad,
@@ -111,8 +113,8 @@ GLOBAL_LIST_INIT(valid_secondary_effect_types, list(
 	/datum/artifact_effect/roboheal,
 	/datum/artifact_effect/robohurt,
 	/datum/artifact_effect/disgust,
-	/datum/artifact_effect/drugs
-	))
+	/datum/artifact_effect/drugs,
+))
 
 GLOBAL_LIST_INIT(volatile_reagents, list(
 	/datum/reagent/thermite,
@@ -129,6 +131,6 @@ GLOBAL_LIST_INIT(volatile_reagents, list(
 	/datum/reagent/napalm,
 	/datum/reagent/pyrosium,
 	/datum/reagent/teslium,
-	))
+))
 
 GLOBAL_LIST_INIT(artifact_turfs, list())

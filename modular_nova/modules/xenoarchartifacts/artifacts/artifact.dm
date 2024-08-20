@@ -1,10 +1,10 @@
 #define DIG_UNDEFINED 	1
 #define DIG_DELETE 		2
-#define DIG_ROCK		3
+#define DIG_ROCK 3
 
-#define BRUSH_DELETE	1
-#define BRUSH_UNCOVER	2
-#define BRUSH_NONE		3
+#define BRUSH_DELETE 1
+#define BRUSH_UNCOVER 2
+#define BRUSH_NONE 3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Large finds - (Potentially) active alien machinery from the dawn of time
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@
 		/obj/machinery/power/crystal = 100,
 		/obj/machinery/auto_cloner = 100,
 		/obj/machinery/replicator = 100,
-		/obj/machinery/artifact = 1000
+		/obj/machinery/artifact = 1000,
 	))
 	artifact_stabilizing_field = pick(list(
 		"Diffracted carbon dioxide laser",
@@ -66,9 +66,10 @@
 		"Potassium refrigerant cloud",
 		"Mercury dispersion wave",
 		"Iron wafer conduction field",
-		"Calcium binary deoxidiser",
+		"Calcium binary deoxidizer",
 		"Chlorine diffusion emissions",
-		"Phoron saturated field"))
+		"Phoron saturated field",
+	))
 	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha","fluffy","zeta")]-[rand(0,9999)]"
 
 /obj/structure/boulder/proc/spawn_artifact()
@@ -79,24 +80,24 @@
 		else
 			new_artifact.Destroy()
 
-/obj/structure/boulder/Destroy() // spawns and destroys artifact immideately
-	. = ..()
+/obj/structure/boulder/Destroy() // spawns and destroys artifact immediately
 	if (!stabilised)
 		var/obj/machinery/artifact/new_artifact = new artifact_find_type(get_turf(src))
-		new_artifact.Destroy()
+		qdel(new_artifact)
+	return ..()
 
 /obj/structure/boulder/Bumped(who_moved)
 	. = ..()
 	if(ishuman(who_moved))
-		var/mob/living/carbon/human/Human = who_moved
-		var/obj/item/offered_item = Human.get_active_held_item()
+		var/mob/living/carbon/human/human_mob = who_moved
+		var/obj/item/offered_item = human_mob.get_active_held_item()
 		if(istype(offered_item, /obj/item/xenoarch/hammer))
-			attackby(offered_item, Human)
+			attackby(offered_item, human_mob)
 
 	else if(iscyborg(who_moved))
-		var/mob/living/silicon/robot/Robot = who_moved
-		if(istype(Robot.module_active, /obj/item/xenoarch/hammer))
-			attackby(Robot.module_active, Robot)
+		var/mob/living/silicon/robot/robot_mob = who_moved
+		if(istype(robot_mob.module_active, /obj/item/xenoarch/hammer))
+			attackby(robot_mob.module_active, Robot)
 
 /obj/structure/boulder/proc/get_scanned(advanced)
 	if (advanced)
@@ -141,32 +142,43 @@
 /obj/structure/boulder/attackby(obj/item/attack_item, mob/user)
 	. = ..()
 	if(istype(attack_item, /obj/item/pickaxe))
-		to_chat(user, span_notice("You begin smashing the boulder."))
+		user.visible_message(
+			span_notice("[user] begins smashing the [src]..."),
+			span_notice("You begin smashing the [src]...."),
+		)
 		if(!do_after(user, 2.5 SECONDS, target = src))
-			to_chat(user, span_warning("You slip and smash the boulder with extra force!"))
+			user.visible_message(
+				span_warning("[user] slips and smashes the boulder with extra force!"),
+				span_warning("You slip and smash the boulder with extra force!"),
+				blind_message = span_hear("You hear a smash!"),
+			)
 			excavation_level += rand(10,50)
 			return
 		switch(try_dig(25))
-			if(DIG_UNDEFINED)
-				message_admins("Tell coders something broke with xenoarch hammers and dig amount.")
-				return
 			if(DIG_DELETE)
-				to_chat(user, span_warning("The boulder crumbles, leaving nothing behind."))
+				user.visible_message(
+				span_warning("The [src] crumbles, leaving nothing behind."),
+				blind_message = span_hear("You hear rocks crumbling."),
+			)
 				return
 			if(DIG_ROCK)
 				to_chat(user, span_notice("You successfully dig the boulder. The item inside seems to be still intact."))
+				user.visible_message(
+				span_notice("[user] successfully digs the [src]. The item inside seems to be still intact.")
+				span_notice("You successfully dig the [src]. The item inside seems to be still intact.")
+				blind_message = span_hear("You hear rocks crumbling."),
+			)
 
 	if(istype(attack_item, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/hammer = attack_item
-		to_chat(user, span_notice("You begin carefully using your hammer."))
+		to_chat(user, span_notice("You begin carefully using your hammer..."))
 		if(!do_after(user, hammer.dig_speed, target = src))
 			to_chat(user, span_warning("You interrupt your careful planning, damaging the boulder in the process!"))
 			excavation_level += rand(1,5)
 			return
 		switch(try_dig(hammer.dig_amount))
 			if(DIG_UNDEFINED)
-				message_admins("Tell coders something broke with xenoarch hammers and dig amount.")
-				return
+				CRASH("[hammer] tried to call try_dig() with an invalid dig_amount! Must have a positive value.")
 			if(DIG_DELETE)
 				to_chat(user, span_warning("The boulder crumbles, leaving nothing behind."))
 				return
@@ -231,8 +243,6 @@
 		sampler.used = TRUE
 		sampler.icon_state = "sampler"
 		to_chat(user, span_notice("You successfully took a sample of [src]. Now take it to the radiocarbon spectrometer."))
-
-
 
 #undef BRUSH_DELETE
 #undef BRUSH_UNCOVER
