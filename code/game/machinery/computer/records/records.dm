@@ -106,7 +106,6 @@
 			if(!target)
 				return FALSE
 
-			playsound(src, SFX_TERMINAL_TYPE, 50, TRUE)
 			update_preview(user, params["assigned_view"], target)
 			return TRUE
 
