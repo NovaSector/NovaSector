@@ -1,0 +1,4 @@
+author: "honkpocket"
+delete-after: True
+changes:
+  - rscadd: "Xenohybrids now make use of the xenomorph blood decals"
