@@ -345,8 +345,10 @@
 			var/datum/record/crew/target_record = find_record(examined_name)
 			to_chat(usr, "<b>Exploitable information:</b> [target_record.exploitable_information]")
 	if(href_list["medrecords"])
+		var/examined_name = get_face_name(get_id_name("")) //Named as such because this is the name we see when we examine
+		var/datum/record/crew/target_record = find_record(examined_name)
 		to_chat(usr, "<b>Medical Record:</b> [target_record.past_medical_records]")
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
 	..() //end of this massive fucking chain. TODO: make the hud chain not spooky. - Yeah, great job doing that.
 
