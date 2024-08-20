@@ -48,25 +48,24 @@
 		empulse(src, power, 2 * power)
 
 /obj/machinery/artifact/bluespace_crystal/proc/teleport()
-	for (var/mob/living/Mob in range(7, get_turf(src)))
+	for (var/mob/living/living_mob in range(7, get_turf(src)))
 
-		var/weakness = get_anomaly_protection(Mob)
+		var/weakness = get_anomaly_protection(living_mob)
 		if(!weakness)
 			continue
 
-		to_chat(Mob, "<span class='red'>You are displaced by a strange force!</span>")
-		if(Mob.buckled)
-			Mob.buckled.unbuckle_mob()
-
+		to_chat(living_mob, "<span class='red'>You are displaced by a strange force!</span>")
+		if(living_mob.buckled)
+			living_mob.buckled.unbuckle_mob()
 
 		var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread()
-		sparks.set_up(3, 0, get_turf(Mob))
+		sparks.set_up(3, 0, get_turf(living_mob))
 		sparks.start()
 
-		var/turf/target_turf = pick(orange(get_turf(Mob), 20 * weakness))
-		do_teleport(Mob, target_turf, 4)
+		var/turf/target_turf = pick(orange(get_turf(living_mob), 20 * weakness))
+		do_teleport(living_mob, target_turf, 4)
 		sparks = new /datum/effect_system/spark_spread()
-		sparks.set_up(3, 0, get_turf(Mob))
+		sparks.set_up(3, 0, get_turf(living_mob))
 		sparks.start()
 
 /obj/machinery/artifact/bluespace_crystal/ex_act(severity)

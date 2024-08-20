@@ -12,7 +12,7 @@
 	var/datum/artifact_effect/secondary_effect
 	///is artifact busy right now, used it harvester code
 	var/being_used = 0
-	///does our artifact needs an init, dont forget to init turfs in prebuild artifacts if needed
+	///does our artifact needs an init, dont forget to init turfs in prebuilt artifacts if needed
 	var/need_init = TRUE
 	///how often do we scan
 	var/scan_delay = 2 SECONDS
@@ -45,16 +45,16 @@
  */
 /obj/machinery/artifact/proc/init_artifact_type()
 	icon_num = pick(ARTIFACT_WIZARD_LARGE,
-					ARTIFACT_WIZARD_SMALL,
-					ARTIFACT_MARTIAN_LARGE,
-                    ARTIFACT_MARTIAN_SMALL,
-					ARTIFACT_MARTIAN_PINK,
-					ARTIFACT_CUBE,
-                    ARTIFACT_PILLAR,
-					ARTIFACT_COMPUTER,
-					ARTIFACT_VENTS, ARTIFACT_FLOATING,
-                    ARTIFACT_CRYSTAL_GREEN,
-					) // 12th and 13th are just types of crystals, please ignore them at THAT point
+		ARTIFACT_WIZARD_SMALL,
+		ARTIFACT_MARTIAN_LARGE,
+		ARTIFACT_MARTIAN_SMALL,
+		ARTIFACT_MARTIAN_PINK,
+		ARTIFACT_CUBE,
+		ARTIFACT_PILLAR,
+		ARTIFACT_COMPUTER,
+		ARTIFACT_VENTS, ARTIFACT_FLOATING,
+		ARTIFACT_CRYSTAL_GREEN,
+	) // 12th and 13th are just types of crystals, please ignore them at THAT point
 	switch(icon_num)
 		if(ARTIFACT_COMPUTER)
 			name = "alien computer"
@@ -71,9 +71,11 @@
 		if(ARTIFACT_CRYSTAL_GREEN)
 			icon_num = pick(ARTIFACT_CRYSTAL_GREEN, ARTIFACT_CRYSTAL_PURPLE, ARTIFACT_CRYSTAL_BLUE) // now we pick a color
 			name = "large crystal"
-			desc = pick("It shines faintly as it catches the light.", "It appears to have a faint inner glow.",
-                        "It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
-                        "It's mesmerizing to behold.")
+			desc = pick(
+				"It shines faintly as it catches the light.", "It appears to have a faint inner glow.",
+				"It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
+				"It's mesmerizing to behold.",
+			)
 	update_icon()
 
 /obj/machinery/artifact/update_icon()
@@ -86,7 +88,10 @@
 
 /obj/machinery/artifact/Destroy()
 	do_destroy_effects()
-	visible_message("<span class='danger'>[src] breaks in pieces, releasing a wave of energy</span>")
+	visible_message(
+		span_danger("[src] breaks in pieces, releasing a wave of energy!"),
+		blind_message=span_hear("You hear something break into pieces!"),
+	)
 	if(first_effect)
 		QDEL_NULL(first_effect)
 	if(secondary_effect)
@@ -131,18 +136,18 @@
 		if(65 to 85)
 			to_chat(user, "Appears to have light structural damage.")
 		if(45 to 65)
-			to_chat(user, "Appears to have heavy structural damage.")
+			to_chat(user, "Appears to have moderate structural damage.")
 		if(10 to 45)
-			to_chat(user, "Appears to have immirsed structural damage.")
+			to_chat(user, "Appears to have heavy structural damage.")
 		if(0 to 10)
-			to_chat(user, "Appears to have to be barely intanct.")
+			to_chat(user, "Appears to have to be barely intact.")
 
 /obj/machinery/artifact/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
 	if(!Adjacent(user))
-		to_chat(user, "<span class='warning'> You can't reach [src] from here.</span>")
+		to_chat(user, span_warning("You can't reach [src] from here!"))
 		return TRUE
 	try_toggle_effects(TRIGGER_TOUCH)
 	to_chat(user, "<b>You touch [src].</b>")
@@ -182,8 +187,8 @@
 /obj/machinery/artifact/process()
 	//if either of our effects rely on environmental factors, work that out
 	if((first_effect?.trigger & TRIGGER_ATMOS) || (secondary_effect?.trigger & TRIGGER_ATMOS))
-		var/turf/T = get_turf(src)
-		var/datum/gas_mixture/env = T.return_air()
+		var/turf/our_turf = get_turf(src)
+		var/datum/gas_mixture/env = our_turf.return_air()
 		var/loc_gases = env.gases
 		if(env)
 			//COLD ACTIVATION
@@ -219,10 +224,10 @@
 			toggle_effects_off(TRIGGER_PROXY)
 
 /obj/machinery/artifact/Bumped(atom/what_bumped)
-	..()
+	. = ..()
 	if(isobj(what_bumped))
-		var/obj/O = what_bumped
-		if(O.throwforce >= 10)
+		var/obj/object_bumped = what_bumped
+		if(object_bumped.throwforce >= 10)
 			try_toggle_effects(TRIGGER_FORCE)
 	if(world.time >= last_time_touched + touch_cooldown)
 		last_time_touched = world.time
@@ -233,7 +238,6 @@
 			secondary_effect.DoEffectTouch(what_bumped)
 		if(ismob(what_bumped))
 			to_chat(what_bumped, "<b>You accidentally touch [src].</b>")
-	..()
 
 /obj/machinery/artifact/proc/check_for_volatile(obj/item/reagent_containers/container)
 	for (var/volatile in GLOB.volatile_reagents)
@@ -265,10 +269,10 @@
 		if(attack_item.get_temperature() > 700)
 			try_toggle_effects(TRIGGER_HEAT)
 			return
-	..()
+	return ..()
 
 /obj/machinery/artifact/proc/get_scan(mob/living/user, obj/item/xenoarch/handheld_scanner/scanner)
-	to_chat(user, span_notice("You begin to scan [src] using [scanner]."))
+	to_chat(user, span_notice("You begin to scan [src] using [scanner]..."))
 	if(!do_after(user, scanner.scanning_speed * 5, target = src))
 		to_chat(user, span_warning("You interrupt your scanning."))
 		return

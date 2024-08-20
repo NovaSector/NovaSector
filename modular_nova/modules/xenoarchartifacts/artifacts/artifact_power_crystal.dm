@@ -45,22 +45,26 @@
 
 	if(istype(attack_item, /obj/item/stack/cable_coil)) // If we want to put the wiring
 		if(!wired)
-			var/obj/item/stack/cable_coil/CC = attack_item
-			if(!CC.use(2))
-				to_chat(user, "<span class='red'>There's not enough wire to finish the task.</span>")
+			var/obj/item/stack/cable_coil/our_cable_coil = attack_item
+			if(!our_cable_coil.use(2))
+				to_chat(user, span_red("There's not enough wire to finish the task."))
 				return
-			user.visible_message("<span class='notice'>[user] starts putting the wiring all over the [src].</span>",
-                                 "<span class='notice'>You start putting the wiring all over the [src].</span>")
+			user.visible_message(
+				span_notice([user] starts putting the wiring all over the [src]."),
+				span_notice(You start putting the wiring all over the [src]."),
+			)
 			if(attack_item.use_tool(src, user, 20, volume = 50))
-				user.visible_message("<span class='notice'>[user] puts the wiring all over the [src].</span>",
-                                     "<span class='notice'>You put the wiring all over the [src].</span>")
+				user.visible_message(
+				span_notice([user] puts the wiring all over the [src]."),
+				span_notice("You put the wiring all over the [src]."),
+			)
 				wired = TRUE
 				update_crystal()
 			return
 		else
-			to_chat(user, "<span class='red'>The [src] is already wired.</span>")
+			balloon_alert(user, "already wired!")
 			return
-	..()
+	return ..()
 
 /obj/machinery/power/crystal/attack_hand(mob/user)
 	. = ..()
@@ -98,12 +102,14 @@
 		cut_overlays()
 
 // laser_act
-/obj/machinery/power/crystal/bullet_act(obj/projectile/P, def_zone)
-	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
-		visible_message("<span class='danger'>The [P.name] gets reflected by [src]!</span>",
-						"<span class='userdanger'>The [P.name] gets reflected by [src]!</span>")
+/obj/machinery/power/crystal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
+	if(istype(hitting_projectile, /obj/projectile/energy) || istype(hitting_projectile, /obj/projectile/beam))
+		visible_message(
+			span_danger("The [hitting_projectile] gets reflected by [src]!)",
+			span_userdanger("The [hitting_projectile] gets reflected by [src]!"),
+		)
 		// Find a turf near or on the original location to bounce to
-		if(P.starting)
-			P.reflect(src)
+		if(hitting_projectile.starting)
+			hitting_projectile.reflect(src)
 		return
 	return ..()
