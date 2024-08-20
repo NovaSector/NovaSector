@@ -24,7 +24,9 @@
 	return TRUE
 
 /obj/effect/anomaly/pyro/detonate()
-	INVOKE_ASYNC(src, PROC_REF(makepyroslime))
+	if(allow_detonate == TRUE)
+		INVOKE_ASYNC(src, PROC_REF(makepyroslime))
+	else return
 
 /obj/effect/anomaly/pyro/proc/makepyroslime()
 	var/turf/open/tile = get_turf(src)

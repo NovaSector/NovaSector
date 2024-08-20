@@ -100,6 +100,7 @@
 #define BOSS_MEDAL_TENDRIL "Tendril Exterminator"
 #define BOSS_MEDAL_WENDIGO "Wendigo Killer"
 #define BOSS_MEDAL_KINGGOAT "King Goat Killer"
+#define BOSS_MEDAL_ROBOT "Ancient Robot" // NOVA EDIT ADDITION: Paradise Fauna Port
 
 #define BOSS_MEDAL_MINER_CRUSHER "Blood-drunk Miner Crusher"
 #define BOSS_MEDAL_FROSTMINER_CRUSHER "Demonic-frost Miner Crusher"
@@ -110,6 +111,7 @@
 #define BOSS_MEDAL_LEGION_CRUSHER "Legion Crusher"
 #define BOSS_MEDAL_WENDIGO_CRUSHER "Wendigo Crusher"
 #define BOSS_MEDAL_KINGGOAT_CRUSHER "King Goat Crusher"
+#define BOSS_MEDAL_ROBOT_CRUSHER "Ancient Robot" // NOVA EDIT ADDITION: Paradise Fauna Port
 
 // Medal hub IDs for boss-kill scores
 #define BOSS_SCORE "Bosses Killed"
@@ -124,6 +126,7 @@
 #define WENDIGO_SCORE "Wendigos Killed"
 #define KINGGOAT_SCORE "King Goat Killed"
 #define TENDRIL_CLEAR_SCORE "Tendrils Killed"
+#define ROBOT_SCORE "Ancient Robots Killed" // NOVA EDIT ADDITION: Paradise Fauna Port
 
 // DB ID for hardcore random mode
 #define HARDCORE_RANDOM_SCORE "Hardcore Random Score"

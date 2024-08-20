@@ -23,6 +23,8 @@
 	var/immortal = FALSE
 	///Chance per second that we will move
 	var/move_chance = ANOMALY_MOVECHANCE
+	/// Do we want the anomaly detonate proc to trigger
+	var/allow_detonate = TRUE // Used to disable anomaly detonate effects (create a slime, disable gravity, translocate items etc)
 
 /obj/effect/anomaly/Initialize(mapload, new_lifespan, drops_core = TRUE)
 	. = ..()
