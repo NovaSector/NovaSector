@@ -108,13 +108,11 @@
 					'modular_nova/master_files/sound/items/bricks/brick_drop_1.ogg',
 					'modular_nova/master_files/sound/items/bricks/brick_drop_2.ogg',
 					'modular_nova/master_files/sound/items/bricks/brick_drop_3.ogg',
-					'modular_nova/master_files/sound/items/bricks/brick_drop_4.ogg',
 				)
 			if(SFX_BRICK_PICKUP)
 				soundin = pick(
 					'modular_nova/master_files/sound/items/bricks/brick_pick_up_1.ogg',
 					'modular_nova/master_files/sound/items/bricks/brick_pick_up_2.ogg',
-					'modular_nova/master_files/sound/items/bricks/brick_pick_up_3.ogg',
 				)
 	return soundin
 
