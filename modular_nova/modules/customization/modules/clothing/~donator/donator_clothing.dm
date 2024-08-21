@@ -2174,7 +2174,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/under/costume/shendyt
 	name = "shendyt"
-	desc = "blah blah blah blah."
+	desc = "Skirt-like loincloth typically worn by what would was Sol's Ancient Egyptians."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "shendyt"
@@ -2190,7 +2190,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/accessory/bracelets
 	name = "golden bracelets"
-	desc = "blah blah blah blah."
+	desc = "A set of several ornamented golden bracelets for one's limbs and neck."
 	icon_state = "bracelets"
 	attachment_slot = NONE
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
