@@ -11,12 +11,12 @@
 
 /datum/artifact_effect/temperature/DoEffectTouch(mob/user)
 	. = ..()
-	var/turf/T = get_turf(holder)
-	if (T == null)
+	var/turf/holder_turf = get_turf(holder)
+	if(isnull(holder_turf))
 		return FALSE
 	if(!.)
 		return FALSE
-	var/datum/gas_mixture/env = T.return_air()
+	var/datum/gas_mixture/env = holder_turf.return_air()
 	if(!env)
 		return FALSE
 	return env
@@ -24,21 +24,21 @@
 
 /datum/artifact_effect/temperature/DoEffectAura()
 	. = ..()
-	var/turf/T = get_turf(holder)
-	if (T == null)
+	var/turf/holder_turf = get_turf(holder)
+	if(isnull(holder_turf))
 		return FALSE
 	if(!.)
 		return FALSE
-	var/datum/gas_mixture/env = T.return_air()
+	var/datum/gas_mixture/env = holder_turf.return_air()
 	if(!env)
 		return FALSE
 	return env
 
 /datum/artifact_effect/temperature/DoEffectDestroy()
-	var/turf/T = get_turf(holder)
-	if (T == null)
+	var/turf/holder_turf = get_turf(holder)
+	if(isnull(holder_turf))
 		return FALSE
-	var/datum/gas_mixture/env = T.return_air()
+	var/datum/gas_mixture/env = holder_turf.return_air()
 	if(!env)
 		return FALSE
 	return env
@@ -54,7 +54,7 @@
 		return
 	var/datum/gas_mixture/env = .
 	env.temperature = clamp(env.temperature - 100, target_temp_low, target_temp_high)
-	to_chat(user, "<span class='notice'>A chill passes up your spine!</span>")
+	to_chat(user, span_warning("A chill passes up your spine!"))
 
 /datum/artifact_effect/temperature/cold/DoEffectAura()
 	. = ..()
@@ -82,7 +82,7 @@
 		return
 	var/datum/gas_mixture/env = .
 	env.temperature = clamp(env.temperature + 100, target_temp_low, target_temp_high)
-	to_chat(user, "<span class='warning'>You feel a wave of heat travel up your spine!</span>")
+	to_chat(user, span_warning("You feel a wave of heat travel up your spine!"))
 
 /datum/artifact_effect/temperature/heat/DoEffectAura()
 	. = ..()

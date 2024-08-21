@@ -7,16 +7,16 @@
 	if(!.)
 		return
 	if(teleport_around(user, 10))
-		to_chat(user, "<span class='warning'>You are suddenly zapped away elsewhere!</span>")
+		to_chat(user, span_warning("You are suddenly zapped away elsewhere!)")
 
 /datum/artifact_effect/teleport/DoEffectAura()
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/M in range(range, curr_turf))
-		if(teleport_around(M, 20))
-			to_chat(M, "<span class='warning'>You are displaced by a strange force!</span>")
+	for(var/mob/living/living_mob in range(range, curr_turf))
+		if(teleport_around(living_mob, 20))
+			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
 
 /datum/artifact_effect/teleport/DoEffectPulse()
 	. = ..()
@@ -24,15 +24,15 @@
 		return
 	var/used_power = .
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/M in range(range, curr_turf))
-		if(teleport_around(M, round(1 * used_power)))
-			to_chat(M, "<span class='warning'>You are displaced by a strange force!</span>")
+	for(var/mob/living/living_mob in range(range, curr_turf))
+		if(teleport_around(living_mob, round(1 * used_power)))
+			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
 
 /datum/artifact_effect/teleport/DoEffectDestroy()
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/M in range(7, curr_turf))
+	for(var/mob/living/living_mob in range(7, curr_turf))
 		if(teleport_around(M, 50))
-			to_chat(M, "<span class='warning'>You are displaced by a strange force!</span>")
+			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
 
 /datum/artifact_effect/teleport/proc/teleport_around(mob/receiver, max_range)
 	var/weakness = get_anomaly_protection(receiver)

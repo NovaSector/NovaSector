@@ -12,32 +12,23 @@
 	radius = rand(2, 6) // Can be VERY big
 	l_power = rand(1, 12)
 
-
 /datum/artifact_effect/light/toggle_artifact_effect(reveal_toggle)
 	if(!activated)
-		holder.light_power = l_power
-		holder.light_range = radius*2
-		holder.update_light()
+		holder.set_light(l_power, radius*2)
 	else
-		holder.light_power = 0
-		holder.light_range = 0
-		holder.update_light()
+		holder.set_light(0,0)
 	return ..()
 
 /datum/artifact_effect/light/darkness
 	log_name = "Darkness"
 
 /datum/artifact_effect/light/darkness/New()
-	..()
+	. = ..()
 	l_power *= -1
 
 /datum/artifact_effect/light/darkness/toggle_artifact_effect(reveal_toggle)
 	if(!activated)
-		holder.light_power = l_power
-		holder.light_range = radius*2
-		holder.update_light()
+		holder.set_light(l_power, radius*2)
 	else
-		holder.light_power = 0
-		holder.light_range = 0
-		holder.update_light()
+		holder.set_light(0,0)
 	return ..()

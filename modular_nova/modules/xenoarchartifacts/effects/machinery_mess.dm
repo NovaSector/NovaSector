@@ -37,30 +37,30 @@
 
 /datum/artifact_effect/machinery_mess/proc/try_hack_borg()
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/silicon/M in range(range, curr_turf))
+	for(var/mob/living/silicon/silicon_mob in range(range, curr_turf))
 		if(prob(25))
-			M.laws_sanity_check()
-			if(M.stat != DEAD && !M.incapacitated())
+			silicon_mob.laws_sanity_check()
+			if(silicon_mob.stat != DEAD && !silicon_mob.incapacitated())
 				if(prob(15))
 					var/datum/ai_laws/ion_lawset = pick_weighted_lawset()
 					ion_lawset = new()
-					M.laws.inherent = ion_lawset.inherent.Copy()
+					silicon_mob.laws.inherent = ion_lawset.inherent.Copy()
 					qdel(ion_lawset)
 
 				if(prob(20))
-					M.remove_law(rand(1, M.laws.get_law_amount(list(LAW_INHERENT, LAW_SUPPLIED))))
+					silicon_mob.remove_law(rand(1, silicon_mob.laws.get_law_amount(list(LAW_INHERENT, LAW_SUPPLIED))))
 
 				var/message = generate_ion_law()
 				if(prob(30))
-					M.replace_random_law(message, list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION), LAW_ION)
+					silicon_mob.replace_random_law(message, list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION), LAW_ION)
 				else
-					M.add_ion_law(message)
+					silicon_mob.add_ion_law(message)
 
 				if(prob(40))
-					M.shuffle_laws(list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION))
+					silicon_mob.shuffle_laws(list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION))
 
-				log_silicon("Artifact changed laws of [key_name(M)] to [english_list(M.laws.get_law_list(TRUE, TRUE))]")
-				M.post_lawchange()
+				log_silicon("Artifact changed laws of [key_name(silicon_mob)] to [english_list(silicon_mob.laws.get_law_list(TRUE, TRUE))]")
+				silicon_mob.post_lawchange()
 
 	for(var/mob/living/simple_animal/bot/bot in GLOB.alive_mob_list)
 		if(prob(25))

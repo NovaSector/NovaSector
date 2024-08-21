@@ -40,8 +40,7 @@
 		'sound/effects/wounds/crack1.ogg',
 		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
 		'modular_nova/modules/encounters/sounds/alarm_radio.ogg',
-		'modular_nova/modules/encounters/sounds/morse.ogg' // I can spent all day here, adding sounds. But i wont.
-
+		'modular_nova/modules/encounters/sounds/morse.ogg', // I can spent all day here, adding sounds. But i wont.
 	)
 
 /datum/artifact_effect/noise/New()
@@ -56,7 +55,6 @@
 		return
 	var/list/sound_type = pick(possible_noises)
 	playsound(holder, pick(sound_type), 50, ignore_walls = TRUE)
-
 
 /datum/artifact_effect/noise/DoEffectDestroy()
 	playsound(holder, 'sound/hallucinations/wail.ogg', 75, ignore_walls = TRUE, extrarange = 25, pressure_affected = FALSE) // Louder than usual scream with extra range
