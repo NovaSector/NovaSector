@@ -16,7 +16,7 @@
 
 /datum/artifact_effect/light/toggle_artifact_effect(reveal_toggle)
 	if(!activated)
-		holder.set_light(l_power, radius*2)
+		holder.set_light(radius*2, l_power)
 	else
 		holder.set_light(0,0)
 	return ..()
@@ -30,7 +30,7 @@
 
 /datum/artifact_effect/light/darkness/toggle_artifact_effect(reveal_toggle)
 	if(!activated)
-		holder.set_light(l_power, radius*2)
+		holder.set_light(radius*2, l_power)
 	else
 		holder.set_light(0,0)
 	return ..()
