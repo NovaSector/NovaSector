@@ -94,6 +94,7 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/nova/derelictferry.dmm
 #_maps/RandomRuins/SpaceRuins/nova/des_two.dmm
 #_maps/RandomRuins/SpaceRuins/nova/drones_derelict.dmm
+#_maps/RandomRuins/SpaceRuins/nova/ghostship.dmm
 #_maps/RandomRuins/SpaceRuins/nova/luna.dmm
 #_maps/RandomRuins/SpaceRuins/nova/piratefort.dmm
 #_maps/RandomRuins/SpaceRuins/nova/port_tarkon.dmm
