@@ -57,7 +57,7 @@
 
 		carbon_mob.visible_message(
 			span_danger("[carbon_mob][carbon_mob.p_s()] limb suddenly swells and rips apart, revealing brand new red bloody flesh!"),
-			span_bolddanger("Your [part_type] suddenly swells and rips apart, revealing brand new red bloody flesh!"),
+			span_bolddanger("Your [carbon_mob.p_s()] suddenly swells and rips apart, revealing brand new red bloody flesh!"),
 			blind_message = span_hear("You hear gore sounds, like someone is tearing up flesh and breaking bones."),
 		)
 		var/obj/item/bodypart/new_bodypart = new part_type()
