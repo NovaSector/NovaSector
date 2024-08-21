@@ -151,14 +151,14 @@
 	return sprite_datum.color_layer_names
 
 /datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
-	if(layer == layer_below_undies || layer == layer_below_undies || layer == layer_above_all)
+	if(layer == layer_below_undies || layer == layer_above_undies || layer == layer_above_all)
 		return "FRONT"
 	else
 		return ..()
 
 /// Return TRUE if this should overlay below underwear, otherwise it'll layer above it and the uniform.
 /datum/bodypart_overlay/mutant/genital/proc/underwear_check()
-	return TRUE
+	return FALSE
 
 /// Helper function - if the organ this overlay is tied to has been set to layer above clothing, return TRUE
 /datum/bodypart_overlay/mutant/genital/proc/layer_mode_check()
@@ -169,11 +169,11 @@
 	return FALSE
 
 /datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
-	if(EXTERNAL_FRONT_UNDER_CLOTHES)
+	if(layer == EXTERNAL_FRONT_UNDER_CLOTHES)
 		if(layer_mode_check() == TRUE)
 			return layer_above_all
 		else if(underwear_check() == FALSE)
-			return layer_below_undies
+			return layer_above_undies
 		else
 			return layer_below_undies
 	else
@@ -205,7 +205,7 @@
 
 /datum/bodypart_overlay/mutant/genital/penis/underwear_check()
 	if(!istype(owner))
-		return TRUE
+		return FALSE
 	else
 		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
 			return FALSE
@@ -325,7 +325,7 @@
 
 /datum/bodypart_overlay/mutant/genital/testicles/underwear_check()
 	if(!istype(owner))
-		return TRUE
+		return FALSE
 	else
 		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
 			return FALSE
@@ -405,7 +405,7 @@
 
 /datum/bodypart_overlay/mutant/genital/vagina/underwear_check()
 	if(!istype(owner))
-		return TRUE
+		return FALSE
 	else
 		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
 			return FALSE
@@ -517,7 +517,7 @@
 
 /datum/bodypart_overlay/mutant/genital/breasts/underwear_check()
 	if(!istype(owner))
-		return TRUE
+		return FALSE
 	else
 		if((owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT) && (owner.underwear_visibility & UNDERWEAR_HIDE_BRA))
 			return FALSE
