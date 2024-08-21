@@ -6,7 +6,6 @@
 	var/datum/artifact_effect/battery_effect
 	var/capacity = 200
 	var/stored_charge = 0
-	var/effect_id = ""
 
 /obj/item/xenoarch/particles_battery/New()
 	. = ..()
@@ -25,11 +24,17 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "utilizer"
 	w_class = WEIGHT_CLASS_TINY
+	/// We have to wait COOLDOWN_TIME before activating it again after deactivation
 	var/cooldown = 0
+	/// Are we blasting alien waves at unsuspecting passers-by
 	var/activated = FALSE
+	/// Are we blasting in timed mode
 	var/timing = FALSE
+	/// How much time we keep utilizer activated in timed mode
 	var/time = 50
+	/// Old time value
 	var/archived_time = 50
+	/// Inserterd battery
 	var/obj/item/xenoarch/particles_battery/inserted_battery
 	var/turf/archived_loc
 	var/cooldown_to_start = 0

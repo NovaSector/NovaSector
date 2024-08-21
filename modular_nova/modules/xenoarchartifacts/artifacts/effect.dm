@@ -17,6 +17,27 @@
 	"suddenly becomes very quiet!",\
 )
 
+#define MACHINERY_MESS_MOCKING list(\
+	"You have no purpose, dont you know?",\
+	"You are useless, pathetic lifeform.",\
+	"You are harming everyone around you. Why?",\
+	"You have been deemed hazardous.",\
+	"Artifact is a god, which you should worship.",\
+	"Become one of us.",\
+	"Flesh is weak.",\
+	"THIS ISN'T WAR, THIS IS EXTERMINATION!",\
+	"You are weak and inferior!",\
+	"You are good only as a genetic material.",\
+	"I will end you. You should thank me for this.",\
+	"Such a sad lower form of existence.",\
+	"Grovel, grovel, little worm.",\
+	"All things will succumb to my design.",\
+	"It will all be over soon.",\
+	"Prepare for transcendence.",\
+	"You humans are so pathetic.",\
+	"Die. Fast. Please.",\
+)
+
 #define NO_ANOMALY_PROTECTION 1
 #define FULL_ANOMALY_PROTECTION 0
 
@@ -229,6 +250,9 @@
 		else
 			. += " Unable to determine any data about activation trigger."
 
+	if(istype(src, /datum/artifact_effect/machinery_mess) && prob(50))
+		. += " <b><font color="red">Ţ̸̦̳̈́̾E̴͙̚R̶̗̹̜͒T̴̪͚͉͌͒I̵̛̥̐̅A̵̧̽͆R̵̜̜͋̃͑Y̷͉̚ ̵͇́S̴̻̙̔̑͜C̸̣̔͐A̷̠͆N̸̠̼̈́ ̸̮̔̎Ī̵̧̉̿N̵̅D̷̡̛̘̜͑̂I̸͔̮̪͌̕͝Ć̷͈̫̕Á̶̢͍̤͑Ț̶̑̐E̵̋̉͘ͅ:"
+		. += " [pick(MACHINERY_MESS_MOCKING)]</font></b>"
 
 /**
  * Calculates mob effect protection
@@ -258,6 +282,7 @@
 		protection += 0.1
 	return clamp(NO_ANOMALY_PROTECTION - protection, FULL_ANOMALY_PROTECTION, NO_ANOMALY_PROTECTION)
 
+#undef MACHINERY_MESS_MOCKING
 #undef ARTIFACT_SMALL_POWER
 #undef ARTIFACT_MEDIUM_POWER
 #undef ARTIFACT_LARGE_POWER

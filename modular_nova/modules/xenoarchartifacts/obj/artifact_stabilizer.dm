@@ -4,6 +4,7 @@
 	Comes with no warranty and outdated terminology."
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/tools.dmi'
 	icon_state = "anoscanner_borg"
+	/// Currently selected field
 	var/selected = NONE
 	var/fields = list(
 		"Diffracted carbon dioxide laser",

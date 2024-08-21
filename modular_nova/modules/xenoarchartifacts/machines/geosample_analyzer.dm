@@ -74,19 +74,9 @@
 		data += " - Hyperspectral imaging reveals exotic energy wavelength detected with ID: [current_boulder.artifact_id]<br>"
 		sleep(10 SECONDS)
 	else
-		qdel(current_sample)
-		current_sample = NONE
-		scanning = FALSE
-		icon_state = "spectrometer"
-		update_use_power(IDLE_POWER_USE)
-		visible_message(
-			span_warning("[src] destroys core sampler due to internal error."),
-			blind_message = span_warning("You hear machine whirling."),
-		)
+		fail_scan()
 		return
 	if(powered()) // Double check if still powered after sleep
-		qdel(current_sample)
-		current_sample = NONE
 		var/obj/item/paper/artifact_info/artifact_report = new(src.loc)
 		artifact_report.name = "[src] report"
 		artifact_report.add_raw_text(data)
@@ -99,12 +89,15 @@
 		icon_state = "spectrometer"
 		update_use_power(IDLE_POWER_USE)
 	else
-		qdel(current_sample)
-		current_sample = NONE
-		scanning = FALSE
-		icon_state = "spectrometer"
-		update_use_power(IDLE_POWER_USE)
-		visible_message(
-			span_warning("[src] destroys core sampler due to internal error."),
-			blind_message = span_warning("You hear machine whirling."),
-		)
+		fail_scan()
+
+/obj/machinery/radiocarbon_spectrometer/proc/fail_scan()
+	qdel(current_sample)
+	current_sample = NONE
+	scanning = FALSE
+	icon_state = "spectrometer"
+	update_use_power(IDLE_POWER_USE)
+	visible_message(
+		span_warning("[src] destroys core sampler due to internal error."),
+		blind_message = span_warning("You hear machine whirling."),
+	)

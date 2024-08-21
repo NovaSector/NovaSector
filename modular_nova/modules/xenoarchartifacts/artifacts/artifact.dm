@@ -62,7 +62,8 @@
 	approximate_excavation_level = target_excavation_level - (rand(-15,15))
 	artifact_find_type = pick_weight(list(
 		/obj/machinery/power/supermatter_crystal/shard = 5,
-		/obj/vehicle/sealed/mecha/reticence/loaded = 25,
+		/obj/vehicle/sealed/mecha/reticence/artifact = 50,
+		/obj/structure/constructshell = 75,
 		/obj/machinery/artifact/bluespace_crystal = 100,
 		/obj/machinery/power/crystal = 100,
 		/obj/machinery/auto_cloner = 100,

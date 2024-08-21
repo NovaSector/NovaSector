@@ -8605,6 +8605,7 @@
 #include "modular_nova\modules\xenoarchartifacts\machines\artifact_scanner.dm"
 #include "modular_nova\modules\xenoarchartifacts\machines\geosample_analyzer.dm"
 #include "modular_nova\modules\xenoarchartifacts\obj\artifact_stabilizer.dm"
+#include "modular_nova\modules\xenoarchartifacts\obj\exosuit.dm"
 #include "modular_nova\modules\xenoarchartifacts\obj\geosample.dm"
 #include "modular_nova\modules\xenoarchartifacts\obj\particle_battery.dm"
 #include "modular_nova\modules\xenoarchartifacts\obj\wave_scanner.dm"

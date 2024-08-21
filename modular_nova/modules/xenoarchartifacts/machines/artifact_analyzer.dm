@@ -16,13 +16,17 @@
 
 	circuit = /obj/item/circuitboard/machine/artifact_analyser
 
+	/// Are we scanning
 	var/scan_in_progress = FALSE
-	var/scan_num = 0
-	var/obj/scanned_obj
+	/// Our scanpad
 	var/obj/machinery/artifact_scanpad/owned_scanner = null
+	/// How long have we been scanning
 	var/scan_completion_time = 0
+	/// How long do we need to scan
 	var/scan_duration = 100
+	/// What do we scan
 	var/obj/scanned_object
+	/// We can count scan nums to insert them into report
 	var/report_num = 0
 
 /obj/machinery/artifact_analyser/Initialize(mapload)
@@ -179,6 +183,12 @@
 		if(/obj/machinery/power/crystal)
 			return "Crystal formation - Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition. \
 			Attention: energetic excitement is noticed. The appearance of current is possible. Connect the crystal to the network, using wrench and wires on it. Make sure there is a cable underneath."
+		if(/obj/machinery/artifact/bluespace_crystal)
+			return "Crystal formation - An extraordinary big example of bluespace crystal. Deep scan indicates presence of anomalous fluctuations inside. Secondary scan indicates unusual \
+			activity around moving objects."
+		if (/obj/vehicle/sealed/mecha/reticence/artifact)
+			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, yet modernly fitted with weapons and unknown constant cloaking field generator. \
+			The only possible way this exosuit got here is a timewarp."
 		if(/obj/machinery/artifact) // a fun one
 			var/obj/machinery/artifact/scanned_artifact = scanned_obj
 			var/out = "Anomalous alien device - composed of an unknown alloy.<br><br>"
