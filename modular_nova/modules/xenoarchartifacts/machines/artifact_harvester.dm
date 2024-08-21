@@ -42,13 +42,13 @@
 		return
 	if(istype(I, /obj/item/xenoarch/particles_battery))
 		if(!inserted_battery && user.transferItemToLoc(I, src))
-			to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+			to_chat(user, span_notice("You insert [I] into [src]."))
 			playsound(src, 'sound/machines/crate_open.ogg', 30, 10)
 			src.inserted_battery = I
 			icon_state = "harvester_battery"
 			ui_interact(usr)
 		else
-			to_chat(user, "<span class='warning'>There is already a battery in [src].</span>")
+			to_chat(user, span_warning("There is already a battery in [src]."))
 	else
 		return..()
 
@@ -110,7 +110,7 @@
 		if(inserted_battery.battery_effect.release_method == ARTIFACT_EFFECT_TOUCH)
 			var/list/nearby = viewers(1, src)
 			for(var/mob/M in nearby)
-				inserted_battery.battery_effect.DoEffectTouch(M)
+				inserted_battery.battery_effect.do_effect_touch(M)
 
 		// if there's no charge left, finish
 		if(inserted_battery.stored_charge <= 0)

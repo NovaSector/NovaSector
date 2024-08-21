@@ -1,7 +1,9 @@
 /datum/artifact_effect/gas
 	log_name = "Gas"
 	type_name = ARTIFACT_EFFECT_PARTICLE
+	/// If turf pressure is above max_pressure we do not spawn gas
 	var/max_pressure
+	/// Target gas percentage in turf air
 	var/target_percentage
 	var/list/gas_types = list(
 		/datum/gas/carbon_dioxide,
@@ -23,7 +25,9 @@
 		/datum/gas/zauker,
 		/datum/gas/helium,
 	)
+	/// Spawned gas type
 	var/current_gas_type
+	/// We also spawn new gas with randomized temperature
 	var/spawn_temp
 
 /datum/artifact_effect/gas/New()
@@ -38,7 +42,7 @@
 	max_pressure = rand(115, 1000)
 	spawn_temp = rand(1,1000)
 
-/datum/artifact_effect/gas/DoEffectTouch(mob/user)
+/datum/artifact_effect/gas/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -46,7 +50,7 @@
 	if(isturf(holder_loc))
 		assume_gas(current_gas_type, rand(2, 15))
 
-/datum/artifact_effect/gas/DoEffectAura()
+/datum/artifact_effect/gas/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -54,7 +58,7 @@
 	if(isturf(holder_loc))
 		assume_gas(current_gas_type, pick(0, rand(0,5)))
 
-/datum/artifact_effect/gas/DoEffectDestroy()
+/datum/artifact_effect/gas/do_effect_destroy()
 	. = ..()
 	var/turf/holder_loc = holder.loc
 	if(isturf(holder_loc))

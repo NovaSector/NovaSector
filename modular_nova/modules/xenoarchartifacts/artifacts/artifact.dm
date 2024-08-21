@@ -174,7 +174,7 @@
 				user.visible_message(
 				span_warning("The [src] crumbles, leaving nothing behind."),
 				blind_message = span_hear("You hear rocks crumbling."),
-			)
+				)
 				return
 			if(DIG_ROCK)
 				to_chat(user, span_notice("You successfully dig the boulder. The item inside seems to be still intact."))
@@ -182,7 +182,7 @@
 				span_notice("[user] successfully digs the [src]. The item inside seems to be still intact."),
 				span_notice("You successfully dig the [src]. The item inside seems to be still intact."),
 				blind_message = span_hear("You hear rocks crumbling."),
-			)
+				)
 
 	if(istype(attack_item, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/hammer = attack_item

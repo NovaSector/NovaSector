@@ -26,13 +26,13 @@
 
 	var/mob/user = usr
 	if(!user.get_item_by_slot(ITEM_SLOT_BACK) == src)
-		to_chat(usr, "<span class='warning'>The [src] must be worn properly to use!</span>")
+		to_chat(usr, span_warning("The [src] must be worn properly to use!"))
 		return
 
 	if(processor.loc == src)
 		// Detach the searcher into the user's hands
 		if(!user.put_in_hands(processor))
-			to_chat(user, "<span class='warning'>You need a free hand to hold the [processor]!</span>")
+			to_chat(user, span_warning("You need a free hand to hold the [processor]!"))
 			return
 		playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 50, FALSE)
 	else
@@ -51,7 +51,7 @@
 	if(ismob(processor.loc))
 		var/mob/M = processor.loc
 		if(M.dropItemToGround(processor))
-			to_chat(M, "<span class='notice'>\The [processor] snaps back into the [src].</span>")
+			to_chat(M, span_notice("The [processor] snaps back into the [src]."))
 			playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 50, FALSE)
 	else
 		processor.forceMove(src)
@@ -142,7 +142,7 @@
 	else
 		message = "Scanning array is recharging."
 
-	to_chat(user, "<span class='info'>[message]</span>")
+	to_chat(user, span_info("[message]"))
 
 /obj/item/xenoarch/searcher/proc/scan()
 	//set background = 1
@@ -157,4 +157,7 @@
 			var/cur_dist = get_dist(cur_turf, T) * 2
 			if(nearest_artifact_distance < 0 || cur_dist < nearest_artifact_distance)
 				nearest_artifact_distance = cur_dist + rand() * 2 - 1
-	visible_message("<span class='info'>[src] clicks.</span>")
+	visible_message(
+		span_info("[src] clicks."),
+		blind_message = span_notice("You hear click nearby."),
+	)

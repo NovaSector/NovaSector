@@ -4,6 +4,7 @@
 
 /datum/artifact_effect/gravity
 	log_name = "Gravity"
+	/// Are we pulling? Repelling? Or is it anarchy mode?
 	var/grav_type
 
 /datum/artifact_effect/gravity/New()
@@ -15,7 +16,7 @@
 	maximum_charges = rand(4,10)
 	activation_pulse_cost = maximum_charges
 
-/datum/artifact_effect/gravity/DoEffectPulse()
+/datum/artifact_effect/gravity/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -74,7 +75,7 @@
 	if(!QDELETED(throw_atom))
 		throw_atom.throw_at(target_turf, 10 * protection * amplifier, throw_power * protection * amplifier/2)
 
-/datum/artifact_effect/gravity/DoEffectDestroy()
+/datum/artifact_effect/gravity/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/atom/movable/to_throw in range(range, curr_turf))
 		mayhem_throw(to_throw, curr_turf, 2)

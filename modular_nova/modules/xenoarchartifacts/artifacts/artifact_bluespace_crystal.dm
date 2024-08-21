@@ -9,6 +9,7 @@
 	anchored = FALSE
 	light_color = "#24c1ff"
 	max_integrity = 200
+	/// Spawned anomaly type
 	var/anomaly
 
 /obj/machinery/artifact/bluespace_crystal/Initialize(mapload)
@@ -54,7 +55,7 @@
 		if(!weakness)
 			continue
 
-		to_chat(living_mob, "<span class='red'>You are displaced by a strange force!</span>")
+		to_chat(living_mob, span_red("You are displaced by a strange force!"))
 		if(living_mob.buckled)
 			living_mob.buckled.unbuckle_mob()
 

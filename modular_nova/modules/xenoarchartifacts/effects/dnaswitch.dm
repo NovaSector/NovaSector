@@ -2,7 +2,7 @@
 	log_name = "Dna Switch"
 	type_name = ARTIFACT_EFFECT_ORGANIC
 
-/datum/artifact_effect/dnaswitch/DoEffectTouch(mob/user)
+/datum/artifact_effect/dnaswitch/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -10,7 +10,7 @@
 		return
 	roll_and_change_genes(user, 50)
 
-/datum/artifact_effect/dnaswitch/DoEffectAura()
+/datum/artifact_effect/dnaswitch/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -18,7 +18,7 @@
 	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
 		roll_and_change_genes(human_mob, 50)
 
-/datum/artifact_effect/dnaswitch/DoEffectPulse()
+/datum/artifact_effect/dnaswitch/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -26,16 +26,14 @@
 	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
 		roll_and_change_genes(human_mob, 20)
 
-/datum/artifact_effect/dnaswitch/DoEffectDestroy()
+/datum/artifact_effect/dnaswitch/do_effect_destroy()
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/carbon/human/H in range(range+3, curr_turf))
-		roll_and_change_genes(human_mob, 100)
-		roll_and_change_genes(human_mob, 100)
-		roll_and_change_genes(human_mob, 100)
-		roll_and_change_genes(human_mob, 100)
+	for(var/mob/living/carbon/human/human_mob in range(range+3, curr_turf))
+		for(var/i = 1 to 4)
+			roll_and_change_genes(human_mob, 100)
 
 /datum/artifact_effect/dnaswitch/proc/roll_and_change_genes(mob/living/carbon/human/receiver, chance)
 	var/weakness = get_anomaly_protection(receiver)

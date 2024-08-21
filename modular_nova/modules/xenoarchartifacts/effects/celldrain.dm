@@ -2,29 +2,29 @@
 	log_name = "Cell Drain"
 	type_name = ARTIFACT_EFFECT_ELECTRO
 
-/datum/artifact_effect/celldrain/DoEffectTouch(mob/user)
+/datum/artifact_effect/celldrain/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
 	for(var/obj/item/stock_parts/power_store/cell in user.contents)
 		cell.use(1e10) // uh oh
 		if(issilicon(user))
-			to_chat(user, "<span class='notice'>SYSTEM ALERT: Massive energy drain detected!</span>")
+			to_chat(user, span_notice("SYSTEM ALERT: Massive energy drain detected!"))
 
-/datum/artifact_effect/celldrain/DoEffectAura()
+/datum/artifact_effect/celldrain/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
 	discharge_everything_in_range(500000, range, holder)
 
-/datum/artifact_effect/celldrain/DoEffectPulse()
+/datum/artifact_effect/celldrain/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	var/used_power = .
 	discharge_everything_in_range(25000 * used_power, range, holder)
 
-/datum/artifact_effect/celldrain/DoEffectDestroy()
+/datum/artifact_effect/celldrain/do_effect_destroy()
 	discharge_everything_in_range(1000000000, 10, holder) // Massive uh oh
 
 /datum/artifact_effect/celldrain/proc/try_use_charge(atom/reciever_atmon, power)

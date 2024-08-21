@@ -31,16 +31,22 @@
 
 	if(attack_item.tool_behaviour == TOOL_WIRECUTTER) // If we want to remove the wiring
 		if(wired)
-			user.visible_message("<span class='notice'>[user] starts cutting off the wiring of the [src].</span>",
-                                 "<span class='notice'>You start cutting off the wiring of the [src].</span>")
+			user.visible_message(
+				span_notice("[user] starts cutting off the wiring of the [src]."),
+				span_notice("You start cutting off the wiring of the [src]."),
+				blind_message = span_hear("You hear cutting nearby."),
+			)
 			if(attack_item.use_tool(src, user, 20, volume = 50))
-				user.visible_message("<span class='notice'>[user] cuts off the wiring of the [src].</span>",
-                                     "<span class='notice'>You cut off the wiring of the [src].</span>")
+				user.visible_message(
+					span_notice("[user] cuts off the wiring of the [src]."),
+					span_notice("You cut off the wiring of the [src]."),
+					blind_message = span_notice("Cutting sound stops.")
+				)
 				wired = FALSE
 				update_crystal()
 				return
 		else
-			to_chat(user, "<span class='red'>There is currently no wiring on the [src].</span>")
+			to_chat(user, span_red("There is currently no wiring on the [src]."))
 			return
 
 	if(istype(attack_item, /obj/item/stack/cable_coil)) // If we want to put the wiring
@@ -71,7 +77,7 @@
 	if(.)
 		return
 	if(!Adjacent(user))
-		to_chat(user, "<span class='warning'> You can't reach [src] from here.</span>")
+		to_chat(user, span_warning("You can't reach [src] from here."))
 		return TRUE
 	if(wired && anchored)
 		first_effect.ToggleActivate()
@@ -81,7 +87,10 @@
 /obj/machinery/power/crystal/Destroy()
 	if(first_effect)
 		QDEL_NULL(first_effect)
-	visible_message("<span class='warning'>[src] shatters!</span>")
+	visible_message(
+		span_warning("[src] shatters!"),
+		blind_message = span_hear("You hear glass breaking nearby."),
+	)
 	var/turf/mainloc = get_turf(src)
 	var/count_crystal_bs = rand(1,3)
 	for(var/i = 0 to count_crystal_bs - 1)

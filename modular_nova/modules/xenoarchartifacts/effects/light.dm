@@ -1,7 +1,9 @@
 /datum/artifact_effect/light
 	log_name = "Light"
 	type_name = ARTIFACT_EFFECT_PARTICLE
+	/// Later multiplied by 2. Basically the range of light
 	var/radius
+	/// The power of light. Bigger number == brighter/darker the light is.
 	var/l_power
 
 /datum/artifact_effect/light/New()

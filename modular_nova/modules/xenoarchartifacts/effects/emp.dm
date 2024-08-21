@@ -6,11 +6,11 @@
 	..()
 	release_method = ARTIFACT_EFFECT_PULSE
 
-/datum/artifact_effect/emp/DoEffectPulse()
+/datum/artifact_effect/emp/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	empulse(get_turf(holder), range / 2, range)
 
-/datum/artifact_effect/emp/DoEffectDestroy()
+/datum/artifact_effect/emp/do_effect_destroy()
 	empulse(get_turf(holder), range * 2, range)

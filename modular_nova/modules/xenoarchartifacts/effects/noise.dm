@@ -49,12 +49,12 @@
 	release_method = ARTIFACT_EFFECT_PULSE
 	type_name = ARTIFACT_EFFECT_PSIONIC
 
-/datum/artifact_effect/noise/DoEffectPulse()
+/datum/artifact_effect/noise/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	var/list/sound_type = pick(possible_noises)
 	playsound(holder, pick(sound_type), 50, ignore_walls = TRUE)
 
-/datum/artifact_effect/noise/DoEffectDestroy()
+/datum/artifact_effect/noise/do_effect_destroy()
 	playsound(holder, 'sound/hallucinations/wail.ogg', 75, ignore_walls = TRUE, extrarange = 25, pressure_affected = FALSE) // Louder than usual scream with extra range

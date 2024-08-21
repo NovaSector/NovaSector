@@ -8,13 +8,13 @@
 	release_method = ARTIFACT_EFFECT_PULSE
 	range = rand(2,5)
 
-/datum/artifact_effect/bodyswap/DoEffectPulse()
+/datum/artifact_effect/bodyswap/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	SwapBodies(0)
 
-/datum/artifact_effect/bodyswap/DoEffectDestroy()
+/datum/artifact_effect/bodyswap/do_effect_destroy()
 	SwapBodies(5)
 
 /datum/artifact_effect/bodyswap/proc/SwapBodies(add_range)

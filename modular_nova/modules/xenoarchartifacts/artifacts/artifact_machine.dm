@@ -90,7 +90,7 @@
 	do_destroy_effects()
 	visible_message(
 		span_danger("[src] breaks in pieces, releasing a wave of energy!"),
-		blind_message=span_hear("You hear something break into pieces!"),
+		blind_message = span_hear("You hear something break into pieces!"),
 	)
 	if(first_effect)
 		QDEL_NULL(first_effect)
@@ -125,8 +125,8 @@
 		first_effect.ToggleActivate(announce_triggered)
 
 /obj/machinery/artifact/proc/do_destroy_effects()
-	first_effect?.DoEffectDestroy()
-	secondary_effect?.DoEffectDestroy()
+	first_effect?.do_effect_destroy()
+	secondary_effect?.do_effect_destroy()
 
 /obj/machinery/artifact/examine(mob/user)
 	. = ..()
@@ -140,7 +140,7 @@
 		if(10 to 45)
 			to_chat(user, "Appears to have heavy structural damage.")
 		if(0 to 10)
-			to_chat(user, "Appears to have to be barely intact.")
+			to_chat(user, "Appears to be barely intact.")
 
 /obj/machinery/artifact/attack_hand(mob/user)
 	. = ..()
@@ -153,10 +153,10 @@
 	to_chat(user, "<b>You touch [src].</b>")
 
 	if(first_effect.release_method == ARTIFACT_EFFECT_TOUCH)
-		first_effect.DoEffectTouch(user)
+		first_effect.do_effect_touch(user)
 
 	if(secondary_effect?.release_method == ARTIFACT_EFFECT_TOUCH && secondary_effect.activated)
-		secondary_effect.DoEffectTouch(user)
+		secondary_effect.do_effect_touch(user)
 
 /obj/machinery/artifact/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0)
 	. = ..()
@@ -166,8 +166,8 @@
 
 	if(pulledby)
 		Bumped(pulledby)
-	first_effect?.UpdateMove()
-	secondary_effect?.UpdateMove()
+	first_effect?.update_move()
+	secondary_effect?.update_move()
 
 /obj/machinery/artifact/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
 	. = ..()
@@ -233,12 +233,13 @@
 		last_time_touched = world.time
 		try_toggle_effects(TRIGGER_TOUCH)
 		if(first_effect.release_method == ARTIFACT_EFFECT_TOUCH && first_effect.activated && prob(50))
-			first_effect.DoEffectTouch(what_bumped)
+			first_effect.do_effect_touch(what_bumped)
 		if(secondary_effect && secondary_effect.release_method == ARTIFACT_EFFECT_TOUCH && secondary_effect.activated && prob(50))
-			secondary_effect.DoEffectTouch(what_bumped)
+			secondary_effect.do_effect_touch(what_bumped)
 		if(ismob(what_bumped))
 			to_chat(what_bumped, "<b>You accidentally touch [src].</b>")
 
+/// Check if reagent in global volatile_reagents list
 /obj/machinery/artifact/proc/check_for_volatile(obj/item/reagent_containers/container)
 	for (var/volatile in GLOB.volatile_reagents)
 		if (container.reagents.has_reagent(volatile, 1, check_subtypes = TRUE))
@@ -271,17 +272,10 @@
 			return
 	return ..()
 
+/// If you try to scan using handheld scanner - you get nothing but fluff text
 /obj/machinery/artifact/proc/get_scan(mob/living/user, obj/item/xenoarch/handheld_scanner/scanner)
 	to_chat(user, span_notice("You begin to scan [src] using [scanner]..."))
 	if(!do_after(user, scanner.scanning_speed * 5, target = src))
 		to_chat(user, span_warning("You interrupt your scanning."))
 		return
 	to_chat(user, span_notice("[src] is too big to scan with [scanner]. Use static artifact analyzer."))
-	// var/out = "Anomalous alien device - composed of an unknown alloy.<br><br>"
-
-	// if(first_effect)
-	// 	out += first_effect.getDescription()
-
-	// if(secondary_effect)
-	// 	out += "<br><br>Internal scans indicate ongoing secondary activity<br><br>"
-	// 	out += secondary_effect.getDescription()

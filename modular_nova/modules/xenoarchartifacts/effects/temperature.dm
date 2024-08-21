@@ -1,4 +1,5 @@
 /datum/artifact_effect/temperature
+	/// target_temp is initialized in New() with value between target_temp_low and target_temp_high
 	var/target_temp
 	var/target_temp_low
 	var/target_temp_high
@@ -9,7 +10,7 @@
 	release_method = pick(ARTIFACT_EFFECT_TOUCH, ARTIFACT_EFFECT_AURA)
 	type_name = pick(ARTIFACT_EFFECT_ORGANIC, ARTIFACT_EFFECT_BLUESPACE, ARTIFACT_EFFECT_SYNTH)
 
-/datum/artifact_effect/temperature/DoEffectTouch(mob/user)
+/datum/artifact_effect/temperature/do_effect_touch(mob/user)
 	. = ..()
 	var/turf/holder_turf = get_turf(holder)
 	if(isnull(holder_turf))
@@ -22,7 +23,7 @@
 	return env
 
 
-/datum/artifact_effect/temperature/DoEffectAura()
+/datum/artifact_effect/temperature/do_effect_aura()
 	. = ..()
 	var/turf/holder_turf = get_turf(holder)
 	if(isnull(holder_turf))
@@ -34,7 +35,7 @@
 		return FALSE
 	return env
 
-/datum/artifact_effect/temperature/DoEffectDestroy()
+/datum/artifact_effect/temperature/do_effect_destroy()
 	var/turf/holder_turf = get_turf(holder)
 	if(isnull(holder_turf))
 		return FALSE
@@ -48,7 +49,7 @@
 	target_temp_low = 3
 	target_temp_high = 180
 
-/datum/artifact_effect/temperature/cold/DoEffectTouch(mob/user)
+/datum/artifact_effect/temperature/cold/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -56,7 +57,7 @@
 	env.temperature = clamp(env.temperature - 100, target_temp_low, target_temp_high)
 	to_chat(user, span_warning("A chill passes up your spine!"))
 
-/datum/artifact_effect/temperature/cold/DoEffectAura()
+/datum/artifact_effect/temperature/cold/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -64,7 +65,7 @@
 	if(env.temperature > target_temp)
 		env.temperature -= 100
 
-/datum/artifact_effect/temperature/cold/DoEffectDestroy()
+/datum/artifact_effect/temperature/cold/do_effect_destroy()
 	. = ..()
 	if(!.)
 		return
@@ -76,7 +77,7 @@
 	target_temp_low = 300
 	target_temp_high = 1000
 
-/datum/artifact_effect/temperature/heat/DoEffectTouch(mob/user)
+/datum/artifact_effect/temperature/heat/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -84,7 +85,7 @@
 	env.temperature = clamp(env.temperature + 100, target_temp_low, target_temp_high)
 	to_chat(user, span_warning("You feel a wave of heat travel up your spine!"))
 
-/datum/artifact_effect/temperature/heat/DoEffectAura()
+/datum/artifact_effect/temperature/heat/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -92,7 +93,7 @@
 	if(env.temperature < target_temp)
 		env.temperature += 100
 
-/datum/artifact_effect/temperature/heat/DoEffectDestroy()
+/datum/artifact_effect/temperature/heat/do_effect_destroy()
 	. = ..()
 	if(!.)
 		return

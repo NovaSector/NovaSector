@@ -6,14 +6,14 @@
 	..()
 	release_method = ARTIFACT_EFFECT_PULSE
 
-/datum/artifact_effect/machinery_mess/DoEffectPulse()
+/datum/artifact_effect/machinery_mess/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	try_animate()
 	try_hack_borg()
 
-/datum/artifact_effect/machinery_mess/DoEffectDestroy()
+/datum/artifact_effect/machinery_mess/do_effect_destroy()
 	try_animate()
 	try_hack_borg()
 

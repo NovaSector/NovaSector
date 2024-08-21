@@ -8,13 +8,13 @@
 	. = ..()
 	type_name = pick(ARTIFACT_EFFECT_PSIONIC, ARTIFACT_EFFECT_ORGANIC)
 
-/datum/artifact_effect/disgust/DoEffectTouch(mob/user)
+/datum/artifact_effect/disgust/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
 	apply_disgust(user, 200) // Insta-shit
 
-/datum/artifact_effect/disgust/DoEffectAura()
+/datum/artifact_effect/disgust/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -23,7 +23,7 @@
 		if(prob(50))
 			apply_disgust(living_mob, 5)
 
-/datum/artifact_effect/disgust/DoEffectPulse()
+/datum/artifact_effect/disgust/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -33,7 +33,7 @@
 		apply_disgust(living_mob, used_power)
 
 
-/datum/artifact_effect/disgust/DoEffectDestroy()
+/datum/artifact_effect/disgust/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/living_mob in range(7, curr_turf))
 		var/weakness = get_anomaly_protection(living_mob)

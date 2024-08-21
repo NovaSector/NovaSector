@@ -54,10 +54,12 @@
 
 /datum/artifact_effect/feelings
 	type_name = ARTIFACT_EFFECT_PSIONIC
+	/// List of major messages for mood events
 	var/list/drastic_message_list
+	/// List of minor messages for mood events
 	var/list/normal_message_list
 
-/datum/artifact_effect/feelings/DoEffectTouch(mob/user)
+/datum/artifact_effect/feelings/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -67,7 +69,7 @@
 	run_send_messages(human_mob, 50, 80)
 	human_mob.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
 
-/datum/artifact_effect/feelings/DoEffectAura()
+/datum/artifact_effect/feelings/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -76,7 +78,7 @@
 		run_send_messages(human_mob, 5, 10)
 		human_mob.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
 
-/datum/artifact_effect/feelings/DoEffectPulse()
+/datum/artifact_effect/feelings/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -87,7 +89,7 @@
 		if(prob(25))
 			human_mob.adjust_dizzy_up_to(5 SECONDS, 30 SECONDS)
 
-/datum/artifact_effect/feelings/DoEffectDestroy()
+/datum/artifact_effect/feelings/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human/human_mob in range(7, curr_turf))
 		run_send_messages(human_mob, 100, 0)

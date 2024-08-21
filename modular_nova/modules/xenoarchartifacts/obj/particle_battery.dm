@@ -43,7 +43,11 @@
 	if(istype(I, /obj/item/xenoarch/particles_battery))
 		if(!inserted_battery)
 			if(user.transferItemToLoc(I, src))
-				to_chat(user, "<span class='notice'>You insert the battery.</span>")
+				user.visible_message(
+					span_notice("[user] inserts battery into the utilizer."),
+					span_notice("You insert the battery into the utilizer."),
+					blind_message = span_notice("You hear click nearby."),
+				)
 				playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 25, FALSE)
 				inserted_battery = I
 				update_icon()
@@ -104,7 +108,10 @@
 		cooldown -= 1
 		if(cooldown <= 0)
 			cooldown = 0
-			visible_message("<span class='notice'>[src] chimes.</span>", "<span class='notice'>You hear something chime.</span>")
+			visible_message(
+				span_notice("[src] chimes."),
+				blind_message = span_notice("You hear something chime."),
+			)
 	else if(activated && inserted_battery?.battery_effect)
 		// make sure the effect is active
 		if(!inserted_battery.battery_effect.activated)
@@ -114,13 +121,13 @@
 		var/turf/T = get_turf(src)
 		if(T != archived_loc)
 			archived_loc = T
-			inserted_battery.battery_effect.UpdateMove()
+			inserted_battery.battery_effect.update_move()
 
 		// process the effect
 		inserted_battery.battery_effect.process()
 		// if someone is holding the device, do the effect on them
 		if(inserted_battery.battery_effect.release_method == ARTIFACT_EFFECT_TOUCH && ismob(src.loc))
-			inserted_battery.battery_effect.DoEffectTouch(src.loc)
+			inserted_battery.battery_effect.do_effect_touch(src.loc)
 
 		// handle charge
 		inserted_battery.stored_charge -= 1
@@ -137,8 +144,10 @@
 	if(activated)
 		activated = FALSE
 		timing = FALSE
-		visible_message("<span class='notice'>[src] buzzes.</span>", "<span class='notice'>You hear something buzz.</span>")
-
+		visible_message(
+				span_notice("[src] buzzes."),
+				blind_message = span_notice("You hear something buzz."),
+		)
 		cooldown = COOLDOWN_TIME
 
 	inserted_battery.battery_effect.turn_effect_off()
@@ -233,11 +242,18 @@
 		return
 
 	if(!isnull(inserted_battery) && activated && inserted_battery.battery_effect && inserted_battery.battery_effect.release_method == ARTIFACT_EFFECT_TOUCH )
-		inserted_battery.battery_effect.DoEffectTouch(M)
+		inserted_battery.battery_effect.do_effect_touch(M)
 		inserted_battery.stored_charge -= min(inserted_battery.stored_charge, 20) // we are spending quite a big amount of energy doing this
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], and it shudders on contact.</span>")
+		user.visible_message(
+			span_notice("[user] taps [M] with [src], and it shudders on contact."),
+			span_notice("You tap [M] with [src], and it shudders on contact."),
+			blind_message = span_hear("You hear silent zapping sounds."),
+		)
 	else
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], but nothing happens.</span>")
+		user.visible_message(
+			span_notice("[user] taps [M] with [src], but nothing happens."),
+			span_notice("You tap [M] with [src], but nothing happens."),
+		)
 
 	if(inserted_battery.battery_effect)
 		log_combat(user, M, "tapped", src, "(EFFECT: [inserted_battery.battery_effect.log_name]) ")

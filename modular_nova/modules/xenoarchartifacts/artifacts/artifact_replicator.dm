@@ -77,7 +77,7 @@
 
 	fail_message = span_notice("a [pick("loud", "soft", "sinister", "eery", "triumphant", "depressing", "cheerful", "angry")] \
 		[pick("horn", "beep", "bing", "bleep", "blat", "honk", "hrumph", "ding")] sounds and a \
-		[pick("yellow", "purple", "green", "blue", "red", "orange", "white")] \
+		[pick("yellow", "purple", "green", "blue", "red", "golden", "white")] \
 		[pick("light", "dial", "meter", "window", "protrusion", "knob", "antenna", "swirly thing")] \
 		[pick("swirls", "flashes", "whirrs", "goes schwing", "blinks", "flickers", "strobes", "lights up")] on the \
 		[pick("front", "side", "top", "bottom", "rear", "inside")] of [src]. A [pick("slot", "funnel", "chute", "tube")] opens up in the \
@@ -90,7 +90,7 @@
 			visible_message(
 				span_warning("[src] pings!"),
 				blind_message = span_hear("You hear a ping!"),
-			))
+			)
 
 			var/obj/source_material = pop(stored_materials)
 			var/spawn_type = pop(spawning_types)
@@ -139,7 +139,10 @@
 		to_chat(user, span_warning("\The [to_insert] is stuck to your hand, you cannot put it in the machine!"))
 		return TRUE
 	stored_materials.Add(to_insert)
-	visible_message("span_notice([user] inserts [to_insert] into [src].)")
+	visible_message(
+		span_notice("[user] inserts [to_insert] into [src]."),
+		span_notice("You insert [to_insert] into [src].")
+	)
 
 /obj/machinery/replicator/Topic(href, href_list)
 	. = ..()
@@ -152,7 +155,10 @@
 				if(spawning_types.len)
 					visible_message(span_notice("A [pick("light", "dial", "display", "meter", "pad")] on [src]'s front [pick("blinks", "flashes")] [pick("red", "yellow", "blue", "orange", "purple", "green", "white")]."))
 				else
-					visible_message("span_notice("[src]'s front compartment slides shut."))
+					visible_message(
+						span_notice("[src]'s front compartment slides shut."),
+						blind_message = span_hear("You hear metal shuffling."),
+					)
 
 				spawning_types.Add(construction[construction[index]])
 				spawn_progress_time = 0

@@ -45,7 +45,11 @@
 			return TRUE
 		current_sample = sampler
 		scanning = TRUE
-		visible_message("<span class='notice'>[user] inserts [sampler] into [src].</span>")
+		user.visible_message(
+			span_notice("[user] inserts [sampler] into [src]."),
+			span_notice("You insert [sampler] into [src]."),
+			blind_message = span_notice("You hear click nearby."),
+		)
 		process_sample()
 	else
 		balloon_alert(user, "Geosamples only!")
@@ -75,7 +79,10 @@
 		scanning = FALSE
 		icon_state = "spectrometer"
 		update_use_power(IDLE_POWER_USE)
-		visible_message("<span class='notice'>[src] destroys core sampler due to internal error.</span>")
+		visible_message(
+			span_warning("[src] destroys core sampler due to internal error."),
+			blind_message = span_warning("You hear machine whirling."),
+			)
 		return
 	if(powered()) // Double check if still powered after sleep
 		qdel(current_sample)
@@ -97,4 +104,7 @@
 		scanning = FALSE
 		icon_state = "spectrometer"
 		update_use_power(IDLE_POWER_USE)
-		visible_message("<span class='notice'>[src] destroys core sampler due to internal error.</span>")
+		visible_message(
+			span_warning("[src] destroys core sampler due to internal error."),
+			blind_message = span_warning("You hear machine whirling."),
+			)

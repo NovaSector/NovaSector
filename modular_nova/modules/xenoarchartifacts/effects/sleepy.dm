@@ -5,13 +5,13 @@
 	. = ..()
 	type_name = pick(ARTIFACT_EFFECT_PSIONIC, ARTIFACT_EFFECT_ORGANIC)
 
-/datum/artifact_effect/sleepy/DoEffectTouch(mob/user)
+/datum/artifact_effect/sleepy/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
 	apply_sleepy(user, 25)
 
-/datum/artifact_effect/sleepy/DoEffectAura()
+/datum/artifact_effect/sleepy/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -20,7 +20,7 @@
 		if(prob(50))
 			apply_sleepy(carbon_mob, 5)
 
-/datum/artifact_effect/sleepy/DoEffectPulse()
+/datum/artifact_effect/sleepy/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -30,7 +30,7 @@
 		apply_sleepy(carbon_mob, used_power)
 
 
-/datum/artifact_effect/sleepy/DoEffectDestroy()
+/datum/artifact_effect/sleepy/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/carbon_mob in range(7, curr_turf))
 		var/weakness = get_anomaly_protection(carbon_mob)
@@ -52,4 +52,4 @@
 		human_mob.adjust_dizzy_up_to(30 SECONDS, 120 SECONDS)
 		human_mob.Sleeping(power * weakness * 10)
 	if(issilicon(receiver))
-		to_chat(receiver, "<span class='warning'>SYSTEM ALERT: Anomalous process with PID [rand(0,9999)] slows down the CPU.</span>")
+		to_chat(receiver, span_warning("SYSTEM ALERT: Anomalous process with PID [rand(0,9999)] slows down the CPU."))

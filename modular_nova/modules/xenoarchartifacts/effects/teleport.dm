@@ -2,14 +2,14 @@
 	log_name = "Teleport"
 	type_name = ARTIFACT_EFFECT_BLUESPACE
 
-/datum/artifact_effect/teleport/DoEffectTouch(mob/user)
+/datum/artifact_effect/teleport/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
 	if(teleport_around(user, 10))
 		to_chat(user, span_warning("You are suddenly zapped away elsewhere!"))
 
-/datum/artifact_effect/teleport/DoEffectAura()
+/datum/artifact_effect/teleport/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -18,7 +18,7 @@
 		if(teleport_around(living_mob, 20))
 			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
 
-/datum/artifact_effect/teleport/DoEffectPulse()
+/datum/artifact_effect/teleport/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -28,7 +28,7 @@
 		if(teleport_around(living_mob, round(1 * used_power)))
 			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
 
-/datum/artifact_effect/teleport/DoEffectDestroy()
+/datum/artifact_effect/teleport/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/living_mob in range(7, curr_turf))
 		if(teleport_around(living_mob, 50))

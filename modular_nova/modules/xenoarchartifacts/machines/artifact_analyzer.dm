@@ -186,11 +186,11 @@
 			var/out = "Anomalous alien device - composed of an unknown alloy.<br><br>"
 
 			if(A.first_effect)
-				out += A.first_effect.getDescription()
+				out += A.first_effect.get_description()
 
 			if(A.secondary_effect)
 				out += "<br><br>Internal scans indicate ongoing secondary activity<br><br>"
-				out += A.secondary_effect.getDescription()
+				out += A.secondary_effect.get_description()
 
 			return out
 		else

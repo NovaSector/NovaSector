@@ -9,7 +9,7 @@
 	maximum_charges = rand(5,10)
 	activation_pulse_cost = maximum_charges
 
-/datum/artifact_effect/powernet/DoEffectPulse()
+/datum/artifact_effect/powernet/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return

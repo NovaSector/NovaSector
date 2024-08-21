@@ -5,14 +5,14 @@
 	. = ..()
 	type_name = pick(ARTIFACT_EFFECT_PSIONIC, ARTIFACT_EFFECT_ORGANIC)
 
-/datum/artifact_effect/stun/DoEffectTouch(mob/user)
+/datum/artifact_effect/stun/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
 	if(apply_stun(user, 200)) // Instant stun
 		to_chat(user, span_warning("A powerful force overwhelms your consciousness."))
 
-/datum/artifact_effect/stun/DoEffectAura()
+/datum/artifact_effect/stun/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
@@ -23,7 +23,7 @@
 		if(apply_stun(living_mob, 25))
 			to_chat(living_mob, span_warning("Your body goes numb for a moment."))
 
-/datum/artifact_effect/stun/DoEffectPulse()
+/datum/artifact_effect/stun/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
@@ -35,7 +35,7 @@
 		if(apply_stun(living_mob, 10 * used_power))
 			to_chat(living_mob, span_warning("A wave of energy overwhelms your senses!"))
 
-/datum/artifact_effect/stun/DoEffectDestroy()
+/datum/artifact_effect/stun/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/living_mob in range(range+3, curr_turf))
 		if(apply_stun(living_mob, 200))

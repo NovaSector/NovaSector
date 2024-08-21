@@ -47,7 +47,7 @@
 	var/activation_pulse_cost = 0
 	///used for logs and science tool
 	var/log_name = "unknown"
-	///purely used for getDescription
+	///purely used for get_description
 	var/type_name = ARTIFACT_EFFECT_UNKNOWN
 
 /datum/artifact_effect/New(atom/location)
@@ -109,7 +109,7 @@
 	while(!istype(toplevelholder.loc, /turf))
 		toplevelholder = toplevelholder.loc
 	if(iscarbon(toplevelholder)) // When utilizer works, the holder is human and we dont display his icon (costs too much)
-		toplevelholder.visible_message(span_warning"[toplevelholder] [display_msg]"))
+		toplevelholder.visible_message(span_warning("[toplevelholder] [display_msg]"))
 	else
 		toplevelholder.visible_message(span_warning("[toplevelholder] [display_msg]"))
 
@@ -125,7 +125,7 @@
  * Checks for a user, anomaly protection, tries to drain artifact charg
  * returns true if charge was drained, otherwise returns false
  */
-/datum/artifact_effect/proc/DoEffectTouch(mob/user)
+/datum/artifact_effect/proc/do_effect_touch(mob/user)
 	if(!user)
 		return FALSE
 	if(!get_anomaly_protection(user)) //we ignore things with full anomaly protection
@@ -138,7 +138,7 @@
  * Tries to drain charge
  * returns true if charge was drained, otherwise returns false
  */
-/datum/artifact_effect/proc/DoEffectAura()
+/datum/artifact_effect/proc/do_effect_aura()
 	if(try_drain_charge(activation_aura_cost))
 		return TRUE
 	return FALSE
@@ -147,7 +147,7 @@
  * Tries to drain charge
  * returns true if charge was drained, otherwise returns false
  */
-/datum/artifact_effect/proc/DoEffectPulse()
+/datum/artifact_effect/proc/do_effect_pulse()
 	if(try_drain_charge(activation_pulse_cost))
 		return activation_pulse_cost
 	return FALSE
@@ -155,13 +155,13 @@
 /**
  * Only called in artifact_unknown code on qdel
  */
-/datum/artifact_effect/proc/DoEffectDestroy()
+/datum/artifact_effect/proc/do_effect_destroy()
 	return
 
 /**
  * Updates effect on /move
  */
-/datum/artifact_effect/proc/UpdateMove()
+/datum/artifact_effect/proc/update_move()
 	return
 
 /**
@@ -177,15 +177,15 @@
 /datum/artifact_effect/process()
 	current_charge = min(current_charge + recharge_speed, maximum_charges)
 	if(release_method == ARTIFACT_EFFECT_AURA)
-		DoEffectAura()
+		do_effect_aura()
 	if(release_method == ARTIFACT_EFFECT_PULSE)
-		DoEffectPulse()
+		do_effect_pulse()
 
 /**
  * Returns type effect
  * used in artifact analyser
  */
-/datum/artifact_effect/proc/getDescription()
+/datum/artifact_effect/proc/get_description()
 	. = "<b>"
 	switch(type_name)
 		if(ARTIFACT_EFFECT_ENERGY)

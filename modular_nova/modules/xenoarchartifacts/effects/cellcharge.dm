@@ -2,7 +2,7 @@
 	log_name = "Cell Charge"
 	type_name = ARTIFACT_EFFECT_ELECTRO
 
-/datum/artifact_effect/cellcharge/DoEffectTouch(mob/user)
+/datum/artifact_effect/cellcharge/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -11,20 +11,20 @@
 	if(issilicon(user))
 		to_chat(user, span_notice("SYSTEM ALERT: Energy boost detected!"))
 
-/datum/artifact_effect/cellcharge/DoEffectAura()
+/datum/artifact_effect/cellcharge/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
 	recharge_everything_in_range(250000, range, holder)
 
-/datum/artifact_effect/cellcharge/DoEffectPulse()
+/datum/artifact_effect/cellcharge/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	var/used_power = .
 	recharge_everything_in_range(5000 * used_power, range, holder)
 
-/datum/artifact_effect/cellcharge/DoEffectDestroy()
+/datum/artifact_effect/cellcharge/do_effect_destroy()
 	recharge_everything_in_range(1000000000, 10, holder) // One time use giga-charge
 
 /datum/artifact_effect/cellcharge/proc/try_give_charge(atom/reciever_atmon, power)

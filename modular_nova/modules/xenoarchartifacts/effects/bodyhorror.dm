@@ -8,13 +8,13 @@
 	release_method = ARTIFACT_EFFECT_PULSE
 	range = rand(2,5)
 
-/datum/artifact_effect/bodyhorror/DoEffectPulse()
+/datum/artifact_effect/bodyhorror/do_effect_pulse()
 	. = ..()
 	if(!.)
 		return
 	mutatelimbs(0)
 
-/datum/artifact_effect/bodyhorror/DoEffectDestroy()
+/datum/artifact_effect/bodyhorror/do_effect_destroy()
 	mutatelimbs(5)
 
 /datum/artifact_effect/bodyhorror/proc/mutatelimbs(add_range)
@@ -55,7 +55,11 @@
 			if(BODY_ZONE_R_LEG)
 				part_type = /obj/item/bodypart/leg/right/flesh
 
-		carbon_mob.visible_message(span_danger("[carbon_mob][carbon_mob.p_s()] limb suddenly swells and rips apart, revealing brand new red bloody flesh!"))
+		carbon_mob.visible_message(
+			span_danger("[carbon_mob][carbon_mob.p_s()] limb suddenly swells and rips apart, revealing brand new red bloody flesh!"),
+			span_bolddanger("Your [part_type] suddenly swells and rips apart, revealing brand new red bloody flesh!"),
+			blind_message = span_hear("You hear gore sounds, like someone is tearing up flesh and breaking bones."),
+		)
 		var/obj/item/bodypart/new_bodypart = new part_type()
 		var/mob/living/basic/living_limb_flesh/parasite = new /mob/living/basic/living_limb_flesh
 		parasite.forceMove(new_bodypart)
