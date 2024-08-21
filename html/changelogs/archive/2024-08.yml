@@ -588,3 +588,13 @@
   dis-integrates-the-integration-tests:
   - qol: Meow faster! Scream faster! Mrrp faster! Everything faster! (Global Emote
       cooldowns 5s -> 2s)
+2024-08-21:
+  CliffracerX:
+  - rscadd: Expands character customization by adding all species limbs to the augments
+      tab.
+  - bugfix: Fixes augments that use icon_greyscale not rendering properly on character
+      creation.
+  OrionTheFox:
+  - rscdel: Removed two unmaintained modular space ruins, Ghostship and Salvageyard
+  honkpocket:
+  - rscadd: Xenohybrids now make use of the xenomorph blood decals
