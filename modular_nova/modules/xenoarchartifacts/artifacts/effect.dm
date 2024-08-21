@@ -7,13 +7,15 @@
 	"distorts slightly for a moment!",\
 	"flickers slightly!",\
 	"vibrates!",\
-	"shimmers slightly for a moment!")
+	"shimmers slightly for a moment!",\
+)
 
 #define ARTIFACT_DEACTIVATION_MESSAGES list(\
 	"grows dull!",\
 	"fades in intensity!",\
 	"suddenly becomes very still!",\
-	"suddenly becomes very quiet!")
+	"suddenly becomes very quiet!",\
+)
 
 #define NO_ANOMALY_PROTECTION 1
 #define FULL_ANOMALY_PROTECTION 0
@@ -49,14 +51,14 @@
 	var/type_name = ARTIFACT_EFFECT_UNKNOWN
 
 /datum/artifact_effect/New(atom/location)
-	..()
+	. = ..()
 	holder = location
 	release_method = pick(ARTIFACT_ALL_RELEASE_METHODS)
 	trigger = pick(ARTIFACT_POSSIBLE_TRIGGERS)
 	create_artifact_type(50, 70, 30)
 	activation_pulse_cost = maximum_charges
 
-/datum/artifact_effect/Destroy(force, ...)
+/datum/artifact_effect/Destroy(force)
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -67,7 +69,8 @@
 	var/artifact_power = pick_weight(list(
 		ARTIFACT_SMALL_POWER = chance_small,
 		ARTIFACT_MEDIUM_POWER = chance_medium,
-		ARTIFACT_LARGE_POWER = chance_large))
+		ARTIFACT_LARGE_POWER = chance_large,
+	))
 	switch(artifact_power)
 		if(ARTIFACT_SMALL_POWER)
 			maximum_charges = rand(5, 20)
@@ -106,9 +109,9 @@
 	while(!istype(toplevelholder.loc, /turf))
 		toplevelholder = toplevelholder.loc
 	if(iscarbon(toplevelholder)) // When utilizer works, the holder is human and we dont display his icon (costs too much)
-		toplevelholder.visible_message("<span class='warning'>[toplevelholder] [display_msg]</span>")
+		toplevelholder.visible_message(span_warning"[toplevelholder] [display_msg]"))
 	else
-		toplevelholder.visible_message("<span class='warning'>[toplevelholder] [display_msg]</span>")
+		toplevelholder.visible_message(span_warning("[toplevelholder] [display_msg]"))
 
 /**
  * Turns effect off, no icon update, doesnt display message
@@ -232,26 +235,26 @@
  * returns NO_ANOMALY_PROTECTION if not human, returns calculated protection otherwise
  * higher returning number means less protection
  */
-/proc/get_anomaly_protection(mob/living/carbon/human/Human)
-	if(!ishuman(Human))
+/proc/get_anomaly_protection(mob/living/carbon/human/human_mob)
+	if(!istype(human_mob))
 		return NO_ANOMALY_PROTECTION
 	var/protection = 0
 	var/obj/item/bodypart/chest/userchest
 	var/obj/item/bodypart/head/userhead
-	for (var/obj/item/bodypart/checkpart in Human.bodyparts)
+	for (var/obj/item/bodypart/checkpart in human_mob.bodyparts)
 		if (istype(checkpart, /obj/item/bodypart/chest))
 			userchest = checkpart
 		else if (istype(checkpart, /obj/item/bodypart/head))
 			userhead = checkpart
 	// use biohazard suits!
-	if(userchest && Human.check_armor(userchest, BIO) >= 85)
+	if(userchest && human_mob.check_armor(userchest, BIO) >= 85)
 		protection += 0.5
-	if(userhead && Human.check_armor(userhead, BIO) >= 85)
+	if(userhead && human_mob.check_armor(userhead, BIO) >= 85)
 		protection += 0.3
 	// latex gloves and science goggles also give a bit of bonus protection
-	if(istype(Human.gloves, /obj/item/clothing/gloves/latex))
+	if(istype(human_mob.gloves, /obj/item/clothing/gloves/latex))
 		protection += 0.1
-	if(istype(Human.glasses, /obj/item/clothing/glasses/science))
+	if(istype(human_mob.glasses, /obj/item/clothing/glasses/science))
 		protection += 0.1
 	return clamp(NO_ANOMALY_PROTECTION - protection, FULL_ANOMALY_PROTECTION, NO_ANOMALY_PROTECTION)
 

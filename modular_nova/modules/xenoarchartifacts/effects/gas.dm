@@ -11,23 +11,23 @@
 		/datum/gas/nitrous_oxide,
 		/datum/gas/hydrogen,
 		/datum/gas/miasma,
-		)
+	)
 	var/list/rare_gas_types = list(
 		/datum/gas/bz,
 		/datum/gas/halon,
 		/datum/gas/pluoxium,
-		)
+	)
 	// Go ahead with your gambling addiction. It is ( 5% that is is rolled + X% that gas effect rolls ) * 0% xenoarcheologists exist
 	var/list/legendary_gas_types = list(
 		/datum/gas/tritium,
 		/datum/gas/zauker,
 		/datum/gas/helium,
-		)
+	)
 	var/current_gas_type
 	var/spawn_temp
 
 /datum/artifact_effect/gas/New()
-	..()
+	. = ..()
 	if (prob(5))
 		current_gas_type = pick(legendary_gas_types)
 	else if (prob(15))

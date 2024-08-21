@@ -1,5 +1,5 @@
 #define GRAVITY_PULL 0
-#define GRAVITY_REPELL 1
+#define GRAVITY_REPEL 1
 #define GRAVITY_MAYHEM 2
 
 /datum/artifact_effect/gravity
@@ -7,11 +7,11 @@
 	var/grav_type
 
 /datum/artifact_effect/gravity/New()
-	..()
+	. = ..()
 	trigger = TRIGGER_TOUCH
 	release_method = ARTIFACT_EFFECT_PULSE
 	type_name = ARTIFACT_EFFECT_BLUESPACE
-	grav_type = pick(GRAVITY_PULL, GRAVITY_REPELL, GRAVITY_MAYHEM)
+	grav_type = pick(GRAVITY_PULL, GRAVITY_REPEL, GRAVITY_MAYHEM)
 	maximum_charges = rand(4,10)
 	activation_pulse_cost = maximum_charges
 
@@ -20,31 +20,30 @@
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
-	if (grav_type == 2)
-		for(var/atom/movable/to_throw in range(range, curr_turf))
-			mayhem_throw(to_throw, curr_turf, 1)
-	else if (grav_type == 1)
-		for(var/atom/movable/to_throw in range(range, curr_turf))
-			repell(to_throw, curr_turf)
-	else if (grav_type == 0)
-		for(var/atom/movable/to_throw in range(range, curr_turf))
-			grav_pull(to_throw, curr_turf)
-	else
-		message_admins("The gravity artifact tries to do... something? It doesn't know what to do exactly actually. Tell coders to fix it.")
+	switch(grav_type)
+		if (GRAVITY_MAYHEM)
+			for(var/atom/movable/to_throw in range(range, curr_turf))
+				mayhem_throw(to_throw, curr_turf, 1)
+		if (GRAVITY_REPEL)
+			for(var/atom/movable/to_throw in range(range, curr_turf))
+				repel(to_throw, curr_turf)
+		if (GRAVITY_PULL)
+			for(var/atom/movable/to_throw in range(range, curr_turf))
+				grav_pull(to_throw, curr_turf)
 
 
-/datum/artifact_effect/gravity/proc/repell(atom/to_repell, turf/T)
-	var/protection = get_anomaly_protection(to_repell)
-	if(ishuman(to_repell) && !get_anomaly_protection(to_repell))
+/datum/artifact_effect/gravity/proc/repel(atom/to_repel, turf/our_turf)
+	var/protection = get_anomaly_protection(to_repel)
+	if(ishuman(to_repel) && !get_anomaly_protection(to_repel))
 		return
-	if (istype(to_repell, /obj))
-		var/obj/test_anchored = to_repell
+	if (istype(to_repel, /obj))
+		var/obj/test_anchored = to_repel
 		if(test_anchored.anchored)
 			return
 	var/turfs_to_step = 0
 	turfs_to_step = round(protection * 16 / 2) // 8 turfs max range with no protection
 	while(turfs_to_step > 0)
-		step_away(to_repell, T)
+		step_away(to_repel, our_turf)
 		turfs_to_step--
 
 /datum/artifact_effect/gravity/proc/grav_pull(atom/to_pull, turf/T)
@@ -82,5 +81,5 @@
 
 
 #undef GRAVITY_PULL
-#undef GRAVITY_REPELL
+#undef GRAVITY_REPEL
 #undef GRAVITY_MAYHEM

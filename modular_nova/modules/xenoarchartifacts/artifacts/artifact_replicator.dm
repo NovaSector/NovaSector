@@ -24,69 +24,73 @@
 	. = ..()
 
 	var/list/viables = list(
-	/obj/effect/spawner/random/animalhide,
-	/obj/effect/spawner/random/bedsheet/any,
-	/obj/effect/spawner/random/bureaucracy/pen,
-	/obj/effect/spawner/random/bureaucracy/stamp,
-	/obj/effect/spawner/random/bureaucracy/crayon,
-	/obj/effect/spawner/random/bureaucracy/paper,
-	/obj/effect/spawner/random/bureaucracy/briefcase,
-	/obj/effect/spawner/random/bureaucracy/folder,
-	/obj/effect/spawner/random/bureaucracy/birthday_wrap,
-	/obj/effect/spawner/random/clothing/funny_hats,
-	/obj/effect/spawner/random/clothing/backpack,
-	/obj/effect/spawner/random/contraband,
-	/obj/effect/spawner/random/contraband/plus,
-	/obj/effect/spawner/random/contraband/permabrig_weapon,
-	/obj/effect/spawner/random/contraband/permabrig_gear,
-	/obj/effect/spawner/random/engineering/tool,
-	/obj/effect/spawner/random/engineering/tool_advanced,
-	/obj/effect/spawner/random/engineering/tool_alien,
-	/obj/effect/spawner/random/engineering/material_rare,
-	/obj/effect/spawner/random/entertainment/musical_instrument,
-	/obj/effect/spawner/random/entertainment/coin,
-	/obj/effect/spawner/random/exotic/languagebook,
-	/obj/effect/spawner/random/exotic/technology,
-	/obj/effect/spawner/random/exotic/antag_gear_weak,
-	/obj/effect/spawner/random/food_or_drink/any_snack_or_beverage,
-	/obj/effect/spawner/random/maintenance,
-	/obj/effect/spawner/random/medical/minor_healing,
-	/obj/effect/spawner/random/medical/injector,
-	/obj/effect/spawner/random/medical/organs,
-	/obj/effect/spawner/random/medical/memeorgans,
-	/obj/effect/spawner/random/medical/surgery_tool,
-	/obj/effect/spawner/random/medical/surgery_tool_advanced,
-	/obj/effect/spawner/random/medical/supplies,
-	/obj/effect/spawner/random/mod/maint,
-	/obj/effect/spawner/random/sakhno/ammo,
-	/obj/effect/spawner/random/techstorage/data_disk,
-	/obj/effect/spawner/random/techstorage/arcade_boards,
-	/obj/effect/spawner/random/techstorage/service_all,
-	/obj/effect/spawner/random/techstorage/rnd_all,
-	/obj/effect/spawner/random/techstorage/tcomms_all,
-	/obj/effect/spawner/random/trash/garbage,
-	/obj/effect/spawner/random/trash/deluxe_garbage)
+		/obj/effect/spawner/random/animalhide,
+		/obj/effect/spawner/random/bedsheet/any,
+		/obj/effect/spawner/random/bureaucracy/pen,
+		/obj/effect/spawner/random/bureaucracy/stamp,
+		/obj/effect/spawner/random/bureaucracy/crayon,
+		/obj/effect/spawner/random/bureaucracy/paper,
+		/obj/effect/spawner/random/bureaucracy/briefcase,
+		/obj/effect/spawner/random/bureaucracy/folder,
+		/obj/effect/spawner/random/bureaucracy/birthday_wrap,
+		/obj/effect/spawner/random/clothing/funny_hats,
+		/obj/effect/spawner/random/clothing/backpack,
+		/obj/effect/spawner/random/contraband,
+		/obj/effect/spawner/random/contraband/plus,
+		/obj/effect/spawner/random/contraband/permabrig_weapon,
+		/obj/effect/spawner/random/contraband/permabrig_gear,
+		/obj/effect/spawner/random/engineering/tool,
+		/obj/effect/spawner/random/engineering/tool_advanced,
+		/obj/effect/spawner/random/engineering/tool_alien,
+		/obj/effect/spawner/random/engineering/material_rare,
+		/obj/effect/spawner/random/entertainment/musical_instrument,
+		/obj/effect/spawner/random/entertainment/coin,
+		/obj/effect/spawner/random/exotic/languagebook,
+		/obj/effect/spawner/random/exotic/technology,
+		/obj/effect/spawner/random/exotic/antag_gear_weak,
+		/obj/effect/spawner/random/food_or_drink/any_snack_or_beverage,
+		/obj/effect/spawner/random/maintenance,
+		/obj/effect/spawner/random/medical/minor_healing,
+		/obj/effect/spawner/random/medical/injector,
+		/obj/effect/spawner/random/medical/organs,
+		/obj/effect/spawner/random/medical/memeorgans,
+		/obj/effect/spawner/random/medical/surgery_tool,
+		/obj/effect/spawner/random/medical/surgery_tool_advanced,
+		/obj/effect/spawner/random/medical/supplies,
+		/obj/effect/spawner/random/mod/maint,
+		/obj/effect/spawner/random/sakhno/ammo,
+		/obj/effect/spawner/random/techstorage/data_disk,
+		/obj/effect/spawner/random/techstorage/arcade_boards,
+		/obj/effect/spawner/random/techstorage/service_all,
+		/obj/effect/spawner/random/techstorage/rnd_all,
+		/obj/effect/spawner/random/techstorage/tcomms_all,
+		/obj/effect/spawner/random/trash/garbage,
+		/obj/effect/spawner/random/trash/deluxe_garbage,
+	)
 
 	var/quantity = rand(5,15)
 	for (var/i in 1 to quantity)
 		var/button_desc = "a [pick("yellow", "purple", "green", "blue", "red", "orange", "white", "black", "lime", "pink", "gray", "bloody")], "
-		button_desc += "[pick("round", "square", "diamond", "heart", "dog", "human", "cat", "lizard", "skull", "syringe", "disk", "pen", "circuitboard")] shaped "
+		button_desc += "[pick("round", "square", "diamond", "heart", "dog", "human", "cat", "lizard", "skull", "syringe", "disk", "pen", "circuitboard")]-shaped "
 		button_desc += "[pick("toggle", "switch", "lever", "button", "pad", "hole")]"
 		construction[button_desc] = pick_n_take(viables)
 
-	fail_message = "<span class='notice'>a [pick("loud", "soft", "sinister", "eery", "triumphant", "depressing", "cheerful", "angry")] \
+	fail_message = span_notice("a [pick("loud", "soft", "sinister", "eery", "triumphant", "depressing", "cheerful", "angry")] \
 		[pick("horn", "beep", "bing", "bleep", "blat", "honk", "hrumph", "ding")] sounds and a \
 		[pick("yellow", "purple", "green", "blue", "red", "orange", "white")] \
 		[pick("light", "dial", "meter", "window", "protrusion", "knob", "antenna", "swirly thing")] \
 		[pick("swirls", "flashes", "whirrs", "goes schwing", "blinks", "flickers", "strobes", "lights up")] on the \
 		[pick("front", "side", "top", "bottom", "rear", "inside")] of [src]. A [pick("slot", "funnel", "chute", "tube")] opens up in the \
-		[pick("front", "side", "top", "bottom", "rear", "inside")].</span>"
+		[pick("front", "side", "top", "bottom", "rear", "inside")].")
 
 /obj/machinery/replicator/process()
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)
-			visible_message("<span class='warning'>[src] pings!</span>")
+			visible_message(
+				span_warning("[src] pings!"),
+				blind_message = span_hear("You hear a ping!"),
+			))
 
 			var/obj/source_material = pop(stored_materials)
 			var/spawn_type = pop(spawning_types)
@@ -109,7 +113,11 @@
 				icon_state = "replicator"
 
 		else if(prob(5))
-			visible_message("<span class='warning'>[src] [pick("clicks", "whizzes", "whirrs", "whooshes", "clanks", "clongs", "clonks", "bangs")].</span>")
+			var/sound_made = pick("clicks", "whizzes", "whirrs", "whooshes", "clanks", "clongs", "clonks", "bangs")
+			visible_message(
+				span_warning("[src] [sound_made]"),
+				blind_message = span_hear("Something [sound_made]!"),
+			)
 
 	last_process_time = world.time
 
@@ -125,13 +133,13 @@
 
 /obj/machinery/replicator/attackby(obj/item/to_insert, mob/living/user)
 	if(to_insert.item_flags & (ABSTRACT | DROPDEL))
-		to_chat(user, "<span class='notice'>[to_insert] doesn't fit into [src].</span>")
+		to_chat(user, span_notice("[to_insert] doesn't fit into [src]."))
 		return
 	if(!user.transferItemToLoc(to_insert, src))
 		to_chat(user, span_warning("\The [to_insert] is stuck to your hand, you cannot put it in the machine!"))
 		return TRUE
 	stored_materials.Add(to_insert)
-	visible_message("<span class='notice'>[user] inserts [to_insert] into [src].</span>")
+	visible_message("span_notice([user] inserts [to_insert] into [src].)")
 
 /obj/machinery/replicator/Topic(href, href_list)
 	. = ..()
@@ -142,9 +150,9 @@
 		if(index > 0 && index <= construction.len)
 			if(stored_materials.len > spawning_types.len)
 				if(spawning_types.len)
-					visible_message("<span class='notice'>A [pick("light", "dial", "display", "meter", "pad")] on [src]'s front [pick("blinks", "flashes")] [pick("red", "yellow", "blue", "orange", "purple", "green", "white")].</span>")
+					visible_message(span_notice("A [pick("light", "dial", "display", "meter", "pad")] on [src]'s front [pick("blinks", "flashes")] [pick("red", "yellow", "blue", "orange", "purple", "green", "white")]."))
 				else
-					visible_message("<span class='notice'>[src]'s front compartment slides shut.</span>")
+					visible_message("span_notice("[src]'s front compartment slides shut."))
 
 				spawning_types.Add(construction[construction[index]])
 				spawn_progress_time = 0
