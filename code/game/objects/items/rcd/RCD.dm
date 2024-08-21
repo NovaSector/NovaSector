@@ -220,9 +220,8 @@
 	var/list/rcd_results = target.rcd_vals(user, src)
 	if(!rcd_results)
 		return FALSE
-	rcd_results[RCD_DESIGN_MODE] = mode
-	rcd_results[RCD_DESIGN_PATH] = rcd_design_path
-	rcd_results[RCD_BUILD_DIRECTION] = selected_direction
+	rcd_results["[RCD_DESIGN_MODE]"] = mode
+	rcd_results["[RCD_DESIGN_PATH]"] = rcd_design_path
 
 	var/delay = rcd_results["delay"] * delay_mod
 	if (
