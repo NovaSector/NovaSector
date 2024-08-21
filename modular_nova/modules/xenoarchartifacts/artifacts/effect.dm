@@ -251,7 +251,7 @@
 			. += " Unable to determine any data about activation trigger."
 
 	if(istype(src, /datum/artifact_effect/machinery_mess) && prob(50))
-		. += " <b><font color="red">Ţ̸̦̳̈́̾E̴͙̚R̶̗̹̜͒T̴̪͚͉͌͒I̵̛̥̐̅A̵̧̽͆R̵̜̜͋̃͑Y̷͉̚ ̵͇́S̴̻̙̔̑͜C̸̣̔͐A̷̠͆N̸̠̼̈́ ̸̮̔̎Ī̵̧̉̿N̵̅D̷̡̛̘̜͑̂I̸͔̮̪͌̕͝Ć̷͈̫̕Á̶̢͍̤͑Ț̶̑̐E̵̋̉͘ͅ:"
+		. += " <b><font color='red'>Ţ̸̦̳̈́̾E̴͙̚R̶̗̹̜͒T̴̪͚͉͌͒I̵̛̥̐̅A̵̧̽͆R̵̜̜͋̃͑Y̷͉̚ ̵͇́S̴̻̙̔̑͜C̸̣̔͐A̷̠͆N̸̠̼̈́ ̸̮̔̎Ī̵̧̉̿N̵̅D̷̡̛̘̜͑̂I̸͔̮̪͌̕͝Ć̷͈̫̕Á̶̢͍̤͑Ț̶̑̐E̵̋̉͘ͅ:"
 		. += " [pick(MACHINERY_MESS_MOCKING)]</font></b>"
 
 /**
