@@ -102,7 +102,7 @@
 	build_path = /obj/item/xenoarch/xenoarch_utilizer
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
 /datum/design/xenoarch/tool/wave_scanner_backpack

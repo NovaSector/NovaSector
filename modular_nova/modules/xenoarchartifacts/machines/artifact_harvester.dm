@@ -7,7 +7,8 @@
 		/datum/stock_part/capacitor = 4,
 		/datum/stock_part/servo = 2,
 		/datum/stock_part/amplifier = 1,
-		/datum/stock_part/filter = 1) // Exotic particles, exotic(for machinery) stock parts
+		/datum/stock_part/filter = 1, // Exotic particles, exotic(for machinery) stock parts
+	)
 
 /obj/machinery/artifact_harvester
 	name = "Exotic Particle Harvester"
@@ -26,7 +27,7 @@
 	var/obj/machinery/artifact_scanpad/owned_scanner = null
 
 /obj/machinery/artifact_harvester/Initialize(mapload)
-	..()
+	. = ..()
 	owned_scanner = locate(/obj/machinery/artifact_scanpad) in get_step(src, dir)
 	if(!owned_scanner)
 		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
@@ -51,7 +52,6 @@
 			to_chat(user, span_warning("There is already a battery in [src]."))
 	else
 		return..()
-
 
 /obj/machinery/artifact_harvester/ui_interact(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN))

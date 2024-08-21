@@ -1,18 +1,20 @@
 /obj/item/xenoarch/anomaly_stabilizer
 	name = "handheld anomaly stabilizer"
-	desc = "An old model of  handheld forcefield projector, able to stabilize crushing boulders from turning into dust completely. Nobody bothers to update it's software. \
+	desc = "An old model of handheld forcefield projector, able to stabilize crushing boulders from turning into dust completely. Nobody bothers to update it's software. \
 	Comes with no warranty and outdated terminology."
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/tools.dmi'
 	icon_state = "anoscanner_borg"
 	var/selected = NONE
-	var/fields = list("Diffracted carbon dioxide laser",
-					  "Nitrogen tracer field",
-					  "Potassium refrigerant cloud",
-					  "Mercury dispersion wave",
-					  "Iron wafer conduction field",
-					  "Calcium binary deoxidiser",
-					  "Chlorine diffusion emissions",
-					  "Phoron saturated field") // Phoron is left intentionally.
+	var/fields = list(
+		"Diffracted carbon dioxide laser",
+		"Nitrogen tracer field",
+		"Potassium refrigerant cloud",
+		"Mercury dispersion wave",
+		"Iron wafer conduction field",
+		"Calcium binary deoxidiser",
+		"Chlorine diffusion emissions",
+		"Phoron saturated field", // Phoron is left intentionally.
+	)
 
 /obj/item/xenoarch/anomaly_stabilizer/attack_self(mob/user)
 	var/target_path = input(user, "Choose a field") as null|anything in fields

@@ -22,7 +22,6 @@
 		return FALSE
 	return env
 
-
 /datum/artifact_effect/temperature/do_effect_aura()
 	. = ..()
 	var/turf/holder_turf = get_turf(holder)

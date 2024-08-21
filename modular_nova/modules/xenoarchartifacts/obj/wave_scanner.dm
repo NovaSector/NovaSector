@@ -40,7 +40,7 @@
 		remove_processor()
 
 /obj/item/xenoarch/wave_scanner_backpack/equipped(mob/user, slot)
-	..()
+	. = ..()
 	if(slot != ITEM_SLOT_BACK)
 		remove_processor()
 
@@ -49,9 +49,9 @@
 		return
 
 	if(ismob(processor.loc))
-		var/mob/M = processor.loc
-		if(M.dropItemToGround(processor))
-			to_chat(M, span_notice("The [processor] snaps back into the [src]."))
+		var/mob/mob_loc = processor.loc
+		if(mob_loc.dropItemToGround(processor))
+			to_chat(mob_loc, span_notice("The [processor] snaps back into the [src]."))
 			playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 50, FALSE)
 	else
 		processor.forceMove(src)
@@ -64,20 +64,20 @@
 	if(loc == user)
 		ui_action_click()
 		return
-	..()
+	return ..()
 
 /obj/item/xenoarch/wave_scanner_backpack/attack_hand_secondary(mob/user, list/modifiers)
 	attempt_pickup(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/xenoarch/wave_scanner_backpack/attackby(obj/item/I, mob/user, params)
-	if(I == processor)
+/obj/item/xenoarch/wave_scanner_backpack/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == processor)
 		remove_processor()
 	else
 		return ..()
 
 /obj/item/xenoarch/wave_scanner_backpack/dropped(mob/user)
-	..()
+	. = ..()
 	remove_processor()
 
 /obj/item/xenoarch/searcher
@@ -100,13 +100,13 @@
 	scan()
 	wavescanner = source_wavescanner
 
-/obj/item/xenoarch/searcher/Destroy()
+/obj/item/xenoarch/searcher/Destroy(force)
 	if(wavescanner)
 		wavescanner.processor = null
 	return ..()
 
 /obj/item/xenoarch/searcher/dropped(mob/user)
-	..()
+	. = ..()
 	if(wavescanner)
 		wavescanner.remove_processor()
 		playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 50, FALSE)
@@ -117,10 +117,10 @@
 /obj/item/xenoarch/searcher/afterattack(atom/target, mob/user, proximity, params)
 	if(target.loc == loc || target == wavescanner)
 		return
-	..()
+	return ..()
 
 /obj/item/xenoarch/searcher/after_throw(datum/callback/callback)
-	..()
+	. = ..()
 	if(wavescanner)
 		wavescanner.remove_processor()
 		playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 50, FALSE)
@@ -145,16 +145,14 @@
 	to_chat(user, span_info("[message]"))
 
 /obj/item/xenoarch/searcher/proc/scan()
-	//set background = 1
-
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)
-	for(var/turf/closed/mineral/strange_rock/T in GLOB.artifact_turfs)
-		if(!T || !cur_turf)
+	for(var/turf/closed/mineral/strange_rock/artifact_turf in GLOB.artifact_turfs)
+		if(!artifact_turf || !cur_turf)
 			continue
-		if(T.z == cur_turf.z)
-			var/cur_dist = get_dist(cur_turf, T) * 2
+		if(artifact_turf.z == cur_turf.z)
+			var/cur_dist = get_dist(cur_turf, artifact_turf) * 2
 			if(nearest_artifact_distance < 0 || cur_dist < nearest_artifact_distance)
 				nearest_artifact_distance = cur_dist + rand() * 2 - 1
 	visible_message(

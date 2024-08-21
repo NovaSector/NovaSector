@@ -12,12 +12,11 @@
 	. = ..()
 	battery_effect = new()
 
-
-/obj/item/xenoarch/particles_battery/update_icon()
-	..()
+/obj/item/xenoarch/particles_battery/update_icon_state()
 	var/power_stored = (stored_charge / capacity) * 100
 	power_stored = min(power_stored, 100)
 	icon_state = "particles_battery[round(power_stored, 25)]"
+	return ..()
 
 #define COOLDOWN_TIME 5
 
@@ -39,17 +38,17 @@
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
-/obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/xenoarch/particles_battery))
+/obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/xenoarch/particles_battery))
 		if(!inserted_battery)
-			if(user.transferItemToLoc(I, src))
+			if(user.transferItemToLoc(attacking_item, src))
 				user.visible_message(
 					span_notice("[user] inserts battery into the utilizer."),
 					span_notice("You insert the battery into the utilizer."),
 					blind_message = span_notice("You hear click nearby."),
 				)
 				playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 25, FALSE)
-				inserted_battery = I
+				inserted_battery = attacking_item
 				update_icon()
 	else
 		return ..()
@@ -154,7 +153,6 @@
 	interact(usr)
 
 /obj/item/xenoarch/xenoarch_utilizer/Topic(href, href_list)
-
 	if((get_dist(src, usr) > 1))
 		return
 	if(href_list["neg_changetime_max"])
@@ -206,9 +204,9 @@
 		inserted_battery.update_icon()
 		inserted_battery.forceMove(get_turf(src))
 		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
-			if(!H.get_active_hand())
-				H.put_in_hands(inserted_battery)
+			var/mob/living/carbon/human/human_user = usr
+			if(!human_user.get_active_hand())
+				human_user.put_in_hands(inserted_battery)
 		inserted_battery.battery_effect.turn_effect_off()
 		inserted_battery = null
 		update_icon()
@@ -216,8 +214,8 @@
 	..()
 	update_icon()
 
-/obj/item/xenoarch/xenoarch_utilizer/update_icon()
-	..()
+/obj/item/xenoarch/xenoarch_utilizer/update_icon_state()
+	. = ..()
 	if(!inserted_battery)
 		icon_state = "utilizer"
 		return
@@ -237,25 +235,25 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/xenoarch/xenoarch_utilizer/attack(mob/living/M, mob/living/user, def_zone)
-	if (!istype(M))
+/obj/item/xenoarch/xenoarch_utilizer/attack(mob/living/target_mob, mob/living/user, def_zone)
+	if (!istype(target_mob))
 		return
 
 	if(!isnull(inserted_battery) && activated && inserted_battery.battery_effect && inserted_battery.battery_effect.release_method == ARTIFACT_EFFECT_TOUCH )
-		inserted_battery.battery_effect.do_effect_touch(M)
+		inserted_battery.battery_effect.do_effect_touch(target_mob)
 		inserted_battery.stored_charge -= min(inserted_battery.stored_charge, 20) // we are spending quite a big amount of energy doing this
 		user.visible_message(
-			span_notice("[user] taps [M] with [src], and it shudders on contact."),
-			span_notice("You tap [M] with [src], and it shudders on contact."),
+			span_notice("[user] taps [target_mob] with [src], and it shudders on contact."),
+			span_notice("You tap [target_mob] with [src], and it shudders on contact."),
 			blind_message = span_hear("You hear silent zapping sounds."),
 		)
 	else
 		user.visible_message(
-			span_notice("[user] taps [M] with [src], but nothing happens."),
-			span_notice("You tap [M] with [src], but nothing happens."),
+			span_notice("[user] taps [target_mob] with [src], but nothing happens."),
+			span_notice("You tap [target_mob] with [src], but nothing happens."),
 		)
 
 	if(inserted_battery.battery_effect)
-		log_combat(user, M, "tapped", src, "(EFFECT: [inserted_battery.battery_effect.log_name]) ")
+		log_combat(user, target_mob, "tapped", src, "(EFFECT: [inserted_battery.battery_effect.log_name]) ")
 
 #undef COOLDOWN_TIME

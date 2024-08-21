@@ -9,7 +9,7 @@
     ARTIFACT_EFFECT_TOUCH,\
     ARTIFACT_EFFECT_AURA,\
     ARTIFACT_EFFECT_PULSE,\
-    )
+)
 
 ///artifact trigger types
 #define TRIGGER_TOUCH (1<<2)
@@ -45,7 +45,7 @@
     TRIGGER_OXY,\
     TRIGGER_CO2,\
     TRIGGER_NITRO,\
-    )
+)
 
 ///artifact icon_num defines
 #define ARTIFACT_WIZARD_LARGE 1

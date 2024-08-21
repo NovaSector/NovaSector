@@ -26,7 +26,7 @@
 	var/report_num = 0
 
 /obj/machinery/artifact_analyser/Initialize(mapload)
-	..()
+	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/artifact_analyser/attackby(obj/item/used, mob/user, params)
@@ -95,26 +95,26 @@
 			results = get_scan_info(scanned_object)
 		owned_scanner.icon_state = "xenoarch_scanner"
 		say("Scanning complete.")
-		var/obj/item/paper/artifact_info/P = new(src.loc)
-		P.name = "[src] report #[++report_num]"
-		P.add_raw_text("<b>[src] analysis report #[report_num]</b><br>")
-		P.add_raw_text("<br>")
-		P.add_raw_text("[scanned_object] [results]")
-		P.update_icon()
+		var/obj/item/paper/artifact_info/artifact_report = new(src.loc)
+		artifact_report.name = "[src] report #[++report_num]"
+		artifact_report.add_raw_text("<b>[src] analysis report #[report_num]</b><br>")
+		artifact_report.add_raw_text("<br>")
+		artifact_report.add_raw_text("[scanned_object] [results]")
+		artifact_report.update_icon()
 
-		var/obj/item/stamp/S = new
-		var/stamp_data = S.get_writing_implement_details()
-		P.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
+		var/obj/item/stamp/our_stamp = new
+		var/stamp_data = our_stamp.get_writing_implement_details()
+		artifact_report.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
 		playsound(src, 'sound/machines/printer.ogg', 25, FALSE)
 
 		if(scanned_object && istype(scanned_object, /obj/machinery/artifact))
-			var/obj/machinery/artifact/A = scanned_object
-			P.artifact_type = A.name
-			if(A.first_effect)
-				P.artifact_first_effect = A.first_effect.log_name
-			if(A.secondary_effect)
-				P.artifact_second_effect = A.secondary_effect.log_name
-			A.being_used = 0
+			var/obj/machinery/artifact/scanned_artifact = scanned_object
+			artifact_report.artifact_type = scanned_artifact.name
+			if(scanned_artifact.first_effect)
+				artifact_report.artifact_first_effect = scanned_artifact.first_effect.log_name
+			if(scanned_artifact.secondary_effect)
+				artifact_report.artifact_second_effect = scanned_artifact.secondary_effect.log_name
+			scanned_artifact.being_used = 0
 
 /obj/machinery/artifact_analyser/Topic(href, href_list)
 	. = ..()
@@ -129,23 +129,23 @@
 			reconnect_scanner()
 		if(owned_scanner)
 			var/artifact_in_use = 0
-			for(var/obj/O in owned_scanner.loc)
-				if(O == owned_scanner)
+			for(var/obj/being_scanned in owned_scanner.loc)
+				if(being_scanned == owned_scanner)
 					continue
-				if(O.invisibility)
+				if(being_scanned.invisibility)
 					continue
 				if(istype(scanned_object, /obj/machinery/artifact))
-					var/obj/machinery/artifact/A = scanned_object
-					if(A.being_used)
+					var/obj/machinery/artifact/scanned_artifact = scanned_object
+					if(scanned_artifact.being_used)
 						artifact_in_use = 1
 					else
-						A.being_used = 1
+						scanned_artifact.being_used = 1
 
 				if(artifact_in_use)
 					say("Cannot scan. Too much interference.")
 					playsound(src, 'sound/machines/buzz-two.ogg', 25, FALSE)
 				else
-					scanned_object = O
+					scanned_object = being_scanned
 					scan_in_progress = 1
 					scan_completion_time = world.time + scan_duration
 					say("Scanning begun.")
@@ -165,8 +165,6 @@
 // hardcoded responses, oh well
 /obj/machinery/artifact_analyser/proc/get_scan_info(obj/scanned_obj)
 	switch(scanned_obj.type)
-		// if(/obj/item/clothing/glasses/hud/mining/ancient)
-		// 	return "A heads-up display that scans the rocks in view and provides some data about their composition."
 		if(/obj/machinery/auto_cloner)
 			return "Automated cloning pod - appears to rely on organic nanomachines with a self perpetuating \
 			ecosystem involving self cannibalism and a symbiotic relationship with the contained liquid.<br><br>\
@@ -182,15 +180,15 @@
 			return "Crystal formation - Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition. \
 			Attention: energetic excitement is noticed. The appearance of current is possible. Connect the crystal to the network, using wrench and wires on it. Make sure there is a cable underneath."
 		if(/obj/machinery/artifact) // a fun one
-			var/obj/machinery/artifact/A = scanned_obj
+			var/obj/machinery/artifact/scanned_artifact = scanned_obj
 			var/out = "Anomalous alien device - composed of an unknown alloy.<br><br>"
 
-			if(A.first_effect)
-				out += A.first_effect.get_description()
+			if(scanned_artifact.first_effect)
+				out += scanned_artifact.first_effect.get_description()
 
-			if(A.secondary_effect)
+			if(scanned_artifact.secondary_effect)
 				out += "<br><br>Internal scans indicate ongoing secondary activity<br><br>"
-				out += A.secondary_effect.get_description()
+				out += scanned_artifact.secondary_effect.get_description()
 
 			return out
 		else

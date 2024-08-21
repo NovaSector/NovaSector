@@ -1,5 +1,5 @@
-#define DIG_UNDEFINED 	1
-#define DIG_DELETE 		2
+#define DIG_UNDEFINED 1
+#define DIG_DELETE 2
 #define DIG_ROCK 3
 
 #define BRUSH_DELETE 1

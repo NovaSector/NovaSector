@@ -5,7 +5,8 @@
 	req_components = list(
 		/datum/stock_part/scanning_module = 4,
 		/obj/item/reagent_containers/cup/beaker = 1,
-		/obj/item/stack/sheet/glass = 1)
+		/obj/item/stack/sheet/glass = 1,
+	)
 
 /obj/machinery/radiocarbon_spectrometer
 	name = "Radiocarbon spectrometer"
@@ -20,7 +21,6 @@
 	active_power_usage = 3000
 	var/scanning = FALSE
 	var/obj/item/xenoarch/core_sampler/current_sample
-
 
 /obj/machinery/radiocarbon_spectrometer/attackby(obj/item/to_insert, mob/living/user)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, to_insert))
@@ -38,7 +38,7 @@
 			to_chat(user, span_notice("The machine is currently working."))
 			return
 		if(!sampler.sample)
-			balloon_alert(user, "Core sampler is empty!")
+			balloon_alert(user, "core sampler is empty!")
 			return
 		if(!user.transferItemToLoc(sampler, src))
 			to_chat(user, span_warning("\The [sampler] is stuck to your hand, you cannot put it in the machine!"))
@@ -52,7 +52,7 @@
 		)
 		process_sample()
 	else
-		balloon_alert(user, "Geosamples only!")
+		balloon_alert(user, "geosamples only!")
 	return ..()
 
 /obj/machinery/radiocarbon_spectrometer/proc/process_sample()
@@ -82,18 +82,18 @@
 		visible_message(
 			span_warning("[src] destroys core sampler due to internal error."),
 			blind_message = span_warning("You hear machine whirling."),
-			)
+		)
 		return
 	if(powered()) // Double check if still powered after sleep
 		qdel(current_sample)
 		current_sample = NONE
-		var/obj/item/paper/artifact_info/P = new(src.loc)
-		P.name = "[src] report"
-		P.add_raw_text(data)
-		P.update_icon()
-		var/obj/item/stamp/S = new
-		var/stamp_data = S.get_writing_implement_details()
-		P.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
+		var/obj/item/paper/artifact_info/artifact_report = new(src.loc)
+		artifact_report.name = "[src] report"
+		artifact_report.add_raw_text(data)
+		artifact_report.update_icon()
+		var/obj/item/stamp/our_stamp = new
+		var/stamp_data = our_stamp.get_writing_implement_details()
+		artifact_report.add_stamp(stamp_data["stamp_class"], rand(0, 300), rand(0, 400), rand(0, 360), stamp_data["stamp_icon_state"])
 		playsound(src, 'sound/machines/printer.ogg', 25, FALSE)
 		scanning = FALSE
 		icon_state = "spectrometer"
@@ -107,4 +107,4 @@
 		visible_message(
 			span_warning("[src] destroys core sampler due to internal error."),
 			blind_message = span_warning("You hear machine whirling."),
-			)
+		)

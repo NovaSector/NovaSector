@@ -5,7 +5,8 @@
 	req_components = list(
 		/datum/stock_part/scanning_module = 4,
 		/datum/stock_part/micro_laser = 2,
-		/obj/item/stack/cable_coil = 2)
+		/obj/item/stack/cable_coil = 2,
+	)
 
 /obj/machinery/artifact_scanpad
 	name = "Anomaly Scanner Pad"
@@ -19,8 +20,10 @@
 
 /obj/machinery/artifact_scanpad/Initialize(mapload)
 	. = ..()
-	var/image/I = image(icon, "xenoarch_scanner_bottom", ABOVE_NORMAL_TURF_LAYER)
-	add_overlay(I)
+	var/static/mutable_appearance/scanner_bottom_overlay
+	if(!scanner_bottom_overlay)
+		scanner_bottom_overlay = mutable_appearance(icon, "xenoarch_scanner_bottom", ABOVE_NORMAL_TURF_LAYER)
+	add_overlay(scanner_bottom_overlay)
 
 /obj/machinery/artifact_scanpad/attackby(obj/item/used, mob/user, params)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, used))
