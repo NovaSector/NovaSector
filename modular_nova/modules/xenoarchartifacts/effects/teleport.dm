@@ -7,7 +7,7 @@
 	if(!.)
 		return
 	if(teleport_around(user, 10))
-		to_chat(user, span_warning("You are suddenly zapped away elsewhere!)")
+		to_chat(user, span_warning("You are suddenly zapped away elsewhere!"))
 
 /datum/artifact_effect/teleport/DoEffectAura()
 	. = ..()
@@ -31,7 +31,7 @@
 /datum/artifact_effect/teleport/DoEffectDestroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/living_mob in range(7, curr_turf))
-		if(teleport_around(M, 50))
+		if(teleport_around(living_mob, 50))
 			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
 
 /datum/artifact_effect/teleport/proc/teleport_around(mob/receiver, max_range)

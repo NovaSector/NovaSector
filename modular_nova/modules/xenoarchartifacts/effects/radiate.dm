@@ -16,7 +16,7 @@
 	var/turf/holder_turf = get_turf(holder)
 	if(isnull(holder_turf))
 		return FALSE
-	radiation_pulse(source = T, max_range = range + 5, threshold = 0.3, chance = 50)
+	radiation_pulse(source = holder_turf, max_range = range + 5, threshold = 0.3, chance = 50)
 
 /datum/artifact_effect/radiate/DoEffectAura()
 	. = ..()
