@@ -56191,6 +56191,12 @@
 /obj/machinery/light/warm/directional/north,
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
+"qkD" = (
+/obj/effect/turf_decal/lunar_sand,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/vending/cytopro,
+/turf/open/floor/glass/reinforced,
+/area/station/science/cytology)
 "qkJ" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -164284,7 +164290,7 @@ tQZ
 gLQ
 gyl
 srm
-gLQ
+qkD
 mtK
 jRb
 jRb
