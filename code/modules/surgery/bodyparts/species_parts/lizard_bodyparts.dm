@@ -47,7 +47,6 @@
 	icon_greyscale = 'icons/mob/human/species/lizard/bodyparts.dmi'
 	limb_id = SPECIES_LIZARD
 
-/* NOVA EDIT REMOVAL START - MOVED TO MODULAR MUTANT_BODYPARTS.DM
 /// Checks if this mob is wearing anything that does not have a valid sprite set for digitigrade legs
 /// (In other words, is the mob's digitigrade body squished by its clothing?)
 /mob/living/carbon/proc/is_digitigrade_squished()
@@ -72,6 +71,7 @@
 
 	return !uniform_compatible || !suit_compatible || !shoes_compatible
 
+/* NOVA EDIT REMOVAL START - MOVED TO MODULAR MUTANT_BODYPARTS.DM
 /obj/item/bodypart/leg/left/digitigrade
 	icon_greyscale = 'icons/mob/human/species/lizard/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
