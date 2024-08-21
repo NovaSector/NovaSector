@@ -2174,7 +2174,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/under/costume/shendyt
 	name = "shendyt"
-	desc = "Skirt-like loincloth typically worn by what would was Sol's Ancient Egyptians."
+	desc = "Traditional clothing straight from Iaret's home planet. Made from a cotton that's quite effective at insulating against outside temperatures, they have the only disadvantage of being fairly poorly covering.\
+	<br> Inspired by an ancient culture of old Earth, it's obvious that some modifications were made to the original model. Nevertheless, their bearer wears them with pride. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "shendyt"
@@ -2190,7 +2191,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/accessory/bracelets
 	name = "golden bracelets"
-	desc = "A set of several ornamented golden bracelets for one's limbs and neck."
+	desc = "An assortment of bracelets, necklaces and other small gold (if not precious metal) jewels. Most often worn as a complement to a shendyt, \
+	it is possible to come across their owner ringing like a chime if they should happen to lose this garment."
 	icon_state = "bracelets"
 	attachment_slot = NONE
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
