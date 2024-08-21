@@ -114,7 +114,7 @@ There are several things that need to be remembered:
 		var/icon_file
 		var/woman
 		var/digi // NOVA EDIT ADDITION - Digi female gender shaping
-		var/female_sprite_flags = uniform.female_sprite_flags // NOVA EDIT ADDITION - Digi female gender shaping
+		var/female_sprite_flags = uniform.female_sprite_flags // NOVA EDIT ADDITION - Digi (and taur) female gender shaping
 		var/mutant_styles = NONE // NOVA EDIT ADDITON - mutant styles to pass down to build_worn_icon.
 		//BEGIN SPECIES HANDLING
 		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
@@ -132,7 +132,7 @@ There are several things that need to be remembered:
 				mutant_styles |= STYLE_DIGI // for passing to wear_female_version
 				if(!(female_sprite_flags & FEMALE_UNIFORM_DIGI_FULL))
 					female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
-					female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP bit if it is unset.
+					female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
 			// NOVA EDIT ADDITION END
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(uniform)))
@@ -143,7 +143,9 @@ There are several things that need to be remembered:
 		if(bodyshape & BODYSHAPE_TAUR)
 			if(istype(uniform) && uniform.gets_cropped_on_taurs)
 				mutant_styles |= get_taur_mode()
-		// NOVA EDIT END
+			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
+			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // And set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
+		// NOVA EDIT ADDITION END
 
 		//END SPECIES HANDLING
 		uniform_overlay = uniform.build_worn_icon(
@@ -941,7 +943,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			else if ((mutant_styles & STYLE_TAUR_HOOF) && worn_icon_taur_hoof)
 				override_file = worn_icon_taur_hoof
 				using_taur_variant = TRUE
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	//Find a valid icon_state from variables+arguments
 	var/t_state = override_state || (isinhands ? inhand_icon_state : worn_icon_state) || icon_state
 	//Find a valid icon file from variables+arguments
@@ -960,6 +962,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			icon = file2use,
 			type = female_uniform,
 			greyscale_colors = greyscale_colors,
+			mutant_styles = mutant_styles, // NOVA EDIT ADDITION - Digi female gender shaping
 		)
 	if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		building_icon = wear_digi_version(
@@ -968,15 +971,17 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			greyscale_config = digitigrade_greyscale_config_worn || greyscale_config_worn,
 			greyscale_colors = digitigrade_greyscale_colors || greyscale_colors || color,
 		)
-	if(building_icon)
-		standing = mutable_appearance(building_icon, layer = -layer2use)
 	// NOVA EDIT ADDITION START - Taur-friendly uniforms and suits
+	var/shift_pixel_x = 0
 	if (mutant_styles & STYLE_TAUR_ALL)
 		if (!using_taur_variant)
-			standing = wear_taur_version(standing.icon_state, standing.icon, layer2use, female_uniform, greyscale_colors)
+			building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
 		else
-			standing.pixel_x -= 16 // it doesnt look right otherwise
+			shift_pixel_x = -16 // it doesnt look right otherwise
 	// NOVA EDIT ADDITION END
+	if(building_icon)
+		standing = mutable_appearance(building_icon, layer = -layer2use)
+		standing.pixel_x += shift_pixel_x // NOVA EDIT ADDITION - Taur-friendly uniforms and suits
 
 	// no special handling done, default it
 	standing ||= mutable_appearance(file2use, t_state, layer = -layer2use)

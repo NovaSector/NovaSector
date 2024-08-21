@@ -328,7 +328,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			continue
 
 		// we don't want to remove organs that are not the default for this species
-		if(!isnull(existing_organ))
+		if(!isnull(existing_organ) && !disallow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(!isnull(existing_organ))
 			if(!isnull(old_species) && existing_organ.type != old_species.get_mutant_organ_type_for_slot(slot))
 				continue
 			else if(!replace_current && existing_organ.type != get_mutant_organ_type_for_slot(slot))
