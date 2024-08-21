@@ -103,4 +103,4 @@
 		for(var/obj/item/thing as anything in owner?.get_equipped_items())
 			if(thing.supports_variations_flags & DIGITIGRADE_VARIATIONS)
 				thing.update_slot_icon()
-// NOVA EDIT REMOVAL END */
+NOVA EDIT REMOVAL END */
