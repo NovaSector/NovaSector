@@ -35523,9 +35523,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
-/obj/structure/table/glass,
-/obj/item/knife/kitchen,
-/obj/item/wrench,
+/obj/machinery/vending/cytopro,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -45340,6 +45338,9 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
+/obj/structure/table/glass,
+/obj/item/wrench,
+/obj/item/knife/kitchen,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},

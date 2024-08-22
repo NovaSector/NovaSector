@@ -22832,7 +22832,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/patients_rooms)
 "gCz" = (
-/obj/machinery/plumbing/input,
+/obj/machinery/vending/cytopro,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
