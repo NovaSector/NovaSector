@@ -37440,7 +37440,7 @@
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms)
 "kdF" = (
-/obj/machinery/plumbing/input,
+/obj/machinery/vending/cytopro,
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark,

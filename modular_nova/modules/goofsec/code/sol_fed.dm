@@ -387,7 +387,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"
 	icon_state = "cypherkey_medical"
-	independent = TRUE
+	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
@@ -402,7 +402,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /obj/item/encryptionkey/headset_solfed/sec
 	name = "\improper SolFed adv. Security encryption key"
 	icon_state = "cypherkey_medical"
-	independent = TRUE
+	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
@@ -417,7 +417,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /obj/item/encryptionkey/headset_solfed/med
 	name = "\improper SolFed adv. Medical encryption key"
 	icon_state = "cypherkey_medical"
-	independent = TRUE
+	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"

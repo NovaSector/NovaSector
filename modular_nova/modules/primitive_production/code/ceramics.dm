@@ -14,6 +14,8 @@
 	throw_speed = 3
 	throw_range = 5
 	merge_type = /obj/item/stack/sheet/mineral/clay
+	drop_sound = SFX_BRICK_DROP
+	pickup_sound = SFX_BRICK_PICKUP
 
 GLOBAL_LIST_INIT(clay_recipes, list ( \
 	new/datum/stack_recipe("clay range", /obj/machinery/primitive_stove, 10, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_MISC), \
