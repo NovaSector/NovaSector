@@ -163,7 +163,8 @@
 	locked = 0;
 	req_access = list("sapper_ship");
 	pixel_y = 4;
-	pixel_x = -1
+	pixel_x = -1;
+	control_area = "/area/shuttle/pirate/sapper"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -576,9 +577,7 @@
 /area/shuttle/pirate/sapper)
 "Yo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron_white{
-	covered = 0
-	},
+/turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "Yx" = (
 /turf/open/space/basic,
