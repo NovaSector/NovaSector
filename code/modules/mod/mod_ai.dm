@@ -89,7 +89,7 @@
 	var/mob/living/silicon/pai/pai_assistant = card.pai
 	pai_assistant.can_transmit = TRUE
 	pai_assistant.can_receive = TRUE
-	pai_assistant.can_holo = FALSE
+	//pai_assistant.can_holo = FALSE // NOVA EDIT REMOVAL - pAI in modsuits can Holoform
 	if (pai_assistant.holoform)
 		pai_assistant.fold_in()
 	// NOVA EDIT ADDITION START - pAIs in MODsuits
@@ -116,7 +116,7 @@
 
 	balloon_alert(user, "pAI removed from suit")
 	var/mob/living/silicon/pai/pai_helper = ai_assistant
-	pai_helper.can_holo = TRUE
+	//pai_helper.can_holo = TRUE //NOVA EDIT REMOVAL - pAI in modsuits can Holoform
 	pai_helper.card.forceMove(get_turf(src))
 	on_removed_assistant()
 

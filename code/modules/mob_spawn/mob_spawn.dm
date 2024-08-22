@@ -60,7 +60,11 @@
 		spawned_human.undershirt = "Nude"
 		spawned_human.socks = "Nude"
 		spawned_human.bra = "Nude" //NOVA EDIT ADDITION
-		randomize_human_normie(spawned_human)
+		//randomize_human_normie(spawned_human) // NOVA EDIT REMOVAL - Puts this behind if(random_appearance) - see below
+		//NOVA EDIT ADDITION START
+		if(random_appearance)
+			randomize_human_normie(spawned_human)
+		// NOVA EDIT ADDITION END
 		if(hairstyle)
 			spawned_human.set_hairstyle(hairstyle, update = FALSE)
 		if(facial_hairstyle)

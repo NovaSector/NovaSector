@@ -20,6 +20,7 @@
 		/obj/item/organ/internal/alien/hivenode,
 		)
 	exotic_blood = /datum/reagent/toxin/acid
+	exotic_bloodtype = "X*"
 	heatmod = 2.5
 	mutant_bodyparts = list()
 	external_organs = list()
@@ -36,6 +37,9 @@
 
 	meat = /obj/item/food/meat/slab/xeno
 	skinned_type = /obj/item/stack/sheet/animalhide/xeno
+	death_sound = 'sound/voice/hiss6.ogg'
+	gib_anim = "gibbed-a"
+	dust_anim = "dust-a"
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
@@ -82,6 +86,51 @@
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
 
+/datum/species/xeno/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
+	. = ..()
+	human_who_gained_species.gib_type = /obj/effect/decal/cleanable/xenoblood/xgibs
+
+/datum/species/xeno/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
+	. = ..()
+	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
+
+//Xenohybrid blood trails
+/mob/living/carbon/human/getTrail()
+	if(get_blood_id() != /datum/reagent/toxin/acid)
+		return ..()
+	if(getBruteLoss() < 300)
+		return pick (list("xltrails_1", "xltrails2"))
+	else
+		return pick (list("xttrails_1", "xttrails2"))
+
+///Xenohybrid additional blood color decals
+/obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
+	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
+	icon_state = "xhitsplatter1"
+	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
+	blood_state = BLOOD_STATE_XENO
+	blood_dna_info = list("UNKNOWN DNA" = "X*")
+
+/obj/effect/decal/cleanable/xenoblood/xsplatter/over_window // special layer/plane set to appear on windows
+	layer = ABOVE_WINDOW_LAYER
+	plane = GAME_PLANE
+	vis_flags = VIS_INHERIT_PLANE
+	alpha = 180
+
+/obj/effect/decal/cleanable/blood/drip/xenoblood
+	name = "drips of blood"
+	desc = "It's green."
+	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
+	icon_state = "xdrip5"
+	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
+	should_dry = FALSE //human only thing
+	blood_state = BLOOD_STATE_XENO
+	beauty = -150
+
+/obj/effect/decal/cleanable/blood/drip/xenoblood/Initialize(mapload)
+	. = ..()
+	add_blood_DNA(list("UNKNOWN DNA" = "X*"))
+
 ///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
 
@@ -90,7 +139,7 @@
 	stored_plasma = 55
 	max_plasma = 55
 	plasma_rate = 2
-	heal_rate = 0
+	heal_rate = 1.5
 	actions_types = list(
 		/datum/action/cooldown/alien/make_structure/plant_weeds/roundstart,
 		/datum/action/cooldown/alien/transfer,
@@ -138,3 +187,20 @@
 		chem.toxpwr = 0
 
 #undef BUILD_DURATION
+
+///Xenohybrid gib and dust tweaks
+/mob/living/carbon/human/spawn_gibs(drop_bitflags=NONE)
+	if(!isxenohybrid(src))
+		return ..()
+	if(drop_bitflags & DROP_BODYPARTS)
+		new /obj/effect/gibspawner/xeno(drop_location(), src, get_static_viruses())
+	else
+		new /obj/effect/gibspawner/xeno/bodypartless(drop_location(), src, get_static_viruses())
+
+/mob/living/carbon/human/spawn_dust(just_ash = FALSE)
+	if(!isxenohybrid(src))
+		return ..()
+	if(just_ash)
+		new /obj/effect/decal/cleanable/ash(loc)
+	else
+		new /obj/effect/decal/remains/xeno(loc)

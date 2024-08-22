@@ -1532,9 +1532,9 @@
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 4
 	},
-/obj/item/gun/ballistic/bow/tribalbow,
-/obj/item/gun/ballistic/bow/tribalbow{
-	pixel_y = 5
+/obj/item/gun/ballistic/bow/longbow,
+/obj/item/gun/ballistic/bow/longbow{
+	pixel_y = -5
 	},
 /obj/item/storage/bag/quiver{
 	pixel_x = -5

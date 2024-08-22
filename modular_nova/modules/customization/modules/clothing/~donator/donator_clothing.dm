@@ -662,7 +662,8 @@
 
 /obj/item/clothing/neck/inferno_collar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/collar)
+	create_storage(storage_type = /datum/storage/pockets/small)
+	atom_storage.set_holdable(/obj/item/food/cookie)
 	if(treat_path)
 		new treat_path(src)
 
@@ -2158,3 +2159,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	icon_state = "eldercoat"
+
+//donator reward for cosmiclaer
+/obj/item/clothing/under/pants/half_leotard_cosmiclaer
+	name = "one-sleeved leotard"
+	desc = "A fancy, top-of-the-line leotard that some barbarian lopped one of the arms off of."
+	icon_state = "half_leotard"
+	greyscale_config = /datum/greyscale_config/half_leotard
+	greyscale_config_worn = /datum/greyscale_config/half_leotard/worn
+	greyscale_colors = "#80C7D0"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = NONE
+	body_parts_covered = CHEST|ARM_RIGHT|HAND_RIGHT|GROIN

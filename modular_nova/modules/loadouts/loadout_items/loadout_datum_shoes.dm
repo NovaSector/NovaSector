@@ -44,6 +44,10 @@
 	name = "Recolorable Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
+/datum/loadout_item/shoes/colonial_boots
+	name = "Colonial Half-Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/colonial
+
 /datum/loadout_item/shoes/jackboots/frontier
 	name = "Heavy Frontier Boots"
 	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
@@ -210,6 +214,16 @@
 /datum/loadout_item/shoes/dominaheels
 	name = "Dominant Heels"
 	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
+	erp_item = TRUE
+
+/datum/loadout_item/shoes/latex_socks
+	name = "Latex Socks"
+	item_path = /obj/item/clothing/shoes/latex_socks
+	erp_item = TRUE
+
+/datum/loadout_item/shoes/latex_heels
+	name = "Latex Heels"
+	item_path = /obj/item/clothing/shoes/latex_heels
 	erp_item = TRUE
 
 /datum/loadout_item/shoes/griffin
