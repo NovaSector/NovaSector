@@ -316,7 +316,7 @@
 
 /datum/bodypart_overlay/mutant/genital/testicles
 	feature_key = ORGAN_SLOT_TESTICLES
-	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 
 	/// Layer a bit lower, but still close to as high as possible
 	layer_above_all = -(BODY_FRONT_LAYER - 0.02)

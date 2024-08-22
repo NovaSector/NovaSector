@@ -139,7 +139,7 @@
 	always_color_customizable = TRUE
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_BEHIND_LAYER)
 	genetic = TRUE
 	var/has_size = TRUE
 
