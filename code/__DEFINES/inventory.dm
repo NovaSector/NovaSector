@@ -300,6 +300,8 @@ GLOBAL_LIST_INIT(mining_suit_allowed, list(
 	/obj/item/pickaxe,
 	/obj/item/resonator,
 	/obj/item/spear,
+	/obj/item/forging/reagent_weapon, // NOVA EDIT ADDITION
+	/obj/item/gun/ballistic/bow, // NOVA EDIT ADDITION
 ))
 
 /// String for items placed into the left pocket.

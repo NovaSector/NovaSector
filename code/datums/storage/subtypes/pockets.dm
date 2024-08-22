@@ -140,6 +140,7 @@
 			/obj/item/holochip,
 			/obj/item/implanter,
 			/obj/item/knife,
+			/obj/item/forging/reagent_weapon/dagger, // NOVA EDIT ADDITION
 			/obj/item/lighter,
 			/obj/item/lipstick,
 			/obj/item/match,
