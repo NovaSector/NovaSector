@@ -63588,6 +63588,24 @@
 /area/station/commons/dorms/room3)
 "rmW" = (
 /obj/structure/safe/vault,
+/obj/item/clothing/neck/stethoscope,
+/obj/item/book{
+	desc = "An undeniably handy book.";
+	icon_state = "bookknock";
+	name = "\improper A Simpleton's Guide to Safe-cracking with Stethoscopes"
+	},
+/obj/item/stack/sheet/mineral/diamond,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/item/stack/spacecash/c500,
+/obj/item/gun/ballistic/rifle/boltaction/prime,
 /turf/open/floor/iron/dark/corner,
 /area/station/ai_monitored/command/nuke_storage)
 "rmY" = (
@@ -83453,6 +83471,8 @@
 "wCK" = (
 /obj/machinery/camera/autoname/directional/west,
 /obj/machinery/status_display/evac/directional/north,
+/obj/structure/filingcabinet,
+/obj/item/folder/documents,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/command/nuke_storage)
 "wCP" = (
