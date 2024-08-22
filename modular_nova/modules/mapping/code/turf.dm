@@ -13,3 +13,11 @@
 /turf/open/floor/circuit/green/xenobio
 	desc = "The air about this floor seems.. different?"
 	initial_gas_mix = XENOBIO_BZ
+
+/turf/open/floor/grass/fairy/icemoon
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/snow/icemoon
+
+/turf/open/floor/mineral/gold/icemoon
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	baseturfs = /turf/open/misc/asteroid/snow/icemoon
