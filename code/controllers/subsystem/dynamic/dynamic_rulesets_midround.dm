@@ -860,10 +860,10 @@
 			|| candidate.stat == DEAD \
 			|| !(ROLE_OBSESSED in candidate.client?.prefs?.be_special) \
 			|| !candidate.mind.assigned_role \
-			//NOVA EDIT ADDITION
+			//NOVA EDIT ADDITION START
 			|| (candidate in rejected_traitor) \
 			|| (candidate in current_polling) \
-			//NOVA EDIT END
+			//NOVA EDIT ADDITION END
 		)
 			candidates -= candidate
 
