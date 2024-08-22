@@ -1,0 +1,5 @@
+author: "CliffracerX"
+delete-after: True
+changes:
+  - bugfix: "some bodypart rendering is properly below most clothes & bespoke accessories now."
+  - bugfix: "lost Vox limbs are no longer pink squares!"
