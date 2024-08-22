@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes medical record link not being viewable to observers when examining a mob"

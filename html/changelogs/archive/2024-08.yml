@@ -598,3 +598,13 @@
   - rscdel: Removed two unmaintained modular space ruins, Ghostship and Salvageyard
   honkpocket:
   - rscadd: Xenohybrids now make use of the xenomorph blood decals
+2024-08-22:
+  Oxotnak:
+  - qol: plumbing tools now fit in toolbelt
+  Zergspower:
+  - rscadd: re-adds the Ghostship Space ruin
+  sqnztb:
+  - balance: seed meshes no longer spawn evil seedlings or gatfruit
+  vinylspiders:
+  - bugfix: fixes medical record link not being viewable to observers when examining
+      a mob
