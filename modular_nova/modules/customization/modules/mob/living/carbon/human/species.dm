@@ -169,9 +169,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					icon_state += "_d"
 					female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
-					underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
+					underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				else
-					underwear_overlay = mutable_appearance(underwear.icon, icon_state, NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
+					underwear_overlay = mutable_appearance(underwear.icon, icon_state, -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				if(!underwear.use_static)
 					underwear_overlay.color = species_human.underwear_color
 				standing += underwear_overlay
