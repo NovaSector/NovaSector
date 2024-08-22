@@ -2,6 +2,7 @@
 	name = "neck gaiter"
 	desc = "A cloth for covering your neck, and usually part of your face too, but that part's optional. Has a small respirator to be used with internals."
 	actions_types = list(/datum/action/item_action/adjust)
+	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
 	icon_state = "gaiter"
 	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
@@ -26,7 +27,13 @@
 	adjust_visor(user)
 	return CLICK_ACTION_SUCCESS
 
+/obj/item/clothing/mask/neck_gaiter/click_alt_secondary(mob/user)
+	alternate_worn_layer = (alternate_worn_layer == initial(alternate_worn_layer) ? NONE : initial(alternate_worn_layer))
+	user.update_clothing(ITEM_SLOT_MASK)
+	balloon_alert(user, "wearing [alternate_worn_layer == initial(alternate_worn_layer) ? "below" : "above"] suits")
+
 /obj/item/clothing/mask/neck_gaiter/examine(mob/user)
 	. = ..()
+	. += span_notice("[src] can be worn above or below your suit. Alt-Right-click to toggle.")
 	. += span_notice("Alt-click [src] to adjust it.")
 
