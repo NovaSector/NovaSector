@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - balance: "seed meshes no longer spawn evil seedlings or gatfruit"

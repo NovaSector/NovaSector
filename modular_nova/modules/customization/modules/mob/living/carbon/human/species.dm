@@ -153,6 +153,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				eye_organ.refresh(call_update = FALSE)
 				standing += eye_organ.generate_body_overlay(species_human)
 
+  // Local defines for now, TODO: put these in their own file with the rest of the offset defines
+  #define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
+  #define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02
+  
 	//Underwear, Undershirts & Socks
 	if(!HAS_TRAIT(species_human, TRAIT_NO_UNDERWEAR))
 		if(species_human.underwear && !(species_human.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
@@ -165,9 +169,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					icon_state += "_d"
 					female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
-					underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -BODY_LAYER)
+					underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				else
-					underwear_overlay = mutable_appearance(underwear.icon, icon_state, -BODY_LAYER)
+					underwear_overlay = mutable_appearance(underwear.icon, icon_state, NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				if(!underwear.use_static)
 					underwear_overlay.color = species_human.underwear_color
 				standing += underwear_overlay
@@ -178,19 +182,22 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(bra)
 				var/mutable_appearance/bra_overlay
 				var/icon_state = bra.icon_state
-				bra_overlay = mutable_appearance(bra.icon, icon_state, -BODY_LAYER)
+				bra_overlay = mutable_appearance(bra.icon, icon_state, -NOVA_BRA_SOCKS_LAYER)
 				if(!bra.use_static)
 					bra_overlay.color = species_human.bra_color
 				standing += bra_overlay
 
+  #undef NOVA_UNDERWEAR_UNDERSHIRT_LAYER
+  #undef NOVA_BRA_SOCKS_LAYER
+  
 		if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
 			var/datum/sprite_accessory/undershirt/undershirt = SSaccessories.undershirt_list[species_human.undershirt]
 			if(undershirt)
 				var/mutable_appearance/undershirt_overlay
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE)
-					undershirt_overlay = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -BODY_LAYER)
+					undershirt_overlay = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				else
-					undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -BODY_LAYER)
+					undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				if(!undershirt.use_static)
 					undershirt_overlay.color = species_human.undershirt_color
 				standing += undershirt_overlay
@@ -203,7 +210,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					var/icon_state = socks.icon_state
 					if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
 						icon_state += "_d"
-					socks_overlay = mutable_appearance(socks.icon, icon_state, -BODY_LAYER)
+					socks_overlay = mutable_appearance(socks.icon, icon_state, -NOVA_BRA_SOCKS_LAYER)
 					if(!socks.use_static)
 						socks_overlay.color = species_human.socks_color
 					standing += socks_overlay
