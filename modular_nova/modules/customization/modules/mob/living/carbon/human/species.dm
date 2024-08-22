@@ -153,10 +153,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				eye_organ.refresh(call_update = FALSE)
 				standing += eye_organ.generate_body_overlay(species_human)
 
-  // Local defines for now, TODO: put these in their own file with the rest of the offset defines
-  #define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
-  #define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02
-  
+	// Local defines for now, TODO: put these in their own file with the rest of the offset defines
+	#define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
+	#define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02)
+
 	//Underwear, Undershirts & Socks
 	if(!HAS_TRAIT(species_human, TRAIT_NO_UNDERWEAR))
 		if(species_human.underwear && !(species_human.underwear_visibility & UNDERWEAR_HIDE_UNDIES))
@@ -187,9 +187,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					bra_overlay.color = species_human.bra_color
 				standing += bra_overlay
 
-  #undef NOVA_UNDERWEAR_UNDERSHIRT_LAYER
-  #undef NOVA_BRA_SOCKS_LAYER
-  
 		if(species_human.undershirt && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SHIRT))
 			var/datum/sprite_accessory/undershirt/undershirt = SSaccessories.undershirt_list[species_human.undershirt]
 			if(undershirt)
@@ -214,6 +211,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					if(!socks.use_static)
 						socks_overlay.color = species_human.socks_color
 					standing += socks_overlay
+	#undef NOVA_UNDERWEAR_UNDERSHIRT_LAYER
+	#undef NOVA_BRA_SOCKS_LAYER
 
 	if(standing.len)
 		species_human.overlays_standing[BODY_LAYER] = standing
