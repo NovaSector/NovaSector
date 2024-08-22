@@ -23,6 +23,10 @@
 	shuttleId = "pirate_sapper"
 	possible_destinations = "sapper_custom;"
 
+/obj/machinery/computer/shuttle/pirate/sapper/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/gps, "[get_area_name(get_turf(src))]")
+
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate/sapper
 	name = "shuttle navigation computer"
 	icon_screen = "tram"

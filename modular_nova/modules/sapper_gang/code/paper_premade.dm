@@ -3,7 +3,7 @@
 	default_raw_text = {"
 Remember employee,
 
-<br>The work-day starts with preparation, and breakfast. You are currently in deep-space nearby a Nanotrasen researching outpost, <b>once you enter their sector there is no turning back.</b> Before you set sail a small check-list should be completed:
+<br>The work-day starts with preparation, you're currently in deep-space nearby a Nanotrasen researching outpost, <b>once you enter their sector there is no turning back.</b> Before you set sail a small check-list should be completed:
 <br>1. Meet with your partner and decide who wears which mask.
 2. Sort out your equipment, including the contents of the lockers and crates.
 3. Fill and link the portable ore-silo and flat-pack fabricator.
@@ -13,6 +13,7 @@ Remember employee,
 Completed that list? Great, then its time for breakfast and formulating a gameplan. There are many ways to tackle the work-day, and each has their own level of threat and heat it brings.
 You may greatly post-pone your credit-miner's activation to build a secure and remote environment for it to work in. Working sloppily and hastefully is not ideal, our material is too expensive and fragile.
 In some cases it may even be wise to completely leave the shuttle for a better suited environment to protect the credit-miner; remember that it works in space and doing so will avoid <i>external</i> heating complications.
+<i>internal</i> only cools over-time while the machine is detached or not running, stay nearby so you can keep proper control of its temperature!
 
 If you and your partner <i>do decide</i> to outpost inside the shuttle, <b>make sure that you have control of the temperature.</b> Space-coolers are incredibly power inefficient,
 and you may leave your shuttle completely uninhabitable!

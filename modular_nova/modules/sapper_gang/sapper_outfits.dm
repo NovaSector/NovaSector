@@ -33,8 +33,9 @@
 
 	var/obj/item/radio/outfit_radio = equipped.ears
 	if(outfit_radio)
-		outfit_radio.keyslot = new /obj/item/encryptionkey/syndicate()
+		outfit_radio.special_channels |= RADIO_SPECIAL_SYNDIE
 		outfit_radio.set_frequency(FREQ_SYNDICATE)
+		outfit_radio.recalculateChannels()
 
 	var/obj/item/card/id/outfit_id = equipped.wear_id
 	if(outfit_id)
