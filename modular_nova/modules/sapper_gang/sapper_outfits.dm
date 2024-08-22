@@ -31,8 +31,9 @@
 /datum/outfit/sapper/post_equip(mob/living/carbon/human/equipped)
 	equipped.faction |= FACTION_SAPPER
 
-	var/obj/item/radio/outfit_radio = equipped.ears
+	var/obj/item/radio/headset/outfit_radio = equipped.ears
 	if(outfit_radio)
+		outfit_radio.keyslot2 = new /obj/item/encryptionkey/syndicate()
 		outfit_radio.special_channels |= RADIO_SPECIAL_SYNDIE
 		outfit_radio.set_frequency(FREQ_SYNDICATE)
 		outfit_radio.recalculateChannels()
