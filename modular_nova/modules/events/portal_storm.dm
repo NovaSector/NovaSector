@@ -20,6 +20,7 @@
 		/mob/living/basic/mining/brimdemon = 3,
 		/mob/living/basic/mining/legion = 4,
 		/mob/living/basic/mining/watcher = 4,
+		/mob/living/simple_animal/hostile/asteroid/elite/broodmother_child = 4,
 	)
 
 /datum/round_event/portal_storm/lavaland/announce(fake)
