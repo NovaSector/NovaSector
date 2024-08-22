@@ -43,48 +43,30 @@
 /*
 * LIMBS AS AUGS ZONE
 */
-/datum/augment_item/limb/head/slugcat
+/datum/augment_item/limb/head/species/mutant/slugcat
 	name = "small-eyes slugcat head"
 	path = /obj/item/bodypart/head/mutant/slugcat
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/head/slugcat/eyes
+/datum/augment_item/limb/head/species/mutant/slugcat/eyes
 	name = "big-eyes slugcat head"
 	path = /obj/item/bodypart/head/mutant/slugcat/eyes
 
-/datum/augment_item/limb/chest/slugcat
+/datum/augment_item/limb/chest/species/mutant/slugcat
 	name = "slugcat chest"
 	path = /obj/item/bodypart/chest/mutant/slugcat
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_arm/slugcat
+/datum/augment_item/limb/l_arm/species/mutant/slugcat
 	name = "slugcat left arm"
 	path = /obj/item/bodypart/arm/left/mutant/slugcat
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_arm/slugcat
+/datum/augment_item/limb/r_arm/species/mutant/slugcat
 	name = "slugcat right arm"
 	path = /obj/item/bodypart/arm/right/mutant/slugcat
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/l_leg/slugcat
+/datum/augment_item/limb/l_leg/species/mutant/slugcat
 	name = "slugcat left leg"
 	path = /obj/item/bodypart/leg/left/mutant/slugcat
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
 
-/datum/augment_item/limb/r_leg/slugcat
+/datum/augment_item/limb/r_leg/species/mutant/slugcat
 	name = "slugcat right leg"
 	path = /obj/item/bodypart/leg/right/mutant/slugcat
-	cost = 0
-	uses_robotic_styles = FALSE
-	uses_greyscale = TRUE
