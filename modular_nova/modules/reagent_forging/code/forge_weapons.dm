@@ -71,7 +71,7 @@
 	worn_icon_state = "dagger_back"
 	belt_icon_state = "dagger_belt"
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	embed_type = /datum/embed_data/combat_knife/weak
+	embed_type = /datum/embed_data/forged_dagger
 	throwforce = 17
 	throw_speed = 4
 	demolition_mod = 0.75
@@ -93,7 +93,8 @@
 /datum/embed_data/forged_dagger
 	embed_chance = 50
 	fall_chance = 10
-	pain_mult = 2
+	pain_mult = 4
+	ignore_throwspeed_threshold = TRUE
 
 /obj/item/forging/reagent_weapon/staff
 	name = "forged staff"
