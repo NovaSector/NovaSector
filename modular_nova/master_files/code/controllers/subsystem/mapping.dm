@@ -6,3 +6,5 @@
 /datum/map_config
 	/// Are we allowing space even if we're planetary?
 	var/allow_space_when_planetary = FALSE
+
+
