@@ -13,7 +13,7 @@
 
 /// Shitty cell used in artifact mechs
 /obj/item/stock_parts/power_store/cell/artifact_crap
-	name = "\improper Dying old Nanotrasen bluespace cell"
+	name = "dying old Nanotrasen bluespace cell"
 	desc = "A rechargeable transdimensional power cell. This one is almost dead, barely keeping any charge. What happened to it?"
 	icon_state = "bscell"
 	maxcharge = STANDARD_CELL_CHARGE * 0.3
@@ -22,8 +22,8 @@
 /obj/vehicle/sealed/mecha/reticence/artifact
 	desc = "A silent, fast, and nigh-invisible exosuit. Dust covers it from the bottom to the top. It has seen better days. \
 			The legs looks like they were scratched by animals and the cockpit was probably used as a nest. \
-			Interestigly, looks like there are personal belongins inside. There is a voodoo doll glued tightly to a side of a chair and \
-			a dream catcher hanging from the top of the cabin. Suprisingly, they are untouched."
+			Interestingly, looks like there are personal belongings inside. There is a voodoo doll glued tightly to a side of a chair and \
+			a dream catcher hanging from the top of the cabin. Surprisingly, they are untouched."
 	name = "\improper Phantom"
 	wreckage = /obj/structure/mecha_wreckage/reticence/artifact
 	equip_by_category = list(
