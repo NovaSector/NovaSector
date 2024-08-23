@@ -1,6 +1,8 @@
 GLOBAL_DATUM(character_directory, /datum/character_directory)
 GLOBAL_LIST_EMPTY(name_to_appearance)
 #define READ_PREFS(target, pref) (target.client?.prefs?.read_preference(/datum/preference/pref))
+///Helper macro for directory ads' preview views
+#define CHAR_DIRECTORY_ASSIGNED_VIEW(user_ckey) "preview_[user_ckey]_[REF(GLOB.character_directory)]_records"
 
 // We want players to be able to decide whether they show up in the directory or not
 /datum/preference/toggle/show_in_directory
@@ -103,15 +105,18 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/client_ckey
 
 /atom/movable/screen/map_view/char_preview/Destroy(force)
-	GLOB.character_directory?.character_preview_views -= client_ckey
-	var/mob/user = get_mob_by_ckey(client_ckey)
-	if(user)
-		user.client?.screen_maps -= "preview_[client_ckey]_[REF(GLOB.character_directory)]_directory"
+	var/character_preview_view = GLOB.character_directory?.character_preview_views[client_ckey]
+	if(!isnull(character_preview_view)) // if for whatever reason this did not get cleaned up properly, let's make sure that happens
+		GLOB.character_directory?.character_preview_views -= client_ckey
+		var/mob/user = get_mob_by_ckey(client_ckey)
+		if(user)
+			user.client?.screen_maps -= CHAR_DIRECTORY_ASSIGNED_VIEW(client_ckey)
+
 	return ..()
 
 /// Makes a managed character preview view for a specific user
 /datum/character_directory/proc/create_character_preview_view(mob/user)
-	var/assigned_view = "preview_[user.ckey]_[REF(src)]_directory"
+	var/assigned_view = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
 
 	// sometimes--e.g. if you have a ui open and you observe--you can end up with a stuck map_view, which leads to subsequent previews not rendering.
 	// let's clear those out, we always want a new one when calling this proc anyway.
@@ -151,7 +156,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 /datum/character_directory/ui_close(mob/user)
 	var/atom/movable/screen/map_view/char_preview/old_preview = character_preview_views[user.ckey]
-	user.client?.screen_maps -= old_preview
+	user.client?.screen_maps -= CHAR_DIRECTORY_ASSIGNED_VIEW(client_ckey)
 	character_preview_views -= user.ckey
 	qdel(old_preview)
 
