@@ -156,7 +156,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 /datum/character_directory/ui_close(mob/user)
 	var/atom/movable/screen/map_view/char_preview/old_preview = character_preview_views[user.ckey]
-	user.client?.screen_maps -= CHAR_DIRECTORY_ASSIGNED_VIEW(client_ckey)
+	user.client?.screen_maps -= CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
 	character_preview_views -= user.ckey
 	qdel(old_preview)
 
