@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes an issue where some Malf AI modules were affecting Port Tarkon and the Ghost Cafe when they should not have been able to"
