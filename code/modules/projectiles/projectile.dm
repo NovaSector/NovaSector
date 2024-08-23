@@ -313,8 +313,6 @@
 		get_sfx()
 	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
-	/* NOVA EDIT REMOVAL START - We use our own sounds above
-	NOVA EDIT REMOVAL END */
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
 		var/turf/closed/wall/target_wall = target_turf
