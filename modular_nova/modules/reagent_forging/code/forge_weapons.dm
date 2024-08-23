@@ -144,7 +144,7 @@
 	icon_state = "axe"
 	inhand_icon_state = "axe"
 	worn_icon_state = "axe_back"
-	throwforce = 25
+	throwforce = 20
 	throw_speed = 4
 	embed_type = /datum/embed_data/forged_axe
 	slot_flags = ITEM_SLOT_BACK
