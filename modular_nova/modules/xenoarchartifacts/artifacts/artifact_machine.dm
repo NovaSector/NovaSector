@@ -199,11 +199,11 @@
 			if(env.temperature > 375)
 				toggle_effects_on(TRIGGER_HEAT)
 			else toggle_effects_off(TRIGGER_HEAT)
-			//PHORON GAS ACTIVATION.
+			//PLASMA GAS ACTIVATION.
 			//Update 07.05.2024. No one remembers phoron anymore :( People say "plasma"
 			if(loc_gases[/datum/gas/plasma] && loc_gases[/datum/gas/plasma][MOLES] >= 10)
-				toggle_effects_on(TRIGGER_PHORON)
-			else toggle_effects_off(TRIGGER_PHORON)
+				toggle_effects_on(TRIGGER_PLASMA)
+			else toggle_effects_off(TRIGGER_PLASMA)
 			//OXYGEN GAS ACTIVATION
 			if(loc_gases[/datum/gas/oxygen] && loc_gases[/datum/gas/oxygen][MOLES] >= 10)
 				toggle_effects_on(TRIGGER_OXY)
