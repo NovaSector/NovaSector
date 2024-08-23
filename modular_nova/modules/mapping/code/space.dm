@@ -178,3 +178,9 @@
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
+
+/datum/map_template/ruin/space/hilbertresearchfacility
+	requires_big_zone = TRUE
+
+/datum/map_template/ruin/space/forgottenship
+	contains_ghost_role = TRUE
