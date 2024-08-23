@@ -2449,6 +2449,15 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
 	},
+/obj/machinery/button/door/incinerator_vent_ordmix{
+	pixel_x = 25;
+	pixel_y = 5
+	},
+/obj/machinery/button/ignition/incinerator/ordmix{
+	pixel_x = 25;
+	pixel_y = -5
+	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "aDS" = (
@@ -9434,8 +9443,6 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold/layer2{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /turf/open/floor/iron/dark/airless,
 /area/station/science/ordnance/freezerchamber)
 "cCn" = (
@@ -11532,7 +11539,6 @@
 /area/station/maintenance/condemnedroom)
 "dfl" = (
 /obj/machinery/igniter/incinerator_ordmix,
-/obj/structure/cable,
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/burnchamber)
 "dfr" = (
@@ -20267,7 +20273,6 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored/ordnance_freezer_chamber_input{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/dark/airless,
 /area/station/science/ordnance/freezerchamber)
 "fBq" = (
@@ -20778,7 +20783,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/purple/visible{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "fHb" = (
@@ -22660,7 +22664,6 @@
 /obj/machinery/airlock_controller/incinerator_ordmix{
 	pixel_y = -24
 	},
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/science/ordnance)
 "ghE" = (
@@ -24197,16 +24200,17 @@
 /turf/open/floor/iron/white/small,
 /area/station/common/pool)
 "gCP" = (
-/obj/machinery/door/airlock/research/glass{
-	name = "Ordnance Lab"
-	},
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/atmospherics/pipe/smart/simple/purple/visible{
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/stripes{
 	dir = 4
 	},
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/science/ordnance/freezerchamber)
+/obj/machinery/button/door/directional/east{
+	id = "engsm";
+	name = "Radiation Shutters Control";
+	req_access = list("engineering")
+	},
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "gCY" = (
 /obj/machinery/camera/autoname/directional/north,
 /obj/machinery/button/door/directional/north{
@@ -24641,7 +24645,6 @@
 	name = "Burn Chamber Exterior Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/structure/cable,
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/burnchamber)
 "gIQ" = (
@@ -27375,9 +27378,10 @@
 /turf/open/floor/carpet/red,
 /area/station/service/chapel)
 "hum" = (
-/obj/structure/cable,
-/turf/open/floor/engine/vacuum,
-/area/station/science/ordnance/burnchamber)
+/obj/machinery/cryopod,
+/obj/machinery/computer/cryopod/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/security/prison)
 "hup" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
@@ -31073,7 +31077,6 @@
 /area/station/medical/cryo)
 "itP" = (
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_ordmix,
-/obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/science/ordnance)
 "itR" = (
@@ -39667,10 +39670,6 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/engineering/atmospherics_engine)
-"kGn" = (
-/obj/machinery/computer/cryopod/directional/north,
-/turf/open/floor/iron/dark,
-/area/station/security/prison)
 "kGx" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/siding/wood{
@@ -41179,7 +41178,10 @@
 "lce" = (
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/east,
-/obj/machinery/door/window/right/directional/south,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("library");
+	name = "Library Desk Door"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet,
@@ -43751,6 +43753,10 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/effect/turf_decal/bot_white{
 	color = "#D381C9"
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west{
+	areastring = "/area/station/science/ordnance/freezerchamber"
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
@@ -50813,13 +50819,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/rd)
-"nLb" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 1
-	},
-/obj/machinery/incident_display/delam/directional/south,
-/turf/open/floor/iron/dark,
-/area/station/engineering/supermatter/room)
 "nLl" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark/event_spawn,
@@ -56705,14 +56704,10 @@
 "pnj" = (
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/computer/atmos_control/ordnancemix,
-/obj/machinery/button/ignition/incinerator/ordmix{
-	pixel_x = 25;
-	pixel_y = -5
+/obj/machinery/power/apc/auto_name/directional/east{
+	areastring = "/area/station/science/ordnance/burnchamber"
 	},
-/obj/machinery/button/door/incinerator_vent_ordmix{
-	pixel_x = 25;
-	pixel_y = 5
-	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "pnn" = (
@@ -57215,8 +57210,6 @@
 /obj/machinery/camera/autoname/directional/north{
 	network = list("ss13","rd")
 	},
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/burnchamber)
 "pvQ" = (
@@ -58589,16 +58582,6 @@
 	dir = 6
 	},
 /area/station/security/prison/rec)
-"pRt" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/purple/visible{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/iron/dark/airless,
-/area/station/science/ordnance/freezerchamber)
 "pRx" = (
 /obj/effect/turf_decal/trimline/purple/filled/warning{
 	dir = 1
@@ -72819,11 +72802,6 @@
 	dir = 1
 	},
 /area/station/hallway/secondary/service)
-"tKV" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/layer2,
-/obj/structure/cable,
-/turf/open/floor/iron/dark/airless,
-/area/station/science/ordnance/freezerchamber)
 "tKY" = (
 /turf/open/genturf/blue,
 /area/icemoon/underground/unexplored/no_rivers)
@@ -203682,7 +203660,7 @@ ttP
 hOB
 nLJ
 cCd
-tKV
+rGp
 rGp
 rGp
 vqK
@@ -204196,7 +204174,7 @@ psa
 jFR
 nLJ
 okH
-pRt
+dEJ
 cyW
 dEJ
 itr
@@ -204453,7 +204431,7 @@ jBv
 xmH
 nLJ
 nLJ
-gCP
+lHE
 nLJ
 lHE
 nLJ
@@ -204965,9 +204943,9 @@ kwW
 cMe
 cMe
 cMe
-cMe
-cMe
 vss
+cMe
+cMe
 cMe
 cMe
 oKG
@@ -207275,7 +207253,7 @@ tPn
 jBZ
 cyc
 aka
-hum
+mNG
 cPz
 cyc
 vBO
@@ -248570,7 +248548,7 @@ htp
 htp
 htp
 jFX
-wVd
+hum
 ezw
 dae
 dKb
@@ -248827,7 +248805,7 @@ iAU
 htp
 kjs
 jFX
-kGn
+axm
 ezw
 uqd
 dKb
@@ -251525,7 +251503,7 @@ vqy
 ute
 vDC
 vDC
-wLl
+gCP
 vDC
 xiD
 xiD
@@ -251781,7 +251759,7 @@ pJb
 vqy
 dKA
 gwb
-nLb
+oWj
 cbk
 gBQ
 gtZ
