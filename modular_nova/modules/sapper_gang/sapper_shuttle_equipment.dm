@@ -36,7 +36,6 @@
 	shuttlePortId = "sapper_custom"
 
 /obj/machinery/porta_turret/syndicate/energy/sapper
-	max_integrity = 250
 	stun_projectile = /obj/projectile/beam/weak
 	stun_projectile_sound = 'sound/weapons/laser.ogg'
 	faction = list(FACTION_SAPPER)

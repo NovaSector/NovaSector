@@ -134,12 +134,6 @@
 /obj/item/stock_parts/power_store/cell/high,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
-"pw" = (
-/obj/machinery/button/door/directional/north{
-	id = "pirate_sapper_shutter_R"
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/pirate/sapper)
 "pH" = (
 /obj/item/rcd_ammo/large{
 	pixel_x = 8
@@ -158,13 +152,14 @@
 "qq" = (
 /obj/structure/table/reinforced,
 /obj/machinery/turretid{
-	icon_state = "control_kill";
+	icon_state = "control_off";
 	lethal = 1;
 	locked = 0;
 	req_access = list("sapper_ship");
 	pixel_y = 4;
 	pixel_x = -1;
-	control_area = "/area/shuttle/pirate/sapper"
+	control_area = "/area/shuttle/pirate/sapper";
+	enabled = 0
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -711,7 +706,7 @@ mY
 Yx
 yE
 SP
-pw
+Ih
 nE
 Sa
 JF
