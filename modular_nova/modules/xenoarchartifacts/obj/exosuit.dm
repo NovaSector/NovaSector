@@ -75,30 +75,29 @@
 		return
 	playsound(chassis, 'sound/hallucinations/wail.ogg', 100, TRUE)
 	to_chat(source, "[icon2html(src, source)]<font color='red' size='5'>AAAAAAAAAH</font>")
-	for(var/mob/living/carbon/M in ohearers(6, chassis))
-		if(!M.can_hear())
+	for(var/mob/living/carbon/carbon_mob in ohearers(6, chassis))
+		if(!carbon_mob.can_hear())
 			continue
-		var/turf/turf_check = get_turf(M)
+		var/turf/turf_check = get_turf(carbon_mob)
 		if(isspaceturf(turf_check) && !turf_check.Adjacent(src)) //in space nobody can hear you scream.
 			continue
-		to_chat(M, "<font color='red' size='7'>AAAAAAH</font>")
-		M.SetSleeping(0)
-		M.adjust_stutter(40 SECONDS)
-		var/obj/item/organ/internal/ears/ears = M.get_organ_slot(ORGAN_SLOT_EARS)
+		to_chat(carbon_mob, "<font color='red' size='7'>AAAAAAH</font>")
+		carbon_mob.SetSleeping(0)
+		carbon_mob.adjust_stutter(40 SECONDS)
+		var/obj/item/organ/internal/ears/ears = carbon_mob.get_organ_slot(ORGAN_SLOT_EARS)
 		if(ears)
 			ears.adjustEarDamage(0, 30)
-		M.Paralyze(60)
+		carbon_mob.Paralyze(6 SECONDS)
 		if(prob(30))
-			M.Stun(200)
-			M.Unconscious(80)
+			carbon_mob.Stun(20 SECONDS)
+			carbon_mob.Unconscious(8 SECONDS)
 		else
-			M.set_jitter_if_lower(1000 SECONDS)
-
+			carbon_mob.set_jitter_if_lower(1000 SECONDS)
 	log_message("Screamed from [src.name]. Scary!", LOG_MECHA)
-	var/turf/T = get_turf(src)
-	message_admins("[ADMIN_LOOKUPFLW(source)] used a PTSD in [ADMIN_VERBOSEJMP(T)]")
-	source.log_message("used a PTSD at [AREACOORD(T)].", LOG_GAME)
-	source.log_message("used a PTSD at [AREACOORD(T)].", LOG_ATTACK)
+	var/turf/our_turf = get_turf(src)
+	message_admins("[ADMIN_LOOKUPFLW(source)] used a PTSD in [ADMIN_VERBOSEJMP(our_turf)]")
+	source.log_message("used a PTSD at [AREACOORD(our_turf)].", LOG_GAME)
+	source.log_message("used a PTSD at [AREACOORD(our_turf)].", LOG_ATTACK)
 	return ..()
 
 /// Just an Odysseus. But hey! Free mech.
