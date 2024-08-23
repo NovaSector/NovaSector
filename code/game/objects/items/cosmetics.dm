@@ -118,14 +118,6 @@
 	lipstick_trait = TRAIT_SYNDIE_KISS
 	random_spawn = FALSE
 
-/obj/item/lipstick/syndie
-	name = "syndie lipstick"
-	desc = "Syndicate branded lipstick with a killer dose of kisses. Observe safety regulations!"
-	icon_state = "slipstick"
-	lipstick_color = COLOR_SYNDIE_RED
-	lipstick_trait = TRAIT_SYNDIE_KISS
-	icon =  'icons/obj/cosmetic.dmi' // NOVA EDIT ADDITION - We do not have an icon for this, use TG's
-
 /obj/item/lipstick/random
 	name = "lipstick"
 	icon_state = "random_lipstick"

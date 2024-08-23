@@ -103,11 +103,6 @@
 		COMSIG_HUMAN_GET_VISIBLE_NAME,
 		COMSIG_HUMAN_GET_FORCED_NAME,
 	))
-
-	UnregisterSignal(user, list(
-		COMSIG_HUMAN_GET_VISIBLE_NAME,
-		COMSIG_HUMAN_GET_FORCED_NAME,
-	))
 	current_slot = null
 	user.remove_alt_appearance("sneaking_mission[REF(src)]")
 	REMOVE_TRAIT(user, TRAIT_UNKNOWN, REF(src))
