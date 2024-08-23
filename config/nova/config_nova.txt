@@ -167,3 +167,12 @@ REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
 
 ## Uncomment to make flashbangs forbidden during green alerts
 FLASHBANGS_FORBIDDEN_DURING_GREEN
+
+## How many space z-levels should be dedicated to big space ruins? (default: 1)
+SPACEMAP_BIG_PARTITIONS_COUNT 1
+
+## How many space z-levels should be dedicated to average space ruins? (default: 2)
+SPACEMAP_SMALL_PARTITIONS_COUNT 2
+
+## How many space z-levels should be dedicated to rifts for space ruins? (default: 1)
+SPACEMAP_RIFT_PARTITIONS_COUNT 1

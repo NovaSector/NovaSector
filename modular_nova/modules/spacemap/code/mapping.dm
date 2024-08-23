@@ -11,11 +11,24 @@
  * space z-levels necessary for Spacemap to function properly.
  */
 /datum/controller/subsystem/mapping/proc/generate_spacemap_partitions()
-	roundstart_space_partitions.Add(add_new_zlevel("Big Space Partition", z_type = /datum/space_level/partition/four))
-	while (roundstart_space_partitions.len < 3)
-		roundstart_space_partitions.Add(add_new_zlevel("3x3 Space Partition [roundstart_space_partitions.len]", z_type = /datum/space_level/partition/nine))
+	var/count = 0
+	var/max_big_partitions = CONFIG_GET(number/spacemap_big_partitions_count)
 
-	rift_space_partitions.Add(add_new_zlevel("Rift Space Partition", z_type = /datum/space_level/partition/nine))
+	while (count < max_big_partitions)
+		roundstart_space_partitions.Add(add_new_zlevel("Big Space Partition", z_type = /datum/space_level/partition/four))
+		count++
+
+	count = 0
+	var/max_average_partitions = CONFIG_GET(number/spacemap_average_partitions_count)
+	while (count < max_average_partitions)
+		roundstart_space_partitions.Add(add_new_zlevel("3x3 Space Partition [count + 1]", z_type = /datum/space_level/partition/nine))
+		count++
+
+	count = 0
+	var/max_rift_partitions = CONFIG_GET(number/spacemap_rift_partitions_count)
+	while (count < max_rift_partitions)
+		rift_space_partitions.Add(add_new_zlevel("Rift Space Partition", z_type = /datum/space_level/partition/nine))
+		count++
 
 
 /**
