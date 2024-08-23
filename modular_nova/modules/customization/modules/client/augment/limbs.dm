@@ -19,6 +19,7 @@
 			old_limb.limb_id = initial(new_limb.limb_id)
 			old_limb.base_limb_id = initial(new_limb.limb_id)
 		old_limb.is_dimorphic = initial(new_limb.is_dimorphic)
+		old_limb.eyes_icon = new_limb.eyes_icon
 
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
