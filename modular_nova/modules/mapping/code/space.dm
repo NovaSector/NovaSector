@@ -16,6 +16,8 @@
 	suffix = "spacehotel.dmm"
 	name = "Space-Ruin The Twin-Nexus Hotel"
 	description = "An interstellar hotel, where the weary spaceman can rest their head and relax, assured that the residental staff will not murder them in their sleep. Probably."
+	requires_big_zone = TRUE
+	contains_ghost_role = TRUE
 
 /datum/map_template/ruin/space/nova/des_two
 	id = "des_two"
@@ -23,6 +25,8 @@
 	name = "Space-Ruin DS-2"
 	description = "If DS-1 was so good..."
 	always_place = TRUE
+	requires_big_zone = TRUE
+	contains_ghost_role = TRUE
 
 /datum/map_template/ruin/space/nova/derelictferry
 	id = "derelictferry"
@@ -168,6 +172,8 @@
 	name = "Space-Ruin Port Tarkon"
 	description = "An ambitious goal, A step forward, A trial run for the Tarkon drill, ment to implant mining stations within meteors. Decades of disaster have, however, left this one... Unattended for far too long."
 	always_place = TRUE
+	requires_big_zone = TRUE
+	contains_ghost_role = TRUE
 
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"

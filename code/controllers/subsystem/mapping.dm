@@ -140,6 +140,8 @@ SUBSYSTEM_DEF(mapping)
 		empty_space = add_new_zlevel("Empty Area [space_levels_so_far+1]", list(ZTRAIT_LINKAGE = CROSSLINKED))
 		++space_levels_so_far
 
+	generate_spacemap_partitions() // NOVA EDIT ADDITION - Spacemap
+
 	// Pick a random away mission.
 	if(CONFIG_GET(flag/roundstart_away))
 		createRandomZlevel(prob(CONFIG_GET(number/config_gateway_chance)))
