@@ -146,7 +146,6 @@
 	worn_icon_state = "axe_back"
 	throwforce = 25
 	throw_speed = 4
-	demolition_mod = 1.2
 	embed_type = /datum/embed_data/forged_axe
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
