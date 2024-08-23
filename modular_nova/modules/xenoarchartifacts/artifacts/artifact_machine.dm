@@ -257,8 +257,8 @@
 		else if(attack_item.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || attack_item.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
 			try_toggle_effects(TRIGGER_TOXIN)
 	else
-		if(istype(attack_item, /obj/item/melee/baton/security))
-			var/obj/item/melee/baton/security/Batong = attack_item
+		if(istype(attack_item, /obj/item/melee/baton))
+			var/obj/item/melee/baton/Batong = attack_item
 			if(Batong.active)
 				try_toggle_effects(TRIGGER_ENERGY)
 		else if(istype(attack_item, /obj/item/melee/energy))

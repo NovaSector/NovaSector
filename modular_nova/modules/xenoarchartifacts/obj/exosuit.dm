@@ -93,13 +93,13 @@
 			M.Unconscious(80)
 		else
 			M.set_jitter_if_lower(1000 SECONDS)
-	return ..()
 
 	log_message("Screamed from [src.name]. Scary!", LOG_MECHA)
 	var/turf/T = get_turf(src)
 	message_admins("[ADMIN_LOOKUPFLW(source)] used a PTSD in [ADMIN_VERBOSEJMP(T)]")
 	source.log_message("used a PTSD at [AREACOORD(T)].", LOG_GAME)
 	source.log_message("used a PTSD at [AREACOORD(T)].", LOG_ATTACK)
+	return ..()
 
 /// Just an Odysseus. But hey! Free mech.
 /obj/vehicle/sealed/mecha/odysseus/artifact
