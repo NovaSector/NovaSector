@@ -188,7 +188,20 @@
 			activity around moving objects."
 		if (/obj/vehicle/sealed/mecha/reticence/artifact)
 			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, yet modernly fitted with weapons and unknown constant cloaking field generator. \
-			The only possible way this exosuit got here is a timewarp."
+			Also, sensors detect traces of ectoplasm inside the cockpit. The only possible way this exosuit got here is a timewarp or a sensor malfunction."
+		if (/obj/vehicle/sealed/mecha/odysseus/artifact)
+			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, but design is almost identitcal to odysseus mech. \
+			The only possible way this exosuit got here is a timewarp or a sensor malfunction."
+		if (/obj/vehicle/sealed/mecha/savannah_ivanov/artifact)
+			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, but yet belongs to the Third Sovient Union era, which is \
+			not that old in global terms. Mechanical drives of this example are hopelessly rusted and repair in unlikely. Internal structure is almost identitcal to \
+			Savannah Ivanov exosuit, which implies this is a prototype. Designers seem to be focused on making the mech tough, since the deep scan indicates heavy armor layers both \
+			in the outer shell and internal components. Comparing to the standart Savannah Ivanov, this example is 25% touger, but twice as slow. \
+			The only possible way this exosuit got here is a timewarp or a sensor malfunction."
+		if (/obj/vehicle/sealed/mecha/durand/artifact)
+			return "Mechanical exosuit - Age scan reveals data incompatibility. Object seems to be very old, but it is a Durand-like exosuit with 93% of internal components \
+			being identical to the Nanotrasen Durand exosuit. The only real difference is slightly better placement of servomotors. Deep scan indicates, that due to the time it \
+			spent in the rock, its armor layers detoriated. The only possible way this exosuit got here is a timewarp or a sensor malfunction."
 		if(/obj/machinery/artifact) // a fun one
 			var/obj/machinery/artifact/scanned_artifact = scanned_obj
 			var/out = "Anomalous alien device - composed of an unknown alloy.<br><br>"

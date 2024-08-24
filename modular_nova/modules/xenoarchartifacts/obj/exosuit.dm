@@ -52,6 +52,7 @@
 	servo = new /obj/item/stock_parts/servo/femto(src)
 	update_part_values()
 
+// A gun with one bullet
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/silenced/artifact
 	name = "\improper Jammed S.H.H. \"Quietus\" Carbine"
 	desc = "A weapon for combat exosuits. A mime invention, field tests have shown that targets cannot even scream before going down. \
@@ -139,7 +140,8 @@
 			This model is heavily outdated and consumes exosuit power like a black hole."
 	energy_drain = 250
 
-/// Slower, but bulkier version of savannah_ivanov
+// Slower, but bulkier version of savannah_ivanov
+// Also has electric weapons. Huh... Soviet tank... With tesla weapons... I've heard that before.
 /obj/vehicle/sealed/mecha/savannah_ivanov/artifact
 	name = "\improper Red Sunday"
 	desc = "An insanely overbulked mecha that handily crushes single-pilot opponents. The price is that you need two pilots to use it. \
@@ -149,10 +151,56 @@
 	movedelay = 6 // Very slow
 	max_integrity = 600 // But damn, this is a walking fortress
 	wreckage = /obj/structure/mecha_wreckage/savannah_ivanov/artifact
+	equip_by_category = list(
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/tesla/artifact,
+		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/weapon/energy/static_discharger,
+		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank, /obj/item/mecha_parts/mecha_equipment/thrusters/ion),
+	)
 
 /obj/vehicle/sealed/mecha/savannah_ivanov/artifact/Initialize(mapload)
 	. = ..()
 	take_damage(max_integrity * 0.8, sound_effect=FALSE) // Start 20% health, since it has a lot of hp
+
+/obj/vehicle/sealed/mecha/savannah_ivanov/artifact/populate_parts()
+	cell = new /obj/item/stock_parts/power_store/cell/artifact_crap(src)
+	scanmod = new /obj/item/stock_parts/scanning_module/triphasic(src)
+	capacitor = new /obj/item/stock_parts/capacitor/quadratic(src)
+	servo = new /obj/item/stock_parts/servo/femto(src)
+	update_part_values()
+
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/tesla/artifact
+	equip_cooldown = 2.5 SECONDS // 25% faster
+	name = "\improper Prototype Tesla Cannon Mark One"
+	desc = "A weapon for combat exosuits. Fires bolts of electricity similar to the experimental tesla engine. Its conductors are overclocked, meaning \
+			higher fire rate at a cost of power inefficiency."
+	energy_drain = 1000 // Eats twice as much
+	harmful = TRUE
+
+// Like tesla gun, but shoots zaps from the chassis. No actual projectiles
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/static_discharger
+	equip_cooldown = 15 SECONDS
+	name = "\improper Experimental Combat Static Discharger"
+	desc = "A weapon for combat exosuits. Discharges internal conductors to fire electricity at its opponents. Discontinued because of often friendly fire."
+	icon_state = "mecha_ion"
+	fire_sound = 'sound/magic/lightningbolt.ogg'
+	range = MECHA_RANGED | MECHA_MELEE // Click anywhere, basically
+	projectile = null
+	energy_drain = 5000 // Eats A LOT
+	harmful = TRUE
+	projectiles_per_shot = 0 // We do not shoot actually
+	kickback = FALSE
+
+/// It's a weapon with no bullets. Have to copy and overwrite.
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/static_discharger/action(mob/source, atom/target, list/modifiers)
+	if(!action_checks(target))
+		return FALSE
+	. = ..()
+	if(energy_drain && !chassis.has_charge(energy_drain))
+		return FALSE
+	tesla_zap(source = chassis, zap_range = 8, power = 5e5, cutoff = 1000, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE)
+	playsound(chassis, fire_sound, 50, TRUE)
+	log_combat(source, target, "fired tesla discharger at", src, "from [chassis] at [get_area_name(src, TRUE)]")
+	chassis.log_message("[key_name(source)] fired [src].", LOG_ATTACK)
 
 /obj/structure/mecha_wreckage/savannah_ivanov/artifact
 	name = "\improper Red Sunday wreckage"
