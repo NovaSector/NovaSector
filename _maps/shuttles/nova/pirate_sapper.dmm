@@ -32,7 +32,8 @@
 /obj/structure/rack,
 /obj/machinery/light/floor,
 /obj/machinery/power/terminal{
-	dir = 4
+	dir = 4;
+	cable_layer = 1
 	},
 /obj/effect/decal/cleanable/plasma,
 /obj/item/storage/medkit/frontier/stocked,
