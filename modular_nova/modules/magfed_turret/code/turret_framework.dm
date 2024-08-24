@@ -47,8 +47,6 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/turret_safety = FALSE
 	////// Whether the turret will deploy obeying flags.
 	var/flags_on = FALSE
-	////// Makes the turret only fire at targets manually designated
-	var/manual_target_only = FALSE
 	////// Whether the turret needs a wrench to deploy. Still needs a wrench to pack up.
 	var/easy_deploy = FALSE
 	////// If easy deployable, how quick will it be?
