@@ -5,6 +5,8 @@
 	var/uses_robotic_styles = TRUE
 	///Should we draw these greyscale?
 	var/uses_greyscale = FALSE
+	///Used for legs - if it has a digitigrade sprite variant, set to TRUE.
+	var/supports_digitigrade = FALSE
 
 /datum/augment_item/limb/apply(mob/living/carbon/human/augmented, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
@@ -13,9 +15,14 @@
 		var/body_zone = initial(new_limb.body_zone)
 		var/obj/item/bodypart/old_limb = augmented.get_bodypart(body_zone)
 
-		old_limb.limb_id = initial(new_limb.limb_id)
-		old_limb.base_limb_id = initial(new_limb.limb_id)
+		if(old_limb.limb_id != BODYPART_ID_DIGITIGRADE || supports_digitigrade == FALSE) //Retain digitigrade status
+			old_limb.limb_id = initial(new_limb.limb_id)
+			old_limb.base_limb_id = initial(new_limb.limb_id)
 		old_limb.is_dimorphic = initial(new_limb.is_dimorphic)
+		if(istype(old_limb, /obj/item/bodypart/head))
+			var/obj/item/bodypart/head/old_head = old_limb
+			var/obj/item/bodypart/head/new_head = new_limb
+			old_head.eyes_icon = new_head.eyes_icon
 
 		if(uses_robotic_styles && prefs.augment_limb_styles[slot])
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
@@ -36,6 +43,9 @@
 			var/chosen_style = GLOB.robotic_styles_list[prefs.augment_limb_styles[slot]]
 			new_limb.set_icon_static(chosen_style)
 			new_limb.current_style = prefs.augment_limb_styles[slot]
+		if(supports_digitigrade == TRUE && old_limb.limb_id == BODYPART_ID_DIGITIGRADE)
+			new_limb.limb_id = BODYPART_ID_DIGITIGRADE
+			new_limb.base_limb_id = BODYPART_ID_DIGITIGRADE
 		new_limb.replace_limb(augmented, special = TRUE)
 		qdel(old_limb)
 
