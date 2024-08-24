@@ -9,6 +9,7 @@
 /obj/docking_port/mobile/pirate/sapper
 	name = "Sapper Shuttle"
 	callTime = 1 MINUTES
+	ignitionTime = 1 MINUTES
 	rechargeTime = 5 MINUTES
 	shuttle_id = "pirate_sapper"
 	movement_force = list("KNOCKDOWN"=3,"THROW"=0)
