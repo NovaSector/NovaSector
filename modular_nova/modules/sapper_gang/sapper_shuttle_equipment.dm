@@ -9,9 +9,9 @@
 /obj/docking_port/mobile/pirate/sapper
 	name = "Sapper Shuttle"
 	callTime = 1 MINUTES
-	rechargeTime = 2 MINUTES
+	rechargeTime = 5 MINUTES
 	shuttle_id = "pirate_sapper"
-	movement_force = list("KNOCKDOWN"=0,"THROW"=0)
+	movement_force = list("KNOCKDOWN"=3,"THROW"=0)
 	preferred_direction = NORTH
 	port_direction = WEST
 
