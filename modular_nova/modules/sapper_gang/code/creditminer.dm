@@ -1,13 +1,13 @@
 #define RADIO_ALERT 80 // Precentage near explosion to begin announcing on radio
 #define POWER_FOR_PAYOUT (20 KILO WATTS) // How much do we draw for a payout
 #define PAYOUT 100 // How much is the energy worth
-#define DRAIN_FORMULA (0.1 * STANDARD_CELL_CHARGE) //How much % per tick gets drained from the powernet. standard cell because thats what APCs start with
+#define DRAIN_FORMULA (0.05 * STANDARD_BATTERY_CHARGE) //How much % per tick gets drained from the powernet. standard cell because thats what APCs start with
 
 /obj/item/powersink/creditminer
 	name = "converted power sink"
 	desc = "A highly modified power sink, functionally the same on one exception, it transforms the power into minted holo credit - still gets extremely hot while working; keep the temperature in check or suffer the explosive consequence."
 	w_class = WEIGHT_CLASS_HUGE
-	max_heat = 1.5e8 // 2.5x the heat of its parent type, can last a long time unless the station is running a God engine
+	max_heat = 150 * STANDARD_BATTERY_CHARGE // 1.5x the heat of its parent type, can last a long time unless the station is running a God engine
 	/// The amount of power the machine has converted to credits.
 	var/cash_out = 0
 	///The machine's internal radio, used to broadcast alerts.
