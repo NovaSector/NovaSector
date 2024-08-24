@@ -842,3 +842,10 @@
   - bugfix: bricks will now sound like bricks
   - bugfix: fixes an issue where some Malf AI modules were affecting Port Tarkon and
       the Ghost Cafe when they should not have been able to
+2024-08-24:
+  SmArtKar:
+  - bugfix: Fixed active turfs on crashsite ruin
+  vinylspiders:
+  - bugfix: some digi versions of clothing items (like latex heels for example) will
+      no longer produce spontaneous pants when equipped
+  - bugfix: adds missing digi sprite for black sandals
