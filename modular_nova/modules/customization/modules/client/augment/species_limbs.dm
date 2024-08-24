@@ -7,7 +7,6 @@
 /datum/augment_item/limb/head/species/mutant
 	name = "anthromorph head"
 	path = /obj/item/bodypart/head/mutant
-	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/chest/species
 	cost = 0
@@ -17,7 +16,6 @@
 /datum/augment_item/limb/chest/species/mutant
 	name = "anthromorph chest"
 	path = /obj/item/bodypart/chest/mutant
-	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/l_arm/species
 	cost = 0
@@ -27,7 +25,6 @@
 /datum/augment_item/limb/l_arm/species/mutant
 	name = "anthromorph left arm"
 	path = /obj/item/bodypart/arm/left/mutant
-	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/r_arm/species
 	cost = 0
@@ -37,7 +34,6 @@
 /datum/augment_item/limb/r_arm/species/mutant
 	name = "anthromorph right arm"
 	path = /obj/item/bodypart/arm/right/mutant
-	supports_digitigrade = TRUE
 
 /datum/augment_item/limb/l_leg/species
 	cost = 0
