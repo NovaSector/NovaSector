@@ -126,7 +126,7 @@
 	new /obj/item/forcefield_projector(src)
 	new /obj/item/multitool(src)
 	new /obj/item/wrench/combat(src)
-	new /obj/item/construction/rcd(src)
+	new /obj/item/construction/rcd/loaded(src)
 	new /obj/item/screwdriver/caravan(src)
 	new /obj/item/inducer/syndicate(src)
 	new /obj/item/weldingtool/abductor(src)

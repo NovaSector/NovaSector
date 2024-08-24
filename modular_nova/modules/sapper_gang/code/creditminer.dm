@@ -46,10 +46,10 @@
 	. = ..()
 	switch(mode)
 		if(1) //On turning off
-			playsound(src.loc, 'modular_nova/master_files/sound/effects/creditminer_stop.wav', 50, FALSE)
+			playsound(src, 'modular_nova/master_files/sound/effects/creditminer_stop.wav', 50, FALSE)
 
 		if(2) //On turning on
-			playsound(src.loc, 'modular_nova/master_files/sound/effects/creditminer_start.wav', 50, FALSE)
+			playsound(src, 'modular_nova/master_files/sound/effects/creditminer_start.wav', 50, FALSE)
 
 /obj/item/powersink/creditminer/process()
 	. = ..()
@@ -62,7 +62,7 @@
 
 /obj/item/powersink/creditminer/proc/print()
 	if(cash_out > 0)
-		playsound(src.loc, 'sound/items/poster_being_created.ogg', 100, TRUE)
+		playsound(src, 'sound/items/poster_being_created.ogg', 100, TRUE)
 		balloon_alert_to_viewers("printed [trunc(cash_out)] credits")
 		new /obj/item/holochip(drop_location(), trunc(cash_out)) //get the loot
 		cash_out = 0
@@ -86,7 +86,15 @@
 	if(cash_pulse >= 1)
 		cash_out += cash_pulse
 		balloon_alert_to_viewers("mined [trunc(cash_pulse)]cr")
-		playsound(src.loc, 'modular_nova/master_files/sound/effects/creditminer_drain.wav', 30, FALSE, 0, 12)
+		playsound(src, 'modular_nova/master_files/sound/effects/creditminer_drain.wav', 50, FALSE)
+
+/obj/item/powersink/creditminer/release_heat()
+	. = ..()
+	if(!internal_heat)
+		return
+	if(mode < 2) //sfx if we release heat, but don't overlap the drain sfx
+		playsound(src, 'modular_nova/master_files/sound/effects/creditminer_vent.wav', 50, FALSE)
+	new /obj/effect/temp_visual/mook_dust/robot/table(get_turf(src))
 
 /// Credit Miner crafting recipe (Incase the intial one explodes)
 /datum/crafting_recipe/credit_miner
