@@ -2,7 +2,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 GLOBAL_LIST_EMPTY(name_to_appearance)
 #define READ_PREFS(target, pref) (target.client?.prefs?.read_preference(/datum/preference/pref))
 ///Helper macro for directory ads' preview views
-#define CHAR_DIRECTORY_ASSIGNED_VIEW(user_ckey) "preview_[user_ckey]_[REF(GLOB.character_directory)]_records"
+#define CHAR_DIRECTORY_ASSIGNED_VIEW(user_ckey) "preview_[user_ckey]_char_directory_records"
 
 // We want players to be able to decide whether they show up in the directory or not
 /datum/preference/toggle/show_in_directory
@@ -90,27 +90,22 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 // This is a global singleton. Keep in mind that all operations should occur on user, not src.
 /datum/character_directory
 	/// The character preview views for the UI.
-	var/list/atom/movable/screen/map_view/char_preview/character_preview_views = list()
+	var/list/atom/movable/screen/map_view/char_preview/directory/character_preview_views = list()
 	/// For when a character starts off viewing a specific character's ad
 	var/list/start_viewing_ad = list()
 
 /datum/character_directory/Destroy(force)
 	for(var/ckey in character_preview_views)
-		var/atom/movable/screen/map_view/char_preview/preview = character_preview_views[ckey]
+		var/atom/movable/screen/map_view/char_preview/directory/preview = character_preview_views[ckey]
 		qdel(preview)
 	return ..()
 
-/atom/movable/screen/map_view/char_preview
+/atom/movable/screen/map_view/char_preview/directory
 	/// Tracks a ref to the client ckey, for the character directory
 	var/client_ckey
 
-/atom/movable/screen/map_view/char_preview/Destroy(force)
-	var/character_preview_view = GLOB.character_directory?.character_preview_views[client_ckey]
-	if(!isnull(character_preview_view)) // if for whatever reason this did not get cleaned up properly, let's make sure that happens
-		GLOB.character_directory?.character_preview_views -= client_ckey
-		var/mob/user = get_mob_by_ckey(client_ckey)
-		if(user)
-			user.client?.screen_maps -= CHAR_DIRECTORY_ASSIGNED_VIEW(client_ckey)
+/atom/movable/screen/map_view/char_preview/directory/Destroy(force)
+	GLOB.character_directory?.character_preview_views -= client_ckey
 
 	return ..()
 
@@ -122,11 +117,9 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	// let's clear those out, we always want a new one when calling this proc anyway.
 	var/old_view = user.client?.screen_maps[assigned_view]
 	if(old_view)
-		character_preview_views -= user.ckey
-		user.client.screen_maps -= assigned_view
 		qdel(old_view)
 
-	var/atom/movable/screen/map_view/char_preview/new_view = new(null)
+	var/atom/movable/screen/map_view/char_preview/directory/new_view = new(null)
 	new_view.client_ckey = user.ckey
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user)
@@ -135,9 +128,14 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
 	var/mutable_appearance/preview = new(appearance)
-	preview.transform = matrix() // This is so scaled mobs aren't just getting cut off for being too big
+	if(iscarbon(user))
+		var/mob/living/carbon/carbon_user = user
+		if(carbon_user.dna)
+			var/matrix/matrix = matrix()
+			matrix.Scale(1/carbon_user.dna.features["body_size"], 1/carbon_user.dna.features["body_size"])
+			preview.transform = matrix // This is so scaled mobs aren't just getting cut off for being too big
 
-	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]
+	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
 		return
 
@@ -155,9 +153,9 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		ui.open()
 
 /datum/character_directory/ui_close(mob/user)
-	var/atom/movable/screen/map_view/char_preview/old_preview = character_preview_views[user.ckey]
-	user.client?.screen_maps -= CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
-	character_preview_views -= user.ckey
+	var/atom/movable/screen/map_view/char_preview/directory/old_preview = character_preview_views[user.ckey]
+	if(QDELETED(old_preview))
+		return
 	qdel(old_preview)
 
 // We want this information to update any time the player updates their preferences, not just when the panel is refreshed
@@ -176,7 +174,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		data["personalHypnoTag"] = READ_PREFS(user, choiced/erp_status_hypno)
 		data["prefsOnly"] = TRUE
 
-	data["assignedView"] = "preview_[user.ckey]_[REF(src)]_directory"
+	data["assignedView"] = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
 	data["canOrbit"] = isobserver(user)
 	// for when we want to start off with a search term filled in automatically
 	var/autofill_search_term = start_viewing_ad[user.ckey]
