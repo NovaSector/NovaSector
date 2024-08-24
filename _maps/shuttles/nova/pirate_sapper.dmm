@@ -35,6 +35,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/plasma,
+/obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/plating,
 /area/shuttle/pirate/sapper)
 "gr" = (
@@ -203,9 +204,9 @@
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "tM" = (
-/obj/structure/cable/layer1,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/components/tank/air/layer4,
+/obj/structure/cable/layer1,
 /turf/open/floor/plating,
 /area/shuttle/pirate/sapper)
 "ua" = (
@@ -328,13 +329,13 @@
 /obj/machinery/power/smes/ship{
 	cable_layer = 1
 	},
-/obj/structure/cable/layer1,
 /obj/item/toy/plush/nova/deer{
 	pixel_y = 17;
 	pixel_x = 3;
 	name = "powerful deer plushie"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable/layer1,
 /turf/open/floor/plating,
 /area/shuttle/pirate/sapper)
 "CM" = (
@@ -413,6 +414,7 @@
 	amount = 20
 	},
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled,
+/obj/item/target_designator/restricted,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "JD" = (
@@ -496,6 +498,7 @@
 	amount = 20
 	},
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled,
+/obj/item/target_designator/restricted,
 /turf/open/floor/catwalk_floor/iron_white,
 /area/shuttle/pirate/sapper)
 "Sa" = (

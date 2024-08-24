@@ -12,3 +12,7 @@
 	turret_limit = 1
 	acquisition_duration = 0.2 SECONDS //tbh i just wanted something that'd work better for getting icon showcases.
 	target_all = FALSE
+
+/obj/item/target_designator/restricted
+	follow_flags = TRUE
+	can_free_target = FALSE

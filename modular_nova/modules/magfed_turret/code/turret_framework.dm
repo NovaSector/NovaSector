@@ -47,6 +47,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/turret_safety = FALSE
 	////// Whether the turret will deploy obeying flags.
 	var/flags_on = FALSE
+	////// Makes the turret only fire at targets manually designated
+	var/manual_target_only = FALSE
 	////// Whether the turret needs a wrench to deploy. Still needs a wrench to pack up.
 	var/easy_deploy = FALSE
 	////// If easy deployable, how quick will it be?
@@ -226,6 +228,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	var/target_all = TRUE
 	////// whether or not turrets should obey turret flags. over-writes other modes if active.
 	var/follow_flags = FALSE
+	///// whether or not the turret can swap to free targeting mode
+	var/can_free_target = TRUE
 
 /obj/item/target_designator/examine(mob/user)
 	. = ..()
@@ -234,7 +238,8 @@ DEFINE_BITFIELD(turret_flags, list(
 	. += span_notice("<b>Left click</b> a spot or entity to designate it as a target.")
 	. += span_notice("<b>Use</b> this item to toggle human targeting.")
 	. += span_notice("Targeting of non-authorized personnel is [target_all ? "<font color='#ff0000'>ENABLED</font>" : "<font color='#00ff15'>DISABLED</font>"].")
-	. += span_notice("<b>Shift-click</b> this item to toggle flag following.")
+	if(can_free_target)
+		. += span_notice("<b>Shift-click</b> this item to toggle flag following.")
 	. += span_notice("Turrets are [follow_flags ? "<font color='#00ff15'>OBEYING LAWS</font>" : "<font color='#ff0000'>FREE TARGETING</font>"].")
 
 /obj/item/target_designator/attack_self(mob/user, modifiers)
@@ -244,8 +249,9 @@ DEFINE_BITFIELD(turret_flags, list(
 
 /obj/item/target_designator/ShiftClick(mob/user)
 	. = ..()
-	follow_flags = !follow_flags
-	sync_turrets()
+	if(can_free_target)
+		follow_flags = !follow_flags
+		sync_turrets()
 	return
 
 /obj/item/target_designator/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)

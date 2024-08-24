@@ -47,7 +47,9 @@
 	desc = "A deployable turret used for aggressive expansion and zone defense. It is chambered to fire <i>4.6x30mm</i> auto-rifle ammunition."
 	icon_state = "sapper_toolbox"
 	inhand_icon_state = null
+	setting_change = FALSE
 	turret_safety = FALSE
+	flags_on = TRUE
 	faction = list(FACTION_SAPPER)
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
 	mag_types_allowed = list(
