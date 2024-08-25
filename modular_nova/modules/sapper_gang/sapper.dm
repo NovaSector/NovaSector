@@ -53,20 +53,14 @@
 	return TRUE
 
 /datum/antagonist/sapper/get_preview_icon()
-	var/mob/living/carbon/human/dummy/consistent/sapper_one = new
-	var/mob/living/carbon/human/dummy/consistent/sapper_two = new
-
-	var/icon/sapper_one_icon = render_preview_outfit(/datum/outfit/sapper/preview, sapper_one)
+	var/icon/sapper_one_icon = render_preview_outfit(/datum/outfit/sapper/preview)
 	sapper_one_icon.Shift(WEST, 6)
 
-	var/icon/sapper_two_icon = render_preview_outfit(/datum/outfit/sapper/preview/partner, sapper_two)
+	var/icon/sapper_two_icon = render_preview_outfit(/datum/outfit/sapper/preview/partner)
 	sapper_two_icon.Shift(EAST, 6)
 
 	var/icon/final_icon = sapper_one_icon
 	final_icon.Blend(sapper_two_icon, ICON_OVERLAY)
-
-	qdel(sapper_one)
-	qdel(sapper_two)
 
 	return finish_preview_icon(final_icon)
 
