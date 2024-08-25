@@ -1,12 +1,12 @@
 /datum/antagonist/sapper
 	name = "\improper Space Sapper"
-	job_rank = ROLE_TRAITOR
-	roundend_category = "space sappers"
-	antagpanel_category = "Space Sappers"
-	show_in_antagpanel = FALSE
+	job_rank = ROLE_SPACE_SAPPER
+	roundend_category = "Sapper Gang"
+	antagpanel_category = "Sapper Gang"
 	show_to_ghosts = TRUE
 	antag_recipes = list(/datum/crafting_recipe/credit_miner)
-	var/datum/team/sapper/gang
+
+	var/datum/team/sapper/team
 
 /datum/antagonist/sapper/apply_innate_effects(mob/living/mob_override)
 	. = ..()
@@ -22,36 +22,60 @@
 
 /datum/antagonist/sapper/greet()
 	. = ..()
-	to_chat(owner, "<B>You're an illegal credits miner, build your defenses to protect your mining machines and your ship, and harvest as many credits as you can!</B>")
+	to_chat(owner, "<B>You're an illegal credits miner, build your defenses to protect your credit-miner and your ship, and harvest as many credits as you can!</B>")
 	owner.announce_objectives()
 
 /datum/antagonist/sapper/get_team()
-	return gang
+	return team
 
 /datum/antagonist/sapper/create_team(datum/team/sapper/new_team)
 	if(!new_team)
-		for(var/datum/antagonist/sapper/sapper in GLOB.antagonists)
-			if(!sapper.owner)
-				stack_trace("Antagonist datum without owner in GLOB.antagonists: [sapper]")
-				continue
-			if(sapper.gang)
-				gang = sapper.gang
-				return
-		if(!new_team)
-			gang = new /datum/team/sapper
-			gang.forge_objectives()
-			return
+		return
 	if(!istype(new_team))
 		stack_trace("Wrong team type passed to [type] initialization.")
-	gang = new_team
+	team = new_team
 
 /datum/antagonist/sapper/on_gain()
-	if(gang)
-		objectives |= gang.objectives
-	. = ..()
+	equip_guy()
+	objectives += team.objectives
+	return ..()
+
+/datum/antagonist/sapper/on_removal()
+	owner.special_role = null
+	return ..()
+
+/datum/antagonist/sapper/proc/equip_guy()
+	if(!ishuman(owner.current))
+		return
+	var/mob/living/carbon/human/person = owner.current
+	var/datum/outfit/outfit_to_apply = new /datum/outfit/sapper
+	person.equipOutfit(outfit_to_apply)
+	return TRUE
+
+/datum/antagonist/sapper/get_preview_icon()
+	var/mob/living/carbon/human/dummy/consistent/sapper_one = new
+	var/mob/living/carbon/human/dummy/consistent/sapper_two = new
+
+	var/icon/sapper_one_icon = render_preview_outfit(/datum/outfit/sapper/preview, sapper_one)
+	sapper_one_icon.Shift(WEST, 6)
+
+	var/icon/sapper_two_icon = render_preview_outfit(/datum/outfit/sapper/preview/partner, sapper_two)
+	sapper_two_icon.Shift(EAST, 6)
+
+	var/icon/final_icon = sapper_one_icon
+	final_icon.Blend(sapper_two_icon, ICON_OVERLAY)
+
+	qdel(sapper_one)
+	qdel(sapper_two)
+
+	return finish_preview_icon(final_icon)
 
 /datum/team/sapper
 	name = "\improper Sapper gang"
+
+/datum/team/sapper/New()
+	..()
+	forge_objectives()
 
 /datum/team/sapper/proc/forge_objectives()
 	var/datum/objective/sapper/sapper_objective = new()
@@ -70,7 +94,7 @@
 
 /datum/objective/sapper
 	var/obj/machinery/computer/piratepad_control/sapper/cargo_hold
-	explanation_text = "Use your credit miner machines to convert energy into cash."
+	explanation_text = "Use your credit-miner to convert energy into cash."
 
 /datum/objective/sapper/update_explanation_text()
 	if(cargo_hold)

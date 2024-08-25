@@ -152,3 +152,19 @@
 /datum/job/space_sapper
 	title = ROLE_SPACE_SAPPER
 	policy_index = ROLE_SPACE_SAPPER
+
+////
+// Preview icon outfits
+/datum/outfit/sapper/preview
+	name = "Space Sapper 1 (Preview Only)"
+	ears = /obj/item/radio/headset/headset_eng
+	uniform = /obj/item/clothing/under/sapper
+	belt = /obj/item/storage/belt/utility/sapper
+	gloves = /obj/item/clothing/gloves/color/yellow
+	shoes = /obj/item/clothing/shoes/workboots/sapper
+	mask = /obj/item/clothing/mask/gas/atmos/sapper
+
+/datum/outfit/sapper/preview/partner
+	name = "Space Sapper 2 (Preview Only)"
+	uniform = /obj/item/clothing/under/sapper/skirt
+	mask = /obj/item/clothing/mask/gas/atmos/sapper/partner
