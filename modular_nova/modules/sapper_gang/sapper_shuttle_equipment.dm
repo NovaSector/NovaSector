@@ -53,9 +53,7 @@
 	flags_on = TRUE
 	faction = list(FACTION_SAPPER)
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/sapper
-	mag_types_allowed = list(
-		/obj/item/ammo_box/magazine/wt550m9,
-	)
+	mag_types_allowed = list(/obj/item/ammo_box/magazine/wt550m9)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/sapper/pre_filled/PopulateContents()
 	new /obj/item/ammo_box/magazine/wt550m9(src)

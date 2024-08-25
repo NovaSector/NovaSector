@@ -134,6 +134,6 @@
 
 	spawned_mobs += list(sapper_one, sapper_two)
 
-	message_admins("[ADMIN_LOOKUPFLW(candidate_one)] and [ADMIN_LOOKUPFLW(candidate_two)] have been made into [src] by an event.")
-	log_game("[key_name(candidate_one)] and[key_name(candidate_two)] were spawned as a [src] by an event.")
+	message_admins("[ADMIN_LOOKUPFLW(sapper_one)] and [ADMIN_LOOKUPFLW(sapper_two)] have been made into [src] by an event.")
+	log_game("[key_name(sapper_one)] and[key_name(sapper_two)] were spawned as a [src] by an event.")
 	return SUCCESSFUL_SPAWN

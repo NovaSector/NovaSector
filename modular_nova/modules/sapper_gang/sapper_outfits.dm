@@ -138,7 +138,6 @@
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sapper/PopulateContents()
 	return
 
-
 /datum/id_trim/sapper
 	assignment = "Sapper"
 	trim_state = "trim_sapper"
