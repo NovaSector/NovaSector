@@ -168,3 +168,9 @@
 	name = "Space Sapper 2 (Preview Only)"
 	uniform = /obj/item/clothing/under/sapper/skirt
 	mask = /obj/item/clothing/mask/gas/atmos/sapper/partner
+
+/datum/outfit/sapper/preview/pre_equip(mob/living/carbon/human/equipped)
+	return
+
+/datum/outfit/sapper/preview/post_equip(mob/living/carbon/human/equipped)
+	return
