@@ -849,3 +849,13 @@
   - bugfix: some digi versions of clothing items (like latex heels for example) will
       no longer produce spontaneous pants when equipped
   - bugfix: adds missing digi sprite for black sandals
+2024-08-25:
+  CliffracerX:
+  - bugfix: digitigrade-capable species limbs in Augs+ now respect your digitigrade
+      preference
+  sqnztb:
+  - bugfix: Snowglobe now has proper ordinance APC placements. SM chamber gets a button
+      for the radiation shutters. Library desk requires correct access. Kitchen has
+      a dehydrator. Perma now has standard cryo pods instead of wallmounted.
+  vinylspiders:
+  - bugfix: bedsheet pixel offsets should be fixed
