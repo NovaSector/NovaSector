@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "SEVA suits use the same global list of items allowed than the rest of mining (they can carry crushers now)."
