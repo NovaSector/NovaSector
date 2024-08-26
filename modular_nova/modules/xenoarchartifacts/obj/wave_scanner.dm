@@ -10,7 +10,7 @@
 
 	var/obj/item/xenoarch/searcher/processor
 
-/obj/item/xenoarch/wave_scanner_backpack/New()
+/obj/item/xenoarch/wave_scanner_backpack/Initialize(mapload)
 	. = ..()
 	processor = new(src, src)
 
@@ -20,6 +20,9 @@
 /obj/item/xenoarch/wave_scanner_backpack/verb/toggle_searcher()
 	set name = "Toggle Searcher"
 	set category = "Object"
+
+	if(!usr)
+		return
 
 	if(usr.incapacitated())
 		return

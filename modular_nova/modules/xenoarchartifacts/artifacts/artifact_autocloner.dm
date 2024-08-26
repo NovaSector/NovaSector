@@ -107,7 +107,7 @@
 			icon_state = "autocloner_on"
 			desc = "It's full of a bubbling viscous liquid, and is lit by a mysterious glow."
 			if(spawn_type)
-				new spawn_type(src.loc)
+				new spawn_type(get_turf(src))
 
 		// if we're getting close to finished, kick into overdrive power usage
 		if(time_spent_spawning / time_per_spawn > 0.75)

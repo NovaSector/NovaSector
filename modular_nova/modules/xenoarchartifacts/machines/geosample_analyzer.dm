@@ -77,7 +77,7 @@
 		fail_scan()
 		return
 	if(powered()) // Double check if still powered after sleep
-		var/obj/item/paper/artifact_info/artifact_report = new(src.loc)
+		var/obj/item/paper/artifact_info/artifact_report = new(get_turf(src))
 		artifact_report.name = "[src] report"
 		artifact_report.add_raw_text(data)
 		artifact_report.update_icon()

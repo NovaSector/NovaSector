@@ -47,7 +47,7 @@
 			playsound(src, 'sound/machines/crate_open.ogg', 30, 10)
 			src.inserted_battery = I
 			icon_state = "harvester_battery"
-			ui_interact(usr)
+			ui_interact(user)
 		else
 			to_chat(user, span_warning("There is already a battery in [src]."))
 	else
@@ -124,6 +124,8 @@
 
 /obj/machinery/artifact_harvester/Topic(href, href_list)
 	. = ..()
+	if(!usr)
+		return
 	if(.)
 		return
 	if(href_list["harvest"])
@@ -189,10 +191,10 @@
 		// duplicate the artifact's effect datum
 		if(!inserted_battery.battery_effect)
 			var/new_effect_type = harvested_effect.type
-			var/datum/artifact_effect/E = new new_effect_type(inserted_battery)
-			for(var/varname in list("maximum_charges", "release_method", "range", "trigger", "activation_aura_cost", "activation_pulse_cost", "activation_touch_cost"))
-				E.vars[varname] = harvested_effect.vars[varname]
-			inserted_battery.battery_effect = E
+			var/datum/artifact_effect/new_battery_effect = new new_effect_type(inserted_battery)
+			for(var/varname in list("maximum_charges", "release_method", "range", "trigger", "activation_aura_cost", "activation_pulse_cost", "activation_touch_cost", "log_name"))
+				new_battery_effect.vars[varname] = harvested_effect.vars[varname]
+			inserted_battery.battery_effect = new_battery_effect
 
 	if(href_list["stopharvest"])
 		playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)

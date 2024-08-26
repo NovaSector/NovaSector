@@ -7,9 +7,9 @@
 	var/capacity = 200
 	var/stored_charge = 0
 
-/obj/item/xenoarch/particles_battery/New()
+/obj/item/xenoarch/particles_battery/Initialize(mapload)
 	. = ..()
-	battery_effect = new()
+	battery_effect = new(src)
 
 /obj/item/xenoarch/particles_battery/update_icon_state()
 	var/power_stored = (stored_charge / capacity) * 100
@@ -36,10 +36,9 @@
 	var/archived_time = 50
 	/// Inserterd battery
 	var/obj/item/xenoarch/particles_battery/inserted_battery
-	var/turf/archived_loc
 	var/cooldown_to_start = 0
 
-/obj/item/xenoarch/xenoarch_utilizer/New()
+/obj/item/xenoarch/xenoarch_utilizer/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
@@ -104,7 +103,21 @@
 	var/datum/browser/popup = new(user, "utilizer", name, 400, 500)
 	popup.set_content(dat)
 	popup.open()
-	interact(usr)
+	if(usr)
+		interact(usr)
+
+/obj/item/xenoarch/xenoarch_utilizer/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
+	. = ..()
+	var/turf/T = get_turf(src)
+	if(T != old_loc && inserted_battery && inserted_battery.battery_effect)
+		inserted_battery.battery_effect.update_move()
+	if(activated && inserted_battery && inserted_battery.battery_effect)
+		if(!istype(inserted_battery.battery_effect, /datum/artifact_effect/light))
+			set_light(2, 1, "#8f66f4")
+		else
+			set_light(inserted_battery.light_range, inserted_battery.light_power, "#ffffff") // Have to do it, since the battery is
+	else
+		set_light(0, 0)
 
 /obj/item/xenoarch/xenoarch_utilizer/process()
 	update_icon()
@@ -116,16 +129,10 @@
 				span_notice("[src] chimes."),
 				blind_message = span_notice("You hear something chime."),
 			)
-	else if(activated && inserted_battery?.battery_effect)
+	else if(activated && inserted_battery.battery_effect)
 		// make sure the effect is active
 		if(!inserted_battery.battery_effect.activated)
 			inserted_battery.battery_effect.ToggleActivate(TRUE)
-
-		// update the effect loc
-		var/turf/T = get_turf(src)
-		if(T != archived_loc)
-			archived_loc = T
-			inserted_battery.battery_effect.update_move()
 
 		// process the effect
 		inserted_battery.battery_effect.process()
@@ -153,11 +160,14 @@
 				blind_message = span_notice("You hear something buzz."),
 		)
 		cooldown = COOLDOWN_TIME
-
-	inserted_battery.battery_effect.turn_effect_off()
-	interact(usr)
+	if(inserted_battery.battery_effect)
+		inserted_battery.battery_effect.turn_effect_off()
+	if(usr)
+		interact(usr)
 
 /obj/item/xenoarch/xenoarch_utilizer/Topic(href, href_list)
+	if(!usr)
+		return
 	if((get_dist(src, usr) > 1))
 		return
 	if(href_list["neg_changetime_max"])
@@ -189,14 +199,15 @@
 		else if (time < 0)
 			time = 0
 	if(href_list["startup"])
-		playsound(src, 'sound/machines/click.ogg', 25, FALSE)
-		activated = TRUE
-		timing = FALSE
-		cooldown_to_start = world.time + 10 // so we cant abuse the startup button
-		update_icon()
-		if(!inserted_battery.battery_effect.activated)
+		if(inserted_battery.battery_effect && inserted_battery.stored_charge > 0)
+			playsound(src, 'sound/machines/click.ogg', 25, FALSE)
+			activated = TRUE
+			timing = FALSE
+			cooldown_to_start = world.time + 10 // so we cant abuse the startup button
+			update_icon()
 			message_admins("anomaly battery [inserted_battery.battery_effect.artifact_id]([inserted_battery.battery_effect]) emission started by [key_name(usr)]")
-			inserted_battery.battery_effect.ToggleActivate(TRUE)
+			if (!inserted_battery.battery_effect.activated)
+				inserted_battery.battery_effect.ToggleActivate(TRUE)
 	if(href_list["shutdown"])
 		playsound(src, 'sound/machines/click.ogg', 25, FALSE)
 		shutdown_emission()
@@ -212,7 +223,9 @@
 			var/mob/living/carbon/human/human_user = usr
 			if(!human_user.get_active_hand())
 				human_user.put_in_hands(inserted_battery)
-		inserted_battery.battery_effect.turn_effect_off()
+		if(inserted_battery.battery_effect)
+			inserted_battery.battery_effect.turn_effect_off()
+			inserted_battery.set_light(0,0) // In case of light effect, since it does not auto update in utilizer
 		inserted_battery = null
 		update_icon()
 	interact(usr)
@@ -227,7 +240,10 @@
 	var/is_emitting = "_off"
 	if(activated && inserted_battery && inserted_battery.battery_effect)
 		is_emitting = "_on"
-		set_light(2, 1, "#8f66f4")
+		if(!istype(inserted_battery.battery_effect, /datum/artifact_effect/light)) // Let light effect
+			set_light(2, 1, "#8f66f4")
+		else
+			set_light(inserted_battery.light_range, inserted_battery.light_power, "#ffffff") // Have to do it, since the battery is
 	else
 		set_light(0)
 	var/power_battery = (inserted_battery.stored_charge / inserted_battery.capacity) * 100

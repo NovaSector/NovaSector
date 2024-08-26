@@ -83,7 +83,8 @@
 	if(scan_in_progress && world.time > scan_completion_time)
 		// finish scanning
 		scan_in_progress = FALSE
-		ui_interact(usr)
+		if(usr)
+			ui_interact(usr)
 
 		// print results
 		var/results = ""
@@ -99,7 +100,7 @@
 			results = get_scan_info(scanned_object)
 		owned_scanner.icon_state = "xenoarch_scanner"
 		say("Scanning complete.")
-		var/obj/item/paper/artifact_info/artifact_report = new(src.loc)
+		var/obj/item/paper/artifact_info/artifact_report = new(get_turf(src))
 		artifact_report.name = "[src] report #[++report_num]"
 		artifact_report.add_raw_text("<b>[src] analysis report #[report_num]</b><br>")
 		artifact_report.add_raw_text("<br>")
@@ -122,6 +123,8 @@
 
 /obj/machinery/artifact_analyser/Topic(href, href_list)
 	. = ..()
+	if(!usr)
+		return
 	if(.)
 		return
 	if(href_list["close"])

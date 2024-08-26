@@ -94,7 +94,7 @@
 
 			var/obj/source_material = pop(stored_materials)
 			var/spawn_type = pop(spawning_types)
-			var/obj/spawned_obj = new spawn_type(src.loc)
+			var/obj/spawned_obj = new spawn_type(get_turf(src))
 			if(source_material)
 				if(length_char(source_material.name) < MAX_MESSAGE_LEN)
 					spawned_obj.name = "[source_material] " +  spawned_obj.name
@@ -166,5 +166,5 @@
 				icon_state = "replicator_active"
 			else
 				visible_message(fail_message)
-
-	ui_interact(usr)
+	if(usr)
+		ui_interact(usr)
