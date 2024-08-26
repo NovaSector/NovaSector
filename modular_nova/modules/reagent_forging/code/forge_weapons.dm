@@ -82,7 +82,7 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 
-/obj/item/forging/reagent_weapon/axe/Initialize(mapload)
+/obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
 	speed = 8 SECONDS, \
