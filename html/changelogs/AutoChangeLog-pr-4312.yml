@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - rscdel: "'Guild' radio channel key (for \"Privateer Slaver\" role) has been swapped from :p to :i , to avoid conflict with the new Curator 'Entertainment' channel"
