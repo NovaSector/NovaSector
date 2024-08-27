@@ -11,6 +11,11 @@
 	. = ..()
 	battery_effect = new(src)
 
+/obj/item/xenoarch/particles_battery/Destroy(force)
+	if(battery_effect)
+		qdel(battery_effect)
+	return ..()
+
 /obj/item/xenoarch/particles_battery/update_icon_state()
 	var/power_stored = (stored_charge / capacity) * 100
 	power_stored = min(power_stored, 100)
@@ -105,6 +110,11 @@
 	popup.open()
 	if(usr)
 		interact(usr)
+
+/obj/item/xenoarch/xenoarch_utilizer/Destroy(force)
+	if(inserted_battery)
+		qdel(inserted_battery)
+	return ..()
 
 /obj/item/xenoarch/xenoarch_utilizer/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
