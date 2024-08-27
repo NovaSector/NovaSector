@@ -84,7 +84,7 @@
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/wylom,
 /obj/item/gun/ballistic/automatic/miecz,
-/obj/item/gun/ballistic/rifle/boltaction/sporterized,
+/obj/item/gun/ballistic/rifle/sporterized,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "cV" = (
