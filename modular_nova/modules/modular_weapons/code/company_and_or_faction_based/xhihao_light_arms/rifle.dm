@@ -10,6 +10,7 @@
 	icon_state = "rengo"
 	worn_icon_state = "enchanted_rifle" // Not actually magical looking, just looks closest to this one
 	inhand_icon_state = "enchanted_rifle"
+	slot_flags = ITEM_SLOT_BACK
 	SET_BASE_PIXEL(-8, 0)
 	accepted_magazine_type = /obj/item/ammo_box/magazine/lanca
 	mag_display = TRUE
