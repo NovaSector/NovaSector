@@ -76,7 +76,6 @@ map blueshift
 endmap
 
 map ouroboros
-	default
 	maxplayers 80
 	votable
 endmap
