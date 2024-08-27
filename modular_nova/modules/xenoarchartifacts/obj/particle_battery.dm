@@ -14,6 +14,7 @@
 /obj/item/xenoarch/particles_battery/Destroy(force)
 	if(battery_effect)
 		qdel(battery_effect)
+	battery_effect = null
 	return ..()
 
 /obj/item/xenoarch/particles_battery/update_icon_state()
@@ -46,6 +47,13 @@
 /obj/item/xenoarch/xenoarch_utilizer/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
+
+/obj/item/xenoarch/xenoarch_utilizer/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	if(inserted_battery)
+		qdel(inserted_battery)
+	inserted_battery = null
+	return ..()
 
 /obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/xenoarch/particles_battery))
@@ -111,11 +119,6 @@
 	if(usr)
 		interact(usr)
 
-/obj/item/xenoarch/xenoarch_utilizer/Destroy(force)
-	if(inserted_battery)
-		qdel(inserted_battery)
-	return ..()
-
 /obj/item/xenoarch/xenoarch_utilizer/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
 	var/turf/T = get_turf(src)
@@ -125,7 +128,7 @@
 		if(!istype(inserted_battery.battery_effect, /datum/artifact_effect/light))
 			set_light(2, 1, "#8f66f4")
 		else
-			set_light(inserted_battery.light_range, inserted_battery.light_power, "#ffffff") // Have to do it, since the battery is
+			set_light(inserted_battery.light_range, inserted_battery.light_power, "#ffffff") // Have to do it, since the light comes from battery
 	else
 		set_light(0, 0)
 
@@ -259,12 +262,6 @@
 	var/power_battery = (inserted_battery.stored_charge / inserted_battery.capacity) * 100
 	power_battery = min(power_battery, 100)
 	icon_state = "utilizer[round(power_battery, 25)][is_emitting]"
-
-/obj/item/xenoarch/xenoarch_utilizer/Destroy()
-	if(inserted_battery)
-		qdel(inserted_battery)
-	STOP_PROCESSING(SSobj, src)
-	return ..()
 
 /obj/item/xenoarch/xenoarch_utilizer/attack(mob/living/target_mob, mob/living/user, def_zone)
 	if (!istype(target_mob))
