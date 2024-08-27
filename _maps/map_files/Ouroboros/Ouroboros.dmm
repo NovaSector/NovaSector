@@ -31755,6 +31755,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/event_spawn,
 /obj/effect/landmark/start/hangover,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "jjv" = (
@@ -43073,6 +43074,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/corner,
 /area/station/commons/dorms)
 "mtK" = (
@@ -51697,7 +51699,9 @@
 /area/station/maintenance/disposal/incinerator)
 "oUZ" = (
 /obj/effect/turf_decal/box/red,
-/obj/item/banner/red,
+/obj/item/banner/red{
+	inspiration_available = 0
+	},
 /obj/effect/turf_decal/siding/white/corner,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/common/laser_tag)
@@ -60445,9 +60449,11 @@
 /area/station/ai_monitored/command/nuke_storage)
 "rCS" = (
 /obj/effect/turf_decal/box/blue,
-/obj/item/banner/blue,
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 1
+	},
+/obj/item/banner/blue{
+	inspiration_available = 0
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/common/laser_tag)
