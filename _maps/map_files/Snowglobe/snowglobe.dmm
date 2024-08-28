@@ -64603,6 +64603,7 @@
 /area/station/maintenance/abandon_holding_cell)
 "rDV" = (
 /obj/structure/filingcabinet,
+/obj/structure/detectiveboard/directional/west,
 /turf/open/floor/iron/dark/textured_half,
 /area/station/security/detectives_office)
 "rDX" = (
