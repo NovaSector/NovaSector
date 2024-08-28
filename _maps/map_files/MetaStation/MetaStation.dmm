@@ -20128,7 +20128,6 @@
 /area/station/cargo/sorting)
 "hlj" = (
 /obj/structure/table/wood,
-/obj/structure/secure_safe/directional/east,
 /obj/machinery/computer/security/wooden_tv{
 	pixel_x = 3;
 	pixel_y = 2
@@ -20138,6 +20137,7 @@
 	name = "detective's office shutters control";
 	req_access = list("detective")
 	},
+/obj/structure/detectiveboard/directional/east,
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "hlq" = (
@@ -38290,6 +38290,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/safe)
+"nAO" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/secure_safe/directional/west,
+/turf/open/floor/iron/grimy,
+/area/station/security/detectives_office)
 "nAW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -99519,7 +99524,7 @@ sWV
 sWV
 sWV
 qJb
-fEn
+nAO
 hME
 olw
 olw

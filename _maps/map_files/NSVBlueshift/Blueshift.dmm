@@ -91549,6 +91549,10 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"rBC" = (
+/obj/structure/detectiveboard/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/security/detectives_office)
 "rBK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -156418,7 +156422,7 @@ tez
 juG
 iWl
 mxi
-oar
+rBC
 gxb
 smV
 trQ
