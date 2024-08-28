@@ -17955,7 +17955,6 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/structure/cable,
-/obj/item/stack/rods/fifty,
 /turf/open/floor/iron,
 /area/station/maintenance/aft/greater)
 "fjL" = (
