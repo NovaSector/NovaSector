@@ -182,5 +182,5 @@
 	)
 
 	contraband_nova = list(
-		/obj/item/clothing/mask/neck_gaiter/syndicate/tacticool = 2
+		/obj/item/clothing/mask/neck_gaiter/syndicate/tacticool = 2,
 	)
