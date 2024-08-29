@@ -56,7 +56,7 @@
 	item_type = /obj/item/stack/medical/suture
 	cost = PAYCHECK_LOWER
 
-datum/armament_entry/company_import/deforest/first_aid/medicated_sutures
+/datum/armament_entry/company_import/deforest/first_aid/medicated_sutures
 	item_type = /obj/item/stack/medical/suture/medicated
 	cost = PAYCHECK_LOWER * 2
 
