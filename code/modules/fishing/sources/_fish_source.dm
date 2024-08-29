@@ -284,15 +284,6 @@ GLOBAL_LIST(fishing_property_cache)
 			table -= result
 	return table
 
-// NOVA EDIT ADDITION START - Anti Exploit
-/datum/fish_source/proc/get_fish_table_regular()
-	var/list/table = fish_table.Copy()
-	for(var/result in table)
-		if(fish_counts[result])
-			table -= result
-	return table
-//NOVA EDIT ADDITION END
-
 /// Builds a fish weights table modified by bait/rod/user properties
 /datum/fish_source/proc/get_modified_fish_table(obj/item/fishing_rod/rod, mob/fisherman)
 	var/obj/item/bait = rod.bait
@@ -320,7 +311,6 @@ GLOBAL_LIST(fishing_property_cache)
 
 
 	if(HAS_TRAIT(fisherman, TRAIT_PROFOUND_FISHER) && !fisherman.client)
-		final_table = get_fish_table_regular() // NOVA EDIT ADDITTION - Anti Exploit
 		final_table -= profound_fisher_blacklist
 	for(var/result in final_table)
 		final_table[result] *= rod.hook?.get_hook_bonus_multiplicative(result)
@@ -402,7 +392,7 @@ GLOBAL_LIST(fishing_property_cache)
 	for(var/i in 1 to (severity + 2))
 		if(!prob((100 + 100 * severity)/i * multiplier))
 			continue
-		var/reward_loot = pick_weight(get_fish_table_regular()) //NOVA EDIT - original var/reward_loot = pick_weight(get_fish_table())
+		var/reward_loot = pick_weight(get_fish_table())
 		var/atom/movable/reward = simple_dispense_reward(reward_loot, location, location)
 		if(isnull(reward))
 			continue
