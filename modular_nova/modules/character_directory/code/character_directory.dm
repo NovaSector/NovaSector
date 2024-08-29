@@ -128,12 +128,17 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
 	var/mutable_appearance/preview = new(appearance)
+	// This is so scaled mobs aren't just getting cut off for being too big
 	if(iscarbon(user))
 		var/mob/living/carbon/carbon_user = user
-		if(carbon_user.dna)
-			var/matrix/matrix = matrix()
-			matrix.Scale(1/carbon_user.dna.features["body_size"], 1/carbon_user.dna.features["body_size"])
-			preview.transform = matrix // This is so scaled mobs aren't just getting cut off for being too big
+		if(carbon_user.dna && carbon_user.dna.current_body_size != BODY_SIZE_NORMAL)
+			// we are basically just reversing their size increase to make them size 1 again in the previews.
+			var/change_multiplier = BODY_SIZE_NORMAL / carbon_user.dna.current_body_size
+			var/translate = ((change_multiplier-1) * 32)/2
+			preview.transform = preview.transform.Scale(change_multiplier)
+			var/translate_x = translate * ( preview.transform.b / carbon_user.dna.current_body_size)
+			var/translate_y = translate * ( preview.transform.e / carbon_user.dna.current_body_size)
+			preview.transform = preview.transform.Translate(translate_x, translate_y)
 
 	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
