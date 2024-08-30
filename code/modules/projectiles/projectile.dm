@@ -310,7 +310,8 @@
 		impact_sound = hitsound
 	else if(use_bullet_impact_sound)
 		impact_sound = target.bullet_impact_sound
-	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
+	if(impact_sound)
+		playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
