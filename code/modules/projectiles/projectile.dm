@@ -304,13 +304,12 @@
 		if(suppressed)
 			volume = 5
 		playsound(loc, hitsound_wall, volume, TRUE, -1)
-	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS
+	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS - Use hitsound if specified, fallback on target's bullet_impact_sound if projectile allows it
 	var/impact_sound
 	if(hitsound)
 		impact_sound = hitsound
-	else
-		impact_sound = target.impact_sound
-		get_sfx()
+	else if(use_bullet_impact_sound)
+		impact_sound = target.bullet_impact_sound
 	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
