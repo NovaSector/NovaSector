@@ -128,7 +128,7 @@
 
 // This is an atom level variable to prevent extensive typechecking for impacts.
 /atom
-	// The sound we make if hit by a bullet
+	/// The sound we make if hit by a bullet
 	var/bullet_impact_sound = SFX_BULLET_IMPACT_METAL
 
 // TURFS
