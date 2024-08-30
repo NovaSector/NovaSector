@@ -126,6 +126,9 @@
 /obj/projectile/hallucination/bullet
 	use_bullet_impact_sound = TRUE
 
+/obj/projectile/bullet/foam_dart
+	use_bullet_impact_sound = null
+
 // This is an atom level variable to prevent extensive typechecking for impacts.
 /atom
 	/// The sound we make if hit by a bullet
