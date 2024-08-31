@@ -22,7 +22,7 @@
 	worn_icon = 'modular_nova/modules/huds/icons/hudeyes.dmi'
 	clothing_traits = list(TRAIT_SECURITY_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
-/obj/item/clothing/glasses/hud/science/prescription
+/obj/item/clothing/glasses/science/prescription
 	name = "prescription science glasses"
 	desc = "These glasses scan the contents of containers and projects their contents to the user in an easy to read format. This one has prescription lenses."
 	icon = 'modular_nova/modules/huds/icons/huds.dmi'
@@ -32,7 +32,7 @@
 	glass_colour_type = /datum/client_colour/glass_colour/purple
 	resistance_flags = ACID_PROOF
 	armor_type = /datum/armor/prescription_science
-	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER, TRAIT_NEARSIGHTED_CORRECTED)
+	clothing_traits = parent_type::clothing_traits | TRAIT_NEARSIGHTED_CORRECTED
 
 /datum/armor/prescription_science
 	fire = 80
