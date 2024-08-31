@@ -73,7 +73,7 @@
 			name = "strange metal object"
 			desc = "A large object made of tough green-shaded alien metal."
 		if(ARTIFACT_CRYSTAL_GREEN)
-			icon_num = pick(ARTIFACT_CRYSTAL_GREEN, ARTIFACT_CRYSTAL_PURPLE, ARTIFACT_CRYSTAL_BLUE) // now we pick a color
+			artifact_type_id = pick(ARTIFACT_CRYSTAL_GREEN, ARTIFACT_CRYSTAL_PURPLE, ARTIFACT_CRYSTAL_BLUE) // now we pick a color
 			name = "large crystal"
 			desc = pick(
 				"It shines faintly as it catches the light.", "It appears to have a faint inner glow.",
