@@ -31,12 +31,12 @@
 		return
 	//setup primary effect - these are the main ones (mixed)
 	var/effect_type = pick(GLOB.valid_primary_effect_types)
-	first_effect = new effecttype(src)
+	first_effect = new effect_type(src)
 
 	//65% chance to have a secondary effect
 	if(prob(65))
 		effect_type = pick(GLOB.valid_secondary_effect_types)
-		secondary_effect = new effecttype(src)
+		secondary_effect = new effect_type(src)
 
 	init_artifact_type()
 
