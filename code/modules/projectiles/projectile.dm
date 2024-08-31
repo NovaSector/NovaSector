@@ -1,3 +1,4 @@
+
 #define MOVES_HITSCAN -1 //Not actually hitscan but close as we get without actual hitscan.
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 17 //How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
 #define MAX_RANGE_HIT_PRONE_TARGETS 10 //How far do the projectile hits the prone mob
@@ -15,7 +16,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	//The sound this plays on impact.
-	var/hitsound // NOVA EDIT CHANGE - ORIGINAL: var/hitsound = 'sound/weapons/pierce.ogg'
+	var/hitsound = 'sound/weapons/pierce.ogg'
 	var/hitsound_wall = ""
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -304,14 +305,13 @@
 		if(suppressed)
 			volume = 5
 		playsound(loc, hitsound_wall, volume, TRUE, -1)
-	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS
+	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
 	var/impact_sound
-	if(hitsound)
-		impact_sound = hitsound
-	else
-		impact_sound = target.impact_sound
-		get_sfx()
-	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
+	if(use_bullet_impact_sound)
+		impact_sound = target.bullet_impact_sound
+	if(impact_sound)
+		hitsound = null // don't play the hitsound
+		playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
@@ -1043,7 +1043,6 @@
 		var/turf/target_loc = get_turf(target)
 		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
 		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (target.pixel_z - source.pixel_z) + (p_y - (world.icon_size / 2))
-
 		angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
 
