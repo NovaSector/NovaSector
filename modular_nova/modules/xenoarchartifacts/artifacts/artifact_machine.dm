@@ -4,7 +4,8 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/artifacts.dmi'
 	icon_state = "artifact_1"
 	anchored = 0
-	var/icon_num = 0
+	/// The id of the of artifact type, determined in init_artifact_type()
+	var/artifact_type_id
 	density = TRUE
 	///artifact first effect
 	var/datum/artifact_effect/first_effect
@@ -38,13 +39,16 @@
 		effect_type = pick(GLOB.valid_secondary_effect_types)
 		secondary_effect = new effect_type(src)
 
-	init_artifact_type()
+	if(!artifact_type_id)
+		init_artifact_type()
+	update_icon()
 
 /**
  * Picks random artifact icon, changes its name, description
  */
 /obj/machinery/artifact/proc/init_artifact_type()
-	icon_num = pick(ARTIFACT_WIZARD_LARGE,
+	artifact_type_id = pick(
+		ARTIFACT_WIZARD_LARGE,
 		ARTIFACT_WIZARD_SMALL,
 		ARTIFACT_MARTIAN_LARGE,
 		ARTIFACT_MARTIAN_SMALL,
@@ -55,7 +59,7 @@
 		ARTIFACT_VENTS, ARTIFACT_FLOATING,
 		ARTIFACT_CRYSTAL_GREEN,
 	) // 12th and 13th are just types of crystals, please ignore them at THAT point
-	switch(icon_num)
+	switch(artifact_type_id)
 		if(ARTIFACT_COMPUTER)
 			name = "alien computer"
 			desc = "It is covered in strange markings."
@@ -76,14 +80,13 @@
 				"It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
 				"It's mesmerizing to behold.",
 			)
-	update_icon()
 
 /obj/machinery/artifact/update_icon_state()
 	. = ..()
 	var/check_activity
 	if(first_effect?.activated || secondary_effect?.activated)
 		check_activity = "_active"
-	icon_state = "artifact_[icon_num][check_activity]"
+	icon_state = "artifact_[artifact_type_id][check_activity]"
 
 /obj/machinery/artifact/Destroy()
 	do_destroy_effects()

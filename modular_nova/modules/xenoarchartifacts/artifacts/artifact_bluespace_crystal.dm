@@ -1,8 +1,9 @@
 /obj/machinery/artifact/bluespace_crystal
 	name = "bluespace crystal"
+	desc = "A strange blue crystal.
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/artifacts.dmi'
 	icon_state = "artifact_13"
-	icon_num = 0
+	artifact_type_id = ARTIFACT_CRYSTAL_BLUE
 	density = TRUE
 	being_used = 0
 	need_init = FALSE
@@ -27,8 +28,6 @@
 	new /datum/proximity_monitor(src, 3)
 	first_effect = new /datum/artifact_effect/tesla(src)
 	first_effect.trigger = TRIGGER_PROXY
-	desc = "A blue strange crystal"
-	icon_num = ARTIFACT_CRYSTAL_BLUE
 	set_light(4)
 
 /obj/machinery/artifact/bluespace_crystal/Destroy()

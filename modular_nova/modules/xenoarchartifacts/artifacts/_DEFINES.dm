@@ -47,7 +47,7 @@
     TRIGGER_NITRO,\
 )
 
-///artifact icon_num defines
+///artifact artifact_type_id defines
 #define ARTIFACT_WIZARD_LARGE 1
 #define ARTIFACT_WIZARD_SMALL 2
 #define ARTIFACT_MARTIAN_LARGE 3
