@@ -59,3 +59,7 @@
 	var/scream_type
 	/// The profile source laugh type
 	var/laugh_type
+	/// The profile source mob height scaling
+	var/target_height
+	/// the profile source mob's size
+	var/target_mob_size
