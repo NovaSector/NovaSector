@@ -928,8 +928,6 @@
 	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE)
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
-	user.mob_size = chosen_profile.target_mob_size
-	user.set_mob_height(chosen_profile.target_height)
 	// NOVA EDIT END
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.
