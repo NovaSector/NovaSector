@@ -352,9 +352,15 @@
 
 
 	if(isliving(talking_movable))
+		/* NOVA EDIT CHANGE START - We use our own radio sounds - see modular_nova/modules/radiosound/code/radio.dm - ORIGINAL:
 		var/mob/living/talking_living = talking_movable
 		if(talking_living.client?.prefs.read_preference(/datum/preference/toggle/radio_noise) && !HAS_TRAIT(talking_living, TRAIT_DEAF) && radio_noise)
 			SEND_SOUND(talking_living, 'sound/misc/radio_talk.ogg')
+		*/
+		if(radio_noise && COOLDOWN_FINISHED(src, audio_cooldown))
+			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
+			playsound_if_pref(src, radio_talk_sound, radio_sound_volume, radio_sound_has_vary, radio_sound_range, SOUND_FALLOFF_EXPONENT, pref_to_check = /datum/preference/toggle/radio_noise) // NOVA EDIT ADDITION
+		// NOVA EDIT CHANGE END
 
 	// All radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
@@ -431,7 +437,7 @@
 		return
 
 	var/mob/living/holder = loc
-	if(!holder.client?.prefs.read_preference(/datum/preference/toggle/radio_noise) && HAS_TRAIT(holder, TRAIT_DEAF) && !radio_noise)
+	if(!radio_noise || HAS_TRAIT(holder, TRAIT_DEAF) || !holder.client?.prefs.read_preference(/datum/preference/toggle/radio_noise)) // NOVA EDIT CHANGE - Preemptive fix
 		return
 
 	var/list/spans = data["spans"]

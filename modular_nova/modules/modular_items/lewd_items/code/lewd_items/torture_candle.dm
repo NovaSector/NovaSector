@@ -197,7 +197,7 @@
 		if(prob(50))
 			attacked.try_lewd_autoemote(pick("twitch_s" , "gasp", "shiver"))
 	user.visible_message(span_purple("[user] [message]!"))
-	play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg',
+	playsound_if_pref(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/vax1.ogg',
 						'modular_nova/modules/modular_items/lewd_items/sounds/vax2.ogg'), 70, TRUE)
 
 #undef CANDLE_LUMINOSITY
