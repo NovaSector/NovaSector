@@ -64,7 +64,6 @@
 	clothing_traits += list(TRAIT_NEARSIGHTED_CORRECTED)
 	return ..()
 
-/obj/item/clothing/glasses/meson/engine/prescription/Initialize(mapload)
 /obj/item/clothing/glasses/meson/engine/tray/prescription
 	name = "prescription optical t-ray scanner"
 	desc = "Goggles used by engineers. The Meson Scanner mode lets you see basic structural and terrain layouts through walls, the T-ray Scanner mode lets you see underfloor objects such as cables and pipes, and the Radiation Scanner mode let's you see objects contaminated by radiation. This one has a lens that help correct eye sight."
