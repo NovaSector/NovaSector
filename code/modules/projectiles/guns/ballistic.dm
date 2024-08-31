@@ -476,10 +476,10 @@
 	return ..()
 
 /obj/item/gun/ballistic/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
-	if(can_misfire && chambered.can_misfire != FALSE)
+	if(can_misfire && chambered?.can_misfire != FALSE) // NOVA EDIT CHANGE - Preemptive fix, remove once TG fix comes in
 		misfire_probability += misfire_percentage_increment
 		misfire_probability = clamp(misfire_probability, 0, misfire_probability_cap)
-	if(chambered.can_misfire)
+	if(chambered?.can_misfire)  // NOVA EDIT CHANGE - Preemptive fix, remove once TG fix comes in
 		misfire_probability += chambered.misfire_increment
 		misfire_probability = clamp(misfire_probability, 0, misfire_probability_cap)
 	return ..()
