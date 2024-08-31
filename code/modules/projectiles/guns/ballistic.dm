@@ -477,7 +477,7 @@
 
 /obj/item/gun/ballistic/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	// NOVA EDIT ADDITION START
-	if(!chambered)
+	if(isnull(chambered))
 		return ..()
 	// NOVA EDIT ADDITION END
 	if(can_misfire && chambered.can_misfire != FALSE)
