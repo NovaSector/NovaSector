@@ -65,14 +65,14 @@
 		assume_gas(current_gas_type, 150)
 
 /datum/artifact_effect/gas/proc/assume_gas(spawn_id, spawn_mol)
-	var/turf/open/O = get_turf(holder)
-	if(!isopenturf(O))
+	var/turf/open/our_open_turf = get_turf(holder)
+	if(!istype(our_open_turf))
 		return FALSE
-	var/datum/gas_mixture/env = O.return_air()
+	var/datum/gas_mixture/env = our_open_turf.return_air()
 	if (env.return_pressure() >= max_pressure)
 		return FALSE
 	var/datum/gas_mixture/merger = new
 	merger.assert_gas(spawn_id)
 	merger.gases[spawn_id][MOLES] = spawn_mol
 	merger.temperature = spawn_temp
-	O.assume_air(merger)
+	our_open_turf.assume_air(merger)

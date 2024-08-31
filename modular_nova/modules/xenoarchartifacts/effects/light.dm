@@ -3,7 +3,7 @@
 	type_name = ARTIFACT_EFFECT_PARTICLE
 
 /datum/artifact_effect/light/New()
-	..()
+	. = ..()
 	release_method = ARTIFACT_EFFECT_TOUCH
 	trigger = TRIGGER_TOUCH
 	activation_touch_cost = 0

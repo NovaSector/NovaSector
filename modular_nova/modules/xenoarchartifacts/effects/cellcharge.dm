@@ -56,5 +56,5 @@
 /datum/artifact_effect/cellcharge/proc/recharge_everything_in_range(power, range)
 	var/turf/curr_turf = get_turf(holder)
 	var/list/captured_atoms = range(range, curr_turf)
-	for(var/atom/A in captured_atoms)
-		try_give_charge(A, power)
+	for(var/atom/captured_atom in captured_atoms)
+		try_give_charge(captured_atom, power)

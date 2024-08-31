@@ -32,7 +32,7 @@
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human/human_mob in range(range+3, curr_turf))
-		for(var/i = 1 to 4)
+		for(var/i in 1 to 4)
 			roll_and_change_genes(human_mob, 100)
 
 /datum/artifact_effect/dnaswitch/proc/roll_and_change_genes(mob/living/carbon/human/receiver, chance)

@@ -3,7 +3,7 @@
 	type_name = ARTIFACT_EFFECT_ELECTRO
 
 /datum/artifact_effect/machinery_mess/New()
-	..()
+	. = ..()
 	release_method = ARTIFACT_EFFECT_PULSE
 
 /datum/artifact_effect/machinery_mess/do_effect_pulse()
@@ -65,5 +65,4 @@
 	for(var/mob/living/simple_animal/bot/bot in GLOB.alive_mob_list)
 		if(prob(25))
 			bot.emag_act()
-
 

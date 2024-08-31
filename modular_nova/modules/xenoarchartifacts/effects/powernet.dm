@@ -3,7 +3,7 @@
 	type_name = ARTIFACT_EFFECT_ELECTRO
 
 /datum/artifact_effect/powernet/New()
-	..()
+	. = ..()
 	trigger = TRIGGER_TOUCH
 	release_method = ARTIFACT_EFFECT_AURA
 

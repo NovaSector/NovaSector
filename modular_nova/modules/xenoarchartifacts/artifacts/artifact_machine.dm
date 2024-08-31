@@ -30,12 +30,12 @@
 	if(!need_init)
 		return
 	//setup primary effect - these are the main ones (mixed)
-	var/effecttype = pick(GLOB.valid_primary_effect_types)
+	var/effect_type = pick(GLOB.valid_primary_effect_types)
 	first_effect = new effecttype(src)
 
 	//65% chance to have a secondary effect
 	if(prob(65))
-		effecttype = pick(GLOB.valid_secondary_effect_types)
+		effect_type = pick(GLOB.valid_secondary_effect_types)
 		secondary_effect = new effecttype(src)
 
 	init_artifact_type()
@@ -78,23 +78,22 @@
 			)
 	update_icon()
 
-/obj/machinery/artifact/update_icon()
+/obj/machinery/artifact/update_icon_state()
 	. = ..()
-	var/check_activity = null
+	var/check_activity
 	if(first_effect?.activated || secondary_effect?.activated)
 		check_activity = "_active"
 	icon_state = "artifact_[icon_num][check_activity]"
-	return
 
 /obj/machinery/artifact/Destroy()
 	do_destroy_effects()
-	visible_message(
+	loc.visible_message(
 		span_danger("[src] breaks in pieces, releasing a wave of energy!"),
 		blind_message = span_hear("You hear something break into pieces!"),
 	)
-	if(first_effect)
+	if(!QDELETED(first_effect))
 		QDEL_NULL(first_effect)
-	if(secondary_effect)
+	if(!QDELETED(secondary_effect))
 		QDEL_NULL(secondary_effect)
 	return ..()
 

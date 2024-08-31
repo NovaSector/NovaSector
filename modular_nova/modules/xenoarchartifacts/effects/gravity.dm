@@ -37,8 +37,8 @@
 	var/protection = get_anomaly_protection(to_repel)
 	if(ishuman(to_repel) && !get_anomaly_protection(to_repel))
 		return
-	if (istype(to_repel, /obj))
-		var/obj/test_anchored = to_repel
+	var/obj/test_anchored = to_repel
+	if (istype(test_anchored))
 		if(test_anchored.anchored)
 			return
 	var/turfs_to_step = 0
@@ -65,8 +65,8 @@
 	var/protection = get_anomaly_protection(to_throw)
 	if(!protection)
 		return
-	if (istype(to_throw, /obj))
-		var/obj/test_anchored = to_throw
+	var/obj/test_anchored = to_throw
+	if (istype(test_anchored))
 		if(test_anchored.anchored)
 			return
 	var/throw_power = maximum_charges * 2
@@ -79,7 +79,6 @@
 	var/turf/curr_turf = get_turf(holder)
 	for(var/atom/movable/to_throw in range(range, curr_turf))
 		mayhem_throw(to_throw, curr_turf, 2)
-
 
 #undef GRAVITY_PULL
 #undef GRAVITY_REPEL

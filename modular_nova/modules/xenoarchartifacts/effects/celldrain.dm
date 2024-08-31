@@ -56,5 +56,5 @@
 /datum/artifact_effect/celldrain/proc/discharge_everything_in_range(power, range, center)
 	var/turf/curr_turf = get_turf(holder)
 	var/list/captured_atoms = range(range, curr_turf)
-	for(var/atom/A in captured_atoms)
-		try_use_charge(A, power)
+	for(var/atom/captured_atom in captured_atoms)
+		try_use_charge(captured_atom, power)

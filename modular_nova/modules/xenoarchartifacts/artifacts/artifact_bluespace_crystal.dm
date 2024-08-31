@@ -15,13 +15,13 @@
 /obj/machinery/artifact/bluespace_crystal/Initialize(mapload)
 	. = ..()
 	anomaly = pick_weight(list(
-	/obj/effect/anomaly/flux = 1,
-	/obj/effect/anomaly/grav/high = 1,
-	/obj/effect/anomaly/ectoplasm = 1,
-	/obj/effect/anomaly/bioscrambler = 1,
-	/obj/effect/anomaly/pyro = 1,
-	/obj/effect/anomaly/bhole = 1,
-	/obj/effect/anomaly/bluespace = 6
+		/obj/effect/anomaly/flux = 1,
+		/obj/effect/anomaly/grav/high = 1,
+		/obj/effect/anomaly/ectoplasm = 1,
+		/obj/effect/anomaly/bioscrambler = 1,
+		/obj/effect/anomaly/pyro = 1,
+		/obj/effect/anomaly/bhole = 1,
+		/obj/effect/anomaly/bluespace = 6,
 	))
 	max_integrity = rand(150, 300)
 	new /datum/proximity_monitor(src, 3)
@@ -34,7 +34,7 @@
 /obj/machinery/artifact/bluespace_crystal/Destroy()
 	var/turf/mainloc = get_turf(src)
 	var/count_crystal = rand(1,50)
-	for(var/i = 0 to count_crystal - 1)
+	for(var/i in 1 to count_crystal)
 		new /obj/item/stack/sheet/bluespace_crystal(mainloc)
 	var/obj/effect/anomaly/anomaly_spawned = new anomaly(get_turf(src))
 	anomaly_spawned.lifespan = 1800
@@ -50,7 +50,6 @@
 
 /obj/machinery/artifact/bluespace_crystal/proc/teleport()
 	for (var/mob/living/living_mob in range(7, get_turf(src)))
-
 		var/weakness = get_anomaly_protection(living_mob)
 		if(!weakness)
 			continue

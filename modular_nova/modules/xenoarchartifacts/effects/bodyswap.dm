@@ -20,8 +20,8 @@
 /datum/artifact_effect/bodyswap/proc/SwapBodies(add_range)
 	var/turf/curr_turf = get_turf(holder)
 	var/list/poor_humans = list()
-	for(var/mob/living/carbon/H in range(range + add_range, curr_turf))
-		poor_humans.Add(H)
+	for(var/mob/living/carbon/carbon_mob in range(range + add_range, curr_turf))
+		poor_humans.Add(carbon_mob)
 
 	if(length(poor_humans) < 2)
 		return FALSE

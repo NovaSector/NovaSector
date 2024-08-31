@@ -44,7 +44,7 @@
 	)
 
 /datum/artifact_effect/noise/New()
-	..()
+	. = ..()
 	trigger = TRIGGER_OXY
 	release_method = ARTIFACT_EFFECT_PULSE
 	type_name = ARTIFACT_EFFECT_PSIONIC

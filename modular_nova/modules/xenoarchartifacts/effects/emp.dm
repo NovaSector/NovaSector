@@ -3,7 +3,7 @@
 	type_name = ARTIFACT_EFFECT_ELECTRO
 
 /datum/artifact_effect/emp/New()
-	..()
+	. = ..()
 	release_method = ARTIFACT_EFFECT_PULSE
 
 /datum/artifact_effect/emp/do_effect_pulse()

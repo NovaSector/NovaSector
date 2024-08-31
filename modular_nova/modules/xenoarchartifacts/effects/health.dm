@@ -134,7 +134,7 @@
 	log_name = "Robo-hurt"
 
 /datum/artifact_effect/robohurt/New()
-	..()
+	. = ..()
 	type_name = pick(ARTIFACT_EFFECT_ELECTRO, ARTIFACT_EFFECT_PARTICLE)
 
 /datum/artifact_effect/robohurt/proc/deal_damage(mob/living/receiver, damage_power)
