@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes doubled up nova and tg radio talk sounds"
+  - rscadd: "the headset radio talk sound changed from the TG beep to more of... a familiar chirp. the old Nova talk sound is now used for walkie talkies and intercoms."
