@@ -35,6 +35,13 @@
 		for(var/i in 1 to 4)
 			roll_and_change_genes(human_mob, 100)
 
+/**
+ * Tries to activate receiver's genes or mutate their appearance DNA
+ *
+ * Arguments:
+ * * receiver - who will we mutate
+ * * chance - chance to mutate mob
+ */
 /datum/artifact_effect/dnaswitch/proc/roll_and_change_genes(mob/living/carbon/human/receiver, chance)
 	var/weakness = get_anomaly_protection(receiver)
 	if(!prob(weakness * 100))

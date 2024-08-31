@@ -84,7 +84,13 @@
 	return ..()
 
 /**
- * Picks artifact type
+ * Picks artifact type.
+ * Chance is picked by weight
+ *
+ * Arguments:
+ * * chance_small - chance to pick small power
+ * * chance_medium - chance to pick medium power
+ * * chance_large - chance to pick large power
  */
 /datum/artifact_effect/proc/create_artifact_type(chance_small, chance_medium, chance_large)
 	var/artifact_power = pick_weight(list(
@@ -111,6 +117,9 @@
 
 /**
  * Stops/starts processing, updates artifact icon, displays visible_message
+ *
+ * Arguments:
+ * * reveal_toggle - should we send the activation message to nearby mobs
  */
 /datum/artifact_effect/proc/toggle_artifact_effect(reveal_toggle)
 	activated = !activated
@@ -145,6 +154,9 @@
 /**
  * Checks for a user, anomaly protection, tries to drain artifact charg
  * returns true if charge was drained, otherwise returns false
+ *
+ * Arguments:
+ * * user - mob, who touched the artifact
  */
 /datum/artifact_effect/proc/do_effect_touch(mob/user)
 	if(!user)
@@ -188,6 +200,9 @@
 /**
  * Tries to subtract given number from current_charge
  * returns true if the result above zero, returns false otherwise
+ *
+ * Arguments:
+ * * charges_drained - how much charges we try to drain
  */
 /datum/artifact_effect/proc/try_drain_charge(charges_drained)
 	if((current_charge - charges_drained) < 0)
@@ -258,6 +273,9 @@
  * Calculates mob effect protection
  * returns NO_ANOMALY_PROTECTION if not human, returns calculated protection otherwise
  * higher returning number means less protection
+ *
+ * Arguments:
+ * * human_mob - human, who we will check for bio protection
  */
 /proc/get_anomaly_protection(mob/living/carbon/human/human_mob)
 	if(!istype(human_mob))

@@ -29,7 +29,6 @@
 	for(var/mob/living/carbon/carbon_mob in range(range, curr_turf))
 		apply_sleepy(carbon_mob, used_power)
 
-
 /datum/artifact_effect/sleepy/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/carbon_mob in range(7, curr_turf))
@@ -38,6 +37,13 @@
 			continue
 		carbon_mob.SetSleeping(weakness * (10 SECONDS)) //0 resistance gives you 10 seconds of sleep
 
+/**
+ * Tries to apply sleepiness to the receiver
+ *
+ * Arguments:
+ * * receiver - mob to apply sleep to
+ * * power - sleep amplifier
+ */
 /datum/artifact_effect/sleepy/proc/apply_sleepy(mob/receiver, power)
 	if(ishuman(receiver) && !issilicon(receiver))
 		var/mob/living/carbon/human/human_mob = receiver

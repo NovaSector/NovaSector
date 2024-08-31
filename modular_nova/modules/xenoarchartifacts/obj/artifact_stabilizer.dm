@@ -29,17 +29,27 @@
 	if(istype(interacting_with, /obj/structure/boulder))
 		var/obj/structure/boulder/current = interacting_with
 		var/boulder_type = current.artifact_stabilizing_field
-		// if(boulder_type == selected)
 		if(!selected)
 			return
-		to_chat(user, span_notice("You begin to stabilize [current] using [src]."))
+		user.visible_message(
+			span_notice("[user] begins to stabilize [current] using [src]."),
+			span_notice("You begin to stabilize [current] using [src]."),
+			blind_message = span_hear("You hear buzzing nearby."),
+		)
 		if(!do_after(user, 5 SECONDS, target = current))
-			to_chat(user, span_warning("You interrupt your stabilizing, damaging the boulder in the process!"))
+			user.visible_message(
+				span_notice("[user] messes up and damages [current]!"),
+				span_notice("You interrupt your stabilizing, damaging the boulder in the process!"),
+				blind_message = span_hear("You hear rock crumbling nearby."),
+			)
 			current.excavation_level += rand(10,50)
 			return
 		if(boulder_type == selected)
 			current.stabilised = TRUE
 		else
 			current.stabilised = FALSE // Yep, you can change the perfectly stabilized boulder wrong
-		to_chat(user, span_notice("You finish applying the stabilizing field to the [current]."))
+		user.visible_message(
+			span_notice("[user] finish applying the stabilizing field to the [current]."),
+			span_notice("You finish applying the stabilizing field to the [current]."),
+		)
 		return

@@ -32,7 +32,6 @@
 	for(var/mob/living/carbon/living_mob in range(range, curr_turf))
 		apply_disgust(living_mob, used_power)
 
-
 /datum/artifact_effect/disgust/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/living_mob in range(7, curr_turf))
@@ -41,6 +40,13 @@
 			continue
 		living_mob.SetSleeping(weakness * (10 SECONDS)) //0 resistance gives you 10 seconds of sleep
 
+/**
+ * Applies disgust to mob
+ *
+ * Arguments:
+ * * receiver - who will be disgusted
+ * * power - disgust power
+ */
 /datum/artifact_effect/disgust/proc/apply_disgust(mob/receiver, power)
 	if(ishuman(receiver) && !issilicon(receiver))
 		var/mob/living/carbon/human/human_mob = receiver

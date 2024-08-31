@@ -2,6 +2,13 @@
 	log_name = "Heal"
 	type_name = ARTIFACT_EFFECT_ORGANIC
 
+/**
+ * Heals target mob
+ *
+ * Arguments:
+ * * receiver - mob to heal
+ * * healing_power - how much to heal
+ */
 /datum/artifact_effect/heal/proc/heal_target(mob/living/receiver, healing_power)
 	if(ishuman(receiver))
 		var/mob/living/carbon/human/human_mob = receiver
@@ -49,6 +56,13 @@
 	. = ..()
 	type_name = pick(ARTIFACT_EFFECT_ELECTRO, ARTIFACT_EFFECT_PARTICLE)
 
+/**
+ * Heals silicons only
+ *
+ * Arguments:
+ * * receiver - mob to heal
+ * * healing_power - how much to heal
+ */
 /datum/artifact_effect/roboheal/proc/heal_target(mob/living/receiver, healing_power)
 	receiver.heal_overall_damage(healing_power, healing_power)
 
@@ -89,6 +103,13 @@
 /datum/artifact_effect/hurt
 	log_name = "Hurt"
 
+/**
+ * Deals damage to mobs via take_overall_damage
+ *
+ * Arguments:
+ * * receiver - mob to damage
+ * * damage_power - how much to damage
+ */
 /datum/artifact_effect/hurt/proc/deal_damage(mob/living/receiver, damage_power)
 	if(ishuman(receiver))
 		var/mob/living/carbon/human/H = receiver
@@ -137,6 +158,13 @@
 	. = ..()
 	type_name = pick(ARTIFACT_EFFECT_ELECTRO, ARTIFACT_EFFECT_PARTICLE)
 
+/**
+ * Deals damage to silicons only
+ *
+ * Arguments:
+ * * receiver - mob to damage
+ * * damage_power - how much to damage
+ */
 /datum/artifact_effect/robohurt/proc/deal_damage(mob/living/receiver, damage_power)
 	receiver.take_overall_damage(damage_power, damage_power)
 

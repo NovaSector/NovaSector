@@ -7,7 +7,11 @@
 	if(!.)
 		return
 	if(teleport_around(user, 10))
-		to_chat(user, span_warning("You are suddenly zapped away elsewhere!"))
+		user.visible_message(
+			span_warning("[user] is suddenly zapped away elsewhere!"),
+			span_warning("You are suddenly zapped away elsewhere!"),
+			blind_message = span_hear("You hear zap nearby."),
+		)
 
 /datum/artifact_effect/teleport/do_effect_aura()
 	. = ..()
@@ -16,7 +20,11 @@
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/living_mob in range(range, curr_turf))
 		if(teleport_around(living_mob, 20))
-			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
+			living_mob.visible_message(
+				span_warning("[living_mob] is displaced by a strange force!"),
+				span_warning("You are displaced by a strange force!"),
+				blind_message = span_hear("You hear zap nearby."),
+			)
 
 /datum/artifact_effect/teleport/do_effect_pulse()
 	. = ..()
@@ -26,14 +34,29 @@
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/living_mob in range(range, curr_turf))
 		if(teleport_around(living_mob, round(1 * used_power)))
-			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
+			living_mob.visible_message(
+				span_warning("[living_mob] is displaced by a strange force!"),
+				span_warning("You are displaced by a strange force!"),
+				blind_message = span_hear("You hear zap nearby."),
+			)
 
 /datum/artifact_effect/teleport/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/living_mob in range(7, curr_turf))
 		if(teleport_around(living_mob, 50))
-			to_chat(living_mob, span_warning("You are displaced by a strange force!"))
+			living_mob.visible_message(
+				span_warning("[living_mob] is displaced by a strange force!"),
+				span_warning("You are displaced by a strange force!"),
+				blind_message = span_hear("You hear zap nearby."),
+			)
 
+/**
+ * Randomly teleports receiver
+ *
+ * Arguments:
+ * * receiver - mob to apply sleep to
+ * * max_range - maximum teleport range
+ */
 /datum/artifact_effect/teleport/proc/teleport_around(mob/receiver, max_range)
 	var/weakness = get_anomaly_protection(receiver)
 	if(!weakness)

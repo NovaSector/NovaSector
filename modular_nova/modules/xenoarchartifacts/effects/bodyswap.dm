@@ -4,7 +4,7 @@
 	type_name = ARTIFACT_EFFECT_PSIONIC
 
 /datum/artifact_effect/bodyswap/New()
-	..()
+	. = ..()
 	release_method = ARTIFACT_EFFECT_PULSE
 	range = rand(2,5)
 
@@ -17,6 +17,13 @@
 /datum/artifact_effect/bodyswap/do_effect_destroy()
 	SwapBodies(5)
 
+/**
+ * Selects 2 random carbons in artifact range and swaps their minds.
+ * Gives mind to those, who dont have it(monkeys)
+ *
+ * Arguments:
+ * * add_range - bonus range to the base artifact's
+ */
 /datum/artifact_effect/bodyswap/proc/SwapBodies(add_range)
 	var/turf/curr_turf = get_turf(holder)
 	var/list/poor_humans = list()
@@ -90,5 +97,3 @@
 	SEND_SOUND(to_swap, sound('sound/magic/mandswap.ogg'))
 
 	return TRUE
-
-

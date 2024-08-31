@@ -17,6 +17,10 @@
 	try_animate()
 	try_hack_borg()
 
+/**
+ * Tries to animate nearby machinery into angry mobs.
+ * Similar to Malf ability
+ */
 /datum/artifact_effect/machinery_mess/proc/try_animate()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/obj/machinery/chosen_machine in range(range, curr_turf))
@@ -35,6 +39,9 @@
 
 			new /mob/living/simple_animal/hostile/mimic/copy/machine(get_turf(chosen_machine), chosen_machine, holder, TRUE)
 
+/**
+ * Tries to mess with silicon's laws OR emag simple bots
+ */
 /datum/artifact_effect/machinery_mess/proc/try_hack_borg()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/silicon/silicon_mob in range(range, curr_turf))

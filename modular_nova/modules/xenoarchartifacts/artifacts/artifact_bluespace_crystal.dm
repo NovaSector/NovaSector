@@ -48,13 +48,20 @@
 		tesla_zap(src, power, 50000 * power)
 		empulse(src, power, 2 * power)
 
+/**
+ * Teleports people in range of 7 tiles randomly
+ */
 /obj/machinery/artifact/bluespace_crystal/proc/teleport()
 	for (var/mob/living/living_mob in range(7, get_turf(src)))
 		var/weakness = get_anomaly_protection(living_mob)
 		if(!weakness)
 			continue
 
-		to_chat(living_mob, span_red("You are displaced by a strange force!"))
+		living_mob.visible_message(
+			span_warning("[living_mob] is displaced by a strange force!"),
+			span_warning("You are displaced by a strange force!"),
+			blind_message = span_hear("You hear zap nearby."),
+		)
 		if(living_mob.buckled)
 			living_mob.buckled.unbuckle_mob()
 

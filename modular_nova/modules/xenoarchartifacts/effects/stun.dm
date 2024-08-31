@@ -41,6 +41,13 @@
 		if(apply_stun(living_mob, 200))
 			to_chat(living_mob, span_warning("A <b>massive</b> wave of energy overwhelms your senses!"))
 
+/**
+ * Tries to stun receiver, obviously
+ *
+ * Arguments:
+ * * receiver - mob to stun to
+ * * power - stun amplifier
+ */
 /datum/artifact_effect/stun/proc/apply_stun(mob/receiver, power)
 	var/weakened = get_anomaly_protection(receiver)
 	if(!weakened)

@@ -2,15 +2,21 @@
 	log_name = "Blood regeneration"
 	type_name = ARTIFACT_EFFECT_ORGANIC
 
+/**
+ * Regenerates mob's blood
+ *
+ * Arguments:
+ * * receiver - who shall receive blood
+ * * volume - how much blood
+ */
 /datum/artifact_effect/blood_regen/proc/regen_target(mob/living/receiver, volume)
 	if(ishuman(receiver))
-		var/mob/living/carbon/human/H = receiver
-		if(H.blood_volume < BLOOD_VOLUME_MAXIMUM && HAS_TRAIT(H, TRAIT_DRINKS_BLOOD)) // Hemophages can get filled up to 1000
-			var/weakness = get_anomaly_protection(H)
-			H.blood_volume += volume * weakness
-		else if(H.blood_volume < BLOOD_VOLUME_NORMAL)
-			var/weakness = get_anomaly_protection(H)
-			H.blood_volume += volume * weakness
+		var/mob/living/carbon/human/human_receiver = receiver
+		var/weakness = get_anomaly_protection(human_receiver)
+		if(human_receiver.blood_volume < BLOOD_VOLUME_MAXIMUM && HAS_TRAIT(human_receiver, TRAIT_DRINKS_BLOOD)) // Hemophages can get filled up to 1000
+			human_receiver.blood_volume += volume * weakness
+		else if(human_receiver.blood_volume < BLOOD_VOLUME_NORMAL)
+			human_receiver.blood_volume += volume * weakness
 
 /datum/artifact_effect/blood_regen/do_effect_touch(mob/user)
 	. = ..()
@@ -46,12 +52,19 @@
 /datum/artifact_effect/blood_drain
 	log_name = "Blood drain"
 
+/**
+ * Drains mob's blood
+ *
+ * Arguments:
+ * * receiver - whos blood shall be drained
+ * * volume - how much blood
+ */
 /datum/artifact_effect/blood_drain/proc/suck(mob/living/receiver, volume)
 	if(ishuman(receiver))
-		var/mob/living/carbon/human/H = receiver
-		if(H.blood_volume > BLOOD_VOLUME_SURVIVE)
-			var/weakness = get_anomaly_protection(H)
-			H.blood_volume -= volume * weakness
+		var/mob/living/carbon/human/human_receiver = receiver
+		var/weakness = get_anomaly_protection(human_receiver)
+		if(human_receiver.blood_volume > BLOOD_VOLUME_SURVIVE)
+			human_receiver.blood_volume -= volume * weakness
 
 /datum/artifact_effect/blood_drain/do_effect_touch(mob/user)
 	. = ..()
@@ -75,12 +88,12 @@
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
-	for(var/mob/living/carbon/H in range(range, curr_turf))
-		var/weakness = get_anomaly_protection(H)
+	for(var/mob/living/carbon/human_receiver in range(range, curr_turf))
+		var/weakness = get_anomaly_protection(human_receiver)
 		if(weakness >= 0.7)
 			var/constructed_flags = (MOB_VOMIT_BLOOD | MOB_VOMIT_HARM | MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE)
-			H.vomit(vomit_flags = constructed_flags, vomit_type = /obj/effect/decal/cleanable/vomit/toxic, lost_nutrition = 30, distance = 2)
-			H.blood_volume -= 30 * weakness
+			human_receiver.vomit(vomit_flags = constructed_flags, vomit_type = /obj/effect/decal/cleanable/vomit/toxic, lost_nutrition = 30, distance = 2)
+			human_receiver.blood_volume -= 30 * weakness
 
 /datum/artifact_effect/blood_drain/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)

@@ -40,6 +40,13 @@
 		do_drugs(living_mob, 120)
 		to_chat(living_mob, span_hypnophrase("Duuuude, I feel so transcendent."))
 
+/**
+ * Applies drugginess to mob
+ *
+ * Arguments:
+ * * receiver - who will we drug
+ * * power - drug power
+ */
 /datum/artifact_effect/drugs/proc/do_drugs(mob/receiver, power)
 	var/weakened = get_anomaly_protection(receiver)
 	if(!weakened)

@@ -20,7 +20,9 @@
 	idle_power_usage = 50
 	active_power_usage = 750
 	use_power = IDLE_POWER_USE
+	// Is it harvesting right now?
 	var/harvesting = FALSE
+	// Is it draining battery right now?
 	var/draining = FALSE
 	var/obj/item/xenoarch/particles_battery/inserted_battery
 	var/obj/machinery/artifact/current_artifact
@@ -43,7 +45,11 @@
 		return
 	if(istype(I, /obj/item/xenoarch/particles_battery))
 		if(!inserted_battery && user.transferItemToLoc(I, src))
-			to_chat(user, span_notice("You insert [I] into [src]."))
+			user.visible_message(
+				span_notice("[user] inserts [I] into [src]."),
+				span_notice("You insert [I] into [src]."),
+				blind_message = span_hear("You hear click."),
+			)
 			playsound(src, 'sound/machines/crate_open.ogg', 30, 10)
 			src.inserted_battery = I
 			icon_state = "harvester_battery"
@@ -76,7 +82,7 @@
 			dat += "No battery inserted.<BR>"
 	else
 		dat += "<B><font color=red>Unable to locate analysis pad.</font><BR></b>"
-	//
+
 	dat += "<HR>"
 	dat += "<A href='?src=[REF(src)];refresh=1'>Refresh</A>"
 
@@ -109,8 +115,8 @@
 		// if the effect works by touch, activate it on anyone viewing the console
 		if(inserted_battery.battery_effect.release_method == ARTIFACT_EFFECT_TOUCH)
 			var/list/nearby = viewers(1, src)
-			for(var/mob/M in nearby)
-				inserted_battery.battery_effect.do_effect_touch(M)
+			for(var/mob/mob_nearby in nearby)
+				inserted_battery.battery_effect.do_effect_touch(mob_nearby)
 
 		// if there's no charge left, finish
 		if(inserted_battery.stored_charge <= 0)
@@ -141,8 +147,8 @@
 		// locate artifact on analysis pad
 		current_artifact = null
 		var/obj/machinery/artifact/analysed
-		for(var/obj/machinery/artifact/A in get_turf(owned_scanner))
-			analysed = A
+		for(var/obj/machinery/artifact/Artifact in get_turf(owned_scanner))
+			analysed = Artifact
 			if(analysed.being_used)
 				say("Cannot harvest. Source already being harvested.")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, 10)

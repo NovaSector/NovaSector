@@ -133,7 +133,10 @@
 
 /obj/machinery/replicator/attackby(obj/item/to_insert, mob/living/user)
 	if(to_insert.item_flags & (ABSTRACT | DROPDEL))
-		to_chat(user, span_notice("[to_insert] doesn't fit into [src]."))
+		user.visible_message(
+			span_notice("[user] tries to insert [to_insert] into [src], but the opening is too small."),
+			span_notice("[to_insert] doesn't fit into [src]."),
+		)
 		return
 	if(!user.transferItemToLoc(to_insert, src))
 		to_chat(user, span_warning("\The [to_insert] is stuck to your hand, you cannot put it in the machine!"))
@@ -141,7 +144,7 @@
 	stored_materials.Add(to_insert)
 	visible_message(
 		span_notice("[user] inserts [to_insert] into [src]."),
-		span_notice("You insert [to_insert] into [src].")
+		span_notice("You insert [to_insert] into [src]."),
 	)
 
 /obj/machinery/replicator/Topic(href, href_list)

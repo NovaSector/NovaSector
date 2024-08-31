@@ -40,7 +40,7 @@
 				user.visible_message(
 					span_notice("[user] cuts off the wiring of the [src]."),
 					span_notice("You cut off the wiring of the [src]."),
-					blind_message = span_notice("Cutting sound stops.")
+					blind_message = span_notice("Cutting sound stops."),
 				)
 				wired = FALSE
 				update_crystal()
@@ -61,9 +61,9 @@
 			)
 			if(attack_item.use_tool(src, user, 20, volume = 50))
 				user.visible_message(
-				span_notice("[user] puts the wiring all over the [src]."),
-				span_notice("You put the wiring all over the [src]."),
-			)
+					span_notice("[user] puts the wiring all over the [src]."),
+					span_notice("You put the wiring all over the [src]."),
+				)
 				wired = TRUE
 				update_crystal()
 			return
@@ -82,7 +82,7 @@
 	if(wired && anchored)
 		first_effect.ToggleActivate()
 		update_crystal()
-	to_chat(user, "<b>You touch [src].</b>")
+	to_chat(user, span_bold("You touch [src]."))
 
 /obj/machinery/power/crystal/Destroy()
 	if(first_effect)
@@ -100,6 +100,9 @@
 		new /obj/item/shard(mainloc)
 	return ..()
 
+/**
+ * Updates the icon, according to the activation/wired status
+ */
 /obj/machinery/power/crystal/proc/update_crystal()
 	if(wired && anchored && first_effect.activated)
 		icon_state = "[icon_custom_crystal]_active"
@@ -114,8 +117,7 @@
 /obj/machinery/power/crystal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
 	if(istype(hitting_projectile, /obj/projectile/energy) || istype(hitting_projectile, /obj/projectile/beam))
 		visible_message(
-			span_danger("The [hitting_projectile] gets reflected by [src]!"),
-			span_userdanger("The [hitting_projectile] gets reflected by [src]!"),
+			span_danger("The [hitting_projectile] gets reflected by [src]!")
 		)
 		// Find a turf near or on the original location to bounce to
 		if(hitting_projectile.starting)

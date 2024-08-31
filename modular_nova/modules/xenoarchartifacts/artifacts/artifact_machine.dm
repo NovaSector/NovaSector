@@ -97,22 +97,48 @@
 		QDEL_NULL(secondary_effect)
 	return ..()
 
+/**
+ * Tries to turn the artifact effects on. Invokes async procs
+ *
+ * Arguments:
+ * * trigger - trigger type(TRIGGER_WATER, TRIGGER_ENERGY, etc)
+ */
 /obj/machinery/artifact/proc/try_toggle_effects(trigger)
 	if(first_effect?.trigger == trigger)
 		first_effect.ToggleActivate()
 	if(secondary_effect?.trigger == trigger)
 		secondary_effect.ToggleActivate(FALSE)
 
+/**
+ * Tries to turn the artifact effects on.
+ *
+ * Arguments:
+ * * trigger - trigger type(TRIGGER_WATER, TRIGGER_ENERGY, etc)
+ */
 /obj/machinery/artifact/proc/toggle_effects_on(trigger)
 	if(first_effect)
 		try_turn_on_effect(trigger, first_effect)
 	if(secondary_effect)
 		try_turn_on_effect(trigger, secondary_effect, FALSE)
 
-/obj/machinery/artifact/proc/try_turn_on_effect(trigger, datum/artifact_effect/first_effect, announce_triggered = TRUE)
-	if(first_effect.trigger == trigger && !first_effect.activated)
-		first_effect.ToggleActivate(announce_triggered)
+/**
+ * Tries to turn on single effect
+ *
+ * Arguments:
+ * * trigger - trigger type(TRIGGER_WATER, TRIGGER_ENERGY, etc)
+ * * current_effect - the effect we try to activate
+ * * announce_triggered - to show or not to show the activation message
+ */
+/obj/machinery/artifact/proc/try_turn_on_effect(trigger, datum/artifact_effect/current_effect, announce_triggered = TRUE)
+	if(current_effect.trigger == trigger && !current_effect.activated)
+		current_effect.ToggleActivate(announce_triggered)
 
+/**
+ * Tries to turn the artifact effects off.
+ *
+ * Arguments:
+ * * trigger - trigger type(TRIGGER_WATER, TRIGGER_ENERGY, etc)
+ */
 /obj/machinery/artifact/proc/toggle_effects_off(trigger)
 	if(first_effect)
 		try_turn_off_effect(trigger, first_effect)
@@ -123,6 +149,9 @@
 	if(first_effect.trigger == trigger && first_effect.activated)
 		first_effect.ToggleActivate(announce_triggered)
 
+/**
+ * Calls first and second effect's do_effect_destroy()
+ */
 /obj/machinery/artifact/proc/do_destroy_effects()
 	first_effect?.do_effect_destroy()
 	secondary_effect?.do_effect_destroy()
@@ -149,7 +178,7 @@
 		to_chat(user, span_warning("You can't reach [src] from here!"))
 		return TRUE
 	try_toggle_effects(TRIGGER_TOUCH)
-	to_chat(user, "<b>You touch [src].</b>")
+	to_chat(user, span_bold("You touch [src]."))
 
 	if(first_effect.release_method == ARTIFACT_EFFECT_TOUCH)
 		first_effect.do_effect_touch(user)
@@ -236,9 +265,14 @@
 		if(secondary_effect && secondary_effect.release_method == ARTIFACT_EFFECT_TOUCH && secondary_effect.activated && prob(50))
 			secondary_effect.do_effect_touch(what_bumped)
 		if(ismob(what_bumped))
-			to_chat(what_bumped, "<b>You accidentally touch [src].</b>")
+			to_chat(what_bumped, span_bold("You accidentally touch [src]."))
 
-/// Check if reagent in global volatile_reagents list
+/**
+ * Checks if container has reagent, which is in volatile_reagents global list
+ *
+ * Arguments:
+ * * container - container to check
+ */
 /obj/machinery/artifact/proc/check_for_volatile(obj/item/reagent_containers/container)
 	for (var/volatile in GLOB.volatile_reagents)
 		if (container.reagents.has_reagent(volatile, 1, check_subtypes = TRUE))
@@ -271,9 +305,19 @@
 			return
 	return ..()
 
-/// If you try to scan using handheld scanner - you get nothing but fluff text
+/**
+ * If you try to scan using handheld scanner - you get nothing but fluff text
+ *
+ * Arguments:
+ * * user - misguided soul, wishing for knowledge, but shall he receive nothing, but fluff text
+ * * scanner - wretched tool, used to carve path to the artifact's lore
+ */
 /obj/machinery/artifact/proc/get_scan(mob/living/user, obj/item/xenoarch/handheld_scanner/scanner)
-	to_chat(user, span_notice("You begin to scan [src] using [scanner]..."))
+	user.visible_message(
+		span_notice("[user] begins to scan [src] using [scanner]."),
+		span_notice("You begin to scan [src] using [scanner]..."),
+		blind_message = span_hear("You hear some kind of machine silently winding up."),
+	)
 	if(!do_after(user, scanner.scanning_speed * 5, target = src))
 		to_chat(user, span_warning("You interrupt your scanning."))
 		return

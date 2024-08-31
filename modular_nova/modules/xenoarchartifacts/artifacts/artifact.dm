@@ -82,6 +82,10 @@
 	))
 	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha","fluffy","zeta")]-[rand(0,9999)]"
 
+/**
+ * Spawns artifact and check for it's stabilization status.
+ * If it is not - destroys/harms it with 50/50 chance
+ */
 /obj/structure/boulder/proc/spawn_artifact()
 	var/obj/machinery/artifact/new_artifact = new artifact_find_type(get_turf(src))
 	if (!stabilised)
@@ -109,14 +113,21 @@
 		if(istype(robot_mob.module_active, /obj/item/xenoarch/hammer))
 			attackby(robot_mob.module_active, robot_mob)
 
-/// Adds holomark
+/**
+ * Adds holomark to the boulder
+ *
+ * Arguments:
+ * * advanced - will our tool give advanced holomark
+ */
 /obj/structure/boulder/proc/get_scanned(advanced)
 	if (advanced)
 		holomark_adv = TRUE
 	holomark = TRUE
 	return TRUE
 
-/// Stabilizes boulder
+/**
+ * Stabilizes boulder
+ */
 /obj/structure/boulder/proc/get_stabilised()
 	if (stabilised)
 		return FALSE
@@ -124,7 +135,9 @@
 		stabilised = TRUE
 		return TRUE
 
-/// Adds holomark with dug depth
+/**
+ * Adds measurement holomark to the boulder
+ */
 /obj/structure/boulder/proc/get_measured()
 	if (measured)
 		return FALSE
@@ -132,7 +145,12 @@
 		measured = TRUE
 		return TRUE
 
-/// Proc name really says its all
+/**
+ * Tries to dig boulder by certain amount
+ *
+ * Arguments:
+ * * dig_amount - how much to dig
+ */
 /obj/structure/boulder/proc/try_dig(dig_amount)
 	if(!dig_amount)
 		return DIG_UNDEFINED
@@ -142,8 +160,10 @@
 		return DIG_DELETE
 	return DIG_ROCK
 
-/// Trying to delete boulder and spawn artifact
-/// Fails if dug too deep and adds 1 cm
+/**
+ * Trying to delete boulder and spawn artifact.
+ * Fails if dug too deep and adds 1 cm
+ */
 /obj/structure/boulder/proc/try_uncover()
 	if(excavation_level > target_excavation_level)
 		qdel(src)
@@ -173,21 +193,24 @@
 		switch(try_dig(25))
 			if(DIG_DELETE)
 				user.visible_message(
-				span_warning("The [src] crumbles, leaving nothing behind."),
-				blind_message = span_hear("You hear rocks crumbling."),
+					span_warning("The [src] crumbles, leaving nothing behind."),
+					blind_message = span_hear("You hear rocks crumbling."),
 				)
 				return
 			if(DIG_ROCK)
-				to_chat(user, span_notice("You successfully dig the boulder. The item inside seems to be still intact."))
 				user.visible_message(
-				span_notice("[user] successfully digs the [src]. The item inside seems to be still intact."),
-				span_notice("You successfully dig the [src]. The item inside seems to be still intact."),
-				blind_message = span_hear("You hear rocks crumbling."),
+					span_notice("[user] successfully digs the [src]. The item inside seems to be still intact."),
+					span_notice("You successfully dig the [src]. The item inside seems to be still intact."),
+					blind_message = span_hear("You hear rocks crumbling."),
 				)
 
 	if(istype(attack_item, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/hammer = attack_item
-		to_chat(user, span_notice("You begin carefully using your hammer..."))
+		user.visible_message(
+			span_notice("[user] begins carefully using their hammer..."),
+			span_notice("You begin carefully using your hammer..."),
+			blind_message = span_hear("You hear rhythmic knocking."),
+		)
 		if(!do_after(user, hammer.dig_speed, target = src))
 			to_chat(user, span_warning("You interrupt your careful planning, damaging the boulder in the process!"))
 			excavation_level += rand(1,5)
@@ -196,7 +219,10 @@
 			if(DIG_UNDEFINED)
 				CRASH("[hammer] tried to call try_dig() with an invalid dig_amount! Must have a positive value.")
 			if(DIG_DELETE)
-				to_chat(user, span_warning("The boulder crumbles, leaving nothing behind."))
+				user.visible_message(
+					span_warning("The boulder crumbles, leaving nothing behind."),
+					blind_message = span_hear("You hear rock crumbling."),
+				)
 				return
 			if(DIG_ROCK)
 				to_chat(user, span_notice("You successfully dig around the item."))
@@ -206,7 +232,11 @@
 		if (holomark_adv || (holomark && !istype(scanner, /obj/item/xenoarch/handheld_scanner/advanced)))
 			to_chat(user, span_notice("The boulder was already scanned. You can even see the holomark attached to it."))
 			return
-		to_chat(user, span_notice("You begin to scan [src] using [scanner]."))
+		user.visible_message(
+			span_notice("[user] begins to scan [src] using [scanner]."),
+			span_notice("You begin to scan [src] using [scanner]."),
+			blind_message = span_hear("You hear some kind of machine silently winding up."),
+		)
 		if(!do_after(user, scanner.scanning_speed, target = src))
 			to_chat(user, span_warning("You interrupt your scanning, damaging the boulder in the process!"))
 			excavation_level += rand(1,5)
@@ -221,25 +251,36 @@
 		if (measured)
 			to_chat(user, span_notice("The boulder was already measured."))
 			return
-		to_chat(user, span_notice("You begin carefully using your measuring tape."))
+		user.visible_message(
+			span_notice("[user] begins measuring the [src]."),
+			span_notice("You begin carefully using your measuring tape."),
+			blind_message = span_hear("You hear the sound of a tape measure unwinding."),
+		)
 		if(!do_after(user, 4 SECONDS, target = src))
 			to_chat(user, span_warning("You interrupt your careful planning, damaging the boulder in the process!"))
 			excavation_level += rand(1,5)
 			return
 		if(get_measured())
-			to_chat(user, span_notice("You successfully attach a holo measuring tape to the boulder; the boulder will now report its dug depth always!"))
+			to_chat(user, span_notice("You successfully attach a holo measuring tape to the boulder. The boulder will now report its dug depth always!"))
 			return
 
 	if(istype(attack_item, /obj/item/xenoarch/brush))
 		var/obj/item/xenoarch/brush/brush = attack_item
-		to_chat(user, span_notice("You begin carefully using your brush."))
+		user.visible_message(
+			span_notice("[user] carefully brushes [src]."),
+			span_notice("You begin carefully using your brush."),
+			blind_message = span_hear("You hear rustling."),
+		)
 		if(!do_after(user, brush.dig_speed, target = src))
 			to_chat(user, span_warning("You interrupt your careful planning, damaging the boulder in the process!"))
 			excavation_level += rand(1,5)
 			return
 		switch(try_uncover())
 			if(BRUSH_DELETE)
-				to_chat(user, span_warning("The boulder crumbles, leaving nothing behind."))
+				user.visible_message(
+					span_warning("The boulder crumbles, leaving nothing behind."),
+					blind_message = span_hear("You hear rock crumbling."),
+				)
 				return
 			if(BRUSH_UNCOVER)
 				to_chat(user, span_notice("You successfully brush around the item, fully revealing the item!"))
@@ -258,7 +299,11 @@
 		sampler.sample = src
 		sampler.used = TRUE
 		sampler.icon_state = "sampler"
-		to_chat(user, span_notice("You successfully took a sample of [src]. Now take it to the radiocarbon spectrometer."))
+		user.visible_message(
+			span_notice("[user] takes sample of [src]."),
+			span_notice("You successfully took a sample of [src]. Now take it to the radiocarbon spectrometer."),
+			blind_message = span_hear("You hear a snap."),
+		)
 
 #undef BRUSH_DELETE
 #undef BRUSH_UNCOVER

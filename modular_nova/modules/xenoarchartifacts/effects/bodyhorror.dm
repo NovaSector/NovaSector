@@ -17,6 +17,12 @@
 /datum/artifact_effect/bodyhorror/do_effect_destroy()
 	mutatelimbs(5)
 
+/**
+ * Tries to replace every mob's limbs with living flesh mob in artifact range.
+ *
+ * Arguments:
+ * * add_range - bonus range to the base artifact's
+ */
 /datum/artifact_effect/bodyhorror/proc/mutatelimbs(add_range)
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/carbon_mob in range(range + add_range, curr_turf))

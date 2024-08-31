@@ -4,7 +4,8 @@
 	build_path = /obj/machinery/artifact_analyser
 	req_components = list(
 		/datum/stock_part/scanning_module = 2,
-		/obj/item/stack/sheet/glass = 1)
+		/obj/item/stack/sheet/glass = 1,
+	)
 
 /obj/machinery/artifact_analyser
 	name = "Anomaly Analyser"
@@ -43,6 +44,9 @@
 		return
 	return ..()
 
+/**
+ * Tries to reconnect nearby scanpad to itself
+ */
 /obj/machinery/artifact_analyser/proc/reconnect_scanner()
 	//connect to a nearby scanner pad
 	owned_scanner = locate(/obj/machinery/artifact_scanpad) in get_step(src, dir)
@@ -93,7 +97,7 @@
 		if(!owned_scanner)
 			results = "Error communicating with scanner."
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 25, FALSE)
-		else if(!scanned_object || scanned_object.loc != owned_scanner.loc)
+		else if(!scanned_object || get_turf(scanned_object) != get_turf(owned_scanner))
 			results = "Unable to locate scanned object. Ensure it was not moved in the process."
 			playsound(src, 'sound/machines/buzz-two.ogg', 25, FALSE)
 		else
@@ -169,7 +173,12 @@
 
 	ui_interact(usr)
 
-// hardcoded responses, oh well
+/**
+ * Returns fluff info about artifacts
+ *
+ * Arguments:
+ * * scanned_obj - object to get info about
+ */
 /obj/machinery/artifact_analyser/proc/get_scan_info(obj/scanned_obj)
 	switch(scanned_obj.type)
 		if(/obj/machinery/auto_cloner)

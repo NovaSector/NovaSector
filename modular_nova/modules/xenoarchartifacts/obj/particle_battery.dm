@@ -3,8 +3,11 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "particles_battery0"
 	w_class = WEIGHT_CLASS_TINY
+	/// Effect we cloned from artifact
 	var/datum/artifact_effect/battery_effect
+	/// Max battery capacity
 	var/capacity = 200
+	/// Stored effect charge
 	var/stored_charge = 0
 
 /obj/item/xenoarch/particles_battery/Initialize(mapload)
@@ -13,8 +16,7 @@
 
 /obj/item/xenoarch/particles_battery/Destroy(force)
 	if(battery_effect)
-		qdel(battery_effect)
-	battery_effect = null
+		QDEL_NULL(battery_effect)
 	return ..()
 
 /obj/item/xenoarch/particles_battery/update_icon_state()
@@ -121,8 +123,8 @@
 
 /obj/item/xenoarch/xenoarch_utilizer/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
-	var/turf/T = get_turf(src)
-	if(T != old_loc && inserted_battery && inserted_battery.battery_effect)
+	var/turf/current_turf = get_turf(src)
+	if(current_turf != old_loc && inserted_battery && inserted_battery.battery_effect)
 		inserted_battery.battery_effect.update_move()
 	if(activated && inserted_battery && inserted_battery.battery_effect)
 		if(!istype(inserted_battery.battery_effect, /datum/artifact_effect/light))
@@ -164,6 +166,9 @@
 			if(time <= 0)
 				shutdown_emission()
 
+/**
+ * Stops emission
+ */
 /obj/item/xenoarch/xenoarch_utilizer/proc/shutdown_emission()
 	if(activated)
 		activated = FALSE

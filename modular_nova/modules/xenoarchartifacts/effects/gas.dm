@@ -46,24 +46,31 @@
 	. = ..()
 	if(!.)
 		return
-	var/turf/holder_loc = holder.loc
-	if(isturf(holder_loc))
+	var/turf/holder_loc = get_turf(src)
+	if(holder_loc)
 		assume_gas(current_gas_type, rand(2, 15))
 
 /datum/artifact_effect/gas/do_effect_aura()
 	. = ..()
 	if(!.)
 		return
-	var/turf/holder_loc = holder.loc
-	if(isturf(holder_loc))
+	var/turf/holder_loc = get_turf(src)
+	if(holder_loc)
 		assume_gas(current_gas_type, pick(0, rand(0,5)))
 
 /datum/artifact_effect/gas/do_effect_destroy()
 	. = ..()
-	var/turf/holder_loc = holder.loc
-	if(isturf(holder_loc))
+	var/turf/holder_loc = get_turf(src)
+	if(holder_loc)
 		assume_gas(current_gas_type, 150)
 
+/**
+ * Spawns gas on the same turf as the artifact
+ *
+ * Arguments:
+ * * spawn_id - gas type
+ * * spawn_mol - how much mol of the gas
+ */
 /datum/artifact_effect/gas/proc/assume_gas(spawn_id, spawn_mol)
 	var/turf/open/our_open_turf = get_turf(holder)
 	if(!istype(our_open_turf))

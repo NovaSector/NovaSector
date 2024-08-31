@@ -95,6 +95,14 @@
 		run_send_messages(human_mob, 100, 0)
 		human_mob.adjust_dizzy(30 SECONDS)
 
+/**
+ * Randomly selects between major and minor mood and applies it to the mob
+ *
+ * Arguments:
+ * * receiver - who will receive mood event
+ * * drastic_message_chance - chance to receive major mood event
+ * * normal_message_chance - chance to receive minor mood event
+ */
 /datum/artifact_effect/feelings/proc/run_send_messages(mob/receiver, drastic_message_chance = 0, normal_message_chance = 0)
 	if(prob(drastic_message_chance))
 		send_drastic_message(receiver)
@@ -103,7 +111,10 @@
 		send_minor_message(receiver)
 		return
 
+/// Send major mood event
 /datum/artifact_effect/feelings/proc/send_drastic_message(mob/receiver)
+
+/// Send minor mood event
 /datum/artifact_effect/feelings/proc/send_minor_message(mob/receiver)
 
 /datum/artifact_effect/feelings/bad

@@ -17,6 +17,7 @@
 /obj/item/xenoarch/wave_scanner_backpack/ui_action_click()
 	toggle_searcher()
 
+// Tries to put searcher in hand
 /obj/item/xenoarch/wave_scanner_backpack/verb/toggle_searcher()
 	set name = "Toggle Searcher"
 	set category = "Object"
@@ -47,6 +48,9 @@
 	if(slot != ITEM_SLOT_BACK)
 		remove_processor()
 
+/**
+ * Removes processor from hands if the backpack is dropped
+ */
 /obj/item/xenoarch/wave_scanner_backpack/proc/remove_processor()
 	if(!processor)
 		return
@@ -60,7 +64,8 @@
 		processor.forceMove(src)
 
 /obj/item/xenoarch/wave_scanner_backpack/Destroy()
-	QDEL_NULL(processor)
+	if(processor)
+		QDEL_NULL(processor)
 	return ..()
 
 /obj/item/xenoarch/wave_scanner_backpack/attack_hand(mob/user)
@@ -147,6 +152,9 @@
 
 	to_chat(user, span_info("[message]"))
 
+/**
+ * Scans current Z level for rocks with artifacts with them
+ */
 /obj/item/xenoarch/searcher/proc/scan()
 	last_scan_time = world.time
 	nearest_artifact_distance = -1

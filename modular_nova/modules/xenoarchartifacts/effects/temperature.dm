@@ -1,11 +1,13 @@
 /datum/artifact_effect/temperature
 	/// target_temp is initialized in New() with value between target_temp_low and target_temp_high
 	var/target_temp
+	/// the lowest temperature that this effect can cause
 	var/target_temp_low
+	/// the highest temperature that this effect can cause
 	var/target_temp_high
 
 /datum/artifact_effect/temperature/New()
-	..()
+	. = ..()
 	target_temp = rand(target_temp_low, target_temp_high)
 	release_method = pick(ARTIFACT_EFFECT_TOUCH, ARTIFACT_EFFECT_AURA)
 	type_name = pick(ARTIFACT_EFFECT_ORGANIC, ARTIFACT_EFFECT_BLUESPACE, ARTIFACT_EFFECT_SYNTH)

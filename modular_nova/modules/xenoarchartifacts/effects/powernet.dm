@@ -1,3 +1,4 @@
+// Only used in power crystal artifact. Can't be randomly generated in machine artifact
 /datum/artifact_effect/powernet
 	log_name = "Powernet"
 	type_name = ARTIFACT_EFFECT_ELECTRO
@@ -12,5 +13,5 @@
 	if(!.)
 		return
 	if(istype(holder, /obj/machinery/power))
-		var/obj/machinery/power/P = holder
-		P.add_avail(250000)
+		var/obj/machinery/power/power_holder = holder
+		power_holder.add_avail(250000)

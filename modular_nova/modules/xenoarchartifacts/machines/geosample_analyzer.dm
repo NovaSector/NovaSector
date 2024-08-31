@@ -19,7 +19,9 @@
 	use_power = IDLE_POWER_USE // 1 = idle, 2 = active
 	idle_power_usage = 20
 	active_power_usage = 3000
+	// Are we scanning right now?
 	var/scanning = FALSE
+	// Sample of the rock we need to scan
 	var/obj/item/xenoarch/core_sampler/current_sample
 
 /obj/machinery/radiocarbon_spectrometer/attackby(obj/item/to_insert, mob/living/user)
@@ -55,6 +57,10 @@
 		balloon_alert(user, "geosamples only!")
 	return ..()
 
+/**
+ * Tries to process inserted geosample.
+ * Takes 10 seconds.
+ */
 /obj/machinery/radiocarbon_spectrometer/proc/process_sample()
 	var/data = ""
 	if(powered())
@@ -91,6 +97,9 @@
 	else
 		fail_scan()
 
+/**
+ * Used in process() to fail the scan
+ */
 /obj/machinery/radiocarbon_spectrometer/proc/fail_scan()
 	qdel(current_sample)
 	current_sample = NONE
