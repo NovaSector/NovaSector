@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "sneezes will no longer sound like bullets upon impact"
+  - bugfix: "foam darts will also no longer get the bullet impact sounds"
