@@ -95,6 +95,8 @@
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
 	for(var/trait in clothing_traits)
+		if(trait == TRAIT_NEARSIGHTED_CORRECTED) // this isn't a HUD!
+			continue
 		ADD_CLOTHING_TRAIT(human, trait)
 
 /obj/item/clothing/glasses/hud/ar/proc/remove_hud(mob/user)
@@ -102,6 +104,8 @@
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
 	for(var/trait in clothing_traits)
+		if(trait == TRAIT_NEARSIGHTED_CORRECTED) // this isn't a HUD!
+			continue
 		REMOVE_CLOTHING_TRAIT(human, trait)
 
 /obj/item/clothing/glasses/hud/ar/proc/reset_vars()
