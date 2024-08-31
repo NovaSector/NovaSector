@@ -28,11 +28,12 @@
 	icon = 'modular_nova/modules/huds/icons/huds.dmi'
 	icon_state = "glasses_sciencehud"
 	worn_icon = 'modular_nova/modules/huds/icons/hudeyes.dmi'
-	flash_protect = FLASH_PROTECTION_NONE
 	glass_colour_type = /datum/client_colour/glass_colour/purple
-	resistance_flags = ACID_PROOF
 	armor_type = /datum/armor/prescription_science
-	clothing_traits = parent_type::clothing_traits | TRAIT_NEARSIGHTED_CORRECTED
+
+/obj/item/clothing/glasses/science/prescription/Initialize(mapload)
+	clothing_traits += list(TRAIT_NEARSIGHTED_CORRECTED)
+	return ..()
 
 /datum/armor/prescription_science
 	fire = 80
