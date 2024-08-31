@@ -1,6 +1,6 @@
 /obj/machinery/artifact/bluespace_crystal
 	name = "bluespace crystal"
-	desc = "A strange blue crystal.
+	desc = "A strange blue crystal."
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/artifacts.dmi'
 	icon_state = "artifact_13"
 	artifact_type_id = ARTIFACT_CRYSTAL_BLUE
