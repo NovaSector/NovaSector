@@ -476,6 +476,10 @@
 	return ..()
 
 /obj/item/gun/ballistic/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
+	// NOVA EDIT ADDITION START
+	if(!chambered)
+		return ..()
+	// NOVA EDIT ADDITION END
 	if(can_misfire && chambered.can_misfire != FALSE)
 		misfire_probability += misfire_percentage_increment
 		misfire_probability = clamp(misfire_probability, 0, misfire_probability_cap)
