@@ -1,5 +1,4 @@
-// mrsanderp's donator items
-
+// mrsanderp's donator item
 /datum/crafting_recipe/food/miso_pasta
 	name = "Miso Pasta"
 	reqs = list(
@@ -10,7 +9,9 @@
 	)
 	result = /obj/item/food/donator/miso_pasta
 	category = CAT_MARTIAN
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
+// mrsanderp's donator item
 /datum/crafting_recipe/food/red_bay_chicken_meatballs
 	name = "Red Bay Chicken Meatballs"
 	reqs = list(
@@ -21,7 +22,9 @@
 	)
 	result = /obj/item/food/donator/red_bay_chicken_meatballs
 	category = CAT_MARTIAN
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
+// mrsanderp's donator item
 /datum/crafting_recipe/food/tiramisu
 	name = "Tiramisu"
 	reqs = list(
@@ -33,7 +36,9 @@
 	)
 	result = /obj/item/food/donator/tiramisu
 	category = CAT_MARTIAN
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
+// mrsanderp's donator item
 /datum/crafting_recipe/food/red_planet_parm
 	name = "Red Planet Parm"
 	reqs = list(
@@ -44,7 +49,9 @@
 	)
 	result = /obj/item/food/donator/red_planet_parm
 	category = CAT_MARTIAN
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
+// mrsanderp's donator item
 /datum/crafting_recipe/food/aubergine_rolls
 	name = "Aubergine Rolls"
 	reqs = list(
@@ -55,7 +62,9 @@
 	)
 	result = /obj/item/food/donator/aubergine_rolls
 	category = CAT_MARTIAN
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
+// mrsanderp's donator item
 /datum/crafting_recipe/food/pineapple_trifle
 	name = "Pineapple Trifle"
 	reqs = list(
@@ -67,3 +76,4 @@
 	)
 	result = /obj/item/food/donator/pineapple_trifle
 	category = CAT_MARTIAN
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
