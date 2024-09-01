@@ -1,8 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "flannel sprite now properly covers body while in the closed state"
-  - bugfix: "prescription ar glasses no longer require the hud to be active in order to bestow their corrective properties"
-  - qol: "the anvil hammer sound is now locked behind the \"Enable ambience\" pref under sounds, meaning it can be disabled by preference"
-  - qol: "naga constrict timer reduced from 3.25 seconds to 2.2 seconds"
-  - bugfix: "fixes ling transformation not respecting mob size"
