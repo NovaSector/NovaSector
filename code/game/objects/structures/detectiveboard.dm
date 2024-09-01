@@ -261,9 +261,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 	)
 	resistance_flags = FLAMMABLE
 	result_path = /obj/structure/detectiveboard
-	// NOVA ADDITION BEGIN
-	pixel_shift = 32
-	// NOVA ADDITION END
+	pixel_shift = 32 // NOVA EDIT ADDITION
 
 /datum/evidence
 	var/name = "None"
