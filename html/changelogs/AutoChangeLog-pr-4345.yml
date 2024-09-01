@@ -1,0 +1,4 @@
+author: "hack-wrench"
+delete-after: True
+changes:
+  - bugfix: "fixed input size for traitor announcer (512 -> 2048 chars)"
