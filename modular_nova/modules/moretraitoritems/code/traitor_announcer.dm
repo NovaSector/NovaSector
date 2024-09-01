@@ -43,7 +43,7 @@
 		balloon_alert(user, "bad title!")
 		return
 
-	var/input = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the bodytext of the announcement.", "Announcement Text", multiline = TRUE), ascii_only = FALSE))
+	var/input = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the bodytext of the announcement.", "Announcement Text", multiline = TRUE), max_length = MAX_MESSAGE_LEN, ascii_only = FALSE))
 	if(!input)
 		balloon_alert(user, "bad text!")
 		return
