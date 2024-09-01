@@ -34,9 +34,9 @@
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_icon_state()
 	. = ..()
-	if(reagents.total_volume == 0)
+	if(!reagents?.total_volume == 0)
 		icon_state = "[base_icon_state]0"
-	else if(reagents.total_volume > (volume * 0.5))
+	else if(!reagents?.total_volume > (volume * 0.5))
 		icon_state = base_icon_state
 	else
 		icon_state = "[base_icon_state]15"
@@ -46,7 +46,7 @@
 	if(!reagents?.total_volume)
 		return
 	var/overlay_icon = "medipen"
-	if(reagents.total_volume > (volume * 0.5))
+	if(!reagents?.total_volume > (volume * 0.5))
 		icon_state = base_icon_state
 	else
 		overlay_icon = "medipen_half"
