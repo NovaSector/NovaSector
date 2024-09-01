@@ -46,6 +46,6 @@
 	wound = 5
 
 /obj/machinery/suit_storage_unit/interdyne/nerfed
-	mask_type = /obj/item/clothing/mask/gas/sechailer/syndicate
+	mask_type = /obj/item/clothing/mask/neck_gaiter
 	storage_type = /obj/item/tank/internals/oxygen
 	mod_type = /obj/item/mod/control/pre_equipped/interdyne/nerfed

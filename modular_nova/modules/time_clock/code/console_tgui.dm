@@ -91,39 +91,39 @@
 
 	return data
 
-/obj/machinery/time_clock/ui_act(action, list/params)
+/obj/machinery/time_clock/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
-
+	var/mob/user = ui.user
 	switch(action)
 		if("clock_in_or_out")
 			if(off_duty_check())
 				if(!(clock_in()))
 					return
-				log_admin("[key_name(usr)] clocked in as \an [inserted_id.assignment].")
+				log_admin("[key_name(user)] clocked in as \an [inserted_id.assignment].")
 
-				var/datum/mind/user_mind = usr.mind
+				var/datum/mind/user_mind = user.mind
 				if(user_mind)
 					user_mind.clocked_out_of_job = FALSE
 
 			else
-				log_admin("[key_name(usr)] clocked out as \an [inserted_id.assignment].")
+				log_admin("[key_name(user)] clocked out as \an [inserted_id.assignment].")
 				clock_out()
-				var/mob/living/carbon/human/human_user = usr
+				var/mob/living/carbon/human/human_user = user
 				if(human_user)
 					human_user.return_items_to_console(TIME_CLOCK_RETURN_ITEMS)
 
-				var/datum/mind/user_mind = usr.mind
+				var/datum/mind/user_mind = user.mind
 				if(user_mind)
 					user_mind.clocked_out_of_job = TRUE
 
 				if(important_job_check())
-					message_admins("[key_name(usr)] has clocked out as a head of staff. [ADMIN_JMP(src)]")
+					message_admins("[key_name(user)] has clocked out as a head of staff. [ADMIN_JMP(src)]")
 
 			playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 
 		if("eject_id")
-			eject_inserted_id(usr)
+			eject_inserted_id(user)
 
 #undef TIME_CLOCK_RETURN_ITEMS

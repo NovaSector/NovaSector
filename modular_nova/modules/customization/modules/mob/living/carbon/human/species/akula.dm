@@ -17,8 +17,11 @@
 		OFFSET_HEAD = list(0, 2),
 		OFFSET_HAIR = list(0, 1),
 	)
+	mutantbrain = /obj/item/organ/internal/brain/carp/akula
+	mutantheart = /obj/item/organ/internal/heart/carp/akula
+	mutantlungs = /obj/item/organ/internal/lungs/carp/akula
+	mutanttongue = /obj/item/organ/internal/tongue/carp/akula
 	mutanteyes = /obj/item/organ/internal/eyes/akula
-	mutanttongue = /obj/item/organ/internal/tongue/akula
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -29,7 +32,6 @@
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
-	outfit_important_for_life = /datum/outfit/akula
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodypart_overrides = list(
@@ -66,6 +68,18 @@
 	var/list/perks = list()
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_TOOTH,
+		SPECIES_PERK_NAME = "Big Bites",
+		SPECIES_PERK_DESC = "Instead of throwing punches, you use your sharp teeth to bite for more damage."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_PERSON_WALKING,
+		SPECIES_PERK_NAME = "Space Walking",
+		SPECIES_PERK_DESC = "You can move around in zero-gravity environments, just like your ancestors."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_HAND,
 		SPECIES_PERK_NAME = "Slippery Skin",
 		SPECIES_PERK_DESC = "When sufficiently wet, you have a bonus chance to escape from grabs."
@@ -78,9 +92,15 @@
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-		SPECIES_PERK_ICON = FA_ICON_WATER,
-		SPECIES_PERK_NAME = "Aqua Affinity",
-		SPECIES_PERK_DESC = "If you are dry for more than five minutes, you begin to feel sad."
+		SPECIES_PERK_ICON = FA_ICON_LUNGS,
+		SPECIES_PERK_NAME = "Gills",
+		SPECIES_PERK_DESC = "If you are not wet, you will not be able to breathe oxygen!",
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_ARROW_DOWN,
+		SPECIES_PERK_NAME = "Nomadic DNA",
+		SPECIES_PERK_DESC = "You never want to stay in one place."
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
@@ -130,17 +150,6 @@
 	regenerate_organs(akula, src, visual_only = TRUE)
 	akula.update_body(TRUE)
 
-/obj/item/organ/internal/eyes/akula
-	// Eyes over hair as bandaid for the low amounts of head matching hair
-	eyes_layer = HAIR_LAYER-0.1
-
-
-/obj/item/organ/internal/tongue/akula
-	liked_foodtypes = SEAFOOD | RAW
-	disliked_foodtypes = CLOTH | DAIRY
-	toxic_foodtypes = TOXIC
-
-
 /datum/species/akula/get_random_body_markings(list/passed_features)
 	var/datum/body_marking_set/body_marking_set = GLOB.body_marking_sets["Akula"]
 	var/list/markings = list()
@@ -149,10 +158,52 @@
 	return markings
 
 /datum/species/akula/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	//should not call parent
 	if(job?.akula_outfit)
 		equipping.equipOutfit(job.akula_outfit, visuals_only)
-	else
-		give_important_for_life(equipping)
+
+///Organ overwrites
+//Eyes
+/obj/item/organ/internal/eyes/akula
+	// Eyes over hair as bandaid for the low amounts of head matching hair
+	eyes_layer = HAIR_LAYER-0.1
+
+//Brain
+/obj/item/organ/internal/brain/carp/akula
+	name = "azulean brain"
+
+//Heart
+/obj/item/organ/internal/heart/carp/akula
+	name = "azulean heart"
+	organ_traits = list()
+
+//Tongue
+/obj/item/organ/internal/tongue/carp/akula
+	name = "azulean jaws"
+	liked_foodtypes = SEAFOOD | RAW
+	disliked_foodtypes = CLOTH | DAIRY
+	toxic_foodtypes = TOXIC
+
+/obj/item/organ/internal/tongue/carp/akula/on_mob_insert(mob/living/carbon/tongue_owner, special, movement_flags)
+	. = ..()
+	if(!ishuman(tongue_owner))
+		return
+	var/mob/living/carbon/human/human_receiver = tongue_owner
+	if(!human_receiver.can_mutate())
+		return
+	var/datum/species/rec_species = human_receiver.dna.species
+	rec_species.update_no_equip_flags(tongue_owner, initial(rec_species.no_equip_flags))
+
+//Lungs
+/obj/item/organ/internal/lungs/carp/akula
+	name = "azulean lungs"
+	safe_oxygen_min = /obj/item/organ/internal/lungs::safe_oxygen_min
+	safe_oxygen_max = /obj/item/organ/internal/lungs::safe_oxygen_max
+
+/obj/item/organ/internal/lungs/carp/akula/Initialize(mapload)
+	. = ..()
+	REMOVE_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
+
 
 // Wet_stacks handling
 // more about grab_resists in `code\modules\mob\living\living.dm` at li 1119

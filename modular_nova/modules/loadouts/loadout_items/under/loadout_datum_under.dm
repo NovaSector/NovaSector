@@ -157,6 +157,10 @@
 	item_path = /obj/item/clothing/under/rank/security/peacekeeper
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
+/datum/loadout_item/under/jumpsuit/colonial_uniform
+	name = "Colonial Uniform"
+	item_path = /obj/item/clothing/under/colonial
+
 /datum/loadout_item/under/jumpsuit/imperial_police_uniform
 	name = "Imperial Police Uniform"
 	item_path = /obj/item/clothing/under/colonial/nri_police
@@ -447,6 +451,14 @@
 /datum/loadout_item/under/miscellaneous/jacarta_dress
 	name = "Jacarta Dress"
 	item_path = /obj/item/clothing/under/dress/nova/jute
+
+/datum/loadout_item/under/miscellaneous/wedding_dress
+	name = "Wedding Dress"
+	item_path = /obj/item/clothing/under/dress/wedding_dress
+
+/datum/loadout_item/under/miscellaneous/wedding_dress/ribbon
+	name = "Wedding Dress With Ribbon"
+	item_path = /obj/item/clothing/under/dress/wedding_dress/ribbon
 
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"

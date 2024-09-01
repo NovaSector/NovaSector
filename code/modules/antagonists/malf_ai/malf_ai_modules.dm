@@ -499,6 +499,11 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /datum/action/innate/ai/destroy_rcds/Activate()
 	for(var/I in GLOB.rcd_list)
+		// NOVA EDIT ADDITION START - Don't detonate RCDs in the protected areas
+		var/rcd_area = get_area(I)
+		if(is_type_in_typecache(rcd_area, protected_areas))
+			continue
+		// NOVA EDIT ADDITION END
 		if(!istype(I, /obj/item/construction/rcd/borg)) //Ensures that cyborg RCDs are spared.
 			var/obj/item/construction/rcd/RCD = I
 			RCD.detonate_pulse()
@@ -588,6 +593,10 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /datum/action/innate/ai/blackout/Activate()
 	for(var/obj/machinery/power/apc/apc as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc))
+		// NOVA EDIT ADDITION START - Don't blackout Tarkon or Ghost cafe
+		if(is_type_in_typecache(apc.area, protected_areas))
+			continue
+		// NOVA EDIT ADDITION END
 		if(prob(30 * apc.overload))
 			apc.overload_lighting()
 		else
@@ -621,6 +630,11 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	for(var/obj/item/radio/intercom/found_intercom as anything in GLOB.intercoms_list)
 		if(!found_intercom.is_on() || !found_intercom.get_listening() || found_intercom.wires.is_cut(WIRE_RX)) //Only operating intercoms play the honk
 			continue
+		// NOVA EDIT ADDITION START - Don't honk off-station intercoms (e.g. Tarkon, Ghost Cafe)
+		var/intercom_area = get_area(found_intercom)
+		if(is_type_in_typecache(intercom_area, protected_areas))
+			continue
+		// NOVA EDIT ADDITION END
 		found_intercom.audible_message(message = "[found_intercom] crackles for a split second.", hearing_distance = 3)
 		playsound(found_intercom, 'sound/items/airhorn.ogg', 100, TRUE)
 		for(var/mob/living/carbon/honk_victim in ohearers(6, found_intercom))
@@ -995,7 +1009,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	data["selected"] = say_span || owner.speech_span
 	return data
 
-/obj/machinery/ai_voicechanger/ui_act(action, params)
+/obj/machinery/ai_voicechanger/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 	switch(action)
