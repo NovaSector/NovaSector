@@ -105,7 +105,7 @@
 		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore) // NOVA EDIT REMOVAL
 		// NOVA EDIT ADDITION BEGIN
 		if(istype(src, /datum/emote/living/lewd))
-			play_lewd_sound(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, pref_to_check = /datum/preference/toggle/erp/sounds)
+			playsound_if_pref(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, pref_to_check = /datum/preference/toggle/erp/sounds)
 		else
 			playsound(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, ignore_walls = sound_wall_ignore)
 		// NOVA EDIT ADDITION END

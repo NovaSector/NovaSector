@@ -987,12 +987,12 @@
 	if(owner_species && owner_species.specific_alpha != 255)
 		alpha = owner_species.specific_alpha
 
-	markings = LAZYCOPY(owner_species.body_markings[body_zone])
-	if(aux_zone)
-		aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
-	markings_alpha = owner_species.markings_alpha
+	if(body_zone in owner_species.body_markings)
+		markings = LAZYCOPY(owner_species.body_markings[body_zone])
+		if(aux_zone && (aux_zone in owner_species.body_markings))
+			aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
+		markings_alpha = owner_species.markings_alpha
 	// NOVA EDIT END
-
 	recolor_external_organs()
 	return TRUE
 

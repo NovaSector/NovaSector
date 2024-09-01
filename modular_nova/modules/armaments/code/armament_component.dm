@@ -122,8 +122,9 @@
 
 	return data
 
-/datum/component/armament/ui_act(action, list/params)
+/datum/component/armament/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	var/mob/user = ui.user
 	if(.)
 		return
 
@@ -132,14 +133,14 @@
 			var/check = check_item(params["armament_ref"])
 			if(!check)
 				return
-			select_armament(usr, check)
+			select_armament(user, check)
 		if("buy_ammo")
 			var/check = check_item(params["armament_ref"])
 			if(!check)
 				return
-			buy_ammo(usr, check, params["quantity"])
+			buy_ammo(user, check, params["quantity"])
 		if("eject_card")
-			eject_card(usr)
+			eject_card(user)
 
 /datum/component/armament/proc/buy_ammo(mob/user, datum/armament_entry/armament_entry, quantity = 1)
 	if(!armament_entry.magazine)
