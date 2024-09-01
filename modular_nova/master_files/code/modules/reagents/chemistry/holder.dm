@@ -114,7 +114,7 @@ T"i = Ti + T'i
 	for(var/datum/reagent/reagent as anything in cached_reagents)
 		if(remove_blacklisted && !(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
 			continue
-		if(ignore_whitelist || is_type_in_list(reagent.type, target_ids))
+		if(ignore_whitelist || is_type_in_list(reagent, target_ids))
 			target_reagents[reagent.type] = reagent
 			possible_transfer_volume += round(reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 
@@ -142,7 +142,8 @@ T"i = Ti + T'i
 	var/list/transfer_volumes = list()
 	// First pass, calculate initial transfer volumes per reagent
 	// Account for reagents with insufficient and excess volumes
-	for(var/datum/reagent/reagent as anything in target_reagents)
+	for(var/reagent_type as anything in target_reagents)
+		var/datum/reagent/reagent = target_reagents[reagent_type]
 		var/reagent_volume = round(reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 		var/transfer_volume = min(reagent_volume, initial_target_volume)
 		transfer_volumes[reagent.type] = transfer_volume
@@ -157,8 +158,8 @@ T"i = Ti + T'i
 	if(proportional && (deficit_transfer_volume > 0) && (remaining_transfer_volume > 0))
 		// Total transfer volume is insufficient
 		// Increase transfer volumes of excess reagents to compensate for the deficit
-		for(var/datum/reagent/reagent as anything in target_reagents)
-			var/reagent_type = reagent.type
+		for(var/reagent_type as anything in target_reagents)
+			var/datum/reagent/reagent = target_reagents[reagent_type]
 			var/transfer_volume = transfer_volumes[reagent_type]
 			var/reagent_volume = round(reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 
@@ -194,7 +195,7 @@ T"i = Ti + T'i
 
 	// Actually perform the reagent transfers and return total volume transferred
 	var/transfer_total = 0
-	for(var/datum/reagent/reagent in target_reagents)
+	for(var/datum/reagent/reagent as anything in target_reagents)
 		transfer_total += trans_to(
 			target = target_atom,
 			amount = transfer_volumes[reagent],
