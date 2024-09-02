@@ -296,7 +296,7 @@
 	block_chance = 20
 	block_sound = 'sound/weapons/parry.ogg'
 	damtype = STAMINA
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FLAMMABLE
 	attack_verb_continuous = list("bonks", "bashes", "whacks", "pokes", "prods")
