@@ -14,13 +14,16 @@
 /obj/item/clothing/suit/space/voskhod/examine_more(mob/user)
 	. = ..()
 
-	. += "'Dawn', a brand name given to the early colonisation-era civilian space suits which were among the first ones to become consumer-grade: \
-		comfortable, protective and, first of all, cheap to see themselves used en masse by the many people that were soon to turn their purpose around. \
-		As the war broke out, many fitting ports of the industrial-grade models, then-modular to be clipped on with virtually anything, \
-		have been repurposed to get strapped with additional armor plating; \
-		and what served as a floodlight mount become the soldier's directionally-opaque face shield, sturdy enough to stop what could have resulted in a horrific accident.  \
-		These models were commonly fielded with a cutting-edge for its era paramedical suite built into the suit, able to deal with most common ailments one would succumb to in space combat.\
-		The dawn of human exploration has resulted in the rising of a new Coalition."
+	. += "'Dawn', a brand name of the early colonisation-era civilian space suits which were among the first ones to become consumer-grade: \
+		comfortable, protective and, first of all, cheap to see themselves used en masse by the many people that were soon to turn their purpose around. <br>\
+		As the war broke out, and the requirement for the space-proof protection to secure one's sovereignity arose, many fitting ports of the industrial-grade models, \
+		then-modular to be clipped on with virtually anything, have been repurposed to get strapped with additional armor plating; \
+		and what served as a floodlight mount became the soldier's directionally-opaque face shield, sturdy enough to stop what could have resulted in a horrific accident. <br>\
+		These models were commonly fielded with a cutting-edge for its era paramedical suite built into the suit, able to deal with most common ailments one would succumb to in space combat. <br>\
+		Some rumors, however, began to circulate as certain soldiers began to lose their senses, numbing the reactions from the sheer amounts of painkillers and medicine \
+		dumped into their bodies and fighting in an erratic, wild manner, similar to what one'd compare to the 'undead' - an old hoax spread among the Solarian personnel \
+		fortunate enough to avoid direct confrontations with, -or not agile enough to catch-, 'Voskhods'; witnessing the limping opponents' attempts at a fierceful retreat. <br>\
+		The dawn of human exploration has resulted in the rising of a new Coalition, and the means to secure it."
 
 	return .
 
@@ -47,7 +50,7 @@
 /obj/item/clothing/head/helmet/space/voskhod
 	name = "\proper Voskhod-P depowered combat helmet"
 	desc = "A composite graphene-plasteel helmet with a ballistic nylon inner padding, complete with a deployable airtight polycarbonate visor and respirator system. <br>\
-	This particular unit's rebreathers have been salvaged off; unable to resynthesize any more breathable air for the user." //Reference to its HEV past.
+	This particular unit's rebreathers have been salvaged off; unable to resynthesize any more breathable air for the user."
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
 	icon_state = "voskhod_helmet"
@@ -58,13 +61,16 @@
 /obj/item/clothing/head/helmet/space/voskhod/examine_more(mob/user)
 	. = ..()
 
-	. += "'Dawn', a brand name given to the early colonisation-era civilian space suits which were among the first ones to become consumer-grade: \
-		comfortable, protective and, first of all, cheap to see themselves used en masse by the many people that were soon to turn their purpose around. \
-		As the war broke out, many fitting ports of the industrial-grade models, then-modular to be clipped on with virtually anything, \
-		have been repurposed to get strapped with additional armor plating; \
-		and what served as a floodlight mount become the soldier's directionally-opaque face shield, sturdy enough to stop what could have resulted in a horrific accident.  \
-		These models were commonly fielded with a cutting-edge for its era paramedical suite built into the suit, able to deal with most common ailments one would succumb to in space combat.\
-		The dawn of human exploration has resulted in the rising of a new Coalition."
+	. += "'Dawn', a brand name of the early colonisation-era civilian space suits which were among the first ones to become consumer-grade: \
+		comfortable, protective and, first of all, cheap to see themselves used en masse by the many people that were soon to turn their purpose around. <br>\
+		As the war broke out, and the requirement for the space-proof protection to secure one's sovereignity arose, many fitting ports of the industrial-grade models, \
+		then-modular to be clipped on with virtually anything, have been repurposed to get strapped with additional armor plating; \
+		and what served as a floodlight mount became the soldier's directionally-opaque face shield, sturdy enough to stop what could have resulted in a horrific accident. <br>\
+		These models were commonly fielded with a cutting-edge for its era paramedical suite built into the suit, able to deal with most common ailments one would succumb to in space combat. <br>\
+		Some rumors, however, began to circulate as certain soldiers began to lose their senses, numbing the reactions from the sheer amounts of painkillers and medicine \
+		dumped into their bodies and fighting in an erratic, wild manner, similar to what one'd compare to the 'undead' - an old hoax spread among the Solarian personnel \
+		fortunate enough to avoid direct confrontations with, -or not agile enough to catch-, 'Voskhods'; witnessing the limping opponents' attempts at a fierceful retreat. <br>\
+		The dawn of human exploration has resulted in the rising of a new Coalition, and the means to secure it."
 
 	return .
 
