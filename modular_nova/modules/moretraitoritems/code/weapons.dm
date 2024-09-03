@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/revolver/ocelot
-	name = "Colt Peacemaker revolver"
+	name = "Cik Peacemaker revolver"
 	desc = "A modified Peacemaker revolver that chambers .357 ammo. Less powerful than the regular .357, but ricochets a lot more." // We need tension...conflict. The world today has become too soft. We're living in an age where true feelings are suppressed. So we're going to shake things up a bit. We'll create a world dripping with tension... ...a world filled with greed and suspicion, bravery and cowardice.
 	// this could probably be made funnier by reducing its damage multiplier but also making it so that every fired bullet has the wacky ricochets
 	// but that's a different plate of cookies for a different glass of milk
