@@ -301,7 +301,7 @@
 
 /obj/item/hypospray/mkii/attack_hand(mob/living/user)
 	if(user && loc == user && user.is_holding(src))
-		if(user.incapacitated())
+		if(user.incapacitated)
 			return
 		else if(!vial)
 			. = ..()
