@@ -8,7 +8,7 @@
 	icon_state = "voskhod_suit"
 	inhand_icon_state = "s_suit"
 	allowed = list(/obj/item/gun, /obj/item/melee/baton, /obj/item/melee/energy/sword/saber, /obj/item/restraints/handcuffs, /obj/item/tank/internals)
-	armor_type = /datum/armor/space_voskhod
+	armor_type = /datum/armor/space_syndicate
 	supports_variations_flags = CLOTHING_NO_VARIATION //It's already huge enough to look like it can work with digis
 
 /obj/item/clothing/suit/space/voskhod/examine_more(mob/user)
@@ -35,18 +35,6 @@
 
 	return ..()
 
-//Syndicate space suit's armor but it also has wound protection because it's -actually- armored (And I'll assume the latter's no-woundness is an oversight)
-/datum/armor/space_voskhod
-	melee = 40
-	bullet = 50
-	laser = 30
-	energy = 40
-	bomb = 30
-	bio = 30
-	fire = 80
-	acid = 85
-	wound = 20
-
 /obj/item/clothing/head/helmet/space/voskhod
 	name = "\proper Voskhod-P depowered combat helmet"
 	desc = "A composite graphene-plasteel helmet with a ballistic nylon inner padding, complete with a deployable airtight polycarbonate visor and respirator system. <br>\
@@ -55,7 +43,7 @@
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
 	icon_state = "voskhod_helmet"
 	inhand_icon_state = "space_helmet"
-	armor_type = /datum/armor/space_voskhod
+	armor_type = /datum/armor/space_syndicate
 	supports_variations_flags = CLOTHING_NO_VARIATION
 
 /obj/item/clothing/head/helmet/space/voskhod/examine_more(mob/user)
