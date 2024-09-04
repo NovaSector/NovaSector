@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixed a bug that could sometimes cause moths to retain the flight trait indefinitely when using their dash"
