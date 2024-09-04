@@ -85,8 +85,8 @@
 
 	var/atom/dash_target = get_edge_target_turf(owner, owner.dir) //gets the user's direction
 
-	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
+		ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
 		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
 		COOLDOWN_START(src, dash_cooldown, 6 SECONDS)
