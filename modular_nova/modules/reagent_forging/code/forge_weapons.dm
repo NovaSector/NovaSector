@@ -240,7 +240,7 @@
 
 /obj/item/shield/buckler/reagent_weapon/pavise
 	name = "forged pavise shield"
-	desc = "An oblong shield used by ancient crossbowmen as cover while reloading. Probably just as useful with an actual gun."
+	desc = "An oblong shield used by ancient crossbowmen as cover while reloading. Probably just as useful with an actual gun. Can be wielded in both hands to cover yourself and clobber others more effectively."
 	icon_state = "pavise"
 	inhand_icon_state = "pavise"
 	worn_icon_state = "pavise_back"
