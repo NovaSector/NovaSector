@@ -25,7 +25,13 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
   },
   command: {
     color: 'blue',
-    trims: ['Captain', 'Head of Personnel'],
+    // NOVA EDIT CHANGE START - ORIGINAL: trims: ['Captain', 'Head of Personnel'],
+    trims: [
+      'Captain',
+      'Head of Personnel',
+      'Nanotrasen Consultant',
+      'Blueshield',
+    ], // NOVA EDIT CHANGE END
   },
   engineering: {
     color: 'orange',
@@ -63,6 +69,8 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
       'Lawyer',
       'Mime',
       'Psychologist',
+      'Barber', // NOVA EDIT ADDITION
+      'Bouncer', // NOVA EDIT ADDITION
     ],
   },
 };
