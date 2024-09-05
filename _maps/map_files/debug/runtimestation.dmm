@@ -2017,6 +2017,14 @@
 	codes_txt = "patrol;next_patrol=2-Northwest";
 	location = "1-Southwest"
 	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/machinery/navbeacon{
+	location = "1-Southwest";
+	codes_txt = "patrol;next_patrol=2-Northwest"
+	},
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
 "Ir" = (
@@ -2394,6 +2402,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"RJ" = (
+/obj/effect/landmark/start,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=4";
+	location = "Center"
+	},
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "RM" = (
 /obj/structure/closet/secure_closet/hop{
 	locked = 0
@@ -7800,7 +7816,7 @@ dt
 dJ
 dD
 dJ
-dI
+RJ
 dJ
 XZ
 dJ
@@ -8165,14 +8181,14 @@ Sj
 by
 jk
 dJ
-dJ
+vu
 dJ
 dJ
 yl
 dJ
 dJ
 dJ
-dJ
+Yp
 dJ
 dJ
 cS
