@@ -204,12 +204,6 @@
 	. = ..()
 	REMOVE_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
 
-/obj/item/organ/internal/lungs/carp/akula/check_breath(datum/gas_mixture/breath, mob/living/carbon/human/breather)
-	if(breath && !breather.has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
-		for(var/datum/gas/gas as anything in breath.gases)
-			breath.gases[gas][MOLES] = 0 //cant filter gas out of the air unless wet
-	return ..()
-
 
 // Wet_stacks handling
 // more about grab_resists in `code\modules\mob\living\living.dm` at li 1119

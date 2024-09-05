@@ -1,0 +1,117 @@
+2024-09-01:
+  vinylspiders:
+  - bugfix: flannel sprite now properly covers body while in the closed state
+  - bugfix: prescription ar glasses no longer require the hud to be active in order
+      to bestow their corrective properties
+  - qol: the anvil hammer sound is now locked behind the "Enable ambience" pref under
+      sounds, meaning it can be disabled by preference
+  - qol: naga constrict timer reduced from 3.25 seconds to 2.2 seconds
+  - bugfix: fixes ling transformation not respecting mob size
+  - bugfix: fixes doubled up nova and tg radio talk sounds
+  - rscadd: the headset radio talk sound changed from the TG beep to more of... a
+      familiar chirp. the old Nova talk sound is now used for walkie talkies and intercoms.
+  - bugfix: sneezes will no longer sound like bullets upon impact
+  - bugfix: foam darts will also no longer get the bullet impact sounds
+2024-09-02:
+  FeudeyTF:
+  - bugfix: Fixed detective board placing
+  hack-wrench:
+  - bugfix: fixed input size for traitor announcer (512 -> 2048 chars)
+2024-09-04:
+  00-Steven:
+  - balance: Fax machines with hacked input servos can now send chap slices and cookies.
+      Please accept them.
+  - bugfix: Buckling yourself to a bed or stasis bed will now make you actually use
+      the headrest/pillow and face up.
+  - qol: Multi-z disposal segments can actually be made with an RPD.
+  - image: Upwards multi-z disposal segments no longer have wonky sprites.
+  - bugfix: Big manipulator hands now move smoothly with the base when it's moved.
+  Absolucy:
+  - bugfix: You will now be ejected from any jaunt (i.e bloodcrawl or shadow walk)
+      if you lose consciousness somehow during the jaunt.
+  Artemchik542:
+  - bugfix: typo in CRUSH_CRIT_PARAPLEGIC
+  AyIong:
+  - qol: Stat Panel settings moved to personal tab
+  - bugfix: Stat Panel tabs no longer create horizontal scrollbar by default, but
+      you can return it into the settings
+  - bugfix: Hovering over a truncated statpanel button, doesn't blocks the button
+      below it anymore
+  Hardly:
+  - sound: Added sounds for conveyor belt switches
+  JohnFulpWillard:
+  - bugfix: Ice cream vats can be refilled with beakers again.
+  LT3:
+  - bugfix: You can now put Skub back in the Skub box, as intended
+  - bugfix: Ice Box lower floor maints is properly protected during radstorms
+  - bugfix: Fixed malfunctioning tram crossing signals sometimes staying green
+  Melbert:
+  - bugfix: Some spy items should spawn less broken
+  OrbisAnima:
+  - qol: Added additional storages for Forged Weapons and bows, colonist and mining
+      types exosuits (this includes gear harness) now store them too. Shoe types with
+      storage also store forged daggers.
+  - qol: Forged weapons are now also lavaproof.
+  - balance: Forged weapons are now electrically conductive.
+  - balance: "Forged weapons ungodly throwing stats were balanced and brough to more\
+      \ normal levels, allow C\xFAchulainn to rest."
+  - balance: All Forged weapons (plus shields and mining tools) gain the Bane element
+      against Beasts and Megafauna, this means that they do a bonus damage equal to
+      their melee damage against against them (so a sword does 40 when you hit with
+      it, and 25 if you throw it). This affects more creatures than the ones in the
+      mines, like carps or Ian.
+  - balance: Forged Sword does 20 damage, with 20 AP, 20 block chance and has 20%
+      more damage against objects. Bulky sized.
+  - balance: Forged Katana does 20 damage, with 40 AP, and 10 block chance. Bulky
+      sized.
+  - balance: Forged Dagger does 13 damage, 25% less to objects, and 17 damage when
+      thrown, it additionally has a bonus when used to butcher. It has the same speed
+      as other knives and fits in shoes as other knives. Small sized.
+  - balance: Forged Spear does 13 damage while unwielded, 23 while wielded, with 10
+      AP, 24 damage when thrown and reach of 2 tiles. Bulky sized.
+  - balance: Forged Axe does 15 damage, armor penetration 10, throw force of 20 and
+      20% more damage against objects. Normal sized.
+  - balance: Forged Hammer forces you to carry it two handed, does 25 damage, with
+      10 AP and does double damage against objects. Bulky sized.
+  - balance: Forged Buckler does 10 damage, has 30 block chance and 150 integrity
+      (a lot for a shield). Normal sized.
+  - balance: Forged Pavise does 12 damage, has 50 block chance, requires only one
+      hand but slows you down while in your hand, with 300 integrity. Huge sized.
+  - balance: Forged Pickaxe does 15 damage, has a 15% bonus against objects, and have
+      a 25% speed bonus when used to mine. Bulky sized.
+  - balance: Forged Shovel does 8 damage and have a 25% speed bonus when used to mine.
+      Normal sized.
+  - balance: '''Forged'' Bokken, the wooden sword that can be made on the workbench
+      with no anvil or fuel, its now flammable, doesnt affect mobs, and does entirely
+      stamina damage. It has 40 AP, in one hand it does 15 damage and has a block
+      chance of 20, while wielded does 25 damage and has a 40 block chance. It''s
+      quite a powerfull non lethal option.'
+  Redrover1760:
+  - bugfix: Fixed light overloads not draining significant amounts of energy.
+  - bugfix: Power sinks now drain APCs at a significant rate instead of glacially
+      slow.
+  - balance: Power sinks are adjusted to not explode within 30 seconds of the average
+      power output a station produces.
+  SmArtKar:
+  - image: Added new sprites for hellfire lasers
+  Watermelon914:
+  - bugfix: Fixed a bug that breaks signal handlers on an object if one of the signal
+      handlers doesn't return a number value.
+  Xackii:
+  - bugfix: fixed that screwdriwing radio headset in combat mode don't do anything.
+  alien3301:
+  - balance: When silicons use their radio they will not whisper out loud anymore
+  grungussuss:
+  - sound: being sacrificed by a heretic is now spookier
+  grungussuss and kayozz:
+  - sound: gravity generator has a new sound
+  vinylspiders:
+  - bugfix: due to a clerical error, all ballistic guns were shipping with built-in
+      silencers. this has been resolved-they will now make noise once again when fired.
+  - bugfix: fixes a crafting exploit that allowed you to get more resources back from
+      disassembling than you put into the recipe
+  - bugfix: fixed 'Enable Radio Noise' pref only being respected for deaf people
+2024-09-05:
+  vinylspiders:
+  - bugfix: fixed a bug that could sometimes cause moths to retain the flight trait
+      indefinitely when using their dash

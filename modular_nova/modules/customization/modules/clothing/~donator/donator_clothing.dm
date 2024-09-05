@@ -1972,22 +1972,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 //  Donator reward Smol42
 
 /obj/item/clothing/neck/trenchcoat
-	name = "Graceful Trenchcoat"
+	name = "Secure Trenchcoat"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	icon_state = "trenchcoat"
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
-		"White" = list(
+		"Snow" = list(
 			RESKIN_ICON_STATE = "trenchcoat_white",
 			RESKIN_WORN_ICON_STATE = "trenchcoat_white"
 		),
-		"Tin variant" = list(
+		"Tin" = list(
 			RESKIN_ICON_STATE = "trenchcoat_tin",
 			RESKIN_WORN_ICON_STATE = "trenchcoat_tin"
 		),
-		"Blue variant" = list(
+		"Blue" = list(
 			RESKIN_ICON_STATE = "trenchcoat_blue",
 			RESKIN_WORN_ICON_STATE = "trenchcoat_blue"
 		)

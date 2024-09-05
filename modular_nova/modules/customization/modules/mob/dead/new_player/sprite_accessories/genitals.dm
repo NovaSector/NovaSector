@@ -65,7 +65,7 @@
 	center = TRUE
 	special_x_dimension = TRUE
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)
 	genetic = TRUE
 	var/can_have_sheath = TRUE
 
@@ -139,7 +139,7 @@
 	always_color_customizable = TRUE
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
+	relevent_layers = list(BODY_FRONT_LAYER, BODY_BEHIND_LAYER)
 	genetic = TRUE
 	var/has_size = TRUE
 
@@ -183,7 +183,7 @@
 	key = ORGAN_SLOT_VAGINA
 	always_color_customizable = TRUE
 	default_color = "#FFCCCC"
-	relevent_layers = list(BODY_FRONT_LAYER)
+	relevent_layers = list(BODY_FRONT_UNDER_CLOTHES)
 	genetic = TRUE
 	var/alt_aroused = TRUE
 
@@ -269,7 +269,7 @@
 	key = ORGAN_SLOT_BREASTS
 	always_color_customizable = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_UNDER_CLOTHES)
 	has_skintone_shading = TRUE
 	genital_location = CHEST
 	genetic = TRUE

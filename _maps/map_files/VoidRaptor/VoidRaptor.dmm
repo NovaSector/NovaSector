@@ -35523,13 +35523,15 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
-/obj/structure/table/glass,
-/obj/item/knife/kitchen,
-/obj/item/wrench,
+/obj/machinery/vending/cytopro,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
 /area/station/science/xenobiology)
+"kgf" = (
+/obj/structure/detectiveboard/directional/south,
+/turf/open/floor/carpet,
+/area/station/security/detectives_office)
 "kgj" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning,
 /obj/effect/landmark/start/hangover,
@@ -45340,6 +45342,9 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
+/obj/structure/table/glass,
+/obj/item/wrench,
+/obj/item/knife/kitchen,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 4
 	},
@@ -122257,7 +122262,7 @@ oPM
 ldo
 naL
 wkj
-ajg
+kgf
 iMs
 hUo
 fcH

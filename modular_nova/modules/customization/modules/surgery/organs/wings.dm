@@ -94,6 +94,7 @@
 		if(istype(dash_user))
 			dash_user.adjustStaminaLoss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
 	else
+		REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
 
 /datum/emote/living/mothic_dash

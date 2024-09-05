@@ -1,0 +1,4 @@
+author: "Floofies"
+delete-after: True
+changes:
+  - bugfix: "Fixed some donator-only food items by removing the public-facing recipes for Miso Pasta, Red Bay Chicken Meatballs, Tiramisu, Red Planet Parm, Aubergine Rolls, and Pineapple Trifle."
