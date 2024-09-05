@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removes the Sloth Ruin from the rotation (ie, add it to the blacklist)"
