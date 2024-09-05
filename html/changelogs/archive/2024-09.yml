@@ -111,3 +111,7 @@
   - bugfix: fixes a crafting exploit that allowed you to get more resources back from
       disassembling than you put into the recipe
   - bugfix: fixed 'Enable Radio Noise' pref only being respected for deaf people
+2024-09-05:
+  vinylspiders:
+  - bugfix: fixed a bug that could sometimes cause moths to retain the flight trait
+      indefinitely when using their dash
