@@ -860,3 +860,8 @@
 	name = "One-Sleeved Leotard"
 	item_path = /obj/item/clothing/under/pants/half_leotard_cosmiclaer
 	ckeywhitelist = list("cosmiclaer")
+
+/datum/loadout_item/under/jumpsuit/shendyt
+	name = "Shendyt"
+	item_path = /obj/item/clothing/under/costume/shendyt
+	ckeywhitelist = list("hyperhazel")
