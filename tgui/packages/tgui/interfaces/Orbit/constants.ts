@@ -21,7 +21,16 @@ type Department = {
 export const DEPARTMENT2COLOR: Record<string, Department> = {
   cargo: {
     color: 'brown',
+    /* NOVA EDIT CHANGE START - ORIGINAL:
     trims: ['Bitrunner', 'Cargo Technician', 'Shaft Miner', 'Quartermaster'],
+    */
+    trims: [
+      'Bitrunner',
+      'Cargo Technician',
+      'Customs Agent',
+      'Shaft Miner',
+      'Quartermaster',
+    ],
   },
   command: {
     color: 'blue',
@@ -35,7 +44,16 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
   },
   engineering: {
     color: 'orange',
+    /* NOVA EDIT CHANGE START - ORIGINAL:
     trims: ['Atmospheric Technician', 'Chief Engineer', 'Station Engineer'],
+    */
+    trims: [
+      'Atmospheric Technician',
+      'Chief Engineer',
+      'Engineering Guard',
+      'Station Engineer',
+      'Telecomms Specialist',
+    ], // NOVA EDIT CHANGE END
   },
   medical: {
     color: 'teal',
@@ -45,15 +63,35 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
       'Coroner',
       'Medical Doctor',
       'Paramedic',
+      'Orderly', // NOVA EDIT ADDITION
+      'Virologist', // NOVA EDIT ADDITION
     ],
   },
   science: {
     color: 'pink',
+    /* NOVA EDIT CHANGE START - ORIGINAL:
     trims: ['Geneticist', 'Research Director', 'Roboticist', 'Scientist'],
+    */
+    trims: [
+      'Geneticist',
+      'Research Director',
+      'Roboticist',
+      'Science Guard',
+      'Scientist',
+    ], // NOVA EDIT CHANGE END
   },
   security: {
     color: 'red',
+    /* NOVA EDIT CHANGE START - ORIGINAL:
     trims: ['Detective', 'Head of Security', 'Security Officer', 'Warden'],
+    */
+    trims: [
+      'Corrections Officer',
+      'Detective',
+      'Head of Security',
+      'Security Officer',
+      'Warden',
+    ], // NOVA EDIT CHANGE END
   },
   service: {
     color: 'green',
