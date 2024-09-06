@@ -115,3 +115,15 @@
   vinylspiders:
   - bugfix: fixed a bug that could sometimes cause moths to retain the flight trait
       indefinitely when using their dash
+2024-09-06:
+  Floofies:
+  - bugfix: Fixed some donator-only food items by removing the public-facing recipes
+      for Miso Pasta, Red Bay Chicken Meatballs, Tiramisu, Red Planet Parm, Aubergine
+      Rolls, and Pineapple Trifle.
+  OrbisAnima:
+  - rscdel: Removes the Sloth Ruin from the rotation (ie, add it to the blacklist)
+  Oxotnak:
+  - rscadd: added meson scouter alt skin (engi version too)
+  - image: added meson scouter icons
+  Stalkeros:
+  - rscadd: Hyperhazel's donator item
