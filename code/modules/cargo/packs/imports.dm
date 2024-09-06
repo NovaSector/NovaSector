@@ -324,6 +324,8 @@
 	crate_name = "floortile camouflauge crate"
 	crate_type = /obj/structure/closet/crate/secure/weapon
 
+// NOVA EDIT REMOVAL BEGIN
+/*
 /**
  * The Long To Short Range Bluespace Teleporter, used to deliver (black) market purchases more effiiently
  * It can also be used to restock it, if you hit it with enough credits.
@@ -340,3 +342,5 @@
 		/obj/item/stack/ore/bluespace_crystal/artificial = 2,
 		/obj/item/stock_parts/subspace/ansible,
 	)
+*/
+// NOVA EDIT REMOVAL END
