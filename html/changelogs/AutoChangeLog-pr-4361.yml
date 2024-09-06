@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "SolFed radio channel key has been switched from :l to :f , to avoid conflict with the lefthand radio shortcut."
+  - bugfix: "guild radio channel key has been switched from :i to :d , to avoid conflict with the intercom radio shortcut."
