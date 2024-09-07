@@ -73,5 +73,6 @@
 // No freebies if this spawns on the interlink
 /obj/machinery/vending/deforest_medvend/Initialize(mapload)
 	if(mapload && istype(get_area(src), /area/centcom/interlink))
-		onstation_override = 1
+		AddComponent(/datum/component/payment, 0, SSeconomy.get_dep_account(payment_department), PAYMENT_VENDING)
+		GLOB.vending_machines_to_restock += src //We need to keep track of the final onstation vending machines so we can keep them restocked.
 	return ..()
