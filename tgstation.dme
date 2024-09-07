@@ -8224,6 +8224,7 @@
 #include "modular_nova\modules\novaya_ert\code\outfit.dm"
 #include "modular_nova\modules\novaya_ert\code\police_outfit.dm"
 #include "modular_nova\modules\novaya_ert\code\shield.dm"
+#include "modular_nova\modules\novaya_ert\code\space_suit.dm"
 #include "modular_nova\modules\novaya_ert\code\surplus_armor.dm"
 #include "modular_nova\modules\novaya_ert\code\survival_pack.dm"
 #include "modular_nova\modules\novaya_ert\code\toolbox.dm"

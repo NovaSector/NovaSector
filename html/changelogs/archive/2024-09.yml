@@ -115,3 +115,29 @@
   vinylspiders:
   - bugfix: fixed a bug that could sometimes cause moths to retain the flight trait
       indefinitely when using their dash
+2024-09-06:
+  Floofies:
+  - bugfix: Fixed some donator-only food items by removing the public-facing recipes
+      for Miso Pasta, Red Bay Chicken Meatballs, Tiramisu, Red Planet Parm, Aubergine
+      Rolls, and Pineapple Trifle.
+  OrbisAnima:
+  - rscdel: Removes the Sloth Ruin from the rotation (ie, add it to the blacklist)
+  Oxotnak:
+  - rscadd: added meson scouter alt skin (engi version too)
+  - image: added meson scouter icons
+  Stalkeros:
+  - rscadd: Hyperhazel's donator item
+2024-09-07:
+  Stalkeros:
+  - rscadd: Returns the LTSRBTB (LTSRBT board) to the Black Market uplink's selection
+  Stalkeros, Moldb for the space suit sprites:
+  - rscadd: '"Voskhod" space suits have been made available for purchase by the "Surplus"
+      military surplus imports company'
+  - rscdel: Deletes all of the NRI posters as I come up with new ones.
+  - qol: Fixes an oversight with most of the not-NRI police equipment being Cargo-locked.
+  vinylspiders:
+  - bugfix: fixes bluesec/redsec night vision goggles having invisible icons
+  - bugfix: SolFed radio channel key has been switched from :l to :f , to avoid conflict
+      with the lefthand radio shortcut.
+  - bugfix: guild radio channel key has been switched from :i to :d , to avoid conflict
+      with the intercom radio shortcut.
