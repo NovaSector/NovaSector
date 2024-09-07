@@ -1,6 +1,0 @@
-author: "Stalkeros, Moldb for the space suit sprites"
-delete-after: True
-changes:
-  - rscadd: "\"Voskhod\" space suits have been made available for purchase by the \"Surplus\" military surplus imports company"
-  - rscdel: "Deletes all of the NRI posters as I come up with new ones."
-  - qol: "Fixes an oversight with most of the not-NRI police equipment being Cargo-locked."

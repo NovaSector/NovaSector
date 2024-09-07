@@ -127,3 +127,17 @@
   - image: added meson scouter icons
   Stalkeros:
   - rscadd: Hyperhazel's donator item
+2024-09-07:
+  Stalkeros:
+  - rscadd: Returns the LTSRBTB (LTSRBT board) to the Black Market uplink's selection
+  Stalkeros, Moldb for the space suit sprites:
+  - rscadd: '"Voskhod" space suits have been made available for purchase by the "Surplus"
+      military surplus imports company'
+  - rscdel: Deletes all of the NRI posters as I come up with new ones.
+  - qol: Fixes an oversight with most of the not-NRI police equipment being Cargo-locked.
+  vinylspiders:
+  - bugfix: fixes bluesec/redsec night vision goggles having invisible icons
+  - bugfix: SolFed radio channel key has been switched from :l to :f , to avoid conflict
+      with the lefthand radio shortcut.
+  - bugfix: guild radio channel key has been switched from :i to :d , to avoid conflict
+      with the intercom radio shortcut.
