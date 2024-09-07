@@ -72,6 +72,6 @@
 
 // No freebies if this spawns on the interlink
 /obj/machinery/vending/deforest_medvend/Initialize(mapload)
-	if(istype(get_area(src), /area/centcom/interlink))
+	if(mapload && istype(get_area(src), /area/centcom/interlink))
 		onstation_override = 1
 	return ..()
