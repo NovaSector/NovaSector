@@ -551,6 +551,8 @@
 	new_profile.emissive_eyes = target.emissive_eyes
 	new_profile.scream_type = target.selected_scream?.type || /datum/scream_type/none
 	new_profile.laugh_type = target.selected_laugh?.type || /datum/laugh_type/none
+	new_profile.target_height = target.get_mob_height()
+	new_profile.target_mob_size = target.mob_size
 	//NOVA EDIT ADDITION END
 
 	// Grab skillchips they have
@@ -801,6 +803,8 @@
 	qdel(user.selected_laugh)
 	user.selected_scream = new chosen_profile.scream_type
 	user.selected_laugh = new chosen_profile.laugh_type
+	user.mob_size = chosen_profile.target_mob_size
+	user.set_mob_height(chosen_profile.target_height)
 
 	// Only certain quirks will be copied, to avoid making the changeling blind or wheelchair-bound when they can simply pretend to have these quirks.
 

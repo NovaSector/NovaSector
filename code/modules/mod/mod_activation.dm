@@ -17,8 +17,8 @@
 	if(!pick)
 		return
 	var/part_reference = display_names[pick]
-	var/obj/item/part = locate(part_reference) in parts
-	if(!istype(part) || user.incapacitated())
+	var/obj/item/part = locate(part_reference) in get_parts()
+	if(!istype(part) || user.incapacitated)
 		return
 	if(activating) // NOVA EDIT - RETRACTABLE EVERYTHING
 		balloon_alert(user, "deactivate the suit first!")

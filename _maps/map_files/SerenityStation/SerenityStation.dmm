@@ -44679,6 +44679,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/disposalpipe/segment,
+/obj/structure/detectiveboard/directional/west,
 /turf/open/floor/wood/large,
 /area/station/security/detectives_office)
 "mOp" = (

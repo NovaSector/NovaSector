@@ -35528,6 +35528,10 @@
 	dir = 4
 	},
 /area/station/science/xenobiology)
+"kgf" = (
+/obj/structure/detectiveboard/directional/south,
+/turf/open/floor/carpet,
+/area/station/security/detectives_office)
 "kgj" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning,
 /obj/effect/landmark/start/hangover,
@@ -122258,7 +122262,7 @@ oPM
 ldo
 naL
 wkj
-ajg
+kgf
 iMs
 hUo
 fcH

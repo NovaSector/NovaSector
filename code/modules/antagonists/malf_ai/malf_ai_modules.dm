@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	desc = "[desc] It has [uses] use\s remaining."
 
 /datum/action/innate/ai/ranged/override_machine/do_ability(mob/living/caller, atom/clicked_on)
-	if(caller.incapacitated())
+	if(caller.incapacitated)
 		unset_ranged_ability(caller)
 		return FALSE
 	if(!ismachinery(clicked_on))
@@ -544,7 +544,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		qdel(to_explode)
 
 /datum/action/innate/ai/ranged/overload_machine/do_ability(mob/living/caller, atom/clicked_on)
-	if(caller.incapacitated())
+	if(caller.incapacitated)
 		unset_ranged_ability(caller)
 		return FALSE
 	if(!ismachinery(clicked_on))
@@ -693,7 +693,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		C.images -= I
 
 /mob/living/silicon/ai/proc/can_place_transformer(datum/action/innate/ai/place_transformer/action)
-	if(!eyeobj || !isturf(loc) || incapacitated() || !action)
+	if(!eyeobj || !isturf(loc) || incapacitated || !action)
 		return
 	var/turf/middle = get_turf(eyeobj)
 	var/list/turfs = list(middle, locate(middle.x - 1, middle.y, middle.z), locate(middle.x + 1, middle.y, middle.z))
@@ -1110,7 +1110,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 	var/mob/living/silicon/ai/ai_caller = caller
 
-	if(ai_caller.incapacitated())
+	if(ai_caller.incapacitated)
 		unset_ranged_ability(caller)
 		return FALSE
 
@@ -1200,7 +1200,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		return FALSE
 	var/mob/living/silicon/ai/ai_caller = caller
 
-	if (ai_caller.incapacitated() || !isturf(ai_caller.loc))
+	if (ai_caller.incapacitated || !isturf(ai_caller.loc))
 		return FALSE
 
 	var/turf/target = get_turf(clicked_on)
@@ -1228,7 +1228,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	COOLDOWN_START(src, time_til_next_tilt, roll_over_cooldown)
 
 /datum/action/innate/ai/ranged/core_tilt/proc/do_roll_over(mob/living/silicon/ai/ai_caller, picked_dir)
-	if (ai_caller.incapacitated() || !isturf(ai_caller.loc)) // prevents bugs where the ai is carded and rolls
+	if (ai_caller.incapacitated || !isturf(ai_caller.loc)) // prevents bugs where the ai is carded and rolls
 		return
 
 	var/turf/target = get_step(ai_caller, picked_dir) // in case we moved we pass the dir not the target turf
@@ -1242,7 +1242,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /// Used in our radial menu, state-checking proc after the radial menu sleeps
 /datum/action/innate/ai/ranged/core_tilt/proc/radial_check(mob/living/silicon/ai/caller)
-	if (QDELETED(caller) || caller.incapacitated() || caller.stat == DEAD)
+	if (QDELETED(caller) || caller.incapacitated || caller.stat == DEAD)
 		return FALSE
 
 	if (uses <= 0)
@@ -1289,7 +1289,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 		return FALSE
 	var/mob/living/silicon/ai/ai_caller = caller
 
-	if(ai_caller.incapacitated())
+	if(ai_caller.incapacitated)
 		unset_ranged_ability(caller)
 		return FALSE
 
@@ -1345,7 +1345,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 /// Used in our radial menu, state-checking proc after the radial menu sleeps
 /datum/action/innate/ai/ranged/remote_vendor_tilt/proc/radial_check(mob/living/silicon/ai/caller, obj/machinery/vending/clicked_vendor)
-	if (QDELETED(caller) || caller.incapacitated() || caller.stat == DEAD)
+	if (QDELETED(caller) || caller.incapacitated || caller.stat == DEAD)
 		return FALSE
 
 	if (QDELETED(clicked_vendor))

@@ -382,7 +382,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"
@@ -397,7 +397,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/sec
 	name = "\improper SolFed adv. Security encryption key"
@@ -412,7 +412,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/med
 	name = "\improper SolFed adv. Medical encryption key"

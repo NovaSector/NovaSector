@@ -162,7 +162,7 @@
 	worn_icon_state = "radio"
 	alternate_worn_layer = FACEMASK_LAYER + 0.5
 	subspace_transmission = FALSE
-	radiosound = 'modular_nova/modules/kahraman_equipment/sound/morse_signal.wav'
+	radio_talk_sound = 'modular_nova/modules/kahraman_equipment/sound/morse_signal.wav'
 
 /obj/item/radio/headset/headset_frontier_colonist/Initialize(mapload)
 	. = ..()
