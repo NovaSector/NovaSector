@@ -1,7 +1,25 @@
+#define ALIEN_DRONE "drone"
+#define ALIEN_WARRIOR "warrior"
+#define ALIEN_RUNNER "runner"
+#define ALIEN_DEFENDER "defender"
+#define ALIEN_RAVAGER "ravager"
+
+/mob/living/basic/alien/drone
+	/// Determines which subtype of drone gets created. If nothing is set it is randomly chosen upon initialization.
+	var/drone_type
+
 /mob/living/basic/alien/drone/Initialize(mapload)
 	. = ..()
-	switch(rand(1,5))
-		if(1)
+	var/list/drone_types = list(ALIEN_DRONE, ALIEN_WARRIOR, ALIEN_RUNNER, ALIEN_DEFENDER, ALIEN_RAVAGER)
+	if(isnull(drone_type) || !(drone_type in drone_types))
+		drone_type = pick(drone_types)
+
+	set_drone_type(drone_type)
+
+/// Sets a drone to one of the template subtypes given an arg string.
+/mob/living/basic/alien/drone/proc/set_drone_type(drone_type)
+	switch(drone_type)
+		if(ALIEN_DRONE)
 			name = "alien drone"
 			icon_state = "aliendrone"
 			icon_living = "aliendrone"
@@ -13,7 +31,7 @@
 			unique_name = TRUE
 			pixel_x = -16
 			base_pixel_x = -16
-		if(2)
+		if(ALIEN_WARRIOR)
 			name = "alien warrior"
 			icon_state = "alienwarrior"
 			icon_living = "alienwarrior"
@@ -24,7 +42,7 @@
 			mob_size = MOB_SIZE_LARGE
 			pixel_x = -16
 			base_pixel_x = -16
-		if(3)
+		if(ALIEN_RUNNER)
 			name = "alien runner"
 			icon_state = "alienrunner"
 			icon_living = "alienrunner"
@@ -36,7 +54,7 @@
 			unique_name = TRUE
 			pixel_x = -16
 			base_pixel_x = -16
-		if(4)
+		if(ALIEN_DEFENDER)
 			name = "alien defender"
 			icon_state = "aliendefender"
 			icon_living = "aliendefender"
@@ -49,7 +67,7 @@
 			mob_size = MOB_SIZE_LARGE
 			pixel_x = -16
 			base_pixel_x = -16
-		if(5)
+		if(ALIEN_RAVAGER)
 			name = "alien ravager"
 			icon_state = "alienravager"
 			icon_living = "alienravager"
@@ -60,3 +78,10 @@
 			mob_size = MOB_SIZE_LARGE
 			pixel_x = -16
 			base_pixel_x = -16
+	update_icon(updates=ALL)
+
+#undef ALIEN_DRONE
+#undef ALIEN_WARRIOR
+#undef ALIEN_RUNNER
+#undef ALIEN_DEFENDER
+#undef ALIEN_RAVAGER
