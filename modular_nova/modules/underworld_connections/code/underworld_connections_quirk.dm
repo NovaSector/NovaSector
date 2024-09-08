@@ -7,7 +7,7 @@
 	lose_text = span_notice("Your contacts to the underworld have gone quiet.")
 	medical_record_text = "Patient records may have been tampered with in the past."
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
-	mail_goodies = list(/obj/item/storage/briefcase/secure)
+	mail_goodies = list(/obj/item/circuitboard/machine/ltsrbt, /obj/item/stack/ore/bluespace_crystal/artificial, /datum/stock_part/ansible)
 
 /datum/quirk/item_quirk/underworld_connections/add_unique(client/client_source)
 	if (ishuman(quirk_holder))
