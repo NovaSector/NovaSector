@@ -77,7 +77,7 @@
 		/obj/item/food/grown/poppy/lily = 2,
 		/obj/item/food/grown/rose = 2,
 		/obj/item/food/grown/poppy/geranium = 2,
-		/datum/material/silver = 1,
+		/obj/item/stack/sheet/mineral/silver = 1,
 	)
 	category = CAT_ENTERTAINMENT
 
