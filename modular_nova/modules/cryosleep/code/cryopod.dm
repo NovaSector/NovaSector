@@ -102,7 +102,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	return data
 
-/obj/machinery/computer/cryopod/ui_act(action, list/params)
+/obj/machinery/computer/cryopod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

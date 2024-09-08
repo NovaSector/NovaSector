@@ -272,7 +272,7 @@
 	. = cost
 	. *= SSeconomy.pack_price_modifier
 
-/datum/component/armament/company_imports/ui_act(action, list/params)
+/datum/component/armament/company_imports/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -280,7 +280,7 @@
 	switch(action)
 		if("toggleprivate")
 			var/obj/item/card/id/id_card
-			var/mob/living/carbon/human/the_person = usr
+			var/mob/living/carbon/human/the_person = ui.user
 
 			if(!istype(the_person))
 				if(issilicon(the_person))

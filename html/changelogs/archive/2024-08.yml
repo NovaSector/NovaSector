@@ -588,3 +588,381 @@
   dis-integrates-the-integration-tests:
   - qol: Meow faster! Scream faster! Mrrp faster! Everything faster! (Global Emote
       cooldowns 5s -> 2s)
+2024-08-21:
+  CliffracerX:
+  - rscadd: Expands character customization by adding all species limbs to the augments
+      tab.
+  - bugfix: Fixes augments that use icon_greyscale not rendering properly on character
+      creation.
+  OrionTheFox:
+  - rscdel: Removed two unmaintained modular space ruins, Ghostship and Salvageyard
+  honkpocket:
+  - rscadd: Xenohybrids now make use of the xenomorph blood decals
+2024-08-22:
+  Oxotnak:
+  - qol: plumbing tools now fit in toolbelt
+  Zergspower:
+  - rscadd: re-adds the Ghostship Space ruin
+  sqnztb:
+  - balance: seed meshes no longer spawn evil seedlings or gatfruit
+  vinylspiders:
+  - bugfix: fixes medical record link not being viewable to observers when examining
+      a mob
+2024-08-23:
+  Absolucy:
+  - bugfix: Empty blood brother teams will now be cleaned up, instead of clogging
+      up the roundend report.
+  - qol: Clicking floor tiles now also closes curator/morgue doors, like with normal
+      airlocks.
+  - qol: Unarmed attacks with carp jaws now uses a bite effect rather than a punch
+      effect.
+  ArcaneMusic:
+  - rscadd: White crayons (Renamed to Sticks of Chalk) may now be used on dead bodies
+      to draw a body outline onto the ground easily.
+  Ben10Omintrix:
+  - bugfix: fences will no longer appear pitch black and they will layer properly
+  - bugfix: fixes ai controllers incorrectly idling when changing z level
+  Bisar:
+  - bugfix: Potted plants no longer permanently mark you as one of their own.
+  - bugfix: The Nanotrasen Emergency Religious Response Team has blessed the station;
+      heretic summon rituals now actually consume resources, fixing infinite summon
+      loops.
+  - rscadd: Nanotrasen Intelligence has received reports of botanical experimentation
+      in a Syndicate base on lavaland. What fiendish flora are taking root in their
+      secret lair?
+  CliffracerX:
+  - bugfix: some bodypart rendering is properly below most clothes & bespoke accessories
+      now.
+  - bugfix: lost Vox limbs are no longer pink squares!
+  DATA-xPUNGED:
+  - qol: Paraplegics can now opt into appearing on the shift without their legs.
+  Ghommie:
+  - rscadd: Fishing toolboxes (and occasionally maintenance) now come with a paper
+      slip containing fishing-related tips.
+  - image: Ported and adapted several food sprites from Aurora, Bay and one instance
+      from Paradise -- Bacon, plant meat, slime meat, cutlets, crab meat, crab rangoon,
+      bechamel sauce, cheese curd, waffles, chips, shrimp chips, cheesie honkers,
+      space twinkie, jerky, peanuts bags, chocolate, boritos, syndicake, popcorn,
+      pesto, tomato sauce, pineapple slice, pineapple salsa, bran request cereals
+      and bronx bar have been resprited.
+  - rscdel: Waffles no longer magically conjure a "waffle tray" trash item when eaten.
+  - bugfix: Fixes lobby buttons from station traits having no name and being unexaminable.
+  - image: Shrunk the arrow shown when pointing at things to be less invasive.
+  - rscadd: Wearing an ID with the trim of a command/leader position gives you bigger
+      arrows (about the size of arrows before this PR) which may also be of different
+      colors.
+  - rscadd: Added a skillchip that does the same, but also makes the color of the
+      arrow totally customizable.
+  - bugfix: ERT engies and medics now come with the engineering and entrails-reader
+      skillchips respectively, like their station counterparts.
+  - bugfix: Fixed not facing atoms that you're pointing at.
+  - image: Resprited more types of fillets, and moonfish eggs
+  - rscadd: Added a bluespace fish case to the advanced fishing node.
+  - balance: Fish cases will keep a fish from getting hungrier or ready to reproduce,
+      while also healing it up to 65% health.
+  - balance: Examining a fish with zero fishing skill whatsoever won't give a reading
+      on its size and weight. Conversely, examining one with the skill leveled two
+      times will give general information on if it's starving, sick, hungry, or dead.
+  - rscadd: Added a treasure chest you can rarely fish from the ocean/beach, with
+      loot being a mix of fishing and piratey stuff.
+  - rscadd: You can revive fish with strange reagent now.
+  - bugfix: paintings now drop canvas and frame when knocked off the wall.
+  - rscadd: Crabs and lobstrosities (as well as the lobster foam helmet and the fishing
+      hat) now pack a boatload of fish puns.
+  - rscadd: You can sell items on the blackmarket with the LTSRBT now.
+  - bugfix: Added some checks to prevent the swapper device and bluespace anomalies
+      from theorically being able to send things and people to nullspace.
+  - rscadd: Added twelve new fish types to the game. Some are cool, other are not,
+      some come with their own special traits and some are straight-up weapons.
+  - rscadd: Added more fishing spots to the game. Sand, ice, rivers, the cursed spring...
+  - balance: A few fish like salmon, swordfish and pufferfish (poisonous btw) now
+      give better quality fillets when butchered, which can improve the quality of
+      food that uses them even further.
+  - balance: Excessive fish weight will make the fish slowier to carry, while excessive
+      size may make it require two hands.
+  - balance: Adjusted size, weight and cooldowns of several fish, for the better.
+  - rscadd: Buckshot is back on the menu, on the blackmarket.
+  - balance: the integrity of firearms now counts toward projectile damage. A gun
+      that's on the very verge of breaking down will deal half as much damage.
+  Iamgoofball:
+  - balance: Air alarms are now usable by Station Engineers as well as Atmospherics
+      Technicians.
+  Jacquerel:
+  - balance: Pacifist carp can now be spawned from the friendly gold core reaction,
+      and no longer appear from the hostile one.
+  - bugfix: The teeth of toothless carp will not occasionally reappear
+  - bugfix: Crabs will now run from attackers larger than them and attack things smaller
+      than them, as intended.
+  - bugfix: corrects offset of cobweb fluff object
+  - bugfix: Mobs shown in ghost alerts shouldn't be offset out of the box
+  - image: Several midround dynamic alert icons should be more demonstrative of what
+      is spawning
+  JohnFulpWillard:
+  - rscadd: Added Taunting, a faster and cooldowned version of the Spin emote.
+  - balance: Wizards blocking projectiles with Transparence and the bitrunner matrix
+      skillchip now have a visible effect of deflecting the projectile.
+  - balance: The bitrunner skillchip now uses taunt instead of flip.
+  - balance: The style meter now uses taunting instead of flips and spins.
+  - bugfix: Statues don't count as eyes to creatures.
+  - bugfix: Human AIs and Admin ghosts no longer get kicked off of machines that aren't
+      on cameranets.
+  LemonInTheDark:
+  - admin: Subsystem Overview now has the ability to track a rolling average of tick
+      by tick subsystem cpu usage.
+  Majkl-J:
+  - bugfix: custom pies and cakes are craftable again
+  - bugfix: Trying to repair someone's undamaged limb with a welder or wires no longer
+      has you smacking them
+  Melbert:
+  - bugfix: Patch exploit allowing nigh-infinite heretic points
+  - qol: Xenos and digi lizards have claw footprints
+  - rscadd: Auto-generated digitigrade clothing sprites for most jumpsuits
+  Metekillot:
+  - bugfix: Raptors properly respect their own factions now.
+  Redrover1760:
+  - balance: Changed max refined vortex cores from 1 to 3. Changed the Event Horizon
+      Anti-Existential Beam Rifle recipe to require 2 vortex cores.
+  Rhials:
+  - sound: '"radio message received" audio now has a brief cooldown.'
+  - bugfix: Beepsky will now salute commissioned bots, instead of himself, when encountering
+      one.
+  - qol: Delivery/Bot pathing nodes have been added to the middle room of Runtime
+      station.
+  - sound: Windows blown out by a Voidwalker blade now have a cool sound that plays
+      as they reform.
+  - code_imp: Radios/encryption keys now use a single variable for "special" frequencies.
+      Please report if you experience any strangeness with accessing/being unable
+      to access the Centcom, Syndicate, or Cyborg radio.
+  - admin: You can now choose the humanoid species spawned by an ERT summon in the
+      summon menu.
+  Sadboysuss:
+  - qol: atmos meters can now be attached to layer 1 and 5
+  - sound: generic ship ambience volume has been reduced
+  Shadow-Quill:
+  - bugfix: You can no longer hear radio sounds if you're deaf.
+  SmArtKar:
+  - bugfix: Ragnarok deathmatch arena now has noteleport area
+  - image: Utility belts got new tool overlay sprites
+  - spellcheck: CE's toolbelt is no longer capitalized or considered an improper noun
+  - bugfix: Mechs' directional armor now actually works
+  - bugfix: Replaced a locked cabinet that you cannot open in ninja den with an unlocked
+      one
+  - bugfix: Random spraypaint setting now properly paints large decals
+  - qol: Haunted 8ball now gives you a TGUI input with your question for ghosts instead
+      of telling them the last thing it heard.
+  - image: 8ball has received a resprite
+  - bugfix: Alien beds no longer pretend they can be deconstructed with a wrench
+  - image: Gas tanks got updated worn sprites
+  - balance: PACMANs now have significantly increased power output and take longer
+      to consume a single sheet
+  - balance: Inducers can now be recharged with plasma
+  - balance: Inducers ordered from cargo now start with upgraded megacells instead
+      of upgraded batteries
+  - bugfix: Fixes kudzu being able to spawn on openspace turfs resulting in it getting
+      stuck
+  - bugfix: Radioactive nebula no longer runtimes on runtime station
+  - image: Updated goliath cloak sprites
+  - bugfix: Fixed improvised shield crafting recipe being overriden by moonflowers
+  - rscadd: You can now lean on windows the same way you can lean on walls
+  - bugfix: You no longer stop leaning on walls after clicking on anything
+  - balance: Vomiting from disgust now removes 50 of it from you.
+  - bugfix: Captain's spare safe no longer turns invisible when opened
+  - bugfix: Fixed soapbox component sometimes runtiming roundstart
+  - qol: Dumping things into microwave en-masse is done via RMB (drag'n'drop support
+      coming soon!)
+  - bugfix: RPEDs can now upgrade microwaves
+  - bugfix: Spies can finally steal microwaves (Use RMB!)
+  - admin: Stat change is now logged for living mobs
+  - image: Updated cryostasis beaker's sprite
+  - bugfix: Fixed random lipstick texture, fake syndie lipstick no longer can randomly
+      spawn
+  - bugfix: Blade heretic ascension now gives you floating blades once again
+  Timberpoes:
+  - bugfix: Having the Overflow Role set to On will properly ensure you get that role
+      at a High priority as intended by the game code.
+  - bugfix: Job selection is now a little bit more random. Fixes an unintentional
+      bias in random job assignment that could lead to feast-or-famine for roles where
+      everyone is assigned one job and nobody is assigned another job.
+  Time-Green:
+  - qol: The Voidwalker wisp void now loops you
+  TwistedSilicon:
+  - bugfix: Clarkes will no longer become unable to dump ores upon picking a boulder
+      up. Mine away.
+  by Xackii, sprites by ArcaneMusic:
+  - rscadd: Added big manipulators.
+  carlarctg:
+  - rscadd: Added three new DM maps - Ragnarok, Lattice Battles, Species Showdown.
+  deathrobotpunch:
+  - rscadd: big pharma now supplies a single pack of experimental medication as an
+      easy to access (albeit expensive) cargo goodie!
+  - balance: price for the cargo crate with 2 pill bottles of experimental medication
+      has been increased to 600 to better reflect the goodie case price.
+  grungussuss:
+  - sound: some sheets that shouldn't be making metal sounds no longer make those
+      sounds
+  - sound: added new sounds for RCD, RPD and Plumbing Constructor.
+  - sound: computers now make clicky clacky sounds
+  lizelive:
+  - balance: reticence requires progression
+  mc-oofert:
+  - rscadd: portable gravity unit, bought at cargo
+  - balance: wheelchairs no longer double your movement cooldown if you moved diagonally
+  - bugfix: spawning on a table or other elevated object does not offset you forever
+  necromanceranne:
+  - rscadd: Punching mitts! Punch wildlife to death and scream the whole time. ADVENTURE!
+  - balance: Megafauna can be affected by martial arts.
+  - rscadd: Drunken fist fighting now has bonuses and penalties based on how intoxicated
+      you are. Controlled liquor intake could make you a better brawler. Though you
+      might vomit if you go too hard.
+  - rscadd: Bartenders are now Drunken Brawlers. If they're drunk at all (no matter
+      how drunk), they're stronger at fist fighting.
+  - rscadd: Reintroduces the deterministic stagger combo. The effects of the combo
+      are more varied, and based on attacker unarmed effectiveness and the defender's
+      armor. Read the PR for more details. It's complicated.
+  - qol: Unarmed effects that would utilize stamina values now use a split of half
+      brute, half burn to determine outcomes or for meeting thresholds. This affects;
+      punch accuracy, stagger combo thresholds and grab vulnerability thresholds.
+  norsvenska:
+  - qol: The CentCom officer's beret has had its slowdown removed to be in line with
+      the winter coat.
+  r3dj4ck0424:
+  - rscadd: A new vendor of cytology equipment, the CytoPro, is now available in your
+      local science department!
+  - balance: The CytoPro has had prices raised to slightly more reasonable levels.
+  san7890:
+  - bugfix: The area of the CentCom Z-Level dedicated to the Lobby Screen should look
+      far better now, with a solid black title screen should the lobby image not load
+      in/get deleted.
+  - qol: Reporting issues on the Github should now be a far more simpler experience.
+      Hitting the "Report Issue" button in the top-right of your BYOND Client Screen
+      will still autofill in the fields as expected.
+  tralezab:
+  - bugfix: bedsheets are laid on beds properly now
+  vinylspiders:
+  - bugfix: bricks will now sound like bricks
+  - bugfix: fixes an issue where some Malf AI modules were affecting Port Tarkon and
+      the Ghost Cafe when they should not have been able to
+2024-08-24:
+  SmArtKar:
+  - bugfix: Fixed active turfs on crashsite ruin
+  vinylspiders:
+  - bugfix: some digi versions of clothing items (like latex heels for example) will
+      no longer produce spontaneous pants when equipped
+  - bugfix: adds missing digi sprite for black sandals
+2024-08-25:
+  CliffracerX:
+  - bugfix: digitigrade-capable species limbs in Augs+ now respect your digitigrade
+      preference
+  sqnztb:
+  - bugfix: Snowglobe now has proper ordinance APC placements. SM chamber gets a button
+      for the radiation shutters. Library desk requires correct access. Kitchen has
+      a dehydrator. Perma now has standard cryo pods instead of wallmounted.
+  vinylspiders:
+  - bugfix: bedsheet pixel offsets should be fixed
+2024-08-27:
+  DaCoolBoss:
+  - bugfix: Aquarium decorations now contain plastic.
+  - spellcheck: Added item descriptions for aquarium decorations.
+  DrDiasyl aka DrTuxedo:
+  - rscadd: Curator has received a new BROADCAST CAMERA which can broadcast the surroundings
+      LIVE on Entertainment Screens/ Alongside with some other Journalism related
+      gear in his Heroic Beacon
+  - sound: Entertainment screens now play muffled speech when hearing a message on
+      Entertainment frequency
+  EnterTheJake:
+  - balance: Rusted Ritual now requries 10 sheets of Iron instead of Titanium.
+  GPeckman:
+  - bugfix: The instagib, ragecage, mech madness, secu-ring, shooting range, and sniper
+      elite deathmatch maps are available again.
+  Ghommie:
+  - bugfix: Fixes the chainsaw evolution for goldfishes.
+  - rscadd: You can place papers, photos and cash bills (no holochips) inside bottles
+      and then toss them into the ocean (or fishing portal gen with relative settings)
+      with right-click, for others to fish them up on future rounds.
+  - rscadd: Added Athletic Fishing Gloves and Fishing Glove Module to the advanced
+      fishing tech node. Both can be used to fish without having to hold a fishing
+      rod.  The athletic fishing gloves will also train your athletics skill.
+  - bugfix: You can no longer pickup closets and crates wrapped in a package with
+      a fishing rod.
+  - bugfix: Fixed a few harddel issues with mob spawns that caused charred corpses
+      fished from lavaland to create an invisible blockade.
+  - bugfix: Fixed being able to fish up mobs that have fallen in totally different
+      z-levels with a rescue hook (i.e. from bitrunning domains to lavaland).
+  LT3:
+  - spellcheck: Sneak a peek of Hilbert's Hotel, not a sneak peak
+  Majkl-J:
+  - rscadd: Achievement for eating 500 cigarettes
+  - balance: Cigarettes are now edible
+  - code_imp: Adds a variable to hide the food examine on the edible element
+  - bugfix: SSPolling no longer fills in the candidate list with empty entries to
+      guarantee it returns a list size of amount_to_pick
+  OrbisAnima:
+  - qol: The Cafe areas and the Interlink Dorms now properly account for how one would
+      feel being off the clock, making you happy enough to counter most work related
+      worries while inside. (You get a mood buff inside those areas)
+  - qol: SEVA suits use the same global list of items allowed than the rest of mining
+      (they can carry crushers now).
+  RatFromTheJungle:
+  - balance: Makes the AFAD slightly more practical, by raising it's healing rate.
+  SmArtKar:
+  - bugfix: Marine helmets no longer change their sprite to security helmets when
+      their flashlight is toggled
+  - spellcheck: Hierophant no longer lies about obliterating someone
+  - bugfix: Removed all ways of teleportation from deathmatch and replaced all consoles
+      on a certain map with non-functional variants. Loadouts have been adjusted to
+      account for this.
+  - rscdel: Species Warfare no longer has atmospherics-related equipment on it.
+  - spellcheck: Fixed a typo on snowdin shuttle transi(s)t consoles
+  TheBoondock:
+  - qol: goliath arm can defuse gibonite by bumping or direct click
+  YesterdaysPromise:
+  - rscadd: Added crates of the following varieties; Interdyne, Interdyne freezer,
+      Tiger Co-Op, S.E.L.F. MI13, A.R.C., Cybersun (4 colour variants), Waffle Corp,
+      Donk, Gorlex, Gorlex weapons, DeForest, Nakamure Engineeing, Robust Industries
+  grungussuss:
+  - sound: lead pipe has sound
+  honkpocket:
+  - bugfix: fixed an oversight on akula lungs which let them avoid the race its gills
+      gimmick
+  vinylspiders:
+  - bugfix: wet hides and hairless hides no longer make metal clanging noises when
+      picked up/dropped
+  - rscdel: '''Guild'' radio channel key (for "Privateer Slaver" role) has been swapped
+      from :p to :i , to avoid conflict with the new Curator ''Entertainment'' channel'
+2024-08-29:
+  Ben10Omintrix:
+  - bugfix: fixes blob spore and slime AI endlessly attacking the dead
+  FeudeyTF:
+  - rscadd: Added board for detective's evidences
+  Melbert:
+  - bugfix: Juicing and grinding should break less
+  Sakamoto4ka:
+  - rscadd: Added salt electrolysis reaction
+  SmArtKar:
+  - bugfix: Bioscrambler anomalies no longer affect inorganic species
+  Vekter:
+  - bugfix: Fixed an issue causing Quartermaster office access to show in the wrong
+      area on Plexagon Access Management.
+  - bugfix: Fixed an inconsistency in the naming for QM Office access.
+  grungussuss:
+  - bugfix: after 4 years, computer sound loop now works properly
+  sqnztb:
+  - qol: ghost cafe kitchen and botany have been refreshed with more tools
+2024-08-30:
+  Hatterhat:
+  - rscadd: DeForest is once again stocking medicated sutures and aloe-enhanced regenerative
+      mesh for import through Cargo.
+  Rhials:
+  - rscadd: Smokey remains have appeared in maintenance. Make sure to walk when near
+      them!
+  SmArtKar:
+  - bugfix: Stagger animation is no longer horrilbly jittery
+  - bugfix: Projectiles no longer always play turf hit sound
+  - balance: Plexagon Crew Manifest is now a default PDA app for everyone, and is
+      free.
+  - balance: Plexagon Crew Manifest no longer provides Detomatix resistance, but security
+      records and status display control now do.
+  Xackii:
+  - qol: revolver in roundstart holsters is on the last slot and not on first
+  vinylspiders:
+  - bugfix: the character directory previews are showing up once again
