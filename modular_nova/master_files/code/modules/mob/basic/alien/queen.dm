@@ -11,4 +11,3 @@
 	icon_living = "alienqueen"
 	icon_dead = "alienqueen_dead"
 
-
