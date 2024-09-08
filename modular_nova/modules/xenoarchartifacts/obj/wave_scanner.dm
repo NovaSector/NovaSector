@@ -25,7 +25,7 @@
 	if(!usr)
 		return
 
-	if(usr.incapacitated())
+	if(usr.incapacitated)
 		return
 
 	var/mob/user = usr
