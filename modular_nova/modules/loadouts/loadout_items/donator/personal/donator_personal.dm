@@ -15,7 +15,7 @@
 
 /datum/loadout_item/pocket_items/stellarbouquet
 	name = "Stellar Bouquet"
-	item_path = /obj/item/canvas/drawingtablet
+	item_path = /obj/item/bouquet/stellar
 	ckeywhitelist = list("thedragmeme")
 
 /datum/loadout_item/under/jumpsuit/paddedunder
