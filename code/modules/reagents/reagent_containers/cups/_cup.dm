@@ -233,6 +233,7 @@
 	possible_transfer_amounts = list(5,10,15,20,30,60) //NOVA EDIT: Addition
 	pickup_sound = 'sound/items/handling/beaker_pickup.ogg'
 	drop_sound = 'sound/items/handling/beaker_place.ogg'
+	sound_vary = TRUE
 
 /obj/item/reagent_containers/cup/beaker/Initialize(mapload)
 	. = ..()
