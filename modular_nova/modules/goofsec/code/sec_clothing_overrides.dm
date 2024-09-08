@@ -171,7 +171,7 @@
 		resolve_parent.balloon_alert(user, "can't reach!")
 		return FALSE
 
-	if(!isliving(user) || user.incapacitated())
+	if(!isliving(user) || user.incapacitated)
 		return FALSE
 
 	var/obj/item/gun/gun_to_draw = locate() in real_location
@@ -250,7 +250,7 @@
 	. = ..()
 	if(.)
 		return
-	if(user.incapacitated() || !can_toggle)
+	if(user.incapacitated || !can_toggle)
 		return
 	up = !up
 	flags_1 ^= visor_flags

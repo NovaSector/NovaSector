@@ -5,4 +5,4 @@
 /datum/smite/pie/effect(client/user, mob/living/target)
 	. = ..()
 	var/obj/item/food/pie/cream/nostun/creamy = new(get_turf(target))
-	creamy.splat(target)
+	creamy.throw_at(target, 1, 3)

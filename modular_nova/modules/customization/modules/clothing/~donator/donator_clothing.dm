@@ -574,7 +574,7 @@
 	var/goggles = FALSE
 
 /obj/item/clothing/head/avipilot/proc/adjust_goggles(mob/living/carbon/user)
-	if(user?.incapacitated())
+	if(user?.incapacitated)
 		return
 	if(goggles)
 		icon_state = "avipilotup"
@@ -1038,7 +1038,7 @@
 /obj/item/clothing/mask/gas/psycho_malice/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
-	if(!user.incapacitated())
+	if(!user.incapacitated)
 		var/is_worn = user.wear_mask == src
 		wear_hair_over = !wear_hair_over
 		if(wear_hair_over)
