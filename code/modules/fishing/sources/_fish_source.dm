@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(specific_fish_icons, generate_specific_fish_icons())
 		return
 	for(var/path in fish_counts)
 		if(!(path in fish_table))
-			stack_trace("path [path] found in the 'fish_counts' list but not in the fish_table one of [type]")
+			stack_trace("path [path] found in the 'fish_counts' list but not in the 'fish_table'")
 
 /datum/fish_source/Destroy()
 	exploded_turfs = null
@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT(specific_fish_icons, generate_specific_fish_icons())
 /datum/fish_source/proc/simple_dispense_reward(reward_path, atom/spawn_location, turf/fishing_spot)
 	if(isnull(reward_path))
 		return null
-	if(reward_path in fish_counts) // This is limited count result
+	if(!isnull(fish_counts[reward_path])) // This is limited count result
 		//Somehow, we're trying to spawn an expended reward.
 		if(fish_counts[reward_path] <= 0)
 			return null
@@ -283,7 +283,7 @@ GLOBAL_LIST(fishing_property_cache)
 /datum/fish_source/proc/get_fish_table()
 	var/list/table = fish_table.Copy()
 	for(var/result in table)
-		if(fish_counts[result] <= 0)
+		if(!isnull(fish_counts[result]) && fish_counts[result] <= 0)
 			table -= result
 	return table
 
@@ -296,7 +296,7 @@ GLOBAL_LIST(fishing_property_cache)
 	var/result_multiplier = 1
 
 
-	var/list/final_table = fish_table.Copy()
+	var/list/final_table = get_fish_table()
 
 	if(bait)
 		if(HAS_TRAIT(bait, TRAIT_GREAT_QUALITY_BAIT))
