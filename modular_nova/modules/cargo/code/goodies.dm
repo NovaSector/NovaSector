@@ -1,3 +1,12 @@
+/obj/item/storage/lockbox/Initialize(mapload)
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
+	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY*16 //Assuming full case+manifest
+	atom_storage.max_slots = 16 //See above
+	atom_storage.can_hold = typecacheof(list(
+		/obj/item/paper,
+	))
+
 /*
 *	EMERGENCY RACIAL EQUIPMENT
 */
