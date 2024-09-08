@@ -9,11 +9,23 @@
 "ac" = (
 /turf/open/space,
 /area/space/nearstation)
+"ad" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/transit_tube/horizontal,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "ae" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/open/space,
 /area/space/nearstation)
+"af" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/transit_tube/crossing/horizontal,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "ag" = (
 /turf/closed/wall/r_wall,
 /area/station/security/brig)
@@ -122,6 +134,9 @@
 /obj/item/stock_parts/power_store/cell/infinite,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"aX" = (
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "aY" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
@@ -302,6 +317,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/brig)
+"bY" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "bZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -574,6 +593,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/construction)
+"dN" = (
+/obj/machinery/navbeacon{
+	location = "1-Southwest";
+	codes_txt = "patrol;next_patrol=2-Northwest"
+	},
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "dP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -906,11 +932,6 @@
 /obj/machinery/status_display/supply,
 /turf/closed/wall/r_wall,
 /area/station/cargo/storage)
-"fE" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/transit_tube/horizontal,
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "fI" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/plating,
@@ -1074,12 +1095,9 @@
 /obj/item/paper/guides/jobs/security/labor_camp,
 /turf/open/floor/iron,
 /area/station/security/brig)
-"hl" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/structure/transit_tube/station/dispenser/reverse/flipped,
-/turf/open/floor/iron,
+"gW" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/closed/wall/r_wall,
 /area/station/engineering/gravity_generator)
 "hm" = (
 /obj/machinery/airalarm/directional/west,
@@ -1098,15 +1116,19 @@
 	},
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
-"ht" = (
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "hD" = (
 /obj/structure/closet/secure_closet/chemical/heisenberg{
 	locked = 0
 	},
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
+"hS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/transit_tube/station,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "ii" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1162,13 +1184,6 @@
 /obj/item/melee/energy/axe,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
-"jY" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/transit_tube/crossing/horizontal,
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "jZ" = (
 /obj/machinery/sleeper/syndie/fullupgrade,
 /obj/effect/turf_decal/tile/blue{
@@ -1240,13 +1255,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
-"nG" = (
-/obj/machinery/navbeacon{
-	codes_txt = "patrol;next_patrol=3-Northeast";
-	location = "2-Northwest"
-	},
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "nT" = (
 /obj/structure/table,
 /obj/machinery/light/directional/south,
@@ -1312,6 +1320,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"pY" = (
+/obj/machinery/navbeacon{
+	codes_txt = "patrol;next_patrol=1-Southwest";
+	location = "4-Southeast"
+	},
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "pZ" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/camera/directional/north,
@@ -1332,6 +1347,13 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
+"qq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/transit_tube/station/reverse,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "qv" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -1356,18 +1378,14 @@
 "qQ" = (
 /turf/open/floor/engine,
 /area/station/cargo/miningoffice)
-"rc" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/transit_tube/station/reverse/flipped{
-	dir = 1
-	},
-/obj/structure/transit_tube_pod{
-	dir = 4
+"qR" = (
+/obj/effect/landmark/start,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=4";
+	location = "Center"
 	},
 /turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
+/area/station/commons/storage/primary)
 "rh" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable,
@@ -1426,10 +1444,6 @@
 /obj/machinery/status_display/supply,
 /turf/closed/wall/r_wall,
 /area/station/commons/storage/primary)
-"tB" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/wall/r_wall,
-/area/station/engineering/gravity_generator)
 "tE" = (
 /obj/machinery/door/airlock/research,
 /turf/open/floor/iron/dark,
@@ -1503,17 +1517,16 @@
 /mob/living/circuit_drone,
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
-"vu" = (
-/obj/machinery/navbeacon{
-	codes_txt = "patrol;next_patrol=4-Southeast";
-	location = "3-Northeast"
-	},
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "vv" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/plating,
 /area/station/commons/storage/primary)
+"vw" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Gravity Generator"
+	},
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "vy" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -1590,33 +1603,33 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
+"wR" = (
+/obj/machinery/navbeacon{
+	codes_txt = "patrol;next_patrol=3-Northeast";
+	location = "2-Northwest"
+	},
+/turf/open/floor/iron,
+/area/station/commons/storage/primary)
 "wU" = (
 /turf/closed/wall/r_wall,
 /area/station/science/explab)
+"xq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/structure/transit_tube/station/dispenser/reverse/flipped,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "xD" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron,
 /area/station/command/bridge)
-"xH" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/obj/structure/closet/radiation,
-/obj/structure/sign/warning/radiation/rad_area/directional/north,
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "xK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"xW" = (
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Gravity Generator"
-	},
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "xY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -1803,13 +1816,6 @@
 /obj/structure/rack,
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
-"Du" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/obj/structure/transit_tube/station/reverse,
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "DC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/stripes/corner,
@@ -1861,13 +1867,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/construction)
-"Eu" = (
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=4";
-	location = "Center"
-	},
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "EG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -1895,13 +1894,6 @@
 /obj/machinery/meter/layer4,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
-"EQ" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/transit_tube/station/dispenser/reverse{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "ER" = (
 /mob/living/carbon/human,
 /obj/effect/turf_decal/tile/blue{
@@ -2012,21 +2004,6 @@
 /obj/machinery/camera/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"In" = (
-/obj/machinery/navbeacon{
-	codes_txt = "patrol;next_patrol=2-Northwest";
-	location = "1-Southwest"
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/navbeacon{
-	location = "1-Southwest";
-	codes_txt = "patrol;next_patrol=2-Northwest"
-	},
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "Ir" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -2089,10 +2066,13 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
-"JA" = (
-/obj/machinery/light/floor,
+"JJ" = (
+/obj/machinery/navbeacon{
+	codes_txt = "patrol;next_patrol=4-Southeast";
+	location = "3-Northeast"
+	},
 /turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
+/area/station/commons/storage/primary)
 "JV" = (
 /obj/machinery/camera/autoname/directional/east,
 /obj/effect/turf_decal/stripes/line{
@@ -2121,6 +2101,18 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
+"Lb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/transit_tube/station/reverse/flipped{
+	dir = 1
+	},
+/obj/structure/transit_tube_pod{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "Lq" = (
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/door/airlock/external/glass/ruin{
@@ -2321,6 +2313,13 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/station/medical/medbay)
+"Qi" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/transit_tube/station/dispenser/reverse{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "Qu" = (
 /obj/docking_port/stationary/mining_home{
 	dir = 8
@@ -2378,6 +2377,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
+"Rx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/closet/radiation,
+/obj/structure/sign/warning/radiation/rad_area/directional/north,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "RD" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue{
@@ -2402,14 +2409,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"RJ" = (
-/obj/effect/landmark/start,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=4";
-	location = "Center"
-	},
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "RM" = (
 /obj/structure/closet/secure_closet/hop{
 	locked = 0
@@ -2457,6 +2456,14 @@
 /obj/machinery/door/poddoor,
 /turf/open/floor/engine,
 /area/station/hallway/secondary/entry)
+"Ts" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Gravity Generator"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/engineering/gravity_generator)
 "Tt" = (
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
@@ -2517,14 +2524,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
-"Wp" = (
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Gravity Generator"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "WK" = (
 /obj/structure/money_bot,
 /turf/open/floor/iron/dark,
@@ -2628,13 +2627,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
-"Yp" = (
-/obj/machinery/navbeacon{
-	codes_txt = "patrol;next_patrol=1-Southwest";
-	location = "4-Southeast"
-	},
-/turf/open/floor/iron,
-/area/station/commons/storage/primary)
 "Yt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/meter,
@@ -2710,13 +2702,6 @@
 /obj/item/boulder_beacon,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
-"ZO" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/transit_tube/station,
-/turf/open/floor/iron,
-/area/station/engineering/gravity_generator)
 "ZP" = (
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
@@ -7445,14 +7430,14 @@ bE
 cS
 qv
 dJ
-nG
-dJ
-dJ
-Eu
+wR
 dJ
 dJ
 dJ
-In
+dJ
+dJ
+dJ
+dN
 dJ
 dJ
 cS
@@ -7615,7 +7600,7 @@ ak
 ak
 ak
 ak
-Wp
+Ts
 ak
 ak
 ak
@@ -7797,10 +7782,10 @@ aa
 aa
 aa
 ak
-xH
-ht
-ht
-ht
+Rx
+aX
+aX
+aX
 br
 ak
 bS
@@ -7816,7 +7801,7 @@ dt
 dJ
 dD
 dJ
-RJ
+qR
 dJ
 XZ
 dJ
@@ -7889,10 +7874,10 @@ aa
 aa
 aa
 ak
-tB
-rc
-ht
-EQ
+gW
+Lb
+aX
+Qi
 ak
 ak
 Ly
@@ -7982,9 +7967,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 by
@@ -8074,9 +8059,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 Ot
@@ -8089,14 +8074,14 @@ cJ
 by
 Pc
 dw
-vu
+dJ
 dJ
 dJ
 dI
 dJ
 dJ
 dJ
-Yp
+dJ
 dJ
 kf
 cS
@@ -8166,9 +8151,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 DD
@@ -8181,14 +8166,14 @@ Sj
 by
 jk
 dJ
-vu
+JJ
 dJ
 dJ
 yl
 dJ
 dJ
 dJ
-Yp
+pY
 dJ
 dJ
 cS
@@ -8258,9 +8243,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 ER
@@ -8350,9 +8335,9 @@ aa
 aa
 aa
 aI
-jY
-JA
-fE
+af
+bY
+ad
 aI
 by
 jZ
@@ -8442,9 +8427,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 er
@@ -8534,9 +8519,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 wk
@@ -8626,9 +8611,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 by
 by
@@ -8718,9 +8703,9 @@ fg
 fg
 fg
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -8810,9 +8795,9 @@ aa
 aa
 aa
 aI
-ZO
-JA
-fE
+hS
+bY
+ad
 aI
 aa
 aa
@@ -8902,9 +8887,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -8994,9 +8979,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9086,9 +9071,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9178,9 +9163,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9270,9 +9255,9 @@ aa
 aa
 aa
 aI
-jY
-JA
-fE
+af
+bY
+ad
 aI
 aa
 aa
@@ -9362,9 +9347,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9454,9 +9439,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9546,9 +9531,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9638,9 +9623,9 @@ aa
 aa
 aa
 aI
-jY
-ht
-fE
+af
+aX
+ad
 aI
 aa
 aa
@@ -9730,9 +9715,9 @@ aa
 aa
 aa
 ak
-Du
+qq
 bh
-hl
+xq
 ak
 aa
 aa
@@ -9823,7 +9808,7 @@ aa
 ak
 ak
 aI
-xW
+vw
 aI
 ak
 ak
