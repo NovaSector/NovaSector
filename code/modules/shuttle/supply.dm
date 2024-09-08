@@ -37,9 +37,9 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	)))
 
 /// How many goody orders we can fit in a lockbox before we upgrade to a crate
-#define GOODY_FREE_SHIPPING_MAX 5
+#define GOODY_FREE_SHIPPING_MAX 15 // NOVA EDIT CHANGE - ORIGINAL: GOODY_FREE_SHIPPING_MAX 5
 /// How much to charge oversized goody orders
-#define CRATE_TAX 700
+#define CRATE_TAX 150 // NOVA EDIT CHANGE - ORIGINAL: CRATE_TAX 700
 
 /obj/docking_port/mobile/supply
 	name = "supply shuttle"
