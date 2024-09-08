@@ -37,6 +37,8 @@
 /obj/item/storage/box/fishing_hooks
 	icon = 'icons/obj/storage/box.dmi'
 
+/obj/item/storage/box/fishing_lures
+	icon = 'icons/obj/storage/box.dmi'
 /obj/item/storage/box/fishing_lines
 	icon = 'icons/obj/storage/box.dmi'
 
