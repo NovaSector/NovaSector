@@ -33901,10 +33901,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"lFL" = (
-/obj/docking_port/stationary/syndicate/northeast,
-/turf/open/space/basic,
-/area/space)
 "lGd" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/dirt,
@@ -36150,6 +36146,13 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
+"mri" = (
+/obj/machinery/vending/autodrobe,
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/small,
+/area/station/commons/fitness/locker_room)
 "mrn" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -36588,6 +36591,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"mzv" = (
+/obj/docking_port/stationary/syndicate/northeast,
+/turf/open/space/basic,
+/area/space)
 "mzx" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -72488,13 +72495,6 @@
 "yfD" = (
 /turf/closed/wall,
 /area/station/medical/surgery/theatre)
-"yfF" = (
-/obj/machinery/vending/autodrobe/all_access,
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 8
-	},
-/turf/open/floor/iron/small,
-/area/station/commons/fitness/locker_room)
 "yfJ" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /obj/effect/decal/cleanable/dirt,
@@ -106678,7 +106678,7 @@ jvQ
 eul
 eeJ
 egJ
-yfF
+mri
 gMq
 duT
 gtk
@@ -118686,7 +118686,7 @@ dDB
 dDB
 dDB
 dDB
-lFL
+mzv
 dDB
 dDB
 dDB
