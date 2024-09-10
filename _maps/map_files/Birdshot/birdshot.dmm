@@ -33901,6 +33901,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"lFL" = (
+/obj/docking_port/stationary/syndicate/northeast,
+/turf/open/space/basic,
+/area/space)
 "lGd" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/dirt,
@@ -118682,7 +118686,7 @@ dDB
 dDB
 dDB
 dDB
-dDB
+lFL
 dDB
 dDB
 dDB
