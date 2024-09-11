@@ -82,9 +82,9 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/shockwave
 	name = "proto-kinetic shockwave"
-	desc = "Quite frankly, we have no idea how the Mining Research and Development team came up with this one, all we know is that alot of \
-	beer was involved. This proto-kinetic design will slam the ground, creating a shockwave around the user, with the same power as the base PKA.\
-	The only downside is the lowered mod capacity, the lack of range it offers, and the higher cooldown, but its pretty good for clearing rocks."
+	desc = "This proto-kinetic design will slam the ground, creating a shockwave around the user, with the same power as the base PKA.\
+	The only downside is the lowered mod capacity, the lack of range it offers, and the higher cooldown, but its pretty good for clearing rocks. \
+	Quite frankly, we have no idea how the Mining Research and Development team came up with this one, all we know is that alot of beer was involved."
 	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
 	icon_state = "kineticshockwave"
 	base_icon_state = "kineticshockwave"
