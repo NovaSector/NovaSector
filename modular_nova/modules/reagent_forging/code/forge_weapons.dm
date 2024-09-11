@@ -256,17 +256,18 @@
 
 /obj/item/shield/buckler/reagent_weapon/pavise/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded = 12, force_wielded = 15)
+	AddComponent(/datum/component/two_handed,\
+		force_unwielded = 12, \
+		force_wielded = 15, \
+		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
+		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
+	)
 
 /obj/item/shield/buckler/reagent_weapon/pavise/proc/on_wield()
-	SIGNAL_HANDLER
 	wielded = TRUE
 	block_chance = wielded_block_chance
 
 /obj/item/shield/buckler/reagent_weapon/pavise/proc/on_unwield()
-	SIGNAL_HANDLER
 	wielded = FALSE
 	block_chance = unwielded_block_chance
 
@@ -336,17 +337,18 @@
 
 /obj/item/forging/reagent_weapon/bokken/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded = 15, force_wielded = 25)
+	AddComponent(/datum/component/two_handed,\
+		force_unwielded = 15, \
+		force_wielded = 25, \
+		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
+		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
+	)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
-	SIGNAL_HANDLER
 	wielded = TRUE
 	block_chance = wielded_block_chance
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_unwield()
-	SIGNAL_HANDLER
 	wielded = FALSE
 	block_chance = unwielded_block_chance
 
