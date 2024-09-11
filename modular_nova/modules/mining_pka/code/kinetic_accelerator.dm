@@ -127,4 +127,4 @@
 	if(istype(I, /obj/item/borg/upgrade/modkit))
 		to_chat(user, span_notice("This weapon cannot have its modifications removed."))
 	else
-		..()
+	return ..()
