@@ -2,7 +2,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/nomod/railgun
 	name = "proto-kinetic railgun"
-	desc = "Before the nice streamlined and modern day Proto-Kinetic Accelerator was created, multiple designs were drafted by the Mining Research and Development \
+	special_desc = "Before the nice streamlined and modern day Proto-Kinetic Accelerator was created, multiple designs were drafted by the Mining Research and Development \
 	team. Many were failures, including this one, which came out too bulky and too ineffective. Well recently the MR&D Team got drunk and said 'fuck it we ball' and \
 	went back to the bulky design, overclocked it, and made it functional, turning it into what is essentially a literal man portable particle accelerator. \
 	The design results in a massive hard to control blast of kinetic energy, with the power to punch right through creatures and cause massive damage. The \
@@ -28,7 +28,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/repeater
 	name = "proto-kinetic repeater"
-	desc = "During the pizza party celebrating the release of the new crusher designs, the Mining Research and Development team members were only allowed one slice. \
+	special_desc = "During the pizza party celebrating the release of the new crusher designs, the Mining Research and Development team members were only allowed one slice. \
 	One member exclaimed 'I wish we could have more than one slice' and another replied 'I wish we could shoot the accelerator more than once' and thus, the repeater \
 	on the spot. The repeater trades a bit of power for the ability to fire three shots before becoming empty, while retaining the ability to fully recharge in one \
 	go. The extra technology packed inside to make this possible unfortunately reduces mod space meaning you cant carry as many mods compared to a regular accelerator."
@@ -45,7 +45,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/shotgun
 	name = "proto-kinetic shotgun"
-	desc = "During the crusher design pizza party, one member of the Mining Research and Development team brought out a real riot shotgun, and killed three \
+	special_desc = "During the crusher design pizza party, one member of the Mining Research and Development team brought out a real riot shotgun, and killed three \
 	other research members with one blast. The MR&D Director immediately thought of a genius idea, creating the proto-kinetic shotgun moments later, which he \
 	immediately used to execute the research member who brought the real shotgun. The proto-kinetic shotgun trades off some mod capacity and cooldown in favor \
 	of firing three shots at once with reduce range and power. The total damage of all three shots is higher than a regular PKA but the individual shots are weaker."
@@ -62,7 +62,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/glock
 	name = "proto-kinetic pistol"
-	desc = "During the pizza party for the Mining Research and Development team, one special snowflake researcher wanted a mini murphy instead of a regular \
+	special_desc = "During the pizza party for the Mining Research and Development team, one special snowflake researcher wanted a mini murphy instead of a regular \
 	pizza slice, so reluctantly the Director bought him his mini murphy, which the dumbass immediately dropped ontop of a PKA. Suddenly the idea to create \
 	a 'build your own PKA' design was created. The proto-kinetic pistol is arguably worse than the base PKA, sporting lower damage and range. But this lack \
 	of base efficiency allows room for nearly double the mods, making it truly 'your own PKA'."
@@ -82,7 +82,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/shockwave
 	name = "proto-kinetic shockwave"
-	desc = "This proto-kinetic design will slam the ground, creating a shockwave around the user, with the same power as the base PKA.\
+	special_desc = "This proto-kinetic design will slam the ground, creating a shockwave around the user, with the same power as the base PKA.\
 	The only downside is the lowered mod capacity, the lack of range it offers, and the higher cooldown, but its pretty good for clearing rocks. \
 	Quite frankly, we have no idea how the Mining Research and Development team came up with this one, all we know is that alot of beer was involved."
 	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
@@ -101,7 +101,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/nomod/m79
 	name = "proto-kinetic grenade launcher"
-	desc = "Made in a drunk frenzy during the creation of the kinetic railgun, the kinetic grenade launcher fires the same bombs used by \
+	special_desc = "Made in a drunk frenzy during the creation of the kinetic railgun, the kinetic grenade launcher fires the same bombs used by \
 	the mining modsuit. Due to the technology needed to pack the bombs into this weapon, there is no space for modification."
 	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
 	icon_state = "kineticglauncher"
@@ -127,4 +127,4 @@
 	if(istype(I, /obj/item/borg/upgrade/modkit))
 		to_chat(user, span_notice("This weapon cannot have its modifications removed."))
 	else
-	return ..()
+		return ..()
