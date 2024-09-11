@@ -46,8 +46,8 @@
 /obj/item/gun/energy/recharge/kinetic_accelerator/shotgun
 	name = "proto-kinetic shotgun"
 	desc = "During the crusher design pizza party, one member of the Mining Research and Development team brought out a real riot shotgun, and killed three \
-	other research members with one blast. The MR&D Director immedietly thought of a genuis idea, creating the proto-kinetic shotgun moments later, which he \
-	immedietly used to execute the research member who brought the real shotgun. The proto-kinetic shotgun trades off some mod capacity and cooldown in favor \
+	other research members with one blast. The MR&D Director immediately thought of a genius idea, creating the proto-kinetic shotgun moments later, which he \
+	immediately used to execute the research member who brought the real shotgun. The proto-kinetic shotgun trades off some mod capacity and cooldown in favor \
 	of firing three shots at once with reduce range and power. The total damage of all three shots is higher than a regular PKA but the individual shots are weaker."
 	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
 	icon_state = "kineticshotgun"
