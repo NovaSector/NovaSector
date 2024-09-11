@@ -1,2 +1,2 @@
 /obj/item/clothing/gloves/ring/
-	resistance_flags = FIRE_PROOF | LAVA_PROOF
+	resistance_flags = FIRE_PROOF
