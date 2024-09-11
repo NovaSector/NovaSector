@@ -18,7 +18,6 @@
 
 /obj/structure/trash_pile/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/climbable)
 	icon_state = pick(
 		"pile1",
 		"pile2",
