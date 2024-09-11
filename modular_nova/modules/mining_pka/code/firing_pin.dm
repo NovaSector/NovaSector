@@ -1,5 +1,5 @@
 /obj/item/firing_pin/wastes
-	name = "Wastes firing pin"
+	name = "\improper Wastes firing pin"
 	desc = "This safety firing pin allows weapons to be fired only on areas away from the station."
 	fail_message = "Wastes check failed! - Try getting further from the station first."
 	pin_hot_swappable = FALSE
