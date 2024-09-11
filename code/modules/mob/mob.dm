@@ -564,6 +564,7 @@
 			if(!length(result))
 				result += span_notice("<i>You examine [examinify] closer, but find nothing of interest...</i>")
 			result_combined = jointext(result, "<br>")
+			result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 		else
 			client.recent_examines[ref_to_atom] = world.time // set to when we last normal examine'd them
@@ -575,6 +576,7 @@
 		var/atom_title = examinify.examine_title(src, thats = TRUE)
 		SEND_SIGNAL(src, COMSIG_MOB_EXAMINING, examinify, result)
 		result_combined = (atom_title ? "[span_slightly_larger("[atom_title]![EXAMINE_SECTION_BREAK]")]" : "") + jointext(result, "<br>") // NOVA EDIT CHANGE - No more separator_hr + exclamation point for mobs - ORIGINAL: result_combined = (atom_title ? "[span_slightly_larger(separator_hr("[atom_title]."))]" : "") + jointext(result, "<br>")
+		result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 	to_chat(src, examine_block(span_infoplain(result_combined)))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)

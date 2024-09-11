@@ -288,7 +288,8 @@
 			if((length(exploitable_text) > RECORDS_INVISIBLE_THRESHOLD) && ((exploitable_text) != EXPLOITABLE_DEFAULT_TEXT))
 				. += "<a href='?src=[REF(src)];exprecords=1'>\[View exploitable info\]</a>"
 
-	. += EXAMINE_SECTION_BREAK
+	if(length(.))
+		. += EXAMINE_SECTION_BREAK // append header to the previous line so it doesn't get a line break added in jointext() later on
 
 	if(gunpointing)
 		. += "<span class='warning'><b>[t_He] [t_is] holding [gunpointing.target.name] at gunpoint with [gunpointing.aimed_gun.name]!</b></span>\n"
@@ -533,34 +534,35 @@
 	return
 
 /mob/living/carbon/human/get_hud_examine_info(mob/living/user)
-	. = list() // NOVA EDIT ADDITION - FIX
+	. = list()
 	var/perpname = get_face_name(get_id_name(""))
+	var/title = ""
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)) && (user.stat == CONSCIOUS || isobserver(user)) && user != src)
 		var/datum/record/crew/target_record = find_record(perpname)
 		if(target_record)
 			. += "Rank: [target_record.rank]"
 			. += "<a href='?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Front photo\]</a><a href='?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Side photo\]</a>"
 		if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD) && HAS_TRAIT(user, TRAIT_SECURITY_HUD))
-			ADD_NEWLINE_IF_NECESSARY(.) // NOVA EDIT ADDITION - hr sections
-			. += separator_hr("Medical & Security Analysis")
+			title = separator_hr("Medical & Security Analysis")
 			. += get_medhud_examine_info(user, target_record)
-			ADD_NEWLINE_IF_NECESSARY(.) // NOVA EDIT ADDITION - hr sections
 			. += get_sechud_examine_info(user, target_record)
 
 		else if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
-			ADD_NEWLINE_IF_NECESSARY(.) // NOVA EDIT ADDITION - hr sections
-			. += separator_hr("Medical Analysis")
+			title = separator_hr("Medical Analysis")
 			. += get_medhud_examine_info(user, target_record)
 
 		else if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
-			ADD_NEWLINE_IF_NECESSARY(.) // NOVA EDIT ADDITION - hr sections
-			. += separator_hr("Security Analysis")
+			title = separator_hr("Security Analysis")
 			. += get_sechud_examine_info(user, target_record)
 		// NOVA EDIT ADDITION START - EXAMINE RECORDS
 		if(target_record && length(target_record.past_general_records) > RECORDS_INVISIBLE_THRESHOLD)
 			. += "<a href='?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
-			ADD_NEWLINE_IF_NECESSARY(.) // NOVA EDIT ADDITION - hr sections
 		// NOVA EDIT ADDITION END - EXAMINE RECORDS
+
+	// applies the separator correctly without an extra line break
+	if(title && length(.))
+		.[1] = title + .[1]
+	return .
 
 /// Collects information displayed about src when examined by a user with a medical HUD.
 /mob/living/carbon/proc/get_medhud_examine_info(mob/living/user, datum/record/crew/target_record)

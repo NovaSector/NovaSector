@@ -1,3 +1,6 @@
+/mob/living/basic/drone
+	examine_thats = "This is"
+
 // Species examine
 /mob/living/carbon/human/examine_title(mob/user, thats = FALSE)
 	. = ..()
