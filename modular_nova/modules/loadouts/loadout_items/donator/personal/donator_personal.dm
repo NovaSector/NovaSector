@@ -13,6 +13,11 @@
 	item_path = /obj/item/canvas/drawingtablet
 	donator_only = TRUE
 
+/datum/loadout_item/pocket_items/stellar_bouquet
+	name = "Stellar Bouquet"
+	item_path = /obj/item/bouquet/stellar
+	ckeywhitelist = list("thedragmeme")
+
 /datum/loadout_item/under/jumpsuit/paddedunder
 	name = "Feathered Serenity Suit"
 	item_path = /obj/item/clothing/under/padded
