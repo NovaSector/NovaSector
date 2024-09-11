@@ -13,7 +13,7 @@
 	item_path = /obj/item/canvas/drawingtablet
 	donator_only = TRUE
 
-/datum/loadout_item/pocket_items/stellarbouquet
+/datum/loadout_item/pocket_items/stellar_bouquet
 	name = "Stellar Bouquet"
 	item_path = /obj/item/bouquet/stellar
 	ckeywhitelist = list("thedragmeme")

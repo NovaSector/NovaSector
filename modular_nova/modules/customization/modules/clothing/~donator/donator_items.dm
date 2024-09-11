@@ -70,7 +70,7 @@
 #define SLAP_SIDE		4
 
 //Donation reward for Thedragmeme, avalible to craft publicly
-/datum/crafting_recipe/stellarbouquet
+/datum/crafting_recipe/stellar_bouquet
 	name = "stellar bouquet"
 	result = /obj/item/bouquet/stellar
 	reqs = list(
