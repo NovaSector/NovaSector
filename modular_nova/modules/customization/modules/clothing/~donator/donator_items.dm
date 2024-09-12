@@ -69,6 +69,18 @@
 #define EXTEND_ANTENNA	3
 #define SLAP_SIDE		4
 
+//Donation reward for Thedragmeme, avalible to craft publicly
+/datum/crafting_recipe/stellar_bouquet
+	name = "stellar bouquet"
+	result = /obj/item/bouquet/stellar
+	reqs = list(
+		/obj/item/food/grown/poppy/lily = 2,
+		/obj/item/food/grown/rose = 2,
+		/obj/item/food/grown/poppy/geranium = 2,
+		/obj/item/stack/sheet/mineral/silver = 1,
+	)
+	category = CAT_ENTERTAINMENT
+
 /obj/item/donator/transponder
 	name = "broken Helian transponder"
 	desc = "Used by Helians to communicate with their mothership, the screen is cracked and its edges scuffed. This one has seen better days."

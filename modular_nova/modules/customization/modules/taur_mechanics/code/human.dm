@@ -71,11 +71,11 @@
 		cant_buckle_message = "can't ride self!"
 	else if (body_position == LYING_DOWN)
 		cant_buckle_message = "can't ride resting!"
-	else if (incapacitated())
+	else if (incapacitated)
 		cant_buckle_message = "can't mount incapacitated mobs!"
-	else if (user.incapacitated())
+	else if (user.incapacitated)
 		cant_buckle_message = "you are incapacitated!"
-	else if (to_buckle.incapacitated())
+	else if (to_buckle.incapacitated)
 		cant_buckle_message = "rider incapacitated!"
 	else if (length(buckled_mobs))
 		cant_buckle_message = "already being ridden!"

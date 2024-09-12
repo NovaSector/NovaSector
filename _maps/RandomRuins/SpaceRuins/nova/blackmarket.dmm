@@ -972,6 +972,7 @@
 /obj/machinery/light/dim/directional/east,
 /obj/structure/table/wood,
 /obj/item/market_uplink/blackmarket,
+/obj/item/circuitboard/machine/ltsrbt,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "Wi" = (

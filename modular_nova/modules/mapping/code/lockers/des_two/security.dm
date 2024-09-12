@@ -25,7 +25,7 @@
 	new /obj/item/clothing/accessory/armband(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
 	new /obj/item/clothing/suit/toggle/jacket/sec/old/syndicate(src)
-	new /obj/item/clothing/mask/gas/sechailer/syndicate(src)
+	new /obj/item/clothing/mask/neck_gaiter(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/redsec(src)
 

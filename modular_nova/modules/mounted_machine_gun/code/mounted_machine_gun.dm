@@ -153,7 +153,7 @@
 	. = ..()
 
 /obj/machinery/mounted_machine_gun/user_buckle_mob(mob/living/user_to_buckle, mob/buckling_user, check_loc = TRUE)
-	if(user_to_buckle.incapacitated() || !istype(user_to_buckle))
+	if(user_to_buckle.incapacitated || !istype(user_to_buckle))
 		return
 	user_to_buckle.forceMove(get_turf(src))
 	. = ..()
@@ -402,7 +402,7 @@
 			direction_track(current_user, target_turf)
 
 /obj/machinery/mounted_machine_gun/proc/direction_track(mob/user, atom/targeted)
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return
 	setDir(get_dir(src, targeted))
 	user.setDir(dir)

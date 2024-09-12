@@ -13,6 +13,7 @@
 		/obj/item/clothing/under/syndicate/tacticool = 20,
 		/obj/item/food/grown/cannabis/white = 10,
 		/obj/item/storage/box/fireworks/dangerous = 10,
+		/obj/item/circuitboard/machine/ltsrbt = 10, //NOVA EDIT ADDITION - More widespread Black Market
 		/obj/item/storage/pill_bottle/zoom = 10,
 		/obj/item/storage/pill_bottle/happy = 10,
 		/obj/item/storage/pill_bottle/lsd = 10,

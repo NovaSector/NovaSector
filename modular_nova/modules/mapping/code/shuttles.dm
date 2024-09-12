@@ -184,7 +184,7 @@
 		/obj/item/storage/box/survival/engineer/radio,
 		/obj/item/melee/baton/telescopic,
 		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
-		/obj/item/megaphone/command
+		/obj/item/megaphone/command,
 	)
 
 /*----- Tarkon Shuttle Datum + related code -----*/
