@@ -6604,6 +6604,7 @@
 #include "modular_nova\master_files\code\game\objects\items\wiki_manuals.dm"
 #include "modular_nova\master_files\code\game\objects\items\circuitboards\machines\machine_circuitboards.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\chameleonproj.dm"
+#include "modular_nova\master_files\code\game\objects\items\devices\flashlight.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\laserpointer.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\mod_link.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\traitordevices.dm"
