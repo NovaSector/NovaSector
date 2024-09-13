@@ -203,6 +203,7 @@
 
 	var/mob/living/carbon/human/ooman = loc
 	ooman.update_suit_sensors()
+	ooman.med_hud_set_status()
 
 /mob/living/carbon/human/update_suit_sensors()
 	. = ..()
