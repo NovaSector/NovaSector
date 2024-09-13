@@ -41,6 +41,9 @@
 
 //Accelerator Projectiles
 
+/obj/projectile/kinetic
+	var/mod_mult = 1
+
 /obj/projectile/kinetic/railgun
 	name = "hyper kinetic force"
 	damage = 100
@@ -53,10 +56,12 @@
 	name = "rapid kinetic force"
 	damage = 20
 	range = 4
+	mod_mult = 0.5
 
 /obj/projectile/kinetic/shotgun
 	name = "split kinetic force"
 	damage = 20
+	mod_mult = 0.5
 
 /obj/projectile/kinetic/glock
 	name = "light kinetic force"
