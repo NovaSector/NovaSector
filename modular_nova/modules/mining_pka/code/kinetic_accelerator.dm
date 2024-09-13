@@ -76,6 +76,7 @@
 	inhand_icon_state = "kineticgun"
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/shotgun)
 	max_mod_capacity = 65
+	randomspread = 0
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
 	name = "proto-kinetic pistol"
@@ -107,6 +108,7 @@
 	inhand_icon_state = "kineticgun"
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/shockwave)
 	max_mod_capacity = 65
+	randomspread = 0
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave/add_bayonet_point()
 	return
