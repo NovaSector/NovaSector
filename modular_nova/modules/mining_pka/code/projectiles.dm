@@ -2,19 +2,19 @@
 /obj/item/ammo_casing/energy/kinetic/railgun
 	projectile_type = /obj/projectile/kinetic/railgun
 	select_name = "kinetic"
-	e_cost = 500
+	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	fire_sound = 'sound/weapons/beam_sniper.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/repeater
 	projectile_type = /obj/projectile/kinetic/repeater
 	select_name = "kinetic"
-	e_cost = 150
+	e_cost = LASER_SHOTS(3, STANDARD_CELL_CHARGE * 0.5)
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/shotgun
 	projectile_type = /obj/projectile/kinetic/shotgun
 	select_name = "kinetic"
-	e_cost = 500
+	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	pellets = 3
 	variance = 50
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
@@ -22,13 +22,13 @@
 /obj/item/ammo_casing/energy/kinetic/glock
 	projectile_type = /obj/projectile/kinetic/glock
 	select_name = "kinetic"
-	e_cost = 500
+	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/shockwave
 	projectile_type = /obj/projectile/kinetic/shockwave
 	select_name = "kinetic"
-	e_cost = 500
+	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	pellets = 8
 	variance = 360
 	fire_sound = 'sound/weapons/gun/general/cannon.ogg'
@@ -36,7 +36,7 @@
 /obj/item/ammo_casing/energy/kinetic/m79
 	projectile_type = /obj/projectile/bullet/mining_bomb
 	select_name = "kinetic"
-	e_cost = 500
+	e_cost = LASER_SHOTS(2, STANDARD_CELL_CHARGE * 0.5)
 	fire_sound = 'sound/weapons/gun/general/grenade_launch.ogg'
 
 //Accelerator Projectiles
@@ -57,7 +57,6 @@
 /obj/projectile/kinetic/shotgun
 	name = "split kinetic force"
 	damage = 20
-	range = 3
 
 /obj/projectile/kinetic/glock
 	name = "light kinetic force"

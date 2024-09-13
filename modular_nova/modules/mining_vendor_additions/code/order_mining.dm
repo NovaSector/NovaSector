@@ -78,25 +78,25 @@
 	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/repeater 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/repeater
+	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater
 	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/shotgun 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/shotgun
+	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun
 	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/shockwave 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/shockwave
+	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
 	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/glock 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/glock
+	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
 	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/railgun 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/nomod/railgun
+	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun
 	cost_per_order = 1250
 
 /datum/orderable_item/accelerator/gun/m79 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/nomod/m79
+	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
 	cost_per_order = 1250
