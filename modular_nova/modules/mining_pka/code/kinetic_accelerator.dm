@@ -23,6 +23,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun
 	name = "proto-kinetic railgun"
+	desc = parent_type::desc + " This variant seems to use all its energy into an hyper focused shoot, and needs two hands to use."
 	special_desc = "Before the nice streamlined and modern day Proto-Kinetic Accelerator was created, multiple designs were drafted by the Mining Research and Development \
 	team. Many were failures, including this one, which came out too bulky and too ineffective. Well recently the MR&D Team got drunk and said 'fuck it we ball' and \
 	went back to the bulky design, overclocked it, and made it functional, turning it into what is essentially a literal man portable particle accelerator. \
@@ -46,6 +47,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater
 	name = "proto-kinetic repeater"
+	desc = parent_type::desc + " This variant seems to be specialized into firing thrice and has a longer barrel."
 	special_desc = "During the pizza party celebrating the release of the new crusher designs, the Mining Research and Development team members were only allowed one slice. \
 	One member exclaimed 'I wish we could have more than one slice' and another replied 'I wish we could shoot the accelerator more than once' and thus, the repeater \
 	on the spot. The repeater trades a bit of power for the ability to fire three shots before becoming empty, while retaining the ability to fully recharge in one \
@@ -63,6 +65,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun
 	name = "proto-kinetic shotgun"
+	desc = parent_type::desc + " This variant seems to have a prism that splits the ray in three."
 	special_desc = "During the crusher design pizza party, one member of the Mining Research and Development team brought out a real riot shotgun, and killed three \
 	other research members with one blast. The MR&D Director immediately thought of a genius idea, creating the proto-kinetic shotgun moments later, which he \
 	immediately used to execute the research member who brought the real shotgun. The proto-kinetic shotgun trades off some mod capacity and cooldown in favor \
@@ -76,6 +79,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
 	name = "proto-kinetic pistol"
+	desc = parent_type::desc + " This variant seems bare, but has a significant amount of mod slots."
 	special_desc = "During the pizza party for the Mining Research and Development team, one special snowflake researcher wanted a mini murphy instead of a regular \
 	pizza slice, so reluctantly the Director bought him his mini murphy, which the dumbass immediately dropped ontop of a PKA. Suddenly the idea to create \
 	a 'build your own PKA' design was created. The proto-kinetic pistol is arguably worse than the base PKA, sporting lower damage and range. But this lack \
@@ -93,6 +97,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
 	name = "proto-kinetic shockwave"
+	desc = parent_type::desc + " This variant produces a shockwave that surrounds the user with kinetic energy."
 	special_desc = "This proto-kinetic design will slam the ground, creating a shockwave around the user, with the same power as the base PKA.\
 	The only downside is the lowered mod capacity, the lack of range it offers, and the higher cooldown, but its pretty good for clearing rocks. \
 	Quite frankly, we have no idea how the Mining Research and Development team came up with this one, all we know is that alot of beer was involved."
@@ -108,6 +113,7 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
 	name = "proto-kinetic grenade launcher"
+	desc = parent_type::desc + " This variant launches mining charges, using the kinetic energy to propel them."
 	special_desc = "Made in a drunk frenzy during the creation of the kinetic railgun, the kinetic grenade launcher fires the same bombs used by \
 	the mining modsuit. Due to the technology needed to pack the bombs into this weapon, there is no space for modification."
 	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
