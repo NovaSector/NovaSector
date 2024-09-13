@@ -130,3 +130,9 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79/add_bayonet_point()
 	return
+
+//Shockwave process_fire override to prevent Point Blank, we just shoot 5 to the right.
+
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
+	target = get_edge_target_turf(user, user.dir)
+	return ..()
