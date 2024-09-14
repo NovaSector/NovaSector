@@ -1,5 +1,5 @@
 /datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin, show_job_clothes = TRUE)
-	var/datum/job/no_job = SSjob.GetJobType(/datum/job/unassigned)
+	var/datum/job/no_job = SSjob.get_job_type(/datum/job/unassigned)
 	var/datum/job/preview_job = get_highest_priority_job() || no_job
 	mannequin.dna.mutant_bodyparts = list()
 

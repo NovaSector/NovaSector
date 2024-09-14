@@ -6160,9 +6160,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/vending/hotdog/museum{
-	onstation = 0
-	},
+/obj/machinery/vending/hotdog/museum,
 /turf/open/indestructible/hoteltile{
 	icon_state = "floor"
 	},
@@ -15093,9 +15091,7 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "tag" = (
-/obj/machinery/vending/tool{
-	onstation = 0
-	},
+/obj/machinery/vending/tool,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "tbI" = (
@@ -15566,7 +15562,7 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafepark)
 "tYf" = (
-/obj/machinery/vending/autodrobe/all_access,
+/obj/machinery/vending/autodrobe,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
