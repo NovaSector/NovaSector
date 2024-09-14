@@ -7,6 +7,22 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/shuttle/pirate)
+"ab" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/machinery/turretid{
+	icon_state = "control_kill";
+	lethal = 1;
+	locked = 0;
+	pixel_y = -24;
+	req_access = null
+	},
+/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/pirate)
 "ad" = (
 /obj/machinery/button/door/directional/south{
 	id = "interdynebridge";
@@ -136,6 +152,28 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
+"aD" = (
+/obj/machinery/power/apc/auto_name/directional/north{
+	cell_type = /obj/item/stock_parts/power_store/battery/bluespace;
+	start_charge = 100
+	},
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/machinery/power/smes/magical,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/shuttle/pirate)
+"aF" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate{
+	dir = 4;
+	x_offset = 0;
+	y_offset = 7
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/pirate)
 "aG" = (
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 8
@@ -249,6 +287,13 @@
 "aR" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
+/turf/open/floor/iron/dark,
+/area/shuttle/pirate)
+"aS" = (
+/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
+/obj/structure/closet/crate/freezer/blood/interdyne,
+/obj/machinery/light/small/blacklight/directional/south,
+/obj/machinery/iv_drip,
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
 "aW" = (
@@ -439,22 +484,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
-"fd" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/machinery/turretid{
-	icon_state = "control_kill";
-	lethal = 1;
-	locked = 0;
-	pixel_y = -24;
-	req_access = null
-	},
-/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/pirate)
 "fO" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
@@ -550,13 +579,6 @@
 	dir = 5
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/pirate)
-"rD" = (
-/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
-/obj/structure/closet/crate/freezer/blood/interdyne,
-/obj/machinery/light/small/blacklight/directional/south,
-/obj/machinery/iv_drip,
-/turf/open/floor/iron/dark,
 /area/shuttle/pirate)
 "sP" = (
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
@@ -697,6 +719,11 @@
 /obj/item/wrench/medical,
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
+"Et" = (
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted,
+/obj/machinery/vending/medical/syndicate,
+/turf/open/floor/iron/dark,
+/area/shuttle/pirate)
 "ED" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
@@ -716,14 +743,6 @@
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
 /obj/structure/closet/l3closet/virology,
 /obj/structure/extinguisher_cabinet/directional/south,
-/turf/open/floor/iron/dark,
-/area/shuttle/pirate)
-"HP" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate{
-	dir = 4;
-	x_offset = 0;
-	y_offset = 7
-	},
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
 "Iv" = (
@@ -752,30 +771,11 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/pirate)
-"NW" = (
-/obj/machinery/power/apc/auto_name/directional/north{
-	cell_type = /obj/item/stock_parts/power_store/battery/bluespace;
-	start_charge = 100
-	},
-/obj/effect/mapping_helpers/apc/cut_AI_wire,
-/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/power/smes/magical,
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/shuttle/pirate)
 "Oe" = (
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/iron/dark,
-/area/shuttle/pirate)
-"OL" = (
-/obj/effect/turf_decal/tile/dark_blue/half/contrasted,
-/obj/machinery/vending/medical/syndicate_access,
 /turf/open/floor/iron/dark,
 /area/shuttle/pirate)
 "Po" = (
@@ -908,7 +908,7 @@ aj
 aQ
 ay
 Oe
-OL
+Et
 aj
 af
 af
@@ -956,7 +956,7 @@ af
 aO
 aj
 ey
-HP
+aF
 aj
 aW
 aR
@@ -974,7 +974,7 @@ Tr
 vz
 ae
 an
-fd
+ab
 aj
 aj
 aj
@@ -983,7 +983,7 @@ fY
 bX
 iD
 aj
-NW
+aD
 aG
 ep
 aj
@@ -1049,7 +1049,7 @@ ne
 aj
 aj
 aJ
-rD
+aS
 aj
 SD
 aj

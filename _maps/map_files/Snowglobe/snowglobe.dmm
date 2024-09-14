@@ -52698,9 +52698,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/brig)
 "ohG" = (
-/obj/machinery/vending/security{
-	onstation_override = 1
-	},
+/obj/machinery/vending/security,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -74151,7 +74149,7 @@
 /area/station/maintenance/department/engine/atmos)
 "uam" = (
 /obj/effect/turf_decal/siding/dark,
-/obj/machinery/vending/boozeomat/all_access,
+/obj/machinery/vending/boozeomat,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/common/night_club)

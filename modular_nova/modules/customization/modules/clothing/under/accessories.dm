@@ -98,14 +98,14 @@
 		if(istype(object, /obj/item/card/id))
 			id_card = object
 
-		if(ACCESS_SECURITY in id_card.access || (obj_flags & EMAGGED))
+		if((ACCESS_SECURITY in id_card.access) || (obj_flags & EMAGGED))
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 			badge_string = id_card.assignment
 		else
 			to_chat(user, "[src] rejects your insufficient access rights.")
 		return
-	..()
+	return ..()
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
