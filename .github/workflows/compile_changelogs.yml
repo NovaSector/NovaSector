@@ -34,22 +34,10 @@ jobs:
           python -m pip install pyyaml
           sudo apt-get install  dos2unix
 
-      - name: Generate App Token
-        id: app-token-generation
-        uses: actions/create-github-app-token@v1
-        if: env.APP_PRIVATE_KEY != '' && env.APP_ID != ''
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-        env:
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          APP_ID: ${{ secrets.APP_ID }}
-
       - name: "Checkout"
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         uses: actions/checkout@v4
         with:
-            token: ${{ steps.app-token-generation.outputs.token }}
             fetch-depth: 25
             persist-credentials: false
 
@@ -66,6 +54,17 @@ jobs:
           git pull origin master
           git add html/changelogs
           git commit -m "Automatic changelog compile [ci skip]" -a || true
+
+      - name: Generate App Token
+        id: app-token-generation
+        uses: actions/create-github-app-token@v1
+        if: env.APP_PRIVATE_KEY != '' && env.APP_ID != ''
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        env:
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          APP_ID: ${{ secrets.APP_ID }}
 
       - name: "Push"
         if: steps.value_holder.outputs.ACTIONS_ENABLED
