@@ -1,8 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - rscadd: "added thing"
-  - rscdel: "removed thing"
-  - qol: "quality of life increased tenfold"
-  - qol: "if you can see me i'm working"
-  - rscadd: "yep"
