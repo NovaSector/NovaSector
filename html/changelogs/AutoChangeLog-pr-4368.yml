@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "The Ansem/SC's underbarrel light disruptor now works."
