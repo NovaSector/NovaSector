@@ -297,7 +297,7 @@ SUBSYSTEM_DEF(job)
 			continue
 		//NOVA EDIT ADDITION
 		if(job.departments_bitflags & DEPARTMENT_BITFLAG_CENTRAL_COMMAND) //If you want a CC position, select it!
-			JobDebug("GRJ skipping Central Command role, Player: [player], Job: [job]")
+			job_debug("GRJ skipping Central Command role, Player: [player], Job: [job]")
 			continue
 		//NOVA EDIT ADDITION END
 
@@ -942,36 +942,32 @@ SUBSYSTEM_DEF(job)
 	if(possible_job.required_character_age > player.client.prefs.read_preference(/datum/preference/numeric/age) && possible_job.required_character_age != null)
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AGE)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_AGE
-
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	if(possible_job.veteran_only && !SSplayer_ranks.is_veteran(player.client))
-		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_NOT_VETERAN)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_NOT_VETERAN)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_NOT_VETERAN
 
 	if(possible_job.has_banned_quirk(player.client.prefs))
-		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_QUIRK)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_QUIRK)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_QUIRK
 
 	if(!possible_job.has_required_languages(player.client.prefs))
-		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_LANGUAGE)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_LANGUAGE)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_LANGUAGE
 
 	if(possible_job.has_banned_species(player.client.prefs))
-		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_SPECIES)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_SPECIES)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_SPECIES
 
 	if(CONFIG_GET(flag/min_flavor_text))
 		if(length_char(player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
-			JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_FLAVOUR)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+			job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_FLAVOUR)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 			return JOB_UNAVAILABLE_FLAVOUR
 
 	if(possible_job.has_banned_augment(player.client.prefs))
-		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AUGMENT)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_AUGMENT)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_AUGMENT
-
-
-	//NOVA EDIT END
-
+	//NOVA EDIT ADDITION END
 
 	// Run this check after is_banned_from since it can query the DB which may sleep.
 	// Need to recheck the player exists after is_banned_from since it can query the DB which may sleep.

@@ -271,9 +271,8 @@
 	if(HAS_MIND_TRAIT(user, TRAIT_EXAMINE_FITNESS))
 		. += compare_fitness(user)
 
-	var/hud_info = jointext(get_hud_examine_info(user), "<br>") // NOVA EDIT CHANGE - FIX
+	var/hud_info = get_hud_examine_info(user)
 	if(length(hud_info))
-		ADD_NEWLINE_IF_NECESSARY(hud_info) // NOVA EDIT ADDITION - hr sections
 		. += hud_info
 	if(isobserver(user))
 		. += "<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]"
