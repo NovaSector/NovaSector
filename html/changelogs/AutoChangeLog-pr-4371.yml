@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixed a bug where De Forest medvends were overly aggressive and eligible for brand intelligence even if they spawned off station."
