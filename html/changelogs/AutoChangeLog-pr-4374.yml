@@ -1,5 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - rscadd: "Long-to-Short Range Bluespace Transceiver boards can now be acquired from: trash piles, smuggler satchels, and Underworld Connections quirk's mail."
-  - bugfix: "Trash piles are once again climbable-into."

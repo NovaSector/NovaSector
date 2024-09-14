@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "specific-colored loadout sneakers no longer allow you to change greyscale colors (use the 'colorable' version for that)"

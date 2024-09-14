@@ -1,6 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - rscadd: "overrides for xenomorph basic mobs for variety"
-  - rscdel: "xenomorph antag overrides"
-  - image: "icon overrides for xenomorph basic mobs"

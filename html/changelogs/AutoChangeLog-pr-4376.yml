@@ -1,4 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - bugfix: "Goodie cases can now actually hold the theoretical bulk of fifteen bulky items they are supposed to."
