@@ -65,8 +65,13 @@
 	default_price = PAYCHECK_CREW
 	extra_price = PAYCHECK_COMMAND * 4
 	payment_department = NO_FREEBIES
-	onstation_override = 1 // No freebies if this spawns on the interlink
 
 /obj/item/vending_refill/medical_deforest
 	machine_name = "DeForest Med-Vend"
 	icon_state = "refill_medical"
+
+// No freebies if this spawns on the interlink
+/obj/machinery/vending/deforest_medvend/Initialize(mapload)
+	if(mapload && istype(get_area(src), /area/centcom/interlink))
+		all_products_free = FALSE
+	return ..()
