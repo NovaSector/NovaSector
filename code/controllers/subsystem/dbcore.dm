@@ -251,7 +251,7 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/proc/Connect()
 	if(IsConnected())
 		return TRUE
-
+	
 	if(connection)
 		Disconnect() //clear the current connection handle so isconnected() calls stop invoking rustg
 		connection = null //make sure its cleared even if runtimes happened
@@ -297,7 +297,7 @@ SUBSYSTEM_DEF(dbcore)
 		log_sql("Connect() failed | [last_error]")
 		++failed_connections
 		//If it failed to establish a connection more than 5 times in a row, don't bother attempting to connect for a time.
-		if(failed_connections > max_connection_failures)
+		if(failed_connections > max_connection_failures) 
 			failed_connection_timeout_count++
 			//basic exponential backoff algorithm
 			failed_connection_timeout = world.time + ((2 ** failed_connection_timeout_count) SECONDS)
@@ -445,7 +445,7 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 		columns[column] = special_columns[column]
 		has_question_mark[column] = findtext(special_columns[column], "?")
 
-	// Prepare SQL query full of placeholderss
+	// Prepare SQL query full of placeholders
 	var/list/query_parts = list("INSERT")
 	if (ignore_errors)
 		query_parts += " IGNORE"
