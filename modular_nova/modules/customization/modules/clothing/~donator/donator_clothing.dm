@@ -193,6 +193,16 @@
 	button_icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	button_icon_state = "drawingtablet"
 
+//Donation reward for Thedragmeme
+/obj/item/bouquet/stellar
+	name = "stellar bouquet"
+	desc = "An elaborate mix of flowers that shimmer delicately in the light. Topped with a silver moon."
+	icon_state = "starbouquet"
+	inhand_icon_state = "starbouquet"
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+
 // Donation reward for Thedragmeme
 /obj/item/clothing/neck/padded
 	name = "feathered serenity cloak"
@@ -574,7 +584,7 @@
 	var/goggles = FALSE
 
 /obj/item/clothing/head/avipilot/proc/adjust_goggles(mob/living/carbon/user)
-	if(user?.incapacitated())
+	if(user?.incapacitated)
 		return
 	if(goggles)
 		icon_state = "avipilotup"
@@ -1038,7 +1048,7 @@
 /obj/item/clothing/mask/gas/psycho_malice/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
-	if(!user.incapacitated())
+	if(!user.incapacitated)
 		var/is_worn = user.wear_mask == src
 		wear_hair_over = !wear_hair_over
 		if(wear_hair_over)

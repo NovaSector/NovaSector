@@ -107,12 +107,13 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.faction += user.faction
 		turret.allies += REF(user)
 
-/obj/item/storage/toolbox/emergency/turret/mag_fed/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
-	if(!is_type_in_list(inserted, list(/obj/item/wrench, /obj/item/screwdriver, /obj/item/multitool, /obj/item/toy/crayon/spraycan)))
-		return TRUE
-	if(!inserted.toolspeed)
-		return TRUE
-	return FALSE
+/obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!is_type_in_list(tool, list(/obj/item/wrench, /obj/item/screwdriver, /obj/item/multitool, /obj/item/toy/crayon/spraycan)))
+		return ITEM_INTERACT_BLOCKING
+	if(!tool.toolspeed)
+		return ITEM_INTERACT_BLOCKING
+
+	return NONE
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // This was changed but not updated???? I guess no one uses the tarkon ones gawd DAHM
 	if(istype(tool, /obj/item/toy/crayon/spraycan))
@@ -652,7 +653,7 @@ DEFINE_BITFIELD(turret_flags, list(
 
 	// If we aren't shooting heads then return a threatcount of 0
 	if (!(turret_flags & TURRET_FLAG_SHOOT_HEADS))
-		var/datum/job/apparent_job = SSjob.GetJob(perp.get_assignment())
+		var/datum/job/apparent_job = SSjob.get_job(perp.get_assignment())
 		if(apparent_job?.job_flags & JOB_HEAD_OF_STAFF)
 			return TURRET_THREAT_PASSIVE
 

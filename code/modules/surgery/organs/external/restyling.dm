@@ -22,7 +22,7 @@
 	if(src.body_zone == body_zone)
 		INVOKE_ASYNC(src, PROC_REF(attempt_feature_restyle), source, trimmer, original_target, body_zone, restyle_type, style_speed)
 
-///Invoke async so we dont break signals
+///Invoke async so we don't break signals
 /obj/item/bodypart/proc/on_attempt_feature_restyle(atom/source, mob/living/trimmer, atom/movable/original_target, body_zone, restyle_type, style_speed)
 	SIGNAL_HANDLER
 

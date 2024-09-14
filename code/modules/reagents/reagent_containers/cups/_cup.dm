@@ -143,11 +143,11 @@
 
 /obj/item/reagent_containers/cup/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
 	if(user.combat_mode)
-		return ITEM_INTERACT_SKIP_TO_ATTACK
+		return NONE
 	if(!check_allowed_items(target, target_self = TRUE))
 		return NONE
 	if(!spillable)
-		return ITEM_INTERACT_BLOCKING
+		return NONE
 
 	if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
@@ -233,6 +233,7 @@
 	possible_transfer_amounts = list(5,10,15,20,30,60) //NOVA EDIT: Addition
 	pickup_sound = 'sound/items/handling/beaker_pickup.ogg'
 	drop_sound = 'sound/items/handling/beaker_place.ogg'
+	sound_vary = TRUE
 
 /obj/item/reagent_containers/cup/beaker/Initialize(mapload)
 	. = ..()
