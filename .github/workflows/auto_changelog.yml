@@ -13,11 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        persist-credentials: false
-
     - name: Generate App Token
       id: app-token-generation
       uses: actions/create-github-app-token@v1
@@ -28,6 +23,11 @@ jobs:
       env:
         APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
         APP_ID: ${{ secrets.APP_ID }}
+
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ steps.app-token-generation.outputs.token || secrets.GITHUB_TOKEN }}
 
     - name: Run auto changelog
       uses: actions/github-script@v6
