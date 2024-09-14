@@ -45,8 +45,9 @@ jobs:
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           APP_ID: ${{ secrets.APP_ID }}
 
-      - name: Checkout
-        uses: steps.value_holder.outputs.ACTIONS_ENABLED
+      - name: "Checkout"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        uses: actions/checkout@v4
         with:
             token: ${{ steps.app-token-generation.outputs.token }}
             fetch-depth: 25
@@ -60,8 +61,8 @@ jobs:
       - name: Commit
         if: steps.value_holder.outputs.ACTIONS_ENABLED
         run: |
-          git config --local user.name "tgstation-ci[bot]"
-          git config --local user.email "179393467+tgstation-ci[bot]@users.noreply.github.com"
+          git config --local user.name "novasector-ci[bot]"
+          git config --local user.email "181600888+novasector-ci[bot]@users.noreply.github.com"
           git pull origin master
           git add html/changelogs
           git commit -m "Automatic changelog compile [ci skip]" -a || true
