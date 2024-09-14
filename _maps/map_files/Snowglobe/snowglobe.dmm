@@ -23820,9 +23820,9 @@
 	},
 /area/station/medical/break_room)
 "gvI" = (
+/obj/structure/cable,
 /obj/effect/spawner/random/structure/closet_maintenance,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
+/turf/open/floor/iron,
 /area/station/maintenance/department/security/brig)
 "gvJ" = (
 /obj/structure/cable,
@@ -24699,7 +24699,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
-/turf/closed/wall,
+/turf/open/floor/plating,
 /area/station/cargo/miningfoundry)
 "gIa" = (
 /obj/machinery/light/directional/north,
@@ -52360,9 +52360,9 @@
 	},
 /area/station/command/secure_bunker)
 "ocZ" = (
+/obj/structure/cable,
 /obj/structure/easel,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
+/turf/open/floor/iron,
 /area/station/maintenance/department/security/brig)
 "ode" = (
 /obj/structure/cable,
@@ -243469,8 +243469,8 @@ xau
 sTS
 lpa
 lpa
-ocZ
-gvI
+lpa
+lpa
 gHQ
 epE
 lSJ
@@ -243723,8 +243723,8 @@ bbR
 qQX
 qQX
 qQX
-mza
-mza
+ocZ
+gvI
 qQX
 rCq
 vch
