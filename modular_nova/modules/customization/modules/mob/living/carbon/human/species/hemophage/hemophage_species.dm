@@ -173,17 +173,8 @@
 	return to_add
 
 /datum/species/hemophage/get_cry_sound(mob/living/carbon/human/hemophage)
-	if(hemophage.physique == FEMALE)
-		return pick(
-			'sound/voice/human/female_cry1.ogg',
-			'sound/voice/human/female_cry2.ogg',
-		)
-	return pick(
-		'sound/voice/human/male_cry1.ogg',
-		'sound/voice/human/male_cry2.ogg',
-		'sound/voice/human/male_cry3.ogg',
-	)
-
+	var/datum/species/human/human_species = GLOB.species_prototypes[/datum/species/human]
+	return human_species.get_cry_sound(hemophage)
 
 // We don't need to mention that they're undead, as the perks that come from it are otherwise already explicited, and they might no longer be actually undead from a gameplay perspective, eventually.
 /datum/species/hemophage/create_pref_biotypes_perks()
