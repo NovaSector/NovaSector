@@ -116,108 +116,118 @@
 				)
 	return soundin
 
+/obj/projectile/
+	/// When set, this projectile will use the struck atom's bullet_impact_sound variable.
+	var/use_bullet_impact_sound
+
+/obj/projectile/bullet
+	use_bullet_impact_sound = TRUE
+
+/obj/projectile/hallucination/bullet
+	use_bullet_impact_sound = TRUE
+
+/obj/projectile/bullet/foam_dart
+	use_bullet_impact_sound = null
+
 // This is an atom level variable to prevent extensive typechecking for impacts.
 /atom
-	// The sound we make if hit.
-	var/impact_sound = SFX_BULLET_IMPACT_METAL
-
+	/// The sound we make if hit by a bullet
+	var/bullet_impact_sound = SFX_BULLET_IMPACT_METAL
 
 // TURFS
 /turf/closed/wall/ice
-	impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 /turf/closed/wall/mineral/snow
-	impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 /turf/closed/wall/mineral/wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /turf/closed/wall/mineral/bamboo
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /turf/closed/wall/mineral/sandstone
-	impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
 
 /turf/closed/wall/vault/rock
-	impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
 
 /turf/closed/wall/vault/sandstone
-	impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
 
 /turf/closed/wall/rock
-	impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
 
 /turf/closed/wall/mineral/diamond
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /turf/closed/wall/mineral/plasma
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 // MOBS
 /mob/living
-	impact_sound = SFX_BULLET_IMPACT_FLESH
+	bullet_impact_sound = SFX_BULLET_IMPACT_FLESH
 
 // STRUCTURES
 /obj/structure/window
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/structure/table/glass
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/structure/table/reinforced/rglass
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/structure/table/reinforced/plasmarglass
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/structure/table/reinforced/plastitaniumglass
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/structure/table/reinforced/titaniumglass
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/structure/table/wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/barricade/wooden
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/chair/wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/closet/crate/wooden
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/door_assembly/door_assembly_wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/falsewall/wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/table_frame/wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/deployable_barricade/wooden
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/structure/statue/snow
-	impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 /obj/structure/deployable_barricade/snow
-	impact_sound = SFX_BULLET_IMPACT_ICE
-
-
+	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
 
 // MACHINERY
 /obj/machinery/door/window
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/machinery/computer
-	impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
 
 /obj/machinery/door/airlock/wood
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /obj/machinery/computer/security/wooden_tv
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 

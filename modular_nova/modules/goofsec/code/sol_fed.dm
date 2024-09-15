@@ -175,8 +175,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 			var/datum/antagonist/ert/request_911/ert_antag = new cops_to_send
 
 			cop.mind.add_antag_datum(ert_antag)
-			cop.mind.set_assigned_role(SSjob.GetJobType(ert_antag.ert_job_path))
-			SSjob.SendToLateJoin(cop)
+			cop.mind.set_assigned_role(SSjob.get_job_type(ert_antag.ert_job_path))
+			SSjob.send_to_late_join(cop)
 			cop.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
 			if(cops_to_send == /datum/antagonist/ert/request_911/atmos) // charge for atmos techs
@@ -382,7 +382,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"
@@ -397,7 +397,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/sec
 	name = "\improper SolFed adv. Security encryption key"
@@ -412,7 +412,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/med
 	name = "\improper SolFed adv. Medical encryption key"
@@ -645,8 +645,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 					var/datum/antagonist/ert/request_911/ert_antag = new type_to_summon
 
 					cop.mind.add_antag_datum(ert_antag)
-					cop.mind.set_assigned_role(SSjob.GetJobType(ert_antag.ert_job_path))
-					SSjob.SendToLateJoin(cop)
+					cop.mind.set_assigned_role(SSjob.get_job_type(ert_antag.ert_job_path))
+					SSjob.send_to_late_join(cop)
 					cop.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
 
 					var/obj/item/gangster_cellphone/phone = new() // biggest gang in the city

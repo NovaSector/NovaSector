@@ -234,17 +234,15 @@
 			balloon_alert(wearer, "retract parts first!")
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
 			return
-
 	// NOVA EDIT ADDITION START - Can't remove your MODsuit from your back when it's still active (as it can cause runtimes and even the MODsuit control unit to delete itself)
 	if(active)
-		if(!wearer.incapacitated())
+		if(!wearer.incapacitated)
 			balloon_alert(wearer, "deactivate first!")
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
 
 		return
 	// NOVA EDIT ADDITION END
-
-	if(!wearer.incapacitated())
+	if(!wearer.incapacitated)
 		var/atom/movable/screen/inventory/hand/ui_hand = over_object
 		if(wearer.putItemFromInventoryInHandIfPossible(src, ui_hand.held_index))
 			add_fingerprint(user)
@@ -314,22 +312,12 @@
 	playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return ITEM_INTERACT_BLOCKING
 
-/obj/item/mod/control/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
-	// Hack. revisit later
-	if(istype(inserted, /obj/item/aicard))
-		var/obj/item/aicard/ai_card = inserted
-		if(ai_card.AI)
-			return FALSE // we want to get an AI assistant, try uploading instead of insertion
-		if(ai_assistant)
-			return FALSE // we already have an AI assistant, try withdrawing instead of insertion
-	return TRUE
-
 // Makes use of tool act to prevent shoving stuff into our internal storage
 /obj/item/mod/control/tool_act(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/pai_card))
 		if(!open)
 			balloon_alert(user, "open the cover first!")
-			return ITEM_INTERACT_BLOCKING
+			return NONE // shoves the card in the storage anyways
 		insert_pai(user, tool)
 		return ITEM_INTERACT_SUCCESS
 	if(istype(tool, /obj/item/mod/paint))
@@ -581,6 +569,11 @@
 	if(!new_module.has_required_parts(mod_parts))
 		if(user)
 			balloon_alert(user, "[new_module] incompatible with [src]'s parts!")
+			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		return
+	if(!new_module.can_install(src))
+		if(user)
+			balloon_alert(user, "[new_module] cannot be installed into [src]!")
 			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
 	new_module.forceMove(src)

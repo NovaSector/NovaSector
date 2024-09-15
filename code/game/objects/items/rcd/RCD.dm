@@ -80,10 +80,6 @@
 	GLOB.rcd_list -= src
 	. = ..()
 
-/obj/item/construction/rcd/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	playsound(src, SFX_TOOL_SWITCH, 20, TRUE)
-
 /obj/item/construction/rcd/ui_action_click(mob/user, actiontype)
 	if (!COOLDOWN_FINISHED(src, destructive_scan_cooldown))
 		to_chat(user, span_warning("[src] lets out a low buzz."))
@@ -211,15 +207,15 @@
  * * [mob][user]- the user building this structure
  */
 /obj/item/construction/rcd/proc/rcd_create(atom/target, mob/user)
+	var/list/rcd_results = target.rcd_vals(user, src) // does this atom allow for rcd actions?
+	if(!rcd_results) // nope
+		return NONE
+
 	//straight up can't touch this
 	if(mode == RCD_DECONSTRUCT && (target.resistance_flags & INDESTRUCTIBLE))
 		balloon_alert(user, "too durable!")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	//does this atom allow for rcd actions?
-	var/list/rcd_results = target.rcd_vals(user, src)
-	if(!rcd_results)
-		return FALSE
 	rcd_results["[RCD_DESIGN_MODE]"] = mode
 	rcd_results["[RCD_DESIGN_PATH]"] = rcd_design_path
 
@@ -241,6 +237,7 @@
 		log_tool("[key_name(user)] used [src] to [rcd_results["[RCD_DESIGN_MODE]"] != RCD_DECONSTRUCT ? "construct [initial(design_path.name)]([design_path])" : "deconstruct [target_name]([target_path])"] at [location]")
 
 	current_active_effects -= 1
+	return ITEM_INTERACT_SUCCESS
 
 /**
  * Internal proc which creates the rcd effects & creates the structure
@@ -348,6 +345,7 @@
 	return data
 
 /obj/item/construction/rcd/handle_ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
+	playsound(src, SFX_TOOL_SWITCH, 20, TRUE)
 
 	switch(action)
 		if("root_category")
@@ -404,29 +402,25 @@
 		return .
 
 	mode = construction_mode
-	rcd_create(interacting_with, user)
-	return ITEM_INTERACT_SUCCESS
+	return rcd_create(interacting_with, user)
 
 /obj/item/construction/rcd/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!ranged || !range_check(interacting_with, user))
 		return ITEM_INTERACT_BLOCKING
 
 	mode = construction_mode
-	rcd_create(interacting_with, user)
-	return ITEM_INTERACT_SUCCESS
+	return rcd_create(interacting_with, user)
 
 /obj/item/construction/rcd/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	mode = RCD_DECONSTRUCT
-	rcd_create(interacting_with, user)
-	return ITEM_INTERACT_SUCCESS
+	return rcd_create(interacting_with, user)
 
 /obj/item/construction/rcd/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!ranged || !range_check(interacting_with, user))
 		return ITEM_INTERACT_BLOCKING
 
 	mode = RCD_DECONSTRUCT
-	rcd_create(interacting_with, user)
-	return ITEM_INTERACT_SUCCESS
+	return rcd_create(interacting_with, user)
 
 /obj/item/construction/rcd/handle_openspace_click(turf/target, mob/user, list/modifiers)
 	interact_with_atom(target, user, modifiers)

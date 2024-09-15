@@ -218,7 +218,7 @@
 	balloon_alert(user, "picking up hat...")
 	if (!do_after(user, 3 SECONDS, src))
 		return
-	if (QDELETED(src) || !Adjacent(user) || user.incapacitated())
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated)
 		return
 	user.place_on_head(src)
 	balloon_alert(user, "picked up hat")
@@ -235,7 +235,7 @@
 	balloon_alert(user, "dropping hat...")
 	if (!do_after(user, 3 SECONDS, src))
 		return
-	if (QDELETED(src) || !Adjacent(user) || user.incapacitated() || isnull(hat))
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated || isnull(hat))
 		return
 	hat.forceMove(get_turf(src))
 	hat = null

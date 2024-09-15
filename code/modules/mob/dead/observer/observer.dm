@@ -141,11 +141,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	add_to_dead_mob_list()
 
-	for(var/v in GLOB.active_alternate_appearances)
-		if(!v)
-			continue
-		var/datum/atom_hud/alternate_appearance/AA = v
-		AA.onNewMob(src)
+	for(var/datum/atom_hud/alternate_appearance/alt_hud as anything in GLOB.active_alternate_appearances)
+		alt_hud.apply_to_new_mob(src)
 
 	. = ..()
 
@@ -420,7 +417,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		//NOVA EDIT ADDITION - DNR TRAIT (Technically this is just to fix ghost-DNR'ing not actually DNR'ing, but it pairs with the trait so)
 		if(!current_mob.has_quirk(/datum/quirk/dnr))
 			current_mob.add_quirk(/datum/quirk/dnr)
-		var/datum/job/job_to_free = SSjob.GetJob(current_mob.mind.assigned_role.title)
+		var/datum/job/job_to_free = SSjob.get_job(current_mob.mind.assigned_role.title)
 		if(job_to_free)
 			job_to_free.current_positions = max(0, job_to_free.current_positions - 1)
 		//NOVA EDIT ADDITION END - DNR TRAIT

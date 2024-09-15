@@ -75,7 +75,7 @@
 			target.adjust_arousal(6)
 			target.adjust_pleasure(9)
 			user.visible_message(span_purple("[user] [message]!"))
-			play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+			playsound_if_pref(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',

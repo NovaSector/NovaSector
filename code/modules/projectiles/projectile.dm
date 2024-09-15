@@ -1,3 +1,4 @@
+
 #define MOVES_HITSCAN -1 //Not actually hitscan but close as we get without actual hitscan.
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 17 //How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
 #define MAX_RANGE_HIT_PRONE_TARGETS 10 //How far do the projectile hits the prone mob
@@ -15,7 +16,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	//The sound this plays on impact.
-	var/hitsound // NOVA EDIT CHANGE - ORIGINAL: var/hitsound = 'sound/weapons/pierce.ogg'
+	var/hitsound = 'sound/weapons/pierce.ogg'
 	var/hitsound_wall = ""
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -208,6 +209,10 @@
 	var/wound_falloff_tile
 	///How much we want to drop the embed_chance value, if we can embed, per tile, for falloff purposes
 	var/embed_falloff_tile
+	///How much accuracy is lost for each tile travelled
+	var/accuracy_falloff = 7
+	///How much accuracy before falloff starts to matter. Formula is range - falloff * tiles travelled
+	var/accurate_range = 100
 	var/static/list/projectile_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(on_entered))
 	// NOVA EDIT ADDITION START
 	/// If this should be able to hit the target even on direct firing when `ignored_factions` applies
@@ -304,14 +309,13 @@
 		if(suppressed)
 			volume = 5
 		playsound(loc, hitsound_wall, volume, TRUE, -1)
-	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS
+	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
 	var/impact_sound
-	if(hitsound)
-		impact_sound = hitsound
-	else
-		impact_sound = target.impact_sound
-		get_sfx()
-	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
+	if(use_bullet_impact_sound)
+		impact_sound = target.bullet_impact_sound
+	if(impact_sound)
+		hitsound = null // don't play the hitsound
+		playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
@@ -466,9 +470,8 @@
 				store_hitscan_collision(point_cache)
 			return TRUE
 
-	if(!HAS_TRAIT(src, TRAIT_ALWAYS_HIT_ZONE))
-		var/distance = get_dist(T, starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
-		def_zone = ran_zone(def_zone, max(100-(7*distance), 5)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
+	var/distance = get_dist(T, starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
+	def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
 	return process_hit(T, select_target(T, A, A), A) // SELECT TARGET FIRST!
 
@@ -1043,7 +1046,6 @@
 		var/turf/target_loc = get_turf(target)
 		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
 		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (target.pixel_z - source.pixel_z) + (p_y - (world.icon_size / 2))
-
 		angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
 
