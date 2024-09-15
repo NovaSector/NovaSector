@@ -13,17 +13,6 @@ GLOBAL_LIST_EMPTY(scream_types)
 /datum/scream_type/human
 	name = "Human Scream"
 	male_screamsounds = list(
-		'modular_nova/modules/emotes/sound/voice/scream_m1.ogg',
-		'modular_nova/modules/emotes/sound/voice/scream_m2.ogg',
-	)
-	female_screamsounds = list(
-		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
-		'modular_nova/modules/emotes/sound/voice/scream_f2.ogg',
-	)
-
-/datum/scream_type/human_two
-	name = "Human Scream 2"
-	male_screamsounds = list(
 		'sound/voice/human/malescream_1.ogg',
 		'sound/voice/human/malescream_2.ogg',
 		'sound/voice/human/malescream_3.ogg',
@@ -65,11 +54,6 @@ GLOBAL_LIST_EMPTY(scream_types)
 
 /datum/scream_type/moth
 	name = "Moth Scream"
-	male_screamsounds = list('modular_nova/modules/emotes/sound/voice/scream_moth.ogg')
-	female_screamsounds = null
-
-/datum/scream_type/moth_two
-	name = "Moth Scream 2"
 	male_screamsounds = list('sound/voice/moth/scream_moth.ogg')
 	female_screamsounds = null
 
