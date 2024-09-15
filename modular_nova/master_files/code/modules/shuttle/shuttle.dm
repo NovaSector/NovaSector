@@ -8,43 +8,6 @@
 	/// The sound range coeff for the landing and take off sound effect
 	var/sound_range = 11
 
-/obj/docking_port/mobile/proc/mark_external_doors()
-	var/list/turfs = return_ordered_turfs(x, y, z, dir)
-	var/list/bounds = return_coords()
-	for(var/i in 1 to turfs.len)
-		var/turf/checked_turf = turfs[i]
-
-		// Do not touch station airlocks
-		if (!shuttle_areas[get_area(checked_turf)])
-			continue
-
-		for(var/obj/machinery/door/airlock/airlock_door in checked_turf)
-			// Door on the border is external always
-			if (airlock_door.x == bounds[1] || airlock_door.y == bounds[2] || airlock_door.x == bounds[3] || airlock_door.y == bounds[4])
-				airlock_door.external = TRUE
-				continue
-
-			// If door facing space or mapped without atmos - it is external too
-			var/turf/T = get_step(airlock_door, WEST)
-			if(is_space_or_openspace(T) || T.initial_gas_mix == AIRLESS_ATMOS)
-				airlock_door.external = TRUE
-				continue
-			T = get_step(airlock_door, EAST)
-			if(is_space_or_openspace(T) || T.initial_gas_mix == AIRLESS_ATMOS)
-				airlock_door.external = TRUE
-				continue
-			T = get_step(airlock_door, NORTH)
-			if(is_space_or_openspace(T) || T.initial_gas_mix == AIRLESS_ATMOS)
-				airlock_door.external = TRUE
-				continue
-			T = get_step(airlock_door, SOUTH)
-			if(is_space_or_openspace(T) || T.initial_gas_mix == AIRLESS_ATMOS)
-				airlock_door.external = TRUE
-				continue
-
-			// All checks passed - you are internal
-			airlock_door.external = FALSE
-
 /obj/docking_port/mobile/proc/bolt_all_doors() // Expensive procs :(
 	var/list/turfs = return_ordered_turfs(x, y, z, dir)
 	var/list/airlock_cache = list()
@@ -59,20 +22,26 @@
 			if(airlock_door.external)
 				airlock_door.close(force_crush = TRUE)
 				airlock_door.bolt()
-				// If airlock is controlled - bolt them all to avoid airlocks state mismatch
+				// If airlock is controlled - bolt all airlocks with same id, to avoid different bolt state on airlocks binded to same button
 				if(airlock_door.id_tag)
+					// Let non-external airlocks after us know, that they should bolt themself
 					airlock_cache[airlock_door.id_tag] = TRUE
+					// For every non-external airlock that we already iterated through
 					for(var/obj/machinery/door/airlock/synced_door in airlock_cache)
 						if (synced_door.id_tag == airlock_door.id_tag)
 							synced_door.close(force_crush = TRUE)
 							synced_door.bolt()
 							airlock_cache -= synced_door
 
+			// If we are non-external, but we having id - there is possibility of external airlock with same id, if so - we want be bolted too
+			// That is needed to avoid different bolt state on airlocks binded to same button
 			else if(airlock_door.id_tag)
+				// It already was external airlock with same id
 				if(airlock_cache[airlock_door.id_tag])
 					airlock_door.close(force_crush = TRUE)
 					airlock_door.bolt()
 					continue
+				// There was none, so let it handle our bolting, if there will be any external at all
 				airlock_cache += airlock_door
 
 /obj/docking_port/mobile/proc/unbolt_all_doors()

@@ -22,6 +22,33 @@
 /obj/machinery/door/airlock/shuttle
 	external = TRUE
 
+/obj/machinery/door/airlock/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+	. = ..()
+	automark_as_external(port)
+
+// Sets var external for autobolting by shuttle. Accepts /obj/docking_port/mobile, but it's optional
+/obj/machinery/door/airlock/proc/automark_as_external(obj/docking_port/mobile/port)
+	if (port != null)
+		// Heey... This is not your shuttle
+		if (!port.shuttle_areas[get_area(src)])
+			return
+
+		// Door on the border is external always
+		var/list/bounds = port.return_coords()
+		if (x == bounds[1] || y == bounds[2] || x == bounds[3] || y == bounds[4])
+			external = TRUE
+			return
+
+	// If door connected to space or turf mapped without atmos - it is external too
+	for(var/turf/turf_nearby in get_adjacent_open_turfs(src))
+		if(is_space_or_openspace(turf_nearby) || turf_nearby.initial_gas_mix == AIRLESS_ATMOS)
+			external = TRUE
+			return
+
+	external = FALSE
+	return
+
+
 /obj/machinery/door/airlock/power_change()
 	..()
 	update_icon()
