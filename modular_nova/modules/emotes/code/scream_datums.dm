@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(scream_types)
 		'modular_nova/modules/emotes/sound/voice/scream_f3.ogg',
 	)
 
-/datum/scream_type/human
+/datum/scream_type/human_two
 	name = "Human Scream 2"
 	male_screamsounds = list(
 		'sound/voice/human/malescream_1.ogg',
