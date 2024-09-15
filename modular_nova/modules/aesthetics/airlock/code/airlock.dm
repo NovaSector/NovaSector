@@ -26,7 +26,7 @@
 	. = ..()
 	automark_as_external(port)
 
-// Sets var external for autobolting by shuttle. Accepts /obj/docking_port/mobile, but it's optional
+/// Checks validity of var external and automatically sets it appropriately based on if it is surrounded by space on at least one side. Used for autobolting shuttle airlocks. Accepts /obj/docking_port/mobile as arg, but it's optional
 /obj/machinery/door/airlock/proc/automark_as_external(obj/docking_port/mobile/port)
 	if (port)
 		// Heey... This is not your shuttle
