@@ -28,7 +28,7 @@
 
 // Sets var external for autobolting by shuttle. Accepts /obj/docking_port/mobile, but it's optional
 /obj/machinery/door/airlock/proc/automark_as_external(obj/docking_port/mobile/port)
-	if (port != null)
+	if (port)
 		// Heey... This is not your shuttle
 		if (!port.shuttle_areas[get_area(src)])
 			return

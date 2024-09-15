@@ -10,6 +10,9 @@
 
 /obj/docking_port/mobile/proc/bolt_all_doors() // Expensive procs :(
 	var/list/turfs = return_ordered_turfs(x, y, z, dir)
+	// List off non-external airlocks with id_tag and id_tags of external airlock
+	// If its string - its used by non-external airlock to check if it has same id_tag and it needs to be bolted
+	// If its entity - its entity of non-external airlock, that MAY be bolted later if external one with same id_tag found
 	var/list/airlock_cache = list()
 	for(var/i in 1 to turfs.len)
 		var/turf/checked_turf = turfs[i]
