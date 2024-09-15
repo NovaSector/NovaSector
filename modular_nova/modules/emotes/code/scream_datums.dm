@@ -21,6 +21,22 @@ GLOBAL_LIST_EMPTY(scream_types)
 		'sound/voice/human/malescream_6.ogg',
 	)
 	female_screamsounds = list(
+		'modular_nova/modules/emotes/sound/voice/scream_f1.ogg',
+		'modular_nova/modules/emotes/sound/voice/scream_f2.ogg',
+		'modular_nova/modules/emotes/sound/voice/scream_f3.ogg',
+	)
+
+/datum/scream_type/human
+	name = "Human Scream 2"
+	male_screamsounds = list(
+		'sound/voice/human/malescream_1.ogg',
+		'sound/voice/human/malescream_2.ogg',
+		'sound/voice/human/malescream_3.ogg',
+		'sound/voice/human/malescream_4.ogg',
+		'sound/voice/human/malescream_5.ogg',
+		'sound/voice/human/malescream_6.ogg',
+	)
+	female_screamsounds = list(
 		'sound/voice/human/femalescream_1.ogg',
 		'sound/voice/human/femalescream_2.ogg',
 		'sound/voice/human/femalescream_3.ogg',
