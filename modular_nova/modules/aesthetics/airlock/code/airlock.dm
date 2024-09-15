@@ -24,10 +24,10 @@
 
 /obj/machinery/door/airlock/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
-	automark_as_external(port)
+	validate_as_external(port)
 
 /// Checks validity of var external and automatically sets it appropriately based on if it is surrounded by space on at least one side. Used for autobolting shuttle airlocks. Accepts /obj/docking_port/mobile as arg, but it's optional
-/obj/machinery/door/airlock/proc/automark_as_external(obj/docking_port/mobile/port)
+/obj/machinery/door/airlock/proc/validate_as_external(obj/docking_port/mobile/port)
 	if (port)
 		// Heey... This is not your shuttle
 		if (!port.shuttle_areas[get_area(src)])
