@@ -1,4 +1,0 @@
-author: "GoldenAlpharex"
-delete-after: True
-changes:
-  - config: "Updated jobconfig.toml to match the one on the server, this should remove some in-game warnings about some jobs missing from said jobconfig."

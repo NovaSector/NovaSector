@@ -119,34 +119,42 @@
 /datum/loadout_item/shoes/black_sneakers
 	name = "Black Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/black
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/blue_sneakers
 	name = "Blue Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/blue
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/brown_sneakers
 	name = "Brown Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/brown
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/green_sneakers
 	name = "Green Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/green
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/purple_sneakers
 	name = "Purple Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/purple
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/orange_sneakers
 	name = "Orange Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/orange
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/yellow_sneakers
 	name = "Yellow Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/yellow
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/white_sneakers
 	name = "White Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/white
+	can_be_greyscale = DONT_GREYSCALE
 
 /*
 *	LEG WRAPS
