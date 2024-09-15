@@ -38,34 +38,18 @@
 
 
 /datum/emote/living/cough/get_sound(mob/living/user)
+	. = ..()
 	if(isvox(user))
 		return 'modular_nova/modules/emotes/sound/emotes/voxcough.ogg'
-	if(iscarbon(user))
-		if(user.gender == MALE)
-			return pick('sound/voice/human/male_cough1.ogg',
-						'sound/voice/human/male_cough2.ogg',
-						'sound/voice/human/male_cough3.ogg',
-						'sound/voice/human/male_cough4.ogg',
-						'sound/voice/human/male_cough5.ogg',
-						'sound/voice/human/male_cough6.ogg')
-		return pick('sound/voice/human/female_cough1.ogg',
-					'sound/voice/human/female_cough2.ogg',
-					'sound/voice/human/female_cough3.ogg',
-					'sound/voice/human/female_cough4.ogg',
-					'sound/voice/human/female_cough5.ogg',
-					'sound/voice/human/female_cough6.ogg')
 	return
 
 /datum/emote/living/sneeze
 	vary = TRUE
 
 /datum/emote/living/sneeze/get_sound(mob/living/user)
+	. = ..()
 	if(isvox(user))
 		return 'modular_nova/modules/emotes/sound/emotes/voxsneeze.ogg'
-	if(iscarbon(user))
-		if(user.gender == MALE)
-			return 'sound/voice/human/male_sneeze1.ogg'
-		return 'sound/voice/human/female_sneeze1.ogg'
 	return
 
 /datum/emote/living/yawn
@@ -222,17 +206,12 @@
 		return'sound/creatures/chitter.ogg'
 
 /datum/emote/living/gasp/get_sound(mob/living/user)
+	. = ..()
 	if(iscarbon(user))
 		if(isxenohybrid(user))
 			return pick('sound/voice/lowHiss2.ogg',
 						'sound/voice/lowHiss3.ogg',
 						'sound/voice/lowHiss4.ogg')
-		if(user.gender == MALE)
-			return pick('sound/voice/human/gasp_male1.ogg',
-						'sound/voice/human/gasp_male2.ogg')
-		return pick('sound/voice/human/gasp_female1.ogg',
-					'sound/voice/human/gasp_female2.ogg',
-					'sound/voice/human/gasp_female3.ogg')
 	return
 
 /datum/emote/living/snore
@@ -260,10 +239,10 @@
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 
 /datum/emote/living/clap/get_sound(mob/living/user)
-	return pick('sound/emotes/clap1.ogg',
-				'sound/emotes/clap2.ogg',
-				'sound/emotes/clap3.ogg',
-				'sound/emotes/clap4.ogg')
+	return pick('sound/misc/clap1.ogg',
+				'sound/misc/clap2.ogg',
+				'sound/misc/clap3.ogg',
+				'sound/misc/clap4.ogg')
 
 /datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
