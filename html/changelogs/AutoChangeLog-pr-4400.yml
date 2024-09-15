@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - spellcheck: "examining a mob will use an exclamation point after the thing's name, for everything else you get a period"
