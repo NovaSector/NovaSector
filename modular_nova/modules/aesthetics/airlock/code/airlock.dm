@@ -46,8 +46,6 @@
 			return
 
 	external = FALSE
-	return
-
 
 /obj/machinery/door/airlock/power_change()
 	..()
