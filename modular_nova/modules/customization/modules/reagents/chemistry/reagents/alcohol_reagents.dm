@@ -832,6 +832,30 @@
 	name = "glass of city of sin"
 	desc = "Looking at it makes you recall every mistake you've made."
 
+/datum/reagent/consumable/ethanol/cringe_weaver
+	name = "Cringe Weaver"
+	description = "For when they ask for a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+	color = "#2BFE3C"
+	boozepwr = -20 //spicy. sobering. burning. cringe.
+	taste_description = "cringe and Lorem ipsum"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/ethanol/cringe_weaver/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+	var/obj/item/organ/internal/liver/liver = drinker.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver && HAS_TRAIT(liver, TRAIT_CORONER_METABOLISM))
+		drinker.heal_bodypart_damage(1 * REM * seconds_per_tick, 1 * REM * seconds_per_tick) //coroners love drinking formaldehyde
+	else
+		drinker.adjust_disgust(1 * REM * seconds_per_tick)
+		. = TRUE
+	return ..()
+
+/datum/glass_style/drinking_glass/cringe_weaver
+	required_drink_type = /datum/reagent/consumable/ethanol/cringe_weaver
+	name = "Cringe Weaver"
+	desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae justo eget magna fermentum iaculis eu. Egestas congue quisque egestas diam in arcu cursus euismod."
+	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
+	icon_state = "cringe_weaver"
+
 /datum/reagent/consumable/ethanol/shakiri
 	name = "Shakiri"
 	description = "A sweet, fragrant red drink made from fermented kiri fruits. It seems to gently sparkle when exposed to light."
