@@ -1,0 +1,4 @@
+author: "Archemagus"
+delete-after: True
+changes:
+  - bugfix: "Shuttle's door autobolting feature"
