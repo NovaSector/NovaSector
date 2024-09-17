@@ -852,7 +852,7 @@
 /datum/glass_style/drinking_glass/cringe_weaver
 	required_drink_type = /datum/reagent/consumable/ethanol/cringe_weaver
 	name = "Cringe Weaver"
-	desc = "Spicy, sobering, burning, and of course - irrefutably cringe. Liked by people who ask for a plum in a man's hat"
+	desc = "Spicy, sobering, burning, and of course - irrefutably cringe. Enjoyed by patrons who ask for a plum in a man's hat."
 	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
 	icon_state = "cringe_weaver"
 
