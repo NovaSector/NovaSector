@@ -11,6 +11,7 @@
 	var/move_on_shuttle = FALSE
 	/// Toggles if the camera can use emotes
 	var/has_emotes = FALSE
+	status_flags = NONE
 
 /mob/camera/Initialize(mapload)
 	. = ..()

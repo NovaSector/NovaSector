@@ -36,6 +36,7 @@
 	combat_mode = TRUE
 	layer = LOW_FLOOR_LAYER
 	plane = FLOOR_PLANE
+	status_flags = NONE
 	faction = list(FACTION_HOSTILE)
 	melee_damage_lower = 20
 	melee_damage_upper = 40 //pranked.....

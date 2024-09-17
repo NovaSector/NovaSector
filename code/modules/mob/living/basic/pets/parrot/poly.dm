@@ -197,6 +197,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/parrot/ghost
 	speech_probability_rate = 1
 	resistance_flags = parent_type::resistance_flags | SHUTTLE_CRUSH_PROOF
+	status_flags = NONE
 
 /mob/living/basic/parrot/poly/ghost/Initialize(mapload)
 	// block anything and everything that could possibly happen with writing memory for ghosts
