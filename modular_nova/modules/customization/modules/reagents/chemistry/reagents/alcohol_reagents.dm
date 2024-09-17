@@ -834,7 +834,7 @@
 
 /datum/reagent/consumable/ethanol/cringe_weaver
 	name = "Cringe Weaver"
-	description = "For when they ask for a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+	description = "An infrangibly awful-tasting drink that 'smart' people inexplicably covet. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 	color = "#2BFE3C"
 	boozepwr = -20 //spicy. sobering. burning. cringe.
 	taste_description = "cringe and Lorem ipsum"
@@ -852,7 +852,7 @@
 /datum/glass_style/drinking_glass/cringe_weaver
 	required_drink_type = /datum/reagent/consumable/ethanol/cringe_weaver
 	name = "Cringe Weaver"
-	desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae justo eget magna fermentum iaculis eu. Egestas congue quisque egestas diam in arcu cursus euismod."
+	desc = "For when they ask for a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae justo eget magna fermentum iaculis eu. Egestas congue quisque egestas diam in arcu cursus euismod."
 	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
 	icon_state = "cringe_weaver"
 
