@@ -522,3 +522,10 @@
 2024-09-16:
   vinylspiders:
   - bugfix: SSD timers on examine have returned
+2024-09-17:
+  Archemagus:
+  - bugfix: Shuttle's door autobolting feature
+  MrSunabouzu:
+  - rscadd: Snowglobe Solars, Drone Bay, and Stacking Machine
+  - qol: Snowglobe Raptor Ranch closer to mining
+  - balance: Replaced less used rooms for new ones in snowglobe
