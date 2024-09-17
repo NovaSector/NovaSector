@@ -8,7 +8,6 @@
 
 	shut_up = TRUE
 	vend_reply = null
-	all_products_free = TRUE
 
 	products = list(
 		/obj/item/clothing/under/dress/skirt/primitive_catgirl_body_wraps = 15,
@@ -44,6 +43,11 @@
 		/obj/item/clothing/head/costume/nova/papakha/white = 5,
 		/obj/item/clothing/head/hair_tie = 5,
 	)
+
+/obj/machinery/vending/primitive_catgirl_clothing_vendor/Initialize(mapload)
+	. = ..()
+
+	onstation = FALSE
 
 /obj/machinery/vending/primitive_catgirl_clothing_vendor/speak(message)
 	return

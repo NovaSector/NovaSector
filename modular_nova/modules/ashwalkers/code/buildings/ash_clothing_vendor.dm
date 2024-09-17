@@ -5,7 +5,6 @@
 	icon = 'modular_nova/modules/ashwalkers/icons/vending.dmi'
 	icon_state = "ashclothvendor"
 	icon_deny = "necrocrate"
-	all_products_free = TRUE
 
 	products = list( //Relatively normal to have, I GUESS
 		/obj/item/clothing/under/costume/gladiator/ash_walker/tribal = 15,
@@ -35,3 +34,7 @@
 		/obj/item/clothing/accessory/skullcodpiece = 5,
 		/obj/item/clothing/accessory/talisman = 5,
 	)
+
+/obj/machinery/vending/ashclothingvendor/Initialize(mapload)
+	. = ..()
+	onstation = FALSE
