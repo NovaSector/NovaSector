@@ -590,3 +590,9 @@
       mutlilined
   - bugfix: fixed crafted donuts not getting any sprinkles, ever
   - bugfix: fixes being able to use chuunibyou shouts while mute
+2024-09-18:
+  vinylspiders:
+  - bugfix: fixed primitive 'vendors' (the ash clothing box and icecat wardrobe) costing
+      money when they should be free
+  zeroisthebiggay:
+  - rscadd: Ask your local bartender for a glass of Cringe Weaver!

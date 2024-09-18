@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixed primitive 'vendors' (the ash clothing box and icecat wardrobe) costing money when they should be free"
