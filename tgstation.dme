@@ -6849,6 +6849,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\podpeople.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\skeletons.dm"
 #include "modular_nova\master_files\code\modules\mob\living\carbon\human\species_type\snail.dm"
+#include "modular_nova\master_files\code\modules\mob\living\carbon\special\facehugger.dm"
 #include "modular_nova\master_files\code\modules\mob\living\human\species.dm"
 #include "modular_nova\master_files\code\modules\mob\living\human\species_types\ethereal.dm"
 #include "modular_nova\master_files\code\modules\mob\living\human\species_types\flypeople.dm"
