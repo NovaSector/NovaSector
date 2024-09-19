@@ -11,7 +11,7 @@
 			/area/lavaland/surface/outdoors,
 			/area/ocean/generated,
 			/area/ruin,
-		)
+	)
 
 /obj/item/firing_pin/wastes/pin_auth(mob/living/user)
 	if(!istype(user))
