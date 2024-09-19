@@ -36,7 +36,7 @@
 //Accelerator Projectiles
 
 /obj/projectile/kinetic
-	var/mod_mult = 1
+	var/mod_mult = 1 // Indicates to which value the damage modkit multiplicates its bonus, useful for multi proyectile pka's where the bonus is otherwise is applied to each proyectile and increases more than intended.
 
 /obj/projectile/kinetic/railgun
 	name = "hyper kinetic force"
