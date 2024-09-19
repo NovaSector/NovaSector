@@ -2,8 +2,8 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/ //Parent Variant so we can apply general changes
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/borg/upgrade/modkit/chassis_mod) || istype(I, /obj/item/borg/upgrade/modkit/chassis_mod/orange))
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/borg/upgrade/modkit/chassis_mod))
 		to_chat(user, span_notice("This weapon doesn't have variant appearances."))
 	else
 		return ..()
