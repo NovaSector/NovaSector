@@ -638,9 +638,12 @@
   - bugfix: Fixed petrification not removing NOBLOOD trait after ending
   - bugfix: Snow bears are no longer impervious to all sources of damage
   - bugfix: Cameras, living floors and ghost of poly no longer can be pushed around
+  Stalkeros:
+  - rscadd: People who breathe air get two times more cash than before.
   SyncIt21:
   - bugfix: borgs can perform organ manipulation surgery again
   deathrobotpunch:
   - rscadd: Added new fishing category to games vendor
   vinylspiders:
   - bugfix: snailpeople will once again leave water trails instead of space lube
+  - bugfix: using a bluespace anomaly core on snail shells now works again
