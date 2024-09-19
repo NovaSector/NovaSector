@@ -122,7 +122,7 @@
 	emptyStorage()
 	create_storage(max_specific_storage = WEIGHT_CLASS_GIGANTIC, max_total_storage = 35, max_slots = 30, storage_type = /datum/storage/bag_of_holding)
 	for(var/obj/item/stored_item in old_inventory)
-		insert_item(stored_item)
+		atom_storage.attempt_insert(stored_item, override = TRUE, messages = FALSE, force = TRUE)
 	name = "snail shell of holding"
 	update_appearance()
 
