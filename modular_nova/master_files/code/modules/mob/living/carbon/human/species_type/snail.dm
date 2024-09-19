@@ -105,21 +105,25 @@
 	return standing
 
 /obj/item/storage/backpack/snail/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(istype(tool, /obj/item/assembly/signaler/anomaly/bluespace))
-		to_chat(user, span_notice("You insert [tool] into your shell, and it starts to glow blue with expanded storage potential!"))
-		playsound(src, 'sound/machines/click.ogg', 50, TRUE)
-		add_filter("bluespace_shell", 2, list("type" = "outline", "color" = COLOR_BLUE_LIGHT, "size" = 1))
-		storage_core = TRUE
-		qdel(tool)
-		emptyStorage()
-		create_storage(max_specific_storage = WEIGHT_CLASS_GIGANTIC, max_total_storage = 35, max_slots = 30, storage_type = /datum/storage/bag_of_holding)
-		atom_storage.allow_big_nesting = TRUE
-		name = "snail shell of holding"
-		user.update_worn_back()
-		update_appearance()
-		return ITEM_INTERACT_SUCCESS
+	if(!istype(tool, /obj/item/assembly/signaler/anomaly/bluespace))
+		return NONE
 
-	return NONE
+	qdel(tool)
+	upgrade_to_bluespace()
+	to_chat(user, span_notice("You insert [tool] into your shell, and it starts to glow blue with expanded storage potential!"))
+	user.update_worn_back()
+	update_appearance()
+	return ITEM_INTERACT_SUCCESS
+
+/// Upgrades the storage capacity of the snail shell and gives it a glowy blue outline
+/obj/item/storage/backpack/snail/proc/upgrade_to_bluespace()
+	add_filter("bluespace_shell", 2, list("type" = "outline", "color" = COLOR_BLUE_LIGHT, "size" = 1))
+	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
+	storage_core = TRUE
+	emptyStorage()
+	create_storage(max_specific_storage = WEIGHT_CLASS_GIGANTIC, max_total_storage = 35, max_slots = 30, storage_type = /datum/storage/bag_of_holding)
+	atom_storage.allow_big_nesting = TRUE
+	name = "snail shell of holding"
 
 /datum/species/snail/prepare_human_for_preview(mob/living/carbon/human/snail)
 	snail.dna.features["mcolor"] = "#adaba7"
