@@ -21,9 +21,6 @@
 
 /obj/item/ammo_casing/energy/kinetic/glock
 	projectile_type = /obj/projectile/kinetic/glock
-	select_name = "kinetic"
-	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/shockwave
 	projectile_type = /obj/projectile/kinetic/shockwave
