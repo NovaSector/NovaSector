@@ -205,7 +205,7 @@
 	if(equipping.paycheck_department)
 		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 		//NOVA EDIT ADDITION - Roundstart advantage
-		bank_account.payday(STARTING_PAYCHECKS * 3, TRUE) //Triple the dosh for shift starters.
+		bank_account.payday(STARTING_PAYCHECKS * 2, TRUE) //Triple the dosh for shift starters.
 		//Nova EDIT END - Roundstart advantage
 		account_id = bank_account.account_id
 		bank_account.replaceable = FALSE
