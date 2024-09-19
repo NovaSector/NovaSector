@@ -105,7 +105,7 @@
 	return standing
 
 /obj/item/storage/backpack/snail/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(!istype(tool, /obj/item/assembly/signaler/anomaly/bluespace))
+	if(storage_core || !istype(tool, /obj/item/assembly/signaler/anomaly/bluespace))
 		return NONE
 
 	qdel(tool)
