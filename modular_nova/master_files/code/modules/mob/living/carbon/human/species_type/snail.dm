@@ -118,9 +118,11 @@
 	add_filter("bluespace_shell", 2, list("type" = "outline", "color" = COLOR_BLUE_LIGHT, "size" = 1))
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	storage_core = TRUE
+	var/old_inventory = atom_storage.return_inv(FALSE)
 	emptyStorage()
 	create_storage(max_specific_storage = WEIGHT_CLASS_GIGANTIC, max_total_storage = 35, max_slots = 30, storage_type = /datum/storage/bag_of_holding)
-	atom_storage.allow_big_nesting = TRUE
+	for(var/obj/item/stored_item in old_inventory)
+		insert_item(stored_item)
 	name = "snail shell of holding"
 	update_appearance()
 
