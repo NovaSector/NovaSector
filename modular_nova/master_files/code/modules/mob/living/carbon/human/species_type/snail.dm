@@ -109,11 +109,12 @@
 		return NONE
 
 	qdel(tool)
-	upgrade_to_bluespace()
+	upgrade_to_bluespace(user)
+	to_chat(user, span_notice("You insert [tool] into your shell, and it starts to glow blue with expanded storage potential!"))
 	return ITEM_INTERACT_SUCCESS
 
 /// Upgrades the storage capacity of the snail shell and gives it a glowy blue outline
-/obj/item/storage/backpack/snail/proc/upgrade_to_bluespace()
+/obj/item/storage/backpack/snail/proc/upgrade_to_bluespace(mob/living/wearer)
 	add_filter("bluespace_shell", 2, list("type" = "outline", "color" = COLOR_BLUE_LIGHT, "size" = 1))
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	storage_core = TRUE
@@ -122,10 +123,12 @@
 	atom_storage.allow_big_nesting = TRUE
 	name = "snail shell of holding"
 	update_appearance()
-	var/mob/wearer = loc
+
+	// Update the worn sprite with the blue outline too if applicable
+	if(isnull(wearer))
+		wearer = loc
 	if(istype(wearer))
 		wearer.update_worn_back()
-		to_chat(wearer, span_notice("You insert [tool] into your shell, and it starts to glow blue with expanded storage potential!"))
 
 /datum/species/snail/prepare_human_for_preview(mob/living/carbon/human/snail)
 	snail.dna.features["mcolor"] = "#adaba7"
