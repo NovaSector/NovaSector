@@ -9,8 +9,8 @@
 		return ..()
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/crowbar_act(mob/living/user, obj/item/I)
-	. = TRUE
 	to_chat(user, span_notice("This weapon cannot have its modifications removed."))
+	return ITEM_INTERACT_BLOCKING
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/
 
