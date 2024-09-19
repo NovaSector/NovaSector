@@ -596,3 +596,51 @@
       money when they should be free
   zeroisthebiggay:
   - rscadd: Ask your local bartender for a glass of Cringe Weaver!
+2024-09-19:
+  Bisar:
+  - bugfix: Xenomorph restrictions on items they can pick up have had their determining
+      logic made more _robust_.
+  - code_imp: The itempicky component (restricts what can be picked up via a whitelist)
+      can now, optionally, have a callback fed to it to determine cases of bypassing
+      that whitelist.
+  Bumtickley00:
+  - bugfix: Penlights can once again be used to look at people's eyes and mouth.
+  DaCoolBoss:
+  - spellcheck: Fixed typos in lead's description.
+  - spellcheck: Mice now love the taste of insulated electrical cables, not uninsulated
+      ones.
+  Ghommie:
+  - bugfix: examining fishing spots while wielding a rod (with sufficient skill) now
+      works.
+  - rscadd: You can now link fishing portal generators to other fishing spots with
+      a multitool. The number of fishing spots that can be linked at once and whether
+      the link can be activated from different z levels depends on the tier of the
+      stock parts it's built with.
+  - rscadd: You can pet fish while holding them. Be wary of petting aggressive fish.
+  - rscadd: Your current clothes and what chair you sit on can now influence the difficulty
+      of fishing minigames. Having a bare minimum of fishing skill will let you distinguish
+      which objects can help and which won't, so keep an eye out. Holding fishing
+      toolboxes, fish analyzers or fish catalogs can also help.
+  Goat:
+  - bugfix: lockers and crates with no access requirements can now be renamed by anyone
+  Jewelry-x:
+  - bugfix: fixed a bug that allows autogrow to be turned on with no power.
+  - bugfix: fixes description for blob reagents
+  - qol: made blob antag panel easier to read and more organized
+  - spellcheck: fixed a few typos in the blob panel
+  Kocma-san:
+  - bugfix: fixed disposal pipes on metastation, deltastation and icebox
+  SmArtKar:
+  - bugfix: Vore victims no longer get digested instantly when you evolve
+  - bugfix: Changing ID card's trim now properly adjusts linked bank account's job,
+      allowing you to receive bounties for your new job
+  - bugfix: Collars can no longer be used to null a pet's name
+  - bugfix: Fixed petrification not removing NOBLOOD trait after ending
+  - bugfix: Snow bears are no longer impervious to all sources of damage
+  - bugfix: Cameras, living floors and ghost of poly no longer can be pushed around
+  SyncIt21:
+  - bugfix: borgs can perform organ manipulation surgery again
+  deathrobotpunch:
+  - rscadd: Added new fishing category to games vendor
+  vinylspiders:
+  - bugfix: slimepeople will once again leave water trails instead of space lube
