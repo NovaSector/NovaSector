@@ -24,8 +24,6 @@
 
 /obj/item/ammo_casing/energy/kinetic/shockwave
 	projectile_type = /obj/projectile/kinetic/shockwave
-	select_name = "kinetic"
-	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	pellets = 8
 	variance = 360
 	fire_sound = 'sound/weapons/gun/general/cannon.ogg'
