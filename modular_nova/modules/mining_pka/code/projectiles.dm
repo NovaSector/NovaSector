@@ -69,5 +69,4 @@
 
 /obj/projectile/kinetic/shockwave
 	name = "concussive kinetic force"
-	damage = 40
 	range = 1
