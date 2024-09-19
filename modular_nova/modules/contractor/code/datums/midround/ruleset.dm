@@ -35,5 +35,5 @@
 /datum/dynamic_ruleset/midround/from_ghosts/contractor/finish_setup(mob/new_character, index)
 	..()
 	new_character.forceMove(pick_n_take(spawn_locs))
-	new_character.mind.set_assigned_role(SSjob.GetJobType(/datum/job/drifting_contractor))
+	new_character.mind.set_assigned_role(SSjob.get_job_type(/datum/job/drifting_contractor))
 	new_character.mind.active = TRUE

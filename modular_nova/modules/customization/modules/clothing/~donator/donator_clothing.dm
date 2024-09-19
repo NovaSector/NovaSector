@@ -193,6 +193,16 @@
 	button_icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	button_icon_state = "drawingtablet"
 
+//Donation reward for Thedragmeme
+/obj/item/bouquet/stellar
+	name = "stellar bouquet"
+	desc = "An elaborate mix of flowers that shimmer delicately in the light. Topped with a silver moon."
+	icon_state = "starbouquet"
+	inhand_icon_state = "starbouquet"
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+
 // Donation reward for Thedragmeme
 /obj/item/clothing/neck/padded
 	name = "feathered serenity cloak"

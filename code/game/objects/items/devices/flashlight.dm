@@ -42,9 +42,6 @@
 	update_brightness()
 	register_context()
 
-	if(toggle_context)
-		RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
-
 	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/flashlight_eyes)
 
 	AddElement(
@@ -257,7 +254,7 @@
 	if(!scanning.get_bodypart(BODY_ZONE_HEAD))
 		to_chat(user, span_warning("[scanning] doesn't have a head!"))
 		return
-	if(light_power < 1)
+	if(light_power < 0.5)
 		to_chat(user, span_warning("[src] isn't bright enough to see anything!"))
 		return
 
@@ -287,12 +284,12 @@
 		setDir(user.dir)
 
 /// when hit by a light disruptor - turns the light off, forces the light to be disabled for a few seconds
-/obj/item/flashlight/proc/on_saboteur(datum/source, disrupt_duration)
-	SIGNAL_HANDLER
+/obj/item/flashlight/on_saboteur(datum/source, disrupt_duration)
+	. = ..()
 	if(light_on)
 		toggle_light()
 	COOLDOWN_START(src, disabled_time, disrupt_duration)
-	return COMSIG_SABOTEUR_SUCCESS
+	return TRUE
 
 /obj/item/flashlight/pen
 	name = "penlight"
@@ -541,7 +538,6 @@
 	randomize_fuel = FALSE
 	trash_type = /obj/item/trash/candle
 	can_be_extinguished = TRUE
-	var/scented_type //NOVA EDIT ADDITION /// Pollutant type for scented candles
 	/// The current wax level, used for drawing the correct icon
 	var/current_wax_level = 1
 	/// The previous wax level, remembered so we only have to make 3 update_appearance calls total as opposed to every tick
@@ -714,8 +710,6 @@
 	light_system = OVERLAY_LIGHT
 
 /obj/item/flashlight/emp
-	special_desc_requirement = EXAMINE_CHECK_SYNDICATE // NOVA EDIT
-	special_desc = "This flashlight is equipped with a miniature EMP generator." //NOVA EDIT
 	var/emp_max_charges = 4
 	var/emp_cur_charges = 4
 	var/charge_timer = 0

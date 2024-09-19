@@ -5404,9 +5404,7 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 8
 	},
-/obj/machinery/vending/engivend{
-	onstation = 0
-	},
+/obj/machinery/vending/engivend,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -5966,7 +5964,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "AZ" = (
-/obj/machinery/vending/boozeomat/syndicate_access,
+/obj/machinery/vending/boozeomat/syndicate,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "Bb" = (
@@ -7385,9 +7383,7 @@
 /obj/machinery/light/cold/directional/east,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/machinery/vending/dinnerware{
-	onstation = 0
-	},
+/obj/machinery/vending/dinnerware,
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},

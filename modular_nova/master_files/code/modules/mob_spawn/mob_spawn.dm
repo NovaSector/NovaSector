@@ -76,7 +76,7 @@
 /obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	var/mob/living/carbon/human/spawned_human = spawned_mob
-	var/datum/job/spawned_job = SSjob.GetJobType(spawner_job_path)
+	var/datum/job/spawned_job = SSjob.get_job_type(spawner_job_path)
 
 	spawned_human.job = spawned_job.title
 
