@@ -56,7 +56,7 @@
 	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Forcewall, Adrenaline Rush, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
-	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, or a polar bear; or cast Basic Charge, Sanguine Strike, or Death Loop."
+	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, or a polar bear; or cast Charging Attack, Scream For Me, or Death Loop."
 
 /datum/action/cooldown/spell/conjure/flare
 	name = "Summon Light Source"
