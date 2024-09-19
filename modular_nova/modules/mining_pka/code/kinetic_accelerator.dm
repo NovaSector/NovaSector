@@ -14,8 +14,8 @@
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/borg/upgrade/modkit))
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/borg/upgrade/modkit))
 		to_chat(user, span_notice("This weapon cannot have modifications applied."))
 	else
 		return ..()
