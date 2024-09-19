@@ -84,7 +84,7 @@
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_HUMAN
 
 	invocation = "NullReferenceException: Object reference not set to an instance of an object at Necrosis.Start."
-	invocation_type = INVOCATION_WHISPER
+	invocation_type = INVOCATION_SHOUT
 
 /datum/action/cooldown/spell/death_loop/is_valid_target(atom/cast_on)
 	return isliving(cast_on)
@@ -92,7 +92,7 @@
 /datum/action/cooldown/spell/death_loop/cast(mob/living/cast_on)
 	. = ..()
 	cast_on.visible_message(
-		span_warning("Faintest glitches and binary code lines briefly cover the  [cast_on]!"),
+		span_warning("Faintest glitches and binary code lines briefly cover [cast_on]!"),
 		span_notice("You memory hack your digital mortality!"),
 	)
 	ADD_TRAIT(cast_on, TRAIT_NODEATH, REF(src))
