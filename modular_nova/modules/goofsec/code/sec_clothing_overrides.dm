@@ -783,6 +783,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		))
 
 /obj/item/storage/belt/holster/detective
@@ -808,6 +809,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		))
 
 /obj/item/storage/belt/holster/energy/Initialize(mapload)
@@ -826,6 +828,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 	))
 /*
 *	HEAD
