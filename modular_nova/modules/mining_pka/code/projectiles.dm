@@ -1,8 +1,6 @@
 //Accelerator Casing
 /obj/item/ammo_casing/energy/kinetic/railgun
 	projectile_type = /obj/projectile/kinetic/railgun
-	select_name = "kinetic"
-	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	fire_sound = 'sound/weapons/beam_sniper.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/repeater
