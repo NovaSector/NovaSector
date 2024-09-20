@@ -647,3 +647,9 @@
   vinylspiders:
   - bugfix: snailpeople will once again leave water trails instead of space lube
   - bugfix: using a bluespace anomaly core on snail shells now works again
+2024-09-20:
+  vinylspiders:
+  - bugfix: bluespace-upgraded snail shells will no longer eat additional inserted
+      bluespace anomaly cores
+  - qol: the bluespace upgrading process no longer dumps all your snail shell contents
+      on the floor
