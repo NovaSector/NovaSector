@@ -5,9 +5,7 @@
 
 /obj/item/ammo_casing/energy/kinetic/repeater
 	projectile_type = /obj/projectile/kinetic/repeater
-	select_name = "kinetic"
 	e_cost = LASER_SHOTS(3, STANDARD_CELL_CHARGE * 0.5)
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/shotgun
 	projectile_type = /obj/projectile/kinetic/shotgun
