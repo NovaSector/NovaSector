@@ -94,7 +94,6 @@
 	base_icon_state = "kineticpistol"
 	inhand_icon_state = "kineticgun"
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/glock)
-	weapon_weight = WEAPON_LIGHT
 	max_mod_capacity = 220 // 30 over base.
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock/add_bayonet_point()
