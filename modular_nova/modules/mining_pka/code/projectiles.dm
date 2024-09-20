@@ -9,11 +9,8 @@
 
 /obj/item/ammo_casing/energy/kinetic/shotgun
 	projectile_type = /obj/projectile/kinetic/shotgun
-	select_name = "kinetic"
-	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE * 0.5)
 	pellets = 3
 	variance = 50
-	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/glock
 	projectile_type = /obj/projectile/kinetic/glock
