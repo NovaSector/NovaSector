@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Ported 6 PKA Variants by Salted Zen, available at the Mining Vendor. The Railgun and Grenade launcher variants cant be modified and only be shoot in mining areas or in non station Z Levels. The Pistol fits in Holsters."
