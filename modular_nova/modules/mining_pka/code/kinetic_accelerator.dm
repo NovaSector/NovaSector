@@ -1,6 +1,10 @@
 //Proto-Kinetic Accelerators
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/ //Parent Variant so we can apply general changes
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant //Parent Variant so we can apply general changes
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/Initalize(mapload)
+	. = ..()
+	if(type == /obj/item/gun/energy/recharge/kinetic_accelerator/variant) // we don't want these prototypes to exist
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/borg/upgrade/modkit/chassis_mod))
