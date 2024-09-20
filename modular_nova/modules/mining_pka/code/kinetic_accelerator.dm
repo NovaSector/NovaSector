@@ -1,7 +1,7 @@
 //Proto-Kinetic Accelerators
 
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant //Parent Variant so we can apply general changes
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/Initalize(mapload)
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/Initialize(mapload)
 	. = ..()
 	if(type == /obj/item/gun/energy/recharge/kinetic_accelerator/variant) // we don't want these prototypes to exist
 		return INITIALIZE_HINT_QDEL
