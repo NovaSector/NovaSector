@@ -27,7 +27,6 @@
 	item_path = /obj/item/bitrunning_disk/item/tier0
 	desc = "This disk contains a program that lets you equip thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
 
-
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(

@@ -16,9 +16,11 @@
 	AddElement(/datum/element/wall_tearer, allow_reinforced = TRUE)
 
 /datum/action/cooldown/spell/basic_projectile/juggernaut/bitrunning
+	name = "Tweaked Gauntlet Echo"
 	cooldown_time = 15 SECONDS
 
 /datum/action/cooldown/spell/forcewall/cult/bitrunning
+	name = "Tweaked Shield"
 	cooldown_time = 10 SECONDS
 
 /mob/living/basic/tree/palm
