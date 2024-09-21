@@ -653,3 +653,8 @@
       bluespace anomaly cores
   - qol: the bluespace upgrading process no longer dumps all your snail shell contents
       on the floor
+2024-09-21:
+  OrbisAnima:
+  - rscadd: Ported 6 PKA Variants by Salted Zen, available at the Mining Vendor. The
+      Railgun and Grenade launcher variants cant be modified and only be shoot in
+      mining areas or in non station Z Levels. The Pistol fits in Holsters.
