@@ -50,10 +50,10 @@
 /datum/action/cooldown/spell/shapeshift/minor_illusion
 	name = "Minor Illusion"
 	desc = "Assume the form of a tree, a furniture or a plant, perfect for hiding."
-	invocation = "covers themselves in sticks and leaves."
 	button_icon = 'icons/obj/fluff/beach.dmi'
 	button_icon_state = "coconuts"
-	invocation = "uses before_cast!"
+	invocation = "covers themselves in sticks and leaves."
+	invocation_self_message = span_notice("You cover yourself in sticks and leaves.")
 	invocation_type = INVOCATION_EMOTE
 	spell_requirements = NONE
 	sound = 'sound/effects/treechop1.ogg'
@@ -69,7 +69,8 @@
 	desc = "Concentrates pyrokinetic forces to create a small fire, useful for lighting cigarettes or to spice up your punches, you guess."
 	button_icon_state = "fireball0"
 	cooldown_time = 5 SECONDS
-	invocation = "uses before_cast!"
+	invocation = "lights a piece of fleece on fire."
+	invocation_self_message = span_notice("You light a piece of fleece on fire.")
 	invocation_type = INVOCATION_EMOTE
 	spell_requirements = NONE
 	sound = 'sound/items/match_strike.ogg'
@@ -87,7 +88,8 @@
 	button_icon = 'icons/obj/drinks/drinks.dmi'
 	button_icon_state = "water"
 	cooldown_time = 5 SECONDS
-	invocation = "uses before_cast!"
+	invocation = "gathers some ambient moisture."
+	invocation_self_message = span_notice("You gather some ambient moisure.")
 	invocation_type = INVOCATION_EMOTE
 	spell_requirements = NONE
 	sound = 'sound/effects/bubbles.ogg'
