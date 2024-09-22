@@ -68,6 +68,8 @@
 	selectable_actions += list(
 		/datum/action/cooldown/adrenaline,
 		/datum/action/cooldown/spell/charge,
+		/datum/action/cooldown/mob_cooldown/dash,
+		/datum/action/cooldown/spell/touch/scream_for_me,
 	)
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
@@ -77,8 +79,6 @@
 	)
 	selectable_actions += list(
 		/datum/action/cooldown/spell/shapeshift/juggernaut,
-		/datum/action/cooldown/mob_cooldown/dash,
-		/datum/action/cooldown/spell/touch/scream_for_me,
 		/datum/action/cooldown/spell/death_loop,
 	)
 
@@ -95,7 +95,7 @@
 	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
 
 /datum/orderable_item/bitrunning_tech/ability_tier2
-	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Forcewall, Adrenaline Rush, or Charge Item."
+	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
-	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, or a holy juggernaut; or cast Dash, Scream For Me, or Death Loop."
+	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, or a holy juggernaut; or cast Death Loop."
