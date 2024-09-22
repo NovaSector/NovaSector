@@ -182,8 +182,9 @@
 		return TRUE
 	if(iscarbon(user))
 		var/mob/living/carbon/human_to_test = user
-		if(human_to_test.gloves && istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
-			// nothing here yet. Maybe add some more clothing interactions?
+		if(human_to_test.gloves)
+			if(!istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+				try_toggle_effects(TRIGGER_TOUCH)
 		else
 			try_toggle_effects(TRIGGER_TOUCH)
 	else
@@ -271,8 +272,9 @@
 		last_time_touched = world.time
 		if(iscarbon(what_bumped))
 			var/mob/living/carbon/human_to_test = what_bumped
-			if(human_to_test.gloves && istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
-				// nothing here yet. Maybe add some more clothing interactions?
+			if(human_to_test.gloves)
+				if(!istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+					try_toggle_effects(TRIGGER_TOUCH)
 			else
 				try_toggle_effects(TRIGGER_TOUCH)
 		else
