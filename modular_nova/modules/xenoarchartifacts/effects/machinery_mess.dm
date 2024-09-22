@@ -47,7 +47,7 @@
 	for(var/mob/living/silicon/silicon_mob in range(range, curr_turf))
 		if(prob(25))
 			silicon_mob.laws_sanity_check()
-			if(silicon_mob.stat != DEAD && !silicon_mob.incapacitated())
+			if(silicon_mob.stat != DEAD && !silicon_mob.incapacitated)
 				if(prob(15))
 					var/datum/ai_laws/ion_lawset = pick_weighted_lawset()
 					ion_lawset = new()

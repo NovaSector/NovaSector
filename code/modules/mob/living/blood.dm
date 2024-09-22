@@ -361,7 +361,7 @@
 
 //to add a splatter of blood or other mob liquid.
 /mob/living/proc/add_splatter_floor(turf/T, small_drip)
-	if(get_blood_id() != /datum/reagent/blood)
+	if(!(get_blood_id() in list(/datum/reagent/blood, /datum/reagent/toxin/acid))) // NOVA EDIT CHANGE START - ORIGINAL: if(get_blood_id() != /datum/reagent/blood)
 		return
 	if(!T)
 		T = get_turf(src)
@@ -382,14 +382,24 @@
 				temp_blood_DNA = GET_ATOM_BLOOD_DNA(drop) //we transfer the dna from the drip to the splatter
 				qdel(drop)//the drip is replaced by a bigger splatter
 		else
-			drop = new(T, get_static_viruses())
+			// NOVA EDIT CHANGE START - ORIGINAL: drop = new(T, get_static_viruses())
+			if(get_blood_id() == /datum/reagent/toxin/acid)
+				drop = new /obj/effect/decal/cleanable/blood/drip/xenoblood(T, get_static_viruses())
+			else
+				drop = new(T, get_static_viruses())
+			// NOVA EDIT END
 			drop.transfer_mob_blood_dna(src)
 			return
 
 	// Find a blood decal or create a new one.
-	var/obj/effect/decal/cleanable/blood/B = locate() in T
+	var/obj/effect/decal/cleanable/B = locate() in T // NOVA EDIT - ORIGINAL: var/obj/effect/decal/cleanable/blood/B = locate() in T
 	if(!B)
-		B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+		// NOVA EDIT CHANGE START - ORIGINAL: B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+		if(get_blood_id() == /datum/reagent/toxin/acid)
+			B = new /obj/effect/decal/cleanable/xenoblood/xsplatter(T, get_static_viruses())
+		else
+			B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+		// NOVA EDIT END
 	if(QDELETED(B)) //Give it up
 		return
 	B.bloodiness = min((B.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)

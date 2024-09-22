@@ -82,7 +82,7 @@
 
 	return data
 
-/obj/item/organ/internal/cyberimp/brain/nif/ui_act(action, list/params)
+/obj/item/organ/internal/cyberimp/brain/nif/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

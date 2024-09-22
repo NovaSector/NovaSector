@@ -1,0 +1,4 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - bugfix: "Fixed a CRITICAL bug where the \"Random Event\" admin message missing a closing parenthesis at its end."

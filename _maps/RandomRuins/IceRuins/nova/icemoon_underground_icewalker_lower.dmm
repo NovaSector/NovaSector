@@ -325,10 +325,10 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "iJ" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
-/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter{
+/obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter{
 	pixel_y = 1
 	},
-/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter{
+/obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter{
 	pixel_y = -4;
 	pixel_x = 4
 	},

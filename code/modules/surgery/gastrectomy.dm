@@ -76,9 +76,8 @@
 		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
 		if(istype(target_stomach, /obj/item/organ/internal/stomach/slime))
 			addtimer(VARSET_CALLBACK(target_stomach, operated, FALSE), 30 SECONDS)
-		else
 		//NOVA EDIT ADDITION END
-			target_stomach.operated = TRUE // NOVA EDIT CHANGE - Not for slimepeople - indents for else block
+		target_stomach.operated = TRUE
 		if(target_stomach.organ_flags & ORGAN_EMP) //If our organ is failing due to an EMP, fix that
 			target_stomach.organ_flags &= ~ORGAN_EMP
 	display_results(

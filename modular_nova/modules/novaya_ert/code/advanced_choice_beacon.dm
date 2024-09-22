@@ -54,7 +54,7 @@
 
 	return options
 
-
+// should probably gut everything below this line in another pr lol
 /obj/item/advanced_choice_beacon/nri
 	name = "\improper NRI Defense Collegium supply beacon"
 	desc = "Used to request your job supplies, use in hand to do so!"
@@ -221,15 +221,15 @@
 /obj/structure/closet/crate/secure/weapon/nri/heavy/offense
 	name = "offensive heavy supplies"
 	loadout_desc = "An assortment of heavy soldier supplies finely tuned for rapid approach and munition support. \
-		Features Scarborough's standard LMG with a spare ammo box, as well as ammunition for Krinkov and PP-542."
+		Features Scarborough's standard LMG with a spare ammo box, as well as ammunition for lanca and PP-542."
 
 /obj/structure/closet/crate/secure/weapon/nri/heavy/offense/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/l6_saw/unrestricted(src)
 	new /obj/item/storage/toolbox/ammobox/full/l6_saw(src)
-	new /obj/item/storage/toolbox/ammobox/full/krinkov(src)
-	new /obj/item/storage/toolbox/ammobox/full/krinkov(src)
-	new /obj/item/storage/toolbox/ammobox/full/krinkov(src)
-	new /obj/item/storage/toolbox/ammobox/full/krinkov(src)
+	new /obj/item/storage/toolbox/ammobox/full/lanca(src)
+	new /obj/item/storage/toolbox/ammobox/full/lanca(src)
+	new /obj/item/storage/toolbox/ammobox/full/lanca(src)
+	new /obj/item/storage/toolbox/ammobox/full/lanca(src)
 	new /obj/item/storage/toolbox/ammobox/full/nri_smg(src)
 	new /obj/item/storage/toolbox/ammobox/full/nri_smg(src)
 	new /obj/item/storage/toolbox/ammobox/full/aps(src)

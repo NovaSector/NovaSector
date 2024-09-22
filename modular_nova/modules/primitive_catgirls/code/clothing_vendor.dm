@@ -19,7 +19,7 @@
 		/obj/item/clothing/gloves/fingerless/primitive_catgirl_armwraps = 15,
 		/obj/item/clothing/shoes/winterboots/ice_boots/primitive_catgirl_boots = 15,
 		/obj/item/clothing/gloves/fingerless/primitive_catgirl_gauntlets = 10,
-		/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter = 10,
+		/obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter = 10,
 		/obj/item/clothing/suit/apron/chef/colorable_apron/primitive_catgirl_leather = 10,
 		/obj/item/clothing/head/standalone_hood/primitive_catgirl_colors = 10,
 		/obj/item/clothing/neck/scarf/primitive_catgirl_scarf = 5,

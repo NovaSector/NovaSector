@@ -84,7 +84,7 @@
 /obj/structure/rack/gunrack,
 /obj/item/gun/ballistic/automatic/wylom,
 /obj/item/gun/ballistic/automatic/miecz,
-/obj/item/gun/ballistic/rifle/boltaction/sporterized,
+/obj/item/gun/ballistic/rifle/sporterized,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "cV" = (
@@ -493,7 +493,7 @@
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo,
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo,
 /obj/item/ammo_box/magazine/c35sol_pistol/stendo,
-/obj/item/storage/toolbox/ammobox/full/mosin,
+/obj/item/ammo_box/magazine/lanca,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/loot_camp)
 "ob" = (
@@ -870,6 +870,7 @@
 	pixel_x = 5;
 	pixel_y = -9
 	},
+/obj/item/storage/toolbox/ammobox/full/lanca,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
 "ws" = (
@@ -887,7 +888,6 @@
 /area/virtual_domain/ancient_milsim/atrium)
 "wy" = (
 /obj/structure/table/wood,
-/obj/item/ammo_box/magazine/lanca,
 /obj/item/gun/ballistic/automatic/lanca{
 	pixel_y = 6;
 	pixel_x = 7
@@ -1191,10 +1191,6 @@
 /obj/item/storage/box/nri_flares,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_cafe)
-"DX" = (
-/obj/item/storage/toolbox/ammobox/strilka310,
-/turf/open/floor/iron,
-/area/virtual_domain/ancient_milsim/snpc_hallway)
 "Ee" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -1520,10 +1516,6 @@
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/hallway)
-"Mi" = (
-/obj/item/storage/toolbox/ammobox/full/mosin,
-/turf/open/floor/plating,
-/area/virtual_domain/ancient_milsim/maintenance)
 "Mo" = (
 /obj/machinery/light/floor,
 /obj/structure/table,
@@ -1559,11 +1551,7 @@
 /area/virtual_domain/ancient_milsim/snpc_cafe)
 "MW" = (
 /obj/structure/table/wood,
-/obj/item/ammo_box/magazine/lanca,
-/obj/item/ammo_box/magazine/lanca{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/storage/toolbox/ammobox/full/lanca,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "MY" = (
@@ -3013,7 +3001,7 @@ YY
 YY
 YY
 YY
-DX
+YY
 YY
 YY
 YY
@@ -4043,7 +4031,7 @@ fk
 gP
 oj
 oj
-Mi
+oj
 oj
 fk
 go
@@ -4218,7 +4206,7 @@ RC
 xa
 yh
 EW
-QF
+oj
 WY
 go
 hO
@@ -4276,7 +4264,7 @@ DN
 rl
 yh
 uY
-QF
+oj
 nQ
 go
 AC

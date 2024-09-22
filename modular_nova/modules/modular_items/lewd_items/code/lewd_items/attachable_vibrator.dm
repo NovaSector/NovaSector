@@ -94,19 +94,19 @@
 	switch(vibration_mode)
 		if("low")
 			toy_on = TRUE
-			play_lewd_sound(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)
 			soundloop1.start()
 		if("medium")
 			toy_on = TRUE
-			play_lewd_sound(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)
 			soundloop2.start()
 		if("high")
 			toy_on = TRUE
-			play_lewd_sound(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)
 			soundloop3.start()
 		if("off")
 			toy_on = FALSE
-			play_lewd_sound(loc, 'sound/weapons/magout.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magout.ogg', 20, TRUE)
 
 /obj/item/clothing/sextoy/eggvib/lewd_equipped(mob/living/carbon/human/user, slot, initial)
 	. = ..()
@@ -326,10 +326,10 @@
 	switch(vibration_mode)
 		if("low")
 			vibration_mode = "low"
-			play_lewd_sound(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)
 		if("medium")
 			vibration_mode = "medium"
-			play_lewd_sound(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)
 		if("high")
 			vibration_mode = "high"
-			play_lewd_sound(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)

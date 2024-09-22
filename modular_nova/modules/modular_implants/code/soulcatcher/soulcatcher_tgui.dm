@@ -1,8 +1,8 @@
 /datum/component/soulcatcher/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(usr, src, ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 
 	if(!ui)
-		ui = new(usr, src, "Soulcatcher", name)
+		ui = new(user, src, "Soulcatcher", name)
 		ui.open()
 
 /datum/component/soulcatcher/nifsoft/ui_state(mob/user)
@@ -62,11 +62,11 @@
 
 	return data
 
-/datum/component/soulcatcher/ui_act(action, list/params)
+/datum/component/soulcatcher/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
-
+	var/mob/user = ui.user
 	var/datum/soulcatcher_room/target_room
 	if(params["room_ref"])
 		target_room = locate(params["room_ref"]) in soulcatcher_rooms
@@ -98,7 +98,7 @@
 			return TRUE
 
 		if("rename_room")
-			var/new_room_name = tgui_input_text(usr,"Choose a new name for the room", name, target_room.name)
+			var/new_room_name = tgui_input_text(user,"Choose a new name for the room", name, target_room.name)
 			if(!new_room_name)
 				return FALSE
 
@@ -106,7 +106,7 @@
 			return TRUE
 
 		if("redescribe_room")
-			var/new_room_desc = tgui_input_text(usr,"Choose a new description for the room", name, target_room.room_description, multiline = TRUE)
+			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, multiline = TRUE)
 			if(!new_room_desc)
 				return FALSE
 
@@ -126,7 +126,7 @@
 			return TRUE
 
 		if("modify_name")
-			var/new_name = tgui_input_text(usr,"Choose a new name to send messages as", name, target_room.outside_voice, multiline = TRUE)
+			var/new_name = tgui_input_text(user,"Choose a new name to send messages as", name, target_room.outside_voice, multiline = TRUE)
 			if(!new_name)
 				return FALSE
 
@@ -141,8 +141,8 @@
 			var/list/available_rooms = soulcatcher_rooms.Copy()
 			available_rooms -= target_room
 
-			if(ishuman(usr))
-				var/mob/living/carbon/human/human_user = usr
+			if(ishuman(user))
+				var/mob/living/carbon/human/human_user = user
 				var/datum/nifsoft/soulcatcher/soulcatcher_nifsoft = human_user.find_nifsoft(/datum/nifsoft/soulcatcher)
 				if(soulcatcher_nifsoft && (parent != soulcatcher_nifsoft.parent_nif.resolve()))
 					var/datum/component/soulcatcher/nifsoft_soulcatcher = soulcatcher_nifsoft.linked_soulcatcher.resolve()
@@ -160,7 +160,7 @@
 					for(var/datum/soulcatcher_room/room in soulcatcher_component.soulcatcher_rooms)
 						available_rooms += room
 
-			var/datum/soulcatcher_room/transfer_room = tgui_input_list(usr, "Choose a room to transfer to", name, available_rooms)
+			var/datum/soulcatcher_room/transfer_room = tgui_input_list(user, "Choose a room to transfer to", name, available_rooms)
 			if(!(transfer_room in available_rooms))
 				return FALSE
 
@@ -168,7 +168,7 @@
 			return TRUE
 
 		if("change_room_color")
-			var/new_room_color = input(usr, "", "Choose Color", SOULCATCHER_DEFAULT_COLOR) as color
+			var/new_room_color = input(user, "", "Choose Color", SOULCATCHER_DEFAULT_COLOR) as color
 			if(!new_room_color)
 				return FALSE
 
@@ -211,7 +211,7 @@
 			return TRUE
 
 		if("change_name")
-			var/new_name = tgui_input_text(usr, "Enter a new name for [target_soul]", "Soulcatcher", target_soul)
+			var/new_name = tgui_input_text(user, "Enter a new name for [target_soul]", "Soulcatcher", target_soul)
 			if(!new_name)
 				return FALSE
 
@@ -219,7 +219,7 @@
 			return TRUE
 
 		if("reset_name")
-			if(tgui_alert(usr, "Do you wish to reset [target_soul]'s name to default?", "Soulcatcher", list("Yes", "No")) != "Yes")
+			if(tgui_alert(user, "Do you wish to reset [target_soul]'s name to default?", "Soulcatcher", list("Yes", "No")) != "Yes")
 				return FALSE
 
 			target_soul.reset_name()
@@ -231,7 +231,7 @@
 			if(params["narration"])
 				message_sender = FALSE
 
-			message_to_send = tgui_input_text(usr, "Input the message you want to send", name, multiline = TRUE)
+			message_to_send = tgui_input_text(user, "Input the message you want to send", name, multiline = TRUE)
 
 			if(!message_to_send)
 				return FALSE
@@ -240,7 +240,7 @@
 			return TRUE
 
 		if("delete_self")
-			if(tgui_alert(usr, "Are you sure you want to detach the soulcatcher?", parent, list("Yes", "No")) != "Yes")
+			if(tgui_alert(user, "Are you sure you want to detach the soulcatcher?", parent, list("Yes", "No")) != "Yes")
 				return FALSE
 
 			remove_self()
@@ -255,9 +255,9 @@
 	return TRUE
 
 /datum/component/soulcatcher_user/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(usr, src, ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(usr, src, "SoulcatcherUser")
+		ui = new(user, src, "SoulcatcherUser")
 		ui.open()
 
 /datum/component/soulcatcher_user/ui_state(mob/user)
@@ -314,18 +314,18 @@
 
 	return data
 
-/datum/component/soulcatcher_user/ui_act(action, list/params)
+/datum/component/soulcatcher_user/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
-
+	var/mob/user = ui.user
 	var/mob/living/soulcatcher_soul/user_soul = parent
 	if(!istype(user_soul))
 		return FALSE
 
 	switch(action)
 		if("change_name")
-			var/new_name = tgui_input_text(usr, "Enter a new name", "Soulcatcher", user_soul.name)
+			var/new_name = tgui_input_text(user, "Enter a new name", "Soulcatcher", user_soul.name)
 			if(!new_name)
 				return FALSE
 
@@ -333,7 +333,7 @@
 			return TRUE
 
 		if("reset_name")
-			if(tgui_alert(usr, "Do you wish to reset your name to default?", "Soulcatcher", list("Yes", "No")) != "Yes")
+			if(tgui_alert(user, "Do you wish to reset your name to default?", "Soulcatcher", list("Yes", "No")) != "Yes")
 				return FALSE
 
 			user_soul.reset_name()

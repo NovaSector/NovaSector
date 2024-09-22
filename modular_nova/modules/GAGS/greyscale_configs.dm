@@ -359,6 +359,17 @@
 	name = "Masquerade Mask (Worn) (Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/mask/masquerade_mask_worn_vox.dmi'
 
+// GAITER
+
+/datum/greyscale_config/neck_gaiter
+	name = "Neck Gaiter"
+	icon_file = 'modular_nova/modules/GAGS/icons/masks.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter.json'
+
+/datum/greyscale_config/neck_gaiter/worn
+	name = "Neck Gaiter (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/gaiter/gaiter_worn.json'
+
 /*
 *	EYES
 */
@@ -1890,15 +1901,6 @@ TREK
 /datum/greyscale_config/primitive_catgirl_boots/worn
 	name = "Primitive Winter Boots (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/boots_worn.json'
-
-/datum/greyscale_config/primitive_catgirl_gaiter
-	name = "Neck Gaiter"
-	icon_file = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/gaiter.json'
-
-/datum/greyscale_config/primitive_catgirl_gaiter/worn
-	name = "Neck Gaiter (Worn)"
-	json_config = 'modular_nova/modules/GAGS/json_configs/primitive_catgirl_clothing/gaiter_worn.json'
 
 /datum/greyscale_config/primitive_catgirl_gauntlets
 	name = "Gauntlets"

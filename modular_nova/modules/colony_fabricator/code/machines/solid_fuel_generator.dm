@@ -13,8 +13,8 @@
 	circuit = null
 	anchored = TRUE
 	max_sheets = 25
-	time_per_sheet = 100
-	power_gen = 12500
+	time_per_sheet = parent_type::time_per_sheet * (5 / 3) //66.6% better
+	power_gen = parent_type::power_gen * 2.5
 	drag_slowdown = 1.5
 	sheet_path = /obj/item/stack/sheet/mineral/plasma
 	/// The item we turn into when repacked

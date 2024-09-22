@@ -627,7 +627,7 @@
 	pixel_x = -8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/grass/fairy,
+/turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ur" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -725,7 +725,7 @@
 	pixel_x = 7
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/grass/fairy,
+/turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "zr" = (
 /obj/structure/bed/double/pelt/black{
@@ -965,7 +965,7 @@
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/grass/fairy,
+/turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Hg" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -995,7 +995,7 @@
 	},
 /obj/item/pen/charcoal,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/grass/fairy,
+/turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "HW" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -1106,9 +1106,7 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/grass/fairy{
-	initial_gas_mix = "ICEMOON_ATMOS"
-	},
+/turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Mh" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -1464,7 +1462,7 @@
 	pixel_y = 12
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/grass/fairy,
+/turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "Xo" = (
 /obj/structure/railing/wooden_fencing{

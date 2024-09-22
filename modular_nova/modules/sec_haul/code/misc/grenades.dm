@@ -95,7 +95,7 @@
 	if(ismecha(user_mob.loc))
 		return
 
-	if(user_mob.incapacitated())
+	if(user_mob.incapacitated)
 		return
 
 	var/obj/item/held_item = user_mob.get_active_held_item()
