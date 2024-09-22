@@ -3,11 +3,9 @@
 	log_name = "bodyswap"
 	type_name = ARTIFACT_EFFECT_PSIONIC
 	// We store original minds and bodies to return them to their original ones on Destroy()
-	// var/list/switched_bodies = list(
-	// 	"original_body" = list(),
-	// 	"original_mind" = list(),
-	// )
+	// Minds which we swapped
 	var/list/datum/mind/original_mind = list()
+	// Original bodies of the minds
 	var/list/mob/living/carbon/original_body = list()
 
 /datum/artifact_effect/bodyswap/New()
