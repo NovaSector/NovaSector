@@ -1,6 +1,0 @@
-author: "CRITAWAKETS"
-delete-after: True
-changes:
-  - bugfix: "Colony appliances now show their description in the rapid construction fabricator's menus."
-  - bugfix: "Wind turbines no longer pretend they're rapid construction fabricators, a way cooler machine than they'll ever be."
-  - refactor: "Flatpacked machines now copy descriptions in a different and cleaner way, allowing for custom descriptions between the flatpack and the machine it deploys."

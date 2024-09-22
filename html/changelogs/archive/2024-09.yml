@@ -658,3 +658,16 @@
   - rscadd: Ported 6 PKA Variants by Salted Zen, available at the Mining Vendor. The
       Railgun and Grenade launcher variants cant be modified and only be shoot in
       mining areas or in non station Z Levels. The Pistol fits in Holsters.
+2024-09-22:
+  CRITAWAKETS:
+  - bugfix: After several years of its mistaken lacking, saltpetre is back in upgraded
+      chemical dispensers.
+  - bugfix: Colony appliances now show their description in the rapid construction
+      fabricator's menus.
+  - bugfix: Wind turbines no longer pretend they're rapid construction fabricators,
+      a way cooler machine than they'll ever be.
+  - refactor: Flatpacked machines now copy descriptions in a different and cleaner
+      way, allowing for custom descriptions between the flatpack and the machine it
+      deploys.
+  - bugfix: Fixed an infinite duplication exploit with the rapid construction fabricator
+      printing 10 plastic panels for the cost of one.
