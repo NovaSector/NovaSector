@@ -1,0 +1,4 @@
+author: "CRITAWAKETS"
+delete-after: True
+changes:
+  - bugfix: "Fixed an infinite duplication exploit with the rapid construction fabricator printing 10 plastic panels for the cost of one."
