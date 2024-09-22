@@ -35,7 +35,12 @@
 
 /obj/item/bitrunning_disk/item/tier2/Initialize(mapload)
 	. = ..()
+	selectable_items -= list(
+		/obj/item/gun/ballistic/automatic/pistol,
+	)
 	selectable_items += list(
+		/obj/item/storage/toolbox/guncase/clandestine,
+		/obj/item/autosurgeon/syndicate/nodrop,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
 		/obj/item/storage/medkit/expeditionary/surplus,
@@ -43,42 +48,48 @@
 
 /obj/item/bitrunning_disk/item/tier3/Initialize(mapload)
 	. = ..()
+	selectable_items -= list(
+		/obj/item/gun/energy/e_gun/nuclear,
+	)
 	selectable_items += list(
 		/obj/item/autosurgeon/syndicate/nodrop,
+		/obj/item/gun/energy/modular_laser_rifle,
 	)
 
 /obj/item/bitrunning_disk/ability/tier1/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
-	/datum/action/cooldown/spell/touch/lay_on_hands,
-	/datum/action/cooldown/spell/conjure/flare,
+		/datum/action/cooldown/spell/touch/lay_on_hands,
+		/datum/action/cooldown/spell/conjure/flare,
 	)
 
 /obj/item/bitrunning_disk/ability/tier2/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
-	/datum/action/cooldown/adrenaline,
-	/datum/action/cooldown/spell/charge,
+		/datum/action/cooldown/adrenaline,
+		/datum/action/cooldown/spell/charge,
 	)
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
 	. = ..()
-	selectable_actions -= list(/datum/action/cooldown/spell/shapeshift/polar_bear)
+	selectable_actions -= list(
+		/datum/action/cooldown/spell/shapeshift/polar_bear,
+	)
 	selectable_actions += list(
-	/datum/action/cooldown/spell/shapeshift/juggernaut,
-	/datum/action/cooldown/mob_cooldown/dash,
-	/datum/action/cooldown/spell/touch/scream_for_me,
-	/datum/action/cooldown/spell/death_loop,
+		/datum/action/cooldown/spell/shapeshift/juggernaut,
+		/datum/action/cooldown/mob_cooldown/dash,
+		/datum/action/cooldown/spell/touch/scream_for_me,
+		/datum/action/cooldown/spell/death_loop,
 	)
 
 /datum/orderable_item/bitrunning_tech/item_tier1
 	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, or a military webbing."
 
 /datum/orderable_item/bitrunning_tech/item_tier2
-	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol, an armour vest, a helmet, an energy sword, or an expeditionary medkit."
+	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, or an expeditionary medkit."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip an advanced energy gun, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
 	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
