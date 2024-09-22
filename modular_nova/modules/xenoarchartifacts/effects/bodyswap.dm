@@ -2,6 +2,11 @@
 /datum/artifact_effect/bodyswap
 	log_name = "bodyswap"
 	type_name = ARTIFACT_EFFECT_PSIONIC
+	// We store original minds and bodies to return them to their original ones on Destroy()
+	var/list/switched_bodies = list(
+		"original_body" = list(),
+		"original_mind" = list(),
+	)
 
 /datum/artifact_effect/bodyswap/New()
 	. = ..()
@@ -15,7 +20,33 @@
 	SwapBodies(0)
 
 /datum/artifact_effect/bodyswap/do_effect_destroy()
-	SwapBodies(5)
+	ReturnBodies()
+	switched_bodies["original_body"] = null
+	switched_bodies["original_mind"] = null
+	switched_bodies = null
+
+/**
+ * Returns minds to their original bodies(if possible)
+ */
+/datum/artifact_effect/bodyswap/proc/ReturnBodies()
+	var/i
+	for(i = 1, i <= length(switched_bodies["original_body"]), i++)
+		if(!QDELETED(switched_bodies["original_body"][i]) && !QDELETED(switched_bodies["original_mind"][i]))
+			var/datum/mind/mind_to_return = switched_bodies["original_mind"][i]
+			var/mob/living/carbon/original_body = switched_bodies["original_body"][i]
+			var/to_swap_key = mind_to_return.key
+			mind_to_return.transfer_to(original_body)
+
+			// Just in case
+			if(to_swap_key)
+				original_body.key = to_swap_key
+		else if(QDELETED(switched_bodies["original_body"][i]) && !QDELETED(switched_bodies["original_mind"][i])) // If original body was destroyed
+			var/datum/mind/mind_not_to_return = switched_bodies["original_mind"][i]
+			if(mind_not_to_return.current)
+				to_chat(mind_not_to_return.current, span_boldwarning("You feel dizzy for a moment, feeling like your mind is being transported, but \
+																	  suddenly you return to the foreign body. A tremendous fear crawls into your soul. \
+																	  Seems like you are stuck like this."))
+
 
 /**
  * Selects 2 random carbons in artifact range and swaps their minds.
@@ -28,7 +59,8 @@
 	var/turf/curr_turf = get_turf(holder)
 	var/list/poor_humans = list()
 	for(var/mob/living/carbon/carbon_mob in range(range + add_range, curr_turf))
-		poor_humans.Add(carbon_mob)
+		if(carbon_mob.stat != DEAD) // Its not cool to transfer to dead monkey next room
+			poor_humans.Add(carbon_mob)
 
 	if(length(poor_humans) < 2)
 		return FALSE
@@ -49,6 +81,16 @@
 		to_chat(to_swap, span_warning("You feel like you've just dodged a bullet."))
 		return FALSE
 	}
+
+	// IT WAS TRUE ALL ALONG
+	if(istype(caster.head, /obj/item/clothing/head/costume/foilhat))
+		to_chat(caster, span_clockred("Your tinfoil hat vibrates, protecting your brain from some kind of invisible rays!"))
+		return FALSE
+
+	// THEY CONTROL US WITH INVISIBLE RAYS FROM SPACE SATELLITES
+	if(istype(to_swap.head, /obj/item/clothing/head/costume/foilhat))
+		to_chat(to_swap, span_clockred("Your tinfoil hat vibrates, protecting your brain from some kind of invisible rays!"))
+		return FALSE
 
 	// Gives the target a mind if they don't have one
 	if(!to_swap.mind)
@@ -75,6 +117,18 @@
 
 	if(!caster_mind || !to_swap_mind)
 		return FALSE
+
+	// Checking if minds/bodies are already in list and adding them there, if not.
+	// It (probably) shouldnt break everything on Destroy(), since we store only a single pair of
+	// (original_body) - (original_mind) in two lists.
+	// And since we add both mind and body at the same time, their indexes should be the same in lists
+	if(!(caster_mind in switched_bodies["original_mind"]) && !(caster in switched_bodies["original_body"]))
+		switched_bodies["original_mind"].Add(caster_mind)
+		switched_bodies["original_body"].Add(caster)
+
+	if(!(to_swap in switched_bodies["original_body"]) && !(to_swap_mind in switched_bodies["original_mind"]))
+		switched_bodies["original_mind"].Add(to_swap_mind)
+		switched_bodies["original_body"].Add(to_swap)
 
 	var/to_swap_key = to_swap.key
 

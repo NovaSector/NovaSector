@@ -180,7 +180,14 @@
 	if(!Adjacent(user))
 		to_chat(user, span_warning("You can't reach [src] from here!"))
 		return TRUE
-	try_toggle_effects(TRIGGER_TOUCH)
+	if(iscarbon(user))
+		var/mob/living/carbon/human_to_test = user
+		if(human_to_test.gloves && istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+			// nothing here yet. Maybe add some more clothing interactions?
+		else
+			try_toggle_effects(TRIGGER_TOUCH)
+	else
+		try_toggle_effects(TRIGGER_TOUCH)
 	to_chat(user, span_bold("You touch [src]."))
 
 	if(first_effect.release_method == ARTIFACT_EFFECT_TOUCH)
@@ -262,7 +269,14 @@
 			try_toggle_effects(TRIGGER_FORCE)
 	if(world.time >= last_time_touched + touch_cooldown)
 		last_time_touched = world.time
-		try_toggle_effects(TRIGGER_TOUCH)
+		if(iscarbon(what_bumped))
+			var/mob/living/carbon/human_to_test = what_bumped
+			if(human_to_test.gloves && istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+				// nothing here yet. Maybe add some more clothing interactions?
+			else
+				try_toggle_effects(TRIGGER_TOUCH)
+		else
+			try_toggle_effects(TRIGGER_TOUCH)
 		if(first_effect.release_method == ARTIFACT_EFFECT_TOUCH && first_effect.activated && prob(50))
 			first_effect.do_effect_touch(what_bumped)
 		if(secondary_effect && secondary_effect.release_method == ARTIFACT_EFFECT_TOUCH && secondary_effect.activated && prob(50))
