@@ -4,7 +4,6 @@
 		/datum/action/cooldown/spell/shapeshift/minor_illusion,
 		/datum/action/cooldown/spell/conjure_item/fire,
 		/datum/action/cooldown/spell/conjure_item/water,
-		/datum/action/cooldown/spell/conjure/presents,
 	)
 
 /obj/item/bitrunning_disk/item/tier0
@@ -26,7 +25,7 @@
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
 	item_path = /obj/item/bitrunning_disk/item/tier0
-	desc = "This disk contains a program that lets you equip thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
+	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
 
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()

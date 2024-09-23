@@ -22,7 +22,7 @@
 	construct_spells = list(
 		/datum/action/cooldown/mob_cooldown/sneak/bitrunning,
 		/datum/action/cooldown/mob_cooldown/dash,
-		/datum/action/cooldown/spell/pointed/projectile/finger_guns/bitrunning,
+		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
 	)
 
 /datum/action/cooldown/spell/basic_projectile/juggernaut/bitrunning
@@ -32,13 +32,6 @@
 /datum/action/cooldown/spell/forcewall/cult/bitrunning
 	name = "Tweaked Shield"
 	cooldown_time = 10 SECONDS
-
-/datum/action/cooldown/spell/pointed/projectile/finger_guns/bitrunning
-	name = "Stealth Projectiles"
-	desc = "Shoot up to three stealthy bullets that damage and mute their targets."
-	school = SCHOOL_EVOCATION
-	cooldown_time = 15 SECONDS
-	invocation_self_message = span_danger("You fire!")
 
 /datum/action/cooldown/mob_cooldown/sneak/bitrunning
 	button_icon = 'icons/mob/actions/actions_items.dmi'
