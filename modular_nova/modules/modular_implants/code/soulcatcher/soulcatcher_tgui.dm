@@ -98,7 +98,7 @@
 			return TRUE
 
 		if("rename_room")
-			var/new_room_name = tgui_input_text(user,"Choose a new name for the room", name, target_room.name)
+			var/new_room_name = tgui_input_text(user,"Choose a new name for the room", name, target_room.name, max_length = MAX_NAME_LEN)
 			if(!new_room_name)
 				return FALSE
 
@@ -106,7 +106,7 @@
 			return TRUE
 
 		if("redescribe_room")
-			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, multiline = TRUE)
+			var/new_room_desc = tgui_input_text(user,"Choose a new description for the room", name, target_room.room_description, max_length = MAX_DESC_LEN, multiline = TRUE)
 			if(!new_room_desc)
 				return FALSE
 
@@ -126,7 +126,7 @@
 			return TRUE
 
 		if("modify_name")
-			var/new_name = tgui_input_text(user,"Choose a new name to send messages as", name, target_room.outside_voice, multiline = TRUE)
+			var/new_name = tgui_input_text(user,"Choose a new name to send messages as", name, target_room.outside_voice, max_length = MAX_NAME_LEN, multiline = TRUE)
 			if(!new_name)
 				return FALSE
 
@@ -211,7 +211,7 @@
 			return TRUE
 
 		if("change_name")
-			var/new_name = tgui_input_text(user, "Enter a new name for [target_soul]", "Soulcatcher", target_soul)
+			var/new_name = tgui_input_text(user, "Enter a new name for [target_soul]", "Soulcatcher", target_soul, max_length = MAX_NAME_LEN)
 			if(!new_name)
 				return FALSE
 
@@ -231,7 +231,7 @@
 			if(params["narration"])
 				message_sender = FALSE
 
-			message_to_send = tgui_input_text(user, "Input the message you want to send", name, multiline = TRUE)
+			message_to_send = tgui_input_text(user, "Input the message you want to send", name, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 
 			if(!message_to_send)
 				return FALSE
@@ -325,7 +325,7 @@
 
 	switch(action)
 		if("change_name")
-			var/new_name = tgui_input_text(user, "Enter a new name", "Soulcatcher", user_soul.name)
+			var/new_name = tgui_input_text(user, "Enter a new name", "Soulcatcher", user_soul.name, max_length = MAX_NAME_LEN)
 			if(!new_name)
 				return FALSE
 

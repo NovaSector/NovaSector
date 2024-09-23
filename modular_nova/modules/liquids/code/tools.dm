@@ -2,7 +2,7 @@ ADMIN_VERB(spawn_liquid, R_ADMIN, "Spawn Liquid", "Spawns an amount of chosen li
 	var/choice
 	var/valid_id
 	while(!valid_id)
-		choice = tgui_input_text(user, "Enter the ID of the reagent you want to add.", "Search reagents")
+		choice = tgui_input_text(user, "Enter the ID of the reagent you want to add.", "Search reagents", max_length = MAX_NAME_LEN)
 		if(isnull(choice)) //Get me out of here!
 			break
 		if (!ispath(text2path(choice)))
