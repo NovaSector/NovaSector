@@ -15,6 +15,16 @@
 	. = ..()
 	AddElement(/datum/element/wall_tearer, allow_reinforced = TRUE)
 
+/mob/living/basic/construct/wraith/angelic/bitrunning
+	maxHealth = 150
+	health = 150
+	faction = list(FACTION_NEUTRAL)
+	construct_spells = list(
+		/datum/action/cooldown/mob_cooldown/sneak/bitrunning,
+		/datum/action/cooldown/mob_cooldown/dash,
+		/datum/action/cooldown/spell/pointed/projectile/finger_guns/bitrunning,
+	)
+
 /datum/action/cooldown/spell/basic_projectile/juggernaut/bitrunning
 	name = "Tweaked Gauntlet Echo"
 	cooldown_time = 15 SECONDS
@@ -22,6 +32,18 @@
 /datum/action/cooldown/spell/forcewall/cult/bitrunning
 	name = "Tweaked Shield"
 	cooldown_time = 10 SECONDS
+
+/datum/action/cooldown/spell/pointed/projectile/finger_guns/bitrunning
+	name = "Stealth Projectiles"
+	desc = "Shoot up to three stealthy bullets that damage and mute their targets."
+	school = SCHOOL_EVOCATION
+	cooldown_time = 15 SECONDS
+	invocation_self_message = span_danger("You fire!")
+
+/datum/action/cooldown/mob_cooldown/sneak/bitrunning
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "deploy_box"
+	sneak_alpha = 50
 
 /mob/living/basic/tree/palm
 	name = "palm tree"

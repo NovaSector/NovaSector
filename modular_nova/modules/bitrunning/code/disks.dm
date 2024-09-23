@@ -18,12 +18,12 @@
 	)
 
 /datum/orderable_item/bitrunning_tech/ability_tier0
-	cost_per_order = 500
+	cost_per_order = 350
 	item_path = /obj/item/bitrunning_disk/ability/tier0
 	desc = "This disk contains a program that lets you cast Minor Illusion, Produce Flame, or Produce Water."
 
 /datum/orderable_item/bitrunning_tech/item_tier0
-	cost_per_order = 500
+	cost_per_order = 350
 	item_path = /obj/item/bitrunning_disk/item/tier0
 	desc = "This disk contains a program that lets you equip thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
 
@@ -74,11 +74,9 @@
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
 	. = ..()
-	selectable_actions -= list(
-		/datum/action/cooldown/spell/shapeshift/polar_bear,
-	)
 	selectable_actions += list(
 		/datum/action/cooldown/spell/shapeshift/juggernaut,
+		/datum/action/cooldown/spell/shapeshift/wraith,
 		/datum/action/cooldown/spell/death_loop,
 	)
 
@@ -98,4 +96,4 @@
 	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
-	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, or a holy juggernaut; or cast Death Loop."
+	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, a polar bear, a holy juggernaut, or a holy wraith; or cast Death Loop."

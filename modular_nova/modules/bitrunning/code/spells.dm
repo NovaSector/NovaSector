@@ -47,6 +47,15 @@
 
 	possible_shapes = list(/mob/living/basic/construct/juggernaut/angelic/bitrunning)
 
+/datum/action/cooldown/spell/shapeshift/wraith
+	name = "Wraith Form"
+	desc = "Take on the form of a holy wraith."
+	invocation = "KILL!"
+	invocation_type = INVOCATION_SHOUT
+	spell_requirements = NONE
+
+	possible_shapes = list(/mob/living/basic/construct/wraith/angelic/bitrunning)
+
 /datum/action/cooldown/spell/shapeshift/minor_illusion
 	name = "Minor Illusion"
 	desc = "Assume the form of a tree, a furniture or a plant, perfect for hiding."
