@@ -4,6 +4,7 @@
 		/datum/action/cooldown/spell/shapeshift/minor_illusion,
 		/datum/action/cooldown/spell/conjure_item/fire,
 		/datum/action/cooldown/spell/conjure_item/water,
+		/datum/action/cooldown/spell/conjure/presents,
 	)
 
 /obj/item/bitrunning_disk/item/tier0
@@ -20,7 +21,7 @@
 /datum/orderable_item/bitrunning_tech/ability_tier0
 	cost_per_order = 350
 	item_path = /obj/item/bitrunning_disk/ability/tier0
-	desc = "This disk contains a program that lets you cast Minor Illusion, Produce Flame, or Produce Water."
+	desc = "This disk contains a program that lets you cast Minor Illusion, Conjure Presents!, Produce Flame, or Produce Water."
 
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
@@ -40,7 +41,7 @@
 	)
 	selectable_items += list(
 		/obj/item/storage/toolbox/guncase/clandestine,
-		/obj/item/autosurgeon/syndicate/nodrop,
+		/obj/item/autosurgeon/syndicate/hackerman,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
 		/obj/item/storage/medkit/expeditionary/surplus,
@@ -54,6 +55,8 @@
 	selectable_items += list(
 		/obj/item/autosurgeon/syndicate/nodrop,
 		/obj/item/gun/energy/modular_laser_rifle,
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/minigunpack,
 	)
 
 /obj/item/bitrunning_disk/ability/tier1/Initialize(mapload)
@@ -84,10 +87,10 @@
 	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, or a military webbing."
 
 /datum/orderable_item/bitrunning_tech/item_tier2
-	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, or an expeditionary medkit."
+	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
 	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
