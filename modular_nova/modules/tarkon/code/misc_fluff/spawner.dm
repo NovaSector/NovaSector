@@ -220,7 +220,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/tarkon, 32)
 /obj/effect/nest_break/proc/rustle()
 	for(var/mob/shooken in range(7,src))
 		shake_camera(shooken, 15, 1)
-	playsound(get_turf(src),'sound/effects/explosionfar.ogg', 200, TRUE)
+	playsound(get_turf(src),'sound/effects/explosion/explosionfar.ogg', 200, TRUE)
 	visible_message(span_boldannounce("The nest's entrance starts to crumble before something charges forth!"))
 	var/mob/living/basic/boss_baby = new boss_mob(loc)
 	boss_baby.faction = faction

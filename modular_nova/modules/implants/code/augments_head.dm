@@ -224,7 +224,7 @@
 	cast_on.forensics?.add_hacking_implant_trace()
 	cast_on.add_hiddenprint(owner)
 
-	playsound(cast_on, 'sound/machines/terminal_processing.ogg', 15, TRUE)
+	playsound(cast_on, 'sound/machines/terminal/terminal_processing.ogg', 15, TRUE)
 
 	var/mob/living/carbon/human/human_owner = owner
 

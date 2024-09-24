@@ -7,7 +7,7 @@
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
 	ambience_index = AMBIENCE_FOREST
 	sound_environment = SOUND_AREA_FOREST
-	ambient_buzz = 'sound/ambience/magma.ogg'
+	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
