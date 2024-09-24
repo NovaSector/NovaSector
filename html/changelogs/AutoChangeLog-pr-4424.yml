@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "Telepathy once again has a limit of 2048 chars instead of 42"
