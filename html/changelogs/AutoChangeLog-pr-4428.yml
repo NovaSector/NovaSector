@@ -1,0 +1,4 @@
+author: "FeenieRU"
+delete-after: True
+changes:
+  - bugfix: "fixes some modular vending machine items not getting their sprites"
