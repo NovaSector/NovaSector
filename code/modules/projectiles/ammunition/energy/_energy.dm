@@ -8,4 +8,4 @@
 	var/select_name = CALIBER_ENERGY
 	fire_sound = 'sound/items/weapons/laser.ogg'
 	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/red
-	var/select_color = FALSE //NOVA EDIT ADDITION - This is the color that shows up when selecting an ammo type. Disabled by default
+	newtonian_force = 0.5
