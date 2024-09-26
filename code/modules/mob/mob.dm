@@ -292,7 +292,7 @@
 
 	var/raw_msg = message
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" // NOVA EDIT - Better emotes
+		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 
 	for(var/mob/M in hearers)
 		if(!M.client)
@@ -333,7 +333,7 @@
 	var/raw_self_message = self_message
 	var/self_runechat = FALSE
 	if(visible_message_flags & EMOTE_MESSAGE)
-		self_message = "<span class='emote'><b>[src]</b> [self_message]</span>" // May make more sense as "You do x"
+		self_message = span_emote("<b>[src]</b> [self_message]") // May make more sense as "You do x"
 
 	if(visible_message_flags & ALWAYS_SHOW_SELF_MESSAGE)
 		to_chat(src, self_message)
@@ -375,7 +375,7 @@
 		hearers -= src
 	var/raw_msg = message
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b>[separation][message]</span>" //NOVA EDIT CHANGE
+		message = span_emote("<b>[src]</b>[separation][message]") //NOVA EDIT CHANGE - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 	for(var/mob/M in hearers)
 	// NOVA EDIT ADDITION - Emote pref checks
 		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
@@ -403,7 +403,7 @@
 	var/raw_self_message = self_message
 	var/self_runechat = FALSE
 	if(audible_message_flags & EMOTE_MESSAGE)
-		self_message = "<span class='emote'><b>[src]</b> [self_message]</span>"
+		self_message = span_emote("<b>[src]</b> [self_message]")
 	if(audible_message_flags & ALWAYS_SHOW_SELF_MESSAGE)
 		to_chat(src, self_message)
 		self_runechat = TRUE
