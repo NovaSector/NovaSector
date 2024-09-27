@@ -19,7 +19,7 @@
 		return FALSE
 	radiation_pulse(source = holder_turf, max_range = range + 5, threshold = 0.3, chance = 50)
 
-/datum/artifact_effect/radiate/do_effect_aura()
+/datum/artifact_effect/radiate/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
@@ -30,7 +30,7 @@
 		return FALSE
 	radiation_pulse(source = holder_turf, max_range = range, threshold = 0.3, chance = 10  * radiation_amount)
 
-/datum/artifact_effect/radiate/do_effect_pulse()
+/datum/artifact_effect/radiate/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

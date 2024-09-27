@@ -10,7 +10,7 @@
 	activation_pulse_cost = maximum_charges
 	artifact_id = "tesla"
 
-/datum/artifact_effect/tesla/do_effect_pulse()
+/datum/artifact_effect/tesla/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

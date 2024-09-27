@@ -8,7 +8,7 @@
 	release_method = ARTIFACT_EFFECT_PULSE
 	range = rand(2,5)
 
-/datum/artifact_effect/bodyhorror/do_effect_pulse()
+/datum/artifact_effect/bodyhorror/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

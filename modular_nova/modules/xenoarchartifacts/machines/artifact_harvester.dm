@@ -90,7 +90,7 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/machinery/artifact_harvester/process()
+/obj/machinery/artifact_harvester/process(seconds_per_tick, times_fired)
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 

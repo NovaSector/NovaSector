@@ -6,7 +6,7 @@
 	. = ..()
 	release_method = ARTIFACT_EFFECT_PULSE
 
-/datum/artifact_effect/emp/do_effect_pulse()
+/datum/artifact_effect/emp/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

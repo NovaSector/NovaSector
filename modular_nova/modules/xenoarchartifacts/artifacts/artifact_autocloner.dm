@@ -79,7 +79,7 @@
 		/mob/living/basic/pet/cat/fennec,
 	)
 
-/obj/machinery/auto_cloner/process()
+/obj/machinery/auto_cloner/process(seconds_per_tick)
 	if(powered(power_channel))
 		if(!previous_power_state)
 			previous_power_state = 1
@@ -90,7 +90,7 @@
 			)
 
 		// slowly grow a mob
-		if(prob(5))
+		if(SPT_PROB(2.5, seconds_per_tick))
 			visible_message(
 				span_notice("[src] [pick("gloops", "glugs", "whirrs", "whooshes", "hisses", "purrs", "hums", "gushes")]."),
 				blind_message = span_hear("Something nearby [pick("gloops", "glugs", "whirrs", "whooshes", "hisses", "purrs", "hums", "gushes")]."),

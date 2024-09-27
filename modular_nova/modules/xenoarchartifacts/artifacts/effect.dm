@@ -171,8 +171,8 @@
  * Tries to drain charge
  * returns true if charge was drained, otherwise returns false
  */
-/datum/artifact_effect/proc/do_effect_aura()
-	if(try_drain_charge(activation_aura_cost))
+/datum/artifact_effect/proc/do_effect_aura(seconds_per_tick)
+	if(try_drain_charge(activation_aura_cost/2 * seconds_per_tick))
 		return TRUE
 	return FALSE
 
@@ -180,8 +180,8 @@
  * Tries to drain charge
  * returns true if charge was drained, otherwise returns false
  */
-/datum/artifact_effect/proc/do_effect_pulse()
-	if(try_drain_charge(activation_pulse_cost))
+/datum/artifact_effect/proc/do_effect_pulse(seconds_per_tick)
+	if(try_drain_charge(activation_pulse_cost/2 * seconds_per_tick))
 		return activation_pulse_cost
 	return FALSE
 
@@ -210,12 +210,12 @@
 	current_charge -= charges_drained
 	return TRUE
 
-/datum/artifact_effect/process()
+/datum/artifact_effect/process(seconds_per_tick, times_fired)
 	current_charge = min(current_charge + recharge_speed, maximum_charges)
 	if(release_method == ARTIFACT_EFFECT_AURA)
-		do_effect_aura()
+		do_effect_aura(seconds_per_tick)
 	if(release_method == ARTIFACT_EFFECT_PULSE)
-		do_effect_pulse()
+		do_effect_pulse(seconds_per_tick)
 
 /**
  * Returns type effect

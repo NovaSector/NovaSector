@@ -83,7 +83,7 @@
 		[pick("front", "side", "top", "bottom", "rear", "inside")] of [src]. A [pick("slot", "funnel", "chute", "tube")] opens up in the \
 		[pick("front", "side", "top", "bottom", "rear", "inside")].")
 
-/obj/machinery/replicator/process()
+/obj/machinery/replicator/process(seconds_per_tick, times_fired)
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)
@@ -112,7 +112,7 @@
 				update_use_power(IDLE_POWER_USE)
 				icon_state = "replicator"
 
-		else if(prob(5))
+		else if(SPT_PROB(2.5, seconds_per_tick))
 			var/sound_made = pick("clicks", "whizzes", "whirrs", "whooshes", "clanks", "clongs", "clonks", "bangs")
 			visible_message(
 				span_warning("[src] [sound_made]"),

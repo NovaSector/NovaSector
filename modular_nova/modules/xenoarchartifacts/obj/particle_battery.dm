@@ -134,10 +134,10 @@
 	else
 		set_light(0, 0)
 
-/obj/item/xenoarch/xenoarch_utilizer/process()
+/obj/item/xenoarch/xenoarch_utilizer/process(seconds_per_tick, times_fired)
 	update_icon()
 	if(cooldown > 0)
-		cooldown -= 1
+		cooldown -= 0.5 * seconds_per_tick
 		if(cooldown <= 0)
 			cooldown = 0
 			visible_message(
@@ -156,13 +156,13 @@
 			inserted_battery.battery_effect.do_effect_touch(src.loc)
 
 		// handle charge
-		inserted_battery.stored_charge -= 1
+		inserted_battery.stored_charge -= 0.5 * seconds_per_tick
 		if(inserted_battery.stored_charge <= 0)
 			shutdown_emission()
 
 		// handle timed mode
 		if(timing)
-			time -= 1
+			time -= 0.5 * seconds_per_tick
 			if(time <= 0)
 				shutdown_emission()
 

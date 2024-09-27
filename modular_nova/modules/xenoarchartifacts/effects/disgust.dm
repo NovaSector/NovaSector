@@ -14,23 +14,23 @@
 		return
 	apply_disgust(user, 200) // Insta-shit
 
-/datum/artifact_effect/disgust/do_effect_aura()
+/datum/artifact_effect/disgust/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/living_mob in range(range, curr_turf))
 		if(prob(50))
-			apply_disgust(living_mob, 5)
+			apply_disgust(living_mob, 2.5 * seconds_per_tick)
 
-/datum/artifact_effect/disgust/do_effect_pulse()
+/datum/artifact_effect/disgust/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/used_power = .
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/living_mob in range(range, curr_turf))
-		apply_disgust(living_mob, used_power)
+		apply_disgust(living_mob, used_power/2 * seconds_per_tick)
 
 /datum/artifact_effect/disgust/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)

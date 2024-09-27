@@ -11,18 +11,18 @@
 		if(issilicon(user))
 			to_chat(user, span_notice("SYSTEM ALERT: Massive energy drain detected!"))
 
-/datum/artifact_effect/celldrain/do_effect_aura()
+/datum/artifact_effect/celldrain/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
-	discharge_everything_in_range(50000, range, holder)
+	discharge_everything_in_range(25000 * seconds_per_tick, range, holder)
 
-/datum/artifact_effect/celldrain/do_effect_pulse()
+/datum/artifact_effect/celldrain/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/used_power = .
-	discharge_everything_in_range(25000 * used_power, range, holder)
+	discharge_everything_in_range(12500 * used_power * seconds_per_tick, range, holder)
 
 /datum/artifact_effect/celldrain/do_effect_destroy()
 	discharge_everything_in_range(1000000000, 10, holder) // Massive uh oh

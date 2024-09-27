@@ -49,7 +49,7 @@
 	release_method = ARTIFACT_EFFECT_PULSE
 	type_name = ARTIFACT_EFFECT_PSIONIC
 
-/datum/artifact_effect/noise/do_effect_pulse()
+/datum/artifact_effect/noise/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

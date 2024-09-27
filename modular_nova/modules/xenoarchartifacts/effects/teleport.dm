@@ -13,7 +13,7 @@
 			blind_message = span_hear("You hear zap nearby."),
 		)
 
-/datum/artifact_effect/teleport/do_effect_aura()
+/datum/artifact_effect/teleport/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
@@ -26,7 +26,7 @@
 				blind_message = span_hear("You hear zap nearby."),
 			)
 
-/datum/artifact_effect/teleport/do_effect_pulse()
+/datum/artifact_effect/teleport/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

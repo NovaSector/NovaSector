@@ -69,16 +69,16 @@
 	run_send_messages(human_mob, 50, 80)
 	human_mob.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
 
-/datum/artifact_effect/feelings/do_effect_aura()
+/datum/artifact_effect/feelings/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
-		run_send_messages(human_mob, 5, 10)
-		human_mob.adjust_dizzy_up_to(3 SECONDS, 15 SECONDS)
+		run_send_messages(human_mob, 2.5, 5, seconds_per_tick)
+		human_mob.adjust_dizzy_up_to1(1.5 SECONDS * seconds_per_tick, 15 SECONDS)
 
-/datum/artifact_effect/feelings/do_effect_pulse()
+/datum/artifact_effect/feelings/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
@@ -103,13 +103,12 @@
  * * drastic_message_chance - chance to receive major mood event
  * * normal_message_chance - chance to receive minor mood event
  */
-/datum/artifact_effect/feelings/proc/run_send_messages(mob/receiver, drastic_message_chance = 0, normal_message_chance = 0)
-	if(prob(drastic_message_chance))
+/datum/artifact_effect/feelings/proc/run_send_messages(mob/receiver, drastic_message_chance = 0, normal_message_chance = 0, seconds_per_tick)
+	if(SPT_PROB(drastic_message_chance, seconds_per_tick))
 		send_drastic_message(receiver)
 		return
-	if(prob(normal_message_chance))
+	if(SPT_PROB(normal_message_chance, seconds_per_tick))
 		send_minor_message(receiver)
-		return
 
 /// Send major mood event
 /datum/artifact_effect/feelings/proc/send_drastic_message(mob/receiver)

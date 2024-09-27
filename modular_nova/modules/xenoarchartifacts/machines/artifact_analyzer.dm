@@ -83,7 +83,7 @@
 	var/artifact_first_effect
 	var/artifact_second_effect
 
-/obj/machinery/artifact_analyser/process()
+/obj/machinery/artifact_analyser/process(seconds_per_tick, times_fired)
 	if(scan_in_progress && world.time > scan_completion_time)
 		// finish scanning
 		scan_in_progress = FALSE

@@ -223,7 +223,7 @@
 		else
 			try_toggle_effects(TRIGGER_FORCE)
 
-/obj/machinery/artifact/process()
+/obj/machinery/artifact/process(seconds_per_tick, times_fired)
 	//if either of our effects rely on environmental factors, work that out
 	if((first_effect?.trigger & TRIGGER_ATMOS) || (secondary_effect?.trigger & TRIGGER_ATMOS))
 		var/turf/our_turf = get_turf(src)

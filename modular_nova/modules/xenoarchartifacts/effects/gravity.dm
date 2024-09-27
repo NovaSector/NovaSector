@@ -16,7 +16,7 @@
 	maximum_charges = rand(4,10)
 	activation_pulse_cost = maximum_charges
 
-/datum/artifact_effect/gravity/do_effect_pulse()
+/datum/artifact_effect/gravity/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return

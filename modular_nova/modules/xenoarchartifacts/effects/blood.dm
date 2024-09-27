@@ -25,23 +25,23 @@
 	to_chat(user, span_notice("Your body feels full, somehow."))
 	regen_target(user, 15)
 
-/datum/artifact_effect/blood_regen/do_effect_aura()
+/datum/artifact_effect/blood_regen/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(range, curr_turf))
 		to_chat(receiver, span_notice("Your chest feels warm."))
-		regen_target(receiver, 10)
+		regen_target(receiver, 5 * seconds_per_tick)
 
-/datum/artifact_effect/blood_regen/do_effect_pulse()
+/datum/artifact_effect/blood_regen/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(range, curr_turf))
 		to_chat(receiver, span_notice("Your chest feels warm."))
-		regen_target(receiver, 50)
+		regen_target(receiver, 25 * seconds_per_tick)
 
 /datum/artifact_effect/blood_regen/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
@@ -74,16 +74,16 @@
 	suck(user, 50)
 	return TRUE
 
-/datum/artifact_effect/blood_drain/do_effect_aura()
+/datum/artifact_effect/blood_drain/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(range, curr_turf))
 		to_chat(receiver, span_warning("Your nose bleeds."))
-		suck(receiver, 10)
+		suck(receiver, 5 * seconds_per_tick)
 
-/datum/artifact_effect/blood_drain/do_effect_pulse()
+/datum/artifact_effect/blood_drain/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
@@ -93,7 +93,7 @@
 		if(weakness >= 0.7)
 			var/constructed_flags = (MOB_VOMIT_BLOOD | MOB_VOMIT_HARM | MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE)
 			human_receiver.vomit(vomit_flags = constructed_flags, vomit_type = /obj/effect/decal/cleanable/vomit/toxic, lost_nutrition = 30, distance = 2)
-			human_receiver.blood_volume -= 30 * weakness
+			human_receiver.blood_volume -= 15 * weakness * seconds_per_tick
 
 /datum/artifact_effect/blood_drain/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)

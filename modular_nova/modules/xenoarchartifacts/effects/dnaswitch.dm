@@ -10,21 +10,21 @@
 		return
 	roll_and_change_genes(user, 50)
 
-/datum/artifact_effect/dnaswitch/do_effect_aura()
+/datum/artifact_effect/dnaswitch/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
-		roll_and_change_genes(human_mob, 50)
+		roll_and_change_genes(human_mob, 25 * seconds_per_tick)
 
-/datum/artifact_effect/dnaswitch/do_effect_pulse()
+/datum/artifact_effect/dnaswitch/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
-		roll_and_change_genes(human_mob, 20)
+		roll_and_change_genes(human_mob, 10 * seconds_per_tick)
 
 /datum/artifact_effect/dnaswitch/do_effect_destroy()
 	. = ..()

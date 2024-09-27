@@ -6,12 +6,12 @@
 	. = ..()
 	release_method = ARTIFACT_EFFECT_PULSE
 
-/datum/artifact_effect/machinery_mess/do_effect_pulse()
+/datum/artifact_effect/machinery_mess/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
-	try_animate()
-	try_hack_borg()
+	try_animate(seconds_per_tick)
+	try_hack_borg(seconds_per_tick)
 
 /datum/artifact_effect/machinery_mess/do_effect_destroy()
 	try_animate()
@@ -21,10 +21,10 @@
  * Tries to animate nearby machinery into angry mobs.
  * Similar to Malf ability
  */
-/datum/artifact_effect/machinery_mess/proc/try_animate()
+/datum/artifact_effect/machinery_mess/proc/try_animate(seconds_per_tick)
 	var/turf/curr_turf = get_turf(holder)
 	for(var/obj/machinery/chosen_machine in range(range, curr_turf))
-		if(prob(10) && !istype(chosen_machine, /obj/machinery/artifact))
+		if(SPT_PROB(5, seconds_per_tick) && !istype(chosen_machine, /obj/machinery/artifact))
 			if(istype(chosen_machine, /obj/machinery/porta_turret_cover))
 				var/obj/machinery/porta_turret_cover/chosen_turret = chosen_machine
 				chosen_machine = chosen_turret.parent_turret
@@ -42,34 +42,34 @@
 /**
  * Tries to mess with silicon's laws OR emag simple bots
  */
-/datum/artifact_effect/machinery_mess/proc/try_hack_borg()
+/datum/artifact_effect/machinery_mess/proc/try_hack_borg(seconds_per_tick)
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/silicon/silicon_mob in range(range, curr_turf))
-		if(prob(25))
+		if(SPT_PROB(12.5, seconds_per_tick))
 			silicon_mob.laws_sanity_check()
 			if(silicon_mob.stat != DEAD && !silicon_mob.incapacitated)
-				if(prob(15))
+				if(SPT_PROB(7.5, seconds_per_tick))
 					var/datum/ai_laws/ion_lawset = pick_weighted_lawset()
 					ion_lawset = new()
 					silicon_mob.laws.inherent = ion_lawset.inherent.Copy()
 					qdel(ion_lawset)
 
-				if(prob(20))
+				if(SPT_PROB(10, seconds_per_tick))
 					silicon_mob.remove_law(rand(1, silicon_mob.laws.get_law_amount(list(LAW_INHERENT, LAW_SUPPLIED))))
 
 				var/message = generate_ion_law()
-				if(prob(30))
+				if(SPT_PROB(15, seconds_per_tick))
 					silicon_mob.replace_random_law(message, list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION), LAW_ION)
 				else
 					silicon_mob.add_ion_law(message)
 
-				if(prob(40))
+				if(SPT_PROB(20, seconds_per_tick))
 					silicon_mob.shuffle_laws(list(LAW_INHERENT, LAW_SUPPLIED, LAW_ION))
 
 				log_silicon("Artifact changed laws of [key_name(silicon_mob)] to [english_list(silicon_mob.laws.get_law_list(TRUE, TRUE))]")
 				silicon_mob.post_lawchange()
 
 	for(var/mob/living/simple_animal/bot/bot in GLOB.alive_mob_list)
-		if(prob(25))
+		if(SPT_PROB(12.5, seconds_per_tick))
 			bot.emag_act()
 

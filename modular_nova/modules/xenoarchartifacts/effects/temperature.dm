@@ -24,7 +24,7 @@
 		return FALSE
 	return env
 
-/datum/artifact_effect/temperature/do_effect_aura()
+/datum/artifact_effect/temperature/do_effect_aura(seconds_per_tick)
 	. = ..()
 	var/turf/holder_turf = get_turf(holder)
 	if(isnull(holder_turf))
@@ -58,13 +58,13 @@
 	env.temperature = clamp(env.temperature - 100, target_temp_low, target_temp_high)
 	to_chat(user, span_warning("A chill passes up your spine!"))
 
-/datum/artifact_effect/temperature/cold/do_effect_aura()
+/datum/artifact_effect/temperature/cold/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/datum/gas_mixture/env = .
 	if(env.temperature > target_temp)
-		env.temperature -= 100
+		env.temperature -= 50 * seconds_per_tick
 
 /datum/artifact_effect/temperature/cold/do_effect_destroy()
 	. = ..()
@@ -86,13 +86,13 @@
 	env.temperature = clamp(env.temperature + 100, target_temp_low, target_temp_high)
 	to_chat(user, span_warning("You feel a wave of heat travel up your spine!"))
 
-/datum/artifact_effect/temperature/heat/do_effect_aura()
+/datum/artifact_effect/temperature/heat/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/datum/gas_mixture/env = .
 	if(env.temperature < target_temp)
-		env.temperature += 100
+		env.temperature += 50 * seconds_per_tick
 
 /datum/artifact_effect/temperature/heat/do_effect_destroy()
 	. = ..()

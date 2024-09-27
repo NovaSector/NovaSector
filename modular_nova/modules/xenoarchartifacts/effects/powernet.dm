@@ -8,10 +8,10 @@
 	trigger = TRIGGER_TOUCH
 	release_method = ARTIFACT_EFFECT_AURA
 
-/datum/artifact_effect/powernet/do_effect_aura()
+/datum/artifact_effect/powernet/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	if(istype(holder, /obj/machinery/power))
 		var/obj/machinery/power/power_holder = holder
-		power_holder.add_avail(250000)
+		power_holder.add_avail(125000 * seconds_per_tick)

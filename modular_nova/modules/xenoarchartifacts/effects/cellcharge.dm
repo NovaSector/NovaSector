@@ -11,18 +11,18 @@
 	if(issilicon(user))
 		to_chat(user, span_notice("SYSTEM ALERT: Energy boost detected!"))
 
-/datum/artifact_effect/cellcharge/do_effect_aura()
+/datum/artifact_effect/cellcharge/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
-	recharge_everything_in_range(250000, range, holder)
+	recharge_everything_in_range(125000 * seconds_per_tick, range, holder)
 
-/datum/artifact_effect/cellcharge/do_effect_pulse()
+/datum/artifact_effect/cellcharge/do_effect_pulse(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
 	var/used_power = .
-	recharge_everything_in_range(5000 * used_power, range, holder)
+	recharge_everything_in_range(2500 * used_power * seconds_per_tick, range, holder)
 
 /datum/artifact_effect/cellcharge/do_effect_destroy()
 	recharge_everything_in_range(1000000000, 10, holder) // One time use giga-charge
