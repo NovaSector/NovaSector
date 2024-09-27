@@ -23,7 +23,7 @@
 	if(!target_soulcatcher || !target_soulcatcher.targeted_soulcatcher_room)
 		return FALSE
 
-	var/message_to_send = tgui_input_text(usr, "Input the emote you want to send", "Soulcatcher", multiline = TRUE)
+	var/message_to_send = tgui_input_text(usr, "Input the emote you want to send", "Soulcatcher", max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 	if(!message_to_send)
 		return FALSE
 

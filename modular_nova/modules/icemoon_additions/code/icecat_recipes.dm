@@ -26,7 +26,7 @@
 /obj/item/anointing_oil/proc/try_anoint(mob/living/target_mob, mob/living/user)
 	being_used = TRUE
 
-	var/new_name = sanitize_name(tgui_input_text(user, "Speak forth this beast's new name for all the Kin to hear.", "Input a name", target_mob.name, MAX_NAME_LEN))
+	var/new_name = sanitize_name(tgui_input_text(user, "Speak forth this beast's new name for all the Kin to hear.", "Input a name", target_mob.name, max_length = MAX_NAME_LEN))
 
 	if(!new_name || QDELETED(src) || QDELETED(target_mob) || new_name == target_mob.name || !target_mob.Adjacent(user))
 		being_used = FALSE

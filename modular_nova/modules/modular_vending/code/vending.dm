@@ -26,7 +26,7 @@
 					break
 
 			if(!already_exists)
-				product_categories += category
+				product_categories += list(category)
 
 	if(premium_nova)
 		// We need this, because duplicates screw up the spritesheet!

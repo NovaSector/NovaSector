@@ -562,11 +562,7 @@
 
 	var/liquid_state_template = liquid_state_messages["[liquid_state]"]
 
-	examine_list += EXAMINE_SECTION_BREAK
-
 	if(examiner.can_see_reagents())
-		examine_list += EXAMINE_SECTION_BREAK
-
 		if(length(reagent_list) == 1)
 			// Single reagent text.
 			var/datum/reagent/reagent_type = reagent_list[1]
@@ -583,12 +579,11 @@
 				var/volume = round(reagent_list[reagent_type], 0.01)
 				examine_list += "&bull; [volume] units of [reagent_name]"
 
-		examine_list += span_notice("The solution has a temperature of [temp]K.")
-		examine_list += EXAMINE_SECTION_BREAK
+		examine_list += span_notice("The solution has a temperature of [temp]K.[EXAMINE_SECTION_BREAK]")
 		return
 
 	// Otherwise, just show the total volume
-	examine_list += span_notice("There is [replacetext(liquid_state_template, "$", "liquid")] here.")
+	examine_list += span_notice("There is [replacetext(liquid_state_template, "$", "liquid")] here.[EXAMINE_SECTION_BREAK]")
 
 /**
  * Creates a string of the reagents that make up this liquid.

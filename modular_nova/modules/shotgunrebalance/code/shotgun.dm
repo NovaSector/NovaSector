@@ -178,7 +178,7 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	pellets = 4
 	variance = 15
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	harmful = FALSE
 	custom_materials = AMMO_MATS_SHOTGUN_HIVE
 	advanced_print_req = TRUE
@@ -211,7 +211,7 @@
 	pellets = 8 // 8 * 7 for 56 stamina damage, plus whatever the embedded shells do
 	variance = 30
 	harmful = FALSE
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	advanced_print_req = TRUE
 

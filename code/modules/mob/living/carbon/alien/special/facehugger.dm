@@ -23,12 +23,6 @@
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH
 	layer = MOB_LAYER
 	max_integrity = 100
-	item_flags = XENOMORPH_HOLDABLE
-	// NOVA EDIT ADDITION START: job-restricted examine text
-	special_desc_requirement = EXAMINE_CHECK_JOB
-	special_desc_jobs = list("Scientist, Research Director")
-	special_desc = "This alien is an extremely dangerous life form capable of creating a xenomorph. You would know well not to approach without full body biological protection."
-	// NOVA EDIT ADDITION END
 	slowdown = 2
 	var/stat = CONSCIOUS //UNCONSCIOUS is the idle state in this case
 

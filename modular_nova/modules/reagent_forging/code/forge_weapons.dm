@@ -36,7 +36,7 @@
 	inhand_icon_state = "sword"
 	worn_icon_state = "sword_back"
 	belt_icon_state = "sword_belt"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	block_chance = 20
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -54,7 +54,7 @@
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana_back"
 	belt_icon_state = "katana_belt"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	block_chance = 10
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -70,7 +70,7 @@
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger_back"
 	belt_icon_state = "dagger_belt"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	embed_type = /datum/embed_data/forged_dagger
 	throwforce = 17
 	throw_speed = 4
@@ -123,7 +123,7 @@
 	embed_data = /datum/embed_data/spear
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
 	wound_bonus = -15
@@ -181,6 +181,16 @@
 	AddComponent(/datum/component/two_handed, force_unwielded = 10, force_wielded = 25, require_twohands = TRUE)
 	AddElement(/datum/element/kneejerk)
 
+/obj/item/forging/reagent_weapon/hammer/attack(mob/living/target, mob/living/user)
+	var/relative_direction = get_cardinal_dir(src, target)
+	var/atom/throw_target = get_edge_target_turf(target, relative_direction)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_PACIFISM) || !HAS_TRAIT(src, TRAIT_WIELDED))
+		return
+	else if(!QDELETED(target) && !target.anchored)
+		var/whack_speed = (2)
+		target.throw_at(throw_target, 2, whack_speed, user, gentle = TRUE)
+
 /obj/item/shield/buckler/reagent_weapon
 	name = "forged buckler shield"
 	desc = "A small, round shield best used in tandem with a melee weapon in close-quarters combat."
@@ -230,16 +240,36 @@
 
 /obj/item/shield/buckler/reagent_weapon/pavise
 	name = "forged pavise shield"
-	desc = "An oblong shield used by ancient crossbowmen as cover while reloading. Probably just as useful with an actual gun."
+	desc = "An oblong shield used by ancient crossbowmen as cover while reloading. Probably just as useful with an actual gun. Can be wielded in both hands to cover yourself and clobber others more effectively."
 	icon_state = "pavise"
 	inhand_icon_state = "pavise"
 	worn_icon_state = "pavise_back"
-	block_chance = 50
+	block_chance = 45
 	force = 12
 	item_flags = SLOWS_WHILE_IN_HAND
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
-	max_integrity = 300 //tanky
+	max_integrity = 300
+	var/wielded = FALSE
+	var/unwielded_block_chance = 45
+	var/wielded_block_chance = 65
+
+/obj/item/shield/buckler/reagent_weapon/pavise/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed,\
+		force_unwielded = 12, \
+		force_wielded = 15, \
+		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
+		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
+	)
+
+/obj/item/shield/buckler/reagent_weapon/pavise/proc/on_wield()
+	wielded = TRUE
+	block_chance = wielded_block_chance
+
+/obj/item/shield/buckler/reagent_weapon/pavise/proc/on_unwield()
+	wielded = FALSE
+	block_chance = unwielded_block_chance
 
 /obj/item/pickaxe/reagent_weapon
 	name = "forged pickaxe"
@@ -253,7 +283,7 @@
 
 /obj/item/shovel/reagent_weapon
 	name = "forged shovel"
-	toolspeed = 0.75
+	toolspeed = 0.60
 
 /obj/item/shovel/reagent_weapon/Initialize(mapload)
 	. = ..()
@@ -294,7 +324,7 @@
 	inhand_icon_state = "bokken"
 	worn_icon_state = "bokken_back"
 	block_chance = 20
-	block_sound = 'sound/weapons/parry.ogg'
+	block_sound = 'sound/items/weapons/parry.ogg'
 	damtype = STAMINA
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -307,17 +337,18 @@
 
 /obj/item/forging/reagent_weapon/bokken/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
-	AddComponent(/datum/component/two_handed, force_unwielded = 15, force_wielded = 25)
+	AddComponent(/datum/component/two_handed,\
+		force_unwielded = 15, \
+		force_wielded = 25, \
+		wield_callback = CALLBACK(src, PROC_REF(on_wield)), \
+		unwield_callback = CALLBACK(src, PROC_REF(on_unwield)), \
+	)
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_wield()
-	SIGNAL_HANDLER
 	wielded = TRUE
 	block_chance = wielded_block_chance
 
 /obj/item/forging/reagent_weapon/bokken/proc/on_unwield()
-	SIGNAL_HANDLER
 	wielded = FALSE
 	block_chance = unwielded_block_chance
 
@@ -325,9 +356,9 @@
 	. = ..()
 	if(!iscarbon(target_mob))
 		user.visible_message(span_warning("The [src] seems to be ineffective against the [target_mob]!"))
-		playsound(src, 'sound/weapons/genhit.ogg', 75, TRUE)
+		playsound(src, 'sound/items/weapons/genhit.ogg', 75, TRUE)
 		return
-	playsound(src, pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'), 100, TRUE)
+	playsound(src, pick('sound/items/weapons/genhit1.ogg', 'sound/items/weapons/genhit2.ogg', 'sound/items/weapons/genhit3.ogg'), 100, TRUE)
 
 #undef FAUNA_MULTIPLIER
 #undef MEGAFAUNA_MULTIPLIER

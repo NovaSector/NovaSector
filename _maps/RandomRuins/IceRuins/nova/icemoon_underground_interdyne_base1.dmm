@@ -2546,7 +2546,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "gR" = (
 /obj/machinery/firealarm/directional/west,
-/obj/machinery/vending/medical/syndicate_access{
+/obj/machinery/vending/medical/syndicate{
 	onstation = 0;
 	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/mmi/syndie/interdyne=3);
 	extended_inventory = 1
@@ -6217,7 +6217,7 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/main)
 "pQ" = (
-/obj/machinery/vending/boozeomat/syndicate_access{
+/obj/machinery/vending/boozeomat/syndicate{
 	onstation = 0;
 	extended_inventory = 1
 	},
