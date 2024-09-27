@@ -59,7 +59,7 @@
 		return
 
 	carbon_target.adjustOxyLoss(amount = 60, updating_health = TRUE)
-	playsound(src, 'modular_nova/modules/emotes/sound/emotes/female/female_sniff.ogg', 50, FALSE)
+	playsound(src, 'sound/voice/human/female_sniff.ogg', 50, FALSE)
 	carbon_target.set_heartattack(FALSE)
 
 	if(defib_result == DEFIB_POSSIBLE)
