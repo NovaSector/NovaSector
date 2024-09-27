@@ -42,8 +42,6 @@
 
 /datum/orderable_item/bitrunning_flair/six_soda
 	item_path = /obj/item/storage/cans/sixsoda
-	icon = 'icons/obj/storage/storage.dmi'
-	icon_state = "canholder6"
 	cost_per_order = 150
 
 /datum/orderable_item/bitrunning_flair/four_twenty_blaze_it
