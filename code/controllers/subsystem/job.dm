@@ -690,7 +690,7 @@ SUBSYSTEM_DEF(job)
 	job_debug("RJCT: Player rejected, Player: [player]")
 	unassigned -= player
 	if(!run_divide_occupation_pure)
-		to_chat(player, "<span class='infoplain'><b>You have failed to qualify for any job you desired.</b></span>")
+		to_chat(player, span_infoplain("<b>You have failed to qualify for any job you desired.</b>"))
 		player.ready = PLAYER_NOT_READY
 		player.client << output(player.ready, "lobby_browser:imgsrc") //NOVA EDIT ADDITION
 

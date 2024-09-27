@@ -725,7 +725,7 @@
 	"}
 	// NOVA EDIT CHANGE END
 
-	priority_announce(announcement, sound = 'sound/misc/notice1.ogg')
+	priority_announce(announcement, sound = 'sound/announcer/notice/notice1.ogg')
 
 	//Set the display screens to the radiation alert
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(FREQ_STATUS_DISPLAYS)

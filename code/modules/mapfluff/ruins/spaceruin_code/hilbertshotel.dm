@@ -8,13 +8,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	icon_state = "hilbertshotel"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	var/list/static/hotel_maps = list("Generic", "Apartment", "Beach Condo")
-	//standart - hilber's hotel room
-	//apartment - see /datum/map_template/ghost_cafe_rooms
-	var/datum/map_template/ghost_cafe_rooms/apartment/ghost_cafe_rooms_apartment
-	var/datum/map_template/ghost_cafe_rooms/beach_condo/ghost_cafe_rooms_beach_condo
-	//NOVA EDIT END
 	var/datum/map_template/hilbertshotel/hotelRoomTemp
 	var/datum/map_template/hilbertshotel/empty/hotelRoomTempEmpty
 	var/datum/map_template/hilbertshotel/lore/hotelRoomTempLore
@@ -33,10 +26,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	hotelRoomTemp = new()
 	hotelRoomTempEmpty = new()
 	hotelRoomTempLore = new()
-	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	ghost_cafe_rooms_apartment = new()
-	ghost_cafe_rooms_beach_condo = new()
-	//NOVA EDIT END
 	var/area/currentArea = get_area(src)
 	if(currentArea.type == /area/ruin/space/has_grav/powered/hilbertresearchfacility/secretroom)
 		ruinSpawned = TRUE
@@ -87,8 +76,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		to_chat(target, span_warning("You aren't able to activate \the [src] anymore!"))
 
 	// Has the user thrown it away or otherwise disposed of it such that it's no longer in their hands or in some storage connected to them?
-	// if(!(get_atom_on_turf(src, /mob) == user)) NOVA EDIT ORIGINAL
-	if(!Adjacent(user)) // NOVA EDIT -- Ghost Cafe Static Hilbertspawner
+	if(!Adjacent(user)) // NOVA EDIT CHANGE - Ghost Cafe Static Hilbertspawner - ORIGINAL: if(!(get_atom_on_turf(src, /mob) == user))
 		if(user == target)
 			to_chat(user, span_warning("\The [src] is no longer in your possession!"))
 		else
@@ -418,13 +406,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	has_gravity = TRUE
 	area_flags = NOTELEPORT | HIDDEN_AREA
 	static_lighting = TRUE
-	// NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	mood_bonus = 25
-	mood_message = "I am taking a well deserved rest!"
-	// NOVA EDIT END
-	/* 	NOVA EDIT REMOVAL - GHOST HOTEL UPDATE
-	ambientsounds = list('sound/ambience/servicebell.ogg')
-	NOVA EDIT END */
+	ambientsounds = list('sound/ambience/ruin/servicebell.ogg')
 	var/roomnumber = 0
 	var/obj/item/hilbertshotel/parentSphere
 	var/datum/turf_reservation/reservation

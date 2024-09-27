@@ -21,7 +21,7 @@
 			return FALSE
 		to_chat(user, span_notice("You insert [O] into [src]!"))
 		loaded_vial = O
-		playsound(loc, 'sound/weapons/autoguninsert.ogg', 35, 1)
+		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		update_appearance()
 
 /obj/item/rna_extractor/attack_self(mob/living/user)
@@ -61,7 +61,7 @@
 		to_chat(user, span_notice("You remove [loaded_vial] from [src]."))
 		loaded_vial = null
 		update_appearance()
-		playsound(loc, 'sound/weapons/empty.ogg', 50, 1)
+		playsound(loc, 'sound/items/weapons/empty.ogg', 50, 1)
 	else
 		to_chat(user, span_notice("[src] isn't loaded!"))
 		return
@@ -183,7 +183,7 @@
 	to_chat(user, span_notice("You insert [weapon] to into [src] reciprocal."))
 	flick("h_lathe_load", src)
 	update_appearance()
-	playsound(loc, 'sound/weapons/autoguninsert.ogg', 35, 1)
+	playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 
 
 /obj/machinery/rnd/rna_recombinator/ui_interact(mob/user)
@@ -265,7 +265,7 @@
 	vial.contains_rna = FALSE
 	vial.update_appearance()
 	ejectItem()
-	playsound(loc, 'sound/items/rped.ogg', 60, 1)
+	playsound(loc, 'sound/items/tools/rped.ogg', 60, 1)
 	flick("h_lathe_wloop", src)
 	use_energy(active_power_usage)
 	timer_id = addtimer(CALLBACK(src, PROC_REF(recombinate_step)), recombination_step_time, TIMER_STOPPABLE)
@@ -284,7 +284,7 @@
 		return
 	flick("h_lathe_wloop", src)
 	use_energy(active_power_usage)
-	playsound(loc, 'sound/items/rped.ogg', 60, 1)
+	playsound(loc, 'sound/items/tools/rped.ogg', 60, 1)
 	timer_id = addtimer(CALLBACK(src, PROC_REF(recombinate_step)), recombination_step_time, TIMER_STOPPABLE)
 
 /obj/machinery/rnd/rna_recombinator/proc/recombinate_finish()

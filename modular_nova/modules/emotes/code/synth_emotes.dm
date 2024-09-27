@@ -37,4 +37,4 @@
 	key = "laughtrack"
 	message = "plays a laughtrack."
 	emote_type = EMOTE_AUDIBLE
-	sound = 'sound/items/sitcomlaugh2.ogg'
+	sound = 'sound/items/sitcom_laugh/sitcomLaugh2.ogg'
