@@ -32,7 +32,7 @@
 	icon_state = "switchblade"
 	base_icon_state = "switchblade"
 	desc = "A sharp, concealable, spring-loaded comb."
-	hitsound = 'sound/weapons/genhit.ogg'
+	hitsound = 'sound/items/weapons/genhit.ogg'
 	resistance_flags = FIRE_PROOF
 	var/extended = FALSE
 
@@ -45,7 +45,7 @@
 	extended = !extended
 	icon_state = "switchblade[extended ? "_on" : ""]"
 
-	playsound(user || src, 'sound/weapons/batonextend.ogg', 30, TRUE)
+	playsound(user || src, 'sound/items/weapons/batonextend.ogg', 30, TRUE)
 
 
 /// This makes it so you have to extend it.
@@ -68,6 +68,18 @@
 #define PRESS_KEYS		2
 #define EXTEND_ANTENNA	3
 #define SLAP_SIDE		4
+
+//Donation reward for Thedragmeme, avalible to craft publicly
+/datum/crafting_recipe/stellar_bouquet
+	name = "stellar bouquet"
+	result = /obj/item/bouquet/stellar
+	reqs = list(
+		/obj/item/food/grown/poppy/lily = 2,
+		/obj/item/food/grown/rose = 2,
+		/obj/item/food/grown/poppy/geranium = 2,
+		/obj/item/stack/sheet/mineral/silver = 1,
+	)
+	category = CAT_ENTERTAINMENT
 
 /obj/item/donator/transponder
 	name = "broken Helian transponder"

@@ -178,7 +178,7 @@
 /// Toggle between toy modes in a specific order
 /obj/item/clothing/sextoy/magic_wand/proc/toggle_mode()
 	if(vibration_mode != "high")
-		playsound_if_pref(loc, 'sound/weapons/magin.ogg', 20, TRUE)
+		playsound_if_pref(loc, 'sound/items/weapons/magin.ogg', 20, TRUE)
 
 	switch(vibration_mode)
 		if("off")
@@ -196,6 +196,6 @@
 			vibration_mode = "high"
 
 		if("high")
-			playsound_if_pref(loc, 'sound/weapons/magout.ogg', 20, TRUE)
+			playsound_if_pref(loc, 'sound/items/weapons/magout.ogg', 20, TRUE)
 			soundloop3.stop()
 			vibration_mode = "off"

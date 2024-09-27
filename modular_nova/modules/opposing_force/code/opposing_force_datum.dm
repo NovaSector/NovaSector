@@ -328,7 +328,7 @@
 		if("deny")
 			if(!check_rights(R_ADMIN))
 				return
-			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this application:")
+			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this application:", max_length = MAX_NAME_LEN)
 			// Checking to see if the user is spamming the button, async and all.
 			if((status == OPFOR_STATUS_DENIED) || !denied_reason)
 				return
@@ -348,7 +348,7 @@
 		if("deny_objective")
 			if(!check_rights(R_ADMIN))
 				return
-			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this objective:")
+			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this objective:", max_length = MAX_NAME_LEN)
 			if(!denied_reason)
 				return
 			deny_objective(usr, edited_objective, denied_reason)
@@ -365,7 +365,7 @@
 				return
 			if(!check_rights(R_ADMIN))
 				return
-			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this objective:")
+			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this objective:", max_length = MAX_NAME_LEN)
 			if(!denied_reason)
 				return
 			deny_equipment(usr, equipment, denied_reason)

@@ -318,7 +318,7 @@
 	//NOVA EDIT ADDITION BEGIN - EMOTES -- SENSITIVE SNOUT TRAIT ADDITION
 	else if(helper.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		nosound = TRUE
-		if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !src.incapacitated(IGNORE_RESTRAINTS))
+		if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 			visible_message(span_warning("[helper] tries to boop [src] on the nose, but [p_they()] move[p_s()] out of the way."))
 			return
 		else
@@ -334,7 +334,7 @@
 		if(HAS_TRAIT(src, TRAIT_OVERSIZED) && !HAS_TRAIT(helper, TRAIT_OVERSIZED))
 			visible_message(span_warning("[helper] tries to pat [src] on the head, but can't reach!"))
 			return
-		else if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !src.incapacitated(IGNORE_RESTRAINTS))
+		else if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 			visible_message(span_warning("[helper] tries to pat [src] on the head, but [p_they()] move[p_s()] out of the way."))
 			return
 		//NOVA EDIT ADDITION END
@@ -381,7 +381,7 @@
 			to_chat(src, span_notice("[helper] squeezes you super tightly in a firm bear hug!"))
 		else
 			// NOVA EDIT ADDITION START
-			if (HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !src.incapacitated(IGNORE_RESTRAINTS))
+			if (HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 				visible_message(span_warning("[helper] tries to hug [src], but [p_they()] move[p_s()] out of the way."))
 				return
 			// NOVA EDIT ADDITION END
@@ -438,10 +438,10 @@
 		get_up(TRUE)
 
 	if(!nosound) // NOVA EDIT ADDITION - EMOTES
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1) // NOVA EDIT CHANGE - EMOTES - Original was unindented but otherwise the same
+		playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1) // NOVA EDIT CHANGE - EMOTES - Original was unindented but otherwise the same
 
 	// Shake animation
-	if (incapacitated())
+	if (incapacitated)
 		shake_up_animation()
 
 /mob/proc/shake_up_animation()
@@ -545,7 +545,7 @@
 					ears.set_organ_damage(ears.maxHealth)
 			else if(ears.damage >= 5)
 				to_chat(src, span_warning("Your ears start to ring!"))
-			SEND_SOUND(src, sound('sound/weapons/flash_ring.ogg',0,1,0,250))
+			SEND_SOUND(src, sound('sound/items/weapons/flash_ring.ogg',0,1,0,250))
 		return effect_amount //how soundbanged we are
 
 
@@ -691,7 +691,7 @@
 	var/bleed_rate = grasped_part.get_modified_bleed_rate()
 	var/bleeding_text = (bleed_rate ? ", trying to stop the bleeding" : "")
 	user.visible_message(span_danger("[user] grasps at [user.p_their()] [grasped_part.name][bleeding_text]."), span_notice("You grab hold of your [grasped_part.name] tightly."), vision_distance=COMBAT_MESSAGE_RANGE)
-	playsound(get_turf(src), 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	playsound(get_turf(src), 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	return TRUE
 
 /// Randomise a body part and organ of this mob
