@@ -30,7 +30,7 @@
 	var/turf/curr_turf = get_turf(holder)
 	var/used_power = .
 	for(var/mob/living/living_mob in range(range, curr_turf))
-		if(!SPT_PROB(25, seconds_per_tick)))
+		if(!SPT_PROB(25, seconds_per_tick))
 			continue
 		if(apply_stun(living_mob, 5 * used_power * seconds_per_tick))
 			to_chat(living_mob, span_warning("A wave of energy overwhelms your senses!"))
