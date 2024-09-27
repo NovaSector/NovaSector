@@ -66,6 +66,7 @@
 	)
 
 /obj/effect/spawner/random/food_or_drink/donkpockets/bitrunning
+	name = "donk pocket delivery"
 	icon = 'icons/obj/storage/box.dmi'
 	icon_state = "donkpocketbox"
 
