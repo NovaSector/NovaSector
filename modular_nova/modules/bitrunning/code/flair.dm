@@ -1,27 +1,28 @@
 /datum/orderable_item/bitrunning_flair/cornchips
 	item_path = /obj/effect/spawner/random/food_or_drink/cornchips
-	desc = "Boritos-brand corn chips, most famously known for the most recent contributons to the 'Time of Valor 4' VR sports tournament."
-	cost_per_order = 25
+	desc = "Boritos-brand corn chips, most famously known for the most recent contributions to the 'Time of Valor 4'-based VR sports tournament."
+	cost_per_order = 50
 
 /datum/orderable_item/bitrunning_flair/donkpockets
 	item_path = /obj/effect/spawner/random/food_or_drink/donkpockets/bitrunning
-	desc = "Singular discounted serving of donkpockets provided by Waffle Corp. counter-bitrunning division; to hinder their competitors."
-	cost_per_order = 100
+	desc = "Singular discounted serving of donkpockets provided by Waffle Corp. counter-bitrunning division; to hinder their competitors. \
+	Waffle Corp. representatives would like us to not inquire in the matters of product acquisition."
+	cost_per_order = 150
 
 /datum/orderable_item/bitrunning_flair/readydonk
 	item_path = /obj/effect/spawner/random/food_or_drink/readydonk
 	desc = "Ready-Donk brand meal subsidized by the dietary experts of Donk Co."
-	cost_per_order = 50
+	cost_per_order = 100
 
 /datum/orderable_item/bitrunning_flair/pizza
 	item_path = /obj/effect/spawner/random/food_or_drink/pizza
 	desc = "Recently performed survey on the bitrunners' diet and the following partnership with a local pizza chain allows us to \
 	supply you with freshly made pizza, at close to no cost."
-	cost_per_order = 100
+	cost_per_order = 150
 
 /datum/orderable_item/bitrunning_flair/mountain_wind
 	item_path = /obj/item/reagent_containers/cup/soda_cans/space_mountain_wind
-	cost_per_order = 25
+	cost_per_order = 50
 
 /datum/orderable_item/bitrunning_flair/pwr_game
 	item_path = /obj/item/reagent_containers/cup/soda_cans/pwr_game
@@ -29,11 +30,11 @@
 
 /datum/orderable_item/bitrunning_flair/grey_bull
 	item_path = /obj/item/reagent_containers/cup/soda_cans/grey_bull
-	cost_per_order = 100
+	cost_per_order = 150
 
 /datum/orderable_item/bitrunning_flair/monkey_energy
 	item_path = /obj/item/reagent_containers/cup/soda_cans/monkey_energy
-	cost_per_order = 100
+	cost_per_order = 150
 
 /datum/orderable_item/bitrunning_flair/volt_energy
 	item_path = /obj/item/reagent_containers/cup/soda_cans/volt_energy
@@ -41,17 +42,19 @@
 
 /datum/orderable_item/bitrunning_flair/six_soda
 	item_path = /obj/item/storage/cans/sixsoda
+	icon = 'icons/obj/storage/storage.dmi'
+	icon_state = "canholder6"
 	cost_per_order = 150
 
 /datum/orderable_item/bitrunning_flair/four_twenty_blaze_it
 	item_path = /obj/item/cigarette/rollie/cannabis
 	desc = "FTU Bitrunning Division recommends you to fill out a prescription form before using this."
-	cost_per_order = 50
+	cost_per_order = 100
 
 /datum/orderable_item/bitrunning_flair/candy_flipper
 	item_path = /obj/item/storage/pill_bottle/lsd
-	desc = "Allegedly utilised to counter post-marathon hallucinations among the more 'hardened' bitrunners."
-	cost_per_order = 150
+	desc = "Allegedly utilised to counter post-marathon hallucinations among the more 'hardened', or traumatised, bitrunners."
+	cost_per_order = 200
 
 /obj/effect/spawner/random/food_or_drink/cornchips
 	name = "boritos delivery"
@@ -83,7 +86,7 @@
 	)
 
 /obj/effect/spawner/random/food_or_drink/pizza
-	name = "pizza box delivery"
+	name = "pizza delivery"
 	icon = 'icons/obj/food/pizza.dmi'
 	icon_state = "pizzamargherita"
 	loot = list(
