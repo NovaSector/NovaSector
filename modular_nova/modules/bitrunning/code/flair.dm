@@ -1,17 +1,22 @@
 /datum/orderable_item/bitrunning_flair/cornchips
-	item_path = /obj/item/food/cornchips/random
+	item_path = /obj/effect/spawner/random/food_or_drink/cornchips
+	desc = "Boritos-brand corn chips, most famously known for the most recent contributons to the 'Time of Valor 4' VR sports tournament."
 	cost_per_order = 25
 
 /datum/orderable_item/bitrunning_flair/donkpockets
-	item_path = /obj/effect/spawner/random/food_or_drink/donkpockets
+	item_path = /obj/effect/spawner/random/food_or_drink/donkpockets/bitrunning
+	desc = "Singular discounted serving of donkpockets provided by Waffle Corp. counter-bitrunning division; to hinder their competitors."
 	cost_per_order = 100
 
 /datum/orderable_item/bitrunning_flair/readydonk
 	item_path = /obj/effect/spawner/random/food_or_drink/readydonk
+	desc = "Ready-Donk brand meal subsidized by the dietary experts of Donk Co."
 	cost_per_order = 50
 
 /datum/orderable_item/bitrunning_flair/pizza
-	item_path = /obj/item/pizzabox/random
+	item_path = /obj/effect/spawner/random/food_or_drink/pizza
+	desc = "Recently performed survey on the bitrunners' diet and the following partnership with a local pizza chain allows us to \
+	supply you with freshly made pizza, at close to no cost."
 	cost_per_order = 100
 
 /datum/orderable_item/bitrunning_flair/mountain_wind
@@ -34,6 +39,10 @@
 	item_path = /obj/item/reagent_containers/cup/soda_cans/volt_energy
 	cost_per_order = 50
 
+/datum/orderable_item/bitrunning_flair/six_soda
+	item_path = /obj/item/storage/cans/sixsoda
+	cost_per_order = 150
+
 /datum/orderable_item/bitrunning_flair/four_twenty_blaze_it
 	item_path = /obj/item/cigarette/rollie/cannabis
 	desc = "FTU Bitrunning Division recommends you to fill out a prescription form before using this."
@@ -44,13 +53,42 @@
 	desc = "Allegedly utilised to counter post-marathon hallucinations among the more 'hardened' bitrunners."
 	cost_per_order = 150
 
+/obj/effect/spawner/random/food_or_drink/cornchips
+	name = "boritos delivery"
+	icon = 'icons/obj/food/food.dmi'
+	icon_state = "boritos"
+	loot = list(
+		/obj/item/food/cornchips,
+		/obj/item/food/cornchips/blue,
+		/obj/item/food/cornchips/green,
+		/obj/item/food/cornchips/red,
+		/obj/item/food/cornchips/purple,
+	)
+
+/obj/effect/spawner/random/food_or_drink/donkpockets/bitrunning
+	icon = 'icons/obj/storage/box.dmi'
+	icon_state = "donkpocketbox"
+
 /obj/effect/spawner/random/food_or_drink/readydonk
-	name = "ready donk spawner"
-	icon_state = "donkpocket"
+	name = "ready donk delivery"
+	icon = 'icons/obj/food/food.dmi'
+	icon_state = "ready_donk"
 	loot = list(
 		/obj/item/food/ready_donk,
 		/obj/item/food/ready_donk/mac_n_cheese,
 		/obj/item/food/ready_donk/donkhiladas,
 		/obj/item/food/ready_donk/nachos_grandes,
 		/obj/item/food/ready_donk/donkrange_chicken,
+	)
+
+/obj/effect/spawner/random/food_or_drink/pizza
+	name = "pizza box delivery"
+	icon = 'icons/obj/food/pizza.dmi'
+	icon_state = "pizzamargherita"
+	loot = list(
+		/obj/item/pizzabox/margherita,
+		/obj/item/pizzabox/vegetable,
+		/obj/item/pizzabox/mushroom,
+		/obj/item/pizzabox/meat,
+		/obj/item/pizzabox/pineapple,
 	)
