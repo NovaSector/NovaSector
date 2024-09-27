@@ -519,7 +519,7 @@ GLOBAL_VAR(station_nuke_source)
 	yes_code = FALSE
 	safety = TRUE
 	update_appearance()
-	sound_to_playing_players('sound/machines/alarm.ogg')
+	sound_to_playing_players('sound/announcer/alarm/nuke_alarm.ogg', 70)
 	sound_to_playing_players('modular_nova/modules/alerts/sound/misc/delta_countdown.ogg') // NOVA EDIT ADDITION
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NUKE_DEVICE_DETONATING, src)
