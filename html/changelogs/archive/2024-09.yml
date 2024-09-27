@@ -830,3 +830,6 @@
 2024-09-24:
   Iajret:
   - bugfix: Telepathy once again has a limit of 2048 chars instead of 42
+2024-09-27:
+  FeenieRU:
+  - bugfix: fixes some modular vending machine items not getting their sprites
