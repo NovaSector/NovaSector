@@ -25,7 +25,7 @@
  * Returns minds to their original bodies(if possible)
  */
 /datum/artifact_effect/bodyswap/proc/return_bodies()
-	for(var/var/datum/weakref/original_mind_ref in original_minds)
+	for(var/datum/weakref/original_mind_ref in original_minds)
 		var/datum/mind/original_mind = original_mind_ref.resolve()
 		// If original mind was destroyed, there's nothing we can do. Remove it from the list.
 		if(QDELETED(original_mind))
@@ -52,7 +52,7 @@
 		// Just in case
 		if(to_swap_key)
 			original_body.key = to_swap_key
-		
+
 		original_minds -= original_mind_ref
 
 /**
