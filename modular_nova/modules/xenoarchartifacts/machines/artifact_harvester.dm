@@ -50,7 +50,7 @@
 				span_notice("You insert [I] into [src]."),
 				blind_message = span_hear("You hear click."),
 			)
-			playsound(src, 'sound/machines/crate_open.ogg', 30, 10)
+			playsound(src, 'sound/machines/crate/crate_open.ogg', 30, 10)
 			src.inserted_battery = I
 			icon_state = "harvester_battery"
 			ui_interact(user)
@@ -105,7 +105,7 @@
 			current_artifact.being_used = FALSE
 			current_artifact = null
 			say("Battery is full.")
-			playsound(src, 'sound/machines/beep.ogg', 50, FALSE)
+			playsound(src, 'sound/machines/beep/beep.ogg', 50, FALSE)
 			icon_state = "harvester_battery"
 			owned_scanner.icon_state = "xenoarch_scanner"
 
@@ -151,25 +151,25 @@
 			analysed = Artifact
 			if(analysed.being_used)
 				say("Cannot harvest. Source already being harvested.")
-				playsound(src, 'sound/machines/buzz-two.ogg', 50, 10)
+				playsound(src, 'sound/machines/buzz/buzz-two.ogg', 50, 10)
 				return
 		current_artifact = analysed
 		if(!current_artifact)
 			var/message = "Cannot harvest. No noteworthy energy signature isolated."
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, 10)
+			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 50, 10)
 			say(message)
 			return
 
 		// if both effects arent active, we cant harvest anything
 		if(current_artifact.first_effect && !current_artifact.first_effect.activated  && !current_artifact?.secondary_effect?.activated)
 			say("Cannot harvest. No energy emitting from source.")
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, 10)
+			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 50, 10)
 			return
 
 		// if both effects are active, we cant harvest anything
 		if(current_artifact.first_effect && current_artifact.first_effect.activated && current_artifact.secondary_effect && current_artifact.secondary_effect.activated)
 			say("Cannot harvest. Source is emitting conflicting energy signatures.")
-			playsound(src, 'sound/machines/buzz-two.ogg', 50, 10)
+			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 50, 10)
 			return
 
 		var/datum/artifact_effect/harvested_effect
@@ -224,7 +224,7 @@
 		if(harvesting || draining)
 			say("Battery is busy.")
 			return
-		playsound(src, 'sound/machines/crate_open.ogg', 30, 10)
+		playsound(src, 'sound/machines/crate/crate_open.ogg', 30, 10)
 		src.inserted_battery.loc = src.loc
 		inserted_battery.update_icon()
 		src.inserted_battery = null

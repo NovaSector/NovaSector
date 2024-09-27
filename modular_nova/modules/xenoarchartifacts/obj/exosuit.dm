@@ -74,7 +74,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/artifact_psionic/action(mob/source, atom/target, list/modifiers)
 	if(!action_checks(target))
 		return
-	playsound(chassis, 'sound/hallucinations/wail.ogg', 100, TRUE)
+	playsound(chassis, 'sound/effects/hallucinations/wail.ogg', 100, TRUE)
 	to_chat(source, "[icon2html(src, source)]<font color='red' size='5'>AAAAAAAAAH</font>")
 	for(var/mob/living/carbon/carbon_mob in ohearers(6, chassis))
 		if(!carbon_mob.can_hear())
@@ -182,7 +182,7 @@
 	name = "\improper Experimental Combat Static Discharger"
 	desc = "A weapon for combat exosuits. Discharges internal conductors to fire electricity at its opponents. Discontinued because of often friendly fire."
 	icon_state = "mecha_ion"
-	fire_sound = 'sound/magic/lightningbolt.ogg'
+	fire_sound = 'sound/effects/magic/lightningbolt.ogg'
 	range = MECHA_RANGED | MECHA_MELEE // Click anywhere, basically
 	projectile = null
 	energy_drain = 5000 // Eats A LOT

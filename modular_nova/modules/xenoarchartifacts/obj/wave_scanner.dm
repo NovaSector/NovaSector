@@ -143,7 +143,7 @@
 /obj/item/xenoarch/searcher/interact(mob/user)
 	var/message = "Background radiation levels detected."
 	if(world.time - last_scan_time >= scan_delay)
-		playsound(src, 'sound/machines/terminal_alert.ogg', 25, 10)
+		playsound(src, 'sound/machines/terminal/terminal_alert.ogg', 25, 10)
 		INVOKE_ASYNC(src, .proc/scan)
 		if(nearest_artifact_distance >= 0)
 			message = "Exotic energy detected in a radius of [nearest_artifact_distance]m"

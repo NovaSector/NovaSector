@@ -96,10 +96,10 @@
 			reconnect_scanner()
 		if(!owned_scanner)
 			results = "Error communicating with scanner."
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 25, FALSE)
+			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 25, FALSE)
 		else if(!scanned_object || get_turf(scanned_object) != get_turf(owned_scanner))
 			results = "Unable to locate scanned object. Ensure it was not moved in the process."
-			playsound(src, 'sound/machines/buzz-two.ogg', 25, FALSE)
+			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
 		else
 			results = get_scan_info(scanned_object)
 		owned_scanner.icon_state = "xenoarch_scanner"
