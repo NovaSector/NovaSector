@@ -109,18 +109,19 @@
 	var/static/list/default_upgrade_reagents = list(
 		/datum/reagent/fuel/oil,
 		/datum/reagent/ammonia,
-		/datum/reagent/ash
+		/datum/reagent/ash,
 	)
 
 	var/static/list/default_upgrade2_reagents = list(
 		/datum/reagent/acetone,
 		/datum/reagent/phenol,
-		/datum/reagent/diethylamine
+		/datum/reagent/diethylamine,
+		/datum/reagent/saltpetre,
 	)
 
 	var/static/list/default_upgrade3_reagents = list(
 		/datum/reagent/medicine/mine_salve,
-		/datum/reagent/toxin
+		/datum/reagent/toxin,
 	)
 
 	var/static/list/default_emagged_reagents = list(
@@ -129,7 +130,7 @@
 		/datum/reagent/consumable/frostoil,
 		/datum/reagent/toxin/carpotoxin,
 		/datum/reagent/toxin/histamine,
-		/datum/reagent/medicine/morphine
+		/datum/reagent/medicine/morphine,
 	)
 	//NOVA EDIT CHANGE END
 
@@ -399,7 +400,7 @@
 		if("save_recording")
 			if(!is_operational)
 				return
-			var/name = tgui_input_text(ui.user, "What do you want to name this recipe?", "Recipe Name", MAX_NAME_LEN)
+			var/name = tgui_input_text(ui.user, "What do you want to name this recipe?", "Recipe Name", max_length = MAX_NAME_LEN)
 			if(!ui.user.can_perform_action(src, ALLOW_SILICON_REACH))
 				return
 			if(saved_recipes[name] && tgui_alert(ui.user, "\"[name]\" already exists, do you want to overwrite it?",, list("Yes", "No")) == "No")
