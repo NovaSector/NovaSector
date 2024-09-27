@@ -18,7 +18,7 @@
 
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bci_plus"
-	sound = 'sound/magic/staff_healing.ogg'
+	sound = 'sound/effects/magic/staff_healing.ogg'
 	cooldown_time = 10 SECONDS
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_HUMAN
 
@@ -65,7 +65,7 @@
 	invocation_self_message = span_notice("You cover yourself in sticks and leaves.")
 	invocation_type = INVOCATION_EMOTE
 	spell_requirements = NONE
-	sound = 'sound/effects/treechop1.ogg'
+	sound = 'sound/effects/treechop/treechop1.ogg'
 
 	possible_shapes = list(/mob/living/basic/tree/palm, /mob/living/simple_animal/hostile/mimic/crate/minor_illusion, /mob/living/simple_animal/hostile/mimic/watermelon)
 
@@ -101,7 +101,7 @@
 	invocation_self_message = span_notice("You gather some ambient moisure.")
 	invocation_type = INVOCATION_EMOTE
 	spell_requirements = NONE
-	sound = 'sound/effects/bubbles.ogg'
+	sound = 'sound/effects/bubbles/bubbles.ogg'
 	item_type = /obj/item/reagent_containers/cup/glass/drinkingglass/filled/half_full
 	delete_old = FALSE
 	delete_on_failure = FALSE
