@@ -76,7 +76,7 @@
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human/human_mob in range(range, curr_turf))
 		run_send_messages(human_mob, 2.5, 5, seconds_per_tick)
-		human_mob.adjust_dizzy_up_to1(1.5 SECONDS * seconds_per_tick, 15 SECONDS)
+		human_mob.adjust_dizzy_up_to(1.5 SECONDS * seconds_per_tick, 15 SECONDS)
 
 /datum/artifact_effect/feelings/do_effect_pulse(seconds_per_tick)
 	. = ..()
