@@ -154,7 +154,7 @@
 
 				if(artifact_in_use)
 					say("Cannot scan. Too much interference.")
-					playsound(src, 'sound/machines/buzz-two.ogg', 25, FALSE)
+					playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
 				else
 					scanned_object = being_scanned
 					scan_in_progress = 1
