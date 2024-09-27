@@ -135,12 +135,12 @@
 			found_caster = TRUE
 		if(found_mind == to_swap_mind)
 			found_to_swap = TRUE
-		for(var/datum/weakref/body_ref in original_minds[mind_ref])
-			var/mob/living/carbon/found_body = body_ref.resolve()
-			if(found_body == caster)
-				found_caster = TRUE
-			if(found_body == to_swap)
-				found_to_swap = TRUE
+		var/datum/weakref/body_ref = original_minds[mind_ref]
+		var/mob/living/carbon/found_body = body_ref.resolve()
+		if(found_body == caster)
+			found_caster = TRUE
+		if(found_body == to_swap)
+			found_to_swap = TRUE
 
 	if(!found_caster)
 		original_minds.Add(list(WEAKREF(caster_mind) = WEAKREF(caster)))
