@@ -93,7 +93,7 @@
 	balloon_alert(user, "analyzing vitals")
 	playsound(user.loc, 'sound/items/healthanalyzer.ogg', 50)
 
-	var/readability_check = user.can_read(src) && !user.is_blind()
+	var/readability_check = user.can_read(src) // NOVA EDIT CHANGE - Blind people can analyze again - ORIGINAL: var/readability_check = user.can_read(src) && !user.is_blind()
 	switch (scanmode)
 		if (SCANMODE_HEALTH)
 			last_scan_text = healthscan(user, M, mode, advanced, tochat = readability_check)
@@ -106,7 +106,7 @@
 /obj/item/healthanalyzer/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isliving(interacting_with))
 		return NONE
-	if(!user.can_read(src)) // NOVA EDIT CHANGE - Blind people can analyze again - ORIGINAL: if(!user.can_read(src) || user.is_blind())
+	if(user.can_read(src)) // NOVA EDIT CHANGE - Blind people can analyze again - ORIGINAL: if(user.can_read(src) || !user.is_blind())
 		chemscan(user, interacting_with)
 	return ITEM_INTERACT_SUCCESS
 
