@@ -7962,6 +7962,7 @@
 #include "modular_nova\modules\mining_vendor_additions\code\order_mining.dm"
 #include "modular_nova\modules\modsuit_armour\modsuit_armour.dm"
 #include "modular_nova\modules\modsuit_pai\code\mod_pai.dm"
+#include "modular_nova\modules\modular_creatures\code\creature.dm"
 #include "modular_nova\modules\modular_ert\code\engineer\engineer.dm"
 #include "modular_nova\modules\modular_ert\code\fumigators\ert.dm"
 #include "modular_nova\modules\modular_ert\code\fumigators\fumigator.dm"
