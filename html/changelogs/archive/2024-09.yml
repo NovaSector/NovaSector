@@ -929,3 +929,6 @@
       head with
   theselfish:
   - bugfix: The Beer Sixpack no longer magically turns into bottles.
+2024-09-28:
+  SuperDrish:
+  - rscadd: Port artifacts from TauCeti
