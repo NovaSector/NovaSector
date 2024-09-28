@@ -932,3 +932,5 @@
 2024-09-28:
   SuperDrish:
   - rscadd: Port artifacts from TauCeti
+  vinylspiders:
+  - bugfix: fixes healthscanners only showing reagent scans to blind people
