@@ -1,3 +1,9 @@
+// Ethereals:
+/// How long it takes an ethereal to drain or charge APCs. Also used as a spam limiter.
+#define ETHEREAL_APC_DRAIN_TIME (3.5 SECONDS) //NOVA EDIT CHANGE - Ethereal Rework 2024 - Original: 7.5
+/// How much power ethereals gain/drain from APCs.
+#define ETHEREAL_APC_POWER_GAIN (0.2 * STANDARD_BATTERY_CHARGE)
+
 /obj/machinery/power/apc/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(!can_interact(user))
@@ -27,7 +33,7 @@
 
 	if(!istype(maybe_stomach, /obj/item/organ/internal/stomach/ethereal))
 		return
-	var/charge_limit = ETHEREAL_CHARGE_DANGEROUS - APC_POWER_GAIN
+	var/charge_limit = ETHEREAL_CHARGE_DANGEROUS - ETHEREAL_APC_POWER_GAIN
 	var/obj/item/organ/internal/stomach/ethereal/stomach = maybe_stomach
 	var/obj/item/stock_parts/power_store/stomach_cell = stomach.cell
 	if(!((stomach?.drain_time < world.time) && LAZYACCESS(modifiers, RIGHT_CLICK)))
@@ -41,42 +47,42 @@
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "charge is full!"), alert_timer_duration)
 			ethereal.visible_message(span_notice("[ethereal] drops [ethereal.p_their()] hand from [src], glowing at [ethereal.p_their()] zenith!")) // NOVA EDIT ADDITION
 			return
-		stomach.drain_time = world.time + APC_DRAIN_TIME
+		stomach.drain_time = world.time + ETHEREAL_APC_DRAIN_TIME
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "draining power"), alert_timer_duration)
 		//NOVA EDIT CHANGE BEGIN - Ethereal Rework 2024
 		ethereal.visible_message(span_notice("[ethereal] presses their fingers into [src]'s screen, static jumping up [ethereal.p_their()] arm as they drain it!"))
 		to_chat(ethereal, span_purple("You try to drain some of [src]'s energy into yourself..."))
 		//NOVA EDIT CHANGE END - Ethereal Rework 2024
-		while(do_after(user, APC_DRAIN_TIME, target = src))
+		while(do_after(user, ETHEREAL_APC_DRAIN_TIME, target = src))
 			if(cell.charge <= (cell.maxcharge / 2) || (stomach_cell.charge() > charge_limit))
 				return
 			balloon_alert(ethereal, "received charge")
-			stomach.adjust_charge(APC_POWER_GAIN)
-			cell.use(APC_POWER_GAIN)
+			stomach.adjust_charge(ETHEREAL_APC_POWER_GAIN)
+			cell.use(ETHEREAL_APC_POWER_GAIN)
 		return
 
-	if(cell.charge >= cell.maxcharge - APC_POWER_GAIN)
+	if(cell.charge >= cell.maxcharge - ETHEREAL_APC_POWER_GAIN)
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "APC can't receive more power!"), alert_timer_duration)
 		return
-	if(stomach_cell.charge() < APC_POWER_GAIN)
+	if(stomach_cell.charge() < ETHEREAL_APC_POWER_GAIN)
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "charge is too low!"), alert_timer_duration)
 		return
-	stomach.drain_time = world.time + APC_DRAIN_TIME
+	stomach.drain_time = world.time + ETHEREAL_APC_DRAIN_TIME
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, balloon_alert), ethereal, "transfering power"), alert_timer_duration)
 	// NOVA EDIT ADDITION BEGIN - Ethereal Rework 2024
 	ethereal.visible_message(span_notice("[ethereal] presses [ethereal.p_their()] fingers into [src]'s screen, [ethereal.p_their()] arm alight with static as [ethereal.p_they()] charge it!"))
 	to_chat(ethereal, span_purple("You try to shunt some of your energy into [src]..."))
 	// NOVA EDIT ADDITION END - Ethereal Rework 2024
-	if(!do_after(user, APC_DRAIN_TIME, target = src))
+	if(!do_after(user, ETHEREAL_APC_DRAIN_TIME, target = src))
 		return
-	if((cell.charge >= (cell.maxcharge - APC_POWER_GAIN)) || (stomach_cell.charge() < APC_POWER_GAIN))
+	if((cell.charge >= (cell.maxcharge - ETHEREAL_APC_POWER_GAIN)) || (stomach_cell.charge() < ETHEREAL_APC_POWER_GAIN))
 		balloon_alert(ethereal, "can't transfer power!")
-		ethereal.visible_message(span_notice("[src] displays a red X across the screen, sealing ports and rejecting [ethereal]'s charge!"))  //NOVA EDIT ADDITION - Ethereal Rework 2024
+		ethereal.visible_message(span_notice("[src] displays a red X across the screen, sealing ports and rejecting [ethereal]'s charge!")) //NOVA EDIT ADDITION - Ethereal Rework 2024
 		return
 	if(istype(stomach))
-		while(do_after(user, APC_DRAIN_TIME, target = src))
+		while(do_after(user, ETHEREAL_APC_DRAIN_TIME, target = src))
 			balloon_alert(ethereal, "transferred power")
-			cell.give(-stomach.adjust_charge(-APC_POWER_GAIN))
+			cell.give(-stomach.adjust_charge(-ETHEREAL_APC_POWER_GAIN))
 	else
 		balloon_alert(ethereal, "can't transfer power!")
 
@@ -136,3 +142,6 @@
 		return TRUE
 	else
 		return FALSE
+
+#undef ETHEREAL_APC_DRAIN_TIME
+#undef ETHEREAL_APC_POWER_GAIN
