@@ -1,5 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - balance: "Made the Jaunter Creature no longer spawnable via the gold slime reaction."
-  - balance: "Made the Jaunter Creature incompatible with the bioscrambler belt"

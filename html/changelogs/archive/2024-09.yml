@@ -981,3 +981,7 @@
   - bugfix: fixes healthscanners only showing reagent scans to blind people
   - bugfix: fixes pulsing tumor failing to spawn the elite if no ghosts respond to
       the poll and leaving you in a bugged state, and possibly other related issues
+2024-09-29:
+  OrbisAnima:
+  - balance: Made the Jaunter Creature no longer spawnable via the gold slime reaction.
+  - balance: Made the Jaunter Creature incompatible with the bioscrambler belt
