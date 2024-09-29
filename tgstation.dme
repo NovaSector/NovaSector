@@ -6907,6 +6907,7 @@
 #include "modular_nova\master_files\code\modules\power\lighting\light_mapping_helpers.dm"
 #include "modular_nova\master_files\code\modules\power\singularity\containment_field.dm"
 #include "modular_nova\master_files\code\modules\power\tesla\coil.dm"
+#include "modular_nova\master_files\code\modules\projectiles\projectile.dm"
 #include "modular_nova\master_files\code\modules\projectiles\ammunition\energy\_energy.dm"
 #include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\external\shotgun.dm"
 #include "modular_nova\master_files\code\modules\projectiles\boxes_magazines\external\smg.dm"

@@ -385,7 +385,14 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	menu.radial_slice_icon = radial_slice_icon
 	menu.check_screen_border(user) //Do what's needed to make it look good near borders or on hud
 	menu.set_choices(choices, tooltips, click_on_hover)
-	menu.show_to(user)
+	var/offset_x = 0
+	var/offset_y = 0
+	if (user_space)
+		var/turf/user_turf = get_turf(user)
+		var/turf/anchor_turf = get_turf(anchor)
+		offset_x = (anchor_turf.x - user_turf.x) * ICON_SIZE_X + anchor.pixel_x - user.pixel_x
+		offset_y = (anchor_turf.y - user_turf.y) * ICON_SIZE_Y + anchor.pixel_y - user.pixel_y
+	menu.show_to(user, offset_x, offset_y)
 	menu.wait(user, anchor, require_near)
 	var/answer = menu.selected_choice
 	qdel(menu)
