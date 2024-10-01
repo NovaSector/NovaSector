@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "disposals outside of the NTrep office on Wawa are no longer broken."
