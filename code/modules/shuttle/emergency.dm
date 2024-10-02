@@ -544,6 +544,11 @@
 					areas += E
 				hyperspace_sound(HYPERSPACE_LAUNCH, areas)
 				enterTransit()
+
+				//Tell the events we're starting, so they can time their spawns or do some other stuff
+				for(var/datum/shuttle_event/event as anything in event_list)
+					event.start_up_event(SSshuttle.emergency_escape_time * engine_coeff)
+
 				mode = SHUTTLE_ESCAPE
 				launch_status = ENDGAME_LAUNCHED
 				bolt_all_doors() // NOVA EDIT ADDITION
@@ -559,10 +564,6 @@
 
 				if(!is_reserved_level(z))
 					CRASH("Emergency shuttle did not move to transit z-level!")
-
-				//Tell the events we're starting, so they can time their spawns or do some other stuff
-				for(var/datum/shuttle_event/event as anything in event_list)
-					event.start_up_event(SSshuttle.emergency_escape_time * engine_coeff)
 
 		if(SHUTTLE_STRANDED, SHUTTLE_DISABLED)
 			SSshuttle.checkHostileEnvironment()
@@ -632,7 +633,7 @@
 	var/list/names = list()
 	for(var/datum/shuttle_event/event as anything in subtypesof(/datum/shuttle_event))
 		if(prob(initial(event.event_probability)))
-			event_list.Add(new event(src))
+			add_shuttle_event(event)
 			names += initial(event.name)
 	if(LAZYLEN(names))
 		log_game("[capitalize(name)] has selected the following shuttle events: [english_list(names)].")
