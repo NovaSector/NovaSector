@@ -13,14 +13,12 @@
 	},
 	"traits": [
 		{
-			"Up": true,
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/dirt/forest",
 			"No Parallax": true
 		},
 		{
-			"Down": true,
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace/forest",
