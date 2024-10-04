@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "Slimes can bleed again, podpeople now heal slightly better in the light"
