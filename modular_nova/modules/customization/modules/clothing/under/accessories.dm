@@ -181,9 +181,43 @@
 	if(isnull(owner_ref) && istype(accessory_wearer))
 		owner_ref = WEAKREF(accessory_wearer)
 
+// Double examining the person wearing the clothes will display the examine message of the pin
+/obj/item/clothing/accessory/green_pin/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
+	RegisterSignal(user, COMSIG_ATOM_EXAMINE_MORE, PROC_REF(on_examine))
+
+/obj/item/clothing/accessory/green_pin/accessory_dropped(obj/item/clothing/under/clothes, mob/living/user)
+	UnregisterSignal(user, COMSIG_ATOM_EXAMINE_MORE)
+
+/// Adds the examine message to the clothes and mob.
+/obj/item/clothing/accessory/green_pin/proc/on_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+
+	// Only show the examine message if we're close (2 tiles)
+	if(!IN_GIVEN_RANGE(get_turf(user), get_turf(src), 2))
+		return
+
+
+	var/mob/living/carbon/human/owner = owner_ref?.resolve()
+	if(isnull(owner))
+		owner_ref = null
+
+	// How many hours of playtime left until the green pin expires
+	var/green_time_remaining = sanitize_integer((PLAYTIME_GREEN - owner.client?.get_exp_living(pure_numeric = TRUE) / 60), 0, (PLAYTIME_GREEN / 60))
+	// Only show this if we have green time remaining
+	var/green_time_remaining_text = ""
+	if(green_time_remaining > 0)
+		green_time_remaining_text = " It reads '[green_time_remaining] hour[green_time_remaining >= 2 ? "s" : ""].'"
+
+	if(ismob(source))
+		var/mob/living/carbon/human/human_wearer = source
+		// Examining a mob wearing the clothes, wearing the dogtag will also show the message
+		examine_list += "A green pin is attached to [human_wearer.p_their()] [human_wearer.w_uniform], belonging to [owner].[green_time_remaining_text]"
+	else
+		examine_list += "A green pin is attached to [source], belonging to [owner].[green_time_remaining_text]"
+
 /obj/item/clothing/accessory/green_pin/examine(mob/user)
 	. = ..()
-	var/mob/living/carbon/human/owner = owner_ref.resolve()
+	var/mob/living/carbon/human/owner = owner_ref?.resolve()
 	if(isnull(owner))
 		owner_ref = null
 		return
