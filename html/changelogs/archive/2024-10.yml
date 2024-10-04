@@ -3,3 +3,7 @@
   - bugfix: IPCs now have hands.
   sqnztb:
   - bugfix: disposals outside of the NTrep office on Wawa are no longer broken.
+2024-10-04:
+  MrSunabouzu:
+  - qol: 'Snowglobe perma: garden has hydro trays now instead of dirt, shower shrinked,
+      study added, cooking supplies, and properly named doors.'
