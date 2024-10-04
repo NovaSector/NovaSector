@@ -167,13 +167,35 @@
 	icon_state = "green"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	/// Who the pin originally belonged to, for purposes of tracking hours of playtime left
+	var/datum/weakref/owner_ref
+
+/obj/item/clothing/accessory/green_pin/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_ACCESSORY_ATTACHED, PROC_REF(on_pin_attached))
+
+/obj/item/clothing/accessory/green_pin/proc/on_pin_attached(obj/item/clothing/accessory/source, obj/item/clothing/under/attached_to)
+	SIGNAL_HANDLER
+
+	var/mob/accessory_wearer = attached_to.loc
+	if(isnull(owner_ref) && istype(accessory_wearer))
+		owner_ref = WEAKREF(accessory_wearer)
 
 /obj/item/clothing/accessory/green_pin/examine(mob/user)
 	. = ..()
+	var/mob/living/carbon/human/owner = owner_ref.resolve()
+	if(isnull(owner))
+		owner_ref = null
+		return
+
+	// What is shown when a mob examines it.
+	var/examine_text = "This belongs to [owner]."
 	// How many hours of playtime left until the green pin expires
-	var/green_time_remaining = sanitize_integer((PLAYTIME_GREEN - user.client?.get_exp_living(pure_numeric = TRUE) / 60), 0, (PLAYTIME_GREEN / 60))
+	var/green_time_remaining = sanitize_integer((PLAYTIME_GREEN - owner.client?.get_exp_living(pure_numeric = TRUE) / 60), 0, (PLAYTIME_GREEN / 60))
 	if(green_time_remaining > 0)
-		. += span_nicegreen("It reads '[green_time_remaining] hour[green_time_remaining >= 2 ? "s" : ""].'")
+		examine_text += (" It reads '[green_time_remaining] hour[green_time_remaining >= 2 ? "s" : ""].'")
+
+	. += span_nicegreen(examine_text)
 
 // Pride Pin Over-ride
 /obj/item/clothing/accessory/pride
