@@ -78,6 +78,10 @@
 	name = "Purple Armband"
 	item_path = /obj/item/clothing/accessory/armband/science/nonsec
 
+/datum/loadout_item/accessory/green_pin
+	name = "Green Pin"
+	item_path = /obj/item/clothing/accessory/green_pin
+
 /*
 *	ARMOURLESS
 */
