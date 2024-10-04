@@ -211,9 +211,9 @@
 	if(ismob(source))
 		var/mob/living/carbon/human/human_wearer = source
 		// Examining a mob wearing the clothes, wearing the dogtag will also show the message
-		examine_list += "A green pin is attached to [human_wearer.p_their()] [human_wearer.w_uniform.name], belonging to [owner].[green_time_remaining_text]"
+		examine_list += "A green pin is attached to [human_wearer.p_their()] [human_wearer.w_uniform.name][owner ? ", belonging to [owner]." : "."][green_time_remaining_text]"
 	else
-		examine_list += "A green pin is attached to [source], belonging to [owner].[green_time_remaining_text]"
+		examine_list += "A green pin is attached to [source][owner ? ", belonging to [owner]." : "."][green_time_remaining_text]"
 
 /obj/item/clothing/accessory/green_pin/examine(mob/user)
 	. = ..()
