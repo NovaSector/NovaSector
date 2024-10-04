@@ -15,7 +15,6 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
-		TRAIT_NOBLOOD,
 		TRAIT_EASYDISMEMBER,
 	)
 	/// Ability to allow them to shapeshift their body around.
