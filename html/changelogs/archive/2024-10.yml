@@ -105,6 +105,9 @@
   - balance: Tethers can now be cut significantly quicker
   - admin: Fixed VV DNA infusion tool
   - qol: Callouts and MODsuit quick module pickers now track user
+  Stalkeros:
+  - rscadd: A plethora of new bitrunning item/ability entries have been added to the
+      already existing disks!
   Timberpoes:
   - bugfix: Fixes a bug where the game would assign multiple players to single-slot
       command roles.
@@ -159,6 +162,7 @@
   - bugfix: fixed wabbajack statue not activating
   hack-wrench:
   - qol: make able reading the paper in the folder
+  - sound: added skrell laugh
   imedial:
   - qol: puts silicon laws in the status panel
   krookodilehunter:
@@ -168,6 +172,10 @@
   sqnztb:
   - bugfix: Interdyne associates once again benefit from a better corporate sponsor
       and have free vending machines.
+  - rscadd: green pin is now available in loadout accessories
+  - bugfix: green pin will now display the original owner and their playtime on examine,
+      instead of just the playtime of whoever is examining. additionally, it will
+      display when double examining the mob wearing it, much like a dogtag.
   timothymtorres:
   - bugfix: Fix air alarms to work correctly while connected to a gas sensor
   - bugfix: Fix paired air alarms and sensors to be able to relink to other devices
