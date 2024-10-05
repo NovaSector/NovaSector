@@ -214,7 +214,7 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/syndicate(src)
+	new /obj/item/gun/ballistic/revolver/badass(src)
 	new /obj/item/ammo_box/a357(src)
 	new /obj/item/ammo_box/a357(src)
 
