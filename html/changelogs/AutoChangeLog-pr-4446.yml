@@ -1,0 +1,4 @@
+author: "hack-wrench"
+delete-after: True
+changes:
+  - qol: "make able reading the paper in the folder"
