@@ -1,0 +1,5 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - rscadd: "green pin is now available in loadout accessories"
+  - bugfix: "green pin will now display the original owner and their playtime on examine, instead of just the playtime of whoever is examining. additionally, it will display when double examining the mob wearing it, much like a dogtag."
