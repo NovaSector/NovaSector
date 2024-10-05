@@ -196,7 +196,6 @@
 	if(!IN_GIVEN_RANGE(get_turf(user), get_turf(src), 2))
 		return
 
-
 	var/mob/living/carbon/human/owner = owner_ref?.resolve()
 	if(isnull(owner))
 		owner_ref = null
