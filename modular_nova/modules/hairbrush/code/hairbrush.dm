@@ -19,7 +19,7 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /// Brushes someone, giving them a small mood boost
-/obj/item/hairbrush/proc/brush(mob/living/target, mob/user)
+/obj/item/hairbrush/proc/brush(mob/living/target, mob/living/user)
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		var/obj/item/bodypart/head = human_target.get_bodypart(BODY_ZONE_HEAD)
@@ -34,8 +34,8 @@
 		if(!do_after(user, brush_speed, human_target))
 			return
 
-		// Do 1 brute to their head if they're bald. Should've been more careful.
-		if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Skinhead" && is_species(human_target, /datum/species/human)) //It can be assumed most anthros have hair on them!
+		// Combat mode gives one brute damage.
+		if(user.combat_mode)
 			human_target.visible_message(span_warning("[usr] scrapes the bristles uncomfortably over [human_target]'s scalp."), span_warning("You scrape the bristles uncomfortably over [human_target]'s scalp."))
 			head.receive_damage(1)
 			return
