@@ -42,13 +42,13 @@
 
 		// Brush their hair
 		if(human_target == user)
-			if(human_target.hairstyle = "Bald" || human_target.hairstyle = "Skinhead")
+			if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Skinhead")
 				human_target.visible_message(span_notice("[usr] brushes [usr.p_their()] head!"), span_notice("You brush your head."))
 			else
 				human_target.visible_message(span_notice("[usr] brushes [usr.p_their()] hair!"), span_notice("You brush your hair."))
 			human_target.add_mood_event("brushed", /datum/mood_event/brushed/self)
 		else
-			if(human_target.hairstyle = "Bald" || human_target.hairstyle = "Skinhead")
+			if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Skinhead")
 				user.visible_message(span_notice("[usr] brushes [human_target]'s head!"), span_notice("You brush [human_target]'s head."), ignored_mobs=list(human_target))
 				human_target.show_message(span_notice("[usr] brushes your head!"), MSG_VISUAL)
 			else
