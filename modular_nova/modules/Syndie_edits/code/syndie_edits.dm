@@ -172,7 +172,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	icon_state = "syndimaid_corset"
 	minimize_when_attached = FALSE
-	attachment_slot = null
+	attachment_slot = NONE
 
 //Wintercoat & Hood
 /obj/item/clothing/suit/hooded/wintercoat/nova/syndicate

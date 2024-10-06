@@ -70,9 +70,11 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 /obj/item/clothing/accessory/badge/holo/cord
+	name = "holobadge with lanyard"
 	icon_state = "holobadge-cord"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	attachment_slot = NONE // it has a lanyard. you don't pin lanyards to your uniform, you wear them around your neck.
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
@@ -167,6 +169,7 @@
 	icon_state = "green"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	attachment_slot = NONE
 
 /obj/item/clothing/accessory/green_pin/examine(mob/user)
 	. = ..()
@@ -193,6 +196,7 @@
 		"Genderqueer Pride" = "pride_genderqueer",
 		"Aromantic Pride" = "pride_aromantic",
 	)
+	attachment_slot = NONE
 
 // Accessory for Akula species, it makes them wet and happy! :)
 /obj/item/clothing/accessory/vaporizer
