@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - bugfix: "hairbrushes no longer unintentionally damage friends. you now need combat mode for aggressive brushies."

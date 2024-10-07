@@ -184,3 +184,9 @@
   - code_imp: Automatically link maps multi-z up/down traits
   tonty:
   - code_imp: made some code relating to the world's icon size more readable
+2024-10-07:
+  sqnztb:
+  - qol: green pins, pride pins, and holobadges with lanyards now no longer need chest-covering
+      uniforms.
+  - bugfix: hairbrushes no longer unintentionally damage friends. you now need combat
+      mode for aggressive brushies.
