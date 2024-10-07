@@ -70,9 +70,11 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 /obj/item/clothing/accessory/badge/holo/cord
+	name = "holobadge with lanyard"
 	icon_state = "holobadge-cord"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	attachment_slot = NONE // it has a lanyard. you don't pin lanyards to your uniform, you wear them around your neck.
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
@@ -167,6 +169,7 @@
 	icon_state = "green"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	attachment_slot = NONE
 	/// Who the pin originally belonged to, for purposes of tracking hours of playtime left
 	var/datum/weakref/owner_ref
 
@@ -209,8 +212,9 @@
 
 	if(ismob(source))
 		var/mob/living/carbon/human/human_wearer = source
-		// Examining a mob wearing the clothes, wearing the dogtag will also show the message
-		examine_list += "A green pin is attached to [human_wearer.p_their()] [human_wearer.w_uniform.name][owner ? ", belonging to [owner]." : "."][green_time_remaining_text]"
+		// Examining a mob wearing the clothes, wearing the pin will also show the message
+		var/obj/item/clothing/attached_to = loc
+		examine_list += "A green pin is attached to [human_wearer.p_their()] [attached_to.name][owner ? ", belonging to [owner]." : "."][green_time_remaining_text]"
 	else
 		examine_list += "A green pin is attached to [source][owner ? ", belonging to [owner]." : "."][green_time_remaining_text]"
 
@@ -248,6 +252,7 @@
 		"Genderqueer Pride" = "pride_genderqueer",
 		"Aromantic Pride" = "pride_aromantic",
 	)
+	attachment_slot = NONE
 
 // Accessory for Akula species, it makes them wet and happy! :)
 /obj/item/clothing/accessory/vaporizer
