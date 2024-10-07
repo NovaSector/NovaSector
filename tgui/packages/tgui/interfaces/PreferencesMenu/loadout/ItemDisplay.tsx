@@ -125,7 +125,7 @@ const ItemListDisplay = (props: { items: LoadoutItem[] }) => {
 // NOVA EDIT ADDITION START - Expanded loadout framework
 const FilterItemList = (items: LoadoutItem[]) => {
   const { data } = useBackend<LoadoutManagerData>();
-  const { is_donator, is_veteran } = data;
+  const { is_donator, is_veteran, erp_pref } = data;
   const ckey = data.ckey;
 
   return items.filter((item: LoadoutItem) => {
@@ -136,6 +136,9 @@ const FilterItemList = (items: LoadoutItem[]) => {
       return false;
     }
     if (item.veteran_only && !is_veteran) {
+      return false;
+    }
+    if (item.erp_item && !erp_pref) {
       return false;
     }
 
@@ -213,6 +216,8 @@ export const SearchDisplay = (props: {
   currentSearch: string;
 }) => {
   const { loadout_tabs, currentSearch } = props;
+  const { data } = useBackend<LoadoutManagerData>(); // NOVA EDIT ADDITION
+  const { erp_pref } = data; // NOVA EDIT ADDITION
 
   const search = createSearch(
     currentSearch,
@@ -220,6 +225,10 @@ export const SearchDisplay = (props: {
   );
 
   const validLoadoutItems = loadout_tabs
+    // NOVA EDIT ADDITION START - Prefslocked tabs
+    .filter(
+      (curTab) => !curTab.erp_category || (curTab.erp_category && erp_pref),
+    ) // NOVA EDIT ADDITION END
     .flatMap((tab) => tab.contents)
     .filter(search)
     .sort((a, b) => (a.name > b.name ? 1 : -1));

@@ -39,6 +39,9 @@
 /obj/item/gun/energy/recharge/kinetic_accelerator/give_gun_safeties()
 	return
 
+/obj/item/gun/energy/recharge/fisher/give_gun_safeties()
+	return
+
 // Syringe Guns
 
 /obj/item/gun/syringe/blowgun/give_gun_safeties()

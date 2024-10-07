@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	"tag",
 	"type",
 	"parent_type",
-	"owner",
+	"owner_brain",
 	"vars",
 	"stored_character_slot_index",
 ))
@@ -67,6 +67,9 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 		return
 
 	for(var/var_name in vars)
+		if(var_name in GLOB.modular_persistence_ignored_vars)
+			continue
+
 		var/var_entry = persistence_data[var_name]
 
 		if(var_entry)

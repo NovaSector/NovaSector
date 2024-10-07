@@ -19,6 +19,8 @@
 	var/uses_skin_color = FALSE
 	/// Where the genital is actually located, for clothing checks.
 	var/genital_location = GROIN
+	/// Layering mode, determines if it tries to render above clothing or not.
+	var/layer_mode = GENITAL_LAYER_NORMAL
 
 //This translates the float size into a sprite string
 /obj/item/organ/external/genital/proc/get_sprite_size_string()
@@ -31,6 +33,8 @@
 	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
 
 	our_overlay.sprite_suffix = sprite_suffix
+	our_overlay.owner = owner
+	our_overlay.organ_slot = src.slot
 
 
 /obj/item/organ/external/genital/proc/get_description_string(datum/sprite_accessory/genital/gas)
@@ -70,6 +74,8 @@
 	var/datum/bodypart_overlay/mutant/genital/our_overlay = bodypart_overlay
 
 	our_overlay.color_source = uses_skin_color ? ORGAN_COLOR_INHERIT : ORGAN_COLOR_OVERRIDE
+	our_overlay.owner = owner
+	our_overlay.organ_slot = src.slot
 
 /// for specific build_from_dna behavior that also checks the genital accessory.
 /obj/item/organ/external/genital/proc/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
@@ -97,10 +103,21 @@
 
 
 /datum/bodypart_overlay/mutant/genital
-	layers = EXTERNAL_FRONT
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES
 	color_source = ORGAN_COLOR_OVERRIDE
 	/// The suffix appended to the feature_key for the overlays.
 	var/sprite_suffix
+	/// Owning human.  Used to adjust layers depending on underwear
+	var/mob/living/carbon/human/owner
+	/// Organ slot, used to get reference to the actual organ this is attached to without angering the CI gods.
+	var/organ_slot
+
+	/// Layer used when FORCED ABOVE ALL CLOTHING.
+	var/layer_above_all = -(BODY_FRONT_LAYER - 0.06)
+	/// Layer used when ABOVE UNDERWEAR
+	var/layer_above_undies = -(UNIFORM_LAYER - 0.06)
+	/// Ditto, but for BELOW UNDERWEAR
+	var/layer_below_undies = -(UNIFORM_LAYER + 0.06)
 
 /datum/bodypart_overlay/mutant/genital/override_color(rgb_value)
 	return draw_color
@@ -133,6 +150,35 @@
 
 	return sprite_datum.color_layer_names
 
+/datum/bodypart_overlay/mutant/genital/mutant_bodyparts_layertext(layer)
+	if(layer == layer_below_undies || layer == layer_above_undies || layer == layer_above_all)
+		return "FRONT"
+	else
+		return ..()
+
+/// Return TRUE if this should overlay below underwear, otherwise it'll layer above it and the uniform.
+/datum/bodypart_overlay/mutant/genital/proc/underwear_check()
+	return FALSE
+
+/// Helper function - if the organ this overlay is tied to has been set to layer above clothing, return TRUE
+/datum/bodypart_overlay/mutant/genital/proc/layer_mode_check()
+	if(istype(owner))
+		var/obj/item/organ/external/genital/owning_organ = owner.get_organ_slot(organ_slot)
+		if(owning_organ?.layer_mode == GENITAL_LAYER_HIGH)
+			return TRUE
+	return FALSE
+
+/datum/bodypart_overlay/mutant/genital/bitflag_to_layer(layer)
+	if(layer == EXTERNAL_FRONT_UNDER_CLOTHES)
+		if(layer_mode_check() == TRUE)
+			return layer_above_all
+		else if(underwear_check() == FALSE)
+			return layer_above_undies
+		else
+			return layer_below_undies
+	else
+		return ..()
+
 
 /obj/item/organ/external/genital/penis
 	name = "penis"
@@ -150,7 +196,21 @@
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+
+	/// Layer as high as possible
+	layer_above_all = -(BODY_FRONT_LAYER - 0.02)
+	layer_above_undies = -(UNIFORM_LAYER - 0.02)
+	layer_below_undies = -(UNIFORM_LAYER + 0.04)
+
+/datum/bodypart_overlay/mutant/genital/penis/underwear_check()
+	if(!istype(owner))
+		return FALSE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
 
 
 /obj/item/organ/external/genital/penis/get_description_string(datum/sprite_accessory/genital/gas)
@@ -256,7 +316,21 @@
 
 /datum/bodypart_overlay/mutant/genital/testicles
 	feature_key = ORGAN_SLOT_TESTICLES
-	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+
+	/// Layer a bit lower, but still close to as high as possible
+	layer_above_all = -(BODY_FRONT_LAYER - 0.01)
+	layer_above_undies = -(UNIFORM_LAYER - 0.01)
+	layer_below_undies = -(UNIFORM_LAYER + 0.03)
+
+/datum/bodypart_overlay/mutant/genital/testicles/underwear_check()
+	if(!istype(owner))
+		return FALSE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
 
 /obj/item/organ/external/genital/testicles/update_genital_icon_state()
 	var/measured_size = clamp(genital_size, 1, 6)
@@ -322,7 +396,21 @@
 
 /datum/bodypart_overlay/mutant/genital/vagina
 	feature_key = ORGAN_SLOT_VAGINA
-	layers = EXTERNAL_FRONT
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES
+
+	/// Lowest-layering thing that affects the crotch
+	layer_above_all = -(BODY_FRONT_LAYER - 0.03)
+	layer_above_undies = -(UNIFORM_LAYER - 0.03)
+	layer_below_undies = -(UNIFORM_LAYER + 0.05)
+
+/datum/bodypart_overlay/mutant/genital/vagina/underwear_check()
+	if(!istype(owner))
+		return FALSE
+	else
+		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
+			return FALSE
+		else
+			return TRUE
 
 /obj/item/organ/external/genital/vagina/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see a [LOWER_TEXT(genital_name)] vagina."
@@ -425,7 +513,16 @@
 
 /datum/bodypart_overlay/mutant/genital/breasts
 	feature_key = ORGAN_SLOT_BREASTS
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
+
+/datum/bodypart_overlay/mutant/genital/breasts/underwear_check()
+	if(!istype(owner))
+		return FALSE
+	else
+		if((owner.underwear_visibility & UNDERWEAR_HIDE_SHIRT) && (owner.underwear_visibility & UNDERWEAR_HIDE_BRA))
+			return FALSE
+		else
+			return TRUE
 
 /obj/item/organ/external/genital/breasts/get_description_string(datum/sprite_accessory/genital/gas)
 	var/returned_string = "You see a [LOWER_TEXT(genital_name)] of breasts."
@@ -526,11 +623,19 @@
 		"Never show" = GENITAL_NEVER_SHOW,
 		"Hidden by clothes" = GENITAL_HIDDEN_BY_CLOTHES,
 		"Always show" = GENITAL_ALWAYS_SHOW,
+		"Layer Normally" = GENITAL_LAYER_NORMAL,
+		"Layer Above Clothes" = GENITAL_LAYER_HIGH,
 	)
 
 	var/picked_visibility = tgui_input_list(src, "Choose visibility setting", "Expose/Hide genitals", gen_vis_trans)
 
 	if(!picked_visibility || !picked_organ || !(picked_organ in organs))
+		return
+
+	if(gen_vis_trans[picked_visibility] == GENITAL_LAYER_NORMAL || gen_vis_trans[picked_visibility] == GENITAL_LAYER_HIGH)
+		picked_organ.layer_mode = gen_vis_trans[picked_visibility]
+		balloon_alert(src, "set layering to [lowertext(picked_visibility)]")
+		update_body()
 		return
 
 	picked_organ.visibility_preference = gen_vis_trans[picked_visibility]

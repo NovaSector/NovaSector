@@ -22,6 +22,31 @@
 /obj/machinery/door/airlock/shuttle
 	external = TRUE
 
+/obj/machinery/door/airlock/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+	. = ..()
+	validate_as_external(port)
+
+/// Checks validity of var external and automatically sets it appropriately based on if it is surrounded by space on at least one side. Used for autobolting shuttle airlocks. Accepts /obj/docking_port/mobile as arg, but it's optional
+/obj/machinery/door/airlock/proc/validate_as_external(obj/docking_port/mobile/port)
+	if (port)
+		// Heey... This is not your shuttle
+		if (!port.shuttle_areas[get_area(src)])
+			return
+
+		// Door on the border is external always
+		var/list/bounds = port.return_coords()
+		if (x == bounds[1] || y == bounds[2] || x == bounds[3] || y == bounds[4])
+			external = TRUE
+			return
+
+	// If door connected to space or turf mapped without atmos - it is external too
+	for(var/turf/turf_nearby in get_adjacent_open_turfs(src))
+		if(is_space_or_openspace(turf_nearby) || turf_nearby.initial_gas_mix == AIRLESS_ATMOS)
+			external = TRUE
+			return
+
+	external = FALSE
+
 /obj/machinery/door/airlock/power_change()
 	..()
 	update_icon()
@@ -389,8 +414,8 @@
 	name = "tram door"
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/tram/tram.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/tram/tram_overlays.dmi'
-	doorOpen = 'sound/machines/tramopen.ogg'
-	doorClose = 'sound/machines/tramclose.ogg'
+	doorOpen = 'sound/machines/tram/tramopen.ogg'
+	doorClose = 'sound/machines/tram/tramclose.ogg'
 
 /obj/machinery/door/airlock/tram/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, l_angle, l_dir, l_height, l_on)
 	return

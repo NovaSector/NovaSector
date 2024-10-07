@@ -13,6 +13,11 @@
 	item_path = /obj/item/canvas/drawingtablet
 	donator_only = TRUE
 
+/datum/loadout_item/pocket_items/stellar_bouquet
+	name = "Stellar Bouquet"
+	item_path = /obj/item/bouquet/stellar
+	ckeywhitelist = list("thedragmeme")
+
 /datum/loadout_item/under/jumpsuit/paddedunder
 	name = "Feathered Serenity Suit"
 	item_path = /obj/item/clothing/under/padded
@@ -26,7 +31,7 @@
 /datum/loadout_item/neck/padded
 	name = "Feathered Serenity Cloak"
 	item_path = /obj/item/clothing/neck/padded
-	ckeywhitelist = list("thedragmeme")
+	ckeywhitelist = list("thedragmeme", "SomeNetwork")
 
 /datum/loadout_item/neck/padded/alt
 	name = "Feathered Serenity Cloak"
@@ -749,9 +754,9 @@
 	item_path = /obj/item/stamp/cat
 	ckeywhitelist = list("kathrinbailey")
 
-/datum/loadout_item/inhand/hardlight_wheelchair
-	name = "Hardlight Wheelchair Projector"
-	item_path = /obj/item/holosign_creator/hardlight_wheelchair
+/datum/loadout_item/inhand/sqn_box
+	name = "A curious box of things."
+	item_path = /obj/item/storage/box/donator/sqn
 	ckeywhitelist = list("sqnztb")
 
 /datum/loadout_item/under/jumpsuit/noble_gambeson
@@ -785,9 +790,9 @@
 	ckeywhitelist = list("dtfe")
 
 /datum/loadout_item/neck/trenchcoat
-	name = "Graceful Trenchcoat"
+	name = "Secure Trenchcoat"
 	item_path = /obj/item/clothing/neck/trenchcoat
-	ckeywhitelist = list("Smol42", "Awers855")
+	ckeywhitelist = list("Smol42")
 
 /datum/loadout_item/under/jumpsuit/old_qm_jumpskirt
 	name = "Old Quartermaster's Jumpskirt"
@@ -855,3 +860,13 @@
 	name = "Riva Family Cookbook"
 	item_path = /obj/item/book/granter/crafting_recipe/mrsanderp_donator_cookbook
 	ckeywhitelist = list("mrsanderp")
+
+/datum/loadout_item/under/jumpsuit/half_leotard
+	name = "One-Sleeved Leotard"
+	item_path = /obj/item/clothing/under/pants/half_leotard_cosmiclaer
+	ckeywhitelist = list("cosmiclaer")
+
+/datum/loadout_item/under/jumpsuit/shendyt
+	name = "Shendyt"
+	item_path = /obj/item/clothing/under/costume/shendyt
+	ckeywhitelist = list("hyperhazel")

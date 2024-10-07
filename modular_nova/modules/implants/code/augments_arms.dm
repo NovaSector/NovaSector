@@ -1,11 +1,11 @@
-#define KNIFE_HITSOUND 'sound/weapons/bladeslice.ogg'
-#define KNIFE_USESOUND 'sound/weapons/bladeslice.ogg'
+#define KNIFE_HITSOUND 'sound/items/weapons/bladeslice.ogg'
+#define KNIFE_USESOUND 'sound/items/weapons/bladeslice.ogg'
 #define KNIFE_ATTACK_VERB_CONTINUOUS list("slashes", "tears", "slices", "tears", "lacerates", "rips", "dices", "cuts", "rends")
 #define KNIFE_ATTACK_VERB_SIMPLE list("slash", "tear", "slice", "tear", "lacerate", "rip", "dice", "cut", "rend")
 #define KNIFE_SHARPNESS SHARP_EDGED
 #define KNIFE_BARE_WOUND_BONUS 15
-#define CUTTER_HITSOUND 'sound/items/wirecutter.ogg'
-#define CUTTER_USESOUND 'sound/items/wirecutter.ogg'
+#define CUTTER_HITSOUND 'sound/items/tools/wirecutter.ogg'
+#define CUTTER_USESOUND 'sound/items/tools/wirecutter.ogg'
 #define CUTTER_ATTACK_VERB_CONTINUOUS list("bashes", "batters", "bludgeons", "thrashes", "whacks")
 #define CUTTER_ATTACK_VERB_SIMPLE list("bash", "batter", "bludgeon", "thrash", "whack")
 #define CUTTER_FORCE 6
@@ -35,7 +35,7 @@
 	icon_state = "energy_mantis_blade"
 	force = 30
 	armour_penetration = 10 //Energy isn't as good at going through armor as it is through flesh alone.
-	hitsound = 'sound/weapons/blade1.ogg'
+	hitsound = 'sound/items/weapons/blade1.ogg'
 
 /obj/item/organ/internal/cyberimp/arm/armblade
 	name = "arm blade implant"
@@ -74,7 +74,7 @@
 	toolspeed = 1
 
 /obj/item/knife/razor_claws/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+	playsound(get_turf(user), 'sound/items/tools/change_drill.ogg', 50, TRUE)
 	if(tool_behaviour != TOOL_WIRECUTTER)
 		tool_behaviour = TOOL_WIRECUTTER
 		to_chat(user, span_notice("You shift [src] into Precision mode, for wirecutting."))
@@ -156,10 +156,8 @@
 	items_to_create = list(/obj/item/pickaxe/drill/implant)
 	implant_overlay = null
 	implant_color = null
-	/// The bodypart overlay datum we should apply to whatever mob we are put into's left arm
-	var/datum/bodypart_overlay/simple/steel_drill/left/left_drill_overlay
-	/// The bodypart overlay datum we should apply to whatever mob we are put into's right arm
-	var/datum/bodypart_overlay/simple/steel_drill/right/right_drill_overlay
+	/// The bodypart overlay datum we should apply to whatever mob we are put into's someone's arm
+	var/datum/bodypart_overlay/simple/steel_drill/drill_overlay
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm //You know the drill.
     zone = BODY_ZONE_R_ARM
@@ -180,32 +178,21 @@
 	icon_state = "steel_right"
 
 /obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	. = ..()
 	if(isteshari(owner))
-		return ..()
-	if(istype(limb, /obj/item/bodypart/arm/left))
-		left_drill_overlay = new()
-		limb.add_bodypart_overlay(left_drill_overlay)
+		return
+	if(zone == BODY_ZONE_L_ARM)
+		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/left
 	else
-		if(istype(limb, /obj/item/bodypart/arm/right))
-			right_drill_overlay = new()
-			limb.add_bodypart_overlay(right_drill_overlay)
-	owner.update_body_parts()
-	return ..()
+		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/right
+	limb.add_bodypart_overlay(drill_overlay)
+	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
-	if(isteshari(owner))
-		return ..()
-	if(istype(limb, /obj/item/bodypart/arm/left))
-		left_drill_overlay = new()
-		limb.remove_bodypart_overlay(left_drill_overlay)
-		QDEL_NULL(left_drill_overlay)
-	else
-		if(istype(limb, /obj/item/bodypart/arm/right))
-			right_drill_overlay = new()
-			limb.remove_bodypart_overlay(right_drill_overlay)
-			QDEL_NULL(left_drill_overlay)
-	owner.update_body_parts()
-	return ..()
+/obj/item/organ/internal/cyberimp/arm/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
+	. = ..()
+	bodypart_owner?.remove_bodypart_overlay(drill_overlay)
+	arm_owner.update_body_parts()
+	QDEL_NULL(drill_overlay)
 
 /obj/item/pickaxe/drill/implant
 	name = "integrated mining drill"
@@ -217,8 +204,8 @@
 	icon_state = "steel"
 	inhand_icon_state = "steel"
 	toolspeed = 0.6 //faster than a pickaxe
-	usesound = 'sound/weapons/drill.ogg'
-	hitsound = 'sound/weapons/drill.ogg'
+	usesound = 'sound/items/weapons/drill.ogg'
+	hitsound = 'sound/items/weapons/drill.ogg'
 	/// How recent the spin emote was
 	var/recent_spin = 0
 	/// The delay for how often you should be able to do it to prevent spam
@@ -259,8 +246,8 @@
 	toolspeed = 0.2
 	force = 20
 	demolition_mod = 1.25
-	usesound = 'sound/weapons/drill.ogg'
-	hitsound = 'sound/weapons/drill.ogg'
+	usesound = 'sound/items/weapons/drill.ogg'
+	hitsound = 'sound/items/weapons/drill.ogg'
 
 /obj/item/organ/internal/cyberimp/arm/hacker
 	name = "hacking arm implant"
@@ -289,7 +276,7 @@
 	sharpness = SHARP_EDGED
 	attack_verb_continuous = list("saws", "tears", "lacerates", "cuts", "chops", "dices")
 	attack_verb_simple = list("saw", "tear", "lacerate", "cut", "chop", "dice")
-	hitsound = 'sound/weapons/chainsawhit.ogg'
+	hitsound = 'sound/items/weapons/chainsawhit.ogg'
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
 
@@ -357,7 +344,7 @@
 	bare_wound_bonus = 20
 	weak_against_armour = TRUE
 	reach = 2
-	hitsound = 'sound/weapons/whip.ogg'
+	hitsound = 'sound/items/weapons/whip.ogg'
 	attack_verb_continuous = list("slashes", "whips", "lashes", "lacerates")
 	attack_verb_simple = list("slash", "whip", "lash", "lacerate")
 	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN

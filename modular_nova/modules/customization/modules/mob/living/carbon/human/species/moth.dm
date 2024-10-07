@@ -1,8 +1,6 @@
 /datum/species/moth
 	mutant_bodyparts = list()
 	inherent_traits = list(
-		TRAIT_TACKLING_WINGED_ATTACKER,
-		TRAIT_ANTENNAE,
 		TRAIT_MUTANT_COLORS,
 	)
 

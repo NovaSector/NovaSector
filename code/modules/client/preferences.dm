@@ -174,14 +174,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if (tainted_character_profiles)
 		data["character_profiles"] = create_character_profiles()
 		tainted_character_profiles = FALSE
-
-	//NOVA EDIT BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
-
+	data["erp_pref"] = read_preference(/datum/preference/toggle/master_erp_preferences)
 	data["quirk_points_enabled"] = !CONFIG_GET(flag/disable_quirk_points)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
 	data["character_preferences"] = compile_character_preferences(user)
 
@@ -205,7 +204,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	data["character_profiles"] = create_character_profiles()
 
 	data["character_preview_view"] = character_preview_view.assigned_map
-	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).title
+	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
 
 	data["content_unlocked"] = unlock_content

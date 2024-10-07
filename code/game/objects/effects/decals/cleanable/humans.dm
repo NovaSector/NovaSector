@@ -111,7 +111,7 @@
 	desc = "They look bloody and gruesome."
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
-	layer = LOW_OBJ_LAYER
+	layer = BELOW_OBJ_LAYER
 	plane = GAME_PLANE
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	mergeable_decal = FALSE
@@ -354,6 +354,8 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 	pass_flags = PASSTABLE | PASSGRILLE
 	icon_state = "hitsplatter1"
 	random_icon_states = list("hitsplatter1", "hitsplatter2", "hitsplatter3")
+	plane = GAME_PLANE
+	layer = ABOVE_WINDOW_LAYER
 	/// The turf we just came from, so we can back up when we hit a wall
 	var/turf/prev_loc
 	/// The cached info about the blood
@@ -438,7 +440,13 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 		if(istype(bumped_atom, /obj/structure/window))
 			land_on_window(bumped_atom)
 		else
-			var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(prev_loc)
+			// NOVA EDIT CHANGE BEGIN - ORIGINAL: var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(prev_loc)
+			var/obj/effect/decal/cleanable/final_splatter
+			if(istype(src, /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood))
+				final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
+			else
+				final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
+			// NOVA EDIT CHANGE END
 			final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
 			final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
 	else // This will only happen if prev_loc is not even a turf, which is highly unlikely.
@@ -449,7 +457,13 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 /obj/effect/decal/cleanable/blood/hitsplatter/proc/land_on_window(obj/structure/window/the_window)
 	if(!the_window.fulltile)
 		return
-	var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new
+	// NOVA EDIT CHANGE BEGIN - ORIGINAL: var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new
+	var/obj/effect/decal/cleanable/final_splatter
+	if(istype(src, /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood))
+		final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
+	else
+		final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
+	// NOVA EDIT CHANGE END
 	final_splatter.forceMove(the_window)
 	the_window.vis_contents += final_splatter
 	the_window.bloodied = TRUE

@@ -1,6 +1,11 @@
 // Lavaland Ruins
 // NOTICE: /unpowered means you never get power. Thanks Fikou!
 
+// ASH WALKER MACHINES FIX
+/area/ruin/unpowered/ash_walkers
+	always_unpowered = FALSE
+	power_equip = TRUE
+
 // Interdyne planetary base
 
 /area/ruin/interdyne_planetary_base // used as parent type and for turret control
@@ -8,7 +13,7 @@
 	icon = 'icons/area/areas_centcom.dmi'
 	icon_state = "syndie-control"
 	ambience_index = AMBIENCE_DANGER
-	ambient_buzz = 'sound/ambience/magma.ogg'
+	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
 	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
 
 /area/ruin/interdyne_planetary_base/cargo
@@ -37,8 +42,8 @@
 		ambientsounds = temp_ambientsounds.Copy()
 		ambientsounds += list(
 			'modular_nova/modules/encounters/sounds/morse.ogg',
-			'sound/ambience/ambitech.ogg',
-			'sound/ambience/signal.ogg',
+			'sound/ambience/engineering/ambitech.ogg',
+			'sound/ambience/misc/signal.ogg',
 			'modular_nova/modules/encounters/sounds/morse.ogg',
 		)
 	return ..()
@@ -84,7 +89,7 @@
 	name = "Interdyne Morgue"
 	icon_state = "morgue"
 	ambience_index = AMBIENCE_SPOOKY
-	ambientsounds = list('sound/ambience/ambiicemelody4.ogg') // creepy, but a bit wistful
+	ambientsounds = list('sound/ambience/icemoon/ambiicemelody4.ogg') // creepy, but a bit wistful
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ruin/interdyne_planetary_base/science

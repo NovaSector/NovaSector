@@ -221,6 +221,13 @@
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 
+/datum/sprite_accessory/synth_chassis/moth
+	name = "Moth Chassis"
+	icon = BODYPART_ICON_MOTH
+	icon_state = "moth"
+	color_src = MUTANT_COLOR
+	dimorphic = TRUE
+
 /datum/sprite_accessory/synth_chassis/android
 	name = "Android Chassis"
 	icon = 'icons/mob/augmentation/augments.dmi'
@@ -313,6 +320,13 @@
 	name = "Human Head"
 	icon = BODYPART_ICON_HUMAN
 	icon_state = "human"
+	color_src = MUTANT_COLOR
+	dimorphic = TRUE
+
+/datum/sprite_accessory/synth_head/moth
+	name = "Moth Head"
+	icon = BODYPART_ICON_MOTH
+	icon_state = "moth"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 

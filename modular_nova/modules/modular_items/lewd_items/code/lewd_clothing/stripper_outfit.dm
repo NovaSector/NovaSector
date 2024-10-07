@@ -7,7 +7,7 @@
 	worn_icon_taur_snake = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform-snake.dmi'
 	worn_icon_taur_paw = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform-paw.dmi'
 	worn_icon_taur_hoof = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform-hoof.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION|STYLE_TAUR_ALL
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	can_adjust = FALSE
 	icon_state = "stripper_cyan"
 	inhand_icon_state = "b_suit"
@@ -21,4 +21,5 @@
 						"White" = "stripper_white",
 						"Purple" = "stripper_purple",
 						"Black" = "stripper_black",
-						"Black-teal" = "stripper_tealblack")
+						"Black-teal" = "stripper_tealblack",
+	)

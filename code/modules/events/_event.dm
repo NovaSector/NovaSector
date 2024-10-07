@@ -15,7 +15,7 @@
 	var/earliest_start = 20 MINUTES //The earliest world.time that an event can start (round-duration in deciseconds) default: 20 mins
 	var/min_players = 0 //The minimum amount of alive, non-AFK human players on server required to start the event.
 
-	var/occurrences = 0 //How many times this event has occured
+	var/occurrences = 0 //How many times this event has occurred
 	var/max_occurrences = 20 //The maximum number of times this event can occur (naturally), it can still be forced.
 									//By setting this to 0 you can effectively disable an event.
 
@@ -112,7 +112,7 @@
 	// NOVA EDIT ADDITION BEGIN - Event notification - Makes an attention-grabbing sound, gives admins two notifications spread over RANDOM_EVENT_ADMIN_INTERVENTION_TIME instead of just the one.
 	message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME)]: [name]. (\
 		<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
-		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
+		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)</font>")
 	for(var/client/staff as anything in GLOB.admins)
 		if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
 			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
@@ -121,7 +121,7 @@
 	if(triggering)
 		message_admins("<font color='[COLOR_ADMIN_PINK]'>Random Event triggering in [DisplayTimeText(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)]: [name]. (\
 		<a href='?src=[REF(src)];cancel=1'>CANCEL</a> | \
-		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a></font>")
+		<a href='?src=[REF(src)];different_event=1'>SOMETHING ELSE</a>)</font>")
 		sleep(RANDOM_EVENT_ADMIN_INTERVENTION_TIME * 0.5)
 	// NOVA EDIT ADDITION END - Event notification
 
@@ -158,7 +158,7 @@ Runs the event
 */
 /datum/round_event_control/proc/run_event(random = FALSE, announce_chance_override = null, admin_forced = FALSE, event_cause)
 	/*
-	* We clear our signals first so we dont cancel a wanted event by accident,
+	* We clear our signals first so we don't cancel a wanted event by accident,
 	* the majority of time the admin will probably want to cancel a single midround spawned random events
 	* and not multiple events called by others admins
 	* * In the worst case scenario we can still recall a event which we cancelled by accident, which is much better then to have a unwanted event
@@ -236,7 +236,7 @@ Runs the event
 	SHOULD_CALL_PARENT(FALSE)
 	return
 
-///Annouces the event name to deadchat, override this if what an event should show to deadchat is different to its event name.
+///Announces the event name to deadchat, override this if what an event should show to deadchat is different to its event name.
 /datum/round_event/proc/announce_deadchat(random, cause)
 	deadchat_broadcast(" has just been[random ? " randomly" : ""] triggered[cause ? " by [cause]" : ""]!", "<b>[control.name]</b>", message_type=DEADCHAT_ANNOUNCEMENT) //STOP ASSUMING IT'S BADMINS!
 
@@ -283,8 +283,8 @@ Runs the event
 
 
 
-//Do not override this proc, instead use the appropiate procs.
-//This proc will handle the calls to the appropiate procs.
+//Do not override this proc, instead use the appropriate procs.
+//This proc will handle the calls to the appropriate procs.
 /datum/round_event/process()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	if(!processing)

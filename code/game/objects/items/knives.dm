@@ -13,7 +13,7 @@
 	demolition_mod = 0.75
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 10
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	throw_speed = 3
 	throw_range = 6
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6)
@@ -145,7 +145,7 @@
 	. = ..()
 	if(user.get_item_by_slot(ITEM_SLOT_MASK) == src && !user.has_status_effect(/datum/status_effect/choke) && prob(20))
 		user.apply_damage(5, BRUTE, BODY_ZONE_HEAD)
-		playsound(user, 'sound/weapons/slice.ogg', 50, TRUE)
+		playsound(user, 'sound/items/weapons/slice.ogg', 50, TRUE)
 		user.visible_message(span_danger("[user] accidentally cuts [user.p_them()]self while pulling [src] out of [user.p_them()] teeth! What a doofus!"), span_userdanger("You accidentally cut your mouth with [src]!"))
 
 /obj/item/knife/combat/equipped(mob/living/user, slot, initial = FALSE)
@@ -190,7 +190,6 @@
 	desc = "A sharpened bone. The bare minimum in survival."
 	embed_type = /datum/embed_data/combat_knife/weak
 	obj_flags = parent_type::obj_flags & ~CONDUCTS_ELECTRICITY
-	slot_flags = NONE
 	force = 15
 	throwforce = 15
 	custom_materials = null
@@ -202,7 +201,9 @@
 	name = "cyborg knife"
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "knife_cyborg"
+	worn_icon_state = "knife_cyborg" //error sprite - this shouldn't have been dropped
 	desc = "A cyborg-mounted plasteel knife. Extremely sharp and durable."
+	slot_flags = NONE //you can't put this in your mouth
 
 /obj/item/knife/shiv
 	name = "glass shiv"

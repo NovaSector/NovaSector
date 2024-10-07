@@ -23,7 +23,7 @@
 		return
 
 	//build our announcement
-	var/origin = sanitize_text(reject_bad_text(tgui_input_text(user, "Who is announcing, or where is the announcement coming from?", "Announcement Origin", get_area_name(user), max_length = 56), ascii_only = FALSE))
+	var/origin = sanitize_text(reject_bad_text(tgui_input_text(user, "Who is announcing, or where is the announcement coming from?", "Announcement Origin", get_area_name(user), max_length = MAX_NAME_LEN), ascii_only = FALSE))
 	if(!origin)
 		balloon_alert(user, "bad origin!")
 		return
@@ -38,12 +38,12 @@
 		balloon_alert(user, "bad color!")
 		return
 
-	var/title = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the title of the announcement.", "Announcement Title", max_length = 84), ascii_only = FALSE))
+	var/title = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the title of the announcement.", "Announcement Title", max_length = MAX_NAME_LEN*2), ascii_only = FALSE))
 	if(!title)
 		balloon_alert(user, "bad title!")
 		return
 
-	var/input = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the bodytext of the announcement.", "Announcement Text", multiline = TRUE), ascii_only = FALSE))
+	var/input = sanitize_text(reject_bad_text(tgui_input_text(user, "Choose the bodytext of the announcement.", "Announcement Text", multiline = TRUE), max_length = MAX_MESSAGE_LEN, ascii_only = FALSE))
 	if(!input)
 		balloon_alert(user, "bad text!")
 		return

@@ -824,7 +824,8 @@
 /obj/machinery/vending/wardrobe/syndie_wardrobe{
 	contraband = list(/obj/item/knife/combat=1, /obj/item/clothing/under/syndicate/coldres=6, /obj/item/clothing/shoes/combat/coldres=6, /obj/item/flashlight/lantern/syndicate=4);
 	extended_inventory = 1;
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1
 	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
@@ -2546,10 +2547,11 @@
 /area/ruin/interdyne_planetary_base/main)
 "gR" = (
 /obj/machinery/firealarm/directional/west,
-/obj/machinery/vending/medical/syndicate_access{
+/obj/machinery/vending/medical/syndicate{
 	onstation = 0;
 	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/mmi/syndie/interdyne=3);
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -2714,7 +2716,8 @@
 /obj/machinery/vending/drugs{
 	name = "\improper SyndiDrug Plus";
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -2755,7 +2758,8 @@
 /area/ruin/interdyne_planetary_base/med/pharm)
 "hx" = (
 /obj/machinery/vending/syndichem{
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1
 	},
 /obj/machinery/light_switch/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3650,6 +3654,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/item/toy/cards/deck/cas{
+	pixel_y = 6
+	},
 /turf/open/floor/carpet/royalblue,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jJ" = (
@@ -4050,12 +4057,13 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/obj/structure/table/wood,
-/obj/item/toy/cards/deck/cas{
-	pixel_y = 6
-	},
 /obj/machinery/light/directional/east{
 	pixel_y = 16
+	},
+/obj/machinery/vending/games{
+	onstation = 0;
+	all_products_free = 1;
+	extended_inventory = 1
 	},
 /turf/open/floor/glass/reinforced,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
@@ -4378,6 +4386,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
+/obj/machinery/vending/imported/mothic{
+	onstation = 0
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "lz" = (
@@ -4448,10 +4459,14 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "lH" = (
-/obj/structure/reagent_dispensers/water_cooler/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/vending/cigarette{
+	onstation = 0;
+	all_products_free = 1;
+	extended_inventory = 1
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/serv)
 "lI" = (
@@ -4696,6 +4711,9 @@
 /obj/machinery/light/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/vending/imported/tiziran{
+	onstation = 0
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "mk" = (
@@ -5357,7 +5375,8 @@
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/machinery/vending/clothing{
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -5458,7 +5477,8 @@
 "oc" = (
 /obj/machinery/vending/hydronutrients{
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/textured_large,
@@ -5502,7 +5522,8 @@
 /obj/structure/cable,
 /obj/machinery/vending/autodrobe{
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -5539,14 +5560,16 @@
 "oo" = (
 /obj/machinery/vending/hydroseeds{
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
 "op" = (
 /obj/machinery/vending/dinnerware{
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /obj/machinery/duct,
 /turf/open/floor/iron/dark/textured_large,
@@ -5859,7 +5882,9 @@
 /area/ruin/interdyne_planetary_base/main/dorms)
 "oU" = (
 /obj/machinery/vending/dorms{
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1;
+	extended_inventory = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -6217,9 +6242,10 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/main)
 "pQ" = (
-/obj/machinery/vending/boozeomat/syndicate_access{
+/obj/machinery/vending/boozeomat/syndicate{
 	onstation = 0;
-	extended_inventory = 1
+	extended_inventory = 1;
+	all_products_free = 1
 	},
 /obj/machinery/light/directional/south,
 /obj/machinery/light_switch/directional/east,
@@ -7180,6 +7206,13 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"JN" = (
+/obj/machinery/vending/barbervend{
+	onstation = 0;
+	all_products_free = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/serv/rstrm)
 "Ki" = (
 /obj/structure/railing{
 	dir = 9
@@ -7324,7 +7357,9 @@
 "Sp" = (
 /obj/structure/cable,
 /obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne{
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1;
+	extended_inventory = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7381,6 +7416,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
+/obj/machinery/vending/imported/yangyu{
+	onstation = 0
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
 "VH" = (
@@ -9197,7 +9235,7 @@ eY
 jZ
 kr
 ku
-ku
+JN
 kL
 jr
 lJ

@@ -109,6 +109,12 @@
 	results = list(/datum/reagent/consumable/ethanol/quadruple_sec/cityofsin = 4)
 	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 2, /datum/reagent/consumable/ethanol/champagne = 1, /datum/reagent/consumable/berryjuice = 1)
 
+/datum/chemical_reaction/drink/cringe_weaver
+	results = list(/datum/reagent/consumable/ethanol/cringe_weaver = 10)
+	required_reagents = list(/datum/reagent/toxin/formaldehyde = 6, /datum/reagent/consumable/ethanol/fringe_weaver = 3, /datum/reagent/consumable/ice = 1) //9 'form'adelhyde, ice
+	mix_message = "The mix swells and turns a sickeningly pungent green, filling the air with a tangible miasma of cringe."
+	mix_sound = 'sound/effects/wounds/sizzle2.ogg'
+
 /datum/chemical_reaction/drink/blizzard_brew
 	results = list(/datum/reagent/consumable/ethanol/blizzard_brew = 3)
 	required_reagents = list(/datum/reagent/consumable/ethanol/iced_beer = 1, /datum/reagent/consumable/ice = 1, /datum/reagent/inverse/cryostylane = 1)
