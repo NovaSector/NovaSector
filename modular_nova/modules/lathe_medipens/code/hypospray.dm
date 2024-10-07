@@ -1,10 +1,12 @@
 /obj/item/reagent_containers/hypospray/medipen/universal
-	name = "\improper universal medipen"
+	name = "universal medipen"
+	article = "a"
 	desc = "It's an auto-injecting syringe with a universal refill port on the side."
 	icon = 'modular_nova/modules/lathe_medipens/icons/syringe.dmi'
 	icon_state = "medipen_blue_unused"
 	base_icon_state = "medipen_blue"
 	inhand_icon_state = "dnainjector0"
+	reagent_flags = TRANSPARENT
 	list_reagents = null
 	label_examine = FALSE
 	used_up = TRUE
@@ -24,8 +26,14 @@
 	filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 	. += filling_overlay
 
+/obj/item/reagent_containers/hypospray/medipen/universal/inject(mob/living/affected_mob, mob/user)
+	. = ..()
+	if(. && used_up)
+		// Workaround to reset reagent flags after injection (gets set to 0 by parent proc)
+		reagents.flags = reagent_flags
+
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure
-	name = "\improper universal low-pressure medipen"
+	name = "universal low-pressure medipen"
 	desc = "It's a low-pressure auto-injecting syringe with a universal refill port on the side. WARNING: This device is designed to be operated in low-pressure environments only."
 	icon_state = "medipen_red_unused"
 	base_icon_state = "medipen_red"
@@ -34,9 +42,9 @@
 
 /obj/item/reagent_containers/hypospray/medipen/universal/lowpressure/update_icon_state()
 	. = ..()
-	if(!reagents?.total_volume == 0)
+	if(reagents?.total_volume == 0)
 		icon_state = "[base_icon_state]0"
-	else if(!reagents?.total_volume > (volume * 0.5))
+	else if(reagents?.total_volume > (volume * 0.5))
 		icon_state = base_icon_state
 	else
 		icon_state = "[base_icon_state]15"
@@ -46,9 +54,7 @@
 	if(!reagents?.total_volume)
 		return
 	var/overlay_icon = "medipen"
-	if(!reagents?.total_volume > (volume * 0.5))
-		icon_state = base_icon_state
-	else
+	if(reagents?.total_volume <= (volume * 0.5))
 		overlay_icon = "medipen_half"
 	var/mutable_appearance/filling_overlay = mutable_appearance('modular_nova/modules/lathe_medipens/icons/reagent_fillings.dmi', overlay_icon)
 	filling_overlay.color = mix_color_from_reagents(reagents.reagent_list)
