@@ -1255,15 +1255,21 @@
 		var/altered_grab_state = pulledby.grab_state
 		if((body_position == LYING_DOWN || HAS_TRAIT(src, TRAIT_GRABWEAKNESS) || get_timed_status_effect_duration(/datum/status_effect/staggered)) && pulledby.grab_state < GRAB_KILL) //If prone, resisting out of a grab is equivalent to 1 grab state higher. won't make the grab state exceed the normal max, however
 			altered_grab_state++
+		if(HAS_TRAIT(src, TRAIT_GRABRESISTANCE))
+			altered_grab_state--
+		// NOVA EDIT ADDITION START
 		if(staminaloss > STAMINA_THRESHOLD_HARD_RESIST)
 			altered_grab_state++
 		if(body_position == LYING_DOWN)
 			altered_grab_state++
-		var/mob/living/M = pulledby
-		if(M.staminaloss > STAMINA_THRESHOLD_HARD_RESIST)
-			altered_grab_state-- //NOVA EDIT END
-		var/resist_chance = BASE_GRAB_RESIST_CHANCE /// see defines/combat.dm, this should be baseline 60%
-		//NOVA EDIT ADDITION
+		var/mob/living/living_mob = pulledby
+		if(istype(living_mob) && living_mob.staminaloss > STAMINA_THRESHOLD_HARD_RESIST)
+			altered_grab_state--
+		// NOVA EDIT ADDITION END
+		// see defines/combat.dm, this should be baseline 60%
+		// Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
+		var/resist_chance = altered_grab_state ? (BASE_GRAB_RESIST_CHANCE / altered_grab_state) : 100
+		// NOVA EDIT ADDITION START
 		// Akula grab resist
 		if(HAS_TRAIT(src, TRAIT_SLIPPERY))
 			resist_chance += AKULA_GRAB_RESIST_BONUS
@@ -1272,8 +1278,7 @@
 			resist_chance += OVERSIZED_GRAB_RESIST_BONUS
 		if(HAS_TRAIT(pulledby, TRAIT_OVERSIZED))
 			resist_chance -= OVERSIZED_GRAB_RESIST_BONUS
-		//NOVA EDIT END
-		resist_chance = (resist_chance/altered_grab_state) ///Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
+		//NOVA EDIT ADDITION END
 		if(prob(resist_chance))
 			//NOVA EDIT ADDITION
 			// Akula break-out flavor
