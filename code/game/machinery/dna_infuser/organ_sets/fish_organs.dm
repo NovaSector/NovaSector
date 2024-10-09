@@ -174,13 +174,6 @@
 	owner.AddElementTrait(TRAIT_WADDLING, type, /datum/element/waddling)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(check_location))
 	check_location(owner, null)
-	// NOVA EDIT ADDITION START - This was placed in the bodypart overlay on_mob_insert which does not exist for us, until the external organ PR is dealt with.
-	//Initialize the related dna feature block if we don't have any so it doesn't error out.
-	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
-	if(!owner.dna.features["fish_tail"])
-		owner.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
-		owner.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
-	// NOVA EDIT ADDITION END
 
 /obj/item/organ/external/tail/fish/on_mob_remove(mob/living/carbon/owner)
 	. = ..()
@@ -188,6 +181,9 @@
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/fish_on_water)
 	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/fish_on_water)
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+
+/obj/item/organ/external/tail/fish/get_greyscale_color_from_draw_color()
+	set_greyscale(bodypart_overlay.draw_color)
 
 /obj/item/organ/external/tail/fish/proc/check_location(mob/living/carbon/source, atom/movable/old_loc, dir, forced)
 	SIGNAL_HANDLER
@@ -205,6 +201,15 @@
 /datum/bodypart_overlay/mutant/tail/fish
 	feature_key = "fish_tail"
 	color_source = ORGAN_COLOR_HAIR
+
+/datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
+	//Initialize the related dna feature block if we don't have any so it doesn't error out.
+	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
+	if(imprint_on_next_insertion && !receiver.dna.features["fish_tail"])
+		receiver.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
+		receiver.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
+
+	return ..()
 
 /datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
 	return SSaccessories.tails_list_fish
