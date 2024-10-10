@@ -12,6 +12,16 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	icon_state = "mantle"
 
+/obj/item/clothing/neck/tesharian_mantle
+	name = "Tesharian mantle"
+	desc = "Locally sourced from 'Opalite Industries', sewed by the most gentle of packs; The Tesharian mantle is a comfortable knit to cover a decent amount of the average wearer's chest and neck in its luxurious fabric and wool, held together by adorned with stitching. Local Reviewers say: The human-sized ones seems to be made of some brandless knockoff 'eco-friendly' fabric..."
+	icon_state = "tesharian_mantle"
+	greyscale_config = /datum/greyscale_config/tesharian_mantle
+	greyscale_config_worn = /datum/greyscale_config/tesharian_mantle/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/tesharian_mantle/worn/teshari
+	greyscale_colors = "#ffcc00#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/neck/mantle/regal
 	name = "regal mantle"
 	desc = "A colorful felt mantle. You feel posh just holding this thing."

@@ -588,6 +588,20 @@
 	name = "Face Scarf (Worn, Muzzled)"
 	icon_file = 'modular_nova/modules/GAGS/icons/neck/face_scarf/face_scarf_worn_muzzled.dmi'
 
+// TESHARIAN MANTLE
+/datum/greyscale_config/tesharian_mantle
+	name = "Tesharian Mantle"
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/tesharian_mantle.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/tesharian_mantle.json'
+
+/datum/greyscale_config/tesharian_mantle/worn
+	name = "Tesharian Mantle (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/tesharian_mantle.dmi'
+
+/datum/greyscale_config/tesharian_mantle/worn/teshari
+	name = "Tesharian Mantle (Worn, Teshari)"
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/tesharian_mantle_teshari.dmi'
+
 /*
 *	SUITS
 */
@@ -831,6 +845,10 @@
 /datum/greyscale_config/cableknit_sweater/worn
 	name = "Cableknit Sweater (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/sweater/sweater_worn.json'
+
+/datum/greyscale_config/cableknit_sweater/worn/teshari
+	name = "Cableknit Sweater (Worn, Teshari)"
+	icon_file = 'modular_nova/modules/GAGS/icons/sweaters_teshari.dmi'
 
 /datum/greyscale_config/warm_sweater
 	name = "Warm Sweater"
@@ -1210,6 +1228,15 @@
 /datum/greyscale_config/big_pants/worn/digi
 	name = "'JUNCO' megacargo pants (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
+
+/datum/greyscale_config/loose_pants
+	name = "Loose pants"
+	icon_file = 'modular_nova/modules/GAGS/icons/loose_pants.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/loose_pants/loose_pants.json'
+
+/datum/greyscale_config/loose_pants/worn
+	name = "Loose pants (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/loose_pants/loose_pants_worn.json'
 
 // DRESSES / SKIRTS
 

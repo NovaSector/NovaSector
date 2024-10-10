@@ -1,0 +1,16 @@
+{
+	"tesharian_mantle": [
+		{
+			"type": "icon_state",
+			"icon_state": "tesharian_mantle",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "tesharian_mantle_neck",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}
