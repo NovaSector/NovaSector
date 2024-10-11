@@ -3,9 +3,11 @@
 	article = "a"
 	desc = "It's an auto-injecting syringe with a universal refill port on the side."
 	icon = 'modular_nova/modules/lathe_medipens/icons/syringe.dmi'
+	lefthand_file = 'modular_nova/modules/lathe_medipens/icons/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/lathe_medipens/icons//medical_righthand.dmi'
 	icon_state = "medipen_blue_unused"
 	base_icon_state = "medipen_blue"
-	inhand_icon_state = "dnainjector0"
+	inhand_icon_state = "medipen_blue"
 	reagent_flags = TRANSPARENT
 	list_reagents = null
 	label_examine = FALSE
@@ -37,6 +39,7 @@
 	desc = "It's a low-pressure auto-injecting syringe with a universal refill port on the side. WARNING: This device is designed to be operated in low-pressure environments only."
 	icon_state = "medipen_red_unused"
 	base_icon_state = "medipen_red"
+	inhand_icon_state = "medipen_red"
 	volume = 30
 	amount_per_transfer_from_this = 30
 
