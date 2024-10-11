@@ -26,7 +26,6 @@
  * * multiplier - multiplies each reagent amount by this number well byond their available volume before transfering. used to create reagents from thin air if you ever need to
  * * list/datum/reagent/target_ids - transfers only the listed reagent types in this holder leaving others untouched
  * * preserve_data - if preserve_data=FALSE, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
- * * proportional - if proportional=TRUE, the volume of each reagent will be distributed proportionally to each other. If FALSE, then the volumes will be strictly equal.
  * * no_react - passed through to [/datum/reagents/proc/add_reagent]
  * * mob/transferred_by - used for logging
  * * remove_blacklisted - skips transferring of reagents without REAGENT_CAN_BE_SYNTHESIZED in chemical_flags
@@ -39,7 +38,6 @@
 	amount = 1,
 	multiplier = 1,
 	list/datum/reagent/target_ids,
-	proportional = TRUE,
 	preserve_data = TRUE,
 	no_react = FALSE,
 	mob/transferred_by,
@@ -63,10 +61,8 @@
 
 	// Maximum amount of reagents which can fit inside the target
 	var/max_volume = min(amount, target_atom.reagents.maximum_volume)
-	// Total volume of the reagents already inside the target
-	var/current_volume = target_atom.reagents.total_volume
 	// Total volume of fillable empty space inside the target, accounting for given maximum
-	var/empty_volume = max(0, max_volume - current_volume)
+	var/empty_volume = max(0, max_volume - target_atom.reagents.total_volume)
 
 	// Targeted atom is already full of reagents
 	if(max_volume == 0 || empty_volume == 0)
