@@ -236,7 +236,7 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
 /datum/controller/subsystem/explosions/proc/explode(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = null, flash_range = null, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, protect_epicenter = FALSE, atom/explosion_cause = null, explosion_direction = 0, explosion_arc = 360)
 	// NOVA EDIT ADDITION START - Ghost cafe areas have their range clamped to prevent damage
 	var/area/bomb_area = get_area(origin)
-	if(bomb_area.type in GLOB.ghost_cafe_areas)
+	if(bomb_area && bomb_area.type in GLOB.ghost_cafe_areas)
 		devastation_range = 0
 		heavy_impact_range = 0
 		light_impact_range = 0
