@@ -1,7 +1,7 @@
 /datum/techweb_node/medbay_medipens
 	id = TECHWEB_NODE_MEDBAY_MEDIPENS
 	display_name = "Auto-Injecting 'Medipen' Syringes"
-	description = "Advanced auto-injecting syringes, called 'medipens'. Used for automatically injecting medications into patients."
+	description = "Advanced auto-injecting syringes, or 'medipens'. Used for automatically injecting medications."
 	prereq_ids = list(TECHWEB_NODE_CHEM_SYNTHESIS)
 	design_ids = list(
 		"medipen_universal",
