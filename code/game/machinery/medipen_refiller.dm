@@ -100,28 +100,32 @@
 		if(medipen.reagents?.reagent_list.len)
 			balloon_alert(user, "medipen full!")
 			return
+		// NOVA EDIT CHANGE BEGIN - Universal medipen and lathe medipens
+		var/list/datum/reagent/compatible_universal_reagents
+		if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
+			if(!reagents.total_volume)
+				balloon_alert(user, "not enough reagents!")
+				return
+			// Ignore reagents which aren't the blacklist or whitelist
+			compatible_universal_reagents = typecache_filter_multi_list_exclusion(reagents.reagent_list, medipen_reagent_whitelist, medipen_reagent_blacklist)
+			// Ensure there is enough of the whitelisted reagents
+			if(!length(compatible_universal_reagents))
+				balloon_alert(user, "reagents incompatible!")
+				return
+		// NOVA EDIT CHANGE END
 		// NOVA EDIT CHANGE - ORIGINAL: if(!reagents.has_reagent(allowed_pens[medipen.type], 10))
-		if(!istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal) && !reagents.has_reagent(allowed_pens[medipen.type], medipen.volume))
+		else if(!reagents.has_reagent(allowed_pens[medipen.type], medipen.volume))
 			balloon_alert(user, "not enough reagents!")
 			return
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
 			// NOVA EDIT CHANGE BEGIN - Universal medipen and lathe medipens
 			if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
-				if(!reagents.total_volume)
-					balloon_alert(user, "not enough reagents!")
-					return
-				// Ignore reagents which aren't the blacklist or whitelist
-				var/list/datum/reagent/compatible_reagents = typecache_filter_multi_list_exclusion(reagents.reagent_list, medipen_reagent_whitelist, medipen_reagent_blacklist)
-				// Ensure there is enough of the whitelisted reagents
-				if(!length(compatible_reagents))
-					balloon_alert(user, "reagents incompatible!")
-					return
 				// Create list of transferable reagent typepaths
 				var/list/target_reagent_types = list()
-				for(var/datum/reagent/target_reagent as anything in compatible_reagents)
+				for(var/datum/reagent/target_reagent as anything in compatible_universal_reagents)
 					target_reagent_types += target_reagent.type
-				// Transfer proportional amounts of each reagent
+				// Transfer proportionally distributed amounts of each reagent
 				reagents.trans_to_multiple(target_atom = medipen, amount = medipen.volume, target_ids = target_reagent_types)
 			else
 				medipen.add_initial_reagents()
