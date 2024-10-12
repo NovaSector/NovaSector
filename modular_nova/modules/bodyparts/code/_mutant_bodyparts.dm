@@ -19,6 +19,16 @@
 	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
 	var/digitigrade_type = /obj/item/bodypart/leg/left/digitigrade
 
+// Just blanket apply the footstep pref on limb addition, it gets far too complicated otherwise as limbs are getting replaced more often than you'd think
+/obj/item/bodypart/leg/on_adding(mob/living/carbon/new_owner)
+	. = ..()
+	var/footstep_pref = new_owner.client?.prefs.read_preference(/datum/preference/choiced/footstep_sound)
+	if(footstep_pref && footstep_pref != "Default")
+		var/list/value_to_define = list(
+		"Shoes" = FOOTSTEP_MOB_SHOE,
+		"Claws" = FOOTSTEP_MOB_CLAW,
+		)
+		footstep_type = value_to_define[footstep_pref]
 
 /// General mutant bodyparts. Used in most mutant species.
 /obj/item/bodypart/head/mutant
