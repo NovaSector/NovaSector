@@ -237,6 +237,17 @@
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
+//Donation reward for Thedragmeme, gift for ActualVanguard
+/obj/item/clothing/neck/padded/security
+	name = "vanguard cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Oddly enough, you always feel comftorble regardless of the weather. Even odder, there is an ever so faint scent of wet rock on the interior of the cloak."
+	icon_state = "paddedsec"
+	inhand_icon_state = "paddedsec"
+
+/obj/item/clothing/head/hooded/padded/security
+	name = "vanguard cloak hood"
+	icon_state = "paddedsechood"
+
 // Donation reward for Thedragmeme
 /obj/item/clothing/under/padded
 	name = "feathered serenity suit"
