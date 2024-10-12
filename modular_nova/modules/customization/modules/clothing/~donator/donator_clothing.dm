@@ -219,7 +219,7 @@
 	. = ..()
 	AddComponent(\
 		/datum/component/toggle_attached_clothing,\
-		deployable_type = hood,\
+		deployable_type = hood_type,\
 		equipped_slot = ITEM_SLOT_HEAD,\
 		action_name = "Toggle Hood",\
 		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
