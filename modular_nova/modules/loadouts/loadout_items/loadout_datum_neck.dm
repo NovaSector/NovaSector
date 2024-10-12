@@ -225,6 +225,10 @@
 	name = "Mantle"
 	item_path = /obj/item/clothing/neck/mantle
 
+/datum/loadout_item/neck/tesharian_mantle
+	name = "Tesharian Mantle"
+	item_path = /obj/item/clothing/neck/tesharian_mantle
+
 /datum/loadout_item/neck/mantle_qm
 	name = "Quartermaster's Mantle"
 	item_path = /obj/item/clothing/neck/mantle/qm

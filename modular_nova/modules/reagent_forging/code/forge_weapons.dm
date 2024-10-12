@@ -6,7 +6,7 @@
 	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
 	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
 	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME | CONDUCTS_ELECTRICITY
 	obj_flags_nova = ANVIL_REPAIR
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
@@ -206,7 +206,7 @@
 	transparent = FALSE
 	max_integrity = 150
 	w_class = WEIGHT_CLASS_NORMAL
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	obj_flags_nova = ANVIL_REPAIR
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	shield_break_sound = 'sound/effects/bang.ogg'
