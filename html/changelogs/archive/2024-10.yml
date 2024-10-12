@@ -382,6 +382,8 @@
       watch out.
   siliconOpossum:
   - bugfix: The preview for writing on paper updates in real-time again
+  sqnztb:
+  - qol: heads now fit inside of bags.
   timothymtorres:
   - admin: Organize admin verbs for shuttle events into shuttle category
   - rscadd: Add no escape final traitor objective that spawns a stage six (11x11)
