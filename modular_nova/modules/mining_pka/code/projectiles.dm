@@ -1,7 +1,7 @@
 //Accelerator Casing
 /obj/item/ammo_casing/energy/kinetic/railgun
 	projectile_type = /obj/projectile/kinetic/railgun
-	fire_sound = 'sound/weapons/beam_sniper.ogg'
+	fire_sound = 'sound/items/weapons/beam_sniper.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/repeater
 	projectile_type = /obj/projectile/kinetic/repeater
@@ -19,12 +19,12 @@
 	projectile_type = /obj/projectile/kinetic/shockwave
 	pellets = 8
 	variance = 360
-	fire_sound = 'sound/weapons/gun/general/cannon.ogg'
+	fire_sound = 'sound/items/weapons/gun/general/cannon.ogg'
 
 /obj/item/ammo_casing/energy/kinetic/m79
 	projectile_type = /obj/projectile/bullet/mining_bomb
 	e_cost = LASER_SHOTS(2, STANDARD_CELL_CHARGE * 0.5)
-	fire_sound = 'sound/weapons/gun/general/grenade_launch.ogg'
+	fire_sound = 'sound/items/weapons/gun/general/grenade_launch.ogg'
 
 //Accelerator Projectiles
 

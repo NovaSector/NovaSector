@@ -28,10 +28,12 @@
 #define ORGAN_VIRGIN (1<<10)
 /// ALWAYS show this when scanned by advanced scanners, even if it is totally healthy
 #define ORGAN_PROMINENT (1<<11)
-// NOVA EDIT START - Customization
+/// An organ that is ostensibly dangerous when inside a body
+#define ORGAN_HAZARDOUS (1<<12)
+// NOVA EDIT ADDITION START - Customization
 /// Synthetic organ granted by a species (for use for organ replacements between species)
-#define ORGAN_SYNTHETIC_FROM_SPECIES (1<<12)
-// NOVA EDIT END
+#define ORGAN_SYNTHETIC_FROM_SPECIES (1<<13)
+// NOVA EDIT ADDITION END
 
 /// Helper to figure out if a limb is organic
 #define IS_ORGANIC_LIMB(limb) (limb.bodytype & BODYTYPE_ORGANIC)

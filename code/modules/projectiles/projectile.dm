@@ -16,7 +16,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	//The sound this plays on impact.
-	var/hitsound = 'sound/weapons/pierce.ogg'
+	var/hitsound = 'sound/items/weapons/pierce.ogg'
 	var/hitsound_wall = ""
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -153,7 +153,7 @@
 	var/armor_flag = BULLET
 	///How much armor this projectile pierces.
 	var/armour_penetration = 0
-	///Whether or not our bullet lacks penetrative power, and is easily stopped by armor.
+	///Whether or not our projectile doubles the value of affecting armour
 	var/weak_against_armour = FALSE
 	var/projectile_type = /obj/projectile
 	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
@@ -214,10 +214,6 @@
 	///How much accuracy before falloff starts to matter. Formula is range - falloff * tiles travelled
 	var/accurate_range = 100
 	var/static/list/projectile_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(on_entered))
-	// NOVA EDIT ADDITION START
-	/// If this should be able to hit the target even on direct firing when `ignored_factions` applies
-	var/ignore_direct_target = FALSE
-	// NOVA EDIT ADDITION END
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
 
@@ -227,6 +223,8 @@
 	if(get_embed())
 		AddElement(/datum/element/embed)
 	AddElement(/datum/element/connect_loc, projectile_connections)
+
+	add_traits(list(TRAIT_FREE_HYPERSPACE_MOVEMENT, TRAIT_FREE_HYPERSPACE_SOFTCORDON_MOVEMENT), INNATE_TRAIT)
 
 /obj/projectile/proc/Range()
 	range--
@@ -309,7 +307,7 @@
 		if(suppressed)
 			volume = 5
 		playsound(loc, hitsound_wall, volume, TRUE, -1)
-	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
+	// NOVA EDIT ADDITION START - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
 	var/impact_sound
 	if(use_bullet_impact_sound)
 		impact_sound = target.bullet_impact_sound
@@ -330,6 +328,7 @@
 	if(!isliving(target))
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_turf, hitx, hity)
+
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -341,7 +340,7 @@
 				var/splatter_dir = dir
 				if(starting)
 					splatter_dir = get_dir(starting, target_turf)
-				if(isalien(living_target) || isxenohybrid(living_target)) // NOVA EDIT CHANGE - Xenohybrid blood color - Original line: if(isalien(living_target))
+				if(isalien(living_target) || isxenohybrid(living_target)) // NOVA EDIT CHANGE - Xenohybrid blood color - ORIGINAL: if(isalien(living_target))
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_turf, splatter_dir)
 				else
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter(target_turf, splatter_dir)
@@ -368,7 +367,7 @@
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 			to_chat(living_target, span_userdanger("You're shot by \a [src][organ_hit_text]!"))
 		else
-			/* NOVA EDIT REMOVAL - IMPACT SOUNDS
+			/* NOVA EDIT REMOVAL START - IMPACT SOUNDS
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(src, hitsound, volume, TRUE, -1)
@@ -1002,15 +1001,11 @@
 	trajectory_ignore_forcemove = FALSE
 
 	starting = source_loc
-	// Find the last atom movable in our loc chain, or if we're a turf use us
-	var/atom/source_position = get_highest_loc(source, /atom/movable) || source
-	pixel_x = source_position.pixel_x
-	pixel_y = source_position.pixel_y
-	pixel_w = source_position.pixel_w
-	pixel_z = source_position.pixel_z
+	pixel_x = source.pixel_x
+	pixel_y = source.pixel_y
 	original = target
 	if(length(modifiers))
-		var/list/calculated = calculate_projectile_angle_and_pixel_offsets(source_position, target_loc && target, modifiers)
+		var/list/calculated = calculate_projectile_angle_and_pixel_offsets(source, target_loc && target, modifiers)
 
 		p_x = calculated[2]
 		p_y = calculated[3]
@@ -1038,14 +1033,15 @@
  */
 /proc/calculate_projectile_angle_and_pixel_offsets(atom/source, atom/target, modifiers)
 	var/angle = 0
-	var/p_x = LAZYACCESS(modifiers, ICON_X) ? text2num(LAZYACCESS(modifiers, ICON_X)) : world.icon_size / 2 // ICON_(X|Y) are measured from the bottom left corner of the icon.
-	var/p_y = LAZYACCESS(modifiers, ICON_Y) ? text2num(LAZYACCESS(modifiers, ICON_Y)) : world.icon_size / 2 // This centers the target if modifiers aren't passed.
+	var/p_x = LAZYACCESS(modifiers, ICON_X) ? text2num(LAZYACCESS(modifiers, ICON_X)) : ICON_SIZE_X / 2 // ICON_(X|Y) are measured from the bottom left corner of the icon.
+	var/p_y = LAZYACCESS(modifiers, ICON_Y) ? text2num(LAZYACCESS(modifiers, ICON_Y)) : ICON_SIZE_Y / 2 // This centers the target if modifiers aren't passed.
 
 	if(target)
 		var/turf/source_loc = get_turf(source)
 		var/turf/target_loc = get_turf(target)
-		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
-		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (target.pixel_z - source.pixel_z) + (p_y - (world.icon_size / 2))
+		var/dx = ((target_loc.x - source_loc.x) * ICON_SIZE_X) + (target.pixel_x - source.pixel_x) + (p_x - (ICON_SIZE_X / 2))
+		var/dy = ((target_loc.y - source_loc.y) * ICON_SIZE_Y) + (target.pixel_y - source.pixel_y) + (p_y - (ICON_SIZE_Y / 2))
+
 		angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
 
@@ -1063,16 +1059,14 @@
 	//Split Y+Pixel_Y up into list(Y, Pixel_Y)
 	var/list/screen_loc_Y = splittext(screen_loc_params[2],":")
 
-	var/tx = (text2num(screen_loc_X[1]) - 1) * world.icon_size + text2num(screen_loc_X[2])
-	// We are here trying to lower our target location by the firing source's visual offset
-	// So visually things make a nice straight line while properly accounting for actual physical position
-	var/ty = (text2num(screen_loc_Y[1]) - 1) * world.icon_size + text2num(screen_loc_Y[2]) - source.pixel_z
+	var/tx = (text2num(screen_loc_X[1]) - 1) * ICON_SIZE_X + text2num(screen_loc_X[2])
+	var/ty = (text2num(screen_loc_Y[1]) - 1) * ICON_SIZE_Y + text2num(screen_loc_Y[2])
 
 	//Calculate the "resolution" of screen based on client's view and world's icon size. This will work if the user can view more tiles than average.
 	var/list/screenview = view_to_pixels(user.client.view)
 
 	var/ox = round(screenview[1] / 2) - user.client.pixel_x //"origin" x
-	var/oy = round(screenview[2] / 2) - user.client.pixel_y - source.pixel_z //"origin" y
+	var/oy = round(screenview[2] / 2) - user.client.pixel_y //"origin" y
 	angle = ATAN2(tx - oy, ty - ox)
 	return list(angle, p_x, p_y)
 

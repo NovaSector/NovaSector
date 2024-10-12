@@ -206,7 +206,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 	if (GLOB.cops_arrived)
 		to_chat(user, span_warning("911 has already been called this shift!"))
-		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
+		playsound(src, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 		return FALSE
 
 	if (!issilicon(user))
@@ -214,11 +214,11 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 		var/obj/item/card/id/id_card = held_item?.GetID()
 		if (!istype(id_card))
 			to_chat(user, span_warning("You need to swipe your ID!"))
-			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
+			playsound(src, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 			return FALSE
 		if (!(ACCESS_CAPTAIN in id_card.access))
 			to_chat(user, span_warning("You are not authorized to do this!"))
-			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
+			playsound(src, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 			return FALSE
 	else
 		to_chat(user, "The console refuses to let you dial 911 as an AI or Cyborg!")
@@ -248,7 +248,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 	call_911(called_group)
 	to_chat(user, span_notice("Authorization confirmed. 911 call dispatched to the Sol Federation [called_group_pretty]."))
-	playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
+	playsound(src, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
 
 /datum/antagonist/ert/request_911
 	name = "911 Responder"
@@ -809,14 +809,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 				else
 					message_admins("[ADMIN_LOOKUPFLW(user)] has beamed out [living_user.pulling] alongside them.")
 				var/turf/pulling_turf = get_turf(living_user.pulling)
-				playsound(pulling_turf, 'sound/magic/Repulse.ogg', 100, 1)
+				playsound(pulling_turf, 'sound/effects/magic/Repulse.ogg', 100, 1)
 				var/datum/effect_system/spark_spread/quantum/sparks = new
 				sparks.set_up(10, 1, pulling_turf)
 				sparks.attach(pulling_turf)
 				sparks.start()
 				qdel(living_user.pulling)
 			var/turf/user_turf = get_turf(living_user)
-			playsound(user_turf, 'sound/magic/Repulse.ogg', 100, 1)
+			playsound(user_turf, 'sound/effects/magic/Repulse.ogg', 100, 1)
 			var/datum/effect_system/spark_spread/quantum/sparks = new
 			sparks.set_up(10, 1, user_turf)
 			sparks.attach(user_turf)

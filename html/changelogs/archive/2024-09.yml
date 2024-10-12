@@ -831,5 +831,157 @@
   Iajret:
   - bugfix: Telepathy once again has a limit of 2048 chars instead of 42
 2024-09-27:
+  00-Steven:
+  - bugfix: Fixed two broken spans, primarily used in traitor panel and some basic
+      bot stuff.
+  - admin: Traitor panel text is no longer bright red when an antag is selected, and
+      remove button is no longer blocked.
+  - bugfix: Fixed cat ears not layering properly.
+  - bugfix: Husked bodies show their blood with the right colours in photographs.
+  - bugfix: The greeting message imaginary friends get upon becoming one actually
+      includes the owner's name, instead of displaying nothing where it should've
+      been.
+  Absolucy:
+  - bugfix: Fixed the Living Heart ritual deleting your old heart when replacing it
+      instead of having it dramatically burst out of your chest like it should.
+  - qol: The Living Heart ritual will now work if you don't have one at all for some
+      reason, in the same way that'd you use an organic heart in the ritual to replace
+      a cybernetic heart.
+  - qol: The Living Heart ritual, when putting a new heart into your chest, will now
+      heal the heart enough to be just under the "severe damage" threshold, if needed.
+  Bisar:
+  - bugfix: Fixes augs not being able to heal with cables if they're naked or going
+      commando.
+  EnterTheJake:
+  - bugfix: Mansus Grasp can now properly interact with non living things.
+  - code_imp: proc/on_hand_hit and secondary have better return values.
+  - balance: Void Conduit has less range and no longer ignores Line of Sight.
   FeenieRU:
   - bugfix: fixes some modular vending machine items not getting their sprites
+  Ghommie:
+  - bugfix: The Pun Pun job trait doesn't leave behind a fake (or is it?) Pun Pun.
+  - bugfix: Fixed water overlays showing on toilets facing directions other than SOUTH
+      (down).
+  Iamgoofball:
+  - bugfix: Removes particles from Slimed and Slime Food status effects to fix fps
+      lag in xenobio
+  Jewelry-x:
+  - bugfix: fixed link for the rules button
+  - bugfix: fixed hydroponics tray not updating new crop sprite properly
+  - rscadd: Added ability to turn broadcast microphone on or off
+  Melbert:
+  - qol: Health Analyzer output has been reworked to be less "it takes up my entire
+      chat box", report any oddities or missing information
+  - rscdel: Advanced Health Analyzers can no longer be used to determine if a body
+      is faking death (like a changeling)
+  Rhials:
+  - bugfix: Replaces the unusable blink spell on the Necromancer deathmatch kit with
+      a nether portal summon.
+  Sealed101:
+  - bugfix: gelatinous cubes now puke out their consume victim when said victim dies,
+      not when it accumulates 200 brute damage (not all mobs can get damaged to that
+      point)
+  - qol: gelatinous cube's Consume action can now be used to eject the currently consumed
+      mob
+  - bugfix: "fixed gelatinous cube's consume attempt not showing the victim's name\
+      \ properly (You start attempting to devour \_!)"
+  Skilets:
+  - image: Resprited the experimentor.
+  SmArtKar:
+  - rscadd: You can now craft tether anchors, which can be secured with a wrench and
+      attached to with right click. They won't let you drift into space and you can
+      adjust tether length/cut it via lmb/rmb/ctrl click on the wire.
+  - rscadd: MOD tethers now remotely place and connect to tether anchors instead of
+      throwing you at where they landed.
+  - balance: MOD tethers can now be used in gravity
+  - balance: Jetpacks are now inertia-based.
+  - balance: Guns can accelerate you significantly in zero-g.
+  - balance: All jetpacks now give you equal speed buff, however advanced MOD ion
+      jets and captain's jetpack have higher acceleration/deceleration values.
+  - refactor: Refactored zero-g movement to be inertia-based and utilize angles instead
+      of directions.
+  - bugfix: Storage UI should no longer (not so much) randomly disappear, hooray!
+  - bugfix: Kilo whiteship no longer has varedited turrets in it
+  Tattle:
+  - balance: insulated gloves no longer have the chunky fingers trait
+  TheBoondock:
+  - bugfix: fixed lava proofed clothing from xenobio potion being damaged from fire
+  ZeWaka:
+  - bugfix: TGUI windows now flash less when opening new windows.
+  carlarctg:
+  - qol: you can now use the toy codex cicatrix as base for the codex ritual
+  grungussus:
+  - sound: audible emotes share the same cooldown
+  grungussuss:
+  - refactor: the sound folder in the source code has been reorganized, please report
+      any oddities with sounds playing or not playing
+  - server: lobby music has been repathed to sound/music/lobby_music
+  - sound: improved click.ogg
+  - bugfix: thrown items now respect the vary variable when making drop sounds.
+  - sound: lead pipe now only makes an obnoxious drop sound when thrown., reduced
+      its sound by 10db
+  imedial:
+  - bugfix: fixes soapbox being given to non-mobs
+  mc-oofert:
+  - bugfix: fixed password paper in museum
+  oranges:
+  - rscadd: Cardboard rolls and Wrapping paper can now be used to hit people on the
+      head with
+  theselfish:
+  - bugfix: The Beer Sixpack no longer magically turns into bottles.
+2024-09-28:
+  00-Steven:
+  - bugfix: Imaginary friends can now hear their host wherever they are.
+  - balance: The pAI digital messenger software now includes the NTNRC client.
+  - rscadd: You can now see people whispering, even if you cannot hear what they're
+      saying, unless you are blind (obviously). The speaker wearing something that
+      covers their mouth, being invisible, or being inside of something counteracts
+      this.
+  ArcaneMusic:
+  - bugfix: Artifact boulders should keep their alien icon even after a first round
+      of processing.
+  - bugfix: Boulders are less likely to exist with zero materials after processing.
+  - bugfix: Boulders should be slightly less laggy on conveyor belts.
+  - bugfix: Grammar of refinery/smeltery examine is corrected.
+  Ben10Omintrix:
+  - bugfix: fixes raptors retaliating against each other and their owners
+  Cheshify:
+  - balance: laser muskets have been rebalanced
+  - balance: crank weapons can be charged while moving
+  Goat:
+  - bugfix: Removes a random bookcase that was in the holdout bunker holodeck simulation
+  Sealed101:
+  - bugfix: A joint effort of Gorlex Marauders and MI13 tech support teams has finally
+      managed to center the Syndicate Infiltrator shuttle's preview on the navigation
+      console. Nuclear Ops teams sector-wide, rejoice!
+  SmArtKar:
+  - bugfix: Added missing venue prices for certain foods and reagents
+  - bugfix: Mindswap can no longer be used inside of pipes
+  - bugfix: Players no longer can randomly get semi-permanently offset from being
+      shoved
+  Soupfgc:
+  - spellcheck: Fixed closet typos
+  SuperDrish:
+  - rscadd: Port artifacts from TauCeti
+  SyncIt21:
+  - bugfix: Fixes ethereal APC drain/charge attack
+  - bugfix: Debug chem synthesizer now has temperature control for adding reagents
+  grungussuss:
+  - sound: the volume of the nuclear fission explosive have been reduced
+  timothymtorres:
+  - bugfix: Fix air alarms warning message to use pressure & temp settings
+  - bugfix: Fix air alarm helper to ignore gas when appropriate
+  - bugfix: Fix air alarms being stuck and not updating their icons.
+  - bugfix: Fix Meta's medical freezer air alarm to not trigger on cold temps. Fix
+      missing atmos alarm in Wawa kitchen coldroom.
+  - code_imp: Add missing signal to reagent dispenser RMB interactions.
+  - sound: Fix missing pour sounds from reagent dispensers
+  - bugfix: Fix air alarm not checking missing gases
+  vinylspiders:
+  - bugfix: fixes healthscanners only showing reagent scans to blind people
+  - bugfix: fixes pulsing tumor failing to spawn the elite if no ghosts respond to
+      the poll and leaving you in a bugged state, and possibly other related issues
+2024-09-29:
+  OrbisAnima:
+  - balance: Made the Jaunter Creature no longer spawnable via the gold slime reaction.
+  - balance: Made the Jaunter Creature incompatible with the bioscrambler belt

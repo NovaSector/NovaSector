@@ -15,7 +15,6 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
-		TRAIT_NOBLOOD,
 		TRAIT_EASYDISMEMBER,
 	)
 	/// Ability to allow them to shapeshift their body around.
@@ -161,7 +160,7 @@
 	span_notice("You jam your hand into the core, feeling for the densest point! Your arm is covered in slime!"),
 	span_notice("You hear an obscene squelching sound.")
 	)
-	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
+	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
 
 	if(!do_after(user, 30 SECONDS, src))
 		user.visible_message(span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
@@ -230,7 +229,7 @@
 	new death_melt_type(death_loc, victim.dir)
 
 	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
+	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")

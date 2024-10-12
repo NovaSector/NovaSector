@@ -52,7 +52,7 @@
 
 /area/ruin/space/has_grav/powered/turretfactory //give it vague mechanical sounds
 	name = "Turret Factory"
-	ambientsounds = list('sound/ambience/ambimaint.ogg','sound/ambience/ambimaint1.ogg','sound/ambience/ambimaint3.ogg', 'sound/ambience/ambimaint5.ogg', 'sound/ambience/ambimaint6.ogg')
+	ambientsounds = list('sound/ambience/maintenance/ambimaint.ogg','sound/ambience/maintenance/ambimaint1.ogg','sound/ambience/maintenance/ambimaint3.ogg', 'sound/ambience/maintenance/ambimaint5.ogg', 'sound/ambience/maintenance/ambimaint6.ogg')
 
 //Port Tarkon
 

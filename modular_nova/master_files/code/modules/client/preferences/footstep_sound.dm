@@ -12,4 +12,13 @@
 /datum/preference/choiced/footstep_sound/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == "Default")
 		return
-	target.footstep_type = lowertext(value)
+
+	var/list/value_to_define = list(
+		"Shoes" = FOOTSTEP_MOB_SHOE,
+		"Claws" = FOOTSTEP_MOB_CLAW,
+	)
+	var/obj/item/bodypart/leg/left_leg = target.get_bodypart(BODY_ZONE_L_LEG)
+	var/obj/item/bodypart/leg/right_leg = target.get_bodypart(BODY_ZONE_R_LEG)
+	var/footstep_type = value_to_define[value]
+	left_leg.footstep_type = footstep_type
+	right_leg.footstep_type = footstep_type
