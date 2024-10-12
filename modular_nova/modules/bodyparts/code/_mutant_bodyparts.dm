@@ -22,13 +22,9 @@
 // Just blanket apply the footstep pref on limb addition, it gets far too complicated otherwise as limbs are getting replaced more often than you'd think
 /obj/item/bodypart/leg/on_adding(mob/living/carbon/new_owner)
 	. = ..()
-	var/footstep_pref = new_owner.client?.prefs.read_preference(/datum/preference/choiced/footstep_sound)
-	if(footstep_pref && footstep_pref != "Default")
-		var/list/value_to_define = list(
-		"Shoes" = FOOTSTEP_MOB_SHOE,
-		"Claws" = FOOTSTEP_MOB_CLAW,
-		)
-		footstep_type = value_to_define[footstep_pref]
+	var/mob/living/carbon/human/human_owner = new_owner
+	if(istype(human_owner) && human_owner.footstep_type)
+		footstep_type = human_owner.footstep_type
 
 /// General mutant bodyparts. Used in most mutant species.
 /obj/item/bodypart/head/mutant
