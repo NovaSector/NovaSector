@@ -229,6 +229,8 @@
       change.'
   - refactor: '[TGC] Merged many, many redudant card subtypes (the mechanic, not the
       byond code stuff) into more comprehensive ones.'
+  FlufflesTheDog:
+  - bugfix: Mops and similar work properly on multi-z stations
   Ghommie:
   - rscadd: The fishing skillchip now grants an action that dispenses fishing tips.
   - rscadd: Space carps and space dragons can now fish. Space dragons can now eat
@@ -294,6 +296,7 @@
   - qol: Unusable inventory slots (as according to your bodyparts or equipment) will
       now be dimmed (similarly to how unusable inventory slots are dimmed for certain
       species like Golems).
+  - bugfix: Dead bees maintain their color and reagents
   NewyearnewmeUwu:
   - image: Fixed a missing E3N hand direction.
   OrionTheFox:
@@ -363,6 +366,7 @@
   - bugfix: fixed a clientless AI spawning when a ghost poll for syndicate modsuit
       AI had no volunteers
   - admin: AI rolebanned players can no longer role for Syndicate modsuit AI
+  - bugfix: a lot of items that shouldn't slosh when picked up will no longer slosh
   grungussuss and redemptionarc:
   - sound: snoring now has sounds, snoring will happen more often while asleep
   iwishforducks:
