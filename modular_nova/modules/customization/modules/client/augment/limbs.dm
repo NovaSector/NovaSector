@@ -47,6 +47,17 @@
 			new_limb.limb_id = BODYPART_ID_DIGITIGRADE
 			new_limb.base_limb_id = BODYPART_ID_DIGITIGRADE
 			new_limb.bodyshape = old_limb.bodyshape
+		// We need to make sure we are applying the footstep type from prefs
+		if(istype(new_limb, /obj/item/bodypart/leg))
+			var/footstep_pref = augmented.client?.prefs.read_preference(/datum/preference/choiced/footstep_sound)
+			if(footstep_pref && footstep_pref != "Default")
+				var/obj/item/bodypart/leg/new_leg = new_limb
+				var/list/value_to_define = list(
+				"Shoes" = FOOTSTEP_MOB_SHOE,
+				"Claws" = FOOTSTEP_MOB_CLAW,
+				)
+				new_leg.footstep_type = new_leg.footstep_type = value_to_define[footstep_pref]
+
 		new_limb.replace_limb(augmented, special = TRUE)
 		qdel(old_limb)
 

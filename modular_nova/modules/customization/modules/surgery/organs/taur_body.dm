@@ -132,7 +132,6 @@
 		old_left_leg.moveToNullspace()
 	new_left_leg.replace_limb(receiver, special = TRUE)
 	new_left_leg.bodytype |= BODYTYPE_TAUR
-	new_left_leg.footstep_type = old_left_leg.footstep_type
 
 	new_right_leg.bodyshape |= external_bodyshapes
 	if(old_right_leg)
@@ -140,7 +139,15 @@
 		old_right_leg.moveToNullspace()
 	new_right_leg.replace_limb(receiver, special = TRUE)
 	new_right_leg.bodytype |= BODYTYPE_TAUR
-	new_right_leg.footstep_type = old_right_leg.footstep_type
+
+	var/footstep_pref = receiver.client?.prefs.read_preference(/datum/preference/choiced/footstep_sound)
+	if(footstep_pref && footstep_pref != "Default")
+		var/list/value_to_define = list(
+			"Shoes" = FOOTSTEP_MOB_SHOE,
+			"Claws" = FOOTSTEP_MOB_CLAW,
+		)
+		new_left_leg.footstep_type = value_to_define[footstep_pref]
+		new_right_leg.footstep_type = value_to_define[footstep_pref]
 
 	return ..()
 
