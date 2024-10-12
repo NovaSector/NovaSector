@@ -213,12 +213,13 @@
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedscarf"
 	inhand_icon_state = "paddedscarf"
+	var/hood = /obj/item/clothing/head/hooded/padded
 
 /obj/item/clothing/neck/padded/Initialize(mapload)
 	. = ..()
 	AddComponent(\
 		/datum/component/toggle_attached_clothing,\
-		deployable_type = /obj/item/clothing/head/hooded/padded,\
+		deployable_type = hood,\
 		equipped_slot = ITEM_SLOT_HEAD,\
 		action_name = "Toggle Hood",\
 		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
@@ -243,6 +244,7 @@
 	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Oddly enough, you always feel comftorble regardless of the weather. Even odder, there is an ever so faint scent of wet rock on the interior of the cloak."
 	icon_state = "paddedsec"
 	inhand_icon_state = "paddedsec"
+	hood = /obj/item/clothing/head/hooded/padded/security
 
 /obj/item/clothing/head/hooded/padded/security
 	name = "vanguard cloak hood"
@@ -294,6 +296,7 @@
 	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
 	icon_state = "paddedscarfalt"
 	inhand_icon_state = "paddedscarfalt"
+	hood = /obj/item/clothing/head/hooded/padded/alt
 
 /obj/item/clothing/head/hooded/padded/alt
 	name = "feathered serenity hood"
