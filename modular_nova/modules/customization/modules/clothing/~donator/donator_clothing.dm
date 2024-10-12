@@ -213,7 +213,8 @@
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedscarf"
 	inhand_icon_state = "paddedscarf"
-	var/hood = /obj/item/clothing/head/hooded/padded
+	/// The typepath of the hood that gets created
+	var/hood_type = /obj/item/clothing/head/hooded/padded
 
 /obj/item/clothing/neck/padded/Initialize(mapload)
 	. = ..()
