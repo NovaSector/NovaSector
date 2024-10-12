@@ -136,7 +136,7 @@
 	..()
 	new /obj/item/storage/box/evidence(src)
 	new /obj/item/radio/headset/headset_sec(src)
-	// NOVA EDIT REMOVE: new /obj/item/detective_scanner(src)
+	// new /obj/item/detective_scanner(src) // NOVA EDIT REMOVAL
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
