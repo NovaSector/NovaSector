@@ -190,3 +190,9 @@
       uniforms.
   - bugfix: hairbrushes no longer unintentionally damage friends. you now need combat
       mode for aggressive brushies.
+2024-10-12:
+  NewyearnewmeUwu:
+  - image: Fixed a missing E3N hand direction.
+  RuinedTrickster:
+  - rscadd: Added new variants for some clothing
+  - rscadd: Added new pants
