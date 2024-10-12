@@ -241,7 +241,7 @@
 //Donation reward for Thedragmeme, gift for ActualVanguard
 /obj/item/clothing/neck/padded/security
 	name = "vanguard cloak"
-	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Oddly enough, you always feel comftorble regardless of the weather. Even odder, there is an ever so faint scent of wet rock on the interior of the cloak."
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Oddly enough, you always feel comfortable regardless of the weather. Even odder, there is an ever so faint scent of wet rock on the interior of the cloak."
 	icon_state = "paddedsec"
 	inhand_icon_state = "paddedsec"
 	hood = /obj/item/clothing/head/hooded/padded/security
