@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - bugfix: "Void Raptor solar array SMES units are now properly connected to the grid."
