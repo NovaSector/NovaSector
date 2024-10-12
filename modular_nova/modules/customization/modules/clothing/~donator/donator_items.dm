@@ -393,7 +393,6 @@
 	return ..()
 
 // donation reward for Bonkai, the funny jumper
-
 /obj/item/mod/skin_applier/jumper
 	name = "\improper PA-4 MK-7 J.S Supply Crate"
 	desc = "A crate made mostly of titanium with handles on the side to carry. It seems to be pressure sealed and the lid seems to be hydraulically assisted. The inside of the crate opens up and folds out to display an entire toolkit with all the essentials to convert most armor into a Mark 7 PA-7 Variant Jump suit. This crate seems to have the emblem relating to a certain Commando... Perhaps you should return it to the owner where you found it, if you can even lift it."
