@@ -1,0 +1,5 @@
+author: "tmyqlfpir"
+delete-after: True
+changes:
+  - qol: "Added pharmacy to ghost cafe medical department"
+  - qol: "Add explosion immunity to ghost cafe area"
