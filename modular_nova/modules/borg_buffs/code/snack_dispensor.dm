@@ -147,7 +147,7 @@
 	desc = "BACON!!!"
 	icon = 'modular_nova/master_files/icons/obj/food/snacks.dmi'
 	icon_state = "bacon_strip"
-	taste_description = "bacon... ish"
+	tastes = list("bacon... ish" = 1)
 	foodtypes = MEAT
 
 /obj/item/food/cookie/cloth
@@ -155,5 +155,5 @@
 	desc = "A cookie that appears to be made out of... some form of cloth?"
 	icon = 'modular_nova/master_files/icons/obj/food/snacks.dmi'
 	icon_state = "cookie_cloth"
-	taste_description = "doughy cloth"
+	tastes = list("doughy cloth" = 1)
 	foodtypes = CLOTH
