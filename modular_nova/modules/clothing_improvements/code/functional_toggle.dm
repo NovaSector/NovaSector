@@ -67,11 +67,22 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 /obj/item/clothing/suit/space
 	only_functional = TRUE
 
+// Stuff that gives other effects, like reactive armor, reflective armor, etc.
+
 /obj/item/clothing/suit/armor/reactive
 	only_functional = TRUE
 
 /obj/item/clothing/suit/hooded/ablative
 	only_functional = TRUE
 
-/obj/item/clothing/suit/armor/heavy //includes adamantine armor.
+/obj/item/clothing/suit/armor/heavy/adamantine
+	only_functional = TRUE
+
+/obj/item/clothing/suit/armor/laserproof
+	only_functional = TRUE
+
+/obj/item/clothing/suit/hooded/berserker
+	only_functional = TRUE
+
+/obj/item/clothing/suit/armor/abductor/vest
 	only_functional = TRUE
