@@ -46,7 +46,6 @@
 	else
 		worn_x_offset = 0
 	// NOVA EDIT END
-
 	var/mob/living/carbon/human/wearer = loc
 	if(!ishuman(wearer) || !wearer.w_uniform)
 		return
