@@ -13,7 +13,7 @@
 	if(value == "Default")
 		return
 
-	var/list/value_to_define = list(
+	var/static/list/value_to_define = list(
 		"Shoes" = FOOTSTEP_MOB_SHOE,
 		"Claws" = FOOTSTEP_MOB_CLAW,
 	)
