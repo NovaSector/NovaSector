@@ -62,10 +62,6 @@
 	var/inhand_x_dimension = 32
 	///Same as for [worn_y_dimension][/obj/item/var/worn_y_dimension] but for inhands, uses the lefthand_ and righthand_ file vars
 	var/inhand_y_dimension = 32
-	//NOVA EDIT START
-	/// Worn overlay will be shifted by this along x axis
-	var/worn_x_offset = 0
-	//NOVA EDIT END
 	/// Worn overlay will be shifted by this along y axis
 	var/worn_y_offset = 0
 

@@ -35,7 +35,7 @@
 		. += mutable_appearance(bloodfile2use, "[blood_overlay_type]blood")
 		//NOVA EDIT CHANGE END
 
-	//NOVA EDIT TAUR-FULLBODY SUITS START
+	// NOVA EDIT TAUR-FULLBODY SUITS START
 	if(mutant_styles & STYLE_TAUR_ALL)
 		if (worn_icon_taur_snake)
 			worn_x_offset = -16
@@ -43,7 +43,9 @@
 			worn_x_offset = -16
 		else if (worn_icon_taur_hoof)
 			worn_x_offset = -16
-	//NOVA EDIT END
+	else
+		worn_x_offset = 0
+	// NOVA EDIT END
 
 	var/mob/living/carbon/human/wearer = loc
 	if(!ishuman(wearer) || !wearer.w_uniform)
