@@ -205,6 +205,13 @@
 	else
 		return'sound/creatures/chitter.ogg'
 
+/datum/emote/living/sigh/get_sound(mob/living/user)
+	if(iscarbon(user))
+		if(user.gender == MALE)
+			return 'modular_nova/modules/emotes/sound/emotes/male/male_sigh.ogg'
+		return 'modular_nova/modules/emotes/sound/emotes/female/female_sigh.ogg'
+	return
+
 /datum/emote/living/gasp/get_sound(mob/living/user)
 	. = ..()
 	if(iscarbon(user))
@@ -540,6 +547,26 @@
 	muzzle_ignore = TRUE
 	vary = TRUE
 	sound = 'sound/voice/moth/moth_flutter.ogg'
+
+/datum/emote/living/sigh_exasperated
+	key = "esigh" // short for exasperated sigh
+	key_third_person = "esighs"
+	message = "lets out an exasperated sigh."
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/sigh_exasperated/run_emote(mob/living/user, params, type_override, intentional)
+	. = ..()
+	if(!ishuman(user))
+		return
+	var/image/emote_animation = image('icons/mob/human/emote_visuals.dmi', user, "sigh")
+	flick_overlay_global(emote_animation, GLOB.clients, 2.0 SECONDS)
+
+/datum/emote/living/sigh_exasperated/get_sound(mob/living/user)
+	if(iscarbon(user))
+		if(user.gender == MALE)
+			return 'sound/voice/human/male_sigh.ogg'
+		return 'sound/voice/human/female_sigh.ogg'
+	return
 
 /datum/emote/living/surrender
 	muzzle_ignore = TRUE

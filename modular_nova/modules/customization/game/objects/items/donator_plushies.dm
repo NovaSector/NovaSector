@@ -214,7 +214,7 @@
 	icon_state = "plushie_jecca"
 	attack_verb_continuous = list("sighs")
 	attack_verb_simple = list("sigh")
-	squeak_override = list('sound/voice/human/female_sigh.ogg' = 1)
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/female/female_sigh.ogg' = 1)
 	gender = FEMALE
 
 //Donation reward for BriareosBlue
