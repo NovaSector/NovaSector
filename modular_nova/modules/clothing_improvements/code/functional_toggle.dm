@@ -21,6 +21,12 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 	if(!only_functional)
 		. += span_info("Ctrl + Shift + Left Click to swap between functional (suit) and non-functional (neck) mode, to allow for things such as wearing a (nonfunctional) jacket over a piece of armor for the visual effect.")
 
+#define PREV_SLOT_FLAGS "fs_slots"
+#define PREV_COLD_PROTECTION "fs_cold"
+#define PREV_HEAT_PROTECTION "fs_heat"
+#define PREV_SLOWDOWN "fs_slow"
+#define PREV_ARMOR_DATUM "fs_armor"
+
 /obj/item/clothing/suit/click_ctrl_shift(mob/user)
 	if(!iscarbon(user))
 		return NONE
