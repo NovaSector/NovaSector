@@ -38,7 +38,7 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 		heat_protection = null
 		slowdown = 0
 		set_armor(/datum/armor/none)
-		user.visible_message(span_notice("[user] adjusts their [src] for non-functional use."), span_notice("You adjust your [src] for non-functional use."))
+		user.visible_message(span_notice("[user] adjusts [user.p_their()] [src] for non-functional use."), span_notice("You adjust your [src] for non-functional use."))
 	else
 		slot_flags = initial(slot_flags)
 		cold_protection = initial(cold_protection)
