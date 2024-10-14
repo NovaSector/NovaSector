@@ -57,6 +57,11 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 		user.visible_message(span_notice("[user] adjusts [user.p_their()] [src] for functional use."), span_notice("You adjust your [src] for functional use."))
 	return CLICK_ACTION_SUCCESS
 
+#undef PREV_SLOT_FLAGS
+#undef PREV_COLD_PROTECTION
+#undef PREV_HEAT_PROTECTION
+#undef PREV_SLOWDOWN
+#undef PREV_ARMOR_DATUM
 /obj/item/clothing/suit/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	
