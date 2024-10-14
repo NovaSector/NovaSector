@@ -1,3 +1,9 @@
+/obj/item/clothing/suit/toggle/labcoat/paramedic/Initialize(mapload)
+	. = ..()
+	allowed += list(
+		/obj/item/storage/medkit,
+	)
+
 /obj/item/clothing/suit/toggle/labcoat
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -6,6 +12,7 @@
 	desc = "REPORT THIS IF FOUND"
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/labcoat.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/labcoat.dmi'
+	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/suits/labcoat_teshari.dmi'
 	icon_state = null //Keeps this from showing up under the chameleon hat
 
 /obj/item/clothing/suit/toggle/labcoat/nova/rd

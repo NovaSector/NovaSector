@@ -17,7 +17,7 @@
 	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return TRUE
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 40, TRUE)
 		return FALSE
 
 
@@ -106,16 +106,16 @@
 /obj/item/storage/toolbox/emergency/turret/nri/PopulateContents()
 	return null
 
-/obj/item/storage/toolbox/emergency/turret/nri/attackby(obj/item/I, mob/living/user, params)
-	if(I.tool_behaviour == TOOL_WRENCH && user.combat_mode)
-		user.visible_message(span_danger("[user] bashes [src] with [I]!"), \
-			span_danger("You bash [src] with [I]!"), null, COMBAT_MESSAGE_RANGE)
-		playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
+/obj/item/storage/toolbox/emergency/turret/nri/attackby(obj/item/attacking_item, mob/living/user, params)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH && user.combat_mode)
+		user.visible_message(span_danger("[user] bashes [src] with [attacking_item]!"), \
+			span_danger("You bash [src] with [attacking_item]!"), null, COMBAT_MESSAGE_RANGE)
+		playsound(src, 'sound/items/tools/drill_use.ogg', 80, TRUE, -1)
 		var/obj/machinery/porta_turret/syndicate/pod/toolbox/nri/turret = new(get_turf(loc))
 		turret.faction = list(FACTION_NEUTRAL, FACTION_ERT)
 		qdel(src)
 
-	..()
+	return ..()
 
 /obj/machinery/porta_turret/syndicate/pod/toolbox/nri
 	icon = 'modular_nova/modules/novaya_ert/icons/turret_deployable.dmi'

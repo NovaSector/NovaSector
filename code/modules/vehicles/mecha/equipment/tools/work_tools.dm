@@ -20,7 +20,7 @@
 	///Var for the chassis we are attached to, needed to access ripley contents and such
 	var/obj/vehicle/sealed/mecha/ripley/cargo_holder
 	///Audio for using the hydraulic clamp
-	var/clampsound = 'sound/mecha/hydraulic.ogg'
+	var/clampsound = 'sound/vehicles/mecha/hydraulic.ogg'
 	///Chassis but typed for the cargo_hold var
 	var/obj/vehicle/sealed/mecha/ripley/workmech
 
@@ -32,6 +32,15 @@
 /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/detach(atom/moveto)
 	REMOVE_TRAIT(chassis, TRAIT_OREBOX_FUNCTIONAL, TRAIT_MECH_EQUIPMENT(type))
 	workmech = null
+	return ..()
+
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	return do_after_mecha(target, user, delay)
+
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/do_after_checks(atom/target)
+	// Gotta be close to the target
+	if(!loc.Adjacent(target))
+		return FALSE
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/action(mob/living/source, atom/target, list/modifiers)
@@ -363,7 +372,7 @@
 	if(HAS_TRAIT(markone, TRAIT_MECHA_CREATED_NORMALLY))
 		ADD_TRAIT(newmech, TRAIT_MECHA_CREATED_NORMALLY, newmech)
 	qdel(markone)
-	playsound(get_turf(newmech),'sound/items/ratchet.ogg',50,TRUE)
+	playsound(get_turf(newmech),'sound/items/tools/ratchet.ogg',50,TRUE)
 
 /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/paddy
 	name = "Paddy Conversion Kit"

@@ -64,6 +64,8 @@
 		/mob/living/simple_animal/hostile/mimic/copy/ranged,
 		/mob/living/simple_animal/hostile/mimic/crate,
 		/mob/living/simple_animal/hostile/mimic/xenobio,
+		/mob/living/simple_animal/hostile/mimic/watermelon,
+		/mob/living/simple_animal/hostile/mimic/crate/minor_illusion,
 		/mob/living/simple_animal/hostile/ooze,
 		/mob/living/simple_animal/hostile/ooze/gelatinous,
 		/mob/living/simple_animal/hostile/ooze/grapes,

@@ -95,7 +95,7 @@
 		"eat",
 		"fin slap",
 		)
-	squeak_override = list('sound/weapons/bite.ogg' = 1)
+	squeak_override = list('sound/items/weapons/bite.ogg' = 1)
 
 //Other donation reward for Razurath
 /obj/item/toy/plush/nova/donator/plushie_razurath/second
@@ -257,7 +257,7 @@
 		"squirt",
 		"soap",
 		)
-	squeak_override = list('sound/machines/twobeep.ogg' = 1)
+	squeak_override = list('sound/machines/beep/twobeep.ogg' = 1)
 
 /*
 * Plushies beyond this did not have "Donation reward for:" when moved to this file.
@@ -314,7 +314,7 @@
 		"cackle at",
 		"health analyze",
 		)
-	squeak_override = list('sound/effects/crunchybushwhack1.ogg' = 1)
+	squeak_override = list('sound/effects/bush/crunchybushwhack1.ogg' = 1)
 
 /obj/item/toy/plush/nova/donator/zapp
 	name = "Lil' Zapp"
@@ -333,9 +333,9 @@
 		"nuzzle",
 		)
 	squeak_override = list(
-		'sound/effects/can_open1.ogg' = 1,
-		'sound/effects/can_open2.ogg' = 1,
-		'sound/effects/can_open3.ogg' = 1,
+		'sound/effects/can/can_open1.ogg' = 1,
+		'sound/effects/can/can_open2.ogg' = 1,
+		'sound/effects/can/can_open3.ogg' = 1,
 		)
 	///the list that is chosen from depending on gaming skill
 	var/static/list/skill_response = list(
@@ -374,9 +374,9 @@
 		skill_level = (max(6, skill_level))
 	say(skill_response[skill_level])
 	if(skill_level == 7)
-		playsound(src_turf, 'sound/effects/can_pop.ogg', 80, TRUE)
+		playsound(src_turf, 'sound/effects/can/can_pop.ogg', 80, TRUE)
 		new /obj/effect/abstract/liquid_turf/pwr_gamr(src_turf)
-		playsound(src_turf, 'sound/effects/bubbles.ogg', 50, TRUE)
+		playsound(src_turf, 'sound/effects/bubbles/bubbles.ogg', 50, TRUE)
 		qdel(src)
 
 //Keeping the Zapp related stuff together for organization purposes
@@ -540,7 +540,7 @@
 		"slap",
 		"challenge",
 		)
-	squeak_override = list('sound/weapons/slap.ogg' = 1)
+	squeak_override = list('sound/items/weapons/slap.ogg' = 1)
 
 /obj/item/toy/plush/nova/donator/seaduplush
 	name = "sneed plushie"
@@ -655,9 +655,9 @@
 		"weld",
 		)
 	squeak_override = list(
-		'sound/items/screwdriver.ogg' = 1,
-		'sound/items/drill_use.ogg' = 1,
-		'sound/items/welder.ogg' = 1,
+		'sound/items/tools/screwdriver.ogg' = 1,
+		'sound/items/tools/drill_use.ogg' = 1,
+		'sound/items/tools/welder.ogg' = 1,
 		)
 
 /obj/item/toy/plush/nova/donator/glitch_synth
@@ -674,7 +674,7 @@
 		"hug",
 		"health analyze",
 		)
-	squeak_override = list('sound/machines/twobeep_high.ogg' = 1)
+	squeak_override = list('sound/machines/beep/twobeep_high.ogg' = 1)
 
 /obj/item/toy/plush/nova/donator/boom_bird
 	name = "boom bird plushie"
@@ -751,7 +751,7 @@
 	desc = "It reminds you of a very, very, very huggable bee."
 	icon_state = "plushie_rubi"
 	gender = FEMALE
-	squeak_override = list('sound/weapons/thudswoosh.ogg' = 1)
+	squeak_override = list('sound/items/weapons/thudswoosh.ogg' = 1)
 	attack_verb_continuous = list("hugs")
 	attack_verb_simple = list("hug")
 
@@ -827,7 +827,7 @@
 		"pet",
 		)
 	squeak_override = list(
-		'sound/creatures/mousesqueek.ogg' = 1,
+		'sound/mobs/non-humanoids/mouse/mousesqueek.ogg' = 1,
 		'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg' = 1,
 		)
 	responses = list(
@@ -863,7 +863,7 @@
 		"pet",
 		)
 	squeak_override = list(
-		'sound/creatures/mousesqueek.ogg' = 1,
+		'sound/mobs/non-humanoids/mouse/mousesqueek.ogg' = 1,
 		'modular_nova/modules/emotes/sound/voice/mothsqueak.ogg' = 1,
 		)
 	// All lowercase messages are intentional

@@ -142,7 +142,7 @@
 	message = "squeaks!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'sound/creatures/mousesqueek.ogg'
+	sound = 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg'
 
 /datum/emote/living/merp
 	key = "merp"
@@ -203,7 +203,7 @@
 	if(ismoth(user))
 		return 'modular_nova/modules/emotes/sound/emotes/mothchitter.ogg'
 	else
-		return'sound/creatures/chitter.ogg'
+		return 'sound/mobs/non-humanoids/insect/chitter.ogg'
 
 /datum/emote/living/sigh/get_sound(mob/living/user)
 	if(iscarbon(user))
@@ -528,7 +528,7 @@
 	message = "gnashes."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'sound/weapons/bite.ogg'
+	sound = 'sound/items/weapons/bite.ogg'
 
 /datum/emote/living/thump
 	key = "thump"
@@ -537,7 +537,7 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'sound/effects/glassbash.ogg'
+	sound = 'sound/effects/glass/glassbash.ogg'
 
 /datum/emote/living/flutter
 	key = "flutter"
@@ -546,7 +546,7 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'sound/voice/moth/moth_flutter.ogg'
+	sound = 'sound/mobs/humanoids/moth/moth_flutter.ogg'
 
 /datum/emote/living/sigh_exasperated
 	key = "esigh" // short for exasperated sigh
