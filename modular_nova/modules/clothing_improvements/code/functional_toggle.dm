@@ -40,8 +40,13 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 		to_chat(user, span_warning("You must be holding [src] in order to adjust it!"))
 		return CLICK_ACTION_BLOCKING
 	if(slot_flags & ITEM_SLOT_OCLOTHING)
-		functional_suit_values = list()
-		functional_suit_values = list("fs_slots"= slot_flags, "fs_cold" = cold_protection, "fs_heat" = heat_protection, "fs_slow" = slowdown, "fs_armor" = armor_type)
+		functional_suit_values = list(
+			PREV_SLOT_FLAGS = slot_flags,
+			PREV_COLD_PROTECTION = cold_protection, 
+			PREV_HEAT_PROTECTION = heat_protection, 
+			PREV_SLOWDOWN = slowdown, 
+			PREV_ARMOR_DATUM = armor_type,
+		)
 		slot_flags = ITEM_SLOT_NECK
 		cold_protection = null
 		heat_protection = null
@@ -49,11 +54,11 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 		set_armor(/datum/armor/none)
 		user.visible_message(span_notice("[user] adjusts [user.p_their()] [src] for non-functional use."), span_notice("You adjust your [src] for non-functional use."))
 	else
-		slot_flags = functional_suit_values["fs_slots"]
-		cold_protection = functional_suit_values["fs_cold"]
-		heat_protection = functional_suit_values["fs_heat"]
-		slowdown = functional_suit_values["slowdown"]
-		set_armor(functional_suit_values["fs_armor"])
+		slot_flags = functional_suit_values[PREV_SLOT_FLAGS]
+		cold_protection = functional_suit_values[PREV_COLD_PROTECTION]
+		heat_protection = functional_suit_values[PREV_HEAT_PROTECTION]
+		slowdown = functional_suit_values[PREV_SLOWDOWN]
+		set_armor(functional_suit_values[PREV_ARMOR_DATUM])
 		user.visible_message(span_notice("[user] adjusts [user.p_their()] [src] for functional use."), span_notice("You adjust your [src] for functional use."))
 	return CLICK_ACTION_SUCCESS
 
