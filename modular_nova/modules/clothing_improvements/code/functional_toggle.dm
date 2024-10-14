@@ -8,7 +8,7 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 /obj/item/clothing/suit/
 	var/only_functional = FALSE
 
-/obj/item/clothing/suit/Initialize (mapload)
+/obj/item/clothing/suit/Initialize(mapload)
 	. = ..()
 	
 	register_context()
