@@ -51,17 +51,13 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 /obj/item/clothing/suit/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	
-	var/changed = FALSE
-	
-	if(!only_functional)
-		if (slot_flags == ITEM_SLOT_NECK)
-			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Toggle functional mode"
-			changed = TRUE
-		else
-			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Toggle non-functional mode"
-			changed = TRUE
-		
-	return changed ? CONTEXTUAL_SCREENTIP_SET : .
+	if(only_functional)
+		return
+	if(slot_flags == ITEM_SLOT_NECK)
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Toggle functional mode"
+	else
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Toggle non-functional mode"
+	return CONTEXTUAL_SCREENTIP_SET
 
 // Add the things here that shouldn't have this functionality.
 
