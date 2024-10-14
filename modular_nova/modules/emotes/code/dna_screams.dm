@@ -16,13 +16,13 @@
 	return 'modular_nova/modules/emotes/sound/voice/scream_skeleton.ogg'
 
 /datum/species/fly/get_scream_sound(mob/living/carbon/human/fly)
-	return 'sound/voice/moth/scream_moth.ogg'
+	return 'sound/mobs/humanoids/moth/scream_moth.ogg'
 
 /datum/species/moth/get_scream_sound(mob/living/carbon/human/moth)
-	return 'sound/voice/moth/scream_moth.ogg'
+	return 'sound/mobs/humanoids/moth/scream_moth.ogg'
 
 /datum/species/insect/get_scream_sound(mob/living/carbon/human/insect)
-	return 'sound/voice/moth/scream_moth.ogg'
+	return 'sound/mobs/humanoids/moth/scream_moth.ogg'
 
 /datum/species/jelly/get_scream_sound(mob/living/carbon/human/jelly)
 	return 'modular_nova/modules/emotes/sound/emotes/jelly_scream.ogg'

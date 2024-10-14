@@ -216,9 +216,9 @@
 	. = ..()
 	if(iscarbon(user))
 		if(isxenohybrid(user))
-			return pick('sound/voice/lowHiss2.ogg',
-						'sound/voice/lowHiss3.ogg',
-						'sound/voice/lowHiss4.ogg')
+			return pick('sound/mobs/non-humanoids/hiss/lowHiss2.ogg',
+						'sound/mobs/non-humanoids/hiss/lowHiss3.ogg',
+						'sound/mobs/non-humanoids/hiss/lowHiss4.ogg')
 	return
 
 /datum/emote/living/snore
@@ -246,10 +246,10 @@
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 
 /datum/emote/living/clap/get_sound(mob/living/user)
-	return pick('sound/misc/clap1.ogg',
-				'sound/misc/clap2.ogg',
-				'sound/misc/clap3.ogg',
-				'sound/misc/clap4.ogg')
+	return pick('sound/mobs/humanoids/human/clap/clap1.ogg',
+				'sound/mobs/humanoids/human/clap/clap2.ogg',
+				'sound/mobs/humanoids/human/clap/clap3.ogg',
+				'sound/mobs/humanoids/human/clap/clap4.ogg')
 
 /datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
@@ -564,8 +564,8 @@
 /datum/emote/living/sigh_exasperated/get_sound(mob/living/user)
 	if(iscarbon(user))
 		if(user.gender == MALE)
-			return 'sound/voice/human/male_sigh.ogg'
-		return 'sound/voice/human/female_sigh.ogg'
+			return 'sound/mobs/humanoids/human/sigh/male_sigh.ogg'
+		return 'sound/mobs/humanoids/human/sigh/female_sigh.ogg'
 	return
 
 /datum/emote/living/surrender
