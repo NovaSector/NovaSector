@@ -45,7 +45,7 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 		heat_protection = initial(heat_protection)
 		slowdown = initial(slowdown)
 		set_armor(initial(armor_type))
-		user.visible_message(span_notice("[user] adjusts their [src] for functional use."), span_notice("You adjust your [src] for functional use."))
+		user.visible_message(span_notice("[user] adjusts [user.p_their()] [src] for functional use."), span_notice("You adjust your [src] for functional use."))
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/suit/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
