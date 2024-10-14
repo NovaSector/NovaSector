@@ -23,7 +23,7 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 /obj/item/clothing/suit/click_ctrl_shift(mob/user)
 	if(!iscarbon(user))
 		return NONE
-	if (only_functional)
+	if(only_functional)
 		return NONE
 	var/mob/living/carbon/char = user
 	if((char.get_item_by_slot(ITEM_SLOT_NECK) == src) || (char.get_item_by_slot(ITEM_SLOT_OCLOTHING) == src))
