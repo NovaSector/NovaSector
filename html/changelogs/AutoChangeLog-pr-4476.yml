@@ -1,0 +1,5 @@
+author: "FeenieRU"
+delete-after: True
+changes:
+  - bugfix: "fixed taur full-body suits"
+  - image: "fixed taur full-body sprites"
