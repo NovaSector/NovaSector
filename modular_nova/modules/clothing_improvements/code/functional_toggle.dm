@@ -17,7 +17,7 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 /obj/item/clothing/suit/examine(mob/user)
 	. = ..()
 	
-	if (!only_functional)
+	if(!only_functional)
 		. += span_info("Ctrl + Shift + Left Click to swap between functional (suit) and non-functional (neck) mode.")
 
 /obj/item/clothing/suit/click_ctrl_shift(mob/user)
