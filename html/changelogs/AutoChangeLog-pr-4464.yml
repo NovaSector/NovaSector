@@ -1,0 +1,4 @@
+author: "hack-wrench"
+delete-after: True
+changes:
+  - qol: "making detective role more unique, by removing crew pinpointer and detective scanner from their closets, preventing abuse this by officer's. Remove evidence bag from outfit."
