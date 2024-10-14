@@ -1029,6 +1029,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				.[1] = offsets["x"]
 				.[2] = offsets["y"]
 	else
+		.[1] = worn_x_offset // NOVA EDIT ADDITION - Taur fullbody suits
 		.[2] = worn_y_offset
 
 //Can't think of a better way to do this, sadly
