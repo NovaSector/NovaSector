@@ -418,3 +418,13 @@
   wonderinghost:
   - rscadd: Adds a few lights
   - bugfix: removes the darkspot in wawa med
+2024-10-14:
+  FeenieRU:
+  - bugfix: fixed taur full-body suits
+  - image: fixed taur full-body sprites
+  Stalkeros:
+  - balance: Lowers the .38 revolver's goody price to 500 credits from 2000 credits.
+  hack-wrench:
+  - qol: making detective role more unique, by removing crew pinpointer and detective
+      scanner from their closets, preventing abuse this by officer's. Remove evidence
+      bag from outfit.
