@@ -6,7 +6,7 @@ Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 
 
 /obj/item/clothing/suit/
-	var/only_functional = FALSE
+	var/only_functional
 
 /obj/item/clothing/suit/Initialize(mapload)
 	. = ..()
