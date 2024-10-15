@@ -97,11 +97,11 @@
 				soundin = pick('modular_nova/master_files/sound/weapons/punch1.ogg', 'modular_nova/master_files/sound/weapons/punch3.ogg')
 			if ("explosion")
 				soundin = pick(
-					'sound/effects/explosion1.ogg',
-					'sound/effects/explosion2.ogg',
-					'sound/effects/explosion3.ogg',
-					'sound/effects/explosioncreak1.ogg',
-					'sound/effects/explosioncreak2.ogg',
+					'sound/effects/explosion/explosion1.ogg',
+					'sound/effects/explosion/explosion2.ogg',
+					'sound/effects/explosion/explosion3.ogg',
+					'sound/effects/explosion/explosioncreak1.ogg',
+					'sound/effects/explosion/explosioncreak2.ogg',
 				)
 			if(SFX_BRICK_DROP)
 				soundin = pick(

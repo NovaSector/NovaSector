@@ -261,6 +261,11 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
 
+		// NOVA EDIT ADDITION START - Checking for robotic race
+		if (issynthetic(tracked_human))
+			entry["is_robot"] = TRUE
+		// NOVA EDIT ADDITION END
+
 		// Broken sensors show garbage data
 		if (uniform.has_sensor == BROKEN_SENSORS)
 			entry["life_status"] = rand(0,1)
@@ -273,10 +278,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["can_track"] = tracked_living_mob.can_track()
 			results[++results.len] = entry
 			continue
-		// NOVA EDIT ADDITION START - Checking for robotic race
-		if (issynthetic(tracked_human))
-			entry["is_robot"] = TRUE
-		// NOVA EDIT ADDITION END
+
 		// Current status
 		if (sensor_mode >= SENSOR_LIVING)
 			entry["life_status"] = tracked_living_mob.stat

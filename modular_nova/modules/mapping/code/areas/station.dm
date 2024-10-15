@@ -653,10 +653,6 @@
 	name = "Primary Service Stairwell"
 	icon_state = "primaryhall"
 
-/area/station/commons/cafealps
-	name = "Cafe Alps"
-	icon_state = "cafeteria"
-
 /area/station/commons/arrivalsshop
 	name = "Gift Shop"
 	icon_state = "vacant_commissary"
@@ -681,8 +677,8 @@
 	name = "Theater Greenroom"
 	icon_state = "theatre"
 
-/area/station/service/quietroom
-	name = "Quiet Room"
+/area/station/service/newsroom
+	name = "News Room"
 	icon_state = "theatre"
 
 /area/station/cargo/miningstairs

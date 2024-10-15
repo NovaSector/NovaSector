@@ -119,7 +119,7 @@
 	icon_state = "imperium_monk"
 	inhand_icon_state = "imperium_monk"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	flags_inv = HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDESHOES|HIDEJUMPSUIT|HIDEBELT
 	allowed = list(/obj/item/book/bible, /obj/item/nullrod, /obj/item/reagent_containers/cup/glass/bottle/holywater, /obj/item/storage/fancy/candle_box, /obj/item/flashlight/flare/candle, /obj/item/tank/internals/emergency_oxygen)
 
 /obj/item/clothing/suit/costume/chickensuit
@@ -217,6 +217,7 @@
 	icon_state = "classicponcho"
 	inhand_icon_state = null
 	species_exception = list(/datum/species/golem)
+	flags_inv = HIDEBELT
 
 /obj/item/clothing/suit/costume/poncho/green
 	name = "green poncho"
@@ -246,7 +247,7 @@
 	icon_state = "white_dress"
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
-	flags_inv = HIDEJUMPSUIT|HIDESHOES
+	flags_inv = HIDEJUMPSUIT|HIDESHOES|HIDEBELT
 
 /obj/item/clothing/suit/hooded/carp_costume
 	name = "carp costume"
@@ -261,6 +262,10 @@
 	allowed = list(/obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/gun/ballistic/rifle/boltaction/harpoon)
 	hoodtype = /obj/item/clothing/head/hooded/carp_hood
 
+/obj/item/clothing/suit/hooded/carp_costume/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -2)
+
 /obj/item/clothing/head/hooded/carp_hood
 	name = "carp hood"
 	desc = "A hood attached to a carp costume."
@@ -271,6 +276,10 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	flags_inv = HIDEHAIR|HIDEEARS
+
+/obj/item/clothing/head/hooded/carp_hood/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -3)
 
 /obj/item/clothing/head/hooded/carp_hood/equipped(mob/living/carbon/human/user, slot)
 	..()
@@ -392,6 +401,10 @@
 	clothing_flags = THICKMATERIAL
 	hoodtype = /obj/item/clothing/head/hooded/shark_hood
 
+/obj/item/clothing/suit/hooded/shark_costume/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -2)
+
 /obj/item/clothing/head/hooded/shark_hood
 	name = "shark hood"
 	desc = "A hood attached to a shark costume."
@@ -401,6 +414,10 @@
 	body_parts_covered = HEAD
 	clothing_flags = THICKMATERIAL
 	flags_inv = HIDEHAIR|HIDEEARS
+
+/obj/item/clothing/head/hooded/shark_hood/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -3)
 
 /obj/item/clothing/suit/hooded/shork_costume // Oh God Why
 	name = "shork costume"
@@ -413,6 +430,10 @@
 	clothing_flags = THICKMATERIAL
 	hoodtype = /obj/item/clothing/head/hooded/shork_hood
 
+/obj/item/clothing/suit/hooded/shork_costume/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, 2)
+
 /obj/item/clothing/head/hooded/shork_hood
 	name = "shork hood"
 	desc = "A hood attached to a shork costume."
@@ -422,6 +443,10 @@
 	body_parts_covered = HEAD
 	clothing_flags = THICKMATERIAL
 	flags_inv = HIDEHAIR|HIDEEARS
+
+/obj/item/clothing/head/hooded/shork_hood/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, 3)
 
 /obj/item/clothing/suit/hooded/bloated_human //OH MY GOD WHAT HAVE YOU DONE!?!?!?
 	name = "bloated human suit"
@@ -477,6 +502,7 @@
 	desc = "Perfect for those who want to stalk around a corner of a bar."
 	icon_state = "gothcoat"
 	inhand_icon_state = null
+	flags_inv = HIDEBELT
 
 /obj/item/clothing/suit/costume/xenos
 	name = "xenos suit"
@@ -484,7 +510,7 @@
 	icon_state = "xenos"
 	inhand_icon_state = "xenos_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDEBELT
 	allowed = list(/obj/item/clothing/mask/facehugger/toy)
 
 /obj/item/clothing/suit/costume/nemes
@@ -586,6 +612,10 @@
 	greyscale_colors = "#313B82#CCCFF0"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	species_exception = list(/datum/species/golem)
+
+/obj/item/clothing/suit/costume/hawaiian/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -3)
 
 /obj/item/clothing/suit/costume/football_armor
 	name = "football protective gear"

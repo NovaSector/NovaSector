@@ -37,7 +37,7 @@
 		return ..()
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
-	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
 	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	qdel(src)
@@ -48,7 +48,7 @@
 		return ..()
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
-	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
 	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
@@ -60,7 +60,7 @@
 		return ..()
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
-	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
 	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
@@ -72,7 +72,7 @@
 		return ..()
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
-	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
 	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)
@@ -84,7 +84,7 @@
 		return ..()
 
 	to_chat(owner, span_warning("Your [name] splatters with an unnerving squelch!"))
-	playsound(owner, 'sound/effects/blobattack.ogg', 60, TRUE)
+	playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
 	owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 	. = ..()
 	drop_organs(src, TRUE)

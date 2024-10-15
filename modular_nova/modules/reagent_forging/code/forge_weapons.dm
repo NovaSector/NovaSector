@@ -6,7 +6,7 @@
 	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
 	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
 	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME | CONDUCTS_ELECTRICITY
 	obj_flags_nova = ANVIL_REPAIR
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
@@ -36,7 +36,7 @@
 	inhand_icon_state = "sword"
 	worn_icon_state = "sword_back"
 	belt_icon_state = "sword_belt"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	block_chance = 20
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -54,7 +54,7 @@
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana_back"
 	belt_icon_state = "katana_belt"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	block_chance = 10
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -70,7 +70,7 @@
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger_back"
 	belt_icon_state = "dagger_belt"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	embed_type = /datum/embed_data/forged_dagger
 	throwforce = 17
 	throw_speed = 4
@@ -123,7 +123,7 @@
 	embed_data = /datum/embed_data/spear
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
 	wound_bonus = -15
@@ -206,7 +206,7 @@
 	transparent = FALSE
 	max_integrity = 150
 	w_class = WEIGHT_CLASS_NORMAL
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	obj_flags_nova = ANVIL_REPAIR
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	shield_break_sound = 'sound/effects/bang.ogg'
@@ -324,7 +324,7 @@
 	inhand_icon_state = "bokken"
 	worn_icon_state = "bokken_back"
 	block_chance = 20
-	block_sound = 'sound/weapons/parry.ogg'
+	block_sound = 'sound/items/weapons/parry.ogg'
 	damtype = STAMINA
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
@@ -356,9 +356,9 @@
 	. = ..()
 	if(!iscarbon(target_mob))
 		user.visible_message(span_warning("The [src] seems to be ineffective against the [target_mob]!"))
-		playsound(src, 'sound/weapons/genhit.ogg', 75, TRUE)
+		playsound(src, 'sound/items/weapons/genhit.ogg', 75, TRUE)
 		return
-	playsound(src, pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'), 100, TRUE)
+	playsound(src, pick('sound/items/weapons/genhit1.ogg', 'sound/items/weapons/genhit2.ogg', 'sound/items/weapons/genhit3.ogg'), 100, TRUE)
 
 #undef FAUNA_MULTIPLIER
 #undef MEGAFAUNA_MULTIPLIER

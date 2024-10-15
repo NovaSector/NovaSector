@@ -152,7 +152,7 @@
 	message = "squeaks!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'sound/creatures/mousesqueek.ogg'
+	sound = 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg'
 
 /datum/emote/living/merp
 	key = "merp"
@@ -213,7 +213,7 @@
 	if(ismoth(user))
 		return 'modular_nova/modules/emotes/sound/emotes/mothchitter.ogg'
 	else
-		return'sound/creatures/chitter.ogg'
+		return 'sound/mobs/non-humanoids/insect/chitter.ogg'
 
 /datum/emote/living/sigh/get_sound(mob/living/user)
 	if(iscarbon(user))
@@ -236,22 +236,25 @@
 /datum/emote/living/gasp/get_sound(mob/living/user)
 	if(iscarbon(user))
 		if(isxenohybrid(user))
-			return pick('sound/voice/lowHiss2.ogg',
-						'sound/voice/lowHiss3.ogg',
-						'sound/voice/lowHiss4.ogg')
+			return pick('sound/mobs/non-humanoids/hiss/lowHiss2.ogg',
+						'sound/mobs/non-humanoids/hiss/lowHiss3.ogg',
+						'sound/mobs/non-humanoids/hiss/lowHiss4.ogg',
+					)
 		if(user.gender == MALE)
 			return pick('modular_nova/modules/emotes/sound/emotes/male/gasp_m1.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m2.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m3.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m4.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m5.ogg',
-						'modular_nova/modules/emotes/sound/emotes/male/gasp_m6.ogg')
+						'modular_nova/modules/emotes/sound/emotes/male/gasp_m6.ogg',
+					)
 		return pick('modular_nova/modules/emotes/sound/emotes/female/gasp_f1.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f2.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f3.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f4.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f5.ogg',
-					'modular_nova/modules/emotes/sound/emotes/female/gasp_f6.ogg')
+					'modular_nova/modules/emotes/sound/emotes/female/gasp_f6.ogg',
+				)
 	return
 
 /datum/emote/living/snore
@@ -561,7 +564,7 @@
 	message = "gnashes."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'sound/weapons/bite.ogg'
+	sound = 'sound/items/weapons/bite.ogg'
 
 /datum/emote/living/thump
 	key = "thump"
@@ -570,7 +573,7 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'sound/effects/glassbash.ogg'
+	sound = 'sound/effects/glass/glassbash.ogg'
 
 /datum/emote/living/flutter
 	key = "flutter"
@@ -579,7 +582,7 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'sound/voice/moth/moth_flutter.ogg'
+	sound = 'sound/mobs/humanoids/moth/moth_flutter.ogg'
 
 /datum/emote/living/sigh_exasperated
 	key = "esigh" // short for exasperated sigh

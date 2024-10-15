@@ -74,7 +74,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 		return
 
 	var/icon/temporary_icon = icon(icon, icon_state, dir)
-	dnr_holder.pixel_y = temporary_icon.Height() - world.icon_size
+	dnr_holder.pixel_y = temporary_icon.Height() - ICON_SIZE_Y
 
 	if(HAS_TRAIT(src, TRAIT_DNR))
 		set_hud_image_active(DNR_HUD)
@@ -240,12 +240,16 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/cat/new_tongue = new(get_turf(human_holder))
 
+	ADD_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
+
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/feline_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/new_tongue = new human_holder.dna.species.mutanttongue
+
+	REMOVE_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)

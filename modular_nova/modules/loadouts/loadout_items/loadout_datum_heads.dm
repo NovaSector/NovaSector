@@ -705,25 +705,9 @@
 *	FLOWERS
 */
 
-/datum/loadout_item/head/donator/poppy
-	name = "Poppy Flower"
-	item_path = /obj/item/food/grown/poppy
-
-/datum/loadout_item/head/donator/lily
-	name = "Lily Flower"
-	item_path = /obj/item/food/grown/poppy/lily
-
-/datum/loadout_item/head/donator/geranium
-	name = "Geranium Flower"
-	item_path = /obj/item/food/grown/poppy/geranium
-
 /datum/loadout_item/head/donator/fraxinella
 	name = "Fraxinella Flower"
 	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
-
-/datum/loadout_item/head/donator/harebell
-	name = "Harebell Flower"
-	item_path = /obj/item/food/grown/harebell
 
 /datum/loadout_item/head/donator/rose
 	name = "Rose Flower"
@@ -732,10 +716,6 @@
 /datum/loadout_item/head/donator/carbon_rose
 	name = "Carbon Rose Flower"
 	item_path = /obj/item/grown/carbon_rose
-
-/datum/loadout_item/head/donator/sunflower
-	name = "Sunflower"
-	item_path = /obj/item/food/grown/sunflower
 
 /datum/loadout_item/head/donator/rainbow_bunch
 	name = "Rainbow Bunch"
