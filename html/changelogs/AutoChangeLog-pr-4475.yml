@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes taur legs, digi legs, and augments not getting the correct footstep sounds from prefs applied to them"
