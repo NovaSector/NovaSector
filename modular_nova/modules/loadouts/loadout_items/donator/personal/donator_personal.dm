@@ -41,7 +41,7 @@
 /datum/loadout_item/neck/padded/security
 	name = "Vanguard Cloak"
 	item_path = /obj/item/clothing/neck/padded/security
-	ckeywhitelist = list("ActualVanguard")
+	ckeywhitelist = list("actualvanguard")
 
 /datum/loadout_item/gloves/padded
 	name = "Serenity Gloves"
