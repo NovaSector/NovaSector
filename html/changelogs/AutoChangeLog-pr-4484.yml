@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Removed the a375, m223 and 310 ammo phasic variants from the ammo workbench. (Unless the workbench is adminbused)."

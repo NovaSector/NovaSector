@@ -29,5 +29,3 @@
 	var/bra_color = "#FFFFFF"
 	/// Chronological age.
 	var/chrono_age = 30
-	/// The footstep sound type to use when barefoot.
-	var/footstep_type
