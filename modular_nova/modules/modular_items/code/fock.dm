@@ -36,6 +36,14 @@
 	balloon_alert(user, "overriding...")
 	do_sparks(4, TRUE, door)
 	visible_message(span_warning("Sparks fly out of [door]!"))
+	if(door.locked)
+		to_chat(user, span_warning("The [door]'s bolts prevent it from being forced!"))
+		balloon_alert(user, "failed!")
+		return FALSE
+	if(door.welded)
+		to_chat(user, span_warning("It's welded, it won't budge!"))
+		balloon_alert(user, "failed!")
+		return FALSE
 	if(!do_after(user, rand(0.8*jacking_speed,1.2*jacking_speed) SECONDS, door, timed_action_flags = NONE,	progress = TRUE))
 		balloon_alert(user, "failed!")
 		do_sparks(2, TRUE, door)
