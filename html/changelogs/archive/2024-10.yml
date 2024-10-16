@@ -428,3 +428,20 @@
   - qol: making detective role more unique, by removing crew pinpointer and detective
       scanner from their closets, preventing abuse this by officer's. Remove evidence
       bag from outfit.
+2024-10-16:
+  FlufflesTheDog:
+  - bugfix: Blueshield and NTC job slots are properly opened when clocking out
+  OrbisAnima:
+  - balance: Removed the a375, m223 and 310 ammo phasic variants from the ammo workbench.
+      (Unless the workbench is adminbused).
+  Thedragmeme:
+  - rscadd: Adds a donor item for ActualVanguard
+  somenetwork:
+  - rscadd: Adds Donator item to BonkaiTheRoris
+  sqnztb:
+  - rscdel: hilberts areas no longer play the service bell ambience.
+  vinylspiders:
+  - bugfix: the purple skin disease plaguing the akula population seems to have subsided
+      for now
+  - bugfix: fixes taur legs, digi legs, and augments not getting the correct footstep
+      sounds from prefs applied to them
