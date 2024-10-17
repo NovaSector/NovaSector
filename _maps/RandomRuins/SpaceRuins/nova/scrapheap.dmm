@@ -474,6 +474,9 @@
 /obj/machinery/chem_dispenser,
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
+"mG" = (
+/turf/closed/indestructible/fakeglass,
+/area/ruin/space/has_grav/powered/nova/scrapheap)
 "mQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -634,6 +637,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "se" = (
 /obj/machinery/door/airlock/highsecurity,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "sV" = (
@@ -797,6 +801,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "wa" = (
 /obj/machinery/door/airlock/public,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "wh" = (
@@ -1009,7 +1014,7 @@
 /turf/closed/indestructible/opsglass,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cs" = (
-/turf/closed/indestructible/fakeglass,
+/turf/closed/indestructible/fakedoor/maintenance,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1890,6 +1895,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
+"XM" = (
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/closed/indestructible/fakedoor/glass_airlock,
+/area/ruin/space/has_grav/powered/nova/scrapheap)
 "YA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
@@ -2339,7 +2348,7 @@ fw
 (15,1,1) = {"
 fw
 fw
-Cs
+mG
 IH
 eZ
 tQ
@@ -2366,7 +2375,7 @@ fw
 (16,1,1) = {"
 fw
 fw
-Cs
+mG
 On
 IH
 IH
@@ -2413,14 +2422,14 @@ se
 Qj
 CT
 lx
-Cs
+mG
 fw
 fw
 "}
 (18,1,1) = {"
 fw
 fw
-Cs
+mG
 GP
 QB
 ED
@@ -2440,14 +2449,14 @@ QW
 zr
 Ud
 wi
-Cs
+mG
 fw
 fw
 "}
 (19,1,1) = {"
 fw
 fw
-Cs
+mG
 Tk
 RX
 UX
@@ -2467,7 +2476,7 @@ QW
 xm
 pM
 Qj
-Cs
+mG
 fw
 fw
 "}
@@ -2818,9 +2827,9 @@ YP
 wu
 db
 IM
-Jx
+Cs
 OW
-Jx
+XM
 "}
 (33,1,1) = {"
 fw
@@ -2968,11 +2977,11 @@ fw
 fw
 We
 We
-Cs
-Cs
-Cs
-Cs
-Cs
+mG
+mG
+mG
+mG
+mG
 We
 We
 fw
