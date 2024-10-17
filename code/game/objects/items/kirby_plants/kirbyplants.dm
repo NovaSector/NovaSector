@@ -19,9 +19,7 @@
 	var/dead = FALSE
 	///If it's a special named plant, set this to true to prevent dead-name overriding.
 	var/custom_plant_name = FALSE
-	var/list/static/random_plant_states
-	/// Maximum icon state number - KEEP THIS UP TO DATE
-	var/random_state_cap = 43 // NOVA EDIT ADDITION
+	var/static/list/random_plant_states
 
 /obj/item/kirbyplants/Initialize(mapload)
 	. = ..()
@@ -67,22 +65,24 @@
 
 /// Cycle basic plant visuals
 /obj/item/kirbyplants/proc/change_visual()
-	if(!random_plant_states)
-		generate_states()
+	if(isnull(random_plant_states))
+		random_plant_states = generate_states()
 	var/current = random_plant_states.Find(icon_state)
 	var/next = WRAP(current+1,1,length(random_plant_states))
 	icon_state = random_plant_states[next]
 
 /obj/item/kirbyplants/proc/generate_states()
-	random_plant_states = list()
+	var/list/plant_states = list()
 	for(var/i in 1 to random_state_cap) //NOVA EDIT CHANGE - ORIGINAL: for(var/i in 1 to 24)
 		var/number
 		if(i < 10)
 			number = "0[i]"
 		else
 			number = "[i]"
-		random_plant_states += "plant-[number]"
-	random_plant_states += list("applebush", "monkeyplant") //NOVA EDIT CHANGE - ORIGINAL:random_plant_states += "applebush"
+		plant_states += "plant-[number]"
+	plant_states += list("applebush", "monkeyplant") //NOVA EDIT CHANGE - ORIGINAL: plant_states += "applebush"
+
+	return plant_states
 
 /obj/item/kirbyplants/random
 	icon = 'icons/obj/fluff/flora/_flora.dmi'
@@ -90,8 +90,7 @@
 
 /obj/item/kirbyplants/random/Initialize(mapload)
 	. = ..()
-	//icon = 'icons/obj/flora/plants.dmi' // ORIGINAL
-	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/obj/flora/plants.dmi'
 	randomize_base_icon_state()
 
 //Handles randomizing the icon during initialize()

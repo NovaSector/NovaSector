@@ -12,7 +12,7 @@
 		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "sandy"
-	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
@@ -130,7 +130,7 @@
 		hacking for you. Due to their complexity, the system does not appear to work on cyborgs."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "hackerman"
-	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
