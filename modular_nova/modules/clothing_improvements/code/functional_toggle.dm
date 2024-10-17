@@ -3,9 +3,7 @@ Functional Toggle lets you convert stuff to functional (exo suit), with armor, c
 It allows people to use a jacket over a piece or armor and only sacrifice the minimal amount of functionality in the pursuit of design.
 Use CTRL + SHIFT + LEFT CLICK to turn them on and off.
 */
-
-
-/obj/item/clothing/suit/
+/obj/item/clothing/suit
 	var/only_functional
 	var/list/functional_suit_values
 
