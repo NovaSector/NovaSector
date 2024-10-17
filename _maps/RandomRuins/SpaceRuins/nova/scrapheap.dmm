@@ -71,7 +71,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cA" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cE" = (
 /obj/effect/decal/cleanable/blood,
@@ -113,9 +113,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "dk" = (
-/obj/machinery/door/airlock/command,
-/obj/effect/mapping_helpers/airlock/abandoned,
-/turf/open/floor/iron,
+/turf/closed/indestructible/fakeglass,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "dl" = (
 /obj/machinery/suit_storage_unit/open,
@@ -475,7 +473,12 @@
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "mG" = (
-/turf/closed/wall/r_wall,
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/mob/living/basic/trooper/nanotrasen/ranged/smg,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "mQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -580,12 +583,12 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "qt" = (
-/obj/structure/grille/broken,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass{
+/obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "qx" = (
 /obj/structure/table/reinforced,
@@ -637,6 +640,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "se" = (
 /obj/machinery/door/airlock/highsecurity,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "sV" = (
@@ -800,6 +804,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "wa" = (
 /obj/machinery/door/airlock/public,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "wh" = (
@@ -916,8 +921,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "yR" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/effect/mapping_helpers/damaged_window,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "zo" = (
 /obj/machinery/computer{
@@ -1009,12 +1013,15 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cl" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/turf/closed/wall/mineral/titanium,
+/turf/closed/indestructible/opsglass,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cs" = (
-/obj/structure/door_assembly/door_assembly_hatch,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/mob/living/basic/trooper/nanotrasen/ranged/assault,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cu" = (
@@ -1521,7 +1528,9 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "MY" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	faction = list("hostile")
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Nb" = (
@@ -1545,11 +1554,13 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Nz" = (
 /obj/machinery/light/broken/directional/north,
-/obj/effect/mob_spawn/corpse/human/syndicatecommando,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NH" = (
-/obj/effect/decal/cleanable/greenglow,
+/obj/structure/table/reinforced,
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	faction = list("hostile")
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NO" = (
@@ -1592,12 +1603,7 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ou" = (
-/obj/structure/grille/broken,
-/obj/effect/decal/cleanable/glass,
-/obj/effect/decal/cleanable/glass{
-	dir = 8
-	},
-/turf/open/floor/plating,
+/turf/closed/indestructible/titanium/nodiagonal,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "OI" = (
 /obj/effect/decal/cleanable/blood,
@@ -1695,12 +1701,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QM" = (
-/mob/living/simple_animal/hostile/zombie/nocorpse,
-/obj/effect/turf_decal/tile/blue/fourcorners,
-/turf/open/floor/iron/dark,
+/turf/closed/indestructible/fakedoor/maintenance,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QW" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/closed/indestructible/fakedoor/glass_airlock,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "RA" = (
 /obj/structure/rack/shelf,
@@ -1850,7 +1855,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "We" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/indestructible/titanium,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Wx" = (
 /obj/machinery/light/small/red/directional/south,
@@ -2097,7 +2102,7 @@ fw
 (6,1,1) = {"
 fw
 fw
-QW
+Ou
 lt
 wT
 kc
@@ -2113,40 +2118,40 @@ bP
 OW
 bP
 IF
-QW
+Ou
 wT
 IZ
 GU
-QW
+Ou
 fw
 fw
 "}
 (7,1,1) = {"
-QW
-QW
-QW
+Ou
+Ou
+Ou
 rh
 wT
 kc
 wT
 IZ
 kc
-QW
+Ou
 CK
 bP
 bP
 bP
 Wx
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
 ts
 EN
 EN
-QW
-QW
-QW
+Ou
+Ou
+Ou
 "}
 (8,1,1) = {"
 Jx
@@ -2158,16 +2163,16 @@ zA
 kc
 wT
 wT
-QW
+Ou
 Fe
 OW
 rU
 bP
 hD
-QW
+Ou
 LL
 eY
-QW
+Ou
 kc
 wT
 wT
@@ -2176,43 +2181,43 @@ OW
 Jx
 "}
 (9,1,1) = {"
-QW
-QW
-QW
+Ou
+Ou
+Ou
 kc
 wT
 wT
 lM
 GU
 dp
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
 us
-QW
-QW
+Ou
+Ou
 cp
 oP
 CF
 wT
 wT
 EN
-QW
-QW
-QW
+Ou
+Ou
+Ou
 "}
 (10,1,1) = {"
-Sz
+yR
 MY
-QW
+Ou
 om
 IZ
 qm
 lM
 EN
 lM
-QW
+Ou
 dd
 ON
 cf
@@ -2221,18 +2226,18 @@ qV
 YT
 If
 EY
-QW
+Ou
 sV
 kc
 WA
-QW
+Ou
 MY
-Sz
+yR
 "}
 (11,1,1) = {"
-Sz
-Sz
-QW
+yR
+yR
+Ou
 wT
 kc
 kc
@@ -2248,25 +2253,25 @@ iB
 KB
 ou
 cm
-QW
-QW
+Ou
+Ou
 CF
-QW
-QW
+Ou
+Ou
 yR
-Sz
+yR
 "}
 (12,1,1) = {"
 fw
 fw
-QW
+Ou
 LG
 kc
 Ja
 wT
 xL
 MV
-QW
+Ou
 Ul
 oP
 vl
@@ -2286,14 +2291,14 @@ fw
 (13,1,1) = {"
 fw
 fw
-QW
-QW
-QW
-QW
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
+Ou
+Ou
+Ou
+Ou
 cp
 oP
 wV
@@ -2318,7 +2323,7 @@ Ib
 tw
 yE
 Gf
-QW
+Ou
 ry
 qV
 AD
@@ -2340,7 +2345,7 @@ fw
 (15,1,1) = {"
 fw
 fw
-Sz
+dk
 IH
 eZ
 tQ
@@ -2356,10 +2361,10 @@ uH
 Ey
 Mf
 oP
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
 We
 fw
 fw
@@ -2367,23 +2372,23 @@ fw
 (16,1,1) = {"
 fw
 fw
-Sz
+dk
 On
 IH
 IH
 EJ
-QW
+Ou
 Mf
 oP
 wV
-mG
-mG
-Cs
-mG
+uH
+uH
+uH
+uH
 uH
 Mf
 El
-QW
+Ou
 Ew
 gG
 Av
@@ -2394,19 +2399,19 @@ fw
 (17,1,1) = {"
 fw
 fw
-QW
+Ou
 Mr
 zX
 hz
 gm
-QW
+Ou
 Tn
 TH
 ui
-mG
-NH
+Sz
+Sz
+Sz
 uH
-mG
 yy
 Mf
 oP
@@ -2414,61 +2419,61 @@ se
 Qj
 CT
 lx
-Sz
+dk
 fw
 fw
 "}
 (18,1,1) = {"
 fw
 fw
-Sz
+dk
 GP
 QB
 ED
 tQ
-QW
+Ou
 cp
 TH
 GR
 FW
+NH
+Sz
 uH
-uH
-mG
 uH
 Mf
 ax
-QW
+Ou
 zr
 Ud
 wi
-Sz
+dk
 fw
 fw
 "}
 (19,1,1) = {"
 fw
 fw
-Sz
+dk
 Tk
 RX
 UX
 Jh
-QW
+Ou
 Dh
 oP
 Fj
-mG
-mG
-Cs
-mG
+Sz
+Sz
+Sz
+uH
 uH
 Mf
 TH
-QW
+Ou
 xm
 pM
 Qj
-Sz
+dk
 fw
 fw
 "}
@@ -2480,7 +2485,7 @@ Lk
 Qn
 FF
 Zg
-QW
+Ou
 cp
 Cu
 uH
@@ -2491,7 +2496,7 @@ vg
 re
 JN
 mk
-QW
+Ou
 Qj
 nO
 bn
@@ -2503,11 +2508,11 @@ fw
 fw
 fw
 We
-QW
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
+Ou
 cp
 oP
 vl
@@ -2518,7 +2523,7 @@ Mf
 vq
 iB
 KP
-QW
+Ou
 zB
 Gq
 rm
@@ -2534,7 +2539,7 @@ ES
 Ej
 xs
 aa
-QW
+Ou
 Mf
 Cg
 wV
@@ -2543,12 +2548,12 @@ wV
 uH
 Mf
 ax
-QW
-QW
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
+Ou
+Ou
 We
 fw
 fw
@@ -2588,16 +2593,16 @@ gA
 rY
 uc
 It
-QW
+Ou
 hc
 TH
 uH
 RI
-QW
+Ou
 Qe
 Mf
 cE
-QW
+Ou
 iM
 Mv
 wu
@@ -2615,12 +2620,12 @@ aq
 BY
 uc
 dP
-QW
+Ou
 Dh
 oP
 uH
 Qb
-QW
+Ou
 Bq
 Mf
 TH
@@ -2642,12 +2647,12 @@ mz
 rY
 uc
 iT
-QW
+Ou
 Tz
 oP
 uH
 FE
-QW
+Ou
 RA
 Mf
 iH
@@ -2674,7 +2679,7 @@ EL
 lN
 jt
 ys
-QW
+Ou
 xY
 Mf
 TH
@@ -2696,7 +2701,7 @@ yh
 uM
 mj
 cY
-QW
+Ou
 DN
 iR
 TH
@@ -2719,12 +2724,12 @@ fw
 fw
 fw
 We
-QW
-QW
-QW
-QW
-QW
-QW
+Ou
+Ou
+Ou
+Ou
+Ou
+Ou
 ga
 TH
 wV
@@ -2732,7 +2737,7 @@ uH
 ah
 cp
 BS
-QW
+Ou
 dl
 lT
 gd
@@ -2751,7 +2756,7 @@ bC
 kc
 nz
 eK
-QW
+Ou
 XB
 TH
 uH
@@ -2759,13 +2764,13 @@ YG
 uH
 Mf
 pZ
-QW
+Ou
 cx
 Kk
 CQ
 VU
 qM
-QW
+Ou
 We
 fw
 "}
@@ -2786,14 +2791,14 @@ pr
 Zd
 AD
 pZ
-QW
+Ou
 dl
 yp
 Xw
 EE
 gX
-QW
-QW
+Ou
+Ou
 We
 "}
 (32,1,1) = {"
@@ -2805,7 +2810,7 @@ Om
 uv
 Ny
 kc
-QW
+Ou
 Ec
 iB
 Nt
@@ -2813,15 +2818,15 @@ Nt
 iB
 iB
 lS
-QW
+Ou
 Qg
 YP
 wu
 db
 IM
-Jx
+QM
 OW
-Jx
+QW
 "}
 (33,1,1) = {"
 fw
@@ -2832,74 +2837,74 @@ We
 vG
 kc
 Vo
-QW
-QW
+Ou
+Ou
 Ou
 EU
-qt
-dk
-Sz
-QW
-QW
+Ou
+EU
+Ou
+Ou
+Ou
 Gd
 gL
 uX
-QW
+Ou
 Pq
-QW
-QW
+Ou
+Ou
 We
 "}
 (34,1,1) = {"
 fw
 fw
-Sz
+yR
 MY
 We
 Pe
 sV
 kc
-QW
+Ou
 yO
 tj
 kc
-tj
+kc
 kc
 Gp
 vY
-QW
+Ou
 Qo
 tJ
 Qo
-QW
+Ou
 zH
-QW
+Ou
 We
 fw
 "}
 (35,1,1) = {"
 fw
 fw
-Sz
-Sz
+yR
+yR
 We
 PJ
 yl
 pQ
-QW
+Ou
 RW
 TW
-QM
+vr
 uO
 vr
-QM
+vr
 Nb
-QW
+Ou
 Qo
 JI
 Qo
-QW
-QW
+Ou
+Ou
 We
 fw
 fw
@@ -2913,15 +2918,15 @@ We
 We
 We
 We
-QW
+Ou
 RW
-TW
+Cs
 vr
+qt
 td
-td
-td
+mG
 vc
-QW
+Ou
 We
 We
 We
@@ -2969,11 +2974,11 @@ fw
 fw
 We
 We
-Sz
-Sz
-Sz
-Sz
-Sz
+dk
+dk
+dk
+dk
+dk
 We
 We
 fw
