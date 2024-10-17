@@ -880,10 +880,6 @@
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
-"Rh" = (
-/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/rubbershot,
-/turf/open/floor/iron/smooth_large,
-/area/ruin/space/has_grav/nova/blackmarket)
 "Rv" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -993,6 +989,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/rack,
 /obj/effect/turf_decal/bot_white,
+/obj/item/storage/medkit/ancient,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "WS" = (
@@ -1317,7 +1314,7 @@ PW
 Zh
 KI
 KQ
-Rh
+yS
 Zh
 tC
 yS
