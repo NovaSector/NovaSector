@@ -71,7 +71,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cA" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/turf/closed/indestructible/syndicate,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cE" = (
 /obj/effect/decal/cleanable/blood,
@@ -473,9 +473,6 @@
 "mz" = (
 /obj/machinery/chem_dispenser,
 /turf/open/floor/iron/white/smooth_half,
-/area/ruin/space/has_grav/powered/nova/scrapheap)
-"mG" = (
-/turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "mQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -916,8 +913,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "yR" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/effect/mapping_helpers/damaged_window,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "zo" = (
 /obj/machinery/computer{
@@ -1009,13 +1005,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cl" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/turf/closed/wall/mineral/titanium,
+/turf/closed/indestructible/opsglass,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cs" = (
-/obj/structure/door_assembly/door_assembly_hatch,
-/turf/open/floor/iron/dark,
+/turf/closed/indestructible/fakeglass,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1521,7 +1515,9 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "MY" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	faction = list("hostile")
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Nb" = (
@@ -1549,7 +1545,10 @@
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NH" = (
-/obj/effect/decal/cleanable/greenglow,
+/obj/structure/table/reinforced,
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	faction = list("hostile")
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NO" = (
@@ -1700,7 +1699,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QW" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/indestructible/titanium/nodiagonal,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "RA" = (
 /obj/structure/rack/shelf,
@@ -1850,7 +1849,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "We" = (
-/turf/closed/wall/mineral/titanium,
+/turf/closed/indestructible/titanium,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Wx" = (
 /obj/machinery/light/small/red/directional/south,
@@ -2203,7 +2202,7 @@ QW
 QW
 "}
 (10,1,1) = {"
-Sz
+yR
 MY
 QW
 om
@@ -2227,11 +2226,11 @@ kc
 WA
 QW
 MY
-Sz
+yR
 "}
 (11,1,1) = {"
-Sz
-Sz
+yR
+yR
 QW
 wT
 kc
@@ -2254,7 +2253,7 @@ CF
 QW
 QW
 yR
-Sz
+yR
 "}
 (12,1,1) = {"
 fw
@@ -2340,7 +2339,7 @@ fw
 (15,1,1) = {"
 fw
 fw
-Sz
+Cs
 IH
 eZ
 tQ
@@ -2367,7 +2366,7 @@ fw
 (16,1,1) = {"
 fw
 fw
-Sz
+Cs
 On
 IH
 IH
@@ -2376,10 +2375,10 @@ QW
 Mf
 oP
 wV
-mG
-mG
-Cs
-mG
+uH
+uH
+uH
+uH
 uH
 Mf
 El
@@ -2403,10 +2402,10 @@ QW
 Tn
 TH
 ui
-mG
-NH
+Sz
+Sz
+Sz
 uH
-mG
 yy
 Mf
 oP
@@ -2414,14 +2413,14 @@ se
 Qj
 CT
 lx
-Sz
+Cs
 fw
 fw
 "}
 (18,1,1) = {"
 fw
 fw
-Sz
+Cs
 GP
 QB
 ED
@@ -2431,9 +2430,9 @@ cp
 TH
 GR
 FW
+NH
+Sz
 uH
-uH
-mG
 uH
 Mf
 ax
@@ -2441,14 +2440,14 @@ QW
 zr
 Ud
 wi
-Sz
+Cs
 fw
 fw
 "}
 (19,1,1) = {"
 fw
 fw
-Sz
+Cs
 Tk
 RX
 UX
@@ -2457,10 +2456,10 @@ QW
 Dh
 oP
 Fj
-mG
-mG
-Cs
-mG
+Sz
+Sz
+Sz
+uH
 uH
 Mf
 TH
@@ -2468,7 +2467,7 @@ QW
 xm
 pM
 Qj
-Sz
+Cs
 fw
 fw
 "}
@@ -2853,7 +2852,7 @@ We
 (34,1,1) = {"
 fw
 fw
-Sz
+yR
 MY
 We
 Pe
@@ -2880,8 +2879,8 @@ fw
 (35,1,1) = {"
 fw
 fw
-Sz
-Sz
+yR
+yR
 We
 PJ
 yl
@@ -2969,11 +2968,11 @@ fw
 fw
 We
 We
-Sz
-Sz
-Sz
-Sz
-Sz
+Cs
+Cs
+Cs
+Cs
+Cs
 We
 We
 fw
