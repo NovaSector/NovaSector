@@ -12403,6 +12403,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
+"dqA" = (
+/obj/machinery/computer/crew{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/treatment_center)
 "dqF" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -15124,6 +15130,16 @@
 	},
 /turf/open/floor/wood/tile,
 /area/station/commons/dorms)
+"edu" = (
+/obj/effect/turf_decal/tile/blue/full,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/records/medical,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/treatment_center)
 "edB" = (
 /obj/structure/cable,
 /obj/effect/spawner/random/structure/steam_vent,
@@ -33113,8 +33129,7 @@
 /area/station/service/greenroom)
 "iSR" = (
 /obj/machinery/mineral/ore_redemption{
-	input_dir = 8;
-	output_dir = 4
+	input_dir = 8
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
@@ -88211,13 +88226,13 @@
 /turf/open/floor/plating,
 /area/station/command/teleporter)
 "xJz" = (
-/obj/machinery/door/airlock/security{
-	name = "Orderly's Office"
-	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/medical/orderly,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Medical Front Desk"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/white/smooth_half{
 	dir = 8
 	},
@@ -266443,8 +266458,8 @@ bwA
 wyn
 vQr
 nuP
-eZJ
-wjK
+dqA
+edu
 ryh
 hjO
 omv
