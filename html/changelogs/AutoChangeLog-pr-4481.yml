@@ -1,6 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - qol: "Most™ Jackets, Suits, Tops, some armors and other exosuit equipment can now be toggled (CTRL+SHIFT+LEFT CLICK) to change between functional and non functional uses. The former their usual configuration, the latter featureless but able to be used on the neck."
-  - balance: "frontier jackets no longer can be stacked to get a boost on armor."
-  - balance: "frontier mask uses the same kind of armor the atmos, captain and CC masks have. It no longer gives Laser armor."

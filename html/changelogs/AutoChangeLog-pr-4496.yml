@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - bugfix: "void raptor's interior windows no longer create vacuums when deconstructed."

@@ -445,3 +445,14 @@
       for now
   - bugfix: fixes taur legs, digi legs, and augments not getting the correct footstep
       sounds from prefs applied to them
+2024-10-18:
+  OrbisAnima:
+  - qol: "Most\u2122 Jackets, Suits, Tops, some armors and other exosuit equipment\
+      \ can now be toggled (CTRL+SHIFT+LEFT CLICK) to change between functional and\
+      \ non functional uses. The former their usual configuration, the latter featureless\
+      \ but able to be used on the neck."
+  - balance: frontier jackets no longer can be stacked to get a boost on armor.
+  - balance: frontier mask uses the same kind of armor the atmos, captain and CC masks
+      have. It no longer gives Laser armor.
+  sqnztb:
+  - bugfix: void raptor's interior windows no longer create vacuums when deconstructed.
