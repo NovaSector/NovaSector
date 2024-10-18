@@ -44,6 +44,7 @@
 "dm" = (
 /obj/structure/sink/kitchen/directional/south,
 /obj/effect/turf_decal/bot_white,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "du" = (
@@ -247,9 +248,7 @@
 /obj/machinery/light/dim/directional/west,
 /obj/structure/table,
 /obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/item/gun/ballistic/shotgun/automatic/dual_tube{
-	pixel_y = 8
-	},
+/obj/effect/spawner/random/weapon/black_market_trader,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "mQ" = (
@@ -314,6 +313,10 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/blackmarket)
+"rF" = (
+/obj/machinery/telecomms/relay/preset/ruskie,
+/turf/open/floor/circuit/telecomms,
 /area/ruin/space/has_grav/nova/blackmarket)
 "sb" = (
 /obj/structure/rack,
@@ -664,7 +667,6 @@
 "FG" = (
 /obj/structure/table,
 /obj/structure/sign/poster/contraband/random/directional/west,
-/obj/effect/spawner/random/contraband/armory,
 /obj/effect/spawner/random/contraband/prison,
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 1
@@ -733,6 +735,10 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"JI" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/blackmarket)
 "JU" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
 /obj/effect/turf_decal/delivery/red,
@@ -861,6 +867,10 @@
 /obj/effect/spawner/random/engineering/material_cheap,
 /turf/open/floor/iron/smooth,
 /area/ruin/space/has_grav/nova/blackmarket)
+"Qd" = (
+/obj/effect/turf_decal/shuttle/exploration/typhon,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/space/has_grav/nova/blackmarket)
 "Qu" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
@@ -870,6 +880,11 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 8
 	},
+/area/ruin/space/has_grav/nova/blackmarket)
+"QL" = (
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/light/small/dim/directional/north,
+/turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/blackmarket)
 "QV" = (
 /obj/structure/sign/warning/docking/directional/south,
@@ -1412,7 +1427,7 @@ hO
 hO
 hO
 hd
-Zh
+Qd
 Pk
 MX
 hd
@@ -1447,8 +1462,8 @@ hO
 hO
 hO
 hO
-hO
 hd
+JI
 hd
 hd
 hd
@@ -1483,9 +1498,9 @@ hO
 hO
 hO
 hO
-hO
-hO
-hO
+hd
+QL
+rF
 hd
 hd
 eZ
@@ -1519,8 +1534,8 @@ hO
 hO
 hO
 hO
-hO
-hO
+hd
+hd
 hd
 hd
 oT
