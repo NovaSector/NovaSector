@@ -959,6 +959,10 @@
 	. = ..()
 	if(isethereal(affected_mob))
 		affected_mob.blood_volume += 1 * seconds_per_tick
+	// NOVA SECTOR EDIT BEGIN - Allow enriched liquid electricity to safely recharge synths
+	else if(can_fuel_synth(affected_mob))
+		return .
+	// NOVA SECTOR EDIT END
 	else if(SPT_PROB(10, seconds_per_tick)) //lmao at the newbs who eat energy bars
 		affected_mob.electrocute_act(rand(5,10), "Liquid Electricity in their body", 1, SHOCK_NOGLOVES) //the shock is coming from inside the house
 		playsound(affected_mob, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
