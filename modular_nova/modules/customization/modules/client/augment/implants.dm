@@ -24,6 +24,10 @@
 /datum/augment_item/implant/l_arm
 	slot = AUGMENT_SLOT_LEFT_ARM_IMPLANT
 
+/datum/augment_item/implant/l_arm/charging_implant
+	name = "Left Charging Cord Implant"
+	path = /obj/item/organ/internal/cyberimp/arm/power_cord
+
 /datum/augment_item/implant/l_arm/civilian_lighter
 	name = "Left Thumbtip Lighter"
 	cost = 2
@@ -82,6 +86,10 @@
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
+
+/datum/augment_item/implant/r_arm/charging_implant
+	name = "Right Charging Cord Implant"
+	path = /obj/item/organ/internal/cyberimp/arm/power_cord/right_arm
 
 /datum/augment_item/implant/r_arm/civilian_lighter
 	name = "Right Thumbtip Lighter"
