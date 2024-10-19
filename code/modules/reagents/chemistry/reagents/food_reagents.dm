@@ -27,7 +27,9 @@
 	. = ..()
 	if(!ishuman(affected_mob) || HAS_TRAIT(affected_mob, TRAIT_NOHUNGER))
 		return
-
+	// NOVA EDIT ADDITION BEGIN - Disable consumable digestion for synth stomach
+	if(istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/internal/stomach/synth))
+		return
 	var/mob/living/carbon/human/affected_human = affected_mob
 	affected_human.adjust_nutrition(get_nutriment_factor(affected_mob) * REM * seconds_per_tick)
 
@@ -959,10 +961,10 @@
 	. = ..()
 	if(isethereal(affected_mob))
 		affected_mob.blood_volume += 1 * seconds_per_tick
-	// NOVA SECTOR EDIT BEGIN - Allow enriched liquid electricity to safely recharge synths
+	// NOVA EDIT ADDITION BEGIN - Allow enriched liquid electricity to safely recharge synths
 	else if(can_fuel_synth(affected_mob))
 		return .
-	// NOVA SECTOR EDIT END
+	// NOVA EDIT ADDITION END
 	else if(SPT_PROB(10, seconds_per_tick)) //lmao at the newbs who eat energy bars
 		affected_mob.electrocute_act(rand(5,10), "Liquid Electricity in their body", 1, SHOCK_NOGLOVES) //the shock is coming from inside the house
 		playsound(affected_mob, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
