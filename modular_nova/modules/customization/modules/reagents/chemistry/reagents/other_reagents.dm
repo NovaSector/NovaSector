@@ -57,7 +57,7 @@
 	..()
 
 /datum/reagent/fuel/oil/on_mob_life(mob/living/carbon/affected_mob)
-	if(can_fuel_synth(affected_mob) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
+	if((affected_mob.mob_biotypes & MOB_ROBOTIC) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
 		affected_mob.blood_volume += 0.5
 	..()
 
