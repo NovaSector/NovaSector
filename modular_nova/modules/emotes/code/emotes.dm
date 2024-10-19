@@ -520,7 +520,7 @@
 	muzzle_ignore = TRUE
 	vary = TRUE
 	sound = SFX_CAT_PURR
-	specific_emote_audio_cooldown = 10 SECONDS
+	specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/moo
 	key = "moo"
