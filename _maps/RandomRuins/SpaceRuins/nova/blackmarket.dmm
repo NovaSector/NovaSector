@@ -316,7 +316,7 @@
 /area/ruin/space/has_grav/nova/blackmarket)
 "rF" = (
 /obj/machinery/telecomms/relay/preset/ruskie,
-/turf/open/floor/circuit/telecomms,
+/turf/open/floor/circuit,
 /area/ruin/space/has_grav/nova/blackmarket)
 "sb" = (
 /obj/structure/rack,
