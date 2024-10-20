@@ -564,8 +564,8 @@
 /datum/emote/living/sigh_exasperated/get_sound(mob/living/user)
 	if(iscarbon(user))
 		if(user.gender == MALE)
-			return 'sound/mobs/humanoids/human/sigh/male_sigh.ogg'
-		return 'sound/mobs/humanoids/human/sigh/female_sigh.ogg'
+			return 'modular_nova/modules/emotes/sound/emotes/male/male_sigh_exasperated.ogg'
+		return 'modular_nova/modules/emotes/sound/emotes/female/female_sigh_exasperated.ogg'
 	return
 
 /datum/emote/living/surrender
