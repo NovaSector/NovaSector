@@ -30,6 +30,7 @@
 	// NOVA EDIT ADDITION BEGIN - Disable consumable digestion for synth stomach
 	if(istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/internal/stomach/synth))
 		return
+	// NOVA EDIT ADDITION END
 	var/mob/living/carbon/human/affected_human = affected_mob
 	affected_human.adjust_nutrition(get_nutriment_factor(affected_mob) * REM * seconds_per_tick)
 
