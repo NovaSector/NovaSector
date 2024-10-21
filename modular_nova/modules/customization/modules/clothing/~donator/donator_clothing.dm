@@ -213,12 +213,14 @@
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "paddedscarf"
 	inhand_icon_state = "paddedscarf"
+	/// The typepath of the hood that gets created
+	var/hood_type = /obj/item/clothing/head/hooded/padded
 
 /obj/item/clothing/neck/padded/Initialize(mapload)
 	. = ..()
 	AddComponent(\
 		/datum/component/toggle_attached_clothing,\
-		deployable_type = /obj/item/clothing/head/hooded/padded,\
+		deployable_type = hood_type,\
 		equipped_slot = ITEM_SLOT_HEAD,\
 		action_name = "Toggle Hood",\
 		on_deployed = CALLBACK(src, PROC_REF(on_deployed)),\
@@ -236,6 +238,18 @@
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+
+//Donation reward for Thedragmeme, gift for ActualVanguard
+/obj/item/clothing/neck/padded/security
+	name = "vanguard cloak"
+	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Oddly enough, you always feel comfortable regardless of the weather. Even odder, there is an ever so faint scent of wet rock on the interior of the cloak."
+	icon_state = "paddedsec"
+	inhand_icon_state = "paddedsec"
+	hood_type = /obj/item/clothing/head/hooded/padded/security
+
+/obj/item/clothing/head/hooded/padded/security
+	name = "vanguard cloak hood"
+	icon_state = "paddedsechood"
 
 // Donation reward for Thedragmeme
 /obj/item/clothing/under/padded
@@ -283,6 +297,7 @@
 	desc = "A meticulously handcrafted cloak that is lined with subtle pockets filled with feathers and down. Its design matches common styles from the followers of Univitarium."
 	icon_state = "paddedscarfalt"
 	inhand_icon_state = "paddedscarfalt"
+	hood_type = /obj/item/clothing/head/hooded/padded/alt
 
 /obj/item/clothing/head/hooded/padded/alt
 	name = "feathered serenity hood"

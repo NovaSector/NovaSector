@@ -34,12 +34,13 @@
 /datum/bodypart_overlay/mutant/proc/set_appearance_from_dna(datum/dna/dna, accessory_name, feature_key)
 	if(isnull(feature_key)) // if not explicitly set, just use the feature_key of the bodypart_overlay
 		feature_key = src.feature_key
-	if(!dna.mutant_bodyparts[feature_key])
+	var/list/mutantparts_list = dna.mutant_bodyparts[feature_key] ? dna.mutant_bodyparts : dna.species.mutant_bodyparts
+	if(!mutantparts_list[feature_key])
 		return FALSE
-	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : dna.mutant_bodyparts[feature_key][MUTANT_INDEX_NAME])
+	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : mutantparts_list[feature_key][MUTANT_INDEX_NAME])
 	modsuit_affected = sprite_datum.use_custom_mod_icon
-	draw_color = dna.mutant_bodyparts[feature_key][MUTANT_INDEX_COLOR_LIST]
-	build_emissive_eligibility(dna.mutant_bodyparts[feature_key][MUTANT_INDEX_EMISSIVE_LIST])
+	draw_color = mutantparts_list[feature_key][MUTANT_INDEX_COLOR_LIST]
+	build_emissive_eligibility(mutantparts_list[feature_key][MUTANT_INDEX_EMISSIVE_LIST])
 	cache_key = jointext(generate_icon_cache(), "_")
 	return TRUE
 

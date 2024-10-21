@@ -37,6 +37,7 @@
 				/obj/item/clothing/neck/cloak/colourable/shroud = 5,
 				/obj/item/clothing/neck/cloak/colourable/boat = 5,
 				/obj/item/clothing/neck/mantle/recolorable = 5,
+				/obj/item/clothing/neck/tesharian_mantle = 5,
 				/obj/item/clothing/neck/long_cape = 5,
 				/obj/item/clothing/neck/wide_cape = 5,
 				/obj/item/clothing/neck/robe_cape = 5,
@@ -54,6 +55,7 @@
 			"icon" = "shirt",
 			"products" = list(
 				/obj/item/clothing/under/pants/nova/jeans_ripped = 5,
+				/obj/item/clothing/under/pants/nova/loose_pants = 5,
 				/obj/item/clothing/under/pants/nova/big_pants = 5,
 				/obj/item/clothing/under/dress/skirt/nova/loincloth = 5,
 				/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
