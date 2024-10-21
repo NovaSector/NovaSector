@@ -63,7 +63,7 @@
 	message = "screams!"
 	message_mime = "acts out a scream!"
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
-	audio_cooldown = 5 SECONDS
+	specific_emote_audio_cooldown = 10 SECONDS
 	vary = TRUE
 	sound_wall_ignore = TRUE //NOVA EDIT ADDITION
 
