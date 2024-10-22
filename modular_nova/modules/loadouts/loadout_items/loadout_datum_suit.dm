@@ -790,6 +790,11 @@
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
 
+/datum/loadout_item/suit/butter
+	name = "Butter Costume"
+	item_path = /obj/item/clothing/suit/costume/butter
+	ckeywhitelist = list("drpmstr, pyritechimera")
+
 // Fancy crop-top jackets
 
 /datum/loadout_item/suit/crop_jacket
