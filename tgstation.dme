@@ -7215,6 +7215,7 @@
 #include "modular_nova\modules\bsrpd\code\bsrpd.dm"
 #include "modular_nova\modules\cargo\code\goodies.dm"
 #include "modular_nova\modules\cargo\code\packs.dm"
+#include "modular_nova\modules\cargo\code\bounties\assistant.dm"
 #include "modular_nova\modules\cargo\code\items\AFAD.dm"
 #include "modular_nova\modules\cargo\code\items\gbp_punchcard.dm"
 #include "modular_nova\modules\cargo\code\items\improvedRCD.dm"
