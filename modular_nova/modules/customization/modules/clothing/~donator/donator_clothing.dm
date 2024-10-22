@@ -197,8 +197,8 @@
 /obj/item/clothing/suit/costume/butter
 	name = "butter costume"
 	desc = "Made from only the highest quality cardboard. Caution, contents include Slime and Butter, do not ingest."
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
 	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
 	icon_state = "butterbox"
