@@ -606,3 +606,6 @@
   - bugfix: void raptor's interior windows no longer create vacuums when deconstructed.
   vinylspiders:
   - bugfix: fixes a bunch of improper static list declarations
+2024-10-22:
+  MrSunabouzu:
+  - qol: Snowglobe medbay, cargo, and sec tweaks.
