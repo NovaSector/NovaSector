@@ -5814,9 +5814,11 @@
 /turf/open/floor/wood,
 /area/station/service/newsroom)
 "bAu" = (
-/obj/machinery/stasis,
 /obj/machinery/defibrillator_mount/directional/south,
 /obj/effect/turf_decal/tile/blue/half,
+/obj/structure/bed/medical{
+	dir = 4
+	},
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/treatment_center)
 "bAy" = (
@@ -27539,11 +27541,11 @@
 /area/station/hallway/primary/forestarboardhall)
 "hui" = (
 /obj/machinery/defibrillator_mount/directional/north,
-/obj/structure/bed/medical{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 1
+	},
+/obj/structure/bed/medical{
+	dir = 4
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
@@ -29702,6 +29704,12 @@
 	},
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"hZe" = (
+/obj/machinery/computer/crew{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/treatment_center)
 "hZi" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 4
@@ -30895,7 +30903,7 @@
 /turf/open/floor/wood,
 /area/station/maintenance/hiddenlibrary)
 "ioV" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/computer/warrant,
 /turf/open/floor/carpet/red,
 /area/station/security/office)
 "ipa" = (
@@ -33112,10 +33120,7 @@
 /turf/open/floor/carpet/donk,
 /area/station/service/greenroom)
 "iSR" = (
-/obj/machinery/mineral/ore_redemption{
-	input_dir = 8;
-	output_dir = 4
-	},
+/obj/machinery/mineral/ore_redemption,
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -58502,6 +58507,16 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/station/commons/vacant_room)
+"pMi" = (
+/obj/effect/turf_decal/tile/blue/full,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/records/medical,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/treatment_center)
 "pMk" = (
 /obj/structure/table,
 /obj/effect/spawner/random/entertainment/drugs,
@@ -69247,12 +69262,12 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/service/hydroponics)
 "sIP" = (
-/obj/structure/bed/medical{
-	dir = 4
-	},
 /obj/machinery/defibrillator_mount/directional/north,
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 1
+	},
+/obj/machinery/stasis{
+	dir = 4
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
@@ -88211,13 +88226,13 @@
 /turf/open/floor/plating,
 /area/station/command/teleporter)
 "xJz" = (
-/obj/machinery/door/airlock/security{
-	name = "Orderly's Office"
-	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/all/medical/orderly,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Medical Front Desk"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /turf/open/floor/iron/white/smooth_half{
 	dir = 8
 	},
@@ -266443,8 +266458,8 @@ bwA
 wyn
 vQr
 nuP
-eZJ
-wjK
+hZe
+pMi
 ryh
 hjO
 omv
