@@ -87,10 +87,6 @@
 	name = "Cybernetic stomach"
 	path = /obj/item/organ/internal/stomach/cybernetic
 
-/datum/augment_item/organ/stomach/synth
-	name = "Synthetic bio-reactor"
-	path = /obj/item/organ/internal/stomach/synth
-
 /datum/augment_item/organ/stomach/lithovore
 	name = "Lithovore Stomach"
 	path = /obj/item/organ/internal/stomach/lithovore
