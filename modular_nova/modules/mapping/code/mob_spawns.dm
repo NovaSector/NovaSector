@@ -48,11 +48,9 @@
 	name = "black market trader weapon spawner"
 	icon_state = "pistol"
 	loot = list(
-
-		/obj/item/gun/ballistic/shotgun/automatic/dual_tube = 80,
 		/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader = 80,
 		/obj/item/gun/energy/e_gun/old = 50,
-		/obj/item/gun/ballistic/shotgun/automatic/combat = 30,
+		/obj/item/gun/ballistic/shotgun/automatic/combat = 50,
 		/obj/item/gun/ballistic/automatic/pistol/contraband = 30,
 		/obj/item/gun/ballistic/automatic/sol_rifle/evil  = 20,
 		/obj/item/gun/ballistic/automatic/sol_smg/evil = 20,
