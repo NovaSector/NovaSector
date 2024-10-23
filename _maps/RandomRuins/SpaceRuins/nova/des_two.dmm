@@ -7880,6 +7880,9 @@
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/trimline/dark_red/warning,
+/obj/item/storage/medkit/advanced{
+	pixel_y = -2
+	},
 /obj/item/storage/medkit/toxin{
 	pixel_y = 2
 	},
