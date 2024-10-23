@@ -70,7 +70,7 @@
 	name = "Cybernetic liver"
 	path = /obj/item/organ/internal/liver/cybernetic
 
-/datum/augment_item/organ/liver/cybernetic
+/datum/augment_item/organ/liver/synth
 	name = "Reagent processing unit"
 	path = /obj/item/organ/internal/liver/synth
 
