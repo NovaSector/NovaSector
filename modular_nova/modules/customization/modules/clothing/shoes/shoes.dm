@@ -227,3 +227,15 @@
 	greyscale_colors = "#FFFFFF"
 	body_parts_covered = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/shoes/jackboots/duckboots
+	name = "northeastern duck boots"
+	desc = "A sturdy pair of winter boots. Cowhide top triple stitched to a rubber bottom provides unparalleled water resistance. A signature chain link tread ensures high grip in water, mud, brush and snow. These working boots gained fame in the northern parts of Terra more than 500 years ago."
+	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon_state = "duckboots"
+	supports_variations_flags = NONE
+
+/obj/item/clothing/shoes/jackboots/duckboots/Initialize()
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, "It has a small <b>[span_red("red five pointed star")]</b> stamped onto the heel, and <b>[span_red("DIRIGO")]</b> etched under the soles.")
