@@ -1209,6 +1209,12 @@
 	if(next_move > world.time)
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
+		// NOVA EDIT ADDITION BEGIN - Voluntary sleeping / Timed sleeping
+		// Allows resisting if the sleep verb was used
+		var/datum/status_effect/incapacitating/sleeping/sleep_effect = IsSleeping()
+		if(sleep_effect)
+			return sleep_effect.voluntary
+		// NOVA EDIT ADDITION END
 		return FALSE
 	return TRUE
 
@@ -1225,6 +1231,12 @@
 	changeNext_move(CLICK_CD_RESIST)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_RESIST, src)
+	// NOVA EDIT ADDITION BEGIN - Voluntary sleeping / Timed sleeping
+	// Wakes up from timed sleep
+	if(IsSleeping())
+		SetSleeping(0)
+		return
+	// NOVA EDIT ADDITION END
 	//resisting grabs (as if it helps anyone...)
 	if(!HAS_TRAIT(src, TRAIT_RESTRAINED) && pulledby)
 		log_combat(src, pulledby, "resisted grab")

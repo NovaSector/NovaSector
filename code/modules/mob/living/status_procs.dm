@@ -394,7 +394,9 @@
 		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
 	return S
 
-/mob/living/proc/SetSleeping(amount) //Sets remaining duration
+// NOVA EDIT - Voluntary sleep / Timed sleep
+// ORIGINAL: /mob/living/proc/SetSleeping(amount) //Sets remaining duration
+/mob/living/proc/SetSleeping(amount, is_voluntary = FALSE) //Sets remaining duration
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_SLEEP, amount) & COMPONENT_NO_STUN)
 		return
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
@@ -406,7 +408,9 @@
 	else if(S)
 		S.duration = world.time + amount
 	else
-		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
+		// NOVA EDIT - Voluntary sleep / Timed sleep
+		// ORIGINAL: S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
+		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount, is_voluntary)
 	return S
 
 /mob/living/proc/AdjustSleeping(amount) //Adds to remaining duration
@@ -421,8 +425,10 @@
 		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
 	return S
 
+// NOVA EDIT - Voluntary sleep / Timed sleep
+// ORIGINAL: /mob/living/proc/PermaSleeping()
 ///Allows us to set a permanent sleep on a player (use with caution and remember to unset it with SetSleeping() after the effect is over)
-/mob/living/proc/PermaSleeping()
+/mob/living/proc/PermaSleeping(is_voluntary = FALSE)
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_SLEEP, -1) & COMPONENT_NO_STUN)
 		return
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
@@ -430,8 +436,13 @@
 	var/datum/status_effect/incapacitating/sleeping/S = IsSleeping()
 	if(S)
 		S.duration = -1
+		// NOVA EDIT ADDITION BEGIN - Hide sleep duration if permanent
+		S.show_duration = FALSE
+		// NOVA EDIT ADDITION END
 	else
-		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, -1)
+		// NOVA EDIT - Voluntary sleep / Timed sleep
+		// ORIGINAL: S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, -1)
+		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, -1, is_voluntary)
 	return S
 
 ///////////////////////// CLEAR STATUS /////////////////////////
@@ -440,7 +451,13 @@
 	AdjustStun(-60)
 	AdjustKnockdown(-60)
 	AdjustUnconscious(-60)
-	AdjustSleeping(-100)
+	// NOVA EDIT ADDITION BEGIN - Voluntary sleep / Timed sleep
+	// ORIGINAL: AdjustSleeping(-100)
+	// Disables shaking awake if the mob used the sleep verb
+	var/datum/status_effect/incapacitating/sleeping/sleep_effect = IsSleeping()
+	if(sleep_effect && !sleep_effect.voluntary)
+		AdjustSleeping(-100)
+	// NOVA EDIT ADDITION END
 	AdjustParalyzed(-60)
 	AdjustImmobilized(-60)
 
