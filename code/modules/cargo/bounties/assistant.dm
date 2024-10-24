@@ -101,13 +101,13 @@
 	required_count = 10
 	wanted_types = list(/obj/item/food/donkpocket = TRUE)
 
-/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/monkey_hide
 	name = "Monkey Hide"
 	description = "One of the scientists at CentCom is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
 	reward = CARGO_CRATE_VALUE * 3
 	wanted_types = list(/obj/item/stack/sheet/animalhide/monkey = TRUE)
 
+/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/dead_mice
 	name = "Dead Mice"
 	description = "Station 14 ran out of freeze-dried mice. Ship some fresh ones so their janitor doesn't go on strike."
