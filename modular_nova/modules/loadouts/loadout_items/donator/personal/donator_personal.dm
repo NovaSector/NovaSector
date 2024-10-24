@@ -880,3 +880,8 @@
 	name = "Jumper Conversation Kit Box"
 	item_path = /obj/item/mod/skin_applier/jumper
 	ckeywhitelist = list("bonkaitheroris")
+
+/datum/loadout_item/pocket_items/starfruit_seed
+	name = "Primidine Starfruit Seed"
+	item_path = /obj/item/seeds/starfruit
+	ckeywhitelist = list("snailomi", "thedragmeme")
