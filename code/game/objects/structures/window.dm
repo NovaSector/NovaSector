@@ -82,21 +82,12 @@
 
 /obj/structure/window/mouse_drop_receive(atom/dropping, mob/user, params)
 	. = ..()
-	if (added_leaning)
+	if (added_leaning || (flags_1 & ON_BORDER_1))
 		return
 	/// For performance reasons and to cut down on init times we are "lazy-loading" the leaning component when someone drags their sprite onto us, and then calling dragging code again to trigger the component
-	AddComponent(/datum/component/leanable, 11, same_turf = (flags_1 & ON_BORDER_1), lean_check = CALLBACK(src, PROC_REF(lean_check)))
+	AddComponent(/datum/component/leanable, 11)
 	added_leaning = TRUE
 	dropping.base_mouse_drop_handler(src, null, null, params)
-
-/obj/structure/window/proc/lean_check(mob/living/leaner, list/modifiers)
-	if (!(flags_1 & ON_BORDER_1))
-		return TRUE
-
-	if (leaner.loc == loc)
-		return dir == REVERSE_DIR(leaner.dir)
-
-	return get_dir(src, leaner) == dir && leaner.dir == dir
 
 /obj/structure/window/examine(mob/user)
 	. = ..()
