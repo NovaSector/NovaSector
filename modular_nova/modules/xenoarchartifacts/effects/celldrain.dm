@@ -8,8 +8,8 @@
 		return
 	for(var/obj/item/stock_parts/power_store/cell in user.contents)
 		cell.use(1e10, TRUE) // uh oh
-		if(issilicon(user))
-			to_chat(user, span_notice("SYSTEM ALERT: Massive energy drain detected!"))
+	if(issilicon(user))
+		to_chat(user, span_notice("SYSTEM ALERT: Massive energy drain detected!"))
 
 /datum/artifact_effect/celldrain/do_effect_aura(seconds_per_tick)
 	. = ..()

@@ -46,21 +46,21 @@
 	. = ..()
 	if(!.)
 		return
-	var/turf/holder_loc = get_turf(src)
+	var/turf/holder_loc = get_turf(holder)
 	if(holder_loc)
-		assume_gas(current_gas_type, rand(2, 15))
+		assume_gas(current_gas_type, rand(2, 25))
 
 /datum/artifact_effect/gas/do_effect_aura(seconds_per_tick)
 	. = ..()
 	if(!.)
 		return
-	var/turf/holder_loc = get_turf(src)
+	var/turf/holder_loc = get_turf(holder)
 	if(holder_loc)
-		assume_gas(current_gas_type, pick(0, rand(0,5)))
+		assume_gas(current_gas_type, pick(0, rand(0,50)))
 
 /datum/artifact_effect/gas/do_effect_destroy(seconds_per_tick)
 	. = ..()
-	var/turf/holder_loc = get_turf(src)
+	var/turf/holder_loc = get_turf(holder)
 	if(holder_loc)
 		assume_gas(current_gas_type, 75 * seconds_per_tick)
 

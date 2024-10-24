@@ -50,6 +50,8 @@
 		/mob/living/simple_animal/hostile/mimic,
 		/mob/living/simple_animal/hostile/retaliate/goose,
 		/mob/living/basic/living_limb_flesh,
+		/mob/living/basic/bee/toxin, // Be me. Me bee.
+		/mob/living/basic/morph,
 	)
 	else
 		spawn_type = pick( // Useful for DNA Bunker, I guess?
@@ -77,6 +79,10 @@
 		/mob/living/basic/alien/maid,
 		/mob/living/carbon/human/species/monkey,
 		/mob/living/basic/pet/cat/fennec,
+		/mob/living/basic/slime/random, // Free slimes!
+		/mob/living/basic/lightgeist,
+		/mob/living/basic/mushroom,
+		/mob/living/basic/mothroach,
 	)
 
 /obj/machinery/auto_cloner/process(seconds_per_tick)

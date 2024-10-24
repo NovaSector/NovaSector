@@ -22,6 +22,8 @@
 	. = ..()
 	if(!.)
 		return
+	if(issynthetic(user))
+		return
 	to_chat(user, span_notice("Your body feels full, somehow."))
 	regen_target(user, 15)
 
@@ -31,6 +33,8 @@
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(range, curr_turf))
+		if(issynthetic(receiver))
+			continue
 		to_chat(receiver, span_notice("Your chest feels warm."))
 		regen_target(receiver, 5 * seconds_per_tick)
 
@@ -40,17 +44,22 @@
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(range, curr_turf))
+		if(issynthetic(receiver))
+			continue
 		to_chat(receiver, span_notice("Your chest feels warm."))
 		regen_target(receiver, 25 * seconds_per_tick)
 
 /datum/artifact_effect/blood_regen/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(7, curr_turf))
+		if(issynthetic(receiver))
+			continue
 		to_chat(receiver, span_notice("Your chest feels warm."))
 		regen_target(receiver, 100)
 
 /datum/artifact_effect/blood_drain
 	log_name = "Blood drain"
+	type_name = ARTIFACT_EFFECT_ORGANIC
 
 /**
  * Drains mob's blood
@@ -70,6 +79,8 @@
 	. = ..()
 	if(!.)
 		return
+	if(issynthetic(user))
+		return
 	to_chat(user, span_warning("Blood starts pouring out of your pores!"))
 	suck(user, 50)
 	return TRUE
@@ -80,6 +91,8 @@
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(range, curr_turf))
+		if(issynthetic(receiver))
+			continue
 		to_chat(receiver, span_warning("Your nose bleeds."))
 		suck(receiver, 5 * seconds_per_tick)
 
@@ -89,6 +102,8 @@
 		return
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/carbon/human_receiver in range(range, curr_turf))
+		if(issynthetic(human_receiver))
+			continue
 		var/weakness = get_anomaly_protection(human_receiver)
 		if(weakness >= 0.7)
 			var/constructed_flags = (MOB_VOMIT_BLOOD | MOB_VOMIT_HARM | MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE)
@@ -98,5 +113,7 @@
 /datum/artifact_effect/blood_drain/do_effect_destroy()
 	var/turf/curr_turf = get_turf(holder)
 	for(var/mob/living/receiver in range(7, curr_turf))
+		if(issynthetic(receiver))
+			continue
 		to_chat(receiver, span_warning("You feel empty."))
 		suck(receiver, 75)

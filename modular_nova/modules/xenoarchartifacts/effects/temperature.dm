@@ -47,7 +47,7 @@
 
 /datum/artifact_effect/temperature/cold
 	log_name = "Cold"
-	target_temp_low = 3
+	target_temp_low = TCMB
 	target_temp_high = 180
 
 /datum/artifact_effect/temperature/cold/do_effect_touch(mob/user)
@@ -56,6 +56,7 @@
 		return
 	var/datum/gas_mixture/env = .
 	env.temperature = clamp(env.temperature - 100, target_temp_low, target_temp_high)
+	holder.air_update_turf(FALSE, FALSE)
 	to_chat(user, span_warning("A chill passes up your spine!"))
 
 /datum/artifact_effect/temperature/cold/do_effect_aura(seconds_per_tick)
@@ -65,6 +66,7 @@
 	var/datum/gas_mixture/env = .
 	if(env.temperature > target_temp)
 		env.temperature -= 50 * seconds_per_tick
+		holder.air_update_turf(FALSE, FALSE)
 
 /datum/artifact_effect/temperature/cold/do_effect_destroy()
 	. = ..()
@@ -72,18 +74,25 @@
 		return
 	var/datum/gas_mixture/env = .
 	env.temperature = target_temp_low
+	holder.air_update_turf(FALSE, FALSE)
 
 /datum/artifact_effect/temperature/heat
 	log_name = "Heat"
 	target_temp_low = 300
 	target_temp_high = 1000
 
+/datum/artifact_effect/temperature/heat/New()
+	. = ..()
+	target_temp_high = rand(1000, 20000)
+
 /datum/artifact_effect/temperature/heat/do_effect_touch(mob/user)
 	. = ..()
 	if(!.)
 		return
 	var/datum/gas_mixture/env = .
-	env.temperature = clamp(env.temperature + 100, target_temp_low, target_temp_high)
+	var/amount_to_change = (target_temp_high - env.temperature) / 4
+	env.temperature = clamp(env.temperature + amount_to_change, target_temp_low, target_temp_high)
+	holder.air_update_turf(FALSE, FALSE)
 	to_chat(user, span_warning("You feel a wave of heat travel up your spine!"))
 
 /datum/artifact_effect/temperature/heat/do_effect_aura(seconds_per_tick)
@@ -91,8 +100,10 @@
 	if(!.)
 		return
 	var/datum/gas_mixture/env = .
+	var/amount_to_change = (target_temp_high - env.temperature) / 8
 	if(env.temperature < target_temp)
-		env.temperature += 50 * seconds_per_tick
+		env.temperature += amount_to_change * seconds_per_tick
+		holder.air_update_turf(FALSE, FALSE)
 
 /datum/artifact_effect/temperature/heat/do_effect_destroy()
 	. = ..()
@@ -100,3 +111,4 @@
 		return
 	var/datum/gas_mixture/env = .
 	env.temperature = target_temp_high
+	holder.air_update_turf(FALSE, FALSE)

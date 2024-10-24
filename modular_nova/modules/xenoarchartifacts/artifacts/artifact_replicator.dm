@@ -66,9 +66,12 @@
 		/obj/effect/spawner/random/techstorage/tcomms_all,
 		/obj/effect/spawner/random/trash/garbage,
 		/obj/effect/spawner/random/trash/deluxe_garbage,
+		/obj/effect/spawner/random/contraband/grenades,
+		/obj/effect/spawner/random/contraband/grenades/dangerous, // Now we are talking
+		/obj/effect/spawner/random/contraband/armory,
 	)
 
-	var/quantity = rand(5,15)
+	var/quantity = rand(3,8)
 	for (var/i in 1 to quantity)
 		var/button_desc = "a [pick("yellow", "purple", "green", "blue", "red", "orange", "white", "black", "lime", "pink", "gray", "bloody")], "
 		button_desc += "[pick("round", "square", "diamond", "heart", "dog", "human", "cat", "lizard", "skull", "syringe", "disk", "pen", "circuitboard")]-shaped "
