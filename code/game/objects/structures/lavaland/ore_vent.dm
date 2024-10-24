@@ -118,10 +118,16 @@
 		to_chat(user, span_notice("You can't quite find the weakpoint of [src]... Perhaps it needs to be scanned first?"))
 		return
 	to_chat(user, span_notice("You start striking [src] with your golem's fist, attempting to dredge up a boulder..."))
+
 	for(var/i in 1 to 3)
-		if(do_after(user, boulder_size * 1 SECONDS, src))
-			user.apply_damage(20, STAMINA)
-			playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
+		if(!do_after(user, boulder_size * 1 SECONDS, src))
+			user.balloon_alert(user, "stay still!")
+			return
+
+		user.balloon_alert(user, i > 2 ? "got one!" : "digging around...")
+		user.apply_damage(20, STAMINA)
+		playsound(src, 'sound/items/weapons/genhit.ogg', 50, TRUE)
+
 	produce_boulder(TRUE)
 	visible_message(span_notice("You've successfully produced a boulder! Boy are your arms tired."))
 
