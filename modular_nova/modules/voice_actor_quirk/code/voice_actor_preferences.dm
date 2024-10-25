@@ -4,6 +4,9 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	can_randomize = FALSE
 
+/datum/preference/choiced/voice_actor/apply_to_human()
+	return
+
 /datum/preference/choiced/voice_actor/create_default_value()
 	return "Random"
 
@@ -30,6 +33,9 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	minimum = -12
 	maximum = 12
+
+/datum/preference/choiced/voice_actor_pitch/apply_to_human()
+	return
 
 /datum/preference/numeric/tts_voice_pitch/create_default_value()
 	return 0
