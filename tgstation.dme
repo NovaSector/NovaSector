@@ -7722,6 +7722,8 @@
 #include "modular_nova\modules\envirosuit_kits\code\cosmetic_envirosuits.dm"
 #include "modular_nova\modules\envirosuit_kits\code\envirosuit_boxes.dm"
 #include "modular_nova\modules\escape_menu\code\escape_menu_nova.dm"
+#include "modular_nova\modules\ethereal_instrument\ethereal_synth.dm"
+#include "modular_nova\modules\ethereal_instrument\synth_action.dm"
 #include "modular_nova\modules\events\code\_event_globalvars.dm"
 #include "modular_nova\modules\events\code\event_spawner.dm"
 #include "modular_nova\modules\events\code\event_spawner_menu.dm"
