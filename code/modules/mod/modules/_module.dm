@@ -108,6 +108,7 @@
 		if(mod.wearer)
 			balloon_alert(mod.wearer, "not active!")
 		return
+<<<<<<< HEAD
 	// NOVA EDIT START - DEPLOYABLE EVERYTHING OVER EVERYTHING
 	var/can_activate = TRUE
 	if(!(allow_flags & MODULE_ALLOW_INACTIVE))
@@ -119,6 +120,18 @@
 		balloon_alert(mod.wearer, "not fully deployed!")
 		return
 	// NOVA EDIT END
+=======
+	if(!has_required_parts(mod.mod_parts, need_extended = TRUE))
+		if(mod.wearer)
+			balloon_alert(mod.wearer, "required parts inactive!")
+			var/list/slot_strings = list()
+			for(var/slot in required_slots)
+				var/list/slot_list = parse_slot_flags(slot)
+				slot_strings += (length(slot_list) == 1 ? "" : "one of ") + english_list(slot_list, and_text = " or ")
+			to_chat(mod.wearer, span_warning("[src] requires these slots to be deployed: [english_list(slot_strings)]"))
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		return
+>>>>>>> 3d100fb48c... (bounty) you no longer need ALL parts deployed to use a modsuit (limbless welcome!) (#86825)
 	if(module_type != MODULE_USABLE)
 		if(active)
 			deactivate()
