@@ -609,3 +609,13 @@
 2024-10-22:
   MrSunabouzu:
   - qol: Snowglobe medbay, cargo, and sec tweaks.
+2024-10-25:
+  Zergspower:
+  - balance: The NT Research Ship finally got basic security, it's no longer a lootbox
+      without effort
+  - rscadd: Space ruin - Added an experimental tool to replace the alien tools for
+      the BMD
+  - rscadd: Space ruin - Added a Cycler Shotgun to replace the Makarov
+  - rscdel: Space ruin - Removed the alien tools from the BMD Spawn as well as the
+      Makarov
+  - balance: Space ruin - Turned down the BMD Starter equipment
