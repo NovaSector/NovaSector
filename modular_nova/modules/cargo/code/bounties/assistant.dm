@@ -32,7 +32,7 @@
 
 /datum/bounty/item/assistant/forged_sharp
 	name = "Forged Dagger"
-	description = "Our chef is adamant to use an authentic Tizarian made knife. Send us anything that cuts and was forged and we will do the rest."
+	description = "Our chef is adamant to use an authentic Tiziran made knife. Send us anything that cuts and was forged and we will do the rest."
 	reward = CARGO_CRATE_VALUE * 9
 	wanted_types = list(
 		/obj/item/forging/reagent_weapon/sword = TRUE,
