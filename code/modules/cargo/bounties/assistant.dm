@@ -30,14 +30,14 @@
 	reward = CARGO_CRATE_VALUE * 2.6
 	wanted_types = list(/obj/item/melee/baton/security/cattleprod = TRUE)
 
-/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/soap
 	name = "Soap"
 	description = "Soap has gone missing from CentCom's bathrooms and nobody knows who took it. Replace it and be the hero CentCom needs."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/soap = TRUE)
-*/
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/spear
 	name = "Spears"
