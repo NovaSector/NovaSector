@@ -162,7 +162,7 @@
 	required_count = 3
 	wanted_types = list(/obj/item/grenade/iedcasing = TRUE)
 
-/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/corgimeat
 	name = "Raw Corgi Meat"
 	description = "The Syndicate recently stole all of CentCom's corgi meat. Ship out a replacement immediately."
