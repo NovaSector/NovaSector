@@ -22,7 +22,7 @@
 		/obj/vehicle/ridden/scooter/skateboard = TRUE,
 		/obj/item/melee/skateboard = TRUE,
 	)
-*/
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
