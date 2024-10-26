@@ -1,6 +1,6 @@
 /datum/bounty/item/assistant/nuggies
 	name = "Chicken Nuggets"
-	description = "We tried begging the chef and failed. We heard assistants get a free box from the blue machine with each reedemed GAP card."
+	description = "We tried begging the chef and failed. We heard assistants get a free box from the blue machine with each redeemed GAP card."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 5
 	wanted_types = list(/obj/item/food/nugget = TRUE)
