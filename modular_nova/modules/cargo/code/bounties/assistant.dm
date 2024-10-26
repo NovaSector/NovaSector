@@ -48,7 +48,7 @@
 	required_count = 2
 	wanted_types = list(
 		/obj/vehicle/ridden/wheelchair = TRUE,
-		/obj/item/wheelchair = TRUE
+		/obj/item/wheelchair = TRUE,
 	)
 
 /datum/bounty/item/assistant/floodlight
