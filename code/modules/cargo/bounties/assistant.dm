@@ -139,14 +139,14 @@
 	wanted_types = list(/obj/item/food/grown/poppy = TRUE)
 	include_subtypes = FALSE
 
-/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/potted_plants
 	name = "Potted Plants"
 	description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 8
 	wanted_types = list(/obj/item/kirbyplants = TRUE)
-*/
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/monkey_cubes
 	name = "Monkey Cubes"
