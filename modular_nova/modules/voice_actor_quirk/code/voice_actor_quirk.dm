@@ -8,6 +8,10 @@
 	value = 4
 	quirk_flags = QUIRK_HUMAN_ONLY
 
+/datum/quirk_constant_data/voice_actor
+	associated_typepath = /datum/quirk/voice_actor
+	customization_options = list(/datum/preference/choiced/voice_actor, /datum/preference/numeric/voice_actor_pitch)
+
 /datum/quirk/voice_actor/add(client/client_source)
 	var/datum/action/innate/alter_voice/voice_action = new
 	voice_action.Grant(quirk_holder)
