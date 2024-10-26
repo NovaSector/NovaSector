@@ -5,7 +5,7 @@
 	icon_state = "signmaker_erp"
 	holosign_type = /obj/structure/holosign/privacy
 	creation_time = 0
-	max_signs = 6
+	max_signs = 8
 	var/erp_mode = FALSE
 
 /obj/item/holosign_creator/privacy/Initialize(mapload)
