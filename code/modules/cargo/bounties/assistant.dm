@@ -1,10 +1,10 @@
-/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/strange_object
 	name = "Strange Object"
 	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
 	wanted_types = list(/obj/item/relic = TRUE)
-*/
+*/ // NOVA EDIT REMOVAL END 
 
 /* NOVA EDIT REMOVE - Removes bounties, these are just boring.
 /datum/bounty/item/assistant/scooter
