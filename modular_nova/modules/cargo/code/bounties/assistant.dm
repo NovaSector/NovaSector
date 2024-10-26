@@ -14,7 +14,7 @@
 
 /datum/bounty/item/assistant/glass_bowl
 	name = "Glass Bowl"
-	description = "We broke the representative's conmemorative glass bowl during an agressive redecoration, please send a replacement ASAP!"
+	description = "We broke the representative's commemorative glass bowl during an aggressive redecoration, please send a replacement ASAP!"
 	reward = CARGO_CRATE_VALUE * 12.5
 	wanted_types = list(/obj/item/reagent_containers/cup/bowl/blowing_glass = TRUE)
 
