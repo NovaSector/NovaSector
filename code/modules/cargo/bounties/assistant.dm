@@ -189,7 +189,7 @@
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 24
 	wanted_types = list(/obj/item/toy/crayon = TRUE)
-*/
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/pens
 	name = "Pens"
