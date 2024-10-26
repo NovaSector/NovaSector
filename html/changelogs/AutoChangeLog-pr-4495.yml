@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - qol: "Lowered turfs now give a balloon alert when you need to climb out of them to cross onto another tile."
