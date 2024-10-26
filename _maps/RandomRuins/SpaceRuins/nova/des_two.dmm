@@ -1148,8 +1148,11 @@
 	id = "interdynerobo"
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/storage/backpack/duffelbag/synth_treatment_kit,
 /obj/machinery/light/cold/directional/north,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked{
+	pixel_y = 6
+	},
+/obj/item/storage/backpack/duffelbag/synth_treatment_kit,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "eO" = (
@@ -6195,12 +6198,12 @@
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/junction/flip{
+	dir = 2
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "BZ" = (
@@ -7877,9 +7880,14 @@
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/trimline/dark_red/warning,
-/obj/item/storage/medkit/regular,
-/obj/item/storage/medkit/regular{
-	pixel_y = 5
+/obj/item/storage/medkit/advanced{
+	pixel_y = -2
+	},
+/obj/item/storage/medkit/toxin{
+	pixel_y = 2
+	},
+/obj/item/storage/medkit/fire{
+	pixel_y = 6
 	},
 /obj/item/storage/medkit/regular{
 	pixel_y = 10
