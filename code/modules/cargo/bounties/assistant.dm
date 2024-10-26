@@ -72,7 +72,7 @@
 	reward = CARGO_CRATE_VALUE * 2.4
 	required_count = 3
 	wanted_types = list(/obj/item/food/cheesiehonkers = TRUE)
-*/
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/baseball_bat
 	name = "Baseball Bat"
