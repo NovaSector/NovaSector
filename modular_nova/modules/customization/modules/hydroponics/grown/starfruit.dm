@@ -5,7 +5,7 @@
 	icon = 'modular_nova/master_files/icons/obj/hydroponics/seeds.dmi'
 	icon_state = "seed-starfruit"
 	species = "starfruit"
-	plantname = "starfruit Plants"
+	plantname = "Starfruit Plants"
 	product = /obj/item/food/grown/starfruit
 	lifespan = 50
 	endurance = 15
@@ -20,7 +20,7 @@
 /obj/item/food/grown/starfruit
 	seed = /obj/item/seeds/starfruit
 	name = "starfruit"
-	desc = "One of the most commonly harvested fruits on Primidine, grown during the autumn and primary harvest season."
+	desc = "This rare fruit was formerly one of the most commonly harvested fruits on Primidine, grown during the autumn and primary harvest season."
 	icon = 'modular_nova/master_files/icons/obj/hydroponics/harvest.dmi'
 	icon_state = "starfruit"
 	bite_consumption_mod = 2
