@@ -4,6 +4,7 @@
 	icon = FA_ICON_MICROPHONE_LINES
 	gain_text = span_notice("You are reminded of how your other voice sounds.")
 	lose_text = span_warning("You suddenly forget what your other voice sounds like!")
+	medical_record_text = ""
 	value = 4
 	quirk_flags = QUIRK_HUMAN_ONLY
 
