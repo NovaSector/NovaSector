@@ -27,7 +27,7 @@
 		/obj/item/reagent_containers/cup/bowl/ceramic = TRUE,
 		/obj/item/plate/oven_tray/material/ceramic = TRUE,
 		/obj/item/reagent_containers/cup/beaker/large/ceramic = TRUE,
-		/obj/item/plate/ceramic = TRUE
+		/obj/item/plate/ceramic = TRUE,
 	)
 
 /datum/bounty/item/assistant/forged_sharp
