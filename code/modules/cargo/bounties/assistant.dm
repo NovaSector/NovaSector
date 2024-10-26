@@ -59,7 +59,7 @@
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/structure/statue = TRUE)
 
-/* NOVA EDIT REMOVE - Removes bounties that are luck or destruction based
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/clown_box
 	name = "Clown Box"
 	description = "The universe needs laughter. Stamp cardboard with a clown stamp and ship it out."
