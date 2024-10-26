@@ -34,8 +34,8 @@
 	minimum = -12
 	maximum = 12
 
-/datum/preference/choiced/voice_actor_pitch/apply_to_human()
+/datum/preference/numeric/voice_actor_pitch/apply_to_human()
 	return
 
-/datum/preference/numeric/tts_voice_pitch/create_default_value()
+/datum/preference/numeric/voice_actor_pitch/create_default_value()
 	return 0
