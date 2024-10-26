@@ -6,7 +6,7 @@
 	wanted_types = list(/obj/item/relic = TRUE)
 */ // NOVA EDIT REMOVAL END 
 
-/* NOVA EDIT REMOVE - Removes bounties, these are just boring.
+/* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
 /datum/bounty/item/assistant/scooter
 	name = "Scooter"
 	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
