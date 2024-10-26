@@ -1,6 +1,6 @@
 /obj/item/holosign_creator/erp
 	name = "privacy holobarrier projector"
-	desc = "A holographic projector that creates privacy barriers. You can remotely open barriers with it."
+	desc = "A holographic projector that creates privacy barriers. This one seems to imply intimacy..."
 	icon = 'modular_nova/master_files/icons/obj/devices/tools.dmi'
 	icon_state = "signmaker_erp"
 	holosign_type = /obj/structure/holosign/barrier/erp
@@ -13,3 +13,5 @@
 	icon = 'modular_nova/master_files/icons/effects/holosigns.dmi'
 	icon_state = "holosign_erp"
 	base_icon_state = "holosign_erp"
+	openable = FALSE
+	opacity = TRUE
