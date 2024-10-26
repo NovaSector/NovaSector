@@ -1,5 +1,5 @@
 /obj/item/holosign_creator/privacy
-	name = "personal holobarrier projector"
+	name = "personal holosign projector"
 	desc = "A holographic projector which creates privacy barriers to inform people that you are looking for privacy. Right-click to switch between pink (lewd advisory) and grey (privacy)."
 	icon = 'modular_nova/master_files/icons/obj/devices/tools.dmi'
 	icon_state = "signmaker_erp"

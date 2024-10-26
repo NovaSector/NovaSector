@@ -124,7 +124,7 @@
 	item_path = /obj/item/borg/upgrade/dominatrixmodule
 
 /datum/loadout_item/erp/holosign
-	name = "Personal Holobarrier Projector"
+	name = "Personal Holosign Projector"
 	item_path = /obj/item/holosign_creator/privacy
 
 /*
