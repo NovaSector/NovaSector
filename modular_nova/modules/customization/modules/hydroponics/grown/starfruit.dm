@@ -25,3 +25,4 @@
 	icon_state = "starfruit"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT | SUGAR
+	juice_typepath = /datum/reagent/consumable/starfruit_juice
