@@ -50,8 +50,14 @@
 					'modular_nova/modules/emotes/sound/emotes/female/female_cough_3.ogg')
 	return
 
+/datum/emote/living/cough
+	specific_emote_audio_cooldown = 5 SECONDS
+
+/datum/emote/living/carbon/whistle
+	specific_emote_audio_cooldown = 5 SECONDS
+
 /datum/emote/living/sneeze
-	vary = TRUE
+	specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/sneeze/get_sound(mob/living/user)
 	if(isvox(user))
@@ -279,6 +285,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/clap/get_sound(mob/living/user)
 	return pick('modular_nova/modules/emotes/sound/emotes/clap1.ogg',
@@ -286,7 +293,7 @@
 				'modular_nova/modules/emotes/sound/emotes/clap3.ogg',
 				'modular_nova/modules/emotes/sound/emotes/clap4.ogg')
 
-/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
+/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE, intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
