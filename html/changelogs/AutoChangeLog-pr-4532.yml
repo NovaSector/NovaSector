@@ -1,4 +1,0 @@
-author: "Thlumyn"
-delete-after: True
-changes:
-  - map: "removed extra chef vendor from Interdyne"

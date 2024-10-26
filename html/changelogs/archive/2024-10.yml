@@ -619,3 +619,33 @@
   - rscdel: Space ruin - Removed the alien tools from the BMD Spawn as well as the
       Makarov
   - balance: Space ruin - Turned down the BMD Starter equipment
+2024-10-26:
+  Hatterhat:
+  - bugfix: The Rengo precision rifle's bayonet lug is no longer haunted, and the
+      bayonet is properly flush with the barrel.
+  - bugfix: 'The Rengo precision rifle now requires two hands to wield and fire, as
+      intended.
+
+      :cl:'
+  - qol: Lowered turfs now give a balloon alert when you need to climb out of them
+      to cross onto another tile.
+  OrbisAnima:
+  - qol: Reagent weapons now properly say when examined they do double damage against
+      beasts and monsters.
+  - balance: Reagent weapons now do double damage against legions
+  - rscdel: Modsuits and Colonist type exosuits (gear harness) can no longer hold
+      _any_ fireaxes. They can still hold H2 fireaxes just fine and the later set
+      can still also hold the bone axe as originally intended.
+  - bugfix: Utility suits (Rad, Fire, Bomb, etc) and HECK cannot be used as cosmetic
+      anymore.
+  Oxotnak:
+  - rscadd: added death sound for synth species
+  SuperDrish:
+  - bugfix: Some xenoarch effects now work properly. DNAswitch and Blood effects no
+      longer work on synths. Calcium binary deoxidizer boulders now can be stabilized.
+      Radiocarbon spectrometer now can be disassembled.
+  Thlumyn:
+  - map: removed extra chef vendor from Interdyne
+  sqnztb:
+  - rscadd: DS2 has more variety in med kits available to them.
+  - bugfix: Serenity's CE office now has a keycard auth.

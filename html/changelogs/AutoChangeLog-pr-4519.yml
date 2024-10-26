@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "The Rengo precision rifle's bayonet lug is no longer haunted, and the bayonet is properly flush with the barrel."
-  - bugfix: "The Rengo precision rifle now requires two hands to wield and fire, as intended.\n:cl:"

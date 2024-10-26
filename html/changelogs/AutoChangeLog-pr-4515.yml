@@ -1,5 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - qol: "Reagent weapons now properly say when examined they do double damage against beasts and monsters."
-  - balance: "Reagent weapons now do double damage against legions"

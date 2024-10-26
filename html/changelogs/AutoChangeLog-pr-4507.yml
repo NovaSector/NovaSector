@@ -1,4 +1,0 @@
-author: "SuperDrish"
-delete-after: True
-changes:
-  - bugfix: "Some xenoarch effects now work properly. DNAswitch and Blood effects no longer work on synths. Calcium binary deoxidizer boulders now can be stabilized. Radiocarbon spectrometer now can be disassembled."
