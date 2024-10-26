@@ -136,6 +136,8 @@
 	/// Minimal character age for this job
 	var/required_character_age
 
+	/// If set, look for a policy with this instead of the job title
+	var/policy_override
 
 /datum/job/New()
 	. = ..()
@@ -318,7 +320,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 	var/list/info = list()
 	info += "<b>You are the [alt_title].</b>\n" // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
-	var/related_policy = get_policy(title)
+	var/related_policy = get_policy(policy_override || title)
 	var/radio_info = get_radio_information()
 	if(related_policy)
 		info += related_policy
