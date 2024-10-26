@@ -36,6 +36,12 @@
 	icon_state = "holosign_privacy"
 	base_icon_state = "holosign_privacy"
 
+/obj/structure/holosign/privacy/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	. = ..()
+	if(tool != projector)
+		return
+	qdel(src)
+
 /obj/structure/holosign/privacy/erp
 	name = "lewd advisory holosign"
 	desc = "A holographic sign which flickers with the word \"Lewd\". If you choose to proceed, you can expect sexual activity."
