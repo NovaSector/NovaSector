@@ -37,7 +37,7 @@
 	wanted_types = list(
 		/obj/item/forging/reagent_weapon/sword = TRUE,
 		/obj/item/forging/reagent_weapon/katana = TRUE,
-		/obj/item/forging/reagent_weapon/dagger= TRUE,
+		/obj/item/forging/reagent_weapon/dagger = TRUE,
 		/obj/item/forging/reagent_weapon/axe = TRUE,
 	)
 
