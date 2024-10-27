@@ -3,18 +3,24 @@
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "swap"
 	check_flags = AB_CHECK_CONSCIOUS
+	var/original_voice
+	var/original_pitch = 0
 	var/primary_voice
-	var/primary_pitch
+	var/primary_pitch = 0
 	var/secondary_voice
-	var/secondary_pitch
+	var/secondary_pitch = 0
 
 /datum/action/innate/alter_voice/proc/setup_voices(mob/actor)
+	if(!actor.client)
+		return
 	// Set up pitches
 	if(SStts.pitch_enabled)
 		primary_pitch = actor.pitch
+		original_pitch = primary_pitch
 		secondary_pitch = actor.client.prefs.read_preference(/datum/preference/numeric/voice_actor_pitch)
 	// Set up voices
 	primary_voice = actor.voice
+	original_voice = primary_voice
 	var/speaker = actor.client.prefs.read_preference(/datum/preference/choiced/voice_actor)
 	if((speaker == "Random") || !(speaker in SStts.available_speakers))
 		secondary_voice = pick(SStts.available_speakers)
@@ -28,13 +34,12 @@
 	if(grant_to != owner)
 		return
 	// Setup voices later if the client doesn't exist
-	if(grant_to.client)
-		setup_voices(grant_to)
+	setup_voices(grant_to)
 
 /datum/action/innate/alter_voice/Remove(mob/remove_from)
 	if(remove_from == owner)
-		remove_from.voice = primary_voice
-		remove_from.pitch = primary_pitch
+		remove_from.voice = original_voice
+		remove_from.pitch = original_pitch
 	return ..()
 
 /datum/action/innate/alter_voice/IsAvailable(feedback = FALSE)
@@ -43,8 +48,6 @@
 /datum/action/innate/alter_voice/Activate()
 	// If client didn't exist when action was granted, it should exist now
 	if(!primary_voice || !secondary_voice)
-		if(!owner.client)
-			return
 		setup_voices()
 	swap_voice(owner)
 	active = !active
