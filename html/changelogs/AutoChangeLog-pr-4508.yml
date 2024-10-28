@@ -1,5 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - rscdel: "[NOVA] the 5 second cooldown per emote has been mostly reverted: now only the 2 second cooldown is applied. these emotes still have cooldowns: purr, bork, wurble, cackle, growl, clap, cough, whistle"
-  - sound: "the felinid/taj meow and purr emotes now use the tg meow and purr sounds"
