@@ -233,6 +233,7 @@
 	fishing_modifier = -12
 
 /obj/structure/chair/office
+	name = "office chair"
 	anchored = FALSE
 	buildstackamount = 5
 	item_chair = null
@@ -253,6 +254,7 @@
 	fishing_modifier = -10
 
 /obj/structure/chair/office/light
+	name = "office chair"
 	icon_state = "officechair_white"
 
 //Stool
