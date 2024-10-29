@@ -45,7 +45,7 @@ export const Signalvib = (props) => {
                 value={frequency / 10}
                 format={(value) => toFixed(value, 1)}
                 width="80px"
-                onDrag={(e, value) =>
+                onDrag={(value) =>
                   act('freq', {
                     freq: value,
                   })
@@ -74,7 +74,7 @@ export const Signalvib = (props) => {
                 maxValue={100}
                 value={code}
                 width="80px"
-                onDrag={(e, value) =>
+                onDrag={(value) =>
                   act('code', {
                     code: value,
                   })
