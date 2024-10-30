@@ -55129,7 +55129,7 @@
 	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
-	name = "Supply Dock Loading Door"
+	name = "Supply Dock Unloading Door"
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/storage)
