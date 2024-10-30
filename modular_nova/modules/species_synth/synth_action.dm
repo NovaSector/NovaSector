@@ -17,13 +17,6 @@
 	QDEL_NULL(song)
 	return ..()
 
-/datum/action/sing_tones/IsAvailable(feedback)
-	var/mob/living/carbon/human/human_target = owner
-	var/obj/item/organ/internal/tongue/ethereal/discharger = human_target.get_organ_slot(ORGAN_SLOT_TONGUE)
-	if(discharger && istype(discharger, /obj/item/organ/internal/tongue/ethereal))
-		return ..()
-	return FALSE
-
 /datum/action/sing_tones/Trigger(trigger_flags)
 	. = ..()
 	if(!.)

@@ -86,6 +86,9 @@
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer)
 	. = ..()
 
+	var/datum/action/sing_tones/sing_action = new
+	sing_action.Grant(transformer)
+
 	var/screen_mutant_bodypart = transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN]
 	var/obj/item/organ/internal/eyes/eyes = transformer.get_organ_slot(ORGAN_SLOT_EYES)
 
@@ -140,6 +143,10 @@
 
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
+
+	var/datum/action/action_to_remove = locate(/datum/action/sing_tones) in human.actions
+	if(action_to_remove)
+		qdel(action_to_remove)
 
 	var/obj/item/organ/internal/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
