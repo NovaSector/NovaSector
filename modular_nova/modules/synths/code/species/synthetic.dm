@@ -51,6 +51,8 @@
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
 	var/saved_screen = "Blank"
+	/// Set to TRUE if the species was emagged before
+	var/emag_effect = FALSE
 
 /datum/species/synthetic/allows_food_preferences()
 	return FALSE
@@ -179,13 +181,16 @@
 /datum/species/synthetic/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
 	SIGNAL_HANDLER
 
+	if(emag_effect)
+		return
+	emag_effect = TRUE
 	playsound(source.loc, 'sound/misc/interference.ogg', 50)
+	to_chat(owner, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
 	var/datum/action/sing_tones/sing_action = locate(/datum/action/sing_tones) in source.actions
 	if(!sing_action)
 		return
 	sing_action.song.allowed_instrument_ids += sing_action.emag_instrument_ids
 	sing_action.song.set_instrument("honk")
-	sing_action.song.ui_close(source)
 
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen
