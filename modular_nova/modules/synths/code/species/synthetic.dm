@@ -185,7 +185,7 @@
 		return
 	emag_effect = TRUE
 	playsound(source.loc, 'sound/misc/interference.ogg', 50)
-	to_chat(owner, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
+	to_chat(source, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
 	var/datum/action/sing_tones/sing_action = locate(/datum/action/sing_tones) in source.actions
 	if(!sing_action)
 		return
