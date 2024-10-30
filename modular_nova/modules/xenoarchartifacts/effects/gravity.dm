@@ -24,7 +24,7 @@
 	switch(grav_type)
 		if (GRAVITY_MAYHEM)
 			for(var/atom/movable/to_throw in range(range, curr_turf))
-				mayhem_throw(to_throw, curr_turf, 1)
+				mayhem_throw(to_throw, 1)
 		if (GRAVITY_REPEL)
 			for(var/atom/movable/to_throw in range(range, curr_turf))
 				repel(to_throw, curr_turf)
