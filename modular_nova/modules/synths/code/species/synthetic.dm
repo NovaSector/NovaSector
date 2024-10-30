@@ -86,6 +86,8 @@
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer)
 	. = ..()
 
+	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
+
 	var/datum/action/sing_tones/sing_action = new
 	sing_action.Grant(transformer)
 
@@ -144,6 +146,8 @@
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
 
+	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
+
 	var/datum/action/action_to_remove = locate(/datum/action/sing_tones) in human.actions
 	if(action_to_remove)
 		qdel(action_to_remove)
@@ -171,6 +175,17 @@
 		if(old_stomach)
 			old_stomach.moveToNullspace()
 			STOP_PROCESSING(SSobj, old_stomach)
+
+/datum/species/synthetic/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
+	SIGNAL_HANDLER
+
+	playsound(source.loc, 'sound/misc/interference.ogg', 50)
+	var/datum/action/sing_tones/sing_action = locate(/datum/action/sing_tones) in source.actions
+	if(!sing_action)
+		return
+	sing_action.song.allowed_instrument_ids += sing_action.emag_instrument_ids
+	sing_action.song.set_instrument("honk")
+	sing_action.song.ui_close(source)
 
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen
