@@ -9,6 +9,16 @@
 	if(action_to_remove)
 		qdel(action_to_remove)
 
+/datum/species/ethereal/on_emag_act(mob/living/carbon/human/source, mob/user)
+	. = ..()
+	if(.)
+		var/datum/action/sing_tones/sing_action = locate(/datum/action/sing_tones) in source.actions
+		if(!sing_action)
+			return
+		sing_action.song.allowed_instrument_ids += sing_action.emag_instrument_ids
+		sing_action.song.set_instrument("honk")
+		sing_action.song.ui_close(source)
+
 /datum/species/ethereal/create_pref_unique_perks()
 	var/list/to_add = list()
 
