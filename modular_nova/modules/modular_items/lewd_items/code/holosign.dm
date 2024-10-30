@@ -31,7 +31,7 @@
 
 /obj/structure/holosign/privacy
 	name = "privacy holosign"
-	desc = "A holographic sign which flickers with the word \"Private\". It would be polite to proceed no further if you aren't invited, even if the door isnt locked."
+	desc = "A holographic sign which flickers with the word \"Private\". It would be polite to proceed no further if you aren't invited, even if the door isn't locked."
 	icon = 'modular_nova/master_files/icons/effects/holosigns.dmi'
 	icon_state = "holosign_privacy"
 	base_icon_state = "holosign_privacy"
