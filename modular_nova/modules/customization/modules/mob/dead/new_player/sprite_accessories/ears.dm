@@ -173,6 +173,10 @@
 	icon_state = "fish"
 	color_src = USE_ONE_COLOR
 
+/datum/sprite_accessory/ears/mutant/floppy
+	name = "Floppy"
+	icon_state = "floppy"
+
 /datum/sprite_accessory/ears/mutant/vulpkanin/fox
 	name = "Fox"
 	icon_state = "fox"
