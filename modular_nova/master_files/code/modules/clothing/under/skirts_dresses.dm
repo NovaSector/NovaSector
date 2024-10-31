@@ -216,6 +216,16 @@
 	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
 	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
 
+/obj/item/clothing/under/dress/nova/giant_scarf
+	name = "giant scarf"
+	desc = "An absurdly massive scarf, worn as the main article of clothing over the body. Ironically, not very suitable for the cold."
+	icon_state = "giant_scarf"
+	body_parts_covered = CHEST|GROIN|LEGS
+	greyscale_config = /datum/greyscale_config/giant_scarf
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/worn
+	greyscale_colors = "#EEEEEE"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /*
  *	Others
  */
