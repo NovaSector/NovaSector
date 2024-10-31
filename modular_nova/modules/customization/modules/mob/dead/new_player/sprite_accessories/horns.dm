@@ -143,6 +143,7 @@
 /datum/sprite_accessory/horns/antenna_fuzzball_v2
 	name = "Fuzzball antenna"
 	icon_state = "antenna_fuzzballv2"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/setaceous
 	name = "Setaceous Antenna"
