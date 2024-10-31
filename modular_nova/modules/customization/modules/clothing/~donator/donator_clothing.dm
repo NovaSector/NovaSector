@@ -262,14 +262,6 @@
 	clothing_flags = SNUG_FIT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
-/obj/item/clothing/head/hooded/padded
-	name = "feathered serenity hood"
-	icon_state = "paddedhood"
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
-	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-
 // Donation reward for Thedragmeme
 /obj/item/clothing/under/padded
 	name = "feathered serenity suit"
