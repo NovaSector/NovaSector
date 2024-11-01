@@ -509,6 +509,14 @@
 	name = "Mulder"
 	icon_state = "hair_mulder"
 
+/datum/sprite_accessory/hair/mermaid
+	name = "Mermaid"
+	icon_state = "hair_mermaid"
+
+/datum/sprite_accessory/hair/elegantbun
+	name = "Elegant Bun"
+	icon_state = "hair_elegantbun"
+
 /datum/sprite_accessory/hair/odango
 	name = "Odango"
 	icon_state = "hair_odango"
@@ -601,6 +609,10 @@
 	name = "Ponytail (High)"
 	icon_state = "hair_highponytail"
 
+/datum/sprite_accessory/hair/highponytail
+	name = "Thick Ponytail"
+	icon_state = "hair_thickponytail"
+
 /datum/sprite_accessory/hair/stail
 	name = "Ponytail (Short)"
 	icon_state = "hair_stail"
@@ -648,6 +660,10 @@
 /datum/sprite_accessory/hair/ronin
 	name = "Ronin"
 	icon_state = "hair_ronin"
+
+/datum/sprite_accessory/hair/royalcurls
+	name = "Royal Curls"
+	icon_state = "hair_royalcurls"
 
 /datum/sprite_accessory/hair/shaved
 	name = "Shaved"
