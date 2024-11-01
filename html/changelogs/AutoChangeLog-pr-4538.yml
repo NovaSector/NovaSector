@@ -1,0 +1,4 @@
+author: "SpaghettiTerrible"
+delete-after: True
+changes:
+  - bugfix: "vibrating egg frequency can now be adjusted"
