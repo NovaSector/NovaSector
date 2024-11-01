@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "Bounties removed: Scooter, Skateboard, Soap, Clown Box, Cheesie Honkers, Dead Mice, Potted Plants, Corgi Meat, Action Figures, Paper Bins, Crayons."
+  - rscdel: "Bounties added: Nuggies, Cardboard ID's, Glass Bowl, Clay Crafts, Forged Dagger, Two Wheelchairs, Flood Light, Mannequin and Black Market Uplink."
