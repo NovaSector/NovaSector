@@ -880,3 +880,8 @@
 	name = "Jumper Conversation Kit Box"
 	item_path = /obj/item/mod/skin_applier/jumper
 	ckeywhitelist = list("bonkaitheroris")
+
+/datum/loadout_item/suit/butter
+	name = "Butter Costume"
+	item_path = /obj/item/clothing/suit/costume/butter
+	ckeywhitelist = list("drpmstr", "pyritechimera")
