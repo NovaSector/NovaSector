@@ -27936,12 +27936,12 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/button/door/directional/east{
-	id = 68;
+	id = "QMLoaddoor";
 	name = "Unloading Doors";
 	pixel_y = 6
 	},
 /obj/machinery/button/door/directional/east{
-	id = 69;
+	id = "QMLoaddoor2";
 	name = "Loading Doors";
 	pixel_y = -6
 	},
@@ -55123,7 +55123,7 @@
 	id = "cargounload"
 	},
 /obj/machinery/door/poddoor{
-	id = 68;
+	id = "QMLoaddoor";
 	name = "Supply Dock Unloading Door"
 	},
 /turf/open/floor/iron/smooth_large,
@@ -66521,7 +66521,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor{
-	id = 69;
+	id = "QMLoaddoor2";
 	name = "Supply Dock Loading Door"
 	},
 /turf/open/floor/iron/smooth_large,

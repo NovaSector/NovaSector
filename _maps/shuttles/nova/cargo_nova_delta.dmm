@@ -98,7 +98,7 @@
 	id = "cargounload"
 	},
 /obj/machinery/door/poddoor{
-	id = "cargounload";
+	id = "QMLoaddoor";
 	name = "Supply Dock Unloading Door"
 	},
 /turf/open/floor/plating,
@@ -139,7 +139,7 @@
 /area/shuttle/supply)
 "Gf" = (
 /obj/machinery/door/poddoor{
-	id = "cargoload";
+	id = "QMLoaddoor2";
 	name = "Supply Dock Loading Door"
 	},
 /obj/machinery/conveyor{
