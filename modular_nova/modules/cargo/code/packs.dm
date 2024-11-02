@@ -715,6 +715,5 @@
 	desc = "A rare seed which grows into an even rarer Starfruit plant. The Starfruit was harvested for only 55 days each year on the planet Primidine, before it was made uninhabitable to colonists."
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(
-		/obj/item/seeds/starfruit,
-		/obj/item/seeds/starfruit
+		/obj/item/seeds/starfruit = 2,
 	)
