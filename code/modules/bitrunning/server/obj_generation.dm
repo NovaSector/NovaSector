@@ -38,8 +38,14 @@
 
 
 /// Generates a new avatar for the bitrunner.
-/obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit)
+/obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit, datum/preferences/prefs, include_loadout = FALSE) // NOVA EDIT - Prefs argument
 	var/mob/living/carbon/human/avatar = new(destination)
+
+	// NOVA EDIT START - PREFS!
+	if(!isnull(prefs))
+		prefs.safe_transfer_prefs_to(avatar)
+	ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, "Bitrunning") // Stops the funny ethereal bug
+	// NOVA EDIT END
 
 	var/outfit_path = generated_domain.forced_outfit || netsuit
 	var/datum/outfit/to_wear = new outfit_path()
@@ -76,6 +82,11 @@
 			new /obj/item/storage/medkit/regular,
 			new /obj/item/flashlight,
 		)
+
+	// NOVA EDIT START
+	if(include_loadout)
+		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
+	// NOVA EDIT END
 
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
