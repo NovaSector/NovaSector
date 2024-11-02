@@ -6,32 +6,7 @@
 #define SCANGATE_SPECIES "Species"
 #define SCANGATE_NUTRITION "Nutrition"
 #define SCANGATE_CONTRABAND "Contraband"
-
-#define SCANGATE_HUMAN "human"
-#define SCANGATE_LIZARD "lizard"
-#define SCANGATE_FELINID "felinid"
-#define SCANGATE_FLY "fly"
-#define SCANGATE_PLASMAMAN "plasma"
-#define SCANGATE_MOTH "moth"
-#define SCANGATE_JELLY "jelly"
-#define SCANGATE_POD "pod"
-#define SCANGATE_GOLEM "golem"
-#define SCANGATE_ZOMBIE "zombie"
-//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
-#define SCANGATE_MAMMAL "mammal"
-#define SCANGATE_VOX "vox"
-#define SCANGATE_AQUATIC "aquatic"
-#define SCANGATE_INSECT "insect"
-#define SCANGATE_XENO "xeno"
-#define SCANGATE_UNATHI "unathi"
-#define SCANGATE_TAJARAN "tajaran"
-#define SCANGATE_VULPKANIN "vulpkanin"
-#define SCANGATE_SYNTH "synth"
-#define SCANGATE_TESHARI "teshari"
-#define SCANGATE_HEMOPHAGE "hemophage"
-#define SCANGATE_SNAIL "snail"
-#define SCANGATE_GENDER "Gender"
-//NOVA EDIT ADDITION END - MORE SCANNER GATE OPTIONS
+#define SCANGATE_GENDER "Gender" // NOVA EDIT ADDITION
 
 /obj/machinery/scanner_gate
 	name = "scanner gate"
@@ -50,7 +25,7 @@
 	///Is searching for a disease, what severity is enough to trigger the gate?
 	var/disease_threshold = DISEASE_SEVERITY_MINOR
 	///If scanning for a specific species, what species is it looking for?
-	var/detect_species = SCANGATE_HUMAN
+	var/detect_species_id = SPECIES_HUMAN
 	///Flips all scan results for inverse scanning. Signals if scan returns false.
 	var/reverse = FALSE
 	///If scanning for nutrition, what level of nutrition will trigger the scanner?
@@ -67,6 +42,19 @@
 	var/base_false_beep = 5
 	///Is an n-spect scanner attached to the gate? Enables contraband scanning.
 	var/obj/item/inspector/n_spect = null
+	///List of species that can be scanned by the gate. Supports adding more species' IDs during in-game.
+	var/list/available_species = list(
+		SPECIES_HUMAN,
+		SPECIES_LIZARD,
+		SPECIES_FLYPERSON,
+		SPECIES_FELINE,
+		SPECIES_PLASMAMAN,
+		SPECIES_MOTH,
+		SPECIES_JELLYPERSON,
+		SPECIES_PODPERSON,
+		SPECIES_GOLEM,
+		SPECIES_ZOMBIE,
+	)
 	/// Overlay object we're using for scanlines
 	var/obj/effect/overlay/scanline = null
 	var/detect_gender = "male" //NOVA EDIT ADDITION - MORE SCANNER GATE OPTIONS
@@ -245,75 +233,12 @@
 			if(ishuman(thing))
 				var/mob/living/carbon/human/scanned_human = thing
 				var/datum/species/scan_species = /datum/species/human
-				switch(detect_species)
-					if(SCANGATE_LIZARD)
-						detected_thing = "Lizardperson"
-						scan_species = /datum/species/lizard
-					if(SCANGATE_FLY)
-						detected_thing = "Flyperson"
-						scan_species = /datum/species/fly
-					if(SCANGATE_FELINID)
-						detected_thing = "Felinid"
-						scan_species = /datum/species/human/felinid
-					if(SCANGATE_PLASMAMAN)
-						detected_thing = "Plasmaman"
-						scan_species = /datum/species/plasmaman
-					if(SCANGATE_MOTH)
-						detected_thing = "Mothperson"
-						scan_species = /datum/species/moth
-					if(SCANGATE_JELLY)
-						detected_thing = "Jellyperson"
-						scan_species = /datum/species/jelly
-					if(SCANGATE_POD)
-						detected_thing = "Podperson"
-						scan_species = /datum/species/pod
-					if(SCANGATE_GOLEM)
-						detected_thing = "Golem"
-						scan_species = /datum/species/golem
-					if(SCANGATE_ZOMBIE)
-						detected_thing = "Zombie"
-						scan_species = /datum/species/zombie
-					//NOVA EDIT ADDITION BEGIN - MORE SCANNER GATE OPTIONS
-					if(SCANGATE_MAMMAL)
-						detected_thing = "Anthromorph"
-						scan_species = /datum/species/mammal
-					if(SCANGATE_VOX)
-						detected_thing = "Vox"
-						scan_species = /datum/species/vox
-					if(SCANGATE_AQUATIC)
-						detected_thing = "Aquatic"
-						scan_species = /datum/species/aquatic
-					if(SCANGATE_INSECT)
-						detected_thing = "Insect"
-						scan_species = /datum/species/insect
-					if(SCANGATE_XENO)
-						detected_thing = "Xeno"
-						scan_species = /datum/species/xeno
-					if(SCANGATE_UNATHI)
-						detected_thing = "Unathi"
-						scan_species = /datum/species/unathi
-					if(SCANGATE_TAJARAN)
-						detected_thing = "Tajaran"
-						scan_species = /datum/species/tajaran
-					if(SCANGATE_VULPKANIN)
-						detected_thing = "Vulpkanin"
-						scan_species = /datum/species/vulpkanin
-					if(SCANGATE_SYNTH)
-						detected_thing = "Synth"
-						scan_species = /datum/species/synthetic
-					if(SCANGATE_TESHARI)
-						detected_thing = "Teshari"
-						scan_species = /datum/species/teshari
-					if(SCANGATE_HEMOPHAGE)
-						detected_thing = "Hemophage"
-						scan_species = /datum/species/hemophage
-					if(SCANGATE_SNAIL)
-						detected_thing = "Snail"
-						scan_species = /datum/species/snail
-					//NOVA EDIT ADDITION END - MORE SCANNER GATE OPTIONS
+				if(detect_species_id && (detect_species_id in available_species))
+					scan_species = GLOB.species_list[detect_species_id]
+					detected_thing = scan_species.name
 				if(is_species(scanned_human, scan_species))
 					beep = TRUE
-				if(detect_species == SCANGATE_ZOMBIE) //Can detect dormant zombies
+				if(detect_species_id == SPECIES_ZOMBIE) //Can detect dormant zombies
 					detected_thing = "Romerol infection"
 					if(scanned_human.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 						beep = TRUE
@@ -408,16 +333,26 @@
 		ui = new(user, src, "ScannerGate", name)
 		ui.open()
 
+/obj/machinery/scanner_gate/ui_static_data(mob/user)
+	. = ..()
+	for(var/species_id in available_species)
+		var/datum/species/specie = GLOB.species_list[species_id]
+		.["available_species"] += list(list(
+			"specie_name" = capitalize(format_text(specie.name)),
+			"specie_id" = species_id,
+		))
+
 /obj/machinery/scanner_gate/ui_data()
 	var/list/data = list()
 	data["locked"] = locked
 	data["scan_mode"] = scangate_mode
 	data["reverse"] = reverse
 	data["disease_threshold"] = disease_threshold
-	data["target_species"] = detect_species
+	data["target_species_id"] = detect_species_id
 	data["target_nutrition"] = detect_nutrition
 	data["target_gender"] = detect_gender //NOVA EDIT - MORE SCANNER GATE OPTIONS
 	data["contraband_enabled"] = !!n_spect
+	data["target_zombie"] = (detect_species_id == SPECIES_ZOMBIE)
 	return data
 
 /obj/machinery/scanner_gate/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -441,10 +376,11 @@
 			var/new_threshold = params["new_threshold"]
 			disease_threshold = new_threshold
 			. = TRUE
-		//Some species are not scannable, like abductors (too unknown), androids (too artificial) or skeletons (too magic)
 		if("set_target_species")
-			var/new_species = params["new_species"]
-			detect_species = new_species
+			var/new_specie_id = params["new_species_id"]
+			if(!(new_specie_id in available_species))
+				return
+			detect_species_id = new_specie_id
 			. = TRUE
 		if("set_target_nutrition")
 			var/new_nutrition = params["new_nutrition"]
@@ -488,30 +424,4 @@
 #undef SCANGATE_SPECIES
 #undef SCANGATE_NUTRITION
 #undef SCANGATE_CONTRABAND
-
-#undef SCANGATE_HUMAN
-#undef SCANGATE_LIZARD
-#undef SCANGATE_FELINID
-#undef SCANGATE_FLY
-#undef SCANGATE_PLASMAMAN
-#undef SCANGATE_MOTH
-#undef SCANGATE_JELLY
-#undef SCANGATE_POD
-#undef SCANGATE_GOLEM
-#undef SCANGATE_ZOMBIE
-//NOVA EDIT BEGIN - MORE SCANNER GATE OPTIONS
-#undef SCANGATE_MAMMAL
-#undef SCANGATE_VOX
-#undef SCANGATE_AQUATIC
-#undef SCANGATE_INSECT
-#undef SCANGATE_XENO
-#undef SCANGATE_UNATHI
-#undef SCANGATE_TAJARAN
-#undef SCANGATE_VULPKANIN
-#undef SCANGATE_SYNTH
-#undef SCANGATE_TESHARI
-#undef SCANGATE_HEMOPHAGE
-#undef SCANGATE_SNAIL
-
-#undef SCANGATE_GENDER
-//NOVA EDIT END - MORE SCANNER GATE OPTIONS
+#undef SCANGATE_GENDER // NOVA EDIT ADDITION
