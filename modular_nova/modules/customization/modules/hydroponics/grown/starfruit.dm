@@ -15,7 +15,10 @@
 	icon_dead = "starfruit-dead"
 	icon_harvest = "starfruit-harvest"
 	genes = list(/datum/plant_gene/trait/glow/yellow, /datum/plant_gene/trait/repeated_harvest)
-	reagents_add = list(/datum/reagent/consumable/starfruit_juice = 0.3, /datum/reagent/consumable/nutriment = 0.1)
+	reagents_add = list(
+		/datum/reagent/consumable/starfruit_juice = 0.3,
+		/datum/reagent/consumable/nutriment = 0.1,
+	)
 
 /obj/item/food/grown/starfruit
 	seed = /obj/item/seeds/starfruit
