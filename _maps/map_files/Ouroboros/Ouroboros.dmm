@@ -1935,6 +1935,9 @@
 	network = list("ss13","medbay")
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "aDU" = (
@@ -33363,12 +33366,6 @@
 	dir = 1
 	},
 /area/station/service/kitchen/diner)
-"jIs" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/turf/closed/wall,
-/area/station/medical/storage)
 "jIw" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/effect/turf_decal/siding/thinplating_new/light{
@@ -60087,7 +60084,7 @@
 	dir = 1
 	},
 /obj/machinery/button/door/directional/south{
-	id = "surg_privacy";
+	id = "surg_a_privacy";
 	name = "privacy shutters control"
 	},
 /obj/effect/turf_decal/box/white,
@@ -78102,6 +78099,9 @@
 	},
 /obj/structure/railing{
 	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
+	dir = 1
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
@@ -120315,7 +120315,7 @@ qlP
 qlP
 dqe
 amw
-jIs
+bhd
 bhd
 glB
 bhd
