@@ -224,6 +224,7 @@
 	greyscale_config = /datum/greyscale_config/giant_scarf
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/worn
 	greyscale_colors = "#EEEEEE"
+	female_sprite_flags = NO_FEMALE_UNIFORM
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
