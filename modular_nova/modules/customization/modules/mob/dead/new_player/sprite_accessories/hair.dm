@@ -131,7 +131,7 @@
 	name = "Bun Head 4"
 	icon_state = "hair_bunhead4"
 
-/datum/sprite_accessory/hair/elegantbun
+/datum/sprite_accessory/hair/nova/elegantbun
 	name = "Elegant Bun"
 	icon_state = "hair_elegantbun"
 
@@ -143,10 +143,9 @@
 	name = "Rows 2"
 	icon_state = "hair_rows2"
 
-/datum/sprite_accessory/hair/royalcurls
+/datum/sprite_accessory/hair/nova/royalcurls
 	name = "Royal Curls"
 	icon_state = "hair_royalcurls"
-
 
 /datum/sprite_accessory/hair/nova/toriyama
 	name = "Toriyama"
@@ -172,7 +171,7 @@
 	name = "Wife"
 	icon_state = "hair_wife"
 
-/datum/sprite_accessory/hair/mermaid
+/datum/sprite_accessory/hair/nova/mermaid
 	name = "Mermaid"
 	icon_state = "hair_mermaid"
 
@@ -188,7 +187,7 @@
 	name = "Short Over Eye ALT"
 	icon_state = "hair_shortovereyealt"
 
-/datum/sprite_accessory/hair/highponytail
+/datum/sprite_accessory/hair/nova/highponytail
 	name = "Thick Ponytail"
 	icon_state = "hair_thickponytail"
 
