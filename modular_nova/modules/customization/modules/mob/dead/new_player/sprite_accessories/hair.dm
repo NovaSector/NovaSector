@@ -187,7 +187,7 @@
 	name = "Short Over Eye ALT"
 	icon_state = "hair_shortovereyealt"
 
-/datum/sprite_accessory/hair/nova/highponytail
+/datum/sprite_accessory/hair/nova/thickponytail
 	name = "Thick Ponytail"
 	icon_state = "hair_thickponytail"
 
