@@ -18,7 +18,7 @@
 	)
 
 /obj/item/bitrunning_disk/prefs
-	name = "DeForest biological simulation disk"
+	name = "\improper DeForest biological simulation disk"
 	desc = "A disk containing the biological simulation data necessary to load custom characters into bitrunning domains."
 	icon = 'icons/obj/devices/circuitry_n_data.dmi'
 	base_icon_state = "datadisk"
@@ -58,7 +58,7 @@
 	loaded_preference = new(user.client)
 	loaded_preference.load_character(prefdata_names.Find(choice))
 
-	balloon_alert(user, "Character set")
+	balloon_alert(user, "character set!")
 	to_chat(user, span_notice("Character set to [choice] sucessfully!"))
 
 /datum/orderable_item/bitrunning_tech/ability_tier0
