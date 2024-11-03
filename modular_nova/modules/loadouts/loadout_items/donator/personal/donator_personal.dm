@@ -885,3 +885,8 @@
 	name = "Primidine Starfruit Seed"
 	item_path = /obj/item/seeds/starfruit
 	ckeywhitelist = list("snailomi", "thedragmeme")
+
+/datum/loadout_item/suit/butter
+	name = "Butter Costume"
+	item_path = /obj/item/clothing/suit/costume/butter
+	ckeywhitelist = list("drpmstr", "pyritechimera")
