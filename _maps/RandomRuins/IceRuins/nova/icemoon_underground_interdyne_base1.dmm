@@ -7469,6 +7469,12 @@
 	fixed_underlay = list(icon='icons/turf/snow.dmi', icon_state="snow")
 	},
 /area/ruin/interdyne_planetary_base)
+"Wq" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/ruin/interdyne_planetary_base/main/dorms)
 "WQ" = (
 /obj/structure/shipping_container/donk_co{
 	pixel_x = 6
@@ -8766,7 +8772,7 @@ ko
 kF
 lg
 ll
-lz
+Wq
 lZ
 mT
 mT

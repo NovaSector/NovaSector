@@ -28,3 +28,11 @@
   - bugfix: blueshift's cargo shuttle buttons are more accessible now.
   - rscadd: Interdyne has a new trim icon for it's scientists and shaft miners, as
       well as a new color palette.
+2024-11-03:
+  A.C.M.O.:
+  - rscadd: Added the Primidine Starfruit. The seed pack is available in the supply
+      console imports category.
+  Hardly:
+  - map: Added Interdrobe to the ghost cafe
+  - map: Removed the vine on redsec's vendor in ghost cafe
+  - bugfix: Icebox Interdyne's library is now connected with the powernet
