@@ -9281,7 +9281,7 @@
 	id = "cargoload"
 	},
 /obj/machinery/door/poddoor{
-	id = "cargoload";
+	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
 /obj/structure/plasticflaps,
@@ -57630,7 +57630,7 @@
 	id = "cargoload"
 	},
 /obj/machinery/door/poddoor{
-	id = "cargoload";
+	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
 /turf/open/floor/plating,
@@ -66425,7 +66425,7 @@
 	id = "cargounload"
 	},
 /obj/machinery/door/poddoor{
-	id = "cargounload";
+	id = "QMLoaddoor2";
 	name = "Supply Dock Unloading Door"
 	},
 /obj/structure/plasticflaps,
@@ -82837,7 +82837,7 @@
 	id = "cargounload"
 	},
 /obj/machinery/door/poddoor{
-	id = "cargounload";
+	id = "QMLoaddoor2";
 	name = "Supply Dock Unloading Door"
 	},
 /turf/open/floor/plating,
@@ -84760,13 +84760,13 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/door/directional/west{
 	pixel_y = -3;
-	id = "cargoload";
+	id = "QMLoaddoor";
 	name = "Loading Blast Doors";
 	pixel_x = -6
 	},
 /obj/machinery/button/door/directional/west{
 	pixel_y = 7;
-	id = "cargounload";
+	id = "QMLoaddoor2";
 	name = "Unloading Blast Doors";
 	pixel_x = -6
 	},
