@@ -1,4 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Icebox Interdyne's library is now connected with the powernet"
