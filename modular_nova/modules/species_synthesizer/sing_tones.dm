@@ -1,6 +1,6 @@
 /datum/action/sing_tones
 	name = "Sing Tones"
-	desc = "Use your electric discharger to sing!"
+	desc = "Use your internal synthesizer to sing!"
 	button_icon = 'icons/obj/art/musician.dmi'
 	button_icon_state = "xylophone"
 	var/datum/song/song
@@ -8,14 +8,28 @@
 	var/allowed_instrument_ids = list("spaceman", "meowsynth", "square", "sine", "saw")
 	/// Instruments added after being emagged.
 	var/emag_instrument_ids = list("honk")
+	/// Set to TRUE if already emagged.
+	var/emagged = FALSE
 
 /datum/action/sing_tones/Grant(mob/grant_to)
+	..()
+	RegisterSignal(grant_to, COMSIG_SPECIES_LOSS, GLOBAL_PROC_REF(qdel), src)
+	RegisterSignal(grant_to, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 	song = new(grant_to, allowed_instrument_ids, 15)
-	return ..()
+	if(isethereal(grant_to))
+		desc = "Use your electric discharger to sing!"
 
 /datum/action/sing_tones/Remove(mob/remove_from)
+	..()
 	QDEL_NULL(song)
-	return ..()
+	UnregisterSignal(remove_from, COMSIG_SPECIES_LOSS)
+
+/datum/action/sing_tones/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
+	if(emagged)
+		return
+	emagged = TRUE
+	song.allowed_instrument_ids += emag_instrument_ids
+	song.set_instrument("honk")
 
 /datum/action/sing_tones/Trigger(trigger_flags)
 	. = ..()

@@ -187,11 +187,6 @@
 	emag_effect = TRUE
 	playsound(source.loc, 'sound/misc/interference.ogg', 50)
 	to_chat(source, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
-	var/datum/action/sing_tones/sing_action = locate(/datum/action/sing_tones) in source.actions
-	if(!sing_action)
-		return
-	sing_action.song.allowed_instrument_ids += sing_action.emag_instrument_ids
-	sing_action.song.set_instrument("honk")
 
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen
