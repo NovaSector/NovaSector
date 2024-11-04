@@ -6,6 +6,7 @@
 	holosign_type = /obj/structure/holosign/privacy
 	creation_time = 0
 	max_signs = 8
+	/// Used to toggle the holosign type between normal privacy and lewd.
 	var/erp_mode = FALSE
 
 /obj/item/holosign_creator/privacy/Initialize(mapload)
@@ -14,8 +15,7 @@
 
 /obj/item/holosign_creator/privacy/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
-	if(LAZYLEN(signs))
-		context[SCREENTIP_CONTEXT_RMB] = "[erp_mode ? "Turn off" : "Turn on"] Lewd Advisory Mode"
+	context[SCREENTIP_CONTEXT_RMB] = "[erp_mode ? "Turn off" : "Turn on"] Lewd Advisory Mode"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/holosign_creator/privacy/attack_self_secondary(mob/user, modifiers)
