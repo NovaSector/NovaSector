@@ -22,7 +22,10 @@
 /datum/action/sing_tones/Remove(mob/remove_from)
 	..()
 	QDEL_NULL(song)
-	UnregisterSignal(remove_from, COMSIG_SPECIES_LOSS)
+	UnregisterSignal(remove_from, list(
+		COMSIG_SPECIES_LOSS,
+		COMSIG_ATOM_EMAG_ACT
+	))
 
 /datum/action/sing_tones/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
 	if(emagged)
