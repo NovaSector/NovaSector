@@ -110,6 +110,6 @@
 			remove_blacklisted = remove_blacklisted,
 			methods = methods,
 			show_message = show_message,
-			ignore_stomach = ignore_stomach
+			ignore_stomach = ignore_stomach,
 		)
 	return transfer_total

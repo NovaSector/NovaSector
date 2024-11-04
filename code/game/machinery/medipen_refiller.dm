@@ -100,7 +100,8 @@
 		if(medipen.reagents?.reagent_list.len)
 			balloon_alert(user, "medipen full!")
 			return
-		// NOVA EDIT CHANGE BEGIN - Universal medipen and lathe medipens
+		//if(!reagents.has_reagent(allowed_pens[medipen.type], 10)) // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION BEGIN - Universal medipen and lathe medipens
 		var/list/datum/reagent/compatible_universal_reagents
 		if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
 			if(!reagents.total_volume)
@@ -112,14 +113,13 @@
 			if(!length(compatible_universal_reagents))
 				balloon_alert(user, "reagents incompatible!")
 				return
-		// NOVA EDIT CHANGE END
-		// NOVA EDIT CHANGE - ORIGINAL: if(!reagents.has_reagent(allowed_pens[medipen.type], 10))
 		else if(!reagents.has_reagent(allowed_pens[medipen.type], medipen.volume))
+		// NOVA EDIT ADDITION END
 			balloon_alert(user, "not enough reagents!")
 			return
 		add_overlay("active")
 		if(do_after(user, 2 SECONDS, src))
-			// NOVA EDIT CHANGE BEGIN - Universal medipen and lathe medipens
+			// NOVA EDIT ADDITION BEGIN - Universal medipen and lathe medipens
 			if(istype(medipen, /obj/item/reagent_containers/hypospray/medipen/universal))
 				// Create list of transferable reagent typepaths
 				var/list/target_reagent_types = list()
@@ -129,10 +129,11 @@
 				reagents.trans_to_multiple(target_atom = medipen, amount = medipen.volume, target_ids = target_reagent_types)
 			else
 				medipen.add_initial_reagents()
-				// NOVA EDIT CHANGE - ORIGINAL: reagents.remove_reagent(allowed_pens[medipen.type], 10)
 				reagents.remove_reagent(allowed_pens[medipen.type], medipen.volume)
+			// NOVA EDIT ADDITION END
 			medipen.used_up = FALSE
-			// NOVA EDIT CHANGE END
+			//medipen.add_initial_reagents() // NOVA EDIT REMOVAL - Handled above
+			//reagents.remove_reagent(allowed_pens[medipen.type], 10) // NOVA EDIT REMOVAL - Handled above
 			balloon_alert(user, "refilled")
 			use_energy(active_power_usage)
 		cut_overlays()
