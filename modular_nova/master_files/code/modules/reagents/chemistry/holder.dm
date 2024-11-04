@@ -44,7 +44,7 @@
 	remove_blacklisted = FALSE,
 	methods = NONE,
 	show_message = TRUE,
-	ignore_stomach = FALSE
+	ignore_stomach = FALSE,
 )
 	// Nothing to transfer, or the targeted atom can't hold reagents
 	if(!total_volume || QDELETED(target_atom) || isnull(target_atom.reagents))
