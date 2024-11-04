@@ -342,6 +342,10 @@
 	name = "'JUNCO' Megacargo Pants"
 	item_path = /obj/item/clothing/under/pants/nova/big_pants
 
+/datum/loadout_item/under/miscellaneous/loose_pants
+	name = "Loose pants"
+	item_path = /obj/item/clothing/under/pants/nova/loose_pants
+
 /datum/loadout_item/under/miscellaneous/yoga
 	name = "Recolorable Yoga Pants"
 	item_path = /obj/item/clothing/under/pants/nova/yoga

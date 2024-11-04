@@ -17,6 +17,7 @@
 	tac_reloads = TRUE
 	internal_magazine = FALSE
 	can_be_sawn_off = FALSE
+	weapon_weight = WEAPON_HEAVY
 
 /obj/item/gun/ballistic/rifle/sporterized/Initialize(mapload)
 	. = ..()
@@ -24,7 +25,7 @@
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
 /obj/item/gun/ballistic/rifle/sporterized/add_bayonet_point()
-	AddComponent(/datum/component/bayonet_attachable, offset_x = 35)
+	AddComponent(/datum/component/bayonet_attachable, offset_x = 35, offset_y = 12)
 
 /obj/item/gun/ballistic/rifle/sporterized/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)

@@ -1,6 +1,6 @@
 // GHOST HOTEL UPDATE
 /obj/item/hilbertshotel
-	var/list/static/hotel_maps = list("Generic", "Apartment", "Beach Condo")
+	var/static/list/hotel_maps = list("Generic", "Apartment", "Beach Condo")
 	//standard - hilbert's hotel room
 	//apartment - see /datum/map_template/ghost_cafe_rooms
 	var/datum/map_template/ghost_cafe_rooms/apartment/ghost_cafe_rooms_apartment

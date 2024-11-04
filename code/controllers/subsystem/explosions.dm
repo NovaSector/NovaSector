@@ -234,6 +234,17 @@ ADMIN_VERB(check_bomb_impacts, R_DEBUG, "Check Bomb Impact", "See what the effec
  * - explosion_arc: The angle of the arc covered by a directional explosion (if 360 the explosion is non-directional.)
  */
 /datum/controller/subsystem/explosions/proc/explode(atom/origin, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flame_range = null, flash_range = null, adminlog = TRUE, ignorecap = FALSE, silent = FALSE, smoke = FALSE, protect_epicenter = FALSE, atom/explosion_cause = null, explosion_direction = 0, explosion_arc = 360)
+	// NOVA EDIT ADDITION START - Ghost cafe areas have their range clamped to prevent damage
+	var/area/bomb_area = get_area(origin)
+	if(bomb_area && (bomb_area.type in GLOB.ghost_cafe_areas))
+		devastation_range = 0
+		heavy_impact_range = 0
+		light_impact_range = 0
+		flame_range = 0
+		flash_range = 0
+		protect_epicenter = TRUE
+		adminlog = FALSE
+	// NOVA EDIT ADDITION END
 	var/list/arguments = list(
 		EXARG_KEY_ORIGIN = origin,
 		EXARG_KEY_DEV_RANGE = devastation_range,

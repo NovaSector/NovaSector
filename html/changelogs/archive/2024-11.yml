@@ -1,0 +1,38 @@
+2024-11-01:
+  Draggeru:
+  - rscadd: Adds a donator reward for DprMstr
+  MajManatee:
+  - bugfix: Hiss Emote+ button works again
+  Neocloudy:
+  - image: Nova retinal projectors have had their sprites adjusted so they hopefully
+      clip through hairstyles, headwear, etc less often!
+  OrbisAnima:
+  - rscadd: Adds a new multitool, the 'full override control kit', which aside from
+      working as a regular multitool, allows the user to hack open or unlock APC's
+      and Air Alarms. They do so rather aggresively, so it can break them with enough
+      uses. They can be obtained from the premium section of YouTool or from broad
+      band enabled AKH Frontier Imports.
+  - qol: YouTool vendors premium section now holds the F.O.C.K., as well as a small
+      selection of AKH frontier hand held devices. It is said that some vendors are
+      being used to smuggle Prybars though. Multitools are now being sold at a discount!
+  - balance: Prybars can no longer be made in the Rapid Construction Fabricator, Large
+      Crowbars now instead take their place, removing the heavy taxes on the RCF and
+      making it no longer restricted.
+  - rscadd: 'Bounties removed: Scooter, Skateboard, Soap, Clown Box, Cheesie Honkers,
+      Dead Mice, Potted Plants, Corgi Meat, Action Figures, Paper Bins, Crayons.'
+  - rscdel: 'Bounties added: Nuggies, Cardboard ID''s, Glass Bowl, Clay Crafts, Forged
+      Dagger, Two Wheelchairs, Flood Light, Mannequin and Black Market Uplink.'
+  SpaghettiTerrible:
+  - bugfix: vibrating egg frequency can now be adjusted
+  sqnztb:
+  - bugfix: blueshift's cargo shuttle buttons are more accessible now.
+  - rscadd: Interdyne has a new trim icon for it's scientists and shaft miners, as
+      well as a new color palette.
+2024-11-03:
+  A.C.M.O.:
+  - rscadd: Added the Primidine Starfruit. The seed pack is available in the supply
+      console imports category.
+  Hardly:
+  - map: Added Interdrobe to the ghost cafe
+  - map: Removed the vine on redsec's vendor in ghost cafe
+  - bugfix: Icebox Interdyne's library is now connected with the powernet

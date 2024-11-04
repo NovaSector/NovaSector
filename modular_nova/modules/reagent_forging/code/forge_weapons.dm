@@ -6,7 +6,7 @@
 	lefthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_l.dmi'
 	righthand_file = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_r.dmi'
 	worn_icon = 'modular_nova/modules/reagent_forging/icons/mob/forge_weapon_worn.dmi'
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	obj_flags = UNIQUE_RENAME | CONDUCTS_ELECTRICITY
 	obj_flags_nova = ANVIL_REPAIR
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
@@ -20,11 +20,13 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 
 /obj/item/forging/reagent_weapon/examine(mob/user)
 	. = ..()
 	. += span_notice("Using a hammer on [src] will repair its damage!")
+	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
 /obj/item/forging/reagent_weapon/sword
 	name = "forged sword"
@@ -206,7 +208,7 @@
 	transparent = FALSE
 	max_integrity = 150
 	w_class = WEIGHT_CLASS_NORMAL
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	obj_flags_nova = ANVIL_REPAIR
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	shield_break_sound = 'sound/effects/bang.ogg'
@@ -216,11 +218,13 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 
 /obj/item/shield/buckler/reagent_weapon/examine(mob/user)
 	. = ..()
 	. += span_notice("Using a hammer on [src] will repair its damage!")
+	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
 /obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, params)
 	if(atom_integrity >= max_integrity)
