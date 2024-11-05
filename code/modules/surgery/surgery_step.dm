@@ -178,7 +178,7 @@
 
 	surgery.step_in_progress = FALSE
 	return advance
-#undef SURGERY_SPEEDUP_AREA // NOVA EDIT ADDITION
+#undef SURGERY_SPEED_CALM_ENVIRONMENT // NOVA EDIT ADDITION
 
 /**
  * Handles updating the mob's mood depending on the surgery states.
