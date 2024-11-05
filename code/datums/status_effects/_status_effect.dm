@@ -116,7 +116,9 @@
 			return
 
 	if(duration != -1)
-		if(duration < world.time)
+		// NOVA EDIT CHANGE - ORIGINAL: if(duration < world.time)
+		if((duration < world.time) && !pause_expiry)
+		// NOVA EDIT CHANGE END
 			qdel(src)
 			return
 		update_shown_duration()
@@ -198,7 +200,9 @@
 		return FALSE
 
 	duration -= seconds
-	if(duration <= world.time)
+	// NOVA EDIT CHANGE - ORIGINAL: if(duration <= world.time)
+	if((duration <= world.time) && !pause_expiry)
+	// NOVA EDIT CHANGE END
 		qdel(src)
 		return TRUE
 

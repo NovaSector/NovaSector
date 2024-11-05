@@ -9,3 +9,11 @@
 	if(set_duration == -1)
 		show_duration = FALSE
 	return ..()
+
+/datum/status_effect/incapacitating/sleeping/tick(seconds_between_ticks)
+	. = ..()
+	// Prolongs sleep indefinitely when the client disconnects
+	if(!owner.client)
+		pause_expiry = TRUE
+	else
+		pause_expiry = FALSE
