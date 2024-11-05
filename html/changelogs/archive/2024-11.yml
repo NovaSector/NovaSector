@@ -36,3 +36,12 @@
   - map: Added Interdrobe to the ghost cafe
   - map: Removed the vine on redsec's vendor in ghost cafe
   - bugfix: Icebox Interdyne's library is now connected with the powernet
+2024-11-04:
+  GoldenAlpharex:
+  - bugfix: Fixes a donator's item not being available to them in the loadout menu.
+2024-11-05:
+  Draggeru:
+  - rscadd: 'Adds four new hairstyles: Mermaid, Thick Ponytail, Elegant Bun, and Royal
+      Curls'
+  Jinshee:
+  - rscadd: New gecko tail!
