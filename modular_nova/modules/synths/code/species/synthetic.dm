@@ -151,10 +151,6 @@
 
 	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
 
-	var/datum/action/action_to_remove = locate(/datum/action/sing_tones) in human.actions
-	if(action_to_remove)
-		qdel(action_to_remove)
-
 	var/obj/item/organ/internal/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
 	if(eyes)
