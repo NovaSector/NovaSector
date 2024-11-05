@@ -13,7 +13,7 @@
 
 /datum/action/sing_tones/Grant(mob/grant_to)
 	..()
-	RegisterSignal(grant_to, COMSIG_SPECIES_LOSS, GLOBAL_PROC_REF(qdel), src)
+	RegisterSignal(grant_to, COMSIG_SPECIES_LOSS, GLOBAL_PROC_REF(on_species_loss))
 	RegisterSignal(grant_to, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 	song = new(grant_to, allowed_instrument_ids, 15)
 	if(isethereal(grant_to))
@@ -27,7 +27,14 @@
 		COMSIG_ATOM_EMAG_ACT
 	))
 
+/datum/action/sing_tones/proc/on_species_loss(mob/living/carbon/human/human)
+	SIGNAL_HANDLER
+
+	qdel(src)
+
 /datum/action/sing_tones/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
+	SIGNAL_HANDLER
+
 	if(emagged)
 		return
 	emagged = TRUE
