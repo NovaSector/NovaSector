@@ -20,6 +20,12 @@
 			SPECIES_PERK_DESC = "Ethereals passively generate their own light.",
 		),
 		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "music",
+			SPECIES_PERK_NAME = "Musical Discharger",
+			SPECIES_PERK_DESC = "Ethereals can sing musical tones using their electric discharger.",
+		),
+		list(
 			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 			SPECIES_PERK_ICON = "gem",
 			SPECIES_PERK_NAME = "Crystal Core",

@@ -242,6 +242,13 @@
 	))
 
 	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "music",
+		SPECIES_PERK_NAME = "Tone Synthesizer",
+		SPECIES_PERK_DESC = "[plural_form] can sing musical tones using an internal synthesizer.",
+	))
+
+	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 		SPECIES_PERK_ICON = "robot",
 		SPECIES_PERK_NAME = "Synthetic Oddities",
