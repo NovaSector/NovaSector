@@ -141,7 +141,7 @@
 	icon_state = "broadcurls"
 
 /datum/sprite_accessory/horns/antenna_fuzzball_v2
-	name = "Fuzzball antenna"
+	name = "Fuzzball Antenna"
 	icon_state = "antenna_fuzzballv2"
 	color_src = USE_MATRIXED_COLORS
 
