@@ -1,5 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - balance: "Removes the 50% speedup surgery speed bonus from being in a calm environments and numb/dead patients"
-  - balance: "Calm environment instead now boosts surgery speed by 20%"
