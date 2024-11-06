@@ -86,7 +86,6 @@
 #define SURGERY_SPEED_MORBID_CURIOSITY 0.7
 ///Modifier given to patients with TRAIT_ANALGESIA
 #define SURGERY_SPEED_TRAIT_ANALGESIA 0.8
-
 #define SURGERY_SPEED_CALM_ENVIRONMENT 0.8 // NOVA EDIT ADDITION - Modifier given to surgery when done in calm areas (no other humans around)
 
 /datum/surgery_step/proc/initiate(mob/living/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
