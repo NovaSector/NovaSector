@@ -8082,6 +8082,7 @@
 #include "modular_nova\modules\modular_items\lewd_items\code\clothing_pref_check.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\decals.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\emote.dm"
+#include "modular_nova\modules\modular_items\lewd_items\code\holosign.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\lewd_quirks.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\screen_icons.dm"
 #include "modular_nova\modules\modular_items\lewd_items\code\verbs.dm"
