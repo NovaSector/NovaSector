@@ -8545,6 +8545,7 @@
 #include "modular_nova\modules\specialist_armor\code\hardened.dm"
 #include "modular_nova\modules\specialist_armor\code\peacekeeper.dm"
 #include "modular_nova\modules\specialist_armor\code\sacrificial.dm"
+#include "modular_nova\modules\species_synthesizer\sing_tones.dm"
 #include "modular_nova\modules\stasisrework\code\all_nodes.dm"
 #include "modular_nova\modules\stasisrework\code\bodybag.dm"
 #include "modular_nova\modules\stasisrework\code\bodybag_structure.dm"
