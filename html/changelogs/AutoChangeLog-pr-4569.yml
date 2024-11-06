@@ -1,4 +1,0 @@
-author: "dwasint"
-delete-after: True
-changes:
-  - bugfix: "Evoker-type RSD now properly respect if you are trying to put a soul into a body that was previously occupied."

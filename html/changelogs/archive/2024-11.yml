@@ -58,6 +58,11 @@
   - rscdel: Runed metal no longer spawns as a "Rare Material"
   OrbisAnima:
   - bugfix: fixed an exploit with Twitch.
+  RatFromTheJungle:
+  - image: The mantis blade's sprite is now bigger and more obvious.
+  dwasint:
+  - bugfix: Evoker-type RSD now properly respect if you are trying to put a soul into
+      a body that was previously occupied.
   norsvenska:
   - map: cleaned up the ouroboros medical department's floor decals and lights
   - bugfix: ouroboros surgery shutters are now linked to their buttons
