@@ -52,6 +52,8 @@
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
 	var/saved_screen = "Blank"
+	/// Set to TRUE if the species was emagged before
+	var/emag_effect = FALSE
 
 /datum/species/synthetic/allows_food_preferences()
 	return FALSE
@@ -86,6 +88,11 @@
 
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer)
 	. = ..()
+
+	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
+
+	var/datum/action/sing_tones/sing_action = new
+	sing_action.Grant(transformer)
 
 	var/screen_mutant_bodypart = transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN]
 	var/obj/item/organ/internal/eyes/eyes = transformer.get_organ_slot(ORGAN_SLOT_EYES)
@@ -142,6 +149,8 @@
 /datum/species/synthetic/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
 
+	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
+
 	var/obj/item/organ/internal/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
 	if(eyes)
@@ -165,6 +174,15 @@
 		if(old_stomach)
 			old_stomach.moveToNullspace()
 			STOP_PROCESSING(SSobj, old_stomach)
+
+/datum/species/synthetic/proc/on_emag_act(mob/living/carbon/human/source, mob/user)
+	SIGNAL_HANDLER
+
+	if(emag_effect)
+		return
+	emag_effect = TRUE
+	playsound(source.loc, 'sound/misc/interference.ogg', 50)
+	to_chat(source, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
 
 /**
  * Makes the IPC screen switch to BSOD followed by a blank screen
@@ -217,6 +235,13 @@
 		SPECIES_PERK_ICON = "star-of-life",
 		SPECIES_PERK_NAME = "Unhuskable",
 		SPECIES_PERK_DESC = "[plural_form] can't be husked, disappointing changelings galaxy-wide.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "music",
+		SPECIES_PERK_NAME = "Tone Synthesizer",
+		SPECIES_PERK_DESC = "[plural_form] can sing musical tones using an internal synthesizer.",
 	))
 
 	perk_descriptions += list(list(
