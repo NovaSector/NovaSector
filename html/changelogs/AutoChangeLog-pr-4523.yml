@@ -1,0 +1,4 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - rscadd: "Added the personal holosign projector. Use it to mark areas as explicitly lewd or private. Right-click to toggle modes."
