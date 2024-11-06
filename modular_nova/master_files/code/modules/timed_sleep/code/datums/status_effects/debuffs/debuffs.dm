@@ -13,7 +13,7 @@
 /datum/status_effect/incapacitating/sleeping/tick(seconds_between_ticks)
 	. = ..()
 	// Prolongs sleep indefinitely when the client disconnects
-	if(!owner.client)
+	if(owner.lastKnownIP && !owner.client)
 		pause_expiry = TRUE
 	else
 		pause_expiry = FALSE
