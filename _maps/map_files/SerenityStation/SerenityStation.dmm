@@ -21420,6 +21420,7 @@
 /area/station/maintenance/department/engineering/atmos/hfr_maint)
 "ggU" = (
 /obj/machinery/computer/station_alert,
+/obj/machinery/keycard_auth/wall_mounted/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/ce)
 "ghd" = (

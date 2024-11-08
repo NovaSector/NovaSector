@@ -14,8 +14,8 @@
 	try_hack_borg(seconds_per_tick)
 
 /datum/artifact_effect/machinery_mess/do_effect_destroy()
-	try_animate()
-	try_hack_borg()
+	try_animate(2)
+	try_hack_borg(2)
 
 /**
  * Tries to animate nearby machinery into angry mobs.
