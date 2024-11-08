@@ -612,7 +612,7 @@
 	return health
 
 // MOB PROCS //END
-
+/* NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/timed_sleep/code/mob/living/living.dm]
 /mob/living/proc/mob_sleep()
 	set name = "Sleep"
 	set category = "IC"
@@ -623,7 +623,7 @@
 	else
 		if(tgui_alert(usr, "You sure you want to sleep for a while?", "Sleep", list("Yes", "No")) == "Yes")
 			SetSleeping(400) //Short nap
-
+NOVA EDIT REMOVAL END */
 
 /mob/proc/get_contents()
 

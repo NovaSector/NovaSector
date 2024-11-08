@@ -1,5 +1,8 @@
-// Voluntary sleeping / Timed sleeping
-/mob/living/mob_sleep()
+// Replaces proc definition in [code\modules\mob\living\living.dm]
+/mob/living/proc/mob_sleep()
+	set name = "Sleep"
+	set category = "IC"
+
 	if(IsSleeping())
 		to_chat(src, span_warning("You are already sleeping!"))
 		return
