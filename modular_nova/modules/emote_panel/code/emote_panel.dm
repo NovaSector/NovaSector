@@ -701,7 +701,7 @@
 /mob/living/proc/emote_hiss1()
 	set name = "> Hiss"
 	set category = "Emotes+"
-	usr.emote("hiss1", intentional = TRUE)
+	usr.emote("hiss", intentional = TRUE)
 
 /mob/living/proc/emote_chitter()
 	set name = "> Chitter"
