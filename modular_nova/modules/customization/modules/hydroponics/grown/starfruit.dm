@@ -40,7 +40,7 @@
 	name = "Stellar Twist"
 	description = "A cosmic cry of a bygone era."
 	boozepwr = 20
-	color = "#75357a"
+	color = "#434294"
 	quality = DRINK_VERYGOOD
 	taste_description = "sweet stellar adventures"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -50,7 +50,7 @@
 	name = "Stellar Twist"
 	desc = "An alcoholic starfruit cream soda, you can almost see a sparkling galaxy in the glass."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon_state = "starfruit_soda"
+	icon_state = "starsoda"
 
 /datum/chemical_reaction/drink/starlit_latte
 	results = list(/datum/reagent/consumable/starlit_latte = 2)
@@ -90,7 +90,7 @@
 	name = "starbeam shake"
 	desc = "A thick and creamy drink that takes you for a journey in the stars."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon_state = "starfruit_shake"
+	icon_state = "voidshake"
 
 //Starfruit dishes
 
@@ -108,7 +108,7 @@
 	name = "starfruit glazed ribs"
 	desc = "Tender BBQ ribs, glazed with a sweet Starfruit sauce. Garinished with a carmalized starfruit on the side. The sweetest least vegan thing this side of the frontier."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon_state = "ribs"
+	icon_state = "glazedchops"
 	w_class = WEIGHT_CLASS_NORMAL
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 15,
@@ -145,6 +145,8 @@
 	tastes = list("tender meat" = 2, "sweet sauce" = 1, "smokey BBQ" = 1, "sugary glaze" = 1)
 	foodtypes = MEAT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_5
+
+/obj/item/food/meat/slab/chicken
 
 /datum/crafting_recipe/food/starfruitsushiroll
 	name = "Starfruit Sushi Roll"
@@ -339,7 +341,7 @@
 
 /obj/item/food/cookie/macaron/starfruit
 	name = "starfruit macaron"
-	desc = "A sandwich-like confectionary with a soft cookie shell and a creamy starfruit jelly meringue center."\
+	desc = "A sandwich-like confectionary with a soft cookie shell and a creamy starfruit jelly meringue center."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starmacaron"
 	tastes = list("wafer" = 2, "sweet starfruit" = 2, "creamy meringue" = 3)
@@ -354,3 +356,35 @@
 	)
 	result = /obj/item/food/cookie/macaron/starfruit
 	category = CAT_PASTRY
+
+/obj/item/food/pie/starfruitcobbler
+	name = "starfruit cobbler"
+	desc = "A tasty dessert of many different small barries on a thin pie crust."
+	icon_state = "cobbler"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	tastes = list("pie" = 1, "sugar" = 2, "starfruit" = 1, "cosmic longing" = 1)
+	foodtypes = GRAIN | FRUIT
+
+/obj/item/food/pie/starfruitpie
+	name = "starfruit pie"
+	desc = "Deceptively simple, yet flavor intensive."
+	icon_state = "starfruitpie"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 14,
+		/datum/reagent/consumable/nutriment/vitamin = 6,
+	)
+	tastes = list("starfruit" = 1, "pie" = 1, "cosmic longing" = 1)
+	foodtypes = GRAIN | FRUIT | SUGAR
+	slice_type = /obj/item/food/pieslice/starfruitpie
+	crafting_complexity = FOOD_COMPLEXITY_3
+
+/obj/item/food/pieslice/starfruitpie
+	name = "starfruit pie slice"
+	desc = "Takes you on a journy though space!"
+	icon_state = "starfruitpie_slice"
+	tastes = list("pie" = 1, "starfruit" = 1, "cosmic longing" = 1)
+	foodtypes = GRAIN | FRUIT | SUGAR
+	crafting_complexity = FOOD_COMPLEXITY_3
