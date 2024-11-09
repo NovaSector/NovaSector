@@ -219,7 +219,7 @@
 	name = "BBQ Meat Platter"
 	desc = "An elaborate BBQ platter adorned with several BBQ favorites on this side of the galaxy. Garnished with some rosted pepper."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon_state = "meatdisk"
+	icon_state = "meatdisc"
 	w_class = WEIGHT_CLASS_NORMAL
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 30,
@@ -288,7 +288,7 @@
 	name = "starfruit sushi slice"
 	desc = "A slice of starfruit sushi with rice, fish, and cradled in a seaweed sheat."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon_state = "sashimiroll"
+	icon_state = "sashimirollslice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
@@ -413,6 +413,7 @@
 /obj/item/food/cake/starfruit
 	name = "starfruit cake"
 	desc = "An elaborately decorated cake with a starfruit filling. Pairs well with a starlit latte."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -426,6 +427,7 @@
 /obj/item/food/cakeslice/starfruit
 	name = "starfruit cake slice"
 	desc = "A slice of starfruit cake, you got a slice with extra frosting! Lucky you!"
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starcake_slice"
 	tastes = list("cake" = 3, "astral sweetness" = 2, "unbearable longing" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
@@ -461,7 +463,7 @@
 	name = "starfruit macaron"
 	desc = "A sandwich-like confectionary with a soft cookie shell and a creamy starfruit jelly meringue center."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon_state = "starmacaron"
+	icon_state = "macaron_4"
 	tastes = list("wafer" = 2, "sweet starfruit" = 2, "creamy meringue" = 3)
 
 /datum/crafting_recipe/food/macaron/starfruit
@@ -479,7 +481,7 @@
 	name = "Starfruit Cobbler"
 	reqs = list(
 		/obj/item/food/pastrybase = 2,
-		/obj/item/food/grown/starfruit = 2
+		/obj/item/food/grown/starfruit = 2,
 		/datum/reagent/consumable/starfruitjelly = 10,
 	)
 	result = /obj/item/food/pie/starfruitcobbler
@@ -490,6 +492,7 @@
 	desc = "A tasty cobbler packed with sweet starfruit in a buttery pastry crust. Topped with a small amount of sweet cream."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "cobbler"
+	bite_consumption = 3
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
@@ -498,7 +501,7 @@
 	foodtypes = GRAIN | FRUIT
 
 /datum/crafting_recipe/food/starfruit_toast
-	name = "Caramel-jelly Toast"
+	name = "Starfruit Jelly Toast"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 1,
 		/datum/reagent/consumable/starfruitjelly = 5,
@@ -557,6 +560,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "compote"
 	tastes = list("starfruit" = 1, "sweet sugar" = 1, "cognac spice" = 1)
+	bite_consumption = 3
 	foodtypes = FRUIT | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
