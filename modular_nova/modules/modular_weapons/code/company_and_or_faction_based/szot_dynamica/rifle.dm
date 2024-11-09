@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/automatic/lanca
 	name = "\improper Lanca Battle Rifle"
-	desc = "A relatively compact, long barreled bullpup battle rifle chambered for .310 Strilka. Has an integrated sight with \
+	desc = "A relatively compact, long barreled battle rifle chambered for .310 Strilka. Has an integrated sight with \
 		a surprisingly functional amount of magnification, given its place of origin."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -63,7 +63,7 @@
 		Then, to make up for all the added weight, the stock was replaced with a lighter skeletonized one, \
 		and the barrel assembly was changed out for a minimalist design. \
 		All in all, you get less rifle, for the priveledge of a bigger caliber. \
-		...And a scope.
+		...And a scope."
 
 	return .
 
@@ -129,7 +129,7 @@
 		Despite it's claims of 'fauna hunting' use, most people just picking up the thing could figure out the real use. \
 		This is the spitting image of anti-armo-... anti-anything.  \
 		There's a laser etched warning label, informing users of the weapon to 'be wary of side-blast.' \
-		...And to not use it if you aren't of 'appropriate size,' but the sizing chart is no where to beseen. \
+		...And to not use it if you aren't of 'appropriate size,' but the sizing chart is no where to be seen." \
 
 
 	return .
