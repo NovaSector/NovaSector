@@ -54,7 +54,7 @@
 		Fires the .24-57 'pistol' caliber round, if only to dodge it's classification as a rifle. \
 		Overall, it's decently accurate, lightweight, someone still squeezes into your bag,  \
 		and might feel a little more homely then the next gun over... or, atleast that's what the label says. \
-		wood-substitute material is known to have various side-effects, contact your local health department before use.
+		wood-substitute material is known to have various side-effects, contact your local health department before use."
 
 	return .
 
