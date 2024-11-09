@@ -1,4 +1,3 @@
-// Voluntary sleeping / Timed sleeping
 /datum/status_effect/incapacitating/sleeping
 	show_duration = TRUE
 	var/voluntary = FALSE
