@@ -116,6 +116,6 @@
 		Especially favored by cargo-runners, and pirates due to the ease of finding more 12G. \
 		Unlike the silver and wood sporting variants, this is the pure survival model replacing the grip with a, \
 		standard rubberized pistol grip and weather resistant finish. While the 'Bóbr' isn't the most appealing \
-		weapon to grace someone's hands, it is among the most practical.
+		weapon to grace someone's hands, it is among the most practical."
 
 	return .
