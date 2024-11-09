@@ -42,8 +42,7 @@
 		and one hell of an intimidation factor. \
 		Earlier claims by competitors passed it off as terrible against armor,  \
 		but in reality, it's about as effective as any ballistic you could get your hands on! \
-		As long as your sector, and local-command permits automatic weapons, that is... and grevious wounds." \
-		
+		As long as your sector, and local-command permits automatic weapons, that is... and grevious wounds."
 		
 	return .
 
