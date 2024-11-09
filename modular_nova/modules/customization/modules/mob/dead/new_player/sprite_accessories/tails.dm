@@ -450,3 +450,7 @@
 /datum/sprite_accessory/tails/mammal/black_jackal
 	name = "Black-backed Jackal"
 	icon_state = "blackjackal"
+
+/datum/sprite_accessory/tails/mammal/wagging/gecko
+	name = "Gecko"
+	icon_state = "gecko"
