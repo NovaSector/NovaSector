@@ -202,7 +202,7 @@
 		/datum/reagent/consumable/starfruit_juice = 5,
 	)
 	tastes = list("tender meat" = 2, "sweet sauce" = 1, "sugary glaze" = 1)
-	foodtypes = MEAT | SUGAR
+	foodtypes = MEAT
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /datum/crafting_recipe/food/meatplatter
@@ -228,7 +228,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("tender meat" = 2, "sweet sauce" = 1, "smokey BBQ" = 1, "sugary glaze" = 1)
-	foodtypes = MEAT | SUGAR
+	foodtypes = MEAT
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /datum/crafting_recipe/food/chicken_alfredo
@@ -244,7 +244,7 @@
 
 /obj/item/food/chicken_alfredo
 	name = "Starfruit Chicken Alfredo"
-	desc = "An elaborate BBQ platter adorned with several BBQ favorites on this side of the galaxy. Garnished with some rosted pepper."
+	desc = "A chicken alfredo dish with a starfruit cream sauce. Not for the faint of heart."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "alfredo"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -253,9 +253,9 @@
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
-	tastes = list("sweet chicken" = 2, "creamy sauce" = 1, "cursed knowledge" = 1, "sugary glaze" = 1)
-	foodtypes = MEAT | SUGAR
-	crafting_complexity = FOOD_COMPLEXITY_4
+	tastes = list("sweet chicken" = 2, "creamy sauce" = 1, "cursed knowledge" = 1, "tasty noodles" = 1)
+	foodtypes = MEAT | GRAIN
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitsushiroll
 	name = "Starfruit Sushi Roll"
@@ -279,7 +279,7 @@
 	tastes = list("boiled rice" = 2, "starfruit" = 2, "fish" = 2)
 	foodtypes = SEAFOOD
 	w_class = WEIGHT_CLASS_SMALL
-	crafting_complexity = FOOD_COMPLEXITY_4
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/starfruitsushiroll/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/starfruitsushislice, 4, screentip_verb = "Chop")
@@ -296,7 +296,7 @@
 	tastes = list("boiled rice" = 2, "starfruit" = 2, "fish" = 2)
 	foodtypes = SEAFOOD
 	w_class = WEIGHT_CLASS_SMALL
-	crafting_complexity = FOOD_COMPLEXITY_4
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruit_sashimi
 	name = "Starfruit sashimi"
@@ -401,6 +401,15 @@
 	foodtypes = GRAIN | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
+/datum/crafting_recipe/food/starfruitcake
+	name = "starfruit cake"
+	reqs = list(
+		/obj/item/food/cake/plain = 1,
+		/obj/item/food/grown/starfruit = 5
+	)
+	result = /obj/item/food/cake/starfruit
+	category = CAT_CAKE
+
 /obj/item/food/cake/starfruit
 	name = "starfruit cake"
 	desc = "An elaborately decorated cake with a starfruit filling. Pairs well with a starlit latte."
@@ -409,10 +418,10 @@
 		/datum/reagent/consumable/nutriment = 20,
 		/datum/reagent/consumable/nutriment/vitamin = 10,
 	)
-	tastes = list("cake" = 5, "sweetness" = 2, "unbearable sourness" = 2)
+	tastes = list("cake" = 3, "sweetness" = 2, "unbearable longing" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 	slice_type = /obj/item/food/cakeslice/starfruit
-	crafting_complexity = FOOD_COMPLEXITY_4
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cakeslice/starfruit
 	name = "starfruit cake slice"
@@ -420,7 +429,7 @@
 	icon_state = "starcake_slice"
 	tastes = list("cake" = 3, "astral sweetness" = 2, "unbearable longing" = 2)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
-	crafting_complexity = FOOD_COMPLEXITY_4
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/reagent/consumable/starfruitjelly
 	name = "Starfruit Jelly"
@@ -466,9 +475,20 @@
 	result = /obj/item/food/cookie/macaron/starfruit
 	category = CAT_PASTRY
 
+/datum/crafting_recipe/food/starfruitcobbler
+	name = "Starfruit Cobbler"
+	reqs = list(
+		/obj/item/food/pastrybase = 2,
+		/obj/item/food/grown/starfruit = 2
+		/datum/reagent/consumable/starfruitjelly = 10,
+	)
+	result = /obj/item/food/pie/starfruitcobbler
+	category = CAT_PASTRY
+
 /obj/item/food/pie/starfruitcobbler
 	name = "starfruit cobbler"
-	desc = "A tasty dessert of many different small barries on a thin pie crust."
+	desc = "A tasty cobbler packed with sweet starfruit in a buttery pastry crust. Topped with a small amount of sweet cream."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "cobbler"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -476,6 +496,27 @@
 	)
 	tastes = list("pie" = 1, "sugar" = 2, "starfruit" = 1, "cosmic longing" = 1)
 	foodtypes = GRAIN | FRUIT
+
+/datum/crafting_recipe/food/starfruit_toast
+	name = "Caramel-jelly Toast"
+	reqs = list(
+		/obj/item/food/breadslice/plain = 1,
+		/datum/reagent/consumable/starfruitjelly = 5,
+	)
+	result = /obj/item/food/starfruit_toast
+	category = CAT_BREAD
+
+/obj/item/food/starfruit_toast
+	name = "starfruit jellied toast"
+	desc = "A slice of toast covered with delicious starfruit jam."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "spacejamtoast"
+	bite_consumption = 3
+	tastes = list("toast" = 1, "jelly" = 1, "starfruit jelly" = 1)
+	foodtypes = GRAIN | BREAKFAST
+	food_flags = FOOD_FINGER_FOOD
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pie/starfruitpie
 	name = "starfruit pie"
@@ -498,4 +539,70 @@
 	icon_state = "starfruitpie_slice"
 	tastes = list("pie" = 1, "starfruit" = 1, "cosmic longing" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
+	crafting_complexity = FOOD_COMPLEXITY_3
+
+/datum/crafting_recipe/food/starfruitcompote
+	name = "Starfruit Compote"
+	reqs = list(
+		/obj/item/food/grown/starfruit = 5,
+		/datum/reagent/consumable/sugar = 10,
+		/datum/reagent/consumable/ethanol/cognac = 10,
+	)
+	result = /obj/item/food/starfruitcompote
+	category = CAT_MISCFOOD
+
+/obj/item/food/starfruitcompote
+	name = "starfruit compote"
+	desc = "An irresistibly sweet dish of starfruit boiled down in cognac and sugar."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "compote"
+	tastes = list("starfruit" = 1, "sweet sugar" = 1, "cognac spice" = 1)
+	foodtypes = FRUIT | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3
+
+/datum/crafting_recipe/food/starfruitbrulee
+	name = "Starfruit Crene Brulee"
+	reqs = list(
+		/datum/reagent/consumable/starfruit_juice = 10,
+		/datum/reagent/consumable/sugar = 10,
+		/datum/reagent/consumable/salt = 5,
+		/datum/reagent/consumable/eggyolk = 2,
+		/datum/reagent/consumable/eggwhite = 4,
+	)
+	result = /obj/item/food/starfruitbrulee
+	category = CAT_MISCFOOD
+
+/obj/item/food/starfruitbrulee
+	name = "starfruit creme brulee"
+	desc = "A delightful pudding dish made from primaryily caramel and egg whites."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "cremebrulee"
+	tastes = list("starfruit" = 1, "caramel" = 1, "subtle cream" = 1)
+	foodtypes = FRUIT | SUGAR
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3
+
+/datum/crafting_recipe/food/starcupcake
+	name = "Starfruit Cupcake"
+	reqs = list(
+		/obj/item/food/pastrybase = 1,
+		/obj/item/food/grown/starfruit = 2
+	)
+	result = /obj/item/food/starcupcake
+	category = CAT_PASTRY
+
+/obj/item/food/starcupcake
+	name = "starfruit cupcake"
+	desc = "A sweet cupcake with a starfruit frosting."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "cupcakestar"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+	tastes = list("cake" = 3, "starfruit" = 1)
+	foodtypes = GRAIN | FRUIT | SUGAR
+	food_flags = FOOD_FINGER_FOOD
+	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
