@@ -34,7 +34,7 @@
 //All the drinks are very good because this shit cost 1k minimum to get the starfruit
 
 /datum/chemical_reaction/drink/starfruit_soda
-	results = list(/datum/reagent/consumable/ethanol/starfruit_soda = 6)
+	results = list(/datum/reagent/consumable/ethanol/starfruit_soda = 5)
 	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 2, /datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/ethanol/cognac = 1, /datum/reagent/consumable/sodawater = 1)
 	mix_message = "The ingredients combine into fizzy soda."
 
@@ -69,17 +69,17 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/glass_style/drinking_glass/starfruit_lubricant
-	required_drink_type = /datum/reagent/consumable/ethanol/starfruit_soda
+	required_drink_type = /datum/reagent/consumable/ethanol/starfruit_lubricant
 	name = "Stellar Lubricant"
 	desc = "An alcoholic synth friendly starfruit soda, you can see the carination in the glass."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starsodasynth"
 
-/datum/chemical_reaction/drink/starlit_latte
-	results = list(/datum/reagent/consumable/starlit_latte = 2)
+/datum/chemical_reaction/drink/starfruit_latte
+	results = list(/datum/reagent/consumable/starfruit_latte = 2)
 	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/coffee = 1)
 
-/datum/reagent/consumable/starlit_latte //starfruit juice 1, coffee 1
+/datum/reagent/consumable/starfruit_latte //starfruit juice 1, coffee 1
 	name = "Starlit Latte"
 	description = "A subtly sweet coffee seemingly out of this world."
 	nutriment_factor = 8
@@ -89,26 +89,25 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/glass_style/drinking_glass/starfruit_latte
-	required_drink_type = /datum/reagent/consumable/starlit_latte
+	required_drink_type = /datum/reagent/consumable/starfruit_latte
 	name = "mug of starlit latte"
 	desc = "A simple coffe flavored with sweet starfruit juice. It takes you on a journey to a place you’ve never been, yet somehow know by heart."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
-	icon = 'icons/obj/drinks/coffee.dmi'
 	icon_state = "starfruit_latte"
 
-/datum/chemical_reaction/drink/starbeam_shake // starfruit juice 1 , vanilla dream 1 , ice 1
+/datum/chemical_reaction/drink/starbeam_shake //starfruit juice 1 , vanilla dream 1 , ice 1
 	results = list(/datum/reagent/consumable/starbeam_shake = 3)
 	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/vanilla_dream = 1, /datum/reagent/consumable/ice = 1)
 
 /datum/reagent/consumable/starbeam_shake
 	name = "starbeam shake"
-	description = "A delightful shake made from a rare starfruit."
+	description = "A delightful shake made with a rare starfruit."
 	color = "#a551be"
 	nutriment_factor = 0
 	taste_description = "smooth starlight"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/glass_style/drinking_glass/starfruit_shake
+/datum/glass_style/drinking_glass/starbeam_shake
 	required_drink_type = /datum/reagent/consumable/starbeam_shake
 	name = "starbeam shake"
 	desc = "A thick and creamy drink that takes you for a journey in the stars."
@@ -123,7 +122,7 @@
 /datum/reagent/consumable/ethanol/forgotten_star //starfruit juice 1, creme de coconut 1, white russian 1, pineapple juice 1, bitters 1
 	name = "Forgotten Star"
 	description = "A cosmic cry of a bygone era."
-	boozepwr = 35
+	boozepwr = 55
 	color = "#434294"
 	quality = DRINK_VERYGOOD
 	taste_description = "dreamy, tropical starlit sweetness"
@@ -141,10 +140,10 @@
 	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/navy_rum = 1, /datum/reagent/consumable/menthol = 1, /datum/reagent/consumable/limejuice = 1, /datum/reagent/consumable/sodawater = 1)
 	mix_message = "The ingredients morph into a an enticing smell"
 
-/datum/reagent/consumable/ethanol/astral_flame //starfruit juice 1, navy rum 1, lime juice 1, soda water 1, menthol
+/datum/reagent/consumable/ethanol/astral_flame //starfruit juice 1, navy rum 1, lime juice 1, soda water 1, menthol 1
 	name = "Astral Flame"
 	description = "Enticing flames."
-	boozepwr = 35
+	boozepwr = 55
 	color = "#6b3481"
 	quality = DRINK_VERYGOOD
 	taste_description = "enticing warmth"
