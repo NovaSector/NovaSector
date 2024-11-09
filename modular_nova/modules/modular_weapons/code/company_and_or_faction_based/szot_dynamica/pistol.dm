@@ -42,7 +42,7 @@
 		and one hell of an intimidation factor. \
 		Earlier claims by competitors passed it off as terrible against armor,  \
 		but in reality, it's about as effective as any ballistic you could get your hands on! \
-		As long as your sector, and local-command permits automatic weapons, that is... and grevious wounds. \
+		As long as your sector, and local-command permits automatic weapons, that is... and grevious wounds." \
 		
 		
 	return .
@@ -87,7 +87,7 @@
 	. += "The 'Gwiazda' is a further refinement of the 'Słońce' design. with improved \
 		energy cycling, magnetic launchers built to higher precision, and an overall more \
 		ergonomic design. Early reports speak highly of it's ability to shoot in a straight line. \
-		Why it's ended up here is anyone's guess, but the best one would be: "Figuring out how it fairs in gunfights."
+		Why it's ended up here is anyone's guess, but the best one would be: 'Figuring out how it fairs in gunfights.'"
 
 	return .
 
