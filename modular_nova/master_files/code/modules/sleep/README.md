@@ -16,6 +16,11 @@ Overrides the sleep verb and some associated code chunks to implement enhancesme
     - Added a conditional to allow resisting if the sleep verb was used.
   - Edited `/mob/living/proc/execute_resist()`:
     - Added conditional to allow resisting to wake up from sleep.
+- Edited `code/datums/status_effects/_status_effect.dm`:
+  - Edited `/datum/status_effect/process()`:
+    - Added conditional to allow for handling new variable `pause_expiry` and pausing status effect expiration.
+  - Edited `/datum/status_effect/proc/remove_duration()`:
+    - Added conditional to allow for handling new variable `pause_expiry` and pausing status effect expiration.
 - Edited `code\modules\mob\living\status_procs.dm`:
   - Edited `/mob/living/proc/SetSleeping()`:
     - Added argument `is_voluntary` to differentiate voluntary and involuntary sleeping.
