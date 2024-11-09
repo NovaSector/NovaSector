@@ -31,15 +31,17 @@
 	juice_typepath = /datum/reagent/consumable/starfruit_juice
 
 //Starfruit drinks
+//All the drinks are very good because this shit cost 1k minimum to get the starfruit
 
 /datum/chemical_reaction/drink/starfruit_soda
-	results = list(/datum/reagent/consumable/ethanol/starfruit_soda = 7) //Woe, 70 units upon ye
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 2, /datum/reagent/consumable/coffee = 1, /datum/reagent/consumable/cream = 1,  /datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/ethanol/cognac = 1)
+	results = list(/datum/reagent/consumable/ethanol/starfruit_soda = 6)
+	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 2, /datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/ethanol/cognac = 1, /datum/reagent/consumable/sodawater = 1)
+	mix_message = "The ingredients combine into fizzy soda."
 
-/datum/reagent/consumable/ethanol/starfruit_soda //starfruit juice 2, rum 2, cognac 1, cream 1, soda water 1
+/datum/reagent/consumable/ethanol/starfruit_soda //starfruit juice 2, rum 2, cognac 1, soda water 1
 	name = "Stellar Twist"
-	description = "A cosmic cry of a bygone era."
-	boozepwr = 20
+	description = "A drink over tired moms could hide in their thermos."
+	boozepwr = 35
 	color = "#434294"
 	quality = DRINK_VERYGOOD
 	taste_description = "sweet stellar adventures"
@@ -48,9 +50,30 @@
 /datum/glass_style/drinking_glass/starfruit_soda
 	required_drink_type = /datum/reagent/consumable/ethanol/starfruit_soda
 	name = "Stellar Twist"
-	desc = "An alcoholic starfruit cream soda, you can almost see a sparkling galaxy in the glass."
+	desc = "An alcoholic starfruit soda, you can see the carbination in the glass"
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starsoda"
+
+/datum/chemical_reaction/drink/starfruit_lubricant
+	results = list(/datum/reagent/consumable/ethanol/starfruit_lubricant = 2)
+	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/synthanol = 1)
+	mix_message = "The ingredients combine into a fizzy soda."
+
+/datum/reagent/consumable/ethanol/starfruit_lubricant //starfruit juice 1, Synthanol 1
+	name = "Stellar Lubricant"
+	description = "A drink over tired moms could hide in their thermos. Now for Synths!"
+	boozepwr = 35
+	color = "#45b33b"
+	quality = DRINK_VERYGOOD
+	taste_description = "sweet stellar adventures"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/starfruit_lubricant
+	required_drink_type = /datum/reagent/consumable/ethanol/starfruit_soda
+	name = "Stellar Lubricant"
+	desc = "An alcoholic synth friendly starfruit soda, you can see the carination in the glass."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "starsodasynth"
 
 /datum/chemical_reaction/drink/starlit_latte
 	results = list(/datum/reagent/consumable/starlit_latte = 2)
@@ -92,12 +115,75 @@
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "voidshake"
 
+/datum/chemical_reaction/drink/forgotten_star
+	results = list(/datum/reagent/consumable/ethanol/forgotten_star = 5)
+	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/pineapplejuice = 1, /datum/reagent/consumable/ethanol/white_russian = 1, /datum/reagent/consumable/ethanol/creme_de_coconut = 1, /datum/reagent/consumable/ethanol/bitters = 1)
+	mix_message = "The ingredients combine into a shooting star."
+
+/datum/reagent/consumable/ethanol/forgotten_star //starfruit juice 1, creme de coconut 1, white russian 1, pineapple juice 1, bitters 1
+	name = "Forgotten Star"
+	description = "A cosmic cry of a bygone era."
+	boozepwr = 35
+	color = "#434294"
+	quality = DRINK_VERYGOOD
+	taste_description = "dreamy, tropical starlit sweetness"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/forgotten_star
+	required_drink_type = /datum/reagent/consumable/ethanol/forgotten_star
+	name = "Forgotten Star"
+	desc = "An alcoholic starfruit coctail, you can almost make out a distant star system in the glass."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "forgottenstar"
+
+/datum/chemical_reaction/drink/astral_flame
+	results = list(/datum/reagent/consumable/ethanol/astral_flame = 6)
+	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/navy_rum = 1, /datum/reagent/consumable/menthol = 1, /datum/reagent/consumable/limejuice = 1, /datum/reagent/consumable/sodawater = 1)
+	mix_message = "The ingredients morph into a an enticing smell"
+
+/datum/reagent/consumable/ethanol/astral_flame //starfruit juice 1, navy rum 1, lime juice 1, soda water 1, menthol
+	name = "Astral Flame"
+	description = "Enticing flames."
+	boozepwr = 35
+	color = "#6b3481"
+	quality = DRINK_VERYGOOD
+	taste_description = "enticing warmth"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/astral_flame
+	required_drink_type = /datum/reagent/consumable/ethanol/astral_flame
+	name = "Astral Flame"
+	desc = "An alcoholic starfruit mojito, the flame in the glass tempts you closer."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "astralflame"
+
+/datum/chemical_reaction/drink/space_muse
+	results = list(/datum/reagent/consumable/ethanol/space_muse = 3)
+	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/creme_de_menthe = 1, /datum/reagent/consumable/ethanol/vodka = 1)
+	mix_message = "The mixture gives a soft crackling snap."
+
+/datum/reagent/consumable/ethanol/space_muse //starfruit juice 1, creme de menthe, 1 vodka
+	name = "Space Muse"
+	description = "A snapshot straight from your local telescope."
+	boozepwr = 35
+	color = "#7cb1e2"
+	quality = DRINK_VERYGOOD
+	taste_description = "haughty cosmic thought"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/glass_style/drinking_glass/space_muse
+	required_drink_type = /datum/reagent/consumable/ethanol/space_muse
+	name = "Space Muse"
+	desc = "An alcoholic coctail that draws you in with sybtle bites of mint and starfruit."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "spacemuse"
+
 //Starfruit dishes
 
 /datum/crafting_recipe/food/glazed_ribs
 	name = "Starfruit glazed ribs"
 	reqs = list(
-		/obj/item/food/bbqribs,
+		/obj/item/food/bbqribs = 1,
 		/obj/item/food/grown/starfruit = 2,
 		/datum/reagent/consumable/starfruit_juice = 5,
 	)
@@ -146,7 +232,31 @@
 	foodtypes = MEAT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_5
 
-/obj/item/food/meat/slab/chicken
+/datum/crafting_recipe/food/chicken_alfredo
+	name = "Starfruit Chicken Alfredo"
+	reqs = list(
+		/obj/item/food/meat/slab/chicken = 1,
+		/obj/item/food/grown/starfruit = 2,
+		/datum/reagent/consumable/cream = 10,
+		/obj/item/food/spaghetti/boiledspaghetti = 1
+	)
+	result = /obj/item/food/chicken_alfredo
+	category = CAT_MISCFOOD
+
+/obj/item/food/chicken_alfredo
+	name = "Starfruit Chicken Alfredo"
+	desc = "An elaborate BBQ platter adorned with several BBQ favorites on this side of the galaxy. Garnished with some rosted pepper."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
+	icon_state = "alfredo"
+	w_class = WEIGHT_CLASS_NORMAL
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment/protein = 15,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+		/datum/reagent/consumable/starfruit_juice = 10,
+	)
+	tastes = list("sweet chicken" = 2, "creamy sauce" = 1, "cursed knowledge" = 1, "sugary glaze" = 1)
+	foodtypes = MEAT | SUGAR
+	crafting_complexity = FOOD_COMPLEXITY_4
 
 /datum/crafting_recipe/food/starfruitsushiroll
 	name = "Starfruit Sushi Roll"
@@ -371,6 +481,7 @@
 /obj/item/food/pie/starfruitpie
 	name = "starfruit pie"
 	desc = "Deceptively simple, yet flavor intensive."
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starfruitpie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 14,
@@ -384,6 +495,7 @@
 /obj/item/food/pieslice/starfruitpie
 	name = "starfruit pie slice"
 	desc = "Takes you on a journy though space!"
+	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starfruitpie_slice"
 	tastes = list("pie" = 1, "starfruit" = 1, "cosmic longing" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
