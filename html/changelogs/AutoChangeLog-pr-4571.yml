@@ -1,0 +1,5 @@
+author: "ZeroInside"
+delete-after: True
+changes:
+  - rscadd: "Added animation for TheMarkedOne's trophy cape."
+  - bugfix: "Fixed an issue with TheMarkedOne's trophy cape sprite, where the front view scarf was 1 pixel higher than needed."
