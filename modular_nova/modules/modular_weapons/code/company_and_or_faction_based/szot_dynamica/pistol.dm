@@ -3,7 +3,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
 	name = "\improper Słońce Plasma Projector"
-	desc = "A full auto plasma-spewer, in the flavor of "dirt cheap." \
+	desc = "A full auto plasma-spewer, in the flavor of 'dirt cheap.' \
 		Uses plasma power packs. \
 		Spews an inaccurate stream of searing plasma out the magnetic barrel so long as it has power and the trigger is pulled."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
