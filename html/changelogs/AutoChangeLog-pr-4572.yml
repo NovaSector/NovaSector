@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "metastation arrivals no longer has extra windows."
