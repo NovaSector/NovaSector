@@ -128,7 +128,6 @@
 		Further on, its claims of fauna hunting use, most people just picking up the thing could figure out the real use. \
 		This is the spitting image of anti-armo-... anti-anything.  \
 		There's a laser etched warning label, informing users of the weapon to be wary of side-blast. \
-		...And to not use it if you arent of appropriate size, but the sizing chart is no where to be seen." \
-
+		...And to not use it if you arent of appropriate size, but the sizing chart is no where to be seen."
 
 	return .
