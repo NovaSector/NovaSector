@@ -383,7 +383,7 @@
 		/obj/item/food/grown/starfruit = 1,
 		/obj/item/food/spaghetti/pastatomato = 1,
 	)
-	result = /obj/item/food/tofubeef
+	result = /obj/item/food/starfruitplate
 	category = CAT_MISCFOOD
 
 /obj/item/food/starfruitplate
@@ -566,7 +566,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitbrulee
-	name = "Starfruit Crene Brulee"
+	name = "Starfruit Creme Brulee"
 	reqs = list(
 		/datum/reagent/consumable/starfruit_juice = 10,
 		/datum/reagent/consumable/sugar = 10,
