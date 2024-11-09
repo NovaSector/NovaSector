@@ -244,7 +244,7 @@
 
 //Donation reward for Thedragmeme
 //Have I reached suspiciously wealthy furry status yet? /j
-/obj/item/clothing/under/sweaterdress
+/obj/item/clothing/under/sweater_dress
 	name = "virgin killer sweater"
 	desc = "A meticulously knitted sweater that shows off ALL the right places. This is BARELY considered work attire."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
@@ -254,7 +254,7 @@
 	icon_state = "virginslayer"
 	inhand_icon_state = "virginslayer"
 
-/obj/item/clothing/suit/jacket/bomber
+/obj/item/clothing/suit/jacket/bomber_donor
 	name = "old hoodie"
 	desc = "A somewhat well worn jacket, appears to be way too big considering who owns it."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
