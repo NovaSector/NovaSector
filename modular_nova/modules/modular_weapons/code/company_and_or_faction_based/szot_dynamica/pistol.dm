@@ -95,7 +95,7 @@
 
 /obj/item/gun/ballistic/revolver/shotgun_revolver
 	name = "\improper Bóbr 12 GA revolver"
-	desc = "A dated attempt at upsizing a revolver to a 'servicable' caliber for frontier-and-distance planets. \ 
+	desc = "A dated attempt at upsizing a revolver to a 'servicable' caliber for frontier-and-distance planets. \
 		A revolver type design with a four shell cylinder. That's right, shell, this one shoots twelve guage."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev12ga
 	recoil = SAWN_OFF_RECOIL
