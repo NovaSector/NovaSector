@@ -86,7 +86,7 @@
 	. += "The 'Gwiazda' is a further refinement of the 'Słońce' design. with improved \
 		energy cycling, magnetic launchers built to higher precision, and an overall more \
 		ergonomic design. Early reports speak highly of it's ability to shoot in a straight line. \
-		Why it's ended up here is anyone's guess, but the best one would be: 'Figuring out how it fairs in gunfights.'"
+		Why it's ended up here is anyone's guess, but the best one would be: 'Testing market sustainability.'"
 
 	return .
 
@@ -112,10 +112,10 @@
 	. = ..()
 
 	. += "The 'Bóbr' started development as a limited run sporting weapon before \
-		quickly being eaten up by both militia's and the general populace on most frontiers, \
+		quickly being eaten up by both militias and the general populace on most frontiers, \
 		Especially favored by cargo-runners, and pirates due to the ease of finding more 12G. \
-		Unlike the silver and wood sporting variants, this is the pure survival model replacing the grip with a, \
+		Unlike the silver and wood sporting variants, this is the pure survival model replacing the grip with a \
 		standard rubberized pistol grip and weather resistant finish. While the 'Bóbr' isn't the most appealing \
-		weapon to grace someone's hands, it is among the most practical."
+		weapon to grace someone's hands, it might be the most practical."
 
 	return .
