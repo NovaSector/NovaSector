@@ -610,3 +610,43 @@
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+
+/obj/item/book/manual/starfruit
+	name = "Starfruit Fluids and Brewing"
+	icon = 'modular_nova/master_files/icons/obj/starfruitbook.dmi'
+	icon_state = "cookbook"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/starfruitbook_lhand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/starfruitbook_rhand.dmi'
+	starting_author = "Artic Deep Beverage Rsearch Division"
+	starting_title = "Starfruit Fluids and Brewing"
+	starting_content = {"<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<style>
+h1 {font-size: 18px; margin: 15px 0px 5px;}
+h2 {font-size: 15px; margin: 15px 0px 5px;}
+li {margin: 2px 0px 2px 15px;}
+ul {list-style: none; margin: 5px; padding: 0px;}
+ol {margin: 5px; padding: 0px 15px;}
+</style>
+</head>
+<body>
+
+<h2>Artic Starfruit Beverage Recipies:</h2>
+
+<b>Starfruit Soda:</b> Two parts starfruit juice, two parts rum, one part cognac, one part soda water<br>
+
+<b>Starfruit Lubricant:</b> One part starfruit juice, one part synthanol<br>
+
+<b>Starlit Latte:</b> One part starfruit juice, one part coffee<br>
+
+<b>Starbeam Shake:</b> One part starfruit juice, one part vanilla dream, one part ice<br>
+
+<b>Forgotten Star:</b> One part starfruit juice, one part creme de coconut, one part white russian, one part pineapple juice, one part bitters
+
+<b>Astral Flame:</b> One Part Starfruit juice, one part navy rum,one part lime juice,one part soda water, one part menthol
+
+<b>Space Muse:</b> One part starfruit juice, one part creme de menthe, one part vodka
+</body>
+</html>
+"}
