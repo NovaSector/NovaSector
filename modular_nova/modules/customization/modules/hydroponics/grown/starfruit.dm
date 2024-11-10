@@ -515,6 +515,10 @@
 	desc = "A slice of toast covered with delicious starfruit jam."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "spacejamtoast"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 8,
+		/datum/reagent/consumable/nutriment/vitamin = 4,
+	)
 	bite_consumption = 3
 	tastes = list("toast" = 1, "jelly" = 1, "starfruit jelly" = 1)
 	foodtypes = GRAIN | BREAKFAST
