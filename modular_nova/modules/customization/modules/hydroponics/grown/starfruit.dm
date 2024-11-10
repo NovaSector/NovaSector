@@ -587,6 +587,10 @@
 	desc = "A delightful pudding dish made from primaryily caramel and egg whites."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "cremebrulee"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 6,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
 	tastes = list("starfruit" = 1, "caramel" = 1, "subtle cream" = 1)
 	foodtypes = FRUIT | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
