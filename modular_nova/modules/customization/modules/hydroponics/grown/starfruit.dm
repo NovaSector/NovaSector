@@ -564,6 +564,10 @@
 	desc = "An irresistibly sweet dish of starfruit boiled down in cognac and sugar."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "compote"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 12,
+		/datum/reagent/consumable/nutriment/vitamin = 6,
+	)
 	tastes = list("starfruit" = 1, "sweet sugar" = 1, "cognac spice" = 1)
 	bite_consumption = 3
 	foodtypes = FRUIT | SUGAR
