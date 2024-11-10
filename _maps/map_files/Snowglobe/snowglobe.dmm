@@ -27430,7 +27430,7 @@
 /obj/machinery/cryopod{
 	dir = 1
 	},
-/obj/machinery/status_display/ai/directional/east,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/corner{
 	dir = 1
 	},
@@ -62500,7 +62500,6 @@
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 9
 	},
-/obj/machinery/status_display/ai/directional/west,
 /turf/open/floor/iron/corner,
 /area/station/hallway/secondary/entry)
 "qSz" = (
@@ -80735,6 +80734,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 8
 	},
