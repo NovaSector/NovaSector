@@ -526,6 +526,15 @@
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
+/datum/crafting_recipe/food/starfruitpie
+	name = "Starfruit Pie"
+	reqs = list(
+		/obj/item/food/pie/plain = 1,
+		/obj/item/food/grown/starfruit = 2,
+	)
+	result = /obj/item/food/pie/starfruitpie
+	category = CAT_PASTRY
+
 /obj/item/food/pie/starfruitpie
 	name = "starfruit pie"
 	desc = "Deceptively simple, yet flavor intensive."
