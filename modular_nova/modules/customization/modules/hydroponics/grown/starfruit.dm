@@ -104,6 +104,7 @@
 	description = "A delightful shake made with a rare starfruit."
 	color = "#a551be"
 	nutriment_factor = 0
+	quality = DRINK_VERYGOOD
 	taste_description = "smooth starlight"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
