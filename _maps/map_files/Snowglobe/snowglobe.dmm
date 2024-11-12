@@ -81887,10 +81887,9 @@
 	id = "briglockdown";
 	name = "Brig Shutters"
 	},
-/obj/machinery/door/window/brigdoor/left/directional/north{
-	name = sss;
-	req_access = list("armory");
-	dir = 2
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	name = "Brig Control Desk";
+	req_access = list("armory")
 	},
 /turf/open/floor/plating,
 /area/station/security/warden)
