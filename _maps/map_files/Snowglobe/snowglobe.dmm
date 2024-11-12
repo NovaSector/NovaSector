@@ -18007,10 +18007,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plastic,
 /area/station/commons/fitness/locker_room)
-"eRN" = (
-/turf/closed/wall/r_wall,
-/area/station/medical/paramedic,
-/area/station/medical/paramedic)
 "eRX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -22314,7 +22310,6 @@
 	pixel_x = -6;
 	pixel_y = 9
 	},
-/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 8
 	},
@@ -33119,11 +33114,6 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"iSa" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/department/science/ordnance_maint)
 "iSb" = (
 /obj/effect/landmark/start/hangover,
 /obj/machinery/holopad,
@@ -36688,10 +36678,9 @@
 /obj/machinery/mass_driver/trash{
 	dir = 8
 	},
-/obj/machinery/door/window/left/directional/north{
+/obj/machinery/door/window/left/directional/east{
 	name = "Mass Driver";
-	req_access = list("maint_tunnels");
-	dir = 4
+	req_access = list("maint_tunnels")
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
@@ -45390,10 +45379,9 @@
 	id = "briglockdown";
 	name = "Brig Shutters"
 	},
-/obj/machinery/door/window/brigdoor/left/directional/north{
+/obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "Brig Control Desk";
-	req_access = list("armory");
-	dir = 2
+	req_access = list("armory")
 	},
 /turf/open/floor/plating,
 /area/station/security/warden)
@@ -46052,7 +46040,6 @@
 "moX" = (
 /obj/structure/table,
 /obj/machinery/light/directional/north,
-/obj/structure/table,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/commons/vacant_room/commissary)
 "moY" = (
@@ -52251,10 +52238,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/machinery/door/window/left/directional/north{
+/obj/machinery/door/window/left/directional/south{
 	name = "Danger: Conveyor Access";
-	req_access = list("maint_tunnels");
-	dir = 2
+	req_access = list("maint_tunnels")
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
@@ -57728,10 +57714,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine/atmos)
-"pvZ" = (
-/turf/closed/wall/r_wall,
-/turf/closed/wall/r_wall,
-/area/station/security/lockers)
 "pwm" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -81906,7 +81888,7 @@
 	name = "Brig Shutters"
 	},
 /obj/machinery/door/window/brigdoor/left/directional/north{
-	name = "Brig Control Desk";
+	name = sss;
 	req_access = list("armory");
 	dir = 2
 	},
@@ -247020,7 +247002,7 @@ cei
 eVX
 bMF
 rix
-pvZ
+sRn
 gVM
 sig
 xdt
@@ -264775,7 +264757,7 @@ vOs
 rPm
 hil
 xmw
-eRN
+ePv
 pFF
 tRV
 pFF
@@ -265035,7 +265017,7 @@ vuS
 ePv
 pNh
 wtQ
-iSa
+wtQ
 wtQ
 kJk
 bdQ
