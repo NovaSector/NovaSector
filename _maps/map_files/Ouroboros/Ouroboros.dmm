@@ -62369,7 +62369,7 @@
 "seO" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/mecha_part_fabricator{
-	dir = 4
+	drop_direction = 4
 	},
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8
