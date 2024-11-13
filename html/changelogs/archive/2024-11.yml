@@ -74,3 +74,6 @@
       view scarf was 1 pixel higher than needed.
   sqnztb:
   - bugfix: metastation arrivals no longer has extra windows.
+2024-11-13:
+  Hardly:
+  - map: 'Ouroboros: Fixes a floating lamp in southern maintenance'
