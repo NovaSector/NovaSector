@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - map: "Ouroboros: Fixes a floating lamp in southern maintenance"
