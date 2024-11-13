@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "Beepsky no longer starts with the check weaponry setting on (so no more evil beepsky by default) (TG default)"
