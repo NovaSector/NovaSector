@@ -40213,8 +40213,8 @@
 /area/station/hallway/primary/fore)
 "lrC" = (
 /obj/machinery/mecha_part_fabricator/maint{
-	dir = 1;
-	name = "forgotten exosuit fabricator"
+	name = "forgotten exosuit fabricator";
+	drop_direction = 1
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
