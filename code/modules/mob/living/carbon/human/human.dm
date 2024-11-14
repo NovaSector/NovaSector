@@ -1279,7 +1279,7 @@
 	race = /datum/species/snail
 
 /mob/living/carbon/human/species/vampire
-	race = /datum/species/vampire
+	race = /datum/species/human/vampire
 
 /mob/living/carbon/human/species/zombie
 	race = /datum/species/zombie
