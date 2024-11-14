@@ -77,3 +77,7 @@
 2024-11-13:
   Hardly:
   - map: 'Ouroboros: Fixes a floating lamp in southern maintenance'
+2024-11-14:
+  OrbisAnima:
+  - qol: Beepsky no longer starts with the check weaponry setting on (so no more evil
+      beepsky by default) (TG default)
