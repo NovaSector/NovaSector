@@ -1,0 +1,4 @@
+author: "Draggeru"
+delete-after: True
+changes:
+  - rscadd: "Adds a donator item for thedragmeme"
