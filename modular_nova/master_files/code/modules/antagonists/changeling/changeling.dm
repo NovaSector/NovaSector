@@ -1,7 +1,5 @@
 /datum/antagonist/changeling
 	dna_max = 8 // changed from 6
-	genetic_points = 15 // changed from 10
-	total_genetic_points = 15 // changed from 10
 	/// The time that the horror form died.
 	var/true_form_death
 	/// Any quirks that we don't want to be mimicked when transforming
