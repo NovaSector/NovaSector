@@ -23,6 +23,16 @@
 	item_path = /obj/item/clothing/under/padded
 	ckeywhitelist = list("thedragmeme")
 
+/datum/loadout_item/under/jumpsuit/sweater_dress
+	name = "Virgin Killer Sweater"
+	item_path = /obj/item/clothing/under/sweater_dress
+	ckeywhitelist = list("thedragmeme")
+
+/datum/loadout_item/suit/bomber_donor
+	name = "Old Hoodie"
+	item_path = /obj/item/clothing/suit/jacket/bomber_donor
+	ckeywhitelist = list("thedragmeme")
+
 /datum/loadout_item/under/jumpsuit/paddedunder/alt
 	name = "Feathered Serenity Dress"
 	item_path = /obj/item/clothing/under/padded/alt
