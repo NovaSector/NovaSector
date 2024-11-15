@@ -619,6 +619,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	SSping.currentrun -= src
 	QDEL_NULL(view_size)
 	QDEL_NULL(void)
+	QDEL_NULL(tooltips)
 	QDEL_NULL(loot_panel)
 	QDEL_NULL(parallax_rock)
 	QDEL_LIST(parallax_layers_cached)
@@ -664,8 +665,9 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!query_client_in_db.Execute())
 		qdel(query_client_in_db)
 		return
-/* NOVA EDIT REMOVAL - Original
+
 	var/client_is_in_db = query_client_in_db.NextRow()
+/* NOVA EDIT REMOVAL - Original
 	// If we aren't an admin, and the flag is set (the panic bunker is enabled).
 	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey])
 		// The amount of hours needed to bypass the panic bunker.
@@ -697,7 +699,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				qdel(src)
 				return
 */
-	var/client_is_in_db = query_client_in_db.NextRow()
 
 	if(!client_is_in_db)
 		//NOVA EDIT ADDITION BEGIN - PANICBUNKER
@@ -766,22 +767,22 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 					qdel(query_datediff)
 	qdel(query_get_client_age)
 	if(!new_player)
-		var/datum/db_query/query_log_player = SSdbcore.NewQuery(
+		SSdbcore.FireAndForget(
 			"UPDATE [format_table_name("player")] SET lastseen = Now(), lastseen_round_id = :round_id, ip = INET_ATON(:ip), computerid = :computerid, lastadminrank = :admin_rank, accountjoindate = :account_join_date WHERE ckey = :ckey",
 			list("round_id" = GLOB.round_id, "ip" = address, "computerid" = computer_id, "admin_rank" = admin_rank, "account_join_date" = account_join_date || null, "ckey" = ckey)
 		)
-		if(!query_log_player.Execute())
-			qdel(query_log_player)
-			return
-		qdel(query_log_player)
 	if(!account_join_date)
 		account_join_date = "Error"
-	var/datum/db_query/query_log_connection = SSdbcore.NewQuery(/* NOVA EDIT CHANGE - MULTISERVER */{"
+	/* NOVA EDIT CHANGE - ORIGINAL:
+	SSdbcore.FireAndForget({"
+		INSERT INTO `[format_table_name("connection_log")]` (`id`,`datetime`,`server_ip`,`server_port`,`round_id`,`ckey`,`ip`,`computerid`)
+		VALUES(null,Now(),INET_ATON(:internet_address),:port,:round_id,:ckey,INET_ATON(:ip),:computerid)
+	"}, list("internet_address" = world.internet_address || "0", "port" = world.port, "round_id" = GLOB.round_id, "ckey" = ckey, "ip" = address, "computerid" = computer_id))
+	*/
+	SSdbcore.FireAndForget({"
 		INSERT INTO `[format_table_name("connection_log")]` (`id`,`datetime`,`server_name`,`server_ip`,`server_port`,`round_id`,`ckey`,`ip`,`computerid`)
 		VALUES(null,Now(),:server_name,INET_ATON(:internet_address),:port,:round_id,:ckey,INET_ATON(:ip),:computerid)
 	"}, list("server_name" = CONFIG_GET(string/serversqlname), "internet_address" = world.internet_address || "0", "port" = world.port, "round_id" = GLOB.round_id, "ckey" = ckey, "ip" = address, "computerid" = computer_id)) //NOVA EDIT CHANGE - MULTISERVER
-	query_log_connection.Execute()
-	qdel(query_log_connection)
 
 	SSserver_maint.UpdateHubStatus()
 
