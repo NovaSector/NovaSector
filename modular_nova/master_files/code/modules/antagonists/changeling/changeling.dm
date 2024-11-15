@@ -1,5 +1,6 @@
 /datum/antagonist/changeling
 	dna_max = 8 // changed from 6
+	chem_recharge_rate = 0.5
 	/// The time that the horror form died.
 	var/true_form_death
 	/// Any quirks that we don't want to be mimicked when transforming
