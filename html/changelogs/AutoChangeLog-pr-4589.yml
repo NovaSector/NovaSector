@@ -1,0 +1,8 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - map: "Snowglobe: Overhauls warden quarters and paramedic dispatch"
+  - map: "Snowglobe: Moves tool storage to south of medbay while turning the room itself into a cafe"
+  - map: "Snowglobe: Armory no longer gets contraband in the armory"
+  - map: "Snowglobe: Plenty of smaller fixes and changes such as pipe additions,"
+  - map: "Snowglobe: Adds gaming mothroach room"
