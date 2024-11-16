@@ -15522,8 +15522,7 @@
 "ezd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/window/spawner/directional/south,
-/obj/effect/spawner/structure/electrified_grille,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "ezq" = (
