@@ -11,7 +11,7 @@
 	hijack_speed = 0.5
 	ui_name = "AntagInfoChangeling"
 	suicide_cry = "FOR THE HIVE!!"
-	can_assign_self_objectives = FALSE // NOVA EDIT: To loose of a cannon, and doesn't have staff sign off
+	can_assign_self_objectives = FALSE // NOVA EDIT: Too loose of a cannon, and doesn't have staff sign off
 	default_custom_objective = "Consume the station's most valuable genomes."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/ling_alert.ogg'
