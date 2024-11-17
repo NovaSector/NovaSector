@@ -5534,6 +5534,10 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 10;
+	pixel_y = 3
+	},
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "bvR" = (
@@ -7206,6 +7210,10 @@
 /obj/machinery/recharger{
 	pixel_y = 7
 	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = -7;
+	pixel_y = 0
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/break_room)
 "bVj" = (
@@ -8218,10 +8226,6 @@
 	},
 /obj/machinery/camera/autoname/directional/north{
 	network = list("ss13","medbay")
-	},
-/obj/item/storage/medkit/brute{
-	pixel_x = 3;
-	pixel_y = 5
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
@@ -26866,6 +26870,7 @@
 	dir = 1
 	},
 /obj/item/radio/intercom/directional/north,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -40333,11 +40338,11 @@
 /turf/open/floor/plating,
 /area/station/security/warden)
 "kKl" = (
-/obj/item/kirbyplants/random,
 /obj/structure/sign/poster/official/help_others/directional/north,
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 1
 	},
+/obj/structure/table,
 /turf/open/floor/iron/white/smooth_corner,
 /area/station/medical/medbay/central)
 "kKt" = (
@@ -56606,17 +56611,13 @@
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/structure/sign/warning/cold_temp/directional/east,
 /obj/structure/table/reinforced,
-/obj/item/storage/medkit/robotic_repair/stocked{
-	pixel_x = 0;
-	pixel_y = 15
-	},
-/obj/item/storage/medkit/toxin{
-	pixel_x = 2;
-	pixel_y = -3
-	},
 /obj/item/storage/medkit/toxin{
 	pixel_x = 2;
 	pixel_y = 4
+	},
+/obj/item/storage/medkit/toxin{
+	pixel_x = 2;
+	pixel_y = 12
 	},
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 8
@@ -79442,10 +79443,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/clothing/mask/surgical{
-	pixel_y = -1;
-	pixel_x = 2
-	},
 /obj/item/healthanalyzer{
 	pixel_y = 8;
 	pixel_x = 6
@@ -79453,6 +79450,10 @@
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_y = 10;
 	pixel_x = -10
+	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 5;
+	pixel_y = 0
 	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
@@ -85339,6 +85340,9 @@
 	name = "Medbay Secure Area"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "wTU" = (
