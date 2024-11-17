@@ -1,5 +1,5 @@
 /datum/movespeed_modifier/strained_muscles
-	multiplicative_slowdown = -0.1 // NOVA EDIT - Heavy nerf, because speedboosts are way-way more effective here
+	multiplicative_slowdown = -0.35// NOVA EDIT - Heavy nerf, because speedboosts are way-way more effective here
 	blacklisted_movetypes = (FLYING|FLOATING)
 
 /datum/movespeed_modifier/pai_spacewalk
