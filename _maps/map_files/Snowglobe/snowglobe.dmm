@@ -32315,9 +32315,8 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 6
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/defibrillator_mount/mobile,
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "iJc" = (
@@ -38112,9 +38111,9 @@
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 1
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/closet/secure_closet/medical1,
 /obj/machinery/status_display/ai/directional/north,
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -41141,7 +41140,6 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 4
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/table/reinforced/rglass,
 /obj/item/reagent_containers/chem_pack{
 	pixel_x = 4;
@@ -41151,6 +41149,7 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "kVC" = (
@@ -49474,8 +49473,8 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 5
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/defibrillator_mount/mobile,
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "npI" = (
@@ -75915,7 +75914,6 @@
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 4
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/table/reinforced/rglass,
 /obj/item/stack/medical/bone_gel{
 	pixel_x = 4;
@@ -75925,6 +75923,7 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
+/obj/structure/window/spawner/directional/east,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/treatment_center)
 "uwN" = (
