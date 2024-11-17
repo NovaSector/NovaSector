@@ -77,3 +77,30 @@
 2024-11-13:
   Hardly:
   - map: 'Ouroboros: Fixes a floating lamp in southern maintenance'
+2024-11-14:
+  OrbisAnima:
+  - qol: Beepsky no longer starts with the check weaponry setting on (so no more evil
+      beepsky by default) (TG default)
+2024-11-15:
+  Draggeru:
+  - rscadd: Adds a donator item for thedragmeme
+2024-11-17:
+  GoldenAlpharex:
+  - bugfix: Felinids are no longer allergic to wagging their tails.
+  Hardly:
+  - bugfix: 'SerenityStation: Gave HoS the correct ID painter.'
+  - bugfix: 'SerenityStation: Fixed the decals in cargo creeping it''s way into the
+      walls.'
+  - map: Cargo Technicians can now access the drone bay without mining access.
+  - map: 'Snowglobe: Overhauls warden quarters and paramedic dispatch'
+  - map: 'Snowglobe: Moves tool storage to south of medbay while turning the room
+      itself into a cafe'
+  - map: 'Snowglobe: Armory no longer gets contraband in the armory'
+  - map: 'Snowglobe: Plenty of smaller fixes and changes such as pipe additions,'
+  - map: 'Snowglobe: Adds gaming mothroach room'
+  sqnztb:
+  - map: snowglobe cryo - status display swapped to a fire alarm.
+  - bugfix: doors for the delta style shuttle work again.
+  - map: ouroboros has a slightly more robust powernet
+  - map: removed the trapped bluespace cell from wawa's asteroid area.
+  - balance: medical technician kit's bonesaw is significantly less lethal now.
