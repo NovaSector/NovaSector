@@ -17,6 +17,37 @@
 		/obj/item/storage/pouch/cin_medkit,
 	)
 
+/obj/item/bitrunning_disk/item/tierlewd
+	name = "bitrunning gear: relaxation"
+	selectable_items = list(
+		/obj/item/summon_beacon/lustwish,
+		/obj/item/storage/box/nif_ghost_box,
+	)
+
+/obj/item/summon_beacon/lustwish
+	name = "relaxation machine beacon"
+	icon_state = "sb_delivery"
+	desc = "Once a vending machine is selected, delivers it to the target location."
+
+	allowed_areas = list(
+		/area/virtual_domain,
+	)
+
+	selectable_atoms = list(
+		/obj/machinery/vending/dorms/bitrunning,
+	)
+
+	area_string = "virtual domains"
+	supply_pod_stay = FALSE
+
+/obj/machinery/vending/dorms/bitrunning
+	all_products_free = TRUE
+
+/datum/orderable_item/bitrunning_tech/item_tierlewd
+	cost_per_order = 250
+	item_path = /obj/item/bitrunning_disk/item/tierlewd
+	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon or a quick-booting NIF package."
+
 /datum/orderable_item/bitrunning_tech/ability_tier0
 	cost_per_order = 350
 	item_path = /obj/item/bitrunning_disk/ability/tier0
