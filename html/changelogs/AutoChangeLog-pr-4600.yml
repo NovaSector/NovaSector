@@ -1,6 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "SerenityStation: Gave HoS the correct ID painter."
-  - bugfix: "SerenityStation: Fixed the decals in cargo creeping it's way into the walls."
-  - map: "Cargo Technicians can now access the drone bay without mining access."
