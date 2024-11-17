@@ -74,7 +74,7 @@
 /obj/effect/spawner/random/food_or_drink/readydonk
 	name = "ready donk delivery"
 	icon = 'icons/obj/food/food.dmi'
-	icon_state = "ready_donk"
+	icon_state = "ready_donk_mac"
 	loot = list(
 		/obj/item/food/ready_donk,
 		/obj/item/food/ready_donk/mac_n_cheese,
