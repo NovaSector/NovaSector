@@ -37307,7 +37307,6 @@
 	name = "Pharmacy"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -40834,7 +40833,6 @@
 	name = "Pharmacy"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/pharmacy,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -63762,7 +63760,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
 "rkd" = (
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
 /turf/open/floor/plating,
