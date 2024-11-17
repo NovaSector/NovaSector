@@ -6197,13 +6197,6 @@
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance/testlab)
-"bFI" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/full,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "bFS" = (
 /obj/structure/railing/wrestling{
 	dir = 4
@@ -6646,11 +6639,10 @@
 /turf/open/floor/carpet,
 /area/station/service/cafeteria)
 "bMn" = (
-/obj/structure/sign/departments/virology/directional/south,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white/smooth_large,
-/area/station/medical/medbay/central)
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "bMx" = (
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
@@ -7316,7 +7308,19 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/virology,
+/obj/machinery/door/airlock/virology{
+	frequency = 1449;
+	autoclose = 0;
+	id_tag = "viro_med_external";
+	name = "Virology Exterior Airlock"
+	},
+/obj/machinery/door_buttons/access_button{
+	pixel_x = 25;
+	pixel_y = 0;
+	idSelf = "viro_med_control";
+	idDoor = "viro_med_external";
+	req_access = list("virology")
+	},
 /turf/open/floor/iron/white/smooth_half,
 /area/station/medical/virology)
 "bXb" = (
@@ -11378,7 +11382,7 @@
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 5
 	},
-/obj/machinery/digital_clock/directional/east,
+/obj/structure/sign/clock/directional/east,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -31793,7 +31797,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Employee Entrance"
+	name = "Medbay Patient Exit"
 	},
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -33729,6 +33733,13 @@
 /obj/structure/cable,
 /turf/open/floor/wood/tile,
 /area/station/security/courtroom)
+"jbi" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "jbq" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/item/radio/intercom/directional/south,
@@ -42778,6 +42789,14 @@
 	dir = 1
 	},
 /area/station/engineering/atmos)
+"lsY" = (
+/obj/effect/turf_decal/trimline/blue/warning,
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/medical/chemistry)
 "lta" = (
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/chemistry)
@@ -66237,6 +66256,14 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/iron/dark/airless,
 /area/station/ai_monitored/turret_protected/aisat/hallway)
+"rVn" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "rVp" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/dark_blue/filled/warning{
@@ -67534,6 +67561,15 @@
 /area/station/maintenance/fore)
 "slq" = (
 /obj/effect/turf_decal/tile/dark_green,
+/obj/machinery/door_buttons/airlock_controller{
+	pixel_x = 0;
+	pixel_y = 24;
+	idSelf = "viro_med_control";
+	name = "Virology Medical Access Control";
+	idInterior = "viro_med_internal";
+	idExterior = "viro_med_external";
+	req_access = list("virology")
+	},
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -68304,11 +68340,6 @@
 	dir = 1
 	},
 /area/station/cargo/storage)
-"svb" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/full,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "svg" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood{
@@ -73067,7 +73098,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/medical/glass{
-	name = "Medbay Employee Entrance"
+	name = "Medbay Patient Exit"
 	},
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 1
@@ -73874,14 +73905,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint)
-"tRW" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/full,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "tRY" = (
 /turf/closed/wall,
 /area/station/maintenance/abandon_exam)
@@ -90076,7 +90099,19 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/virology,
+/obj/machinery/door/airlock/virology{
+	autoclose = 0;
+	frequency = 1449;
+	id_tag = "viro_med_internal";
+	name = "Virology Interior Airlock"
+	},
+/obj/machinery/door_buttons/access_button{
+	pixel_x = 25;
+	pixel_y = 0;
+	idSelf = "viro_med_control";
+	idDoor = "viro_med_internal";
+	req_access = list("virology")
+	},
 /turf/open/floor/iron/white/smooth_half,
 /area/station/medical/virology)
 "yeq" = (
@@ -200450,7 +200485,7 @@ vUe
 win
 uXb
 pdp
-bMn
+naP
 lGE
 ldV
 xcB
@@ -253477,9 +253512,9 @@ kuu
 cDJ
 uTc
 mFr
-tRW
-bFI
-svb
+rVn
+jbi
+bMn
 pGR
 iyb
 eoO
@@ -264965,7 +265000,7 @@ lta
 uwY
 lta
 oya
-aaZ
+lsY
 cTi
 kiq
 npG
