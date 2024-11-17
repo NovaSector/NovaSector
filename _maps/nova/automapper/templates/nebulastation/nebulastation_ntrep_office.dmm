@@ -393,6 +393,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/nt_rep)
 "X" = (
