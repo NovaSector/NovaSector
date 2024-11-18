@@ -360,13 +360,10 @@
 	if(!use_mod_colors)
 		module_icon.appearance_flags |= RESET_COLOR
 	. += module_icon
-<<<<<<< HEAD
 	*/
-	return handle_module_icon(standing, used_overlay)
+	. = handle_module_icon(standing, used_overlay)
 	// NOVA EDIT END
-=======
 	SEND_SIGNAL(src, COMSIG_MODULE_GENERATE_WORN_OVERLAY, ., standing)
->>>>>>> 592353088e... Refactors hat stabilizers into a component shared with plasmamen helmets (#87305)
 
 /// Updates the signal used by active modules to be activated
 /obj/item/mod/module/proc/update_signal(value)
