@@ -406,7 +406,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	has_gravity = TRUE
 	area_flags = NOTELEPORT | HIDDEN_AREA
 	static_lighting = TRUE
-	ambientsounds = list('sound/ambience/ruin/servicebell.ogg')
+	//ambientsounds = list('sound/ambience/ruin/servicebell.ogg') // NOVA EDIT REMOVAL
 	var/roomnumber = 0
 	var/obj/item/hilbertshotel/parentSphere
 	var/datum/turf_reservation/reservation

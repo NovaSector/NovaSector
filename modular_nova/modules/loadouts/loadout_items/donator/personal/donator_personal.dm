@@ -23,6 +23,16 @@
 	item_path = /obj/item/clothing/under/padded
 	ckeywhitelist = list("thedragmeme")
 
+/datum/loadout_item/under/jumpsuit/sweater_dress
+	name = "Virgin Killer Sweater"
+	item_path = /obj/item/clothing/under/sweater_dress
+	ckeywhitelist = list("thedragmeme")
+
+/datum/loadout_item/suit/bomber_donor
+	name = "Old Hoodie"
+	item_path = /obj/item/clothing/suit/jacket/bomber_donor
+	ckeywhitelist = list("thedragmeme")
+
 /datum/loadout_item/under/jumpsuit/paddedunder/alt
 	name = "Feathered Serenity Dress"
 	item_path = /obj/item/clothing/under/padded/alt
@@ -37,6 +47,11 @@
 	name = "Feathered Serenity Cloak"
 	item_path = /obj/item/clothing/neck/padded/alt
 	ckeywhitelist = list("snailomi")
+
+/datum/loadout_item/neck/padded/security
+	name = "Vanguard Cloak"
+	item_path = /obj/item/clothing/neck/padded/security
+	ckeywhitelist = list("actualvanguard")
 
 /datum/loadout_item/gloves/padded
 	name = "Serenity Gloves"
@@ -870,3 +885,18 @@
 	name = "Shendyt"
 	item_path = /obj/item/clothing/under/costume/shendyt
 	ckeywhitelist = list("hyperhazel")
+
+/datum/loadout_item/pocket_items/jumperbox
+	name = "Jumper Conversation Kit Box"
+	item_path = /obj/item/mod/skin_applier/jumper
+	ckeywhitelist = list("bonkaitheroris")
+
+/datum/loadout_item/pocket_items/starfruit_seed
+	name = "Primidine Starfruit Seed"
+	item_path = /obj/item/seeds/starfruit
+	ckeywhitelist = list("snailomi", "thedragmeme")
+
+/datum/loadout_item/suit/butter
+	name = "Butter Costume"
+	item_path = /obj/item/clothing/suit/costume/butter
+	ckeywhitelist = list("drpmstr", "pyritechimera")

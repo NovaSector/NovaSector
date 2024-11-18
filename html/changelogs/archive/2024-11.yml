@@ -1,0 +1,106 @@
+2024-11-01:
+  Draggeru:
+  - rscadd: Adds a donator reward for DprMstr
+  MajManatee:
+  - bugfix: Hiss Emote+ button works again
+  Neocloudy:
+  - image: Nova retinal projectors have had their sprites adjusted so they hopefully
+      clip through hairstyles, headwear, etc less often!
+  OrbisAnima:
+  - rscadd: Adds a new multitool, the 'full override control kit', which aside from
+      working as a regular multitool, allows the user to hack open or unlock APC's
+      and Air Alarms. They do so rather aggresively, so it can break them with enough
+      uses. They can be obtained from the premium section of YouTool or from broad
+      band enabled AKH Frontier Imports.
+  - qol: YouTool vendors premium section now holds the F.O.C.K., as well as a small
+      selection of AKH frontier hand held devices. It is said that some vendors are
+      being used to smuggle Prybars though. Multitools are now being sold at a discount!
+  - balance: Prybars can no longer be made in the Rapid Construction Fabricator, Large
+      Crowbars now instead take their place, removing the heavy taxes on the RCF and
+      making it no longer restricted.
+  - rscadd: 'Bounties removed: Scooter, Skateboard, Soap, Clown Box, Cheesie Honkers,
+      Dead Mice, Potted Plants, Corgi Meat, Action Figures, Paper Bins, Crayons.'
+  - rscdel: 'Bounties added: Nuggies, Cardboard ID''s, Glass Bowl, Clay Crafts, Forged
+      Dagger, Two Wheelchairs, Flood Light, Mannequin and Black Market Uplink.'
+  SpaghettiTerrible:
+  - bugfix: vibrating egg frequency can now be adjusted
+  sqnztb:
+  - bugfix: blueshift's cargo shuttle buttons are more accessible now.
+  - rscadd: Interdyne has a new trim icon for it's scientists and shaft miners, as
+      well as a new color palette.
+2024-11-03:
+  A.C.M.O.:
+  - rscadd: Added the Primidine Starfruit. The seed pack is available in the supply
+      console imports category.
+  Hardly:
+  - map: Added Interdrobe to the ghost cafe
+  - map: Removed the vine on redsec's vendor in ghost cafe
+  - bugfix: Icebox Interdyne's library is now connected with the powernet
+2024-11-04:
+  GoldenAlpharex:
+  - bugfix: Fixes a donator's item not being available to them in the loadout menu.
+2024-11-05:
+  Draggeru:
+  - rscadd: 'Adds four new hairstyles: Mermaid, Thick Ponytail, Elegant Bun, and Royal
+      Curls'
+  Jinshee:
+  - rscadd: New gecko tail!
+2024-11-06:
+  A.C.M.O.:
+  - rscadd: Added a music synthesizer action to Ethereal and Synthetic species.
+  - rscadd: Added the personal holosign projector. Use it to mark areas as explicitly
+      lewd or private. Right-click to toggle modes.
+  Hardly:
+  - balance: Removes the 50% speedup surgery speed bonus from being in a calm environments
+      and numb/dead patients
+  - balance: Calm environment instead now boosts surgery speed by 20%
+  MajManatee:
+  - rscdel: Runed metal no longer spawns as a "Rare Material"
+  OrbisAnima:
+  - bugfix: fixed an exploit with Twitch.
+  RatFromTheJungle:
+  - image: The mantis blade's sprite is now bigger and more obvious.
+  dwasint:
+  - bugfix: Evoker-type RSD now properly respect if you are trying to put a soul into
+      a body that was previously occupied.
+  norsvenska:
+  - map: cleaned up the ouroboros medical department's floor decals and lights
+  - bugfix: ouroboros surgery shutters are now linked to their buttons
+  - bugfix: you can now climb the staircase to the paramedic dispatch room on ouroboros
+2024-11-09:
+  ZeroInside:
+  - rscadd: Added animation for TheMarkedOne's trophy cape.
+  - bugfix: Fixed an issue with TheMarkedOne's trophy cape sprite, where the front
+      view scarf was 1 pixel higher than needed.
+  sqnztb:
+  - bugfix: metastation arrivals no longer has extra windows.
+2024-11-13:
+  Hardly:
+  - map: 'Ouroboros: Fixes a floating lamp in southern maintenance'
+2024-11-14:
+  OrbisAnima:
+  - qol: Beepsky no longer starts with the check weaponry setting on (so no more evil
+      beepsky by default) (TG default)
+2024-11-15:
+  Draggeru:
+  - rscadd: Adds a donator item for thedragmeme
+2024-11-17:
+  GoldenAlpharex:
+  - bugfix: Felinids are no longer allergic to wagging their tails.
+  Hardly:
+  - bugfix: 'SerenityStation: Gave HoS the correct ID painter.'
+  - bugfix: 'SerenityStation: Fixed the decals in cargo creeping it''s way into the
+      walls.'
+  - map: Cargo Technicians can now access the drone bay without mining access.
+  - map: 'Snowglobe: Overhauls warden quarters and paramedic dispatch'
+  - map: 'Snowglobe: Moves tool storage to south of medbay while turning the room
+      itself into a cafe'
+  - map: 'Snowglobe: Armory no longer gets contraband in the armory'
+  - map: 'Snowglobe: Plenty of smaller fixes and changes such as pipe additions,'
+  - map: 'Snowglobe: Adds gaming mothroach room'
+  sqnztb:
+  - map: snowglobe cryo - status display swapped to a fire alarm.
+  - bugfix: doors for the delta style shuttle work again.
+  - map: ouroboros has a slightly more robust powernet
+  - map: removed the trapped bluespace cell from wawa's asteroid area.
+  - balance: medical technician kit's bonesaw is significantly less lethal now.
