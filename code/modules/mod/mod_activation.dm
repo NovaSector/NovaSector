@@ -20,13 +20,8 @@
 	var/obj/item/part = locate(part_reference) in get_parts()
 	if(!istype(part) || user.incapacitated)
 		return
-<<<<<<< HEAD
-	if(activating) // NOVA EDIT - RETRACTABLE EVERYTHING
-		balloon_alert(user, "deactivate the suit first!")
-=======
 	if(activating)
 		balloon_alert(user, "currently [active ? "unsealing" : "sealing"]!")
->>>>>>> 3d100fb48c... (bounty) you no longer need ALL parts deployed to use a modsuit (limbless welcome!) (#86825)
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
 	var/parts_to_check = parts - part
@@ -53,13 +48,8 @@
 
 /// Quickly deploys all parts (or retracts if all are on the wearer)
 /obj/item/mod/control/proc/quick_deploy(mob/user)
-<<<<<<< HEAD
-	if(activating) // NOVA EDIT - RETRACTABLE EVERYTHING
-		balloon_alert(user, "deactivate the suit first!")
-=======
 	if(activating)
 		balloon_alert(user, "currently sealing/unsealing!")
->>>>>>> 3d100fb48c... (bounty) you no longer need ALL parts deployed to use a modsuit (limbless welcome!) (#86825)
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
 	var/deploy = TRUE
@@ -137,11 +127,7 @@
 		if(!QDELING(wearer) && !wearer.equip_to_slot_if_possible(overslot, overslot.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
 			wearer.dropItemToGround(overslot, force = TRUE, silent = TRUE)
 		part_datum.overslotting = null
-	// NOVA EDIT START - Avoiding exploits with the modules staying active when any of the parts are retracted.
-	for(var/obj/item/mod/module/module as anything in modules)
-		if(module.active)
-			module.deactivate(display_message = !!user)
-	// NOVA EDIT END
+
 	SEND_SIGNAL(src, COMSIG_MOD_PART_RETRACTED, user, part)
 	if(!user)
 		return
