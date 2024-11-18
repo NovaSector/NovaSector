@@ -107,19 +107,14 @@
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, "general_emote_audio_cooldown") && TIMER_COOLDOWN_FINISHED(user, type))
 		TIMER_COOLDOWN_START(user, type, specific_emote_audio_cooldown)
 		TIMER_COOLDOWN_START(user, "general_emote_audio_cooldown", general_emote_audio_cooldown)
-<<<<<<< HEAD
-		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore) // NOVA EDIT REMOVAL
-		if(istype(src, /datum/emote/living/lewd))
-			playsound_if_pref(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, pref_to_check = /datum/preference/toggle/erp/sounds)
-		else
-			playsound(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, ignore_walls = sound_wall_ignore)
-		// NOVA EDIT ADDITION END
-=======
 		var/frequency = null
 		if (affected_by_pitch && SStts.tts_enabled && SStts.pitch_enabled)
 			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH) * (1 + sqrt(abs(user.pitch)) * SIGN(user.pitch) * EMOTE_TTS_PITCH_MULTIPLIER)
-		playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore, frequency = frequency)
->>>>>>> 6c8b16ea5d... TTS pitch now affects emote sounds (#87275)
+		//playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore, frequency = frequency) // NOVA EDIT REMOVAL
+		if(istype(src, /datum/emote/living/lewd))
+			playsound_if_pref(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, frequency = frequency, pref_to_check = /datum/preference/toggle/erp/sounds)
+		else
+			playsound(source = user, soundin = tmp_sound, vol = sound_volume, vary = vary, ignore_walls = sound_wall_ignore, frequency = frequency)
 
 	var/is_important = emote_type & EMOTE_IMPORTANT
 	var/is_visual = emote_type & EMOTE_VISIBLE
