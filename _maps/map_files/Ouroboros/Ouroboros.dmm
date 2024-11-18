@@ -7146,6 +7146,10 @@
 	},
 /obj/structure/table,
 /obj/machinery/light/cold/directional/east,
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = -8;
+	pixel_y = 8
+	},
 /turf/open/floor/iron/small,
 /area/station/science/robotics/lab)
 "ceE" = (
