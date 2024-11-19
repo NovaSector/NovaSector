@@ -104,3 +104,6 @@
   - map: ouroboros has a slightly more robust powernet
   - map: removed the trapped bluespace cell from wawa's asteroid area.
   - balance: medical technician kit's bonesaw is significantly less lethal now.
+2024-11-19:
+  FlufflesTheDog:
+  - bugfix: The escape menu buttons no longer overlap
