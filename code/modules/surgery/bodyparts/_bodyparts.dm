@@ -986,6 +986,8 @@
 		if(aux_zone && (aux_zone in owner_species.body_markings))
 			aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
 		markings_alpha = owner_species.markings_alpha
+	else
+		markings = list()
 	// NOVA EDIT END
 	recolor_bodypart_overlays()
 	return TRUE
