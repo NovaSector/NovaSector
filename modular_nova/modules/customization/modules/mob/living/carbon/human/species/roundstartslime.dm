@@ -176,7 +176,7 @@
 	gps_active = FALSE
 	qdel(GetComponent(/datum/component/gps))
 
-/obj/item/organ/internal/brain/slime/Insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+/obj/item/organ/internal/brain/slime/mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
 	if(!.)
 		return
