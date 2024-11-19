@@ -27,13 +27,16 @@
 	if(imprint_on_next_insertion) //We only want this set *once*
 		var/feature_name = receiver.dna.features[feature_key]
 		if (isnull(feature_name))
+		/* NOVA EDIT - Customization - ORIGINAL:
 			feature_name = receiver.dna.species.mutant_organs[parent.type]
-		// NOVA EDIT START - Customization
-		if (isnull(feature_name))
-			var/list/mutant_bodypart = receiver.dna.mutant_bodyparts[feature_key]
-			feature_name = islist(mutant_bodypart) && length(mutant_bodypart) ? mutant_bodypart[MUTANT_INDEX_NAME] : null
+		*/ // NOVA EDIT START
+			if(!set_appearance_from_dna(receiver.dna))
+				set_appearance_from_name(receiver.dna.species.mutant_organs[parent.type])
 		// NOVA EDIT END
-		set_appearance_from_name(feature_name)
+		// NOVA EDIT START - Puts the following line in an else block
+		else
+			set_appearance_from_name(feature_name)
+		// NOVA EDIT END
 		imprint_on_next_insertion = FALSE
 
 /datum/bodypart_overlay/mutant/get_overlay(layer, obj/item/bodypart/limb)

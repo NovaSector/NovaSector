@@ -34,11 +34,11 @@
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/internal/ears/mutant/with_inner
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/fox
 	color_src = USE_ONE_COLOR
-	organ_type = /obj/item/organ/internal/ears/mutant/with_inner
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears.dmi'
@@ -86,7 +86,7 @@
 /datum/sprite_accessory/ears/mutant/bigwolfinner
 	name = "Big Wolf (ALT)"
 	icon_state = "bigwolfinner"
-	organ_type = /obj/item/organ/internal/ears/mutant/with_inner
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant/bigwolfdark //alphabetical sort ignored here for ease-of-use
 	name = "Dark Big Wolf"
@@ -95,7 +95,7 @@
 /datum/sprite_accessory/ears/mutant/bigwolfinnerdark
 	name = "Dark Big Wolf (ALT)"
 	icon_state = "bigwolfinnerdark"
-	organ_type = /obj/item/organ/internal/ears/mutant/with_inner
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant/bunny
 	name = "Bunny"
