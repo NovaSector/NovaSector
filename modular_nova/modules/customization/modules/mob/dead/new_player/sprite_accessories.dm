@@ -168,9 +168,3 @@
 /datum/sprite_accessory/lizard_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
-
-/datum/sprite_accessory/legs
-	key = "legs"
-	generic = "Leg Type"
-	color_src = null
-	genetic = TRUE
