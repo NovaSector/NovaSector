@@ -22002,6 +22002,10 @@
 	pixel_y = 2
 	},
 /obj/effect/turf_decal/bot_red,
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = 10;
+	pixel_y = 11
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/robotics/lab)
 "gqu" = (

@@ -304,12 +304,12 @@
 
 //Charge levels for Ethereals, in joules.
 #define ETHEREAL_CHARGE_NONE 0
-#define ETHEREAL_CHARGE_LOWPOWER (0.4 * STANDARD_CELL_CHARGE)
-#define ETHEREAL_CHARGE_NORMAL (1 * STANDARD_CELL_CHARGE)
-#define ETHEREAL_CHARGE_ALMOSTFULL (1.5 * STANDARD_CELL_CHARGE)
-#define ETHEREAL_CHARGE_FULL (2 * STANDARD_CELL_CHARGE)
-#define ETHEREAL_CHARGE_OVERLOAD (2.5 * STANDARD_CELL_CHARGE)
-#define ETHEREAL_CHARGE_DANGEROUS (3 * STANDARD_CELL_CHARGE)
+#define ETHEREAL_CHARGE_LOWPOWER (0.4 * STANDARD_BATTERY_CHARGE)
+#define ETHEREAL_CHARGE_NORMAL (1 * STANDARD_BATTERY_CHARGE)
+#define ETHEREAL_CHARGE_ALMOSTFULL (1.5 * STANDARD_BATTERY_CHARGE)
+#define ETHEREAL_CHARGE_FULL (2 * STANDARD_BATTERY_CHARGE)
+#define ETHEREAL_CHARGE_OVERLOAD (2.5 * STANDARD_BATTERY_CHARGE)
+#define ETHEREAL_CHARGE_DANGEROUS (3 * STANDARD_BATTERY_CHARGE)
 
 
 #define CRYSTALIZE_COOLDOWN_LENGTH (5 MINUTES) //NOVA EDIT CHANGE - Ethereal Rework 2024 - Original: 120 SECONDS
@@ -658,6 +658,9 @@
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
 #define GRADIENT_APPLIES_TO_FACIAL_HAIR (1<<1)
 
+// Hair masks
+#define HAIR_MASK_HIDE_ABOVE_45_DEG_MEDIUM "hide_above_45deg"
+
 // Height defines
 // - They are numbers so you can compare height values (x height < y height)
 // - They do not start at 0 for futureproofing
@@ -862,6 +865,9 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define ABOVE_SHOES_LAYER (SHOES_LAYER-1)
 /// The layer above mutant body parts
 #define ABOVE_BODY_FRONT_LAYER (BODY_FRONT_LAYER-1)
+
+/// We need gloves to layer on top of modsuit chestplates because we need the hole in the suit filled in if the user lacks a limb
+#define MOD_CHESTPLATE_LAYER (GLOVES_LAYER+0.5)
 
 /// If gravity must be present to perform action (can't use pens without gravity)
 #define NEED_GRAVITY (1<<0)

@@ -108,17 +108,16 @@
 		if(mod.wearer)
 			balloon_alert(mod.wearer, "not active!")
 		return
-	// NOVA EDIT START - DEPLOYABLE EVERYTHING OVER EVERYTHING
-	var/can_activate = TRUE
-	if(!(allow_flags & MODULE_ALLOW_INACTIVE))
-		for(var/obj/item/part in mod.get_parts())
-			if(part.loc == mod)
-				can_activate = FALSE
-				break
-	if(!can_activate)
-		balloon_alert(mod.wearer, "not fully deployed!")
+	if(!has_required_parts(mod.mod_parts, need_extended = TRUE))
+		if(mod.wearer)
+			balloon_alert(mod.wearer, "required parts inactive!")
+			var/list/slot_strings = list()
+			for(var/slot in required_slots)
+				var/list/slot_list = parse_slot_flags(slot)
+				slot_strings += (length(slot_list) == 1 ? "" : "one of ") + english_list(slot_list, and_text = " or ")
+			to_chat(mod.wearer, span_warning("[src] requires these slots to be deployed: [english_list(slot_strings)]"))
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
-	// NOVA EDIT END
 	if(module_type != MODULE_USABLE)
 		if(active)
 			deactivate()
@@ -144,13 +143,6 @@
 		balloon_alert(mod.wearer, "unpowered!")
 		return FALSE
 
-	// NOVA EDIT START - No using modules when not all parts are deployed.
-	if(!(allow_flags & MODULE_ALLOW_INACTIVE))
-		for(var/obj/item/part as anything in mod.get_parts())
-			if(part.loc == mod)
-				balloon_alert(mod.wearer, "deploy all parts first!")
-				return FALSE
-	// NOVA EDIT END
 	if(!(allow_flags & MODULE_ALLOW_PHASEOUT) && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))
 		//specifically a to_chat because the user is phased out.
 		to_chat(mod.wearer, span_warning("You cannot activate this right now."))
@@ -361,8 +353,9 @@
 		module_icon.appearance_flags |= RESET_COLOR
 	. += module_icon
 	*/
-	return handle_module_icon(standing, used_overlay)
+	. = handle_module_icon(standing, used_overlay)
 	// NOVA EDIT END
+	SEND_SIGNAL(src, COMSIG_MODULE_GENERATE_WORN_OVERLAY, ., standing)
 
 /// Updates the signal used by active modules to be activated
 /obj/item/mod/module/proc/update_signal(value)

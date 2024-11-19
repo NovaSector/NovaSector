@@ -220,6 +220,10 @@
 /obj/item/mod/control/allow_attack_hand_drop(mob/user)
 	if(user != wearer)
 		return ..()
+	if(active)
+		balloon_alert(wearer, "deactivate the suit first!")
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
+		return
 	for(var/obj/item/part as anything in get_parts())
 		if(part.loc != src)
 			balloon_alert(user, "retract parts first!")
@@ -229,19 +233,15 @@
 /obj/item/mod/control/mouse_drop_dragged(atom/over_object, mob/user)
 	if(user != wearer || !istype(over_object, /atom/movable/screen/inventory/hand))
 		return
+	if(active)
+		balloon_alert(wearer, "deactivate the suit first!")
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
+		return
 	for(var/obj/item/part as anything in get_parts())
 		if(part.loc != src)
 			balloon_alert(wearer, "retract parts first!")
 			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
 			return
-	// NOVA EDIT ADDITION START - Can't remove your MODsuit from your back when it's still active (as it can cause runtimes and even the MODsuit control unit to delete itself)
-	if(active)
-		if(!wearer.incapacitated)
-			balloon_alert(wearer, "deactivate first!")
-			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
-
-		return
-	// NOVA EDIT ADDITION END
 	if(!wearer.incapacitated)
 		var/atom/movable/screen/inventory/hand/ui_hand = over_object
 		if(wearer.putItemFromInventoryInHandIfPossible(src, ui_hand.held_index))
@@ -584,7 +584,7 @@
 	new_module.on_install()
 	if(wearer)
 		new_module.on_equip()
-	if(active)
+	if(active && new_module.has_required_parts(mod_parts, need_extended = TRUE))
 		new_module.on_suit_activation()
 	if(user)
 		balloon_alert(user, "[new_module] added")
@@ -688,8 +688,6 @@
 			part.forceMove(src)
 			return
 		retract(wearer, part)
-		if(active)
-			INVOKE_ASYNC(src, PROC_REF(toggle_activate), wearer, TRUE)
 
 /obj/item/mod/control/proc/on_part_destruction(obj/item/part, damage_flag)
 	SIGNAL_HANDLER

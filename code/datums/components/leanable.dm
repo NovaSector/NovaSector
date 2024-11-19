@@ -64,8 +64,8 @@
 	UnregisterSignal(source, list(COMSIG_LIVING_STOPPED_LEANING, COMSIG_QDELETING))
 
 /mob/living/proc/start_leaning(atom/lean_target, leaning_offset)
-	var/new_y = base_pixel_y + pixel_y
-	var/new_x = base_pixel_x + pixel_x
+	var/new_x = lean_target.pixel_x + base_pixel_x + body_position_pixel_x_offset
+	var/new_y = lean_target.pixel_y + base_pixel_y + body_position_pixel_y_offset
 	switch(dir)
 		if(SOUTH)
 			new_y += leaning_offset
@@ -100,7 +100,7 @@
 		COMSIG_MOVABLE_TELEPORTING,
 		COMSIG_ATOM_POST_DIR_CHANGE,
 	))
-	animate(src, 0.2 SECONDS, pixel_x = base_pixel_x, pixel_y = base_pixel_y)
+	animate(src, 0.2 SECONDS, pixel_x = base_pixel_x + body_position_pixel_x_offset, pixel_y = base_pixel_y + body_position_pixel_y_offset)
 	remove_traits(list(TRAIT_UNDENSE, TRAIT_EXPANDED_FOV), LEANING_TRAIT)
 	SEND_SIGNAL(src, COMSIG_LIVING_STOPPED_LEANING)
 	update_fov()
