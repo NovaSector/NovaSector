@@ -82,3 +82,8 @@
 /obj/item/bodypart/leg/right/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 	check_mutant_compatability()
+
+
+/// Used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
+/mob/living/carbon/human/proc/update_mutant_bodyparts()
+	update_body_parts()

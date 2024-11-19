@@ -218,7 +218,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
-	handle_mutant_bodyparts(species_human)
 
 /datum/species/spec_stun(mob/living/carbon/human/target, amount)
 	if(istype(target))
