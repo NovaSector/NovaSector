@@ -78,7 +78,7 @@
 
 	add_seclight_point()
 	// NOVA EDIT ADDITION BEGIN - GUN SAFETIES AND MANUFACTURER EXAMINE
-	// Adds gun safety as long as it isn't in deathmatch or VR
+	// Adds gun safety as long as it isn't in deathmatch or bitdomain
 	if(!is_reserved_level(src.z) || istype(get_area(loc), /area/shuttle))
 		give_gun_safeties()
 	give_manufacturer_examine()
