@@ -28,6 +28,11 @@
 		var/feature_name = receiver.dna.features[feature_key]
 		if (isnull(feature_name))
 			feature_name = receiver.dna.species.mutant_organs[parent.type]
+		// NOVA EDIT START - Customization
+		if (isnull(feature_name))
+			var/list/mutant_bodypart = receiver.dna.mutant_bodyparts[feature_key]
+			feature_name = islist(mutant_bodypart) && length(mutant_bodypart) ? mutant_bodypart[MUTANT_INDEX_NAME] : null
+		// NOVA EDIT END
 		set_appearance_from_name(feature_name)
 		imprint_on_next_insertion = FALSE
 
