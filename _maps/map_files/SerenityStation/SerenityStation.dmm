@@ -43723,7 +43723,7 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/fitness/recreation)
 "mzr" = (
-/mob/living/simple_animal/bot/floorbot,
+/mob/living/basic/bot/repairbot,
 /turf/open/floor/vault,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "mzE" = (

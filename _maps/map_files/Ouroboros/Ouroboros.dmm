@@ -19459,7 +19459,7 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/bot_assembly/floorbot{
+/obj/item/bot_assembly/repairbot{
 	pixel_y = -6;
 	pixel_x = -4
 	},
@@ -42850,7 +42850,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/mob/living/simple_animal/bot/floorbot{
+/mob/living/basic/bot/repairbot{
 	name = "Offixer Tilesky"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
