@@ -388,7 +388,7 @@
 	category = CAT_MISCFOOD
 
 /obj/item/food/starfruitplate
-	name = "starfruit noddles"
+	name = "starfruit noodles"
 	desc = "Savory boiled pasta with a rich and creamy reduced starfruit meat sauce."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starfruitplate"
