@@ -105,6 +105,8 @@
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
+	overrides_sprite_datum_organ_type = TRUE
+	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 
 /obj/item/organ/internal/tongue/jelly
 	zone = BODY_ZONE_CHEST

@@ -39,7 +39,7 @@
 	var/factual = TRUE
 
 	///Use this as a type path to an organ that this sprite_accessory will be associated. Make sure the organ has 'mutantpart_info' set properly.
-	var/organ_type
+	var/obj/item/organ/organ_type
 
 	///Set this to true to make an accessory appear as color customizable in preferences despite advanced color settings being off, will also prevent the accessory from being reset
 	var/always_color_customizable

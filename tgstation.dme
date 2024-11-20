@@ -6978,6 +6978,7 @@
 #include "modular_nova\master_files\code\modules\surgery\surgery.dm"
 #include "modular_nova\master_files\code\modules\surgery\bodyparts\_bodyparts.dm"
 #include "modular_nova\master_files\code\modules\surgery\bodyparts\head.dm"
+#include "modular_nova\master_files\code\modules\surgery\organs\_organ.dm"
 #include "modular_nova\master_files\code\modules\surgery\organs\tongue.dm"
 #include "modular_nova\master_files\code\modules\surgery\organs\external\antennae.dm"
 #include "modular_nova\master_files\code\modules\surgery\organs\external\wings\functional_wings.dm"
