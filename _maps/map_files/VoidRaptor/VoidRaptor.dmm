@@ -62814,7 +62814,7 @@
 /obj/machinery/status_display/evac/directional/east,
 /obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/bot,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "rAU" = (
