@@ -172,3 +172,18 @@
 /datum/sprite_accessory/lizard_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+
+/// Legs are a special case, they aren't actually sprite_accessories but are updated with them.
+/// These datums exist for selecting legs on preference, and little else
+/datum/sprite_accessory/legs
+	icon = null
+	em_block = TRUE
+	key = "legs"
+	color_src = null
+	genetic = TRUE
+
+/datum/sprite_accessory/legs/none
+	name = NORMAL_LEGS
+
+/datum/sprite_accessory/legs/digitigrade_lizard
+	name = DIGITIGRADE_LEGS
