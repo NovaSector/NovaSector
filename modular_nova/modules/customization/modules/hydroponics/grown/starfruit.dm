@@ -270,7 +270,7 @@
 
 /obj/item/food/starfruitsushiroll
 	name = "starfruit sushi roll"
-	desc = "A roll of simple vegetarian sushi with rice, carrots, and potatoes. Sliceable into pieces!"
+	desc = "A roll of simple sushi with delicious starfruit sashimi. Sliceable into pieces!"
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "sashimiroll"
 	food_reagents = list(
