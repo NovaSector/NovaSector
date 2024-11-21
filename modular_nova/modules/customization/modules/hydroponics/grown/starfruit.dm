@@ -149,7 +149,13 @@
 
 /datum/chemical_reaction/drink/astral_flame
 	results = list(/datum/reagent/consumable/ethanol/astral_flame = 6)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/navy_rum = 1, /datum/reagent/consumable/menthol = 1, /datum/reagent/consumable/limejuice = 1, /datum/reagent/consumable/sodawater = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 1,
+		/datum/reagent/consumable/ethanol/navy_rum = 1,
+		/datum/reagent/consumable/menthol = 1,
+		/datum/reagent/consumable/limejuice = 1,
+		/datum/reagent/consumable/sodawater = 1,
+	)
 	mix_message = "The ingredients morph into a an enticing smell"
 
 /datum/reagent/consumable/ethanol/astral_flame //starfruit juice 1, navy rum 1, lime juice 1, soda water 1, menthol 1
