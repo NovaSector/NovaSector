@@ -28,7 +28,7 @@
 	var/bloodloss_rate = NORMAL_BLOOD_DRAIN
 
 
-/obj/item/organ/internal/heart/hemophage/Insert(mob/living/carbon/tumorful, special, movement_flags)
+/obj/item/organ/internal/heart/hemophage/mob_insert(mob/living/carbon/tumorful, special, movement_flags)
 	. = ..()
 	if(!. || !owner)
 		return
@@ -38,7 +38,7 @@
 	RegisterSignal(tumorful, COMSIG_MOB_GET_STATUS_TAB_ITEMS, PROC_REF(get_status_tab_item))
 
 
-/obj/item/organ/internal/heart/hemophage/Remove(mob/living/carbon/tumorless, special = FALSE)
+/obj/item/organ/internal/heart/hemophage/mob_remove(mob/living/carbon/tumorless, special = FALSE)
 	. = ..()
 
 	SEND_SIGNAL(tumorless, COMSIG_PULSATING_TUMOR_REMOVED, tumorless)
