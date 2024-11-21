@@ -162,7 +162,7 @@
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/fish
 	dna_block = DNA_FISH_TAIL_BLOCK
-	wag_flags = WAG_ABLE
+	wag_flags = NONE
 	organ_traits = list(TRAIT_FLOPPING)
 
 	// Fishlike reagents, you could serve it raw like fish
@@ -191,13 +191,6 @@
 	owner.AddElementTrait(TRAIT_WADDLING, type, /datum/element/waddling)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(check_location))
 	check_location(owner, null)
-	// NOVA EDIT ADDITION START - This was placed in the bodypart overlay on_mob_insert which does not exist for us, until the external organ PR is dealt with.
-	//Initialize the related dna feature block if we don't have any so it doesn't error out.
-	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
-	if(!owner.dna.features["fish_tail"])
-		owner.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
-		owner.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
-	// NOVA EDIT ADDITION END
 
 /obj/item/organ/external/tail/fish/on_mob_remove(mob/living/carbon/owner)
 	. = ..()
@@ -205,6 +198,9 @@
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/fish_on_water)
 	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/fish_on_water)
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+
+/obj/item/organ/external/tail/fish/get_greyscale_color_from_draw_color()
+	set_greyscale(bodypart_overlay.draw_color)
 
 /obj/item/organ/external/tail/fish/proc/check_location(mob/living/carbon/source, atom/movable/old_loc, dir, forced)
 	SIGNAL_HANDLER
@@ -221,7 +217,23 @@
 
 /datum/bodypart_overlay/mutant/tail/fish
 	feature_key = "fish_tail"
-	color_source = ORGAN_COLOR_HAIR
+	color_source = ORGAN_COLOR_OVERRIDE
+
+/datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
+	//Initialize the related dna feature block if we don't have any so it doesn't error out.
+	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
+	if(imprint_on_next_insertion && !receiver.dna.features["fish_tail"])
+		receiver.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
+		receiver.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
+
+	return ..()
+
+/datum/bodypart_overlay/mutant/tail/fish/override_color(obj/item/bodypart/bodypart_owner)
+	//If the owner uses mutant colors, inherit the color of the bodypart
+	if(!bodypart_owner.owner || HAS_TRAIT(bodypart_owner.owner, TRAIT_MUTANT_COLORS))
+		return bodypart_owner.draw_color
+	else //otherwise get one from a set of faded out blue and some greys colors.
+		return pick("#B4B8DD", "#85C7D0", "#67BBEE", "#2F4450", "#55CCBB", "#999FD0", "#345066", "#585B69", "#7381A0", "#B6DDE5", "#4E4E50")
 
 /datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
 	return SSaccessories.tails_list_fish
