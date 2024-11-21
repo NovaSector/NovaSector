@@ -176,7 +176,11 @@
 
 /datum/chemical_reaction/drink/space_muse
 	results = list(/datum/reagent/consumable/ethanol/space_muse = 3)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/creme_de_menthe = 1, /datum/reagent/consumable/ethanol/vodka = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 1,
+		/datum/reagent/consumable/ethanol/creme_de_menthe = 1,
+		/datum/reagent/consumable/ethanol/vodka = 1,
+	)
 	mix_message = "The mixture gives a soft crackling snap."
 
 /datum/reagent/consumable/ethanol/space_muse //starfruit juice 1, creme de menthe, 1 vodka
