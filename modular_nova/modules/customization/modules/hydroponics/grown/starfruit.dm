@@ -202,7 +202,7 @@
 //Starfruit dishes
 
 /datum/crafting_recipe/food/glazed_ribs
-	name = "Starfruit glazed ribs"
+	name = "Starfruit Glazed Ribs"
 	reqs = list(
 		/obj/item/food/bbqribs = 1,
 		/obj/item/food/grown/starfruit = 2,
@@ -238,7 +238,7 @@
 	category = CAT_MEAT
 
 /obj/item/food/meatplatter
-	name = "BBQ Meat Platter"
+	name = "BBQ meat platter"
 	desc = "An elaborate BBQ platter adorned with several BBQ favorites on this side of the galaxy. Garnished with some rosted pepper."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "meatdisc"
@@ -265,7 +265,7 @@
 	category = CAT_MISCFOOD
 
 /obj/item/food/chicken_alfredo
-	name = "Starfruit Chicken Alfredo"
+	name = "starfruit chicken alfredo"
 	desc = "A chicken alfredo dish with a starfruit cream sauce. Not for the faint of heart."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "alfredo"
@@ -321,7 +321,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruit_sashimi
-	name = "Starfruit sashimi"
+	name = "Starfruit Sashimi"
 	reqs = list(
 		/obj/item/food/fishmeat = 2,
 		/datum/reagent/consumable/soysauce = 10,
@@ -346,12 +346,13 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /datum/crafting_recipe/food/eggplantfry
-	name = "starfruit eggplant stir fry"
+	name = "Starfruit Eggplant Stir Fry"
 	reqs = list(
 		/obj/item/food/grown/bell_pepper = 1,
 		/obj/item/food/grown/cabbage = 1,
 		/obj/item/food/grown/starfruit = 1,
 		/obj/item/food/grown/carrot = 1,
+		/obj/item/food/grown/eggplant = 2,
 	)
 	result = /obj/item/food/eggplantfry
 	category = CAT_MISCFOOD
@@ -372,7 +373,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/tofubeef
-	name = "starfruit tofu beef ramen"
+	name = "Starfruit Tofu Beef Ramen"
 	reqs = list(
 		/obj/item/food/tofu = 1,
 		/obj/item/food/meat/cutlet = 2,
@@ -383,8 +384,8 @@
 	category = CAT_MISCFOOD
 
 /obj/item/food/tofubeef
-	name = "starfruit eggplant stir fry"
-	desc = "Eggplant stir fry with a reduced starfruit sauce, carrot, peppers, and cabbage. The starfruit has absolutely covered the dish."
+	name = "starfruit tofu beef ramen"
+	desc = "A delightful ramen dish steeped in beef, tofu and starfruit. The uncanny combination of ingredients results in a suprisingly tangy dish with a subtly sweet aftertaste."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "tofubeef"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -393,12 +394,12 @@
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
-	tastes = list("eggplant" = 2, "simmered starfruit" = 1, "sautaed vegetables" = 1)
+	tastes = list("noodles" = 2, "boiled starfruit" = 1, "sweet ramen" = 1)
 	foodtypes = VEGETABLES | MEAT | GRAIN
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitplate
-	name = "starfruit noodles"
+	name = "Starfruit Noodle Pasta"
 	reqs = list(
 		/obj/item/food/meatball = 2,
 		/obj/item/food/meat/cutlet = 2,
@@ -409,7 +410,7 @@
 	category = CAT_MISCFOOD
 
 /obj/item/food/starfruitplate
-	name = "starfruit noodles"
+	name = "starfruit noodle pasta"
 	desc = "Savory boiled pasta with a rich and creamy reduced starfruit meat sauce."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starfruitplate"
@@ -419,12 +420,12 @@
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
-	tastes = list("eggplant" = 2, "simmered starfruit" = 1, "sautaed vegetables" = 1)
+	tastes = list("sweet spagetti" = 2, "simmered starfruit" = 1, "savory meat" = 1)
 	foodtypes = GRAIN | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitcake
-	name = "starfruit cake"
+	name = "Starfruit Cake"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/starfruit = 5
@@ -523,7 +524,7 @@
 	foodtypes = GRAIN | FRUIT
 
 /datum/crafting_recipe/food/starfruit_toast
-	name = "Starfruit Jelly Toast"
+	name = "Starfruit Jellied Toast"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 1,
 		/datum/reagent/consumable/starfruitjelly = 5,
@@ -572,7 +573,7 @@
 
 /obj/item/food/pieslice/starfruitpie
 	name = "starfruit pie slice"
-	desc = "Takes you on a journy though space!"
+	desc = "Takes you on a journey though space!"
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "starfruitpie_slice"
 	tastes = list("pie" = 1, "starfruit" = 1, "cosmic longing" = 1)
@@ -618,7 +619,7 @@
 
 /obj/item/food/starfruitbrulee
 	name = "starfruit creme brulee"
-	desc = "A delightful pudding dish made from primaryily caramel and egg whites."
+	desc = "A delightful pudding dish made from primarily caramel, starfruit, and egg whites."
 	icon = 'modular_nova/master_files/icons/obj/food/starfruit.dmi'
 	icon_state = "cremebrulee"
 	food_reagents = list(
@@ -655,13 +656,13 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/book/manual/starfruit
-	name = "Starfruit Fluids and Brewing"
+	name = "Starfruit preperation and you!"
 	icon = 'modular_nova/master_files/icons/obj/starfruitbook.dmi'
 	icon_state = "cookbook"
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/starfruitbook_lhand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/starfruitbook_rhand.dmi'
-	starting_author = "Artic Deep Beverage Rsearch Division"
-	starting_title = "Starfruit Fluids and Brewing"
+	starting_author = "Artic Deep Beverage Research Division"
+	starting_title = "Starfruit preperation and you!"
 	starting_content = {"<html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
