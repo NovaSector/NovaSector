@@ -132,7 +132,13 @@
 
 /datum/chemical_reaction/drink/forgotten_star
 	results = list(/datum/reagent/consumable/ethanol/forgotten_star = 5)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/pineapplejuice = 1, /datum/reagent/consumable/ethanol/white_russian = 1, /datum/reagent/consumable/ethanol/creme_de_coconut = 1, /datum/reagent/consumable/ethanol/bitters = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 1,
+		/datum/reagent/consumable/pineapplejuice = 1,
+		/datum/reagent/consumable/ethanol/white_russian = 1,
+		/datum/reagent/consumable/ethanol/creme_de_coconut = 1,
+		/datum/reagent/consumable/ethanol/bitters = 1,
+	)
 	mix_message = "The ingredients combine into a shooting star."
 
 /datum/reagent/consumable/ethanol/forgotten_star //starfruit juice 1, creme de coconut 1, white russian 1, pineapple juice 1, bitters 1
