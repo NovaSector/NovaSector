@@ -35,7 +35,12 @@
 
 /datum/chemical_reaction/drink/starfruit_soda
 	results = list(/datum/reagent/consumable/ethanol/starfruit_soda = 5)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 2, /datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/ethanol/cognac = 1, /datum/reagent/consumable/sodawater = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 2,
+		/datum/reagent/consumable/ethanol/rum = 2,
+		/datum/reagent/consumable/ethanol/cognac = 1,
+		/datum/reagent/consumable/sodawater = 1,
+	)
 	mix_message = "The ingredients combine into fizzy soda."
 
 /datum/reagent/consumable/ethanol/starfruit_soda //starfruit juice 2, rum 2, cognac 1, soda water 1
