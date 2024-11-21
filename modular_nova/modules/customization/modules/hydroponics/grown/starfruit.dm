@@ -108,7 +108,11 @@
 
 /datum/chemical_reaction/drink/starbeam_shake //starfruit juice 1 , vanilla dream 1 , ice 1
 	results = list(/datum/reagent/consumable/starbeam_shake = 3)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/vanilla_dream = 1, /datum/reagent/consumable/ice = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 1,
+		/datum/reagent/consumable/vanilla_dream = 1,
+		/datum/reagent/consumable/ice = 1,
+	)
 
 /datum/reagent/consumable/starbeam_shake
 	name = "starbeam shake"
