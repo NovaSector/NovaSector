@@ -85,7 +85,10 @@
 
 /datum/chemical_reaction/drink/starfruit_latte
 	results = list(/datum/reagent/consumable/starfruit_latte = 2)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/coffee = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 1,
+		/datum/reagent/consumable/coffee = 1,
+	)
 
 /datum/reagent/consumable/starfruit_latte //starfruit juice 1, coffee 1
 	name = "Starlit Latte"
