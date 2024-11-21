@@ -61,7 +61,10 @@
 
 /datum/chemical_reaction/drink/starfruit_lubricant
 	results = list(/datum/reagent/consumable/ethanol/starfruit_lubricant = 2)
-	required_reagents = list(/datum/reagent/consumable/starfruit_juice = 1, /datum/reagent/consumable/ethanol/synthanol = 1)
+	required_reagents = list(
+		/datum/reagent/consumable/starfruit_juice = 1,
+		/datum/reagent/consumable/ethanol/synthanol = 1,
+	)
 	mix_message = "The ingredients combine into a fizzy soda."
 
 /datum/reagent/consumable/ethanol/starfruit_lubricant //starfruit juice 1, Synthanol 1
