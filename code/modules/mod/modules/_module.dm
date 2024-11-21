@@ -348,16 +348,12 @@
 	var/used_overlay = get_current_overlay_state()
 	if (!used_overlay)
 		return
-<<<<<<< HEAD
 	/* NOVA EDIT START - Making MODsuits mutant-compatible - ORIGINAL:
-	var/mutable_appearance/module_icon = mutable_appearance(overlay_icon_file, used_overlay, layer = standing.layer + 0.1)
-=======
 	var/mutable_appearance/module_icon
 	if(mask_worn_overlay)
 		module_icon = mutable_appearance(get_module_icon_cache(used_overlay), layer = standing.layer + 0.1)
 	else
 		module_icon = mutable_appearance(overlay_icon_file, used_overlay, layer = standing.layer + 0.1)
->>>>>>> 7247928ec4... MODules don't create visual overlays when their required part isn't deployed (#87452)
 	if(!use_mod_colors)
 		module_icon.appearance_flags |= RESET_COLOR
 

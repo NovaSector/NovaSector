@@ -542,7 +542,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if (mag.ammo_count())
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("loading cartridge...")
-		chambered = WEAKREF(mag.get_round(keep = FALSE))
+		chambered = WEAKREF(mag.get_round())
 		var/obj/item/ammo_casing/casing = chambered?.resolve()
 		if(isnull(casing))
 			chambered = null
