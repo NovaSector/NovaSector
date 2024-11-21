@@ -32649,6 +32649,10 @@
 /obj/item/wrench,
 /obj/item/crowbar,
 /obj/machinery/firealarm/directional/south,
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = -8;
+	pixel_y = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/station/science/robotics/lab)
 "gmf" = (

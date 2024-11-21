@@ -35,6 +35,11 @@
 #define ORGAN_SYNTHETIC_FROM_SPECIES (1<<13)
 // NOVA EDIT ADDITION END
 
+/// Scarring on the right eye
+#define RIGHT_EYE_SCAR (1<<0)
+/// Scarring on the left eye
+#define LEFT_EYE_SCAR (1<<1)
+
 /// Helper to figure out if a limb is organic
 #define IS_ORGANIC_LIMB(limb) (limb.bodytype & BODYTYPE_ORGANIC)
 /// Helper to figure out if a limb is robotic

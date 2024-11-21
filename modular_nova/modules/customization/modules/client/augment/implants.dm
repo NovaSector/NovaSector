@@ -26,7 +26,7 @@
 
 /datum/augment_item/implant/l_arm/charging_implant
 	name = "Left Charging Cord Implant"
-	path = /obj/item/organ/internal/cyberimp/arm/power_cord
+	path = /obj/item/organ/internal/cyberimp/arm/power_cord/left_arm
 
 /datum/augment_item/implant/l_arm/civilian_lighter
 	name = "Left Thumbtip Lighter"

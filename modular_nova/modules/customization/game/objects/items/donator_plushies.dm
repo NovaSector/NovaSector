@@ -557,8 +557,8 @@
 		"sword",
 		)
 	squeak_override = list(
-		'modular_nova/modules/emotes/sound/emotes/synth_yes.ogg' = 1,
-		'modular_nova/modules/emotes/sound/emotes/synth_no.ogg' = 1,
+		'sound/machines/synth/synth_yes.ogg' = 1,
+		'sound/machines/synth/synth_no.ogg' = 1,
 		)
 
 /obj/item/toy/plush/nova/donator/lizzyplush

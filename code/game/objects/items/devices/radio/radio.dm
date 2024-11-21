@@ -352,7 +352,7 @@
 	if(isliving(talking_movable))
 		/* NOVA EDIT CHANGE START - We use our own radio sounds - see modular_nova/modules/radiosound/code/radio.dm - ORIGINAL:
 		var/mob/living/talking_living = talking_movable
-		if(radio_noise && !HAS_TRAIT(talking_living, TRAIT_DEAF) && talking_living.client?.prefs.read_preference(/datum/preference/toggle/radio_noise))
+		if(radio_noise && talking_living.can_hear() && talking_living.client?.prefs.read_preference(/datum/preference/toggle/radio_noise) && signal.frequency != FREQ_COMMON)
 			SEND_SOUND(talking_living, 'sound/items/radio/radio_talk.ogg')
 		*/
 		if(radio_noise && COOLDOWN_FINISHED(src, audio_cooldown))
