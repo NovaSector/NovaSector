@@ -63,6 +63,9 @@
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
+
 	var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
 	var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
 
