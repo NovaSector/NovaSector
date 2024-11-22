@@ -25,7 +25,7 @@
 	payday_modifier = 1.0 // Matches the rest of the pay penalties the non-human crew have
 	death_sound = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	species_language_holder = /datum/language_holder/machine
-	mutant_organs = list(/obj/item/organ/internal/cyberimp/arm/power_cord)
+	mutant_organs = list(/obj/item/organ/internal/cyberimp/arm/power_cord/left_arm)
 	mutantbrain = /obj/item/organ/internal/brain/synth
 	mutantstomach = /obj/item/organ/internal/stomach/synth
 	mutantears = /obj/item/organ/internal/ears/synth
