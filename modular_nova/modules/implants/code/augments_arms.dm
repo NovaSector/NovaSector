@@ -70,16 +70,17 @@
 	var/cutter_force = CUTTER_FORCE
 	var/cutter_wound_bonus = CUTTER_WOUND_BONUS
 	var/cutter_bare_wound_bonus = CUTTER_WOUND_BONUS
+	var/toggle_sound = 'sound/items/tools/change_drill.ogg'
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 1
 
 /obj/item/knife/razor_claws/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/tools/change_drill.ogg', 50, TRUE)
+	playsound(get_turf(user), toggle_sound, 50, TRUE)
 	if(tool_behaviour != TOOL_WIRECUTTER)
 		tool_behaviour = TOOL_WIRECUTTER
 		to_chat(user, span_notice("You shift [src] into Precision mode, for wirecutting."))
-		icon_state = "precision_wolverine"
-		inhand_icon_state = "precision_wolverine"
+		icon_state = "precision_[src::icon_state]"
+		inhand_icon_state = "precision_[src::inhand_icon_state]"
 		force = cutter_force
 		wound_bonus = cutter_wound_bonus
 		bare_wound_bonus = cutter_bare_wound_bonus
@@ -91,8 +92,8 @@
 	else
 		tool_behaviour = TOOL_KNIFE
 		to_chat(user, span_notice("You shift [src] into Killing mode, for slicing."))
-		icon_state = "wolverine"
-		inhand_icon_state = "wolverine"
+		icon_state = src::icon_state
+		inhand_icon_state = src::inhand_icon_state
 		force = knife_force
 		sharpness = KNIFE_SHARPNESS
 		wound_bonus = knife_wound_bonus
