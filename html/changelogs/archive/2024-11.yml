@@ -334,3 +334,26 @@
       work over a remote connection, however.
   - rscadd: Borgs now get the job title of someone sending them a message through
       SiliConnect.
+2024-11-22:
+  00-Steven:
+  - bugfix: Fixed cat ears not layering properly.
+  - bugfix: Husked bodies show their blood with the right colours in photographs.
+  Stalkeos, 00-Steven:
+  - bugfix: A bitrunner avatar spawning with the exact same name as a name currently
+      on the records no longer updates that record to match when the hacker alias
+      gets applied.
+  - qol: Net avatar ID cards use the net avatar's name instead of being generic.
+  Stalkeros, larentoun:
+  - bugfix: falling into chasms and other ways of destroying your virtual body instead
+      of killing it, WILL now return you to your body
+  Time-Green and MrMelbert:
+  - code_imp: 'Improves digitgrade handling in preference code /:cl:
+
+      I have absorbed #85126, using Melberts code to improve and add some missing
+      changes. Mainly improving the functioning of preferences and digitgrade legs.
+      I didn''t take over the hairstyle improvements.
+
+      ----
+
+      Nova notes: This is going to have so many errors and break nearly everything,
+      but at least it''s here for now.'
