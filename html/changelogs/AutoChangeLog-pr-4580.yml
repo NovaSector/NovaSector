@@ -1,7 +1,0 @@
-author: "Thedragmeme"
-delete-after: True
-changes:
-  - rscadd: "Adds 7 new drinks: Starfruit Soda, Starfruit Lubricant(Synth), Starlit Latte, Starbeam Shake, Forgotten Star, Astral Flame, and Space Muse."
-  - rscadd: "Adds 14 new dishes: Glazed Ribs, BBQ Meat Platter, Chicken Alfredo(cursed), Starfruit Sushi Roll, Starfruit Sashimi, Starfruit Eggplant Stir Fry, Starfruit Tofu Beef Ramen, Starfruit Noodles, Starfruit Cake(do you see the theme yet), Starfruit Jelly, Starfruit Macaron, Starfruit Cobbler, Starfruit Jelly Toast, Starfruit Pie, Starfruit Compote, Starfruit Creme Brulee, and Starfruit Cupcake"
-  - image: "Adds roughly 20 new sprites to the game"
-  - qol: "Adds a new book to the starfruit seed crate"
