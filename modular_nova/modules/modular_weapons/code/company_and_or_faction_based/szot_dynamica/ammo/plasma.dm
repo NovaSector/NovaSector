@@ -14,7 +14,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "plasma_glob"
 	damage = 10
-	speed = 1.5
-	bare_wound_bonus = 40 
+	speed = 0.66
+	bare_wound_bonus = 40
 	wound_bonus = -20 // Not to great at wounding through armor.
 	pass_flags = PASSTABLE | PASSGRILLE // His ass does NOT pass through glass!
