@@ -433,6 +433,14 @@ required_map = "wawastation.dmm"
 coordinates = [83, 92, 1]
 trait_name = "Station"
 
+# Wawastation TG-shenanigan removals.
+[templates.wawastation_asteroidbluecell]
+map_files = ["wawastation_asteroidbluecell.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [142, 95, 2]
+trait_name = "Station"
+
 # SNOWGLOBE STATION MAP EDITS
 # Icecats Camp Lower Level - Snowglobe
 [templates.snowglobe_icecats_lower]

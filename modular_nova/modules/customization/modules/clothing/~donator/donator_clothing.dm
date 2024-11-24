@@ -193,6 +193,17 @@
 	button_icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	button_icon_state = "drawingtablet"
 
+// Donation reward for DrpMstr
+/obj/item/clothing/suit/costume/butter
+	name = "butter costume"
+	desc = "Made from only the highest quality cardboard. Caution, contents include Slime and Butter, do not ingest."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "butterbox"
+	inhand_icon_state = "butterbox"
+
 //Donation reward for Thedragmeme
 /obj/item/bouquet/stellar
 	name = "stellar bouquet"
@@ -231,13 +242,27 @@
 	var/mob/wearer = loc
 	wearer.update_body()
 
-/obj/item/clothing/head/hooded/padded
-	name = "feathered serenity hood"
-	icon_state = "paddedhood"
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
-	clothing_flags = SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+//Donation reward for Thedragmeme
+//Have I reached suspiciously wealthy furry status yet? /j
+/obj/item/clothing/under/sweater_dress
+	name = "virgin killer sweater"
+	desc = "A meticulously knitted sweater that shows off ALL the right places. This is BARELY considered work attire."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "virginslayer"
+	inhand_icon_state = "virginslayer"
+
+/obj/item/clothing/suit/jacket/bomber_donor
+	name = "old hoodie"
+	desc = "A somewhat well worn jacket, appears to be way too big considering who owns it."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "bomber"
+	inhand_icon_state = "bomber"
 
 //Donation reward for Thedragmeme, gift for ActualVanguard
 /obj/item/clothing/neck/padded/security
@@ -250,6 +275,14 @@
 /obj/item/clothing/head/hooded/padded/security
 	name = "vanguard cloak hood"
 	icon_state = "paddedsechood"
+
+/obj/item/clothing/head/hooded/padded
+	name = "feathered serenity hood"
+	icon_state = "paddedhood"
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	clothing_flags = SNUG_FIT
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 // Donation reward for Thedragmeme
 /obj/item/clothing/under/padded
