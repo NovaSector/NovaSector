@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - admin: "logging enabled by default for all emp sources."

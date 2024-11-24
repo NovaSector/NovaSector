@@ -1,7 +1,0 @@
-author: "iskawhiskers"
-delete-after: True
-changes:
-  - rscadd: "new sprite accessories: floppy (ears), big legs with pegfeet (taur legs), porcine and porcine + tusks (snout)"
-  - qol: "duplicated fuzzball/cetaceous/geniculate antennae to horns"
-  - rscadd: "new clothing: giant scarf (undersuit), designer gloves (hands), designer jacket (suit)"
-  - qol: "add security cape to the loadout menu. accessible by all players as it is a neck item with no mechanical benefit"

@@ -489,3 +489,18 @@
   tontyGH:
   - bugfix: pointing at stuff on-top of plates, griddles, stoves and ovens will point
       at the plate and no longer just do nothing
+2024-11-24:
+  FlufflesTheDog:
+  - bugfix: stomachs no longer drop out of oversized characters on spawn
+  - bugfix: charging implants no longer drop out of synth characters on spawn
+  iskawhiskers:
+  - rscadd: 'new sprite accessories: floppy (ears), big legs with pegfeet (taur legs),
+      porcine and porcine + tusks (snout)'
+  - qol: duplicated fuzzball/cetaceous/geniculate antennae to horns
+  - rscadd: 'new clothing: giant scarf (undersuit), designer gloves (hands), designer
+      jacket (suit)'
+  - qol: add security cape to the loadout menu. accessible by all players as it is
+      a neck item with no mechanical benefit
+  sqnztb:
+  - admin: logging enabled by default for all emp sources.
+  - map: snowglobe - fixed the floating pepperspray refiller and added a secway key.
