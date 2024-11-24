@@ -790,9 +790,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(dna.features["fish_tail"])
 		dna.features["fish_tail"] = SSaccessories.tails_list_fish[deconstruct_block(get_uni_feature_block(features, DNA_FISH_TAIL_BLOCK), length(SSaccessories.tails_list_fish))]
 
-
-	for(var/obj/item/organ/external/external_organ in organs)
-		external_organ.mutate_feature(features, src)
+	for(var/obj/item/organ/organ in organs)
+		organ.mutate_feature(features, src)
 
 	if(icon_update)
 		update_body(is_creating = mutcolor_update)

@@ -6,7 +6,7 @@
 	name = "liver"
 	desc = "Pairing suggestion: chianti and fava beans."
 	icon_state = "liver"
-	visual = FALSE
+
 	w_class = WEIGHT_CLASS_SMALL
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_LIVER
@@ -270,7 +270,7 @@
 //surplus organs are so awful that they explode when removed, unless failing
 /obj/item/organ/internal/liver/cybernetic/surplus/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/dangerous_surgical_removal)
+	AddElement(/datum/element/dangerous_organ_removal, /*surgical = */ TRUE)
 
 #undef LIVER_DEFAULT_TOX_TOLERANCE
 //#undef LIVER_DEFAULT_TOX_RESISTANCE // NOVA EDIT REMOVAL - Needed in modular

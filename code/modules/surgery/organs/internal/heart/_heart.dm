@@ -3,7 +3,7 @@
 	desc = "I feel bad for the heartless bastard who lost this."
 	icon_state = "heart-on"
 	base_icon_state = "heart"
-	visual = FALSE
+
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_HEART
 	item_flags = NO_BLOOD_ON_ITEM
@@ -285,7 +285,7 @@
 //surplus organs are so awful that they explode when removed, unless failing
 /obj/item/organ/internal/heart/cybernetic/surplus/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/dangerous_surgical_removal)
+	AddElement(/datum/element/dangerous_organ_removal, /*surgical = */ TRUE)
 
 /obj/item/organ/internal/heart/freedom
 	name = "heart of freedom"
