@@ -83,7 +83,7 @@
 		)
 
 	// NOVA EDIT ADDITION START
-	if(include_loadout)
+	if(!isnull(prefs) && include_loadout)
 		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
 	// NOVA EDIT ADDITION END
 	var/obj/item/card/id/outfit_id = avatar.wear_id
