@@ -161,12 +161,13 @@
 	if(user) //Only use transfer proc if there's a user, otherwise just set loc.
 		if(!user.transferItemToLoc(I, src))
 			return FALSE
-	//	to_chat(user, span_notice("You load \the [I] into \the [src].")) << Original. Nova Addition start
+		//to_chat(user, span_notice("You load \the [I] into \the [src].")) // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START
 		if(istype(I, /obj/item/storage/toolbox/emergency/turret/mag_fed))
-			to_chat(user, span_warning("You load \the [I] into \the [src] before blocking the loader's opening."))
+			to_chat(user, span_warning("You load \the [I] into \the [src], blocking the loader's opening."))
 		else
 			to_chat(user, span_notice("You load \the [I] into \the [src]."))
-	// Nova Addition End
+	// NOVA EDIT ADDITION END
 	else
 		I.forceMove(src)
 	loadedItems += I
