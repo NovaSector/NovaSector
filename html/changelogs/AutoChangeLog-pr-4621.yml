@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - map: "snowglobe - fixed the floating pepperspray refiller and added a secway key."
