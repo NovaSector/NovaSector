@@ -119,7 +119,6 @@
 		to_chat(user, span_notice("You can't quite find the weakpoint of [src]... Perhaps it needs to be scanned first?"))
 		return
 	to_chat(user, span_notice("You start striking [src] with your golem's fist, attempting to dredge up a boulder..."))
-
 	for(var/i in 1 to 3)
 		/* NOVA EDIT CHANGE START - ORIGINAL:
 		if(do_after(user, boulder_size * 1 SECONDS, src))
