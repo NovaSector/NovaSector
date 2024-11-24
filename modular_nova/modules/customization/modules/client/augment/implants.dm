@@ -1,11 +1,11 @@
 /datum/augment_item/implant
 	category = AUGMENT_CATEGORY_IMPLANTS
 
-/datum/augment_item/implant/apply(mob/living/carbon/human/H, character_setup = FALSE, datum/preferences/prefs)
+/datum/augment_item/implant/apply(mob/living/carbon/human/organ_receiver, character_setup = FALSE, datum/preferences/prefs)
 	if(character_setup)
 		return
-	var/obj/item/organ/new_organ = new path()
-	new_organ.Insert(H,FALSE,FALSE)
+	var/obj/item/organ/new_organ = new path
+	new_organ.Insert(organ_receiver, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 
 //BRAIN IMPLANTS
 /datum/augment_item/implant/brain
