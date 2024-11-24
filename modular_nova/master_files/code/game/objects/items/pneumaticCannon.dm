@@ -1,22 +1,13 @@
 
-/obj/item/pneumatic_cannon/load_item(obj/item/I, mob/user) //we do a full redo here because it changes instead of just adds.
+/obj/item/pneumatic_cannon/load_item(obj/item/I, mob/user) //we make this compatable with the master file incase of future updates, adding a warning and a delay so it cant just be invo-juggle-spammed.
 	if(!can_load_item(I, user))
 		return FALSE
-	if(user) //Only use transfer proc if there's a user, otherwise just set loc.
-		if(!user.transferItemToLoc(I, src))
-			return FALSE
+	if(user)
 		if(istype(I, /obj/item/storage/toolbox/emergency/turret/mag_fed))
-			to_chat(user, span_warning("You load \the [I] into \the [src], blocking the loader's opening."))
-		else
-			to_chat(user, span_notice("You load \the [I] into \the [src]."))
-	else
-		I.forceMove(src)
-	loadedItems += I
-	if(isitem(I))
-		loadedWeightClass += I.w_class
-	else
-		loadedWeightClass++
-	return TRUE
+			to_chat(user, span_warning("You prepare \the [I] to load into \the [src]. This action will block other items from being loaded!"))
+			if(!do_after(user, 15))
+				return FALSE
+	. = ..()
 
 /obj/item/pneumatic_cannon/can_load_item(obj/item/I, mob/user)
 	. = ..()
