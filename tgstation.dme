@@ -6647,6 +6647,7 @@
 #include "modular_nova\master_files\code\game\objects\items\holy_weapons.dm"
 #include "modular_nova\master_files\code\game\objects\items\kirby_plants.dm"
 #include "modular_nova\master_files\code\game\objects\items\oxygen_candle.dm"
+#include "modular_nova\master_files\code\game\objects\items\pneumaticCannon.dm"
 #include "modular_nova\master_files\code\game\objects\items\RCD.dm"
 #include "modular_nova\master_files\code\game\objects\items\religion.dm"
 #include "modular_nova\master_files\code\game\objects\items\scratchingstone.dm"
