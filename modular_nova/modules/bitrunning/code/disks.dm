@@ -38,8 +38,11 @@
 		. += span_notice("Alt-Click to change loadout loading")
 
 /obj/item/bitrunning_disk/prefs/click_alt(mob/user)
+	if(isnull(loaded_preference))
+		return CLICK_ACTION_BLOCKING
 	include_loadout = !include_loadout // We just switch this around. Elegant!
 	balloon_alert(user, include_loadout ? "Loadout enabled" : "Loadout disabled")
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/bitrunning_disk/prefs/attack_self(mob/user, modifiers)
 	. = ..()
