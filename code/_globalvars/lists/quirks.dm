@@ -101,6 +101,14 @@ GLOBAL_LIST_INIT(paraplegic_choice, list(
 	"Amputee" = TRUE,
 ))
 
+///Scarred Eye Quirk
+GLOBAL_LIST_INIT(scarred_eye_choice, list(
+	"Random",
+	"Left Eye",
+	"Right Eye",
+	"Double",
+))
+
 ///chipped Quirk
 GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 	"Basketsoft 3000" = /obj/item/skillchip/basketweaving,
@@ -114,5 +122,6 @@ GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 	"Integrated Intuitive Thinking and Judging" = /obj/item/skillchip/intj,
 	"F0RC3 4DD1CT10N" = /obj/item/skillchip/drunken_brawler,
 	"\"Space Station 13: The Musical\"" = /obj/item/skillchip/musical,
-	"Mast-Angl-Er skillchip" = /obj/item/skillchip/master_angler,
+	"Mast-Angl-Er" = /obj/item/skillchip/master_angler,
+	"Kommand" = /obj/item/skillchip/big_pointer,
 ))

@@ -20,11 +20,13 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 
 /obj/item/forging/reagent_weapon/examine(mob/user)
 	. = ..()
 	. += span_notice("Using a hammer on [src] will repair its damage!")
+	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
 /obj/item/forging/reagent_weapon/sword
 	name = "forged sword"
@@ -216,11 +218,13 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_weapon)
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
+	AddElement(/datum/element/bane, target_type = /mob/living/basic/mining/legion, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 
 /obj/item/shield/buckler/reagent_weapon/examine(mob/user)
 	. = ..()
 	. += span_notice("Using a hammer on [src] will repair its damage!")
+	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
 /obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, params)
 	if(atom_integrity >= max_integrity)

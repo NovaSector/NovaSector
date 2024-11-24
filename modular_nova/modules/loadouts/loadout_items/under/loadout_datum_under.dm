@@ -464,6 +464,10 @@
 	name = "Wedding Dress With Ribbon"
 	item_path = /obj/item/clothing/under/dress/wedding_dress/ribbon
 
+/datum/loadout_item/under/miscellaneous/giant_scarf
+	name = "Giant Scarf"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
+
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/red_skirt

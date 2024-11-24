@@ -12,7 +12,7 @@
 		"Potassium refrigerant cloud",
 		"Mercury dispersion wave",
 		"Iron wafer conduction field",
-		"Calcium binary deoxidiser",
+		"Calcium binary deoxidizer",
 		"Chlorine diffusion emissions",
 		"Phoron saturated field", // Phoron is left intentionally.
 	)

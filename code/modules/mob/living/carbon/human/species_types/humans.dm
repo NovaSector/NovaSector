@@ -4,7 +4,6 @@
 	inherent_traits = list(
 		TRAIT_USES_SKINTONES,
 	)
-	mutant_bodyparts = list("wings" = "None")
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.1
@@ -81,8 +80,8 @@
 
 /datum/species/human/get_sigh_sound(mob/living/carbon/human/human)
 	if(human.physique == FEMALE)
-		return 'sound/mobs/humanoids/human/sigh/female_sigh.ogg'
-	return 'sound/mobs/humanoids/human/sigh/male_sigh.ogg'
+		return SFX_FEMALE_SIGH
+	return SFX_MALE_SIGH
 
 /datum/species/human/get_sniff_sound(mob/living/carbon/human/human)
 	if(human.physique == FEMALE)

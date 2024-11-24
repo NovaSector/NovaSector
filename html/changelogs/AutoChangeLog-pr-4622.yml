@@ -1,0 +1,5 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "stomachs no longer drop out of oversized characters on spawn"
+  - bugfix: "charging implants no longer drop out of synth characters on spawn"
