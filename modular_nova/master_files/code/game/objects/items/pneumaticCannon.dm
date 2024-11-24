@@ -1,11 +1,11 @@
 
-/obj/item/pneumatic_cannon/load_item(obj/item/I, mob/user) //we make this compatable with the master file incase of future updates, adding a warning and a delay so it cant just be invo-juggle-spammed.
+/obj/item/pneumatic_cannon/load_item(obj/item/I, mob/user) //we make this compatable with the master file incase of future updates.
 	if(!can_load_item(I, user))
 		return FALSE
 	if(user)
 		if(istype(I, /obj/item/storage/toolbox/emergency/turret/mag_fed))
 			to_chat(user, span_warning("You prepare \the [I] to load into \the [src]. This action will block other items from being loaded!"))
-			if(!do_after(user, 15))
+			if(!do_after(user, 15)) //adding a warning and a delay so it cant just be invo-juggle-spammed.
 				return FALSE
 	. = ..()
 
