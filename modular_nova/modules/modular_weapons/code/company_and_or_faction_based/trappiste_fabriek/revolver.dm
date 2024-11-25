@@ -26,7 +26,7 @@
 	. = ..()
 
 	. += "The Renard is one of the few Trappiste weapons not made for military contract. \
-		Instead, the Eland started life as a police weapon, offered as a gun to finally \
+		Instead, the Renard started life as a police weapon, offered as a gun to finally \
 		outmatch all others in the cheap police weapons market. Unfortunately, this \
 		coincided with nearly every SolFed police force realising they are actually \
 		comically overfunded. With military weapons bought for police forces taking \
