@@ -81,9 +81,9 @@
 	suppressor_x_offset = 8
 	suppressor_y_offset = 0
 
-	fire_delay = 1 SECONDS
+	fire_delay = 0.7 SECONDS
 
-	recoil = 3
+	recoil = 1
 
 /obj/item/gun/ballistic/automatic/pistol/trappiste/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_TRAPPISTE)
