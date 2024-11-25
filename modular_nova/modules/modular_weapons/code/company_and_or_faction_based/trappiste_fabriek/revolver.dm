@@ -58,7 +58,7 @@
 
 	can_suppress = TRUE
 
-	fire_delay = 1 SECONDS
+	fire_delay = 0.5 SECONDS
 	recoil = 3
 
 /obj/item/gun/ballistic/revolver/takbok/give_manufacturer_examine()
@@ -86,4 +86,4 @@
 /obj/item/ammo_box/magazine/internal/cylinder/c585trappiste
 	ammo_type = /obj/item/ammo_casing/c585trappiste
 	caliber = CALIBER_585TRAPPISTE
-	max_ammo = 5
+	max_ammo = 6
