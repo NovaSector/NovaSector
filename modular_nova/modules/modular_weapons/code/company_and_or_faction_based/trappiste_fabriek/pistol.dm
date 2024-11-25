@@ -1,7 +1,7 @@
 // .35 Sol pistol
 
 /obj/item/gun/ballistic/automatic/pistol/sol
-	name = "\improper Wespe Pistol"
+	name = "\improper Guêpe Pistol"
 	desc = "The standard issue service pistol of SolFed's various military branches. Uses .35 Sol and comes with an attached light."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
@@ -35,7 +35,7 @@
 /obj/item/gun/ballistic/automatic/pistol/sol/examine_more(mob/user)
 	. = ..()
 
-	. += "The Wespe is a pistol that was made entirely for military use. \
+	. += "The Guêpe is a pistol that was made entirely for military use. \
 		Required to use a standard round, standard magazines, and be able \
 		to function in all of the environments that SolFed operated in \
 		commonly. These qualities just so happened to make the weapon \
