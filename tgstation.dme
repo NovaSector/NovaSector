@@ -8549,6 +8549,7 @@
 #include "modular_nova\modules\SEVA_suit\code\suit_voucher.dm"
 #include "modular_nova\modules\shapeshifter_quirk\code\shapeshifter_action.dm"
 #include "modular_nova\modules\shapeshifter_quirk\code\shapeshifter_quirk.dm"
+#include "modular_nova\modules\shorg\shorg.dm"
 #include "modular_nova\modules\shotgunrebalance\code\ammobox.dm"
 #include "modular_nova\modules\shotgunrebalance\code\autolathe_design.dm"
 #include "modular_nova\modules\shotgunrebalance\code\shotgun.dm"
