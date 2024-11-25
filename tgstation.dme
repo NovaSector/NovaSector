@@ -7162,6 +7162,7 @@
 #include "modular_nova\modules\bitrunning\code\disks.dm"
 #include "modular_nova\modules\bitrunning\code\flair.dm"
 #include "modular_nova\modules\bitrunning\code\mobs.dm"
+#include "modular_nova\modules\bitrunning\code\outfit.dm"
 #include "modular_nova\modules\bitrunning\code\spells.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\area.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\choice_beacon.dm"

@@ -148,7 +148,15 @@
 	if(isnull(entry_atom))
 		return
 
-	var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit)
+	// NOVA EDIT ADDITION BEGIN - PREFS!
+	var/datum/preferences/pref
+	var/load_loadout = FALSE
+	var/obj/item/bitrunning_disk/prefs/prefdisk = locate() in neo.get_contents()
+	if(prefdisk)
+		load_loadout = prefdisk.include_loadout
+		pref = prefdisk.loaded_preference
+	// NOVA EDIT ADDITION END
+	var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit, pref, include_loadout = load_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit)
 	stock_gear(new_avatar, neo, generated_domain)
 
 	// Cleanup for domains with one time use custom spawns
