@@ -1,4 +1,0 @@
-author: "Time-Green and MrMelbert"
-delete-after: True
-changes:
-  - code_imp: "Improves digitgrade handling in preference code /:cl:\nI have absorbed #85126, using Melberts code to improve and add some missing changes. Mainly improving the functioning of preferences and digitgrade legs. I didn't take over the hairstyle improvements.\n----\nNova notes: This is going to have so many errors and break nearly everything, but at least it's here for now."

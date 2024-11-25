@@ -63,6 +63,9 @@
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
+
 	var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
 	var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
 
@@ -76,20 +79,20 @@
 	// To prevent ghosting. We have to do this manually here because TG has replace_into() hardcoded to qdel the old brain no matter what and there is no way around it.
 	old_brain.Remove(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
 
-	if(new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER))
-		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
-		if(old_brain)
-			old_brain.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_brain)
+	new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
+	to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
+	if(old_brain)
+		old_brain.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_brain)
 	if(old_stomach.is_oversized) // don't override augments that are already oversized
 		oversized_quirk.old_organs -= old_stomach
 		qdel(new_slime_stomach)
 		return
-	if(new_slime_stomach.Insert(human_holder, special = TRUE))
-		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
-		if(old_stomach)
-			old_stomach.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_stomach)
+	new_slime_stomach.Insert(human_holder, special = TRUE)
+	to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
+	if(old_stomach)
+		old_stomach.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_stomach)
 
 /obj/item/organ/internal/eyes/jelly
 	name = "photosensitive eyespots"

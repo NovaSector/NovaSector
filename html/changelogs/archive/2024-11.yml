@@ -334,3 +334,176 @@
       work over a remote connection, however.
   - rscadd: Borgs now get the job title of someone sending them a message through
       SiliConnect.
+2024-11-22:
+  00-Steven:
+  - bugfix: Fixed cat ears not layering properly.
+  - bugfix: Husked bodies show their blood with the right colours in photographs.
+  Stalkeos, 00-Steven:
+  - bugfix: A bitrunner avatar spawning with the exact same name as a name currently
+      on the records no longer updates that record to match when the hacker alias
+      gets applied.
+  - qol: Net avatar ID cards use the net avatar's name instead of being generic.
+  Stalkeros, larentoun:
+  - bugfix: falling into chasms and other ways of destroying your virtual body instead
+      of killing it, WILL now return you to your body
+  Time-Green and MrMelbert:
+  - code_imp: 'Improves digitgrade handling in preference code /:cl:
+
+      I have absorbed #85126, using Melberts code to improve and add some missing
+      changes. Mainly improving the functioning of preferences and digitgrade legs.
+      I didn''t take over the hairstyle improvements.
+
+      ----
+
+      Nova notes: This is going to have so many errors and break nearly everything,
+      but at least it''s here for now.'
+2024-11-23:
+  00-Steven:
+  - bugfix: NTNRC "rename channel" button is now grayed out when unusable.
+  - bugfix: Genetics console "create advanced injector" button is now grayed out when
+      unusable.
+  Absolucy:
+  - rscadd: GPSes now show the general direction of cross-linked z-levels.
+  Aliceee2ch:
+  - qol: replaced old engineer borg "tile stacker" on crippled RTD
+  Ben10Omintrix:
+  - bugfix: penguins now correctly hunt for food
+  CliffracerX:
+  - config: altered coded defaults for human authority, no impact on TG
+  DATA-xPUNGED:
+  - bugfix: The parrot from the Corsair Cove will no longer be immediatelly shanked
+      by the pirates upon loading of the domain.
+  Fikou:
+  - rscadd: The Bridge Assistant's no item wielding disability was replaced with a
+      duty-sworn axe protection brain trauma.
+  - bugfix: fixes some issues with separate modsuit part activation
+  - bugfix: rad protection, miner and stealth modsuit modules require the full suit
+      out
+  - bugfix: armor booster now applies slowdown removal per part instead of to the
+      control unit
+  - balance: you need something spaceproof to cover your legs (or feet) and arms (or
+      hands) to be spaceproof, not only head and chest
+  - balance: magboots and atmos gloves now have pressure protection
+  Ghommie:
+  - bugfix: Fixed a small botherance with special fish infusions. You no longer need
+      to infuse squids and pufferfish last to reap their special organs.
+  - bugfix: Throw impact sounds won't play if the item has been caught.
+  JackEnoff:
+  - spellcheck: spellchecks "maintainance glass airlock"
+  Jackal-boop:
+  - bugfix: fixes the toy larva hugger getting shredded
+  Jewelry-x:
+  - admin: make sparks optional when sending a supply pod
+  KazooBard:
+  - balance: Knock path's grasp now stuns the previous mech occupant when ejecting
+      them and unlocks BOTH the ID and DNA lock, allowing the heretic to freely board
+      the vehicle.
+  Melbert:
+  - rscadd: Drinking any ethanol (beer, wine, etc) will trigger alcohol allergies
+  - rscadd: Drinking ants will trigger Bug allergies
+  - rscadd: Getting stung by a bee, or bitten by a (giant) ant or (giant) spider,
+      will trigger bug allergies
+  - rscadd: Drinking plain sugar or caramel will trigger sugar allergies
+  - qol: Ethanol can speed up the surgeries of any mob type applied to, rather than
+      solely humans.
+  OrionTheFox:
+  - qol: added fail feedback to xenobio Regenerative Metal/Bluespace Extracts
+  - bugfix: fixed Regenerative Metal Extract not checking for mob size when moving
+      them into the spawned closet
+  Pepsilawn:
+  - bugfix: You will now receive the advertised amount of credits for selling spacecash
+      bills through cargo
+  Sealed101:
+  - bugfix: fixed APC control console found in CE office only accessing APCs on its
+      z-level
+  - bugfix: fixed restoring an emagged APC control console potentially leaving the
+      console in a forever state of restoring
+  SmArtKar:
+  - bugfix: Fixed harddels caused by certain projectiles
+  - bugfix: Fixed MODsuit deactivation not disabling modules
+  - bugfix: Fixed some guns runtiming when attempting to reload
+  - bugfix: Fixed deathsquad commandos not getting their berets
+  - code_imp: Magazines now lazyload their contents in order to save on gun init times.
+      Please report any broken/non-functional guns!
+  - bugfix: Fixed green raptor corpses being able to mine rocks
+  - qol: Detailed examine descriptions are prettier now.
+  - bugfix: Fixed HTML injections via pet tricks
+  - bugfix: Changelings no longer have a soul when examined if their brain is missing
+  - bugfix: Fixed hat stabilizer component not cancelling the attack chain
+  - bugfix: MODules don't create visual overlays when their required part isn't deployed
+  TealSeer:
+  - bugfix: The gene recipes for cindikinesis and pyrokinesis should now work properly.
+  TheVekter:
+  - bugfix: Clarifies mayhem-in-a-bottle's effects and makes the text much, much more
+      obvious.
+  Thedragmeme:
+  - rscadd: 'Adds 7 new drinks: Starfruit Soda, Starfruit Lubricant(Synth), Starlit
+      Latte, Starbeam Shake, Forgotten Star, Astral Flame, and Space Muse.'
+  - rscadd: 'Adds 14 new dishes: Glazed Ribs, BBQ Meat Platter, Chicken Alfredo(cursed),
+      Starfruit Sushi Roll, Starfruit Sashimi, Starfruit Eggplant Stir Fry, Starfruit
+      Tofu Beef Ramen, Starfruit Noodles, Starfruit Cake(do you see the theme yet),
+      Starfruit Jelly, Starfruit Macaron, Starfruit Cobbler, Starfruit Jelly Toast,
+      Starfruit Pie, Starfruit Compote, Starfruit Creme Brulee, and Starfruit Cupcake'
+  - image: Adds roughly 20 new sprites to the game
+  - qol: Adds a new book to the starfruit seed crate
+  Time-Green:
+  - bugfix: Randomly generated female bodies/humans no longer have a 50% to get a
+      male name
+  Time-Green, 00-Steven:
+  - rscadd: 'Adds Lost Crew as an orderable cargo package by medical! Fix and revive
+      them to bring new players back into the game and make some money for medical!
+
+      admin:'
+  Vekter:
+  - bugfix: Changed the color of entertainment radio to be darker
+  carlarctg:
+  - image: adds some placeholder and not sprites for various fish sources
+  - code_imp: added debug portal with all fish locations
+  - bugfix: The Traps won't spawn traps on walls anymore
+  - rscadd: adds big pointer to chipped quirk
+  - bugfix: Hitting an SM with extraction tongs won't dust them anymore
+  - bugfix: spray-on insulated gloves are chunky once more. does not affect regular
+      ones
+  - qol: Modsuit actions no longer go on cooldown when selected
+  - balance: microwave beam module is on a 4s cooldown not 10s
+  - rscadd: Modernizes polymorph types by adding mob types that never entered the
+      wabbajack list.
+  - balance: Updated a few species' changesource flags
+  grungussuss:
+  - bugfix: fixed plastic flaps losing atmos qualities when anchored
+  - qol: you can now turn off the volume on an entertainment monitor
+  - bugfix: signers can sign past muzzles
+  - sound: fan loop sounds have been improved
+  - sound: bags now have handling and equip sounds
+  - sound: shoes have handling and equip sounds
+  - bugfix: it is now possible to succumb without speaking
+  grungussuss and redemptionarc:
+  - sound: sigh sounds have been improved
+  harryob:
+  - bugfix: dynamic rulesets can get candidates for their roles
+  necromanceranne:
+  - bugfix: Fixes a runtime when trying to remove someones scarred eyes. Now you can
+      remove them!
+  r3dj4ck0424:
+  - bugfix: certain office chairs are now properly labelled
+  tontyGH:
+  - bugfix: pointing at stuff on-top of plates, griddles, stoves and ovens will point
+      at the plate and no longer just do nothing
+2024-11-24:
+  FlufflesTheDog:
+  - bugfix: stomachs no longer drop out of oversized characters on spawn
+  - bugfix: charging implants no longer drop out of synth characters on spawn
+  iskawhiskers:
+  - rscadd: 'new sprite accessories: floppy (ears), big legs with pegfeet (taur legs),
+      porcine and porcine + tusks (snout)'
+  - qol: duplicated fuzzball/cetaceous/geniculate antennae to horns
+  - rscadd: 'new clothing: giant scarf (undersuit), designer gloves (hands), designer
+      jacket (suit)'
+  - qol: add security cape to the loadout menu. accessible by all players as it is
+      a neck item with no mechanical benefit
+  sqnztb:
+  - admin: logging enabled by default for all emp sources.
+  - map: snowglobe - fixed the floating pepperspray refiller and added a secway key.
+2024-11-25:
+  RatFromTheJungle:
+  - code_imp: Traitors and changelings can no longer self-assign objectives.

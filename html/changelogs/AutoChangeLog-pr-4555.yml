@@ -1,0 +1,4 @@
+author: "Stalkeros, Majkl-J for the original PR"
+delete-after: True
+changes:
+  - rscadd: "Adds prefloading to bitrunning"
