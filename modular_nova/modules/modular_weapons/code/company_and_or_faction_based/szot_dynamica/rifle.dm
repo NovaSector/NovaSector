@@ -88,7 +88,8 @@
 	icon_state = "wylom"
 	inhand_icon_state = "wylom"
 	worn_icon_state = "wylom"
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wylom
