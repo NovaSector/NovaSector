@@ -43,7 +43,7 @@
 // .585 super revolver
 
 /obj/item/gun/ballistic/revolver/takbok
-	name = "\improper Takbok Revolver"
+	name = "\improper Défonce Revolver"
 	desc = "A hefty revolver with an equally large cylinder capable of holding five .585 Trappiste rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
