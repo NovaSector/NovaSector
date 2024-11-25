@@ -7,7 +7,7 @@
 			to_chat(user, span_warning("You prepare \the [I] to load into \the [src]. This action will block other items from being loaded!"))
 			if(!do_after(user, 15)) //adding a warning and a delay so it cant just be invo-juggle-spammed.
 				return FALSE
-	. = ..()
+	return ..()
 
 /obj/item/pneumatic_cannon/can_load_item(obj/item/I, mob/user)
 	. = ..()
