@@ -103,7 +103,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "bobr"
 	fire_sound = 'modular_nova/modules/sec_haul/sound/revolver_fire.ogg'
-	spread = SAWN_OFF_ACC_PENALTY
+	spread = 15
 
 /obj/item/gun/ballistic/revolver/shotgun_revolver/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
