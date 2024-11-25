@@ -226,9 +226,9 @@
 	ammo_type = /obj/item/ammo_casing/c585trappiste/incapacitator
 	icon_state = "stack_spec"
 
-/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled/hollowpoint
-	name = ".585 Trappiste hollowhead casings"
-	ammo_type = /obj/item/ammo_casing/c585trappiste/hollowpoint
+/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled/incendiary
+	name = ".585 Trappiste incendiary casings"
+	ammo_type = /obj/item/ammo_casing/c585trappiste/incendiary
 	icon_state = "stack_spec"
 
 // Rifle ammo
