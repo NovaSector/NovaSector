@@ -64,7 +64,7 @@
 // Trappiste high caliber pistol in .585
 
 /obj/item/gun/ballistic/automatic/pistol/trappiste
-	name = "\improper Skild Pistol"
+	name = "\improper Défenestreur Pistol"
 	desc = "A somewhat rare to see Trappiste pistol firing the high caliber .585 developed by the same company. \
 		Sees rare use mainly due to its tendency to cause severe wrist discomfort."
 
