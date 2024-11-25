@@ -504,3 +504,6 @@
   sqnztb:
   - admin: logging enabled by default for all emp sources.
   - map: snowglobe - fixed the floating pepperspray refiller and added a secway key.
+2024-11-25:
+  RatFromTheJungle:
+  - code_imp: Traitors and changelings can no longer self-assign objectives.
