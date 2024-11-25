@@ -1,7 +1,7 @@
 // .35 Sol mini revolver
 
 /obj/item/gun/ballistic/revolver/sol
-	name = "\improper Eland Revolver"
+	name = "\improper Renard Revolver"
 	desc = "A small revolver with a comically short barrel and cylinder space for eight .35 Sol Short rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/guns32x.dmi'
@@ -25,12 +25,12 @@
 /obj/item/gun/ballistic/revolver/sol/examine_more(mob/user)
 	. = ..()
 
-	. += "The Eland is one of the few Trappiste weapons not made for military contract. \
+	. += "The Renard is one of the few Trappiste weapons not made for military contract. \
 		Instead, the Eland started life as a police weapon, offered as a gun to finally \
 		outmatch all others in the cheap police weapons market. Unfortunately, this \
 		coincided with nearly every SolFed police force realising they are actually \
 		comically overfunded. With military weapons bought for police forces taking \
-		over the market, the Eland instead found home in the civilian personal defense \
+		over the market, the Renard instead found home in the civilian personal defense \
 		market. That is likely the reason you are looking at this one now."
 
 	return .
