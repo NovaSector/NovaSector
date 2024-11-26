@@ -132,7 +132,7 @@
 	selectable_items += list(
 		/obj/item/autosurgeon/syndicate/nodrop,
 		/obj/item/gun/energy/modular_laser_rifle,
-		/obj/item/gun/energy/laser/thermal,
+		/obj/item/storage/belt/holster/energy/nanite,
 		/obj/item/minigunpack,
 	)
 
@@ -160,6 +160,15 @@
 		/datum/action/cooldown/spell/death_loop,
 	)
 
+/obj/item/storage/belt/holster/energy/nanite
+	name = "nanite pistol shoulder holsters"
+	desc = "A rather plain pair of shoulder holsters with a bit of padding inside. Meant to hold a twinned pair of nanite pistols, but can fit several kinds of energy handguns as well."
+
+/obj/item/storage/belt/holster/energy/nanite/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/gun/energy/laser/thermal = 2,
+	),src)
+
 /datum/orderable_item/bitrunning_tech/item_tier1
 	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, or a military webbing."
 
@@ -167,7 +176,7 @@
 	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
 	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
