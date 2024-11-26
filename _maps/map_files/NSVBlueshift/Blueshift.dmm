@@ -5881,7 +5881,6 @@
 "bjc" = (
 /obj/machinery/chem_master,
 /obj/machinery/light/directional/east,
-/obj/structure/noticeboard/directional/east,
 /obj/structure/window/spawner/directional/south,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
@@ -46973,7 +46972,6 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/machinery/firealarm/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -74936,6 +74934,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/departments/chemistry/pharmacy/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "osE" = (
@@ -108916,9 +108915,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
-/obj/machinery/light_switch/directional/west{
-	pixel_x = -24
-	},
+/obj/structure/sign/eyechart/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "uQj" = (
@@ -122456,7 +122453,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
-/obj/structure/sign/departments/chemistry/pharmacy/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "xsV" = (

@@ -68799,12 +68799,12 @@
 /area/station/science/server)
 "tVN" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/structure/table,
 /obj/machinery/camera/directional/south{
 	c_tag = "Medbay - Lobby";
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/structure/sign/eyechart/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "tVQ" = (
