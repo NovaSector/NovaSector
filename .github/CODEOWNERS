@@ -30,11 +30,6 @@
 /_maps/ @Jolly-66 @Zergspower @sqnztb
 /modular_nova/modules/mapping @Jolly-66 @Zergspower @sqnztb
 
-# Host Hell
-
-/code/controllers/configuration/entries @MrStonedOne @scriptis
-/config/ @MrStonedOne @scriptis
-
 # Expensive files that touching basically always cause performance problems
 ## Init times
 **/*_EXPENSIVE.dm @GoldenAlpharex
