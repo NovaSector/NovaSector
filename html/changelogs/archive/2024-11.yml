@@ -507,3 +507,11 @@
 2024-11-25:
   RatFromTheJungle:
   - code_imp: Traitors and changelings can no longer self-assign objectives.
+2024-11-26:
+  Stalkeros, Majkl-J for the original PR:
+  - rscadd: Adds prefloading to bitrunning
+  SuperDrish:
+  - rscadd: Added new ultra duper giga hyper SECRET cool mob - shorg. You totally
+      can not order it in cargo.
+  Zenitheevee:
+  - balance: Pneumatic cannons can now hold only one turret kit if loaded with one.
