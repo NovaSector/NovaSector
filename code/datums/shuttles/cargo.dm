@@ -30,7 +30,3 @@
 /datum/map_template/shuttle/cargo/northstar
 	suffix = "northstar"
 	name = "cargo ferry (North Star)"
-
-/datum/map_template/shuttle/cargo/nebula
-	suffix = "nebula"
-	name = "supply shuttle (Nebula)"
