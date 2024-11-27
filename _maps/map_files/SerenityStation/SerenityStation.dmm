@@ -28145,6 +28145,7 @@
 "ibG" = (
 /obj/structure/cable/layer3,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera/directional/west{
 	c_tag = "AI Satellite - Power Lower";
@@ -28152,8 +28153,6 @@
 	network = list("minisat");
 	start_active = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/equipment)
 "ibN" = (
@@ -49375,9 +49374,6 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/machinery/holopad/secure,
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden{
-	dir = 8
-	},
 /turf/open/floor/iron/dark/small,
 /area/station/ai_monitored/turret_protected/aisat/equipment)
 "olB" = (
