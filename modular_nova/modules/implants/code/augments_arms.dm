@@ -56,6 +56,15 @@
 	name = "armblade autosurgeon"
 	starting_organ = /obj/item/organ/internal/cyberimp/arm/armblade
 
+/obj/item/melee/implantarmblade/right_arm
+    zone = BODY_ZONE_R_ARM
+    slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/melee/implantarmblade/left_arm
+    zone = BODY_ZONE_L_ARM
+    slot = ORGAN_SLOT_LEFT_ARM_AUG
+
+
 /obj/item/knife/razor_claws
 	name = "implanted razor claws"
 	desc = "A set of sharp, retractable claws built into the fingertips, five double-edged blades sure to turn people into mincemeat. Capable of shifting into 'Precision' mode to act similar to wirecutters."
