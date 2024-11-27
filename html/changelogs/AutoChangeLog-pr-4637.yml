@@ -1,0 +1,4 @@
+author: "1393F"
+delete-after: True
+changes:
+  - bugfix: "The bone fragments shot out by dying horrorform changelings have the correct embed chance. Same with the expedition tomahawk."
