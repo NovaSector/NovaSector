@@ -123,12 +123,12 @@
 /datum/augment_item/implant/l_arm/mantis_blade_left
 	name = "Left Arm Mantis Blade"
 	cost = 8
-	path = /obj/item/melee/implantarmblade/left_arm
+	path = /obj/item/organ/internal/cyberimp/arm/armblade/l
 
 /datum/augment_item/implant/l_arm/razorwire_left
 	name = "Left Arm Razorwire"
 	cost = 8
-	path = /obj/item/melee/razorwire/left_arm
+	path = /obj/item/organ/internal/cyberimp/arm/razorwire/l
 
 /datum/augment_item/implant/l_arm/strongarm_left
 	name = "Strong-arm implant left"
@@ -201,12 +201,12 @@
 /datum/augment_item/implant/r_arm/mantis_blade_right
 	name = "Right Arm Mantis Blade"
 	cost = 8
-	path = /obj/item/melee/implantarmblade/right_arm
+	path = /obj/item/organ/internal/cyberimp/arm/armblade
 
 /datum/augment_item/implant/r_arm/razorwire_right
 	name = "Right Arm Razorwire"
 	cost = 8
-	path = /obj/item/melee/razorwire/right_arm
+	path = /obj/item/organ/internal/cyberimp/arm/razorwire
 
 /datum/augment_item/implant/r_arm/strongarm_right
 	name = "Strong-arm implant right"
