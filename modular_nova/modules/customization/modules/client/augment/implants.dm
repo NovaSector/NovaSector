@@ -125,10 +125,15 @@
 	cost = 8
 	path = /obj/item/melee/implantarmblade/left_arm
 
-/datum/augment_item/implant/r_arm/razorwire_left
+/datum/augment_item/implant/l_arm/razorwire_left
 	name = "Left Arm Razorwire"
 	cost = 8
 	path = /obj/item/melee/razorwire/left_arm
+
+/datum/augment_item/implant/l_arm/strongarm_left
+	name = "Strong-arm implant left"
+	cost = 8
+	path = /obj/item/organ/internal/cyberimp/arm/strongarm/l
 
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
@@ -202,6 +207,11 @@
 	name = "Right Arm Razorwire"
 	cost = 8
 	path = /obj/item/melee/razorwire/right_arm
+
+/datum/augment_item/implant/r_arm/strongarm_right
+	name = "Strong-arm implant right"
+	cost = 8
+	path = /obj/item/organ/internal/cyberimp/arm/strongarm
 
 //EYES IMPLANTS
 /datum/augment_item/implant/eyes
