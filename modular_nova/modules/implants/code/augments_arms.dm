@@ -393,6 +393,16 @@
 	name = "razorwire autosurgeon"
 	starting_organ = /obj/item/organ/internal/cyberimp/arm/razorwire
 
+
+/obj/item/melee/razorwire/right_arm
+    zone = BODY_ZONE_R_ARM
+    slot = ORGAN_SLOT_RIGHT_ARM_AUG
+
+/obj/item/melee/razorwire/left_arm
+    zone = BODY_ZONE_L_ARM
+    slot = ORGAN_SLOT_LEFT_ARM_AUG
+
+
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
 /obj/item/gun/ballistic/shotgun/shell_launcher
