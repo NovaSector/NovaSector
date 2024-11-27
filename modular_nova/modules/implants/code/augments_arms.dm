@@ -56,11 +56,11 @@
 	name = "armblade autosurgeon"
 	starting_organ = /obj/item/organ/internal/cyberimp/arm/armblade
 
-/obj/item/melee/implantarmblade/right_arm
+/obj/item/organ/internal/cyberimp/arm/armblade
     zone = BODY_ZONE_R_ARM
     slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
-/obj/item/melee/implantarmblade/left_arm
+/obj/item/organ/internal/cyberimp/arm/armblade/l
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
 
@@ -394,11 +394,11 @@
 	starting_organ = /obj/item/organ/internal/cyberimp/arm/razorwire
 
 
-/obj/item/melee/razorwire/right_arm
+/obj/item/organ/internal/cyberimp/arm/razorwire
     zone = BODY_ZONE_R_ARM
     slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
-/obj/item/melee/razorwire/left_arm
+/obj/item/organ/internal/cyberimp/arm/razorwire/l
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
 
