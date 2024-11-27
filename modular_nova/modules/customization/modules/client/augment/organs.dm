@@ -128,6 +128,11 @@
 	cost = 4
 	path = /obj/item/organ/internal/eyes/robotic/binoculars
 
+/datum/augment_item/organ/eyes/nightvision
+	name = "Night Vision Eyes"
+	cost = 6
+	path = /obj/item/organ/internal/eyes/night_vision/cyber
+
 //TONGUES
 /datum/augment_item/organ/tongue
 	slot = AUGMENT_SLOT_TONGUE
