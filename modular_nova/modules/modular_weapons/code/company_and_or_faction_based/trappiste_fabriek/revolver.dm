@@ -10,6 +10,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/c35sol
 
 	suppressor_x_offset = 3
+	suppressor_y_offset = 2
 
 	w_class = WEIGHT_CLASS_SMALL
 
