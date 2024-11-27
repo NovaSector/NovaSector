@@ -198,7 +198,7 @@
 	cost = 8
 	path = /obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm
 
-/datum/augment_item/implant/r_arm/mantis_blade_left
+/datum/augment_item/implant/r_arm/mantis_blade_right
 	name = "Right Arm Mantis Blade"
 	cost = 8
 	path = /obj/item/melee/implantarmblade/right_arm
