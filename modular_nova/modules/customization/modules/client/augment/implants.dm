@@ -45,7 +45,7 @@
 	cost = 6
 	path = /obj/item/organ/internal/cyberimp/chest/thrusters
 
-/datum/augment_item/implant/chest/chest_thrusters
+/datum/augment_item/implant/chest/spine_implant
 	name = "Herculean Spinal Implant"
 	cost = 6
 	path = /obj/item/organ/internal/cyberimp/chest/spine
