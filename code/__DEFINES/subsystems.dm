@@ -156,6 +156,7 @@
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref
 #define INIT_ORDER_TICKER 55
 #define INIT_ORDER_TCG 55
+#define INIT_ORDER_SPACEMAP 52 // NOVA EDIT ADDITION - We need to load before mapping, so we can
 #define INIT_ORDER_AUTOMAPPER 51 // NOVA EDIT ADDITION - We need to load just before mapping.
 #define INIT_ORDER_MAPPING 50
 #define INIT_ORDER_AI_IDLE_CONTROLLERS 50

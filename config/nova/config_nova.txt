@@ -168,6 +168,9 @@ REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
 ## Uncomment to make flashbangs forbidden during green alerts
 FLASHBANGS_FORBIDDEN_DURING_GREEN
 
+## Should we be using Spacemap in order to generate space ruins instead of traditional space ruin loading?
+USE_SPACEMAP
+
 ## How many space z-levels should be dedicated to big space ruins? (default: 1)
 SPACEMAP_BIG_PARTITIONS_COUNT 1
 

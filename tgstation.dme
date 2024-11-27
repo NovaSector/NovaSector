@@ -8568,6 +8568,7 @@
 #include "modular_nova\modules\spacemap\code\ruins.dm"
 #include "modular_nova\modules\spacemap\code\space_level.dm"
 #include "modular_nova\modules\spacemap\code\space_zone.dm"
+#include "modular_nova\modules\spacemap\code\spacemap.dm"
 #include "modular_nova\modules\spacemap\code\spaceship.dm"
 #include "modular_nova\modules\specialist_armor\code\cargo_packs.dm"
 #include "modular_nova\modules\specialist_armor\code\clothing_bullet_damage_component.dm"

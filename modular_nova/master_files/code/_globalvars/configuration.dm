@@ -73,6 +73,9 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 // Are borgs/silicons blacklisted from entering the gateway
 /datum/config_entry/flag/borg_gateway_blacklist
 
+/// Should we be using Spacemap in order to generate space ruins instead of traditional space ruin loading?
+/datum/config_entry/flag/use_spacemap
+
 /// How many space z-levels should be dedicated to big space ruins?
 /datum/config_entry/number/spacemap_big_partitions_count
 	default = 1

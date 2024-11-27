@@ -124,6 +124,7 @@ SUBSYSTEM_DEF(mapping)
 	preloadTemplates()
 
 #ifndef LOWMEMORYMODE
+	/* NOVA EDIT - Spacemap, replacing space ruin generation with partition-based ruins generation
 	// Create space ruin levels
 	while (space_levels_so_far < current_map.space_ruin_levels)
 		add_new_zlevel("Ruin Area [space_levels_so_far+1]", ZTRAITS_SPACE)
@@ -132,8 +133,21 @@ SUBSYSTEM_DEF(mapping)
 	while (space_levels_so_far < current_map.space_empty_levels + current_map.space_ruin_levels)
 		empty_space = add_new_zlevel("Empty Area [space_levels_so_far+1]", list(ZTRAIT_LINKAGE = CROSSLINKED))
 		++space_levels_so_far
+	*/ // NOVA EDIT START:
 
-	generate_spacemap_partitions() // NOVA EDIT ADDITION - Spacemap
+	if(CONFIG_GET(flag/use_spacemap))
+		SSspacemap.generate_spacemap_partitions()
+	else
+		// Here goes all of the default space ruin levels generation from /tg/, if Spacemap isn't on.
+		// Create space ruin levels
+		while (space_levels_so_far < current_map.space_ruin_levels)
+			add_new_zlevel("Ruin Area [space_levels_so_far+1]", ZTRAITS_SPACE)
+			++space_levels_so_far
+		// Create empty space levels
+		while (space_levels_so_far < current_map.space_empty_levels + current_map.space_ruin_levels)
+			empty_space = add_new_zlevel("Empty Area [space_levels_so_far+1]", list(ZTRAIT_LINKAGE = CROSSLINKED))
+			++space_levels_so_far
+	// NOVA EDIT END
 
 	// Pick a random away mission.
 	if(CONFIG_GET(flag/roundstart_away))
@@ -257,6 +271,11 @@ SUBSYSTEM_DEF(mapping)
 		seedRuins(ice_ruins_underground, CONFIG_GET(number/icemoon_budget), list(/area/icemoon/underground/unexplored), themed_ruins[ZTRAIT_ICE_RUINS_UNDERGROUND], clear_below = TRUE, mineral_budget = 21)
 
 	// Generate deep space ruins
+	// NOVA EDIT ADDITION START - Spacemap, overwriting regular space ruin spawning in case it's active.
+	if (CONFIG_GET(flag/use_spacemap))
+		SSspacemap.spawn_ruins_in_partitions()
+		return
+	// NOVA EDIT END
 	var/list/space_ruins = levels_by_trait(ZTRAIT_SPACE_RUINS)
 	if (space_ruins.len)
 		// Create a proportional budget by multiplying the amount of space ruin levels in the current map over the default amount

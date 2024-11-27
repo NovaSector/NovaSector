@@ -3,6 +3,14 @@
  * to handle ruins generation and the likes for Spacemap.
  */
 /datum/space_zone
+	/// Name of the ruin contained within this space zone. Determined by the loaded ruin.
+	var/ruin_name
+	/// Ruin icon for this space zone. Determined by the loaded ruin.
+	var/spacemap_icon
+	/// Whether or not this space zone starts discovered for everyone. Defaults to FALSE.
+	var/starts_discovered = FALSE
+	/// Whether or not this space zone is for a rift.
+	var/is_rift = FALSE
 	/// z coordinate of the zone.
 	var/z
 	/// Lowest x coordinate of the zone.
@@ -32,6 +40,7 @@
 	middle_x = floor(start_x + (end_x - start_x) / 2)
 	middle_y = floor(start_y + (end_y - start_y) / 2)
 
+	SSspacemap.register_space_zone(src, is_rift)
 
 /**
  * Simple proc that handles spawning the ruin in the middle of the zone.
@@ -45,4 +54,12 @@
 	var/turf/central_turf = locate(middle_x, middle_y, z)
 	ruin_to_spawn.try_to_place(z, area_whitelist, central_turf, FALSE)
 
+	ruin_name = ruin_to_spawn.name
+	ruin_name = replacetext(ruin_name, "Space-Ruin ", "")
+	spacemap_icon = ruin_to_spawn.spacemap_icon
+	starts_discovered = ruin_to_spawn.starts_discovered
 
+
+// For space zones that are intended for rifts.
+/datum/space_zone/rift
+	is_rift = TRUE
