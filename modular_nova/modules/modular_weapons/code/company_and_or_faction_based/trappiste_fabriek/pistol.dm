@@ -14,7 +14,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/c35sol_pistol
 	special_mags = TRUE
 
-	suppressor_x_offset = 7
+	suppressor_x_offset = 0
 	suppressor_y_offset = 0
 
 	fire_delay = 0.3 SECONDS
