@@ -11,6 +11,21 @@
 /datum/augment_item/implant/brain
 	slot = AUGMENT_SLOT_BRAIN_IMPLANT
 
+/datum/augment_item/implant/brain/cns
+	name = "CNS rebooter implant"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/brain/anti_stun
+
+/datum/augment_item/implant/brain/qani
+	name = "Qani-Laaca sensory computer"
+	cost = 8
+	path = /obj/item/organ/internal/cyberimp/sensory_enhancer
+
+/datum/augment_item/implant/brain/hackerman
+	name = "Binyat wireless hacking system"
+	cost = 8
+	path = /obj/item/organ/internal/cyberimp/hackerman_deck
+
 //CHEST IMPLANTS
 /datum/augment_item/implant/chest
 	slot = AUGMENT_SLOT_CHEST_IMPLANT
@@ -19,6 +34,28 @@
 	name = "Nutriment Pump"
 	cost = 4
 	path = /obj/item/organ/internal/cyberimp/chest/nutriment
+
+/datum/augment_item/implant/chest/nutriment_pump_plus
+	name = "Nutriment Pump Plus"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/chest/nutriment/plus
+
+/datum/augment_item/implant/chest/chest_thrusters
+	name = "Chest Thrusters"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/chest/thrusters
+
+/datum/augment_item/implant/chest/chest_thrusters
+	name = "Herculean Spinal Implant"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/chest/spine
+
+/datum/augment_item/implant/chest/healtha
+	name = "internal health analyzer"
+	cost = 6
+	path = /obj/item/organ/internal/cyberimp/chest/scanner
+
+
 
 //LEFT ARM IMPLANTS
 /datum/augment_item/implant/l_arm
@@ -83,6 +120,16 @@
 	cost = 8
 	path = /obj/item/organ/internal/cyberimp/arm/mining_drill/left_arm
 
+/datum/augment_item/implant/l_arm/mantis_blade_left
+	name = "Left Arm Mantis Blade"
+	cost = 8
+	path = /obj/item/melee/implantarmblade/left_arm
+
+/datum/augment_item/implant/r_arm/razorwire_left
+	name = "Left Arm Razorwire"
+	cost = 8
+	path = /obj/item/melee/razorwire/left_arm
+
 //RIGHT ARM IMPLANTS
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
@@ -145,6 +192,16 @@
 	name = "Right Daiba Masterworks 'Burrower' Drill"
 	cost = 8
 	path = /obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm
+
+/datum/augment_item/implant/r_arm/mantis_blade_left
+	name = "Right Arm Mantis Blade"
+	cost = 8
+	path = /obj/item/melee/implantarmblade/right_arm
+
+/datum/augment_item/implant/r_arm/razorwire_right
+	name = "Right Arm Razorwire"
+	cost = 8
+	path = /obj/item/melee/razorwire/right_arm
 
 //EYES IMPLANTS
 /datum/augment_item/implant/eyes
