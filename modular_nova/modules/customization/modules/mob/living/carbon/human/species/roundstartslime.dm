@@ -15,7 +15,6 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
-		TRAIT_NOBLOOD,
 		TRAIT_EASYDISMEMBER,
 	)
 	/// Ability to allow them to shapeshift their body around.
@@ -64,6 +63,9 @@
 	)
 
 /datum/species/jelly/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
+
 	var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
 	var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
 
@@ -77,20 +79,20 @@
 	// To prevent ghosting. We have to do this manually here because TG has replace_into() hardcoded to qdel the old brain no matter what and there is no way around it.
 	old_brain.Remove(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
 
-	if(new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER))
-		to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
-		if(old_brain)
-			old_brain.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_brain)
+	new_slime_brain.Insert(human_holder, special = TRUE, movement_flags = NO_ID_TRANSFER)
+	to_chat(human_holder, span_warning("Your massive core pulses with bioelectricity!"))
+	if(old_brain)
+		old_brain.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_brain)
 	if(old_stomach.is_oversized) // don't override augments that are already oversized
 		oversized_quirk.old_organs -= old_stomach
 		qdel(new_slime_stomach)
 		return
-	if(new_slime_stomach.Insert(human_holder, special = TRUE))
-		to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
-		if(old_stomach)
-			old_stomach.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_stomach)
+	new_slime_stomach.Insert(human_holder, special = TRUE)
+	to_chat(human_holder, span_warning("You feel your massive golgi apparatus squish!"))
+	if(old_stomach)
+		old_stomach.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_stomach)
 
 /obj/item/organ/internal/eyes/jelly
 	name = "photosensitive eyespots"
@@ -106,6 +108,8 @@
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
+	overrides_sprite_datum_organ_type = TRUE
+	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 
 /obj/item/organ/internal/tongue/jelly
 	zone = BODY_ZONE_CHEST
@@ -161,7 +165,7 @@
 	span_notice("You jam your hand into the core, feeling for the densest point! Your arm is covered in slime!"),
 	span_notice("You hear an obscene squelching sound.")
 	)
-	playsound(user, 'sound/surgery/organ1.ogg', 80, TRUE)
+	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
 
 	if(!do_after(user, 30 SECONDS, src))
 		user.visible_message(span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!'"),
@@ -177,7 +181,7 @@
 	gps_active = FALSE
 	qdel(GetComponent(/datum/component/gps))
 
-/obj/item/organ/internal/brain/slime/Insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+/obj/item/organ/internal/brain/slime/mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
 	if(!.)
 		return
@@ -230,7 +234,7 @@
 	new death_melt_type(death_loc, victim.dir)
 
 	do_steam_effects(get_turf(victim))
-	playsound(victim, 'sound/effects/blobattack.ogg', 80, TRUE)
+	playsound(victim, 'sound/effects/blob/blobattack.ogg', 80, TRUE)
 
 	if(gps_active) // adding the gps signal if they have activated the ability
 		AddComponent(/datum/component/gps, "[victim]'s Core")
@@ -901,7 +905,7 @@
 			alter_parts(alterer)
 
 	alterer.mutant_renderkey = "" //Just in case
-	alterer.update_mutant_bodyparts()
+	alterer.update_body_parts()
 
 /**
  * Alter parts lets you adjust mutant bodyparts
@@ -974,7 +978,7 @@
 			alterer.dna.species.mutant_bodyparts[chosen_key] = new_acc_list
 			alterer.dna.mutant_bodyparts[chosen_key] = new_acc_list.Copy()
 		alterer.dna.update_uf_block(SSaccessories.dna_mutant_bodypart_blocks[chosen_key])
-	alterer.update_mutant_bodyparts()
+	alterer.update_body_parts()
 	alterer.update_clothing(ALL) // for any clothing that has alternate versions (e.g. muzzled masks)
 
 /**

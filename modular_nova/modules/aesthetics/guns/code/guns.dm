@@ -200,11 +200,11 @@
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "sniper"
 	worn_icon_state = null
-	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
+	fire_sound = 'sound/items/weapons/gun/sniper/shot.ogg'
 	fire_sound_volume = 90
-	load_sound = 'sound/weapons/gun/sniper/mag_insert.ogg'
-	rack_sound = 'sound/weapons/gun/sniper/rack.ogg'
-	suppressed_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
+	load_sound = 'sound/items/weapons/gun/sniper/mag_insert.ogg'
+	rack_sound = 'sound/items/weapons/gun/sniper/rack.ogg'
+	suppressed_sound = 'sound/items/weapons/gun/general/heavy_shot_suppressed.ogg'
 	recoil = 2
 	weapon_weight = WEAPON_HEAVY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/sniper_rounds
@@ -274,8 +274,8 @@
 	suppressed_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
-	load_sound = 'sound/weapons/gun/sniper/mag_insert.ogg'
-	rack_sound = 'sound/weapons/gun/sniper/rack.ogg'
+	load_sound = 'sound/items/weapons/gun/sniper/mag_insert.ogg'
+	rack_sound = 'sound/items/weapons/gun/sniper/rack.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	can_suppress = TRUE
 	can_unsuppress = TRUE
@@ -314,6 +314,9 @@
 	name = "enchanted rifle round"
 	can_be_printed = FALSE // these are Really Really Better Rubbers
 
+/obj/item/ammo_casing/strilka310/phasic
+	can_be_printed = FALSE // shot from cargo to sec with cameras needed to see if you hit your target, it can be fun for event where we play extreme battleships.
+
 // overrides for tgcode's .223 (formerly 5.56), used in the M90-gl - renamed to .277 Aestus
 /obj/item/ammo_casing/a223
 	name = ".277 Aestus casing"
@@ -326,6 +329,7 @@
 	<i>PHASIC: Ignores all surfaces except organic matter.</i>"
 	advanced_print_req = TRUE
 	custom_materials = AMMO_MATS_PHASIC
+	can_be_printed = FALSE // shot from cargo to sec with cameras needed to see if you hit your target, it can be fun for event where we play extreme battleships.
 
 // shotgun ammo overrides moved to modular_nova\modules\shotgunrebalance\code\shotgun.dm
 
@@ -440,6 +444,7 @@
 	<i>PHASIC: Ignores all surfaces except organic matter.</i>"
 	advanced_print_req = TRUE
 	custom_materials = AMMO_MATS_PHASIC
+	can_be_printed = FALSE // shot from cargo to sec with cameras needed to see if you hit your target, it can be fun for event where we play extreme battleships.
 
 /obj/item/ammo_casing/a357/heartseeker
 	desc = "A .357 heartseeker bullet casing.\

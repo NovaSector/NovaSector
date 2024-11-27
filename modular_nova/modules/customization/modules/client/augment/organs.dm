@@ -13,34 +13,44 @@
 //HEARTS
 /datum/augment_item/organ/heart
 	slot = AUGMENT_SLOT_HEART
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/heart/normal
+	name = "Organic heart"
+	path = /obj/item/organ/internal/heart
 
 /datum/augment_item/organ/heart/cybernetic
 	name = "Cybernetic heart"
 	path = /obj/item/organ/internal/heart/cybernetic
 
+/datum/augment_item/organ/heart/synth
+	name = "Hydraulic pump engine"
+	path =/obj/item/organ/internal/heart/synth
+
 //LUNGS
 /datum/augment_item/organ/lungs
 	slot = AUGMENT_SLOT_LUNGS
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/lungs/normal
+	name = "Organic lungs"
+	path = /obj/item/organ/internal/lungs
 
 /datum/augment_item/organ/lungs/hot
 	name = "Lungs Adapted to Heat"
-	slot = AUGMENT_SLOT_LUNGS
 	path = /obj/item/organ/internal/lungs/hot
 	cost = 1
 
 /datum/augment_item/organ/lungs/cold
 	name = "Cold-Adapted Lungs"
-	slot = AUGMENT_SLOT_LUNGS
 	path = /obj/item/organ/internal/lungs/cold
 	cost = 1
 /datum/augment_item/organ/lungs/toxin
 	name = "Lungs Adapted to Toxins"
-	slot = AUGMENT_SLOT_LUNGS
 	path = /obj/item/organ/internal/lungs/toxin
 	cost = 1
 /datum/augment_item/organ/lungs/oxy
 	name = "Low-Pressure Adapted Lungs"
-	slot = AUGMENT_SLOT_LUNGS
 	path = /obj/item/organ/internal/lungs/oxy
 	cost = 1
 /datum/augment_item/organ/lungs/cybernetic
@@ -50,14 +60,28 @@
 //LIVERS
 /datum/augment_item/organ/liver
 	slot = AUGMENT_SLOT_LIVER
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/liver/normal
+	name = "Organic Liver"
+	path = /obj/item/organ/internal/liver
 
 /datum/augment_item/organ/liver/cybernetic
 	name = "Cybernetic liver"
 	path = /obj/item/organ/internal/liver/cybernetic
 
+/datum/augment_item/organ/liver/synth
+	name = "Reagent processing unit"
+	path = /obj/item/organ/internal/liver/synth
+
 //STOMACHES
 /datum/augment_item/organ/stomach
 	slot = AUGMENT_SLOT_STOMACH
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/stomach/normal
+	name = "Organic stomach"
+	path = /obj/item/organ/internal/stomach
 
 /datum/augment_item/organ/stomach/cybernetic
 	name = "Cybernetic stomach"
@@ -75,6 +99,11 @@
 //EYES
 /datum/augment_item/organ/eyes
 	slot = AUGMENT_SLOT_EYES
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/eyes/normal
+	name = "Organic eyes"
+	path = /obj/item/organ/internal/eyes
 
 /datum/augment_item/organ/eyes/cybernetic
 	name = "Cybernetic eyes"
@@ -87,13 +116,11 @@
 /datum/augment_item/organ/eyes/highlumi
 	name = "High-luminosity eyes"
 	path = /obj/item/organ/internal/eyes/robotic/glow
-	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	cost = 1
 
 /datum/augment_item/organ/eyes/highlumi/moth
 	name = "High Luminosity Moth Eyes"
 	path = /obj/item/organ/internal/eyes/robotic/glow/moth
-	allowed_biotypes = MOB_ORGANIC|MOB_ROBOTIC
 	cost = 1
 
 /datum/augment_item/organ/eyes/binoculars
@@ -104,6 +131,7 @@
 //TONGUES
 /datum/augment_item/organ/tongue
 	slot = AUGMENT_SLOT_TONGUE
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
 /datum/augment_item/organ/tongue/normal
 	name = "Organic tongue"
@@ -132,3 +160,16 @@
 /datum/augment_item/organ/tongue/forked/filterless
 	name = "Forked tongue (Without TTS Filter)"
 	path = /obj/item/organ/internal/tongue/lizard/filterless
+
+//EARS
+/datum/augment_item/organ/ears
+	slot = AUGMENT_SLOT_EARS
+	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
+
+/datum/augment_item/organ/ears/normal
+	name = "Organic ears"
+	path = /obj/item/organ/internal/ears
+
+/datum/augment_item/organ/ears/cybernetic
+	name = "Cybernetic ears"
+	path = /obj/item/organ/internal/ears/cybernetic

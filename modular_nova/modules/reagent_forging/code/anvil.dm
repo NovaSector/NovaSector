@@ -104,7 +104,7 @@
 
 			locate_obj.repair_damage(locate_obj.get_integrity() + 10)
 			user.mind.adjust_experience(/datum/skill/smithing, 5) //repairing does give some experience
-			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
+			playsound_if_pref(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, pref_to_check = /datum/preference/toggle/sound_ambience)
 
 	return ITEM_INTERACT_SUCCESS
 
@@ -158,6 +158,6 @@
 	)
 	poor_target.Paralyze(5 SECONDS)
 	poor_target.emote("scream")
-	playsound(poor_target, 'sound/magic/clockwork/fellowship_armory.ogg', 50, TRUE)
+	playsound(poor_target, 'sound/effects/magic/clockwork/fellowship_armory.ogg', 50, TRUE)
 	add_memory_in_range(poor_target, 7, /datum/memory/witness_vendor_crush, protagonist = poor_target, antognist = src)
 	return TRUE

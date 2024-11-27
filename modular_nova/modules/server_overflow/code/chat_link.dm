@@ -61,7 +61,7 @@
 		confidential = TRUE)
 
 ADMIN_VERB(request_help, R_ADMIN, "Cross-server Help Request", "Sends a loud message to all other servers that we are crosslinked to!", ADMIN_CATEGORY_MAIN)
-	var/help_request_message = tgui_input_text(user, "Input help message!", "Help message", "Send help!", 150, FALSE)
+	var/help_request_message = tgui_input_text(user, "Input help message!", "Help message", "Send help!", max_length = 150, multiline = FALSE)
 	if(!help_request_message)
 		return
 	send2adminchat(user.ckey, "CROSSLINK HELP REQUEST([CONFIG_GET(string/cross_server_name) ? CONFIG_GET(string/cross_server_name) : station_name()]): [help_request_message]")

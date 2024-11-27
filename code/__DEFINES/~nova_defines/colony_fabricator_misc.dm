@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(colonist_suit_allowed, list(
 	/obj/item/tank/internals,
 	/obj/item/storage/belt/holster,
 	/obj/item/construction,
-	/obj/item/fireaxe,
+	/obj/item/fireaxe/boneaxe,
 	/obj/item/pipe_dispenser,
 	/obj/item/storage/bag,
 	/obj/item/pickaxe,
@@ -40,4 +40,5 @@ GLOBAL_LIST_INIT(colonist_suit_allowed, list(
 	/obj/item/analyzer,
 	/obj/item/storage/medkit,
 	/obj/item/fireaxe/metal_h2_axe,
+	/obj/item/forging/reagent_weapon,
 ))

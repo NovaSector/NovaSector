@@ -139,7 +139,7 @@
 
 //BUCKLE HOOKS
 /obj/machinery/mounted_machine_gun/unbuckle_mob(mob/living/buckled_mob, force = FALSE, can_fall = TRUE)
-	playsound(src,'sound/mecha/mechmove01.ogg', 50, TRUE)
+	playsound(src,'sound/vehicles/mecha/mechmove01.ogg', 50, TRUE)
 	for(var/obj/item/iterating_item in buckled_mob.held_items)
 		if(istype(iterating_item, /obj/item/gun_control))
 			qdel(iterating_item)
@@ -153,7 +153,7 @@
 	. = ..()
 
 /obj/machinery/mounted_machine_gun/user_buckle_mob(mob/living/user_to_buckle, mob/buckling_user, check_loc = TRUE)
-	if(user_to_buckle.incapacitated() || !istype(user_to_buckle))
+	if(user_to_buckle.incapacitated || !istype(user_to_buckle))
 		return
 	user_to_buckle.forceMove(get_turf(src))
 	. = ..()
@@ -164,7 +164,7 @@
 
 	layer = ABOVE_MOB_LAYER
 	setDir(SOUTH)
-	playsound(src,'sound/mecha/mechmove01.ogg', 50, TRUE)
+	playsound(src,'sound/vehicles/mecha/mechmove01.ogg', 50, TRUE)
 	set_anchored(TRUE)
 
 	update_positioning()
@@ -360,7 +360,7 @@
 		balloon_alert_to_viewers("barrel heatlocked!")
 		fire_result = FALSE
 	if(!fire_result)
-		playsound(src, 'sound/weapons/gun/general/dry_fire.ogg', 50, TRUE)
+		playsound(src, 'sound/items/weapons/gun/general/dry_fire.ogg', 50, TRUE)
 	if(!bolt && fire_result)
 		cock_bolt()
 	return fire_result
@@ -402,7 +402,7 @@
 			direction_track(current_user, target_turf)
 
 /obj/machinery/mounted_machine_gun/proc/direction_track(mob/user, atom/targeted)
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return
 	setDir(get_dir(src, targeted))
 	user.setDir(dir)

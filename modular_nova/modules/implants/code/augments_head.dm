@@ -12,7 +12,7 @@
 		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "sandy"
-	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
@@ -21,8 +21,9 @@
 		/datum/action/cooldown/sensory_enhancer/overcharge,
 	)
 	w_class = WEIGHT_CLASS_SMALL
-	/// The bodypart overlay datum we should apply to whatever mob we are put into
-	var/datum/bodypart_overlay/simple/sensory_enhancer/bodypart_overlay
+	/// The bodypart overlay datum we should apply to whatever mob we are put into.
+	/// TODO: Refactor this to be used as a mutant bodypart_overlay instead.
+	var/datum/bodypart_overlay/simple/sensory_enhancer/simple_bodypart_overlay
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/proc/vomit_blood()
 	owner.spray_blood(owner.dir, 2)
@@ -36,14 +37,14 @@
 	. = ..()
 	if(isteshari(owner))
 		return
-	bodypart_overlay = new()
-	limb.add_bodypart_overlay(bodypart_overlay)
+	simple_bodypart_overlay = new()
+	limb.add_bodypart_overlay(simple_bodypart_overlay)
 	owner?.update_body_parts()
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
 	. = ..()
-	bodypart_owner?.remove_bodypart_overlay(bodypart_overlay)
-	QDEL_NULL(bodypart_overlay)
+	bodypart_owner?.remove_bodypart_overlay(simple_bodypart_overlay)
+	QDEL_NULL(simple_bodypart_overlay)
 	organ_owner.update_body_parts()
 
 /obj/item/autosurgeon/syndicate/sandy
@@ -130,27 +131,28 @@
 		hacking for you. Due to their complexity, the system does not appear to work on cyborgs."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "hackerman"
-	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
 	actions_types = list(/datum/action/cooldown/spell/pointed/hackerman_deck)
 	w_class = WEIGHT_CLASS_SMALL
-	/// The bodypart overlay datum we should apply to whatever mob we are put into
-	var/datum/bodypart_overlay/simple/hackerman/bodypart_overlay
+	/// The bodypart overlay datum we should apply to whatever mob we are put into.
+	/// TODO: Refactor this to be used as a mutant bodypart_overlay instead.
+	var/datum/bodypart_overlay/simple/hackerman/simple_bodypart_overlay
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	. = ..()
 	if(isteshari(owner))
 		return
-	bodypart_overlay = new()
-	limb.add_bodypart_overlay(bodypart_overlay)
+	simple_bodypart_overlay = new()
+	limb.add_bodypart_overlay(simple_bodypart_overlay)
 	owner?.update_body_parts()
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_mob_remove(mob/living/carbon/organ_owner, special)
 	. = ..()
-	bodypart_owner?.remove_bodypart_overlay(bodypart_overlay)
-	QDEL_NULL(bodypart_overlay)
+	bodypart_owner?.remove_bodypart_overlay(simple_bodypart_overlay)
+	QDEL_NULL(simple_bodypart_overlay)
 	organ_owner.update_body_parts()
 
 
@@ -224,7 +226,7 @@
 	cast_on.forensics?.add_hacking_implant_trace()
 	cast_on.add_hiddenprint(owner)
 
-	playsound(cast_on, 'sound/machines/terminal_processing.ogg', 15, TRUE)
+	playsound(cast_on, 'sound/machines/terminal/terminal_processing.ogg', 15, TRUE)
 
 	var/mob/living/carbon/human/human_owner = owner
 

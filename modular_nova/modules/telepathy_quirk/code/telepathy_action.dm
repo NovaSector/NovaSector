@@ -44,7 +44,7 @@
 	if(. & SPELL_CANCEL_CAST || blocked)
 		return
 
-	message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]", null)))
+	message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [cast_on]?", "[src]", max_length = MAX_MESSAGE_LEN)))
 	if(QDELETED(src) || QDELETED(owner) || QDELETED(cast_on) || !can_cast_spell())
 		return . | SPELL_CANCEL_CAST
 
@@ -70,7 +70,7 @@
 
 		blocked = TRUE
 
-		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]")))
+		message = autopunct_bare(capitalize(tgui_input_text(owner, "What do you wish to whisper to [last_target]?", "[src]", max_length = MAX_MESSAGE_LEN)))
 		if(QDELETED(src) || QDELETED(owner) || QDELETED(last_target) || !can_cast_spell())
 			blocked = FALSE
 			return

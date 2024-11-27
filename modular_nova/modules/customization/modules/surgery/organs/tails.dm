@@ -7,6 +7,9 @@
 /datum/bodypart_overlay/mutant/tail
 	color_source = ORGAN_COLOR_OVERRIDE
 
+/datum/bodypart_overlay/mutant/tail/get_global_feature_list()
+	return SSaccessories.sprite_accessories["tail"]
+
 /datum/bodypart_overlay/mutant/tail/override_color(rgb_value)
 	return draw_color
 
@@ -41,7 +44,7 @@
 	return TRUE
 
 
-/obj/item/organ/external/tail/Insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/external/tail/mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_WAG_ABLE)
 		wag_flags |= WAG_ABLE
 	return ..()

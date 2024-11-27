@@ -2,7 +2,6 @@
 	category = "Tools"
 	abstract_path = /datum/market_item/tool
 
-/*	NOVA EDIT REMOVAL START - Removes LTSRBT
 /datum/market_item/tool/blackmarket_telepad
 	name = "Black Market LTSRBT"
 	desc = "Need a faster and better way of transporting your illegal goods from and to the \
@@ -14,7 +13,6 @@
 	price_min = CARGO_CRATE_VALUE * 2.5
 	price_max = CARGO_CRATE_VALUE * 3.25
 	availability_prob = 100
-	NOVA EDIT REMOVAL END */
 
 /datum/market_item/tool/caravan_wrench
 	name = "Experimental Wrench"

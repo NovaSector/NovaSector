@@ -1,3 +1,4 @@
+
 #define MOVES_HITSCAN -1 //Not actually hitscan but close as we get without actual hitscan.
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 17 //How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
 #define MAX_RANGE_HIT_PRONE_TARGETS 10 //How far do the projectile hits the prone mob
@@ -15,7 +16,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	//The sound this plays on impact.
-	var/hitsound // NOVA EDIT CHANGE - ORIGINAL: var/hitsound = 'sound/weapons/pierce.ogg'
+	var/hitsound = 'sound/items/weapons/pierce.ogg'
 	var/hitsound_wall = ""
 
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -152,7 +153,7 @@
 	var/armor_flag = BULLET
 	///How much armor this projectile pierces.
 	var/armour_penetration = 0
-	///Whether or not our bullet lacks penetrative power, and is easily stopped by armor.
+	///Whether or not our projectile doubles the value of affecting armour
 	var/weak_against_armour = FALSE
 	var/projectile_type = /obj/projectile
 	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
@@ -208,11 +209,11 @@
 	var/wound_falloff_tile
 	///How much we want to drop the embed_chance value, if we can embed, per tile, for falloff purposes
 	var/embed_falloff_tile
+	///How much accuracy is lost for each tile travelled
+	var/accuracy_falloff = 7
+	///How much accuracy before falloff starts to matter. Formula is range - falloff * tiles travelled
+	var/accurate_range = 100
 	var/static/list/projectile_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(on_entered))
-	// NOVA EDIT ADDITION START
-	/// If this should be able to hit the target even on direct firing when `ignored_factions` applies
-	var/ignore_direct_target = FALSE
-	// NOVA EDIT ADDITION END
 	/// If true directly targeted turfs can be hit
 	var/can_hit_turfs = FALSE
 
@@ -222,6 +223,8 @@
 	if(get_embed())
 		AddElement(/datum/element/embed)
 	AddElement(/datum/element/connect_loc, projectile_connections)
+
+	add_traits(list(TRAIT_FREE_HYPERSPACE_MOVEMENT, TRAIT_FREE_HYPERSPACE_SOFTCORDON_MOVEMENT), INNATE_TRAIT)
 
 /obj/projectile/proc/Range()
 	range--
@@ -299,19 +302,18 @@
 		hitx = target.pixel_x + rand(-8, 8)
 		hity = target.pixel_y + rand(-8, 8)
 
-	if(isturf(target_turf) && hitsound_wall)
+	if(isturf(target) && hitsound_wall)
 		var/volume = clamp(vol_by_damage() + 20, 0, 100)
 		if(suppressed)
 			volume = 5
 		playsound(loc, hitsound_wall, volume, TRUE, -1)
-	// NOVA EDIT ADDITION BEGIN - IMPACT SOUNDS
+	// NOVA EDIT ADDITION START - IMPACT SOUNDS - Use target's bullet_impact_sound if projectile allows it
 	var/impact_sound
-	if(hitsound)
-		impact_sound = hitsound
-	else
-		impact_sound = target.impact_sound
-		get_sfx()
-	playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
+	if(use_bullet_impact_sound)
+		impact_sound = target.bullet_impact_sound
+	if(impact_sound)
+		hitsound = null // don't play the hitsound
+		playsound(src, get_sfx_nova(impact_sound), vol_by_damage(), TRUE, -1)
 	// NOVA EDIT ADDITION END
 
 	if(damage > 0 && (damage_type == BRUTE || damage_type == BURN) && iswallturf(target_turf) && prob(75))
@@ -326,6 +328,7 @@
 	if(!isliving(target))
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_turf, hitx, hity)
+
 		return BULLET_ACT_HIT
 
 	var/mob/living/living_target = target
@@ -337,7 +340,7 @@
 				var/splatter_dir = dir
 				if(starting)
 					splatter_dir = get_dir(starting, target_turf)
-				if(isalien(living_target) || isxenohybrid(living_target)) // NOVA EDIT CHANGE - Xenohybrid blood color - Original line: if(isalien(living_target))
+				if(isalien(living_target) || isxenohybrid(living_target)) // NOVA EDIT CHANGE - Xenohybrid blood color - ORIGINAL: if(isalien(living_target))
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_turf, splatter_dir)
 				else
 					new /obj/effect/temp_visual/dir_setting/bloodsplatter(target_turf, splatter_dir)
@@ -364,7 +367,7 @@
 			//playsound(loc, hitsound, 5, TRUE, -1) NOVA EDIT REMOVAL - IMPACT SOUNDS
 			to_chat(living_target, span_userdanger("You're shot by \a [src][organ_hit_text]!"))
 		else
-			/* NOVA EDIT REMOVAL - IMPACT SOUNDS
+			/* NOVA EDIT REMOVAL START - IMPACT SOUNDS
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(src, hitsound, volume, TRUE, -1)
@@ -466,9 +469,8 @@
 				store_hitscan_collision(point_cache)
 			return TRUE
 
-	if(!HAS_TRAIT(src, TRAIT_ALWAYS_HIT_ZONE))
-		var/distance = get_dist(T, starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
-		def_zone = ran_zone(def_zone, max(100-(7*distance), 5)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
+	var/distance = get_dist(T, starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
+	def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
 	return process_hit(T, select_target(T, A, A), A) // SELECT TARGET FIRST!
 
@@ -773,7 +775,10 @@
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_BEFORE_FIRE, src, original)
 	if(firer)
+		RegisterSignal(firer, COMSIG_QDELETING, PROC_REF(firer_deleted))
 		SEND_SIGNAL(firer, COMSIG_PROJECTILE_FIRER_BEFORE_FIRE, src, fired_from, original)
+	if (original)
+		RegisterSignal(original, COMSIG_QDELETING, PROC_REF(original_deleted))
 	if(!log_override && firer && original && !do_not_log)
 		log_combat(firer, original, "fired at", src, "from [get_area_name(src, TRUE)]")
 			//note: mecha projectile logging is handled in /obj/item/mecha_parts/mecha_equipment/weapon/action(). try to keep these messages roughly the sameish just for consistency's sake.
@@ -822,6 +827,14 @@
 		point_cache = trajectory.copy_to()
 		store_hitscan_collision(point_cache)
 	return TRUE
+
+/obj/projectile/proc/firer_deleted(datum/source)
+	SIGNAL_HANDLER
+	firer = null
+
+/obj/projectile/proc/original_deleted(datum/source)
+	SIGNAL_HANDLER
+	original = null
 
 /// Same as set_angle, but the reflection continues from the center of the object that reflects it instead of the side
 /obj/projectile/proc/set_angle_centered(new_angle)
@@ -1031,14 +1044,14 @@
  */
 /proc/calculate_projectile_angle_and_pixel_offsets(atom/source, atom/target, modifiers)
 	var/angle = 0
-	var/p_x = LAZYACCESS(modifiers, ICON_X) ? text2num(LAZYACCESS(modifiers, ICON_X)) : world.icon_size / 2 // ICON_(X|Y) are measured from the bottom left corner of the icon.
-	var/p_y = LAZYACCESS(modifiers, ICON_Y) ? text2num(LAZYACCESS(modifiers, ICON_Y)) : world.icon_size / 2 // This centers the target if modifiers aren't passed.
+	var/p_x = LAZYACCESS(modifiers, ICON_X) ? text2num(LAZYACCESS(modifiers, ICON_X)) : ICON_SIZE_X / 2 // ICON_(X|Y) are measured from the bottom left corner of the icon.
+	var/p_y = LAZYACCESS(modifiers, ICON_Y) ? text2num(LAZYACCESS(modifiers, ICON_Y)) : ICON_SIZE_Y / 2 // This centers the target if modifiers aren't passed.
 
 	if(target)
 		var/turf/source_loc = get_turf(source)
 		var/turf/target_loc = get_turf(target)
-		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
-		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (p_y - (world.icon_size / 2))
+		var/dx = ((target_loc.x - source_loc.x) * ICON_SIZE_X) + (target.pixel_x - source.pixel_x) + (p_x - (ICON_SIZE_X / 2))
+		var/dy = ((target_loc.y - source_loc.y) * ICON_SIZE_Y) + (target.pixel_y - source.pixel_y) + (p_y - (ICON_SIZE_Y / 2))
 
 		angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
@@ -1057,8 +1070,8 @@
 	//Split Y+Pixel_Y up into list(Y, Pixel_Y)
 	var/list/screen_loc_Y = splittext(screen_loc_params[2],":")
 
-	var/tx = (text2num(screen_loc_X[1]) - 1) * world.icon_size + text2num(screen_loc_X[2])
-	var/ty = (text2num(screen_loc_Y[1]) - 1) * world.icon_size + text2num(screen_loc_Y[2])
+	var/tx = (text2num(screen_loc_X[1]) - 1) * ICON_SIZE_X + text2num(screen_loc_X[2])
+	var/ty = (text2num(screen_loc_Y[1]) - 1) * ICON_SIZE_Y + text2num(screen_loc_Y[2])
 
 	//Calculate the "resolution" of screen based on client's view and world's icon size. This will work if the user can view more tiles than average.
 	var/list/screenview = view_to_pixels(user.client.view)
@@ -1073,6 +1086,8 @@
 		finalize_hitscan_and_generate_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	cleanup_beam_segments()
+	firer = null
+	original = null
 	if(trajectory)
 		QDEL_NULL(trajectory)
 	return ..()

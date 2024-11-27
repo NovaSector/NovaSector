@@ -342,6 +342,10 @@
 	name = "'JUNCO' Megacargo Pants"
 	item_path = /obj/item/clothing/under/pants/nova/big_pants
 
+/datum/loadout_item/under/miscellaneous/loose_pants
+	name = "Loose pants"
+	item_path = /obj/item/clothing/under/pants/nova/loose_pants
+
 /datum/loadout_item/under/miscellaneous/yoga
 	name = "Recolorable Yoga Pants"
 	item_path = /obj/item/clothing/under/pants/nova/yoga
@@ -459,6 +463,10 @@
 /datum/loadout_item/under/miscellaneous/wedding_dress/ribbon
 	name = "Wedding Dress With Ribbon"
 	item_path = /obj/item/clothing/under/dress/wedding_dress/ribbon
+
+/datum/loadout_item/under/miscellaneous/giant_scarf
+	name = "Giant Scarf"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
 
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"

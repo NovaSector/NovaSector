@@ -118,8 +118,8 @@
 	desc = "A cyborg fitted module resembling the rolling pins and Knifes"
 	icon = 'modular_nova/modules/borg_buffs/icons/items_cyborg.dmi'
 	icon_state = "knife_screw_cyborg"
-	hitsound = 'sound/items/drill_hit.ogg'
-	usesound = 'sound/items/drill_use.ogg'
+	hitsound = 'sound/items/tools/drill_hit.ogg'
+	usesound = 'sound/items/tools/drill_use.ogg'
 	toolspeed = 0.5
 	tool_behaviour = TOOL_KNIFE
 
@@ -128,7 +128,7 @@
 	. += " It's fitted with a [tool_behaviour == TOOL_KNIFE ? "knife" : "rolling pin"] head."
 
 /obj/item/cooking/cyborg/power/attack_self(mob/user)
-	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
+	playsound(get_turf(user), 'sound/items/tools/change_drill.ogg', 50, TRUE)
 	if(tool_behaviour != TOOL_ROLLINGPIN)
 		tool_behaviour = TOOL_ROLLINGPIN
 		to_chat(user, span_notice("You attach the rolling pin bit to [src]."))

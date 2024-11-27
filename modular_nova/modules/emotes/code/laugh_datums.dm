@@ -12,8 +12,8 @@ GLOBAL_LIST_EMPTY(laugh_types)
 
 /datum/laugh_type/human
 	name = "Human Laugh"
-	male_laughsounds = list('sound/voice/human/manlaugh1.ogg',
-						'sound/voice/human/manlaugh2.ogg')
+	male_laughsounds = list('sound/mobs/humanoids/human/laugh/manlaugh1.ogg',,
+						'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',)
 	female_laughsounds = list('modular_nova/modules/emotes/sound/emotes/female/female_giggle_1.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg')
 
@@ -37,5 +37,13 @@ GLOBAL_LIST_EMPTY(laugh_types)
 
 /datum/laugh_type/lizard
 	name = "Lizard Laugh"
-	male_laughsounds = list('sound/voice/lizard/lizard_laugh1.ogg')
+	male_laughsounds = list('sound/mobs/humanoids/lizard/lizard_laugh1.ogg')
+	female_laughsounds = null
+
+/datum/laugh_type/skrell
+	name = "Skrell Laugh"
+	male_laughsounds = list(
+		'modular_nova/modules/emotes/sound/emotes/skrelllaugh1.ogg',
+		'modular_nova/modules/emotes/sound/emotes/skrelllaugh2.ogg',
+	)
 	female_laughsounds = null

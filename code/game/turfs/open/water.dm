@@ -1,4 +1,5 @@
 /turf/open/water
+	name = "water"
 	gender = PLURAL
 	desc = "Shallow water."
 	icon = 'icons/turf/floors.dmi'
@@ -29,6 +30,7 @@
 	AddElement(/datum/element/watery_tile)
 	if(!isnull(fishing_datum))
 		AddElement(/datum/element/lazy_fishing_spot, fishing_datum)
+	ADD_TRAIT(src, TRAIT_CATCH_AND_RELEASE, INNATE_TRAIT)
 
 /turf/open/water/jungle
 
@@ -41,6 +43,10 @@
 	baseturfs = /turf/open/water/beach
 	immerse_overlay_color = "#7799AA"
 	fishing_datum = /datum/fish_source/ocean/beach
+
+/turf/open/water/beach/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MESSAGE_IN_A_BOTTLE_LOCATION, INNATE_TRAIT)
 
 /turf/open/water/lavaland_atmos
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS

@@ -63,7 +63,7 @@
 		if(!target_room)
 			return FALSE
 
-		SEND_SOUND(target_ghost, 'sound/misc/notice2.ogg')
+		SEND_SOUND(target_ghost, 'sound/announcer/notice/notice2.ogg')
 		window_flash(target_ghost.client)
 
 		if(tgui_alert(target_ghost, "[user] wants to transfer you to [target_room] inside of a soulcatcher, do you accept?", name, list("Yes", "No"), 30 SECONDS, autofocus = FALSE) != "Yes")
@@ -86,7 +86,7 @@
 	if(!target_room)
 		return FALSE
 
-	SEND_SOUND(target_mob, 'sound/misc/notice2.ogg')
+	SEND_SOUND(target_mob, 'sound/announcer/notice/notice2.ogg')
 	window_flash(target_mob.client)
 
 	if((tgui_alert(target_mob, "Do you wish to enter [target_room]? This will remove you from your body until you leave.", name, list("Yes", "No"), 30 SECONDS, FALSE) != "Yes") || (tgui_alert(target_mob, "Are you sure about this?", name, list("Yes", "No"), 30 SECONDS, FALSE) != "Yes"))
@@ -124,7 +124,7 @@
 		to_chat(user, span_warning("[target_mob]'s brain isn't compatible."))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-	if(target_mob.mind || target_mob.ckey || GetComponent(/datum/component/previous_body))
+	if(target_mob.mind || target_mob.ckey || target_mob.GetComponent(/datum/component/previous_body))
 		to_chat(user, span_warning("[target_mob] is not able to receive a soul"))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 

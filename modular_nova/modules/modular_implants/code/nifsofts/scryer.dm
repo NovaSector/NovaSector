@@ -101,7 +101,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/clothing/neck/link_scryer/loaded/nifsoft/attack_hand_secondary(mob/user, list/modifiers)
-	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible name", "Set Name", label, MAX_NAME_LEN))
+	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible name", "Set Name", label, max_length = MAX_NAME_LEN))
 	if(!new_label)
 		balloon_alert(user, "invalid name!")
 		return

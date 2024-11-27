@@ -19,7 +19,6 @@
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/cyborg)
 	RegisterSignal(src, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, PROC_REF(charge))
 	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
-	RegisterSignal(src, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
 
 	robot_modules_background = new()
 	robot_modules_background.icon_state = "block"
@@ -351,9 +350,12 @@
 /mob/living/silicon/robot/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
 	if(same_z_layer || QDELING(src))
 		return ..()
-	cut_overlay(eye_lights)
-	SET_PLANE_EXPLICIT(eye_lights, PLANE_TO_TRUE(eye_lights.plane), src)
-	add_overlay(eye_lights)
+
+	if(eye_lights)
+		cut_overlay(eye_lights)
+		SET_PLANE_EXPLICIT(eye_lights, PLANE_TO_TRUE(eye_lights.plane), src)
+		add_overlay(eye_lights)
+
 	return ..()
 
 /mob/living/silicon/robot/proc/self_destruct(mob/usr)
@@ -397,7 +399,7 @@
 	return ..()
 
 /mob/living/silicon/robot/execute_mode()
-	if(incapacitated())
+	if(incapacitated)
 		return
 	var/obj/item/W = get_active_held_item()
 	if(W)
@@ -460,12 +462,13 @@
 	return COMPONENT_BLOCK_LIGHT_EATER
 
 /// special handling for getting shot with a light disruptor/saboteur e.g. the fisher
-/mob/living/silicon/robot/proc/on_saboteur(datum/source, disrupt_duration)
-	SIGNAL_HANDLER
+/mob/living/silicon/robot/on_saboteur(datum/source, disrupt_duration)
+	. = ..()
 	if(lamp_enabled)
 		toggle_headlamp(TRUE)
 		balloon_alert(src, "headlamp off!")
-	return COMSIG_SABOTEUR_SUCCESS
+	COOLDOWN_START(src, disabled_time, disrupt_duration)
+	return TRUE
 
 /**
  * Handles headlamp smashing
@@ -497,6 +500,9 @@
  */
 /mob/living/silicon/robot/proc/toggle_headlamp(turn_off = FALSE, update_color = FALSE)
 	//if both lamp is enabled AND the update_color flag is on, keep the lamp on. Otherwise, if anything listed is true, disable the lamp.
+	if(!COOLDOWN_FINISHED(src, disabled_time))
+		balloon_alert(src, "disrupted!")
+		return FALSE
 	if(!(update_color && lamp_enabled) && (turn_off || lamp_enabled || update_color || !lamp_functional || stat || low_power_mode))
 		set_light_on(lamp_functional && stat != DEAD && lamp_doom) //If the lamp isn't broken and borg isn't dead, doomsday borgs cannot disable their light fully.
 		set_light_color(COLOR_RED) //This should only matter for doomsday borgs, as any other time the lamp will be off and the color not seen
@@ -512,14 +518,19 @@
 	lampButton?.update_appearance()
 	update_icons()
 
+///Completely deconstructs the borg, dropping the MMI/posibrain, removing applied upgrades and stripping the exoskeleton of all limbs,
+///while also burning out the flashes and prying out the cabling and the cell used in construction
 /mob/living/silicon/robot/proc/cyborg_deconstruct()
 	SEND_SIGNAL(src, COMSIG_BORG_SAFE_DECONSTRUCT)
 	if(shell)
 		undeploy()
 	var/turf/drop_to = drop_location()
-	if (robot_suit)
+	//remove installed upgrades
+	for(var/obj/item/borg/upgrade/upgrade_to_remove in upgrades)
+		upgrade_to_remove.forceMove(drop_to)
+	if(robot_suit)
 		robot_suit.drop_all_parts(drop_to)
-
+		robot_suit.forceMove(drop_to)
 	else
 		new /obj/item/robot_suit(drop_to)
 		new /obj/item/bodypart/leg/left/robot(drop_to)
@@ -666,7 +677,7 @@
 	return ..()
 
 /mob/living/silicon/robot/update_stat()
-	if(status_flags & GODMODE)
+	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return
 	if(stat != DEAD)
 		if(health <= -maxHealth) //die only once
@@ -953,7 +964,7 @@
 		M.visible_message(span_warning("[M] really can't seem to mount [src]..."))
 		return
 
-	if(stat || incapacitated())
+	if(stat || incapacitated)
 		return
 	if(model && !model.allow_riding)
 		M.visible_message(span_boldwarning("Unfortunately, [M] just can't seem to hold onto [src]!"))
@@ -1024,7 +1035,7 @@
 /mob/living/silicon/robot/get_exp_list(minutes)
 	. = ..()
 
-	var/datum/job/cyborg/cyborg_job_ref = SSjob.GetJobType(/datum/job/cyborg)
+	var/datum/job/cyborg/cyborg_job_ref = SSjob.get_job_type(/datum/job/cyborg)
 
 	.[cyborg_job_ref.title] = minutes
 

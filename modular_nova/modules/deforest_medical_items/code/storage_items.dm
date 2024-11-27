@@ -422,7 +422,7 @@
 		/obj/item/scalpel = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/retractor = 1,
-		/obj/item/circular_saw/field_medic = 1,
+		/obj/item/circular_saw/field_medic/lowforce = 1,
 		/obj/item/bonesetter = 1,
 		/obj/item/cautery = 1,
 		/obj/item/surgical_drapes = 1,

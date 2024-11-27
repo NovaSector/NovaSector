@@ -842,3 +842,127 @@
   - bugfix: bricks will now sound like bricks
   - bugfix: fixes an issue where some Malf AI modules were affecting Port Tarkon and
       the Ghost Cafe when they should not have been able to
+2024-08-24:
+  SmArtKar:
+  - bugfix: Fixed active turfs on crashsite ruin
+  vinylspiders:
+  - bugfix: some digi versions of clothing items (like latex heels for example) will
+      no longer produce spontaneous pants when equipped
+  - bugfix: adds missing digi sprite for black sandals
+2024-08-25:
+  CliffracerX:
+  - bugfix: digitigrade-capable species limbs in Augs+ now respect your digitigrade
+      preference
+  sqnztb:
+  - bugfix: Snowglobe now has proper ordinance APC placements. SM chamber gets a button
+      for the radiation shutters. Library desk requires correct access. Kitchen has
+      a dehydrator. Perma now has standard cryo pods instead of wallmounted.
+  vinylspiders:
+  - bugfix: bedsheet pixel offsets should be fixed
+2024-08-27:
+  DaCoolBoss:
+  - bugfix: Aquarium decorations now contain plastic.
+  - spellcheck: Added item descriptions for aquarium decorations.
+  DrDiasyl aka DrTuxedo:
+  - rscadd: Curator has received a new BROADCAST CAMERA which can broadcast the surroundings
+      LIVE on Entertainment Screens/ Alongside with some other Journalism related
+      gear in his Heroic Beacon
+  - sound: Entertainment screens now play muffled speech when hearing a message on
+      Entertainment frequency
+  EnterTheJake:
+  - balance: Rusted Ritual now requries 10 sheets of Iron instead of Titanium.
+  GPeckman:
+  - bugfix: The instagib, ragecage, mech madness, secu-ring, shooting range, and sniper
+      elite deathmatch maps are available again.
+  Ghommie:
+  - bugfix: Fixes the chainsaw evolution for goldfishes.
+  - rscadd: You can place papers, photos and cash bills (no holochips) inside bottles
+      and then toss them into the ocean (or fishing portal gen with relative settings)
+      with right-click, for others to fish them up on future rounds.
+  - rscadd: Added Athletic Fishing Gloves and Fishing Glove Module to the advanced
+      fishing tech node. Both can be used to fish without having to hold a fishing
+      rod.  The athletic fishing gloves will also train your athletics skill.
+  - bugfix: You can no longer pickup closets and crates wrapped in a package with
+      a fishing rod.
+  - bugfix: Fixed a few harddel issues with mob spawns that caused charred corpses
+      fished from lavaland to create an invisible blockade.
+  - bugfix: Fixed being able to fish up mobs that have fallen in totally different
+      z-levels with a rescue hook (i.e. from bitrunning domains to lavaland).
+  LT3:
+  - spellcheck: Sneak a peek of Hilbert's Hotel, not a sneak peak
+  Majkl-J:
+  - rscadd: Achievement for eating 500 cigarettes
+  - balance: Cigarettes are now edible
+  - code_imp: Adds a variable to hide the food examine on the edible element
+  - bugfix: SSPolling no longer fills in the candidate list with empty entries to
+      guarantee it returns a list size of amount_to_pick
+  OrbisAnima:
+  - qol: The Cafe areas and the Interlink Dorms now properly account for how one would
+      feel being off the clock, making you happy enough to counter most work related
+      worries while inside. (You get a mood buff inside those areas)
+  - qol: SEVA suits use the same global list of items allowed than the rest of mining
+      (they can carry crushers now).
+  RatFromTheJungle:
+  - balance: Makes the AFAD slightly more practical, by raising it's healing rate.
+  SmArtKar:
+  - bugfix: Marine helmets no longer change their sprite to security helmets when
+      their flashlight is toggled
+  - spellcheck: Hierophant no longer lies about obliterating someone
+  - bugfix: Removed all ways of teleportation from deathmatch and replaced all consoles
+      on a certain map with non-functional variants. Loadouts have been adjusted to
+      account for this.
+  - rscdel: Species Warfare no longer has atmospherics-related equipment on it.
+  - spellcheck: Fixed a typo on snowdin shuttle transi(s)t consoles
+  TheBoondock:
+  - qol: goliath arm can defuse gibonite by bumping or direct click
+  YesterdaysPromise:
+  - rscadd: Added crates of the following varieties; Interdyne, Interdyne freezer,
+      Tiger Co-Op, S.E.L.F. MI13, A.R.C., Cybersun (4 colour variants), Waffle Corp,
+      Donk, Gorlex, Gorlex weapons, DeForest, Nakamure Engineeing, Robust Industries
+  grungussuss:
+  - sound: lead pipe has sound
+  honkpocket:
+  - bugfix: fixed an oversight on akula lungs which let them avoid the race its gills
+      gimmick
+  vinylspiders:
+  - bugfix: wet hides and hairless hides no longer make metal clanging noises when
+      picked up/dropped
+  - rscdel: '''Guild'' radio channel key (for "Privateer Slaver" role) has been swapped
+      from :p to :i , to avoid conflict with the new Curator ''Entertainment'' channel'
+2024-08-29:
+  Ben10Omintrix:
+  - bugfix: fixes blob spore and slime AI endlessly attacking the dead
+  FeudeyTF:
+  - rscadd: Added board for detective's evidences
+  Melbert:
+  - bugfix: Juicing and grinding should break less
+  Sakamoto4ka:
+  - rscadd: Added salt electrolysis reaction
+  SmArtKar:
+  - bugfix: Bioscrambler anomalies no longer affect inorganic species
+  Vekter:
+  - bugfix: Fixed an issue causing Quartermaster office access to show in the wrong
+      area on Plexagon Access Management.
+  - bugfix: Fixed an inconsistency in the naming for QM Office access.
+  grungussuss:
+  - bugfix: after 4 years, computer sound loop now works properly
+  sqnztb:
+  - qol: ghost cafe kitchen and botany have been refreshed with more tools
+2024-08-30:
+  Hatterhat:
+  - rscadd: DeForest is once again stocking medicated sutures and aloe-enhanced regenerative
+      mesh for import through Cargo.
+  Rhials:
+  - rscadd: Smokey remains have appeared in maintenance. Make sure to walk when near
+      them!
+  SmArtKar:
+  - bugfix: Stagger animation is no longer horrilbly jittery
+  - bugfix: Projectiles no longer always play turf hit sound
+  - balance: Plexagon Crew Manifest is now a default PDA app for everyone, and is
+      free.
+  - balance: Plexagon Crew Manifest no longer provides Detomatix resistance, but security
+      records and status display control now do.
+  Xackii:
+  - qol: revolver in roundstart holsters is on the last slot and not on first
+  vinylspiders:
+  - bugfix: the character directory previews are showing up once again

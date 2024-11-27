@@ -26,12 +26,12 @@
 	result = /datum/mutation/human/shock
 
 /datum/generecipe/cindikinesis
-	required = "/datum/mutation/human/geladikinesis; /datum/mutation/human/fire_breath"
-	result = /datum/mutation/human/geladikinesis/ash
+	required = "/datum/mutation/human/geladikinesis; /datum/mutation/human/firebreath"
+	result = /datum/mutation/human/cindikinesis
 
 /datum/generecipe/pyrokinesis
-	required = "/datum/mutation/human/cryokinesis; /datum/mutation/human/fire_breath"
-	result = /datum/mutation/human/cryokinesis/pyrokinesis
+	required = "/datum/mutation/human/cryokinesis; /datum/mutation/human/firebreath"
+	result = /datum/mutation/human/pyrokinesis
 
 /datum/generecipe/thermal_adaptation
 	required = "/datum/mutation/human/adaptation/cold; /datum/mutation/human/adaptation/heat"

@@ -2,7 +2,7 @@
 
 /obj/item/ammo_box/magazine/lanca
 	name = "\improper Lanca rifle magazine"
-	desc = "A standard size magazine for Lanca rifles, holds five rounds."
+	desc = "A standard size magazine for Lanca rifles, holds ten rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "lanca_mag"
@@ -11,7 +11,7 @@
 
 	ammo_type = /obj/item/ammo_casing/strilka310
 	caliber = CALIBER_STRILKA310
-	max_ammo = 5
+	max_ammo = 10
 
 /obj/item/ammo_box/magazine/lanca/spawns_empty
 	start_empty = TRUE

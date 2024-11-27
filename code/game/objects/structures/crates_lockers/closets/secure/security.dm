@@ -128,21 +128,21 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
 	door_anim_time = 0 // no animation
-	open_sound = 'sound/machines/wooden_closet_open.ogg'
-	close_sound = 'sound/machines/wooden_closet_close.ogg'
+	open_sound = 'sound/machines/closet/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/closet/wooden_closet_close.ogg'
 	req_access = list(ACCESS_DETECTIVE)
 
 /obj/structure/closet/secure_closet/detective/PopulateContents()
 	..()
 	new /obj/item/storage/box/evidence(src)
 	new /obj/item/radio/headset/headset_sec(src)
-	new /obj/item/detective_scanner(src)
+	// new /obj/item/detective_scanner(src) // NOVA EDIT REMOVAL
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/clothing/suit/armor/vest/det_suit(src)
 	new /obj/item/toy/crayon/white(src) //NOVA EDIT CHANGE - ORIGINAL: /obj/item/storage/belt/holster/detective/full(src)
-	new /obj/item/pinpointer/crew(src)
+	//new /obj/item/pinpointer/crew(src) // NOVA EDIT REMOVAL - Added to detective outfit backpack instead
 	new /obj/item/binoculars(src)
 	new /obj/item/storage/box/rxglasses/spyglasskit(src)
 	new /obj/item/clothing/head/fedora/inspector_hat(src)

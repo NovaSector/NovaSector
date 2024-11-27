@@ -50,8 +50,14 @@
 					'modular_nova/modules/emotes/sound/emotes/female/female_cough_3.ogg')
 	return
 
+/datum/emote/living/cough
+	specific_emote_audio_cooldown = 5 SECONDS
+
+/datum/emote/living/carbon/whistle
+	specific_emote_audio_cooldown = 5 SECONDS
+
 /datum/emote/living/sneeze
-	vary = TRUE
+	specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/sneeze/get_sound(mob/living/user)
 	if(isvox(user))
@@ -152,7 +158,7 @@
 	message = "squeaks!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'sound/creatures/mousesqueek.ogg'
+	sound = 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg'
 
 /datum/emote/living/merp
 	key = "merp"
@@ -185,7 +191,7 @@
 	message = "meows!"
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/meow.ogg'
+	sound = SFX_CAT_MEOW
 
 /datum/emote/living/hiss
 	key = "hiss"
@@ -213,7 +219,7 @@
 	if(ismoth(user))
 		return 'modular_nova/modules/emotes/sound/emotes/mothchitter.ogg'
 	else
-		return'sound/creatures/chitter.ogg'
+		return 'sound/mobs/non-humanoids/insect/chitter.ogg'
 
 /datum/emote/living/sigh/get_sound(mob/living/user)
 	if(iscarbon(user))
@@ -236,22 +242,25 @@
 /datum/emote/living/gasp/get_sound(mob/living/user)
 	if(iscarbon(user))
 		if(isxenohybrid(user))
-			return pick('sound/voice/lowHiss2.ogg',
-						'sound/voice/lowHiss3.ogg',
-						'sound/voice/lowHiss4.ogg')
+			return pick('sound/mobs/non-humanoids/hiss/lowHiss2.ogg',
+						'sound/mobs/non-humanoids/hiss/lowHiss3.ogg',
+						'sound/mobs/non-humanoids/hiss/lowHiss4.ogg',
+					)
 		if(user.gender == MALE)
 			return pick('modular_nova/modules/emotes/sound/emotes/male/gasp_m1.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m2.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m3.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m4.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m5.ogg',
-						'modular_nova/modules/emotes/sound/emotes/male/gasp_m6.ogg')
+						'modular_nova/modules/emotes/sound/emotes/male/gasp_m6.ogg',
+					)
 		return pick('modular_nova/modules/emotes/sound/emotes/female/gasp_f1.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f2.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f3.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f4.ogg',
 					'modular_nova/modules/emotes/sound/emotes/female/gasp_f5.ogg',
-					'modular_nova/modules/emotes/sound/emotes/female/gasp_f6.ogg')
+					'modular_nova/modules/emotes/sound/emotes/female/gasp_f6.ogg',
+				)
 	return
 
 /datum/emote/living/snore
@@ -274,9 +283,10 @@
 	message = "claps."
 	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
-	audio_cooldown = 5 SECONDS
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	specific_emote_audio_cooldown = 5 SECONDS
+	affected_by_pitch = FALSE
 
 /datum/emote/living/clap/get_sound(mob/living/user)
 	return pick('modular_nova/modules/emotes/sound/emotes/clap1.ogg',
@@ -284,7 +294,7 @@
 				'modular_nova/modules/emotes/sound/emotes/clap3.ogg',
 				'modular_nova/modules/emotes/sound/emotes/clap4.ogg')
 
-/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
+/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE, intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
@@ -297,6 +307,7 @@
 	hands_use_check = TRUE
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	affected_by_pitch = FALSE
 
 /datum/emote/living/clap1/get_sound(mob/living/user)
 	return pick('modular_nova/modules/emotes/sound/emotes/claponce1.ogg',
@@ -401,6 +412,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/bork.ogg'
+	specific_emote_audio_cooldown = 4 SECONDS
 
 /datum/emote/living/hoot
 	key = "hoot"
@@ -418,6 +430,7 @@
 	muzzle_ignore = TRUE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/growl.ogg'
+	specific_emote_audio_cooldown = 4 SECONDS
 
 /datum/emote/living/woof
 	key = "woof"
@@ -450,6 +463,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/wurble.ogg'
+	specific_emote_audio_cooldown = 4 SECONDS
 
 /datum/emote/living/rattle
 	key = "rattle"
@@ -467,6 +481,7 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/cackle_yeen.ogg'
+	specific_emote_audio_cooldown = 5 SECONDS
 
 /mob/living/proc/do_ass_slap_animation(atom/slapped)
 	do_attack_animation(slapped, no_effect=TRUE)
@@ -513,7 +528,8 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/voice/feline_purr.ogg'
+	sound = SFX_CAT_PURR
+	specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/moo
 	key = "moo"
@@ -561,7 +577,7 @@
 	message = "gnashes."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'sound/weapons/bite.ogg'
+	sound = 'sound/items/weapons/bite.ogg'
 
 /datum/emote/living/thump
 	key = "thump"
@@ -570,7 +586,7 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'sound/effects/glassbash.ogg'
+	sound = 'sound/effects/glass/glassbash.ogg'
 
 /datum/emote/living/flutter
 	key = "flutter"
@@ -579,7 +595,7 @@
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	vary = TRUE
-	sound = 'sound/voice/moth/moth_flutter.ogg'
+	sound = 'sound/mobs/humanoids/moth/moth_flutter.ogg'
 
 /datum/emote/living/sigh_exasperated
 	key = "esigh" // short for exasperated sigh

@@ -72,8 +72,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_obscured_slots(obscured_flags)
 	..()
-	if(obscured_flags & HIDEFACE)
-		sec_hud_set_security_status()
+	sec_hud_set_security_status()
 	// NOVA EDIT ADDITION START - ERP Overlays
 	if(obscured_flags & HIDESEXTOY)
 		update_inv_lewd()
@@ -161,9 +160,9 @@ There are several things that need to be remembered:
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_uniform_offset?.apply_offset(uniform_overlay)
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
-		apply_overlay(UNIFORM_LAYER)
 
-	update_mutant_bodyparts()
+	update_body_parts()
+	apply_overlay(UNIFORM_LAYER)
 
 /mob/living/carbon/human/update_worn_id(update_obscured = TRUE)
 	remove_overlay(ID_LAYER)
@@ -247,6 +246,20 @@ There are several things that need to be remembered:
 				feature_y_offset = glove_offset["y"]
 
 		gloves_overlay.pixel_y += feature_y_offset
+
+		// We dont have any >2 hands human species (and likely wont ever), so theres no point in splitting this because:
+		// It will only run if the left hand OR the right hand is missing, and it wont run if both are missing because you cant wear gloves with no arms
+		// (unless admins mess with this then its their fault)
+		if(num_hands < default_num_hands)
+			var/static/atom/movable/alpha_filter_target
+			if(isnull(alpha_filter_target))
+				alpha_filter_target = new(null)
+			alpha_filter_target.icon = 'icons/effects/effects.dmi'
+			alpha_filter_target.icon_state = "missing[!has_left_hand(check_disabled = FALSE) ? "l" : "r"]"
+			alpha_filter_target.render_target = "*MissGlove [REF(src)] [!has_left_hand(check_disabled = FALSE) ? "L" : "R"]"
+			gloves_overlay.add_overlay(alpha_filter_target)
+			gloves_overlay.filters += filter(type="alpha", render_source=alpha_filter_target.render_target, y=feature_y_offset, flags=MASK_INVERSE)
+
 		overlays_standing[GLOVES_LAYER] = gloves_overlay
 	apply_overlay(GLOVES_LAYER)
 
@@ -591,11 +604,9 @@ There are several things that need to be remembered:
 			my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
 		// NOVA EDIT END
 		overlays_standing[SUIT_LAYER] = suit_overlay
+
 	update_body_parts()
-	update_mutant_bodyparts()
-
 	apply_overlay(SUIT_LAYER)
-
 
 /mob/living/carbon/human/update_pockets()
 	if(client && hud_used)
@@ -664,7 +675,7 @@ There are several things that need to be remembered:
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
-	update_mutant_bodyparts() //e.g. upgate needed because mask now hides lizard snout
+	update_body_parts() //e.g. upgate needed because mask now hides lizard snout
 
 /mob/living/carbon/human/update_worn_back(update_obscured = TRUE)
 	remove_overlay(BACK_LAYER)
@@ -1016,6 +1027,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				.[1] = offsets["x"]
 				.[2] = offsets["y"]
 	else
+		.[1] = worn_x_offset // NOVA EDIT ADDITION - Taur fullbody suits
 		.[2] = worn_y_offset
 
 //Can't think of a better way to do this, sadly

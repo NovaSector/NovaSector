@@ -220,31 +220,29 @@
 /obj/item/mod/control/allow_attack_hand_drop(mob/user)
 	if(user != wearer)
 		return ..()
+	if(active)
+		balloon_alert(wearer, "deactivate the suit first!")
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
+		return
 	for(var/obj/item/part as anything in get_parts())
 		if(part.loc != src)
 			balloon_alert(user, "retract parts first!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
 			return FALSE
 
 /obj/item/mod/control/mouse_drop_dragged(atom/over_object, mob/user)
 	if(user != wearer || !istype(over_object, /atom/movable/screen/inventory/hand))
 		return
+	if(active)
+		balloon_alert(wearer, "deactivate the suit first!")
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
+		return
 	for(var/obj/item/part as anything in get_parts())
 		if(part.loc != src)
 			balloon_alert(wearer, "retract parts first!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
 			return
-
-	// NOVA EDIT ADDITION START - Can't remove your MODsuit from your back when it's still active (as it can cause runtimes and even the MODsuit control unit to delete itself)
-	if(active)
-		if(!wearer.incapacitated())
-			balloon_alert(wearer, "deactivate first!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE, SILENCED_SOUND_EXTRARANGE)
-
-		return
-	// NOVA EDIT ADDITION END
-
-	if(!wearer.incapacitated())
+	if(!wearer.incapacitated)
 		var/atom/movable/screen/inventory/hand/ui_hand = over_object
 		if(wearer.putItemFromInventoryInHandIfPossible(src, ui_hand.held_index))
 			add_fingerprint(user)
@@ -270,7 +268,7 @@
 /obj/item/mod/control/screwdriver_act(mob/living/user, obj/item/screwdriver)
 	if(active || activating || ai_controller)
 		balloon_alert(user, "deactivate suit first!")
-		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "[open ? "closing" : "opening"] cover...")
 	screwdriver.play_tool_sound(src, 100)
@@ -287,14 +285,14 @@
 /obj/item/mod/control/crowbar_act(mob/living/user, obj/item/crowbar)
 	if(!open)
 		balloon_alert(user, "open the cover first!")
-		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return ITEM_INTERACT_BLOCKING
 	if(!allowed(user))
 		balloon_alert(user, "insufficient access!")
-		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return ITEM_INTERACT_BLOCKING
 	if(SEND_SIGNAL(src, COMSIG_MOD_MODULE_REMOVAL, user) & MOD_CANCEL_REMOVAL)
-		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return ITEM_INTERACT_BLOCKING
 	if(length(modules))
 		var/list/removable_modules = list()
@@ -311,25 +309,15 @@
 		SEND_SIGNAL(src, COMSIG_MOD_MODULE_REMOVED, user)
 		return ITEM_INTERACT_SUCCESS
 	balloon_alert(user, "no modules!")
-	playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+	playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return ITEM_INTERACT_BLOCKING
-
-/obj/item/mod/control/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
-	// Hack. revisit later
-	if(istype(inserted, /obj/item/aicard))
-		var/obj/item/aicard/ai_card = inserted
-		if(ai_card.AI)
-			return FALSE // we want to get an AI assistant, try uploading instead of insertion
-		if(ai_assistant)
-			return FALSE // we already have an AI assistant, try withdrawing instead of insertion
-	return TRUE
 
 // Makes use of tool act to prevent shoving stuff into our internal storage
 /obj/item/mod/control/tool_act(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/pai_card))
 		if(!open)
 			balloon_alert(user, "open the cover first!")
-			return ITEM_INTERACT_BLOCKING
+			return NONE // shoves the card in the storage anyways
 		insert_pai(user, tool)
 		return ITEM_INTERACT_SUCCESS
 	if(istype(tool, /obj/item/mod/paint))
@@ -355,7 +343,7 @@
 	if(istype(tool, /obj/item/mod/module))
 		if(!open)
 			balloon_alert(user, "open the cover first!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return ITEM_INTERACT_BLOCKING
 		install(tool, user)
 		SEND_SIGNAL(src, COMSIG_MOD_MODULE_ADDED, user)
@@ -363,11 +351,11 @@
 	if(istype(tool, /obj/item/mod/core))
 		if(!open)
 			balloon_alert(user, "open the cover first!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return ITEM_INTERACT_BLOCKING
 		if(core)
 			balloon_alert(user, "core already installed!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return ITEM_INTERACT_BLOCKING
 		var/obj/item/mod/core/attacking_core = tool
 		attacking_core.install(src)
@@ -488,6 +476,30 @@
 	wearer.update_spacesuit_hud_icon("0")
 	wearer = null
 
+/obj/item/mod/control/proc/get_sealed_slots(list/parts)
+	var/covered_slots = NONE
+	for(var/obj/item/part as anything in parts)
+		if(!get_part_datum(part).sealed)
+			parts -= part
+			continue
+		covered_slots |= part.slot_flags
+	return covered_slots
+
+/obj/item/mod/control/proc/generate_suit_mask()
+	var/list/parts = get_parts(all = TRUE)
+	var/covered_slots = get_sealed_slots(parts)
+	if(GLOB.mod_masks[skin])
+		if(GLOB.mod_masks[skin]["[covered_slots]"])
+			return GLOB.mod_masks[skin]["[covered_slots]"]
+	else
+		GLOB.mod_masks[skin] = list()
+	var/icon/slot_mask = icon('icons/blanks/32x32.dmi', "nothing")
+	for(var/obj/item/part as anything in parts)
+		slot_mask.Blend(icon(part.worn_icon, part.icon_state), ICON_OVERLAY)
+	slot_mask.Blend("#fff", ICON_ADD)
+	GLOB.mod_masks[skin]["[covered_slots]"] = slot_mask
+	return GLOB.mod_masks[skin]["[covered_slots]"]
+
 /obj/item/mod/control/proc/clean_up()
 	if(QDELING(src))
 		unset_wearer()
@@ -502,7 +514,7 @@
 	for(var/obj/item/part as anything in get_parts())
 		retract(null, part)
 	if(active)
-		finish_activation(is_on = FALSE)
+		control_activation(is_on = FALSE)
 		mod_link?.end_call()
 	var/mob/old_wearer = wearer
 	unset_wearer()
@@ -548,7 +560,7 @@
 		radial_anchor = get_turf(user.loc) //they're phased out via some module, anchor the radial on the turf so it may still display
 	if (!isnull(anchor_override))
 		radial_anchor = anchor_override
-	var/pick = show_radial_menu(user, radial_anchor, items, custom_check = FALSE, require_near = isnull(anchor_override), tooltips = TRUE)
+	var/pick = show_radial_menu(user, radial_anchor, items, custom_check = FALSE, require_near = isnull(anchor_override), tooltips = TRUE, user_space = !isnull(anchor_override))
 	if(!pick)
 		return
 	var/module_reference = display_names[pick]
@@ -569,19 +581,24 @@
 		if(is_type_in_list(new_module, old_module.incompatible_modules) || is_type_in_list(old_module, new_module.incompatible_modules))
 			if(user)
 				balloon_alert(user, "[new_module] incompatible with [old_module]!")
-				playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+				playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return
 	var/complexity_with_module = complexity
 	complexity_with_module += new_module.complexity
 	if(complexity_with_module > complexity_max)
 		if(user)
 			balloon_alert(user, "[new_module] would make [src] too complex!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
 	if(!new_module.has_required_parts(mod_parts))
 		if(user)
 			balloon_alert(user, "[new_module] incompatible with [src]'s parts!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		return
+	if(!new_module.can_install(src))
+		if(user)
+			balloon_alert(user, "[new_module] cannot be installed into [src]!")
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
 	new_module.forceMove(src)
 	modules += new_module
@@ -591,8 +608,9 @@
 	new_module.on_install()
 	if(wearer)
 		new_module.on_equip()
-	if(active)
-		new_module.on_suit_activation()
+	if(active && new_module.has_required_parts(mod_parts, need_active = TRUE))
+		new_module.on_part_activation()
+		new_module.part_activated = TRUE
 	if(user)
 		balloon_alert(user, "[new_module] added")
 		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -603,7 +621,7 @@
 	if(wearer)
 		old_module.on_unequip()
 	if(active)
-		old_module.on_suit_deactivation(deleting = deleting)
+		old_module.on_part_deactivation(deleting = deleting)
 		if(old_module.active)
 			old_module.deactivate(display_message = !deleting, deleting = deleting)
 	old_module.UnregisterSignal(src, COMSIG_ITEM_GET_WORN_OVERLAYS)
@@ -618,7 +636,7 @@
 /obj/item/mod/control/proc/update_access(mob/user, obj/item/card/id/card)
 	if(!allowed(user))
 		balloon_alert(user, "insufficient access!")
-		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
 	req_access = card.access.Copy()
 	balloon_alert(user, "access updated")
@@ -662,7 +680,7 @@
 
 /obj/item/mod/control/proc/update_speed()
 	for(var/obj/item/part as anything in get_parts(all = TRUE))
-		part.slowdown = (active ? slowdown_active : slowdown_inactive) / length(mod_parts)
+		part.slowdown = (get_part_datum(part).sealed ? slowdown_active : slowdown_inactive) / length(mod_parts)
 	wearer?.update_equipment_speed_mods()
 
 /obj/item/mod/control/proc/power_off()
@@ -689,14 +707,15 @@
 		uninstall(part)
 		return
 	if(part in get_parts())
+		var/datum/mod_part/part_datum = get_part_datum(part)
+		if(part_datum.sealed)
+			seal_part(part, is_sealed = FALSE)
 		if(isnull(part.loc))
 			return
 		if(!wearer)
 			part.forceMove(src)
 			return
 		retract(wearer, part)
-		if(active)
-			INVOKE_ASYNC(src, PROC_REF(toggle_activate), wearer, TRUE)
 
 /obj/item/mod/control/proc/on_part_destruction(obj/item/part, damage_flag)
 	SIGNAL_HANDLER
@@ -719,6 +738,7 @@
 	var/datum/mod_part/part_datum = get_part_datum(part)
 	if(overslot != part_datum.overslotting)
 		return
+	UnregisterSignal(part, COMSIG_ATOM_EXITED)
 	part_datum.overslotting = null
 
 /obj/item/mod/control/proc/on_potion(atom/movable/source, obj/item/slimepotion/speed/speed_potion, mob/living/user)

@@ -1,5 +1,5 @@
 /**
- * play_lewd_sound is similar to `playsound` but it does not pass through walls, doesn't play for ghosts, and checks for prefs.
+ * playsound_if_pref is similar to `playsound` but it does not pass through walls, doesn't play for ghosts, and checks for prefs.
  * This is useful if we have something like the organic interface content, which everyone may not want to hear.
  *
  * source - Origin of sound.
@@ -12,9 +12,9 @@
  * channel - The channel the sound is played at.
  * pressure_affected - Whether or not difference in pressure affects the sound (E.g. if you can hear in space).
  * falloff_distance - Distance at which falloff begins. Sound is at peak volume (in regards to falloff) aslong as it is in this range.
- * pref_to_check - the path of the pref that we want to check
+ * pref_to_check - the path of the pref that we want to check - defaults to /datum/preference/toggle/erp/sex_toy_sounds
  */
-/proc/play_lewd_sound(
+/proc/playsound_if_pref(
 	atom/source,
 	soundin,
 	vol as num,
@@ -63,7 +63,7 @@
 		listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, sound_to_play, maxdistance, falloff_distance, 1, use_reverb)
 		. += listening_mob
 
-/// The looping sound datum but we check for prefs and use `play_lewd_sound` instead of `playsound`
+/// The looping sound datum but we check for prefs and use `playsound_if_pref` instead of `playsound`
 /datum/looping_sound/lewd
 	/// What preference are we going to check with our looping sound when we play it for people?
 	var/pref_to_check = /datum/preference/toggle/erp/sex_toy_sounds
@@ -76,7 +76,7 @@
 		SEND_SOUND(parent, sound_to_play)
 		return
 
-	play_lewd_sound(
+	playsound_if_pref(
 		parent,
 		sound_to_play,
 		volume,

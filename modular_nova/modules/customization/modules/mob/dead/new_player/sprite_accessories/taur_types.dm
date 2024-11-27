@@ -198,3 +198,11 @@
 /datum/sprite_accessory/taur/biglegs/stanced/bird
 	name = "Big Legs, Stanced Bird"
 	icon_state = "biglegs_bird_stanced"
+
+/datum/sprite_accessory/taur/biglegs/peg
+	name = "Big Legs, Pegs"
+	icon_state = "biglegs_peg"
+
+/datum/sprite_accessory/taur/biglegs/stanced/peg
+	name = "Big Legs, Stanced Pegs"
+	icon_state = "biglegs_peg_stanced"

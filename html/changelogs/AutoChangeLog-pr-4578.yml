@@ -1,0 +1,5 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - code_imp: "Replaced all their desc's with stuff that better fits the station, and removes mention of non-cannon conflicts and military behavior."
+  - balance: "Slight rebalance of most of the szot-dynamica guns, or calibers, to be equal to the solfed variants, instead of a flat downgrade."

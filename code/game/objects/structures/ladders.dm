@@ -79,7 +79,7 @@
 	icon_state = "ladder[up ? 1 : 0][down ? 1 : 0]"
 	return ..()
 
-/obj/structure/ladder/singularity_pull()
+/obj/structure/ladder/singularity_pull(atom/singularity, current_size)
 	if (!(resistance_flags & INDESTRUCTIBLE))
 		visible_message(span_danger("[src] is torn to pieces by the gravitational pull!"))
 		qdel(src)
@@ -182,7 +182,7 @@
 		INVOKE_ASYNC(src, PROC_REF(start_travelling), user, going_up)
 
 /obj/structure/ladder/proc/check_menu(mob/user, is_ghost)
-	if(user.incapacitated() || (!user.Adjacent(src)))
+	if(user.incapacitated || (!user.Adjacent(src)))
 		return FALSE
 	return TRUE
 

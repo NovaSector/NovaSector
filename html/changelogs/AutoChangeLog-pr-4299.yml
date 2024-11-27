@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "some digi versions of clothing items (like latex heels for example) will no longer produce spontaneous pants when equipped"
-  - bugfix: "adds missing digi sprite for black sandals"

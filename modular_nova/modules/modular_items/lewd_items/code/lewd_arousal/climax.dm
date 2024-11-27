@@ -42,11 +42,11 @@
 
 	switch(gender)
 		if(MALE)
-			play_lewd_sound(get_turf(src), pick('modular_nova/modules/modular_items/lewd_items/sounds/final_m1.ogg',
+			playsound_if_pref(get_turf(src), pick('modular_nova/modules/modular_items/lewd_items/sounds/final_m1.ogg',
 										'modular_nova/modules/modular_items/lewd_items/sounds/final_m2.ogg',
 										'modular_nova/modules/modular_items/lewd_items/sounds/final_m3.ogg'), 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 		if(FEMALE)
-			play_lewd_sound(get_turf(src), pick('modular_nova/modules/modular_items/lewd_items/sounds/final_f1.ogg',
+			playsound_if_pref(get_turf(src), pick('modular_nova/modules/modular_items/lewd_items/sounds/final_f1.ogg',
 										'modular_nova/modules/modular_items/lewd_items/sounds/final_f2.ogg',
 										'modular_nova/modules/modular_items/lewd_items/sounds/final_f3.ogg'), 50, TRUE, pref_to_check = /datum/preference/toggle/erp/sounds)
 

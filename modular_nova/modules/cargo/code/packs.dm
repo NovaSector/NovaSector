@@ -709,3 +709,12 @@
 	desc = "Contains a single restock for the Fab-O-Vend, great for those who are indecisive about their looks."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/barbervend)
+
+/datum/supply_pack/imports/starfruit_seed
+	name = "Primidine Starfruit Seeds"
+	desc = "A rare seed which grows into an even rarer Starfruit plant. The Starfruit was harvested for only 55 days each year on the planet Primidine, before it was made uninhabitable to colonists."
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(
+		/obj/item/seeds/starfruit = 2,
+		/obj/item/book/manual/starfruit = 1,
+	)
