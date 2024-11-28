@@ -8,9 +8,6 @@
 	/// What is our normal limb ID? used for squashing legs.
 	var/base_limb_id = SPECIES_MAMMAL
 
-/obj/item/bodypart/proc/check_mutant_compatability()
-	return
-
 /obj/item/bodypart/leg/right
 	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
 	var/digitigrade_type = /obj/item/bodypart/leg/right/digitigrade
