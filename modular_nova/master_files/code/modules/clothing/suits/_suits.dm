@@ -37,12 +37,6 @@
 	greyscale_colors = "#8C531A#9C7132"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/Initialize(mapload)
-	. = ..()
-	allowed += list(
-		/obj/item/cane,
-	)
-
 // Monk habit hood needs to match; code pulled from wintercoats.
 /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
 	. = ..()
