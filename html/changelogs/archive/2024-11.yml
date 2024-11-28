@@ -507,3 +507,26 @@
 2024-11-25:
   RatFromTheJungle:
   - code_imp: Traitors and changelings can no longer self-assign objectives.
+2024-11-26:
+  Stalkeros, Majkl-J for the original PR:
+  - rscadd: Adds prefloading to bitrunning
+  SuperDrish:
+  - rscadd: Added new ultra duper giga hyper SECRET cool mob - shorg. You totally
+      can not order it in cargo.
+  Zenitheevee:
+  - balance: Pneumatic cannons can now hold only one turret kit if loaded with one.
+2024-11-28:
+  1393F:
+  - bugfix: Ghosts can no longer disarm window airbags.
+  - bugfix: The photocopier in Interdyne on icemoon is now free.
+  - bugfix: The bone fragments shot out by dying horrorform changelings have the correct
+      embed chance. Same with the expedition tomahawk.
+  FlufflesTheDog:
+  - bugfix: OPFOR equipment quantity can now actually be adjusted
+  RatFromTheJungle:
+  - code_imp: Replaced all their desc's with stuff that better fits the station, and
+      removes mention of non-cannon conflicts and military behavior.
+  - balance: Slight rebalance of most of the szot-dynamica guns, or calibers, to be
+      equal to the solfed variants, instead of a flat downgrade.
+  - balance: Changeling has gone from 15 > 10 genetic points, had strained muscles
+      heavily cutdown in the speedboost, and finally had it's chem-regen cut in half.
