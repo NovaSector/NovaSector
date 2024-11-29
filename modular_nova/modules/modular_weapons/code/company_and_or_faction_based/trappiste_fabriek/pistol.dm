@@ -98,17 +98,12 @@
 /obj/item/gun/ballistic/automatic/pistol/trappiste/examine_more(mob/user)
 	. = ..()
 
-	. += "The Skild only exists due to a widely known event that SolFed's military \
-		would prefer wasn't anywhere near as popular. A general, name unknown as of now, \
-		was recorded complaining about the lack of capability the Wespe provided to the \
-		military, alongside several statements comparing the Wespe's lack of masculinity \
-		to the, quote, 'unique lack of testosterone those NRI mongrels field'. While the \
-		identities of both the general and people responsible for the leaking of the recording \
-		are still classified, many high ranking SolFed military staff suspiciously have stopped \
-		appearing in public, unlike the Skild. A lot of several thousand pistols, the first \
-		of the weapons to ever exist, were not so silently shipped to SolFed's Plutonian \
-		shipping hub from TRAPPIST. SolFed military command refuses to answer any \
-		further questions about the incident to this day."
+	. += "The Défenestreur is the embodiment of a hand-cannon, a ridiculously oversized and overloaded pistol round, crammed into a just-as-big gun to match it. \
+		Entering production around [DATE], not long after the release of the Défonce revolver, to fill a market niche between anti-material rifle, and personal defense weapon. \
+		Presented as an anti-wildlife weapon, it's more common-use is ensuring that whatever... or whoever you open fire at, is gone well-before they have time to realize who did it. \
+		A long, almost one piece slide leads back into a rotating bolt/slide combination, loaded from the underside with a ten round magazine, as the rounds themselves were far-to-big \
+		to ever fit within a reasonably sized grip. Despite its size, the slide and sheer weight of the gun keep the recoil about as low as anyone could realistically expect. \
+		What a thing of beauty."
 
 	return .
 
