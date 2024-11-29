@@ -530,3 +530,6 @@
       equal to the solfed variants, instead of a flat downgrade.
   - balance: Changeling has gone from 15 > 10 genetic points, had strained muscles
       heavily cutdown in the speedboost, and finally had it's chem-regen cut in half.
+2024-11-29:
+  RatFromTheJungle:
+  - bugfix: Amollin now actually tells you what's in it.
