@@ -146,7 +146,10 @@
 		/mob/living/proc/emote_rpurr,
 		/mob/living/proc/emote_purr,
 		/mob/living/proc/emote_moo,
-		/mob/living/proc/emote_honk1
+		/mob/living/proc/emote_honk1,
+		/mob/living/proc/emote_mggaow,
+		/mob/living/proc/emote_mrrp,
+		/mob/living/proc/emote_prbt
 	)
 	all_emotes += nova_living_emotes
 
@@ -225,14 +228,14 @@
 			available_emotes += nova_living_emotes
 			available_emotes += nova_living_emotes_overlay
 			available_emotes += /mob/living/proc/emote_mark_turf
+			// Checking if should apply Synth emotes
+			if(HAS_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED))
+				available_emotes += synth_emotes
 		if(iscarbon(src))
 			available_emotes += carbon_emotes
 		if(ishuman(src))
 			available_emotes += human_emotes
-			// Checking if should apply Synth emotes
 			var/mob/living/carbon/human/current_mob = src
-			if(current_mob.dna.species.type in allowed_species_synth)
-				available_emotes += synth_emotes
 			// Checking if can wag tail
 			var/obj/item/organ/external/tail/tail = current_mob.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 			if(!(tail?.wag_flags & WAG_ABLE))
@@ -242,8 +245,6 @@
 				available_emotes -= /mob/living/carbon/human/proc/emote_wing
 		if(isalien(src))
 			available_emotes += alien_emotes
-		if(issilicon(src))
-			available_emotes += synth_emotes
 
 	// Applying emote panel if preferences allow
 	for(var/emote in available_emotes)
@@ -865,6 +866,21 @@
 	set name = "> Honk"
 	set category = "Emotes+"
 	usr.emote("honk1", intentional = TRUE)
+
+/mob/living/proc/emote_mggaow()
+	set name = "> Mggaow"
+	set category = "Emotes+"
+	usr.emote("mggaow", intentional = TRUE)
+
+/mob/living/proc/emote_mrrp()
+	set name = "> Mrrp"
+	set category = "Emotes+"
+	usr.emote("mrrp", intentional = TRUE)
+
+/mob/living/proc/emote_prbt()
+	set name = "> Prbt"
+	set category = "Emotes+"
+	usr.emote("prbt", intentional = TRUE)
 
 // code\modules\mob\living\brain\emote.dm
 

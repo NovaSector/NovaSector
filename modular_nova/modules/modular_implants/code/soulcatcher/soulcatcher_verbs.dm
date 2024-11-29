@@ -18,12 +18,12 @@
 /mob/living/proc/soulcatcher_emote()
 	set name = "Soul Me"
 	set category = "IC"
-	set desc = "Send a emote to your currently targeted soulcatcher room."
+	set desc = "Send an emote to your currently targeted soulcatcher room."
 	var/datum/component/soulcatcher/target_soulcatcher = find_soulcatcher()
 	if(!target_soulcatcher || !target_soulcatcher.targeted_soulcatcher_room)
 		return FALSE
 
-	var/message_to_send = tgui_input_text(usr, "Input the emote you want to send", "Soulcatcher", multiline = TRUE)
+	var/message_to_send = tgui_input_text(usr, "Input the emote you want to send", "Soulcatcher", max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 	if(!message_to_send)
 		return FALSE
 

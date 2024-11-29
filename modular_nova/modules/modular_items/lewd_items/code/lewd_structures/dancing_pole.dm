@@ -8,7 +8,6 @@
 	anchored = TRUE
 	max_integrity = 75
 	layer = BELOW_MOB_LAYER
-	pseudo_z_axis = 9 //stepping onto the pole makes you raise upwards!
 	density = 0 //easy to step up on
 	light_system = COMPLEX_LIGHT
 	light_range = 3
@@ -51,26 +50,22 @@
 	)
 
 
-/obj/structure/stripper_pole/CtrlClick(mob/user)
-	. = ..()
-	if(. == FALSE)
-		return FALSE
-
+/obj/structure/stripper_pole/click_ctrl(mob/user)
 	var/choice = show_radial_menu(user, src, pole_designs, radius = 50, require_near = TRUE)
 	if(!choice)
-		return FALSE
+		return CLICK_ACTION_BLOCKING
 	current_pole_color = choice
 	light_color = pole_lights[choice]
 	update_icon()
 	update_brightness()
-	return TRUE
+	return CLICK_ACTION_SUCCESS
 
 
 // Alt-click to turn the lights on or off.
 /obj/structure/stripper_pole/click_alt(mob/user)
 	lights_enabled = !lights_enabled
 	balloon_alert(user, "lights [lights_enabled ? "on" : "off"]")
-	playsound(user, lights_enabled ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 40, TRUE)
+	playsound(user, lights_enabled ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)
 	update_icon_state()
 	update_icon()
 	update_brightness()
@@ -85,6 +80,7 @@
 	if(!length(pole_designs))
 		populate_pole_designs()
 
+	AddElement(/datum/element/elevation, pixel_shift = 9)
 
 /obj/structure/stripper_pole/update_icon_state()
 	. = ..()
@@ -113,7 +109,6 @@
 	dance_animate(user)
 	pole_in_use = FALSE
 	user.pixel_y = 0
-	user.pixel_z = pseudo_z_axis //incase we are off it when we jump on!
 	dancer = null
 
 /// The proc used to make the user 'dance' on the pole. Basically just consists of pixel shifting them around a bunch and sleeping. Could probably be improved a lot.
@@ -153,16 +148,11 @@
 		dancer.SetStun(0)
 		dancer.pixel_y = 0
 		dancer.pixel_x = 0
-		dancer.pixel_z = pseudo_z_axis
 		dancer.layer = layer
 		dancer.forceMove(get_turf(src))
 		dancer = null
 
-/obj/structure/stripper_pole/CtrlShiftClick(mob/user)
-	. = ..()
-	if(. == FALSE)
-		return FALSE
-
+/obj/structure/stripper_pole/click_ctrl_shift(mob/user)
 	add_fingerprint(user)
 	balloon_alert(user, "disassembling...")
 	if(!do_after(user, 8 SECONDS, src))

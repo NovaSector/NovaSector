@@ -31,7 +31,7 @@
 	user.balloon_alert_to_viewers("trying to revive [carbon_target]")
 
 	if(!do_after(user, 3 SECONDS, carbon_target))
-		user.balloon_alert("stopped reviving [carbon_target]")
+		user.balloon_alert(user, "stopped reviving [carbon_target]")
 		return
 
 	if(carbon_target.stat != DEAD)
@@ -49,7 +49,7 @@
 		if (DEFIB_FAIL_TISSUE_DAMAGE, DEFIB_FAIL_HUSK)
 			fail_reason = "[carbon_target]'s body seems way too damaged for this to work..."
 		if (DEFIB_FAIL_NO_BRAIN)
-			fail_reason = "[carbon_target]'s head looks like its missing something important."
+			fail_reason = "[carbon_target]'s head looks like it's missing something important."
 
 	if(carbon_target.health <= HEALTH_THRESHOLD_FULLCRIT)
 		fail_reason = "[carbon_target]'s body seems just a little too damaged for this to work..."
@@ -60,6 +60,7 @@
 
 	carbon_target.adjustOxyLoss(amount = 60, updating_health = TRUE)
 	playsound(src, 'modular_nova/modules/emotes/sound/emotes/female/female_sniff.ogg', 50, FALSE)
+	carbon_target.set_heartattack(FALSE)
 
 	if(defib_result == DEFIB_POSSIBLE)
 		carbon_target.grab_ghost()

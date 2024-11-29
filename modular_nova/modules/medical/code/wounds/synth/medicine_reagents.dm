@@ -1,4 +1,4 @@
-// a potent coolant that treats synthetic burns at decent efficiency. compared to hercuri its worse, but without
+// a potent coolant that treats synthetic burns at decent efficiency. compared to hercuri it's worse, but without
 // the lethal side effects, opting for a movement speed decrease instead
 /datum/reagent/dinitrogen_plasmide
 	name = "Dinitrogen Plasmide"
@@ -10,7 +10,7 @@
 	taste_description = "dull plasma"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
-	overdose_threshold = 60 // it takes a lot, if youre really messed up you CAN hit this but its unlikely
+	overdose_threshold = 60 // it takes a lot, if youre really messed up you CAN hit this but it's unlikely
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/dinitrogen_plasmide/on_mob_metabolize(mob/living/affected_mob)

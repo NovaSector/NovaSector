@@ -233,7 +233,7 @@
 	return TRUE
 
 /**
- * used during the component so that it can move when its attached atom moves
+ * used during the component so that it can move when it's attached atom moves
  */
 /obj/structure/simple_farm/proc/late_setup()
 	if(!ismovable(attached_atom))

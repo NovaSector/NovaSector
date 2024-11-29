@@ -18,8 +18,8 @@
 
 /datum/action/cooldown/hemophage/toggle_dormant_state
 	name = "Enter Dormant State"
-	desc = "Causes the tumor inside of you to enter a dormant state, causing it to need just a minimum amount of blood to survive. However, as the tumor living in your body is the only thing keeping you still alive, rendering it latent cuts both it and you to just the essential functions to keep standing. It will no longer mend your body even in the darkness, and the lack of blood pumping through you will have you the weakest you've ever felt; and leave you hardly able to run. It is not on a switch, and it will take some time for it to awaken."
-	cooldown_time = 3 MINUTES
+	desc = "Causes the tumor inside of you to enter a dormant state, causing it to need just a minimum amount of blood to survive. However, as the tumor living in your body is the only thing keeping you still alive, rendering it latent cuts both it and you to just the essential functions to keep standing. It will no longer mend your body even in the darkness nor allow you to taste anything, and the lack of blood pumping through you will have you the weakest you've ever felt; and leave you hardly able to run. It is not on a switch, and it will take some time for it to awaken."
+	cooldown_time = 2 MINUTES
 
 
 /datum/action/cooldown/hemophage/toggle_dormant_state/Activate(atom/action_target)
@@ -45,10 +45,12 @@
 
 	if(tumor.is_dormant)
 		name = "Exit Dormant State"
-		desc =  "Causes the pitch-black mass living inside of you to awaken, allowing your circulation to return and blood to pump freely once again. It fills your legs to let you run again, and longs for the darkness as it did before. You start to feel strength rather than the weakness you felt before. However, the tumor giving you life is not on a switch, and it will take some time to subdue it again."
+		desc = "Causes the pitch-black mass living inside of you to awaken, allowing your circulation to return and blood to pump freely once again. It fills your legs to let you run again, and longs for the darkness as it did before. You start to feel strength rather than the weakness you felt before. However, the tumor giving you life is not on a switch, and it will take some time to subdue it again."
 	else
 		name = initial(name)
 		desc = initial(desc)
+
+	build_all_button_icons(UPDATE_BUTTON_NAME)
 
 
 #undef DORMANT_STATE_START_MESSAGE

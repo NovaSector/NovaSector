@@ -3,7 +3,7 @@
 	icon = 'modular_nova/modules/blueshield/icons/praetorian.dmi'
 	icon_state = "praetorian-control"
 	theme = /datum/mod_theme/blueshield
-	applied_cell = /obj/item/stock_parts/cell/high
+	applied_cell = /obj/item/stock_parts/power_store/cell/high
 	applied_modules = list(
 		/obj/item/mod/module/storage,
 		/obj/item/mod/module/magnetic_harness,

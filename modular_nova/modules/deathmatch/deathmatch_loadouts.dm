@@ -1,3 +1,19 @@
+/**
+ * CYBERSUN SIM
+ */
+/datum/outfit/deathmatch_loadout/cybersun_sim
+	name = "DM: Cybersun Grunt"
+	display_name = "Cybersun Grunt"
+
+	uniform = /obj/item/clothing/under/syndicate/combat
+	mask = /obj/item/clothing/mask/neck_gaiter/syndicate
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/combat
+	id = /obj/item/card/id/advanced/chameleon
+
+/**
+ * DEEPSPACE
+ */
 //Azulean Pirate
 /datum/outfit/deathmatch_loadout/azulean
 	name = "DM: Azulean Boarder"
@@ -12,7 +28,6 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat
-	back = /obj/item/tank/jetpack/void
 	id = /obj/item/card/id/advanced/chameleon
 
 ///force the akula species onto the player

@@ -30,6 +30,7 @@
 		"Off-Duty Crew",
 		"Off-Duty Staff",
 		"Colonist",
+		"Contractor",
 	)
 
 /datum/job/atmospheric_technician
@@ -407,6 +408,15 @@
 		"EVA Technician",
 		"Mechanic",
 		"Apprentice Engineer",
+	)
+
+/datum/job/telecomms_specialist
+	alt_titles = list(
+		"Telecomms Specialist",
+		"Wireless Operator",
+		"Network Engineer",
+		"Sysadmin",
+		"Tram Technician",
 	)
 
 /datum/job/virologist

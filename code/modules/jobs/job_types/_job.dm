@@ -124,8 +124,7 @@
 	/// Alternate titles to register as pointing to this job.
 	var/list/alternate_titles
 
-	/// Does this job ignore human authority?
-	var/ignore_human_authority = FALSE
+	var/human_authority = JOB_AUTHORITY_NON_HUMANS_ALLOWED
 
 	/// String key to track any variables we want to tie to this job in config, so we can avoid using the job title. We CAPITALIZE it in order to ensure it's unique and resistant to trivial formatting changes.
 	/// You'll probably break someone's config if you change this, so it's best to not to.
@@ -181,7 +180,7 @@
 			spawned_human.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
 /// Return the outfit to use
-/datum/job/proc/get_outfit()
+/datum/job/proc/get_outfit(consistent)
 	return outfit
 
 /// Announce that this job as joined the round to all crew members.
@@ -196,12 +195,12 @@
 	return TRUE
 
 
-/mob/living/proc/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/on_job_equipping(datum/job/equipping)
+/mob/living/proc/on_job_equipping(datum/job/equipping, client/player_client)
 	return
 
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref, client/player_client) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/human/on_job_equipping(datum/job/equipping)
+/mob/living/carbon/human/on_job_equipping(datum/job/equipping, client/player_client)
 	if(equipping.paycheck_department)
 		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 		bank_account.payday(STARTING_PAYCHECKS, TRUE)
@@ -209,7 +208,12 @@
 		bank_account.replaceable = FALSE
 		add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-	dress_up_as_job(equipping, FALSE, used_pref) // NOVA EDIT CHANGE - ORIGINAL: dress_up_as_job(equipping)
+	dress_up_as_job(
+		equipping = equipping,
+		visual_only = FALSE,
+		player_client = player_client,
+		consistent = FALSE,
+	)
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		//equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK) // NOVA EDIT REMOVAL - See below
@@ -222,18 +226,27 @@
 
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
 
-/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE - ORIGINAL: /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+/mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	return
 
-/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) //NOVA EDIT CHANGE
+/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, client/player_client, consistent = FALSE)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.get_outfit(), used_pref, visual_only, equipping) //NOVA EDIT CHANGE : ORIGINAL equipOutfit(equipping.get_outfit(), visual_only)
+	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only, equipping) // NOVA EDIT - Loadout stuff - ORIGINAL: equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
 
-/// tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
-/datum/job/proc/announce_head(mob/living/carbon/human/H, channels, job_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_head(mob/living/carbon/human/H, channels)
-	if(H && GLOB.announcement_systems.len)
-		//timer because these should come after the captain announcement
-		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(pick(GLOB.announcement_systems), TYPE_PROC_REF(/obj/machinery/announcement_system, announce), "NEWHEAD", H.real_name, job_title, channels), 1)) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(pick(GLOB.announcement_systems), TYPE_PROC_REF(/obj/machinery/announcement_system, announce), "NEWHEAD", H.real_name, H.job, channels), 1))
+/datum/job/proc/announce_head(mob/living/carbon/human/human, channels, job_title) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels. // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_head(mob/living/carbon/human/human, channels)
+	if(!human)
+		return
+	var/obj/machinery/announcement_system/system
+	var/list/available_machines = list()
+	for(var/obj/machinery/announcement_system/announce as anything in GLOB.announcement_systems)
+		if(announce.newhead_toggle)
+			available_machines += announce
+			break
+	if(!length(available_machines))
+		return
+	system = pick(available_machines)
+	//timer because these should come after the captain announcement
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(system, TYPE_PROC_REF(/obj/machinery/announcement_system, announce), AUTO_ANNOUNCE_NEWHEAD, human.real_name, job_title, channels), 1)) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(system, TYPE_PROC_REF(/obj/machinery/announcement_system, announce), AUTO_ANNOUNCE_NEWHEAD, human.real_name, human.job, channels), 1))
 
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
 /datum/job/proc/player_old_enough(client/player)
@@ -251,6 +264,11 @@
 
 	//Without a database connection we can't get a player's age so we'll assume they're old enough for all jobs
 	if(!SSdbcore.Connect())
+		return 0
+
+	// If they have been exempted from date availability checks, we assume they are old enough for all jobs.
+	// This is only added whenever an admin manually ticks the box for this player.
+	if(player.prefs?.db_flags & DB_FLAG_EXEMPT)
 		return 0
 
 	// As of the time of writing this comment, verifying database connection isn't "solved". Sometimes rust-g will report a
@@ -329,9 +347,7 @@
 		info += span_warning("Remember that alternate titles are purely for flavor and roleplay.")
 		info += span_doyourjobidiot("Do not use your \"[alt_title]\" alt title as an excuse to forego your duties as a [title].")
 	//NOVA EDIT END
-
 	return info
-
 /// Returns information pertaining to this job's radio.
 /datum/job/proc/get_radio_information()
 	if(job_flags & JOB_CREW_MEMBER)
@@ -402,10 +418,10 @@
 	if(visualsOnly)
 		return
 
-	var/datum/job/equipped_job = SSjob.GetJobType(jobtype)
+	var/datum/job/equipped_job = SSjob.get_job_type(jobtype)
 
 	if(!equipped_job)
-		equipped_job = SSjob.GetJob(equipped.job)
+		equipped_job = SSjob.get_job(equipped.job)
 
 	var/obj/item/card/id/card = equipped.wear_id
 
@@ -549,11 +565,28 @@
 	if(!player_client)
 		return // Disconnected while checking for the appearance ban.
 
-	var/require_human = CONFIG_GET(flag/enforce_human_authority) && (job.job_flags & JOB_HEAD_OF_STAFF)
-	if(require_human)
-		var/all_authority_require_human = CONFIG_GET(flag/enforce_human_authority_on_everyone)
-		if(!all_authority_require_human && job.ignore_human_authority)
-			require_human = FALSE
+	var/human_authority_setting = CONFIG_GET(string/human_authority)
+	var/require_human = FALSE
+
+	// If the job in question is a head of staff,
+	// check the config to see if we should force the player onto a human character or not
+	if(job.job_flags & JOB_HEAD_OF_STAFF)
+		switch(human_authority_setting)
+
+			// If non-humans are the norm and jobs must be forced to be only for humans
+			// then we only force the player to be a human if the job exclusively allows humans
+			if(HUMAN_AUTHORITY_HUMAN_WHITELIST)
+				require_human = job.human_authority == JOB_AUTHORITY_HUMANS_ONLY
+
+			// If humans are the norm and jobs must be allowed to be played by non-humans
+			// then we only force the player to be a human if the job doesn't allow for non-humans to play it
+			if(HUMAN_AUTHORITY_NON_HUMAN_WHITELIST)
+				require_human = job.human_authority != JOB_AUTHORITY_NON_HUMANS_ALLOWED
+
+			// If humans are the norm and there is no chance that a non-human can be a head of staff
+			// always return true, since there is no chance that a non-human can be a head of staff.
+			if(HUMAN_AUTHORITY_ENFORCED)
+				require_human = TRUE
 
 	src.job = job.title
 
@@ -587,7 +620,7 @@
 				player_client.prefs.read_preference(/datum/preference/choiced/species),
 			)
 	dna.update_dna_identity()
-
+	updateappearance()
 
 /mob/living/silicon/ai/apply_prefs_job(client/player_client, datum/job/job)
 	if(GLOB.current_anonymous_theme)

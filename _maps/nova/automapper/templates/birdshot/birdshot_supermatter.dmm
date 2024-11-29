@@ -7,52 +7,56 @@
 /turf/template_noop,
 /area/template_noop)
 "v" = (
-/obj/machinery/atmospherics/components/unary/delam_scram/directional/west,
+/obj/structure/sign/delam_procedure/directional/south,
 /turf/template_noop,
 /area/template_noop)
 "B" = (
-/obj/structure/sign/delam_procedure/directional/east,
+/obj/machinery/atmospherics/components/unary/delam_scram/directional/east,
 /turf/template_noop,
 /area/template_noop)
-"T" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/holopad,
-/obj/effect/spawner/random/engineering/tracking_beacon,
-/obj/effect/turf_decal/stripes/red/box,
-/turf/open/floor/iron/smooth,
-/area/station/engineering/supermatter/room)
 
 (1,1,1) = {"
-T
-B
+a
+a
+a
+a
+a
+a
+j
 "}
 (2,1,1) = {"
-j
+a
+a
+a
+a
+a
+v
 a
 "}
 (3,1,1) = {"
+a
+a
+a
+a
+a
 a
 a
 "}
 (4,1,1) = {"
 a
 a
+a
+a
+a
+a
+a
 "}
 (5,1,1) = {"
+B
 a
 a
-"}
-(6,1,1) = {"
 a
 a
-"}
-(7,1,1) = {"
 a
 a
-"}
-(8,1,1) = {"
-a
-v
 "}

@@ -1,7 +1,7 @@
 ///the minimum size of a pill or patch
 #define MIN_VOLUME 5
 ///the maximum size a pill or patch can be
-#define MAX_VOLUME 50
+#define MAX_VOLUME 100 // NOVA EDIT CHANGE - 100u MAX - ORIGINAL: #define MAX_VOLUME 50
 ///max amount of pills allowed on our tile before we start storing them instead
 #define MAX_FLOOR_PRODUCTS 10
 
@@ -25,6 +25,10 @@
 	var/packaging_category
 	/// list of products stored in the machine, so we dont have 610 pills on one tile
 	var/list/stored_products = list()
+	// NOVA EDIT ADDITION START
+	/// Increases the standard plumbing machine buffer to account for the increased max volume
+	buffer = MAX_VOLUME
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
 	. = ..()
@@ -63,7 +67,7 @@
 	. = ..()
 	. += span_notice("The [name] currently has [stored_products.len] stored. There needs to be less than [MAX_FLOOR_PRODUCTS] on the floor to continue dispensing.")
 
-/// decode product category from it's type path and returns the decoded typepath
+/// decode product category from its type path and returns the decoded typepath
 /obj/machinery/plumbing/pill_press/proc/decode_category()
 	var/obj/item/reagent_containers/container = locate(packaging_type)
 	if(ispath(container, /obj/item/reagent_containers/pill/patch))
@@ -146,7 +150,7 @@
 
 	return data
 
-/obj/machinery/plumbing/pill_press/ui_act(action, params)
+/obj/machinery/plumbing/pill_press/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

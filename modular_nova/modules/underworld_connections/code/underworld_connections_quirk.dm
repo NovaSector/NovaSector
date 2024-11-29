@@ -7,7 +7,7 @@
 	lose_text = span_notice("Your contacts to the underworld have gone quiet.")
 	medical_record_text = "Patient records may have been tampered with in the past."
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
-	mail_goodies = list(/obj/item/storage/briefcase/secure)
+	mail_goodies = list(/obj/item/circuitboard/machine/ltsrbt, /obj/item/stack/ore/bluespace_crystal/artificial, /datum/stock_part/ansible)
 
 /datum/quirk/item_quirk/underworld_connections/add_unique(client/client_source)
 	if (ishuman(quirk_holder))
@@ -83,15 +83,15 @@
 /// List of uplink skins, associated list where the value is a list containing icon dmi and then icon_state
 GLOBAL_LIST_INIT(possible_uplink_skins, list(
 	"Brick Phone" = list('icons/obj/antags/gang/cell_phone.dmi', "phone_off"),
-	"Default Black Market Uplink" = list('icons/obj/blackmarket.dmi', "uplink"),
+	"Default Black Market Uplink" = list('icons/obj/devices/blackmarket.dmi', "uplink"),
 	"Generic Radio" = list('icons/obj/devices/voice.dmi', "radio"),
 	"Green Walkie Talkie" = list('icons/obj/devices/voice.dmi', "walkietalkie"),
-	"Inconspicious PDA" = list('icons/obj/modular_pda.dmi', "pda"),
-	"Mining Radio" = list('icons/obj/miningradio.dmi', "miningradio"),
+	"Inconspicious PDA" = list('icons/obj/devices/modular_pda.dmi', "pda"),
+	"Mining Radio" = list('icons/obj/devices/miningradio.dmi', "miningradio"),
 	"Red Analogue Phone" = list('icons/obj/devices/voice.dmi', "red_phone"),
 	"Red Walkie Talkie" = list('icons/obj/devices/voice.dmi', "nukietalkie"),
 	"Syndicate Suspicious Phone" = list('icons/obj/antags/syndicate_tools.dmi', "suspiciousphone"),
-	"Syndicate Tablet (Silicon)" = list('icons/obj/modular_pda.dmi', "tablet-silicon-syndicate"),
+	"Syndicate Tablet (Silicon)" = list('icons/obj/devices/modular_pda.dmi', "tablet-silicon-syndicate"),
 ))
 
 /datum/preference/choiced/uplink_skin/init_possible_values()

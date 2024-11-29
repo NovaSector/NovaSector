@@ -27,10 +27,6 @@
 
 /datum/component/off_duty_timer/Destroy(force)
 	UnregisterSignal(parent, COMSIG_ATOM_ATTACKBY)
-	if(stored_trim)
-		qdel(stored_trim)
-		stored_trim = null
-
 	return ..()
 
 ///Sets the on_cooldown variable to false, making it so that the ID can clock back in.

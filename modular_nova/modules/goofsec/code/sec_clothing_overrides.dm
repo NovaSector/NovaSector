@@ -171,7 +171,7 @@
 		resolve_parent.balloon_alert(user, "can't reach!")
 		return FALSE
 
-	if(!isliving(user) || user.incapacitated())
+	if(!isliving(user) || user.incapacitated)
 		return FALSE
 
 	var/obj/item/gun/gun_to_draw = locate() in real_location
@@ -250,7 +250,7 @@
 	. = ..()
 	if(.)
 		return
-	if(user.incapacitated() || !can_toggle)
+	if(user.incapacitated || !can_toggle)
 		return
 	up = !up
 	flags_1 ^= visor_flags
@@ -439,6 +439,10 @@
 			RESKIN_WORN_ICON_STATE = "gloves_white"
 		),
 	)
+
+/obj/item/clothing/gloves/color/black/security/blu // Wait why these a subtype of black?!? Who did this
+	icon = 'icons/obj/clothing/gloves.dmi'
+	worn_icon = 'icons/mob/clothing/hands.dmi'
 
 /obj/item/clothing/gloves/tackler/security	//Can't just overwrite tackler, as there's a ton of subtypes that we'd then need to account for. This is easier. MUCH easier.
 	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
@@ -701,7 +705,7 @@
 	worn_icon = 'icons/mob/clothing/eyes.dmi'
 	icon_state = "sunhudsec"
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
-	current_skin = "sunhudsec" //prevents reskinning; a bit hacky to say its already reskinned but its better than a code rewrite
+	current_skin = "sunhudsec" //prevents reskinning; a bit hacky to say it's already reskinned but it's better than a code rewrite
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec
 	icon = 'icons/obj/clothing/glasses.dmi'
@@ -779,6 +783,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		))
 
 /obj/item/storage/belt/holster/detective
@@ -804,6 +809,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		))
 
 /obj/item/storage/belt/holster/energy/Initialize(mapload)
@@ -822,6 +828,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 	))
 /*
 *	HEAD

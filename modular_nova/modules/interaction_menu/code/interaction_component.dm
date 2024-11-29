@@ -48,6 +48,7 @@
 		return
 	build_interactions_list()
 	INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
+	return CLICK_ACTION_SUCCESS
 
 /datum/component/interactable/proc/can_interact(datum/interaction/interaction, mob/living/carbon/human/target)
 	if(!interaction.allow_act(target, self))
@@ -135,12 +136,12 @@
 		"img" = (item && can_lewd_strip(source, target, name)) ? icon2base64(icon(item.icon, item.icon_state, SOUTH, 1)) : null
 		)
 
-/datum/component/interactable/ui_act(action, list/params)
+/datum/component/interactable/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	if(!ishuman(usr))
+	if(!ishuman(ui.user))
 		return
 
 	if(params["interaction"])

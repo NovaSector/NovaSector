@@ -27,7 +27,7 @@
 	return ..()
 
 /// When we're taken out of someone, do something spooky
-/datum/element/corrupted_organ/proc/on_removed(atom/organ, mob/living/carbon/loser)
+/datum/element/corrupted_organ/proc/on_removed(atom/organ, mob/living/remover, mob/living/carbon/loser)
 	SIGNAL_HANDLER
 	if (loser.has_reagent(/datum/reagent/water/holywater) || loser.can_block_magic(MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY) || prob(20))
 		return
@@ -41,7 +41,7 @@
 		)
 		return
 	var/turf/origin_turf = get_turf(organ)
-	playsound(organ, 'sound/magic/forcewall.ogg', vol = 100)
+	playsound(organ, 'sound/effects/magic/forcewall.ogg', vol = 100)
 	new /obj/effect/temp_visual/curse_blast(origin_turf)
 	organ.visible_message(span_revenwarning("[organ] explodes in a burst of dark energy!"))
 	for(var/mob/living/target in range(1, origin_turf))

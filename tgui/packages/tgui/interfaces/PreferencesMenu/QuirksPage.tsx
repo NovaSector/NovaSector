@@ -215,6 +215,7 @@ function QuirkPopper(props: QuirkPopperProps) {
       placement="bottom-end"
       onClickOutside={() => setCustomizationExpanded(false)}
       isOpen={customizationExpanded}
+      baseZIndex={1}
       content={
         <div>
           {!!customization_options && hasExpandableCustomization && (

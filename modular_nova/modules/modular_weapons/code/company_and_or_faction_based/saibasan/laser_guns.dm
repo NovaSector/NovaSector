@@ -22,7 +22,7 @@
 	inhand_icon_state = "hyeseong_kill"
 	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/saibasan/guns_worn.dmi'
 	worn_icon_state = "hyeseong_kill"
-	cell_type = /obj/item/stock_parts/cell/hyeseong_internal_cell
+	cell_type = /obj/item/stock_parts/power_store/cell/hyeseong_internal_cell
 	modifystate = FALSE
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_big_kill)
 	can_select = FALSE
@@ -195,7 +195,7 @@
 	if(!ignores_cooldown && !COOLDOWN_FINISHED(src, last_speech))
 		return
 	say(pick_list_replacements(speech_json_file, json_string))
-	playsound(src, 'sound/creatures/tourist/tourist_talk.ogg', 15, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, frequency = rand(2, 2.2))
+	playsound(src, 'sound/mobs/non-humanoids/tourist/tourist_talk.ogg', 15, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, frequency = rand(2, 2.2))
 	Shake(2, 2, 1 SECONDS)
 	COOLDOWN_START(src, last_speech, MOD_LASER_SPEECH_COOLDOWN)
 
@@ -233,13 +233,13 @@
 /obj/item/gun/energy/modular_laser_rifle/ui_action_click(mob/user, actiontype)
 	if(!istype(actiontype, /datum/action/item_action/toggle_personality))
 		return ..()
-	playsound(src, 'sound/machines/beep.ogg', 30, TRUE)
+	playsound(src, 'sound/machines/beep/beep.ogg', 30, TRUE)
 	personality_mode = !personality_mode
 	speak_up("[personality_mode ? "pickup" : "putdown"]", ignores_personality_toggle = TRUE)
 	return ..()
 
 // Power cell for the big rifle
-/obj/item/stock_parts/cell/hyeseong_internal_cell
+/obj/item/stock_parts/power_store/cell/hyeseong_internal_cell
 	name = "\improper Hyeseong modular laser rifle internal cell"
 	desc = "These are usually supposed to be inside of the gun, you know."
 	maxcharge = STANDARD_CELL_CHARGE * 2
@@ -262,7 +262,7 @@
 	worn_icon_state = "hoshi_kill"
 	base_icon_state = "hoshi"
 	charge_sections = 3
-	cell_type = /obj/item/stock_parts/cell
+	cell_type = /obj/item/stock_parts/power_store/cell
 	ammo_type = list(/obj/item/ammo_casing/energy/cybersun_small_hellfire)
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	SET_BASE_PIXEL(0, 0)

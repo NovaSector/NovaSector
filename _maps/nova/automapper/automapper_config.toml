@@ -75,14 +75,6 @@ required_map = "MetaStation.dmm"
 coordinates = [163, 155, 1]
 trait_name = "Station"
 
-# Metastation Virologist Spawn
-[templates.metastation_virologist]
-map_files = ["metastation_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/metastation/"
-required_map = "MetaStation.dmm"
-coordinates = [56, 86, 1]
-trait_name = "Station"
-
 # DELTASTATION MAP EDITS
 # Deltastation Arrivals
 [templates.deltastation_arrivals]
@@ -130,14 +122,6 @@ map_files = ["deltastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [84, 109, 1]
-trait_name = "Station"
-
-# Deltastation Virologist Spawn
-[templates.deltastation_virologist]
-map_files = ["deltastation_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/deltastation/"
-required_map = "DeltaStation2.dmm"
-coordinates = [134, 45, 1]
 trait_name = "Station"
 
 # ICEBOX MAP EDITS
@@ -195,14 +179,6 @@ map_files = ["icebox_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/icebox/"
 required_map = "IceBoxStation.dmm"
 coordinates = [114, 65, 3]
-trait_name = "Station"
-
-# Icebox Virologist Spawn
-[templates.icebox_virologist]
-map_files = ["icebox_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/icebox/"
-required_map = "IceBoxStation.dmm"
-coordinates = [153, 109, 2]
 trait_name = "Station"
 
 # Icecats Camp Lower Level
@@ -278,14 +254,6 @@ required_map = "tramstation.dmm"
 coordinates = [118, 75, 1]
 trait_name = "Station"
 
-# Tramstation Virologist Spawn
-[templates.tramstation_virologist]
-map_files = ["tramstation_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/tramstation/"
-required_map = "tramstation.dmm"
-coordinates = [141, 94, 2]
-trait_name = "Station"
-
 # BIRDSHOT MAP EDITS
 # Birdshot Arrivals
 [templates.birdshot_arrivals]
@@ -308,7 +276,7 @@ trait_name = "Station"
 map_files = ["birdshot_cryo.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
-coordinates = [147, 142, 1]
+coordinates = [142, 84, 1]
 trait_name = "Station"
 
 # Birdshot Barber
@@ -316,15 +284,15 @@ trait_name = "Station"
 map_files = ["birdshot_barber.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
-coordinates = [129, 127, 1]
+coordinates = [118, 145, 1]
 trait_name = "Station"
 
-# Birdshot NTR Office
+# Birdshot NTC Office
 [templates.birdshot_ntrep_office]
 map_files = ["birdshot_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
-coordinates = [111, 157, 1]
+coordinates = [91, 143, 1]
 trait_name = "Station"
 
 # Birdshot ERT Bay
@@ -340,15 +308,7 @@ trait_name = "Station"
 map_files = ["birdshot_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
-coordinates = [65, 212, 1]
-trait_name = "Station"
-
-# Birdshot Virologist Spawn
-[templates.birdshot_virologist]
-map_files = ["birdshot_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [123, 73, 1]
+coordinates = [67, 207, 1]
 trait_name = "Station"
 
 # NORTHSTAR MAP EDITS
@@ -416,14 +376,6 @@ required_map = "north_star.dmm"
 coordinates = [171, 129, 1]
 trait_name = "Station"
 
-# Northstar Virologist Spawn
-[templates.northstar_virologist]
-map_files = ["northstar_virologist.dmm"]
-directory = "_maps/nova/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [143, 141, 2]
-trait_name = "Station"
-
 # Lavaland NE Ashwalker Fortress
 [templates.lavaland_ashwalker_fortress]
 map_files = ["lavaland_ashwalker_fortress.dmm"]
@@ -431,3 +383,69 @@ directory = "_maps/nova/automapper/templates/mining/"
 required_map = "Lavaland.dmm"
 coordinates = [203, 223, 1]
 trait_name = "Mining"
+
+# WAWASTATION MAP EDITS
+# Wawastation Arrivals
+[templates.wawastation_arrivals]
+map_files = ["wawastation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [79, 81, 2]
+trait_name = "Station"
+
+# Wawastation NTR Office
+[templates.wawastation_ntrep_office]
+map_files = ["wawastation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [108, 122, 1]
+trait_name = "Station"
+
+# Wawastation Supermatter
+[templates.wawastation_supermatter]
+map_files = ["wawastation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [162, 63, 1]
+trait_name = "Station"
+
+# Wawastation Barber
+[templates.wawastation_barber]
+map_files = ["wawastation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [87, 102, 1]
+trait_name = "Station"
+
+# Wawastation Armory
+[templates.wawastation_armory]
+map_files = ["wawastation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [64, 128, 2]
+trait_name = "Station"
+
+# Wawastation Cryo
+[templates.wawastation_cryo]
+map_files = ["wawastation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [83, 92, 1]
+trait_name = "Station"
+
+# SNOWGLOBE STATION MAP EDITS
+# Icecats Camp Lower Level - Snowglobe
+[templates.snowglobe_icecats_lower]
+map_files = ["icemoon_underground_icewalker_lower.dmm"]
+directory = "_maps/RandomRuins/IceRuins/nova/"
+required_map = "snowglobe.dmm"
+coordinates = [202, 16, 1]
+trait_name = "Station"
+
+# Icecats Camp Upper Level - Snowglobe
+[templates.snowglobe_icecats_upper]
+map_files = ["icemoon_underground_icewalker_upper.dmm"]
+directory = "_maps/RandomRuins/IceRuins/nova/"
+required_map = "snowglobe.dmm"
+coordinates = [202, 16, 2]
+trait_name = "Station"

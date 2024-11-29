@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/key_bindings_by_key = list()
 
 	var/toggles = TOGGLES_DEFAULT
-	var/db_flags
+	var/db_flags = NONE
 	var/chat_toggles = TOGGLES_DEFAULT_CHAT
 	var/ghost_form = "ghost"
 
@@ -109,10 +109,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		load_path(parent.ckey)
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
-		unlock_content = !!parent.IsByondMember()
-		donator_status = !!GLOB.donator_list[parent.ckey] //NOVA EDIT ADD - DONATOR CHECK
-		if(unlock_content || donator_status) //NOVA EDIT CHANGE - ADD DONATOR CHECK
-			max_save_slots = 50 //NOVA EDIT - ORIGINAL 8
+
+		refresh_membership()
 	else
 		CRASH("attempted to create a preferences datum without a client or mock!")
 	load_savefile()
@@ -174,14 +172,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if (tainted_character_profiles)
 		data["character_profiles"] = create_character_profiles()
 		tainted_character_profiles = FALSE
-
-	//NOVA EDIT BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
-
+	data["erp_pref"] = read_preference(/datum/preference/toggle/master_erp_preferences)
 	data["quirk_points_enabled"] = !CONFIG_GET(flag/disable_quirk_points)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
-	//NOVA EDIT END
+	//NOVA EDIT ADDITION END
 
 	data["character_preferences"] = compile_character_preferences(user)
 
@@ -205,7 +202,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	data["character_profiles"] = create_character_profiles()
 
 	data["character_preview_view"] = character_preview_view.assigned_map
-	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).title
+	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
 
 	data["content_unlocked"] = unlock_content
@@ -241,32 +238,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if ("change_slot")
 			// Save existing character
 			save_character()
-
-			// SAFETY: `load_character` performs sanitization the slot number
-			if (!load_character(params["slot"]))
-				tainted_character_profiles = TRUE
-				randomise_appearance_prefs()
-				save_character()
-
-			// NOVA EDIT START - Sanitizing languages
-			if(sanitize_languages())
-				save_character()
-			// NOVA EDIT END
-
-			for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-				preference_middleware.on_new_character(usr)
-
-			character_preview_view.update_body()
-
+			// SAFETY: `switch_to_slot` performs sanitization on the slot number
+			switch_to_slot(params["slot"])
+			return TRUE
+		if ("remove_current_slot")
+			remove_current_slot()
 			return TRUE
 		if ("rotate")
 			/* NOVA EDIT - Bi-directional prefs menu rotation - ORIGINAL:
-			character_preview_view.dir = turn(character_preview_view.dir, -90)
+			character_preview_view.setDir(turn(character_preview_view.dir, -90))
 			*/ // ORIGINAL END - NOVA EDIT START:
 			var/backwards = params["backwards"]
-			character_preview_view.dir = turn(character_preview_view.dir, backwards ? 90 : -90)
+			character_preview_view.setDir(turn(character_preview_view.dir, backwards ? 90 : -90))
 			// NOVA EDIT END
-
 			return TRUE
 		if ("set_preference")
 			var/requested_preference_key = params["preference"]
@@ -286,12 +270,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			if (istype(requested_preference, /datum/preference/name))
 				tainted_character_profiles = TRUE
-			//NOVA EDIT
+			//NOVA EDIT ADDITION START
 			update_mutant_bodyparts(requested_preference)
 			for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 				if (preference_middleware.post_set_preference(usr, requested_preference_key, value))
 					return TRUE
-			//NOVA EDIT END
+			//NOVA EDIT ADDITION END
 			return TRUE
 		if ("set_color_preference")
 			var/requested_preference_key = params["preference"]
@@ -320,27 +304,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				return FALSE
 
 			return TRUE
-		//NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION START
 		if("update_preview")
 			preview_pref = params["updated_preview"]
 			character_preview_view.update_body()
 			return TRUE
 
-		if ("open_loadout")
-			var/datum/loadout_manager/open_loadout_ui = parent.open_loadout_ui?.resolve()
-			if(open_loadout_ui)
-				open_loadout_ui.ui_interact(usr)
-			else
-				parent.open_loadout_ui = null
-				var/datum/loadout_manager/tgui = new(usr)
-				tgui.ui_interact(usr)
-			return TRUE
-
-		// NOVA EDIT ADDITION - START
 		if ("open_food")
 			GLOB.food_prefs_menu.ui_interact(usr)
 			return TRUE
-		// NOVA EDIT ADDITION - END
+
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
 			var/index_key = params["value"]
@@ -378,8 +351,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		// For the quirks in the prefs menu.
 		if ("get_quirks_balance")
 			return TRUE
-		//NOVA EDIT END
-
+		//NOVA EDIT ADDITION END
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		var/delegation = preference_middleware.action_delegations[action]
@@ -456,6 +428,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/mob/living/carbon/human/dummy/body
 	/// The preferences this refers to
 	var/datum/preferences/preferences
+	/// Whether we show current job clothes or nude/loadout only
+	var/show_job_clothes = TRUE
 
 /atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
@@ -473,15 +447,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		create_body()
 	else
 		body.wipe_state()
-	appearance = preferences.render_new_preview_appearance(body)
+
+	appearance = preferences.render_new_preview_appearance(body, show_job_clothes)
 
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
 
 	body = new
-
-	// Without this, it doesn't show up in the menu
-	body.appearance_flags |= KEEP_TOGETHER // NOVA EDIT - Fix pixel scaling - ORIGINAL: body.appearance_flags &= ~KEEP_TOGETHER
 
 /datum/preferences/proc/create_character_profiles()
 	var/list/profiles = list()
@@ -659,3 +631,24 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			default_randomization[preference_key] = RANDOM_ENABLED
 
 	return default_randomization
+
+/datum/preferences/proc/refresh_membership()
+	var/byond_member = parent.IsByondMember()
+	if(isnull(byond_member)) // Connection failure, retry once
+		byond_member = parent.IsByondMember()
+		var/static/admins_warned = FALSE
+		if(!admins_warned)
+			admins_warned = TRUE
+			message_admins("BYOND membership lookup had a connection failure for a user. This is most likely an issue on the BYOND side but if this consistently happens you should bother your server operator to look into it.")
+		if(isnull(byond_member)) // Retrying didn't work, warn the user
+			log_game("BYOND membership lookup for [parent.ckey] failed due to a connection error.")
+		else
+			log_game("BYOND membership lookup for [parent.ckey] failed due to a connection error but succeeded after retry.")
+
+	if(isnull(byond_member))
+		to_chat(parent, span_warning("There's been a connection failure while trying to check the status of your BYOND membership. Reconnecting may fix the issue, or BYOND could be experiencing downtime."))
+
+	unlock_content = !!byond_member
+	donator_status = !!GLOB.donator_list[parent.ckey] // NOVA EDIT ADDITION - DONATOR CHECK
+	if(unlock_content || donator_status) // NOVA EDIT CHANGE - ORIGINAL: if(unlock_content)
+		max_save_slots = 50 //NOVA EDIT - ORIGINAL: max_save_slots = 8

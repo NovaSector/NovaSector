@@ -51,6 +51,27 @@ export const ooc_notes: Feature<string> = {
   component: FeatureTextInput,
 };
 
+export const character_ad: Feature<string> = {
+  name: 'Character Advert',
+  description:
+    'An advertisement for your character. Give information on how to approach for those interested, for either regular and erotic roleplay.',
+  component: FeatureTextInput,
+};
+
+export const attraction: FeatureChoiced = {
+  name: 'Character Attraction',
+  description:
+    'What your character is attracted to. This is displayed in the Directory.',
+  component: FeatureDropdownInput,
+};
+
+export const display_gender: FeatureChoiced = {
+  name: 'Character Gender',
+  description:
+    'What classifies as the gender for your character. This is displayed in the Directory.',
+  component: FeatureDropdownInput,
+};
+
 export const custom_species: Feature<string> = {
   name: 'Custom Species Name',
   description:

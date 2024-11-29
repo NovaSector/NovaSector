@@ -1,3 +1,5 @@
+#define MINIMUM_VALUE_MULT 0.95 // NOVA EDIT: used in price_minimum declarations, /tg/ default is 0.5
+#define MAXIMUM_VALUE_MULT 1.05 // NOVA EDIT: used in prixe_maximum declarations, /tg/ default is 3
 
 SUBSYSTEM_DEF(stock_market)
 	name = "Stock Market"
@@ -9,7 +11,7 @@ SUBSYSTEM_DEF(stock_market)
 	var/list/materials_prices = list()
 	/// Associated list of materials alongside their market trends. 1 is up, 0 is stable, -1 is down.
 	var/list/materials_trends = list()
-	/// Associated list of materials alongside the life of it's current trend. After it's life is up, it will change to a new trend.
+	/// Associated list of materials alongside the life of its current trend. After its life is up, it will change to a new trend.
 	var/list/materials_trend_life = list()
 	/// Associated list of materials alongside their available quantity. This is used to determine how much of a material is available to buy, and how much buying and selling affects the price.
 	var/list/materials_quantity = list()
@@ -48,10 +50,10 @@ SUBSYSTEM_DEF(stock_market)
 	var/new_price = materials_prices[mat.type] + delta
 
 	//get the limits
-	var/price_minimum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * 0.5)
+	var/price_minimum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * MINIMUM_VALUE_MULT) // NOVA EDIT: magic number replacement
 	if(!isnull(mat.minimum_value_override))
 		price_minimum = round(mat.minimum_value_override * SHEET_MATERIAL_AMOUNT)
-	var/price_maximum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * 3)
+	var/price_maximum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * MAXIMUM_VALUE_MULT) // NOVA EDIT: magic number replacement
 
 	//clamp it down
 	new_price = round(clamp(new_price, price_minimum, price_maximum))
@@ -81,10 +83,10 @@ SUBSYSTEM_DEF(stock_market)
 	var/trend_life = materials_trend_life[mat]
 
 	var/price_units = materials_prices[mat]
-	var/price_minimum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * 0.5)
+	var/price_minimum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * MINIMUM_VALUE_MULT) // NOVA EDIT: magic number replacement
 	if(!isnull(mat.minimum_value_override))
 		price_minimum = round(mat.minimum_value_override * SHEET_MATERIAL_AMOUNT)
-	var/price_maximum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * 3)
+	var/price_maximum = round(mat.value_per_unit * SHEET_MATERIAL_AMOUNT * MAXIMUM_VALUE_MULT) // NOVA EDIT: magic number replacement
 	var/price_baseline = mat.value_per_unit * SHEET_MATERIAL_AMOUNT
 	var/quantity_baseline = mat.tradable_base_quantity
 
@@ -140,3 +142,6 @@ SUBSYSTEM_DEF(stock_market)
 	event = new event
 	if(event.start_event(mat))
 		active_events += event
+
+#undef MINIMUM_VALUE_MULT // NOVA EDIT: used in price min/max declarations
+#undef MAXIMUM_VALUE_MULT // NOVA EDIT: used in price min/max declarations

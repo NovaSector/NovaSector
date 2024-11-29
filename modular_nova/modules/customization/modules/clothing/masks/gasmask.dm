@@ -55,7 +55,6 @@
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
-	has_fov = FALSE
 	greyscale_config = /datum/greyscale_config/clown_mask
 	greyscale_config_worn = /datum/greyscale_config/clown_mask/worn
 	greyscale_colors = "#FFFFFF#F20018#0000FF#00CC00"
@@ -80,7 +79,6 @@
 	icon_state = "respirator"
 	inhand_icon_state = "sechailer"
 	w_class = WEIGHT_CLASS_SMALL
-	has_fov = FALSE
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
 	flags_inv = HIDEFACIALHAIR|HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH
@@ -98,14 +96,15 @@
 	. = ..()
 	. += span_notice("You can toggle its ability to muffle your TTS voice with <b>control click</b>.")
 
-/obj/item/clothing/mask/gas/respirator/CtrlClick(mob/living/user)
+/obj/item/clothing/mask/gas/respirator/item_ctrl_click(mob/user)
 	if(!isliving(user))
-		return
+		return CLICK_ACTION_BLOCKING
 	if(user.get_active_held_item() != src)
 		to_chat(user, span_warning("You must hold the [src] in your hand to do this!"))
-		return
+		return CLICK_ACTION_BLOCKING
 	voice_filter = voice_filter ? null : initial(voice_filter)
 	to_chat(user, span_notice("Mask voice muffling [voice_filter ? "enabled" : "disabled"]."))
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/gas/clown_hat/vox
 	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask. This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."
@@ -127,7 +126,7 @@
 		)
 
 /obj/item/clothing/mask/gas/clown_hat/vox/ui_action_click(mob/user)
-	if(!istype(user) || user.incapacitated())
+	if(!istype(user) || user.incapacitated)
 		return
 
 	var/list/options = list()
@@ -142,7 +141,7 @@
 	if(!choice)
 		return FALSE
 
-	if(src && choice && !user.incapacitated() && in_range(user,src))
+	if(src && choice && !user.incapacitated && in_range(user,src))
 		icon_state = options[choice]
 		user.update_worn_mask()
 		update_item_action_buttons()
@@ -167,7 +166,7 @@
 		)
 
 /obj/item/clothing/mask/gas/mime/vox/ui_action_click(mob/user)
-	if(!istype(user) || user.incapacitated())
+	if(!istype(user) || user.incapacitated)
 		return
 
 	var/list/options = list()
@@ -180,7 +179,7 @@
 	if(!choice)
 		return FALSE
 
-	if(src && choice && !user.incapacitated() && in_range(user,src))
+	if(src && choice && !user.incapacitated && in_range(user,src))
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.dna.species.mutant_bodyparts["snout"])
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'

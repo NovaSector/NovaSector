@@ -127,7 +127,8 @@
 					equipped.forceMove(get_turf(H))
 
 	if(gets_loadout)
-		for(var/datum/loadout_item/item as anything in loadout_list_to_datums(H?.client?.prefs?.loadout_list))
+		var/list/loadout = loadout_list_to_datums(H.client?.prefs?.read_preference(/datum/preference/loadout))
+		for(var/datum/loadout_item/item as anything in loadout)
 			item.post_equip_item(H.client?.prefs, H)
 
 	//Override access of the ID card here

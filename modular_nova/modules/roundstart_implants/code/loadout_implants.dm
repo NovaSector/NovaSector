@@ -45,7 +45,7 @@
 /obj/item/organ/internal/cyberimp/arm/electrical_toolset
 	name = "electrical toolset implant"
 	desc = "Bereft of any kind of insulation to speak of, this aug has a very distinct nickname amongst frontier outpost crews: 'the sizzler'. Often used in high verticality environments where loadout space is at a premium."
-	items_to_create = list(/obj/item/screwdriver/integrated, /obj/item/multitool/integrated)
+	items_to_create = list(/obj/item/screwdriver/integrated, /obj/item/multitool/integrated, /obj/item/wirecutters/integrated)
 
 /obj/item/organ/internal/cyberimp/arm/electrical_toolset/Initialize(mapload)
 	. = ..()

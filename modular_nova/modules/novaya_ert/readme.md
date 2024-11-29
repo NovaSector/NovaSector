@@ -12,4 +12,3 @@ Stalkeros - Code and some icons.
 Zydras - NRI police clothing, stun gun and NRI holobarriers icons.
 Ramirez - Icons and idea.
 Flavrius - Icons + misc.
-Paxilmaniac - Surplus weapons and armor.

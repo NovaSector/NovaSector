@@ -9,6 +9,7 @@
 	icon_state = "posibrain-ipc"
 	/// The last time (in ticks) a message about brain damage was sent. Don't touch.
 	var/last_message_time = 0
+	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 
 /obj/item/organ/internal/brain/synth/mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
@@ -37,7 +38,7 @@
 			to_chat(owner, span_warning("Alert: Electromagnetic damage taken in central processing unit. Error Code: 401-YT"))
 			apply_organ_damage(SYNTH_ORGAN_LIGHT_EMP_DAMAGE, SYNTH_EMP_BRAIN_DAMAGE_MAXIMUM, required_organ_flag = ORGAN_ROBOTIC)
 
-/obj/item/organ/internal/brain/synth/apply_organ_damage(damage_amount, maximumm, required_organ_flag)
+/obj/item/organ/internal/brain/synth/apply_organ_damage(damage_amount, maximum, required_organ_flag)
 	. = ..()
 
 	if(owner && damage > 0 && (world.time - last_message_time) > SYNTH_BRAIN_DAMAGE_MESSAGE_INTERVAL)
@@ -61,6 +62,6 @@
 
 /obj/item/organ/internal/brain/synth/mmi
 	name = "compact man-machine interface"
-	desc = "A compact man-machine interface, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. Unfortunately, the brain seems to be permanently attached to the circuitry, and it seems relatively sensitive to it's environment. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact man-machine interface, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. Unfortunately, the brain seems to be permanently attached to the circuitry, and it seems relatively sensitive to its environment. It is usually slotted into the chest of synthetic crewmembers."
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "mmi-ipc"

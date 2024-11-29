@@ -14,6 +14,8 @@
 	icon = FA_ICON_EXPAND_ARROWS_ALT
 	veteran_only = TRUE
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
+	/// Saves refs to the original (normal size) organs, which are on ice in nullspace in case this quirk gets removed somehow.
+	var/list/obj/item/organ/old_organs
 
 /datum/quirk/oversized/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -31,19 +33,8 @@
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
-	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
-	if(!istype(old_stomach))
-		return
-	old_stomach.Remove(human_holder, special = TRUE)
-	qdel(old_stomach)
-	if(issynthetic(human_holder))
-		var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
-		new_synth_stomach.Insert(human_holder, special = TRUE)
-		to_chat(human_holder, span_warning("You feel your massive engine rumble!"))
-	else
-		var/obj/item/organ/internal/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
-		new_stomach.Insert(human_holder, special = TRUE)
-		to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
+
+	human_holder.dna.species.gain_oversized_organs(human_holder, src) // handles the addition of oversized organs (species default is a plain oversized stomach)
 
 /datum/quirk/oversized/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -77,6 +68,20 @@
 	human_holder.physiology.hunger_mod /= OVERSIZED_HUNGER_MOD
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
+	for(var/obj/item/organ/organ_to_restore in old_organs)
+		old_organs -= organ_to_restore
+
+		if(QDELETED(organ_to_restore)) // not sure why this would ever happen but just in case
+			continue
+
+		// if it's a brain, make sure the mob doesn't get stuck outside their body
+		var/obj/item/organ/internal/brain/possibly_a_brain = organ_to_restore
+		if(istype(possibly_a_brain))
+			var/obj/item/organ/internal/brain/current_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
+			possibly_a_brain.brainmob = current_brain.brainmob
+
+		organ_to_restore.replace_into(quirk_holder)
+
 /datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
 	SIGNAL_HANDLER
 
@@ -94,7 +99,7 @@
 	else if(istype(gained, /obj/item/bodypart/leg))
 		var/obj/item/bodypart/leg/new_leg = gained
 		new_leg.unarmed_effectiveness = initial(new_leg.unarmed_effectiveness) + OVERSIZED_KICK_EFFECTIVENESS_BONUS
-	
+
 	gained.name = "oversized " + gained.name
 
 /datum/movespeed_modifier/oversized

@@ -12,7 +12,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	icon = 'icons/mob/silicon/cameramob.dmi'
 	icon_state = "marker"
 	mouse_opacity = MOUSE_OPACITY_ICON
-	move_on_shuttle = 1
+	move_on_shuttle = TRUE
 	invisibility = INVISIBILITY_OBSERVER
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 				break
 	else // no blob starts so look for an alternate
 		for(var/i in 1 to 16)
-			var/turf/picked_safe = find_safe_turf()
+			var/turf/picked_safe = get_safe_random_station_turf()
 			if(is_valid_turf(picked_safe))
 				T = picked_safe
 				break
@@ -187,14 +187,14 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	blobstrain.on_sporedeath(spore)
 
 /mob/camera/blob/proc/victory()
-	sound_to_playing_players('sound/machines/alarm.ogg')
+	sound_to_playing_players('sound/announcer/alarm/nuke_alarm.ogg', 70)
 	sleep(10 SECONDS)
 	for(var/mob/living/live_guy as anything in GLOB.mob_living_list)
 		var/turf/guy_turf = get_turf(live_guy)
 		if(isnull(guy_turf) || !is_station_level(guy_turf.z))
 			continue
 
-		if(live_guy in GLOB.overminds || (live_guy.pass_flags & PASSBLOB))
+		if((live_guy in GLOB.overminds) || (live_guy.pass_flags & PASSBLOB))
 			continue
 
 		var/area/blob_area = get_area(guy_turf)
@@ -206,7 +206,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			if(live_guy.stat != DEAD)
 				live_guy.investigate_log("has died from blob takeover.", INVESTIGATE_DEATHS)
 			live_guy.death()
-			create_spore(guy_turf)
+			create_spore(guy_turf, spore_type = /mob/living/basic/blob_minion/spore)
 		else
 			live_guy.fully_heal()
 

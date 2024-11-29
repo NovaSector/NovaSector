@@ -36,6 +36,15 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NAKAMURA)
 
+/obj/item/wirecutters/integrated
+	name = "integrated finger cutters"
+	desc = "a rather simple and perhaps aftermarket addition to the electrician implant, a pair of tiny deployable blades between the index and middle finger, allowing one to strip and cut wire with a simple 'scissors' motion"
+	toolspeed = 1.25
+
+/obj/item/wirecutters/integrated/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NAKAMURA)
+
 /obj/item/weldingtool/electric/arc_welder/integrated
 	name = "integrated arc welder"
 	desc = "Stripped down enough to fit inside a standard humanoid arm, this specialized tool guzzles power like nobody's business and produces a slightly weaker arc. It gets the job done, but you're putting a power cell inside your arm and signing all the OHS waivers that comes with."

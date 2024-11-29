@@ -53,7 +53,7 @@
 			"cooldown" = round(COOLDOWN_TIMELEFT(module, cooldown_timer), 1 SECONDS),
 			"id" = module.tgui_id,
 			"ref" = REF(module),
-			"configuration_data" = module.get_configuration(user)
+			"configuration_data" = module.get_configuration(user),
 		))
 	data["module_custom_status"] = module_custom_status
 	data["module_info"] = module_info
@@ -64,10 +64,13 @@
 	data["ui_theme"] = ui_theme
 	data["control"] = name
 	data["complexity_max"] = complexity_max
-	data["helmet"] = helmet?.name
-	data["chestplate"] = chestplate?.name
-	data["gauntlets"] = gauntlets?.name
-	data["boots"] = boots?.name
+	var/part_info = list()
+	for(var/obj/item/part as anything in get_parts())
+		part_info += list(list(
+			"slot" = english_list(parse_slot_flags(part.slot_flags)),
+			"name" = part.name,
+		))
+	data["parts"] = part_info
 	return data
 
 /obj/item/mod/control/ui_state(mob/user)
@@ -89,7 +92,7 @@
 				balloon_alert(ui.user, "[locked ? "locked" : "unlocked"]!")
 			else
 				balloon_alert(ui.user, "access insufficent!")
-				playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+				playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		if("call")
 			if(!mod_link.link_call)
 				call_link(ui.user, mod_link)

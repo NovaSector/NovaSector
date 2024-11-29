@@ -20,7 +20,7 @@
 
 /obj/item/storage/toolbox/guncase/nova/Initialize(mapload)
 	. = ..()
-	atom_storage.max_total_storage = 14 // Technically means you could fit multiple large guns in here but its a case you cant backpack anyways so what it do
+	atom_storage.max_total_storage = 14 // Technically means you could fit multiple large guns in here but it's a case you cant backpack anyways so what it do
 	atom_storage.max_slots = 6 // We store some extra items in these so lets make a little extra room
 
 /obj/item/storage/toolbox/guncase/nova/update_icon()

@@ -97,12 +97,21 @@
 /obj/effect/decal/cleanable/trail_holder/can_bloodcrawl_in()
 	return TRUE
 
+// normal version of the above trail holder object for use in less convoluted things
+/obj/effect/decal/cleanable/blood/trails
+	desc = "Looks like a corpse was smeared all over the floor like ketchup. Kinda makes you hungry."
+	random_icon_states = list("trails_1", "trails_2")
+	icon_state = "trails_1"
+	beauty = -50
+	dryname = "dried tracks"
+	drydesc = "Looks like a corpse was smeared all over the floor like ketchup, but it's all dried up and nasty now, ew. You lose some of your appetite."
+
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"
 	desc = "They look bloody and gruesome."
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
-	layer = LOW_OBJ_LAYER
+	layer = BELOW_OBJ_LAYER
 	plane = GAME_PLANE
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	mergeable_decal = FALSE
@@ -287,7 +296,7 @@
 
 /obj/effect/decal/cleanable/blood/footprints/update_icon()
 	. = ..()
-	alpha = min(BLOODY_FOOTPRINT_BASE_ALPHA + (255 - BLOODY_FOOTPRINT_BASE_ALPHA) * bloodiness / (BLOOD_ITEM_MAX / 2), 255)
+	alpha = max(BLOODY_FOOTPRINT_BASE_ALPHA, min(255 * (bloodiness / 15), 255))
 
 //Cache of bloody footprint images
 //Key:
@@ -345,6 +354,8 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 	pass_flags = PASSTABLE | PASSGRILLE
 	icon_state = "hitsplatter1"
 	random_icon_states = list("hitsplatter1", "hitsplatter2", "hitsplatter3")
+	plane = GAME_PLANE
+	layer = ABOVE_WINDOW_LAYER
 	/// The turf we just came from, so we can back up when we hit a wall
 	var/turf/prev_loc
 	/// The cached info about the blood
@@ -429,7 +440,13 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 		if(istype(bumped_atom, /obj/structure/window))
 			land_on_window(bumped_atom)
 		else
-			var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(prev_loc)
+			// NOVA EDIT CHANGE BEGIN - ORIGINAL: var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(prev_loc)
+			var/obj/effect/decal/cleanable/final_splatter
+			if(istype(src, /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood))
+				final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
+			else
+				final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
+			// NOVA EDIT CHANGE END
 			final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
 			final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
 	else // This will only happen if prev_loc is not even a turf, which is highly unlikely.
@@ -440,7 +457,13 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 /obj/effect/decal/cleanable/blood/hitsplatter/proc/land_on_window(obj/structure/window/the_window)
 	if(!the_window.fulltile)
 		return
-	var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new
+	// NOVA EDIT CHANGE BEGIN - ORIGINAL: var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new
+	var/obj/effect/decal/cleanable/final_splatter
+	if(istype(src, /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood))
+		final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
+	else
+		final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
+	// NOVA EDIT CHANGE END
 	final_splatter.forceMove(the_window)
 	the_window.vis_contents += final_splatter
 	the_window.bloodied = TRUE

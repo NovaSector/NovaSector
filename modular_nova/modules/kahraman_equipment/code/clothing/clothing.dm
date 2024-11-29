@@ -3,14 +3,14 @@
 /obj/item/clothing/under/frontier_colonist
 	name = "frontier jumpsuit"
 	desc = "A heavy grey jumpsuit with extra padding around the joints. Two massive pockets included. \
-		No matter what you do to adjust it, its always just slightly too large."
+		No matter what you do to adjust it, it's always just slightly too large."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "jumpsuit"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
 	worn_icon_digi = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi'
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "jumpsuit"
-	has_sensor = SENSOR_COORDS
+	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 
 /obj/item/clothing/under/frontier_colonist/Initialize(mapload)
@@ -49,7 +49,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "jacket"
-	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+	slot_flags = ITEM_SLOT_OCLOTHING
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
 	allowed = null
@@ -162,7 +162,7 @@
 	worn_icon_state = "radio"
 	alternate_worn_layer = FACEMASK_LAYER + 0.5
 	subspace_transmission = FALSE
-	radiosound = 'modular_nova/modules/kahraman_equipment/sound/morse_signal.wav'
+	radio_talk_sound = 'modular_nova/modules/kahraman_equipment/sound/morse_signal.wav'
 
 /obj/item/radio/headset/headset_frontier_colonist/Initialize(mapload)
 	. = ..()
@@ -198,7 +198,7 @@
 /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	name = "frontier gas mask"
 	desc = "An improved gas mask commonly seen in places where the atmosphere is less than breathable, \
-		but otherwise more or less habitable. Its certified to protect against most biological hazards \
+		but otherwise more or less habitable. It's certified to protect against most biological hazards \
 		to boot."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "mask"
@@ -207,7 +207,6 @@
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "mask"
 	flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
-	armor_type = /datum/armor/colonist_hazard
 
 /obj/item/clothing/mask/gas/atmos/frontier_colonist/Initialize(mapload)
 	. = ..()

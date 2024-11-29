@@ -1,6 +1,6 @@
 /obj/item/bloodcrawl_bottle
 	name = "bloodlust in a bottle"
-	desc = "Drinking this will give you unimaginable powers... and mildly disgust you because of it's metallic taste."
+	desc = "Drinking this will give you unimaginable powers... and mildly disgust you because of its metallic taste."
 	icon = 'icons/obj/mining_zones/artefacts.dmi'
 	icon_state = "vial"
 

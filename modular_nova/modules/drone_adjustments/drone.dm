@@ -1,7 +1,7 @@
 /obj/machinery/drone_dispenser/Initialize(mapload)
 	//So that there are starting drone shells in the beginning of the shift
 	if(mapload)
-		starting_amount = 10000
+		starting_amount = SHEET_MATERIAL_AMOUNT * MAX_STACK_SIZE
 	return ..()
 
 /obj/item/card/id/advanced/simple_bot
@@ -21,27 +21,19 @@
 	//So that drones can do things without worrying about stuff
 	shy = FALSE
 	//So drones aren't forced to carry around a nodrop toolbox essentially
-	default_storage = /obj/item/storage/backpack/drone_bag
+	//and so drones don't have to choose between a multitool and an upgraded welder
+	default_storage = /obj/item/storage/backpack/duffelbag/drone
 
 /mob/living/basic/drone/Initialize(mapload)
 	. = ..()
 	name = "[initial(name)] [rand(0,9)]-[rand(100,999)]" //So that we can identify drones from each other
 
-/obj/item/storage/backpack/drone_bag
-	name = "drone backpack"
-
-/obj/item/storage/backpack/drone_bag/PopulateContents()
+/obj/item/storage/backpack/duffelbag/drone/PopulateContents()
+	//Populate the drone duffelbag with our extra items
 	. = ..()
-	new /obj/item/crowbar(src)
-	new /obj/item/wrench(src)
-	new /obj/item/screwdriver(src)
-	new /obj/item/weldingtool(src)
-	new /obj/item/wirecutters(src)
-	new /obj/item/multitool(src)
-	new /obj/item/pipe_dispenser(src)
 	new /obj/item/t_scanner(src)
 	new /obj/item/analyzer(src)
-	new /obj/item/stack/cable_coil(src)
+	new /obj/item/pipe_dispenser(src)
 
 /obj/effect/mob_spawn/ghost_role/drone/derelict/babylon
 	desc = "A shell of a maintenance drone, an expendable robot built to perform station repairs."

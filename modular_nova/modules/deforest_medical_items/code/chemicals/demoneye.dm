@@ -131,7 +131,7 @@
 		hurt_that_mans_organs(our_guy, 5, TRUE)
 
 
-/// Hurts a random organ, if its 'really_bad' we'll vomit blood too
+/// Hurts a random organ, if it's 'really_bad' we'll vomit blood too
 /datum/reagent/drug/demoneye/proc/hurt_that_mans_organs(mob/living/carbon/our_guy, damage, really_bad = FALSE)
 	/// List of organs we can randomly damage
 	var/static/list/organs_we_damage = list(

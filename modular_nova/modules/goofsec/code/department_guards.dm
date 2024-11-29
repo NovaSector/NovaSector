@@ -275,6 +275,7 @@
 	messenger = /obj/item/storage/backpack/messenger/science
 
 	id_trim = /datum/id_trim/job/science_guard
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/science_guard
 	assignment = "Science Guard"
@@ -376,6 +377,7 @@
 	box = /obj/item/storage/box/survival/medical
 
 	id_trim = /datum/id_trim/job/orderly
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/orderly
 	assignment = "Orderly"
@@ -470,6 +472,7 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	id_trim = /datum/id_trim/job/engineering_guard
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/engineering_guard
 	assignment = "Engineering Guard"
@@ -570,6 +573,7 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	id_trim = /datum/id_trim/job/customs_agent
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/customs_agent
 	assignment = "Customs Agent"
@@ -664,6 +668,7 @@
 	messenger = /obj/item/storage/backpack/messenger
 
 	id_trim = /datum/id_trim/job/bouncer
+	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/bouncer
 	assignment = "Bouncer"
@@ -785,7 +790,7 @@
 	name = "service stun baton"
 	desc = "A stun baton that doesn't operate outside of the Service department, based off the station's blueprint layout. Can be used outside of Service up to three times before needing to return!"
 	icon_state = "service_baton"
-	valid_areas = list(/area/station/service, /area/station/maintenance/department/chapel, /area/station/maintenance/department/crew_quarters, /area/shuttle/escape)
+	valid_areas = list(/area/station/service, /area/station/hallway/primary/fore, /area/station/commons/lounge, /area/station/maintenance/department/chapel, /area/station/maintenance/department/crew_quarters, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/prison
 	name = "prison stun baton"

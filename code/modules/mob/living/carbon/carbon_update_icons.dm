@@ -1,7 +1,6 @@
 /mob/living/carbon/update_obscured_slots(obscured_flags)
 	..()
-	if(obscured_flags & (HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEMUTWINGS))
-		update_body()
+	update_body()
 
 /// Updates features and clothing attached to a specific limb with limb-specific offsets
 /mob/living/carbon/proc/update_features(feature_key)
@@ -54,8 +53,8 @@
 	SEND_SIGNAL(src, COMSIG_CARBON_REMOVE_OVERLAY, cache_index, I)
 
 //used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/proc/update_mutant_bodyparts(force_update = FALSE) // NOVA EDIT CHANGE
-	dna?.species.handle_mutant_bodyparts(src, force_update = force_update) // NOVA EDIT CHANGE
+/mob/living/carbon/human/proc/update_mutant_bodyparts()
+	dna?.species.handle_mutant_bodyparts(src)
 	update_body_parts()
 
 /mob/living/carbon/update_body(is_creating = FALSE)
@@ -306,6 +305,7 @@
 			continue
 		if(isnull(damage_overlay) && (iter_part.brutestate || iter_part.burnstate))
 			damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "blank", -DAMAGE_LAYER, appearance_flags = KEEP_TOGETHER)
+			damage_overlay.color = iter_part.damage_overlay_color
 		if(iter_part.brutestate)
 			damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_[iter_part.brutestate]0") //we're adding icon_states of the base image as overlays
 		if(iter_part.burnstate)
@@ -323,7 +323,12 @@
 	var/mutable_appearance/wound_overlay
 	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
 		if(iter_part.bleed_overlay_icon)
-			wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
+			if(iter_part.limb_id == SPECIES_XENO)
+				wound_overlay ||= mutable_appearance('modular_nova/master_files/icons/effects/x_bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			else
+				wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			// NOVA EDIT ADDITION END
 			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)
 
 	if(isnull(wound_overlay))

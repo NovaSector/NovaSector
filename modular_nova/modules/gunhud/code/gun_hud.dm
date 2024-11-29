@@ -4,7 +4,7 @@
 
 /*
 *	This hud is controlled namely by the ammo_hud component. Generally speaking this is inactive much like all other hud components until it's needed.
-*	It does not do any calculations of it's own, you must do this externally.
+*	It does not do any calculations of its own, you must do this externally.
 *	If you wish to use this hud, use the ammo_hud component or create another one which interacts with it via the below procs.
 *	proc/turn_off
 *	proc/turn_on

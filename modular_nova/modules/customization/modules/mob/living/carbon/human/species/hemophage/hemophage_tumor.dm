@@ -1,15 +1,18 @@
 /// Minimum amount of light for Hemophages to be considered in pure darkness, and therefore be allowed to heal just like in a closet.
-#define MINIMUM_LIGHT_THRESHOLD_FOR_REGEN 0
+#define MINIMUM_LIGHT_THRESHOLD_FOR_REGEN 0.1
 
 /// How high should the damage multiplier to the Hemophage be when they're in a dormant state?
 #define DORMANT_DAMAGE_MULTIPLIER 3
 /// By how much the blood drain will be divided when the tumor is in a dormant state.
 #define DORMANT_BLOODLOSS_MULTIPLIER 10
 /// How much blood do Hemophages normally lose per second (visible effect is every two seconds, so twice this value).
-#define NORMAL_BLOOD_DRAIN 0.125
+#define NORMAL_BLOOD_DRAIN 0.05
 
 /// Just a conversion factor that ensures there's no weird floating point errors when blood is draining.
 #define FLOATING_POINT_ERROR_AVOIDING_FACTOR 1000
+
+/// Trait gained from the pulsating tumor.
+#define TRAIT_TUMOR "tumor"
 
 
 /obj/item/organ/internal/heart/hemophage
@@ -95,9 +98,11 @@
 
 	if(is_dormant)
 		owner.add_movespeed_modifier(/datum/movespeed_modifier/hemophage_dormant_state)
+		ADD_TRAIT(owner, TRAIT_AGEUSIA, TRAIT_TUMOR)
 
 	else
 		owner.remove_movespeed_modifier(/datum/movespeed_modifier/hemophage_dormant_state)
+		REMOVE_TRAIT(owner, TRAIT_AGEUSIA, TRAIT_TUMOR)
 
 
 /// Simple helper proc that returns whether or not the given hemophage is in a closet subtype (but not in any bodybag subtype).
@@ -149,3 +154,5 @@
 #undef DORMANT_DAMAGE_MULTIPLIER
 #undef DORMANT_BLOODLOSS_MULTIPLIER
 #undef NORMAL_BLOOD_DRAIN
+
+#undef TRAIT_TUMOR

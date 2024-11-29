@@ -9,6 +9,7 @@
 	slot_flags = ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_SMALL
 	strip_delay = 60
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	// equip_delay_other = 60
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
@@ -16,7 +17,6 @@
 	)
 	var/random = TRUE
 	var/freq_in_name = TRUE
-	var/tagname = null
 
 /datum/design/electropack/shockcollar
 	name = "Shockcollar"
@@ -32,10 +32,10 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
 	)
 
-/obj/item/electropack/shockcollar/attack_hand(mob/user)
-	if(loc == user && user.get_item_by_slot(ITEM_SLOT_NECK))
+/obj/item/electropack/shockcollar/allow_attack_hand_drop(mob/user)
+	if(user.get_item_by_slot(ITEM_SLOT_NECK) == src)
 		to_chat(user, span_warning("The collar is fastened tight! You'll need help if you want to take it off!"))
-		return
+		return FALSE
 	return ..()
 
 /obj/item/electropack/shockcollar/receive_signal(datum/signal/signal)
@@ -68,18 +68,6 @@
 		master.receive_signal()
 	return
 
-/obj/item/electropack/shockcollar/attackby(obj/item/used_item, mob/user, params) // Moves it here because on_click is being bad
-	if(istype(used_item, /obj/item/pen))
-		var/tag_input = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", tagname ? tagname : "Spot", MAX_NAME_LEN)
-		if(tag_input)
-			tagname = tag_input
-			name = "[initial(name)] - [tag_input]"
-		return
-	if(istype(used_item, /obj/item/clothing/head/helmet))
-		return
-	else
-		return ..()
-
 /obj/item/electropack/shockcollar/Initialize(mapload)
 	if(random)
 		code = rand(1, 100)
@@ -88,7 +76,11 @@
 			frequency++
 	if(freq_in_name)
 		name = initial(name) + " - freq: [frequency/10] code: [code]"
+	return ..()
+
+/obj/item/electropack/shockcollar/ui_act(action, params)
 	. = ..()
+	icon_state = src::icon_state
 
 /obj/item/electropack/shockcollar/pacify
 	name = "pacifying collar"

@@ -6,7 +6,7 @@
 
 /mob/living/silicon/robot/model/roleplay/Initialize(mapload)
 	. = ..()
-	cell = new /obj/item/stock_parts/cell/infinite(src, 30000)
+	cell = new /obj/item/stock_parts/power_store/cell/infinite(src, 30000)
 	//This part is because the camera stays in the list, so we'll just do a check
 	if(!QDELETED(builtInCamera))
 		QDEL_NULL(builtInCamera)
@@ -76,8 +76,7 @@
 	activationUpkeep = 0
 
 /obj/item/robot_model/roleplay/respawn_consumable(mob/living/silicon/robot/cyborg, coeff = 1)
-	..()
+	. = ..()
 	var/obj/item/lightreplacer/light_replacer = locate(/obj/item/lightreplacer) in basic_modules
 	if(light_replacer)
-		for(var/charge in 1 to coeff)
-			light_replacer.Charge(cyborg) // Make Roleplay Borg Light Replacer recharge, isntead of requiring Glass
+		light_replacer.Charge(cyborg, coeff) // Make Roleplay Borg Light Replacer recharge, isntead of requiring Glass

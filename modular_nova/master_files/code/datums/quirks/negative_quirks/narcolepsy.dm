@@ -39,7 +39,7 @@
 
 	var/sleep_chance = 0.333 //3
 	var/drowsy = !!owner.has_status_effect(/datum/status_effect/drowsiness)
-	var/caffeinated = owner.reagents.has_reagent(/datum/reagent/consumable/coffee)
+	var/caffeinated = HAS_TRAIT(owner, TRAIT_STIMULATED)
 	if(drowsy)
 		sleep_chance = 1
 	if(caffeinated) //make it real hard to fall asleep on caffeine

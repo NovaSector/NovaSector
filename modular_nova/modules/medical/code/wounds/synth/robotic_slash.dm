@@ -16,7 +16,7 @@
 /// Global damage multiplier for how much repairing wiring will reduce intensity. Higher is more.
 #define ELECTRICAL_DAMAGE_SUTURE_WIRE_HEALING_AMOUNT_MULT 1
 
-/// The minimum shock power we must have available to zap our victim. Must be at least one, since electrocute_act fails if its lower.
+/// The minimum shock power we must have available to zap our victim. Must be at least one, since electrocute_act fails if it's lower.
 #define ELECTRICAL_DAMAGE_MINIMUM_SHOCK_POWER_PER_ZAP 1
 /// The maximum burn damage our limb can have before we refuse to let people who havent aggrograbbed the limb repair it with wires. This is so people can opt to just fix the burn damage.
 #define ELECTRICAL_DAMAGE_MAX_BURN_DAMAGE_TO_LET_WIRES_REPAIR 5

@@ -178,7 +178,7 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	pellets = 4
 	variance = 15
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	harmful = FALSE
 	custom_materials = AMMO_MATS_SHOTGUN_HIVE
 	advanced_print_req = TRUE
@@ -211,7 +211,7 @@
 	pellets = 8 // 8 * 7 for 56 stamina damage, plus whatever the embedded shells do
 	variance = 30
 	harmful = FALSE
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	advanced_print_req = TRUE
 
@@ -230,7 +230,17 @@
 	eyeblur = 1 SECONDS
 	sharpness = NONE
 	range = 8
-	embedding = list(embed_chance=70, pain_chance=25, fall_chance=15, jostle_chance=80, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.9, pain_mult=2, rip_time=10)
+	embed_type = /datum/embed_data/shotgun_buckshot/antitide
+
+/datum/embed_data/shotgun_buckshot/antitide
+	embed_chance = 70
+	pain_chance = 25
+	fall_chance = 15
+	jostle_chance = 80
+	ignore_throwspeed_threshold = TRUE
+	pain_stam_pct = 0.9
+	pain_mult = 2
+	rip_time = 1 SECONDS
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/antitide/on_range()
 	do_sparks(1, TRUE, src)

@@ -1,3 +1,8 @@
+
+#define IMAGINARY_FRIEND_RANGE 9
+#define IMAGINARY_FRIEND_SPEECH_RANGE IMAGINARY_FRIEND_RANGE
+#define IMAGINARY_FRIEND_EXTENDED_SPEECH_RANGE 999
+
 /datum/brain_trauma/special/imaginary_friend
 	name = "Imaginary Friend"
 	desc = "Patient can see and hear an imaginary person."
@@ -43,7 +48,7 @@
 	get_ghost()
 
 /datum/brain_trauma/special/imaginary_friend/proc/make_friend()
-	friend = new(get_turf(owner), owner)
+	friend = new(get_turf(owner))
 
 /// Tries a poll for the imaginary friend
 /datum/brain_trauma/special/imaginary_friend/proc/get_ghost()
@@ -65,6 +70,8 @@
 		return
 
 	friend.key = ghost.key
+	friend.attach_to_owner(owner)
+	friend.setup_appearance()
 	friend_initialized = TRUE
 	friend.log_message("became [key_name(owner)]'s split personality.", LOG_GAME)
 	message_admins("[ADMIN_LOOKUPFLW(friend)] became [ADMIN_LOOKUPFLW(owner)]'s split personality.")
@@ -86,13 +93,15 @@
 	var/mob/living/owner
 	var/bubble_icon = "default"
 
-
+	/// Whether our host and other imaginary friends can hear us only when nearby or practically anywhere.
+	var/extended_message_range = TRUE
 
 /mob/camera/imaginary_friend/Login()
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	greet()
+	if(owner)
+		greet()
 	Show()
 
 /mob/camera/imaginary_friend/proc/greet()
@@ -119,6 +128,7 @@
 	if(!owner.imaginary_group)
 		owner.imaginary_group = list(owner)
 	owner.imaginary_group += src
+	greet()
 
 /// Copies appearance from passed player prefs, or randomises them if none are provided
 /mob/camera/imaginary_friend/proc/setup_appearance(datum/preferences/appearance_from_prefs = null)
@@ -156,11 +166,11 @@
 	for(var/job in appearance_from_prefs.job_preferences)
 		var/this_pref = appearance_from_prefs.job_preferences[job]
 		if(this_pref > highest_pref)
-			appearance_job = SSjob.GetJob(job)
+			appearance_job = SSjob.get_job(job)
 			highest_pref = this_pref
 
 	if(!appearance_job)
-		appearance_job = SSjob.GetJob(JOB_ASSISTANT)
+		appearance_job = SSjob.get_job(JOB_ASSISTANT)
 
 	if(istype(appearance_job, /datum/job/ai))
 		human_image = icon('icons/mob/silicon/ai.dmi', icon_state = resolve_ai_icon(appearance_from_prefs.read_preference(/datum/preference/choiced/ai_core_display)), dir = SOUTH)
@@ -212,7 +222,7 @@
 		create_chat_message(speaker, message_language, raw_message, spans)
 	to_chat(src, compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods))
 
-/mob/camera/imaginary_friend/send_speech(message, range = 7, obj/source = src, bubble_type = bubble_icon, list/spans = list(), datum/language/message_language = null, list/message_mods = list(), forced = null)
+/mob/camera/imaginary_friend/send_speech(message, range = IMAGINARY_FRIEND_SPEECH_RANGE, obj/source = src, bubble_type = bubble_icon, list/spans = list(), datum/language/message_language = null, list/message_mods = list(), forced = null)
 	message = get_message_mods(message, message_mods)
 	message = capitalize(message)
 
@@ -232,8 +242,10 @@
 		message = "[randomnote] [capitalize(message)] [randomnote]"
 		spans |= SPAN_SINGING
 
+	if(extended_message_range)
+		range = IMAGINARY_FRIEND_EXTENDED_SPEECH_RANGE
+
 	var/eavesdrop_range = 0
-	var/eavesdropped_message = ""
 
 	if (message_mods[MODE_CUSTOM_SAY_ERASE_INPUT])
 		message = message_mods[MODE_CUSTOM_SAY_EMOTE]
@@ -243,9 +255,7 @@
 			log_talk(message, LOG_WHISPER, tag="imaginary friend", forced_by = forced, custom_say_emote = message_mods[MODE_CUSTOM_SAY_EMOTE])
 			spans |= SPAN_ITALICS
 			eavesdrop_range = EAVESDROP_EXTRA_RANGE
-			// "This proc is dangerously laggy, avoid it or die"
-			// What other option do I have here? I guess I'll die
-			eavesdropped_message = stars(message)
+			range = WHISPER_RANGE
 		else
 			log_talk(message, LOG_SAY, tag="imaginary friend", forced_by = forced, custom_say_emote = message_mods[MODE_CUSTOM_SAY_EMOTE])
 
@@ -257,11 +267,7 @@
 	Hear(rendered, src, language, message, null, spans, message_mods) // We always hear what we say
 	var/group = owner.imaginary_group - src // The people in our group don't, so we have to exclude ourselves not to hear twice
 	for(var/mob/person in group)
-		if(eavesdrop_range && get_dist(src, person) > WHISPER_RANGE + eavesdrop_range && !HAS_TRAIT(person, TRAIT_GOOD_HEARING))
-			var/new_rendered = "[span_name("[name]")] [say_quote(say_emphasis(eavesdropped_message), spans, message_mods)]"
-			person.Hear(new_rendered, src, language, eavesdropped_message, null, spans, message_mods)
-		else
-			person.Hear(rendered, src, language, message, null, spans, message_mods)
+		person.Hear(null, src, language, message, null, spans, message_mods, range)
 
 	// Speech bubble, but only for those who have runechat off
 	var/list/speech_bubble_recipients = list()
@@ -390,7 +396,7 @@
 	var/obj/visual = image('icons/hud/screen_gen.dmi', our_tile, "arrow", FLY_LAYER)
 
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay_global), visual, group_clients(), 2.5 SECONDS)
-	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + pointed_atom.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + pointed_atom.pixel_y, time = 1.7, easing = EASE_OUT)
+	animate(visual, pixel_x = (tile.x - our_tile.x) * ICON_SIZE_X + pointed_atom.pixel_x, pixel_y = (tile.y - our_tile.y) * ICON_SIZE_Y + pointed_atom.pixel_y, time = 1.7, easing = EASE_OUT)
 
 /mob/camera/imaginary_friend/create_thinking_indicator()
 	if(active_thinking_indicator || active_typing_indicator || !HAS_TRAIT(src, TRAIT_THINKING_IN_CHARACTER))
@@ -535,3 +541,7 @@
 	real_name = "[owner.real_name]?"
 	name = real_name
 	human_image = icon('icons/mob/simple/lavaland/lavaland_monsters.dmi', icon_state = "curseblob")
+
+#undef IMAGINARY_FRIEND_RANGE
+#undef IMAGINARY_FRIEND_SPEECH_RANGE
+#undef IMAGINARY_FRIEND_EXTENDED_SPEECH_RANGE

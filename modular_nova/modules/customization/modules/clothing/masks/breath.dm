@@ -20,7 +20,7 @@
 /obj/item/clothing/mask/balaclavaadjust/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
-	if(!user.incapacitated())
+	if(!user.incapacitated)
 		switch(open)
 			if (0)
 				flags_inv = HIDEHAIR
@@ -45,10 +45,10 @@
 	adjust_mask(user)
 
 /obj/item/clothing/mask/balaclavaadjust/verb/toggle()
-		set category = "Object"
-		set name = "Adjust Balaclava"
-		set src in usr
-		adjust_mask(usr)
+	set category = "Object"
+	set name = "Adjust Balaclava"
+	set src in usr
+	adjust_mask(usr)
 
 
 /obj/item/clothing/mask/balaclava/threehole

@@ -10,7 +10,7 @@
 	var/alpha = 255
 	/// How "thick" is it, the thicker the quicker it gets to desired alpha and is stronger than other pollutants in blending appearance
 	var/thickness = 1
-	///FILL THE BELOW OUT IF ITS SMELLABLE!
+	///FILL THE BELOW OUT IF IT'S SMELLABLE!
 	/// How intense is one unit of the pollutant for smell purposes?
 	var/smell_intensity
 	/// Descriptor of the smell

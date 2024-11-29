@@ -27,35 +27,37 @@
 	item_type = /obj/item/clothing/suit/armor/vest/cin_surplus_vest
 	cost = PAYCHECK_COMMAND
 
+/datum/armament_entry/company_import/nri_surplus/clothing/space_suit
+	item_type = /obj/item/clothing/suit/space/voskhod
+	cost = PAYCHECK_COMMAND*3
+
+/datum/armament_entry/company_import/nri_surplus/clothing/space_helmet
+	item_type = /obj/item/clothing/head/helmet/space/voskhod
+	cost = PAYCHECK_COMMAND
+
 /datum/armament_entry/company_import/nri_surplus/clothing/police_uniform
 	item_type = /obj/item/clothing/under/colonial/nri_police
 	cost = PAYCHECK_CREW
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_cloak
 	item_type = /obj/item/clothing/neck/cloak/colonial/nri_police
 	cost = PAYCHECK_CREW
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_cap
 	item_type = /obj/item/clothing/head/hats/colonial/nri_police
 	cost = PAYCHECK_CREW
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_mask
 	item_type = /obj/item/clothing/mask/gas/nri_police
 	cost = PAYCHECK_CREW*2
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_vest
 	item_type = /obj/item/clothing/head/helmet/nri_police
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_helmet
 	item_type = /obj/item/clothing/suit/armor/vest/nri_police
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 // Random surplus store tier stuff, flags, old rations, multitools you'll never use, so on
 
@@ -79,9 +81,9 @@
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nri_surplus/misc/food_replicator
-	description = "Once widespread technology used by numerous fringe colonies of NRI origin and even in some SolFed territories, that ultimately went out of fashion due to \
-	SolFed propaganda deeming it unprofitable and imposing severe trading fees on anyone trying to sell them. A small portion of government-backed manufacturers still produce \
-	'food replicators' for private and government use; a few of them is selling this via us."
+	description = "A widespread technology previously used by far colonies on the NRI's borders, over time being shifted from the foundation of colonies \
+	to a simple disaster relief solution. It can turn spoiled or inedible plant matter into food, medical supplies, and other general items. \
+	These particular units were displaced during a stock count in an NRI warehouse."
 	item_type = /obj/item/circuitboard/machine/biogenerator/food_replicator
 	cost = CARGO_CRATE_VALUE * 9
 

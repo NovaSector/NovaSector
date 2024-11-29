@@ -134,7 +134,7 @@
 				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 			current_research -= 150
-			var/list/choices = subtypesof(/obj/machinery/anomalous_crystal)
+			var/list/choices = subtypesof(/obj/machinery/anomalous_crystal) - /obj/machinery/anomalous_crystal/theme_warp
 			var/random_crystal = pick(choices)
 			new random_crystal(src_turf)
 

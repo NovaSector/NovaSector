@@ -361,13 +361,6 @@
 /obj/structure/plasticflaps,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/allamericandiner)
-"rm" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/cups,
-/turf/open/floor/iron/kitchen/small,
-/area/ruin/space/has_grav/allamericandiner)
 "rG" = (
 /obj/structure/chair/stool/bar/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -460,6 +453,13 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/allamericandiner)
+"vE" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/cups,
+/turf/open/floor/iron/kitchen/small,
+/area/ruin/space/has_grav/allamericandiner)
 "wC" = (
 /obj/structure/closet{
 	desc = "Why leave the chairs in a locker?";
@@ -513,7 +513,7 @@
 "yE" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/power_store/cell/high,
 /obj/machinery/power/terminal{
 	dir = 4
 	},
@@ -572,15 +572,6 @@
 	},
 /obj/structure/window/reinforced/tinted/spawner/directional/east,
 /turf/open/floor/iron/kitchen,
-/area/ruin/space/has_grav/allamericandiner)
-"AS" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light/dim/directional/east,
-/obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 1
-	},
-/obj/structure/window/spawner/directional/south,
-/turf/open/floor/iron/kitchen/small,
 /area/ruin/space/has_grav/allamericandiner)
 "Bg" = (
 /obj/machinery/light/dim/directional/west,
@@ -1146,6 +1137,15 @@
 /obj/structure/mirror/directional/north,
 /obj/structure/sink/directional/south,
 /turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/allamericandiner)
+"Vq" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/dim/directional/east,
+/obj/machinery/chem_dispenser/drinks/fullupgrade{
+	dir = 1
+	},
+/obj/structure/window/spawner/directional/south,
+/turf/open/floor/iron/kitchen/small,
 /area/ruin/space/has_grav/allamericandiner)
 "Vy" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/line{
@@ -1929,7 +1929,7 @@ Fr
 Fr
 lF
 Fr
-rm
+vE
 Ka
 PW
 fL
@@ -1966,7 +1966,7 @@ ej
 jZ
 LR
 jZ
-AS
+Vq
 rd
 rd
 lI

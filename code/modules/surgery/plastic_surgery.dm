@@ -34,9 +34,9 @@
 		/obj/item/stack/sheet/plastic = 100,
 		/obj/item/stack/sheet/meat = 100)
 	time = 3.2 SECONDS
-	preop_sound = 'sound/effects/blobattack.ogg'
-	success_sound = 'sound/effects/attackblob.ogg'
-	failure_sound = 'sound/effects/blobattack.ogg'
+	preop_sound = 'sound/effects/blob/blobattack.ogg'
+	success_sound = 'sound/effects/blob/attackblob.ogg'
+	failure_sound = 'sound/effects/blob/blobattack.ogg'
 
 /datum/surgery_step/insert_plastic/preop(mob/user, mob/living/target, target_zone, obj/item/stack/tool, datum/surgery/surgery)
 	display_results(
@@ -60,6 +60,7 @@
 		/obj/item/knife = 50,
 		TOOL_WIRECUTTER = 35)
 	time = 64
+	surgery_effects_mood = TRUE
 
 /datum/surgery_step/reshape_face/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	user.visible_message(span_notice("[user] begins to alter [target]'s appearance."), span_notice("You begin to alter [target]'s appearance..."))

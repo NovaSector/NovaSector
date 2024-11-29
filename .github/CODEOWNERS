@@ -12,7 +12,7 @@
 /icons/ @GoldenAlpharex
 
 # Jolly-66
-/modular_nova/modules/mapping @Jolly-66 @Zergspower
+/tools/maplint/lints @Jolly-66
 /tools/UpdatePaths @Jolly-66
 
 # Zergspower
@@ -28,6 +28,7 @@
 
 # Maptainers
 /_maps/ @Jolly-66 @Zergspower
+/modular_nova/modules/mapping @Jolly-66 @Zergspower
 
 # Expensive files that touching basically always cause performance problems
 ## Init times

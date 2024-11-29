@@ -33,7 +33,7 @@
 			/obj/item/nullrod/armblade,
 			/obj/item/nullrod/carp,
 			/obj/item/nullrod/chainsaw,
-			/obj/item/nullrod/claymore/bostaff,
+			/obj/item/nullrod/bostaff,
 			/obj/item/nullrod/hammer,
 			/obj/item/nullrod/pitchfork,
 			/obj/item/nullrod/pride_hammer,
@@ -62,10 +62,10 @@
 		return
 	pouch.atom_storage.dump_content_at(dest_object, dumping_mob)
 
-/obj/item/storage/belt/crusader/CtrlClick(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
+/obj/item/storage/belt/crusader/item_ctrl_click(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
 	. = ..()
 	atom_storage.show_contents(user)
-	return
+	return CLICK_ACTION_SUCCESS
 
 /obj/item/storage/belt/crusader/click_alt(mob/user)	//This is basically the same as the normal sheath, but because there's always an item locked in the first slot it uses the second slot for swords
 	if(contents.len == 2)
@@ -110,7 +110,7 @@
 	desc = span_notice("Click on this to open your belt's inventory!")
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
-	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, its technically a belt
+	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, it's technically a belt
 	anchored = 1	//Dont want people taking it out with their hands
 
 /obj/item/storage/belt/storage_pouch/attack_hand(mob/user, list/modifiers)	//Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories

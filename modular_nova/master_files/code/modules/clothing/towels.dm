@@ -250,18 +250,13 @@
 
 	// No need to display the different message if they're not wearing it.
 	if(!worn)
-		return
+		return CLICK_ACTION_SUCCESS
 
 	to_chat(user, span_notice(shape == TOWEL_FULL ? "You raise \the [src] over your [shape]." : "You lower \the [src] down to your [shape]."))
 	return CLICK_ACTION_SUCCESS
 
 
-/obj/item/towel/CtrlClick(mob/user)
-	. = ..()
-
-	if(. == FALSE)
-		return
-
+/obj/item/towel/item_ctrl_click(mob/user)
 	if(!wet && shape == TOWEL_FOLDED) // You can't fold a wet towel, so you can't get a folded towel that's also wet. And you can't fold what's already folded, obviously.
 		to_chat(user, span_warning("You can't fold a towel that's already folded!"))
 		return
@@ -269,7 +264,7 @@
 	if(ishuman(user) || iscyborg(user))
 		if(iscyborg(user) && wet) // Cyborgs can't wring towels.
 			to_chat(user, span_warning("Folding a wet towel doesn't really make sense. You stop yourself before doing that."))
-			return
+			return CLICK_ACTION_BLOCKING
 
 		var/in_hands = TRUE
 
@@ -278,12 +273,12 @@
 
 
 		if(!in_hands) // They need to be in your hands, unless you're a cyborg.
-			return
+			return CLICK_ACTION_BLOCKING
 
 		if(!wet)
 			change_towel_shape(user, TOWEL_FOLDED, silent = TRUE)
 			to_chat(user, span_notice("You fold [src] up neatly."))
-			return
+			return CLICK_ACTION_SUCCESS
 
 		// No cyborgs past this point.
 
@@ -291,7 +286,7 @@
 
 		if(!do_after(user, 2 SECONDS, src))
 			to_chat(user, span_warning("You give wringing [src] a second thought, and stop doing it, maybe for the best..."))
-			return
+			return CLICK_ACTION_BLOCKING
 
 		var/turf/current_turf = get_turf(src) // It's done by a user so it should always have a turf.
 
@@ -305,6 +300,7 @@
 		qdel(temp_holder)
 
 		user.visible_message(span_warning("[user] wrings [src], making a mess on \the [current_turf]!"), span_warning("You wring [src], making a mess on \the [current_turf]!"))
+		return CLICK_ACTION_SUCCESS
 
 
 /obj/item/towel/machine_wash(obj/machinery/washing_machine/washer)

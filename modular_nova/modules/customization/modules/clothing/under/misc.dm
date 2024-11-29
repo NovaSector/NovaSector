@@ -47,3 +47,25 @@
 	name = "tactical pants"
 	desc = "A pair of tactical pants, designed for military use."
 	icon_state = "tactical_pants"
+
+/obj/item/clothing/under/pants/nova/big_pants
+	name = "\improper JUNCO megacargo pants"
+	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
+		now and then. This pair has generous onboard storage."
+	icon_state = "big_pants"
+	greyscale_config = /datum/greyscale_config/big_pants
+	greyscale_config_worn = /datum/greyscale_config/big_pants/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/big_pants/worn/digi
+	greyscale_colors = "#874f16"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER
+
+/obj/item/clothing/under/pants/nova/loose_pants
+	name = "Loose pants"
+	desc = "Some loose pants with a belt that looks comfy."
+	icon_state = "loose_pants"
+	greyscale_config = /datum/greyscale_config/loose_pants
+	greyscale_config_worn = /datum/greyscale_config/loose_pants/worn
+	greyscale_colors = "#4d4d4d#ffcc00#ff0000"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER

@@ -27,7 +27,7 @@ const SORT_NAMES = {
 const STAT_LIVING = 0;
 const STAT_DEAD = 4;
 
-const SORT_OPTIONS = ['ijob', 'name', 'area', 'health'];
+const SORT_OPTIONS = ['health', 'ijob', 'name', 'area'];
 
 const jobIsHead = (jobId: number) => jobId % 10 === 0;
 
@@ -37,6 +37,9 @@ const jobToColor = (jobId) => {
   }
   if (jobId >= 10 && jobId < 20) {
     return COLORS.department.security;
+  }
+  if (jobId >= 401 && jobId < 409) {
+    return COLORS.department.prisoner;
   }
   if (jobId >= 20 && jobId < 30) {
     return COLORS.department.medbay;
@@ -70,10 +73,10 @@ const statToIcon = (life_status: number) => {
 };
 
 const healthSort = (a: CrewSensor, b: CrewSensor) => {
-  if (a.life_status < b.life_status) return -1;
-  if (a.life_status > b.life_status) return 1;
-  if (a.health > b.health) return -1;
-  if (a.health < b.health) return 1;
+  if (a.life_status > b.life_status) return -1;
+  if (a.life_status < b.life_status) return 1;
+  if (a.health < b.health) return -1;
+  if (a.health > b.health) return 1;
   return 0;
 };
 

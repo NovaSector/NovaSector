@@ -6,9 +6,9 @@
 	used_capacity = 380
 	storedinfo = list(
 		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
-		2 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>says, \"<span class=' '>... Yeesh... Its good we got here when we did...</span>\"</span></span>",
+		2 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>says, \"<span class=' '>... Yeesh... It's good we got here when we did...</span>\"</span></span>",
 		3 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>sighs, \"<span class=' '>Could have done sooner... Bloke got at me while i went to repaint the stripe on the floor</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>sighs, \"<span class=' '>I still need to talk to the Defense Director about marking the safe code... Its better than in the cell, And the shutters are nice...</span>\"</span></span>",
+		4 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>sighs, \"<span class=' '>I still need to talk to the Defense Director about marking the safe code... It's better than in the cell, And the shutters are nice...</span>\"</span></span>",
 		5 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>scoffs, \"<span class=' '>Yeah, Another set of shutter tracks i'll have to clean out so they dont jam up...</span>\"</span></span>",
 		6 = "<span class='game say'><span class='name'>Officer ???</span> <span class='message'>grumbles, \"<span class=' '>If you dont like bucket work, You could go with the mining crew</span>\"</span></span>",
 		7 = "<span class='game say'><span class='name'>Janitor ???</span> <span class='message'>groans, \"<span class=' '>... Atleast it wouldn't be one of the directors cleansing squads. One of the ensigns who got slammed to it started some maddened babbling about \"returning\" something.</span>\"</span></span>",
@@ -33,8 +33,8 @@
 	storedinfo = list(
 		1 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording started.</span>\"</span></span>",
 		2 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>sighs, \"<span class=' '>Right... Research near finish? Need to stash this back between the solar batteries before I sleep..</span>\"</span></span>",
-		3 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>says, \"<span class=' '>We're getting the atmospheric scans done... Its definitely an odd find.</span>\"</span></span>",
-		4 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>grumbles, \"<span class=' '>We've been finding some weird stuff in those tunnels.. Its a shame the machines framing was broken.</span>\"</span></span>",
+		3 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>says, \"<span class=' '>We're getting the atmospheric scans done... It's definitely an odd find.</span>\"</span></span>",
+		4 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>grumbles, \"<span class=' '>We've been finding some weird stuff in those tunnels.. It's a shame the machines framing was broken.</span>\"</span></span>",
 		5 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>pauses then sighs out, \"<span class=' '>Yeah... Best we could figure from the wreckage was some sort of AI system.. its wiring looked almost organic though-</span>\"</span></span>",
 		6 = "<span class='game say'><span class='name'>Foreman ???</span> <span class='message'>scoffs, \"<span class=' '>... An- AI?</span>\"</span></span>",
 		7 = "<span class='game say'><span class='name'>Science Lead ???</span> <span class='message'>quips, \"<span class=' '>Yes... We have some possible leads to what it- Ah... The scan finished.. I'll forward the notes about that AI to the Defense Director, Right now I need to compile these readings...</span>\"</span></span>",
@@ -61,7 +61,7 @@
 		2 = "<span class='game say'><span class=' '>Drinks can be heard clinking together, busy chatter of a party drowning out most noises</span></span>",
 		3 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>says, \"<span class=' '>Hey, HEY! Everyone! Shut up for a toast!</span>\"</span></span>",
 		4 = "<span class='game say'><span class='message'>The boistrous cheering can be heard slowly calming down to an eerie silence.</span></span>",
-		5 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>clears their throat then starts to announce, \"<span class=' '>As you've all known.. Its been years since this project started... Bright minds and talented engineers hand in hand working on this project...</span>\"</span></span>",
+		5 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>clears their throat then starts to announce, \"<span class=' '>As you've all known.. It's been years since this project started... Bright minds and talented engineers hand in hand working on this project...</span>\"</span></span>",
 		6 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>says pointedly, \"<span class=' '>And after five long years, Tarkon Industries has had its first success. The driver finding a suitable asteroid, And making its mark known by carving out the current docking bay for our transport.</span>\"</span></span>",
 		7 = "<span class='game say'><span class='name'>Ensign ???</span> <span class='message'>announces, \"<span class=' '>Yesterday, We've worked, Toiled in the rock and sand of what is our new home... But today! We celebrate, For Tarkons first success, And for a bright future in the next century! The Twenty-Sixth century is looking bright for us!</span>\"</span></span>",
 		8 = "<span class='game say'><span class='name'>The universal recorder</span> <span class='message'>says, \"<span class='tape_recorder '>Recording stopped.</span>\"</span></span>"
@@ -128,7 +128,7 @@
 	name = "paper - 'Science safe notice'"
 	default_raw_text = "<b>Until further notice,</b> we are not handing out the code to the safe.<br>,\
 	<br>Whoever took the research item is getting their ass thrown to the next cleansing squad.<br>,\
-	<br>Yes, Its still in the surgery room.<br>Yes, its code has been reset."
+	<br>Yes, It's still in the surgery room.<br>Yes, its code has been reset."
 
 /obj/item/paper/fluff/ruins/tarkon/cargosafe
 	name = "paper - 'Cargo safe note'"
@@ -141,7 +141,7 @@
 	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... ,\
 		Atleast not without some governments throwing a shit-fit. So, Here's what we do. <br><br> If someone is tresspassing, We ask where they come from. ,\
 		 Apparently there's a nearby station, So... Chances are they're from there. Aslong as you dont have to shoot them, You only hold them for questioning. <br> ,\
-		 <br> If its one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
+		 <br> If it's one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
 		  void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. ,\
 		  You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
 

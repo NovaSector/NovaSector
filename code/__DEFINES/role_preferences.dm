@@ -48,6 +48,7 @@
 #define ROLE_MUTANT "Mutated Abomination"
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
 // NOVA EDIT ADDITION END
+#define ROLE_VOIDWALKER "Voidwalker"
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -180,6 +181,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_DRIFTING_CONTRACTOR = 14,
 	ROLE_MUTANT = 0,
 	// NOVA EDIT ADDITION END
+	ROLE_VOIDWALKER = 0,
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,

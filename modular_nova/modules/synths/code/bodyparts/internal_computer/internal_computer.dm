@@ -2,8 +2,8 @@
 /obj/item/modular_computer/pda/synth
 	name = "virtual persocom"
 
-	base_active_power_usage = 0
-	base_idle_power_usage = 0
+	base_active_power_usage = 0 WATTS
+	base_idle_power_usage = 0 WATTS
 
 	long_ranged = TRUE //Synths have good antennae
 
@@ -17,6 +17,9 @@
 	// prevent these from being created outside of synth brains
 	if(!istype(loc, /obj/item/organ/internal/brain/synth))
 		return INITIALIZE_HINT_QDEL
+
+/obj/item/modular_computer/pda/synth/check_power_override()
+	return TRUE
 
 /datum/action/item_action/synth/open_internal_computer
 	name = "Open persocom emulation"
@@ -157,7 +160,7 @@
 	var/obj/item/organ/internal/brain/synth/brain_loc = loc
 	// Battery level is now according to the synth charge
 	if(istype(brain_loc))
-		var/charge_level = (brain_loc.owner.nutrition / NUTRITION_LEVEL_ALMOST_FULL) * 100
+		var/charge_level = (brain_loc.owner.nutrition / NUTRITION_LEVEL_FULL) * 100
 		switch(charge_level)
 			if(80 to 110)
 				data["PC_batteryicon"] = "batt_100.gif"

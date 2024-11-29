@@ -74,7 +74,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 		return
 
 	var/icon/temporary_icon = icon(icon, icon_state, dir)
-	dnr_holder.pixel_y = temporary_icon.Height() - world.icon_size
+	dnr_holder.pixel_y = temporary_icon.Height() - ICON_SIZE_Y
 
 	if(HAS_TRAIT(src, TRAIT_DNR))
 		set_hud_image_active(DNR_HUD)
@@ -240,12 +240,16 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/cat/new_tongue = new(get_turf(human_holder))
 
+	ADD_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
+
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/feline_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/internal/tongue/new_tongue = new human_holder.dna.species.mutanttongue
+
+	REMOVE_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -301,11 +305,13 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 #define SEVERITY_STUN 1
 #define SEVERITY_SNEEZE 2
 #define SEVERITY_KNOCKDOWN 3
+#define SEVERITY_BLEP 4
 
 GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 	"Stun" = SEVERITY_STUN,
 	"Sneeze" = SEVERITY_SNEEZE, //Includes a stun
 	"Collapse" = SEVERITY_KNOCKDOWN,
+	"Blep" = SEVERITY_BLEP,
 ))
 
 /datum/quirk/sensitivesnout
@@ -341,18 +347,23 @@ GLOBAL_LIST_INIT(possible_snout_sensitivities, list(
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, freezing you in place!"))
 			quirk_holder.Stun(1 SECONDS)
 		if(SEVERITY_SNEEZE)
-			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
 			quirk_holder.Stun(1 SECONDS)
 			if(can_emote)
+				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You can't hold back a sneeze!"))
 				quirk_holder.emote("sneeze")
 		if(SEVERITY_KNOCKDOWN)
 			to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose, sending you to the ground!"))
 			quirk_holder.Knockdown(1 SECONDS)
 			quirk_holder.apply_damage(30, STAMINA)
+		if(SEVERITY_BLEP)
+			if(can_emote)
+				to_chat(quirk_holder, span_warning("[attacker] boops you on your sensitive nose! You stick your tongue out on reflex!"))
+				quirk_holder.emote("blep")
 
 #undef SEVERITY_STUN
 #undef SEVERITY_SNEEZE
 #undef SEVERITY_KNOCKDOWN
+#undef SEVERITY_BLEP
 
 /datum/quirk/overweight
 	name = "Overweight"

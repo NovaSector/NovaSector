@@ -21,6 +21,8 @@
 	var/list/modifiers = list()
 	/// Is the modifiers modal menu open (for the host)
 	var/mod_menu_open = FALSE
+	/// artificial time padding when we start loading to give lighting a breather (admin starts will set this to 0)
+	var/start_time = 8 SECONDS
 
 /datum/deathmatch_lobby/New(mob/player)
 	. = ..()
@@ -79,7 +81,7 @@
 
 	UnregisterSignal(source, COMSIG_LAZY_TEMPLATE_LOADED)
 	map.template_in_use = FALSE
-	addtimer(CALLBACK(src, PROC_REF(start_game_after_delay)), 8 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_game_after_delay)), start_time)
 
 /datum/deathmatch_lobby/proc/start_game_after_delay()
 	if (!length(player_spawns) || length(player_spawns) < length(players))
@@ -137,7 +139,7 @@
 	observer.client?.prefs.safe_transfer_prefs_to(new_player)
 	new_player.dna.update_dna_identity()
 	new_player.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE)
-	new_player.add_traits(list(TRAIT_CANNOT_CRYSTALIZE, TRAIT_PERMANENTLY_MORTAL), INNATE_TRAIT)
+	new_player.add_traits(list(TRAIT_CANNOT_CRYSTALIZE, TRAIT_PERMANENTLY_MORTAL, TRAIT_TEMPORARY_BODY), INNATE_TRAIT)
 	if(!isnull(observer.mind) && observer.mind?.current)
 		new_player.AddComponent( \
 			/datum/component/temporary_body, \
@@ -158,6 +160,14 @@
 	if(istype(synth_brain))
 		synth_brain.drop_when_organ_spilling = FALSE
 	// NOVA EDIT ADDITION END
+	register_player_signals(new_player)
+
+/datum/deathmatch_lobby/proc/register_player_signals(new_player)
+	RegisterSignals(new_player, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING, COMSIG_MOB_GHOSTIZED), PROC_REF(player_died))
+	RegisterSignal(new_player, COMSIG_LIVING_ON_WABBAJACKED, PROC_REF(player_wabbajacked))
+
+/datum/deathmatch_lobby/proc/unregister_player_signals(new_player)
+	UnregisterSignal(new_player, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING, COMSIG_MOB_GHOSTIZED, COMSIG_LIVING_ON_WABBAJACKED))
 
 /datum/deathmatch_lobby/proc/game_took_too_long()
 	if (!location || QDELING(src))
@@ -178,9 +188,9 @@
 
 	for(var/ckey in players)
 		var/mob/loser = players[ckey]["mob"]
-		UnregisterSignal(loser, list(COMSIG_MOB_GHOSTIZED, COMSIG_QDELETING))
+		unregister_player_signals(loser)
 		players[ckey]["mob"] = null
-		loser.ghostize()
+		loser.ghostize(can_reenter_corpse = FALSE)
 		qdel(loser)
 
 	for(var/datum/deathmatch_modifier/modifier in modifiers)
@@ -190,12 +200,18 @@
 	GLOB.deathmatch_game.remove_lobby(host)
 	log_game("Deathmatch game [host] ended.")
 
+/datum/deathmatch_lobby/proc/player_wabbajacked(mob/living/player, mob/living/new_mob)
+	SIGNAL_HANDLER
+	unregister_player_signals(player)
+	players[player.ckey]["mob"] = new_mob
+	register_player_signals(new_mob)
+
 /datum/deathmatch_lobby/proc/player_died(mob/living/player, gibbed)
 	SIGNAL_HANDLER
-	if(isnull(player) || QDELING(src))
+	if(isnull(player) || QDELING(src) || HAS_TRAIT_FROM(player, TRAIT_NO_TRANSFORM, MAGIC_TRAIT)) //this trait check fixes polymorphing
 		return
 
-	var/ckey = player.ckey
+	var/ckey = player.ckey ? player.ckey : player.mind?.key
 	if(!islist(players[ckey])) // potentially the player info could hold a reference to this mob so we can figure the ckey out without worrying about ghosting and suicides n such
 		for(var/potential_ckey in players)
 			var/list/player_info = players[potential_ckey]
@@ -214,8 +230,9 @@
 
 	announce(span_reallybig("[player.real_name] HAS DIED.<br>[players.len] REMAIN."))
 
-	if(!gibbed && !QDELING(player))
+	if(!gibbed && !QDELING(player) && !isdead(player))
 		if(!HAS_TRAIT(src, TRAIT_DEATHMATCH_EXPLOSIVE_IMPLANTS))
+			unregister_player_signals(player)
 			player.dust(TRUE, TRUE, TRUE)
 	if (players.len <= 1)
 		end_game()
@@ -274,7 +291,7 @@
 /datum/deathmatch_lobby/proc/join(mob/player)
 	if (playing || !player)
 		return
-	if(!(player.ckey in players+observers))
+	if(!(player.ckey in (players+observers)))
 		if (players.len >= map.max_players)
 			add_observer(player)
 		else
@@ -343,6 +360,7 @@
 	.["maps"] = list()
 	for (var/map_key in GLOB.deathmatch_game.maps)
 		.["maps"] += map_key
+	.["maps"] = sort_list(.["maps"])
 
 
 /datum/deathmatch_lobby/ui_data(mob/user)
@@ -496,26 +514,34 @@
 				return TRUE
 			var/datum/deathmatch_modifier/chosen_modifier = GLOB.deathmatch_game.modifiers[modpath]
 			if(modpath in modifiers)
-				chosen_modifier.unselect(src)
-				modifiers -= modpath
+				unselect_modifier(chosen_modifier)
 				return TRUE
 			if(chosen_modifier.selectable(src))
-				chosen_modifier.on_select(src)
-				modifiers += modpath
+				select_modifier(chosen_modifier)
 				return TRUE
 
 		if ("admin") // Admin functions
 			if (!check_rights(R_ADMIN))
-				message_admins("[usr.key] has attempted to use admin functions in a deathmatch lobby!")
+				message_admins("[usr.key] has attempted to use admin functions in a deathmatch lobby without being an admin!")
 				log_admin("[key_name(usr)] tried to use the deathmatch lobby admin functions without authorization.")
 				return
 			switch (params["func"])
 				if ("Force start")
 					log_admin("[key_name(usr)] force started deathmatch lobby [host].")
+					start_time = 0
 					start_game()
 
 	return FALSE
 
+/// Selects the passed modifier.
+/datum/deathmatch_lobby/proc/select_modifier(datum/deathmatch_modifier/modifier)
+	modifier.on_select(src)
+	modifiers += modifier.type
+
+/// Deselects the passed modifier.
+/datum/deathmatch_lobby/proc/unselect_modifier(datum/deathmatch_modifier/modifier)
+	modifier.unselect(src)
+	modifiers -= modifier.type
 
 /datum/deathmatch_lobby/ui_close(mob/user)
 	. = ..()

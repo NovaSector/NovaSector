@@ -124,7 +124,7 @@
 		)
 
 /turf/closed/mineral/asteroid/has_air
-	initial_gas_mix = OPENTURF_LOW_PRESSURE	//one that WONT screw with atmos if its mapped somewhere
+	initial_gas_mix = OPENTURF_LOW_PRESSURE	//one that WONT screw with atmos if it's mapped somewhere
 
 /*
 *	HAZARD
@@ -136,7 +136,7 @@
 	base_icon_state = "chasms"
 	baseturfs = /turf/open/chasm/sandy
 	planetary_atmos = TRUE
-	light_range = 1.5 //God only knows why its glowing, but its gotta stand out somehow - the other chasms glow too
+	light_range = 1.5 //God only knows why it's glowing, but it's gotta stand out somehow - the other chasms glow too
 	light_power = 0.65
 	light_color = LIGHT_COLOR_TUNGSTEN
 

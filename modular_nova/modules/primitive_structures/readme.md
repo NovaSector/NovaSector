@@ -1,4 +1,4 @@
-## Title: PRIMITIVE 
+## Title: PRIMITIVE
 
 ### Description:
 
@@ -21,5 +21,3 @@ Contains various items of primitive style for icecats and sometimes even ashwalk
 -   N/A
 
 ### Credits:
-
-Paxilmaniac

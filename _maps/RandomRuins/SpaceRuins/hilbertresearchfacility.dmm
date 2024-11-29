@@ -511,10 +511,6 @@
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/hilbertresearchfacility)
-"mV" = (
-/obj/machinery/transport/tram_controller/hilbert,
-/turf/closed/indestructible/riveted/plastinum/nodiagonal,
-/area/ruin/space/has_grav/powered/hilbertresearchfacility)
 "ng" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
@@ -653,6 +649,10 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/grimy,
+/area/ruin/space/has_grav/powered/hilbertresearchfacility)
+"qC" = (
+/obj/machinery/transport/tram_controller/hilbert,
+/turf/closed/indestructible/riveted/plastinum/nodiagonal,
 /area/ruin/space/has_grav/powered/hilbertresearchfacility)
 "qI" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -1953,7 +1953,7 @@
 /area/ruin/space/has_grav/powered/hilbertresearchfacility)
 "Sn" = (
 /obj/structure/table/wood,
-/obj/item/stock_parts/cell/bluespace{
+/obj/item/stock_parts/power_store/cell/bluespace{
 	pixel_y = 4
 	},
 /obj/machinery/cell_charger{
@@ -3650,7 +3650,7 @@ ZV
 YV
 Ok
 Bo
-mV
+qC
 Xi
 hk
 KC

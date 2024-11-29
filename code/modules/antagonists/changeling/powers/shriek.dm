@@ -6,6 +6,7 @@
 	chemical_cost = 20
 	dna_cost = 1
 	req_human = TRUE
+	disabled_by_fire = FALSE
 
 //A flashy ability, good for crowd control and sowing chaos.
 /datum/action/changeling/resonant_shriek/sting_action(mob/user)
@@ -26,7 +27,7 @@
 				SEND_SOUND(C, sound('sound/effects/screech.ogg'))
 
 		if(issilicon(M))
-			SEND_SOUND(M, sound('sound/weapons/flash.ogg'))
+			SEND_SOUND(M, sound('sound/items/weapons/flash.ogg'))
 			M.Paralyze(rand(100,200))
 
 	for(var/obj/machinery/light/L in range(4, user))
@@ -41,6 +42,7 @@
 	button_icon_state = "dissonant_shriek"
 	chemical_cost = 20
 	dna_cost = 1
+	disabled_by_fire = FALSE
 
 /datum/action/changeling/dissonant_shriek/sting_action(mob/user)
 	..()

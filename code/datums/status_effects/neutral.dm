@@ -1,12 +1,37 @@
 //entirely neutral or internal status effects go here
 
-/datum/status_effect/crusher_damage //tracks the damage dealt to this mob by kinetic crushers
+/datum/status_effect/crusher_damage
 	id = "crusher_damage"
 	duration = -1
 	tick_interval = -1
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = null
+	/// How much damage?
 	var/total_damage = 0
+
+/datum/status_effect/crusher_damage/on_apply()
+	RegisterSignal(owner, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(damage_taken))
+	return TRUE
+
+/datum/status_effect/crusher_damage/on_remove()
+	UnregisterSignal(owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+
+/datum/status_effect/crusher_damage/proc/damage_taken(
+	datum/source,
+	damage_dealt,
+	damagetype,
+	def_zone,
+	blocked,
+	wound_bonus,
+	bare_wound_bonus,
+	sharpness,
+	attack_direction,
+	attacking_item,
+)
+	SIGNAL_HANDLER
+
+	if(istype(attacking_item, /obj/item/kinetic_crusher))
+		total_damage += (-1 * damage_dealt)
 
 /datum/status_effect/syphon_mark
 	id = "syphon_mark"
@@ -94,7 +119,7 @@
 
 /datum/status_effect/bounty/on_apply()
 	to_chat(owner, span_boldnotice("You hear something behind you talking... \"You have been marked for death by [rewarded]. If you die, they will be rewarded.\""))
-	playsound(owner, 'sound/weapons/gun/shotgun/rack.ogg', 75, FALSE)
+	playsound(owner, 'sound/items/weapons/gun/shotgun/rack.ogg', 75, FALSE)
 	return ..()
 
 /datum/status_effect/bounty/tick(seconds_between_ticks)
@@ -105,7 +130,7 @@
 /datum/status_effect/bounty/proc/rewards()
 	if(rewarded && rewarded.mind && rewarded.stat != DEAD)
 		to_chat(owner, span_boldnotice("You hear something behind you talking... \"Bounty claimed.\""))
-		playsound(owner, 'sound/weapons/gun/shotgun/shot.ogg', 75, FALSE)
+		playsound(owner, 'sound/items/weapons/gun/shotgun/shot.ogg', 75, FALSE)
 		to_chat(rewarded, span_greentext("You feel a surge of mana flow into you!"))
 		for(var/datum/action/cooldown/spell/spell in rewarded.actions)
 			spell.reset_spell_cooldown()
@@ -584,3 +609,41 @@
 /datum/status_effect/gutted/proc/stop_gutting()
 	SIGNAL_HANDLER
 	qdel(src)
+
+/atom/movable/screen/alert/status_effect/shower_regen
+	name = "Washing"
+	desc = "A good wash fills me with energy!"
+	icon_state = "shower_regen"
+
+/atom/movable/screen/alert/status_effect/shower_regen/hater
+	name = "Washing"
+	desc = "Waaater... Fuck this WATER!!"
+	icon_state = "shower_regen_catgirl"
+
+/datum/status_effect/shower_regen
+	id = "shower_regen"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/shower_regen
+	/// How many heals from washing.
+	var/stamina_heal_per_tick = 4
+
+/datum/status_effect/shower_regen/on_apply()
+	. = ..()
+	if(HAS_TRAIT(owner, TRAIT_WATER_HATER) && !HAS_TRAIT(owner, TRAIT_WATER_ADAPTATION))
+		alert_type = /atom/movable/screen/alert/status_effect/shower_regen/hater
+
+/datum/status_effect/shower_regen/tick(seconds_between_ticks)
+	. = ..()
+	var/water_adaptation = HAS_TRAIT(owner, TRAIT_WATER_ADAPTATION)
+	var/heal_or_deal = HAS_TRAIT(owner, TRAIT_WATER_HATER) && !water_adaptation ? 1 : -1
+	var/healed = 0
+	if(water_adaptation) //very mild healing for those with the water adaptation trait (fish infusion)
+		healed += owner.adjustOxyLoss(-1.5 * seconds_between_ticks, updating_health = FALSE, required_biotype = MOB_ORGANIC)
+		healed += owner.adjustFireLoss(-1 * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+		healed += owner.adjustToxLoss(-1 * seconds_between_ticks, updating_health = FALSE, required_biotype = MOB_ORGANIC)
+		healed += owner.adjustBruteLoss(-1 * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+		heal_or_deal *= 1.5
+	healed += owner.adjustStaminaLoss(stamina_heal_per_tick * heal_or_deal * seconds_between_ticks, updating_stamina = FALSE)
+	if(healed)
+		owner.updatehealth()

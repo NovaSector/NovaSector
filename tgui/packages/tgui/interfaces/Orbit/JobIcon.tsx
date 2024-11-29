@@ -4,6 +4,7 @@ import { Antagonist, Observable } from './types';
 
 type Props = {
   item: Observable | Antagonist;
+  realNameDisplay: boolean;
 };
 
 type IconSettings = {
@@ -12,8 +13,8 @@ type IconSettings = {
 };
 
 const normalIcon: IconSettings = {
-  dmi: 'icons/mob/huds/hud.dmi',
-  transform: 'scale(2.3) translateX(8px) translateY(1px)',
+  dmi: 'modular_nova/master_files/icons/mob/huds/hud.dmi', // NOVA CHANGE - ORIGINAL 'icons/mob/huds/hud.dmi'
+  transform: 'scale(2.3) translateX(9px) translateY(1px)',
 };
 
 const antagIcon: IconSettings = {
@@ -22,7 +23,7 @@ const antagIcon: IconSettings = {
 };
 
 export function JobIcon(props: Props) {
-  const { item } = props;
+  const { item, realNameDisplay } = props;
 
   let iconSettings: IconSettings;
   if ('antag' in item) {
@@ -32,25 +33,22 @@ export function JobIcon(props: Props) {
   }
 
   // We don't need to cast here but typescript isn't smart enough to know that
-  const { icon = '', job = '' } = item;
+  const { icon = '', job = '', mind_icon = '', mind_job = '' } = item;
+  const usedIcon = realNameDisplay ? mind_icon || icon : icon;
+  const usedJob = realNameDisplay ? mind_job || job : job;
 
   return (
     <div className="JobIcon">
       {icon === 'borg' ? (
-        <Icon color="lightblue" name={JOB2ICON[job]} mr={0.5} />
+        <Icon color="lightblue" name={JOB2ICON[usedJob]} ml={0.3} mt={0.4} />
       ) : (
-        <div
+        <DmIcon
+          icon={iconSettings.dmi}
+          icon_state={usedIcon}
           style={{
-            height: '17px',
-            width: '18px',
+            transform: iconSettings.transform,
           }}
-        >
-          <DmIcon
-            icon={iconSettings.dmi}
-            icon_state={icon}
-            style={{ transform: iconSettings.transform }}
-          />
-        </div>
+        />
       )}
     </div>
   );

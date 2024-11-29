@@ -32,3 +32,10 @@
 #define NOVA_NIGHT_VISION_POWER_MAX 9
 /// percentage of the NIGHT_VISION_POWER_MAX increase that is applied for eyes with low innate flash protection (photophobia quirk/moth eyes). At 0.75, this raises NV to 22.5 at hypersensitive flash_protect.
 #define NOVA_NIGHT_VISION_SENSITIVITY_MULT 0.75
+
+/// Default damage required to trigger a fall
+#define UNSTEADY_DEFAULT_DAMAGETHRESHOLD 10
+/// Length of the fall
+#define UNSTEADY_DEFAULT_STUNLENGTH 0.4 SECONDS
+/// Chance to trigger a fall when over UNSTEADY_DAMAGETHRESHOLD
+#define UNSTEADY_DEFAULT_DAMAGECHANCE 50

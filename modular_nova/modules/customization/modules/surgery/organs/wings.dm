@@ -20,7 +20,7 @@
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/wings/get_global_feature_list()
-	return GLOB.sprite_accessories["wings"]
+	return SSaccessories.sprite_accessories["wings"]
 
 //TODO: Well you know what this flight stuff is a bit complicated and hardcoded, this is enough for now
 
@@ -76,7 +76,7 @@
 		to_chat(owner, span_warning("There's far too little air for your wings to work against!"))
 		return
 
-	if(owner.incapacitated())
+	if(owner.incapacitated)
 		return
 
 	if(!COOLDOWN_FINISHED(src, dash_cooldown))
@@ -87,13 +87,14 @@
 
 	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
-		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
+		playsound(owner, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50, TRUE, TRUE)
 		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
 		COOLDOWN_START(src, dash_cooldown, 6 SECONDS)
 		var/mob/living/dash_user = owner
 		if(istype(dash_user))
 			dash_user.adjustStaminaLoss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
 	else
+		REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
 
 /datum/emote/living/mothic_dash
@@ -136,36 +137,38 @@
 	. += span_notice("Firstly, look upwards by holding <b>[english_list(look_binds, nothing_text = "(nothing bound)", and_text = " or ", comma_text = ", or ")]!</b>")
 	. += span_notice("Then, click solid ground adjacent to the hole above you.")
 
-/obj/item/climbing_moth_wings/afterattack(turf/open/target, mob/living/user, proximity_flag, click_parameters)
-	. = ..()
+/obj/item/climbing_moth_wings/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	var/turf/open/target = interacting_with
 	if(target.z == user.z)
-		return
+		return NONE
 	if(!istype(target) || isopenspaceturf(target))
-		return
+		return NONE
 
 	var/turf/user_turf = get_turf(user)
 	var/datum/gas_mixture/environment = user_turf.return_air()
 	var/turf/above = GET_TURF_ABOVE(user_turf)
 	if(target_blocked(target, above))
-		return
+		return NONE
 	if(environment.return_pressure() < (HAZARD_LOW_PRESSURE))
 		to_chat(user, span_warning("There's far too little air for your wings to work against!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(!isopenspaceturf(above) || !above.Adjacent(target)) //are we below a hole, is the target blocked, is the target adjacent to our hole
 		user.balloon_alert(user, "blocked!")
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	var/away_dir = get_dir(above, target)
 	user.visible_message(span_notice("[user] begins pushing themselves upwards with their wings!"), span_notice("Your wings start fluttering violently as you begin going upwards."))
-	playsound(target, 'sound/voice/moth/moth_flutter.ogg', 50) //plays twice so people above and below can hear
-	playsound(user_turf, 'sound/voice/moth/moth_flutter.ogg', 50)
+	playsound(target, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50) //plays twice so people above and below can hear
+	playsound(user_turf, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50)
 	var/list/effects = list(new /obj/effect/temp_visual/climbing_hook(target, away_dir), new /obj/effect/temp_visual/climbing_hook(user_turf, away_dir))
 
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
 		user.adjustStaminaLoss(100)
-		playsound(user_turf, 'sound/voice/moth/moth_flutter.ogg', 50) //a third time for seasoning
+		playsound(user_turf, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50) //a third time for seasoning
+		. = ITEM_INTERACT_SUCCESS
 	QDEL_LIST(effects)
+	return . || ITEM_INTERACT_BLOCKING
 
 /obj/item/climbing_moth_wings/proc/target_blocked(turf/target, turf/above)
 	if(target.density || above.density)
@@ -216,9 +219,9 @@
 
 /datum/bodypart_overlay/mutant/wings/functional/locked/get_global_feature_list()
 	if(wings_open)
-		return GLOB.sprite_accessories["wings_open"]
+		return SSaccessories.sprite_accessories["wings_open"]
 
-	return GLOB.sprite_accessories["wings_functional"]
+	return SSaccessories.sprite_accessories["wings_functional"]
 
 
 // We need to overwrite this because all of these wings are locked.

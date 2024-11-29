@@ -94,7 +94,7 @@
 		stack_trace("Tried loading unsupported ammocasing type [load_type] into ammo box [type].")
 		return
 
-	for(var/i in max(1, stored_ammo.len) to max_ammo)
+	for(var/i in max(1, stored_ammo.len + 1) to max_ammo)
 		stored_ammo += new round_check(src)
 	update_appearance()
 
@@ -161,7 +161,7 @@
 	if(num_loaded)
 		if(!silent)
 			to_chat(user, span_notice("You load [num_loaded > 1 ? "[num_loaded] [casing_phrasing]s" : "a [casing_phrasing]"] into \the [src]!"))
-			playsound(src, 'sound/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
+			playsound(src, 'sound/items/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
 		update_appearance()
 
 	return num_loaded
@@ -174,7 +174,7 @@
 	A.forceMove(drop_location())
 	if(!user.is_holding(src) || !user.put_in_hands(A)) //incase they're using TK
 		A.bounce_away(FALSE, NONE)
-	playsound(src, 'sound/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
+	playsound(src, 'sound/items/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
 	to_chat(user, span_notice("You remove a [casing_phrasing] from [src]!"))
 	update_appearance()
 
@@ -215,6 +215,12 @@
 	ammo_band_image.color = ammo_band_color
 	ammo_band_image.appearance_flags = RESET_COLOR|KEEP_APART
 	overlays += ammo_band_image
+
+/obj/item/ammo_box/magazine
+	name = "A magazine (what?)"
+	desc = "A magazine of rounds, they look like error signs..."
+	drop_sound = 'sound/items/handling/gun/ballistics/magazine/magazine_drop1.ogg'
+	pickup_sound = 'sound/items/handling/gun/ballistics/magazine/magazine_pickup1.ogg'
 
 ///Count of number of bullets in the magazine
 /obj/item/ammo_box/magazine/proc/ammo_count(countempties = TRUE)

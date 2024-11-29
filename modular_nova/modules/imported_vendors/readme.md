@@ -23,4 +23,3 @@ Adds random, imported food and drink vendors to the pool of snack vendors that c
 - N/A
 
 ### Credits:
-Paxilmaniac

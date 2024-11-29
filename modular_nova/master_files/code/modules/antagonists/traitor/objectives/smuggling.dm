@@ -33,7 +33,7 @@
 	for(var/datum/traitor_objective/smuggle/objective_to_compare as anything in possible_duplicates)
 		if(objective_to_compare.contraband_type == contraband_type)
 			return FALSE
-		// it's too similar if its from the same area
+		// it's too similar if it's from the same area
 		if(objective_to_compare.smuggle_spawn_type == smuggle_spawn_type)
 			return FALSE
 	return TRUE

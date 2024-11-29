@@ -11,11 +11,11 @@
 	/// If the shocker is on or not
 	var/shocker_on = FALSE
 	/// Typecasted var that holds the cell placed in the shocker
-	var/obj/item/stock_parts/cell/cell
+	var/obj/item/stock_parts/power_store/cell/cell
 	/// A type of what cell should be put in the shocker on initialize
-	var/preload_cell_type = /obj/item/stock_parts/cell
+	var/preload_cell_type = /obj/item/stock_parts/power_store/cell
 	/// What it should cost the cell to use the shocker once
-	var/cell_hit_cost = 75
+	var/cell_hit_cost = STANDARD_CELL_CHARGE * 0.015
 	/// If the user should be able to remove the cell or not
 	var/can_remove_cell = TRUE
 	/// The custom part of the string that is displayed on activation of the shocker
@@ -30,7 +30,7 @@
 	update_icon()
 	if(!preload_cell_type)
 		return
-	if(!ispath(preload_cell_type, /obj/item/stock_parts/cell))
+	if(!ispath(preload_cell_type, /obj/item/stock_parts/power_store/cell))
 		log_mapping("[src] at [AREACOORD(src)] had an invalid preload_cell_type: [preload_cell_type].")
 	else
 		cell = new preload_cell_type(src)
@@ -45,7 +45,7 @@
 		//we're below minimum, turn off
 		shocker_on = FALSE
 		update_appearance()
-		play_lewd_sound(src, activate_sound, 75, TRUE, -1)
+		playsound_if_pref(src, activate_sound, 75, TRUE, -1)
 
 /obj/item/kinky_shocker/examine(mob/user)
 	. = ..()
@@ -54,7 +54,7 @@
 	else
 		. += span_warning("\The [src] does not have a power source installed.")
 
-/obj/item/kinky_shocker/attackby(obj/item/stock_parts/cell/powercell, mob/user, params)
+/obj/item/kinky_shocker/attackby(obj/item/stock_parts/power_store/cell/powercell, mob/user, params)
 	if(!istype(powercell))
 		return ..()
 	if(cell)
@@ -91,7 +91,7 @@
 	if(cell && cell.charge >= cell_hit_cost)
 		shocker_on = !shocker_on
 		to_chat(user, span_notice("You turn the shocker [shocker_on? "on. Buzz!" : "off."]"))
-		play_lewd_sound(user, shocker_on ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 40, TRUE)
+		playsound_if_pref(user, shocker_on ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)
 	else
 		shocker_on = FALSE
 		if(!cell)
@@ -120,7 +120,7 @@
 		to_chat(user, span_danger("[target] doesn't want you to do that."))
 		return
 	deductcharge(cell_hit_cost)
-	play_lewd_sound(loc, 'sound/weapons/taserhit.ogg', 70, 1, -1)
+	playsound_if_pref(loc, 'sound/items/weapons/taserhit.ogg', 70, 1, -1)
 	switch(user.zone_selected) //to let code know what part of body we gonna tickle
 		if(BODY_ZONE_PRECISE_GROIN)
 			targetedsomewhere = TRUE
@@ -279,7 +279,7 @@
 	if(!targetedsomewhere)
 		return
 	user.visible_message(span_purple("[user] [message]!"))
-	play_lewd_sound(loc, 'sound/weapons/taserhit.ogg')
+	playsound_if_pref(loc, 'sound/items/weapons/taserhit.ogg')
 	if(target.stat == DEAD)
 		return
 	if(prob(80))
@@ -288,3 +288,4 @@
 	target.adjustStaminaLoss(3)
 	target.adjust_pain(9)
 	target.adjust_stutter(30 SECONDS)
+	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)

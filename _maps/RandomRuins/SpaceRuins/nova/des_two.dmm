@@ -1148,8 +1148,11 @@
 	id = "interdynerobo"
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/item/storage/backpack/duffelbag/synth_treatment_kit,
 /obj/machinery/light/cold/directional/north,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked{
+	pixel_y = 6
+	},
+/obj/item/storage/backpack/duffelbag/synth_treatment_kit,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "eO" = (
@@ -1994,8 +1997,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/security)
 "iK" = (
@@ -4839,12 +4840,12 @@
 	dir = 4
 	},
 /obj/structure/rack/shelf,
-/obj/item/stock_parts/cell/lead{
+/obj/item/stock_parts/power_store/cell/lead{
 	pixel_x = 4;
 	pixel_y = -6
 	},
-/obj/item/stock_parts/cell/lead,
-/obj/item/stock_parts/cell/lead{
+/obj/item/stock_parts/power_store/cell/lead,
+/obj/item/stock_parts/power_store/cell/lead{
 	pixel_x = -4;
 	pixel_y = -8
 	},
@@ -5406,9 +5407,7 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 8
 	},
-/obj/machinery/vending/engivend{
-	onstation = 0
-	},
+/obj/machinery/vending/engivend,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -5968,7 +5967,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "AZ" = (
-/obj/machinery/vending/boozeomat/syndicate_access,
+/obj/machinery/vending/boozeomat/syndicate,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "Bb" = (
@@ -6199,12 +6198,12 @@
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/junction/flip{
+	dir = 2
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/halls)
 "BZ" = (
@@ -7281,8 +7280,7 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "GQ" = (
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 8;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood/tile,
@@ -7388,9 +7386,7 @@
 /obj/machinery/light/cold/directional/east,
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/machinery/vending/dinnerware{
-	onstation = 0
-	},
+/obj/machinery/vending/dinnerware,
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
@@ -7609,7 +7605,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/item/clothing/mask/gas/sechailer/syndicate,
+/obj/item/clothing/mask/neck_gaiter/syndicate,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "If" = (
@@ -7655,22 +7651,22 @@
 /obj/item/electronics/airalarm{
 	pixel_x = 2
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/battery/high{
 	pixel_x = -8;
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/battery/high{
 	pixel_x = -4;
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/battery/high{
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 4;
 	pixel_y = -8
 	},
-/obj/item/stock_parts/cell/high{
+/obj/item/stock_parts/power_store/cell/high{
 	pixel_x = 8;
 	pixel_y = -8
 	},
@@ -7884,9 +7880,14 @@
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/trimline/dark_red/warning,
-/obj/item/storage/medkit/regular,
-/obj/item/storage/medkit/regular{
-	pixel_y = 5
+/obj/item/storage/medkit/advanced{
+	pixel_y = -2
+	},
+/obj/item/storage/medkit/toxin{
+	pixel_y = 2
+	},
+/obj/item/storage/medkit/fire{
+	pixel_y = 6
 	},
 /obj/item/storage/medkit/regular{
 	pixel_y = 10
@@ -7954,7 +7955,7 @@
 	},
 /obj/machinery/vending/cigarette/syndicate,
 /obj/machinery/camera/xray/directional/east{
-	c_tag = "DS-2 Botany";
+	c_tag = "DS-2 Library";
 	network = list("ds2")
 	},
 /turf/open/floor/wood/parquet,

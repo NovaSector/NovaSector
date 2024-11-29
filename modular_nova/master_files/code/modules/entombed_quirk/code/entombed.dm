@@ -87,6 +87,10 @@
 
 	modsuit.skin = LOWER_TEXT(modsuit_skin)
 
+	if(modsuit.skin == "colonist") // special case here, because the icon files for the colonist module are different from the tg ones.
+		modsuit.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
+		modsuit.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
+
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
 		modsuit.name = modsuit_name
@@ -100,9 +104,12 @@
 		modsuit.theme.name = LOWER_TEXT(modsuit_skin_prefix)
 
 	// ensure we're applying our config theme changes, just in case
-	for(var/obj/item/part as anything in modsuit.mod_parts)
+	for(var/obj/item/part as anything in modsuit.get_parts())
 		part.name = "[modsuit.theme.name] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
+		if(modsuit.skin == "colonist") // That special case again. If more Nova modsuit skins ever get added, we may want to refactor this quirk to use the mod_theme's variants list instead of hardcoded strings.
+			part.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
+			part.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
 
 	install_racial_features()
 
@@ -177,6 +184,7 @@
 		"Mining",
 		"Prototype",
 		"Security",
+		"Colonist",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()

@@ -87,11 +87,6 @@
 	using.screen_loc = ui_borg_navigate_menu
 	static_inventory += using
 
-// Z-level floor change
-	using = new /atom/movable/screen/floor_menu(null, src)
-	using.screen_loc = ui_borg_floor_menu
-	static_inventory += using
-
 //Radio
 	using = new /atom/movable/screen/robot/radio(null, src)
 	using.screen_loc = ui_borg_radio
@@ -149,6 +144,11 @@
 	action_intent.screen_loc = ui_combat_toggle
 	static_inventory += action_intent
 
+	floor_change = new /atom/movable/screen/floor_changer(null, src)
+	floor_change.icon = ui_style
+	floor_change.screen_loc = ui_borg_floor_changer
+	static_inventory += floor_change
+
 //Health
 	healths = new /atom/movable/screen/healths/robot(null, src)
 	infodisplay += healths
@@ -196,13 +196,13 @@
 	if(!R.client)
 		return
 
+	//Module is not currently active
+	screenmob.client.screen -= R.model.get_inactive_modules()
+
 	if(!R.shown_robot_modules || !screenmob.hud_used.hud_shown)
 		//Modules display is hidden
 		screenmob.client.screen -= module_store_icon //"store" icon
 
-		for(var/atom/A in R.model.get_inactive_modules())
-			//Module is not currently active
-			screenmob.client.screen -= A
 		R.shown_robot_modules = 0
 		screenmob.client.screen -= R.robot_modules_background
 		return

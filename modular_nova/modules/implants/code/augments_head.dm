@@ -12,7 +12,7 @@
 		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "sandy"
-	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
@@ -33,20 +33,18 @@
 	)
 
 /obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	. = ..()
 	if(isteshari(owner))
-		return ..()
+		return
 	bodypart_overlay = new()
 	limb.add_bodypart_overlay(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/sensory_enhancer/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
-	if(isteshari(owner))
-		return ..()
-	limb.remove_bodypart_overlay(bodypart_overlay)
+/obj/item/organ/internal/cyberimp/sensory_enhancer/on_mob_remove(mob/living/carbon/organ_owner, special)
+	. = ..()
+	bodypart_owner?.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	organ_owner.update_body_parts()
 
 /obj/item/autosurgeon/syndicate/sandy
 	name = "\improper Qani-Laaca sensory computer autosurgeon"
@@ -132,7 +130,7 @@
 		hacking for you. Due to their complexity, the system does not appear to work on cyborgs."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "hackerman"
-	slot = ORGAN_SLOT_BRAIN_ANTISTUN
+	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
 	implant_overlay = null
 	implant_color = null
@@ -142,20 +140,19 @@
 	var/datum/bodypart_overlay/simple/hackerman/bodypart_overlay
 
 /obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	. = ..()
 	if(isteshari(owner))
-		return ..()
+		return
 	bodypart_overlay = new()
 	limb.add_bodypart_overlay(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/hackerman_deck/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
-	if(isteshari(owner))
-		return ..()
-	limb.remove_bodypart_overlay(bodypart_overlay)
+/obj/item/organ/internal/cyberimp/hackerman_deck/on_mob_remove(mob/living/carbon/organ_owner, special)
+	. = ..()
+	bodypart_owner?.remove_bodypart_overlay(bodypart_overlay)
 	QDEL_NULL(bodypart_overlay)
-	owner.update_body_parts()
-	return ..()
+	organ_owner.update_body_parts()
+
 
 /datum/bodypart_overlay/simple/hackerman
 	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
@@ -227,7 +224,7 @@
 	cast_on.forensics?.add_hacking_implant_trace()
 	cast_on.add_hiddenprint(owner)
 
-	playsound(cast_on, 'sound/machines/terminal_processing.ogg', 15, TRUE)
+	playsound(cast_on, 'sound/machines/terminal/terminal_processing.ogg', 15, TRUE)
 
 	var/mob/living/carbon/human/human_owner = owner
 

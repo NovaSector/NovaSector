@@ -72,6 +72,51 @@
 	id = "xenoarch_handscanner"
 	build_path = /obj/item/xenoarch/handheld_scanner
 
+/datum/design/xenoarch/tool/stabilizer
+	name = "Xenoarch Artifact Stabilizer"
+	desc = "An outdated tech to stabilize boulders."
+	id = "xenoarch_artifact_stabilizer"
+	build_path = /obj/item/xenoarch/anomaly_stabilizer
+
+/datum/design/xenoarch/tool/core_sampler
+	name = "Core Sampler"
+	desc = "An outdated way to take a sample of rocks and dirt."
+	id = "xenoarch_core_sampler"
+	build_path = /obj/item/xenoarch/core_sampler
+
+/datum/design/xenoarch/tool/particles_battery
+	name = "Exotic particles power battery"
+	desc = "A battery, that can collect exotic particles and release them later, if used properly."
+	id = "xenoarch_particles_battery"
+	build_path = /obj/item/xenoarch/particles_battery
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT,
+	)
+
+/datum/design/xenoarch/tool/xenoarch_utilizer
+	name = "Exotic particles power utilizer"
+	desc = "A device used to discharge exotic particle batteries."
+	id = "xenoarch_utilizer"
+	build_path = /obj/item/xenoarch/xenoarch_utilizer
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+
+/datum/design/xenoarch/tool/wave_scanner_backpack
+	name = "Wave scanner backpack"
+	desc = "An outdated way to find exotic particles."
+	id = "xenoarch_wave_scanner"
+	build_path = /obj/item/xenoarch/wave_scanner_backpack
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT,
+	)
+
 /datum/design/xenoarch/tool/advanced
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -166,6 +211,30 @@
 	id = "xeno_recoverer"
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_recoverer
 
+/datum/design/board/xenoarch/artifact_analyzer
+	name = "Machine Design (Artifact Analyzer)"
+	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact analyzer."
+	id = "artifact_analyzer"
+	build_path = /obj/item/circuitboard/machine/artifact_analyser
+
+/datum/design/board/xenoarch/radiocarbon_spectrometer
+	name = "Machine Design (Radiocarbon spectrometer)"
+	desc = "Allows for the construction of circuit boards used to build a new xenoarch radiocarbon spectrometer."
+	id = "radiocarbon spectrometer"
+	build_path = /obj/item/circuitboard/machine/radiocarbon_spectrometer
+
+/datum/design/board/xenoarch/artifact_harvester
+	name = "Machine Design (Exotic Particle Harvester)"
+	desc = "Allows for the construction of circuit boards used to build a new xenoarch exotic particle harvester."
+	id = "artifact_harvester"
+	build_path = /obj/item/circuitboard/machine/artifact_harvester
+
+/datum/design/board/xenoarch/artifact_scanpad
+	name = "Machine Design (Artifact Scanpad)"
+	desc = "Allows for the construction of circuit boards used to build a new xenoarch artifact scanpad."
+	id = "artifact_scanpad"
+	build_path = /obj/item/circuitboard/machine/artifact_scanpad
+
 /datum/design/board/xenoarch/digger
 	name = "Machine Design (Xenoarch Digger)"
 	desc = "Allows for the construction of circuit boards used to build a new xenoarch digger."
@@ -173,7 +242,7 @@
 	build_path = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_digger
 
 /datum/techweb_node/basic_xenoarch
-	id = "basic_xenoarch"
+	id = TECHWEB_NODE_XENOARCH_BASIC
 	starting_node = TRUE
 	display_name = "Basic Xenoarchaeology"
 	description = "The basic designs of xenoarchaeology."
@@ -186,38 +255,47 @@
 		"hammer_cm6",
 		"hammer_cm10",
 		"xenoarch_brush",
+		"xenoarch_utilizer",
 		"xenoarch_tapemeasure",
 		"xenoarch_handscanner",
+		"xenoarch_wave_scanner",
+		"xenoarch_core_sampler",
+		"xenoarch_particles_battery",
+		"xenoarch_artifact_stabilizer",
 	)
 
 /datum/techweb_node/xenoarch_storage
-	id = "xenoarch_storage"
+	id = TECHWEB_NODE_XENOARCH_STORAGE
 	display_name = "Xenoarchaeology Storage"
 	description = "When dealing with xenoarchaeology, one may need storage."
-	prereq_ids = list("basic_xenoarch")
+	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC)
 	design_ids = list(
 		"xenoarch_belt",
 		"xenoarch_bag",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/xenoarch_machines
-	id = "xenoarch_machines"
+	id = TECHWEB_NODE_XENOARCH_MACHINES
 	display_name = "Xenoarchaeology Machines"
 	description = "Sometimes, xenoarchaeology can be time consuming, perhaps machines can help?"
-	prereq_ids = list("basic_xenoarch")
+	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC)
 	design_ids = list(
 		"xeno_researcher",
 		"xeno_scanner",
 		"xeno_recoverer",
+		"artifact_analyzer",
+		"artifact_scanpad",
+		"artifact_harvester",
+		"radiocarbon spectrometer",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/adv_xenoarch
-	id = "adv_xenoarch"
+	id = TECHWEB_NODE_XENOARCH_ADVANCED
 	display_name = "Advanced Xenoarchaeology"
 	description = "After some time, those tools we used have become antiquated-- we need an upgrade."
-	prereq_ids = list("basic_xenoarch", "xenoarch_machines", "xenoarch_storage")
+	prereq_ids = list(TECHWEB_NODE_XENOARCH_BASIC, TECHWEB_NODE_XENOARCH_MACHINES, TECHWEB_NODE_XENOARCH_STORAGE)
 	design_ids = list(
 		"xenoarch_adv_hammer",
 		"xenoarch_adv_brush",
@@ -226,7 +304,7 @@
 		"xenoarch_handrecoverer",
 		"xeno_digger",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
 
 /datum/experiment/scanning/points/xenoarch

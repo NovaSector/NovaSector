@@ -217,14 +217,14 @@
 
 	if(possible_console)
 		if(possible_console.requestonly && !self_paid)
-			reason = tgui_input_text(user, "Reason", name)
+			reason = tgui_input_text(user, "Reason", name, max_length = MAX_MESSAGE_LEN)
 			if(isnull(reason))
 				return
 
 	else if(possible_downloader)
 		var/datum/computer_file/program/budgetorders/parent_file = parent_prog
 		if((parent_file.requestonly && !self_paid) || !(possible_downloader.computer_id_slot?.GetID()))
-			reason = tgui_input_text(user, "Reason", name)
+			reason = tgui_input_text(user, "Reason", name, max_length = MAX_MESSAGE_LEN)
 			if(isnull(reason))
 				return
 
@@ -272,7 +272,7 @@
 	. = cost
 	. *= SSeconomy.pack_price_modifier
 
-/datum/component/armament/company_imports/ui_act(action, list/params)
+/datum/component/armament/company_imports/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -280,7 +280,7 @@
 	switch(action)
 		if("toggleprivate")
 			var/obj/item/card/id/id_card
-			var/mob/living/carbon/human/the_person = usr
+			var/mob/living/carbon/human/the_person = ui.user
 
 			if(!istype(the_person))
 				if(issilicon(the_person))

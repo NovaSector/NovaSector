@@ -32,7 +32,7 @@
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
 
 	mail_goodies = list(
-		/obj/item/clothing/mask/cigarette/cigar/havana = 20,
+		/obj/item/cigarette/cigar/havana = 20,
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
 		/obj/item/reagent_containers/cup/glass/bottle/champagne = 10
 	)
@@ -47,7 +47,7 @@
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/heads/nanotrasen_consultant
-	gloves = /obj/item/clothing/gloves/combat
+	gloves = /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant/black
 	uniform =  /obj/item/clothing/under/rank/nanotrasen_consultant
 	suit = /obj/item/clothing/suit/armor/vest/nanotrasen_consultant
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -118,8 +118,8 @@
 /obj/item/storage/bag/garment/nanotrasen_consultant/PopulateContents()
 	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/glasses/sunglasses/gar/giga(src)
-	new /obj/item/clothing/gloves/combat(src)
 	new /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant(src)
+	new /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant/black(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant(src)
 	new /obj/item/clothing/under/rank/nanotrasen_consultant(src)
 	new /obj/item/clothing/under/rank/nanotrasen_consultant/skirt(src)
@@ -163,8 +163,8 @@
 
 /obj/item/choice_beacon/ntc/generate_display_names()
 	var/static/list/selectable_gun_types = list(
-		"Takbok" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
-		"Skild" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
+		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
+		"Skild Pistol Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/skild,
 	)
 
 	return selectable_gun_types

@@ -8,6 +8,7 @@ GLOBAL_LIST_INIT(pref_checked_clothes, list(
 	/obj/item/clothing/glasses/hypno,
 	/obj/item/clothing/neck/kink_collar,
 	/obj/item/clothing/neck/mind_collar,
+	/obj/item/electropack/shockcollar,
 	/obj/item/clothing/glasses/blindfold/kinky,
 	/obj/item/clothing/ears/kinky_headphones,
 	/obj/item/clothing/suit/straight_jacket/kinky_sleepbag,

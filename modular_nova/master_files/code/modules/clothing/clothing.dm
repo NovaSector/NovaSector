@@ -45,18 +45,17 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
  * * icon_to_process (/icon) - The icon that we want to process. Do note that this is already
  * an icon, and NOT an icon file, because we want to be able to operate on icons that have been
  * modified to fit female bodytypes, for instance.
- * * layer - The layer we want the mutable appearance to be on.
  * * female_type - The `female_flags` of the clothing item used to generate the icon that
  * we're operating on, if appropriate, to allow the caching of female-fitted uniforms.
  * * greyscale_colors - The colors of the icon if it was a greyscale one, to make this GAGS-compatible.
  *
  * Returns a taur-compatible mutable_appearance!
  */
-/proc/wear_taur_version(icon_state, icon/icon_to_process, layer, female_type, greyscale_colors)
+/proc/wear_taur_version(icon_state, icon/icon_to_process, female_type, greyscale_colors)
 	RETURN_TYPE(/mutable_appearance)
 
 	var/index = "[icon_state]-[greyscale_colors]-[female_type]"
 	var/icon/taur_clothing_icon = GLOB.taur_clothing_icons[index]
 	if(!taur_clothing_icon) 	//Create standing/laying icons if they don't exist
 		generate_taur_clothing(index, icon_to_process, icon_state)
-	return mutable_appearance(GLOB.taur_clothing_icons[index], layer = -layer)
+	return icon(GLOB.taur_clothing_icons[index])

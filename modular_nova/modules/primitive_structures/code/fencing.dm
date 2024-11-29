@@ -24,12 +24,12 @@
 /obj/structure/railing/wooden_fencing/atom_deconstruct(disassembled)
 	var/obj/plank = new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 	transfer_fingerprints_to(plank)
-  
+
 // formerly NO_DECONSTRUCTION
-/obj/structure/railing/wirecutter_act(mob/living/user, obj/item/tool)
+/obj/structure/railing/wooden_fencing/wirecutter_act(mob/living/user, obj/item/tool)
 	return NONE
 
-/obj/structure/railing/crowbar_act(mob/living/user, obj/item/tool)
+/obj/structure/railing/wooden_fencing/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
 	to_chat(user, span_warning("You pry apart the railing."))
 	tool.play_tool_sound(src, 100)
@@ -60,7 +60,7 @@
 	opened = !opened
 	set_density(!opened)
 	icon_state = "[opened ? "gate_open" : "gate"]"
-	playsound(src, (opened ? 'sound/machines/wooden_closet_open.ogg' : 'sound/machines/wooden_closet_close.ogg'), 100, TRUE)
+	playsound(src, (opened ? 'sound/machines/closet/wooden_closet_open.ogg' : 'sound/machines/closet/wooden_closet_close.ogg'), 100, TRUE)
 	update_appearance()
 
 /obj/structure/railing/wooden_fencing/gate/update_icon()
@@ -74,8 +74,8 @@
 	name = "large wooden gate"
 	icon = 'modular_nova/modules/primitive_structures/icons/wooden_gate.dmi'
 	icon_state = "gate"
-	openSound = 'sound/machines/wooden_closet_open.ogg'
-	closeSound = 'sound/machines/wooden_closet_close.ogg'
+	openSound = 'sound/machines/closet/wooden_closet_open.ogg'
+	closeSound = 'sound/machines/closet/wooden_closet_close.ogg'
 
 /obj/structure/mineral_door/wood/large_gate/Open()
 	playsound(src, openSound, 100, TRUE)

@@ -27,11 +27,15 @@
 /datum/antagonist/ashwalker/on_gain()
 	. = ..()
 	RegisterSignal(owner.current, COMSIG_MOB_EXAMINATE, PROC_REF(on_examinate))
-	//owner.teach_crafting_recipe(/datum/crafting_recipe/skeleton_key) //NOVA EDIT REMOVAL - ASH RITUALS
+	// owner.teach_crafting_recipe(/datum/crafting_recipe/skeleton_key) //NOVA EDIT REMOVAL - ASH RITUALS
+	// if(FACTION_NEUTRAL in owner.current.faction) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
+		// owner.current.faction.Remove(FACTION_NEUTRAL) // ashwalkers aren't neutral; they're ashwalker-aligned //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
 
 /datum/antagonist/ashwalker/on_removal()
 	. = ..()
 	UnregisterSignal(owner.current, COMSIG_MOB_EXAMINATE)
+	// if(!(FACTION_NEUTRAL in owner.current.faction)) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
+		// owner.current.faction.Add(FACTION_NEUTRAL) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
 
 /datum/antagonist/ashwalker/proc/on_examinate(datum/source, atom/A)
 	SIGNAL_HANDLER
@@ -61,9 +65,9 @@
 			objectives -= necropolis_objective //So we don't count it in the check for other objectives.
 			report += "<b>The [name] was tasked with defending the Necropolis:</b>"
 			if(necropolis_objective.check_completion())
-				report += span_greentext("<span class='header'>The nest stands! Glory to the Necropolis!</span><br>")
+				report += span_greentext(span_header("The nest stands! Glory to the Necropolis!<br>"))
 			else
-				report += span_redtext("<span class='header'>The Necropolis was destroyed, the tribe has fallen...</span><br>")
+				report += span_redtext(span_header("The Necropolis was destroyed, the tribe has fallen...<br>"))
 
 		if(length(objectives))
 			report += span_header("The [name]'s other objectives were:")

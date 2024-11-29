@@ -2,7 +2,6 @@
 #define NOVA_PLAYER_RANKS list("Donator", "Mentor", "Veteran")
 
 ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage who has the special player ranks while the server is running.", ADMIN_CATEGORY_MAIN)
-/client/proc/manage_player_ranks()
 	usr.client?.holder.manage_player_ranks()
 
 /// Proc for admins to change people's "player" ranks (donator, mentor, veteran, etc.)

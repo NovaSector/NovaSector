@@ -11,7 +11,7 @@
 	organ_type = /obj/item/organ/external/synth_screen
 
 /datum/sprite_accessory/screen/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = null
 
 /datum/sprite_accessory/screen/blank
@@ -168,7 +168,7 @@
 		return TRUE
 
 /datum/sprite_accessory/antenna/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "None"
 	recommended_species = null
 
@@ -218,6 +218,13 @@
 	name = "Human Chassis"
 	icon = BODYPART_ICON_HUMAN
 	icon_state = "human"
+	color_src = MUTANT_COLOR
+	dimorphic = TRUE
+
+/datum/sprite_accessory/synth_chassis/moth
+	name = "Moth Chassis"
+	icon = BODYPART_ICON_MOTH
+	icon_state = "moth"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 
@@ -313,6 +320,13 @@
 	name = "Human Head"
 	icon = BODYPART_ICON_HUMAN
 	icon_state = "human"
+	color_src = MUTANT_COLOR
+	dimorphic = TRUE
+
+/datum/sprite_accessory/synth_head/moth
+	name = "Moth Head"
+	icon = BODYPART_ICON_MOTH
+	icon_state = "moth"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 

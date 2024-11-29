@@ -151,7 +151,7 @@
 
 /obj/item/ammo_box/c980grenade/shrapnel
 	name = "ammo box (.980 Tydhouer shrapnel)"
-	desc = "A box of four .980 Tydhouer shrapnel grenades. Instructions on the box indicate these are shrapnel rounds. Its also covered in hazard signs, odd."
+	desc = "A box of four .980 Tydhouer shrapnel grenades. Instructions on the box indicate these are shrapnel rounds. It's also covered in hazard signs, odd."
 
 	icon_state = "980box_explosive"
 
@@ -201,7 +201,7 @@
 
 /obj/item/ammo_box/c980grenade/shrapnel/phosphor
 	name = "ammo box (.980 Tydhouer phosphor)"
-	desc = "A box of four .980 Tydhouer phosphor grenades. Instructions on the box indicate these are incendiary explosive rounds. Its also covered in hazard signs, odd."
+	desc = "A box of four .980 Tydhouer phosphor grenades. Instructions on the box indicate these are incendiary explosive rounds. It's also covered in hazard signs, odd."
 
 	icon_state = "980box_gas_alternate"
 

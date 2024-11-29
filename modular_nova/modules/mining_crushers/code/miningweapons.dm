@@ -1,5 +1,5 @@
 /obj/item/kinetic_crusher
-	/// This var is used to imitate being weilded if its one handed
+	/// This var is used to imitate being weilded if it's one handed
 	var/acts_as_if_wielded
 
 /obj/item/kinetic_crusher/machete
@@ -22,7 +22,7 @@
 	throw_speed = 4
 	armour_penetration = 10
 	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("slashes", "cuts", "cleaves", "chops", "swipes")
 	attack_verb_simple = list("cleave", "chop", "cut", "swipe", "slash")
 	sharpness = SHARP_EDGED
@@ -67,7 +67,7 @@
 	throw_speed = 4
 	armour_penetration = 15
 	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("pierces", "stabs", "impales", "pokes", "jabs")
 	attack_verb_simple = list("imaple", "stab", "pierce", "jab", "poke")
 	sharpness = SHARP_EDGED
@@ -113,7 +113,7 @@
 	throw_speed = 4
 	armour_penetration = 0
 	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
-	hitsound = 'sound/weapons/sonic_jackhammer.ogg'
+	hitsound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	attack_verb_continuous = list("slams", "crushes", "smashes", "flattens", "pounds")
 	attack_verb_simple = list("slam", "crush", "smash", "flatten", "pound")
 	sharpness = NONE
@@ -155,7 +155,7 @@
 	worn_icon_state = "PKHammer0"
 	slot_flags = NONE
 	name = "proto-kinetic claws"
-	desc = "Truly the most compact version of the crusher ever made, its small enough to fit in your backpack and still function as a crusher. \
+	desc = "Truly the most compact version of the crusher ever made, it's small enough to fit in your backpack and still function as a crusher. \
 	Best used when attacking from behind, rewarding those capable of landing what we call a 'critical hit' \
 	(DISCLAIMER) The shell is made to fit over gloves, so don't try to wear it like a glove."
 	force = 5
@@ -164,7 +164,7 @@
 	throw_speed = 4
 	armour_penetration = 0
 	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
-	hitsound = 'sound/weapons/pierce.ogg'
+	hitsound = 'sound/items/weapons/pierce.ogg'
 	attack_verb_continuous = list("swipes", "slashes", "cuts", "slaps")
 	attack_verb_simple = list("swipe", "slash", "cut", "slap")
 	sharpness = SHARP_POINTY

@@ -60,7 +60,7 @@
 				/obj/item/clothing/shoes/latex_heels/domina_heels = 4,
 				/obj/item/clothing/gloves/evening = 5,
 
-				/obj/item/clothing/under/misc/nova/gear_harness = 6,//Important "not-nude" outfit
+				/obj/item/clothing/under/misc/nova/gear_harness = 20,//Important "not-nude" outfit
 				/obj/item/clothing/shoes/jackboots/knee = 3,
 
 				/obj/item/clothing/under/misc/latex_catsuit = 8,
@@ -195,7 +195,7 @@
 /obj/machinery/vending/dorms/proc/check_menu(mob/living/user, obj/item/multitool)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return FALSE
 	if(!multitool || !user.is_holding(multitool))
 		return FALSE

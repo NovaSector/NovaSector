@@ -125,7 +125,7 @@
 
 	self_message += get_progress(user, target, healed_brute, healed_burn)
 
-	display_results(user, target, span_notice("[self_message]."), "[other_message].", "[other_message].")
+	display_results(user, target, span_notice("[self_message]."), span_notice("[other_message]."), span_notice("[other_message]."))
 
 	if(istype(surgery, /datum/surgery/robot_healing))
 		var/datum/surgery/robot_healing/the_surgery = surgery

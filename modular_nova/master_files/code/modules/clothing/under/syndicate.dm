@@ -8,7 +8,7 @@
 /obj/item/clothing/under/syndicate/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/syndicate.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/syndicate.dmi'
-	//These are pre-set for ease and reference, as syndie under items SHOULDNT have sensors and should have similar stats; also its better to start with adjust = false
+	//These are pre-set for ease and reference, as syndie under items SHOULDNT have sensors and should have similar stats; also it's better to start with adjust = false
 	has_sensor = NO_SENSORS
 	can_adjust = FALSE
 
@@ -129,18 +129,9 @@
 	. = ..()
 	. += span_notice("The armor has been removed from the fabric.")
 
-/obj/item/clothing/mask/gas/sechailer/half_mask
+/obj/item/clothing/mask/neck_gaiter/syndicate/tacticool
 	name = "tacticool neck gaiter"
-	desc = "A black techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
-	actions_types = list(/datum/action/item_action/adjust)
-	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
-	icon_state = "half_mask"
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
-	voice_filter = null
-	use_radio_beeps_tts = FALSE
-
+	desc = "A techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
 /*
 *	TACTICAL (Real)
 */

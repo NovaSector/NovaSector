@@ -2,55 +2,50 @@
 // NEW NODES
 
 /datum/techweb_node/adv_vision
-	id = "adv_vision"
+	id = TECHWEB_NODE_ADVANCED_VISION
 	display_name = "Combat Cybernetic Eyes"
 	description = "Military grade combat implants to improve vision."
-	prereq_ids = list("combat_cyber_implants", "alien_bio")
+	prereq_ids = list(TECHWEB_NODE_COMBAT_IMPLANTS, TECHWEB_NODE_ALIEN_SURGERY)
 	design_ids = list(
 		"ci-thermals",
 		"ci-xray",
 		"ci-thermals-moth",
 		"ci-xray-moth",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 
 /datum/techweb_node/borg_shapeshifter
-	id = "borg_shapeshifter"
+	id = TECHWEB_NODE_BORG_SHAPESHIFTER
 	display_name = "Illegal Cyborg Addition"
 	description = "Some sort of experimental tool that was once used by an rival company."
-	prereq_ids = list("syndicate_basic")
+	prereq_ids = list(TECHWEB_NODE_SYNDICATE_BASIC)
 	design_ids = list("borg_shapeshifter_module")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
-
-// MODULAR ADDITIONS AND REMOVALS
-
-//Base Nodes
-/datum/techweb_node/base/New()
-	design_ids += list(
-		"polarizer",
-		"vox_gas_filter",
-		"gbp_machine",
+/datum/techweb_node/android_chassis
+	id = TECHWEB_NODE_ANDROID_CHASSIS
+	starting_node = TRUE
+	display_name = "Android Technology"
+	description = "Shiny parts for your shiny friends!"
+	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
+	design_ids = list(
+		"synth_head",
+		"synth_chest",
+		"synth_l_arm",
+		"synth_r_arm",
+		"synth_l_leg",
+		"synth_r_leg",
+		"synth_l_d_leg",
+		"synth_r_d_leg",
 	)
-	return ..()
 
-/datum/techweb_node/cyborg/New()
-	design_ids += list(
-		"affection_module",
-	)
-	return ..()
-
-/datum/techweb_node/basic_tools/New()
-	design_ids += list(
-		"bowl",
-		"drinking_glass",
-		"shot_glass",
-	)
-	return ..()
-
-/datum/techweb_node/basic_medical/New()
-	design_ids += list(
-		"hospital_gown",
+/datum/techweb_node/android_organs
+	id = TECHWEB_NODE_ANDROID_ORGANS
+	starting_node = TRUE
+	display_name = "Android Organs"
+	description = "Internal Mechanisms for Synthetics and IPC's."
+	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
+	design_ids = list(
 		"synth_eyes",
 		"synth_tongue",
 		"synth_liver",
@@ -59,11 +54,53 @@
 		"synth_ears",
 		"synth_heart",
 	)
+
+// MODULAR ADDITIONS AND REMOVALS
+
+//Base Nodes
+/datum/techweb_node/atmos/New()
+	design_ids += list(
+		"vox_gas_filter",
+	)
+	return ..()
+
+/datum/techweb_node/construction/New()
+	design_ids += list(
+		"polarizer",
+	)
+	return ..()
+
+/datum/techweb_node/office_equip/New()
+	design_ids += list(
+		"gbp_machine",
+	)
+	return ..()
+
+/datum/techweb_node/augmentation/New()
+	design_ids += list(
+		"affection_module",
+	)
+	return ..()
+
+/datum/techweb_node/cafeteria_equip/New()
+	design_ids += list(
+		"bowl",
+		"drinking_glass",
+		"shot_glass",
+	)
+	return ..()
+
+/datum/techweb_node/medbay_equip/New()
+	design_ids += list(
+		"hospital_gown",
+		"anesthetic_machine",
+		"smartdartgun",
+	)
 	return ..()
 
 /////////////////////////Biotech/////////////////////////
 
-/datum/techweb_node/adv_biotech/New()
+/datum/techweb_node/medbay_equip_adv/New()
 	design_ids += list(
 		"monkey_helmet",
 		"brute2medicell",
@@ -77,31 +114,25 @@
 	)
 	return ..()
 
-/datum/techweb_node/biotech/New()
-	design_ids += list(
-		"anesthetic_machine",
-		"smartdartgun",
-	)
-	return ..()
-
 /////////////////////////EMP tech/////////////////////////
 
-/datum/techweb_node/emp_basic/New()
+/datum/techweb_node/energy_manipulation/New()
 	design_ids += list(
 		"gownmedicell",
 		"bedmedicell",
+		"tray_goggles_prescription",
 	)
 	return ..()
 
 ////////////////////////Computer tech////////////////////////
 
-/datum/techweb_node/comptech/New()
+/datum/techweb_node/consoles/New()
 	design_ids += list(
 		"time_clock_frame",
 	)
 	return ..()
 
-/datum/techweb_node/integrated_hud/New()
+/datum/techweb_node/hud/New()
 	design_ids += list(
 		"health_hud_prescription",
 		"security_hud_prescription",
@@ -131,13 +162,25 @@
 
 ////////////////////////Medical////////////////////////
 
-/datum/techweb_node/genetics/New()
+/datum/techweb_node/gene_engineering/New()
 	design_ids += list(
 		"self_actualization_device",
 	)
 	return ..()
 
-/datum/techweb_node/cyber_organs/New()
+/datum/techweb_node/xenobiology/New()
+	// QOL - Makes cytology experiment a discount rather than required experiment
+	required_experiments -= list(/datum/experiment/scanning/random/cytology)
+	discount_experiments += list(/datum/experiment/scanning/random/cytology)
+	return ..()
+
+/datum/techweb_node/selection/New()
+	// QOL - Makes wild harvest experiment a discount rather than required experiment
+	required_experiments -= list(/datum/experiment/scanning/random/plants/wild)
+	discount_experiments += list(/datum/experiment/scanning/random/plants/wild)
+	return ..()
+
+/datum/techweb_node/cyber/cyber_organs/New()
 	design_ids += list(
 		"cybernetic_tongue",
 		"cybernetic_tongue_lizard",
@@ -145,25 +188,24 @@
 	return ..()
 
 // Modularly removes x-ray and thermals from here, it's in adv_vision instead
-/datum/techweb_node/combat_cyber_implants/New()
-	. = ..()
+/datum/techweb_node/cyber/cyber_organs_adv/New()
 	design_ids -= list(
 		"ci-thermals",
 		"ci-xray",
 		"ci-thermals-moth",
 		"ci-xray-moth",
 	)
+	return ..()
 
 ////////////////////////Tools////////////////////////
 
-/datum/techweb_node/botany/New()
+/datum/techweb_node/hydroponics/New()
 	design_ids += list(
 		"salvemedicell",
 	)
 	return ..()
 
-/datum/techweb_node/sec_basic/New()
-	. = ..()
+/datum/techweb_node/sec_equip/New()
 	design_ids += list(
 		"nifsoft_remover",
 	)
@@ -171,13 +213,13 @@
 
 /////////////////////////weaponry tech/////////////////////////
 
-/datum/techweb_node/weaponry/New()
+/datum/techweb_node/basic_arms/New()
 	design_ids += list(
 		"ammoworkbench_disk_lethal",
 	)
 	return ..()
 
-/datum/techweb_node/adv_weaponry/New()
+/datum/techweb_node/riot_supression/New()
 	design_ids += list(
 		"ammo_workbench",
 	)
@@ -191,7 +233,7 @@
 
 ////////////////////////Alien technology////////////////////////
 
-/datum/techweb_node/alien_bio/New()
+/datum/techweb_node/alien_surgery/New()
 	design_ids += list(
 		"brute3medicell",
 		"burn3medicell",
@@ -202,13 +244,27 @@
 
 /////////////////////////engineering tech/////////////////////////
 
-/datum/techweb_node/adv_engi/New()
+/datum/techweb_node/fusion/New()
 	design_ids += list(
 		"engine_goggles_prescription",
-		"mesons_prescription",
+	)
+	return ..()
+
+/datum/techweb_node/exp_tools/New()
+	design_ids += list(
 		"multi_cell_charger",
-		"tray_goggles_prescription",
+	)
+	return ..()
+
+/datum/techweb_node/chem_synthesis/New()
+	design_ids += list(
 		"plumbing_eng",
+	)
+	return ..()
+
+/datum/techweb_node/mining/New()
+	design_ids += list(
+		"mesons_prescription",
 	)
 	return ..()
 
@@ -221,14 +277,14 @@
 	)
 	return ..()
 
-/datum/techweb_node/neural_programming/New()
+/datum/techweb_node/passive_implants/New()
 	design_ids += list(
 		"soulcatcher_device",
 		"rsd_interface",
 	)
 	return ..()
 
-/datum/techweb_node/cyborg_upg_util/New()
+/datum/techweb_node/borg_utility/New()
 	design_ids += list(
 		"borg_upgrade_clamp",
 		"borg_upgrade_brush",
@@ -236,25 +292,19 @@
 	)
 	return ..()
 
-/datum/techweb_node/cyborg_upg_engiminer/New()
+/datum/techweb_node/borg_engi/New()
 	design_ids += list(
 		"advanced_materials",
-		"inducer_module",
+		"borg_upgrade_welding",
 	)
 	return ..()
 
-/datum/techweb_node/cyborg_upg_med/New()
+/datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
 	)
 
 	design_ids -= list(
 		"borg_upgrade_pinpointer",
-	)
-	return ..()
-
-/datum/techweb_node/basic_mining/New()
-	design_ids += list(
-		"borg_upgrade_welding",
 	)
 	return ..()

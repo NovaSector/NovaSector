@@ -29,4 +29,8 @@
 /obj/machinery/camera/tarkon
 	network = list("tarkon")
 
+/obj/machinery/camera/autoname/tarkon
+	network = list("tarkon")
+
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/tarkon, 0)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/autoname/tarkon, 0)

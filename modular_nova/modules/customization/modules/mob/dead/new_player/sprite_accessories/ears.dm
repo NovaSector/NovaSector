@@ -26,6 +26,10 @@
 
 	return FALSE
 
+/datum/sprite_accessory/ears/none
+	name = SPRITE_ACCESSORY_NONE
+	icon_state = "none"
+
 /datum/sprite_accessory/ears/cat
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
@@ -42,7 +46,7 @@
 	uses_emissives = TRUE
 
 /datum/sprite_accessory/ears/mutant/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	color_src = null
 	factual = FALSE
@@ -270,6 +274,26 @@
 /datum/sprite_accessory/ears/mutant/antenna_fuzzball_v2
 	name = "Fuzzball antenna (coloring 3+1)"
 	icon_state = "antenna_fuzzballv2"
+
+/datum/sprite_accessory/ears/mutant/setaceous
+	name = "Setaceous Antenna"
+	icon_state = "setaceous"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/setaceousm
+	name = "Medium Setaceous Antenna"
+	icon_state = "setaceousm"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/geniculate
+	name = "Geniculate Antenna"
+	icon_state = "geniculate"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/big/eyes
+	name = "Eye Antenna"
+	icon_state = "eyes"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/mutant/cobrahood
 	name = "Cobra Hood"

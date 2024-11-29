@@ -1,0 +1,3 @@
+help: Please do not put donator plushies in maps.
+/obj/item/toy/plush/nova/donator:
+  banned: true

@@ -13,6 +13,9 @@
 	if (flavor_text_link)
 		. += flavor_text_link
 
+	if (client?.prefs.read_preference(/datum/preference/text/character_ad))
+		. += span_notice("They have an ad in the character directory... <a href='?src=[REF(src)];lookup_info=open_character_ad'>\[Open directory?\]</a>")
+
 	if(client)
 		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
 		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences))

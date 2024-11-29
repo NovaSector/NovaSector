@@ -2,7 +2,7 @@
 
 // Catnip
 /obj/item/seeds/tea/catnip
-	name = "pack of catnip seeds"
+	name = "catnip seed pack"
 	icon = 'modular_nova/master_files/icons/obj/hydroponics/seeds.dmi'
 	icon_state = "seed-catnip"
 	growing_icon = 'modular_nova/master_files/icons/obj/hydroponics/growing.dmi'
@@ -23,4 +23,5 @@
 	filling_color = "#4582B4"
 	grind_results = list(/datum/reagent/pax/catnip = 2, /datum/reagent/water = 1)
 	distill_reagent = /datum/reagent/consumable/pinkmilk //Don't ask, cats speak in poptart
+	can_distill = TRUE //override for tea's FALSE
 

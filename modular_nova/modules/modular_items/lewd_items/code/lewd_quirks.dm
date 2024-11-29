@@ -126,7 +126,7 @@
 		if(201 to 250)
 			to_chat(human_owner, span_purple("Desire fogs your decisions."))
 		if(251 to 1000)
-			to_chat(human_owner, span_purple("Jeez, it's hot in here.."))
+			to_chat(human_owner, span_purple("Jeez, it's hot in here..."))
 
 /**
  * If we have another human in view, return true
@@ -313,7 +313,7 @@
 	desc = "You find the weaving of rope knots on the body wonderful."
 	value = 0 //ERP Traits don't have price. They are priceless. Ba-dum-tss
 	mob_trait = TRAIT_RIGGER
-	medical_record_text = "Subject has a increased dexterity when tying knots."
+	medical_record_text = "Subject has increased dexterity when tying knots."
 	gain_text = span_danger("Suddenly you understand rope weaving much better than before.")
 	lose_text = span_notice("Rope knots looks complicated again.")
 	icon = FA_ICON_CHAIN_BROKEN
@@ -329,7 +329,7 @@
 	var/mob/living/carbon/human/affected_mob = quirk_holder
 	REMOVE_TRAIT(affected_mob, TRAIT_RIGGER, TRAIT_LEWDQUIRK)
 /datum/mood_event/sadistic
-	description = span_purple("Others' suffering makes me happier\n")
+	description = span_purple("Others' suffering makes me happier.\n")
 
 /*
 *	EMPATH BONUS
@@ -345,14 +345,14 @@
 		var/arousal_message
 		switch(arousal)
 			if(AROUSAL_MINIMUM_DETECTABLE to AROUSAL_LOW)
-				arousal_message = span_purple("[p_they()] [p_are()] slightly blushed.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] slightly flushed in the cheeks.") + "\n"
 			if(AROUSAL_LOW to AROUSAL_MEDIUM)
-				arousal_message = span_purple("[p_they()] [p_are()] quite aroused and seems to be stirring up lewd thoughts in [p_their()] head.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] quite aroused and seems to be stirring up lewd thoughts in [p_their()] head.") + "\n"
 			if(AROUSAL_HIGH to AROUSAL_AUTO_CLIMAX_THRESHOLD)
-				arousal_message = span_purple("[p_they()] [p_are()] aroused as hell.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] aroused as hell.") + "\n"
 			if(AROUSAL_AUTO_CLIMAX_THRESHOLD to INFINITY)
-				arousal_message = span_purple("[p_they()] [p_are()] extremely excited, exhausting from entolerable desire.") + "\n"
+				arousal_message = span_purple("[p_They()] [p_are()] extremely excited, exhausted from intolerable desire.") + "\n"
 		if(arousal_message)
 			. += arousal_message
 	else if(arousal > AROUSAL_MINIMUM_DETECTABLE)
-		. += span_purple("[p_they()] [p_are()] slightly blushed.") + "\n"
+		. += span_purple("[p_They()] [p_are()] slightly flushed in the cheeks.") + "\n"

@@ -6,7 +6,7 @@
 	examine_desc = "appears to be loosely secured"
 	occur_text = "jostles awkwardly and seems to slightly unfasten"
 	severity = WOUND_SEVERITY_MODERATE
-	simple_treat_text = "<b>Bandaging</b> the wound will reduce the impact until it's <b>screws are secured</b> - which is <b>faster</b> if done by \
+	simple_treat_text = "<b>Bandaging</b> the wound will reduce the impact until its <b>screws are secured</b> - which is <b>faster</b> if done by \
 	<b>someone else</b>, a <b>roboticist</b>, an <b>engineer</b>, or with a <b>diagnostic HUD</b>."
 	homemade_treat_text = "In a pinch, <b>percussive maintenance</b> can reset the screws - the chance of which is increased if done by <b>someone else</b> or \
 	with a <b>diagnostic HUD</b>!"

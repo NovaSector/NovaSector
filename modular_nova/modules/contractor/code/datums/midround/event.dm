@@ -34,7 +34,7 @@
 	operative.dna.update_dna_identity()
 	var/datum/mind/mind = new /datum/mind(selected.key)
 	selected.client?.prefs?.apply_prefs_to(operative)
-	mind.set_assigned_role(SSjob.GetJobType(/datum/job/drifting_contractor))
+	mind.set_assigned_role(SSjob.get_job_type(/datum/job/drifting_contractor))
 	mind.special_role = ROLE_DRIFTING_CONTRACTOR
 	mind.active = TRUE
 	mind.transfer_to(operative)

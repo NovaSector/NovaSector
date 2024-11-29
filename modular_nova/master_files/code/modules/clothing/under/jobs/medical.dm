@@ -85,7 +85,7 @@
 
 /obj/item/clothing/under/rank/medical/paramedic/nova/light/skirt
 	name = "light paramedic skirt"
-	desc = "A brighter variant of the typical Paramedic uniform made with special fibers that provide minor protection against biohazards, this one has had it's legs replaced with a skirt."
+	desc = "A brighter variant of the typical Paramedic uniform made with special fibers that provide minor protection against biohazards, this one has had its legs replaced with a skirt."
 	icon_state = "paramedic_light_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT

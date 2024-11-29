@@ -90,3 +90,9 @@
 /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant
 	name = "\improper CentCom gloves"
 	desc = "A high quality pair of thick gloves covered in gold stitching."
+
+/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant/black
+	name = "\improper CentCom black gloves"
+	desc = "A high quality pair of thick black gloves with slick plastitanium scales."
+	icon_state = "combat"
+	greyscale_colors = "#2f2e31"

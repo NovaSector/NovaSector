@@ -7,6 +7,8 @@
 	density = TRUE
 	layer = ABOVE_MOB_LAYER
 	opacity = FALSE
+	interaction_flags_click = NEED_DEXTERITY
+	/// type of table that this becomes when unflipped
 	var/table_type = /obj/structure/table
 
 /obj/structure/flippedtable/Initialize(mapload)
@@ -46,9 +48,8 @@
 	if(direction == dir)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
-/obj/structure/flippedtable/CtrlShiftClick(mob/living/user)
-	. = ..()
-	if(!istype(user) || iscorticalborer(user) || !user.can_perform_action(src, NEED_DEXTERITY))
+/obj/structure/flippedtable/click_ctrl_shift(mob/user)
+	if(!istype(user) || iscorticalborer(user))
 		return FALSE
 	user.balloon_alert_to_viewers("flipping table upright...")
 	if(do_after(user, max_integrity * 0.25))
@@ -63,14 +64,15 @@
 		if(custom_materials)
 			unflipped_table.set_custom_materials(custom_materials)
 		user.balloon_alert_to_viewers("table flipped upright")
-		playsound(src, 'sound/items/trayhit2.ogg', 100)
+		playsound(src, 'sound/items/trayhit/trayhit2.ogg', 100)
 		qdel(src)
 
 //TABLES
+/obj/structure/table/
+	interaction_flags_click = NEED_DEXTERITY
 
-/obj/structure/table/CtrlShiftClick(mob/living/user)
-	. = ..()
-	if(!istype(user) || iscorticalborer(user) || !user.can_perform_action(src, NEED_DEXTERITY))
+/obj/structure/table/click_ctrl_shift(mob/user)
+	if(!istype(user) || iscorticalborer(user))
 		return
 	if(!can_flip)
 		return
@@ -109,7 +111,7 @@
 		sound_volume = 40
 
 	user.balloon_alert_to_viewers(balloon_message)
-	playsound(src, 'sound/items/trayhit2.ogg', sound_volume)
+	playsound(src, 'sound/items/trayhit/trayhit2.ogg', sound_volume)
 	qdel(src)
 
 	var/turf/throw_target = get_step(flipped_table, flipped_table.dir)

@@ -1,0 +1,21 @@
+{
+	"naval_gold": [
+		{
+			"type": "icon_state",
+			"icon_state": "naval_obj_body",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "naval_obj_trim",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "naval_obj_gold",
+			"blend_mode": "overlay"
+		}
+	]
+}

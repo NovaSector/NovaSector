@@ -3,6 +3,7 @@
 
 /obj/item/borg/upgrade/rped
 	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon_state = "borgrped"
 
 /obj/item/storage/part_replacer
 	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
@@ -32,6 +33,23 @@
 
 /obj/item/storage/box/cyber_implants
 	illustration = null //Included in the sprite
+
+/obj/item/storage/box/fishing_hooks
+	icon = 'icons/obj/storage/box.dmi'
+
+/obj/item/storage/box/fishing_lures
+	icon = 'icons/obj/storage/box.dmi'
+/obj/item/storage/box/fishing_lines
+	icon = 'icons/obj/storage/box.dmi'
+
+/obj/item/storage/box/fish_debug
+	icon = 'icons/obj/storage/box.dmi'
+
+/obj/item/storage/box/fish_revival_kit
+	icon = 'icons/obj/storage/box.dmi'
+
+/obj/item/storage/box/aquarium_props
+	icon = 'icons/obj/storage/box.dmi'
 
 /obj/item/storage/box/mothic_rations
 	icon = 'icons/obj/storage/box.dmi'
@@ -119,6 +137,10 @@
 /obj/item/storage/box/slugs
 	icon_state = "secbox_xl"
 	illustration = "breacherslug"
+
+/obj/item/storage/box/large_dart
+	icon_state = "secbox_xl"
+	illustration = "shotdart"
 
 /obj/item/storage/box/evidence
 	icon_state = "secbox"

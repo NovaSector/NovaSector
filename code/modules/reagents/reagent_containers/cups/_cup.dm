@@ -9,6 +9,7 @@
 	icon_state = "bottle"
 	lefthand_file = 'icons/mob/inhands/items/drinks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/drinks_righthand.dmi'
+	reagent_container_liquid_sound = SFX_DEFAULT_LIQUID_SLOSH
 
 	///Like Edible's food type, what kind of drink is this?
 	var/drink_type = NONE
@@ -102,68 +103,71 @@
 	if(LAZYLEN(diseases_to_add))
 		AddComponent(/datum/component/infective, diseases_to_add)
 
-/obj/item/reagent_containers/cup/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!proximity_flag)
-		return
-
-	. |= AFTERATTACK_PROCESSED_ITEM
-
+/obj/item/reagent_containers/cup/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	if(!check_allowed_items(target, target_self = TRUE))
-		return
-
+		return NONE
 	if(!spillable)
-		return
+		return NONE
 
 	if(target.is_refillable()) //Something like a glass. Player probably wants to transfer TO it.
 		if(!reagents.total_volume)
 			to_chat(user, span_warning("[src] is empty!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		if(target.reagents.holder_full())
 			to_chat(user, span_warning("[target] is full."))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this, transferred_by = user)
+		playsound(target.loc, SFX_LIQUID_POUR, 50, TRUE)
 		to_chat(user, span_notice("You transfer [trans] unit\s of the solution to [target]."))
 		SEND_SIGNAL(src, COMSIG_REAGENTS_CUP_TRANSFER_TO, target)
 		target.update_appearance()
+		return ITEM_INTERACT_SUCCESS
 
-	else if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
+	if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
 			to_chat(user, span_warning("[target] is empty and can't be refilled!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		if(reagents.holder_full())
 			to_chat(user, span_warning("[src] is full."))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transferred_by = user)
+		playsound(target.loc, SFX_LIQUID_POUR, 50, TRUE)
 		to_chat(user, span_notice("You fill [src] with [trans] unit\s of the contents of [target]."))
 		SEND_SIGNAL(src, COMSIG_REAGENTS_CUP_TRANSFER_FROM, target)
 		target.update_appearance()
+		return ITEM_INTERACT_SUCCESS
 
-/obj/item/reagent_containers/cup/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
-	if((!proximity_flag) || !check_allowed_items(target, target_self = TRUE))
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return NONE
 
+/obj/item/reagent_containers/cup/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
+	if(user.combat_mode)
+		return NONE
+	if(!check_allowed_items(target, target_self = TRUE))
+		return NONE
 	if(!spillable)
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return NONE
 
 	if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
 			to_chat(user, span_warning("[target] is empty!"))
-			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			return ITEM_INTERACT_BLOCKING
 
 		if(reagents.holder_full())
 			to_chat(user, span_warning("[src] is full."))
-			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			return ITEM_INTERACT_BLOCKING
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transferred_by = user)
+		playsound(target.loc, SFX_LIQUID_POUR, 50, TRUE)
 		to_chat(user, span_notice("You fill [src] with [trans] unit\s of the contents of [target]."))
+		SEND_SIGNAL(src, COMSIG_REAGENTS_CUP_TRANSFER_FROM, target)
+		target.update_appearance()
+		return ITEM_INTERACT_SUCCESS
 
-	target.update_appearance()
-	return SECONDARY_ATTACK_CONTINUE_CHAIN
+	return NONE
 
 /obj/item/reagent_containers/cup/attackby(obj/item/attacking_item, mob/user, params)
 	var/hotness = attacking_item.get_temperature()
@@ -232,6 +236,9 @@
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
 	volume = 60 //NOVA EDIT: Addition
 	possible_transfer_amounts = list(5,10,15,20,30,60) //NOVA EDIT: Addition
+	pickup_sound = 'sound/items/handling/beaker_pickup.ogg'
+	drop_sound = 'sound/items/handling/beaker_place.ogg'
+	sound_vary = TRUE
 
 /obj/item/reagent_containers/cup/beaker/Initialize(mapload)
 	. = ..()
@@ -347,6 +354,9 @@
 
 /obj/item/reagent_containers/cup/beaker/synthflesh
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 50)
+
+/obj/item/reagent_containers/cup/beaker/synthflesh/named
+	name = "synthflesh beaker"
 
 /obj/item/reagent_containers/cup/bucket
 	name = "bucket"

@@ -5,7 +5,7 @@
 		<b>higher maximum output</b> than some larger units. Most commonly seen being used not for their ability to store \
 		power, but rather for use in regulating power input and output."
 	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/small_battery.dmi'
-	capacity = 7.5 * STANDARD_CELL_CHARGE
+	capacity = 7.5 * STANDARD_BATTERY_CHARGE
 	input_level_max = 400 KILO WATTS
 	output_level_max = 400 KILO WATTS
 	circuit = null
@@ -60,6 +60,7 @@
 
 /obj/item/flatpacked_machine/station_battery
 	name = "flat-packed stationary battery"
+	desc = /obj/machinery/power/smes/battery_pack::desc
 	icon_state = "battery_small_packed"
 	type_to_deploy = /obj/machinery/power/smes/battery_pack
 	custom_materials = list(
@@ -77,7 +78,7 @@
 		<b>low maximum output</b> compared to smaller units. Most commonly seen as large backup batteries, or simply \
 		for large power storage where throughput is not a concern."
 	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/large_battery.dmi'
-	capacity = 100 * STANDARD_CELL_CHARGE
+	capacity = 100 * STANDARD_BATTERY_CHARGE
 	input_level_max = 50 KILO WATTS
 	output_level_max = 50 KILO WATTS
 	repacked_type = /obj/item/flatpacked_machine/large_station_battery
@@ -92,6 +93,7 @@
 
 /obj/item/flatpacked_machine/large_station_battery
 	name = "flat-packed large stationary battery"
+	desc = /obj/machinery/power/smes/battery_pack/large::desc
 	icon_state = "battery_large_packed"
 	type_to_deploy = /obj/machinery/power/smes/battery_pack/large
 	custom_materials = list(
