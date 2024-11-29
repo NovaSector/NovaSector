@@ -550,7 +550,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	desc = "A cane used by a true gentleman. Or a clown."
 	icon = 'icons/obj/weapons/staff.dmi'
 	icon_state = "cane"
-	worn_icon_state = "classic_baton"
+	worn_icon_state = "classic_baton" //NOVA EDIT ADD
 	inhand_icon_state = "stick"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
