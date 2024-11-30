@@ -74,15 +74,12 @@
 /obj/item/gun/ballistic/revolver/takbok/examine_more(mob/user)
 	. = ..()
 
-	. += "The Takbok is a unique design for Trappiste for the sole reason that it \
-		was made at first to be a one-off. Founder of partner company Carwo Defense, \
-		Darmaan Khaali Carwo herself, requested a sporting revolver from Trappiste. \
-		What was delivered wasn't a target revolver, it was a target crusher. The \
-		weapon became popular as Carwo crushed many shooting competitions using \
-		the Takbok, with the design going on several production runs up until \
-		2523 when the popularity of the gun fell off. Due to the number of revolvers \
-		made, they are still easy enough to find if you look despite production \
-		having already ceased many years ago."
+	. += "The Defoncé was designed to fulfil a request by the Sol Federation Armed Forces for a maintainable high caliber pistol. \
+		While the Guêpe served well to deal with human sized targets it would struggle to take down large fauna. \
+		The Defoncé was made to fill that capability gap and enable backline SFAF personnel to easily defend themselves against dangerous creatures when serving in the wilderness of alien worlds. \
+		The resulting pistol perfectly filled the SFAF’s requirements, and as such it has remained in service ever since its adoption in 2495. \
+		The durable, simple and easy to maintain design of the Defoncé combined with its high power has also made it popular in some parts of the civilian firearms market; \
+		primarily with frontier settlers and hunters who appreciate its maintainability and the ease with which it can take down large creatures."
 
 	return .
 
