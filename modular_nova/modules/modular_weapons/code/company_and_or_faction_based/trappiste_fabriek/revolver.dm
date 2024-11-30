@@ -26,13 +26,15 @@
 /obj/item/gun/ballistic/revolver/sol/examine_more(mob/user)
 	. = ..()
 
-	. += "The Renard is one of the few Trappiste weapons not made for military contract. \
-		Instead, the Renard started life as a police weapon, offered as a gun to finally \
-		outmatch all others in the cheap police weapons market. Unfortunately, this \
-		coincided with nearly every SolFed police force realising they are actually \
-		comically overfunded. With military weapons bought for police forces taking \
-		over the market, the Renard instead found home in the civilian personal defense \
-		market. That is likely the reason you are looking at this one now."
+	. += "The Renard is exactly as simple as it looks, lacking almost any of the functionality, or the technology you'd expect from a Trappiste weapon, \
+		having shaved it all away for the convenience of it's remarkably small size.\
+		Originally, it was seen as an acceptable backup for solfed's police forces, able to be stashed in any manner of pouch, pocket, \
+		or even just stuck into your waistband, while still coming loaded with eight .35 sol rounds. \
+		As they modernized, it started living a second life with executives, bodyguards, and criminals, due to it's ease of concealment. \
+		If bang for your buck was the focus, you can't do much better then the bare minimum in both cost, and size. \
+		There's not alot to be said about the actual function of the gun either, with a centerline barrel, and being shot from the lowest chamber relative to the sights, \
+		the recoil is non-existant, just like the user's safety. The only out-of-place feature, is that the chamber is pressed forward during firing, \
+		forming a seal in a manner that still allows it to be suppressed, whatever the use of that could be."
 
 	return .
 
