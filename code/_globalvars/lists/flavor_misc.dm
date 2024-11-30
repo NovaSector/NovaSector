@@ -106,6 +106,9 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define GSATCHEL "Grey Satchel"
 #define GMESSENGER "Grey Messenger Bag"
 #define LSATCHEL "Leather Satchel"
+#define TPACKB "Beltpack"
+#define TPACKA "Waistpack"
+#define TPACKC "Chest pack" // NOVA NON-MODULAR - Adds tpacks, tiny backpacks
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
 	DDUFFELBAG,
@@ -116,6 +119,9 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	GSATCHEL,
 	GMESSENGER,
 	LSATCHEL,
+	TPACKB,
+	TPACKA,
+	TPACKC,
 ))
 
 	//Suit/Skirt
