@@ -127,6 +127,10 @@
 	name = "Researcher's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
 
+/datum/loadout_item/suit/labcoat_lalunevest
+	name = "Designer Buttoned Coat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
+
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist

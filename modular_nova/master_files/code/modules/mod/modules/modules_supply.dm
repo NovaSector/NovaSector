@@ -1,8 +1,8 @@
-/obj/item/mod/module/hydraulic/on_suit_activation()
+/obj/item/mod/module/hydraulic/on_part_activation()
 	. = ..()
 	ADD_TRAIT(mod.wearer, TRAIT_TRASHMAN, MOD_TRAIT)
 
-/obj/item/mod/module/hydraulic/on_suit_deactivation(deleting = FALSE)
+/obj/item/mod/module/hydraulic/on_part_deactivation(deleting = FALSE)
 	. = ..()
 	REMOVE_TRAIT(mod.wearer, TRAIT_TRASHMAN, MOD_TRAIT)
 
@@ -23,12 +23,12 @@
 	speed_added = mod.slowdown_active // so when you hit full ash accretion, slowdown cancels out
 	RegisterSignal(mod, COMSIG_SPEED_POTION_APPLIED, PROC_REF(update_added_speed))
 
-/obj/item/mod/module/ash_accretion/on_suit_activation()
+/obj/item/mod/module/ash_accretion/on_part_activation()
 	. = ..()
 	protection_enabled = TRUE
 	RegisterSignals(mod, list(COMSIG_MOD_DEPLOYED, COMSIG_MOD_RETRACTED), PROC_REF(on_mod_toggle))
 
-/obj/item/mod/module/ash_accretion/on_suit_deactivation(deleting)
+/obj/item/mod/module/ash_accretion/on_part_deactivation(deleting)
 	. = ..()
 	protection_enabled = FALSE
 	UnregisterSignal(mod, list(COMSIG_MOD_DEPLOYED, COMSIG_MOD_RETRACTED))

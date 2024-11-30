@@ -30,7 +30,7 @@
 	return !sprite_datum.is_hidden(human)
 
 
-/obj/item/organ/external/snout/Insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/external/snout/mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_MUZZLED_SPRITE)
 		external_bodyshapes |= BODYSHAPE_SNOUTED
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER)
@@ -231,6 +231,14 @@
 /datum/sprite_accessory/snouts/mammal/pede
 	name = "Scolipede"
 	icon_state = "pede"
+
+/datum/sprite_accessory/snouts/mammal/pig
+	name = "Porcine"
+	icon_state = "pig"
+
+/datum/sprite_accessory/snouts/mammal/pig/boar
+	name = "Porcine + Tusks"
+	icon_state = "boar"
 
 /datum/sprite_accessory/snouts/mammal/sergal
 	name = "Sergal"

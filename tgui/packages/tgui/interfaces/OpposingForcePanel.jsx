@@ -541,11 +541,11 @@ export const EquipmentTab = (props) => {
                     buttons={
                       <>
                         <NumberInput
-                          animated
                           value={equipment.count}
+                          step={1}
                           minValue={1}
                           maxValue={5}
-                          onChange={(e, value) =>
+                          onChange={(value) =>
                             act('set_equipment_count', {
                               selected_equipment_ref: equipment.ref,
                               new_equipment_count: value,
