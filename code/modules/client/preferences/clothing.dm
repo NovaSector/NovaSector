@@ -31,8 +31,11 @@
 		DSATCHEL,
 		DDUFFELBAG,
 		DMESSENGER,
+		TPACKB,
+		TPACKA,
+		TPACKC,
 	)
-
+// NOVA EDIT - Adds TPACKA-C, tinypaks
 /datum/preference/choiced/backpack/create_default_value()
 	return DBACKPACK
 
@@ -48,6 +51,12 @@
 			return /obj/item/storage/backpack/duffelbag
 		if (GMESSENGER)
 			return /obj/item/storage/backpack/messenger
+		if (TPACKB)
+			return /obj/item/storage/backpack/tinypakb
+		if (TPACKA)
+			return /obj/item/storage/backpack/tinypaka
+		if (TPACKC)
+			return /obj/item/storage/backpack/tinypakc
 
 		// In a perfect world, these would be your department's backpack.
 		// However, this doesn't factor in assistants, or no high slot, and would
