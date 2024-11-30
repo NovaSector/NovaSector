@@ -52,7 +52,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		REMOVE_TRAIT(owner, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 	return ..()
 
-/obj/item/organ/internal/borer_body/Insert(mob/living/carbon/carbon_target, special, movement_flags)
+/obj/item/organ/internal/borer_body/mob_insert(mob/living/carbon/carbon_target, special, movement_flags)
 	. = ..()
 	for(var/datum/borer_focus/body_focus as anything in borer.body_focuses)
 		body_focus.on_add()
@@ -60,7 +60,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	ADD_TRAIT(carbon_target, TRAIT_WEATHER_IMMUNE, "borer_in_host")
 
 //on removal, force the borer out
-/obj/item/organ/internal/borer_body/Remove(mob/living/carbon/carbon_target, special)
+/obj/item/organ/internal/borer_body/mob_remove(mob/living/carbon/carbon_target, special)
 	. = ..()
 	var/mob/living/basic/cortical_borer/cb_inside = carbon_target.has_borer()
 	for(var/datum/borer_focus/body_focus as anything in cb_inside.body_focuses)

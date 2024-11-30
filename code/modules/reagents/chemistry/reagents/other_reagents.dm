@@ -2138,7 +2138,7 @@
 	name = "Acetone Oxide"
 	description = "Enslaved oxygen"
 	reagent_state = LIQUID
-	color = "#C8A5DC"
+	color = "#966199cb"
 	taste_description = "acid"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -2185,7 +2185,7 @@
 	description = "Thoroughly sample the rainbow."
 	reagent_state = LIQUID
 	var/list/random_color_list = list("#00aedb","#a200ff","#f47835","#d41243","#d11141","#00b159","#00aedb","#f37735","#ffc425","#008744","#0057e7","#d62d20","#ffa700")
-	color = "#C8A5DC"
+	color = COLOR_GRAY
 	taste_description = "rainbows"
 	var/can_colour_mobs = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2221,7 +2221,7 @@
 	description = "Has a high chance of making you look like a mad scientist."
 	reagent_state = LIQUID
 	var/list/potential_colors = list("#00aadd","#aa00ff","#ff7733","#dd1144","#dd1144","#00bb55","#00aadd","#ff7733","#ffcc22","#008844","#0055ee","#dd2222","#ffaa00") // fucking hair code
-	color = "#C8A5DC"
+	color = COLOR_GRAY
 	taste_description = "sourness"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2955,8 +2955,10 @@
 
 /datum/reagent/ants/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
-	if(!iscarbon(exposed_mob) || (methods & (INGEST|INJECT)))
+	if(!iscarbon(exposed_mob))
 		return
+	if(methods & INGEST)
+		exposed_mob.check_allergic_reaction(BUGS, chance = reac_volume * 10, histamine_add = min(10, reac_volume))
 	if(methods & (PATCH|TOUCH|VAPOR))
 		amount_left = round(reac_volume,0.1)
 		exposed_mob.apply_status_effect(status_effect, amount_left)

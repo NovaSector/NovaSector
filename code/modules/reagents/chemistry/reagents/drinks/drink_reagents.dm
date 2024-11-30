@@ -226,6 +226,12 @@
 		holder.remove_reagent(/datum/reagent/consumable/capsaicin, seconds_per_tick)
 	return ..() || .
 
+/datum/reagent/milk/used_on_fish(obj/item/fish/fish)
+	if(HAS_TRAIT(fish, TRAIT_FISH_MADE_OF_BONE))
+		fish.adjust_health(fish.health + initial(fish.health) * max(fish.get_hunger() * 0.5, 0.12))
+		fish.sate_hunger()
+		return TRUE
+
 /datum/reagent/consumable/soymilk
 	name = "Soy Milk"
 	description = "An opaque white liquid made from soybeans."
@@ -470,7 +476,7 @@
 		affected_mob.AddComponent(/datum/component/irradiated)
 
 /datum/reagent/consumable/rootbeer
-	name = "root beer"
+	name = "Root Beer"
 	description = "A delightfully bubbly root beer, filled with so much sugar that it can actually speed up the user's trigger finger."
 	color = "#181008" // rgb: 24, 16, 8
 	quality = DRINK_VERYGOOD
@@ -1291,4 +1297,4 @@
 	var/mob/living/carbon/exposed_carbon = exposed_mob
 	var/obj/item/organ/internal/stomach/ethereal/stomach = exposed_carbon.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(stomach))
-		stomach.adjust_charge(reac_volume * 0.003 * ETHEREAL_CHARGE_NORMAL)
+		stomach.adjust_charge(reac_volume * 0.02 * ETHEREAL_CHARGE_NORMAL)

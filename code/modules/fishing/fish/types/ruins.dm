@@ -26,8 +26,15 @@
 	fish_traits = list(/datum/fish_trait/heavy, /datum/fish_trait/amphibious, /datum/fish_trait/revival, /datum/fish_trait/carnivore, /datum/fish_trait/predator, /datum/fish_trait/aggressive)
 	beauty = FISH_BEAUTY_BAD
 
+/obj/item/fish/mastodon/Initialize(mapload, apply_qualities = TRUE)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_FISH_MADE_OF_BONE, INNATE_TRAIT)
+
 /obj/item/fish/mastodon/make_edible(weight_val)
 	return //it's all bones and gibs.
+
+/obj/item/fish/mastodon/get_export_price(price, elasticity_percent)
+	return ..() * 1.2 //This should push its soft-capped (it's pretty big) price a bit above the rest
 
 ///From the cursed spring
 /obj/item/fish/soul

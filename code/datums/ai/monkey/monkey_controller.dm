@@ -19,11 +19,8 @@ have ways of interacting with a specific mob and control it.
 		BB_MONKEY_BEST_FORCE_FOUND = 0,
 		BB_MONKEY_ENEMIES = list(),
 		BB_MONKEY_BLACKLISTITEMS = list(),
-		BB_MONKEY_PICKUPTARGET = null,
 		BB_MONKEY_PICKPOCKETING = FALSE,
 		BB_MONKEY_DISPOSING = FALSE,
-		BB_MONKEY_TARGET_DISPOSAL = null,
-		BB_MONKEY_CURRENT_ATTACK_TARGET = null,
 		BB_MONKEY_GUN_NEURONS_ACTIVATED = FALSE,
 		BB_MONKEY_GUN_WORKED = TRUE,
 		BB_SONG_LINES = MONKEY_SONG,
@@ -120,7 +117,7 @@ have ways of interacting with a specific mob and control it.
 	var/mob/living/living_pawn = pawn
 
 	if(INCAPACITATED_IGNORING(living_pawn, INCAPABLE_RESTRAINTS|INCAPABLE_STASIS|INCAPABLE_GRAB) || living_pawn.stat > CONSCIOUS)
-		return FALSE
+		return AI_UNABLE_TO_RUN
 	return ..()
 
 /datum/ai_controller/monkey/proc/set_trip_mode(mode = TRUE)
