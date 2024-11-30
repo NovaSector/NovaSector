@@ -99,7 +99,7 @@
 	. = ..()
 
 	. += "The Défenestreur is the embodiment of a hand-cannon, a ridiculously oversized and overloaded pistol round, crammed into a just-as-big gun to match it. \
-		Entering production around [DATE], not long after the release of the Défonce revolver, to fill a market niche between anti-material rifle, and personal defense weapon. \
+		Entering production around 2496, not long after the release of the Défonce revolver, to fill a market niche between anti-material rifle, and personal defense weapon. \
 		Presented as an anti-wildlife weapon, it's more common-use is ensuring that whatever... or whoever you open fire at, is gone well-before they have time to realize who did it. \
 		A long, almost one piece slide leads back into a rotating bolt/slide combination, loaded from the underside with a ten round magazine, as the rounds themselves were far-to-big \
 		to ever fit within a reasonably sized grip. Despite its size, the slide and sheer weight of the gun keep the recoil about as low as anyone could realistically expect. \
