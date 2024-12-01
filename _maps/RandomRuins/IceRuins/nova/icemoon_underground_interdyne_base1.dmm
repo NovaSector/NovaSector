@@ -3681,7 +3681,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jL" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/gratis,
 /obj/structure/sign/flag/interdyne/directional/north{
 	pixel_x = -13
 	},

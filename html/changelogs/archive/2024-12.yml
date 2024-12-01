@@ -1,0 +1,4 @@
+2024-12-01:
+  RatFromTheJungle:
+  - bugfix: fixed the mining drill overwriting, instead of adding to the advanced
+      mining node

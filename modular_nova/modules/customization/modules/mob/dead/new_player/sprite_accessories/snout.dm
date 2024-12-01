@@ -232,6 +232,14 @@
 	name = "Scolipede"
 	icon_state = "pede"
 
+/datum/sprite_accessory/snouts/mammal/pig
+	name = "Porcine"
+	icon_state = "pig"
+
+/datum/sprite_accessory/snouts/mammal/pig/boar
+	name = "Porcine + Tusks"
+	icon_state = "boar"
+
 /datum/sprite_accessory/snouts/mammal/sergal
 	name = "Sergal"
 	icon_state = "sergal"

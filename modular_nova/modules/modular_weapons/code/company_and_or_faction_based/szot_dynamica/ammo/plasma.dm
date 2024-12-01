@@ -15,7 +15,6 @@
 	icon_state = "plasma_glob"
 	damage = 10
 	speed = 1.5
-	bare_wound_bonus = 55 // Lasers have a wound bonus of 40, this is a bit higher
-	wound_bonus = -50 // However we do not very much against armor
+	bare_wound_bonus = 40 
+	wound_bonus = -20 // Not to great at wounding through armor.
 	pass_flags = PASSTABLE | PASSGRILLE // His ass does NOT pass through glass!
-	weak_against_armour = TRUE

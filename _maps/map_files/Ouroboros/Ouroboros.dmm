@@ -1028,6 +1028,9 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/machinery/light_switch/directional/north{
+	pixel_x = -32
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "apT" = (
@@ -27607,6 +27610,9 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/mapping_helpers/airlock/access/any/medical/morgue,
+/obj/machinery/light_switch/directional/north{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
 "ibY" = (
@@ -28809,7 +28815,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/machinery/light_switch/directional/north,
+/obj/structure/sign/eyechart/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "ity" = (
@@ -188176,7 +188182,7 @@ tuZ
 rTp
 jVm
 pQQ
-nrn
+wVx
 xHx
 oHG
 wZj
