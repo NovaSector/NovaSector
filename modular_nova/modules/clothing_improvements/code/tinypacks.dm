@@ -8,7 +8,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 
-/obj/item/storage/backpack/tinypakb
+/obj/item/storage/backpack/tinypaka
 	name = "Waistpack"
 	desc = "A small, waist mounted pack for... well, storing stuff!"
 	icon_state = "tinypakb"
