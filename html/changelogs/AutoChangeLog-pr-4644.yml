@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - bugfix: "fixed the mining drill overwriting, instead of adding to the advanced mining node"
