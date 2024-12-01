@@ -73806,7 +73806,6 @@
 /turf/open/floor/carpet/royalblack,
 /area/station/service/lawoffice)
 "tUX" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Break Room"
 	},
