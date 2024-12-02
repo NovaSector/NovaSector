@@ -5915,7 +5915,7 @@
 /area/station/hallway/primary/foreporthall)
 "bBx" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 1
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
@@ -6279,6 +6279,10 @@
 /obj/structure/table/wood,
 /obj/item/radio/intercom/directional/west,
 /obj/machinery/camera/autoname/directional/west,
+/obj/item/book/manual/wiki/medicine{
+	pixel_x = -2;
+	pixel_y = 2
+	},
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "bGA" = (
@@ -6804,6 +6808,7 @@
 /area/station/medical/chemistry)
 "bOy" = (
 /obj/machinery/light/directional/south,
+/obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "bOz" = (
@@ -13848,7 +13853,6 @@
 	},
 /area/station/ai_monitored/turret_protected/aisat/foyer)
 "dMg" = (
-/obj/item/radio/intercom/directional/east,
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
 /obj/item/emergency_bed{
@@ -29729,6 +29733,10 @@
 /area/icemoon/surface/outdoors/nospawn)
 "hZe" = (
 /obj/structure/table/wood,
+/obj/item/clothing/neck/stethoscope{
+	pixel_x = 3;
+	pixel_y = 2
+	},
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "hZi" = (
@@ -36856,7 +36864,8 @@
 /area/station/engineering/storage/tech)
 "jRB" = (
 /obj/machinery/door/airlock/medical{
-	name = "Psychology"
+	name = "Psychology";
+	id_tag = "psychdoor"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/psychology,
 /obj/machinery/door/firedoor,
@@ -43322,8 +43331,8 @@
 /area/station/maintenance/department/medical/morgue)
 "lCH" = (
 /obj/structure/table/wood,
-/obj/item/folder/white{
-	pixel_x = -3;
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 5;
 	pixel_y = 2
 	},
 /turf/open/floor/carpet/blue,
@@ -53138,11 +53147,15 @@
 /area/station/medical/chemistry)
 "okP" = (
 /obj/structure/table/wood,
+/obj/machinery/status_display/evac/directional/west,
+/obj/item/folder/white{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /obj/item/paper_bin{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/machinery/status_display/evac/directional/west,
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "okS" = (
@@ -53239,8 +53252,7 @@
 /area/station/engineering/atmospherics_engine)
 "omi" = (
 /obj/effect/turf_decal/tile/blue/half,
-/obj/structure/table,
-/obj/machinery/light/directional/south,
+/obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/treatment_center)
 "omj" = (
@@ -58285,6 +58297,13 @@
 "pIV" = (
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/science/xenobiology)
+"pIX" = (
+/obj/machinery/iv_drip,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/medical/patients_rooms)
 "pIY" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/medical)
@@ -58932,7 +58951,7 @@
 /area/station/hallway/secondary/entry)
 "pTd" = (
 /obj/effect/turf_decal/tile/blue/half,
-/obj/structure/table,
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/treatment_center)
 "pTg" = (
@@ -68534,6 +68553,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
@@ -70473,6 +70493,7 @@
 "tbF" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/light_switch/directional/north,
+/obj/machinery/photocopier,
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "tcg" = (
@@ -73661,6 +73682,12 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/camera/autoname/directional/west,
 /obj/machinery/newscaster/directional/north,
+/obj/machinery/button/door/directional/west{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	id = "psychdoor";
+	name = "Door Lock"
+	},
 /turf/open/floor/wood/tile,
 /area/station/medical/psychology)
 "tSf" = (
@@ -79368,6 +79395,14 @@
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_cafeteria/hydro)
+"vwh" = (
+/obj/structure/table/wood,
+/obj/item/folder/white{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/turf/open/floor/carpet/blue,
+/area/station/medical/office)
 "vwn" = (
 /obj/machinery/newscaster/directional/south,
 /obj/item/kirbyplants/random,
@@ -89193,11 +89228,11 @@
 /area/icemoon/surface/outdoors/nospawn)
 "xWB" = (
 /obj/structure/table/wood,
+/obj/machinery/status_display/ai/directional/west,
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/machinery/status_display/ai/directional/west,
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "xWK" = (
@@ -264722,7 +264757,7 @@ vuS
 fsa
 rPm
 sLD
-sJQ
+pIX
 hpZ
 pNh
 wtQ
@@ -266509,7 +266544,7 @@ rUO
 bGo
 pOi
 naF
-hZe
+vwh
 xWB
 nLr
 vQr
@@ -267026,7 +267061,7 @@ lyV
 lyV
 bOy
 nuP
-vQr
+kOl
 vbs
 hGQ
 uyh
@@ -267542,7 +267577,7 @@ daP
 hLC
 vQr
 emw
-omi
+mxg
 tpX
 udA
 hcA
@@ -268056,7 +268091,7 @@ bAu
 nuP
 ikV
 emw
-hol
+omi
 pIY
 rRJ
 yiU
