@@ -196,12 +196,8 @@
 	return owner_species.mutantstomach
 
 ///This gets called after the owner takes a bite of food
-<<<<<<< HEAD
-/obj/item/organ/internal/stomach/proc/after_eat(atom/edible)
-	SEND_SIGNAL(src, COMSIG_STOMACH_AFTER_EAT, edible) // NOVA EDIT ADDITION - Hemophage Organs
-=======
 /obj/item/organ/stomach/proc/after_eat(atom/edible)
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
+	SEND_SIGNAL(src, COMSIG_STOMACH_AFTER_EAT, edible) // NOVA EDIT ADDITION - Hemophage Organs
 	return
 
 /obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/human/disgusted, seconds_per_tick, times_fired)

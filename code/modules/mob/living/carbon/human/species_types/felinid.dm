@@ -3,16 +3,10 @@
 	name = "Felinid"
 	id = SPECIES_FELINE
 	examine_limb_id = SPECIES_HUMAN
-<<<<<<< HEAD
-	mutantbrain = /obj/item/organ/internal/brain/felinid
-	mutanttongue = /obj/item/organ/internal/tongue/cat
-	/* NOVA EDIT REMOVAL - CUSTOMIZATION
-	mutantears = /obj/item/organ/internal/ears/cat
-=======
 	mutantbrain = /obj/item/organ/brain/felinid
 	mutanttongue = /obj/item/organ/tongue/cat
+	/* NOVA EDIT REMOVAL - CUSTOMIZATION
 	mutantears = /obj/item/organ/ears/cat
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 	mutant_organs = list(
 		/obj/item/organ/tail/cat = "Cat",
 	)
@@ -56,10 +50,10 @@
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		*/
 		if(target_human.dna.features["ears"] == "Cat")
-			var/obj/item/organ/internal/ears/cat/ears = new
+			var/obj/item/organ/ears/cat/ears = new
 			ears.Insert(target_human, movement_flags = DELETE_IF_REPLACED)
 		else
-			mutantears = /obj/item/organ/internal/ears
+			mutantears = /obj/item/organ/ears
 		// NOVA EDIT CHANGE END
 	return ..()
 
@@ -216,12 +210,8 @@
 	human_for_preview.set_haircolor("#ffcccc", update = FALSE) // pink
 	human_for_preview.set_hairstyle("Hime Cut", update = TRUE)
 
-<<<<<<< HEAD
 	/* NOVA EDIT - Making the species menu icons work better - ORIGINAL:
-	var/obj/item/organ/internal/ears/cat/cat_ears = human_for_preview.get_organ_by_type(/obj/item/organ/internal/ears/cat)
-=======
 	var/obj/item/organ/ears/cat/cat_ears = human_for_preview.get_organ_by_type(/obj/item/organ/ears/cat)
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 	if (cat_ears)
 		cat_ears.color = human_for_preview.hair_color
 		human_for_preview.update_body()

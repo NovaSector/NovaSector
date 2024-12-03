@@ -77,9 +77,7 @@
 		human_target.set_facial_hair_gradient_style(new_grad_style, update = FALSE)
 		human_target.set_facial_hair_gradient_color(new_grad_color, update = TRUE)
 	playsound(src, 'sound/effects/spray.ogg', 10, vary = TRUE)
-<<<<<<< HEAD
 */
-=======
 
 /obj/item/dyespray/proc/dye_organ(mob/living/carbon/human/target, mob/user)
 	var/list/dyables = list()
@@ -124,4 +122,3 @@
 	if(QDELETED(selected) || !(selected in target.organs))
 		return
 	overlay.set_dye_color(new_color, selected)
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)

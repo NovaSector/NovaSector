@@ -156,7 +156,7 @@
 	// register death handling.
 	RegisterSignals(new_player, list(COMSIG_LIVING_DEATH, COMSIG_MOB_GHOSTIZED, COMSIG_QDELETING), PROC_REF(player_died))
 	// NOVA EDIT ADDITION START - Synth brains don't drop here - let them delete with the mob
-	var/obj/item/organ/internal/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(synth_brain))
 		synth_brain.drop_when_organ_spilling = FALSE
 	// NOVA EDIT ADDITION END

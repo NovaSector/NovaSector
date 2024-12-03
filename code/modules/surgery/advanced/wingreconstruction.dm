@@ -52,13 +52,8 @@
 		if(istype(wings, /obj/item/organ/wings/moth)) //make sure we only heal moth wings.
 			wings.heal_wings(user, ALL)
 
-<<<<<<< HEAD
-		var/obj/item/organ/external/antennae/antennae = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_ANTENNAE) //i mean we might aswell heal their antennae too
-		antennae?.heal_antennae()
-=======
 		var/obj/item/organ/antennae/antennae = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_ANTENNAE) //i mean we might aswell heal their antennae too
 		antennae?.heal_antennae(user, ALL)
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 
 		human_target.update_body_parts()
 	return ..()

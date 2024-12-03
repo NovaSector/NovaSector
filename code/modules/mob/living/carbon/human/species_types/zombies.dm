@@ -95,14 +95,9 @@
 	id = SPECIES_ZOMBIE_INFECTIOUS
 	examine_limb_id = SPECIES_ZOMBIE
 	damage_modifier = 20 // 120 damage to KO a zombie, which kills it
-<<<<<<< HEAD
-	mutanteyes = /obj/item/organ/internal/eyes/zombie
-	mutantbrain = /obj/item/organ/internal/brain/zombie
-=======
 	mutanteyes = /obj/item/organ/eyes/zombie
 	mutantbrain = /obj/item/organ/brain/zombie
 	mutanttongue = /obj/item/organ/tongue/zombie
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 
 	inherent_traits = list(

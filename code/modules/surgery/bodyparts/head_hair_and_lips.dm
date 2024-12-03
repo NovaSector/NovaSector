@@ -37,11 +37,7 @@
 		else
 			show_eyeless = FALSE
 	else
-<<<<<<< HEAD
-		if(!hair_hidden && !(locate(/obj/item/organ/internal/brain) in src) && !istype(src, /obj/item/bodypart/head/synth)) // NOVA EDIT CHANGE - ORIGINAL: if(!hair_hidden && !(locate(/obj/item/organ/internal/brain) in src))
-=======
-		if(!hair_hidden && !(locate(/obj/item/organ/brain) in src))
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
+		if(!hair_hidden && !(locate(/obj/item/organ/brain) in src) && !istype(src, /obj/item/bodypart/head/synth)) // NOVA EDIT CHANGE - ORIGINAL: if(!hair_hidden && !(locate(/obj/item/organ/brain) in src))
 			show_debrained = TRUE
 		else
 			show_debrained = FALSE

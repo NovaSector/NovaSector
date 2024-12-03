@@ -112,7 +112,7 @@
 					if(affected_mob.stat == CONSCIOUS)
 						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
 					span_userdanger("You feel a horrible pain as your heart is replaced with one from another dimension!"))
-					var/obj/item/organ/internal/heart/cursed/cheart = new /obj/item/organ/internal/heart/cursed()
+					var/obj/item/organ/heart/cursed/cheart = new /obj/item/organ/heart/cursed()
 					cheart.replace_into(affected_mob)
 					playsound(affected_mob, 'sound/effects/hallucinations/far_noise.ogg', 50, 1)
 					update_stage(1)

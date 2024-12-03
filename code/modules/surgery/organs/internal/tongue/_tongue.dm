@@ -579,12 +579,8 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	liked_foodtypes = VEGETABLES | FRUIT | GROSS | RAW //NOVA EDIT - Roundstart Snails - Food Prefs
 	disliked_foodtypes = DAIRY | ORANGES | SUGAR //NOVA EDIT: Roundstart Snails - As it turns out, you can't give a snail processed sugar or citrus.
 
-<<<<<<< HEAD
 /* NOVA EDIT START - Roundstart Snails: Less annoying speech.
-/obj/item/organ/internal/tongue/snail/modify_speech(datum/source, list/speech_args)
-=======
 /obj/item/organ/tongue/snail/modify_speech(datum/source, list/speech_args)
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 	var/new_message
 	var/message = speech_args[SPEECH_MESSAGE]
 	for(var/i in 1 to length(message))

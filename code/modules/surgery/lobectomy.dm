@@ -71,7 +71,7 @@
 		human_target.setOrganLoss(ORGAN_SLOT_LUNGS, 60)
 		if(target_lungs)
 			//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
-			if(istype(target_lungs, /obj/item/organ/internal/lungs/slime))
+			if(istype(target_lungs, /obj/item/organ/lungs/slime))
 				addtimer(VARSET_CALLBACK(target_lungs, operated, FALSE), 30 SECONDS)
 			//NOVA EDIT ADDITION END
 			target_lungs.operated = TRUE

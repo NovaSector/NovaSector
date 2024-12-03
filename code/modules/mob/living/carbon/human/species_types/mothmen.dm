@@ -3,13 +3,8 @@
 	plural_form = "Mothmen"
 	id = SPECIES_MOTH
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
-<<<<<<< HEAD
 	mutant_bodyparts = list("moth_markings" = "None") // NOVA EDIT CHANGE - ORIGINAL: body_markings = list(/datum/bodypart_overlay/simple/body_marking/moth = "None")
-	//mutant_organs = list(/obj/item/organ/external/wings/moth = "Plain", /obj/item/organ/external/antennae = "Plain") // NOVA EDIT REMOVAL - Fixing moths
-=======
-	body_markings = list(/datum/bodypart_overlay/simple/body_marking/moth = "None")
-	mutant_organs = list(/obj/item/organ/wings/moth = "Plain", /obj/item/organ/antennae = "Plain")
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
+	//mutant_organs = list(/obj/item/organ/wings/moth = "Plain", /obj/item/organ/antennae = "Plain") // NOVA EDIT REMOVAL - Fixing moths
 	meat = /obj/item/food/meat/slab/human/mutant/moth
 	mutanttongue = /obj/item/organ/tongue/moth
 	mutanteyes = /obj/item/organ/eyes/moth

@@ -1,4 +1,4 @@
-/obj/item/organ/internal/lungs/nitrogen
+/obj/item/organ/lungs/nitrogen
 	name = "nitrogen lungs"
 	desc = "A set of lungs for breathing nitrogen."
 	safe_oxygen_min = 0	//Dont need oxygen
@@ -8,7 +8,7 @@
 	oxy_breath_dam_min = 6
 	oxy_breath_dam_max = 20
 
-/obj/item/organ/internal/lungs/nitrogen/vox
+/obj/item/organ/lungs/nitrogen/vox
 	name = "vox lungs"
 	desc = "They're filled with dust... wow."
 	icon_state = "lungs-c"
@@ -18,11 +18,11 @@
 	cold_level_3_threshold = 0
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 
-/obj/item/organ/internal/brain/vox
+/obj/item/organ/brain/vox
 	name = "vox brain"
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 
-/obj/item/organ/internal/brain/vox/emp_act(severity)
+/obj/item/organ/brain/vox/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
 		return
