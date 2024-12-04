@@ -7655,6 +7655,7 @@
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\skrell.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\tajaran.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\unathi.dm"
+#include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\vampire.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\vox.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\vulpkanin.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\xeno.dm"
