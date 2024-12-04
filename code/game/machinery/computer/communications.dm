@@ -422,7 +422,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 
 			state = STATE_MAIN
 			playsound(src, 'sound/machines/terminal/terminal_on.ogg', 50, FALSE)
-			imprint_gps(gps_tag = "Encrypted Communications Channel")
+			imprint_gps("Encrypted Communications Channel")
 
 		if ("toggleEmergencyAccess")
 			if(emergency_access_cooldown(user)) //if were in cooldown, dont allow the following code
