@@ -38,7 +38,6 @@
 	skinned_type = /obj/item/stack/sheet/animalhide/xeno
 	death_sound = 'sound/mobs/non-humanoids/hiss/hiss6.ogg'
 	gib_anim = "gibbed-a"
-	dust_anim = "dust-a"
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(

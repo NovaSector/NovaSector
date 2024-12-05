@@ -50,12 +50,15 @@ Find `BUILD.bat` here in the root folder of tgstation, and double click it to in
 
 **[How to compile in VSCode and other build options](tools/build/README.md).**
 
-## Contributors
-[Guides for Contributors](.github/CONTRIBUTING.md)
+## Getting started
 
-[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
+For contribution guidelines refer to the [Guides for Contributors](.github/CONTRIBUTING.md).
 
-[Interested in some starting lore?](https://github.com/tgstation/common_core)
+For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
+
+For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
+
+For lore, [see Common Core](https://github.com/tgstation/common_core).
 
 ## LICENSE
 
