@@ -14,10 +14,10 @@
 	fire_sound_volume = 70
 	custom_premium_price = PAYCHECK_COMMAND * 5
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/give_manufacturer_examine()
+/obj/item/gun/ballistic/automatic/pistol/p207/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_BOLT)
 
-/obj/item/gun/ballistic/automatic/pistol/pepperball/add_seclight_point()
+/obj/item/gun/ballistic/automatic/pistol/p207/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \
 		starting_light = new /obj/item/flashlight/seclite(src), \
 		is_light_removable = FALSE, \
