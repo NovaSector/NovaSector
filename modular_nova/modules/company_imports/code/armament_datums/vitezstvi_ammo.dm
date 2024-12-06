@@ -105,6 +105,9 @@
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_hollowpoint
 	item_type = /obj/item/ammo_box/c585trappiste/hollowpoint
 
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_hollowpoint
+	item_type = /obj/item/ammo_box/advanced/kineticballs
+
 // Revolver speedloaders
 
 /datum/armament_entry/company_import/vitezstvi/speedloader
