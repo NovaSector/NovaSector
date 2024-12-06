@@ -3544,7 +3544,7 @@
 "xE" = (
 /obj/effect/turf_decal/tile/purple/half,
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "xG" = (
@@ -5153,7 +5153,7 @@
 	dir = 4
 	},
 /obj/structure/table/rolling,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/machinery/button/polarizer{
 	id = "tarkon_med1";
 	pixel_x = 31
