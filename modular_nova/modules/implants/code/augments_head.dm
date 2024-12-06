@@ -14,7 +14,6 @@
 	icon_state = "sandy"
 	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
-	implant_overlay = null
 	implant_color = null
 	actions_types = list(
 		/datum/action/cooldown/sensory_enhancer,
@@ -133,7 +132,6 @@
 	icon_state = "hackerman"
 	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
-	implant_overlay = null
 	implant_color = null
 	actions_types = list(/datum/action/cooldown/spell/pointed/hackerman_deck)
 	w_class = WEIGHT_CLASS_SMALL
