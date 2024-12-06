@@ -3,7 +3,7 @@
 /datum/species/monkey
 	name = "\improper Monkey"
 	id = SPECIES_MONKEY
-	external_organs = list(
+	mutant_organs = list(
 		/obj/item/organ/external/tail/monkey = "Monkey",
 	)
 	mutanttongue = /obj/item/organ/internal/tongue/monkey
@@ -35,7 +35,6 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/monkey,
 	)
 	fire_overlay = "monkey"
-	dust_anim = "dust-m"
 	gib_anim = "gibbed-m"
 
 	payday_modifier = 1.5

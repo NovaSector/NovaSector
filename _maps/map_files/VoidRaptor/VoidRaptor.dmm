@@ -30904,6 +30904,10 @@
 	pixel_x = -3;
 	pixel_y = -5
 	},
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -37181,6 +37185,7 @@
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/structure/sign/eyechart/directional/north,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/medbay/central)
 "kCq" = (

@@ -23,7 +23,6 @@
 	exotic_bloodtype = "X*"
 	heatmod = 2.5
 	mutant_bodyparts = list()
-	external_organs = list()
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodypart_overrides = list(
@@ -39,7 +38,6 @@
 	skinned_type = /obj/item/stack/sheet/animalhide/xeno
 	death_sound = 'sound/mobs/non-humanoids/hiss/hiss6.ogg'
 	gib_anim = "gibbed-a"
-	dust_anim = "dust-a"
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(

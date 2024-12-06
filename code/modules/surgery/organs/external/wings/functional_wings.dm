@@ -33,15 +33,14 @@
 	QDEL_NULL(fly)
 	return ..()
 
-/obj/item/organ/external/wings/functional/Insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/external/wings/functional/mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
-	if(!.)
-		return
+
 	if(QDELETED(fly))
 		fly = new
 	fly.Grant(receiver)
 
-/obj/item/organ/external/wings/functional/Remove(mob/living/carbon/organ_owner, special, movement_flags)
+/obj/item/organ/external/wings/functional/mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 	fly?.Remove(organ_owner)
 	if(wings_open)
@@ -146,7 +145,7 @@
 	if (get_dir(source, backup) == movement_dir || source.loc == backup.loc)
 		return
 
-	if (!can_fly(source) || !source.client.intended_direction)
+	if (!can_fly(source) || !source.client.intended_direction || (source.client.intended_direction & get_dir(source, backup)))
 		return
 
 	return COMPONENT_PREVENT_SPACEMOVE_HALT

@@ -115,6 +115,7 @@
 	armor_type = /datum/armor/latex_gloves
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 	resistance_flags = NONE
+	equip_sound = 'sound/items/equip/glove_equip.ogg'
 
 /datum/armor/latex_gloves
 	bio = 100
@@ -168,7 +169,7 @@
 	resistance_flags = FIRE_PROOF
 	siemens_coefficient = 0.3
 	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_CHUNKYFINGERS)
-	clothing_flags = THICKMATERIAL
+	clothing_flags = THICKMATERIAL|STOPSPRESSUREDAMAGE
 
 /obj/item/clothing/gloves/atmos/Initialize(mapload)
 	. = ..()

@@ -242,6 +242,28 @@
 	var/mob/wearer = loc
 	wearer.update_body()
 
+//Donation reward for Thedragmeme
+//Have I reached suspiciously wealthy furry status yet? /j
+/obj/item/clothing/under/sweater_dress
+	name = "virgin killer sweater"
+	desc = "A meticulously knitted sweater that shows off ALL the right places. This is BARELY considered work attire."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "virginslayer"
+	inhand_icon_state = "virginslayer"
+
+/obj/item/clothing/suit/jacket/bomber_donor
+	name = "old hoodie"
+	desc = "A somewhat well worn jacket, appears to be way too big considering who owns it."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "bomber"
+	inhand_icon_state = "bomber"
+
 //Donation reward for Thedragmeme, gift for ActualVanguard
 /obj/item/clothing/neck/padded/security
 	name = "vanguard cloak"

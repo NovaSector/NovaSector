@@ -158,12 +158,7 @@
 					span_danger("You spit out a string of blood from the blow to your chest!"),
 					vision_distance = COMBAT_MESSAGE_RANGE,
 				)
-				// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
-				if(victim.get_blood_id() == /datum/reagent/toxin/acid)
-					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(victim.loc, victim.dir)
-				else
-					new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
-				// NOVA EDIT ADDITION END
+				victim.create_splatter(victim.dir)
 				victim.bleed(blood_bled)
 			if(20 to INFINITY)
 				victim.visible_message(
@@ -172,12 +167,7 @@
 					vision_distance = COMBAT_MESSAGE_RANGE,
 				)
 				victim.bleed(blood_bled)
-				// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
-				if(victim.get_blood_id() == /datum/reagent/toxin/acid)
-					new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(victim.loc, victim.dir)
-				else
-					new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
-				// NOVA EDIT ADDITION END
+				victim.create_splatter(victim.dir)
 				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
 
 /datum/wound/blunt/bone/modify_desc_before_span(desc)

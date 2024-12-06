@@ -251,6 +251,8 @@
 
 	owner = null
 
+	QDEL_LAZYLIST(scars)
+
 	for(var/atom/movable/movable in contents)
 		qdel(movable)
 
@@ -986,8 +988,10 @@
 		if(aux_zone && (aux_zone in owner_species.body_markings))
 			aux_zone_markings = LAZYCOPY(owner_species.body_markings[aux_zone])
 		markings_alpha = owner_species.markings_alpha
+	else
+		markings = list()
 	// NOVA EDIT END
-	recolor_external_organs()
+	recolor_bodypart_overlays()
 	return TRUE
 
 /obj/item/bodypart/proc/update_draw_color()
@@ -1295,11 +1299,6 @@
 		bleed_rate *= 0.7
 	return bleed_rate
 
-// how much blood the limb needs to be losing per tick (not counting laying down/self grasping modifiers) to get the different bleed icons
-#define BLEED_OVERLAY_LOW 0.5
-#define BLEED_OVERLAY_MED 1.5
-#define BLEED_OVERLAY_GUSH 3.25
-
 /obj/item/bodypart/proc/update_part_wound_overlay()
 	if(!owner)
 		return FALSE
@@ -1308,6 +1307,9 @@
 			bleed_overlay_icon = null
 			owner.update_wound_overlays()
 		return FALSE
+
+	if (SEND_SIGNAL(src, COMSIG_BODYPART_UPDATE_WOUND_OVERLAY, cached_bleed_rate) & COMPONENT_PREVENT_WOUND_OVERLAY_UPDATE)
+		return
 
 	var/bleed_rate = cached_bleed_rate
 	var/new_bleed_icon = null
@@ -1331,10 +1333,6 @@
 	if(new_bleed_icon != bleed_overlay_icon)
 		bleed_overlay_icon = new_bleed_icon
 		owner.update_wound_overlays()
-
-#undef BLEED_OVERLAY_LOW
-#undef BLEED_OVERLAY_MED
-#undef BLEED_OVERLAY_GUSH
 
 /obj/item/bodypart/proc/can_bleed()
 	SHOULD_BE_PURE(TRUE)
@@ -1382,7 +1380,7 @@
 		QDEL_NULL(current_gauze)
 
 ///Loops through all of the bodypart's external organs and update's their color.
-/obj/item/bodypart/proc/recolor_external_organs()
+/obj/item/bodypart/proc/recolor_bodypart_overlays()
 	for(var/datum/bodypart_overlay/mutant/overlay in bodypart_overlays)
 		overlay.inherit_color(src, force = TRUE)
 

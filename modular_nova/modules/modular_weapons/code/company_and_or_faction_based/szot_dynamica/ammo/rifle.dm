@@ -54,10 +54,10 @@
 	name =".60 Strela bullet"
 	icon_state = "gaussphase"
 	speed = 0.4
-	damage = 50
+	damage = 70
 	armour_penetration = 50
-	wound_bonus = 20
-	bare_wound_bonus = 30
+	wound_bonus = 15 // Toned back down, as it's getting alot more damage.
+	bare_wound_bonus = 15
 	demolition_mod = 1.8
 	/// How much damage we add to things that are weak to this bullet
 	var/anti_materiel_damage_addition = 30

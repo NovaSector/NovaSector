@@ -7,9 +7,8 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // NOVA EDIT CHANGE - ORIGINAL: mutant_bodyparts = list("legs" = "Normal Legs")
-	//body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None") // NOVA EDIT REMOVAL - We do this our own way
-	external_organs = list(
+	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs") // NOVA EDIT CHANGE - ORIGINAL: body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
+	mutant_organs = list(
 		/obj/item/organ/external/horns = "None",
 		/obj/item/organ/external/frills = "None",
 		/obj/item/organ/external/snout = "Round",
@@ -106,8 +105,8 @@
 
 /datum/species/lizard/get_sigh_sound(mob/living/carbon/human/lizard)
 	if(lizard.physique == FEMALE)
-		return 'sound/mobs/humanoids/human/sigh/female_sigh.ogg'
-	return 'sound/mobs/humanoids/human/sigh/male_sigh.ogg'
+		return SFX_FEMALE_SIGH
+	return SFX_MALE_SIGH
 
 /datum/species/lizard/get_sniff_sound(mob/living/carbon/human/lizard)
 	if(lizard.physique == FEMALE)
@@ -213,7 +212,7 @@ Lizard subspecies: SILVER SCALED
 	damage_modifier = 10 //very light silvery scales soften blows
 	species_language_holder = /datum/language_holder/lizard/silver
 	mutanttongue = /obj/item/organ/internal/tongue/lizard/silver
-	changesource_flags = MIRROR_BADMIN | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN
+	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN
 	examine_limb_id = SPECIES_LIZARD
 	///stored mutcolor for when we turn back off of a silverscale.
 	var/old_mutcolor
