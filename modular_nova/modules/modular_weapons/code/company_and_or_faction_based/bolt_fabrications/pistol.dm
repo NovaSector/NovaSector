@@ -9,6 +9,7 @@
 	fire_delay = 0.3 SECONDS
 	fire_sound = 'sound/effects/pop_expl.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
+	show_bolt_icon = FALSE
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
 	fire_sound_volume = 70

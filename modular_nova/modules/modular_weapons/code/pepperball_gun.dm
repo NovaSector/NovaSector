@@ -21,7 +21,7 @@
 
 /obj/item/ammo_box/magazine/pepperball
 	name = "pistol magazine (pepperball)"
-	desc = "A gun magazine filled with balls, the ones that make your face itch, holds eight rounds."
+	desc = "A gun magazine filled with balls, the kind that make your face itch. Holds eight rounds."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
 	icon_state = "pepperball"
 	ammo_type = /obj/item/ammo_casing/pepperball
@@ -61,7 +61,7 @@
 /datum/design/pepperballs
 	name = "Pepperball Ammo Box"
 	id = "pepperballs"
-	build_type = AUTOLATHE |  PROTOLATHE | AWAY_LATHE
+	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
