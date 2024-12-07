@@ -309,7 +309,11 @@
 
 ///only operate on internal organs
 /datum/surgery_step/manipulate_organs/internal/can_use_organ(mob/user, obj/item/organ/organ)
+<<<<<<< HEAD
 	return isinternalorgan(organ) && !(organ.organ_flags & ORGAN_UNREMOVABLE) // NOVA EDIT - Don't show unremovable organs - ORIGINAL: return isinternalorgan(organ)
+=======
+	return !(organ.organ_flags & ORGAN_EXTERNAL)
+>>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 
 ///prosthetic surgery gives full effectiveness to crowbars (and hemostats)
 /datum/surgery_step/manipulate_organs/internal/mechanic
@@ -323,7 +327,11 @@
 
 ///Only operate on external organs
 /datum/surgery_step/manipulate_organs/external/can_use_organ(mob/user, obj/item/organ/organ)
+<<<<<<< HEAD
 	return isexternalorgan(organ) && !(organ.organ_flags & ORGAN_UNREMOVABLE) // NOVA EDIT - Don't show unremovable organs - ORIGINAL: return isexternalorgan(organ)
+=======
+	return (organ.organ_flags & ORGAN_EXTERNAL)
+>>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 
 ///prosthetic surgery gives full effectiveness to crowbars (and hemostats)
 /datum/surgery_step/manipulate_organs/external/mechanic

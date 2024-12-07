@@ -8,7 +8,11 @@
 		TRAIT_PLANT_SAFE,
 	)
 	mutant_organs = list(
+<<<<<<< HEAD
 		// /obj/item/organ/external/pod_hair = "None", // NOVA EDIT REMOVAL - Customization (it messes up unit tests.)
+=======
+		/obj/item/organ/pod_hair = "None",
+>>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 	)
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_PLANT
 	inherent_factions = list(FACTION_PLANTS, FACTION_VINES)
@@ -19,7 +23,7 @@
 	exotic_blood = /datum/reagent/water
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_language_holder = /datum/language_holder/plant
-	mutanttongue = /obj/item/organ/internal/tongue/pod
+	mutanttongue = /obj/item/organ/tongue/pod
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/pod,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/pod,

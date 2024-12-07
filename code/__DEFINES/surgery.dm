@@ -30,10 +30,15 @@
 #define ORGAN_PROMINENT (1<<11)
 /// An organ that is ostensibly dangerous when inside a body
 #define ORGAN_HAZARDOUS (1<<12)
+<<<<<<< HEAD
 // NOVA EDIT ADDITION START - Customization
 /// Synthetic organ granted by a species (for use for organ replacements between species)
 #define ORGAN_SYNTHETIC_FROM_SPECIES (1<<13)
 // NOVA EDIT ADDITION END
+=======
+/// This is an external organ, not an inner one. Used in several checks.
+#define ORGAN_EXTERNAL (1<<13)
+>>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 
 /// Scarring on the right eye
 #define RIGHT_EYE_SCAR (1<<0)

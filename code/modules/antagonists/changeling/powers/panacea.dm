@@ -12,10 +12,16 @@
 	to_chat(user, span_notice("We cleanse impurities from our form."))
 	..()
 	var/list/bad_organs = list(
+<<<<<<< HEAD
 		user.get_organ_by_type(/obj/item/organ/internal/empowered_borer_egg), // NOVA EDIT ADDITION
 		user.get_organ_by_type(/obj/item/organ/internal/body_egg),
 		user.get_organ_by_type(/obj/item/organ/internal/legion_tumour),
 		user.get_organ_by_type(/obj/item/organ/internal/zombie_infection),
+=======
+		user.get_organ_by_type(/obj/item/organ/body_egg),
+		user.get_organ_by_type(/obj/item/organ/legion_tumour),
+		user.get_organ_by_type(/obj/item/organ/zombie_infection),
+>>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
 	)
 
 
