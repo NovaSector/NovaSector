@@ -240,8 +240,8 @@
 /datum/crafting_recipe/food/meatplatter
 	name = "BBQ Meat Platter"
 	reqs = list(
-		/obj/item/food/bbqribs,
-		/obj/item/food/glazed_ribs,
+		/obj/item/food/bbqribs = 1,
+		/obj/item/food/glazed_ribs = 1,
 		/obj/item/food/roasted_bell_pepper = 2,
 	)
 	result = /obj/item/food/meatplatter
