@@ -1,0 +1,4 @@
+author: "CRITAWAKETS"
+delete-after: True
+changes:
+  - bugfix: "Fixed the starfruit BBQ platter failing to consume crafting ingredients."
