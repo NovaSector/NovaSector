@@ -25,15 +25,15 @@
 	payday_modifier = 1.0 // Matches the rest of the pay penalties the non-human crew have
 	death_sound = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	species_language_holder = /datum/language_holder/machine
-	mutant_organs = list(/obj/item/organ/internal/cyberimp/arm/power_cord/left_arm)
-	mutantbrain = /obj/item/organ/internal/brain/synth
-	mutantstomach = /obj/item/organ/internal/stomach/synth
-	mutantears = /obj/item/organ/internal/ears/synth
-	mutanttongue = /obj/item/organ/internal/tongue/synth
-	mutanteyes = /obj/item/organ/internal/eyes/synth
-	mutantlungs = /obj/item/organ/internal/lungs/synth
-	mutantheart = /obj/item/organ/internal/heart/synth
-	mutantliver = /obj/item/organ/internal/liver/synth
+	mutant_organs = list(/obj/item/organ/cyberimp/arm/power_cord/left_arm)
+	mutantbrain = /obj/item/organ/brain/synth
+	mutantstomach = /obj/item/organ/stomach/synth
+	mutantears = /obj/item/organ/ears/synth
+	mutanttongue = /obj/item/organ/tongue/synth
+	mutanteyes = /obj/item/organ/eyes/synth
+	mutantlungs = /obj/item/organ/lungs/synth
+	mutantheart = /obj/item/organ/heart/synth
+	mutantliver = /obj/item/organ/liver/synth
 	mutantappendix = null
 	exotic_blood = /datum/reagent/fuel/oil
 	bodypart_overrides = list(
@@ -95,7 +95,7 @@
 	sing_action.Grant(transformer)
 
 	var/screen_mutant_bodypart = transformer.dna.mutant_bodyparts[MUTANT_SYNTH_SCREEN]
-	var/obj/item/organ/internal/eyes/eyes = transformer.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/eyes = transformer.get_organ_slot(ORGAN_SLOT_EYES)
 
 	if(!screen && screen_mutant_bodypart && screen_mutant_bodypart[MUTANT_INDEX_NAME] && screen_mutant_bodypart[MUTANT_INDEX_NAME] != "None")
 
@@ -151,7 +151,7 @@
 
 	UnregisterSignal(human, COMSIG_ATOM_EMAG_ACT)
 
-	var/obj/item/organ/internal/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
 
 	if(eyes)
 		eyes.eye_icon_state = initial(eyes.eye_icon_state)
@@ -164,11 +164,11 @@
 	if(isnull(human_holder.loc))
 		return // preview characters don't need funny organs, prevents a runtime
 
-	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(old_stomach.is_oversized) // don't override augments that are already oversized
 		return
 
-	var/obj/item/organ/internal/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
+	var/obj/item/organ/stomach/synth/oversized/new_synth_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE reactor! RIP AND TEAR YOUR HUGE reactor!
 
 	oversized_quirk.old_organs += list(old_stomach)
 
@@ -211,7 +211,7 @@
 		return
 
 	// This is awful. Please find a better way to do this.
-	var/obj/item/organ/external/synth_screen/screen_organ = transformer.get_organ_slot(ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN)
+	var/obj/item/organ/synth_screen/screen_organ = transformer.get_organ_slot(ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN)
 	if(!istype(screen_organ))
 		return
 
@@ -220,7 +220,7 @@
 	transformer.update_body()
 
 /datum/species/synthetic/get_types_to_preload()
-	return ..() - typesof(/obj/item/organ/internal/cyberimp/arm/power_cord) // Don't cache things that lead to hard deletions.
+	return ..() - typesof(/obj/item/organ/cyberimp/arm/power_cord) // Don't cache things that lead to hard deletions.
 
 /datum/species/synthetic/create_pref_unique_perks()
 	var/list/perk_descriptions = list()

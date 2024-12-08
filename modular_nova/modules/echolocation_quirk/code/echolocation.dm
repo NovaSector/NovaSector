@@ -42,7 +42,7 @@
 	esp_color.update_colour(col)
 
 	// double the ear/hearing damage multiplier from any source.
-	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
 	if (!istype(echo_ears))
 		return
 
@@ -57,7 +57,7 @@
 	QDEL_NULL(esp) // echolocation component removal handles graceful disposal of everything above except the ears
 	QDEL_NULL(added_action) // remove the stall action, too
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
 	if (!istype(echo_ears))
 		return
 	echo_ears.damage_multiplier = initial(echo_ears.damage_multiplier)

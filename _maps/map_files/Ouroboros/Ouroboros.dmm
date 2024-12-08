@@ -24942,8 +24942,8 @@
 /obj/effect/spawner/random/medical/memeorgans,
 /obj/effect/spawner/random/medical/memeorgans,
 /obj/effect/spawner/random/medical/organs,
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/external/tail/cat{
+/obj/item/organ/tail/cat,
+/obj/item/organ/tail/cat{
 	pixel_x = 6
 	},
 /obj/machinery/power/apc/auto_name/directional/south,

@@ -4,7 +4,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	can_randomize = FALSE
-	relevant_external_organ = /obj/item/organ/external/tail/cat
+	relevant_external_organ = /obj/item/organ/tail/cat
 
 /datum/preference/choiced/tail_felinid/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_felinid)
@@ -21,7 +21,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	can_randomize = FALSE
-	relevant_external_organ = /obj/item/organ/internal/ears/cat
+	relevant_external_organ = /obj/item/organ/ears/cat
 
 /datum/preference/choiced/felinid_ears/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.ears_list)

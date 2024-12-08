@@ -14,12 +14,12 @@
 	update_external_organs_modsuit_status(is_on)
 	wearer.update_body_parts(TRUE)
 
-/obj/item/mod/control/deploy(mob/user, obj/item/part)
+/obj/item/mod/control/deploy(mob/user, obj/item/part, instant = FALSE)
 	. = ..()
 	update_external_organs_modsuit_status(active)
 	wearer.update_body_parts(TRUE)
 
-/obj/item/mod/control/retract(mob/user, obj/item/part)
+/obj/item/mod/control/retract(mob/user, obj/item/part, instant = FALSE)
 	. = ..()
 	update_external_organs_modsuit_status(FALSE)
 	wearer.update_body_parts(TRUE)
@@ -30,8 +30,9 @@
 	if(!wearer?.organs)
 		return
 
-	for(var/obj/item/organ/external/to_update in wearer.organs)
-		to_update.bodypart_overlay.set_modsuit_status(status)
+	for(var/obj/item/organ/to_update in wearer.organs)
+		if(to_update.organ_flags & ORGAN_EXTERNAL)
+			to_update.bodypart_overlay.set_modsuit_status(status)
 
 
 // Tail hardlight

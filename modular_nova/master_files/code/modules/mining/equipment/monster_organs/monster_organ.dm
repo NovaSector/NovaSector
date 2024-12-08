@@ -1,4 +1,4 @@
-/obj/item/organ/internal/monster_core/try_apply(atom/target, mob/user)
+/obj/item/organ/monster_core/try_apply(atom/target, mob/user)
 	if (istype(target, /obj/structure/lavaland/ash_walker))
 		target.attackby(src, user)
 		return

@@ -1,4 +1,4 @@
-/obj/item/organ/internal/lungs/cold
+/obj/item/organ/lungs/cold
 	name = "cold-adapted lungs"
 	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to low temperatures, though they are more susceptible to high temperatures"
@@ -22,7 +22,7 @@
 	heat_damage_type = BURN
 
 
-/obj/item/organ/internal/lungs/hot
+/obj/item/organ/lungs/hot
 	name = "heat-adapted lungs"
 	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to high temperatures, though they are more susceptible to low temperatures"
@@ -45,7 +45,7 @@
 	heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_2
 	heat_damage_type = BURN
 
-/obj/item/organ/internal/lungs/toxin
+/obj/item/organ/lungs/toxin
 	name = "toxin-adapted lungs"
 	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to toxic environments, though more susceptible to extreme temperatures."
@@ -72,7 +72,7 @@
 	heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	heat_damage_type = BURN
 
-/obj/item/organ/internal/lungs/oxy
+/obj/item/organ/lungs/oxy
 	name = "low-oxygen-adapted lungs"
 	icon = 'modular_nova/modules/organs/icons/lungs.dmi'
 	desc = "A set of lungs adapted to lower-pressure environments, though more susceptible to extreme temperatures."
@@ -97,7 +97,7 @@
 	cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
 	cold_damage_type = BURN
 
-/obj/item/organ/internal/lungs/ethereal
+/obj/item/organ/lungs/ethereal
 	cold_level_1_threshold = 208
 	cold_level_2_threshold = 200
 	cold_level_3_threshold = 170

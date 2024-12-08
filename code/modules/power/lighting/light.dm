@@ -598,9 +598,9 @@
 	var/protected = FALSE
 
 	if(istype(user))
-		var/obj/item/organ/internal/stomach/maybe_stomach = user.get_organ_slot(ORGAN_SLOT_STOMACH)
-		if(istype(maybe_stomach, /obj/item/organ/internal/stomach/ethereal))
-			var/obj/item/organ/internal/stomach/ethereal/stomach = maybe_stomach
+		var/obj/item/organ/stomach/maybe_stomach = user.get_organ_slot(ORGAN_SLOT_STOMACH)
+		if(istype(maybe_stomach, /obj/item/organ/stomach/ethereal))
+			var/obj/item/organ/stomach/ethereal/stomach = maybe_stomach
 			if(stomach.drain_time > world.time)
 				return
 			user.visible_message(span_notice("[user] clamps their hand around the [fitting], electricity jumping around inside!")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINALl: to_chat(user, span_notice("You start channeling some power through the [fitting] into your body."))
