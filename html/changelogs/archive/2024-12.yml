@@ -189,3 +189,16 @@
       it doesn't matter if there's a wall, right?)
   xPokee, waterpig:
   - code_imp: cleaned up beserk.dm
+2024-12-08:
+  CRITAWAKETS:
+  - bugfix: Fixed the starfruit BBQ platter failing to consume crafting ingredients.
+  Hatterhat:
+  - bugfix: For consistency's sake, Cybersun Industries has finally remembered to
+      update their backlog of Contractor MODsuits with baton knockdown resistance
+      and restraint assistance modules. Prospective operators are reminded that this
+      will not stop them from being shot with disablers, or being shot in general.
+  RatFromTheJungle:
+  - qol: The CIN outfit parts in the loadout can now be colored in said loadout.
+  SmArtKar:
+  - balance: Armor now decreases the chances of getting your eye blown out by a rogue
+      bullet
