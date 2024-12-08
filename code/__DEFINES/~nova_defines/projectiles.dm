@@ -17,3 +17,7 @@
 
 /// Caliber used by the pepperball gun
 #define CALIBER_PEPPERBALL "pepperball"
+
+/// Caliber used by the kinetic gun
+#define CALIBER_KINETICBALL "kineticball"
+
