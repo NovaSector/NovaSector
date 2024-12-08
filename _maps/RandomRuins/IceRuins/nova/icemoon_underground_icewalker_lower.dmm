@@ -178,7 +178,7 @@
 	name = "thick vines";
 	opacity = 1
 	},
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "de" = (
 /obj/structure/wall_torch/spawns_lit/directional/south,
@@ -490,7 +490,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "lf" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "lg" = (
 /obj/structure/rack/wooden,
@@ -681,7 +681,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oJ" = (
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "oK" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -869,7 +869,7 @@
 /obj/structure/chair/sofa/bamboo/right{
 	dir = 1
 	},
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "sf" = (
 /obj/structure/flora/ash/leaf_shroom,
@@ -1094,7 +1094,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "yD" = (
 /obj/structure/chair/sofa/bamboo/left,
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "yE" = (
 /turf/open/floor/stone/icemoon,
@@ -1802,10 +1802,10 @@
 	pixel_y = 5;
 	pixel_x = 3
 	},
-/obj/item/fish/dwarf_moonfish{
+/obj/item/fish/moonfish/dwarf{
 	pixel_x = -5
 	},
-/obj/item/fish/dwarf_moonfish{
+/obj/item/fish/moonfish/dwarf{
 	pixel_x = -2;
 	pixel_y = 8
 	},
@@ -1965,7 +1965,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "RE" = (
 /obj/structure/chair/sofa/bamboo/right,
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "RG" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -1984,7 +1984,7 @@
 /area/ruin/unpowered/primitive_catgirl_den)
 "RO" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "RR" = (
 /obj/structure/stairs/wood,
@@ -2246,7 +2246,7 @@
 /obj/structure/chair/sofa/bamboo/left{
 	dir = 1
 	},
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "ZY" = (
 /obj/effect/turf_decal/siding/wood/corner{
