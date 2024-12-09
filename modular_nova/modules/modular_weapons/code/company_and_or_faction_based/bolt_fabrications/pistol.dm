@@ -1,15 +1,14 @@
 /obj/item/gun/ballistic/automatic/pistol/p207
 	name = "\improper Type P207 - Bolt Kinetic"
 	desc = "A completly non lethal sidearm used by Sol Fed Peacekeeping forces. It uses kinetic rounds to temporarily disable adversaries, its also a popular weapon for trick shot competitions."
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/Type207inhand.dmi'
-	icon_state = "Type207"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type207inhand.dmi'
+	icon_state = "p207"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/kineticball
 	can_suppress = FALSE
 	fire_delay = 0.3 SECONDS
 	fire_sound = 'sound/effects/pop_expl.ogg'
 	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
-	show_bolt_icon = FALSE
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
 	fire_sound_volume = 70
