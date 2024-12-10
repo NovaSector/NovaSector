@@ -1,3 +1,6 @@
+/obj/item/bitrunning_disk
+	w_class = WEIGHT_CLASS_SMALL
+
 /obj/item/bitrunning_disk/ability/tier0
 	name = "bitrunning program: cantrip"
 	selectable_actions = list(
