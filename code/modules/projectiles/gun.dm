@@ -77,8 +77,10 @@
 		pin = new pin(src)
 
 	add_seclight_point()
-	give_gun_safeties() // NOVA EDIT ADDITION - GUN SAFETIES
-	give_manufacturer_examine() // NOVA EDIT ADDITON - MANUFACTURER EXAMINE
+	// NOVA EDIT ADDITION BEGIN - GUN SAFETIES AND MANUFACTURER EXAMINE
+	give_gun_safeties()
+	give_manufacturer_examine()
+	// NOVA EDIT ADDITION END
 	add_bayonet_point()
 
 /obj/item/gun/Destroy()
