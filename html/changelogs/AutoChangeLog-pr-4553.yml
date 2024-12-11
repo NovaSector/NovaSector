@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - balance: "Railgun PKAs can no longer be fired on station"
+  - code_imp: "Allows restricted PKAs to be fired in Serenity exterior"
