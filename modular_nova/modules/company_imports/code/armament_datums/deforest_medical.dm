@@ -108,6 +108,10 @@
 	item_type = /obj/item/stack/medical/wound_recovery/robofoam_super
 	cost = PAYCHECK_COMMAND * 4
 
+/datum/armament_entry/company_import/deforest/first_aid/mannitol // Bitrunners and Degenerative players should not be out of a job if med is slow, gone or bad
+	item_type = /obj/item/storage/pill_bottle/mannitol
+	cost = PAYCHECK_COMMAND * 4 // pricey to not obsolete med if they ARE here
+
 // Autoinjectors for healing
 
 /datum/armament_entry/company_import/deforest/medpens
