@@ -7,7 +7,7 @@
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/bolt_fabrications/guns_righthand.dmi'
 	inhand_icon_state = "type207"
 	w_class = WEIGHT_CLASS_SMALL
-	accepted_magazine_type = /obj/item/ammo_box/magazine/kineticball
+	accepted_magazine_type = /obj/item/ammo_box/magazine/kineticballs
 	can_suppress = FALSE
 	fire_delay = 0.3 SECONDS
 	fire_sound = 'sound/effects/pop_expl.ogg'
