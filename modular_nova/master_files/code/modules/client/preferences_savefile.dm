@@ -13,6 +13,7 @@
 #define VERSION_UNDERSHIRT_BRA_SPLIT 4
 #define VERSION_CHRONOLOGICAL_AGE 5
 #define VERSION_TG_LOADOUT 6
+#define VERSION_TG_EMOTE_SOUNDS 7
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -250,6 +251,12 @@
 	// Resets Chronological Age field to default.
 	if(current_version < VERSION_CHRONOLOGICAL_AGE)
 		write_preference(GLOB.preference_entries[/datum/preference/numeric/chronological_age], read_preference(/datum/preference/numeric/age))
+
+	// Sets old insect laugh to the merged moth/insect in case character uses it.
+	if (current_version < VERSION_TG_EMOTE_SOUNDS)
+		var/current_scream = save_data["character_laugh"]
+		if(current_scream == "Insect Laugh")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/laugh], "Moth/Insect Laugh")
 
 	if(current_version < VERSION_TG_LOADOUT)
 		var/list/save_loadout = SANITIZE_LIST(save_data["loadout_list"])
