@@ -5,6 +5,7 @@
 	pin_hot_swappable = FALSE
 	pin_removable = FALSE
 	var/list/wastes = list(
+			/area/forestplanet/outdoors/unexplored,
 			/area/icemoon/surface/outdoors,
 			/area/icemoon/underground/unexplored,
 			/area/icemoon/underground/explored,
