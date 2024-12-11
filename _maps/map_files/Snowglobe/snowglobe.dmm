@@ -58602,10 +58602,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/service/chapel)
-"pIK" = (
-/obj/machinery/rnd/production/circuit_imprinter/department/science,
-/turf/closed/wall/r_wall,
-/area/station/science/lab)
 "pIL" = (
 /obj/effect/turf_decal/tile/dark_green{
 	dir = 1
@@ -267965,7 +267961,7 @@ xOk
 vYw
 sgG
 uSv
-pIK
+uSv
 uSv
 uSv
 uSv
