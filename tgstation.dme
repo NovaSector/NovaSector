@@ -7174,6 +7174,7 @@
 #include "modular_nova\modules\better_vox\code\vox_sprite_accessories.dm"
 #include "modular_nova\modules\bitrunning\code\disks.dm"
 #include "modular_nova\modules\bitrunning\code\flair.dm"
+#include "modular_nova\modules\bitrunning\code\loot.dm"
 #include "modular_nova\modules\bitrunning\code\mobs.dm"
 #include "modular_nova\modules\bitrunning\code\outfit.dm"
 #include "modular_nova\modules\bitrunning\code\spells.dm"
