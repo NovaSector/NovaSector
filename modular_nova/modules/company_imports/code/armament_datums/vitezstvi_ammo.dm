@@ -28,6 +28,10 @@
 	item_type = /obj/item/suppressor/standard
 	cost = PAYCHECK_COMMAND
 
+/datum/armament_entry/company_import/vitezstvi/accessory/seclight
+	item_type = /obj/item/flashlight/seclite
+	cost = PAYCHECK_COMMAND * 1.5 // now get yo shotgun with the flashlight modification
+
 /datum/armament_entry/company_import/vitezstvi/accessory/small_case
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/empty
 	cost = PAYCHECK_COMMAND
@@ -35,6 +39,16 @@
 /datum/armament_entry/company_import/vitezstvi/accessory/large_case
 	item_type = /obj/item/storage/toolbox/guncase/nova/empty
 	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/vitezstvi/accessory/bandolier
+	item_type = /obj/item/storage/belt/bandolier
+	cost = PAYCHECK_COMMAND * 2
+	contraband = TRUE
+
+/datum/armament_entry/company_import/vitezstvi/accessory/pouch
+	item_type = /obj/item/storage/pouch/ammo
+	cost = PAYCHECK_COMMAND * 3
+	contraband = TRUE // the 'combat accessories' require broadbanding
 
 // Boxes of non-shotgun ammo
 
