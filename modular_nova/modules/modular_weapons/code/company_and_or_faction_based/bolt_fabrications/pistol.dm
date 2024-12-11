@@ -1,8 +1,11 @@
-/obj/item/gun/ballistic/automatic/pistol/p207
+/obj/item/gun/ballistic/automatic/pistol/type207
 	name = "\improper Type P207 - Bolt Kinetic"
 	desc = "A completly non lethal sidearm used by Sol Fed Peacekeeping forces. It uses kinetic rounds to temporarily disable adversaries, its also a popular weapon for trick shot competitions."
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type207inhand.dmi'
-	icon_state = "p207"
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type207.dmi'
+	icon_state = "type207"
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/bolt_fabrications/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/bolt_fabrications/guns_righthand.dmi'
+	inhand_icon_state = "type207"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/kineticball
 	can_suppress = FALSE
@@ -14,10 +17,10 @@
 	fire_sound_volume = 70
 	custom_premium_price = PAYCHECK_COMMAND * 5
 
-/obj/item/gun/ballistic/automatic/pistol/p207/give_manufacturer_examine()
+/obj/item/gun/ballistic/automatic/pistol/type207/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_BOLT)
 
-/obj/item/gun/ballistic/automatic/pistol/p207/add_seclight_point()
+/obj/item/gun/ballistic/automatic/pistol/type207/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \
 		starting_light = new /obj/item/flashlight/seclite(src), \
 		is_light_removable = FALSE, \

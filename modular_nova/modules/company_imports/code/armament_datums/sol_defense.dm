@@ -91,8 +91,8 @@
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
 	cost = PAYCHECK_COMMAND * 4
 
-/datum/armament_entry/company_import/sol_defense/sidearm/p207
-	item_type = /obj/item/gun/ballistic/automatic/pistol/p207
+/datum/armament_entry/company_import/sol_defense/sidearm/type207
+	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
 	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
@@ -157,8 +157,8 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
-/datum/armament_entry/company_import/sol_defense/magazines/kineticball
-	item_type = /obj/item/ammo_box/magazine/kineticball/starts_empty
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballs
+	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty

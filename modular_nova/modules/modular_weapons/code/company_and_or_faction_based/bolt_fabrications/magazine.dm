@@ -1,5 +1,5 @@
-/obj/item/ammo_box/magazine/kineticball
-	name = "kinetic ball pistol magazine"
+/obj/item/ammo_box/magazine/kineticballs
+	name = "Kinetic balls pistol magazine"
 	desc = "A gun magazine filled with balls. The kind that makes makes people stop, holds eight rounds."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type207magazine.dmi'
 	icon_state = "type207mag"
@@ -9,11 +9,11 @@
 	custom_price = PAYCHECK_CREW * 2
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
-/obj/item/ammo_box/magazine/kineticball/starts_empty
+/obj/item/ammo_box/magazine/kineticballs/starts_empty
 	start_empty = TRUE
 
 /datum/design/kineticballs
-	name = "Kinetic Ammo Box"
+	name = "Ammo Box (Kinetic Balls)"
 	id = "kineticballs"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -28,7 +28,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /obj/item/ammo_box/advanced/kineticballs
-	name = "kinetic ammo box"
+	name = "ammo box (Kinetic Balls)"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/stingstopbox.dmi'
 	icon_state = "stingstopbox"
 	desc = "A box of kinetic balls rounds, holds twenty seven rounds."
