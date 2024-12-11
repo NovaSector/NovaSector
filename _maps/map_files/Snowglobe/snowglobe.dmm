@@ -813,6 +813,9 @@
 "ajP" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 32
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "aka" = (
@@ -58601,10 +58604,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/service/chapel)
-"pIK" = (
-/obj/machinery/rnd/production/circuit_imprinter/department/science,
-/turf/closed/wall/r_wall,
-/area/station/science/lab)
 "pIL" = (
 /obj/effect/turf_decal/tile/dark_green{
 	dir = 1
@@ -63145,7 +63144,9 @@
 /area/station/service/library)
 "qXv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/window/reinforced/tinted/spawner/directional/north,
+/obj/machinery/mineral/stacking_machine{
+	input_dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "qXH" = (
@@ -267962,7 +267963,7 @@ xOk
 vYw
 sgG
 uSv
-pIK
+uSv
 uSv
 uSv
 uSv
