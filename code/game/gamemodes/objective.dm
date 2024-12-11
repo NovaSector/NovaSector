@@ -364,7 +364,7 @@ GLOBAL_LIST_EMPTY(objectives) //NOVA EDIT ADDITION
 	var/human_check = TRUE
 
 /datum/objective/protect/check_completion()
-	var/obj/item/organ/internal/brain/brain_target
+	var/obj/item/organ/brain/brain_target
 	if(isnull(target))
 		return FALSE
 	if(human_check)

@@ -1,7 +1,8 @@
-/obj/item/organ/external/xenodorsal
+/obj/item/organ/xenodorsal
 	name = "dorsal spines"
 	desc = "How did that even fit on them...?"
 	icon_state = "random_fly_2"
+	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 
 	mutantpart_key = "xenodorsal"
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Standard", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
