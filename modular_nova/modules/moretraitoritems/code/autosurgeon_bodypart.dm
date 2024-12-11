@@ -45,7 +45,7 @@
 	playsound(get_turf(H), 'sound/items/weapons/circsawhit.ogg', 50, TRUE)
 	storedbodypart = null
 	name = initial(name)
-	if(uses != INFINITE)
+	if(uses != INFINITY)
 		uses--
 	if(!uses)
 		desc = "[initial(desc)] Looks like it's been used up."
@@ -79,7 +79,7 @@
 		to_chat(user, span_notice("You remove the [storedbodypart] from [src]."))
 		I.play_tool_sound(src)
 		storedbodypart = null
-		if(uses != INFINITE)
+		if(uses != INFINITY)
 			uses--
 		if(!uses)
 			desc = "[initial(desc)] Looks like it's been used up."

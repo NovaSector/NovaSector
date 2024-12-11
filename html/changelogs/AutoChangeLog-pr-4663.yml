@@ -1,0 +1,4 @@
+author: "Kocma-san"
+delete-after: True
+changes:
+  - bugfix: "xenomorph larva can evolve again"

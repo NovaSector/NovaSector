@@ -3,7 +3,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
 	name = "\improper Słońce Plasma Projector"
-	desc = "An outdated sidearm rarely seen in use by some members of the CIN. \
+	desc = "A full auto plasma-spewer, in the flavor of 'dirt cheap.' \
 		Uses plasma power packs. \
 		Spews an inaccurate stream of searing plasma out the magnetic barrel so long as it has power and the trigger is pulled."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
@@ -37,17 +37,13 @@
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower/examine_more(mob/user)
 	. = ..()
 
-	. += "The 'Słońce' started life as an experiment in advancing the field of accelerated \
-		plasma weaponry. Despite the design's obvious shortcomings in terms of accuracy and \
-		range, the CIN combined military command (which we'll call the CMC from now on) took \
-		interest in the weapon as a means to counter Sol's more advanced armor technology. \
-		As it would turn out, the plasma globules created by the weapon were really not \
-		as effective against armor as the CMC had hoped, quite the opposite actually. \
-		What the plasma did do well however was inflict grevious burns upon anyone unfortunate \
-		enough to get hit by it unprotected. For this reason, the 'Słońce' saw frequent use by \
-		army officers and ship crews who needed a backup weapon to incinerate the odd space \
-		pirate or prisoner of war."
-
+	. += "Originally started as the best means to deterring large crowds, it quickly found a second life \
+		as a frontier all-arounder on account of it's cheap-and-rechargable packs, full auto capabilities, \
+		and one hell of an intimidation factor. \
+		Earlier claims by competitors passed it off as terrible against armor,  \
+		but in reality, it's about as effective as any ballistic you could get your hands on! \
+		As long as your sector, and local-command permits automatic weapons, that is... and grevious wounds."
+		
 	return .
 
 // Plasma sharpshooter pistol
@@ -55,7 +51,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_marksman
 	name = "\improper Gwiazda Plasma Sharpshooter"
-	desc = "An outdated sidearm rarely seen in use by some members of the CIN. \
+	desc = "An accurate, plasma spitting pistol-'prototype,' atleast it shoots straight.\
 		Uses plasma power packs. \
 		Fires relatively accurate globs of searing plasma."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
@@ -89,11 +85,8 @@
 
 	. += "The 'Gwiazda' is a further refinement of the 'Słońce' design. with improved \
 		energy cycling, magnetic launchers built to higher precision, and an overall more \
-		ergonomic design. While it still fails to perform against armor, the weapon is \
-		significantly more accurate and higher power, at expense of a much lower firerate. \
-		Opinions on this weapon within military service were highly mixed, with many preferring \
-		the sheer stopping power a spray of plasma could produce, with others loving the new ability \
-		to hit something in front of you for once."
+		ergonomic design. Early reports speak highly of it's ability to shoot in a straight line. \
+		Why it's ended up here is anyone's guess, but the best one would be: 'Testing market sustainability.'"
 
 	return .
 
@@ -102,14 +95,15 @@
 
 /obj/item/gun/ballistic/revolver/shotgun_revolver
 	name = "\improper Bóbr 12 GA revolver"
-	desc = "An outdated sidearm rarely seen in use by some members of the CIN. A revolver type design with a four shell cylinder. That's right, shell, this one shoots twelve guage."
+	desc = "A dated attempt at upsizing a revolver to a 'servicable' caliber for frontier-and-distance planets. \
+		A revolver type design with a four shell cylinder. That's right, shell, this one shoots twelve guage."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev12ga
 	recoil = SAWN_OFF_RECOIL
 	weapon_weight = WEAPON_MEDIUM
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "bobr"
 	fire_sound = 'modular_nova/modules/sec_haul/sound/revolver_fire.ogg'
-	spread = SAWN_OFF_ACC_PENALTY
+	spread = 15
 
 /obj/item/gun/ballistic/revolver/shotgun_revolver/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
@@ -118,11 +112,10 @@
 	. = ..()
 
 	. += "The 'Bóbr' started development as a limited run sporting weapon before \
-		the military took interest. The market quickly changed from sport shooting \
-		targets, to sport shooting SolFed strike teams once the conflict broke out. \
-		This pattern is different from the original civilian version, with a military \
-		standard pistol grip and weather resistant finish. While the 'Bóbr' was not \
-		a weapon standard issued to every CIN soldier, it was available for relatively \
-		cheap, and thus became rather popular among the ranks."
+		quickly being eaten up by both militias and the general populace on most frontiers, \
+		Especially favored by cargo-runners, and pirates due to the ease of finding more 12G. \
+		Unlike the silver and wood sporting variants, this is the pure survival model replacing the grip with a \
+		standard rubberized pistol grip and weather resistant finish. While the 'Bóbr' isn't the most appealing \
+		weapon to grace someone's hands, it might be the most practical."
 
 	return .

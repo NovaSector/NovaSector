@@ -177,7 +177,7 @@
 	ranged_mousepointer = 'icons/effects/mouse_pointers/override_machine_target.dmi'
 	/// What we don't work on, will always not work on mobs because I know what you are
 	var/static/list/emag_blacklist = list(
-		/obj/machinery/shieldgen,
+		/obj/machinery/satellite/meteor_shield,
 		/obj/machinery/computer/communications,
 		/obj/machinery/computer/arcade,
 		/obj/machinery/computer/holodeck,

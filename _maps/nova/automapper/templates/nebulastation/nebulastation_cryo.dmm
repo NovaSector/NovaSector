@@ -1,0 +1,229 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/cryopod,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/common/cryopods)
+"c" = (
+/obj/machinery/computer/cryopod/directional/west,
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 10
+	},
+/turf/open/floor/iron/dark/corner{
+	dir = 4
+	},
+/area/station/common/cryopods)
+"d" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/common/cryopods)
+"g" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/flora/bush/jungle/c/style_random,
+/obj/structure/flora/bush/leavy/style_3,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/grass,
+/area/station/common/cryopods)
+"i" = (
+/obj/item/radio/intercom/directional/west,
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/corner,
+/area/station/common/cryopods)
+"m" = (
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"n" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/turf/open/floor/plating,
+/area/station/common/cryopods)
+"o" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/white/filled/line,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/station/common/cryopods)
+"q" = (
+/obj/machinery/cryopod,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/common/cryopods)
+"s" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side,
+/area/station/common/cryopods)
+"t" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/white/filled/line,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/station/common/cryopods)
+"v" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"w" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/common/cryopods)
+"B" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
+/area/station/common/cryopods)
+"C" = (
+/turf/closed/wall,
+/area/station/common/cryopods)
+"D" = (
+/obj/machinery/cryopod,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/common/cryopods)
+"L" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/common/cryopods)
+"N" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 5
+	},
+/area/station/common/cryopods)
+"P" = (
+/obj/machinery/time_clock/directional/south,
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
+/area/station/common/cryopods)
+"S" = (
+/obj/structure/sign/poster/timeclock_psa/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"U" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/east,
+/obj/machinery/power/apc/auto_name/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/common/cryopods)
+"V" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/leavy/style_3,
+/obj/structure/flora/bush/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/grass,
+/area/station/common/cryopods)
+"Y" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/public/glass{
+	name = "Cryopods"
+	},
+/obj/effect/landmark/navigate_destination{
+	location = "Cryopods"
+	},
+/turf/open/floor/iron/white,
+/area/station/common/cryopods)
+
+(1,1,1) = {"
+C
+C
+C
+C
+C
+C
+"}
+(2,1,1) = {"
+C
+q
+i
+c
+L
+C
+"}
+(3,1,1) = {"
+C
+D
+s
+o
+w
+C
+"}
+(4,1,1) = {"
+C
+a
+s
+t
+d
+C
+"}
+(5,1,1) = {"
+n
+N
+B
+N
+P
+C
+"}
+(6,1,1) = {"
+C
+U
+m
+v
+S
+C
+"}
+(7,1,1) = {"
+C
+C
+V
+Y
+g
+C
+"}

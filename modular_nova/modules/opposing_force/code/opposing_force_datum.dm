@@ -378,8 +378,8 @@
 	user.client?.admin_follow(mind_reference.current)
 
 /datum/opposing_force/proc/set_equipment_count(mob/user, datum/opposing_force_selected_equipment/equipment, new_count)
-	var/sanitized_newcount = sanitize_integer(new_count, 1, equipment.opposing_force_equipment.max_amount)
-	equipment.count = new_count
+	var/sanitized_newcount = sanitize_integer(new_count, 1, equipment.opposing_force_equipment.max_amount, default = 1)
+	equipment.count = sanitized_newcount
 	add_log(user.ckey, "Set equipment '[equipment.opposing_force_equipment.name] count to [sanitized_newcount]")
 
 /datum/opposing_force/proc/handle(mob/user)
