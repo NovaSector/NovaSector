@@ -255,60 +255,68 @@
 * Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
 */
 /obj/item/organ/internal/brain/slime/check_for_repair(obj/item/item, mob/user)
-	if(damage && item.is_drainable() && item.reagents.has_reagent(/datum/reagent/toxin/plasma) && item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) >= 100 && (organ_flags & ORGAN_ORGANIC)) //attempt to heal the brain
-
-		user.visible_message(span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."), span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards..."))
-		if(!do_after(user, 60 SECONDS, src))
-			to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
-			return TRUE
-
-		user.visible_message(span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."), span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."))
-		item.reagents.clear_reagents() //removes the whole shit
-		set_organ_damage(-maxHealth) //fully heals the brain
-
-		if(gps_active) // making sure the gps signal is removed if it's active on revival
-			gps_active = FALSE
-			qdel(GetComponent(/datum/component/gps))
-
-		//we have the plasma. we can rebuild them.
-		if(isnull(brainmob))
-			user.balloon_alert("This brain is not a viable candidate for repair!")
-			return TRUE
-		if(isnull(brainmob.stored_dna))
-			user.balloon_alert("This brain does not contain any dna!")
-			return TRUE
-		if(isnull(brainmob.client))
-			user.balloon_alert("This brain does not contain a mind!")
-			return TRUE
-		var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
-
-		brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
-		new_body.underwear = "Nude"
-		new_body.bra = "Nude"
-		new_body.undershirt = "Nude" //Which undershirt the player wants
-		new_body.socks = "Nude" //Which socks the player wants
-		brainmob.stored_dna.transfer_identity(new_body, transfer_SE=1)
-		new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
-		new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
-		new_body.real_name = new_body.dna.real_name
-		new_body.name = new_body.dna.real_name
-		new_body.updateappearance(mutcolor_update=1)
-		new_body.domutcheck()
-		new_body.forceMove(get_turf(src))
-		new_body.blood_volume = BLOOD_VOLUME_SAFE+60
-		REMOVE_TRAIT(new_body, TRAIT_NO_TRANSFORM, REF(src))
-		SSquirks.AssignQuirks(new_body, brainmob.client)
-		src.replace_into(new_body)
-		for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
-			if(!istype(bodypart, /obj/item/bodypart/chest))
-				bodypart.drop_limb()
-				continue
-		new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
-		to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
-		brainmob.mind.transfer_to(new_body)
+	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
+		return FALSE
+	user.visible_message(
+		span_notice("[user] starts to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its cytoskeleton outwards..."),
+		span_notice("You start to slowly pour the contents of [item] onto [src]. It seems to bubble and roil, beginning to stretch its membrane outwards...")
+	)
+	brainmob?.notify_revival("You are being revived!", sound = null, source = src) // no sound since it's a whopping 60 second wait time after this
+	if(!do_after(user, 60 SECONDS, src))
+		to_chat(user, span_warning("You failed to pour the contents of [item] onto [src]!"))
 		return TRUE
-	return FALSE
 
+	user.visible_message(
+		span_notice("[user] pours the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane."),
+		span_notice("You pour the contents of [item] onto [src], causing it to form a proper cytoplasm and outer membrane.")
+	)
+	item.reagents.clear_reagents() //removes the whole shit
+	if(isnull(brainmob))
+		user.balloon_alert("This brain is not a viable candidate for repair!")
+		return TRUE
+
+	brainmob.grab_ghost()
+	if(isnull(brainmob.stored_dna))
+		user.balloon_alert("This brain does not contain any dna!")
+		return TRUE
+	if(isnull(brainmob.client))
+		user.balloon_alert("This brain does not contain a mind!")
+		return TRUE
+	regenerate()
+	return TRUE
+
+/obj/item/organ/internal/brain/slime/proc/regenerate()
+	//we have the plasma. we can rebuild them.
+	set_organ_damage(-maxHealth) //fully heals the brain
+	if(gps_active) // making sure the gps signal is removed if it's active on revival
+		gps_active = FALSE
+		qdel(GetComponent(/datum/component/gps))
+
+	var/mob/living/carbon/human/new_body = new /mob/living/carbon/human(src.loc)
+
+	brainmob.client?.prefs?.safe_transfer_prefs_to(new_body)
+	new_body.underwear = "Nude"
+	new_body.bra = "Nude"
+	new_body.undershirt = "Nude" //Which undershirt the player wants
+	new_body.socks = "Nude" //Which socks the player wants
+	brainmob.stored_dna.transfer_identity(new_body, transfer_SE=1)
+	new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
+	new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	new_body.real_name = new_body.dna.real_name
+	new_body.name = new_body.dna.real_name
+	new_body.updateappearance(mutcolor_update=1)
+	new_body.domutcheck()
+	new_body.forceMove(get_turf(src))
+	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
+	SSquirks.AssignQuirks(new_body, brainmob.client)
+	src.replace_into(new_body)
+	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
+		if(!istype(bodypart, /obj/item/bodypart/chest))
+			bodypart.drop_limb()
+			continue
+	new_body.visible_message(span_warning("[new_body]'s torso \"forms\" from [new_body.p_their()] core, yet to form the rest."))
+	to_chat(owner, span_purple("Your torso fully forms out of your core, yet to form the rest."))
+	return TRUE
 
 // HEALING SECTION
 // Handles passive healing and water damage.
