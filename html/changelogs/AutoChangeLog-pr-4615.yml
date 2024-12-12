@@ -1,7 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - rscadd: "New bitrunning disk, allowing you to either install a single-use NIF, or summon a Very Interesting Vending Machine."
-  - rscadd: "MilSim DLC disk's Marksman was granted infinite supplies of throwing knives and a sonar at the cost of invisibility."
-  - qol: "You can now join as your own character in the Syndicate Assault and Island Brawl domains."
-  - bugfix: "Names should show up on Syndicate Assault, Pirate Cove, and Island Brawl IDs once again."
