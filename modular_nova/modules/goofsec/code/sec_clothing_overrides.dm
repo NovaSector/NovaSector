@@ -241,10 +241,8 @@
 	. = ..()
 	if (flipped_visor)
 		flags_cover &= ~PEPPERPROOF
-		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 	else
 		flags_cover |= PEPPERPROOF
-		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 
 
 //Beret replacement
