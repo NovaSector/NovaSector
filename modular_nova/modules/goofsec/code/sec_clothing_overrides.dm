@@ -234,7 +234,18 @@
 	base_icon_state = "security_helmet"
 	actions_types = list(/datum/action/item_action/toggle)
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
+	flags_cover = parent_type::flags_cover | PEPPERPROOF
 	dog_fashion = null
+
+/obj/item/clothing/head/helmet/sec/click_alt(mob/user)
+	. = ..()
+	if (flipped_visor)
+		flags_cover &= ~PEPPERPROOF
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
+	else
+		flags_cover |= PEPPERPROOF
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
+
 
 //Beret replacement
 /obj/item/clothing/head/security_garrison
