@@ -60,7 +60,7 @@
 
 /datum/sprite_accessory/socks/leggings/stirrups/gym
 	name = "Thigh-high Stirrups (black with stripe)"
-	icon_state = "leggings-stir-black"
+	icon_state = "leggings_black-stir"
 
 /datum/sprite_accessory/socks/bee_thigh
 	name = "Thigh-high - Bee (Old)"
