@@ -1,5 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "slime hybrid revival (via plasma in a beaker) should be more reliable"
-  - bugfix: "digitigrade slime legs function like other slime limbs when dismembered"
