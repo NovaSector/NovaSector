@@ -1,8 +1,10 @@
 /datum/crafting_recipe/makeshift/crowbar
 	name = "Makeshift Crowbar"
 	result = /obj/item/crowbar/makeshift
-	reqs = list(/obj/item/stack/sheet/iron = 4,
-				/obj/item/stack/sheet/cloth = 1)
+	reqs = list(
+		/obj/item/stack/sheet/iron = 4,
+		/obj/item/stack/sheet/cloth = 1,
+	)
 	time = 60
 	category = CAT_MISC
 
@@ -10,8 +12,10 @@
 	name = "Makeshift Screwdriver"
 	tool_paths = list(/obj/item/crowbar/makeshift)
 	result = /obj/item/screwdriver/makeshift
-	reqs = list(/obj/item/stack/sheet/cloth = 2,
-				/obj/item/stack/rods = 2)
+	reqs = list(
+		/obj/item/stack/sheet/cloth = 2,
+		/obj/item/stack/rods = 2,
+	)
 	time = 60
 	category = CAT_MISC
 
@@ -20,9 +24,11 @@
 	tool_paths = list(/obj/item/crowbar/makeshift)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/weldingtool/makeshift
-	reqs = list(/obj/item/tank/internals/emergency_oxygen = 1,
-				/obj/item/stack/sheet/iron = 6,
-				/obj/item/lighter)
+	reqs = list(
+		/obj/item/tank/internals/emergency_oxygen = 1,
+		/obj/item/stack/sheet/iron = 6,
+		/obj/item/lighter,
+	)
 	time = 60
 	category = CAT_MISC
 
@@ -40,8 +46,10 @@
 	tool_paths = list(/obj/item/crowbar/makeshift)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	result = /obj/item/wrench/makeshift
-	reqs = list(/obj/item/stack/sheet/iron = 3,
-				/obj/item/stack/rods = 1,
-				/obj/item/stack/sheet/cloth = 2)
+	reqs = list(
+		/obj/item/stack/sheet/iron = 3,
+		/obj/item/stack/rods = 1,
+		/obj/item/stack/sheet/cloth = 2,
+	)
 	time = 60
 	category = CAT_MISC
