@@ -227,3 +227,6 @@
       IDs once again.
   sqnztb:
   - map: Snowglobe - added stacking machine to disposals.
+2024-12-13:
+  sqnztb:
+  - bugfix: icemoon's interdyne food vendors are free again
