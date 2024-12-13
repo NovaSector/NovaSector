@@ -339,10 +339,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(isnull(existing_organ) && should_have && !(new_organ.zone in excluded_zones) && organ_holder.get_bodypart(deprecise_zone(new_organ.zone)))
 			used_neworgan = TRUE
 			new_organ.set_organ_damage(new_organ.maxHealth * (1 - health_pct))
-			// NOVA EDIT ADDITION START - Added this so that organs would properly get imprinted upon insertion, so that we can ensure they're properly imprinted as they should be.
-			if(new_organ.bodypart_overlay)
-				new_organ.bodypart_overlay.imprint_on_next_insertion = TRUE
-			// NOVA EDIT END
 			new_organ.Insert(organ_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 		if(!used_neworgan)
