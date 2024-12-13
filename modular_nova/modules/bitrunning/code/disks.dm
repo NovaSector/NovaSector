@@ -91,6 +91,10 @@
 
 	allowed_areas = list(
 		/area/virtual_domain,
+		/area/space/virtual_domain,
+		/area/ruin/space/virtual_domain,
+		/area/icemoon/underground/explored/virtual_domain,
+		/area/lavaland/surface/outdoors/virtual_domain,
 	)
 
 	selectable_atoms = list(
@@ -100,8 +104,10 @@
 	area_string = "virtual domains"
 	supply_pod_stay = FALSE
 
-/obj/machinery/vending/dorms/bitrunning
+/obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
+	. = ..()
 	all_products_free = TRUE
+	onstation = FALSE
 
 /datum/orderable_item/bitrunning_tech/item_tierlewd
 	cost_per_order = 250

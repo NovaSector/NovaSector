@@ -15,6 +15,11 @@
 		/area/centcom/interlink/dorm_rooms,
 		/area/centcom/holding/cafedorms,
 		/area/misc/hilbertshotel,
+		/area/virtual_domain,
+		/area/space/virtual_domain,
+		/area/ruin/space/virtual_domain,
+		/area/icemoon/underground/explored/virtual_domain,
+		/area/lavaland/surface/outdoors/virtual_domain,
 	)
 
 /obj/item/clothing/neck/size_collar/attack_self(mob/user, modifiers)
