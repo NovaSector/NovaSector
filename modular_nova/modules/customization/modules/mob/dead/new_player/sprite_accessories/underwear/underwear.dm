@@ -117,7 +117,6 @@
 	name = "Panties - Lingerie"
 	icon_state = "panties_kinky"
 	gender = FEMALE
-	use_static = FALSE
 
 /datum/sprite_accessory/underwear/female_commie
 	name = "Panties - Commie"
