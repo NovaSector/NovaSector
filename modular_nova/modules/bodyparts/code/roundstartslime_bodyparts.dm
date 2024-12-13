@@ -117,7 +117,6 @@
 	. = ..()
 	drop_organs(src, TRUE)
 	qdel(src)
-	return .
 
 /obj/item/bodypart/leg/right/digitigrade/jelly/drop_limb(special, dismembered, move_to_floor = FALSE)
 	if(special)
@@ -129,6 +128,5 @@
 	. = ..()
 	drop_organs(src, TRUE)
 	qdel(src)
-	return .
 
 #undef SLIME_LIMB_BLOOD_LOSS
