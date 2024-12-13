@@ -1,0 +1,4 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - bugfix: "Very Interesting Vending Machine that bitrunners have can now actually be used, no longer requiring money nor access."
