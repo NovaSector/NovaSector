@@ -2,10 +2,10 @@
  * Premade paper
  */
 
-// NT-FTU CARGO CONTRACT (Deprecated)
+// NT-FTU CARGO CONTRACT (Soon-to-be Deprecated)
 
-/obj/item/paper/lore/cargo_old/c00
-	name = "paper- 'FTU-NT Cargo Contract - 00: Preamble'"
+/obj/item/paper/lore/cargo_old/p00
+	name = "FTU-NT Cargo Contract - 00: Preamble"
 	default_raw_text = {"<center><font size=5 face=Garamond><b>AGREEMENT FOR OPERATION OF <font color=DarkGoldenrod>SUPPLY DEPARTMENT</font> ON <font color=RoyalBlue>NANOTRASEN</font> FRONTIER STATION 13</font></b></center><hr>
 
 <b>THIS AGREEMENT</b> ("Agreement") is made and entered into as of this 13th day of April, 2549, by and between <font color=royalblue>Nanotrasen Corporation ("NT")</font>, a corporation organized under the laws of the Sol Federation (“SolFed”), and the <font color=Darkgoldenrod>Free Trade Union ("FTU")</font>, a union cargo conglomerate corporation organized under the laws of <font color=DarkKhaki>SolFed</font>.
@@ -28,14 +28,8 @@ This document is distributed in twelve (12) pages, organized as follows:
 <li><b>Miscellaneous Provisions</b>, addressing ancillary matters, including governing law, amendments, and <u>the signatures binding this Agreement.</u></ol>
 <font color=gray size=1>The terms in this summary are intended to reflect the substantive provisions of this Agreement but are not themselves legally binding or part of the Agreement.</font>"}
 
-/**
- * //TODO make sure I don't need this anymore
-/obj/item/paper/lore/cargo_old/c0x
-	name = "paper- 'FTU-NT Cargo Contract - '"
-	default_raw_text = {""}
-*/
-/obj/item/paper/lore/cargo_old/c01
-	name = "paper- 'FTU-NT Cargo Contract - 01: Scope'"
+/obj/item/paper/lore/cargo_old/p01
+	name = "FTU-NT Cargo Contract - 01: Scope"
 	default_raw_text = {"<h1>1. Appointment and Scope of Services</h1>
 <br><b>1.1.</b> <font color=RoyalBlue>NT</font> hereby appoints FTU as the exclusive operator of the Supply Department on the Station, and FTU accepts such appointment under the terms and conditions set forth herein.
 <br><b>1.2.</b> FTU shall assume full responsibility for all aspects of the Supply Department, including but not limited to:
@@ -56,8 +50,8 @@ This document is distributed in twelve (12) pages, organized as follows:
 <br>&emsp;<b>e)</b> Notwithstanding subsection 1.4(c), FTU and <font color=RoyalBlue>NT</font> may jointly elect to waive one or multiple of the requirements laid out in subsection 1.4(c).
 <br>&emsp;&emsp;<b>i)</b> In the event that FTU and <font color=RoyalBlue>NT</font> jointly select a candidate for Quartermaster who does not meet each requirement laid out in subsection 1.4(c), FTU and <font color=RoyalBlue>NT</font> shall independently document the reasons why and maintain records for future review by either party."}
 
-/obj/item/paper/lore/cargo_old/c02
-	name = "paper- 'FTU-NT Cargo Contract - 02: Obligations'"
+/obj/item/paper/lore/cargo_old/p02
+	name = "FTU-NT Cargo Contract - 02: Obligations"
 	default_raw_text = {"<h1>2.</b> Obligations of FTU</h1>
 <br><b>2.1.</b> Fulfillment of Department Orders
 <br><b>&emsp;a)</b> FTU shall fulfill all departmental orders placed through the relevant department consoles as promptly and efficiently as possible.
@@ -92,8 +86,8 @@ This document is distributed in twelve (12) pages, organized as follows:
 <br><b>&emsp;&emsp;ii)</b> Such records shall be made available to NT upon request and shall be retained in accordance with applicable laws and NT regulations.
 <br><b>&emsp;&emsp;iii)</b> FTU shall report any irregularities, losses, or thefts of armaments immediately to NT Security and comply with any subsequent investigations."}
 
-/obj/item/paper/lore/cargo_old/c03
-	name = "paper- 'FTU-NT Cargo Contract - 03: Finances'"
+/obj/item/paper/lore/cargo_old/p03
+	name = "FTU-NT Cargo Contract - 03: Finances"
 	default_raw_text = {"<h1>3. Financial Provisions</h1>
 <b>3.1.</b> The Supply Department Budget (Supply Budget) consists of:<br>
 &emsp;<b>a)</b> Initial Allocation: Funds allocated to the Supply Department by <font color=RoyalBlue>NT</font>  to facilitate the ability to uphold the Supply Department's obligations.<br>
@@ -115,8 +109,8 @@ This document is distributed in twelve (12) pages, organized as follows:
 &emsp;&emsp;<b>iii)</b> Reported to the Quartermaster and FTU management as soon as practicable, but no later than twenty-four (24) hours after the expenditure.<br>
 &emsp;<b>b)</b> All emergency expenditures shall be subject to review by FTU and <font color=RoyalBlue>NT</font>  to ensure compliance with this Agreement and to assess any necessary adjustments to future budget allocations.<br>"}
 
-/obj/item/paper/lore/cargo_old/c04
-	name = "paper- 'FTU-NT Cargo Contract - 04: Cargo Rights'"
+/obj/item/paper/lore/cargo_old/p04
+	name = "FTU-NT Cargo Contract - 04: Cargo Rights"
 	default_raw_text = {"<h1>4. Rights and Privileges of FTU and FTU Personnel</h1>
 <b>4.1.</b> FTU personnel assigned to the Station shall be entitled to all amenities and services provided by other departments, including Medical, Security, Engineering, and Service departments, equivalent to those provided to NT crew members.<br>
 <b>4.2.</b> Station Regulations<br>
@@ -146,8 +140,8 @@ This document is distributed in twelve (12) pages, organized as follows:
 &emsp;<b>a)</b> Any disputes arising from access restrictions or revocations shall be addressed in accordance with Section 9 (Dispute Resolution) of this Agreement.<br>
 <b>4.5.</b> NT shall permit FTU to repair, maintain, modify, and outfit all equipment and facilities designated for permanent or temporary use by FTU, including but not limited to the Cargo Bay, Warehouse, Mining Dock, Mining Outpost, NLV Consign Cargo Shuttle, and Cargo Lobby, provided any modifications do not threaten the integrity of the Station or create a workplace hazard for non-FTU personnel.<br>"}
 
-/obj/item/paper/lore/cargo_old/c05
-	name = "paper- 'FTU-NT Cargo Contract - 05: Suspending'"
+/obj/item/paper/lore/cargo_old/p05
+	name = "FTU-NT Cargo Contract - 05: Suspending"
 	default_raw_text = {"<h1>5. Right to Suspend Operations</h1>
 <b>5.1.</b> FTU personnel may temporarily halt all operations within the Supply Department, excluding the obligation to fulfill departmental orders under subsection 2.1, if the Quartermaster determines that conditions aboard the Station have become untenable for work due to reasons including but not limited to:<br>
 &emsp;<b>a)</b> Loss of power or essential systems in facilities crucial to the operation of the Supply Department.<br>
@@ -173,8 +167,8 @@ FTU's obligations to fulfill departmental orders under subsection 2.1 shall be s
 <b>5.6.</b> Suspensions under this section may not be initiated for reasons unrelated to conditions aboard the Station or <font color=RoyalBlue>NT</font> 's contractual obligations.<br>
 &emsp;<b>a)</b> Any disputes arising from the application of this section shall be addressed in accordance with Section 9 (Dispute Resolution).<br>"}
 
-/obj/item/paper/lore/cargo_old/c06
-	name = "paper- 'FTU-NT Cargo Contract - 06: Termination'"
+/obj/item/paper/lore/cargo_old/p06
+	name = "FTU-NT Cargo Contract - 06: Termination"
 	default_raw_text = {"<h1>6. Term and Termination</h1>
 <b>6.1.</b> This Agreement shall commence on the Effective Date and shall continue in full force and effect for a period of thirty (30) years, unless earlier terminated in accordance with the provisions herein.<br>
 <b>6.2.</b> Termination Rights<br>
@@ -204,8 +198,8 @@ FTU's obligations to fulfill departmental orders under subsection 2.1 shall be s
 &emsp;<b>d)</b> The party responsible for the breach resulting in suspension shall be liable for any damages or operational losses incurred by the other party as a direct consequence of the suspension, subject to the limitations of liability set forth in subsection 8.3.<br>
 <b>6.6. </b>The rights and obligations of the parties under Sections 7 (Confidentiality), 8 (Liability and Compliance), 9 (Dispute Resolution), and any other provisions that by their nature should survive, shall remain in effect notwithstanding termination, suspension, or expiration of this Agreement.<br>"}
 
-/obj/item/paper/lore/cargo_old/c07
-	name = "paper- 'FTU-NT Cargo Contract - 07: Confidentiality'"
+/obj/item/paper/lore/cargo_old/p07
+	name = "FTU-NT Cargo Contract - 07: Confidentiality"
 	default_raw_text = {"<h1>7. Confidentiality</h1>
 <b>7.1.</b> "Confidential Information" means all non-public, proprietary, or confidential information disclosed by one party ("Disclosing Party") to the other ("Receiving Party"), whether orally or in writing, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information.<br>
 <b>7.2.</b> The Receiving Party shall:<br>
@@ -219,8 +213,8 @@ FTU's obligations to fulfill departmental orders under subsection 2.1 shall be s
 &emsp;<b>d)</b> Is independently developed by the Receiving Party without use of the Disclosing Party's Confidential Information.<br>
 <b>7.4.</b> If the Receiving Party is required by law or regulation to disclose any Confidential Information, it shall provide prompt written notice to the Disclosing Party and cooperate with any efforts to contest or limit the scope of such disclosure."}
 
-/obj/item/paper/lore/cargo_old/c08
-	name = "paper- 'FTU-NT Cargo Contract - 08: Liability'"
+/obj/item/paper/lore/cargo_old/p08
+	name = "FTU-NT Cargo Contract - 08: Liability"
 	default_raw_text = {"<h1>8. Liability and Compliance</h1>
 <b>8.1. </b>FTU shall indemnify, defend, and hold harmless <font color=RoyalBlue>NT</font>  and its affiliates, officers, directors, employees, and agents from any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:<br>
 &emsp;<b>a)</b> Any breach by FTU of its representations, warranties, or obligations under this Agreement.<br>
@@ -236,8 +230,8 @@ FTU's obligations to fulfill departmental orders under subsection 2.1 shall be s
 &emsp;<b>c)</b> Compliance with virtual domain laws, data protection statutes, and anti-piracy regulations.<br>
 <b>8.5.</b> FTU shall not engage in any transactions prohibited by applicable export control laws or trade sanctions.<br>"}
 
-/obj/item/paper/lore/cargo_old/c09
-	name = "paper- 'FTU-NT Cargo Contract - 09: Disputes'"
+/obj/item/paper/lore/cargo_old/p09
+	name = "FTU-NT Cargo Contract - 09: Disputes"
 	default_raw_text = {"<h1>9. Dispute Resolution</h1>
 <b>9.1.</b> Resolution<br>
 &emsp;<b>a) </b>In the event of any contractual dispute arising aboard the Station, the Captain or Acting Captain (representing <font color=RoyalBlue>NT</font>) and the Quartermaster (representing FTU) shall make all reasonable efforts to <br>resolve the dispute promptly and in good faith. Both parties shall:<br>
@@ -262,8 +256,8 @@ emsp;<b>c) </b>Both parties shall submit all pertinent records, including on-sta
 &emsp;<b>b) </b>Refrain from any actions that may disrupt Station activities, compromise crew or civilian safety, or adversely affect the other party's rights under this Agreement.<br>
 &emsp;<b>c) </b>Not engage in retaliatory measures or conduct that could exacerbate the dispute or create additional conflicts.<br>"}
 
-/obj/item/paper/lore/cargo_old/c10
-	name = "paper- 'FTU-NT Cargo Contract - 10: Audits'"
+/obj/item/paper/lore/cargo_old/p10
+	name = "FTU-NT Cargo Contract - 10: Audits"
 	default_raw_text = {"<h1>10. Compliance Audits</h1>
 <b>10.1.</b> FTU's operations under this Agreement shall be subject to compliance audits solely by the <font color=DarkOliveGreen>NT Frontier Sector Command ("Central Command")</font> acting on behalf of <font color=RoyalBlue>NT</font>, or by parties explicitly authorized in writing by <font color=DarkOliveGreen>Central Command</font>. No other divisions, departments, personnel, or representatives of <font color=RoyalBlue>NT</font> shall have the authority to conduct such audits.<br>
 <b>10.2.</b> Audit Procedures and Cooperation<br>
@@ -278,8 +272,8 @@ emsp;<b>c) </b>Both parties shall submit all pertinent records, including on-sta
 <b>10.4.</b> All information obtained during audits shall be treated as confidential and used solely for the purposes of verifying compliance with this Agreement and applicable laws. <font color=DarkOliveGreen>Central Command</font> and any authorized auditors shall not disclose FTU's proprietary or confidential information to any third parties except as required by law or as necessary to enforce the terms of this Agreement.<br>
 <b>10.5.</b> Any disputes arising from compliance audits, including disagreements over findings or required corrective actions, shall be resolved in accordance with Section 9 (Dispute Resolution) of this Agreement.<br>"}
 
-/obj/item/paper/lore/cargo_old/c11
-	name = "paper- 'FTU-NT Cargo Contract - 11: Conclusion'"
+/obj/item/paper/lore/cargo_old/p11
+	name = "FTU-NT Cargo Contract - 11: Conclusion"
 	default_raw_text = {"<h1>11. Miscellaneous Provisions</h1>
 <b>11.1.</b> Neither party shall be liable for any failure or delay in performance under this Agreement (except for payment obligations) due to circumstances beyond its reasonable control, including but not limited to acts of Gods, war, terrorism, civil unrest, governmental restrictions, or natural disasters.<br>
 <b>11.2.</b> Neither party may assign or transfer any of its rights or obligations under this Agreement without the prior written consent of the other party, except to an affiliate or successor in interest.<br>
@@ -310,4 +304,3 @@ Title: <u> Chief Executive Officer, Nanotrasen Sector Command </u></font><br>
 By: <u> <font face="Segoe Script" size=+1><i><b>Parlos Creede</font></i></b> </u> <br>Date: <u> <font face="Segoe Script">4/13/2549</font> </u><br>
 Name: <u> Parlos Creede </u><br>
 Title: <u> FTU Top </u></font><br>"}
-
