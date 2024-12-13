@@ -6671,6 +6671,7 @@
 #include "modular_nova\master_files\code\game\objects\items\RCD.dm"
 #include "modular_nova\master_files\code\game\objects\items\religion.dm"
 #include "modular_nova\master_files\code\game\objects\items\scratchingstone.dm"
+#include "modular_nova\master_files\code\game\objects\items\weaponry.dm"
 #include "modular_nova\master_files\code\game\objects\items\wiki_manuals.dm"
 #include "modular_nova\master_files\code\game\objects\items\circuitboards\machines\machine_circuitboards.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\chameleonproj.dm"
