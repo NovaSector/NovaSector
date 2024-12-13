@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "sec helmet visor flipping works properly, and is now done via alt click."
