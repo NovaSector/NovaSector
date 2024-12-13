@@ -203,7 +203,6 @@
 /datum/sprite_accessory/underwear/chastbelt
 	name = "Chastity Belt"
 	icon_state = "chastbelt"
-	use_static = FALSE
 	erp_accessory = TRUE
 
 /datum/sprite_accessory/underwear/chastcage
