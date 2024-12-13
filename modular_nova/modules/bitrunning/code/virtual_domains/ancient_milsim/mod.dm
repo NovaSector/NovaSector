@@ -49,14 +49,16 @@
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/status_readout/operational,
 		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/active_sonar,
 		/obj/item/mod/module/visor/night,
 	)
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/active_sonar,
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/security
-	additional_module = /obj/item/mod/module/stealth/ancient_milsim
+	additional_module = /obj/item/mod/module/dispenser/throwing_knife
 
 /obj/item/mod/control/pre_equipped/responsory/milsim_medic
 	theme = /datum/mod_theme/responsory/ancient_milsim
@@ -77,9 +79,6 @@
 	insignia_type = /obj/item/mod/module/insignia/medic
 	additional_module = /obj/item/mod/module/dispenser/hypospray
 
-/obj/item/mod/module/stealth/ancient_milsim
-	removable = FALSE
-
 /obj/item/mod/module/dispenser/emp
 	name = "MOD EMP grenade dispenser module"
 	desc = "This module can create activated EMP grenades at the user's liking."
@@ -99,6 +98,13 @@
 	removable = FALSE
 	cooldown_time = 10 SECONDS
 	dispense_type = /obj/item/minespawner/ancient_milsim
+
+/obj/item/mod/module/dispenser/throwing_knife
+	name = "MOD throwing knife dispenser module"
+	desc = "This module can create throwing knives at the user's liking."
+	removable = FALSE
+	cooldown_time = 5 SECONDS
+	dispense_type = /obj/item/knife/combat/throwing
 
 /obj/item/mod/module/dispenser/hypospray
 	name = "MOD custom hypospray dispenser module"
