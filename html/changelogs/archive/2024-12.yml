@@ -205,3 +205,48 @@
 2024-12-11:
   Zergspower:
   - rscadd: Nebulastation, new station map
+2024-12-12:
+  Hardly:
+  - balance: Railgun PKAs can no longer be fired on station
+  - code_imp: Allows restricted PKAs to be fired in Serenity exterior
+  Kocma-san:
+  - bugfix: xenomorph larva can evolve again
+  OrbisAnima:
+  - balance: Bitrunning Domains now give double points
+  - qol: Pizza Delivery for bitrunners now include the new Sausage pizza on their
+      possible sponsors!
+  - balance: Bitrunner disks are now small sized, from normal.
+  Stalkeros:
+  - rscadd: New bitrunning disk, allowing you to either install a single-use NIF,
+      or summon a Very Interesting Vending Machine.
+  - rscadd: MilSim DLC disk's Marksman was granted infinite supplies of throwing knives
+      and a sonar at the cost of invisibility.
+  - qol: You can now join as your own character in the Syndicate Assault and Island
+      Brawl domains.
+  - bugfix: Names should show up on Syndicate Assault, Pirate Cove, and Island Brawl
+      IDs once again.
+  sqnztb:
+  - map: Snowglobe - added stacking machine to disposals.
+2024-12-13:
+  FlufflesTheDog:
+  - bugfix: slime hybrid revival (via plasma in a beaker) should be more reliable
+  - bugfix: digitigrade slime legs function like other slime limbs when dismembered
+  - bugfix: sec helmet visor flipping works properly, and is now done via alt click.
+  Kush1Push1:
+  - rscadd: Added more types of snouts and ears for acradors, as well as five new
+      tails (two of them waggable).
+  RatFromTheJungle:
+  - balance: Improv tools are notably easier to make.
+  - image: adds greyscaling to some of the hard-colored underwears, so you can change
+      the color, also adds thighhighs+kneehighs (shaded) for the drip-fest
+  Stalkeros:
+  - bugfix: Very Interesting Vending Machine that bitrunners have can now actually
+      be used, no longer requiring money nor access.
+  sqnztb:
+  - bugfix: icemoon's interdyne food vendors are free again
+2024-12-14:
+  GoldenAlpharex:
+  - bugfix: Synths and slimefolks should no longer be getting weird ears suddenly
+      growing on their heads overnight, and should properly get the ears (or lack
+      thereof) they rightfully deserve from their genetics (or whatever the equivalent
+      of genetics is for synthetic beings... Blueprints?).
