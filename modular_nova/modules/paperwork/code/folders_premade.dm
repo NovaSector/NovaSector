@@ -1,8 +1,18 @@
+/obj/item/folder/cargo_contract
+	name = "folder- 'NT-Cargo Cargo Agreement'"
+	desc = "A folder stamped \"Nanotrasen - Generic Cargo Company Agreement. Unauthorized distribution or attempted alteration is punishable financially.\""
+	bg_color = "#b88f3d"
+	icon_state = "folder_byellow"
+	icon = 'modular_nova/modules/paperwork/icons/bureaucracy.dmi'
+
+/obj/item/folder/cargo_contract/Initialize(mapload)
+	. = ..()
+	update_appearance()
+
 /obj/item/folder/cargo_contract/old
 	name = "folder- 'NT-FTU Cargo Agreement'"
-	desc = "A folder stamped \"Nanotrasen - Free Trade Union Agreement. Unauthorized distribution or attempted alteration is punishable financially.\""
-	bg_color = "#b88f3d"
-	icon = 'modular_nova/modules/paperwork/icons/bureaucracy.dmi'
+	desc = "A folder stamped \"Nanotrasen - Free Trade Union Company Agreement. Unauthorized distribution or attempted alteration is punishable financially.\""
+	bg_color = "#355e9f"
 	icon_state = "folder_cblue"
 
 /obj/item/folder/cargo_contract/old/Initialize(mapload)
