@@ -244,3 +244,9 @@
       be used, no longer requiring money nor access.
   sqnztb:
   - bugfix: icemoon's interdyne food vendors are free again
+2024-12-14:
+  GoldenAlpharex:
+  - bugfix: Synths and slimefolks should no longer be getting weird ears suddenly
+      growing on their heads overnight, and should properly get the ears (or lack
+      thereof) they rightfully deserve from their genetics (or whatever the equivalent
+      of genetics is for synthetic beings... Blueprints?).
