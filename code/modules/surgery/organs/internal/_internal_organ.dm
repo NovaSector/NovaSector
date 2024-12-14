@@ -75,6 +75,7 @@
 
 //See above
 /obj/item/organ/internal/enter_wardrobe()
+	bodypart_overlay?.imprint_on_next_insertion = TRUE // NOVA EDIT ADDITION - Make sure whoever gets it next gets the right DNA
 	STOP_PROCESSING(SSobj, src)
 
 ///Organs don't die instantly, and neither should you when you get fucked up

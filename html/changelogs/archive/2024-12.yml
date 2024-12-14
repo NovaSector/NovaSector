@@ -228,5 +228,25 @@
   sqnztb:
   - map: Snowglobe - added stacking machine to disposals.
 2024-12-13:
+  FlufflesTheDog:
+  - bugfix: slime hybrid revival (via plasma in a beaker) should be more reliable
+  - bugfix: digitigrade slime legs function like other slime limbs when dismembered
+  - bugfix: sec helmet visor flipping works properly, and is now done via alt click.
+  Kush1Push1:
+  - rscadd: Added more types of snouts and ears for acradors, as well as five new
+      tails (two of them waggable).
+  RatFromTheJungle:
+  - balance: Improv tools are notably easier to make.
+  - image: adds greyscaling to some of the hard-colored underwears, so you can change
+      the color, also adds thighhighs+kneehighs (shaded) for the drip-fest
+  Stalkeros:
+  - bugfix: Very Interesting Vending Machine that bitrunners have can now actually
+      be used, no longer requiring money nor access.
   sqnztb:
   - bugfix: icemoon's interdyne food vendors are free again
+2024-12-14:
+  GoldenAlpharex:
+  - bugfix: Synths and slimefolks should no longer be getting weird ears suddenly
+      growing on their heads overnight, and should properly get the ears (or lack
+      thereof) they rightfully deserve from their genetics (or whatever the equivalent
+      of genetics is for synthetic beings... Blueprints?).
