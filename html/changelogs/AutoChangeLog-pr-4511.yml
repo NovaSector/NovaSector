@@ -1,0 +1,5 @@
+author: "JimKil3"
+delete-after: True
+changes:
+  - rscadd: "golem arms can now dredge boulders from ore vents, as well as process them by hand"
+  - bugfix: "fixed an exploit related to ore vents\n/🆑"
