@@ -73,7 +73,7 @@
 	human_target.setOrganLoss(ORGAN_SLOT_LIVER, 10) //not bad, not great
 	if(target_liver)
 		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
-		if(istype(target_liver, /obj/item/organ/internal/liver/slime))
+		if(istype(target_liver, /obj/item/organ/liver/slime))
 			addtimer(VARSET_CALLBACK(target_liver, operated, FALSE), 30 SECONDS)
 		//NOVA EDIT ADDITION END
 		target_liver.operated = TRUE

@@ -74,7 +74,7 @@
 	target_human.setOrganLoss(ORGAN_SLOT_STOMACH, 20) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
 	if(target_stomach)
 		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
-		if(istype(target_stomach, /obj/item/organ/internal/stomach/slime))
+		if(istype(target_stomach, /obj/item/organ/stomach/slime))
 			addtimer(VARSET_CALLBACK(target_stomach, operated, FALSE), 30 SECONDS)
 		//NOVA EDIT ADDITION END
 		target_stomach.operated = TRUE

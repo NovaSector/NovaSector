@@ -26,28 +26,6 @@ GLOBAL_LIST_INIT(bioscrambler_parts_blacklist, typecacheof(list(
 /// Blacklist of organs which should not appear when bioscrambled.
 /// Either will look terrible outside of intended host, give you magical powers, are irreversible, or kill you
 GLOBAL_LIST_INIT(bioscrambler_organs_blacklist, typecacheof(list (
-<<<<<<< HEAD
-	/obj/item/organ/external/pod_hair,
-	/obj/item/organ/external/spines,
-	/obj/item/organ/external/wings,
-	/obj/item/organ/external/wings/functional,
-	/obj/item/organ/internal/alien,
-	/obj/item/organ/internal/brain,
-	/obj/item/organ/internal/body_egg,
-	/obj/item/organ/internal/cyberimp,
-	/obj/item/organ/internal/ears/dullahan,
-	/obj/item/organ/internal/eyes/dullahan,
-	/obj/item/organ/internal/heart/cursed,
-	/obj/item/organ/internal/heart/demon,
-	/obj/item/organ/internal/lungs,
-	/obj/item/organ/internal/monster_core,
-	/obj/item/organ/internal/tongue/dullahan,
-	/obj/item/organ/internal/vocal_cords/colossus,
-	/obj/item/organ/internal/zombie_infection,
-	/obj/item/organ/internal/empowered_borer_egg, // NOVA EDIT ADDITION
-	/obj/item/organ/internal/eyes/robotic, // NOVA EDIT ADDITION
-	/obj/item/organ/internal/eyes/night_vision/cyber, // NOVA EDIT ADDITION
-=======
 	/obj/item/organ/pod_hair,
 	/obj/item/organ/spines,
 	/obj/item/organ/wings,
@@ -65,7 +43,9 @@ GLOBAL_LIST_INIT(bioscrambler_organs_blacklist, typecacheof(list (
 	/obj/item/organ/tongue/dullahan,
 	/obj/item/organ/vocal_cords/colossus,
 	/obj/item/organ/zombie_infection,
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
+	/obj/item/organ/empowered_borer_egg, // NOVA EDIT ADDITION
+	/obj/item/organ/eyes/robotic, // NOVA EDIT ADDITION
+	/obj/item/organ/eyes/night_vision/cyber, // NOVA EDIT ADDITION
 )))
 
 /// List of body parts we can apply to people

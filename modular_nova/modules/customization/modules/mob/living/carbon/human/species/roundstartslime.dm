@@ -8,10 +8,10 @@
 	mutant_bodyparts = list()
 	hair_alpha = 160 //a notch brighter so it blends better.
 	facial_hair_alpha = 160
-	mutantliver = /obj/item/organ/internal/liver/slime
-	mutantstomach = /obj/item/organ/internal/stomach/slime
-	mutantbrain = /obj/item/organ/internal/brain/slime
-	mutantears = /obj/item/organ/internal/ears/jelly
+	mutantliver = /obj/item/organ/liver/slime
+	mutantstomach = /obj/item/organ/stomach/slime
+	mutantbrain = /obj/item/organ/brain/slime
+	mutantears = /obj/item/organ/ears/jelly
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_TOXINLOVER,
@@ -66,11 +66,11 @@
 	if(isnull(human_holder.loc))
 		return // preview characters don't need funny organs, prevents a runtime
 
-	var/obj/item/organ/internal/brain/slime/oversized/new_slime_brain = new
-	var/obj/item/organ/internal/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
+	var/obj/item/organ/brain/slime/oversized/new_slime_brain = new
+	var/obj/item/organ/stomach/slime/oversized/new_slime_stomach = new //YOU LOOK HUGE! THAT MUST MEAN YOU HAVE HUGE golgi apparatus! RIP AND TEAR YOUR HUGE golgi apparatus!
 
-	var/obj/item/organ/internal/brain/slime/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
-	var/obj/item/organ/internal/stomach/slime/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	var/obj/item/organ/brain/slime/old_brain = human_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/stomach/slime/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	oversized_quirk.old_organs = list(
 		old_brain,
 		old_stomach,
@@ -94,42 +94,42 @@
 		old_stomach.moveToNullspace()
 		STOP_PROCESSING(SSobj, old_stomach)
 
-/obj/item/organ/internal/eyes/jelly
+/obj/item/organ/eyes/jelly
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/eyes/roundstartslime
+/obj/item/organ/eyes/roundstartslime
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/ears/jelly
+/obj/item/organ/ears/jelly
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 	overrides_sprite_datum_organ_type = TRUE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 
-/obj/item/organ/internal/tongue/jelly
+/obj/item/organ/tongue/jelly
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/lungs/slime
+/obj/item/organ/lungs/slime
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/liver/slime
+/obj/item/organ/liver/slime
 	name = "endoplasmic reticulum"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/stomach/slime
+/obj/item/organ/stomach/slime
 	name = "golgi apparatus"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
-/obj/item/organ/internal/brain/slime
+/obj/item/organ/brain/slime
 	name = "core"
 	desc = "The central core of a slimeperson, technically their 'extract.' Where the cytoplasm, membrane, and organelles come from; perhaps this is also a mitochondria?"
 	zone = BODY_ZONE_CHEST
@@ -147,18 +147,18 @@
 	throw_speed = 0.5
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | LAVA_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
-/obj/item/organ/internal/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
+/obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
 	colorize()
 
-/obj/item/organ/internal/brain/slime/examine()
+/obj/item/organ/brain/slime/examine()
 	. = ..()
 	if(gps_active)
 		. += span_notice("A dim light lowly pulsates from the center of the core, indicating an outgoing signal from a tracking microchip.")
 		. += span_red("You could probably snuff that out.")
 	. += span_hypnophrase("You remember that pouring plasma on it, if it's non-embodied, would make it regrow one.")
 
-/obj/item/organ/internal/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
+/obj/item/organ/brain/slime/attack_self(mob/living/user) // Allows a player (presumably an antag) to deactivate the GPS signal on a slime core
 	if(!(gps_active))
 		return
 	user.visible_message(span_warning("[user] begins jamming [user.p_their()] hand into a slime core! Slime goes everywhere!"),
@@ -181,7 +181,7 @@
 	gps_active = FALSE
 	qdel(GetComponent(/datum/component/gps))
 
-/obj/item/organ/internal/brain/slime/mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+/obj/item/organ/brain/slime/mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
 	if(!.)
 		return
@@ -189,14 +189,14 @@
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))
 
-/obj/item/organ/internal/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
+/obj/item/organ/brain/slime/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
 	UnregisterSignal(organ_owner, COMSIG_LIVING_DEATH)
 
 /**
 * Colors the slime's core (their brain) the same as their first mutant color.
 */
-/obj/item/organ/internal/brain/slime/proc/colorize()
+/obj/item/organ/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
 		core_color = owner.dna.features["mcolor"]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
@@ -204,7 +204,7 @@
 /**
 * Handling for tracking when the slime in question dies (except through gibbing), which then segues into the core ejection proc.
 */
-/obj/item/organ/internal/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
+/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/victim, gibbed)
 	SIGNAL_HANDLER
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 
@@ -219,7 +219,7 @@
 * CORE EJECTION PROC -
 * Makes it so that when a slime dies, their core ejects and their body is qdel'd.
 */
-/obj/item/organ/internal/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
+/obj/item/organ/brain/slime/proc/core_ejection(mob/living/victim, new_stat, turf/loc_override)
 	if(core_ejected)
 		return
 	core_ejected = TRUE
@@ -245,7 +245,7 @@
 /**
 * Procs the ethereal jaunt liquid effect when the slime dissolves on death.
 */
-/obj/item/organ/internal/brain/slime/proc/do_steam_effects(turf/loc)
+/obj/item/organ/brain/slime/proc/do_steam_effects(turf/loc)
 	var/datum/effect_system/steam_spread/steam = new()
 	steam.set_up(10, FALSE, loc)
 	steam.start()
@@ -254,7 +254,7 @@
 * CHECK FOR REPAIR SECTION
 * Makes it so that when a slime's core has plasma poured on it, it builds a new body and moves the brain into it.
 */
-/obj/item/organ/internal/brain/slime/check_for_repair(obj/item/item, mob/user)
+/obj/item/organ/brain/slime/check_for_repair(obj/item/item, mob/user)
 	if(!item.is_drainable() || item.reagents.get_reagent_amount(/datum/reagent/toxin/plasma) < 100)
 		return FALSE
 	user.visible_message(
@@ -285,7 +285,7 @@
 	regenerate()
 	return TRUE
 
-/obj/item/organ/internal/brain/slime/proc/regenerate()
+/obj/item/organ/brain/slime/proc/regenerate()
 	//we have the plasma. we can rebuild them.
 	set_organ_damage(-maxHealth) //fully heals the brain
 	if(gps_active) // making sure the gps signal is removed if it's active on revival
@@ -513,8 +513,8 @@
 	heatmod = 1
 	specific_alpha = 155
 	markings_alpha = 130 //This is set lower than the other so that the alpha values don't stack on top of each other so much
-	mutanteyes = /obj/item/organ/internal/eyes/roundstartslime
-	mutanttongue = /obj/item/organ/internal/tongue/jelly
+	mutanteyes = /obj/item/organ/eyes/roundstartslime
+	mutanttongue = /obj/item/organ/tongue/jelly
 
 	bodypart_overrides = list( //Overriding jelly bodyparts
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/jelly/slime/roundstart,
@@ -1031,13 +1031,13 @@
 		return
 	switch(dna_alteration)
 		if("Breasts Lactation")
-			var/obj/item/organ/external/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
 			alterer.dna.features["breasts_lactation"] = !alterer.dna.features["breasts_lactation"]
 			melons.lactates = alterer.dna.features["breasts_lactation"]
 			alterer.balloon_alert(alterer, "[alterer.dna.features["breasts_lactation"] ? "lactating" : "not lactating"]")
 
 		if("Breasts Size")
-			var/obj/item/organ/external/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
+			var/obj/item/organ/genital/breasts/melons = alterer.get_organ_slot(ORGAN_SLOT_BREASTS)
 			var/new_size = tgui_input_list(
 				alterer,
 				"Choose your character's breasts size:",
@@ -1050,7 +1050,7 @@
 			melons.set_size(alterer.dna.features["breasts_size"])
 
 		if("Penis Girth")
-			var/obj/item/organ/external/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/sausage = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/max_girth = PENIS_MAX_GIRTH
 			if(alterer.dna.features["penis_size"] >= max_girth)
 				max_girth = alterer.dna.features["penis_size"]
@@ -1066,7 +1066,7 @@
 				sausage.girth = alterer.dna.features["penis_girth"]
 
 		if("Penis Length")
-			var/obj/item/organ/external/genital/penis/wang = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/wang = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/new_length = tgui_input_number(
 				alterer,
 				"Choose your penis length:\n([PENIS_MIN_LENGTH]-[PENIS_MAX_LENGTH] inches)",
@@ -1083,7 +1083,7 @@
 			wang.set_size(alterer.dna.features["penis_size"])
 
 		if("Penis Sheath")
-			var/obj/item/organ/external/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
 			var/new_sheath = tgui_input_list(
 				alterer,
 				"Choose your penis sheath",
@@ -1099,7 +1099,7 @@
 			alterer.balloon_alert(alterer, "[alterer.dna.features["penis_taur_mode"] ? "using taur penis" : "not using taur penis"]")
 
 		if("Testicles Size")
-			var/obj/item/organ/external/genital/testicles/avocados = alterer.get_organ_slot(ORGAN_SLOT_TESTICLES)
+			var/obj/item/organ/genital/testicles/avocados = alterer.get_organ_slot(ORGAN_SLOT_TESTICLES)
 			var/new_size = tgui_input_list(
 				alterer,
 				"Choose your character's testicles size:",
@@ -1125,7 +1125,7 @@
 
 /datum/action/innate/core_signal/Activate()
 	var/mob/living/carbon/human/slime = owner
-	var/obj/item/organ/internal/brain/slime/core = slime.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/slime/core = slime.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(slime_restricted && !isjellyperson(slime))
 		return
 	if(core.gps_active)

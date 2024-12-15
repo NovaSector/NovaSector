@@ -8,11 +8,7 @@
 		TRAIT_PLANT_SAFE,
 	)
 	mutant_organs = list(
-<<<<<<< HEAD
-		// /obj/item/organ/external/pod_hair = "None", // NOVA EDIT REMOVAL - Customization (it messes up unit tests.)
-=======
-		/obj/item/organ/pod_hair = "None",
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
+		// /obj/item/organ/pod_hair = "None", // NOVA EDIT REMOVAL - Customization (it messes up unit tests.)
 	)
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID | MOB_PLANT
 	inherent_factions = list(FACTION_PLANTS, FACTION_VINES)

@@ -165,13 +165,8 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	return SSaccessories.sprite_accessories["frills"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.frills_list
 
 ///Guess what part of the lizard this is?
-<<<<<<< HEAD
-/obj/item/organ/external/snout
-	name = "snout" // NOVA EDIT - ORIGINAL: name = "lizard snout"
-=======
 /obj/item/organ/snout
-	name = "lizard snout"
->>>>>>> 778ed9f1ab... The death or internal/external organ pathing (ft. fixed fox ears and recoloring bodypart overlays with dye sprays) (#87434)
+	name = "snout" // NOVA EDIT - ORIGINAL: name = "lizard snout"
 	desc = "Take a closer look at that snout!"
 	icon_state = "snout"
 
