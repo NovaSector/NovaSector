@@ -37,14 +37,14 @@
 	armour_penetration = 10 //Energy isn't as good at going through armor as it is through flesh alone.
 	hitsound = 'sound/items/weapons/blade1.ogg'
 
-/obj/item/organ/internal/cyberimp/arm/armblade
+/obj/item/organ/cyberimp/arm/armblade
 	name = "arm blade implant"
 	desc = "An integrated blade implant designed to be installed into a persons arm. Stylish and deadly; Although, being caught with this without proper permits is sure to draw unwanted attention."
 	items_to_create = list(/obj/item/melee/implantarmblade)
 	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	icon_state = "mantis_blade"
 
-/obj/item/organ/internal/cyberimp/arm/armblade/emag_act()
+/obj/item/organ/cyberimp/arm/armblade/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	for(var/datum/weakref/created_item in items_list)
@@ -54,7 +54,7 @@
 
 /obj/item/autosurgeon/syndicate/armblade
 	name = "armblade autosurgeon"
-	starting_organ = /obj/item/organ/internal/cyberimp/arm/armblade
+	starting_organ = /obj/item/organ/cyberimp/arm/armblade
 
 /obj/item/knife/razor_claws
 	name = "implanted razor claws"
@@ -122,7 +122,7 @@
 	qdel(stone)
 	return ..()
 
-/obj/item/organ/internal/cyberimp/arm/razor_claws
+/obj/item/organ/cyberimp/arm/razor_claws
 	name = "razor claws implant"
 	desc = "A set of hidden, retractable blades built into the fingertips; cyborg mercenary approved."
 	items_to_create = list(/obj/item/knife/razor_claws)
@@ -133,11 +133,11 @@
 	retract_sound = 'sound/items/sheath.ogg'
 
 /// bespoke subtypes for augs menu since it's a bit wonky
-/obj/item/organ/internal/cyberimp/arm/razor_claws/right_arm
+/obj/item/organ/cyberimp/arm/razor_claws/right_arm
     zone = BODY_ZONE_R_ARM
     slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
-/obj/item/organ/internal/cyberimp/arm/razor_claws/left_arm
+/obj/item/organ/cyberimp/arm/razor_claws/left_arm
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
 
@@ -148,7 +148,7 @@
 	button_icon = 'modular_nova/master_files/icons/hud/actions.dmi'
 	button_icon_state = "wolverine"
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill
+/obj/item/organ/cyberimp/arm/mining_drill
 	name = "\improper Dalba Masterworks 'Burrower' Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
@@ -159,11 +159,11 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into's someone's arm
 	var/datum/bodypart_overlay/simple/steel_drill/drill_overlay
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/right_arm //You know the drill.
+/obj/item/organ/cyberimp/arm/mining_drill/right_arm //You know the drill.
     zone = BODY_ZONE_R_ARM
     slot = ORGAN_SLOT_RIGHT_ARM_AUG
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/left_arm
+/obj/item/organ/cyberimp/arm/mining_drill/left_arm
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
 
@@ -177,7 +177,7 @@
 /datum/bodypart_overlay/simple/steel_drill/right
 	icon_state = "steel_right"
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+/obj/item/organ/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	. = ..()
 	if(isteshari(owner))
 		return
@@ -188,7 +188,7 @@
 	limb.add_bodypart_overlay(drill_overlay)
 	owner?.update_body_parts()
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
+/obj/item/organ/cyberimp/arm/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
 	. = ..()
 	bodypart_owner?.remove_bodypart_overlay(drill_overlay)
 	arm_owner.update_body_parts()
@@ -232,7 +232,7 @@
 	playsound(user, 'modular_nova/master_files/sound/effects/robot_smoke.ogg', 50, FALSE)
 	user.visible_message(span_warning("[user] spins [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"), span_notice("You spin [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"))
 
-/obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
+/obj/item/organ/cyberimp/arm/mining_drill/diamond
 	name = "\improper Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
@@ -249,14 +249,14 @@
 	usesound = 'sound/items/weapons/drill.ogg'
 	hitsound = 'sound/items/weapons/drill.ogg'
 
-/obj/item/organ/internal/cyberimp/arm/hacker
+/obj/item/organ/cyberimp/arm/hacker
 	name = "hacking arm implant"
 	desc = "An small arm implant containing an advanced screwdriver, wirecutters, and multitool designed for engineers and on-the-field machine modification. Actually legal, despite what the name may make you think."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_multitool"
 	items_to_create = list(/obj/item/screwdriver/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/abductor/implant)
 
-/obj/item/organ/internal/cyberimp/arm/botany
+/obj/item/organ/cyberimp/arm/botany
 	name = "botany arm implant"
 	desc = "A rather simple arm implant containing tools used in gardening and botanical research."
 	items_to_create = list(/obj/item/cultivator, /obj/item/shovel/spade, /obj/item/hatchet, /obj/item/gun/energy/floragun, /obj/item/plant_analyzer, /obj/item/geneshears, /obj/item/secateurs, /obj/item/storage/bag/plants, /obj/item/storage/bag/plants/portaseeder)
@@ -280,7 +280,7 @@
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
 
-/obj/item/organ/internal/cyberimp/arm/botany/emag_act()
+/obj/item/organ/cyberimp/arm/botany/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	for(var/datum/weakref/created_item in items_list)
@@ -295,12 +295,12 @@
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_multitool"
 
-/obj/item/organ/internal/cyberimp/arm/janitor
+/obj/item/organ/cyberimp/arm/janitor
 	name = "janitorial tools implant"
 	desc = "A set of janitorial tools on the user's arm."
 	items_to_create = list(/obj/item/lightreplacer, /obj/item/holosign_creator, /obj/item/soap/nanotrasen, /obj/item/reagent_containers/spray/cyborg_drying, /obj/item/mop/advanced, /obj/item/paint/paint_remover, /obj/item/reagent_containers/cup/beaker/large, /obj/item/reagent_containers/spray/cleaner) //Beaker if for refilling sprays
 
-/obj/item/organ/internal/cyberimp/arm/janitor/emag_act()
+/obj/item/organ/cyberimp/arm/janitor/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	for(var/datum/weakref/created_item in items_list)
@@ -310,12 +310,12 @@
 	obj_flags |= EMAGGED
 	return TRUE
 
-/obj/item/organ/internal/cyberimp/arm/lighter
+/obj/item/organ/cyberimp/arm/lighter
 	name = "lighter implant"
 	desc = "A... implanted lighter. Incredibly useless."
 	items_to_create = list(/obj/item/lighter/greyscale) //Hilariously useless.
 
-/obj/item/organ/internal/cyberimp/arm/lighter/emag_act()
+/obj/item/organ/cyberimp/arm/lighter/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	for(var/datum/weakref/created_item in items_list)
@@ -372,7 +372,7 @@
 		),
 	)
 
-/obj/item/organ/internal/cyberimp/arm/razorwire
+/obj/item/organ/cyberimp/arm/razorwire
 	name = "razorwire spool implant"
 	desc = "An integrated spool of razorwire, capable of being used as a weapon when whipped at your foes. \
 		Built into the back of your hand, try your best to not get it tangled."
@@ -382,7 +382,7 @@
 
 /obj/item/autosurgeon/syndicate/razorwire
 	name = "razorwire autosurgeon"
-	starting_organ = /obj/item/organ/internal/cyberimp/arm/razorwire
+	starting_organ = /obj/item/organ/cyberimp/arm/razorwire
 
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
@@ -425,7 +425,7 @@
 	max_ammo = 1
 	multiload = FALSE
 
-/obj/item/organ/internal/cyberimp/arm/shell_launcher
+/obj/item/organ/cyberimp/arm/shell_launcher
 	name = "shell launch system implant"
 	desc = "A mounted, single-shot housing for a shell launch cannon; capable of firing either twelve gauge shotgun shells, or .980 Tydhouer grenades."
 	items_to_create = list(/obj/item/gun/ballistic/shotgun/shell_launcher)
@@ -434,7 +434,7 @@
 
 /obj/item/autosurgeon/syndicate/shell_launcher
 	name = "shell launcher autosurgeon"
-	starting_organ = /obj/item/organ/internal/cyberimp/arm/shell_launcher
+	starting_organ = /obj/item/organ/cyberimp/arm/shell_launcher
 
 #undef KNIFE_HITSOUND
 #undef KNIFE_USESOUND

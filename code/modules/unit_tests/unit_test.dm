@@ -253,9 +253,8 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 		/obj/merge_conflict_marker,
 		//briefcase launchpads erroring
 		/obj/machinery/launchpad/briefcase,
-		//Both are abstract types meant to scream bloody murder if spawned in raw
-		/obj/item/organ/external,
-		/obj/item/organ/external/wings,
+		//Wings abstract path
+		/obj/item/organ/wings,
 		//Not meant to spawn without the machine wand
 		/obj/effect/bug_moving,
 	)
@@ -349,10 +348,10 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	//Baseturf editors can only go up to ten, stop this.
 	returnable_list += typesof(/obj/effect/baseturf_helper)
 	// It's the abstract base type, it shouldn't be spawned.
-	returnable_list += /obj/item/organ/external/genital
+	returnable_list += /obj/item/organ/genital
 	// These two are locked to one type only, and shouldn't be widely available, hence why they runtime otherwise.
 	// Can't be bothered adding more to them.
-	returnable_list += list(/obj/item/organ/external/neck_accessory, /obj/item/organ/external/head_accessory)
+	returnable_list += list(/obj/item/organ/neck_accessory, /obj/item/organ/head_accessory)
 	//NOVA EDIT ADDITION END
 
 	return returnable_list
