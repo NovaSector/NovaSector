@@ -4,7 +4,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "static"
 	prompt_name = "a cybersun counter-bitrunner avatar"
-	you_are_text = "You are a virtual avatar of a Cybersun-aligned counter-bitrunner."
+	you_are_text = "You are a virtual avatar of a Cybersun-aligned counter-bitrunner, or an aligned SNPC."
 	flavour_text = "Servers are throwing intrusion errors - you are here to fix the problem. \
 	Running from your own servers, you have the ability to revive your colleagues without the fear of being tossed out."
 	important_text = "Stalling for long enough, will also allow us to recoup the costs. Complete denial is still preferable."
