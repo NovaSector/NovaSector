@@ -9,8 +9,8 @@
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 
 /obj/item/storage/backpack/tinypaka
-	name = "Waistpack"
-	desc = "A small, waist mounted pack for... well, storing stuff!"
+	name = "waistpack"
+	desc = "A small, waist-mounted pack for... well, storing stuff!"
 	icon_state = "tinypakb"
 	inhand_icon_state = "messenger"
 	icon = 'modular_nova/modules/clothing_improvements/code/clothing.dmi'
@@ -19,7 +19,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 
 /obj/item/storage/backpack/tinypakc
-	name = "Chest pouch"
+	name = "chest pouch"
 	desc = "Like a fannypack, but for your chest! ...Seems to hold alot more, though."
 	icon_state = "tinypakc"
 	inhand_icon_state = "messenger"
