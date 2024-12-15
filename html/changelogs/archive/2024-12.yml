@@ -250,3 +250,62 @@
       growing on their heads overnight, and should properly get the ears (or lack
       thereof) they rightfully deserve from their genetics (or whatever the equivalent
       of genetics is for synthetic beings... Blueprints?).
+2024-12-15:
+  00-Steven:
+  - refactor: Refactored tasting code. Please report any jank tasting behaviours.
+  - bugfix: You taste what you eat instead of the contents of your own stomach.
+  - bugfix: Other basic nutriment subtypes also carry food flavours, instead of outweighing
+      the food flavours with their lack of flavour.
+  - bugfix: Basic nutriment subtypes have a flavour they default to, in case of not
+      carrying any food flavours.
+  - bugfix: Oils taste like oil instead of tasting indescribable.
+  - bugfix: Clothing eaten by moths actually carries its flavours instead of tasting
+      indescribable.
+  - bugfix: Organs use organ tissue instead of nutriment.
+  - bugfix: You can actually taste organ tissue.
+  - qol: Mineral slurry tastes like minerals instead of tasting indescribable.
+  - bugfix: Tasted flavours can actually be "strong" in addition to mild or "a hint
+      of", as intended.
+  - qol: Flavours are only strong when their percentage of what you're tasting is
+      more than 4x taste sensitivity instead of 3x, for most default tongues being
+      60% and lizards 40% of the drink.
+  - qol: Tasted flavours are sorted by strength, stronger flavours coming first.
+  - qol: Tasted flavours are grouped into "strong", "mild", and "hint" in the message,
+      replacing "You can taste a hint of bitterness, alcohol, a hint of sweetness,
+      and a hint of cola" with "You can taste alcohol and a hint of bitterness, sweetness,
+      and cola".
+  Fikou:
+  - bugfix: a modsuit being deleted will delete its parts correctly
+  - bugfix: a modsuit needs its boots out to be moved by an AI
+  - qol: you can extend or retract a modsuits parts from the ui panel
+  - qol: modsuit cores have colorcoded charge bars in the ui panel
+  - qol: weapon recall module makes you pick up the weapon if its on your tile
+  - code_imp: tether module has its own button for cutting tethers instead of stealing
+      it from pins
+  - bugfix: armor booster doesnt protect from head injury without the helmet on
+  Ghommie:
+  - code_imp: Removed internal/external pathing from organs in favor of a bit flag.
+      Hopefully this shouldn't break anything about organs.
+  - bugfix: Fixed invisible fox ears.
+  - bugfix: Fixed mushpeople caps not being colored red by default.
+  - rscadd: You can now dye most tails, podpeople hair, mushpeople caps etc. with
+      a hair dye spray.
+  GremlinSeeker:
+  - bugfix: Syndicate Biodome fixes
+  MitztheKat:
+  - qol: white canes (for blind people) now fit in suit storage slots.
+  SmArtKar:
+  - bugfix: Fixed ayylmao's brain examine lines
+  - sound: Modsuits no longer horrifically screech when taken off
+  - refactor: Eye color effects are now controlled via a new overrides system, which
+      should prevent conflicts between different sources.
+  carlarctg:
+  - bugfix: vampires are a human subtype & have stomachs/lungs
+  larentoun:
+  - bugfix: Fixes a runtime when wingless creature flaps their wings
+  necromanceranne:
+  - code_imp: Introduces a INHALE method for reagent transfer. Cigarettes and smoke
+      reactions use this new method.
+  - balance: Nitrous oxide now brain damage if you inhale it. So don't do that.
+  xPokee:
+  - bugfix: fixed brains turning invisible after being washed
