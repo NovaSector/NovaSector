@@ -1,2 +1,2 @@
 /obj/item/cane
-	worn_icon_state = "classic_baton"
+	worn_icon_state = "nothing"
