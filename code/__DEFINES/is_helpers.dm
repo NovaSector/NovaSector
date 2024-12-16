@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define ismoth(A) (is_species(A, /datum/species/moth))
 #define isfelinid(A) (is_species(A, /datum/species/human/felinid))
 #define isethereal(A) (is_species(A, /datum/species/ethereal))
-#define isvampire(A) (is_species(A,/datum/species/vampire))
+#define isvampire(A) (is_species(A,/datum/species/human/vampire))
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
@@ -256,10 +256,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define ismopable(A) (A && ((PLANE_TO_TRUE(A.plane) == FLOOR_PLANE) ? (A.layer <= FLOOR_CLEAN_LAYER) : (A.layer <= GAME_CLEAN_LAYER))) //If something can be cleaned by floor-cleaning devices such as mops or clean bots
 
 #define isorgan(A) (istype(A, /obj/item/organ))
-
-#define isinternalorgan(A) (istype(A, /obj/item/organ/internal))
-
-#define isexternalorgan(A) (istype(A, /obj/item/organ/external))
 
 #define isclothing(A) (istype(A, /obj/item/clothing))
 

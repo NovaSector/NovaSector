@@ -37903,11 +37903,11 @@
 /obj/structure/closet/crate/freezer{
 	name = "organ storage"
 	},
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/heart,
+/obj/item/organ/tail/cat,
+/obj/item/organ/tail/cat,
+/obj/item/organ/ears/cat,
+/obj/item/organ/ears/cat,
+/obj/item/organ/heart,
 /obj/structure/sign/poster/contraband/random/directional/east,
 /obj/machinery/vending/wallmed/directional/north,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -40118,7 +40118,7 @@
 "lqF" = (
 /obj/structure/table/wood/fancy,
 /obj/item/nullrod,
-/obj/item/organ/internal/heart,
+/obj/item/organ/heart,
 /obj/item/reagent_containers/cup/glass/bottle/holywater,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/pod/dark,

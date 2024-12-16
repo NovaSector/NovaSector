@@ -1,3 +1,6 @@
+/obj/item/bitrunning_disk
+	w_class = WEIGHT_CLASS_SMALL
+
 /obj/item/bitrunning_disk/ability/tier0
 	name = "bitrunning program: cantrip"
 	selectable_actions = list(
@@ -74,6 +77,43 @@
 	item_path = /obj/item/bitrunning_disk/item/tier0
 	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
 
+/obj/item/bitrunning_disk/item/tierlewd
+	name = "bitrunning gear: relaxation"
+	selectable_items = list(
+		/obj/item/summon_beacon/lustwish,
+		/obj/item/storage/box/nif_ghost_box,
+	)
+
+/obj/item/summon_beacon/lustwish
+	name = "relaxation machine beacon"
+	icon_state = "sb_delivery"
+	desc = "Once a vending machine is selected, delivers it to the target location."
+
+	allowed_areas = list(
+		/area/virtual_domain,
+		/area/space/virtual_domain,
+		/area/ruin/space/virtual_domain,
+		/area/icemoon/underground/explored/virtual_domain,
+		/area/lavaland/surface/outdoors/virtual_domain,
+	)
+
+	selectable_atoms = list(
+		/obj/machinery/vending/dorms/bitrunning,
+	)
+
+	area_string = "virtual domains"
+	supply_pod_stay = FALSE
+
+/obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
+
+/datum/orderable_item/bitrunning_tech/item_tierlewd
+	cost_per_order = 250
+	item_path = /obj/item/bitrunning_disk/item/tierlewd
+	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon or a quick-booting NIF package."
+
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(
@@ -101,7 +141,7 @@
 	selectable_items += list(
 		/obj/item/autosurgeon/syndicate/nodrop,
 		/obj/item/gun/energy/modular_laser_rifle,
-		/obj/item/gun/energy/laser/thermal,
+		/obj/item/storage/belt/holster/energy/nanite,
 		/obj/item/minigunpack,
 	)
 
@@ -129,6 +169,15 @@
 		/datum/action/cooldown/spell/death_loop,
 	)
 
+/obj/item/storage/belt/holster/energy/nanite
+	name = "nanite pistol shoulder holsters"
+	desc = "A rather plain pair of shoulder holsters with a bit of padding inside. Meant to hold a twinned pair of nanite pistols, but can fit several kinds of energy handguns as well."
+
+/obj/item/storage/belt/holster/energy/nanite/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/gun/energy/laser/thermal = 2,
+	),src)
+
 /datum/orderable_item/bitrunning_tech/item_tier1
 	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, or a military webbing."
 
@@ -136,7 +185,7 @@
 	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
 	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."

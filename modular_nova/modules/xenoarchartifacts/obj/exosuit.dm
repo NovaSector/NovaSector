@@ -85,7 +85,7 @@
 		to_chat(carbon_mob, "<font color='red' size='7'>AAAAAAH</font>")
 		carbon_mob.SetSleeping(0)
 		carbon_mob.adjust_stutter(40 SECONDS)
-		var/obj/item/organ/internal/ears/ears = carbon_mob.get_organ_slot(ORGAN_SLOT_EARS)
+		var/obj/item/organ/ears/ears = carbon_mob.get_organ_slot(ORGAN_SLOT_EARS)
 		if(ears)
 			ears.adjustEarDamage(0, 30)
 		carbon_mob.Paralyze(6 SECONDS)
