@@ -2117,7 +2117,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/knife/razor_claws/donator/theurgic_knife
 	name = "cursed ritual knife"
-	desc = "A large carving or flensing dagger made of a heavy, dusty material. It seems to glow with an soft, eerie crimson glow."
+	desc = "A large carving or flensing dagger made of a heavy, dusty material. It seems to emit a soft, eerie crimson glow."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	righthand_file = 'modular_nova/modules/modular_ert/icons/pizza/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/modular_ert/icons/pizza/lefthand.dmi'
