@@ -63,6 +63,10 @@
 	. = ..()
 	allowed += /obj/item/storage/bag/chemistry
 
+/obj/item/clothing/suit/toggle/labcoat/nova/regular/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/xeno
+
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
 	desc = "A high visibility vest for emergency responders, intended to draw attention away from the blood."
