@@ -14,6 +14,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/skrell_hair
 	use_mob_sprite_as_obj_sprite = TRUE
 
+	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
+
 /datum/bodypart_overlay/mutant/skrell_hair
 	feature_key = "skrell_hair"
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT

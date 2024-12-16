@@ -8,6 +8,10 @@
 	organ_type = /obj/item/organ/skrell_hair
 
 /datum/sprite_accessory/skrell_hair/is_hidden(mob/living/carbon/human/wearer)
+	// Exception for MODs
+	if(istype(wearer.head, /obj/item/clothing/head/mod))
+		return FALSE
+
 	if((wearer.head?.flags_inv & HIDEHAIR) || (wearer.wear_mask?.flags_inv & HIDEHAIR))
 		return TRUE
 
