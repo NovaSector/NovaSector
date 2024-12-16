@@ -4,7 +4,7 @@
 	var/implants_removed = 0
 	var/implants_total = 0
 
-	for(var/obj/item/organ/internal/cyberimp/cybernetic in new_prisoner.organs)
+	for(var/obj/item/organ/cyberimp/cybernetic in new_prisoner.organs)
 		implants_total += 1
 		if (cybernetic.cannot_confiscate)
 			continue

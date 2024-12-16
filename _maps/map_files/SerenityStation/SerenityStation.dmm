@@ -21420,6 +21420,7 @@
 /area/station/maintenance/department/engineering/atmos/hfr_maint)
 "ggU" = (
 /obj/machinery/computer/station_alert,
+/obj/machinery/keycard_auth/wall_mounted/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/ce)
 "ghd" = (
@@ -22001,6 +22002,10 @@
 	pixel_y = 2
 	},
 /obj/effect/turf_decal/bot_red,
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = 10;
+	pixel_y = 11
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/robotics/lab)
 "gqu" = (
@@ -27069,7 +27074,6 @@
 /turf/open/floor/iron,
 /area/station/maintenance/department/crew_quarters/dorms)
 "hKw" = (
-/obj/machinery/pdapainter/engineering,
 /obj/structure/cable,
 /obj/machinery/requests_console/directional/north{
 	department = "Head of Security's Desk";
@@ -27078,6 +27082,7 @@
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/announcement,
+/obj/machinery/pdapainter/security,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hos)
 "hKJ" = (
@@ -27153,7 +27158,7 @@
 /obj/structure/table/wood/fancy,
 /obj/item/nullrod,
 /obj/item/book/granter/action/spell/smoke/lesser,
-/obj/item/organ/internal/heart,
+/obj/item/organ/heart,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -32271,7 +32276,6 @@
 /obj/machinery/door/airlock/mining{
 	name = "Drone Bay"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/mining,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -32282,6 +32286,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/iron,
 /area/station/cargo/drone_bay)
 "jjl" = (
@@ -35999,6 +36004,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
+"klt" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/brown/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/cargo/sorting)
 "klu" = (
 /obj/effect/turf_decal/trimline/green/corner{
 	dir = 4
@@ -38713,7 +38725,6 @@
 /obj/machinery/door/airlock/mining/glass{
 	name = "Cargo Breakroom"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/mining,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -38723,6 +38734,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "lct" = (
@@ -52524,12 +52536,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/prison/visit)
-"plo" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 10
-	},
-/turf/closed/wall,
-/area/station/cargo/sorting)
 "plp" = (
 /turf/open/floor/plating,
 /area/station/maintenance/department/eva/abandoned)
@@ -65647,7 +65653,6 @@
 /obj/machinery/door/airlock/mining{
 	name = "Mining Dock"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/mining,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -65655,6 +65660,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "tfP" = (
@@ -68793,12 +68799,12 @@
 /area/station/science/server)
 "tVN" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/structure/table,
 /obj/machinery/camera/directional/south{
 	c_tag = "Medbay - Lobby";
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/structure/sign/eyechart/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "tVQ" = (
@@ -77344,10 +77350,10 @@
 /obj/machinery/rnd/production/techfab/department/cargo,
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/trimline/brown/filled/corner{
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "wuG" = (
@@ -81757,9 +81763,6 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/starboard/aft)
 "xNO" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
 /obj/machinery/camera/directional/south{
 	c_tag = "Supply - Customs Office";
 	network = list("ss13","prison")
@@ -81769,6 +81772,9 @@
 	name = "Markus's bed"
 	},
 /mob/living/basic/pet/dog/markus,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 10
+	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "xNU" = (
@@ -173689,7 +173695,7 @@ hAc
 aHS
 gII
 xNO
-plo
+mbf
 mbf
 mbf
 mbf
@@ -173945,7 +173951,7 @@ oWv
 hul
 hul
 rpL
-hul
+klt
 wuA
 tDh
 vMb

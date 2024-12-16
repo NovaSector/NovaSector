@@ -176,7 +176,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	back = /obj/item/storage/backpack/explorer
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,

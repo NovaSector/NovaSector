@@ -99,9 +99,8 @@
 			if(worn_thing in held_items)
 				continue
 		// Things that are supposed to be held, being worn = cannot block
-		else
-			if(!(worn_thing in held_items))
-				continue
+		else if(!(worn_thing in held_items))
+			continue
 
 		var/final_block_chance = worn_thing.block_chance - (clamp((armour_penetration - worn_thing.armour_penetration) / 2, 0, 100)) + block_chance_modifier
 		if(worn_thing.hit_reaction(src, hit_by, attack_text, final_block_chance, damage, attack_type, damage_type))
@@ -201,8 +200,6 @@
 			apply_damage(damage, BRUTE, affecting, run_armor_check(affecting, MELEE))
 		return TRUE
 
-//NOVA EDIT REMOVAL BEGIN - NOVA_XENO_REDO - Moved to: modular_nova\modules\xenos_nova_redo\code\human_defense.dm
-/*
 /mob/living/carbon/human/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
 	. = ..()
 	if(!.)
@@ -254,8 +251,6 @@
 		if(!dismembering_strike(user, user.zone_selected)) //Dismemberment successful
 			return TRUE
 		apply_damage(damage, BRUTE, affecting, armor_block)
-*/
-//NOVA EDIT REMOVAL END
 
 
 /mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L, list/modifiers)
@@ -287,7 +282,7 @@
 //200 max knockdown for EXPLODE_HEAVY
 //160 max knockdown for EXPLODE_LIGHT
 
-	var/obj/item/organ/internal/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/ears/ears = get_organ_slot(ORGAN_SLOT_EARS)
 	switch (severity)
 		if (EXPLODE_DEVASTATE)
 			if(bomb_armor < EXPLODE_GIB_THRESHOLD) //gibs the mob if their bomb armor is lower than EXPLODE_GIB_THRESHOLD
@@ -396,7 +391,7 @@
 		//Note we both check that the user is in cardiac arrest and can actually heartattack
 		//If they can't, they're missing their heart and this would runtime
 		if(undergoing_cardiac_arrest() && can_heartattack() && (shock_damage * siemens_coeff >= 1) && prob(25))
-			var/obj/item/organ/internal/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
+			var/obj/item/organ/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
 			if(heart.Restart() && stat == CONSCIOUS)
 				to_chat(src, span_notice("You feel your heart beating again!"))
 	if (!(flags & SHOCK_NO_HUMAN_ANIM))

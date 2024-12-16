@@ -277,7 +277,7 @@
 	hearers -= ignored_mobs
 
 	//NOVA EDIT ADDITION BEGIN - AI QoL
-	for(var/mob/camera/ai_eye/ai_eye in hearers)
+	for(var/mob/eye/ai_eye/ai_eye in hearers)
 		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
 			hearers -= ai_eye
 			hearers |= ai_eye.ai
@@ -361,7 +361,7 @@
 	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
 	//NOVA EDIT ADDITION BEGIN - AI QoL
-	for(var/mob/camera/ai_eye/ai_eye in hearers)
+	for(var/mob/eye/ai_eye/ai_eye in hearers)
 		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
 			hearers -= ai_eye
 			hearers |= ai_eye.ai
@@ -563,7 +563,7 @@
 			var/list/result = examinify.examine_more(src)
 			if(!length(result))
 				result += span_notice("<i>You examine [examinify] closer, but find nothing of interest...</i>")
-			result_combined = jointext(result, "<br>")
+			result_combined = examine_block(jointext(result, "<br>"))
 			result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 		else

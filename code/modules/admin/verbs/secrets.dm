@@ -517,8 +517,8 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 
 				if(H.dna.species.id == SPECIES_HUMAN)
 					if(H.dna.features["tail_human"] == "None" || H.dna.features["ears"] == "None")
-						var/obj/item/organ/internal/ears/cat/ears = new
-						var/obj/item/organ/external/tail/cat/tail = new
+						var/obj/item/organ/ears/cat/ears = new
+						var/obj/item/organ/tail/cat/tail = new
 						ears.Insert(H, movement_flags = DELETE_IF_REPLACED)
 						tail.Insert(H, movement_flags = DELETE_IF_REPLACED)
 					var/list/honorifics = list("[MALE]" = list("kun"), "[FEMALE]" = list("chan","tan"), "[NEUTER]" = list("san"), "[PLURAL]" = list("san")) //John Robust -> Robust-kun
@@ -526,7 +526,7 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 					var/forename = names.len > 1 ? names[2] : names[1]
 					var/newname = "[forename]-[pick(honorifics["[H.gender]"])]"
 					H.fully_replace_character_name(H.real_name,newname)
-					H.update_mutant_bodyparts()
+					H.update_body_parts()
 					if(animetype == "Yes")
 						var/seifuku = pick(typesof(/obj/item/clothing/under/costume/schoolgirl))
 						var/obj/item/clothing/under/costume/schoolgirl/I = new seifuku

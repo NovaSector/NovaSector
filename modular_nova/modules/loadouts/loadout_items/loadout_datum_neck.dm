@@ -304,6 +304,10 @@
 	item_path = /obj/item/clothing/neck/security_cape/tarkon
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/neck/security_cape
+	name = "Security Cape"
+	item_path = /obj/item/clothing/neck/security_cape
+
 /*
 *	DONATOR
 */

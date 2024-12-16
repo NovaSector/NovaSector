@@ -318,7 +318,7 @@
 			var/obj/item/fish/fish = item
 			.["fishData"] += list(list(
 				"fish_ref" = REF(fish),
-				"fish_name" = fish.name,
+				"fish_name" = uppertext(fish.name),
 				"fish_happiness" = fish.get_happiness_value(),
 				"fish_icon" = fish::icon,
 				"fish_icon_state" = fish::icon_state,
@@ -356,7 +356,7 @@
 				fluid_type = params["fluid"]
 				SEND_SIGNAL(src, COMSIG_AQUARIUM_FLUID_CHANGED, fluid_type)
 				. = TRUE
-		if("reproduction_and_growth")
+		if("allow_breeding")
 			reproduction_and_growth = !reproduction_and_growth
 			. = TRUE
 		if("feeding_interval")
@@ -371,10 +371,10 @@
 			to_chat(user, span_notice("You take out [item] from [src]."))
 		if("rename_fish")
 			var/new_name = sanitize_name(params["chosen_name"])
-			if(!new_name)
-				return
 			var/atom/movable/fish = locate(params["fish_reference"]) in contents
-			fish.name = new_name
+			if(!fish || !new_name || new_name == fish.name)
+				return
+			fish.AddComponent(/datum/component/rename, new_name, fish.desc)
 
 /obj/structure/aquarium/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()

@@ -433,6 +433,14 @@ required_map = "wawastation.dmm"
 coordinates = [83, 92, 1]
 trait_name = "Station"
 
+# Wawastation TG-shenanigan removals.
+[templates.wawastation_asteroidbluecell]
+map_files = ["wawastation_asteroidbluecell.dmm"]
+directory = "_maps/nova/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [142, 95, 2]
+trait_name = "Station"
+
 # SNOWGLOBE STATION MAP EDITS
 # Icecats Camp Lower Level - Snowglobe
 [templates.snowglobe_icecats_lower]
@@ -448,4 +456,60 @@ map_files = ["icemoon_underground_icewalker_upper.dmm"]
 directory = "_maps/RandomRuins/IceRuins/nova/"
 required_map = "snowglobe.dmm"
 coordinates = [202, 16, 2]
+trait_name = "Station"
+
+# Nebulastation Barber
+[templates.nebulastation_barber]
+map_files = ["nebulastation_barber.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [132, 113, 2]
+trait_name = "Station"
+
+# Nebulastation Cryo
+[templates.nebulastation_cryo]
+map_files = ["nebulastation_cryo.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [112, 122, 1]
+trait_name = "Station"
+
+# Nebulastation Armory
+[templates.nebulastation_armory]
+map_files = ["nebulastation_armory.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [161, 116, 1]
+trait_name = "Station"
+
+# Nebulastation Arrivals
+[templates.nebulastation_arrivals]
+map_files = ["nebulastation_arrivals.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [122, 122, 2]
+trait_name = "Station"
+
+# Nebulastation NT Rep Office
+[templates.nebulastation_ntrep_office]
+map_files = ["nebulastation_ntrep_office.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [110, 116, 2]
+trait_name = "Station"
+
+# Nebulastation Supermatter (The Button)
+[templates.nebulastation_supermatter]
+map_files = ["nebulastation_supermatter.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [116, 95, 1]
+trait_name = "Station"
+
+# Nebulastation Anti-Hotwire
+[templates.nebulastation_no_hotwire]
+map_files = ["nebulastation_no_hotwire.dmm"]
+directory = "_maps/nova/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [119, 114, 1]
 trait_name = "Station"

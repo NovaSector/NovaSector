@@ -90,6 +90,7 @@
 				/obj/item/clothing/under/suit/nova/helltaker/skirt = 3,
 				/obj/item/clothing/under/dress/skirt/nova/medium = 5,
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
+				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 			),
 		),
 
@@ -158,6 +159,7 @@
 				/obj/item/clothing/shoes/jungleboots = 5,
 				/obj/item/clothing/shoes/jackboots/knee = 5,
 				/obj/item/clothing/shoes/jackboots/recolorable = 5,
+				/obj/item/clothing/shoes/jackboots/duckboots = 5,
 			),
 		),
 
@@ -181,6 +183,8 @@
 		/obj/item/clothing/suit/brownbattlecoat = 1,
 		/obj/item/clothing/suit/blackfurrich = 1,
 		/obj/item/clothing/suit/frenchtrench = 1,
+		/obj/item/clothing/suit/toggle/labcoat/nova/lalunevest = 2,
+		/obj/item/clothing/gloves/lalune_long = 2,
 	)
 
 	contraband_nova = list(

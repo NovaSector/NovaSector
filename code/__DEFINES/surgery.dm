@@ -30,10 +30,17 @@
 #define ORGAN_PROMINENT (1<<11)
 /// An organ that is ostensibly dangerous when inside a body
 #define ORGAN_HAZARDOUS (1<<12)
+/// This is an external organ, not an inner one. Used in several checks.
+#define ORGAN_EXTERNAL (1<<13)
 // NOVA EDIT ADDITION START - Customization
 /// Synthetic organ granted by a species (for use for organ replacements between species)
-#define ORGAN_SYNTHETIC_FROM_SPECIES (1<<13)
+#define ORGAN_SYNTHETIC_FROM_SPECIES (1<<14)
 // NOVA EDIT ADDITION END
+
+/// Scarring on the right eye
+#define RIGHT_EYE_SCAR (1<<0)
+/// Scarring on the left eye
+#define LEFT_EYE_SCAR (1<<1)
 
 /// Helper to figure out if a limb is organic
 #define IS_ORGANIC_LIMB(limb) (limb.bodytype & BODYTYPE_ORGANIC)

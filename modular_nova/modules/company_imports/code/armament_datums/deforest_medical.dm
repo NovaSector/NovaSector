@@ -249,20 +249,20 @@
 
 /datum/armament_entry/company_import/deforest/cyber_implants/razorwire
 	name = "Razorwire Spool Implant"
-	item_type = /obj/item/organ/internal/cyberimp/arm/razorwire
+	item_type = /obj/item/organ/cyberimp/arm/razorwire
 
 /datum/armament_entry/company_import/deforest/cyber_implants/shell_launcher
 	name = "Shell Launch System Implant"
-	item_type = /obj/item/organ/internal/cyberimp/arm/shell_launcher
+	item_type = /obj/item/organ/cyberimp/arm/shell_launcher
 
 /datum/armament_entry/company_import/deforest/cyber_implants/sandy
 	name = "Qani-Laaca Sensory Computer Implant"
-	item_type = /obj/item/organ/internal/cyberimp/sensory_enhancer
+	item_type = /obj/item/organ/cyberimp/sensory_enhancer
 	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/deforest/cyber_implants/hackerman
 	name = "Binyat Wireless Hacking System Implant"
-	item_type = /obj/item/organ/internal/cyberimp/hackerman_deck
+	item_type = /obj/item/organ/cyberimp/hackerman_deck
 	cost = PAYCHECK_COMMAND * 10
 
 // Modsuit Modules from the medical category, here instead of in Nakamura because nobody buys from this company
