@@ -302,18 +302,12 @@
 	venue_value = FOOD_PRICE_WORTHLESS
 	var/mutable_appearance/head
 	var/head_color = rgb(0, 0, 0)
-	/// NOVA EDIT ADDITION BEGIN
-	//Copies reagent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-	// NOVA EDIT ADDITION END
 
 /obj/item/food/lollipop/Initialize(mapload)
 	. = ..()
 	head = mutable_appearance('icons/obj/food/lollipop.dmi', "lollipop_head")
 	change_head_color(rgb(rand(0, 255), rand(0, 255), rand(0, 255)))
-	// NOVA EDIT CHANGE BEGIN: Original: AddElement(/datum/element/chewable)
-	AddElement(/datum/element/chewable, metabolization_amount)
-	// NOVA EDIT CHANGE END
+	AddElement(/datum/element/chewable)
 
 /obj/item/food/lollipop/proc/change_head_color(C)
 	head_color = C
@@ -352,16 +346,10 @@
 	food_flags = FOOD_FINGER_FOOD
 	slot_flags = ITEM_SLOT_MASK
 	crafting_complexity = FOOD_COMPLEXITY_1
-	// NOVA EDIT ADDITION BEGIN
-	//Copies reagent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-	// NOVA EDIT ADDITION END
 
 /obj/item/food/spiderlollipop/Initialize(mapload)
 	. = ..()
-	// NOVA EDIT CHANGE BEGIN: Original: AddElement(/datum/element/chewable)
-	AddElement(/datum/element/chewable, metabolization_amount)
-	// NOVA EDIT CHANGE END
+	AddElement(/datum/element/chewable)
 
 /obj/item/food/swirl_lollipop
 	name = "swirl lollipop"
@@ -379,13 +367,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	slot_flags = ITEM_SLOT_MASK
 	crafting_complexity = FOOD_COMPLEXITY_1
-	/// NOVA EDIT ADDITION BEGIN
-	//Copies reagent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-	// NOVA EDIT ADDITION END
 
 /obj/item/food/swirl_lollipop/Initialize(mapload)
 	. = ..()
-	// NOVA EDIT ADDITIONBEGIN: Original: AddElement(/datum/element/chewable)
-	AddElement(/datum/element/chewable, metabolization_amount)
-	// NOVA EDIT ADDITION END
+	AddElement(/datum/element/chewable)
