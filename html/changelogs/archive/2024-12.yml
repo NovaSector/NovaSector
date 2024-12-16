@@ -309,3 +309,8 @@
   - balance: Nitrous oxide now brain damage if you inhale it. So don't do that.
   xPokee:
   - bugfix: fixed brains turning invisible after being washed
+2024-12-16:
+  JimKil3:
+  - rscadd: golem arms can now dredge boulders from ore vents, as well as process
+      them by hand
+  - bugfix: "fixed an exploit related to ore vents\n/\U0001F191"
