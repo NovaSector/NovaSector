@@ -1,6 +1,6 @@
 /datum/sprite_accessory/head_accessory
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/head_accessory.dmi'
-	key = "head_acc"
+	key = "head_accessory"
 	generic = "Head Accessory"
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE

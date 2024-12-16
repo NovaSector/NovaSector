@@ -171,7 +171,7 @@
 
 ///Installs preinstalled NIFSofts
 /obj/item/organ/cyberimp/brain/nif/proc/install_preinstalled_nifsofts()
-	if(!preinstalled_nifsofts)
+	if(!preinstalled_nifsofts || calibrating)
 		return FALSE
 
 	for(var/datum/nifsoft/preinstalled_nifsoft as anything in preinstalled_nifsofts)
