@@ -43,12 +43,10 @@
 /datum/armament_entry/company_import/vitezstvi/accessory/bandolier
 	item_type = /obj/item/storage/belt/bandolier
 	cost = PAYCHECK_COMMAND * 2
-	contraband = TRUE
 
 /datum/armament_entry/company_import/vitezstvi/accessory/pouch
 	item_type = /obj/item/storage/pouch/ammo
 	cost = PAYCHECK_COMMAND * 3
-	contraband = TRUE // the 'combat accessories' require broadbanding
 
 // Boxes of non-shotgun ammo
 
