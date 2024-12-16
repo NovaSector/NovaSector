@@ -2106,7 +2106,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 #undef TOASTER_IMPLANT_COOLDOWN
 
 // donator item for Sciamach
-/obj/item/organ/internal/cyberimp/arm/shard/donator/theurgic_crystal
+/obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
 	name = "theurgic stone"
 	desc = "An eerie crystalline shard that pulses with theurgic energies. Tendrils of crimson energy seem to dance along its surface."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'

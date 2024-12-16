@@ -821,7 +821,7 @@
 
 /datum/loadout_item/pocket_items/theurgic_crystal
 	name = "Theurgic Stone"
-	item_path = /obj/item/organ/internal/cyberimp/arm/shard/donator/theurgic_crystal
+	item_path = /obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
 	ckeywhitelist = list("sciamach")
 
 /datum/loadout_item/toys/delphic_synth
