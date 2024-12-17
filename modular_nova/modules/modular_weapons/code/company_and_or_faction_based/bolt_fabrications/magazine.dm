@@ -28,7 +28,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /obj/item/ammo_box/advanced/kineticballs
-	name = "ammo box (Kinetic Balls)"
+	name = "ammo box (kinetic balls)"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/stingstopbox.dmi'
 	icon_state = "stingstopbox"
 	desc = "A box of kinetic balls rounds, holds twenty seven rounds."
