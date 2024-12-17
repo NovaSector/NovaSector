@@ -1,5 +1,5 @@
 /obj/item/ammo_box/magazine/kineticballs
-	name = "Kinetic balls pistol magazine"
+	name = "kinetic balls pistol magazine"
 	desc = "A gun magazine filled with balls. The kind that makes makes people stop, holds eight rounds."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type207magazine.dmi'
 	icon_state = "type207mag"
