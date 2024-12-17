@@ -20,7 +20,7 @@
 	bare_wound_bonus = -10
 
 /obj/item/ammo_casing/kineticball
-	name = "Kinetic ball casing"
+	name = "kinetic ball casing"
 	desc = "A kinetic ball casing."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/stingtop.dmi'
 	icon_state = "stingstop"
