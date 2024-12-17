@@ -130,6 +130,7 @@
 		bare_wound_bonus = proj.bare_wound_bonus,
 		sharpness = proj.sharpness,
 		attack_direction = get_dir(proj.starting, src),
+		attacking_item = proj,
 	)
 
 	apply_effects(
