@@ -269,12 +269,14 @@
 
 	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
 		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
-		var/current_skrell_hair = mutant_bodyparts["skrell_hair"]?[MUTANT_INDEX_NAME]
 
-		if(current_skrell_hair == "Male")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
-		else if(current_skrell_hair == "Female")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Long")
+		if("skrell_hair" in mutant_bodyparts)
+			var/current_skrell_hair = mutant_bodyparts["skrell_hair"][MUTANT_INDEX_NAME]
+
+			if(current_skrell_hair == "Male")
+				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
+			else if(current_skrell_hair == "Female")
+				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Long")
 
 
 /datum/preferences/proc/check_migration()
