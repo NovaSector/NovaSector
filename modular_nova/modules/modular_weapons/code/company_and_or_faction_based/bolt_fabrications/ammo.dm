@@ -30,7 +30,7 @@
 	harmful = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/kineticball
-	name = "Kinetic ball casings"
+	name = "kinetic ball casings"
 	desc = "A stack of kinetic ball cartridges."
 	caliber = CALIBER_KINETICBALL
 	ammo_type = /obj/item/ammo_casing/kineticball
