@@ -11,7 +11,7 @@
 /obj/item/storage/backpack/tinypaka
 	name = "waistpack"
 	desc = "A small, waist-mounted pack for... well, storing stuff!"
-	icon_state = "tinypakb"
+	icon_state = "tinypaka"
 	inhand_icon_state = "messenger"
 	icon = 'modular_nova/modules/clothing_improvements/code/clothing.dmi'
 	worn_icon = 'modular_nova/modules/clothing_improvements/code/clothing_worn.dmi'
