@@ -4,7 +4,7 @@
 	icon_state = "random_fly_1"
 
 	mutantpart_key = "skrell_hair"
-	mutantpart_info = list(MUTANT_INDEX_NAME = "Female", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
+	mutantpart_info = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EXTERNAL_SKRELL_HAIR

@@ -664,7 +664,7 @@
 	savefile_key = "feature_skrell_hair"
 	relevant_mutant_bodypart = "skrell_hair"
 	type_to_check = /datum/preference/toggle/mutant_toggle/skrell_hair
-	default_accessory_type = /datum/sprite_accessory/skrell_hair/none
+	default_accessory_type = /datum/sprite_accessory/skrell_hair/short
 
 /datum/preference/tri_color/skrell_hair
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
