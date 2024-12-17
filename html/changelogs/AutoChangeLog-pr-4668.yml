@@ -1,0 +1,5 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - qol: "Some hard or inconsistent to obtain mundane items, namely Seclites, Ammo Pouches, Bandoliers and Combat Boots can now be cargo ordered."
+  - rscadd: "Due to human rights concerns regarding those suffering from Brain Tumors, Deforest has obtained a license to sell Mannitol through imports."
