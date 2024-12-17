@@ -1,5 +1,5 @@
 /obj/projectile/bullet/kineticball
-	name = "Kinetic orb"
+	name = "kinetic orb"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/riotrubberbullet.dmi'
 	icon_state = "riotrubberbullet"
 	// Used the hive shot stats, with 0 colateral damage, the advantage is that its not weak against armor, and its supposed to bounce a lot.
