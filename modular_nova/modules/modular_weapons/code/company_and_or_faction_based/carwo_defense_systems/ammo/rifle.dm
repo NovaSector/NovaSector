@@ -27,7 +27,7 @@
 
 
 /obj/item/ammo_box/c40sol
-	name = "ammo box (.40 Sol Long lethal)"
+	name = "ammo box (.40 sol long lethal)"
 	desc = "A box of .40 Sol Long rifle rounds, holds thirty bullets."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
@@ -84,7 +84,7 @@
 	rip_time = 0.5 SECONDS
 
 /obj/item/ammo_box/c40sol/fragmentation
-	name = "ammo box (.40 Sol Long fragmentation)"
+	name = "ammo box (.40 sol long fragmentation)"
 	desc = "A box of .40 Sol Long rifle rounds, holds thirty bullets. The blue stripe indicates this should hold less lethal ammunition."
 
 	icon_state = "40box_disabler"
@@ -145,7 +145,7 @@
 
 
 /obj/item/ammo_box/c40sol/pierce
-	name = "ammo box (.40 Sol Long match)"
+	name = "ammo box (.40 sol long match)"
 	desc = "A box of .40 Sol Long rifle rounds, holds thirty bullets. The yellow stripe indicates this should hold high performance ammuniton."
 
 	icon_state = "40box_pierce"
@@ -187,7 +187,7 @@
 
 
 /obj/item/ammo_box/c40sol/incendiary
-	name = "ammo box (.40 Sol Long incendiary)"
+	name = "ammo box (.40 sol long incendiary)"
 	desc = "A box of .40 Sol Long rifle rounds, holds thirty bullets. The orange stripe indicates this should hold incendiary ammunition."
 
 	icon_state = "40box_flame"

@@ -17,7 +17,7 @@
 	wound_bonus = 0 // Normal bullets are 20
 
 /obj/item/ammo_box/c585trappiste
-	name = "ammo box (.585 Trappiste lethal)"
+	name = "ammo box (.585 trappiste lethal)"
 	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
@@ -55,7 +55,7 @@
 	embed_data = null
 
 /obj/item/ammo_box/c585trappiste/incapacitator
-	name = "ammo box (.585 Trappiste flathead)"
+	name = "ammo box (.585 trappiste flathead)"
 	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The blue stripe indicates that it should hold less lethal rounds."
 
 	icon_state = "585box_disabler"
@@ -83,7 +83,7 @@
 	bare_wound_bonus = 40
 
 /obj/item/ammo_box/c585trappiste/hollowpoint
-	name = "ammo box (.585 Trappiste hollowhead)"
+	name = "ammo box (.585 trappiste hollowhead)"
 	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The purple stripe indicates that it should hold hollowpoint-like rounds."
 
 	icon_state = "585box_shrapnel"

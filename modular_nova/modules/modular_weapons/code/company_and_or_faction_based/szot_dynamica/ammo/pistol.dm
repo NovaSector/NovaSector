@@ -24,7 +24,7 @@
 	bare_wound_bonus = 10
 
 /obj/item/ammo_box/c27_54cesarzowa
-	name = "ammo box (.27-54 Cesarzowa piercing)"
+	name = "ammo box (.27-54 cesarzowa piercing)"
 	desc = "A box of .27-54 Cesarzowa piercing pistol rounds, holds twenty eight cartridges."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
@@ -58,7 +58,7 @@
 	bare_wound_bonus = -10
 
 /obj/item/ammo_box/c27_54cesarzowa/rubber
-	name = "ammo box (.27-54 Cesarzowa rubber)"
+	name = "ammo box (.27-54 cesarzowa rubber)"
 	desc = "A box of .27-54 Cesarzowa rubber pistol rounds, holds twenty eight cartridges."
 
 	icon_state = "27-54cesarzowa_box_rubber"

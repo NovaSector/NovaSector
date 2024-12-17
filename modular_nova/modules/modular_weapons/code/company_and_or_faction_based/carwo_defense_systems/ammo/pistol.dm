@@ -27,7 +27,7 @@
 
 
 /obj/item/ammo_box/c35sol
-	name = "ammo box (.35 Sol Short lethal)"
+	name = "ammo box (.35 sol short lethal)"
 	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
@@ -79,7 +79,7 @@
 
 
 /obj/item/ammo_box/c35sol/incapacitator
-	name = "ammo box (.35 Sol Short incapacitator)"
+	name = "ammo box (.35 sol short incapacitator)"
 	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds. The blue stripe indicates this should hold less-lethal ammunition."
 
 	icon_state = "35box_disabler"
@@ -126,7 +126,7 @@
 	rip_time = 1 SECONDS
 
 /obj/item/ammo_box/c35sol/ripper
-	name = "ammo box (.35 Sol Short ripper)"
+	name = "ammo box (.35 sol short ripper)"
 	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds. The purple stripe indicates this should hold hollowpoint-like ammunition."
 
 	icon_state = "35box_shrapnel"

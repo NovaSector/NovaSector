@@ -72,7 +72,7 @@
 
 
 /obj/item/ammo_box/c980grenade
-	name = "ammo box (.980 Tydhouer practice)"
+	name = "ammo box (.980 tydhouer practice)"
 	desc = "A box of four .980 Tydhouer practice grenades. Instructions on the box indicate these are dummy practice rounds that will disintegrate into sparks on detonation. Neat!"
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
@@ -111,7 +111,7 @@
 
 
 /obj/item/ammo_box/c980grenade/smoke
-	name = "ammo box (.980 Tydhouer smoke)"
+	name = "ammo box (.980 tydhouer smoke)"
 	desc = "A box of four .980 Tydhouer smoke grenades. Instructions on the box indicate these are smoke rounds that will make a small cloud of laser-dampening smoke on detonation."
 
 	icon_state = "980box_smoke"
@@ -150,7 +150,7 @@
 
 
 /obj/item/ammo_box/c980grenade/shrapnel
-	name = "ammo box (.980 Tydhouer shrapnel)"
+	name = "ammo box (.980 tydhouer shrapnel)"
 	desc = "A box of four .980 Tydhouer shrapnel grenades. Instructions on the box indicate these are shrapnel rounds. It's also covered in hazard signs, odd."
 
 	icon_state = "980box_explosive"
@@ -200,7 +200,7 @@
 
 
 /obj/item/ammo_box/c980grenade/shrapnel/phosphor
-	name = "ammo box (.980 Tydhouer phosphor)"
+	name = "ammo box (.980 tydhouer phosphor)"
 	desc = "A box of four .980 Tydhouer phosphor grenades. Instructions on the box indicate these are incendiary explosive rounds. It's also covered in hazard signs, odd."
 
 	icon_state = "980box_gas_alternate"
@@ -240,7 +240,7 @@
 
 
 /obj/item/ammo_box/c980grenade/riot
-	name = "ammo box (.980 Tydhouer tear gas)"
+	name = "ammo box (.980 tydhouer tear gas)"
 	desc = "A box of four .980 Tydhouer tear gas grenades. Instructions on the box indicate these are smoke rounds that will make a small cloud of laser-dampening smoke on detonation."
 
 	icon_state = "980box_gas"
