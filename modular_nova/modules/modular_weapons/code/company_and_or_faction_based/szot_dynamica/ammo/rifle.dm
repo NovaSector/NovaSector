@@ -1,7 +1,7 @@
 // Various ammo boxes for .310
 
 /obj/item/ammo_box/c310_cargo_box
-	name = "ammo box (.310 strilka lethal)"
+	name = "ammo box (.310 Strilka lethal)"
 	desc = "A box of .310 Strilka lethal rifle rounds, holds ten cartridges."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
@@ -18,7 +18,7 @@
 // Rubber
 
 /obj/item/ammo_box/c310_cargo_box/rubber
-	name = "ammo box (.310 strilka rubber)"
+	name = "ammo box (.310 Strilka rubber)"
 	desc = "A box of .310 Strilka rubber rifle rounds, holds ten cartridges."
 
 	icon_state = "310_box_rubber"
@@ -28,7 +28,7 @@
 // AP
 
 /obj/item/ammo_box/c310_cargo_box/piercing
-	name = "ammo box (.310 strilka piercing)"
+	name = "ammo box (.310 Strilka piercing)"
 	desc = "A box of .310 Strilka piercing rifle rounds, holds ten cartridges."
 
 	icon_state = "310_box_ap"
