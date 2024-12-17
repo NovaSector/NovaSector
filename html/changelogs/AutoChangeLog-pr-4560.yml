@@ -1,0 +1,5 @@
+author: "klushy225"
+delete-after: True
+changes:
+  - rscadd: "Added the Half Bob hairstyle"
+  - image: "Added the hair_bob_half state to hair.dmi"
