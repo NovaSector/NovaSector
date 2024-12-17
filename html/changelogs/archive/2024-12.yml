@@ -314,3 +314,18 @@
   - rscadd: golem arms can now dredge boulders from ore vents, as well as process
       them by hand
   - bugfix: "fixed an exploit related to ore vents\n/\U0001F191"
+2024-12-17:
+  FlufflesTheDog:
+  - rscadd: Added donator items for Sciamach
+  Ghommie:
+  - rscadd: Added fishing bluespace capsules to the game, which can be used to spawn
+      a variety of fishing spots, from freshwater to tiziran sea to hot springs, and
+      also lava and plasma if emagged.
+  - rscadd: 'Added two new fish: the zagoskian moonfish and the sacabambaspis. Moonfish
+      will now periodically lay moonfish eggs.'
+  - map: The 'crashed pod' lavaland ruin now has a hot spring, and the cursed hotspring
+      on icemoon now has a plastic chair and a fishing toolbox.
+  - rscadd: Added a new score that keeps track of all different fish that you've caught
+      between shifts.
+  - server: Added a new schema table to store the aforementioned entries and the ckeys
+      associated to them, with an additional timestamp column.
