@@ -1,6 +1,0 @@
-author: "hack-wrench"
-delete-after: True
-changes:
-  - rscadd: "Added new head clothing, gold/silver chains with 8 styles (click in hand for change)"
-  - rscadd: "Added new 18 hair styles for skrell"
-  - bugfix: "Fix MODsuit coverage for skrell hairs"

@@ -361,3 +361,8 @@
       how much the ammo box holds to 18 and fixed the issue that prevented it from
       being printable on the sec lathe.
   - bugfix: Lower cases the text of ammo boxes to be consistent.
+  hack-wrench:
+  - rscadd: Added new head clothing, gold/silver chains with 8 styles (click in hand
+      for change)
+  - rscadd: Added new 18 hair styles for skrell
+  - bugfix: Fix MODsuit coverage for skrell hairs
