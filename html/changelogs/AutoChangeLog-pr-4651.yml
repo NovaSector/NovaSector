@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - rscadd: "Adds tinypaks, smaller backpacks to the loadout that are less 'visually disruptive.'"
