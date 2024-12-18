@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - bugfix: "Removed the variable that made Akula not being able to use subspecies or custom lore."
