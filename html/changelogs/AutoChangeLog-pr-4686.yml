@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - qol: "Allows those with the Water Hater Quirk (Felinids, Tajarans, etc) to bathe or shower without getting stamina damage. They still get a negative Moodlet and dont heal as others do."
