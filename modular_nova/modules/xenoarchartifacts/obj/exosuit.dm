@@ -112,7 +112,7 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/mecha.dmi'
 	wreckage = /obj/structure/mecha_wreckage/odysseus/artifact
 	equip_by_category = list(
-		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/medical/sleeper,
+		MECHA_L_ARM = /obj/item/mecha_parts/mecha_equipment/sleeper/medical,
 		MECHA_R_ARM = /obj/item/mecha_parts/mecha_equipment/medical/mechmedbeam/artifact,
 		MECHA_UTILITY = list(/obj/item/mecha_parts/mecha_equipment/radio, /obj/item/mecha_parts/mecha_equipment/air_tank, /obj/item/mecha_parts/mecha_equipment/thrusters/ion),
 	)
