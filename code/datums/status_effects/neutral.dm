@@ -638,6 +638,7 @@
 		stam_recovery *= 1.5
 	else if(water_hater)
 		recovery *= 0
+		stam_recovery = 0 // NOVA EDIT ADDITIION - null the stamina damage.
 	recovery *= seconds_between_ticks
 
 	var/healed = 0
