@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 7
+#define MODULAR_SAVEFILE_VERSION_MAX 8
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -14,6 +14,7 @@
 #define VERSION_CHRONOLOGICAL_AGE 5
 #define VERSION_TG_LOADOUT 6
 #define VERSION_INTERNAL_EXTERNAL_ORGANS 7
+#define VERSION_SKRELL_HAIR_NAME_UPDATE 8
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -266,7 +267,16 @@
 			save_augments[augment_name] = "/obj/item/organ[augment_path_string_stripped]"
 		load_augments(save_augments)
 
+	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
+		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
 
+		if("skrell_hair" in mutant_bodyparts)
+			var/current_skrell_hair = mutant_bodyparts["skrell_hair"][MUTANT_INDEX_NAME]
+
+			if(current_skrell_hair == "Male")
+				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
+			else if(current_skrell_hair == "Female")
+				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Long")
 
 
 /datum/preferences/proc/check_migration()
@@ -351,3 +361,4 @@
 #undef VERSION_CHRONOLOGICAL_AGE
 #undef VERSION_TG_LOADOUT
 #undef VERSION_INTERNAL_EXTERNAL_ORGANS
+#undef VERSION_SKRELL_HAIR_NAME_UPDATE

@@ -47,9 +47,25 @@
 	icon_state = "labcoat_pharm"
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/suit/toggle/labcoat/nova/geneticist
+	name = "geneticist's labcoat"
+	desc = "A standard labcoat for geneticist."
+	icon_state = "labcoat_gene"
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/suit/toggle/labcoat/nova/roboticist
+	name = "roboticist's labcoat"
+	desc = "A standard labcoat for roboticist."
+	icon_state = "labcoat_robot"
+	gets_cropped_on_taurs = FALSE
+
 /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist/Initialize(mapload)
 	. = ..()
 	allowed += /obj/item/storage/bag/chemistry
+
+/obj/item/clothing/suit/toggle/labcoat/nova/regular/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/xeno
 
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
