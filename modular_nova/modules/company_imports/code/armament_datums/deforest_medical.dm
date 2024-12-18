@@ -7,7 +7,7 @@
 /datum/armament_entry/company_import/deforest/first_aid_kit
 	subcategory = "First-Aid Kits"
 
-/datum/armament_entry/deforest/first_aid_kit/civil_defense/comfort
+/datum/armament_entry/company_import/deforest/first_aid_kit/comfort
 	item_type = /obj/item/storage/medkit/civil_defense/comfort/stocked
 	cost = PAYCHECK_COMMAND * 2
 
