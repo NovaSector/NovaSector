@@ -398,6 +398,14 @@
 				back = duffelbag //Department duffel bag
 			if(DMESSENGER)
 				back = messenger //Department messenger bag
+			// NOVA EDIT ADDITION START - Tinypaks
+			if(TPACKB)
+				back = /obj/item/storage/backpack/tinypakb
+			if(TPACKA)
+				back = /obj/item/storage/backpack/tinypaka
+			if(TPACKC)
+				back = /obj/item/storage/backpack/tinypakc
+			// NOVA EDIT ADDITION START
 			else
 				back = backpack //Department backpack
 

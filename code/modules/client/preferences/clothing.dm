@@ -31,8 +31,12 @@
 		DSATCHEL,
 		DDUFFELBAG,
 		DMESSENGER,
+		// NOVA EDIT ADDITION START
+		TPACKB,
+		TPACKA,
+		TPACKC,
+		// NOVA EDIT ADDITION END
 	)
-
 /datum/preference/choiced/backpack/create_default_value()
 	return DBACKPACK
 
@@ -48,6 +52,14 @@
 			return /obj/item/storage/backpack/duffelbag
 		if (GMESSENGER)
 			return /obj/item/storage/backpack/messenger
+		// NOVA EDIT ADDITION START
+		if (TPACKB)
+			return /obj/item/storage/backpack/tinypakb
+		if (TPACKA)
+			return /obj/item/storage/backpack/tinypaka
+		if (TPACKC)
+			return /obj/item/storage/backpack/tinypakc
+		// NOVA EDIT ADDITION END
 
 		// In a perfect world, these would be your department's backpack.
 		// However, this doesn't factor in assistants, or no high slot, and would
