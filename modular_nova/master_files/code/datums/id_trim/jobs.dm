@@ -74,9 +74,6 @@
 		ACCESS_SCIENCE,
 		ACCESS_TELEPORTER,
 		ACCESS_WEAPONS,
-	)
-	minimal_wildcard_access = list(
-		ACCESS_CAPTAIN,
 		ACCESS_CENT_GENERAL,
 	)
 	template_access = list(
@@ -84,6 +81,13 @@
 		ACCESS_CHANGE_IDS,
 	)
 	job = /datum/job/blueshield
+
+// Gives the blueshield access to captain's quarters and comms console without having to upgrade into a centcom card.
+/datum/id_trim/job/blueshield/New()
+	.=..()
+	minimal_access |= list(
+		ACCESS_CAPTAIN,
+	)
 
 /datum/id_trim/job/nanotrasen_consultant
 	assignment = "Nanotrasen Consultant"
@@ -99,7 +103,6 @@
 		ACCESS_BAR,
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_CENT_GENERAL,
-		ACCESS_CHANGE_IDS,
 		ACCESS_CHAPEL_OFFICE,
 		ACCESS_COMMAND,
 		ACCESS_CONSTRUCTION,
@@ -132,16 +135,20 @@
 		ACCESS_THEATRE,
 		ACCESS_VAULT,
 		ACCESS_WEAPONS,
-	)
-	minimal_wildcard_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL,
+		ACCESS_CENT_GENERAL
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 	)
 	job = /datum/job/nanotrasen_consultant
+
+// Gives the NTC access to captain's quarters and comms console without having to upgrade into a centcom card.
+/datum/id_trim/job/nanotrasen_consultant/New()
+	.=..()
+	minimal_access |= list(
+		ACCESS_CAPTAIN,
+	)
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"
