@@ -27158,7 +27158,7 @@
 /obj/structure/table/wood/fancy,
 /obj/item/nullrod,
 /obj/item/book/granter/action/spell/smoke/lesser,
-/obj/item/organ/internal/heart,
+/obj/item/organ/heart,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},

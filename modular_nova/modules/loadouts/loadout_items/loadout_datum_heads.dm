@@ -286,6 +286,14 @@
 	name = "Fancy Hairpin"
 	item_path = /obj/item/clothing/head/costume/hairpin
 
+/datum/loadout_item/head/skrell_chain_gold
+	name = "Gold skrellian head chain"
+	item_path = /obj/item/clothing/head/skrell_chain
+
+/datum/loadout_item/head/skrell_chain_silver
+	name = "Silver skrellian head chain"
+	item_path = /obj/item/clothing/head/skrell_chain/silver
+
 /*
 *	CHRISTMAS
 */
