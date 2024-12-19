@@ -45,8 +45,9 @@
 	/// Virtual radio inside of the entertainment monitor to broadcast audio
 	var/obj/item/radio/entertainment/speakers/speakers
 
-/obj/machinery/vending/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+/obj/machinery/computer/security/telescreen/entertainment/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Toggle mute button"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/computer/security/telescreen/entertainment/click_ctrl(mob/user)
 	. = ..()
@@ -64,6 +65,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 /obj/machinery/computer/security/telescreen/entertainment/Initialize(mapload)
 	. = ..()
 	find_and_hang_on_wall()
+	register_context()
 	speakers = new(src)
 
 /obj/machinery/computer/security/telescreen/entertainment/Destroy()

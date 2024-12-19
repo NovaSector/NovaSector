@@ -67,6 +67,7 @@
 
 	if(!recepient_nif.install_nifsoft(src))
 		qdel(src)
+		return
 
 	load_persistence_data()
 	update_theme()

@@ -1,13 +1,13 @@
 /datum/orderable_item/mining/survival_bodybag
-	item_path = /obj/item/bodybag/environmental
+	purchase_path = /obj/item/bodybag/environmental
 	cost_per_order = 500
 
 /datum/orderable_item/mining/suit_voucher
-	item_path = /obj/item/suit_voucher
+	purchase_path = /obj/item/suit_voucher
 	cost_per_order = 2000
 
 /datum/orderable_item/consumables/robo_medkit
-	item_path = /obj/item/storage/medkit/robotic_repair/stocked
+	purchase_path = /obj/item/storage/medkit/robotic_repair/stocked
 	cost_per_order = 650 // I set this at this slightly-higher-than-normal value because the robot medkits heal brute, burn, and have a coagulent equivalent in them
 
 /obj/item/kinetic_crusher
@@ -46,57 +46,57 @@
 	category_index = CATEGORY_INTERDYNE
 
 /datum/orderable_item/interdyne/adv_plasmacutter
-	item_path = /obj/item/gun/energy/plasmacutter/adv
+	purchase_path = /obj/item/gun/energy/plasmacutter/adv
 	cost_per_order = 500
 
 /datum/orderable_item/interdyne/mining_AoE
-	item_path = /obj/item/borg/upgrade/modkit/aoe/turfs
+	purchase_path = /obj/item/borg/upgrade/modkit/aoe/turfs
 	cost_per_order = 750
 
 /datum/orderable_item/interdyne/night_vision_health_meson
-	item_path = /obj/item/clothing/glasses/hud/health/night/meson
+	purchase_path = /obj/item/clothing/glasses/hud/health/night/meson
 	cost_per_order = 2000
 
 /datum/orderable_item/interdyne/prescription_meson
-	item_path = /obj/item/clothing/glasses/meson/prescription
+	purchase_path = /obj/item/clothing/glasses/meson/prescription
 	cost_per_order = 325
 
 /datum/orderable_item/mining/crusher/spear
-	item_path = /obj/item/kinetic_crusher/spear
+	purchase_path = /obj/item/kinetic_crusher/spear
 	cost_per_order = 1250
 
 /datum/orderable_item/mining/crusher/hammer
-	item_path = /obj/item/kinetic_crusher/hammer
+	purchase_path = /obj/item/kinetic_crusher/hammer
 	cost_per_order = 1250
 
 /datum/orderable_item/mining/crusher/machete
-	item_path = /obj/item/kinetic_crusher/machete
+	purchase_path = /obj/item/kinetic_crusher/machete
 	cost_per_order = 1250
 
 /datum/orderable_item/mining/crusher/claw
-	item_path = /obj/item/kinetic_crusher/claw
+	purchase_path = /obj/item/kinetic_crusher/claw
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/repeater 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater
+/datum/orderable_item/accelerator/gun/repeater
+	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/shotgun 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun
+/datum/orderable_item/accelerator/gun/shotgun
+	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/shockwave 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
+/datum/orderable_item/accelerator/gun/shockwave
+	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/glock 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
+/datum/orderable_item/accelerator/gun/glock
+	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/railgun 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun
+/datum/orderable_item/accelerator/gun/railgun
+	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun
 	cost_per_order = 1250
 
-/datum/orderable_item/accelerator/gun/m79 
-	item_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
+/datum/orderable_item/accelerator/gun/m79
+	purchase_path = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
 	cost_per_order = 1250

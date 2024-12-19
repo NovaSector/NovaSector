@@ -11,7 +11,7 @@
 	var/last_message_time = 0
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 
-/obj/item/organ/brain/synth/mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
+/obj/item/organ/brain/synth/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 
 	if(brain_owner.stat != DEAD || !ishuman(brain_owner))
