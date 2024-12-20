@@ -31,3 +31,7 @@
 	icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	icon_state = "card_solfed"
 	assigned_icon_state = "assigned_solfed"
+
+// Station CC
+/obj/item/card/id/advanced/centcom/station
+	wildcard_slots = WILDCARD_LIMIT_SILVER
