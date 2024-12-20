@@ -189,8 +189,8 @@
 	icon_state = "hornet"
 	damage = 4
 	stamina = 15
-	damage_falloff_tile = 0.1
-	stamina_falloff_tile = 0.1
+	damage_falloff_tile = -0.1
+	stamina_falloff_tile = -0.1
 	wound_bonus = -5
 	bare_wound_bonus = 5
 	wound_falloff_tile = 0
@@ -221,8 +221,8 @@
 	icon_state = "stardust"
 	damage = 2
 	stamina = 8
-	damage_falloff_tile = 0.2
-	stamina_falloff_tile = 0.3
+	damage_falloff_tile = -0.2
+	stamina_falloff_tile = -0.3
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	stutter = 3 SECONDS
