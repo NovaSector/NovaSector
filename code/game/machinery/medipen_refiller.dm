@@ -30,7 +30,6 @@
 		/obj/item/reagent_containers/hypospray/medipen/penacid/empty = /datum/reagent/medicine/pen_acid,
 		// NOVA EDIT ADDITION END
 	)
-
 	// NOVA EDIT ADDITION BEGIN - Universal medipens
 	///Whitelist typecache of reagent types which are allowed to refill universal medipens.
 	var/static/list/medipen_reagent_whitelist = typecacheof(list(
@@ -42,7 +41,6 @@
 		/datum/reagent/medicine/morphine,
 	))
 	// NOVA EDIT ADDITION END
-
 /obj/machinery/medipen_refiller/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_demand)
