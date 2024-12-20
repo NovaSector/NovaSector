@@ -1,0 +1,4 @@
+author: "Trillium"
+delete-after: True
+changes:
+  - qol: "Removed species- and job-whitelisting from the Akula-only undersuit items in Loadout"
