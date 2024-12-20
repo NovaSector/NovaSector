@@ -379,3 +379,10 @@
       disruptive.'
   somenetwork:
   - rscadd: Adds donator item for jaklz
+2024-12-20:
+  Trillium:
+  - qol: Removed species- and job-whitelisting from the Akula-only undersuit items
+      in Loadout
+  vinylspiders:
+  - bugfix: fixes damage falloff being inverted for some modular guns (as in, you
+      do more damage if you are further away)

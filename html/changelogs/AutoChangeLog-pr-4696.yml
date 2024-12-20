@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes damage falloff being inverted for some modular guns (as in, you do more damage if you are further away)"
