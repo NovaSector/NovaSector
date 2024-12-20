@@ -41,6 +41,7 @@
 		/datum/reagent/medicine/morphine,
 	))
 	// NOVA EDIT ADDITION END
+
 /obj/machinery/medipen_refiller/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_demand)
