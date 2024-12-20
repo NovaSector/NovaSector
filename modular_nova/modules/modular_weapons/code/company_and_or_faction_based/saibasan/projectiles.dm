@@ -12,7 +12,7 @@
 	damage = 20
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
 	light_color = COLOR_SOFT_RED
-	wound_falloff_tile = 1
+	wound_falloff_tile = -1
 
 // Speedy sniper lasers for the big gun
 
@@ -29,7 +29,7 @@
 	speed = 0.4
 	light_range = 2
 	light_color = COLOR_VERY_SOFT_YELLOW
-	wound_falloff_tile = 0.1
+	wound_falloff_tile = -0.1
 
 // Disabler machinegun for the big gun
 
