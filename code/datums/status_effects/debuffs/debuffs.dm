@@ -8,6 +8,7 @@
 //Largely negative status effects go here, even if they have small beneficial effects
 //STUN EFFECTS
 /datum/status_effect/incapacitating
+	id = STATUS_EFFECT_ID_ABSTRACT
 	tick_interval = STATUS_EFFECT_NO_TICK
 	status_type = STATUS_EFFECT_REPLACE
 	alert_type = null
@@ -515,7 +516,7 @@
 	new/obj/effect/temp_visual/dir_setting/curse/grasp_portal(spawn_turf, owner.dir)
 	playsound(spawn_turf, 'sound/effects/curse/curse2.ogg', 80, TRUE, -1)
 	var/obj/projectile/curse_hand/C = new (spawn_turf)
-	C.preparePixelProjectile(owner, spawn_turf)
+	C.aim_projectile(owner, spawn_turf)
 	C.fire()
 
 /obj/effect/temp_visual/curse
@@ -877,6 +878,7 @@
 	name = "Ants!"
 	desc = span_warning("JESUS FUCKING CHRIST! CLICK TO GET THOSE THINGS OFF!")
 	icon_state = "antalert"
+	clickable_glow = TRUE
 
 /atom/movable/screen/alert/status_effect/ants/Click()
 	. = ..()
@@ -969,6 +971,7 @@
 	duration = 10 SECONDS
 	status_type = STATUS_EFFECT_REPLACE
 	tick_interval = 0.2 SECONDS
+	alert_type = null
 
 /datum/status_effect/teleport_madness/tick(seconds_between_ticks)
 	dump_in_space(owner)

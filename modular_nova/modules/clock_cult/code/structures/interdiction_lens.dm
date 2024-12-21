@@ -12,22 +12,13 @@
 	max_integrity = 150
 	minimum_power = POWER_PER_PERSON
 	passive_consumption = 25
-	/// Part 1/2 of the interdictor. This portion acts as the monitor, sending calls to the 2nd part when it finds something.
 	var/datum/proximity_monitor/advanced/dampening_field
-	/// Part 2 of the interdictor. This one actually does the dampening, but requires the dampening_field to tell it what to dampen
-	var/obj/item/borg/projectile_dampen/clockcult/internal_dampener
-
-
-/obj/structure/destructible/clockwork/gear_base/powered/interdiction_lens/Initialize(mapload)
-	. = ..()
-	internal_dampener = new
 
 
 /obj/structure/destructible/clockwork/gear_base/powered/interdiction_lens/Destroy()
 	if(enabled)
 		STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(dampening_field)
-	QDEL_NULL(internal_dampener)
 	return ..()
 
 
@@ -79,40 +70,11 @@
 
 //Dampening field
 
-/datum/proximity_monitor/advanced/projectile_dampener/peaceborg/clockwork
-
-/datum/proximity_monitor/advanced/projectile_dampener/peaceborg/clockwork/setup_edge_turf(turf/target)
-	edge_turfs |= target
-
-
-/datum/proximity_monitor/advanced/projectile_dampener/peaceborg/clockwork/cleanup_edge_turf(turf/target)
-	edge_turfs -= target
-
-
-/datum/proximity_monitor/advanced/projectile_dampener/peaceborg/clockwork/capture_projectile(obj/projectile/fired_projectile, track_projectile = TRUE)
-	if(fired_projectile in tracked)
+/datum/proximity_monitor/advanced/projectile_dampener/peaceborg/clockwork/catch_bullet_effect(obj/projectile/bullet)
+	var/mob/living/shooter = bullet.firer
+	if(istype(shooter) && IS_CLOCK(shooter))
 		return
-
-	if(isliving(fired_projectile.firer))
-		var/mob/living/living_firer = fired_projectile.firer
-		if(IS_CLOCK(living_firer))
-			return
-
-	var/obj/structure/destructible/clockwork/gear_base/powered/interdiction_lens/host_lens = host
-
-	host_lens.internal_dampener.dampen_projectile(fired_projectile, track_projectile)
-
-	if(track_projectile)
-		tracked += fired_projectile
-
-
-/obj/item/borg/projectile_dampen/clockcult
-	name = "internal clockcult projectile dampener"
-	projectile_damage_coefficient = 0.75 // Only -25% damage instead of -50%
-
-
-/obj/item/borg/projectile_dampen/clockcult/process_recharge()
-	energy = maxenergy
+	. = ..()
 
 #undef INTERDICTION_LENS_RANGE
 #undef POWER_PER_PERSON
