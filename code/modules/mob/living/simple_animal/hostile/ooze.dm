@@ -102,6 +102,7 @@
 
 
 ///Its good stats and high mobility makes this a good assasin type creature. It's vulnerabilites against cold, shotguns and
+// ...and?
 /mob/living/simple_animal/hostile/ooze/gelatinous
 	name = "Gelatinous Cube"
 	desc = "A cubic ooze native to Sholus VII.\nSince the advent of space travel this species has established itself in the waste treatment facilities of several space colonies.\nIt is often considered to be the third most infamous invasive species due to its highly aggressive and predatory nature."
@@ -112,6 +113,7 @@
 	armour_penetration = 15
 	obj_damage = 20
 	death_message = "collapses into a pile of goo!"
+	gold_core_spawnable = HOSTILE_SPAWN
 	///The ability to consume mobs
 	var/datum/action/consume/consume
 
@@ -302,6 +304,24 @@
 	death_message = "deflates and spills its vital juices!"
 	edible_food_types = MEAT | VEGETABLES
 	ghost_controllable = TRUE //NOVA EDIT ADDITION - These guys can be helpful... maybe players will be helpful.
+
+/mob/living/simple_animal/hostile/ooze/grapes/xenobio
+	name = "Sholean grapes"
+	desc = "A botryoidal ooze from Sholus VII.\nXenobiologists consider it to be one of the calmer and more agreeable species on the planet, but so far little is known about its behaviour in the wild.\nIt undulates in a comforting manner."
+	icon_state = "grapes"
+	icon_living = "grapes"
+	icon_dead = "grapes_dead"
+	speed = 1
+	health = 200
+	maxHealth = 200
+	damage_coeff = list(BRUTE = 1, BURN = 0.8, TOX = 0.5, STAMINA = 0, OXY = 1)
+	melee_damage_lower = 12
+	melee_damage_upper = 12
+	obj_damage = 15
+	death_message = "deflates and spills its vital juices!"
+	edible_food_types = MEAT | VEGETABLES
+	ghost_controllable = FALSE // only dif
+	gold_core_spawnable = HOSTILE_SPAWN
 
 /mob/living/simple_animal/hostile/ooze/grapes/get_innate_actions()
 	var/static/list/innate_actions = list(

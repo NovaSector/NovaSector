@@ -11,6 +11,7 @@
 	icon_living = "flesh"
 	icon_dead = "flesh_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
+	gold_core_spawnable = HOSTILE_SPAWN // Not like rat kings - does not ping ghosts for control if spawned directly, so this is fine.
 	speak_emote = list("chitters")
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
