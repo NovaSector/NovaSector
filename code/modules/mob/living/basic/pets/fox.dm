@@ -95,7 +95,6 @@
 // A more docile subtype that won't attack other animals.
 /mob/living/basic/pet/fox/docile
 	ai_controller = /datum/ai_controller/basic_controller/fox/docile
-	gold_core_spawnable = FRIENDLY_SPAWN
 
 /mob/living/basic/pet/fox/icemoon
 	name = "icemoon fox"
