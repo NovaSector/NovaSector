@@ -56,7 +56,11 @@
 		if(!atom_check)
 			ritual_fail(checked_rune)
 			return FALSE
-
+		if(isliving(atom_check))
+			var/mob/living/human_sacrifice = atom_check
+			if(human_sacrifice.stat < DEAD)
+				ritual_fail(checked_rune)
+				return FALSE
 		if(is_type_in_list(atom_check, consumed_components))
 			qdel(atom_check)
 			checked_rune.balloon_alert_to_viewers("[checked_component] component has been consumed...")
