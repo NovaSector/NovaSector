@@ -29,8 +29,6 @@
 	unsuitable_atmos_damage = 0
 	basic_mob_flags = DEL_ON_DEATH
 
-	gold_core_spawnable = FRIENDLY_SPAWN
-
 	///List of loot drops on death, since it deletes itself on death (like trooper).
 	var/list/loot = list(
 		/obj/effect/decal/cleanable/blood/gibs = 1,

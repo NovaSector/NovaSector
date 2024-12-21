@@ -31,7 +31,6 @@
 	obj_damage = 0
 	unsuitable_atmos_damage = 0
 
-	gold_core_spawnable = HOSTILE_SPAWN
 	ai_controller = /datum/ai_controller/basic_controller/space_bat
 
 /mob/living/basic/bat/Initialize(mapload)
