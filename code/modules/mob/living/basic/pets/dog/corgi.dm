@@ -321,6 +321,7 @@
 	icon_living = "corgigrey"
 	icon_dead = "corgigrey_dead"
 	can_be_shaved = FALSE
+	gold_core_spawnable = FRIENDLY_SPAWN
 
 /mob/living/basic/pet/dog/corgi/exoticcorgi/Initialize(mapload)
 	. = ..()

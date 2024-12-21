@@ -17,6 +17,7 @@
 	attack_verb_continuous = "bucks"
 	attack_verb_simple = "buck"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
+	gold_core_spawnable = FRIENDLY_SPAWN
 	health = 75
 	maxHealth = 75
 	blood_volume = BLOOD_VOLUME_NORMAL

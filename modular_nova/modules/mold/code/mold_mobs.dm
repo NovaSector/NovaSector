@@ -194,6 +194,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/electric_mosquito
 
 	pass_flags = PASSTABLE
+	gold_core_spawnable = HOSTILE_SPAWN
 
 	/// What the mob injects per bite
 	var/inject_reagent = /datum/reagent/teslium
@@ -256,6 +257,8 @@
 	light_range = 2
 	light_power = 1
 	light_color = LIGHT_COLOR_GREEN
+
+	gold_core_spawnable = HOSTILE_SPAWN
 
 	ai_controller = /datum/ai_controller/basic_controller/centaur
 

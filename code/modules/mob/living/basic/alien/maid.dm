@@ -7,7 +7,7 @@
 	friendly_verb_simple = "caress"
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	gold_core_spawnable = HOSTILE_SPAWN
+	gold_core_spawnable = NO_SPAWN // her sprite isn't working. keeping her out of spawns until this is remedied
 	icon_state = "maid"
 	icon_living = "maid"
 	icon_dead = "maid_dead"

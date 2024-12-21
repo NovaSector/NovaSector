@@ -8,6 +8,7 @@
 	icon_gib = "clown_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	sentience_type = SENTIENCE_HUMANOID
+	gold_core_spawnable = HOSTILE_SPAWN
 	gender = MALE
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
