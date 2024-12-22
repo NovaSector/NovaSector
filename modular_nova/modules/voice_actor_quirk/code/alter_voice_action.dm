@@ -28,12 +28,9 @@
 		secondary_voice = speaker
 
 /datum/action/innate/alter_voice/Grant(mob/grant_to)
-	if(!SStts.tts_enabled)
-		return
 	. = ..()
 	if(grant_to != owner)
 		return
-	// Setup voices later if the client doesn't exist
 	setup_voices(grant_to)
 
 /datum/action/innate/alter_voice/Remove(mob/remove_from)

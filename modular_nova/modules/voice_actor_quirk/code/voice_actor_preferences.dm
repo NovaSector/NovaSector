@@ -13,7 +13,7 @@
 /datum/preference/choiced/voice_actor/is_valid(value)
 	if(value == "Random")
 		return TRUE
-	if(SStts.tts_enabled && (value in SStts.available_speakers))
+	if(value in get_choices())
 		return TRUE
 	return FALSE
 
@@ -23,11 +23,11 @@
 		speakers.Insert(1, "Random")
 		return speakers
 	if(fexists("data/cached_tts_voices.json"))
-		var/list/text_data = rustg_file_read("data/cached_tts_voices.json")
-		var/list/cached_data = json_decode(text_data)
-		if(cached_data)
-			cached_data.Insert(1, "Random")
-			return cached_data
+		var/text_data = rustg_file_read("data/cached_tts_voices.json")
+		var/list/cached_voices = json_decode(text_data)
+		if(cached_voices)
+			cached_voices.Insert(1, "Random")
+			return cached_voices
 	return list("Random")
 
 /datum/preference/numeric/voice_actor_pitch
