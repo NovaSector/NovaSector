@@ -34,4 +34,3 @@
 	ghost_controllable = FALSE // i lied, we also define this one mob to not be ghost controllable.
 	gold_core_spawnable = HOSTILE_SPAWN
 
-// other two mobs i changed are already modular
