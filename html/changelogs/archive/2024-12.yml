@@ -386,3 +386,7 @@
   vinylspiders:
   - bugfix: fixes damage falloff being inverted for some modular guns (as in, you
       do more damage if you are further away)
+2024-12-22:
+  FlufflesTheDog:
+  - qol: Ashwalker rituals are a bit more clear about mob-based components
+  - bugfix: Ashwalker rituals cannot consume living mobs as components

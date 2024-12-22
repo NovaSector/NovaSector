@@ -1,5 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - qol: "Ashwalker rituals are a bit more clear about mob-based components"
-  - bugfix: "Ashwalker rituals cannot consume living mobs as components"
