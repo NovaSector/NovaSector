@@ -314,3 +314,79 @@
   - rscadd: golem arms can now dredge boulders from ore vents, as well as process
       them by hand
   - bugfix: "fixed an exploit related to ore vents\n/\U0001F191"
+2024-12-17:
+  FlufflesTheDog:
+  - rscadd: Added donator items for Sciamach
+  Ghommie:
+  - rscadd: Added fishing bluespace capsules to the game, which can be used to spawn
+      a variety of fishing spots, from freshwater to tiziran sea to hot springs, and
+      also lava and plasma if emagged.
+  - rscadd: 'Added two new fish: the zagoskian moonfish and the sacabambaspis. Moonfish
+      will now periodically lay moonfish eggs.'
+  - map: The 'crashed pod' lavaland ruin now has a hot spring, and the cursed hotspring
+      on icemoon now has a plastic chair and a fishing toolbox.
+  - rscadd: Added a new score that keeps track of all different fish that you've caught
+      between shifts.
+  - server: Added a new schema table to store the aforementioned entries and the ckeys
+      associated to them, with an additional timestamp column.
+  Hardly:
+  - qol: Guns in deathmatch and bitdomains now have gun safety set to off by default.
+  LordHookie:
+  - qol: Some hard or inconsistent to obtain mundane items, namely Seclites, Ammo
+      Pouches, Bandoliers and Combat Boots can now be cargo ordered.
+  - rscadd: Due to human rights concerns regarding those suffering from Brain Tumors,
+      Deforest has obtained a license to sell Mannitol through imports.
+  MrSunabouzu:
+  - rscadd: Snowglobe medbay renovation
+  OrbisAnima:
+  - balance: Bitrunning - Reverted Domain points to 1x from 2x, and reduced BitRunner
+      points to 1.5x from 2x
+  Stalkeros:
+  - rscadd: Syndicate Assault SNPCs, now 'assumedly' Counter-Bitrunners, have been
+      provided with appropriate MODsuits and Cybersun-manufactured weaponry.
+  araeotu:
+  - rscadd: 2 new nova labcoats for geneticist and roboticist
+  - rscadd: nova labcoats are now available in corresponding wardrobe & loadout
+  klushy225:
+  - rscadd: Added the Half Bob hairstyle
+  - image: Added the hair_bob_half state to hair.dmi
+2024-12-18:
+  OrbisAnima:
+  - rscadd: Added the new P207 to both cargo sol imports and security vendors, its
+      a completly non lethal pistol that shoots bouncy balls that are more effective
+      against armor than the usual rubber ammunition, comparable to regular ammo.  It's
+      ammo its easy enough to produce that autolathes and sec lathes can print it
+      out from start.
+  - qol: Added two pepperball guns to security vendors along with its ammo, increased
+      how much the ammo box holds to 18 and fixed the issue that prevented it from
+      being printable on the sec lathe.
+  - bugfix: Lower cases the text of ammo boxes to be consistent.
+  - qol: Allows those with the Water Hater Quirk (Felinids, Tajarans, etc) to bathe
+      or shower without getting stamina damage. They still get a negative Moodlet
+      and dont heal as others do.
+  - bugfix: Removed the variable that made Akula not being able to use subspecies
+      or custom lore.
+  hack-wrench:
+  - rscadd: Added new head clothing, gold/silver chains with 8 styles (click in hand
+      for change)
+  - rscadd: Added new 18 hair styles for skrell
+  - bugfix: Fix MODsuit coverage for skrell hairs
+2024-12-19:
+  Kocma-san:
+  - bugfix: civil defense symptom kitis now available for purchase
+  RatFromTheJungle:
+  - rscadd: Adds tinypaks, smaller backpacks to the loadout that are less 'visually
+      disruptive.'
+  somenetwork:
+  - rscadd: Adds donator item for jaklz
+2024-12-20:
+  Trillium:
+  - qol: Removed species- and job-whitelisting from the Akula-only undersuit items
+      in Loadout
+  vinylspiders:
+  - bugfix: fixes damage falloff being inverted for some modular guns (as in, you
+      do more damage if you are further away)
+2024-12-22:
+  FlufflesTheDog:
+  - qol: Ashwalker rituals are a bit more clear about mob-based components
+  - bugfix: Ashwalker rituals cannot consume living mobs as components

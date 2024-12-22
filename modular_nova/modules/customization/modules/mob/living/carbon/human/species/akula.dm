@@ -9,7 +9,6 @@
 	name = "Akula"
 	plural_form = "Akulae"
 	id = SPECIES_AKULA
-	lore_protected = TRUE
 	offset_features = list(
 		OFFSET_GLASSES = list(0, 1),
 		OFFSET_EARS = list(0, 2),

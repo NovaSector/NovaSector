@@ -7,7 +7,7 @@
 /datum/armament_entry/company_import/deforest/first_aid_kit
 	subcategory = "First-Aid Kits"
 
-/datum/armament_entry/deforest/first_aid_kit/civil_defense/comfort
+/datum/armament_entry/company_import/deforest/first_aid_kit/comfort
 	item_type = /obj/item/storage/medkit/civil_defense/comfort/stocked
 	cost = PAYCHECK_COMMAND * 2
 
@@ -107,6 +107,10 @@
 /datum/armament_entry/company_import/deforest/first_aid/super_robofoam
 	item_type = /obj/item/stack/medical/wound_recovery/robofoam_super
 	cost = PAYCHECK_COMMAND * 4
+
+/datum/armament_entry/company_import/deforest/first_aid/mannitol // Bitrunners and Degenerative players should not be out of a job if med is slow, gone or bad
+	item_type = /obj/item/storage/pill_bottle/mannitol
+	cost = PAYCHECK_COMMAND * 4 // pricey to not obsolete med if they ARE here
 
 // Autoinjectors for healing
 
