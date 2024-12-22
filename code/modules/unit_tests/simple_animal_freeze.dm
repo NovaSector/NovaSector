@@ -125,6 +125,7 @@
 		/mob/living/simple_animal/hostile/vox/ranged/space/laser,
 		/mob/living/simple_animal/hostile/zombie/cheesezombie,
 		/mob/living/simple_animal/hostile/zombie/nocorpse,
+		/mob/living/simple_animal/hostile/ooze/grapes/xenobio, // update when grapes are updated, must be here to stop errors
 
 		// DO NOT ADD NEW ENTRIES TO THIS LIST
 		// READ THE COMMENT ABOVE
