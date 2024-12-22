@@ -10,14 +10,18 @@
 	important_text = "Stalling for long enough will also allow us to recoup the costs. Complete denial is still preferable."
 	random_appearance = FALSE
 
-/obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/proc/apply_syndiename(mob/living/carbon/human/spawned_human)
-	var/bitrunning_alias = spawned_human.client?.prefs?.read_preference(/datum/preference/name/hacker_alias) || pick(GLOB.hacker_aliases)
-	spawned_human.fully_replace_character_name(spawned_human.real_name, "[bitrunning_alias]")
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/proc/apply_pref_alias(mob/living/carbon/human/spawned_human)
+	var/pref_alias = spawned_human.client?.prefs?.read_preference(/datum/preference/name/hacker_alias)
+	spawned_human.fully_replace_character_name(spawned_human.real_name, "[pref_alias]")
+
+/obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/proc/apply_random_alias(mob/living/carbon/human/spawned_human)
+	var/random_alias = pick(GLOB.hacker_aliases)
+	spawned_human.fully_replace_character_name(spawned_human.real_name, "[random_alias]")
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/special(mob/living/carbon/human/spawned_human)
 	. = ..()
-	apply_syndiename(spawned_human)
+	apply_random_alias(spawned_human)
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/post_transfer_prefs(mob/living/carbon/human/spawned_human)
 	. = ..()
-	apply_syndiename(spawned_human)
+	apply_pref_alias(spawned_human)

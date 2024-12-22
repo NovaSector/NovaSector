@@ -82,6 +82,7 @@
 	selectable_items = list(
 		/obj/item/summon_beacon/lustwish,
 		/obj/item/storage/box/nif_ghost_box,
+		/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
 	)
 
 /obj/item/summon_beacon/lustwish
@@ -118,6 +119,7 @@
 	. = ..()
 	selectable_items += list(
 		/obj/item/storage/belt/military,
+		/obj/item/book_of_babel,
 	)
 
 /obj/item/bitrunning_disk/item/tier2/Initialize(mapload)
@@ -127,11 +129,15 @@
 	)
 	selectable_items += list(
 		/obj/item/storage/toolbox/guncase/clandestine,
-		/obj/item/autosurgeon/syndicate/hackerman,
+		/obj/item/autosurgeon/syndicate/hackerman/bitrunning,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
+		/obj/item/shield/energy,
 		/obj/item/storage/medkit/expeditionary/surplus,
 	)
+
+/obj/item/autosurgeon/syndicate/hackerman/bitrunning
+	name = "hacking arm implanter"
 
 /obj/item/bitrunning_disk/item/tier3/Initialize(mapload)
 	. = ..()
@@ -139,11 +145,14 @@
 		/obj/item/gun/energy/e_gun/nuclear,
 	)
 	selectable_items += list(
-		/obj/item/autosurgeon/syndicate/nodrop,
+		/obj/item/autosurgeon/syndicate/nodrop/bitrunning,
 		/obj/item/gun/energy/modular_laser_rifle,
 		/obj/item/storage/belt/holster/energy/nanite,
 		/obj/item/minigunpack,
 	)
+
+/obj/item/autosurgeon/syndicate/nodrop/bitrunning
+	name = "anti-drop implanter"
 
 /obj/item/bitrunning_disk/ability/tier1/Initialize(mapload)
 	. = ..()

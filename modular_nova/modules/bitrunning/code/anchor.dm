@@ -1,0 +1,40 @@
+/obj/item/domain_anchor
+	name = "domain connection anchor"
+	desc = "A disposable tablet with a set of programs and utilities meant to stabilize the local square meter of domain infospace for new connections to be hopefully-safe. <br>\
+	In layman's terms, this creates additional bitrunning spawn points."
+	icon = 'modular_nova/modules/bitrunning/icons/remote.dmi'
+	icon_state = "delivery_running"
+	var/list/interference_generators = list(
+		/obj/effect/landmark/bitrunning/hololadder_spawn,
+		/obj/structure/hololadder,
+		/obj/effect/mob_spawn,
+	)
+
+/obj/item/domain_anchor/examine(mob/user)
+	. = ..()
+	. += span_notice("Use in-hand to create a new spawn point.")
+	. += span_warning("Can't be used if stabilized spawnpoints, hololadders, SNPC spawnpoints or foreign secure connections are in the seven tile vicinity.")
+
+/obj/item/domain_anchor/attack_self(mob/user, modifiers)
+	for(var/obj/machinery/quantum_server/server in SSmachines.get_machines_by_type(/obj/machinery/quantum_server))
+		server.exit_turfs += get_turf(src)
+		server.retries_spent -= 1
+		server.threat += 1
+		server.radio.talk_into(src, "Potential secure datastream detected. Locking on the new spawn point.", RADIO_CHANNEL_SUPPLY)
+	new /obj/effect/landmark/bitrunning/domain_anchor(get_turf(src))
+	balloon_alert(user, "connection stabilized!")
+	qdel(src)
+
+/obj/effect/landmark/bitrunning/domain_anchor
+	name = "anchored secure connection"
+	desc = "Highly stable connection protocol, and consequentially a trojan, used by bitrunners during attacks on high-value targets when numbers are key and \
+	just three attempts aren't enough.<br>\
+	In several seconds, merges itself with the code, becoming nigh-invisible to any means of detection."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "curse"
+	invisibility = INVISIBILITY_NONE
+
+/obj/effect/landmark/bitrunning/domain_anchor/Initialize(mapload)
+	. = ..()
+	animate(src, alpha = 0, 10 SECONDS)
+	QDEL_IN(src, 10 SECONDS)
