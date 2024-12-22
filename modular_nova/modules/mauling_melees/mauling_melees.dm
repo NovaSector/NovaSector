@@ -50,6 +50,8 @@
 	desc = "A large synthetic-leather scabbard used to carry some kind of machete. A compact set of buckles suggests the ability to be strapped to the back, waist, or some kinds of armor."
 	icon = 'modular_nova/modules/mauling_melees/icons/objects.dmi'
 	worn_icon = 'modular_nova/modules/mauling_melees/icons/back.dmi'
+	lefthand_file = 'modular_nova/modules/mauling_melees/icons/lefthands.dmi'
+	righthand_file = 'modular_nova/modules/mauling_melees/icons/righthands.dmi'
 	icon_state = "msheath"
 	inhand_icon_state = "msheath"
 	worn_icon_state = "msheath"
