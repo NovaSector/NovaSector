@@ -8297,6 +8297,7 @@
 #include "modular_nova\modules\mold\code\mold_structures.dm"
 #include "modular_nova\modules\more_briefcases\code\briefcases.dm"
 #include "modular_nova\modules\morefermentplants\code\ambrosia.dm"
+#include "modular_nova\modules\more_gold_slime_monsters\code\more_gold_slime_monsters.dm"
 #include "modular_nova\modules\morefermentplants\code\banana.dm"
 #include "modular_nova\modules\morefermentplants\code\beans.dm"
 #include "modular_nova\modules\morefermentplants\code\berries.dm"
