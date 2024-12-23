@@ -20,8 +20,35 @@
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/special(mob/living/carbon/human/spawned_human)
 	. = ..()
+	var/datum/action/cooldown/spell/home_network/norton
+	norton.Grant(spawned_human)
 	apply_random_alias(spawned_human)
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/post_transfer_prefs(mob/living/carbon/human/spawned_human)
 	. = ..()
 	apply_pref_alias(spawned_human)
+
+/datum/action/cooldown/spell/home_network
+	name = "Home Network"
+	desc = "Makes the caster immune to many forms of practical hacks, backing themselves to the home network."
+
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "bci_shield"
+	sound = 'sound/effects/magic/staff_animation.ogg'
+	cooldown_time = 10 SECONDS
+	spell_requirements = SPELL_REQUIRES_HUMAN
+
+	invocation = "NOR TON"
+	invocation_type = INVOCATION_SHOUT
+
+/datum/action/cooldown/spell/home_network/is_valid_target(atom/cast_on)
+	return isliving(cast_on)
+
+/datum/action/cooldown/spell/home_network/cast(mob/living/cast_on)
+	. = ..()
+	cast_on.visible_message(
+		span_warning("Numerous loading bars and nano-scale hexagonal energy shields briefly cover [cast_on]!"),
+		span_notice("You protect yourself from foreign intrusion!"),
+	)
+	ADD_TRAIT(cast_on, TRAIT_HOLY, REF(src))
+	Remove(cast_on)

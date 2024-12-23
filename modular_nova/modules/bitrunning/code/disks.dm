@@ -7,6 +7,7 @@
 		/datum/action/cooldown/spell/shapeshift/minor_illusion,
 		/datum/action/cooldown/spell/conjure_item/fire,
 		/datum/action/cooldown/spell/conjure_item/water,
+		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
 /obj/item/bitrunning_disk/item/tier0
@@ -70,7 +71,7 @@
 /datum/orderable_item/bitrunning_tech/ability_tier0
 	cost_per_order = 350
 	item_path = /obj/item/bitrunning_disk/ability/tier0
-	desc = "This disk contains a program that lets you cast Minor Illusion, Conjure Presents!, Produce Flame, or Produce Water."
+	desc = "This disk contains a program that lets you cast Minor Illusion, Summon Cheese, Produce Flame, or Produce Water."
 
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
@@ -145,6 +146,7 @@
 		/obj/item/gun/energy/e_gun/nuclear,
 	)
 	selectable_items += list(
+		/obj/item/domain_anchor,
 		/obj/item/autosurgeon/syndicate/nodrop/bitrunning,
 		/obj/item/gun/energy/modular_laser_rifle,
 		/obj/item/storage/belt/holster/energy/nanite,
@@ -160,6 +162,9 @@
 		/datum/action/cooldown/spell/touch/lay_on_hands,
 		/datum/action/cooldown/spell/conjure/flare,
 	)
+	selectable_actions -= list(
+		/datum/action/cooldown/spell/conjure/cheese,
+	)
 
 /obj/item/bitrunning_disk/ability/tier2/Initialize(mapload)
 	. = ..()
@@ -167,8 +172,11 @@
 		/datum/action/cooldown/adrenaline,
 		/datum/action/cooldown/spell/charge,
 		/datum/action/cooldown/mob_cooldown/dash,
-		/datum/action/cooldown/spell/touch/scream_for_me,
+		/datum/action/cooldown/spell/touch/scream_for_me/bitrunning,
 	)
+
+/datum/action/cooldown/spell/touch/scream_for_me/bitrunning
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
 	. = ..()
@@ -194,10 +202,10 @@
 	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a domain connection anchor, Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
-	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
+	desc = "This disk contains a program that lets you cast Summon Light Source, Lesser Heal, or Mending Touch."
 
 /datum/orderable_item/bitrunning_tech/ability_tier2
 	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
