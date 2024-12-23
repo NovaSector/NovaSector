@@ -22,6 +22,7 @@
 	. = ..()
 	new /obj/item/knife/combat(src)
 	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
+	new /obj/item/radio/headset/headset_faction(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/after_open()
 	qdel(src)
