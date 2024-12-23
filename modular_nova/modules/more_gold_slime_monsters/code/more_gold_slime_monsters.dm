@@ -1,7 +1,7 @@
 // this folder is entirely just adding tags to let things spawn, or not spawn, in gold slimes. enjoy
 
 /mob/living/basic/pet/gondola
-	gold_core_spawnable = FRIENDLY_SPAWN
+	gold_core_spawnable = HOSTILE_SPAWN // make them less consistent
 
 /mob/living/basic/deer
 	gold_core_spawnable = FRIENDLY_SPAWN
