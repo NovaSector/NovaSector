@@ -16,6 +16,11 @@
 	desc = "(ToV 2 Playtester Reward) UNIF Counter-Insurgency Detachment bundle: featuring equipment provided to field operators in medium-intensity firefights. <br>\
 	'VCIM (Void Combat Identification Measures) camo' Skin (Alt 1/Strobeless, Opaque Glass)."
 
+/obj/structure/closet/crate/secure/weapon/milsim/PopulateContents()
+	. = ..()
+	new /obj/item/knife/combat(src)
+	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
+
 /obj/structure/closet/crate/secure/weapon/milsim/after_open()
 	qdel(src)
 
@@ -24,8 +29,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/mechanic/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/mechanic(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/marksman
@@ -33,8 +36,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/marksman/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/marksman(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/medic
@@ -42,8 +43,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/medic/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/medic(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/trapper
@@ -51,8 +50,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/trapper/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/trapper(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/saboteur
@@ -60,8 +57,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/saboteur/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/clothing/glasses/material(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/saboteur(src)
 
@@ -70,8 +65,6 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/sentinel/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/sentinel(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/trooper
@@ -79,6 +72,4 @@
 
 /obj/structure/closet/crate/secure/weapon/milsim/trooper/PopulateContents()
 	. = ..()
-	new /obj/item/knife/combat(src)
-	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/trooper(src)
