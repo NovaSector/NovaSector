@@ -4,16 +4,10 @@
 	In layman's terms, this creates additional bitrunning spawn points."
 	icon = 'modular_nova/modules/bitrunning/icons/remote.dmi'
 	icon_state = "delivery_running"
-	var/list/interference_generators = list(
-		/obj/effect/landmark/bitrunning/hololadder_spawn,
-		/obj/structure/hololadder,
-		/obj/effect/mob_spawn,
-	)
 
 /obj/item/domain_anchor/examine(mob/user)
 	. = ..()
 	. += span_notice("Use in-hand to create a new spawn point.")
-	. += span_warning("Can't be used if stabilized spawnpoints, hololadders, SNPC spawnpoints or foreign secure connections are in the seven tile vicinity.")
 
 /obj/item/domain_anchor/attack_self(mob/user, modifiers)
 	for(var/obj/machinery/quantum_server/server in SSmachines.get_machines_by_type(/obj/machinery/quantum_server))
