@@ -42,7 +42,7 @@
 	new /obj/item/mod/control/pre_equipped/responsory/milsim/marksman(src)
 
 /obj/structure/closet/crate/secure/weapon/milsim/medic
-	name = "medic (combat hypospray/combat hypovials/medHUD)"
+	name = "medic (combat hypospray/combat hypovials dispenser/medHUD)"
 
 /obj/structure/closet/crate/secure/weapon/milsim/medic/PopulateContents()
 	. = ..()
