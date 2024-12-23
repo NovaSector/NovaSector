@@ -1,11 +1,13 @@
 /datum/mod_theme/responsory/ancient_milsim
 	armor_type = /datum/armor/armor_sf_hardened
 
-/obj/item/mod/control/pre_equipped/responsory/milsim_mechanic
+/obj/item/mod/control/pre_equipped/responsory/milsim
 	theme = /datum/mod_theme/responsory/ancient_milsim
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	starting_frequency = MODLINK_FREQ_NANOTRASEN
 	req_access = null
+
+/obj/item/mod/control/pre_equipped/responsory/milsim/mechanic
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/magnetic_harness,
@@ -17,14 +19,10 @@
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/medhud,
 	)
-	insignia_type = /obj/item/mod/module/insignia/engineer
+	insignia_type = /obj/item/mod/module/insignia/milsim_mechanic
 	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/mechanic
 
-/obj/item/mod/control/pre_equipped/responsory/milsim_trapper
-	theme = /datum/mod_theme/responsory/ancient_milsim
-	applied_cell = /obj/item/stock_parts/power_store/cell/super
-	starting_frequency = MODLINK_FREQ_NANOTRASEN
-	req_access = null
+/obj/item/mod/control/pre_equipped/responsory/milsim/trapper
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/magnetic_harness,
@@ -36,14 +34,10 @@
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/thermal,
 	)
-	insignia_type = /obj/item/mod/module/insignia/commander
+	insignia_type = /obj/item/mod/module/insignia/milsim_trapper
 	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/trapper
 
-/obj/item/mod/control/pre_equipped/responsory/milsim_marksman
-	theme = /datum/mod_theme/responsory/ancient_milsim
-	applied_cell = /obj/item/stock_parts/power_store/cell/super
-	starting_frequency = MODLINK_FREQ_NANOTRASEN
-	req_access = null
+/obj/item/mod/control/pre_equipped/responsory/milsim/marksman
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/magnetic_harness,
@@ -57,14 +51,10 @@
 		/obj/item/mod/module/active_sonar,
 		/obj/item/mod/module/visor/night,
 	)
-	insignia_type = /obj/item/mod/module/insignia/security
+	insignia_type = /obj/item/mod/module/insignia/milsim_marksman
 	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/marksman
 
-/obj/item/mod/control/pre_equipped/responsory/milsim_medic
-	theme = /datum/mod_theme/responsory/ancient_milsim
-	applied_cell = /obj/item/stock_parts/power_store/cell/super
-	starting_frequency = MODLINK_FREQ_NANOTRASEN
-	req_access = null
+/obj/item/mod/control/pre_equipped/responsory/milsim/medic
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/magnetic_harness,
@@ -76,13 +66,62 @@
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/visor/medhud,
 	)
-	insignia_type = /obj/item/mod/module/insignia/medic
+	insignia_type = /obj/item/mod/module/insignia/milsim_medic
 	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/medic
+
+/obj/item/mod/control/pre_equipped/responsory/milsim/saboteur
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/status_readout/operational,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/visor/meson,
+	)
+	default_pins = list(
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/visor/meson,
+	)
+	insignia_type = /obj/item/mod/module/insignia/milsim_saboteur
+	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/saboteur
+
+/obj/item/mod/control/pre_equipped/responsory/milsim/sentinel
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/status_readout/operational,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/active_sonar,
+		/obj/item/mod/module/visor/night,
+	)
+	default_pins = list(
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/active_sonar,
+		/obj/item/mod/module/visor/night,
+	)
+	insignia_type = /obj/item/mod/module/insignia/milsim_sentinel
+	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/sentinel
+
+/obj/item/mod/control/pre_equipped/responsory/milsim/trooper
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/status_readout/operational,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/active_sonar,
+		/obj/item/mod/module/visor/night,
+	)
+	default_pins = list(
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/active_sonar,
+		/obj/item/mod/module/visor/night,
+	)
+	insignia_type = /obj/item/mod/module/insignia/milsim_trooper
+	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/trooper
 
 /obj/item/mod/module/dispenser/ancient_milsim
 	removable = FALSE
-	var/first_user = TRUE
-	var/new_dispense_type = /obj/item
+	var/first_use = TRUE
+	var/new_dispense_type = /obj/item/food/burger/tofu
 	var/new_cooldown_time = 2 SECONDS
 
 /obj/item/mod/module/dispenser/ancient_milsim/on_use()
@@ -93,23 +132,23 @@
 		dispense_type = new_dispense_type
 
 /obj/item/mod/module/dispenser/ancient_milsim/mechanic
-	name = "alien tools-cable dispenser module"
+	name = "MOD alien tools-cable dispenser module"
 	desc = "This module can create set of advanced tools and additional cable coils at the user's liking."
 	dispense_type = /obj/item/storage/belt/military/abductor/full
-	cooldown_time = 45 SECONDS
+	cooldown_time = 5 SECONDS
 	new_dispense_type = /obj/item/stack/cable_coil
-	new_cooldown_time = 10 SECONDS
+	new_cooldown_time = 15 SECONDS
 
 /obj/item/mod/module/dispenser/ancient_milsim/trapper
-	name = "chameleon projector-stealth landmines dispenser module"
+	name = "MOD chameleon projector-stealth landmines dispenser module"
 	desc = "This module can create a chameleon projector and additional stealth landmines at the user's liking."
 	dispense_type = /obj/item/chameleon
-	cooldown_time = 15 SECONDS
+	cooldown_time = 10 SECONDS
 	new_dispense_type = /obj/item/minespawner/ancient_milsim
 	new_cooldown_time = 10 SECONDS
 
 /obj/item/mod/module/dispenser/ancient_milsim/marksman
-	name = "barricade box-throwing knives dispenser module"
+	name = "MOD barricade box-throwing knives dispenser module"
 	desc = "This module can create a box of barricades and additional throwing knives at the user's liking."
 	dispense_type = /obj/item/storage/barricade
 	cooldown_time = 15 SECONDS
@@ -117,7 +156,7 @@
 	new_cooldown_time = 5 SECONDS
 
 /obj/item/mod/module/dispenser/ancient_milsim/medic
-	name = "custom hypospray-hypospray vials dispenser module"
+	name = "MOD custom hypospray-hypospray vials dispenser module"
 	desc = "This module can create a single combat hypospray and additional cartridges at the user's liking."
 	dispense_type = /obj/item/hypospray/mkii/deluxe/cmo/combat/ancient_milsim
 	cooldown_time = 5 SECONDS
@@ -137,3 +176,50 @@
 		/datum/reagent/medicine/coagulant = 15,
 		/datum/reagent/medicine/c2/penthrite = 15,
 	)
+
+/obj/item/mod/module/dispenser/ancient_milsim/saboteur
+	name = "MOD Binyat implanter-EMP grenade dispenser module"
+	desc = "This module can create a single Binyat deck implanter and additional EMP grenades at the user's liking."
+	dispense_type = /obj/item/autosurgeon/syndicate/binyat
+	cooldown_time = 15 SECONDS
+	new_dispense_type = /obj/item/grenade/empgrenade
+	new_cooldown_time = 10 SECONDS
+
+/obj/item/autosurgeon/syndicate/binyat
+	starting_organ = /obj/item/organ/cyberimp/hackerman_deck
+
+/obj/item/mod/module/dispenser/ancient_milsim/sentinel
+	name = "MOD stationary machinegun-burger dispenser module"
+	desc = "This module can create a single disassembled heavy machinegun and additional burgers at the user's liking."
+	dispense_type = /obj/item/automatic_turret_folded
+	cooldown_time = 15 SECONDS
+	new_cooldown_time = 5 SECONDS
+
+/obj/item/mod/module/dispenser/ancient_milsim/trooper
+	name = "MOD Sol rifle-Sol rifle magazine dispenser module"
+	desc = "This module can create a single .40 Sol caliber assault rifle and additional magazines at the user's liking."
+	dispense_type = /obj/item/gun/ballistic/automatic/sol_rifle/evil
+	cooldown_time = 25 SECONDS
+	new_dispense_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard
+	new_cooldown_time = 15 SECONDS
+
+/obj/item/mod/module/insignia/milsim_mechanic
+	color = "#ff7300"
+
+/obj/item/mod/module/insignia/milsim_trapper
+	color = "#372297"
+
+/obj/item/mod/module/insignia/milsim_marksman
+	color = "#a01d1d"
+
+/obj/item/mod/module/insignia/milsim_medic
+	color = "#2fdab4"
+
+/obj/item/mod/module/insignia/milsim_saboteur
+	color = "#1eff00"
+
+/obj/item/mod/module/insignia/milsim_sentinel
+	color = "#b536c0"
+
+/obj/item/mod/module/insignia/milsim_trooper
+	color = "#7e7e7e"

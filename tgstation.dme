@@ -7193,6 +7193,7 @@
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\mine.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\mobs.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\mod.dm"
+#include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\mounted_machine_gun.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\outfit.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\turf.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\turret.dm"

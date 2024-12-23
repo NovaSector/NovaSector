@@ -50,5 +50,5 @@
 		span_warning("Numerous loading bars and nano-scale hexagonal energy shields briefly cover [cast_on]!"),
 		span_notice("You protect yourself from foreign intrusion!"),
 	)
-	ADD_TRAIT(cast_on, TRAIT_HOLY, REF(src))
+	ADD_TRAIT(cast_on, TRAIT_ANTIMAGIC, REF(src))
 	Remove(cast_on)
