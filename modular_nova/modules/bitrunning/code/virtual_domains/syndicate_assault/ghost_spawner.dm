@@ -20,7 +20,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/syndie/special(mob/living/carbon/human/spawned_human)
 	. = ..()
-	var/datum/action/cooldown/spell/home_network/norton
+	var/datum/action/cooldown/spell/home_network/norton = new(spawned_human)
 	norton.Grant(spawned_human)
 	apply_random_alias(spawned_human)
 

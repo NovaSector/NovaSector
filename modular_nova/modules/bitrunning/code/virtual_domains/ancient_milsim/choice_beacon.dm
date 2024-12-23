@@ -1,6 +1,8 @@
 /obj/item/choice_beacon/ancient_milsim
 	name = "early access equipment beacon"
 	desc = "Summon a gear closet for your contributions in the early access testing. Synchronises with the current game version to give you the most up-to-date class equipment."
+	icon = 'modular_nova/modules/bitrunning/icons/remote.dmi'
+	icon_state = "delivery_dlc"
 	company_source = "'Time Of Valor 2' development team"
 	company_message = span_bold("Thanks, and have fun!")
 
