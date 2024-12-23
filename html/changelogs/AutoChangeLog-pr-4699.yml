@@ -1,0 +1,5 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - rscadd: "Xenobiologists are reporting an uptick of variety in the creatures coming from gold slime reactions, including some deep space creatures, common pets, and the remaining two creatures otherwise only seen accompanying molds."
+  - bugfix: "Gold slimes can no longer create an invisible Lusty Xenomorph Maid."
