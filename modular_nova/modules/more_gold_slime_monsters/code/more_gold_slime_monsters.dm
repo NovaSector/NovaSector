@@ -1,8 +1,5 @@
 // this folder is entirely just adding tags to let things spawn, or not spawn, in gold slimes. enjoy
 
-/mob/living/basic/alien/maid
-	gold_core_spawnable = NO_SPAWN // her sprite isn't working. keeping her out of spawns until this is remedied
-
 /mob/living/basic/pet/gondola
 	gold_core_spawnable = FRIENDLY_SPAWN
 
