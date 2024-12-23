@@ -176,6 +176,7 @@
 	)
 
 /datum/action/cooldown/spell/touch/scream_for_me/bitrunning
+	name = "Unshackled Scream For Me"
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
@@ -208,7 +209,7 @@
 	desc = "This disk contains a program that lets you cast Summon Light Source, Lesser Heal, or Mending Touch."
 
 /datum/orderable_item/bitrunning_tech/ability_tier2
-	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
+	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Unshackled Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
 	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, a polar bear, a holy juggernaut, or a holy wraith; or cast Death Loop."
