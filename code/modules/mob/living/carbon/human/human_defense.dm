@@ -575,7 +575,7 @@
 
 		//NOVA EDIT ADDITION BEGIN - MEDICAL
 		if(body_part.current_gauze)
-			combined_msg += "\t [span_notice("Your [body_part.name] is [body_part.current_gauze.get_gauze_usage_prefix()] with <a href='?src=[REF(body_part.current_gauze)];remove=1'>[body_part.current_gauze.get_gauze_description()]</a>.")]"
+			combined_msg += "\t [span_notice("Your [body_part.name] is [body_part.current_gauze.get_gauze_usage_prefix()] with <a href='byond://?src=[REF(body_part.current_gauze)];remove=1'>[body_part.current_gauze.get_gauze_description()]</a>.")]"
 		//NOVA EDIT END
 
 	for(var/t in missing)
