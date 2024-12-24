@@ -3701,7 +3701,7 @@
 	dir = 1
 	},
 /obj/structure/aquarium/prefilled,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 1;
 	pixel_y = 19
 	},
@@ -28453,7 +28453,7 @@
 /area/station/engineering/supermatter/room)
 "ikl" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 1;
 	pixel_y = 19
 	},
@@ -40213,8 +40213,8 @@
 /area/station/hallway/primary/fore)
 "lrC" = (
 /obj/machinery/mecha_part_fabricator/maint{
-	dir = 1;
-	name = "forgotten exosuit fabricator"
+	name = "forgotten exosuit fabricator";
+	drop_direction = 1
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
@@ -62814,7 +62814,7 @@
 /obj/machinery/status_display/evac/directional/east,
 /obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/bot,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "rAU" = (
@@ -71359,7 +71359,7 @@
 /turf/closed/wall,
 /area/station/commons/lounge)
 "tOI" = (
-/mob/living/simple_animal/bot/floorbot,
+/mob/living/basic/bot/repairbot,
 /obj/structure/railing,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/aisat_interior)

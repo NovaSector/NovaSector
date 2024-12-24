@@ -127,10 +127,10 @@
 	QDEL_LIST(loaded_nifsofts)
 	return ..()
 
-/obj/item/organ/cyberimp/brain/nif/mob_insert(mob/living/carbon/human/insertee, special = FALSE, movement_flags = DELETE_IF_REPLACED)
+/obj/item/organ/cyberimp/brain/nif/on_mob_insert(mob/living/carbon/human/insertee, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 	. = ..()
 
-	if(linked_mob && stored_ckey != insertee.ckey && theft_protection)
+	if(stored_ckey && stored_ckey != insertee.ckey && theft_protection)
 		insertee.audible_message(span_warning("[src] lets out a negative buzz before forcefully removing itself from [insertee]'s brain."))
 		playsound(insertee, 'sound/machines/buzz/buzz-sigh.ogg', 30, TRUE)
 		Remove(insertee)
@@ -154,7 +154,7 @@
 		send_message("Loading preinstalled and stored NIFSofts, please wait...")
 		addtimer(CALLBACK(src, PROC_REF(install_preinstalled_nifsofts)), 3 SECONDS)
 
-/obj/item/organ/cyberimp/brain/nif/mob_remove(mob/living/carbon/organ_owner, special = FALSE)
+/obj/item/organ/cyberimp/brain/nif/on_mob_remove(mob/living/carbon/organ_owner, special = FALSE)
 	. = ..()
 
 	organ_owner.log_message("'s [src] was removed from [organ_owner]", LOG_GAME)
@@ -166,12 +166,13 @@
 
 	if(linked_mob)
 		UnregisterSignal(linked_mob, COMSIG_LIVING_DEATH, PROC_REF(damage_on_death))
+	linked_mob = null
 
 	QDEL_LIST(loaded_nifsofts)
 
 ///Installs preinstalled NIFSofts
 /obj/item/organ/cyberimp/brain/nif/proc/install_preinstalled_nifsofts()
-	if(!preinstalled_nifsofts)
+	if(!preinstalled_nifsofts || !linked_mob || calibrating)
 		return FALSE
 
 	for(var/datum/nifsoft/preinstalled_nifsoft as anything in preinstalled_nifsofts)
@@ -407,7 +408,7 @@
 	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
-	var/added_stun_duration = 200/severity // the previous stun duration added by the parent call
+	var/added_stun_duration = 20 SECONDS / severity // the previous stun duration added by the parent call
 	owner.AdjustStun(-added_stun_duration) // we want to negate that stun here
 	to_chat(owner, span_warning("You feel a stinging pain in your head!"))
 	if(!durability_loss_vulnerable)

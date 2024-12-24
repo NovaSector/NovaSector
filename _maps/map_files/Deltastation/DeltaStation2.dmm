@@ -44890,7 +44890,8 @@
 /area/station/hallway/primary/fore)
 "lhp" = (
 /obj/structure/sign/poster/official/report_crimes/directional/south,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "lhC" = (
@@ -59893,7 +59894,7 @@
 /area/station/service/abandoned_gambling_den/gaming)
 "pcJ" = (
 /obj/machinery/mecha_part_fabricator{
-	dir = 4
+	drop_direction = 4
 	},
 /obj/effect/turf_decal/bot_red,
 /obj/effect/turf_decal/tile/neutral/full,

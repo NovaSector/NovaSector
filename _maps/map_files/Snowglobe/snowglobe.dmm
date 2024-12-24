@@ -35829,7 +35829,7 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/wood/tile,
 /area/station/service/lawoffice)
 "jEn" = (

@@ -181,10 +181,8 @@
 	gps_active = FALSE
 	qdel(GetComponent(/datum/component/gps))
 
-/obj/item/organ/brain/slime/mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+/obj/item/organ/brain/slime/on_mob_insert(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
-	if(!.)
-		return
 	colorize()
 	core_ejected = FALSE
 	RegisterSignal(organ_owner, COMSIG_LIVING_DEATH, PROC_REF(on_slime_death))

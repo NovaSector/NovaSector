@@ -379,3 +379,22 @@
       disruptive.'
   somenetwork:
   - rscadd: Adds donator item for jaklz
+2024-12-20:
+  Trillium:
+  - qol: Removed species- and job-whitelisting from the Akula-only undersuit items
+      in Loadout
+  vinylspiders:
+  - bugfix: fixes damage falloff being inverted for some modular guns (as in, you
+      do more damage if you are further away)
+2024-12-22:
+  FlufflesTheDog:
+  - qol: Ashwalker rituals are a bit more clear about mob-based components
+  - bugfix: Ashwalker rituals cannot consume living mobs as components
+2024-12-24:
+  FlufflesTheDog:
+  - bugfix: Xenomorph maid has a sprite
+  LordHookie:
+  - rscadd: Xenobiologists are reporting an uptick of variety in the creatures coming
+      from gold slime reactions, including some deep space creatures, common pets,
+      and the remaining two creatures otherwise only seen accompanying molds.
+  - bugfix: Gold slimes can no longer create an invisible Lusty Xenomorph Maid.
