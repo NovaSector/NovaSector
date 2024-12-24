@@ -14,8 +14,8 @@
 	if(human_owner.stat != UNCONSCIOUS)
 		return
 
-	human_owner.AdjustUnconscious(-50 * seconds_per_tick, FALSE)
-	human_owner.AdjustSleeping(-50 * seconds_per_tick, FALSE)
+	human_owner.AdjustUnconscious(-5 SECONDS * seconds_per_tick, FALSE)
+	human_owner.AdjustSleeping(-5 SECONDS * seconds_per_tick, FALSE)
 	to_chat(owner, span_notice("You feel a rush of energy course through your body!"))
 	cooldown = addtimer(CALLBACK(src, PROC_REF(sleepytimerend)), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
@@ -29,7 +29,7 @@
 	if((organ_flags & ORGAN_FAILING) || . & EMP_PROTECT_SELF)
 		return
 	organ_flags |= ORGAN_FAILING
-	human_owner.AdjustUnconscious(200)
+	human_owner.AdjustUnconscious(20 SECONDS)
 	cooldown = addtimer(CALLBACK(src, PROC_REF(reboot)), (9 SECONDS / severity), TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/organ/cyberimp/brain/anti_sleep/proc/reboot()
