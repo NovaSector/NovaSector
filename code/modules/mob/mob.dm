@@ -563,7 +563,7 @@
 			var/list/result = examinify.examine_more(src)
 			if(!length(result))
 				result += span_notice("<i>You examine [examinify] closer, but find nothing of interest...</i>")
-			result_combined = examine_block(jointext(result, "<br>"))
+			result_combined = boxed_message(jointext(result, "<br>"))
 			result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 		else
@@ -575,8 +575,8 @@
 		var/list/result = examinify.examine(src)
 		var/atom_title = examinify.examine_title(src, thats = TRUE)
 		SEND_SIGNAL(src, COMSIG_MOB_EXAMINING, examinify, result)
-		result_combined = (atom_title ? "[span_slightly_larger("[atom_title][ismob(examinify) ? "!" :"."][EXAMINE_SECTION_BREAK]")]" : "") + jointext(result, "<br>") // NOVA EDIT CHANGE - No centered title + exclamation point for mobs - ORIGINAL: result_combined = (atom_title ? fieldset_block("[span_slightly_larger(atom_title)].", jointext(result, "<br>"), "examine_block") : examine_block(jointext(result, "<br>")))
-		result_combined = examine_block(replacetext(result_combined, "<hr><br>", "<hr>")) // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers, as well as properly adding the examine_block
+		result_combined = (atom_title ? fieldset_block("[atom_title][ismob(examinify) ? "!" :"."]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>"))) // NOVA EDIT CHANGE - ORIGINAL: result_combined = (atom_title ? fieldset_block("[atom_title]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>")))
+		result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 	to_chat(src, span_infoplain(result_combined))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)
