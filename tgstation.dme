@@ -8613,6 +8613,7 @@
 #include "modular_nova\modules\supersoups\code\stove.dm"
 #include "modular_nova\modules\Syndie_edits\code\area.dm"
 #include "modular_nova\modules\Syndie_edits\code\syndie_edits.dm"
+#include "modular_nova\modules\syndie_spacesuits\code\syndiesuits.dm"
 #include "modular_nova\modules\synths\code\defib.dm"
 #include "modular_nova\modules\synths\code\research_nodes.dm"
 #include "modular_nova\modules\synths\code\bodyparts\brain.dm"
