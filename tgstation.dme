@@ -8125,6 +8125,7 @@
 #include "modular_nova\modules\modular_items\code\ciggies.dm"
 #include "modular_nova\modules\modular_items\code\cross.dm"
 #include "modular_nova\modules\modular_items\code\designs.dm"
+#include "modular_nova\modules\modular_items\code\fan.dm"
 #include "modular_nova\modules\modular_items\code\fock.dm"
 #include "modular_nova\modules\modular_items\code\makeshift.dm"
 #include "modular_nova\modules\modular_items\code\modular_glasses.dm"
