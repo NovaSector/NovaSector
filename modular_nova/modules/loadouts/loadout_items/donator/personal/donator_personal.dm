@@ -915,3 +915,8 @@
 	name = "Worn Corporate Cloak"
 	item_path = /obj/item/clothing/neck/tattered
 	ckeywhitelist = list("jaklz")
+
+/datum/loadout_item/toys/commandant
+	name = "Commandant Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/commandant
+// ckeywhitelist = list("bonkaitheroris") // Asked it to be public
