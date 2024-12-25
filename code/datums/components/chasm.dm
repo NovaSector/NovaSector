@@ -123,8 +123,8 @@
 		if(ishuman(dropped_thing))
 			var/mob/living/carbon/human/victim = dropped_thing
 			var/obj/item/wormhole_jaunter/jaunter = locate() in victim.get_contents() // NOVA EDIT ADDITION 
-			if (jaunter) // NOVA EDIT - ORIGINAL: if(istype(victim.belt, /obj/item/wormhole_jaunter))
-				// NOVA EDIT REMOVAL - ORIGINAL: var/obj/item/wormhole_jaunter/jaunter = victim.belt
+			if (jaunter) // NOVA EDIT CHANGE - ORIGINAL: if(istype(victim.belt, /obj/item/wormhole_jaunter))
+				//var/obj/item/wormhole_jaunter/jaunter = victim.belt // NOVA EDIT REMOVAL
 				var/turf/chasm = get_turf(victim)
 				var/fall_into_chasm = jaunter.chasm_react(victim)
 				if(!fall_into_chasm)
