@@ -16,8 +16,6 @@
 /obj/machinery/nova/fan/Initialize(mapload)
 	. = ..()
 	air_update_turf(TRUE, TRUE)
-	var/static/list/turf_traits = list(TRAIT_FIREDOOR_STOP)
-	AddElement(/datum/element/give_turf_traits, turf_traits)
 
 /obj/machinery/nova/fan/Destroy()
 	air_update_turf(TRUE, FALSE)
