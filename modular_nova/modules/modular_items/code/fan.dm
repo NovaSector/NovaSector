@@ -23,7 +23,9 @@
 	air_update_turf(TRUE, FALSE)
 	. = ..()
 
-/obj/machinery/nova/fan/block_superconductivity() //Needed to avoid some heat issues. If you allow to use the powered version, figure a way to turn this off when its depowered.
+/obj/machinery/nova/fan/block_superconductivity()
+	if (machine_stat & (BROKEN|NOPOWER))
+		return FALSE
 	return TRUE
 
 /obj/machinery/nova/fan/wrench_act(mob/living/user, obj/item/tool)
