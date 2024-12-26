@@ -183,6 +183,10 @@
 	name = "Fox (Alt 2)"
 	icon_state = "fox3"
 
+/datum/sprite_accessory/tails/mammal/wagging/vulpkanin/fox/ann
+	name = "Fox (Alt 3)"
+	icon_state = "foxann"
+
 /datum/sprite_accessory/tails/mammal/wagging/guilmon
 	name = "Guilmon"
 	icon_state = "guilmon"
@@ -239,6 +243,10 @@
 /datum/sprite_accessory/tails/mammal/wagging/kitsune/tamamo
 	name = "Kitsune (Tamamo)"
 	icon_state = "9sune"
+
+/datum/sprite_accessory/tails/mammal/wagging/kitsune/ann
+	name = "Kitsune (Ann)"
+	icon_state = "kitsuann"
 
 /datum/sprite_accessory/tails/mammal/wagging/lab
 	name = "Labrador"
