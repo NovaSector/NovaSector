@@ -938,7 +938,7 @@
 
 // Donation reward for bonkaitheroris
 /obj/item/toy/plush/nova/donator/commandant
-	name = "Commandant Plushie"
+	name = "\improper Commandant Plushie"
 	desc = "From Cenion's Marketing Team! a cute plushie! A Plushie! Plooshi? Jamlet? Creature!"
 	icon_state = "plushie_commandant"
 	inhand_icon_state = "plushie_commandant"
