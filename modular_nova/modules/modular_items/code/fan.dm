@@ -27,12 +27,10 @@
 	return TRUE
 
 /obj/machinery/nova/fan/wrench_act(mob/living/user, obj/item/tool)
-	balloon_alert_to_viewers("deconstructing...")
-	if(!do_after(user, 2 SECONDS, src))
-		balloon_alert_to_viewers("stopped deconstructing")
-		return TRUE
-
-	tool.play_tool_sound(src)
+	loc.balloon_alert_to_viewers("deconstructing...")
+	if(!tool.use_tool(src, user, 2 SECONDS, volume = 50))
+		return ITEM_INTERACT_BLOCKING
+	loc.balloon_alert_to_viewers("deconstructed!")
 	deconstruct(TRUE)
 	// Machinery is not friendly with dissasembly and getting items back.
 	var/turf/location = get_turf(user)
