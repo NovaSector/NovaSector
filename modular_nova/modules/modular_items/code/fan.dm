@@ -41,7 +41,7 @@
 	return TRUE
 
 /obj/machinery/nova/fan/self_powered
-	name = "self powered tiny fan"
+	name = "self-powered tiny fan"
 	desc = parent_type::desc + " This one seems to have a heated plasma shard that propels the blades!"
 	use_power = NO_POWER_USE
 
