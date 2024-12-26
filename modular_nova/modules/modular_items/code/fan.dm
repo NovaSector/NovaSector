@@ -53,7 +53,7 @@
 		/obj/item/pipe = 1,
 		/obj/item/stack/sheet/iron = 4,
 		/obj/item/stack/cable_coil = 5,
-		/obj/item/stack/sheet/mineral/plasma=1,
+		/obj/item/stack/sheet/mineral/plasma = 1,
 	)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
