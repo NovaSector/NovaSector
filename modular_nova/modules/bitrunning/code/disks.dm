@@ -114,7 +114,7 @@
 /datum/orderable_item/bitrunning_tech/item_tierlewd
 	cost_per_order = 250
 	purchase_path = /obj/item/bitrunning_disk/item/tierlewd
-	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon or a quick-booting NIF package."
+	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon, a quick-booting NIF package or a set of chameleon clothing."
 
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
