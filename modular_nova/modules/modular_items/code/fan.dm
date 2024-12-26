@@ -32,7 +32,7 @@
 		return ITEM_INTERACT_BLOCKING
 	loc.balloon_alert_to_viewers("deconstructed!")
 	deconstruct(TRUE)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/nova/fan/self_powered
 	name = "self-powered tiny fan"
