@@ -21,6 +21,10 @@
 	air_update_turf(TRUE, FALSE)
 	. = ..()
 
+/obj/machinery/nova/fan/self_powered/on_deconstruction(disassembled)
+	new /obj/item/stack/sheet/iron(drop_location(), 5)
+	new /obj/item/stack/cable_coil/five(drop_location())
+
 /obj/machinery/nova/fan/block_superconductivity()
 	if (machine_stat & (BROKEN|NOPOWER))
 		return FALSE
@@ -41,13 +45,12 @@
 
 /obj/machinery/nova/fan/self_powered/on_deconstruction(disassembled)
 	. = ..()
-	var/atom/drop_location = drop_location()
-	new /obj/item/stack/sheet/mineral/plasma(drop_location)
+	new /obj/item/stack/sheet/mineral/plasma(drop_location())
 
 /datum/crafting_recipe/nova/fan/self
 	name = "Self-Powered Tiny Fan"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER)
-	result = /obj/machinery/nova/fan
+	result = /obj/machinery/nova/fan/self_powered
 	reqs = list(
 		/obj/item/pipe = 1,
 		/obj/item/stack/sheet/iron = 4,
