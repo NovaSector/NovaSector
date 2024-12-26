@@ -939,7 +939,7 @@
 // Donation reward for bonkaitheroris
 /obj/item/toy/plush/nova/donator/commandant
 	name = "\improper Commandant Plushie"
-	desc = "From Cenion's Marketing Team! a cute plushie! A Plushie! Plooshi? Jamlet? Creature!"
+	desc = "From Cenion's Marketing Team: a cute plushie! A Plushie! Plooshi? Jamlet? Creature!"
 	icon_state = "plushie_commandant"
 	inhand_icon_state = "plushie_commandant"
 	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
