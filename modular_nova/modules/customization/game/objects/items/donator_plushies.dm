@@ -948,7 +948,7 @@
 		"hugs",
 		"squishes",
 		"baps",
-		)
+	)
 	attack_verb_simple = list(
 		"hug",
 		"squish",
