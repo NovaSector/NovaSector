@@ -1393,13 +1393,13 @@
 	if(!new_lying_angle)
 		//NOVA EDIT ADDITION BEGIN
 		if(dir == WEST)
-			set_lying_angle(270)
+			set_lying_angle(LYING_ANGLE_WEST)
 			return
 		else if(dir == EAST)
-			set_lying_angle(90)
+			set_lying_angle(LYING_ANGLE_EAST)
 			return
 		//NOVA EDIT END
-		set_lying_angle(pick(90, 270))
+		set_lying_angle(pick(LYING_ANGLE_EAST, LYING_ANGLE_WEST))
 	else
 		set_lying_angle(new_lying_angle)
 
