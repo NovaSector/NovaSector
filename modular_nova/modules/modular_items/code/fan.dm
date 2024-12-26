@@ -39,6 +39,11 @@
 	desc = parent_type::desc + " This one seems to have a heated plasma shard that propels the blades!"
 	use_power = NO_POWER_USE
 
+/obj/machinery/nova/fan/self_powered/on_deconstruction(disassembled)
+	. = ..()
+	var/atom/drop_location = drop_location()
+	new /obj/item/stack/sheet/mineral/plasma(drop_location)
+
 /datum/crafting_recipe/nova/fan/self
 	name = "Self-Powered Tiny Fan"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER)
