@@ -64,6 +64,9 @@
 
 	var/cant_buy_restricted = TRUE
 
+	if(ACCESS_WEAPONS in id_card.access)
+		cant_buy_restricted = FALSE
+
 	if(console_state == CARGO_CONSOLE)
 		var/obj/machinery/computer/cargo/console = parent
 		if(!console.requestonly)
