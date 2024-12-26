@@ -15,15 +15,15 @@
 		server.retries_spent -= 1
 		server.threat += 1
 		server.radio.talk_into(src, "Potential secure datastream detected. Locking on the new spawn point.", RADIO_CHANNEL_SUPPLY)
-	new /obj/effect/landmark/bitrunning/domain_anchor(get_turf(src))
-	balloon_alert(user, "connection stabilized!")
+	new /obj/effect/landmark/bitrunning/domain_anchor(drop_location())
+	user.balloon_alert(user, "connection stabilized!")
 	qdel(src)
 
 /obj/effect/landmark/bitrunning/domain_anchor
 	name = "anchored secure connection"
 	desc = "Highly stable connection protocol, and consequentially a trojan, used by bitrunners during attacks on high-value targets when numbers are key and \
 	just three attempts aren't enough.<br>\
-	In several seconds, merges itself with the code, becoming nigh-invisible to any means of detection."
+	In several seconds it will merge itself with the code, becoming nigh-invisible to any means of detection."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "curse"
 	invisibility = INVISIBILITY_NONE
