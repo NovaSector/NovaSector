@@ -46,7 +46,7 @@
 	use_power = NO_POWER_USE
 
 /datum/crafting_recipe/nova/fan/self
-	name = "Self Powered Tiny Fan"
+	name = "Self-Powered Tiny Fan"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER)
 	result = /obj/machinery/nova/fan
 	reqs = list(
