@@ -32,10 +32,6 @@
 		return ITEM_INTERACT_BLOCKING
 	loc.balloon_alert_to_viewers("deconstructed!")
 	deconstruct(TRUE)
-	// Machinery is not friendly with dissasembly and getting items back.
-	var/turf/location = get_turf(user)
-	new /obj/item/stack/sheet/iron/five(location)
-	new /obj/item/stack/cable_coil/five(location)
 	return TRUE
 
 /obj/machinery/nova/fan/self_powered
