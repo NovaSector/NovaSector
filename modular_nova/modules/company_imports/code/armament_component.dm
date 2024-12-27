@@ -64,12 +64,12 @@
 
 	var/cant_buy_restricted = TRUE
 
-	if(ACCESS_WEAPONS in id_card.access)
+	if(id_card && id_card.access && ACCESS_WEAPONS in id_card.access)
 		cant_buy_restricted = FALSE
 
 	if(console_state == CARGO_CONSOLE)
 		var/obj/machinery/computer/cargo/console = parent
-		if(!console.requestonly)
+		if(!console.requestonly || console.contraband)
 			cant_buy_restricted = FALSE
 
 	else if((console_state == IRN_CONSOLE) && id_card?.registered_account)

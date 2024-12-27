@@ -113,7 +113,7 @@
 
 /datum/armament_entry/company_import/donk/mod_modules/dart_collector
 	item_type = /obj/item/mod/module/recycler/donk
-	cost = PAYCHECK_COMMAND * 4
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/donk/foamforce_ammo
 	subcategory = "Foam Force (TM) Dart Accessories"
