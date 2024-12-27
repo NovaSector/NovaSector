@@ -30,7 +30,7 @@
 
 /datum/armament_entry/company_import/vitezstvi/accessory/seclight
 	item_type = /obj/item/flashlight/seclite
-	cost = PAYCHECK_CREW
+	cost = PAYCHECK_COMMAND * 1.5 // now get yo shotgun with the flashlight modification
 
 /datum/armament_entry/company_import/vitezstvi/accessory/small_case
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/empty
@@ -42,11 +42,11 @@
 
 /datum/armament_entry/company_import/vitezstvi/accessory/bandolier
 	item_type = /obj/item/storage/belt/bandolier
-	cost = PAYCHECK_COMMAND
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/accessory/pouch
 	item_type = /obj/item/storage/pouch/ammo
-	cost = PAYCHECK_COMMAND
+	cost = PAYCHECK_COMMAND * 3
 
 // Boxes of non-shotgun ammo
 

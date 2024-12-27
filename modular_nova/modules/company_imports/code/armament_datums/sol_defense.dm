@@ -141,7 +141,7 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
-	cost = PAYCHECK_COMMAND * 23
+	cost = PAYCHECK_COMMAND * 46
 
 /datum/armament_entry/company_import/sol_defense/magazines
 	subcategory = "Magazines"
