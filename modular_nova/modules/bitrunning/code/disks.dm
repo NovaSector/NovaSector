@@ -7,6 +7,7 @@
 		/datum/action/cooldown/spell/shapeshift/minor_illusion,
 		/datum/action/cooldown/spell/conjure_item/fire,
 		/datum/action/cooldown/spell/conjure_item/water,
+		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
 /obj/item/bitrunning_disk/item/tier0
@@ -70,7 +71,7 @@
 /datum/orderable_item/bitrunning_tech/ability_tier0
 	cost_per_order = 350
 	purchase_path = /obj/item/bitrunning_disk/ability/tier0
-	desc = "This disk contains a program that lets you cast Minor Illusion, Conjure Presents!, Produce Flame, or Produce Water."
+	desc = "This disk contains a program that lets you cast Minor Illusion, Summon Cheese, Produce Flame, or Produce Water."
 
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
@@ -82,6 +83,7 @@
 	selectable_items = list(
 		/obj/item/summon_beacon/lustwish,
 		/obj/item/storage/box/nif_ghost_box,
+		/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
 	)
 
 /obj/item/summon_beacon/lustwish
@@ -112,12 +114,13 @@
 /datum/orderable_item/bitrunning_tech/item_tierlewd
 	cost_per_order = 250
 	purchase_path = /obj/item/bitrunning_disk/item/tierlewd
-	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon or a quick-booting NIF package."
+	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon, a quick-booting NIF package or a set of chameleon clothing."
 
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(
 		/obj/item/storage/belt/military,
+		/obj/item/book_of_babel,
 	)
 
 /obj/item/bitrunning_disk/item/tier2/Initialize(mapload)
@@ -127,11 +130,15 @@
 	)
 	selectable_items += list(
 		/obj/item/storage/toolbox/guncase/clandestine,
-		/obj/item/autosurgeon/syndicate/hackerman,
+		/obj/item/autosurgeon/syndicate/hackerman/bitrunning,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
+		/obj/item/shield/energy,
 		/obj/item/storage/medkit/expeditionary/surplus,
 	)
+
+/obj/item/autosurgeon/syndicate/hackerman/bitrunning
+	name = "hacking arm implanter"
 
 /obj/item/bitrunning_disk/item/tier3/Initialize(mapload)
 	. = ..()
@@ -139,17 +146,24 @@
 		/obj/item/gun/energy/e_gun/nuclear,
 	)
 	selectable_items += list(
-		/obj/item/autosurgeon/syndicate/nodrop,
+		/obj/item/domain_anchor,
+		/obj/item/autosurgeon/syndicate/nodrop/bitrunning,
 		/obj/item/gun/energy/modular_laser_rifle,
 		/obj/item/storage/belt/holster/energy/nanite,
 		/obj/item/minigunpack,
 	)
+
+/obj/item/autosurgeon/syndicate/nodrop/bitrunning
+	name = "anti-drop implanter"
 
 /obj/item/bitrunning_disk/ability/tier1/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
 		/datum/action/cooldown/spell/touch/lay_on_hands,
 		/datum/action/cooldown/spell/conjure/flare,
+	)
+	selectable_actions -= list(
+		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
 /obj/item/bitrunning_disk/ability/tier2/Initialize(mapload)
@@ -158,8 +172,12 @@
 		/datum/action/cooldown/adrenaline,
 		/datum/action/cooldown/spell/charge,
 		/datum/action/cooldown/mob_cooldown/dash,
-		/datum/action/cooldown/spell/touch/scream_for_me,
+		/datum/action/cooldown/spell/touch/scream_for_me/bitrunning,
 	)
+
+/datum/action/cooldown/spell/touch/scream_for_me/bitrunning
+	name = "Unshackled Scream For Me"
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
 	. = ..()
@@ -185,13 +203,13 @@
 	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a domain connection anchor, Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
-	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
+	desc = "This disk contains a program that lets you cast Summon Light Source, Lesser Heal, or Mending Touch."
 
 /datum/orderable_item/bitrunning_tech/ability_tier2
-	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
+	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Unshackled Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
 	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, a polar bear, a holy juggernaut, or a holy wraith; or cast Death Loop."
