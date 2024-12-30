@@ -42,6 +42,16 @@
 	// Kill.
 	AddElement(/datum/element/mauling)
 
+/obj/item/machete/afterattack(atom/target, mob/user, click_parameters)
+	. = ..()
+	if(target.resistance_flags & INDESTRUCTIBLE)
+		return
+	if(istype(target, /obj/structure/flora))
+		var/obj/structure/flora/flora_target = target
+		if(!(flora_target.flora_flags & FLORA_HERBAL) && !(flora_target.flora_flags & FLORA_WOODEN))
+			return
+		target.take_damage(force) // simulate taking double damage
+
 #define MACHETE_BACK 0
 #define MACHETE_WAIST 1
 #define MACHETE_LEG 2
@@ -56,6 +66,7 @@
 	inhand_icon_state = "msheath"
 	worn_icon_state = "msheath"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	/// Used for deciding the worn icon_state variant, using defines for MACHETE_BACK, MACHETE_WAIST, MACHETE_LEG.
 	var/worn_variant = MACHETE_BACK
 
 /obj/item/storage/belt/machete/Initialize(mapload)
@@ -75,14 +86,13 @@
 		. += span_notice("Alt-click it to quickly draw the blade.")
 
 /obj/item/storage/belt/machete/click_alt(mob/user)
-	if(length(contents))
-		var/obj/item/I = contents[1]
-		user.visible_message(span_notice("[user] takes [I] out of [src]."), span_notice("You take [I] out of [src]."))
-		user.put_in_hands(I)
+	for(var/obj/item/machete/machete in contents)
+		user.visible_message(span_notice("[user] takes [machete] out of [src]."), span_notice("You take [machete] out of [src]."))
+		machete.remove_item_from_storage(user)
+		user.put_in_hands(machete)
 		update_appearance()
-	else
-		balloon_alert(user, "it's empty!")
-	return CLICK_ACTION_SUCCESS
+		return CLICK_ACTION_SUCCESS
+	balloon_alert(user, "it's empty!")
 
 /obj/item/storage/belt/machete/update_icon_state()
 	icon_state = initial(icon_state)

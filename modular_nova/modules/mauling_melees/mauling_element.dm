@@ -86,7 +86,9 @@
 		var/max_wound = limb.get_wound_threshold_of_wound_type(wound_to_inflict, WOUND_SEVERITY_CRITICAL, return_value_if_no_wound = 50, wound_source = weapon)
 
 		limb.receive_damage(brute = weapon.force, wound_bonus = rand(min_wound, max_wound + 10), sharpness = weapon.sharpness, damage_source = "mauling")
-		target.emote("scream")
+		// make sure we're actually able to feel pain
+		if(!target.has_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy))
+			target.emote("scream")
 		log_combat(attacker, target, "mauled", weapon)
 		target.update_damage_overlays()
 		attacker.do_attack_animation(target, used_item = weapon)
