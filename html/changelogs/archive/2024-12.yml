@@ -932,3 +932,19 @@
       in a consumer grade battery recharger, these atmos blocking, aesthetically pleasing,
       and now superconductivity insulators can be made by the average crewmember if
       they follow the easy  to follow 32 steps!
+2024-12-30:
+  Stalkeros:
+  - rscadd: Three new Ancient MilSim DLC loadouts have been added. Go try them all!
+  - qol: Ancient MilSim DLC loadouts now show the general rundown of their abilities
+      in the crate name, consequently the spawner beacon too.
+  - balance: In general, it should be easier for bitrunners to defend themselves in
+      Ancient MilSim, thanks to numerous scattered barricades and landmines.
+  - balance: In general, it should also be easier for SNPCs to defend themselves in
+      Ancient MilSim, too, thanks to the fully automatic mounted machine gun.
+  - balance: Similarly vague item/spell reshuffle has been done for bitrunning disks
+      and abilities.
+  - bugfix: Scream For Me can now actually be used.
+  - qol: If you are to select a random name as a Syndicate Assault ghost role, -Cybersun
+      Counter-Bitrunner-, you'll get a random bitrunning alias instead of your own.
+  - balance: Cybersun Counter-Bitrunners can become immune to spells, on demand.
+  - code_imp: General code cleanup of several Ancient MilSim-related things.
