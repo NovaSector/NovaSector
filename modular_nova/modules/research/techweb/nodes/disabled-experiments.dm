@@ -1,11 +1,10 @@
 /datum/techweb_node/gas_compression
 	experiments_to_unlock = list()
 	discount_experiments = list(
-		/datum/experiment/ordnance/gaseous/plasma,
-		/datum/experiment/ordnance/gaseous/nitrous_oxide,
-		/datum/experiment/ordnance/gaseous/bz,
-		/datum/experiment/ordnance/gaseous/noblium,
-     		= TECHWEB_TIER_1_POINTS
+		/datum/experiment/ordnance/gaseous/plasma = TECHWEB_TIER_1_POINTS,
+		/datum/experiment/ordnance/gaseous/nitrous_oxide = TECHWEB_TIER_2_POINTS,
+		/datum/experiment/ordnance/gaseous/bz = TECHWEB_TIER_2_POINTS,
+		/datum/experiment/ordnance/gaseous/noblium = TECHWEB_TIER_2_POINTS,
 	)
 
 /datum/techweb_node/selection
