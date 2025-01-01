@@ -5,7 +5,7 @@
 		/datum/experiment/ordnance/gaseous/nitrous_oxide,
 		/datum/experiment/ordnance/gaseous/bz,
 		/datum/experiment/ordnance/gaseous/noblium,
-     = TECHWEB_TIER_1_POINTS)
+     		= TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/selection
   required_experiments = list()
