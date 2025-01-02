@@ -1,28 +1,30 @@
-/datum/techweb_node/gas_compression
-	experiments_to_unlock = list()
-	discount_experiments = list(
-		/datum/experiment/ordnance/gaseous/plasma = TECHWEB_TIER_1_POINTS,
-		/datum/experiment/ordnance/gaseous/nitrous_oxide = TECHWEB_TIER_2_POINTS,
-		/datum/experiment/ordnance/gaseous/bz = TECHWEB_TIER_2_POINTS,
-		/datum/experiment/ordnance/gaseous/noblium = TECHWEB_TIER_2_POINTS,
-	)
-
-/datum/techweb_node/selection
+/// changes required experiments to be discount instead
+/datum/techweb_node/proc/make_requirements_optional()
+	discount_experiments = required_experiments.Copy()
 	required_experiments = list()
 
-/datum/techweb_node/parts_adv
-	required_experiments = list()
-	discount_experiments = list(/datum/experiment/scanning/points/machinery_tiered_scan/tier2_any = TECHWEB_TIER_3_POINTS)
+/datum/techweb_node/gas_compression/New()
+	make_requirements_optional()
+	return ..()
 
-/datum/techweb_node/mech_combat
-	required_experiments = list()
-	discount_experiments = list(/datum/experiment/scanning/random/mecha_equipped_scan = TECHWEB_TIER_3_POINTS)
+/datum/techweb_node/selection/New()
+	make_requirements_optional()
+	return ..()
 
-/datum/techweb_node/medbay_equip_adv
-	required_experiments = list()
-	discount_experiments = list(/datum/experiment/scanning/reagent/haloperidol = TECHWEB_TIER_3_POINTS)
+/datum/techweb_node/parts_adv/New()
+	make_requirements_optional()
+	return ..()
 
-/datum/techweb_node/explosives
-	required_experiments = list()
-	discount_experiments = list(/datum/experiment/ordnance/explosive/lowyieldbomb = TECHWEB_TIER_2_POINTS)
+/datum/techweb_node/mech_combat/New()
+	make_requirements_optional()
+	return ..()
+
+/datum/techweb_node/medbay_equip_adv/New()
+	make_requirements_optional()
+	return ..()
+
+/datum/techweb_node/explosives/New()
+	make_requirements_optional()
+	return ..()
+
                               
