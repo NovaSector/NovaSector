@@ -67,7 +67,7 @@
 
 	var/cant_buy_restricted = TRUE
 
-	if(id_card?.registered_account && ACCESS_WEAPONS in id_card.access)
+	if(id_card?.registered_account && (ACCESS_WEAPONS in id_card.access))
 		cant_buy_restricted = FALSE
 
 	if(console_state == CARGO_CONSOLE)
