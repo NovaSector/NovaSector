@@ -48,7 +48,6 @@
 	name = "MOD Security Plating"
 	item_type = /obj/item/mod/construction/plating/security
 	cost = PAYCHECK_COMMAND * 2
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/clown
 	name = "MOD CosmoHonk (TM) Plating"
@@ -81,7 +80,6 @@
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/armor_plates
 	item_type = /obj/item/mod/module/armor_booster/retractplates
 	cost = PAYCHECK_COMMAND * 3
-	restricted = TRUE
 
 // Utility modules, general purpose stuff that really anyone might want
 
