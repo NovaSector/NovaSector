@@ -8519,6 +8519,7 @@
 #include "modular_nova\modules\records_on_examine\code\record_variables.dm"
 #include "modular_nova\modules\records_on_examine\code\records_procs.dm"
 #include "modular_nova\modules\records_on_examine\code\view_exploitables.dm"
+#include "modular_nova\modules\research\techweb\nodes\disabled-experiments.dm"
 #include "modular_nova\modules\resleeving\code\rsd_interface.dm"
 #include "modular_nova\modules\resleeving\code\research\resleeving_research.dm"
 #include "modular_nova\modules\robot_limb_detach\code\robot_limb_detach_quirk.dm"
