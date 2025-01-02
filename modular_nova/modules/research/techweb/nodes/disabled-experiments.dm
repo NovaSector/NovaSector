@@ -26,5 +26,4 @@
 /datum/techweb_node/explosives/New()
 	make_requirements_optional()
 	return ..()
-
                               
