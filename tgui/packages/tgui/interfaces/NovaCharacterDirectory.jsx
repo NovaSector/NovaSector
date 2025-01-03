@@ -14,7 +14,7 @@ import {
   Stack,
   Table,
   Tooltip,
-} from '../components';
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 import { CharacterPreview } from './common/CharacterPreview';
 

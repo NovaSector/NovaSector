@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
-import { BlockQuote, Button, Section, Stack } from '../components';
+import { BlockQuote, Button, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 const borerColor = {

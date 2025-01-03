@@ -1,5 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { round } from 'common/math';
+import { round } from 'tgui-core/math';
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -16,7 +16,7 @@ import {
   Stack,
   Tabs,
   TextArea,
-} from '../components';
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const OpposingForcePanel = (props) => {

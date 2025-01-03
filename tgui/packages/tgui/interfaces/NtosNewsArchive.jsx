@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
-import { Collapsible, Section } from '../components';
+import { Collapsible, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export const NtosNewsArchive = (props) => {

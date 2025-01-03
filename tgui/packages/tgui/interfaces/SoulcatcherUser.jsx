@@ -9,7 +9,7 @@ import {
   Flex,
   LabeledList,
   Section,
-} from '../components';
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const SoulcatcherUser = (props) => {

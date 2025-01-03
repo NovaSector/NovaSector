@@ -7,7 +7,7 @@ import {
   Section,
   Stack,
   TextArea,
-} from '../components';
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const CommandReportConsole = (props) => {

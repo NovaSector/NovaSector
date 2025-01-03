@@ -9,7 +9,7 @@ import {
   Input,
   LabeledList,
   Section,
-} from '../components';
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const NifSoulPoem = (props) => {

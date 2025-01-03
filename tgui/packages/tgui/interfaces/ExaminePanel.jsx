@@ -1,7 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { ByondUi, Section, Stack } from '../components';
+import { ByondUi, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 const formatURLs = (text) => {

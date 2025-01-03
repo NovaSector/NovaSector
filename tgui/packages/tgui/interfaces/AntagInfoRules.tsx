@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
-import { Stack } from '../components';
+import { Stack } from 'tgui-core/components';
 import { Objective } from './common/Objectives';
 
 type Info = {

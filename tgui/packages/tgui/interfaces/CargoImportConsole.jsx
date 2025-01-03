@@ -2,7 +2,14 @@
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-import { Box, Button, Divider, Image, Section, Stack } from '../components';
+import {
+  Box,
+  Button,
+  Divider,
+  Image,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export const CargoImportConsole = (props) => {

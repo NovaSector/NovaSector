@@ -6,7 +6,7 @@ import {
   LabeledList,
   Section,
   TextArea,
-} from '../components';
+} from 'tgui-core/components';
 import { Window } from '../layouts';
 
 type StoryManagerData = {

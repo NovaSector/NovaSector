@@ -10,7 +10,7 @@ import {
   LabeledList,
   Section,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export const NtosNifsoftCatalog = (props) => {

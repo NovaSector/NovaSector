@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
-import { Box, Button, Section, Stack } from '../components';
+import { Box, Button, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 let palette;
