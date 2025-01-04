@@ -59,10 +59,10 @@
 	for(var/access_as_text in managers)
 		var/list/info = managers[access_as_text]
 		var/access = access_as_text
-		// NOVA ADDITION BEGIN - Prevents those with captain access only from changing their own access (Blueshields and NTCs)
+		// NOVA EDIT ADDITION BEGIN - Prevents those with captain access only from changing their own access (Blueshields and NTCs)
 		if(access == ACCESS_CAPTAIN)
 			continue
-		// NOVA ADDITION END
+		// NOVA EDIT ADDITION END
 		if((access in auth_card.access) && ((target_dept in info["regions"]) || !target_dept))
 			region_access |= info["regions"]
 			job_templates |= info["templates"]
