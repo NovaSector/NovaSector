@@ -195,3 +195,4 @@
 
 /datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
+	restricted = TRUE
