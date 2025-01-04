@@ -920,3 +920,8 @@
 	name = "Commandant Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/commandant
 // ckeywhitelist = list("bonkaitheroris") // Asked it to be public
+
+/datum/loadout_item/neck/noble_cloak
+	name = "Noble Cloak"
+	item_path = /obj/item/clothing/neck/noble_mantle
+	ckeywhitelist = list("sharkoink")
