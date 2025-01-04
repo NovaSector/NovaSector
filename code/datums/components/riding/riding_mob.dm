@@ -157,7 +157,7 @@
 		return
 
 	for(var/mob/yeet_mob in user.buckled_mobs)
-		force_dismount(yeet_mob, (!user.combat_mode)) // gentle on help, byeeee if not
+		force_dismount(yeet_mob, gentle=!user.combat_mode) // gentle on help, byeeee if not
 
 
 /// If the ridden creature has abilities, and some var yet to be made is set to TRUE, the rider will be able to control those abilities
@@ -329,12 +329,12 @@
 				TEXT_WEST = list(REGULAR_OFFSET, REGULAR_SIDE_OFFSET)
 			)
 	if (ride_check_flags & RIDING_TAUR)
-		var/obj/item/organ/external/taur_body/taur_body = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+		var/obj/item/organ/taur_body/taur_body = H.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 		return taur_body.get_riding_offset(oversized = HAS_TRAIT(H, TRAIT_OVERSIZED))
 
 	// NOVA EDIT ADDITION END
 
-/datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider)
+/datum/component/riding/creature/human/force_dismount(mob/living/dismounted_rider, throw_range = 8, throw_speed = 3, gentle = FALSE)
 	var/atom/movable/AM = parent
 	AM.unbuckle_mob(dismounted_rider)
 	dismounted_rider.Paralyze(1 SECONDS)
@@ -583,7 +583,7 @@
 	RegisterSignal(parent, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_bullet_hit))
 	RegisterSignal(parent, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(on_attacked))
 
-/datum/component/riding/creature/raptor/proc/on_bullet_hit(atom/target, list/bullet_args, obj/projectile/hit_projectile)
+/datum/component/riding/creature/raptor/proc/on_bullet_hit(atom/target, obj/projectile/hit_projectile)
 	SIGNAL_HANDLER
 
 	if(hit_projectile.armor_flag == ENERGY)

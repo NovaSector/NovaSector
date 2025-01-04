@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 6
+#define MODULAR_SAVEFILE_VERSION_MAX 8
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -13,6 +13,8 @@
 #define VERSION_UNDERSHIRT_BRA_SPLIT 4
 #define VERSION_CHRONOLOGICAL_AGE 5
 #define VERSION_TG_LOADOUT 6
+#define VERSION_INTERNAL_EXTERNAL_ORGANS 7
+#define VERSION_SKRELL_HAIR_NAME_UPDATE 8
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -35,18 +37,7 @@
 	if(!save_data)
 		save_data = list()
 
-	var/list/save_augments = SANITIZE_LIST(save_data["augments"])
-	for(var/aug_slot in save_augments)
-		var/aug_entry = save_augments[aug_slot]
-		save_augments -= aug_slot
-
-		if(istext(aug_entry))
-			aug_entry = _text2path(aug_entry)
-
-		var/datum/augment_item/aug = GLOB.augment_items[aug_entry]
-		if(aug)
-			save_augments[aug_slot] = aug_entry
-	augments = save_augments
+	load_augments(SANITIZE_LIST(save_data["augments"]))
 
 	augment_limb_styles = SANITIZE_LIST(save_data["augment_limb_styles"])
 	for(var/key in augment_limb_styles)
@@ -260,11 +251,32 @@
 			if(istext(loadout))
 				loadout = _text2path(loadout)
 			save_loadout[loadout] = entry
-
 		var/loadout_list = sanitize_loadout_list(save_loadout)
 
 		if (length(loadout_list)) // We only want to write these changes down if we're certain that there was anything in that.
 			write_preference(GLOB.preference_entries[/datum/preference/loadout], loadout_list)
+
+	if(current_version < VERSION_INTERNAL_EXTERNAL_ORGANS)
+		var/list/save_augments = SANITIZE_LIST(save_data["augments"])
+		var/prefix_length = length("/obj/item/organ/internal") // Shouldn't be any external augments, but if there are, it's the same length
+		for(var/augment_name in save_augments)
+			var/augment_path_string = save_augments[augment_name]
+			if(!(findtext(augment_path_string, "/obj/item/organ/internal") || findtext(augment_path_string, "/obj/item/organ/external")))
+				continue // Make sure we don't strip something that isn't there
+			var/augment_path_string_stripped = copytext(save_augments[augment_name], prefix_length + 1)
+			save_augments[augment_name] = "/obj/item/organ[augment_path_string_stripped]"
+		load_augments(save_augments)
+
+	if(current_version < VERSION_SKRELL_HAIR_NAME_UPDATE)
+		var/list/mutant_bodyparts = SANITIZE_LIST(save_data["mutant_bodyparts"])
+
+		if("skrell_hair" in mutant_bodyparts)
+			var/current_skrell_hair = mutant_bodyparts["skrell_hair"][MUTANT_INDEX_NAME]
+
+			if(current_skrell_hair == "Male")
+				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Short")
+			else if(current_skrell_hair == "Female")
+				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Long")
 
 
 /datum/preferences/proc/check_migration()
@@ -324,6 +336,20 @@
 					markings[marking][title] = list(sanitize_hexcolor(markings[marking][title]), FALSE)
 	return markings
 
+/datum/preferences/proc/load_augments(list/augments_prefs)
+	var/list/augments_sanitized = list()
+	for(var/aug_slot in augments_prefs)
+		var/aug_entry = augments_prefs[aug_slot]
+
+		if(istext(aug_entry))
+			aug_entry = _text2path(aug_entry)
+
+		var/datum/augment_item/aug = GLOB.augment_items[aug_entry]
+		if(aug)
+			augments_sanitized[aug_slot] = aug_entry
+	augments = augments_sanitized
+
+
 
 #undef MODULAR_SAVEFILE_VERSION_MAX
 #undef MODULAR_SAVEFILE_UP_TO_DATE
@@ -333,3 +359,6 @@
 #undef VERSION_SYNTH_REFACTOR
 #undef VERSION_UNDERSHIRT_BRA_SPLIT
 #undef VERSION_CHRONOLOGICAL_AGE
+#undef VERSION_TG_LOADOUT
+#undef VERSION_INTERNAL_EXTERNAL_ORGANS
+#undef VERSION_SKRELL_HAIR_NAME_UPDATE
