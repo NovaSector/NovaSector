@@ -3681,7 +3681,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/ruin/interdyne_planetary_base/main/dorms/lib)
 "jL" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/gratis,
 /obj/structure/sign/flag/interdyne/directional/north{
 	pixel_x = -13
 	},
@@ -4387,7 +4387,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
 /obj/machinery/vending/imported/mothic{
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -4712,7 +4713,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/vending/imported/tiziran{
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
@@ -7417,7 +7419,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/poster/contraband/interdyne_gene_clinics/directional/west,
 /obj/machinery/vending/imported/yangyu{
-	onstation = 0
+	onstation = 0;
+	all_products_free = 1
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)

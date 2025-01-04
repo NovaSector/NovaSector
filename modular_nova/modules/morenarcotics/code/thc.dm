@@ -1,8 +1,9 @@
 /obj/item/food/grown/cannabis/on_grind()
-	. = ..()
 	if(HAS_TRAIT(src, TRAIT_DRIED))
-		grind_results = list(/datum/reagent/drug/thc/hash = 0.15*src.seed.potency)
-		reagents.clear_reagents() //prevents anything else from coming out
+		if(!reagents)
+			return ..()
+		reagents.convert_reagent(/datum/reagent/drug/thc, /datum/reagent/drug/thc/hash, 1, include_source_subtypes = FALSE)
+	return ..()
 
 /datum/chemical_reaction/hash
 	required_reagents = list(/datum/reagent/drug/thc/hash = 10)

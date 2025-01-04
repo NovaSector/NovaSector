@@ -819,6 +819,16 @@
 	item_path = /obj/item/implanter/toaster
 	ckeywhitelist = list("jasohavents")
 
+/datum/loadout_item/pocket_items/theurgic_crystal
+	name = "Theurgic Stone"
+	item_path = /obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
+	ckeywhitelist = list("sciamach")
+
+/datum/loadout_item/toys/delphic_synth
+	name = "Surgery Synth Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
+	ckeywhitelist = list("sciamach")
+
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
 	item_path = /obj/item/clothing/under/rem
@@ -894,9 +904,19 @@
 /datum/loadout_item/pocket_items/starfruit_seed
 	name = "Primidine Starfruit Seed"
 	item_path = /obj/item/seeds/starfruit
-	ckeywhitelist = list("snailomi", "thedragmeme")
+	ckeywhitelist = list("snailomi", "thedragmeme", "DayDream21", "Sketchy_Axoltol", "Tesla825")
 
 /datum/loadout_item/suit/butter
 	name = "Butter Costume"
 	item_path = /obj/item/clothing/suit/costume/butter
 	ckeywhitelist = list("drpmstr", "pyritechimera")
+
+/datum/loadout_item/neck/tattered
+	name = "Worn Corporate Cloak"
+	item_path = /obj/item/clothing/neck/tattered
+	ckeywhitelist = list("jaklz")
+
+/datum/loadout_item/toys/commandant
+	name = "Commandant Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/commandant
+// ckeywhitelist = list("bonkaitheroris") // Asked it to be public

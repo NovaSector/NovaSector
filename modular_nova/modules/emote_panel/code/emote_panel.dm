@@ -237,7 +237,7 @@
 			available_emotes += human_emotes
 			var/mob/living/carbon/human/current_mob = src
 			// Checking if can wag tail
-			var/obj/item/organ/external/tail/tail = current_mob.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+			var/obj/item/organ/tail/tail = current_mob.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 			if(!(tail?.wag_flags & WAG_ABLE))
 				available_emotes -= /mob/living/carbon/human/proc/emote_wag
 			// Checking if has wings

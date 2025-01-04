@@ -12,7 +12,9 @@ export const Rules = (props) => {
   const { data } = useBackend<Info>();
   const { antag_name } = data;
   switch (antag_name) {
-    case 'Abductor Agent' || 'Abductor Scientist' || 'Abductor Solo':
+    case 'Abductor Agent':
+    case 'Abductor Scientist':
+    case 'Abductor Solo':
       return (
         <Stack vertical>
           <Stack.Item bold>Special Rules:</Stack.Item>
