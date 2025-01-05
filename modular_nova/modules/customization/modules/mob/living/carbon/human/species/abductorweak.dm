@@ -7,7 +7,12 @@
 		TRAIT_NOBREATH,
 		TRAIT_NOHUNGER,
 	)
+
+/datum/species/abductor/abductorweak
+	disallow_customizable_dna_features = FALSE
+
 	mutanttongue = /obj/item/organ/tongue/abductor
+	mutantheart = /obj/item/organ/heart
 	mutantstomach = null
 	mutantlungs = null
 	mutantbrain = /obj/item/organ/brain/abductor
