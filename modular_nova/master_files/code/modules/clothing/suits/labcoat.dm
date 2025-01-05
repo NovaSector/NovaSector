@@ -82,10 +82,6 @@
 	name = "hospital gown"
 	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
 	icon_state = "hgown"
-	//Unique sprite, undoes the Greyscale
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
 	toggle_noun = "drapes"
 	body_parts_covered = NONE //Allows surgeries despite wearing it; hiding genitals is handled in /datum/sprite_accessory/genital/is_hidden() (Only place it'd work sadly)
 	armor_type = /datum/armor/none
