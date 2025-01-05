@@ -43,7 +43,7 @@
 /datum/species/abductor/abductorweak/get_species_description()
 	return list(
 		"Rogues are naturally three fingered, pale skinned inquisitive aliens who can't communicate well to the average crew-member \
-		without either a Text-To-Speech device or a replacement voicebox.",
+		without either a Text-To-Speech device or a replacement voicebox. They originate from the Abductors, but know little more than the average crewman.",
 	)
 
 /datum/species/abductor/abductorweak/get_species_lore()
@@ -52,7 +52,8 @@
 		While they themselves do not abduct or experiment on other species, generally, the stigma \
 			associated with their progenitors is something all Rogues have to deal with if they do not undergo \
 			any form of cosmetic changes. And many do opt in for cosmetic changes, being almost unrecognizable as Rogues \
-			but still holding that innate need for discovery or change.",
+			but still holding that innate need for discovery or change. All of the Original Rogues had their memories of the \
+			Abductors seemingly removed before fleeing, and the future generations were told no stories of their origins.",
 	)
 
 /datum/species/abductor/abductorweak/create_pref_traits_perks()
