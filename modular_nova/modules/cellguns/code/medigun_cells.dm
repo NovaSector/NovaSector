@@ -499,6 +499,7 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown/hardlight
 	name = "hardlight hospital gown"
 	desc = "A hospital gown made out of hardlight - you can barely feel it on your body, especially with all the anesthetics."
+	icon_state = "lgown"
 
 /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown/hardlight/dropped(mob/user)
 	. = ..()
