@@ -28,15 +28,14 @@
 		secondary_voice = speaker
 
 ///Swaps between primary_voice and secondary_voice
-/datum/action/innate/alter_voice/proc/swap_voice(new_status)
+/datum/action/innate/alter_voice/proc/swap_voice()
 	// If client didn't exist when action was granted, it should exist now.
 	if(isnull(secondary_voice))
 		setup_second_voice(owner)
 	// Voice failed to load somehow
 	if(isnull(secondary_voice))
 		to_chat(owner, span_userdanger("You can't remember your second voice at the moment. (Adminhelp and report this as an issue on github)"))
-	if(isnull(new_status))
-		new_status = active
+	active = !active
 	if(active)
 		owner.voice = secondary_voice
 		owner.pitch = secondary_pitch
@@ -66,9 +65,7 @@
 	return ..()
 
 /datum/action/innate/alter_voice/Activate()
-	active = TRUE
-	swap_voice(TRUE)
+	swap_voice()
 
 /datum/action/innate/alter_voice/Deactivate()
-	active = FALSE
-	swap_voice(FALSE)
+	swap_voice()
