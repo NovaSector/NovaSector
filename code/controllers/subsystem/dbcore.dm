@@ -251,7 +251,7 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/proc/Connect()
 	if(IsConnected())
 		return TRUE
-	
+
 	if(connection)
 		Disconnect() //clear the current connection handle so isconnected() calls stop invoking rustg
 		connection = null //make sure its cleared even if runtimes happened
@@ -297,7 +297,7 @@ SUBSYSTEM_DEF(dbcore)
 		log_sql("Connect() failed | [last_error]")
 		++failed_connections
 		//If it failed to establish a connection more than 5 times in a row, don't bother attempting to connect for a time.
-		if(failed_connections > max_connection_failures) 
+		if(failed_connections > max_connection_failures)
 			failed_connection_timeout_count++
 			//basic exponential backoff algorithm
 			failed_connection_timeout = world.time + ((2 ** failed_connection_timeout_count) SECONDS)
@@ -388,12 +388,30 @@ SUBSYSTEM_DEF(dbcore)
 		return FALSE
 	return new /datum/db_query(connection, sql_query, arguments)
 
+/**
+ * Creates and executes a query without waiting for or tracking the results.
+ * Query is executed asynchronously (without blocking) and deleted afterwards - any results or errors are discarded.
+ *
+ * Arguments:
+ * * sql_query - The SQL query string to execute
+ * * arguments - List of arguments to pass to the query for parameter binding
+ * * allow_during_shutdown - If TRUE, allows query to be created during subsystem shutdown. Generally, only cleanup queries should set this.
+ */
+/datum/controller/subsystem/dbcore/proc/FireAndForget(sql_query, arguments, allow_during_shutdown = FALSE)
+	var/datum/db_query/query = NewQuery(sql_query, arguments, allow_during_shutdown)
+	if(!query)
+		return
+	ASYNC
+		query.Execute()
+		qdel(query)
+
 /** QuerySelect
 	Run a list of query datums in parallel, blocking until they all complete.
 	* queries - List of queries or single query datum to run.
 	* warn - Controls rather warn_execute() or Execute() is called.
 	* qdel - If you don't care about the result or checking for errors, you can have the queries be deleted afterwards.
-		This can be combined with invoke_async as a way of running queries async without having to care about waiting for them to finish so they can be deleted.
+		This can be combined with invoke_async as a way of running queries async without having to care about waiting for them to finish so they can be deleted,
+		however you should probably just use FireAndForget instead if it's just a single query.
 */
 /datum/controller/subsystem/dbcore/proc/QuerySelect(list/queries, warn = FALSE, qdel = FALSE)
 	if (!islist(queries))
@@ -418,8 +436,6 @@ SUBSYSTEM_DEF(dbcore)
 		query.sync()
 		if (qdel)
 			qdel(query)
-
-
 
 /*
 Takes a list of rows (each row being an associated list of column => value) and inserts them via a single mass query.

@@ -214,7 +214,7 @@
 		This spell also allows you to heal your minions and summons, or restore failing organs to acceptable status."
 	gain_text = "But they were not out of my reach for long. With every step, the screams grew, until at last \
 		I learned that they could be silenced."
-	spell_to_add = /datum/action/cooldown/spell/touch/flesh_surgery
+	action_to_add = /datum/action/cooldown/spell/touch/flesh_surgery
 	cost = 1
 
 /datum/heretic_knowledge/summon/raw_prophet
@@ -225,7 +225,7 @@
 	gain_text = "I could not continue alone. I was able to summon The Uncanny Man to help me see more. \
 		The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach."
 	required_atoms = list(
-		/obj/item/organ/internal/eyes = 1,
+		/obj/item/organ/eyes = 1,
 		/obj/effect/decal/cleanable/blood = 1,
 		/obj/item/bodypart/arm/left = 1,
 	)
@@ -261,9 +261,9 @@
 		An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved."
 
 	required_atoms = list(
-		/obj/item/organ/external/tail = 1,
-		/obj/item/organ/internal/stomach = 1,
-		/obj/item/organ/internal/tongue = 1,
+		/obj/item/organ/tail = 1,
+		/obj/item/organ/stomach = 1,
+		/obj/item/organ/tongue = 1,
 		/obj/item/pen = 1,
 		/obj/item/paper = 1,
 	)
@@ -288,19 +288,13 @@
 		Reality will bend to THE LORD OF THE NIGHT or be unraveled! WITNESS MY ASCENSION!"
 	required_atoms = list(/mob/living/carbon/human = 4)
 	ascension_achievement = /datum/award/achievement/misc/flesh_ascension
+	announcement_text = "%SPOOKY% Ever coiling vortex. Reality unfolded. ARMS OUTREACHED, THE LORD OF THE NIGHT, %NAME% has ascended! Fear the ever twisting hand! %SPOOKY%"
+	announcement_sound = 'sound/music/antag/heretic/ascend_flesh.ogg'
 
 /datum/heretic_knowledge/ultimate/flesh_final/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	. = ..()
-	priority_announce(
-		text = "[generate_heretic_text()] Ever coiling vortex. Reality unfolded. ARMS OUTREACHED, THE LORD OF THE NIGHT, [user.real_name] has ascended! Fear the ever twisting hand! [generate_heretic_text()]",
-		title = "[generate_heretic_text()]",
-		sound = 'sound/music/antag/heretic/ascend_flesh.ogg',
-		color_override = "pink",
-	)
-
 	var/datum/action/cooldown/spell/shapeshift/shed_human_form/worm_spell = new(user.mind)
 	worm_spell.Grant(user)
-
 
 	var/datum/antagonist/heretic/heretic_datum = GET_HERETIC(user)
 	var/datum/heretic_knowledge/limited_amount/flesh_grasp/grasp_ghoul = heretic_datum.get_knowledge(/datum/heretic_knowledge/limited_amount/flesh_grasp)

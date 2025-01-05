@@ -159,7 +159,7 @@
 	if(length(mind_traits))
 		spawned.mind.add_traits(mind_traits, JOB_TRAIT)
 
-	var/obj/item/organ/internal/liver/liver = spawned.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/liver = spawned.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver && length(liver_traits))
 		liver.add_traits(liver_traits, JOB_TRAIT)
 
@@ -398,6 +398,14 @@
 				back = duffelbag //Department duffel bag
 			if(DMESSENGER)
 				back = messenger //Department messenger bag
+			// NOVA EDIT ADDITION START - Tinypaks
+			if(TPACKB)
+				back = /obj/item/storage/backpack/tinypakb
+			if(TPACKA)
+				back = /obj/item/storage/backpack/tinypaka
+			if(TPACKC)
+				back = /obj/item/storage/backpack/tinypakc
+			// NOVA EDIT ADDITION START
 			else
 				back = backpack //Department backpack
 

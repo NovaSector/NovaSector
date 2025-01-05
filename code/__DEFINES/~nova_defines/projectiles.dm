@@ -16,4 +16,8 @@
 #define CALIBER_585TRAPPISTE ".585 Trappiste"
 
 /// Caliber used by the pepperball gun
-#define CALIBER_PEPPERBALL "pepperball"
+#define CALIBER_PEPPERBALL "Pepper Ball"
+
+/// Caliber used by the kinetic gun
+#define CALIBER_KINETICBALL "Kinetic Ball"
+

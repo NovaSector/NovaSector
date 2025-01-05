@@ -49,11 +49,11 @@
 		game_plane_master_controller.add_filter("pcp_blur", 10, angular_blur_filter(0, 0, 0.7))
 	if(SPT_PROB(2.5, seconds_per_tick))
 		to_chat(M, span_warning("[high_message]"))
-	M.AdjustKnockdown(-20 * REM * seconds_per_tick)
-	M.AdjustImmobilized(-20 * REM * seconds_per_tick)
+	M.AdjustKnockdown(-2 SECONDS * REM * seconds_per_tick)
+	M.AdjustImmobilized(-2 SECONDS * REM * seconds_per_tick)
 	if(M.adjustStaminaLoss(-10 * REM * seconds_per_tick, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
-	M.AdjustStun(-10 * REM * seconds_per_tick) //this is absolutely rediculous
+	M.AdjustStun(-1 SECONDS * REM * seconds_per_tick) //this is absolutely rediculous
 	M.overlay_fullscreen("pcp_rage", /atom/movable/screen/fullscreen/color_vision/rage_color)
 	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
 	if(SPT_PROB(3.5, seconds_per_tick))

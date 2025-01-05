@@ -19459,7 +19459,7 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/bot_assembly/floorbot{
+/obj/item/bot_assembly/repairbot{
 	pixel_y = -6;
 	pixel_x = -4
 	},
@@ -24942,8 +24942,8 @@
 /obj/effect/spawner/random/medical/memeorgans,
 /obj/effect/spawner/random/medical/memeorgans,
 /obj/effect/spawner/random/medical/organs,
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/external/tail/cat{
+/obj/item/organ/tail/cat,
+/obj/item/organ/tail/cat{
 	pixel_x = 6
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
@@ -37307,14 +37307,14 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_y = 12
 	},
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_y = 6;
 	pixel_x = 6
 	},
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 2;
 	pixel_y = 18
 	},
@@ -42850,7 +42850,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/mob/living/simple_animal/bot/floorbot{
+/mob/living/basic/bot/repairbot{
 	name = "Offixer Tilesky"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -43230,7 +43230,7 @@
 /area/station/engineering/atmos/hfr_room)
 "mwL" = (
 /obj/structure/aquarium/prefilled,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 6;
 	pixel_y = 19
 	},
@@ -57940,7 +57940,7 @@
 /area/station/service/hydroponics/upper)
 "qLZ" = (
 /obj/structure/cable,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/carpet,
 /area/station/service/lawoffice)
 "qMo" = (
@@ -62369,7 +62369,7 @@
 "seO" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/mecha_part_fabricator{
-	dir = 4
+	drop_direction = 4
 	},
 /obj/effect/turf_decal/tile/dark_red/half{
 	dir = 8

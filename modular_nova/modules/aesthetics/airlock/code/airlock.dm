@@ -53,6 +53,8 @@
 
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
+	if(QDELETED(src))
+		return
 	var/frame_state
 	var/light_state = AIRLOCK_LIGHT_POWERON
 	var/pre_light_color

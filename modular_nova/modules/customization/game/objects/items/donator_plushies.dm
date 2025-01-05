@@ -782,6 +782,32 @@
 	squeak_override = list('modular_nova/modules/emotes/sound/voice/merp.ogg' = 1)
 	young = FALSE
 
+/obj/item/toy/plush/nova/donator/delphic_synth
+	name = "surgery synth plushie"
+	desc = "A plush in the shape of a familiar white synthetic with toggleable holographic wings. It even comes complete with real fake blood stains and a functional mini-syringe! Dont think too hard about how safe it is..."
+	icon_state = "plushie_delphi"
+	squeak_override = list('modular_nova/modules/emotes/sound/emotes/dwoop.ogg' = 1)
+	attack_verb_continuous = list(
+		"lobotomizes",
+		"appendectomys",
+		"transplants",
+		"amputates",
+		"vivisects",
+		"vasotomys",
+		"myotomys",
+		"angioectomys",
+	)
+	attack_verb_simple = list(
+		"lobotomize",
+		"appendectomy",
+		"transplant",
+		"amputate",
+		"vivisect",
+		"vasotomy",
+		"myotomy",
+		"angioectomy",
+	)
+
 /obj/item/toy/plush/nova/donator/chunko
 	name = "chunko fop"
 	desc = "A soulless creature that haunts your dreams."
@@ -909,3 +935,22 @@
 		"Yeeeessss?", "Helloooooo.",
 		"Don't be such a baby, ribs grow baaaaaaaaaack.",
 		)
+
+// Donation reward for bonkaitheroris
+/obj/item/toy/plush/nova/donator/commandant
+	name = "commandant plushie"
+	desc = "From Cenion's Marketing Team: a cute plushie! A Plushie! Plooshi? Jamlet? Creature!"
+	icon_state = "plushie_commandant"
+	inhand_icon_state = "plushie_commandant"
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	attack_verb_continuous = list(
+		"hugs",
+		"squishes",
+		"baps",
+	)
+	attack_verb_simple = list(
+		"hug",
+		"squish",
+		"bap",
+	)
