@@ -19,6 +19,7 @@
 		/obj/item/dice/d20,
 		/obj/item/storage/pouch/medical/firstaid/stabilizer,
 		/obj/item/storage/pouch/cin_medkit,
+		/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 	)
 
 /obj/item/bitrunning_disk/prefs
@@ -121,6 +122,7 @@
 	selectable_items += list(
 		/obj/item/storage/belt/military,
 		/obj/item/book_of_babel,
+		/obj/item/storage/toolbox/syndicate,
 	)
 
 /obj/item/bitrunning_disk/item/tier2/Initialize(mapload)
@@ -133,8 +135,9 @@
 		/obj/item/autosurgeon/syndicate/hackerman/bitrunning,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
-		/obj/item/shield/energy,
+		/obj/item/shield/riot/pointman/nri, // previously /obj/item/shield/energy,
 		/obj/item/storage/medkit/expeditionary/surplus,
+		/obj/item/syndicate_contacts,
 	)
 
 /obj/item/autosurgeon/syndicate/hackerman/bitrunning
