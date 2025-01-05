@@ -36,8 +36,10 @@
 	abductor_hud.hide_from(C)
 
 /datum/species/abductor/abductorweak/get_species_description()
-	return "Rogues are naturally three fingered, pale skinned inquisitive aliens who can't communicate well to the average crew-member \
+	return list(
+		"Rogues are naturally three fingered, pale skinned inquisitive aliens who can't communicate well to the average crew-member \
 		without either a Text-To-Speech device or a replacement voicebox.",
+	)
 
 /datum/species/abductor/abductorweak/get_species_lore()
 	return list(
