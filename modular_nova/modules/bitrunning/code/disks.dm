@@ -77,7 +77,7 @@
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
 	purchase_path = /obj/item/bitrunning_disk/item/tier0
-	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
+	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, a robotic repair kit, or an empty colonial first-aid pouch."
 
 /obj/item/bitrunning_disk/item/tierlewd
 	name = "bitrunning gear: relaxation"
@@ -135,7 +135,7 @@
 		/obj/item/autosurgeon/syndicate/hackerman/bitrunning,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
-		/obj/item/shield/riot/pointman/nri, // previously /obj/item/shield/energy,
+		/obj/item/shield/riot/pointman/nri,
 		/obj/item/storage/medkit/expeditionary/surplus,
 		/obj/item/syndicate_contacts,
 	)
@@ -200,10 +200,10 @@
 	),src)
 
 /datum/orderable_item/bitrunning_tech/item_tier1
-	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, or a military webbing."
+	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, or a military webbing."
 
 /datum/orderable_item/bitrunning_tech/item_tier2
-	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
+	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, a ballistic shield, flashproof contacts, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
 	desc = "This disk contains a program that lets you equip a domain connection anchor, Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
