@@ -36,7 +36,7 @@
 	abductor_hud.hide_from(C)
 
 /datum/species/abductor/abductorweak/get_species_description()
-	return "Abductors are naturally three fingered, pale skinned inquisitive aliens who can't communicate well to the average crew-member \
+	return "Rogues are naturally three fingered, pale skinned inquisitive aliens who can't communicate well to the average crew-member \
 		without either a Text-To-Speech device or a replacement voicebox.",
 
 /datum/species/abductor/abductorweak/get_species_lore()
@@ -75,7 +75,7 @@
 		SPECIES_PERK_DESC = "Rogues cannot physically speak with their natural tongue. \
 			They instead naturally communicate telepathically to other Rogues, a process which all other species cannot hear. \
 			Great for secret conversations, not so great for ordering something from the bar. \
-			Many Rogues who plan to leave the Collectives usually replace their matrix with a cybernetic or replacement voice box.",
+			Many Rogues who plan to leave their homes or join another species usually replace their matrix with a cybernetic or replacement voice box.",
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
