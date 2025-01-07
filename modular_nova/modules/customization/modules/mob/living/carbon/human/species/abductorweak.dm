@@ -38,7 +38,7 @@
 	var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
 	abductor_hud.show_to(human_who_gained_species)
 
-/datum/species/abductor/abductorweak/on_species_loss(mob/living/carbon/C)
+/datum/species/abductor/abductorweak/on_species_loss(mob/living/carbon/human/former_rogue, datum/species/new_species, pref_load)
 	. = ..()
 	var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
 	abductor_hud.hide_from(C)
