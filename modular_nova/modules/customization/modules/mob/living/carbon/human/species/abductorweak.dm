@@ -36,7 +36,7 @@
 /datum/species/abductor/abductorweak/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
 	. = ..()
 	var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
-	abductor_hud.show_to(C)
+	abductor_hud.show_to(human_who_gained_species)
 
 /datum/species/abductor/abductorweak/on_species_loss(mob/living/carbon/C)
 	. = ..()
