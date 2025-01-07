@@ -5732,17 +5732,25 @@
 /area/station/science/xenobiology)
 "byI" = (
 /obj/structure/table/reinforced,
-/obj/item/hfr_box/body/interface{
-	pixel_x = 11;
-	pixel_y = 11
-	},
 /obj/item/wrench{
 	pixel_x = -5;
 	pixel_y = 7
 	},
 /obj/item/hfr_box/corner{
 	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/item/hfr_box/corner{
+	pixel_x = 8;
 	pixel_y = 2
+	},
+/obj/item/hfr_box/corner{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/hfr_box/corner{
+	pixel_x = -6;
+	pixel_y = 10
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
@@ -52079,6 +52087,10 @@
 	pixel_y = 9
 	},
 /obj/item/hfr_box/body/fuel_input,
+/obj/item/hfr_box/body/interface{
+	pixel_x = 8;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "nXc" = (
