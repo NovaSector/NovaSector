@@ -33,7 +33,7 @@
 /datum/species/abductor/abductorweak/get_physical_attributes()
 	return "Rogues do not need to breathe, eat, have a stomach, or lungs but their naturally chunky tridactyl hands make it hard to operate generic equipment."
 
-/datum/species/abductor/abductorweak/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+/datum/species/abductor/abductorweak/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
 	. = ..()
 	var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
 	abductor_hud.show_to(C)
