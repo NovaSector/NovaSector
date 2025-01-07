@@ -5,7 +5,7 @@
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/clothing/suit/toggle/labcoat/hospitalgown
+	build_path = /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown
 	category = list(
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
