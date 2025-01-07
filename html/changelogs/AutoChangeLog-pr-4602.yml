@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - balance: "Nanotrasen Consultants and Blueshields now use limited ID trims"
+  - balance: "Blueshields and Nanotrasen Consultants can no longer change their own access"
