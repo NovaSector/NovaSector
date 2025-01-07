@@ -96,3 +96,9 @@
 		Some Rogues often replace their natural hands with cybernetic hands, or genetically augment themselves and change their hands to something else.",
 	))
 	return perks
+
+// Disallow experimental organ extraction
+/datum/surgery/organ_extraction/can_start(mob/user, mob/living/carbon/target)
+	if(isrogue(user))
+		return FALSE
+	return ..()
