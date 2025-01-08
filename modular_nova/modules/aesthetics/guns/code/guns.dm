@@ -101,12 +101,14 @@
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/m1911
+	desc = "A classic handgun, modern variants of which take .460 Ceres."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 	inhand_icon_state = "colt"
 	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/c20r
+	desc = "A bullpup three-round burst .460 Ceres SMG, designated 'C-20r'. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/m90
@@ -118,8 +120,12 @@
 /obj/item/gun/ballistic/automatic/pistol
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
+/obj/item/gun/ballistic/automatic/pistol/deagle
+	desc = "A robust .454 Trucidator handgun."
+
 /obj/item/gun/ballistic/automatic/pistol/deagle/regal
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+	desc = "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .454 Trucidator ammo."
 
 /obj/item/gun/ballistic/automatic/pistol/clandestine/fisher
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
@@ -230,7 +236,7 @@
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 	name = "syndicate sniper rifle"
-	desc = "An illegally modified .50 cal sniper rifle with suppression compatibility. Quickscoping still doesn't work."
+	desc = "An illegally modified .416 Stabilis sniper rifle with suppression compatibility. Quickscoping still doesn't work."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper2"
 	worn_icon_state = "sniper"
@@ -408,6 +414,8 @@
 	desc = "An armor-piercing .460 bullet casing.\
 	<br><br>\
 	<i>ARMOR PIERCING: Increased armor piercing capabilities. What did you expect?</i>"
+	armour_penetration = 20
+	damage = 20
 	custom_materials = AMMO_MATS_AP
 	advanced_print_req = TRUE
 
@@ -418,6 +426,14 @@
 	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	custom_materials = AMMO_MATS_TEMP
 	advanced_print_req = TRUE
+
+/obj/item/ammo_box/c45
+	name = "ammo box (.460 Ceres)"
+	desc = "A box of .460 Ceres ammunition, a modern successor to the .45 round."
+
+/obj/item/ammo_box/magazine/m45
+	name = "handgun magazine (.460 Ceres)"
+	desc = "A magazine chambered for .460 meant to fit in submachine guns."
 
 // overrides for .50AE, used in the deagle
 /obj/item/ammo_casing/a50ae
