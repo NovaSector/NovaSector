@@ -414,8 +414,6 @@
 	desc = "An armor-piercing .460 bullet casing.\
 	<br><br>\
 	<i>ARMOR PIERCING: Increased armor piercing capabilities. What did you expect?</i>"
-	armour_penetration = 20
-	damage = 20
 	custom_materials = AMMO_MATS_AP
 	advanced_print_req = TRUE
 
@@ -426,6 +424,12 @@
 	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	custom_materials = AMMO_MATS_TEMP
 	advanced_print_req = TRUE
+
+/obj/item/ammo_casing/c45/hp
+	name = ".460 Ceres hollow point bullet casing"
+	desc = "A .460 bullet casing."
+	projectile_type = /obj/projectile/bullet/c45/hp
+
 
 /obj/item/ammo_box/c45
 	name = "ammo box (.460 Ceres)"
@@ -550,6 +554,10 @@
 
 /obj/item/ammo_box/magazine/wt550m9/wtic
 	name = "\improper WT-550 IND magazine"
+
+/obj/item/ammo_box/magazine/smgm45/hp
+	name = ".460 Ceres HP SMG magazine"
+	ammo_type = /obj/item/ammo_casing/c45/hp
 
 /obj/item/ammo_box/magazine/smgm45
 	name = ".460 Ceres SMG magazine"
