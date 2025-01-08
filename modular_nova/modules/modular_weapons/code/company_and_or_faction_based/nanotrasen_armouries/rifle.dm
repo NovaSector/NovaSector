@@ -1,4 +1,6 @@
-// The Nanotrasen Armouries NT20, a revamped (nerfed) variant of the C20-r for the Blueshield's personal (and hopefully exclusive) use.
+/* The Nanotrasen Armouries NT20, a revamped (nerfed) variant of the C20-r for the Blueshield's personal (and hopefully exclusive) use.
+If you're thinking of putting this in Company Imports: don't. Stop! We've been through this once already with the CMG.
+This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I'll haunt you. Thaaaanks! */
 
 /obj/item/gun/ballistic/automatic/nt20
 	name = "\improper NT20 Submachine Gun"
@@ -8,13 +10,13 @@
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/smgm45
-	fire_delay = 2
+	fire_delay = 1.6
 	burst_size = 3
 	pin = /obj/item/firing_pin
 	mag_display = TRUE
 	mag_display_ammo = TRUE
 	empty_indicator = TRUE
-	projectile_damage_multiplier = 0.9
+	projectile_damage_multiplier = 0.75
 	spread = 6
 
 /obj/item/gun/ballistic/automatic/nt20/examine_more(mob/user)
