@@ -437,7 +437,7 @@
 
 /obj/item/ammo_box/magazine/m45
 	name = "handgun magazine (.460 Ceres)"
-	desc = "A magazine chambered for .460 meant to fit in submachine guns."
+	desc = "A magazine chambered in .460 meant to fit in handguns."
 
 // overrides for .50AE, used in the deagle
 /obj/item/ammo_casing/a50ae
