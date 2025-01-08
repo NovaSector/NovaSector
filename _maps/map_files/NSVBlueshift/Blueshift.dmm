@@ -40189,8 +40189,8 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/break_room)
 "hLd" = (
-/obj/item/ammo_casing/a357,
-/obj/item/ammo_casing/a357{
+/obj/item/ammo_casing/c357,
+/obj/item/ammo_casing/c357{
 	pixel_x = 7;
 	pixel_y = 7
 	},
@@ -61839,7 +61839,7 @@
 	desc = "An old pair of nitrile gloves, with no sterile properties.";
 	name = "old nitrile gloves"
 	},
-/obj/item/surgery_tray,
+/obj/effect/spawner/surgery_tray,
 /turf/open/floor/iron,
 /area/station/maintenance/rus_surgery)
 "lSd" = (

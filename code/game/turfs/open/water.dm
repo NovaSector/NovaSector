@@ -117,7 +117,8 @@
 	// we don't want to end up with 4 different immerse elements, which would cause
 	// the immerse trait to be repeatedly removed and readded as someone moves within the pool,
 	// replacing the status effect over and over, which can be seen through the status effect alert icon.
-	AddElement(/datum/element/immerse, icon, icon_state, "immerse", immerse_overlay_color, alpha = immerse_overlay_alpha)
+	if(!immerse_added) // NOVA EDIT ADDITION
+		AddElement(/datum/element/immerse, icon, icon_state, "immerse", immerse_overlay_color, alpha = immerse_overlay_alpha) // NOVA EDIT CHANGE - Indented into if block
 	immerse_added = TRUE
 	icon_state = "pool_[rand(1, 4)]"
 	particle_effect = new(src, /particles/hotspring_steam, 4)

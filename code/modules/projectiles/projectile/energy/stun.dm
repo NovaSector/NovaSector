@@ -279,7 +279,7 @@
 		beam_type = /obj/effect/ebeam/reacting/electrodes,
 	)
 	RegisterSignal(tase_line, COMSIG_BEAM_ENTERED, PROC_REF(disrupt_tase))
-	RegisterSignal(tase_line, COMSIG_QDELETING, PROC_REF(end_tase))
+	// RegisterSignal(tase_line, COMSIG_QDELETING, PROC_REF(end_tase)) // NOVA EDIT REMOVAL - redraw deletes the beam, ending the tase, making the redraw useless and causing flaky CI
 	// moves the tase beam up or down if the target moves up or down
 	tase_line.RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, TYPE_PROC_REF(/datum/beam, redrawing))
 

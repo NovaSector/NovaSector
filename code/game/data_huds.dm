@@ -263,12 +263,10 @@ Security HUDs! Basic mode shows only the job.
 	set_hud_image_state(ID_HUD, sechud_icon_state)
 	sec_hud_set_security_status()
 	//NOVA EDIT START
-	var/image/permit_holder = hud_list[PERMIT_HUD]
-	permit_holder.pixel_y = I.Height() - world.icon_size
 	var/permit_icon_state = wear_id?.get_gun_permit_iconstate()
 	if(!permit_icon_state)
 		permit_icon_state = "hudfan_no"
-	permit_holder.icon_state = permit_icon_state
+	set_hud_image_state(PERMIT_HUD, permit_icon_state)
 	//NOVA EDIT END
 
 /mob/living/proc/sec_hud_set_implants()

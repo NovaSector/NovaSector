@@ -7,6 +7,7 @@
 # 500.1337: runtimestation
 # 516.1638: runtimestation;516
 # Lowest supported version
-515.1627: runtimestation
+# NOVA EDIT - Original: 515.1627: runtimestation
+515.1637: runtimestation
 # Beta version
 516.1648: runtimestation;516

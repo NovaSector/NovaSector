@@ -36138,7 +36138,7 @@
 "jIS" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray,
+/obj/effect/spawner/surgery_tray,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_exam)
 "jIV" = (
