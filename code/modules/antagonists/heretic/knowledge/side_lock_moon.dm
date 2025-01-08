@@ -25,7 +25,7 @@
 		The caster takes 20 brain damage per use."
 	gain_text = "My mind swings open like a gate, and its insight will let me perceive the truth."
 
-	spell_to_add = /datum/action/cooldown/spell/pointed/mind_gate
+	action_to_add = /datum/action/cooldown/spell/pointed/mind_gate
 	cost = 1
 
 /datum/heretic_knowledge/unfathomable_curio
@@ -37,7 +37,7 @@
 	gain_text = "The mansus holds many a curio, some are not meant for the mortal eye."
 
 	required_atoms = list(
-		/obj/item/organ/internal/lungs = 1,
+		/obj/item/organ/lungs = 1,
 		/obj/item/stack/rods = 3,
 		/obj/item/storage/belt = 1,
 	)
@@ -69,11 +69,11 @@
 
 
 /datum/heretic_knowledge/painting/recipe_snowflake_check(mob/living/user, list/atoms, list/selected_atoms, turf/loc)
-	if(locate(/obj/item/organ/internal/eyes) in atoms)
+	if(locate(/obj/item/organ/eyes) in atoms)
 		src.result_atoms = list(/obj/item/wallframe/painting/eldritch/weeping)
 		src.required_atoms = list(
 			/obj/item/canvas = 1,
-			/obj/item/organ/internal/eyes = 1,
+			/obj/item/organ/eyes = 1,
 		)
 		return TRUE
 

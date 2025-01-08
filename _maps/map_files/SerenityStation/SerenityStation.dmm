@@ -27158,7 +27158,7 @@
 /obj/structure/table/wood/fancy,
 /obj/item/nullrod,
 /obj/item/book/granter/action/spell/smoke/lesser,
-/obj/item/organ/internal/heart,
+/obj/item/organ/heart,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -28893,7 +28893,7 @@
 "ily" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/aquarium/prefilled,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 1;
 	pixel_y = 19
 	},
@@ -36852,7 +36852,7 @@
 /area/station/maintenance/department/crew_quarters/dorms)
 "kyP" = (
 /obj/structure/extinguisher_cabinet/directional/west,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/iron/dark,
 /area/station/service/lawoffice)
 "kyX" = (
@@ -43723,7 +43723,7 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/fitness/recreation)
 "mzr" = (
-/mob/living/simple_animal/bot/floorbot,
+/mob/living/basic/bot/repairbot,
 /turf/open/floor/vault,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "mzE" = (
@@ -73563,7 +73563,7 @@
 /area/station/commons/vacant_room/office)
 "vqB" = (
 /obj/structure/aquarium/prefilled,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 1;
 	pixel_y = 19
 	},

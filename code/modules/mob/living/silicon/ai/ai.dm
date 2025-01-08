@@ -62,7 +62,7 @@
 	var/nuking = FALSE
 	var/obj/machinery/doomsday_device/doomsday_device
 
-	var/mob/eye/ai_eye/eyeobj
+	var/mob/eye/camera/ai/eyeobj
 	var/sprint = 10
 	var/last_moved = 0
 	var/acceleration = TRUE
@@ -350,6 +350,7 @@
 		"What is the nature of your emergency? ([CALL_SHUTTLE_REASON_LENGTH] characters required.)",
 		"Confirm Shuttle Call",
 		max_length = MAX_MESSAGE_LEN,
+		encode = FALSE,
 	)
 
 	if(incapacitated)
@@ -456,7 +457,7 @@
 	if(hack_software)
 		new/obj/item/malf_upgrade(get_turf(src))
 	the_mmi = mmi_type
-	the_mmi.brain = new /obj/item/organ/internal/brain(the_mmi)
+	the_mmi.brain = new /obj/item/organ/brain(the_mmi)
 	the_mmi.brain.organ_flags |= ORGAN_FROZEN
 	the_mmi.brain.name = "[real_name]'s brain"
 	the_mmi.name = "[initial(the_mmi.name)]: [real_name]"
@@ -1140,8 +1141,8 @@
 		target_ai = src //cheat! just give... ourselves as the spawned AI, because that's technically correct
 	. = ..()
 
-/mob/living/silicon/ai/proc/camera_visibility(mob/eye/ai_eye/moved_eye)
-	GLOB.cameranet.visibility(moved_eye, client, all_eyes, TRUE)
+/mob/living/silicon/ai/proc/camera_visibility(mob/eye/camera/ai/moved_eye)
+	GLOB.cameranet.visibility(moved_eye)
 
 /mob/living/silicon/ai/forceMove(atom/destination)
 	. = ..()

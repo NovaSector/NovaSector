@@ -11,6 +11,7 @@
 	response_harm_simple = "kick"
 
 	faction = list(FACTION_NEUTRAL)
+	mob_biotypes = MOB_ORGANIC|MOB_BEAST|MOB_AQUATIC
 	ai_controller = /datum/ai_controller/basic_controller/penguin
 	///it can lay an egg?
 	var/can_lay_eggs = TRUE
@@ -133,7 +134,7 @@
 	density = FALSE
 	pass_flags = PASSMOB
 	mob_size = MOB_SIZE_SMALL
-	butcher_results = list(/obj/item/organ/internal/ears/penguin = 1, /obj/item/food/meat/slab/penguin = 1)
+	butcher_results = list(/obj/item/organ/ears/penguin = 1, /obj/item/food/meat/slab/penguin = 1)
 	ai_controller = /datum/ai_controller/basic_controller/penguin/baby
 	can_lay_eggs = FALSE
 	///will it grow up?

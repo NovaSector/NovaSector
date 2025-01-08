@@ -39,6 +39,11 @@
 	name = "type I vest"
 	item_type = /obj/item/clothing/suit/armor/vest
 
+/datum/armament_entry/company_import/sol_defense/armor/combat_boots // boots
+	name = "Combat Boots"
+	cost = PAYCHECK_CREW * 4
+	item_type = /obj/item/clothing/shoes/combat
+
 /datum/armament_entry/company_import/sol_defense/armor_hardened
 	subcategory = "Hardened Armor"
 	cost = PAYCHECK_CREW * 3
@@ -89,6 +94,10 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
+	cost = PAYCHECK_COMMAND * 4
+
+/datum/armament_entry/company_import/sol_defense/sidearm/type207
+	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
 	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
@@ -152,6 +161,9 @@
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballs
+	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
