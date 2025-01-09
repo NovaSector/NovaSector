@@ -3,7 +3,7 @@
 	var/list/spam_queue = list()
 	///Toggles whether the server accepts new messages or not.
 	var/message_protected = FALSE
-	///Maximum amount of connections that can be added via domain anchors. 0 for T1, 1 for T2, so on.
+	///Maximum amount of connections that can be added via domain anchors. 1 for T1, 2 for T2, etc.
 	var/max_anchors = -1
 	///Current amount of used domain anchors.
 	var/current_anchors = 0
@@ -11,7 +11,7 @@
 /obj/machinery/quantum_server/examine(mob/user)
 	. = ..()
 	if(max_anchors >= 1)
-		. += span_infoplain("- Its domain vulnerability scanners permit for [max_anchors] anchors to be used.")
+		. += span_infoplain("- Its domain vulnerability scanners permit for up to [max_anchors] domain anchors to be used.")
 
 /obj/machinery/quantum_server/RefreshParts()
 	. = ..()
