@@ -20,11 +20,3 @@
 
 /// Caliber used by the kinetic gun
 #define CALIBER_KINETICBALL "Kinetic Ball"
-
-/// for the 1911, c20r, etc
-#define CALIBER_45 ".45 Ceres"
-
-/// 50cal handgun
-#define CALIBER_50AE ".454 Trucidator"
-
-#define CALIBER_50BMG ".416 Stabilis"
