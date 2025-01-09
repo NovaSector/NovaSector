@@ -1,28 +1,61 @@
 /obj/machinery/quantum_server
-	///List of ckeys containing players who have recently activated the device, players on this list are prohibited from activating the device untill their residue decays.
+	///List of ckeys containing players who have recently sent a message, players on this list are prohibited from sending a new one untill their ckey disappears.
 	var/list/spam_queue = list()
+	///Toggles whether the server accepts new messages or not.
+	var/message_protected = FALSE
+	///Maximum amount of connections that can be added via domain anchors. 0 for T1, 1 for T2, so on.
+	var/max_anchors = -1
+	///Current amount of used domain anchors.
+	var/current_anchors = 0
+
+/obj/machinery/quantum_server/examine(mob/user)
+	. = ..()
+	if(max_anchors >= 1)
+		. += span_infoplain("- Its domain vulnerability scanners permit for [max_anchors] anchors to be used.")
+
+/obj/machinery/quantum_server/RefreshParts()
+	. = ..()
+	var/datum/stock_part/scanning_module/scanner = locate() in component_parts
+	max_anchors += scanner.tier
+
+/obj/machinery/quantum_server/reset(fast = FALSE)
+	. = ..()
+	current_anchors = 0
 
 /obj/machinery/quantum_server/attack_ghost(mob/user)
 	. = ..()
 	if(!is_operational)
 		return
 
+	if(message_protected)
+		balloon_alert(user, "message protected!")
+		return
+
 	for(var/player_key in spam_queue)
 		if(player_key == user.ckey)
+			balloon_alert(user, "spam protection active!")
 			return
 	ghost_mark(user)
+
+/obj/machinery/quantum_server/attack_hand(mob/user, list/modifiers)
+	. = ..()
+	if(.)
+		return
+
+	message_protected = !message_protected
+	balloon_alert(user, "message protection [message_protected ? "enabled" : "disabled"]!")
 
 /obj/machinery/quantum_server/proc/ghost_mark(mob/activator)
 	if(!use_energy(active_power_usage, force = FALSE))
 		return
-	var/message = tgui_input_text(activator, "Send a play request", "Holonet Gaming Network", max_length = MAX_PLAQUE_LEN)
+	var/message = tgui_input_text(activator, "Write your message", "Holonet Gaming Network", max_length = MAX_PLAQUE_LEN)
 	if(!message)
 		return
 	var/messenger = tgui_input_text(activator, "Set your username", "Holonet Gaming Network", max_length = MAX_NAME_LEN)
 	if(!messenger)
 		messenger = pick(GLOB.hacker_aliases)
 	playsound(loc, 'sound/machines/ectoscope_beep.ogg', 75)
-	radio.talk_into(src, "You have a new message from [messenger]: [message]", RADIO_CHANNEL_SUPPLY)
+	radio.talk_into(src, "You have: a new message: from [messenger]: [message]", RADIO_CHANNEL_SUPPLY)
 	if(activator?.ckey)
 		spam_queue += activator.ckey
 		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 15 SECONDS)
@@ -33,10 +66,11 @@
 
 /obj/machinery/quantum_server/examine(mob/user)
 	. = ..()
-	. += span_notice("Any intercepted Resonance patterns, 'ghastly apparitions', or connected bitrunners can leave a custom-written play request on the quantum server, \
-	causing a small, audible blip and sending message, indicating their activity to on-station bitrunners.")
+	. += span_notice("Any preloaded SNPC patterns, 'ghastly Resonance apparitions', or connected bitrunners can leave a custom-written message on the quantum server, \
+	causing a small, audible blip and sending a department message, indicating their activity to on-station bitrunners.")
+	. += span_notice("Its <b>messaging protection</b> is currently: <b>[message_protected ? "enabled" : "disabled"]</b>")
 
-///Removes the ghost from the ectoplasmic_residues list and lets them know they are free to activate the sniffer again.
+///Removes the ghost from the spam_queue list and lets them know they are free to message again.
 /obj/machinery/quantum_server/proc/clear_spam(ghost_ckey)
 	spam_queue -= ghost_ckey
 	var/mob/ghost = get_mob_by_ckey(ghost_ckey)
