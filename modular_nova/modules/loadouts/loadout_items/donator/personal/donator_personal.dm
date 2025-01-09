@@ -938,5 +938,3 @@
 	ckeywhitelist = list("deadmonwonderland")
 	restricted_roles = list(JOB_SHAFT_MINER)
 
-
-
