@@ -20,3 +20,4 @@
 
 /// Caliber used by the kinetic gun
 #define CALIBER_KINETICBALL "Kinetic Ball"
+
