@@ -7217,6 +7217,7 @@
 #include "modular_nova\modules\bitrunning\code\virtual_domains\syndicate_assault\ghost_spawner.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\syndicate_assault\mod.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\syndicate_assault\outfit.dm"
+#include "modular_nova\modules\bitrunning\code\virtual_domains\syndicate_assault\virtual_domain.dm"
 #include "modular_nova\modules\blastwave_outfits\code\cargo_packs.dm"
 #include "modular_nova\modules\blastwave_outfits\code\clothing\blastwave_head.dm"
 #include "modular_nova\modules\blastwave_outfits\code\clothing\blastwave_mask.dm"
