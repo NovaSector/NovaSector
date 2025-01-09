@@ -42,7 +42,7 @@
 	)
 
 /datum/bounty/item/assistant/wheelchair
-	name = "Two Wheelchairs"
+	name = "Two thousand Wheelchairs"
 	description = "We had too many incidents with the Tram and people trying to skate in the middle rail, we now need extra wheelchairs. You can send them folded."
 	reward = CARGO_CRATE_VALUE * 5
 	required_count = 2
