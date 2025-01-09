@@ -169,7 +169,7 @@
 	new /obj/item/cautery(src)
 	new /obj/item/circular_saw(src)
 	new /obj/item/clothing/mask/surgical(src)
-	new /obj/item/clothing/suit/toggle/labcoat/hospitalgown(src) // NOVA EDIT ADDITION
+	new /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown(src) // NOVA EDIT ADDITION
 	new /obj/item/hemostat(src)
 	new /obj/item/razor/surgery(src)
 	new /obj/item/retractor(src)
@@ -191,7 +191,7 @@
 	new /obj/item/cautery/cruel(src)
 	new /obj/item/circular_saw(src)
 	new /obj/item/clothing/mask/surgical(src)
-	new /obj/item/clothing/suit/toggle/labcoat/hospitalgown(src) // NOVA EDIT ADDITION
+	new /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown(src) // NOVA EDIT ADDITION
 	new /obj/item/hemostat/cruel(src)
 	new /obj/item/razor/surgery(src)
 	new /obj/item/retractor/cruel(src)

@@ -121,6 +121,7 @@
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_undersuit
 	greyscale_config_worn_digi = /datum/greyscale_config/cin_surplus_undersuit/digi
 	greyscale_colors = "#bbbbc9#bbbbc9#34343a"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/syndicate/rus_army/cin_surplus/desert
 	greyscale_colors = "#aa6d4c#aa6d4c#34343a"
@@ -198,6 +199,7 @@
 	greyscale_config = /datum/greyscale_config/cin_surplus_chestrig/object
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_chestrig
 	greyscale_colors = CIN_WINTER_COLORS_COMPLIMENT
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/storage/belt/military/cin_surplus/desert
 	greyscale_colors = CIN_MOUNTAIN_DESERT_COLORS_COMPLIMENT

@@ -139,7 +139,7 @@
 	observer.client?.prefs.safe_transfer_prefs_to(new_player)
 	new_player.dna.update_dna_identity()
 	new_player.updateappearance(icon_update = TRUE, mutcolor_update = TRUE, mutations_overlay_update = TRUE)
-	new_player.add_traits(list(TRAIT_CANNOT_CRYSTALIZE, TRAIT_PERMANENTLY_MORTAL), INNATE_TRAIT)
+	new_player.add_traits(list(TRAIT_CANNOT_CRYSTALIZE, TRAIT_PERMANENTLY_MORTAL, TRAIT_TEMPORARY_BODY), INNATE_TRAIT)
 	if(!isnull(observer.mind) && observer.mind?.current)
 		new_player.AddComponent( \
 			/datum/component/temporary_body, \
@@ -156,7 +156,7 @@
 	// register death handling.
 	RegisterSignals(new_player, list(COMSIG_LIVING_DEATH, COMSIG_MOB_GHOSTIZED, COMSIG_QDELETING), PROC_REF(player_died))
 	// NOVA EDIT ADDITION START - Synth brains don't drop here - let them delete with the mob
-	var/obj/item/organ/internal/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/synth/synth_brain = new_player.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(synth_brain))
 		synth_brain.drop_when_organ_spilling = FALSE
 	// NOVA EDIT ADDITION END

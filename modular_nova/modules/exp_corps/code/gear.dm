@@ -44,6 +44,9 @@
 	throw_range = 3
 	w_class = WEIGHT_CLASS_SMALL
 
+/obj/item/circular_saw/field_medic/lowforce
+	force = 9
+
 //Pointman's riot shield. Fixable with 1 plasteel, crafting recipe for broken shield
 /obj/item/shield/riot/pointman
 	name = "pointman shield"

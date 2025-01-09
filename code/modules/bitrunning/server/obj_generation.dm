@@ -38,9 +38,14 @@
 
 
 /// Generates a new avatar for the bitrunner.
-/obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit)
+/obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit, datum/preferences/prefs, include_loadout = FALSE) // NOVA EDIT CHANGE - Prefs argument - ORIGINAL: /obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit)
 	var/mob/living/carbon/human/avatar = new(destination)
 
+	// NOVA EDIT ADDITION START - PREFS!
+	if(!isnull(prefs))
+		prefs.safe_transfer_prefs_to(avatar)
+	ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, "Bitrunning") // Stops the funny ethereal bug
+	// NOVA EDIT ADDITION END
 	var/outfit_path = generated_domain.forced_outfit || netsuit
 	var/datum/outfit/to_wear = new outfit_path()
 
@@ -53,7 +58,7 @@
 	to_wear.suit = null
 	to_wear.suit_store = null
 
-	avatar.equipOutfit(to_wear, visualsOnly = TRUE)
+	avatar.equipOutfit(to_wear, visuals_only = TRUE)
 
 	var/obj/item/clothing/under/jumpsuit = avatar.w_uniform
 	if(istype(jumpsuit))
@@ -77,6 +82,10 @@
 			new /obj/item/flashlight,
 		)
 
+	// NOVA EDIT ADDITION START
+	if(!isnull(prefs) && include_loadout)
+		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
+	// NOVA EDIT ADDITION END
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
 		outfit_id.registered_account = new()
@@ -178,7 +187,7 @@
 	if(failed)
 		to_chat(neo, span_warning("One of your disks failed to load. Check for duplicate or inactive disks."))
 
-	var/obj/item/organ/internal/brain/neo_brain = neo.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/neo_brain = neo.get_organ_slot(ORGAN_SLOT_BRAIN)
 	for(var/obj/item/skillchip/skill_chip as anything in neo_brain?.skillchips)
 		if(!skill_chip.active)
 			continue

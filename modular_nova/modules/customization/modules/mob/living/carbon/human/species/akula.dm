@@ -9,7 +9,6 @@
 	name = "Akula"
 	plural_form = "Akulae"
 	id = SPECIES_AKULA
-	lore_protected = TRUE
 	offset_features = list(
 		OFFSET_GLASSES = list(0, 1),
 		OFFSET_EARS = list(0, 2),
@@ -17,11 +16,11 @@
 		OFFSET_HEAD = list(0, 2),
 		OFFSET_HAIR = list(0, 1),
 	)
-	mutantbrain = /obj/item/organ/internal/brain/carp/akula
-	mutantheart = /obj/item/organ/internal/heart/carp/akula
-	mutantlungs = /obj/item/organ/internal/lungs/carp/akula
-	mutanttongue = /obj/item/organ/internal/tongue/carp/akula
-	mutanteyes = /obj/item/organ/internal/eyes/akula
+	mutantbrain = /obj/item/organ/brain/carp/akula
+	mutantheart = /obj/item/organ/heart/carp/akula
+	mutantlungs = /obj/item/organ/lungs/carp/akula
+	mutanttongue = /obj/item/organ/tongue/carp/akula
+	mutanteyes = /obj/item/organ/eyes/akula
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -170,42 +169,42 @@
 	limb_overlay = null // no carpskin
 
 //Eyes
-/obj/item/organ/internal/eyes/akula
+/obj/item/organ/eyes/akula
 	// Eyes over hair as bandaid for the low amounts of head matching hair
 	eyes_layer = HAIR_LAYER-0.1
 
 //Brain
-/obj/item/organ/internal/brain/carp/akula
+/obj/item/organ/brain/carp/akula
 	name = "azulean brain"
 
-/obj/item/organ/internal/brain/carp/akula/Initialize(mapload)
+/obj/item/organ/brain/carp/akula/Initialize(mapload)
 	. = ..()
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
 
 //Heart
-/obj/item/organ/internal/heart/carp/akula
+/obj/item/organ/heart/carp/akula
 	name = "azulean heart"
 	organ_traits = list()
 
-/obj/item/organ/internal/heart/carp/akula/Initialize(mapload)
+/obj/item/organ/heart/carp/akula/Initialize(mapload)
 	. = ..()
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
 
 //Tongue
-/obj/item/organ/internal/tongue/carp/akula
+/obj/item/organ/tongue/carp/akula
 	name = "azulean jaws"
 	liked_foodtypes = SEAFOOD | RAW
 	disliked_foodtypes = CLOTH | DAIRY
 	toxic_foodtypes = TOXIC
 
-/obj/item/organ/internal/tongue/carp/akula/Initialize(mapload)
+/obj/item/organ/tongue/carp/akula/Initialize(mapload)
 	. = ..()
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
 
-/obj/item/organ/internal/tongue/carp/akula/on_mob_insert(mob/living/carbon/tongue_owner, special, movement_flags)
+/obj/item/organ/tongue/carp/akula/on_mob_insert(mob/living/carbon/tongue_owner, special, movement_flags)
 	. = ..()
 	if(!ishuman(tongue_owner))
 		return
@@ -216,12 +215,12 @@
 	rec_species.update_no_equip_flags(tongue_owner, initial(rec_species.no_equip_flags))
 
 //Lungs
-/obj/item/organ/internal/lungs/carp/akula
+/obj/item/organ/lungs/carp/akula
 	name = "azulean lungs"
-	safe_oxygen_min = /obj/item/organ/internal/lungs::safe_oxygen_min
-	safe_oxygen_max = /obj/item/organ/internal/lungs::safe_oxygen_max
+	safe_oxygen_min = /obj/item/organ/lungs::safe_oxygen_min
+	safe_oxygen_max = /obj/item/organ/lungs::safe_oxygen_max
 
-/obj/item/organ/internal/lungs/carp/akula/Initialize(mapload)
+/obj/item/organ/lungs/carp/akula/Initialize(mapload)
 	. = ..()
 	REMOVE_TRAIT(src, TRAIT_SPACEBREATHING, REF(src))
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
