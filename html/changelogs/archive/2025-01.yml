@@ -12,3 +12,33 @@
 2025-01-04:
   somenetwork:
   - rscadd: Donation reward for bonkaitheroris
+2025-01-07:
+  1393F:
+  - map: Snowglobe station has the right amount of HFR corner boxes in the HFR room
+      now
+  Hardly:
+  - balance: Nanotrasen Consultants and Blueshields now use limited ID trims
+  - balance: Blueshields and Nanotrasen Consultants can no longer change their own
+      access
+  Hatterhat:
+  - rscadd: Warehouse scavengers report a few palettes of machetes have, somehow,
+      been discovered in the warehouses and storerooms associated with the still-defunct
+      Vanguard Expeditionary Corps.
+  - rscadd: Reports of entrenching tools and recently rediscovered machetes whispering
+      "you should right-click with me on someone who's floored or immobilized" into
+      people's ears have been greatly exaggerated. Regardless, crew members with an
+      aversion to violence are suggested to avoid listening to the very legally unsound
+      advice.
+  OrbisAnima:
+  - qol: Detectives get all the Security Huds on the loadout.
+  RatFromTheJungle:
+  - qol: made the interlink shuttle universally faster, which should make it eat up
+      less time going down, or up!
+2025-01-08:
+  OrionTheFox:
+  - image: restores the intended icons for the Hospital Gown/Hardlight Gown
+  somenetwork:
+  - rscadd: Donation reward for Sharkoink
+2025-01-10:
+  OrbisAnima:
+  - code_imp: Hopefully fixes opendream issues
