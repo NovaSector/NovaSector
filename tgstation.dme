@@ -8667,6 +8667,7 @@
 #include "modular_nova\modules\system_shock\code\system_shock_quirk.dm"
 #include "modular_nova\modules\tableflip\code\flipped_table.dm"
 #include "modular_nova\modules\tagline\code\world.dm"
+#include "modular_nova\modules\tarkon\code\clothing\backpack.dm"
 #include "modular_nova\modules\tarkon\code\clothing\head.dm"
 #include "modular_nova\modules\tarkon\code\clothing\mod.dm"
 #include "modular_nova\modules\tarkon\code\clothing\neck.dm"
