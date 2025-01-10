@@ -22,6 +22,8 @@
 		available_speakers = SStts.available_speakers
 	else if(fexists("data/cached_tts_voices.json"))
 		available_speakers = json_decode(rustg_file_read("data/cached_tts_voices.json"))
+	else
+		return
 	if((speaker == "Random") || !(speaker in available_speakers))
 		secondary_voice = pick(available_speakers)
 	else
@@ -32,9 +34,10 @@
 	// If client didn't exist when action was granted, it should exist now.
 	if(isnull(secondary_voice))
 		setup_second_voice(owner)
-	// Voice failed to load somehow
-	if(isnull(secondary_voice))
+	// Block activation if second voice failed to load.
+	if(!active && isnull(secondary_voice))
 		to_chat(owner, span_userdanger("You can't remember your second voice at the moment. (Adminhelp and report this as an issue on github)"))
+		return
 	active = !active
 	if(active)
 		owner.voice = secondary_voice
