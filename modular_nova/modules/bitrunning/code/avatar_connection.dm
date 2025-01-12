@@ -13,10 +13,16 @@
 
 /// Displays information about the current virtual domain.
 /datum/action/emergency_disconnect
-	name = "Emergency Connection Severing"
+	name = "Manual Connection Severing"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bci_power"
 	show_to_observers = FALSE
+
+/datum/action/emergency_disconnect/IsAvailable(feedback)
+	if(owner.stat >= HARD_CRIT)
+		balloon_alert(owner, "too far gone!")
+		return FALSE
+	return TRUE
 
 /datum/action/emergency_disconnect/Trigger(trigger_flags)
 	. = ..()
@@ -26,6 +32,5 @@
 	var/mob/living/living_owner = owner
 	if(!isliving(living_owner))
 		return
-
 	if(tgui_alert(living_owner, "Disconnect safely?", "Server Message", list("Exit", "Remain"), 10 SECONDS) == "Exit")
 		SEND_SIGNAL(living_owner, COMSIG_BITRUNNER_ALERT_SEVER)
