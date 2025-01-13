@@ -89,6 +89,7 @@
 	},
 /obj/item/storage/box/syndie_kit/recharger,
 /obj/effect/spawner/random/contraband/armory,
+/obj/item/ammo_box/c9mm,
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
 "cw" = (
@@ -502,6 +503,7 @@
 	secure = 1
 	},
 /obj/effect/spawner/random/contraband/armory,
+/obj/item/ammo_box/c9mm,
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
 "rP" = (
@@ -534,6 +536,7 @@
 	secure = 1
 	},
 /obj/item/storage/box/syndie_kit/recharger,
+/obj/item/ammo_box/c9mm,
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
 "sK" = (
@@ -729,7 +732,8 @@
 	secure = 1
 	},
 /obj/item/crowbar/red,
-/obj/item/gun/energy/laser/carbine/cybersun,
+/obj/item/storage/toolbox/guncase,
+/obj/item/ammo_box/c9mm,
 /turf/open/floor/carpet/royalblack,
 /area/virtual_domain)
 "Cn" = (
@@ -846,6 +850,14 @@
 "Hq" = (
 /turf/closed/indestructible/binary,
 /area/virtual_domain/fullbright)
+"HF" = (
+/obj/structure/table/reinforced,
+/obj/item/toy/figure/bitrunner{
+	name = "\improper Counter-Bitrunner action figure";
+	toysay = "Oooh, Force Wall! I am a pussy and I use Force Wall!"
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/virtual_domain)
 "HU" = (
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/mineral/plastitanium,
@@ -1148,8 +1160,9 @@
 	secure = 1
 	},
 /obj/item/crowbar/red,
-/obj/item/gun/energy/laser/carbine/cybersun,
+/obj/item/storage/toolbox/guncase,
 /obj/machinery/light/small/directional/south,
+/obj/item/ammo_box/c9mm,
 /turf/open/floor/mineral/plastitanium,
 /area/virtual_domain)
 "Sq" = (
@@ -2258,7 +2271,7 @@ qx
 qx
 ru
 ru
-vp
+HF
 ru
 bm
 Ci
