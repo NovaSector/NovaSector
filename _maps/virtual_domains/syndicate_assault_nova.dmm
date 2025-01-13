@@ -87,7 +87,7 @@
 	req_access = list("syndicate");
 	secure = 1
 	},
-/obj/item/ammo_box/c9mm,
+/obj/item/storage/box/syndie_kit/recharger,
 /obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
@@ -140,6 +140,15 @@
 "dd" = (
 /obj/structure/sign/warning/vacuum/external,
 /turf/closed/wall/r_wall/syndicate,
+/area/virtual_domain)
+"de" = (
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/turf/open/floor/mineral/plastitanium,
 /area/virtual_domain)
 "di" = (
 /obj/machinery/power/terminal{
@@ -301,6 +310,11 @@
 	},
 /turf/open/space/basic,
 /area/space/virtual_domain)
+"kk" = (
+/obj/structure/table/reinforced,
+/obj/machinery/coffeemaker,
+/turf/open/floor/mineral/plastitanium,
+/area/virtual_domain)
 "kI" = (
 /obj/machinery/computer/atmos_alert{
 	dir = 8
@@ -519,8 +533,7 @@
 	req_access = list("syndicate");
 	secure = 1
 	},
-/obj/item/ammo_box/c9mm,
-/obj/item/ammo_box/c9mm,
+/obj/item/storage/box/syndie_kit/recharger,
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
 "sK" = (
@@ -623,16 +636,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/virtual_domain/protected_space)
 "xJ" = (
-/obj/structure/closet/syndicate{
-	anchored = 1;
-	desc = "A basic closet for all your villainous needs.";
-	locked = 1;
-	name = "Closet";
-	req_access = list("syndicate");
-	secure = 1
-	},
-/obj/item/ammo_box/c9mm,
-/turf/open/floor/mineral/plastitanium/red,
+/obj/machinery/microwave,
+/obj/structure/table/reinforced,
+/turf/open/floor/mineral/plastitanium,
 /area/virtual_domain)
 "xS" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -723,9 +729,7 @@
 	secure = 1
 	},
 /obj/item/crowbar/red,
-/obj/item/ammo_box/magazine/m9mm_aps,
-/obj/item/ammo_box/magazine/m9mm_aps,
-/obj/item/gun/ballistic/automatic/pistol/aps,
+/obj/item/gun/energy/laser/carbine/cybersun,
 /turf/open/floor/carpet/royalblack,
 /area/virtual_domain)
 "Cn" = (
@@ -1144,9 +1148,7 @@
 	secure = 1
 	},
 /obj/item/crowbar/red,
-/obj/item/ammo_box/magazine/m9mm,
-/obj/item/ammo_box/magazine/m9mm,
-/obj/item/gun/ballistic/automatic/pistol,
+/obj/item/gun/energy/laser/carbine/cybersun,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/virtual_domain)
@@ -3251,9 +3253,9 @@ uP
 FN
 uP
 Cn
-uP
-uP
-uP
+kk
+xJ
+de
 ru
 hD
 ru
@@ -3361,7 +3363,7 @@ qx
 qx
 UQ
 rM
-xJ
+sH
 Kz
 Kz
 tI
