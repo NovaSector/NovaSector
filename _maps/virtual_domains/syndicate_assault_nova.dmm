@@ -296,7 +296,9 @@
 /area/virtual_domain)
 "kh" = (
 /obj/structure/lattice,
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/space/basic,
 /area/space/virtual_domain)
 "kI" = (
@@ -343,7 +345,9 @@
 /area/virtual_domain)
 "lo" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/space/basic,
 /area/space/virtual_domain)
 "lN" = (
@@ -872,7 +876,9 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/virtual_domain)
 "Im" = (
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/space/basic,
 /area/space/virtual_domain)
 "Io" = (
@@ -990,7 +996,9 @@
 /area/virtual_domain)
 "Mp" = (
 /obj/structure/marker_beacon/burgundy,
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/closed/wall/r_wall/syndicate,
 /area/space/virtual_domain)
 "MD" = (
@@ -1164,7 +1172,9 @@
 "SN" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/door/poddoor/ancient_milsim,
+/obj/machinery/door/poddoor/ancient_milsim{
+	id = "engagement_control"
+	},
 /turf/open/space/basic,
 /area/space/virtual_domain)
 "SX" = (
