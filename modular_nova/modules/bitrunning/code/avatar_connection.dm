@@ -17,12 +17,7 @@
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bci_power"
 	show_to_observers = FALSE
-
-/datum/action/emergency_disconnect/IsAvailable(feedback)
-	if(owner.stat >= HARD_CRIT)
-		balloon_alert(owner, "too far gone!")
-		return FALSE
-	return TRUE
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
 
 /datum/action/emergency_disconnect/Trigger(trigger_flags)
 	. = ..()
