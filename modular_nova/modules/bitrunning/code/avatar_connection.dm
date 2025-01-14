@@ -11,7 +11,7 @@
 		var/datum/action/emergency_disconnect/action = new(avatar)
 		action.Grant(avatar)
 
-/// Displays information about the current virtual domain.
+/// Disconnects you from the avatar on your own volition.
 /datum/action/emergency_disconnect
 	name = "Manual Connection Severing"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
