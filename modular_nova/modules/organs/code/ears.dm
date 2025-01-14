@@ -1,4 +1,5 @@
-/obj/item/organ/ears/sensitive // Teshari ears, but as a quirk/organ
+/// Teshari ears, but as a quirk/organ
+/obj/item/organ/ears/sensitive
 	name = "sensitive ears"
 	desc = "Highly sensitive ears capable of detecting even the smallest noises."
 	damage_multiplier = 2
@@ -6,7 +7,7 @@
 
 /obj/item/organ/ears/sensitive/on_mob_remove(mob/living/carbon/ear_owner)
 	. = ..()
-	// Prevent sensitive hearing from being broken without admin intervention if the quirk/organ is removed while active
+	/// Prevents sensitive hearing from being broken without admin intervention if the quirk/organ is removed while active
 	if(ear_owner.has_status_effect(/datum/status_effect/teshari_hearing))
 		ear_owner.remove_status_effect(/datum/status_effect/teshari_hearing)
 
@@ -14,7 +15,8 @@
 
 /obj/item/organ/ears/sensitive/on_mob_insert(mob/living/carbon/ear_owner)
 	. = ..()
-	ADD_TRAIT(ear_owner, TRAIT_SENSITIVE_HEARING, ORGAN_TRAIT) // TRAIT_SENSITIVE_HEARING is important for the flavor text distinction
+	/// TRAIT_SENSITIVE_HEARING is important for the flavor text distinction
+	ADD_TRAIT(ear_owner, TRAIT_SENSITIVE_HEARING, ORGAN_TRAIT)
 
 /obj/item/organ/ears/teshari
 	name = "teshari ears"
@@ -26,7 +28,7 @@
 
 /obj/item/organ/ears/teshari/on_mob_remove(mob/living/carbon/ear_owner)
 	. = ..()
-	// Prevent teshari hearing from being broken without admin intervention if the organ is removed while active
+	/// Prevents teshari hearing from being broken without admin intervention if the organ is removed while active
 	if(ear_owner.has_status_effect(/datum/status_effect/teshari_hearing))
 		ear_owner.remove_status_effect(/datum/status_effect/teshari_hearing)
 
@@ -43,7 +45,8 @@
 	cooldown_time = 1 SECONDS
 	spell_requirements = NONE
 
-/datum/action/cooldown/spell/teshari_hearing/proc/update_button_state(new_state) //This makes it so that the button icon changes dynamically based on ears being up or not.
+/// This makes it so that the button icon changes dynamically based on ears being up or not.
+/datum/action/cooldown/spell/teshari_hearing/proc/update_button_state(new_state)
 	button_icon_state = new_state
 	owner.update_action_buttons()
 
@@ -73,10 +76,12 @@
 	if(ears)
 		ears.damage_multiplier = 3
 
-/datum/action/cooldown/spell/teshari_hearing/proc/teshari_hearing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
+/// Called when you cast teshari hearing again after enabling it, thereby making it a one-button toggle
+/datum/action/cooldown/spell/teshari_hearing/proc/teshari_hearing_deactivate(mob/living/carbon/human/user)
 	var/hearing_disable_message = "[user] drops [user.p_their()] ears down a bit, no longer listening as closely."
 	var/hearing_disable_usermessage = "You drop your ears down, no longer paying close attention."
-	if(HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING)) // Change the flavor text for Sensitive Hearing users
+	/// Change the flavor text for Sensitive Hearing users
+	if(HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING))
 		hearing_disable_message = "[user] stops listening for quiet sounds."
 		hearing_disable_usermessage = "You stop listening for quiet sounds."
 
@@ -86,10 +91,8 @@
 
 	var/obj/item/organ/ears/ears = user.get_organ_slot(ORGAN_SLOT_EARS)
 	if(ears)
-		if(HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING))
-			ears.damage_multiplier = 2
-		else
-			ears.damage_multiplier = 1.5
+		/// Sensitive Hearing users take more hearing damage when they're not listening
+		ears.damage_multiplier = HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING) ? 2 : 1.5
 
 /datum/status_effect/teshari_hearing
 	id = "teshari_hearing"
