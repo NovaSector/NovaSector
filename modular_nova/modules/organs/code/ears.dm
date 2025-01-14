@@ -45,7 +45,7 @@
 	cooldown_time = 1 SECONDS
 	spell_requirements = NONE
 
-/// This makes it so that the button icon changes dynamically based on ears being up or not.
+/// Updates the icon on the teshari hearing action for when it's on/off
 /datum/action/cooldown/spell/teshari_hearing/proc/update_button_state(new_state)
 	button_icon_state = new_state
 	owner.update_action_buttons()
@@ -80,7 +80,6 @@
 /datum/action/cooldown/spell/teshari_hearing/proc/teshari_hearing_deactivate(mob/living/carbon/human/user)
 	var/hearing_disable_message = "[user] drops [user.p_their()] ears down a bit, no longer listening as closely."
 	var/hearing_disable_usermessage = "You drop your ears down, no longer paying close attention."
-	// Change the flavor text for Sensitive Hearing users
 	if(HAS_TRAIT(user, TRAIT_SENSITIVE_HEARING))
 		hearing_disable_message = "[user] stops listening for quiet sounds."
 		hearing_disable_usermessage = "You stop listening for quiet sounds."
