@@ -168,7 +168,7 @@
 
 	old_appendix = null
 
-/datum/quirk/sensitive_hearing // TODO: This really needs to be unavailable for Teshari. I'm not sure how to do that yet.
+/datum/quirk/sensitive_hearing // Teshari hearing but as a quirk
 	name = "Sensitive Hearing"
 	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
@@ -195,7 +195,7 @@
 	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
 	var/obj/item/organ/ears/current_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
 
-	if(isnull(old_ears)) // TODO: This needs to be capable of returning species-specific ears, even though it's a failure case
+	if(isnull(old_ears)) // Make new generic ears if the original ones are missing
 		old_ears = new /obj/item/organ/ears
 
 	// Return the original ears.
