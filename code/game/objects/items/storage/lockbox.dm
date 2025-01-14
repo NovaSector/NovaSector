@@ -31,23 +31,26 @@
 		return ..()
 
 	if(can_unlock(user, card))
-		if(atom_storage.locked)
-			atom_storage.locked = STORAGE_NOT_LOCKED
-		else
-			atom_storage.locked = STORAGE_FULLY_LOCKED
-			atom_storage.close_all()
-		balloon_alert(user, atom_storage.locked ? "locked" : "unlocked")
-		update_appearance()
+		toggle_locked(user)
 		return ITEM_INTERACT_SUCCESS
 
 	return ITEM_INTERACT_BLOCKING
 
-/obj/item/storage/lockbox/proc/can_unlock(mob/living/user, obj/item/card/id/id_card)
+/obj/item/storage/lockbox/proc/can_unlock(mob/living/user, obj/item/card/id/id_card, silent = FALSE)
 	if(check_access(id_card))
 		return TRUE
-
-	balloon_alert(user, "access denied!")
+	if(!silent)
+		balloon_alert(user, "access denied!")
 	return FALSE
+
+/obj/item/storage/lockbox/proc/toggle_locked(mob/living/user)
+	if(atom_storage.locked)
+		atom_storage.locked = STORAGE_NOT_LOCKED
+	else
+		atom_storage.locked = STORAGE_FULLY_LOCKED
+		atom_storage.close_all()
+	balloon_alert(user, atom_storage.locked ? "locked" : "unlocked")
+	update_appearance()
 
 /obj/item/storage/lockbox/update_icon_state()
 	. = ..()
@@ -253,14 +256,15 @@
 		department_account = buyer_account
 	//NOVA EDIT ADDITION END
 
-/obj/item/storage/lockbox/order/can_unlock(mob/living/user, obj/item/card/id/id_card)
+/obj/item/storage/lockbox/order/can_unlock(mob/living/user, obj/item/card/id/id_card, silent = FALSE)
 	if(id_card.registered_account == buyer_account)
 		return TRUE
 	//NOVA EDIT ADDITION START - private department orders
 	if(department_purchase && id_card.registered_account?.account_job?.paycheck_department == department_account.department_id)
 		return TRUE
 	//NOVA EDIT ADDITION END
-	balloon_alert(user, "incorrect bank account!")
+	if(!silent)
+		balloon_alert(user, "incorrect bank account!")
 	return FALSE
 
 ///screentips for lockboxes
