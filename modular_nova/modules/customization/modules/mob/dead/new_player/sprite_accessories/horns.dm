@@ -5,7 +5,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/horns
+	organ_type = /obj/item/organ/horns
 
 /datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.head && !wearer.wear_mask)
@@ -139,6 +139,26 @@
 /datum/sprite_accessory/horns/broadcurls
 	name = "Broad Curls"
 	icon_state = "broadcurls"
+
+/datum/sprite_accessory/horns/antenna_fuzzball_v2
+	name = "Fuzzball Antenna"
+	icon_state = "antenna_fuzzballv2"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/horns/setaceous
+	name = "Setaceous Antenna"
+	icon_state = "setaceous"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/setaceousm
+	name = "Medium Setaceous Antenna"
+	icon_state = "setaceousm"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/geniculate
+	name = "Geniculate Antenna"
+	icon_state = "geniculate"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/horns/moogle_pom
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moogle_pom.dmi'

@@ -17,6 +17,7 @@
 	tick_interval = 2 SECONDS
 	status_type = STATUS_EFFECT_REPLACE
 	remove_on_fullheal = TRUE
+	alert_type = null
 	/// The level of drunkness we are currently at.
 	var/drunk_value = 0
 
@@ -138,7 +139,7 @@
 	// Handle the Ballmer Peak.
 	// If our owner is a scientist (has the trait "TRAIT_BALLMER_SCIENTIST"), there's a 5% chance
 	// that they'll say one of the special "ballmer message" lines, depending their drunk-ness level.
-	var/obj/item/organ/internal/liver/liver_organ = owner.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/liver_organ = owner.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(liver_organ && HAS_TRAIT(liver_organ, TRAIT_BALLMER_SCIENTIST) && prob(5))
 		if(drunk_value >= BALLMER_PEAK_LOW_END && drunk_value <= BALLMER_PEAK_HIGH_END)
 			owner.say(pick_list_replacements(VISTA_FILE, "ballmer_good_msg"), forced = "ballmer")

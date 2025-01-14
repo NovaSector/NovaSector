@@ -142,7 +142,7 @@
 	desc = "Contains a single standard NIF by itself, surgery is required."
 	cost = CARGO_CRATE_VALUE * 15
 	contains = list(
-		/obj/item/organ/internal/cyberimp/brain/nif/standard,
+		/obj/item/organ/cyberimp/brain/nif/standard,
 	)
 
 /datum/supply_pack/goody/cheap_nif
@@ -150,7 +150,7 @@
 	desc = "Contains a single Econo-Deck NIF by itself, surgery is required."
 	cost = CARGO_CRATE_VALUE * 7.5
 	contains = list(
-		/obj/item/organ/internal/cyberimp/brain/nif/roleplay_model,
+		/obj/item/organ/cyberimp/brain/nif/roleplay_model,
 	)
 
 /datum/supply_pack/goody/nif_repair_kit

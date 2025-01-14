@@ -23,6 +23,10 @@
 	resistance_flags = NONE
 	max_integrity = 300
 	storage_type = /datum/storage/backpack
+	pickup_sound = 'sound/items/handling/backpack/backpack_pickup1.ogg'
+	drop_sound = 'sound/items/handling/backpack/backpack_drop1.ogg'
+	equip_sound = 'sound/items/equip/backpack_equip.ogg'
+	sound_vary = TRUE
 
 /obj/item/storage/backpack/Initialize(mapload)
 	. = ..()
@@ -59,6 +63,8 @@
 	item_flags = NO_MAT_REDEMPTION
 	armor_type = /datum/armor/backpack_holding
 	storage_type = /datum/storage/bag_of_holding
+	pickup_sound = null
+	drop_sound = null
 
 /datum/armor/backpack_holding
 	fire = 60
@@ -592,7 +598,7 @@
 	new /obj/item/surgicaldrill(src)
 	new /obj/item/cautery(src)
 	new /obj/item/surgical_drapes(src)
-	new /obj/item/clothing/suit/toggle/labcoat/hospitalgown(src)	//NOVA EDIT ADDITION
+	new /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown(src) //NOVA EDIT ADDITION
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/blood_filter(src)
 
