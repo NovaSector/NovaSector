@@ -46,6 +46,7 @@
 	message_protected = !message_protected
 	balloon_alert(user, "message protection [message_protected ? "enabled" : "disabled"]!")
 
+/// 'Marks' the server with the ghost's presence: their custom-written message, and the ckey added to the spam-prevention list.
 /obj/machinery/quantum_server/proc/ghost_mark(mob/activator)
 	if(!use_energy(active_power_usage, force = FALSE))
 		return
