@@ -507,7 +507,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
 "rP" = (
-/turf/open/floor/plating,
+/obj/machinery/light/small/directional/north,
+/obj/machinery/vending/wardrobe/syndie_wardrobe,
+/turf/open/floor/mineral/plastitanium,
 /area/virtual_domain)
 "sg" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -765,13 +767,6 @@
 /obj/item/coin/antagtoken,
 /turf/open/floor/mineral/plastitanium/red,
 /area/virtual_domain)
-"De" = (
-/obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/mineral/plastitanium/red,
-/area/virtual_domain)
 "Dj" = (
 /obj/structure/table/reinforced,
 /obj/item/ammo_box/magazine/smgm45,
@@ -920,13 +915,6 @@
 	},
 /turf/open/floor/plating,
 /area/virtual_domain/protected_space)
-"IV" = (
-/obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/plating,
-/area/virtual_domain)
 "Jg" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/mineral/plastitanium/red,
@@ -2219,12 +2207,12 @@ ru
 ru
 ru
 ru
-rP
+uP
 cR
 ru
 ru
 ru
-IV
+vK
 ru
 ru
 ru
@@ -2513,7 +2501,7 @@ JN
 JN
 MR
 ru
-fJ
+rP
 uP
 vK
 gD
@@ -2572,7 +2560,7 @@ Kz
 pl
 ru
 ru
-De
+wK
 ru
 ru
 ru
