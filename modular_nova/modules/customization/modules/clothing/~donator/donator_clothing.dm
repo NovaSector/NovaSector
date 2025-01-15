@@ -2316,7 +2316,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	inhand_icon_state = "tattered_cloak"
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/melon
-	name = "Command Armor Vest"
+	name = "\improper Command Armor Vest"
 	desc = "A armor vest with improved armor plates. Designed for use by command units."
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
