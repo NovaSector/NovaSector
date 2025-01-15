@@ -16,11 +16,12 @@
 /obj/machinery/quantum_server/RefreshParts()
 	. = ..()
 	var/datum/stock_part/scanning_module/scanner = locate() in component_parts
-	max_anchors += scanner.tier
+	if(scanner)
+		max_anchors += scanner.tier
 
 /obj/machinery/quantum_server/reset(fast = FALSE)
 	. = ..()
-	current_anchors = 0
+	current_anchors = initial(current_anchors)
 
 /obj/machinery/quantum_server/attack_ghost(mob/user)
 	. = ..()
@@ -58,11 +59,11 @@
 	radio.talk_into(src, "You have: a new message: from [messenger]: [message]", RADIO_CHANNEL_SUPPLY)
 	if(activator?.ckey)
 		spam_queue += activator.ckey
-		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 15 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 15 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/machinery/quantum_server/Destroy()
 	spam_queue = null
-	. = ..()
+	return ..()
 
 /obj/machinery/quantum_server/examine(mob/user)
 	. = ..()
