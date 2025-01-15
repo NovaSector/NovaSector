@@ -466,6 +466,6 @@
 	var/obj/machinery/mounted_machine_gun/browning = exposed_obj
 	if(istype(browning) && browning.barrel_heat)
 		browning.reset_overheat()
-		browning.barrel_heat -= clamp(browning.barrel_heat, 0, barrel_heat_per_shot * 7)
+		browning.barrel_heat -= clamp(browning.barrel_heat, 0, browning.barrel_heat_per_shot * 7)
 		playsound(browning, 'sound/effects/wounds/sizzle2.ogg', 100)
 		browning.balloon_alert_to_viewers("water cooled!")
