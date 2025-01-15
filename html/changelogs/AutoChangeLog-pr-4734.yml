@@ -1,0 +1,4 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - bugfix: "Ammo manufacturers have corrected their labelling habits, and many objects which referred to ammo types that have not existed for several years no longer do so."
