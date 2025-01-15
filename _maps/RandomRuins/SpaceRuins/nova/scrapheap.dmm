@@ -1123,7 +1123,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ej" = (
 /obj/structure/rack/shelf,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "El" = (
@@ -1704,7 +1704,6 @@
 /turf/closed/indestructible/fakedoor/maintenance,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QW" = (
-/obj/effect/mapping_helpers/airlock/locked,
 /turf/closed/indestructible/fakedoor/glass_airlock,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "RA" = (

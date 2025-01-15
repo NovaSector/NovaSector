@@ -327,7 +327,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	add_startup_message("Initializing subsystems...") //NOVA EDIT CHANGE - Custom HTML Lobby Screen
+	// to_chat(world, span_boldannounce("Initializing subsystems..."), MESSAGE_TYPE_DEBUG) // NOVA EDIT REMOVAL
+	add_startup_message("Initializing subsystems...") // NOVA EDIT CHANGE - Custom HTML Lobby Screen
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -369,7 +370,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, span_boldannounce("[msg]"))
+	to_chat(world, span_boldannounce("[msg]"), MESSAGE_TYPE_DEBUG)
 	log_world(msg)
 
 
@@ -465,7 +466,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	// NOVA EDIT REMOVAL END
 
 	if(result != SS_INIT_NO_MESSAGE)
-		add_startup_message(message, chat_warning) //NOVA EDIT CHANGE - ORIGINAL: to_chat(world, chat_message)
+		// to_chat(world, chat_message, MESSAGE_TYPE_DEBUG) // NOVA EDIT REMOVAL
+		add_startup_message(message, chat_warning) // NOVA EDIT ADDITION
 	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)

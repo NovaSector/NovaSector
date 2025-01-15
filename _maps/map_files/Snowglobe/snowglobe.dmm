@@ -7379,7 +7379,7 @@
 /area/station/medical/virology)
 "bXb" = (
 /obj/machinery/defibrillator_mount/directional/south,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/white/smooth_edge,
@@ -35441,7 +35441,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
 	},
@@ -36138,7 +36138,7 @@
 "jIS" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray,
+/obj/effect/spawner/surgery_tray,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_exam)
 "jIV" = (
@@ -39087,7 +39087,7 @@
 /area/station/cargo/storage)
 "kvj" = (
 /obj/machinery/defibrillator_mount/directional/south,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/white/smooth_edge,
@@ -41938,7 +41938,7 @@
 /area/station/engineering/atmos/project)
 "liw" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full/morgue,
+/obj/effect/spawner/surgery_tray/full/morgue,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -58759,7 +58759,7 @@
 /area/station/commons/dorms)
 "pPN" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/siding/blue{
 	dir = 6
 	},
