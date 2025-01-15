@@ -65,11 +65,11 @@
 	/// How many uses does it have left?
 	var/charges = 1
 	/// Who summoned this?
-	var/caller
+	var/creator
 
 /obj/item/card/emag/one_shot/examine(mob/user)
 	. = ..()
-	if(user == caller)
+	if(user == creator)
 		. += span_notice("It looks cheapo, they did say it gives just one shot...")
 	else
 		. += span_notice("It looks flimsy and identical to the \"Donk Co.\" toy.")
@@ -100,7 +100,7 @@
 			if(one_shot_emag)
 				return
 			one_shot_emag = new(user.drop_location())
-			one_shot_emag.caller = user
+			one_shot_emag.creator = user
 			user.put_in_hands(one_shot_emag)
 			one_shot_emag.balloon_alert(user, "the card materializes in your hand")
 			// No penalty for losing this objective item, it is up to the traitor if this is the emag they use or another

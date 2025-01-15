@@ -427,18 +427,18 @@
 	<i>HAND CANNON: Fired out of a handgun, deals disproportionately large damage.</i>"
 
 // overrides for .357, used in the .357 revolver
-/obj/item/ammo_casing/a357    //We can keep the Magnum classic.
+/obj/item/ammo_casing/c357    //We can keep the Magnum classic.
 	name = ".357 bullet casing"
 	desc = "A .357 bullet casing.\
 	<br><br>\
 	<i>HAND CANNON: Fired out of a handgun, deals disproportionately large damage.</i>"
 
-/obj/item/ammo_casing/a357/match
+/obj/item/ammo_casing/c357/match
 	desc = "A .357 bullet casing, manufactured to exceedingly high standards.\
 	<br><br>\
 	<i>MATCH: Ricochets everywhere. Like crazy.</i>"
 
-/obj/item/ammo_casing/a357/phasic
+/obj/item/ammo_casing/c357/phasic
 	desc = "A .357 phasic bullet casing.\
 	<br><br>\
 	<i>PHASIC: Ignores all surfaces except organic matter.</i>"
@@ -446,7 +446,7 @@
 	custom_materials = AMMO_MATS_PHASIC
 	can_be_printed = FALSE // shot from cargo to sec with cameras needed to see if you hit your target, it can be fun for event where we play extreme battleships.
 
-/obj/item/ammo_casing/a357/heartseeker
+/obj/item/ammo_casing/c357/heartseeker
 	desc = "A .357 heartseeker bullet casing.\
 	<br><br>\
 	<i>HEARTSEEKER: Has homing capabilities, methodology unknown.</i>"
