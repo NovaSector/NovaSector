@@ -29,8 +29,6 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 		the inimitable .460 Ceres round and a patent-pending multi-stage delayed blowback system \
 		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire."
 
-	return .
-
 /obj/item/gun/ballistic/automatic/nt20/give_manufacturer_examine()
     AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
@@ -47,7 +45,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 		. += "[icon_state]_empty"
 
 /obj/item/storage/toolbox/guncase/nova/nt20
-	name = "Nanotrasen Armories \"NT20\" Gunset"
+	name = "\improper Nanotrasen Armories \"NT20\" gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nt20
 	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45
 
