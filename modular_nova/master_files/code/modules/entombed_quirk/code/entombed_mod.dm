@@ -69,7 +69,8 @@
 	if (!host_suit)
 		//if we have no host suit, we shouldn't exist, so delete
 		host = null
-		qdel(parent)
+		if(!QDELETED(parent))
+			qdel(parent)
 		return
 
 	var/obj/item/clothing/piece = parent
@@ -110,7 +111,7 @@
 	who.balloon_alert(who, "can't strip a fused MODsuit!")
 	return ..()
 
-/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part)
+/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part, instant)
 	if (ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/datum/quirk/equipping/entombed/tomb_quirk = human_user.get_quirk(/datum/quirk/equipping/entombed)

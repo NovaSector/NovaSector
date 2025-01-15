@@ -53,6 +53,10 @@
 	/// Even snowflakier way to modify projectile wounding bonus/potential for projectiles fired from this gun.
 	var/projectile_wound_bonus = 0
 
+	/// The most reasonable way to modify projectile speed values for projectile fired from this gun. Honest.
+	/// Lower values are better, higher values are worse.
+	var/projectile_speed_multiplier = 1
+
 	var/spread = 0 //Spread induced by the gun itself.
 	var/randomspread = 1 //Set to 0 for shotguns. This is used for weapons that don't fire all their bullets at once.
 
@@ -73,8 +77,9 @@
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
-	if(pin)
-		pin = new pin(src)
+	if(ispath(pin))
+		pin = new pin
+		pin.gun_insert(new_gun = src)
 
 	add_seclight_point()
 	// NOVA EDIT ADDITION BEGIN - GUN SAFETIES AND MANUFACTURER EXAMINE
@@ -600,7 +605,8 @@
 /obj/item/gun/proc/unlock() //used in summon guns and as a convience for admins
 	if(pin)
 		qdel(pin)
-	pin = new /obj/item/firing_pin
+	var/obj/item/firing_pin/new_pin = new
+	new_pin.gun_insert(new_gun = src)
 
 //Happens before the actual projectile creation
 /obj/item/gun/proc/before_firing(atom/target,mob/user)

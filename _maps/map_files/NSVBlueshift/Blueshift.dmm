@@ -40189,8 +40189,8 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/break_room)
 "hLd" = (
-/obj/item/ammo_casing/a357,
-/obj/item/ammo_casing/a357{
+/obj/item/ammo_casing/c357,
+/obj/item/ammo_casing/c357{
 	pixel_x = 7;
 	pixel_y = 7
 	},
@@ -48482,7 +48482,7 @@
 /area/station/hallway/secondary/entry)
 "jqK" = (
 /obj/structure/table,
-/obj/item/surgery_tray/full/morgue,
+/obj/effect/spawner/surgery_tray/full/morgue,
 /turf/open/floor/iron/white,
 /area/station/medical/morgue)
 "jqP" = (
@@ -61839,7 +61839,7 @@
 	desc = "An old pair of nitrile gloves, with no sterile properties.";
 	name = "old nitrile gloves"
 	},
-/obj/item/surgery_tray,
+/obj/effect/spawner/surgery_tray,
 /turf/open/floor/iron,
 /area/station/maintenance/rus_surgery)
 "lSd" = (
@@ -78435,7 +78435,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/surgery_tray/full/deployed,
+/obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron,
 /area/station/medical/surgery/theatre)
 "pbP" = (
@@ -82318,7 +82318,7 @@
 /area/station/command/heads_quarters/hop)
 "pQu" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "pQy" = (

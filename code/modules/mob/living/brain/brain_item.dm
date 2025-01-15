@@ -104,6 +104,7 @@
 	brain_owner.update_body_parts()
 
 /obj/item/organ/brain/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
 	// Delete skillchips first as parent proc sets owner to null, and skillchips need to know the brain's owner.
 	if(!QDELETED(organ_owner) && length(skillchips))
 		if(!special)
@@ -111,9 +112,7 @@
 			for(var/chip in skillchips)
 				var/obj/item/skillchip/skillchip = chip
 				// Run the try_ proc with force = TRUE.
-				skillchip.try_deactivate_skillchip(silent = special, force = TRUE)
-
-	..()
+				skillchip.try_deactivate_skillchip(silent = special, force = TRUE, brain_owner = organ_owner)
 
 	for(var/X in traumas)
 		var/datum/brain_trauma/BT = X
@@ -466,9 +465,9 @@
 /obj/item/organ/brain/felinid //A bit smaller than average
 	brain_size = 0.8
 
-/obj/item/organ/brain/lizard //A bit smaller than average
+/obj/item/organ/brain/lizard
 	name = "lizard brain"
-	desc = "This juicy piece of meat has a oversized brain stem and cerebellum, with not much of a limbic system to speak of at all. You would expect it's owner to be pretty cold blooded."
+	desc = "This juicy piece of meat has a oversized brain stem and cerebellum, with not much of a limbic system to speak of at all. You would expect its owner to be pretty cold blooded."
 	organ_traits = list(TRAIT_TACKLING_TAILED_DEFENDER)
 
 /obj/item/organ/brain/abductor
@@ -622,7 +621,7 @@
 /obj/item/organ/brain/proc/get_attacking_limb(mob/living/carbon/human/target)
 	var/obj/item/bodypart/arm/active_hand = owner.get_active_hand()
 	if(target.body_position == LYING_DOWN && owner.usable_legs)
-		var/obj/item/bodypart/found_bodypart = owner.get_bodypart((active_hand.held_index % 2) ? BODY_ZONE_L_LEG : BODY_ZONE_R_LEG)
+		var/obj/item/bodypart/found_bodypart = owner.get_bodypart(IS_LEFT_INDEX(active_hand.held_index) ? BODY_ZONE_L_LEG : BODY_ZONE_R_LEG)
 		return found_bodypart || active_hand
 	return active_hand
 

@@ -73,7 +73,7 @@
 		if(!hurt)
 			return
 
-		if(victim.check_block(src, 0, "[name]", LEAP_ATTACK))
+		if(. == SUCCESSFUL_BLOCK || victim.check_block(src, 0, "[name]", LEAP_ATTACK))
 			blocked = TRUE
 
 		take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
@@ -116,7 +116,7 @@
 		return
 	throw_mode = THROW_MODE_DISABLED
 	if(hud_used)
-		hud_used.throw_icon.icon_state = "act_throw_off"
+		hud_used.throw_icon.icon_state = "act_throw"
 	SEND_SIGNAL(src, COMSIG_LIVING_THROW_MODE_TOGGLE, throw_mode)
 
 
@@ -245,6 +245,10 @@
 			return
 
 		paper_note.show_through_camera(usr)
+
+/mob/living/carbon/on_fall()
+	. = ..()
+	loc?.handle_fall(src) //it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/resist_buckle()
 	if(!HAS_TRAIT(src, TRAIT_RESTRAINED))
@@ -1389,13 +1393,13 @@
 	if(!new_lying_angle)
 		//NOVA EDIT ADDITION BEGIN
 		if(dir == WEST)
-			set_lying_angle(270)
+			set_lying_angle(LYING_ANGLE_WEST)
 			return
 		else if(dir == EAST)
-			set_lying_angle(90)
+			set_lying_angle(LYING_ANGLE_EAST)
 			return
 		//NOVA EDIT END
-		set_lying_angle(pick(90, 270))
+		set_lying_angle(pick(LYING_ANGLE_EAST, LYING_ANGLE_WEST))
 	else
 		set_lying_angle(new_lying_angle)
 
