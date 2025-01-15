@@ -343,7 +343,7 @@
 // Performs all checks and plays a sound if we can't fire.
 /obj/machinery/mounted_machine_gun/proc/can_fire()
 	var/fire_result = TRUE
-	if(ammo_box == null)
+	if(isnull(ammo_box))
 		drop_bolt()
 		fire_result = FALSE
 		playsound(src, 'sound/items/weapons/gun/general/dry_fire.ogg', 50, TRUE)
@@ -463,10 +463,9 @@
 /datum/reagent/water/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
 	. = ..()
 	// MMG
-	if(istype(exposed_obj, /obj/machinery/mounted_machine_gun))
-		var/obj/machinery/mounted_machine_gun/browning = exposed_obj
-		if(browning.barrel_heat)
-			browning.reset_overheat()
-			browning.barrel_heat -= clamp(browning.barrel_heat, 0, 35)
-			playsound(browning, 'sound/effects/wounds/sizzle2.ogg', 100)
-			browning.balloon_alert_to_viewers("water cooled!")
+	var/obj/machinery/mounted_machine_gun/browning = exposed_obj
+	if(istype(browning) && browning.barrel_heat)
+		browning.reset_overheat()
+		browning.barrel_heat -= clamp(browning.barrel_heat, 0, barrel_heat_per_shot * 7)
+		playsound(browning, 'sound/effects/wounds/sizzle2.ogg', 100)
+		browning.balloon_alert_to_viewers("water cooled!")
