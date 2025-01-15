@@ -20,7 +20,7 @@
 		/obj/item/mod/module/visor/medhud,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_mechanic
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/mechanic
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/mechanic
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/trapper
 	applied_modules = list(
@@ -35,7 +35,7 @@
 		/obj/item/mod/module/visor/thermal,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_trapper
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/trapper
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/trapper
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/marksman
 	applied_modules = list(
@@ -52,7 +52,7 @@
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_marksman
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/marksman
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/marksman
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/medic
 	applied_modules = list(
@@ -67,7 +67,7 @@
 		/obj/item/mod/module/visor/medhud,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_medic
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/medic
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/medic
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/saboteur
 	applied_modules = list(
@@ -82,7 +82,7 @@
 		/obj/item/mod/module/visor/meson,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_saboteur
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/saboteur
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/saboteur
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/sentinel
 	applied_modules = list(
@@ -99,7 +99,7 @@
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_sentinel
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/sentinel
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/sentinel
 
 /obj/item/mod/control/pre_equipped/responsory/milsim/trooper
 	applied_modules = list(
@@ -116,7 +116,7 @@
 		/obj/item/mod/module/visor/night,
 	)
 	insignia_type = /obj/item/mod/module/insignia/milsim_trooper
-	additional_module = /obj/item/mod/module/dispenser/ancient_milsim/trooper
+	additional_modules = /obj/item/mod/module/dispenser/ancient_milsim/trooper
 
 /obj/item/mod/module/dispenser/ancient_milsim
 	removable = FALSE

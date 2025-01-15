@@ -212,7 +212,7 @@
 	)
 	// NOVA EDIT ADDITION END
 
-/obj/item/organ/tongue/lizard/New(class, timer, datum/mutation/human/copymut)
+/obj/item/organ/tongue/lizard/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech))) // NOVA EDIT CHANGE - ORIGINAL: AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
 

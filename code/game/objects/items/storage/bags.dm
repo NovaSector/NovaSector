@@ -469,6 +469,7 @@
 		/obj/item/reagent_containers/medigel,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/cup/vial, // NOVA EDIT ADDITION
 	))
 
 

@@ -23,13 +23,8 @@
 /mob/living/basic/pet/dog/markus/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_TRASHMAN, TRAIT_GENERIC) //The burgers in his belly protect him
-	if(!can_breed)
-		return
-	AddComponent(\
-		/datum/component/breed,\
-		can_breed_with = typecacheof(list(/mob/living/basic/pet/dog/corgi)),\
-		baby_path = /mob/living/basic/pet/dog/corgi/puppy,\
-	) // no mixed breed puppies sadly
+	if(can_breed)
+		add_breeding_component()
 
 /mob/living/basic/pet/dog/markus/treat_message(message)
 	if(client)
@@ -39,6 +34,17 @@
 /mob/living/basic/pet/dog/markus/update_dog_speech(datum/ai_planning_subtree/random_speech/speech)
 	. = ..()
 	speech.speak = markus_speak
+
+/mob/living/basic/pet/dog/markus/proc/add_breeding_component()
+	var/static/list/partner_paths = typecacheof(list(/mob/living/basic/pet/dog/corgi))
+	var/static/list/baby_paths = list(
+		/mob/living/basic/pet/dog/corgi/puppy = 1,
+	)
+	AddComponent(\
+		/datum/component/breed,\
+		can_breed_with = partner_paths,\
+		baby_paths = baby_paths,\
+	)
 
 /datum/chemical_reaction/mark_reaction
 	results = list(/datum/reagent/consumable/liquidgibs = 15)

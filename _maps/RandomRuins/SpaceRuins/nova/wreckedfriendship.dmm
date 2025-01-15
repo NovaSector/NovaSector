@@ -4,13 +4,13 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "aq" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "aC" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -22,43 +22,43 @@
 	icon_state = "medium"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "aI" = (
 /obj/item/shard{
 	icon_state = "medium"
 	},
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "bf" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "bj" = (
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "bt" = (
 /obj/structure/lattice,
 /obj/item/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "bV" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "cb" = (
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "cD" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -69,7 +69,7 @@
 /obj/effect/mob_spawn/corpse/human/charredskeleton,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "dd" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -84,38 +84,38 @@
 /obj/effect/decal/cleanable/blood,
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "do" = (
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "du" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 5
 	},
 /obj/effect/mob_spawn/corpse/human/skeleton,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "dB" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 8
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "dL" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
 /obj/structure/grille/broken,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "dX" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/item/shard{
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ea" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -128,38 +128,38 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "eg" = (
 /obj/structure/grille,
 /turf/template_noop,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "eo" = (
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "eq" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ev" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/engine/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "fh" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/item/shard{
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "fG" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "fN" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -167,11 +167,11 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "fZ" = (
 /obj/structure/grille/broken,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "gl" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -185,7 +185,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/grille/broken,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "gw" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 8
@@ -195,7 +195,7 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "gB" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
@@ -205,14 +205,14 @@
 	},
 /obj/item/shard,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "gI" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "hb" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
@@ -225,11 +225,11 @@
 	},
 /obj/effect/turf_decal/tile/purple,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "hi" = (
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "hy" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -237,32 +237,32 @@
 /obj/effect/turf_decal/trimline/green/filled/corner,
 /obj/structure/grille/broken,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ic" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "id" = (
 /obj/item/ammo_casing/c9mm,
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "iC" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/green/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "iU" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "jj" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 9
@@ -270,33 +270,33 @@
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "jx" = (
 /obj/effect/turf_decal/bot_red,
 /obj/item/shard{
 	icon_state = "medium"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "jG" = (
 /obj/item/shard{
 	icon_state = "small"
 	},
 /obj/item/stack/rods,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "kk" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 9
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "km" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 5
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "kF" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -309,20 +309,20 @@
 	},
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "lf" = (
 /obj/effect/mob_spawn/corpse/human/engineer{
 	brute_damage = 200
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "lp" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "lw" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 8
@@ -330,21 +330,21 @@
 /obj/structure/grille/broken,
 /obj/item/shard,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "lE" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "mp" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "mx" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/engine/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "mN" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -354,42 +354,42 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "mP" = (
 /obj/effect/turf_decal/trimline/white/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "na" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "nv" = (
 /obj/item/shard{
 	icon_state = "medium"
 	},
 /obj/item/stack/rods,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "nF" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "nH" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
 /obj/item/shard,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "nN" = (
 /obj/item/stack/rods,
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "nP" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/purple/filled/corner{
@@ -397,24 +397,24 @@
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ok" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "om" = (
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "oo" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ph" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -427,37 +427,37 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "pl" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 6
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "pu" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "pA" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "pZ" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "qv" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "qM" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -470,7 +470,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "qR" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
@@ -478,14 +478,14 @@
 /obj/item/ammo_casing/c9mm,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ry" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "sn" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 6
@@ -495,7 +495,7 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "sK" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
@@ -504,7 +504,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tc" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -518,24 +518,24 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "te" = (
 /obj/item/ammo_casing/c9mm,
 /obj/item/shard{
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tn" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 8
 	},
 /obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tv" = (
 /turf/open/floor/engine/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tw" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 1
@@ -543,58 +543,58 @@
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tD" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tE" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tK" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/clown,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tW" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "tX" = (
 /obj/structure/lattice,
 /obj/item/stack/rods,
 /turf/template_noop,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ub" = (
 /turf/open/floor/carpet/black/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ud" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ui" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
 /obj/effect/mob_spawn/corpse/human/skeleton,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "um" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
 	},
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "us" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
@@ -604,22 +604,22 @@
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "uB" = (
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "uO" = (
 /obj/effect/mob_spawn/corpse/human/skeleton,
 /turf/open/floor/engine/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ve" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
 /obj/effect/mob_spawn/corpse/human/skeleton,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "vm" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
@@ -629,30 +629,30 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "vx" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "vA" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "vH" = (
 /obj/structure/lattice,
 /obj/item/stack/sheet/mineral/titanium,
 /turf/template_noop,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "vK" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "wo" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -662,23 +662,23 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "wr" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "xs" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "xJ" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "xL" = (
 /turf/closed/wall/mineral/titanium,
 /area/ruin/unpowered)
@@ -697,28 +697,28 @@
 	icon_state = "medium"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "yo" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 5
 	},
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "yB" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/item/ammo_casing/c9mm,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "yO" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "yU" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
@@ -733,36 +733,36 @@
 /obj/item/ammo_casing/c9mm,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "zd" = (
 /obj/structure/grille/broken,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "zn" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 10
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "zJ" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 5
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "zY" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "AK" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "AM" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 1
@@ -772,21 +772,21 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "AN" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "AR" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Bj" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
@@ -799,12 +799,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "BO" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Cl" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
@@ -814,13 +814,13 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Cp" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Cu" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -834,21 +834,21 @@
 	},
 /obj/structure/girder,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "CT" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "DN" = (
 /obj/item/stack/rods,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Er" = (
 /obj/effect/gibspawner/human,
 /obj/effect/mob_spawn/corpse/human/doctor,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ED" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 9
@@ -856,28 +856,28 @@
 /obj/item/ammo_casing/c9mm,
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "EP" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "FD" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "FU" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 5
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Gc" = (
 /obj/item/shard,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Gi" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -887,25 +887,25 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Gn" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Gr" = (
 /obj/effect/gibspawner/human,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "GH" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "GJ" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "GO" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
@@ -919,7 +919,7 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "GV" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
@@ -927,7 +927,7 @@
 /obj/item/stack/sheet/mineral/titanium,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Hh" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -940,28 +940,28 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Hi" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Ho" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Hv" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "HL" = (
 /obj/item/shard,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "HX" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -970,47 +970,47 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Ic" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Io" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 6
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "IC" = (
 /obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "IO" = (
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "IT" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 6
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "IU" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Jc" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Jl" = (
 /obj/effect/turf_decal/trimline/white/filled/corner{
 	dir = 1
@@ -1025,7 +1025,7 @@
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Jp" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
@@ -1035,21 +1035,21 @@
 	},
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Jx" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Jz" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 4
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "JH" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
@@ -1057,7 +1057,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "JK" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
@@ -1065,14 +1065,14 @@
 /obj/item/stack/rods,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "JR" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "JT" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -1087,13 +1087,13 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "JY" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/skeleton,
 /obj/item/shard,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Kn" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -1101,14 +1101,14 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Kr" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 6
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Kx" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -1117,13 +1117,13 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "KH" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "KN" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 6
@@ -1131,28 +1131,28 @@
 /obj/item/shard,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "KU" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 8
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Lm" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
 /obj/item/stack/rods,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Lx" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "LK" = (
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
@@ -1165,7 +1165,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Mh" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -1173,7 +1173,7 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Mu" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -1186,11 +1186,11 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "MK" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Ne" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -1199,7 +1199,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "NU" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 10
@@ -1207,7 +1207,7 @@
 /obj/item/ammo_casing/c9mm,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "NX" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -1220,20 +1220,20 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "NY" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/item/shard{
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "OE" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "OK" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
@@ -1242,24 +1242,24 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "OY" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Pg" = (
 /obj/structure/girder,
 /obj/item/stack/sheet/mineral/titanium,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Pn" = (
 /obj/effect/turf_decal/trimline/green/filled/corner,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Pq" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -1267,37 +1267,37 @@
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Px" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "PH" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Qd" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Qs" = (
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "QH" = (
 /obj/structure/grille,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "QN" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 8
@@ -1310,48 +1310,48 @@
 	},
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "QU" = (
 /obj/structure/grille/broken,
 /obj/item/ammo_casing/c9mm,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Rj" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/engine/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Rq" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Rw" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "RL" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "RN" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "RV" = (
 /obj/effect/turf_decal/trimline/white/filled/corner{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "RZ" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
@@ -1365,7 +1365,7 @@
 /obj/effect/turf_decal/tile/purple,
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Su" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 5
@@ -1374,7 +1374,7 @@
 /obj/effect/mob_spawn/corpse/human/syndicatesoldier,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "SF" = (
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
 	dir = 8
@@ -1387,25 +1387,25 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "SS" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Tk" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Tu" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "TF" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /obj/effect/turf_decal/trimline/yellow/filled/corner{
@@ -1415,24 +1415,24 @@
 	icon_state = "small"
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "TH" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "TW" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/corpse/human/doctor,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Ua" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 10
 	},
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Uo" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -1442,7 +1442,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "UD" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
@@ -1450,12 +1450,12 @@
 /obj/effect/gibspawner/human,
 /obj/effect/mob_spawn/corpse/human/doctor,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Vz" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Wy" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/effect/turf_decal/trimline/red/filled/corner{
@@ -1469,26 +1469,29 @@
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
+"WF" = (
+/turf/closed/wall/mineral/titanium,
+/area/ruin/space/unpowered)
 "WK" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "WY" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
 	},
 /obj/item/ammo_casing/c9mm,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Xp" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner,
 /obj/item/ammo_casing/c9mm,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Xw" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -1501,13 +1504,13 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Xy" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 5
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "XL" = (
 /turf/template_noop,
 /area/template_noop)
@@ -1519,7 +1522,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "YD" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -1535,7 +1538,7 @@
 /obj/structure/frame/machine,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "YV" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 4
@@ -1550,11 +1553,11 @@
 /obj/structure/mecha_wreckage/ripley,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "Zt" = (
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ZT" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 1
@@ -1562,14 +1565,14 @@
 /obj/item/ammo_casing/c9mm,
 /obj/structure/frame/machine,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 "ZW" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
 	},
 /obj/item/shard,
 /turf/open/floor/iron/dark/airless,
-/area/ruin/unpowered)
+/area/ruin/space/unpowered)
 
 (1,1,1) = {"
 XL
@@ -1585,7 +1588,7 @@ XL
 XL
 XL
 XL
-xL
+WF
 ao
 ao
 do
@@ -1603,18 +1606,18 @@ ic
 nv
 EP
 ic
-xL
-xL
+WF
+WF
 XL
 XL
 XL
-xL
-xL
+WF
+WF
 ic
 ic
 Pg
 ic
-xL
+WF
 XL
 XL
 XL
@@ -1628,11 +1631,11 @@ GJ
 kk
 tE
 Ua
-xL
-xL
+WF
+WF
 QH
 QH
-xL
+WF
 Ho
 tn
 OE
@@ -1646,13 +1649,13 @@ XL
 (4,1,1) = {"
 XL
 XL
-xL
+WF
 Zt
 JY
 WK
 eo
 dX
-xL
+WF
 JR
 OE
 um
@@ -1670,13 +1673,13 @@ XL
 (5,1,1) = {"
 XL
 XL
-xL
+WF
 IC
 jx
 vH
 IO
 iU
-xL
+WF
 na
 id
 CT
@@ -1694,7 +1697,7 @@ XL
 (6,1,1) = {"
 XL
 XL
-xL
+WF
 kk
 tE
 bj
@@ -1718,7 +1721,7 @@ XL
 (7,1,1) = {"
 XL
 XL
-xL
+WF
 SS
 lE
 Zt
@@ -1743,12 +1746,12 @@ XL
 XL
 XL
 xL
-xL
+WF
 dL
 IO
 tX
 cb
-xL
+WF
 lE
 lE
 RN
@@ -1770,9 +1773,9 @@ XL
 EP
 WK
 xJ
-xL
-xL
-xL
+WF
+WF
+WF
 lE
 lE
 do
@@ -1828,8 +1831,8 @@ pZ
 YV
 JT
 lE
-xL
-xL
+WF
+WF
 XL
 XL
 XL
@@ -1890,18 +1893,18 @@ XL
 jG
 ub
 ub
-xL
+WF
 fG
 QH
 Hi
 Gr
 TH
-xL
+WF
 hy
 WY
 WY
 IT
-xL
+WF
 XL
 XL
 XL
@@ -1911,10 +1914,10 @@ XL
 XL
 XL
 uB
-xL
-xL
-xL
-xL
+WF
+WF
+WF
+WF
 nP
 lE
 vA
@@ -1925,8 +1928,8 @@ iC
 do
 Hh
 lE
-xL
-xL
+WF
+WF
 XL
 XL
 XL
@@ -1940,8 +1943,8 @@ Rq
 tv
 lE
 bV
-xL
-xL
+WF
+WF
 Mu
 do
 QH
@@ -1962,7 +1965,7 @@ EP
 FU
 pl
 uO
-xL
+WF
 bV
 QH
 Lx
@@ -1985,8 +1988,8 @@ XL
 QH
 do
 Bj
-xL
-xL
+WF
+WF
 JH
 QH
 Jx
@@ -2010,7 +2013,7 @@ QH
 AR
 tW
 ok
-xL
+WF
 PH
 qM
 Hi
@@ -2049,7 +2052,7 @@ lE
 do
 XL
 lE
-xL
+WF
 "}
 (21,1,1) = {"
 XL
@@ -2064,7 +2067,7 @@ QH
 ui
 vx
 ve
-xL
+WF
 iC
 Rw
 Qd
@@ -2073,7 +2076,7 @@ Vz
 do
 XL
 lE
-xL
+WF
 "}
 (22,1,1) = {"
 XL
@@ -2082,12 +2085,12 @@ EP
 yo
 Jc
 lE
-xL
+WF
 bV
 QH
 do
 lE
-xL
+WF
 QH
 lE
 GO
@@ -2096,8 +2099,8 @@ Pn
 Kr
 EP
 XL
-xL
-xL
+WF
+WF
 "}
 (23,1,1) = {"
 XL
@@ -2106,7 +2109,7 @@ do
 uB
 FU
 pl
-xL
+WF
 OK
 qv
 HX
@@ -2120,18 +2123,18 @@ sn
 DN
 EP
 XL
-xL
+WF
 XL
 "}
 (24,1,1) = {"
 XL
 XL
 XL
-xL
-xL
-xL
-xL
-xL
+WF
+WF
+WF
+WF
+WF
 Ic
 tv
 tv
@@ -2151,7 +2154,7 @@ XL
 XL
 XL
 XL
-xL
+WF
 ED
 dB
 zn
@@ -2175,7 +2178,7 @@ XL
 XL
 XL
 XL
-xL
+WF
 ZT
 hi
 mP
@@ -2213,7 +2216,7 @@ YD
 lE
 Xp
 KN
-xL
+WF
 XL
 XL
 XL
@@ -2236,7 +2239,7 @@ EP
 EP
 gI
 yB
-xL
+WF
 QH
 XL
 XL
@@ -2257,7 +2260,7 @@ AN
 AN
 wr
 Cp
-xL
+WF
 Su
 JK
 Pg
@@ -2284,7 +2287,7 @@ nF
 EP
 Rw
 Gc
-xL
+WF
 XL
 XL
 XL
@@ -2292,7 +2295,7 @@ XL
 XL
 "}
 (31,1,1) = {"
-xL
+WF
 lE
 XL
 XL
@@ -2316,8 +2319,8 @@ XL
 XL
 "}
 (32,1,1) = {"
-xL
-xL
+WF
+WF
 XL
 lE
 XL
@@ -2341,9 +2344,9 @@ XL
 "}
 (33,1,1) = {"
 XL
-xL
-xL
-xL
+WF
+WF
+WF
 XL
 XL
 XL

@@ -128,7 +128,7 @@
 	var/dat = "The control panel displays an incomprehensible selection of controls, many with unusual markings or text around them.<br>"
 	dat += "<br>"
 	for(var/index=1, index<=construction.len, index++)
-		dat += "<A href='?src=[REF(src)];activate=[index]'>\[[construction[index]]\]</a><br>"
+		dat += "<A href='byond://?src=[REF(src)];activate=[index]'>\[[construction[index]]\]</a><br>"
 
 	var/datum/browser/popup = new(user, "alien_replicator")
 	popup.set_content(dat)

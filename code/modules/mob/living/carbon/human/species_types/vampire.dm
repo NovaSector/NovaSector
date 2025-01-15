@@ -30,10 +30,7 @@
 		return TRUE
 	return ..()
 
-/datum/species/human/vampire/prepare_human_for_preview(mob/living/carbon/human/human)
-	return // Skip parent proc
-
-/datum/species/human/vampire/on_species_gain(mob/living/carbon/human/new_vampire, datum/species/old_species)
+/datum/species/human/vampire/on_species_gain(mob/living/carbon/human/new_vampire, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	to_chat(new_vampire, "[info_text]")
 	new_vampire.skin_tone = "albino"
