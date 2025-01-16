@@ -40,7 +40,7 @@
 		setup_second_voice(owner)
 	// Block activation if second voice failed to load.
 	if(!active && isnull(secondary_voice))
-		to_chat(owner, span_userdanger("You can't remember your second voice at the moment. (Adminhelp and report this as an issue on github)"))
+		to_chat(owner, span_userdanger("You can't remember your second voice at the moment. (Please consider reporting this on github!)"))
 		return
 	active = !active
 	if(active)
