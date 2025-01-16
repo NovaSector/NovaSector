@@ -75,7 +75,7 @@
 	if(activator?.ckey)
 		spam_queue += activator.ckey
 		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 30 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
-	log_message("[activator] (as [messenger]) sent the following quantum server message: [message]", LOG_TELECOMMS)
+	activator.log_message("[activator] (as '[messenger]') sent the following quantum server message: '[message]'", LOG_TELECOMMS)
 
 ///Removes the ghost from the spam_queue list and lets them know they are free to message again.
 /obj/machinery/quantum_server/proc/clear_spam(ghost_ckey)
