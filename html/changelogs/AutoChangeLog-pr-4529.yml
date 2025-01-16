@@ -1,0 +1,4 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - rscadd: "Added the Voice Actor Quirk to Character Preferences."
