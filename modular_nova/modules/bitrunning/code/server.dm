@@ -8,10 +8,23 @@
 	///Current amount of used domain anchors.
 	var/current_anchors = 0
 
+/obj/machinery/quantum_server/post_machine_initialize()
+	. = ..()
+	qdel(radio.keyslot)
+	radio.keyslot = new /obj/item/encryptionkey/headset_bitrunning()
+	radio.recalculateChannels()
+
+/obj/machinery/quantum_server/Destroy()
+	spam_queue = null
+	return ..()
+
 /obj/machinery/quantum_server/examine(mob/user)
 	. = ..()
 	if(max_anchors >= 1)
 		. += span_infoplain("- Its domain vulnerability scanners permit for up to [max_anchors] domain anchors to be used.")
+	. += span_notice("Any preloaded SNPC patterns, 'ghastly Resonance apparitions', or connected bitrunners can leave a custom-written message on the quantum server, \
+	causing a small, audible blip and sending a department message, indicating their activity to on-station bitrunners.")
+	. += span_notice("Its <b>messaging protection</b> is currently: <b>[message_protected ? "enabled" : "disabled"]</b>")
 
 /obj/machinery/quantum_server/RefreshParts()
 	. = ..()
@@ -60,17 +73,8 @@
 	radio.talk_into(src, "You have: a new message: from [messenger]: [message]", RADIO_CHANNEL_SUPPLY)
 	if(activator?.ckey)
 		spam_queue += activator.ckey
-		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 15 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
-
-/obj/machinery/quantum_server/Destroy()
-	spam_queue = null
-	return ..()
-
-/obj/machinery/quantum_server/examine(mob/user)
-	. = ..()
-	. += span_notice("Any preloaded SNPC patterns, 'ghastly Resonance apparitions', or connected bitrunners can leave a custom-written message on the quantum server, \
-	causing a small, audible blip and sending a department message, indicating their activity to on-station bitrunners.")
-	. += span_notice("Its <b>messaging protection</b> is currently: <b>[message_protected ? "enabled" : "disabled"]</b>")
+		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 30 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
+	log_message("[activator] (as [messenger]) sent the following quantum server message: [message]", LOG_TELECOMMS)
 
 ///Removes the ghost from the spam_queue list and lets them know they are free to message again.
 /obj/machinery/quantum_server/proc/clear_spam(ghost_ckey)
