@@ -61,16 +61,17 @@
 
 /// 'Marks' the server with the ghost's presence: their custom-written message, and the ckey added to the spam-prevention list.
 /obj/machinery/quantum_server/proc/ghost_mark(mob/activator)
-	if(!use_energy(active_power_usage, force = FALSE))
-		return
 	var/message = tgui_input_text(activator, "Write your message", "Holonet Gaming Network", max_length = MAX_PLAQUE_LEN)
 	if(!message)
 		return
 	var/messenger = tgui_input_text(activator, "Set your username", "Holonet Gaming Network", max_length = MAX_NAME_LEN)
 	if(!messenger)
 		messenger = pick(GLOB.hacker_aliases)
+	if(message_protected)
+		balloon_alert(activator, "message protected!")
+		return
 	playsound(loc, 'sound/machines/ectoscope_beep.ogg', 75)
-	radio.talk_into(src, "You have: a new message: from [messenger]: [message]", RADIO_CHANNEL_SUPPLY)
+	radio.talk_into(src, "You have: a new message: from [messenger]: [message]", RADIO_CHANNEL_FACTION)
 	if(activator?.ckey)
 		spam_queue += activator.ckey
 		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 30 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
