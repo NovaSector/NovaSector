@@ -1,8 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - balance: "The long-forgotten Mounted Machine Gun (MMG) has been made less insanely good"
-  - balance: "MMG ammo boxes no longer have 150 rounds of obliterating ammo but a third of both the capacity and firepower"
-  - bugfix: "fixed the MMG tossing the firer around when firing"
-  - bugfix: "fixed the MMG's cooling going into the negative numbers"
-  - qol: "Pour water or spray it over the MMG to cool it down faster!"

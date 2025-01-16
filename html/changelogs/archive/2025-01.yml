@@ -662,9 +662,23 @@
   zxaber:
   - bugfix: Mechs with crowbar-like tools can now hold adjacent firelocks open correctly.
 2025-01-16:
+  DBGit42:
+  - rscadd: Added Sensitive Hearing positive quirk
+  - bugfix: Teshari hearing no longer breaks if you lose your ears while it's active
   LordHookie:
   - bugfix: Ammo manufacturers have corrected their labelling habits, and many objects
       which referred to ammo types that have not existed for several years no longer
       do so.
   NeonNik2245:
   - qol: Chemistry bag now can carry hypovials
+  Stalkeros:
+  - balance: The long-forgotten Mounted Machine Gun (MMG) has been made less insanely
+      good
+  - balance: MMG ammo boxes no longer have 150 rounds of obliterating ammo but a third
+      of both the capacity and firepower
+  - bugfix: fixed the MMG tossing the firer around when firing
+  - bugfix: fixed the MMG's cooling going into the negative numbers
+  - qol: Pour water or spray it over the MMG to cool it down faster!
+  TheSS13Melon:
+  - rscadd: Deadmon's donor rewards.
+  - bugfix: Deadmon's muzzle SEVA sprite.
