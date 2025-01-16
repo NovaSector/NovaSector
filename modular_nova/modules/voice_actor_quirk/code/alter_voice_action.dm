@@ -4,9 +4,13 @@
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "swap"
 	check_flags = AB_CHECK_CONSCIOUS
+	/// The primary voice, aka the initial voice
 	var/primary_voice
+	/// The pitch of the primary voice
 	var/primary_pitch = 0
+	/// The secondary voice that can be swapped to/from at will
 	var/secondary_voice
+	/// The secondary voice's pitch
 	var/secondary_pitch = 0
 
 ///Sets up the voice and pitch variables.
