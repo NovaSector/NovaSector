@@ -38,7 +38,7 @@
 	/// Do we have a supressor or something installed?
 	var/suppressed = FALSE
 	/// How much spread we have for projectiles.
-	var/spread = 0
+	var/spread = 5
 	/// The position of our bolt. TRUE = locked(ready to fire) FALSE = forward(not ready to fire)
 	var/bolt = TRUE
 	/// What we drop when undeployed. If null, cannot be undeployed.
@@ -46,13 +46,13 @@
 
 	// Heat mechanics
 	/// How much barrel heat we generate per shot
-	var/barrel_heat_per_shot = 2
+	var/barrel_heat_per_shot = 5
 	/// The current barrel heat.
 	var/barrel_heat = 0
 	/// Have we overheated?
 	var/overheated = FALSE
 	/// How long it takes until we can fire again after a heatlock.
-	var/cooldown_time = 20 SECONDS
+	var/cooldown_time = 10 SECONDS
 	/// How quickly the barrel naturally cools down
 	var/passive_barrel_cooldown_rate = 2
 	/// How much heat we can sustain before locking.
@@ -73,15 +73,13 @@
 
 /obj/machinery/mounted_machine_gun/process(seconds_per_tick)
 	if(barrel_heat)
-		barrel_heat -= passive_barrel_cooldown_rate * seconds_per_tick
+		barrel_heat -= clamp(barrel_heat,0,passive_barrel_cooldown_rate) * seconds_per_tick
 		update_appearance()
 
 /obj/machinery/mounted_machine_gun/update_overlays()
 	. = ..()
 	if(ammo_box)
 		. += "ammo_box"
-	if(cover_open)
-		. += "cover_open"
 
 	switch(barrel_heat)
 		if(BARREL_HEAT_THRESHOLD_LOW to BARREL_HEAT_THRESHOLD_HIGH)
@@ -132,9 +130,7 @@
 	balloon_alert_to_viewers("undeploying...")
 	if(!do_after(user, undeploy_time))
 		return TRUE
-	var/obj/undeployed_object = new undeployed_type(src)
-	//Keeps the health the same even if you redeploy the gun
-	undeployed_object.modify_max_integrity(max_integrity)
+	new undeployed_type(get_turf(src))
 	qdel(src)
 
 //BUCKLE HOOKS
@@ -347,9 +343,11 @@
 // Performs all checks and plays a sound if we can't fire.
 /obj/machinery/mounted_machine_gun/proc/can_fire()
 	var/fire_result = TRUE
-	if(!ammo_box)
+	if(isnull(ammo_box))
 		drop_bolt()
 		fire_result = FALSE
+		playsound(src, 'sound/items/weapons/gun/general/dry_fire.ogg', 50, TRUE)
+		return fire_result
 	if(!ammo_box.ammo_count())
 		drop_bolt()
 		fire_result = FALSE
@@ -461,3 +459,13 @@
 /obj/item/mounted_machine_gun_folded/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/deployable, deploy_time, type_to_deploy)
+
+/datum/reagent/water/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
+	. = ..()
+	// MMG
+	var/obj/machinery/mounted_machine_gun/browning = exposed_obj
+	if(istype(browning) && browning.barrel_heat)
+		browning.reset_overheat()
+		browning.barrel_heat -= clamp(browning.barrel_heat, 0, browning.barrel_heat_per_shot * 7)
+		playsound(browning, 'sound/effects/wounds/sizzle2.ogg', 100)
+		browning.balloon_alert_to_viewers("water cooled!")

@@ -189,11 +189,12 @@
 	starting_organ = /obj/item/organ/cyberimp/hackerman_deck
 
 /obj/item/mod/module/dispenser/ancient_milsim/sentinel
-	name = "MOD stationary machinegun-burger dispenser module"
-	desc = "This module can create a single disassembled heavy machinegun and additional burgers at the user's liking."
-	dispense_type = /obj/item/automatic_turret_folded
+	name = "MOD stationary machinegun-machinegun ammo box module"
+	desc = "This module can create a single disassembled heavy machinegun and additional ammo boxes at the user's liking."
+	dispense_type = /obj/item/mounted_machine_gun_folded
 	cooldown_time = 15 SECONDS
-	new_cooldown_time = 5 SECONDS
+	new_dispense_type = /obj/item/ammo_box/magazine/mmg_box
+	new_cooldown_time = 15 SECONDS
 
 /obj/item/mod/module/dispenser/ancient_milsim/trooper
 	name = "MOD Sol rifle-Sol rifle magazine dispenser module"
