@@ -30,7 +30,7 @@
 	. = ..()
 	var/datum/stock_part/scanning_module/scanner = locate() in component_parts
 	if(scanner)
-		max_anchors += scanner.tier
+		max_anchors = scanner.tier
 
 /obj/machinery/quantum_server/reset(fast = FALSE)
 	. = ..()
