@@ -662,6 +662,8 @@
   zxaber:
   - bugfix: Mechs with crowbar-like tools can now hold adjacent firelocks open correctly.
 2025-01-16:
+  A.C.M.O.:
+  - rscadd: Added the Voice Actor Quirk to Character Preferences.
   DBGit42:
   - rscadd: Added Sensitive Hearing positive quirk
   - bugfix: Teshari hearing no longer breaks if you lose your ears while it's active
