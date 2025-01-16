@@ -1,0 +1,5 @@
+author: "TheSS13Melon"
+delete-after: True
+changes:
+  - rscadd: "Deadmon's donor rewards."
+  - bugfix: "Deadmon's muzzle SEVA sprite."
