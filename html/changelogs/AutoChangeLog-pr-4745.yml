@@ -1,0 +1,8 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - rscadd: "Added Backpack, Duffelbag, Messenger bag and Satchel tarkon variants"
+  - bugfix: "Tarkon Industries uniforms no longer vanish when worn casually"
+  - qol: "Tarkon employees are a bit more preference friendly with backpacks"
+  - qol: "Voxes and Plasmemes get tanks and gear at spawn"
+  - image: "added sprites for tarkon backpacks and casual uniform use"
