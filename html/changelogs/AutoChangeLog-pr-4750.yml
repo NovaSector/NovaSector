@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - qol: "Syndicate Assault bitrunning domain has been reflavored into a 'Cybersun' Resource Acquisition domain."
+  - map: "Syndicate Assault map has received a rather major touch-up, fixing up some of the more glaring game design issues. Like the lack of caffeine."
