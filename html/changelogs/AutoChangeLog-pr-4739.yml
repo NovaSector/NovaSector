@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - qol: "Ghosts are now capable of communicating with bitrunners by clicking the bitrunning server, assuming that it wasn't locked from messaging by the runners."
+  - balance: "Bitrunning domain anchors are now limited in use per domain, locked behind the scanner tier, allowing for one initially, up to four at maximum parts tier."
