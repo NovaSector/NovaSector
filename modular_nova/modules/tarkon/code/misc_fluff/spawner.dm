@@ -29,10 +29,10 @@
 	backpack_contents = list(
 		/obj/item/crowbar = 1
 		)
-	var/backpack = /obj/item/storage/backpack/tarkon
-	var/satchel = /obj/item/storage/backpack/satchel/tarkon
-	var/duffelbag = /obj/item/storage/backpack/duffelbag/tarkon
-	var/messenger = /obj/item/storage/backpack/messenger/tarkon
+	var/backpack = /obj/item/storage/backpack/tarkon //Replaces "back" item with provided backpack. Will be used further in project Colony Echo
+	var/satchel = /obj/item/storage/backpack/satchel/tarkon //Replaces "back" item with provided satchel
+	var/duffelbag = /obj/item/storage/backpack/duffelbag/tarkon //Replaces "back" item with provided duffelbag
+	var/messenger = /obj/item/storage/backpack/messenger/tarkon //Replaces "back" item with provided messenger bag.
 
 /datum/outfit/tarkon/pre_equip(mob/living/carbon/human/tarkon, visuals_only = FALSE)
 	if(ispath(back, /obj/item/storage/backpack)) //we just steal this from the job outfit datum.
@@ -47,16 +47,16 @@
 				back = /obj/item/storage/backpack/satchel/leather //Leather Satchel
 			if(GMESSENGER)
 				back = /obj/item/storage/backpack/messenger //Grey messenger bag
+			if(DBACKPACK)
+				back = backpack //faction backpack
 			if(DSATCHEL)
-				back = satchel //Department satchel
+				back = satchel //faction satchel
 			if(DMESSENGER)
-				back = messenger //Messenger Bags
+				back = messenger //faction messenger bag
 			if(DDUFFELBAG)
-				back = duffelbag //Department duffel bag
-			if(DMESSENGER)
-				back = messenger //Department messenger bag
+				back = duffelbag //faction duffel bag
 			else
-				back = backpack //Department backpack
+				back = backpack //faction backpack fallback incase bag pref shits bed
 
 	var/client/client = GLOB.directory[ckey(tarkon.mind?.key)]
 
