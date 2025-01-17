@@ -684,3 +684,13 @@
   TheSS13Melon:
   - rscadd: Deadmon's donor rewards.
   - bugfix: Deadmon's muzzle SEVA sprite.
+2025-01-17:
+  Stalkeros:
+  - qol: Syndicate Assault bitrunning domain has been reflavored into a 'Cybersun'
+      Resource Acquisition domain.
+  - map: Syndicate Assault map has received a rather major touch-up, fixing up some
+      of the more glaring game design issues. Like the lack of caffeine.
+  - qol: Ghosts are now capable of communicating with bitrunners by clicking the bitrunning
+      server, assuming that it wasn't locked from messaging by the runners.
+  - balance: Bitrunning domain anchors are now limited in use per domain, locked behind
+      the scanner tier, allowing for one initially, up to four at maximum parts tier.
