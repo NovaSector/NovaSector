@@ -27,7 +27,7 @@
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
 		)
 
-/mob/living/basic/spider/giant/ambush/Initialize(mapload)
+/mob/living/basic/spider/giant/webslinger/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
@@ -61,7 +61,7 @@
 		/datum/action/cooldown/mob_cooldown/wrap,
 		)
 
-/mob/living/basic/spider/giant/ambush/Initialize(mapload)
+/mob/living/basic/spider/giant/voltaic/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
