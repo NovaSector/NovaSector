@@ -5,7 +5,7 @@
 /mob/living/basic/spider/giant/webslinger
 	name = "webslinger spider"
 	desc = "Furry and white, it makes you shudder to look at it. Sharp green eyes are all that can be seen.."
-	icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "webslinger"
 	icon_living = "webslinger"
 	icon_dead = "webslinger_dead"
@@ -40,7 +40,7 @@
 /mob/living/basic/spider/giant/voltaic
 	name = "voltaic spider"
 	desc = "Chitenous and yellow with electrical arcs running across its carapace, it makes you shudder to look at it. This one has effervescent yellow eyes."
-	icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "voltaic"
 	icon_living = "voltaic"
 	icon_dead = "voltaic_dead"
@@ -73,7 +73,7 @@
 /mob/living/basic/spider/giant/pit
 	name = "pit spider"
 	desc = "Furry and Brown with an Orange top, massive jaws strike fear in you and into walls. This one has bright orange eyes."
-	icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "pit"
 	icon_living = "pit"
 	icon_dead = "pit_dead"
@@ -116,7 +116,7 @@
 /mob/living/basic/spider/giant/ogre
 	name = "ogre spider"
 	desc = "Furry and Brown with an fat, while kind of cute its size horrifies you. This one has dark purple eyes and seems heavily armored."
-	icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "ogre"
 	icon_living = "ogre"
 	icon_dead = "ogre_dead"

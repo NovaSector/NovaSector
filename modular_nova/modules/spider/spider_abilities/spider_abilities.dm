@@ -6,7 +6,7 @@
 /datum/action/cooldown/spell/pointed/projectile/web_restraints
 	name = "sticky restraints"
 	desc = "Launch at your prey to immobilize them."
-	button_icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	button_icon_state = "spideregg"
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
@@ -20,7 +20,7 @@
 
 /obj/projectile/webslinger_snare
 	name = "web snare"
-	icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "spideregg"
 	damage = 0
 
@@ -47,7 +47,7 @@
 /datum/action/cooldown/mob_cooldown/sneak/webslinger
 	name = "Webslinger Spider Sneak"
 	desc = "Blend into the webs to stalk your prey."
-	button_icon = 'modular_nova/modules/spider/icon/spider.dmi'
+	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	button_icon_state = "webslinger"
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
