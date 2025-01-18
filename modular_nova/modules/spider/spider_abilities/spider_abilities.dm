@@ -34,9 +34,10 @@
 /obj/item/restraints/legcuffs/beartrap/webslinger_snare
 	name = "stickyy restraints"
 	desc = "Used by mega arachnids to immobilize their prey."
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	flags_1 = NONE
 	item_flags = DROPDEL
-	icon_state = "web_snare"
+	icon_state = "spideregg"
 	armed = TRUE
 
 /obj/item/restraints/legcuffs/beartrap/webslinger_snare/Initialize(mapload)
