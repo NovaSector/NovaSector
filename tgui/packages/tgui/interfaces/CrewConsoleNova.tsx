@@ -1,10 +1,10 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { useState } from 'react';
+import { Box, Button, Icon, Input, Section, Table } from 'tgui-core/components';
 import { BooleanLike } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
-import { useState } from 'react';
 
 import { useBackend } from '../backend';
-import { Box, Button, Icon, Input, Section, Table } from 'tgui-core/components';
 import { COLORS } from '../constants';
 import { Window } from '../layouts';
 

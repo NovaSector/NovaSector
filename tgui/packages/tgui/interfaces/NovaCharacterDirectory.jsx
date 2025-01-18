@@ -1,8 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
-
-import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
 import {
   Button,
   Divider,
@@ -15,6 +12,9 @@ import {
   Table,
   Tooltip,
 } from 'tgui-core/components';
+
+import { resolveAsset } from '../assets';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { CharacterPreview } from './common/CharacterPreview';
 

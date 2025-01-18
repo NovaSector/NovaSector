@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -9,6 +8,8 @@ import {
   Section,
   Stack,
 } from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 class Interaction {

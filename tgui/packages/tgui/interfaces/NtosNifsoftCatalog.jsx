@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend, useSharedState } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -11,6 +10,8 @@ import {
   Section,
   Tabs,
 } from 'tgui-core/components';
+
+import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export const NtosNifsoftCatalog = (props) => {
