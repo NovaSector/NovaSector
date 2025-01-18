@@ -3682,7 +3682,6 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/structure/disposalpipe/trunk,
-/obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/station/engineering/lobby)
 "bcv" = (
@@ -30147,17 +30146,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
-"iDA" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/iron/dark,
-/area/station/security/brig)
 "iDK" = (
 /obj/structure/chair{
 	dir = 4
@@ -77208,7 +77196,6 @@
 /obj/machinery/door/window/left/directional/south{
 	name = "Hydroponics Desk"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/service/hydroponics)
 "wtH" = (
@@ -189358,7 +189345,7 @@ qxV
 vjW
 vYm
 aKj
-iDA
+aKj
 tuD
 cEk
 eZs

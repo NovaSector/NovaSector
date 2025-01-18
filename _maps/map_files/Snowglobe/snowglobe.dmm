@@ -54239,15 +54239,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/half,
 /area/station/hallway/primary/aft)
-"oCs" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/large,
-/area/station/cargo/storage)
 "oCE" = (
 /obj/structure/cable,
 /obj/machinery/door/window/right/directional/south{
@@ -240107,7 +240098,7 @@ gKQ
 gKQ
 uve
 pMZ
-oCs
+tUZ
 oTo
 vJn
 vMu
@@ -240364,7 +240355,7 @@ gKQ
 gKQ
 uve
 pMZ
-oCs
+tUZ
 xOC
 vJn
 otf
@@ -240621,7 +240612,7 @@ iuz
 iuz
 dOo
 rGL
-oCs
+tUZ
 xxE
 vJn
 otf
@@ -240878,7 +240869,7 @@ ofE
 crw
 tUZ
 ofE
-oCs
+tUZ
 hbi
 vJn
 wTk
@@ -241135,7 +241126,7 @@ ofE
 ofE
 tUZ
 ofE
-oCs
+tUZ
 hBA
 vJn
 vhr
