@@ -1,13 +1,13 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { toFixed } from 'tgui-core/math';
-
-import { useBackend } from '../backend';
 import {
   Button,
   LabeledList,
   NumberInput,
   Section,
 } from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const Signalvib = (props) => {

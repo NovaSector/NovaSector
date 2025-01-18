@@ -1,8 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { toFixed } from 'tgui-core/math';
-import { BooleanLike } from 'tgui-core/react';
-
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -13,6 +9,10 @@ import {
   Stack,
   Table,
 } from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+import { BooleanLike } from 'tgui-core/react';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type GlassData = {

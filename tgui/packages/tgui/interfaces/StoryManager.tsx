@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend, useLocalState } from '../backend';
 import {
   Button,
   Collapsible,
@@ -7,6 +6,8 @@ import {
   Section,
   TextArea,
 } from 'tgui-core/components';
+
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 type StoryManagerData = {

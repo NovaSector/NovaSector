@@ -1,7 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { BooleanLike } from 'tgui-core/react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -11,6 +8,9 @@ import {
   Slider,
 } from 'tgui-core/components';
 import { formatPower } from 'tgui-core/format';
+import { BooleanLike } from 'tgui-core/react';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type Data = {

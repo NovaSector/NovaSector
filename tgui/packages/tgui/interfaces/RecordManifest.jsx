@@ -1,8 +1,8 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
 
 import { useBackend } from '../backend';
-import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 const commandJobs = [
