@@ -38332,7 +38332,7 @@
 /area/station/command/heads_quarters/captain/private)
 "kRg" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/machinery/status_display/evac/directional/south,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/iron/dark/smooth_large,
@@ -39437,7 +39437,6 @@
 "lgo" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning,
 /obj/effect/turf_decal/trimline/blue/filled/warning,
-/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 4
@@ -41294,7 +41293,7 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/tile/blue/full,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/structure/sign/poster/official/random/directional/south,
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
@@ -50267,7 +50266,7 @@
 	dir = 5
 	},
 /obj/effect/turf_decal/tile/blue/full,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
 	},
@@ -67017,7 +67016,6 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/starboard/greater)
 "sIZ" = (
@@ -86260,9 +86258,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},

@@ -1,5 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { BlockQuote, Box, NoticeBox, Section } from '../components';
+import { BlockQuote, Box, NoticeBox, Section } from 'tgui-core/components';
+
 import { Window } from '../layouts';
 
 export const DelamProcedure = () => {

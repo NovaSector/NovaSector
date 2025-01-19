@@ -503,7 +503,7 @@
 
 /datum/supply_pack/organic/bulkcanliz
 	name = "Bulk Lizard Goods"
-	desc = "Having some devious tastes? One of your scalie friends wanting something that isn't fried mystery meat? Well you're just one order away from from the perfect pleaser. Containing Three (3) Cans of our finest-sourced canned jellyfish, snails and bee larvae, An addition of Three (3) packs of cruelty free Moonfish eggs might get their hearts."
+	desc = "Having some devious tastes? One of your scalie friends wanting something that isn't fried mystery meat? Well you're just one order away from the perfect pleaser. Containing Three (3) Cans of our finest-sourced canned jellyfish, snails and bee larvae, An addition of Three (3) packs of cruelty free Moonfish eggs might get their hearts."
 	cost = CARGO_CRATE_VALUE * 3.5
 	contains = list(
 		/obj/item/food/canned/jellyfish,

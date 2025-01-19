@@ -17344,7 +17344,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full/deployed,
+/obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "wZh" = (
@@ -18040,7 +18040,7 @@
 /area/centcom/holding/cafe)
 "ycL" = (
 /obj/structure/table/optable,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/bot_blue,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
