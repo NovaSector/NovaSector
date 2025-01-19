@@ -5960,7 +5960,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "bBS" = (
@@ -32423,7 +32423,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert/station_only,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "iKk" = (
@@ -37129,7 +37129,7 @@
 /turf/open/floor/carpet/red,
 /area/station/security/warden)
 "jUP" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
@@ -41517,7 +41517,7 @@
 /turf/open/floor/iron,
 /area/station/tcommsat/server)
 "lcw" = (
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /obj/machinery/light/directional/north,
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/camera/autoname/directional/north,
@@ -74693,7 +74693,7 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/break_room)
 "ugJ" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/yellow{
@@ -80835,7 +80835,7 @@
 	},
 /area/station/medical/storage)
 "vNz" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/yellow{
