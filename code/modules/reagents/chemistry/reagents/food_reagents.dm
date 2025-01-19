@@ -28,7 +28,7 @@
 	if(!ishuman(affected_mob) || HAS_TRAIT(affected_mob, TRAIT_NOHUNGER))
 		return
 	// NOVA EDIT ADDITION BEGIN - Disable consumable digestion for synth stomach
-	if(istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/internal/stomach/synth))
+	if(istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/stomach/synth))
 		return
 	// NOVA EDIT ADDITION END
 	var/mob/living/carbon/human/affected_human = affected_mob
