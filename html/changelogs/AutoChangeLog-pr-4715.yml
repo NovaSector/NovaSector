@@ -1,7 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscadd: "Company Imports has been refactored! There is no contraband (yet!) and the only restricted items are weapons you need a permit for (Using SolFed criteria). Users with a valid weapon permits as well as Cargo authorized consoles have not to worry about such restrictions."
-  - rscadd: "Setting a cargo console to broadband will remove the restricted items limitations on cargo imports, additionally, emagged consoles will not automatically pay taxes with each transaction (around 28%)"
-  - qol: "Security forces (And anyone with a Weapon Permit!) can rejoice as they will be able to order machine guns from their PDA, as well as any restricted item from the Cargo Imports."
-  - qol: "All items on the Company imports are at least visible, and will inform the user if they cannot buy them."
