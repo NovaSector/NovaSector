@@ -1,5 +1,4 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { useBackend } from '../../backend';
 import {
   Box,
   Button,
@@ -7,7 +6,9 @@ import {
   Dropdown,
   Section,
   Stack,
-} from '../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../backend';
 import { CharacterPreview } from '../common/CharacterPreview';
 import { PreferencesMenuData } from './data';
 
