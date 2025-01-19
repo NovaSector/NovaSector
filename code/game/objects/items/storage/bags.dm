@@ -278,6 +278,9 @@
 		seedify(plant, 1)
 	return CLICK_ACTION_SUCCESS
 
+/obj/item/storage/bag/plants/cyborg
+	name = "cyborg plant bag"
+
 // -----------------------------
 //        Sheet Snatcher
 // -----------------------------
@@ -466,6 +469,7 @@
 		/obj/item/reagent_containers/medigel,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/cup/vial, // NOVA EDIT ADDITION
 	))
 
 

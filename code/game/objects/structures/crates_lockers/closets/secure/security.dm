@@ -18,7 +18,7 @@
 	new /obj/item/radio/headset/heads/captain(src)
 	new /obj/item/door_remote/captain(src)
 	new /obj/item/storage/photo_album/captain(src)
-	new /obj/item/card/id/departmental_budget(src) //NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget(src) // NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/captains/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
@@ -46,7 +46,7 @@
 	new /obj/item/circuitboard/machine/techfab/department/service(src)
 	new /obj/item/storage/photo_album/hop(src)
 	new /obj/item/storage/lockbox/medal/hop(src)
-	new /obj/item/card/id/departmental_budget/srv(src) //NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget/srv(src) // NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/hop/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
@@ -72,7 +72,7 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/storage/photo_album/hos(src)
-	new /obj/item/card/id/departmental_budget/sec(src) //NOVA EDIT ADDITION
+	new /obj/item/card/id/departmental_budget/sec(src) // NOVA EDIT ADDITION
 
 /obj/structure/closet/secure_closet/hos/populate_contents_immediate()
 	. = ..()
@@ -80,7 +80,6 @@
 	// Traitor steal objectives
 	new /obj/item/gun/energy/e_gun/hos(src)
 	new /obj/item/pinpointer/nuke(src)
-	new /obj/item/gun/ballistic/shotgun/automatic/combat/compact(src)
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
@@ -100,6 +99,12 @@
 	new /obj/item/door_remote/head_of_security(src)
 
 
+/obj/structure/closet/secure_closet/warden/populate_contents_immediate()
+	. = ..()
+
+	// Traitor steal objective
+	new /obj/item/gun/ballistic/shotgun/automatic/combat/compact(src)
+
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
 	icon_state = "sec"
@@ -108,7 +113,7 @@
 /obj/structure/closet/secure_closet/security/PopulateContents()
 	..()
 	new /obj/item/clothing/suit/armor/vest/alt/sec(src)
-	new /obj/item/clothing/head/security_cap(src) //NOVA EDIT ADDITION
+	new /obj/item/clothing/head/security_cap(src) // NOVA EDIT ADDITION
 	new /obj/item/clothing/head/helmet/sec(src)
 	new /obj/item/radio/headset/headset_sec(src)
 	new /obj/item/radio/headset/headset_sec/alt(src)
@@ -141,7 +146,7 @@
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/clothing/suit/armor/vest/det_suit(src)
-	new /obj/item/toy/crayon/white(src) //NOVA EDIT CHANGE - ORIGINAL: /obj/item/storage/belt/holster/detective/full(src)
+	new /obj/item/toy/crayon/white(src) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/storage/belt/holster/detective/full(src)
 	//new /obj/item/pinpointer/crew(src) // NOVA EDIT REMOVAL - Added to detective outfit backpack instead
 	new /obj/item/binoculars(src)
 	new /obj/item/storage/box/rxglasses/spyglasskit(src)

@@ -356,7 +356,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
 	////// Does this turret auto-eject its magazines? Will be used later.
-	var/auto_mag_drop = FALSE
+	var/mag_drop_collect = FALSE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/datum/weakref/target_override
 	//////Target Assessment System. Whether or not it's targeting according to flags or even ignoring everyone.
@@ -542,7 +542,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if (mag.ammo_count())
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("loading cartridge...")
-		chambered = WEAKREF(mag.get_round(keep = FALSE))
+		chambered = WEAKREF(mag.get_round())
 		var/obj/item/ammo_casing/casing = chambered?.resolve()
 		if(isnull(casing))
 			chambered = null
@@ -556,7 +556,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(magazine_ref)
 		var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 		if(istype(mag))
-			if(auto_mag_drop)
+			if(mag_drop_collect)
 				var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
 				auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
 				UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
@@ -574,7 +574,6 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(!auto_loader.get_mag())
 		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
-		timer_id = addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS, TIMER_STOPPABLE)
 		return
 	magazine_ref = WEAKREF(auto_loader.get_mag(FALSE))
 	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
@@ -609,6 +608,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		return
 	balloon_alert(guy_with_mag, "magazine inserted!")
 	auto_loader?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
+	toggle_on(TRUE)
 	return
 
 ////// I rewrite/add to the entire proccess. //////

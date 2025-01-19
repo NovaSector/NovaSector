@@ -21,7 +21,6 @@
 	name = "DemonEye"
 	description = "A performance enhancing drug originally developed on mars. \
 		A favorite among gangs and other outlaws on the planet, though overuse can cause terrible addiction and bodily damage."
-	reagent_state = LIQUID
 	color = "#af00be"
 	taste_description = "industrial shuttle fuel"
 	metabolization_rate = 0.65 * REAGENTS_METABOLISM
@@ -108,7 +107,7 @@
 	our_guy.add_mood_event("tweaking", /datum/mood_event/stimulant_heavy/sundowner, name)
 
 	our_guy.adjustStaminaLoss(-10 * REM * seconds_per_tick)
-	our_guy.AdjustSleeping(-20 * REM * seconds_per_tick)
+	our_guy.AdjustSleeping(-2 SECONDS * REM * seconds_per_tick)
 	our_guy.adjust_drowsiness(-5 * REM * seconds_per_tick)
 
 	if(SPT_PROB(25, seconds_per_tick))

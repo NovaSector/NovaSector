@@ -23,6 +23,16 @@
 	item_path = /obj/item/clothing/under/padded
 	ckeywhitelist = list("thedragmeme")
 
+/datum/loadout_item/under/jumpsuit/sweater_dress
+	name = "Virgin Killer Sweater"
+	item_path = /obj/item/clothing/under/sweater_dress
+	ckeywhitelist = list("thedragmeme")
+
+/datum/loadout_item/suit/bomber_donor
+	name = "Old Hoodie"
+	item_path = /obj/item/clothing/suit/jacket/bomber_donor
+	ckeywhitelist = list("thedragmeme")
+
 /datum/loadout_item/under/jumpsuit/paddedunder/alt
 	name = "Feathered Serenity Dress"
 	item_path = /obj/item/clothing/under/padded/alt
@@ -809,6 +819,16 @@
 	item_path = /obj/item/implanter/toaster
 	ckeywhitelist = list("jasohavents")
 
+/datum/loadout_item/pocket_items/theurgic_crystal
+	name = "Theurgic Stone"
+	item_path = /obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
+	ckeywhitelist = list("sciamach")
+
+/datum/loadout_item/toys/delphic_synth
+	name = "Surgery Synth Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
+	ckeywhitelist = list("sciamach")
+
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
 	item_path = /obj/item/clothing/under/rem
@@ -839,7 +859,7 @@
     item_path = /obj/item/storage/backpack/satchel/drop_pouch
     ckeywhitelist = list("alvcyktor", "snakebittenn")
 
-/datum/loadout_item/inhand/melonseva
+/datum/loadout_item/pocket_items/melonseva
 	name = "Sundowner SEVA"
 	item_path = /obj/item/clothing/suit/hooded/seva/melon
 	ckeywhitelist = list("deadmonwonderland")
@@ -884,9 +904,37 @@
 /datum/loadout_item/pocket_items/starfruit_seed
 	name = "Primidine Starfruit Seed"
 	item_path = /obj/item/seeds/starfruit
-	ckeywhitelist = list("snailomi", "thedragmeme")
+	ckeywhitelist = list("snailomi", "thedragmeme", "DayDream21", "Sketchy_Axoltol", "Tesla825")
 
 /datum/loadout_item/suit/butter
 	name = "Butter Costume"
 	item_path = /obj/item/clothing/suit/costume/butter
 	ckeywhitelist = list("drpmstr", "pyritechimera")
+
+/datum/loadout_item/neck/tattered
+	name = "Worn Corporate Cloak"
+	item_path = /obj/item/clothing/neck/tattered
+	ckeywhitelist = list("jaklz")
+
+/datum/loadout_item/toys/commandant
+	name = "Commandant Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/commandant
+// ckeywhitelist = list("bonkaitheroris") // Asked it to be public
+
+/datum/loadout_item/neck/noble_cloak
+	name = "Noble Cloak"
+	item_path = /obj/item/clothing/neck/noble_mantle
+	ckeywhitelist = list("sharkoink")
+
+/datum/loadout_item/pocket_items/comvest
+	name = "Command Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat/melon
+	ckeywhitelist = list("deadmonwonderland")
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/pocket_items/amps
+	name = "Anomalous Materials Protection Suit"
+	item_path = /obj/item/clothing/suit/hooded/explorer/melon
+	ckeywhitelist = list("deadmonwonderland")
+	restricted_roles = list(JOB_SHAFT_MINER)
+

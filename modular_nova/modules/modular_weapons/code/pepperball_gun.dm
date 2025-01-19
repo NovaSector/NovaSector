@@ -4,6 +4,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
 	icon_state = "peppergun"
 	w_class = WEIGHT_CLASS_SMALL
+	custom_premium_price = PAYCHECK_COMMAND * 4
 	accepted_magazine_type = /obj/item/ammo_box/magazine/pepperball
 	can_suppress = FALSE
 	fire_sound = 'sound/effects/pop_expl.ogg'
@@ -20,11 +21,12 @@
 
 /obj/item/ammo_box/magazine/pepperball
 	name = "pistol magazine (pepperball)"
-	desc = "A gun magazine filled with balls."
+	desc = "A gun magazine filled with balls, the kind that make your face itch. Holds eight rounds."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/pepperball.dmi'
 	icon_state = "pepperball"
 	ammo_type = /obj/item/ammo_casing/pepperball
 	caliber = CALIBER_PEPPERBALL
+	custom_price = PAYCHECK_CREW * 2
 	max_ammo = 8
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -59,7 +61,7 @@
 /datum/design/pepperballs
 	name = "Pepperball Ammo Box"
 	id = "pepperballs"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
@@ -74,8 +76,10 @@
 	name = "pepperball ammo box"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/pepperball/ammoboxes.dmi'
 	icon_state = "box10x24"
+	desc = "A box of pepper ball rounds, holds eighteen rounds."
+	custom_price = PAYCHECK_CREW * 2
 	ammo_type = /obj/item/ammo_casing/pepperball
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 	)
-	max_ammo = 15
+	max_ammo = 18

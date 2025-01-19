@@ -48,13 +48,11 @@
 	name = "MOD Security Plating"
 	item_type = /obj/item/mod/construction/plating/security
 	cost = PAYCHECK_COMMAND * 2
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/clown
 	name = "MOD CosmoHonk (TM) Plating"
 	item_type = /obj/item/mod/construction/plating/cosmohonk
 	cost = PAYCHECK_COMMAND * 2
-	contraband = TRUE
 
 // MOD modules
 
@@ -82,8 +80,6 @@
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/armor_plates
 	item_type = /obj/item/mod/module/armor_booster/retractplates
 	cost = PAYCHECK_COMMAND * 3
-	restricted = TRUE
-	contraband = TRUE
 
 // Utility modules, general purpose stuff that really anyone might want
 
@@ -158,7 +154,6 @@
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/atrocinator
 	item_type = /obj/item/mod/module/atrocinator
 	cost = PAYCHECK_COMMAND * 2
-	contraband = TRUE
 
 // Novelty modules, goofy stuff that's rare/unprintable, but doesn't fit in any of the above categories
 
@@ -180,12 +175,10 @@
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/tanner
 	item_type = /obj/item/mod/module/tanner
 	cost = PAYCHECK_CREW
-	contraband = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/rave
 	item_type = /obj/item/mod/module/visor/rave
 	cost = PAYCHECK_CREW
-	contraband = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/hat_stabilizer
 	item_type = /obj/item/mod/module/hat_stabilizer

@@ -41,18 +41,20 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /// Replacing organs with oversized versions, for the oversized quirk. Add implementation for species-specific oversized organs as needed
 /datum/species/proc/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
-	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
+	var/obj/item/organ/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(old_stomach?.is_oversized) // don't override augments that are already oversized. Need to do this because augments get applied first, so quirks will overwrite them. TODO: Maybe the augments middleware should be renamed so it gets applied last.
 		return
 
-	var/obj/item/organ/internal/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
+	var/obj/item/organ/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
 	oversized_quirk.old_organs += list(old_stomach)
 
-	if(new_stomach.Insert(human_holder, special = TRUE))
-		to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
-		if(old_stomach)
-			old_stomach.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_stomach)
+	new_stomach.Insert(human_holder, special = TRUE)
+	to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
+	if(old_stomach)
+		old_stomach.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_stomach)
 
 /datum/species/dullahan
 	mutant_bodyparts = list()
@@ -79,7 +81,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/mush
 	mutant_bodyparts = list()
 
-/datum/species/vampire
+/datum/species/human/vampire
 	mutant_bodyparts = list()
 
 /datum/species/plasmaman
@@ -147,7 +149,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 	if(noggin && !(HAS_TRAIT(species_human, TRAIT_HUSK)))
 		if(noggin.head_flags & HEAD_EYESPRITES)
-			var/obj/item/organ/internal/eyes/eye_organ = species_human.get_organ_slot(ORGAN_SLOT_EYES)
+			var/obj/item/organ/eyes/eye_organ = species_human.get_organ_slot(ORGAN_SLOT_EYES)
 
 			if(eye_organ)
 				eye_organ.refresh(call_update = FALSE)
@@ -218,7 +220,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
-	handle_mutant_bodyparts(species_human)
 
 /datum/species/spec_stun(mob/living/carbon/human/target, amount)
 	if(istype(target))
@@ -240,7 +241,18 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			var/obj/item/organ/current_organ = target.get_organ_by_type(mutant_accessory.organ_type)
 
 			if(!current_organ || replace_current)
-				var/obj/item/organ/replacement = SSwardrobe.provide_type(mutant_accessory.organ_type)
+				var/organ_slot = mutant_accessory.organ_type::slot
+				var/obj/item/organ/current_organ_in_slot = target.get_organ_slot(organ_slot)
+				var/obj/item/organ/replacement
+
+				// If the current organ in that slot should override the replacement because it's a special organ for this species,
+				// force it to be the replacement organ.
+				if(current_organ_in_slot?.overrides_sprite_datum_organ_type && istype(current_organ_in_slot, get_mutant_organ_type_for_slot(organ_slot)))
+					replacement = SSwardrobe.provide_type(current_organ_in_slot.type)
+
+				else
+					replacement = SSwardrobe.provide_type(mutant_accessory.organ_type)
+
 				replacement.sprite_accessory_flags = mutant_accessory.flags_for_organ
 				replacement.relevant_layers = mutant_accessory.relevent_layers
 

@@ -242,6 +242,28 @@
 	var/mob/wearer = loc
 	wearer.update_body()
 
+//Donation reward for Thedragmeme
+//Have I reached suspiciously wealthy furry status yet? /j
+/obj/item/clothing/under/sweater_dress
+	name = "virgin killer sweater"
+	desc = "A meticulously knitted sweater that shows off ALL the right places. This is BARELY considered work attire."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "virginslayer"
+	inhand_icon_state = "virginslayer"
+
+/obj/item/clothing/suit/jacket/bomber_donor
+	name = "old hoodie"
+	desc = "A somewhat well worn jacket, appears to be way too big considering who owns it."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "bomber"
+	inhand_icon_state = "bomber"
+
 //Donation reward for Thedragmeme, gift for ActualVanguard
 /obj/item/clothing/neck/padded/security
 	name = "vanguard cloak"
@@ -2081,6 +2103,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	desc = "A glass case containing a toaster implant. Sweet."
 	imp_type = /obj/item/implant/toaster
 
+#undef TOASTER_IMPLANT_COOLDOWN
+
+// donator item for Sciamach
+/obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
+	name = "theurgic stone"
+	desc = "An eerie crystalline shard that pulses with theurgic energies. Tendrils of crimson energy seem to dance along its surface."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	icon_state = "crystal"
+	items_to_create = list(/obj/item/knife/razor_claws/donator/theurgic_knife)
+	extend_sound = 'sound/items/haunted/ghostitemattack.ogg'
+	retract_sound = 'sound/items/haunted/ghostitemattack.ogg'
+
+/obj/item/knife/razor_claws/donator/theurgic_knife
+	name = "cursed ritual knife"
+	desc = "A large carving or flensing dagger made of a heavy, dusty material. It seems to emit a soft, eerie crimson glow."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	righthand_file = 'modular_nova/modules/modular_ert/icons/pizza/righthand.dmi'
+	lefthand_file = 'modular_nova/modules/modular_ert/icons/pizza/lefthand.dmi'
+	icon_state = "dagger"
+	inhand_icon_state = "hotknife"
+	toggle_sound = 'sound/items/haunted/ghostitemattack.ogg'
+
+/obj/item/knife/razor_claws/donator/theurgic_knife/attack_self(mob/user)
+	. = ..()
+	inhand_icon_state = src::inhand_icon_state // Don't have a precision variant for this, just always use base
+
 // donator reward for ignari
 /obj/item/clothing/under/rem
 	name = "\improper M.I.A. limiter"
@@ -2233,3 +2281,51 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	attachment_slot = NONE
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/custom_w.dmi'
+
+// Donation reward for jaklz
+/obj/item/clothing/neck/tattered
+	name = "worn corporate cloak"
+	desc = "A worn, battle-torn cloak. Complete with light red trimmings, tears, burns, and even some holes through out it's design, it clearly has seen better days. You can practically smell the despair, a hint of welding fuel, and a bit of a pine smell."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "tattered_cloak"
+	inhand_icon_state = "tattered_cloak"
+
+// Donation reward for Sharkoink, shork
+
+/obj/item/clothing/neck/noble_mantle
+	name = "noble mantle"
+	desc = "A noble mantle for a loyal and hearty Dragonshark."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
+	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
+	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
+	icon_state = "noble_mantle"
+	inhand_icon_state = "noble_mantle"
+
+/obj/item/clothing/suit/armor/hos/trenchcoat/melon
+	name = "\improper Command Armor Vest"
+	desc = "An armor vest with improved armor plates. Designed for use by command units."
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	icon_state = "vest_com_melon"
+
+/obj/item/clothing/suit/hooded/explorer/melon
+	name = "anomalous materials protection suit"
+	desc = "A suit originally designed for the SolFed Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
+	icon_state = "explorer_melon"
+	hoodtype = /obj/item/clothing/head/hooded/explorer/melon
+	hood_up_affix = ""
+
+/obj/item/clothing/head/hooded/explorer/melon
+	name = "\improper AMPS hood"
+	desc = "Designed to give soldiers protection in anomalous and dangerous areas, the AMPS hood features materials that make it resistant to attack."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_state = "explorer_melon"
+

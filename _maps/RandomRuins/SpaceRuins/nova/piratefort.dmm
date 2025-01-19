@@ -329,7 +329,7 @@
 "lC" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "lV" = (
 /obj/machinery/power/smes/magical{
@@ -1346,7 +1346,7 @@
 /area/ruin/space/has_grav/powered)
 "UM" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "Vm" = (
 /obj/machinery/door/airlock/captain,

@@ -101,12 +101,12 @@
 
 		if("donator_explain")
 			if(GLOB.donator_list[owner.ckey])
-				to_chat(owner, examine_block("<b><font color='#f566d6'>Thank you for donating, this item is for you <3!</font></b>"))
+				to_chat(owner, boxed_message("<b><font color='#f566d6'>Thank you for donating, this item is for you <3!</font></b>"))
 			else
-				to_chat(owner, examine_block(span_boldnotice("This item is restricted to donators only, for more information, please check the discord(#server-info) for more information!")))
+				to_chat(owner, boxed_message(span_boldnotice("This item is restricted to donators only, for more information, please check the discord(#server-info) for more information!")))
 
 		if("ckey_explain")
-			to_chat(owner, examine_block(span_green("This item is restricted to your ckey only. Thank you!")))
+			to_chat(owner, boxed_message(span_green("This item is restricted to your ckey only. Thank you!")))
 
 	return TRUE
 
@@ -227,7 +227,7 @@
 	for(var/job_type in item.restricted_roles)
 		composed_message += span_green("[job_type] <br>")
 
-	to_chat(owner, examine_block(composed_message))
+	to_chat(owner, boxed_message(composed_message))
 
 /// If certain jobs aren't allowed to equip this loadout item, display which
 /datum/loadout_manager/proc/display_job_blacklists(datum/loadout_item/item)
@@ -237,7 +237,7 @@
 	for(var/job_type in item.blacklisted_roles)
 		composed_message += span_red("[job_type] <br>")
 
-	to_chat(owner, examine_block(composed_message))
+	to_chat(owner, boxed_message(composed_message))
 
 /// If only a certain species is allowed to equip this loadout item, display which
 /datum/loadout_manager/proc/display_species_restrictions(datum/loadout_item/item)
@@ -247,7 +247,7 @@
 	for(var/species_type in item.restricted_species)
 		composed_message += span_grey("[species_type] <br>")
 
-	to_chat(owner, examine_block(composed_message))
+	to_chat(owner, boxed_message(composed_message))
 
 /datum/loadout_manager/ui_data(mob/user)
 	var/list/data = list()

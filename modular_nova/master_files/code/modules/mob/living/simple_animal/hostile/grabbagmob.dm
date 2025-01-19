@@ -940,4 +940,6 @@
 	loot = list(/obj/effect/spawner/random/engineering/material_rare = 4)
 	projectiletype = /obj/projectile/beam/laser
 	projectilesound = 'sound/items/weapons/laser3.ogg'
+	minbodytemp = 0
+	atmos_requirements = null
 
