@@ -14,6 +14,7 @@ enum TAB {
   Requests = 'requests',
   Cart = 'cart',
   Help = 'help',
+  CompanyImports = 'company_import_window', // NOVA EDIT ADDITION
 }
 
 export function Cargo(props) {
@@ -63,7 +64,7 @@ export function CargoContent(props) {
           {/* NOVA EDIT ADDITION START */}
           <Tabs.Tab
             icon="clipboard-list"
-            selected={tab === 'company_import_window'}
+            selected={tab === TAB.CompanyImports}
             onClick={() => act('company_import_window')}
           >
             Company Imports
@@ -95,6 +96,9 @@ export function CargoContent(props) {
         {tab === TAB.Requests && <CargoRequests />}
         {tab === TAB.Cart && <CargoCart />}
         {tab === TAB.Help && <CargoHelp />}
+        {/* NOVA EDIT ADDITION START*/}
+        {tab === TAB.CompanyImports && tab === 'catalog'}
+        {/* NOVA EDIT ADDITION END */}
       </Stack.Item>
     </Stack>
   );
