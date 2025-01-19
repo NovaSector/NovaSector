@@ -67,7 +67,7 @@
 	spell_requirements = NONE
 	sound = 'sound/effects/treechop/treechop1.ogg'
 
-	possible_shapes = list(/mob/living/basic/tree/palm, /mob/living/simple_animal/hostile/mimic/crate/minor_illusion, /mob/living/simple_animal/hostile/mimic/watermelon)
+	possible_shapes = list(/mob/living/basic/tree/palm, /mob/living/basic/mimic/crate/minor_illusion, /mob/living/basic/mimic/watermelon)
 
 /datum/action/cooldown/spell/shapeshift/minor_illusion/before_cast(atom/cast_on)
 	. = ..()
