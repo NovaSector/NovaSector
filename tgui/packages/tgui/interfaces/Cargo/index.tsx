@@ -27,7 +27,7 @@ export function Cargo(props) {
 }
 
 export function CargoContent(props) {
-  const { data } = useBackend<CargoData>();
+  const { act, data } = useBackend(); /* NOVA EDIT CHANGE - Adds act */
 
   const { cart = [], requests = [], requestonly } = data;
 
@@ -60,6 +60,15 @@ export function CargoContent(props) {
           >
             Requests ({requests.length})
           </Tabs.Tab>
+          {/* NOVA EDIT ADDITION START */}
+          <Tabs.Tab
+            icon="clipboard-list"
+            selected={tab === 'company_import_window'}
+            onClick={() => act('company_import_window')}
+          >
+            Company Imports
+          </Tabs.Tab>
+          {/* NOVA EDIT ADDITION END */}
           {!requestonly && (
             <>
               <Tabs.Tab
