@@ -4,7 +4,7 @@
  */
 /mob/living/basic/spider/giant/webslinger
 	name = "webslinger spider"
-	desc = "Furry and white, it makes you shudder to look at it. Sharp green eyes are all that can be seen.."
+	desc = "Furry and white, it makes you shudder to look at it. Sharp green eyes are all that can be seen..."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "webslinger"
 	icon_living = "webslinger"
@@ -25,7 +25,7 @@
 		/datum/action/cooldown/mob_cooldown/wrap,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
-		)
+	)
 
 /mob/living/basic/spider/giant/webslinger/Initialize(mapload)
 	. = ..()
@@ -39,7 +39,7 @@
  */
 /mob/living/basic/spider/giant/voltaic
 	name = "voltaic spider"
-	desc = "Chitenous and yellow with electrical arcs running across its carapace, it makes you shudder to look at it. This one has effervescent yellow eyes."
+	desc = "Chitinous and yellow with electrical arcs running across its carapace, it makes you shudder to look at it. This one has effervescent yellow eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "voltaic"
 	icon_living = "voltaic"
@@ -59,7 +59,7 @@
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
 		/datum/action/cooldown/mob_cooldown/wrap,
-		)
+	)
 
 /mob/living/basic/spider/giant/voltaic/Initialize(mapload)
 	. = ..()
@@ -72,7 +72,7 @@
  */
 /mob/living/basic/spider/giant/pit
 	name = "pit spider"
-	desc = "Furry and Brown with an Orange top, massive jaws strike fear in you and into walls. This one has bright orange eyes."
+	desc = "Furry and brown with an orange top, its massive jaws strike fear in you and also sometimes into walls. This one has bright orange eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "pit"
 	icon_living = "pit"
@@ -100,7 +100,7 @@
 		/datum/action/cooldown/mob_cooldown/wrap,
 		/datum/action/cooldown/mob_cooldown/command_spiders,
 		/datum/action/cooldown/mob_cooldown/charge/basic_charge,
-		)
+	)
 /mob/living/basic/spider/giant/pit/Initialize(mapload)
 	. = ..()
 	var/datum/action/cooldown/mob_cooldown/lay_web/solid_web/web_solid = new(src)
@@ -115,7 +115,7 @@
  */
 /mob/living/basic/spider/giant/ogre
 	name = "ogre spider"
-	desc = "Furry and Brown with an fat, while kind of cute its size horrifies you. This one has dark purple eyes and seems heavily armored."
+	desc = "Furry, brown, and fat. While kind of cute its size horrifies you. This one has dark purple eyes and seems heavily armored."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "ogre"
 	icon_living = "ogre"
@@ -130,7 +130,7 @@
 	obj_damage = 15
 	speed = 5
 	player_speed_modifier = -4
-	menu_description = "Extremly tanky with very poor offence. Able to self heal and lay reflective silk screens, passages and traps."
+	menu_description = "Extremely tanky with very poor offense. Able to self-heal and lay reflective silk screens, passages, and traps."
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/wrap,
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
@@ -156,7 +156,7 @@
 		complete_text = "%SOURCE%'s wounds mend together.",\
 	)
 
-/// Prevent you from healing other spiders spiders, or healing when on fire
+/// Prevents you from healing other spiders spiders, or from healing when on fire
 /mob/living/basic/spider/giant/ogre/proc/can_mend(mob/living/source, mob/living/target)
 	if (on_fire)
 		balloon_alert(src, "on fire!")
