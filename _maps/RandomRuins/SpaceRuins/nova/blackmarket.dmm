@@ -236,7 +236,7 @@
 "mg" = (
 /obj/structure/marker_beacon/teal,
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/nova/blackmarket)
 "mH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -426,7 +426,7 @@
 "ve" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/nova/blackmarket)
 "vg" = (
 /obj/effect/turf_decal/bot_white,
@@ -873,7 +873,7 @@
 /area/ruin/space/has_grav/nova/blackmarket)
 "Qu" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/misc/asteroid/airless,
 /area/ruin/space/has_grav/nova/blackmarket)
 "QB" = (
 /obj/effect/decal/cleanable/dirt,

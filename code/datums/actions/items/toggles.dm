@@ -15,8 +15,8 @@
 	name = "Toggle Hood"
 
 /datum/action/item_action/toggle_firemode
-	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi' //NOVA EDIT ADDITION
-	button_icon_state = "fireselect_no" //NOVA EDIT ADDITION
+	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi' // NOVA EDIT ADDITION
+	button_icon_state = "fireselect_no" // NOVA EDIT ADDITION
 	name = "Toggle Firemode"
 
 /datum/action/item_action/toggle_gunlight
@@ -90,7 +90,7 @@
 	. = ..()
 	if(!.)
 		return
-	var/obj/item/organ/internal/cyberimp/eyes/hud/hud_implant = target
+	var/obj/item/organ/cyberimp/eyes/hud/hud_implant = target
 	hud_implant.toggle_hud(owner)
 
 /datum/action/item_action/wheelys
@@ -122,6 +122,17 @@
 /datum/action/item_action/toggle_hide_face
 	name = "Toggle Face Hiding"
 // NOVA EDIT ADDITION END
+
+/datum/action/item_action/toggle_wearable_hud
+	name = "Toggle Wearable HUD"
+	desc = "Toggles your wearable HUD. You can still access examine information while it's off."
+
+/datum/action/item_action/toggle_wearable_hud/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/clothing/glasses/hud/hud_display = target
+	hud_display.toggle_hud_display(owner)
 
 /datum/action/item_action/toggle_nv
 	name = "Toggle Night Vision"

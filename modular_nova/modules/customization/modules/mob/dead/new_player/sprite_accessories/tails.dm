@@ -1,7 +1,7 @@
 /datum/sprite_accessory/tails
 	key = "tail"
 	generic = "Tail"
-	organ_type = /obj/item/organ/external/tail
+	organ_type = /obj/item/organ/tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
@@ -37,7 +37,7 @@
 /datum/sprite_accessory/tails/lizard
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER)
-	organ_type = /obj/item/organ/external/tail/lizard
+	organ_type = /obj/item/organ/tail/lizard
 
 /datum/sprite_accessory/tails/lizard/short/twotone
 	name = "Short (Two-Tone)"
@@ -46,14 +46,14 @@
 
 /datum/sprite_accessory/tails/human
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/cat
+	organ_type = /obj/item/organ/tail/cat
 
 /datum/sprite_accessory/tails/felinid/cat
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "cat"
 	color_src = USE_ONE_COLOR
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/cat
+	organ_type = /obj/item/organ/tail/cat
 
 /datum/sprite_accessory/tails/human/monkeyColorable
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
@@ -66,16 +66,16 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "monkey"
 	recommended_species = list(SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_MAMMAL, SPECIES_MONKEY, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/monkey
+	organ_type = /obj/item/organ/tail/monkey
 
 /datum/sprite_accessory/tails/mammal
 	icon_state = "none"
 	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/fluffy/no_wag
+	organ_type = /obj/item/organ/tail/fluffy/no_wag
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/mammal/wagging
-	organ_type = /obj/item/organ/external/tail/fluffy
+	organ_type = /obj/item/organ/tail/fluffy
 	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/mammal/wagging/akula
@@ -183,6 +183,10 @@
 	name = "Fox (Alt 2)"
 	icon_state = "fox3"
 
+/datum/sprite_accessory/tails/mammal/wagging/vulpkanin/fox/ann
+	name = "Fox (Alt 3)"
+	icon_state = "foxann"
+
 /datum/sprite_accessory/tails/mammal/wagging/guilmon
 	name = "Guilmon"
 	icon_state = "guilmon"
@@ -239,6 +243,10 @@
 /datum/sprite_accessory/tails/mammal/wagging/kitsune/tamamo
 	name = "Kitsune (Tamamo)"
 	icon_state = "9sune"
+
+/datum/sprite_accessory/tails/mammal/wagging/kitsune/ann
+	name = "Kitsune (Ann)"
+	icon_state = "kitsuann"
 
 /datum/sprite_accessory/tails/mammal/wagging/lab
 	name = "Labrador"

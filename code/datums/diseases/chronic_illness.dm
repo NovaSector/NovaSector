@@ -60,7 +60,7 @@
 				affected_mob.visible_message(span_warning("[affected_mob] collapses!"))
 				if(prob(30))
 					to_chat(affected_mob, span_danger("Your vision blurs as you faint!"))
-					affected_mob.AdjustSleeping(10)
+					affected_mob.AdjustSleeping(1 SECONDS)
 			if(SPT_PROB(0.8, seconds_per_tick)) // NOVA EDIT CHANGE - ORIGINAL: if(SPT_PROB(0.5, seconds_per_tick))
 				to_chat(affected_mob, span_danger("[pick("You feel as though your atoms are accelerating in place.", "You feel like you're being torn apart!")]"))
 				affected_mob.emote("scream")
@@ -112,7 +112,7 @@
 					if(affected_mob.stat == CONSCIOUS)
 						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
 					span_userdanger("You feel a horrible pain as your heart is replaced with one from another dimension!"))
-					var/obj/item/organ/internal/heart/cursed/cheart = new /obj/item/organ/internal/heart/cursed()
+					var/obj/item/organ/heart/cursed/cheart = new /obj/item/organ/heart/cursed()
 					cheart.replace_into(affected_mob)
 					playsound(affected_mob, 'sound/effects/hallucinations/far_noise.ogg', 50, 1)
 					update_stage(1)

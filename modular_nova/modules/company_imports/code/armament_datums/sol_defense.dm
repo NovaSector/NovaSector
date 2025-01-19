@@ -39,6 +39,11 @@
 	name = "type I vest"
 	item_type = /obj/item/clothing/suit/armor/vest
 
+/datum/armament_entry/company_import/sol_defense/armor/combat_boots // boots
+	name = "Combat Boots"
+	cost = PAYCHECK_CREW * 4
+	item_type = /obj/item/clothing/shoes/combat
+
 /datum/armament_entry/company_import/sol_defense/armor_hardened
 	subcategory = "Hardened Armor"
 	cost = PAYCHECK_CREW * 3
@@ -90,6 +95,11 @@
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
 	cost = PAYCHECK_COMMAND * 4
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/sidearm/type207
+	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
+	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
 	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
@@ -103,7 +113,6 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm
 	subcategory = "Longarms"
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/renoster
 	item_type = /obj/item/gun/ballistic/shotgun/riot/sol
@@ -112,6 +121,7 @@
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
 	item_type = /obj/item/gun/ballistic/automatic/sol_smg
 	cost = PAYCHECK_COMMAND * 6
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/elite
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
@@ -120,22 +130,22 @@
 /datum/armament_entry/company_import/sol_defense/longarm/bogseo
 	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg
 	cost = PAYCHECK_COMMAND * 10
-	contraband = TRUE
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
 	cost = PAYCHECK_COMMAND * 14
-	contraband = TRUE
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
 	cost = PAYCHECK_COMMAND * 23
-	contraband = TRUE
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
 	cost = PAYCHECK_COMMAND * 46
-	contraband = TRUE
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/magazines
 	subcategory = "Magazines"
@@ -153,6 +163,9 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballs
+	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
+
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
 	cost = PAYCHECK_COMMAND
@@ -164,4 +177,4 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_drum
 	item_type = /obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty
 	cost = PAYCHECK_CREW * 3
-	contraband = TRUE
+	restricted = TRUE

@@ -738,7 +738,7 @@ There are several things that need to be remembered:
 			t_state = worn_item.icon_state
 
 		var/mutable_appearance/hand_overlay
-		var/icon_file = held_index % 2 == 0 ? worn_item.righthand_file : worn_item.lefthand_file
+		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
 		held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
@@ -1011,7 +1011,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	standing.pixel_y += offsets[2]
 
 	standing.alpha = alpha
-	standing.color = color
+	standing = color_atom_overlay(standing)
 
 	return standing
 
