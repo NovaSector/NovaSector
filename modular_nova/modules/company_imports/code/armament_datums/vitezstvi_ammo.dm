@@ -191,8 +191,8 @@
 
 /datum/armament_entry/company_import/vitezstvi/grenade_shells/shrapnel
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel
-	contraband = TRUE
+	restricted = TRUE
 
 /datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
-	contraband = TRUE
+	restricted = TRUE
