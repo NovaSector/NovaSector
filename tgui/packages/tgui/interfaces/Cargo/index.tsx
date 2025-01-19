@@ -28,7 +28,7 @@ export function Cargo(props) {
 }
 
 export function CargoContent(props) {
-  const { act, data } = useBackend(); /* NOVA EDIT CHANGE - Adds act */
+  const { act, data } = useBackend<CargoData>(); /* NOVA EDIT CHANGE - act */
 
   const { cart = [], requests = [], requestonly } = data;
 
@@ -96,9 +96,6 @@ export function CargoContent(props) {
         {tab === TAB.Requests && <CargoRequests />}
         {tab === TAB.Cart && <CargoCart />}
         {tab === TAB.Help && <CargoHelp />}
-        {/* NOVA EDIT ADDITION START*/}
-        {tab === TAB.CompanyImports && tab === 'catalog'}
-        {/* NOVA EDIT ADDITION END */}
       </Stack.Item>
     </Stack>
   );
