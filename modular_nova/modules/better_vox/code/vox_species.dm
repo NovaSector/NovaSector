@@ -103,7 +103,7 @@
 		While these Vox are often pushed by other Primalis to 'hurry up already,' it is the wide consensus of Vox that 'A lone leader is worse than a larva, for while even a larva has a future, all the leader has is a disgraced past.'"
 	)
 
-/datum/species/vox_primalis/on_species_gain(mob/living/carbon/human/transformer)
+/datum/species/vox_primalis/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	var/vox_color = transformer.dna.features["vox_bodycolor"]
 	if(!vox_color || vox_color == "default")

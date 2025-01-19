@@ -41,7 +41,7 @@
 /area/awaymission/mothership_astrum/halls)
 "aw" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/c357,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "aD" = (
@@ -1818,7 +1818,7 @@
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck5)
 "Dk" = (
-/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/c357,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Dq" = (
@@ -1998,7 +1998,7 @@
 /area/awaymission/mothership_astrum/halls)
 "Fy" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
-/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/c357,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "FD" = (
@@ -2266,7 +2266,7 @@
 /area/awaymission/mothership_astrum/deck4)
 "Ie" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
-/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/c357,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "Iq" = (

@@ -517,7 +517,7 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/maintenance)
 "ol" = (
-/obj/item/automatic_turret_folded,
+/obj/item/ammo_box/magazine/mmg_box,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "or" = (
@@ -714,7 +714,7 @@
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/janitor)
 "tA" = (
-/obj/item/surgery_tray/full/deployed,
+/obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "tH" = (
@@ -1195,6 +1195,11 @@
 "DO" = (
 /turf/open/floor/iron/smooth_corner,
 /area/virtual_domain/ancient_milsim/atrium)
+"DS" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/ammo_box/magazine/mmg_box,
+/turf/open/floor/iron/dark,
+/area/virtual_domain/ancient_milsim/carrier)
 "DT" = (
 /obj/structure/flora/tree/jungle/style_random,
 /turf/open/misc/grass/planet/ancient_milsim,
@@ -1774,6 +1779,7 @@
 /area/virtual_domain/ancient_milsim/snpc_bar)
 "RP" = (
 /obj/effect/mapping_helpers/broken_floor,
+/obj/item/mounted_machine_gun_folded,
 /turf/open/floor/iron/dark,
 /area/virtual_domain/ancient_milsim/carrier)
 "RU" = (
@@ -2532,8 +2538,8 @@ Cd
 Cd
 Eh
 Rl
-RP
-RP
+DS
+DS
 EB
 RP
 ol
