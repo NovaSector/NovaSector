@@ -104,3 +104,4 @@ GLOBAL_LIST_INIT(prototype_organs, typecacheof(list(
 	/obj/item/organ/eyes/dullahan,
 	/obj/item/organ/genital, // NOVA EDIT ADDITION
 ), only_root_path = TRUE))
+
