@@ -187,6 +187,10 @@
 				packaging_category = CAT_PATCHES
 			else if(ispath(packaging_type, /obj/item/reagent_containers/pill))
 				packaging_category = CAT_PILLS
+			// NOVA EDIT ADDITION START
+			else if(ispath(packaging_type, /obj/item/reagent_containers/cup/vial))
+				packaging_category = CAT_HYPOS
+			// NOVA EDIT ADDITION END
 			else
 				packaging_category = "Bottles"
 

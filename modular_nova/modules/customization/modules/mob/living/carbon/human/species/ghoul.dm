@@ -87,7 +87,7 @@
 		limb.replace_limb(src, TRUE)
 		qdel(right_leg)
 
-/datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load)
+/datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load, regenerate_icons)
 	// Missing Defaults in DNA? Randomize!
 	proof_ghoul_features(new_ghoul.dna.features)
 

@@ -144,7 +144,7 @@
 /area/solars/tarkon
 	name = "P-T Solar Array"
 	icon_state = "space_near"
-	has_gravity = STANDARD_GRAVITY
+	default_gravity = STANDARD_GRAVITY
 	outdoors = TRUE
 
 /**

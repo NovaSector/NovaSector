@@ -7750,8 +7750,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/nova/des_two)
 "IE" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "IG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

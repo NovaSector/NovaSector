@@ -124,10 +124,10 @@
 	force = 12 // don't stab with this
 	throwforce = 30 // 38 force on embed? compare contrast with throwing stars.
 	throw_speed = 4
-	embed_type = /datum/embed_data/combat_knife/throwing
+	embed_type = /datum/embedding/combat_knife/throwing
 
  // +10 embed chance up from combat knife's 65
-/datum/embed_data/combat_knife/throwing
+/datum/embedding/combat_knife/throwing
 	embed_chance = parent_type::embed_chance + 10
 
 /obj/item/storage/pouch/ammo/marksman

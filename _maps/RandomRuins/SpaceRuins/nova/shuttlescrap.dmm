@@ -89,7 +89,7 @@
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered/no_grav)
 "P" = (
 /obj/effect/mob_spawn/corpse/human/syndicatecommando,
