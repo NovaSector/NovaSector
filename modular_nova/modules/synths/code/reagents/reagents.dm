@@ -47,7 +47,7 @@
 /datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
 	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(prob(10))
-		var/obj/item/organ/internal/brain/owner_brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
+		var/obj/item/organ/brain/owner_brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(!owner_brain || !(owner_brain.organ_flags & affected_organ_flags))
 			return ..()
 		affected_mob.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
@@ -85,24 +85,3 @@
 
 #undef NANITE_SLURRY_ORGANIC_PURGE_RATE
 #undef NANITE_SLURRY_ORGANIC_VOMIT_CHANCE
-
-
-/datum/reagent/medicine/taste_suppressor
-	name = "Taste Suppressor"
-	description = "A colorless medicine aimed to dull the sense of taste of those that consumed it, as long as it's in their system."
-	color = "#AAAAAA77"
-	metabolization_rate = 0.5 * REAGENTS_METABOLISM
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-	chemical_flags_nova = REAGENT_BLOOD_REGENERATING // It has REAGENT_BLOOD_REGENERATING only because it makes it so Hemophages can safely drink it, which makes complete sense considering this is meant to suppress their tumor's reactiveness to anything that doesn't regenerate blood.
-
-
-/datum/reagent/medicine/taste_suppressor/on_mob_metabolize(mob/living/affected_mob)
-	. = ..()
-
-	ADD_TRAIT(affected_mob, TRAIT_AGEUSIA, TRAIT_REAGENT)
-
-
-/datum/reagent/medicine/taste_suppressor/on_mob_end_metabolize(mob/living/affected_mob)
-	. = ..()
-
-	REMOVE_TRAIT(affected_mob, TRAIT_AGEUSIA, TRAIT_REAGENT)

@@ -41,7 +41,7 @@
 	if(!(affected_mob.mob_biotypes & MOB_ROBOTIC))
 		return FALSE
 	// Synth fuels only work with the synthetic bio-reactor
-	if(!istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/internal/stomach/synth))
+	if(!istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/stomach/synth))
 		return FALSE
 	return TRUE
 
@@ -107,3 +107,23 @@
 			qdel(i)
 
 #undef DERMAGEN_SCAR_FIX_AMOUNT
+
+/datum/reagent/medicine/taste_suppressor
+	name = "Taste Suppressor"
+	description = "A colorless medicine aimed to dull the sense of taste of those that consumed it, as long as it's in their system."
+	color = "#AAAAAA77"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags_nova = REAGENT_BLOOD_REGENERATING // It has REAGENT_BLOOD_REGENERATING only because it makes it so Hemophages can safely drink it, which makes complete sense considering this is meant to suppress their tumor's reactiveness to anything that doesn't regenerate blood.
+
+
+/datum/reagent/medicine/taste_suppressor/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	ADD_TRAIT(affected_mob, TRAIT_AGEUSIA, TRAIT_REAGENT)
+
+
+/datum/reagent/medicine/taste_suppressor/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+
+	REMOVE_TRAIT(affected_mob, TRAIT_AGEUSIA, TRAIT_REAGENT)
