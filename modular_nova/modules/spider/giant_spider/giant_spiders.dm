@@ -161,4 +161,7 @@
 	if (on_fire)
 		balloon_alert(src, "can't heal while on fire!")
 		return FALSE
+	if(target != source)
+		balloon_alert(src, "you can only heal yourself!")
+		return FALSE
 	return TRUE
