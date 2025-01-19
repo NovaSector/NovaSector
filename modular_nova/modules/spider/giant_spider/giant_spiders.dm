@@ -159,6 +159,6 @@
 /// Prevents you from healing other spiders spiders, or from healing when on fire
 /mob/living/basic/spider/giant/ogre/proc/can_mend(mob/living/source, mob/living/target)
 	if (on_fire)
-		balloon_alert(src, "on fire!")
+		balloon_alert(src, "can't heal while on fire!")
 		return FALSE
 	return TRUE
