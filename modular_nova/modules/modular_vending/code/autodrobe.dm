@@ -96,3 +96,7 @@
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic/grey = 5,
 		/obj/item/clothing/under/rank/captain/nova/imperial/generic = 5,
 	)
+
+	premium_nova = list(
+		/obj/item/clothing/under/dress/wedding_dress/ribbon = 1,
+	)

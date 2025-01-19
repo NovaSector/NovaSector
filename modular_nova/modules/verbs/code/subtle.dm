@@ -24,7 +24,7 @@
 		to_chat(user, "You cannot send IC messages (muted).")
 		return FALSE
 	else if(!params)
-		subtle_emote = tgui_input_text(user, "Choose an emote to display.", "Subtle", null, MAX_MESSAGE_LEN, TRUE)
+		subtle_emote = tgui_input_text(user, "Choose an emote to display.", "Subtle", null, max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 		if(!subtle_emote)
 			return FALSE
 		subtle_message = subtle_emote
@@ -92,7 +92,7 @@
 		to_chat(user, span_warning("You cannot send IC messages (muted)."))
 		return FALSE
 	else if(!subtler_emote)
-		subtler_emote = tgui_input_text(user, "Choose an emote to display.", "Subtler" , null, MAX_MESSAGE_LEN, TRUE)
+		subtler_emote = tgui_input_text(user, "Choose an emote to display.", "Subtler" , max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 		if(!subtler_emote)
 			return FALSE
 
@@ -105,7 +105,7 @@
 		in_view -= GLOB.dead_mob_list
 		in_view.Remove(user)
 
-		for(var/mob/camera/ai_eye/ai_eye in in_view)
+		for(var/mob/eye/camera/ai/ai_eye in in_view)
 			in_view.Remove(ai_eye)
 
 		var/list/targets = list(SUBTLE_ONE_TILE_TEXT, SUBTLE_SAME_TILE_TEXT) + in_view

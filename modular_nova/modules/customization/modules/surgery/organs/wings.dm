@@ -1,4 +1,4 @@
-/obj/item/organ/external/wings
+/obj/item/organ/wings
 	name = "wings"
 	desc = "A pair of wings. Those may or may not allow you to fly... or at the very least flap."
 	zone = BODY_ZONE_CHEST
@@ -27,7 +27,7 @@
 /datum/bodypart_overlay/mutant/wings/override_color(rgb_value)
 	return draw_color
 
-/obj/item/organ/external/wings/moth
+/obj/item/organ/wings/moth
 	name = "moth wings"
 	desc = "A pair of fuzzy moth wings."
 	flight_for_species = list(SPECIES_MOTH)
@@ -36,7 +36,7 @@
 	///Our associated terrorize spell, for antagonist nightmares
 	var/datum/action/cooldown/spell/moth_and_dash/our_dash
 
-/obj/item/organ/external/wings/moth/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
+/obj/item/organ/wings/moth/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 
 	if(ismoth(organ_owner))
@@ -46,7 +46,7 @@
 		our_dash = new(organ_owner)
 		our_dash.Grant(organ_owner)
 
-/obj/item/organ/external/wings/moth/on_mob_remove(mob/living/carbon/organ_owner)
+/obj/item/organ/wings/moth/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
 	QDEL_NULL(our_climb)
 	QDEL_NULL(our_dash)
@@ -76,7 +76,7 @@
 		to_chat(owner, span_warning("There's far too little air for your wings to work against!"))
 		return
 
-	if(owner.incapacitated())
+	if(owner.incapacitated)
 		return
 
 	if(!COOLDOWN_FINISHED(src, dash_cooldown))
@@ -87,13 +87,14 @@
 
 	ADD_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 	if (owner.throw_at(dash_target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE, callback = TRAIT_CALLBACK_REMOVE(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)))
-		playsound(owner, 'sound/voice/moth/moth_flutter.ogg', 50, TRUE, TRUE)
+		playsound(owner, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50, TRUE, TRUE)
 		owner.visible_message(span_warning("[usr] propels themselves forwards with a heavy wingbeat!"))
 		COOLDOWN_START(src, dash_cooldown, 6 SECONDS)
 		var/mob/living/dash_user = owner
 		if(istype(dash_user))
 			dash_user.adjustStaminaLoss(37.5) //Given the risk of flying into things and crashing quite violently, you get four of these. Every one slows you down anyway.
 	else
+		REMOVE_TRAIT(owner, TRAIT_MOVE_FLOATING, LEAPING_TRAIT)
 		to_chat(owner, span_warning("Something prevents you from dashing forward!"))
 
 /datum/emote/living/mothic_dash
@@ -157,14 +158,14 @@
 
 	var/away_dir = get_dir(above, target)
 	user.visible_message(span_notice("[user] begins pushing themselves upwards with their wings!"), span_notice("Your wings start fluttering violently as you begin going upwards."))
-	playsound(target, 'sound/voice/moth/moth_flutter.ogg', 50) //plays twice so people above and below can hear
-	playsound(user_turf, 'sound/voice/moth/moth_flutter.ogg', 50)
+	playsound(target, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50) //plays twice so people above and below can hear
+	playsound(user_turf, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50)
 	var/list/effects = list(new /obj/effect/temp_visual/climbing_hook(target, away_dir), new /obj/effect/temp_visual/climbing_hook(user_turf, away_dir))
 
 	if(do_after(user, climb_time, target))
 		user.forceMove(target)
 		user.adjustStaminaLoss(100)
-		playsound(user_turf, 'sound/voice/moth/moth_flutter.ogg', 50) //a third time for seasoning
+		playsound(user_turf, 'sound/mobs/humanoids/moth/moth_flutter.ogg', 50) //a third time for seasoning
 		. = ITEM_INTERACT_SUCCESS
 	QDEL_LIST(effects)
 	return . || ITEM_INTERACT_BLOCKING
@@ -184,21 +185,21 @@
 			return TRUE
 	return FALSE
 
-/obj/item/organ/external/wings/flight
+/obj/item/organ/wings/flight
 	unconditional_flight = TRUE
 	can_open = TRUE
 
-/obj/item/organ/external/wings/flight/angel
+/obj/item/organ/wings/flight/angel
 	name = "angel wings"
 	desc = "A pair of magnificent, feathery wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Angel", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
-/obj/item/organ/external/wings/flight/dragon
+/obj/item/organ/wings/flight/dragon
 	name = "dragon wings"
 	desc = "A pair of intimidating, membranous wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Dragon", MUTANT_INDEX_COLOR_LIST = list("#880000"))
 
-/obj/item/organ/external/wings/flight/megamoth
+/obj/item/organ/wings/flight/megamoth
 	name = "megamoth wings"
 	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Megamoth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
@@ -242,20 +243,20 @@
 	return COLOR_WHITE // We want to keep those wings as their original color, because it looks better.
 
 
-/obj/item/organ/external/wings/functional
+/obj/item/organ/wings/functional
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked
 
-/obj/item/organ/external/wings/functional/angel
+/obj/item/organ/wings/functional/angel
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/original_color
 
-/obj/item/organ/external/wings/functional/dragon
+/obj/item/organ/wings/functional/dragon
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
 
-/obj/item/organ/external/wings/functional/moth
+/obj/item/organ/wings/functional/moth
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked/original_color
 
-/obj/item/organ/external/wings/functional/robotic
+/obj/item/organ/wings/functional/robotic
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
 
-/obj/item/organ/external/wings/functional/slime
+/obj/item/organ/wings/functional/slime
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional

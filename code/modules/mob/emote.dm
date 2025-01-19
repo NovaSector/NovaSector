@@ -48,7 +48,7 @@
 
 /datum/emote/help
 	key = "help"
-	mob_type_ignore_stat_typecache = list(/mob/dead/observer, /mob/living/silicon/ai, /mob/camera/imaginary_friend)
+	mob_type_ignore_stat_typecache = list(/mob/dead/observer, /mob/living/silicon/ai, /mob/eye/imaginary_friend)
 
 /datum/emote/help/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
@@ -74,14 +74,14 @@
 	message += keys.Join(", ")
 	message += "."
 	message = message.Join("")
-	to_chat(user, examine_block(message))
+	to_chat(user, boxed_message(message))
 
 /datum/emote/flip
 	key = "flip"
 	key_third_person = "flips"
 	hands_use_check = TRUE
-	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer, /mob/camera/imaginary_friend)
-	mob_type_ignore_stat_typecache = list(/mob/dead/observer, /mob/living/silicon/ai, /mob/camera/imaginary_friend)
+	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer, /mob/eye/imaginary_friend)
+	mob_type_ignore_stat_typecache = list(/mob/dead/observer, /mob/living/silicon/ai, /mob/eye/imaginary_friend)
 
 /datum/emote/flip/run_emote(mob/user, params , type_override, intentional)
 	. = ..()
@@ -89,15 +89,10 @@
 	if(intentional && !HAS_TRAIT(user, TRAIT_FREERUNNING) && !HAS_TRAIT(user, TRAIT_STYLISH) && !do_after(user, 0.5 SECONDS, target = user, hidden = TRUE))
 		return
 	// NOVA EDIT ADDITION END
-	user.SpinAnimation(HAS_TRAIT(user, TRAIT_SLOW_FLIP) ? FLIP_EMOTE_DURATION * 2 : FLIP_EMOTE_DURATION, 1)
+	user.SpinAnimation(FLIP_EMOTE_DURATION, 1)
 
 /datum/emote/flip/check_cooldown(mob/user, intentional)
-	var/slow_flipper = HAS_TRAIT(user, TRAIT_SLOW_FLIP)
-	if(slow_flipper)
-		cooldown *= 2
 	. = ..()
-	if(slow_flipper)
-		cooldown *= 0.5
 	if(.)
 		return
 	if(!can_run_emote(user, intentional=intentional))
@@ -122,8 +117,8 @@
 	key = "spin"
 	key_third_person = "spins"
 	hands_use_check = TRUE
-	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer, /mob/camera/imaginary_friend)
-	mob_type_ignore_stat_typecache = list(/mob/dead/observer, /mob/camera/imaginary_friend)
+	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer, /mob/eye/imaginary_friend)
+	mob_type_ignore_stat_typecache = list(/mob/dead/observer, /mob/eye/imaginary_friend)
 
 /datum/emote/spin/run_emote(mob/user, params,  type_override, intentional)
 	. = ..()
@@ -153,3 +148,36 @@
 #undef BEYBLADE_DIZZINESS_DURATION
 #undef BEYBLADE_CONFUSION_INCREMENT
 #undef BEYBLADE_CONFUSION_LIMIT
+
+
+/datum/emote/jump
+	key = "jump"
+	key_third_person = "jumps"
+	message = "jumps!"
+	// Allows ghosts to jump
+	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
+	affected_by_pitch = FALSE
+
+/datum/emote/jump/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+
+	jump_animation(user)
+
+	if(!isliving(user))
+		return
+	for(var/obj/item/storage/box/squeeze_box in get_turf(user))
+		squeeze_box.flatten_box()
+
+/datum/emote/jump/proc/jump_animation(mob/user)
+	var/original_transform = user.transform
+	animate(user, transform = user.transform.Translate(0, 4), time = 0.1 SECONDS, flags = ANIMATION_PARALLEL)
+	animate(transform = original_transform, time = 0.1 SECONDS)
+
+/datum/emote/jump/get_sound(mob/user)
+	return 'sound/items/weapons/thudswoosh.ogg'
+
+// Avoids playing sounds if we're a ghost
+/datum/emote/jump/should_play_sound(mob/user, intentional)
+	if(isliving(user))
+		return ..()
+	return FALSE

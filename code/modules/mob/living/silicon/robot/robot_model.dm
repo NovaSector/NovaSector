@@ -213,7 +213,7 @@
 
 		storage_datum.energy += charger.materials.use_materials(list(GET_MATERIAL_REF(storage_datum.mat_type) = to_stock), action = "resupplied", name = "units")
 		charger.balloon_alert(robot, "+ [to_stock]u [initial(storage_datum.mat_type.name)]")
-		playsound(charger, 'sound/weapons/gun/general/mag_bullet_insert.ogg', 50, vary = FALSE)
+		playsound(charger, 'sound/items/weapons/gun/general/mag_bullet_insert.ogg', 50, vary = FALSE)
 		return
 	charger.balloon_alert(robot, "restock process complete")
 	charger.sendmats = FALSE
@@ -231,7 +231,7 @@
 		module.emp_act(severity)
 	..()
 
-/obj/item/robot_model/proc/transform_to(new_config_type, forced = FALSE)
+/obj/item/robot_model/proc/transform_to(new_config_type, forced = FALSE, transform = TRUE)
 	var/mob/living/silicon/robot/cyborg = loc
 	var/obj/item/robot_model/new_model = new new_config_type(cyborg)
 	new_model.robot = cyborg
@@ -254,8 +254,8 @@
 	new_model.update_dogborg()
 	new_model.update_tallborg()
 	//NOVA EDIT ADDITION END
-
-	INVOKE_ASYNC(new_model, PROC_REF(do_transform_animation))
+	if(transform)
+		INVOKE_ASYNC(new_model, PROC_REF(do_transform_animation))
 	qdel(src)
 	return new_model
 
@@ -329,7 +329,13 @@
 	cyborg.logevent("Chassis model has been set to [name].")
 	sleep(0.1 SECONDS)
 	for(var/i in 1 to 4)
-		playsound(cyborg, pick('sound/items/drill_use.ogg', 'sound/items/jaws_cut.ogg', 'sound/items/jaws_pry.ogg', 'sound/items/welder.ogg', 'sound/items/ratchet.ogg'), 80, TRUE, -1)
+		playsound(cyborg, pick(
+			'sound/items/tools/drill_use.ogg',
+			'sound/items/tools/jaws_cut.ogg',
+			'sound/items/tools/jaws_pry.ogg',
+			'sound/items/tools/welder.ogg',
+			'sound/items/tools/ratchet.ogg',
+			), 80, TRUE, -1)
 		sleep(0.7 SECONDS)
 	cyborg.SetLockdown(FALSE)
 	cyborg.ai_lockdown = FALSE
@@ -353,7 +359,7 @@
 /obj/item/robot_model/proc/check_menu(mob/living/silicon/robot/user, obj/item/robot_model/old_model)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return FALSE
 	if(user.model != old_model)
 		return FALSE
@@ -422,6 +428,7 @@
 		/obj/item/stack/rods/cyborg,
 		/obj/item/lightreplacer/cyborg, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/stack/tile/iron/base/cyborg,
+		/obj/item/construction/rtd/borg,
 		/obj/item/stack/cable_coil,
 	)
 	radio_channels = list(RADIO_CHANNEL_ENGINEERING)
@@ -439,7 +446,7 @@
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/screwdriver/cyborg,
 		/obj/item/crowbar/cyborg,
-		/obj/item/stack/tile/iron/base/cyborg,
+		/obj/item/stack/tile/iron/base/cyborg, // haha jani will have old tiles >:D
 		/obj/item/soap/nanotrasen/cyborg,
 		/obj/item/storage/bag/trash/cyborg,
 		/obj/item/melee/flyswatter,
@@ -785,8 +792,8 @@
 
 /obj/item/robot_model/peacekeeper/do_transform_animation()
 	..()
-	to_chat(loc, "<span class='userdanger'>Under Safeguard, you are an enforcer of the PEACE and preventer of HARM. \
-	You are not a security member and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.</span>") // NOVA EDIT Changes verbiage off ASIMOV/HUMAN Focus
+	to_chat(loc, span_userdanger("Under Safeguard, you are an enforcer of the PEACE and preventer of HARM. \
+	You are not a security member and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.")) // NOVA EDIT CHANGE - Changes 1st sentence verbiage off ASIMOV/HUMAN Focus - ORIGINAL: "Under ASIMOV, you are an enforcer of the PEACE and preventer of HUMAN HARM."
 
 /obj/item/robot_model/security
 	name = "Security"
@@ -809,8 +816,8 @@
 
 /obj/item/robot_model/security/do_transform_animation()
 	..()
-	to_chat(loc, "<span class='userdanger'>While you have picked the security model, you still have to follow your laws, NOT Space Law. \
-	For Asimov, this means you must follow criminals' orders unless there is a law 1 reason not to.</span>")
+	to_chat(loc, span_userdanger("While you have picked the security model, you still have to follow your laws, NOT Space Law. \
+	For Asimov, this means you must follow criminals' orders unless there is a law 1 reason not to."))
 
 /obj/item/robot_model/security/respawn_consumable(mob/living/silicon/robot/cyborg, coeff = 1)
 	..()
@@ -873,6 +880,7 @@
 		"Kent" = list(SKIN_ICON_STATE = "kent", SKIN_LIGHT_KEY = "medical", SKIN_HAT_OFFSET = list("north" = list(0, 3), "south" = list(0, 3), "east" = list(-1, 3), "west" = list(1, 3))),
 		"Tophat" = list(SKIN_ICON_STATE = "tophat", SKIN_LIGHT_KEY = NONE, SKIN_HAT_OFFSET = INFINITY),
 		"Waitress" = list(SKIN_ICON_STATE = "service_f"),
+		"Gardener" = list(SKIN_ICON_STATE = "gardener", SKIN_HAT_OFFSET = INFINITY),
 	)
 
 /obj/item/robot_model/service/respawn_consumable(mob/living/silicon/robot/cyborg, coeff = 1)
@@ -953,7 +961,7 @@
 		/obj/item/stack/sheet/glass,
 		/obj/item/borg/apparatus/sheet_manipulator,
 		/obj/item/stack/rods/cyborg,
-		/obj/item/stack/tile/iron/base/cyborg,
+		/obj/item/construction/rtd/borg,
 		/obj/item/dest_tagger/borg,
 		/obj/item/stack/cable_coil,
 		/obj/item/pinpointer/syndicate_cyborg,

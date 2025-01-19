@@ -63,6 +63,8 @@
 #define ITEM_SLOT_HANDCUFFED (1<<18)
 /// Legcuff slot (bolas, beartraps)
 #define ITEM_SLOT_LEGCUFFED (1<<19)
+/// Inside of a character's BELT.........
+#define ITEM_SLOT_BELTPACK (1<<20)
 
 /// Total amount of slots
 #define SLOTS_AMT 20 // Keep this up to date!
@@ -106,18 +108,22 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define HIDESNOUT (1<<12)
 ///hides mutant/moth wings, does not apply to functional wings
 #define HIDEMUTWINGS (1<<13)
+///hides belts and riggings
+#define HIDEBELT (1<<14)
+///hides antennae
+#define HIDEANTENNAE (1<<15)
 
 //NOVA EDIT ADDITION: CUSTOM EAR TOGGLE FOR ANTHRO/ETC EAR SHOWING -
 /// Manually set this on items you want anthro ears to show on!
-#define SHOWSPRITEEARS (1<<14)
+#define SHOWSPRITEEARS (1<<15)
 /// Does this sprite hide the tail?
-#define HIDETAIL (1<<15)
+#define HIDETAIL (1<<16)
 /// Does this sprite also hide the spine on tails? Realistically only useful for the clothes that have a special tail overlay, like MODsuits
-#define HIDESPINE (1<<16)
+#define HIDESPINE (1<<17)
 /// Does this sprite hide devious devices?
-#define HIDESEXTOY (1<<17)
+#define HIDESEXTOY (1<<18)
 /// If this has our taur variant, do we hide our taur part?
-#define HIDETAUR (1<<18)
+#define HIDETAUR (1<<19)
 //NOVA EDIT ADDITION END
 
 //bitflags for clothing coverage - also used for limbs
@@ -142,6 +148,10 @@ DEFINE_BITFIELD(no_equip_flags, list(
 //defines for the index of hands
 #define LEFT_HANDS 1
 #define RIGHT_HANDS 2
+/// Checks if the value is "left" - same as ISEVEN, but used primarily for hand or foot index contexts
+#define IS_RIGHT_INDEX(value) (value % 2 == 0)
+/// Checks if the value is "right" - same as ISODD, but used primarily for hand or foot index contexts
+#define IS_LEFT_INDEX(value) (value % 2 != 0)
 
 //flags for female outfits: How much the game can safely "take off" the uniform without it looking weird
 /// For when there's simply no need for a female version of this uniform.
@@ -163,12 +173,15 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define DIGITIGRADE_STYLE 2
 
 //Flags (actual flags, fucker ^) for /obj/item/var/supports_variations_flags
-///No alternative sprites based on bodytype
+/// No alternative sprites or handling based on bodytype
 #define CLOTHING_NO_VARIATION (1<<0)
-///Has a sprite for digitigrade legs specifically.
+/// Has a sprite for digitigrade legs specifically.
 #define CLOTHING_DIGITIGRADE_VARIATION (1<<1)
-///The sprite works fine for digitigrade legs as-is.
+/// The sprite works fine for digitigrade legs as-is.
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
+/// Auto-generates the leg portion of the sprite with GAGS
+/// Suggested that you set [/obj/item/var/digitigrade_greyscale_config_worn] when using this flag
+#define CLOTHING_DIGITIGRADE_MASK (1<<3)
 // NOVA EDIT ADDITION START
 /// The sprite works fine for snouts.
 #define CLOTHING_SNOUTED_VARIATION (1<<4)
@@ -183,6 +196,9 @@ DEFINE_BITFIELD(no_equip_flags, list(
 /// The sprite works fine for vox snouts as is.
 #define CLOTHING_SNOUTED_BETTER_VOX_VARIATION_NO_NEW_ICON (1<<9)
 // NOVA EDIT ADDITION END
+
+/// All variation flags which render "correctly" on a digitigrade leg setup
+#define DIGITIGRADE_VARIATIONS (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON|CLOTHING_DIGITIGRADE_MASK)
 
 //flags for covering body parts
 #define GLASSESCOVERSEYES (1<<0)
@@ -244,6 +260,7 @@ GLOBAL_LIST_INIT(security_vest_allowed, list(
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 	/obj/item/pen/red/security,
+	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
 ))
 
 GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
@@ -256,6 +273,7 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
+	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
 ))
 
 //Allowed list for all chaplain suits (except the honkmother robe)
@@ -285,11 +303,46 @@ GLOBAL_LIST_INIT(mining_suit_allowed, list(
 	/obj/item/kinetic_crusher,
 	/obj/item/knife,
 	/obj/item/mining_scanner,
-	/obj/item/organ/internal/monster_core,
+	/obj/item/organ/monster_core,
 	/obj/item/storage/bag/ore,
 	/obj/item/pickaxe,
 	/obj/item/resonator,
 	/obj/item/spear,
+	/obj/item/forging/reagent_weapon, // NOVA EDIT ADDITION
+	/obj/item/gun/ballistic/bow, // NOVA EDIT ADDITION
+	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
+))
+
+/// List of all "tools" that can fit into belts or work from toolboxes
+
+GLOBAL_LIST_INIT(tool_items, list(
+	/obj/item/airlock_painter,
+	/obj/item/analyzer,
+	/obj/item/assembly/signaler,
+	/obj/item/construction/rcd,
+	/obj/item/construction/rld,
+	/obj/item/construction/rtd,
+	/obj/item/crowbar,
+	/obj/item/extinguisher/mini,
+	/obj/item/flashlight,
+	/obj/item/forcefield_projector,
+	/obj/item/geiger_counter,
+	/obj/item/holosign_creator/atmos,
+	/obj/item/holosign_creator/engineering,
+	/obj/item/inducer,
+	/obj/item/lightreplacer,
+	/obj/item/multitool,
+	/obj/item/pipe_dispenser,
+	/obj/item/pipe_painter,
+	/obj/item/plunger,
+	/obj/item/radio,
+	/obj/item/screwdriver,
+	/obj/item/stack/cable_coil,
+	/obj/item/t_scanner,
+	/obj/item/weldingtool,
+	/obj/item/wirecutters,
+	/obj/item/wrench,
+	/obj/item/spess_knife,
 ))
 
 /// String for items placed into the left pocket.

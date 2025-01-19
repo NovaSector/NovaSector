@@ -225,6 +225,10 @@
 	name = "Mantle"
 	item_path = /obj/item/clothing/neck/mantle
 
+/datum/loadout_item/neck/tesharian_mantle
+	name = "Tesharian Mantle"
+	item_path = /obj/item/clothing/neck/tesharian_mantle
+
 /datum/loadout_item/neck/mantle_qm
 	name = "Quartermaster's Mantle"
 	item_path = /obj/item/clothing/neck/mantle/qm
@@ -287,6 +291,10 @@
 	name = "Maid Neck Cover"
 	item_path = /obj/item/clothing/neck/maid
 
+/datum/loadout_item/neck/colonial_cloak
+	name = "Colonial Cloak"
+	item_path = /obj/item/clothing/neck/cloak/colonial
+
 /datum/loadout_item/neck/imperial_police_cloak
 	name = "Imperial Police Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
@@ -295,6 +303,10 @@
 	name = "Tarkon Confidante Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/tarkon
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/neck/security_cape
+	name = "Security Cape"
+	item_path = /obj/item/clothing/neck/security_cape
 
 /*
 *	DONATOR

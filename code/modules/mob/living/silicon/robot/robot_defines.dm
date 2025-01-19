@@ -15,6 +15,8 @@
 	designation = "Default" //used for displaying the prefix & getting the current model of cyborg
 	has_limbs = TRUE
 	hud_type = /datum/hud/robot
+	unique_name = TRUE
+	mouse_drop_zone = TRUE
 
 	///Represents the cyborg's model (engineering, medical, etc.)
 	var/obj/item/robot_model/model = null
@@ -42,6 +44,8 @@
 	///If this is a path, this gets created as an object in Initialize.
 	var/obj/item/stock_parts/power_store/cell = /obj/item/stock_parts/power_store/cell/high
 
+	///If we've been forcibly disabled for a temporary amount of time.
+	COOLDOWN_DECLARE(disabled_time)
 	///If the lamp isn't broken.
 	var/lamp_functional = TRUE
 	///If the lamp is turned on
@@ -57,6 +61,8 @@
 
 	// Overlay for borg eye lights
 	var/mutable_appearance/eye_lights
+	///Holds a reference to the timer taking care of blinking lights on dead cyborgs
+	var/eye_flash_timer = null
 	// Overlay for borg hat
 	var/mutable_appearance/hat_overlay
 
@@ -106,8 +112,6 @@
 	var/ai_lockdown = FALSE
 	///Timer that allows the borg to self-unlock after a set amount of time
 	var/lockdown_timer = null
-	///Random serial number generated for each cyborg upon its initialization
-	var/ident = 0
 	var/locked = TRUE
 	req_one_access = list(ACCESS_ROBOTICS)
 
@@ -115,6 +119,10 @@
 	var/low_power_mode = FALSE
 	///So they can initialize sparks whenever/N
 	var/datum/effect_system/spark_spread/spark_system
+	///Smoke particle type for brute damage
+	var/smoke_particles
+	///Spark particle type for burn damage
+	var/spark_particles
 
 	///Jetpack-like effect.
 	var/ionpulse = FALSE

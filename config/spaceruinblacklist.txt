@@ -20,6 +20,9 @@
 #_maps/RandomRuins/SpaceRuins/caravanambush.dmm
 #_maps/RandomRuins/SpaceRuins/clericden.dmm
 #_maps/RandomRuins/SpaceRuins/clownplanet.dmm
+#_maps/RandomRuins/SpaceRuins/commsbuoy_lowtech.dmm
+#_maps/RandomRuins/SpaceRuins/commsbuoy_nt.dmm
+#_maps/RandomRuins/SpaceRuins/commsbuoy_pirate.dmm
 #_maps/RandomRuins/SpaceRuins/crashedclownship.dmm
 #_maps/RandomRuins/SpaceRuins/crashedship.dmm
 #_maps/RandomRuins/SpaceRuins/cyborg_mothership.dmm
@@ -100,7 +103,6 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/nova/port_tarkon.dmm
 #_maps/RandomRuins/SpaceRuins/nova/posterpandamonium.dmm
 #_maps/RandomRuins/SpaceRuins/nova/prisonshuttle.dmm
-#_maps/RandomRuins/SpaceRuins/nova/salvagepost.dmm
 #_maps/RandomRuins/SpaceRuins/nova/scrapeheap.dmm
 #_maps/RandomRuins/SpaceRuins/nova/shuttle8532.dmm
 #_maps/RandomRuins/SpaceRuins/nova/shuttlescrap.dmm

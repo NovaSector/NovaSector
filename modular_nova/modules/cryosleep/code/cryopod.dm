@@ -102,7 +102,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	return data
 
-/obj/machinery/computer/cryopod/ui_act(action, list/params)
+/obj/machinery/computer/cryopod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -415,7 +415,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 // Allows players to cryo others. Checks if they have been AFK for 30 minutes.
 	if(target.key && user != target)
-		if (target.get_organ_by_type(/obj/item/organ/internal/brain) ) //Target the Brain
+		if (target.get_organ_by_type(/obj/item/organ/brain) ) //Target the Brain
 			if(!target.mind || target.ssd_indicator ) // Is the character empty / AI Controlled
 				if(target.lastclienttime + ssd_time >= world.time)
 					to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))

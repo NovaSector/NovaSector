@@ -63,6 +63,7 @@
 /turf/closed/indestructible/splashscreen
 	name = "Space Station 13"
 	desc = null
+	baseturfs = /turf/cordon
 	icon = 'icons/blanks/blank_title.png'
 	icon_state = ""
 	pixel_x = 0 // NOVA EDIT - Re-centering the title screen - ORIGINAL: pixel_x = -64
@@ -104,11 +105,6 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	return ..()
 NOVA EDIT REMOVAL END */
 
-/turf/closed/indestructible/start_area
-	name = null
-	desc = null
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
 /turf/closed/indestructible/reinforced
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to separate rooms. Effectively impervious to conventional methods of destruction."
@@ -145,6 +141,12 @@ NOVA EDIT REMOVAL END */
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_SYNDICATE_WALLS
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_PLASTITANIUM_WALLS + SMOOTH_GROUP_SYNDICATE_WALLS
+
+/turf/closed/indestructible/syndicate/nodiagonal
+	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon_state = "map-shuttle_nd"
+	base_icon_state = "plastitanium_wall"
+	smoothing_flags = SMOOTH_BITMASK
 
 /turf/closed/indestructible/riveted/uranium
 	icon = 'icons/turf/walls/uranium_wall.dmi'

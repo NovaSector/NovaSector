@@ -1,7 +1,6 @@
 /mob/living/carbon/update_obscured_slots(obscured_flags)
 	..()
-	if(obscured_flags & (HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEMUTWINGS))
-		update_body()
+	update_body()
 
 /// Updates features and clothing attached to a specific limb with limb-specific offsets
 /mob/living/carbon/proc/update_features(feature_key)
@@ -53,13 +52,8 @@
 		overlays_standing[cache_index] = null
 	SEND_SIGNAL(src, COMSIG_CARBON_REMOVE_OVERLAY, cache_index, I)
 
-//used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/proc/update_mutant_bodyparts()
-	dna?.species.handle_mutant_bodyparts(src)
-	update_body_parts()
-
 /mob/living/carbon/update_body(is_creating = FALSE)
-	dna?.species.handle_body(src) //This calls `handle_mutant_bodyparts` which calls `update_mutant_bodyparts()`. Don't double call!
+	dna?.species.handle_body(src)
 	update_body_parts(is_creating)
 
 /mob/living/carbon/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
@@ -278,7 +272,7 @@
 							break
 
 		var/icon_file = I.lefthand_file
-		if(get_held_index_of_item(I) % 2 == 0)
+		if(IS_RIGHT_INDEX(get_held_index_of_item(I)))
 			icon_file = I.righthand_file
 
 		hands += I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
@@ -324,7 +318,12 @@
 	var/mutable_appearance/wound_overlay
 	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
 		if(iter_part.bleed_overlay_icon)
-			wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
+			if(iter_part.limb_id == SPECIES_XENO)
+				wound_overlay ||= mutable_appearance('modular_nova/master_files/icons/effects/x_bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			else
+				wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			// NOVA EDIT ADDITION END
 			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)
 
 	if(isnull(wound_overlay))
@@ -598,6 +597,8 @@
 		if(gradient_styles?[GRADIENT_HAIR_KEY])
 			. += "-[gradient_styles[GRADIENT_HAIR_KEY]]"
 			. += "-[gradient_colors[GRADIENT_HAIR_KEY]]"
+		if(LAZYLEN(hair_masks))
+			. += "-[jointext(hair_masks, "-")]"
 
 	return .
 

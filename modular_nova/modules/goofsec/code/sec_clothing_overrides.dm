@@ -171,7 +171,7 @@
 		resolve_parent.balloon_alert(user, "can't reach!")
 		return FALSE
 
-	if(!isliving(user) || user.incapacitated())
+	if(!isliving(user) || user.incapacitated)
 		return FALSE
 
 	var/obj/item/gun/gun_to_draw = locate() in real_location
@@ -234,37 +234,15 @@
 	base_icon_state = "security_helmet"
 	actions_types = list(/datum/action/item_action/toggle)
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
-	flags_cover = HEADCOVERSEYES | PEPPERPROOF
-	visor_flags_cover = HEADCOVERSEYES | PEPPERPROOF
+	flags_cover = parent_type::flags_cover | PEPPERPROOF
 	dog_fashion = null
 
-	///chat message when the visor is toggled down.
-	var/toggle_message = "You pull the visor down on"
-	///chat message when the visor is toggled up.
-	var/alt_toggle_message = "You push the visor up on"
-	///Can toggle?
-	var/can_toggle = TRUE
-
-/// Duplication of toggleable logic - only way to make it toggleable without worse hacks due to being in base maps.
-/obj/item/clothing/head/helmet/sec/attack_self(mob/user)
+/obj/item/clothing/head/helmet/sec/click_alt(mob/user)
 	. = ..()
-	if(.)
-		return
-	if(user.incapacitated() || !can_toggle)
-		return
-	up = !up
-	flags_1 ^= visor_flags
-	flags_inv ^= visor_flags_inv
-	flags_cover ^= visor_flags_cover
-	// This part is changed to work with the seclight.
-	base_icon_state = "[initial(icon_state)][up ? "up" : ""]"
-	update_icon_state()
-	to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message] \the [src]."))
-
-	user.update_worn_head()
-	if(iscarbon(user))
-		var/mob/living/carbon/carbon_user = user
-		carbon_user.update_worn_head()
+	if (flipped_visor)
+		flags_cover &= ~PEPPERPROOF
+	else
+		flags_cover |= PEPPERPROOF
 
 
 //Beret replacement
@@ -783,6 +761,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		))
 
 /obj/item/storage/belt/holster/detective
@@ -808,6 +787,7 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		))
 
 /obj/item/storage/belt/holster/energy/Initialize(mapload)
@@ -826,6 +806,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 	))
 /*
 *	HEAD
@@ -836,11 +817,8 @@
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "helmet"
 	base_icon_state = "helmet"
-	actions_types = null
-	can_toggle = FALSE
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	flags_cover = HEADCOVERSEYES
-	flags_inv = HIDEHAIR
+	dog_fashion = /datum/dog_fashion/head/helmet
 
 /*
 *	UNIFORM

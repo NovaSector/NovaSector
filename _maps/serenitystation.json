@@ -4,6 +4,7 @@
 	"map_path": "map_files/SerenityStation",
 	"map_file": "SerenityStation.dmm",
 	"planetary": 1,
+	"height_autosetup": 0,
 	"allow_space_when_planetary": 1,
 	"shuttles": {
 		"cargo": "cargo_nova",
@@ -13,18 +14,18 @@
 	},
 	"traits": [
 		{
-			"Up": true,
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/dirt/forest",
-			"No Parallax": true
+			"No Parallax": true,
+			"Up": true
 		},
 		{
-			"Down": true,
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace/forest",
-			"No Parallax": true
+			"No Parallax": true,
+			"Down": true
 		},
 		{
 			"Linkage": "Cross",

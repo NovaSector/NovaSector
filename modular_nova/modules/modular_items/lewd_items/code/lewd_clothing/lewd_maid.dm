@@ -25,7 +25,7 @@
 	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	minimize_when_attached = FALSE
-	attachment_slot = null
+	attachment_slot = NONE
 	/// If the color has been changed before
 	var/color_changed = FALSE
 	/// Current color of the apron, can change and affects sprite
@@ -63,7 +63,7 @@
 /obj/item/clothing/accessory/lewdapron/proc/check_menu(mob/living/user)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return FALSE
 	return TRUE
 

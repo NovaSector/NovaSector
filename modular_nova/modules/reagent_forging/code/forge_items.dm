@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 	///the path of the item that will be spawned upon completion
 	var/spawn_item
 	//because who doesn't want to have a plasma sword?
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 
 /obj/item/forging/incomplete/tong_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -192,7 +192,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 	///the path of the item that will be created
 	var/spawning_item
 	//because who doesn't want to have a plasma sword?
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
+	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 
 /obj/item/forging/complete/examine(mob/user)
 	. = ..()
@@ -282,7 +282,7 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 	icon_state = "coil"
 
 /obj/item/forging/incomplete_bow
-	name = "incomplete bow"
+	name = "incomplete longbow"
 	desc = "A wooden bow that has yet to be strung."
 	icon_state = "nostring_bow"
 

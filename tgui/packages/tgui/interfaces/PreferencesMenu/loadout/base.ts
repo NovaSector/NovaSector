@@ -1,4 +1,5 @@
-import { BooleanLike } from '../../../../common/react';
+import { BooleanLike } from 'tgui-core/react';
+
 import { PreferencesMenuData } from '../data';
 import { LoadoutButton } from './ModifyPanel';
 
@@ -48,6 +49,9 @@ export type LoadoutCategory = {
   category_icon: FAIcon | null;
   category_info: string | null;
   contents: LoadoutItem[];
+  // NOVA EDIT ADDITION START
+  erp_category: BooleanLike;
+  // NOVA EDIT END
 };
 
 export type LoadoutManagerData = PreferencesMenuData & {

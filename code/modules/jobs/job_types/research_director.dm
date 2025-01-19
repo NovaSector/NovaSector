@@ -44,6 +44,8 @@
 	rpg_title = "Archmagister"
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
 
+	human_authority = JOB_AUTHORITY_HUMANS_ONLY
+
 	voice_of_god_power = 1.4 //Command staff has authority
 
 
@@ -76,7 +78,10 @@
 	messenger = /obj/item/storage/backpack/messenger/science
 
 	chameleon_extras = /obj/item/stamp/head/rd
-	skillchips = list(/obj/item/skillchip/research_director, /obj/item/skillchip/job/roboticist)
+	skillchips = list(
+		/obj/item/skillchip/research_director,
+		/obj/item/skillchip/job/roboticist,
+	)
 
 /datum/outfit/job/rd/mod
 	name = "Research Director (MODsuit)"

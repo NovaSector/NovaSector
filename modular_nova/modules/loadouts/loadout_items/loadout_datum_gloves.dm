@@ -28,6 +28,10 @@
 	name = "Fingerless Gloves"
 	item_path = /obj/item/clothing/gloves/fingerless
 
+/datum/loadout_item/gloves/lalune_long
+	name = "Designer Black Gloves"
+	item_path = /obj/item/clothing/gloves/lalune_long
+
 /datum/loadout_item/gloves/black
 	name = "Black Gloves"
 	item_path = /obj/item/clothing/gloves/color/black
@@ -96,6 +100,11 @@
 /datum/loadout_item/gloves/armwraps
 	name = "Colourable Arm Wraps"
 	item_path = /obj/item/clothing/gloves/bracer/wraps
+
+/datum/loadout_item/gloves/latex
+	name = "Latex Gloves"
+	item_path = /obj/item/clothing/gloves/latex_gloves
+	erp_item = TRUE
 
 /*
 *	RINGS

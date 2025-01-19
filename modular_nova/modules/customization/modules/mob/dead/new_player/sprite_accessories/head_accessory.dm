@@ -4,10 +4,10 @@
 	generic = "Head Accessory"
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/head_accessory
+	organ_type = /obj/item/organ/head_accessory
 
 /datum/sprite_accessory/head_accessory/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	color_src = null
 	factual = FALSE

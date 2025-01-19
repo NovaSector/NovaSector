@@ -8,12 +8,12 @@
 	subcategory = "Hand-Held Equipment"
 	cost = PAYCHECK_COMMAND
 
+/datum/armament_entry/company_import/akh_frontier/basic/fock
+	item_type = /obj/item/multitool/fock
+	cost = PAYCHECK_COMMAND * 4
+
 /datum/armament_entry/company_import/akh_frontier/basic/omni_drill
 	item_type = /obj/item/screwdriver/omni_drill
-
-/datum/armament_entry/company_import/akh_frontier/basic/prybar
-	item_type = /obj/item/crowbar/large/doorforcer
-	restricted = TRUE
 
 /datum/armament_entry/company_import/akh_frontier/basic/arc_welder
 	item_type = /obj/item/weldingtool/electric/arc_welder
@@ -29,7 +29,6 @@
 /datum/armament_entry/company_import/akh_frontier/deployables_fab/rapid_construction_fabricator
 	item_type = /obj/item/flatpacked_machine
 	cost = CARGO_CRATE_VALUE * 6
-	restricted = TRUE
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab/foodricator
 	item_type = /obj/item/flatpacked_machine/organics_ration_printer
@@ -94,4 +93,3 @@
 /datum/armament_entry/company_import/akh_frontier/deployables/rtg
 	item_type = /obj/item/flatpacked_machine/rtg
 	cost = PAYCHECK_COMMAND * 2
-	restricted = TRUE

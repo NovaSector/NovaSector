@@ -124,6 +124,10 @@
 		clear_mood_event(MOOD_CATEGORY_NUTRITION)
 		return FALSE
 
+	if(HAS_TRAIT(mob_parent, TRAIT_GLUTTON))
+		add_mood_event(MOOD_CATEGORY_NUTRITION, /datum/mood_event/hungry) //you'll never get enough
+		return TRUE
+
 	if(HAS_TRAIT(mob_parent, TRAIT_FAT) && !HAS_TRAIT(mob_parent, TRAIT_VORACIOUS))
 		add_mood_event(MOOD_CATEGORY_NUTRITION, /datum/mood_event/fat)
 		return TRUE
@@ -288,7 +292,7 @@
 		if (SANITY_LEVEL_INSANE)
 			mood_screen_object.color = "#f15d36"
 
-	if (!conflicting_moodies.len) // theres no special icons, use the normal icon states
+	if (!conflicting_moodies.len) // there's no special icons, use the normal icon states
 		//NOVA EDIT ADDITION BEGIN - ALEXITHYMIA
 		if(HAS_TRAIT(mob_parent, TRAIT_MOOD_NOEXAMINE))
 			mood_screen_object.icon_state = "mood5"
@@ -369,7 +373,7 @@
 			if(SANITY_INSANE to SANITY_CRAZY)
 				msg += "[span_boldwarning("AHAHAHAHAHAHAHAHAHAH!!")]\n"
 	else
-		msg += span_notice("I don't really know.")
+		msg += "[span_notice("I don't really know.")]\n"
 	//NOVA EDIT CHANGE END
 
 	msg += span_notice("My current mood: ") //Short term
@@ -418,11 +422,11 @@
 				msg += "[span_boldnicegreen("I love life!")]\n"
 	else
 		msg += "[span_notice("No clue.")]\n"
-	
+
 	msg += "[span_notice("Moodlets:")]\n"//All moodlets
 	msg += get_alcohol_processing(user)
 	msg += get_drunk_mood(user)
-	if(mood_events.len && !HAS_TRAIT(user, TRAIT_MOOD_NOEXAMINE)) //ORIGINAL: if(mood_events.len) 
+	if(mood_events.len && !HAS_TRAIT(user, TRAIT_MOOD_NOEXAMINE)) //ORIGINAL: if(mood_events.len)
 	//NOVA EDIT CHANGE END
 		for(var/category in mood_events)
 			var/datum/mood_event/event = mood_events[category]
@@ -441,7 +445,7 @@
 					msg += span_boldnicegreen(event.description + "\n")
 	else
 		msg += "[span_grey("I don't have much of a reaction to anything right now.")]\n"
-	to_chat(user, examine_block(msg))
+	to_chat(user, boxed_message(msg))
 
 /// Updates the mob's moodies, if the area provides a mood bonus
 /datum/mood/proc/check_area_mood(datum/source, area/new_area)
@@ -462,7 +466,7 @@
 		clear_mood_event(MOOD_CATEGORY_AREA_BEAUTY)
 		return
 
-	if(HAS_TRAIT(mob_parent, TRAIT_MORBID))
+	if(HAS_MIND_TRAIT(mob_parent, TRAIT_MORBID))
 		if(HAS_TRAIT(mob_parent, TRAIT_SNOB))
 			switch(area_to_beautify.beauty)
 				if(BEAUTY_LEVEL_DECENT to BEAUTY_LEVEL_GOOD)
@@ -518,8 +522,8 @@
 /datum/mood/proc/set_sanity(amount, minimum = SANITY_INSANE, maximum = SANITY_GREAT, override = FALSE)
 	// If we're out of the acceptable minimum-maximum range move back towards it in steps of 0.7
 	// If the new amount would move towards the acceptable range faster then use it instead
-	if(amount < minimum)
-		amount += clamp(minimum - amount, 0, 0.7)
+	if(amount < minimum && sanity < minimum)
+		amount = sanity + 0.7
 	if((!override && HAS_TRAIT(mob_parent, TRAIT_UNSTABLE)) || amount > maximum)
 		amount = min(sanity, amount)
 	if(amount == sanity) //Prevents stuff from flicking around.

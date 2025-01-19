@@ -47,6 +47,8 @@
 	var/required_season = null
 	/// If the item won't appear when the ERP config is disabled
 	var/erp_item = FALSE
+	/// If the item goes into the special erp box
+	var/erp_box = FALSE
 
 /*
  * Place our [var/item_path] into [outfit].

@@ -5,10 +5,10 @@
 	color_src = USE_ONE_COLOR
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/xenodorsal
+	organ_type = /obj/item/organ/xenodorsal
 
 /datum/sprite_accessory/xenodorsal/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 
 /datum/sprite_accessory/xenodorsal/standard
@@ -48,10 +48,10 @@
 	key = "xenohead"
 	relevent_layers = list(BODY_ADJ_LAYER)
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/xenohead
+	organ_type = /obj/item/organ/xenohead
 
 /datum/sprite_accessory/xenohead/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 
 /datum/sprite_accessory/xenohead/standard

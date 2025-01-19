@@ -107,12 +107,13 @@ DEFINE_BITFIELD(turret_flags, list(
 		turret.faction += user.faction
 		turret.allies += REF(user)
 
-/obj/item/storage/toolbox/emergency/turret/mag_fed/storage_insert_on_interacted_with(datum/storage, obj/item/inserted, mob/living/user)
-	if(!is_type_in_list(inserted, list(/obj/item/wrench, /obj/item/screwdriver, /obj/item/multitool, /obj/item/toy/crayon/spraycan)))
-		return TRUE
-	if(!inserted.toolspeed)
-		return TRUE
-	return FALSE
+/obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!is_type_in_list(tool, list(/obj/item/wrench, /obj/item/screwdriver, /obj/item/multitool, /obj/item/toy/crayon/spraycan)))
+		return ITEM_INTERACT_BLOCKING
+	if(!tool.toolspeed)
+		return ITEM_INTERACT_BLOCKING
+
+	return NONE
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // This was changed but not updated???? I guess no one uses the tarkon ones gawd DAHM
 	if(istype(tool, /obj/item/toy/crayon/spraycan))
@@ -147,7 +148,7 @@ DEFINE_BITFIELD(turret_flags, list(
 			COMBAT_MESSAGE_RANGE,
 		)
 
-		playsound(src, 'sound/items/drill_use.ogg', 80, TRUE, -1)
+		playsound(src, 'sound/items/tools/drill_use.ogg', 80, TRUE, -1)
 		deploy_turret(user, loc)
 		return ITEM_INTERACT_SUCCESS
 	..()
@@ -160,7 +161,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		balloon_alert(user, "area is unfit for deployment.")
 		return
 	balloon_alert(user, "deploying...")
-	playsound(src, 'sound/items/ratchet.ogg', 50, TRUE)
+	playsound(src, 'sound/items/tools/ratchet.ogg', 50, TRUE)
 	if(!do_after(user, easy_deploy_timer))
 		return
 	deploy_turret(user, chosen_spot)
@@ -172,7 +173,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(target_area.is_blocked_turf(TRUE, src))
 		balloon_alert(user, "deployment area is unfit for deploying.")
 		return
-	playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
+	playsound(src, 'sound/items/tools/drill_use.ogg', 80, TRUE, -1)
 	var/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/turret = new turret_type(target_area)
 	if(user) //We do this so those deployed via disposal throws dont runtime.
 		set_faction(turret, user)
@@ -319,9 +320,9 @@ DEFINE_BITFIELD(turret_flags, list(
 	uses_stored = FALSE
 	stored_gun = null
 	stun_projectile = null
-	stun_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'
+	stun_projectile_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	lethal_projectile = null
-	lethal_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'
+	lethal_projectile_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	subsystem_type = /datum/controller/subsystem/processing/projectiles
 	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	ignore_faction = TRUE
@@ -355,7 +356,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	////// Can this turret load more than one ammunition type. Mostly for sound handling. Might be more important if used in a rework.
 	var/adjustable_magwell = TRUE
 	////// Does this turret auto-eject its magazines? Will be used later.
-	var/auto_mag_drop = FALSE
+	var/mag_drop_collect = FALSE
 	//////This is for manual target acquisition stuff. If present, should immediately over-ride as a target.
 	var/datum/weakref/target_override
 	//////Target Assessment System. Whether or not it's targeting according to flags or even ignoring everyone.
@@ -541,12 +542,12 @@ DEFINE_BITFIELD(turret_flags, list(
 	if (mag.ammo_count())
 		if(!claptrap_moment)
 			balloon_alert_to_viewers("loading cartridge...")
-		chambered = WEAKREF(mag.get_round(keep = FALSE))
+		chambered = WEAKREF(mag.get_round())
 		var/obj/item/ammo_casing/casing = chambered?.resolve()
 		if(isnull(casing))
 			chambered = null
 		casing.forceMove(src)
-		playsound(src, 'sound/weapons/gun/general/bolt_rack.ogg', 10, TRUE)
+		playsound(src, 'sound/items/weapons/gun/general/bolt_rack.ogg', 10, TRUE)
 		if(replace_new_round) //For edge-case additions later in the road.
 			mag.give_round(new casing.type)
 
@@ -555,7 +556,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(magazine_ref)
 		var/obj/item/ammo_box/magazine/mag = magazine_ref?.resolve()
 		if(istype(mag))
-			if(auto_mag_drop)
+			if(mag_drop_collect)
 				var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
 				auto_loader.atom_storage?.attempt_insert(mag, override = TRUE)
 				UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
@@ -564,7 +565,7 @@ DEFINE_BITFIELD(turret_flags, list(
 				UnregisterSignal(magazine_ref, COMSIG_MOVABLE_MOVED)
 		magazine_ref = null
 	load_mag()
-	playsound(src, 'sound/weapons/gun/general/chunkyrack.ogg', 30, TRUE)
+	playsound(src, 'sound/items/weapons/gun/general/chunkyrack.ogg', 30, TRUE)
 	return
 
 /// loads a magazine from the base storage box
@@ -573,7 +574,6 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(!auto_loader.get_mag())
 		balloon_alert_to_viewers("magazine well empty!") // hey, this is actually important info to convey.
 		toggle_on(FALSE) // I know i added the shupt-up toggle after adding this, This is just to prevent rapid proccing
-		timer_id = addtimer(CALLBACK(src, PROC_REF(toggle_on), TRUE), 5 SECONDS, TIMER_STOPPABLE)
 		return
 	magazine_ref = WEAKREF(auto_loader.get_mag(FALSE))
 	var/obj/item/ammo_box/magazine/get_that_mag = magazine_ref?.resolve()
@@ -608,6 +608,7 @@ DEFINE_BITFIELD(turret_flags, list(
 		return
 	balloon_alert(guy_with_mag, "magazine inserted!")
 	auto_loader?.atom_storage.attempt_insert(magaroni, guy_with_mag, TRUE)
+	toggle_on(TRUE)
 	return
 
 ////// I rewrite/add to the entire proccess. //////
@@ -652,7 +653,7 @@ DEFINE_BITFIELD(turret_flags, list(
 
 	// If we aren't shooting heads then return a threatcount of 0
 	if (!(turret_flags & TURRET_FLAG_SHOOT_HEADS))
-		var/datum/job/apparent_job = SSjob.GetJob(perp.get_assignment())
+		var/datum/job/apparent_job = SSjob.get_job(perp.get_assignment())
 		if(apparent_job?.job_flags & JOB_HEAD_OF_STAFF)
 			return TURRET_THREAT_PASSIVE
 
@@ -922,7 +923,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	if(quick_retract)
 		if(smart_retract && !in_faction(user))
 			return
-		playsound(src, 'sound/items/ratchet.ogg', 50, TRUE)
+		playsound(src, 'sound/items/tools/ratchet.ogg', 50, TRUE)
 		if(!do_after(user, retract_timer))
 			return
 		deconstruct(TRUE)

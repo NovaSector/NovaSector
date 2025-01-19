@@ -67,8 +67,9 @@ SUBSYSTEM_DEF(ticker)
 	/// Why an emergency shuttle was called
 	var/emergency_reason
 
+	/// ID of round reboot timer, if it exists
+	var/reboot_timer = null
 	var/real_round_start_time = 0 //NOVA EDIT ADDITION
-
 	var/discord_alerted = FALSE //NOVA EDIT - DISCORD PING SPAM PREVENTION
 
 /datum/controller/subsystem/ticker/Initialize()
@@ -97,12 +98,12 @@ SUBSYSTEM_DEF(ticker)
 		switch(L.len)
 			if(3) //rare+MAP+sound.ogg or MAP+rare.sound.ogg -- Rare Map-specific sounds
 				if(use_rare_music)
-					if(L[1] == "rare" && L[2] == SSmapping.config.map_name)
+					if(L[1] == "rare" && L[2] == SSmapping.current_map.map_name)
 						music += S
-					else if(L[2] == "rare" && L[1] == SSmapping.config.map_name)
+					else if(L[2] == "rare" && L[1] == SSmapping.current_map.map_name)
 						music += S
 			if(2) //rare+sound.ogg or MAP+sound.ogg -- Rare sounds or Map-specific sounds
-				if((use_rare_music && L[1] == "rare") || (L[1] == SSmapping.config.map_name))
+				if((use_rare_music && L[1] == "rare") || (L[1] == SSmapping.current_map.map_name))
 					music += S
 			if(1) //sound.ogg -- common sound
 				if(L[1] == "exclude")
@@ -161,12 +162,12 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
+			// send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), CONFIG_GET(string/channel_announce_new_game)) // NOVA EDIT REMOVAL
 			/* ORIGINAL:
-			send2chat("New round starting on [SSmapping.config.map_name]!", CONFIG_GET(string/channel_announce_new_game))
-			*/ // NOVA EDIT START - DISCORD SPAM PREVENTION
+			*/ // NOVA EDIT ADDITION START - DISCORD SPAM PREVENTION
 			if(!discord_alerted)
 				discord_alerted = TRUE
-				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.config.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game)) // NOVA EDIT - Role ping and round ID in game-alert
+				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.current_map.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game)) // NOVA EDIT - Role ping and round ID in game-alert
 			// NOVA EDIT END
 			current_state = GAME_STATE_PREGAME
 			SStitle.change_title_screen() //NOVA EDIT ADDITION - Title screen
@@ -224,7 +225,6 @@ SUBSYSTEM_DEF(ticker)
 				toggle_ooc(TRUE) // Turn it on
 				toggle_dooc(TRUE)
 				declare_completion(force_ending)
-				check_maprotate()
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
 /// Checks if the round should be ending, called every ticker tick
@@ -249,14 +249,14 @@ SUBSYSTEM_DEF(ticker)
 	can_continue = SSdynamic.pre_setup() //Choose antagonists
 	CHECK_TICK
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
-	can_continue = can_continue && SSjob.DivideOccupations() //Distribute jobs
+	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
 	CHECK_TICK
 
 	if(!GLOB.Debug2)
 		if(!can_continue)
 			log_game("Game failed pre_setup")
 			to_chat(world, "<B>Error setting up game.</B> Reverting to pre-game lobby.")
-			SSjob.ResetOccupations()
+			SSjob.reset_occupations()
 			return FALSE
 	else
 		message_admins(span_notice("DEBUG: Bypassing prestart checks..."))
@@ -437,7 +437,7 @@ SUBSYSTEM_DEF(ticker)
 			continue
 		var/datum/job/player_assigned_role = new_player_living.mind.assigned_role
 		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
-			SSjob.EquipRank(new_player_living, player_assigned_role, new_player_mob.client)
+			SSjob.equip_rank(new_player_living, player_assigned_role, new_player_mob.client)
 		player_assigned_role.after_roundstart_spawn(new_player_living, new_player_mob.client)
 		if(picked_spare_id_candidate == new_player_mob)
 			captainless = FALSE
@@ -500,8 +500,8 @@ SUBSYSTEM_DEF(ticker)
 			qdel(player)
 			ADD_TRAIT(living, TRAIT_NO_TRANSFORM, SS_TICKER_TRAIT)
 			if(living.client)
-				var/atom/movable/screen/splash/S = new(null, living.client, TRUE)
-				S.Fade(TRUE)
+				var/atom/movable/screen/splash/fade_out = new(null, living.client, TRUE)
+				fade_out.Fade(TRUE)
 				living.client.init_verbs()
 			livings += living
 	if(livings.len)
@@ -518,8 +518,8 @@ SUBSYSTEM_DEF(ticker)
 	if(!hard_popcap)
 		list_clear_nulls(queued_players)
 		for (var/mob/dead/new_player/new_player in queued_players)
-			to_chat(new_player, span_userdanger("The alive players limit has been released!<br><a href='?src=[REF(new_player)];late_join=override'>[html_encode(">>Join Game<<")]</a>"))
-			SEND_SOUND(new_player, sound('sound/misc/notice1.ogg'))
+			to_chat(new_player, span_userdanger("The alive players limit has been released!<br><a href='byond://?src=[REF(new_player)];late_join=override'>[html_encode(">>Join Game<<")]</a>"))
+			SEND_SOUND(new_player, sound('sound/announcer/notice/notice1.ogg'))
 			GLOB.latejoin_menu.ui_interact(new_player)
 		queued_players.len = 0
 		queue_delay = 0
@@ -533,8 +533,8 @@ SUBSYSTEM_DEF(ticker)
 			list_clear_nulls(queued_players)
 			if(living_player_count() < hard_popcap)
 				if(next_in_line?.client)
-					to_chat(next_in_line, span_userdanger("A slot has opened! You have approximately 20 seconds to join. <a href='?src=[REF(next_in_line)];late_join=override'>\>\>Join Game\<\<</a>"))
-					SEND_SOUND(next_in_line, sound('sound/misc/notice1.ogg'))
+					to_chat(next_in_line, span_userdanger("A slot has opened! You have approximately 20 seconds to join. <a href='byond://?src=[REF(next_in_line)];late_join=override'>\>\>Join Game\<\<</a>"))
+					SEND_SOUND(next_in_line, sound('sound/announcer/notice/notice1.ogg'))
 					next_in_line.ui_interact(next_in_line)
 					return
 				queued_players -= next_in_line //Client disconnected, remove he
@@ -543,13 +543,6 @@ SUBSYSTEM_DEF(ticker)
 			to_chat(next_in_line, span_danger("No response received. You have been removed from the line."))
 			queued_players -= next_in_line
 			queue_delay = 0
-
-/datum/controller/subsystem/ticker/proc/check_maprotate()
-	if(!CONFIG_GET(flag/maprotation))
-		return
-	if(world.time - SSticker.round_start_time < 10 MINUTES) //Not forcing map rotation for very short rounds.
-		return
-	INVOKE_ASYNC(SSmapping, TYPE_PROC_REF(/datum/controller/subsystem/mapping/, maprotate))
 
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
@@ -666,7 +659,7 @@ SUBSYSTEM_DEF(ticker)
 		if(STATION_NUKED)
 			// There was a blob on board, guess it was nuked to stop it
 			if(length(GLOB.overminds))
-				for(var/mob/camera/blob/overmind as anything in GLOB.overminds)
+				for(var/mob/eye/blob/overmind as anything in GLOB.overminds)
 					if(overmind.max_count < overmind.announcement_size)
 						continue
 
@@ -752,17 +745,31 @@ SUBSYSTEM_DEF(ticker)
 
 	var/start_wait = world.time
 	UNTIL(round_end_sound_sent || (world.time - start_wait) > (delay * 2)) //don't wait forever
-	sleep(delay - (world.time - start_wait))
+	reboot_timer = addtimer(CALLBACK(src, PROC_REF(reboot_callback), reason, end_string), delay - (world.time - start_wait), TIMER_STOPPABLE)
 
-	if(delay_end && !skip_delay)
-		to_chat(world, span_boldannounce("Reboot was cancelled by an admin."))
-		return
+
+/datum/controller/subsystem/ticker/proc/reboot_callback(reason, end_string)
 	if(end_string)
 		end_state = end_string
 
 	log_game(span_boldannounce("Rebooting World. [reason]"))
 
 	world.Reboot()
+
+/**
+ * Deletes the current reboot timer and nulls the var
+ *
+ * Arguments:
+ * * user - the user that cancelled the reboot, may be null
+ */
+/datum/controller/subsystem/ticker/proc/cancel_reboot(mob/user)
+	if(!reboot_timer)
+		to_chat(user, span_warning("There is no pending reboot!"))
+		return FALSE
+	to_chat(world, span_boldannounce("An admin has delayed the round end."))
+	deltimer(reboot_timer)
+	reboot_timer = null
+	return TRUE
 
 /datum/controller/subsystem/ticker/Shutdown()
 	gather_newscaster() //called here so we ensure the log is created even upon admin reboot

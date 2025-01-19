@@ -180,7 +180,7 @@
 
 	return data
 
-/datum/nifsoft/soul_poem/ui_act(action, list/params)
+/datum/nifsoft/soul_poem/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

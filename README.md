@@ -11,10 +11,10 @@
 |---------------------------|------------------------------------------------|
 | Git / GitHub cheatsheet   | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
 | Guide to Modularization   | [./modular_nova/readme.md](./modular_nova/readme.md)            |
-| Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
+| Guide to Mirorring        | [./modular_nova/mirroring_guide.md](./modular_nova/mirroring_guide.md)          |
 | Code                      | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)    |
 | Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
-| Codedocs                  | [https://GalacticStation.github.io/GalaxiaStation/](https://GalacticStation.github.io/GalaxiaStation/)       |
+| Codedocs                  | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)       |
 | Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
@@ -50,12 +50,15 @@ Find `BUILD.bat` here in the root folder of tgstation, and double click it to in
 
 **[How to compile in VSCode and other build options](tools/build/README.md).**
 
-## Contributors
-[Guides for Contributors](.github/CONTRIBUTING.md)
+## Getting started
 
-[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
+For contribution guidelines refer to the [Guides for Contributors](.github/CONTRIBUTING.md).
 
-[Interested in some starting lore?](https://github.com/tgstation/common_core)
+For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
+
+For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
+
+For lore, [see Common Core](https://github.com/tgstation/common_core).
 
 ## LICENSE
 

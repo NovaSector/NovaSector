@@ -1,4 +1,4 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 import { sendAct } from '../../backend';
 import { LoadoutCategory, LoadoutList } from './loadout/base';
@@ -181,6 +181,7 @@ export type PreferencesMenuData = {
   preview_selection: string; // NOVA EDIT ADDITION
 
   is_veteran: BooleanLike; // NOVA EDIT - Veteran status
+  erp_pref: BooleanLike; // NOVA EDIT ADDITION
 
   character_preferences: {
     clothing: Record<string, string>;

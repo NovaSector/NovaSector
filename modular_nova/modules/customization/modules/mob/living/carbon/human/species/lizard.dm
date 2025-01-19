@@ -1,6 +1,6 @@
 /datum/species/lizard
 	mutant_bodyparts = list()
-	external_organs = list()
+	mutant_organs = list()
 	payday_modifier = 1.0
 
 /datum/species/lizard/get_default_mutant_bodyparts()
@@ -60,9 +60,7 @@
 /datum/species/lizard/ashwalker
 	always_customizable = TRUE
 	inherent_traits = list(
-		TRAIT_NO_UNDERWEAR,
 		TRAIT_MUTANT_COLORS,
-		TRAIT_TACKLING_TAILED_DEFENDER,
 	)
 
 

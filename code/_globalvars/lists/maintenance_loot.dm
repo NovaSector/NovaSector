@@ -151,6 +151,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/stack/spacecash/c10 = 1,
 		/obj/item/stack/sticky_tape = 1,
 		/obj/item/tank/internals/emergency_oxygen = 1,
+		/obj/item/paper/paperslip/fishing_tip = 1,
 
 		//light sources
 		/obj/effect/spawner/random/decoration/glowstick = 1,
@@ -175,6 +176,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/spear = 1,
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/market_uplink/blackmarket = 1,
+		/obj/item/circuitboard/machine/ltsrbt = 1, //NOVA EDIT ADDITION - More widespread Black Market
 		) = 8,
 
 	list(//equipment
@@ -209,6 +211,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/storage/box/clown = 1,
 		/obj/item/weaponcrafting/receiver = 1,
 		/obj/item/book/granter/crafting_recipe/death_sandwich = 1,
+		/obj/item/survivalcapsule/fishing = 1,
 		) = 8,
 
 	list(//medical and chemicals

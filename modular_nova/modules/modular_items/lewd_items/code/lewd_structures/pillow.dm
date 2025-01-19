@@ -61,7 +61,7 @@
 /obj/item/fancy_pillow/proc/check_menu(mob/living/user)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return FALSE
 	return TRUE
 
@@ -162,6 +162,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillow_pink_round"
 	base_icon_state = "pillow"
+	elevation = 0
 	var/current_color = "pink"
 	var/current_form = "round"
 
@@ -202,13 +203,13 @@
 	. = ..()
 	density = TRUE
 	//Push them up from the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y + 2
+	affected_mob.pixel_y += 6
 
 /obj/structure/bed/pillow_tiny/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()
 	density = FALSE
 	//Set them back down to the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y
+	affected_mob.pixel_y -= 6
 
 //"Upgrading" pillow
 /obj/structure/bed/pillow_tiny/attackby(obj/item/used_item, mob/living/user, params)
@@ -249,9 +250,8 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillowpile_small_pink"
 	base_icon_state = "pillowpile_small"
-	pseudo_z_axis = 4
+	has_armrest = TRUE
 	var/current_color = "pink"
-	var/mutable_appearance/armrest
 
 	//Containing pillows that we have here.
 	var/pillow1_color = "pink"
@@ -270,24 +270,21 @@
 
 /obj/structure/chair/pillow_small/Initialize(mapload)
 	update_icon()
-	return ..()
+	. = ..()
+	AddElement(/datum/element/elevation, pixel_shift = 4)
 
-/obj/structure/chair/pillow_small/proc/GetArmrest()
+/obj/structure/chair/pillow_small/GetArmrest()
 	if(current_color == "pink")
 		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_pink_overlay")
 	if(current_color == "teal")
 		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_teal_overlay")
 
-/obj/structure/chair/pillow_small/Destroy()
-	QDEL_NULL(armrest)
-	return ..()
-
 /obj/structure/chair/pillow_small/post_buckle_mob(mob/living/affected_mob)
 	. = ..()
 	update_icon()
 	density = TRUE
-	//Push them up from the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y + 2
+	//Push them up from the normal sitting position
+	affected_mob.pixel_y += 2
 
 /obj/structure/chair/pillow_small/update_overlays()
 	. = ..()
@@ -297,8 +294,8 @@
 /obj/structure/chair/pillow_small/post_unbuckle_mob(mob/living/affected_mob)
 	. = ..()
 	density = FALSE
-	//Set them back down to the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y
+	//Set them back down to the normal sitting position
+	affected_mob.pixel_y -= 2
 
 /obj/structure/chair/pillow_small/update_icon_state()
 	. = ..()
@@ -376,7 +373,7 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillowpile_large_pink"
 	base_icon_state = "pillowpile_large"
-	pseudo_z_axis = 4
+	elevation = 4
 	var/current_color = "pink"
 	var/mutable_appearance/armrest
 	//Containing pillows that we have here
@@ -417,7 +414,7 @@
 	update_icon()
 	density = TRUE
 	//Push them up from the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y + 0.5
+	affected_mob.pixel_y += 1
 
 /obj/structure/bed/pillow_large/update_overlays()
 	. = ..()
@@ -428,7 +425,7 @@
 	. = ..()
 	density = FALSE
 	//Set them back down to the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y
+	affected_mob.pixel_y -= 1
 
 /obj/structure/bed/pillow_large/update_icon_state()
 	. = ..()

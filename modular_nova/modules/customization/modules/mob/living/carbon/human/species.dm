@@ -29,6 +29,8 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/body_size_restricted = FALSE
 	/// Are we lore protected? This prevents people from changing the species lore or species name.
 	var/lore_protected = FALSE
+	/// When set to TRUE, prevents customizable dna features from being applied
+	var/disallow_customizable_dna_features
 
 /// Returns a list of the default mutant bodyparts, and whether or not they can be randomized or not
 /datum/species/proc/get_default_mutant_bodyparts()
@@ -39,18 +41,20 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /// Replacing organs with oversized versions, for the oversized quirk. Add implementation for species-specific oversized organs as needed
 /datum/species/proc/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
-	var/obj/item/organ/internal/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(isnull(human_holder.loc))
+		return // preview characters don't need funny organs, prevents a runtime
+	var/obj/item/organ/stomach/old_stomach = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(old_stomach?.is_oversized) // don't override augments that are already oversized. Need to do this because augments get applied first, so quirks will overwrite them. TODO: Maybe the augments middleware should be renamed so it gets applied last.
 		return
 
-	var/obj/item/organ/internal/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
+	var/obj/item/organ/stomach/oversized/new_stomach = new //YOU LOOK HUGE, THAT MUST MEAN YOU HAVE HUGE GUTS! RIP AND TEAR YOUR HUGE GUTS!
 	oversized_quirk.old_organs += list(old_stomach)
 
-	if(new_stomach.Insert(human_holder, special = TRUE))
-		to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
-		if(old_stomach)
-			old_stomach.moveToNullspace()
-			STOP_PROCESSING(SSobj, old_stomach)
+	new_stomach.Insert(human_holder, special = TRUE)
+	to_chat(human_holder, span_warning("You feel your massive stomach rumble!"))
+	if(old_stomach)
+		old_stomach.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_stomach)
 
 /datum/species/dullahan
 	mutant_bodyparts = list()
@@ -77,7 +81,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/mush
 	mutant_bodyparts = list()
 
-/datum/species/vampire
+/datum/species/human/vampire
 	mutant_bodyparts = list()
 
 /datum/species/plasmaman
@@ -145,11 +149,15 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 	if(noggin && !(HAS_TRAIT(species_human, TRAIT_HUSK)))
 		if(noggin.head_flags & HEAD_EYESPRITES)
-			var/obj/item/organ/internal/eyes/eye_organ = species_human.get_organ_slot(ORGAN_SLOT_EYES)
+			var/obj/item/organ/eyes/eye_organ = species_human.get_organ_slot(ORGAN_SLOT_EYES)
 
 			if(eye_organ)
 				eye_organ.refresh(call_update = FALSE)
 				standing += eye_organ.generate_body_overlay(species_human)
+
+	// Local defines for now, TODO: put these in their own file with the rest of the offset defines
+	#define NOVA_UNDERWEAR_UNDERSHIRT_LAYER (UNIFORM_LAYER + 0.01)
+	#define NOVA_BRA_SOCKS_LAYER (UNIFORM_LAYER + 0.02)
 
 	//Underwear, Undershirts & Socks
 	if(!HAS_TRAIT(species_human, TRAIT_NO_UNDERWEAR))
@@ -163,9 +171,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 					icon_state += "_d"
 					female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
-					underwear_overlay = wear_female_version(icon_state, underwear.icon, BODY_LAYER, female_sprite_flags)
+					underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				else
-					underwear_overlay = mutable_appearance(underwear.icon, icon_state, -BODY_LAYER)
+					underwear_overlay = mutable_appearance(underwear.icon, icon_state, -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				if(!underwear.use_static)
 					underwear_overlay.color = species_human.underwear_color
 				standing += underwear_overlay
@@ -176,7 +184,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(bra)
 				var/mutable_appearance/bra_overlay
 				var/icon_state = bra.icon_state
-				bra_overlay = mutable_appearance(bra.icon, icon_state, -BODY_LAYER)
+				bra_overlay = mutable_appearance(bra.icon, icon_state, -NOVA_BRA_SOCKS_LAYER)
 				if(!bra.use_static)
 					bra_overlay.color = species_human.bra_color
 				standing += bra_overlay
@@ -186,30 +194,32 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			if(undershirt)
 				var/mutable_appearance/undershirt_overlay
 				if(species_human.dna.species.sexes && species_human.physique == FEMALE)
-					undershirt_overlay = wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
+					undershirt_overlay = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				else
-					undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+					undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -NOVA_UNDERWEAR_UNDERSHIRT_LAYER)
 				if(!undershirt.use_static)
 					undershirt_overlay.color = species_human.undershirt_color
 				standing += undershirt_overlay
 
-		if(species_human.socks && species_human.num_legs >= 2 && !(mutant_bodyparts["taur"]) && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-			var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
-			if(socks)
-				var/mutable_appearance/socks_overlay
-				var/icon_state = socks.icon_state
-				if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
-					icon_state += "_d"
-				socks_overlay = mutable_appearance(socks.icon, icon_state, -BODY_LAYER)
-				if(!socks.use_static)
-					socks_overlay.color = species_human.socks_color
-				standing += socks_overlay
+		if(species_human.socks && species_human.num_legs >= 2 && !(species_human.underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+			if(!("taur" in mutant_bodyparts) || mutant_bodyparts["taur"][MUTANT_INDEX_NAME] == SPRITE_ACCESSORY_NONE)
+				var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[species_human.socks]
+				if(socks)
+					var/mutable_appearance/socks_overlay
+					var/icon_state = socks.icon_state
+					if((species_human.bodyshape & BODYSHAPE_DIGITIGRADE))
+						icon_state += "_d"
+					socks_overlay = mutable_appearance(socks.icon, icon_state, -NOVA_BRA_SOCKS_LAYER)
+					if(!socks.use_static)
+						socks_overlay.color = species_human.socks_color
+					standing += socks_overlay
+	#undef NOVA_UNDERWEAR_UNDERSHIRT_LAYER
+	#undef NOVA_BRA_SOCKS_LAYER
 
 	if(standing.len)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
-	handle_mutant_bodyparts(species_human)
 
 /datum/species/spec_stun(mob/living/carbon/human/target, amount)
 	if(istype(target))
@@ -231,7 +241,18 @@ GLOBAL_LIST_EMPTY(customizable_races)
 			var/obj/item/organ/current_organ = target.get_organ_by_type(mutant_accessory.organ_type)
 
 			if(!current_organ || replace_current)
-				var/obj/item/organ/replacement = SSwardrobe.provide_type(mutant_accessory.organ_type)
+				var/organ_slot = mutant_accessory.organ_type::slot
+				var/obj/item/organ/current_organ_in_slot = target.get_organ_slot(organ_slot)
+				var/obj/item/organ/replacement
+
+				// If the current organ in that slot should override the replacement because it's a special organ for this species,
+				// force it to be the replacement organ.
+				if(current_organ_in_slot?.overrides_sprite_datum_organ_type && istype(current_organ_in_slot, get_mutant_organ_type_for_slot(organ_slot)))
+					replacement = SSwardrobe.provide_type(current_organ_in_slot.type)
+
+				else
+					replacement = SSwardrobe.provide_type(mutant_accessory.organ_type)
+
 				replacement.sprite_accessory_flags = mutant_accessory.flags_for_organ
 				replacement.relevant_layers = mutant_accessory.relevent_layers
 
@@ -247,15 +268,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 				replacement.build_from_dna(target.dna, key)
 				// organ.Insert will qdel any current organs in that slot, so we don't need to.
 				replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-
-			// var/obj/item/organ/path = new SA.organ_type
-			// var/obj/item/organ/oldorgan = C.get_organ_slot(path.slot)
-			// if(oldorgan)
-			// 	oldorgan.Remove(C,TRUE)
-			// 	QDEL_NULL(oldorgan)
-			// path.build_from_dna(C.dna, key)
-			// path.Insert(C, 0, FALSE)
-
 
 /datum/species/proc/spec_revival(mob/living/carbon/human/H)
 	return

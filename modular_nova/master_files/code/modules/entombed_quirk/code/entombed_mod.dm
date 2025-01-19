@@ -69,7 +69,8 @@
 	if (!host_suit)
 		//if we have no host suit, we shouldn't exist, so delete
 		host = null
-		qdel(parent)
+		if(!QDELETED(parent))
+			qdel(parent)
 		return
 
 	var/obj/item/clothing/piece = parent
@@ -110,7 +111,7 @@
 	who.balloon_alert(who, "can't strip a fused MODsuit!")
 	return ..()
 
-/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part)
+/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part, instant)
 	if (ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/datum/quirk/equipping/entombed/tomb_quirk = human_user.get_quirk(/datum/quirk/equipping/entombed)
@@ -119,7 +120,7 @@
 			if (istype(part, /obj/item/clothing)) // make sure it's a modsuit piece and not a module, we retract those too
 				if (!istype(part, /obj/item/clothing/head/mod)) // they can only retract the helmet, them's the sticks
 					human_user.balloon_alert(human_user, "part is fused to you - can't retract!")
-					playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+					playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 					return
 	return ..()
 
@@ -130,7 +131,7 @@
 		//if we're deploy_locked, just disable this functionality entirely
 		if (tomb_quirk && tomb_quirk.deploy_locked)
 			human_user.balloon_alert(human_user, "you can only retract your helmet, and only manually!")
-			playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 			return
 	return ..()
 

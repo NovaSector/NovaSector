@@ -44,6 +44,10 @@
 	name = "Recolorable Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
+/datum/loadout_item/shoes/colonial_boots
+	name = "Colonial Half-Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/colonial
+
 /datum/loadout_item/shoes/jackboots/frontier
 	name = "Heavy Frontier Boots"
 	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
@@ -80,6 +84,10 @@
 	name = "Russian Boots"
 	item_path = /obj/item/clothing/shoes/russian
 
+/datum/loadout_item/shoes/duck_boots
+	name = "Northeastern Duck Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/duckboots
+
 /*
 *	COWBOY
 */
@@ -115,34 +123,42 @@
 /datum/loadout_item/shoes/black_sneakers
 	name = "Black Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/black
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/blue_sneakers
 	name = "Blue Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/blue
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/brown_sneakers
 	name = "Brown Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/brown
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/green_sneakers
 	name = "Green Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/green
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/purple_sneakers
 	name = "Purple Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/purple
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/orange_sneakers
 	name = "Orange Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/orange
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/yellow_sneakers
 	name = "Yellow Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/yellow
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/white_sneakers
 	name = "White Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/white
+	can_be_greyscale = DONT_GREYSCALE
 
 /*
 *	LEG WRAPS
@@ -212,6 +228,16 @@
 	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
 	erp_item = TRUE
 
+/datum/loadout_item/shoes/latex_socks
+	name = "Latex Socks"
+	item_path = /obj/item/clothing/shoes/latex_socks
+	erp_item = TRUE
+
+/datum/loadout_item/shoes/latex_heels
+	name = "Latex Heels"
+	item_path = /obj/item/clothing/shoes/latex_heels
+	erp_item = TRUE
+
 /datum/loadout_item/shoes/griffin
 	name = "Griffon Boots"
 	item_path = /obj/item/clothing/shoes/griffin
@@ -235,6 +261,10 @@
 /datum/loadout_item/shoes/jingleshoes
 	name = "Jester Shoes"
 	item_path = /obj/item/clothing/shoes/jester_shoes
+
+/datum/loadout_item/shoes/sandals_black
+	name = "Black Sandals"
+	item_path = /obj/item/clothing/shoes/sandal/alt
 
 /*
 *	SEASONAL

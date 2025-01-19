@@ -13,7 +13,7 @@
 
 /obj/item/nifsoft_remover/attack(mob/living/carbon/human/target_mob, mob/living/user)
 	. = ..()
-	var/obj/item/organ/internal/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/internal/cyberimp/brain/nif)
+	var/obj/item/organ/cyberimp/brain/nif/target_nif = target_mob.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 
 	if(!target_nif || !length(target_nif.loaded_nifsofts))
 		balloon_alert(user, "[target_mob] has no NIFSofts!")
@@ -80,7 +80,7 @@
 /obj/item/nif_repair_kit/attack(mob/living/carbon/human/mob_to_repair, mob/living/user)
 	. = ..()
 
-	var/obj/item/organ/internal/cyberimp/brain/nif/installed_nif = mob_to_repair.get_organ_by_type(/obj/item/organ/internal/cyberimp/brain/nif)
+	var/obj/item/organ/cyberimp/brain/nif/installed_nif = mob_to_repair.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
 	if(!installed_nif)
 		balloon_alert(user, "[mob_to_repair] lacks a NIF")
 
@@ -157,7 +157,7 @@
 	user.visible_message(span_notice("[user] upgrades [target_glasses] with [src]."), span_notice("You upgrade [target_glasses] to be NIF HUD compatible."))
 	target_glasses.name = "\improper HUD-upgraded " + target_glasses.name
 	target_glasses.AddElement(/datum/element/nifsoft_hud)
-	playsound(target_glasses.loc, 'sound/weapons/circsawhit.ogg', 50, vary = TRUE)
+	playsound(target_glasses.loc, 'sound/items/weapons/circsawhit.ogg', 50, vary = TRUE)
 
 	if(!multiple_uses)
 		qdel(src)

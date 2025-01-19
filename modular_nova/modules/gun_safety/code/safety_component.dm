@@ -5,17 +5,19 @@
 	/// Holder for the toggle safety action
 	var/datum/action/item_action/gun_safety_toggle/toggle_safety_action
 
-/datum/component/gun_safety/Initialize(safety_currently_on = TRUE)
+/datum/component/gun_safety/Initialize()
 	. = ..()
 
 	// Obviously gun safety should only apply to guns
 	if(!isgun(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	src.safety_currently_on = safety_currently_on
 
 	var/obj/item/item_parent = parent
 	toggle_safety_action = item_parent.add_item_action(/datum/action/item_action/gun_safety_toggle)
+
+	if(is_reserved_level(item_parent.z) && !istype(get_area(item_parent.loc), /area/shuttle))
+		src.safety_currently_on = FALSE
 
 	update_action_button_state()
 
@@ -59,7 +61,7 @@
 
 	update_action_button_state()
 
-	playsound(parent, 'sound/weapons/empty.ogg', 100, TRUE)
+	playsound(parent, 'sound/items/weapons/empty.ogg', 100, TRUE)
 	user.visible_message(
 		span_notice("[user] toggles [parent]'s safety [safety_currently_on ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"]."),
 		span_notice("You toggle [parent]'s safety [safety_currently_on ? "<font color='#00ff15'>ON</font>" : "<font color='#ff0000'>OFF</font>"].")

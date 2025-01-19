@@ -71,11 +71,11 @@
 		cant_buckle_message = "can't ride self!"
 	else if (body_position == LYING_DOWN)
 		cant_buckle_message = "can't ride resting!"
-	else if (incapacitated())
+	else if (incapacitated)
 		cant_buckle_message = "can't mount incapacitated mobs!"
-	else if (user.incapacitated())
+	else if (user.incapacitated)
 		cant_buckle_message = "you are incapacitated!"
-	else if (to_buckle.incapacitated())
+	else if (to_buckle.incapacitated)
 		cant_buckle_message = "rider incapacitated!"
 	else if (length(buckled_mobs))
 		cant_buckle_message = "already being ridden!"
@@ -90,8 +90,8 @@
 
 	var/mob/living/carbon/human/human_target = to_buckle
 
-	var/obj/item/organ/external/taur_body/taur_body = get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
-	var/obj/item/organ/external/taur_body/other_taur_body = human_target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	var/obj/item/organ/taur_body/taur_body = get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	var/obj/item/organ/taur_body/other_taur_body = human_target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 
 	if (isnull(taur_body) || isnull(other_taur_body))
 		return TRUE

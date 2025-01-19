@@ -1,5 +1,5 @@
 /obj/item/seeds/shand
-	name = "pack of shand seeds"
+	name = "shand seed pack"
 	desc = "These seeds grow into shand plants. While not very useful on its own, it is full of chemicals that no other plant can produce. A good candidate for crossbreeding."
 	icon = 'modular_nova/modules/xenoarch/icons/seeds.dmi'
 	icon_state = "shand"

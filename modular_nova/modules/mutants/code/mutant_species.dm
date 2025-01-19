@@ -19,18 +19,18 @@
 		TRAIT_NO_ZOMBIFY,
 	)
 	inherent_biotypes = MOB_UNDEAD | MOB_HUMANOID
-	mutanttongue = /obj/item/organ/internal/tongue/zombie
+	mutanttongue = /obj/item/organ/tongue/zombie
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | ERT_SPAWN
 	bodytemp_normal = T0C // They have no natural body heat, the environment regulates body temp
 	bodytemp_heat_damage_limit = FIRE_MINIMUM_TEMPERATURE_TO_SPREAD // Take damage at fire temp
 	bodytemp_cold_damage_limit = MINIMUM_TEMPERATURE_TO_MOVE // take damage below minimum movement temp
 	/// A list of spooky sounds we can play intermittantly.
 	var/static/list/spooks = list(
-		'sound/hallucinations/growl1.ogg',
-		'sound/hallucinations/growl2.ogg',
-		'sound/hallucinations/growl3.ogg',
-		'sound/hallucinations/veryfar_noise.ogg',
-		'sound/hallucinations/wail.ogg'
+		'sound/effects/hallucinations/growl1.ogg',
+		'sound/effects/hallucinations/growl2.ogg',
+		'sound/effects/hallucinations/growl3.ogg',
+		'sound/effects/hallucinations/veryfar_noise.ogg',
+		'sound/effects/hallucinations/wail.ogg',
 		)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant_zombie,
@@ -56,7 +56,7 @@
 	name = "Mutated Abomination"
 	id = SPECIES_MUTANT_INFECTIOUS
 	damage_modifier = 10
-	mutanteyes = /obj/item/organ/internal/eyes/zombie
+	mutanteyes = /obj/item/organ/eyes/zombie
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant_zombie,
@@ -72,7 +72,7 @@
 	/// The cooldown before the mutant can start regenerating
 	COOLDOWN_DECLARE(regen_cooldown)
 
-/datum/species/mutant/infectious/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
+/datum/species/mutant/infectious/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	human_who_gained_species.AddComponent(/datum/component/mutant_hands, mutant_hand_path = hands_to_give)
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(queue_regeneration))
@@ -185,7 +185,7 @@
 	inhand_icon_state = "mutant"
 	lefthand_file = 'modular_nova/modules/mutants/icons/mutant_hand_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/mutants/icons/mutant_hand_righthand.dmi'
-	hitsound = 'sound/hallucinations/growl1.ogg'
+	hitsound = 'sound/effects/hallucinations/growl1.ogg'
 	force = 26
 	sharpness = SHARP_EDGED
 	wound_bonus = -20

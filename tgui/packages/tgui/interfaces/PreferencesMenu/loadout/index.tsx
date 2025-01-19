@@ -1,6 +1,4 @@
 import { Fragment, useState } from 'react';
-
-import { useBackend } from '../../../backend';
 import {
   Box,
   Button,
@@ -11,7 +9,9 @@ import {
   Section,
   Stack,
   Tabs,
-} from '../../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../../backend';
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { ServerData } from '../data';
 import { ServerPreferencesFetcher } from '../ServerPreferencesFetcher';
@@ -44,6 +44,8 @@ export const LoadoutPage = () => {
 
 const LoadoutPageInner = (props: { loadout_tabs: LoadoutCategory[] }) => {
   const { loadout_tabs } = props;
+  const { data } = useBackend<LoadoutManagerData>();
+  const { erp_pref } = data;
   const [searchLoadout, setSearchLoadout] = useState('');
   const [selectedTabName, setSelectedTab] = useState(loadout_tabs[0].name);
   const [modifyItemDimmer, setModifyItemDimmer] = useState<LoadoutItem | null>(
@@ -72,25 +74,31 @@ const LoadoutPageInner = (props: { loadout_tabs: LoadoutCategory[] }) => {
           }
         >
           <Tabs fluid align="center">
-            {loadout_tabs.map((curTab) => (
-              <Tabs.Tab
-                key={curTab.name}
-                selected={
-                  searchLoadout.length <= 1 && curTab.name === selectedTabName
-                }
-                onClick={() => {
-                  setSelectedTab(curTab.name);
-                  setSearchLoadout('');
-                }}
-              >
-                <Box>
-                  {curTab.category_icon && (
-                    <Icon name={curTab.category_icon} mr={1} />
-                  )}
-                  {curTab.name}
-                </Box>
-              </Tabs.Tab>
-            ))}
+            {loadout_tabs // NOVA EDIT CHANGE - Adds filter before map()
+              // NOVA EDIT ADDITION START - Prefslocked tabs
+              .filter(
+                (curTab) =>
+                  !curTab.erp_category || (curTab.erp_category && erp_pref),
+              ) // NOVA EDIT ADDITION END
+              .map((curTab) => (
+                <Tabs.Tab
+                  key={curTab.name}
+                  selected={
+                    searchLoadout.length <= 1 && curTab.name === selectedTabName
+                  }
+                  onClick={() => {
+                    setSelectedTab(curTab.name);
+                    setSearchLoadout('');
+                  }}
+                >
+                  <Box>
+                    {curTab.category_icon && (
+                      <Icon name={curTab.category_icon} mr={1} />
+                    )}
+                    {curTab.name}
+                  </Box>
+                </Tabs.Tab>
+              ))}
           </Tabs>
         </Section>
       </Stack.Item>

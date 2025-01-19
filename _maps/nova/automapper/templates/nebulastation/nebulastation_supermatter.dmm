@@ -1,0 +1,99 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"d" = (
+/turf/template_noop,
+/area/template_noop)
+"k" = (
+/obj/machinery/button/delam_scram,
+/turf/closed/wall/r_wall,
+/area/station/engineering/supermatter/room)
+"x" = (
+/turf/closed/wall/r_wall,
+/area/station/engineering/supermatter/room)
+"F" = (
+/obj/machinery/atmospherics/components/unary/delam_scram/directional/east,
+/turf/template_noop,
+/area/station/engineering/supermatter)
+"L" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/cable,
+/obj/structure/sign/delam_procedure{
+	pixel_x = 32;
+	pixel_y = 35
+	},
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
+
+(1,1,1) = {"
+d
+d
+d
+d
+d
+d
+F
+"}
+(2,1,1) = {"
+d
+d
+d
+d
+d
+d
+d
+"}
+(3,1,1) = {"
+d
+d
+d
+d
+d
+d
+d
+"}
+(4,1,1) = {"
+d
+d
+d
+d
+d
+d
+d
+"}
+(5,1,1) = {"
+d
+d
+d
+d
+d
+d
+d
+"}
+(6,1,1) = {"
+d
+d
+d
+d
+d
+d
+d
+"}
+(7,1,1) = {"
+k
+L
+d
+d
+d
+d
+d
+"}
+(8,1,1) = {"
+x
+d
+d
+d
+d
+d
+d
+"}

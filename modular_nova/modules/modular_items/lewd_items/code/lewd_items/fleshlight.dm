@@ -61,7 +61,7 @@
 		return
 	switch(user.zone_selected) //to let code know what part of body we gonna... Uhh... You get the point.
 		if(BODY_ZONE_PRECISE_GROIN)
-			var/obj/item/organ/external/genital/penis = target.get_organ_slot(ORGAN_SLOT_PENIS)
+			var/obj/item/organ/genital/penis = target.get_organ_slot(ORGAN_SLOT_PENIS)
 			if(!penis)
 				to_chat(user, span_danger("[target] doesn't have a penis!"))
 				return
@@ -75,7 +75,7 @@
 			target.adjust_arousal(6)
 			target.adjust_pleasure(9)
 			user.visible_message(span_purple("[user] [message]!"))
-			play_lewd_sound(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
+			playsound_if_pref(loc, pick('modular_nova/modules/modular_items/lewd_items/sounds/bang1.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang2.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang3.ogg',
 								'modular_nova/modules/modular_items/lewd_items/sounds/bang4.ogg',

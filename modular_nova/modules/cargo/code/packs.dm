@@ -503,7 +503,7 @@
 
 /datum/supply_pack/organic/bulkcanliz
 	name = "Bulk Lizard Goods"
-	desc = "Having some devious tastes? One of your scalie friends wanting something that isn't fried mystery meat? Well you're just one order away from from the perfect pleaser. Containing Three (3) Cans of our finest-sourced canned jellyfish, snails and bee larvae, An addition of Three (3) packs of cruelty free Moonfish eggs might get their hearts."
+	desc = "Having some devious tastes? One of your scalie friends wanting something that isn't fried mystery meat? Well you're just one order away from the perfect pleaser. Containing Three (3) Cans of our finest-sourced canned jellyfish, snails and bee larvae, An addition of Three (3) packs of cruelty free Moonfish eggs might get their hearts."
 	cost = CARGO_CRATE_VALUE * 3.5
 	contains = list(
 		/obj/item/food/canned/jellyfish,
@@ -633,8 +633,8 @@
 		/obj/item/clothing/suit/armor/vest/cuirass/larp,
 		/obj/item/gun/ballistic/bow/longbow,
 		/obj/item/gun/ballistic/bow/longbow,
-		/obj/item/storage/bag/quiver,
-		/obj/item/storage/bag/quiver,
+		/obj/item/storage/bag/quiver/full,
+		/obj/item/storage/bag/quiver/full,
 		/obj/item/clothing/head/helmet/knight/red,
 		/obj/item/clothing/head/helmet/knight/blue,
 		/obj/item/food/bread/plain,
@@ -709,3 +709,12 @@
 	desc = "Contains a single restock for the Fab-O-Vend, great for those who are indecisive about their looks."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/barbervend)
+
+/datum/supply_pack/imports/starfruit_seed
+	name = "Primidine Starfruit Seeds"
+	desc = "A rare seed which grows into an even rarer Starfruit plant. The Starfruit was harvested for only 55 days each year on the planet Primidine, before it was made uninhabitable to colonists."
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(
+		/obj/item/seeds/starfruit = 2,
+		/obj/item/book/manual/starfruit = 1,
+	)

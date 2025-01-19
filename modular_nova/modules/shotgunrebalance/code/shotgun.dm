@@ -178,7 +178,7 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	pellets = 4
 	variance = 15
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	harmful = FALSE
 	custom_materials = AMMO_MATS_SHOTGUN_HIVE
 	advanced_print_req = TRUE
@@ -189,8 +189,8 @@
 	icon_state = "hornet"
 	damage = 4
 	stamina = 15
-	damage_falloff_tile = 0.1
-	stamina_falloff_tile = 0.1
+	damage_falloff_tile = -0.1
+	stamina_falloff_tile = -0.1
 	wound_bonus = -5
 	bare_wound_bonus = 5
 	wound_falloff_tile = 0
@@ -211,7 +211,7 @@
 	pellets = 8 // 8 * 7 for 56 stamina damage, plus whatever the embedded shells do
 	variance = 30
 	harmful = FALSE
-	fire_sound = 'sound/weapons/taser.ogg'
+	fire_sound = 'sound/items/weapons/taser.ogg'
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	advanced_print_req = TRUE
 
@@ -221,8 +221,8 @@
 	icon_state = "stardust"
 	damage = 2
 	stamina = 8
-	damage_falloff_tile = 0.2
-	stamina_falloff_tile = 0.3
+	damage_falloff_tile = -0.2
+	stamina_falloff_tile = -0.3
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	stutter = 3 SECONDS
@@ -230,9 +230,9 @@
 	eyeblur = 1 SECONDS
 	sharpness = NONE
 	range = 8
-	embed_type = /datum/embed_data/shotgun_buckshot/antitide
+	embed_type = /datum/embedding/shotgun_buckshot/antitide
 
-/datum/embed_data/shotgun_buckshot/antitide
+/datum/embedding/shotgun_buckshot/antitide
 	embed_chance = 70
 	pain_chance = 25
 	fall_chance = 15

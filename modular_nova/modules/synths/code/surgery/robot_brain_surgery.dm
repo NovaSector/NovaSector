@@ -16,7 +16,7 @@
 
 /datum/surgery/robot_brain_surgery/can_start(mob/user, mob/living/carbon/target, obj/item/tool)
 	. = ..()
-	var/obj/item/organ/internal/brain/synth/brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/synth/brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(!istype(brain) && !issynthetic(target))
 		return FALSE
 	else
@@ -25,7 +25,7 @@
 /datum/surgery_step/fix_robot_brain
 	name = "fix posibrain"
 	implements = list(
-		TOOL_MULTITOOL = 100,
+		TOOL_MULTITOOL = 95,
 		TOOL_HEMOSTAT = 35,
 		/obj/item/pen = 15
 	)

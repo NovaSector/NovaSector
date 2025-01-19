@@ -28,7 +28,7 @@
 	if(istype(mover, /obj/projectile))
 		var/obj/projectile/projectile = mover
 		//Lets through bullets shot from behind the cover of the table
-		if(projectile.trajectory && angle2dir_cardinal(projectile.trajectory.angle) == dir)
+		if(projectile.movement_vector && angle2dir_cardinal(projectile.movement_vector.angle) == dir)
 			return TRUE
 		return FALSE
 	if(border_dir == dir)
@@ -64,7 +64,7 @@
 		if(custom_materials)
 			unflipped_table.set_custom_materials(custom_materials)
 		user.balloon_alert_to_viewers("table flipped upright")
-		playsound(src, 'sound/items/trayhit2.ogg', 100)
+		playsound(src, 'sound/items/trayhit/trayhit2.ogg', 100)
 		qdel(src)
 
 //TABLES
@@ -111,7 +111,7 @@
 		sound_volume = 40
 
 	user.balloon_alert_to_viewers(balloon_message)
-	playsound(src, 'sound/items/trayhit2.ogg', sound_volume)
+	playsound(src, 'sound/items/trayhit/trayhit2.ogg', sound_volume)
 	qdel(src)
 
 	var/turf/throw_target = get_step(flipped_table, flipped_table.dir)

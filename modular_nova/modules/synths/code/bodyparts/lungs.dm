@@ -1,4 +1,4 @@
-/obj/item/organ/internal/lungs/synth
+/obj/item/organ/lungs/synth
 	name = "heatsink"
 	desc = "A device that transfers generated heat to a fluid medium to cool it down. Required to keep your synthetics cool-headed. Its shape resembles lungs." //Purposefully left the 'fluid medium' ambigious for interpretation of the character, whether it be air or fluid cooling
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
@@ -14,7 +14,7 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 
-/obj/item/organ/internal/lungs/synth/emp_act(severity)
+/obj/item/organ/lungs/synth/emp_act(severity)
 	. = ..()
 
 	if(!owner || . & EMP_PROTECT_SELF)
@@ -26,10 +26,12 @@
 	switch(severity)
 		if(EMP_HEAVY)
 			to_chat(owner, span_warning("Alert: Critical cooling system failure! Seek maintenance immediately. Error Code: 5H-17"))
+			apply_organ_damage(SYNTH_ORGAN_HEAVY_EMP_DAMAGE, maxHealth, required_organ_flag = ORGAN_ROBOTIC)
 			owner.adjust_bodytemperature(SYNTH_HEAVY_EMP_TEMPERATURE_POWER * TEMPERATURE_DAMAGE_COEFFICIENT)
 
 		if(EMP_LIGHT)
 			to_chat(owner, span_warning("Alert: Major cooling system failure!"))
+			apply_organ_damage(SYNTH_ORGAN_LIGHT_EMP_DAMAGE, maxHealth, required_organ_flag = ORGAN_ROBOTIC)
 			owner.adjust_bodytemperature(SYNTH_LIGHT_EMP_TEMPERATURE_POWER * TEMPERATURE_DAMAGE_COEFFICIENT)
 
 /datum/design/synth_heatsink
@@ -42,8 +44,8 @@
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/lungs/synth
+	build_path = /obj/item/organ/lungs/synth
 	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE

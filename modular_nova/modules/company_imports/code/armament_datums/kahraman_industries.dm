@@ -31,11 +31,20 @@
 	subcategory = "Protective Equipment"
 
 /datum/armament_entry/company_import/kahraman/ppe/hazard_mod
+	name = "Frontier Hazard Compressed Modsuit"
 	item_type = /obj/item/mod/control/pre_equipped/frontier_colonist
+	description =  "The pinnacle of frontier cheap technology. Suits such as these are made \
+		specifically for the rare emergency that creates a hazard environment that other \
+		equipment just can't quite handle. Compressed enough to fit in your backpack when not in use."
 	cost = PAYCHECK_COMMAND * 6.5
 
 /datum/armament_entry/company_import/kahraman/ppe/civilian_mod
+	name = "Civilian Miniaturized Belt Modsuit"
 	item_type = /obj/item/mod/control/pre_equipped/civilian
+	description = "A non spaceproof belt Modsuit made for civilian operations and Modsuit training \
+		this convenient frame allows the user to enjoy most Modsuit Modules without having to rely \
+		on a heavy backpack control unit, making its operation less taxing and convenient for the \
+		average user."
 	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/kahraman/ppe/gas_mask

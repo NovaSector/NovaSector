@@ -7,13 +7,16 @@
 
 /datum/ai_controller/basic_controller/lobstrosity
 	blackboard = list(
-		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/allow_items,
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
 		BB_LOBSTROSITY_EXPLOIT_TRAITS = list(TRAIT_INCAPACITATED, TRAIT_FLOORED, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT),
 		BB_LOBSTROSITY_FINGER_LUST = 0,
 		BB_LOBSTROSITY_NAIVE_HUNTER = FALSE,
 		BB_BASIC_MOB_FLEE_DISTANCE = 8,
+		BB_EAT_FOOD_COOLDOWN = 3 MINUTES,
+		BB_ONLY_FISH_WHILE_HUNGRY = TRUE,
+		BB_TARGET_PRIORITY_TRAIT = TRAIT_SCARY_FISHERMAN,
 		BB_OWNER_SELF_HARM_RESPONSES = SHRIMP_HARM_RESPONSES,
 	)
 	ai_traits = PAUSE_DURING_DO_AFTER
@@ -24,38 +27,47 @@
 		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/hoard_fingers,
 		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/find_target_prioritize_traits,
 		/datum/ai_planning_subtree/targeted_mob_ability/lobster,
 		/datum/ai_planning_subtree/flee_target/lobster,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/lobster,
 		/datum/ai_planning_subtree/find_food,
-		/datum/ai_planning_subtree/find_and_hunt_target/lobster_fishing,
+		/datum/ai_planning_subtree/fish/fish_from_turfs,
 		/datum/ai_planning_subtree/find_fingers,
 	)
+
+/datum/ai_controller/basic_controller/lobstrosity/TryPossessPawn(atom/new_pawn)
+	. = ..()
+	if(. & AI_CONTROLLER_INCOMPATIBLE)
+		return
+	var/static/list/food_types = typecacheof(list(/obj/item/fish/lavaloop))
+	set_blackboard_key(BB_BASIC_FOODS, food_types)
+
 ///Ensure that juveline lobstrosities witll charge at things they can reach.
 /datum/ai_controller/basic_controller/lobstrosity/juvenile
 	blackboard = list(
-		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/allow_items,
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
 		BB_TARGET_MINIMUM_STAT = SOFT_CRIT,
 		BB_LOBSTROSITY_EXPLOIT_TRAITS = list(TRAIT_INCAPACITATED, TRAIT_FLOORED, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT),
 		BB_LOBSTROSITY_FINGER_LUST = 0,
 		BB_LOBSTROSITY_NAIVE_HUNTER = TRUE,
 		BB_BASIC_MOB_FLEE_DISTANCE = 4,
+		BB_TARGET_PRIORITY_TRAIT = TRAIT_SCARY_FISHERMAN,
 		BB_OWNER_SELF_HARM_RESPONSES = SHRIMP_HARM_RESPONSES,
 	)
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/hoard_fingers,
 		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/find_target_prioritize_traits,
 		/datum/ai_planning_subtree/targeted_mob_ability/lobster,
 		/datum/ai_planning_subtree/flee_target/lobster,
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/lobster,
 		/datum/ai_planning_subtree/find_food,
-		/datum/ai_planning_subtree/find_and_hunt_target/lobster_fishing,
+		/datum/ai_planning_subtree/fish/fish_from_turfs,
 		/datum/ai_planning_subtree/find_fingers,
 	)
 
@@ -71,7 +83,7 @@
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/lobster,
 		/datum/ai_planning_subtree/find_food,
-		/datum/ai_planning_subtree/find_and_hunt_target/lobster_fishing,
+		/datum/ai_planning_subtree/fish/fish_from_turfs,
 		/datum/ai_planning_subtree/find_fingers,
 	)
 
@@ -87,27 +99,25 @@
 		/datum/ai_planning_subtree/attack_obstacle_in_path,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/lobster,
 		/datum/ai_planning_subtree/find_food,
-		/datum/ai_planning_subtree/find_and_hunt_target/lobster_fishing,
+		/datum/ai_planning_subtree/fish/fish_from_turfs,
 		/datum/ai_planning_subtree/find_fingers,
 	)
-
-/datum/ai_planning_subtree/find_and_hunt_target/lobster_fishing
-	target_key = BB_FISHING_TARGET
-	hunt_targets = list(/turf/open/lava)
-	hunting_behavior = /datum/ai_behavior/hunt_target/unarmed_attack_target/reset_target_combat_mode
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/lobster
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/lobster
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/lobster/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
-	if(!isliving(controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]))
+	var/atom/movable/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
+	if(!isliving(target))
 		return ..()
 	if (!controller.blackboard[BB_BASIC_MOB_STOP_FLEEING])
 		return
 	if (!isnull(controller.blackboard[BB_LOBSTROSITY_TARGET_LIMB]))
 		return
+	if(controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER] && HAS_TRAIT(target, TRAIT_SCARY_FISHERMAN))
+		return //juvenile lobstrosities fear me.
 	var/mob/living/living_pawn = controller.pawn
-	if (DOING_INTERACTION_WITH_TARGET(living_pawn, controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]))
+	if (DOING_INTERACTION_WITH_TARGET(living_pawn, target))
 		return
 	return ..()
 
@@ -118,9 +128,14 @@
 	if (isnull(target) || !istype(target))
 		return ..()
 	var/is_vulnerable = FALSE
-	if(controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER] && target.body_position == LYING_DOWN)
-		is_vulnerable = TRUE
-	else
+	if(controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER])
+		if(HAS_TRAIT(target, TRAIT_SCARY_FISHERMAN))
+			//Trigger lobstrosity PTSD. Don't clear the target so we can run away.
+			controller.set_blackboard_key(BB_BASIC_MOB_STOP_FLEEING, FALSE)
+			return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_SUCCEEDED
+		if(target.body_position == LYING_DOWN)
+			is_vulnerable = TRUE
+	if(!is_vulnerable)
 		for (var/trait in controller.blackboard[BB_LOBSTROSITY_EXPLOIT_TRAITS])
 			if (!HAS_TRAIT(target, trait))
 				continue
@@ -137,9 +152,12 @@
 	flee_behaviour = /datum/ai_behavior/run_away_from_target/lobster
 
 /datum/ai_planning_subtree/flee_target/lobster/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+	var/atom/movable/target = controller.blackboard[target_key]
+	if(!QDELETED(target) && controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER] && HAS_TRAIT(target, TRAIT_SCARY_FISHERMAN))
+		return ..()
 	var/datum/action/cooldown/using_action = controller.blackboard[BB_TARGETED_ACTION]
 	if (using_action?.IsAvailable())
-		return
+		return FALSE
 	return ..()
 
 /datum/ai_behavior/run_away_from_target/lobster
@@ -147,19 +165,23 @@
 
 /datum/ai_behavior/run_away_from_target/lobster/perform(seconds_per_tick, datum/ai_controller/controller, target_key, hiding_location_key)
 	var/atom/target = controller.blackboard[target_key]
-	if(isnull(target))
+	if(QDELETED(target))
 		return ..()
 
-	if(isliving(target))
-		var/mob/living/living_target = target
-		if(controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER] && living_target.body_position == LYING_DOWN)
+	var/is_naive = controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER]
+	var/is_scary = HAS_TRAIT(target, TRAIT_SCARY_FISHERMAN)
+
+	if(!is_naive || !is_scary) //the lobstrosity isn't naive/young and the target isn't a scary fisherman.
+		if(isliving(target))
+			var/mob/living/living_target = target
+			if(is_naive && living_target.body_position == LYING_DOWN)
+				controller.set_blackboard_key(BB_BASIC_MOB_STOP_FLEEING, TRUE)
+				return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
+		for (var/trait in controller.blackboard[BB_LOBSTROSITY_EXPLOIT_TRAITS])
+			if (!HAS_TRAIT(target, trait))
+				continue
 			controller.set_blackboard_key(BB_BASIC_MOB_STOP_FLEEING, TRUE)
 			return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
-	for (var/trait in controller.blackboard[BB_LOBSTROSITY_EXPLOIT_TRAITS])
-		if (!HAS_TRAIT(target, trait))
-			continue
-		controller.set_blackboard_key(BB_BASIC_MOB_STOP_FLEEING, TRUE)
-		return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
 
 	var/mob/living/us = controller.pawn
 	if (us.pulling == target)
@@ -174,7 +196,9 @@
 /datum/ai_planning_subtree/targeted_mob_ability/lobster/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	var/atom/target = controller.blackboard[target_key]
 	if(QDELETED(target) || in_range(controller.pawn, target))
-		return FALSE
+		return
+	if(controller.blackboard[BB_LOBSTROSITY_NAIVE_HUNTER] && HAS_TRAIT(target, TRAIT_SCARY_FISHERMAN))
+		return
 	return ..()
 
 
@@ -296,7 +320,7 @@
 	var/atom/fingers = controller.blackboard[target_key]
 	if (QDELETED(fingers) || living_pawn.pulling != fingers)
 		return AI_BEHAVIOR_FAILED
-	living_pawn.melee_attack(fingers)
+	controller.ai_interact(target = fingers)
 	return AI_BEHAVIOR_SUCCEEDED
 
 /datum/ai_behavior/hoard_fingers/finish_action(datum/ai_controller/controller, succeeded, target_key)

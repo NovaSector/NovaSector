@@ -134,7 +134,7 @@
 
 /// Do some magic teleport sparks
 /obj/machinery/quantum_server/proc/spark_at_location(obj/cache)
-	playsound(cache, 'sound/magic/blink.ogg', 50, vary = TRUE)
+	playsound(cache, 'sound/effects/magic/blink.ogg', 50, vary = TRUE)
 	var/datum/effect_system/spark_spread/quantum/sparks = new()
 	sparks.set_up(5, location = get_turf(cache))
 	sparks.start()
@@ -148,7 +148,15 @@
 	if(isnull(entry_atom))
 		return
 
-	var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit)
+	// NOVA EDIT ADDITION BEGIN - PREFS!
+	var/datum/preferences/pref
+	var/load_loadout = FALSE
+	var/obj/item/bitrunning_disk/prefs/prefdisk = locate() in neo.get_contents()
+	if(prefdisk)
+		load_loadout = prefdisk.include_loadout
+		pref = prefdisk.loaded_preference
+	// NOVA EDIT ADDITION END
+	var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit, pref, include_loadout = load_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit)
 	stock_gear(new_avatar, neo, generated_domain)
 
 	// Cleanup for domains with one time use custom spawns

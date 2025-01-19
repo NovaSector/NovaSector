@@ -714,7 +714,7 @@
 	desc = "A stun baton fitted with a departmental area-lock, based off the station's blueprint layout - outside of its department, it only has three uses."
 	icon = 'modular_nova/modules/goofsec/icons/departmental_batons.dmi'
 	icon_state = "prison_baton"
-	belt_icon_state = "stunbaton"
+	inside_belt_icon_state = "stunbaton"
 	var/list/valid_areas = list()
 	var/emagged = FALSE
 	var/non_departmental_uses_left = 4
@@ -790,7 +790,7 @@
 	name = "service stun baton"
 	desc = "A stun baton that doesn't operate outside of the Service department, based off the station's blueprint layout. Can be used outside of Service up to three times before needing to return!"
 	icon_state = "service_baton"
-	valid_areas = list(/area/station/service, /area/station/maintenance/department/chapel, /area/station/maintenance/department/crew_quarters, /area/shuttle/escape)
+	valid_areas = list(/area/station/service, /area/station/hallway/primary/fore, /area/station/commons/lounge, /area/station/maintenance/department/chapel, /area/station/maintenance/department/crew_quarters, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/prison
 	name = "prison stun baton"

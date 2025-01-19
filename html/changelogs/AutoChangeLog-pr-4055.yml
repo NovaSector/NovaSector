@@ -1,4 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - bugfix: "Recyclers no longer recycle contents of indestructible items"

@@ -97,6 +97,16 @@ GLOBAL_LIST_INIT(nova_wood_recipes, list(
 	. = ..()
 	. += GLOB.nova_wood_recipes
 
+// Cardboard
+
+GLOBAL_LIST_INIT(nova_cardboard_recipes, list(
+	new/datum/stack_recipe("flat box", /obj/item/storage/box/flat, crafting_flags = NONE, category = CAT_CONTAINERS),
+))
+
+/obj/item/stack/sheet/cardboard/get_main_recipes()
+	. = ..()
+	. += GLOB.nova_cardboard_recipes
+
 // Cloth
 
 GLOBAL_LIST_INIT(nova_cloth_recipes, list(

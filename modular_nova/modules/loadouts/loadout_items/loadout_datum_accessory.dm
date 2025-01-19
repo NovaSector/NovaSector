@@ -26,6 +26,10 @@
 	name = "Ribbon"
 	item_path = /obj/item/clothing/accessory/medal/ribbon
 
+/datum/loadout_item/accessory/wetmaker
+	name = "Stardress hydro-vaporizer"
+	item_path = /obj/item/clothing/accessory/vaporizer
+
 /*
 *	ARMBANDS
 */
@@ -73,6 +77,10 @@
 /datum/loadout_item/accessory/armband_science
 	name = "Purple Armband"
 	item_path = /obj/item/clothing/accessory/armband/science/nonsec
+
+/datum/loadout_item/accessory/green_pin
+	name = "Green Pin"
+	item_path = /obj/item/clothing/accessory/green_pin
 
 /*
 *	ARMOURLESS

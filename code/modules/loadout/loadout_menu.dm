@@ -118,6 +118,9 @@
 			"category_icon" = category.category_ui_icon,
 			"category_info" = category.category_info,
 			"contents" = category.items_to_ui_data(),
+			// NOVA EDIT ADDITION START
+			"erp_category" = category.erp_category,
+			// NOVA EDIT END
 		)
 		UNTYPED_LIST_ADD(loadout_tabs, cat_data)
 

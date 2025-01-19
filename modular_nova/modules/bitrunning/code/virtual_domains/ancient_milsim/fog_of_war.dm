@@ -2,6 +2,14 @@
 	name = "SNPC Zone Entry Control"
 	desc = "A special button that, when pushed, deletes itself. Hopefully prevents unintended or malicious softlocks; and equalises the encounter hidden behind the fog."
 	id = "engagement_control"
+	var/obj/item/radio/radio
+
+/obj/machinery/button/door/indestructible/ancient_milsim/Initialize(mapload, ndir, built)
+	. = ..()
+	radio = new(src)
+	radio.keyslot = new /obj/item/encryptionkey/headset_syndicate/cybersun()
+	radio.set_listening(FALSE)
+	radio.recalculateChannels()
 
 /obj/machinery/button/door/indestructible/ancient_milsim/screwdriver_act()
 	return
@@ -16,6 +24,7 @@
 	. = ..()
 	if(.)
 		return
+	radio.talk_into(src, "Fog is down, prepare for contact.", RADIO_CHANNEL_CYBERSUN)
 	qdel(src)
 
 /obj/machinery/door/poddoor/ancient_milsim
