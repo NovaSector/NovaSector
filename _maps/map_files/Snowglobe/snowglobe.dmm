@@ -5732,17 +5732,25 @@
 /area/station/science/xenobiology)
 "byI" = (
 /obj/structure/table/reinforced,
-/obj/item/hfr_box/body/interface{
-	pixel_x = 11;
-	pixel_y = 11
-	},
 /obj/item/wrench{
 	pixel_x = -5;
 	pixel_y = 7
 	},
 /obj/item/hfr_box/corner{
 	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/item/hfr_box/corner{
+	pixel_x = 8;
 	pixel_y = 2
+	},
+/obj/item/hfr_box/corner{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/hfr_box/corner{
+	pixel_x = -6;
+	pixel_y = 10
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
@@ -7371,7 +7379,7 @@
 /area/station/medical/virology)
 "bXb" = (
 /obj/machinery/defibrillator_mount/directional/south,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/white/smooth_edge,
@@ -35433,7 +35441,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
 	},
@@ -36130,7 +36138,7 @@
 "jIS" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray,
+/obj/effect/spawner/surgery_tray,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_exam)
 "jIV" = (
@@ -39079,7 +39087,7 @@
 /area/station/cargo/storage)
 "kvj" = (
 /obj/machinery/defibrillator_mount/directional/south,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/white/smooth_edge,
@@ -41930,7 +41938,7 @@
 /area/station/engineering/atmos/project)
 "liw" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full/morgue,
+/obj/effect/spawner/surgery_tray/full/morgue,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -52079,6 +52087,10 @@
 	pixel_y = 9
 	},
 /obj/item/hfr_box/body/fuel_input,
+/obj/item/hfr_box/body/interface{
+	pixel_x = 8;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "nXc" = (
@@ -54227,15 +54239,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/half,
 /area/station/hallway/primary/aft)
-"oCs" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/large,
-/area/station/cargo/storage)
 "oCE" = (
 /obj/structure/cable,
 /obj/machinery/door/window/right/directional/south{
@@ -58747,7 +58750,7 @@
 /area/station/commons/dorms)
 "pPN" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/siding/blue{
 	dir = 6
 	},
@@ -240095,7 +240098,7 @@ gKQ
 gKQ
 uve
 pMZ
-oCs
+tUZ
 oTo
 vJn
 vMu
@@ -240352,7 +240355,7 @@ gKQ
 gKQ
 uve
 pMZ
-oCs
+tUZ
 xOC
 vJn
 otf
@@ -240609,7 +240612,7 @@ iuz
 iuz
 dOo
 rGL
-oCs
+tUZ
 xxE
 vJn
 otf
@@ -240866,7 +240869,7 @@ ofE
 crw
 tUZ
 ofE
-oCs
+tUZ
 hbi
 vJn
 wTk
@@ -241123,7 +241126,7 @@ ofE
 ofE
 tUZ
 ofE
-oCs
+tUZ
 hBA
 vJn
 vhr

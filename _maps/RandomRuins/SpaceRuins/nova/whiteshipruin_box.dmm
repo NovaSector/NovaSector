@@ -14,13 +14,6 @@
 /obj/effect/decal/cleanable/glass/plastitanium,
 /turf/open/floor/mineral/titanium/white/airless,
 /area/ruin/space/has_grav/whiteship/box)
-"az" = (
-/obj/machinery/power/shuttle_engine/large{
-	dir = 8;
-	pixel_x = 8
-	},
-/turf/open/space/basic,
-/area/ruin/space/has_grav/whiteship/box)
 "aB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/broken/directional/north,
@@ -1133,9 +1126,6 @@
 "Jy" = (
 /turf/closed/mineral/random,
 /area/ruin/space/has_grav/whiteship/box)
-"JF" = (
-/turf/open/space/basic,
-/area/ruin/space/has_grav/whiteship/box)
 "JI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /obj/machinery/light/broken/directional/east,
@@ -1654,13 +1644,13 @@ nH
 nH
 nH
 nH
-JF
-az
-JF
-JF
-JF
-JF
-az
+nH
+FN
+nH
+nH
+nH
+nH
+FN
 nH
 nH
 nH
