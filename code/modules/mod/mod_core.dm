@@ -301,7 +301,7 @@
 		liquid electricity, this core makes it much more efficient, running all soft, hard, and wetware with several \
 		times less energy usage."
 	/// A modifier to all charge we use, ethereals don't need to spend as much energy as normal suits.
-	var/charge_modifier = 0.1
+	var/charge_modifier = 0.01
 
 /obj/item/mod/core/ethereal/charge_source()
 	var/obj/item/organ/stomach/ethereal/ethereal_stomach = mod.wearer.get_organ_slot(ORGAN_SLOT_STOMACH)
