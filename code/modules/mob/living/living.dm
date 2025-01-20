@@ -614,7 +614,7 @@
 	return health
 
 // MOB PROCS //END
-/* NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/timed_sleep/code/mob/living/living.dm]
+/* NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/sleep/code/mob/living/living.dm]
 /mob/living/proc/mob_sleep()
 	set name = "Sleep"
 	set category = "IC"

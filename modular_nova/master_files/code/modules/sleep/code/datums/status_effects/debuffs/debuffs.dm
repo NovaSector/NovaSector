@@ -1,5 +1,6 @@
 /datum/status_effect/incapacitating/sleeping
 	show_duration = TRUE
+	///If set to TRUE, the affected mob can resist to wake up.
 	var/voluntary = FALSE
 
 /datum/status_effect/incapacitating/sleeping/on_creation(mob/living/new_owner, set_duration, is_voluntary = FALSE)
@@ -20,6 +21,7 @@
 /atom/movable/screen/alert/status_effect/asleep
 	desc = "You've fallen asleep. Wait a bit and you should wake up. Resist or click here to wake up from voluntary naps."
 
+// Wakes mob from sleep if the sleep verb was used
 /atom/movable/screen/alert/status_effect/asleep/Click()
 	. = ..()
 	if(!.)

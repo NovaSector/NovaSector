@@ -24,8 +24,6 @@ Overrides the sleep verb and some associated code chunks to implement enhancesme
 - Edited `code\modules\mob\living\status_procs.dm`:
   - Edited `/mob/living/proc/SetSleeping()`:
     - Added argument `is_voluntary` to differentiate voluntary and involuntary sleeping.
-  - Edited `/mob/living/proc/PermaSleeping()`:
-    - Added argument `is_voluntary` to differentiate voluntary and involuntary sleeping.
 - Edited `code/modules/surgery/organs/internal/stomach/_stomach.dm`:
   - Edited `/obj/item/organ/internal/stomach/proc/handle_hunger()`:
     - Added conditional to reduce hunger rate by 50% when lying down or sleeping.
