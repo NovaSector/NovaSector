@@ -50,7 +50,6 @@
 
 	do_sparks(1, TRUE, src)
 	do_sparks(1, TRUE, fired_from)
-	target.adjust_confusion_up_to(15 SECONDS, 30 SECONDS) // NOVA EDIT ADDITION - Electrode jitteriness
 	target.apply_status_effect(
 		/*type = *//datum/status_effect/tased,
 		/*taser = */fired_from,
