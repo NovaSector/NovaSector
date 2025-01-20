@@ -202,6 +202,7 @@
 	desc = "Randomly teleports you a short distance. May prove unreliable in cramped areas or near domain limits."
 
 /datum/action/cooldown/spell/chuuni_invocations/bitrunning
+	name = "Slice of Life Data Torrent"
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
