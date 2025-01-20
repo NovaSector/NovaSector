@@ -10,11 +10,10 @@
 		src,
 		"How many minutes do you want to sleep for? Enter 0 to sleep indefinitely. Resist to wake up.",
 		"Sleep: Duration",
-		max_value = INFINITY,
+		max_value = 300,
 		min_value = 0,
 		default = 1
 	)
 	if(duration == 0)
-		PermaSleeping(is_voluntary = TRUE)
-	else
-		SetSleeping(duration MINUTES, is_voluntary = TRUE)
+		duration = -1
+	SetSleeping(duration MINUTES, is_voluntary = TRUE)
