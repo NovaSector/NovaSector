@@ -2814,7 +2814,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/aft/greater)
 "aOQ" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/status_display/evac/directional/west,
@@ -3701,7 +3701,7 @@
 	dir = 1
 	},
 /obj/structure/aquarium/prefilled,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 1;
 	pixel_y = 19
 	},
@@ -28453,7 +28453,7 @@
 /area/station/engineering/supermatter/room)
 "ikl" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/item/fish_feed{
+/obj/item/reagent_containers/cup/fish_feed{
 	pixel_x = 1;
 	pixel_y = 19
 	},
@@ -30904,6 +30904,10 @@
 	pixel_x = -3;
 	pixel_y = -5
 	},
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -32497,7 +32501,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 10
 	},
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
@@ -32902,7 +32906,7 @@
 /turf/open/floor/iron/smooth_edge,
 /area/station/engineering/lobby)
 "jtX" = (
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
 	},
@@ -37181,6 +37185,7 @@
 	name = "medbay camera";
 	network = list("ss13","medbay")
 	},
+/obj/structure/sign/eyechart/directional/north,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/medbay/central)
 "kCq" = (
@@ -37898,11 +37903,11 @@
 /obj/structure/closet/crate/freezer{
 	name = "organ storage"
 	},
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/heart,
+/obj/item/organ/tail/cat,
+/obj/item/organ/tail/cat,
+/obj/item/organ/ears/cat,
+/obj/item/organ/ears/cat,
+/obj/item/organ/heart,
 /obj/structure/sign/poster/contraband/random/directional/east,
 /obj/machinery/vending/wallmed/directional/north,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -38327,7 +38332,7 @@
 /area/station/command/heads_quarters/captain/private)
 "kRg" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/machinery/status_display/evac/directional/south,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/iron/dark/smooth_large,
@@ -39433,7 +39438,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning,
 /obj/effect/turf_decal/trimline/blue/filled/warning,
 /obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 4
 	},
@@ -40113,7 +40117,7 @@
 "lqF" = (
 /obj/structure/table/wood/fancy,
 /obj/item/nullrod,
-/obj/item/organ/internal/heart,
+/obj/item/organ/heart,
 /obj/item/reagent_containers/cup/glass/bottle/holywater,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/pod/dark,
@@ -40208,8 +40212,8 @@
 /area/station/hallway/primary/fore)
 "lrC" = (
 /obj/machinery/mecha_part_fabricator/maint{
-	dir = 1;
-	name = "forgotten exosuit fabricator"
+	name = "forgotten exosuit fabricator";
+	drop_direction = 1
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
@@ -41289,7 +41293,7 @@
 	dir = 6
 	},
 /obj/effect/turf_decal/tile/blue/full,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/structure/sign/poster/official/random/directional/south,
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
@@ -42169,7 +42173,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/construction)
 "lSC" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
@@ -47156,7 +47160,7 @@
 /area/station/hallway/secondary/command)
 "nmw" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert/station_only,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
@@ -50262,7 +50266,7 @@
 	dir = 5
 	},
 /obj/effect/turf_decal/tile/blue/full,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/structure/sign/nanotrasen{
 	pixel_x = 32
 	},
@@ -62809,7 +62813,7 @@
 /obj/machinery/status_display/evac/directional/east,
 /obj/machinery/newscaster/directional/south,
 /obj/effect/turf_decal/bot,
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "rAU" = (
@@ -66210,7 +66214,7 @@
 	anchored = 1;
 	dir = 8
 	},
-/obj/item/circuitboard/computer/stationalert,
+/obj/item/circuitboard/computer/station_alert,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/greater)
@@ -67012,7 +67016,6 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/starboard/greater)
 "sIZ" = (
@@ -71354,7 +71357,7 @@
 /turf/closed/wall,
 /area/station/commons/lounge)
 "tOI" = (
-/mob/living/simple_animal/bot/floorbot,
+/mob/living/basic/bot/repairbot,
 /obj/structure/railing,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/aisat_interior)
@@ -78232,7 +78235,7 @@
 /turf/open/floor/engine/o2,
 /area/station/engineering/atmos)
 "vKI" = (
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /obj/item/radio/intercom/directional/west{
 	freerange = 1;
 	frequency = 1447;
@@ -83013,7 +83016,7 @@
 	},
 /area/station/science/lab)
 "xbj" = (
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert/station_only,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8
@@ -85943,7 +85946,7 @@
 /area/station/commons/storage/primary)
 "xSM" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /obj/machinery/requests_console/directional/east{
 	department = "Atmospherics";
 	name = "Atmospherics Requests Console"
@@ -86255,9 +86258,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},

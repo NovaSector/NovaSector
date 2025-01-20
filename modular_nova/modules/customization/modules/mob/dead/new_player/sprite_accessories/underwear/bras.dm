@@ -85,7 +85,6 @@
 /datum/sprite_accessory/bra/bra_kinky
 	name = "Bra - Lingerie"
 	icon_state = "bra_kinky"
-	use_static = TRUE
 
 /datum/sprite_accessory/bra/bra_commie
 	name = "Bra - Commie"
@@ -148,7 +147,6 @@
 /datum/sprite_accessory/bra/chastbra
 	name = "Bra - Chastity"
 	icon_state = "chastbra"
-	use_static = TRUE
 	erp_accessory = TRUE
 
 /datum/sprite_accessory/bra/pasties

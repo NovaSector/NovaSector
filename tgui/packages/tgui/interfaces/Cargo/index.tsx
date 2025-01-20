@@ -1,5 +1,6 @@
+import { Stack, Tabs } from 'tgui-core/components';
+
 import { useBackend, useSharedState } from '../../backend';
-import { Stack, Tabs } from '../../components';
 import { Window } from '../../layouts';
 import { CargoCart } from './CargoCart';
 import { CargoCatalog } from './CargoCatalog';
@@ -13,6 +14,7 @@ enum TAB {
   Requests = 'requests',
   Cart = 'cart',
   Help = 'help',
+  CompanyImports = 'company_import_window', // NOVA EDIT ADDITION
 }
 
 export function Cargo(props) {
@@ -26,7 +28,7 @@ export function Cargo(props) {
 }
 
 export function CargoContent(props) {
-  const { data } = useBackend<CargoData>();
+  const { act, data } = useBackend<CargoData>(); /* NOVA EDIT CHANGE - act */
 
   const { cart = [], requests = [], requestonly } = data;
 
@@ -59,6 +61,15 @@ export function CargoContent(props) {
           >
             Requests ({requests.length})
           </Tabs.Tab>
+          {/* NOVA EDIT ADDITION START */}
+          <Tabs.Tab
+            icon="clipboard-list"
+            selected={tab === TAB.CompanyImports}
+            onClick={() => act('company_import_window')}
+          >
+            Company Imports
+          </Tabs.Tab>
+          {/* NOVA EDIT ADDITION END */}
           {!requestonly && (
             <>
               <Tabs.Tab

@@ -1,5 +1,4 @@
 import { sortBy } from 'common/collections';
-import { BooleanLike } from 'common/react';
 import {
   ComponentType,
   createElement,
@@ -7,8 +6,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-
-import { sendAct, useBackend } from '../../../../backend';
+import { sendAct, useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
@@ -18,7 +16,9 @@ import {
   Slider,
   Stack,
   TextArea, // NOVA EDIT ADDITION
-} from '../../../../components';
+} from 'tgui-core/components';
+import { BooleanLike } from 'tgui-core/react';
+
 import { createSetPreference, PreferencesMenuData } from '../../data';
 import { ServerPreferencesFetcher } from '../../ServerPreferencesFetcher';
 

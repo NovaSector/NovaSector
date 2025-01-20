@@ -104,7 +104,7 @@
 
 			locate_obj.repair_damage(locate_obj.get_integrity() + 10)
 			user.mind.adjust_experience(/datum/skill/smithing, 5) //repairing does give some experience
-			playsound_if_pref(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, pref_to_check = /datum/preference/toggle/sound_ambience)
+			playsound(src, 'modular_nova/modules/reagent_forging/sound/forge.ogg', 50, TRUE, ignore_walls = FALSE)
 
 	return ITEM_INTERACT_SUCCESS
 

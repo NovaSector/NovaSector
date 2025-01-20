@@ -347,6 +347,16 @@
 	id = "comp_ntnet_send"
 	build_path = /obj/item/circuit_component/ntnet_send
 
+/datum/design/component/nfc_send
+	name = "NFC Transmitter"
+	id = "comp_nfc_send"
+	build_path = /obj/item/circuit_component/nfc_send
+
+/datum/design/component/nfc_receive
+	name = "NFC Receiver"
+	id = "comp_nfc_receive"
+	build_path = /obj/item/circuit_component/nfc_receive
+
 /datum/design/component/list_literal/ntnet_send
 	name = "NTNet Transmitter List Literal"
 	id = "comp_ntnet_send_list_literal"
@@ -466,6 +476,21 @@
 	name = "Associative List Pick Component"
 	id = "comp_assoc_list_pick"
 	build_path = /obj/item/circuit_component/list_pick/assoc
+
+/datum/design/component/wirenet_receive
+	name = "Wirenet Receiver Component"
+	id = "comp_wirenet_receive"
+	build_path = /obj/item/circuit_component/wirenet_receive
+
+/datum/design/component/wirenet_send
+	name = "Wirenet Transmitter Component"
+	id = "comp_wirenet_send"
+	build_path = /obj/item/circuit_component/wirenet_send
+
+/datum/design/component/wirenet_send_literal
+	name = "Wirenet List Literal Transmitter Component"
+	id = "comp_wirenet_send_literal"
+	build_path = /obj/item/circuit_component/list_literal/wirenet_send
 
 /datum/design/component/bci/bci_camera
 	name = "BCI Camera"

@@ -60,6 +60,7 @@
 
 /obj/structure/geyser/attackby(obj/item/item, mob/user, params)
 	if(!istype(item, /obj/item/mining_scanner) && !istype(item, /obj/item/t_scanner/adv_mining_scanner))
+		playsound(src, SFX_INDUSTRIAL_SCAN, 20, TRUE, -2, TRUE, FALSE)
 		return ..() //this runs the plunger code
 
 	if(discovered)
@@ -105,11 +106,12 @@
 
 /obj/structure/geyser/random
 	point_value = 500
-	true_name = "strange geyser"
-	discovery_message = "It's a strange geyser! How does any of this even work?" //it doesnt
 
 /obj/structure/geyser/random/Initialize(mapload)
 	reagent_id = get_random_reagent_id()
+	var/datum/reagent/Random_Reagent = reagent_id
+	true_name = "[initial(Random_Reagent.name)] geyser"
+	discovery_message = "It's a [initial(Random_Reagent.name)] geyser! How does any of this even work?" //it doesnt
 
 	return ..()
 
@@ -120,6 +122,7 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "plunger"
 	worn_icon_state = "plunger"
+	icon_angle = 90
 
 	slot_flags = ITEM_SLOT_MASK
 	flags_inv = HIDESNOUT

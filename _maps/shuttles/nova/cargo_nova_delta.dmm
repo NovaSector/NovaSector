@@ -179,12 +179,12 @@
 /area/shuttle/supply)
 "UC" = (
 /obj/machinery/button/door/directional/west{
-	id = "cargoload";
+	id = "QMLoaddoor2";
 	name = "Loading Doors";
 	pixel_y = -8
 	},
 /obj/machinery/button/door/directional/west{
-	id = "cargounload";
+	id = "QMLoaddoor";
 	name = "Loading Doors";
 	pixel_y = 8
 	},

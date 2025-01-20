@@ -248,13 +248,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 		to_chat(user, span_warning("A chill runs down your spine as [src] shatters..."))
 		user.AddComponent(/datum/component/omen, incidents_left = 7)
 
-/obj/structure/mirror/bullet_act(obj/projectile/P)
-	if(broken || !isliving(P.firer) || !P.damage)
+/obj/structure/mirror/bullet_act(obj/projectile/proj)
+	if(broken || !isliving(proj.firer) || !proj.damage)
 		return ..()
 
 	. = ..()
 	if(broken) // breaking a mirror truly gets you bad luck!
-		var/mob/living/unlucky_dude = P.firer
+		var/mob/living/unlucky_dude = proj.firer
 		to_chat(unlucky_dude, span_warning("A chill runs down your spine as [src] shatters..."))
 		unlucky_dude.AddComponent(/datum/component/omen, incidents_left = 7)
 
@@ -354,7 +354,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 			user.set_facial_haircolor(sanitize_hexcolor(new_face_color), update = FALSE)
 			user.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
 	user.update_body_parts()
-	user.update_mutant_bodyparts() /// NOVA EDIT ADDITION - Mirrors are no longer scared of colored ears
 
 /obj/structure/mirror/magic/attack_hand(mob/living/carbon/human/user)
 	. = ..()

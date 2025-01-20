@@ -12,10 +12,10 @@
 	to_chat(user, span_notice("We cleanse impurities from our form."))
 	..()
 	var/list/bad_organs = list(
-		user.get_organ_by_type(/obj/item/organ/internal/empowered_borer_egg), // NOVA EDIT ADDITION
-		user.get_organ_by_type(/obj/item/organ/internal/body_egg),
-		user.get_organ_by_type(/obj/item/organ/internal/legion_tumour),
-		user.get_organ_by_type(/obj/item/organ/internal/zombie_infection),
+		user.get_organ_by_type(/obj/item/organ/empowered_borer_egg), // NOVA EDIT ADDITION
+		user.get_organ_by_type(/obj/item/organ/body_egg),
+		user.get_organ_by_type(/obj/item/organ/legion_tumour),
+		user.get_organ_by_type(/obj/item/organ/zombie_infection),
 	)
 
 

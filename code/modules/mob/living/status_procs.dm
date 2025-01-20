@@ -423,35 +423,20 @@
 		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
 	return S
 
-// NOVA EDIT - ORIGINAL: /mob/living/proc/PermaSleeping()
-///Allows us to set a permanent sleep on a player (use with caution and remember to unset it with SetSleeping() after the effect is over)
-/mob/living/proc/PermaSleeping(is_voluntary = FALSE)
-	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_SLEEP, -1) & COMPONENT_NO_STUN)
-		return
-	if(HAS_TRAIT(src, TRAIT_GODMODE))
-		return
-	var/datum/status_effect/incapacitating/sleeping/S = IsSleeping()
-	if(S)
-		S.duration = -1
-	else
-		// NOVA EDIT - ORIGINAL: S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, -1)
-		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, -1, is_voluntary)
-	return S
-
 ///////////////////////// CLEAR STATUS /////////////////////////
 
 /mob/living/proc/adjust_status_effects_on_shake_up()
-	AdjustStun(-60)
-	AdjustKnockdown(-60)
-	AdjustUnconscious(-60)
+	AdjustStun(-6 SECONDS)
+	AdjustKnockdown(-6 SECONDS)
+	AdjustUnconscious(-6 SECONDS)
 	// NOVA EDIT BEGIN - ORIGINAL: AdjustSleeping(-100)
 	// Disables shaking awake if the mob used the sleep verb
 	var/datum/status_effect/incapacitating/sleeping/sleep_effect = IsSleeping()
 	if(sleep_effect && !sleep_effect.voluntary)
-		AdjustSleeping(-100)
+		AdjustSleeping(-10 SECONDS)
 	// NOVA EDIT END
-	AdjustParalyzed(-60)
-	AdjustImmobilized(-60)
+	AdjustParalyzed(-6 SECONDS)
+	AdjustImmobilized(-6 SECONDS)
 
 ///////////////////////////////// FROZEN /////////////////////////////////////
 
@@ -690,7 +675,7 @@
 		return 0
 	// Infinite duration status effects technically are not "timed status effects"
 	// by name or nature, but support is included just in case.
-	if(existing.duration == -1)
+	if(existing.duration == STATUS_EFFECT_PERMANENT)
 		return INFINITY
 
 	return existing.duration - world.time

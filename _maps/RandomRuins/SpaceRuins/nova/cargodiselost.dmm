@@ -2806,7 +2806,7 @@
 /obj/item/storage/organbox{
 	pixel_y = 6
 	},
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
 	},

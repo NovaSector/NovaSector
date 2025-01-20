@@ -1,7 +1,7 @@
 /datum/sprite_accessory/ears
 	key = "ears"
 	generic = "Ears"
-	organ_type = /obj/item/organ/external/ears // SET BACK TO THIS AS SOON AS WE GET EARS AS EXTERNAL ORGANS: organ_type = /obj/item/organ/internal/ears/mutant
+	organ_type = /obj/item/organ/ears/mutant
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
 	genetic = TRUE
@@ -34,13 +34,15 @@
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/fox
 	color_src = USE_ONE_COLOR
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears.dmi'
-	organ_type = /obj/item/organ/external/ears // SET BACK TO THIS AS SOON AS WE GET EARS AS EXTERNAL ORGANS: organ_type = /obj/item/organ/internal/ears/mutant
+	organ_type = /obj/item/organ/ears/mutant
 	color_src = USE_MATRIXED_COLORS
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_HUMANOID, SPECIES_GHOUL)
 	uses_emissives = TRUE
@@ -84,7 +86,7 @@
 /datum/sprite_accessory/ears/mutant/bigwolfinner
 	name = "Big Wolf (ALT)"
 	icon_state = "bigwolfinner"
-	hasinner = TRUE
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant/bigwolfdark //alphabetical sort ignored here for ease-of-use
 	name = "Dark Big Wolf"
@@ -93,7 +95,7 @@
 /datum/sprite_accessory/ears/mutant/bigwolfinnerdark
 	name = "Dark Big Wolf (ALT)"
 	icon_state = "bigwolfinnerdark"
-	hasinner = TRUE
+	has_inner = TRUE
 
 /datum/sprite_accessory/ears/mutant/bunny
 	name = "Bunny"
@@ -172,6 +174,10 @@
 	name = "Fish"
 	icon_state = "fish"
 	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/floppy
+	name = "Floppy"
+	icon_state = "floppy"
 
 /datum/sprite_accessory/ears/mutant/vulpkanin/fox
 	name = "Fox"
@@ -431,6 +437,38 @@
 	icon_state = "acrador_long"
 	name = "Acrador (Long)"
 
+/datum/sprite_accessory/ears/acrador/long/alt_1
+	name = "Acrador Long (Alt 1)"
+	icon_state = "acrador_long_alt_1"
+
+/datum/sprite_accessory/ears/acrador/long/alt_2
+	name = "Acrador Long (Alt 2)"
+	icon_state = "acrador_long_alt_2"
+
+/datum/sprite_accessory/ears/acrador/long/alt_3
+	name = "Acrador Long (Alt 3)"
+	icon_state = "acrador_long_alt_3"
+
+/datum/sprite_accessory/ears/acrador/long/alt_4
+	name = "Acrador Long (Alt 4)"
+	icon_state = "acrador_long_alt_4"
+
 /datum/sprite_accessory/ears/acrador/short
 	icon_state = "acrador_short"
 	name = "Acrador (Short)"
+
+/datum/sprite_accessory/ears/acrador/short/alt_1
+	name = "Acrador (Short) (Alt 1)"
+	icon_state = "acrador_short_alt_1"
+
+/datum/sprite_accessory/ears/acrador/short/alt_2
+	name = "Acrador (Short) (Alt 2)"
+	icon_state = "acrador_short_alt_2"
+
+/datum/sprite_accessory/ears/acrador/short/alt_3
+	name = "Acrador (Short) (Alt 3)"
+	icon_state = "acrador_short_alt_3"
+
+/datum/sprite_accessory/ears/acrador/short/alt_4
+	name = "Acrador (Short) (Alt 4)"
+	icon_state = "acrador_short_alt_4"

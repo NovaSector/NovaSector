@@ -160,9 +160,9 @@ There are several things that need to be remembered:
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_uniform_offset?.apply_offset(uniform_overlay)
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
-		apply_overlay(UNIFORM_LAYER)
 
-	update_mutant_bodyparts()
+	update_body_parts()
+	apply_overlay(UNIFORM_LAYER)
 
 /mob/living/carbon/human/update_worn_id(update_obscured = TRUE)
 	remove_overlay(ID_LAYER)
@@ -604,11 +604,9 @@ There are several things that need to be remembered:
 			my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
 		// NOVA EDIT END
 		overlays_standing[SUIT_LAYER] = suit_overlay
+
 	update_body_parts()
-	update_mutant_bodyparts()
-
 	apply_overlay(SUIT_LAYER)
-
 
 /mob/living/carbon/human/update_pockets()
 	if(client && hud_used)
@@ -677,7 +675,7 @@ There are several things that need to be remembered:
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
-	update_mutant_bodyparts() //e.g. upgate needed because mask now hides lizard snout
+	update_body_parts() //e.g. upgate needed because mask now hides lizard snout
 
 /mob/living/carbon/human/update_worn_back(update_obscured = TRUE)
 	remove_overlay(BACK_LAYER)
@@ -740,7 +738,7 @@ There are several things that need to be remembered:
 			t_state = worn_item.icon_state
 
 		var/mutable_appearance/hand_overlay
-		var/icon_file = held_index % 2 == 0 ? worn_item.righthand_file : worn_item.lefthand_file
+		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
 		held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
@@ -1013,7 +1011,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 	standing.pixel_y += offsets[2]
 
 	standing.alpha = alpha
-	standing.color = color
+	standing = color_atom_overlay(standing)
 
 	return standing
 

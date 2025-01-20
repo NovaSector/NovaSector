@@ -286,6 +286,7 @@
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 	specific_emote_audio_cooldown = 5 SECONDS
+	affected_by_pitch = FALSE
 
 /datum/emote/living/clap/get_sound(mob/living/user)
 	return pick('modular_nova/modules/emotes/sound/emotes/clap1.ogg',
@@ -306,6 +307,7 @@
 	hands_use_check = TRUE
 	vary = TRUE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	affected_by_pitch = FALSE
 
 /datum/emote/living/clap1/get_sound(mob/living/user)
 	return pick('modular_nova/modules/emotes/sound/emotes/claponce1.ogg',

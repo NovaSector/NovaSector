@@ -82,21 +82,11 @@
 
 /obj/structure/window/mouse_drop_receive(atom/dropping, mob/user, params)
 	. = ..()
-	if (added_leaning)
+	if (flags_1 & ON_BORDER_1)
 		return
-	/// For performance reasons and to cut down on init times we are "lazy-loading" the leaning component when someone drags their sprite onto us, and then calling dragging code again to trigger the component
-	AddComponent(/datum/component/leanable, 11, same_turf = (flags_1 & ON_BORDER_1), lean_check = CALLBACK(src, PROC_REF(lean_check)))
-	added_leaning = TRUE
-	dropping.base_mouse_drop_handler(src, null, null, params)
 
-/obj/structure/window/proc/lean_check(mob/living/leaner, list/modifiers)
-	if (!(flags_1 & ON_BORDER_1))
-		return TRUE
-
-	if (leaner.loc == loc)
-		return dir == REVERSE_DIR(leaner.dir)
-
-	return get_dir(src, leaner) == dir && leaner.dir == dir
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of windows & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /obj/structure/window/examine(mob/user)
 	. = ..()
@@ -126,7 +116,7 @@
 /obj/structure/window/narsie_act()
 	add_atom_colour(NARSIE_WINDOW_COLOUR, FIXED_COLOUR_PRIORITY)
 
-/obj/structure/window/singularity_pull(S, current_size)
+/obj/structure/window/singularity_pull(atom/singularity, current_size)
 	..()
 	if(anchored && current_size >= STAGE_FIVE) //NOVA EDIT CHANGE
 		set_anchored(FALSE)
@@ -522,6 +512,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 	return FALSE
 
 /obj/structure/window/reinforced/attackby_secondary(obj/item/tool, mob/user, params)
+	if(resistance_flags & INDESTRUCTIBLE)
+		balloon_alert(user, "too resilient!")
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	switch(state)
 		if(RWINDOW_SECURE)
 			if(tool.tool_behaviour == TOOL_WELDER)
@@ -600,7 +593,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 
 /obj/structure/window/reinforced/examine(mob/user)
 	. = ..()
-
+	if(resistance_flags & INDESTRUCTIBLE)
+		return
 	switch(state)
 		if(RWINDOW_SECURE)
 			. += span_notice("It's been screwed in with one way screws, you'd need to <b>heat them</b> to have any chance of backing them out.")

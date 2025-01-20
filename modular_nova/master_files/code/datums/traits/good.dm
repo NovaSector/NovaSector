@@ -138,7 +138,7 @@
 	lose_text = span_danger("Your appendix has magically.. regrown?")
 	medical_record_text = "Patient had appendicitis in the past and has had their appendix surgically removed."
 	/// The mob's original appendix
-	var/obj/item/organ/internal/appendix/old_appendix
+	var/obj/item/organ/appendix/old_appendix
 
 /datum/quirk/no_appendix/post_add()
 	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
@@ -158,7 +158,7 @@
 	if(isnull(old_appendix))
 		return
 
-	var/obj/item/organ/internal/appendix/current_appendix = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_APPENDIX)
+	var/obj/item/organ/appendix/current_appendix = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_APPENDIX)
 
 	// if we have not gained an appendix already, put the old one back
 	if(isnull(current_appendix))
@@ -167,3 +167,41 @@
 		qdel(old_appendix)
 
 	old_appendix = null
+
+/datum/quirk/sensitive_hearing // Teshari hearing but as a quirk
+	name = "Sensitive Hearing"
+	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
+	icon = FA_ICON_HEADPHONES_SIMPLE
+	value = 6
+	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
+	lose_text = span_danger("Your hearing feels less sensitive.")
+	medical_record_text = "Patient scored very highly in hearing tests."
+
+	var/obj/item/organ/ears/old_ears // The mob's original ears, just in case.
+	var/obj/item/organ/ears/sensitive/sensitive_ears = new /obj/item/organ/ears/sensitive // The replacement ears.
+
+/datum/quirk/sensitive_hearing/post_add()
+	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
+	old_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
+
+	if(!isnull(old_ears))
+		old_ears.Remove(carbon_quirk_holder, special = TRUE)
+		old_ears.moveToNullspace()
+		STOP_PROCESSING(SSobj, old_ears)
+
+	sensitive_ears.Insert(carbon_quirk_holder, special = TRUE)
+
+/datum/quirk/sensitive_hearing/remove()
+	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
+	var/obj/item/organ/ears/current_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
+
+	if(isnull(old_ears)) // Make new generic ears if the original ones are missing
+		old_ears = new /obj/item/organ/ears
+
+	// Return the original ears.
+	if(!isnull(current_ears))
+		current_ears.Remove(carbon_quirk_holder, special = TRUE)
+		qdel(current_ears)
+
+	old_ears.Insert(carbon_quirk_holder, special = TRUE)
+	old_ears = null

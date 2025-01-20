@@ -201,13 +201,14 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 		/obj/item/storage/backpack/satchel/leather = 3,
 		/obj/item/storage/backpack/duffelbag = 3,
 		/obj/item/storage/backpack/messenger = 3,
-		/obj/item/storage/bag/mail = 3,
 		/obj/item/radio/headset/headset_cargo = 3,
 		/obj/item/clothing/accessory/pocketprotector = 3,
 	)
 	premium = list(
+		/obj/item/storage/bag/mail = 3,
 		/obj/item/clothing/head/costume/mailman = 1,
 		/obj/item/clothing/under/misc/mailman = 1,
+		/obj/item/flatpack/mailsorter = 1,
 		/obj/item/clothing/under/rank/cargo/miner = 3,
 		/obj/item/clothing/under/rank/cargo/miner/lavaland = 3,
 		/obj/item/clothing/under/rank/cargo/bitrunner = 3,
@@ -243,7 +244,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 	contraband = list(
 		/obj/item/clothing/under/costume/mech_suit = 2,
 		/obj/item/clothing/suit/hooded/techpriest = 2,
-		/obj/item/organ/internal/tongue/robot = 2,
+		/obj/item/organ/tongue/robot = 2,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/robo_wardrobe
 	extra_price = PAYCHECK_COMMAND * 1.2
@@ -525,7 +526,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 		/obj/item/clothing/shoes/laceup = 2,
 		/obj/item/radio/headset/headset_srv = 2,
 		/obj/item/storage/box/evidence = 2,
-		/obj/item/fish_feed = 1,
+		/obj/item/reagent_containers/cup/fish_feed = 1,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/law_wardrobe
 	payment_department = ACCOUNT_SRV
@@ -699,6 +700,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 	)
 	premium = list(
 		/obj/item/clothing/head/flatcap = 1,
+		/obj/item/clothing/glasses/sunglasses/noir = 1,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/det_wardrobe
 	extra_price = PAYCHECK_COMMAND * 1.75

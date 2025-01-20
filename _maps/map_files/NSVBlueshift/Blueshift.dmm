@@ -1756,7 +1756,7 @@
 /turf/open/floor/wood,
 /area/station/security/courtroom)
 "arT" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/machinery/computer/security/telescreen/research/directional/south,
@@ -3182,7 +3182,7 @@
 /area/station/service/hydroponics/garden)
 "aGN" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/organ/internal/eyes,
+/obj/item/organ/eyes,
 /obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 8
@@ -4115,7 +4115,7 @@
 /area/station/maintenance/department/engineering/engine_aft_starboard)
 "aQq" = (
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
@@ -4154,7 +4154,7 @@
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_art_studio)
 "aQT" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 8
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -5881,7 +5881,6 @@
 "bjc" = (
 /obj/machinery/chem_master,
 /obj/machinery/light/directional/east,
-/obj/structure/noticeboard/directional/east,
 /obj/structure/window/spawner/directional/south,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
@@ -11793,7 +11792,7 @@
 /obj/structure/table/wood/fancy,
 /obj/item/book/granter/action/spell/smoke/lesser,
 /obj/item/nullrod,
-/obj/item/organ/internal/heart,
+/obj/item/organ/heart,
 /obj/item/reagent_containers/cup/glass/bottle/holywater,
 /obj/item/soulstone/anybody/chaplain,
 /obj/machinery/light/small/directional/north,
@@ -17650,7 +17649,7 @@
 /area/station/maintenance/department/security/prison_upper)
 "dsm" = (
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -19940,7 +19939,7 @@
 /turf/open/floor/iron,
 /area/station/ai_monitored/command/storage/eva/upper)
 "dPO" = (
-/obj/item/organ/external/tail/monkey,
+/obj/item/organ/tail/monkey,
 /turf/open/floor/cult,
 /area/station/maintenance/department/science/xenobiology)
 "dPP" = (
@@ -26473,7 +26472,7 @@
 	department = "Law Office";
 	name = "Law Office Requests Console"
 	},
-/obj/structure/aquarium/lawyer,
+/obj/item/fish_tank/lawyer,
 /turf/open/floor/carpet/blue,
 /area/station/service/lawoffice)
 "faw" = (
@@ -27851,7 +27850,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 4
 	},
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/computer/security/telescreen/ce/directional/west,
@@ -32649,6 +32648,10 @@
 /obj/item/wrench,
 /obj/item/crowbar,
 /obj/machinery/firealarm/directional/south,
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = -8;
+	pixel_y = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/station/science/robotics/lab)
 "gmf" = (
@@ -37076,7 +37079,7 @@
 /turf/closed/wall,
 /area/space/nearstation)
 "hfi" = (
-/obj/item/organ/internal/eyes,
+/obj/item/organ/eyes,
 /turf/open/floor/material/meat,
 /area/station/maintenance/department/science/xenobiology)
 "hfl" = (
@@ -40186,8 +40189,8 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/break_room)
 "hLd" = (
-/obj/item/ammo_casing/a357,
-/obj/item/ammo_casing/a357{
+/obj/item/ammo_casing/c357,
+/obj/item/ammo_casing/c357{
 	pixel_x = 7;
 	pixel_y = 7
 	},
@@ -40970,16 +40973,16 @@
 /area/station/common/wrestling/arena)
 "hSi" = (
 /obj/structure/table,
-/obj/item/organ/external/tail/cat{
+/obj/item/organ/tail/cat{
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/organ/external/tail/fluffy{
+/obj/item/organ/tail/fluffy{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/organ/external/tail/lizard,
-/obj/item/organ/internal/ears/cat,
+/obj/item/organ/tail/lizard,
+/obj/item/organ/ears/cat,
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
@@ -42230,9 +42233,9 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/item/bodypart/arm/left,
-/obj/item/organ/internal/eyes,
+/obj/item/organ/eyes,
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/organ/external/tail/lizard,
+/obj/item/organ/tail/lizard,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/security/prison_upper)
 "ieW" = (
@@ -43216,7 +43219,7 @@
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "ioW" = (
 /obj/machinery/airalarm/directional/south,
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes{
@@ -43733,7 +43736,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
@@ -46969,7 +46972,6 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/machinery/firealarm/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -48301,7 +48303,7 @@
 	},
 /area/station/hallway/primary/upper)
 "jpm" = (
-/obj/item/organ/internal/liver,
+/obj/item/organ/liver,
 /turf/open/floor/material/meat,
 /area/station/maintenance/department/science/xenobiology)
 "jpn" = (
@@ -48480,7 +48482,7 @@
 /area/station/hallway/secondary/entry)
 "jqK" = (
 /obj/structure/table,
-/obj/item/surgery_tray/full/morgue,
+/obj/effect/spawner/surgery_tray/full/morgue,
 /turf/open/floor/iron/white,
 /area/station/medical/morgue)
 "jqP" = (
@@ -49100,7 +49102,7 @@
 "jxj" = (
 /mob/living/basic/mushroom,
 /obj/effect/decal/cleanable/blood/gibs,
-/obj/item/organ/internal/eyes,
+/obj/item/organ/eyes,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint)
 "jxk" = (
@@ -54595,7 +54597,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "kvY" = (
-/mob/living/simple_animal/bot/floorbot,
+/mob/living/basic/bot/repairbot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/railing,
 /turf/open/floor/iron/dark,
@@ -61837,7 +61839,7 @@
 	desc = "An old pair of nitrile gloves, with no sterile properties.";
 	name = "old nitrile gloves"
 	},
-/obj/item/surgery_tray,
+/obj/effect/spawner/surgery_tray,
 /turf/open/floor/iron,
 /area/station/maintenance/rus_surgery)
 "lSd" = (
@@ -61909,8 +61911,8 @@
 /area/station/medical/patients_rooms)
 "lSU" = (
 /obj/structure/table,
-/obj/item/organ/internal/stomach/cybernetic,
-/obj/item/organ/internal/eyes/robotic/flashlight,
+/obj/item/organ/stomach/cybernetic,
+/obj/item/organ/eyes/robotic/flashlight,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore)
@@ -62880,7 +62882,7 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/office)
 "mcu" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt{
@@ -63777,7 +63779,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "mlC" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -73751,7 +73753,7 @@
 "oif" = (
 /obj/structure/table/optable,
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/organ/internal/brain,
+/obj/item/organ/brain,
 /turf/open/floor/iron/white,
 /area/station/maintenance/abandon_surgery)
 "oih" = (
@@ -74932,6 +74934,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/departments/chemistry/pharmacy/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "osE" = (
@@ -78432,7 +78435,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/surgery_tray/full/deployed,
+/obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron,
 /area/station/medical/surgery/theatre)
 "pbP" = (
@@ -79762,7 +79765,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
@@ -82315,7 +82318,7 @@
 /area/station/command/heads_quarters/hop)
 "pQu" = (
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron,
 /area/station/medical/surgery)
 "pQy" = (
@@ -83435,7 +83438,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "qaZ" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -84865,9 +84868,9 @@
 /obj/structure/closet/crate/freezer{
 	name = "organ storage"
 	},
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/heart,
+/obj/item/organ/tail/cat,
+/obj/item/organ/ears/cat,
+/obj/item/organ/heart,
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
@@ -87459,7 +87462,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
 "qNf" = (
-/obj/item/organ/internal/tongue,
+/obj/item/organ/tongue,
 /turf/open/floor/material/meat,
 /area/station/maintenance/department/science/xenobiology)
 "qNi" = (
@@ -90615,7 +90618,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "rsd" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 8
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -97368,7 +97371,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 4
 	},
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
@@ -99604,7 +99607,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engineering/atmos_aux_port)
 "tda" = (
-/obj/item/organ/internal/stomach,
+/obj/item/organ/stomach,
 /turf/open/floor/material/meat,
 /area/station/maintenance/department/science/xenobiology)
 "tdb" = (
@@ -108912,9 +108915,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
-/obj/machinery/light_switch/directional/west{
-	pixel_x = -24
-	},
+/obj/structure/sign/eyechart/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "uQj" = (
@@ -115382,7 +115383,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
 "wbt" = (
-/obj/item/organ/internal/eyes,
+/obj/item/organ/eyes,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron,
 /area/station/maintenance/rus_surgery)
@@ -118363,7 +118364,7 @@
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "wCR" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
@@ -120912,7 +120913,7 @@
 /obj/structure/closet/crate/freezer{
 	name = "limb storage"
 	},
-/obj/item/organ/internal/liver,
+/obj/item/organ/liver,
 /obj/item/bodypart/leg/left/digitigrade,
 /turf/open/floor/plating,
 /area/station/maintenance/rus_surgery)
@@ -122452,7 +122453,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
-/obj/structure/sign/departments/chemistry/pharmacy/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "xsV" = (
@@ -122761,9 +122761,9 @@
 /obj/structure/closet/crate/freezer{
 	name = "organ storage"
 	},
-/obj/item/organ/internal/heart,
-/obj/item/organ/internal/eyes/fly,
-/obj/item/organ/internal/liver,
+/obj/item/organ/heart,
+/obj/item/organ/eyes/fly,
+/obj/item/organ/liver,
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
@@ -126553,7 +126553,7 @@
 /area/station/security/prison/workout)
 "yhu" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow{

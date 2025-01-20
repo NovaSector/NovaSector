@@ -55,10 +55,10 @@
 /mob/living/basic/lightgeist{
 	light_color = "#42ECFF"
 	},
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/magic_hotsprings)
 "I" = (
-/turf/open/water/hot_spring,
+/turf/open/water/hot_spring/icemoon,
 /area/ruin/unpowered/magic_hotsprings)
 "J" = (
 /obj/structure/flora/bush/lavendergrass/style_random,

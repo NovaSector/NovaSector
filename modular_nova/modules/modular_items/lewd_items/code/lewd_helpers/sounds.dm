@@ -54,7 +54,12 @@
 		listeners += get_hearers_in_view(maxdistance, below_turf)
 
 	for(var/mob/listening_mob in listeners)
-		if(!listening_mob?.client?.prefs?.read_preference(pref_to_check))
+		var/volume_pref_modifier = 1
+		if(isnull(listening_mob?.client))
+			continue
+		if(ispath(pref_to_check, /datum/preference/numeric))
+			volume_pref_modifier = listening_mob.client.prefs.read_preference(pref_to_check)
+		if(volume_pref_modifier == 0)
 			continue
 
 		if(!(get_dist(listening_mob, turf_source) <= maxdistance))

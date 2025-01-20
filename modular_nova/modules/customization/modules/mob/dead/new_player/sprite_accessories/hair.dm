@@ -671,6 +671,14 @@
 	name = "Long Dreadlocks"
 	icon_state = "hair_dreadlocks_long"
 
+/datum/sprite_accessory/hair/nova/halfbob
+	name = "Half Bob"
+	icon_state = "hair_bob_half"
+
+/datum/sprite_accessory/hair/nova/halfbob_mirrored
+	name = "Mirrored Half Bob"
+	icon_state = "hair_bob_half_mirrored"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova

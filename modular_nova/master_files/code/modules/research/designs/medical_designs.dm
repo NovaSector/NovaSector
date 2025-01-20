@@ -9,7 +9,7 @@
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
 	)
-	build_path = /obj/item/organ/internal/tongue/cybernetic
+	build_path = /obj/item/organ/tongue/cybernetic
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_ORGANS_1,
 	)
@@ -19,4 +19,4 @@
 	name = "Forked Cybernetic Tongue"
 	desc = "A forked cybernetic tongue."
 	id = "cybernetic_tongue_lizard"
-	build_path = /obj/item/organ/internal/tongue/lizard/cybernetic
+	build_path = /obj/item/organ/tongue/lizard/cybernetic

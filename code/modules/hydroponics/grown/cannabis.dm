@@ -20,7 +20,7 @@
 		/obj/item/seeds/cannabis/white,
 		/obj/item/seeds/cannabis/ultimate,
 	)
-	reagents_add = list(/datum/reagent/drug/thc = 0.15) //NOVA EDIT - MORENARCOTICS - axed lipolicide, replaced space drugs with thc
+	reagents_add = list(/datum/reagent/drug/thc = 0.15) // NOVA EDIT - CHANGE - MORENARCOTICS - ORIGINAL: reagents_add = list(/datum/reagent/drug/cannabis = 0.15)
 
 
 /obj/item/seeds/cannabis/rainbow
@@ -44,7 +44,7 @@
 	plantname = "Deathweed"
 	product = /obj/item/food/grown/cannabis/death
 	mutatelist = null
-	reagents_add = list(/datum/reagent/toxin/cyanide = 0.35, /datum/reagent/drug/thc = 0.15) //NOVA EDIT - MORENARCOTICS
+	reagents_add = list(/datum/reagent/toxin/cyanide = 0.35, /datum/reagent/drug/thc = 0.15) // NOVA EDIT CHANGE - MORENARCOTICS - ORIGINAL: agents_add = list(/datum/reagent/toxin/cyanide = 0.35, /datum/reagent/drug/cannabis = 0.15)
 	rarity = 40
 
 /obj/item/seeds/cannabis/white
@@ -57,7 +57,7 @@
 	instability = 30
 	product = /obj/item/food/grown/cannabis/white
 	mutatelist = null
-	reagents_add = list(/datum/reagent/medicine/omnizine = 0.35, /datum/reagent/drug/thc = 0.15) //NOVA EDIT - MORENARCOTICS
+	reagents_add = list(/datum/reagent/medicine/omnizine = 0.35, /datum/reagent/drug/thc = 0.15) // NOVA EDIT CHANGE - MORENARCOTICS - ORIGINAL: reagents_add = list(/datum/reagent/medicine/omnizine = 0.35, /datum/reagent/drug/cannabis = 0.15)
 	rarity = 40
 
 
@@ -72,7 +72,7 @@
 	product = /obj/item/food/grown/cannabis/ultimate
 	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/glow/green, /datum/plant_gene/trait/modified_volume/omega_weed)
 	mutatelist = null
-	reagents_add = list(/datum/reagent/drug/thc = 0.3, //NOVA EDIT CHANGE - MORE NARCOTICS - ORIGINAL: reagents_add = list(/datum/reagent/drug/cannabis = 0.3,
+	reagents_add = list(/datum/reagent/drug/thc = 0.3, // NOVA EDIT CHANGE - MORE NARCOTICS - ORIGINAL: reagents_add = list(/datum/reagent/drug/cannabis = 0.3,
 		/datum/reagent/toxin/mindbreaker = 0.3,
 		/datum/reagent/mercury = 0.15,
 		/datum/reagent/lithium = 0.15,

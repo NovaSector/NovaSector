@@ -1380,9 +1380,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -7165,7 +7162,7 @@
 /area/ruin/space/has_grav/hotel)
 "Ps" = (
 /obj/structure/table,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/showroomfloor,
 /area/ruin/space/has_grav/hotel)
 "Pw" = (

@@ -1,7 +1,7 @@
 // Bottle of painkiller pills
 /obj/item/storage/pill_bottle/painkiller
 	name = "amollin pill bottle"
-	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve and Lidocaine."
+	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve, Lidocaine, and Sugar."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	custom_price = PAYCHECK_CREW * 1.5
@@ -12,7 +12,7 @@
 
 /obj/item/reagent_containers/pill/amollin
 	name = "amollin pill"
-	desc = "Neutralizes many common pains and ailments. A blend of Miner's Salve and Lidocaine."
+	desc = "Neutralizes many common pains and ailments. A blend of Miner's Salve, Lidocaine, and Sugar."
 	icon_state = "pill9"
 	list_reagents = list(
 		/datum/reagent/medicine/mine_salve = 10,
@@ -251,7 +251,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
 		/obj/item/flashlight/pen,
@@ -346,7 +346,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
 		/obj/item/construction/plumbing,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
@@ -422,7 +422,7 @@
 		/obj/item/scalpel = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/retractor = 1,
-		/obj/item/circular_saw/field_medic = 1,
+		/obj/item/circular_saw/field_medic/lowforce = 1,
 		/obj/item/bonesetter = 1,
 		/obj/item/cautery = 1,
 		/obj/item/surgical_drapes = 1,
@@ -457,7 +457,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
 		/obj/item/flashlight/pen,

@@ -5,6 +5,7 @@
 	desc = "A versatile power tool. Useful for limbing trees and delimbing humans."
 	icon = 'icons/obj/weapons/chainsaw.dmi'
 	icon_state = "chainsaw"
+	icon_angle = 180
 	lefthand_file = 'icons/mob/inhands/weapons/chainsaw_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/chainsaw_righthand.dmi'
 	obj_flags = CONDUCTS_ELECTRICITY
@@ -68,6 +69,8 @@
 	toolspeed = active ? 0.5 : initial(toolspeed)
 	update_item_action_buttons()
 
+	return COMPONENT_NO_DEFAULT_MESSAGE
+
 /obj/item/chainsaw/suicide_act(mob/living/carbon/user)
 	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
 		user.visible_message(span_suicide("[user] smashes [src] into [user.p_their()] neck, destroying [user.p_their()] esophagus! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -123,7 +126,7 @@
 /obj/item/chainsaw/doomslayer/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == PROJECTILE_ATTACK)
 		owner.visible_message(span_danger("Ranged attacks just make [owner] angrier!"))
-		playsound(src, pick('sound/items/weapons/bulletflyby.ogg', 'sound/items/weapons/bulletflyby2.ogg', 'sound/items/weapons/bulletflyby3.ogg'), 75, TRUE)
+		playsound(src, SFX_BULLET_MISS, 75, TRUE)
 		return TRUE
 	return FALSE
 
