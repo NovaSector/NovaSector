@@ -91,6 +91,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Snake" = /mob/living/basic/snake,
 	"Spider" = /mob/living/basic/spider/maintenance,
 	"Tegu" = /mob/living/basic/lizard/tegu,
+	"Turtle" = /mob/living/basic/turtle,
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
 
 /datum/preference/choiced/pet_owner/init_possible_values()
