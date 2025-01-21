@@ -1,0 +1,5 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - rscadd: "Re-added the regal condor."
+  - balance: "The Regal Condor's cargo recipe price has been increased. Watch for holes in your budget, Quartermaster."

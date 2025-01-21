@@ -718,3 +718,6 @@
 		/obj/item/seeds/starfruit = 2,
 		/obj/item/book/manual/starfruit = 1,
 	)
+
+/datum/supply_pack/imports/error
+	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
