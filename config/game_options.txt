@@ -70,13 +70,13 @@ HUMANS_NEED_SURNAMES
 #REOPEN_ROUNDSTART_SUICIDE_ROLES_COMMAND_REPORT
 
 
-## ALERT LEVELS ###
-ALERT_GREEN All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced.
-ALERT_BLUE_UPTO The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted.
-ALERT_BLUE_DOWNTO The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed.
-ALERT_RED_UPTO There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised. Additionally, access requirements on some doors have been lifted.
-ALERT_RED_DOWNTO The station's destruction has been averted. There is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised.
-ALERT_DELTA Destruction of the station is imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
+## NÍVEIS DE ALERTA ###
+ALERT_GREEN Todas as ameaças à estação foram eliminadas. A segurança não pode ter armas visíveis, as leis de privacidade estão novamente totalmente aplicadas.
+ALERT_BLUE_UPTO A estação recebeu informações confiáveis sobre possível atividade hostil na estação. A equipe de segurança pode ter armas visíveis, buscas aleatórias são permitidas.
+ALERT_BLUE_DOWNTO A ameaça imediata passou. A segurança não pode mais ter armas desenhadas o tempo todo, mas pode continuar a tê-las visíveis. Buscas aleatórias ainda são permitidas.
+ALERT_RED_UPTO Há uma ameaça séria e imediata à estação. A segurança pode ter armas desembainhadas o tempo todo. Buscas aleatórias são permitidas e recomendadas. Além disso, os requisitos de acesso em algumas portas foram suspensos.
+ALERT_RED_DOWNTO A destruição da estação foi evitada. No entanto, ainda há uma ameaça séria e imediata à estação. A segurança pode ter armas desembainhadas o tempo todo, buscas aleatórias são permitidas e recomendadas.
+ALERT_DELTA A destruição da estação é iminente. Toda a tripulação deve obedecer a todas as instruções dadas pelos chefes de equipe. Qualquer violação dessas ordens pode ser punida com a morte. Isto não é um exercício.
 
 ## The total weight of station goals possible for a round (allows multiple goals)
 STATION_GOAL_BUDGET 1

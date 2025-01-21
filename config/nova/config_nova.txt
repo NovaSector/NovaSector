@@ -26,15 +26,15 @@ PLAYER_SOFT_CAP 0
 #CROSS_SERVER_NAME
 
 
-ALERT_AMBER_UPTO A major security emergency has developed. Security staff may have weapons unholstered at all times. Random searches are allowed and advised.
-ALERT_AMBER_DOWNTO A major security emergency is still underway. Non-security personnel are required to obey all relevant instructions from security staff.
-ALERT_ORANGE_UPTO A major engineering emergency has developed. Non-engineering personnel are required to evacuate any affected areas and obey relevant instructions from engineering staff. Engineering staff will have expanded access to areas of the station during the emergency.
-ALERT_ORANGE_DOWNTO A major engineering emergency has developed. Non-engineering personnel are required to evacuate any affected areas and obey relevant instructions from engineering staff. Engineering staff will have expanded access to areas of the station during the emergency.
-ALERT_VIOLET_UPTO A major medical emergency has developed. Non-medical personnel are required to obey all relevant instructions from medical staff.
-ALERT_VIOLET_DOWNTO  A major medical emergency has developed. Non-medical personnel are required to obey all relevant instructions from medical staff.
-ALERT_DELTA_UPTO Destruction of the station is imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
-ALERT_DELTA_DOWNTO Destruction of the station is still imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
-ALERT_GAMMA The Solar Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill.
+ALERT_AMBER_UPTO Uma grande emergência de segurança se desenvolveu. A equipe de segurança pode ter armas desembainhadas o tempo todo. Buscas aleatórias são permitidas e recomendadas.
+ALERT_AMBER_DOWNTO Uma grande emergência de segurança ainda está em andamento. Pessoal não pertencente à segurança deve obedecer todas as instruções relevantes da equipe de segurança.
+ALERT_ORANGE_UPTO Uma grande emergência de engenharia se desenvolveu. Pessoal não pertencente à engenharia deve evacuar as áreas afetadas e obedecer às instruções relevantes da equipe de engenharia. A equipe de engenharia terá acesso expandido às áreas da estação durante a emergência.
+ALERT_ORANGE_DOWNTO Uma grande emergência de engenharia se desenvolveu. Pessoal não pertencente à engenharia deve evacuar as áreas afetadas e obedecer às instruções relevantes da equipe de engenharia. A equipe de engenharia terá acesso expandido às áreas da estação durante a emergência.
+ALERT_VIOLET_UPTO Uma grande emergência médica se desenvolveu. Pessoal não pertencente à área médica deve obedecer todas as instruções relevantes da equipe médica.
+ALERT_VIOLET_DOWNTO  Uma grande emergência médica se desenvolveu. Pessoal não pertencente à área médica deve obedecer todas as instruções relevantes da equipe médica.
+ALERT_DELTA_UPTO A destruição da estação é iminente. Toda a tripulação deve obedecer a todas as instruções dadas pelos chefes de equipe. Qualquer violação dessas ordens pode ser punida com a morte. Isto não é um exercício.
+ALERT_DELTA_DOWNTO A destruição da estação ainda é iminente. Toda a tripulação deve obedecer a todas as instruções dadas pelos chefes de equipe. Qualquer violação dessas ordens pode ser punida com a morte. Isto não é um exercício.
+ALERT_GAMMA A Federação Solar colocou este sistema sob status de Alerta Gamma. Este sistema galáctico está enfrentando um Cenário de Falha de Realidade Classe ZK. O pessoal de segurança está autorizado a ter acesso total a equipamentos letais para impor a Lei Marcial. O não cumprimento dos procedimentos de emergência é punível com a morte. Isto não é um exercício.
 
 ## How long until someone can be put in cryo if they are SSD
 CRYO_MIN_SSD_TIME 15
@@ -79,7 +79,7 @@ ROCKPLANET_BUDGET 60
 #SPLIT_THREAT_BUDGET
 
 ##Player controlled mob spawn text
-PC_MOB_TEXT As a player controlled mob you are expected to play the role to the best of your ability. This means if you're an animal, act like one. You shouldn't display much intelligence if any. This also means if you're engaging in combat you should refrain from mercing people fully. Play not to win but to create a challenge. You're there to replace AI, make others enjoy the situation as well. If your simple mob is not above simple or mute intelligence, using structures such as welding tanks/canisters/boxes to hinder your opponent is entirely forbidden. Do not do this.
+PC_MOB_TEXT Como um mob controlado por jogador, espera-se que você desempenhe o papel da melhor maneira possível. Isso significa que, se você for um animal, aja como tal. Você não deve demonstrar muita inteligência, se é que alguma. Isso também significa que, se você estiver engajado em combate, deve evitar eliminar completamente as pessoas. Jogue não para vencer, mas para criar um desafio. Você está lá para substituir a IA, faça com que os outros também aproveitem a situação. Se o seu mob simples não tiver inteligência acima de simples ou muda, usar estruturas como tanques de solda/canisters/caixas para dificultar seu oponente é totalmente proibido. Não faça isso.
 
 ## Toggles various checks for russian texts formation, as an example - autohiss. Useful only for russian servers
 #RUSSIAN_TEXT_FORMATION
@@ -100,7 +100,7 @@ SSDECAY_DISABLE_NESTS
 #DISABLE_MISMATCHED_PARTS
 
 ## Do we allow consecutive catastrophic events?
-ALLOW_CONSECUTIVE_CATASTROPIC_EVENTS
+ALLOW_CONSECUTIVE_CATASTROPHIC_EVENTS
 
 ## What is the most amount of time the next event can run?
 EVENT_FREQUENCY_UPPER 8400
