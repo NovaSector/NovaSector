@@ -186,10 +186,6 @@
 		/datum/action/cooldown/spell/summonitem,
 	)
 
-/datum/action/cooldown/spell/touch/scream_for_me/bitrunning
-	name = "Unshackled Scream For Me"
-	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
-
 /datum/action/cooldown/spell/tap/bitrunning
 	name = "Data Tap"
 	desc = "Resets all spell cooldowns but weakens your connection, lowering your avatar's max health when used."
