@@ -1,6 +1,7 @@
 /datum/species/abductor/abductorweak
 	name = "Rogue"
 	id = SPECIES_ABDUCTORWEAK
+	examine_limb_id = SPECIES_ABDUCTOR
 	sexes = TRUE
 	inherent_traits = list(
 		TRAIT_CHUNKYFINGERS_IGNORE_BATON,
