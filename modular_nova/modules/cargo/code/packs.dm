@@ -720,4 +720,4 @@
 	)
 
 /datum/supply_pack/imports/error
-	cost = CARGO_CRATE_VALUE * 250 // 20k is a lot on TG, it's not as much here.
+	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k
