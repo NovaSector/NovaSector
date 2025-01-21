@@ -236,7 +236,7 @@
 	desc = "This disk contains a program that lets you cast Summon Light Source, Lesser Heal, or Mending Touch."
 
 /datum/orderable_item/bitrunning_tech/ability_tier2
-	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Sanguine Strike, Forcewall, Adrenaline Rush, Dash, Blink, Data Tap, or Charge Item."
+	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Sanguine Strike, Forcewall, Adrenaline Rush, Dash, Blink, Data Tap, Instant Summons, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
 	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, a polar bear, a holy juggernaut, or a holy wraith; or learn Death Loop or Chuuni Invocations."
