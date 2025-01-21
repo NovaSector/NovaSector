@@ -1,0 +1,4 @@
+author: "Axidyuwu"
+delete-after: True
+changes:
+  - rscdel: "Removed recipe for regal condor from emaged cargo"
