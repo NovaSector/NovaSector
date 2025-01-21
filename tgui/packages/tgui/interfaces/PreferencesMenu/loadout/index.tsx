@@ -1,10 +1,13 @@
 import { Fragment, useState } from 'react';
+// NOVA EDIT ADDITION START: Multiple loadout presets
 import { Flex } from 'tgui-core/components';
 import {
   Box,
   Button,
+  // NOVA EDIT ADDITION: Multiple loadout presets
   Dimmer,
   Divider,
+  // NOVA EDIT ADDITION START: Multiple loadout presets
   Dropdown,
   Icon,
   Input,
@@ -17,7 +20,9 @@ import {
 // NOVA EDIT CHANGE - Original: import { useBackend } from '../../../backend';
 import { useBackend, useLocalState } from '../../../backend';
 import { CharacterPreview } from '../../common/CharacterPreview';
+// NOVA EDIT ADDITION: Multiple loadout presets
 import { removeAllSkiplines } from '../../TextInputModal';
+// NOVA EDIT CHANGE - Original: import { ServerData } from '../data';
 import { PreferencesMenuData, ServerData } from '../data';
 import { ServerPreferencesFetcher } from '../ServerPreferencesFetcher';
 import {
@@ -49,7 +54,8 @@ export const LoadoutPage = () => {
 
 const LoadoutPageInner = (props: { loadout_tabs: LoadoutCategory[] }) => {
   const { loadout_tabs } = props;
-  // NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>();
+  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>();
+  const { erp_pref } = data; */
   const erp_pref = useBackend<LoadoutManagerData>().data.erp_pref;
   const [searchLoadout, setSearchLoadout] = useState('');
   const [selectedTabName, setSelectedTab] = useState(loadout_tabs[0].name);
