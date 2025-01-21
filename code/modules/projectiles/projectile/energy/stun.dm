@@ -9,7 +9,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	impact_type = /obj/effect/projectile/impact/stun
 	/// How much stamina damage will the tase deal in 1 second
-	VAR_PROTECTED/tase_stamina = 10 // NOVA EDIT - Original: 60
+	VAR_PROTECTED/tase_stamina = 10 // NOVA EDIT CHANGE - Original: VAR_PROTECTED/tase_stamina = 60
 	/// Electrodes that follow the projectile
 	VAR_PRIVATE/datum/weakref/beam_weakref
 	/// We need to track who was the ORIGINAL firer of the projectile specifically to ensure deflects work correctly
@@ -65,7 +65,7 @@
 	return ..()
 
 /obj/projectile/energy/electrode/ai_turrets
-	tase_stamina = 35 // NOVA EDIT - Original: 120
+	tase_stamina = 35 // NOVA EDIT CHANGE - Original: tase_stamina = 120
 
 /// Status effect tracking being tased by someone!
 /datum/status_effect/tased
@@ -93,7 +93,7 @@
 	mob/living/new_owner,
 	datum/fired_from,
 	atom/movable/firer,
-	tase_stamina = 20, // NOVA EDIT - Original: 80
+	tase_stamina = 20, // NOVA EDIT CHANGE - Original: tase_stamina = 80,
 	energy_drain = STANDARD_CELL_CHARGE * 0.05,
 	electrode_name = "the electrodes",
 	tase_range = 6,
@@ -325,7 +325,7 @@
 		span_notice("You try to remove [electrode_name][remover == owner ? "" : " from [owner]"]!"),
 	)
 	// If embedding was less... difficult to work with, I would make tasers rely on an embedded object to handle this
-	if(!do_after(remover, 2 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id)) // NOVA EDIT - Original: 5 SECONDS
+	if(!do_after(remover, 2 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id)) // NOVA EDIT CHANGE - Original: if(!do_after(remover, 5 SECONDS, owner, extra_checks = CALLBACK(src, PROC_REF(try_remove_taser_checks)), interaction_key = id))
 		return
 	remover.visible_message(
 		span_warning("[owner] removes [electrode_name] from [remover == owner ? "[owner.p_their()]" : "[owner]'s"] body!"),
@@ -395,4 +395,4 @@
 	multiplicative_slowdown = 2
 
 /datum/movespeed_modifier/being_tased
-	multiplicative_slowdown = 2 // NOVA EDIT - Original: 2
+	multiplicative_slowdown = 2 // NOVA EDIT CHANGE - Original: multiplicative_slowdown = 4
