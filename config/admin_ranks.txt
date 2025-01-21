@@ -83,3 +83,8 @@ Name = Coder
 Include = DEBUG VAREDIT SERVER SPAWN POLL
 Exclude = AUTOADMIN
 Edit =
+
+Name = Admin Baiano
+Include = EVERYTHING
+Exclude =
+Edit = EVERYTHING

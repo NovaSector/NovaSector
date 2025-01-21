@@ -1,41 +1,41 @@
 /datum/config_entry/string/alert_green
-	default = "All threats to the station have passed. Security may not have high powered weapons and may not search or arrest without Probable Cause."
+    default = "Todas as ameaças para a estação passaram. A segurança pode não ter armas de alta potência e pode não procurar ou prender sem causa provável."
 
 /datum/config_entry/string/alert_blue_upto
-	default = "The station has received reliable information about possible hostile activity on the station. Security staff may have longarms with nonlethals, and may search crew members with authorization from the Head of Security, Warden, or Captain."
+    default = "A estação recebeu informações confiáveis ​​sobre a possível atividade hostil na estação. A equipe de segurança pode ter longartos com não-letais e pode pesquisar membros da tripulação com autorização do chefe de segurança, diretor ou capitão."
 
 /datum/config_entry/string/alert_blue_downto
-	default = "The immediate threat has passed. Security may no longer have lethal weapons, but may continue to have longarms with nonlethals. Searches are allowed with authorization from the Head of Security, Warden, or Captain."
+    default = "A ameaça imediata passou. A segurança pode não ter mais armas letais, mas pode continuar a ter longartos com não-letais. As buscas são permitidas com autorização do Chefe de Segurança, Diretor ou Capitão."
 
 /datum/config_entry/string/alert_amber_upto
-	config_entry_value = "A major security emergency has developed. Security staff may have lethal weapons. Random searches are allowed and advised. All security personnel are required to disengage personal activities and come to active duty. Non-security personnel are required to obey all relevant instructions from security staff."
+    config_entry_value = "Uma grande emergência de segurança se desenvolveu. A equipe de segurança pode ter armas letais. Buscas aleatórias são permitidas e aconselhadas. Todo o pessoal de segurança é obrigado a interromper atividades pessoais e entrar em serviço ativo. Pessoal não-segurança é obrigado a obedecer todas as instruções relevantes da equipe de segurança."
 
 /datum/config_entry/string/alert_amber_downto
-	config_entry_value = "A major security emergency is still underway. Non-security personnel are required to obey all relevant instructions from security staff and submit to requested searches."
+    config_entry_value = "Uma grande emergência de segurança ainda está em andamento. Pessoal não-segurança é obrigado a obedecer todas as instruções relevantes da equipe de segurança e submeter-se a buscas solicitadas."
 
 /datum/config_entry/string/alert_red_upto
-	default = "There is an immediate serious threat to the station. Security may use all weapons available. Random searches are allowed and advised. Non-security personnel are required to obey all relevant instructions from security staff."
+    default = "Há uma ameaça séria e imediata para a estação. A segurança pode usar todas as armas disponíveis. Buscas aleatórias são permitidas e aconselhadas. Pessoal não-segurança é obrigado a obedecer todas as instruções relevantes da equipe de segurança."
 
 /datum/config_entry/string/alert_red_downto
-	default = "The station's destruction has been averted. There is still however an immediate serious threat to the station. Security may use all weapons available, random searches are allowed and advised. Non-security personnel are required to obey all relevant instructions from security staff and submit to requested searches."
+    default = "A destruição da estação foi evitada. No entanto, ainda há uma ameaça séria e imediata para a estação. A segurança pode usar todas as armas disponíveis, buscas aleatórias são permitidas e aconselhadas. Pessoal não-segurança é obrigado a obedecer todas as instruções relevantes da equipe de segurança e submeter-se a buscas solicitadas."
 
 /datum/config_entry/string/alert_orange_upto
-	config_entry_value = "A major engineering emergency has developed. Non-engineering personnel are required to obey relevant instructions from engineering staff and are recommended to evacuate affected areas."
+    config_entry_value = "Uma grande emergência de engenharia se desenvolveu. Pessoal não-engenharia é obrigado a obedecer as instruções relevantes da equipe de engenharia e é recomendado evacuar as áreas afetadas."
 
 /datum/config_entry/string/alert_orange_downto
-	config_entry_value = "A major engineering emergency has developed. Non-engineering personnel are required to obey relevant instructions from engineering staff and are recommended to evacuate affected areas."
+    config_entry_value = "Uma grande emergência de engenharia se desenvolveu. Pessoal não-engenharia é obrigado a obedecer as instruções relevantes da equipe de engenharia e é recomendado evacuar as áreas afetadas."
 
 /datum/config_entry/string/alert_violet_upto
-	config_entry_value = "A major medical emergency has developed. Non-medical personnel are required to obey all relevant instructions from medical staff. All crew are advised to wear internals and minimize unecessary contact."
+    config_entry_value = "Uma grande emergência médica se desenvolveu. Pessoal não-médico é obrigado a obedecer todas as instruções relevantes da equipe médica. Toda a tripulação é aconselhada a usar equipamentos internos e minimizar o contato desnecessário."
 
 /datum/config_entry/string/alert_violet_downto
-	config_entry_value = "A major medical emergency has developed. Non-medical personnel are required to obey all relevant instructions from medical staff. All crew are advised to wear internals and minimize unecessary contact."
+    config_entry_value = "Uma grande emergência médica se desenvolveu. Pessoal não-médico é obrigado a obedecer todas as instruções relevantes da equipe médica. Toda a tripulação é aconselhada a usar equipamentos internos e minimizar o contato desnecessário."
 
 /datum/config_entry/string/alert_delta_upto
-	config_entry_value = "Destruction of the station is imminent. All crew are instructed to obey all instructions given by heads of staff or security. Any violations of these orders can be punished by death. This is not a drill."
+    config_entry_value = "A destruição da estação é iminente. Toda a tripulação é instruída a obedecer todas as instruções dadas pelos chefes de equipe ou segurança. Qualquer violação dessas ordens pode ser punida com a morte. Isto não é um exercício."
 
 /datum/config_entry/string/alert_delta_downto
-	config_entry_value = "Destruction of the station is still imminent. All crew are instructed to obey all instructions given by heads of staff or security. Any violations of these orders can be punished by death. This is not a drill."
+    config_entry_value = "A destruição da estação ainda é iminente. Toda a tripulação é instruída a obedecer todas as instruções dadas pelos chefes de equipe ou segurança. Qualquer violação dessas ordens pode ser punida com a morte. Isto não é um exercício."
 
 /datum/config_entry/string/alert_gamma
-	config_entry_value = "The Solar Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill."
+    config_entry_value = "A Federação Solar colocou este sistema sob status de Alerta Gamma. Este sistema galáctico está enfrentando um Cenário de Falha de Realidade Classe ZK. O pessoal de segurança está autorizado a ter acesso total a equipamentos letais para impor a Lei Marcial. O não cumprimento dos procedimentos de emergência é punível com a morte. Isto não é um exercício."
