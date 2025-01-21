@@ -3,6 +3,12 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	priority = PREFERENCE_PRIORITY_LOADOUT
 	can_randomize = FALSE
+	// Loadout preference is an assoc list [item_path] = [loadout item information list]
+	//
+	// it may look something like
+	// - list(/obj/item/glasses = list())
+	// or
+	// - list(/obj/item/plush/lizard = list("name" = "Tests-The-Loadout", "color" = "#FF0000"))
 
 // Loadouts are applied with job equip code.
 /datum/preference/loadout/apply_to_human(mob/living/carbon/human/target, value)
