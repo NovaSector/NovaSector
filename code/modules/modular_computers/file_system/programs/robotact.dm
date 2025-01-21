@@ -144,6 +144,15 @@
 				else
 					cyborg.logevent("Chassis cover lock has been [cyborg.locked ? "engaged" : "released"]")
 
+	//NOVA EDIT ADDITION BEGIN - Adds in a Toggle for the Camera, blocking the AI from doing so
+		if("cameraToggle")
+			if(cyborg.connected_ai)
+				to_chat(src, span_notice("Disabling your own camera seems like a bad idea."))
+				return
+			else
+				cyborg.builtInCamera.toggle_cam()
+	//NOVA EDIT ADDITION END
+
 		if("lawchannel")
 			cyborg.set_autosay()
 

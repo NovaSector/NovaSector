@@ -202,6 +202,12 @@ export const NtosRobotactContent = (props) => {
                         onClick={() => act('toggleSensors')}
                       />
                     </LabeledList.Item>
+                    <LabeledList.Item label="Camera Status">
+                      <Button
+                        content={wireCamera}
+                        onClick={() => act('cameraToggle')}
+                      />
+                    </LabeledList.Item>
                     <LabeledList.Item
                       label={'Stored Photos (' + printerPictures + ')'}
                     >
