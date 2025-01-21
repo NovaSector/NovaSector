@@ -1,0 +1,4 @@
+author: "Mezzmerr"
+delete-after: True
+changes:
+  - qol: "The hand labeler and its corresponding paper roll can now be printed from the Security protolathe."
