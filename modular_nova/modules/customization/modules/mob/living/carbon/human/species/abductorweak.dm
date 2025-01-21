@@ -97,8 +97,3 @@
 	))
 	return perks
 
-// Disallow experimental organ extraction
-/datum/surgery/organ_extraction/can_start(mob/user, mob/living/carbon/target)
-	if(isrogue(user))
-		return FALSE
-	return ..()
