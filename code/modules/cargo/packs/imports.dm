@@ -96,14 +96,14 @@
 	)
 	crate_name = "putrid dumpster"
 	crate_type = /obj/structure/closet/crate/trashcart
-/* NOVA EDIT REMOVAL BEGIN - any person shouldn't have an oneshot hitscan gun just because they have emag
+
 /datum/supply_pack/imports/error
 	name = "NULL_ENTRY"
 	desc = "(*!&@#OKAY, OPERATIVE, WE SEE HOW MUCH MONEY YOU'RE FLAUNTING. FINE. HAVE THIS, AND GOOD LUCK PUTTING IT TOGETHER!#@*$"
 	cost = CARGO_CRATE_VALUE * 100
 	hidden = TRUE
 	contains = list(/obj/item/book/granter/crafting_recipe/regal_condor)
-NOVA EDIT REMOVAL END */
+
 /datum/supply_pack/imports/mafia
 	name = "Cosa Nostra Starter Pack"
 	desc = "This crate contains everything you need to set up your own ethnicity-based racketeering operation."
