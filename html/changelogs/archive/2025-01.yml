@@ -1107,3 +1107,16 @@
   - qol: soul-less brains that can be revived (like those from recovered crew) now
       have an examine tip
   - spellcheck: succesful -> successful
+2025-01-21:
+  Axidyuwu:
+  - rscdel: Removed recipe for regal condor from emaged cargo
+  LordHookie:
+  - bugfix: Donk Soft 'sidearms' now use the Donk. Co label instead of missing one
+      or being scarborough
+  Mezzmerr:
+  - qol: The hand labeler and its corresponding paper roll can now be printed from
+      the Security protolathe.
+  OrbisAnima:
+  - rscadd: Adds Flora Turtles to the Pet Carrier Quirk List.
+  OrionTheFox:
+  - bugfix: fixed American Sausage being uncraftable
