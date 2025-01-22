@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - qol: "Gives Non AI Cyborgs a camera toggle"

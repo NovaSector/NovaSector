@@ -1,7 +1,7 @@
 // Max amounts of cores you can make
 #define MAX_CORES_BLUESPACE 16 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_CORES_BLUESPACE 3 - Higher pop + longer rounds means we probably could use a lot more of these as they are used for a lot of things.
 #define MAX_CORES_GRAVITATIONAL 6
-#define MAX_CORES_FLUX 8
+#define MAX_CORES_FLUX 5
 #define MAX_CORES_VORTEX 3
 #define MAX_CORES_PYRO 8
 #define MAX_CORES_HALLUCINATION 8

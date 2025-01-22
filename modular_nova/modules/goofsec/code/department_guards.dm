@@ -671,7 +671,7 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/bouncer
-	assignment = "Bouncer"
+	assignment = "Service Guard"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_bouncer"
 	department_color = COLOR_SERVICE_LIME

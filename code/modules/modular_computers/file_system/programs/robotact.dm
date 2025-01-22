@@ -182,3 +182,11 @@
 				return
 			if(cyborg.emagged || istype(cyborg, /mob/living/silicon/robot/model/syndicate)) //This option shouldn't even be showing otherwise
 				cyborg.self_destruct(cyborg)
+	//NOVA EDIT ADDITION BEGIN - Adds in a Toggle for the Camera, blocking the AI from doing so
+		if("cameraToggle")
+			if(cyborg.connected_ai)
+				to_chat(src, span_notice("Disabling your own camera seems like a bad idea."))
+				return
+			else
+				cyborg.builtInCamera.toggle_cam()
+	//NOVA EDIT ADDITION END
