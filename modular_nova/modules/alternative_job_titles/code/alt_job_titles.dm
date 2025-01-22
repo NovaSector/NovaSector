@@ -320,6 +320,7 @@
 		"Maximum Security Prisoner",
 		"SuperMax Security Prisoner",
 		"Protective Custody Prisoner",
+		"Psychiatric Hold Prisoner",
 	)
 
 /datum/job/psychologist
