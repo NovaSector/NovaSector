@@ -1120,3 +1120,12 @@
   - rscadd: Adds Flora Turtles to the Pet Carrier Quirk List.
   OrionTheFox:
   - bugfix: fixed American Sausage being uncraftable
+2025-01-22:
+  Iajret:
+  - bugfix: Bouncer is listed as service job instead of having no department.
+  LordHookie:
+  - rscadd: Re-added the regal condor.
+  - balance: The Regal Condor's cargo recipe price has been increased. Watch for holes
+      in your budget, Quartermaster.
+  Zergspower:
+  - rscadd: Added new deadlier spiders to encounter
