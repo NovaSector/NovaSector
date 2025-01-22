@@ -23,7 +23,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	. = ..()
 
 	. += "The Nanotrasen Armories NT20 is a recent release from NT's esteemed private arms division, \
-		and it's received a warm welcome from the Shield teams and other NT military forces who have been \
+		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
 		issued it in the ongoing rollout. \
 		Though certain rival manufacturers have dismissed the NT20 as a \"fake\" or a \"blatant bootleg,\"  \
 		the inimitable .460 Ceres round and a patent-pending multi-stage delayed blowback system \
