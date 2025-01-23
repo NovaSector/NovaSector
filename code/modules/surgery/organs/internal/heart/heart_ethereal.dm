@@ -228,14 +228,14 @@
 
 	playsound(get_turf(regenerating), 'sound/mobs/humanoids/ethereal/ethereal_revive.ogg', 100)
 	to_chat(regenerating, span_purple("You burst out of the crystal with vigour... but you feel as if you should keep safe for a little while.")) //NOVA EDIT CHANGE - Ethereal Rework 2024 - ORIGINAL: to_chat(regenerating, span_notice("You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost."))
+	regenerating.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS)
+	regenerating.apply_status_effect(/datum/status_effect/vulnerable_to_damage) // NOVA EDIT ADDITION - This lasts for five minutes, the full duration of the cooldown.
 
 	if(prob(10)) //10% chance for a severe trauma
 		regenerating.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_ABSOLUTE)
 	else
 		regenerating.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_ABSOLUTE)
 
-	regenerating.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS)
-	regenerating.apply_status_effect(/datum/status_effect/vulnerable_to_damage) // NOVA EDIT ADDITION - This lasts for five minutes, the full duration of the cooldown.
 	// revive calls fully heal -> deletes the crystal.
 	// this qdeleted check is just for sanity.
 	if(!QDELETED(src))
