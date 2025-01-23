@@ -1,0 +1,9 @@
+author: "LordHookie"
+delete-after: True
+changes:
+  - rscadd: "Bitrunners have made major breakthroughs in code insertion, allowing runners to learn Sanguine Strike, Blink, Soul Tap and Summon Item as Tier 2 spells, and Chuuni Invocations as a Tier 3 spell."
+  - rscadd: "Lewd bitrunning disks now have a luxury pod creator in them."
+  - rscadd: "Tactical Toolboxes and Combat Knives are now available in Tier 1 gear disks."
+  - rscadd: "Katanas, Hoshis, Syndicate Contacts, Telescopic Shields and WT-550s are now available in Tier 2 gear disks."
+  - rscadd: "Synthetic healing supplies are now available to bitrunners through a Tier 0 disk."
+  - balance: "E-Shields and Scream For Me have been replaced by the Telescopic Shield and Sanguine Strike in their respective disks."
