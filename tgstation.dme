@@ -7858,6 +7858,8 @@
 #include "modular_nova\modules\food_replicator\code\replicator_designs\replicator_medical.dm"
 #include "modular_nova\modules\GAGS\greyscale_configs.dm"
 #include "modular_nova\modules\GAGS\nsfw\greyscale_configs.dm"
+#include "modular_nova\modules\ghost_mining\code\boulder_collector.dm"
+#include "modular_nova\modules\ghost_mining\code\ghost_vent.dm"
 #include "modular_nova\modules\ghostcafe\code\dusts_on_catatonia.dm"
 #include "modular_nova\modules\ghostcafe\code\dusts_on_leaving_area.dm"
 #include "modular_nova\modules\ghostcafe\code\ghost_cafe_items.dm"
