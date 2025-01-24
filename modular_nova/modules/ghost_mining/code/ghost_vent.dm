@@ -47,7 +47,7 @@
 		/datum/component/spawner, \
 		spawn_types = defending_mobs, \
 		spawn_time = (10 SECONDS + (5 SECONDS * (boulder_size/5))), \
-		faction = FACTION_MINING, \
+		faction = list(FACTION_MINING), \
 		max_spawned = 10, \
 		max_spawn_per_attempt = (1 + (boulder_size/5)), \
 		spawn_text = "emerges from hidden tunnels near", \
