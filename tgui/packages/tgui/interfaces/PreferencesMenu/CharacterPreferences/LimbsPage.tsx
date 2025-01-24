@@ -1,4 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
@@ -8,9 +9,8 @@ import {
   Stack,
 } from 'tgui-core/components';
 
-import { useBackend } from '../../backend';
-import { CharacterPreview } from '../common/CharacterPreview';
-import { PreferencesMenuData } from './data';
+import { CharacterPreview } from '../../common/CharacterPreview';
+import { PreferencesMenuData } from '../types';
 
 export const RotateCharacterButtons = (props) => {
   const { act } = useBackend<PreferencesMenuData>();

@@ -1,5 +1,6 @@
 import { filter } from 'common/collections';
 import { useState } from 'react';
+import { useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
@@ -9,11 +10,15 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 
-import { useBackend } from '../../backend';
-import { PreferencesMenuData, Quirk, RandomSetting, ServerData } from './data';
+import {
+  PreferencesMenuData,
+  Quirk,
+  RandomSetting,
+  ServerData,
+} from '../types';
+import { useRandomToggleState } from '../useRandomToggleState';
+import { useServerPrefs } from '../useServerPrefs';
 import { getRandomization, PreferenceList } from './MainPage';
-import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
-import { useRandomToggleState } from './useRandomToggleState';
 
 function getColorValueClass(quirk: Quirk) {
   if (quirk.value > 0) {
@@ -243,7 +248,6 @@ function QuirkPopper(props: QuirkPopperProps) {
               >
                 <Stack.Item>
                   <PreferenceList
-                    act={act}
                     preferences={getCorrespondingPreferences(
                       customization_options,
                       character_preferences.manually_rendered_features,
@@ -313,214 +317,211 @@ export function QuirksPage(props) {
 
   const [selectedQuirks, setSelectedQuirks] = useState(data.selected_quirks);
 
-  return (
-    <ServerPreferencesFetcher
-      // NOVA EDIT START - Quirks balance refactor
-      render={(quirks_data) => {
-        if (!quirks_data) {
-          // NOVA EDIT END
-          return <Box>Loading quirks...</Box>;
+  const server_data = useServerPrefs();
+  if (!server_data) return;
+
+  const {
+    max_positive_quirks: maxPositiveQuirks,
+    quirk_blacklist: quirkBlacklist,
+    quirk_info: quirkInfo,
+    points_enabled: pointsEnabled,
+  } = server_data.quirks;
+
+  const quirks = Object.entries(quirkInfo);
+  quirks.sort(([_, quirkA], [__, quirkB]) => {
+    if (quirkA.value === quirkB.value) {
+      return quirkA.name > quirkB.name ? 1 : -1;
+    } else {
+      return quirkA.value - quirkB.value;
+    }
+  });
+
+  let balance = 0;
+  let positiveQuirks = 0;
+
+  for (const selectedQuirkName of selectedQuirks) {
+    const selectedQuirk = quirkInfo[selectedQuirkName];
+    if (!selectedQuirk) {
+      continue;
+    }
+
+    if (selectedQuirk.value > 0) {
+      positiveQuirks += 1;
+    }
+
+    balance += selectedQuirk.value;
+  }
+
+  function getReasonToNotAdd(quirkName: string) {
+    const quirk = quirkInfo[quirkName];
+
+    if (quirk.value > 0) {
+      if (maxPositiveQuirks !== -1 && positiveQuirks >= maxPositiveQuirks) {
+        return "You can't have any more positive quirks!";
+      } else if (pointsEnabled && balance + quirk.value > 0) {
+        return 'You need a negative quirk to balance this out!';
+      }
+    }
+    // NOVA EDIT START - Veteran quirks
+    if (quirk.veteran_only && !data.is_veteran) {
+      return 'You need to be a veteran to select this quirk, apply today!';
+    }
+    // NOVA EDIT END
+    const selectedQuirkNames = selectedQuirks.map((quirkKey) => {
+      return quirkInfo[quirkKey].name;
+    });
+
+    for (const blacklist of quirkBlacklist) {
+      if (blacklist.indexOf(quirk.name) === -1) {
+        continue;
+      }
+
+      for (const incompatibleQuirk of blacklist) {
+        if (
+          incompatibleQuirk !== quirk.name &&
+          selectedQuirkNames.indexOf(incompatibleQuirk) !== -1
+        ) {
+          return `This is incompatible with ${incompatibleQuirk}!`;
         }
+      }
+    }
 
-        const {
-          max_positive_quirks: maxPositiveQuirks,
-          quirk_blacklist: quirkBlacklist,
-          quirk_info: quirkInfo,
-          points_enabled: pointsEnabled,
-        } = quirks_data.quirks; // NOVA EDIT - Quirks balance refactor
+    return;
+  }
 
-        const quirks = Object.entries(quirkInfo);
-        quirks.sort(([_, quirkA], [__, quirkB]) => {
-          if (quirkA.value === quirkB.value) {
-            return quirkA.name > quirkB.name ? 1 : -1;
-          } else {
-            return quirkA.value - quirkB.value;
-          }
-        });
+  function getReasonToNotRemove(quirkName: string) {
+    const quirk = quirkInfo[quirkName];
 
-        // NOVA EDIT START - Better Quirk Count Code
-        let balance = -data.quirks_balance;
-        let positiveQuirks = data.positive_quirk_count;
-        // NOVA EDIT END
+    if (pointsEnabled && balance - quirk.value > 0) {
+      return 'You need to remove a positive quirk first!';
+    }
 
-        const getReasonToNotAdd = (quirkName: string) => {
-          const quirk = quirkInfo[quirkName];
+    return;
+  }
 
-          if (quirk.value > 0) {
-            if (
-              maxPositiveQuirks !== -1 &&
-              positiveQuirks >= maxPositiveQuirks
-            ) {
-              return "You can't have any more positive quirks!";
-            } else if (pointsEnabled && balance + quirk.value > 0) {
-              return 'You need a negative quirk to balance this out!';
-            }
-          }
+  return (
+    <Stack align="center" fill>
+      <Stack.Item basis="50%">
+        <Stack vertical fill align="center">
+          <Stack.Item>
+            {maxPositiveQuirks > 0 ? (
+              <Box fontSize="1.3em">Positive Quirks</Box>
+            ) : (
+              <Box mt={pointsEnabled ? 3.4 : 0} />
+            )}
+          </Stack.Item>
 
-          // NOVA EDIT START - Veteran quirks
-          if (quirk.veteran_only && !data.is_veteran) {
-            return 'You need to be a veteran to select this quirk, apply today!';
-          }
-          // NOVA EDIT END
+          <Stack.Item>
+            {maxPositiveQuirks > 0 ? (
+              <StatDisplay>
+                {positiveQuirks} / {maxPositiveQuirks}
+              </StatDisplay>
+            ) : (
+              <Box mt={pointsEnabled ? 3.4 : 0} />
+            )}
+          </Stack.Item>
 
-          const selectedQuirkNames = selectedQuirks.map((quirkKey) => {
-            return quirkInfo[quirkKey].name;
-          });
+          <Stack.Item>
+            <Box as="b" fontSize="1.6em">
+              Available Quirks
+            </Box>
+          </Stack.Item>
 
-          for (const blacklist of quirkBlacklist) {
-            if (blacklist.indexOf(quirk.name) === -1) {
-              continue;
-            }
+          <Stack.Item grow width="100%">
+            <QuirkList
+              selected={false}
+              onClick={(quirkName, quirk) => {
+                if (getReasonToNotAdd(quirkName) !== undefined) {
+                  return;
+                }
 
-            for (const incompatibleQuirk of blacklist) {
-              if (
-                incompatibleQuirk !== quirk.name &&
-                selectedQuirkNames.indexOf(incompatibleQuirk) !== -1
-              ) {
-                return `This is incompatible with ${incompatibleQuirk}!`;
-              }
-            }
-          }
+                setSelectedQuirks(selectedQuirks.concat(quirkName));
 
-          return undefined;
-        };
+                act('give_quirk', { quirk: quirk.name });
+              }}
+              quirks={quirks
+                .filter(([quirkName, _]) => {
+                  return selectedQuirks.indexOf(quirkName) === -1;
+                })
+                .map(([quirkName, quirk]) => {
+                  return [
+                    quirkName,
+                    {
+                      ...quirk,
+                      failTooltip: getReasonToNotAdd(quirkName),
+                    },
+                  ];
+                })}
+              serverData={server_data}
+              randomBodyEnabled={randomBodyEnabled}
+            />
+          </Stack.Item>
+        </Stack>
+      </Stack.Item>
 
-        const getReasonToNotRemove = (quirkName: string) => {
-          const quirk = quirkInfo[quirkName];
+      <Stack.Item>
+        <Icon name="exchange-alt" size={1.5} ml={2} mr={2} />
+      </Stack.Item>
 
-          if (pointsEnabled && balance - quirk.value > 0) {
-            return 'You need to remove a positive quirk first!';
-          }
+      <Stack.Item basis="50%">
+        <Stack vertical fill align="center">
+          <Stack.Item>
+            {pointsEnabled ? (
+              <Box fontSize="1.3em">Quirk Balance</Box>
+            ) : (
+              <Box mt={maxPositiveQuirks > 0 ? 3.4 : 0} />
+            )}
+          </Stack.Item>
 
-          return undefined;
-        };
+          <Stack.Item>
+            {pointsEnabled ? (
+              <StatDisplay>{balance}</StatDisplay>
+            ) : (
+              <Box mt={maxPositiveQuirks > 0 ? 3.4 : 0} />
+            )}
+          </Stack.Item>
 
-        return (
-          <Stack align="center" fill>
-            <Stack.Item basis="50%">
-              <Stack vertical fill align="center">
-                <Stack.Item>
-                  {maxPositiveQuirks > 0 ? (
-                    <Box fontSize="1.3em">Positive Quirks</Box>
-                  ) : (
-                    <Box mt={pointsEnabled ? 3.4 : 0} />
-                  )}
-                </Stack.Item>
+          <Stack.Item>
+            <Box as="b" fontSize="1.6em">
+              Current Quirks
+            </Box>
+          </Stack.Item>
 
-                <Stack.Item>
-                  {maxPositiveQuirks > 0 ? (
-                    <StatDisplay>
-                      {positiveQuirks} / {maxPositiveQuirks}
-                    </StatDisplay>
-                  ) : (
-                    <Box mt={pointsEnabled ? 3.4 : 0} />
-                  )}
-                </Stack.Item>
+          <Stack.Item grow width="100%">
+            <QuirkList
+              selected
+              onClick={(quirkName, quirk) => {
+                if (getReasonToNotRemove(quirkName) !== undefined) {
+                  return;
+                }
 
-                <Stack.Item>
-                  <Box as="b" fontSize="1.6em">
-                    Available Quirks
-                  </Box>
-                </Stack.Item>
+                setSelectedQuirks(
+                  selectedQuirks.filter(
+                    (otherQuirk) => quirkName !== otherQuirk,
+                  ),
+                );
 
-                <Stack.Item grow width="100%">
-                  <QuirkList
-                    selected={false}
-                    onClick={(quirkName, quirk) => {
-                      if (getReasonToNotAdd(quirkName) !== undefined) {
-                        return;
-                      }
-
-                      setSelectedQuirks(selectedQuirks.concat(quirkName));
-
-                      act('give_quirk', { quirk: quirk.name });
-                    }}
-                    quirks={quirks
-                      .filter(([quirkName, _]) => {
-                        return selectedQuirks.indexOf(quirkName) === -1;
-                      })
-                      .map(([quirkName, quirk]) => {
-                        return [
-                          quirkName,
-                          {
-                            ...quirk,
-                            failTooltip: getReasonToNotAdd(quirkName),
-                          },
-                        ];
-                      })}
-                    serverData={quirks_data} // NOVA EDIT CHANGE
-                    randomBodyEnabled={randomBodyEnabled}
-                  />
-                </Stack.Item>
-              </Stack>
-            </Stack.Item>
-
-            <Stack.Item>
-              <Icon name="exchange-alt" size={1.5} ml={2} mr={2} />
-            </Stack.Item>
-
-            <Stack.Item basis="50%">
-              <Stack vertical fill align="center">
-                <Stack.Item>
-                  {pointsEnabled ? (
-                    <Box fontSize="1.3em">Quirk Balance</Box>
-                  ) : (
-                    <Box mt={maxPositiveQuirks > 0 ? 3.4 : 0} />
-                  )}
-                </Stack.Item>
-
-                <Stack.Item>
-                  {pointsEnabled ? (
-                    <StatDisplay>{balance}</StatDisplay>
-                  ) : (
-                    <Box mt={maxPositiveQuirks > 0 ? 3.4 : 0} />
-                  )}
-                </Stack.Item>
-
-                <Stack.Item>
-                  <Box as="b" fontSize="1.6em">
-                    Current Quirks
-                  </Box>
-                </Stack.Item>
-
-                <Stack.Item grow width="100%">
-                  <QuirkList
-                    selected
-                    onClick={(quirkName, quirk) => {
-                      if (getReasonToNotRemove(quirkName) !== undefined) {
-                        return;
-                      }
-
-                      setSelectedQuirks(
-                        selectedQuirks.filter(
-                          (otherQuirk) => quirkName !== otherQuirk,
-                        ),
-                      );
-
-                      act('remove_quirk', { quirk: quirk.name });
-                    }}
-                    quirks={quirks
-                      .filter(([quirkName, _]) => {
-                        return selectedQuirks.indexOf(quirkName) !== -1;
-                      })
-                      .map(([quirkName, quirk]) => {
-                        return [
-                          quirkName,
-                          {
-                            ...quirk,
-                            failTooltip: getReasonToNotRemove(quirkName),
-                          },
-                        ];
-                      })}
-                    serverData={quirks_data} // NOVA EDIT CHANGE
-                    randomBodyEnabled={randomBodyEnabled}
-                  />
-                </Stack.Item>
-              </Stack>
-            </Stack.Item>
-          </Stack>
-        );
-      }}
-    />
+                act('remove_quirk', { quirk: quirk.name });
+              }}
+              quirks={quirks
+                .filter(([quirkName, _]) => {
+                  return selectedQuirks.indexOf(quirkName) !== -1;
+                })
+                .map(([quirkName, quirk]) => {
+                  return [
+                    quirkName,
+                    {
+                      ...quirk,
+                      failTooltip: getReasonToNotRemove(quirkName),
+                    },
+                  ];
+                })}
+              serverData={server_data}
+              randomBodyEnabled={randomBodyEnabled}
+            />
+          </Stack.Item>
+        </Stack>
+      </Stack.Item>
+    </Stack>
   );
 }
