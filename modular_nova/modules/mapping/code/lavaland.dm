@@ -41,3 +41,12 @@
 	suffix = "lavaland_surface_prefab_homestead.dmm"
 	allow_duplicates = FALSE
 	cost = 5
+
+/datum/map_template/ruin/lavaland/nova/geosite
+	name = "Lava-Ruin Geological site"
+	id = "lava_geosite"
+	description = "A legion encounter during geological site extraction costed everyone their lives. Even the dwarf."
+	prefix = "_maps/RandomRuins/LavaRuins/nova/"
+	suffix = "lavaland_surface_geosite.dmm"
+	allow_duplicates = FALSE
+	cost = 0 //For testing period
