@@ -12,6 +12,7 @@
 	name = "oxide nodule vent"
 	desc = "A vent full of rare oxide nodules, producing varous minerals every time one is brought up. Scan with an advanced mining scanner to start extracting ore from it."
 	icon_state = "ore_vent_active"
+	base_icon_state = "ore_vent_active"
 	mineral_breakdown = list(
 		/datum/material/iron = 50,
 		/datum/material/glass = 50) //we dont need a seperate starting list
@@ -67,6 +68,7 @@
 	update_appearance(UPDATE_ICON_STATE)
 	clear_tally += 1
 	reset_ores()
+	generate_description()
 
 /obj/structure/ore_vent/ghost_mining/proc/reset_ores()
 	var/magnitude = rand(1,4)
