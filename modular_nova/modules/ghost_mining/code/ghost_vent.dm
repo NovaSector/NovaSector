@@ -28,17 +28,6 @@
 
 /obj/structure/ore_vent/ghost_mining/examine(mob/user)
 	. = ..()
-	if(discovered)
-		switch(boulder_size)
-			if(BOULDER_SIZE_SMALL)
-				. += span_notice("This vent produces [span_bold("small")] boulders containing [ore_string]")
-			if(BOULDER_SIZE_MEDIUM)
-				. += span_notice("This vent produces [span_bold("medium")] boulders containing [ore_string]")
-			if(BOULDER_SIZE_LARGE)
-				. += span_notice("This vent produces [span_bold("large")] boulders containing [ore_string]")
-	else
-		. += span_notice("This vent can be scanned with a [span_bold("Mining Scanner")].")
-
 	switch(tapped)
 		if(TRUE)
 			. += span_notice("The current nodule holds [boulder_bounty] chunks worth of ore.")
