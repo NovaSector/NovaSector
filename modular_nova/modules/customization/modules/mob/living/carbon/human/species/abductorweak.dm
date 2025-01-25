@@ -98,3 +98,10 @@
 	))
 	return perks
 
+
+/obj/item/firing_pin/abductor/pin_auth(mob/living/user)
+	. = ..()
+	if(.)
+		return
+
+	return isrogue(user) // Lets rogues use them as well as abductors
