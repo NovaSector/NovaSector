@@ -1,0 +1,4 @@
+author: "Mezzmerr"
+delete-after: True
+changes:
+  - rscadd: "Added \"Psychiatric Hold Prisoner\" as an alternate job title for Prisoner."
