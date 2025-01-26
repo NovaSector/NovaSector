@@ -23,7 +23,7 @@
 		"mod_plating_tarkon",
 		"arcs",
 		"rcd_tarkon",
-		"tarkonbsc"
+		"tarkonbsc",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
 	hidden = TRUE
@@ -76,7 +76,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
 		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	build_path = /obj/structure/ore_box/boulder_collector/tarkon
 	category = list(

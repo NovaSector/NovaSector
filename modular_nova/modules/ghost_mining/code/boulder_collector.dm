@@ -199,7 +199,7 @@
 	type_to_deploy = /obj/structure/ore_box/boulder_collector/nt
 
 /obj/item/flatpacked_machine/boulder_collector/gulag
-	name = "Boulder Snatchinator 3000 Build-it kit"
+	name = "\improper Boulder Snatchinator 3000 Build-it kit"
 	desc = /obj/structure/ore_box/boulder_collector/gulag::desc
 	icon_state = "orecube_g"
 	w_class = WEIGHT_CLASS_BULKY

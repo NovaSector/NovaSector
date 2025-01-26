@@ -10,12 +10,13 @@
 
 /obj/structure/ore_vent/ghost_mining
 	name = "oxide nodule vent"
-	desc = "A vent full of rare oxide nodules, producing varous minerals every time one is brought up. Scan with an advanced mining scanner to start extracting ore from it."
+	desc = "A vent full of rare oxide nodules, producing various minerals every time one is brought up. Scan with an advanced mining scanner to start extracting ore from it."
 	icon_state = "ore_vent_active"
 	base_icon_state = "ore_vent_active"
 	mineral_breakdown = list(
 		/datum/material/iron = 50,
-		/datum/material/glass = 50) //we dont need a seperate starting list
+		/datum/material/glass = 50,
+	) //we don't need a separate starting list
 	unique_vent = TRUE
 	boulder_size = BOULDER_SIZE_SMALL
 	defending_mobs = list(/mob/living/basic/carp)
@@ -24,7 +25,7 @@
 	var/threat_pool = list(
 		COLONY_THREAT_CARP,
 		COLONY_THREAT_PIRATES,
-		COLONY_THREAT_XENOS
+		COLONY_THREAT_XENOS,
 	) //we put this here for customization reasons. For singular threat ones, Only put one.
 
 /obj/structure/ore_vent/ghost_mining/examine(mob/user)
@@ -83,12 +84,12 @@
 		/datum/material/uranium = 5,
 		/datum/material/bluespace = 3,
 		/datum/material/plastic = 2,
-		)
+	)
 	var/ore_output_size = list(
 		LARGE_VENT_TYPE,
 		MEDIUM_VENT_TYPE,
 		SMALL_VENT_TYPE,
-		)
+	)
 
 	var/new_boulder_size = pick(ore_output_size)
 	switch(new_boulder_size)
@@ -113,17 +114,18 @@
 		if(COLONY_THREAT_CARP)
 			defending_mobs = list(
 				/mob/living/basic/carp,
-				/mob/living/basic/carp/mega)
+				/mob/living/basic/carp/mega,
+			)
 		if(COLONY_THREAT_PIRATES)
 			defending_mobs = list(
 				/mob/living/basic/trooper/pirate/melee/space,
-				/mob/living/basic/trooper/pirate/ranged/space
+				/mob/living/basic/trooper/pirate/ranged/space,
 			)
 		if(COLONY_THREAT_XENOS)
 			defending_mobs = list(
 				/mob/living/basic/alien,
 				/mob/living/basic/alien/drone,
-				/mob/living/basic/alien/sentinel
+				/mob/living/basic/alien/sentinel,
 			)
 		if(COLONY_THREAT_MINING)
 			defending_mobs = list(
@@ -154,7 +156,7 @@
 			defending_mobs = list(
 				/mob/living/basic/crab,
 				/mob/living/basic/mining/lobstrosity/juvenile/lava,
-				/mob/living/basic/mining/lobstrosity/lava
+				/mob/living/basic/mining/lobstrosity/lava,
 			)
 
 	for(var/old_ore in mineral_breakdown)
@@ -183,8 +185,10 @@
 	threat_pool = list(COLONY_THREAT_ICE_MINING)
 
 /obj/structure/ore_vent/ghost_mining/pirate
-	defending_mobs = list(/mob/living/basic/trooper/pirate/melee,
-		/mob/living/basic/trooper/pirate/ranged) //you can space cheese the starting ones, but only the starting ones
+	defending_mobs = list(
+		/mob/living/basic/trooper/pirate/melee,
+		/mob/living/basic/trooper/pirate/ranged,
+	) //you can space cheese the starting ones, but only the starting ones
 	threat_pool = list(COLONY_THREAT_PIRATES)
 
 /obj/structure/ore_vent/ghost_mining/xenos
