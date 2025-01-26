@@ -124,7 +124,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/zashch
 	name = "\improper 'Zashch' self-loading pistol"
-	desc = "A hulking self loading handgun designated 'Zashchitnik'. Feeds from large 18 round box magazines. Chambered for 10mm."
+	desc = "A hulking self-loading handgun designated 'Zashchitnik'. Feeds from large 18 round box magazines. Chambered for 10mm."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "zashch"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
