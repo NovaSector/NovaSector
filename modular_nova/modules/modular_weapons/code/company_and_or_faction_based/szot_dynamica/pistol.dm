@@ -153,7 +153,7 @@
 /obj/item/gun/ballistic/automatic/pistol/zashch/examine_more(mob/user)
 	. = ..()
 
-	. += "The Zashchitnik self loading pistol was designed as a police and security sidearm for ballistic favoring forces. \
+	. += "The Zashchitnik self-loading pistol was designed as a police and security sidearm for ballistic favoring forces. \
 		Choosing to chamber the 10mm cartridge for it's exceptional stopping power, \
 		the hulking pistol is known to be a powerful firearm, albeit maligned by some units for the sheer size. \
 		The size was dictated necessary for several reasons during the design, not the least so that it can load expansive \
