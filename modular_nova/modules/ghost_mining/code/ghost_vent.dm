@@ -22,6 +22,7 @@
 	defending_mobs = list(/mob/living/basic/carp)
 	var/clear_tally = 0 //so we can track how many time it clears for data-testing purposes.
 	var/boulder_bounty = 10 //how many boulders per clear attempt. First one is small and easy
+	var/new_ore_cycle = TRUE //We want this to generate new ore types upon untapping. Var incase we want some wacky shit later.
 	var/threat_pool = list(
 		COLONY_THREAT_CARP,
 		COLONY_THREAT_PIRATES,
@@ -61,18 +62,25 @@
 	icon_state = icon_state_tapped
 	update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/ore_vent/ghost_mining/proc/reset_vent()
-	cut_overlays()
-	tapped = FALSE
-	SSore_generation.processed_vents -= src
-	icon_state = base_icon_state
+/obj/structure/ore_vent/ghost_mining/proc/reset_vent() // We want to re-cycle the vent to an untapped state.
+	var/gps_name = "fresh oxide chunk" // Default backup incase we dont recycle ore
+	cut_overlays() // Remove the rig. Maybe later i or someone else can do some fancy animation for this.
+	tapped = FALSE //make it untapped by state, duh.
+	SSore_generation.processed_vents -= src //make it registered as untapped
+	icon_state = base_icon_state // Resets the icon
 	update_appearance(UPDATE_ICON_STATE)
-	clear_tally += 1
-	reset_ores()
-	generate_description()
+	clear_tally += 1 // data points bby
+	if(new_ore_cycle) //Do we want this to get new ores?
+		var/new_boulder_size = pick(ore_vent_options) // we put this here for GPS and customization reasons
+		reset_ores(new_boulder_size) // title. We use the variable thing PURELY for the sake of having the GPS tied here and not to reset ores
+		generate_description() // makes the description register the new ores
+		gps_name = "[new_boulder_size] oxide chunk" // should generate as "large oxide chunk"
 
-/obj/structure/ore_vent/ghost_mining/proc/reset_ores()
-	var/magnitude = rand(1,4)
+	AddComponent(/datum/component/gps, gps_name) // We let GPS be a system to let people know when it resets
+
+
+/obj/structure/ore_vent/ghost_mining/proc/reset_ores(new_boulder_size) // We want this to reset its ore... Maybe.
+	var/magnitude = rand(1,4) // Affects boulder spawn ammount and how many material types one boulder has.
 	var/ore_pool = list(
 		/datum/material/iron = 14,
 		/datum/material/glass = 12,
@@ -84,14 +92,8 @@
 		/datum/material/uranium = 5,
 		/datum/material/bluespace = 3,
 		/datum/material/plastic = 2,
-	)
-	var/ore_output_size = list(
-		LARGE_VENT_TYPE,
-		MEDIUM_VENT_TYPE,
-		SMALL_VENT_TYPE,
-	)
+	) // Ore pool, Weighted... to do: upstream a bananium vent icon so i can add bananium
 
-	var/new_boulder_size = pick(ore_output_size)
 	switch(new_boulder_size)
 		if(LARGE_VENT_TYPE)
 			boulder_size = BOULDER_SIZE_LARGE
@@ -105,29 +107,26 @@
 
 	boulder_bounty = (magnitude * boulder_size) // minimal 5, maximum is 60. tbh not that hard in space
 
-	name = "[new_boulder_size] oxide chunk"
-	AddComponent(/datum/component/gps, name)
-
-	var/threat_pick = pick(threat_pool)
+	var/threat_pick = pick(threat_pool) //We choose from the threat pool list and use it to generate a defending_mobs list. todo: complex additive mode for funny shenanigans
 
 	switch(threat_pick)
-		if(COLONY_THREAT_CARP)
+		if(COLONY_THREAT_CARP) // carps. space fishies. easy to kill but kinda dodgy and could outnumber
 			defending_mobs = list(
 				/mob/living/basic/carp,
 				/mob/living/basic/carp/mega,
 			)
-		if(COLONY_THREAT_PIRATES)
+		if(COLONY_THREAT_PIRATES) // Pirates. Ranged could become a problem fast
 			defending_mobs = list(
 				/mob/living/basic/trooper/pirate/melee/space,
 				/mob/living/basic/trooper/pirate/ranged/space,
 			)
-		if(COLONY_THREAT_XENOS)
+		if(COLONY_THREAT_XENOS) // i lub tgmc
 			defending_mobs = list(
 				/mob/living/basic/alien,
 				/mob/living/basic/alien/drone,
 				/mob/living/basic/alien/sentinel,
 			)
-		if(COLONY_THREAT_MINING)
+		if(COLONY_THREAT_MINING) // Lavaland mobs
 			defending_mobs = list(
 				/mob/living/basic/mining/goliath,
 				/mob/living/basic/mining/legion/spawner_made,
@@ -136,7 +135,7 @@
 				/mob/living/basic/mining/brimdemon,
 				/mob/living/basic/mining/bileworm,
 			)
-		if(COLONY_THREAT_ICE_MINING)
+		if(COLONY_THREAT_ICE_MINING) // Ice-moon underground. Basically just surface but has two mobs that make it worse
 			defending_mobs = list(
 				/mob/living/basic/mining/ice_whelp,
 				/mob/living/basic/mining/lobstrosity,
@@ -145,27 +144,27 @@
 				/mob/living/basic/mining/wolf,
 				/mob/living/simple_animal/hostile/asteroid/polarbear,
 			)
-		if(COLONY_THREAT_SNOW)
+		if(COLONY_THREAT_SNOW) // icemoon surface
 			defending_mobs = list(
 				/mob/living/basic/mining/lobstrosity,
 				/mob/living/basic/mining/legion/snow/spawner_made,
 				/mob/living/basic/mining/wolf,
 				/mob/living/simple_animal/hostile/asteroid/polarbear,
 			)
-		if(COLONY_THREAT_BEACH) // gotta keep atleast one "difficult" monster in
+		if(COLONY_THREAT_BEACH) // I want to do some shit with the beach biodome later.
 			defending_mobs = list(
 				/mob/living/basic/crab,
 				/mob/living/basic/mining/lobstrosity/juvenile/lava,
 				/mob/living/basic/mining/lobstrosity/lava,
 			)
 
-	for(var/old_ore in mineral_breakdown)
+	for(var/old_ore in mineral_breakdown) //We remove the old ore
 		mineral_breakdown -= old_ore
 
-	for(var/new_ore in 1 to magnitude)
+	for(var/new_ore in 1 to magnitude) //We put in the new ore
 		var/datum/mineral_picked = pick(ore_pool)
 		mineral_breakdown += mineral_picked
-		ore_pool -= mineral_picked
+		ore_pool -= mineral_picked //No "OOPS, ALL IRON!"
 		mineral_breakdown[mineral_picked] = rand(5, 20) //we need a weight to the boulders or else produce_boulder shits the bed.
 
 //// Vent variants for ghost roles in future work
