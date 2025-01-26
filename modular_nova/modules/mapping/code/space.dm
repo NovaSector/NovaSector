@@ -165,7 +165,7 @@
 /datum/map_template/ruin/space/nova/spacegeosite
 	id = "spacegeosite"
 	suffix = "space_geosite.dmm"
-	name = "Space Geological Site"
+	name = "Space-Ruin Geological Site"
 	description = "A rare set of asteroids with some interesting things inside."
 
 /datum/map_template/ruin/space/nova/escapefromtarkon
