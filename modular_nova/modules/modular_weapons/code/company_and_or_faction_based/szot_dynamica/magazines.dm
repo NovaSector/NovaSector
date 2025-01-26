@@ -75,7 +75,7 @@
 // Magazine for the Zashch pistol
 
 /obj/item/ammo_box/magazine/zashch
-	name = "Zashch pistol magazine"
+	name = "\improper Zashch pistol magazine"
 	desc = "A large magazine for the Zashchitnik pistol. Holds 18 rounds of 10mm."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "zashch_mag"
