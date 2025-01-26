@@ -587,7 +587,7 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				data["canSendToSectors"] = FALSE
 				data["canSetAlertLevel"] = FALSE
 				data["canToggleEmergencyAccess"] = FALSE
-				data["canToggleEngineeringOverride"] = FALSE //NOVA EDIT - Engineering Override
+				data["canToggleEngineeringOverride"] = FALSE // NOVA EDIT ADDITION - Engineering Override
 				data["importantActionReady"] = COOLDOWN_FINISHED(src, important_action_cooldown)
 				data["shuttleCalled"] = FALSE
 				data["shuttleLastCalled"] = FALSE
@@ -619,16 +619,16 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 				if (authenticated_as_silicon_or_captain(user))
 					data["canToggleEmergencyAccess"] = TRUE
 					data["emergencyAccess"] = GLOB.emergency_access
-					data["canToggleEngineeringOverride"] = TRUE //NOVA EDIT - Engineering Override Toggle
-					data["engineeringOverride"] = GLOB.force_eng_override //NOVA EDIT - Engineering Override Toggle
+					data["canToggleEngineeringOverride"] = TRUE // NOVA EDIT ADDITION - Engineering Override Toggle
+					data["engineeringOverride"] = GLOB.force_eng_override // NOVA EDIT ADDITION - Engineering Override Toggle
 					data["alertLevelTick"] = alert_level_tick
 					data["canMakeAnnouncement"] = TRUE
 					data["canSetAlertLevel"] = HAS_SILICON_ACCESS(user) ? "NO_SWIPE_NEEDED" : "SWIPE_NEEDED"
 				else if(syndicate)
 					data["canMakeAnnouncement"] = TRUE
 
-				if (authenticated_as_ai_or_captain(user))
-					data["canMessageAssociates"] = TRUE //NOVA EDIT | Allows AI to report to CC in the event of there being no command alive/to begin with
+				if (authenticated_as_ai_or_captain(user)) // NOVA EDIT CHANGE - Allows AI to report to CC in the event of there being no command alive/to begin with - ORIGINAL: if (authenticated_as_non_silicon_captain(user))
+					data["canMessageAssociates"] = TRUE
 
 				if (SSshuttle.emergency.mode != SHUTTLE_IDLE && SSshuttle.emergency.mode != SHUTTLE_RECALL)
 					data["shuttleCalled"] = TRUE
