@@ -154,7 +154,7 @@
 	. = ..()
 
 	. += "The Zashchitnik self-loading pistol was designed as a police and security sidearm for ballistic favoring forces. \
-		Choosing to chamber the 10mm cartridge for it's exceptional stopping power, \
+		Choosing to chamber the 10mm cartridge for its exceptional stopping power, \
 		the hulking pistol is known to be a powerful firearm, albeit maligned by some units for the sheer size. \
 		The size was dictated necessary for several reasons during the design, not the least so that it can load expansive \
 		magazines flush to the grip that allow for exceptionally large amounts of fire power. \
