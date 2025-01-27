@@ -38,6 +38,12 @@
 		if((wound.wound_flags & ACCEPTS_GAUZE) && is_type_in_list(wound, applicable_wounds))
 			return wound
 
+/obj/item/stack/medical/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
+	if(!iscarbon(target))
+		return NONE
+	context[SCREENTIP_CONTEXT_LMB] = "Heal"
+	return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/stack/medical/wound_recovery/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
 	var/obj/item/bodypart/limb = patient.get_bodypart(healed_zone)
 	if(isnull(limb))
