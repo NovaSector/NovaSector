@@ -277,6 +277,15 @@
 	crate_name = "improved RCD crate"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
+/datum/supply_pack/engine/reactor_fuel
+	name = "Preloaded RBMK2 reactor rod"
+	desc = "Contains a single preloaded reactor rod. Comes with 80 moles of tritium."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(/obj/item/tank/rbmk2_rod/preloaded)
+	crate_name = "RBMK2 reactor rod"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
 /*
 *	MISC
 */
