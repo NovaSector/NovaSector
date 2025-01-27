@@ -1,5 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - rscadd: "Added advanced (taser+disabler) taser's to the security vendor (3) and company imports."
-  - balance: "heavily toned back tasers(electrodes), and removed a modular-confusion effect that they had, for some reason."
