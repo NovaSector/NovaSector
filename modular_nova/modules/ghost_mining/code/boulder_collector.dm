@@ -184,12 +184,18 @@
 	w_class = WEIGHT_CLASS_BULKY
 	type_to_deploy = /obj/structure/ore_box/boulder_collector/syndicate
 
+/obj/item/flatpacked_machine/boulder_collector/syndicate/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_REMOVED) //pretty sus there
+
 /obj/item/flatpacked_machine/boulder_collector/tarkon
 	name = "compacted Tarkon BSC Box"
 	desc = /obj/structure/ore_box/boulder_collector/tarkon::desc
 	icon_state = "orecube_t"
 	w_class = WEIGHT_CLASS_BULKY
 	type_to_deploy = /obj/structure/ore_box/boulder_collector/tarkon
+
+/obj/item/flatpacked_machine/boulder_collector/tarkon/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_REMOVED) //tarkon doesn't have manfact examine yet. they would, however, actually make it.
 
 /obj/item/flatpacked_machine/boulder_collector/nt
 	name = "compacted NT BSC Box"
@@ -198,9 +204,15 @@
 	w_class = WEIGHT_CLASS_BULKY
 	type_to_deploy = /obj/structure/ore_box/boulder_collector/nt
 
+/obj/item/flatpacked_machine/boulder_collector/nt/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_REMOVED) //Why would Nanotrasen ARMORY build a fucking box lmao? Besides, its just atker but stolen and painted.
+
 /obj/item/flatpacked_machine/boulder_collector/gulag
 	name = "\improper Boulder Snatchinator 3000 Build-it kit"
 	desc = /obj/structure/ore_box/boulder_collector/gulag::desc
 	icon_state = "orecube_g"
 	w_class = WEIGHT_CLASS_BULKY
 	type_to_deploy = /obj/structure/ore_box/boulder_collector/gulag
+
+/obj/item/flatpacked_machine/boulder_collector/gulag/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_REMOVED) //You try keeping manufacturing stamps on fucking cardboard
