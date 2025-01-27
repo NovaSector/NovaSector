@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - qol: "added custom hat offsets for the majority of borg models"
+  - bugfix: "fixes borg hats on some models floating"
