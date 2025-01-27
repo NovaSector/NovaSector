@@ -1308,6 +1308,9 @@
   - rscadd: Rogues; Descendants of the Mysterious Abductors are now employed by Nanotrasen,
       sure they have three fingers and most are missing vocal cords, but they can
       still work!
+  OrbisAnima:
+  - balance: Xenoarch rewards were slightly adjusted, legion cores that appear in
+      it are now pre stabilized so they have an actual impact on the game.
   RatFromTheJungle:
   - rscadd: Added advanced (taser+disabler) taser's to the security vendor (3) and
       company imports.
