@@ -13,6 +13,7 @@
 		/obj/item/flashlight/seclite = 6,
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 		/obj/item/clothing/gloves/tackler/security = 5,
+		/obj/item/gun/energy/e_gun/advtaser = 3,
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
