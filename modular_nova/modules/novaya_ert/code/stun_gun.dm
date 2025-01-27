@@ -4,7 +4,7 @@
 	best means of use is to hit a person and run away." // gotta poke some good writers with a stick so they can cobble a better description together
 	desc_controls = "Left click to stun, right click to 'harm'."
 	icon = 'modular_nova/modules/novaya_ert/icons/stun_gun.dmi'
-	icon_state = "crank_taser"
+	icon_state = "stun_gun"
 	lefthand_file = 'modular_nova/modules/novaya_ert/icons/stun_gun_left.dmi'
 	righthand_file = 'modular_nova/modules/novaya_ert/icons/stun_gun_right.dmi'
 	inhand_icon_state = "stun_gun"
