@@ -33,7 +33,7 @@
 	if(!typing_indicators)
 		return FALSE
 	/// Special exemptions
-	/* NOVA EDIT REMOVAL START - This removal allows Abductors, and the Rogues, to have typing indicators
+	/* NOVA EDIT REMOVAL START - This removal allows Abductors to have typing indicators
 	if(isabductor(mob))
 		return FALSE
 	*/ // NOVA EDIT REMOVAL END
