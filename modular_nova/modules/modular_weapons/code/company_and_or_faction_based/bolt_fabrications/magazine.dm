@@ -5,7 +5,7 @@
 	icon_state = "type207mag"
 	ammo_type = /obj/item/ammo_casing/kineticball
 	caliber = CALIBER_KINETICBALL
-	max_ammo = 8
+	max_ammo = 12
 	custom_price = PAYCHECK_CREW * 2
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -38,4 +38,4 @@
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2,
 	)
-	max_ammo = 27
+	max_ammo = 26
