@@ -43,8 +43,22 @@
 	item_type = /obj/item/clothing/neck/cloak/colonial/nri_police
 	cost = PAYCHECK_CREW
 
+/datum/armament_entry/company_import/nri_surplus/clothing/police_jacket
+	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nri_surplus/clothing/police_suit_jacket
+	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
+	description = "A black uniform jacket with ZCM's signature white rectangle on its right sleeve and backside. \
+	Letters inside the collar usually read the wearer's rank and internal kink. The jacket is of exceptional quality."
+	cost = PAYCHECK_CREW
+
 /datum/armament_entry/company_import/nri_surplus/clothing/police_cap
 	item_type = /obj/item/clothing/head/hats/colonial/nri_police
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nri_surplus/clothing/police_baseball_cap
+	item_type = /obj/item/clothing/head/soft/nri_police
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_mask
