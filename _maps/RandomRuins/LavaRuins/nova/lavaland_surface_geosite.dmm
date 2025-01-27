@@ -27,7 +27,6 @@
 /area/lavaland/surface/outdoors)
 "z" = (
 /obj/structure/table/reinforced,
-/obj/item/mining_scanner,
 /turf/open/floor/plating/lavaland_atmos,
 /area/lavaland/surface/outdoors)
 "B" = (
@@ -43,7 +42,10 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "E" = (
-/turf/open/floor/plating/lavaland_atmos,
+/obj/item/gps/computer/beacon{
+	gpstag = "Geological Site"
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "F" = (
 /obj/effect/turf_decal/stripes/line{
@@ -184,7 +186,7 @@ s
 s
 r
 E
-E
+a
 a
 a
 H
