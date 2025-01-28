@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "9mm magazines (e.g. the Makarov) are no longer invisible."
+  - balance: ".35 Sol Short extended magazines are now small-sized, and thus fit in boxes or belts with less finagling."
+  - balance: "The Makarov guncase from the uplink is now normal-sized, and thus fits in backpacks."
