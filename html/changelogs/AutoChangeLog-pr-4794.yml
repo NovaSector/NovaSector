@@ -1,0 +1,5 @@
+author: "Trelus"
+delete-after: True
+changes:
+  - rscadd: "Added the 'Zashch' self-loading pistol, as well as an entry for purchasing it from cargo's NRI supply company import"
+  - rscadd: "Added the Zashch pistol magazine, as well as an entry for purchasing it from cargo's NRI supply company import"
