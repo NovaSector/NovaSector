@@ -22,7 +22,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "bi" = (
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
@@ -46,7 +46,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cf" = (
 /obj/machinery/light/small/red/directional/west,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
@@ -97,7 +97,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "db" = (
 /obj/machinery/light/broken/directional/east,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
@@ -174,7 +174,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "fa" = (
@@ -235,7 +235,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "gm" = (
 /obj/machinery/light/small/red/directional/south,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "gr" = (
@@ -309,7 +309,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "hU" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "iy" = (
@@ -350,7 +350,7 @@
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "iU" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
@@ -380,7 +380,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "kn" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/cheesezombie,
+/mob/living/basic/zombie/cheesezombie,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "kA" = (
@@ -417,7 +417,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lK" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lM" = (
@@ -644,7 +644,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "sV" = (
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "sY" = (
@@ -1026,7 +1026,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cu" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -1174,7 +1174,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EL" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
@@ -1198,7 +1198,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EY" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -1329,7 +1329,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "IZ" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ja" = (
@@ -1388,7 +1388,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Kk" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
@@ -1549,7 +1549,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ny" = (
-/mob/living/simple_animal/hostile/zombie/cheesezombie,
+/mob/living/basic/zombie/cheesezombie,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Nz" = (
@@ -1574,7 +1574,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NU" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
@@ -1905,7 +1905,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "YG" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "YP" = (

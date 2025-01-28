@@ -1,4 +1,0 @@
-author: "Zenitheevee"
-delete-after: True
-changes:
-  - bugfix: "turrets will turn off instead of yelling endlessly when empty (stoping it from infilooping)"

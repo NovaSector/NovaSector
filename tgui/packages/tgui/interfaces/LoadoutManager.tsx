@@ -1,10 +1,17 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { BooleanLike } from 'common/react';
-import { createSearch } from 'common/string';
 import { useState } from 'react';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Input,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import { BooleanLike } from 'tgui-core/react';
+import { createSearch } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
-import { Box, Button, Dropdown, Input, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type LoadoutTabData = {

@@ -11,9 +11,13 @@
 
 /obj/item/domain_anchor/attack_self(mob/user, modifiers)
 	for(var/obj/machinery/quantum_server/server in SSmachines.get_machines_by_type(/obj/machinery/quantum_server))
+		if(server.current_anchors >= server.max_anchors)
+			user.balloon_alert(user, "bandwidth limit reached!")
+			return FALSE
 		server.exit_turfs += get_turf(src)
 		server.retries_spent -= 1
 		server.threat += 1
+		server.current_anchors += 1
 		server.radio.talk_into(src, "Potential secure datastream detected. Locking on the new spawn point.", RADIO_CHANNEL_SUPPLY)
 	new /obj/effect/landmark/bitrunning/domain_anchor(drop_location())
 	user.balloon_alert(user, "connection stabilized!")

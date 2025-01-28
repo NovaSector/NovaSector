@@ -71,3 +71,19 @@
 	ammo_type = /obj/item/ammo_casing/p60strela
 	max_ammo = 3
 	caliber = CALIBER_60STRELA
+
+// Magazine for the Zashch pistol
+
+/obj/item/ammo_box/magazine/zashch
+	name = "\improper Zashch pistol magazine"
+	desc = "A large magazine for the Zashchitnik pistol. Holds 18 rounds of 10mm."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
+	icon_state = "zashch_mag"
+	base_icon_state = "zashch_mag"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	ammo_type = /obj/item/ammo_casing/c10mm
+	max_ammo = 18
+	caliber = CALIBER_10MM
+
+/obj/item/ammo_box/magazine/zashch/spawns_empty
+	start_empty = TRUE
