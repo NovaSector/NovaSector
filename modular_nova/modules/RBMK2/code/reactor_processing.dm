@@ -22,7 +22,7 @@
 		update_appearance(UPDATE_ICON)
 		return
 
-	var/amount_to_consume = (gas_consumption_base + (rod_mix.temperature/1000)*gas_consumption_heat) * clamp(1 - (rod_mix_pressure - stored_rod.pressure_limit*0.5)/stored_rod.pressure_limit*0.5,0.25,1) * seconds_per_tick * 0.5
+	var/amount_to_consume = (gas_consumption_base + (rod_mix.temperature/1000)*gas_consumption_heat) * clamp(1 - (rod_mix_pressure - stored_rod.pressure_limit*0.5)/stored_rod.pressure_limit*0.5, 0.25, 1) * seconds_per_tick * 0.5
 	if(!amount_to_consume)
 		update_appearance(UPDATE_ICON)
 		return
@@ -30,7 +30,7 @@
 
 	//Remove gas from the rod to be processed.
 	rod_mix.assert_gas(/datum/gas/tritium)
-	var/datum/gas_mixture/consumed_mix = rod_mix.remove_specific(/datum/gas/tritium,amount_to_consume)
+	var/datum/gas_mixture/consumed_mix = rod_mix.remove_specific(/datum/gas/tritium, amount_to_consume)
 
 	if(!consumed_mix)
 		toggle_active(null,FALSE)
@@ -65,7 +65,7 @@
 			radiation_pulse(src,last_radiation_pulse, threshold = insulation_threshold_math)
 
 		if(power && powernet && last_power_generation)
-			src.add_avail(min(last_power_generation,max_power_generation*10))
+			src.add_avail(min(last_power_generation, max_power_generation*10))
 		consumed_mix.remove_specific(/datum/gas/tritium, last_tritium_consumption*0.50) //50% of used tritium gets deleted. The rest gets thrown into the air.
 		var/our_heat_capacity = consumed_mix.heat_capacity()
 		if(our_heat_capacity > 0)
@@ -73,11 +73,11 @@
 			consumed_mix.assert_gas(/datum/gas/goblin)
 			consumed_mix.gases[/datum/gas/goblin][MOLES] += last_tritium_consumption*goblin_multiplier * seconds_per_tick * 0.5
 			consumed_mix.temperature += (temperature_mod-rand())*8 + (16000/our_heat_capacity)*(overclocked ? 2 : 1)*power_efficiency*temperature_mod*0.5*(1/(vent_pressure/200))*seconds_per_tick*0.5
-			consumed_mix.temperature = clamp(consumed_mix.temperature,5,0xFFFFFF)
+			consumed_mix.temperature = clamp(consumed_mix.temperature, 5, 0xFFFFFF)
 
 		if(rod_mix_pressure >= stored_rod.pressure_limit*(1 + rand()*0.25)) //Pressure friction penalty.
-			rod_mix.temperature += (min(rod_mix_pressure/stored_rod.pressure_limit,4) - 1) * (3/rod_mix_heat_capacity)*seconds_per_tick*0.5
-			rod_mix.temperature = clamp(rod_mix.temperature,5,0xFFFFFF)
+			rod_mix.temperature += (min(rod_mix_pressure/stored_rod.pressure_limit, 4) - 1) * (3/rod_mix_heat_capacity)*seconds_per_tick*0.5
+			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
 	else
 		toggle_active(null,FALSE)
 
@@ -97,7 +97,7 @@
 			jam(null,TRUE)
 		else
 			toggle_active(null,FALSE)
-			take_damage(3,armour_penetration=100)
+			take_damage(3, armour_penetration = 100)
 			src.Shake(duration=0.5 SECONDS)
 
 	if(active && rod_mix.temperature > stored_rod.temperature_limit || last_power_generation > max_power_generation*(1.1 + rand()) )
@@ -108,16 +108,13 @@
 		var/chosen_sound = pick('modular_nova/modules/RBMK2/sounds/failure01.ogg','modular_nova/modules/RBMK2/sounds/failure02.ogg','modular_nova/modules/RBMK2/sounds/failure03.ogg','modular_nova/modules/RBMK2/sounds/failure04.ogg')
 		playsound(src, chosen_sound, 50, TRUE, extrarange = -3)
 		take_damage(2,armour_penetration=100) //Lasts 5 minutes. Probably less due to other factors.
-		src.Shake(duration=0.5 SECONDS)
+		src.Shake(duration = 0.5 SECONDS)
 	else if(meltdown && rod_mix.temperature <= stored_rod.temperature_limit*0.75 && last_power_generation <= max_power_generation*0.5) //Hard to get out of a meltdown.
 		meltdown = FALSE
-
 	update_appearance(UPDATE_ICON)
-
 	return TRUE
 
 /obj/machinery/power/rbmk2/process_atmos() //Only turf air related stuff is handled here.
-
 	var/turf/turf_loc = loc
 	if(!istype(turf_loc))
 		return //wat
@@ -131,11 +128,11 @@
 		var/rod_mix_heat_capacity = rod_mix.heat_capacity()
 		if(rod_mix_heat_capacity > 0)
 			rod_mix.temperature += (rod_mix.temperature*0.02*rand() + (8000/rod_mix_heat_capacity)*(overclocked ? 2 : 1))*meltdown_multiplier * seconds_per_tick * 0.5 //It's... it's not shutting down!
-			rod_mix.temperature = clamp(rod_mix.temperature,5,0xFFFFFF)
+			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
 		var/ionize_air_amount = min( (0.5 + rod_mix.temperature/2000) * meltdown_multiplier * seconds_per_tick * 0.5, 5) //For every 2000 kelvin. Capped at 5 tiles.
 		var/ionize_air_range = CEILING(ionize_air_amount,1)
 		var/total_ion_amount = 0
-		for(var/turf/ion_turf as anything in RANGE_TURFS(ionize_air_range,T))
+		for(var/turf/ion_turf as anything in RANGE_TURFS(ionize_air_range, turf_loc))
 			if(!SPT_PROB(40, seconds_per_tick)) //Atmos optimization.
 				continue
 			var/datum/gas_mixture/ion_turf_mix = ion_turf.return_air()
@@ -153,11 +150,11 @@
 				total_ion_amount += ion_amount
 
 		var/ionization_amount_ratio = total_ion_amount/ionize_air_amount
-		var/criticality_to_add = min(ionization_amount_ratio,3) * rand() * seconds_per_tick * 0.5
+		var/criticality_to_add = min(ionization_amount_ratio, 3) * rand() * seconds_per_tick * 0.5
 		if(criticality_to_add > 0)
-			criticality_to_add = FLOOR(criticality_to_add,0.01)
+			criticality_to_add = FLOOR(criticality_to_add, 0.01)
 			if(criticality >= 100) //It keeps going.
-				if(SPT_PROB(criticality/1000)) //The chance to explode. Yes, it's supposed to be this low.
+				if(SPT_PROB(criticality/1000, seconds_per_tick)) //The chance to explode. Yes, it's supposed to be this low.
 					deconstruct(FALSE)
 				else
 					criticality += rand(criticality_to_add*4,criticality_to_add*10 * seconds_per_tick * 0.5)
@@ -170,11 +167,11 @@
 
 	if(venting)
 		if(vent_reverse_direction)
-			turf_air.pump_gas_to(buffer_gases,vent_pressure) //Pump turf gases to buffer.
+			turf_air.pump_gas_to(buffer_gases, vent_pressure) //Pump turf gases to buffer.
 		else
 			if(active)
-				buffer_gases.pump_gas_to(turf_air,vent_pressure) //Pump buffer gases to turf. Reduced rate because active.
-				if(stored_rod) transfer_rod_temperature(turf_air, allow_cooling_limiter = TRUE, multiplier = min(1,0.5*(vent_pressure/200)))
+				buffer_gases.pump_gas_to(turf_air, vent_pressure) //Pump buffer gases to turf. Reduced rate because active.
+				if(stored_rod) transfer_rod_temperature(turf_air, allow_cooling_limiter = TRUE, multiplier = min(1, 0.5*(vent_pressure/200)))
 			else
-				buffer_gases.pump_gas_to(turf_air,vent_pressure*2) //Pump buffer gases to turf. Increases rate because inactive.
+				buffer_gases.pump_gas_to(turf_air, vent_pressure*2) //Pump buffer gases to turf. Increases rate because inactive.
 				if(stored_rod) transfer_rod_temperature(turf_air, allow_cooling_limiter = FALSE)

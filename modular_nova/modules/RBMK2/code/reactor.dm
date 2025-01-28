@@ -21,42 +21,57 @@
 
 	armor_type = /datum/armor/rbmk2
 
-	var/active = FALSE //Is this machine active?
-	var/power = TRUE //Is this machine giving power?
-	var/overclocked = FALSE //Is this machine overclocked, consuming more tritium?
-	var/venting = TRUE //Is this machine venting the gases?
-	var/vent_reverse_direction = FALSE //Is this machine venting in the reverse direction (sucking)?
-	var/safety = TRUE //Is the safety active?
-	var/cooling_limiter = 50 //Current cooling limiter amount.
-	var/cooling_limiter_max = 90 //Maximum possible cooling limiter amount.
-	var/jammed = FALSE //Is the reactor ejection system jammed?
-	var/tampered = FALSE //Was the anti-tamper light activated?
-
-	var/meltdown = FALSE //Is the reactor currently suffering from a meltdown?
-	var/criticality = 0 //Once this reaches 100, you're going to see some serious shit.
-	var/was_warned = FALSE
-
-	var/obj/item/tank/rbmk2_rod/stored_rod //Currently stored rbmk2 rod.
-	var/datum/gas_mixture/buffer_gases //Gas that has yet to be leaked out due to not venting fast enough.
-
-	var/last_power_generation = 0 //Display purposes. Do not edit.
-	var/last_tritium_consumption = 0 //Display purposes. Do not edit.
-	var/last_radiation_pulse = 0 //Display purposes. Do not edit.
-
-	var/gas_consumption_base = 0.000005 //How much gas gets consumed, in moles, per cycle.
-	var/gas_consumption_heat = 0.0018 //How much gas gets consumed, in moles, per cycle, per 1000 kelvin.
-
-	var/base_power_generation = 7800000 //How many joules of power to add per mole of tritium processed.
-
-	var/goblin_multiplier = 8 //How many mols of goblin gas produced per mol of tritium. Increases with matter bins.
-
+	/// Is this machine active?
+	var/active = FALSE
+	/// Is this machine giving power?
+	var/power = TRUE
+	/// Is this machine overclocked, consuming more tritium?
+	var/overclocked = FALSE
+	/// Is this machine venting the gases?
+	var/venting = TRUE
+	/// Is this machine venting in the reverse direction (sucking)?
+	var/vent_reverse_direction = FALSE
+	/// Is the safety active?
+	var/safety = TRUE
+	/// Current cooling limiter amount.
+	var/cooling_limiter = 50
+	/// Maximum possible cooling limiter amount.
+	var/cooling_limiter_max = 90
+	/// Is the reactor ejection system jammed?
+	var/jammed = FALSE
+	/// Was the anti-tamper light activated?
+	var/tampered = FALSE
+	/// Is the reactor currently suffering from a meltdown?
+	var/meltdown = FALSE
+	/// Once this reaches 100, you're going to see some serious shit.
+	var/criticality = 0
+	/// Currently stored rbmk2 rod.
+	var/obj/item/tank/rbmk2_rod/stored_rod
+	/// Gas that has yet to be leaked out due to not venting fast enough.
+	var/datum/gas_mixture/buffer_gases
+	/// Display purposes. Do not edit.
+	var/last_power_generation = 0
+	/// Display purposes. Do not edit.
+	var/last_tritium_consumption = 0
+	/// Display purposes. Do not edit.
+	var/last_radiation_pulse = 0
+	/// How much gas gets consumed, in moles, per cycle.
+	var/gas_consumption_base = 0.000005
+	/// How much gas gets consumed, in moles, per cycle, per 1000 kelvin.
+	var/gas_consumption_heat = 0.0018
+	/// How many joules of power to add per mole of tritium processed.
+	var/base_power_generation = 7800000
+	/// How many mols of goblin gas produced per mol of tritium. Increases with matter bins.
+	var/goblin_multiplier = 8
+	/// Max power generation possible with safeties on. Stock parts effect this value.
 	var/safeties_max_power_generation = 230000
-
-	//Upgradable stats.
-	var/power_efficiency = 1 //A multiplier of base_power_generation. Also has an effect on heat generation. Improved via capacitors.
-	var/vent_pressure = 200 //Pressure, in kPa, that the buffer releases the gas to. Improved via servos.
-	var/max_power_generation = 350000 //Maximum allowed power generation (joules) per cycle before the rods go apeshit. Improved via matter bins. The absolute max is 20 times this.
-
+	/// A multiplier of base_power_generation. Also has an effect on heat generation. Improved via capacitors.
+	var/power_efficiency = 1
+	/// Pressure, in kPa, that the buffer releases the gas to. Improved via servos.
+	var/vent_pressure = 200
+	/// Maximum allowed power generation (joules) per cycle before the rods go apeshit. Improved via matter bins. The absolute max is 20 times this.
+	var/max_power_generation = 350000
+	/// All the sniffers linked to the reactor. They basically act as the radio for it.
 	var/list/obj/machinery/rbmk2_sniffer/linked_sniffers = list()
 
 /datum/armor/rbmk2
@@ -129,7 +144,7 @@
 
 /obj/machinery/power/rbmk2/return_analyzable_air()
 	. = list()
-	if(stored_rod) 
+	if(stored_rod)
 		. += stored_rod.air_contents
 	. += buffer_gases
 
@@ -162,17 +177,17 @@
 			message_admins("[src] exploded due to criticality at [ADMIN_VERBOSEJMP(our_turf)]")
 			log_game("[src] exploded due to criticality [AREACOORD(our_turf)]")
 			investigate_log("exploded due to criticality [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
-			stored_rod.take_damage(1000, armour_penetration=100)
+			stored_rod.take_damage(1000, armour_penetration = 100)
 			if(stored_rod)
 				remove_rod()
-			explosion(src, devastation_range  = explosion_power*0.25, heavy_impact_range = explosion_power*0.5, light_impact_range = explosion_power, flash_range = explosion_power*2, adminlog = FALSE)
+			explosion(src, devastation_range = explosion_power*0.25, heavy_impact_range = explosion_power*0.5, light_impact_range = explosion_power, flash_range = explosion_power*2, adminlog = FALSE)
 			last_radiation_pulse = GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE*4 //It just keeps getting worse and worse.
-			radiation_pulse(src,last_radiation_pulse,threshold = RAD_FULL_INSULATION)
+			radiation_pulse(src, last_radiation_pulse,threshold = RAD_FULL_INSULATION)
 		else
 			message_admins("[src] exploded due to damage at [ADMIN_VERBOSEJMP(our_turf)]")
 			log_game("[src] exploded due to damage [AREACOORD(our_turf)]")
 			investigate_log("exploded due to damage [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
-			stored_rod.take_damage(1000,armour_penetration=100)
+			stored_rod.take_damage(1000, armour_penetration = 100)
 			if(stored_rod) //Just in case.
 				remove_rod()
 	. = ..()
@@ -185,7 +200,7 @@
 
 /obj/machinery/power/rbmk2/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(!user.combat_mode)
-		if(!active && istype(attacking_item,/obj/item/tank/rbmk2_rod/)) //Insert a rod.
+		if(!active && istype(attacking_item, /obj/item/tank/rbmk2_rod/)) //Insert a rod.
 			src.add_fingerprint(user)
 			attacking_item.add_fingerprint(user)
 			return add_rod(user,attacking_item)
@@ -204,15 +219,15 @@
 	. = ..()
 	update_appearance(UPDATE_ICON)
 
-/obj/machinery/power/rbmk2/proc/force_unjam(obj/item/attacking_item,mob/living/user,damage_to_deal=50)
+/obj/machinery/power/rbmk2/proc/force_unjam(obj/item/attacking_item, mob/living/user,damage_to_deal=50)
 	if(!jammed)
 		return FALSE
 	if(atom_integrity <= damage_to_deal)
 		balloon_alert(user, "too damaged!")
 		return FALSE
 	if(attacking_item.use_tool(src, user, 4 SECONDS, volume = 50) && jam(user,FALSE))
-		take_damage(damage_to_deal,armour_penetration=100)
-		src.Shake(duration=0.5 SECONDS)
+		take_damage(damage_to_deal, armour_penetration = 100)
+		src.Shake(duration = 0.5 SECONDS)
 		balloon_alert(user, "unjammed!")
 		return TRUE
 	return FALSE
@@ -226,7 +241,7 @@
 			balloon_alert(user, "rod removed!")
 		return TRUE
 
-/obj/machinery/power/rbmk2/proc/remove_rod(mob/living/user,do_throw=FALSE)
+/obj/machinery/power/rbmk2/proc/remove_rod(mob/living/user, do_throw = FALSE)
 	if(!stored_rod)
 		return FALSE
 	if(active && !jammed)
@@ -239,9 +254,9 @@
 	if(do_throw)
 		if(jammed)
 			if(prob(80))
-				take_damage(0.5,armour_penetration=100,sound_effect=FALSE)
-				stored_rod.take_damage(0.5,armour_penetration=100)
-				src.Shake(duration=0.5 SECONDS)
+				take_damage(0.5, armour_penetration = 100, sound_effect = FALSE)
+				stored_rod.take_damage(0.5, armour_penetration = 100)
+				src.Shake(duration = 0.5 SECONDS)
 				playsound(src, pick('sound/effects/structure_stress/pop1.ogg','sound/effects/structure_stress/pop2.ogg','sound/effects/structure_stress/pop3.ogg'), 50, TRUE, extrarange = -3)
 				return FALSE
 			else //Yes. Spamming the eject button can unjam it.
@@ -250,7 +265,7 @@
 				playsound(src, 'sound/machines/shutter.ogg', 50, TRUE, extrarange = -3)
 				return FALSE
 		stored_rod.forceMove(our_turf)
-		stored_rod.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(3,6),5)
+		stored_rod.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(3,6), 5)
 		playsound(src, 'sound/items/weapons/gun/general/grenade_launch.ogg', 50, TRUE, extrarange = -3)
 	else
 		if(jammed)
@@ -264,7 +279,7 @@
 		investigate_log("had a rod removed by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/add_rod(mob/living/user,obj/item/tank/rbmk2_rod/desired_rod)
+/obj/machinery/power/rbmk2/proc/add_rod(mob/living/user, obj/item/tank/rbmk2_rod/desired_rod)
 	if(stored_rod && !remove_rod(user))
 		return FALSE
 	if(active)
@@ -280,7 +295,7 @@
 	return TRUE
 
 
-/obj/machinery/power/rbmk2/proc/jam(mob/living/user,desired_state=!jammed)
+/obj/machinery/power/rbmk2/proc/jam(mob/living/user,desired_state =! jammed)
 
 	if(jammed == desired_state)
 		return
@@ -302,7 +317,7 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/toggle_active(mob/living/user,desired_state=!active)
+/obj/machinery/power/rbmk2/proc/toggle_active(mob/living/user, desired_state =! active)
 
 	if(active == desired_state)
 		return
@@ -338,7 +353,7 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/toggle_vents(mob/living/user,desired_state=!venting)
+/obj/machinery/power/rbmk2/proc/toggle_vents(mob/living/user, desired_state =! venting)
 
 	if(desired_state == venting)
 		return FALSE
@@ -360,6 +375,7 @@
 
 	return TRUE
 
+/// Switches vent directions. Toggling between sucking air in and pushing air out
 /obj/machinery/power/rbmk2/proc/toggle_reverse_vents(mob/living/user, desired_state =! vent_reverse_direction)
 
 	if(desired_state == vent_reverse_direction)
@@ -394,11 +410,11 @@
 	var/max_power_generation_mul = 0
 	goblin_multiplier = initial(goblin_multiplier)
 	for(var/datum/stock_part/matter_bin/new_matter_bin in component_parts)
-		max_power_generation_mul += (new_matter_bin.tier * 0.5) + max(0,new_matter_bin.tier-1)*0.1
+		max_power_generation_mul += (new_matter_bin.tier * 0.5) + max(0, new_matter_bin.tier-1)*0.1
 		goblin_multiplier += (new_matter_bin.tier-1)*0.5
 	max_power_generation = initial(max_power_generation) * (max_power_generation_mul**(1 + (max_power_generation_mul-1)*0.1))
-	max_power_generation = FLOOR(max_power_generation,10000)
-	safeties_max_power_generation = max(initial(safeties_max_power_generation),round(max_power_generation*0.75,125000))
+	max_power_generation = FLOOR(max_power_generation, 10000)
+	safeties_max_power_generation = max(initial(safeties_max_power_generation), round(max_power_generation*0.75,125000))
 
 	//Requires x4 servos
 	var/vent_pressure_multiplier = 0
@@ -431,7 +447,7 @@
 			toggle_active(usr)
 			. = TRUE
 		if("eject")
-			remove_rod(usr,do_throw=TRUE)
+			remove_rod(usr, do_throw = TRUE)
 			. = TRUE
 		if("venttoggle")
 			toggle_vents(usr)
@@ -487,7 +503,7 @@
 	. += "It can output in environments up to <b>[vent_pressure]kPa</b>."
 	. += "It can handle an estimated power load of <b>[display_power(max_power_generation)]</b> before going critical."
 
-/obj/machinery/power/rbmk2/proc/transfer_rod_temperature(datum/gas_mixture/gas_source,allow_cooling_limiter=TRUE,multiplier=1)
+/obj/machinery/power/rbmk2/proc/transfer_rod_temperature(datum/gas_mixture/gas_source, allow_cooling_limiter = TRUE, multiplier = 1)
 
 	var/datum/gas_mixture/rod_mix = stored_rod.air_contents
 
@@ -510,14 +526,14 @@
 
 	var/temperature_change = (energy_transfer/rod_mix_heat_capacity)*multiplier
 	if(allow_cooling_limiter && temperature_change > 0) //Cooling!
-		temperature_change *= clamp(1 - cooling_limiter*0.01,0,1) //Clamped in case of adminbus fuckery.
+		temperature_change *= clamp(1 - cooling_limiter*0.01, 0,1) //Clamped in case of adminbus fuckery.
 
 	rod_mix.temperature -= temperature_change*0.85
 	gas_source.temperature += temperature_change
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/shock(mob/living/victim,shock_multiplier=1)
+/obj/machinery/power/rbmk2/proc/shock(mob/living/victim, shock_multiplier = 1)
 	if(!powernet)
 		return FALSE
 	if(!electrocute_mob(victim, powernet, src, shock_multiplier, TRUE))

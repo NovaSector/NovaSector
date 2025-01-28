@@ -23,12 +23,12 @@
 	return sniffer.panel_open
 
 /datum/wires/rbmk2_sniffer/get_status()
-	var/obj/machinery/rbmk2_sniffer/M = holder
+	var/obj/machinery/rbmk2_sniffer/sniffer = holder
 	. = list()
-	. += "The radio light is [M.radio_enabled ? "blinking red" : "off"]."
-	if(M.link_confirm)
+	. += "The radio light is [sniffer.radio_enabled ? "blinking red" : "off"]."
+	if(sniffer.link_confirm)
 		. += "The LED display is displaying \"LINK CONFIRM?\"."
-	else if(M.unlink_confirm)
+	else if(sniffer.unlink_confirm)
 		. += "The LED display is displaying \"UNLINK CONFIRM?\"."
 	else
 		. += "The LED display is displaying nothing."

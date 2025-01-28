@@ -11,8 +11,9 @@
 	force = 8
 	armor_type = /datum/armor/reactor_rod
 	volume = 50
-
+	/// Used in reactor calculations related to the fuel rod.
 	var/pressure_limit = 9000
+	/// Used in reactor calculations related to the fuel rod.
 	var/temperature_limit = T0C + 1800
 
 /datum/armor/reactor_rod
@@ -39,12 +40,11 @@
 	machine.stored_rod = null
 	machine.active = FALSE
 	machine.jammed = FALSE
-	src.forceMove(get_turf(M))
+	src.forceMove(get_turf(machine))
 	. = ..()
 
 
 //Special override proc that removes the tank exploding, reacting, or leaking gas.
-
 /obj/item/tank/rbmk2_rod/process(seconds_per_tick)
 	STOP_PROCESSING(SSobj, src)
 	return

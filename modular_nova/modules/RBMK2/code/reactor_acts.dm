@@ -20,7 +20,7 @@
 //Deconstruct.
 /obj/machinery/power/rbmk2/crowbar_act(mob/living/user, obj/item/attack_item)
 	if(jammed)
-		force_unjam(attack_item,user,25)
+		force_unjam(attack_item,user, 25)
 		return ITEM_INTERACT_SUCCESS
 	if(stored_rod)
 		balloon_alert(user, "remove the rod first!")
@@ -57,13 +57,13 @@
 		return ITEM_INTERACT_BLOCKING
 	if (machine_stat & BROKEN)
 		balloon_alert(user, "too damaged to repair!")
-		return ITEM_INTERACT_blocking
+		return ITEM_INTERACT_BLOCKING
 	if(!attack_item.tool_start_check(user, amount=1))
 		return ITEM_INTERACT_BLOCKING
 
 	balloon_alert(user, "repairing...")
 	if(attack_item.use_tool(src, user, 4 SECONDS, volume = 50))
-		update_integrity(min(atom_integrity + 50,max_integrity))
+		update_integrity(min(atom_integrity + 50, max_integrity))
 
 		if(atom_integrity >= max_integrity)
 			balloon_alert(user, "fully repaired!")
@@ -83,6 +83,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 
+	/// The chance for EMP effects to occur. The probability lowering as more get rolled.
 	var/chance = 50
 
 	//Order from least dangerous to most dangerous.
@@ -96,19 +97,19 @@
 		chance -= 10
 
 	if(prob(chance))
-		remove_rod(do_throw=prob(50))
+		remove_rod(do_throw = prob(50))
 		chance -= 10
 
 	if(prob(chance))
-		overclocked = rand(0,1)
+		overclocked = rand(0, 1)
 		chance -= 10
 
 	if(prob(chance))
-		cooling_limiter = rand(1,src.cooling_limiter_max/10)*10
+		cooling_limiter = rand(1, src.cooling_limiter_max/10)*10
 		chance -= 10
 
 	if(prob(chance))
-		safety = rand(0,1)
+		safety = rand(0, 1)
 		chance -= 10
 
 /obj/machinery/power/rbmk2/emag_act(mob/user, obj/item/card/emag/emag_card)

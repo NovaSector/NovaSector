@@ -94,7 +94,7 @@
 				if(usr)
 					message_admins("[src] had the safety wire cut by [ADMIN_LOOKUPFLW(usr)] at [ADMIN_VERBOSEJMP(machine_turf)].")
 					usr.log_message("cut the safety wire of [machine]", LOG_GAME)
-					M.investigate_log("had the safety wire cut by [key_name(usr)] at [AREACOORD(machine)].", INVESTIGATE_ENGINE)
+					machine.investigate_log("had the safety wire cut by [key_name(usr)] at [AREACOORD(machine)].", INVESTIGATE_ENGINE)
 				else
 					message_admins("[src] had the safety wire cut at [ADMIN_VERBOSEJMP(machine_turf)]")
 					log_game("[src] had the safety wire cut at [AREACOORD(machine_turf)]")

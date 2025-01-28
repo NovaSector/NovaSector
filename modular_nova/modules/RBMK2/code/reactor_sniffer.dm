@@ -27,23 +27,30 @@
 
 	circuit = /obj/item/circuitboard/machine/rbmk2_sniffer
 
+	/// The last meltdown state detected by the sniffer.
 	var/last_meltdown = FALSE
+	/// The last criticality value detected by the sniffer.
 	var/last_criticality = 0
+	/// The last integrity value detected by the sniffer.
 	var/last_integrity = 100
+	/// Has the sniffer alerted the emergency channel?
 	var/alerted_emergency_channel = FALSE
-
+	/// All the reactors the sniffer is linked to.
 	var/list/obj/machinery/power/rbmk2/linked_reactors = list()
 
 	resistance_flags = FIRE_PROOF
 
+	// Vars for the wires.
 	var/radio_enabled = TRUE
 	var/link_confirm = FALSE
 	var/unlink_confirm = FALSE
 	var/test_wire_switch = FALSE
-
-	var/obj/item/radio/stored_radio //Internal radio.
-	var/radio_key = /obj/item/encryptionkey/headset_eng //The key our internal radio uses
-	var/emergency_channel = null // Need null to actually broadcast to common. Stolen from supermatter code so they know about this. lol. lmao.
+	/// Internal radio.
+	var/obj/item/radio/stored_radio
+	/// The key our internal radio uses
+	var/radio_key = /obj/item/encryptionkey/headset_eng
+	/// Need null to actually broadcast to common. Stolen from supermatter code.
+	var/emergency_channel = null
 	var/warning_channel = RADIO_CHANNEL_ENGINEERING
 
 	COOLDOWN_DECLARE(radio_cooldown_integrity)
@@ -65,8 +72,8 @@
 	find_and_hang_on_wall()
 
 	if(mapload)
-		for(var/obj/machinery/power/rbmk2/reactor in range(10,src))
-			link_reactor(null,reactor)
+		for(var/obj/machinery/power/rbmk2/reactor in range(10, src))
+			link_reactor(null, reactor)
 
 /obj/machinery/rbmk2_sniffer/update_icon()
 
@@ -115,7 +122,7 @@
 		wires.interact(user)
 		return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/rbmk2_sniffer/proc/link_reactor(mob/user,obj/machinery/power/rbmk2/desired_reactor)
+/obj/machinery/rbmk2_sniffer/proc/link_reactor(mob/user, obj/machinery/power/rbmk2/desired_reactor)
 
 	if(linked_reactors[desired_reactor])
 		balloon_alert(user, "already linked!")
@@ -126,7 +133,7 @@
 
 	return TRUE
 
-/obj/machinery/rbmk2_sniffer/proc/unlink_reactor(mob/user,obj/machinery/power/rbmk2/desired_reactor)
+/obj/machinery/rbmk2_sniffer/proc/unlink_reactor(mob/user, obj/machinery/power/rbmk2/desired_reactor)
 
 	if(!linked_reactors[desired_reactor])
 		return FALSE
@@ -147,7 +154,7 @@
 	else
 		. += span_notice("It is glowing a steady green.")
 
-/obj/machinery/rbmk2_sniffer/proc/alert_radio(alert_text,bypass_cooldown = FALSE, alert_emergency_channel = FALSE,criticality = TRUE)
+/obj/machinery/rbmk2_sniffer/proc/alert_radio(alert_text, bypass_cooldown = FALSE, alert_emergency_channel = FALSE,criticality = TRUE)
 
 	if(!radio_enabled || !alert_text)
 		return FALSE
@@ -208,7 +215,7 @@
 			alert_radio(
 				"Stray ionization process halted. Returning to safe operating parameters.",
 				bypass_cooldown = TRUE,
-				alert_emergency_channel=alerted_emergency_channel,
+				alert_emergency_channel = alerted_emergency_channel,
 			)
 			alerted_emergency_channel = FALSE
 	else if( highest_criticality >= 100 || abs(highest_criticality - last_criticality) >= 3 )
@@ -217,12 +224,12 @@
 			alert_radio(
 				"CRITICALITY THRESHOLD MET! SEEK SHELTER IMMEDIATELY! CRITICALITY AT [round(last_criticality,0.1)]%!",
 				bypass_cooldown = TRUE,
-				alert_emergency_channel=alert_emergency_channel,
+				alert_emergency_channel = alert_emergency_channel,
 			)
 		else
 			alert_radio(
 				"Stray ionization detected! Criticality at [round(last_criticality,0.1)]%!",
-				alert_emergency_channel=alert_emergency_channel,
+				alert_emergency_channel = alert_emergency_channel,
 			)
 
 	if(lowest_integrity_percent <= 0.8)
@@ -230,9 +237,9 @@
 		if(abs(highest_criticality - last_criticality) >= 0.05 || lowest_integrity_percent <= 0.3)
 			alert_radio(
 				"[lowest_integrity_percent <= 0.3 ? "DANGER!" : "Warning!"] integrity at [round(lowest_integrity_percent*100,0.1)]%! Perform repairs immediately!",
-				alert_emergency_channel=alert_emergency_channel,
+				alert_emergency_channel = alert_emergency_channel,
 				criticality = FALSE,
-				bypass_cooldown=lowest_integrity_percent <= 0.3,
+				bypass_cooldown = lowest_integrity_percent <= 0.3,
 			)
 
 	update_appearance(UPDATE_ICON)

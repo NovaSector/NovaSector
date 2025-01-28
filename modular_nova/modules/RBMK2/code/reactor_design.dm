@@ -4,7 +4,7 @@
 	id = "rbmk2_reactor"
 	build_path = /obj/item/circuitboard/machine/rbmk2
 	category = list(
-		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
