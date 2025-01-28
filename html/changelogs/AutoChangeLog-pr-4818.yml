@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Subdermal splints, rapid coagulant applicators, and robot repair sprays should now work again"
