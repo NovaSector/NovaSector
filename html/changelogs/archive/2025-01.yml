@@ -1319,3 +1319,28 @@
   Zergspower:
   - qol: added custom hat offsets for the majority of borg models
   - bugfix: fixes borg hats on some models floating
+2025-01-28:
+  FlufflesTheDog:
+  - bugfix: Subdermal splints, rapid coagulant applicators, and robot repair sprays
+      should now work again
+  - bugfix: Department batons are no longer invisible
+  Hatterhat:
+  - bugfix: 9mm magazines (e.g. the Makarov) are no longer invisible.
+  - balance: .35 Sol Short extended magazines are now small-sized, and thus fit in
+      boxes or belts with less finagling.
+  - balance: The Makarov guncase from the uplink is now normal-sized, and thus fits
+      in backpacks.
+  MrSunabouzu:
+  - qol: cin surplus undersuit now comes with sensors.
+  OrbisAnima:
+  - qol: Removed Bounce from the P207 rounds (Kinetic Balls gun). Increased Magazine
+      size by 50% for the P207.
+  Stalkeros, Moldb for the sprites:
+  - image: Removes two pixels from the akula snout.
+  Trelus:
+  - rscadd: Added the 'Zashch' self-loading pistol, as well as an entry for purchasing
+      it from cargo's NRI supply company import
+  - rscadd: Added the Zashch pistol magazine, as well as an entry for purchasing it
+      from cargo's NRI supply company import
+  Zergspower:
+  - balance: blob point generation returned to baseline of 2
