@@ -8180,6 +8180,7 @@
 #include "modular_nova\modules\modular_implants\code\soulcatcher\handheld_soulcatcher.dm"
 #include "modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_body_component.dm"
 #include "modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_component.dm"
+#include "modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_devices.dm"
 #include "modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_mob.dm"
 #include "modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_tgui.dm"
 #include "modular_nova\modules\modular_implants\code\soulcatcher\soulcatcher_verbs.dm"
