@@ -129,7 +129,8 @@
 
 /obj/machinery/power/rbmk2/return_analyzable_air()
 	. = list()
-	if(stored_rod) . += stored_rod.air_contents
+	if(stored_rod) 
+		. += stored_rod.air_contents
 	. += buffer_gases
 
 /obj/machinery/power/rbmk2/Destroy()
@@ -138,10 +139,10 @@
 		sniffer.unlink_reactor(src)
 
 	if(SSticker.IsRoundInProgress())
-		var/turf/T = get_turf(src)
-		message_admins("[src] deleted at [ADMIN_VERBOSEJMP(T)]")
-		log_game("[src] deleted at [AREACOORD(T)]")
-		investigate_log("deleted at [AREACOORD(T)]", INVESTIGATE_ENGINE)
+		var/turf/our_turf = get_turf(src)
+		message_admins("[src] deleted at [ADMIN_VERBOSEJMP(our_turf)]")
+		log_game("[src] deleted at [AREACOORD(our_turf)]")
+		investigate_log("deleted at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	QDEL_NULL(stored_rod)
 
@@ -150,27 +151,27 @@
 
 	SSair.stop_processing_machine(src)
 
-	. = ..()
+	return ..()
 
 /obj/machinery/power/rbmk2/on_deconstruction(disassembled = TRUE)
 	if(!disassembled && stored_rod)
 		//Uh oh.
-		var/turf/T = get_turf(src)
+		var/turf/our_turf = get_turf(src)
 		if(criticality > 0)
 			var/explosion_power = (criticality/100)*8
-			message_admins("[src] exploded due to criticality at [ADMIN_VERBOSEJMP(T)]")
-			log_game("[src] exploded due to criticality [AREACOORD(T)]")
-			investigate_log("exploded due to criticality [AREACOORD(T)]", INVESTIGATE_ENGINE)
-			stored_rod.take_damage(1000,armour_penetration=100)
+			message_admins("[src] exploded due to criticality at [ADMIN_VERBOSEJMP(our_turf)]")
+			log_game("[src] exploded due to criticality [AREACOORD(our_turf)]")
+			investigate_log("exploded due to criticality [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
+			stored_rod.take_damage(1000, armour_penetration=100)
 			if(stored_rod)
 				remove_rod()
 			explosion(src, devastation_range  = explosion_power*0.25, heavy_impact_range = explosion_power*0.5, light_impact_range = explosion_power, flash_range = explosion_power*2, adminlog = FALSE)
 			last_radiation_pulse = GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE*4 //It just keeps getting worse and worse.
 			radiation_pulse(src,last_radiation_pulse,threshold = RAD_FULL_INSULATION)
 		else
-			message_admins("[src] exploded due to damage at [ADMIN_VERBOSEJMP(T)]")
-			log_game("[src] exploded due to damage [AREACOORD(T)]")
-			investigate_log("exploded due to damage [AREACOORD(T)]", INVESTIGATE_ENGINE)
+			message_admins("[src] exploded due to damage at [ADMIN_VERBOSEJMP(our_turf)]")
+			log_game("[src] exploded due to damage [AREACOORD(our_turf)]")
+			investigate_log("exploded due to damage [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 			stored_rod.take_damage(1000,armour_penetration=100)
 			if(stored_rod) //Just in case.
 				remove_rod()
@@ -230,8 +231,8 @@
 		return FALSE
 	if(active && !jammed)
 		return FALSE
-	var/turf/T = get_turf(src)
-	if(!T)
+	var/turf/our_turf = get_turf(src)
+	if(!our_turf)
 		return FALSE
 	if(meltdown)
 		return FALSE
@@ -248,13 +249,13 @@
 				toggle_active(user,FALSE) //Turning it off.
 				playsound(src, 'sound/machines/shutter.ogg', 50, TRUE, extrarange = -3)
 				return FALSE
-		stored_rod.forceMove(T)
+		stored_rod.forceMove(our_turf)
 		stored_rod.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(3,6),5)
 		playsound(src, 'sound/items/weapons/gun/general/grenade_launch.ogg', 50, TRUE, extrarange = -3)
 	else
 		if(jammed)
 			return FALSE
-		stored_rod.forceMove(T)
+		stored_rod.forceMove(our_turf)
 		playsound(src, 'sound/items/weapons/gun/shotgun/insert_shell.ogg', 50, TRUE, frequency = -1, extrarange = -3)
 	stored_rod = null
 	update_appearance(UPDATE_ICON)
@@ -287,13 +288,13 @@
 	if(!active && desired_state) //Can't jam when already open
 		return
 
-	var/turf/T = get_turf(src)
+	var/turf/our_turf = get_turf(src)
 	if(user)
 		user.log_message("jammed [src]", LOG_GAME)
 		investigate_log("jammed due to damage by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 	else
-		log_game("[src] jammed due to damage at [AREACOORD(T)]")
-		investigate_log("jammed due to damage at [AREACOORD(T)]", INVESTIGATE_ENGINE)
+		log_game("[src] jammed due to damage at [AREACOORD(our_turf)]")
+		investigate_log("jammed due to damage at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	jammed = desired_state
 
@@ -323,13 +324,13 @@
 	active = desired_state
 
 	if(active)
-		var/turf/T = get_turf(src)
+		var/turf/our_turf = get_turf(src)
 		if(user)
 			user.log_message("turned on [src]", LOG_GAME)
 			investigate_log("was turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 		else
-			log_game("[src] was turned on at [AREACOORD(T)]")
-			investigate_log("was turned on at [AREACOORD(T)]", INVESTIGATE_ENGINE)
+			log_game("[src] was turned on at [AREACOORD(our_turf)]")
+			investigate_log("was turned on at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	update_appearance(UPDATE_ICON)
 
@@ -345,13 +346,13 @@
 	venting = desired_state
 
 	if(!venting)
-		var/turf/T = get_turf(src)
+		var/turf/our_turf = get_turf(src)
 		if(user)
 			user.log_message("had vents turned off by [src]", LOG_GAME)
 			investigate_log("had vents turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 		else
-			log_game("[src] had vents turned off at [AREACOORD(T)]")
-			investigate_log("had vents turned off at [AREACOORD(T)]", INVESTIGATE_ENGINE)
+			log_game("[src] had vents turned off at [AREACOORD(our_turf)]")
+			investigate_log("had vents turned off at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	update_appearance(UPDATE_ICON)
 
@@ -359,7 +360,7 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/toggle_reverse_vents(mob/living/user,desired_state=!vent_reverse_direction)
+/obj/machinery/power/rbmk2/proc/toggle_reverse_vents(mob/living/user, desired_state =! vent_reverse_direction)
 
 	if(desired_state == vent_reverse_direction)
 		return FALSE
@@ -370,13 +371,13 @@
 	vent_reverse_direction = desired_state
 
 	if(vent_reverse_direction)
-		var/turf/T = get_turf(src)
+		var/turf/our_turf = get_turf(src)
 		if(user)
 			user.log_message("had vents set in reverse by [src]", LOG_GAME)
 			investigate_log("had vents set in reverse by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 		else
-			log_game("[src] had vents set in reverse at [AREACOORD(T)]")
-			investigate_log("had vents set in reverse at [AREACOORD(T)]", INVESTIGATE_ENGINE)
+			log_game("[src] had vents set in reverse at [AREACOORD(our_turf)]")
+			investigate_log("had vents set in reverse at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	return TRUE
 

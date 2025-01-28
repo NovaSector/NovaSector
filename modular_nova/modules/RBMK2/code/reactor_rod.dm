@@ -35,10 +35,10 @@
 	if(!loc || !istype(loc,/obj/machinery/power/rbmk2))
 		return ..()
 
-	var/obj/machinery/power/rbmk2/M = loc
-	M.stored_rod = null
-	M.active = FALSE
-	M.jammed = FALSE
+	var/obj/machinery/power/rbmk2/machine = loc
+	machine.stored_rod = null
+	machine.active = FALSE
+	machine.jammed = FALSE
 	src.forceMove(get_turf(M))
 	. = ..()
 

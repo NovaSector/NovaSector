@@ -12,15 +12,15 @@
 		WIRE_PROCEED,
 		WIRE_LINK,
 		WIRE_UNLINK,
-		WIRE_TEST
+		WIRE_TEST,
 	)
 	. = ..()
 
 /datum/wires/rbmk2_sniffer/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/rbmk2_sniffer/M = holder
-	return M.panel_open
+	var/obj/machinery/rbmk2_sniffer/sniffer = holder
+	return sniffer.panel_open
 
 /datum/wires/rbmk2_sniffer/get_status()
 	var/obj/machinery/rbmk2_sniffer/M = holder
@@ -34,49 +34,47 @@
 		. += "The LED display is displaying nothing."
 
 /datum/wires/rbmk2_sniffer/on_pulse(wire)
-	var/obj/machinery/rbmk2_sniffer/M = holder
+	var/obj/machinery/rbmk2_sniffer/sniffer = holder
 	switch(wire)
 		if(WIRE_LINK)
-			if(M.unlink_confirm || M.link_confirm)
-				M.unlink_confirm = FALSE
-				M.link_confirm = FALSE
+			if(sniffer.unlink_confirm || sniffer.link_confirm)
+				sniffer.unlink_confirm = FALSE
+				sniffer.link_confirm = FALSE
 			else
-				M.link_confirm = TRUE
+				sniffer.link_confirm = TRUE
 		if(WIRE_UNLINK)
-			if(M.unlink_confirm || M.link_confirm)
-				M.unlink_confirm = FALSE
-				M.link_confirm = FALSE
+			if(sniffer.unlink_confirm || sniffer.link_confirm)
+				sniffer.unlink_confirm = FALSE
+				sniffer.link_confirm = FALSE
 			else
-				M.unlink_confirm = TRUE
+				sniffer.unlink_confirm = TRUE
 		if(WIRE_PROCEED)
-			if(M.unlink_confirm)
+			if(sniffer.unlink_confirm)
 				var/unlink_amount = 0
-				for(var/obj/machinery/power/rbmk2/reactor as anything in M.linked_reactors)
-					unlink_amount += M.unlink_reactor(null,reactor)
-			if(M.link_confirm)
+				for(var/obj/machinery/power/rbmk2/reactor as anything in sniffer.linked_reactors)
+					unlink_amount += sniffer.unlink_reactor(null,reactor)
+			if(sniffer.link_confirm)
 				var/link_amount = 0
-				for(var/obj/machinery/power/rbmk2/reactor in range(10,M))
-					link_amount += M.link_reactor(null,reactor)
-			M.link_confirm = FALSE
-			M.unlink_confirm = FALSE
+				for(var/obj/machinery/power/rbmk2/reactor in range(10,sniffer))
+					link_amount += sniffer.link_reactor(null,reactor)
+			sniffer.link_confirm = FALSE
+			sniffer.unlink_confirm = FALSE
 		if(WIRE_TEST)
-			M.alert_radio("This is a test message. Do not panic.",alert_emergency_channel=M.test_wire_switch,bypass_cooldown=TRUE)
-			M.test_wire_switch = !M.test_wire_switch
-
-
+			sniffer.alert_radio("This is a test message. Do not panic.", alert_emergency_channel = sniffer.test_wire_switch, bypass_cooldown = TRUE)
+			sniffer.test_wire_switch = !sniffer.test_wire_switch
 
 /datum/wires/rbmk2_sniffer/on_cut(wire, mend, source)
-	var/obj/machinery/rbmk2_sniffer/M = holder
+	var/obj/machinery/rbmk2_sniffer/sniffer = holder
 	switch(wire)
 		if(WIRE_SIGNAL)
-			M.radio_enabled = mend
+			sniffer.radio_enabled = mend
 		if(WIRE_LINK)
-			M.link_confirm = FALSE
+			sniffer.link_confirm = FALSE
 		if(WIRE_UNLINK)
-			M.unlink_confirm = FALSE
+			sniffer.unlink_confirm = FALSE
 		if(WIRE_PROCEED)
-			M.link_confirm = FALSE
-			M.unlink_confirm = FALSE
+			sniffer.link_confirm = FALSE
+			sniffer.unlink_confirm = FALSE
 
 /datum/wires/rbmk2_sniffer/can_reveal_wires(mob/user)
 	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))

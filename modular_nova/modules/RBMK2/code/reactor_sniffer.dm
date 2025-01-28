@@ -4,7 +4,7 @@
 	build_path = /obj/machinery/rbmk2_sniffer
 	req_components = list(
 		/obj/item/stack/cable_coil = 4,
-		/obj/item/stack/sheet/mineral/uranium = 1
+		/obj/item/stack/sheet/mineral/uranium = 1,
 	)
 	needs_anchored = TRUE
 
@@ -46,11 +46,8 @@
 	var/emergency_channel = null // Need null to actually broadcast to common. Stolen from supermatter code so they know about this. lol. lmao.
 	var/warning_channel = RADIO_CHANNEL_ENGINEERING
 
-
 	COOLDOWN_DECLARE(radio_cooldown_integrity)
-
 	COOLDOWN_DECLARE(radio_cooldown_criticality)
-
 
 /obj/machinery/rbmk2_sniffer/Initialize(mapload, ndir, nbuild)
 	. = ..()
@@ -102,21 +99,21 @@
 
 /obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/attack_item)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/rbmk2_sniffer/crowbar_act(mob/living/user, obj/item/attack_item)
 	if(default_deconstruction_crowbar(attack_item))
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/rbmk2_sniffer/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(panel_open)
 		wires.interact(user)
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/rbmk2_sniffer/wirecutter_act(mob/living/user, obj/item/tool)
 	if(panel_open)
 		wires.interact(user)
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/rbmk2_sniffer/proc/link_reactor(mob/user,obj/machinery/power/rbmk2/desired_reactor)
 
@@ -150,8 +147,7 @@
 	else
 		. += span_notice("It is glowing a steady green.")
 
-
-/obj/machinery/rbmk2_sniffer/proc/alert_radio(alert_text,bypass_cooldown=FALSE,alert_emergency_channel=FALSE,criticality=TRUE)
+/obj/machinery/rbmk2_sniffer/proc/alert_radio(alert_text,bypass_cooldown = FALSE, alert_emergency_channel = FALSE,criticality = TRUE)
 
 	if(!radio_enabled || !alert_text)
 		return FALSE
@@ -172,7 +168,7 @@
 
 	return TRUE
 
-/obj/machinery/rbmk2_sniffer/process()
+/obj/machinery/rbmk2_sniffer/process(seconds_per_tick)
 
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
@@ -206,13 +202,13 @@
 		if(last_meltdown)
 			alert_radio(
 				"Stray ionization detected! Reduce power output immediately!",
-				bypass_cooldown=TRUE
+				bypass_cooldown = TRUE,
 			)
 		else
 			alert_radio(
 				"Stray ionization process halted. Returning to safe operating parameters.",
-				bypass_cooldown=TRUE,
-				alert_emergency_channel=alerted_emergency_channel
+				bypass_cooldown = TRUE,
+				alert_emergency_channel=alerted_emergency_channel,
 			)
 			alerted_emergency_channel = FALSE
 	else if( highest_criticality >= 100 || abs(highest_criticality - last_criticality) >= 3 )
@@ -220,13 +216,13 @@
 		if(highest_criticality >= 100)
 			alert_radio(
 				"CRITICALITY THRESHOLD MET! SEEK SHELTER IMMEDIATELY! CRITICALITY AT [round(last_criticality,0.1)]%!",
-				bypass_cooldown=TRUE,
-				alert_emergency_channel=alert_emergency_channel
+				bypass_cooldown = TRUE,
+				alert_emergency_channel=alert_emergency_channel,
 			)
 		else
 			alert_radio(
 				"Stray ionization detected! Criticality at [round(last_criticality,0.1)]%!",
-				alert_emergency_channel=alert_emergency_channel
+				alert_emergency_channel=alert_emergency_channel,
 			)
 
 	if(lowest_integrity_percent <= 0.8)
@@ -235,8 +231,8 @@
 			alert_radio(
 				"[lowest_integrity_percent <= 0.3 ? "DANGER!" : "Warning!"] integrity at [round(lowest_integrity_percent*100,0.1)]%! Perform repairs immediately!",
 				alert_emergency_channel=alert_emergency_channel,
-				criticality=FALSE,
-				bypass_cooldown=lowest_integrity_percent <= 0.3
+				criticality = FALSE,
+				bypass_cooldown=lowest_integrity_percent <= 0.3,
 			)
 
 	update_appearance(UPDATE_ICON)

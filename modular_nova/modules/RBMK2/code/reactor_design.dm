@@ -14,7 +14,7 @@
 	id = "rbmk2_sniffer"
 	build_path = /obj/item/circuitboard/machine/rbmk2_sniffer
 	category = list(
-		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
@@ -27,7 +27,7 @@
 	construction_time = 100
 	build_path = /obj/item/tank/rbmk2_rod
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
@@ -39,6 +39,6 @@
 	design_ids = list(
 		"rbmk2_reactor",
 		"rbmk2_rod",
-		"rbmk2_sniffer"
+		"rbmk2_sniffer",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)

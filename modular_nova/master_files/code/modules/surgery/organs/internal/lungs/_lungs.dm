@@ -2,7 +2,6 @@
 	. = ..()
 	add_gas_reaction(/datum/gas/goblin, while_present = PROC_REF(consume_goblin))
 
-
 /obj/item/organ/lungs/proc/consume_goblin(mob/living/carbon/breather, datum/gas_mixture/breath, goblin_pp, old_goblin_pp)
 
 	if(goblin_pp >= 5)
