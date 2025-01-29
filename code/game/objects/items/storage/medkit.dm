@@ -180,7 +180,7 @@
 	damagetype_healed = BURN
 
 /obj/item/storage/medkit/fire/get_medbot_skin()
-	return "ointment"
+	return "burn"
 
 /obj/item/storage/medkit/fire/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins rubbing \the [src] against [user.p_them()]self! It looks like [user.p_theyre()] trying to start a fire!"))
@@ -231,7 +231,7 @@
 	damagetype_healed = OXY
 
 /obj/item/storage/medkit/o2/get_medbot_skin()
-	return "o2"
+	return "oxy"
 
 /obj/item/storage/medkit/o2/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins hitting [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -282,7 +282,7 @@
 	damagetype_healed = HEAL_ALL_DAMAGE
 
 /obj/item/storage/medkit/advanced/get_medbot_skin()
-	return "advanced"
+	return "adv"
 
 /obj/item/storage/medkit/advanced/PopulateContents()
 	if(empty)
