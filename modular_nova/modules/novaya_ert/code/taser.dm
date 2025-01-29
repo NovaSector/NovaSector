@@ -7,7 +7,6 @@
 	icon_state = "crank_taser"
 	lefthand_file = 'modular_nova/modules/novaya_ert/icons/taser_left.dmi'
 	righthand_file = 'modular_nova/modules/novaya_ert/icons/taser_right.dmi'
-	inhand_icon_state = "crank_taser"
 	fire_delay = 2 SECONDS
 	cell_type = /obj/item/stock_parts/power_store/cell/crank_taser
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode)

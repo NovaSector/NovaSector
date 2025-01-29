@@ -9,7 +9,6 @@
 	righthand_file = 'modular_nova/modules/novaya_ert/icons/stun_gun_right.dmi'
 	inhand_icon_state = "stun_gun"
 	base_icon_state = "stun_gun"
-	inhand_icon_state = "stun_gun"
 	worn_icon = 'icons/mob/clothing/belt.dmi'
 	worn_icon_state = "seclite"
 	icon_angle = 0
