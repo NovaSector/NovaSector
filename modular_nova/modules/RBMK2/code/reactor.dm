@@ -196,13 +196,13 @@
 	START_PROCESSING(SSmachines, src)
 	update_appearance(UPDATE_ICON)
 
-/obj/machinery/power/rbmk2/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(!user.combat_mode)
-		if(!active && istype(attacking_item, /obj/item/tank/rbmk2_rod/)) //Insert a rod.
-			src.add_fingerprint(user)
-			attacking_item.add_fingerprint(user)
-			return add_rod(user,attacking_item)
-	. = ..()
+/obj/machinery/power/rbmk2/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(active || user.combat_mode || !istype(tool, /obj/item/tank/rbmk2_rod))
+		return NONE
+	src.add_fingerprint(user)
+	tool.add_fingerprint(user)
+	add_rod(user, tool)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/rbmk2/exchange_parts(mob/user, obj/item/storage/part_replacer/replacer_tool)
 	if(active)
@@ -436,31 +436,32 @@
 	data["consuming"] = last_tritium_consumption*10000
 	return data
 
-/obj/machinery/power/rbmk2/ui_act(action, params)
+/obj/machinery/power/rbmk2/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
+	var/mob/user = ui.user
 
 	switch(action)
 		if("activate")
-			toggle_active(usr)
+			toggle_active(user)
 			. = TRUE
 		if("eject")
-			remove_rod(usr, do_throw = TRUE)
+			remove_rod(user, do_throw = TRUE)
 			. = TRUE
 		if("venttoggle")
-			toggle_vents(usr)
+			toggle_vents(user)
 			. = TRUE
 		if("ventdirection")
-			toggle_reverse_vents(usr)
+			toggle_reverse_vents(user)
 			. = TRUE
 		if("safetytoggle")
 			if(safety == TRUE)
-				balloon_alert(usr, "safety lights are off")
+				balloon_alert(user, "safety lights are off")
 				safety = FALSE
 				return
 			if(safety == FALSE)
-				balloon_alert(usr, "safety lights are on")
+				balloon_alert(user, "safety lights are on")
 				safety = TRUE
 				return
 			. = TRUE
