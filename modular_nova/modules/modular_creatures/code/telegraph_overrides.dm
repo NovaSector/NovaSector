@@ -41,11 +41,13 @@
 
 	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_duration = FAST_SWING)
 
+/*
 /mob/living/basic/spider/giant/Initialize(mapload)
 	. = ..()
 
 	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_duration = FAST_SWING)
 
+*/
 /mob/living/basic/carp/Initialize(mapload)
 	. = ..()
 
