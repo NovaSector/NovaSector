@@ -58,6 +58,7 @@
 		if(!checked_pref) // pref is disabled or 0 in the case of volume
 			continue
 
+		/// volume modifier--for radio noise only currently--can be different for each client based on their radio sound pref.
 		var/vol_modifier = 1
 		if(istype(pref_to_check, /datum/preference/numeric/sound_radio_noise))
 			vol_modifier = checked_pref/100
