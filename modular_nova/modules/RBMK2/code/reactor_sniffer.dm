@@ -99,9 +99,6 @@
 
 	QDEL_NULL(stored_radio)
 
-	qdel(wires)
-	set_wires(null)
-
 /obj/machinery/rbmk2_sniffer/screwdriver_act(mob/living/user, obj/item/attack_item)
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))
 		return ITEM_INTERACT_SUCCESS
@@ -121,7 +118,7 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/rbmk2_sniffer/proc/link_reactor(mob/user, obj/machinery/power/rbmk2/desired_reactor)
-	if(linked_reactors[desired_reactor])
+	if(desired_reactor in linked_reactors)
 		balloon_alert(user, "already linked!")
 		return FALSE
 
@@ -131,7 +128,7 @@
 	return TRUE
 
 /obj/machinery/rbmk2_sniffer/proc/unlink_reactor(mob/user, obj/machinery/power/rbmk2/desired_reactor)
-	if(!linked_reactors[desired_reactor])
+	if(!(desired_reactor in linked_reactors))
 		return FALSE
 
 	linked_reactors -= desired_reactor

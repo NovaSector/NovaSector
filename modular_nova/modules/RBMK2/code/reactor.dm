@@ -158,10 +158,6 @@
 		investigate_log("deleted at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	QDEL_NULL(stored_rod)
-
-	qdel(wires)
-	set_wires(null)
-
 	SSair.stop_processing_machine(src)
 
 	return ..()
