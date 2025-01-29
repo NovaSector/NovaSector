@@ -56,6 +56,6 @@
 // Prevents putting the reactor rod on a TTV.
 /obj/item/transfer_valve/attackby(obj/item/item, mob/user, params)
 	if(istype(item, /obj/item/tank/rbmk2_rod))
-		to_chat(user, span_warning("The [item] doesn't fit!"))
+		to_chat(user, span_warning("[item] doesn't fit!"))
 		return
 	return ..()
