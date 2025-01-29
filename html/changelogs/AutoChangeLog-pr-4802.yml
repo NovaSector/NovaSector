@@ -1,0 +1,7 @@
+author: "Myphicbowser"
+delete-after: True
+changes:
+  - rscadd: "Added Engineering and Cyborg Skillchips"
+  - rscadd: "Added Medbay with a basic Chemistry Setup"
+  - rscadd: "Added a pre-built Cyborg Body"
+  - qol: "Removed cut AI wire from all doors"
