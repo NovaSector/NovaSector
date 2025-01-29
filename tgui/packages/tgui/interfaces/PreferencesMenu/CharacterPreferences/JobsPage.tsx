@@ -331,7 +331,7 @@ function Department(props: DepartmentProps) {
 
   return (
     <Box>
-      {/* // NOVA EDIT REMOVAL - For the alt titles dropdowns to not be screwed up - <Stack vertical fill>*/}
+      {/* <Stack vertical fill> // NOVA EDIT REMOVAL - For the alt titles dropdowns to not be screwed up */}
       {jobsForDepartment.map(([name, job]) => {
         return (
           <JobRow
@@ -342,7 +342,7 @@ function Department(props: DepartmentProps) {
           />
         );
       })}
-      {/* </Stack>*/}
+      {/* </Stack> // NOVA EDIT REMOVAL */}
 
       {children}
     </Box>
