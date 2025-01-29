@@ -20,7 +20,7 @@
 //Deconstruct.
 /obj/machinery/power/rbmk2/crowbar_act(mob/living/user, obj/item/attack_item)
 	if(jammed)
-		force_unjam(attack_item,user, 25)
+		force_unjam(attack_item, user, 25)
 		return ITEM_INTERACT_SUCCESS
 	if(stored_rod)
 		balloon_alert(user, "remove the rod first!")
@@ -58,7 +58,7 @@
 	if (machine_stat & BROKEN)
 		balloon_alert(user, "too damaged to repair!")
 		return ITEM_INTERACT_BLOCKING
-	if(!attack_item.tool_start_check(user, amount=1))
+	if(!attack_item.tool_start_check(user, amount = 1))
 		return ITEM_INTERACT_BLOCKING
 
 	balloon_alert(user, "repairing...")
@@ -73,7 +73,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/rbmk2/plunger_act(obj/item/plunger/attacking_plunger, mob/living/user, reinforced)
-	if(jammed && force_unjam(attacking_plunger,user,25))
+	if(jammed && force_unjam(attacking_plunger, user, 25))
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/rbmk2/emp_act(severity)
@@ -135,4 +135,4 @@
 	if(!.)
 		return .
 	if(!QDELETED(src))
-		jam(null,TRUE)
+		jam(null, TRUE)

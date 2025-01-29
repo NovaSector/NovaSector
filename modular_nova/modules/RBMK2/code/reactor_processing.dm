@@ -33,7 +33,7 @@
 	var/datum/gas_mixture/consumed_mix = rod_mix.remove_specific(/datum/gas/tritium, amount_to_consume)
 
 	if(!consumed_mix)
-		toggle_active(null,FALSE)
+		toggle_active(null, FALSE)
 		update_appearance(UPDATE_ICON)
 		return
 
@@ -107,12 +107,13 @@
 			meltdown = TRUE
 		var/chosen_sound = pick('modular_nova/modules/RBMK2/sounds/failure01.ogg','modular_nova/modules/RBMK2/sounds/failure02.ogg','modular_nova/modules/RBMK2/sounds/failure03.ogg','modular_nova/modules/RBMK2/sounds/failure04.ogg')
 		playsound(src, chosen_sound, 50, TRUE, extrarange = -3)
-		take_damage(2,armour_penetration=100) //Lasts 5 minutes. Probably less due to other factors.
+		take_damage(2, armour_penetration = 100) //Lasts 5 minutes. Probably less due to other factors.
 		src.Shake(duration = 0.5 SECONDS)
 	else if(meltdown && rod_mix.temperature <= stored_rod.temperature_limit*0.75 && last_power_generation <= max_power_generation*0.5) //Hard to get out of a meltdown.
 		meltdown = FALSE
 	update_appearance(UPDATE_ICON)
 	return TRUE
+
 /obj/machinery/power/rbmk2/process_atmos() //Only turf air related stuff is handled here.
 	var/turf/turf_loc = loc
 	if(!istype(turf_loc))

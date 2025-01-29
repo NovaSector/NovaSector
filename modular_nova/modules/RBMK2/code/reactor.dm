@@ -219,13 +219,13 @@
 	. = ..()
 	update_appearance(UPDATE_ICON)
 
-/obj/machinery/power/rbmk2/proc/force_unjam(obj/item/attacking_item, mob/living/user,damage_to_deal=50)
+/obj/machinery/power/rbmk2/proc/force_unjam(obj/item/attacking_item, mob/living/user, damage_to_deal = 50)
 	if(!jammed)
 		return FALSE
 	if(atom_integrity <= damage_to_deal)
 		balloon_alert(user, "too damaged!")
 		return FALSE
-	if(attacking_item.use_tool(src, user, 4 SECONDS, volume = 50) && jam(user,FALSE))
+	if(attacking_item.use_tool(src, user, 4 SECONDS, volume = 50) && jam(user, FALSE))
 		take_damage(damage_to_deal, armour_penetration = 100)
 		src.Shake(duration = 0.5 SECONDS)
 		balloon_alert(user, "unjammed!")
@@ -295,7 +295,7 @@
 	return TRUE
 
 
-/obj/machinery/power/rbmk2/proc/jam(mob/living/user,desired_state =! jammed)
+/obj/machinery/power/rbmk2/proc/jam(mob/living/user, desired_state = !jammed)
 
 	if(jammed == desired_state)
 		return
@@ -317,7 +317,7 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/toggle_active(mob/living/user, desired_state =! active)
+/obj/machinery/power/rbmk2/proc/toggle_active(mob/living/user, desired_state = !active)
 
 	if(active == desired_state)
 		return
@@ -333,7 +333,7 @@
 
 	if(meltdown) //You thought.
 		if(!jammed) //JAM IT.
-			jam(user,TRUE)
+			jam(user, TRUE)
 		return FALSE
 
 	active = desired_state
@@ -353,7 +353,7 @@
 
 	return TRUE
 
-/obj/machinery/power/rbmk2/proc/toggle_vents(mob/living/user, desired_state =! venting)
+/obj/machinery/power/rbmk2/proc/toggle_vents(mob/living/user, desired_state = !venting)
 
 	if(desired_state == venting)
 		return FALSE
@@ -376,24 +376,25 @@
 	return TRUE
 
 /// Switches vent directions. Toggling between sucking air in and pushing air out
-/obj/machinery/power/rbmk2/proc/toggle_reverse_vents(mob/living/user, desired_state =! vent_reverse_direction)
-
+/obj/machinery/power/rbmk2/proc/toggle_reverse_vents(mob/living/user, desired_state = !vent_reverse_direction)
 	if(desired_state == vent_reverse_direction)
 		return FALSE
 
 	if(venting) //Can't change when they're already on.
+		if(user)
+			balloon_alert(user, "turn vents off first")
 		return FALSE
 
 	vent_reverse_direction = desired_state
 
-	if(vent_reverse_direction)
+	if(user)
+		user.log_message("had vents set to [vent_reverse_direction ? "reverse" : "normal"] by [src]", LOG_GAME)
+		investigate_log("had vents set to [vent_reverse_direction ? "reverse" : "normal"] by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+		balloon_alert(user, "vents switched to [vent_reverse_direction ? "pulling" : "pushing"]")
+	else
 		var/turf/our_turf = get_turf(src)
-		if(user)
-			user.log_message("had vents set in reverse by [src]", LOG_GAME)
-			investigate_log("had vents set in reverse by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-		else
-			log_game("[src] had vents set in reverse at [AREACOORD(our_turf)]")
-			investigate_log("had vents set in reverse at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
+		log_game("[src] had vents set to [vent_reverse_direction ? "reverse" : "normal"] at [AREACOORD(our_turf)]")
+		investigate_log("had vents set to [vent_reverse_direction ? "reverse" : "normal"] at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	return TRUE
 
@@ -454,15 +455,14 @@
 			. = TRUE
 		if("ventdirection")
 			toggle_reverse_vents(usr)
-			balloon_alert(usr, "After a second you feel like the vents direction changed.")
 			. = TRUE
 		if("safetytoggle")
 			if(safety == TRUE)
-				balloon_alert(usr, "Safety lights are off!")
+				balloon_alert(usr, "safety lights are off")
 				safety = FALSE
 				return
 			if(safety == FALSE)
-				balloon_alert(usr, "Safety lights are on!")
+				balloon_alert(usr, "safety lights are on")
 				safety = TRUE
 				return
 			. = TRUE
