@@ -113,7 +113,6 @@
 		meltdown = FALSE
 	update_appearance(UPDATE_ICON)
 	return TRUE
-
 /obj/machinery/power/rbmk2/process_atmos() //Only turf air related stuff is handled here.
 	var/turf/turf_loc = loc
 	if(!istype(turf_loc))
@@ -127,37 +126,37 @@
 		var/datum/gas_mixture/rod_mix = stored_rod.air_contents
 		var/rod_mix_heat_capacity = rod_mix.heat_capacity()
 		if(rod_mix_heat_capacity > 0)
-			rod_mix.temperature += (rod_mix.temperature*0.02*rand() + (8000/rod_mix_heat_capacity)*(overclocked ? 2 : 1))*meltdown_multiplier * seconds_per_tick * 0.5 //It's... it's not shutting down!
+			rod_mix.temperature += (rod_mix.temperature*0.02*rand() + (8000/rod_mix_heat_capacity)*(overclocked ? 2 : 1))*meltdown_multiplier //It's... it's not shutting down!
 			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
-		var/ionize_air_amount = min( (0.5 + rod_mix.temperature/2000) * meltdown_multiplier * seconds_per_tick * 0.5, 5) //For every 2000 kelvin. Capped at 5 tiles.
+		var/ionize_air_amount = min( (0.5 + rod_mix.temperature/2000) * meltdown_multiplier, 5) //For every 2000 kelvin. Capped at 5 tiles.
 		var/ionize_air_range = CEILING(ionize_air_amount,1)
 		var/total_ion_amount = 0
 		for(var/turf/ion_turf as anything in RANGE_TURFS(ionize_air_range, turf_loc))
-			if(!SPT_PROB(40, seconds_per_tick)) //Atmos optimization.
+			if(!prob(80)) //Atmos optimization.
 				continue
 			var/datum/gas_mixture/ion_turf_mix = ion_turf.return_air()
 			if(!ion_turf_mix || !ion_turf_mix.gases || !ion_turf_mix.gases[/datum/gas/oxygen] || !ion_turf_mix.gases[/datum/gas/oxygen][MOLES])
 				continue
 			ion_turf_mix.assert_gas(/datum/gas/oxygen)
-			var/gas_to_convert = max(0,min(ionize_air_amount,(ion_turf_mix.gases[/datum/gas/oxygen][MOLES] - rand(20,30) * seconds_per_tick * 0.5) ))
+			var/gas_to_convert = max(0,min(ionize_air_amount,ion_turf_mix.gases[/datum/gas/oxygen][MOLES] - rand(20,30)))
 			if(gas_to_convert <= 0)
 				continue
 			var/datum/gas_mixture/oxygen_removed_mix = ion_turf_mix.remove_specific(/datum/gas/oxygen, ionize_air_amount)
 			if(oxygen_removed_mix && oxygen_removed_mix.gases[/datum/gas/oxygen] && oxygen_removed_mix.gases[/datum/gas/oxygen][MOLES] > 0)
-				var/ion_amount = oxygen_removed_mix.gases[/datum/gas/oxygen][MOLES] * 0.25 * seconds_per_tick * 0.5
+				var/ion_amount = oxygen_removed_mix.gases[/datum/gas/oxygen][MOLES] * 0.25
 				ion_turf_mix.assert_gas(/datum/gas/tritium)
 				ion_turf_mix.gases[/datum/gas/tritium][MOLES] += ion_amount
 				total_ion_amount += ion_amount
 
 		var/ionization_amount_ratio = total_ion_amount/ionize_air_amount
-		var/criticality_to_add = min(ionization_amount_ratio, 3) * rand() * seconds_per_tick * 0.5
+		var/criticality_to_add = min(ionization_amount_ratio, 3) * rand()
 		if(criticality_to_add > 0)
 			criticality_to_add = FLOOR(criticality_to_add, 0.01)
 			if(criticality >= 100) //It keeps going.
-				if(SPT_PROB(criticality/1000, seconds_per_tick)) //The chance to explode. Yes, it's supposed to be this low.
+				if(prob(criticality/500)) //The chance to explode. Yes, it's supposed to be this low.
 					deconstruct(FALSE)
 				else
-					criticality += rand(criticality_to_add*4,criticality_to_add*10 * seconds_per_tick * 0.5)
+					criticality += rand(criticality_to_add*4,criticality_to_add*10)
 			else
 				criticality += criticality_to_add
 
