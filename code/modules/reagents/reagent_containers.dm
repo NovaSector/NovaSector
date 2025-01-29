@@ -239,7 +239,7 @@
 		target_turf.add_liquid_from_reagents(reagents, reagent_multiplier = (1 - splash_multiplier)) // NOVA EDIT ADDITION - liquid spills (molotov buff) (huge)
 
 	else if(bartender_check(target) && thrown)
-		visible_message(span_notice("[src] lands onto the [target.name] without spilling a single drop."))
+		visible_message(span_notice("[src] lands onto \the [target] without spilling a single drop."))
 		return
 
 	else
