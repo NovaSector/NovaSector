@@ -1352,3 +1352,8 @@
   - qol: Turns off by default the Soulcatcher and talking of the Hoshi and the Hyeseong.
       They are still usable, just not out of the box, the user has to manually turn
       them on.
+  vinylspiders:
+  - bugfix: fixes sound preferences not being respected.
+  - bugfix: radio headset volume slider is now functional
+  - bugfix: fixes a bug that would cause the occupations page to grow larger each
+      time you clicked an alt title dropdown

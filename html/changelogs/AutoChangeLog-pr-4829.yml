@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes sound preferences not being respected."
-  - bugfix: "radio headset volume slider is now functional"
