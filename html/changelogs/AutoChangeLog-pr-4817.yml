@@ -1,0 +1,5 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Synths can use the IRN Imports tab on their internal computers"
+  - bugfix: "Requests through company imports have a name associated with them"
