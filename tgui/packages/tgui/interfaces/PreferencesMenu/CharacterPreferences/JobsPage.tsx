@@ -331,21 +331,18 @@ function Department(props: DepartmentProps) {
 
   return (
     <Box>
-      <Stack vertical fill>
-        {jobsForDepartment.map(([name, job]) => {
-          return (
-            <JobRow
-              className={classes([
-                className,
-                name === department.head && 'head',
-              ])}
-              key={name}
-              job={job}
-              name={name}
-            />
-          );
-        })}
-      </Stack>
+      {/* <Stack vertical fill> // NOVA EDIT REMOVAL - For the alt titles dropdowns to not be screwed up */}
+      {jobsForDepartment.map(([name, job]) => {
+        return (
+          <JobRow
+            className={classes([className, name === department.head && 'head'])}
+            key={name}
+            job={job}
+            name={name}
+          />
+        );
+      })}
+      {/* </Stack> // NOVA EDIT REMOVAL */}
 
       {children}
     </Box>
