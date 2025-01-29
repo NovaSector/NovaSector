@@ -32,7 +32,7 @@
 	var/datum/gas_mixture/consumed_mix = rod_mix.remove_specific(/datum/gas/tritium, amount_to_consume)
 
 	if(!consumed_mix)
-		toggle_active(null, FALSE)
+		toggle_active(desired_state = FALSE)
 		update_appearance(UPDATE_ICON)
 		return
 
@@ -78,7 +78,7 @@
 			rod_mix.temperature += (min(rod_mix_pressure/stored_rod.pressure_limit, 4) - 1) * (3/rod_mix_heat_capacity)*seconds_per_tick*0.5
 			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
 	else
-		toggle_active(null,FALSE)
+		toggle_active(desired_state = FALSE)
 
 	//The gases that we consumed go into the buffer, to be released in the air.
 	buffer_gases.merge(consumed_mix)
@@ -93,7 +93,7 @@
 		var/health_percent = atom_integrity/max_integrity
 		var/jam_chance = 80 - (health_percent * 100) - (venting ? 0 : 40)
 		if(jam_chance > 0 && SPT_PROB(jam_chance*0.5, seconds_per_tick))
-			jam(null,TRUE)
+			jam(desired_state = TRUE)
 		else
 			toggle_active(null, FALSE)
 			take_damage(3, armour_penetration = 100)
@@ -104,7 +104,12 @@
 			log_game("[src] triggered a meltdown at [AREACOORD(turf_loc)]")
 			investigate_log("triggered a meltdown at [AREACOORD(turf_loc)]", INVESTIGATE_ENGINE)
 			meltdown = TRUE
-		var/chosen_sound = pick('modular_nova/modules/RBMK2/sounds/failure01.ogg','modular_nova/modules/RBMK2/sounds/failure02.ogg','modular_nova/modules/RBMK2/sounds/failure03.ogg','modular_nova/modules/RBMK2/sounds/failure04.ogg')
+		var/chosen_sound = pick(
+			'modular_nova/modules/RBMK2/sounds/failure01.ogg',
+			'modular_nova/modules/RBMK2/sounds/failure02.ogg',
+			'modular_nova/modules/RBMK2/sounds/failure03.ogg',
+			'modular_nova/modules/RBMK2/sounds/failure04.ogg',
+		)
 		playsound(src, chosen_sound, 50, TRUE, extrarange = -3)
 		take_damage(2, armour_penetration = 100) //Lasts 5 minutes. Probably less due to other factors.
 		src.Shake(duration = 0.5 SECONDS)

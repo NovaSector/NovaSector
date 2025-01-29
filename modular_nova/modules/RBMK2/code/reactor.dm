@@ -253,7 +253,12 @@
 				take_damage(0.5, armour_penetration = 100, sound_effect = FALSE)
 				stored_rod.take_damage(0.5, armour_penetration = 100)
 				src.Shake(duration = 0.5 SECONDS)
-				playsound(src, pick('sound/effects/structure_stress/pop1.ogg','sound/effects/structure_stress/pop2.ogg','sound/effects/structure_stress/pop3.ogg'), 50, TRUE, extrarange = -3)
+				var/damage_sound = pick(
+					'sound/effects/structure_stress/pop1.ogg',
+					'sound/effects/structure_stress/pop2.ogg',
+					'sound/effects/structure_stress/pop3.ogg',
+				)
+				playsound(src, damage_sound, 50, TRUE, extrarange = -3)
 				return FALSE
 			else //Yes. Spamming the eject button can unjam it.
 				jam(user, FALSE) //We did it!

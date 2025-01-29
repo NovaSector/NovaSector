@@ -127,4 +127,4 @@
 	if(!.)
 		return .
 	if(!QDELETED(src))
-		jam(null, TRUE)
+		jam(desired_state = TRUE)
