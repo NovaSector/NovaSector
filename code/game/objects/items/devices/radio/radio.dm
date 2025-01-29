@@ -351,19 +351,18 @@
 		return
 
 	if(isliving(talking_movable))
-		/* NOVA EDIT CHANGE START - We use our own radio sounds - see modular_nova/modules/radiosound/code/radio.dm - ORIGINAL:
 		var/mob/living/talking_living = talking_movable
 		var/volume_modifier = (talking_living.client?.prefs.read_preference(/datum/preference/numeric/sound_radio_noise))
+
 		if(radio_noise && talking_living.can_hear() && volume_modifier && signal.frequency != FREQ_COMMON && !LAZYACCESS(message_mods, MODE_SEQUENTIAL) && COOLDOWN_FINISHED(src, audio_cooldown))
 			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
+			/* NOVA EDIT CHANGE START - ORIGINAL - We use our own radio sounds - see modular_nova/modules/radiosound/code/radio.dm - ORIGINAL:
 			var/sound/radio_noise = sound('sound/items/radio/radio_talk.ogg', volume = volume_modifier)
 			radio_noise.frequency = get_rand_frequency_low_range()
 			SEND_SOUND(talking_living, radio_noise)
-		*/
-		if(radio_noise && COOLDOWN_FINISHED(src, audio_cooldown))
-			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
-			playsound_if_pref(src, radio_talk_sound, radio_sound_volume, radio_sound_has_vary, radio_sound_range, SOUND_FALLOFF_EXPONENT, frequency = get_rand_frequency_low_range(), pref_to_check = /datum/preference/numeric/sound_radio_noise) // NOVA EDIT ADDITION
-		// NOVA EDIT CHANGE END
+			*/
+			playsound(src, radio_talk_sound, radio_sound_volume*(volume_modifier/100), radio_sound_has_vary, radio_sound_range, SOUND_FALLOFF_EXPONENT, frequency = get_rand_frequency_low_range())
+			/* NOVA EDIT CHANGE END */
 
 	// All radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
