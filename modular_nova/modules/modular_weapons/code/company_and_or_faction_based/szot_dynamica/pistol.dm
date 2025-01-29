@@ -43,7 +43,7 @@
 		Earlier claims by competitors passed it off as terrible against armor,  \
 		but in reality, it's about as effective as any ballistic you could get your hands on! \
 		As long as your sector, and local-command permits automatic weapons, that is... and grevious wounds."
-		
+
 	return .
 
 // Plasma sharpshooter pistol
@@ -117,5 +117,47 @@
 		Unlike the silver and wood sporting variants, this is the pure survival model replacing the grip with a \
 		standard rubberized pistol grip and weather resistant finish. While the 'Bóbr' isn't the most appealing \
 		weapon to grace someone's hands, it might be the most practical."
+
+	return .
+
+// A 10mm pistol that shoots slow as all get out, but has that deep dish magazine going on
+
+/obj/item/gun/ballistic/automatic/pistol/zashch
+	name = "\improper 'Zashch' self-loading pistol"
+	desc = "A hulking self-loading handgun designated 'Zashchitnik'. Feeds from large 18 round box magazines. Chambered for 10mm."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
+	icon_state = "zashch"
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_righthand.dmi'
+	inhand_icon_state = "zashch"
+	w_class = WEIGHT_CLASS_NORMAL
+	accepted_magazine_type = /obj/item/ammo_box/magazine/zashch
+	can_suppress = FALSE
+	fire_delay = 1 SECONDS
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/pistol_heavy.ogg'
+	rack_sound = 'sound/items/weapons/gun/pistol/rack.ogg'
+	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
+	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
+	fire_sound_volume = 80
+	custom_premium_price = PAYCHECK_COMMAND * 6
+
+/obj/item/gun/ballistic/automatic/pistol/zashch/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
+
+/obj/item/gun/ballistic/automatic/pistol/zashch/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		starting_light = new /obj/item/flashlight/seclite(src), \
+		is_light_removable = FALSE, \
+	)
+
+/obj/item/gun/ballistic/automatic/pistol/zashch/examine_more(mob/user)
+	. = ..()
+
+	. += "The Zashchitnik self-loading pistol was designed as a police and security sidearm for ballistic favoring forces. \
+		Choosing to chamber the 10mm cartridge for its exceptional stopping power, \
+		the hulking pistol is known to be a powerful firearm, albeit maligned by some units for the sheer size. \
+		The size was dictated necessary for several reasons during the design, not the least so that it can load expansive \
+		magazines flush to the grip that allow for exceptionally large amounts of fire power. \
+		It has found niche use with security forces both corporate and state sponsored in more middling economic locations."
 
 	return .
