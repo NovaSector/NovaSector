@@ -55,7 +55,7 @@
 					unlink_amount += sniffer.unlink_reactor(null,reactor)
 			if(sniffer.link_confirm)
 				var/link_amount = 0
-				for(var/obj/machinery/power/rbmk2/reactor in range(10,sniffer))
+				for(var/obj/machinery/power/rbmk2/reactor in range(10, sniffer))
 					link_amount += sniffer.link_reactor(null,reactor)
 			sniffer.link_confirm = FALSE
 			sniffer.unlink_confirm = FALSE

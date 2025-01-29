@@ -1,5 +1,4 @@
 /obj/machinery/power/rbmk2/process(seconds_per_tick)
-
 	var/turf/turf_loc = loc
 	if(!istype(turf_loc))
 		update_appearance(UPDATE_ICON)
@@ -44,7 +43,7 @@
 		last_power_generation = last_tritium_consumption * power_efficiency * base_power_generation * (overclocked ? 0.9 : 1) * seconds_per_tick * 0.5 //Overclocked consumes more, but generates less.
 		//This is where the fun begins.
 		// https://www.desmos.com/calculator/ffcsaaftzz
-		last_power_generation *= (1 + max(0,(rod_mix.temperature - T0C)/1500)**1.4)*(0.75 + (amount_to_consume/gas_consumption_base)*0.25) * seconds_per_tick * 0.5
+		last_power_generation *= (1 + max(0, (rod_mix.temperature - T0C)/1500)**1.4)*(0.75 + (amount_to_consume/gas_consumption_base)*0.25) * seconds_per_tick * 0.5
 
 		var/range_cap = CEILING(GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE * 0.5, 1)
 		if(meltdown)
@@ -62,7 +61,7 @@
 				insulation_threshold_math = max(insulation_threshold_math - 0.25, RAD_FULL_INSULATION) //Go as low as possible. Nothing is safe from the RBMK.
 			else
 				insulation_threshold_math = max(insulation_threshold_math, RAD_EXTREME_INSULATION) //Don't go under RAD_EXTREME_INSULATION
-			radiation_pulse(src,last_radiation_pulse, threshold = insulation_threshold_math)
+			radiation_pulse(src, last_radiation_pulse, threshold = insulation_threshold_math)
 
 		if(power && powernet && last_power_generation)
 			src.add_avail(min(last_power_generation, max_power_generation*10))
@@ -96,7 +95,7 @@
 		if(jam_chance > 0 && SPT_PROB(jam_chance*0.5, seconds_per_tick))
 			jam(null,TRUE)
 		else
-			toggle_active(null,FALSE)
+			toggle_active(null, FALSE)
 			take_damage(3, armour_penetration = 100)
 			src.Shake(duration=0.5 SECONDS)
 
@@ -130,7 +129,7 @@
 			rod_mix.temperature += (rod_mix.temperature*0.02*rand() + (8000/rod_mix_heat_capacity)*(overclocked ? 2 : 1))*meltdown_multiplier //It's... it's not shutting down!
 			rod_mix.temperature = clamp(rod_mix.temperature, 5, 0xFFFFFF)
 		var/ionize_air_amount = min( (0.5 + rod_mix.temperature/2000) * meltdown_multiplier, 5) //For every 2000 kelvin. Capped at 5 tiles.
-		var/ionize_air_range = CEILING(ionize_air_amount,1)
+		var/ionize_air_range = CEILING(ionize_air_amount, 1)
 		var/total_ion_amount = 0
 		for(var/turf/ion_turf as anything in RANGE_TURFS(ionize_air_range, turf_loc))
 			if(!prob(80)) //Atmos optimization.
@@ -139,7 +138,7 @@
 			if(!ion_turf_mix || !ion_turf_mix.gases || !ion_turf_mix.gases[/datum/gas/oxygen] || !ion_turf_mix.gases[/datum/gas/oxygen][MOLES])
 				continue
 			ion_turf_mix.assert_gas(/datum/gas/oxygen)
-			var/gas_to_convert = max(0,min(ionize_air_amount,ion_turf_mix.gases[/datum/gas/oxygen][MOLES] - rand(20,30)))
+			var/gas_to_convert = max(0, min(ionize_air_amount, ion_turf_mix.gases[/datum/gas/oxygen][MOLES] - rand(20, 30)))
 			if(gas_to_convert <= 0)
 				continue
 			var/datum/gas_mixture/oxygen_removed_mix = ion_turf_mix.remove_specific(/datum/gas/oxygen, ionize_air_amount)
@@ -157,13 +156,13 @@
 				if(prob(criticality/500)) //The chance to explode. Yes, it's supposed to be this low.
 					deconstruct(FALSE)
 				else
-					criticality += rand(criticality_to_add*4,criticality_to_add*10)
+					criticality += rand(criticality_to_add*4, criticality_to_add*10)
 			else
 				criticality += criticality_to_add
 
 		playsound(src, 'modular_nova/modules/RBMK2/sounds/ionization.ogg', 50, TRUE, extrarange = ionize_air_range)
 	else
-		criticality = max(0,criticality-1)
+		criticality = max(0, criticality-1)
 
 	if(venting)
 		if(vent_reverse_direction)

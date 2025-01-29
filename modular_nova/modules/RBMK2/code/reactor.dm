@@ -95,7 +95,6 @@
 	SSair.start_processing_machine(src)
 
 /obj/machinery/power/rbmk2/update_icon_state()
-
 	if(stored_rod)
 		if(active)
 			if(jammed)
@@ -126,10 +125,10 @@
 			heat_overlay.appearance_flags |= RESET_COLOR
 			if(vent_reverse_direction)
 				heat_overlay.color = heat2colour(buffer_gases.temperature)
-				heat_overlay.alpha = min( (rod_mix.temperature - T0C) * (1/500) * 255,255)
+				heat_overlay.alpha = min( (rod_mix.temperature - T0C) * (1/500) * 255, 255)
 			else
 				heat_overlay.color = heat2colour(rod_mix.temperature)
-				heat_overlay.alpha = min( (rod_mix.temperature - T0C) * (1/500) * 255,255)
+				heat_overlay.alpha = min( (rod_mix.temperature - T0C) * (1/500) * 255, 255)
 			. += heat_overlay
 
 		if(!active && !jammed && rod_mix.gases[/datum/gas/tritium])
@@ -138,8 +137,8 @@
 				var/rod_mix_pressure = rod_mix.return_pressure()
 				var/mutable_appearance/meter_overlay = mutable_appearance(icon, "platform_rod_glow_[meter_icon_num]")
 				meter_overlay.appearance_flags |= RESET_COLOR
-				var/return_pressure_mod = clamp( (rod_mix_pressure - stored_rod.pressure_limit*0.5) / stored_rod.pressure_limit*0.5,0,1)
-				meter_overlay.color = rgb(return_pressure_mod*255,255 - return_pressure_mod*255,0)
+				var/return_pressure_mod = clamp( (rod_mix_pressure - stored_rod.pressure_limit*0.5) / stored_rod.pressure_limit*0.5, 0, 1)
+				meter_overlay.color = rgb(return_pressure_mod*255, 255 - return_pressure_mod*255, 0)
 				. += meter_overlay
 
 /obj/machinery/power/rbmk2/return_analyzable_air()
@@ -149,7 +148,6 @@
 	. += buffer_gases
 
 /obj/machinery/power/rbmk2/Destroy()
-
 	for(var/obj/machinery/rbmk2_sniffer/sniffer as anything in linked_sniffers)
 		sniffer.unlink_reactor(src)
 
@@ -182,7 +180,7 @@
 				remove_rod()
 			explosion(src, devastation_range = explosion_power*0.25, heavy_impact_range = explosion_power*0.5, light_impact_range = explosion_power, flash_range = explosion_power*2, adminlog = FALSE)
 			last_radiation_pulse = GAS_REACTION_MAXIMUM_RADIATION_PULSE_RANGE*4 //It just keeps getting worse and worse.
-			radiation_pulse(src, last_radiation_pulse,threshold = RAD_FULL_INSULATION)
+			radiation_pulse(src, last_radiation_pulse, threshold = RAD_FULL_INSULATION)
 		else
 			message_admins("[src] exploded due to damage at [ADMIN_VERBOSEJMP(our_turf)]")
 			log_game("[src] exploded due to damage [AREACOORD(our_turf)]")
@@ -207,13 +205,11 @@
 	. = ..()
 
 /obj/machinery/power/rbmk2/exchange_parts(mob/user, obj/item/storage/part_replacer/replacer_tool)
-
 	if(active)
 		balloon_alert(user, "turn off before upgrading!")
 		return FALSE
 
 	. = ..()
-
 
 /obj/machinery/power/rbmk2/on_set_panel_open(old_value)
 	. = ..()
@@ -260,12 +256,12 @@
 				playsound(src, pick('sound/effects/structure_stress/pop1.ogg','sound/effects/structure_stress/pop2.ogg','sound/effects/structure_stress/pop3.ogg'), 50, TRUE, extrarange = -3)
 				return FALSE
 			else //Yes. Spamming the eject button can unjam it.
-				jam(user,FALSE) //We did it!
-				toggle_active(user,FALSE) //Turning it off.
+				jam(user, FALSE) //We did it!
+				toggle_active(user, FALSE) //Turning it off.
 				playsound(src, 'sound/machines/shutter.ogg', 50, TRUE, extrarange = -3)
 				return FALSE
 		stored_rod.forceMove(our_turf)
-		stored_rod.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(3,6), 5)
+		stored_rod.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(3, 6), 5)
 		playsound(src, 'sound/items/weapons/gun/general/grenade_launch.ogg', 50, TRUE, extrarange = -3)
 	else
 		if(jammed)
@@ -296,7 +292,6 @@
 
 
 /obj/machinery/power/rbmk2/proc/jam(mob/living/user, desired_state = !jammed)
-
 	if(jammed == desired_state)
 		return
 
@@ -318,7 +313,6 @@
 	return TRUE
 
 /obj/machinery/power/rbmk2/proc/toggle_active(mob/living/user, desired_state = !active)
-
 	if(active == desired_state)
 		return
 
@@ -354,7 +348,6 @@
 	return TRUE
 
 /obj/machinery/power/rbmk2/proc/toggle_vents(mob/living/user, desired_state = !venting)
-
 	if(desired_state == venting)
 		return FALSE
 
@@ -415,7 +408,7 @@
 		goblin_multiplier += (new_matter_bin.tier-1)*0.5
 	max_power_generation = initial(max_power_generation) * (max_power_generation_mul**(1 + (max_power_generation_mul-1)*0.1))
 	max_power_generation = FLOOR(max_power_generation, 10000)
-	safeties_max_power_generation = max(initial(safeties_max_power_generation), round(max_power_generation*0.75,125000))
+	safeties_max_power_generation = max(initial(safeties_max_power_generation), round(max_power_generation*0.75, 125000))
 
 	//Requires x4 servos
 	var/vent_pressure_multiplier = 0
@@ -467,9 +460,7 @@
 				return
 			. = TRUE
 
-
 /obj/machinery/power/rbmk2/examine(mob/user)
-
 	. = ..()
 
 	. += span_notice("A digital display on the side side says <b>MAX SAFE POWER: [display_power(safeties_max_power_generation)], WARRANTY VOID IF EXCEEDED</b>.")
@@ -496,7 +487,6 @@
 	if(active)
 		. += span_notice("It is currently consuming [last_tritium_consumption] moles of tritium per cycle, producing [display_power(last_power_generation)].")
 
-
 /obj/machinery/power/rbmk2/examine_more(mob/user)
 	. = ..()
 	. += "It is running at <b>[power_efficiency*100]%</b> power efficiency."
@@ -504,7 +494,6 @@
 	. += "It can handle an estimated power load of <b>[display_power(max_power_generation)]</b> before going critical."
 
 /obj/machinery/power/rbmk2/proc/transfer_rod_temperature(datum/gas_mixture/gas_source, allow_cooling_limiter = TRUE, multiplier = 1)
-
 	var/datum/gas_mixture/rod_mix = stored_rod.air_contents
 
 	var/rod_mix_heat_capacity = rod_mix.heat_capacity()
@@ -526,7 +515,7 @@
 
 	var/temperature_change = (energy_transfer/rod_mix_heat_capacity)*multiplier
 	if(allow_cooling_limiter && temperature_change > 0) //Cooling!
-		temperature_change *= clamp(1 - cooling_limiter*0.01, 0,1) //Clamped in case of adminbus fuckery.
+		temperature_change *= clamp(1 - cooling_limiter*0.01, 0, 1) //Clamped in case of adminbus fuckery.
 
 	rod_mix.temperature -= temperature_change*0.85
 	gas_source.temperature += temperature_change

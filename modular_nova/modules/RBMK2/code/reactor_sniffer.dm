@@ -76,7 +76,6 @@
 			link_reactor(null, reactor)
 
 /obj/machinery/rbmk2_sniffer/update_icon()
-
 	. = ..()
 
 	if(machine_stat & (NOPOWER|BROKEN))
@@ -93,7 +92,6 @@
 		. += "reactor_sniffer_panel"
 
 /obj/machinery/rbmk2_sniffer/Destroy()
-
 	. = ..()
 
 	for(var/obj/machinery/power/rbmk2/reactor as anything in linked_reactors)
@@ -123,7 +121,6 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/rbmk2_sniffer/proc/link_reactor(mob/user, obj/machinery/power/rbmk2/desired_reactor)
-
 	if(linked_reactors[desired_reactor])
 		balloon_alert(user, "already linked!")
 		return FALSE
@@ -134,7 +131,6 @@
 	return TRUE
 
 /obj/machinery/rbmk2_sniffer/proc/unlink_reactor(mob/user, obj/machinery/power/rbmk2/desired_reactor)
-
 	if(!linked_reactors[desired_reactor])
 		return FALSE
 
@@ -144,7 +140,6 @@
 	return TRUE
 
 /obj/machinery/rbmk2_sniffer/examine(mob/user)
-
 	. = ..()
 
 	. += "It is linked to [length(linked_reactors)] reactor(s)."
@@ -154,8 +149,7 @@
 	else
 		. += span_notice("It is glowing a steady green.")
 
-/obj/machinery/rbmk2_sniffer/proc/alert_radio(alert_text, bypass_cooldown = FALSE, alert_emergency_channel = FALSE,criticality = TRUE)
-
+/obj/machinery/rbmk2_sniffer/proc/alert_radio(alert_text, bypass_cooldown = FALSE, alert_emergency_channel = FALSE, criticality = TRUE)
 	if(!radio_enabled || !alert_text)
 		return FALSE
 
@@ -176,7 +170,6 @@
 	return TRUE
 
 /obj/machinery/rbmk2_sniffer/process(seconds_per_tick)
-
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
 
@@ -222,13 +215,13 @@
 		last_criticality = highest_criticality
 		if(highest_criticality >= 100)
 			alert_radio(
-				"CRITICALITY THRESHOLD MET! SEEK SHELTER IMMEDIATELY! CRITICALITY AT [round(last_criticality,0.1)]%!",
+				"CRITICALITY THRESHOLD MET! SEEK SHELTER IMMEDIATELY! CRITICALITY AT [round(last_criticality, 0.1)]%!",
 				bypass_cooldown = TRUE,
 				alert_emergency_channel = alert_emergency_channel,
 			)
 		else
 			alert_radio(
-				"Stray ionization detected! Criticality at [round(last_criticality,0.1)]%!",
+				"Stray ionization detected! Criticality at [round(last_criticality, 0.1)]%!",
 				alert_emergency_channel = alert_emergency_channel,
 			)
 
@@ -236,7 +229,7 @@
 		last_integrity = lowest_integrity_percent
 		if(abs(highest_criticality - last_criticality) >= 0.05 || lowest_integrity_percent <= 0.3)
 			alert_radio(
-				"[lowest_integrity_percent <= 0.3 ? "DANGER!" : "Warning!"] integrity at [round(lowest_integrity_percent*100,0.1)]%! Perform repairs immediately!",
+				"[lowest_integrity_percent <= 0.3 ? "DANGER!" : "Warning!"] integrity at [round(lowest_integrity_percent*100, 0.1)]%! Perform repairs immediately!",
 				alert_emergency_channel = alert_emergency_channel,
 				criticality = FALSE,
 				bypass_cooldown = lowest_integrity_percent <= 0.3,

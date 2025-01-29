@@ -123,7 +123,6 @@
 		return TRUE
 	return ..()
 
-
 #undef WIRE_VENT_DIRECTION
 #undef WIRE_VENT_POWER
 #undef WIRE_TAMPER
