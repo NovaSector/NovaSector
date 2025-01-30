@@ -1,6 +1,4 @@
-
 /obj/machinery/power/rbmk2/multitool_act(mob/living/user, obj/item/multitool/tool)
-
 	if(!panel_open)
 		balloon_alert(user, "open the panel first!")
 		return ITEM_INTERACT_BLOCKING
@@ -9,7 +7,6 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/rbmk2/wirecutter_act(mob/living/user, obj/item/tool)
-
 	if(!panel_open)
 		balloon_alert(user, "open the panel first!")
 		return ITEM_INTERACT_BLOCKING
@@ -40,7 +37,6 @@
 
 //Toggle the reactor on/off.
 /obj/machinery/power/rbmk2/wrench_act(mob/living/user, obj/item/attack_item)
-
 	if(jammed)
 		balloon_alert(user, "refuses to budge!")
 		return ITEM_INTERACT_BLOCKING
@@ -49,9 +45,7 @@
 
 	return ITEM_INTERACT_SUCCESS
 
-
 /obj/machinery/power/rbmk2/welder_act(mob/living/user, obj/item/attack_item)
-
 	if(atom_integrity >= max_integrity)
 		balloon_alert(user, "already repaired!")
 		return ITEM_INTERACT_BLOCKING
@@ -77,7 +71,6 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/rbmk2/emp_act(severity)
-
 	. = ..()
 
 	if(. & EMP_PROTECT_SELF)
@@ -113,7 +106,6 @@
 		chance -= 10
 
 /obj/machinery/power/rbmk2/emag_act(mob/user, obj/item/card/emag/emag_card)
-
 	if(obj_flags & EMAGGED)
 		return FALSE
 
@@ -135,4 +127,4 @@
 	if(!.)
 		return .
 	if(!QDELETED(src))
-		jam(null, TRUE)
+		jam(desired_state = TRUE)

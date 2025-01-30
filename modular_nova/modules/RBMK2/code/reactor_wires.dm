@@ -44,28 +44,28 @@
 	. += "The cooling limiter display reads [machine.cooling_limiter]%"
 	. += "The anti-tamper light is [machine.tampered ? "flashing red" : "green"]."
 
-/datum/wires/rbmk2/on_pulse(wire)
+/datum/wires/rbmk2/on_pulse(wire, user)
 	var/obj/machinery/power/rbmk2/machine = holder
 	switch(wire)
 		if(WIRE_OVERCLOCK)
 			machine.overclocked = !machine.overclocked
 		if(WIRE_ACTIVATE)
-			machine.toggle_active(usr)
+			machine.toggle_active(user)
 		if(WIRE_THROW)
-			machine.remove_rod(usr, do_throw = TRUE)
+			machine.remove_rod(user, do_throw = TRUE)
 		if(WIRE_VENT_POWER)
-			machine.toggle_vents(usr)
-			if(isliving(usr))
-				machine.shock(usr, 0.125)
+			machine.toggle_vents(user)
+			if(isliving(user))
+				machine.shock(user, 0.125)
 		if(WIRE_VENT_DIRECTION)
-			machine.toggle_reverse_vents(usr)
+			machine.toggle_reverse_vents(user)
 		if(WIRE_SAFETY)
-			machine.toggle_active(usr, FALSE)
+			machine.toggle_active(user, FALSE)
 		if(WIRE_LIMIT)
 			machine.cooling_limiter = (machine.cooling_limiter + 10) % (machine.cooling_limiter_max+10)
 		if(WIRE_POWER)
-			if(isliving(usr))
-				machine.shock(usr, 0.5)
+			if(isliving(user))
+				machine.shock(user, 0.5)
 		if(WIRE_TAMPER)
 			machine.tampered = TRUE
 
@@ -76,25 +76,26 @@
 			if(mend)
 				machine.overclocked = FALSE
 		if(WIRE_ACTIVATE)
-			machine.toggle_active(usr, mend)
+			machine.toggle_active(source, mend)
 		if(WIRE_THROW)
 			if(mend)
-				machine.remove_rod(usr, do_throw = TRUE)
+				machine.remove_rod(source, do_throw = TRUE)
 		if(WIRE_VENT_POWER)
-			machine.toggle_vents(usr, mend)
-			if(isliving(usr))
-				machine.shock(usr, 0.25)
+			machine.toggle_vents(source, mend)
+			if(isliving(source))
+				machine.shock(source, 0.25)
 		if(WIRE_VENT_DIRECTION)
 			if(mend)
-				machine.toggle_reverse_vents(usr, FALSE)
+				machine.toggle_reverse_vents(source, FALSE)
 		if(WIRE_SAFETY)
 			machine.safety = mend
 			if(!mend)
 				var/turf/machine_turf = get_turf(machine)
-				if(usr)
-					message_admins("[src] had the safety wire cut by [ADMIN_LOOKUPFLW(usr)] at [ADMIN_VERBOSEJMP(machine_turf)].")
-					usr.log_message("cut the safety wire of [machine]", LOG_GAME)
-					machine.investigate_log("had the safety wire cut by [key_name(usr)] at [AREACOORD(machine)].", INVESTIGATE_ENGINE)
+				if(isliving(source))
+					var/mob/living/living_source = source
+					message_admins("[src] had the safety wire cut by [ADMIN_LOOKUPFLW(source)] at [ADMIN_VERBOSEJMP(machine_turf)].")
+					living_source.log_message("cut the safety wire of [machine]", LOG_GAME)
+					machine.investigate_log("had the safety wire cut by [key_name(source)] at [AREACOORD(machine)].", INVESTIGATE_ENGINE)
 				else
 					message_admins("[src] had the safety wire cut at [ADMIN_VERBOSEJMP(machine_turf)]")
 					log_game("[src] had the safety wire cut at [AREACOORD(machine_turf)]")
@@ -105,16 +106,17 @@
 			machine.power = mend
 			if(!mend)
 				var/turf/machine_turf = get_turf(machine)
-				if(usr)
-					message_admins("[src] had the power wire cut by [ADMIN_LOOKUPFLW(usr)] at [ADMIN_VERBOSEJMP(machine_turf)].")
-					usr.log_message("cut the power wire of [machine]", LOG_GAME)
-					machine.investigate_log("had the power wire cut by [key_name(usr)] at [AREACOORD(machine)].", INVESTIGATE_ENGINE)
+				if(isliving(source))
+					var/mob/living_source = source
+					message_admins("[src] had the power wire cut by [ADMIN_LOOKUPFLW(source)] at [ADMIN_VERBOSEJMP(machine_turf)].")
+					living_source.log_message("cut the power wire of [machine]", LOG_GAME)
+					machine.investigate_log("had the power wire cut by [key_name(source)] at [AREACOORD(machine)].", INVESTIGATE_ENGINE)
 				else
 					message_admins("[src] had the power wire cut at [ADMIN_VERBOSEJMP(machine_turf)]")
 					log_game("[src] had the power wire cut at [AREACOORD(machine_turf)]")
 					machine.investigate_log("had the power wire cut at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
-			if(isliving(usr))
-				machine.shock(usr)
+			if(isliving(source))
+				machine.shock(source)
 		if(WIRE_TAMPER)
 			machine.tampered = TRUE
 
@@ -122,7 +124,6 @@
 	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))
 		return TRUE
 	return ..()
-
 
 #undef WIRE_VENT_DIRECTION
 #undef WIRE_VENT_POWER

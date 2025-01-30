@@ -33,7 +33,7 @@
 	else
 		. += "The LED display is displaying nothing."
 
-/datum/wires/rbmk2_sniffer/on_pulse(wire)
+/datum/wires/rbmk2_sniffer/on_pulse(wire, user)
 	var/obj/machinery/rbmk2_sniffer/sniffer = holder
 	switch(wire)
 		if(WIRE_LINK)
@@ -52,11 +52,11 @@
 			if(sniffer.unlink_confirm)
 				var/unlink_amount = 0
 				for(var/obj/machinery/power/rbmk2/reactor as anything in sniffer.linked_reactors)
-					unlink_amount += sniffer.unlink_reactor(null,reactor)
+					unlink_amount += sniffer.unlink_reactor(user, reactor)
 			if(sniffer.link_confirm)
 				var/link_amount = 0
-				for(var/obj/machinery/power/rbmk2/reactor in range(10,sniffer))
-					link_amount += sniffer.link_reactor(null,reactor)
+				for(var/obj/machinery/power/rbmk2/reactor in range(10, sniffer))
+					link_amount += sniffer.link_reactor(user, reactor)
 			sniffer.link_confirm = FALSE
 			sniffer.unlink_confirm = FALSE
 		if(WIRE_TEST)

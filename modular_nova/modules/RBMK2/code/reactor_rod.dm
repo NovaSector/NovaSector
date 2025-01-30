@@ -32,8 +32,7 @@
 	air_contents.gases[/datum/gas/nitrogen][MOLES] = 10
 
 /obj/item/tank/rbmk2_rod/atom_destruction(damage_flag)
-
-	if(!loc || !istype(loc,/obj/machinery/power/rbmk2))
+	if(!loc || !istype(loc, /obj/machinery/power/rbmk2))
 		return ..()
 
 	var/obj/machinery/power/rbmk2/machine = loc
@@ -41,8 +40,7 @@
 	machine.active = FALSE
 	machine.jammed = FALSE
 	src.forceMove(get_turf(machine))
-	. = ..()
-
+	return ..()
 
 //Special override proc that removes the tank exploding, reacting, or leaking gas.
 /obj/item/tank/rbmk2_rod/process(seconds_per_tick)
