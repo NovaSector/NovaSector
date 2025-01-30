@@ -95,7 +95,7 @@
 	. = ..()
 
 	for(var/obj/machinery/power/rbmk2/reactor as anything in linked_reactors)
-		unlink_reactor(reactor)
+		unlink_reactor(desired_reactor = reactor)
 
 	QDEL_NULL(stored_radio)
 

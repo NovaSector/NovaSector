@@ -153,7 +153,7 @@
 
 /obj/machinery/power/rbmk2/Destroy()
 	for(var/obj/machinery/rbmk2_sniffer/sniffer as anything in linked_sniffers)
-		sniffer.unlink_reactor(src)
+		sniffer.unlink_reactor(desired_reactor = src)
 
 	if(SSticker.IsRoundInProgress())
 		var/turf/our_turf = get_turf(src)
