@@ -16005,7 +16005,7 @@
 "epB" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
-	dir = 1;
+	dir = 8;
 	id = "detectiveshutters"
 	},
 /turf/open/floor/plating,
@@ -54060,7 +54060,8 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
-	id = "detectiveshutters"
+	id = "detectiveshutters";
+	name = "Shutters"
 	},
 /turf/open/floor/wood/large,
 /area/station/security/detectives_office)
@@ -66708,14 +66709,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint_lesser)
-"scg" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 8;
-	id = "detectiveshutters"
-	},
-/turf/open/floor/plating,
-/area/station/security/detectives_office)
 "sch" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/machinery/power/energy_accumulator/tesla_coil/anchored,
@@ -69887,6 +69880,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/commissary)
+"sSI" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "detectiveshutters"
+	},
+/turf/open/floor/plating,
+/area/station/security/detectives_office)
 "sSJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -251386,8 +251387,8 @@ ezi
 bRb
 ugL
 ugL
-scg
-scg
+epB
+epB
 ugL
 iJf
 ugL
@@ -251641,7 +251642,7 @@ gBJ
 sNr
 vvm
 bRb
-epB
+sSI
 rDV
 ydt
 mxW
@@ -251898,7 +251899,7 @@ aSG
 vAm
 ahk
 sxO
-epB
+sSI
 ret
 nxB
 rll
