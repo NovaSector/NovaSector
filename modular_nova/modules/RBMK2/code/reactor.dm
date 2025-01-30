@@ -90,7 +90,11 @@
 	buffer_gases = new(100)
 
 	connect_to_network()
-	process() //Process once to update everything.
+
+	if(ispath(stored_rod))
+		stored_rod = new stored_rod(src)
+		START_PROCESSING(SSmachines, src)
+		update_appearance(UPDATE_ICON)
 
 	SSair.start_processing_machine(src)
 
@@ -186,11 +190,8 @@
 				remove_rod()
 	. = ..()
 
-/obj/machinery/power/rbmk2/preloaded/Initialize(mapload)
-	. = ..()
-	stored_rod = new /obj/item/tank/rbmk2_rod/preloaded(src)
-	START_PROCESSING(SSmachines, src)
-	update_appearance(UPDATE_ICON)
+/obj/machinery/power/rbmk2/preloaded
+	stored_rod = /obj/item/tank/rbmk2_rod/preloaded
 
 /obj/machinery/power/rbmk2/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(active || user.combat_mode || !istype(tool, /obj/item/tank/rbmk2_rod))
