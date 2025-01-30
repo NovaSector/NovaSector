@@ -411,6 +411,7 @@ ROUNDSTART_RACES ghoul
 ROUNDSTART_RACES teshari
 ROUNDSTART_RACES hemophage
 ROUNDSTART_RACES vox_primalis
+ROUNDSTART_RACES abductorweak
 
 ##-------------------------------------------------------------------------------------------
 

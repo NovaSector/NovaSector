@@ -1297,3 +1297,171 @@
       and loot. Im not spoiling anything, find it yourself.
   valzargaming:
   - bugfix: Typo in path for cavesound3.ogg
+2025-01-27:
+  FeenieRU:
+  - qol: now you can choose your character in Charlie Station spawner.
+  Mezzmerr:
+  - rscadd: Replaced the Bogseo gunset in the Blueshield's gun beacon with a gunset
+      for the NT20, a new, slightly nerfed variant of the C20-r.
+  - rscadd: Added .460 Ceres SMG magazines to the Security lathe.
+  Myphicbowser:
+  - rscadd: Rogues; Descendants of the Mysterious Abductors are now employed by Nanotrasen,
+      sure they have three fingers and most are missing vocal cords, but they can
+      still work!
+  OrbisAnima:
+  - balance: Xenoarch rewards were slightly adjusted, legion cores that appear in
+      it are now pre stabilized so they have an actual impact on the game.
+  RatFromTheJungle:
+  - rscadd: Added advanced (taser+disabler) taser's to the security vendor (3) and
+      company imports.
+  - balance: heavily toned back tasers(electrodes), and removed a modular-confusion
+      effect that they had, for some reason.
+  Zergspower:
+  - qol: added custom hat offsets for the majority of borg models
+  - bugfix: fixes borg hats on some models floating
+2025-01-28:
+  FlufflesTheDog:
+  - bugfix: Subdermal splints, rapid coagulant applicators, and robot repair sprays
+      should now work again
+  - bugfix: Department batons are no longer invisible
+  Hatterhat:
+  - bugfix: 9mm magazines (e.g. the Makarov) are no longer invisible.
+  - balance: .35 Sol Short extended magazines are now small-sized, and thus fit in
+      boxes or belts with less finagling.
+  - balance: The Makarov guncase from the uplink is now normal-sized, and thus fits
+      in backpacks.
+  MrSunabouzu:
+  - qol: cin surplus undersuit now comes with sensors.
+  OrbisAnima:
+  - qol: Removed Bounce from the P207 rounds (Kinetic Balls gun). Increased Magazine
+      size by 50% for the P207.
+  Stalkeros, Moldb for the sprites:
+  - image: Removes two pixels from the akula snout.
+  Trelus:
+  - rscadd: Added the 'Zashch' self-loading pistol, as well as an entry for purchasing
+      it from cargo's NRI supply company import
+  - rscadd: Added the Zashch pistol magazine, as well as an entry for purchasing it
+      from cargo's NRI supply company import
+  Zergspower:
+  - balance: blob point generation returned to baseline of 2
+2025-01-29:
+  Absolucy:
+  - bugfix: Being on fire or wet should no longer last much longer than intended while
+      the server is under load.
+  - refactor: Refactored how quirks handle starting/stopping processing.
+  - bugfix: Certain status effects, such as stuns and attempting to extinguish fires
+      via stop, drop & roll, shouldn't last much longer than intended while the server
+      is under load.
+  Aniantan:
+  - spellcheck: Fixed two typos in banded snake's description
+  ArcaneMusic:
+  - rscadd: You can now purchase pet mice as a cargo goodie.
+  - qol: Pet carriers now have contextual screentips.
+  - bugfix: The biopod pet carrier now doesn't randomly turn invisible.
+  AyIong:
+  - bugfix: Premium and contraband products in vending machines, now really has no
+      discount
+  - bugfix: You can rename supply pod beacon with a any writing tool.
+  EEASAS:
+  - map: modularizes the comms agent ruin on icebox
+  FlufflesTheDog:
+  - bugfix: Synths can use the IRN Imports tab on their internal computers
+  - bugfix: Requests through company imports have a name associated with them
+  - bugfix: PDA ringtones can be changed in-game
+  Gaxeer:
+  - refactor: replace bubble sort with timsort for cameralist, move global procs to
+      `cameranet` datum
+  Jacquerel:
+  - refactor: Geese have been moved to the basic mob subsystem, please report any
+      unusual behaviour.
+  - bugfix: You can once again teleport dangerously with the hand teleporter
+  JohnFulpWillard:
+  - qol: The wiki books for users on 516 no longer opens the page on an external website
+      on your browser.
+  Kashargul:
+  - bugfix: list input scrolls into view again when using the array keys for navigation
+  - bugfix: Using letter keys while focussing the list focusses the search bar again
+  MTandi:
+  - bugfix: mouse corpse can be used to summon codex citatrix
+  - image: New medbot sprites
+  - image: New stacked medibot borg skin sprite
+  MX0739:
+  - bugfix: Fixed Justice mech's dash ability
+  Maximal08:
+  - rscadd: TRAIT_NOSOFTCRIT now blocks falling into a regenerative coma.
+  Melbert:
+  - qol: '"Who" and "Adminwho" are typed as "Info" and not "OOC" (so they no longer
+      go to "OOC" tabs)'
+  - qol: '"Tip of the Round" and "Show Server Revision" are also typed as "Info",
+      rather than "OOC" and untyped respectively'
+  - bugfix: Regen meshes stop when they've done all they can again
+  MichiRecRoom:
+  - refactor: Datumized pAI card screen images
+  Myphicbowser:
+  - rscadd: Added Engineering and Cyborg Skillchips
+  - rscadd: Added Medbay with a basic Chemistry Setup
+  - rscadd: Added a pre-built Cyborg Body
+  - qol: Removed cut AI wire from all doors
+  OrbisAnima:
+  - qol: Turns off by default the Soulcatcher and talking of the Hoshi and the Hyeseong.
+      They are still usable, just not out of the box, the user has to manually turn
+      them on.
+  OrionTheFox:
+  - rscadd: Added Directional Firelock Frames, making the tile-edge firelocks properly
+      repairable/deconstructable.
+  - bugfix: fixed firelock construction not properly updating icons
+  Profakos:
+  - bugfix: IEDs can now also be crafted using pipes you have ripped up from the ground.
+  SmArtKar:
+  - bugfix: Head IDs now keep the large pointer effect when slotted into a PDA or
+      displayed as the front ID in a wallet
+  - bugfix: Fixed evidence bag not reverting to tiny size after dumping its contents
+      out
+  - bugfix: Springlock MODule now only activates when you have at least a single sealed
+      piece
+  - bugfix: Springlock MODule no longer damages bodyparts not covered by your MODsuit
+  - qol: Fishing minigame should be smoother now
+  - bugfix: Fixed infinitely stacking examine lines on advanced fishing rods
+  - image: Resprited fishing UI
+  - image: Blue doughballs now have their own fishing rod overlay
+  - image: Resprited mansus rift fishing portal overlay
+  - bugfix: Fixed crafting menu not changing the cursor when hovered over
+  StrangeWeirdKitten:
+  - qol: Quirk menu now has a search bar
+  SyncIt21:
+  - bugfix: hydrophonics circuit component actually sets output level when reagents
+      are changed in the tray
+  - refactor: refactors how code listens for reagent changes. Report bugs on github
+  - bugfix: quirks work again
+  - bugfix: fixes balloon alert runtimes with assembly holder
+  - bugfix: adding/transferring reagent amounts less than 0.01 now won't return false
+      results
+  - code_imp: removed excessive rounding of reagent volumes thus slightly improving
+      performance
+  TiviPlus:
+  - bugfix: fixed a case that could make untoggling fullscreen make your window small
+  - code_imp: Cleaned up some fullscreen and status bar toggle code to function better
+  - bugfix: fixed timestamps being timezone sensitive
+  - admin: due to this bug some logs may have been timestamped incorrectly
+  dj-34:
+  - bugfix: Fixed shuttle parallax when a mob is standing still.
+  grungussuss:
+  - sound: headsets now have sounds
+  necromanceranne:
+  - rscadd: Cargo can order lethal shotgun shells from the Imports tab, at a premium.
+  - balance: The black market source for buckshot can get normal types of buckshot,
+      but some of it can be a bit dodgy.
+  - balance: Buckshot is now more wound focused over damage. Slugs are now more armor
+      penetration focused over damage.
+  - balance: The bulldog shotgun remains otherwise unchanged damage wise, but does
+      gain the above extra bonuses.
+  vinylspiders:
+  - bugfix: fixes sound preferences not being respected.
+  - bugfix: radio headset volume slider is now functional
+  - bugfix: fixes a bug that would cause the occupations page to grow larger each
+      time you clicked an alt title dropdown
+  - bugfix: changes made in quirks menu will now reflect properly upon tabbing away
+      and then back again to the quirks tab, without having to close the entire preferences
+      menu
+  - bugfix: due to a number of complaints of fish explosions, chrystarfish will no
+      longer be chosen as the random starting fish for the  fish mount.
