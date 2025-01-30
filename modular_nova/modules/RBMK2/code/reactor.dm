@@ -317,6 +317,12 @@
 	return TRUE
 
 /obj/machinery/power/rbmk2/proc/toggle_active(mob/living/user, desired_state = !active)
+	for(var/obj/machinery/power/rbmk2/reactor in get_turf(src))
+		if(reactor != src)
+			reactor.deconstruct(FALSE) // To prevent stacking reactors on top of each other.
+			balloon_alert_to_viewers("[reactor] tears itself apart!")
+			return
+
 	if(active == desired_state)
 		return
 
