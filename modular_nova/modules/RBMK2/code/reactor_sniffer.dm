@@ -131,8 +131,8 @@
 	if(!(desired_reactor in linked_reactors))
 		return FALSE
 
-	linked_reactors -= desired_reactor
-	desired_reactor.linked_sniffers -= src
+	linked_reactors.Remove(desired_reactor)
+	desired_reactor.linked_sniffers.Remove(src)
 
 	return TRUE
 
