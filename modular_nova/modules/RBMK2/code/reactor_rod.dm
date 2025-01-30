@@ -40,7 +40,7 @@
 	machine.active = FALSE
 	machine.jammed = FALSE
 	src.forceMove(get_turf(machine))
-	. = ..()
+	return ..()
 
 //Special override proc that removes the tank exploding, reacting, or leaking gas.
 /obj/item/tank/rbmk2_rod/process(seconds_per_tick)

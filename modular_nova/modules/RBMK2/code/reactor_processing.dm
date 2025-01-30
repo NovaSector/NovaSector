@@ -1,16 +1,13 @@
 /obj/machinery/power/rbmk2/process(seconds_per_tick)
 	var/turf/turf_loc = loc
 	if(!istype(turf_loc))
-		update_appearance(UPDATE_ICON)
 		return //wat
 
 	if(!stored_rod)
-		update_appearance(UPDATE_ICON)
 		return
 
 	var/datum/gas_mixture/rod_mix = stored_rod.air_contents
 	if(!rod_mix || !rod_mix.gases)
-		update_appearance(UPDATE_ICON)
 		return
 
 	var/rod_mix_pressure = rod_mix.return_pressure()
@@ -18,12 +15,10 @@
 
 	if(!active) //We're turned off.
 		meltdown = FALSE //Sometimes, this thing can be set to inactive due to running out of gas and other memes, thus this is fine to exist and is totally not a bandaid solution to potential future fuckery.
-		update_appearance(UPDATE_ICON)
 		return
 
 	var/amount_to_consume = (gas_consumption_base + (rod_mix.temperature/1000)*gas_consumption_heat) * clamp(1 - (rod_mix_pressure - stored_rod.pressure_limit*0.5)/stored_rod.pressure_limit*0.5, 0.25, 1) * seconds_per_tick * 0.5
 	if(!amount_to_consume)
-		update_appearance(UPDATE_ICON)
 		return
 	amount_to_consume *= (overclocked ? 1.25 : 1)*(0.75 + power_efficiency*0.25)*(obj_flags & EMAGGED ? 10 : 1)*seconds_per_tick*0.5
 
@@ -33,7 +28,6 @@
 
 	if(!consumed_mix)
 		toggle_active(desired_state = FALSE)
-		update_appearance(UPDATE_ICON)
 		return
 
 	//Do power generation here.
@@ -175,7 +169,10 @@
 		else
 			if(active)
 				buffer_gases.pump_gas_to(turf_air, vent_pressure) //Pump buffer gases to turf. Reduced rate because active.
-				if(stored_rod) transfer_rod_temperature(turf_air, allow_cooling_limiter = TRUE, multiplier = min(1, 0.5*(vent_pressure/200)))
+				if(stored_rod)
+					transfer_rod_temperature(turf_air, allow_cooling_limiter = TRUE, multiplier = min(1, 0.5*(vent_pressure/200)))
 			else
 				buffer_gases.pump_gas_to(turf_air, vent_pressure*2) //Pump buffer gases to turf. Increases rate because inactive.
-				if(stored_rod) transfer_rod_temperature(turf_air, allow_cooling_limiter = FALSE)
+				if(stored_rod)
+					transfer_rod_temperature(turf_air, allow_cooling_limiter = FALSE)
+		update_appearance(UPDATE_OVERLAYS)
