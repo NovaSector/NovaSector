@@ -16004,6 +16004,10 @@
 /area/station/hallway/primary/aft)
 "epB" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "detectiveshutters"
+	},
 /turf/open/floor/plating,
 /area/station/security/detectives_office)
 "epE" = (
@@ -54055,6 +54059,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/machinery/button/door/directional/south{
+	id = "detectiveshutters"
+	},
 /turf/open/floor/wood/large,
 /area/station/security/detectives_office)
 "ozS" = (
@@ -66701,6 +66708,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/ordnance_maint_lesser)
+"scg" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "detectiveshutters"
+	},
+/turf/open/floor/plating,
+/area/station/security/detectives_office)
 "sch" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/machinery/power/energy_accumulator/tesla_coil/anchored,
@@ -251371,8 +251386,8 @@ ezi
 bRb
 ugL
 ugL
-epB
-epB
+scg
+scg
 ugL
 iJf
 ugL
