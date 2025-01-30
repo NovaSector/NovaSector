@@ -190,18 +190,17 @@
 */
 
 /datum/supply_pack/security/armory/battle_rifle
-	cost = CARGO_CRATE_VALUE * 12
+	cost = CARGO_CRATE_VALUE * 15
 	contains = list(
 		/obj/item/gun/ballistic/automatic/battle_rifle = 3,
 		/obj/item/ammo_box/magazine/m38 = 6,
 	)
 
 /datum/supply_pack/security/armory/br_mag
-	desc = "Fifteen .38 magazines, able to fit into the NT BR-38. Contains \
+	desc = "Fourteen .38 magazines, able to fit into the NT BR-38. Contains \
 		nine standard magazines, three Hot Shot magazines and three Iceblox magazines."
-	cost = CARGO_CRATE_VALUE * 5
 	contains = list(
-		/obj/item/ammo_box/magazine/m38 = 9,
+		/obj/item/ammo_box/magazine/m38 = 8,
 		/obj/item/ammo_box/magazine/m38/hotshot = 3,
 		/obj/item/ammo_box/magazine/m38/iceblox = 3,
 	)
