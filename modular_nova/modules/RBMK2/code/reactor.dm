@@ -268,9 +268,11 @@
 	else
 		if(jammed)
 			return FALSE
-		stored_rod.forceMove(our_turf)
+		if(!user?.put_in_hands(stored_rod))
+			stored_rod.forceMove(our_turf)
 		playsound(src, 'sound/items/weapons/gun/shotgun/insert_shell.ogg', 50, TRUE, frequency = -1, extrarange = -3)
 	stored_rod = null
+	STOP_PROCESSING(SSmachines, src)
 	update_appearance(UPDATE_ICON)
 	if(user)
 		user.log_message("removed a rod from [src]", LOG_GAME)
@@ -477,7 +479,8 @@
 
 	if(!venting)
 		. += span_warning("The vents are closed.")
-
+	else if(vent_reverse_direction)
+		. += "Its vents are running in reverse."
 	if(!stored_rod)
 		. += span_warning("It it is missing a RB-MK2 reactor rod.")
 	else if(jammed)
