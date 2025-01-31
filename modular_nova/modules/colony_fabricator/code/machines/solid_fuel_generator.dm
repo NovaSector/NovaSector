@@ -45,7 +45,6 @@
 		radiation_pulse(
 		src,
 		max_range = 2,
-		threshold = threshold,
 	)
 
 
