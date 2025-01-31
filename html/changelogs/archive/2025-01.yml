@@ -1465,3 +1465,8 @@
       menu
   - bugfix: due to a number of complaints of fish explosions, chrystarfish will no
       longer be chosen as the random starting fish for the  fish mount.
+2025-01-31:
+  Axidyuwu:
+  - balance: buffs baton damage back to TG parameters
+  MrSunabouzu:
+  - rscadd: Privacy shutters added to snowglobe's detective office.
