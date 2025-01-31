@@ -41,6 +41,14 @@
 /obj/machinery/power/port_gen/pacman/solid_fuel/on_construction(mob/user)
 	return
 
+/obj/machinery/power/port_gen/pacman/solid_fuel/proc/emit_radiation()
+		radiation_pulse(
+		src,
+		max_range = 8,
+		threshold = threshold,
+	)
+
+
 /obj/machinery/power/port_gen/pacman/solid_fuel/process()
 	. = ..()
 	if(active)
