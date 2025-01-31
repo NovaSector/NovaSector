@@ -46,7 +46,7 @@
 	if(active)
 		emit_radiation()
 		var/turf/where_we_spawn_air = get_turf(src)
-		where_we_spawn_air.atmos_spawn_air("h2o=10;TEMP=540") // Mid-range steam output temp for nuclear reactors is around 520.
+		where_we_spawn_air.atmos_spawn_air("h2o=10;TEMP=840") // Mid-range steam output temp for nuclear reactors is around 520C or 840K.
 
 // Item for creating the generator or carrying it around
 
