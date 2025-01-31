@@ -1,8 +1,8 @@
 // Base Sol rifle
 
 /obj/item/gun/ballistic/automatic/sol_rifle
-	name = "\improper Carwo-Cawil Battle Rifle"
-	desc = "A heavy battle rifle firing .40 Sol. Commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
+	name = "\improper MMR-2543-Espatier"
+	desc = "A heavy assault rifle chambered in .40Sol, with a comically fast fire-rate for weapons of it's class."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "infanterie"
@@ -34,11 +34,12 @@
 	suppressor_x_offset = 12
 
 	burst_size = 1
-	fire_delay = 0.45 SECONDS
+	fire_delay = 0.30 SECONDS
 	actions_types = list()
 
 	spread = 7.5
 	projectile_wound_bonus = -10
+	projectile_damage_multiplier = 0.75
 
 /obj/item/gun/ballistic/automatic/sol_rifle/Initialize(mapload)
 	. = ..()
@@ -76,7 +77,7 @@
 // Sol marksman rifle
 
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman
-	name = "\improper Cawil Marksman Rifle"
+	name = "\improper MMR-2543-Marksman"
 	desc = "A heavy marksman rifle commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "elite"
@@ -87,8 +88,9 @@
 
 	fire_delay = 0.75 SECONDS
 
+	burst_size = 3
 	spread = 0
-	projectile_damage_multiplier = 1.2
+	projectile_damage_multiplier = 1
 	projectile_wound_bonus = 10
 
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman/Initialize(mapload)
