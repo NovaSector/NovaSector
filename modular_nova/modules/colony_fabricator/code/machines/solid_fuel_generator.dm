@@ -6,7 +6,7 @@
 		Unlike other generators however, this one isn't as portable, or as safe to operate, \
 		but at least it makes a hell of a lot more power. Must be <b>bolted to the ground</b> \
 		and <b>attached to a wire</b> before use. A massive warning label wants you to know that this generator \
-		<b>outputs heated steam from it's water recycler into the atmosphere.</b>."
+		is not only radioactive, but also<b>outputs heated steam from it's water recycler into the atmosphere.</b>."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	icon_state = "fuel_generator_0"
 	base_icon_state = "fuel_generator"
@@ -44,13 +44,14 @@
 /obj/machinery/power/port_gen/pacman/solid_fuel/process()
 	. = ..()
 	if(active)
+		emit_radiation()
 		var/turf/where_we_spawn_air = get_turf(src)
 		where_we_spawn_air.atmos_spawn_air("h2o=10;TEMP=540") // Mid-range steam output temp for nuclear reactors is around 520.
 
 // Item for creating the generator or carrying it around
 
 /obj/item/flatpacked_machine/fuel_generator
-	name = "flat-packed S.O.F.I.E.-type portable generator"
+	name = "flat-packed A.W-type portable generator"
 	desc = /obj/machinery/power/port_gen/pacman/solid_fuel::desc
 	icon_state = "fuel_generator_packed"
 	type_to_deploy = /obj/machinery/power/port_gen/pacman/solid_fuel
