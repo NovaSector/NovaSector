@@ -1,0 +1,4 @@
+author: "Axidyuwu"
+delete-after: True
+changes:
+  - balance: "buffs baton damage back to TG parameters"
