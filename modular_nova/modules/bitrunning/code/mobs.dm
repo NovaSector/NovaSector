@@ -55,13 +55,13 @@
 	paralyze_value = 0
 	anger_boost = 0
 
-/mob/living/simple_animal/hostile/mimic/crate/minor_illusion
+/mob/living/basic/mimic/crate/minor_illusion
 	faction = list(FACTION_NEUTRAL)
 	speed = 1
 	maxHealth = 100
 	health = 100
 
-/mob/living/simple_animal/hostile/mimic/watermelon
+/mob/living/basic/mimic/watermelon
 	name = "watermelon"
 	desc = "It's full of watery goodness. <br>\
 	This one has been trained to become a competition-grade racer."
@@ -81,7 +81,11 @@
 	speed = 0
 	maxHealth = 50
 	health = 50
-	loot = list(
-		/obj/item/food/watermelonslice,
+
+/mob/living/basic/mimic/watermelon/Initialize(mapload)
+	. = ..()
+	var/static/list/loot = list(
 		/obj/effect/gibspawner/generic,
+		/obj/item/food/watermelonslice,
 	)
+	AddElement(/datum/element/death_drops, loot)

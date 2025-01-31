@@ -15,6 +15,7 @@
 #define TRAIT_EXCITABLE "wagwag" //Will wag when patted!
 #define TRAIT_OXYIMMUNE	"oxyimmune" // Immune to oxygen damage, ideally give this to all non-breathing species or bad stuff will happen
 #define TRAIT_AFFECTION_AVERSION "affection_aversion" // No more dogborg licking. "Dogborg bad" is no longer a personality
+#define TRAIT_SENSITIVE_HEARING "sensitive_hearing" // Teshari hearing, but as a quirk
 #define TRAIT_PERSONALSPACE "personalspace" // Block/counter-attack ass-slaps
 #define TRAIT_QUICKREFLEXES "quickreflexes" // Counters hugs and headpats
 #define TRAIT_MOOD_NOEXAMINE "mood_noexamine" // Can't assess your own mood
