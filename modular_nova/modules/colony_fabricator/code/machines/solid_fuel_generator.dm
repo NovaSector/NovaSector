@@ -44,7 +44,7 @@
 /obj/machinery/power/port_gen/pacman/solid_fuel/proc/emit_radiation()
 		radiation_pulse(
 		src,
-		max_range = 8,
+		max_range = 2,
 		threshold = threshold,
 	)
 
