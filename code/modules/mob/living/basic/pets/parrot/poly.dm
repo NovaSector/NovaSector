@@ -184,8 +184,10 @@
 	memory_saved = TRUE
 	return TRUE
 
+/* NOVA EDIT REMOVAL BEGIN - removes poly's roundstart headset
 /mob/living/basic/parrot/poly/setup_headset()
 	ears = new /obj/item/radio/headset/headset_eng(src)
+*/// NOVA EDIT REMOVAL END
 
 /mob/living/basic/parrot/poly/ghost
 	name = "The Ghost of Poly"
