@@ -39,9 +39,8 @@
 /obj/item/gun/energy/taser/crank/examine_more(mob/user)
 	. = ..()
 
-	. += "'Mírotvůrce' was anticipated to become the main line of defense among the colonial population during the first months of settling in. \
-		The sheer amounts of it produced and given out to people would be overwhelming - later giving it a status of a self-defense weapon \
-		fit and trustworthy for civilian use. Among the dedicated militiamen, it however has been remarked as a weapon with a capacity and voltage \
+	. += "The 'Mírotvůrce' was anticipated to become the main line of defense among the colonial population during the first months of settling in. \
+		The sheer amount of them that were produced and given out to people would be overwhelming - later giving it a status of a self-defense weapon \
+		fit and trustworthy for civilian use. Among the dedicated militiamen, however, it has been remarked as a weapon with a capacity and voltage \
 		too small to subdue more than one or two people; 'unfit for active duty', as much as high sustainability helped out."
 
-	return .

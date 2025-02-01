@@ -1,6 +1,6 @@
 /obj/item/melee/baton/security/stun_gun
 	name = "\improper Kopřiva stun gun"
-	desc = "A remote-sized stun gun for deterring people with. With its voltage and sheer mass not big enough to knock someone down, one's \
+	desc = "A remote-sized stun gun for deterring people with. With its voltage and size not being high enough to knock someone down, one's \
 	best means of use is to hit a person and run away." // gotta poke some good writers with a stick so they can cobble a better description together
 	desc_controls = "Left click to stun, right click to 'harm'."
 	icon = 'modular_nova/modules/novaya_ert/icons/stun_gun.dmi'
@@ -43,7 +43,7 @@
 /obj/item/melee/baton/security/stun_gun/apply_stun_effect_end(mob/living/target)
 	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) //var since we check it in out to_chat as well as determine confusion duration
 	if(target.get_timed_status_effect_duration(/datum/status_effect/confusion) > knockdown_time)
-		to_chat(target, span_warning("Your muscles break into a seizure and head comes with a migraine, making your movement frantic[trait_check ? ", but your body quickly recovers..." : "!"]"))
+		to_chat(target, span_warning("Your muscles break into a seizure and you feel a sharp pain in your head, making your movement frantic[trait_check ? ", but your body quickly recovers..." : "!"]"))
 
 	if(!trait_check)
 		target.set_confusion_if_lower(knockdown_time)
@@ -61,7 +61,6 @@
 		resulting in a conclusion to a confrontation that couldn't even end. The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
 		after experiencing its sting."
 
-	return .
 
 /obj/item/melee/baton/security/stun_gun/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
