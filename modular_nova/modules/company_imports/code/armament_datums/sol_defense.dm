@@ -123,6 +123,10 @@
 	cost = PAYCHECK_COMMAND * 6
 	restricted = TRUE
 
+/datum/armament_entry/company_import/sol_defense/longarm/br38
+	item_type = /obj/item/gun/ballistic/automatic/battle_rifle
+	cost = PAYCHECK_COMMAND * 8
+
 /datum/armament_entry/company_import/sol_defense/longarm/elite
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
 	cost = PAYCHECK_COMMAND * 12
@@ -162,6 +166,9 @@
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/br38
+	item_type = /obj/item/ammo_box/magazine/m38/empty
 
 /datum/armament_entry/company_import/sol_defense/magazines/kineticballs
 	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
