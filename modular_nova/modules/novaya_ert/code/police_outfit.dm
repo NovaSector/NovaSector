@@ -84,7 +84,7 @@
 
 /obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
 	name = "imperial police official jacket"
-	desc = "A black uniform jacket with ZCM's signature white rectangle on its right sleeve and backside. \
+	desc = "A black uniform jacket with Zvirdnyan Colonial Militia's signature white rectangle on its right sleeve and backside. \
 	Letters inside the collar read: %RANK-%KINK. The jacket is of exceptional quality."
 	icon_state = "suit_police"
 	inhand_icon_state = "ro_suit"
