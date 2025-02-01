@@ -30,6 +30,10 @@
 	inhand_icon_state = "sec-case"
 	icon_state = "briefcase_secure_black"
 
+// removing override for this one (described as "digital leather" so doesn't fit our sprites really)
+/obj/item/storage/briefcase/secure/digital_storage
+	icon = 'icons/obj/storage/case.dmi'
+
 /obj/item/storage/briefcase/secure/attack_self(mob/user)
 	. = ..()
 	update_appearance()
