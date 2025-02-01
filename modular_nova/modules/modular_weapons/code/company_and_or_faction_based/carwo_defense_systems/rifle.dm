@@ -122,7 +122,7 @@
 	desc = "A hefty machinegun commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "qarad"
-	worn_icon_state = "outomaties"
+	worn_icon_state = "qarad"
 	inhand_icon_state = "outomaties"
 
 	bolt_type = BOLT_TYPE_OPEN
