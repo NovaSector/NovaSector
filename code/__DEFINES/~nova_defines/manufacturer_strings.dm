@@ -21,6 +21,7 @@
 #define COMPANY_SZOT "It has a small <b>[span_engradio("three point crown")]</b> alongside <b>[span_engradio("Szot Dynamica")]</b> cut into it."
 #define COMPANY_SAKHNO "It has <b>[span_green("Sakhno Concern")]</b> stamped onto it."
 #define COMPANY_XHIHAO "It has <b>[span_purple("Xhihao Light Arms")]</b> etched into it."
+#define COMPANY_ZCM "It has a stamped in <b>[span_grey("matte white rectangle")]</b> with <b>[span_grey("Zvirdnyan Colonial Militia")]</b> legible at a certain angle." //-nyan :3
 
 #define COMPANY_ABDUCTOR "It has <b>[span_abductor("✌︎︎♌︎︎♎︎︎◆︎︎♍︎︎⧫︎︎❄︎♏︎♍︎♒︎")]</b> engraved into it."
 
