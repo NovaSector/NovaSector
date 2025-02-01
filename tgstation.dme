@@ -6981,6 +6981,7 @@
 #include "modular_nova\master_files\code\modules\mob\basic\alien\drone.dm"
 #include "modular_nova\master_files\code\modules\mob\basic\alien\queen.dm"
 #include "modular_nova\master_files\code\modules\mob\basic\alien\sentinel.dm"
+#include "modular_nova\master_files\code\modules\mob\basic\alien\pets\parrot\poly.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\latejoin_menu.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\new_player.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\preferences_setup.dm"
