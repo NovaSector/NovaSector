@@ -14,7 +14,7 @@
 /obj/projectile/bullet/c585trappiste
 	name = ".585 Trappiste bullet"
 	damage = 45
-	wound_bonus = 0 // Normal bullets are 20
+	wound_bonus = 5 // Normal bullets are 20
 
 /obj/item/ammo_box/c585trappiste
 	name = "ammo box (.585 Trappiste lethal)"
@@ -62,30 +62,37 @@
 
 	ammo_type = /obj/item/ammo_casing/c585trappiste/incapacitator
 
-// .585 hollowpoint, made to cause nasty wounds
+// .585 incendiary, less damage, sets people on fire
 
-/obj/item/ammo_casing/c585trappiste/hollowpoint
-	name = ".585 Trappiste hollowhead bullet casing"
-	desc = "A white polymer cased high caliber round with a hollowed tip. Designed to cause as much damage on impact to fleshy targets as possible."
+/obj/item/ammo_casing/c585trappiste/incendiary
+	name = ".585 Trappiste incendiary bullet casing"
+	desc = "A white polymer cased high caliber round with an equally white phosphorus tip. Designed to burst into flames on impact."
 
-	icon_state = "585trappiste_shrapnel"
-	projectile_type = /obj/projectile/bullet/c585trappiste/hollowpoint
+	icon_state = "585trappiste_hot"
+	projectile_type = /obj/projectile/bullet/c585trappiste/incendiary
 
 	advanced_print_req = TRUE
 
-/obj/projectile/bullet/c585trappiste/hollowpoint
-	name = ".585 Trappiste hollowhead bullet"
+/obj/projectile/bullet/c585trappiste/incendiary
+	name = ".585 Trappiste incendiary bullet"
 	damage = 35
 
-	weak_against_armour = TRUE
 
-	wound_bonus = 30
-	bare_wound_bonus = 40
+/// How many firestacks the bullet should impart upon a target when impacting
+	var/firestacks_to_give = 1
 
-/obj/item/ammo_box/c585trappiste/hollowpoint
-	name = "ammo box (.585 Trappiste hollowhead)"
-	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The purple stripe indicates that it should hold hollowpoint-like rounds."
+/obj/projectile/bullet/c585trappiste/incendiary/on_hit(atom/target, blocked = 0, pierce_hit)
+	. = ..()
 
-	icon_state = "585box_shrapnel"
+	if(iscarbon(target))
+		var/mob/living/carbon/gaslighter = target
+		gaslighter.adjust_fire_stacks(firestacks_to_give)
+		gaslighter.ignite_mob()
 
-	ammo_type = /obj/item/ammo_casing/c585trappiste/hollowpoint
+/obj/item/ammo_box/c585trappiste/incendiary
+	name = "ammo box (.585 Trappiste Incendiary)"
+	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The orange stripe indicates that it should hold incendiary rounds."
+
+	icon_state = "585box_hot"
+
+	ammo_type = /obj/item/ammo_casing/c585trappiste/incendiary
