@@ -54,18 +54,19 @@
 		listeners += get_hearers_in_view(maxdistance, below_turf)
 
 	for(var/mob/listening_mob in listeners)
-		var/volume_pref_modifier = 1
-		if(isnull(listening_mob?.client))
+		var/checked_pref = listening_mob?.client?.prefs?.read_preference(pref_to_check)
+		if(!checked_pref) // pref is disabled or 0 in the case of volume
 			continue
-		if(ispath(pref_to_check, /datum/preference/numeric))
-			volume_pref_modifier = listening_mob.client.prefs.read_preference(pref_to_check)
-		if(volume_pref_modifier == 0)
-			continue
+
+		/// volume modifier--for radio noise only currently--can be different for each client based on their radio sound pref.
+		var/vol_modifier = 1
+		if(ispath(pref_to_check, /datum/preference/numeric/sound_radio_noise))
+			vol_modifier = checked_pref/100
 
 		if(!(get_dist(listening_mob, turf_source) <= maxdistance))
 			continue
 
-		listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, sound_to_play, maxdistance, falloff_distance, 1, use_reverb)
+		listening_mob.playsound_local(turf_source, soundin, vol*vol_modifier, vary, frequency, falloff_exponent, channel, pressure_affected, sound_to_play, maxdistance, falloff_distance, 1, use_reverb)
 		. += listening_mob
 
 /// The looping sound datum but we check for prefs and use `playsound_if_pref` instead of `playsound`

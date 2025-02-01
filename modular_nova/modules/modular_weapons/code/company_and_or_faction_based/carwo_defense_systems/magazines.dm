@@ -24,7 +24,7 @@
 
 	icon_state = "pistol_35_stended"
 
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 	max_ammo = 24
 
