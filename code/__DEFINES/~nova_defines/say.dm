@@ -2,6 +2,7 @@
 #define LOOC_CHANNEL "LOOC" // LOOC
 #define WHIS_CHANNEL "Whis" // Whisper
 #define DO_CHANNEL "Do" // Do
+#define TTS_VOICE_NONE "None" // Voice_Bark TTS Call
 
 //BLOOPER defines
 #define BLOOPER_DEFAULT_MINPITCH 0.4
