@@ -30,9 +30,9 @@
 	inhand_icon_state = "sec-case"
 	icon_state = "briefcase_secure_black"
 
-// removing override for this one (described as "digital leather" so doesn't fit our sprites really)
 /obj/item/storage/briefcase/secure/digital_storage
-	icon = 'icons/obj/storage/case.dmi'
+	desc = "It's made of AUTHENTIC digital metal and has a price-tag still attached. Its owner must be a real professional."
+	icon_state = "briefcase_secure_black"
 
 /obj/item/storage/briefcase/secure/attack_self(mob/user)
 	. = ..()
