@@ -18,7 +18,7 @@
 
 /obj/item/ammo_box/c585trappiste
 	name = "ammo box (.585 Trappiste lethal)"
-	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges."
+	desc = "A box of .585 Trappiste pistol rounds, holds ten cartridges."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
 	icon_state = "585box"
@@ -29,7 +29,7 @@
 
 	caliber = CALIBER_585TRAPPISTE
 	ammo_type = /obj/item/ammo_casing/c585trappiste
-	max_ammo = 12
+	max_ammo = 10
 
 // .585 Trappiste equivalent to a rubber bullet
 

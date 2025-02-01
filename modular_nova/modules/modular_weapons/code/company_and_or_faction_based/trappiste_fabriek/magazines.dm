@@ -2,7 +2,7 @@
 
 /obj/item/ammo_box/magazine/c585trappiste_pistol
 	name = "\improper Trappiste pistol magazine"
-	desc = "A standard size magazine for Trappiste pistols, holds six rounds."
+	desc = "A standard size magazine for Trappiste pistols, holds ten rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/trappiste_fabriek/ammo.dmi'
 	icon_state = "pistol_585_standard"
