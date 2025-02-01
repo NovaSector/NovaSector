@@ -162,6 +162,12 @@
 	name = "Turret Factory"
 	description = "A turret factory that was forgotten. Maybe abandoned. Idk. Goodluck."
 
+/datum/map_template/ruin/space/nova/spacegeosite
+	id = "spacegeosite"
+	suffix = "space_geosite.dmm"
+	name = "Space-Ruin Geological Site"
+	description = "A rare set of asteroids with some interesting things inside."
+
 /datum/map_template/ruin/space/nova/escapefromtarkon
 	id = "escapefromtarkon"
 	suffix = "port_tarkon.dmm"

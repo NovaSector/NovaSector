@@ -76,3 +76,11 @@
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_turretbunker.dmm"
 	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/nova/snow_geosite
+	name = "Ice-ruin Surface Geological Site"
+	id = "snow_geosite"
+	description = "A mishap during geological site testing ended a poor man's life. Anyways, Roll a d10 to loot the body."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_surface_geosite.dmm"
+	allow_duplicates = FALSE
