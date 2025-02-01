@@ -81,7 +81,6 @@
 /// How many firestacks the bullet should impart upon a target when impacting
 	var/firestacks_to_give = 1
 
-
 /obj/projectile/bullet/c585trappiste/incendiary/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 
