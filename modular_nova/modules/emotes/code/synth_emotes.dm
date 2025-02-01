@@ -13,14 +13,14 @@
 	key = "yes"
 	message = "emits an affirmative blip."
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/synth_yes.ogg'
+	sound = 'sound/machines/synth/synth_yes.ogg'
 
 
 /datum/emote/silicon/no
 	key = "no"
 	message = "emits a negative blip."
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg'
+	sound = 'sound/machines/synth/synth_no.ogg'
 
 
 /datum/emote/silicon/beep2

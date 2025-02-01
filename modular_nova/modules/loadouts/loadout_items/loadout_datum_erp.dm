@@ -123,6 +123,10 @@
 	name = "Borg Dominatrix Module"
 	item_path = /obj/item/borg/upgrade/dominatrixmodule
 
+/datum/loadout_item/erp/holosign
+	name = "Personal Holosign Projector"
+	item_path = /obj/item/holosign_creator/privacy
+
 /*
 *	RESTRAINTS
 */
@@ -209,7 +213,7 @@
 
 /datum/loadout_item/erp/shackles
 	name = "Shackles"
-	item_path = /obj/item/clothing/suit/straight_jacket/shackles 
+	item_path = /obj/item/clothing/suit/straight_jacket/shackles
 
 /datum/loadout_item/erp/kinky_sleepbag
 	name = "Latex Sleeping Bag"

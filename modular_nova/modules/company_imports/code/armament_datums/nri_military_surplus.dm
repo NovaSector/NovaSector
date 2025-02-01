@@ -98,9 +98,14 @@
 	item_type = /obj/item/gun/ballistic/revolver/shotgun_revolver
 	cost = PAYCHECK_COMMAND * 6
 
+/datum/armament_entry/company_import/nri_surplus/firearm/zashch
+	item_type = /obj/item/gun/ballistic/automatic/pistol/zashch
+	cost = PAYCHECK_COMMAND * 6
+
 /datum/armament_entry/company_import/nri_surplus/firearm/plasma_thrower
 	item_type = /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
 	cost = PAYCHECK_COMMAND * 6
+	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm/plasma_marksman
 	item_type = /obj/item/gun/ballistic/automatic/pistol/plasma_marksman
@@ -109,6 +114,7 @@
 /datum/armament_entry/company_import/nri_surplus/firearm/miecz
 	item_type = /obj/item/gun/ballistic/automatic/miecz
 	cost = PAYCHECK_COMMAND * 10
+	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm/sakhno_rifle
 	item_type = /obj/item/gun/ballistic/rifle/boltaction
@@ -116,19 +122,18 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm/lanca
 	item_type = /obj/item/gun/ballistic/automatic/lanca
-	contraband = TRUE
 	cost = PAYCHECK_COMMAND * 14
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm/anti_materiel_rifle
 	item_type = /obj/item/gun/ballistic/automatic/wylom
-	contraband = TRUE
 	cost = PAYCHECK_COMMAND * 16
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo
 	subcategory = "Firearm Magazines"
 	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nri_surplus/firearm_ammo/zashch
+	item_type = /obj/item/ammo_box/magazine/zashch/spawns_empty
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/plasma_battery
 	item_type = /obj/item/ammo_box/magazine/recharge/plasma_battery
@@ -141,9 +146,7 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/lanca
 	item_type = /obj/item/ammo_box/magazine/lanca/spawns_empty
-	contraband = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/amr_magazine
 	item_type = /obj/item/ammo_box/magazine/wylom
-	contraband = TRUE
 	cost = PAYCHECK_CREW * 3

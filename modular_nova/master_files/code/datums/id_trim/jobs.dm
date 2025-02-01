@@ -74,15 +74,13 @@
 		ACCESS_SCIENCE,
 		ACCESS_TELEPORTER,
 		ACCESS_WEAPONS,
-	)
-	minimal_wildcard_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL,
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 	)
+	job = /datum/job/blueshield
 
 /datum/id_trim/job/nanotrasen_consultant
 	assignment = "Nanotrasen Consultant"
@@ -98,7 +96,6 @@
 		ACCESS_BAR,
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_CENT_GENERAL,
-		ACCESS_CHANGE_IDS,
 		ACCESS_CHAPEL_OFFICE,
 		ACCESS_COMMAND,
 		ACCESS_CONSTRUCTION,
@@ -131,15 +128,13 @@
 		ACCESS_THEATRE,
 		ACCESS_VAULT,
 		ACCESS_WEAPONS,
-	)
-	minimal_wildcard_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL,
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 	)
+	job = /datum/job/nanotrasen_consultant
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"

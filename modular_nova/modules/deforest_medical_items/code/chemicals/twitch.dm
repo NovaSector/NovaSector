@@ -25,7 +25,6 @@
 	description = "A drug originally developed by and for plutonians to assist them during raids. \
 		Does not see wide use due to the whole reality-disassociation and heart disease thing afterwards. \
 		Can be intentionally overdosed to increase the drug's effects"
-	reagent_state = LIQUID
 	color = "#c22a44"
 	taste_description = "television static"
 	metabolization_rate = 0.65 * REAGENTS_METABOLISM
@@ -46,7 +45,7 @@
 	. = ..()
 
 	our_guy.add_movespeed_modifier(/datum/movespeed_modifier/reagent/twitch)
-	our_guy.next_move_modifier -= 0.3 // For the duration of this you move and attack faster
+	our_guy.next_move_modifier *= 0.7 // For the duration of this you move and attack faster
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_DIZZY
 
@@ -76,7 +75,7 @@
 	. = ..()
 
 	our_guy.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/twitch)
-	our_guy.next_move_modifier += (overdosed ? 0.5 : 0.3)
+	our_guy.next_move_modifier /= (overdosed ? 0.49 : 0.7)
 
 	our_guy.sound_environment_override = NONE
 
@@ -174,7 +173,7 @@
 
 	RegisterSignal(our_guy, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(dodge_bullets))
 
-	our_guy.next_move_modifier -= 0.2 // Overdosing makes you a liiitle faster but you know has some really bad consequences
+	our_guy.next_move_modifier *= 0.7 // Overdosing makes you a liiitle faster but you know has some really bad consequences
 
 	if(!our_guy.hud_used)
 		return

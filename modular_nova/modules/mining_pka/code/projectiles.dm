@@ -36,7 +36,7 @@
 	damage = 100
 	range = 7
 	pressure_decrease = 0.10
-	speed = 0.1
+	speed = 10
 	projectile_piercing = PASSMOB
 
 /obj/projectile/kinetic/repeater

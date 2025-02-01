@@ -1,4 +1,4 @@
-/obj/item/organ/external/wings
+/obj/item/organ/wings
 	name = "wings"
 	desc = "A pair of wings. Those may or may not allow you to fly... or at the very least flap."
 	zone = BODY_ZONE_CHEST
@@ -27,7 +27,7 @@
 /datum/bodypart_overlay/mutant/wings/override_color(rgb_value)
 	return draw_color
 
-/obj/item/organ/external/wings/moth
+/obj/item/organ/wings/moth
 	name = "moth wings"
 	desc = "A pair of fuzzy moth wings."
 	flight_for_species = list(SPECIES_MOTH)
@@ -36,7 +36,7 @@
 	///Our associated terrorize spell, for antagonist nightmares
 	var/datum/action/cooldown/spell/moth_and_dash/our_dash
 
-/obj/item/organ/external/wings/moth/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
+/obj/item/organ/wings/moth/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 
 	if(ismoth(organ_owner))
@@ -46,7 +46,7 @@
 		our_dash = new(organ_owner)
 		our_dash.Grant(organ_owner)
 
-/obj/item/organ/external/wings/moth/on_mob_remove(mob/living/carbon/organ_owner)
+/obj/item/organ/wings/moth/on_mob_remove(mob/living/carbon/organ_owner)
 	. = ..()
 	QDEL_NULL(our_climb)
 	QDEL_NULL(our_dash)
@@ -185,21 +185,21 @@
 			return TRUE
 	return FALSE
 
-/obj/item/organ/external/wings/flight
+/obj/item/organ/wings/flight
 	unconditional_flight = TRUE
 	can_open = TRUE
 
-/obj/item/organ/external/wings/flight/angel
+/obj/item/organ/wings/flight/angel
 	name = "angel wings"
 	desc = "A pair of magnificent, feathery wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Angel", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
-/obj/item/organ/external/wings/flight/dragon
+/obj/item/organ/wings/flight/dragon
 	name = "dragon wings"
 	desc = "A pair of intimidating, membranous wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Dragon", MUTANT_INDEX_COLOR_LIST = list("#880000"))
 
-/obj/item/organ/external/wings/flight/megamoth
+/obj/item/organ/wings/flight/megamoth
 	name = "megamoth wings"
 	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Megamoth", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
@@ -243,20 +243,20 @@
 	return COLOR_WHITE // We want to keep those wings as their original color, because it looks better.
 
 
-/obj/item/organ/external/wings/functional
+/obj/item/organ/wings/functional
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked
 
-/obj/item/organ/external/wings/functional/angel
+/obj/item/organ/wings/functional/angel
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/original_color
 
-/obj/item/organ/external/wings/functional/dragon
+/obj/item/organ/wings/functional/dragon
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
 
-/obj/item/organ/external/wings/functional/moth
+/obj/item/organ/wings/functional/moth
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked/original_color
 
-/obj/item/organ/external/wings/functional/robotic
+/obj/item/organ/wings/functional/robotic
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
 
-/obj/item/organ/external/wings/functional/slime
+/obj/item/organ/wings/functional/slime
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional

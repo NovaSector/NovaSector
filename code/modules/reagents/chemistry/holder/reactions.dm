@@ -120,9 +120,6 @@
 	else
 		is_reacting = FALSE
 
-	if(.)
-		SEND_SIGNAL(src, COMSIG_REAGENTS_REACTED, .)
-
 	TEST_ONLY_ASSERT(!. || MC_RUNNING(), "We reacted during subsystem init, that shouldn't be happening!")
 
 /**
@@ -225,7 +222,7 @@
 	//NOVA EDIT ADDITION END
 	qdel(equilibrium)
 	update_total()
-	SEND_SIGNAL(src, COMSIG_REAGENTS_REACTED, .)
+
 	return reaction_message
 
 /*

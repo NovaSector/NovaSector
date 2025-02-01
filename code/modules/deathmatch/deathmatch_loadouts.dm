@@ -12,7 +12,7 @@
 	/// This outfit will grant these mutations if applied
 	var/list/mutations_to_add = list()
 
-/datum/outfit/deathmatch_loadout/pre_equip(mob/living/carbon/human/user, visualsOnly = FALSE)
+/datum/outfit/deathmatch_loadout/pre_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
 	if(isdummy(user))
 		return
@@ -53,7 +53,7 @@
 /datum/outfit/deathmatch_loadout/assistant/weaponless
 	name = "Deathmatch: Assistant loadout (Weaponless)"
 	display_name = "Assistant (Unarmed)"
-	desc = "What is an assistant without a toolbox? nothing"
+	desc = "What is an assistant without a toolbox? Nothing!"
 	l_hand = null
 
 /datum/outfit/deathmatch_loadout/operative
@@ -154,7 +154,7 @@
 /datum/outfit/deathmatch_loadout/battler
 	name = "Deathmatch: Battler Base"
 	display_name = "Battler"
-	desc = "What is a battler whith out weapone?."
+	desc = "What is a battler without weapons?"
 
 	shoes = /obj/item/clothing/shoes/combat
 	uniform = /obj/item/clothing/under/syndicate
@@ -643,7 +643,7 @@
 	r_hand = /obj/item/sbeacondrop/bomb
 	l_pocket = /obj/item/grenade/syndieminibomb
 	r_pocket = /obj/item/grenade/syndieminibomb
-	implants = list(/obj/item/implanter/explosive_macro)
+	implants = list(/obj/item/implant/explosive/macro)
 	backpack_contents = list(
 		/obj/item/assembly/signaler = 10,
 	)
@@ -779,7 +779,7 @@
 /datum/outfit/deathmatch_loadout/lizardkind
 	name = "Deathmatch: Lizard Species"
 	display_name = "Lizardfolk"
-	desc = "They may be heavily discrimated against, they may be most often seen doing menial activities, but at least they, uh, uhh..."
+	desc = "They may be heavily discriminated against, they may be most often seen doing menial activities, but at least they, uh, uhh..."
 	species_override = /datum/species/lizard
 
 	head = /obj/item/clothing/head/soft/purple
@@ -914,13 +914,13 @@
 
 // We don't want them to just punch each other to death
 
-/datum/outfit/deathmatch_loadout/lattice_battles/pre_equip(mob/living/carbon/human/user, visualsOnly)
+/datum/outfit/deathmatch_loadout/lattice_battles/pre_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
 	ADD_TRAIT(user, TRAIT_PACIFISM, REF(src))
 
 // Ragnarok: Fight between religions!
 
-/datum/outfit/deathmatch_loadout/cultish/pre_equip(mob/living/carbon/human/user, visualsOnly)
+/datum/outfit/deathmatch_loadout/cultish/pre_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
 	ADD_TRAIT(user, TRAIT_ACT_AS_CULTIST, REF(src))
 	user.AddElement(/datum/element/cult_halo, initial_delay = 0 SECONDS)
@@ -950,7 +950,7 @@
 	back = /obj/item/storage/backpack/cultpack
 
 	backpack_contents = list(
-		/obj/item/restraints/legcuffs/bola/cult,
+		/obj/item/reagent_containers/cup/beaker/unholywater,
 		/obj/item/reagent_containers/cup/beaker/unholywater,
 	)
 
@@ -978,7 +978,7 @@
 	back = /obj/item/storage/backpack/cultpack
 
 	backpack_contents = list(
-		/obj/item/reagent_containers/cup/beaker/unholywater,
+		/obj/item/restraints/legcuffs/bola/cult,
 		/obj/item/reagent_containers/cup/beaker/unholywater,
 		/obj/item/reagent_containers/cup/beaker/unholywater,
 	)
@@ -990,7 +990,7 @@
 		/datum/action/innate/cult/blood_spell/manipulation,
 	)
 
-/datum/outfit/deathmatch_loadout/cultish/artificer/post_equip(mob/living/carbon/human/user, visualsOnly)
+/datum/outfit/deathmatch_loadout/cultish/artificer/post_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
 	var/datum/action/innate/cult/blood_spell/manipulation/magick = locate() in user.get_all_contents()
 	magick.charges = 300
@@ -999,7 +999,7 @@
 	/// Grants the effects of these knowledges to the DMer
 	var/list/knowledge_to_grant
 
-/datum/outfit/deathmatch_loadout/heresy/pre_equip(mob/living/carbon/human/user, visualsOnly)
+/datum/outfit/deathmatch_loadout/heresy/pre_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
 	ADD_TRAIT(user, TRAIT_ACT_AS_HERETIC, REF(src))
 	user.AddElement(/datum/element/leeching_walk)
@@ -1086,15 +1086,14 @@
 
 	knowledge_to_grant = list(
 		/datum/heretic_knowledge/cosmic_grasp,
-		/datum/heretic_knowledge/moon_grasp,
 	)
 
 	spells_to_add = list(
 		/datum/action/cooldown/spell/touch/mansus_grasp,
 		/datum/action/cooldown/spell/pointed/projectile/star_blast,
 		/datum/action/cooldown/spell/touch/star_touch,
-		/datum/action/cooldown/spell/pointed/mind_gate,
 		/datum/action/cooldown/spell/aoe/void_pull,
+		/datum/action/cooldown/spell/pointed/void_phase,
 	)
 
 // Chaplain! No spells (other than smoke), but strong armor and weapons, and immune to others' spells

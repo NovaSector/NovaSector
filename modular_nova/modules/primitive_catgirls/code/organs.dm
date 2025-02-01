@@ -2,13 +2,13 @@
 
 // Lungs
 
-/obj/item/organ/internal/lungs/icebox_adapted
+/obj/item/organ/lungs/icebox_adapted
 	name = "hardy lungs"
 	desc = "Lungs adapted to frozen environments that would be otherwise inhospitable to most races. Feels cold."
 	icon_state = "hardylungs"
 	icon = 'modular_nova/modules/primitive_catgirls/icons/organs.dmi'
 
-/obj/item/organ/internal/lungs/icebox_adapted/Initialize(mapload)
+/obj/item/organ/lungs/icebox_adapted/Initialize(mapload)
 	. = ..()
 
 	var/datum/gas_mixture/immutable/planetary/mix = SSair.planetary[ICEMOON_DEFAULT_ATMOS]
@@ -59,12 +59,12 @@
 
 // Eyes
 
-/obj/item/organ/internal/eyes/low_light_adapted
+/obj/item/organ/eyes/low_light_adapted
 	color_cutoffs = list(30, 15, 15)
 
 
 // Tongue
-/obj/item/organ/internal/tongue/cat/primitive
+/obj/item/organ/tongue/cat/primitive
 	liked_foodtypes = SEAFOOD | MEAT | GORE
 
 

@@ -27,6 +27,7 @@
 	icon_state = "mailman"
 	inhand_icon_state = "b_suit"
 	clothing_traits = list(TRAIT_HATED_BY_DOGS)
+	custom_premium_price = PAYCHECK_CREW
 
 /obj/item/clothing/under/misc/psyche
 	name = "psychedelic jumpsuit"
@@ -60,7 +61,7 @@
 
 /obj/item/clothing/under/misc/adminsuit/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -15)
+	AddComponent(/datum/component/adjust_fishing_difficulty, -25)
 
 /datum/armor/clothing_under/adminsuit
 	melee = 100

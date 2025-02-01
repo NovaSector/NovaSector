@@ -37,7 +37,7 @@
 		return FALSE
 	return TRUE
 
-/datum/action/innate/constrict/do_ability(mob/living/caller, atom/clicked_on)
+/datum/action/innate/constrict/do_ability(mob/living/clicker, atom/clicked_on)
 	if (!isliving(clicked_on))
 		if (tail)
 			qdel(tail)
@@ -48,19 +48,19 @@
 
 	var/mob/living/living_target = clicked_on
 
-	if (living_target == caller)
+	if (living_target == clicker)
 		return TRUE
 
 	if (!can_coil_target(living_target))
 		return TRUE
 
-	caller.balloon_alert_to_viewers("starts coiling tail")
-	caller.visible_message(span_warning("[caller] starts coiling [caller.p_their()] tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]..."), ignored_mobs = list(living_target))
-	to_chat(living_target, span_userdanger("[caller] starts coiling [caller.p_their()] tail around you!"))
+	clicker.balloon_alert_to_viewers("starts coiling tail")
+	clicker.visible_message(span_warning("[clicker] starts coiling [clicker.p_their()] tail around [living_target]..."), span_notice("You start coiling your tail around [living_target]..."), ignored_mobs = list(living_target))
+	to_chat(living_target, span_userdanger("[clicker] starts coiling [clicker.p_their()] tail around you!"))
 
 	owner.changeNext_move(base_coil_delay) // prevent interaction during this
 	unset_ranged_ability(owner) // because we sleep
-	var/result = do_after(caller, base_coil_delay, living_target, IGNORE_HELD_ITEM, extra_checks = CALLBACK(src, PROC_REF(can_coil_target), living_target))
+	var/result = do_after(clicker, base_coil_delay, living_target, IGNORE_HELD_ITEM, extra_checks = CALLBACK(src, PROC_REF(can_coil_target), living_target))
 	owner.changeNext_move(-base_coil_delay)
 	if (!result)
 		return TRUE
@@ -202,7 +202,7 @@
 	var/mob/living/carbon/human/old_owner = owner
 	set_owner(null)
 
-	old_owner?.update_mutant_bodyparts()
+	old_owner?.update_body_parts()
 
 	tail_overlay = null
 	return ..()
@@ -508,13 +508,13 @@
 		UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GRAB, COMSIG_LIVING_TRY_PULL, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_ATOM_POST_DIR_CHANGE))
 
 	if (owner)
-		var/obj/item/organ/external/taur_body/taur_body = owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+		var/obj/item/organ/taur_body/taur_body = owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 		taur_body.hide_self = FALSE
 
 	owner = new_owner
 
 	if (owner)
-		var/obj/item/organ/external/taur_body/taur_body = owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+		var/obj/item/organ/taur_body/taur_body = owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 		taur_body.hide_self = TRUE
 
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(owner_moved))
@@ -522,7 +522,7 @@
 	RegisterSignal(owner, COMSIG_LIVING_TRY_PULL, PROC_REF(owner_tried_pull))
 	RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(owner_body_position_changed))
 	RegisterSignal(owner, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(sync_direction))
-	owner?.update_mutant_bodyparts()
+	owner?.update_body_parts()
 
 /// The time it takes for a constricted thing to do a break-out attempt.
 #define SERPENTINE_TAIL_UNBUCKLE_TIME 0.5 SECONDS // arbitrary

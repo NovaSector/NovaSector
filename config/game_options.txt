@@ -127,7 +127,8 @@ PROTECT_ROLES_FROM_ANTAGONIST
 ## "HUMAN_WHITELIST": all heads-of-staff jobs will be able to be played by non-humans, unless that job incorporates the "human only" flag (Which can be configured via a variable or the job config txt).
 ## "NON_HUMAN_WHITELIST": non-humans will not be able to play as heads of staff, unless that job incorporates the "allow non-humans" flag (Which can be configured via a variable or the job config txt).
 ## "ENFORCED": non-humans cannot be heads of staff, only humans can. the "allow non-humans" setting will be ignored.
-HUMAN_AUTHORITY HUMAN_WHITELIST
+## Uncomment to enable a human authority mode of your choice.
+#HUMAN_AUTHORITY HUMAN_WHITELIST
 
 ## If late-joining players have a chance to become a traitor/changeling
 ALLOW_LATEJOIN_ANTAGONISTS
@@ -284,6 +285,7 @@ RANDOM_LAWS corporate
 #RANDOM_LAWS hulkamania
 #RANDOM_LAWS ten_commandments
 #RANDOM_LAWS yesman
+#RANDOM_LAWS thinkermov
 
 ## Bad idea laws. Probably shouldn't enable these
 #RANDOM_LAWS syndie
@@ -332,6 +334,7 @@ LAW_WEIGHT tyrant,3
 LAW_WEIGHT overlord,3
 LAW_WEIGHT painter,3
 LAW_WEIGHT dungeon_master,3
+LAW_WEIGHT thinkermov,3
 
 ## Bad idea laws. Probably shouldn't enable these
 LAW_WEIGHT syndie,0
@@ -410,6 +413,7 @@ ROUNDSTART_RACES ghoul
 ROUNDSTART_RACES teshari
 ROUNDSTART_RACES hemophage
 ROUNDSTART_RACES vox_primalis
+ROUNDSTART_RACES abductorweak
 
 ##-------------------------------------------------------------------------------------------
 
@@ -539,6 +543,9 @@ MAXFINE 2000
 ## How many played hours of DRONE_REQUIRED_ROLE required to be a Maintenance Done
 #DRONE_ROLE_PLAYTIME 14
 
+## Will drones be restricted from interacting with the supermatter and atmopherics area?
+#DRONE_AREA_INTERACTION_RESTRICT 1
+
 ## Whether native FoV is enabled for all people.
 #NATIVE_FOV
 
@@ -575,7 +582,7 @@ NEGATIVE_STATION_TRAITS 3 1
 # Uncomment to disable Quirk point balancing for the server and clients.
 # If enabled, players will be able to select positive quirks without first selecting negative quirks.
 # If enabled, randomized Quirks will still use points internally, in order to maintain balance.
-#DISABLE_QUIRK_POINTS
+DISABLE_QUIRK_POINTS
 
 # The maximum amount of positive quirks one character can have at roundstart.
 # If set to -1, then players will be able to select any quantity of positive quirks.

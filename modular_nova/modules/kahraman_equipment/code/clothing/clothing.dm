@@ -49,7 +49,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "jacket"
-	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
+	slot_flags = ITEM_SLOT_OCLOTHING
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
 	allowed = null
@@ -207,7 +207,6 @@
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "mask"
 	flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
-	armor_type = /datum/armor/colonist_hazard
 
 /obj/item/clothing/mask/gas/atmos/frontier_colonist/Initialize(mapload)
 	. = ..()

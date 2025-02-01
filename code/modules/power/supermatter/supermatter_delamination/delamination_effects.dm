@@ -34,9 +34,15 @@
 			continue
 		victim.playsound_local(victim_turf, 'sound/effects/magic/charge.ogg')
 		if(victim.z == 0) //victim is inside an object, this is to maintain an old bug turned feature with lockers n shit i guess. tg issue #69687
-			to_chat(victim, span_boldannounce("You hold onto \the [victim.loc] as hard as you can, as reality distorts around you. You feel safe."))
+			var/message = ""
+			var/location = victim.loc
+			if(istype(location, /obj/structure/disposalholder)) // sometimes your loc can be a disposalsholder when you're inside a disposals type, so let's just pass a message that makes sense.
+				message = "You hear a lot of rattling in the disposal pipes around you as reality itself distorts. Yet, you feel safe."
+			else
+				message = "You hold onto \the [victim.loc] as hard as you can, as reality distorts around you. You feel safe."
+			to_chat(victim, span_bolddanger(message))
 			continue
-		to_chat(victim, span_boldannounce("You feel reality distort for a moment..."))
+		to_chat(victim, span_bolddanger("You feel reality distort for a moment..."))
 		if (isliving(victim))
 			var/mob/living/living_victim = victim
 			living_victim.add_mood_event("delam", /datum/mood_event/delam)
@@ -155,7 +161,7 @@
 	for(var/mob/player as anything in GLOB.player_list)
 		if(!isdead(player))
 			var/mob/living/living_player = player
-			to_chat(player, span_boldannounce("Everything around you is resonating with a powerful energy. This can't be good."))
+			to_chat(player, span_bolddanger("Everything around you is resonating with a powerful energy. This can't be good."))
 			living_player.add_mood_event("cascade", /datum/mood_event/cascade)
 		SEND_SOUND(player, 'sound/effects/magic/charge.ogg')
 

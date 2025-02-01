@@ -1,3 +1,7 @@
+/mob/living/carbon/human
+	/// Used for footstep type pref, to apply to any new legs that get added to this mob. Uses a var instead of checking prefs because there are a lot of clientless mob situations.
+	var/footstep_type
+
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
 	mob_examine_panel = new(src) //create the datum

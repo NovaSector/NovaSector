@@ -1,6 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { Stack } from 'tgui-core/components';
+
 import { useBackend } from '../backend';
-import { Stack } from '../components';
 import { Objective } from './common/Objectives';
 
 type Info = {
@@ -12,7 +13,9 @@ export const Rules = (props) => {
   const { data } = useBackend<Info>();
   const { antag_name } = data;
   switch (antag_name) {
-    case 'Abductor Agent' || 'Abductor Scientist' || 'Abductor Solo':
+    case 'Abductor Agent':
+    case 'Abductor Scientist':
+    case 'Abductor Solo':
       return (
         <Stack vertical>
           <Stack.Item bold>Special Rules:</Stack.Item>

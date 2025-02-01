@@ -17,15 +17,7 @@
 /obj/structure/showcase/machinery/microwave
 	icon = 'modular_nova/modules/aesthetics/kitchen/microwave.dmi'
 
-// Nova Coffee Maker Icons
-/obj/machinery/coffeemaker
-	icon = 'modular_nova/modules/aesthetics/kitchen/coffeemaker.dmi'
-
-/obj/item/reagent_containers/cup/coffeepot
-	icon = 'modular_nova/modules/aesthetics/kitchen/coffeemaker.dmi'
-	fill_icon = 'modular_nova/modules/aesthetics/kitchen/coffeemaker.dmi'
-	fill_icon_state = "coffeepot"
-
+// Nova Coffee Cartridge Icons
 /obj/item/coffee_cartridge
 	icon = 'modular_nova/modules/aesthetics/kitchen/coffeemaker.dmi'
 

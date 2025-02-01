@@ -5,17 +5,19 @@
 	/// Holder for the toggle safety action
 	var/datum/action/item_action/gun_safety_toggle/toggle_safety_action
 
-/datum/component/gun_safety/Initialize(safety_currently_on = TRUE)
+/datum/component/gun_safety/Initialize()
 	. = ..()
 
 	// Obviously gun safety should only apply to guns
 	if(!isgun(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	src.safety_currently_on = safety_currently_on
 
 	var/obj/item/item_parent = parent
 	toggle_safety_action = item_parent.add_item_action(/datum/action/item_action/gun_safety_toggle)
+
+	if(is_reserved_level(item_parent.z) && !istype(get_area(item_parent.loc), /area/shuttle))
+		src.safety_currently_on = FALSE
 
 	update_action_button_state()
 

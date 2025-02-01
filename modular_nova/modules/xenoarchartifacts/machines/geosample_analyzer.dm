@@ -16,6 +16,8 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "spectrometer"
 
+	circuit = /obj/item/circuitboard/machine/radiocarbon_spectrometer
+
 	use_power = IDLE_POWER_USE // 1 = idle, 2 = active
 	idle_power_usage = 20
 	active_power_usage = 3000

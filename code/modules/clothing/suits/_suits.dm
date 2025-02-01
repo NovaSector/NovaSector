@@ -9,6 +9,7 @@
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/tank/jetpack/oxygen/captain,
 		/obj/item/storage/belt/holster,
+		/obj/item/cane, // NOVA EDIT ADDITION
 		)
 	armor_type = /datum/armor/none
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
@@ -35,6 +36,17 @@
 		. += mutable_appearance(bloodfile2use, "[blood_overlay_type]blood")
 		//NOVA EDIT CHANGE END
 
+	// NOVA EDIT TAUR-FULLBODY SUITS START
+	if(mutant_styles & STYLE_TAUR_ALL)
+		if (worn_icon_taur_snake)
+			worn_x_offset = -16
+		else if (worn_icon_taur_paw)
+			worn_x_offset = -16
+		else if (worn_icon_taur_hoof)
+			worn_x_offset = -16
+	else
+		worn_x_offset = 0
+	// NOVA EDIT END
 	var/mob/living/carbon/human/wearer = loc
 	if(!ishuman(wearer) || !wearer.w_uniform)
 		return

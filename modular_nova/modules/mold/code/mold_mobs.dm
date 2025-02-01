@@ -190,6 +190,7 @@
 	attack_verb_simple = "sting"
 	attack_sound = 'sound/effects/blob/attackblob.ogg'
 	basic_mob_flags = DEL_ON_DEATH
+	gold_core_spawnable = HOSTILE_SPAWN
 
 	ai_controller = /datum/ai_controller/basic_controller/electric_mosquito
 
@@ -256,6 +257,7 @@
 	light_range = 2
 	light_power = 1
 	light_color = LIGHT_COLOR_GREEN
+	gold_core_spawnable = HOSTILE_SPAWN
 
 	ai_controller = /datum/ai_controller/basic_controller/centaur
 

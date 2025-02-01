@@ -43,6 +43,8 @@
  * * chance - chance to mutate mob
  */
 /datum/artifact_effect/dnaswitch/proc/roll_and_change_genes(mob/living/carbon/human/receiver, chance)
+	if(issynthetic(receiver))
+		return
 	var/weakness = get_anomaly_protection(receiver)
 	if(!prob(weakness * 100))
 		return
