@@ -125,6 +125,14 @@
 	item_type = /obj/item/gun/ballistic/automatic/pistol/plasma_marksman
 	cost = PAYCHECK_COMMAND * 6
 
+/datum/armament_entry/company_import/nri_surplus/firearm/crank_taser
+	item_type = /obj/item/gun/energy/taser/crank
+	cost = PAYCHECK_COMMAND * 5 //No disabler, less charge in general in comparison to a normal double-mode taser; yet chargable on the spot (even if unwieldy)
+
+/datum/armament_entry/company_import/nri_surplus/firearm/stun_gun //Not a gun but it's only fair to place similar items close to each other
+	item_type = /obj/item/melee/baton/security/stun_gun
+	cost = PAYCHECK_COMMAND * 5 //Similarly live action roleplay'iy stun baton lite
+
 /datum/armament_entry/company_import/nri_surplus/firearm/miecz
 	item_type = /obj/item/gun/ballistic/automatic/miecz
 	cost = PAYCHECK_COMMAND * 10

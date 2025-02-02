@@ -9,6 +9,10 @@
 	random_sensor = FALSE
 	can_adjust = FALSE
 
+/obj/item/clothing/under/colonial/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
 /obj/item/clothing/neck/cloak/colonial/nri_police
 	name = "imperial police cloak"
 	desc = "A cloak made from heavy tarpaulin. Nigh wind- and waterproof thanks to its design. The signature white rectangle of the NRI police covers the garment's back."
@@ -23,12 +27,20 @@
 	)
 	return ..()
 
+/obj/item/clothing/neck/cloak/colonial/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
 /obj/item/clothing/head/hats/colonial/nri_police
 	name = "imperial police cap"
 	desc = "A puffy cap made out of tarpaulin covered by some textile. It is sturdy and comfortable, and seems to retain its form very well. <br>\
 		Silver NRI police insignia is woven right above its visor."
 	icon_state = "cap_police"
 	armor_type = /datum/armor/cosmetic_sec
+
+/obj/item/clothing/head/hats/colonial/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/mask/gas/nri_police
 	name = "imperial police mask"
@@ -43,6 +55,10 @@
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 
+/obj/item/clothing/mask/gas/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
 /obj/item/clothing/head/helmet/nri_police
 	name = "imperial police helmet"
 	desc = "Thick-looking tactical helmet made out of shaped Plasteel. Colored dark blue, similar to one imperial police is commonly using."
@@ -50,12 +66,20 @@
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
 
+/obj/item/clothing/head/helmet/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
 /obj/item/clothing/suit/armor/vest/nri_police
 	name = "imperial police plate carrier"
 	desc = "A reasonably heavy, yet comfortable armor vest comprised of a bunch of dense plates. Colored dark blue and bears a reflective stripe on the front and back."
 	icon_state = "police_vest"
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
+
+/obj/item/clothing/suit/armor/vest/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/suit/armor/vest/nri_police_jacket
 	name = "imperial police aerostatic bomber jacket"
