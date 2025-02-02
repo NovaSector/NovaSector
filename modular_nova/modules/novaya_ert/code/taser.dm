@@ -22,7 +22,7 @@
 	AddComponent( \
 		/datum/component/crank_recharge, \
 		charging_cell = get_cell(), \
-		charge_amount = STANDARD_CELL_CHARGE*0.1, \
+		charge_amount = STANDARD_CELL_CHARGE*0.05, \
 		cooldown_time = 1 SECONDS, \
 		charge_sound = 'modular_nova/modules/new_cells/sound/crank.ogg', \
 		charge_sound_cooldown_time = 0.8 SECONDS, \
