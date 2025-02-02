@@ -52,6 +52,15 @@
   - bugfix: Void curse no longer colors stars in your skin color
   - image: Premium Internals Boxes station trait now has unique box sprites
   - bugfix: Fixed issues with window tinting/coloration
+  Stalkeros:
+  - rscadd: "Civilian-grade stun guns and tasers have been offloaded to the \"Surplus\"\
+      \ (Izlishek) Military Surplus company; look out for M\xEDrotv\u016Frces and\
+      \ Kop\u0159ivas in your next order catalogue."
+  - rscadd: Zvirdnyan Colonial Militia-issued equipment has been made abundantly clear
+      about its origin - with all the colonial militia equipment bearing its marking.
+  Stalkeros, Moldb for the sprites:
+  - rscadd: Three new clothing pieces for the then-Rimworld Colonial Militia item
+      set.
   SyncIt21:
   - bugfix: Herignis has a decent heating effect on mobs reagents
   Zenitheevee:
