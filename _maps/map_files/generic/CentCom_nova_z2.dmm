@@ -200,14 +200,14 @@
 /area/centcom/holding/cafepark)
 "afD" = (
 /obj/structure/closet/crate,
-/obj/machinery/plumbing/synthesizer/colony_hydroponics,
-/obj/machinery/plumbing/synthesizer/colony_hydroponics,
-/obj/machinery/plumbing/synthesizer/colony_hydroponics,
-/obj/machinery/plumbing/synthesizer/colony_hydroponics,
 /obj/item/construction/plumbing/service,
 /obj/item/construction/plumbing/service,
 /obj/item/construction/plumbing/service,
 /obj/item/construction/plumbing/service,
+/obj/item/flatpacked_machine/hydro_synth,
+/obj/item/flatpacked_machine/hydro_synth,
+/obj/item/flatpacked_machine/hydro_synth,
+/obj/item/flatpacked_machine/hydro_synth,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "afF" = (
@@ -1196,7 +1196,9 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "asp" = (
-/obj/machinery/hydroponics/constructable,
+/obj/machinery/hydroponics/constructable/fullupgrade{
+	dir = 1
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -1422,8 +1424,10 @@
 /turf/open/misc/beach/sand,
 /area/centcom/holding/cafepark)
 "auU" = (
-/obj/machinery/hydroponics/constructable,
 /obj/machinery/light/directional/south,
+/obj/machinery/hydroponics/constructable/fullupgrade{
+	dir = 1
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -2172,8 +2176,8 @@
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aBW" = (
-/obj/machinery/hydroponics/constructable,
 /obj/machinery/light/directional/north,
+/obj/machinery/hydroponics/constructable/fullupgrade,
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -3648,6 +3652,12 @@
 /obj/effect/turf_decal/sand,
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
+"aSu" = (
+/obj/machinery/hydroponics/constructable/fullupgrade,
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "aSy" = (
 /obj/structure/bookcase/random,
 /turf/open/indestructible/hotelwood,
@@ -62689,7 +62699,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 api
 ayx
 ayx
@@ -63203,7 +63213,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aJA
 aIt
 aEp
@@ -63460,7 +63470,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aJA
 asQ
 auo
@@ -63717,7 +63727,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aiV
 ahK
 ahK
@@ -63974,7 +63984,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aJA
 awn
 aOi
@@ -64488,7 +64498,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 alD
 aUZ
 aUZ
@@ -71169,7 +71179,7 @@ aaa
 ajj
 aPf
 aPf
-ayI
+tgP
 ayI
 ayI
 jBZ
