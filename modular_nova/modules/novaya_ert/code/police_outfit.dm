@@ -56,3 +56,57 @@
 	icon_state = "police_vest"
 	icon = 'modular_nova/modules/novaya_ert/icons/armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/wornarmor.dmi'
+
+/obj/item/clothing/suit/armor/vest/nri_police_jacket
+	name = "imperial police aerostatic bomber jacket"
+	desc = "A jacket design worn by the more dynamic officers. There are quite a few pockets on the inside, mostly for storing notebooks and compasses."
+	icon = 'modular_nova/modules/food_replicator/icons/clothing.dmi'
+	worn_icon = 'modular_nova/modules/food_replicator/icons/clothing_worn.dmi'
+	icon_state = "jacket_police"
+	inhand_icon_state = "overalls"
+	armor_type = /datum/armor/armor_secjacket
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS|HANDS
+	heat_protection = CHEST|GROIN|ARMS|HANDS
+	resistance_flags = FLAMMABLE
+	dog_fashion = null
+
+/obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize()
+	allowed += list(
+		/obj/item/camera,
+		/obj/item/clipboard,
+		/obj/item/folder,
+		/obj/item/taperecorder,
+		/obj/item/tape, //<^notebooks
+		/obj/item/gps, //<compasses
+	)
+	return ..()
+
+/obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
+	name = "imperial police official jacket"
+	desc = "A black uniform jacket with Zvirdnyan Colonial Militia's signature white rectangle on its right sleeve and backside. \
+	Letters inside the collar read: %RANK-%KINK. The jacket is of exceptional quality."
+	icon_state = "suit_police"
+	inhand_icon_state = "ro_suit"
+
+/obj/item/clothing/suit/armor/vest/nri_police_jacket/suit/Initialize(mapload)
+	. = ..()
+	var/rank = list("POF","LTN","SGT","DET","CPT","MSL")
+	var/kink = list("JFR","2JFR","STL","2STL")
+	desc = replacetext(desc, "%RANK", pick(rank))
+	if(prob(20))
+		desc = replacetext(desc, "%KINK", pick(kink))
+	else
+		desc = replacetext(desc, "%KINK", "N/A")
+
+/obj/item/clothing/head/soft/nri_police
+	name = "imperial police baseball cap"
+	desc = "It's a robust baseball hat in tasteless washed out blue colour.<br>\
+	Hey, this one's round!"
+	icon_state = "policesoft"
+	icon = 'modular_nova/modules/food_replicator/icons/clothing.dmi'
+	worn_icon = 'modular_nova/modules/food_replicator/icons/clothing_worn.dmi'
+	soft_type = "police"
+	armor_type = /datum/armor/cosmetic_sec
+	strip_delay = 60
+	dog_fashion = null
