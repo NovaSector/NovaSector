@@ -19,16 +19,16 @@
 	attack_verb_simple = list("thrust")
 	throwforce = 0
 	force_say_chance = 25
-	stamina_damage = 25
+	stamina_damage = 35
 	armour_type_against_stun = ENERGY
-	knockdown_time = 1 SECONDS
-	clumsy_knockdown_time = 3 SECONDS
-	cooldown = 2 SECONDS
+	knockdown_time = 0.5 SECONDS
+	clumsy_knockdown_time = 1.5 SECONDS
+	cooldown = 1 SECONDS
 	light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	light_power = 0.25
 
 	throw_stun_chance = 15
-	cell_hit_cost = STANDARD_CELL_CHARGE*1.5
+	cell_hit_cost = STANDARD_CELL_CHARGE*0.75
 	convertible = FALSE
 	active_changes_inhand = TRUE
 	tip_changes_color = FALSE
@@ -39,6 +39,23 @@
 
 /obj/item/melee/baton/security/stun_gun/get_wait_description()
 	return span_danger("The stun gun is still charging!")
+
+/obj/item/melee/baton/security/stun_gun/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
+	switch (mode)
+		if(BATON_STUN)
+			target.visible_message(span_danger("[user] stuns [target] with [src]!"),
+				span_userdanger("[user] stuns you with [src]!"))
+			target.set_jitter_if_lower(40 SECONDS)
+			target.set_confusion_if_lower(10 SECONDS)
+			target.set_stutter_if_lower(16 SECONDS)
+			SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
+			target.Paralyze(knockdown_time * (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.1 : 1))
+		if(BATON_SLEEP)
+			SleepAttack(target,user)
+		if(BATON_CUFF)
+			CuffAttack(target,user)
+		if(BATON_PROBE)
+			ProbeAttack(target,user)
 
 /obj/item/melee/baton/security/stun_gun/apply_stun_effect_end(mob/living/target)
 	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) //var since we check it in out to_chat as well as determine confusion duration
