@@ -52713,7 +52713,7 @@
 /turf/open/floor/iron,
 /area/station/security/prison/safe)
 "poI" = (
-/mob/living/simple_animal/hostile/retaliate/goose/vomit,
+/mob/living/basic/goose/vomit,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
 "poP" = (

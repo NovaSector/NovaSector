@@ -48,7 +48,7 @@
 		/mob/living/basic/alien/sentinel,
 		/mob/living/simple_animal/hostile/illusion,
 		/mob/living/basic/mimic,
-		/mob/living/simple_animal/hostile/retaliate/goose,
+		/mob/living/basic/goose,
 		/mob/living/basic/living_limb_flesh,
 		/mob/living/basic/bee/toxin, // Be me. Me bee.
 		/mob/living/basic/morph,
