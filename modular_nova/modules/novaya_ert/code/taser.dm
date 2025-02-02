@@ -9,7 +9,6 @@
 	righthand_file = 'modular_nova/modules/novaya_ert/icons/taser_right.dmi'
 	fire_delay = 2 SECONDS
 	cell_type = /obj/item/stock_parts/power_store/cell/crank_taser
-	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
 	ammo_x_offset = 2
 	charge_sections = 3
 
@@ -28,6 +27,12 @@
 		charge_sound_cooldown_time = 0.8 SECONDS, \
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
+
+/obj/item/gun/energy/taser/crank/fire_sounds()
+	if(suppressed)
+		playsound(src, fire_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
+	else
+		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
 /obj/item/gun/energy/taser/crank/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
