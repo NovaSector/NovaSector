@@ -6,7 +6,7 @@
 	active_cost = 0.5
 	ui_icon = "eye"
 	/// Do we need to check if the user is wearing compatible eyewear?
-	var/eyewear_check = TRUE
+	var/eyewear_check = FALSE
 	/// What kind of HUD are we adding when the NIFSoft is activated?
 	var/hud_type
 	/// What are the HUD traits we are adding when the NIFSoft is activated?
