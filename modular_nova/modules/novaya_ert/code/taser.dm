@@ -8,13 +8,20 @@
 	lefthand_file = 'modular_nova/modules/novaya_ert/icons/taser_left.dmi'
 	righthand_file = 'modular_nova/modules/novaya_ert/icons/taser_right.dmi'
 	fire_delay = 2 SECONDS
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/crank_taser)
 	cell_type = /obj/item/stock_parts/power_store/cell/crank_taser
 	ammo_x_offset = 2
 	charge_sections = 3
 
+/obj/item/ammo_casing/energy/electrode/crank_taser
+	projectile_type = /obj/projectile/energy/electrode/crank_taser
+
+/obj/projectile/energy/electrode/crank_taser
+	tase_stamina = 15
+
 /obj/item/stock_parts/power_store/cell/crank_taser
 	name = "\improper Mírotvůrce power cell"
-	maxcharge = STANDARD_CELL_CHARGE * 0.3
+	maxcharge = STANDARD_CELL_CHARGE * 0.4
 
 /obj/item/gun/energy/taser/crank/Initialize(mapload)
 	. = ..()
