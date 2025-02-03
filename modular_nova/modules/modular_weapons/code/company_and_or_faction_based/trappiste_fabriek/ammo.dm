@@ -56,7 +56,7 @@
 
 /obj/item/ammo_box/c585trappiste/incapacitator
 	name = "ammo box (.585 Trappiste flathead)"
-	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The blue stripe indicates that it should hold less lethal rounds."
+	desc = "A box of .585 Trappiste pistol rounds, holds ten cartridges. The blue stripe indicates that it should hold less lethal rounds."
 
 	icon_state = "585box_disabler"
 
@@ -91,7 +91,7 @@
 
 /obj/item/ammo_box/c585trappiste/incendiary
 	name = "ammo box (.585 Trappiste Incendiary)"
-	desc = "A box of .585 Trappiste pistol rounds, holds twelve cartridges. The orange stripe indicates that it should hold incendiary rounds."
+	desc = "A box of .585 Trappiste pistol rounds, holds ten cartridges. The orange stripe indicates that it should hold incendiary rounds."
 
 	icon_state = "585box_hot"
 
