@@ -87,7 +87,7 @@
 
 
 /datum/bodypart_overlay/mutant/can_draw_on_bodypart(mob/living/carbon/human/human)
-	return !sprite_datum.is_hidden(human)
+	return !isnull(sprite_datum) && !sprite_datum.is_hidden(human)
 
 
 /// Get the images we need to draw on the person. Called from get_overlay() which is called from _bodyparts.dm.
