@@ -27,8 +27,7 @@
 	SIGNAL_HANDLER
 
 	// NOVA EDIT ADDITION START - Customization
-	var/datum/dna/receiver_dna = receiver.has_dna()
-	if(isnull(receiver_dna) || !(feature_key in receiver_dna.mutant_bodyparts))
+	if(isnull(receiver.has_dna()))
 		return
 	// NOVA EDIT ADDITION END
 	if(!should_visual_organ_apply_to(parent.type, receiver))
