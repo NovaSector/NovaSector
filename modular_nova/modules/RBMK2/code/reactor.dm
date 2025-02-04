@@ -461,13 +461,26 @@
 			toggle_reverse_vents(user)
 			. = TRUE
 		if("safetytoggle")
+			var/turf/machine_turf = get_turf(src)
 			if(safety == TRUE)
 				balloon_alert(user, "safety lights are off")
 				safety = FALSE
+				if(isliving(user))
+					user.log_message("turned the safety off of [src]", LOG_GAME)
+					investigate_log("had the safety turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+				else
+					log_game("[src] had the safety turned off at [AREACOORD(machine_turf)]")
+					investigate_log("had the safety turned off at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
 				return
 			if(safety == FALSE)
 				balloon_alert(user, "safety lights are on")
 				safety = TRUE
+				if(isliving(user))
+					user.log_message("turned the safety on of [src]", LOG_GAME)
+					investigate_log("had the safety turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+				else
+					log_game("[src] had the safety turned on at [AREACOORD(machine_turf)]")
+					investigate_log("had the safety turned on at [AREACOORD(src)]", INVESTIGATE_ENGINE)
 				return
 			. = TRUE
 
