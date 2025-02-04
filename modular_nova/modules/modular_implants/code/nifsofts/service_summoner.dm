@@ -4,8 +4,8 @@
 
 /datum/nifsoft/summoner/service
 	name = "Grimoire Hestia"
-	program_desc = "Grimoire Hestia is a fork of the Grimoire Caeruleam NIFSoft commissioned by numerous Zvirdnyan Colonial Militia officers. \
-	Its entirely functional aspect and high requirement for fidelity makes it more expensive than many other Grimoires."
+	program_desc = "Grimoire Hestia is a fork of the Grimoire Caeruleam NIFSoft blahblahblahblah. \
+	blahblahblahblah."
 	summonable_items = list(
 		/obj/item/storage/bag/tray/nanite,
 		/obj/item/reagent_containers/cup/glass/shaker/nanite,

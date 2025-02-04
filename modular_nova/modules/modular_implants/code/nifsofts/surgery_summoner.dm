@@ -4,8 +4,8 @@
 
 /datum/nifsoft/summoner/surgery
 	name = "Grimoire Asclepius"
-	program_desc = "Grimoire Asclepius is a fork of the Grimoire Caeruleam NIFSoft commissioned by numerous Zvirdnyan Colonial Militia officers. \
-	Its entirely functional aspect and high requirement for fidelity makes it more expensive than many other Grimoires."
+	program_desc = "Grimoire Asclepius is a fork of the Grimoire Caeruleam NIFSoft blahblahblahblah. \
+	blahblahblahblah."
 	summonable_items = list(
 		/obj/item/scalpel/nanite,
 		/obj/item/retractor/nanite,
