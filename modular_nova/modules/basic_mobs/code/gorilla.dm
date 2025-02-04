@@ -1,6 +1,6 @@
 // This is just to remove the TG paralyze on the gorilla, if this is still here after that's gone, uh-oh.
 /mob/living/basic/gorilla
-  var/paralyze_chance = 20
+	var/paralyze_chance = 20
 
   
 /mob/living/basic/gorilla/melee_attack(mob/living/target, list/modifiers, ignore_cooldown)
