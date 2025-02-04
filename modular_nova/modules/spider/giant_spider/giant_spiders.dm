@@ -202,7 +202,7 @@
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 	)
 
-/mob/living/basic/spider/giant/voltaic/Initialize(mapload)
+/mob/living/basic/spider/giant/carrier/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
