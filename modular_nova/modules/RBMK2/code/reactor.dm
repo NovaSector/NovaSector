@@ -136,7 +136,7 @@
 			. += heat_overlay
 
 		if(!active && !jammed && rod_mix.gases[/datum/gas/tritium])
-			var/meter_icon_num = CEILING( min(rod_mix.gases[/datum/gas/tritium][MOLES] / 100, 1) * 5, 1)
+			var/meter_icon_num = CEILING( min(rod_mix.gases[/datum/gas/tritium][MOLES] / 10, 1) * 5, 1)
 			if(meter_icon_num > 0)
 				var/rod_mix_pressure = rod_mix.return_pressure()
 				var/mutable_appearance/meter_overlay = mutable_appearance(icon, "platform_rod_glow_[meter_icon_num]")
