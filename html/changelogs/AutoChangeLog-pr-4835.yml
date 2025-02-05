@@ -1,0 +1,6 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscadd: "Adds BR-38 to Company Imports, sold by Sol Defense-whatever, for 800 credits a piece; mags sold separately for 50 credits a piece"
+  - balance: "BR-38 crate's price reduces from 20k to a more sensible 2,4k, now includes 3 guns and 6 mags as advertised."
+  - balance: "BR-38 ammo crate's price reduced to 1k, now actually includes the ammunition worth that amount, somewhat."
