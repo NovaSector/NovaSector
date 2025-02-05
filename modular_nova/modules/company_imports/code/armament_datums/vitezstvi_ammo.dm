@@ -114,8 +114,8 @@
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_disabler
 	item_type = /obj/item/ammo_box/c585trappiste/incapacitator
 
-/datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_hollowpoint
-	item_type = /obj/item/ammo_box/c585trappiste/hollowpoint
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_incendiary
+	item_type = /obj/item/ammo_box/c585trappiste/incendiary
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/kineticballs
 	item_type = /obj/item/ammo_box/advanced/kineticballs
