@@ -1,6 +1,0 @@
-author: "LordHookie"
-delete-after: True
-changes:
-  - bugfix: "The item and import descriptions of Trappiste rounds and weapons have been updated to match their statistics."
-  - bugfix: "Trappiste ammo boxes carry a number of rounds that fit their magazines again."
-  - spellcheck: "Sol Pistol examine texts have been cleared of erroneous commas and \"it's\"es."

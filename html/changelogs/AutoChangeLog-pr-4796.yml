@@ -1,6 +1,0 @@
-author: "Zenitheevee"
-delete-after: True
-changes:
-  - rscadd: "Added new ore vents that reset"
-  - rscadd: "Added new ore boxes that grab boulders and keeps them"
-  - rscadd: "3 ruins for the new vents"
