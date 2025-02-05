@@ -12,6 +12,22 @@
 /obj/item/ammo_box/magazine/kineticballs/starts_empty
 	start_empty = TRUE
 
+// Magazine for the Type 213
+
+/obj/item/ammo_box/magazine/kineticballsbig
+	name = "\improper Kinetic Submachine Gun magazine"
+	desc = "A large magazine for a Type 213 Submachine Gun. Holds 24 rounds of ammunition."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type213magazine.dmi'
+	icon_state = "type213mag"
+	ammo_type = /obj/item/ammo_casing/kineticball
+	caliber = CALIBER_KINETICBALL
+	max_ammo = 24
+	custom_price = PAYCHECK_CREW * 2
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+
+/obj/item/ammo_box/magazine/kineticballsbig/starts_empty
+	start_empty = TRUE
+
 /datum/design/kineticballs
 	name = "Ammo Box (Kinetic Balls)"
 	id = "kineticballs"

@@ -8344,6 +8344,7 @@
 #include "modular_nova\modules\modular_weapons\code\cargo_crates\armory_guns.dm"
 #include "modular_nova\modules\modular_weapons\code\cargo_crates\surplus_crates.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\ammo.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\longarm.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\magazine.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\bolt_fabrications\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\advert.dm"
