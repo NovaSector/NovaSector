@@ -19,16 +19,16 @@
 	attack_verb_simple = list("thrust")
 	throwforce = 0
 	force_say_chance = 25
-	stamina_damage = 25
+	stamina_damage = 35
 	armour_type_against_stun = ENERGY
-	knockdown_time = 1 SECONDS
-	clumsy_knockdown_time = 3 SECONDS
-	cooldown = 2 SECONDS
+	knockdown_time = null
+	clumsy_knockdown_time = null
+	cooldown = 1 SECONDS
 	light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	light_power = 0.25
 
 	throw_stun_chance = 15
-	cell_hit_cost = STANDARD_CELL_CHARGE*1.5
+	cell_hit_cost = STANDARD_CELL_CHARGE*0.75
 	convertible = FALSE
 	active_changes_inhand = TRUE
 	tip_changes_color = FALSE
@@ -40,14 +40,17 @@
 /obj/item/melee/baton/security/stun_gun/get_wait_description()
 	return span_danger("The stun gun is still charging!")
 
-/obj/item/melee/baton/security/stun_gun/apply_stun_effect_end(mob/living/target)
-	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) //var since we check it in out to_chat as well as determine confusion duration
-	if(target.get_timed_status_effect_duration(/datum/status_effect/confusion) > knockdown_time)
-		to_chat(target, span_warning("Your muscles break into a seizure and you feel a sharp pain in your head, making your movement frantic[trait_check ? ", but your body quickly recovers..." : "!"]"))
-
-	if(!trait_check)
-		target.set_confusion_if_lower(knockdown_time)
-		target.set_eye_blur_if_lower(knockdown_time)
+/obj/item/melee/baton/security/stun_gun/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
+	if(!deductcharge(cell_hit_cost))
+		return FALSE
+	target.visible_message(span_danger("[user] stuns [target] with [src]!"),
+		span_userdanger("[user] stuns you with [src]!"))
+	target.set_jitter_if_lower(5 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	target.set_confusion_if_lower(4 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	target.set_stutter_if_lower(3 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	target.set_eye_blur_if_lower(5 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
+	stun_override = FALSE
 
 /obj/item/melee/baton/security/stun_gun/examine(mob/user)
 	. = ..()
