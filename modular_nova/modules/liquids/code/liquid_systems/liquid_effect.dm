@@ -415,7 +415,7 @@
 								step(C, dir)
 								if(prob(60) && C.body_position != LYING_DOWN)
 									to_chat(C, span_userdanger("The current knocks you down!"))
-									C.Knockdown(10)
+									C.Knockdown(1 SECONDS)
 						else
 							step(AM, dir)
 
