@@ -1,0 +1,82 @@
+2025-02-01:
+  RatFromTheJungle:
+  - balance: "Buffs to both the 'skild' (now D\xE9fenestreur) and Takbok (now D\xE9\
+      fonce) (ammo count, less recoil, better firerate)"
+  - image: minor resprites to the wespe and eland, bigger resprite to the skild and
+      takbok
+  - spellcheck: lore and desc changes soon
+2025-02-02:
+  00-Steven:
+  - refactor: Bitrunning item/ability loading has been refactored. Please report any
+      issues.
+  - rscadd: Added Bitrunning gimmick loadout disks. These disks contain full sets
+      of equipment for all your digital cosplay needs, each including questionably
+      helpful equipment. Currently includes Sports (Boxer, Skater, Archer, Fisher,
+      Gamer) and Dungeon Crawling (Alchemist, Rogue, Healer, Wizard).
+  - rscadd: Taking a lead acid battery into the netpod with you now gives your bit
+      avatar shock touch.
+  ArcaneMusic:
+  - rscadd: Stations in your sector may start with the GMM spotlight, a massive economic
+      broadcast spotlight that will follow the wealthiest crewmate on board until
+      the next paycheck
+  AyIong:
+  - qol: Supply console got little redesign, and ability to see what can be inside
+      a order.
+  - code_imp: Supply console and express supply console, now use a unified method
+      of acquiring data
+  Ben10Omintrix:
+  - bugfix: fixes megafauna instantly attacking people adjacent to them
+  BobDABuilder9001:
+  - balance: solars now make 2.5kw each instead of 1.5kw
+  GwynCodes:
+  - spellcheck: removed the word "autist" from a forced say effect.
+  Holoo-1:
+  - bugfix: fixed shadows on 516
+  Jacquerel:
+  - rscadd: Adds a new random lawset where anything that can speak counts as human.
+  MTandi:
+  - qol: Added forensic scanner UI
+  - qol: Made forensic scanner report format cleaner
+  Majkl-J:
+  - bugfix: PENLITE defib mounts now actually charge the cell
+  Melbert:
+  - qol: Using items on cyborgs now use balloon alerts instead of chat messages.
+  - bugfix: You can flash cyborgs again
+  - refactor: Refactored item interaction on cyborgs.
+  OrionTheFox:
+  - image: resprited Extinguisher Cabinets (did you know there's craftable Extinguishers?
+      "Improvised cooling spray"? I didn't. Now I do though, and so do you!)
+  SmArtKar:
+  - bugfix: Fixed a missing area in the corner of icebox morgue
+  - rscadd: You can wear voidwalker's skull on your head now
+  - bugfix: Void curse no longer colors stars in your skin color
+  - image: Premium Internals Boxes station trait now has unique box sprites
+  - bugfix: Fixed issues with window tinting/coloration
+  Stalkeros:
+  - rscadd: "Civilian-grade stun guns and tasers have been offloaded to the \"Surplus\"\
+      \ (Izlishek) Military Surplus company; look out for M\xEDrotv\u016Frces and\
+      \ Kop\u0159ivas in your next order catalogue."
+  - rscadd: Zvirdnyan Colonial Militia-issued equipment has been made abundantly clear
+      about its origin - with all the colonial militia equipment bearing its marking.
+  Stalkeros, Moldb for the sprites:
+  - rscadd: Three new clothing pieces for the then-Rimworld Colonial Militia item
+      set.
+  SyncIt21:
+  - bugfix: Herignis has a decent heating effect on mobs reagents
+  Zenitheevee:
+  - bugfix: adds Ignored Factions to pellet cloud component variable transfer
+  necromanceranne:
+  - bugfix: You can no longer circumvent your honorbound oath by starting a surgery
+      on someone.
+  vinylspiders:
+  - bugfix: fixed PAIs not being able to send or reply to messages using their digital
+      messenger app.
+  - bugfix: fixed PAIs not being able to turn off the GPS tracking using their gpa
+      app.
+2025-02-05:
+  Hardly:
+  - bugfix: 'Ghost Cafe: Fixed the Nanotrasen logo on the lobby'
+  - qol: 'Ghost Cafe: Added hydroponics kits and service plumbing on a crate'
+  - qol: 'Ghost Cafe: All hydroponics trays are now fully upgraded'
+  - qol: 'Ghost Cafe: Space Cleaners added to custodial room'
+  - qol: 'Ghost Cafe: Torches added around the caves, no more need for flashlights!'

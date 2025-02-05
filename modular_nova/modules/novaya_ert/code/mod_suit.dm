@@ -185,6 +185,10 @@
 		/obj/item/mod/module/magboot,
 	)
 
+/obj/item/mod/control/pre_equipped/policing/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
 ///Unrelated-to-Spider-Clan version of the module.
 /obj/item/mod/module/status_readout/operational
 	name = "MOD operational status readout module"

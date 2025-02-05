@@ -1,0 +1,10 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - balance: "Crank taser's price has been decreased to 200 credits (from 250)"
+  - balance: "Stun gun's price has been decreased to 150 credits (from 250)"
+  - balance: "Cargo-ordered stun guns now arrive with a cell."
+  - balance: "Stun gun's stamina damage has been increased to 35, with its attack cooldown halved."
+  - balance: "Stun gun now actually applies the intended confusion effects as opposed to knocking people down."
+  - balance: "Crank taser's cranking speed has been doubled."
+  - bugfix: "Fixes the lack of the crank taser's firing sound."
