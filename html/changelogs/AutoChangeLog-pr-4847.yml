@@ -1,8 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - bugfix: "Ghost Cafe: Fixed the Nanotrasen logo on the lobby"
-  - qol: "Ghost Cafe: Added hydroponics kits and service plumbing on a crate"
-  - qol: "Ghost Cafe: All hydroponics trays are now fully upgraded"
-  - qol: "Ghost Cafe: Space Cleaners added to custodial room"
-  - qol: "Ghost Cafe: Torches added around the caves, no more need for flashlights!"
