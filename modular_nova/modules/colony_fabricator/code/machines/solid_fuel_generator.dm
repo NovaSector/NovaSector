@@ -47,7 +47,6 @@
 		max_range = 2,
 	)
 
-
 /obj/machinery/power/port_gen/pacman/solid_fuel/process()
 	. = ..()
 	if(active)
