@@ -1,5 +1,3 @@
-#define TRAIT_SPIDER_HOST "spider_host"
-
 /// the actual organ that exists when made by the reagent
 // The organ that spawns spiderlings between 30 seconds and 1
 /obj/item/organ/body_egg/spideregg_infection
@@ -98,5 +96,3 @@
 
 /obj/item/organ/body_egg/spideregg_infection/proc/activate()
 	return
-
-#undef TRAIT_SPIDER_HOST
