@@ -58,6 +58,9 @@
 
 	. = ..()
 
+/obj/item/ammo_box/magazine/internal/shot/riot
+	max_ammo = 8 // putting this here, because this is the only one we have on station at the start.
+
 /obj/item/gun/ballistic/shotgun/riot/sol/thunderdome
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
 
