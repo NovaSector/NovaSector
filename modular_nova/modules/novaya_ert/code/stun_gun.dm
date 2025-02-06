@@ -49,6 +49,7 @@
 	target.set_confusion_if_lower(4 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_stutter_if_lower(3 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_eye_blur_if_lower(5 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
 	target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	stun_override = FALSE
