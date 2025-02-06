@@ -104,8 +104,9 @@
 	icon_state = "rshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_rubbershot
 	pellets = 6 // 6 * 10 for 60 stamina damage, + some small amount of brute, we want to keep less lethal shells ~60
-	variance = 10
+	variance = 27
 	harmful = FALSE
+	speed = 1.0
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
@@ -137,7 +138,7 @@
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
-	variance = 5 // Slightly less spread then buckshot
+	variance = 12 // Slightly less spread then buckshot
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	name = "express buckshot pellet"
