@@ -22,7 +22,7 @@
 	slowdown_active = 0
 	slot_flags = ITEM_SLOT_BELT
 	inbuilt_modules = list(
-		/obj/item/mod/module/storage/civilian,
+		/obj/item/mod/module/storage/civilian/frontier,
 		/obj/item/mod/module/joint_torsion/permanent
 	)
 	allowed_suit_storage = list(
@@ -98,15 +98,9 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 
-// Plate compression module that cannot be removed
-
-/obj/item/mod/module/plate_compression/permanent
-	removable = FALSE
-	complexity = 0
-	incompatible_modules = list(/obj/item/mod/module/holster)
-
 // Joint torsion module that can't be removed and has no complexity
 
 /obj/item/mod/module/joint_torsion/permanent
 	removable = FALSE
 	complexity = 0
+	incompatible_modules = list(/obj/item/mod/module/holster)
