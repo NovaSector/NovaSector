@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - bugfix: "the ablative trench-coat no longer turns into purple and black squares when you have bendy-legs"
