@@ -98,6 +98,12 @@
 	name = "buckshot pellet"
 	damage = 5
 
+/obj/item/ammo_casing/shotgun/buckshot/milspec
+	pellets = 10
+
+/obj/projectile/bullet/pellet/shotgun_buckshot/milspec
+	damage = 6
+
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
 	desc = "A shotgun casing filled with densely-packed rubber balls, used to incapacitate crowds from a distance."
@@ -106,10 +112,10 @@
 	pellets = 6 // 6 * 10 for 60 stamina damage, + some small amount of brute, we want to keep less lethal shells ~60
 	variance = 27
 	harmful = FALSE
-	speed = 1.0
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
+	speed = 1
 
 /obj/item/ammo_casing/shotgun/magnum
 	name = "magnum blockshot shell"
