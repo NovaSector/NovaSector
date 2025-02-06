@@ -859,7 +859,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 			if (!isnull(crit_case))
 				crit_rebate_mult = fall_and_crush_crit_rebate_table(crit_case)
 				apply_crit_crush(crit_case, atom_target)
-			*/
+			NOVA EDIT REMOVAL END */
 			var/adjusted_damage = damage * crit_rebate_mult
 			var/crushed
 			if (isliving(atom_target))
