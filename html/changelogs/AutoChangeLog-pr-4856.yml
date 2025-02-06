@@ -1,0 +1,4 @@
+author: "FeenieRU"
+delete-after: True
+changes:
+  - map: "Fixed automapper for Icebox NTRep office."
