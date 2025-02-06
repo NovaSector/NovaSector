@@ -86,7 +86,7 @@
 
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
-	fire_delay = 0.75 SECONDS
+	fire_delay = 0.2 SECONDS
 
 	burst_size = 3
 	spread = 0
