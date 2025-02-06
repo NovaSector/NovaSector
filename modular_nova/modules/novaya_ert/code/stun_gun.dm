@@ -23,7 +23,7 @@
 	armour_type_against_stun = ENERGY
 	knockdown_time = null
 	clumsy_knockdown_time = null
-	cooldown = 1 SECONDS
+	cooldown = 0.7 SECONDS
 	light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	light_power = 0.25
 
