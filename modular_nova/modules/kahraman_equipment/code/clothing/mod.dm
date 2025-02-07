@@ -22,7 +22,7 @@
 	slowdown_active = 0
 	slot_flags = ITEM_SLOT_BELT
 	inbuilt_modules = list(
-		/obj/item/mod/module/storage/civilian/frontier,
+		/obj/item/mod/module/storage/civilian,
 		/obj/item/mod/module/joint_torsion/permanent
 	)
 	allowed_suit_storage = list(
