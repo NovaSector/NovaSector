@@ -65,8 +65,8 @@
 		with its adoption by SolFed coming a few years later. Thanks to both the prestige the weapon gained from being adopted \
 		by two of the most prominent military forces in SolFed, \
 		and its modular design making it easily adapted to different requirements, it is currently the most widely adopted rifle in SolFed with a wide range of different users. \
-		It features a slim and compact design optimized for the close-range engagements \
-		while still retaining effectiveness at long range. A computerized sight allows for quick and easy adjustment for engagements at different ranges, \
+		This variant is the Espatier model and is the standard weapon for SolFed’s Espatier Corps. It features a slim and compact design optimized for the close-range engagements \
+		Espatiers typically find themselves in, while still retaining effectiveness at long range. A computerized sight allows for quick and easy adjustment for engagements at different ranges, \
 		and in a wide range of environments, while a swappable internal heatsink protects the weapon from overheating whilst firing in a vacuum."
 
 	return .
@@ -104,11 +104,15 @@
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman/examine_more(mob/user)
 	. = ..()
 
-	. += "This variant is the Infantry model and is the primary rifle \
+	. = "The MMR-2543 is the current standard service rifle for all branches of the Sol Federation Armed Forces. \
+		The MMR-2543 was initially created for use by the Sagittarian Triumvirate’s military, \
+		with its adoption by SolFed coming a few years later. Thanks to both the prestige the weapon gained from \
+		being adopted by two of the most prominent military forces in SolFed, and its modular \
+		design making it easily adapted to different requirements, it is currently the most widely adopted rifle \
+		in SolFed with a wide range of different users. This variant is the Infantry model and is the primary rifle \
 		for both the SolFed Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
-		a specialized three shot burst designed to fire off three rounds before recoil can impact the shooter, \
-		and a more moderate rate of automatic fire to help preserve ammunition during long engagements. \
-		This one, however... seems to be lacking the full-auto selector."
+		a specialized two shot burst designed to fire off two rounds before recoil can impact the shooter, \
+		and a more moderate rate of automatic fire to help preserve ammunition during long engagements."
 
 	return .
 
