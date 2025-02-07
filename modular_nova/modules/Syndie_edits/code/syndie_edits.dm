@@ -305,11 +305,8 @@
 	armor_type = /datum/armor/wintercoat_syndicate
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer
-	name = "deck officer's labcoat"
-	desc = "A white labcoat with interdyne-green accents and a particularly fancy collar."
-	icon_state = "ip_officerlabcoat"
-	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer
+	greyscale_colors = "#FFFFFF#4F8F56"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne

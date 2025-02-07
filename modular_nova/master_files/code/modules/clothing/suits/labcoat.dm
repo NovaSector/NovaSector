@@ -70,7 +70,7 @@
 	greyscale_colors = "#2F2E31#A52F29"
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/suit/toggle/labcoat/nova/pharmacist/Initialize(mapload)
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist/Initialize(mapload)
 	. = ..()
 	allowed += /obj/item/storage/bag/chemistry
 
