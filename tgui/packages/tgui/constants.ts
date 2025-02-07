@@ -299,6 +299,15 @@ const GASES = [
     label: 'Nitrium',
     color: 'brown',
   },
+  // NOVA EDIT ADDITION START
+  {
+    id: 'goblin',
+    path: '/datum/gas/goblin',
+    name: 'G-081-N',
+    label: 'G-081-N',
+    color: 'green',
+  },
+  // NOVA EDIT ADDITION END
 ] as const;
 
 // Returns gas label based on gasId

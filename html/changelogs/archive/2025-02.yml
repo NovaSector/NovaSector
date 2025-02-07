@@ -73,3 +73,104 @@
       messenger app.
   - bugfix: fixed PAIs not being able to turn off the GPS tracking using their gpa
       app.
+2025-02-05:
+  Absolucy:
+  - bugfix: Random messages should no longer be dropped and not appear in chat.
+  Arceniu:
+  - spellcheck: Replaced the words "Singularity Generation Disk" with "Supermatter
+      Crystal Shard" on a paper found by the old station ruin, to match the contents
+      of the inventory room.
+  AyIong:
+  - qol: 'You can choose in preferences what layout use into the Smartfridge or Vending
+      machines: Grid or List. Default TGUI Layout preference. In the future there
+      may be more interfaces where there will be 2 layout options. Also Vending UI
+      now use Grid layout by default.'
+  Exester509:
+  - map: The Syndicate Lavaland base has been generally improved, with more defenses
+      and comms equipment.
+  Hardly:
+  - bugfix: 'Ghost Cafe: Fixed the Nanotrasen logo on the lobby'
+  - qol: 'Ghost Cafe: Added hydroponics kits and service plumbing on a crate'
+  - qol: 'Ghost Cafe: All hydroponics trays are now fully upgraded'
+  - qol: 'Ghost Cafe: Space Cleaners added to custodial room'
+  - qol: 'Ghost Cafe: Torches added around the caves, no more need for flashlights!'
+  Hatterhat:
+  - balance: Scarborough Arms, tired of receiving complaints from field operatives
+      about barely-functional burst selectors on their Bulldog shotguns, has instated
+      a voluntary refurbishing program to replace the burst fire mechanisms with ones
+      that can actually, quote, "put holes in people without waiting a goddamn century
+      between each half of the burst".
+  LordHookie:
+  - bugfix: The item and import descriptions of Trappiste rounds and weapons have
+      been updated to match their statistics.
+  - bugfix: Trappiste ammo boxes carry a number of rounds that fit their magazines
+      again.
+  - spellcheck: Sol Pistol examine texts have been cleared of erroneous commas and
+      "it's"es.
+  MTandi:
+  - bugfix: Fixed medbot emag VFX
+  Majkl-J:
+  - bugfix: PENLITE defib mounts now actually charge the cell
+  Melbert:
+  - qol: Map vote tallies explains how they work if you hover them
+  RatFromTheJungle:
+  - balance: liquid spill slip has been reduced from 6 seconds to 1 second, and the
+      knockdown when you get 'washed away. has also been nerfed from 6 seconds to
+      1 second'
+  SmArtKar:
+  - bugfix: Fixed an issue with persisting brimbeams
+  - bugfix: Fixed another two missing areas on icebox
+  - bugfix: Large fish should not render behind their wall mounts now
+  - rscadd: Added fishing bags, found in fun vendors or made from carpskin.
+  - balance: Added the generator aquarium upgrade to service and science lathes.
+  - image: Resprited reels and bobber
+  - bugfix: Fixed partially missing fishing UI
+  - bugfix: Fixed glowsticks not working
+  Stalkeros:
+  - rscadd: Adds BR-38 to Company Imports, sold by Sol Defense-whatever, for 800 credits
+      a piece; mags sold separately for 50 credits a piece
+  - balance: BR-38 crate's price reduces from 20k to a more sensible 2,4k, now includes
+      3 guns and 6 mags as advertised.
+  - balance: BR-38 ammo crate's price reduced to 1k, now actually includes the ammunition
+      worth that amount, somewhat.
+  - balance: Crank taser's price has been decreased to 200 credits (from 250)
+  - balance: Stun gun's price has been decreased to 150 credits (from 250)
+  - balance: Cargo-ordered stun guns now arrive with a cell.
+  - balance: Stun gun's stamina damage has been increased to 35, with its attack cooldown
+      halved.
+  - balance: Stun gun now actually applies the intended confusion effects as opposed
+      to knocking people down.
+  - balance: Crank taser's cranking speed has been doubled.
+  - bugfix: Fixes the lack of the crank taser's firing sound.
+  Zenitheevee:
+  - rscadd: Added new ore vents that reset
+  - rscadd: Added new ore boxes that grab boulders and keeps them
+  - rscadd: 3 ruins for the new vents
+  jlsnow301:
+  - bugfix: Character pref dropdowns should have their display names fixed
+  necromanceranne:
+  - rscdel: Mobile hollow bioscramblers no longer spawn from the anomaly research
+      ruin, sparing everyone from the inevitable unannounced arrival of a permanent
+      hollow bioscrambler aboard the station. You maybe still encounter immobile bioscramblers
+      in the ruin, however.
+  - bugfix: Allows MOD holsters to once again activate while the modsuit is inactive
+      and undeployed.
+  - balance: The force of most standard varieties of toolboxes has increased from
+      12 to 13 force.
+  - code_imp: Removed some magic numbers from the calculations for ancient toolboxes
+      damage scaling.
+  siliconOpossum:
+  - bugfix: Lathes interfaces are no longer unscrollable on 516
+  zoomachina:
+  - bugfix: showers wash things under them when they're turned on again
+2025-02-06:
+  RatFromTheJungle:
+  - balance: The nanotrasen-news-network is happy to report gorillas are going through
+      an intergalactic phase of muscle atrophy, and no longer stunlock crew, or elsewise
+      against walls!
+2025-02-07:
+  FeenieRU:
+  - map: Fixed automapper for Icebox NTRep office.
+  RatFromTheJungle:
+  - bugfix: the ablative trench-coat no longer turns into purple and black squares
+      when you have bendy-legs

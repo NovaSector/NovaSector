@@ -8,26 +8,38 @@
 	lefthand_file = 'modular_nova/modules/novaya_ert/icons/taser_left.dmi'
 	righthand_file = 'modular_nova/modules/novaya_ert/icons/taser_right.dmi'
 	fire_delay = 2 SECONDS
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode/crank_taser)
 	cell_type = /obj/item/stock_parts/power_store/cell/crank_taser
-	ammo_type = list(/obj/item/ammo_casing/energy/electrode)
 	ammo_x_offset = 2
 	charge_sections = 3
 
+/obj/item/ammo_casing/energy/electrode/crank_taser
+	projectile_type = /obj/projectile/energy/electrode/crank_taser
+
+/obj/projectile/energy/electrode/crank_taser
+	tase_stamina = 15
+
 /obj/item/stock_parts/power_store/cell/crank_taser
 	name = "\improper Mírotvůrce power cell"
-	maxcharge = STANDARD_CELL_CHARGE * 0.3
+	maxcharge = STANDARD_CELL_CHARGE * 0.4
 
 /obj/item/gun/energy/taser/crank/Initialize(mapload)
 	. = ..()
 	AddComponent( \
 		/datum/component/crank_recharge, \
 		charging_cell = get_cell(), \
-		charge_amount = STANDARD_CELL_CHARGE*0.1, \
-		cooldown_time = 2 SECONDS, \
+		charge_amount = STANDARD_CELL_CHARGE*0.05, \
+		cooldown_time = 1 SECONDS, \
 		charge_sound = 'modular_nova/modules/new_cells/sound/crank.ogg', \
-		charge_sound_cooldown_time = 1.8 SECONDS, \
+		charge_sound_cooldown_time = 0.8 SECONDS, \
 		charge_move = IGNORE_USER_LOC_CHANGE, \
 	)
+
+/obj/item/gun/energy/taser/crank/fire_sounds()
+	if(suppressed)
+		playsound(src, fire_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
+	else
+		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
 /obj/item/gun/energy/taser/crank/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
