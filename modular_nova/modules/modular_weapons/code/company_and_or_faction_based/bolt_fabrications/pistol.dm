@@ -15,7 +15,7 @@
 	lock_back_sound = 'sound/items/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/pistol/slide_drop.ogg'
 	fire_sound_volume = 70
-	custom_premium_price = PAYCHECK_COMMAND * 5
+	custom_premium_price = PAYCHECK_COMMAND * 4
 
 /obj/item/gun/ballistic/automatic/pistol/type207/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_BOLT)

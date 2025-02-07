@@ -1,0 +1,4 @@
+author: "Archemagus"
+delete-after: True
+changes:
+  - bugfix: "Reminded asteroid with engines shuttle to pickup its walls when departing"

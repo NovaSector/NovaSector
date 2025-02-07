@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed Vending Machines Crit table, they just do the old deal a lot of damage on you when they crush you"
