@@ -100,6 +100,7 @@
 	if(!crusher_kill && ashie_damage && crusher_loot && ashie_damage.total_damage >= maxHealth * 0.6)
 		spawn_crusher_loot()
 	// NOVA EDIT ADDITION END
+	spawn_crusher_loot() // NOVA EDIT ADDITION - Spawns the crusher loot regardless.
 	if(true_spawn && !(flags_1 & ADMIN_SPAWNED_1))
 		var/tab = "megafauna_kills"
 		if(crusher_kill)
