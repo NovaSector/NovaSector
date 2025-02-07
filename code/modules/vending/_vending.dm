@@ -856,9 +856,11 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 					crit_case = pick_weight(get_crit_crush_chances())
 			var/crit_rebate_mult = 1 // lessen the normal damage we deal for some of the crits
 
+			/* // NOVA EDIT REMOVAL START
 			if (!isnull(crit_case))
 				crit_rebate_mult = fall_and_crush_crit_rebate_table(crit_case)
 				apply_crit_crush(crit_case, atom_target)
+			NOVA EDIT REMOVAL END */
 
 			var/adjusted_damage = damage * crit_rebate_mult
 			var/crushed
