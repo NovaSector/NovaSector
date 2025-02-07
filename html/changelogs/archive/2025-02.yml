@@ -168,3 +168,9 @@
   - balance: The nanotrasen-news-network is happy to report gorillas are going through
       an intergalactic phase of muscle atrophy, and no longer stunlock crew, or elsewise
       against walls!
+2025-02-07:
+  FeenieRU:
+  - map: Fixed automapper for Icebox NTRep office.
+  RatFromTheJungle:
+  - bugfix: the ablative trench-coat no longer turns into purple and black squares
+      when you have bendy-legs
