@@ -94,16 +94,6 @@
 	surplus = 30
 	uplink_item_flags = NONE
 
-/datum/uplink_item/stealthy_tools/mail_counterfeit
-	name = "GLA Brand Mail Counterfeit Device"
-	desc = "A device capable of counterfeiting NT's mail. Can be used to store items within as an easy means of smuggling contraband. \
-			Additionally, you may choose to \"arm\" the item inside, causing the item to be used the moment the mail is opened as if the person had just used it in hand. \
-			The most common usage of this feature is with grenades, as it forces the grenade to prime. Bonus points if the grenade is set to instantly detonate. \
-			Comes with an integrated micro-computer for configuration purposes."
-	item = /obj/item/storage/mail_counterfeit_device
-	cost = 1
-	surplus = 30
-
 /datum/uplink_item/stealthy_tools/forensics_spofer
 	name = "Forensics Spoofing Kit"
 	desc = "A box that contains the forensics spoofer (and instructions) which can scan and replicate fingerprints and fibers \

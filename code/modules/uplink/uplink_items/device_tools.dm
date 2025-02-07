@@ -41,6 +41,7 @@
 	item = /obj/item/book/bible/syndicate
 	cost = 5
 
+	/* NOVA EDIT REMOVAL START
 /datum/uplink_item/device_tools/tram_remote
 	name = "Tram Remote Control"
 	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
@@ -48,7 +49,7 @@
 		Perfect for running someone over in the name of a tram malfunction!"
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
-
+NOVA EDIT REMOVAL END */
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
 	desc = "These goggles can be turned to resemble common eyewear found throughout the station. \
