@@ -50,7 +50,6 @@
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
 NOVA EDIT REMOVAL END */
-
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
 	desc = "These goggles can be turned to resemble common eyewear found throughout the station. \
