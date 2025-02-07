@@ -1,0 +1,4 @@
+author: "TheSS13Melon"
+delete-after: True
+changes:
+  - rscdel: "Removes the counterfeit mail item along with the tram remote from uplink and OPFOR."
