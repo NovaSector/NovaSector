@@ -31,7 +31,8 @@
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_rifle.ogg'
 	can_suppress = TRUE
 
-	suppressor_x_offset = 12
+	suppressor_x_offset = 2
+	suppressor_y_offset = 1
 
 	burst_size = 1
 	fire_delay = 0.30 SECONDS
@@ -87,6 +88,9 @@
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
 	fire_delay = 0.2 SECONDS
+	
+	suppressor_x_offset = 1
+	suppressor_y_offset = 1
 
 	burst_size = 3
 	spread = 0
