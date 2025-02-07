@@ -26,7 +26,8 @@
 	rack_delay = 0.2 SECONDS
 	fire_delay = 0.5 SECONDS // JUST AS A TEST - DON'T LET THIS BE MERGED UNTIL WE'RE SURE THIS IS GOOD
 
-	suppressor_x_offset = 9
+	suppressor_x_offset = 7
+	suppressor_y_offset = -3
 
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
