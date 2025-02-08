@@ -17,7 +17,7 @@
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy
 	name = "Greyscale Fancy Labcoat"
-	desc = "Throughout the test of determination, many have sought after such a fancy labcoat, one that was filled with many colors and wears"
+	desc = "Throughout the test of determination, many have sought after such a fancy labcoat, one that was filled with many colors and wears."
 	icon_state = "fancy_labcoat"
 	greyscale_config = /datum/greyscale_config/fancy_labcoat
 	greyscale_config_worn = /datum/greyscale_config/fancy_labcoat/worn
