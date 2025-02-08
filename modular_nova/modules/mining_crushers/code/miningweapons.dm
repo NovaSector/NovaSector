@@ -251,7 +251,6 @@
 		speed = 5 SECONDS, \
 		effectiveness = 100, \
 	)
-	RemoveComponent()
 
 /obj/item/kinetic_crusher/claw/update_icon_state()
 	var/previous_inhand_icon_state = inhand_icon_state
