@@ -1,6 +1,0 @@
-author: "Trelus"
-delete-after: True
-changes:
-  - rscadd: "Adds the Type 213 Submachine Gun to the Sol defence import list"
-  - rscadd: "Adds the Type 213 Submachine Gun magazine to the Sol defence import list"
-  - bugfix: "Changed the Type 207 magazine to use a better, consistent palette in line with the gun it comes from and the new Type 213"

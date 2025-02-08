@@ -174,3 +174,17 @@
   RatFromTheJungle:
   - bugfix: the ablative trench-coat no longer turns into purple and black squares
       when you have bendy-legs
+2025-02-08:
+  Archemagus:
+  - bugfix: Reminded asteroid with engines shuttle to pickup its walls when departing
+  OrbisAnima:
+  - rscdel: Removed Vending Machines Crit table, they just do the old deal a lot of
+      damage on you when they crush you
+  TheSS13Melon:
+  - rscdel: Removes the counterfeit mail item along with the tram remote from uplink
+      and OPFOR.
+  Trelus:
+  - rscadd: Adds the Type 213 Submachine Gun to the Sol defence import list
+  - rscadd: Adds the Type 213 Submachine Gun magazine to the Sol defence import list
+  - bugfix: Changed the Type 207 magazine to use a better, consistent palette in line
+      with the gun it comes from and the new Type 213
