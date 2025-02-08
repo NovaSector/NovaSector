@@ -21,10 +21,26 @@
 	throwforce = 5
 	throw_speed = 4
 	armour_penetration = 10
-	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
+	custom_materials = list(
+		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
+		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
+		)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
-	attack_verb_continuous = list("slashes", "cuts", "cleaves", "chops", "swipes")
-	attack_verb_simple = list("cleave", "chop", "cut", "swipe", "slash")
+	attack_verb_continuous = list(
+		"slashes",
+		"cuts",
+		"cleaves",
+		"chops",
+		"swipes",
+		)
+	attack_verb_simple = list(
+		"cleave",
+		"chop",
+		"cut",
+		"swipe",
+		"slash",
+	)
+
 	sharpness = SHARP_EDGED
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = NONE
@@ -32,7 +48,7 @@
 	light_range = 5
 	light_on = FALSE
 	charged = TRUE
-	charge_time = 10
+	charge_time =  1 SECONDS
 	detonation_damage = 35
 	backstab_bonus = 20
 	acts_as_if_wielded = TRUE
@@ -66,10 +82,25 @@
 	throwforce = 5
 	throw_speed = 4
 	armour_penetration = 15
-	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
+	custom_materials = list(
+		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
+		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
+		)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
-	attack_verb_continuous = list("pierces", "stabs", "impales", "pokes", "jabs")
-	attack_verb_simple = list("imaple", "stab", "pierce", "jab", "poke")
+	attack_verb_continuous = list(
+		"pierces",
+		"stabs",
+		"impales",
+		"pokes",
+		"jabs",
+		)
+	attack_verb_simple = list(
+		"imaple",
+		"stab",
+		"pierce",
+		"jab",
+		"poke",
+		)
 	sharpness = SHARP_EDGED
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = UNIQUE_RENAME
@@ -77,9 +108,9 @@
 	light_range = 8
 	light_on = FALSE
 	charged = TRUE
-	charge_time = 15
+	charge_time =  1.5 SECONDS
 	detonation_damage = 35
-	backstab_bonus = 20
+	backstab_bonus = 25
 	reach = 2
 
 /obj/item/kinetic_crusher/spear/Initialize(mapload)
@@ -112,10 +143,25 @@
 	throwforce = 5
 	throw_speed = 4
 	armour_penetration = 0
-	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
+	custom_materials = list(
+		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
+		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
+		)
 	hitsound = 'sound/items/weapons/sonic_jackhammer.ogg'
-	attack_verb_continuous = list("slams", "crushes", "smashes", "flattens", "pounds")
-	attack_verb_simple = list("slam", "crush", "smash", "flatten", "pound")
+	attack_verb_continuous = list(
+		"slams",
+		"crushes",
+		"smashes",
+		"flattens",
+		"pounds",
+		)
+	attack_verb_simple = list(
+		"slam",
+		"crush",
+		"smash",
+		"flatten",
+		"pound",
+		)
 	sharpness = NONE
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = UNIQUE_RENAME
@@ -123,7 +169,7 @@
 	light_range = 5
 	light_on = FALSE
 	charged = TRUE
-	charge_time = 20
+	charge_time = 2 SECONDS
 	detonation_damage = 70
 	backstab_bonus = 0
 	acts_as_if_wielded = FALSE
@@ -163,10 +209,23 @@
 	throwforce = 5
 	throw_speed = 4
 	armour_penetration = 0
-	custom_materials = list(/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15, /datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2)
+	custom_materials = list(
+		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
+		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
+		)
 	hitsound = 'sound/items/weapons/pierce.ogg'
-	attack_verb_continuous = list("swipes", "slashes", "cuts", "slaps")
-	attack_verb_simple = list("swipe", "slash", "cut", "slap")
+	attack_verb_continuous = list(
+		"swipes",
+		"slashes",
+		"cuts",
+		"slaps",
+		)
+	attack_verb_simple = list(
+		"swipe",
+		"slash",
+		"cut",
+		"slap",
+		)
 	sharpness = SHARP_POINTY
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = UNIQUE_RENAME
@@ -174,9 +233,9 @@
 	light_range = 4
 	light_on = FALSE
 	charged = TRUE
-	charge_time = 2
+	charge_time = 1 SECONDS
 	detonation_damage = 40
-	backstab_bonus = 120
+	backstab_bonus = 25
 	acts_as_if_wielded = TRUE
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
