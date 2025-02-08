@@ -44,6 +44,7 @@
 	RegisterSignal(human, COMSIG_CARBON_ATTACH_LIMB, PROC_REF(on_gained_part))
 
 	var/obj/item/bodypart/head/head = human.get_bodypart(BODY_ZONE_HEAD)
+	head.speech_span = null
 	head?.drop_limb()
 	if(QDELETED(head)) //drop_limb() deletes the limb if no drop location exists and character setup dummies are located in nullspace.
 		return
@@ -54,7 +55,7 @@
 	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes(head)
 	eyes.eye_color_left = human.eye_color_left
 	eyes.eye_color_right = human.eye_color_right
-	eyes.bodypart_insert(my_head)
+	eyes.bodypart_insert(head)
 	human.update_body()
 	head.update_icon_dropped()
 	RegisterSignal(head, COMSIG_QDELETING, PROC_REF(on_head_destroyed))
@@ -169,7 +170,8 @@
 	organ_flags = ORGAN_ORGANIC //not vital
 
 /obj/item/organ/tongue/dullahan
-	zone = "abstract"
+	zone = BODY_ZONE_CHEST
+	organ_flags = parent_type::organ_flags & ORGAN_UNREMOVABLE
 	modifies_speech = TRUE
 
 /obj/item/organ/tongue/dullahan/handle_speech(datum/source, list/speech_args)
@@ -183,13 +185,15 @@
 	speech_args[SPEECH_MESSAGE] = ""
 
 /obj/item/organ/ears/dullahan
-	zone = "abstract"
+	zone = BODY_ZONE_CHEST
+	organ_flags = parent_type::organ_flags & ORGAN_UNREMOVABLE
 
 /obj/item/organ/eyes/dullahan
 	name = "head vision"
 	desc = "An abstraction."
 	actions_types = list(/datum/action/item_action/organ_action/dullahan)
-	zone = "abstract"
+	zone = BODY_ZONE_CHEST
+	organ_flags = parent_type::organ_flags & ORGAN_UNREMOVABLE
 	tint = INFINITY // to switch the vision perspective to the head on species_gain() without issue.
 
 /datum/action/item_action/organ_action/dullahan
@@ -256,14 +260,14 @@
 
 /obj/item/dullahan_relay/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), message_range)
 	. = ..()
-	if(owner)
-		owner.Hear(message, speaker, message_language, raw_message, radio_freq, spans, message_mods, message_range)
-
-///Adds the owner to the list of hearers in hearers_in_view(), for visible/hearable on top of say messages
-/obj/item/dullahan_relay/proc/include_owner(datum/source, list/hearers)
-	SIGNAL_HANDLER
-	if(!QDELETED(owner))
-		hearers += owner
+	var/dist = get_dist(speaker, src) - message_range
+	if(dist > 0 && dist <= EAVESDROP_EXTRA_RANGE)
+		raw_message = stars(raw_message)
+	if(message_range != INFINITY && dist > EAVESDROP_EXTRA_RANGE)
+		return FALSE
+	if(!owner)
+		return FALSE
+	return owner.Hear(message, speaker, message_language, raw_message, radio_freq, spans, message_mods, message_range = INFINITY)
 
 ///Stops dullahans from gibbing when regenerating limbs
 /obj/item/dullahan_relay/proc/unlist_head(datum/source, noheal = FALSE, list/excluded_zones)

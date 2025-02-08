@@ -288,18 +288,6 @@
 		ignored_mobs = list(ignored_mobs)
 	var/list/hearers = get_hearers_in_view(vision_distance, src) //caches the hearers and then removes ignored mobs.
 	hearers -= ignored_mobs
-
-	//NOVA EDIT ADDITION BEGIN - AI QoL
-	for(var/mob/eye/camera/ai/ai_eye in hearers)
-		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
-			hearers -= ai_eye
-			hearers |= ai_eye.ai
-
-	for(var/obj/effect/overlay/holo_pad_hologram/holo in hearers)
-		if(holo.Impersonation?.client)
-			hearers |= holo.Impersonation
-	//NOVA EDIT ADDITION END - AI QoL
-
 	if(self_message)
 		hearers -= src
 
@@ -307,36 +295,8 @@
 	if(visible_message_flags & EMOTE_MESSAGE)
 		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 
-	for(var/mob/M in hearers)
-		if(!M.client)
-			continue
-		// NOVA EDIT ADDITION - Emote pref checks
-		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
-			continue
-		// NOVA EDIT END
-
-		//This entire if/else chain could be in two lines but isn't for readibilties sake.
-		var/msg = message
-		var/msg_type = MSG_VISUAL
-
-		if(M.see_invisible < invisibility)//if src is invisible to M
-			msg = blind_message
-			msg_type = MSG_AUDIBLE
-		else if(T != loc && T != src) //if src is inside something and not a turf.
-			if(M != loc) // Only give the blind message to hearers that aren't the location
-				msg = blind_message
-				msg_type = MSG_AUDIBLE
-		else if(!HAS_TRAIT(M, TRAIT_HEAR_THROUGH_DARKNESS) && M.lighting_cutoff < LIGHTING_CUTOFF_HIGH && T.is_softly_lit() && !in_range(T,M)) //if it is too dark, unless we're right next to them.
-			msg = blind_message
-			msg_type = MSG_AUDIBLE
-		if(!msg)
-			continue
-
-		if(visible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, visible_message_flags) && !M.is_blind())
-			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = visible_message_flags)
-
-		M.show_message(msg, msg_type, blind_message, MSG_AUDIBLE)
-
+	for(var/atom/movable/hearer in hearers)
+		hearer.recieve_emote(src, message, MSG_VISUAL, blind_message, MSG_AUDIBLE, raw_msg, visible_message_flags, pref_to_check)
 
 ///Adds the functionality to self_message.
 /mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // NOVA EDIT ADDITION - Better emotes, pref checks
@@ -372,31 +332,13 @@
  */
 /atom/proc/audible_message(message, deaf_message, hearing_distance = DEFAULT_MESSAGE_RANGE, self_message, audible_message_flags = NONE, separation = " ", pref_to_check) // NOVA EDIT ADDITION - Better emotes, pref checks
 	var/list/hearers = get_hearers_in_view(hearing_distance, src)
-
-	//NOVA EDIT ADDITION BEGIN - AI QoL
-	for(var/mob/eye/camera/ai/ai_eye in hearers)
-		if(ai_eye.ai?.client && !(ai_eye.ai.stat == DEAD))
-			hearers -= ai_eye
-			hearers |= ai_eye.ai
-
-	for(var/obj/effect/overlay/holo_pad_hologram/holo in hearers)
-		if(holo.Impersonation?.client)
-			hearers |= holo.Impersonation
-	//NOVA EDIT ADDITION END - AI QoL
-
 	if(self_message)
 		hearers -= src
 	var/raw_msg = message
 	if(audible_message_flags & EMOTE_MESSAGE)
 		message = span_emote("<b>[src]</b>[separation][message]") //NOVA EDIT CHANGE - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
-	for(var/mob/M in hearers)
-	// NOVA EDIT ADDITION - Emote pref checks
-		if(pref_to_check && !M.client?.prefs.read_preference(pref_to_check))
-			continue
-	// NOVA EDIT END
-		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
-			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
-		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
+	for(var/atom/movable/hearer in hearers)
+		hearer.recieve_emote(src, message, MSG_AUDIBLE, deaf_message, MSG_VISUAL, raw_msg, audible_message_flags, pref_to_check)
 
 /**
  * Show a message to all mobs in earshot of this one
@@ -425,6 +367,65 @@
 
 	if(self_runechat && (audible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src, audible_message_flags))
 		create_chat_message(src, raw_message = raw_self_message, runechat_flags = audible_message_flags)
+
+/mob/proc/can_see_visible_message(atom/source)
+	if(see_invisible < source.invisibility)
+		return FALSE
+	var/turf/our_turf = get_turf(src)
+	if(our_turf != source.loc && our_turf != source)
+		if(src != source.loc)
+			return FALSE
+		return TRUE
+	if(HAS_TRAIT(src, TRAIT_HEAR_THROUGH_DARKNESS))
+		return TRUE
+	if(lighting_cutoff < LIGHTING_CUTOFF_HIGH && our_turf.is_softly_lit() && !in_range(our_turf, src))
+		return FALSE
+	return TRUE
+
+/mob/proc/can_see_runetext(atom/source, message_type, message_flags)
+	if(!(message_flags & EMOTE_MESSAGE))
+		return FALSE
+	if(!source.runechat_prefs_check(src, message_flags))
+		return FALSE
+	switch(message_type)
+		if(MSG_VISUAL)
+			return !is_blind()
+		if(MSG_AUDIBLE)
+			return can_hear()
+	return FALSE
+
+/// Handles an atom "hearing" an emote,
+/atom/movable/proc/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+	return
+
+/mob/eye/camera/ai/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
+	if(source == ai)
+		return
+	return ai?.recieve_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+
+/obj/effect/overlay/holo_pad_hologram/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
+	if(source == Impersonation)
+		return
+	return Impersonation?.recieve_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+
+/obj/item/dullahan_relay/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
+	if(source == owner)
+		return
+	return owner?.recieve_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+
+/mob/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+	if(!client)
+		return
+	if(pref_to_check && !client.prefs.read_preference(pref_to_check))
+		return
+	if(message_type == MSG_VISUAL && !can_see_visible_message(source))
+		message = alt_message
+		message_type = MSG_AUDIBLE
+	if(!message)
+		return
+	if(can_see_runetext(source, message_type, message_flags))
+		create_chat_message(source, raw_message = raw_message, runechat_flags = message_flags)
+	show_message(message, message_type, alt_message, alt_type)
 
 ///Returns the client runechat visible messages preference according to the message type.
 /atom/proc/runechat_prefs_check(mob/target, visible_message_flags = NONE)
