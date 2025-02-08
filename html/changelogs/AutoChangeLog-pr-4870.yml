@@ -1,0 +1,7 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - balance: "BR-38 magazine capacity increased from 15 to 28"
+  - balance: "BR-38 magazines are now small-sized"
+  - balance: "BR-38 degradation threshold increased from 10 to 18"
+  - balance: "BR-38 degradation chance decreased from 10 to 5"
