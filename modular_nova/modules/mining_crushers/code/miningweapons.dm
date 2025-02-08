@@ -235,7 +235,7 @@
 	charged = TRUE
 	charge_time = 1 SECONDS
 	detonation_damage = 40
-	backstab_bonus = 60
+	backstab_bonus = 90
 	acts_as_if_wielded = TRUE
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
