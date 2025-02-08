@@ -1,0 +1,6 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "New organ that forms when injected with a specific reagent from the Carrier Spider"
+  - rscadd: "Carrier Spider - bite your foes, make them be your host"
+  - balance: "tweaks to the Pit, Voltaic, Webslinger spider"
