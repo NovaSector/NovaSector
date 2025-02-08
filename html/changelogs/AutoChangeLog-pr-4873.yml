@@ -1,0 +1,5 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - balance: "Claw crusher bonus damage has been bumped to 200, normal detonation has been basically removed."
+  - bugfix: "fixes crusher marking spam"
