@@ -56,8 +56,8 @@
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, \
-	force_unwielded=15, \
-	force_wielded=15, \
+		force_unwielded=15, \
+		force_wielded=15, \
 	)
 	AddComponent(/datum/component/butchering, \
 		speed = 4 SECONDS, \
@@ -97,7 +97,7 @@
 		"impales",
 		"pokes",
 		"jabs",
-		)
+	)
 	attack_verb_simple = list(
 		"imaple",
 		"stab",
@@ -158,7 +158,7 @@
 		"smashes",
 		"flattens",
 		"pounds",
-		)
+	)
 	attack_verb_simple = list(
 		"slam",
 		"crush",
