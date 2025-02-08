@@ -1,0 +1,1 @@
+/obj/item/clothing/suit/toggle/labcoat/nova/@SUBTYPES : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/@SUBTYPES{@OLD}
