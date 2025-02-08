@@ -55,9 +55,13 @@
 
 /obj/item/kinetic_crusher/machete/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/two_handed, \
+	force_unwielded=15, \
+	force_wielded=15, \
+	)
 	AddComponent(/datum/component/butchering, \
 		speed = 4 SECONDS, \
-		effectiveness = 130, \
+		effectiveness = 150, \
 	)
 
 /obj/item/kinetic_crusher/machete/update_icon_state()
@@ -234,16 +238,20 @@
 	light_on = FALSE
 	charged = TRUE
 	charge_time = 1 SECONDS
-	detonation_damage = 40
-	backstab_bonus = 90
-	acts_as_if_wielded = TRUE
+	detonation_damage = 5
+	backstab_bonus = 200
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/two_handed, \
+	force_unwielded=0, \
+	force_wielded=5, \
+	)
 	AddComponent(/datum/component/butchering, \
 		speed = 5 SECONDS, \
 		effectiveness = 100, \
 	)
+	RemoveComponent()
 
 /obj/item/kinetic_crusher/claw/update_icon_state()
 	var/previous_inhand_icon_state = inhand_icon_state
