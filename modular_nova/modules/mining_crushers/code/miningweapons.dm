@@ -110,7 +110,7 @@
 	charged = TRUE
 	charge_time =  1.5 SECONDS
 	detonation_damage = 35
-	backstab_bonus = 25
+	backstab_bonus = 20
 	reach = 2
 
 /obj/item/kinetic_crusher/spear/Initialize(mapload)
@@ -235,7 +235,7 @@
 	charged = TRUE
 	charge_time = 1 SECONDS
 	detonation_damage = 40
-	backstab_bonus = 25
+	backstab_bonus = 60
 	acts_as_if_wielded = TRUE
 
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
