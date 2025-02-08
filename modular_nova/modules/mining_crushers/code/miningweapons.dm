@@ -24,7 +24,7 @@
 	custom_materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
 		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-		)
+	)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list(
 		"slashes",
@@ -32,7 +32,7 @@
 		"cleaves",
 		"chops",
 		"swipes",
-		)
+	)
 	attack_verb_simple = list(
 		"cleave",
 		"chop",
@@ -89,7 +89,7 @@
 	custom_materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
 		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-		)
+	)
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list(
 		"pierces",
@@ -104,7 +104,7 @@
 		"pierce",
 		"jab",
 		"poke",
-		)
+	)
 	sharpness = SHARP_EDGED
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = UNIQUE_RENAME
@@ -150,7 +150,7 @@
 	custom_materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
 		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-		)
+	)
 	hitsound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	attack_verb_continuous = list(
 		"slams",
@@ -165,7 +165,7 @@
 		"smash",
 		"flatten",
 		"pound",
-		)
+	)
 	sharpness = NONE
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = UNIQUE_RENAME
@@ -216,20 +216,20 @@
 	custom_materials = list(
 		/datum/material/iron=HALF_SHEET_MATERIAL_AMOUNT*1.15,
 		/datum/material/glass=HALF_SHEET_MATERIAL_AMOUNT*2,
-		)
+	)
 	hitsound = 'sound/items/weapons/pierce.ogg'
 	attack_verb_continuous = list(
 		"swipes",
 		"slashes",
 		"cuts",
 		"slaps",
-		)
+	)
 	attack_verb_simple = list(
 		"swipe",
 		"slash",
 		"cut",
 		"slap",
-		)
+	)
 	sharpness = SHARP_POINTY
 	actions_types = list(/datum/action/item_action/toggle_light)
 	obj_flags = UNIQUE_RENAME
@@ -244,8 +244,8 @@
 /obj/item/kinetic_crusher/claw/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, \
-	force_unwielded=0, \
-	force_wielded=5, \
+		force_unwielded=0, \
+		force_wielded=5, \
 	)
 	AddComponent(/datum/component/butchering, \
 		speed = 5 SECONDS, \
