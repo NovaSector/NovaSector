@@ -19,11 +19,11 @@
 	attack_verb_simple = list("thrust")
 	throwforce = 0
 	force_say_chance = 25
-	stamina_damage = 35
+	stamina_damage = 25
 	armour_type_against_stun = ENERGY
 	knockdown_time = null
 	clumsy_knockdown_time = null
-	cooldown = 1 SECONDS
+	cooldown = 0.7 SECONDS
 	light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	light_power = 0.25
 
@@ -49,6 +49,9 @@
 	target.set_confusion_if_lower(4 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_stutter_if_lower(3 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_eye_blur_if_lower(5 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	var/effective_armour_penetration = get_stun_penetration_value()
+	var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
+	target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	stun_override = FALSE
 
@@ -61,9 +64,8 @@
 
 	. += "'Kopřiva' is the current flagship model of a stun gun standard-issued to coreworld Zvirdnyn officers - as you would not expect any more than an occasional rare drunkard \
 		coming for you around the capital planets. Its newly integrated neural receptors allow for unprecedented level of pacification through pain responses to one's brain, \
-		resulting in a conclusion to a confrontation that couldn't even end. The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
+		resulting in a conclusion to a confrontation that couldn't even start. The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
 		after experiencing its sting."
-
 
 /obj/item/melee/baton/security/stun_gun/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
