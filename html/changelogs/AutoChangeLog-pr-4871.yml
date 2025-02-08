@@ -1,0 +1,5 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - balance: "Stun gun's damage lowered back to 25"
+  - bugfix: "Stun gun now actually deals the intended stamina damage."
