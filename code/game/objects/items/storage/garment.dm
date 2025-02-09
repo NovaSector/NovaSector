@@ -112,7 +112,7 @@
 	new /obj/item/clothing/under/rank/rnd/research_director/alt/skirt(src)
 	new /obj/item/clothing/under/rank/rnd/research_director/turtleneck(src)
 	new /obj/item/clothing/under/rank/rnd/research_director/turtleneck/skirt(src)
-	new /obj/item/clothing/suit/toggle/labcoat/nova/rd(src) //NOVA EDIT ADDITION
+	new /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd(src) //NOVA EDIT ADDITION
 	new /obj/item/clothing/suit/hooded/wintercoat/science/rd(src)
 	new /obj/item/clothing/head/beret/science/rd(src)
 	new /obj/item/clothing/gloves/color/black(src)
