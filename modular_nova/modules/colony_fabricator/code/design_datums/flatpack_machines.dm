@@ -147,9 +147,9 @@
 // PACMAN generator but epic!!
 
 /datum/design/flatpack_solids_generator
-	name = "Flat-Packed S.O.F.I.E. Generator"
-	desc = "A deployable plasma-burning generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
-		at expense of creating hot carbon dioxide exhaust."
+	name = "Flat-Packed A.W Generator"
+	desc = "A deployable uranium micro-generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
+		at expense of outputting radiation, and steaming water vapor."
 	id = "flatpack_fuel_generator"
 	build_type = COLONY_FABRICATOR
 	materials = list(
