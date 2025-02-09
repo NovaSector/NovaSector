@@ -1,1 +1,6 @@
-/obj/item/clothing/suit/toggle/labcoat/nova/@SUBTYPES : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/@SUBTYPES{@OLD}
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy : /obj/item/clothing/suit/toggle/labcoat/nova/fancy{@OLD}
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd{@OLD}
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist{@OLD}
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist{@OLD}
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist{@OLD}
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer : /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer{@OLD}
