@@ -38,8 +38,8 @@
 	fire_delay = 0.30 SECONDS
 	actions_types = list()
 
-	spread = 7.5
-	projectile_wound_bonus = -10
+	spread = 2
+	projectile_wound_bonus = 10
 	projectile_damage_multiplier = 0.75
 
 /obj/item/gun/ballistic/automatic/sol_rifle/Initialize(mapload)
@@ -87,15 +87,15 @@
 
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.5 SECONDS
 	
 	suppressor_x_offset = 1
 	suppressor_y_offset = 1
 
 	burst_size = 3
-	spread = 0
+	spread = 5.5
 	projectile_damage_multiplier = 1
-	projectile_wound_bonus = 10
+	projectile_wound_bonus = 3
 
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman/Initialize(mapload)
 	. = ..()
