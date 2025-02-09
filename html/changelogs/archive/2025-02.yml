@@ -205,5 +205,8 @@
   - rscadd: Carrier Spider - bite your foes, make them be your host
   - balance: tweaks to the Pit, Voltaic, Webslinger spider
 2025-02-09:
+  FlufflesTheDog:
+  - bugfix: prison cryo pods work again
+  - bugfix: The cargo imports window is (hopefully) less network intensive
   RealWinterFrost:
   - image: Added and Removed relevant sprites to allow for recolorable fancy labcoats
