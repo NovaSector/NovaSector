@@ -105,7 +105,6 @@
 	cost = 1
 	surplus = 30
 */ // NOVA EDIT REMOVAL END
-
 /datum/uplink_item/stealthy_tools/forensics_spofer
 	name = "Forensics Spoofing Kit"
 	desc = "A box that contains the forensics spoofer (and instructions) which can scan and replicate fingerprints and fibers \
