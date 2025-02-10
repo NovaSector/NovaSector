@@ -87,7 +87,7 @@
 
 	spawn_magazine_type = /obj/item/ammo_box/magazine/c40sol_rifle
 
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.4 SECONDS
 	
 	suppressor_x_offset = 1
 	suppressor_y_offset = 1
