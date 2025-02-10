@@ -8320,6 +8320,7 @@
 #include "modular_nova\modules\modular_vending\code\cigarette.dm"
 #include "modular_nova\modules\modular_vending\code\clothesmate.dm"
 #include "modular_nova\modules\modular_vending\code\cola.dm"
+#include "modular_nova\modules\modular_vending\code\dinnerware.dm"
 #include "modular_nova\modules\modular_vending\code\engivend.dm"
 #include "modular_nova\modules\modular_vending\code\games.dm"
 #include "modular_nova\modules\modular_vending\code\medical.dm"
