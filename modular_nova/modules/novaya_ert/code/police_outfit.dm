@@ -96,6 +96,7 @@
 	dog_fashion = null
 
 /obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 	allowed += list(
 		/obj/item/camera,
 		/obj/item/clipboard,
@@ -122,6 +123,7 @@
 		desc = replacetext(desc, "%KINK", pick(kink))
 	else
 		desc = replacetext(desc, "%KINK", "N/A")
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/head/soft/nri_police
 	name = "imperial police baseball cap"
@@ -134,3 +136,7 @@
 	armor_type = /datum/armor/cosmetic_sec
 	strip_delay = 60
 	dog_fashion = null
+
+/obj/item/clothing/head/soft/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)

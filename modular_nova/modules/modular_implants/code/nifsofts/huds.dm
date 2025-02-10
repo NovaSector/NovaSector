@@ -17,8 +17,8 @@
 /// Attemps to add the hud variables from the NIFSoft to the user.
 /datum/nifsoft/hud/proc/add_huds()
 	if(hud_type)
-		var/datum/atom_hud/our_hud = GLOB.huds[hud_type]
-		our_hud.show_to(linked_mob)
+		var/datum/atom_hud/hud = GLOB.huds[hud_type]
+		hud.show_to(linked_mob)
 
 	for(var/trait in hud_traits)
 		ADD_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
@@ -35,9 +35,9 @@
 		hud.hide_from(linked_mob)
 
 	for(var/trait in hud_traits)
-		linked_mob.remove_traits(trait, TRAIT_NIFSOFT)
+		REMOVE_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
 	for(var/trait in added_eyewear_traits)
-		linked_mob.remove_traits(trait, TRAIT_NIFSOFT)
+		REMOVE_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
 
 	linked_mob.update_sight()
 	return TRUE
@@ -98,7 +98,6 @@
 /datum/nifsoft/hud/job/medical
 	name = "Medical Scrying Lens"
 	ui_icon = "staff-snake"
-	hud_type = DATA_HUD_MEDICAL_ADVANCED
 	hud_traits = list(TRAIT_MEDICAL_HUD)
 
 /datum/nifsoft/hud/job/diagnostic
@@ -109,13 +108,12 @@
 /datum/nifsoft/hud/job/security
 	name = "Security Scrying Lens"
 	ui_icon = "shield"
-	hud_type = DATA_HUD_SECURITY_ADVANCED
 	hud_traits = list(TRAIT_SECURITY_HUD)
 
 /datum/nifsoft/hud/job/cargo_tech
 	name = "Permit Scrying Lens"
 	ui_icon = "gun"
-	hud_type = DATA_HUD_PERMIT
+	hud_traits = list(TRAIT_PERMIT_HUD)
 
 /datum/nifsoft/hud/job/science
 	name = "Science Scrying Lens"
