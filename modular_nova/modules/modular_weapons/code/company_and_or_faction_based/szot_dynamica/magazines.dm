@@ -34,14 +34,14 @@
 /obj/item/ammo_box/magazine/miecz/spawns_empty
 	start_empty = TRUE
 
-// Magazine for the Vapad submachine gun
+// Magazine for the Napad submachine gun
 
-/obj/item/ammo_box/magazine/vapad
-	name = "\improper Vapad submachinegun magazine"
+/obj/item/ammo_box/magazine/napad
+	name = "\improper Napad submachinegun magazine"
 	desc = "A massive magazine for the Napadayuschiy Submachine gun. Holds fifty rounds of 10mm ammunition."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
-	icon_state = "vapad_mag"
+	icon_state = "napad_mag"
 
 	w_class = WEIGHT_CLASS_NORMAL
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -50,7 +50,7 @@
 	caliber = CALIBER_10MM
 	max_ammo = 50
 
-/obj/item/ammo_box/magazine/vapad/spawns_empty
+/obj/item/ammo_box/magazine/napad/spawns_empty
 	start_empty = TRUE
 
 // Plasma thrower 'magazine'

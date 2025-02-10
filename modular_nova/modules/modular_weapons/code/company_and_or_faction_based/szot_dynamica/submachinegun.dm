@@ -62,20 +62,20 @@
 	spawnwithmagazine = FALSE
 
 
-/obj/item/gun/ballistic/automatic/vapad
-	name = "\improper 'Vapad' Submachine Gun"
+/obj/item/gun/ballistic/automatic/napad
+	name = "\improper 'Napad' Submachine Gun"
 	desc = "A bulky submachine gun holding a close relation to the Zashchitnik pistol. Designated 'Napadayuschiy'. \
 		It holds a notable fifty rounds of 10mm in the magazine."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
-	icon_state = "vapad"
+	icon_state = "napad"
 
 	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
-	worn_icon_state = "vapad"
+	worn_icon_state = "napad"
 
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_righthand.dmi'
-	inhand_icon_state = "vapad"
+	inhand_icon_state = "napad"
 
 	special_mags = FALSE
 
@@ -85,7 +85,7 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 
-	accepted_magazine_type = /obj/item/ammo_box/magazine/vapad
+	accepted_magazine_type = /obj/item/ammo_box/magazine/napad
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_heavy.ogg'
 	fire_sound_volume = 80
@@ -100,15 +100,15 @@
 	projectile_damage_multiplier = 0.65
 	spread = 6
 
-/obj/item/gun/ballistic/automatic/vapad/give_manufacturer_examine()
+/obj/item/gun/ballistic/automatic/napad/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 	AddComponent(/datum/component/automatic_fire, fire_delay)
 
-/obj/item/gun/ballistic/automatic/vapad/examine(mob/user)
+/obj/item/gun/ballistic/automatic/napad/examine(mob/user)
 	. = ..()
 	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
 
-/obj/item/gun/ballistic/automatic/vapad/examine_more(mob/user)
+/obj/item/gun/ballistic/automatic/napad/examine_more(mob/user)
 	. = ..()
 
 	. += "The Napadayuschiy was made for the inevitable situation of the Zashchitnik not being enough firepower \
@@ -121,5 +121,5 @@
 
 	return .
 
-/obj/item/gun/ballistic/automatic/vapad/no_mag
+/obj/item/gun/ballistic/automatic/napad/no_mag
 	spawnwithmagazine = FALSE

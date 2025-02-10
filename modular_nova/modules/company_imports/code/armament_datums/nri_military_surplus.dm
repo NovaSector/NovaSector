@@ -138,8 +138,8 @@
 	cost = PAYCHECK_COMMAND * 10
 	restricted = TRUE
 
-/datum/armament_entry/company_import/nri_surplus/firearm/vapad
-	item_type = /obj/item/gun/ballistic/automatic/vapad
+/datum/armament_entry/company_import/nri_surplus/firearm/napad
+	item_type = /obj/item/gun/ballistic/automatic/napad
 	cost = PAYCHECK_COMMAND * 12
 	restricted = TRUE
 
@@ -168,8 +168,8 @@
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/miecz
 	item_type = /obj/item/ammo_box/magazine/miecz/spawns_empty
 
-/datum/armament_entry/company_import/nri_surplus/firearm_ammo/vapad
-	item_type = /obj/item/ammo_box/magazine/vapad/spawns_empty
+/datum/armament_entry/company_import/nri_surplus/firearm_ammo/napad
+	item_type = /obj/item/ammo_box/magazine/napad/spawns_empty
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/sakhno
 	item_type = /obj/item/ammo_box/strilka310
