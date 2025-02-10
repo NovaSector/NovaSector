@@ -32,10 +32,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"bG" = (
-/obj/structure/sign/warning,
-/turf/closed/wall/r_wall,
-/area/mine/storage)
 "bK" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/spawner/random/structure/girder,
@@ -85,9 +81,6 @@
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
-"fN" = (
-/turf/closed/wall/ice,
-/area/icemoon/underground/explored)
 "fV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
@@ -109,21 +102,6 @@
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
-"hA" = (
-/obj/machinery/door/airlock/external{
-	glass = 1;
-	name = "Public Mining Storage";
-	opacity = 0
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/obj/structure/sign/warning/gas_mask/directional/south{
-	desc = "A sign that warns of dangerous gasses in the air, instructing you to wear internals."
-	},
-/obj/structure/sign/warning/cold_temp/directional/north,
-/turf/open/floor/iron/dark,
-/area/mine/storage)
 "hW" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -149,9 +127,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
-"kL" = (
-/turf/open/floor/iron/dark,
-/area/mine/storage)
 "lu" = (
 /turf/closed/wall,
 /area/station/hallway/primary/central)
@@ -194,10 +169,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
-"oP" = (
-/obj/machinery/light/directional/east,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/mine/storage)
 "pK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
@@ -292,12 +263,6 @@
 /obj/machinery/status_display/ai/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"uT" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/middle{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/mine/storage)
 "uZ" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -313,8 +278,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "vZ" = (
-/obj/structure/ore_box,
-/turf/open/misc/asteroid/snow/icemoon,
+/turf/open/openspace/icemoon/keep_below,
 /area/icemoon/underground/explored)
 "wb" = (
 /obj/effect/turf_decal/siding/wood,
@@ -438,17 +402,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/central/greater)
-"HS" = (
-/obj/machinery/door/airlock/external{
-	glass = 1;
-	name = "Public Mining Storage";
-	opacity = 0
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/mine/storage)
 "Iq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -485,9 +438,6 @@
 /obj/effect/landmark/start/nanotrasen_consultant,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
-"Lj" = (
-/turf/closed/wall/r_wall,
-/area/mine/storage)
 "Lv" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -705,8 +655,6 @@ Rg
 Rg
 Rg
 Fk
-Rg
-DJ
 "}
 (2,1,1) = {"
 Rg
@@ -737,8 +685,6 @@ Rg
 hi
 Fk
 Fk
-Fk
-Rg
 "}
 (3,1,1) = {"
 Rg
@@ -769,8 +715,6 @@ Fk
 Fk
 Fk
 Fk
-Fk
-hi
 "}
 (4,1,1) = {"
 Rg
@@ -801,8 +745,6 @@ Fk
 Fk
 Fk
 Fk
-Fk
-cn
 "}
 (5,1,1) = {"
 Rg
@@ -827,8 +769,6 @@ Rg
 Rg
 Rg
 Rg
-Fk
-Fk
 Fk
 Fk
 Fk
@@ -865,8 +805,6 @@ Fk
 Fk
 Fk
 Fk
-Fk
-cn
 "}
 (7,1,1) = {"
 Fk
@@ -897,8 +835,6 @@ Rg
 Rg
 Fk
 Fk
-cn
-cn
 "}
 (8,1,1) = {"
 Fk
@@ -927,9 +863,7 @@ uu
 uu
 uK
 Rg
-fN
-DJ
-fN
+Fk
 Fk
 "}
 (9,1,1) = {"
@@ -959,9 +893,7 @@ aU
 JF
 uK
 Rg
-DJ
-Rg
-DJ
+Fk
 Fk
 "}
 (10,1,1) = {"
@@ -991,9 +923,7 @@ HF
 RE
 uK
 uK
-fN
-DJ
-fN
+Fk
 Fk
 "}
 (11,1,1) = {"
@@ -1023,9 +953,7 @@ Iq
 HF
 XU
 uK
-Rg
-Rg
-Rg
+Fk
 Fk
 "}
 (12,1,1) = {"
@@ -1055,9 +983,7 @@ aU
 fK
 XT
 uK
-Rg
-Rg
-Rg
+Fk
 Fk
 "}
 (13,1,1) = {"
@@ -1087,9 +1013,7 @@ uu
 uu
 uK
 uK
-Rg
-Rg
-Rg
+Fk
 Fk
 "}
 (14,1,1) = {"
@@ -1119,10 +1043,8 @@ Rg
 Rg
 Rg
 Rg
-Rg
-Rg
-Rg
-Rg
+Fk
+Fk
 "}
 (15,1,1) = {"
 uy
@@ -1149,12 +1071,10 @@ Rg
 Rg
 Rg
 Rg
-oP
-Rg
-oP
 Rg
 Rg
-Rg
+Fk
+Fk
 "}
 (16,1,1) = {"
 uy
@@ -1179,14 +1099,12 @@ Fk
 Fk
 Fk
 Rg
-Rg
-Rg
-bG
-HS
-bG
-Rg
-Rg
-Rg
+vZ
+vZ
+vZ
+vZ
+vZ
+Fk
 "}
 (17,1,1) = {"
 uy
@@ -1210,15 +1128,13 @@ uK
 Fk
 Fk
 Fk
-Rg
-Rg
-Rg
-uT
-kL
-uT
-Rg
-Rg
-Rg
+vZ
+vZ
+vZ
+vZ
+vZ
+vZ
+Fk
 "}
 (18,1,1) = {"
 uy
@@ -1241,14 +1157,12 @@ Fk
 Fk
 Fk
 Fk
-Rg
-Rg
-Rg
-Lj
-Lj
-hA
-Lj
-Lj
 vZ
-Rg
+vZ
+vZ
+vZ
+vZ
+vZ
+vZ
+vZ
 "}

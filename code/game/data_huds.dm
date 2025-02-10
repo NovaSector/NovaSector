@@ -181,7 +181,7 @@ Medical HUD! Basic mode needs suit sensors on.
 	return TRUE
 
 /mob/living/carbon/med_hud_set_status()
-	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
+	if(HAS_TRAIT(src, TRAIT_XENO_HOST) || HAS_TRAIT(src, TRAIT_SPIDER_HOST)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_TRAIT(src, TRAIT_XENO_HOST))
 		set_hud_image_state(STATUS_HUD, "hudxeno")
 		return FALSE
 
