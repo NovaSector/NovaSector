@@ -941,14 +941,14 @@
 /datum/loadout_item/under/formal/ambassadordagmar
 	name = "Ambassador's Dress"
 	item_path = /obj/item/clothing/under/dress/ambassadordagmar
-	ckeywhitelist = list("deadmonwonderland", "spookyrotini")
+	ckeywhitelist = list("spookyrotini")
 
 /datum/loadout_item/under/formal/neoflapper
 	name = "Neo-Flapper Dress"
 	item_path = /obj/item/clothing/under/dress/neoflapper
-	ckeywhitelist = list("deadmonwonderland", "spookyrotini")
+	ckeywhitelist = list("spookyrotini")
 
 /datum/loadout_item/under/formal/heirloomdagmar
 	name = "Heirloom Dress"
 	item_path = /obj/item/clothing/under/dress/heirloomdagmar
-	ckeywhitelist = list("deadmonwonderland", "spookyrotini")
+	ckeywhitelist = list("spookyrotini")
