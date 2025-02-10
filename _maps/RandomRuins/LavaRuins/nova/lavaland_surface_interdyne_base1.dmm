@@ -2005,7 +2005,7 @@
 /area/ruin/interdyne_planetary_base/eng)
 "qw" = (
 /obj/structure/table/reinforced/rglass,
-/obj/item/surgery_tray/full/morgue,
+/obj/effect/spawner/surgery_tray/full/morgue,
 /obj/machinery/camera/autoname/directional/east{
 	network = list("intd13")
 	},

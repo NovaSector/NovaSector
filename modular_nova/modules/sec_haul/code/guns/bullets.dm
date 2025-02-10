@@ -33,9 +33,9 @@
 	name = "9x25mm IHDF bullet"
 	damage = 30
 	damage_type = STAMINA
-	embed_type = /datum/embed_data/c9mm_ihdf
+	embed_type = /datum/embedding/c9mm_ihdf
 
-/datum/embed_data/c9mm_ihdf
+/datum/embedding/c9mm_ihdf
 	embed_chance = 0
 	fall_chance = 3
 	jostle_chance = 4
@@ -112,9 +112,9 @@
 	name = "10mm IHDF bullet"
 	damage = 40
 	damage_type = STAMINA
-	embed_type = /datum/embed_data/c10mm_ihdf
+	embed_type = /datum/embedding/c10mm_ihdf
 
-/datum/embed_data/c10mm_ihdf
+/datum/embedding/c10mm_ihdf
 	embed_chance = 0
 	fall_chance = 3
 	jostle_chance = 4

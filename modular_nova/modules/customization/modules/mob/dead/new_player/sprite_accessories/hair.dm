@@ -131,6 +131,10 @@
 	name = "Bun Head 4"
 	icon_state = "hair_bunhead4"
 
+/datum/sprite_accessory/hair/nova/elegantbun
+	name = "Elegant Bun"
+	icon_state = "hair_elegantbun"
+
 /datum/sprite_accessory/hair/nova/rows1
 	name = "Rows 1"
 	icon_state = "hair_rows1"
@@ -138,6 +142,10 @@
 /datum/sprite_accessory/hair/nova/rows2
 	name = "Rows 2"
 	icon_state = "hair_rows2"
+
+/datum/sprite_accessory/hair/nova/royalcurls
+	name = "Royal Curls"
+	icon_state = "hair_royalcurls"
 
 /datum/sprite_accessory/hair/nova/toriyama
 	name = "Toriyama"
@@ -163,6 +171,10 @@
 	name = "Wife"
 	icon_state = "hair_wife"
 
+/datum/sprite_accessory/hair/nova/mermaid
+	name = "Mermaid"
+	icon_state = "hair_mermaid"
+
 /datum/sprite_accessory/hair/nova/nia
 	name = "Nia"
 	icon_state = "hair_nia"
@@ -174,6 +186,10 @@
 /datum/sprite_accessory/hair/nova/shortovereyealt
 	name = "Short Over Eye ALT"
 	icon_state = "hair_shortovereyealt"
+
+/datum/sprite_accessory/hair/nova/thickponytail
+	name = "Thick Ponytail"
+	icon_state = "hair_thickponytail"
 
 /datum/sprite_accessory/hair/nova/twintail_floor
 	name = "Twintail Floor"
@@ -654,6 +670,14 @@
 /datum/sprite_accessory/hair/nova/dreadlocks_long
 	name = "Long Dreadlocks"
 	icon_state = "hair_dreadlocks_long"
+
+/datum/sprite_accessory/hair/nova/halfbob
+	name = "Half Bob"
+	icon_state = "hair_bob_half"
+
+/datum/sprite_accessory/hair/nova/halfbob_mirrored
+	name = "Mirrored Half Bob"
+	icon_state = "hair_bob_half_mirrored"
 
 // Facial hair
 

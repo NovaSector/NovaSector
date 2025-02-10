@@ -148,6 +148,10 @@ DEFINE_BITFIELD(no_equip_flags, list(
 //defines for the index of hands
 #define LEFT_HANDS 1
 #define RIGHT_HANDS 2
+/// Checks if the value is "left" - same as ISEVEN, but used primarily for hand or foot index contexts
+#define IS_RIGHT_INDEX(value) (value % 2 == 0)
+/// Checks if the value is "right" - same as ISODD, but used primarily for hand or foot index contexts
+#define IS_LEFT_INDEX(value) (value % 2 != 0)
 
 //flags for female outfits: How much the game can safely "take off" the uniform without it looking weird
 /// For when there's simply no need for a female version of this uniform.
@@ -256,6 +260,7 @@ GLOBAL_LIST_INIT(security_vest_allowed, list(
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 	/obj/item/pen/red/security,
+	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
 ))
 
 GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
@@ -268,6 +273,7 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
+	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
 ))
 
 //Allowed list for all chaplain suits (except the honkmother robe)
@@ -297,13 +303,46 @@ GLOBAL_LIST_INIT(mining_suit_allowed, list(
 	/obj/item/kinetic_crusher,
 	/obj/item/knife,
 	/obj/item/mining_scanner,
-	/obj/item/organ/internal/monster_core,
+	/obj/item/organ/monster_core,
 	/obj/item/storage/bag/ore,
 	/obj/item/pickaxe,
 	/obj/item/resonator,
 	/obj/item/spear,
 	/obj/item/forging/reagent_weapon, // NOVA EDIT ADDITION
 	/obj/item/gun/ballistic/bow, // NOVA EDIT ADDITION
+	/obj/item/storage/belt/machete, // NOVA EDIT ADDITION
+))
+
+/// List of all "tools" that can fit into belts or work from toolboxes
+
+GLOBAL_LIST_INIT(tool_items, list(
+	/obj/item/airlock_painter,
+	/obj/item/analyzer,
+	/obj/item/assembly/signaler,
+	/obj/item/construction/rcd,
+	/obj/item/construction/rld,
+	/obj/item/construction/rtd,
+	/obj/item/crowbar,
+	/obj/item/extinguisher/mini,
+	/obj/item/flashlight,
+	/obj/item/forcefield_projector,
+	/obj/item/geiger_counter,
+	/obj/item/holosign_creator/atmos,
+	/obj/item/holosign_creator/engineering,
+	/obj/item/inducer,
+	/obj/item/lightreplacer,
+	/obj/item/multitool,
+	/obj/item/pipe_dispenser,
+	/obj/item/pipe_painter,
+	/obj/item/plunger,
+	/obj/item/radio,
+	/obj/item/screwdriver,
+	/obj/item/stack/cable_coil,
+	/obj/item/t_scanner,
+	/obj/item/weldingtool,
+	/obj/item/wirecutters,
+	/obj/item/wrench,
+	/obj/item/spess_knife,
 ))
 
 /// String for items placed into the left pocket.

@@ -64,12 +64,11 @@
 /obj/docking_port/mobile/proc/play_engine_sound(atom/distant_source, takeoff)
 	if(distant_source)
 		for(var/mob/hearing_mob in range(sound_range, distant_source))
-			if(hearing_mob?.client)
-				var/dist = get_dist(hearing_mob.loc, distant_source.loc)
-				var/vol = clamp(40 - ((dist - 3) * 5), 0, 40) // Every tile decreases sound volume by 5
-				if(takeoff)
-					if(hearing_mob.client?.prefs?.read_preference(/datum/preference/toggle/sound_ship_ambience))
-						hearing_mob.playsound_local(distant_source, takeoff_sound, vol)
-				else
-					if(hearing_mob.client?.prefs?.read_preference(/datum/preference/toggle/sound_ship_ambience))
-						hearing_mob.playsound_local(distant_source, landing_sound, vol)
+			if(!hearing_mob?.client)
+				continue
+			var/volume_pref_modifier = hearing_mob.client.prefs.read_preference(/datum/preference/numeric/sound_ship_ambience_volume) / 100
+			if(volume_pref_modifier == 0)
+				continue
+			var/dist = get_dist(hearing_mob.loc, distant_source.loc)
+			var/vol = clamp(40 - ((dist - 3) * 5) * volume_pref_modifier, 0, 40) // Every tile decreases sound volume by 5
+			hearing_mob.playsound_local(distant_source, takeoff ? takeoff_sound : landing_sound, vol)

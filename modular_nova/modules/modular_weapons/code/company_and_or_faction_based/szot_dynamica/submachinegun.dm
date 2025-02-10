@@ -2,9 +2,9 @@
 
 /obj/item/gun/ballistic/automatic/miecz
 	name = "\improper Miecz Submachine Gun"
-	desc = "A short barrel, further compacted conversion of the 'Lanca' rifle to fire pistol caliber .27-54 cartridges. \
-		Due to the intended purpose of the weapon, and less than optimal ranged performance of the projectile, it has \
-		nothing more than basic glow-sights as opposed to the ranged scope Lanca users might be used to."
+	desc = "A short barrel, weapon riding the line between submachine gun, and a rifle. \
+		Features an over-the-top carry handle, pre-threaded barrel, and magazine indicating sights. \
+		Whatever the hell that means."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "miecz"
@@ -30,7 +30,7 @@
 	suppressor_y_offset = 0
 
 	burst_size = 1
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.3 SECONDS
 	actions_types = list()
 
 	spread = 5
@@ -49,12 +49,12 @@
 /obj/item/gun/ballistic/automatic/miecz/examine_more(mob/user)
 	. = ..()
 
-	. += "The Miecz is one of the newest weapons to come out of CIN member state hands and \
-		into the wild, typically the frontier. It was built alongside the round it fires, the \
-		.27-54 Cesarzawa pistol round. Based on the proven Lanca design, it seeks to bring that \
-		same reliable weapon design into the factor of a submachinegun. While it is significantly \
-		larger than many comparable weapons in SolFed use, it more than makes up for it with ease \
-		of control and significant firerate."
+	. += "The Miecz is one of the staple weapons of the frontier, simple, effective, and based on \
+		a figuratively 'tested' design, though you couldn't be sure which one that is. \
+		Fires the .24-57 'pistol' caliber round, if only to dodge it's classification as a rifle. \
+		Overall, it's decently accurate, lightweight, somehow still squeezes into your bag,  \
+		and might feel a little more homely then the next gun over... or, atleast that's what the label says. \
+		The Wood-Substitute material is known to have various side-effects, contact your local health department before use."
 
 	return .
 

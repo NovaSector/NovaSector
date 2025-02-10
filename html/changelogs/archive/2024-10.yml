@@ -649,3 +649,18 @@
   sqnztb:
   - rscadd: DS2 has more variety in med kits available to them.
   - bugfix: Serenity's CE office now has a keycard auth.
+2024-10-28:
+  A.C.M.O.:
+  - rscadd: Added Northeastern Duck Boots to the Loadout screen.
+  - rscadd: Added an ears category and cybernetic ears to the Augments+ screen.
+  - rscadd: Added several missing organic organs to the Augments+ screen, such as
+      the stomach, heart, ears, and liver.
+  - rscadd: Added the charging cord implant to the Augments+ screen.
+  - qol: Disabled charging cord implant functionality for non-robotic mobs.
+  Mezzmerr:
+  - rscadd: The QM now starts the round with a weapon permit.
+  Neocloudy:
+  - rscdel: '[NOVA] the 5 second cooldown per emote has been mostly reverted: now
+      only the 2 second cooldown is applied. these emotes still have cooldowns: purr,
+      bork, wurble, cackle, growl, clap, cough, whistle'
+  - sound: the felinid/taj meow and purr emotes now use the tg meow and purr sounds

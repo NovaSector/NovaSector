@@ -41,6 +41,7 @@
 	item = /obj/item/book/bible/syndicate
 	cost = 5
 
+	/* NOVA EDIT REMOVAL START
 /datum/uplink_item/device_tools/tram_remote
 	name = "Tram Remote Control"
 	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
@@ -48,7 +49,7 @@
 		Perfect for running someone over in the name of a tram malfunction!"
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
-
+NOVA EDIT REMOVAL END */
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
 	desc = "These goggles can be turned to resemble common eyewear found throughout the station. \
@@ -246,9 +247,9 @@
 			active gravitational singularities or tesla balls towards it. This will not work when the engine is still \
 			in containment. Because of its size, it cannot be carried. Ordering this \
 			sends you a small beacon that will teleport the larger beacon to your location upon activation."
-	progression_minimum = 30 MINUTES
+	progression_minimum = 20 MINUTES
 	item = /obj/item/sbeacondrop
-	cost = 10
+	cost = 4
 	surplus = 0 // not while there isnt one on any station
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 

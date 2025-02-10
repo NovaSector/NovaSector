@@ -58,6 +58,11 @@
 	QDEL_NULL(contraband_nova)
 	return ..()
 
+/obj/machinery/vending/spawn_frame(disassembled)
+	if(ai_controller) // Vendor uprising, vending machines that are jumping around shouldn't be anchored
+		set_anchored(FALSE)
+	return ..()
+
 /// This proc checks for forbidden traits cause it'd be pretty bad to have 5 insuls available to assistants roundstart at the vendor!
 /obj/machinery/vending/proc/allow_increase(obj/item/clothing/clothing_path)
 	var/obj/item/clothing/clothing = new clothing_path()

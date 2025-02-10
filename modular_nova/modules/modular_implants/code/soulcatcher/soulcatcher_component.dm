@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		qdel(soulcatcher_room)
 
 	var/mob/living/soulcatcher_owner = parent
-	var/obj/item/organ/internal/cyberimp/brain/nif/parent_nif = parent
+	var/obj/item/organ/cyberimp/brain/nif/parent_nif = parent
 	if(istype(parent_nif))
 		soulcatcher_owner = parent_nif.linked_mob
 

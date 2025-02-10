@@ -1,6 +1,12 @@
 /proc/get_sfx_nova(soundin)
 	if(istext(soundin))
 		switch(soundin)
+			if(SFX_CAT_MEOW)
+				soundin = pick( // everything from tg without the fucked up oranges meow (lmao)
+					'sound/mobs/non-humanoids/cat/cat_meow1.ogg',
+					'sound/mobs/non-humanoids/cat/cat_meow2.ogg',
+					'sound/mobs/non-humanoids/cat/cat_meow3.ogg',
+				)
 			if(SFX_KEYBOARD)
 				soundin = pick(
 					'modular_nova/modules/aesthetics/computer/sound/keypress1.ogg',

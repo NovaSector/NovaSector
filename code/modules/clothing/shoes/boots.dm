@@ -21,8 +21,8 @@
 
 /obj/item/clothing/shoes/combat/Initialize(mapload)
 	. = ..()
-
 	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/combat/swat //overpowered boots for death squads
 	name = "\improper SWAT boots"
@@ -57,8 +57,8 @@
 
 /obj/item/clothing/shoes/jackboots/Initialize(mapload)
 	. = ..()
-
 	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/jackboots/fast
 	slowdown = -1
@@ -93,8 +93,8 @@
 
 /obj/item/clothing/shoes/winterboots/Initialize(mapload)
 	. = ..()
-
 	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/winterboots/ice_boots
 	name = "ice hiking boots"
@@ -140,8 +140,8 @@
 
 /obj/item/clothing/shoes/workboots/Initialize(mapload)
 	. = ..()
-
 	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/workboots/mining
 	name = "mining boots"
@@ -158,8 +158,8 @@
 
 /obj/item/clothing/shoes/russian/Initialize(mapload)
 	. = ..()
-
 	create_storage(storage_type = /datum/storage/pockets/shoes)
+	AddElement(/datum/element/ignites_matches)
 
 /obj/item/clothing/shoes/discoshoes
 	name = "green lizardskin shoes"

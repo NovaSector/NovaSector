@@ -27,8 +27,8 @@
 # Multiple Owners
 
 # Maptainers
-/_maps/ @Jolly-66 @Zergspower
-/modular_nova/modules/mapping @Jolly-66 @Zergspower
+/_maps/ @Jolly-66 @Zergspower @sqnztb
+/modular_nova/modules/mapping @Jolly-66 @Zergspower @sqnztb
 
 # Expensive files that touching basically always cause performance problems
 ## Init times

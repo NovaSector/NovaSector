@@ -40,7 +40,11 @@
 	base_icon_state = "security_helmet_novisor"
 	actions_types = NONE
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	flags_cover = /obj/item/clothing/head/helmet::flags_cover
 	armor_type = /datum/armor/head_helmet
+
+/obj/item/clothing/head/helmet/sec/sol/click_alt(mob/user)
+	return NONE // No visor to flip
 
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
@@ -192,3 +196,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "peacekeeper"
+
+/obj/item/clothing/suit/hooded/ablative
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+

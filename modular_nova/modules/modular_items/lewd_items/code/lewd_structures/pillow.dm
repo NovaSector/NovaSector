@@ -250,8 +250,8 @@
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi'
 	icon_state = "pillowpile_small_pink"
 	base_icon_state = "pillowpile_small"
+	has_armrest = TRUE
 	var/current_color = "pink"
-	var/mutable_appearance/armrest
 
 	//Containing pillows that we have here.
 	var/pillow1_color = "pink"
@@ -273,15 +273,11 @@
 	. = ..()
 	AddElement(/datum/element/elevation, pixel_shift = 4)
 
-/obj/structure/chair/pillow_small/proc/GetArmrest()
+/obj/structure/chair/pillow_small/GetArmrest()
 	if(current_color == "pink")
 		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_pink_overlay")
 	if(current_color == "teal")
 		return mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/pillows.dmi', "pillowpile_small_teal_overlay")
-
-/obj/structure/chair/pillow_small/Destroy()
-	QDEL_NULL(armrest)
-	return ..()
 
 /obj/structure/chair/pillow_small/post_buckle_mob(mob/living/affected_mob)
 	. = ..()

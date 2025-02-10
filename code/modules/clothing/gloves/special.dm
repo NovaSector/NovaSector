@@ -115,6 +115,7 @@
 	armor_type = /datum/armor/latex_gloves
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 	resistance_flags = NONE
+	equip_sound = 'sound/items/equip/glove_equip.ogg'
 
 /datum/armor/latex_gloves
 	bio = 100
@@ -144,7 +145,7 @@
 
 /obj/item/clothing/gloves/tinkerer
 	name = "tinker's gloves"
-	desc = "Overdesigned engineering gloves that have automated construction subrutines dialed in, allowing for faster construction while worn."
+	desc = "Overdesigned engineering gloves that have automated construction subroutines dialed in, allowing for faster construction while worn."
 	inhand_icon_state = "greyscale_gloves"
 	icon_state = "clockwork_gauntlets"
 	greyscale_colors = "#db6f05"
@@ -168,7 +169,7 @@
 	resistance_flags = FIRE_PROOF
 	siemens_coefficient = 0.3
 	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_CHUNKYFINGERS)
-	clothing_flags = THICKMATERIAL
+	clothing_flags = THICKMATERIAL|STOPSPRESSUREDAMAGE
 
 /obj/item/clothing/gloves/atmos/Initialize(mapload)
 	. = ..()
@@ -215,7 +216,7 @@
 	var/mob/living/wearer = loc
 	var/stamina_exhaustion = 2 + challenge.difficulty * 0.02
 	var/is_heavy_gravity = wearer.has_gravity() > STANDARD_GRAVITY
-	var/obj/item/organ/internal/cyberimp/chest/spine/potential_spine = wearer.get_organ_slot(ORGAN_SLOT_SPINE)
+	var/obj/item/organ/cyberimp/chest/spine/potential_spine = wearer.get_organ_slot(ORGAN_SLOT_SPINE)
 	if(istype(potential_spine))
 		stamina_exhaustion *= potential_spine.athletics_boost_multiplier
 	if(HAS_TRAIT(wearer, TRAIT_STRENGTH))
@@ -235,6 +236,7 @@
 	name = "athletics fishing gloves"
 	icon = /obj/item/clothing/gloves/fishing::icon
 	icon_state = /obj/item/clothing/gloves/fishing::icon_state
+	frame_state = "frame_athletic"
 	line = null
 	bait = null
 	ui_description = "A pair of gloves to fish without a fishing rod while training your athletics."

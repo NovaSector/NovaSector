@@ -4,7 +4,7 @@
 	description = "Contains all of the colony fabricator's tool designs."
 	design_ids = list(
 		"colony_power_drive",
-		"colony_prybar",
+		"colony_crowbar",
 		"colony_arc_welder",
 		"colony_compact_drill",
 	)
@@ -30,16 +30,15 @@
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED,
 	)
 
-// Crowbar that is completely normal except it can force doors
+// A large crowbar which has more force and 30% more speed but its size normal instead of small
 
-/datum/design/colony_door_crowbar
-	name = "Prybar"
-	id = "colony_prybar"
+/datum/design/colony_crowbar
+	name = "Large Crowbar"
+	id = "colony_crowbar"
 	build_type = COLONY_FABRICATOR
-	build_path = /obj/item/crowbar/large/doorforcer
+	build_path = /obj/item/crowbar/large
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.75,
-		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*0.7,
 	)
 	category = list(
 		RND_CATEGORY_INITIAL,

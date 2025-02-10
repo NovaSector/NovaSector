@@ -286,6 +286,14 @@
 	name = "Fancy Hairpin"
 	item_path = /obj/item/clothing/head/costume/hairpin
 
+/datum/loadout_item/head/skrell_chain_gold
+	name = "Gold skrellian head chain"
+	item_path = /obj/item/clothing/head/skrell_chain
+
+/datum/loadout_item/head/skrell_chain_silver
+	name = "Silver skrellian head chain"
+	item_path = /obj/item/clothing/head/skrell_chain/silver
+
 /*
 *	CHRISTMAS
 */
@@ -341,10 +349,6 @@
 /*
 *	MISC
 */
-
-/datum/loadout_item/head/baseball
-	name = "Ballcap"
-	item_path = /obj/item/clothing/head/soft/mime
 
 /datum/loadout_item/head/pirate
 	name = "Pirate hat"
@@ -628,14 +632,10 @@
 /datum/loadout_item/head/azulea_oldblood
 	name = "Oldblood's Royal cap"
 	item_path = /obj/item/clothing/head/hats/caphat/azulean/old_blood
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/head/azulea_upstart
 	name = "Upstart's Noble cap"
 	item_path = /obj/item/clothing/head/hats/caphat/azulean/upstart
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /*
 *	JOB BERETS

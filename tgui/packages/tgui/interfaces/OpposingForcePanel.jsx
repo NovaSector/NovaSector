@@ -1,8 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { round } from 'common/math';
 import { useState } from 'react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -16,7 +13,10 @@ import {
   Stack,
   Tabs,
   TextArea,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const OpposingForcePanel = (props) => {
@@ -541,11 +541,11 @@ export const EquipmentTab = (props) => {
                     buttons={
                       <>
                         <NumberInput
-                          animated
                           value={equipment.count}
+                          step={1}
                           minValue={1}
                           maxValue={5}
-                          onChange={(e, value) =>
+                          onChange={(value) =>
                             act('set_equipment_count', {
                               selected_equipment_ref: equipment.ref,
                               new_equipment_count: value,

@@ -48,7 +48,7 @@
 	uniform = /obj/item/clothing/under/rank/blueshield
 	suit = /obj/item/clothing/suit/armor/vest/blueshield/jacket
 	gloves = /obj/item/clothing/gloves/tackler/security
-	id = /obj/item/card/id/advanced/centcom
+	id = /obj/item/card/id/advanced/centcom/station
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_bs/alt
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
@@ -100,7 +100,7 @@
 	var/static/list/selectable_gun_types = list(
 		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
 		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
-		"Bogseo Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/bogseo,
+		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/nt20,
 	)
 
 	return selectable_gun_types

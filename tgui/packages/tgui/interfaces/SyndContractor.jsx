@@ -1,7 +1,5 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -14,9 +12,11 @@ import {
   Stack,
   Table,
   Tabs,
-} from '../components';
-import { FakeTerminal } from '../components/FakeTerminal';
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
+import { FakeTerminal } from './common/FakeTerminal';
 
 const CONTRACT_STATUS_INACTIVE = 1;
 const CONTRACT_STATUS_ACTIVE = 2;
