@@ -141,20 +141,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
-	//NOVA EDIT ADDITION
-	if (CONFIG_GET(flag/borg_gateway_blacklist))
-		var/list/type_blacklist = list(
-			/obj/item/mmi,
-			/mob/living/silicon,
-		)
-		if(is_type_in_list(AM, type_blacklist))
-			return
-		for(var/atom/movable/content_item as anything in AM.get_all_contents())
-			if(!is_type_in_list(content_item, type_blacklist))
-				continue
-			to_chat(AM, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
-			return
-	//NOVA EDIT ADDITION END
 	if(get_dir(src,AM) == gateway?.dir)
 		playsound(src, 'sound/machines/gateway/gateway_travel.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		gateway.Transfer(AM)
@@ -356,21 +342,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/away/interact(mob/user)
 	. = ..()
-	//NOVA EDIT ADDITION
-	if (CONFIG_GET(flag/borg_gateway_blacklist))
-		var/list/type_blacklist = list(
-			/obj/item/mmi,
-			/mob/living/silicon,
-			/obj/item/borg/upgrade/ai,
-		)
-		if(is_type_in_list(user, type_blacklist))
-			return
-		for(var/atom/movable/content_item as anything in user.get_contents())
-			if(!is_type_in_list(content_item, type_blacklist))
-				continue
-			to_chat(user, span_warning("[content_item] seems to be blocking you from entering the gateway!"))
-			return
-	//NOVA EDIT END
 	if(!target)
 		if(!GLOB.the_gateway)
 			to_chat(user,span_warning("Home gateway is not responding!"))
@@ -384,7 +355,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control
 	name = "Gateway Control"
 	desc = "Human friendly interface to the mysterious gate next to it."
-	req_access = list(ACCESS_CENT_GENERAL) //NOVA EDIT ADDITION
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)
@@ -422,13 +392,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			try_to_linkup()
 			return TRUE
 		if("activate")
-			//NOVA EDIT ADDITION BEGIN
-			if(ishuman(usr))
-				var/mob/living/carbon/human/interacting_human = usr
-				if(!allowed(interacting_human))
-					to_chat(interacting_human, "<span class='notice'>Error, you do not have the required access to link up the gateway.</span>")
-					return FALSE
-			//NOVA EDIT END
 			var/datum/gateway_destination/D = locate(params["destination"]) in GLOB.gateway_destinations
 			try_to_connect(D)
 			return TRUE
