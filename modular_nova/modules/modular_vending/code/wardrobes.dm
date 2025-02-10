@@ -158,6 +158,7 @@
 		/obj/item/clothing/suit/jacket/det_suit/cowboyvest = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 	)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/detective = 2)
 
 /obj/machinery/vending/wardrobe/law_wardrobe
 	products_nova = list(

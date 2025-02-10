@@ -1,8 +1,8 @@
 /obj/item/disk/nifsoft_uploader/summoner/service
 	name = "Grimoire Hestia"
-	loaded_nifsoft = /datum/nifsoft/summoner/service
+	loaded_nifsoft = /datum/nifsoft/summoner/job/service
 
-/datum/nifsoft/summoner/service
+/datum/nifsoft/summoner/job/service
 	name = "Grimoire Hestia"
 	program_desc = "The Grimoire Hestia is an overlay of Zvirdnyan Manufacturing Repurposement Algorithms atop a Ceruleam base, \
 	crafting standard Ceruleam devices and reconfiguring them mid-synthesis into simpler, repurposable shapes for basic food cultivation and preparation. \
@@ -22,7 +22,6 @@
 	)
 	max_summoned_items = 3
 	activation_cost = 100
-	purchase_price = 350
 	name_tag = "hestial "
 	buying_category = NIFSOFT_CATEGORY_UTILITY
 	ui_icon = FA_ICON_KITCHEN_SET
@@ -49,6 +48,7 @@
 	bare_wound_bonus = 0
 
 /obj/item/kitchen/rollingpin/nanite
+	desc = "Used to chastise the bartender. The handles are glorious Caeruleam folded over 1000 times, and the body exudes a cane-do attitude from the mass of two Hestian folding canes."
 	force = 0
 	throwforce = 0
 	resistance_flags = null
@@ -60,13 +60,14 @@
 	throwforce = 0
 
 /obj/item/geneshears/nanite
-	desc = "A tool for cutting grafts off plants, or changing podperson looks. \
-	In the old world, dice games routinely pruned family trees, and this tradition is upheld through overclocking the Hestian resin engraving process, \
-	etching snipping blades instead of numbers."
+	desc = "A high tech, high fidelity pair of plant shears, utilizing the Hestian errata of a Kotahi deck to move genetic traits of a plant into a restricted or limited banlist."
 	force = 0
 	throwforce = 0
 
 /obj/item/secateurs/nanite
+	desc = "A tool for cutting grafts off plants, or changing podperson looks. \
+	In the old world, dice games routinely pruned family trees, and this tradition is upheld through overclocking the Hestian resin engraving process, \
+	etching snipping blades instead of numbers."
 	force = 0
 	throwforce = 0
 

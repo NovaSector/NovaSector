@@ -1,11 +1,17 @@
 /obj/item/disk/nifsoft_uploader/summoner/detective
 	name = "Grimoire Vacholiere"
-	loaded_nifsoft = /datum/nifsoft/summoner/detective
+	loaded_nifsoft = /datum/nifsoft/summoner/job/detective
 
-/datum/nifsoft/summoner/detective
+/obj/item/disk/nifsoft_uploader/summoner/detective/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
+/datum/nifsoft/summoner/job/detective
 	name = "Grimoire Vacholiere"
 	program_desc = "Grimoire Vacholiere is a fork of the Grimoire Caeruleam NIFSoft commissioned by numerous Zvirdnyan Colonial Militia officers. \
-	Its entirely functional aspect and high requirement for fidelity makes it more expensive than many other Grimoires."
+	Despite it creating nothing more but largely bureaucratical tidbits, the high use cost is generated from running the forensic equipment in the background. <br>\
+	Some inspectors could swear that uncertainly beneficial voices of suggestion and warning appear in their minds, after running Vacholieres for prolonged periods \
+	of time - techically described as backlogs of data interfering with Soulcatchers."
 	summonable_items = list(
 		/obj/item/detective_scanner/nanite,
 		/obj/item/folder/yellow/nanite,
@@ -13,8 +19,7 @@
 		/obj/item/toy/crayon/white/nanite,
 	)
 	max_summoned_items = 2
-	activation_cost = 100
-	purchase_price = 350
+	activation_cost = 200
 	name_tag = "vacholiere-"
 	buying_category = NIFSOFT_CATEGORY_UTILITY
 	ui_icon = FA_ICON_MAGNIFYING_GLASS

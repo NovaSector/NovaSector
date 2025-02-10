@@ -21,7 +21,7 @@
 		our_hud.show_to(linked_mob)
 
 	for(var/trait in hud_traits)
-		ADD_TRAIT(linked_mob, trait, GLASSES_TRAIT)
+		ADD_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
 
 	for(var/trait as anything in added_eyewear_traits)
 		ADD_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
@@ -35,10 +35,9 @@
 		hud.hide_from(linked_mob)
 
 	for(var/trait in hud_traits)
-		REMOVE_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
-
+		linked_mob.remove_traits(trait, TRAIT_NIFSOFT)
 	for(var/trait in added_eyewear_traits)
-		REMOVE_TRAIT(linked_mob, trait, TRAIT_NIFSOFT)
+		linked_mob.remove_traits(trait, TRAIT_NIFSOFT)
 
 	linked_mob.update_sight()
 	return TRUE
