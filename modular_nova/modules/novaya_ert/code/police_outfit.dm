@@ -123,7 +123,6 @@
 		desc = replacetext(desc, "%KINK", pick(kink))
 	else
 		desc = replacetext(desc, "%KINK", "N/A")
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
 /obj/item/clothing/head/soft/nri_police
 	name = "imperial police baseball cap"

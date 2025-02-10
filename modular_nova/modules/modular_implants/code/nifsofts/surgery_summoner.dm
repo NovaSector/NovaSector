@@ -4,7 +4,9 @@
 
 /datum/nifsoft/summoner/job/surgery
 	name = "Grimoire Asclepius"
-	program_desc = "Grimoire Asclepius is a fork of the Grimoire Caeruleam NIFSoft utilised by the Marsian EMTs of Red Manila."
+	program_desc = "Grimoire Asclepius is a fork of the Grimoire Caeruleam NIFSoft utilised by the Marsian EMTs of Red Manila. A set of emergency-nanite-surgical tools for \
+	the Marsian city of Red Manila,	where the surrounding red-deserts make immediate-access to medical facilities challenging on a good day, and outright impossible on a bad one. \
+	Take your life, and your friends into your hands, with the Manilian Emergency Surgical set!"
 	summonable_items = list(
 		/obj/item/scalpel/nanite,
 		/obj/item/retractor/nanite,
@@ -23,29 +25,30 @@
 	ui_icon = FA_ICON_CROSS
 	able_to_keep = FALSE
 
-/datum/nifsoft/summoner/surgery/apply_custom_properties(obj/item/target_item)
-	target_item.desc += "<br>Part of a set of emergency-nanite-surgical tools for the Martian city of Red Manila, \
-	where the surrounding red-deserts make immediate-access to medical facilities challenging on a good day, and outright impossible on a bad one! \
-	Take your life, and your friends into your hands, with the Manilian Emergency Surgical set!"
-
 /obj/item/scalpel/nanite
+	toolspeed = 1.5
 	force = 0
 	throwforce = 0
 	desc = "Formed from razor sharp, and somehow self-sharpening nanites... while a bit flimsy, it makes a clean cut!"
 
 /obj/item/retractor/nanite
+	toolspeed = 1.5
 
 /obj/item/hemostat/nanite
+	toolspeed = 1.5
 
 /obj/item/circular_saw/nanite
+	toolspeed = 1.5
 	force = 0
 	throwforce = 0
 	desc = "Pushing the limits of nanites, this is an entire functioning saw made entirely from nanites... while it flickers and fades, the blade seems every present!"
 
 /obj/item/surgicaldrill/nanite
+	toolspeed = 1.5
 	force = 0
 
 /obj/item/cautery/nanite
+	toolspeed = 1.5
 
 /obj/item/surgical_drapes/nanite
 
