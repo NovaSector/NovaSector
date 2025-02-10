@@ -92,7 +92,7 @@
 	can_suppress = FALSE
 
 	burst_size = 1
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.55 SECONDS
 	actions_types = list()
 
 	// This thing shoots faster then the Zashch, but the DPS and killing speed should not be that fast overall
