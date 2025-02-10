@@ -112,7 +112,8 @@
 
 /// Spawns crusher loot instead of normal loot
 /mob/living/simple_animal/hostile/megafauna/proc/spawn_crusher_loot()
-	loot = crusher_loot
+	if (crusher_loot != null) // NOVA EDIT ADDITION - Fixes bug of crusher_loot overriding loot when there is no such, only for legion so far.
+		loot = crusher_loot
 
 /mob/living/simple_animal/hostile/megafauna/gib()
 	if(health > 0)
