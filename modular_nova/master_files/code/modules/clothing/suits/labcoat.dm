@@ -29,7 +29,7 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd
 	name = "research directors labcoat"
 	desc = "A Nanotrasen standard labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
-	greyscale_colors = "#B347A1#EEEEEE"
+	greyscale_colors = "#620B73#EEEEEE"
 	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|ARMS|LEGS
 	armor_type = /datum/armor/nova_rd
