@@ -91,7 +91,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/design/nif_service_tools
 	name = "Grimoire Hestia NIFSoft"
@@ -107,7 +107,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SERVICE,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/nif_general_tools
 	name = "Grimoire Opera NIFSoft"
