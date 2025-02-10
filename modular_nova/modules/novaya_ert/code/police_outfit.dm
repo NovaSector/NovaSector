@@ -96,6 +96,7 @@
 	dog_fashion = null
 
 /obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 	allowed += list(
 		/obj/item/camera,
 		/obj/item/clipboard,
@@ -134,3 +135,7 @@
 	armor_type = /datum/armor/cosmetic_sec
 	strip_delay = 60
 	dog_fashion = null
+
+/obj/item/clothing/head/soft/nri_police/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
