@@ -1,8 +1,8 @@
 // SolFed shotgun (this was gonna be in a proprietary shotgun shell type outside of 12ga at some point, wild right?)
 
 /obj/item/gun/ballistic/shotgun/riot/sol
-	name = "\improper Renoster Shotgun"
-	desc = "A twelve gauge shotgun with a six shell capacity underneath. Made for and used by SolFed's various military branches."
+	name = "\improper M64 Shotgun"
+	desc = "A twelve gauge shotgun with a six shell capacity... ontop? Made for and used by SolFed's various military branches."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "renoster"
@@ -23,8 +23,10 @@
 	rack_sound = 'modular_nova/modules/modular_weapons/sounds/shotgun_rack.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
-
-	suppressor_x_offset = 9
+	rack_delay = 0.5 SECONDS
+	fire_delay = 0.5 SECONDS // Turns out, this is actually pretty fairly balanced
+	suppressor_x_offset = 7
+	suppressor_y_offset = -3
 
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
@@ -39,7 +41,7 @@
 /obj/item/gun/ballistic/shotgun/riot/sol/examine_more(mob/user)
 	. = ..()
 
-	. += "The Renoster was designed at its core as a police shotgun. \
+	. += "The M64 was designed at its core as a police shotgun. \
 		As consequence, it holds all the qualities a police force would want \
 		in one. Large shell capacity, sturdy frame, while holding enough \
 		capacity for modification to satiate even the most overfunded of \
@@ -56,6 +58,9 @@
 
 	. = ..()
 
+/obj/item/ammo_box/magazine/internal/shot/riot
+	max_ammo = 8 // putting this here, because this is the only one we have on station at the start.
+
 /obj/item/gun/ballistic/shotgun/riot/sol/thunderdome
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
 
@@ -65,7 +70,7 @@
 // Shotgun but EVIL!
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil
-	desc = "A twleve guage shotgun with an eight shell capacity underneath. This one is painted in a tacticool black."
+	desc = "A twleve guage shotgun with an eight shell capacity... on top? This one is painted in a tacticool black."
 
 	icon_state = "renoster_evil"
 	worn_icon_state = "renoster_evil"
