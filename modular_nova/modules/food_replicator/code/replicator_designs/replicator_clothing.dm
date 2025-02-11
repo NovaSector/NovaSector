@@ -32,7 +32,7 @@
 	)
 
 /datum/design/colonial_webbing
-	name = "Colonial Cloak"
+	name = "Slim Colonial Webbing"
 	id = "slavic_webbing"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 200)
