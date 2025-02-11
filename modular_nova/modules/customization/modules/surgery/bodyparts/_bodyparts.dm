@@ -29,7 +29,7 @@
  */
 /obj/item/bodypart/proc/set_icon_static(new_icon)
 	var/state_to_verify = "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"
-	if(icon_exists(new_icon, state_to_verify, scream = TRUE))
+	if(icon_exists_or_scream(new_icon, state_to_verify))
 		icon_static = new_icon
 
 /**
@@ -42,5 +42,5 @@
  */
 /obj/item/bodypart/proc/set_icon_greyscale(new_icon)
 	var/state_to_verify = "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"
-	if(icon_exists(new_icon, state_to_verify, scream = TRUE))
+	if(icon_exists_or_scream(new_icon, state_to_verify))
 		icon_greyscale = new_icon
