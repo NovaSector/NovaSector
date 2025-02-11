@@ -23,9 +23,8 @@
 	rack_sound = 'modular_nova/modules/modular_weapons/sounds/shotgun_rack.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
-	rack_delay = 0.2 SECONDS
-	fire_delay = 0.5 SECONDS // JUST AS A TEST - DON'T LET THIS BE MERGED UNTIL WE'RE SURE THIS IS GOOD
-
+	rack_delay = 0.5 SECONDS
+	fire_delay = 0.5 SECONDS // Turns out, this is actually pretty fairly balanced
 	suppressor_x_offset = 7
 	suppressor_y_offset = -3
 
