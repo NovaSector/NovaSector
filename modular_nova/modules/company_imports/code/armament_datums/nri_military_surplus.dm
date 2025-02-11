@@ -43,8 +43,22 @@
 	item_type = /obj/item/clothing/neck/cloak/colonial/nri_police
 	cost = PAYCHECK_CREW
 
+/datum/armament_entry/company_import/nri_surplus/clothing/police_jacket
+	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nri_surplus/clothing/police_suit_jacket
+	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
+	description = "A black uniform jacket with Zvirdnyan Colonial Militia's signature white rectangle on its right sleeve and backside. \
+	Letters inside the collar usually read the wearer's rank and internal kink. The jacket is of exceptional quality."
+	cost = PAYCHECK_CREW
+
 /datum/armament_entry/company_import/nri_surplus/clothing/police_cap
 	item_type = /obj/item/clothing/head/hats/colonial/nri_police
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nri_surplus/clothing/police_baseball_cap
+	item_type = /obj/item/clothing/head/soft/nri_police
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_mask
@@ -98,6 +112,10 @@
 	item_type = /obj/item/gun/ballistic/revolver/shotgun_revolver
 	cost = PAYCHECK_COMMAND * 6
 
+/datum/armament_entry/company_import/nri_surplus/firearm/zashch
+	item_type = /obj/item/gun/ballistic/automatic/pistol/zashch
+	cost = PAYCHECK_COMMAND * 6
+
 /datum/armament_entry/company_import/nri_surplus/firearm/plasma_thrower
 	item_type = /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
 	cost = PAYCHECK_COMMAND * 6
@@ -106,6 +124,14 @@
 /datum/armament_entry/company_import/nri_surplus/firearm/plasma_marksman
 	item_type = /obj/item/gun/ballistic/automatic/pistol/plasma_marksman
 	cost = PAYCHECK_COMMAND * 6
+
+/datum/armament_entry/company_import/nri_surplus/firearm/crank_taser
+	item_type = /obj/item/gun/energy/taser/crank
+	cost = PAYCHECK_COMMAND * 4 //No disabler, less charge in general in comparison to a normal double-mode taser; yet chargable on the spot (even if unwieldy)
+
+/datum/armament_entry/company_import/nri_surplus/firearm/stun_gun //Not a gun but it's only fair to place similar items close to each other
+	item_type = /obj/item/melee/baton/security/stun_gun/loaded
+	cost = PAYCHECK_COMMAND * 3 //Similarly live action roleplay'iy stun baton lite
 
 /datum/armament_entry/company_import/nri_surplus/firearm/miecz
 	item_type = /obj/item/gun/ballistic/automatic/miecz
@@ -127,6 +153,9 @@
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo
 	subcategory = "Firearm Magazines"
 	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nri_surplus/firearm_ammo/zashch
+	item_type = /obj/item/ammo_box/magazine/zashch/spawns_empty
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/plasma_battery
 	item_type = /obj/item/ammo_box/magazine/recharge/plasma_battery

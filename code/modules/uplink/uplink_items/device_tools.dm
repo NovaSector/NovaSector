@@ -41,6 +41,7 @@
 	item = /obj/item/book/bible/syndicate
 	cost = 5
 
+/* // NOVA EDIT REMOVAL START
 /datum/uplink_item/device_tools/tram_remote
 	name = "Tram Remote Control"
 	desc = "When linked to a tram's on board computer systems, this device allows the user to manipulate the controls remotely. \
@@ -48,6 +49,7 @@
 		Perfect for running someone over in the name of a tram malfunction!"
 	item = /obj/item/assembly/control/transport/remote
 	cost = 2
+*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
@@ -83,7 +85,7 @@
 			Comes with 4 charges, recharges randomly. Warranty null and void if exposed to an electromagnetic pulse."
 	item = /obj/item/storage/box/syndie_kit/syndicate_teleporter
 	cost = 8
-*/ //END NOVA EDIT
+*/ // NOVA EDIT REMOVAL END
 
 /datum/uplink_item/device_tools/camera_app
 	name = "SyndEye Program"

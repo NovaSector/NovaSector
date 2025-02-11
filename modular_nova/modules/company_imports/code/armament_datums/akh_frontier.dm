@@ -21,6 +21,10 @@
 /datum/armament_entry/company_import/akh_frontier/basic/compact_drill
 	item_type = /obj/item/pickaxe/drill/compact
 
+/datum/armament_entry/company_import/akh_frontier/basic/gps
+	item_type = /obj/item/gps
+	cost = PAYCHECK_CREW
+
 // Flatpacked fabricator and related upgrades
 
 /datum/armament_entry/company_import/akh_frontier/deployables_fab
