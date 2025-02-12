@@ -195,6 +195,20 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/anime_inner
+	name = "Anime Eyes (Inner)"
+	icon_state = "anime_inner"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/anime_outer
+	name = "Anime Eyes (Outer)"
+	icon_state = "anime_outer"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
 /datum/body_marking/other/claws
 	name = "Claw Tips"
 	icon_state = "claws"
