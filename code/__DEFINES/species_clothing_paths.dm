@@ -13,3 +13,5 @@
 #define DIGITIGRADE_SHOES_FILE 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi' // NOVA EDIT CHANGE
 ///The dmi containing digitigrade oversuits
 #define DIGITIGRADE_SUIT_FILE 'modular_nova/master_files/icons/mob/clothing/suit_digi.dmi' // NOVA EDIT CHANGE
+///The dmi containing digitigrade mod parts
+#define DIGITIGRADE_MODPARTS_FILE 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi' // NOVA EDIT CHANGE
