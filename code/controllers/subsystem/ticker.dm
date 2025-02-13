@@ -450,12 +450,15 @@ SUBSYSTEM_DEF(ticker)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
 
 		//NOVA EDIT ADDITION
-		if(ishuman(new_player_living))
-			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))
+		if(ishuman(new_player_living) && !isnull(new_player_mob.client?.prefs))
+			var/datum/preferences/preference_source = new_player_mob.client.prefs
+			var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
+			var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
+			var/list/loadout = loadout_list_to_datums(loadout_list)
 			for(var/datum/loadout_item/item as anything in loadout)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
-				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
+				item.post_equip_item(preference_source, new_player_living)
 		//NOVA EDIT END
 		CHECK_TICK
 

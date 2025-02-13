@@ -282,12 +282,15 @@
 	log_manifest(character.mind.key, character.mind, character, latejoin = TRUE)
 
 	// NOVA EDIT ADDITION START
-	if(humanc)
-		var/list/loadout = loadout_list_to_datums(humanc.client?.prefs?.read_preference(/datum/preference/loadout))
+	if(humanc && !isnull(humanc.client?.prefs))
+		var/datum/preferences/preference_source = humanc.client.prefs
+		var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
+		var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
+		var/list/loadout = loadout_list_to_datums(loadout_list)
 		for(var/datum/loadout_item/item as anything in loadout)
 			if (item.restricted_roles && length(item.restricted_roles) && !(job.title in item.restricted_roles))
 				continue
-			item.post_equip_item(humanc.client?.prefs, humanc)
+			item.post_equip_item(preference_source, humanc)
 	// NOVA EDIT END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
