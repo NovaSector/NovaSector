@@ -96,7 +96,7 @@
 	actions_types = list()
 
 	// This thing shoots faster then the Zashch, but the DPS and killing speed should not be that fast overall
-	projectile_wound_bonus = -15
+	projectile_wound_bonus = -10
 	projectile_damage_multiplier = 0.65
 	spread = 6
 
@@ -117,7 +117,7 @@
 		making it easy to catch on surfaces and door frames. Regardless, the weapon is reliable, \
 		though if you do not place the charging handle into the loading notch before inserting a fresh magazine, \
 		the spring pressure of the weapon's fully loaded magazine will make operating the charging handle require \
-		a hurclean feat of strength."
+		a hurculean feat of strength."
 
 	return .
 
