@@ -164,3 +164,50 @@
 
 /obj/item/storage/box/exileimp
 	icon_state = "secbox"
+
+/*
+// Paper Bags
+*/
+
+/obj/item/storage/box/papersack
+	icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'
+
+/obj/item/storage/box/papersack/Initialize(mapload)
+	. = ..()
+	papersack_designs  += list(
+		"Grey" = image(icon = src.icon, icon_state = "paperbag_Grey"),
+		"Black" = image(icon = src.icon, icon_state = "paperbag_Black"),
+		"Sec" = image(icon = src.icon, icon_state = "paperbag_Sec"),
+		"Medical" = image(icon = src.icon, icon_state = "paperbag_Medical"),
+		"Fox" = image(icon = src.icon, icon_state = "paperbag_Fox"),
+		"Bunny" = image(icon = src.icon, icon_state = "paperbag_Bunny"),
+		)
+	update_appearance()
+
+/obj/item/storage/box/papersack/update_desc(updates) // I hate that I have to do it this way to override it.
+	switch(design_choice)
+		if("None")
+			desc = "A sack neatly crafted out of paper."
+		if("NanotrasenStandard")
+			desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+		if("SyndiSnacks")
+			desc = "The design on this paper sack is a remnant of the notorious 'SyndieSnacks' program."
+		if("Heart")
+			desc = "A paper sack with a heart etched onto the side."
+		if("SmileyFace")
+			desc = "A paper sack with a crude smile etched onto the side."
+		if("Grey")
+			desc = "A grey sack neatly crafted out of paper."
+		if("Black")
+			desc = "A black sack neatly crafted out of paper."
+		if("Sec")
+			desc = "A sturdy paper sack ideal to carry lunch on those lonely long patrols."
+		if("Medical")
+			desc = "A Nitrile lined sack useful to carry sanitized snacks for both patients and medical staff alike."
+		if("Fox")
+			desc = "A paper sack with a prowling fox etched onto the side."
+		if("Bunny")
+			desc = "A paper sack with a hopping bunny etched onto the side."
+		else
+			desc = "A sack neatly crafted out of paper."
+	return ..()
