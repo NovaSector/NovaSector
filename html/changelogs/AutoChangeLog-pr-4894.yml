@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "rebalanced the oversized quirk, making them both move faster, and /not/ hit their head on airlocks!"
