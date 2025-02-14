@@ -1,0 +1,5 @@
+author: "Kocma-san"
+delete-after: True
+changes:
+  - image: "added icons for marines MOD suit for characters with digitigrade legs."
+  - code_imp: "added feature to override icon paths for modsuites with digitigrade legs."
