@@ -8511,7 +8511,6 @@
 #include "modular_nova\modules\organs\code\organs.dm"
 #include "modular_nova\modules\organs\code\stomach.dm"
 #include "modular_nova\modules\organs\code\tongue.dm"
-#include "modular_nova\modules\oversized\code\door.dm"
 #include "modular_nova\modules\oversized\code\oversized_quirk.dm"
 #include "modular_nova\modules\panicbunker\code\panicbunker.dm"
 #include "modular_nova\modules\paycheck_rations\code\quirk.dm"
