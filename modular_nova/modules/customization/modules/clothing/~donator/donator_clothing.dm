@@ -2335,14 +2335,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
+	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_a"
 
-/obj/item/clothing/under/dress/neoflapper
+/obj/item/clothing/under/dress/neoflapperdagmar
 	name = "neo-flapper dress"
 	desc = "Part of a shameful and best left forgotten nostalgic fashion movement among the Martian elite, nearly all traces of which were scrubbed from the holonet. Even recognizing this puts you at risk."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
+	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_b"
 
 /obj/item/clothing/under/dress/ambassadordagmar
@@ -2351,4 +2355,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
+	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_c"
