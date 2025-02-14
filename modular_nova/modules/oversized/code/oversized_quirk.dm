@@ -1,4 +1,4 @@
-#define OVERSIZED_SPEED_SLOWDOWN 0.5
+#define OVERSIZED_SPEED_SLOWDOWN 0.9
 #define OVERSIZED_HUNGER_MOD 1.5
 
 // Before making any changes to oversized, please see the module's readme.md file
