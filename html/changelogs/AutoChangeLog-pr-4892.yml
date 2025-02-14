@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - bugfix: "Fishing can now be done on the Ghost Cafe without removing loot from the station's loot tables. This will allow mappers to add fishing to the cafe without affecting the ongoing round."
