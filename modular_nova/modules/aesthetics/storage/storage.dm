@@ -170,17 +170,17 @@
 */
 
 /obj/item/storage/box/papersack
-	icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'
-
 /obj/item/storage/box/papersack/Initialize(mapload)
 	. = ..()
+	/// The modular icon file for the new designs
+	var/modular_additions_icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'
 	papersack_designs  += list(
-		"Grey" = image(icon = src.icon, icon_state = "paperbag_Grey"),
-		"Black" = image(icon = src.icon, icon_state = "paperbag_Black"),
-		"Sec" = image(icon = src.icon, icon_state = "paperbag_Sec"),
-		"Medical" = image(icon = src.icon, icon_state = "paperbag_Medical"),
-		"Fox" = image(icon = src.icon, icon_state = "paperbag_Fox"),
-		"Bunny" = image(icon = src.icon, icon_state = "paperbag_Bunny"),
+		"Grey" = image(icon = modular_additions_icon, icon_state = "paperbag_Grey"),
+		"Black" = image(icon = modular_additions_icon, icon_state = "paperbag_Black"),
+		"Sec" = image(icon = modular_additions_icon, icon_state = "paperbag_Sec"),
+		"Medical" = image(icon = modular_additions_icon, icon_state = "paperbag_Medical"),
+		"Fox" = image(icon = modular_additions_icon, icon_state = "paperbag_Fox"),
+		"Bunny" = image(icon = modular_additions_icon, icon_state = "paperbag_Bunny"),
 	)
 	sort_list(papersack_designs)
 	update_appearance()
