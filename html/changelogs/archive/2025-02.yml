@@ -247,6 +247,7 @@
   - bugfix: Fishing can now be done on the Ghost Cafe without removing loot from the
       station's loot tables. This will allow mappers to add fishing to the cafe without
       affecting the ongoing round.
+  - rscadd: Added 6 new variants to the paper sacks skins sprited by JR.
   RatFromTheJungle:
   - balance: rebalanced the oversized quirk, making them both move faster, and /not/
       hit their head on airlocks!
