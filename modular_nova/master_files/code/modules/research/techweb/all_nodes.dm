@@ -258,7 +258,6 @@
 	)
 	return ..()
 
-
 /datum/techweb_node/fusion/New()
 	design_ids += list(
 		"engine_goggles_prescription",

@@ -11,7 +11,7 @@
 	program_desc = "Grimoire Vacholiere is a fork of the Grimoire Caeruleam NIFSoft commissioned by numerous Zvirdnyan Colonial Militia officers. \
 	Despite it creating nothing more but largely bureaucratical tidbits, the high use cost is generated from running the forensic equipment in the background. <br>\
 	Some inspectors could swear that uncertainly beneficial voices of suggestion and warning appear in their minds, after running Vacholieres for prolonged periods \
-	of time - techically described as backlogs of data interfering with Soulcatchers."
+	of time - technically described as backlogs of data interfering with Soulcatchers."
 	summonable_items = list(
 		/obj/item/detective_scanner/nanite,
 		/obj/item/folder/yellow/nanite,
@@ -28,7 +28,7 @@
 /obj/item/detective_scanner/nanite
 	name = "regular forensic tool"
 	desc = "The truth ain't what happened, but what you can prove. Means, motive, culpability, these are the realm of the past. \
-	Fiction, to those who can spin it. What the Zvirdnyan Empire learned early on is, you can only work with what's here and now. \
+	Or fiction, to those who can spin it. What the Zvirdnyan Empire learned early on is, you can only work with what's here and now. \
 	Build a tower out of residues to hang the perp from. The things that get left behind: DNA, shreds of fabric, chemical stains, access codes; \
 	all concrete facts, the whetstone to keep your wit sharp to cut through the woven web of lies. \
 	This scanner might just be a projection of nanites from inside your head, but the brightest thoughts come from within, illuminating the truth to cast out the last shadows of doubt. \

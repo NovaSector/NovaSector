@@ -6,7 +6,7 @@
 	name = "Grimoire Hestia"
 	program_desc = "The Grimoire Hestia is an overlay of Zvirdnyan Manufacturing Repurposement Algorithms atop a Ceruleam base, \
 	crafting standard Ceruleam devices and reconfiguring them mid-synthesis into simpler, repurposable shapes for basic food cultivation and preparation. \
-	Hestia watches both hearth and home, and with her in your head, yours shall be blessed too."
+	Hestia watches over both hearth and home, and with her in your head, yours shall be blessed too."
 	summonable_items = list(
 		/obj/item/storage/bag/tray/nanite,
 		/obj/item/reagent_containers/cup/glass/shaker/nanite,
