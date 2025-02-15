@@ -181,7 +181,7 @@
 		"Medical" = image(icon = src.icon, icon_state = "paperbag_Medical"),
 		"Fox" = image(icon = src.icon, icon_state = "paperbag_Fox"),
 		"Bunny" = image(icon = src.icon, icon_state = "paperbag_Bunny"),
-		)
+	)
 	update_appearance()
 
 /obj/item/storage/box/papersack/update_desc(updates) // I hate that I have to do it this way to override it.
