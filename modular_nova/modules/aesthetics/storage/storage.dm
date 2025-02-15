@@ -174,7 +174,6 @@
 	var/modular_additions_icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'
 
 /obj/item/storage/box/papersack/Initialize(mapload)
-	original_icon = icon
 	. = ..()
 
 	papersack_designs  += list(
