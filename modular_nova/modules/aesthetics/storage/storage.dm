@@ -204,5 +204,5 @@
 		if("Bunny")
 			desc = "A paper sack with a hopping bunny etched onto the side."
 		else
-			icon = original_icon
+			icon = initial(icon)
 	return ..()
