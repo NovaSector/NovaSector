@@ -112,12 +112,12 @@
 	. = ..()
 
 	. += "The Napadayuschiy was made for the inevitable situation of the Zashchitnik not being enough firepower \
-		for the job. The Napadayuschiy sports a collosal magazine and a familiarly oversized stature to the Zashchitnik. \
+		for the job. The Napadayuschiy sports a colossal magazine and a familiarly oversized stature to the Zashchitnik. \
 		The massive magazine is a point of contention, being a stick magazine, it sticks far from the gun, \
 		making it easy to catch on surfaces and door frames. Regardless, the weapon is reliable, \
 		though if you do not place the charging handle into the loading notch before inserting a fresh magazine, \
 		the spring pressure of the weapon's fully loaded magazine will make operating the charging handle require \
-		a hurculean feat of strength."
+		a herculean feat of strength."
 
 	return .
 
