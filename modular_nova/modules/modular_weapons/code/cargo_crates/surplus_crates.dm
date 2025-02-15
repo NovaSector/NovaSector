@@ -70,7 +70,7 @@
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,
 		/obj/item/pen/screwdriver = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/box/colonial_rations = ITEM_WEIGHT_MISC_BUT_RARER,
-		/obj/item/storage/toolbox/maint_kit = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/gun_maintenance_supplies = ITEM_WEIGHT_MISC_BUT_RARER,
 	)
 	/// lower bound of random crate budget
 	var/item_budget_min = CRATE_BUDGET_MINIMUM
