@@ -170,10 +170,14 @@
 */
 
 /obj/item/storage/box/papersack
-/obj/item/storage/box/papersack/Initialize(mapload)
-	. = ..()
 	/// The modular icon file for the new designs
 	var/modular_additions_icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'
+	var/original_icon
+
+/obj/item/storage/box/papersack/Initialize(mapload)
+	original_icon = icon
+	. = ..()
+
 	papersack_designs  += list(
 		"Grey" = image(icon = modular_additions_icon, icon_state = "paperbag_Grey"),
 		"Black" = image(icon = modular_additions_icon, icon_state = "paperbag_Black"),
@@ -185,7 +189,8 @@
 	sort_list(papersack_designs)
 	update_appearance()
 
-/obj/item/storage/box/papersack/update_desc(updates) // I hate that I have to do it this way to override it.
+/obj/item/storage/box/papersack/update_desc(updates)
+	icon = modular_additions_icon
 	switch(design_choice)
 		if("Grey")
 			desc = "A grey sack neatly crafted out of paper."
@@ -199,4 +204,6 @@
 			desc = "A paper sack with a prowling fox etched onto the side."
 		if("Bunny")
 			desc = "A paper sack with a hopping bunny etched onto the side."
+		else
+			icon = original_icon
 	return ..()
