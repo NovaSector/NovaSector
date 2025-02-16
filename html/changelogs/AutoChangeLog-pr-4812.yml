@@ -1,5 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - qol: "A big number of melee mobs now have a distinct telegraph not unlike that of mining mobs, making it slightly easier to dodge their attacks, and possible, if difficult,  to fight in CQC without getting a scratch."
-  - balance: "Carps health was doubled and their damage went from a constant 20 to 15-23, Sharks improved in the same direction."
