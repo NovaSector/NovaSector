@@ -253,41 +253,46 @@
 		deactivate()
 		return FALSE
 
-	var/health_percent = round(mod.wearer.health / mod.wearer.maxHealth, 0.01)
-	if(health_percent > health_threshold)
-		return FALSE
-
 	var/new_oxyloss = mod.wearer.getOxyLoss()
 	var/new_bruteloss = mod.wearer.getBruteLoss()
 	var/new_fireloss = mod.wearer.getFireLoss()
 	var/new_stamloss = mod.wearer.getStaminaLoss()
 	var/new_toxloss = mod.wearer.getToxLoss()
 
+	var/health_percent = round(mod.wearer.health / mod.wearer.maxHealth, 0.01)
+	if(health_percent > health_threshold || mod.wearer.blood_volume > BLOOD_VOLUME_RISKY || new_stamloss <= 65)
+		return FALSE
+
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
-		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"="U","resistances"=null,"trace_chem"=null))
+		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Blood infused."))
 	if(new_oxyloss)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 5)
-		to_chat(mod.wearer, span_warning("Adrenaline administered."))
+		mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
+		to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
 	if(new_bruteloss)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 5)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
+		mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Brute treatment administered."))
 	if(new_fireloss)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 5)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
+		mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Burn treatment administered."))
 	if(new_stamloss)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 5)
 		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 5)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Stimdose administered."))
 	if(new_toxloss)
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Antitoxin administered."))
 
 	reagents.remove_reagent(reagent_required, reagent_required_amount)
-	playsound(mod.wearer, 'sound/machines/steam_hiss.ogg', 40)
 	drain_power(use_energy_cost*10)
 
 	addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 90 SECONDS)
@@ -325,6 +330,7 @@
 	if(prob(fault_chance))
 		reagents.trans_to(affected_mob, 5)
 		balloon_alert(affected_mob, "opium leak!")
+		affected_mob.playsound_local(mod, 'sound/effects/spray3.ogg', 25, TRUE)
 
 /obj/item/reagent_containers/cup/glass/waterbottle/large/opium
 	name = "bottle of opium"
