@@ -228,8 +228,8 @@
 	var/reagent_required_amount = 20
 	/// Maximum amount of reagents this module can hold.
 	var/reagent_max_amount = 120
-	/// Percentage health threshold above which the module won't heal.
-	var/health_threshold = 83.7
+	/// Flat health threshold above which the module won't heal.
+	var/health_threshold = 85
 	/// Cooldown betwen each treatment.
 	var/heal_cooldown = 45 SECONDS
 
@@ -255,37 +255,35 @@
 	var/new_stamloss = mod.wearer.getStaminaLoss()
 	var/new_toxloss = mod.wearer.getToxLoss()
 
-	if(mod.wearer.health > health_threshold || mod.wearer.blood_volume >= BLOOD_VOLUME_OKAY-0.05)
-		return FALSE
-
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
 		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Blood infused."))
-	if(new_oxyloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 5)
-		mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
-		to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
-	if(new_bruteloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 5)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
-		mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
-		to_chat(mod.wearer, span_warning("Brute treatment administered."))
-	if(new_fireloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 5)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
-		mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
-		to_chat(mod.wearer, span_warning("Burn treatment administered."))
-	if(new_stamloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 5)
-		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 5)
-		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-		to_chat(mod.wearer, span_warning("Stimdose administered."))
-	if(new_toxloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
-		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-		to_chat(mod.wearer, span_warning("Antitoxin administered."))
+	if(mod.wearer.health < health_threshold)
+		if(new_oxyloss)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 5)
+			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
+			to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
+		if(new_bruteloss)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
+			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
+			to_chat(mod.wearer, span_warning("Brute treatment administered."))
+		if(new_fireloss)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
+			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
+			to_chat(mod.wearer, span_warning("Burn treatment administered."))
+		if(new_stamloss)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 5)
+			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+			to_chat(mod.wearer, span_warning("Stimdose administered."))
+		if(new_toxloss)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
+			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+			to_chat(mod.wearer, span_warning("Antitoxin administered."))
 
 	reagents.remove_reagent(reagent_required, reagent_required_amount)
 	drain_power(use_energy_cost*10)
