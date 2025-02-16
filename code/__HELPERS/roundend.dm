@@ -249,17 +249,18 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 
 	to_chat(world, span_infoplain(span_big(span_bold("<BR><BR><BR>The round has ended."))))
 	log_game("The round has ended.")
-	send2chat(new /datum/tgs_message_content("[GLOB.round_id ? "Round [GLOB.round_id]" : "The round has"] just ended."), CONFIG_GET(string/channel_announce_end_game))
+	for(var/channel_tag in CONFIG_GET(str_list/channel_announce_end_game))
+		send2chat(new /datum/tgs_message_content("[GLOB.round_id ? "Round [GLOB.round_id]" : "The round has"] just ended."), channel_tag)
+		send2chat("The current round has ended. Please standby for your shift interlude Nanotrasen News Network's report!", channel_tag) // NOVA EDIT ADDITION
+		send2chat(send_news_report(), channel_tag) // NOVA EDIT ADDITION
 	send2adminchat("Server", "Round just ended.")
 
-	/* //NOVA EDIT - START (DISCORD Updates)
+	/* //NOVA EDIT REMOVAL START
 	MOVED CHECK INTO TICKER.DM
 	if(length(CONFIG_GET(keyed_list/cross_server)))
 		send_news_report()
 	*/
-	send2chat("The current round has ended. Please standby for your shift interlude Nanotrasen News Network's report!", CONFIG_GET(string/channel_announce_end_game))
-	send2chat(send_news_report(), CONFIG_GET(string/channel_announce_end_game))
-	//NOVA EDIT - END
+	//NOVA EDIT REMOVAL END
 
 	CHECK_TICK
 
