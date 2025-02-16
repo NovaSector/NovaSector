@@ -83,20 +83,24 @@
 		/obj/item/mod/module/storage,
 		/obj/item/mod/module/flashlight,
 	)
+	default_pins = list(
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/auto_doc,
+	)
 
-/obj/item/mod/control/pre_equipped/voskhod/ert
-	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
+/obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
+	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	applied_modules = list(
 		/obj/item/mod/module/storage/syndicate,
 		/obj/item/mod/module/thermal_regulator,
-		/obj/item/mod/module/visor/thermal,
-		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/magboot/advanced,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/mouthhole,
 	)
 	default_pins = list(
-		/obj/item/mod/module/visor/thermal,
-		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/magboot/advanced,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/auto_doc,
+		/obj/item/mod/module/thermal_regulator,
 	)
 
 /datum/mod_theme/policing
@@ -225,7 +229,7 @@
 	/// Maximum amount of reagents this module can hold.
 	var/reagent_max_amount = 120
 	/// Percentage health threshold above which the module won't heal.
-	var/health_threshold = 0.62
+	var/health_threshold = 83.7
 	/// Cooldown betwen each treatment.
 	var/heal_cooldown = 45 SECONDS
 
@@ -240,14 +244,6 @@
 	if(!COOLDOWN_FINISHED(src, heal_timer))
 		return FALSE
 
-	if(!check_power(use_energy_cost))
-		balloon_alert(mod.wearer, "not enough charge!")
-		deactivate()
-		return FALSE
-
-	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED) & MOD_ABORT_USE)
-		return FALSE
-
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
 		balloon_alert(mod.wearer, "not enough chems!")
 		deactivate()
@@ -259,8 +255,7 @@
 	var/new_stamloss = mod.wearer.getStaminaLoss()
 	var/new_toxloss = mod.wearer.getToxLoss()
 
-	var/health_percent = round(mod.wearer.health / mod.wearer.maxHealth, 0.01)
-	if(health_percent > health_threshold || mod.wearer.blood_volume > BLOOD_VOLUME_RISKY || new_stamloss <= 65)
+	if(mod.wearer.health > health_threshold || mod.wearer.blood_volume >= BLOOD_VOLUME_OKAY-0.05)
 		return FALSE
 
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
@@ -336,3 +331,27 @@
 	name = "bottle of opium"
 	desc = "Nothing screams 'Budget cuts' like a plastic bottle of autodoc refills."
 	list_reagents = list(/datum/reagent/drug/opium = 100)
+
+/obj/item/crafting_conversion_kit/voskhod_refit
+	name = "\improper Voskhod depowered armor MOD refit kit"
+	desc = "A metallic case of various tubes, sensors and spare materials required to reuse Voskhod's components in the making of a next-generation MODed version."
+	force = 10
+	icon = 'modular_nova/modules/novaya_ert/icons/refit_kit.dmi'
+	icon_state = "refit_kit"
+
+/datum/crafting_recipe/voskhod_to_mod
+	name = "Depowered Voskhod-To-Refurbished Voskhod MOD Conversion"
+	desc = "While this is usually done on a specialised automated workbench, you can tinker with the suit manually for a longer while to achieve the same result."
+	result = /obj/item/mod/control/pre_equipped/voskhod
+	reqs = list(
+		/obj/item/clothing/suit/space/voskhod = 1,
+		/obj/item/clothing/head/helmet/space/voskhod = 1,
+		/obj/item/crafting_conversion_kit/voskhod_refit = 1,
+		/obj/item/mod/core = 1,
+		/obj/item/stack/sheet/plasteel = 10,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/assembly/health = 1,
+	)
+	tool_behaviors = list(TOOL_WELDER, TOOL_MULTITOOL)
+	time = 30 SECONDS
+	category = CAT_CLOTHING

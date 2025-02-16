@@ -38,7 +38,7 @@
 
 /datum/opposing_force_equipment/modsuit/nri
 	name = "HC's Voskhod"
-	item_type = /obj/item/mod/control/pre_equipped/voskhod/ert
+	item_type = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 
 /datum/opposing_force_equipment/modsuit/nri_police
 	name = "ZCM's Policing"
