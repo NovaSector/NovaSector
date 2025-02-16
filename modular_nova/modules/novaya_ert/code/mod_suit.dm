@@ -211,14 +211,20 @@
 
 /obj/item/mod/module/auto_doc
 	name = "MOD automatic paramedical module"
-	desc = "The reverse-engineered and redesigned medical assistance system, previously used by the now decommissioned VOSKHOD combat armor. \
-		The technology it uses is very similar to the one of Spider Clan, yet Innovations and Defense Collegium reject any similarities. \
-		Using a built-in storage of chemical compounds and miniature chemical mixer, it's capable of injecting its user with simple painkillers and coagulants, \
-		assisting them with their restoration, as long as they don't overdose themselves. However, this system heavily relies on some rarely combat-available chemical compounds to prepare its injections, \
-		mainly Cryptobiolin, which appear in the user's bloodstream from time to time, and its trivial damage assesment systems are inadequate for complete restoration purposes."
+	desc = "The reverse-engineered and redesigned medical assistance system, previously used by the now decommissioned Voskhod combat armor. \
+		The technology it uses is very similar to the one of the N-URSEI suites, yet miniaturised and lacking self-synthesis capabilities. \
+		Using a built-in storage of chemical compounds and a miniature chemical mixer, it's capable of injecting its user with a plethora of drugs, \
+		assisting them with their restoration. However, this system heavily relies on some rarely combat-available chemical compounds to prepare its injections, \
+		mainly Opium, which appear in the user's bloodstream from time to time, and its trivial damage assesment systems are prone to kicking in only when you're moderately wounded."
 	icon_state = "adrenaline_boost"
 	module_type = MODULE_TOGGLE
-	incompatible_modules = list(/obj/item/mod/module/adrenaline_boost, /obj/item/mod/module/auto_doc, /obj/item/mod/module/pepper_shoulders)
+	incompatible_modules = list(
+		/obj/item/mod/module/adrenaline_boost,
+		/obj/item/mod/module/auto_doc,
+		/obj/item/mod/module/pepper_shoulders,
+		/obj/item/mod/module/armor_booster,
+		/obj/item/mod/module/ash_accretion,
+	)
 	complexity = 4
 	removable = FALSE
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 20
@@ -229,21 +235,22 @@
 	/// Maximum amount of reagents this module can hold.
 	var/reagent_max_amount = 120
 	/// Flat health threshold above which the module won't heal.
-	var/health_threshold = 85
+	var/health_threshold = 65
 	/// Cooldown betwen each treatment.
-	var/heal_cooldown = 45 SECONDS
+	var/general_cooldown = 25 SECONDS
 
-	/// Timer for the cooldown.
+	/// Timer for the healing cooldown.
 	COOLDOWN_DECLARE(heal_timer)
+	/// Timer for the stamina damage cooldown.
+	COOLDOWN_DECLARE(stamina_timer)
+	/// Timer for the blood-refilling cooldown.
+	COOLDOWN_DECLARE(blood_timer)
 
 /obj/item/mod/module/auto_doc/Initialize(mapload)
 	. = ..()
 	create_reagents(reagent_max_amount)
 
 /obj/item/mod/module/auto_doc/on_active_process()
-	if(!COOLDOWN_FINISHED(src, heal_timer))
-		return FALSE
-
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
 		balloon_alert(mod.wearer, "not enough chems!")
 		deactivate()
@@ -255,12 +262,9 @@
 	var/new_stamloss = mod.wearer.getStaminaLoss()
 	var/new_toxloss = mod.wearer.getToxLoss()
 
-	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
-		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
-		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-		to_chat(mod.wearer, span_warning("Blood infused."))
 	if(mod.wearer.health < health_threshold)
+		if(!COOLDOWN_FINISHED(src, heal_timer))
+			return FALSE
 		if(new_oxyloss)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 5)
 			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
@@ -274,22 +278,31 @@
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 5)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
-			to_chat(mod.wearer, span_warning("Burn treatment administered."))
+			to_chat(mod.wearer, span_warning("Ointment applied."))
 		if(new_toxloss)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
 			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 			to_chat(mod.wearer, span_warning("Antitoxin administered."))
+		COOLDOWN_START(src, heal_timer, general_cooldown)
 	if(new_stamloss > health_threshold)
+		if(!COOLDOWN_FINISHED(src, stamina_timer))
+			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 5)
 		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 5)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Stimdose administered."))
-
-	reagents.remove_reagent(reagent_required, reagent_required_amount)
-	drain_power(use_energy_cost*10)
-
-	addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 90 SECONDS)
-	COOLDOWN_START(src, heal_timer, heal_cooldown)
+		reagents.remove_reagent(reagent_required, reagent_required_amount*0.5)
+		drain_power(use_energy_cost*10)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
+		COOLDOWN_START(src, stamina_timer, general_cooldown)
+	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
+		if(!COOLDOWN_FINISHED(src, blood_timer))
+			return FALSE
+		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
+		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+		to_chat(mod.wearer, span_warning("Blood infused."))
+		COOLDOWN_START(src, blood_timer, general_cooldown)
 
 /// Refills the module with needed chemicals, assuming the container isn't closed or the module isn't full.
 /obj/item/mod/module/auto_doc/proc/charge_boost(obj/item/attacking_item, mob/user)
