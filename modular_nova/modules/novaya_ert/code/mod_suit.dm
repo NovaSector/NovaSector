@@ -283,7 +283,9 @@
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
 			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 			to_chat(mod.wearer, span_warning("Antitoxin administered."))
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
 		COOLDOWN_START(src, heal_timer, general_cooldown)
+
 	if(new_stamloss > health_threshold)
 		if(!COOLDOWN_FINISHED(src, stamina_timer))
 			return FALSE
@@ -295,6 +297,7 @@
 		drain_power(use_energy_cost*10)
 		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
 		COOLDOWN_START(src, stamina_timer, general_cooldown)
+
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
 		if(!COOLDOWN_FINISHED(src, blood_timer))
 			return FALSE
@@ -302,6 +305,7 @@
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Blood infused."))
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
 		COOLDOWN_START(src, blood_timer, general_cooldown)
 
 /// Refills the module with needed chemicals, assuming the container isn't closed or the module isn't full.
