@@ -1,0 +1,6 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "All of the colony power generation methods got a fair buff."
+  - balance: "The colony 'generator,' spits out super-heated-steam and rads now. It also runs on radiation, that too."
+  - balance: "The colony small-battery holds slightly more charge then a normal megacell now."
