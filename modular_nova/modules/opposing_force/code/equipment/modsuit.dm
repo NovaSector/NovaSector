@@ -37,11 +37,11 @@
 	item_type = /obj/item/mod/control/pre_equipped/advanced
 
 /datum/opposing_force_equipment/modsuit/nri
-	name = "NRI's Frontline"
-	item_type = /obj/item/mod/control/pre_equipped/frontline/ert
+	name = "HC's Voskhod"
+	item_type = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 
 /datum/opposing_force_equipment/modsuit/nri_police
-	name = "NRI's Policing"
+	name = "ZCM's Policing"
 	item_type = /obj/item/mod/control/pre_equipped/policing
 
 /datum/opposing_force_equipment/modsuit/infiltrator
