@@ -235,6 +235,10 @@
 	name = "Empty Colonial First Aid Pouch"
 	item_path = /obj/item/storage/pouch/cin_medkit
 
+/datum/loadout_item/pocket_items/general_pouch
+	name = "Empty Colonial General Purpose Pouch"
+	item_path = /obj/item/storage/pouch/cin_general
+
 /datum/loadout_item/pocket_items/deforest_cheesekit
 	name = "Civil Defense Medical Kit"
 	item_path = /obj/item/storage/medkit/civil_defense/stocked
