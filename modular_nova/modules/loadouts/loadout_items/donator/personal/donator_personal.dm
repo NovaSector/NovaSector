@@ -938,3 +938,17 @@
 	ckeywhitelist = list("deadmonwonderland")
 	restricted_roles = list(JOB_SHAFT_MINER)
 
+/datum/loadout_item/under/formal/ambassadordagmar
+	name = "Ambassador's Dress"
+	item_path = /obj/item/clothing/under/dress/ambassadordagmar
+	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/under/formal/neoflapper
+	name = "Neo-Flapper Dress"
+	item_path = /obj/item/clothing/under/dress/neoflapperdagmar
+	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/under/formal/heirloomdagmar
+	name = "Heirloom Dress"
+	item_path = /obj/item/clothing/under/dress/heirloomdagmar
+	ckeywhitelist = list("spookyrotini")
