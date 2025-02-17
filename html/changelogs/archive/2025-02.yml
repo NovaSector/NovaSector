@@ -334,3 +334,12 @@
       if difficult,  to fight in CQC without getting a scratch.
   - balance: Carps health was doubled and their damage went from a constant 20 to
       15-23, Sharks improved in the same direction.
+2025-02-17:
+  FlufflesTheDog:
+  - bugfix: skillsofts are no longer smartfridges in disguise
+  RatFromTheJungle:
+  - balance: All of the colony power generation methods got a fair buff.
+  - balance: The colony 'generator,' spits out super-heated-steam and rads now. It
+      also runs on radiation, that too.
+  - balance: The colony small-battery holds slightly more charge then a normal megacell
+      now.
