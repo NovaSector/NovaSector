@@ -1,4 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - code_imp: "gateway doesn't require CC access to activate."

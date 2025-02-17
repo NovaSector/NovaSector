@@ -335,6 +335,8 @@
   - balance: Carps health was doubled and their damage went from a constant 20 to
       15-23, Sharks improved in the same direction.
 2025-02-17:
+  1393F:
+  - balance: Colossus, Wendigo, and demonic-frost miner no longer dust people
   FlufflesTheDog:
   - bugfix: skillsofts are no longer smartfridges in disguise
   RatFromTheJungle:
@@ -343,3 +345,12 @@
       also runs on radiation, that too.
   - balance: The colony small-battery holds slightly more charge then a normal megacell
       now.
+  - code_imp: gateway doesn't require CC access to activate.
+  Stalkeros; Junglerat and Extramrdo for description assistance.:
+  - rscadd: Added new utility NIFsofts, now available either through the techweb,
+      or job-relevant vending machines.
+  - qol: NIFsoft HUDs no longer need glasses to function.
+  - bugfix: fixes the lack of ZCM company element on the ZCM suits and cap.
+  Trelus:
+  - rscadd: Added the 'Napad' Submachine Gun to the cargo NRI company import.
+  - rscadd: Added the Napad submachinegun magazine to the cargo NRI company import.

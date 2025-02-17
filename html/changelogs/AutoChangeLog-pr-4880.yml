@@ -1,5 +1,0 @@
-author: "Trelus"
-delete-after: True
-changes:
-  - rscadd: "Added the 'Napad' Submachine Gun to the cargo NRI company import."
-  - rscadd: "Added the Napad submachinegun magazine to the cargo NRI company import."

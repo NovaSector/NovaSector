@@ -1,6 +1,0 @@
-author: "Stalkeros; Junglerat and Extramrdo for description assistance."
-delete-after: True
-changes:
-  - rscadd: "Added new utility NIFsofts, now available either through the techweb, or job-relevant vending machines."
-  - qol: "NIFsoft HUDs no longer need glasses to function."
-  - bugfix: "fixes the lack of ZCM company element on the ZCM suits and cap."
