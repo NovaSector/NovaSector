@@ -31,11 +31,7 @@
 	subcategory = "Protective Equipment"
 
 /datum/armament_entry/company_import/kahraman/ppe/hazard_mod
-	name = "Frontier Hazard Compressed Modsuit"
 	item_type = /obj/item/mod/control/pre_equipped/frontier_colonist
-	description =  "The pinnacle of frontier cheap technology. Suits such as these are made \
-		specifically for the rare emergency that creates a hazard environment that other \
-		equipment just can't quite handle. Compressed enough to fit in your backpack when not in use."
 	cost = PAYCHECK_COMMAND * 6.5
 
 /datum/armament_entry/company_import/kahraman/ppe/civilian_mod
