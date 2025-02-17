@@ -141,7 +141,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	invisibility = INVISIBILITY_ABSTRACT
 
 /obj/effect/gateway_portal_bumper/Bumped(atom/movable/AM)
-//NOVA EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if (CONFIG_GET(flag/borg_gateway_blacklist))
 		var/list/type_blacklist = list(
 			/obj/item/mmi,
@@ -356,7 +356,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway/away/interact(mob/user)
 	. = ..()
-//NOVA EDIT ADDITION
+	//NOVA EDIT ADDITION
 	if (CONFIG_GET(flag/borg_gateway_blacklist))
 		var/list/type_blacklist = list(
 			/obj/item/mmi,
