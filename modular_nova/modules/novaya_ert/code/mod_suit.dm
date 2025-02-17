@@ -78,6 +78,7 @@
 	wound = 20
 
 /obj/item/mod/control/pre_equipped/voskhod
+	applied_cell = /obj/item/stock_parts/power_store/cell/high
 	theme = /datum/mod_theme/voskhod
 	applied_modules = list(
 		/obj/item/mod/module/storage,
@@ -357,12 +358,14 @@
 /datum/crafting_recipe/voskhod_to_mod
 	name = "Depowered Voskhod-To-Refurbished Voskhod MOD Conversion"
 	desc = "While this is usually done on a specialised automated workbench, you can tinker with the suit manually for a longer while to achieve the same result."
-	result = /obj/item/mod/control/pre_equipped/voskhod
+	result = /obj/effect/spawner/random/voskhod_refit
 	reqs = list(
 		/obj/item/clothing/suit/space/voskhod = 1,
 		/obj/item/clothing/head/helmet/space/voskhod = 1,
 		/obj/item/crafting_conversion_kit/voskhod_refit = 1,
+		/obj/item/storage/backpack = 1,
 		/obj/item/mod/core = 1,
+		/obj/item/stock_parts/power_store/cell/high = 1,
 		/obj/item/stack/sheet/plasteel = 10,
 		/obj/item/stack/cable_coil = 15,
 		/obj/item/assembly/health = 1,
@@ -370,3 +373,11 @@
 	tool_behaviors = list(TOOL_WELDER, TOOL_MULTITOOL)
 	time = 30 SECONDS
 	category = CAT_CLOTHING
+
+/obj/effect/spawner/random/voskhod_refit
+	name = "converted MODskhod spaner"
+	icon = 'modular_nova/modules/novaya_ert/icons/mod.dmi'
+	icon_state = "voskhod-chestplate-sealed"
+	spawn_all_loot = TRUE
+	spawn_loot_count = 1
+	loot = list(/obj/item/mod/control/pre_equipped/voskhod)
