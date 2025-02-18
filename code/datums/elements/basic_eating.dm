@@ -94,7 +94,7 @@
 /datum/element/basic_eating/proc/finish_eating(mob/living/eater, atom/target, mob/living/feeder)
 	set waitfor = FALSE
 	if(drinking)
-		playsound_if_pref(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT Original: playsound(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
+		playsound_if_pref(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
 	else
 		playsound_if_pref(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT Original: playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	var/atom/final_target = target
