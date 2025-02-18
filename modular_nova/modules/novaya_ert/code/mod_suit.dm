@@ -2,7 +2,7 @@
 	name = "refitted voskhod"
 	desc = "A Heliostatic Coalition standard-issue heavy duty suit, designed for fortified positions operation and humanitarian aid."
 	extended_desc = "A more expensive, yet more versatile replacement of the dated Voskhod powered armor, designed by the Magellanic Economic Corporate Union researchers \
-	in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons inbetween and underneath its armor plating \
+	in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons in between and underneath its armor plating \
 	allowed for an unprecedented level of protection through an overly abundant use of durathread-backed plasteel plating; and the remnant materials of its predecessor allow for \
 	a dubiously efficient dissipation of any stray photon ray or a concentrated laser, were one to get hit by them. The suit's infamous autoparamedical systems \
 	are also fully present - or their chemical synthesizing part, consisting of a thin web of subdermal autoinjectors, reaction cameras and tubes lined through the \
@@ -216,7 +216,7 @@
 		The technology it uses is very similar to the one of the N-URSEI suites, yet miniaturised and lacking self-synthesis capabilities. \
 		Using a built-in storage of chemical compounds and a miniature chemical mixer, it's capable of injecting its user with a plethora of drugs, \
 		assisting them with their restoration. However, this system heavily relies on some rarely combat-available chemical compounds to prepare its injections, \
-		mainly Opium, which appear in the user's bloodstream from time to time, and its trivial damage assesment systems are prone to kicking in only when you're moderately wounded."
+		mainly Opium, which appear in the user's bloodstream from time to time, and its trivial damage assessment systems are prone to kicking in only when you're moderately wounded."
 	icon_state = "adrenaline_boost"
 	module_type = MODULE_TOGGLE
 	incompatible_modules = list(
@@ -251,7 +251,7 @@
 	. = ..()
 	create_reagents(reagent_max_amount)
 
-/obj/item/mod/module/auto_doc/on_active_process()
+/obj/item/mod/module/auto_doc/on_active_process(seconds_per_tick)
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
 		balloon_alert(mod.wearer, "not enough chems!")
 		deactivate()
@@ -267,21 +267,21 @@
 		if(!COOLDOWN_FINISHED(src, heal_timer))
 			return FALSE
 		if(new_oxyloss)
-			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
 			to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
 		if(new_bruteloss)
-			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 5)
-			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 2.5 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 			to_chat(mod.wearer, span_warning("Brute treatment administered."))
 		if(new_fireloss)
-			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 5)
-			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 2.5 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 			to_chat(mod.wearer, span_warning("Ointment applied."))
 		if(new_toxloss)
-			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 			to_chat(mod.wearer, span_warning("Antitoxin administered."))
 		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
@@ -290,23 +290,23 @@
 	if(new_stamloss > health_threshold)
 		if(!COOLDOWN_FINISHED(src, stamina_timer))
 			return FALSE
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 5)
-		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 5)
+		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 2.5 * seconds_per_tick)
+		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 2.5 * seconds_per_tick)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Stimdose administered."))
-		reagents.remove_reagent(reagent_required, reagent_required_amount*0.5)
-		drain_power(use_energy_cost*10)
-		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
+		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.25 * seconds_per_tick)
+		drain_power(use_energy_cost * 5 * seconds_per_tick)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		COOLDOWN_START(src, stamina_timer, general_cooldown)
 
 	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
 		if(!COOLDOWN_FINISHED(src, blood_timer))
 			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
+		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 2.5 * seconds_per_tick)
 		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 		to_chat(mod.wearer, span_warning("Blood infused."))
-		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		COOLDOWN_START(src, blood_timer, general_cooldown)
 
 /// Refills the module with needed chemicals, assuming the container isn't closed or the module isn't full.
