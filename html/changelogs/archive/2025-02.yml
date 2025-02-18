@@ -357,6 +357,9 @@
 2025-02-18:
   RatFromTheJungle:
   - balance: contractors can use their baton again, without needing the modsuit gloves
+  RealWinterFrost:
+  - rscadd: Added more variants for "Giant Scarf" in player loadouts menu
+  - rscadd: Added giant scarf variants to "Clothesmate"
   Stalkeros:
   - rscadd: Adds a colonial general purpose pouch, both available in the loadout and
       the food replicator.
