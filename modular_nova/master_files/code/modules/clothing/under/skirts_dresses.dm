@@ -286,18 +286,6 @@
 	greyscale_config = /datum/greyscale_config/giant_scarf/heart
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/heart/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
-
-
-
-// DELETE THIS LINE (SCARF ADDITION END)
-
-
-
-
-
-
-
-
 /*
  *	Others
  */
