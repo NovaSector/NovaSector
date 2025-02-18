@@ -1445,12 +1445,6 @@
 	name = "Giant Scarf (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-
-
-
-
-// DELETE THIS LINE (SCARF CODE ADDITION END)
-
 // KILT
 // COSTUMES
 
