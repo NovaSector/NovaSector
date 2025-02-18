@@ -1355,8 +1355,6 @@
 	name = "Giant Scarf (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
-// DELETE THIS LINE (SCARF CODE ADDITION START)
-
 /datum/greyscale_config/giant_scarf/crystal
 	name = "giant_scarf_crystal"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
