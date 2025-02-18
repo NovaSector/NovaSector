@@ -96,7 +96,7 @@
 	if(drinking)
 		playsound_if_pref(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
 	else
-		playsound_if_pref(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT Original: playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
+		playsound_if_pref(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	var/atom/final_target = target
 	if(SEND_SIGNAL(eater, COMSIG_MOB_ATE, final_target, feeder) & COMSIG_MOB_TERMINATE_EAT)
 		return
