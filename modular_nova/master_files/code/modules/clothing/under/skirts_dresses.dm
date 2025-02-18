@@ -227,8 +227,6 @@
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-// DELETE THIS LINE (SCARF ADDITION START)
-
 /obj/item/clothing/under/dress/nova/giant_scarf/crystal
 	icon_state = "giant_scarf_crystal"
 	greyscale_config = /datum/greyscale_config/giant_scarf/crystal
