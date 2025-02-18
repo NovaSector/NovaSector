@@ -354,3 +354,12 @@
   Trelus:
   - rscadd: Added the 'Napad' Submachine Gun to the cargo NRI company import.
   - rscadd: Added the Napad submachinegun magazine to the cargo NRI company import.
+2025-02-18:
+  RatFromTheJungle:
+  - balance: contractors can use their baton again, without needing the modsuit gloves
+  Stalkeros:
+  - rscadd: Adds a colonial general purpose pouch, both available in the loadout and
+      the food replicator.
+  - rscadd: Adds an accessory slot colonial slim webbing, both available in the loadout
+      and the food replicator.
+  - balance: Colonial medipen pouches now hold eight (8) pens instead of four (4).
