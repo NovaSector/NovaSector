@@ -477,7 +477,7 @@
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/stripe
 
 /datum/loadout_item/under/miscellaneous/giant_scarf_twotone
-	name = "Giant Scarf (Two Tone)"
+	name = "Giant Scarf (Two-Tone)"
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/two_tone
 
 /datum/loadout_item/under/miscellaneous/giant_scarf_arrow
