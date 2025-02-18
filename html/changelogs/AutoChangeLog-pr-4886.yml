@@ -1,0 +1,6 @@
+author: "Stalkeros"
+delete-after: True
+changes:
+  - rscadd: "Adds a colonial general purpose pouch, both available in the loadout and the food replicator."
+  - rscadd: "Adds an accessory slot colonial slim webbing, both available in the loadout and the food replicator."
+  - balance: "Colonial medipen pouches now hold eight (8) pens instead of four (4)."
