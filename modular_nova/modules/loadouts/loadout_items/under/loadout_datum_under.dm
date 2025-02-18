@@ -508,10 +508,6 @@
 	name = "Giant Scarf (Heart)"
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/heart
 
-
-
-
-
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/red_skirt
