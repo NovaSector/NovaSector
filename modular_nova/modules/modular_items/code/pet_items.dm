@@ -9,7 +9,7 @@
 	if(user.combat_mode)
 		return
 	if(!istype(target_pet, /mob/living/basic))
-		to_chat(user, span_warning("This treat can only be fed to basic pets!"))
+		to_chat(user, span_warning("This treat doesn't work on [target_pet]!"))
 		return
 	if(target_pet.stat)
 		to_chat(user, span_warning("The pet is dead!"))
