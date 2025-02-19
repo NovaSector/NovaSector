@@ -8222,6 +8222,7 @@
 #include "modular_nova\modules\modular_items\code\modular_glasses.dm"
 #include "modular_nova\modules\modular_items\code\necklace.dm"
 #include "modular_nova\modules\modular_items\code\pastries.dm"
+#include "modular_nova\modules\modular_items\code\pet_items.dm"
 #include "modular_nova\modules\modular_items\code\recipes_misc.dm"
 #include "modular_nova\modules\modular_items\code\ring.dm"
 #include "modular_nova\modules\modular_items\code\summon_beacon.dm"
