@@ -22,7 +22,7 @@
 	icon_state = "pet_space_treat"
 
 /obj/item/pet_food/pet_space_treat/attack(mob/living/basic/target_pet, mob/user)
-	..()
+	. = ..()
 	if(HAS_TRAIT(target_pet, TRAIT_PET_SPACE_TREAT))
 		to_chat(user, span_warning("This pet has already eaten a space treat!"))
 		return
