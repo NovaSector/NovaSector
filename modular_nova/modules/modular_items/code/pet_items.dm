@@ -14,6 +14,7 @@
 	if(target_pet.stat)
 		to_chat(user, span_warning("The pet is dead!"))
 		return
+	return TRUE
 
 /obj/item/pet_food/pet_space_treat
 	name = "\improper Treat Breather"
