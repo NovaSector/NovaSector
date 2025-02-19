@@ -22,16 +22,16 @@
 	icon = 'modular_nova/modules/modular_items/icons/pet_items.dmi'
 	icon_state = "pet_space_treat"
 
-/obj/item/pet_food/pet_space_treat/attack(mob/living/basic/target_pet, mob/user)
+/obj/item/pet_food/pet_space_treat/interact_with_atom(mob/living/basic/target_pet, mob/living/user, list/modifiers)
 	. = ..()
-	if(!.)
+	if(. != ITEM_INTERACT_SUCCESS)
 		return
 	if(HAS_TRAIT(target_pet, TRAIT_PET_SPACE_TREAT))
 		to_chat(user, span_warning("This pet has already eaten a space treat!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(!target_pet.unsuitable_atmos_damage || !target_pet.minimum_survivable_temperature || !target_pet.maximum_survivable_temperature)
 		to_chat(user, span_warning("This treat is unsuitable for this pet!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	ADD_TRAIT(target_pet, TRAIT_PET_SPACE_TREAT, user)
 	target_pet.RemoveElement(/datum/element/atmos_requirements, target_pet.habitable_atmos, target_pet.unsuitable_atmos_damage)
 	target_pet.RemoveElement(/datum/element/body_temp_sensitive, target_pet.minimum_survivable_temperature, target_pet.maximum_survivable_temperature, target_pet.unsuitable_cold_damage, target_pet.unsuitable_heat_damage)
