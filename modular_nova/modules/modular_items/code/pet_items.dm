@@ -1,5 +1,5 @@
 /obj/item/pet_food
-	name = "Generic pet treat"
+	name = "\improper Generic pet treat"
 	desc = "Far too bland for your pet OR reality. You shouldn't be seeing this."
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "skeletonmeat"
