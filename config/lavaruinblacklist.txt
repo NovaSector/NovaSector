@@ -25,6 +25,7 @@ _maps/RandomRuins/LavaRuins/lavaland_surface_sloth.dmm
 
 ##MISC
 #_maps/RandomRuins/AnywhereRuins/fountain_hall.dmm
+#_maps/RandomRuins/LavaRuins/lavaland_duo_hermit.dmm
 #_maps/RandomRuins/LavaRuins/lavaland_surface_automated_trade_outpost.dmm
 #_maps/RandomRuins/LavaRuins/lavaland_surface_cultaltar.dmm
 #_maps/RandomRuins/LavaRuins/lavaland_surface_elephant_graveyard.dmm
