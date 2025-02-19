@@ -38,8 +38,8 @@
 	target_pet.unsuitable_atmos_damage = 0
 	target_pet.minimum_survivable_temperature = TCMB
 	target_pet.maximum_survivable_temperature = T0C + 40
-	target_pet.apply_atmos_requirements(TRUE)
-	target_pet.apply_temperature_requirements(TRUE)
+	target_pet.apply_atmos_requirements()
+	target_pet.apply_temperature_requirements()
 	target_pet.desc += span_notice("\n[target_pet.p_They()] seem[target_pet.p_s()] hardier against the void of space.")
 	to_chat(user, span_notice("You feed the treat to the [target_pet], which they quickly gobble up."))
 	qdel(src)
