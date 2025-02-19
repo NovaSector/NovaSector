@@ -5,16 +5,16 @@
 	icon_state = "skeletonmeat"
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/pet_food/attack(mob/living/basic/target_pet, mob/living/user)
-	if(user.combat_mode)
-		return
-	if(target_pet.stat)
+/obj/item/pet_food/interact_with_atom(mob/living/basic/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with) || user.combat_mode)
+		return NONE
+	if(interacting_with.stat)
 		to_chat(user, span_warning("The pet is dead!"))
-		return
-	if(!is_path_in_list(target_pet.type, flatten_list(GLOB.possible_player_pet)))
-		to_chat(user, span_warning("This treat doesn't work on [target_pet]!"))
-		return
-	return TRUE
+		return ITEM_INTERACT_BLOCKING
+	if(!is_path_in_list(interacting_with.type, flatten_list(GLOB.possible_player_pet)))
+		to_chat(user, span_warning("This treat doesn't work on [interacting_with]!"))
+		return ITEM_INTERACT_BLOCKING
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/pet_food/pet_space_treat
 	name = "\improper Treat Breather"
