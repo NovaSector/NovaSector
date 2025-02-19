@@ -472,7 +472,7 @@ Behavior that's still missing from this component that original food items had t
 		return FALSE
 	if(eater.satiety > -200)
 		eater.satiety -= junkiness
-	playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
+	playsound_if_pref(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	if(!owner.reagents.total_volume)
 		return
 	var/sig_return = SEND_SIGNAL(parent, COMSIG_FOOD_EATEN, eater, feeder, bitecount, bite_consumption)
