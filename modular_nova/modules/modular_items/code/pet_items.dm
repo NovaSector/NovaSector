@@ -17,7 +17,7 @@
 
 /obj/item/pet_food/pet_space_treat
 	name = "\improper Treat Breather"
-	desc = "A tasty snack for any loving companion that'll make them resistant to the nasty void of space! (Warranty void if pet cannot, in fact, handle the void of space)"
+	desc = "A tasty snack for any loving companion that'll make them resistant to the nasty void of space! (Warranty void if pet cannot, in fact, handle the void of space, process not reversible)"
 	icon = 'modular_nova/modules/modular_items/icons/pet_items.dmi'
 	icon_state = "pet_space_treat"
 
