@@ -8,11 +8,11 @@
 /obj/item/pet_food/attack(mob/living/basic/target_pet, mob/living/user)
 	if(user.combat_mode)
 		return
-	if(!is_type_in_list(target_pet, GLOB.possible_player_pet))
-		to_chat(user, span_warning("This treat doesn't work on [target_pet]!"))
-		return
 	if(target_pet.stat)
 		to_chat(user, span_warning("The pet is dead!"))
+		return
+	if(!is_path_in_list(target_pet.type, flatten_list(GLOB.possible_player_pet)))
+		to_chat(user, span_warning("This treat doesn't work on [target_pet]!"))
 		return
 	return TRUE
 
