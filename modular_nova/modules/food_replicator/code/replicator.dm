@@ -18,6 +18,15 @@
 		RND_CATEGORY_NRI_CLOTHING,
 	)
 
+/obj/machinery/biogenerator/food_replicator/RefreshParts()
+	. = ..()
+	efficiency *= 0.75
+	productivity *= 0.75
+
 /obj/item/circuitboard/machine/biogenerator/food_replicator
 	name = "Colonial Supply Core"
 	build_path = /obj/machinery/biogenerator/food_replicator
+
+/obj/item/flatpack/food_replicator
+	name = "colonial supply core"
+	board = /obj/item/circuitboard/machine/biogenerator/food_replicator
