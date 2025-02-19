@@ -43,4 +43,3 @@
 	target_pet.desc += span_notice("\n[target_pet.p_They()] seem[target_pet.p_s()] hardier against the void of space.")
 	to_chat(user, span_notice("You feed the treat to the [target_pet], which they quickly gobble up."))
 	qdel(src)
-	return
