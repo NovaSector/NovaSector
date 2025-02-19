@@ -1,7 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - balance: "Solfeds rifle are notably less clunky, and notably more aggressive for their permit-needing status."
-  - image: "new sprites for half of the solfed-longarms."
-  - balance: "Shotguns across the board should be doing more damage, and the solfedshotguns (for the test) shoot, and rack notably faster."
-  - rscdel: "Stardust is dead, it's now a taser-in-a-shell, unlike the fake-taser stunslugs."
