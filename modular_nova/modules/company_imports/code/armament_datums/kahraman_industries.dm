@@ -34,7 +34,7 @@
 	name = "HAZARD Frontier Belt Modsuit"
 	item_type = /obj/item/mod/control/pre_equipped/frontier_colonist
 	description = "Spaceproof, shockproof, fits on your belt, and barely slows you down thanks \
-		thanks to proprietary "not putting servos in the joints" technology! \
+		thanks to proprietary \"not putting servos in the joints\" technology! \
 		What more could you ask for in the dead of space?"
 	cost = PAYCHECK_COMMAND * 6.5
 
