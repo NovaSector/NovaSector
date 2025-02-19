@@ -105,6 +105,10 @@
 	item_type = /obj/item/crafting_conversion_kit/voskhod_refit
 	cost = CARGO_CRATE_VALUE * 6
 
+/datum/armament_entry/company_import/nri_surplus/misc/voskhod_autodoc_refill
+	item_type = /obj/item/reagent_containers/cup/glass/waterbottle/large/opium
+	cost = CARGO_CRATE_VALUE
+
 /datum/armament_entry/company_import/nri_surplus/misc/nri_flag
 	item_type = /obj/item/sign/flag/nri
 	cost = PAYCHECK_LOWER
