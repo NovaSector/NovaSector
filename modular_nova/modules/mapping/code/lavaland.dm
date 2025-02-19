@@ -59,4 +59,4 @@
 	prefix = "_maps/RandomRuins/LavaRuins/nova/"
 	suffix = "lavaland_duo_hermit.dmm"
 	allow_duplicates = FALSE
-	cost = 10
+	cost = 0
