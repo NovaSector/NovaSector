@@ -242,6 +242,8 @@
 			boss_string = "reflective, the mirror image glaring with judgement"
 		if(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner)
 			boss_string = "thick with blood and the scent of alcohol"
+		if(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom)
+			boss_string = "swirling angrily with frothy blood"
 		if(/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner)
 			boss_string = "frozen over with bloodened ice"
 		if(/mob/living/simple_animal/hostile/megafauna/wendigo/noportal)
@@ -271,9 +273,10 @@
 
 /obj/structure/ore_vent/ghost_mining/boss/icemoon
 	icon_state = "ore_vent_ice_active"
-	summoned_boss = list(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner)
+	summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom //Icemoon portal "reward" specific version of BDM. Better than normal BDM, But should still be easier than the other spawns
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,
 		/mob/living/simple_animal/hostile/megafauna/wendigo/noportal,
 		/mob/living/simple_animal/hostile/megafauna/colossus,
+		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
 	)
