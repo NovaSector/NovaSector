@@ -1,5 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - qol: "The Colonial Supply Core now arrives as a /tg/ flatpack, no longer needing a shitload of resources to be deployed but only a multitool."
-  - balance: "The Colonial Supply Core's intended efficiency maluses are now properly applied."
