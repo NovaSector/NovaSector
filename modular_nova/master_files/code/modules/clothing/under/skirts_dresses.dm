@@ -227,6 +227,65 @@
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/under/dress/nova/giant_scarf/crystal
+	icon_state = "giant_scarf_crystal"
+	greyscale_config = /datum/greyscale_config/giant_scarf/crystal
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/crystal/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/stripe
+	icon_state = "giant_scarf_stripe"
+	greyscale_config = /datum/greyscale_config/giant_scarf/stripe
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/stripe/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/two_tone
+	icon_state = "giant_scarf_twotone"
+	greyscale_config = /datum/greyscale_config/giant_scarf/two_tone
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/two_tone/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/arrow
+	icon_state = "giant_scarf_arrow"
+	greyscale_config = /datum/greyscale_config/giant_scarf/arrow
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/arrow/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/fancy
+	icon_state = "giant_scarf_fancy"
+	greyscale_config = /datum/greyscale_config/giant_scarf/fancy
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/fancy/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/sepharim
+	icon_state = "giant_scarf_sepharim"
+	greyscale_config = /datum/greyscale_config/giant_scarf/sepharim
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/sepharim/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/bones
+	icon_state = "giant_scarf_bones"
+	greyscale_config = /datum/greyscale_config/giant_scarf/bones
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/bones/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/lines
+	icon_state = "giant_scarf_lines"
+	greyscale_config = /datum/greyscale_config/giant_scarf/lines
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/lines/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/runes
+	icon_state = "giant_scarf_runes"
+	greyscale_config = /datum/greyscale_config/giant_scarf/runes
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/runes/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
+
+/obj/item/clothing/under/dress/nova/giant_scarf/heart
+	icon_state = "giant_scarf_heart"
+	greyscale_config = /datum/greyscale_config/giant_scarf/heart
+	greyscale_config_worn = /datum/greyscale_config/giant_scarf/heart/worn
+	greyscale_colors = "#EEEEEE#bbbbbb"
 /*
  *	Others
  */
