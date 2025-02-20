@@ -48,6 +48,16 @@
 	suffix = "icemoon_underground_abandoned_sacred_temple.dmm"
 	allow_duplicates = FALSE
 
+/datum/map_template/ruin/icemoon/underground/nova/ice_boss_vent
+	name = "Ice-ruin Frozen Rite Location"
+	id = "ice_r_boss_vent"
+	description = "They believed sacrifices could give more rewards. They were not prepared for the felling of their hubris."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_boss_vent.dmm"
+	allow_duplicates = FALSE
+	cost = 0
+	mineral_cost = 1
+
 //Code for the Abandoned Sacred Temple
 /obj/structure/statue/hearthkin/odin
 	name = "statue of Óðinn"
