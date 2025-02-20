@@ -6,4 +6,4 @@
 
 	for(var/path in fish_counts)
 		if (!(path in fish_count_regen))
-			fish_count_regen[path] = 35 MINUTES
+			fish_count_regen[path] = 30 MINUTES
