@@ -4,9 +4,6 @@
 	fish_table[/obj/item/skeleton_key] = 1
 	fish_counts[/obj/item/skeleton_key] = 1
 	fish_count_regen[/obj/item/skeleton_key] = 13 MINUTES
-	fish_table[/obj/item/stack/sheet/mineral/abductor] = 1
-	fish_counts[/obj/item/stack/sheet/mineral/abductor] = 1
-	fish_count_regen[/obj/item/stack/sheet/mineral/abductor] = 20 MINUTES
 	fish_table[/obj/item/stack/sheet/mineral/runite] = 1
 	fish_counts[/obj/item/stack/sheet/mineral/runite] = 2
 	fish_count_regen[/obj/item/stack/sheet/mineral/runite] = 15 MINUTES
@@ -20,6 +17,3 @@
 	fish_table[/obj/item/skeleton_key] = 1
 	fish_counts[/obj/item/skeleton_key] = 1
 	fish_count_regen[/obj/item/skeleton_key] = 15 MINUTES
-	fish_table[/obj/item/stack/sheet/mineral/abductor] = 1
-	fish_counts[/obj/item/stack/sheet/mineral/abductor] = 1
-	fish_count_regen[/obj/item/stack/sheet/mineral/abductor] = 20 MINUTES
