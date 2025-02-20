@@ -227,12 +227,11 @@
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/dragon,
 		/mob/living/simple_animal/hostile/megafauna/colossus,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner,
 	)
 	excavation_warning = "Something big is nearby. Are you ABSOLUTELY ready to excavate this ore vent? A NODE drone will be deployed after threat is neutralized."
 	boulder_bounty = 40 // one boulder spawns roughly every minute, 40 minutes for the vent to reset
 	new_ore_cycle = FALSE //We just want the same boulder.
-	var/summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner //What do we spawn? Starts with BDM
+	var/summoned_boss = /mob/living/simple_animal/hostile/megafauna/dragon //What do we spawn? Starts with Drake (the fauna not that guy)
 
 /obj/structure/ore_vent/ghost_mining/boss/examine(mob/user)
 	. = ..()
@@ -242,10 +241,6 @@
 			boss_string = "oily, flames dancing along the edges"
 		if(/mob/living/simple_animal/hostile/megafauna/colossus)
 			boss_string = "reflective, the mirror image glaring with judgement"
-		if(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner)
-			boss_string = "thick with blood and the scent of alcohol"
-		if(/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom)
-			boss_string = "swirling angrily with frothy blood"
 		if(/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner)
 			boss_string = "frozen over with bloodened ice"
 		if(/mob/living/simple_animal/hostile/megafauna/wendigo/noportal)
@@ -276,10 +271,9 @@
 /obj/structure/ore_vent/ghost_mining/boss/icemoon
 	icon_state = "ore_vent_ice_active"
 	base_icon_state = "ore_vent_ice_active"
-	summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom //Icemoon portal "reward" specific version of BDM. Better than normal BDM, But should still be easier than the other spawns
+	summoned_boss = /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner // Icemoon's angriest man
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,
 		/mob/living/simple_animal/hostile/megafauna/wendigo/noportal,
 		/mob/living/simple_animal/hostile/megafauna/colossus,
-		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
 	)
