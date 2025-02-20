@@ -177,11 +177,13 @@
 
 /obj/structure/ore_vent/ghost_mining/snowland
 	icon_state = "ore_vent_ice_active"
+	base_icon_state = "ore_vent_ice_active"
 	defending_mobs = list(/mob/living/basic/mining/wolf) //one of the easier snowies
 	threat_pool = list(COLONY_THREAT_SNOW)
 
 /obj/structure/ore_vent/ghost_mining/undersnow
 	icon_state = "ore_vent_ice_active"
+	base_icon_state = "ore_vent_ice_active"
 	defending_mobs = list(/mob/living/basic/mining/wolf) //one of the easier snowies
 	threat_pool = list(COLONY_THREAT_ICE_MINING)
 
@@ -273,6 +275,7 @@
 
 /obj/structure/ore_vent/ghost_mining/boss/icemoon
 	icon_state = "ore_vent_ice_active"
+	base_icon_state = "ore_vent_ice_active"
 	summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom //Icemoon portal "reward" specific version of BDM. Better than normal BDM, But should still be easier than the other spawns
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,

@@ -69,7 +69,7 @@
 /area/icemoon/underground/unexplored)
 "U" = (
 /obj/structure/ore_vent/ghost_mining/boss/icemoon,
-/turf/open/misc/asteroid/snow,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/unexplored)
 "Y" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
