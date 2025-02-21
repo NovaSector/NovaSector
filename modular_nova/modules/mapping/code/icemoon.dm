@@ -49,11 +49,21 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/underground/nova/ice_boss_vent
-	name = "Ice-ruin Frozen Rite Location"
+	name = "Ice-Ruin Frozen Rite Location"
 	id = "ice_r_boss_vent"
 	description = "They believed sacrifices could give more rewards. They were not prepared for the felling of their hubris."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_underground_boss_vent.dmm"
+	allow_duplicates = FALSE
+	cost = 0
+	mineral_cost = 1
+
+/datum/map_template/ruin/icemoon/underground/nova/ice_elite_vent
+	name = "Ice-Ruin Frozen Well Location"
+	id = "ice_r_elite_vent"
+	description = "Jimmy never fell in the well. But it wasn't Jimmy that walked away"
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_elite_vent.dmm"
 	allow_duplicates = FALSE
 	cost = 0
 	mineral_cost = 1
@@ -88,7 +98,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/nova/snow_geosite
-	name = "Ice-ruin Surface Geological Site"
+	name = "Ice-Ruin Surface Geological Site"
 	id = "snow_geosite"
 	description = "A mishap during geological site testing ended a poor man's life. Anyways, Roll a d10 to loot the body."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"

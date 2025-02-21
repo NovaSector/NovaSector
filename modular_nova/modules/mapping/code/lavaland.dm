@@ -61,3 +61,13 @@
 	allow_duplicates = FALSE
 	cost = 0 // We'll steal ore vent costs for vents
 	mineral_cost = 1 //One vent
+
+/datum/map_template/ruin/lavaland/nova/elite_vent
+	name = "Lava-Ruin Lava Well"
+	id = "lava_r_elite_vent"
+	description = "A well of rich mineral water hidden below a small lake of lava. Nice that it was paved atleast."
+	prefix = "_maps/RandomRuins/LavaRuins/nova/"
+	suffix = "lavaland_surface_elite_vent.dmm" // 5x5
+	allow_duplicates = FALSE
+	cost = 0 // We'll steal ore vent costs for vents
+	mineral_cost = 1 //One vent
