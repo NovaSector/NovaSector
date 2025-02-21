@@ -315,6 +315,12 @@
 
 /obj/structure/ore_vent/ghost_mining/boss/elite
 	name = "rippling oxide pool"
+	mineral_breakdown = list( // Basic stuff for lavaproofing stuff
+		/datum/material/iron = 1,
+		/datum/material/glass = 1,
+		/datum/material/plasma = 1,
+		/datum/material/titanium = 1,
+	)
 	summoned_boss = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/hunter // bloody hunters, cant let dracula flow
 	static_magnitude = 4
 	static_boulder_size = LARGE_VENT_TYPE // Yes, We use the vent type here. Refer to lines 76 and 106
