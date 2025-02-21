@@ -397,3 +397,7 @@
       a shitload of resources to be deployed but only a multitool.
   - balance: The Colonial Supply Core's intended efficiency maluses are now properly
       applied.
+2025-02-21:
+  RatFromTheJungle:
+  - code_imp: Removes the one-size-fits-all chestical sprite from the suit made of
+      rubber, also drastically lowers it's strip-time.
