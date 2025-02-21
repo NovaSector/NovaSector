@@ -276,27 +276,39 @@
 	var/new_stamloss = mod.wearer.getStaminaLoss()
 	var/new_toxloss = mod.wearer.getToxLoss()
 
+	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+		if(!COOLDOWN_FINISHED(src, blood_timer))
+			return FALSE
+		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
+		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 2.5 * seconds_per_tick)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+		to_chat(mod.wearer, span_warning("Blood infused."))
+		drain_power(use_energy_cost * 10 * seconds_per_tick)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		COOLDOWN_START(src, blood_timer, general_cooldown)
+
 	if(mod.wearer.health < health_threshold)
 		if(!COOLDOWN_FINISHED(src, heal_timer))
 			return FALSE
-		if(new_oxyloss)
+		if(new_oxyloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
-		if(new_bruteloss)
+		if(new_bruteloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 2.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * 1 * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Wound treatment administered."))
-		if(new_fireloss)
+		if(new_fireloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 2.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * 1 * seconds_per_tick)
 			to_chat(mod.wearer, span_warning("Ointment applied."))
-		if(new_toxloss)
+		if(new_toxloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
 			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 2.5 * seconds_per_tick)
 			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
 			reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
@@ -305,7 +317,7 @@
 		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
 		COOLDOWN_START(src, heal_timer, general_cooldown)
 
-	if(new_stamloss > health_threshold)
+	if(new_stamloss > health_threshold && reagents.total_volume >= reagent_required_amount * 0.25 * seconds_per_tick)
 		if(!COOLDOWN_FINISHED(src, stamina_timer))
 			return FALSE
 		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 2.5 * seconds_per_tick)
@@ -317,17 +329,15 @@
 		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		COOLDOWN_START(src, stamina_timer, general_cooldown)
 
-	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY)
-		if(!COOLDOWN_FINISHED(src, blood_timer))
-			return FALSE
-		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 2.5 * seconds_per_tick)
-		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
-		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
-		to_chat(mod.wearer, span_warning("Blood infused."))
-		drain_power(use_energy_cost * 10 * seconds_per_tick)
-		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
-		COOLDOWN_START(src, blood_timer, general_cooldown)
+/obj/item/mod/module/auto_doc/emp_act(severity)
+	. = ..()
+	on_emp(src, severity, .)
+
+/obj/item/mod/module/auto_doc/proc/on_emp(datum/source, severity, protection)
+	SIGNAL_HANDLER
+	if(protection & EMP_PROTECT_SELF)
+		return
+	heal_aftereffects(mod.wearer, TRUE)
 
 /// Refills the module with needed chemicals, assuming the container isn't closed or the module isn't full.
 /obj/item/mod/module/auto_doc/proc/charge_boost(obj/item/attacking_item, mob/user)
@@ -343,9 +353,11 @@
 
 /obj/item/mod/module/auto_doc/on_install()
 	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
+	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
 
 /obj/item/mod/module/auto_doc/on_uninstall(deleting)
 	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
+	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
 
 /obj/item/mod/module/auto_doc/proc/try_refill(source, mob/user, obj/item/attacking_item)
 	SIGNAL_HANDLER
@@ -354,12 +366,12 @@
 	return NONE
 
 /// With a certain chance, triggers a spontaneous injection of opium into the user's bloodstream; suit design's rather ancient and prone to mishaps.
-/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob)
+/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob, var/forced)
 	if(!affected_mob)
 		return
 	var/fault_chance = (reagents.maximum_volume/(reagents.total_volume ? reagents.total_volume : 20))*5 // 5% at max opium, 20% at low-to-none opium
-	if(prob(fault_chance))
-		reagents.trans_to(affected_mob, 5)
+	if(prob(fault_chance) || forced == TRUE)
+		reagents.trans_to(affected_mob, min(15,reagents.total_volume))
 		balloon_alert(affected_mob, "opium leak!")
 		affected_mob.playsound_local(mod, 'sound/effects/spray3.ogg', 25, TRUE)
 
@@ -383,7 +395,7 @@
 		/obj/item/clothing/suit/space/voskhod = 1,
 		/obj/item/clothing/head/helmet/space/voskhod = 1,
 		/obj/item/crafting_conversion_kit/voskhod_refit = 1,
-		/obj/item/storage/backpack = 1,
+		/obj/item/storage/backpack/industrial/cin_surplus = 1,
 		/obj/item/mod/core = 1,
 		/obj/item/stock_parts/power_store/cell/high = 1,
 		/obj/item/stack/sheet/plasteel = 10,
