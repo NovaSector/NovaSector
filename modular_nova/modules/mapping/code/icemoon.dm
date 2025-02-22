@@ -41,7 +41,7 @@
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/icemoon/underground/nova/duo_hermit
-	name = "Duo Hermit"
+	name = "Ice-ruin Duo Hermit"
 	id = "icemoon-duo-hermit"
 	description = "A place of shelter for a duet of hermits, scraping by to live another day."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
