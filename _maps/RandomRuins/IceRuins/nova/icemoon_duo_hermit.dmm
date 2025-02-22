@@ -9,13 +9,22 @@
 /area/ruin/powered/hermit)
 "bp" = (
 /obj/structure/table/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/item/trash/shrimp_chips,
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
 "bM" = (
-/obj/machinery/door/airlock/wood{
-	name = "Frozen Shack"
-	},
 /obj/structure/fans/tiny/invisible,
+/obj/structure/mineral_door/wood/large_gate,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
 /turf/open/floor/stone,
 /area/ruin/powered/hermit)
 "cI" = (
@@ -23,15 +32,21 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/powered/hermit)
 "dY" = (
-/obj/structure/mineral_door/wood/large_gate,
+/obj/structure/curtain/cloth/fancy,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "fE" = (
-/obj/item/stack/sheet/mineral/wood/fifty,
-/obj/item/stack/sheet/mineral/wood/fifty,
-/obj/structure/closet/crate/wooden,
-/turf/open/floor/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/stone,
 /area/ruin/powered/hermit)
+"fR" = (
+/turf/open/space/basic,
+/area/icemoon/underground/explored)
 "fS" = (
 /obj/structure/decorative/shelf,
 /obj/item/raptor_dex,
@@ -60,6 +75,8 @@
 "il" = (
 /obj/structure/table/wood,
 /obj/item/plate,
+/obj/effect/turf_decal/siding/wood,
+/obj/item/food/breadslice/moldy/bacteria,
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
 "io" = (
@@ -96,16 +113,13 @@
 /area/ruin/powered/hermit)
 "oE" = (
 /obj/structure/decorative/shelf,
-/obj/item/storage/toolbox/drone,
-/obj/item/flatpacked_machine/wind_turbine,
-/obj/item/flatpacked_machine/wind_turbine,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/tank/internals/emergency_oxygen/engi,
-/obj/item/pipe_dispenser,
 /obj/item/flashlight/flare/torch,
 /obj/item/flashlight/flare/torch,
 /obj/item/flashlight/flare/torch,
 /obj/item/flashlight/flare/torch,
+/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "oJ" = (
@@ -134,6 +148,15 @@
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/ruin/powered/hermit)
 "uQ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
 /turf/open/floor/stone,
 /area/ruin/powered/hermit)
 "vr" = (
@@ -142,22 +165,31 @@
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "vy" = (
-/obj/machinery/autolathe,
+/obj/structure/safe/floor,
+/obj/item/flatpacked_machine/wind_turbine,
+/obj/item/flatpacked_machine/wind_turbine,
+/obj/item/pipe_dispenser,
+/obj/item/circuitboard/machine/autolathe,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "vV" = (
 /obj/structure/closet/crate/grave/filled,
-/obj/item/pickaxe/diamond,
 /obj/item/xenoarch/handheld_recoverer,
 /obj/effect/decal/remains/human,
+/obj/item/pickaxe/silver,
+/obj/item/stack/cable_coil/five,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/servo,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "wf" = (
-/obj/item/gun/energy/laser/musket/prime,
 /obj/structure/table/wood,
 /obj/item/flashlight/lantern,
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/knife/hunting,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "wI" = (
@@ -186,6 +218,9 @@
 /area/ruin/powered/hermit)
 "IY" = (
 /obj/structure/chair/sofa/middle,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
 "JI" = (
@@ -194,6 +229,9 @@
 "JS" = (
 /obj/structure/chair/sofa/right{
 	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
 	},
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
@@ -226,6 +264,12 @@
 	dir = 8;
 	pixel_y = -2
 	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
 /turf/open/floor/stone,
 /area/ruin/powered/hermit)
 "TL" = (
@@ -234,11 +278,18 @@
 "Vc" = (
 /obj/item/storage/medkit/surgery,
 /obj/structure/decorative/shelf,
+/obj/item/clothing/neck/stethoscope,
 /turf/open/floor/wood,
 /area/ruin/powered/hermit)
 "WK" = (
 /obj/structure/chair/sofa/corner{
 	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
 	},
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
@@ -248,14 +299,15 @@
 /area/ruin/powered/hermit)
 "Yi" = (
 /obj/structure/chair/sofa/left,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
 /turf/open/floor/carpet/neon/simple/black,
 /area/ruin/powered/hermit)
 "YA" = (
-/obj/structure/mineral_door/wood/large_gate{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/ruin/powered/hermit)
+/mob/living/basic/raptor/baby_raptor/white,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
 "ZO" = (
 /obj/machinery/space_heater,
 /turf/open/floor/wood,
@@ -357,7 +409,7 @@ uw
 WK
 JS
 JI
-fE
+JI
 TL
 TL
 TL
@@ -382,7 +434,7 @@ sC
 JI
 oJ
 TL
-sy
+YA
 aM
 aM
 aM
@@ -397,8 +449,8 @@ JI
 TL
 fS
 uQ
-uQ
-uQ
+fE
+fE
 bM
 aM
 aM
@@ -426,10 +478,10 @@ CR
 (10,1,1) = {"
 uw
 uw
-YA
+dY
 uw
 uw
-YA
+dY
 TL
 TL
 TL
@@ -449,7 +501,7 @@ WP
 uw
 JI
 JI
-JI
+dY
 JI
 JI
 oJ
@@ -491,7 +543,7 @@ JI
 ZO
 uw
 aM
-aM
+fR
 Rr
 aM
 "}
