@@ -44,9 +44,6 @@
 	},
 /turf/open/floor/stone,
 /area/ruin/powered/hermit)
-"fR" = (
-/turf/open/space/basic,
-/area/icemoon/underground/explored)
 "fS" = (
 /obj/structure/decorative/shelf,
 /obj/item/raptor_dex,
@@ -543,7 +540,7 @@ JI
 ZO
 uw
 aM
-fR
+aM
 Rr
 aM
 "}
