@@ -53,7 +53,7 @@
 	mineral_cost = 2
 
 /datum/map_template/ruin/lavaland/nova/duo_hermit
-	name = "Lavaland Duo Makeshift Shelter"
+	name = "Lava-Ruin Duo Makeshift Shelter"
 	id = "lavaland-duo-hermit"
 	description = "A place of shelter for a duet of hermits, scraping by to live another day."
 	prefix = "_maps/RandomRuins/LavaRuins/nova/"
