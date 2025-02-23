@@ -6,7 +6,6 @@
 #define COLONY_THREAT_ICE_MINING "ice-mining"
 #define COLONY_THREAT_BEACH "beach"
 #define COLONY_THREAT_CULT "cult"
-#define COLONY_THREAT_STATIC "static" //For use in megafauna/elite vents
 
 //Resetting veins for ghost roles. Randomizes bouldersize, mineral breakdown, and potentially threats.
 
@@ -25,6 +24,7 @@
 	var/clear_tally = 0 //so we can track how many time it clears for data-testing purposes.
 	var/boulder_bounty = 10 //how many boulders per clear attempt. First one is small and easy
 	var/new_ore_cycle = TRUE //We want this to generate new ore types upon untapping. Var incase we want some wacky shit later.
+	var/static_threat = FALSE //Is this a static threat? Useful for boss/elite vents
 	var/static_magnitude = null //Does this vent have a static magnitude?
 	var/static_boulder_size = null //Does this vent have a static boulder size?
 	var/static_boulder_bounty = null //does this vent have a static boulder bounty?
@@ -124,9 +124,7 @@
 
 	var/threat_pick = pick(threat_pool) //We choose from the threat pool list and use it to generate a defending_mobs list. todo: complex additive mode for funny shenanigans
 
-	if(threat_pick == COLONY_THREAT_STATIC)
-		threat_pick = null
-	else
+	if(!static_threat)
 		switch(threat_pick)
 			if(COLONY_THREAT_CARP) // carps. space fishies. easy to kill but kinda dodgy and could outnumber
 				defending_mobs = list(
@@ -236,7 +234,7 @@
 /obj/structure/ore_vent/ghost_mining/boss
 	name = "swirling oxide pool"
 	desc = "A deep mineral pool laden with massive oxide chunks. This one has an evil aura about it. Better be careful."
-	threat_pool = list(COLONY_THREAT_STATIC)
+	static_threat = TRUE
 	unique_vent = TRUE
 	spawn_drone_on_tap = FALSE
 	boulder_size = BOULDER_SIZE_LARGE
