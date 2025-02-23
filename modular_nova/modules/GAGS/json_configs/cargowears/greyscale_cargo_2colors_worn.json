@@ -1,0 +1,86 @@
+{
+	"fancycargotech": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"fancycargotech_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_1_d",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_2_d",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"standardgorka": [
+		{
+			"type": "icon_state",
+			"icon_state": "gorka_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "gorka_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"fancytechjeans": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancytechjeans_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytechjeans_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"fancyskirt": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"fancyskirt_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_1_d",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_2_d",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

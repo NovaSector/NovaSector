@@ -1,0 +1,121 @@
+{
+	"fancy_gorka": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancygorka_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancygorka_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancygorka_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	],
+	"fancytech_alt": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_alt_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_alt_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_alt_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	],
+	"fancytech_alt_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_alt_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_alt_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancytech_alt_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	],
+	"fancyskirt_alt": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_alt_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_alt_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_alt_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	],
+	"fancyskirt_alt_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_alt_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_alt_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancyskirt_alt_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	],	"syndtech": [
+		{
+			"type": "icon_state",
+			"icon_state": "syndtech_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "syndtech_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "syndtech_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

@@ -307,3 +307,140 @@
 	playsound(wearer, 'sound/effects/spray.ogg', 80)
 	detach(attached_to) // safely remove wetsuit status effect
 	qdel(src)
+
+/*
+
+Greyscaled medals
+I need some help with more sprites for the different medals
+
+HELP: I want to make a medal thats all roles combined of a department
+EX: A medical medal if players reach 100+ hrs on each medical dept role individually
+If someone could make it be able to track individual roles as well like for blueshield, I want it to track blueshield time only, that would be awesome!
+
+I plan/hope to have thee medals be given on spawn as a "opt-in" for on spawn but also unlock themselves in the loadouts menu, not sure how hard that would be though
+
+I plan to many more medals be time based like role/department based so people can show their dedications, and also having more unique situational medals that centcomm can issue, and so we have more medals to play with, as the department medals that could be rewarded are very very limiting
+
+Note for Contributors/Maintainers, I did what I could to keep things robust and allow for as much customization as possible!, feel free to do what you can for your own accessories!
+*/
+// Base Medal, debug failsafe
+/obj/item/clothing/accessory/nova/medal
+	name = "Robust Debug Medal"
+	desc = "Why the fuck do you have this????"
+	icon_state = "DebugMedal"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
+	greyscale_colors = "#ff0000#ff9100#f2ff00#3cff00#00f2ff"
+	greyscale_config = /datum/greyscale_config/nova_medal
+	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
+
+// Give this three of this medal to DS-2
+/obj/item/clothing/accessory/nova/medal/syndintel
+	name = "Medal of Espionage"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal awarded to those who show dedication to espionage for the syndicate"
+	icon_state = "syndintel_medal"
+	greyscale_colors = "#ff0000#ffff66#800000#c0c0c0"
+	greyscale_config = /datum/greyscale_config/syndintel_medal
+	greyscale_config_worn = /datum/greyscale_config/syndintel_medal/worn
+
+// 500hr+ Timed Blueshield Medal
+/obj/item/clothing/accessory/nova/medal/bs_time
+	name = "Hollowed Shield Medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal of dedication for those who go above and beyond for the blueshields"
+	icon_state = "bs_time"
+	greyscale_colors = "#3399ff#ffff66#003399#ffffff"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Consultant Medal
+/obj/item/clothing/accessory/nova/medal/ntc_time
+	name = "Dedication to Beaurocracy"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal of dedication for those who go above and beyond in paperwork for nanotrasen"
+	icon_state = "ntc_time"
+	greyscale_colors = "#33cc33#ffff66#006600#ffffff"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Chief Medical Officer Medal
+/obj/item/clothing/accessory/nova/medal/cmo_time
+	name = "Guardian Scalple"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "cmo_time"
+	greyscale_colors = "#00ccff#ffff66#336699#66ffff"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Research Director Medal
+/obj/item/clothing/accessory/nova/medal/rd_time
+	name = "Diligent Scientific Studies"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "rd_time"
+	greyscale_colors = "#9933ff#ffff66#6600cc#cc99ff"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Captain Medal
+/obj/item/clothing/accessory/nova/medal/cpt_time
+	name = "Diligence of Captaincy"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "cpt_time"
+	greyscale_colors = "#0099ff#ffff66#003399#ffff00"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Quartermaster Medal
+/obj/item/clothing/accessory/nova/medal/qm_time
+	name = "Golden Profit Margins"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "qm_time"
+	greyscale_colors = "#cc9900#ffff66#996633#cc9900"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Chief Engineer Medal
+/obj/item/clothing/accessory/nova/medal/ce_time
+	name = "Golden Wrenches Medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "ce_time"
+	greyscale_colors = "#ff9933#ffff66#cc6600#ffff00"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// 500hr+ Timed Head of Security Medal
+/obj/item/clothing/accessory/nova/medal/hos_time
+	name = "Golden Batons Medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "hos_time"
+	greyscale_colors = "#0066ff#ffff66#003399#6699ff"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// Rewarded to players who are veterans of nova sector
+/obj/item/clothing/accessory/nova/medal/nova_veteran
+	name = "Medal of Dedication"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "nova_vet"
+	greyscale_colors = "#9933ff#ffffff#9900ff#ffffff"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+// Rewarded to players who are veterans of nova sector (having veteran status | NOT THE PLAYTIME VETERANCY)
+/obj/item/clothing/accessory/nova/medal/hop_time
+	name = "Efficient Beaurocracy"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "a medal showing your true dedications."
+	icon_state = "hop_time"
+	greyscale_colors = "#00cc00#ffff66#008000#99ff99"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn

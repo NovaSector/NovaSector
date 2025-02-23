@@ -114,3 +114,86 @@
 	name = "quartermaster's casualwear"
 	desc = "A brown jacket with matching trousers for the relaxed Quartermaster."
 	icon_state = "qmc"
+
+/*
+*	Recolorable Attire
+*/
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancygorka
+	name = "Fancy Gorka"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "fancy_gorka"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/fancygorka
+	greyscale_config_worn = /datum/greyscale_config/fancygorka/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancygorka/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancycargotech
+	name = "Fancy Cargo Tech"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "fancycargotech"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/fancycargotech
+	greyscale_config_worn = /datum/greyscale_config/fancycargotech/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancycargotech/worn/digi
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/standardgorka
+	name = "Standard Gorka"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "standardgorka"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/standardgorka
+	greyscale_config_worn = /datum/greyscale_config/standardgorka/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/standardgorka/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancytechjeans
+	name = "Fancy Tech Jeans"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "fancytechjeans"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/fancytechjeans
+	greyscale_config_worn = /datum/greyscale_config/fancytechjeans/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancytechjeans/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/syndtech
+	name = "SyndiTech"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "syndtech"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/syndtech
+	greyscale_config_worn = /datum/greyscale_config/syndtech/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/syndtech/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancytech_alt
+	name = "Alt Fancy Tech"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "fancytech_alt"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/fancytech_alt
+	greyscale_config_worn = /datum/greyscale_config/fancytech_alt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancytech_alt/worn/digi
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt_alt
+	name = "fancy skirt alt"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "fancyskirt_alt"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/fancyskirt_alt
+	greyscale_config_worn = /datum/greyscale_config/fancyskirt_alt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancyskirt_alt/worn/digi
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt
+	name = "fancy skirt"
+	desc = "DEBUG ADD DESC HERE"
+	icon_state = "fancyskirt"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/fancyskirt
+	greyscale_config_worn = /datum/greyscale_config/fancyskirt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancyskirt/worn/digi

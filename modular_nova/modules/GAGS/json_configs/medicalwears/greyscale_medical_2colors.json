@@ -1,0 +1,68 @@
+{
+	"scrubs": [
+		{
+			"type": "icon_state",
+			"icon_state": "scrubs_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "scrubs_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"scrubs_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "scrubs_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "scrubs_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"meduniform": [
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_3",
+			"blend_mode": "overlay"
+		}
+	],
+	"meduniform_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_3",
+			"blend_mode": "overlay"
+		}
+	]
+}

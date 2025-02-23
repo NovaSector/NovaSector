@@ -168,3 +168,88 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
+
+/*
+
+Recolorable Uniforms
+
+This position is temporary until someone or I modify the above code to support it immediately... or until I get the colors right... Cant have the same mistake as the RD labcoat being the wrong color in PR: #
+
+*/
+
+/obj/item/clothing/under/rank/medical/recolorable
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs
+	name = "Greyscale Scrubs"
+	desc = "This is a failsafe if shit happens, whoops!"
+	icon_state = "scrubs"
+	greyscale_colors = "#818181#818181"
+	greyscale_config = /datum/greyscale_config/scrubs
+	greyscale_config_worn = /datum/greyscale_config/scrubs/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/scrubs/worn/digi
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/red
+	name = "Red Scrubs"
+	desc = "DEVELOPER DESC, FUCKING CHANGE ME!"
+	greyscale_colors = "#9D2522#9D2522"
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/wine
+	name = "Wine Scrubs"
+	desc = "DEVELOPER DESC, FUCKING CHANGE ME!"
+	greyscale_colors = "#9D2251#9D2251"
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/blue
+	name = "Blue Scrubs"
+	desc = "DEVELOPER DESC, FUCKING CHANGE ME!"
+	greyscale_colors = "#85C1E6#85C1E6"
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/green
+	name = "Green Scrubs"
+	desc = "DEVELOPER DESC, FUCKING CHANGE ME!"
+	greyscale_colors = "#219449#219449"
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/black
+	name = "Black Scrubs"
+	desc = "DEVELOPER DESC, FUCKING CHANGE ME!"
+	greyscale_colors = "#39393F#39393F"
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/white
+	name = "White Scrubs"
+	desc = "DEVELOPER DESC, FUCKING CHANGE ME!"
+	greyscale_colors = "#EEEEEE#EEEEEE"
+
+/obj/item/clothing/under/rank/medical/recolorable/scrubs/orderly
+	name = "Orderlies Scrubs"
+	desc = "Test Description"
+	greyscale_colors = "#EEEEEE#3E3E48"
+	armor_type = /datum/armor/clothing_under/rank_medicaldebug
+
+/datum/armor/clothing_under/rank_medicaldebug
+
+	bio = 100
+// Note, FIGURE OUT ARMOR
+
+/obj/item/clothing/under/rank/medical/recolorable/meduniform
+	name = "Medical Uniform"
+	desc = "Test Description"
+	icon_state = "meduniform"
+	greyscale_colors = "#5FA4CC#EEEEEE"
+	greyscale_config = /datum/greyscale_config/meduniform
+	greyscale_config_worn = /datum/greyscale_config/meduniform/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/meduniform/worn/digi
+
+/obj/item/clothing/under/rank/medical/recolorable/meduniform/chemist
+	name = "Chemist Uniform"
+	desc = "Test Description"
+	greyscale_colors = "#D15B1B#EEEEEE"
+
+/obj/item/clothing/under/rank/medical/recolorable/meduniform/virologist
+	name = "Virologist Uniform"
+	desc = "Test Description"
+	greyscale_colors = "#198019#EEEEEE"
+
+/obj/item/clothing/under/rank/medical/recolorable/meduniform/cmo
+	name = "Chief Medical Officer Uniform"
+	desc = "Test Description"
+	greyscale_colors = "#479194#EEEEEE"

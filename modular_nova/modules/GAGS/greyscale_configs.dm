@@ -2108,3 +2108,201 @@ TREK
 /datum/greyscale_config/fancy_labcoat/worn/teshari
 	name = "Fancy Suit (Worn, Teshari)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/fancy_labcoat/fancy_labcoat_tesh_worn.json'
+
+/*
+
+ Cargo Attire Greyscale Data
+
+*/
+
+/datum/greyscale_config/fancygorka
+	name = "FancyGorka"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors.json'
+
+/datum/greyscale_config/fancygorka/worn
+	name = "FancyGorka (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancygorka/worn/digi
+	name = "FancyGorka (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancycargotech
+	name = "fancycargotech"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors.json'
+
+/datum/greyscale_config/fancycargotech/worn
+	name = "fancycargotech (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/fancycargotech/worn/digi
+	name = "fancycargotech (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/standardgorka
+	name = "standardgorka"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors.json'
+
+/datum/greyscale_config/standardgorka/worn
+	name = "standardgorka (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/standardgorka/worn/digi
+	name = "standardgorka (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/fancytechjeans
+	name = "fancytechjeans"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors.json'
+
+/datum/greyscale_config/fancytechjeans/worn
+	name = "fancytechjeans (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/fancytechjeans/worn/digi
+	name = "fancytechjeans (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/syndtech
+	name = "syndtech"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors.json'
+
+/datum/greyscale_config/syndtech/worn
+	name = "syndtech (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/syndtech/worn/digi
+	name = "syndtech (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancytech_alt
+	name = "fancytech_alt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors.json'
+
+/datum/greyscale_config/fancytech_alt/worn
+	name = "fancytech_alt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancytech_alt/worn/digi
+	name = "fancytech_alt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancyskirt_alt
+	name = "fancyskirt_alt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors.json'
+
+/datum/greyscale_config/fancyskirt_alt/worn
+	name = "fancyskirt_alt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancyskirt_alt/worn/digi
+	name = "fancyskirt_alt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_3colors_worn.json'
+
+/datum/greyscale_config/fancyskirt
+	name = "fancyskirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors.json'
+
+/datum/greyscale_config/fancyskirt/worn
+	name = "fancyskirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/datum/greyscale_config/fancyskirt/worn/digi
+	name = "fancyskirt (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/cargo_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/cargowears/greyscale_cargo_2colors_worn.json'
+
+/*
+
+	Greyscaled Medical Attire
+
+*/
+
+/datum/greyscale_config/scrubs
+	name = "scrubs"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/medicalwears/greyscale_medical_2colors.json'
+
+/datum/greyscale_config/scrubs/worn
+	name = "scrubs (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/medicalwears/greyscale_medical_2colors_worn.json'
+
+/datum/greyscale_config/scrubs/worn/digi
+	name = "scrubs (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/medicalwears/greyscale_medical_2colors_worn.json'
+
+/datum/greyscale_config/meduniform
+	name = "med uniform"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/medicalwears/greyscale_medical_2colors.json'
+
+/datum/greyscale_config/meduniform/worn
+	name = "med uniform (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/medicalwears/greyscale_medical_2colors.json'
+
+/datum/greyscale_config/meduniform/worn/digi
+	name = "med uniform (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/medicalwears/greyscale_medical_2colors.json'
+
+/*
+
+	Greyscaled Medals
+
+*/
+
+/datum/greyscale_config/nova_medal
+	name = "nova_medal"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/fancy_accessories.json'
+
+/datum/greyscale_config/nova_medal/worn
+	name = "nova_medal (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/fancy_accessories.json'
+
+/datum/greyscale_config/syndintel_medal
+	name = "syndintel_medal"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/syndintel_medal.json'
+
+/datum/greyscale_config/syndintel_medal/worn
+	name = "syndintel_medal (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/syndintel_medal.json'
+
+/datum/greyscale_config/cmdtime_medal
+	name = "cmdtime_medal"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/cmdtime_medal.json'
+
+/datum/greyscale_config/cmdtime_medal/worn
+	name = "cmdtime_medal (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/cmdtime_medal.json'
