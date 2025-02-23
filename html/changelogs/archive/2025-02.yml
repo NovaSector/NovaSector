@@ -401,3 +401,8 @@
   RatFromTheJungle:
   - code_imp: Removes the one-size-fits-all chestical sprite from the suit made of
       rubber, also drastically lowers it's strip-time.
+2025-02-23:
+  Hardly:
+  - rscadd: Adds tailored jacket to the clothesmate.
+  Iajret:
+  - bugfix: fixed Nova's verbs in TGUI Say for 516 byond
