@@ -680,6 +680,16 @@
 	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/suit/peacekeeper_jacket_badge
+	name = "Badged Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/peacekeeper_wintercoat
+	name = "Security Wintercoat"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
 /datum/loadout_item/suit/peacekeeper_jacket/badge
 	name = "Badged Peacekeeper Jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
