@@ -2306,3 +2306,23 @@ TREK
 	name = "cmdtime_medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/Accessories/cmdtime_medal.json'
+
+/*
+
+Greyscaled tarkon
+
+*/
+/datum/greyscale_config/tarkonuniform
+	name = "tarkonuniform"
+	icon_file = 'modular_nova/modules/tarkon/icons/obj/clothing/uniform.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/tarkon/tarkonuniform.json'
+
+/datum/greyscale_config/tarkonuniform/worn
+	name = "tarkonuniform (Worn)"
+	icon_file = 'modular_nova/modules/tarkon/icons/mob/clothing/uniform.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/tarkon/tarkonuniform_worn.json'
+
+/datum/greyscale_config/tarkonuniform/worn/digi
+	name = "tarkonuniform (Worn, Digi)"
+	icon_file = 'modular_nova/modules/tarkon/icons/mob/clothing/uniform_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/tarkon/tarkonuniform_worn.json'
