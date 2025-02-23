@@ -626,6 +626,11 @@
 	item_path = /obj/item/clothing/head/fedora/det_hat/cybergoggles
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/head/detfedora
+	name = "Detective's Fedora"
+	item_path = /obj/item/clothing/head/fedora/det_hat
+	restricted_roles = list(JOB_DETECTIVE)
+
 /datum/loadout_item/head/nursehat
 	name = "Nurse Hat"
 	item_path = /obj/item/clothing/head/costume/nursehat
