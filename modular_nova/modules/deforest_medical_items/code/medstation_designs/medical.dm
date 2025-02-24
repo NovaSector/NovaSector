@@ -119,12 +119,12 @@
 		RND_CATEGORY_DEFOREST_MEDICAL,
 	)
 
-/datum/design/organic_printer_opium
-	name = "Bottle Of Opium"
-	id = "organic_opium"
+/datum/design/organic_printer_protozine
+	name = "Bottle Of Protozine"
+	id = "organic_protozine"
 	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/reagent_containers/cup/glass/waterbottle/large/opium
+	materials = list(/datum/material/biomass = 200)
+	build_path = /obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_DEFOREST_MEDICAL,

@@ -106,7 +106,7 @@
 	cost = CARGO_CRATE_VALUE * 6
 
 /datum/armament_entry/company_import/nri_surplus/misc/voskhod_autodoc_refill
-	item_type = /obj/item/reagent_containers/cup/glass/waterbottle/large/opium
+	item_type = /obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
 	cost = CARGO_CRATE_VALUE
 
 /datum/armament_entry/company_import/nri_surplus/misc/nri_flag

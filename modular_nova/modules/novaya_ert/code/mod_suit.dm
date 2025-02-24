@@ -7,7 +7,7 @@
 	a dubiously efficient dissipation of any stray photon ray or a concentrated laser, were one to get hit by them. The suit's infamous autoparamedical systems \
 	are also fully present - or their chemical synthesizing part, consisting of a thin web of subdermal autoinjectors, reaction cameras and tubes lined through the \
 	insulation material - leading into its control unit where the relevant synthesis proceeds, mainly out of raw materials of the pharmaceutical industry; \
-	morphine's older brother, opium. The sight of a white-and-green juggernaut is the one that instills many fears into numerous pirates; earning it the reputation of a peacekeeper \
+	omnizine's older brother, protozine. The sight of a white-and-green juggernaut is the one that instills many fears into numerous pirates; earning it the reputation of a peacekeeper \
 	and a niche amongst the rimworld population."
 	default_skin = "voskhod"
 	armor_type = /datum/armor/mod_theme_voskhod
@@ -216,7 +216,7 @@
 		The technology it uses is very similar to the one of the N-URSEI suites, yet miniaturised and lacking self-synthesis capabilities. \
 		Using a built-in storage of chemical compounds and a miniature chemical mixer, it's capable of injecting its user with a plethora of drugs, \
 		assisting them with their restoration. However, this system heavily relies on some rarely combat-available chemical compounds to prepare its injections, \
-		mainly Opium, which appear in the user's bloodstream from time to time, and its trivial damage assessment systems are prone to kicking in only when you're moderately wounded."
+		mainly Protozine, which appear in the user's bloodstream from time to time, and its trivial damage assessment systems are prone to kicking in only when you're moderately wounded."
 	icon_state = "adrenaline_boost"
 	module_type = MODULE_TOGGLE
 	incompatible_modules = list(
@@ -243,7 +243,7 @@
 	removable = FALSE
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 20
 	/// Reagent used as 'fuel'
-	var/reagent_required = /datum/reagent/drug/opium
+	var/reagent_required = /datum/reagent/medicine/omnizine/protozine
 	/// How much of a reagent we need to refill a single boost.
 	var/reagent_required_amount = 20
 	/// Maximum amount of reagents this module can hold.
@@ -365,20 +365,20 @@
 		return COMPONENT_NO_AFTERATTACK
 	return NONE
 
-/// With a certain chance, triggers a spontaneous injection of opium into the user's bloodstream; suit design's rather ancient and prone to mishaps.
+/// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream; suit design's rather ancient and prone to mishaps.
 /obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob, var/forced)
 	if(!affected_mob)
 		return
-	var/fault_chance = (reagents.maximum_volume/(reagents.total_volume ? reagents.total_volume : 20))*5 // 5% at max opium, 20% at low-to-none opium
+	var/fault_chance = (reagents.maximum_volume/(reagents.total_volume ? reagents.total_volume : 20))*5 // 5% at max protozine, 20% at low-to-none protozine
 	if(prob(fault_chance) || forced == TRUE)
 		reagents.trans_to(affected_mob, min(15,reagents.total_volume))
-		balloon_alert(affected_mob, "opium leak!")
+		balloon_alert(affected_mob, "protozine leak!")
 		affected_mob.playsound_local(mod, 'sound/effects/spray3.ogg', 25, TRUE)
 
-/obj/item/reagent_containers/cup/glass/waterbottle/large/opium
-	name = "bottle of opium"
+/obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
+	name = "bottle of protozine"
 	desc = "Nothing screams 'Budget cuts' like a plastic bottle of autodoc refills."
-	list_reagents = list(/datum/reagent/drug/opium = 100)
+	list_reagents = list(/datum/reagent/medicine/omnizine/protozine = 100)
 
 /obj/item/crafting_conversion_kit/voskhod_refit
 	name = "\improper Voskhod depowered armor MOD refit kit"
