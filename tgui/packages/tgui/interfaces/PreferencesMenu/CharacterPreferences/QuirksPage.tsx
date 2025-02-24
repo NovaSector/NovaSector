@@ -5,10 +5,12 @@ import {
   Box,
   Button,
   Icon,
+  Input,
   Popper,
   Stack,
   Tooltip,
 } from 'tgui-core/components';
+import { createSearch } from 'tgui-core/string';
 
 import {
   PreferencesMenuData,
@@ -315,11 +317,15 @@ export function QuirksPage(props) {
     data.character_preferences.non_contextual.random_body !==
       RandomSetting.Disabled || randomToggleEnabled;
 
-  const [selectedQuirks, setSelectedQuirks] = useState(data.selected_quirks);
+  const selectedQuirks = data.selected_quirks;
+  function setSelectedQuirks(selected_quirks) {
+    data.selected_quirks = selected_quirks;
+  }
 
+  const [searchQuery, setSearchQuery] = useState('');
   const server_data = useServerPrefs();
   if (!server_data) return;
-
+  const quirkSearch = createSearch(searchQuery, (quirk: Quirk) => quirk.name);
   const {
     max_positive_quirks: maxPositiveQuirks,
     quirk_blacklist: quirkBlacklist,
@@ -426,7 +432,14 @@ export function QuirksPage(props) {
               Available Quirks
             </Box>
           </Stack.Item>
-
+          <Stack.Item>
+            <Input
+              placeholder="Search quirks..."
+              width="200px"
+              value={searchQuery}
+              onInput={(text, value) => setSearchQuery(value)}
+            />
+          </Stack.Item>
           <Stack.Item grow width="100%">
             <QuirkList
               selected={false}
@@ -441,7 +454,10 @@ export function QuirksPage(props) {
               }}
               quirks={quirks
                 .filter(([quirkName, _]) => {
-                  return selectedQuirks.indexOf(quirkName) === -1;
+                  return (
+                    selectedQuirks.indexOf(quirkName) === -1 &&
+                    quirkSearch(quirkInfo[quirkName])
+                  );
                 })
                 .map(([quirkName, quirk]) => {
                   return [
@@ -472,7 +488,6 @@ export function QuirksPage(props) {
               <Box mt={maxPositiveQuirks > 0 ? 3.4 : 0} />
             )}
           </Stack.Item>
-
           <Stack.Item>
             {pointsEnabled ? (
               <StatDisplay>{balance}</StatDisplay>
@@ -480,13 +495,12 @@ export function QuirksPage(props) {
               <Box mt={maxPositiveQuirks > 0 ? 3.4 : 0} />
             )}
           </Stack.Item>
-
           <Stack.Item>
             <Box as="b" fontSize="1.6em">
               Current Quirks
             </Box>
           </Stack.Item>
-
+          &nbsp; {/* Filler to better align the menu*/}
           <Stack.Item grow width="100%">
             <QuirkList
               selected

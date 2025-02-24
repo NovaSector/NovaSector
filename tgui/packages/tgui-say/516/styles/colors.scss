@@ -27,6 +27,16 @@ $_channel_map: (
   'Supp': hsl(33.7, 44.9%, 49.8%),
   'Svc': hsl(88.1, 60.6%, 40.8%),
   'Synd': hsl(359.1, 31.8%, 42.5%),
+  // NOVA EDIT ADDITION START
+  'LOOC': hsl(20, 100%, 86%),
+  'Dyne': hsl(347, 43%, 47%),
+  'Tark': hsl(42, 43%, 50%),
+  'Csun': hsl(21, 56%, 45%),
+  'Guild': hsl(0, 0%, 70%),
+  'SolFed': hsl(68, 70%, 60%),
+  'Whis': hsl(238, 55%, 67%),
+  'Do': hsl(137, 64%, 60%),
+  // NOVA EDIT ADDITION END
 );
 
 $channel_keys: map.keys($_channel_map) !default;

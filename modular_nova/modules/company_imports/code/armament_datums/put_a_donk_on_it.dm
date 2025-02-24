@@ -35,6 +35,13 @@
 /datum/armament_entry/company_import/donk/food/teriyaki_pockets
 	item_type = /obj/item/storage/box/donkpockets/donkpocketteriyaki
 
+/datum/armament_entry/company_import/donk/pet_food
+	subcategory = "Pet Food"
+	cost = PAYCHECK_CREW * 2
+
+/datum/armament_entry/company_import/donk/pet_food/void
+	item_type = /obj/item/pet_food/pet_space_treat
+
 // Random donk toy items, fake jumpsuits, balloons, so on
 
 // Donk merch gives you more interest than other items, buy donk bling and get company interest faster!

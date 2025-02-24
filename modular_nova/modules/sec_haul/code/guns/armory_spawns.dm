@@ -89,9 +89,10 @@
 	)
 
 /obj/effect/spawner/armory_spawn/smg
-	vertical_guns = FALSE
+	vertical_guns = FALSE // Name slightly misleading, but i'd probably do more damage renaming it from SMG then letting it be.
 	guns = list(
 		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano,
 		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano,
-		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano,
+		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle,
+		/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle,
 	)

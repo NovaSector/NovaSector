@@ -200,8 +200,14 @@
 /area/centcom/holding/cafepark)
 "afD" = (
 /obj/structure/closet/crate,
-/obj/item/storage/box/drinkingglasses,
-/obj/item/reagent_containers/cup/glass/shaker,
+/obj/item/construction/plumbing/service,
+/obj/item/construction/plumbing/service,
+/obj/item/construction/plumbing/service,
+/obj/item/construction/plumbing/service,
+/obj/item/flatpacked_machine/hydro_synth,
+/obj/item/flatpacked_machine/hydro_synth,
+/obj/item/flatpacked_machine/hydro_synth,
+/obj/item/flatpacked_machine/hydro_synth,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "afF" = (
@@ -1190,7 +1196,9 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "asp" = (
-/obj/machinery/hydroponics/constructable,
+/obj/machinery/hydroponics/constructable/fullupgrade{
+	dir = 1
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -1416,8 +1424,10 @@
 /turf/open/misc/beach/sand,
 /area/centcom/holding/cafepark)
 "auU" = (
-/obj/machinery/hydroponics/constructable,
 /obj/machinery/light/directional/south,
+/obj/machinery/hydroponics/constructable/fullupgrade{
+	dir = 1
+	},
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -2166,8 +2176,8 @@
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "aBW" = (
-/obj/machinery/hydroponics/constructable,
 /obj/machinery/light/directional/north,
+/obj/machinery/hydroponics/constructable/fullupgrade,
 /turf/open/indestructible/hoteltile{
 	icon_state = "darkfull"
 	},
@@ -3642,6 +3652,12 @@
 /obj/effect/turf_decal/sand,
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
+"aSu" = (
+/obj/machinery/hydroponics/constructable/fullupgrade,
+/turf/open/indestructible/hoteltile{
+	icon_state = "darkfull"
+	},
+/area/centcom/holding/cafe)
 "aSy" = (
 /obj/structure/bookcase/random,
 /turf/open/indestructible/hotelwood,
@@ -6957,6 +6973,9 @@
 	dir = 4
 	},
 /obj/item/storage/bag/trash,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/indestructible/hoteltile{
 	icon_state = "white"
 	},
@@ -10009,6 +10028,18 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
+"lcD" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/turf/open/indestructible/hoteltile{
+	icon_state = "floor"
+	},
+/area/centcom/holding/cafe)
 "lcR" = (
 /turf/closed/indestructible/riveted,
 /area/centcom/interlink/dorm_rooms)
@@ -15252,6 +15283,10 @@
 /turf/open/indestructible/hoteltile{
 	icon_state = "white"
 	},
+/area/centcom/holding/cafepark)
+"tgP" = (
+/obj/structure/wall_torch/spawns_lit,
+/turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
 "tgU" = (
 /obj/structure/chair/wood{
@@ -62664,7 +62699,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 api
 ayx
 ayx
@@ -63178,7 +63213,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aJA
 aIt
 aEp
@@ -63435,7 +63470,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aJA
 asQ
 auo
@@ -63692,7 +63727,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aiV
 ahK
 ahK
@@ -63949,7 +63984,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 aJA
 awn
 aOi
@@ -64226,7 +64261,7 @@ aOR
 aOp
 axL
 azT
-azT
+lcD
 agG
 asC
 jZb
@@ -64463,7 +64498,7 @@ ajj
 aqP
 aPf
 aqf
-asp
+aSu
 alD
 aUZ
 aUZ
@@ -68830,7 +68865,7 @@ aaa
 aaa
 ajj
 aPf
-ayI
+tgP
 ayI
 ayI
 ajj
@@ -71144,7 +71179,7 @@ aaa
 ajj
 aPf
 aPf
-ayI
+tgP
 ayI
 ayI
 jBZ
@@ -71662,7 +71697,7 @@ aPf
 aPf
 ayI
 ayI
-ayI
+tgP
 ayI
 ayI
 ayI
@@ -71920,11 +71955,11 @@ aPf
 aPf
 dai
 aPf
-aNU
-aPf
-aPf
-aPf
 kHZ
+aPf
+aPf
+aPf
+aNU
 ayI
 aPf
 pCd
