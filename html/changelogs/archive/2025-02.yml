@@ -384,3 +384,20 @@
   - rscdel: Stardust is dead, it's now a taser-in-a-shell, unlike the fake-taser stunslugs.
   TheSS13Melon:
   - rscadd: Adds 3 donator items for Spookyrotini
+2025-02-20:
+  OrbisAnima:
+  - rscadd: Allows Material fishing rods be made on the forge.
+  RatFromTheJungle:
+  - balance: The sindano, guepe, and a miniegun kits have started appearing in syndicate-markets
+      galaxy wide.
+  - balance: Sec now starts off with two MR-2543 kits in their armory, with their
+      third sindano being lost in a stock cycling method that's yet to be disclosed.
+  Stalkeros:
+  - qol: The Colonial Supply Core now arrives as a /tg/ flatpack, no longer needing
+      a shitload of resources to be deployed but only a multitool.
+  - balance: The Colonial Supply Core's intended efficiency maluses are now properly
+      applied.
+2025-02-21:
+  RatFromTheJungle:
+  - code_imp: Removes the one-size-fits-all chestical sprite from the suit made of
+      rubber, also drastically lowers it's strip-time.
