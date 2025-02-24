@@ -106,12 +106,10 @@
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "oX" = (
-/obj/structure/chair/sofa/left{
-	dir = 3
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/structure/chair/sofa/left,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered/hermit)
 "pM" = (
@@ -150,7 +148,7 @@
 /turf/closed/mineral/volcanic/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tn" = (
-/mob/living/basic/raptor/baby_raptor/black,
+/mob/living/basic/raptor/baby_raptor/red,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "tA" = (
