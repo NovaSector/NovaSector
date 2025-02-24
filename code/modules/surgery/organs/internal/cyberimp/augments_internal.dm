@@ -254,6 +254,7 @@
 	addtimer(CALLBACK(src, PROC_REF(reboot)), 90 / severity)
 
 /obj/item/organ/cyberimp/brain/connector/proc/remove_brain(obj/item/organ/brain/chippy_brain, severity = 1)
+	/* NOVA EDIT REMOVAL - blocks the brain damage and brain removal from the positive quirk.
 	playsound(owner, 'sound/effects/meatslap.ogg', 25, TRUE)
 	if(!chippy_brain)
 		return
@@ -265,6 +266,7 @@
 		return chippy_brain
 
 	new /obj/effect/decal/cleanable/blood/gibs/up(get_turf(owner))
+	*/
 	return FALSE
 
 /obj/item/organ/cyberimp/brain/connector/proc/reboot()
