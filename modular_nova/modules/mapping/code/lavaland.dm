@@ -71,3 +71,12 @@
 	allow_duplicates = FALSE
 	cost = 0 // We'll steal ore vent costs for vents
 	mineral_cost = 1 //One vent
+
+/datum/map_template/ruin/lavaland/nova/duo_hermit
+	name = "Lava-Ruin Duo Makeshift Shelter"
+	id = "lavaland-duo-hermit"
+	description = "A place of shelter for a duet of hermits, scraping by to live another day."
+	prefix = "_maps/RandomRuins/LavaRuins/nova/"
+	suffix = "lavaland_duo_hermit.dmm"
+	allow_duplicates = FALSE
+	cost = 5

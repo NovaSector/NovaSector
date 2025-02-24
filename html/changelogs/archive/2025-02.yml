@@ -385,6 +385,8 @@
   TheSS13Melon:
   - rscadd: Adds 3 donator items for Spookyrotini
 2025-02-20:
+  OrbisAnima:
+  - rscadd: Allows Material fishing rods be made on the forge.
   RatFromTheJungle:
   - balance: The sindano, guepe, and a miniegun kits have started appearing in syndicate-markets
       galaxy wide.
@@ -395,3 +397,17 @@
       a shitload of resources to be deployed but only a multitool.
   - balance: The Colonial Supply Core's intended efficiency maluses are now properly
       applied.
+2025-02-21:
+  RatFromTheJungle:
+  - code_imp: Removes the one-size-fits-all chestical sprite from the suit made of
+      rubber, also drastically lowers it's strip-time.
+2025-02-23:
+  Hardly:
+  - rscadd: Adds tailored jacket to the clothesmate.
+  Iajret:
+  - bugfix: fixed Nova's verbs in TGUI Say for 516 byond
+2025-02-24:
+  FeenieRU, Swing:
+  - map: Added duo-variants of hermits templates.
+  Jedi-Toothpaste:
+  - rscadd: Adds crusher retool kits to loadout
