@@ -411,3 +411,9 @@
   - map: Added duo-variants of hermits templates.
   Jedi-Toothpaste:
   - rscadd: Adds crusher retool kits to loadout
+  OrbisAnima:
+  - qol: Chipped no longer gives you random Brain Damage. Chip Connector no longer
+      REMOVES YOUR BRAIN upon EMP. How these things passed down the R&D phase is beyond
+      us.
+  - bugfix: fixed Wild plants experiments giving 25 minutes worth of science points
+      instead of a full discount for the scythes technology as it supposed to.
