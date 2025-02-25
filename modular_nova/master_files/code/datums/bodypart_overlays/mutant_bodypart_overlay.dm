@@ -184,7 +184,10 @@
 				overlay.alpha = alpha
 
 			if(USE_MATRIXED_COLORS)
-				overlay.color = islist(draw_color) ? draw_color[i] : draw_color
+				if(islist(draw_color) && (i in draw_color))
+					overlay.color = islist(draw_color) ? draw_color[i] : draw_color
+				else
+					overlay.color = limb?.color
 				overlay.alpha = alpha
 				i++
 
