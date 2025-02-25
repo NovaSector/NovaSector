@@ -328,119 +328,676 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	name = "Robust Debug Medal"
 	desc = "Why the fuck do you have this????"
 	icon_state = "DebugMedal"
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	greyscale_colors = "#ff0000#ff9100#f2ff00#3cff00#00f2ff"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
 	greyscale_config = /datum/greyscale_config/nova_medal
 	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
 
+// BELOW ARE PARENTS
+
+// All medals relating to Syndicate Intel
+/obj/item/clothing/accessory/nova/medal/syndicate
+	name = "Debug Syndicate Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/syndintel_medal
+	greyscale_config_worn = /datum/greyscale_config/syndintel_medal/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medals relating to command (4 Colors)
+/obj/item/clothing/accessory/nova/medal/command
+	name = "Debug Timed Command Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/cmdtime_medal
+	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medals that are unique like RankPins and such (4 Colors)
+/obj/item/clothing/accessory/nova/medal/specialpins
+	name = "Debug Special Pin"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "specheartfallback"
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/specialpins
+	greyscale_config_worn = /datum/greyscale_config/specialpins/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use spechheart generic (4 Colors)
+/obj/item/clothing/accessory/nova/medal/specheart
+	name = "Debug Spec Heart Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/specheart_medals
+	greyscale_config_worn = /datum/greyscale_config/specheart_medals/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use spechheart generic (4 Colors)
+/obj/item/clothing/accessory/nova/medal/regheart
+	name = "Debug Reg Heart Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/regheart
+	greyscale_config_worn = /datum/greyscale_config/regheart/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use bar generic (4 Colors)
+/obj/item/clothing/accessory/nova/medal/medalbar
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/medalbar
+	greyscale_config_worn = /datum/greyscale_config/medalbar/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use blank shield (4 Colors)
+/obj/item/clothing/accessory/nova/medal/blankshield
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/blankshield
+	greyscale_config_worn = /datum/greyscale_config/blankshield/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use hollowed shield (4 Colors)
+/obj/item/clothing/accessory/nova/medal/hollowshield
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/hollowshield
+	greyscale_config_worn = /datum/greyscale_config/hollowshield/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use bar shield (4 Colors)
+/obj/item/clothing/accessory/nova/medal/barshield
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283#5FA4CC"
+	greyscale_config = /datum/greyscale_config/barshield
+	greyscale_config_worn = /datum/greyscale_config/barshield/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use blank crown (4 Colors)
+/obj/item/clothing/accessory/nova/medal/blankcrown
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/blankcrown
+	greyscale_config_worn = /datum/greyscale_config/blankcrown/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All medal variants that use crown (5 Colors)
+/obj/item/clothing/accessory/nova/medal/crown
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283#5FA4CC"
+	greyscale_config = /datum/greyscale_config/crownmedal
+	greyscale_config_worn = /datum/greyscale_config/crownmedal/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+// All medal variants that use circle (4 Colors)
+/obj/item/clothing/accessory/nova/medal/circle
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/circle
+	greyscale_config_worn = /datum/greyscale_config/circle/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+// All medal variants that use blank circle (4 Colors)
+/obj/item/clothing/accessory/nova/medal/blankcircle
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/blankcircle
+	greyscale_config_worn = /datum/greyscale_config/blankcircle/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+
+// All medal variants that use hollow circle (4 Colors)
+/obj/item/clothing/accessory/nova/medal/hollowcircle
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283"
+	greyscale_config = /datum/greyscale_config/hollowcircle
+	greyscale_config_worn = /datum/greyscale_config/hollowcircle/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+// All ribbons that are relevant (3 Colors)
+/obj/item/clothing/accessory/nova/ribbon
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_config = /datum/greyscale_config/baseribbons
+	greyscale_config_worn = /datum/greyscale_config/baseribbons/worn
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
+// Crystal Accessories
+/obj/item/clothing/accessory/nova/crystal
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_config = /datum/greyscale_config/crystalnecklace
+	greyscale_config_worn = /datum/greyscale_config/crystalnecklace/worn
+	greyscale_colors = "#FFFFFF#CCCED1"
+	minimize_when_attached = FALSE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+// All ribbons that are relevant (3 Colors)
+/obj/item/clothing/accessory/nova/militaryribbon
+	name = "Debug Blank Bar Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	icon_state = "medalfallback"
+	greyscale_config = /datum/greyscale_config/militaryribbon
+	greyscale_config_worn = /datum/greyscale_config/militaryribbon/worn
+	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
+/obj/item/clothing/accessory/nova/rankpin
+	name = "Debug Rankpin Medal"
+	desc = "You shouldn't have this, contact a maintainer!"
+	greyscale_config = /datum/greyscale_config/rankpin
+	greyscale_config_worn = /datum/greyscale_config/rankpin/worn
+	greyscale_colors = "#FFFFFF"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
+
+// ABOVE ARE PARENTS
+
+/*
+
+
+Syndicate Pins
+
+
+*/
 // Give this three of this medal to DS-2
-/obj/item/clothing/accessory/nova/medal/syndintel
+/obj/item/clothing/accessory/nova/medal/syndicate/syndintel
 	name = "Medal of Espionage"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal awarded to those who show dedication to espionage for the syndicate"
 	icon_state = "syndintel_medal"
 	greyscale_colors = "#ff0000#ffff66#800000#c0c0c0"
-	greyscale_config = /datum/greyscale_config/syndintel_medal
-	greyscale_config_worn = /datum/greyscale_config/syndintel_medal/worn
 
+
+
+
+
+
+
+
+
+
+/*
+
+Command Timelock Pins
+
+*/
 // 500hr+ Timed Blueshield Medal
-/obj/item/clothing/accessory/nova/medal/bs_time
+/obj/item/clothing/accessory/nova/medal/command/bs_time
 	name = "Hollowed Shield Medal"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal of dedication for those who go above and beyond for the blueshields"
 	icon_state = "bs_time"
 	greyscale_colors = "#3399ff#ffff66#003399#ffffff"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Consultant Medal
-/obj/item/clothing/accessory/nova/medal/ntc_time
+/obj/item/clothing/accessory/nova/medal/command/ntc_time
 	name = "Dedication to Beaurocracy"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal of dedication for those who go above and beyond in paperwork for nanotrasen"
 	icon_state = "ntc_time"
 	greyscale_colors = "#33cc33#ffff66#006600#ffffff"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Chief Medical Officer Medal
-/obj/item/clothing/accessory/nova/medal/cmo_time
+/obj/item/clothing/accessory/nova/medal/command/cmo_time
 	name = "Guardian Scalple"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "cmo_time"
 	greyscale_colors = "#00ccff#ffff66#336699#66ffff"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Research Director Medal
-/obj/item/clothing/accessory/nova/medal/rd_time
+/obj/item/clothing/accessory/nova/medal/command/rd_time
 	name = "Diligent Scientific Studies"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "rd_time"
 	greyscale_colors = "#9933ff#ffff66#6600cc#cc99ff"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Captain Medal
-/obj/item/clothing/accessory/nova/medal/cpt_time
+/obj/item/clothing/accessory/nova/medal/command/cpt_time
 	name = "Diligence of Captaincy"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "cpt_time"
 	greyscale_colors = "#0099ff#ffff66#003399#ffff00"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Quartermaster Medal
-/obj/item/clothing/accessory/nova/medal/qm_time
+/obj/item/clothing/accessory/nova/medal/command/qm_time
 	name = "Golden Profit Margins"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "qm_time"
 	greyscale_colors = "#cc9900#ffff66#996633#cc9900"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Chief Engineer Medal
-/obj/item/clothing/accessory/nova/medal/ce_time
+/obj/item/clothing/accessory/nova/medal/command/ce_time
 	name = "Golden Wrenches Medal"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "ce_time"
 	greyscale_colors = "#ff9933#ffff66#cc6600#ffff00"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // 500hr+ Timed Head of Security Medal
-/obj/item/clothing/accessory/nova/medal/hos_time
+/obj/item/clothing/accessory/nova/medal/command/hos_time
 	name = "Golden Batons Medal"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "hos_time"
 	greyscale_colors = "#0066ff#ffff66#003399#6699ff"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // Rewarded to players who are veterans of nova sector
-/obj/item/clothing/accessory/nova/medal/nova_veteran
+/obj/item/clothing/accessory/nova/medal/command/nova_veteran
 	name = "Medal of Dedication"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "nova_vet"
 	greyscale_colors = "#9933ff#ffffff#9900ff#ffffff"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
 
 // Rewarded to players who are veterans of nova sector (having veteran status | NOT THE PLAYTIME VETERANCY)
-/obj/item/clothing/accessory/nova/medal/hop_time
+/obj/item/clothing/accessory/nova/medal/command/hop_time
 	name = "Efficient Beaurocracy"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "a medal showing your true dedications."
 	icon_state = "hop_time"
 	greyscale_colors = "#00cc00#ffff66#008000#99ff99"
-	greyscale_config = /datum/greyscale_config/cmdtime_medal
-	greyscale_config_worn = /datum/greyscale_config/cmdtime_medal/worn
+
+
+/*
+Special Pins (CC/Solfed/IRN/ETC)
+*/
+/obj/item/clothing/accessory/nova/medal/specialpins/pin911
+	name = "911 Solfed Emergency Pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "Given to 911 Emergency Personnel to their allegence to the Sol Federation"
+	icon_state = "911_Pin"
+	greyscale_colors = "#ffff66#ffff66"
+
+
+/obj/item/clothing/accessory/nova/medal/specialpins/pin811
+	name = "811 Solfed Emergency Pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "Given to 811 Emergency Personnel to their allegence to the Sol Federation"
+	icon_state = "811_Pin"
+	greyscale_colors = "#ffff66#ffff66"
+
+
+/obj/item/clothing/accessory/nova/medal/specialpins/ntpin
+	name = "NT Company Pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A pin showing off your loyalty to Nanotrasen"
+	icon_state = "NT_Pin"
+	greyscale_colors = "#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/medal/specialpins/ccpin
+	name = "Central Command Company Pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A pin showing off your loyalty to Nanotrasen's Central Command."
+	icon_state = "CC_Pin"
+	greyscale_colors = "#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/medal/specialpins/shieldpin
+	name = "Generic Shield Pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A generic pin with a shield on it... strange..."
+	icon_state = "Shield_Pin"
+	greyscale_colors = "#ffff66#ffff66"
+
+
+/obj/item/clothing/accessory/nova/medal/specialpins/sfpin
+	name = "Solfed Emergency Services Pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A pin showing off your dedications to the Solar Federation Government"
+	icon_state = "SF_Pin"
+	greyscale_colors = "#ffff66#ffff66"
+/obj/item/clothing/accessory/nova/rankpin/rankpin1
+	name = "Star rank pin"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A pin showing off your rank"
+	icon_state = "rankpin1"
+/obj/item/clothing/accessory/nova/rankpin/rankpin2
+	name = "1st Officer Rank bar"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A pin showing off your rank"
+	icon_state = "rankpin2"
+/obj/item/clothing/accessory/nova/rankpin/rankpin3
+	name = "2nd Officer rank bar"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A pin showing off your rank"
+	icon_state = "rankpin3"
+
+
+/*
+Ribbon Accessories
+*/
+/obj/item/clothing/accessory/nova/ribbon/ribbon_arrdown
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon1"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_slash
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon2"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_arrup
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon3"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_line
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon4"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_dual
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon5"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_flat
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon6"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
+	name = "Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A normal everyday ribbon."
+	icon_state = "ribbon7"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/obj/item/clothing/accessory/nova/militaryribbon/ribbonbar1tone
+	name = "1 Color Military Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "An average military ribbon"
+	icon_state = "RibbonA"
+	greyscale_colors = "#ffff66"
+
+/obj/item/clothing/accessory/nova/militaryribbon/ribbonbar2tone
+	name = "2 Color Military Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "An average military ribbon"
+	icon_state = "RibbonB"
+	greyscale_colors = "#ffff66#ffff66"
+/obj/item/clothing/accessory/nova/militaryribbon/ribbonbar3tone
+	name = "3 Color Military Ribbon"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "An average military ribbon"
+	icon_state = "RibbonC"
+	greyscale_colors = "#ffff66#ffff66#ffff66"
+
+/*
+Generic Medals
+Special Heart Medallion
+*/
+/obj/item/clothing/accessory/nova/medal/specheart/arrow
+	name = "Special Heart medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a special looking heart on it."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/specheart/hollow
+	name = "Special Heart medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a special looking heart on it."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/specheart/bars
+	name = "Special Heart medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a special looking heart on it."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Regular Heart Medallion
+*/
+
+/obj/item/clothing/accessory/nova/medal/regheart/arrow
+	name = "Regular heart medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a heart."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/regheart/hollow
+	name = "Regular heart medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a heart."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/regheart/bars
+	name = "Regular heart medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a heart."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Blank Bar Medallion
+*/
+
+/obj/item/clothing/accessory/nova/medal/medalbar/arrow
+	name = "bar medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A unique bar of metal turned into a medal... its quite unique."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/medalbar/hollow
+	name = "bar medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A unique bar of metal turned into a medal... its quite unique."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/medalbar/bars
+	name = "bar medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A unique bar of metal turned into a medal... its quite unique."
+	icon_state = "medalbars"
+
+
+
+/*
+Generic Medals
+Blank Shield Medallion
+*/
+/obj/item/clothing/accessory/nova/medal/blankshield/arrow
+	name = "Blank shield medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a depiction of a shield."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/blankshield/hollow
+	name = "Blank shield medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a depiction of a shield."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/blankshield/bars
+	name = "Blank shield medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a depiction of a shield."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Hollowed Shield Medallion
+*/
+
+/obj/item/clothing/accessory/nova/medal/hollowshield/arrow
+	name = "Hollow shield medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A unique medal with a hollowed out shield."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/hollowshield/hollow
+	name = "Hollow shield medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A unique medal with a hollowed out shield."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/hollowshield/bars
+	name = "Hollow shield medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A unique medal with a hollowed out shield."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Hallowed Circle Medallion
+*/
+
+/obj/item/clothing/accessory/nova/medal/hollowcircle/arrow
+	name = "Hollow circle medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a circular object attached to it. It seems to have been hollowed out."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/hollowcircle/hollow
+	name = "Hollow circle medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a circular object attached to it. It seems to have been hollowed out."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/hollowcircle/bars
+	name = "Hollow circle medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a circular object attached to it. It seems to have been hollowed out."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Blank Circle Medallion
+*/
+
+/obj/item/clothing/accessory/nova/medal/blankcircle/arrow
+	name = "Blank circle medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a blank circle attached to it... its so smooth..."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/blankcircle/hollow
+	name = "Blank circle medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a blank circle attached to it... its so smooth..."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/blankcircle/bars
+	name = "Blank circle medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a blank circle attached to it... its so smooth..."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Crown Medallion
+*/
+/obj/item/clothing/accessory/nova/medal/crown/arrow
+	name = "Crown medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a crown attached to it."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/crown/hollow
+	name = "Crown medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a crown attached to it."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/crown/bars
+	name = "Crown medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a crown attached to it."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+Crown Blank Medallion
+*/
+/obj/item/clothing/accessory/nova/medal/blankcrown/arrow
+	name = "Blank crown medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a crown attached to it."
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/medal/blankcrown/hollow
+	name = "Blank crown medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a crown attached to it."
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/medal/blankcrown/bars
+	name = "Blank crown medal"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A medal with a crown attached to it."
+	icon_state = "medalbars"
+
+/*
+Generic Medals
+GlowCrystal
+*/
+/obj/item/clothing/accessory/nova/crystal/glowcrystal
+	name = "Crystal necklace"
+	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	desc = "A neecklace with a beautiful crystal, it occasionally shimmers"
+	greyscale_colors = "#ffffff#ffffff"
+	icon_state = "crystal"
