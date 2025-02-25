@@ -185,9 +185,9 @@
 
 			if(USE_MATRIXED_COLORS)
 				if(islist(draw_color) && (i in draw_color))
-					overlay.color = islist(draw_color) ? draw_color[i] : draw_color
+					overlay.color = draw_color[i]
 				else
-					overlay.color = limb?.color
+					overlay.color = draw_color
 				overlay.alpha = alpha
 				i++
 
