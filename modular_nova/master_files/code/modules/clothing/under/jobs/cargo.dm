@@ -124,7 +124,7 @@
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/fancygorka
 	name = "Fancy Gorka"
-	desc = "DEBUG ADD DESC HERE"
+	desc = "So fancy it has one additional color!"
 	icon_state = "fancy_gorka"
 	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
 	greyscale_config = /datum/greyscale_config/fancygorka
@@ -133,8 +133,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/fancycargotech
-	name = "Fancy Cargo Tech"
-	desc = "DEBUG ADD DESC HERE"
+	name = "Fancy Technicial Uniform"
+	desc = "Colourful Technical oufit!"
 	icon_state = "fancycargotech"
 	greyscale_colors = "#b7793d#3E3E48"
 	greyscale_config = /datum/greyscale_config/fancycargotech
@@ -143,7 +143,7 @@
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/standardgorka
 	name = "Standard Gorka"
-	desc = "DEBUG ADD DESC HERE"
+	desc = "Its so standard it has two color options"
 	icon_state = "standardgorka"
 	greyscale_colors = "#b7793d#3E3E48"
 	greyscale_config = /datum/greyscale_config/standardgorka
@@ -153,7 +153,7 @@
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/fancytechjeans
 	name = "Fancy Tech Jeans"
-	desc = "DEBUG ADD DESC HERE"
+	desc = "So fancy you may gett called a nerd for wearing these..."
 	icon_state = "fancytechjeans"
 	greyscale_colors = "#b7793d#3E3E48"
 	greyscale_config = /datum/greyscale_config/fancytechjeans
@@ -162,8 +162,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/syndtech
-	name = "SyndiTech"
-	desc = "DEBUG ADD DESC HERE"
+	name = "Black Cargo Uniform"
+	desc = "Something feels off... but I don't know what."
 	icon_state = "syndtech"
 	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
 	greyscale_config = /datum/greyscale_config/syndtech
@@ -172,8 +172,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/fancytech_alt
-	name = "Alt Fancy Tech"
-	desc = "DEBUG ADD DESC HERE"
+	name = "Fancy technical outfit"
+	desc = "Its so fancy!"
 	icon_state = "fancytech_alt"
 	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
 	greyscale_config = /datum/greyscale_config/fancytech_alt
@@ -181,8 +181,8 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/fancytech_alt/worn/digi
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt_alt
-	name = "fancy skirt alt"
-	desc = "DEBUG ADD DESC HERE"
+	name = "Fancy technical skirt"
+	desc = "Its so fancy!"
 	icon_state = "fancyskirt_alt"
 	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
 	greyscale_config = /datum/greyscale_config/fancyskirt_alt
@@ -191,7 +191,7 @@
 
 /obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt
 	name = "fancy skirt"
-	desc = "DEBUG ADD DESC HERE"
+	desc = "Its so fancy!"
 	icon_state = "fancyskirt"
 	greyscale_colors = "#b7793d#3E3E48"
 	greyscale_config = /datum/greyscale_config/fancyskirt
