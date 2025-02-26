@@ -175,7 +175,7 @@
 
 		for(var/mob/receiver in ghostless)
 			receiver.show_message(subtler_message, alt_msg = subtler_message)
-			var/datum/preferences/prefs = reciever.client?.prefs
+			var/datum/preferences/prefs = reciever?.client?.prefs
 			if(prefs && prefs.read_preference(/datum/preference/toggle/subtler_sound))
 				reciever.playsound_local(get_turf(reciever), 'sound/effects/achievement/glockenspiel_ping.ogg', 50)
 
