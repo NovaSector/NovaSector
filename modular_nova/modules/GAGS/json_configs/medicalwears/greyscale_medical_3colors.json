@@ -1,0 +1,40 @@
+{
+	"med_uniform": [
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_3",
+			"blend_mode": "overlay"
+		}
+	],
+	"med_uniform_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_1_d",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_2_d",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "meduniform_3_d",
+			"blend_mode": "overlay"
+		}
+	]
+}

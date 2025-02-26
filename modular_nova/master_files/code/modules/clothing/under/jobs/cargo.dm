@@ -114,3 +114,86 @@
 	name = "quartermaster's casualwear"
 	desc = "A brown jacket with matching trousers for the relaxed Quartermaster."
 	icon_state = "qmc"
+
+/*
+*	Recolorable Attire
+*/
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancygorka
+	name = "Fancy Gorka"
+	desc = "So fancy it has one additional color!"
+	icon_state = "fancy_gorka"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/fancygorka
+	greyscale_config_worn = /datum/greyscale_config/fancygorka/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancygorka/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancycargotech
+	name = "Fancy Technicial Uniform"
+	desc = "Colourful Technical oufit!"
+	icon_state = "fancycargotech"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/fancycargotech
+	greyscale_config_worn = /datum/greyscale_config/fancycargotech/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancycargotech/worn/digi
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/standardgorka
+	name = "Standard Gorka"
+	desc = "Its so standard it has two color options"
+	icon_state = "standardgorka"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/standardgorka
+	greyscale_config_worn = /datum/greyscale_config/standardgorka/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/standardgorka/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancytechjeans
+	name = "Fancy Tech Jeans"
+	desc = "So fancy you may gett called a nerd for wearing these..."
+	icon_state = "fancytechjeans"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/fancytechjeans
+	greyscale_config_worn = /datum/greyscale_config/fancytechjeans/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancytechjeans/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/syndtech
+	name = "Black Cargo Uniform"
+	desc = "Something feels off... but I don't know what."
+	icon_state = "syndtech"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/syndtech
+	greyscale_config_worn = /datum/greyscale_config/syndtech/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/syndtech/worn/digi
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancytech_alt
+	name = "Fancy technical outfit"
+	desc = "Its so fancy!"
+	icon_state = "fancytech_alt"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/fancytech_alt
+	greyscale_config_worn = /datum/greyscale_config/fancytech_alt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancytech_alt/worn/digi
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt_alt
+	name = "Fancy technical skirt"
+	desc = "Its so fancy!"
+	icon_state = "fancyskirt_alt"
+	greyscale_colors = "#b7793d#3E3E48#A5A9B6"
+	greyscale_config = /datum/greyscale_config/fancyskirt_alt
+	greyscale_config_worn = /datum/greyscale_config/fancyskirt_alt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancyskirt_alt/worn/digi
+
+/obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt
+	name = "fancy skirt"
+	desc = "Its so fancy!"
+	icon_state = "fancyskirt"
+	greyscale_colors = "#b7793d#3E3E48"
+	greyscale_config = /datum/greyscale_config/fancyskirt
+	greyscale_config_worn = /datum/greyscale_config/fancyskirt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/fancyskirt/worn/digi

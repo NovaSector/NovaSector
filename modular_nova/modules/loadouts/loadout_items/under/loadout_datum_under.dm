@@ -206,16 +206,16 @@
 	item_path = /obj/item/clothing/under/rank/rnd/scientist/nova/hlscience
 
 /datum/loadout_item/under/jumpsuit/cargo
-	name = "Cargo Technician's Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/cargo/tech
+	name = "Fancy Technician's Jumpsuit"
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/fancycargotech
 
 /datum/loadout_item/under/jumpsuit/cargo/skirt
-	name = "Cargo Technician's Skirt"
-	item_path = /obj/item/clothing/under/rank/cargo/tech/skirt
+	name = "Fancy Technician's Skirt"
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt
 
 /datum/loadout_item/under/jumpsuit/cargo/skirt/alt
-	name = "Cargo Technician's Shortskirt"
-	item_path = /obj/item/clothing/under/rank/cargo/tech/skirt/alt
+	name = "Fancy Technician's Shortskirt"
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/fancyskirt_alt
 
 /datum/loadout_item/under/jumpsuit/cargo/qm
 	name = "Quartermaster's Uniform"
@@ -793,15 +793,15 @@
 
 /datum/loadout_item/under/miscellaneous/bluescrubs
 	name = "Blue Scrubs"
-	item_path = /obj/item/clothing/under/rank/medical/scrubs/blue
+	item_path = /obj/item/clothing/under/rank/medical/scrubs/nova/blue
 
 /datum/loadout_item/under/miscellaneous/greenscrubs
 	name = "Green Scrubs"
-	item_path = /obj/item/clothing/under/rank/medical/scrubs/green
+	item_path = /obj/item/clothing/under/rank/medical/scrubs/nova/green
 
 /datum/loadout_item/under/miscellaneous/purplescrubs
 	name = "Purple Scrubs"
-	item_path = /obj/item/clothing/under/rank/medical/scrubs/purple
+	item_path = /obj/item/clothing/under/rank/medical/scrubs/nova/wine
 
 /datum/loadout_item/under/miscellaneous/whitescrubs
 	name = "White Scrubs"
@@ -817,15 +817,15 @@
 
 /datum/loadout_item/under/miscellaneous/cargo_casual
 	name = "Cargo Tech Casualwear"
-	item_path = /obj/item/clothing/under/rank/cargo/tech/nova/casualman
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/fancytechjeans
 
 /datum/loadout_item/under/miscellaneous/cargo_shorts
 	name = "Cargo Tech Shorts"
-	item_path = /obj/item/clothing/under/rank/cargo/tech/alt
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/fancytech_alt
 
 /datum/loadout_item/under/miscellaneous/cargo_black
 	name = "Black Cargo Uniform"
-	item_path = /obj/item/clothing/under/rank/cargo/tech/nova/evil
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/syndtech
 
 /datum/loadout_item/under/miscellaneous/cargo_turtle
 	name = "Cargo Turtleneck"
@@ -840,10 +840,13 @@
 	item_path = /obj/item/clothing/under/rank/cargo/qm/nova/turtleneck/skirt
 	restricted_roles = list(JOB_QUARTERMASTER)
 
-/datum/loadout_item/under/miscellaneous/qm_gorka
-	name = "Quartermaster's Gorka Uniform"
-	item_path = /obj/item/clothing/under/rank/cargo/qm/nova/gorka
-	restricted_roles = list(JOB_QUARTERMASTER)
+/datum/loadout_item/under/miscellaneous/fancygorka
+	name = "Fancy gorka"
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/fancygorka
+
+/datum/loadout_item/under/miscellaneous/standardgorka
+	name = "Standard gorka"
+	item_path = /obj/item/clothing/under/rank/cargo/nova/recolorable/standardgorka
 
 /datum/loadout_item/under/miscellaneous/eve
 	name = "Collection of Leaves"
