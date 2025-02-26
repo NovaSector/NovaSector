@@ -211,7 +211,7 @@
 	. = ..()
 	spawned_human.dna.add_mutation(/datum/mutation/human/dwarfism)
 
-// NOVA EDIT END
+// NOVA EDIT END - NEW_LEGION_CORPSES
 
 /// Creates a dead legion-infested skeleton
 /obj/effect/mob_spawn/corpse/human/legioninfested/skeleton
