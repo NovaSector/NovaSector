@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "The 'hazard' modsuit is now spaceproof, retaining it's shockproofness, but losing the ability to fit it in your backpack, as it goes on the beltslot now!"
