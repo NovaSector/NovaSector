@@ -28,8 +28,86 @@
 	. = ..()
 	var/obj/item/organ/legion_tumour/cancer = new()
 	cancer.Insert(spawned_human, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-
+/*
 /// Returns the outfit worn by our corpse
+/obj/effect/mob_spawn/corpse/human/legioninfested/proc/select_outfit()
+	var/corpse_theme = pick_weight(list(
+		"Miner" = 64,
+		"Clown" = 5,
+		"Ashwalker" = 15,
+		"Golem" = 10,
+		pick(list(
+			"Cultist",
+			"Dame",
+			"Operative",
+			"Shadow",
+		)) = 4,
+	))
+
+	switch(corpse_theme)
+		if("Miner")
+			return /datum/outfit/consumed_miner
+		if("Ashwalker")
+			return /datum/outfit/consumed_ashwalker
+		if("Golem")
+			return /datum/outfit/consumed_golem
+		if("Clown")
+			return /datum/outfit/consumed_clown
+		if("Cultist")
+			return /datum/outfit/consumed_cultist
+		if("Dame")
+			return /datum/outfit/consumed_dame
+		if("Operative")
+			return /datum/outfit/syndicatecommandocorpse/lessenedgear
+		if("Shadow")
+			return /datum/outfit/consumed_shadowperson
+
+
+
+/// Corpse spawner used by dwarf legions to make small corpses
+/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf
+
+/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf/special(mob/living/carbon/human/spawned_human)
+	. = ..()
+	spawned_human.dna.add_mutation(/datum/mutation/human/dwarfism)
+
+/// Corpse spawner used by snow legions with alternate costumes
+/obj/effect/mob_spawn/corpse/human/legioninfested/snow
+
+/obj/effect/mob_spawn/corpse/human/legioninfested/snow/select_outfit()
+	var/corpse_theme = pick_weight(list(
+		"Miner" = 64,
+		"Clown" = 5,
+		"Golem" = 15,
+		"Settler" = 10,
+		pick(list(
+			"Cultist",
+			"Heremoth",
+			"Operative",
+			"Shadow",
+		)) = 4,
+	))
+
+	switch(corpse_theme)
+		if("Miner")
+			return /datum/outfit/consumed_miner
+		if("Settler")
+			return /datum/outfit/consumed_ice_settler
+		if("Heremoth")
+			return /datum/outfit/consumed_heremoth
+		if("Clown")
+			return /datum/outfit/consumed_clown
+		if("Cultist")
+			return /datum/outfit/consumed_cultist
+		if("Golem")
+			return /datum/outfit/consumed_golem
+		if("Operative")
+			return /datum/outfit/syndicatecommandocorpse/lessenedgear
+		if("Shadow")
+			return /datum/outfit/consumed_shadowperson
+*/
+
+// NOVA EDIT START - NEW_LEGION_CORPSES
 /obj/effect/mob_spawn/corpse/human/legioninfested/proc/select_outfit()
 	var/corpse_theme = pick_weight(list(
 		"Miner" = 53,
@@ -76,15 +154,6 @@
 		if("Doctor")
 			return /datum/outfit/consumed_doctor
 
-/// Corpse spawner used by dwarf legions to make small corpses
-/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf
-
-/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf/special(mob/living/carbon/human/spawned_human)
-	. = ..()
-	spawned_human.dna.add_mutation(/datum/mutation/human/dwarfism)
-
-/// Corpse spawner used by snow legions with alternate costumes
-/obj/effect/mob_spawn/corpse/human/legioninfested/snow
 
 /obj/effect/mob_spawn/corpse/human/legioninfested/snow/select_outfit()
 	var/corpse_theme = pick_weight(list(
@@ -132,6 +201,15 @@
 			return /datum/outfit/consumed_cook
 		if("Doctor")
 			return /datum/outfit/consumed_doctor
+
+/// Corpse spawner used by dwarf legions to make small corpses
+/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf
+
+/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf/special(mob/living/carbon/human/spawned_human)
+	. = ..()
+	spawned_human.dna.add_mutation(/datum/mutation/human/dwarfism)
+
+// NOVA EDIT END
 
 /// Creates a dead legion-infested skeleton
 /obj/effect/mob_spawn/corpse/human/legioninfested/skeleton
@@ -373,6 +451,23 @@
 		back = /obj/item/shield/buckler
 		belt = /obj/item/nullrod/claymore
 
+/datum/outfit/consumed_shadowperson
+	name = "Legion-Consumed Shadowperson"
+	uniform = /obj/item/clothing/under/color/black
+	suit = /obj/item/clothing/suit/toggle/labcoat
+	back = /obj/item/tank/internals/oxygen
+	glasses = /obj/item/clothing/glasses/blindfold
+	mask = /obj/item/clothing/mask/breath
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	r_pocket = /obj/item/reagent_containers/pill/shadowtoxin
+
+	accessory = /obj/item/clothing/accessory/medal/plasma/nobel_science
+
+/datum/outfit/consumed_shadowperson/pre_equip(mob/living/carbon/human/shadowperson, visuals_only = FALSE)
+	if(visuals_only)
+		return
+	shadowperson.set_species(/datum/species/shadow)
+
 /datum/outfit/consumed_cultist
 	name = "Legion-Consumed Cultist"
 	uniform = /obj/item/clothing/under/costume/roman
@@ -409,72 +504,3 @@
 		))
 		backpack_contents += backpack_loot
 
-/datum/outfit/consumed_engineer
-	name = "Legion-Consumed Engineer"
-	uniform = /obj/item/clothing/under/rank/engineering/engineer
-	mask = /obj/item/clothing/mask/breath
-	head = /obj/item/clothing/head/utility/hardhat/welding/up
-	shoes = /obj/item/clothing/shoes/workboots
-	r_pocket = /obj/item/t_scanner
-	belt = /obj/item/storage/belt/utility/full
-	back = /obj/item/storage/backpack/industrial
-	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer,
-		/obj/item/stack/rods/lava/ = 10,
-	)
-
-/datum/outfit/consumed_scientist
-	name = "Legion-Consumed Scientist"
-	uniform = /obj/item/clothing/under/rank/rnd/scientist
-	suit = /obj/item/clothing/suit/toggle/labcoat/science
-	mask = /obj/item/clothing/mask/breath
-	belt = /obj/item/tank/internals/emergency_oxygen
-	shoes = /obj/item/clothing/shoes/sneakers/white
-	back = /obj/item/storage/backpack/science
-	backpack_contents = list(
-		/obj/item/storage/box/survival,
-		/obj/item/clipboard,
-		)
-
-/datum/outfit/consumed_cargotech
-	name = "Legion-Consumed Cargo-Tech"
-	uniform = /obj/item/clothing/under/rank/cargo/tech
-	suit = /obj/item/clothing/suit/toggle/cargo_tech
-	mask = /obj/item/clothing/mask/breath
-	belt = /obj/item/tank/internals/emergency_oxygen
-	back = /obj/item/storage/backpack
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	backpack_contents = list(
-		/obj/item/storage/box/survival,
-		/obj/item/universal_scanner,
-		/obj/item/boxcutter,
-		)
-
-/datum/outfit/consumed_cook
-	name = "Legion-Consumed Cook"
-	uniform = /obj/item/clothing/under/costume/buttondown/slacks/service
-	suit = /obj/item/clothing/suit/toggle/chef
-	mask = /obj/item/clothing/mask/breath
-	belt = /obj/item/tank/internals/emergency_oxygen
-	back = /obj/item/storage/backpack
-	head = /obj/item/clothing/head/utility/chefhat
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	backpack_contents = list(
-		/obj/item/storage/box/survival,
-		/obj/item/sharpener,
-		)
-
-/datum/outfit/consumed_doctor
-	name = "Legion-Consumed Doctor"
-	uniform = /obj/item/clothing/under/rank/medical/doctor
-	suit = /obj/item/clothing/suit/toggle/labcoat
-	suit_store = /obj/item/flashlight/pen
-	mask = /obj/item/clothing/mask/breath
-	belt = /obj/item/storage/belt/medical
-	shoes = /obj/item/clothing/shoes/sneakers/white
-	back = /obj/item/storage/backpack/medic
-	backpack_contents = list(
-		/obj/item/storage/box/survival,
-		/obj/item/storage/medkit/regular,
-		/obj/item/healthanalyzer,
-		)
