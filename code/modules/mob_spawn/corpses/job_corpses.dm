@@ -6,14 +6,26 @@
 	outfit = /datum/outfit/job/cargo_tech
 	icon_state = "corpsecargotech"
 
+/obj/effect/mob_spawn/corpse/human/cargo_tech/noid
+	outfit = /datum/outfit/consumed_cargotech
+	icon_state = "corpsecargotech"
+
 /obj/effect/mob_spawn/corpse/human/cook
 	name = JOB_COOK
-	outfit = /datum/outfit/job/cook
+	outfit = /datum/outfit/job/cook/
+	icon_state = "corpsecook"
+
+/obj/effect/mob_spawn/corpse/human/cook/noid
+	outfit = /datum/outfit/consumed_cook
 	icon_state = "corpsecook"
 
 /obj/effect/mob_spawn/corpse/human/doctor
 	name = JOB_MEDICAL_DOCTOR
 	outfit = /datum/outfit/job/doctor
+	icon_state = "corpsedoctor"
+
+/obj/effect/mob_spawn/corpse/human/doctor/noid
+	outfit = /datum/outfit/consumed_doctor
 	icon_state = "corpsedoctor"
 
 /obj/effect/mob_spawn/corpse/human/geneticist
@@ -24,6 +36,10 @@
 /obj/effect/mob_spawn/corpse/human/engineer
 	name = JOB_STATION_ENGINEER
 	outfit = /datum/outfit/job/engineer/gloved
+	icon_state = "corpseengineer"
+
+/obj/effect/mob_spawn/corpse/human/engineer/noid
+	outfit = /datum/outfit/consumed_engineer
 	icon_state = "corpseengineer"
 
 /obj/effect/mob_spawn/corpse/human/engineer/mod
@@ -39,9 +55,17 @@
 	outfit = /datum/outfit/job/scientist
 	icon_state = "corpsescientist"
 
+/obj/effect/mob_spawn/corpse/human/scientist/noid
+	outfit = /datum/outfit/job/scientist/
+	icon_state = "corpsescientist"
+
 /obj/effect/mob_spawn/corpse/human/miner
 	name = JOB_SHAFT_MINER
 	outfit = /datum/outfit/job/miner
+	icon_state = "corpseminer"
+
+/obj/effect/mob_spawn/corpse/human/miner/noid
+	outfit = /datum/outfit/consumed_miner
 	icon_state = "corpseminer"
 
 /obj/effect/mob_spawn/corpse/human/miner/mod
