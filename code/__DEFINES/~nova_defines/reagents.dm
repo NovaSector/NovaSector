@@ -3,6 +3,7 @@
 
 ///Amount of synthflesh required to unhusk someone
 #define SYNTHFLESH_LING_UNHUSK_AMOUNT 200
+#define REZADONE_LING_UNHUSK_AMOUNT 10
 
 //used by chem masters and pill presses
 // The categories of reagent packaging
