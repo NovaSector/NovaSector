@@ -28,7 +28,8 @@
 	. = ..()
 	var/obj/item/organ/legion_tumour/cancer = new()
 	cancer.Insert(spawned_human, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-/*
+
+/* NOVA EDIT REMOVAL BEGIN - NEW_LEGION_CORPSES
 /// Returns the outfit worn by our corpse
 /obj/effect/mob_spawn/corpse/human/legioninfested/proc/select_outfit()
 	var/corpse_theme = pick_weight(list(
@@ -106,6 +107,7 @@
 		if("Shadow")
 			return /datum/outfit/consumed_shadowperson
 */
+//NOVA EDIT REMOVAL END - NEW_LEGION_CORPSES
 
 // NOVA EDIT START - NEW_LEGION_CORPSES
 /obj/effect/mob_spawn/corpse/human/legioninfested/proc/select_outfit()
