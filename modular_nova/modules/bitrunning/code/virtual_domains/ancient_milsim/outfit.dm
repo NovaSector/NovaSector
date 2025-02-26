@@ -50,18 +50,19 @@
 /datum/outfit/cin_soldier_player
 	name = "Coalition Operative SNPC"
 	uniform = /obj/item/clothing/under/syndicate/rus_army/cin_surplus/forest
-	suit = /obj/item/clothing/suit/space/voskhod
+	suit = /obj/item/clothing/suit/armor/vest/cin_surplus_vest
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/cybersun
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne
 	mask = /obj/item/clothing/mask/balaclavaadjust
-	head = /obj/item/clothing/head/helmet/space/voskhod
-	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
+	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
+	back = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 	backpack_contents = list(
 		/obj/item/storage/box/nri_survival_pack/raider,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = 3,
+		/obj/item/reagent_containers/cup/glass/waterbottle/large/protozine = 2,
 	)
 	r_hand = null
 	l_hand = null
