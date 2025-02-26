@@ -9,7 +9,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/xhihao_light_arms/guns40x.dmi'
 	icon_state = "rengo"
 	worn_icon_state = "enchanted_rifle" // Not actually magical looking, just looks closest to this one
-	inhand_icon_state = "enchanted_rifle"
+	inhand_icon_state = "sakhno"
 	slot_flags = ITEM_SLOT_BACK
 	SET_BASE_PIXEL(-8, 0)
 	accepted_magazine_type = /obj/item/ammo_box/magazine/lanca

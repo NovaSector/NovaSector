@@ -20,7 +20,7 @@ ADMIN_VERB(intensity_credits_panel, R_FUN, "ICES Events Panel", "Opens up the IC
 		ui.open()
 
 /datum/intensity_credits_panel/ui_state(mob/user)
-	return GLOB.fun_state
+	return ADMIN_STATE(R_FUN)
 
 /datum/intensity_credits_panel/ui_data(mob/user)
 	var/list/data = list()

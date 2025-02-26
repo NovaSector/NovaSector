@@ -162,16 +162,15 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
-			// send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), CONFIG_GET(string/channel_announce_new_game)) // NOVA EDIT REMOVAL
-			/* ORIGINAL:
-			*/ // NOVA EDIT ADDITION START - DISCORD SPAM PREVENTION
-			if(!discord_alerted)
-				discord_alerted = TRUE
-				send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.current_map.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game)) // NOVA EDIT - Role ping and round ID in game-alert
-			// NOVA EDIT END
+			if(!discord_alerted) // NOVA EDIT ADDITION - DISCORD SPAM PREVENTION
+				discord_alerted = TRUE // NOVA EDIT ADDITION - DISCORD SPAM PREVENTION
+				for(var/channel_tag in CONFIG_GET(str_list/channel_announce_new_game)) // NOVA EDIT CHANGE - Indented the loop
+					send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.current_map.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), channel_tag) // NOVA EDIT ADDITION - Role ping and round ID in game-alert
+				//send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag) // NOVA EDIT REMOVAL
+
 			current_state = GAME_STATE_PREGAME
-			SStitle.change_title_screen() //NOVA EDIT ADDITION - Title screen
-			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) //NOVA EDIT ADDITION - Title screen
+			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
+			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 			fire()
@@ -775,11 +774,10 @@ SUBSYSTEM_DEF(ticker)
 	gather_newscaster() //called here so we ensure the log is created even upon admin reboot
 	if(!round_end_sound)
 		round_end_sound = choose_round_end_song()
-	///The reference to the end of round sound that we have chosen.
-	var/sound/end_of_round_sound_ref = sound(round_end_sound)
 	for(var/mob/M in GLOB.player_list)
-		if(M.client.prefs.read_preference(/datum/preference/toggle/sound_endofround))
-			SEND_SOUND(M.client, end_of_round_sound_ref)
+		var/pref_volume = M.client.prefs.read_preference(/datum/preference/numeric/volume/sound_midi)
+		if(pref_volume > 0)
+			SEND_SOUND(M.client, sound(round_end_sound, volume = pref_volume))
 
 	text2file(login_music, "data/last_round_lobby_music.txt")
 

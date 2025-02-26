@@ -120,6 +120,9 @@
 /obj/item/gun/ballistic/automatic/pistol
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
+/obj/item/gun/ballistic/automatic/pistol/doorhickey
+	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+
 /obj/item/gun/ballistic/automatic/pistol/deagle
 	desc = "A robust .454 Trucidator handgun."
 
@@ -300,11 +303,6 @@
 	icon_state = "arg"
 	inhand_icon_state = "arg"
 	can_suppress = FALSE
-
-/obj/item/gun/ballistic/automatic/surplus
-	name = "\improper Type-69 surplus rifle"
-	desc = "One of countless obsolete ballistic rifles that still sees use as a cheap deterrent. Uses 10mm ammo and its bulky frame prevents one-hand firing."
-	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 // GUBMAN3 - FULL BULLET RENAME
 // i loathe the above

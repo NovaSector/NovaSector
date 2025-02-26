@@ -20,7 +20,7 @@
 
 /obj/item/mod/module/ash_accretion/on_install()
 	. = ..()
-	speed_added = mod.slowdown_active // so when you hit full ash accretion, slowdown cancels out
+	speed_added = mod.slowdown_deployed // so when you hit full ash accretion, slowdown cancels out
 	RegisterSignal(mod, COMSIG_SPEED_POTION_APPLIED, PROC_REF(update_added_speed))
 
 /obj/item/mod/module/ash_accretion/on_part_activation()
@@ -36,7 +36,7 @@
 /// Updates the ash accretion module's `speed_added`, so it entirely cancels out the suit's slowdown at full accretion. Not meant to be called for the external variant!
 /obj/item/mod/module/ash_accretion/proc/update_added_speed()
 	SIGNAL_HANDLER
-	speed_added = mod.slowdown_active // no, you don't get to have a free speedup, actually
+	speed_added = mod.slowdown_deployed // no, you don't get to have a free speedup, actually
 
 /// Checks if the suit's current state is valid for buff-granting purposes. Should only be called when the MOD is deployed or retracted.
 /obj/item/mod/module/ash_accretion/proc/on_mod_toggle()

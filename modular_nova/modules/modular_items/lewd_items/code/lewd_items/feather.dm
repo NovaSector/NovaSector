@@ -73,9 +73,9 @@
 	user.visible_message(span_purple("[user] [message]!"))
 	playsound_if_pref(loc, \
 		pick(
-			'sound/items/handling/cloth_drop.ogg', // I duplicate this part of code because im useless shitcoder that can't make it work properly without tons of repeating code blocks
-			'sound/items/handling/cloth_pickup.ogg', // If you can make it better - go ahead, modify it, please.
-			'sound/items/handling/cloth_pickup.ogg',
+			'sound/items/handling/cloth/cloth_drop1.ogg', // I duplicate this part of code because im useless shitcoder that can't make it work properly without tons of repeating code blocks
+			'sound/items/handling/cloth/cloth_pickup1.ogg', // If you can make it better - go ahead, modify it, please.
+			'sound/items/handling/cloth/cloth_pickup1.ogg',
 		), 70, 1, -1)
 
 //Mood boost
