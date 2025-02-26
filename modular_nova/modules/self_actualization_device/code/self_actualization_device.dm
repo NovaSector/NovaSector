@@ -213,8 +213,22 @@
 	var/mob/living/carbon/human/patient = occupant
 	var/original_name = patient.dna.real_name
 
-	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+	// Check for AI-brain upload. If it was the brain before, then we should replace "new me"s brain with cybernetic one.
+	var/obj/item/organ/brain/cybernetic/ai/old_ai_brain = patient.get_organ_by_type(/obj/item/organ/brain/cybernetic/ai)
+	var/mob/living/silicon/ai/real_ai_player
+	if(old_ai_brain)
+		real_ai_player = old_ai_brain.mainframe
+		old_ai_brain.undeploy()
+		real_ai_player.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+	else
+		patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+
 	patient.dna.update_dna_identity()
+
+	if(old_ai_brain)
+		var/obj/item/organ/brain/cybernetic/ai/new_ai_brain = new
+		new_ai_brain.Insert(patient, movement_flags = DELETE_IF_REPLACED)
+
 	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
 
 	if(patient.dna.real_name != original_name)
