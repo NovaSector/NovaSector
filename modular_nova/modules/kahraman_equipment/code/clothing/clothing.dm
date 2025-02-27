@@ -178,7 +178,7 @@
 	name = "frontier gloves"
 	desc = "A sturdy pair of black gloves that'll keep your precious fingers protected from the outside world. \
 		They go a bit higher up the arm than most gloves should, and you aren't quite sure why. \
-		They are fire Resistant. They are useful in carrying people faster."
+		They are useful in carrying people faster."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "gloves"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -193,7 +193,6 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	clothing_traits = list(TRAIT_QUICK_CARRY)
-	armor_type = /datum/armor/colonist_clothing
 
 /obj/item/clothing/gloves/frontier_colonist/Initialize(mapload)
 	. = ..()
