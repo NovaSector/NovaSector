@@ -2,7 +2,7 @@
 	// use the loaded modlink scryer object to have the frequency set to NT upon creation
 	build_path = /obj/item/clothing/neck/link_scryer/loaded
 
-/datum/design/module/mod_holster
+/datum/design/module/retractplates
 	name = "Retractive Plates Module"
 	id = "mod_retract_plates"
 	materials = list(
