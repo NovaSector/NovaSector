@@ -108,48 +108,36 @@
 	)
 	merge_type = /obj/item/stack/medical/synth_repair
 
-/obj/item/stack/medical/synth_repair/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!ishuman(interacting_with))
-		return NONE
-
-	if(user.combat_mode)
-		return NONE
-
-	return try_heal_checks(interacting_with, user)
-
-/obj/item/stack/medical/synth_repair/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
-	var/mob/living/carbon/human/attacked_humanoid = patient
-	var/obj/item/clothing/under/uniform = attacked_humanoid.w_uniform
-
-	var/obj/item/bodypart/affecting = attacked_humanoid.get_bodypart(check_zone(user.zone_selected))
-	if(isnull(affecting) || !IS_ROBOTIC_LIMB(affecting))
-		return NONE
-
-	var/physical_damage = affecting.brute_dam + affecting.burn_dam
-	if (!physical_damage)
-		balloon_alert(user, "limb not damaged")
-		return ITEM_INTERACT_BLOCKING
+/obj/item/stack/medical/synth_repair/try_heal(mob/living/patient, mob/living/user, healed_zone, silent = FALSE, auto_change_zone = TRUE)
+	if(ishuman(patient))
+		var/obj/item/bodypart/affecting = patient.get_bodypart(check_zone(user.zone_selected))
+		if(!affecting)
+			to_chat(user, span_warning("The limb is missing!"))
+			return
+		if(!IS_ROBOTIC_LIMB(affecting))
+			to_chat(user, span_notice("Robotic patches won't work on an organic limb!"))
+			return
 
 	user.visible_message(
-		span_notice("[user] starts to apply patches to [attacked_humanoid == user ? "themselves" : "[attacked_humanoid]."),
-		span_notice("You start applying patches to [attacked_humanoid == user ? "yourself" : "[attacked_humanoid]."),
-	)
+		span_notice("[user] starts to apply patches to [patient == user ? "themselves" : "[patient]."),
+		span_notice("You start applying patches to [patient == user ? "yourself" : "[patient]."),
+		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE)
 
 	var/use_delay
-	if(user == attacked_humanoid)
+	if(user == patient)
 		use_delay = self_delay
 	else
 		use_delay = other_delay
 
-	if(!do_after(user, use_delay, attacked_humanoid))
+	if(!do_after(user, use_delay, patient))
 		return ITEM_INTERACT_BLOCKING
 
-	if (!attacked_humanoid.reagents.add_reagent_list(grind_results))
+	if (!patient.reagents.add_reagent_list(grind_results))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user] applies patches to [attacked_humanoid == user ? "themselves" : "[attacked_humanoid]."),
-		span_notice("You apply patches to [attacked_humanoid == user ? "yourself" : "[attacked_humanoid]."),
-		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
-	)
+		span_notice("[user] applies patches to [patient == user ? "themselves" : "[patient]."),
+		span_notice("You apply patches to [patient == user ? "yourself" : "[patient]."),
+		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE
+		)
 	return ITEM_INTERACT_SUCCESS
