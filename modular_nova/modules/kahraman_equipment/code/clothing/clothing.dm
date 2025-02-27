@@ -3,7 +3,7 @@
 /obj/item/clothing/under/frontier_colonist
 	name = "frontier jumpsuit"
 	desc = "A heavy grey jumpsuit with extra padding around the joints. Two massive pockets included. \
-		No matter what you do to adjust it, it's always just slightly too large. It's fire proof."
+		No matter what you do to adjust it, it's always just slightly too large. They are fire Resistant."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "jumpsuit"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -12,7 +12,7 @@
 	worn_icon_state = "jumpsuit"
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
-	resistance_flags = FIRE_PROOF
+	armor_type = /datum/armor/clothing_under/cargo_miner
 
 /obj/item/clothing/under/frontier_colonist/Initialize(mapload)
 	. = ..()
@@ -23,7 +23,7 @@
 /obj/item/clothing/shoes/jackboots/frontier_colonist
 	name = "heavy frontier boots"
 	desc = "A well built pair of tall boots usually seen on the feet of explorers, first wave colonists, \
-		and LARPers across the galaxy. It's fire proof."
+		and LARPers across the galaxy. They are fire proof."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "boots"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -43,7 +43,7 @@
 	name = "frontier trenchcoat"
 	desc = "A knee length coat with a water-resistant exterior and relatively comfortable interior. \
 		In between? Just enough protective material to stop the odd sharp thing getting through, \
-		though don't expect miracles. It's fire proof."
+		though don't expect miracles. They are fire Resistant."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "jacket"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -52,7 +52,7 @@
 	worn_icon_state = "jacket"
 	slot_flags = ITEM_SLOT_OCLOTHING
 	armor_type = /datum/armor/colonist_clothing
-	resistance_flags = FIRE_PROOF
+	resistance_flags = NONE
 	allowed = null
 
 /obj/item/clothing/suit/jacket/frontier_colonist/Initialize(mapload)
@@ -64,7 +64,7 @@
 	name = "frontier jacket"
 	desc = "A short coat with a water-resistant exterior and relatively comfortable interior. \
 		In between? Just enough protective material to stop the odd sharp thing getting through, \
-		though don't expect miracles. It's fire proof."
+		though don't expect miracles. They are fire Resistant."
 	icon_state = "jacket_short"
 	worn_icon_state = "jacket_short"
 
@@ -74,7 +74,7 @@
 		In between? Just enough protective material to stop the odd sharp thing getting through, \
 		though don't expect miracles. This one is colored a bright red and covered in white \
 		stripes to denote that someone wearing it might be able to provide medical assistance. \
-		It's fire proof."
+		They are fire Resistant."
 	icon_state = "jacket_med"
 	worn_icon_state = "jacket_med"
 
@@ -84,7 +84,7 @@
 	name = "frontier flak jacket"
 	desc = "A simple flak jacket with an exterior of water-resistant material. \
 		Jackets like these are often found on first wave colonists that want some armor \
-		due to the fact they can be made easily within a colony core type machine. It's fire proof."
+		due to the fact they can be made easily within a colony core type machine. They are fire Resistant."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "flak"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -97,7 +97,7 @@
 	heat_protection = CHEST|GROIN
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	armor_type = /datum/armor/colonist_armor
-	resistance_flags = FIRE_PROOF
+	resistance_flags = NONE
 	allowed = null
 
 /obj/item/clothing/suit/frontier_colonist_flak/Initialize(mapload)
@@ -109,16 +109,16 @@
 
 /obj/item/clothing/head/soft/frontier_colonist
 	name = "frontier cap"
-	desc = "It's a robust baseball hat in a rugged green color. It's fire proof."
+	desc = "It's a robust baseball hat in a rugged green color. They are fire Resistant."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "cap"
 	soft_type = "cap"
 	soft_suffix = null
-	resistance_flags = FIRE_PROOF
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "cap"
+	armor_type = /datum/armor/colonist_clothing
 
 /obj/item/clothing/head/soft/frontier_colonist/Initialize(mapload)
 	. = ..()
@@ -126,8 +126,8 @@
 
 /obj/item/clothing/head/soft/frontier_colonist/medic
 	name = "frontier medical cap"
-	desc = "It's a robust baseball hat in a stylish red color. Has a white diamond \
-	to denote that its wearer might be able to provide medical assistance. It's fire proof."
+	desc = "It's a robust baseball hat in a stylish red color. Has a white diamond to denote that its wearer might be able to provide medical assistance. \
+		They are fire Resistant."
 	icon_state = "cap_medical"
 	soft_type = "cap_medical"
 	worn_icon_state = "cap_medical"
@@ -136,7 +136,7 @@
 
 /obj/item/clothing/head/frontier_colonist_helmet
 	name = "frontier soft helmet"
-	desc = "A unusual piece of headwear somewhere between a proper helmet and a normal cap. It's fire proof."
+	desc = "A unusual piece of headwear somewhere between a proper helmet and a normal cap. They are fire Resistant."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "tanker"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -144,7 +144,7 @@
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "tanker"
 	armor_type = /datum/armor/colonist_armor
-	resistance_flags = FIRE_PROOF
+	resistance_flags = NONE
 	flags_inv = 0
 	clothing_flags = SNUG_FIT | STACKABLE_HELMET_EXEMPT
 
@@ -157,7 +157,7 @@
 /obj/item/radio/headset/headset_frontier_colonist
 	name = "frontier radio headset"
 	desc = "A bulky headset that should hopefully survive exposure to the elements better than station headsets might. \
-		Has a built-in antenna allowing the headset to work independently of a communications network. "
+		Has a built-in antenna allowing the headset to work independently of a communications network."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "radio"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -177,7 +177,8 @@
 /obj/item/clothing/gloves/frontier_colonist
 	name = "frontier gloves"
 	desc = "A sturdy pair of black gloves that'll keep your precious fingers protected from the outside world. \
-		They go a bit higher up the arm than most gloves should, and you aren't quite sure why. It's fire proof."
+		They go a bit higher up the arm than most gloves should, and you aren't quite sure why. \
+		They are fire Resistant. They are useful in carrying people faster."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "gloves"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
@@ -190,8 +191,9 @@
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
-	resistance_flags = FIRE_PROOF
+	resistance_flags = NONE
 	clothing_traits = list(TRAIT_QUICK_CARRY)
+	armor_type = /datum/armor/colonist_clothing
 
 /obj/item/clothing/gloves/frontier_colonist/Initialize(mapload)
 	. = ..()
