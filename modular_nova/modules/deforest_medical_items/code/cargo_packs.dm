@@ -34,7 +34,7 @@
 	crate_name = "technician kit crate"
 	desc = "Contains a pink medical technician kit."
 	access = ACCESS_MEDICAL
-	cost = CARGO_CRATE_VALUE * 10
+	cost = CARGO_CRATE_VALUE * 5.5
 	contains = list(
 		/obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked,
 	)
