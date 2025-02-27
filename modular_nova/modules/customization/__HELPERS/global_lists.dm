@@ -21,6 +21,15 @@
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
+		//THE NOVA SECTOR EDIT ADDITION BEGIN - Blooper
+	for(var/sound_blooper_path in subtypesof(/datum/blooper))
+		var/datum/blooper/B = new sound_blooper_path()
+		GLOB.blooper_list[B.id] = sound_blooper_path
+		if(B.allow_random)
+			GLOB.blooper_random_list[B.id] = sound_blooper_path
+	//THE NOVA SECTOR EDIT END
+	// Credit goes to all the amazing contributors at Bubberstation, Floofstation and Goonstation for making the blooper system.
+
 /proc/make_default_mutant_bodypart_references()
 	// Build the global list for default species' mutant_bodyparts
 	for(var/path in subtypesof(/datum/species))
@@ -201,13 +210,12 @@
 
 		SSaccessories.bra_m -= sprite_name
 
-		//THE NOVA SECTOR EDIT ADDITION BEGIN - Blooper
+/proc/make_bloopers()
+	GLOB.blooper_list = list()
 	for(var/sound_blooper_path in subtypesof(/datum/blooper))
-		var/datum/blooper/B = new sound_blooper_path()
-		GLOB.blooper_list[B.id] = sound_blooper_path
-		if(B.allow_random)
-			GLOB.blooper_random_list[B.id] = sound_blooper_path
-	//THE NOVA SECTOR EDIT END
+		var/datum/blooper/bloop = new sound_blooper_path()
+		GLOB.blooper_list[bloop.id] = sound_blooper_path
+		if(bloop.allow_random)
+			GLOB.blooper_random_list[bloop.id] = sound_blooper_path
 
 
-// Credit goes to Bubberstation, Floofstation and Goonstation for the blooper system.
