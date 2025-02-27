@@ -92,13 +92,64 @@
 		return FALSE
 	return TRUE
 
-// The actual patch
-/obj/item/reagent_containers/pill/robotic_patch/synth_repair
-	name = "robotic repair patch"
-	desc = "A sealed patch with a small nanite swarm along with electrical coagulant reagents to repair small amounts of synthetic damage."
+// The actual STACK of patches
+/obj/item/stack/medical/synth_repair
+	name = "robotic repair patches stack"
+	singular_name = "robotic repair patch"
+	desc = "A pack of sealed patches of small nanite swarms along with electrical coagulant reagents to repair small amounts of synthetic damage."
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "synth_patch"
-	list_reagents = list(
-		/datum/reagent/medicine/nanite_slurry = 10,
+	inhand_icon_state = null
+	self_delay = 4 SECONDS
+	other_delay = 2 SECONDS
+	grind_results = list(/datum/reagent/medicine/nanite_slurry = 10,
 		/datum/reagent/dinitrogen_plasmide = 5,
 		/datum/reagent/medicine/coagulant/fabricated = 10,
 	)
+	merge_type = /obj/item/stack/medical/synth_repair
+
+/obj/item/stack/medical/synth_repair/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!ishuman(interacting_with))
+		return NONE
+
+	if(user.combat_mode)
+		return NONE
+
+	return try_heal_checks(interacting_with, user)
+
+/obj/item/stack/medical/synth_repair/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
+	var/mob/living/carbon/human/attacked_humanoid = patient
+	var/obj/item/clothing/under/uniform = attacked_humanoid.w_uniform
+
+	var/obj/item/bodypart/affecting = attacked_humanoid.get_bodypart(check_zone(user.zone_selected))
+	if(isnull(affecting) || !IS_ROBOTIC_LIMB(affecting))
+		return NONE
+
+	var/physical_damage = affecting.brute_dam + affecting.burn_dam
+	if (!physical_damage)
+		balloon_alert(user, "limb not damaged")
+		return ITEM_INTERACT_BLOCKING
+
+	user.visible_message(
+		span_notice("[user] starts to apply patches to [attacked_humanoid == user ? "themselves" : "[attacked_humanoid]."),
+		span_notice("You start applying patches to [attacked_humanoid == user ? "yourself" : "[attacked_humanoid]."),
+	)
+
+	var/use_delay
+	if(user == attacked_humanoid)
+		use_delay = self_delay
+	else
+		use_delay = other_delay
+
+	if(!do_after(user, use_delay, attacked_humanoid))
+		return ITEM_INTERACT_BLOCKING
+
+	if (!attacked_humanoid.reagents.add_reagent_list(grind_results))
+		return ITEM_INTERACT_BLOCKING
+
+	user.visible_message(
+		span_notice("[user] applies patches to [attacked_humanoid == user ? "themselves" : "[attacked_humanoid]."),
+		span_notice("You apply patches to [attacked_humanoid == user ? "yourself" : "[attacked_humanoid]."),
+		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+	)
+	return ITEM_INTERACT_SUCCESS
