@@ -96,3 +96,18 @@
 
 /obj/item/melee/baton/security/stun_gun/stun_knife/proc/make_stabby()
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple)
+
+/obj/item/melee/baton/security/stun_gun/stun_knife/loaded
+	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
+
+/datum/crafting_recipe/knife_and_shocky
+	name = "Makeshift Stunknife"
+	desc = "cobble together an abomination against both man, and god."
+	result = /obj/item/melee/baton/security/stun_gun/stun_knife/loaded // Only because crafting it is going to be a bit of a hassle already, and it will absolutely eat the cell your stun gun might've had in it.
+	reqs = list(
+		/obj/item/knife/combat/survival = 1,
+		/obj/item/melee/baton/security/stun_gun = 1,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_MELEE
