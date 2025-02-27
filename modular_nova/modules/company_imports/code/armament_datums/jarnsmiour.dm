@@ -58,12 +58,13 @@
 
 /datum/armament_entry/company_import/blacksteel/ranged/longbow
 	item_type = /obj/item/gun/ballistic/bow/longbow
+	description = "Holds arrows for your bow. Good, because while pocketing arrows is possible, it surely can't be pleasant. Comes with 10 arrows!"
 	cost = PAYCHECK_COMMAND * 3
 
 /datum/armament_entry/company_import/blacksteel/ranged/tomahawk
 	item_type = /obj/item/melee/tomahawk
 
-/datum/armament_entry/company_import/blacksteel/ranged/tomahawk
+/datum/armament_entry/company_import/blacksteel/ranged/knife
 	item_type = /obj/item/knife/combat/throwing
 
 // Forging tools, blacksteel company sells the tools and materials they use as well!
