@@ -8,9 +8,15 @@
 	. = ..()
 	if(!istype(exposed_mob))
 		return
-	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, CHANGELING_DRAIN) && (exposed_mob.reagents.get_reagent_amount(/datum/reagent/medicine/rezadone) + reac_volume >= REZADONE_LING_UNHUSK_AMOUNT))	//Costs a little more than a normal husk
-		exposed_mob.cure_husk(CHANGELING_DRAIN)
-		exposed_mob.visible_message("<span class='nicegreen'>A rubbery liquid coats [exposed_mob]'s tissues. [exposed_mob] looks a lot healthier!")
+	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, CHANGELING_DRAIN))
+		var/current_volume = exposed_mob.reagents.get_reagent_amount(/datum/reagent/medicine/rezadone)
+
+		if(methods & TOUCH)
+			current_volume += reac_volume
+
+		if(current_volume >= REZADONE_LING_UNHUSK_AMOUNT)
+			exposed_mob.cure_husk(CHANGELING_DRAIN)
+			exposed_mob.visible_message("<span class='nicegreen'>A rubbery liquid coats [exposed_mob]'s tissues. [exposed_mob] looks a lot healthier!")
 
 /datum/reagent/medicine/regen_jelly/expose_mob(mob/living/carbon/human/exposed_mob, reac_volume)
 	. = ..()
@@ -24,6 +30,12 @@
 
 	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, CHANGELING_DRAIN))
 		var/current_volume = exposed_mob.reagents.get_reagent_amount(/datum/reagent/medicine/c2/synthflesh)
-		if(current_volume + reac_volume >= SYNTHFLESH_LING_UNHUSK_AMOUNT)	//Costs a little more than a normal husk
+		var/current_purity = exposed_mob.reagents.get_reagent_purity(/datum/reagent/medicine/c2/synthflesh)
+
+		if(methods & TOUCH)
+			current_purity = current_volume > 0 ? (current_volume * current_purity + reac_volume * creation_purity) / (current_volume + reac_volume) : creation_purity
+			current_volume += reac_volume
+
+		if(current_volume >= SYNTHFLESH_LING_UNHUSK_MAX || current_volume * current_purity >= SYNTHFLESH_LING_UNHUSK_AMOUNT)
 			exposed_mob.cure_husk(CHANGELING_DRAIN)
 			exposed_mob.visible_message("<span class='nicegreen'>A rubbery liquid coats [exposed_mob]'s tissues. [exposed_mob] looks a lot healthier!")
