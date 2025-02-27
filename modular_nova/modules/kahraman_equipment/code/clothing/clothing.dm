@@ -114,6 +114,7 @@
 	icon_state = "cap"
 	soft_type = "cap"
 	soft_suffix = null
+	resistance_flags = FIRE_PROOF
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	worn_icon_teshari = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
