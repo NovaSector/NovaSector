@@ -54,7 +54,7 @@
 
 /obj/machinery/computer/piratepad_control/syndiepad
 	name = "Interdyne Sales Terminal"
-	desc = "A hacked console for the modified citizen bounty pad.
+	desc = "A hacked console for the modified citizen bounty pad."
 	status_report = "Ready for delivery."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "syndie_key"
