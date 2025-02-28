@@ -6,5 +6,5 @@
 	name = "Armadyne OS Safeguard V1.0"
 	id = "armadyne_safeguard"
 	inherent = list(
-		"Snytax Error: No laws found"
+		"Syntax Error: No laws found"
 	)

@@ -3,4 +3,4 @@
 #Empty lines and lines starting with # are ignored.
 #~Miauw
 
-Snytax Error: No laws found
+Syntax Error: No laws found
