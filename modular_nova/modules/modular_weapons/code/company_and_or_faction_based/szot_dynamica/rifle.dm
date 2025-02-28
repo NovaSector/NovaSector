@@ -1,4 +1,4 @@
-// Rapid firing scary military grade weapon firing 4.45x33 Cesarzowa
+// Rapid firing scary military grade weapon firing .27-54 Cesarzowa
 
 /obj/item/gun/ballistic/automatic/miecz
 	name = "\improper Miecz Support Weapon"
@@ -59,7 +59,7 @@
 
 	. += "The Miecz is one of the staple weapons of the frontier, simple, effective, and based on \
 		a figuratively 'tested' design, though you couldn't be sure which one that is. \
-		Fires the 4.45x33 'pistol' caliber round, if only to dodge it's classification as a rifle. \
+		Fires the .27-54 'intermediary' caliber round, if only to dodge it's classification as a rifle. \
 		Overall, it's decently accurate, lightweight, and reeks of gun-grease,  \
 		and might feel a little more homely then the next gun over... or, atleast that's what the label says. \
 		The Wood-Substitute material is known to have various side-effects, contact your local health department before use."
