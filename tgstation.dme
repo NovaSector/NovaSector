@@ -8187,6 +8187,7 @@
 #include "modular_nova\modules\modular_implants\code\nifs_tgui.dm"
 #include "modular_nova\modules\modular_implants\code\nifsoft_catalog.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts.dm"
+#include "modular_nova\modules\modular_implants\code\nifsofts\blood_steal.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\book_summoner.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\detective_summoner.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\dorms.dm"
