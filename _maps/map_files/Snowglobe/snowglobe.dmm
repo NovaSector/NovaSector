@@ -19550,6 +19550,7 @@
 /obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/small,
 /area/station/service/kitchen/coldroom)
 "fnv" = (
@@ -21093,6 +21094,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/freezer,
 /area/station/medical/storage)
 "fIQ" = (
@@ -31038,6 +31040,7 @@
 	cycle_id = "tcommcradlecycle"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/tcommsat/server)
 "ipV" = (
@@ -41183,6 +41186,7 @@
 	name = "Server Access"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 8
 	},
@@ -85466,6 +85470,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/xenobiology)
 "wYk" = (
@@ -86418,6 +86423,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/tcommsat/server)
 "xle" = (
