@@ -14,6 +14,8 @@ SUBSYSTEM_DEF(economy)
 										ACCOUNT_SRV = ACCOUNT_SRV_NAME,
 										ACCOUNT_CAR = ACCOUNT_CAR_NAME,
 										ACCOUNT_CMD = ACCOUNT_CMD_NAME, // NOVA EDIT
+										ACCOUNT_DS2 = ACCOUNT_DS2_NAME,
+										ACCOUNT_INT = ACCOUNT_INT_NAME,
 										ACCOUNT_SEC = ACCOUNT_SEC_NAME)
 	var/list/departmental_accounts = list()
 	/**
