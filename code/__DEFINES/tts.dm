@@ -8,3 +8,5 @@
 #define TTS_FILTER_RADIO "radio"
 ///TTS filter to activate a silicon effect on speech.
 #define TTS_FILTER_SILICON "silicon"
+///TTS preference is set to only play voice_barks rather than speech
+#define TTS_SOUND_BARKS "Voice Barks"

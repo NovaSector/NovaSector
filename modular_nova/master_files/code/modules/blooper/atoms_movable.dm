@@ -75,6 +75,8 @@ It has also been further modified by Rashcat & other Fluffyfrontier contributors
 
 	if(!(client?.prefs.read_preference(/datum/preference/toggle/send_sound_blooper)))
 		return
+	if(!(client?.prefs.read_preference(/datum/preference/choiced/sound_tts) == TTS_SOUND_BARKS))
+		return
 	blooper_volume = client?.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) //volume scales with your volume slider in game preferences.
 	if(HAS_TRAIT(src, TRAIT_SIGN_LANG) && !HAS_TRAIT(src, TRAIT_MUTE)) //if you can speak and you sign, your hands don't make a bark. Unless you are completely mute, you can have some hand bark.
 		return
@@ -99,6 +101,8 @@ It has also been further modified by Rashcat & other Fluffyfrontier contributors
 				if (source.voice == "" || source.voice == "None") // "None" is for borgs
 					continue
 				if (tts_pref == TTS_SOUND_OFF)
+					continue
+				if (tts_pref == TTS_SOUND_BARKS)
 					continue
 				listening -= M
 

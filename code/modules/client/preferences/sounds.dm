@@ -49,7 +49,7 @@
 	savefile_identifier = PREFERENCE_PLAYER
 
 /datum/preference/choiced/sound_tts/init_possible_values()
-	return list(TTS_SOUND_ENABLED, TTS_SOUND_BLIPS, TTS_SOUND_OFF)
+	return list(TTS_SOUND_ENABLED, TTS_SOUND_BLIPS, TTS_SOUND_BARKS, TTS_SOUND_OFF)
 
 /datum/preference/choiced/sound_tts/create_default_value()
 	return TTS_SOUND_ENABLED
