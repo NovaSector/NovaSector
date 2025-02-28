@@ -54,8 +54,7 @@
 
 /obj/machinery/computer/piratepad_control/syndiepad
 	name = "Interdyne Sales Terminal"
-	desc = "A hacked console for the modified citizen bounty pad. \
-	Proudly brought to you by Gorlex Industries."
+	desc = "A hacked console for the modified citizen bounty pad.
 	status_report = "Ready for delivery."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "syndie_key"
@@ -150,12 +149,12 @@
 
 
 /obj/item/circuitboard/computer/syndiepad/syndicate
-	name = "Syndicate Deepspace Sales Pad"
+	name = "Syndicate Deepspace Sales Terminal"
 	build_path = /obj/machinery/computer/piratepad_control/syndiepad/syndicate
 
 /obj/machinery/computer/piratepad_control/syndiepad/syndicate
-	name = "Syndicate Deepspace Sales Pad"
-	desc = "A console for an old model of a citizen bounty pad."
+	name = "Syndicate Deepspace Sales Terminal"
+	desc = "A modified civilian console with an elaborate relay to other authorized facilities for selling goods."
 	status_report = "Ready for delivery."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "syndie_key"
