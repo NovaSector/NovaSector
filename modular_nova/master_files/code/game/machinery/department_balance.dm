@@ -78,11 +78,6 @@
 /obj/machinery/status_display/department_balance/receive_signal(datum/signal/signal)
 	return
 
-/*
-/obj/machinery/status_display/department_balance/emp_act(severity)
-	return
-*/
-
 /obj/machinery/status_display/department_balance/Destroy()
 	stop_process()
 	. = ..()
