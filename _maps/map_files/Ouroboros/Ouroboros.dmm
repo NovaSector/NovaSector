@@ -16269,10 +16269,6 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/iron/dark,
 /area/station/medical/break_room)
-"eKp" = (
-/obj/structure/plasticflaps/kitchen,
-/turf/open/space/basic,
-/area/space)
 "eKI" = (
 /obj/machinery/button/elevator/directional/north{
 	id = "arrivals_lift"
@@ -86490,7 +86486,7 @@ laO
 laO
 laO
 laO
-eKp
+laO
 laO
 laO
 tzq
