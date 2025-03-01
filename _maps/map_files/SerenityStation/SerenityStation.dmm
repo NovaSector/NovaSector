@@ -4963,10 +4963,6 @@
 /turf/open/floor/wood/large,
 /area/station/security/prison/garden)
 "bvd" = (
-/obj/structure/chair/sofa/corp/right{
-	dir = 8;
-	pixel_x = 7
-	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
@@ -39671,7 +39667,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/landmark/start/captain,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/captain)
 "lsf" = (
@@ -67122,13 +67117,12 @@
 /turf/open/floor/iron,
 /area/station/science/lab)
 "tAg" = (
-/obj/structure/chair/sofa/corp/left{
-	dir = 8;
-	pixel_x = 7
+/obj/machinery/greenscreen_camera{
+	dir = 4;
+	pixel_x = -16;
+	pixel_y = 4
 	},
-/obj/structure/sign/painting/library{
-	pixel_x = 32
-	},
+/obj/structure/sign/poster/greenscreen/directional/east,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},

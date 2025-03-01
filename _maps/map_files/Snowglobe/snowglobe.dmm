@@ -30458,7 +30458,7 @@
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/primary/aft)
 "iig" = (
-/obj/structure/bookcase/random,
+/obj/structure/sign/poster/greenscreen/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/captain)
 "iit" = (
@@ -38457,6 +38457,10 @@
 	},
 /turf/open/floor/stone,
 /area/station/commons/dorms/room1)
+"kmQ" = (
+/obj/structure/sign/poster/greenscreen/directional/east,
+/turf/open/genturf,
+/area/icemoon/underground/unexplored/rivers/deep)
 "kmT" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -46951,6 +46955,9 @@
 /obj/item/paper_bin{
 	pixel_y = 5;
 	pixel_x = -5
+	},
+/obj/item/book/manual/fish_catalog{
+	pixel_x = 5
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
@@ -63325,6 +63332,14 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/hallway/primary/forestarboardhall)
+"rfa" = (
+/obj/machinery/greenscreen_camera{
+	dir = 1;
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/turf/open/floor/carpet/royalblue,
+/area/station/command/heads_quarters/captain)
 "rfr" = (
 /obj/effect/spawner/random/structure/crate_loot,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -78850,11 +78865,8 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/structure/rack/wooden,
-/obj/item/book/manual/fish_catalog{
-	pixel_x = 5
-	},
 /obj/machinery/status_display/evac/directional/west,
+/obj/structure/bookcase/random,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "voq" = (
@@ -93461,7 +93473,7 @@ jKe
 jKe
 jKe
 jKe
-jKe
+kmQ
 jKe
 jKe
 jKe
@@ -255996,7 +256008,7 @@ vqU
 vaj
 xHO
 iig
-hIF
+rfa
 baG
 rby
 bGI

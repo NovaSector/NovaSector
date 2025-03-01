@@ -12553,6 +12553,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
+"dIZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/greenscreen_camera{
+	dir = 1;
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/captain)
 "dJb" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/layer_manifold/cyan/visible{
@@ -51648,16 +51659,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/table/wood/fancy/royalblue,
-/obj/item/paper_bin{
-	pixel_y = 4
-	},
-/obj/item/pen/fountain{
-	pixel_y = 4
-	},
-/obj/item/melee/chainofcommand{
-	pixel_y = 5
-	},
+/obj/structure/sign/poster/greenscreen/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain)
 "oyG" = (
@@ -61656,6 +61658,9 @@
 /obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "Captain's Desk";
 	req_access = list("captain")
+	},
+/obj/item/melee/chainofcommand{
+	pixel_y = 5
 	},
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain)
@@ -115537,7 +115542,7 @@ eRz
 hyg
 sOq
 oyz
-foI
+dIZ
 foI
 dil
 lAu

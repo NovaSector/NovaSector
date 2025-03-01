@@ -18812,9 +18812,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/structure/chair/wood{
-	dir = 1
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -53982,11 +53979,14 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/chair/wood{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/structure/sign/poster/greenscreen/directional/west,
+/obj/machinery/greenscreen_camera{
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = 4
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "pDX" = (
