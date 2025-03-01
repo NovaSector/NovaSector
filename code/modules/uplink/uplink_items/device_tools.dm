@@ -76,7 +76,7 @@
 	surplus = 0
 	item = /obj/item/storage/briefcase/launchpad
 	cost = 6
-
+*/ // NOVA EDIT REMOVAL END
 /datum/uplink_item/device_tools/syndicate_teleporter
 	name = "Experimental Syndicate Teleporter"
 	desc = "A handheld device that teleports the user 4-8 meters forward. \
@@ -85,7 +85,7 @@
 			Comes with 4 charges, recharges randomly. Warranty null and void if exposed to an electromagnetic pulse."
 	item = /obj/item/storage/box/syndie_kit/syndicate_teleporter
 	cost = 8
-*/ // NOVA EDIT REMOVAL END
+
 
 /datum/uplink_item/device_tools/camera_app
 	name = "SyndEye Program"
@@ -124,7 +124,7 @@
 			You will receive the unlock code upon activating the virus, and the new uplink may be charged with \
 			telecrystals normally."
 	item = /obj/item/computer_disk/virus/frame
-	cost = 4
+	cost = 2 // NOVA EDIT - ORIGINAL: cost = 4
 	restricted = TRUE
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
