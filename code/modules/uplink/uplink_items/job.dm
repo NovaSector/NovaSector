@@ -15,7 +15,7 @@
 	restricted_roles = list(JOB_CURATOR)
 	limited_stock = 1 //please don't spam deadchat
 	surplus = 5
-
+/* NOVA EDIT - DISABLED
 /datum/uplink_item/role_restricted/mail_counterfeit_kit
 	name = "GLA Brand Mail Counterfeit Kit"
 	desc = "A box containing five devices capable of counterfeiting NT's mail. Can be used to store items within as an easy means of smuggling contraband. \
@@ -27,7 +27,7 @@
 	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
 	restricted_roles = list(JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
 	surplus = 5
-
+*/
 /datum/uplink_item/role_restricted/bureaucratic_error
 	name = "Organic Capital Disturbance Virus"
 	desc = "Randomizes job positions presented to new hires. May lead to too many/too few security officers and/or clowns. Single use."
@@ -139,7 +139,7 @@
 	name = "Butcher's Meat Hook"
 	desc = "A brutal cleaver on a long chain, it allows you to pull people to your location."
 	item = /obj/item/gun/magic/hook
-	cost = 11
+	cost = 8 // NOVA EDIT - ORIGINAL: cost = 10
 	restricted_roles = list(JOB_COOK)
 
 /datum/uplink_item/role_restricted/moltobeso
@@ -154,14 +154,14 @@
 	name = "Disposable Sentry Gun"
 	desc = "A disposable sentry gun deployment system cleverly disguised as a toolbox, apply wrench for functionality."
 	item = /obj/item/storage/toolbox/emergency/turret
-	cost = 11
+	cost = 8 // NOVA EDIT - ORIGINAL: cost = 11
 	restricted_roles = list(JOB_STATION_ENGINEER, JOB_CHIEF_ENGINEER)
 
 /datum/uplink_item/role_restricted/rebarxbowsyndie
 	name = "Syndicate Rebar Crossbow"
 	desc = "A much more professional version of the engineer's bootleg rebar crossbow. 3 shot mag, quicker loading, and better ammo. Owners manual included."
 	item = /obj/item/storage/box/syndie_kit/rebarxbowsyndie
-	cost = 12
+	cost = 6 // NOVA EDIT - ORIGINAL: cost = 12
 	restricted_roles = list(JOB_STATION_ENGINEER, JOB_CHIEF_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN)
 
 /datum/uplink_item/role_restricted/magillitis_serum
@@ -247,7 +247,7 @@
 	name = "Laser Arm Implant"
 	desc = "An implant that grants you a recharging laser gun inside your arm. Weak to EMPs. Comes with a syndicate autosurgeon for immediate self-application."
 	progression_minimum = 20 MINUTES
-	cost = 10
+	cost = 5 // NOVA EDIT - ORIGINAL: cost = 10
 	item = /obj/item/autosurgeon/syndicate/laser_arm
 	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 	surplus = 20
@@ -257,7 +257,7 @@
 	desc = "A heavily modified syringe gun which is capable of synthesizing its own chemical darts using input reagents. Can hold 90u of reagents."
 	progression_minimum = 15 MINUTES
 	item = /obj/item/gun/chem
-	cost = 12
+	cost = 8 // NOVA EDIT - ORIGINAL: cost = 12
 	restricted_roles = list(JOB_CHEMIST, JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_BOTANIST)
 
 /datum/uplink_item/role_restricted/pie_cannon
