@@ -80,7 +80,7 @@
 
 /obj/machinery/status_display/department_balance/Destroy()
 	stop_process()
-	. = ..()
+	return ..()
 
 /**
  * Adds the display to the SSdigital_clock process list
