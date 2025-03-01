@@ -37,7 +37,7 @@
 	suppressor_y_offset = 0
 
 	burst_size = 1
-	fire_delay = 3
+	fire_delay = 3.5
 	actions_types = list()
 
 	spread = 1
