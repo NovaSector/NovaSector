@@ -67,4 +67,4 @@
 		/obj/item/storage/box/survival,
 		/obj/item/storage/medkit/regular,
 		/obj/item/healthanalyzer,
-		)
+	)
