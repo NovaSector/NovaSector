@@ -25,3 +25,41 @@
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/egun_mini
 	cost = 1 // 1 whole dolar
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+
+// OTHER ITEMS PAST THIS POINT, TO AVOID MAKING A BUNCH OF NEW FILES
+/datum/uplink_item/dangerous/foampistol
+	cost = 3
+
+/datum/uplink_item/dangerous/pistol
+	cost = 4
+
+/datum/uplink_item/dangerous/sword
+	cost = 5
+
+/datum/uplink_item/dangerous/guardian
+	cost = 10
+
+/datum/uplink_item/device_tools/frame
+	cost = 2
+
+/datum/uplink_item/role_restricted/meathook
+	cost = 8
+
+/datum/uplink_item/role_restricted/turretbox
+	cost = 8
+
+/datum/uplink_item/role_restricted/laser_arm
+	cost = 5
+/datum/uplink_item/role_restricted/chemical_gun
+	cost = 8
+
+/datum/uplink_item/role_restricted/his_grace
+	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
+
+/datum/uplink_item/role_restricted/rebarxbowsyndie
+	cost = 6
+
+/datum/uplink_item/special/autosurgeon
+	cost = 2
+/datum/uplink_item/suits/modsuit
+	cost = 6
