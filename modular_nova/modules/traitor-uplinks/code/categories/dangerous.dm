@@ -9,14 +9,14 @@
 	name = "Sindano Submachine Gun Kit"
 	desc = "A Sindano SMG, with spare lethal-and-non-lethal ammo, and three various magazines. (stendos not guaranteed) "
 	item = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
-	cost = 9
+	cost = 7
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/wespe
-	name = "Guepe Pistol Kit"
-	desc = "A Guepe personal defense pistol, with two lethal magazines, full-auto and dubiously legal."
+	name = "Geupe Pistol Kit"
+	desc = "A Geupe personal defense pistol, with two lethal magazines, full-auto and dubiously legal."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe
-	cost = 7
+	cost = 5
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/dangerous/miniegunkit
