@@ -50,6 +50,7 @@
 
 /datum/uplink_item/role_restricted/laser_arm
 	cost = 5
+
 /datum/uplink_item/role_restricted/chemical_gun
 	cost = 8
 
@@ -61,5 +62,6 @@
 
 /datum/uplink_item/special/autosurgeon
 	cost = 2
+
 /datum/uplink_item/suits/modsuit
 	cost = 6
