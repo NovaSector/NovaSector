@@ -139,7 +139,7 @@
 	name = "Butcher's Meat Hook"
 	desc = "A brutal cleaver on a long chain, it allows you to pull people to your location."
 	item = /obj/item/gun/magic/hook
-	cost = 8 // NOVA EDIT - ORIGINAL: cost = 10
+	cost = 10
 	restricted_roles = list(JOB_COOK)
 
 /datum/uplink_item/role_restricted/moltobeso
@@ -154,7 +154,7 @@
 	name = "Disposable Sentry Gun"
 	desc = "A disposable sentry gun deployment system cleverly disguised as a toolbox, apply wrench for functionality."
 	item = /obj/item/storage/toolbox/emergency/turret
-	cost = 8 // NOVA EDIT - ORIGINAL: cost = 11
+	cost = 11
 	restricted_roles = list(JOB_STATION_ENGINEER, JOB_CHIEF_ENGINEER)
 
 /datum/uplink_item/role_restricted/rebarxbowsyndie
@@ -247,7 +247,7 @@
 	name = "Laser Arm Implant"
 	desc = "An implant that grants you a recharging laser gun inside your arm. Weak to EMPs. Comes with a syndicate autosurgeon for immediate self-application."
 	progression_minimum = 20 MINUTES
-	cost = 5 // NOVA EDIT - ORIGINAL: cost = 10
+	cost = 10
 	item = /obj/item/autosurgeon/syndicate/laser_arm
 	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 	surplus = 20
@@ -257,7 +257,7 @@
 	desc = "A heavily modified syringe gun which is capable of synthesizing its own chemical darts using input reagents. Can hold 90u of reagents."
 	progression_minimum = 15 MINUTES
 	item = /obj/item/gun/chem
-	cost = 8 // NOVA EDIT - ORIGINAL: cost = 12
+	cost = 12
 	restricted_roles = list(JOB_CHEMIST, JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_BOTANIST)
 
 /datum/uplink_item/role_restricted/pie_cannon
