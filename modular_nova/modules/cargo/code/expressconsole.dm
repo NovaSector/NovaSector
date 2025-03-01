@@ -75,7 +75,6 @@
 			return
 	return ..()
 
-
 //Deep Space 2's console
 /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	name = "Syndicate Express Supply Console"
