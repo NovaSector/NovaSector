@@ -53,7 +53,7 @@
 	build_path = /obj/machinery/computer/piratepad_control/syndiepad
 
 /obj/machinery/computer/piratepad_control/syndiepad
-	name = "Interdyne Sales Terminal"
+	name = "\improper Interdyne sales terminal"
 	desc = "A hacked console for the modified citizen bounty pad."
 	status_report = "Ready for delivery."
 	icon_screen = "civ_bounty"
