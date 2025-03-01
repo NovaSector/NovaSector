@@ -58,7 +58,7 @@
 	. = ..()
 
 	. += "The Miecz is one of the staple weapons of the frontier, simple, effective, and based on \
-		a figuratively 'tested' design, /(though you couldn't be sure which one that is/). \
+		a figuratively 'tested' design, (though you couldn't be sure which one that is). \
 		Fires the .27-54 'intermediary' caliber round, if only to dodge its classification as a rifle. \
 		Overall, it's decently accurate, lightweight, and reeks of gun-grease,  \
 		and might feel a little more homely then the next gun over... or, at least that's what the label says. \
