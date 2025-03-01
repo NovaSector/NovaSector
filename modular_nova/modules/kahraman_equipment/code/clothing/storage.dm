@@ -18,7 +18,7 @@
 
 /obj/item/storage/backpack/industrial/frontier_colonist/satchel
 	name = "frontier satchel"
-	desc = "A rugged satchel often used by settlers and explorers. It's fire proof."
+	desc = "A rugged satchel often used by settlers and explorers. It's fireproof."
 	icon_state = "satchel"
 	worn_icon_state = "satchel"
 
