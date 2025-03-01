@@ -20,7 +20,6 @@
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/medal/gold/admiral(src)
 
-
 /obj/structure/closet/secure_closet/des_two/sa_locker/PopulateContents()
 	..()
 
