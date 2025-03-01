@@ -24,7 +24,7 @@
 
 /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 	name = "frontier messenger bag"
-	desc = "A rugged messenger bag often used by settlers and explorers. It's fire proof."
+	desc = "A rugged messenger bag often used by settlers and explorers. It's fireproof."
 	icon_state = "messenger"
 	worn_icon_state = "messenger"
 
