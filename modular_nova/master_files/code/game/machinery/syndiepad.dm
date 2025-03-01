@@ -109,7 +109,7 @@
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
 	if(pad && istype(pad, /obj/machinery/piratepad/syndiepad))
 		warmup_time = clamp(SYN_BOUNTY_PAD_WARM_TIME - pad.warmup_reduction, 1 SECONDS, SYN_BOUNTY_PAD_WARM_TIME)
-	. = ..()
+	return ..()
 
 /obj/machinery/computer/piratepad_control/syndiepad/proc/safe_to_sell()
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
