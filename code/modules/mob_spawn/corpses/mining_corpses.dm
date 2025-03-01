@@ -107,7 +107,7 @@
 			"Operative",
 			//"Shadow", //NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
 		)) = 4,
-// NOVA ADDITION START - NEW_LEGION_CORPSES
+		// NOVA ADDITION START - NEW_LEGION_CORPSES
 		pick(list(
 			"Engineer",
 			"Scientist",
@@ -116,7 +116,7 @@
 			"Cook",
 			"Doctor",
 		)) = 16,
-//NOVA ADDITION END - NEW_LEGION_CORPSES
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
 	))
 
 	switch(corpse_theme)
