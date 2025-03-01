@@ -124,7 +124,7 @@
 			You will receive the unlock code upon activating the virus, and the new uplink may be charged with \
 			telecrystals normally."
 	item = /obj/item/computer_disk/virus/frame
-	cost = 2 // NOVA EDIT - ORIGINAL: cost = 4
+	cost = 4
 	restricted = TRUE
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
