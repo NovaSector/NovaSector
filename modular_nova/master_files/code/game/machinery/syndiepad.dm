@@ -72,7 +72,7 @@
 
 /obj/machinery/computer/piratepad_control/syndiepad/ui_data(mob/user)
 	points = !synced_bank_account ? 0 : synced_bank_account.account_balance
-	. = ..()
+	return ..()
 
 /obj/machinery/computer/piratepad_control/syndiepad/recalc()
 	if(!safe_to_sell())
