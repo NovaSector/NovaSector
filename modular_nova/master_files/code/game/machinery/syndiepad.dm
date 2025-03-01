@@ -147,7 +147,6 @@
 
 	circuit = /obj/item/circuitboard/machine/syndiepad/syndicate
 
-
 /obj/item/circuitboard/computer/syndiepad/syndicate
 	name = "Syndicate Deepspace Sales Terminal"
 	build_path = /obj/machinery/computer/piratepad_control/syndiepad/syndicate
