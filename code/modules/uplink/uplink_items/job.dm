@@ -139,7 +139,7 @@
 	name = "Butcher's Meat Hook"
 	desc = "A brutal cleaver on a long chain, it allows you to pull people to your location."
 	item = /obj/item/gun/magic/hook
-	cost = 10
+	cost = 11
 	restricted_roles = list(JOB_COOK)
 
 /datum/uplink_item/role_restricted/moltobeso
