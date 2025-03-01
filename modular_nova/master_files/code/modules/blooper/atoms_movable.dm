@@ -43,7 +43,6 @@ It has also been further modified by Rashcat & other Fluffyfrontier contributors
 		for(var/mob/M in listeners)
 			if(!M.client)
 				continue
-			if(!(M.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)))
 				listeners -= M
 		var/bloopers = min(round((LAZYLEN(message) / blooper_speed)) + 1, BLOOPER_MAX_BLOOPERS)
 		var/total_delay
@@ -73,8 +72,6 @@ It has also been further modified by Rashcat & other Fluffyfrontier contributors
 /mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language = null, list/message_mods = list(), forced = null, tts_message, list/tts_filter)
 	. = ..()
 
-	if(!(client?.prefs.read_preference(/datum/preference/toggle/send_sound_blooper)))
-		return
 	if(!(client?.prefs.read_preference(/datum/preference/choiced/sound_tts) == TTS_SOUND_BARKS))
 		return
 	blooper_volume = client?.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) //volume scales with your volume slider in game preferences.
@@ -91,21 +88,8 @@ It has also been further modified by Rashcat & other Fluffyfrontier contributors
 			if(!M.client)
 				continue
 
-			var/tts_pref = M.client.prefs?.read_preference(/datum/preference/choiced/sound_tts)
-			var/hear_blooper = M.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)
-
-			if(!hear_blooper) // Check pref for blooper
+			if(!(client?.prefs.read_preference(/datum/preference/choiced/sound_tts) == TTS_SOUND_BARKS)) // Check pref for blooper
 				listening -= M
-
-			else if (CONFIG_GET(string/tts_http_url) && SStts.tts_enabled == TRUE) // TTS for vocal barks.
-				if (source.voice == "" || source.voice == "None") // "None" is for borgs
-					continue
-				if (tts_pref == TTS_SOUND_OFF)
-					continue
-				if (tts_pref == TTS_SOUND_BARKS)
-					continue
-				listening -= M
-
 
 
 		var/bloopers = min(round((LAZYLEN(message_raw) / blooper_speed)) + 1, BLOOPER_MAX_BLOOPERS)

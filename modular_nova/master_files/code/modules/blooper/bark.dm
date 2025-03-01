@@ -127,19 +127,6 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 /datum/preference/numeric/blooper_pitch_range/create_default_value()
 	return 0.2
 
-/// Can I use the blooper?
-/datum/preference/toggle/send_sound_blooper
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	savefile_key = "send_sound_blooper"
-	savefile_identifier = PREFERENCE_PLAYER
-	default_value = FALSE
-
-/// Can I hear everyone else's bloops?
-/datum/preference/toggle/hear_sound_blooper
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	savefile_key = "hear_sound_blooper"
-	savefile_identifier = PREFERENCE_PLAYER
-	default_value = FALSE
 
 /// Can I have a slider to adjust the volume of the barks?
 /datum/preference/numeric/sound_blooper_volume
@@ -150,7 +137,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 	maximum = 60
 	step = 5
 
-/// It's was stoolen from Splurt build >:3 and from fluffySTG!! nyeehehehheee!~
+/// It's was stoolen from Splurt build >:3 and from fluffySTG!! nyeehehehheee!~ < Correction Citadel lol
 /datum/blooper
 	var/name = "None"
 	var/id = "No Voice"
