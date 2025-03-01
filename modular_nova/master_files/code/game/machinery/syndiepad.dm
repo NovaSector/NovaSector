@@ -17,7 +17,7 @@
 	build_path = /obj/machinery/piratepad/syndiepad
 	req_components = list(
 		/datum/stock_part/scanning_module = 1,
-		/datum/stock_part/micro_laser = 1
+		/datum/stock_part/micro_laser = 1,
 	)
 
 /obj/machinery/piratepad/syndiepad
