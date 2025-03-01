@@ -8,6 +8,8 @@
  *
  * This file is based off of civilian_bounties.dm
  * Any changes made to that file should be copied over with discretion
+ *
+ * Do not make this a subtype a subtype for the civilian bountypad it will break it
  */
 
 ///Pad for the Syndicate Bounty Control.
@@ -24,6 +26,8 @@
 	name = "Interdyne Sales Pad"
 	desc = "A standard Nanotrasen bounty pad that has been modified for selling goods long distance to other companies."
 	circuit = /obj/item/circuitboard/machine/syndiepad
+
+	// The modifier to reduce warmuptime
 	var/warmup_reduction = 0
 
 /obj/machinery/piratepad/syndiepad/screwdriver_act(mob/living/user, obj/item/tool)
@@ -38,14 +42,14 @@
 
 /obj/machinery/piratepad/syndiepad/RefreshParts()
 	. = ..()
-	var/T = -2
+	var/tier = -2
 	for(var/datum/stock_part/micro_laser/micro_laser in component_parts)
-		T += micro_laser.tier
+		tier += micro_laser.tier
 
 	for(var/datum/stock_part/scanning_module/scanning_module in component_parts)
-		T += scanning_module.tier
+		tier += scanning_module.tier
 
-	warmup_reduction = T * (0.5 SECONDS)
+	warmup_reduction = tier * (0.5 SECONDS)
 
 ///Computer for activating the bounty pad
 /obj/item/circuitboard/computer/syndiepad
@@ -111,6 +115,7 @@
 		warmup_time = clamp(SYN_BOUNTY_PAD_WARM_TIME - pad.warmup_reduction, 1 SECONDS, SYN_BOUNTY_PAD_WARM_TIME)
 	return ..()
 
+/// Utilizes cargoshuttle blacklist to determine what is "Safe" or not blacklisted to be sold. Any item that is NOT able to be sold for profit gets ignored and not flagged as "blacklisted"
 /obj/machinery/computer/piratepad_control/syndiepad/proc/safe_to_sell()
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
 	if(!pad)
@@ -159,3 +164,4 @@
 	icon_keyboard = "syndie_key"
 	circuit = /obj/item/circuitboard/computer/syndiepad/syndicate
 	credits_account = ACCOUNT_DS2
+
