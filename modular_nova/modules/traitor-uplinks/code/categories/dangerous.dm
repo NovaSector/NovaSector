@@ -30,7 +30,7 @@
 /datum/uplink_item/role_restricted/his_grace
 	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
 
-// OTHER ITEMS PAST THIS POINT, TO AVOID MAKING A BUNCH OF NEW FILES
+// TG Overrides - Lowers the cost of various uplink items
 /datum/uplink_item/dangerous/foampistol
 	cost = 3
 
