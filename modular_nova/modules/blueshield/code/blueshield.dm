@@ -92,7 +92,7 @@
 
 /obj/item/choice_beacon/blueshield
 	name = "Weaponry beacon"
-	desc = "A single use beacon to deliver a weapon or set of your choice. Please only call this in your office"
+	desc = "A single use beacon to deliver a weapon or set of your choice. Please only call this in your office!"
 
 	icon_state = "cc_becon"
 	inhand_icon_state = "cc_becon"
