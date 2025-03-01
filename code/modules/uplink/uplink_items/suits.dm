@@ -31,7 +31,7 @@
 	name = "Syndicate MODsuit"
 	desc = "The feared MODsuit of a Syndicate agent. Features armoring and a set of inbuilt modules."
 	item = /obj/item/mod/control/pre_equipped/traitor
-	cost = 6 // NOVA EDIT - ORIGINAL: cost = 8
+	cost = 8
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //you can't buy it in nuke, because the elite modsuit costs the same while being better
 
 /datum/uplink_item/suits/thermal
