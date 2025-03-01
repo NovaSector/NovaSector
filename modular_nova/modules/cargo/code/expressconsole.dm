@@ -72,7 +72,7 @@
 			SSshuttle.supply_packs += temp_pack
 			. = ..()
 			SSshuttle.supply_packs -= temp_pack
-			return .
+			return
 	return ..()
 
 
