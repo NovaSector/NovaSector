@@ -1,5 +1,0 @@
-author: "Stalkeros"
-delete-after: True
-changes:
-  - qol: "Synthetic medkits now feature stacks of healing patches. They perform the exact same purpose, yet are more numerous."
-  - balance: "Coagulant medipen in the basic synthetic medkit has been replaced with an additional stack of nanite patches."
