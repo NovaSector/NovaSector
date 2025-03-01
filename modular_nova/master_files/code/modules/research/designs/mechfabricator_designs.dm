@@ -11,5 +11,5 @@
 	)
 	build_path = /obj/item/mod/module/armor_booster/retractplates
 	category = list(
-		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_SECURITY
+		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_SECURITY,
 	)
