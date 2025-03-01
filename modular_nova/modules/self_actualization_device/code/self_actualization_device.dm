@@ -216,7 +216,7 @@
 	// Check for AI-brain upload. If it was the brain before, then we should replace "new me"s brain with cybernetic one.
 	var/obj/item/organ/brain/cybernetic/ai/old_ai_brain = patient.get_organ_by_type(/obj/item/organ/brain/cybernetic/ai)
 	var/mob/living/silicon/ai/real_ai_player
-	if(old_ai_brain)
+	if(old_ai_brain && old_ai_brain.mainframe)
 		real_ai_player = old_ai_brain.mainframe
 		old_ai_brain.undeploy()
 		real_ai_player.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
