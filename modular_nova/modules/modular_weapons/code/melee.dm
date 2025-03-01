@@ -27,7 +27,7 @@
 
 
 /obj/item/melee/energy/nova/blueshieldsword
-	name = "Blueshield energy blade"
+	name = "\improper Blueshield energy blade"
 	desc = "A specialized sword built and designed not for comfort but utility for usage amongst members within the Central Command Blueshield division."
 	icon_state = "bs_esword"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
