@@ -52,7 +52,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival,
 		/obj/item/sharpener,
-		)
+	)
 
 /datum/outfit/consumed_doctor
 	name = "Legion-Consumed Doctor"
