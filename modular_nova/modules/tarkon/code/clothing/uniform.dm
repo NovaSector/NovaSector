@@ -40,7 +40,7 @@
 	name = "tarkon maintenance uniform"
 	desc = "A uniform worn by maintenance-ranked crew, provided by Tarkon Industries."
 	icon_state = "tarkon_recolor"
-	greyscale_colors = "#E6935C#ffffff"
+	greyscale_colors = "#ff9900#ffffff"
 
 /obj/item/clothing/under/tarkon/com
 	name = "tarkon command uniform"

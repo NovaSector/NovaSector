@@ -9,8 +9,7 @@
 		{
 			"type": "icon_state",
 			"icon_state": "tarkon_reco_2",
-			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
+			"blend_mode": "overlay"
 		}
 	],	"tarkon_recolor_d": [
 		{
