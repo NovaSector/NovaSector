@@ -26,6 +26,10 @@
 	cost = 1 // 1 whole dolar
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
+// TG Overrides - Raises cost of this by 2x
+/datum/uplink_item/role_restricted/his_grace
+	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
+
 // OTHER ITEMS PAST THIS POINT, TO AVOID MAKING A BUNCH OF NEW FILES
 /datum/uplink_item/dangerous/foampistol
 	cost = 3
@@ -53,9 +57,6 @@
 
 /datum/uplink_item/role_restricted/chemical_gun
 	cost = 8
-
-/datum/uplink_item/role_restricted/his_grace
-	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
 
 /datum/uplink_item/role_restricted/rebarxbowsyndie
 	cost = 6
