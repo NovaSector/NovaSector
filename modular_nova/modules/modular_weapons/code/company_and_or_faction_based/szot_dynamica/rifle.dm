@@ -3,7 +3,7 @@
 /obj/item/gun/ballistic/automatic/miecz
 	name = "\improper Miecz Support Weapon"
 	desc = "A short barrel, weapon riding the line between submachine gun, and a rifle. \
-		Features plasticized furniture, and a maintainence manual in the stock... \
+		Features plasticized furniture, and a maintenance manual in the stock... \
 		Which just doesn't seem to come out no matter how hard you pull."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -37,7 +37,7 @@
 	suppressor_y_offset = 0
 
 	burst_size = 1
-	fire_delay = 0.45 SECONDS
+	fire_delay = 3
 	actions_types = list()
 
 	spread = 1
@@ -58,11 +58,11 @@
 	. = ..()
 
 	. += "The Miecz is one of the staple weapons of the frontier, simple, effective, and based on \
-		a figuratively 'tested' design, though you couldn't be sure which one that is. \
-		Fires the .27-54 'intermediary' caliber round, if only to dodge it's classification as a rifle. \
+		a figuratively 'tested' design, /(though you couldn't be sure which one that is/). \
+		Fires the .27-54 'intermediary' caliber round, if only to dodge its classification as a rifle. \
 		Overall, it's decently accurate, lightweight, and reeks of gun-grease,  \
-		and might feel a little more homely then the next gun over... or, atleast that's what the label says. \
-		The Wood-Substitute material is known to have various side-effects, contact your local health department before use."
+		and might feel a little more homely then the next gun over... or, at least that's what the label says. \
+		The Wood-Substitute material is known to have various side-effects, please contact your local health department before use."
 
 	return .
 
