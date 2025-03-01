@@ -29,7 +29,6 @@
 	icon = 'modular_nova/master_files/icons/obj/budget_cards.dmi'
 	icon_state = "ds2_budget"
 
-
 /obj/item/card/id/departmental_budget/interdyne
 	department_ID = ACCOUNT_INT
 	department_name = ACCOUNT_INT_NAME
