@@ -77,7 +77,7 @@
 /obj/machinery/computer/piratepad_control/syndiepad/recalc()
 	if(!safe_to_sell())
 		return
-	. = ..()
+	return ..()
 
 /obj/machinery/computer/piratepad_control/syndiepad/send()
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
