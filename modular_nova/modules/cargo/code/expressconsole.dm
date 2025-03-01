@@ -31,7 +31,7 @@
 
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
-		to_chat(user, span_notice("You try to change the routing protocols, however the machine displays a runtime error and reboots."))
+		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))
 	return FALSE//never let this console be emagged
 
 /obj/machinery/computer/cargo/express/interdyne/packin_up()//we're the dauntless, add the company imports stuff to our express console
