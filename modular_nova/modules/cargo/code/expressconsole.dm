@@ -82,7 +82,7 @@
 
 /obj/machinery/computer/cargo/express/interdyne/syndicate
 	name = "\improper Syndicate express supply console"
-	desc = "A standard Syndicate syndicate console."
+	desc = "A standard Syndicate console."
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
