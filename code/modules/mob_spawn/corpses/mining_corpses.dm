@@ -105,7 +105,7 @@
 			"Cultist",
 			"Heremoth",
 			"Operative",
-			//"Shadow", //NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
+			//"Shadow", // NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
 		)) = 4,
 		// NOVA ADDITION START - NEW_LEGION_CORPSES
 		pick(list(
