@@ -13,7 +13,7 @@
 		riot darts. Perfect for nonlethal takedowns at range, as well as deniability. While not included in the kit, the \
 		pistol is compatible with suppressors, which can be purchased separately."
 	item = /obj/item/storage/toolbox/guncase/traitor/donksoft
-	cost = 3 // NOVA EDIT - ORIGINAL: cost = 6
+	cost = 6
 	surplus = 10
 	purchasable_from = ~UPLINK_SERIOUS_OPS
 
@@ -23,7 +23,7 @@
 		Chambered in 9mm. Perfect for frequent skirmishes with security, as well as ensuring you have enough firepower to outlast the competition. \
 		While not included in the kit, the pistol is compatible with suppressors, which can be purchased separately."
 	item = /obj/item/storage/toolbox/guncase/traitor
-	cost = 4 // NOVA EDIT - ORIGINAL: cost = 7
+	cost = 7
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/dangerous/throwingweapons
@@ -40,7 +40,7 @@
 			pocketed when inactive. Activating it produces a loud, distinctive noise."
 	progression_minimum = 20 MINUTES
 	item = /obj/item/melee/energy/sword/saber
-	cost = 5 // NOVA EDIT - ORIGINAL: cost = 6
+	cost = 6
 	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/dangerous/powerfist
@@ -86,7 +86,7 @@
 			organic host as a home base and source of fuel. Holoparasites come in various types and share damage with their host."
 	progression_minimum = 30 MINUTES
 	item = /obj/item/guardian_creator/tech
-	cost = 10 // NOVA EDIT - ORIGINAL: cost = 18
+	cost = 18
 	surplus = 0
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 	restricted = TRUE
