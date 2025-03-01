@@ -12,7 +12,6 @@
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT
 	contraband = TRUE
-	// ADD COMPANIES HERE
 
 	var/static/list/allowed_categories = list(
 		NAKAMURA_ENGINEERING_MODSUITS_NAME,
