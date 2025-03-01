@@ -82,7 +82,7 @@
 			return /datum/outfit/consumed_cook
 		if("Doctor")
 			return /datum/outfit/consumed_doctor
-//NOVA ADDITION END - NEW_LEGION_CORPSES
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
 
 
 /// Corpse spawner used by dwarf legions to make small corpses
