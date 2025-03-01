@@ -2,8 +2,8 @@
 
 /obj/item/gun/ballistic/automatic/miecz
 	name = "\improper Miecz Support Weapon"
-	desc = "A short barrel, weapon riding the line between submachine gun, and a rifle. \
-		Features plasticized furniture, and a maintenance manual in the stock... \
+	desc = "A short barrel weapon riding the line between submachine gun and a rifle. \
+		Features plasticized furniture and a maintenance manual in the stock... \
 		Which just doesn't seem to come out no matter how hard you pull."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -57,19 +57,15 @@
 /obj/item/gun/ballistic/automatic/miecz/examine_more(mob/user)
 	. = ..()
 
-	. += "The Miecz is one of the staple weapons of the frontier, simple, effective, and based on \
+	. += "The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
 		a figuratively 'tested' design, (though you couldn't be sure which one that is). \
 		Fires the .27-54 'intermediary' caliber round, if only to dodge its classification as a rifle. \
-		Overall, it's decently accurate, lightweight, and reeks of gun-grease,  \
+		Overall, it's decently accurate, lightweight, reeks of gun-grease,  \
 		and might feel a little more homely then the next gun over... or, at least that's what the label says. \
 		The Wood-Substitute material is known to have various side-effects, please contact your local health department before use."
 
-	return .
-
 /obj/item/gun/ballistic/automatic/miecz/no_mag
 	spawnwithmagazine = FALSE
-
-
 
 // Semi-automatic rifle firing .310 with reduced damage compared to a Sakhno
 
