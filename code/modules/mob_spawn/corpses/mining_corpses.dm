@@ -149,7 +149,7 @@
 			return /datum/outfit/consumed_cook
 		if("Doctor")
 			return /datum/outfit/consumed_doctor
-//NOVA ADDITION END - NEW_LEGION_CORPSES
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
 
 /// Creates a dead legion-infested skeleton
 /obj/effect/mob_spawn/corpse/human/legioninfested/skeleton
