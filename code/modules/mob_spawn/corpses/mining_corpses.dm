@@ -69,9 +69,10 @@
 			return /datum/outfit/consumed_dame
 		if("Operative")
 			return /datum/outfit/syndicatecommandocorpse/lessenedgear
-		/*if("Shadow")
-			return /datum/outfit/consumed_shadowperson*/ //NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
-//NOVA ADDITION START - NEW_LEGION_CORPSES
+		/* // NOVA EDIT REMOVAL START - NEW_LEGION_CORPSES
+		if("Shadow")
+			return /datum/outfit/consumed_shadowperson
+		*/ // NOVA EDIT REMOVAL END - NEW_LEGION_CORPSES
 		if("Engineer")
 			return /datum/outfit/consumed_engineer
 		if("Scientist")
