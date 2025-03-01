@@ -34,8 +34,8 @@
 	var/corpse_theme = pick_weight(list(
 		"Miner" = 53, // NOVA EDIT CHANGE, ORIGINAL - "Miner" = 64,
 		"Clown" = 5,
-		"Ashwalker" = 13, //NOVA EDIT CHANGE, ORIGINAL - "Ashwalker" = 15,
-		"Golem" = 8, //NOVA EDIT CHANGE, ORIGINAL - "Golem" = 10,
+		"Ashwalker" = 13, //NOVA EDIT CHANGE - ORIGINAL: "Ashwalker" = 15,
+		"Golem" = 8, // NOVA EDIT CHANGE - ORIGINAL: "Golem" = 10,
 		pick(list(
 			"Cultist",
 			"Dame",
