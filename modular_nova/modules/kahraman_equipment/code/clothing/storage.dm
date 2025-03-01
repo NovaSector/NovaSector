@@ -2,7 +2,7 @@
 
 /obj/item/storage/backpack/industrial/frontier_colonist
 	name = "frontier backpack"
-	desc = "A rugged backpack often used by settlers and explorers. It's fire proof."
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof."
 	icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing.dmi'
 	icon_state = "backpack"
 	worn_icon = 'modular_nova/modules/kahraman_equipment/icons/clothes/clothing_worn.dmi'
