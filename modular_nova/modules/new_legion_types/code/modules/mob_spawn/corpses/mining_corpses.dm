@@ -24,7 +24,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival,
 		/obj/item/clipboard,
-		)
+	)
 
 /datum/outfit/consumed_cargotech
 	name = "Legion-Consumed Cargo-Tech"
