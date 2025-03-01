@@ -81,7 +81,7 @@
 	contraband = TRUE
 
 /obj/machinery/computer/cargo/express/interdyne/syndicate
-	name = "Syndicate express supply console"
+	name = "\improper Syndicate express supply console"
 	desc = "A standard Syndicate syndicate console."
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
