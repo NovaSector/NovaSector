@@ -97,7 +97,7 @@
 
 /obj/effect/mob_spawn/corpse/human/legioninfested/snow/select_outfit()
 	var/corpse_theme = pick_weight(list(
-		"Miner" = 59, // NOVA EDIT CHANGE, ORIGINAL - "Miner" = 64,
+		"Miner" = 59, // NOVA EDIT CHANGE - ORIGINAL: "Miner" = 64,
 		"Clown" = 5,
 		"Golem" = 7, // NOVA EDIT CHANGE, ORIGINAL - "Golem" = 15,
 		"Settler" = 7, // NOVA EDIT CHANGE, ORIGINAL - "Settler" = 10,
