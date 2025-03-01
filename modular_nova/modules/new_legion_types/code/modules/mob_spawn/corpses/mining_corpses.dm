@@ -38,7 +38,7 @@
 		/obj/item/storage/box/survival,
 		/obj/item/universal_scanner,
 		/obj/item/boxcutter,
-		)
+	)
 
 /datum/outfit/consumed_cook
 	name = "Legion-Consumed Cook"
