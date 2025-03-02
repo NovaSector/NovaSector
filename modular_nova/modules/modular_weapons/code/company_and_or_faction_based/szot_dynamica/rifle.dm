@@ -33,8 +33,8 @@
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
 	can_suppress = TRUE
-	suppressor_x_offset = 0
-	suppressor_y_offset = 0
+	suppressor_x_offset = 5
+	suppressor_y_offset = 3
 
 	burst_size = 1
 	fire_delay = 3.5
@@ -99,8 +99,8 @@
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
-	suppressor_x_offset = 0
-	suppressor_y_offset = 0
+	suppressor_x_offset = 2
+	suppressor_y_offset = 1
 
 	burst_size = 1
 	fire_delay = 1.2 SECONDS
