@@ -37,7 +37,7 @@
 	target_pet.RemoveElement(/datum/element/body_temp_sensitive, target_pet.minimum_survivable_temperature, target_pet.maximum_survivable_temperature, target_pet.unsuitable_cold_damage, target_pet.unsuitable_heat_damage)
 	target_pet.unsuitable_atmos_damage = 0
 	target_pet.minimum_survivable_temperature = TCMB
-	target_pet.maximum_survivable_temperature = T0C + 40
+	target_pet.maximum_survivable_temperature = NPC_DEFAULT_MAX_TEMP
 	target_pet.apply_atmos_requirements()
 	target_pet.apply_temperature_requirements()
 	target_pet.desc += span_notice("\n[target_pet.p_They()] seem[target_pet.p_s()] hardier against the void of space.")

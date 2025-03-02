@@ -1,0 +1,5 @@
+author: "Stalkeros, Junglerat for the sprites"
+delete-after: True
+changes:
+  - rscadd: "Refitted Voskhod-based MODsuit with a built-in medical system, akin to its Imperial predecessor - but cooler."
+  - rscdel: "NRI ERT and relevant NRI ERT Frontline MODsuit"
