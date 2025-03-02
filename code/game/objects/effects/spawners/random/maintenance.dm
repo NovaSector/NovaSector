@@ -19,9 +19,9 @@
 	. += span_info("This spawner has an effective loot count of [get_effective_lootcount()].")
 
 /obj/effect/spawner/random/maintenance/Initialize(mapload)
-	if(is_space_or_openspace(loc))
+	if(!istype(src, /obj/effect/spawner/random/maintenance/no_decals) && is_space_or_openspace(loc))
 		if(mapload)
-			stack_trace("[src] at [AREACOORD(src)] tried to spawn in a space or openspace tile! Mappers please use /obj/effect/spawner/random/maintenance/no_decals instead!")
+			stack_trace("[src] at [AREACOORD(src)] tried to spawn in a space or openspace tile! Mappers please use /obj/effect/spawner/random/maintenance/no_decals instead! Note: the coords may be for a ruin.")
 		else
 			new /obj/effect/spawner/random/maintenance/no_decals(loc) // if this happens outside of mapload, just spawn a no_decals version and move on
 		return INITIALIZE_HINT_QDEL
