@@ -19,7 +19,12 @@
 	. += span_info("This spawner has an effective loot count of [get_effective_lootcount()].")
 
 /obj/effect/spawner/random/maintenance/Initialize(mapload)
+	if(mapload && is_space_or_openspace(loc))
+		log_mapping("[src] at [AREACOORD(src)] [(area.type)] tried to spawn in a space or openspace tile! Please use '/obj/effect/spawner/random/maintenance/no_decals' instead!")
+		return INITIALIZE_HINT_QDEL
+
 	loot = GLOB.maintenance_loot
+		loot = GLOB.maintenance_loot
 	return ..()
 
 /obj/effect/spawner/random/maintenance/skew_loot_weights(list/loot_list, exponent)
