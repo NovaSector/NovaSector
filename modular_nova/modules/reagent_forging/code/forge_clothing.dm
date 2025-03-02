@@ -98,7 +98,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	resistance_flags = FIRE_PROOF
 	obj_flags_nova = ANVIL_REPAIR
-	can_be_tied = FALSE
+	fastening_type = SHOES_SLIPON
 	body_parts_covered = FEET|LEGS
 
 /datum/armor/shoes_forging_plate_boots

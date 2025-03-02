@@ -18,8 +18,7 @@
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 8 // Just enough to fit the kinesis module, for the deadspace larp.
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.3
-	slowdown_inactive = 0
-	slowdown_active = 0
+	slowdown_deployed = 0
 	slot_flags = ITEM_SLOT_BELT
 	inbuilt_modules = list(
 		/obj/item/mod/module/storage/civilian,

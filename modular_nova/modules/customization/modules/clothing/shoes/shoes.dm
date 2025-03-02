@@ -170,7 +170,7 @@
 
 //Modular overide to give jackboots laces
 /obj/item/clothing/shoes/jackboots
-	can_be_tied = TRUE
+	fastening_type = SHOES_STRAPS
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"

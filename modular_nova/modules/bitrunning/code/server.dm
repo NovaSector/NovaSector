@@ -1,3 +1,12 @@
+/datum/aas_config_entry/bitrunning_ghost_mark
+	name = "Bitrunning Alert: New Digital Message"
+	announcement_lines_map = list(
+		"Message" = "You have: a new message: from %NAME: %MESSAGE")
+	vars_and_tooltips_map = list(
+		"NAME" = "will be replaced with their username.",
+		"MESSAGE" = "with the content of their message."
+	)
+
 /obj/machinery/quantum_server
 	///List of ckeys containing players who have recently sent a message, players on this list are prohibited from sending a new one untill their ckey disappears.
 	var/list/spam_queue = list()
@@ -10,9 +19,6 @@
 
 /obj/machinery/quantum_server/post_machine_initialize()
 	. = ..()
-	qdel(radio.keyslot)
-	radio.keyslot = new /obj/item/encryptionkey/headset_bitrunning()
-	radio.recalculateChannels()
 
 /obj/machinery/quantum_server/Destroy()
 	spam_queue = null
@@ -71,7 +77,7 @@
 		balloon_alert(activator, "message protected!")
 		return
 	playsound(loc, 'sound/machines/ectoscope_beep.ogg', 75)
-	radio.talk_into(src, "You have: a new message: from [messenger]: [message]", RADIO_CHANNEL_FACTION)
+	aas_config_announce(/datum/aas_config_entry/bitrunning_ghost_mark, list("NAME" = messenger, "MESSAGE" = message), src, list(RADIO_CHANNEL_FACTION))
 	if(activator?.ckey)
 		spam_queue += activator.ckey
 		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 30 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)

@@ -80,5 +80,8 @@
 /turf/open/floor/plating/reinforced
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/greenscreen
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/iron/white/textured_large/airless
 	initial_gas_mix = AIRLESS_ATMOS
