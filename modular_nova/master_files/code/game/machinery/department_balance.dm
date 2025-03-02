@@ -76,6 +76,8 @@
 	else
 		set_messages("CASH", "[balance]", "")
 	update_appearance(UPDATE_OVERLAYS)
+#undef BALANCE_THRESHOLD_1M
+#undef BALANCE_THRESHOLD_1K
 
 /obj/machinery/status_display/department_balance/process(seconds_per_tick)
 	update_balance(seconds_per_tick)
