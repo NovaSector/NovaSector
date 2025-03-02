@@ -2245,6 +2245,13 @@
 	},
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
+"jK" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "DS2";
+	default_logo = "synd"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "jL" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering"
@@ -2671,9 +2678,11 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "lu" = (
-/obj/machinery/light/cold/directional/north,
-/obj/machinery/firealarm/directional/north,
-/turf/open/floor/mineral/plastitanium/red,
+/obj/machinery/status_display/department_balance{
+	credits_account = "DS2";
+	default_logo = "synd"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "lD" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
@@ -3272,6 +3281,7 @@
 	},
 /obj/effect/turf_decal/trimline/dark_red/mid_joiner,
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/textured_half,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "og" = (
@@ -8591,6 +8601,9 @@
 /obj/machinery/airalarm/directional/west,
 /obj/structure/filingcabinet,
 /obj/item/folder/syndicate/red,
+/obj/item/circuitboard/computer/cargo/express/interdyne/syndicate,
+/obj/item/circuitboard/computer/syndiepad/syndicate,
+/obj/item/circuitboard/machine/syndiepad/syndicate,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "MZ" = (
@@ -11336,7 +11349,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/item/kirbyplants/organic/plant22,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
@@ -12479,8 +12491,8 @@ iE
 wg
 wg
 aT
-Bk
 lu
+VM
 fa
 dO
 ak
@@ -13113,7 +13125,7 @@ VG
 my
 KC
 fW
-my
+jK
 VG
 fz
 DI
@@ -13503,7 +13515,7 @@ ml
 my
 zh
 my
-my
+jK
 my
 my
 NB

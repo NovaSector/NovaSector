@@ -2652,6 +2652,18 @@
 	ailock = 1
 	},
 /obj/item/folder/syndicate/red/secretformula,
+/obj/item/circuitboard/computer/syndiepad{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/circuitboard/machine/syndiepad{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/circuitboard/computer/cargo/express/interdyne{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hi" = (
@@ -6854,6 +6866,12 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/serv/hydr)
+"uM" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/cargo)
 "vo" = (
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
@@ -7016,6 +7034,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"BZ" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/cargo/ware)
 "CW" = (
 /obj/structure/shipping_container/kosmologistika{
 	pixel_x = -6;
@@ -7174,6 +7198,12 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"II" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/serv)
 "IN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7275,6 +7305,12 @@
 /obj/effect/baseturf_helper/reinforced_plating/ceiling,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo/deck)
+"NA" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/science)
 "Oj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -7356,6 +7392,12 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning,
 /turf/open/floor/iron/submarine_vents,
 /area/ruin/interdyne_planetary_base/eng)
+"Sb" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/interdyne_planetary_base/cargo/obs)
 "Sp" = (
 /obj/structure/cable,
 /obj/machinery/vending/wardrobe/syndie_wardrobe/interdyne{
@@ -8347,7 +8389,7 @@ rk
 as
 ab
 as
-fc
+NA
 gc
 hc
 hy
@@ -8875,7 +8917,7 @@ dl
 dT
 ek
 ev
-cR
+BZ
 eU
 eP
 ft
@@ -9216,7 +9258,7 @@ ab
 ab
 ua
 aG
-aG
+uM
 bm
 bC
 bR
@@ -9342,7 +9384,7 @@ ce
 cs
 bm
 cJ
-cW
+Sb
 dF
 ex
 em
@@ -9541,7 +9583,7 @@ qD
 qD
 qD
 qD
-lt
+II
 lN
 kt
 mr
