@@ -21,59 +21,63 @@
 	start_process()
 	display_reset_state = 0
 
-/obj/machinery/status_display/department_balance/proc/update_balance(updates)
+/// Update the active balance of the screens to be consistent with the department's budget
+/obj/machinery/status_display/department_balance/proc/update_balance(seconds_per_tick)
 	current_mode = SD_MESSAGE
 	switch(SSticker.current_state)
 		if(GAME_STATE_STARTUP, GAME_STATE_PREGAME, GAME_STATE_SETTING_UP)
 			set_messages("CASH", "", "")
-			update_overlays()
+			update_appearance(UPDATE_OVERLAYS)
 			return
 
 	if(display_reset_state)
-		if(display_reset_state < 5) // show a generic splash screen for 5 seconds
-			display_reset_state++
+		if(display_reset_state < 10) // show a generic splash screen for 5 seconds
+			display_reset_state += seconds_per_tick
 			current_mode = SD_PICTURE
 			set_picture(default_logo)
 			return
 		display_reset_state = 0 // we now return to our regularly scheduled programming
 		text_color = COLOR_DISPLAY_GREEN
 		set_messages("CASH", " ", " ")
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
 		return
-	else if(!display_reset_state && prob(1)) // force a reset of the display randomly (resolves red text when power is lost)
-		display_reset_state = 1
+	else if(!display_reset_state && SPT_PROB(0.5, seconds_per_tick)) // force a reset of the display randomly (resolves red text when power is lost)
+		display_reset_state = seconds_per_tick
 		text_color = COLOR_DISPLAY_GREEN
 		set_messages(" ", " ", " ")
-		update_overlays()
+		update_appearance(UPDATE_OVERLAYS)
 		return
 
 	if(isnull(synced_bank_account))
 		synced_bank_account = SSeconomy.get_dep_account(credits_account == "" ? ACCOUNT_CAR : credits_account)
 	var/balance = !synced_bank_account ? 0 : synced_bank_account.account_balance
-	var/balance_remainer = round((balance % 1000) / 100)
-	if(balance > 99999)
-		text_color = COLOR_DISPLAY_GREEN
-	else if(balance > 74999)
-		text_color = COLOR_SLIME_GOLD
-	else if(balance > 49999)
-		text_color = COLOR_DISPLAY_YELLOW
-	else if(balance > 14999)
-		text_color = COLOR_DISPLAY_ORANGE
-	else
-		text_color = COLOR_DISPLAY_RED
+	var/balance_remainder = round((balance % 1000) / 100)
+	switch(balance)
+		if(99999 to INFINITY)
+			text_color = COLOR_DISPLAY_GREEN
+		if(74999 to 99999)
+			text_color = COLOR_SLIME_GOLD
+		if(49999 to 74999)
+			text_color = COLOR_DISPLAY_YELLOW
+		if(14999 to 49999)
+			text_color = COLOR_DISPLAY_ORANGE
+		if(-INFINITY to 14999)
+			text_color = COLOR_DISPLAY_RED
+
+	/// Rounds the number to a deecimal point and sets it to its corresponding letter variable (EX: 50,251cr = 50.2K cr)
 	if(balance > 999999)
-		balance_remainer = round((balance % 1000000) / 100000)
-		set_messages("CASH", "[round(balance / 1000000)].[balance_remainer]M", "")
-	else if(balance > 99999 || balance > 1000 && balance_remainer == 0)
+		balance_remainder = round((balance % 1000000) / 100000)
+		set_messages("CASH", "[round(balance / 1000000)].[balance_remainder]M", "")
+	else if(balance > 99999 || balance > 1000 && balance_remainder == 0)
 		set_messages("CASH", "[round(balance / 1000)]K", "")
 	else if(balance > 1000)
-		set_messages("CASH", "[round(balance / 1000)].[balance_remainer]K", "")
+		set_messages("CASH", "[round(balance / 1000)].[balance_remainder]K", "")
 	else
 		set_messages("CASH", "[balance]", "")
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/status_display/department_balance/process(seconds_per_tick)
-	update_balance()
+	update_balance(seconds_per_tick)
 
 /obj/machinery/status_display/department_balance/receive_signal(datum/signal/signal)
 	return

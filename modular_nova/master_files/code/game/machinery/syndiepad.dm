@@ -23,7 +23,7 @@
 	)
 
 /obj/machinery/piratepad/syndiepad
-	name = "Interdyne Sales Pad"
+	name = "\improper Interdyne sales pad"
 	desc = "A standard Nanotrasen bounty pad that has been modified for selling goods long distance to other companies."
 	circuit = /obj/item/circuitboard/machine/syndiepad
 
@@ -85,6 +85,10 @@
 
 /obj/machinery/computer/piratepad_control/syndiepad/send()
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
+	if(isnull(pad))
+		pad_ref = null
+		sending = FALSE
+		return
 	if(!safe_to_sell())
 		sending = FALSE
 		reset_icon(pad)
@@ -121,15 +125,16 @@
 	if(!pad)
 		status_report = "Error: Pad not found. Please re-link the pad to the console to continue."
 		return FALSE
-	for(var/atom/movable/AM in get_turf(pad))
-		if(AM == pad)
+	for(var/atom/movable/atom_movable in get_turf(pad))
+		if(atom_movable == pad)
 			continue
-		for(var/atom/exporting_atom in AM.get_all_contents()) /// Reuse the cargo blacklist logic here to ensure we're not deleting something important forever
+		for(var/atom/exporting_atom in atom_movable.get_all_contents()) /// Reuse the cargo blacklist logic here to ensure we're not deleting something important forever
 			if((is_type_in_typecache(exporting_atom, GLOB.blacklisted_cargo_types) || HAS_TRAIT(exporting_atom, TRAIT_BANNED_FROM_CARGO_SHUTTLE)) && !istype(exporting_atom, /obj/docking_port))
 				status_report = "Error: Black listed item ([format_text(exporting_atom.name)]) detected on pad. Please remove from pad and rescan."
 				return FALSE
 	return TRUE
 
+/// Resets the pad's iconstate to its idle state after usage
 /obj/machinery/computer/piratepad_control/syndiepad/proc/reset_icon(var/obj/machinery/piratepad/syndiepad/pad)
 	if(!pad)
 		return
@@ -138,22 +143,22 @@
 
 #undef SYN_BOUNTY_PAD_WARM_TIME
 
-//Syndicate Pad
+// Syndicate Pad
 /obj/item/circuitboard/machine/syndiepad/syndicate
-	name = "Syndicate Deepspace Sales Pad"
+	name = "\improper Syndicate deepspace sales pad"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/piratepad/syndiepad/syndicate
 
 /obj/machinery/piratepad/syndiepad/syndicate
 	name = "Syndicate Deepspace Sales Pad"
 	desc = "A standard Syndicate telepad repurposed to \
-	send any (non-living) object to an distant off-sector\ \
+	send any (non-living) object to an distant off-sector \
 	for processing. No returns!"
 
 	circuit = /obj/item/circuitboard/machine/syndiepad/syndicate
 
 /obj/item/circuitboard/computer/syndiepad/syndicate
-	name = "Syndicate Deepspace Sales Terminal"
+	name = "\improper Syndicate deepspace sales terminal"
 	build_path = /obj/machinery/computer/piratepad_control/syndiepad/syndicate
 
 /obj/machinery/computer/piratepad_control/syndiepad/syndicate
