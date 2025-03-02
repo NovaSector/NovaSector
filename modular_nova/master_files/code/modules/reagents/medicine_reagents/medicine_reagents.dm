@@ -32,7 +32,7 @@
 		var/current_volume = exposed_mob.reagents.get_reagent_amount(/datum/reagent/medicine/c2/synthflesh)
 		var/current_purity = exposed_mob.reagents.get_reagent_purity(/datum/reagent/medicine/c2/synthflesh)
 
-		if(methods & TOUCH)
+		if(methods & TOUCH)	//touch does not apply chems to blood, we want to combine the two volumes before attempting to unhusk
 			current_purity = current_volume > 0 ? (current_volume * current_purity + reac_volume * creation_purity) / (current_volume + reac_volume) : creation_purity
 			current_volume += reac_volume
 
