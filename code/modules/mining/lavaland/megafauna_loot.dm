@@ -1271,6 +1271,12 @@
 	for(var/obj/item/organ/organ as anything in carb_owner.organs)
 		if(organ.organ_flags & ORGAN_EXTERNAL)
 			continue
+		/// NOVA EDIT ADDITION START
+		// Probably best way to deal with furry bodyparts, since a lot of them аren't robotic, but still present in synths
+		// Yeah, there's a check three lines upper, but it doesnt work all the time, since not all of external organs actually have ORGAN_EXTERNAL
+		if(organ.slot in ignored_organ_slots)
+			continue
+		/// NOVA EDIT ADDITION END
 		if(!IS_ROBOTIC_ORGAN(organ) && !istype(organ, /obj/item/organ/tongue)) //tongues are not in the exosuit fab and nobody is going to bother to find them so
 			return FALSE
 
