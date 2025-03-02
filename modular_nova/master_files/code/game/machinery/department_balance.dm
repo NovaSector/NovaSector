@@ -63,15 +63,16 @@
 			text_color = COLOR_DISPLAY_ORANGE
 		if(-INFINITY to 14999)
 			text_color = COLOR_DISPLAY_RED
-
+#define BALANCE_THRESHOLD_1M 1000000
+#define BALANCE_THRESHOLD_1K 1000
 	/// Rounds the number to a deecimal point and sets it to its corresponding letter variable (EX: 50,251cr = 50.2K cr)
 	if(balance > 999999)
-		balance_remainder = round((balance % 1000000) / 100000)
-		set_messages("CASH", "[round(balance / 1000000)].[balance_remainder]M", "")
-	else if(balance > 99999 || balance > 1000 && balance_remainder == 0)
-		set_messages("CASH", "[round(balance / 1000)]K", "")
-	else if(balance > 1000)
-		set_messages("CASH", "[round(balance / 1000)].[balance_remainder]K", "")
+		balance_remainder = round((balance % BALANCE_THRESHOLD_1M) / 100000)
+		set_messages("CASH", "[round(balance / BALANCE_THRESHOLD_1M)].[balance_remainder]M", "")
+	else if(balance > 99999 || balance > BALANCE_THRESHOLD_1K && balance_remainder == 0)
+		set_messages("CASH", "[round(balance / BALANCE_THRESHOLD_1K)]K", "")
+	else if(balance > BALANCE_THRESHOLD_1K)
+		set_messages("CASH", "[round(balance / BALANCE_THRESHOLD_1K)].[balance_remainder]K", "")
 	else
 		set_messages("CASH", "[balance]", "")
 	update_appearance(UPDATE_OVERLAYS)
