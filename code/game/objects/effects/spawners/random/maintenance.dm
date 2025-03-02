@@ -21,7 +21,7 @@
 /obj/effect/spawner/random/maintenance/Initialize(mapload)
 	if(is_space_or_openspace(loc))
 		if(mapload)
-			log_mapping("[src] at [AREACOORD(src)] [(area.type)] tried to spawn in a space or openspace tile! Please use /obj/effect/spawner/random/maintenance/no_decals instead!")
+			log_mapping("[src] at [AREACOORD(src)] [(area)] tried to spawn in a space or openspace tile! Please use /obj/effect/spawner/random/maintenance/no_decals instead!")
 		// if this happens outside of mapload, just spawn a no_decals version and move on
 		new /obj/effect/spawner/random/maintenance/no_decals(loc)
 		return INITIALIZE_HINT_QDEL
