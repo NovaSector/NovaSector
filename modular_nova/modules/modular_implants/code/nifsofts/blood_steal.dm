@@ -19,11 +19,6 @@
 	if(!ishuman(linked_mob))
 		return COMPONENT_INCOMPATIBLE
 
-/datum/nifsoft/blood_steal/process()
-	. = ..()
-	if(active)
-		linked_mob.blood_volume -= 5
-
 /datum/nifsoft/blood_steal/activate()
 	. = ..()
 	if(active)
@@ -47,15 +42,35 @@
 	help_verb = /mob/living/proc/blood_steal_help
 	smashes_tables = TRUE
 
+	COOLDOWN_DECLARE(parry_cooldown_timer)
+
+	var/parry_regen_timerid
+	var/parries_left = 0
+	var/parries_max = 3
+
 /datum/martial_art/blood_steal/teach(mob/living/new_holder, make_temporary)
 	if(!ishuman(new_holder))
 		return FALSE
-	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
+	RegisterSignal(new_holder, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(attempt_parry), override = TRUE)
+	parry_regen_timerid = addtimer(CALLBACK(src, PROC_REF(add_parries)), 2 SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE)
 	return ..()
 
 /datum/martial_art/blood_steal/on_remove(mob/living/remove_from)
-	UnregisterSignal(remove_from, list(COMSIG_LIVING_CHECK_BLOCK))
+	UnregisterSignal(remove_from, list(COMSIG_ATOM_PRE_BULLET_ACT))
+	remove_timer()
 	return ..()
+
+/datum/martial_art/blood_steal/proc/remove_timer()
+	if(!parry_regen_timerid)
+		return
+	deltimer(parry_regen_timerid)
+	parry_regen_timerid = null
+
+/datum/martial_art/blood_steal/proc/add_parries(mob/living/new_holder)
+	parries_left = clamp(parries_left + 1, 0, parries_max)
+	if(parries_left <= parries_max)
+		new_holder.balloon_alert(new_holder, "[parries_left]/[parries_max] parries!")
+	addtimer(CALLBACK(src, PROC_REF(add_parries)), 2 SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE)
 
 /datum/martial_art/blood_steal/can_use(mob/living/martial_artist)
 	if(!issynthetic(martial_artist))
@@ -84,7 +99,6 @@
 	//Determines attack sound based on attacker arm
 	var/attack_sound = active_arm.unarmed_attack_sound
 
-	// What type of damage does our kind of boxing do? Defaults to STAMINA for normal boxing, unless you're performing EVIL BOXING. Subtypes use different damage types.
 	var/damage_type = attacker.get_attack_type()
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_PUNCH)
@@ -99,9 +113,6 @@
 			span_danger("You avoid [attacker]'s crush!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, attacker)
 		to_chat(attacker, span_warning("Your crush misses [defender]!"))
 		log_combat(attacker, defender, "attempted to hit", "crush")
-		return FALSE
-
-	if(defender.check_block(attacker, damage, "[attacker]'s crush", UNARMED_ATTACK))
 		return FALSE
 
 	var/obj/item/bodypart/affecting = defender.get_bodypart(defender.get_random_valid_zone(attacker.zone_selected))
@@ -150,41 +161,44 @@
 
 	return TRUE
 
+/datum/martial_art/blood_steal/proc/can_deflect(mob/living/attacker)
+	if(!can_use(attacker) || !attacker.throw_mode)
+		return FALSE
+	if(parries_left == 0)
+		return FALSE
+	if(INCAPACITATED_IGNORING(attacker, INCAPABLE_GRAB)) //NO STUN
+		return FALSE
+	if(!(attacker.mobility_flags & MOBILITY_USE)) //NO UNABLE TO USE
+		return FALSE
+	if(HAS_TRAIT(attacker, TRAIT_HULK)) //NO HULK
+		return FALSE
+	if(!isturf(attacker.loc)) //NO MOTHERFLIPPIN MECHS!
+		return FALSE
+	return TRUE
+
 /// Handles our blocking signals, similar to hit_reaction() on items. Only blocks while the boxer is in throw mode.
-/datum/martial_art/blood_steal/proc/check_block(mob/living/attacker, atom/movable/hitby, damage, attack_text, attack_type, ...)
+/datum/martial_art/blood_steal/proc/attempt_parry(mob/living/attacker, obj/projectile/hitting_projectile, def_zone)
 	SIGNAL_HANDLER
 
-	if(!can_use(attacker) || !attacker.throw_mode || INCAPACITATED_IGNORING(attacker, INCAPABLE_GRAB))
+	if(!can_deflect(attacker))
 		return NONE
 
-	if(attack_type != PROJECTILE_ATTACK)
-		return NONE
-
-	//Determines unarmed defense against boxers using our current active arm.
-	var/obj/item/bodypart/arm/active_arm = attacker.get_active_hand()
-	var/base_unarmed_effectiveness = active_arm.unarmed_effectiveness
-
-	var/block_chance = base_unarmed_effectiveness
-
-	var/block_text = pick("deflect", "evade")
-
-	attacker = GET_ASSAILANT(hitby)
-
-	if(!prob(block_chance))
-		return NONE
-
-	if(istype(attacker) && attacker.Adjacent(attacker))
-		attacker.apply_damage(10, STAMINA)
-		attacker.apply_damage(5, STAMINA)
-
-	attacker.visible_message(
-		span_danger("[attacker] [block_text]s [attack_text]!"),
-		span_userdanger("You [block_text] [attack_text]!"),
-	)
-	if(block_text == "evade")
-		playsound(attacker.loc, active_arm.unarmed_miss_sound, 25, TRUE, -1)
-
-	return SUCCESSFUL_BLOCK
+	if (hitting_projectile.firer != attacker)
+		if (abs(hitting_projectile.angle - dir2angle(hitting_projectile.dir)) < 15)
+			hitting_projectile.set_angle((hitting_projectile.angle + 180) % 360 + rand(-3, 3))
+		else
+			hitting_projectile.set_angle(dir2angle(hitting_projectile.dir) + rand(-3, 3))
+		hitting_projectile.visible_message(span_warning("[hitting_projectile] expertly parries [hitting_projectile] with [hitting_projectile.p_their()] bare hand!"), span_warning("You parry [hitting_projectile] with your hand!"))
+	else
+		hitting_projectile.visible_message(span_warning("[hitting_projectile] boosts [hitting_projectile] with [hitting_projectile.p_their()] bare hand!"), span_warning("You boost [hitting_projectile] with your hand!"))
+	hitting_projectile.firer = hitting_projectile
+	hitting_projectile.speed *= (hitting_projectile.firer == hitting_projectile) ? 1.5 : 1.25
+	hitting_projectile.damage *= (hitting_projectile.firer == hitting_projectile) ? 1.5 : 1.25
+	hitting_projectile.add_atom_colour(COLOR_RED_LIGHT, TEMPORARY_COLOUR_PRIORITY)
+	playsound(attacker, 'sound/effects/parry.ogg', 75, TRUE)
+	parries_left -= 1
+	COOLDOWN_START(src, parry_cooldown_timer, 2 SECONDS)
+	return PROJECTILE_INTERRUPT_HIT_PHASE
 
 /mob/living/proc/blood_steal_help()
 	set name = "Access Core Imprint"
