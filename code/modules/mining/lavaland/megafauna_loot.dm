@@ -1135,39 +1135,12 @@
 
 /obj/item/organ/brain/cybernetic/ai
 	name = "AI-uplink brain"
-	desc = "Can be inserted into a body with NO ORGANIC INTERNAL ORGANS (robotic organs only) to allow AIs to control it. Comes with its own health sensors beacon. MUST be a humanoid or bad things happen to the consciousness. \
-		P.S. External organs such as tails, snouts, etc still work fine."
+	desc = "Can be inserted into a body with NO ORGANIC INTERNAL ORGANS (robotic organs only) to allow AIs to control it. Comes with its own health sensors beacon. MUST be a humanoid or bad things happen to the consciousness."
 	can_smoothen_out = FALSE
 	/// if connected, our AI
 	var/mob/living/silicon/ai/mainframe
 	/// action for undeployment
 	var/datum/action/innate/brain_undeployment/undeployment_action = new
-	/// Nova addition. Slots to ignore in check for organic organs. Used to bypass things that do not have ORGAN_EXTERNAL flag, since
-	/// not all of actual external organs have it. Better to double check in case someone messes up with flags or something.
-	var/list/ignored_organ_slots = list(
-		ORGAN_SLOT_EXTERNAL_CAP,
-		ORGAN_SLOT_EXTERNAL_FLUFF,
-		ORGAN_SLOT_EXTERNAL_FRILLS,
-		ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY,
-		ORGAN_SLOT_EXTERNAL_HORNS,
-		ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS,
-		ORGAN_SLOT_EXTERNAL_NECK_ACCESSORY,
-		ORGAN_SLOT_EXTERNAL_POD_HAIR,
-		ORGAN_SLOT_EXTERNAL_SKRELL_HAIR,
-		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA,
-		ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN,
-		ORGAN_SLOT_EXTERNAL_TAUR,
-		ORGAN_SLOT_EXTERNAL_XENODORSAL,
-		ORGAN_SLOT_EXTERNAL_XENOHEAD,
-		ORGAN_SLOT_EXTERNAL_TAIL,
-		ORGAN_SLOT_EXTERNAL_SPINES,
-		ORGAN_SLOT_EXTERNAL_SNOUT,
-		ORGAN_SLOT_EXTERNAL_FRILLS,
-		ORGAN_SLOT_EXTERNAL_HORNS,
-		ORGAN_SLOT_EXTERNAL_WINGS,
-		ORGAN_SLOT_EXTERNAL_ANTENNAE,
-		ORGAN_SLOT_EXTERNAL_POD_HAIR,
-	)
 
 /obj/item/organ/brain/cybernetic/ai/Initialize(mapload)
 	. = ..()
