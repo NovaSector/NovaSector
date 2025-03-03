@@ -22,8 +22,8 @@
 	name = ".40 Sol Long bullet"
 	damage = 35
 
-	wound_bonus = 10
-	bare_wound_bonus = 20
+	wound_bonus = 5
+	bare_wound_bonus = 10
 
 
 /obj/item/ammo_box/c40sol

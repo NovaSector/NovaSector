@@ -41,6 +41,7 @@
 		/datum/crafting_bench_recipe/soup_pot,
 		/datum/crafting_bench_recipe/bokken,
 		/datum/crafting_bench_recipe/bow,
+		/datum/crafting_bench_recipe/fishing_rod,
 	)
 	/// Radial options for recipes in the allowed_choices list, populated by populate_radial_choice_list
 	var/list/radial_choice_list = list()

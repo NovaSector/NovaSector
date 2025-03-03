@@ -123,25 +123,29 @@
 	name = "Medical Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
 
-/datum/loadout_item/suit/labcoat_regular
-	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
-
 /datum/loadout_item/suit/labcoat_lalunevest
 	name = "Designer Buttoned Coat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
 
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Recolorable Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy
+
+/datum/loadout_item/suit/labcoat_regular
+	name = "Researcher's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
+
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
 
 /datum/loadout_item/suit/labcoat_geneticist
 	name = "Geneticist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/geneticist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
 
 /datum/loadout_item/suit/labcoat_roboticist
 	name = "Roboticist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/roboticist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
 
 /datum/loadout_item/suit/labcoat_custom
 	name = "Custom Labcoat"
