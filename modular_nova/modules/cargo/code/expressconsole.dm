@@ -54,8 +54,8 @@
 					))
 
 /obj/machinery/computer/cargo/express/interdyne/ui_act(action, params, datum/tgui/ui)
-	if(action == "add") //if we're generating a supply order
-		if (!beacon || !using_beacon ) //checks if using a beacon or not.
+	if(action == "add") // if we're generating a supply order
+		if (!beacon || !using_beacon ) // checks if using a beacon or not.
 			say("Error! Destination is not whitelisted, aborting.")
 			return
 		var/id = params["id"]
