@@ -32,10 +32,3 @@
 		if(current_volume >= SYNTHFLESH_LING_UNHUSK_MAX || current_volume * current_purity >= SYNTHFLESH_LING_UNHUSK_AMOUNT)
 			exposed_mob.cure_husk(CHANGELING_DRAIN)
 			exposed_mob.visible_message(span_nicegreen("A rubbery liquid coats [exposed_mob]'s tissues. [exposed_mob] looks a lot healthier!"))
-
-/datum/reagent/medicine/regen_jelly/expose_mob(mob/living/carbon/human/exposed_mob, reac_volume)
-	. = ..()
-	if(!istype(exposed_mob) || (reac_volume < 0.5))
-		return
-
-	exposed_mob.update_body_parts()
