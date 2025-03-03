@@ -88,6 +88,7 @@
 	if(isnull(pad))
 		pad_ref = null
 		sending = FALSE
+		status_report = "Error: Pad not found. Please re-link the pad to the console to continue."
 		return
 	if(!safe_to_sell())
 		sending = FALSE
@@ -115,6 +116,10 @@
 
 /obj/machinery/computer/piratepad_control/syndiepad/start_sending()
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
+	if(isnull(pad))
+		pad_ref = null
+		status_report = "Error: Pad not found. Please re-link the pad to the console to continue."
+		return
 	if(pad && istype(pad, /obj/machinery/piratepad/syndiepad))
 		warmup_time = clamp(SYN_BOUNTY_PAD_WARM_TIME - pad.warmup_reduction, 1 SECONDS, SYN_BOUNTY_PAD_WARM_TIME)
 	return ..()
@@ -122,7 +127,8 @@
 /// Utilizes cargoshuttle blacklist to determine what is "Safe" or not blacklisted to be sold. Any item that is NOT able to be sold for profit gets ignored and not flagged as "blacklisted"
 /obj/machinery/computer/piratepad_control/syndiepad/proc/safe_to_sell()
 	var/obj/machinery/piratepad/syndiepad/pad = pad_ref?.resolve()
-	if(!pad)
+	if(isnull(pad))
+		pad_ref = null
 		status_report = "Error: Pad not found. Please re-link the pad to the console to continue."
 		return FALSE
 	for(var/atom/movable/atom_movable in get_turf(pad))

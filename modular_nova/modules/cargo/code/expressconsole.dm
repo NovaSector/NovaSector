@@ -31,16 +31,18 @@
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
 		to_chat(user, span_notice("You try to change the routing protocols, but the machine displays a runtime error and reboots!"))
-	return FALSE//never let this console be emagged
+	return FALSE //never let this console be emagged
 
 /obj/machinery/computer/cargo/express/interdyne/packin_up(forced = FALSE) //we're the dauntless, add the company imports stuff to our express console
 	. = ..()
 
-	if(!meme_pack_data["Company Imports"])
-		meme_pack_data["Company Imports"] = list(
-			"name" = "Company Imports",
-			"packs" = list()
-		)
+	if(meme_pack_data["Company Imports"])
+		return
+
+	meme_pack_data["Company Imports"] = list(
+		"name" = "Company Imports",
+		"packs" = list()
+	)
 
 	for(var/armament_category as anything in SSarmaments.entries)//babe! it's 4pm, time for the company importing logic
 		for(var/subcategory as anything in SSarmaments.entries[armament_category][CATEGORY_ENTRY])
@@ -61,7 +63,7 @@
 		var/id = params["id"]
 		id = text2path(id) || id
 		var/datum/supply_pack/is_supply_pack = SSshuttle.supply_packs[id]
-		if(!is_supply_pack || !istype(is_supply_pack))//if we're ordering a company import pack, add a temp pack to the global supply packs list, and remove it
+		if(!is_supply_pack || !istype(is_supply_pack)) //if we're ordering a company import pack, add a temp pack to the global supply packs list, and remove it
 			var/datum/armament_entry/armament_order = locate(id)
 			params["id"] = length(SSshuttle.supply_packs) + 1
 			var/datum/supply_pack/armament/temp_pack = new
