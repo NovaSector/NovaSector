@@ -1,5 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - balance: "Following a stock overflow, various uplink items from the Syndicate are now MUCH cheaper on the telecrystal wallet!"
-  - rscadd: "the experimental-syndicate-teleporter is back again."

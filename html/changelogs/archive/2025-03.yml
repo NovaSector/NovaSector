@@ -54,6 +54,15 @@
   - image: Miecz and Lanca both have new sprites to better fit in with the rest of
       the game.
 2025-03-03:
+  Jedi-Toothpaste:
+  - rscadd: New Legion Corpse Types - Many have fallen to the Legion, can you find
+      them all?
+  - balance: Removed Station IDs from Lavaland & Ice Moon
+  RatFromTheJungle:
+  - bugfix: fixes miecz and lanca suppressor offsets
+  - balance: Following a stock overflow, various uplink items from the Syndicate are
+      now MUCH cheaper on the telecrystal wallet!
+  - rscadd: the experimental-syndicate-teleporter is back again.
   Stalkeros, Junglerat for the sprites:
   - rscadd: Refitted Voskhod-based MODsuit with a built-in medical system, akin to
       its Imperial predecessor - but cooler.
