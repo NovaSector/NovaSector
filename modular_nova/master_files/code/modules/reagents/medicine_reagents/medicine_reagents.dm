@@ -19,6 +19,7 @@
 			exposed_mob.cure_husk(CHANGELING_DRAIN)
 			exposed_mob.visible_message(span_nicegreen("A rubbery liquid coats [exposed_mob]'s tissues. [exposed_mob] looks a lot healthier!"))
 
+// Allowing us to cure husks created by changeling. Requires 2 times more synthflesh to cure than a normal husk
 /datum/reagent/medicine/c2/synthflesh/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE)
 	. = ..()
 	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, CHANGELING_DRAIN))
