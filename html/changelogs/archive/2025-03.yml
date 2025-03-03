@@ -58,6 +58,11 @@
   - rscadd: New Legion Corpse Types - Many have fallen to the Legion, can you find
       them all?
   - balance: Removed Station IDs from Lavaland & Ice Moon
+  Kocma-san:
+  - balance: lowered amount of rezadon needed to heal husks caused by changelings
+      from 200 to 10
+  - bugfix: people who have been husked by changelings can be unhusked with synthflesh
+      again
   RatFromTheJungle:
   - bugfix: fixes miecz and lanca suppressor offsets
   - balance: Following a stock overflow, various uplink items from the Syndicate are

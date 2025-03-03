@@ -1,5 +1,0 @@
-author: "Kocma-san"
-delete-after: True
-changes:
-  - balance: "lowered amount of rezadon needed to heal husks caused by changelings from 200 to 10"
-  - bugfix: "people who have been husked by changelings can be unhusked with synthflesh again"
