@@ -220,7 +220,7 @@
 		real_ai_player = old_ai_brain.mainframe
 		var/datum/preferences/check_prefs = patient.client?.prefs
 		if(!istype(check_prefs))
-			say("Uh-oh! We tried to contact user manufactuter, but they blocked our requests. Aborting operation.")
+			say("Uh-oh! We tried to contact user manufacturer, but they blocked our requests. Aborting operation.")
 			playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
 			open_machine()
 			return
@@ -332,7 +332,7 @@
 /// Creates new dummy in the nullspace, applies prefs, inserts ai-brain and checks if it's compatible.
 /obj/machinery/self_actualization_device/proc/is_augmented_enough(datum/preferences/player_prefs)
 	var/mob/living/carbon/human/nullspace_dummy = new(null)
-	player_prefs.safe_transfer_prefs_to(nullspace_dummy)
+	player_prefs?.apply_prefs_to(nullspace_dummy, icon_updates = FALSE)
 	var/obj/item/organ/brain/cybernetic/ai/dummy_ai_brain = new
 	if(!dummy_ai_brain.Insert(nullspace_dummy, movement_flags = DELETE_IF_REPLACED))
 		QDEL_NULL(dummy_ai_brain)
