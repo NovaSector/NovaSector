@@ -68,7 +68,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/antitide
-	name = "12 gauge stardust shells"
+	name = "12 gauge lighting shot shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/antitide
 	icon_state = "stack_spec"
 
@@ -226,9 +226,9 @@
 	ammo_type = /obj/item/ammo_casing/c585trappiste/incapacitator
 	icon_state = "stack_spec"
 
-/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled/hollowpoint
-	name = ".585 Trappiste hollowhead casings"
-	ammo_type = /obj/item/ammo_casing/c585trappiste/hollowpoint
+/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled/incendiary
+	name = ".585 Trappiste incendiary casings"
+	ammo_type = /obj/item/ammo_casing/c585trappiste/incendiary
 	icon_state = "stack_spec"
 
 // Rifle ammo

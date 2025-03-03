@@ -13,10 +13,12 @@
 		/obj/item/flashlight/seclite = 6,
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 		/obj/item/clothing/gloves/tackler/security = 5,
+		/obj/item/gun/energy/e_gun/advtaser = 3,
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/storage/fancy/donut_box = 2,
+		/obj/item/melee/baton/security/stun_gun/stun_knife = 3,
 	)
 	premium = list(
 		/obj/item/storage/belt/security/webbing = 5,
@@ -37,7 +39,7 @@
 	name = "\improper Peacekeeper Outfitting Station"
 	desc = "A vending machine stocked with Lopland's \"Peacekeeper\" security package, including standardized uniforms and general equipment."
 	icon = 'modular_nova/modules/sec_haul/icons/vending/vending.dmi'
-	light_mask = "sec-light-mask"
+	light_mask = "wardrobe-light-mask"
 	icon_state = "peace"
 	product_ads = "Beat perps in style!;The stains wash right out!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
 	vend_reply = "Good luck, Peacekeeper!"

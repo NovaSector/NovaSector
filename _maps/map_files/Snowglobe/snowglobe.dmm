@@ -5960,7 +5960,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "bBS" = (
@@ -16004,6 +16004,10 @@
 /area/station/hallway/primary/aft)
 "epB" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "detectiveshutters"
+	},
 /turf/open/floor/plating,
 /area/station/security/detectives_office)
 "epE" = (
@@ -32423,7 +32427,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert/station_only,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "iKk" = (
@@ -37129,7 +37133,7 @@
 /turf/open/floor/carpet/red,
 /area/station/security/warden)
 "jUP" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
@@ -41517,7 +41521,7 @@
 /turf/open/floor/iron,
 /area/station/tcommsat/server)
 "lcw" = (
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /obj/machinery/light/directional/north,
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/camera/autoname/directional/north,
@@ -54054,6 +54058,10 @@
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/machinery/button/door/directional/south{
+	id = "detectiveshutters";
+	name = "Shutters"
 	},
 /turf/open/floor/wood/large,
 /area/station/security/detectives_office)
@@ -69872,6 +69880,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/commissary)
+"sSI" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "detectiveshutters"
+	},
+/turf/open/floor/plating,
+/area/station/security/detectives_office)
 "sSJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -74693,7 +74709,7 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/break_room)
 "ugJ" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/yellow{
@@ -80835,7 +80851,7 @@
 	},
 /area/station/medical/storage)
 "vNz" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/yellow{
@@ -251626,7 +251642,7 @@ gBJ
 sNr
 vvm
 bRb
-epB
+sSI
 rDV
 ydt
 mxW
@@ -251883,7 +251899,7 @@ aSG
 vAm
 ahk
 sxO
-epB
+sSI
 ret
 nxB
 rll

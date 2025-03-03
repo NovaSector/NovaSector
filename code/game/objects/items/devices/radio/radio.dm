@@ -351,19 +351,20 @@
 		return
 
 	if(isliving(talking_movable))
-		/* NOVA EDIT CHANGE START - We use our own radio sounds - see modular_nova/modules/radiosound/code/radio.dm - ORIGINAL:
+		/* NOVA EDIT REMOVAL START - ORIGINAL - We use our own radio sounds - see modular_nova/modules/radiosound/code/radio.dm - ORIGINAL:
 		var/mob/living/talking_living = talking_movable
 		var/volume_modifier = (talking_living.client?.prefs.read_preference(/datum/preference/numeric/sound_radio_noise))
-		if(radio_noise && talking_living.can_hear() && volume_modifier && signal.frequency != FREQ_COMMON && !LAZYACCESS(message_mods, MODE_SEQUENTIAL) && COOLDOWN_FINISHED(src, audio_cooldown))
+		if(radio_noise && talking_living.can_hear() && volume_modifier && signal.frequency != FREQ_COMMON && !LAZYACCESS(message_mods, MODE_SEQUENTIAL) && COOLDOWN_FINISHED(src, audio_cooldown)) // NOVA EDIT CHANGE - ORIGINAL:
 			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
 			var/sound/radio_noise = sound('sound/items/radio/radio_talk.ogg', volume = volume_modifier)
 			radio_noise.frequency = get_rand_frequency_low_range()
 			SEND_SOUND(talking_living, radio_noise)
-		*/
+		NOVA EDIT REMOVAL END */
+		// NOVA EDIT ADDITION START - We play our radio sound for all mobs nearby to hear instead of just sending it to the person talking
 		if(radio_noise && COOLDOWN_FINISHED(src, audio_cooldown))
 			COOLDOWN_START(src, audio_cooldown, 0.5 SECONDS)
-			playsound_if_pref(src, radio_talk_sound, radio_sound_volume, radio_sound_has_vary, radio_sound_range, SOUND_FALLOFF_EXPONENT, frequency = get_rand_frequency_low_range(), pref_to_check = /datum/preference/numeric/sound_radio_noise) // NOVA EDIT ADDITION
-		// NOVA EDIT CHANGE END
+			playsound_if_pref(src, radio_talk_sound, radio_sound_volume, radio_sound_has_vary, radio_sound_range, SOUND_FALLOFF_EXPONENT, frequency = get_rand_frequency_low_range(), pref_to_check = /datum/preference/numeric/sound_radio_noise)
+		// NOVA EDIT ADDITION END
 
 	// All radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
@@ -534,7 +535,7 @@
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if (frequency && in_range(src, user))
-		. += span_notice("It is set to broadcast over the [frequency/10] frequency.")
+		. += span_notice("It is set to broadcast over the [span_radio("[frequency/10]")] frequency.")
 	if (unscrewed)
 		. += span_notice("It can be attached and modified.")
 	else
@@ -696,7 +697,7 @@
 
 /obj/item/radio/entertainment/speakers/physical // Can be used as a physical item
 	name = "entertainment radio"
-	desc = "A portable one-way radio permamently tuned into entertainment frequency."
+	desc = "A portable one-way radio permanently tuned into entertainment frequency."
 	icon_state = "radio"
 	inhand_icon_state = "radio"
 	worn_icon_state = "radio"

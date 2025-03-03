@@ -8,6 +8,7 @@
 				)
 			)
 		)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/service = 2)
 
 /obj/machinery/vending/boozeomat/cafe
 	premium_nova = list(

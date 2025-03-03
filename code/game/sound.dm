@@ -772,6 +772,11 @@
 				'sound/effects/writing_pen/writing_pen6.ogg',
 				'sound/effects/writing_pen/writing_pen7.ogg',
 			)
+		if(SFX_CLOWN_CAR_LOAD)
+			soundin = pick(
+				'sound/vehicles/clown_car/clowncar_load1.ogg',
+				'sound/vehicles/clown_car/clowncar_load2.ogg',
+			)
 		if(SFX_SEATBELT_BUCKLE)
 			soundin = pick(
 				'sound/machines/buckle/buckle1.ogg',
@@ -783,5 +788,30 @@
 				'sound/machines/buckle/unbuckle1.ogg',
 				'sound/machines/buckle/unbuckle2.ogg',
 				'sound/machines/buckle/unbuckle3.ogg',
+			)
+		if(SFX_HEADSET_EQUIP)
+			soundin = pick(
+				'sound/items/equip/headset_equip1.ogg',
+				'sound/items/equip/headset_equip2.ogg',
+			)
+		if(SFX_HEADSET_PICKUP)
+			soundin = pick(
+				'sound/items/handling/headset/headset_pickup1.ogg',
+				'sound/items/handling/headset/headset_pickup2.ogg',
+				'sound/items/handling/headset/headset_pickup3.ogg',
+			)
+		if(SFX_BANDAGE_BEGIN)
+			soundin = pick(
+				'sound/items/gauze/bandage_begin1.ogg',
+				'sound/items/gauze/bandage_begin2.ogg',
+				'sound/items/gauze/bandage_begin3.ogg',
+				'sound/items/gauze/bandage_begin4.ogg',
+			)
+		if(SFX_BANDAGE_END)
+			soundin = pick(
+				'sound/items/gauze/bandage_end1.ogg',
+				'sound/items/gauze/bandage_end2.ogg',
+				'sound/items/gauze/bandage_end3.ogg',
+				'sound/items/gauze/bandage_end4.ogg',
 			)
 	return soundin
