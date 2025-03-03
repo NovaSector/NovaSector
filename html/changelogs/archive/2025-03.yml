@@ -53,3 +53,8 @@
       one, but a rifle none-the-less!
   - image: Miecz and Lanca both have new sprites to better fit in with the rest of
       the game.
+2025-03-03:
+  Stalkeros, Junglerat for the sprites:
+  - rscadd: Refitted Voskhod-based MODsuit with a built-in medical system, akin to
+      its Imperial predecessor - but cooler.
+  - rscdel: NRI ERT and relevant NRI ERT Frontline MODsuit
