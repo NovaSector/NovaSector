@@ -1,3 +1,72 @@
+// Rapid firing scary military grade weapon firing .27-54 Cesarzowa
+
+/obj/item/gun/ballistic/automatic/miecz
+	name = "\improper Miecz Support Weapon"
+	desc = "A short barrel weapon riding the line between submachine gun and a rifle. \
+		Features plasticized furniture and a maintenance manual in the stock... \
+		Which just doesn't seem to come out no matter how hard you pull."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
+	icon_state = "miecz"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
+	inhand_icon_state = "miecz"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
+	worn_icon_state = "miecz"
+
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_righthand.dmi'
+	inhand_icon_state = "miecz"
+
+	SET_BASE_PIXEL(-8, 0)
+
+	special_mags = FALSE
+
+	bolt_type = BOLT_TYPE_STANDARD
+
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
+	slot_flags = ITEM_SLOT_BELT // we keeping this for the VIBE
+
+	accepted_magazine_type = /obj/item/ammo_box/magazine/miecz
+
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
+	can_suppress = TRUE
+	suppressor_x_offset = 5
+	suppressor_y_offset = 3
+
+	burst_size = 1
+	fire_delay = 3.5
+	actions_types = list()
+
+	spread = 1
+	recoil = 0.5
+
+/obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+/obj/item/gun/ballistic/automatic/miecz/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
+
+/obj/item/gun/ballistic/automatic/miecz/examine(mob/user)
+	. = ..()
+	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
+
+/obj/item/gun/ballistic/automatic/miecz/examine_more(mob/user)
+	. = ..()
+
+	. += "The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
+		a figuratively 'tested' design, (though you couldn't be sure which one that is). \
+		Fires the .27-54 'intermediary' caliber round, if only to dodge its classification as a rifle. \
+		Overall, it's decently accurate, lightweight, reeks of gun-grease,  \
+		and might feel a little more homely then the next gun over... or, at least that's what the label says. \
+		The Wood-Substitute material is known to have various side-effects, please contact your local health department before use."
+
+/obj/item/gun/ballistic/automatic/miecz/no_mag
+	spawnwithmagazine = FALSE
+
 // Semi-automatic rifle firing .310 with reduced damage compared to a Sakhno
 
 /obj/item/gun/ballistic/automatic/lanca
@@ -30,8 +99,8 @@
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
-	suppressor_x_offset = 0
-	suppressor_y_offset = 0
+	suppressor_x_offset = 2
+	suppressor_y_offset = 1
 
 	burst_size = 1
 	fire_delay = 1.2 SECONDS

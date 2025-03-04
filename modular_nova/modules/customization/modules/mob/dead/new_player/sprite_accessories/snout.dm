@@ -112,6 +112,13 @@
 	name = "Corvid Beak"
 	icon_state = "corvidbeak"
 
+/datum/sprite_accessory/snouts/mammal/dragonfly
+	name = "Dragonfly"
+	icon_state = "dragonfly"
+	flags_for_organ = NONE
+	color_src = USE_MATRIXED_COLORS
+	organ_type = /obj/item/organ/snout/top_adj
+
 /datum/sprite_accessory/snouts/mammal/bug
 	name = "Bug"
 	icon_state = "bug"

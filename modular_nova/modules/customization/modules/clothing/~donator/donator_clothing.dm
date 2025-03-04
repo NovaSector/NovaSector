@@ -2329,3 +2329,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "explorer_melon"
 
+/obj/item/clothing/under/dress/heirloomdagmar
+	name = "heirloom dress"
+	desc = "An early 21st century dress in a vintage style, part of the Ms. Ann Thorpe Overbearing Granny Summer collection. A travel look for an overbearing matchmaker."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
+	alternate_worn_layer = ABOVE_SHOES_LAYER
+	icon_state = "dagmardress_a"
+
+/obj/item/clothing/under/dress/neoflapperdagmar
+	name = "neo-flapper dress"
+	desc = "Part of a shameful and best left forgotten nostalgic fashion movement among the Martian elite, nearly all traces of which were scrubbed from the holonet. Even recognizing this puts you at risk."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
+	alternate_worn_layer = ABOVE_SHOES_LAYER
+	icon_state = "dagmardress_b"
+
+/obj/item/clothing/under/dress/ambassadordagmar
+	name = "ambassador's dress"
+	desc = "Eveningwear for a cardshark or someone who refuses to take ‘No Dogs Allowed’ for an answer. A Martian fusion style evening gown, from cheating at blackjack to welcoming a diplomat delegation, you'll find every card trick already up its ample furisode sleeves."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|LEGS|FEET
+	alternate_worn_layer = ABOVE_SHOES_LAYER
+	icon_state = "dagmardress_c"

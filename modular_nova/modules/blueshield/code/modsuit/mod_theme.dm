@@ -12,8 +12,7 @@
 	default_skin = "praetorian"
 	armor_type = /datum/armor/mod_theme_security
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
-	slowdown_inactive = 1
-	slowdown_active = 0.5
+	slowdown_deployed = 0.5
 	allowed_suit_storage = list(
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,

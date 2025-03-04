@@ -23,18 +23,16 @@
 
 /datum/armament_entry/company_import/vitezstvi/accessory
 	subcategory = "Weapon Accessories"
+	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/vitezstvi/accessory/suppressor
 	item_type = /obj/item/suppressor/standard
-	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/vitezstvi/accessory/seclight
 	item_type = /obj/item/flashlight/seclite
-	cost = PAYCHECK_COMMAND * 1.5 // now get yo shotgun with the flashlight modification
 
 /datum/armament_entry/company_import/vitezstvi/accessory/small_case
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/empty
-	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/vitezstvi/accessory/large_case
 	item_type = /obj/item/storage/toolbox/guncase/nova/empty
@@ -42,11 +40,13 @@
 
 /datum/armament_entry/company_import/vitezstvi/accessory/bandolier
 	item_type = /obj/item/storage/belt/bandolier
-	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/vitezstvi/accessory/holster
+	item_type = /obj/item/storage/belt/holster
 
 /datum/armament_entry/company_import/vitezstvi/accessory/pouch
 	item_type = /obj/item/storage/pouch/ammo
-	cost = PAYCHECK_COMMAND * 3
+	cost = PAYCHECK_CREW * 4
 
 // Boxes of non-shotgun ammo
 
@@ -60,6 +60,9 @@
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_hp
 	item_type = /obj/item/ammo_box/c9mm/hp
 
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_ap
+	item_type = /obj/item/ammo_box/c9mm/ap
+
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_rubber
 	item_type = /obj/item/ammo_box/c9mm/rubber
 
@@ -68,6 +71,9 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_hp
 	item_type = /obj/item/ammo_box/c10mm/hp
+
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_ap
+	item_type = /obj/item/ammo_box/c10mm/ap
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_rubber
 	item_type = /obj/item/ammo_box/c10mm/rubber
@@ -139,7 +145,7 @@
 
 /datum/armament_entry/company_import/vitezstvi/shot_shells
 	subcategory = "Shotgun Shells"
-	cost = PAYCHECK_COMMAND
+	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/vitezstvi/shot_shells/slugs
 	item_type = /obj/item/ammo_box/advanced/s12gauge
@@ -168,7 +174,7 @@
 /datum/armament_entry/company_import/vitezstvi/shot_shells/hornet_nest
 	item_type = /obj/item/ammo_box/advanced/s12gauge/beehive
 
-/datum/armament_entry/company_import/vitezstvi/shot_shells/stardust
+/datum/armament_entry/company_import/vitezstvi/shot_shells/lighting
 	item_type = /obj/item/ammo_box/advanced/s12gauge/antitide
 
 /datum/armament_entry/company_import/vitezstvi/shot_shells/confetti

@@ -19,11 +19,11 @@
 	attack_verb_simple = list("thrust")
 	throwforce = 0
 	force_say_chance = 25
-	stamina_damage = 35
+	stamina_damage = 25
 	armour_type_against_stun = ENERGY
 	knockdown_time = null
 	clumsy_knockdown_time = null
-	cooldown = 1 SECONDS
+	cooldown = 0.7 SECONDS
 	light_color = LIGHT_COLOR_ELECTRIC_CYAN
 	light_power = 0.25
 
@@ -49,6 +49,9 @@
 	target.set_confusion_if_lower(4 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_stutter_if_lower(3 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_eye_blur_if_lower(5 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
+	var/effective_armour_penetration = get_stun_penetration_value()
+	var/armour_block = target.run_armor_check(null, armour_type_against_stun, null, null, effective_armour_penetration)
+	target.apply_damage(stamina_damage, STAMINA, blocked = armour_block)
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
 	stun_override = FALSE
 
@@ -61,9 +64,50 @@
 
 	. += "'Kopřiva' is the current flagship model of a stun gun standard-issued to coreworld Zvirdnyn officers - as you would not expect any more than an occasional rare drunkard \
 		coming for you around the capital planets. Its newly integrated neural receptors allow for unprecedented level of pacification through pain responses to one's brain, \
-		resulting in a conclusion to a confrontation that couldn't even end. The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
+		resulting in a conclusion to a confrontation that couldn't even start. The humanity of directly sparking people's CNS is dubious at best; but suspects are yet to fall limp \
 		after experiencing its sting."
-
 
 /obj/item/melee/baton/security/stun_gun/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
+
+
+/obj/item/melee/baton/security/stun_gun/stun_knife
+	name = "\improper Makeshift Stun Knife"
+	desc = "A Kopřiva stun gun cobbled together with a standard survival knife, making an odd combination of a lethally... non-lethal weapon. \
+	Not the best for standing your ground, but it's better then nothing!"
+	desc_controls = "Left click to stun, right click to 'harm'."
+	icon = 'modular_nova/modules/novaya_ert/icons/stun_knife.dmi'
+	icon_state = "stun_knife"
+	lefthand_file = 'modular_nova/modules/novaya_ert/icons/stun_knife_left.dmi'
+	righthand_file = 'modular_nova/modules/novaya_ert/icons/stun_knife_right.dmi'
+	inhand_icon_state = "stun_knife"
+	base_icon_state = "stun_knife"
+	sharpness = SHARP_EDGED
+	force = 15
+	throwforce = 15
+	wound_bonus = 5
+	bare_wound_bonus = 15
+	embed_type = /datum/embedding/combat_knife/weak
+	tool_behaviour = TOOL_KNIFE
+	attack_verb_continuous = list("glances", "slices", "strikes")
+	attack_verb_simple = list("slash", "slice", "dice", "cut")
+	var/list/alt_continuous = list("stabs", "pierces", "shanks")
+	var/list/alt_simple = list("stab", "pierce", "shank")
+
+/obj/item/melee/baton/security/stun_gun/stun_knife/proc/make_stabby()
+	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple)
+
+/obj/item/melee/baton/security/stun_gun/stun_knife/loaded
+	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
+
+/datum/crafting_recipe/knife_and_shocky
+	name = "Makeshift Stunknife"
+	desc = "cobble together an abomination against both man, and god."
+	result = /obj/item/melee/baton/security/stun_gun/stun_knife/loaded // Only because crafting it is going to be a bit of a hassle already, and it will absolutely eat the cell your stun gun might've had in it.
+	reqs = list(
+		/obj/item/knife/combat/survival = 1,
+		/obj/item/melee/baton/security/stun_gun = 1,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_MELEE

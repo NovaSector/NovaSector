@@ -60,8 +60,8 @@
 
 		/// volume modifier--for radio noise only currently--can be different for each client based on their radio sound pref.
 		var/vol_modifier = 1
-		if(ispath(pref_to_check, /datum/preference/numeric/sound_radio_noise))
-			vol_modifier = checked_pref/100
+		if(ispath(pref_to_check, /datum/preference/numeric/volume/sound_radio_noise))
+			vol_modifier = checked_pref / 100
 
 		if(!(get_dist(listening_mob, turf_source) <= maxdistance))
 			continue

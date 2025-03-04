@@ -67,7 +67,7 @@
 		/obj/item/stack/medical/gauze = 4, // for ALL wounds
 		/obj/item/healthanalyzer/no_medibot = 2, // disallows medibot use so it's not wasted immediately on medibots
 		/obj/item/healthanalyzer/simple = 2,
-		/obj/item/clothing/suit/toggle/labcoat/nova/roboticist = 3,
+		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist = 3,
 		/obj/item/storage/backpack/science/robo = 2,
 		/obj/item/storage/backpack/satchel/science/robo = 2,
 		/obj/item/storage/backpack/duffelbag/science/robo = 2,
@@ -89,7 +89,7 @@
 
 /obj/machinery/vending/wardrobe/gene_wardrobe
 	products_nova = list(
-		/obj/item/clothing/suit/toggle/labcoat/nova/geneticist = 3,
+		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist = 3,
 	)
 
 /obj/machinery/vending/wardrobe/hydro_wardrobe
@@ -132,7 +132,7 @@
 	products_nova = list(
 		/obj/item/clothing/under/rank/medical/chemist/nova/formal = 2,
 		/obj/item/clothing/under/rank/medical/chemist/nova/formal/skirt = 2,
-		/obj/item/clothing/suit/toggle/labcoat/nova/pharmacist = 2,
+		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
 		/obj/item/storage/backpack/messenger/chem = 2,
 	)
@@ -158,6 +158,7 @@
 		/obj/item/clothing/suit/jacket/det_suit/cowboyvest = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 	)
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/detective = 2)
 
 /obj/machinery/vending/wardrobe/law_wardrobe
 	products_nova = list(
@@ -168,6 +169,8 @@
 		/obj/item/clothing/under/suit/nova/inferno/beeze = 2,
 	)
 
+/obj/machinery/vending/wardrobe/jani_wardrobe
+	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/service = 2)
 
 /// Removes given list of products. Must be called before build_inventory() to actually prevent the records from being created.
 /obj/machinery/vending/proc/remove_products(list/paths_to_remove)
