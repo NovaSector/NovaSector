@@ -1224,13 +1224,21 @@
 	if(AI.controlled_equipment)
 		to_chat(AI, span_warning("You are already loaded into an onboard computer!"))
 		return
-	if(!GLOB.cameranet.checkCameraVis(owner))
-		to_chat(AI, span_warning("Target is no longer near active cameras."))
-		return
+	// if(!GLOB.cameranet.checkCameraVis(owner))
+	// 	to_chat(AI, span_warning("Target is no longer near active cameras."))
+	// 	return
 	if(!isturf(AI.loc))
 		to_chat(AI, span_warning("You aren't in your core!"))
 		return
-
+	/// NOVA EDIT ADDITION START
+	if(istype(mainframe)) // In case another AI is already inside
+		to_chat(AI, span_warning("Target is currently occupied!"))
+		return
+	if(owner.stat == DEAD)
+		to_chat(AI, span_warning("Target doesn't respond to requests!"))
+		return
+	owner.copy_languages(AI.get_language_holder())
+	/// NOVA EDIT ADDITION END
 	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(undeploy))
 	AI.deployed_shell = owner
 	deploy_init(AI)

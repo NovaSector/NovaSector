@@ -239,8 +239,7 @@
 	if(istype(old_ai_brain))
 		var/obj/item/organ/brain/cybernetic/ai/new_ai_brain = new
 		if(!new_ai_brain.Insert(patient, movement_flags = DELETE_IF_REPLACED))
-			qdel(new_ai_brain)
-			old_ai_brain.deploy_init(real_ai_player ? real_ai_player : patient)
+			qdel(new_ai_brain) // You get no brain, whoops. Something really bad happened here
 
 	log_game("[key_name(patient)] used a Self-Actualization Device at [loc_name(src)].")
 

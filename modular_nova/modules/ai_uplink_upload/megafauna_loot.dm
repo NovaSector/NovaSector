@@ -28,4 +28,5 @@
 
 /obj/item/organ/brain/cybernetic/ai/Initialize(mapload)
 	desc += " P.S. External organs such as tails, snouts, etc still work fine."
+	organ_traits += TRAIT_SILICON_EMOTES_ALLOWED
 	return ..()
