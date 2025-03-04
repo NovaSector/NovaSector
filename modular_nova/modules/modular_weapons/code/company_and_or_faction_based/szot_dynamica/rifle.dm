@@ -96,7 +96,7 @@
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/lanca
 
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/csgo_ak_shoot.ogg'
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
 	suppressor_x_offset = 2
