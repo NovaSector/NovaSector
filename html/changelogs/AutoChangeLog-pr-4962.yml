@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscdel: "Explodes the proto-kinetic glaive reskin because the glaive retool kit exists now. Thanks, me."
