@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isdummy(A) (istype(A, /mob/living/carbon/human/dummy))
 
 //Human sub-species
-#define isabductor(A) (is_species(A, /datum/species/abductor))
+#define isabductor(A) (is_species(A, /datum/species/abductor) && !is_species(A, /datum/species/abductor/abductorweak)) // NOVA EDIT CHANGE - ORIGINAL: #define isabductor(A) (is_species(A, /datum/species/abductor))
 #define isgolem(A) (is_species(A, /datum/species/golem))
 #define islizard(A) (is_species(A, /datum/species/lizard))
 #define isashwalker(A) (is_species(A, /datum/species/lizard/ashwalker))
@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isguardian(A) (istype(A, /mob/living/basic/guardian))
 
-#define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
+#define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna) || istype(A, /mob/living/basic/boss))
 
 #define isclown(A) (istype(A, /mob/living/basic/clown))
 

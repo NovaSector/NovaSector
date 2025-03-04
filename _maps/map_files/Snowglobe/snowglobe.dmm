@@ -5960,7 +5960,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "bBS" = (
@@ -16004,6 +16004,10 @@
 /area/station/hallway/primary/aft)
 "epB" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "detectiveshutters"
+	},
 /turf/open/floor/plating,
 /area/station/security/detectives_office)
 "epE" = (
@@ -19546,6 +19550,7 @@
 /obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/small,
 /area/station/service/kitchen/coldroom)
 "fnv" = (
@@ -21089,6 +21094,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/freezer,
 /area/station/medical/storage)
 "fIQ" = (
@@ -30452,7 +30458,7 @@
 /turf/open/floor/iron/herringbone,
 /area/station/hallway/primary/aft)
 "iig" = (
-/obj/structure/bookcase/random,
+/obj/structure/sign/poster/greenscreen/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/captain)
 "iit" = (
@@ -31034,6 +31040,7 @@
 	cycle_id = "tcommcradlecycle"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/tcommsat/server)
 "ipV" = (
@@ -32423,7 +32430,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 1
 	},
-/obj/machinery/computer/atmos_alert,
+/obj/machinery/computer/atmos_alert/station_only,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "iKk" = (
@@ -37129,7 +37136,7 @@
 /turf/open/floor/carpet/red,
 /area/station/security/warden)
 "jUP" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
@@ -38450,6 +38457,10 @@
 	},
 /turf/open/floor/stone,
 /area/station/commons/dorms/room1)
+"kmQ" = (
+/obj/structure/sign/poster/greenscreen/directional/east,
+/turf/open/genturf,
+/area/icemoon/underground/unexplored/rivers/deep)
 "kmT" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -41179,6 +41190,7 @@
 	name = "Server Access"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 8
 	},
@@ -41517,7 +41529,7 @@
 /turf/open/floor/iron,
 /area/station/tcommsat/server)
 "lcw" = (
-/obj/machinery/computer/station_alert,
+/obj/machinery/computer/station_alert/station_only,
 /obj/machinery/light/directional/north,
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/camera/autoname/directional/north,
@@ -46943,6 +46955,9 @@
 /obj/item/paper_bin{
 	pixel_y = 5;
 	pixel_x = -5
+	},
+/obj/item/book/manual/fish_catalog{
+	pixel_x = 5
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
@@ -54054,6 +54069,10 @@
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/machinery/button/door/directional/south{
+	id = "detectiveshutters";
+	name = "Shutters"
 	},
 /turf/open/floor/wood/large,
 /area/station/security/detectives_office)
@@ -63313,6 +63332,14 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/hallway/primary/forestarboardhall)
+"rfa" = (
+/obj/machinery/greenscreen_camera{
+	dir = 1;
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/turf/open/floor/carpet/royalblue,
+/area/station/command/heads_quarters/captain)
 "rfr" = (
 /obj/effect/spawner/random/structure/crate_loot,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -69872,6 +69899,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/commissary)
+"sSI" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "detectiveshutters"
+	},
+/turf/open/floor/plating,
+/area/station/security/detectives_office)
 "sSJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -74693,7 +74728,7 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/break_room)
 "ugJ" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/yellow{
@@ -78830,11 +78865,8 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/structure/rack/wooden,
-/obj/item/book/manual/fish_catalog{
-	pixel_x = 5
-	},
 /obj/machinery/status_display/evac/directional/west,
+/obj/structure/bookcase/random,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "voq" = (
@@ -80835,7 +80867,7 @@
 	},
 /area/station/medical/storage)
 "vNz" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/yellow{
@@ -85450,6 +85482,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/xenobiology)
 "wYk" = (
@@ -86402,6 +86435,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/tcommsat/server)
 "xle" = (
@@ -93439,7 +93473,7 @@ jKe
 jKe
 jKe
 jKe
-jKe
+kmQ
 jKe
 jKe
 jKe
@@ -251626,7 +251660,7 @@ gBJ
 sNr
 vvm
 bRb
-epB
+sSI
 rDV
 ydt
 mxW
@@ -251883,7 +251917,7 @@ aSG
 vAm
 ahk
 sxO
-epB
+sSI
 ret
 nxB
 rll
@@ -255974,7 +256008,7 @@ vqU
 vaj
 xHO
 iig
-hIF
+rfa
 baG
 rby
 bGI

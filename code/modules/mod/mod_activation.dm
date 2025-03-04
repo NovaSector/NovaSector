@@ -127,6 +127,8 @@
 		balloon_alert(user, "already retracted!")
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
+	if(SEND_SIGNAL(src, COMSIG_MOD_PART_RETRACTING, user, part_datum) & MOD_CANCEL_RETRACTION)
+		return FALSE
 	if(active && part_datum.sealed)
 		if(instant)
 			seal_part(part, is_sealed = FALSE)
@@ -141,7 +143,6 @@
 		if(!QDELING(wearer) && !wearer.equip_to_slot_if_possible(overslot, overslot.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
 			wearer.dropItemToGround(overslot, force = TRUE, silent = TRUE)
 	wearer.update_clothing(slot_flags)
-	SEND_SIGNAL(src, COMSIG_MOD_PART_RETRACTED, user, part_datum)
 	if(!user)
 		return TRUE
 	wearer.visible_message(span_notice("[wearer]'s [part.name] retract[part.p_s()] back into [src] with a mechanical hiss."),
@@ -265,7 +266,8 @@
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.alternate_worn_layer = part_datum.unsealed_layer
-	// generate_suit_mask() NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	//generate_suit_mask() // NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
 	wearer.update_obscured_slots(part.visor_flags_inv)
 	if((part.clothing_flags & (MASKINTERNALS|HEADINTERNALS)) && wearer.invalid_internals())
@@ -309,10 +311,9 @@
 			if(!module.active || (module.allow_flags & MODULE_ALLOW_INACTIVE))
 				continue
 			module.deactivate(display_message = FALSE)
-	update_speed()
 	update_charge_alert()
 	update_appearance(UPDATE_ICON_STATE)
-	// generate_suit_mask() NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	//generate_suit_mask() // NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
 	wearer.update_clothing(slot_flags)
 
 /// Quickly deploys all the suit parts and if successful, seals them and turns on the suit. Intended mostly for outfits.

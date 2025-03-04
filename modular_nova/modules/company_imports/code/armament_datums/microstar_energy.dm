@@ -6,10 +6,14 @@
 
 /datum/armament_entry/company_import/microstar/basic_energy_weapons
 	subcategory = "Basic Energy Smallarms"
+	cost = PAYCHECK_CREW * 5
 
 /datum/armament_entry/company_import/microstar/basic_energy_weapons/disabler
 	item_type = /obj/item/gun/energy/disabler
-	cost = PAYCHECK_CREW * 5
+
+/datum/armament_entry/company_import/microstar/basic_energy_weapons/advtaser
+	item_type = /obj/item/gun/energy/e_gun/advtaser
+	cost = PAYCHECK_CREW * 7 // slightly more expensive because of style points, and being a taser/disabler combo
 
 /datum/armament_entry/company_import/microstar/basic_energy_weapons/disabler_smg
 	item_type = /obj/item/gun/energy/disabler/smg
@@ -18,9 +22,8 @@
 
 /datum/armament_entry/company_import/microstar/basic_energy_weapons/mini_egun
 	item_type = /obj/item/gun/energy/e_gun/mini
-	cost = PAYCHECK_CREW * 5
 
-/datum/armament_entry/company_import/microstar/lethal_sidearm/energy_holster
+/datum/armament_entry/company_import/microstar/basic_energy_weapons/energy_holster
 	item_type = /obj/item/storage/belt/holster/energy/thermal
 	cost = PAYCHECK_COMMAND * 6
 
@@ -33,7 +36,7 @@
 
 /datum/armament_entry/company_import/microstar/basic_energy_long_weapons/laser_carbine
 	item_type = /obj/item/gun/energy/laser/carbine
-	cost = PAYCHECK_CREW * 7 // slightly more expensive due to ease of use/full auto
+	cost = PAYCHECK_CREW * 7 // slightly more expensive due to being a lasergun 'upgrade'
 	restricted = TRUE
 
 /datum/armament_entry/company_import/microstar/basic_energy_long_weapons/egun

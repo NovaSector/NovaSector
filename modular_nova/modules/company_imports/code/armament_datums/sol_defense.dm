@@ -87,19 +87,17 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm
 	subcategory = "Sidearms"
+	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/eland
 	item_type = /obj/item/gun/ballistic/revolver/sol
-	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	cost = PAYCHECK_COMMAND * 4
 	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/sidearm/type207
 	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
-	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
 	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
@@ -113,15 +111,22 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm
 	subcategory = "Longarms"
+	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/longarm/renoster
 	item_type = /obj/item/gun/ballistic/shotgun/riot/sol
-	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
 	item_type = /obj/item/gun/ballistic/automatic/sol_smg
-	cost = PAYCHECK_COMMAND * 6
 	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/longarm/type213
+	item_type = /obj/item/gun/ballistic/automatic/type213
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/longarm/br38
+	item_type = /obj/item/gun/ballistic/automatic/battle_rifle
+	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/sol_defense/longarm/elite
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
@@ -163,8 +168,14 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
+/datum/armament_entry/company_import/sol_defense/magazines/br38
+	item_type = /obj/item/ammo_box/magazine/m38/empty
+
 /datum/armament_entry/company_import/sol_defense/magazines/kineticballs
 	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballsbig
+	item_type = /obj/item/ammo_box/magazine/kineticballsbig/starts_empty
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty

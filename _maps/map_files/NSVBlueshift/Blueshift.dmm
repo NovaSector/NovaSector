@@ -1756,7 +1756,7 @@
 /turf/open/floor/wood,
 /area/station/security/courtroom)
 "arT" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/machinery/computer/security/telescreen/research/directional/south,
@@ -4115,7 +4115,7 @@
 /area/station/maintenance/department/engineering/engine_aft_starboard)
 "aQq" = (
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
@@ -4154,7 +4154,7 @@
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_art_studio)
 "aQT" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 8
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
@@ -17234,6 +17234,7 @@
 	name = "Freezer"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen/coldroom)
 "dny" = (
@@ -17649,7 +17650,7 @@
 /area/station/maintenance/department/security/prison_upper)
 "dsm" = (
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow{
@@ -20866,6 +20867,7 @@
 	cycle_id = "tcomms-internal"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "dYM" = (
@@ -25869,6 +25871,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/science/rd,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/science/server)
 "eUH" = (
@@ -26213,6 +26216,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/freezer,
 /area/station/science/xenobiology)
 "eYC" = (
@@ -27850,7 +27854,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 4
 	},
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/computer/security/telescreen/ce/directional/west,
@@ -33094,7 +33098,12 @@
 /area/station/service/kitchen)
 "gqa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/item/radio/intercom/directional/west,
+/obj/machinery/greenscreen_camera{
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = 4
+	},
+/obj/structure/sign/poster/greenscreen/directional/west,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "gqn" = (
@@ -43219,7 +43228,7 @@
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "ioW" = (
 /obj/machinery/airalarm/directional/south,
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes{
@@ -43736,7 +43745,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
@@ -62882,7 +62891,7 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/office)
 "mcu" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt{
@@ -63779,7 +63788,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "mlC" = (
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -79765,7 +79774,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth,
@@ -83438,7 +83447,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "qaZ" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -90618,7 +90627,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "rsd" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 8
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -97371,7 +97380,7 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 4
 	},
-/obj/machinery/computer/atmos_alert{
+/obj/machinery/computer/atmos_alert/station_only{
 	dir = 4
 	},
 /obj/machinery/keycard_auth/wall_mounted/directional/west,
@@ -104849,6 +104858,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "udE" = (
@@ -109961,6 +109971,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/white,
 /area/station/medical/coldroom)
 "uZY" = (
@@ -118364,7 +118375,7 @@
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "wCR" = (
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 1
 	},
 /obj/machinery/light/directional/south,
@@ -126553,7 +126564,7 @@
 /area/station/security/prison/workout)
 "yhu" = (
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/computer/station_alert{
+/obj/machinery/computer/station_alert/station_only{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow{

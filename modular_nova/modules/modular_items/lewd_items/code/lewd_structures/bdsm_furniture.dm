@@ -42,12 +42,12 @@
 /obj/structure/bed/bdsm_bed/post_buckle_mob(mob/living/affected_mob)
 	density = TRUE
 	//Push them up from the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y
+	affected_mob.add_offsets(type, y_add = 6)
 
 /obj/structure/bed/bdsm_bed/post_unbuckle_mob(mob/living/affected_mob)
 	density = FALSE
 	//Set them back down to the normal lying position
-	affected_mob.pixel_y = affected_mob.base_pixel_y + affected_mob.body_position_pixel_y_offset
+	affected_mob.remove_offsets(type)
 
 /obj/structure/bed/bdsm_bed/click_ctrl_shift(mob/user)
 	add_fingerprint(user)
@@ -236,8 +236,6 @@
 
 //Place the mob in the desired position after buckling
 /obj/structure/chair/x_stand/post_buckle_mob(mob/living/affected_mob)
-	affected_mob.pixel_y = affected_mob.base_pixel_y
-	affected_mob.pixel_x = affected_mob.base_pixel_x
 	affected_mob.layer = BELOW_MOB_LAYER
 
 	if(LAZYLEN(buckled_mobs))
@@ -260,8 +258,6 @@
 
 //Restore the position of the mob after unbuckling.
 /obj/structure/chair/x_stand/post_unbuckle_mob(mob/living/affected_mob)
-	affected_mob.pixel_x = affected_mob.base_pixel_x + affected_mob.body_position_pixel_x_offset
-	affected_mob.pixel_y = affected_mob.base_pixel_y + affected_mob.body_position_pixel_y_offset
 	affected_mob.layer = initial(affected_mob.layer)
 
 	if(!current_mob)

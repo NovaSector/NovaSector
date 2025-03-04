@@ -1,0 +1,74 @@
+2025-03-01:
+  OrbisAnima:
+  - balance: Makes the Prybar more expensive in the Contraband section of YouTool
+  - qol: Makes the RCF produce the regular crowbar, since its smaller and pocketable.
+  - rscadd: Retractive Plates can now be made in robotics, unlocked with the other
+      security modparts
+  - qol: Reduced the price of the Forging Starter pack to 500 and added Iron, Coal
+      and Wood enough to make at least five items and all the forge workstations.
+  - qol: Renamed shotgun and shotgun related stuff (renoster to M64, stardust to ligthing
+      shot) didnt changed functionality.
+  - balance: Made frontier gear Fire resistant, just like mining gear, boots are fire
+      inmune just like mining's. Made mining and frontier backpacks fireproof, just
+      like ert's
+  - rscadd: Added the slim rigs to Kahraman, accesories that you had in the loadout
+      all along and never saw, they attach to your clothes and carry up to 3 small
+      items.
+  - code_imp: Cleaned the cargo imports a bit, moved items to related areas rather
+      than all over the place.
+  - rscadd: 'Adds a new selection of medieval items to Blacksteel Imports: Shields,
+      Belts, Quivers, Bows and Throwing Weapons!'
+  - rscadd: Adds AP ammo to 9mm and 10mm selections.
+  - qol: Upped the ammo pouches to 4 slots so they have a merit over the General Purpose
+      pouches.
+  - qol: Made colonist pouches accesibles in Kahraman. Made Holsters accesible in
+      Vitezstvi.
+  - spellcheck: Renamed stardust to lighting shoot. functionality unchanged (It was
+      already changed).
+  - balance: Upped the deforest Paramedic (Pink Technician) satchel price to 1600
+      (1100 to medics), replaced the scanner with an advanced version.
+  - qol: Adjusts the Treat Breather to use the default npc temperature which is higher
+      than the one that was changing to, pets rejoice at not dying when eating the
+      funny bone when its hot.
+  RatFromTheJungle:
+  - image: Trappiste Fabrek has standardized the colorization on their 'Defenstreur'
+      brand pistols, making the body one solid color!
+  - rscadd: Added several new alt titles for assistants, doctors, parameds, the RD,
+      security officers, and engineers! (not always multiple, infact... it's not most
+      multiples for most of tho-
+  - rscadd: Stun knives can now be cobbled together with a standard survival knife,
+      and a stungun (not taser),which also appears in the contraband list for the
+      sec vendor!
+  - balance: .40 Sol Long projectiles no longer spin viciously in the air, leading
+      to over-all less wounding chance potential, and less accidental casualties at
+      the firing-range!
+  Stalkeros:
+  - qol: Synthetic medkits now feature stacks of healing patches. They perform the
+      exact same purpose, yet are more numerous.
+  - balance: Coagulant medipen in the basic synthetic medkit has been replaced with
+      an additional stack of nanite patches.
+2025-03-02:
+  RatFromTheJungle:
+  - balance: The miecz is now an actual rifle, with befitting stats. A smaller caliber
+      one, but a rifle none-the-less!
+  - image: Miecz and Lanca both have new sprites to better fit in with the rest of
+      the game.
+2025-03-03:
+  Jedi-Toothpaste:
+  - rscadd: New Legion Corpse Types - Many have fallen to the Legion, can you find
+      them all?
+  - balance: Removed Station IDs from Lavaland & Ice Moon
+  Kocma-san:
+  - balance: lowered amount of rezadon needed to heal husks caused by changelings
+      from 200 to 10
+  - bugfix: people who have been husked by changelings can be unhusked with synthflesh
+      again
+  RatFromTheJungle:
+  - bugfix: fixes miecz and lanca suppressor offsets
+  - balance: Following a stock overflow, various uplink items from the Syndicate are
+      now MUCH cheaper on the telecrystal wallet!
+  - rscadd: the experimental-syndicate-teleporter is back again.
+  Stalkeros, Junglerat for the sprites:
+  - rscadd: Refitted Voskhod-based MODsuit with a built-in medical system, akin to
+      its Imperial predecessor - but cooler.
+  - rscdel: NRI ERT and relevant NRI ERT Frontline MODsuit

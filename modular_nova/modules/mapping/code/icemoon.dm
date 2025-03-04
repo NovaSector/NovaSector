@@ -40,6 +40,14 @@
 	suffix = "icemoon_underground_abandoned_icewalker_den.dmm"
 	allow_duplicates = FALSE
 
+/datum/map_template/ruin/icemoon/underground/nova/duo_hermit
+	name = "Ice-ruin Duo Hermit"
+	id = "icemoon-duo-hermit"
+	description = "A place of shelter for a duet of hermits, scraping by to live another day."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_duo_hermit.dmm"
+	allow_duplicates = FALSE
+
 /datum/map_template/ruin/icemoon/underground/nova/abandoned_sacred_temple
 	name = "Sacred Temple"
 	id = "abandoned-sacred-temple"
@@ -75,4 +83,12 @@
 	description = "A ramshackle research bunker for geological survey on the icemoon. Its inhabitants, however, forgot to scrub their turret's AI after an electrical event."
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_surface_turretbunker.dmm"
+	allow_duplicates = FALSE
+
+/datum/map_template/ruin/icemoon/nova/snow_geosite
+	name = "Ice-ruin Surface Geological Site"
+	id = "snow_geosite"
+	description = "A mishap during geological site testing ended a poor man's life. Anyways, Roll a d10 to loot the body."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_surface_geosite.dmm"
 	allow_duplicates = FALSE
