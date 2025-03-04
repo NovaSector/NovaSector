@@ -119,7 +119,6 @@
 		var/datum/brain_trauma/trauma_to_add = trauma_ref?.resolve()
 		if(QDELETED(trauma_to_add))
 			trauma_list -= trauma_ref
-			trauma_ref = null
 			continue
 		if(trauma_to_add in current_trauma_list)
 			continue // We don't need to torture the poor soul with the same brain trauma.
