@@ -1,0 +1,11 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - rscadd: "Added new express delivery consoles dedicated to DS-2 and Interdyne."
+  - rscadd: "Added new selling console dedicated to DS-2 and Interdyne."
+  - rscadd: "Added new budget cards for DS-2 and Interdyne"
+  - image: "Added new sprites for DS-2 and Interdyne's budget cards."
+  - map: "Modified DS-2 to have 3 new boards and Budget screens dotted around their vessel."
+  - map: "Modified \"Snowdyne\" to have 3 new boards and Budget screens dotted around their station."
+  - map: "Modified Interdyne to have 3 new boards and Budget screens dotted around their vessel."
+  - code_imp: "Ported \"Persistence cargo express console\" from bubberstation."
