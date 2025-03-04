@@ -410,7 +410,7 @@
 /datum/unit_test/fish_sources/Run()
 	var/datum/fish_source/source = GLOB.preset_fish_sources[/datum/fish_source/unit_test_explosive]
 	source.spawn_reward_from_explosion(run_loc_floor_bottom_left, 1)
-	/* // NOVA EDIT REMOVAL - We changed the code so this specifically doesnt happen.
+	/* // NOVA EDIT REMOVAL START - We changed the code so this specifically doesnt happen.
 	if(source.fish_counts[/obj/item/wrench])
 		TEST_FAIL("The unit test item wasn't removed/spawned from fish_table during 'spawn_reward_from_explosion'.")
 	*/ // NOVA EDIT REMOVAL END 
