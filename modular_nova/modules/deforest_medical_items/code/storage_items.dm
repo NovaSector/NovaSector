@@ -437,7 +437,7 @@
 		/obj/item/reagent_containers/cup/vial/small/libital = 1,
 		/obj/item/reagent_containers/cup/vial/small/lenturi = 1,
 		/obj/item/reagent_containers/cup/vial/small/seiver = 1,
-		/obj/item/healthanalyzer = 1,
+		/obj/item/healthanalyzer/advanced = 1,
 	)
 	generate_items_inside(items_inside,src)
 
