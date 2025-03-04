@@ -157,4 +157,6 @@ And then from the main view, simply hold Ctrl and click on the PR + its changelo
 
 Then from there, you can simply push changes and either fix any conflicts or errors, and then use Fork, Github Desktop, or go to github to make your Pull Request to NovaSector.
 
-If you are merging a Mirror Pull Request to your downstream it recommended to use the "Rebase and Merge" method that will keep all the upstream commits intact without adding extra merge commits.
+On your downstream repo if you are merging a Mirror/batch Pull Request that contains multiple commits it is recommended to use the "Create a Merge Commit", aka "Merge Pull Request" option instead of "Squash and Merge", to preserve the commit history.
+
+(Note: the "Rebase and Merge" option may also be used, at your own preference. Both will keep the commit history intact but have their own advantages/disadvantages. We exclusively use Merge commits here on Nova).
