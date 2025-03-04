@@ -132,6 +132,8 @@
 				/obj/item/clothing/suit/toggle/jacket/hoodie/branded/smw = 5,
 				/obj/item/clothing/suit/toggle/jacket/hoodie/branded/nrti = 5,
 				/obj/item/clothing/suit/toggle/jacket/cardigan = 5,
+				/obj/item/clothing/suit/tailored_jacket = 5,
+				/obj/item/clothing/suit/tailored_jacket/short = 5,
 				/obj/item/clothing/suit/toggle/peacoat = 5,
 				/obj/item/clothing/suit/toggle/trackjacket = 5,
 				/obj/item/clothing/suit/toggle/lawyer/white = 5,

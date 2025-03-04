@@ -30,15 +30,15 @@
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED,
 	)
 
-// A large crowbar which has more force and 30% more speed but its size normal instead of small
+// Regular Crowbar until we invent something else.
 
 /datum/design/colony_crowbar
-	name = "Large Crowbar"
+	name = "Crowbar"
 	id = "colony_crowbar"
 	build_type = COLONY_FABRICATOR
-	build_path = /obj/item/crowbar/large
+	build_path = /obj/item/crowbar
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT*0.7,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT*0.35,
 	)
 	category = list(
 		RND_CATEGORY_INITIAL,

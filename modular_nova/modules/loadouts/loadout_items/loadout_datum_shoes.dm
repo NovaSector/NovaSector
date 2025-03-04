@@ -1,7 +1,4 @@
-/datum/loadout_category/feet
-	category_name = "Feet"
-	category_ui_icon = FA_ICON_SHOE_PRINTS
-	type_to_generate = /datum/loadout_item/shoes
+/datum/loadout_category/shoes
 	tab_order = /datum/loadout_category/hands::tab_order + 1
 
 /*

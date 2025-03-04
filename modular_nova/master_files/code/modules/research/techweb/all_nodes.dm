@@ -239,6 +239,12 @@
 	)
 	return ..()
 
+/datum/techweb_node/mod_security/New()
+	design_ids += list(
+		"mod_retract_plates",
+	)
+	return ..()
+
 ////////////////////////Alien technology////////////////////////
 
 /datum/techweb_node/alien_surgery/New()
