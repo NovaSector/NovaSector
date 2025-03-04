@@ -159,6 +159,8 @@
       ordering lists.
   - code_imp: Proto-kinetic crusher retool kits now have support for alternate inhand
       icon files with alternate dimensions.
+  - rscdel: Explodes the proto-kinetic glaive reskin because the glaive retool kit
+      exists now. Thanks, me.
   Holoo-1:
   - bugfix: fixed circuit connections not being drawn outside initial screen on 516
   Jackraxxus:
@@ -283,6 +285,18 @@
   OrionTheFox:
   - map: Tramstation Evidence Storage now has secure lockers, a security records filing
       cabinet, and number labels on unsecure lockers
+  RealWinterFrost:
+  - rscadd: Added new express delivery consoles dedicated to DS-2 and Interdyne.
+  - rscadd: Added new selling console dedicated to DS-2 and Interdyne.
+  - rscadd: Added new budget cards for DS-2 and Interdyne
+  - image: Added new sprites for DS-2 and Interdyne's budget cards.
+  - map: Modified DS-2 to have 3 new boards and Budget screens dotted around their
+      vessel.
+  - map: Modified "Snowdyne" to have 3 new boards and Budget screens dotted around
+      their station.
+  - map: Modified Interdyne to have 3 new boards and Budget screens dotted around
+      their vessel.
+  - code_imp: Ported "Persistence cargo express console" from bubberstation.
   Rengan:
   - sound: the volume that vox, admin sound, insturments play at can now be tweaked
       in preferences, check your preferences!
