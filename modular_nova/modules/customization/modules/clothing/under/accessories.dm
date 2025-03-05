@@ -396,7 +396,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	attachment_slot = NONE
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/syndicate
-	name = "Sotharian Syndicate Neckpin"
+	name = "Syndicate Neckpin"
 	desc = "A pin specially dedicated to show loyalty to the Syndicate!"
 	icon_state = "syndipin"
 	greyscale_colors = "#262626#9c0000"
@@ -629,16 +629,16 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	name = "Rank Pin"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "A pin showing off your rank"
-	icon_state = "rankpin1"
+	icon_state = "rank1"
 	greyscale_colors = "#FFFFFF"
 	greyscale_config = /datum/greyscale_config/rankpin
 	greyscale_config_worn = /datum/greyscale_config/rankpin/worn
 
 /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt1
-	icon_state = "rankpin2"
+	icon_state = "rank2"
 
 /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
-	icon_state = "rankpin3"
+	icon_state = "rank3"
 
 
 /*
@@ -654,6 +654,9 @@ Ribbon Accessories
 	greyscale_colors = "#ffffff#664200#fff700"
 	greyscale_config = /datum/greyscale_config/color_ribbon
 	greyscale_config_worn = /datum/greyscale_config/color_ribbon/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/accessory/nova/ribbon/ribbon_slash
 	icon_state = "ribbon2"
