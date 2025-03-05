@@ -565,7 +565,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
+	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
 	greyscale_config = /datum/greyscale_config/hollowcircle
 	greyscale_config_worn = /datum/greyscale_config/hollowcircle/worn
 	minimize_when_attached = TRUE
@@ -586,7 +586,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
+	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
 	greyscale_config = /datum/greyscale_config/circle
 	greyscale_config_worn = /datum/greyscale_config/circle/worn
 	minimize_when_attached = TRUE
