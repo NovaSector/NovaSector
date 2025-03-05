@@ -3714,6 +3714,11 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/museum)
+"Ej" = (
+/obj/structure/table,
+/obj/item/reagent_containers/cup/glass/trophy/gold_cup,
+/turf/open/floor/iron/cafeteria,
+/area/awaymission/museum/cafeteria)
 "Ek" = (
 /obj/structure/table/wood,
 /obj/structure/window/spawner/directional/east,
@@ -46729,7 +46734,7 @@ Ph
 uH
 HQ
 Xi
-xp
+Ej
 nZ
 Xi
 Es

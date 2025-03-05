@@ -7434,6 +7434,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/cave)
+"CM" = (
+/obj/effect/spawner/random/structure/crate_abandoned,
+/obj/item/antag_granter/heretic,
+/turf/open/floor/engine/cult{
+	initial_gas_mix = "n2=82;plasma=24;TEMP=120";
+	temperature = 120
+	},
+/area/awaymission/snowdin/cave/cavern)
 "CO" = (
 /obj/machinery/recharge_station,
 /turf/open/floor/circuit/red,
@@ -9620,7 +9628,7 @@
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "Oz" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/misc/asteroid/snow{
 	floor_variance = 0;
 	icon_state = "snow_dug";
@@ -10552,6 +10560,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark/snowdin,
 /area/awaymission/snowdin/outside)
+"Tt" = (
+/obj/effect/spawner/random/structure/crate_abandoned,
+/obj/item/nullrod/vibro/talking/chainsword,
+/turf/open/floor/engine/cult{
+	initial_gas_mix = "n2=82;plasma=24;TEMP=120";
+	temperature = 120
+	},
+/area/awaymission/snowdin/cave/cavern)
 "Tv" = (
 /obj/structure/table,
 /obj/item/storage/medkit/ancient,
@@ -50186,7 +50202,7 @@ bh
 bh
 eK
 eK
-XP
+CM
 gc
 gc
 gV
@@ -50960,7 +50976,7 @@ eK
 eK
 gc
 gc
-XP
+Tt
 gV
 gc
 gc

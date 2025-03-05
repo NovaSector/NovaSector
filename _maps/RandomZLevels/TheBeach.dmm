@@ -423,6 +423,15 @@
 	},
 /turf/open/misc/beach/sand,
 /area/awaymission/beach)
+"fp" = (
+/obj/item/toy/seashell{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/open/misc/beach/coast{
+	dir = 6
+	},
+/area/awaymission/beach)
 "fu" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -589,6 +598,10 @@
 	pixel_y = 4
 	},
 /turf/open/floor/wood,
+/area/awaymission/beach)
+"hr" = (
+/obj/item/food/grown/cocoapod,
+/turf/open/misc/beach/sand,
 /area/awaymission/beach)
 "hC" = (
 /obj/structure/railing{
@@ -1058,6 +1071,11 @@
 	pixel_y = -2
 	},
 /turf/open/floor/iron/dark/diagonal,
+/area/awaymission/beach)
+"mQ" = (
+/obj/effect/spawner/random/structure/closet_empty/crate,
+/obj/effect/spawner/random/maintenance/two,
+/turf/open/misc/beach/sand,
 /area/awaymission/beach)
 "mT" = (
 /obj/machinery/vending/games,
@@ -1580,6 +1598,17 @@
 	pixel_y = 2
 	},
 /turf/open/misc/beach/sand,
+/area/awaymission/beach)
+"tQ" = (
+/obj/structure/safe/floor,
+/obj/item/gun/ballistic/shotgun/musket,
+/obj/item/language_manual/piratespeak,
+/obj/item/clothing/suit/costume/pirate/armored,
+/obj/item/clothing/head/helmet/space/pirate,
+/obj/item/clothing/shoes/pirate/armored,
+/obj/item/clothing/under/costume/pirate,
+/obj/structure/bed/maint,
+/turf/open/floor/wood/large,
 /area/awaymission/beach)
 "tU" = (
 /obj/structure/table/bronze,
@@ -2661,6 +2690,13 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/awaymission/beach)
+"FX" = (
+/obj/structure/flora/tree/palm{
+	pixel_y = 8
+	},
+/obj/structure/flora/coconuts,
+/turf/open/misc/beach/sand,
+/area/awaymission/beach)
 "FY" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/siding/wood/corner{
@@ -3553,6 +3589,15 @@
 /obj/effect/turf_decal/stripes/red/box,
 /turf/open/misc/beach/sand,
 /area/awaymission/beach)
+"Rq" = (
+/obj/item/toy/seashell{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/open/misc/beach/coast/corner{
+	dir = 4
+	},
+/area/awaymission/beach)
 "Rr" = (
 /obj/structure/flora/tree/palm{
 	pixel_y = 10;
@@ -3854,6 +3899,15 @@
 /obj/structure/table/glass,
 /turf/open/floor/wood/large,
 /area/awaymission/beach)
+"VU" = (
+/obj/item/toy/seashell{
+	pixel_x = 12;
+	pixel_y = 5
+	},
+/turf/open/misc/beach/coast{
+	dir = 1
+	},
+/area/awaymission/beach)
 "VY" = (
 /turf/open/misc/beach/sand,
 /area/awaymission/beach)
@@ -3969,6 +4023,13 @@
 "XB" = (
 /turf/open/water/beach,
 /area/awaymission/beach)
+"XI" = (
+/obj/item/toy/seashell{
+	pixel_y = -3;
+	pixel_x = -18
+	},
+/turf/open/misc/beach/sand,
+/area/awaymission/beach)
 "XT" = (
 /obj/effect/turf_decal/siding/dark_red/corner{
 	dir = 4
@@ -4023,6 +4084,13 @@
 	pixel_x = -6
 	},
 /turf/open/floor/wood/large,
+/area/awaymission/beach)
+"Ys" = (
+/obj/structure/flora/tree/palm{
+	pixel_y = 24;
+	pixel_x = -7
+	},
+/turf/open/misc/beach/sand,
 /area/awaymission/beach)
 "YB" = (
 /obj/machinery/vending/coffee,
@@ -63232,8 +63300,8 @@ XB
 XB
 XB
 XB
-XB
-XB
+MZ
+ni
 XB
 XB
 XB
@@ -63488,10 +63556,10 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
+MZ
+Rq
+hL
+ni
 XB
 XB
 XB
@@ -63744,11 +63812,11 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
+MZ
+MF
+VY
+VY
+BK
 XB
 XB
 XB
@@ -64001,12 +64069,12 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
+VU
+VY
+GI
+VY
+hL
+ni
 XB
 XB
 XB
@@ -64257,13 +64325,13 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
-XB
+MZ
+MF
+VY
+ls
+hr
+XI
+BK
 XB
 XB
 XB
@@ -64514,13 +64582,13 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
-XB
+Vf
+VY
+VY
+Ys
+VY
+VY
+BK
 XB
 XB
 XB
@@ -64771,13 +64839,13 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
-XB
+Vf
+VY
+VY
+Zp
+VY
+VY
+BK
 XB
 XB
 XB
@@ -65028,13 +65096,13 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
-XB
+Pe
+tJ
+VY
+tQ
+VY
+Ys
+BK
 XB
 XB
 XB
@@ -65286,12 +65354,12 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
+Vf
+VY
+FX
+VY
+VY
+BK
 XB
 XB
 XB
@@ -65543,12 +65611,12 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
-XB
+Pe
+tJ
+VY
+VY
+mQ
+BK
 XB
 XB
 XB
@@ -65801,11 +65869,11 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
-XB
+Vf
+VY
+gq
+Kh
+Rj
 XB
 XB
 XB
@@ -66058,10 +66126,10 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
+Vf
+VY
+VY
+BK
 XB
 XB
 XB
@@ -66315,10 +66383,10 @@ XB
 XB
 XB
 XB
-XB
-XB
-XB
-XB
+Pe
+tJ
+Kh
+fp
 XB
 XB
 XB
@@ -66573,8 +66641,8 @@ XB
 XB
 XB
 XB
-XB
-XB
+Pe
+Rj
 XB
 XB
 XB

@@ -1680,6 +1680,9 @@
 "iI" = (
 /obj/structure/closet/acloset,
 /obj/item/toy/foamblade,
+/obj/item/retractor/alien,
+/obj/item/scalpel/alien,
+/obj/item/surgicaldrill/alien,
 /turf/open/floor/plating/snowed,
 /area/awaymission/cabin/caves)
 "iJ" = (
@@ -3132,12 +3135,8 @@
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/snowforest)
 "ud" = (
-/obj/structure/showcase/mecha/marauder{
-	desc = "Used by vigilantes in the past to fight ruffians causing trouble in neighborhoods and space stations.";
-	icon_state = "seraph";
-	name = "illegally acquired seraph"
-	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/vehicle/sealed/mecha/marauder,
 /turf/open/indestructible,
 /area/awaymission/cabin/caves/mountain)
 "ue" = (
@@ -3200,6 +3199,14 @@
 	},
 /turf/open/floor/plating/snowed/snow_cabin,
 /area/awaymission/cabin/snowforest/sovietsurface)
+"ux" = (
+/obj/structure/closet/crate/wooden{
+	desc = "Gotta know what waits within! Could it be a secret treasure cache or a deadly tool of sin?";
+	name = "wooden box"
+	},
+/obj/effect/spawner/random/exotic/antag_gear,
+/turf/open/misc/ice/smooth,
+/area/awaymission/cabin/caves)
 "uz" = (
 /obj/effect/decal/cleanable/oil,
 /turf/open/misc/asteroid/snow/snow_cabin,
@@ -4511,11 +4518,8 @@
 /turf/open/floor/wood/freezing,
 /area/awaymission/cabin/lumbermill)
 "LE" = (
-/obj/item/nullrod/claymore/multiverse{
-	anchored = 1;
-	force = 4
-	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/item/nullrod/claymore/multiverse,
 /turf/open/indestructible,
 /area/awaymission/cabin/caves/mountain)
 "LG" = (
@@ -12234,7 +12238,7 @@ gx
 ms
 Oe
 PV
-zB
+ux
 PV
 PV
 PV
@@ -47385,7 +47389,7 @@ gx
 gx
 gx
 Oe
-Oe
+Dl
 Oe
 Oe
 Oe

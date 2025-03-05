@@ -2,7 +2,7 @@
 GLOBAL_LIST_INIT(potentialRandomZlevels, generateMapList(filename = "awaymissionconfig.txt"))
 GLOBAL_LIST_INIT(potentialConfigRandomZlevels, generate_map_list_from_directory(directory = "[global.config.directory]/away_missions/"))
 
-/proc/createRandomZlevel(config_gateway = FALSE)
+/proc/createRandomZlevel(config_gateway = TRUE)
 	var/map
 	if(config_gateway && GLOB.potentialConfigRandomZlevels?.len)
 		map = pick_n_take(GLOB.potentialConfigRandomZlevels)

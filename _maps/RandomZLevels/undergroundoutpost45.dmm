@@ -2488,6 +2488,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/crew_quarters)
+"ko" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "kp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -5064,6 +5069,16 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/undergroundoutpost45/engineering)
+"sV" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/obj/structure/glowshroom/single,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
+"sW" = (
+/obj/effect/gibspawner/xeno,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "tb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron,
@@ -6344,6 +6359,12 @@
 /obj/effect/turf_decal/sand,
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/mining)
+"yg" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/obj/structure/bed/nest,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "yh" = (
 /obj/structure/chair{
 	dir = 8
@@ -6365,6 +6386,11 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/gateway)
+"yD" = (
+/obj/structure/alien/weeds,
+/obj/item/clothing/mask/facehugger/impregnated,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "yN" = (
 /obj/structure/chair/office/light{
 	dir = 1;
@@ -6373,6 +6399,13 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/engineering)
+"yO" = (
+/obj/structure/alien/weeds,
+/obj/structure/bed/nest,
+/obj/item/clothing/suit/armor/vest/marine/security,
+/obj/item/clothing/head/helmet/marine/security,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "yR" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
@@ -6543,6 +6576,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/awaymission/undergroundoutpost45/central)
+"Bk" = (
+/obj/structure/alien/weeds,
+/obj/item/clothing/head/helmet/swat/nanotrasen,
+/obj/item/minigunpack,
+/obj/item/clothing/suit/armor/heavy,
+/obj/structure/bed/nest,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "Bq" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/airalarm/directional/north,
@@ -7031,6 +7072,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/crew_quarters)
+"JK" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/obj/item/clothing/mask/facehugger/dead,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "JO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7530,6 +7577,12 @@
 	dir = 5
 	},
 /area/awaymission/undergroundoutpost45/research)
+"SU" = (
+/obj/effect/gibspawner/xeno,
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "SZ" = (
 /obj/machinery/light/small/directional/west,
 /obj/structure/sign/warning/secure_area/directional/west,
@@ -7709,6 +7762,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/research)
+"WP" = (
+/obj/structure/alien/weeds,
+/obj/item/clothing/mask/facehugger/dead,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "WQ" = (
 /obj/structure/bed{
 	dir = 4
@@ -7787,6 +7845,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/awaymission/undergroundoutpost45/gateway)
+"Ya" = (
+/obj/effect/gibspawner/xeno/bodypartless,
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "Yb" = (
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
@@ -7814,6 +7878,10 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/awaymission/undergroundoutpost45/central)
+"YA" = (
+/obj/structure/alien/resin/wall,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
 "YD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green,
 /turf/open/floor/iron,
@@ -7854,6 +7922,12 @@
 "ZD" = (
 /obj/structure/alien/weeds,
 /obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/misc/asteroid/plasma,
+/area/awaymission/undergroundoutpost45/caves)
+"ZG" = (
+/obj/structure/alien/weeds,
+/obj/structure/alien/weeds,
+/obj/item/clothing/mask/facehugger/impregnated,
 /turf/open/misc/asteroid/plasma,
 /area/awaymission/undergroundoutpost45/caves)
 "ZH" = (
@@ -28639,7 +28713,7 @@ zq
 Gn
 ad
 Lb
-zq
+sW
 zq
 ad
 ad
@@ -30185,7 +30259,7 @@ ad
 ad
 ad
 ad
-ad
+zq
 ad
 ad
 ad
@@ -30442,8 +30516,8 @@ ad
 ad
 ad
 ad
-ad
-ad
+zq
+zq
 ad
 ad
 ad
@@ -30699,8 +30773,8 @@ ad
 ad
 ad
 ad
-ad
-ad
+zq
+XQ
 ad
 ad
 ad
@@ -30956,7 +31030,7 @@ ad
 ad
 ad
 ad
-ad
+zq
 ad
 ad
 ad
@@ -31212,8 +31286,8 @@ ad
 ad
 ad
 ad
-ad
-ad
+YA
+zq
 ad
 ad
 ad
@@ -31469,8 +31543,8 @@ ad
 ad
 ad
 ad
-ad
-ad
+zb
+zq
 ad
 ad
 ad
@@ -31726,11 +31800,11 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
+zb
+WP
+zb
+zb
+zb
 ad
 ad
 ad
@@ -31982,13 +32056,13 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+zb
+Gn
+Gn
+Gn
+Gn
+Bk
+zb
 ad
 ad
 ad
@@ -32238,14 +32312,14 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+zb
+yO
+Gn
+Ya
+ko
+sV
+JK
+zb
 ad
 ad
 ad
@@ -32495,14 +32569,14 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+zb
+Gn
+Gn
+ko
+ko
+ko
+ko
+zb
 ad
 ad
 ad
@@ -32752,14 +32826,14 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+zb
+zK
+yD
+ko
+ko
+ZG
+yg
+zb
 ad
 ad
 ad
@@ -33009,14 +33083,14 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+zb
+Gn
+HW
+ko
+ko
+SU
+yg
+zb
 ad
 ad
 ad
@@ -33266,13 +33340,13 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+zb
+Gn
+Gn
+Gn
+zb
+zb
+zb
 ad
 ad
 ad
@@ -33524,9 +33598,9 @@ ad
 ad
 ad
 ad
-ad
-ad
-ad
+zb
+zb
+zb
 ad
 ad
 ad
