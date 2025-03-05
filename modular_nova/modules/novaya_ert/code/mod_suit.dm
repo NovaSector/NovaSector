@@ -1,17 +1,22 @@
-/datum/mod_theme/frontline
-	name = "frontline"
-	desc = "A Novaya Rossiyskaya Imperiya Defense Collegia protective suit, designed for fortified positions operation and humanitarian aid."
-	extended_desc = "A cheaper and more versatile replacement of the dated VOSKHOD Power Armor, designed by the Novaya Rossiyskaya Imperiya Innovations Collegia in \
-	collaboration with Agurkrral researchers. Instead of the polyurea coated durathread-lined plasteel plates it utilises thin plates of Kevlar-backed titanium, making it lighter and more compact \
-	while leaving place for other modules; yet due to its lack of energy dissipation systems, making its user more vulnerable against conventional laser weaponry. \
-	Built-in projectile trajectory and munition assistance computer informs the operator of better places to aim, as well as the remaining munitions for \
-	the currently held weapon and its magazines. This function is quite straining on the power cell, and as such, this suit is rarely seen outside of the fortified positions or humanitarian missions; \
-	becoming the sign of what little hospitality and assistance the military can provide. However many people who had an experience with this MOD describe it as \"Very uncomfortable.\", \
-	mainly due to its lack of proper environmental regulation systems. But because of its protective capabilities, extreme mass-production and cheap price, it easily became the main armor system of the NRI DC."
-	default_skin = "frontline"
-	armor_type = /datum/armor/mod_theme_frontline
-	complexity_max = DEFAULT_MAX_COMPLEXITY
+/datum/mod_theme/voskhod
+	name = "refitted voskhod"
+	desc = "A Heliostatic Coalition standard-issue heavy duty suit, designed for fortified positions operation and humanitarian aid."
+	extended_desc = "A more expensive, yet more versatile replacement of the dated Voskhod powered armor, designed by the Magellanic Economic Corporate Union researchers \
+	in collaboration with and for the needs of the Heliostatic Coalition. An efficient implementation of mixed exoskeletons in between and underneath its armor plating \
+	allowed for an unprecedented level of protection through an overly abundant use of durathread-backed plasteel plating; and the remnant materials of its predecessor allow for \
+	a dubiously efficient dissipation of any stray photon ray or a concentrated laser, were one to get hit by them. The suit's infamous autoparamedical systems \
+	are also fully present - or their chemical synthesizing part, consisting of a thin web of subdermal autoinjectors, reaction cameras and tubes lined through the \
+	insulation material - leading into its control unit where the relevant synthesis proceeds, mainly out of raw materials of the pharmaceutical industry; \
+	omnizine's older brother, protozine. The sight of a white-and-green juggernaut is the one that instills many fears into numerous pirates; earning it the reputation of a peacekeeper \
+	and a niche amongst the rimworld population."
+	default_skin = "voskhod"
+	armor_type = /datum/armor/mod_theme_voskhod
+	complexity_max = DEFAULT_MAX_COMPLEXITY //Five of which is occupied by the in-builts, thus it's closer to 10
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
+	inbuilt_modules = list(
+		/obj/item/mod/module/status_readout/operational/voskhod,
+		/obj/item/mod/module/auto_doc,
+	)
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
@@ -25,7 +30,7 @@
 		/obj/item/gun,
 	)
 	variants = list(
-		"frontline" = list(
+		"voskhod" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/novaya_ert/icons/mod.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/novaya_ert/icons/wornmod.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -61,39 +66,42 @@
 		),
 	)
 
-/datum/armor/mod_theme_frontline
-	melee = 50
-	bullet = 60
-	laser = 40
-	energy = 50
-	bomb = 60
-	bio = 100
-	fire = 50
-	acid = 80
-	wound = 25
+/datum/armor/mod_theme_voskhod
+	melee = 30
+	bullet = 40
+	laser = 20
+	energy = 30
+	bomb = 30
+	bio = 30
+	fire = 80
+	acid = 85
+	wound = 20
 
-/obj/item/mod/control/pre_equipped/frontline
-	theme = /datum/mod_theme/frontline
+/obj/item/mod/control/pre_equipped/voskhod
+	applied_cell = /obj/item/stock_parts/power_store/cell/high
+	theme = /datum/mod_theme/voskhod
 	applied_modules = list(
 		/obj/item/mod/module/storage,
 		/obj/item/mod/module/flashlight,
 	)
+	default_pins = list(
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/auto_doc,
+	)
 
-/obj/item/mod/control/pre_equipped/frontline/ert
-	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
+/obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
+	applied_cell = /obj/item/stock_parts/power_store/cell/super
 	applied_modules = list(
 		/obj/item/mod/module/storage/syndicate,
 		/obj/item/mod/module/thermal_regulator,
-		/obj/item/mod/module/status_readout/operational,
-		/obj/item/mod/module/auto_doc,
-		/obj/item/mod/module/visor/thermal,
-		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/magboot/advanced,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/mouthhole,
 	)
 	default_pins = list(
-		/obj/item/mod/module/visor/thermal,
-		/obj/item/mod/module/jetpack,
-		/obj/item/mod/module/magboot/advanced,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/auto_doc,
+		/obj/item/mod/module/thermal_regulator,
 	)
 
 /datum/mod_theme/policing
@@ -107,8 +115,7 @@
 	armor_type = /datum/armor/mod_theme_policing
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 1
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.25
-	slowdown_inactive = 1.5
-	slowdown_active = 0.5
+	slowdown_deployed = 0.5
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
@@ -189,7 +196,6 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
-///Unrelated-to-Spider-Clan version of the module.
 /obj/item/mod/module/status_readout/operational
 	name = "MOD operational status readout module"
 	desc = "A once-common module, this technology unfortunately went out of fashion in the safer regions of space; \
@@ -200,156 +206,209 @@
 	display_time = TRUE
 	death_sound = 'modular_nova/modules/novaya_ert/sound/flatline.ogg'
 
-///Blatant copy of the adrenaline boost module.
+/obj/item/mod/module/status_readout/operational/voskhod
+	removable = FALSE
+
 /obj/item/mod/module/auto_doc
 	name = "MOD automatic paramedical module"
-	desc = "The reverse-engineered and redesigned medical assistance system, previously used by the now decommissioned VOSKHOD combat armor. \
-		The technology it uses is very similar to the one of Spider Clan, yet Innovations and Defense Collegium reject any similarities. \
-		Using a built-in storage of chemical compounds and miniature chemical mixer, it's capable of injecting its user with simple painkillers and coagulants, \
-		assisting them with their restoration, as long as they don't overdose themselves. However, this system heavily relies on some rarely combat-available chemical compounds to prepare its injections, \
-		mainly Cryptobiolin, which appear in the user's bloodstream from time to time, and its trivial damage assesment systems are inadequate for complete restoration purposes."
+	desc = "The reverse-engineered and redesigned medical assistance system, previously used by the now decommissioned Voskhod combat armor. \
+		The technology it uses is very similar to the one of the N-URSEI suites, yet miniaturised and lacking self-synthesis capabilities. \
+		Using a built-in storage of chemical compounds and a miniature chemical mixer, it's capable of injecting its user with a plethora of drugs, \
+		assisting them with their restoration. However, this system heavily relies on some rarely combat-available chemical compounds to prepare its injections, \
+		mainly Protozine, which appear in the user's bloodstream from time to time, and its trivial damage assessment systems are prone to kicking in only when you're moderately wounded."
 	icon_state = "adrenaline_boost"
 	module_type = MODULE_TOGGLE
-	incompatible_modules = list(/obj/item/mod/module/adrenaline_boost, /obj/item/mod/module/auto_doc)
-	cooldown_time = null
+	incompatible_modules = list(
+		/obj/item/mod/module/adrenaline_boost,
+		/obj/item/mod/module/auto_doc,
+		/obj/item/mod/module/pepper_shoulders,
+		/obj/item/mod/module/criminalcapture,
+		/obj/item/mod/module/orebag,
+		/obj/item/mod/module/drill,
+		/obj/item/mod/module/clamp,
+		/obj/item/mod/module/health_analyzer,
+		/obj/item/mod/module/quick_carry,
+		/obj/item/mod/module/constructor,
+		/obj/item/mod/module/injector,
+		/obj/item/mod/module/organizer,
+		/obj/item/mod/module/criminalcapture/patienttransport,
+		/obj/item/mod/module/thread_ripper,
+		/obj/item/mod/module/surgical_processor,
+		/obj/item/mod/module/quick_cuff,
+		/obj/item/mod/module/armor_booster,
+		/obj/item/mod/module/ash_accretion,
+	)
 	complexity = 4
+	removable = FALSE
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 20
-	/// What reagent we need to refill?
-	var/reagent_required = /datum/reagent/cryptobiolin
+	/// Reagent used as 'fuel'
+	var/reagent_required = /datum/reagent/medicine/omnizine/protozine
 	/// How much of a reagent we need to refill a single boost.
 	var/reagent_required_amount = 20
 	/// Maximum amount of reagents this module can hold.
 	var/reagent_max_amount = 120
-	/// Health threshold above which the module won't heal.
-	var/health_threshold = 80
+	/// Flat health threshold above which the module won't heal.
+	var/health_threshold = 65
 	/// Cooldown betwen each treatment.
-	var/heal_cooldown = 30 SECONDS
+	var/general_cooldown = 25 SECONDS
 
-	/// Timer for the cooldown.
+	/// Timer for the healing cooldown.
 	COOLDOWN_DECLARE(heal_timer)
+	/// Timer for the stamina damage cooldown.
+	COOLDOWN_DECLARE(stamina_timer)
+	/// Timer for the blood-refilling cooldown.
+	COOLDOWN_DECLARE(blood_timer)
 
-/// Creates chemical container for chemicals and fills it with chemicals. Chemception.
 /obj/item/mod/module/auto_doc/Initialize(mapload)
 	. = ..()
 	create_reagents(reagent_max_amount)
-	reagents.add_reagent(reagent_required, reagent_max_amount)
 
-/obj/item/mod/module/auto_doc/on_activation()
-	. = ..()
-	if(!.)
-		return
-	RegisterSignal(mod.wearer, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(on_use))
-	drain_power(use_energy_cost)
-
-///	Heals damage (in fact, injects chems) based on the damage received and certain other variables (a single one), i.e. having more than X amount of health, not having enough needed chemicals or so on.
-/obj/item/mod/module/auto_doc/on_use()
-	if(!COOLDOWN_FINISHED(src, heal_timer))
-		return FALSE
-
-	if(!check_power(use_energy_cost))
-		balloon_alert(mod.wearer, "not enough charge!")
-		SEND_SIGNAL(src, COMSIG_MODULE_DEACTIVATED)
-		return FALSE
-
-	if(!(allow_flags & MODULE_ALLOW_PHASEOUT) && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))
-		to_chat(mod.wearer, span_warning("You cannot activate this right now."))
-		return FALSE
-
-	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED) & MOD_ABORT_USE)
-		return FALSE
-
+/obj/item/mod/module/auto_doc/on_active_process(seconds_per_tick)
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
 		balloon_alert(mod.wearer, "not enough chems!")
-		SEND_SIGNAL(src, COMSIG_MODULE_DEACTIVATED)
+		deactivate()
 		return FALSE
 
-	if(mod.wearer.health > health_threshold)
-		return
-
+	var/new_oxyloss = mod.wearer.getOxyLoss()
 	var/new_bruteloss = mod.wearer.getBruteLoss()
 	var/new_fireloss = mod.wearer.getFireLoss()
-	var/new_toxloss = mod.wearer.getToxLoss()
 	var/new_stamloss = mod.wearer.getStaminaLoss()
-	playsound(mod.wearer, 'sound/machines/steam_hiss.ogg', 40)
+	var/new_toxloss = mod.wearer.getToxLoss()
 
-	if(new_bruteloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 10)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 5)
-		to_chat(mod.wearer, span_warning("Brute treatment administered. Overdose risks present on further use, consult your first-aid analyzer."))
+	if(mod.wearer.blood_volume < BLOOD_VOLUME_OKAY && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+		if(!COOLDOWN_FINISHED(src, blood_timer))
+			return FALSE
+		mod.wearer.reagents.add_reagent(/datum/reagent/blood, 25, list("viruses"=null,"blood_DNA"=null,"blood_type"=mod.wearer.dna.blood_type,"resistances"=null,"trace_chem"=null))
+		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 2.5 * seconds_per_tick)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+		to_chat(mod.wearer, span_warning("Blood infused."))
+		drain_power(use_energy_cost * 10 * seconds_per_tick)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		COOLDOWN_START(src, blood_timer, general_cooldown)
 
-	if(new_fireloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 10)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 5)
-		to_chat(mod.wearer, span_warning("Burn treatment administered. Overdose risks present on further use, consult your first-aid analyzer."))
+	if(mod.wearer.health < health_threshold)
+		if(!COOLDOWN_FINISHED(src, heal_timer))
+			return FALSE
+		if(new_oxyloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/salbutamol, 2.5 * seconds_per_tick)
+			mod.wearer.playsound_local(mod, 'sound/items/internals/internals_on.ogg', 25, TRUE)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+			to_chat(mod.wearer, span_warning("Blood oxygen saturated."))
+		if(new_bruteloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/sal_acid, 2.5 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
+			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * 1 * seconds_per_tick)
+			to_chat(mod.wearer, span_warning("Wound treatment administered."))
+		if(new_fireloss && reagents.total_volume >= reagent_required_amount * 1 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/oxandrolone, 2.5 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 2.5 * seconds_per_tick)
+			mod.wearer.playsound_local(mod, 'sound/effects/spray2.ogg', 25, TRUE)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * 1 * seconds_per_tick)
+			to_chat(mod.wearer, span_warning("Ointment applied."))
+		if(new_toxloss && reagents.total_volume >= reagent_required_amount * 0.5 * seconds_per_tick)
+			mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 2.5 * seconds_per_tick)
+			mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+			reagents.remove_reagent(reagent_required, reagent_required_amount * 0.5 * seconds_per_tick)
+			to_chat(mod.wearer, span_warning("Antitoxin administered."))
+		drain_power(use_energy_cost * 15 * seconds_per_tick)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS)
+		COOLDOWN_START(src, heal_timer, general_cooldown)
 
-	if(new_toxloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 10)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/pen_acid, 5)
-		to_chat(mod.wearer, span_warning("Toxin treatment administered. Overdose risks present on further use, consult your first-aid analyzer."))
+	if(new_stamloss > health_threshold && reagents.total_volume >= reagent_required_amount * 0.25 * seconds_per_tick)
+		if(!COOLDOWN_FINISHED(src, stamina_timer))
+			return FALSE
+		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/morphine, 2.5 * seconds_per_tick)
+		mod.wearer.reagents.add_reagent(/datum/reagent/drug/cocaine, 2.5 * seconds_per_tick)
+		mod.wearer.playsound_local(mod, 'sound/items/hypospray.ogg', 25, TRUE)
+		reagents.remove_reagent(reagent_required, reagent_required_amount * 0.25 * seconds_per_tick)
+		to_chat(mod.wearer, span_warning("Stimdose administered."))
+		drain_power(use_energy_cost * 5 * seconds_per_tick)
+		addtimer(CALLBACK(src, PROC_REF(heal_aftereffects), mod.wearer), 60 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		COOLDOWN_START(src, stamina_timer, general_cooldown)
 
-	if(new_stamloss)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/mine_salve, 10)
-		mod.wearer.reagents.add_reagent(/datum/reagent/medicine/stimulants, 10)
-		to_chat(mod.wearer, span_warning("Combat stimulants administered. Overdose risks present on further use, consult your first-aid analyzer."))
+/obj/item/mod/module/auto_doc/emp_act(severity)
+	. = ..()
+	on_emp(src, severity, .)
 
-	mod.wearer.reagents.add_reagent(/datum/reagent/medicine/coagulant, 5)
-	reagents.remove_reagent(reagent_required, reagent_required_amount)
-	drain_power(use_energy_cost*10)
+/obj/item/mod/module/auto_doc/proc/on_emp(datum/source, severity, protection)
+	SIGNAL_HANDLER
+	if(protection & EMP_PROTECT_SELF)
+		return
+	heal_aftereffects(mod.wearer, TRUE)
 
-	///Debuff so it's "balanced", as well as a cooldown.
-	addtimer(CALLBACK(src, PROC_REF(boost_aftereffects), mod.wearer), 45 SECONDS)
-	COOLDOWN_START(src, heal_timer, heal_cooldown)
-
-/// Refills MODsuit module with the needed chemicals. That's all it does.
+/// Refills the module with needed chemicals, assuming the container isn't closed or the module isn't full.
 /obj/item/mod/module/auto_doc/proc/charge_boost(obj/item/attacking_item, mob/user)
-/// Oh, and it also doesn't work if it's (the chemical container) closed.
 	if(!attacking_item.is_open_container())
 		return FALSE
-/// And if it's already full (:flushed:)
 	if(reagents.has_reagent(reagent_required, reagent_max_amount))
 		balloon_alert(mod.wearer, "already full!")
 		return FALSE
-/// And if the reagent's wrong.
 	if(!attacking_item.reagents.trans_to(src, reagent_required_amount, target_id = reagent_required))
 		return FALSE
-/// And if you got to that point without screwing up then it awards you with being refilled.
-	balloon_alert(mod.wearer, "charge reloaded")
+	balloon_alert(mod.wearer, "charge reloaded!")
 	return TRUE
 
-/obj/item/mod/module/auto_doc/on_deactivation(display_message = TRUE, deleting = FALSE)
-	. = ..()
-	UnregisterSignal(mod.wearer, COMSIG_LIVING_HEALTH_UPDATE)
-
 /obj/item/mod/module/auto_doc/on_install()
-	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(on_item_interact))
+	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
+	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
 
 /obj/item/mod/module/auto_doc/on_uninstall(deleting)
-	UnregisterSignal(mod, COMSIG_ATOM_ATTACKBY)
+	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
+	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
 
-/obj/item/mod/module/auto_doc/attackby(obj/item/attacking_item, mob/user, params)
-	if(charge_boost(attacking_item, user))
-		return TRUE
-	return ..()
-
-/obj/item/mod/module/auto_doc/proc/on_item_interact(datum/source, mob/user, obj/item/thing, params)
+/obj/item/mod/module/auto_doc/proc/try_refill(source, mob/user, obj/item/attacking_item)
 	SIGNAL_HANDLER
-
-	if(charge_boost(thing, user))
+	if(charge_boost(attacking_item))
 		return COMPONENT_NO_AFTERATTACK
-
 	return NONE
 
-/// Drawbacks to make this module less self-sufficient and so it feels "balanced" (there's no balance).
-/obj/item/mod/module/auto_doc/proc/boost_aftereffects(mob/affected_mob)
+/// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream; suit design's rather ancient and prone to mishaps.
+/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob, var/forced)
 	if(!affected_mob)
 		return
+	var/fault_chance = (reagents.maximum_volume/(reagents.total_volume ? reagents.total_volume : 20))*5 // 5% at max protozine, 20% at low-to-none protozine
+	if(prob(fault_chance) || forced == TRUE)
+		reagents.trans_to(affected_mob, min(15,reagents.total_volume))
+		balloon_alert(affected_mob, "protozine leak!")
+		affected_mob.playsound_local(mod, 'sound/effects/spray3.ogg', 25, TRUE)
 
-	mod.wearer.reagents.add_reagent(/datum/reagent/cryptobiolin, 10)
-	mod.wearer.reagents.add_reagent(/datum/reagent/drug/maint/sludge, 5)
-	to_chat(affected_mob, span_danger("Your head starts slightly spinning, and your chest hurts."))
+/obj/item/reagent_containers/cup/glass/waterbottle/large/protozine
+	name = "bottle of protozine"
+	desc = "Nothing screams 'Budget cuts' like a plastic bottle of autodoc refills."
+	list_reagents = list(/datum/reagent/medicine/omnizine/protozine = 100)
 
-/// Not exactly a MODsuit thing but it's needed for the refills huh?
-/obj/item/reagent_containers/cup/glass/waterbottle/large/cryptobiolin
-	name = "bottle of cryptobiolin"
-	desc = "Nothing screams budget cuts like bottled suit fluid."
-	list_reagents = list(/datum/reagent/cryptobiolin = 100)
+/obj/item/crafting_conversion_kit/voskhod_refit
+	name = "\improper Voskhod depowered armor MOD refit kit"
+	desc = "A metallic case of various tubes, sensors and spare materials required to reuse Voskhod's components in the making of a next-generation MODed version."
+	force = 10
+	icon = 'modular_nova/modules/novaya_ert/icons/refit_kit.dmi'
+	icon_state = "refit_kit"
+
+/datum/crafting_recipe/voskhod_to_mod
+	name = "Depowered Voskhod-To-Refurbished Voskhod MOD Conversion"
+	desc = "While this is usually done on a specialised automated workbench, you can tinker with the suit manually for a longer while to achieve the same result."
+	result = /obj/effect/spawner/random/voskhod_refit
+	reqs = list(
+		/obj/item/clothing/suit/space/voskhod = 1,
+		/obj/item/clothing/head/helmet/space/voskhod = 1,
+		/obj/item/crafting_conversion_kit/voskhod_refit = 1,
+		/obj/item/storage/backpack/industrial/cin_surplus = 1,
+		/obj/item/mod/core = 1,
+		/obj/item/stock_parts/power_store/cell/high = 1,
+		/obj/item/stack/sheet/plasteel = 10,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/assembly/health = 1,
+	)
+	tool_behaviors = list(TOOL_WELDER, TOOL_MULTITOOL)
+	time = 30 SECONDS
+	category = CAT_CLOTHING
+
+/obj/effect/spawner/random/voskhod_refit
+	name = "converted MODskhod spaner"
+	icon = 'modular_nova/modules/novaya_ert/icons/mod.dmi'
+	icon_state = "voskhod-chestplate-sealed"
+	spawn_all_loot = TRUE
+	spawn_loot_count = 1
+	loot = list(/obj/item/mod/control/pre_equipped/voskhod)

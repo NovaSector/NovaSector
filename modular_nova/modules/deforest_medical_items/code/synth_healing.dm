@@ -92,13 +92,35 @@
 		return FALSE
 	return TRUE
 
-// The actual patch
-/obj/item/reagent_containers/pill/robotic_patch/synth_repair
-	name = "robotic repair patch"
-	desc = "A sealed patch with a small nanite swarm along with electrical coagulant reagents to repair small amounts of synthetic damage."
+// The actual STACK of patches
+/obj/item/stack/medical/synth_repair
+	name = "robotic repair patches"
+	singular_name = "robotic repair patch piece"
+	desc = "A pack of sealed patches of small nanite swarms along with electrical coagulant reagents to repair small amounts of synthetic damage."
+	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "synth_patch"
-	list_reagents = list(
-		/datum/reagent/medicine/nanite_slurry = 10,
+	amount = 3
+	max_amount = 3
+	inhand_icon_state = null
+	self_delay = 4 SECONDS
+	other_delay = 2 SECONDS
+	grind_results = list(/datum/reagent/medicine/nanite_slurry = 10,
 		/datum/reagent/dinitrogen_plasmide = 5,
 		/datum/reagent/medicine/coagulant/fabricated = 10,
 	)
+	merge_type = /obj/item/stack/medical/synth_repair
+
+/obj/item/stack/medical/synth_repair/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
+	var/obj/item/bodypart/limb = patient.get_bodypart(healed_zone)
+	if(isnull(limb))
+		if(!silent)
+			patient.balloon_alert(user, "no [parse_zone(healed_zone)]!")
+		return FALSE
+	if(!IS_ROBOTIC_LIMB(limb))
+		patient.balloon_alert(user, "[limb.plaintext_zone] is not synthetic!")
+		return FALSE
+	return TRUE
+
+/obj/item/stack/medical/synth_repair/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/living/user)
+	. = ..()
+	healed_mob.reagents.add_reagent_list(grind_results)

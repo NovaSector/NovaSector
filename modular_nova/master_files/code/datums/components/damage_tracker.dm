@@ -73,7 +73,7 @@
 	/// How much damage does the owner's ears currently have?
 	var/ear_damage
 
-	/// What brain traumas does the owner currently have?
+	/// What brain traumas does the owner currently have? Stored as a list of weakrefs
 	var/list/trauma_list = list()
 
 /datum/component/damage_tracker/human/update_damage_values()
@@ -83,8 +83,8 @@
 		return FALSE
 
 	var/list/current_trauma_list = human_parent.get_traumas()
-	if(length(current_trauma_list))
-		trauma_list = current_trauma_list.Copy()
+	for(var/datum/brain_trauma/trauma in current_trauma_list)
+		trauma_list += WEAKREF(trauma)
 
 	heart_damage = human_parent.check_organ_damage(/obj/item/organ/heart)
 	liver_damage = human_parent.check_organ_damage(/obj/item/organ/liver)
@@ -115,7 +115,11 @@
 		return FALSE
 
 	var/list/current_trauma_list = human_parent.get_traumas()
-	for(var/datum/brain_trauma/trauma_to_add as anything in trauma_list)
+	for(var/datum/weakref/trauma_ref as anything in trauma_list)
+		var/datum/brain_trauma/trauma_to_add = trauma_ref?.resolve()
+		if(QDELETED(trauma_to_add))
+			trauma_list -= trauma_ref
+			continue
 		if(trauma_to_add in current_trauma_list)
 			continue // We don't need to torture the poor soul with the same brain trauma.
 
