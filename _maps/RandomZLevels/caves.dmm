@@ -2005,6 +2005,13 @@
 	initial_gas_mix = "n2=23;o2=14;TEMP=2.7"
 	},
 /area/awaymission/caves/bmp_asteroid/level_four)
+"UZ" = (
+/obj/effect/decal/remains/human,
+/obj/structure/spawner/skeleton,
+/turf/open/floor/engine/cult{
+	initial_gas_mix = "n2=23;o2=14;TEMP=2.7"
+	},
+/area/awaymission/caves/bmp_asteroid/level_four)
 "VK" = (
 /obj/effect/mob_spawn/ghost_role/human/skeleton{
 	name = "spooky skeleton remains"
@@ -50691,7 +50698,7 @@ ad
 ad
 ad
 ao
-aw
+UZ
 ao
 ax
 ad
@@ -53519,7 +53526,7 @@ ad
 ad
 ad
 ao
-ao
+aB
 ao
 ad
 ad
@@ -58132,7 +58139,7 @@ ad
 rv
 rv
 rv
-rv
+BH
 ao
 ao
 rv
@@ -58148,7 +58155,7 @@ ao
 ap
 ao
 rv
-rv
+BH
 rv
 ax
 aP

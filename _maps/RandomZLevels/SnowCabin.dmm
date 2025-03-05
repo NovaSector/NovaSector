@@ -3152,6 +3152,7 @@
 	name = "wooden box"
 	},
 /obj/effect/spawner/random/exotic/antag_gear,
+/obj/item/immortality_talisman,
 /turf/open/misc/ice/smooth,
 /area/awaymission/cabin/caves)
 "uz" = (
