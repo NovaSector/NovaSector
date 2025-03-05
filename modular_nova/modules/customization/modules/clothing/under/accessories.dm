@@ -375,7 +375,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal
 	name = "Medal of colors"
 	desc = "A canvas covered in many colors this medal has no meaning to it. But artists claim meaning is present, perhaps only those who've enlightened themselves may find the truth"
-	icon_state = "DebugMedal"
+	icon_state = "debugmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
@@ -399,7 +399,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	name = "Sotharian Syndicate Neckpin"
 	desc = "A pin specially dedicated to show loyalty to the Syndicate!"
 	icon_state = "syndipin"
-	greyscale_colors = "#FFFFFF#CCCED1"
+	greyscale_colors = "#262626#9c0000"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed911
 	name = "Solfed 911 Neckpin"
@@ -420,6 +420,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	name = "Interdyne Neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ippin"
+	greyscale_colors = "#FFFFFF#3aba1e"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon
 	name = "Port Tarkon Neckpin"
@@ -676,13 +677,13 @@ Ribbon Accessories
 /obj/item/clothing/accessory/nova/militaryribbon
 	name = "Military Ribbon"
 	desc = "An average military ribbon"
-	icon_state = "RibbonA"
+	icon_state = "ribbonA"
 	greyscale_colors = "#ff0000#04ff00#0008ff"
 	greyscale_config = /datum/greyscale_config/militaryribbon
 	greyscale_config_worn = /datum/greyscale_config/militaryribbon/worn
 
 /obj/item/clothing/accessory/nova/militaryribbon/alt1
-	icon_state = "RibbonB"
+	icon_state = "ribbonB"
 
 /obj/item/clothing/accessory/nova/militaryribbon/alt2
-	icon_state = "RibbonC"
+	icon_state = "ribbonC"
