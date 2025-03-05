@@ -418,12 +418,24 @@
 		list("Trimline Fill", "trimline_fill"),
 		list("Trimline Fill L", "trimline_fill__8"), // This is a hack that lives in the spritesheet builder and paint_floor
 		list("Trimline End", "trimline_end_fill"),
-		list("Trimline Box", "trimline_box_fill"),
+		list("Trimline Box Fill", "trimline_box_fill"),
+		list("Trimline", "trimline"), // NOVA ADDITION/EDIT BEGIN
+		list("Trimline Corner", "trimline_corner"),
+		list("Trimline End", "trimline_end"),
+		list("Trimline Box", "trimline_box"),
+		list("Trimline Arrow L", "trimline_arrow_cw"),
+		list("Trimline Arrow R", "trimline_arrow_ccw"),
+		list("Trimline Arrow L", "trimline_arrow_cw_fill"),
+		list("Trimline Arrow R", "trimline_arrow_ccw_fill"),
+		list("Trimline Warn", "trimline_warn"),
+		list("Trimline Warn Full", "trimline_warn_fill"),
 	)
 	nondirectional_decals = list(
 		"tile_fourcorners",
 		"trimline_box_fill",
-	)
+		"tile_full",
+		"trimline_box",
+	) // NOVA ADDITION/EDIT END
 
 	/// Regex to split alpha out.
 	var/static/regex/rgba_regex = new(@"(#[0-9a-fA-F]{6})([0-9a-fA-F]{2})")
