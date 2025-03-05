@@ -1497,9 +1497,6 @@
 	initial_gas_mix = "n2=23;o2=14;TEMP=2.7"
 	},
 /area/awaymission/caves/bmp_asteroid/level_two)
-"vs" = (
-/turf/open/space/basic,
-/area/awaymission/caves/bmp_asteroid/level_four)
 "vR" = (
 /obj/structure/sign/departments/medbay/directional/west,
 /turf/open/misc/asteroid/basalt{
@@ -61006,7 +61003,7 @@ rv
 ad
 ad
 ad
-vs
+ad
 ad
 ad
 rv

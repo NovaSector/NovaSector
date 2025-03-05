@@ -1071,24 +1071,6 @@
 "fP" = (
 /turf/closed/indestructible/fakeglass,
 /area/awaymission/cabin/caves/mountain)
-"fQ" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7210"
-	},
-/area/awaymission/cabin/caves/mountain)
-"fR" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7211"
-	},
-/area/awaymission/cabin/caves/mountain)
-"fS" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7212"
-	},
-/area/awaymission/cabin/caves/mountain)
 "fT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -1102,30 +1084,14 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/dark,
 /area/awaymission/cabin/caves/mountain)
-"fV" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7214"
-	},
-/area/awaymission/cabin/caves/mountain)
 "fW" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7215"
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/grunge,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
 	},
-/area/awaymission/cabin/caves/mountain)
-"fX" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7216"
-	},
-/area/awaymission/cabin/caves/mountain)
-"fY" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Jail.";
-	name = "Jail Cell 7217"
-	},
-/area/awaymission/cabin/caves/mountain)
+/area/awaymission/cabin/caves/sovietcave)
 "fZ" = (
 /obj/structure/weightmachine,
 /obj/effect/decal/cleanable/dirt,
@@ -2313,12 +2279,6 @@
 	name = "soviet floor"
 	},
 /area/awaymission/cabin/caves/sovietcave)
-"lc" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "I can't get past this.";
-	name = "Reinforced Soviet Hatch"
-	},
-/area/awaymission/cabin/caves/sovietcave)
 "ll" = (
 /obj/structure/cable,
 /obj/machinery/light/small/directional/south,
@@ -2358,12 +2318,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/mineral/plastitanium/red{
 	name = "soviet floor"
-	},
-/area/awaymission/cabin/caves/sovietcave)
-"lT" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Seriously, I can't map an entire soviet bunker and new landscape for you. You can't get past this.";
-	name = "Soviet Hatch"
 	},
 /area/awaymission/cabin/caves/sovietcave)
 "lW" = (
@@ -2411,12 +2365,6 @@
 /obj/effect/turf_decal/weather/snow,
 /turf/open/floor/iron/dark/snowdin,
 /area/awaymission/cabin/caves)
-"mK" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Seriously, You can't get past this.";
-	name = "Soviet Hatch"
-	},
-/area/awaymission/cabin/caves/sovietcave)
 "mM" = (
 /obj/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/dirt,
@@ -2507,9 +2455,8 @@
 /turf/closed/indestructible/syndicate,
 /area/awaymission/cabin/caves/sovietcave)
 "np" = (
-/turf/closed/indestructible/fakedoor{
-	desc = "Can you just stop?";
-	name = "GO BACK THE WAY YOU CAME"
+/turf/open/floor/mineral/plastitanium/red{
+	name = "soviet floor"
 	},
 /area/awaymission/cabin/caves/sovietcave)
 "nq" = (
@@ -8426,7 +8373,7 @@ fq
 fq
 fN
 fN
-fQ
+fU
 jQ
 cx
 cx
@@ -9197,7 +9144,7 @@ fq
 fq
 fN
 fN
-fR
+fU
 jQ
 cx
 cx
@@ -9968,7 +9915,7 @@ fq
 fE
 fN
 fN
-fS
+fU
 jQ
 cx
 cx
@@ -11510,7 +11457,7 @@ fs
 fq
 fN
 fN
-fV
+fU
 jQ
 cx
 cx
@@ -12281,7 +12228,7 @@ fq
 fq
 fN
 fN
-fW
+fU
 jQ
 cx
 cx
@@ -13052,7 +12999,7 @@ fr
 fq
 fN
 fN
-fX
+fU
 jQ
 cx
 cx
@@ -13823,7 +13770,7 @@ fu
 UE
 UE
 fO
-fY
+fU
 jQ
 cx
 cx
@@ -14077,8 +14024,8 @@ co
 cx
 cx
 cx
-fy
-fy
+fU
+fU
 cx
 cx
 cx
@@ -62331,8 +62278,8 @@ gx
 gx
 gx
 ii
-lc
-lc
+np
+np
 ii
 gx
 gx
@@ -63616,8 +63563,8 @@ gx
 gx
 gx
 ii
-im
-im
+fW
+fW
 ii
 gx
 gx
@@ -66700,8 +66647,8 @@ gx
 gx
 gx
 ii
-lT
-mK
+np
+np
 ii
 gx
 gx
@@ -66957,8 +66904,8 @@ gx
 gx
 gx
 ii
-im
-im
+fW
+fW
 ii
 gx
 gx
@@ -68756,8 +68703,8 @@ gx
 gx
 gx
 no
-im
-im
+fW
+fW
 no
 gx
 gx
