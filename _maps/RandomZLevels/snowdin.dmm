@@ -7436,7 +7436,8 @@
 /area/awaymission/snowdin/cave)
 "CM" = (
 /obj/effect/spawner/random/structure/crate_abandoned,
-/obj/item/antag_granter/heretic,
+/obj/item/clothing/suit/hooded/cultrobes/eldritch,
+/obj/item/codex_cicatrix,
 /turf/open/floor/engine/cult{
 	initial_gas_mix = "n2=82;plasma=24;TEMP=120";
 	temperature = 120
