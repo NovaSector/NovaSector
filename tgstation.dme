@@ -7176,7 +7176,6 @@
 #include "modular_nova\modules\aesthetics\stationobjs\stationobjs.dm"
 #include "modular_nova\modules\aesthetics\status_display\code\status_display.dm"
 #include "modular_nova\modules\aesthetics\storage\storage.dm"
-#include "modular_nova\modules\aesthetics\telescience\telescience.dm"
 #include "modular_nova\modules\aesthetics\tools\code\tools.dm"
 #include "modular_nova\modules\aesthetics\vending\access_vending.dm"
 #include "modular_nova\modules\aesthetics\walls\code\walls.dm"

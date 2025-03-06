@@ -154,12 +154,6 @@
 	else if(crop_area)
 		stack_trace("Invalid crop paramater! The provided crop area list is not four entries long, or is not a list!")
 
-	var/color = sanitize_hexcolor(greyscale_color)
-	if(color && sprite_accessory.color_src)
-		// This isn't perfect, but I don't want to add the significant overhead to make it be.
-		//icon_to_process.ColorTone(color)
-	//	stack_trace("Couldn't recolor [sprite_accessory]")
-
 	return icon_to_process
 
 /datum/preference/choiced/mutant_choice/init_possible_values()
