@@ -1,4 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - bugfix: "fixed Wild plants experiments giving 25 minutes worth of science points instead of a full discount for the scythes technology as it supposed to."
