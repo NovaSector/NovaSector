@@ -136,8 +136,8 @@
  * Brand Intelligence
  */
 /datum/round_event_control/brand_intelligence
-	max_occurrences = 2
-	weight = VERY_LOW_EVENT_FREQ
+	max_occurrences = 1
+	weight = MIN_EVENT_FREQ
 
 /**
  * Bureaucratic Error
