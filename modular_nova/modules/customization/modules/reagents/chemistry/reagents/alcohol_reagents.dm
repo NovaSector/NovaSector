@@ -657,8 +657,6 @@
 	metabolization_rate = 1.25 * REAGENTS_METABOLISM
 	taste_description = "ancient icicles"
 	overdose_threshold = 25
-	var/obj/structure/ice_stasis/cube
-	var/atom/movable/screen/alert/status_effect/freon/cryostylane_alert
 
 /datum/glass_style/drinking_glass/blizzard_brew
 	required_drink_type = /datum/reagent/consumable/ethanol/blizzard_brew
@@ -676,17 +674,17 @@
 
 /datum/reagent/consumable/ethanol/blizzard_brew/overdose_start(mob/living/carbon/drinker)
 	. = ..()
-	cube = new /obj/structure/ice_stasis(get_turf(drinker))
-	cube.color = COLOR_CYAN
-	cube.set_anchored(TRUE)
-	drinker.forceMove(cube)
-	cryostylane_alert = drinker.throw_alert("cryostylane_alert", /atom/movable/screen/alert/status_effect/freon/cryostylane)
-	cryostylane_alert.attached_effect = src //so the alert can reference us, if it needs to
+	drinker.apply_status_effect(/datum/status_effect/frozenstasis/irresistable)
 
-/datum/reagent/consumable/ethanol/blizzard_brew/on_mob_delete(mob/living/carbon/drinker, amount)
-	QDEL_NULL(cube)
-	drinker.clear_alert("cryostylane_alert")
+/datum/reagent/consumable/ethanol/blizzard_brew/on_mob_delete(mob/living/carbon/drinker)
+	drinker.remove_status_effect(/datum/status_effect/frozenstasis/irresistable)
 	return ..()
+
+/datum/reagent/consumable/ethanol/blizzard_brew/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(!affected_mob.has_status_effect(/datum/status_effect/frozenstasis/irresistable))
+		holder.remove_reagent(type, volume) // remove it all if we were broken out
+		return
 
 /datum/reagent/consumable/ethanol/molten_mead
 	name = "Molten Mead"

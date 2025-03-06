@@ -22,3 +22,15 @@
 	department_ID = ACCOUNT_SEC
 	department_name = ACCOUNT_SEC_NAME
 	icon_state = "sec_budget"
+
+/obj/item/card/id/departmental_budget/ds2
+	department_ID = ACCOUNT_DS2
+	department_name = ACCOUNT_DS2_NAME
+	icon = 'modular_nova/master_files/icons/obj/budget_cards.dmi'
+	icon_state = "ds2_budget"
+
+/obj/item/card/id/departmental_budget/interdyne
+	department_ID = ACCOUNT_INT
+	department_name = ACCOUNT_INT_NAME
+	icon = 'modular_nova/master_files/icons/obj/budget_cards.dmi'
+	icon_state = "int_budget"
