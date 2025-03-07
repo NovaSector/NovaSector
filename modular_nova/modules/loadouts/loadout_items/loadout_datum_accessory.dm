@@ -218,13 +218,6 @@
 	name = "Rankpin (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
 
-
-
-
-
-
-
-
 /*
 *
 * Special Pins
@@ -243,7 +236,6 @@
 /datum/loadout_item/accessory/porttarkon
 	name = "Port Tarkon neckpin"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon
-
 
 /*
 *
@@ -277,7 +269,4 @@
 /datum/loadout_item/accessory/ribbon7
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
-
-
-
 

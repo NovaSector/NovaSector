@@ -2255,12 +2255,12 @@ TREK
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/color_ribbon.json'
 
-/datum/greyscale_config/militaryribbon
+/datum/greyscale_config/military_ribbon
 	name = "hollowcrown_medal"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/militaryribbon.json'
 
-/datum/greyscale_config/militaryribbon/worn
+/datum/greyscale_config/military_ribbon/worn
 	name = "hollowcrown_medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/militaryribbon.json'

@@ -319,8 +319,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 */
 // Awardable medals
 /obj/item/clothing/accessory/medal/nova
-	name = "Robust Debug Medal"
-	desc = "Why the fuck do you have this????"
+	name = "medal of honors"
+	desc = "awarded by members of central command, this medal is a commendation for individuals with the highest honors."
 	icon_state = "debugmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
@@ -366,14 +366,9 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	desc = "A medal dedicated to those whom prove themselvese as capable counter-communications specialists"
 	icon_state = "medal_comms"
 
-// Special Central Command Medals
-/obj/item/clothing/accessory/medal/nova/centcomm
-	name = "medal of honors"
-	desc = "awarded by members of central command this medal commendates individuals with the highest honors"
-
 // Accesory Medals (Medals that are accessories, Added acc_medal so people wont get confused)
 /obj/item/clothing/accessory/nova/acc_medal
-	name = "Medal of colors"
+	name = "medal of colors"
 	desc = "A canvas covered in many colors this medal has no meaning to it. But artists claim meaning is present, perhaps only those who've enlightened themselves may find the truth"
 	icon_state = "debugmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
@@ -385,7 +380,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins
-	name = "NT Company Neckpin"
+	name = "\improper NT company neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ntpin"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
@@ -396,47 +391,41 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	attachment_slot = NONE
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/syndicate
-	name = "Syndicate Neckpin"
+	name = "\improper Syndicate neckpin"
 	desc = "A pin specially dedicated to show loyalty to the Syndicate!"
 	icon_state = "syndipin"
 	greyscale_colors = "#262626#9c0000"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed911
-	name = "Solfed 911 Neckpin"
+	name = "\improper Solfed 911 neckpin"
 	desc = "A pin specially dedicated to show loyalty to your federation!"
 	icon_state = "911pin"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed811
-	name = "Solfed 811 Neckpin"
+	name = "\improper Solfed 811 neckpin"
 	desc = "A pin specially dedicated to show loyalty to your federation!"
 	icon_state = "811pin"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed
-	name = "Solfed Neckpin"
+	name = "\improper Solfed neckpin"
 	desc = "A pin specially dedicated to show loyalty to your federation!"
 	icon_state = "sfpin"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/interdyne
-	name = "Interdyne Neckpin"
+	name = "\improper Interdyne neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ippin"
 	greyscale_colors = "#FFFFFF#3aba1e"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon
-	name = "Port Tarkon Neckpin"
+	name = "\improper Port Tarkon neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ptpin"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/centcomm
-	name = "Central Command Neckpin"
+	name = "\improper Central Command neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ccpin"
-
-
-
-
-
-
 
 // All special heart medals
 /obj/item/clothing/accessory/nova/acc_medal/specheart
@@ -480,7 +469,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "medalbars"
 // All hollow shields medals
 /obj/item/clothing/accessory/nova/acc_medal/hollowshield
-	name = "Hallowed shield medal"
+	name = "hollowed shield medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
@@ -519,6 +508,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 /obj/item/clothing/accessory/nova/acc_medal/bbar/bars
 	icon_state = "medalbars"
+
 // Regular Crown
 /obj/item/clothing/accessory/nova/acc_medal/crown
 	name = "crown medal"
@@ -539,6 +529,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 /obj/item/clothing/accessory/nova/acc_medal/crown/bars
 	icon_state = "medalbars"
+
 // Hollow crown
 /obj/item/clothing/accessory/nova/acc_medal/hollowcrown
 	name = "crown medal"
@@ -559,6 +550,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 /obj/item/clothing/accessory/nova/acc_medal/hollowcrown/bars
 	icon_state = "medalbars"
+
 // Hollow Circle medals
 /obj/item/clothing/accessory/nova/acc_medal/hollowcircle
 	name = "circle medal"
@@ -640,15 +632,12 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
 	icon_state = "rank3"
 
-
 /*
 Ribbon Accessories
 */
 
-
 /obj/item/clothing/accessory/nova/ribbon
-	name = "Ribbon"
-	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
+	name = "ribbon"
 	desc = "A normal everyday ribbon."
 	icon_state = "ribbon1"
 	greyscale_colors = "#ffffff#664200#fff700"
@@ -677,13 +666,13 @@ Ribbon Accessories
 	icon_state = "ribbon7"
 
 // flat ribbons
-/obj/item/clothing/accessory/nova/militaryribbon
-	name = "Military Ribbon"
+/obj/item/clothing/accessory/nova/military_ribbon
+	name = "military ribbon"
 	desc = "An average military ribbon"
 	icon_state = "ribbonA"
 	greyscale_colors = "#ff0000#04ff00#0008ff"
-	greyscale_config = /datum/greyscale_config/militaryribbon
-	greyscale_config_worn = /datum/greyscale_config/militaryribbon/worn
+	greyscale_config = /datum/greyscale_config/military_ribbon
+	greyscale_config_worn = /datum/greyscale_config/military_ribbon/worn
 
 /obj/item/clothing/accessory/nova/militaryribbon/alt1
 	icon_state = "ribbonB"
