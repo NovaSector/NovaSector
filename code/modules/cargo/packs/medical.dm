@@ -191,8 +191,6 @@
 	contains = list(/obj/item/organ/cyberimp/arm/strongarm = 2)
 	crate_name = "Strong-Arm implant crate"
 	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
-	access = FALSE // NOVA EDIT - ADDITION
-	access_view = FALSE // NOVA EDIT - ADDITION
 
 /datum/supply_pack/medical/paperwork_implants
 	name = "Paperwork Implant Set"
