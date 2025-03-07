@@ -106,103 +106,107 @@
 * Accessory Medals
 *
 */
-/datum/loadout_item/accessory/medal1
-	name = "Special heart medal (Arrow)"
+/datum/loadout_item/accessory/sheart1
+	name = "Special Heart Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specheart/arrow
 
-/datum/loadout_item/accessory/medal2
-	name = "Special heart medal (Hollow)"
+/datum/loadout_item/accessory/sheart2
+	name = "Special Heart Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specheart/hollow
 
-/datum/loadout_item/accessory/medal3
-	name = "Special heart medal (Bars)"
+/datum/loadout_item/accessory/sheart3
+	name = "Special Heart Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specheart/bars
 
-/datum/loadout_item/accessory/medal4
-	name = "Heart medal (Hollow)"
+/datum/loadout_item/accessory/heart1
+	name = "Heart Medal (Arrow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/regheart/arrow
+
+/datum/loadout_item/accessory/heart2
+	name = "Heart Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/regheart/hollow
 
-/datum/loadout_item/accessory/medal5
-	name = "Heart medal (Bars)"
+/datum/loadout_item/accessory/heart3
+	name = "Heart Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/regheart/bars
 
-/datum/loadout_item/accessory/medal6
-	name = "Hollow shield medal (Arrow)"
+/datum/loadout_item/accessory/hshield1
+	name = "Hollow Shield Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowshield/arrow
 
-/datum/loadout_item/accessory/medal7
-	name = "Hollow shield medal (Hollow)"
+/datum/loadout_item/accessory/hshield2
+	name = "Hollow Shield Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowshield/hollow
 
-/datum/loadout_item/accessory/medal8
-	name = "Hollow shield medal (Bars)"
+/datum/loadout_item/accessory/hshield3
+	name = "Hollow Shield Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowshield/bars
 
-/datum/loadout_item/accessory/medal9
-	name = "Blank bar medal (Arrow)"
+/datum/loadout_item/accessory/bbar1
+	name = "Blank Bar Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bbar/arrow
 
-/datum/loadout_item/accessory/medal10
-	name = "Blank bar medal (Hollow)"
+/datum/loadout_item/accessory/bbar2
+	name = "Blank Bar Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bbar/hollow
 
-/datum/loadout_item/accessory/medal11
-	name = "Blank bar medal (Bar)"
+/datum/loadout_item/accessory/bbar3
+	name = "Blank Bar Medal (Bar)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bbar/bars
 
-/datum/loadout_item/accessory/medal12
-	name = "Crown medal (Arrow)"
+/datum/loadout_item/accessory/crown1
+	name = "Crown Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/arrow
 
-/datum/loadout_item/accessory/medal13
-	name = "Crown medal (Hollow)"
+/datum/loadout_item/accessory/crown2
+	name = "Crown Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow
 
-/datum/loadout_item/accessory/medal14
-	name = "Crown medal (Bar)"
+/datum/loadout_item/accessory/crown3
+	name = "Crown Medal (Bar)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/bars
 
-/datum/loadout_item/accessory/medal15
-	name = "Hollow crown medal (Arrow)"
+/datum/loadout_item/accessory/hcrown1
+	name = "Hollow Crown Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowcrown/arrow
 
-/datum/loadout_item/accessory/medal16
-	name = "Hollow crown medal (Hollow)"
+/datum/loadout_item/accessory/hcrown2
+	name = "Hollow Crown Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowcrown/hollow
 
-/datum/loadout_item/accessory/medal17
-	name = "Hollow crown medal (Bars)"
+/datum/loadout_item/accessory/hcrown3
+	name = "Hollow Crown Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowcrown/bars
 
-/datum/loadout_item/accessory/medal18
-	name = "Hollow circle medal (Arrow)"
+/datum/loadout_item/accessory/hcircle1
+	name = "Hollow Circle Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowcircle/arrow
 
-/datum/loadout_item/accessory/medal19
-	name = "Hollow circle medal (Hollow)"
+/datum/loadout_item/accessory/hcircle2
+	name = "Hollow Circle Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowcircle/hollow
 
-/datum/loadout_item/accessory/medal20
-	name = "Hollow circle medal (Bars)"
+/datum/loadout_item/accessory/hcircle3
+	name = "Hollow Circle Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowcircle/bars
 
-/datum/loadout_item/accessory/medal21
-	name = "Circle medal (Arrow)"
+/datum/loadout_item/accessory/circle1
+	name = "Circle Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/arrow
 
-/datum/loadout_item/accessory/medal22
-	name = "Circle medal (Hollow)"
+/datum/loadout_item/accessory/circle2
+	name = "Circle Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
 
-/datum/loadout_item/accessory/medal23
-	name = "Circle medal (Bars)"
+/datum/loadout_item/accessory/circle3
+	name = "Circle Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bars
 
-/datum/loadout_item/accessory/medal24
+/datum/loadout_item/accessory/glowneck1
 	name = "Glowbar necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowbar
 
-/datum/loadout_item/accessory/medal25
+/datum/loadout_item/accessory/glowneck2
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 
