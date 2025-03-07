@@ -193,9 +193,9 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/market_uplink/blackmarket = 1,
 		/obj/item/circuitboard/machine/ltsrbt = 1, //NOVA EDIT ADDITION - More widespread Black Market
 		/obj/item/melee/baton/security/stun_gun/stun_knife = 1, // NOVA EDIT ADDITION
-		/obj/item/melee/baton/security/stun_gun = 1, //NOVA EDIT ADDITION
-		/obj/item/gun/energy/taser/crank = 1, //NOVA EDIT ADDITION
-		/obj/item/gun/ballistic/automatic/pistol/doorhickey = 1, //NOVA EDIT ADDITION, yes it's lower in the code too, but it should be alot more common now
+		/obj/item/melee/baton/security/stun_gun = 1, // NOVA EDIT ADDITION
+		/obj/item/gun/energy/taser/crank = 1, // NOVA EDIT ADDITION
+		/obj/item/gun/ballistic/automatic/pistol/doorhickey = 1, // NOVA EDIT ADDITION, yes it's lower in the code too, but it should be alot more common now
 		) = 8,
 
 	list(//equipment
