@@ -1,3 +1,2 @@
-Ar_shoot (and other yet to be added sounds):
-'sound effects:)' on youtube ( https://www.youtube.com/@soundeffects1127 ) for soundclips
-original sounds are from Valves CSGO 
+ak_shoot is from freesounds.org made by ninebilly
+https://freesound.org/people/ninebilly/sounds/520934/
