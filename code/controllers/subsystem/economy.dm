@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(economy)
 	///How many paychecks should players start out the round with?
 	var/roundstart_paychecks = 5
 	///How many credits does the in-game economy have in circulation at round start? Divided up by 6 of the 7 department budgets evenly, where cargo starts with nothing.
-	var/budget_pool = 35000
+	var/budget_pool = 450000
 	var/list/department_accounts = list(ACCOUNT_CIV = ACCOUNT_CIV_NAME,
 										ACCOUNT_ENG = ACCOUNT_ENG_NAME,
 										ACCOUNT_SCI = ACCOUNT_SCI_NAME,
@@ -16,6 +16,7 @@ SUBSYSTEM_DEF(economy)
 										// NOVA EDIT ADDITION START
 										ACCOUNT_CMD = ACCOUNT_CMD_NAME,
 										ACCOUNT_DS2 = ACCOUNT_DS2_NAME,
+										ACCOUNT_TI = ACCOUNT_TI_NAME,
 										ACCOUNT_INT = ACCOUNT_INT_NAME,
 										// NOVA EDIT ADDITION END
 										ACCOUNT_SEC = ACCOUNT_SEC_NAME)

@@ -21,6 +21,9 @@
 	var/interest = 0
 	/// Multiplier for magazine costs
 	var/magazine_cost_mult = 1
+	// HELP NEEDED HERE!! I need help making this function.
+	/// If true it will make the company not appear on company imports in the cargo console.
+	// var/offstation = FALSE
 
 // Nakamura engineering's MOD division, sells modsuits and modsuit accessories
 /datum/cargo_company/nakamura_modsuits
@@ -103,3 +106,34 @@
 	cost_change_lower = -1000
 	cost_change_upper = 2000
 	can_roundstart_pick = FALSE
+
+// Tarkon company tab, LIMITED TO TARKON ONLY
+/datum/cargo_company/tarkon_industries
+	name = TARKON_NAME
+	company_flag = INDEPENDENT_TARKON
+	cost = 6000
+	cost_change_lower = -1000
+	cost_change_upper = 4000
+	can_roundstart_pick = FALSE
+	// offstation = TRUE
+
+
+// Syndicate company tab, LIMITED TO DS-2 ONLY
+/datum/cargo_company/syndicate_conglomerate
+	name = SYNDICATE_NAME
+	company_flag = INDEPENDENT_SYNDICATE
+	cost = 6000
+	cost_change_lower = -1000
+	cost_change_upper = 4000
+	can_roundstart_pick = FALSE
+	// offstation = TRUE
+
+// Tarkon company tab, LIMITED TO INTERDYNE ONLY
+/datum/cargo_company/interdyne_pharmaceuticals
+	name = INTERDYNE_NAME
+	company_flag = INDEPENDENT_INTERDYNE
+	cost = 6000
+	cost_change_lower = -1000
+	cost_change_upper = 4000
+	can_roundstart_pick = FALSE
+	// offstation = TRUE

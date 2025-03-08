@@ -13,7 +13,7 @@
 	cargo_account = ACCOUNT_INT
 	contraband = TRUE
 
-	var/static/list/allowed_categories = list(
+	var/list/allowed_categories = list(
 		NAKAMURA_ENGINEERING_MODSUITS_NAME,
 		BLACKSTEEL_FOUNDATION_NAME,
 		NRI_SURPLUS_COMPANY_NAME,
@@ -24,6 +24,7 @@
 		SOL_DEFENSE_DEFENSE_NAME,
 		MICROSTAR_ENERGY_NAME,
 		VITEZSTVI_AMMO_NAME,
+		INTERDYNE_NAME,
 	)
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
@@ -88,3 +89,42 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+	allowed_categories = list(
+		NAKAMURA_ENGINEERING_MODSUITS_NAME,
+		BLACKSTEEL_FOUNDATION_NAME,
+		NRI_SURPLUS_COMPANY_NAME,
+		DEFOREST_MEDICAL_NAME,
+		DONK_CO_NAME,
+		KAHRAMAN_INDUSTRIES_NAME,
+		FRONTIER_EQUIPMENT_NAME,
+		SOL_DEFENSE_DEFENSE_NAME,
+		MICROSTAR_ENERGY_NAME,
+		VITEZSTVI_AMMO_NAME,
+		SYNDICATE_NAME,
+	)
+
+
+/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+	name = "Tarkon Express Supply Console"
+	build_path = /obj/machinery/computer/cargo/express/interdyne/tarkon
+	contraband = TRUE
+
+/obj/machinery/computer/cargo/express/interdyne/tarkon
+	name = "\improper Tarkon express supply console"
+	desc = "A standard Tarkon console."
+	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+	allowed_categories = list(
+		NAKAMURA_ENGINEERING_MODSUITS_NAME,
+		BLACKSTEEL_FOUNDATION_NAME,
+		NRI_SURPLUS_COMPANY_NAME,
+		DEFOREST_MEDICAL_NAME,
+		DONK_CO_NAME,
+		KAHRAMAN_INDUSTRIES_NAME,
+		FRONTIER_EQUIPMENT_NAME,
+		SOL_DEFENSE_DEFENSE_NAME,
+		MICROSTAR_ENERGY_NAME,
+		VITEZSTVI_AMMO_NAME,
+		TARKON_NAME,
+	)
+	req_access = list(ACCESS_TARKON)
+	cargo_account = ACCOUNT_TI
