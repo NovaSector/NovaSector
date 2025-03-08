@@ -2247,32 +2247,32 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/glowcrystal_medal.json'
 
 /datum/greyscale_config/color_ribbon
-	name = "hollowcrown_medal"
+	name = "color_ribbon"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/color_ribbon.json'
 
 /datum/greyscale_config/color_ribbon/worn
-	name = "hollowcrown_medal (Worn)"
+	name = "color_ribbon (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/color_ribbon.json'
 
 /datum/greyscale_config/military_ribbon
-	name = "hollowcrown_medal"
+	name = "military_ribbon"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/militaryribbon.json'
 
 /datum/greyscale_config/military_ribbon/worn
-	name = "hollowcrown_medal (Worn)"
+	name = "military_ribbon (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/militaryribbon.json'
 
 /datum/greyscale_config/rankpin
-	name = "hollowcrown_medal"
+	name = "rank pins"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/rankpins.json'
 
 /datum/greyscale_config/rankpin/worn
-	name = "hollowcrown_medal (Worn)"
+	name = "rank pins (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/rankpins.json'
 

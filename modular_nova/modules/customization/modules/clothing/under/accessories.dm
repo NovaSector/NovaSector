@@ -439,13 +439,13 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/specheart/arrow
+/obj/item/clothing/accessory/nova/acc_medal/specheart/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/specheart/hollow
+/obj/item/clothing/accessory/nova/acc_medal/specheart/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/specheart/bars
+/obj/item/clothing/accessory/nova/acc_medal/specheart/bars_ribbon
 	icon_state = "medalbars"
 // All regular heart medals
 /obj/item/clothing/accessory/nova/acc_medal/regheart
@@ -459,13 +459,13 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/regheart/arrow
+/obj/item/clothing/accessory/nova/acc_medal/regheart/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/regheart/hollow
+/obj/item/clothing/accessory/nova/acc_medal/regheart/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/regheart/bars
+/obj/item/clothing/accessory/nova/acc_medal/regheart/bars_ribbon
 	icon_state = "medalbars"
 // All hollow shields medals
 /obj/item/clothing/accessory/nova/acc_medal/hollowshield
@@ -479,13 +479,13 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield/arrow
+/obj/item/clothing/accessory/nova/acc_medal/hollowshield/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield/hollow
+/obj/item/clothing/accessory/nova/acc_medal/hollowshield/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield/bars
+/obj/item/clothing/accessory/nova/acc_medal/hollowshield/bars_ribbon
 	icon_state = "medalbars"
 
 // Bar medals
@@ -500,13 +500,13 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/bbar/arrow
+/obj/item/clothing/accessory/nova/acc_medal/bbar/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/bbar/hollow
+/obj/item/clothing/accessory/nova/acc_medal/bbar/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/bbar/bars
+/obj/item/clothing/accessory/nova/acc_medal/bbar/bars_ribbon
 	icon_state = "medalbars"
 
 // Regular Crown
@@ -521,17 +521,17 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/crown/arrow
+/obj/item/clothing/accessory/nova/acc_medal/crown/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/crown/bars
+/obj/item/clothing/accessory/nova/acc_medal/crown/bars_ribbon
 	icon_state = "medalbars"
 
 // Hollow crown
-/obj/item/clothing/accessory/nova/acc_medal/hollowcrown
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow
 	name = "crown medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
@@ -542,34 +542,18 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowcrown/arrow
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowcrown/hollow
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowcrown/bars
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon
 	icon_state = "medalbars"
 
 // Hollow Circle medals
-/obj/item/clothing/accessory/nova/acc_medal/hollowcircle
-	name = "circle medal"
-	desc = "A regular everyday medal."
-	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/hollowcircle
-	greyscale_config_worn = /datum/greyscale_config/hollowcircle/worn
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowcircle/arrow
-	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowcircle/hollow
-	icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/hollowcircle/bars
 	icon_state = "medalbars"
 
 // Circle medals
@@ -584,14 +568,35 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/circle/arrow
+/obj/item/clothing/accessory/nova/acc_medal/circle/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow
+/obj/item/clothing/accessory/nova/acc_medal/circle/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/circle/bars
+/obj/item/clothing/accessory/nova/acc_medal/circle/bars_ribbon
 	icon_state = "medalbars"
+
+/// Hollow Circle Variant
+/obj/item/clothing/accessory/nova/acc_medal/circle/hollow
+	name = "crown medal"
+	desc = "A regular everyday medal."
+	icon_state = "ccmedal"
+	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
+	greyscale_config = /datum/greyscale_config/hollowcrown
+	greyscale_config_worn = /datum/greyscale_config/hollowcrown/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/arrow_ribbon
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/hollow_ribbon
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bars_ribbon
+
 
 // Glow necklaces
 /obj/item/clothing/accessory/nova/acc_medal/glowbar
