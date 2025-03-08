@@ -495,3 +495,12 @@
       inside a mob.
   - bugfix: Fix deprecated mob robot path from basketball stadium map
   - code_imp: Convert weather duration to use time defines
+2025-03-07:
+  RealWinterFrost:
+  - image: added GAGS support for port tarkon uniforms.
+  Yobrocharlie:
+  - config: Opens up the gateways.
+  thetaro:
+  - balance: made strong-arm implants not restricted to medical access
+  verybigpebble:
+  - sound: gave the miecz a new firing sound, after complaints of ear damage.
