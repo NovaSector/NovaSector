@@ -532,8 +532,6 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 // Hollow crown
 /obj/item/clothing/accessory/nova/acc_medal/crown/hollow
-	name = "crown medal"
-	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
@@ -579,13 +577,12 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 /// Hollow Circle Variant
 /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
-	name = "crown medal"
-	desc = "A regular everyday medal."
+
 	icon_state = "ccmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
-	greyscale_config = /datum/greyscale_config/hollowcrown
-	greyscale_config_worn = /datum/greyscale_config/hollowcrown/worn
+	greyscale_config = /datum/greyscale_config/hollowcircle
+	greyscale_config_worn = /datum/greyscale_config/hollowcircle/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
