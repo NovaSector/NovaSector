@@ -229,16 +229,16 @@
 */
 
 /datum/loadout_item/accessory/ccpin
-	name = "Centcomm neckpin"
+	name = "Centcomm Neckpin"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins/centcomm
 	restricted_roles = list(JOB_NT_REP, JOB_CAPTAIN, JOB_BLUESHIELD)
 
 /datum/loadout_item/accessory/ntpin
-	name = "Nanotrasen neckpin"
+	name = "Nanotrasen Neckpin"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins
 
 /datum/loadout_item/accessory/porttarkon
-	name = "Port Tarkon neckpin"
+	name = "Port Tarkon Neckpin"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon
 
 /*
