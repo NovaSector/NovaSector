@@ -580,7 +580,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 	icon_state = "ccmedal"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
+	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
 	greyscale_config = /datum/greyscale_config/hollowcircle
 	greyscale_config_worn = /datum/greyscale_config/hollowcircle/worn
 	minimize_when_attached = TRUE
@@ -671,13 +671,13 @@ Ribbon Accessories
 /obj/item/clothing/accessory/nova/military_ribbon
 	name = "military ribbon"
 	desc = "An average military ribbon"
-	icon_state = "ribbonA"
+	icon_state = "ribbon1"
 	greyscale_colors = "#ff0000#04ff00#0008ff"
 	greyscale_config = /datum/greyscale_config/military_ribbon
 	greyscale_config_worn = /datum/greyscale_config/military_ribbon/worn
 
-/obj/item/clothing/accessory/nova/militaryribbon/alt1
-	icon_state = "ribbonB"
+/obj/item/clothing/accessory/nova/military_ribbon/alt1
+	icon_state = "ribbon2"
 
-/obj/item/clothing/accessory/nova/militaryribbon/alt2
-	icon_state = "ribbonC"
+/obj/item/clothing/accessory/nova/military_ribbon/alt2
+	icon_state = "ribbon3"

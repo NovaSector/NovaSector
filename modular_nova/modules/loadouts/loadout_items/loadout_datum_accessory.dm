@@ -274,3 +274,14 @@
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
 
+/datum/loadout_item/accessory/ribbonmilitary1
+	name = "Military Ribbon (1 Color)"
+	item_path = /obj/item/clothing/accessory/nova/military_ribbon
+
+/datum/loadout_item/accessory/ribbonmilitary1
+	name = "Military Ribbon (2 Color)"
+	item_path = /obj/item/clothing/accessory/nova/military_ribbon/alt1
+
+/datum/loadout_item/accessory/ribbonmilitary1
+	name = "Military Ribbon (3 Color)"
+	item_path = /obj/item/clothing/accessory/nova/military_ribbon/alt2

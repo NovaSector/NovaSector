@@ -1,8 +1,8 @@
 {
-	"ribbonA": [
+	"ribbon1": [
 		{
 			"type": "icon_state",
-			"icon_state": "ribbon1tone",
+			"icon_state": "1tone",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
@@ -16,16 +16,16 @@
 			"icon_state": "thevoid",
 			"blend_mode": "overlay"
 		}
-	],	"ribbonB": [
+	],	"ribbon2": [
 		{
 			"type": "icon_state",
-			"icon_state": "ribbon2tone_1",
+			"icon_state": "2tone_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbon2tone_2",
+			"icon_state": "2tone_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
@@ -34,22 +34,22 @@
 			"icon_state": "thevoid",
 			"blend_mode": "overlay"
 		}
-	],	"ribbonC": [
+	],	"ribbon3": [
 		{
 			"type": "icon_state",
-			"icon_state": "ribbon3tone_1",
+			"icon_state": "3tone_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbon3tone_2",
+			"icon_state": "3tone_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbon3tone_3",
+			"icon_state": "3tone_3",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
