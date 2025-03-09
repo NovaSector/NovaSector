@@ -591,6 +591,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 		"Orange Alert" = "orangealert", // NOVA EDIT ADD - Alert Levels
 		"Amber Alert" = "amberalert", // NOVA EDIT ADD - Alert Levels
 		"Gamma Alert" = "gammaalert", // NOVA EDIT ADD - Alert Levels
+		"Epsilon Alert" = "epsilonalert", // NOVA EDIT ADD - Alert Levels
+		"Federal Alert" = "federalalert", // NOVA EDIT ADDD - Alert Levels
 		"Biohazard" = "biohazard",
 		"Lockdown" = "lockdown",
 		"Radiation" = "radiation",

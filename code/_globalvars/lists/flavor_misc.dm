@@ -270,6 +270,8 @@ GLOBAL_LIST_INIT(status_display_approved_pictures, list(
 	"redalert",
 	"deltaalert",
 	"gammaalert", // NOVA EDIT ADD - Alert Levels
+	"epsilonalert", // NOVA EDIT ADD - Alert Levels
+	"federalalert", // NOVA EDIT ADD - Alert Levels
 	"radiation",
 	"currentalert", //For automatic set of status display on current level
 ))
