@@ -66,7 +66,7 @@
 	ammo_band_color = COLOR_AMMO_EMP
 
 /obj/projectile/bullet/c357/haywire
-	name = ".357 haywire+ bullet"
+	name = ".357 Haywire+ bullet"
 	damage = 40
 	ricochets_max = 0
 	embed_type = null
