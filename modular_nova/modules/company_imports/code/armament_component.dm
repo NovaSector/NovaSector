@@ -109,6 +109,8 @@
 					continue
 
 				var/datum/armament_entry/company_import/gun_entry = armament_entry
+				if(gun_entry.offstation)
+					continue
 
 				if(gun_entry.contraband)
 					if(!(console_state == CARGO_CONSOLE))
