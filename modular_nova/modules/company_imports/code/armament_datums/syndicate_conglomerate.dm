@@ -1,6 +1,6 @@
 /datum/armament_entry/company_import/syndicate
-	category = SYNDICATE_CONGLOMERATE_NAME
-	company_bitflag = INDEPENDENT_SYNDICATE_CONGLOMERATE
+	category = SYNDICATE_NAME
+	company_bitflag = INDEPENDENT_SYNDICATE
 
 /// This is a list of the syndicate items that are permitted for DS-2
 
@@ -16,36 +16,57 @@
 	item_type = /obj/item/clothing/shoes/chameleon/noslip
 
 // Syndicate Weapons (conspicuous and non conspicuous)
-/datum/armament_entry/company_import/syndicate/guns
-	subcategory = "Guns"
+/datum/armament_entry/company_import/syndicate/kits
+	subcategory = "Kits"
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/syndicate/guns/donksoft
+/datum/armament_entry/company_import/syndicate/kits/donksoft
 	item_type = /obj/item/storage/toolbox/guncase/traitor/donksoft
 
-/datum/armament_entry/company_import/syndicate/guns/shotgun
+/datum/armament_entry/company_import/syndicate/kits/shotgun
 	item_type = /obj/item/storage/toolbox/guncase/bulldog
 
-/datum/armament_entry/company_import/syndicate/guns/clandestine
+/datum/armament_entry/company_import/syndicate/kits/clandestine
 	item_type = /obj/item/storage/toolbox/guncase/clandestine
 
-/datum/armament_entry/company_import/syndicate/guns/cr20
-	item_type = /datum/uplink_item/weapon_kits/medium_cost/smg
+/datum/armament_entry/company_import/syndicate/kits/cr20
+	item_type = /obj/item/storage/toolbox/guncase/c20r
 
-/datum/armament_entry/company_import/syndicate/guns/shotgun
+/datum/armament_entry/company_import/syndicate/kits/melee
+	item_type = /obj/item/storage/toolbox/guncase/sword_and_board
+
+/datum/armament_entry/company_import/syndicate/kits/revolver
+	item_type = /obj/item/storage/toolbox/guncase/revolver
+
+/datum/armament_entry/company_import/syndicate/kits/cyberimplants
+	item_type = /obj/item/storage/box/cyber_implants
+
+/datum/armament_entry/company_import/syndicate/kits/cowboy
+	item_type = /obj/item/storage/box/syndie_kit/cowboy
+
+/datum/armament_entry/company_import/syndicate/kits/sleepy
+	item_type = /obj/item/storage/box/syndie_kit/sleepytime
+
+/datum/armament_entry/company_import/syndicate/kits/games
+	item_type = /obj/item/storage/backpack/duffelbag/syndie/des_two/gameskit
+
+/datum/armament_entry/company_import/syndicate/kits/camo
+	item_type = /obj/item/storage/box/syndie_kit/chameleon
+/datum/armament_entry/company_import/syndicate/Weapons
+	subcategory = "Weapons"
+	cost = PAYCHECK_COMMAND * 5
+
+/datum/armament_entry/company_import/syndicate/Weapons/esword
+	item_type = /obj/item/melee/energy/sword
+
+/datum/armament_entry/company_import/syndicate/Weapons/eshield
+	item_type = /obj/item/shield/energy
+
+/datum/armament_entry/company_import/syndicate/Weapons/shotgun
 	item_type = /obj/item/storage/toolbox/guncase/bulldog
 
-/datum/armament_entry/company_import/syndicate/guns/shotgun
-	item_type = /obj/item/storage/toolbox/guncase/bulldog
-
-/datum/armament_entry/company_import/syndicate/guns/shotgun
-	item_type = /obj/item/storage/toolbox/guncase/bulldog
-
-/datum/armament_entry/company_import/syndicate/guns/shotgun
-	item_type = /obj/item/storage/toolbox/guncase/bulldog
-
-/datum/armament_entry/company_import/syndicate/guns/shotgun
-	item_type = /obj/item/storage/toolbox/guncase/bulldog
+/datum/armament_entry/company_import/syndicate/Weapons/flukie
+	item_type = /obj/item/gun/ballistic/automatic/smartgun
 
 /datum/armament_entry/company_import/syndicate/ammo
 	subcategory = "Ammunition"
@@ -87,8 +108,36 @@
 /datum/armament_entry/company_import/syndicate/ammo/smg45fire
 	item_type = /obj/item/ammo_box/magazine/smgm45/incen
 
+/datum/armament_entry/company_import/syndicate/ammo/a357
+	item_type = /obj/item/ammo_box/a357
+
+/datum/armament_entry/company_import/syndicate/ammo/a357p
+	item_type = /obj/item/ammo_box/a357/phasic
+
+/datum/armament_entry/company_import/syndicate/ammo/a357h
+	item_type = /obj/item/ammo_box/a357/heartseeker
+
+/datum/armament_entry/company_import/syndicate/ammo/flukie
+	item_type = /obj/item/ammo_box/magazine/smartgun
+
+/datum/armament_entry/company_import/syndicate/implants
+	subcategory = "Implants"
+	cost = PAYCHECK_COMMAND * 10
+
+/datum/armament_entry/company_import/syndicate/implants/reviver
+	item_type = /obj/item/autosurgeon/syndicate/reviver/des_two
+
+/datum/armament_entry/company_import/syndicate/implants/thermal
+	item_type = /obj/item/autosurgeon/syndicate/thermal_eyes/des_two
+
+/datum/armament_entry/company_import/syndicate/implants/xray
+	item_type = /obj/item/autosurgeon/syndicate/xray_eyes/des_two
+
+/datum/armament_entry/company_import/syndicate/implants/nostun
+	item_type = /obj/item/autosurgeon/syndicate/anti_stun/des_two
+
 /datum/armament_entry/company_import/syndicate/misc
-	subcategory = "miscellanieous"
+	subcategory = "Miscellanieous"
 	cost = PAYCHECK_COMMAND * 10
 
 /datum/armament_entry/company_import/syndicate/misc/soap
@@ -127,9 +176,11 @@
 /datum/armament_entry/company_import/syndicate/misc/rope
 	item_type = /obj/item/climbing_hook/syndicate
 
+/datum/armament_entry/company_import/syndicate/misc/jaws
+	item_type = /obj/item/crowbar/power/syndicate
 
-
-
+/datum/armament_entry/company_import/syndicate/misc/slime
+	item_type = /obj/item/slimepotion/slime/sentience/nuclear
 
 
 // Syndicate spacetide gear
@@ -160,6 +211,27 @@
 /datum/armament_entry/company_import/syndicate/mods/injector
 	item_type = /obj/item/mod/module/injector
 
-/datum/armament_entry/company_import/syndicate/mods/medbeam
-	item_type = /obj/item/mod/module/medbeam
+/datum/armament_entry/company_import/syndicate/mods/camo
+	item_type = /obj/item/mod/module/chameleon
 
+/datum/armament_entry/company_import/syndicate/mods/compress
+	item_type = /obj/item/mod/module/plate_compression
+
+/datum/armament_entry/company_import/syndicate/mods/slipbgone
+	item_type = /obj/item/mod/module/noslip
+
+/datum/armament_entry/company_import/syndicate/mods/shockabsorb
+	item_type = /obj/item/mod/module/shock_absorber
+
+/datum/armament_entry/company_import/syndicate/mods/byebyelight
+	item_type = /obj/item/mod/module/stealth/wraith
+
+/datum/armament_entry/company_import/syndicate/ai
+	subcategory = "Artificial Intelligence"
+	cost = PAYCHECK_COMMAND * 10
+
+/datum/armament_entry/company_import/syndicate/ai/mmi
+	item_type = /obj/item/mmi/syndie/ds2
+
+/datum/armament_entry/company_import/syndicate/ai/modsuit
+	item_type = /obj/item/mmi/posibrain/syndie/ds2
