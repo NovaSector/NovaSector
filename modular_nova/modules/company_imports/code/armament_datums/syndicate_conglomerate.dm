@@ -9,9 +9,6 @@
 	subcategory = "Clothing"
 	cost = PAYCHECK_CREW * 3
 
-/datum/armament_entry/company_import/syndicate/clothing/peacekeeper
-	item_type = /obj/item/clothing/under/sol_peacekeeper
-
 /datum/armament_entry/company_import/syndicate/clothing/noslips
 	item_type = /obj/item/clothing/shoes/chameleon/noslip
 

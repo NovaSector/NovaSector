@@ -2,6 +2,22 @@
 	category = TARKON_NAME
 	company_bitflag = INDEPENDENT_TARKON
 
+/datum/armament_entry/company_import/tarkon/clothing
+	subcategory = "Clothing"
+	cost = PAYCHECK_COMMAND * 5
+
+/datum/armament_entry/company_import/tarkon/clothing/backpack
+	item_type = /obj/item/storage/backpack/tarkon
+
+/datum/armament_entry/company_import/tarkon/clothing/satchel
+	item_type = /obj/item/storage/backpack/satchel/tarkon
+
+/datum/armament_entry/company_import/tarkon/clothing/duffel
+	item_type = /obj/item/storage/backpack/duffelbag/tarkon
+
+/datum/armament_entry/company_import/tarkon/clothing/messenger
+	item_type = /obj/item/storage/backpack/messenger/tarkon
+
 // Tarkon Weapons
 /datum/armament_entry/company_import/tarkon/kits
 	subcategory = "Kits"
