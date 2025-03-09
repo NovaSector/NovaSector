@@ -1,6 +1,5 @@
 /datum/armament_entry/company_import/interdyne
 	category = INTERDYNE_NAME
-	company_bitflag = INDEPENDENT_INTERDYNE
 	offstation = TRUE
 
 /datum/armament_entry/company_import/interdyne/solo

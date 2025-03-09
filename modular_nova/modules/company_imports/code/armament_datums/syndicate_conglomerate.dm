@@ -1,6 +1,5 @@
 /datum/armament_entry/company_import/syndicate
 	category = SYNDICATE_NAME
-	company_bitflag = INDEPENDENT_SYNDICATE
 	offstation = TRUE
 
 /// This is a list of the syndicate items that are permitted for DS-2

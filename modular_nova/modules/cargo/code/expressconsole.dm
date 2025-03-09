@@ -5,9 +5,7 @@
 
 /obj/machinery/computer/cargo/express/interdyne
 	name = "\improper Interdyne express supply console"
-	desc = "A standard NT express console, hacked by Gorlex Industries to use \
-	their own experimental \"1100mm Rail Cannon\", made to be extra robust to prevent \
-	being emagged by the Syndicate cadets of the SSV Dauntless."
+	desc = "A standard Interdyne console"
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT

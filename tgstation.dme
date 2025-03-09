@@ -7468,7 +7468,6 @@
 #include "modular_nova\modules\colony_fabricator\code\tools\tools.dm"
 #include "modular_nova\modules\command_vendor\code\vending.dm"
 #include "modular_nova\modules\company_imports\code\armament_component.dm"
-#include "modular_nova\modules\company_imports\code\company_datums.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\_armament_basetype.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\akh_frontier.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\deforest_medical.dm"
