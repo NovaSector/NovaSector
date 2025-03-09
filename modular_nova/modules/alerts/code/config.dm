@@ -44,4 +44,4 @@
 	config_entry_value = "Central Command has deemed the station under centcomm authority, centcomm personnel are now in full authority of the station. your cooperation is compulsory."
 
 /datum/config_entry/string/alert_federal
-	config_entry_value = "The Solar Federation has placed this system under its full command, This galactic system is now under Military Law, comply and await for official instructions."
+	config_entry_value = "The Solar Federation has placed this galactic sector under its full command. All star systems within this sector are now under Military Law. Comply with all official SolFed instructions."
