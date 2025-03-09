@@ -1,8 +1,9 @@
 
 /mob/living/basic/slime/Life(seconds_per_tick = SSMOBS_DT, times_fired)
-	..()
-	if (stat == DEAD) // NOVA EDIT ADDITION
-		return // NOVA EDIT ADDITION
+	. = ..()
+	if(!.) //dead or deleted
+		return
+
 	if(!HAS_TRAIT(src, TRAIT_STASIS)) //No hunger in stasis
 		handle_nutrition(seconds_per_tick)
 

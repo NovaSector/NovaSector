@@ -65,7 +65,7 @@
 	return TRUE
 
 // This is only relevant for the types of wounds defined, we can't work if there are none
-/obj/item/stack/medical/wound_recovery/try_heal(mob/living/patient, mob/living/user, healed_zone, silent, auto_change_zone)
+/obj/item/stack/medical/wound_recovery/try_heal(mob/living/patient, mob/living/user, healed_zone, silent, auto_change_zone, continuous)
 
 	var/treatment_delay = (user == patient ? self_delay : other_delay)
 	var/obj/item/bodypart/limb = patient.get_bodypart(check_zone(user.zone_selected))

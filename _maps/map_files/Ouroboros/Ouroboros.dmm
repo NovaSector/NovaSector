@@ -4201,7 +4201,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/structure/fans/tiny,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/plating,
 /area/station/science/xenobiology)
 "blQ" = (
@@ -18808,9 +18808,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/structure/chair/wood{
-	dir = 1
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
@@ -20346,6 +20343,7 @@
 	name = "Server Access"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/server)
 "fWE" = (
@@ -22652,6 +22650,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/tcommsat/server)
 "gFp" = (
@@ -26242,6 +26241,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/tcommsat/server)
 "hIq" = (
@@ -38358,8 +38358,8 @@
 /area/station/security/medical)
 "laE" = (
 /obj/effect/spawner/random/structure/crate,
-/obj/effect/spawner/random/maintenance/eight,
 /obj/effect/spawner/random/decoration/carpet,
+/obj/effect/spawner/random/maintenance/no_decals/eight,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/upper)
 "laM" = (
@@ -45748,6 +45748,7 @@
 /obj/machinery/door/airlock/freezer{
 	name = "Auxiliary Coldroom"
 	},
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "nfK" = (
@@ -52104,8 +52105,8 @@
 "pcf" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/rack/shelf,
-/obj/effect/spawner/random/maintenance/two,
 /obj/effect/spawner/random/engineering/flashlight,
+/obj/effect/spawner/random/maintenance/no_decals/two,
 /turf/open/openspace,
 /area/station/maintenance/starboard/greater)
 "pcv" = (
@@ -53974,11 +53975,14 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/chair/wood{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/structure/sign/poster/greenscreen/directional/west,
+/obj/machinery/greenscreen_camera{
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = 4
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "pDX" = (
@@ -60247,7 +60251,7 @@
 "ryK" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/rack/shelf,
-/obj/effect/spawner/random/maintenance/four,
+/obj/effect/spawner/random/maintenance/no_decals/four,
 /turf/open/openspace,
 /area/station/maintenance/starboard/greater)
 "ryT" = (
@@ -68827,6 +68831,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/coldroom)
 "tZn" = (
@@ -74505,6 +74510,7 @@
 	name = "Coldroom"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "vDZ" = (
@@ -190519,7 +190525,7 @@ tQY
 tQY
 xdj
 xdj
-fac
+sGb
 fac
 fac
 fac
