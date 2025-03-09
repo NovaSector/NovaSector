@@ -2,6 +2,7 @@
 	category = SYNDICATE_NAME
 	company_bitflag = INDEPENDENT_SYNDICATE
 	offstation = TRUE
+
 /// This is a list of the syndicate items that are permitted for DS-2
 
 // Syndicate attire (Suspicious wears)
@@ -195,7 +196,6 @@
 	item_type = /obj/item/storage/box/syndie_kit/space
 	cost = PAYCHECK_COMMAND * 20
 
-
 // Modsuit mods that CAN be found in the uplinks
 /datum/armament_entry/company_import/syndicate/mods
 	subcategory = "Modsuit Mods"
@@ -234,3 +234,4 @@
 
 /datum/armament_entry/company_import/syndicate/ai/modsuit
 	item_type = /obj/item/mmi/posibrain/syndie/ds2
+

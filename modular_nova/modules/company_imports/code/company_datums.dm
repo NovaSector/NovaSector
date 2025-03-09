@@ -117,7 +117,6 @@
 	can_roundstart_pick = FALSE
 	// offstation = TRUE
 
-
 // Syndicate company tab, LIMITED TO DS-2 ONLY
 /datum/cargo_company/syndicate_conglomerate
 	name = SYNDICATE_NAME
@@ -137,3 +136,4 @@
 	cost_change_upper = 4000
 	can_roundstart_pick = FALSE
 	// offstation = TRUE
+
