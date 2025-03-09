@@ -36,7 +36,7 @@ ALERT_DELTA_UPTO Destruction of the station is imminent. All crew are instructed
 ALERT_DELTA_DOWNTO Destruction of the station is still imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
 ALERT_GAMMA The Solar Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill.
 ALERT_EPSILON Nanotrasen Central Command has declared the station under full CentCom authority. All CentCom personnel and representatives now hold absolute control of the station and its assets. Crew cooperation is compulsory. Have a Secure Day!
-ALERT_FEDERAL The Solar Federation has placed this system under its full command, This galactic system is now under Military Law, comply and await for official instructions.
+ALERT_FEDERAL The Solar Federation has placed this galactic sector under its full command. All star systems within this sector are now under Military Law. Comply with all official SolFed instruction.
 
 ## How long until someone can be put in cryo if they are SSD
 CRYO_MIN_SSD_TIME 15
