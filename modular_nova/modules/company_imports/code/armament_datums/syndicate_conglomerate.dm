@@ -182,6 +182,8 @@
 /datum/armament_entry/company_import/syndicate/misc/slime
 	item_type = /obj/item/slimepotion/slime/sentience/nuclear
 
+/datum/armament_entry/company_import/syndicate/misc/agentid
+	item_type = /obj/item/card/id/advanced/chameleon
 
 // Syndicate spacetide gear
 /datum/armament_entry/company_import/syndicate/space
