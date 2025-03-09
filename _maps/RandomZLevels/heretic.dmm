@@ -394,15 +394,6 @@
 /obj/machinery/quantum_server,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/beach)
-"ge" = (
-/obj/structure/table,
-/obj/structure/sink{
-	pixel_y = 22;
-	layer = 2.7
-	},
-/obj/item/pizzabox/meat,
-/turf/open/floor/wood,
-/area/awaymission/beach)
 "gi" = (
 /turf/open/floor/carpet/green,
 /area/awaymission/beach)
@@ -1238,9 +1229,6 @@
 /obj/structure/table,
 /obj/item/seeds/grass,
 /obj/item/plant_analyzer,
-/obj/structure/sign/poster/official/fruit_bowl{
-	pixel_y = 32
-	},
 /turf/open/floor/wood{
 	light_range = 2
 	},
@@ -2472,9 +2460,6 @@
 	},
 /area/awaymission/beach)
 "LR" = (
-/obj/structure/sign/poster/official/here_for_your_safety{
-	pixel_y = -32
-	},
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/carpet/cyan,
 /area/awaymission/beach)
@@ -8316,7 +8301,7 @@ Xk
 fh
 sq
 Xk
-ge
+Be
 kp
 Uq
 ZM
