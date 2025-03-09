@@ -459,6 +459,7 @@
 #include "code\__DEFINES\~nova_defines\logging.dm"
 #include "code\__DEFINES\~nova_defines\manufacturer_strings.dm"
 #include "code\__DEFINES\~nova_defines\mapping.dm"
+#include "code\__DEFINES\~nova_defines\maps.dm"
 #include "code\__DEFINES\~nova_defines\medical_defines.dm"
 #include "code\__DEFINES\~nova_defines\mobs.dm"
 #include "code\__DEFINES\~nova_defines\nifsofts.dm"
