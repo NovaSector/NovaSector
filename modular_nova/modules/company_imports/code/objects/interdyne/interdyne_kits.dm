@@ -7,7 +7,7 @@
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/advancedkit
 	name = "\improper Interdyne advanced kit"
-	desc = "A bag full of surprises!"
+	desc = "Carries three premium tactical medical kits for your most intense needs!"
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/advancedkit/PopulateContents()
 	new /obj/item/storage/medkit/tactical/premium(src)
@@ -16,7 +16,7 @@
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing
 	name = "tactical maid kit"
-	desc = "A bag full of surprises!"
+	desc = "Only carries one tactical maid set."
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_sing/PopulateContents()
 	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)
@@ -26,7 +26,7 @@
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_multi
 	name = "bulk Tactical maid kit"
-	desc = "A bag full of surprises!"
+	desc = "Carries 3 Tactical maid sets!"
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_multi/PopulateContents()
 	new /obj/item/clothing/head/costume/maidheadband/syndicate(src)

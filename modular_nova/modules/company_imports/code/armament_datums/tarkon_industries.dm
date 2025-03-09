@@ -4,7 +4,7 @@
 
 /datum/armament_entry/company_import/tarkon/clothing
 	subcategory = "Clothing"
-	cost = PAYCHECK_COMMAND * 5
+	cost = PAYCHECK_CREW * 3
 
 /datum/armament_entry/company_import/tarkon/clothing/backpack
 	item_type = /obj/item/storage/backpack/tarkon
@@ -69,4 +69,5 @@
 
 /datum/armament_entry/company_import/tarkon/mods/modsuit
 	item_type = /obj/item/mod/control/pre_equipped/tarkon
+	cost = PAYCHECK_COMMAND * 15
 

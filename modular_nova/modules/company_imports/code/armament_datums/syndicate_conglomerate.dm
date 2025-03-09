@@ -8,6 +8,7 @@
 /datum/armament_entry/company_import/syndicate/clothing
 	subcategory = "Clothing"
 	cost = PAYCHECK_CREW * 3
+	cost = PAYCHECK_CREW * 5
 
 /datum/armament_entry/company_import/syndicate/clothing/noslips
 	item_type = /obj/item/clothing/shoes/chameleon/noslip
@@ -15,7 +16,7 @@
 // Syndicate Weapons (conspicuous and non conspicuous)
 /datum/armament_entry/company_import/syndicate/kits
 	subcategory = "Kits"
-	cost = PAYCHECK_COMMAND * 5
+	cost = PAYCHECK_COMMAND * 20
 
 /datum/armament_entry/company_import/syndicate/kits/donksoft
 	item_type = /obj/item/storage/toolbox/guncase/traitor/donksoft
@@ -60,14 +61,14 @@
 	item_type = /obj/item/shield/energy
 
 /datum/armament_entry/company_import/syndicate/Weapons/shotgun
-	item_type = /obj/item/storage/toolbox/guncase/bulldog
+	item_type = /obj/item/gun/ballistic/shotgun/bulldog
 
 /datum/armament_entry/company_import/syndicate/Weapons/flukie
 	item_type = /obj/item/gun/ballistic/automatic/smartgun
 
 /datum/armament_entry/company_import/syndicate/ammo
 	subcategory = "Ammunition"
-	cost = PAYCHECK_COMMAND * 5
+	cost = PAYCHECK_COMMAND * 2.5
 
 /datum/armament_entry/company_import/syndicate/ammo/m12gregular
 	item_type = /obj/item/ammo_box/magazine/m12g
@@ -129,6 +130,7 @@
 
 /datum/armament_entry/company_import/syndicate/implants/xray
 	item_type = /obj/item/autosurgeon/syndicate/xray_eyes/des_two
+	cost = PAYCHECK_COMMAND * 65
 
 /datum/armament_entry/company_import/syndicate/implants/nostun
 	item_type = /obj/item/autosurgeon/syndicate/anti_stun/des_two
@@ -193,15 +195,16 @@
 
 /datum/armament_entry/company_import/syndicate/space/spacesuit
 	item_type = /obj/item/storage/box/syndie_kit/space
-	cost = PAYCHECK_COMMAND * 20
+	cost = PAYCHECK_COMMAND * 10
 
 // Modsuit mods that CAN be found in the uplinks
 /datum/armament_entry/company_import/syndicate/mods
 	subcategory = "Modsuit Mods"
-	cost = PAYCHECK_COMMAND * 10
+	cost = PAYCHECK_COMMAND * 15
 
 /datum/armament_entry/company_import/syndicate/mods/energyshield
 	item_type = /obj/item/mod/module/energy_shield
+	cost = PAYCHECK_COMMAND * 25
 
 /datum/armament_entry/company_import/syndicate/mods/empshield
 	item_type = /obj/item/mod/module/emp_shield/advanced
@@ -217,6 +220,7 @@
 
 /datum/armament_entry/company_import/syndicate/mods/slipbgone
 	item_type = /obj/item/mod/module/noslip
+	cost = PAYCHECK_COMMAND * 20
 
 /datum/armament_entry/company_import/syndicate/mods/shockabsorb
 	item_type = /obj/item/mod/module/shock_absorber
