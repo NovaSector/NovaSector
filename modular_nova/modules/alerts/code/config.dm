@@ -41,7 +41,7 @@
 	config_entry_value = "The Solar Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill."
 
 /datum/config_entry/string/alert_epsilon
-	config_entry_value = "Central Command has deemed the station under centcomm authority, centcomm personnel are now in full authority of the station. your cooperation is compulsory."
+	config_entry_value = "Nanotrasen Central Command has declared the station under full CentCom authority. All CentCom personnel and representatives now hold absolute control of the station and its assets. Crew cooperation is compulsory. Have a Secure Day!"
 
 /datum/config_entry/string/alert_federal
 	config_entry_value = "The Solar Federation has placed this galactic sector under its full command. All star systems within this sector are now under Military Law. Comply with all official SolFed instructions."
