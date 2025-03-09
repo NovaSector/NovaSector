@@ -16,8 +16,8 @@
 /obj/item/ammo_casing/c38/haywire
 	name = ".38 Haywire bullet casing"
 	desc = "A .38 Haywire bullet casing, with an electromagnetic generator in the tip.\
-	<br><br>\
-	<i>HAYWIRE: Electromagnetic pulse ammo. Deals little damage, but causes a small electromagnetic pulse.</i>"
+		<br><br>\
+		<i>HAYWIRE: Electromagnetic pulse ammo. Deals little damage, but causes a small electromagnetic pulse.</i>"
 	projectile_type = /obj/projectile/bullet/c38/haywire
 	custom_materials = AMMO_MATS_EMP
 	advanced_print_req = TRUE
@@ -53,8 +53,8 @@
 /obj/item/ammo_casing/c357/haywire
 	name = ".357 Haywire+ bullet casing"
 	desc = "A .357 Haywire+ bullet casing, with a high-efficiency electromagnetic generator in the tip.\
-	<br><br>\
-	<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
+		<br><br>\
+		<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
 	projectile_type = /obj/projectile/bullet/c357/haywire
 	custom_materials = AMMO_MATS_EMP
 	advanced_print_req = TRUE
