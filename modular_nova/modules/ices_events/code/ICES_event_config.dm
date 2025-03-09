@@ -325,7 +325,7 @@
 
 /datum/round_event_control/meteor_wave/ices
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = VERY_LOW_EVENT_FREQ
 
 // No preset ones, we have our own custom preset above
 /datum/round_event_control/meteor_wave/threatening
