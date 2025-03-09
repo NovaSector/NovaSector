@@ -2,6 +2,7 @@
 	category = TARKON_NAME
 	company_bitflag = INDEPENDENT_TARKON
 	offstation = TRUE
+
 /datum/armament_entry/company_import/tarkon/clothing
 	subcategory = "Clothing"
 	cost = PAYCHECK_COMMAND * 5
