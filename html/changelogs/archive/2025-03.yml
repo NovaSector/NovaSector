@@ -694,3 +694,7 @@
   timothymtorres:
   - bugfix: Fix illiterate people writing messages with crayons and spraycans.
   - bugfix: Fix hauntinum reagent to work when it is exposed to item objects.
+2025-03-10:
+  RatFromTheJungle:
+  - bugfix: Blueshield's beret actually has armor-stats now, like the rest of their
+      hats.
