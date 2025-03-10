@@ -1,0 +1,5 @@
+author: "SuperDrish"
+delete-after: True
+changes:
+  - rscadd: "AI Uplink Brain is now available at your local RnD"
+  - bugfix: "AI Uplink Brain now works properly with self-actualizator"
