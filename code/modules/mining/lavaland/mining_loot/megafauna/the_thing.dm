@@ -111,6 +111,7 @@
 	if(!isturf(AI.loc))
 		to_chat(AI, span_warning("You aren't in your core!"))
 		return
+
 	/// NOVA EDIT ADDITION START
 	if(istype(mainframe)) // In case another AI is already inside
 		to_chat(AI, span_warning("Target is currently occupied!"))
