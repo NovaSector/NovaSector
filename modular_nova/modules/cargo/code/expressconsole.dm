@@ -12,8 +12,6 @@
 	contraband = TRUE
 
 	var/list/allowed_categories
-		INTERDYNE_NAME,
-	)
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod
 
@@ -29,6 +27,7 @@
 		SOL_DEFENSE_DEFENSE_NAME,
 		MICROSTAR_ENERGY_NAME,
 		VITEZSTVI_AMMO_NAME,
+		INTERDYNE_NAME,
 	)
 	allowed_categories += categories
 	return ..()
@@ -96,9 +95,12 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
-	allowed_categories = list(
+/obj/machinery/computer/cargo/express/interdyne/syndicate(mapload)
+	var/static/list/categories = list(
 		SYNDICATE_NAME,
 	)
+	allowed_categories += categories
+	return ..()
 
 
 /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
@@ -110,8 +112,12 @@
 	name = "\improper Tarkon express supply console"
 	desc = "A standard Tarkon console."
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
-	allowed_categories = list(
-		TARKON_NAME,
-	)
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
+	
+/obj/machinery/computer/cargo/express/interdyne/syndicate/tarkon(mapload)
+	var/static/list/categories = list(
+		TARKON_NAME,
+	)
+	allowed_categories += categories
+	return ..()
