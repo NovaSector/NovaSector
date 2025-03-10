@@ -95,7 +95,7 @@
 		"freeformcore_module",
 		"onehuman_module",
 		"purge_module",
-		"ai_power_upgrade",
+		"ai_power_upgrade", // NOVA EDIT CHANGE - Adds comma until upstream PR comes in
 		"ai_uplink_brain", // NOVA EDIT ADDITION
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
