@@ -94,13 +94,13 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+
 /obj/machinery/computer/cargo/express/interdyne/syndicate(mapload)
 	var/static/list/categories = list(
 		SYNDICATE_NAME,
 	)
 	allowed_categories += categories
 	return ..()
-
 
 /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
 	name = "Tarkon Express Supply Console"
