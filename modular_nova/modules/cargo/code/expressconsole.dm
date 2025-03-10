@@ -114,7 +114,7 @@
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
 	
-/obj/machinery/computer/cargo/express/interdyne/syndicate/tarkon(mapload)
+/obj/machinery/computer/cargo/express/interdyne/tarkon(mapload)
 	var/static/list/categories = list(
 		TARKON_NAME,
 	)
