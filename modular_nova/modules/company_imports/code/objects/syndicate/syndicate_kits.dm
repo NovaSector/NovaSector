@@ -53,8 +53,8 @@
 	desc = "An autosurgeon loaded with a lovely set of x-ray eyes, be careful it may be a little painful."
 
 /obj/item/autosurgeon/syndicate/reviver/des_two
-	name = "autosurgeon (CIN reviver)"
-	desc = "An autosurgeon loaded with a CIN reviver, be careful it may be a little painful."
+	name = "autosurgeon (reviver)"
+	desc = "An autosurgeon loaded with a reviver implant, be careful it may be a little painful."
 
 /obj/item/autosurgeon/syndicate/thermal_eyes/des_two
 	name = "autosurgeon (thermal eyes)"
