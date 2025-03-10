@@ -695,6 +695,13 @@
   - bugfix: Fix illiterate people writing messages with crayons and spraycans.
   - bugfix: Fix hauntinum reagent to work when it is exposed to item objects.
 2025-03-10:
+  Hatterhat:
+  - rscadd: .38 Haywire and .357 Haywire+ electromagnetic pulse bullets are now in
+      circulation. These create small (or not so small) electromagnetic pulses on
+      impact, in return for dealing much less direct damage. .38 Haywire can be fabricated
+      with an ammo workbench with appropriate designs, or from techfabs with Exotic
+      Ammunition. .357 Haywire+ can be bought from the uplink or fabricated with the
+      ammo workbench with appropriate designs.
   RatFromTheJungle:
   - bugfix: Blueshield's beret actually has armor-stats now, like the rest of their
       hats.
