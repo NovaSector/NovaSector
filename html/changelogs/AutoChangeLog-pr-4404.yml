@@ -1,0 +1,8 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - code_imp: "Smelling salts now checks for target's gender"
+  - code_imp: "*esigh now has the same overlay as *sigh"
+  - rscdel: "Half-Life screaming sounds"
+  - sound: "Changed *sneeze and *cough to TG's"
+  - code_imp: "Moth and Insect screaming sounds are merged"
