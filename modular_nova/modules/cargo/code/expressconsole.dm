@@ -11,7 +11,7 @@
 	cargo_account = ACCOUNT_INT
 	contraband = TRUE
 
-	var/list/allowed_categories = list(
+	var/list/allowed_categories
 		INTERDYNE_NAME,
 	)
 
