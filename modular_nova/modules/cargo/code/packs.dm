@@ -186,6 +186,26 @@
 	crate_name = "C.U.C.K.S Crate"
 
 /*
+* ARMORY
+*/
+
+/datum/supply_pack/security/armory/battle_rifle
+	cost = CARGO_CRATE_VALUE * 15
+	contains = list(
+		/obj/item/gun/ballistic/automatic/battle_rifle = 3,
+		/obj/item/ammo_box/magazine/m38 = 6,
+	)
+
+/datum/supply_pack/security/armory/br_mag
+	desc = "Fourteen .38 magazines, able to fit into the NT BR-38. Contains \
+		nine standard magazines, three Hot Shot magazines and three Iceblox magazines."
+	contains = list(
+		/obj/item/ammo_box/magazine/m38 = 8,
+		/obj/item/ammo_box/magazine/m38/hotshot = 3,
+		/obj/item/ammo_box/magazine/m38/iceblox = 3,
+	)
+
+/*
 *	ENGINEERING
 */
 
@@ -275,6 +295,15 @@
 		/obj/item/construction/rcd/improved,
 	)
 	crate_name = "improved RCD crate"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
+/datum/supply_pack/engine/reactor_fuel
+	name = "Preloaded RBMK2 reactor rod"
+	desc = "Contains a single preloaded reactor rod. Comes with 80 moles of tritium."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(/obj/item/tank/rbmk2_rod/preloaded)
+	crate_name = "RBMK2 reactor rod"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
 /*

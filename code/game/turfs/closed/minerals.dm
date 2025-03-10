@@ -25,7 +25,6 @@
 	transform = MAP_SWITCH(TRANSLATE_MATRIX(-4, -4), matrix())
 
 	temperature = TCMB
-	color = "#677" //NOVA EDIT ADDITION
 	var/turf/turf_type = /turf/open/misc/asteroid/airless
 	/// The path of the ore stack we spawn when we're mined.
 	var/obj/item/stack/ore/mineralType = null
@@ -311,13 +310,11 @@
 		var/path = pick(spawn_chance_list)
 		if(ispath(path, /turf))
 			var/stored_flags = 0
-			var/stored_color = color //NOVA EDIT ADDITION
 			if(turf_flags & NO_RUINS)
 				stored_flags |= NO_RUINS
 			var/turf/T = ChangeTurf(path,null,CHANGETURF_IGNORE_AIR)
 			T.flags_1 |= stored_flags
 
-			T.color = stored_color //NOVA EDIT ADDITION
 			if(ismineralturf(T))
 				var/turf/closed/mineral/M = T
 				M.turf_type = src.turf_type

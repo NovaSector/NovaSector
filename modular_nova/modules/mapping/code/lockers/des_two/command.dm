@@ -26,6 +26,7 @@
 	new /obj/item/ammo_box/magazine/m9mm_aps(src)
 	new /obj/item/storage/bag/garment/station_admiral(src)
 	new /obj/item/radio/headset/interdyne/command(src)
+	new /obj/item/card/id/departmental_budget/ds2(src)
 
 /obj/structure/closet/secure_closet/des_two/maa_locker
 	icon_door = "warden"
@@ -121,5 +122,6 @@
 	new /obj/item/storage/toolbox/guncase/nova/pistol/opfor/rapid_syringe(src)
 	new /obj/item/binoculars(src)
 	new /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_white(src)
-	new /obj/item/clothing/suit/toggle/labcoat/nova/rd/deckofficer(src)
+	new /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer(src)
 	new /obj/item/modular_computer/pda/chameleon(src)
+	new /obj/item/card/id/departmental_budget/interdyne(src)

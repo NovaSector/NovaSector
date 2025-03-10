@@ -384,7 +384,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control
 	name = "Gateway Control"
 	desc = "Human friendly interface to the mysterious gate next to it."
-	req_access = list(ACCESS_CENT_GENERAL) //NOVA EDIT ADDITION
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)
@@ -422,13 +421,6 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			try_to_linkup()
 			return TRUE
 		if("activate")
-			//NOVA EDIT ADDITION BEGIN
-			if(ishuman(usr))
-				var/mob/living/carbon/human/interacting_human = usr
-				if(!allowed(interacting_human))
-					to_chat(interacting_human, "<span class='notice'>Error, you do not have the required access to link up the gateway.</span>")
-					return FALSE
-			//NOVA EDIT END
 			var/datum/gateway_destination/D = locate(params["destination"]) in GLOB.gateway_destinations
 			try_to_connect(D)
 			return TRUE

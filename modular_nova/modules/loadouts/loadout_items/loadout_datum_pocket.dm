@@ -235,6 +235,10 @@
 	name = "Empty Colonial First Aid Pouch"
 	item_path = /obj/item/storage/pouch/cin_medkit
 
+/datum/loadout_item/pocket_items/general_pouch
+	name = "Empty Colonial General Purpose Pouch"
+	item_path = /obj/item/storage/pouch/cin_general
+
 /datum/loadout_item/pocket_items/deforest_cheesekit
 	name = "Civil Defense Medical Kit"
 	item_path = /obj/item/storage/medkit/civil_defense/stocked
@@ -339,6 +343,24 @@
 	name = "Amber Perfume"
 	item_path = /obj/item/perfume/amber
 
+/*
+JOB SPECIFIC MISCELLANY
+*/
+
+/datum/loadout_item/pocket_items/crusher_sword_kit
+	name = "Crusher Sword Retool Kit"
+	item_path = /obj/item/crusher_trophy/retool_kit
+	restricted_roles = list(JOB_SHAFT_MINER) //needs to be in a list or causes tgui errors, tgui continues to amaze
+
+/datum/loadout_item/pocket_items/crusher_harpoon_kit
+	name = "Crusher Harpoon Retool Kit"
+	item_path = /obj/item/crusher_trophy/retool_kit/harpoon
+	restricted_roles = list(JOB_SHAFT_MINER)
+
+/datum/loadout_item/pocket_items/crusher_dagger_kit
+	name = "Crusher Dagger Retool Kit"
+	item_path = /obj/item/crusher_trophy/retool_kit/dagger
+	restricted_roles = list(JOB_SHAFT_MINER)
 
 /*
 *	DONATOR
