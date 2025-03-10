@@ -339,6 +339,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	l_pocket = /obj/item/restraints/handcuffs
 	id = /obj/item/card/id/advanced/solfed
 	backpack_contents = list(
+		/obj/item/gun/ballistic/automatic/pistol/sol = 1,
+		/obj/item/ammo_box/magazine/c35sol_pistol = 4,
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/solfed_reporter/swat_caller = 1,

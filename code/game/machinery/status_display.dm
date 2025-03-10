@@ -14,7 +14,7 @@ GLOBAL_DATUM_INIT(status_font, /datum/font, new /datum/font/tiny_unicode/size_12
 /obj/machinery/status_display
 	name = "status display"
 	desc = null
-	icon = 'icons/obj/machines/status_display.dmi' //// NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/status_display.dmi'
 	icon_state = "frame"
 	verb_say = "beeps"
 	verb_ask = "beeps"
@@ -224,7 +224,7 @@ GLOBAL_LIST_EMPTY(key_to_status_display)
 			if(message1 == "" && message2 == "")
 				return
 
-	. += emissive_appearance('modular_nova/modules/aesthetics/status_display/icons/status_display.dmi', "outline", src, alpha = src.alpha) // NOVA EDIT CHANGE - AESTHETICS
+	. += emissive_appearance(icon, "outline", src, alpha = src.alpha)
 
 // Timed process - performs nothing in the base class
 /obj/machinery/status_display/process()
@@ -587,10 +587,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 		"Red Alert" = "redalert",
 		"Blue Alert" = "bluealert",
 		"Green Alert" = "greenalert",
-		"Violet Alert" = "violetalert", // NOVA EDIT ADD - Alert Levels
-		"Orange Alert" = "orangealert", // NOVA EDIT ADD - Alert Levels
-		"Amber Alert" = "amberalert", // NOVA EDIT ADD - Alert Levels
-		"Gamma Alert" = "gammaalert", // NOVA EDIT ADD - Alert Levels
 		"Biohazard" = "biohazard",
 		"Lockdown" = "lockdown",
 		"Radiation" = "radiation",
@@ -607,8 +603,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 	command = add_option_port("Command", command_options)
 	command_map = command_options
 
-	picture = add_option_port("Picture", picture_options)
-	picture_map = picture_options
+	picture = add_option_port("Picture", picture_options + GLOB.alert_picture_options_nova) // NOVA EDIT CHANGE - ORIGINAL: picture = add_option_port("Picture", picture_options)
+	picture_map = picture_options + GLOB.alert_picture_options_nova // NOVA EDIT CHANGE - ORIGINAL: picture_map = picture_options
 
 /obj/item/circuit_component/status_display/register_usb_parent(atom/movable/shell)
 	. = ..()
