@@ -686,12 +686,12 @@
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/detjacket
-	name = "Detective Jacket (dark)"
+	name = "Detective Jacket (Dark)"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/dark
 	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/suit/detjackenoir
-	name = "Detective Jacket (noir)"
+	name = "Detective Jacket (Noir)"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
 	restricted_roles = list(JOB_DETECTIVE)
 
