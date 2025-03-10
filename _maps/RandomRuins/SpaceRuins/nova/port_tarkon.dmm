@@ -33,6 +33,15 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/color/yellow,
 /obj/structure/cable,
+/obj/item/circuitboard/computer/syndiepad/tarkon,
+/obj/item/circuitboard/machine/syndiepad/tarkon{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/power1)
 "am" = (
@@ -202,6 +211,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
+"bo" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/port_tarkon/atmos)
 "bp" = (
 /obj/machinery/cryopod,
 /turf/open/floor/iron,
@@ -308,6 +323,12 @@
 /obj/effect/turf_decal/tile/neutral/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
+"cf" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/port_tarkon/secoff)
 "cl" = (
 /obj/machinery/biogenerator/food_replicator,
 /turf/open/floor/iron,
@@ -353,7 +374,6 @@
 	dir = 4
 	},
 /obj/machinery/computer/order_console/mining{
-	express_cost_multiplier = 1;
 	forced_express = 1
 	},
 /turf/open/floor/iron,
@@ -1121,6 +1141,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
+"hR" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall,
+/area/ruin/space/has_grav/port_tarkon/storage)
 "hS" = (
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
@@ -2738,6 +2764,10 @@
 /obj/item/coin,
 /obj/item/coin,
 /obj/machinery/light/directional/north,
+/obj/item/card/id/departmental_budget/tarkon{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "rL" = (
@@ -2851,6 +2881,12 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/forehall)
+"sy" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall,
+/area/ruin/space/has_grav/port_tarkon/trauma)
 "sA" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
@@ -2907,6 +2943,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
+"sY" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/port_tarkon/comms)
 "tc" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/sand/plating,
@@ -4244,6 +4286,12 @@
 "CS" = (
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/cargo)
+"CV" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall,
+/area/ruin/space/has_grav/port_tarkon)
 "CY" = (
 /obj/structure/filingcabinet,
 /obj/effect/turf_decal/tile/brown/anticorner{
@@ -5079,6 +5127,12 @@
 /obj/machinery/camera/autoname/tarkon/directional/west,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
+"IG" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall,
+/area/ruin/space/has_grav/port_tarkon/developement)
 "IJ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin/construction,
@@ -6855,6 +6909,12 @@
 "TZ" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
+"Ub" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "TI"
+	},
+/turf/closed/wall,
+/area/ruin/space/has_grav/port_tarkon/mining)
 "Uc" = (
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
@@ -8696,7 +8756,7 @@ nQ
 QS
 QS
 qE
-Yr
+IG
 AS
 jX
 os
@@ -8861,7 +8921,7 @@ yo
 AG
 FS
 DW
-Sn
+bo
 jO
 nW
 rL
@@ -10027,7 +10087,7 @@ xx
 do
 Up
 Up
-xx
+CV
 TV
 Up
 QP
@@ -10465,7 +10525,7 @@ xx
 kR
 Up
 Up
-xx
+CV
 TV
 Up
 QP
@@ -10521,7 +10581,7 @@ eT
 xr
 dn
 Sq
-EH
+sy
 Ri
 Bk
 Jv
@@ -10700,7 +10760,7 @@ gd
 hG
 Uc
 Wr
-zg
+sY
 Kx
 RY
 TZ
@@ -11407,7 +11467,7 @@ Ls
 Ls
 xC
 zY
-OV
+cf
 JP
 Wk
 rj
@@ -11580,7 +11640,7 @@ ud
 yc
 ig
 ZF
-AR
+hR
 Sx
 VK
 VK
@@ -11861,7 +11921,7 @@ Xs
 Xs
 Xs
 Xs
-mD
+Ub
 Ol
 aG
 UI

@@ -6,3 +6,5 @@
 	var/company_bitflag
 	/// If this requires a multitooled console to be visible
 	var/contraband = FALSE
+
+	var/offstation = FALSE
