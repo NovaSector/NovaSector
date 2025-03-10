@@ -47,7 +47,8 @@
 
 /obj/structure/ore_vent/ghost_mining/produce_boulder(apply_cooldown)
 	. = ..()
-	boulder_bounty -= 1
+	if(tapped) //its either this or nuke gold grub ai and i aint touching mob AI with a 10 tile spear.
+		boulder_bounty -= 1
 	if(boulder_bounty == 0)
 		reset_vent(TRUE)
 
@@ -365,3 +366,12 @@
 		/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 		/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom,
 	)
+
+#undef COLONY_THREAT_XENOS
+#undef COLONY_THREAT_PIRATES
+#undef COLONY_THREAT_CARP
+#undef COLONY_THREAT_SNOW
+#undef COLONY_THREAT_MINING
+#undef COLONY_THREAT_ICE_MINING
+#undef COLONY_THREAT_BEACH
+#undef COLONY_THREAT_CULT
