@@ -283,7 +283,7 @@
 	if (current_version < VERSION_TG_EMOTE_SOUNDS)
 		var/current_laugh = save_data["character_laugh"]
 		var/current_scream = save_data["character_scream"]
-		if(current_laugh == "Insect Laugh")
+		if(current_laugh == "Moth Laugh" || current_laugh == "Insect Laugh")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/laugh], "Insect Laugh (Moth)")
 		if(current_scream == "Moth Scream 2")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/scream], "Lizard Scream")
