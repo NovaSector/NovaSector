@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 8
+#define MODULAR_SAVEFILE_VERSION_MAX 9
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -243,12 +243,6 @@
 	if(current_version < VERSION_CHRONOLOGICAL_AGE)
 		write_preference(GLOB.preference_entries[/datum/preference/numeric/chronological_age], read_preference(/datum/preference/numeric/age))
 
-	// Sets old insect laugh to the merged moth/insect in case character uses it.
-	if (current_version < VERSION_TG_EMOTE_SOUNDS)
-		var/current_scream = save_data["character_laugh"]
-		if(current_scream == "Insect Laugh")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/laugh], "Moth/Insect Laugh")
-
 	if(current_version < VERSION_TG_LOADOUT)
 		var/list/save_loadout = SANITIZE_LIST(save_data["loadout_list"])
 		for(var/loadout in save_loadout)
@@ -285,6 +279,14 @@
 			else if(current_skrell_hair == "Female")
 				write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/skrell_hair], "Long")
 
+		// Sets old insect laugh to the merged moth/insect in case character uses it.
+	if (current_version < VERSION_TG_EMOTE_SOUNDS)
+		var/current_laugh = save_data["character_laugh"]
+		var/current_scream = save_data["character_scream"]
+		if(current_laugh == "Insect Laugh")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/laugh], "Insect Laugh (Moth)")
+		if(current_scream == "Moth Scream 2")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/scream], "Lizard Scream")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)

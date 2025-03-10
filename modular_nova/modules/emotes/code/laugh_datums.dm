@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(laugh_types)
 	female_laughsounds = null
 
 /datum/laugh_type/moth
-	name = "Moth/Insect Laugh"
+	name = "Insect Laugh (Moth)"
 	male_laughsounds = list('sound/mobs/humanoids/moth/moth_laugh1.ogg')
 	female_laughsounds = null
 
