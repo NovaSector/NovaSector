@@ -6,5 +6,5 @@
 	var/company_bitflag
 	/// If this requires a multitooled console to be visible
 	var/contraband = FALSE
-
+	/// If company bypasses the main cargo console.
 	var/offstation = FALSE
