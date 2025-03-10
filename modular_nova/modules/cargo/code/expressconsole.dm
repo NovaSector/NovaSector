@@ -95,7 +95,7 @@
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
 
-/obj/machinery/computer/cargo/express/interdyne/syndicate(mapload)
+/obj/machinery/computer/cargo/express/interdyne/syndicate/Initialize(mapload)
 	var/static/list/categories = list(
 		SYNDICATE_NAME,
 	)
@@ -114,7 +114,7 @@
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
 	
-/obj/machinery/computer/cargo/express/interdyne/tarkon(mapload)
+/obj/machinery/computer/cargo/express/interdyne/tarkon/Initialize(mapload)
 	var/static/list/categories = list(
 		TARKON_NAME,
 	)
