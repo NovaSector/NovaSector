@@ -27,6 +27,7 @@
 	new /obj/item/storage/bag/garment/station_admiral(src)
 	new /obj/item/radio/headset/interdyne/command(src)
 	new /obj/item/card/id/departmental_budget/ds2(src)
+	new /obj/item/storage/lockbox/medal/nova/synd(src)
 
 /obj/structure/closet/secure_closet/des_two/maa_locker
 	icon_door = "warden"
