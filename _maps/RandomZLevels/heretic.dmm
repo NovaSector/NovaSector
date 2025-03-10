@@ -284,6 +284,9 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/beach)
+"ey" = (
+/turf/closed/indestructible/opshuttle,
+/area/awaymission/beach)
 "eB" = (
 /turf/open/floor/pod/dark,
 /area/awaymission/beach)
@@ -1174,7 +1177,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/turf/open/space/basic,
+/turf/open/floor/carpet,
 /area/awaymission/beach)
 "tq" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins{
@@ -6183,7 +6186,7 @@ yz
 yz
 yz
 fG
-yb
+Io
 Xk
 CT
 CT
@@ -9262,14 +9265,14 @@ Ie
 Ie
 Ie
 Ie
-mt
-mt
-mt
+ey
+ey
+ey
 VZ
-mt
-mt
-mt
-mt
+ey
+ey
+ey
+ey
 Ie
 mt
 mt
@@ -9414,14 +9417,14 @@ Ie
 Ie
 Ie
 Ie
-mt
+ey
 OP
 Xc
 gv
 qu
 VQ
 QK
-mt
+ey
 Ie
 mt
 CS
@@ -9566,14 +9569,14 @@ BY
 Ie
 Ie
 Ie
-mt
+ey
 cs
 dv
 Kx
 gv
 gv
 gv
-mt
+ey
 zI
 mt
 gb
@@ -9718,14 +9721,14 @@ Ie
 Ie
 Ie
 Ie
-mt
+ey
 wS
 Xc
 Xc
 NX
 nL
 Pm
-mt
+ey
 Ie
 mt
 Mq
@@ -9870,14 +9873,14 @@ Ie
 Ie
 Ie
 Ie
-mt
-mt
-mt
+ey
+ey
+ey
 hu
-mt
-mt
-mt
-mt
+ey
+ey
+ey
+ey
 Ie
 mt
 mt
