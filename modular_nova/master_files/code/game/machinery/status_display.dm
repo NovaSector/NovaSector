@@ -12,7 +12,8 @@ GLOBAL_LIST_INIT(alert_picture_options_nova, list(
 
 // Change the icon based on if we are using our alerts or TG's
 /obj/machinery/status_display/set_picture(state)
-	if(state == "default" || state == "synd")
+
+	if(state == "default" || state == "synd" || state == "bluealert")
 		icon = NOVA_ALERTS_ICON_FILE
 		return ..(state)
 
