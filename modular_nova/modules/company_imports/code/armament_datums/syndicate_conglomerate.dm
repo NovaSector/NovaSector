@@ -136,7 +136,7 @@
 	item_type = /obj/item/autosurgeon/syndicate/anti_stun/des_two
 
 /datum/armament_entry/company_import/syndicate/misc
-	subcategory = "Miscellanieous"
+	subcategory = "Miscellaneous"
 	cost = PAYCHECK_COMMAND * 10
 
 /datum/armament_entry/company_import/syndicate/misc/soap

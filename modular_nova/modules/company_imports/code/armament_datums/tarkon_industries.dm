@@ -53,7 +53,7 @@
 	item_type = /obj/item/ammo_box/c35sol/ripper
 
 /datum/armament_entry/company_import/tarkon/turret
-	subcategory = "Automated weaponry"
+	subcategory = "Automated Weaponry"
 	cost = PAYCHECK_COMMAND * 10
 
 /datum/armament_entry/company_import/tarkon/turret/cerberus

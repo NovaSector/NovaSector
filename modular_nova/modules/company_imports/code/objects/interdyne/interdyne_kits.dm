@@ -25,7 +25,7 @@
 	new /obj/item/clothing/accessory/maidcorset/syndicate(src)
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_multi
-	name = "bulk Tactical maid kit"
+	name = "bulk tactical maid kit"
 	desc = "Carries 3 Tactical maid sets!"
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne/maidkit_multi/PopulateContents()
