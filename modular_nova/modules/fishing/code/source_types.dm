@@ -1,4 +1,4 @@
-/datum/fish_source/lavaland/New()
+/datum/fish_source/lavaland/New() //This is an override to add skeleton keys, tendril chests and runite to both lavaland and icemoon, so that the loot for tribals and the dangerous zone for fishers is consistent.
 	..()
 
 	fish_table[/obj/item/skeleton_key] = 1
