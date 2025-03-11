@@ -705,3 +705,16 @@
   RatFromTheJungle:
   - bugfix: Blueshield's beret actually has armor-stats now, like the rest of their
       hats.
+2025-03-11:
+  Hardly:
+  - code_imp: Smelling salts now checks for target's gender
+  - code_imp: '*esigh now has the same overlay as *sigh'
+  - rscdel: Half-Life screaming sounds
+  - sound: Changed *sneeze and *cough to TG's
+  - code_imp: Moth and Insect screaming sounds are merged
+  RatFromTheJungle:
+  - rscadd: Added the rest of sec's vendor items to the loadout, saving them cha-ching
+      on dress-up.
+  SuperDrish:
+  - rscadd: AI Uplink Brain is now available at your local RnD
+  - bugfix: AI Uplink Brain now works properly with self-actualizator
