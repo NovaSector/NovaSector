@@ -10,7 +10,7 @@
 	item_type = /obj/item/defibrillator/compact/combat/loaded/interdyne
 
 /datum/armament_entry/company_import/interdyne/solo/medkit
-	item_type = /obj/item/storage/medkit/tactical/premium
+	item_type = /obj/item/storage/medkit/tactical/premium/interdyne
 
 	cost = PAYCHECK_COMMAND * 8
 /datum/armament_entry/company_import/interdyne/solo/hypospray
