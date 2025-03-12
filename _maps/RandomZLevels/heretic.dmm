@@ -226,7 +226,7 @@
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
-/turf/closed/mineral/earth_like,
+/turf/closed/indestructible/rock,
 /area/awaymission/beach)
 "eh" = (
 /obj/structure/railing{
@@ -2734,7 +2734,7 @@
 /area/awaymission/beach)
 "PE" = (
 /obj/effect/turf_decal/weather/sand,
-/turf/closed/mineral/earth_like,
+/turf/closed/indestructible/rock,
 /area/awaymission/beach)
 "PF" = (
 /obj/structure/railing{
@@ -3313,159 +3313,159 @@
 /area/awaymission/beach)
 
 (1,1,1) = {"
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
 PE
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
 dY
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
 "}
 (2,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -3614,10 +3614,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (3,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -3766,10 +3766,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (4,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -3918,10 +3918,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (5,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4070,10 +4070,10 @@ Io
 sa
 sa
 sa
-sa
+Ir
 "}
 (6,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4222,10 +4222,10 @@ Io
 Io
 Io
 sa
-sa
+Ir
 "}
 (7,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4374,10 +4374,10 @@ Xk
 Io
 Io
 Io
-sa
+Ir
 "}
 (8,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4526,10 +4526,10 @@ Ww
 Io
 Io
 Io
-sa
+Ir
 "}
 (9,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4678,10 +4678,10 @@ Xk
 Io
 Io
 Io
-sa
+Ir
 "}
 (10,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4830,10 +4830,10 @@ Xk
 Io
 Io
 Io
-sa
+Ir
 "}
 (11,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -4982,10 +4982,10 @@ Xk
 Io
 Io
 Io
-sa
+Ir
 "}
 (12,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -5134,10 +5134,10 @@ Xk
 Io
 sa
 sa
-sa
+Ir
 "}
 (13,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -5286,10 +5286,10 @@ Xk
 Xk
 Xk
 sa
-sa
+Ir
 "}
 (14,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -5438,10 +5438,10 @@ EN
 EN
 Xk
 Xk
-sa
+Ir
 "}
 (15,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -5590,10 +5590,10 @@ EN
 EN
 iz
 Xk
-sa
+Ir
 "}
 (16,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -5742,10 +5742,10 @@ EN
 yQ
 EN
 Xk
-sa
+Ir
 "}
 (17,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -5894,10 +5894,10 @@ EN
 EN
 EN
 Xk
-sa
+Ir
 "}
 (18,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6046,10 +6046,10 @@ fV
 Uc
 cx
 Xk
-sa
+Ir
 "}
 (19,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6198,10 +6198,10 @@ DM
 Lz
 JU
 Xk
-sa
+Ir
 "}
 (20,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6350,10 +6350,10 @@ sr
 qb
 Xk
 Xk
-sa
+Ir
 "}
 (21,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6502,10 +6502,10 @@ Xk
 Xk
 Xk
 sa
-sa
+Ir
 "}
 (22,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6654,10 +6654,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (23,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6806,10 +6806,10 @@ Io
 sa
 sa
 sa
-sa
+Ir
 "}
 (24,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -6958,10 +6958,10 @@ Io
 sa
 sa
 sa
-sa
+Ir
 "}
 (25,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -7110,10 +7110,10 @@ Io
 Io
 sa
 sa
-sa
+Ir
 "}
 (26,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -7262,10 +7262,10 @@ Io
 Io
 sa
 sa
-sa
+Ir
 "}
 (27,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -7414,10 +7414,10 @@ Io
 Io
 Io
 sa
-sa
+Ir
 "}
 (28,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -7566,10 +7566,10 @@ Io
 Io
 Io
 sa
-sa
+Ir
 "}
 (29,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -7718,10 +7718,10 @@ XV
 Io
 Io
 sa
-sa
+Ir
 "}
 (30,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -7870,10 +7870,10 @@ XV
 Io
 Io
 sa
-sa
+Ir
 "}
 (31,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8022,10 +8022,10 @@ XV
 XV
 Io
 Io
-sa
+Ir
 "}
 (32,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8174,10 +8174,10 @@ XV
 XV
 Io
 Io
-sa
+Ir
 "}
 (33,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8326,10 +8326,10 @@ OK
 XV
 XV
 Io
-sa
+Ir
 "}
 (34,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8478,10 +8478,10 @@ RM
 OK
 XV
 Io
-sa
+Ir
 "}
 (35,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8630,10 +8630,10 @@ RM
 qp
 XV
 Io
-sa
+Ir
 "}
 (36,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8782,10 +8782,10 @@ RM
 qp
 XV
 XV
-sa
+Ir
 "}
 (37,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -8934,10 +8934,10 @@ RM
 RM
 OK
 XV
-sa
+Ir
 "}
 (38,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9086,10 +9086,10 @@ RM
 RM
 HA
 XV
-sa
+Ir
 "}
 (39,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9238,10 +9238,10 @@ RM
 qp
 XV
 XV
-sa
+Ir
 "}
 (40,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9390,10 +9390,10 @@ rR
 HA
 XV
 XV
-sa
+Ir
 "}
 (41,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9542,10 +9542,10 @@ XV
 XV
 XV
 XV
-sa
+Ir
 "}
 (42,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9694,10 +9694,10 @@ XV
 XV
 XV
 Io
-sa
+Ir
 "}
 (43,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9846,10 +9846,10 @@ XV
 XV
 Io
 Io
-sa
+Ir
 "}
 (44,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -9998,10 +9998,10 @@ XV
 Io
 sa
 sa
-sa
+Ir
 "}
 (45,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -10150,10 +10150,10 @@ Io
 Io
 sa
 sa
-sa
+Ir
 "}
 (46,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -10302,10 +10302,10 @@ Io
 sa
 sa
 sa
-sa
+Ir
 "}
 (47,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -10454,10 +10454,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (48,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -10606,10 +10606,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (49,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -10758,10 +10758,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (50,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -10910,10 +10910,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (51,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11062,10 +11062,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (52,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11214,10 +11214,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (53,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11366,10 +11366,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (54,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11518,10 +11518,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (55,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11670,10 +11670,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (56,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11822,10 +11822,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (57,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -11974,10 +11974,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (58,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -12126,10 +12126,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (59,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -12278,10 +12278,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (60,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -12430,10 +12430,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (61,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -12582,10 +12582,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (62,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -12734,10 +12734,10 @@ cA
 sa
 sa
 sa
-sa
+Ir
 "}
 (63,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -12886,10 +12886,10 @@ cA
 sa
 sa
 sa
-sa
+Ir
 "}
 (64,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13038,10 +13038,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (65,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13190,10 +13190,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (66,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13342,10 +13342,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (67,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13494,10 +13494,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (68,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13646,10 +13646,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (69,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13798,10 +13798,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (70,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -13950,10 +13950,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (71,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -14102,10 +14102,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (72,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -14254,10 +14254,10 @@ Xk
 sa
 sa
 sa
-sa
+Ir
 "}
 (73,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -14406,10 +14406,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (74,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -14558,10 +14558,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (75,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -14710,10 +14710,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (76,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -14862,10 +14862,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (77,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -15014,10 +15014,10 @@ sa
 sa
 sa
 sa
-sa
+Ir
 "}
 (78,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -15169,7 +15169,7 @@ Ir
 Ir
 "}
 (79,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -15318,10 +15318,10 @@ Ir
 sa
 sa
 sa
-sa
+Ir
 "}
 (80,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -15470,10 +15470,10 @@ Ir
 Xk
 DL
 tq
-sa
+Ir
 "}
 (81,1,1) = {"
-RM
+Ir
 RM
 RM
 RM
@@ -15622,157 +15622,157 @@ Ir
 sa
 Sh
 Io
-sa
+Ir
 "}
 (82,1,1) = {"
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-RM
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
-sa
 Ir
-sa
-sa
-sa
-sa
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
 "}
