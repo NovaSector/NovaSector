@@ -206,7 +206,7 @@
 	dir = 10
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "dT" = (
@@ -477,7 +477,7 @@
 	dir = 5
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "hG" = (
@@ -769,7 +769,7 @@
 	dir = 10
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "mt" = (
@@ -885,7 +885,7 @@
 	dir = 6
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "oF" = (
@@ -1090,7 +1090,7 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "rN" = (
@@ -1389,7 +1389,7 @@
 	dir = 9
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "wu" = (
@@ -1789,7 +1789,7 @@
 	dir = 9
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "Dj" = (
@@ -1895,7 +1895,7 @@
 	dir = 10
 	},
 /turf/open/floor/carpet/purple{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "Eu" = (
@@ -2366,7 +2366,7 @@
 	dir = 9
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "KD" = (
@@ -2452,7 +2452,7 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/blue{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "LR" = (
@@ -2718,7 +2718,7 @@
 	dir = 5
 	},
 /turf/open/floor/carpet/purple{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "PA" = (
@@ -2976,7 +2976,7 @@
 	dir = 5
 	},
 /turf/open/floor/carpet/orange{
-	baseturfs = /turf/open/floor/plating/beach/sand
+	baseturfs = /turf/open/misc/beach/sand
 	},
 /area/awaymission/beach)
 "UH" = (
