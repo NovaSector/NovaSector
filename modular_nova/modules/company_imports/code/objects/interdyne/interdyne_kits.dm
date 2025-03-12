@@ -33,6 +33,7 @@
 		/obj/item/reagent_containers/pill/patch/aiuri = 2,
 		/obj/item/healthanalyzer/advanced = 1,
 		/obj/item/stack/medical/gauze = 2,
+		/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset = 1,
 		/obj/item/mod/module/surgical_processor/preloaded = 1,
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
 		/obj/item/storage/box/evilmeds = 1,
