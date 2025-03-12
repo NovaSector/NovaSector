@@ -7,7 +7,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ao" = (
 /obj/structure/sink{
 	pixel_y = 15
@@ -16,50 +16,50 @@
 	pixel_y = 28
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "aq" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ar" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/light/small/directional/north,
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "as" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "aK" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "aM" = (
 /obj/machinery/door/airlock{
 	name = "Employees Only"
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "aO" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "aP" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "aR" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -67,17 +67,17 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "bb" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "bf" = (
 /obj/structure/chair/wood{
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "bj" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -86,22 +86,22 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "bu" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "bD" = (
 /obj/structure/mineral_door/wood{
 	name = "Hotel"
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "bN" = (
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cb" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -112,12 +112,12 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ce" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/grape,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ck" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -126,39 +126,39 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cs" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ct" = (
 /obj/machinery/light/very_dim/directional/east,
 /obj/structure/chair/comfy/shuttle/tactical,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cx" = (
 /obj/structure/railing{
 	dir = 8
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/black,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cA" = (
 /obj/effect/spawner/structure/window,
 /obj/structure/curtain/cloth,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cE" = (
 /obj/structure/toilet{
 	pixel_y = 13
 	},
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cR" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "cW" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -167,11 +167,11 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "df" = (
 /obj/structure/table,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dj" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -180,27 +180,27 @@
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dv" = (
 /obj/structure/ladder,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dy" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 8
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dA" = (
 /obj/effect/turf_decal/siding/thinplating/light{
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dF" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dL" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 10
@@ -208,26 +208,26 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dT" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dU" = (
 /obj/structure/fence,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dX" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/candle_box,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "dY" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
 /turf/closed/indestructible/rock,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "eh" = (
 /obj/structure/railing{
 	dir = 4
@@ -245,51 +245,51 @@
 	},
 /obj/machinery/shieldgen,
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ei" = (
 /obj/structure/chair/stool/bar{
 	dir = 4
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ek" = (
 /obj/effect/visible_heretic_influence,
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "el" = (
 /obj/structure/table,
 /obj/item/paper_bin/bundlenatural,
 /obj/item/pen/fourcolor,
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "em" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
 	},
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ep" = (
 /obj/machinery/grill,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ex" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ey" = (
 /turf/closed/indestructible/opshuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "eB" = (
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "eG" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -297,46 +297,46 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "eJ" = (
 /obj/structure/railing/corner{
 	dir = 1
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "eK" = (
 /obj/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "eM" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fg" = (
 /obj/machinery/door/airlock{
 	name = "Employees Only";
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fh" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fn" = (
 /obj/structure/rack,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fu" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fz" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -347,7 +347,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -355,7 +355,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fD" = (
 /obj/structure/railing{
 	dir = 10
@@ -366,7 +366,7 @@
 	},
 /obj/machinery/deployable_turret/hmg,
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fG" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -374,12 +374,12 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fL" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fV" = (
 /obj/structure/railing{
 	dir = 8
@@ -387,24 +387,24 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "fZ" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/cabbage,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gb" = (
 /obj/machinery/quantum_server,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gi" = (
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gp" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gu" = (
 /obj/effect/turf_decal/sand/plating{
 	light_range = 2
@@ -414,10 +414,10 @@
 	},
 /obj/effect/turf_decal/weather/sand,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gv" = (
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gA" = (
 /obj/structure/chair/comfy/shuttle/tactical,
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful{
@@ -425,42 +425,42 @@
 	desc = "This man, has terror in his eyes, he stays deadset on the console and he is constantly twitching, he doesnt acknowledge you and he doesnt do anything besides sit there. This mans mind seems to be lost"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gN" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gX" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "gZ" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
 	},
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hb" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hc" = (
 /obj/machinery/autolathe,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hi" = (
 /obj/effect/spawner/structure/window,
 /obj/structure/grille,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hl" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hu" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -468,7 +468,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hF" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 8
@@ -479,7 +479,7 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hG" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -487,7 +487,7 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hL" = (
 /obj/structure/railing{
 	dir = 5
@@ -499,13 +499,13 @@
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hM" = (
 /obj/structure/flora/tree/palm{
 	icon_state = "palm2"
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "hY" = (
 /obj/structure/railing{
 	dir = 4
@@ -514,14 +514,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "id" = (
 /obj/effect/turf_decal/siding/wood,
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ie" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -529,23 +529,23 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ih" = (
 /obj/structure/mineral_door/wood{
 	name = "Hotel"
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ij" = (
 /obj/item/chisel,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "im" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "io" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Johann's Bar";
@@ -555,59 +555,59 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "iu" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/end,
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "iw" = (
 /obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "iz" = (
 /obj/machinery/jukebox,
 /turf/open/floor/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "iC" = (
 /obj/machinery/computer/records/security{
 	dir = 4
 	},
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "iO" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "iW" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Grocery Store";
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "jG" = (
 /obj/structure/closet/secure_closet/freezer/fridge/open,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "jL" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/peas,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "jQ" = (
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "jY" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/tower,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kd" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kf" = (
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
@@ -615,17 +615,17 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "km" = (
 /obj/structure/closet/athletic_mixed,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kp" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kw" = (
 /obj/structure/sink{
 	dir = 8;
@@ -637,29 +637,29 @@
 	pixel_y = -3
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kD" = (
 /obj/effect/turf_decal/siding/blue,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kE" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kG" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kH" = (
 /obj/machinery/vending/boozeomat{
 	set_obj_flags = "EMAGGED"
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kI" = (
 /obj/structure/railing{
 	dir = 6
@@ -670,24 +670,24 @@
 	},
 /obj/machinery/deployable_turret/hmg,
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kN" = (
 /obj/structure/railing/corner,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kP" = (
 /obj/effect/turf_decal/siding/thinplating/light{
 	dir = 6
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "kW" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "General Store";
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lb" = (
 /obj/machinery/door/airlock/wood{
 	name = "Beach Bar"
@@ -695,41 +695,41 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lc" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lj" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lk" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ly" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/tobacco,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lE" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "The 'Nutshack";
 	dir = 4
 	},
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lL" = (
 /obj/machinery/computer/shuttle/ferry/request{
 	dir = 4
 	},
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lT" = (
 /obj/structure/fluff/beach_umbrella/cap,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "lZ" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -740,18 +740,18 @@
 /turf/open/floor/carpet/blue{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mc" = (
 /obj/machinery/door/airlock/titanium,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mi" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mm" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -760,7 +760,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mr" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -771,34 +771,34 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mt" = (
 /turf/closed/wall/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mu" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mG" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mR" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "mY" = (
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/turf_decal/siding/blue{
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nj" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Johann's Bar"
@@ -807,7 +807,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nu" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 10
@@ -816,46 +816,46 @@
 	dir = 6
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nI" = (
 /obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nL" = (
 /obj/structure/rack,
 /obj/item/clothing/suit/armor/vest/marine,
 /obj/item/clothing/head/helmet/marine,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nM" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nR" = (
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
 /obj/machinery/suit_storage_unit,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nT" = (
 /obj/effect/turf_decal/weather/sand,
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "nZ" = (
 /obj/structure/railing{
 	dir = 8
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oc" = (
 /obj/effect/turf_decal/siding/thinplating/light,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oj" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -864,13 +864,13 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "om" = (
 /obj/machinery/door/airlock{
 	name = "Guest Room"
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oo" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/wood{
@@ -879,7 +879,7 @@
 /obj/item/paper_bin/bundlenatural,
 /obj/item/pen,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oz" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -887,7 +887,7 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oF" = (
 /obj/effect/turf_decal/weather/sand,
 /obj/effect/turf_decal/weather/sand,
@@ -895,38 +895,38 @@
 	dir = 6
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oM" = (
 /obj/structure/table,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oS" = (
 /turf/closed/wall/mineral/iron,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "oT" = (
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pe" = (
 /obj/item/stack/sheet/mineral/sandstone,
 /obj/item/stack/sheet/mineral/sandstone,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pm" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pn" = (
 /obj/machinery/light/very_dim/directional/west,
 /obj/structure/chair/comfy/shuttle/tactical,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pq" = (
 /obj/machinery/door/airlock/wood{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pr" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled,
 /obj/structure/rack/shelf,
@@ -941,11 +941,11 @@
 	anchored = 1
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ps" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pt" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 4
@@ -954,13 +954,13 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pu" = (
 /obj/structure/chair/plastic{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pv" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -969,28 +969,28 @@
 	dir = 5
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "px" = (
 /obj/structure/fluff/beach_umbrella,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pB" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pE" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/cotton,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "pI" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/armory/laser_gun,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "qb" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -1001,40 +1001,40 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "qd" = (
 /obj/structure/railing/corner{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "qp" = (
 /obj/effect/turf_decal/weather/sand,
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "qu" = (
 /obj/machinery/light/very_dim/directional/west,
 /obj/item/mod/control/pre_equipped/marine,
 /obj/machinery/suit_storage_unit/industrial,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "qB" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "qW" = (
 /obj/structure/chair/wood{
 	dir = 4
 	},
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rc" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rf" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -1043,13 +1043,13 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rg" = (
 /obj/machinery/computer/communications{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rh" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -1057,31 +1057,31 @@
 /obj/machinery/light/small/directional/west,
 /obj/structure/dresser,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ri" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/carrot,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rl" = (
 /mob/living/basic/heretic_summon/rust_walker,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ru" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/chanter,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ry" = (
 /obj/structure/chair/stool/bar{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rH" = (
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rL" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -1092,40 +1092,40 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rN" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/turf_decal/siding/thinplating/light,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "rR" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sa" = (
 /turf/closed/mineral/earth_like,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sb" = (
 /obj/structure/table,
 /obj/machinery/microwave,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "se" = (
 /obj/structure/table,
 /obj/machinery/microwave,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sh" = (
 /obj/item/toy/beach_ball,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sj" = (
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sp" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -1133,43 +1133,43 @@
 /obj/machinery/light/small/directional/west,
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sq" = (
 /obj/structure/curtain,
 /obj/machinery/shower{
 	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sr" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/black,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sy" = (
 /obj/structure/chair/wood{
 	dir = 1
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sA" = (
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sD" = (
 /obj/effect/gibspawner/human,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sQ" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sS" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "sX" = (
 /obj/structure/mineral_door/wood{
 	name = "Bedroom"
@@ -1178,7 +1178,7 @@
 	dir = 1
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tq" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins{
 	name = "You shouldnt be here";
@@ -1188,10 +1188,10 @@
 	health = 2000
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tr" = (
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tC" = (
 /obj/structure/railing{
 	dir = 8
@@ -1200,34 +1200,34 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tD" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/south,
 /obj/structure/bedsheetbin,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tI" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tJ" = (
 /obj/structure/toilet{
 	dir = 4;
 	pixel_x = -2
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tQ" = (
 /obj/effect/turf_decal/siding/wood,
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tU" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/eggplant,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tW" = (
 /obj/structure/table,
 /obj/item/seeds/grass,
@@ -1235,7 +1235,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "tY" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
@@ -1244,7 +1244,7 @@
 	dir = 9
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ue" = (
 /obj/structure/railing{
 	dir = 9
@@ -1256,7 +1256,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uh" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
@@ -1266,17 +1266,17 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "un" = (
 /obj/effect/turf_decal/trimline/red/real_red/line,
 /turf/closed/wall/mineral/iron,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uu" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uy" = (
 /obj/structure/rack,
 /obj/machinery/light/directional/north,
@@ -1285,26 +1285,26 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uI" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/watermelon,
 /obj/item/shovel/spade,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uO" = (
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uT" = (
 /obj/structure/safe/floor,
 /obj/item/antag_granter/changeling,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uV" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "uW" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -1312,7 +1312,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vf" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -1320,7 +1320,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vp" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -1330,11 +1330,11 @@
 	},
 /obj/item/melee/roastingstick,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vy" = (
 /obj/machinery/pdapainter,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vE" = (
 /obj/structure/railing{
 	dir = 4
@@ -1343,16 +1343,16 @@
 	dir = 4
 	},
 /turf/open/floor/iron/stairs/right,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vF" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/wheat,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vI" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "vL" = (
 /obj/effect/turf_decal/trimline/red/real_red/arrow_ccw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
@@ -1362,25 +1362,25 @@
 	name = "Sam Site Missle rack"
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "we" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wf" = (
 /obj/machinery/computer/crew{
 	dir = 4
 	},
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wo" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wt" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
@@ -1391,7 +1391,7 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wu" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -1400,14 +1400,14 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ww" = (
 /obj/structure/statue/sandstone/assistant,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wF" = (
 /turf/closed/wall/mineral/titanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wH" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -1415,7 +1415,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wN" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -1424,7 +1424,7 @@
 	dir = 10
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wS" = (
 /obj/structure/closet/ammunitionlocker,
 /obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
@@ -1437,11 +1437,11 @@
 /obj/item/ammo_box/magazine/c40sol_rifle/standard,
 /obj/item/ammo_box/magazine/c40sol_rifle/standard,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "wZ" = (
 /obj/item/stack/sheet/mineral/sandstone,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xe" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "The 'Nutshack"
@@ -1450,11 +1450,11 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xj" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xo" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -1463,76 +1463,76 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xp" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 10
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xu" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/ripley_build_and_repair,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xx" = (
 /obj/structure/flora/tree/palm{
 	icon_state = "palm2"
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xy" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xz" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/aloe,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xE" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree1"
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xF" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xH" = (
 /obj/structure/toilet{
 	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xK" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "xO" = (
 /obj/structure/fence/door{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yc" = (
 /obj/structure/rack,
 /obj/item/storage/box/drinkingglasses,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yz" = (
 /turf/open/floor/iron/dark/diagonal,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yA" = (
 /obj/structure/railing/corner{
 	dir = 8
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yD" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 4
@@ -1541,39 +1541,39 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yE" = (
 /obj/machinery/door/airlock/external/ruin,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yG" = (
 /obj/structure/rack,
 /obj/item/gun/energy/modular_laser_rifle/carbine,
 /obj/item/gun/energy/modular_laser_rifle/carbine,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yQ" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "yS" = (
 /turf/closed/wall,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zv" = (
 /obj/structure/chair/wood{
 	dir = 8
 	},
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zD" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/cherry,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zI" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zQ" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -1581,56 +1581,56 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zU" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/banana,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zX" = (
 /obj/machinery/biogenerator,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "zZ" = (
 /obj/structure/table/wood/fancy/black,
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ac" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/bananalamp,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Al" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "An" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2"
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ap" = (
 /obj/machinery/vending/cigarette/beach,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ax" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "AA" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/plump,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "AD" = (
 /obj/structure/table,
 /obj/structure/sink{
@@ -1639,65 +1639,65 @@
 	pixel_x = 13
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "AM" = (
 /obj/structure/window/reinforced/plasma/plastitanium,
 /obj/machinery/door/poddoor/shutters,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "AS" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "AY" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Bd" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Be" = (
 /obj/structure/table,
 /obj/item/pizzabox/meat,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Bi" = (
 /obj/structure/table,
 /obj/machinery/recharger,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Bl" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
 	},
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Bq" = (
 /obj/machinery/door/airlock/wood,
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "BP" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "BV" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "BX" = (
 /obj/machinery/vending/boozeomat{
 	set_obj_flags = "EMAGGED"
 	},
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "BY" = (
 /obj/machinery/deployable_turret/hmg,
 /obj/structure/railing{
@@ -1707,13 +1707,13 @@
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ca" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Cf" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -1727,29 +1727,29 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ck" = (
 /obj/structure/bonfire/prelit,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Cv" = (
 /obj/structure/reagent_dispensers/watertank/high,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Cz" = (
 /obj/structure/chair/office{
 	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CC" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CF" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 4
@@ -1759,20 +1759,20 @@
 	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CG" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CJ" = (
 /obj/machinery/light/directional/south,
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CS" = (
 /obj/machinery/telecomms/hub,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CT" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
@@ -1780,7 +1780,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "CW" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
@@ -1791,7 +1791,7 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Dj" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 4
@@ -1803,7 +1803,7 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Dk" = (
 /obj/structure/railing{
 	dir = 4
@@ -1813,7 +1813,7 @@
 	},
 /obj/item/melee/roastingstick,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Dy" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -1822,23 +1822,23 @@
 	dir = 10
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DC" = (
 /obj/item/stack/sheet/mineral/sandbags/fifty,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DD" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/bamboo,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DL" = (
 /obj/machinery/power/apc/worn_out/directional/north,
 /obj/structure/cable,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DM" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
@@ -1846,15 +1846,15 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DP" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled,
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DT" = (
 /obj/structure/chair/plastic,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "DX" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 1
@@ -1862,13 +1862,13 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ed" = (
 /obj/machinery/shower{
 	pixel_y = 15
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Em" = (
 /obj/structure/railing{
 	dir = 9
@@ -1880,13 +1880,13 @@
 	dir = 8
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "En" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Er" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -1897,13 +1897,13 @@
 /turf/open/floor/carpet/purple{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Eu" = (
 /obj/structure/chair/plastic{
 	dir = 8
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ew" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -1911,26 +1911,26 @@
 	},
 /obj/machinery/door/airlock/wood,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ex" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ez" = (
 /obj/structure/chair/stool/bar{
 	dir = 8
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "EH" = (
 /obj/structure/chair/wood{
 	dir = 1
 	},
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "EJ" = (
 /obj/effect/turf_decal/trimline/red/real_red/arrow_cw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
@@ -1940,20 +1940,20 @@
 	name = "Sam Site Missle rack"
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "EN" = (
 /turf/open/floor/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "EQ" = (
 /mob/living/basic/trooper/nanotrasen/peaceful{
 	name = "Scared man"
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ER" = (
 /obj/structure/railing,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ES" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -1962,39 +1962,39 @@
 	dir = 10
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "EU" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 10
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FF" = (
 /obj/machinery/light/directional/north,
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FI" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FL" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FM" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/black,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FO" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -2004,13 +2004,13 @@
 	dir = 10
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FT" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "FW" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -2019,7 +2019,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ga" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/effect/turf_decal/siding/wood/corner{
@@ -2028,59 +2028,59 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Gd" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 5
 	},
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Gh" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Gk" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Gq" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/tea,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Gt" = (
 /obj/structure/railing{
 	dir = 4
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GE" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/iron/dark/diagonal,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GI" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GJ" = (
 /obj/structure/rack,
 /obj/item/storage/fancy/donut_box,
 /obj/item/storage/fancy/donut_box,
 /obj/item/storage/fancy/donut_box,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GM" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -2091,7 +2091,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -2099,12 +2099,12 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "GZ" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/closet/crate/freezer,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hi" = (
 /obj/structure/railing{
 	dir = 6
@@ -2114,18 +2114,18 @@
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hk" = (
 /obj/effect/turf_decal/weather/sand,
 /obj/effect/turf_decal/weather/sand,
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ho" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hp" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
@@ -2134,7 +2134,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hu" = (
 /obj/structure/table,
 /obj/machinery/light/directional/north,
@@ -2142,14 +2142,14 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hv" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hx" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -2157,51 +2157,51 @@
 /obj/machinery/door/poddoor/shutters/indestructible,
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Hz" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "HA" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "HJ" = (
 /obj/structure/chair/plastic{
 	dir = 1
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "HO" = (
 /obj/machinery/seed_extractor,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "HW" = (
 /obj/structure/table,
 /obj/item/stack/sheet/mineral/coal/ten,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ia" = (
 /obj/structure/bonfire/prelit,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ib" = (
 /obj/structure/fence{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ie" = (
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Im" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Beachside Inn"
@@ -2211,7 +2211,7 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "In" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -2220,31 +2220,31 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Io" = (
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ip" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 6
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ir" = (
 /turf/closed/indestructible/rock,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "IA" = (
 /obj/machinery/light/small/directional/south,
 /obj/item/kirbyplants/random,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "IC" = (
 /obj/structure/filingcabinet,
 /obj/machinery/light/small/directional/west,
 /obj/effect/turf_decal/box,
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "IP" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -2252,19 +2252,19 @@
 /obj/machinery/door/poddoor/shutters/indestructible,
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating/airless,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "IR" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer{
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "IZ" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Jh" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -2272,13 +2272,13 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Jl" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Jw" = (
 /obj/machinery/light/directional/south,
 /obj/structure/chair/comfy/shuttle{
@@ -2286,23 +2286,23 @@
 	},
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "JQ" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "JS" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/apple,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "JU" = (
 /obj/structure/table/wood,
 /obj/machinery/light/dim/directional/south,
 /turf/open/floor/carpet/black,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "JW" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
@@ -2311,13 +2311,13 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "JY" = (
 /obj/structure/chair,
 /obj/effect/turf_decal/box,
 /mob/living/basic/heretic_summon/rust_walker,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Kc" = (
 /obj/effect/turf_decal/siding/thinplating/light{
 	dir = 4
@@ -2328,7 +2328,7 @@
 	},
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Kk" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -2336,17 +2336,17 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Kn" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/wheat/rice,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ko" = (
 /obj/machinery/door/airlock/titanium,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Kx" = (
 /obj/effect/heretic_rune/big,
 /mob/living/basic/construct/harvester/heretic{
@@ -2355,12 +2355,12 @@
 	health = 500
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KB" = (
 /obj/machinery/light/directional/south,
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KC" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -2368,26 +2368,26 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KD" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KE" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KN" = (
 /obj/structure/chair/stool/bar{
 	dir = 1
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KO" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KS" = (
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
 	pixel_y = 9;
@@ -2396,7 +2396,7 @@
 	name = "Sam Site Missle rack"
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KT" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
@@ -2405,36 +2405,36 @@
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "KU" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/potato,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Lc" = (
 /obj/structure/table/wood,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ln" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Lo" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Lp" = (
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Lr" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/orange,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Lz" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
@@ -2443,7 +2443,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "LN" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
@@ -2454,11 +2454,11 @@
 /turf/open/floor/carpet/blue{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "LR" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "LX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2470,30 +2470,30 @@
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mi" = (
 /turf/open/space/basic,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mk" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "The 'Nutshack";
 	dir = 8
 	},
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mm" = (
 /obj/structure/sink{
 	pixel_y = 17
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mn" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mp" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -2504,31 +2504,31 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mq" = (
 /obj/machinery/telecomms/processor,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Mu" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ME" = (
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "MG" = (
 /obj/structure/chair/office{
 	dir = 4
 	},
 /obj/effect/turf_decal/box,
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "MP" = (
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "MR" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 1
@@ -2537,33 +2537,33 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "MV" = (
 /obj/item/cultivator/rake,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "MY" = (
 /obj/structure/table,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ne" = (
 /obj/machinery/light/floor,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ni" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/wiki/medicine,
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Np" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ns" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2571,61 +2571,61 @@
 /obj/machinery/light/small/directional/west,
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Nv" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Nw" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/sugarcane,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "NA" = (
 /obj/structure/table/wood,
 /obj/machinery/light/dim/directional/east,
 /turf/open/floor/carpet/black,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ND" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "NS" = (
 /obj/item/shovel/spade,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "NT" = (
 /obj/structure/fence{
 	dir = 9;
 	icon_state = "corner"
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "NV" = (
 /obj/structure/flora/tree/palm,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "NX" = (
 /obj/machinery/light/very_dim/directional/east,
 /obj/item/mod/control/pre_equipped/marine,
 /obj/machinery/suit_storage_unit/industrial,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Od" = (
 /obj/machinery/light/floor,
 /turf/closed/wall/mineral/titanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Oe" = (
 /obj/machinery/light/small/directional/south,
 /obj/structure/ai_core/deactivated{
 	name = "Apollo"
 	},
 /turf/open/floor/pod/light,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Of" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2633,83 +2633,83 @@
 /obj/effect/visible_heretic_influence,
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Oh" = (
 /obj/structure/railing,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ov" = (
 /obj/structure/rack,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "OH" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "OK" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 10
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "OP" = (
 /obj/structure/closet,
 /obj/item/grenade/c4,
 /obj/item/grenade/c4,
 /obj/item/grenade/c4,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "OT" = (
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "OU" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "OW" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Pe" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/blue/corner,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Pf" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ph" = (
 /obj/effect/spawner/structure/window,
 /obj/structure/curtain/cloth/fancy,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Pm" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Pp" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ps" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -2720,22 +2720,22 @@
 /turf/open/floor/carpet/purple{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "PA" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/cloth,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "PC" = (
 /obj/structure/flora/rock/pile,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "PE" = (
 /obj/effect/turf_decal/weather/sand,
 /turf/closed/indestructible/rock,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "PF" = (
 /obj/structure/railing{
 	dir = 1
@@ -2744,20 +2744,20 @@
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "PH" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Qf" = (
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Qo" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Qy" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -2766,32 +2766,32 @@
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "QA" = (
 /obj/item/shovel/spade,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "QI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
 /obj/structure/dresser,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "QK" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/rifle/sniper_rifle,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "QM" = (
 /obj/machinery/door/airlock{
 	name = "Employees Only";
 	dir = 4
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Rm" = (
 /obj/structure/chair/stool/bar{
 	dir = 8
@@ -2800,48 +2800,48 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ru" = (
 /obj/effect/gibspawner/human,
 /turf/open/floor/iron/dark/diagonal,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Rz" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "RK" = (
 /obj/structure/chair/stool/bar{
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "RM" = (
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "RQ" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/chili,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "RS" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/weather/sand,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Sc" = (
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Sg" = (
 /obj/structure/rack,
 /obj/item/shovel/spade,
 /obj/item/shovel/spade,
 /obj/item/shovel/spade,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Sh" = (
 /obj/machinery/power/rtg/debug{
 	power_gen = 2000000;
@@ -2849,11 +2849,11 @@
 	},
 /obj/structure/cable,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Sm" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Sp" = (
 /obj/effect/turf_decal/sand/plating{
 	light_range = 2
@@ -2865,18 +2865,18 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "SC" = (
 /obj/structure/fence/door,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "SF" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "SY" = (
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
 	pixel_y = 8;
@@ -2885,18 +2885,18 @@
 	name = "Sam Site Missle rack"
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Tj" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/blue,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Tl" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Tm" = (
 /obj/structure/railing{
 	dir = 5
@@ -2908,37 +2908,37 @@
 	dir = 1
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Tp" = (
 /obj/structure/dresser,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Tq" = (
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/effect/turf_decal/weather/sand,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "TA" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Uc" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ud" = (
 /turf/closed/wall/mineral/sandstone,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Un" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Up" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -2948,29 +2948,29 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Uq" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Us" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/lemon,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Uz" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 6
 	},
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UA" = (
 /obj/structure/chair/wood,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UF" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
@@ -2978,14 +2978,14 @@
 /turf/open/floor/carpet/orange{
 	baseturfs = /turf/open/misc/beach/sand
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UH" = (
 /obj/structure/chair/office{
 	dir = 1
 	},
 /obj/effect/turf_decal/box,
 /turf/open/floor/carpet/red,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UN" = (
 /obj/structure/table,
 /obj/item/binoculars,
@@ -2993,14 +2993,14 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/cyan,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UP" = (
 /obj/machinery/door/airlock{
 	name = "Employees Only";
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UT" = (
 /obj/structure/railing{
 	dir = 8
@@ -3009,7 +3009,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "UX" = (
 /obj/structure/railing{
 	dir = 8
@@ -3018,16 +3018,16 @@
 	dir = 8
 	},
 /turf/open/floor/iron/stairs/left,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Vf" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Vr" = (
 /obj/structure/bed,
 /turf/open/floor/carpet,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VI" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -3035,19 +3035,19 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plating/airless,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VJ" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/coffee,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VK" = (
 /obj/structure/fence{
 	dir = 5;
 	icon_state = "corner"
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VP" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/coal/ten,
@@ -3059,18 +3059,18 @@
 /obj/item/stack/sheet/mineral/coal/ten,
 /obj/item/stack/sheet/mineral/coal/ten,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VQ" = (
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/marine,
 /obj/item/clothing/suit/armor/vest/marine,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VS" = (
 /obj/structure/table,
 /obj/machinery/processor,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VT" = (
 /obj/effect/turf_decal/sand/plating{
 	light_range = 2
@@ -3085,7 +3085,7 @@
 	desc = "A beachside closet. It's got enough cabinets for an entire town's worth of t-shirts and jeans."
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VU" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
@@ -3094,11 +3094,11 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VV" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "VZ" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -3106,51 +3106,51 @@
 	dir = 4
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Wd" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 8
 	},
 /turf/open/water/beach,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "We" = (
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Wh" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ws" = (
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Wu" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ww" = (
 /obj/machinery/door/airlock{
 	name = "Employees Only"
 	},
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Wz" = (
 /obj/machinery/door/airlock/titanium,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "WC" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "WR" = (
 /obj/effect/turf_decal/sand/plating{
 	light_range = 2
@@ -3163,35 +3163,35 @@
 	desc = "A beachside closet. It's got enough cabinets for an entire town's worth of t-shirts and jeans."
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "WW" = (
 /obj/effect/turf_decal/siding/blue/corner,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Xb" = (
 /obj/machinery/gateway,
 /turf/open/floor/pod/dark,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Xc" = (
 /obj/effect/mob_spawn/corpse/human,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Xk" = (
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Xs" = (
 /obj/structure/chair/stool/bar,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XC" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/cocoapod,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XI" = (
 /obj/structure/table/wood/fancy/black,
 /turf/open/floor/iron/white,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XJ" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -3200,13 +3200,13 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XQ" = (
 /obj/machinery/computer/telecomms/monitor{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XS" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 1
@@ -3214,22 +3214,22 @@
 /obj/machinery/light/directional/east,
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XV" = (
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "XY" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Ya" = (
 /obj/item/hatchet/wooden,
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Yw" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -3239,16 +3239,16 @@
 	},
 /obj/effect/turf_decal/siding/blue/corner,
 /turf/open/floor/carpet/royalblack,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Yy" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "YE" = (
 /obj/structure/fluff/beach_umbrella/engine,
 /turf/open/misc/beach/sand,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "YL" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -3257,7 +3257,7 @@
 /turf/open/floor/wood{
 	light_range = 2
 	},
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "YW" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
@@ -3265,33 +3265,33 @@
 	},
 /obj/structure/closet/crate/bin,
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "YX" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/iron/dark/diagonal,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Zc" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/carpet/green,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Zf" = (
 /obj/machinery/door/airlock{
 	name = "Bathroom"
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "Zo" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ZM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ZP" = (
 /obj/structure/railing{
 	dir = 10
@@ -3301,7 +3301,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 "ZW" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 9
@@ -3310,7 +3310,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission/beach)
+/area/awaymission/heretic)
 
 (1,1,1) = {"
 Ir
