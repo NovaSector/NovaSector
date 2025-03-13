@@ -113,7 +113,7 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
 	req_access = list(ACCESS_TARKON)
 	cargo_account = ACCOUNT_TI
-	
+
 /obj/machinery/computer/cargo/express/interdyne/tarkon/Initialize(mapload)
 	var/static/list/categories = list(
 		TARKON_NAME,
