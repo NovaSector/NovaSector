@@ -170,6 +170,8 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		load_from = ghost_cafe_rooms_apartment
 	else if(chosen_room == "Beach Condo")
 		load_from = ghost_cafe_rooms_beach_condo
+	else if(chosen_room == "Shuttle")
+		load_from = ghost_cafe_rooms_shuttle
 	//NOVA EDIT ADDITION END
 
 	load_from.load(bottom_left)
