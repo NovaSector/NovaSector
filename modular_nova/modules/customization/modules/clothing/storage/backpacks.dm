@@ -47,6 +47,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
+	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/interdyne
 	name = "\improper Interdyne backpack"
@@ -58,7 +59,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
-
+	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/satchel/interdyne
 	name = "\improper Interdyne satchel"
@@ -70,7 +71,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
-
+	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne
 	name = "\improper Interdyne Duffelbag"
@@ -82,3 +83,4 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/back.dmi'
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/backpack_righthand.dmi'
+	resistance_flags = FIRE_PROOF
