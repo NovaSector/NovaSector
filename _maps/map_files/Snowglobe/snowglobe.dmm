@@ -17878,9 +17878,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/structure/chair/sofa/left/brown{
-	dir = 1
-	},
+/obj/machinery/food_cart,
 /turf/open/floor/wood/tile,
 /area/station/service/kitchen/diner)
 "eQq" = (
@@ -43257,6 +43255,10 @@
 	pixel_x = -13;
 	pixel_y = 0
 	},
+/obj/item/storage/bag/chemistry{
+	pixel_x = 1;
+	pixel_y = -6
+	},
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/medical/virology)
 "lBO" = (
@@ -50118,9 +50120,7 @@
 "nxH" = (
 /obj/structure/window/spawner/directional/south,
 /obj/effect/turf_decal/siding/wood,
-/obj/structure/chair/sofa/right/brown{
-	dir = 1
-	},
+/obj/machinery/icecream_vat,
 /turf/open/floor/wood/tile,
 /area/station/service/kitchen/diner)
 "nxL" = (
@@ -248115,7 +248115,7 @@ dOY
 xCF
 kYF
 fdf
-goZ
+nxH
 qmr
 dgr
 oyQ
@@ -248372,7 +248372,7 @@ nEu
 nEu
 uBr
 oKV
-nxH
+lZd
 dmw
 iJQ
 rSU
