@@ -19,9 +19,16 @@
 //cargo supply pack for items
 /datum/supply_pack/service/forging_items
 	name = "Forging Starter Item Pack"
-	desc = "Featuring: Forging. This pack is full of three items necessary to start your forging career: tongs, hammer, and billow."
-	cost = CARGO_CRATE_VALUE * 4
-	contains = list(/obj/item/forging/tongs, /obj/item/forging/hammer, /obj/item/forging/billow)
+	desc = "Featuring: Forging. This pack is full of the items necessary to start your forging career: tongs, hammer, billow, iron, coal, wood."
+	cost = CARGO_CRATE_VALUE * 2.5
+	contains = list(
+		/obj/item/forging/tongs,
+		/obj/item/forging/hammer,
+		/obj/item/forging/billow,
+		/obj/item/stack/sheet/iron/twenty,
+		/obj/item/stack/sheet/mineral/coal/five,
+		/obj/item/stack/sheet/mineral/wood/thirty,
+	)
 	crate_name = "forging start items"
 	crate_type = /obj/structure/closet/crate/forging_items
 

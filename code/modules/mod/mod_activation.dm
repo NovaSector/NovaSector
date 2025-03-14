@@ -266,7 +266,8 @@
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.alternate_worn_layer = part_datum.unsealed_layer
-	// generate_suit_mask() NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	//generate_suit_mask() // NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
 	wearer.update_obscured_slots(part.visor_flags_inv)
 	if((part.clothing_flags & (MASKINTERNALS|HEADINTERNALS)) && wearer.invalid_internals())
@@ -310,10 +311,9 @@
 			if(!module.active || (module.allow_flags & MODULE_ALLOW_INACTIVE))
 				continue
 			module.deactivate(display_message = FALSE)
-	update_speed()
 	update_charge_alert()
 	update_appearance(UPDATE_ICON_STATE)
-	// generate_suit_mask() NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	//generate_suit_mask() // NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
 	wearer.update_clothing(slot_flags)
 
 /// Quickly deploys all the suit parts and if successful, seals them and turns on the suit. Intended mostly for outfits.
