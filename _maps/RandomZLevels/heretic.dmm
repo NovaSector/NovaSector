@@ -1252,11 +1252,7 @@
 /turf/open/floor/iron/shuttle,
 /area/awaymission/heretic)
 "uh" = (
-/obj/structure/table/wood,
-/obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 4
-	},
-/obj/machinery/light/small/directional/west,
+/obj/machinery/chem_dispenser/drinks,
 /turf/open/floor/wood{
 	light_range = 2
 	},
@@ -2035,10 +2031,7 @@
 /turf/open/floor/carpet,
 /area/awaymission/heretic)
 "Gk" = (
-/obj/structure/table/wood,
-/obj/machinery/chem_dispenser/drinks/fullupgrade{
-	dir = 4
-	},
+/obj/machinery/chem_dispenser/drinks,
 /turf/open/floor/iron/white,
 /area/awaymission/heretic)
 "Gq" = (
@@ -2121,10 +2114,8 @@
 	},
 /area/awaymission/heretic)
 "Hp" = (
-/obj/structure/table/wood,
-/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
-	dir = 4
-	},
+/obj/machinery/chem_dispenser/drinks/beer,
+/turf/open/space/basic,
 /turf/open/floor/wood{
 	light_range = 2
 	},
@@ -2248,10 +2239,7 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/heretic)
 "IR" = (
-/obj/structure/table/wood,
-/obj/machinery/chem_dispenser/drinks/beer{
-	dir = 4
-	},
+/obj/machinery/chem_dispenser/drinks/beer,
 /turf/open/floor/iron/white,
 /area/awaymission/heretic)
 "IZ" = (
