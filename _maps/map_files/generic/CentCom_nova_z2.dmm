@@ -6379,6 +6379,17 @@
 	name = "ERT Bay"
 	},
 /area/centcom/interlink)
+"eAK" = (
+/obj/structure/sign/poster/random/directional/north,
+/obj/effect/turf_decal/trimline/dark_green/filled/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "eDy" = (
 /obj/structure/sauna_oven,
 /turf/open/floor/wood/large,
@@ -7169,6 +7180,11 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"fUK" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/dark,
+/area/centcom/interlink)
 "fUQ" = (
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock{
@@ -9403,6 +9419,13 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafepark)
+"jHu" = (
+/obj/machinery/door/airlock{
+	name = "Cabin"
+	},
+/obj/machinery/nova/fan/self_powered,
+/turf/open/floor/iron,
+/area/centcom/interlink/dorm_rooms)
 "jHv" = (
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/wood,
@@ -11013,6 +11036,7 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "mvL" = (
@@ -15008,13 +15032,6 @@
 	dir = 8
 	},
 /area/centcom/holding/cafepark)
-"snU" = (
-/obj/machinery/door/airlock{
-	name = "Cabin"
-	},
-/obj/machinery/nova/fan/self_powered,
-/turf/open/floor/iron,
-/area/centcom/interlink/dorm_rooms)
 "sow" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -15851,6 +15868,13 @@
 "tCJ" = (
 /obj/effect/turf_decal/caution,
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"tCN" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "tDj" = (
 /obj/structure/rack/shelf{
@@ -33011,7 +33035,7 @@ vat
 vat
 cNw
 tvw
-lBC
+rtF
 nJp
 kfb
 iPs
@@ -34290,13 +34314,13 @@ tvw
 tvw
 tvw
 tvw
-lPi
+tvw
 lPi
 lPi
 lPi
 tvw
 tvw
-vzH
+eAK
 nJp
 tvw
 tvw
@@ -34546,8 +34570,8 @@ pEH
 wIA
 gWk
 wIA
-pEH
 wIA
+fUK
 wIA
 wIA
 wIA
@@ -35836,9 +35860,9 @@ pHQ
 pZh
 pZh
 eOx
-jtl
+tCN
 tvw
-hvQ
+tWA
 hvQ
 tvw
 wXo
@@ -36341,12 +36365,12 @@ aXG
 aXG
 mDs
 hvQ
+aTS
 hvQ
 hvQ
 hvQ
 hvQ
-hvQ
-hvQ
+aTS
 hvQ
 pry
 aXG
@@ -37655,7 +37679,7 @@ iph
 uDT
 lcR
 lcR
-snU
+jHu
 lcR
 tvw
 oso
@@ -39197,7 +39221,7 @@ iph
 uDT
 lcR
 lcR
-snU
+jHu
 lcR
 tvw
 sga
@@ -40739,7 +40763,7 @@ iph
 uDT
 lcR
 lcR
-snU
+jHu
 lcR
 tvw
 hvQ
