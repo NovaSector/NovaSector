@@ -130,7 +130,7 @@
 "gQ" = (
 /obj/structure/chair/sofa/corp/corner,
 /obj/machinery/light/warm/directional/east,
-/obj/item/toy/plush/nova/breakdancing_bird,
+/obj/item/toy/plush/nova/donator/breakdancing_bird,
 /turf/open/floor/carpet,
 /area/misc/hilbertshotel)
 "ho" = (
