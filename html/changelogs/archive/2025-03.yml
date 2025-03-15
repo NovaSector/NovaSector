@@ -718,3 +718,13 @@
   SuperDrish:
   - rscadd: AI Uplink Brain is now available at your local RnD
   - bugfix: AI Uplink Brain now works properly with self-actualizator
+2025-03-15:
+  RealWinterFrost:
+  - rscadd: Adds functional syndicate medals for DS-2
+  - rscadd: Adds a large amount of accessories to the loadouts menu
+  - rscadd: Adds new GAGS ribbons to loadouts menu
+  - rscadd: Adds new GAGS neckpins to loadouts
+  - code_imp: Added Syndicate neckpin to Syndidrobe
+  - image: Adds a large amount of medals with GAGs support for Nova Sector
+  - map: Adds a lockbox with "SYNDICATE_LEADER_ACCESS" to DS-2 Admiral's locker, containing
+      medals specifically tailored for DS-2/Syndicate

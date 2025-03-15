@@ -1,0 +1,5 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - map: "moves DS-2 cargo boards to a table in the vault"
+  - map: "adds an autodrobe to ds-2 dormitories"
