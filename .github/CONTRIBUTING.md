@@ -35,7 +35,7 @@ First things first, we want to make it clear how you can contribute (if you've n
 If you want to contribute the first thing you'll need to do is [set up Git](https://hackmd.io/@tgstation/HJ8OdjNBc) so you can download the source code.
 After setting it up, optionally navigate your git commandline to the project folder and run the command: `git config blame.ignoreRevsFile .git-blame-ignore-revs`.
 
-We have a [list of guides on the wiki](http://www.tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to /tg/station with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
+We have a [list of guides on the wiki](http://tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to /tg/station with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
 There is an open list of approachable issues for [your inspiration here](https://github.com/tgstation/tgstation/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).
 
@@ -98,13 +98,13 @@ Our team is entirely voluntary, as such we extend our thanks to maintainers, iss
 
 ## Development Guides
 
-#### Writing readable code 
+#### Writing readable code
 [Style guide](./guides/STYLE.md)
 
-#### Writing sane code 
+#### Writing sane code
 [Code standards](./guides/STANDARDS.md)
 
-#### Writing understandable code 
+#### Writing understandable code
 [Autodocumenting code](./guides/AUTODOC.md)
 
 #### Misc
@@ -158,7 +158,7 @@ Negative GBP increases the likelihood of a maintainer closing your PR. With that
 
 There is no benefit to having a higher positive GBP score, since GBP only comes into consideration when it is negative.
 
-You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml). 
+You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml).
 
 ## Porting features/sprites/sounds/tools from other codebases
 

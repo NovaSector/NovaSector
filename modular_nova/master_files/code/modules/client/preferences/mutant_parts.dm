@@ -474,6 +474,7 @@
 	generate_icons = TRUE
 	crop_area = list(11, 22, 21, 32) // We want just the head.
 	greyscale_color = DEFAULT_SYNTH_SCREEN_COLOR
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/ipc_screen/is_part_enabled(datum/preferences/preferences)
 	return TRUE
@@ -516,6 +517,7 @@
 	savefile_key = "feature_ipc_antenna"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 	default_accessory_type = /datum/sprite_accessory/antenna/none
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/synth_antenna/is_part_enabled(datum/preferences/preferences)
 	return TRUE
@@ -548,6 +550,7 @@
 	generate_icons = TRUE
 	crop_area = list(8, 8, 24, 24) // We want just the body.
 	greyscale_color = DEFAULT_SYNTH_PART_COLOR
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/synth_chassis/generate_icon_state(datum/sprite_accessory/sprite_accessory, original_icon_state)
 	// If this isn't the right type, we have much bigger problems.
@@ -582,6 +585,7 @@
 	generate_icons = TRUE
 	crop_area = list(11, 22, 21, 32) // We want just the head.
 	greyscale_color = DEFAULT_SYNTH_PART_COLOR
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/synth_head/generate_icon_state(datum/sprite_accessory/sprite_accessory, original_icon_state)
 	// If this isn't the right type, we have much bigger problems.
@@ -827,6 +831,7 @@
 	default_accessory_type = /datum/sprite_accessory/pod_hair/ivy
 	should_generate_icons = TRUE
 	generate_icons = TRUE
+	flexible_mismatch = FALSE
 
 /datum/preference/choiced/mutant_choice/pod_hair/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.pod_hair_list)
