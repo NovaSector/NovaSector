@@ -19,6 +19,7 @@ GLOBAL_LIST_INIT(pet_options, list(
 	),
 	PET_OPTION_FOX = list(
 		/mob/living/basic/pet/fox,
+		/mob/living/basic/pet/fox/docile/sweater, // NOVA EDIT - ADDITION
 	),
 	PET_OPTION_VERMIN = list(
 		/mob/living/basic/mothroach,
