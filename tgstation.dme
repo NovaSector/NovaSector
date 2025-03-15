@@ -6784,6 +6784,7 @@
 #include "modular_nova\master_files\code\game\objects\items\storage\belt.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\boxes.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\job_boxes.dm"
+#include "modular_nova\master_files\code\game\objects\items\storage\lockbox.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\toolbox.dm"
 #include "modular_nova\master_files\code\game\objects\items\tools\weldingtool.dm"
 #include "modular_nova\master_files\code\game\objects\structures\mannequin.dm"
