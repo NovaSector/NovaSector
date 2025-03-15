@@ -11,10 +11,10 @@
 	landing_zone_y_offset = 5
 
 /datum/map_template/condo/apartment
-	name = "Condo - Alleyway"
+	name = "Condo - Apartment"
 	mappath = "modular_nova/modules/condos/_maps/apartment.dmm"
 	landing_zone_x_offset = 2
-	landing_zone_y_offset = 5
+	landing_zone_y_offset = 8
 
 /// Wowee! It's like I'm a real terrorist!
 /// This particular one was cooler with wallening window frames and short stairs.. alas. twas not to be
