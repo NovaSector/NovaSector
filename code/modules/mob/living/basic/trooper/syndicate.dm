@@ -189,7 +189,7 @@
 	casingtype = /obj/item/ammo_casing/shotgun/buckshot //buckshot (up to 72.5 brute) fired in a two-round burst
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/shotgunner
 	ranged_cooldown = 3 SECONDS
-	burst_shots = 2
+	burst_shots = 1 // NOVA EDIT (prevents instant one-tap) - Original: burst_shots = 2
 	r_hand = /obj/item/gun/ballistic/shotgun/bulldog
 
 /mob/living/basic/trooper/syndicate/ranged/shotgun/space
