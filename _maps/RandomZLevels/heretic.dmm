@@ -251,7 +251,7 @@
 /area/awaymission/heretic)
 "ep" = (
 /obj/machinery/grill,
-/turf/open/space/basic,
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "ex" = (
 /obj/effect/turf_decal/sand,
@@ -1975,7 +1975,7 @@
 "HW" = (
 /obj/structure/table,
 /obj/item/stack/sheet/mineral/coal/ten,
-/turf/open/space/basic,
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ia" = (
 /obj/structure/bonfire/prelit,
@@ -13894,7 +13894,7 @@ XV
 XV
 XV
 XV
-sj
+XV
 XV
 XV
 XV
