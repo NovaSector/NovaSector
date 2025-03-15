@@ -25,12 +25,12 @@
 
 /turf/closed/indestructible/normal_wall
 	name = "wall"
-	icon = 'icons/turf/walls/wall.dmi'
+	icon = 'modular_nova/modules/aesthetics/walls/icons/wall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	canSmoothWith = SMOOTH_GROUP_WALLS
+	canSmoothWith = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 
 /turf/closed/indestructible/fakedoor/blast_door
 	name = /obj/machinery/door/poddoor::name
