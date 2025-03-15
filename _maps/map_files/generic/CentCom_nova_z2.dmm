@@ -7110,6 +7110,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/railing{
+	invisibility = 100;
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "fRe" = (
@@ -13040,6 +13044,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/railing{
+	invisibility = 100;
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "pwO" = (
@@ -13855,6 +13863,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/railing{
+	invisibility = 100;
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "qze" = (
@@ -14219,6 +14231,10 @@
 "rfL" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	invisibility = 100;
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -14921,6 +14937,9 @@
 "sjb" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	invisibility = 100
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "sjC" = (
@@ -16009,6 +16028,9 @@
 "tUA" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	invisibility = 100
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "tUL" = (
@@ -16329,6 +16351,9 @@
 /area/centcom/interlink)
 "ukp" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/railing{
+	invisibility = 100
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "uks" = (
@@ -16980,6 +17005,10 @@
 	},
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	invisibility = 100;
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -18118,6 +18147,10 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	invisibility = 100;
 	dir = 1
 	},
 /turf/open/floor/iron,
