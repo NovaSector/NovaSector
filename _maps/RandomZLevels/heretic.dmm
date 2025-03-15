@@ -222,12 +222,6 @@
 /obj/item/storage/fancy/candle_box,
 /turf/open/floor/wood,
 /area/awaymission/heretic)
-"dY" = (
-/obj/effect/turf_decal/weather/sand{
-	dir = 1
-	},
-/turf/closed/indestructible/rock,
-/area/awaymission/heretic)
 "eh" = (
 /obj/structure/railing{
 	dir = 4
@@ -2471,9 +2465,6 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/heretic)
-"Mi" = (
-/turf/open/space/basic,
-/area/awaymission/heretic)
 "Mk" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "The 'Nutshack";
@@ -2731,10 +2722,6 @@
 "PC" = (
 /obj/structure/flora/rock/pile,
 /turf/open/misc/grass/jungle/station,
-/area/awaymission/heretic)
-"PE" = (
-/obj/effect/turf_decal/weather/sand,
-/turf/closed/indestructible/rock,
 /area/awaymission/heretic)
 "PF" = (
 /obj/structure/railing{
@@ -3388,7 +3375,6 @@ Ir
 Ir
 Ir
 Ir
-PE
 Ir
 Ir
 Ir
@@ -3407,7 +3393,8 @@ Ir
 Ir
 Ir
 Ir
-dY
+Ir
+Ir
 Ir
 Ir
 Ir
@@ -9789,7 +9776,7 @@ XV
 XV
 Ws
 mi
-Mi
+Io
 Io
 lk
 Io
@@ -13604,8 +13591,8 @@ Io
 Io
 Io
 Io
-XV
-XV
+Io
+Io
 XV
 XV
 XV
