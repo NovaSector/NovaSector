@@ -48,7 +48,7 @@
 		name = dryname
 		desc = drydesc
 		bloodiness = 0
-		color = COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
+		color = list(0.5,0,0,0, 0,0.5,0,0, 0,0,0.5,0, 0,0,0,1, 0,0,0,0)  //not all blood splatters have their own sprites... It still looks pretty nice // NOVA EDIT CHANGE - ORIGINAL: color = COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
 
@@ -114,7 +114,7 @@
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"
 	desc = "They look bloody and gruesome."
-	icon = 'icons/effects/blood.dmi'
+	icon = 'icons/effects/blood_gray.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
 	layer = GIB_LAYER
 	plane = GAME_PLANE
@@ -132,6 +132,10 @@
 	. = ..()
 	AddElement(/datum/element/squish_sound)
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
+	// NOVA EDIT ADDITION START
+	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = RESET_COLOR)
+	add_overlay(gib_overlay)
+	// NOVA EDIT ADDITION END
 
 /obj/effect/decal/cleanable/blood/gibs/Destroy()
 	return ..()
@@ -257,6 +261,7 @@
 
 	dryname = "dried footprints"
 	drydesc = "HMM... SOMEONE WAS HERE!"
+	color = "#FF291E" // NOVA EDIT ADDITION
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload, footprint_sprite)
 	src.footprint_sprite = footprint_sprite
@@ -318,12 +323,14 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 			var/image/bloodstep_overlay = GLOB.bloody_footprints_cache["entered-[footprint_sprite]-[blood_state]-[Ddir]"]
 			if(!bloodstep_overlay)
 				GLOB.bloody_footprints_cache["entered-[footprint_sprite]-[blood_state]-[Ddir]"] = bloodstep_overlay = image(icon, "[blood_state]_[footprint_sprite]_enter", dir = Ddir)
+			bloodstep_overlay.color = color // NOVA EDIT ADDITION
 			. += bloodstep_overlay
 
 		if(exited_dirs & Ddir)
 			var/image/bloodstep_overlay = GLOB.bloody_footprints_cache["exited-[footprint_sprite]-[blood_state]-[Ddir]"]
 			if(!bloodstep_overlay)
 				GLOB.bloody_footprints_cache["exited-[footprint_sprite]-[blood_state]-[Ddir]"] = bloodstep_overlay = image(icon, "[blood_state]_[footprint_sprite]_exit", dir = Ddir)
+			bloodstep_overlay.color = color // NOVA EDIT ADDITION
 			. += bloodstep_overlay
 
 
