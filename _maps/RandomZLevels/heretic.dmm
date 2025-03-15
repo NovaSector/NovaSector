@@ -60,14 +60,6 @@
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/heretic)
-"aR" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 4
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "bb" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/carpet/green,
@@ -83,9 +75,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood/corner,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "bu" = (
 /obj/structure/table,
@@ -109,9 +99,7 @@
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "ce" = (
 /obj/machinery/hydroponics/soil,
@@ -123,9 +111,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "cs" = (
 /obj/machinery/shieldgen,
@@ -164,9 +150,7 @@
 	dir = 1
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "df" = (
 /obj/structure/table,
@@ -267,9 +251,7 @@
 /area/awaymission/heretic)
 "ep" = (
 /obj/machinery/grill,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/space/basic,
 /area/awaymission/heretic)
 "ex" = (
 /obj/effect/turf_decal/sand,
@@ -288,9 +270,7 @@
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "eJ" = (
 /obj/structure/railing/corner{
@@ -338,17 +318,7 @@
 /obj/structure/chair/plastic{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
-"fA" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "fD" = (
 /obj/structure/railing{
@@ -361,14 +331,6 @@
 /obj/machinery/deployable_turret/hmg,
 /turf/open/floor/iron/shuttle,
 /area/awaymission/heretic)
-"fG" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "fL" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/north,
@@ -378,9 +340,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "fZ" = (
 /obj/machinery/hydroponics/soil,
@@ -512,17 +472,13 @@
 "id" = (
 /obj/effect/turf_decal/siding/wood,
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "ie" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "ih" = (
 /obj/structure/mineral_door/wood{
@@ -546,9 +502,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "iu" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled/end,
@@ -606,9 +560,7 @@
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "km" = (
 /obj/structure/closet/athletic_mixed,
@@ -680,9 +632,7 @@
 /obj/machinery/door/airlock/wood{
 	name = "Beach Bar"
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "lc" = (
 /obj/effect/turf_decal/siding/wood/corner,
@@ -734,20 +684,12 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/pod/light,
 /area/awaymission/heretic)
-"mi" = (
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "mm" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
 /obj/structure/closet/crate/bin,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "mr" = (
 /obj/effect/turf_decal/weather/sand{
@@ -774,12 +716,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/heretic)
-"mR" = (
-/obj/effect/turf_decal/siding/wood/corner,
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "mY" = (
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/turf_decal/siding/blue{
@@ -792,9 +728,7 @@
 	name = "Johann's Bar"
 	},
 /obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "nu" = (
 /obj/effect/turf_decal/weather/sand{
@@ -849,9 +783,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/thinplating/dark,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "om" = (
 /obj/machinery/door/airlock{
@@ -986,9 +918,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "qd" = (
 /obj/structure/railing/corner{
@@ -1028,9 +958,7 @@
 	dir = 4
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "rg" = (
 /obj/machinery/computer/communications{
@@ -1216,9 +1144,7 @@
 /obj/structure/table,
 /obj/item/seeds/grass,
 /obj/item/plant_analyzer,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "tY" = (
 /obj/effect/turf_decal/weather/sand{
@@ -1247,9 +1173,7 @@
 /area/awaymission/heretic)
 "uu" = (
 /obj/structure/table/wood,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "uy" = (
 /obj/structure/rack,
@@ -1283,17 +1207,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
-"vf" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "vp" = (
 /obj/structure/railing/corner{
@@ -1339,9 +1253,7 @@
 /area/awaymission/heretic)
 "we" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "wf" = (
 /obj/machinery/computer/crew{
@@ -1381,14 +1293,6 @@
 /area/awaymission/heretic)
 "wF" = (
 /turf/closed/wall/mineral/titanium,
-/area/awaymission/heretic)
-"wH" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
 /area/awaymission/heretic)
 "wN" = (
 /obj/effect/turf_decal/weather/sand{
@@ -1434,9 +1338,7 @@
 	dir = 8
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "xp" = (
 /obj/effect/turf_decal/weather/sand{
@@ -1548,14 +1450,6 @@
 /obj/machinery/shieldgen,
 /turf/open/floor/iron/shuttle,
 /area/awaymission/heretic)
-"zQ" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "zU" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/banana,
@@ -1563,9 +1457,7 @@
 /area/awaymission/heretic)
 "zX" = (
 /obj/machinery/biogenerator,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "zZ" = (
 /obj/structure/table/wood/fancy/black,
@@ -1631,12 +1523,6 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/heretic)
-"Bd" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "Be" = (
 /obj/structure/table,
 /obj/item/pizzabox/meat,
@@ -1682,29 +1568,13 @@
 	},
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/heretic)
-"Cf" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/machinery/door/airlock/wood{
-	dir = 4
-	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
 "Ck" = (
 /obj/structure/bonfire/prelit,
 /turf/open/floor/plating,
 /area/awaymission/heretic)
 "Cv" = (
 /obj/structure/reagent_dispensers/watertank/high,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Cz" = (
 /obj/structure/chair/office{
@@ -1745,9 +1615,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "CW" = (
 /obj/effect/turf_decal/weather/sand{
@@ -1793,9 +1661,7 @@
 /area/awaymission/heretic)
 "DC" = (
 /obj/item/stack/sheet/mineral/sandbags/fifty,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "DD" = (
 /obj/machinery/hydroponics/soil,
@@ -1811,9 +1677,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "DP" = (
 /obj/effect/turf_decal/trimline/red/real_red/filled,
@@ -1827,9 +1691,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 1
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ed" = (
 /obj/machinery/shower{
@@ -1848,12 +1710,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/shuttle,
-/area/awaymission/heretic)
-"En" = (
-/obj/effect/visible_heretic_influence,
-/turf/open/floor/wood{
-	light_range = 2
-	},
 /area/awaymission/heretic)
 "Er" = (
 /obj/effect/turf_decal/weather/sand{
@@ -1883,9 +1739,7 @@
 "Ex" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/south,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ez" = (
 /obj/structure/chair/stool/bar{
@@ -1984,18 +1838,14 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/wood/corner,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ga" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Gd" = (
 /obj/structure/table,
@@ -2049,17 +1899,13 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "GU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "GZ" = (
 /obj/effect/turf_decal/siding/wood,
@@ -2080,18 +1926,6 @@
 /obj/effect/turf_decal/weather/sand,
 /obj/effect/turf_decal/weather/sand,
 /turf/open/water/beach,
-/area/awaymission/heretic)
-"Ho" = (
-/mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
-"Hp" = (
-/turf/open/space/basic,
-/turf/open/floor/wood{
-	light_range = 2
-	},
 /area/awaymission/heretic)
 "Hu" = (
 /obj/structure/table,
@@ -2136,16 +1970,12 @@
 /area/awaymission/heretic)
 "HO" = (
 /obj/machinery/seed_extractor,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "HW" = (
 /obj/structure/table,
 /obj/item/stack/sheet/mineral/coal/ten,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/space/basic,
 /area/awaymission/heretic)
 "Ia" = (
 /obj/structure/bonfire/prelit,
@@ -2175,9 +2005,7 @@
 	dir = 8
 	},
 /obj/effect/gibspawner/human,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Io" = (
 /turf/open/misc/grass/jungle/station,
@@ -2220,9 +2048,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Jl" = (
 /obj/effect/turf_decal/siding/blue{
@@ -2259,9 +2085,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "JY" = (
 /obj/structure/chair,
@@ -2391,9 +2215,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "LN" = (
 /obj/effect/turf_decal/weather/sand{
@@ -2449,9 +2271,7 @@
 /obj/structure/chair/plastic{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Mq" = (
 /obj/machinery/telecomms/processor,
@@ -2488,15 +2308,7 @@
 /area/awaymission/heretic)
 "MV" = (
 /obj/item/cultivator/rake,
-/turf/open/floor/wood{
-	light_range = 2
-	},
-/area/awaymission/heretic)
-"MY" = (
-/obj/structure/table,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ne" = (
 /obj/machinery/light/floor,
@@ -2584,9 +2396,7 @@
 /area/awaymission/heretic)
 "Oh" = (
 /obj/structure/railing,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ov" = (
 /obj/structure/rack,
@@ -2672,9 +2482,7 @@
 "PA" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/cloth,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "PC" = (
 /obj/structure/flora/rock/pile,
@@ -2713,9 +2521,7 @@
 /area/awaymission/heretic)
 "QA" = (
 /obj/item/shovel/spade,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "QI" = (
 /obj/effect/turf_decal/siding/wood{
@@ -2741,9 +2547,7 @@
 	dir = 8
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ru" = (
 /obj/effect/gibspawner/human,
@@ -2772,9 +2576,7 @@
 "RS" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/weather/sand,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Sc" = (
 /turf/open/floor/iron/white/textured_large,
@@ -2817,9 +2619,7 @@
 "SF" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "SY" = (
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
@@ -2872,9 +2672,7 @@
 /area/awaymission/heretic)
 "Uc" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Ud" = (
 /turf/closed/wall/mineral/sandstone,
@@ -2882,16 +2680,6 @@
 "Un" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/misc/beach/sand,
-/area/awaymission/heretic)
-"Up" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/machinery/door/airlock/wood,
-/turf/open/floor/wood{
-	light_range = 2
-	},
 /area/awaymission/heretic)
 "Uq" = (
 /obj/effect/turf_decal/siding/wood{
@@ -3029,9 +2817,7 @@
 	dir = 8
 	},
 /mob/living/basic/heretic_summon/rust_walker,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "VV" = (
 /obj/machinery/light/small/directional/west,
@@ -3060,11 +2846,6 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/awaymission/heretic)
-"Ws" = (
-/turf/open/floor/wood{
-	light_range = 2
-	},
 /area/awaymission/heretic)
 "Wu" = (
 /obj/effect/turf_decal/siding/blue{
@@ -3129,9 +2910,7 @@
 	dir = 9
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "XQ" = (
 /obj/machinery/computer/telecomms/monitor{
@@ -3158,9 +2937,7 @@
 /area/awaymission/heretic)
 "Ya" = (
 /obj/item/hatchet/wooden,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "Yw" = (
 /obj/effect/turf_decal/siding/blue{
@@ -3186,9 +2963,7 @@
 	dir = 10
 	},
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
-/turf/open/floor/wood{
-	light_range = 2
-	},
+/turf/open/floor/wood,
 /area/awaymission/heretic)
 "YW" = (
 /obj/effect/turf_decal/sand,
@@ -3645,9 +3420,9 @@ XV
 dj
 gv
 fz
-Ws
-Ws
-wH
+sj
+sj
+FA
 ie
 Io
 Io
@@ -3797,9 +3572,9 @@ XV
 XV
 JQ
 GU
-Ws
-Ws
-mR
+sj
+sj
+lc
 Jh
 Io
 Io
@@ -3819,16 +3594,16 @@ Io
 Xk
 Xk
 Xk
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
 Io
 Io
 Io
@@ -3949,9 +3724,9 @@ XV
 XV
 XV
 XV
-fG
-Ws
-mi
+im
+sj
+cR
 Io
 Io
 Io
@@ -3970,26 +3745,26 @@ Io
 rl
 Xk
 zX
-Ws
-Ws
-Ws
+sj
+sj
+sj
 ce
 ce
-Ws
+sj
 zD
-Ws
+sj
 Gq
 ly
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -4101,8 +3876,8 @@ XV
 XV
 XV
 XV
-fG
-mR
+im
+lc
 Jh
 Io
 Io
@@ -4122,26 +3897,26 @@ Io
 Io
 Xk
 tW
-Ws
-Ws
-Ws
+sj
+sj
+sj
 Kn
 tU
 QA
 zU
-Ws
+sj
 RQ
 ru
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -4253,8 +4028,8 @@ XV
 XV
 XV
 uW
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
@@ -4274,26 +4049,26 @@ Io
 Io
 Xk
 HO
-Ws
-Ws
-Ws
+sj
+sj
+sj
 xz
 vF
-Ws
+sj
 JS
-Ws
+sj
 fZ
 ri
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 GE
 yz
 YX
 yz
-fG
+im
 Io
 Xk
 Xk
@@ -4404,8 +4179,8 @@ xx
 XV
 XV
 XV
-fG
-mR
+im
+lc
 Jh
 Io
 Io
@@ -4427,25 +4202,25 @@ Io
 Xk
 Xk
 Xk
-Ws
-Ws
-Ws
-Ws
+sj
+sj
+sj
+sj
 Cv
-Ws
-Ws
+sj
+sj
 MV
-Ws
-Ws
-Ws
-Ws
-mi
+sj
+sj
+sj
+sj
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 VS
@@ -4556,8 +4331,8 @@ XV
 XV
 XV
 GI
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -4580,7 +4355,7 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Io
 Io
 Io
@@ -4588,16 +4363,16 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 Vf
@@ -4708,8 +4483,8 @@ XV
 XV
 ZW
 gv
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -4732,7 +4507,7 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Io
 Io
 Io
@@ -4740,10 +4515,10 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
@@ -4860,8 +4635,8 @@ XV
 XV
 XV
 uW
-Ws
-mi
+sj
+cR
 Io
 Io
 lk
@@ -4884,24 +4659,24 @@ Io
 Io
 Io
 Io
-Ws
-Ws
+sj
+sj
 Ya
-En
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-mi
+dT
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 We
@@ -5011,9 +4786,9 @@ hb
 XV
 XV
 XV
-fG
-Ws
-mi
+im
+sj
+cR
 Io
 Io
 Io
@@ -5036,24 +4811,24 @@ Io
 Io
 Io
 Io
-Ws
+sj
 pE
 pE
-Ws
+sj
 DD
-Ws
+sj
 Us
 Lr
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 We
@@ -5163,8 +4938,8 @@ XV
 XV
 XV
 XV
-fG
-mR
+im
+lc
 Jh
 Io
 Io
@@ -5188,24 +4963,24 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Nw
 Nw
 MV
 VJ
-Ws
+sj
 uI
 jY
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 zZ
@@ -5315,8 +5090,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -5340,31 +5115,31 @@ Io
 Io
 Io
 Io
-Ws
+sj
 jL
 KU
-Ws
+sj
 XC
-Ws
+sj
 AA
 jY
-Ws
+sj
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 Rm
 Rm
 Rm
 Rm
-Ws
+sj
 Oh
 EN
 EN
@@ -5467,8 +5242,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -5479,8 +5254,8 @@ lk
 Io
 Io
 Io
-Ws
-Ws
+sj
+sj
 Io
 Io
 Io
@@ -5492,28 +5267,28 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-Ws
-mi
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+sj
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
-Ws
-Ws
+sj
+sj
 we
 DM
 DM
@@ -5619,8 +5394,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -5631,8 +5406,8 @@ Io
 Io
 Io
 Io
-Ws
-Ws
+sj
+sj
 Io
 Io
 Io
@@ -5644,7 +5419,7 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Io
 Io
 Io
@@ -5652,16 +5427,16 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
-mi
+sj
+sj
+sj
+cR
 GE
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 DM
@@ -5771,8 +5546,8 @@ XV
 Dy
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -5780,11 +5555,11 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
-Ws
-Ws
+sj
+sj
+sj
+sj
+sj
 Io
 Io
 Io
@@ -5796,7 +5571,7 @@ Io
 Io
 Io
 Io
-Ws
+sj
 Io
 Io
 Io
@@ -5804,16 +5579,16 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
-mi
+sj
+sj
+sj
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 sr
@@ -5923,49 +5698,49 @@ hb
 JQ
 TA
 uW
-zQ
-mi
+Nv
+cR
 Io
-Ws
-Ws
-Ws
+sj
+sj
+sj
 Io
-Ws
-Ws
-Ws
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
+sj
+sj
+sj
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
 rf
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-fA
-Ws
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+Al
+sj
 yz
 yz
 yz
 yz
 yz
-Ws
+sj
 Io
 Xk
 sr
@@ -6074,15 +5849,15 @@ AS
 XV
 XV
 JQ
-fG
-Ws
-vf
-wH
-Ws
-Ws
-fA
-fA
-fA
+im
+sj
+kp
+FA
+sj
+sj
+Al
+Al
+Al
 Jh
 yz
 yz
@@ -6117,13 +5892,13 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 CT
 CT
 DX
-Ws
+sj
 we
 DM
 DM
@@ -6226,11 +6001,11 @@ XV
 XV
 XV
 XV
-fG
-Ws
-Ws
-Ws
-Ws
+im
+sj
+sj
+sj
+sj
 Jh
 yz
 yz
@@ -6269,8 +6044,8 @@ yz
 yz
 yz
 yz
-fG
-Ws
+im
+sj
 nj
 DM
 DM
@@ -6378,10 +6153,10 @@ XV
 XV
 XV
 XV
-fG
-mR
-fA
-aR
+im
+lc
+Al
+ND
 id
 yz
 yz
@@ -6421,7 +6196,7 @@ yz
 yz
 yz
 YX
-fG
+im
 Io
 Xk
 sr
@@ -6530,11 +6305,11 @@ XV
 XV
 XV
 XV
-Ws
-mi
+sj
+cR
 Io
 GU
-mi
+cR
 yz
 yz
 yz
@@ -6573,7 +6348,7 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 Xk
@@ -6682,15 +6457,15 @@ XV
 XV
 XV
 XV
-Ws
-mi
+sj
+cR
 Io
 Io
-Ws
-wH
-wH
-wH
-wH
+sj
+FA
+FA
+FA
+FA
 ie
 yz
 yz
@@ -6725,7 +6500,7 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -6834,8 +6609,8 @@ XV
 XV
 XV
 XV
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
@@ -6843,41 +6618,41 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
+sj
+sj
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
 xo
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-wH
-Ws
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+sj
 yz
 Ru
 yz
 yz
 yz
-Ho
+Zo
 Io
 Io
 Io
@@ -6986,8 +6761,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -7016,20 +6791,20 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
+sj
+sj
+sj
 Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -7138,8 +6913,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -7168,20 +6943,20 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
+sj
+sj
+sj
 Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -7290,8 +7065,8 @@ Xk
 Xk
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -7320,20 +7095,20 @@ Io
 Io
 Io
 Io
-Ws
-Ws
-Ws
+sj
+sj
+sj
 Io
 Io
 PC
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -7437,13 +7212,13 @@ XV
 ex
 Xk
 Xk
-Ws
-Hp
+sj
+sj
 Xk
 Xk
 uW
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
@@ -7479,13 +7254,13 @@ Xk
 Xk
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -7588,14 +7363,14 @@ XV
 XV
 Wh
 lb
-Ws
-Ws
+sj
+sj
 DC
 SF
 Xk
-fG
-Ws
-mi
+im
+sj
+cR
 Io
 Io
 Io
@@ -7631,13 +7406,13 @@ sp
 Xk
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -7730,24 +7505,24 @@ RM
 RM
 RM
 RM
-Ws
-Ws
-Ws
-Ws
+sj
+sj
+sj
+sj
 hb
 XV
 ry
 XV
 Wh
 PA
-Ws
-En
-Ws
+sj
+dT
+sj
 Ex
 Xk
-fG
-Ws
-mi
+im
+sj
+cR
 Io
 Io
 Io
@@ -7783,13 +7558,13 @@ qW
 cA
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 lk
 Io
 Io
@@ -7882,23 +7657,23 @@ RM
 RM
 RM
 RM
-Ws
-Ws
-Ws
-Ws
+sj
+sj
+sj
+sj
 hb
 XV
 Lc
 XV
 Wh
 PA
-Ws
-Ws
-Ws
-MY
+sj
+sj
+sj
+df
 Xk
-fG
-mR
+im
+lc
 Jh
 Io
 rl
@@ -7925,8 +7700,8 @@ LX
 Xk
 Xk
 Xk
-Ws
-Bd
+sj
+xj
 uu
 Ax
 cR
@@ -7935,13 +7710,13 @@ vI
 cA
 Io
 Io
-mi
+cR
 GE
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -8044,13 +7819,13 @@ Ez
 XV
 Wh
 PA
-Ws
-Ho
-Ws
+sj
+Zo
+sj
 Xk
 Xk
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -8077,7 +7852,7 @@ sj
 rh
 Vr
 Xk
-Cf
+LX
 Xk
 Xk
 fL
@@ -8087,13 +7862,13 @@ zv
 cA
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -8196,13 +7971,13 @@ XV
 XV
 Wh
 PA
-Ws
-Ws
-Ws
+sj
+sj
+sj
 Xk
 Xk
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -8239,13 +8014,13 @@ ZM
 Xk
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -8353,8 +8128,8 @@ PA
 PA
 Xk
 Xk
-fG
-mi
+im
+cR
 Io
 kd
 Io
@@ -8391,13 +8166,13 @@ mu
 Xk
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 kd
 Io
 Io
@@ -8505,8 +8280,8 @@ qB
 qB
 YW
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -8543,13 +8318,13 @@ Xk
 Xk
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -8657,8 +8432,8 @@ BP
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -8695,13 +8470,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -8809,8 +8584,8 @@ XV
 ry
 XV
 mm
-zQ
-vf
+Nv
+kp
 ie
 Io
 Io
@@ -8847,13 +8622,13 @@ Io
 Io
 An
 Io
-mi
+cR
 yz
 yz
 GE
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -8960,9 +8735,9 @@ XV
 XV
 Lc
 XV
-fG
-mR
-fA
+im
+lc
+Al
 GM
 ie
 Io
@@ -8999,13 +8774,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -9112,8 +8887,8 @@ XV
 XV
 Ez
 XV
-fG
-mi
+im
+cR
 Io
 GU
 GM
@@ -9151,13 +8926,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -9264,8 +9039,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 GU
@@ -9303,13 +9078,13 @@ Io
 PC
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -9416,17 +9191,17 @@ XV
 XV
 XV
 uW
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
 GU
 GM
-wH
-wH
-wH
-wH
+FA
+FA
+FA
+FA
 Im
 sj
 sj
@@ -9455,13 +9230,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -9567,18 +9342,18 @@ XV
 XV
 XV
 XV
-Ws
-mR
+sj
+lc
 Jh
 Io
 Io
 Io
 Io
 GU
-fA
-fA
-fA
-fA
+Al
+Al
+Al
+Al
 Im
 sj
 sj
@@ -9607,13 +9382,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 GE
-fG
+im
 Io
 Io
 XV
@@ -9719,9 +9494,9 @@ XV
 XV
 XV
 XV
-Ws
-mi
-Io
+sj
+cR
+sj
 Io
 lk
 Io
@@ -9759,13 +9534,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -9871,8 +9646,8 @@ XV
 XV
 XV
 XV
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
@@ -9911,13 +9686,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -10023,8 +9798,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 XV
@@ -10063,13 +9838,13 @@ Xk
 Xk
 Xk
 Xk
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -10215,13 +9990,13 @@ Xk
 el
 IC
 Xk
-mi
+cR
 yz
 yz
 GE
 yz
 yz
-fG
+im
 Io
 XV
 XV
@@ -10326,7 +10101,7 @@ XV
 XV
 XV
 XV
-fG
+im
 RS
 XV
 XV
@@ -10367,13 +10142,13 @@ Bq
 Qf
 LR
 Xk
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 XV
 XV
@@ -10478,7 +10253,7 @@ XV
 XV
 XV
 XV
-fG
+im
 RS
 XV
 XV
@@ -10519,13 +10294,13 @@ cA
 MG
 Qf
 cA
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 XV
@@ -10630,7 +10405,7 @@ XV
 XV
 XV
 XV
-fG
+im
 RS
 XV
 XV
@@ -10671,13 +10446,13 @@ cA
 Bl
 UN
 cA
-Ws
+sj
 yz
 yz
 yz
 yz
 yz
-Ws
+sj
 Io
 Io
 XV
@@ -10782,8 +10557,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 XV
 XV
@@ -10829,7 +10604,7 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 lk
@@ -10934,8 +10709,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -10981,7 +10756,7 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -11133,7 +10908,7 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -11237,8 +11012,8 @@ XV
 XV
 XV
 XY
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -11285,7 +11060,7 @@ yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -11390,7 +11165,7 @@ XV
 XV
 XY
 cW
-mi
+cR
 Io
 Io
 Io
@@ -11437,7 +11212,7 @@ GE
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -11541,8 +11316,8 @@ XV
 XV
 XV
 uW
-zQ
-mi
+Nv
+cR
 Io
 Io
 Io
@@ -11583,13 +11358,13 @@ Xk
 Io
 Io
 Io
-Ws
+sj
 yz
 yz
 yz
 yz
 YX
-Ws
+sj
 Io
 kd
 Io
@@ -11692,8 +11467,8 @@ Xk
 XV
 XV
 XV
-fG
-mR
+im
+lc
 Jh
 Io
 Io
@@ -11735,13 +11510,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -11844,8 +11619,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -11887,13 +11662,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -11996,8 +11771,8 @@ XV
 XV
 XV
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -12039,13 +11814,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -12148,8 +11923,8 @@ XV
 XV
 XV
 uW
-zQ
-mi
+Nv
+cR
 Io
 Io
 Io
@@ -12191,13 +11966,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 GA
@@ -12299,10 +12074,10 @@ XV
 XV
 XV
 uW
-zQ
-Ws
+Nv
+sj
 In
-wH
+FA
 ie
 Io
 Io
@@ -12343,13 +12118,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 GE
-fG
+im
 Io
 Xk
 Xk
@@ -12450,12 +12225,12 @@ XV
 XV
 XV
 uW
-zQ
-Ws
-mR
-fA
-aR
-vf
+Nv
+sj
+lc
+Al
+ND
+kp
 ie
 Io
 Io
@@ -12495,13 +12270,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 ar
@@ -12601,14 +12376,14 @@ XV
 XV
 GI
 TA
-fG
-mR
-fA
+im
+lc
+Al
 Jh
 Io
 GU
-aR
-mi
+ND
+cR
 Io
 Io
 Io
@@ -12647,13 +12422,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 cR
@@ -12753,14 +12528,14 @@ XV
 dj
 gv
 uW
-zQ
-mi
+Nv
+cR
 Io
 Io
 Io
 Io
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -12799,14 +12574,14 @@ Io
 Io
 Io
 Io
-mi
+cR
 GE
 yz
 yz
 yz
 yz
-fG
-Ws
+im
+sj
 Ew
 kp
 FA
@@ -12904,15 +12679,15 @@ XV
 XV
 XV
 XY
-fG
-mR
+im
+lc
 Jh
 Io
 Io
 Io
 Io
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -12951,13 +12726,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 xu
@@ -13103,13 +12878,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 Ru
 yz
 yz
-fG
+im
 Io
 Xk
 sj
@@ -13207,8 +12982,8 @@ XV
 XV
 XV
 XV
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
@@ -13216,8 +12991,8 @@ Io
 lk
 Io
 Io
-fG
-vf
+im
+kp
 Xk
 Xk
 fn
@@ -13255,13 +13030,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 sj
@@ -13359,8 +13134,8 @@ XV
 XV
 XV
 XV
-Ws
-mi
+sj
+cR
 Io
 Io
 Io
@@ -13368,8 +13143,8 @@ Io
 Io
 Io
 Io
-fG
-Ws
+im
+sj
 Xk
 xy
 MP
@@ -13392,8 +13167,8 @@ XV
 XV
 XV
 eM
-Ws
-Ws
+sj
+sj
 hb
 XV
 Io
@@ -13407,19 +13182,19 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 sj
 dT
 sj
-Up
+Ew
 uV
 kw
 Xk
@@ -13511,17 +13286,17 @@ XV
 XV
 XV
 XV
-Ws
-vf
-wH
+sj
+kp
+FA
 ie
 Io
 Io
 Io
 Io
 Io
-fG
-Ws
+im
+sj
 xe
 MP
 fn
@@ -13544,8 +13319,8 @@ XV
 XV
 XV
 eM
-Ws
-Ws
+sj
+sj
 hb
 XV
 XV
@@ -13559,13 +13334,13 @@ Io
 PC
 Io
 Io
-mi
+cR
 GE
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 sj
@@ -13664,16 +13439,16 @@ XV
 XV
 XV
 GU
-fA
-aR
-vf
+Al
+ND
+kp
 ie
 Io
 Io
 Io
 Io
-fG
-Ws
+im
+sj
 Xk
 xy
 MP
@@ -13696,8 +13471,8 @@ XV
 XV
 Hz
 Wd
-Ws
-Ws
+sj
+sj
 hb
 XV
 XV
@@ -13711,13 +13486,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 Al
@@ -13818,14 +13593,14 @@ XV
 XV
 XV
 GU
-fA
+Al
 GM
 ie
 Io
 Io
 Io
-fG
-mR
+im
+lc
 Xk
 Xk
 fn
@@ -13848,8 +13623,8 @@ Hz
 Wd
 RM
 RM
-Ws
-Ws
+sj
+sj
 OK
 XV
 XV
@@ -13863,13 +13638,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 xF
@@ -14000,8 +13775,8 @@ RM
 RM
 RM
 RM
-Ws
-Ws
+sj
+sj
 RM
 OK
 XV
@@ -14015,13 +13790,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 Zc
@@ -14119,16 +13894,16 @@ XV
 XV
 XV
 XV
-XV
+sj
 XV
 XV
 XV
 XV
 GU
 GM
-wH
-zQ
-mi
+FA
+Nv
+cR
 Io
 Io
 Io
@@ -14152,8 +13927,8 @@ RM
 RM
 RM
 RM
-Ho
-Ws
+Zo
+sj
 RM
 RM
 OK
@@ -14167,13 +13942,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Xk
 Xk
@@ -14278,8 +14053,8 @@ XV
 XV
 XY
 GU
-aR
-mR
+ND
+lc
 Jh
 Io
 Io
@@ -14319,13 +14094,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -14430,8 +14205,8 @@ XV
 GI
 xK
 XV
-fG
-mi
+im
+cR
 Io
 Io
 Io
@@ -14471,13 +14246,13 @@ Io
 Io
 Io
 Io
-mi
+cR
 yz
 yz
 yz
 yz
 yz
-fG
+im
 Io
 Io
 Io
@@ -14582,8 +14357,8 @@ XV
 KT
 XV
 XV
-fG
-vf
+im
+kp
 YL
 Io
 Io
@@ -14623,13 +14398,13 @@ Io
 Io
 Io
 Io
-Ws
+sj
 yz
 yz
 yz
 yz
 yz
-Ws
+sj
 Io
 Io
 Io
@@ -14734,9 +14509,9 @@ XV
 XV
 XV
 XV
-fG
-Ws
-mi
+im
+sj
+cR
 Io
 Io
 Io
