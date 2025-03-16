@@ -1,8 +1,9 @@
-/// I originally scrapped this when I was working through these again but I don't feel particularly comfortable just killing them off. Unlike kink_collars these are at least notably different
+/// I originally scrapped this when I was working through these again but I don't feel particularly comfortable just killing them off here either
+/// So, in lieu of figuring out their resprite finally - weird compromise with an old sprite lol
 
 /obj/item/clothing/neck/collar/spike
 	name = "spiked collar"
-	desc = "A collar for a moody pet. Or a pitbull."
+	desc = "A collar, fit with a locking clasp and a handful of dull spikes."
 	icon_state = "spike"
 	greyscale_config = /datum/greyscale_config/collar/spike
 	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
