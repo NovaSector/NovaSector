@@ -126,6 +126,7 @@
 
 				//hands
 				/obj/item/clothing/gloves/ball_mittens = 8,
+				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 8,
 			),
 		),
 			list(
