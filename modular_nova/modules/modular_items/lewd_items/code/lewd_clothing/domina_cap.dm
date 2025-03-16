@@ -2,18 +2,9 @@
 	name = "dominant cap"
 	desc = "For special types of inspections."
 	icon_state = "dominacap"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
-	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
-	supports_variations_flags = NONE
-
-//message when equipping that thing
-/obj/item/clothing/head/domina_cap/equipped(mob/living/carbon/user, slot)
-	. = ..()
-	if(src == user.head)
-		to_chat(user, span_purple("You feel much more determined."))
-
-//message when unequipping that thing
-/obj/item/clothing/head/domina_cap/dropped(mob/living/carbon/user)
-	. = ..()
-	if(src == user.head)
-		to_chat(user, span_purple("BDSM session ended, huh?"))
+	icon = 'local/icons/lewd/obj/clothing/hats.dmi'
+	worn_icon = 'local/icons/lewd/mob/clothing/hats.dmi'
+	greyscale_colors = "#383840#FFFFFF"
+	greyscale_config = /datum/greyscale_config/domina_cap
+	greyscale_config_worn = /datum/greyscale_config/domina_cap/worn
+	flags_1 = IS_PLAYER_COLORABLE_1

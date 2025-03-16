@@ -64,16 +64,17 @@
 				/obj/item/clothing/shoes/jackboots/knee = 3,
 
 				/obj/item/clothing/under/misc/latex_catsuit = 8,
-				/obj/item/clothing/gloves/latex_gloves = 8,
+				/obj/item/clothing/gloves/long_gloves = 8,
 				/obj/item/clothing/shoes/latex_heels = 4,
 				/obj/item/clothing/shoes/latex_socks = 8,
 
-				/obj/item/storage/belt/erpbelt = 5,//Leather Belt, holds a lot of tools.
+				/obj/item/storage/belt/thigh_satchel = 5,//Leather Belt, holds a lot of tools.
 
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/under/costume/lewdmaid = 5,
+				/obj/item/clothing/suit/corset = 5,
 
 				/obj/item/clothing/under/stripper_outfit = 5,
 				/obj/item/clothing/glasses/nice_goggles = 1, //easter egg, don't touch plz
@@ -93,8 +94,8 @@
 				/obj/item/clothing/mask/ballgag/choking = 8,
 				/obj/item/clothing/mask/muzzle/ring = 4,
 				/obj/item/clothing/head/deprivation_helmet = 5,
-				/obj/item/clothing/glasses/blindfold/kinky = 5,
-				/obj/item/clothing/ears/kinky_headphones = 5,
+				/obj/item/clothing/glasses/blindfold/dorms = 5,
+				/obj/item/clothing/ears/dorms_headphones = 5,
 				/obj/item/clothing/mask/gas/bdsm_mask = 5,
 				/obj/item/reagent_containers/cup/lewd_filter = 5,
 				/obj/item/clothing/glasses/hypno = 4,

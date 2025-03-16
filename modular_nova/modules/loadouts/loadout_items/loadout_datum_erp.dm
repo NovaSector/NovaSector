@@ -160,12 +160,12 @@
 	item_path = /obj/item/clothing/head/deprivation_helmet
 
 /datum/loadout_item/erp/blindfold
-	name = "Kinky Blindfold"
-	item_path = /obj/item/clothing/glasses/blindfold/kinky
+	name = "Luxury Blindfold"
+	item_path = /obj/item/clothing/glasses/blindfold/dorms
 
 /datum/loadout_item/erp/kinky_headphones
-	name = "Kinky Headphones"
-	item_path = /obj/item/clothing/ears/kinky_headphones
+	name = "Padded Headphones"
+	item_path = /obj/item/clothing/ears/dorms_headphones
 
 /datum/loadout_item/erp/lewd_filter
 	name = "Crocin Filter"
