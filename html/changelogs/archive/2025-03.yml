@@ -728,3 +728,11 @@
   - image: Adds a large amount of medals with GAGs support for Nova Sector
   - map: Adds a lockbox with "SYNDICATE_LEADER_ACCESS" to DS-2 Admiral's locker, containing
       medals specifically tailored for DS-2/Syndicate
+2025-03-16:
+  MrSunabouzu:
+  - rscadd: Added Ice cream cart and Food Cart to Snowglobe. And a round start viro
+      chem bag.
+  RealWinterFrost:
+  - map: moves DS-2 cargo boards to a table in the vault
+  - map: adds an autodrobe to ds-2 dormitories
+  - bugfix: Fixes the blueshift AI transit tube properly be able to step back in.
