@@ -1,4 +1,7 @@
 /datum/map_template/ruin/ocean
+	ruin_type = ZTRAIT_OCEAN_RUINS
+	cost = 1
+	allow_duplicates =  FALSE
 	prefix = "_maps/RandomRuins/OceanRuins/"
 
 /datum/map_template/ruin/ocean/fissure
