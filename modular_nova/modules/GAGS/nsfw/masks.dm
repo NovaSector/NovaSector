@@ -27,7 +27,3 @@
 /datum/greyscale_config/ball_gag/choke_gag
 	name = "Choke Gag"
 	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/clothing/masks/choke_gag.json'
-
-/datum/greyscale_config/ball_gag/choke_gag/worn
-	name = "Choke Gag (Worn)"
-	icon_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
