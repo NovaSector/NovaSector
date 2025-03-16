@@ -26,6 +26,7 @@
 		"Earred" = "dephelmet",
 		"Earless" = "dephelmet_earless"
 	)
+	obj_flags = INFINITE_RESKIN
 	actions_types = list(
 		/datum/action/item_action/toggle_vision,
 		/datum/action/item_action/toggle_hearing,

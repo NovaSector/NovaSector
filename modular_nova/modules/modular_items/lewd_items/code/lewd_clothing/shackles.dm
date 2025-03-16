@@ -10,6 +10,9 @@
 	greyscale_config = /datum/greyscale_config/dorms_shackles
 	greyscale_config_worn = /datum/greyscale_config/dorms_shackles/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/dorms_shackles/worn/digi
+	greyscale_config_worn_taur_paw = /datum/greyscale_config/dorms_shackles/worn/taur_paw
+	greyscale_config_worn_taur_hoof = /datum/greyscale_config/dorms_shackles/worn/taur_hoof
+	greyscale_config_worn_taur_snake = /datum/greyscale_config/dorms_shackles/worn/taur_snake
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	equip_delay_self = 1 SECONDS
