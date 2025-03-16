@@ -261,7 +261,7 @@
 /turf/open/floor/plating,
 /area/awaymission/heretic)
 "ey" = (
-/turf/closed/indestructible/opshuttle,
+/turf/closed/indestructible/syndicate,
 /area/awaymission/heretic)
 "eB" = (
 /turf/open/floor/pod/dark,
@@ -2130,6 +2130,10 @@
 	health = 500
 	},
 /turf/open/floor/plating,
+/area/awaymission/heretic)
+"Ky" = (
+/obj/structure/marker_beacon/teal,
+/turf/open/water/beach,
 /area/awaymission/heretic)
 "KB" = (
 /obj/machinery/light/directional/south,
@@ -7083,7 +7087,7 @@ Io
 Io
 Io
 Io
-Io
+kd
 Io
 PC
 Io
@@ -7995,7 +7999,7 @@ Xk
 Io
 Io
 Io
-Io
+kd
 Io
 Io
 Io
@@ -8579,7 +8583,7 @@ XV
 XV
 XV
 Lc
-XV
+Un
 XV
 ry
 XV
@@ -9304,27 +9308,27 @@ Ie
 Ie
 eh
 RM
+Ky
 RM
 RM
 RM
+Ky
 RM
 RM
 RM
+Ky
 RM
 RM
 RM
+Ky
 RM
 RM
 RM
+Ky
 RM
 RM
 RM
-RM
-RM
-RM
-RM
-RM
-RM
+Ky
 RM
 RM
 qp
@@ -9667,7 +9671,7 @@ IA
 Xk
 Io
 Io
-Io
+kd
 Io
 Io
 Ib
@@ -10565,7 +10569,7 @@ XV
 XV
 aq
 HA
-XV
+Un
 XV
 XV
 Xk
@@ -11156,7 +11160,7 @@ oF
 XV
 XV
 XV
-XV
+Un
 VT
 Xk
 WR
@@ -11327,7 +11331,7 @@ Io
 Io
 Io
 Io
-Io
+kd
 Io
 XV
 XV
@@ -11487,7 +11491,7 @@ XV
 XV
 Io
 Io
-Io
+kd
 Io
 Io
 Io
@@ -11643,7 +11647,7 @@ Io
 Io
 Io
 Io
-Io
+kd
 Io
 Io
 Ib
