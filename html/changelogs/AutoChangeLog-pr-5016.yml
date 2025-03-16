@@ -1,4 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - bugfix: "Fixes the blueshift AI transit tube properly be able to step back in."
