@@ -122,7 +122,7 @@
 /obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_gas
 	ammo_type = /obj/item/ammo_casing/c980grenade/riot
 
-/obj/item/ammo_box/magazine/internal/sol_grenade_launcher_scorpion
+/obj/item/ammo_box/magazine/internal/sol_grenade_launcher_break_action
 	name = "grenade launcher internal magazine"
 	ammo_type = /obj/item/ammo_casing/c980grenade
 	caliber = CALIBER_980TYDHOUER
