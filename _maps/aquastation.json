@@ -1,0 +1,25 @@
+{
+	"version": 1,
+	"map_name": "Aquastation",
+	"map_path": "map_files/AquaStation",
+	"map_file": "AquaStation.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"planetary": 1,
+	"shuttles": {
+		"cargo": "cargo_delta",
+		"ferry": "ferry_kilo",
+		"whiteship": "whiteship_birdshot",
+		"emergency": "emergency_delta"
+	},
+	"traits": [
+		{
+			"Mining": true,
+			"Baseturf": "/turf/open/misc/asteroid",
+			"Linkage": null,
+			"Gravity": true,
+			"Ocean Ruins": true,
+			"No Parallax": true
+		}
+	]
+}

@@ -1,3 +1,6 @@
+#define ZTRAIT_OCEAN_RUINS "Ocean Ruins"
+#define ZTRAIT_TRENCH_RUINS "Trench Ruins"
+
 #define RADIO_CHANNEL_CYBERSUN "Cybersun"
 #define RADIO_KEY_CYBERSUN "q"
 #define RADIO_TOKEN_CYBERSUN ":q"

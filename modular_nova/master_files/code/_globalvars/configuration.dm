@@ -72,3 +72,14 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 
 // Are borgs/silicons blacklisted from entering the gateway
 /datum/config_entry/flag/borg_gateway_blacklist
+
+/// OCEAN RUIN BUDGETS ///
+/datum/config_entry/number/ocean_budget
+	default = 6
+	integer = FALSE
+	min_val = 0
+
+/datum/config_entry/number/trench_budget
+	default = 6
+	integer = FALSE
+	min_val = 0
