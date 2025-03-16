@@ -16,7 +16,6 @@
 
 	SET_BASE_PIXEL(-8, 0)
 
-	special_mags = FALSE
 	bolt_type = BOLT_TYPE_LOCKING
 	bolt_wording = "breech"
 	semi_auto = FALSE
@@ -26,6 +25,8 @@
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 	can_suppress = FALSE
+	internal_magazine = TRUE
+
 
 	rack_sound = 'sound/items/weapons/gun/rifle/bolt_out.ogg'
 	bolt_drop_sound = 'sound/items/weapons/gun/rifle/bolt_in.ogg'
@@ -33,27 +34,25 @@
 	pickup_sound = 'sound/items/handling/gun/ballistics/rifle/rifle_pickup1.ogg'
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/grenade_launcher.ogg'
 
-	/obj/item/gun/ballistic/sol_grenade_launcher_break_action/rack(mob/user = null)
-		if (bolt_locked == FALSE)
-			balloon_alert(user, "breech opened")
-			process_chamber(FALSE, FALSE, FALSE)
-			bolt_locked = TRUE
-			update_appearance()
-			return
+/obj/item/gun/ballistic/sol_grenade_launcher_break_action/rack(mob/user = null)
+	if (bolt_locked == FALSE)
+		balloon_alert(user, "breech opened")
+		process_chamber(FALSE, FALSE, FALSE)
+		bolt_locked = TRUE
+		update_appearance()
+		return
 	drop_bolt(user)
 
-	/obj/item/gun/ballistic/sol_grenade_launcher_break_action/can_shoot()
-		if (bolt_locked)
-			return FALSE
-		return ..()
+/obj/item/gun/ballistic/sol_grenade_launcher_break_action/can_shoot()
+	if (bolt_locked)
+		return FALSE
+	return ..()
 
-	/obj/item/gun/ballistic/sol_grenade_launcher_break_action/examine(mob/user)
-		. = ..()
-		. += "The breech is [bolt_locked ? "open" : "closed"]."
+/obj/item/gun/ballistic/sol_grenade_launcher_break_action/examine(mob/user)
+	. = ..()
+	. += "The breech is [bolt_locked ? "open" : "closed"]."
 
 
-	burst_size = 1
-	fire_delay = 1
 	actions_types = list()
 
 	/// The currently stored range to detonate shells at

@@ -249,45 +249,46 @@
 
 
 //.980 sting grenade
-/obj/item/ammo_casing/c980grenade/sting
-	name = ".980 Tydhouer sting grenade"
-	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Explodes into rubberballs on detonation."
+
+/obj/item/ammo_casing/c980grenade/stingball
+	name = ".980 Tydhouer stingball grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Explodes into shrapnel on detonation."
 
 	icon_state = "980_explosive"
 
-	projectile_type = /obj/projectile/bullet/c980grenade/sting
+	projectile_type = /obj/projectile/bullet/c980grenade/stingball
 
 	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
 	advanced_print_req = TRUE
 
-	harmful = FALSE
+	harmful = TRUE
 
 
-/obj/projectile/bullet/c980grenade/sting
-	name = ".980 Tydhouer shrapnel grenade"
+/obj/projectile/bullet/c980grenade/stingball
+	name = ".980 Tydhouer stingball grenade"
 
 	/// What type of casing should we put inside the bullet to act as shrapnel later
-	var/casing_to_spawn = /obj/item/grenade/c980payload/sting
+	var/casing_to_spawn = /obj/item/grenade/c980payload
 
 
-/obj/projectile/bullet/c980grenade/shrapnel/fuse_activation(atom/target)
+/obj/projectile/bullet/c980grenade/stingball/fuse_activation(atom/target)
 	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	qdel(shrapnel_maker)
 
 
-/obj/item/ammo_box/c980grenade/sting
-	name = "ammo box (.980 Tydhouer shrapnel)"
-	desc = "A box of four .980 Tydhouer sting grenades. Instructions on the box indicate these are rubber rounds. It's also covered in hazard signs, odd."
+/obj/item/ammo_box/c980grenade/stingball
+	name = "ammo box (.980 Tydhouer stingball)"
+	desc = "A box of four .980 Tydhouer stinbgall grenades. Instructions on the box indicate these are shrapnel rounds. It's also covered in hazard signs, odd."
 
 	icon_state = "980box_explosive"
 
-	ammo_type = /obj/item/ammo_casing/c980grenade/sting
+	ammo_type = /obj/item/ammo_casing/c980grenade/stingball
 
 
-/obj/item/grenade/c980payload/sting
-	shrapnel_type = /obj/projectile/bullet/stingball/short_range
+/obj/item/grenade/c980payload
+	shrapnel_type = /obj/projectile/bullet/pellet/stingball
 	shrapnel_radius = 5
 	ex_dev = 0
 	ex_heavy = 0
@@ -295,7 +296,7 @@
 	ex_flame = 0
 
 
-/obj/projectile/bullet/stingball/short_range
+/obj/projectile/bullet/shrsapnel/short_range
 	range = 4
 
 
@@ -314,11 +315,11 @@
 
 /obj/projectile/bullet/c980grenade/extinguisher/fuse_activation(atom/target)
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
-	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
-	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
-	smoke.chemholder.add_reagent(/datum/reagent/firefighting_foam, 10)
-	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
-	smoke.start()
+	playsound(src, 'sound/effects/bubbles/bubbles2.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/foam/foam = new()
+		foam.chemholder.add_reagent(/datum/reagent/firefighting_foam, 20)
+	foam.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	foam.start()
 
 //.980 atmoresin grenade
 /obj/item/ammo_casing/c980grenade/resin
@@ -335,11 +336,11 @@
 
 /obj/projectile/bullet/c980grenade/resin/fuse_activation(atom/target)
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
-	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
-	var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
-	smoke.chemholder.add_reagent(/datum/fluid/foam/metal/resin, 10)
-	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
-	smoke.start()
+	playsound(src, 'sound/effects/bubbles/bubbles2.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/foam/foam = new()
+	foam.chemholder.add_reagent(/obj/effect/particle_effect/fluid/foam/metal/resin/halon, 10)
+	foam.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	foam.start()
 
 // .980 sonic powder grenade
 /obj/item/ammo_casing/c980grenade/flashbang
@@ -356,10 +357,12 @@
 
 /obj/projectile/bullet/c980grenade/flashbang/fuse_activation(atom/target)
 	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
-	var/datum/effect_system/fluid_spread/smoke/chem/smoke_machine/puff = new()
-	smoke.chemholder.add_reagent(/datum/reagent/flash_powder, 10)
-	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
-	smoke.start()
+	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/smoke/chem/quick = new()
+	quick.chemholder.add_reagent(/datum/reagent/flash_powder, 50)
+	quick.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	quick.start()
+
 
 
 #undef AMMO_MATS_GRENADE
