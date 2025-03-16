@@ -183,10 +183,6 @@
 	name = "Ball Mittens"
 	item_path = /obj/item/clothing/gloves/ball_mittens
 
-/datum/loadout_item/erp/collar
-	name = "Locked Collar"
-	item_path = /obj/item/clothing/neck/kink_collar/locked
-
 /datum/loadout_item/erp/collar/shock
 	name = "Shock Collar"
 	item_path = /obj/item/electropack/shockcollar
@@ -194,10 +190,6 @@
 /datum/loadout_item/erp/collar/mind
 	name = "Mind Collar"
 	item_path = /obj/item/clothing/neck/mind_collar
-
-/datum/loadout_item/erp/collar/pet
-	name = "Locked Collar (Colorable)"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked
 
 /datum/loadout_item/erp/collar/size
 	name = "Size Collar (Interlink Only)"

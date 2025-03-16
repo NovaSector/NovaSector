@@ -18,12 +18,12 @@
 
 /datum/greyscale_config/ballgag/choking_small
 	name = "Choke Gag (Small)"
-	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/mask/choking_small.json'
+	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/clothing/masks/choking_small.json'
 
 /datum/greyscale_config/ballgag/choking_medium
 	name = "Choke Gag (Medium)"
-	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/mask/choking_medium.json'
+	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/clothing/masks/choking_medium.json'
 
 /datum/greyscale_config/ballgag/choking_large
 	name = "Choke Gag (Large)"
-	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/mask/choking_large.json'
+	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/clothing/masks/choking_large.json'

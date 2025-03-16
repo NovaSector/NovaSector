@@ -8,7 +8,7 @@
 
 /obj/item/clothing/neck/collar/bell/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('local/sound/effects/belljingle1.ogg'=1, 'local/sound/effects/belljingle2.ogg'=1), 50, 100, 8)
+	AddComponent(/datum/component/squeak, list('sound/effects/jingle.ogg'=1), 25, 50, 16)
 
 
 /obj/item/clothing/neck/collar/cowbell // I'd give this jingling too but it's harder to source a good sample

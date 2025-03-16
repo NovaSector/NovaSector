@@ -1,4 +1,4 @@
-/// I originally scrapped this when I was working through these again but I don't feel particularly comfortable just killing them off
+/// I originally scrapped this when I was working through these again but I don't feel particularly comfortable just killing them off. Unlike kink_collars these are at least notably different
 
 /obj/item/clothing/neck/collar/spike
 	name = "spiked collar"

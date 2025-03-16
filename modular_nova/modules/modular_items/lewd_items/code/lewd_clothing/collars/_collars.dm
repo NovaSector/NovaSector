@@ -101,7 +101,7 @@
 /obj/item/key/collar
 	name = "collar key"
 	desc = "A tiny key for a presumably tiny lock."
-	icon = 'local/icons/obj/keys.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
 	icon_state = "key_collar"
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	interaction_flags_click = NEED_DEXTERITY

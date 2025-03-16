@@ -40,7 +40,7 @@
 					/obj/item/clothing/ears/dorms_headphones,
 					/obj/item/clothing/mask/gas/bdsm_mask,
 					/obj/item/clothing/glasses/hypno,
-					/obj/item/clothing/neck/kink_collar,
+					/obj/item/clothing/neck/collar/holocollar,
 
 
 					//Torso / Belt Items
@@ -59,7 +59,7 @@
 
 					//Feet items
 					/obj/item/clothing/shoes/latex_socks,
-					/obj/item/clothing/shoes/latex_heels,
+					/obj/item/clothing/shoes/ballet_heels,
 	)
 	purchase_price = 150
 

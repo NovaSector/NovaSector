@@ -100,7 +100,7 @@
 	name = "bunny suit"
 	desc = "A pin-up staple."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_uniform.dmi'
-	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform.dmi'
 	icon_state = "bunnysuit"
 	greyscale_colors = "#383840#FFFFFF"
 	greyscale_config = /datum/greyscale_config/bunnysuitlewd
