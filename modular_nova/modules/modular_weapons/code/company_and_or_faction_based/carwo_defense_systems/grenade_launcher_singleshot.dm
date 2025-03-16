@@ -2,36 +2,36 @@
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher
 	name = "\improper Kiboko Grenade Launcher"
-	desc = "A unique grenade launcher firing .980 grenades. A laser sight system allows its user to specify a range for the grenades it fires to detonate at."
+	desc = "A unique single shot, break action grenade launcher firing .980 grenades. A laser sight system allows its user to specify a range for the grenades it fires to detonate at."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
-	icon_state = "kiboko"
+	icon_state = "Scorpion"
 
 	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_worn.dmi'
-	worn_icon_state = "kiboko"
+	worn_icon_state = "Scorpion"
 
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/carwo_defense_systems/guns_righthand.dmi'
-	inhand_icon_state = "kiboko"
+	inhand_icon_state = "Scorpion"
 
 	SET_BASE_PIXEL(-8, 0)
 
-	special_mags = TRUE
+	special_mags = FALSE
 
-	bolt_type = BOLT_TYPE_LOCKING
+	bolt_type = BOLT_TYPE_STANDARD
 
-	w_class = WEIGHT_CLASS_BULKY
-	weapon_weight = WEAPON_HEAVY
-	slot_flags = ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WWEAPON_MEDIUM
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUIT | ITEM_SLOT_BELT
 
-	accepted_magazine_type = /obj/item/ammo_box/magazine/c980_grenade
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/sol_grenade_launcher_scorpion
 
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/grenade_launcher.ogg'
 
 	can_suppress = FALSE
 
 	burst_size = 1
-	fire_delay = 5
+	fire_delay = 1
 	actions_types = list()
 
 	/// The currently stored range to detonate shells at
@@ -49,17 +49,8 @@
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine_more(mob/user)
 	. = ..()
 
-	. += "The Kiboko is one of the strangest weapons Carwo offers. A grenade launcher, \
-		though not in the standard grenade size. The much lighter .980 Tydhouer grenades \
-		developed for the weapon offered many advantages over standard grenade launching \
-		ammunition. For a start, it was significantly lighter, and easier to carry large \
-		amounts of. What it also offered, however, and the reason SolFed funded the \
-		project: Variable time fuze. Using the large and expensive ranging sight on the \
-		launcher, its user can set an exact distance for the grenade to self detonate at. \
-		The dream of militaries for decades, finally realized. The smaller shells do not, \
-		however, make the weapon any more enjoyable to fire. The kick is only barely \
-		manageable thanks to the massive muzzle brake at the front."
-
+	 += "The Scorpion a single shot break action grenade launcher, the  younger brother of a Kiboko grenade launcher, \
+		used for riot control and utility purposes, sporting same laser system as Kiboko"
 	return .
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine(mob/user)
@@ -81,17 +72,10 @@
 	user.balloon_alert(user, "range set: [target_range]")
 	return ITEM_INTERACT_SUCCESS
 
-/obj/item/gun/ballistic/automatic/sol_grenade_launcher/no_mag
-	spawnwithmagazine = FALSE
-
 // fun & games but evil this time
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil
-	icon_state = "kiboko_evil"
-	worn_icon_state = "kiboko_evil"
-	inhand_icon_state = "kiboko_evil"
+	icon_state = "scorpion_evil"
+	worn_icon_state = "scorpion_evil"
+	inhand_icon_state = "scorpion_evil"
 
-	spawn_magazine_type = /obj/item/ammo_box/magazine/c980_grenade/drum
-
-/obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil/no_mag
-	spawnwithmagazine = FALSE
