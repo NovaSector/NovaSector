@@ -13,8 +13,8 @@
 	desc = "When configured, completely cuts off the wearer from the outside world. Three switches rest on the back."
 	icon_state = "dephelmet"
 	base_icon_state = "dephelmet"
-	icon = 'local/icons/lewd/obj/clothing/hats.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/hats.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_hats.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
 	greyscale_colors = "#383840#dc7ef4#383840#dc7ef4"
 	greyscale_config = /datum/greyscale_config/dephelmet
 	greyscale_config_worn = /datum/greyscale_config/dephelmet/worn

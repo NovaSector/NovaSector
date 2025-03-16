@@ -2,8 +2,8 @@
 	name = "hypnotic goggles"
 	desc = "An all-in-one mnemonic impression repeater and vision tinter, used to entrance the wearer with a programmed phrase. Foam inserts, to boot."
 	icon_state = "hypnogoggles"
-	icon = 'local/icons/lewd/obj/clothing/eyes.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/eyes.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_eyes.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_eyes.dmi'
 	greyscale_colors = "#383840#dc7ef4"
 	greyscale_config = /datum/greyscale_config/hypnogoggles
 	greyscale_config_worn = /datum/greyscale_config/hypnogoggles/worn

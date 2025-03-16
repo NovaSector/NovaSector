@@ -1,12 +1,12 @@
 /datum/greyscale_config/dorms_shackles
 	name = "Shackles"
-	icon_file = 'local/icons/lewd/obj/clothing/suits.dmi'
-	json_config = 'local/code/datums/greyscale/json_configs/lewd/clothing/suits/dorms_shackles.json'
+	icon_file = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_suits.dmi'
+	json_config = 'modular_nova/modules/GAGS/nsfw/json_configs/clothing/suits/dorms_shackles.json'
 
 /datum/greyscale_config/dorms_shackles/worn
 	name = "Shackles (Worn)"
-	icon_file = 'local/icons/lewd/mob/clothing/suits.dmi'
+	icon_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suits.dmi'
 
 /datum/greyscale_config/dorms_shackles/worn/digi
 	name = "Shackles (Worn, Digi)"
-	icon_file = 'local/icons/lewd/mob/clothing/suits_digi.dmi'
+	icon_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suits_digi.dmi'

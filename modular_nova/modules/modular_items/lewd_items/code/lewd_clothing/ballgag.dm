@@ -1,8 +1,8 @@
 /obj/item/clothing/mask/ballgag
 	name = "ball gag"
 	desc = "Prevents the wearer from speaking."
-	icon = 'local/icons/lewd/obj/clothing/masks.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/masks.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
 	icon_state = "ballgag"
 	greyscale_colors = "#383840#dc7ef4"
 	greyscale_config = /datum/greyscale_config/ball_gag

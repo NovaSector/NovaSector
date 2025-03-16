@@ -1,8 +1,8 @@
 /obj/item/clothing/under/tearaway_garments
 	name = "tearaway attire"
 	desc = "A two-piece set that leaves little to the imagination."
-	icon = 'local/icons/lewd/obj/clothing/uniform.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/uniform.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_uniform.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform.dmi'
 	icon_state = "stripper"
 	greyscale_colors = "#383840#dc7ef4"
 	greyscale_config = /datum/greyscale_config/tearaway_garments

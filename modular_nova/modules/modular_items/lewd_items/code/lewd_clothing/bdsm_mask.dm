@@ -15,8 +15,8 @@
 	greyscale_config = /datum/greyscale_config/dorms_mask
 	greyscale_config_worn = /datum/greyscale_config/dorms_mask/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
-	icon = 'local/icons/lewd/obj/clothing/masks.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/masks.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 	icon_state = "mask"
 	slot_flags = ITEM_SLOT_MASK

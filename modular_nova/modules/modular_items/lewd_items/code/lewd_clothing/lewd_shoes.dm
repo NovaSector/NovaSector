@@ -3,8 +3,8 @@
 	name = "ballet heels"
 	desc = "Restrictive, knee-high heels. Unfathomably difficult to walk in."
 	icon_state = "balletheels"
-	icon = 'local/icons/lewd/obj/clothing/shoes.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/shoes.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_shoes.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	greyscale_colors = "#383840"
 	greyscale_config = /datum/greyscale_config/ballet_heel
 	greyscale_config_worn = /datum/greyscale_config/ballet_heel/worn
@@ -33,8 +33,8 @@
 	desc = "A pair of shiny, split-toe socks made of some strange material."
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "latex_socks"
-	icon = 'local/icons/lewd/obj/clothing/shoes.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/shoes.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_shoes.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	greyscale_colors = "#383840"
 	greyscale_config = /datum/greyscale_config/latex_socks
 	greyscale_config_worn = /datum/greyscale_config/latex_socks/worn

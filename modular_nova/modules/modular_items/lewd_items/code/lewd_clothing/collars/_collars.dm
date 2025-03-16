@@ -3,8 +3,8 @@
 	name = "choker"
 	desc = "A little ring of cloth with a locking buckle sequestered on the back. Stylish - just \
 		only under very specific conditions."
-	icon = 'local/icons/lewd/obj/clothing/neck.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/neck.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	icon_state = "thin_choker"
 	greyscale_colors = "#2d2d33"
 	greyscale_config = /datum/greyscale_config/thin_collar

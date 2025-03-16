@@ -2,8 +2,8 @@
 	name = "ball mittens"
 	desc = "A pair of spherical mitts; made to suppress the wearer's hands and prevent fine motor control."
 	icon_state = "ball_mittens"
-	icon = 'local/icons/lewd/obj/clothing/gloves.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/gloves.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	greyscale_colors = "#383840"
 	greyscale_config = /datum/greyscale_config/ball_mittens
 	greyscale_config_worn = /datum/greyscale_config/ball_mittens/worn
@@ -46,8 +46,8 @@
 	desc = "Sleek gloves that go up towards the shoulder."
 	icon_state = "long_gloves"
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'local/icons/lewd/obj/clothing/gloves.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/gloves.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	greyscale_colors = "#383840"
 	greyscale_config = /datum/greyscale_config/long_gloves
 	greyscale_config_worn = /datum/greyscale_config/long_gloves/worn

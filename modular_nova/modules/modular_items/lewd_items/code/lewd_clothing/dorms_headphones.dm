@@ -3,8 +3,8 @@
 	desc = "Protects your ears from loud noises - it has a little switch on the right-hand side."
 	icon_state = "kinkphones_off"
 	base_icon_state = "kinkphones"
-	icon = 'local/icons/lewd/obj/clothing/ears.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/ears.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_ears.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_ears.dmi'
 	greyscale_colors = "#383840#dc7ef4#dc7ef4"
 	greyscale_config = /datum/greyscale_config/dorms_headphones
 	greyscale_config_worn = /datum/greyscale_config/dorms_headphones/worn

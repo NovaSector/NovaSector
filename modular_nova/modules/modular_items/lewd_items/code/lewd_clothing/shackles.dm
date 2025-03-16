@@ -3,8 +3,8 @@
 	desc = "A set of shackles designed for intimate encounters. There's a release switch just under the wrist."
 	body_parts_covered = NONE
 	flags_inv = NONE
-	icon = 'local/icons/lewd/obj/clothing/suits.dmi'
-	worn_icon = 'local/icons/lewd/mob/clothing/suits.dmi'
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_suits.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_suits.dmi'
 	icon_state = "shackles"
 	greyscale_colors = "#dc7ef4#383840"
 	greyscale_config = /datum/greyscale_config/dorms_shackles
