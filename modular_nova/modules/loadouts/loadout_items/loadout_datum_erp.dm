@@ -183,19 +183,19 @@
 	name = "Ball Mittens"
 	item_path = /obj/item/clothing/gloves/ball_mittens
 
-/datum/loadout_item/erp/collar/shock
+/datum/loadout_item/erp/collar_shock
 	name = "Shock Collar"
 	item_path = /obj/item/electropack/shockcollar
 
-/datum/loadout_item/erp/collar/mind
+/datum/loadout_item/erp/collar_mind
 	name = "Mind Collar"
 	item_path = /obj/item/clothing/neck/mind_collar
 
-/datum/loadout_item/erp/collar/size
+/datum/loadout_item/erp/collar_size
 	name = "Size Collar (Interlink Only)"
 	item_path = /obj/item/clothing/neck/size_collar
 
-/datum/loadout_item/erp/collar/key
+/datum/loadout_item/erp/collar_key
 	name = "Collar Key"
 	item_path = /obj/item/key/collar
 
