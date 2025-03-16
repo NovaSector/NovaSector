@@ -489,12 +489,12 @@
 // COLLARS
 
 // Spiked
-/datum/greyscale_config/collar/spike
+/datum/greyscale_config/collar_spike
 	name = "Spiked Collar"
 	icon_file = 'modular_nova/modules/GAGS/icons/collar.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/collar/spike.json'
 
-/datum/greyscale_config/collar/spike/worn
+/datum/greyscale_config/collar_spike/worn
 	name = "Spiked Collar (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/collar/spike_worn.json'
 

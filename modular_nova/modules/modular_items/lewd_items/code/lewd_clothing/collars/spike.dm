@@ -5,6 +5,6 @@
 	name = "spiked collar"
 	desc = "A collar, fit with a locking clasp and a handful of dull spikes."
 	icon_state = "spike"
-	greyscale_config = /datum/greyscale_config/collar/spike
-	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
+	greyscale_config = /datum/greyscale_config/collar_spike
+	greyscale_config_worn = /datum/greyscale_config/collar_spike/worn
 	greyscale_colors = "#292929#C0C0C0"
