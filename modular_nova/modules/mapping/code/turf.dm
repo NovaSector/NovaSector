@@ -22,7 +22,6 @@
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	baseturfs = /turf/open/misc/asteroid/snow/icemoon
 
-
 /turf/closed/indestructible/normal_wall
 	name = "wall"
 	icon = 'modular_nova/modules/aesthetics/walls/icons/wall.dmi'
