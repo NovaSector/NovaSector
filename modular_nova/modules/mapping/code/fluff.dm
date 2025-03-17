@@ -114,7 +114,6 @@
 	name = "Prisoner Privacy Curtains"
 	color = "#ACD1E9"
 
-
 /obj/structure/fluff/fake_firedoor
 	name = /obj/machinery/door/firedoor::name
 	desc = /obj/machinery/door/firedoor::desc
