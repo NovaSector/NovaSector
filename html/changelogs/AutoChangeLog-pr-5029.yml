@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "teshari and plasmamen no longer cause the character editor to bluescreen"
