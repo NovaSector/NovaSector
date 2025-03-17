@@ -95,7 +95,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 /obj/structure/sign/poster/official/nova_signup
 	name = "Sign Up"
 	desc = "A poster advertising Nanotrasen. Sign up today!"
-	icon = "modular_nova/modules/aesthetics/posters/official.dmi"
+	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_signup"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_signup, 32)
@@ -104,7 +104,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_signup, 32)
 /obj/structure/sign/poster/official/nova_join
 	name = "Shield Programme"
 	desc = "A poster telling you to join the 'Shield' Protection Programme, one of Nanotrasen's initiatives aimed at keeping their command staff alive. Join today! "
-	icon = "modular_nova/modules/aesthetics/posters/official.dmi"
+	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_join"
 
 /obj/structure/sign/poster/official/join/examine_more(mob/user)
@@ -125,7 +125,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_join, 32)
 /obj/structure/sign/poster/official/nova_mining
 	name = "Welcome to the Caves"
 	desc = "A poster showing a miner in the Caves of Indicepheries."
-	icon = "modular_nova/modules/aesthetics/posters/official.dmi"
+	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_mining"
 
 /obj/structure/sign/poster/official/mining/examine_more(mob/user)
