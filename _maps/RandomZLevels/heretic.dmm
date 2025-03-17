@@ -1195,7 +1195,6 @@
 /turf/open/floor/pod/light,
 /area/awaymission/beach/heretic)
 "uT" = (
-/obj/structure/safe/floor,
 /obj/item/antag_granter/changeling,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/beach/heretic)
@@ -2127,7 +2126,9 @@
 /mob/living/basic/construct/harvester/heretic{
 	name = "Deranged Machine";
 	desc = "A long, thin, decrepit construct originally built to herald Nar'Sie's rise, corrupted and rusted by the forces of the Mansus to spread its will instead, and its now gone far above and beyond its original design, its soul completely unrecognizable from what it once was, and now you feel it stare into yours.";
-	health = 500
+	health = 500;
+	faction = list("heretics","hostile");
+	maxHealth = 500
 	},
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
@@ -2891,6 +2892,14 @@
 /area/awaymission/beach/heretic)
 "Xc" = (
 /obj/effect/mob_spawn/corpse/human,
+/turf/open/floor/plating,
+/area/awaymission/beach/heretic)
+"Xj" = (
+/obj/structure/safe/floor{
+	name = "hermetically sealed floor safe";
+	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Secure Marine confidential package transporation safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\ This one specifically in particular seems extra reinforced""
+	},
+/obj/item/antag_granter/changeling,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "Xk" = (
@@ -9286,7 +9295,7 @@ dv
 Kx
 gv
 gv
-gv
+Xj
 ey
 zI
 mt
