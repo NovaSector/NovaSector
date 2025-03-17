@@ -72,8 +72,6 @@
 	id = /obj/item/card/id/advanced/centcom/station
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
 
-
-
 /obj/item/encryptionkey/headset_cent/ccrep
 	name = "\improper CentCom representative's encryption key"
 	channels = list(RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_SECURITY = 1)
