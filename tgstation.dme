@@ -7073,6 +7073,7 @@
 #include "modular_nova\master_files\code\modules\projectiles\guns\energy.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\automatic.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\revolver.dm"
+#include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\rifle.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\suppressor.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\bows\_bow.dm"
 #include "modular_nova\master_files\code\modules\projectiles\guns\ballistic\bows\bow_quivers.dm"
