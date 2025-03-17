@@ -34,6 +34,10 @@
 
 /obj/item/organ/cyberimp/on_bodypart_insert(obj/item/bodypart/limb)
 	. = ..()
+	// NOVA EDIT ADDITION START
+	if(isteshari(owner))
+		return
+	// NOVA EDIT ADDITION END
 	if (bodypart_aug)
 		limb.add_bodypart_overlay(bodypart_aug)
 

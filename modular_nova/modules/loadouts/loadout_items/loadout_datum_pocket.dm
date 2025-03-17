@@ -51,10 +51,6 @@
 	name = "Purple Lipstick"
 	item_path = /obj/item/lipstick/purple
 
-/datum/loadout_item/pocket_items/lipstick_red
-	name = "Red Lipstick"
-	item_path = /obj/item/lipstick
-
 /*
 *	MISC
 */
