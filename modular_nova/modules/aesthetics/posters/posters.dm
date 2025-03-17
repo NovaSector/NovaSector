@@ -78,7 +78,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 /obj/structure/sign/poster/official/enlist
 	name = "Enlist" // deathsquad mention removed in favour of asset protection
 	desc = "An advertisement for the Central Command Asset Protection strike team."
-	icon = "modular_nova/modules/aesthetics/posters/official.dmi"
+	icon = 'modular_nova/modules/aesthetics/posters/official.dmi'
 	icon_state = "nova_enlist"
 
 /obj/structure/sign/poster/official/enlist/examine_more(mob/user)
