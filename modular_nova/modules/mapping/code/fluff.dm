@@ -121,7 +121,6 @@
 	icon_state = /obj/machinery/door/firedoor::icon_state
 	layer = /obj/machinery/door/firedoor::layer
 
-
 /obj/structure/fluff/standalone_wooden_post
 	name = "wooden post"
 	desc = "A sturdy space-wood post; upright, on it's lonesome. Ominous."
