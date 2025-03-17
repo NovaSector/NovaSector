@@ -92,8 +92,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/killingjoke, 3
 	. += span_notice("<i>You notice it features a certain white-haired cat.</i>")
 	return .
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_enlist, 32)
-
 /obj/structure/sign/poster/official/nova_signup
 	name = "Sign Up"
 	desc = "A poster advertising Nanotrasen. Sign up today!"
