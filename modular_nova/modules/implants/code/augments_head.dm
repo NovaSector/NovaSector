@@ -14,7 +14,6 @@
 	icon_state = "sandy"
 	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
-	implant_color = null
 	actions_types = list(
 		/datum/action/cooldown/sensory_enhancer,
 		/datum/action/cooldown/sensory_enhancer/overcharge,
@@ -132,7 +131,6 @@
 	icon_state = "hackerman"
 	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
-	implant_color = null
 	actions_types = list(/datum/action/cooldown/spell/pointed/hackerman_deck)
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into.
