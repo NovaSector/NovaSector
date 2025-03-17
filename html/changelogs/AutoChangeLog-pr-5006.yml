@@ -1,0 +1,4 @@
+author: "Fruitbasket"
+delete-after: True
+changes:
+  - rscadd: "Human Plushie to character loadout."
