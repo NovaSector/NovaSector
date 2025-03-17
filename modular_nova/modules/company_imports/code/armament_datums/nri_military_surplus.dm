@@ -142,14 +142,17 @@
 /datum/armament_entry/company_import/nri_surplus/firearm/sakhno_rifle
 	item_type = /obj/item/gun/ballistic/rifle/boltaction
 	cost = PAYCHECK_COMMAND * 12
+	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm/lanca
 	item_type = /obj/item/gun/ballistic/automatic/lanca
 	cost = PAYCHECK_COMMAND * 14
+	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm/anti_materiel_rifle
 	item_type = /obj/item/gun/ballistic/automatic/wylom
 	cost = PAYCHECK_COMMAND * 16
+	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo
 	subcategory = "Firearm Magazines"
