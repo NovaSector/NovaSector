@@ -108,6 +108,13 @@
 /obj/structure/decorative/shelf/soda,
 /turf/open/floor/plating,
 /area/space)
+"aC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/plating,
+/area/space)
 "aG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/east,
@@ -157,7 +164,11 @@
 /turf/open/floor/plating/rust,
 /area/space)
 "aQ" = (
-/turf/open/floor/mineral/plastitanium,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/space)
 "aR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -200,6 +211,28 @@
 "bc" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating,
+/area/space)
+"bd" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/blue/anticorner,
+/turf/open/floor/iron/smooth,
+/area/space)
+"be" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "bj" = (
 /obj/effect/step_trigger/teleporter/offset{
@@ -305,8 +338,6 @@
 	throw_range = 16;
 	name = "Enhanced heavy"
 	},
-/obj/structure/window/reinforced/plasma/spawner/directional/north,
-/obj/structure/window/reinforced/plasma/spawner/directional/south,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -322,6 +353,13 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/space)
+"bN" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
 "bO" = (
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/plating,
@@ -335,6 +373,22 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
+/area/space)
+"bV" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/red/real_red/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "bZ" = (
 /obj/structure/showcase/machinery/tv,
@@ -392,7 +446,7 @@
 /mob/living/simple_animal/bot/secbot{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red,
 /area/space)
 "cs" = (
 /obj/structure/no_effect_signpost/void,
@@ -404,6 +458,12 @@
 	},
 /obj/item/fishing_hook/rescue,
 /turf/open/floor/wood,
+/area/space)
+"cu" = (
+/obj/structure/chair/sofa/bench/tram/left{
+	dir = 1
+	},
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "cv" = (
 /obj/effect/light_emitter{
@@ -549,12 +609,6 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
 /area/space)
-"dc" = (
-/obj/machinery/jukebox/disco/indestructible{
-	name = "Fucked up and evil dance machine"
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "dd" = (
 /mob/living/simple_animal/hostile/evilborg/peace{
 	faction = list("hostile","cult")
@@ -603,7 +657,11 @@
 /turf/open/floor/iron,
 /area/space)
 "do" = (
-/obj/item/kirbyplants/random,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	id = "sol_invasion"
+	},
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -654,6 +712,16 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
 /area/space)
+"dw" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/purple/anticorner,
+/turf/open/floor/iron/smooth,
+/area/space)
+"dy" = (
+/obj/effect/turf_decal/tile/yellow/half,
+/turf/open/floor/iron/smooth,
+/area/space)
 "dA" = (
 /obj/item/food/breadslice/moldy/bacteria,
 /obj/item/food/deadmouse/moldy,
@@ -670,16 +738,13 @@
 /turf/open/floor/iron,
 /area/space)
 "dC" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1
+/obj/machinery/door/airlock{
+	name = "Maintenance"
 	},
-/turf/open/floor/plating,
-/area/space)
-"dE" = (
-/obj/item/wallframe/firecloset{
-	pixel_x = -31
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/turf/open/floor/sepia{
+	slowdown = 10
 	},
-/turf/open/floor/plating,
 /area/space)
 "dF" = (
 /obj/structure/broken_flooring/singular/directional/east,
@@ -696,7 +761,7 @@
 /area/space)
 "dK" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
-/obj/structure/sign/warning/biohazard/directional/north,
+/obj/machinery/conveyor/auto,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -774,6 +839,11 @@
 	dir = 4
 	},
 /turf/open/water/no_planet_atmos,
+/area/space)
+"ek" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/trap/stun,
+/turf/open/floor/plating,
 /area/space)
 "em" = (
 /mob/living/basic/regal_rat/controlled,
@@ -954,6 +1024,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/showroomfloor,
 /area/space)
+"eX" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/turf/open/floor/iron/smooth,
+/area/space)
 "eZ" = (
 /obj/machinery/recharge_station,
 /obj/effect/turf_decal/bot_red,
@@ -964,6 +1040,12 @@
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red,
+/area/space)
+"fd" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/open/floor/iron,
 /area/space)
 "fe" = (
 /obj/effect/decal/cleanable/fuel_pool,
@@ -980,6 +1062,12 @@
 	},
 /obj/structure/closet/crate/preopen,
 /turf/open/floor/plating/rust,
+/area/space)
+"fi" = (
+/obj/structure/chair/sofa/bench/tram/right{
+	dir = 8
+	},
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "fj" = (
 /turf/open/floor/carpet/green,
@@ -1150,6 +1238,11 @@
 /obj/effect/spawner/random/structure/girder,
 /turf/open/floor/plating,
 /area/space)
+"fZ" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/maintenance,
+/turf/open/space/basic,
+/area/space)
 "gb" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/structure/closet/crate/large,
@@ -1161,6 +1254,18 @@
 /obj/structure/alien/weeds,
 /obj/structure/cable,
 /turf/open/floor/plating,
+/area/space)
+"gd" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow/anticorner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "ge" = (
 /obj/machinery/conveyor{
@@ -1181,6 +1286,12 @@
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
+/area/space)
+"gk" = (
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Robusts-The-Assistant"
+	},
+/turf/open/floor/plating,
 /area/space)
 "gl" = (
 /obj/effect/rune/summon,
@@ -1236,7 +1347,7 @@
 /turf/open/floor/iron/recharge_floor,
 /area/space)
 "gz" = (
-/obj/structure/sign/flag/nanotrasen/directional/north,
+/obj/structure/sign/flag/terragov/directional/north,
 /turf/open/floor/iron/cafeteria,
 /area/space)
 "gA" = (
@@ -1480,6 +1591,18 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /turf/open/floor/circuit/red/anim,
 /area/space)
+"hp" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red/real_red/anticorner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "hr" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/spawner/random/trash/garbage{
@@ -1541,6 +1664,14 @@
 /obj/structure/alien/weeds,
 /turf/open/floor/wood,
 /area/space)
+"hD" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "hE" = (
 /obj/structure/closet/crate/trashcart/filled,
 /obj/item/ammo_box/c35sol,
@@ -1570,11 +1701,30 @@
 "hG" = (
 /turf/open/floor/circuit/green,
 /area/space)
+"hI" = (
+/obj/effect/spawner/random/trash/graffiti,
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Greytides-The-Station"
+	},
+/turf/open/floor/plating,
+/area/space)
 "hJ" = (
 /obj/item/ectoplasm,
 /turf/open/floor/iron/chapel{
 	dir = 1
 	},
+/area/space)
+"hK" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple/anticorner{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "hL" = (
 /obj/machinery/door/airlock/maintenance,
@@ -1582,11 +1732,8 @@
 /turf/open/floor/circuit/red,
 /area/space)
 "hM" = (
-/obj/effect/spawner/random/trash/graffiti,
-/obj/item/toy/plush/lizard_plushie/green{
-	name = "Greytides-The-Station"
-	},
-/turf/open/floor/plating,
+/obj/structure/sign/warning/secure_area/directional/east,
+/turf/open/floor/iron/smooth,
 /area/space)
 "hN" = (
 /obj/structure/fluff/tram_rail/end{
@@ -1602,11 +1749,15 @@
 /mob/living/basic/construct/proteon,
 /turf/open/floor/plating,
 /area/space)
+"hT" = (
+/obj/effect/turf_decal/tile/red/real_red/half,
+/turf/open/floor/iron/smooth,
+/area/space)
 "hZ" = (
 /mob/living/simple_animal/hostile/evilborg/sec{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red/anim,
 /area/space)
 "ia" = (
 /obj/structure/door_assembly/door_assembly_mhatch,
@@ -1701,6 +1852,12 @@
 	name = "melted wall"
 	},
 /area/space)
+"iz" = (
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "iA" = (
 /turf/open/floor/iron,
 /area/space)
@@ -1736,7 +1893,7 @@
 /mob/living/simple_animal/bot/secbot/beepsky/ofitser{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red,
 /area/space)
 "iT" = (
 /obj/structure/flora/bush/jungle/a/style_random,
@@ -1757,6 +1914,18 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/broken_flooring/corner/directional/south,
 /turf/open/floor/plating,
+/area/space)
+"iZ" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red/real_red/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "ja" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1818,13 +1987,6 @@
 /obj/structure/water_source/puddle,
 /turf/open/floor/grass,
 /area/space)
-"jm" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/space)
 "jp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/alien/resin/wall,
@@ -1855,6 +2017,10 @@
 /area/space)
 "ju" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -1900,6 +2066,22 @@
 	},
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
+/area/space)
+"jB" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "jC" = (
 /obj/effect/turf_decal/weather/snow,
@@ -2024,12 +2206,6 @@
 /obj/effect/rune/convert,
 /turf/open/floor/engine/cult,
 /area/space)
-"kj" = (
-/obj/structure/disposalpipe/junction{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/space)
 "kl" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/circuit/red/anim,
@@ -2105,6 +2281,12 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
 /area/space)
+"kD" = (
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "kE" = (
 /mob/living/basic/bot/medbot/derelict,
 /turf/open/floor/iron/white,
@@ -2128,6 +2310,10 @@
 /area/space)
 "kM" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/machinery/conveyor/auto,
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -2215,6 +2401,9 @@
 /turf/open/floor/plating,
 /area/space)
 "ld" = (
+/obj/machinery/door/airlock{
+	name = "Maintenance"
+	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -2223,7 +2412,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/door/airlock/science,
 /turf/open/floor/plating,
 /area/space)
 "le" = (
@@ -2269,16 +2457,16 @@
 /obj/machinery/power/rtg/debug,
 /turf/open/floor/plating,
 /area/space)
-"lp" = (
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/machinery/door/airlock{
-	name = "Maintenance"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
-/area/space)
 "lq" = (
 /turf/open/floor/circuit/red,
+/area/space)
+"ls" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "lt" = (
 /obj/structure/table,
@@ -2320,6 +2508,10 @@
 /turf/open/misc/asteroid,
 /area/space)
 "lA" = (
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	id = "sol_invasion"
+	},
 /obj/machinery/door/window/left/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
@@ -2389,10 +2581,6 @@
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/iron,
 /area/space)
-"lT" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/open/space/basic,
-/area/space)
 "lV" = (
 /obj/item/bot_assembly/repairbot{
 	created_name = "FloorDiffBot";
@@ -2400,6 +2588,13 @@
 	name = "FloorDiffBot"
 	},
 /turf/open/floor/wood,
+/area/space)
+"lY" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/plating,
 /area/space)
 "lZ" = (
 /obj/machinery/door/airlock/freezer{
@@ -2433,17 +2628,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron,
-/area/space)
-"mj" = (
-/obj/item/paper{
-	default_raw_text = "Jim Norton's Quebecois Coffee.         You see, in 2265 the Quebecois had finally had enough of Canada's shit, and went to the one place that wasn't corrupted by Canuckistan.Je vais au seul endroit qui n'a pas ??? corrompu par les Canadiens ... ESPACE.";
-	name = "Xenomorph Warning";
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
 /area/space)
 "ml" = (
 /obj/machinery/door/airlock/maintenance{
@@ -2522,6 +2706,10 @@
 /turf/open/floor/plating,
 /area/space)
 "my" = (
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	id = "sol_invasion"
+	},
 /obj/machinery/door/window/left/directional/south,
 /turf/open/floor/plating,
 /area/space)
@@ -2558,12 +2746,6 @@
 /obj/effect/mob_spawn/corpse/human/blood_cultist,
 /turf/open/floor/iron/chapel{
 	dir = 1
-	},
-/area/space)
-"mD" = (
-/obj/item/sticker/right_arrow,
-/turf/open/floor/sepia{
-	slowdown = 10
 	},
 /area/space)
 "mE" = (
@@ -2611,11 +2793,6 @@
 /obj/item/pen/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/grimy,
-/area/space)
-"mL" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/trap/stun,
-/turf/open/floor/plating,
 /area/space)
 "mM" = (
 /obj/item/reagent_containers/cup/watering_can/wood,
@@ -2730,6 +2907,12 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"np" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "nq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -2834,6 +3017,13 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured,
+/area/space)
+"nR" = (
+/obj/structure/window/spawner/directional/east,
+/obj/structure/window/spawner/directional/west,
+/obj/structure/flora/bush/jungle/c/style_random,
+/obj/structure/window/spawner/directional/north,
+/turf/open/misc/grass/jungle,
 /area/space)
 "nS" = (
 /obj/structure/dresser,
@@ -2960,7 +3150,7 @@
 /obj/structure/window/spawner/directional/west,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/flora/bush/jungle/a/style_random,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/misc/grass/jungle,
 /area/space)
 "ot" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3108,6 +3298,22 @@
 /obj/structure/closet/crate/trashcart,
 /turf/open/floor/plating/rust,
 /area/space)
+"pg" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "ph" = (
 /obj/machinery/light/floor,
 /obj/item/kirbyplants/random,
@@ -3218,11 +3424,6 @@
 /obj/structure/closet/body_bag,
 /turf/open/floor/engine/cult,
 /area/space)
-"pC" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/maintenance,
-/turf/open/space/basic,
-/area/space)
 "pF" = (
 /obj/structure/holosign/barrier/cyborg,
 /turf/open/misc/grass/jungle,
@@ -3244,13 +3445,16 @@
 /turf/open/floor/iron/dark/textured,
 /area/space)
 "pJ" = (
-/obj/structure/fluff/tram_rail/anchor{
-	dir = 1
+/obj/structure/bed{
+	dir = 4
 	},
-/obj/structure/fluff/tram_rail{
-	dir = 1
+/obj/item/bedsheet/black{
+	dir = 4
 	},
-/turf/closed/indestructible/reinforced,
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "pK" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
@@ -3340,6 +3544,7 @@
 "qm" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/machinery/conveyor/auto,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -3402,6 +3607,20 @@
 	spawn_scatter_radius = 1
 	},
 /turf/open/floor/plating/rust,
+/area/space)
+"qM" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/blue/half,
+/turf/open/floor/iron/smooth,
 /area/space)
 "qO" = (
 /obj/structure/showcase/mecha/marauder{
@@ -3539,7 +3758,7 @@
 /mob/living/simple_animal/hostile/evilborg/protect{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red/anim,
 /area/space)
 "rs" = (
 /turf/open/lava/smooth/weak{
@@ -3634,6 +3853,9 @@
 /obj/machinery/recycler/deathtrap{
 	dir = 4
 	},
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/space)
 "rS" = (
@@ -3685,6 +3907,12 @@
 /obj/structure/broken_flooring/pile/directional/east,
 /obj/structure/alien/weeds/node,
 /turf/open/floor/plating,
+/area/space)
+"sg" = (
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "sh" = (
 /obj/effect/spawner/random/trash/graffiti{
@@ -3788,10 +4016,6 @@
 	dir = 4
 	},
 /area/space)
-"sF" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/open/floor/iron,
-/area/space)
 "sG" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/vending/boozeomat,
@@ -3822,15 +4046,11 @@
 /obj/item/storage/toolbox/emergency,
 /turf/open/misc/asteroid,
 /area/space)
-"sO" = (
-/mob/living/simple_animal/bot/secbot/grievous{
-	faction = list("hostile","cult")
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "sP" = (
-/obj/effect/mapping_helpers/airlock/access/any/service/janitor,
-/obj/machinery/door/airlock/bathroom,
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "sQ" = (
@@ -3838,8 +4058,8 @@
 /turf/open/floor/plating,
 /area/space)
 "sT" = (
-/obj/effect/spawner/random/trash/graffiti,
-/turf/open/floor/plating,
+/obj/structure/chair/sofa/bench/tram/right,
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "sU" = (
 /obj/machinery/door/airlock/corporate,
@@ -3963,6 +4183,9 @@
 	},
 /obj/item/bedsheet/black{
 	dir = 4
+	},
+/obj/effect/turf_decal/tile/red/real_red/anticorner{
+	dir = 8
 	},
 /turf/open/floor/iron/smooth,
 /area/space)
@@ -4214,7 +4437,7 @@
 /area/space)
 "uA" = (
 /obj/structure/mecha_wreckage/gygax,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red/anim,
 /area/space)
 "uB" = (
 /obj/structure/fluff/tram_rail/end{
@@ -4306,7 +4529,7 @@
 "uX" = (
 /obj/item/robot_model/security,
 /obj/structure/closet/crate/engineering/electrical,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red,
 /area/space)
 "uY" = (
 /obj/effect/step_trigger/teleporter/offset{
@@ -4362,6 +4585,10 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /obj/item/shard,
 /turf/open/floor/plating/rust,
+/area/space)
+"vi" = (
+/obj/effect/turf_decal/tile/purple/half,
+/turf/open/floor/iron/smooth,
 /area/space)
 "vj" = (
 /obj/structure/table,
@@ -4421,12 +4648,6 @@
 /obj/structure/kitchenspike_frame,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
-/area/space)
-"vy" = (
-/obj/effect/spawner/random/vending/snackvend,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
 /area/space)
 "vz" = (
 /obj/structure/fluff/tram_rail/end,
@@ -4551,6 +4772,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/space)
+"wg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "wh" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/holosign/barrier/atmos,
@@ -4565,6 +4792,12 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/grille,
 /turf/open/floor/iron/white,
+/area/space)
+"wp" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/yellow/anticorner,
+/turf/open/floor/iron/smooth,
 /area/space)
 "ws" = (
 /obj/structure/sign/warning/secure_area,
@@ -4582,10 +4815,7 @@
 /turf/open/floor/engine/cult,
 /area/space)
 "ww" = (
-/obj/structure/rack,
-/obj/item/flamethrower/full/tank,
-/obj/item/flamethrower/full/tank,
-/obj/item/flamethrower/full/tank,
+/obj/structure/window/reinforced/plasma/fulltile,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -4633,12 +4863,6 @@
 /obj/item/reagent_containers/cup/bucket/wooden,
 /turf/open/floor/plating,
 /area/space)
-"wI" = (
-/obj/item/sticker/left_arrow,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
-/area/space)
 "wJ" = (
 /obj/structure/chair/stool/directional/south,
 /obj/effect/decal/cleanable/cobweb,
@@ -4678,10 +4902,22 @@
 /mob/living/simple_animal/bot/secbot/beepsky/jr{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red,
 /area/space)
 "wQ" = (
 /turf/closed/wall/r_wall,
+/area/space)
+"wR" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow/anticorner{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "wS" = (
 /obj/structure/disposalpipe/segment{
@@ -4689,6 +4925,12 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating,
+/area/space)
+"wT" = (
+/obj/structure/chair/sofa/bench/tram/right{
+	dir = 1
+	},
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "wW" = (
 /obj/structure/table/reinforced,
@@ -4966,10 +5208,10 @@
 /turf/open/floor/plating,
 /area/space)
 "yx" = (
-/obj/machinery/suit_storage_unit/medical,
-/turf/open/floor/sepia{
-	slowdown = 10
+/obj/structure/disposalpipe/junction{
+	dir = 2
 	},
+/turf/open/floor/plating,
 /area/space)
 "yA" = (
 /obj/structure/railing{
@@ -5025,6 +5267,10 @@
 /obj/effect/spawner/random/engineering/tank,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
+/area/space)
+"yV" = (
+/obj/structure/chair/sofa/bench/tram/left,
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "yW" = (
 /obj/structure/fluff/clockwork/alloy_shards/large,
@@ -5105,12 +5351,6 @@
 /obj/structure/water_source/puddle,
 /turf/open/misc/asteroid,
 /area/space)
-"zx" = (
-/obj/item/toy/plush/lizard_plushie/green{
-	name = "Self-Antags"
-	},
-/turf/open/floor/plating,
-/area/space)
 "zy" = (
 /obj/machinery/deepfryer,
 /turf/open/floor/iron/cafeteria,
@@ -5123,6 +5363,12 @@
 	light_color = "#9bbbff"
 	},
 /turf/open/misc/beach/sand,
+/area/space)
+"zA" = (
+/obj/structure/table/reinforced,
+/obj/item/inducer,
+/obj/structure/sign/flag/terragov/directional/north,
+/turf/open/floor/iron/diagonal,
 /area/space)
 "zD" = (
 /obj/structure/disposalpipe/trunk{
@@ -5233,12 +5479,10 @@
 "Ae" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
-/obj/machinery/light/floor,
 /obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	dir = 8
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -5552,12 +5796,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/space)
-"BA" = (
-/obj/item/toy/plush/lizard_plushie/green{
-	name = "Robusts-The-Assistant"
-	},
-/turf/open/floor/plating,
-/area/space)
 "BB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5570,10 +5808,27 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"BE" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/red/real_red/anticorner{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "BF" = (
-/obj/structure/sink/directional/west,
-/obj/structure/mirror/directional/east,
-/turf/open/floor/iron/white,
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/purple/half,
+/turf/open/floor/iron/smooth,
 /area/space)
 "BG" = (
 /obj/structure/sign/flag{
@@ -5596,6 +5851,9 @@
 /area/space)
 "BL" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -5603,6 +5861,10 @@
 "BP" = (
 /obj/structure/fluff/tram_rail,
 /turf/closed/indestructible/reinforced,
+/area/space)
+"BR" = (
+/obj/effect/turf_decal/tile/blue/half,
+/turf/open/floor/iron/smooth,
 /area/space)
 "BS" = (
 /obj/effect/turf_decal/stripes/line{
@@ -5629,6 +5891,18 @@
 	},
 /turf/open/floor/wood,
 /area/space)
+"BU" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue/anticorner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "BV" = (
 /obj/structure/girder,
 /turf/open/floor/plating,
@@ -5639,6 +5913,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
+/area/space)
+"BZ" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Ca" = (
 /obj/vehicle/sealed/mecha/gygax,
@@ -5680,6 +5960,12 @@
 "Ch" = (
 /obj/machinery/door/poddoor/shutters/window/indestructible,
 /turf/open/floor/iron/diagonal,
+/area/space)
+"Ci" = (
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Ck" = (
 /obj/effect/spawner/structure/window/bronze,
@@ -5808,6 +6094,18 @@
 /obj/effect/rune/apocalypse,
 /mob/living/simple_animal/hostile/cult/magic/elite,
 /turf/open/floor/engine/cult,
+/area/space)
+"Db" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Dc" = (
 /mob/living/simple_animal/hostile/evilborg{
@@ -5945,6 +6243,16 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/plating,
 /area/space)
+"DL" = (
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Abuses-The-Admins"
+	},
+/turf/open/floor/plating,
+/area/space)
+"DP" = (
+/obj/effect/spawner/random/vending/colavend,
+/turf/open/floor/iron/cafeteria,
+/area/space)
 "DR" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
@@ -5994,11 +6302,10 @@
 /turf/open/floor/iron,
 /area/space)
 "DZ" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/disposalpipe/segment{
+/obj/effect/turf_decal/tile/red/real_red/half{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/iron/smooth,
 /area/space)
 "Ec" = (
 /obj/machinery/light/floor,
@@ -6017,10 +6324,6 @@
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
 /turf/open/floor/iron/cafeteria,
-/area/space)
-"Eh" = (
-/obj/machinery/mech_bay_recharge_port,
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "Ei" = (
 /obj/machinery/door/airlock/maintenance,
@@ -6058,13 +6361,6 @@
 	range = 1;
 	target_turf_x = 5
 	},
-/area/space)
-"Eq" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/disposal/bin,
-/turf/open/floor/plating,
 /area/space)
 "Es" = (
 /obj/structure/chair{
@@ -6150,11 +6446,12 @@
 /turf/open/floor/plating,
 /area/space)
 "EJ" = (
-/obj/machinery/door/airlock{
-	name = "Maintenance"
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
+/turf/open/floor/sepia{
+	slowdown = 10
 	},
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
 /area/space)
 "EK" = (
 /turf/open/floor/iron/chapel{
@@ -6227,9 +6524,7 @@
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/north,
 /obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -6299,6 +6594,10 @@
 "Fh" = (
 /obj/machinery/recycler{
 	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	id = "sol_invasion"
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -6396,6 +6695,12 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/alien/weeds,
 /turf/open/floor/wood,
+/area/space)
+"FB" = (
+/obj/item/wallframe/firecloset{
+	pixel_x = -31
+	},
+/turf/open/floor/plating,
 /area/space)
 "FE" = (
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -6512,6 +6817,18 @@
 "Ga" = (
 /obj/effect/spawner/random/structure/chair_flipped,
 /turf/open/floor/circuit/red/anim,
+/area/space)
+"Gc" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple/anticorner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Gd" = (
 /obj/structure/closet/crate/trashcart,
@@ -6863,6 +7180,12 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/space)
+"If" = (
+/obj/effect/turf_decal/tile/red/real_red/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "Ih" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
@@ -6937,6 +7260,12 @@
 	},
 /turf/open/floor/iron,
 /area/space)
+"IC" = (
+/obj/structure/chair/sofa/bench/tram/right{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/space)
 "IH" = (
 /obj/effect/spawner/random/entertainment/lighter,
 /obj/item/cigarette/rollie/mindbreaker{
@@ -7000,9 +7329,8 @@
 /turf/open/floor/iron/white,
 /area/space)
 "Jf" = (
-/obj/structure/chair/comfy{
-	dir = 1
-	},
+/obj/machinery/conveyor/auto,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -7157,6 +7485,12 @@
 /obj/structure/broken_flooring/pile/directional/east,
 /turf/open/floor/plating,
 /area/space)
+"Kc" = (
+/obj/item/wallframe/emcloset{
+	pixel_x = -32
+	},
+/turf/open/floor/plating,
+/area/space)
 "Kd" = (
 /obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/circuit/red/anim,
@@ -7237,6 +7571,12 @@
 	},
 /turf/open/floor/iron/small,
 /area/space)
+"Ku" = (
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "Ky" = (
 /obj/machinery/computer/mechpad{
 	dir = 8
@@ -7269,6 +7609,10 @@
 	},
 /area/space)
 "KF" = (
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	id = "sol_invasion"
+	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/plating,
 /area/space)
@@ -7327,9 +7671,11 @@
 /turf/open/misc/grass/jungle,
 /area/space)
 "KY" = (
-/obj/structure/fluff/tram_rail/anchor,
-/obj/structure/fluff/tram_rail,
-/turf/closed/indestructible/reinforced,
+/obj/machinery/light/floor,
+/obj/structure/chair/sofa/bench/tram/right{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "KZ" = (
 /mob/living/basic/clown,
@@ -7339,6 +7685,10 @@
 "La" = (
 /obj/structure/destructible/clockwork/gear_base/powered/interdiction_lens,
 /turf/open/floor/bronze/filled,
+/area/space)
+"Lb" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "Lc" = (
 /obj/item/storage/toolbox/guncase/monkeycase,
@@ -7419,23 +7769,11 @@
 	},
 /turf/open/floor/wood,
 /area/space)
-"Lp" = (
-/mob/living/simple_animal/bot/secbot{
-	faction = list("hostile","cult")
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "Lr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
-/area/space)
-"Lt" = (
-/obj/item/toy/plush/lizard_plushie/green{
-	name = "Abuses-The-Admins"
-	},
 /turf/open/floor/plating,
 /area/space)
 "Lx" = (
@@ -7500,7 +7838,7 @@
 	},
 /obj/item/malf_upgrade,
 /obj/item/aiupgrade/surveillance_upgrade,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red/anim,
 /area/space)
 "LN" = (
 /obj/structure/fluff/divine/powerpylon,
@@ -7574,13 +7912,6 @@
 /obj/structure/bedsheetbin,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/wood,
-/area/space)
-"Mg" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal/bin,
-/turf/open/floor/plating,
 /area/space)
 "Ml" = (
 /obj/item/bedsheet,
@@ -7701,8 +8032,12 @@
 /turf/open/floor/iron/dark,
 /area/space)
 "MP" = (
-/obj/structure/mirror/directional/east,
-/turf/open/floor/iron/white,
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/blue/anticorner{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "MQ" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
@@ -7779,6 +8114,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/space)
+"Ne" = (
+/obj/structure/sign/warning/firing_range/directional/west,
+/turf/open/floor/iron/smooth,
+/area/space)
 "Nf" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/structure/closet/crate{
@@ -7845,11 +8184,8 @@
 	max_integrity = 50000;
 	name = "Anti cheese window"
 	},
+/obj/machinery/conveyor/auto,
 /obj/machinery/light/floor,
-/obj/machinery/conveyor/auto{
-	dir = 1
-	},
-/obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -7859,10 +8195,9 @@
 /turf/open/floor/bronze/filled,
 /area/space)
 "NB" = (
-/obj/structure/chair/sofa/bench{
+/obj/structure/chair/sofa/bench/tram/left{
 	dir = 8
 	},
-/obj/machinery/light/floor,
 /turf/open/floor/iron/cafeteria,
 /area/space)
 "NC" = (
@@ -7979,6 +8314,9 @@
 /turf/open/floor/plating,
 /area/space)
 "NZ" = (
+/obj/machinery/door/airlock{
+	name = "Maintenance"
+	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -7986,11 +8324,8 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/science,
 /obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	dir = 8
 	},
 /turf/open/floor/sepia{
 	slowdown = 10
@@ -8006,6 +8341,18 @@
 "Oc" = (
 /obj/effect/mob_spawn/corpse/human/assistant/spanishflu_infection,
 /turf/open/misc/asteroid/forest/mushroom,
+/area/space)
+"Od" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Oe" = (
 /obj/item/ectoplasm,
@@ -8152,6 +8499,17 @@
 /obj/item/clothing/head/costume/snowman,
 /turf/open/floor/fake_snow,
 /area/space)
+"OX" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/space/basic,
+/area/space)
+"OZ" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "Pa" = (
 /obj/structure/cable,
 /turf/open/floor/black,
@@ -8201,11 +8559,17 @@
 /obj/item/food/breadslice/moldy/bacteria,
 /turf/open/floor/circuit/red/anim,
 /area/space)
+"Pw" = (
+/obj/effect/turf_decal/tile/purple/half{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "Py" = (
 /mob/living/simple_animal/bot/secbot/beepsky/armsky{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red,
 /area/space)
 "PB" = (
 /turf/open/misc/asteroid,
@@ -8300,8 +8664,8 @@
 "Qc" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/machinery/conveyor/auto,
 /obj/machinery/light/floor,
-/obj/effect/turf_decal/shuttle/exploration/hazardstripe,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -8398,6 +8762,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/space)
+"Qy" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/yellow/anticorner{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "QA" = (
 /turf/closed/mineral/random/stationside,
 /area/space)
@@ -8416,13 +8788,10 @@
 	},
 /area/space)
 "QD" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
+/obj/effect/turf_decal/tile/yellow/half{
+	dir = 8
 	},
-/obj/structure/sign/flag/nanotrasen/directional/south,
-/turf/open/misc/beach/sand,
+/turf/open/floor/iron/smooth,
 /area/space)
 "QF" = (
 /obj/structure/disposalpipe/segment{
@@ -8434,6 +8803,20 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
+/area/space)
+"QI" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/red/real_red/half,
+/turf/open/floor/iron/smooth,
 /area/space)
 "QJ" = (
 /obj/effect/spawner/random/trash/box,
@@ -8604,6 +8987,10 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/space)
+"Rt" = (
+/obj/structure/sign/warning/secure_area/directional/west,
+/turf/open/floor/iron/smooth,
+/area/space)
 "Ru" = (
 /obj/item/trash/cheesie,
 /obj/item/shovel,
@@ -8707,12 +9094,6 @@
 /obj/structure/mirror/directional/west,
 /turf/open/floor/wood,
 /area/space)
-"RL" = (
-/obj/structure/closet/l3closet/scientist,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
-/area/space)
 "RN" = (
 /obj/item/burner/fuel{
 	pixel_x = -5;
@@ -8764,6 +9145,10 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/space)
+"RV" = (
+/obj/structure/sign/warning/firing_range/directional/east,
+/turf/open/floor/iron/smooth,
+/area/space)
 "RW" = (
 /obj/structure/fluff/divine/conduit,
 /turf/open/floor/iron/chapel{
@@ -8774,6 +9159,12 @@
 /obj/structure/cable,
 /obj/machinery/power/floodlight,
 /turf/open/floor/black,
+/area/space)
+"RZ" = (
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Self-Antags"
+	},
+/turf/open/floor/plating,
 /area/space)
 "Sc" = (
 /turf/open/floor/iron/tgmcemblem{
@@ -9049,7 +9440,7 @@
 /obj/structure/window/spawner/directional/west,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/flora/bush/jungle/a/style_random,
-/turf/open/floor/mineral/plastitanium,
+/turf/open/misc/grass/jungle,
 /area/space)
 "Ts" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -9122,7 +9513,7 @@
 /mob/living/simple_animal/bot/secbot/grievous/toy{
 	faction = list("hostile","cult")
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/circuit/red,
 /area/space)
 "TO" = (
 /obj/structure/safe/floor,
@@ -9174,11 +9565,12 @@
 /obj/machinery/light/floor,
 /turf/open/misc/grass/jungle,
 /area/space)
-"TZ" = (
-/obj/machinery/door/airlock/science,
-/turf/open/floor/sepia{
-	slowdown = 10
+"TY" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
+/obj/machinery/disposal/bin,
+/turf/open/floor/plating,
 /area/space)
 "Uc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -9199,9 +9591,11 @@
 /turf/open/floor/iron/showroomfloor,
 /area/space)
 "Um" = (
-/obj/structure/mirror/directional/east,
-/obj/structure/sink/directional/west,
-/turf/open/floor/iron/white,
+/obj/machinery/door/airlock{
+	name = "Maintenance"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
 /area/space)
 "Un" = (
 /obj/structure/table/reinforced,
@@ -9214,11 +9608,9 @@
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled,
 /turf/open/floor/plating/rust,
 /area/space)
-"Ur" = (
-/mob/living/simple_animal/hostile/evilborg/heavy{
-	faction = list("hostile","cult")
-	},
-/turf/open/floor/mineral/plastitanium,
+"Uq" = (
+/obj/machinery/smartfridge/drying,
+/turf/open/floor/iron/cafeteria,
 /area/space)
 "Us" = (
 /obj/structure/table/wood,
@@ -9226,12 +9618,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/grimy,
-/area/space)
-"Ut" = (
-/obj/item/wallframe/emcloset{
-	pixel_x = -32
-	},
-/turf/open/floor/plating,
 /area/space)
 "Uu" = (
 /obj/effect/spawner/random/maintenance,
@@ -9288,10 +9674,22 @@
 /turf/open/misc/grass/jungle,
 /area/space)
 "UL" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	id = "sol_invasion"
+	},
 /obj/machinery/light/floor,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
+/area/space)
+"UM" = (
+/obj/structure/window/spawner/directional/east,
+/obj/structure/window/spawner/directional/west,
+/obj/structure/flora/bush/jungle/c/style_random,
+/obj/structure/window/spawner/directional/south,
+/turf/open/misc/grass/jungle,
 /area/space)
 "UO" = (
 /obj/effect/turf_decal/trimline/red/corner,
@@ -9426,12 +9824,6 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
 /area/space)
-"Vf" = (
-/mob/living/simple_animal/bot/secbot/beepsky{
-	faction = list("hostile","cult")
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "Vg" = (
 /mob/living/basic/construct/wraith,
 /turf/open/floor/plating,
@@ -9506,13 +9898,6 @@
 	desc = "A cheap Nanotrasen security laptop, it functions as a security records console. It's bolted to the table, this one seems to be running a non standard program that you dont quite recognize but it reminds of you of a very fucked up excel spreadsheet"
 	},
 /turf/open/floor/iron,
-/area/space)
-"VL" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/disposalpipe/segment{
-	dir = 1
-	},
-/turf/open/floor/plating,
 /area/space)
 "VN" = (
 /obj/structure/rack,
@@ -9731,6 +10116,14 @@
 "WH" = (
 /turf/cordon/secret,
 /area/space)
+"WJ" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/purple/anticorner{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "WK" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/item/fishing_hook/rescue,
@@ -9802,6 +10195,12 @@
 /obj/structure/girder,
 /turf/open/floor/plating,
 /area/space)
+"WT" = (
+/obj/effect/turf_decal/tile/red/real_red/half{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "WU" = (
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
@@ -9809,18 +10208,14 @@
 /turf/open/floor/plating,
 /area/space)
 "WV" = (
+/obj/machinery/door/airlock{
+	name = "Maintenance"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/machinery/door/airlock/science,
+/obj/machinery/conveyor/auto,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
-/area/space)
-"WY" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/obj/effect/spawner/random/trash/graffiti,
-/turf/open/floor/plating,
 /area/space)
 "Xa" = (
 /obj/effect/decal/cleanable/fuel_pool,
@@ -9893,6 +10288,12 @@
 /obj/structure/sign/poster/contraband/busty_backdoor_xeno_babes_6/directional/east,
 /turf/open/floor/plating,
 /area/space)
+"Xv" = (
+/obj/structure/chair/sofa/bench/tram/left{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/space)
 "Xx" = (
 /obj/effect/light_emitter{
 	set_cap = 3;
@@ -9930,7 +10331,29 @@
 "XG" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/red/real_red/half{
+	dir = 4
+	},
 /turf/open/floor/iron/smooth,
+/area/space)
+"XH" = (
+/obj/structure/bed{
+	dir = 4
+	},
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue/anticorner{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
+"XI" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal/bin,
+/turf/open/floor/plating,
 /area/space)
 "XK" = (
 /obj/machinery/door/airlock/external,
@@ -9973,6 +10396,20 @@
 /obj/item/storage/box/monkeycubes,
 /turf/open/floor/plating,
 /area/space)
+"XX" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/item/clothing/gloves/military,
+/obj/item/clothing/under/rank/centcom/military,
+/obj/item/storage/belt/military,
+/obj/item/clothing/shoes/combat,
+/obj/item/storage/backpack/industrial/frontier_colonist{
+	name = "Military Backpack";
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	},
+/obj/item/radio/headset,
+/obj/effect/turf_decal/tile/yellow/half,
+/turf/open/floor/iron/smooth,
+/area/space)
 "XZ" = (
 /obj/structure/destructible/cult/pants_altar,
 /turf/open/floor/engine/cult,
@@ -9985,14 +10422,10 @@
 /turf/open/floor/plating,
 /area/space)
 "Yd" = (
-/obj/structure/window/reinforced/plasma/spawner/directional/west,
-/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/machinery/conveyor/auto{
-	dir = 1
+	dir = 8
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/turf/open/floor/plating,
 /area/space)
 "Ye" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10074,6 +10507,12 @@
 /obj/structure/punji_sticks,
 /turf/open/floor/plating,
 /area/space)
+"YC" = (
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
 "YD" = (
 /turf/open/floor/iron/tgmcemblem/center{
 	dir = 8
@@ -10124,15 +10563,24 @@
 /obj/item/sticker/left_arrow,
 /turf/open/floor/wood,
 /area/space)
-"YR" = (
-/obj/structure/toilet{
+"YT" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/turf_decal/tile/blue/half{
 	dir = 4
 	},
-/turf/open/floor/iron,
+/turf/open/floor/iron/smooth,
+/area/space)
+"YU" = (
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/plating,
 /area/space)
 "YW" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
 /obj/machinery/light/floor,
 /turf/open/floor/sepia{
 	slowdown = 10
@@ -10261,10 +10709,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/space)
+"Zy" = (
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/machinery/door/airlock{
+	name = "Maintenance"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/space)
 "Zz" = (
-/obj/machinery/smartfridge/drying,
-/obj/machinery/light/floor,
-/turf/open/floor/iron/cafeteria,
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/iron,
 /area/space)
 "ZA" = (
 /obj/structure/dresser,
@@ -10277,9 +10732,7 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	dir = 8
 	},
 /turf/open/floor/sepia{
 	slowdown = 10
@@ -10301,11 +10754,12 @@
 /turf/open/floor/plating,
 /area/space)
 "ZE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/machinery/conveyor/auto,
+/turf/open/floor/sepia{
+	slowdown = 10
 	},
-/obj/machinery/door/airlock/maintenance,
-/turf/open/floor/plating,
 /area/space)
 "ZH" = (
 /turf/open/misc/asteroid/forest/mushroom,
@@ -10398,24 +10852,8 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/space)
-"ZZ" = (
-/obj/structure/disposalpipe/junction{
-	dir = 2
-	},
-/turf/open/floor/plating,
-/area/space)
 
 (1,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -10623,16 +11061,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 jf
 jf
@@ -10825,16 +11253,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 BG
 sd
 jf
@@ -11012,16 +11430,6 @@ yG
 jf
 "}
 (4,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -11230,16 +11638,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 yc
 WH
 WH
@@ -11416,16 +11814,6 @@ yG
 jf
 "}
 (6,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -11634,16 +12022,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 yc
 WH
 WH
@@ -11820,16 +12198,6 @@ yG
 jf
 "}
 (8,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -12038,16 +12406,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 yc
 WH
 WH
@@ -12240,16 +12598,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 yc
 WH
 WH
@@ -12385,7 +12733,7 @@ GS
 GS
 bO
 uG
-uG
+Yd
 uG
 zE
 GS
@@ -12426,16 +12774,6 @@ yG
 jf
 "}
 (11,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -12587,7 +12925,7 @@ GS
 uG
 uG
 YZ
-uG
+Yd
 uG
 uN
 uG
@@ -12628,16 +12966,6 @@ yG
 jf
 "}
 (12,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -12845,16 +13173,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 jf
 jf
@@ -12991,7 +13309,7 @@ GS
 uG
 uG
 Yz
-uG
+Yd
 Yz
 uG
 bO
@@ -13032,16 +13350,6 @@ yG
 jf
 "}
 (14,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -13193,7 +13501,7 @@ GS
 df
 uG
 Yz
-uG
+Yd
 Yz
 uG
 uG
@@ -13234,16 +13542,6 @@ yG
 jf
 "}
 (15,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -13395,7 +13693,7 @@ GS
 uG
 uG
 Yz
-uG
+Yd
 Yz
 EU
 uG
@@ -13436,16 +13734,6 @@ yG
 jf
 "}
 (16,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -13597,7 +13885,7 @@ GS
 uG
 uG
 Yz
-uG
+Yd
 Yz
 uG
 uG
@@ -13638,16 +13926,6 @@ yG
 jf
 "}
 (17,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -13856,16 +14134,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 yc
 WH
 WH
@@ -13977,11 +14245,11 @@ iK
 iK
 iK
 iK
-uG
 GS
-aQ
 lq
-aQ
+lq
+lq
+lq
 GS
 uN
 LJ
@@ -14042,16 +14310,6 @@ yG
 jf
 "}
 (19,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -14260,16 +14518,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 yc
 WH
 WH
@@ -14373,19 +14621,19 @@ wQ
 wQ
 uX
 lq
-Vf
+lx
 lq
-aQ
+lq
 rA
-aQ
+lq
 sK
-aQ
 lq
-aQ
+lq
+lq
 hL
-aQ
 lq
-aQ
+lq
+lq
 GS
 YZ
 JO
@@ -14446,16 +14694,6 @@ yG
 jf
 "}
 (21,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -14574,15 +14812,15 @@ su
 wQ
 wQ
 lq
-aQ
 lq
-aQ
 lq
-aQ
 lq
-aQ
 lq
-Vf
+lq
+lq
+lq
+lq
+lx
 lq
 GS
 GS
@@ -14648,16 +14886,6 @@ yG
 jf
 "}
 (22,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 jf
@@ -14775,21 +15003,21 @@ ov
 su
 wQ
 wQ
-aQ
+lq
 Nv
-Lp
+rA
 lq
-Lp
+rA
 lq
-dc
+lq
 lx
-aQ
+lq
 lq
 iR
 GS
-aQ
+lq
 fR
-aQ
+lq
 GS
 Gz
 Yc
@@ -14850,16 +15078,6 @@ yG
 jf
 "}
 (23,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -14982,11 +15200,11 @@ GS
 lq
 cq
 lq
-sO
+sK
 lq
-aQ
 lq
-sO
+lq
+sK
 lq
 GS
 fc
@@ -15052,16 +15270,6 @@ yG
 jf
 "}
 (24,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -15181,19 +15389,19 @@ wQ
 wQ
 uY
 GS
-aQ
+lq
 Oq
-Vf
+lx
 lq
-aQ
 lq
-aQ
 lq
-aQ
+lq
+lq
+lq
 GS
 Py
 lq
-aQ
+lq
 GS
 uN
 Yc
@@ -15254,16 +15462,6 @@ yG
 jf
 "}
 (25,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -15457,16 +15655,6 @@ jf
 "}
 (26,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -15658,16 +15846,6 @@ yG
 jf
 "}
 (27,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -15861,16 +16039,6 @@ jf
 "}
 (28,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -16062,16 +16230,6 @@ yG
 jf
 "}
 (29,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -16265,16 +16423,6 @@ jf
 "}
 (30,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -16467,16 +16615,6 @@ jf
 "}
 (31,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -16503,9 +16641,9 @@ Rf
 Rf
 Rf
 Rf
-QD
+Rf
 Ch
-dV
+zA
 HD
 LP
 HD
@@ -16668,16 +16806,6 @@ yG
 jf
 "}
 (32,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -16871,16 +16999,6 @@ jf
 "}
 (33,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -16941,14 +17059,14 @@ sU
 jf
 jf
 jf
-tt
-pp
-tt
-pp
-tt
-pp
-tt
-pp
+hp
+WT
+iZ
+WT
+iZ
+WT
+iZ
+WT
 tt
 jf
 WH
@@ -17073,16 +17191,6 @@ jf
 "}
 (34,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -17143,7 +17251,7 @@ pp
 pp
 pp
 jf
-FO
+bV
 pp
 FO
 pp
@@ -17151,7 +17259,7 @@ FO
 pp
 FO
 pp
-FO
+QI
 jf
 WH
 WH
@@ -17209,19 +17317,19 @@ ZY
 te
 wQ
 jF
-aQ
-Eh
-aQ
+xH
+jF
+xH
 jF
 wQ
 xH
-aQ
-aQ
+xH
+xH
 KI
 wQ
 uG
 uG
-GS
+uG
 uG
 uG
 uG
@@ -17274,16 +17382,6 @@ yG
 jf
 "}
 (35,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -17345,7 +17443,7 @@ ou
 pp
 pp
 qI
-pp
+If
 ou
 pp
 pp
@@ -17353,7 +17451,7 @@ pp
 pp
 pp
 ou
-pp
+hT
 jf
 WH
 WH
@@ -17411,14 +17509,14 @@ oG
 rP
 wQ
 fJ
-aQ
+xH
 uA
-aQ
+xH
 tM
 wQ
 xH
 LM
-aQ
+xH
 ES
 wQ
 uG
@@ -17477,16 +17575,6 @@ jf
 "}
 (36,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -17535,9 +17623,9 @@ rt
 cM
 cM
 rt
-Za
-rt
-Qg
+pp
+pp
+pp
 rt
 cM
 cM
@@ -17547,7 +17635,7 @@ pp
 pp
 pp
 jf
-FO
+bV
 pp
 FO
 pp
@@ -17555,7 +17643,7 @@ FO
 pp
 FO
 pp
-FO
+QI
 jf
 WH
 WH
@@ -17679,16 +17767,6 @@ jf
 "}
 (37,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -17736,11 +17814,11 @@ Za
 Hk
 fm
 fm
-fm
-fm
-fm
-fm
-fm
+UM
+pp
+pp
+pp
+nR
 fm
 fm
 bl
@@ -17749,15 +17827,15 @@ pp
 pp
 pp
 jf
+BE
+DZ
 XG
-pp
+DZ
 XG
-pp
+DZ
 XG
-pp
-XG
-pp
-XG
+DZ
+eX
 jf
 WH
 WH
@@ -17881,16 +17959,6 @@ jf
 "}
 (38,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -17939,9 +18007,9 @@ ph
 Mx
 Mx
 ph
-Za
-rt
-Vh
+pp
+pp
+ou
 rt
 Mx
 bq
@@ -18083,16 +18151,6 @@ jf
 "}
 (39,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 nB
 Xx
@@ -18153,15 +18211,15 @@ pp
 pp
 pp
 jf
-tt
-pp
-tt
-pp
-tt
-pp
-tt
-pp
-tt
+BU
+sg
+pJ
+sg
+pJ
+sg
+pJ
+sg
+XH
 jf
 WH
 WH
@@ -18219,11 +18277,11 @@ ln
 rP
 wQ
 yH
-aQ
+xH
 xH
 wQ
 oV
-aQ
+xH
 xH
 wQ
 xH
@@ -18285,16 +18343,6 @@ jf
 "}
 (40,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -18355,7 +18403,7 @@ pp
 pp
 pp
 jf
-FO
+jB
 pp
 FO
 pp
@@ -18363,7 +18411,7 @@ FO
 pp
 FO
 pp
-FO
+qM
 jf
 WH
 WH
@@ -18421,11 +18469,11 @@ tv
 rP
 wQ
 yH
-aQ
+xH
 za
 wQ
 Kd
-aQ
+xH
 jy
 wQ
 za
@@ -18487,16 +18535,6 @@ jf
 "}
 (41,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -18546,18 +18584,18 @@ mf
 mf
 Hc
 mf
-ZL
+Xv
 eG
 ZL
 ZL
-eG
+KY
 mf
 pp
 ou
 pp
 pp
 qI
-pp
+Ku
 ou
 pp
 pp
@@ -18565,7 +18603,7 @@ pp
 pp
 pp
 ou
-pp
+BR
 jf
 WH
 WH
@@ -18623,11 +18661,11 @@ ip
 tj
 wQ
 yH
-aQ
+xH
 xH
 wQ
 kl
-aQ
+xH
 jy
 wQ
 xH
@@ -18689,16 +18727,6 @@ jf
 "}
 (42,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -18759,7 +18787,7 @@ pp
 pp
 pp
 jf
-FO
+jB
 pp
 FO
 pp
@@ -18767,7 +18795,7 @@ FO
 pp
 FO
 pp
-FO
+qM
 jf
 WH
 WH
@@ -18829,7 +18857,7 @@ xH
 xH
 dQ
 xH
-aQ
+xH
 xH
 oT
 xH
@@ -18891,16 +18919,6 @@ jf
 "}
 (43,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -18950,26 +18968,26 @@ mf
 mf
 mf
 mf
+fi
 sj
 sj
 sj
-sj
-sj
+NB
 mf
 pp
 pp
 pp
 pp
 jf
-XG
-pp
-XG
-pp
-XG
-pp
-XG
-pp
-XG
+MP
+iz
+YT
+iz
+YT
+iz
+YT
+iz
+bd
 jf
 WH
 WH
@@ -19031,7 +19049,7 @@ wQ
 wQ
 wQ
 Ga
-aQ
+xH
 xH
 xH
 xH
@@ -19093,16 +19111,6 @@ jf
 "}
 (44,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -19146,9 +19154,9 @@ mf
 mf
 Hc
 mf
-Vr
+Uq
 jf
-mf
+DP
 mf
 Hc
 mf
@@ -19233,7 +19241,7 @@ kv
 kv
 xH
 xH
-Ur
+za
 xH
 uh
 uh
@@ -19295,16 +19303,6 @@ jf
 "}
 (45,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -19350,23 +19348,23 @@ mf
 mf
 Hw
 jf
+Lb
 mf
 mf
-mf
-me
+sT
 Vr
-eM
+cu
 mf
-me
+sT
 Vr
-eM
+cu
 pp
 pp
 pp
 pp
-pp
-pp
-pp
+jf
+jf
+gs
 pp
 pp
 pp
@@ -19431,11 +19429,11 @@ Su
 CC
 ru
 wQ
-aQ
-aQ
+xH
+xH
 hZ
-aQ
-aQ
+xH
+xH
 xH
 KU
 iT
@@ -19497,16 +19495,6 @@ jf
 "}
 (46,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -19566,12 +19554,12 @@ pp
 pp
 pp
 pp
+jf
+jf
+ou
 pp
 pp
-pp
-pp
-pp
-pp
+ou
 pp
 pp
 gs
@@ -19633,9 +19621,9 @@ Ky
 hG
 ot
 gH
-aQ
-aQ
-aQ
+xH
+xH
+xH
 os
 Tr
 xH
@@ -19645,7 +19633,7 @@ ii
 wQ
 uG
 uG
-GS
+uG
 uG
 uG
 uG
@@ -19698,16 +19686,6 @@ yG
 jf
 "}
 (47,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -19768,15 +19746,15 @@ pp
 ou
 pp
 pp
+jf
+gs
+pp
+pp
+pp
+pp
+pp
 pp
 ou
-pp
-pp
-pp
-ou
-pp
-pp
-pp
 jf
 jf
 WH
@@ -19835,11 +19813,11 @@ ST
 OA
 iA
 wQ
-aQ
+xH
 rq
-aQ
-aQ
-aQ
+xH
+xH
+xH
 xH
 ar
 ii
@@ -19901,16 +19879,6 @@ jf
 "}
 (48,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -19970,7 +19938,7 @@ pp
 pp
 pp
 pp
-pp
+Qe
 pp
 pp
 pp
@@ -20049,7 +20017,7 @@ ii
 wQ
 uG
 uG
-GS
+uG
 uG
 uG
 uG
@@ -20102,16 +20070,6 @@ yG
 jf
 "}
 (49,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -20174,6 +20132,8 @@ pp
 pp
 pp
 pp
+pp
+pp
 RR
 SN
 eJ
@@ -20183,10 +20143,8 @@ pp
 pp
 pp
 pp
-pp
-pp
-pp
-pp
+Ne
+Rt
 dt
 uG
 ql
@@ -20305,16 +20263,6 @@ jf
 "}
 (50,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -20355,8 +20303,8 @@ Jx
 gI
 jf
 mf
-ti
-Zz
+mf
+Hc
 mf
 mf
 oI
@@ -20374,11 +20322,14 @@ pp
 ou
 pp
 pp
-pp
+jf
 ou
+pp
+pp
 Tw
 YD
 xv
+pp
 ou
 pp
 pp
@@ -20386,9 +20337,6 @@ pp
 pp
 pp
 pp
-pp
-pp
-uG
 dt
 pp
 ql
@@ -20454,9 +20402,9 @@ uG
 rJ
 uG
 GS
-zx
-hM
-Lt
+RZ
+hI
+DL
 GS
 BB
 GS
@@ -20506,16 +20454,6 @@ yG
 jf
 "}
 (51,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -20576,6 +20514,8 @@ pp
 pp
 pp
 pp
+Qe
+pp
 pp
 pp
 kt
@@ -20587,10 +20527,8 @@ pp
 pp
 pp
 pp
-pp
-pp
-pp
-pp
+RV
+hM
 HP
 uG
 ql
@@ -20657,7 +20595,7 @@ GS
 uG
 GS
 uG
-BA
+gk
 uG
 GS
 BB
@@ -20708,16 +20646,6 @@ yG
 jf
 "}
 (52,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -20911,16 +20839,6 @@ jf
 "}
 (53,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -20980,15 +20898,15 @@ pp
 ou
 pp
 pp
+jf
+gs
+pp
+pp
+pp
+pp
+pp
 pp
 ou
-pp
-pp
-pp
-ou
-pp
-pp
-pp
 jf
 jf
 WH
@@ -21113,16 +21031,6 @@ jf
 "}
 (54,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -21182,12 +21090,12 @@ pp
 pp
 pp
 pp
+jf
+jf
+ou
 pp
 pp
-pp
-pp
-pp
-pp
+ou
 pp
 pp
 gs
@@ -21266,8 +21174,8 @@ Ir
 GS
 nh
 nh
-Ut
-dE
+Kc
+FB
 nh
 kK
 ps
@@ -21277,7 +21185,7 @@ ps
 ps
 QF
 GS
-ZE
+aC
 GS
 GS
 GS
@@ -21314,16 +21222,6 @@ yG
 jf
 "}
 (55,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -21373,20 +21271,20 @@ jf
 mf
 mf
 mf
-me
+yV
 Vr
-eM
+wT
 mf
-me
+mf
 Vr
-eM
+wT
 pp
 pp
 pp
 pp
-pp
-pp
-pp
+jf
+jf
+gs
 pp
 pp
 pp
@@ -21454,7 +21352,7 @@ GS
 uG
 uG
 kK
-dC
+wg
 QF
 GS
 ZC
@@ -21477,7 +21375,7 @@ GS
 GS
 GS
 GS
-WY
+lY
 GS
 cH
 Pe
@@ -21496,7 +21394,7 @@ ps
 Zp
 ps
 ps
-mL
+ek
 ps
 Pe
 uG
@@ -21516,16 +21414,6 @@ yG
 jf
 "}
 (56,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -21570,7 +21458,7 @@ mf
 mf
 Hc
 mf
-Vr
+Uq
 jf
 mf
 mf
@@ -21719,16 +21607,6 @@ jf
 "}
 (57,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -21778,26 +21656,26 @@ mf
 mf
 mf
 mf
+Xv
 ZL
 ZL
 ZL
-ZL
-ZL
+IC
 mf
 pp
 pp
 pp
 pp
 jf
-tt
-pp
-tt
-pp
-tt
-pp
-tt
-pp
-tt
+gd
+QD
+Od
+QD
+Od
+QD
+Od
+QD
+wR
 jf
 WH
 WH
@@ -21857,9 +21735,9 @@ GS
 GS
 GS
 GS
-jm
+bN
 GS
-DZ
+sP
 GS
 GS
 sB
@@ -21887,15 +21765,15 @@ sB
 GS
 uG
 GS
-YR
+fd
 GS
-YR
+fd
 GS
-YR
+fd
 GS
-YR
+fd
 GS
-YR
+fd
 GS
 uG
 uG
@@ -21920,16 +21798,6 @@ yG
 jf
 "}
 (58,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -21991,7 +21859,7 @@ pp
 pp
 pp
 jf
-FO
+pg
 pp
 FO
 pp
@@ -21999,7 +21867,7 @@ FO
 pp
 FO
 pp
-FO
+XX
 jf
 WH
 WH
@@ -22065,7 +21933,7 @@ Kf
 QF
 GS
 sB
-lT
+OX
 uG
 uG
 uG
@@ -22089,15 +21957,15 @@ sB
 GS
 uG
 GS
-sF
+Zz
 GS
-sF
+Zz
 GS
-sF
+Zz
 GS
-sF
+Zz
 GS
-sF
+Zz
 GS
 uG
 uG
@@ -22122,16 +21990,6 @@ yG
 jf
 "}
 (59,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -22182,7 +22040,7 @@ mf
 mf
 Hc
 mf
-sj
+fi
 ks
 sj
 sj
@@ -22193,7 +22051,7 @@ ou
 pp
 pp
 qI
-pp
+Ci
 ou
 pp
 pp
@@ -22201,7 +22059,7 @@ pp
 pp
 pp
 ou
-pp
+dy
 jf
 WH
 WH
@@ -22325,16 +22183,6 @@ jf
 "}
 (60,1,1) = {"
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 Xx
 Xx
@@ -22395,7 +22243,7 @@ pp
 pp
 pp
 jf
-FO
+pg
 pp
 FO
 pp
@@ -22403,7 +22251,7 @@ FO
 pp
 FO
 pp
-FO
+XX
 jf
 WH
 WH
@@ -22463,7 +22311,7 @@ uG
 uG
 uG
 uG
-Eq
+XI
 GS
 uG
 BB
@@ -22487,7 +22335,7 @@ GS
 rJ
 GS
 GS
-jm
+bN
 GS
 sB
 GS
@@ -22526,16 +22374,6 @@ yG
 jf
 "}
 (61,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -22597,15 +22435,15 @@ pp
 pp
 pp
 jf
-XG
-pp
-XG
-pp
-XG
-pp
-XG
-pp
-XG
+Qy
+kD
+hD
+kD
+hD
+kD
+hD
+kD
+wp
 jf
 WH
 WH
@@ -22689,10 +22527,10 @@ ps
 ps
 ps
 Pe
-ZZ
+yx
 ps
 Xg
-sT
+YU
 uG
 GS
 kK
@@ -22728,16 +22566,6 @@ yG
 jf
 "}
 (62,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -22882,7 +22710,7 @@ gh
 oq
 GS
 GS
-ZE
+aC
 GS
 GS
 GS
@@ -22891,7 +22719,7 @@ GS
 GS
 GS
 GS
-sT
+YU
 uG
 Kf
 ps
@@ -22912,7 +22740,7 @@ ps
 ps
 ps
 ps
-pC
+fZ
 ps
 ps
 ps
@@ -22930,16 +22758,6 @@ yG
 jf
 "}
 (63,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -23001,15 +22819,15 @@ pp
 pp
 pp
 jf
-tt
-pp
-tt
-pp
-tt
-pp
-tt
-pp
-tt
+Gc
+BZ
+Db
+BZ
+Db
+BZ
+Db
+BZ
+hK
 jf
 WH
 WH
@@ -23091,7 +22909,7 @@ GS
 kK
 ps
 ps
-Mg
+TY
 GS
 GS
 GS
@@ -23132,16 +22950,6 @@ yG
 jf
 "}
 (64,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -23203,7 +23011,7 @@ pp
 pp
 pp
 jf
-FO
+be
 pp
 FO
 pp
@@ -23211,7 +23019,7 @@ FO
 pp
 FO
 pp
-FO
+BF
 jf
 WH
 WH
@@ -23298,17 +23106,17 @@ GS
 uG
 uG
 GS
-dE
-Ut
-WV
+FB
+Kc
+dC
 UL
-yG
-yG
-do
-jf
-yG
-yG
-Jf
+cG
+ww
+cG
+ww
+cG
+ww
+cG
 jf
 uG
 uG
@@ -23334,16 +23142,6 @@ yG
 jf
 "}
 (65,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -23405,7 +23203,7 @@ ou
 pp
 pp
 qI
-pp
+np
 ou
 pp
 pp
@@ -23413,7 +23211,7 @@ pp
 pp
 pp
 ou
-pp
+vi
 jf
 WH
 WH
@@ -23489,7 +23287,7 @@ QF
 GS
 uG
 Kf
-dC
+wg
 QF
 GS
 BB
@@ -23503,14 +23301,14 @@ GS
 uG
 uG
 jf
-yG
-yG
-yG
-yG
-jf
-yG
-yG
-Jf
+do
+ww
+ww
+ww
+ww
+ww
+ww
+ww
 jf
 uG
 uG
@@ -23536,16 +23334,6 @@ yG
 jf
 "}
 (66,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -23607,7 +23395,7 @@ pp
 pp
 pp
 jf
-FO
+be
 pp
 FO
 pp
@@ -23615,7 +23403,7 @@ FO
 pp
 FO
 pp
-FO
+BF
 jf
 WH
 WH
@@ -23678,7 +23466,7 @@ uG
 uG
 GS
 GS
-DZ
+sP
 GS
 nh
 uG
@@ -23694,7 +23482,7 @@ GS
 GS
 sB
 GS
-DZ
+sP
 GS
 uG
 uG
@@ -23706,13 +23494,13 @@ uG
 Li
 jf
 do
-yG
-yG
-yG
-TZ
-yG
-yG
-do
+ww
+ww
+ww
+ww
+ww
+ww
+cG
 jf
 jf
 jf
@@ -23738,16 +23526,6 @@ yG
 jf
 "}
 (67,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -23798,26 +23576,26 @@ jf
 jf
 jf
 jf
-sU
+lB
+lB
+lB
 jf
 jf
 jf
 jf
 jf
 jf
-sU
 jf
 jf
-jf
-XG
-pp
-XG
-pp
-XG
-pp
-XG
-pp
-XG
+WJ
+Pw
+ls
+Pw
+ls
+Pw
+ls
+Pw
+dw
 jf
 WH
 WH
@@ -23893,8 +23671,8 @@ Vw
 GS
 uG
 kK
-dC
-kj
+wg
+YC
 GS
 BB
 GS
@@ -23907,14 +23685,14 @@ GS
 uG
 uG
 jf
-jf
-jf
-jf
-jf
-jf
-yG
-yG
-vy
+Jf
+ZE
+ZE
+ZE
+ZE
+aQ
+ww
+ww
 jf
 ii
 ii
@@ -23940,16 +23718,6 @@ yG
 jf
 "}
 (68,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -23996,20 +23764,20 @@ iA
 iA
 iA
 iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-vF
-Cu
-Df
-Cu
-Df
-Cu
-Rl
-jf
-Cu
-Cu
-Cu
-Cu
-Cu
+WH
+WH
+WH
+WH
 jf
 jf
 jf
@@ -24103,20 +23871,20 @@ Zx
 ps
 ps
 ps
-EJ
+Um
 ps
-lp
+Zy
 ps
-Mg
+TY
 jf
 dK
 qm
 qm
 qm
 Qc
-yG
-yG
-vy
+EJ
+ww
+cG
 jf
 ii
 UK
@@ -24142,16 +23910,6 @@ yG
 jf
 "}
 (69,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -24179,9 +23937,9 @@ Rf
 Rf
 Rf
 Rf
-QD
+Rf
 Ch
-dV
+zA
 HD
 LP
 HD
@@ -24196,23 +23954,23 @@ iA
 or
 or
 iA
+iA
+iA
+iA
 or
 or
+iA
+or
+or
+iA
+iA
+or
 jf
-BF
-tZ
-jf
-TF
-jf
-JH
-Um
-jf
-Cu
-Cu
-fH
-Cu
-Cu
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -24310,15 +24068,15 @@ jf
 jf
 jf
 jf
-ws
+jf
 BL
-mD
-yG
-yG
-yG
-yG
-yG
-do
+ww
+ww
+ww
+ww
+ww
+ww
+ww
 jf
 dr
 ii
@@ -24344,16 +24102,6 @@ yG
 jf
 "}
 (70,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -24400,21 +24148,21 @@ iA
 iA
 iA
 iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-jf
-jf
-jf
-Cu
-jf
-jf
-jf
-jf
-JH
-bT
-jf
-zf
-tZ
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -24494,7 +24242,7 @@ uG
 uG
 uG
 Kf
-VL
+OZ
 Xg
 uG
 uG
@@ -24504,23 +24252,23 @@ sB
 GS
 BB
 jf
-yG
-yG
+cG
+ww
 bI
-yG
-yG
-yG
-yG
+ww
+cG
+ww
+cG
 ju
 WV
 YW
-mj
-yG
-yG
-yG
-yG
-yG
-Jf
+ww
+ww
+ww
+ww
+ww
+ww
+cG
 jf
 ii
 ii
@@ -24546,16 +24294,6 @@ yG
 jf
 "}
 (71,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -24602,21 +24340,21 @@ iA
 iA
 iA
 iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-vF
-Cu
-Df
-Cu
-Df
-Cu
-Rl
-jf
-Cu
-bT
-jf
-zf
-Cu
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -24706,23 +24444,23 @@ sB
 GS
 BB
 jf
-yG
-yG
+ww
+ww
 Ny
-Yd
-Yd
-Yd
+qm
+qm
+qm
 qm
 kM
 jf
-yx
-wI
 ww
-RL
-RL
-RL
-yG
-Jf
+cG
+ww
+ww
+ww
+cG
+ww
+ww
 jf
 ii
 ii
@@ -24748,16 +24486,6 @@ yG
 jf
 "}
 (72,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 nB
@@ -24802,23 +24530,23 @@ iA
 iA
 or
 iA
-or
-or
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-BF
-tZ
-jf
-Cu
-jf
-JH
-Um
-jf
-Cu
-bT
-jf
-zf
-Cu
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -24906,16 +24634,16 @@ GS
 GS
 sB
 GS
-DZ
+sP
 jf
-cG
-yG
+ww
+ww
 ZB
-yG
-yG
-yG
-yG
-cG
+ww
+ww
+ww
+ww
+ww
 jf
 jf
 jf
@@ -24950,16 +24678,6 @@ yG
 jf
 "}
 (73,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -25006,21 +24724,21 @@ iA
 iA
 iA
 iA
+iA
+iA
+or
+iA
+iA
+or
+iA
+iA
+or
 jf
-jf
-jf
-jf
-Cu
-jf
-jf
-jf
-jf
-Cu
-bT
-jf
-zf
-Cu
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -25107,17 +24825,17 @@ uG
 uG
 rJ
 Kf
-dC
+wg
 bu
 jf
-yG
-yG
+cG
+ww
 ZB
-yG
-yG
-yG
-yG
-yG
+ww
+ww
+ww
+ww
+ww
 jf
 ii
 ii
@@ -25152,16 +24870,6 @@ yG
 jf
 "}
 (74,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -25208,21 +24916,21 @@ iA
 iA
 iA
 iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-vF
-Cu
-Df
-TF
-Df
-Cu
-Rl
-jf
-Cu
-bT
-jf
-zf
-Cu
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -25312,14 +25020,14 @@ GS
 rJ
 GS
 jf
-yG
-yG
+ww
+ww
 ZB
-yG
-yG
-yG
+ww
 cG
-yG
+ww
+cG
+ww
 jf
 ii
 ii
@@ -25354,16 +25062,6 @@ yG
 jf
 "}
 (75,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -25406,25 +25104,25 @@ iA
 iA
 iA
 iA
-or
 iA
-or
-or
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-xJ
-tZ
-jf
-sP
-jf
-JH
-kA
-jf
-JH
-bT
-jf
-zf
-tZ
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -25514,10 +25212,10 @@ uG
 uG
 uG
 jf
-yG
-yG
+cG
+ww
 ZB
-yG
+ww
 jf
 jf
 jf
@@ -25556,16 +25254,6 @@ yG
 jf
 "}
 (76,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -25612,21 +25300,21 @@ iA
 iA
 iA
 iA
+iA
+HJ
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-AJ
-Cu
-jf
-vt
-jf
-Cu
-Si
-jf
-Cu
-Cu
-sI
-Cu
-Cu
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -25716,11 +25404,11 @@ uG
 uG
 uG
 jf
-yG
-yG
+ww
+ww
 ZB
-yG
-yG
+ww
+ww
 jf
 ii
 ii
@@ -25758,16 +25446,6 @@ yG
 jf
 "}
 (77,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 Xx
@@ -25814,21 +25492,21 @@ iA
 iA
 iA
 iA
+iA
+mo
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-Cu
-MP
-jf
-wG
-jf
-MP
-Cu
-jf
-qj
-qj
-qj
-qj
-qj
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -25919,9 +25597,9 @@ uG
 uG
 jf
 cG
-yG
+ww
 ZB
-yG
+ww
 cG
 jf
 UK
@@ -25960,16 +25638,6 @@ yG
 jf
 "}
 (78,1,1) = {"
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 jf
 jf
@@ -26016,21 +25684,21 @@ iA
 iA
 iA
 iA
+iA
+zj
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
-jf
+WH
+WH
+WH
+WH
+WH
 WH
 WH
 WH
@@ -26120,11 +25788,11 @@ uG
 uG
 uG
 jf
-yG
-yG
+ww
+ww
 Ae
-yG
-yG
+ww
+ww
 jf
 ii
 ii
@@ -26199,16 +25867,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 nr
@@ -26217,17 +25875,17 @@ Em
 Em
 Em
 oL
+iA
+iA
+iA
+nr
+Em
+Em
+Em
+Em
+oL
 oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -26401,16 +26059,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -26418,18 +26066,18 @@ iA
 uB
 Va
 iA
+iA
+iA
+iA
+iA
+iA
+iA
+uB
+Va
+iA
 oD
 oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -26603,16 +26251,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -26620,18 +26258,18 @@ iA
 xB
 OO
 iA
+iA
+iA
+iA
+iA
+iA
+iA
+xB
+OO
+iA
 oD
 oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -26805,16 +26443,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -26824,16 +26452,16 @@ KN
 GS
 oD
 oD
+oD
+oD
+oD
+GS
+es
+KN
+GS
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -27007,16 +26635,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -27026,16 +26644,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -27209,16 +26827,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -27228,16 +26836,16 @@ ab
 hc
 oD
 oD
+oD
+oD
+oD
+hc
+nA
+ab
+hc
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -27411,16 +27019,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -27430,16 +27028,16 @@ KN
 GS
 oD
 oD
+oD
+oD
+oD
+GS
+es
+KN
+GS
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -27613,16 +27211,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -27632,16 +27220,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -27815,16 +27403,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -27834,16 +27412,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -28017,16 +27595,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -28036,16 +27604,16 @@ KN
 GS
 oD
 oD
+oD
+oD
+oD
+GS
+es
+KN
+GS
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -28219,16 +27787,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -28238,16 +27796,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -28421,16 +27979,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -28440,16 +27988,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -28623,16 +28171,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -28642,16 +28180,16 @@ KN
 GS
 oD
 oD
+oD
+oD
+oD
+GS
+es
+KN
+GS
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -28825,16 +28363,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -28844,16 +28372,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -29027,16 +28555,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -29046,16 +28564,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -29229,16 +28747,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -29248,16 +28756,16 @@ KN
 GS
 oD
 oD
+oD
+oD
+oD
+GS
+es
+KN
+GS
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -29431,16 +28939,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -29450,16 +28948,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -29633,16 +29131,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -29652,16 +29140,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -29835,16 +29323,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -29854,16 +29332,16 @@ KN
 GS
 oD
 oD
+oD
+oD
+oD
+GS
+es
+KN
+GS
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -30037,16 +29515,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -30056,16 +29524,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -30239,16 +29707,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 oD
 oD
@@ -30258,16 +29716,16 @@ yB
 PB
 oD
 oD
+oD
+oD
+oD
+PB
+fU
+yB
+PB
+oD
+oD
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 WH
 WH
 WH
@@ -30441,35 +29899,25 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
 jf
 jf
 jf
 jf
-pJ
-KY
 jf
 jf
 jf
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
 WH
 WH
 WH
