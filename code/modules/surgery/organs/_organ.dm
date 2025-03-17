@@ -203,10 +203,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 ///Used as callbacks by object pooling
 /obj/item/organ/proc/exit_wardrobe()
 	START_PROCESSING(SSobj, src)
+	bodypart_overlay?.imprint_on_next_insertion = TRUE
 
 //See above
 /obj/item/organ/proc/enter_wardrobe()
-	bodypart_overlay?.imprint_on_next_insertion = TRUE // NOVA EDIT ADDITION - Make sure whoever gets it next gets the right DNA
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/organ/process(seconds_per_tick, times_fired)
