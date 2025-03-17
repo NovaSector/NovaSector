@@ -122,10 +122,12 @@
 	var/list/crop_area
 	/// A color to apply to the icon if it's greyscale, and `generate_icons` is enabled.
 	var/greyscale_color
+	/// If 'allow mismatched parts' should allow this to be used
+	var/flexible_mismatch = TRUE
 
 /datum/preference/choiced/mutant_choice/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
-	var/overriding = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/overriding = flexible_mismatch && preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/part_enabled = is_part_enabled(preferences)
 	return (passed_initial_check || overriding) && part_enabled
 
