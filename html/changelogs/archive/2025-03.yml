@@ -736,3 +736,10 @@
   - map: moves DS-2 cargo boards to a table in the vault
   - map: adds an autodrobe to ds-2 dormitories
   - bugfix: Fixes the blueshift AI transit tube properly be able to step back in.
+2025-03-17:
+  FlufflesTheDog:
+  - bugfix: 'Tgui menu component is fixed following tgui core v1.8.1 /:cl:'
+  Fruitbasket:
+  - rscadd: Human Plushie to character loadout.
+  RatFromTheJungle:
+  - balance: the CC-rep's headset chip now gives security comms ontop of it's CC comms

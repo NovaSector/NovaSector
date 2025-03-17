@@ -1,4 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "Tgui menu component is fixed following tgui core v1.8.1 /:cl:"
