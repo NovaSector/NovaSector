@@ -33,14 +33,14 @@ SUBSYSTEM_DEF(condos)
 		/obj/item/mod/control/pre_equipped/rescue, \
 		/obj/item/mod/control/pre_equipped/safeguard, \
 		/obj/item/storage/belt/sabre, \
+		/obj/item/card, \
+		/obj/item/modular_computer, \
+		/obj/item/nullrod, \
+		/obj/item/stamp/head, \
 	)
 
 /datum/controller/subsystem/condos/Initialize()
 	preload_condo_templates()
-	item_blacklist += typesof(/obj/item/card)
-	item_blacklist += typesof(/obj/item/modular_computer)
-	item_blacklist += typesof(/obj/item/nullrod)
-	item_blacklist += typesof(/obj/item/stamp/head)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/condos/proc/preload_condo_templates()
