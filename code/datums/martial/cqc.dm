@@ -3,6 +3,7 @@
 #define RESTRAIN_COMBO "GG"
 #define PRESSURE_COMBO "DG"
 #define CONSECUTIVE_COMBO "DDH"
+#define CQC_TRAIT "CQC trait" // This is just here for the testmerge to keep outside file edits to a minimum.
 
 /datum/martial_art/cqc
 	name = "CQC"
