@@ -414,4 +414,4 @@
 #undef RESTRAIN_COMBO
 #undef PRESSURE_COMBO
 #undef CONSECUTIVE_COMBO
-#undef CQC_TRAIT "CQC trait"
+#undef CQC_TRAIT
