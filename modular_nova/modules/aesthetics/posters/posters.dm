@@ -120,6 +120,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_signup, 32)
 	return .
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/nova_join, 32)
+
 //Given permission by Orlando Stelle's player @ceciie
 /obj/structure/sign/poster/official/nova_mining
 	name = "Welcome to the Caves"
