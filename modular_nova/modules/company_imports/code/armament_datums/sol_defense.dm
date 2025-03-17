@@ -112,17 +112,16 @@
 /datum/armament_entry/company_import/sol_defense/longarm
 	subcategory = "Longarms"
 	cost = PAYCHECK_COMMAND * 6
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/renoster
 	item_type = /obj/item/gun/ballistic/shotgun/riot/sol
 
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
 	item_type = /obj/item/gun/ballistic/automatic/sol_smg
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/type213
 	item_type = /obj/item/gun/ballistic/automatic/type213
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/br38
 	item_type = /obj/item/gun/ballistic/automatic/battle_rifle
@@ -135,22 +134,18 @@
 /datum/armament_entry/company_import/sol_defense/longarm/bogseo
 	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg
 	cost = PAYCHECK_COMMAND * 10
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
 	cost = PAYCHECK_COMMAND * 14
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
 	cost = PAYCHECK_COMMAND * 23
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
 	cost = PAYCHECK_COMMAND * 46
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/magazines
 	subcategory = "Magazines"
