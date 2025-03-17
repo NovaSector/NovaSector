@@ -120,8 +120,6 @@
 *	COLLARS
 */
 
-/// Note there's some pathing fuckery going on here; in order to preserve people's input names and descriptions, the actual datum paths are being kept 1:1 as they are
-
 /// THIN
 
 /datum/loadout_item/neck/thinchoker
