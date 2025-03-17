@@ -25,9 +25,11 @@
 		else
 			burn_the_sheets()
 
+/// Still somebody in the condo; just leave peacibly.
 /area/misc/condo/proc/dont_come_knockin(atom/movable/gone)
 	log_game("[gone] has left condo [condo_number]")
 
+/// Nobody left inside! Remove this condo from the active list and unload it.
 /area/misc/condo/proc/burn_the_sheets(atom/movable/gone)
 	log_game("[gone] has left condo [condo_number]")
 	var/list/all_atoms = get_all_contents()

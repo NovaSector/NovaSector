@@ -43,6 +43,7 @@ SUBSYSTEM_DEF(condos)
 	preload_condo_templates()
 	return SS_INIT_SUCCESS
 
+/// We're fetching all /datum/map_template/condo subtypes here; sanitychecking them, and assinging them to the subsystem as an option.
 /datum/controller/subsystem/condos/proc/preload_condo_templates()
 	for(var/item in subtypesof(/datum/map_template/condo))
 		var/datum/map_template/condo/condo_type = item
@@ -53,7 +54,7 @@ SUBSYSTEM_DEF(condos)
 		condo_templates[condo_template.name] = condo_template
 		SSmapping.map_templates[condo_template.name] = condo_template
 
-
+/// We found an already existing room on that number! Just warp to an applied landing zone; if the condo still exists.
 /datum/controller/subsystem/condos/proc/enter_active_room(condo_number, mob/user)
 	if(active_condos["[condo_number]"])
 		var/datum/turf_reservation/condo/target_active_condo = active_condos["[condo_number]"]
@@ -78,6 +79,7 @@ SUBSYSTEM_DEF(condos)
 	to_chat(user, span_warning("Condo [condo_number] error. Mystery failure!"))
 	return FALSE
 
+/// No condo was found on the number we input - create a new reservation, load our template, assign it in active_condos - and warp our user to the landing zone
 /datum/controller/subsystem/condos/proc/create_and_enter_condo(condo_number, datum/map_template/condo/our_condo, mob/user, parent_object)
 	if(active_condos["[condo_number]"])
 		return // Get sanity'd
@@ -97,6 +99,7 @@ SUBSYSTEM_DEF(condos)
 		bottom_left.z,
 	))
 
+/// Tweaks the /area/ in this condo to prevent conflicts; as well as assigns a description to the hotel door.
 /datum/controller/subsystem/condos/proc/link_condo_turfs(datum/turf_reservation/condo/current_reservation, condo_number, parent_object)
 	var/turf/condo_bottom_left = current_reservation.bottom_left_turfs[1]
 	var/area/misc/condo/current_area = get_area(condo_bottom_left)

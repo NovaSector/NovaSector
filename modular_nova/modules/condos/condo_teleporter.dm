@@ -24,6 +24,7 @@
 	to_chat(user, span_notice("\The [src] actively rejects your mind as the bluespace energies surrounding it disrupt your telekinesis."))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
+/// They're adjacent - ask them for their desired room number and, if it's new; what archetype they want.
 /obj/machinery/cafe_condo_teleporter/proc/prompt_and_check_in(mob/user, mob/target)
 	var/requested_condo = tgui_input_number(target, "What number room will you be checking into?", "Room Number", 1, min_value = 1)
 	if(!requested_condo)
@@ -48,6 +49,7 @@
 		chosen_condo = SScondos.condo_templates[map]
 		SScondos.create_and_enter_condo(requested_condo, chosen_condo, user, src)
 
+/// Sanitycheck to prevent exploitation
 /obj/machinery/cafe_condo_teleporter/proc/check_target_eligibility(mob/to_be_checked)
 	if(!src.Adjacent(to_be_checked))
 		to_chat(to_be_checked, span_warning("You too far away from \the [src] to enter it!"))

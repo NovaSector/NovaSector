@@ -1,6 +1,7 @@
 /// HEY!!! LISTEN!!!
 /// Due to some fuckery with how these templates work; the bottom left turf of your map HAS to touch the rest AND has to be on the same /area/.
 /datum/map_template/condo
+	/// Offset from the bottom-left turf of your condo. Said turf MUST touch the rest of your condo due to how these templates are loaded; including in /area/.
 	var/landing_zone_x_offset
 	var/landing_zone_y_offset
 
