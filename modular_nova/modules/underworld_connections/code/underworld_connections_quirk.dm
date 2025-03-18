@@ -57,9 +57,13 @@
 			our_record.security_note += "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements."
 
 /datum/quirk/item_quirk/underworld_connections/remove()
+	quirk_holder.mind.has_exploitables_override = FALSE
+	quirk_holder.mind.handle_exploitables()
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		var/datum/record/crew/our_record = find_record(human_holder.name)
+		if (isnull(our_record))
+			return
 		if (our_record.security_note)
 			our_record.security_note = replacetext(our_record.security_note, "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements.", "")
 		if (!length(our_record.security_note)) // that was the only thing in the notes
@@ -67,8 +71,6 @@
 		if (isnull(our_record.security_note) && our_record.wanted_status == WANTED_SUSPECT) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
 			our_record.wanted_status = WANTED_NONE
 
-	quirk_holder.mind.has_exploitables_override = FALSE
-	quirk_holder.mind.handle_exploitables()
 
 /datum/quirk_constant_data/underworld_connections
 	associated_typepath = /datum/quirk/item_quirk/underworld_connections

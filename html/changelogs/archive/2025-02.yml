@@ -417,3 +417,8 @@
       us.
   - bugfix: fixed Wild plants experiments giving 25 minutes worth of science points
       instead of a full discount for the scythes technology as it supposed to.
+2025-02-27:
+  RatFromTheJungle:
+  - balance: The 'hazard' modsuit is now spaceproof, retaining it's shockproofness,
+      but losing the ability to fit it in your backpack, as it goes on the beltslot
+      now!

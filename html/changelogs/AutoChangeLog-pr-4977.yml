@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "Maint loot piles should be dropping not only more varied loot, but 'rarer' loot more often! (making it atleast slightly worth-while)"
