@@ -3,6 +3,7 @@
 #define RESTRAIN_COMBO "GG"
 #define PRESSURE_COMBO "DG"
 #define CONSECUTIVE_COMBO "DDH"
+#define CQC_TRAIT "CQC trait" // This is just here for the testmerge to keep outside file edits to a minimum.
 
 /datum/martial_art/cqc
 	name = "CQC"
@@ -14,15 +15,16 @@
 	VAR_PRIVATE/datum/weakref/restraining_mob
 	/// Probability of successfully blocking attacks while on throw mode
 	var/block_chance = 75
+	var/list/cqc_traits = list(TRAIT_NOGUNS)
 
 /datum/martial_art/cqc/on_teach(mob/living/new_holder)
 	. = ..()
+	new_holder.add_traits(cqc_traits, CQC_TRAIT)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 
 /datum/martial_art/cqc/on_remove(mob/living/remove_from)
-	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
-	return ..()
+	remove_from.remove_traits(cqc_traits, CQC_TRAIT)
 
 ///Signal from getting attacked with an item, for a special interaction with touch spells
 /datum/martial_art/cqc/proc/on_attackby(mob/living/cqc_user, obj/item/attack_weapon, mob/attacker, params)
@@ -412,3 +414,4 @@
 #undef RESTRAIN_COMBO
 #undef PRESSURE_COMBO
 #undef CONSECUTIVE_COMBO
+#undef CQC_TRAIT
