@@ -867,3 +867,11 @@
   subject217:
   - bugfix: Updated the description of insulated gloves to reflect their lack of chunky
       fingers.
+2025-03-18:
+  FlufflesTheDog:
+  - bugfix: teshari and plasmamen no longer cause the character editor to bluescreen
+  Hatterhat:
+  - balance: The Sakhno SKS now has a 1x damage multiplier, up from 0.5x.
+  RatFromTheJungle:
+  - balance: Interdyne now get's the liberator's legacy in their mining vendor, giving
+      them access to a full R-N-D lathe and circuit printer, even off icebox
