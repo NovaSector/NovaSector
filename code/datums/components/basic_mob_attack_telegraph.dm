@@ -50,6 +50,9 @@
 /// When we attempt to attack, check if it is allowed
 /datum/component/basic_mob_attack_telegraph/proc/on_attack(mob/living/basic/source, atom/target)
 	SIGNAL_HANDLER
+	if (source.mind) // NOVA EDIT ADDITION - Makes it so this doesnt activate when a player controled mob has it
+		return
+	
 	if (!(isliving(target) || ismecha(target))) // Curse you CLARKE
 		return
 	if (HAS_TRAIT_FROM(source, TRAIT_BASIC_ATTACK_FORECAST, REF(src)))
