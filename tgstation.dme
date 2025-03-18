@@ -8579,6 +8579,7 @@
 #include "modular_nova\modules\pollution\code\turf_open.dm"
 #include "modular_nova\modules\poly_commands\parrot.dm"
 #include "modular_nova\modules\positronic_alert_console\code\positronic_alert_console.dm"
+#include "modular_nova\modules\powerator\powerator.dm"
 #include "modular_nova\modules\primitive_catgirls\code\clothing.dm"
 #include "modular_nova\modules\primitive_catgirls\code\clothing_vendor.dm"
 #include "modular_nova\modules\primitive_catgirls\code\language.dm"
