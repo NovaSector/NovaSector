@@ -55,15 +55,4 @@ export enum PRINTOUT {
   Missing = 'missing',
   Rapsheet = 'rapsheet',
   Wanted = 'wanted',
-  Poster = 'poster',
-}
-
-export enum POSTER {
-  Science = 'science',
-  Medical = 'medical',
-  Engineering = 'engineering',
-  Security = 'security',
-  Cargo = 'cargo',
-  Service = 'service',
-  Command = 'command',
 }
