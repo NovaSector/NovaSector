@@ -3,18 +3,18 @@ import { useBackend, useLocalState } from 'tgui/backend';
 import {
   Box,
   Button,
-  Dropdown,
+  Collapsible,
   Input,
   Section,
   Stack,
 } from 'tgui-core/components';
+import { PRINTOUT, POSTER, SecurityRecordsData } from './types';
 
 import {
   getDefaultPrintDescription,
   getDefaultPrintHeader,
   getSecurityRecord,
 } from './helpers';
-import { POSTER, PRINTOUT, SecurityRecordsData } from './types';
 
 /** Handles printing posters and rapsheets */
 export const RecordPrint = (props) => {
@@ -34,7 +34,7 @@ export const RecordPrint = (props) => {
 
   const [selectedPoster, setSelectedPoster] = useState<POSTER | null>(null);
 
-  /**  List of dropdown options */
+  /**  List of dropdown options*/
   const posterOptions = Object.values(POSTER);
 
   /** Option selection */
@@ -129,22 +129,6 @@ export const RecordPrint = (props) => {
       title="Print Record"
     >
       <Stack color="label" fill vertical>
-        {/* Other fields like header, alias, description */}
-
-        <Stack.Item>
-          <Box>Select a Poster Type:</Box>
-          <Dropdown
-            options={posterOptions.map((poster) => ({
-              label: poster,
-              value: poster,
-            }))}
-            selected={selectedPoster}
-            onChange={(e, { value }) => handlePosterSelect(value as POSTER)}
-            placeholder="Select a Poster"
-            fluid
-          />
-        </Stack.Item>
-
         <Stack.Item>
           <Box>Enter a Header:</Box>
           <Input
@@ -201,6 +185,30 @@ export const RecordPrint = (props) => {
               Print
             </Button>
           </Box>
+        </Stack.Item>
+
+        {/** Dropdown for poster selection */}
+        <Stack.Item mt={2}>
+          <Box>Select a Poster Type:</Box>
+          <div className="dropdown-container">
+            {/* Button */}
+            <button className="dropdown-button">
+              {selectedPoster ? selectedPoster : 'Select a Poster Type'}
+            </button>
+
+            {/** Dropdown menu */}
+            <ul className="dropdown-menu">
+              {posterOptions.map((option) => (
+                <li
+                  key={option}
+                  className="dropdown-item"
+                  onClick={() => handlePosterSelect(option)}
+                >
+                  {option}
+                </li>
+              ))}
+            </ul>
+          </div>
         </Stack.Item>
       </Stack>
     </Section>
