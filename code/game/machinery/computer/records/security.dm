@@ -2,6 +2,7 @@
 #define PRINTOUT_MISSING "Missing"
 #define PRINTOUT_RAPSHEET "Rapsheet"
 #define PRINTOUT_WANTED "Wanted"
+#define PRINTOUT_POSTER "Poster"
 /// Editing this will cause UI issues.
 #define MAX_CRIME_NAME_LEN 24
 
@@ -375,6 +376,12 @@
 
 			printable = wanted_poster
 
+		if("poster")
+			var/obj/item/photo/mugshot = target.get_front_photo()
+			var/obj/item/poster/wanted/wanted_poster = new(null, mugshot.picture.picture_image, input_alias, input_description, input_header)
+
+			printable = wanted_poster
+
 		if("rapsheet")
 		/// NOVA EDIT REMOVE - REMOVE CRIMES REQUIREMENT FOR PRINTING RECORDS
 			//var/list/crimes = target.crimes
@@ -532,4 +539,5 @@
 #undef PRINTOUT_MISSING
 #undef PRINTOUT_RAPSHEET
 #undef PRINTOUT_WANTED
+#undef PRINTOUT_POSTER
 #undef MAX_CRIME_NAME_LEN
