@@ -406,8 +406,8 @@ GLOBAL_LIST_INIT(oddity_loot, list(//oddity: strange or crazy items
 	))
 
 //Maintenance loot spawner pools
-#define maint_trash_weight 1200 // NOVA EDIT: Made these two alot less common so you get more varied items, does make oddities alot more common aswell Original: maint_trash_weight 4500
-#define maint_common_weight 1200 // NOVA EDIT: Made these two alot less common so you get more varied items does make oddities alot more common aswell Original: maint_common_weight 4500
+#define maint_trash_weight 1200 // NOVA EDIT CHANGE - Made these two alot less common so you get more varied items, does make oddities alot more common aswell - Original: maint_trash_weight 4500
+#define maint_common_weight 1200 // NOVA EDIT CHANGE - Made these two alot less common so you get more varied items does make oddities alot more common aswell - Original: maint_common_weight 4500
 #define maint_uncommon_weight 900
 #define maint_rarity_weight 99
 #define maint_oddity_weight 1 //1 out of 10,000 would give metastation (180 spawns) a 2 in 111 chance of spawning an oddity per round, similar to xeno egg
