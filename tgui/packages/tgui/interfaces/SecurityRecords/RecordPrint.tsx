@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import { useBackend, useLocalState } from 'tgui/backend';
-import {
-  Box,
-  Button,
-  Collapsible,
-  Input,
-  Section,
-  Stack,
-} from 'tgui-core/components';
+import { Box, Button, Collapsible, Input, Section, Stack } from 'tgui-core/components';
 import { PRINTOUT, POSTER, SecurityRecordsData } from './types';
 
 import {
