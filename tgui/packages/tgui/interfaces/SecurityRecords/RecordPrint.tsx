@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Box, Button, Collapsible, Input, Section, Stack } from 'tgui-core/components';
-import { PRINTOUT, POSTER, SecurityRecordsData } from './types';
+import { Box, Button, Input, Section, Stack } from 'tgui-core/components';
 
 import {
   getDefaultPrintDescription,
   getDefaultPrintHeader,
   getSecurityRecord,
 } from './helpers';
+import { PRINTOUT, SecurityRecordsData } from './types';
 
 /** Handles printing posters and rapsheets */
 export const RecordPrint = (props) => {
@@ -24,16 +24,6 @@ export const RecordPrint = (props) => {
   const [printType, setPrintType] = useState(PRINTOUT.Missing);
   const [header, setHeader] = useState('');
   const [description, setDescription] = useState('');
-
-  const [selectedPoster, setSelectedPoster] = useState<POSTER | null>(null);
-
-  /**  List of dropdown options*/
-  const posterOptions = Object.values(POSTER);
-
-  /** Option selection */
-  const handlePosterSelect = (option: POSTER) => {
-    setSelectedPoster(option);
-  };
 
   /** Prints the record and resets. */
   const printSheet = () => {
@@ -71,7 +61,7 @@ export const RecordPrint = (props) => {
     }
   };
 
-  /** Swap print type tabs */
+  /** If they have the fields defaulted to a specific type, change the message */
   const swapTabs = (tab: PRINTOUT) => {
     if (description === getDefaultPrintDescription(name, printType)) {
       setDescription(getDefaultPrintDescription(name, tab));
@@ -96,10 +86,17 @@ export const RecordPrint = (props) => {
             Missing
           </Button>
           <Button
+            // NOVA EDIT REMOVE START - REMOVE INNOCENT CHECK, ALLOWS RAPSHEETS TO BE PRINTED WITHOUT ANY CRIMES HAVING BEEN LOGGED
+            // disabled={innocent}
+            // SKYRA EDIT REMOVE END
             icon="file-alt"
             onClick={() => swapTabs(PRINTOUT.Rapsheet)}
             selected={printType === PRINTOUT.Rapsheet}
-            tooltip="Prints a standard paper with the record on it."
+            tooltip={`Prints a standard paper with the record on it.`} // NOVA EDIT CHANGE START - ORIGINAL:
+            // tooltip={`Prints a standard paper with the record on it.${
+            //  innocent ? ' (Requires crimes)' : ''
+            // }`}
+            // NOVA EDIT CHANGE END
             tooltipPosition="bottom"
           >
             Rapsheet
@@ -109,7 +106,9 @@ export const RecordPrint = (props) => {
             icon="handcuffs"
             onClick={() => swapTabs(PRINTOUT.Wanted)}
             selected={printType === PRINTOUT.Wanted}
-            tooltip={`Prints a poster with mugshot and crimes.${innocent ? ' (Requires crimes)' : ''}`}
+            tooltip={`Prints a poster with mugshot and crimes.${
+              innocent ? ' (Requires crimes)' : ''
+            }`}
             tooltipPosition="bottom"
           >
             Wanted
@@ -178,30 +177,6 @@ export const RecordPrint = (props) => {
               Print
             </Button>
           </Box>
-        </Stack.Item>
-
-        {/** Dropdown for poster selection */}
-        <Stack.Item mt={2}>
-          <Box>Select a Poster Type:</Box>
-          <div className="dropdown-container">
-            {/* Button */}
-            <button className="dropdown-button">
-              {selectedPoster ? selectedPoster : 'Select a Poster Type'}
-            </button>
-
-            {/** Dropdown menu */}
-            <ul className="dropdown-menu">
-              {posterOptions.map((option) => (
-                <li
-                  key={option}
-                  className="dropdown-item"
-                  onClick={() => handlePosterSelect(option)}
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </div>
         </Stack.Item>
       </Stack>
     </Section>
