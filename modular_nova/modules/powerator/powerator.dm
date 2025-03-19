@@ -79,6 +79,7 @@
 
 /obj/machinery/powerator/Initialize(mapload)
 	. = ..()
+	attached_cable = locate() in src_turf
 	START_PROCESSING(SSobj, src)
 
 /obj/machinery/powerator/Destroy()
@@ -159,7 +160,7 @@
 
 		current_power = attached_cable.newavail()
 
-	if(!current_power)
+	if(current_power == 0)
 		return
 
 	attached_cable.add_delayedload(current_power)
@@ -209,7 +210,8 @@
 	if(anchored)
 		var/turf/src_turf = get_turf(src)
 		attached_cable = locate() in src_turf
-		RegisterSignal(attached_cable, COMSIG_QDELETING, PROC_REF(on_cable_deleted))
+		RegisterSignal(attached_cable, COMSIG_QDELETING, PROC_REF(on_cable_deleted), override = TRUE)
+		cut_overlay("error")
 
 	else
 		add_overlay("error")
