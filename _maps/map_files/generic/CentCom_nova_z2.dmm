@@ -1306,6 +1306,7 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "ati" = (
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "atp" = (
@@ -6855,15 +6856,6 @@
 "fqg" = (
 /turf/open/floor/iron/smooth,
 /area/centcom/interlink)
-"frK" = (
-/obj/effect/turf_decal/stripes/asteroid/line{
-	dir = 1
-	},
-/obj/structure/fluff/metalpole/end/left{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "fsl" = (
 /obj/structure/chair/sofa/bench{
 	dir = 4
@@ -8231,12 +8223,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/centcom/interlink)
-"hOa" = (
-/obj/structure/fluff/metalpole{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "hOy" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/item/kirbyplants/random,
@@ -8863,6 +8849,7 @@
 	id = "centshuttersjolly"
 	},
 /obj/effect/turf_decal/bot_white,
+/obj/structure/filingcabinet/employment,
 /turf/open/floor/iron/dark/textured_large,
 /area/centcom/interlink)
 "iJK" = (
@@ -9198,6 +9185,11 @@
 /obj/structure/reagent_dispensers/watertank/high,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
+"jji" = (
+/obj/machinery/light/directional/south,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "jjQ" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -10394,13 +10386,6 @@
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"lhg" = (
-/obj/effect/turf_decal/stripes/asteroid/line,
-/obj/structure/fluff/metalpole/end/left{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "lhh" = (
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/freezer,
@@ -11580,6 +11565,12 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
+"neR" = (
+/obj/structure/fluff/metalpole{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "nfi" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
 	name = "Interlink"
@@ -13104,13 +13095,6 @@
 /obj/effect/turf_decal/caution/stand_clear/red,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"pwD" = (
-/obj/effect/turf_decal/stripes/asteroid/line,
-/obj/structure/fluff/metalpole/anchor{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "pwO" = (
 /obj/structure/chair/sofa/bench/corner{
 	dir = 4
@@ -13185,6 +13169,13 @@
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"pAP" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/fluff/metalpole/end/left{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "pBj" = (
 /obj/structure/chair/sofa/bench/left{
@@ -13951,7 +13942,6 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "qzE" = (
-/obj/structure/filingcabinet/employment,
 /obj/machinery/light/cold/no_nightlight/directional/west,
 /turf/open/floor/iron/grimy,
 /area/centcom/interlink)
@@ -14859,8 +14849,9 @@
 /turf/open/floor/carpet/purple,
 /area/centcom/holding/cafe)
 "rVP" = (
+/obj/machinery/light/directional/north,
 /obj/item/kirbyplants/random,
-/turf/open/floor/iron/grimy,
+/turf/open/floor/iron,
 /area/centcom/interlink)
 "rVQ" = (
 /obj/effect/light_emitter/interlink,
@@ -15801,6 +15792,13 @@
 "tpU" = (
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
+"tqN" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "tsi" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Interlink Security Post"
@@ -15986,6 +15984,13 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"tFm" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/fluff/metalpole/anchor{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "tFX" = (
 /obj/effect/turf_decal/siding/wood{
@@ -18113,6 +18118,15 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafepark)
+"xsL" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 1
+	},
+/obj/structure/fluff/metalpole/end/left{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "xsM" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -37246,7 +37260,7 @@ hvQ
 aDg
 jGH
 liU
-rVP
+liU
 ati
 oln
 hvQ
@@ -39036,7 +39050,7 @@ aaa
 aaa
 aaa
 tvw
-uYo
+tqN
 lFm
 uYo
 uYo
@@ -39053,7 +39067,7 @@ uYo
 uYo
 uYo
 lFm
-uYo
+tqN
 tvw
 lrp
 pMg
@@ -40066,20 +40080,20 @@ aaa
 tvw
 hvQ
 ukp
-lhg
+pAP
 gcv
-hOa
-pwD
-frK
+neR
+tFm
+xsL
 vEO
 hvQ
 bIG
 ukp
-lhg
+pAP
 gcv
-hOa
-pwD
-frK
+neR
+tFm
+xsL
 vEO
 hvQ
 tvw
@@ -42377,7 +42391,7 @@ aaa
 aaa
 aaa
 tvw
-tWA
+rVP
 ukp
 nJQ
 xPx
@@ -42394,7 +42408,7 @@ tUz
 xPx
 nJQ
 vEO
-xin
+jji
 tvw
 tvw
 tFX
