@@ -10,8 +10,8 @@
 	retool_projectile_icon = "ahabprojectile" // stored in icons/obj/weapons/guns/projectiles.dmi
 	retool_lefthand_file = 'modular_nova/modules/ahabs_spear/icons/l_hand_ahab.dmi'
 	retool_righthand_file = 'modular_nova/modules/ahabs_spear/icons/r_hand_ahab.dmi'
-	retool_inhand_X = 32
-	retool_inhand_Y = 32
+	retool_inhand_x = 32
+	retool_inhand_y = 32
 
 /obj/item/crusher_trophy/retool_kit/ahab/effect_desc()
 	return "the crusher to have the appearance of the weapon of legends, Ahab's Harpoon"
