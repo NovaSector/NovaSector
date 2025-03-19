@@ -145,7 +145,6 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	var/has_sand = FALSE
 
 /obj/item/clay_pot/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	. = ..()
 	if(istype(tool, /obj/item/stack/ore/glass))
 		var/obj/item/stack/use_stack = tool
 		if(has_sand)
@@ -163,6 +162,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 		to_chat(user, span_notice("You fill [src] with some sand."))
 		has_sand = TRUE
+		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/seeds))
 		if(!has_sand)
@@ -178,8 +178,9 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		qdel(tool)
 		new /obj/item/kirbyplants(drop_location(src))
 		qdel(src)
-		
-	return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
 
 /obj/item/ceramic/tray
 	name = "ceramic tray"
