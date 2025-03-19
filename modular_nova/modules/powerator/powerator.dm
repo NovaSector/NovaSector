@@ -73,6 +73,7 @@
 
 /obj/machinery/powerator/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	UnregisterSignal(attached_cable, COMSIG_QDELETING)
 	attached_cable = null
 	return ..()
 
