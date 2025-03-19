@@ -58,12 +58,22 @@
 
 	/// the current amount of power that we are trying to process
 	var/current_power = 10 KILO WATTS
+
 	/// the max amount of power that can be sent per process, from 100 KW (t1) to 10000 KW (t4)
 	var/max_power = 100 KILO WATTS
+
+	/// the rating change for the max power (upgrades)
+	var/power_rating = 1650 KILO WATTS
+
 	/// how much the current_power is divided by to determine the profit
 	var/divide_ratio = 0.00001
+
+	// the rating change for the divide ratio (upgrade)
+	var/divide_rating = 0.000005
+
 	/// the attached cable to the machine
 	var/obj/structure/cable/attached_cable
+
 	/// how many credits this machine has actually made so far
 	var/credits_made = 0
 
@@ -110,13 +120,13 @@
 	max_power = 100 KILO WATTS
 	for(var/datum/stock_part/micro_laser/laser_part in component_parts)
 		efficiency += laser_part.tier
-	max_power += (efficiency * 1650 KILO WATTS)
+	max_power += (efficiency * power_rating)
 
 	efficiency = -2
 	divide_ratio = 0.00001
 	for(var/datum/stock_part/servo/servo_part in component_parts)
 		efficiency += servo_part.tier
-	divide_ratio += (efficiency * 0.000005)
+	divide_ratio += (efficiency * divide_rating)
 
 /obj/machinery/powerator/update_overlays()
 	. = ..()
@@ -143,20 +153,20 @@
 
 /obj/machinery/powerator/process()
 	update_appearance() //lets just update this
-	var/turf/src_turf = get_turf(src)
-	attached_cable = locate() in src_turf
 	if(machine_stat & (NOPOWER | BROKEN) || !anchored || panel_open || isnull(attached_cable)) //no power, broken, unanchored, maint panel open, or no cable? lets reset
 		return
 
-	if(current_power <= 0)
+	if(current_power < 0)
 		current_power = 0 //this is just for the fringe case, wouldn't want it to somehow produce power for money! unless...
-		return
 
 	if(!attached_cable.avail(current_power))
 		if(!attached_cable.newavail())
 			return
 
 		current_power = attached_cable.newavail()
+
+	if(!current_power)
+		return
 
 	attached_cable.add_delayedload(current_power)
 
@@ -165,13 +175,10 @@
 	synced_bank_account.adjust_money(money_ratio)
 	credits_made += money_ratio
 
-	update_appearance() //lets just update this
-
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	current_power = tgui_input_number(user, "How much power (in Watts) would you like to draw? Max: [display_power(max_power)]", "Power Draw", current_power, max_power, 0)
 	if(isnull(current_power))
-		current_power = 10 KILO WATTS
 		return
 
 /obj/machinery/powerator/screwdriver_act(mob/living/user, obj/item/tool)
@@ -187,4 +194,18 @@
 /obj/machinery/powerator/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	default_unfasten_wrench(user, tool)
+	if(anchored)
+		var/turf/src_turf = get_turf(src)
+		attached_cable = locate() in src_turf
+		RegisterSignal(attached_cable, COMSIG_QDELETING, PROC_REF(on_cable_deleted))
+
+	else
+		attached_cable = null
+
 	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/powerator/proc/on_cable_deleted()
+	SIGNAL_HANDLER
+
+	UnregisterSignal(attached_cable, COMSIG_QDELETING)
+	attached_cable = null
