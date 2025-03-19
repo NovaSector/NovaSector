@@ -8098,7 +8098,6 @@
 #include "modular_nova\modules\mapping\code\turf_decals.dm"
 #include "modular_nova\modules\mapping\code\vgdecals.dm"
 #include "modular_nova\modules\mapping\code\wardrobes.dm"
-#include "modular_nova\modules\mapping\code\areas\away_content.dm"
 #include "modular_nova\modules\mapping\code\areas\centcom.dm"
 #include "modular_nova\modules\mapping\code\areas\mining.dm"
 #include "modular_nova\modules\mapping\code\areas\ruins.dm"
