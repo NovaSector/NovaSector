@@ -94,7 +94,7 @@
 	else
 		. += span_notice("There is no damage and power is being supplied.")
 
-	if(!attached_cable)
+	if(isnull(attached_cable))
 		. += span_warning("There is no power cable underneath, preventing [src] from working!")
 	else
 		. += span_notice("There is a power cable underneath.")
