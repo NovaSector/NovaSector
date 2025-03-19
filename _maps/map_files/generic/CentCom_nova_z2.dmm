@@ -3945,7 +3945,6 @@
 /area/centcom/holding/cafe)
 "aVk" = (
 /obj/machinery/light/directional/north,
-/obj/machinery/telecomms/relay/preset/station,
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "aVp" = (
@@ -8757,6 +8756,15 @@
 /obj/effect/turf_decal/siding/thinplating_new/end,
 /turf/open/indestructible/bathroom,
 /area/centcom/holding/cafe)
+"iCj" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 1
+	},
+/obj/structure/fluff/metalpole/end/left{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "iCz" = (
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/airlock/sandstone{
@@ -9185,11 +9193,6 @@
 /obj/structure/reagent_dispensers/watertank/high,
 /turf/open/misc/dirt/planet,
 /area/centcom/holding/cafepark)
-"jji" = (
-/obj/machinery/light/directional/south,
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron,
-/area/centcom/interlink)
 "jjQ" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -10465,6 +10468,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
+"lkQ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "lla" = (
 /obj/machinery/iv_drip,
 /obj/effect/turf_decal/bot_blue,
@@ -10690,6 +10700,11 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
+/turf/open/floor/iron,
+/area/centcom/interlink)
+"lHl" = (
+/obj/machinery/light/directional/north,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "lHD" = (
@@ -11565,12 +11580,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
-"neR" = (
-/obj/structure/fluff/metalpole{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "nfi" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
 	name = "Interlink"
@@ -12225,6 +12234,13 @@
 "omh" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
+"omP" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/fluff/metalpole/end/left{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -12965,6 +12981,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"piy" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/fluff/metalpole/anchor{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "pjv" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -13169,13 +13192,6 @@
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
-/area/centcom/interlink)
-"pAP" = (
-/obj/effect/turf_decal/stripes/asteroid/line,
-/obj/structure/fluff/metalpole/end/left{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/centcom/interlink)
 "pBj" = (
 /obj/structure/chair/sofa/bench/left{
@@ -14849,7 +14865,7 @@
 /turf/open/floor/carpet/purple,
 /area/centcom/holding/cafe)
 "rVP" = (
-/obj/machinery/light/directional/north,
+/obj/machinery/light/directional/south,
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
 /area/centcom/interlink)
@@ -15792,13 +15808,6 @@
 "tpU" = (
 /turf/open/misc/dirt/planet,
 /area/centcom/interlink)
-"tqN" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 8
-	},
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron,
-/area/centcom/interlink)
 "tsi" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Interlink Security Post"
@@ -15985,13 +15994,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"tFm" = (
-/obj/effect/turf_decal/stripes/asteroid/line,
-/obj/structure/fluff/metalpole/anchor{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "tFX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -16096,6 +16098,12 @@
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/grass,
+/area/centcom/interlink)
+"tRJ" = (
+/obj/structure/fluff/metalpole{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "tUk" = (
 /obj/structure/fence/corner,
@@ -18118,15 +18126,6 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafepark)
-"xsL" = (
-/obj/effect/turf_decal/stripes/asteroid/line{
-	dir = 1
-	},
-/obj/structure/fluff/metalpole/end/left{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "xsM" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -39050,7 +39049,7 @@ aaa
 aaa
 aaa
 tvw
-tqN
+lkQ
 lFm
 uYo
 uYo
@@ -39067,7 +39066,7 @@ uYo
 uYo
 uYo
 lFm
-tqN
+lkQ
 tvw
 lrp
 pMg
@@ -40080,20 +40079,20 @@ aaa
 tvw
 hvQ
 ukp
-pAP
+omP
 gcv
-neR
-tFm
-xsL
+tRJ
+piy
+iCj
 vEO
 hvQ
 bIG
 ukp
-pAP
+omP
 gcv
-neR
-tFm
-xsL
+tRJ
+piy
+iCj
 vEO
 hvQ
 tvw
@@ -42391,7 +42390,7 @@ aaa
 aaa
 aaa
 tvw
-rVP
+lHl
 ukp
 nJQ
 xPx
@@ -42408,7 +42407,7 @@ tUz
 xPx
 nJQ
 vEO
-jji
+rVP
 tvw
 tvw
 tFX
