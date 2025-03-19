@@ -215,8 +215,7 @@
 				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return TRUE
 				if(new_eye_color)
-					human_user.eye_color_left = sanitize_hexcolor(new_eye_color)
-					human_user.eye_color_right = sanitize_hexcolor(new_eye_color)
+					human_user.set_eye_color(sanitize_hexcolor(new_eye_color))
 					human_user.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
 					human_user.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
 					human_user.update_body()

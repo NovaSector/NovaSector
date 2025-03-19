@@ -257,19 +257,19 @@
 
 /datum/loadout_item/erp/crocin/pill
 	name = "Crocin Pill"
-	item_path = /obj/item/reagent_containers/pill/crocin
+	item_path = /obj/item/reagent_containers/applicator/pill/crocin
 
 /datum/loadout_item/erp/camphor/pill
 	name = "Camphor Pill"
-	item_path = /obj/item/reagent_containers/pill/camphor
+	item_path = /obj/item/reagent_containers/applicator/pill/camphor
 
 /datum/loadout_item/erp/hexacrocin/pill
 	name = "Hexacrocin Pill"
-	item_path = /obj/item/reagent_containers/pill/hexacrocin
+	item_path = /obj/item/reagent_containers/applicator/pill/hexacrocin
 
 /datum/loadout_item/erp/pentacamphor/pill
 	name = "Pentacamphor Pill"
-	item_path = /obj/item/reagent_containers/pill/pentacamphor
+	item_path = /obj/item/reagent_containers/applicator/pill/pentacamphor
 
 /datum/loadout_item/erp/succubus_milk
 	name = "Succubus Milk Bottle"
