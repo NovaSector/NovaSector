@@ -121,8 +121,8 @@
 			//Overlay
 			hair_overlay = image(base_icon, layer=-HAIR_LAYER, dir=image_dir)
 			hair_overlay.alpha = hair_alpha
-			hair_overlay.pixel_y = hair_sprite_accessory.y_offset
-			// NOVA EDIT ADDITION - Species hair offset
+			hair_overlay.pixel_z = hair_sprite_accessory.y_offset
+			// NOVA EDIT ADDITION START - Species hair offset
 			if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
 				hair_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_X]
 				hair_overlay.pixel_y += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Y]
@@ -138,8 +138,8 @@
 			if(hair_gradient_style != "None")
 				var/hair_gradient_color = gradient_colors[GRADIENT_HAIR_KEY]
 				var/image/hair_gradient_overlay = get_gradient_overlay(base_icon, -HAIR_LAYER, SSaccessories.hair_gradients_list[hair_gradient_style], hair_gradient_color, image_dir)
-				hair_gradient_overlay.pixel_y = hair_sprite_accessory.y_offset
-				// NOVA EDIT ADDITION - Species hair offset
+				hair_gradient_overlay.pixel_z = hair_sprite_accessory.y_offset
+				// NOVA EDIT ADDITION START - Species hair offset
 				if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
 					hair_gradient_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_X]
 					hair_gradient_overlay.pixel_y += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Y]
