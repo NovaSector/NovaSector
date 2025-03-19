@@ -131,7 +131,7 @@
 		add_overlay("error")
 		return
 
-	if(!attached_cable)
+	if(isnull(attached_cable))
 		add_overlay("cable")
 		return
 
