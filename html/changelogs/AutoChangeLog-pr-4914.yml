@@ -1,0 +1,6 @@
+author: "Zenitheevee"
+delete-after: True
+changes:
+  - rscadd: "Added megafauna variety of resetting vents"
+  - rscadd: "Added lavaland and icemoon variants"
+  - rscadd: "randomized variable for vents, Replacing the current geosite vents with ones that randomize at start."
