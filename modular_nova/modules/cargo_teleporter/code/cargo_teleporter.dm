@@ -37,23 +37,23 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	marker_children += spawned_marker
 
 /obj/item/cargo_teleporter/click_alt(mob/user)
-	var/choice1 = tgui_input_list(user, "What would you like to do?", "Cargo Teleporter Options", list("Remove all markers", "Set default marker"))
-	if(!choice1)
-		return
+	var/option_selection = tgui_input_list(user, "What would you like to do?", "Cargo Teleporter Options", list("Remove all markers", "Set default marker"))
+	if(isnull(option_selection))
+		return CLICK_ACTION_BLOCKING
 
-	if(choice1 == "Remove all markers")
+	if(option_selection == "Remove all markers")
 		if(length(marker_children))
 			for(var/obj/effect/decal/cleanable/cargo_mark/destroy_children in marker_children)
 				qdel(destroy_children)
 
 		return CLICK_ACTION_SUCCESS
 
-	if(choice1 == "Set default marker")
-		var/choice2 = tgui_input_list(user, "Select which cargo mark to teleport the items to?", "Cargo Mark Selection", GLOB.cargo_marks)
-		if(!choice2)
-			return
+	if(option_selection == "Set default marker")
+		var/cargo_mark_selection = tgui_input_list(user, "Select which cargo mark to teleport the items to?", "Cargo Mark Selection", GLOB.cargo_marks)
+		if(isnull(cargo_mark_selection))
+			return CLICK_ACTION_BLOCKING
 
-		selected_mark = choice2
+		selected_mark = cargo_mark_selection
 		to_chat(user, span_notice("You have selected [selected_mark] as the default mark. ALT-CLICK to open up the options to change the selection."))
 		return CLICK_ACTION_SUCCESS
 
