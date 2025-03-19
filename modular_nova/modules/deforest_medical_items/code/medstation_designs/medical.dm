@@ -58,7 +58,7 @@
 	id = "organic_printer_amollin_pill"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 25)
-	build_path = /obj/item/reagent_containers/pill/amollin
+	build_path = /obj/item/reagent_containers/applicator/pill/amollin
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_DEFOREST_MEDICAL,
