@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - code_imp: "the mid-round-event handler was changed heavily, expect to see like 'annoying' midrounds, and more player controlled ones!"
