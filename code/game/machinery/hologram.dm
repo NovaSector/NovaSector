@@ -108,6 +108,7 @@ Possible to do for anyone motivated enough:
 		)
 	)
 	AddElement(/datum/element/contextual_screentip_mob_typechecks, hovering_mob_typechecks)
+	set_wires(new /datum/wires/holopad(src))
 
 	if(on_network)
 		holopads += src
@@ -623,10 +624,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return TRUE
 
 /obj/machinery/holopad/proc/clear_holo(datum/owner)
-	qdel(masters[owner]) // Get rid of owner's hologram
+	if(!disk || !disk.record)
+		return FALSE
+
+	qdel(masters[owner])
 	unset_holo(owner)
 	return TRUE
-
 /**
  * Called by holocall to inform outgoing_call that the receiver picked up.
  */
@@ -753,6 +756,14 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return hologram
 
 /obj/machinery/holopad/proc/replay_start()
+	if(!disk)
+		say("Please insert the disc to play the recording.")
+		return
+
+	if(!disk.record)
+		say("There is no record on the disc. Please check the disk.")
+		return
+
 	if(!replay_mode)
 		replay_mode = TRUE
 		replay_holo = setup_replay_holo(disk.record)
@@ -760,6 +771,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		replay_entry(1)
 
 /obj/machinery/holopad/proc/replay_stop()
+	if(!disk || !disk.record)
+		return FALSE
 	if(replay_mode)
 		replay_mode = FALSE
 		offset = FALSE

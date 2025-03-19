@@ -51,7 +51,7 @@
 
 		// Just in case
 		if(to_swap_key)
-			original_body.key = to_swap_key
+			original_body.PossessByPlayer(to_swap_key)
 
 		original_minds -= original_mind_ref
 
@@ -155,7 +155,7 @@
 
 	// Just in case the swappee's key wasn't grabbed by transfer_to...
 	if(to_swap_key)
-		caster.key = to_swap_key
+		caster.PossessByPlayer(to_swap_key)
 
 	// MIND TRANSFER END
 

@@ -65,6 +65,7 @@
 	var/custom_species_lore
 	var/obscured
 	var/ooc_notes = ""
+	var/veteran_status
 	var/ideal_antag_optin_status
 	var/current_antag_optin_status
 	var/headshot = ""
@@ -91,6 +92,8 @@
 				antag_prefs = preferences.read_preference(/datum/preference/choiced/antag_opt_in_status)
 			current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
 			ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
+
+		veteran_status = GLOB.veteran_list[user.ckey]
 
 	// Now we handle silicon and/or human, order doesn't really matter
 	// If other variants of mob/living need to be handled at some point, put them here
@@ -121,6 +124,8 @@
 	data["custom_species"] = custom_species
 	data["custom_species_lore"] = custom_species_lore
 	data["headshot"] = headshot
+
+	data["veteran_status"] = veteran_status
 
 	data["ideal_antag_optin_status"] = ideal_antag_optin_status
 	data["current_antag_optin_status"] = current_antag_optin_status
