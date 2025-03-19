@@ -8,7 +8,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	///the list of markers spawned by this item
 	var/list/marker_children = list()
 	///which marker it is currently on
-	var/obj/effect/decal/cleanable/cargo_mark/selected_mark = null
+	var/obj/effect/decal/cleanable/cargo_mark/selected_mark
 
 	COOLDOWN_DECLARE(use_cooldown)
 
