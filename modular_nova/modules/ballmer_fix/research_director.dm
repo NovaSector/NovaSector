@@ -1,2 +1,4 @@
-/datum/job/research_director
-	liver_traits = list(TRAIT_ROYAL_METABOLISM)
+// No more force-say
+/datum/job/research_director/New()
+	liver_traits -= TRAIT_BALLMER_SCIENTIST
+	return ..()
