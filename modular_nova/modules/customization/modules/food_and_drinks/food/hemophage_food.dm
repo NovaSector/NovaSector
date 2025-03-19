@@ -99,7 +99,7 @@
 		/datum/reagent/blood = 25,
 	)
 	tastes = list("blood" = 5, "crunchy rice" = 2, "peanut butter" = 2)
-	foodtypes = GRAIN | GORE | BLOODY | SUGAR | NUTS
+	foodtypes = GRAIN | GORE | BLOODY | SUGAR | NUTS | BREAKFAST
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/soup/hemophage/blood_soup
