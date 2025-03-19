@@ -144,7 +144,7 @@
 	update_appearance() //lets just update this
 	var/turf/src_turf = get_turf(src)
 	attached_cable = locate() in src_turf
-	if(machine_stat & (NOPOWER | BROKEN) || !anchored || panel_open || !attached_cable) //no power, broken, unanchored, maint panel open, or no cable? lets reset
+	if(machine_stat & (NOPOWER | BROKEN) || !anchored || panel_open || isnull(attached_cable)) //no power, broken, unanchored, maint panel open, or no cable? lets reset
 		return
 
 	if(current_power <= 0)
