@@ -26455,11 +26455,11 @@
 /area/station/commons/orbital_lounge)
 "hCr" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/pill/patch/aiuri{
+/obj/item/reagent_containers/applicator/patch/aiuri{
 	pixel_x = -5;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/pill/patch/libital{
+/obj/item/reagent_containers/applicator/patch/libital{
 	pixel_y = -1
 	},
 /obj/item/flashlight/lamp/green{
@@ -52293,7 +52293,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
 "phw" = (
-/obj/item/reagent_containers/pill/maintenance,
+/obj/item/reagent_containers/applicator/pill/maintenance,
 /turf/open/floor/glass/reinforced,
 /area/station/maintenance/port)
 "phL" = (
