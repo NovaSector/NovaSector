@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 
 	if(!selected_mark)
 		var/choice = tgui_input_list(user, "Select which cargo mark to teleport the items to?", "Cargo Mark Selection", GLOB.cargo_marks)
-		if(!choice)
+		if(isnull(choice))
 			return ITEM_INTERACT_BLOCKING
 
 		selected_mark = choice
