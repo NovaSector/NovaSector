@@ -325,7 +325,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	switch(user_input)
 		if("Create")
 			var/creation_choice = tgui_input_list(user, "What you like to create?", "Creation Choice", production_list)
-			if(!creation_choice)
+			if(isnull(creation_choice))
 				return
 
 			use_clay(production_list[creation_choice], user)
