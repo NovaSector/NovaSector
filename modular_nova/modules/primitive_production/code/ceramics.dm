@@ -144,40 +144,42 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	///whether there is sand, which is required to add turn into a kirby plant from a seed
 	var/has_sand = FALSE
 
-/obj/item/clay_pot/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/clay_pot/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
-		var/obj/item/stack/use_stack = attacking_item
+	if(istype(tool, /obj/item/stack/ore/glass))
+		var/obj/item/stack/use_stack = tool
 		if(has_sand)
 			to_chat(user, span_warning("There is already sand in the pot!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You begin to fill [src] with some sand."))
+		to_chat(user, span_notice("You begin to fill [src] with some sand..."))
 		if(!do_after(user, 3 SECONDS, target = src))
 			to_chat(user, span_notice("You decide against filling the pot with sand."))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		if(!use_stack.use(1))
 			to_chat(user, span_warning("You find yourself unable to part with [use_stack]!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		to_chat(user, span_notice("You fill [src] with some sand."))
 		has_sand = TRUE
 
-	if(istype(attacking_item, /obj/item/seeds))
+	if(istype(tool, /obj/item/seeds))
 		if(!has_sand)
 			to_chat(user, span_warning("Sand is absolutely required to start planting!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You begin to plant a seed inside [src]."))
+		to_chat(user, span_notice("You begin to plant a seed inside [src]..."))
 		if(!do_after(user, 3 SECONDS, target = src))
 			to_chat(user, span_notice("You decide against planting the seed."))
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You plant [attacking_item] into the pot."))
-		qdel(attacking_item)
-		new /obj/item/kirbyplants(get_turf(src))
+		to_chat(user, span_notice("You plant [tool] into the pot."))
+		qdel(tool)
+		new /obj/item/kirbyplants(drop_location(src))
 		qdel(src)
+		
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/ceramic/tray
 	name = "ceramic tray"
