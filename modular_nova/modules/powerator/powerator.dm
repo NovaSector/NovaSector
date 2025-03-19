@@ -130,16 +130,10 @@
 
 /obj/machinery/powerator/update_overlays()
 	. = ..()
-	cut_overlays()
-	if(panel_open)
-		add_overlay("panel_open")
 
-	else
-		add_overlay("panel_close")
-
-	if(machine_stat & (NOPOWER | BROKEN) || !anchored || panel_open)
-		add_overlay("error")
-		return
+	cut_overlay("cable")
+	cut_overlay("power")
+	cut_overlay("work")
 
 	if(isnull(attached_cable))
 		add_overlay("cable")
@@ -184,8 +178,26 @@
 /obj/machinery/powerator/screwdriver_act(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
 	panel_open = !panel_open
+	if(panel_open)
+		add_overlay("error")
+		add_overlay("panel_open")
+		cut_overlay("panel_close")
+
+	else
+		cut_overlay("error")
+		cut_overlay("panel_open")
+		add_overlay("panel_close")
+
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/powerator/on_set_machine_stat(old_value)
+	. = ..()
+	if(machine_stat & (NOPOWER | BROKEN))
+		add_overlay("error")
+
+	else
+		cut_overlay("error")
 
 /obj/machinery/powerator/crowbar_act(mob/user, obj/item/tool)
 	if(default_deconstruction_crowbar(tool))
@@ -200,6 +212,7 @@
 		RegisterSignal(attached_cable, COMSIG_QDELETING, PROC_REF(on_cable_deleted))
 
 	else
+		add_overlay("error")
 		attached_cable = null
 
 	return ITEM_INTERACT_SUCCESS
@@ -207,5 +220,4 @@
 /obj/machinery/powerator/proc/on_cable_deleted()
 	SIGNAL_HANDLER
 
-	UnregisterSignal(attached_cable, COMSIG_QDELETING)
 	attached_cable = null
