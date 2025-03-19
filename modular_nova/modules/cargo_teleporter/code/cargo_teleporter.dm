@@ -62,7 +62,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 		to_chat(user, span_warning("[src] is still on cooldown!"))
 		return ITEM_INTERACT_BLOCKING
 
-	if(!selected_mark)
+	if(isnull(selected_mark))
 		var/choice = tgui_input_list(user, "Select which cargo mark to teleport the items to?", "Cargo Mark Selection", GLOB.cargo_marks)
 		if(isnull(choice))
 			return ITEM_INTERACT_BLOCKING
