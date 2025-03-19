@@ -557,6 +557,7 @@ Possible to do for anyone motivated enough:
 
 		if(AI)
 			AI.eyeobj.setLoc(get_turf(src)) //ensure the AI camera moves to the holopad
+			hologram.Impersonation = AI //NOVA EDIT -- ADDITION -- Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
 		else //make it like real life
 			hologram.Impersonation = user
 		hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
