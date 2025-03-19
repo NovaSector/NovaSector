@@ -7183,6 +7183,7 @@
 #include "modular_nova\modules\aesthetics\walls\code\walls.dm"
 #include "modular_nova\modules\aesthetics\washing_machine\code\washing_machine.dm"
 #include "modular_nova\modules\aesthetics\windows\code\windows.dm"
+#include "modular_nova\modules\ahabs_spear\code\trophies_misc.dm"
 #include "modular_nova\modules\ai_uplink_upload\design.dm"
 #include "modular_nova\modules\ai_uplink_upload\the_thing.dm"
 #include "modular_nova\modules\airlock_override\code\airlock_override.dm"
