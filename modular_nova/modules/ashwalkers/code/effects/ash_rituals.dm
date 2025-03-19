@@ -506,8 +506,8 @@
 		lizard_target.faction.Add(FACTION_MINING_FAUNA)
 		ADD_TRAIT(lizard_target, TRAIT_PACIFISM, SPECIES_TRAIT)
 
-/// Pacification
-/datum/ash_ritual/pacification
+/// Summon Ore Seed
+/datum/ash_ritual/summon_ore_seed
 	name = "Summon Ore Seed"
 	desc = "Summons a seed that, when used in the hand, will cause a tendril to dig through the crust of the surface causing an ore vent to appear."
 	required_components = list(
