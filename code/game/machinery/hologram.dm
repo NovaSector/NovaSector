@@ -560,7 +560,7 @@ Possible to do for anyone motivated enough:
 			hologram.Impersonation = AI //NOVA EDIT -- ADDITION -- Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
 		else //make it like real life
 			hologram.Impersonation = user
-		hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
+		//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. //NOVA EDIT -- Customization; Making holograms clickable/examinable
 		hologram.layer = FLY_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 		SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 		hologram.set_anchored(TRUE)//So space wind cannot drag it.
