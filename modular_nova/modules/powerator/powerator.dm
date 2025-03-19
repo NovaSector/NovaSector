@@ -79,7 +79,7 @@
 
 /obj/machinery/powerator/Initialize(mapload)
 	. = ..()
-	attached_cable = locate() in src_turf
+	attached_cable = locate() in get_turf(src)
 	START_PROCESSING(SSobj, src)
 
 /obj/machinery/powerator/Destroy()
