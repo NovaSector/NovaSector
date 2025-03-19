@@ -550,15 +550,14 @@ Possible to do for anyone motivated enough:
 
 		if(AI)
 			AI.eyeobj.setLoc(get_turf(src)) //ensure the AI camera moves to the holopad
-			hologram.Impersonation = AI //NOVA EDIT -- ADDITION -- Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
+			hologram.Impersonation = AI //NOVA EDIT ADDITION - Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
 		else //make it like real life
 			hologram.Impersonation = user
 		//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // NOVA EDIT REMOVAL - Making holograms clickable/examinable
 		hologram.layer = FLY_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 		SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 		hologram.set_anchored(TRUE)//So space wind cannot drag it.
-		//hologram.name = "[user.name] (Hologram)"//If someone decides to right click. // ORIGINAL
-		hologram.name = user.name //NOVA EDIT -- Make the name exact, so that the double-emotes are less jarring in the chat
+		hologram.name = user.name //NOVA EDIT CHANGE - Make the name exact, so that the double-emotes are less jarring in the chat - ORIGINAL: hologram.name = "[user.name] (Hologram)"//If someone decides to right click.
 		set_holo(user, hologram)
 
 		set_holo(user, hologram)
