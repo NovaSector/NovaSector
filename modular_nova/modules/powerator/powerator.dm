@@ -84,8 +84,10 @@
 
 /obj/machinery/powerator/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	UnregisterSignal(attached_cable, COMSIG_QDELETING)
-	attached_cable = null
+	if(attached_cable)
+		UnregisterSignal(attached_cable, COMSIG_QDELETING)
+		attached_cable = null
+
 	return ..()
 
 /obj/machinery/powerator/examine(mob/user)
@@ -222,4 +224,5 @@
 /obj/machinery/powerator/proc/on_cable_deleted()
 	SIGNAL_HANDLER
 
+	UnregisterSignal(attached_cable, COMSIG_QDELETING)
 	attached_cable = null
