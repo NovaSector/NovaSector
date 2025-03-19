@@ -29,8 +29,8 @@
 	var/static/list/items_inside = list(
 		/obj/item/stack/medical/suture/medicated = 2,
 		/obj/item/stack/medical/mesh/advanced = 2,
-		/obj/item/reagent_containers/pill/patch/libital = 2,
-		/obj/item/reagent_containers/pill/patch/aiuri = 2,
+		/obj/item/reagent_containers/applicator/patch/libital = 2,
+		/obj/item/reagent_containers/applicator/aiuri = 2,
 		/obj/item/healthanalyzer/advanced = 1,
 		/obj/item/stack/medical/gauze = 2,
 		/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset = 1,
