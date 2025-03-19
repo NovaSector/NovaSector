@@ -6855,6 +6855,15 @@
 "fqg" = (
 /turf/open/floor/iron/smooth,
 /area/centcom/interlink)
+"frK" = (
+/obj/effect/turf_decal/stripes/asteroid/line{
+	dir = 1
+	},
+/obj/structure/fluff/metalpole/end/left{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "fsl" = (
 /obj/structure/chair/sofa/bench{
 	dir = 4
@@ -7251,8 +7260,9 @@
 /obj/effect/turf_decal/stripes/asteroid/line{
 	dir = 1
 	},
-/obj/structure/fluff/tram_rail/electric,
-/obj/structure/fluff/tram_rail/electric/anchor,
+/obj/structure/fluff/metalpole/anchor{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "gcJ" = (
@@ -8220,6 +8230,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/cafeteria,
+/area/centcom/interlink)
+"hOa" = (
+/obj/structure/fluff/metalpole{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "hOy" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
@@ -10377,6 +10393,13 @@
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"lhg" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/fluff/metalpole/end/left{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "lhh" = (
 /obj/machinery/shower/directional/south,
@@ -13080,6 +13103,13 @@
 	},
 /obj/effect/turf_decal/caution/stand_clear/red,
 /turf/open/floor/iron,
+/area/centcom/interlink)
+"pwD" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/obj/structure/fluff/metalpole/anchor{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "pwO" = (
 /obj/structure/chair/sofa/bench/corner{
@@ -40036,20 +40066,20 @@ aaa
 tvw
 hvQ
 ukp
-dHD
-evs
-aqG
-dHD
-evs
+lhg
+gcv
+hOa
+pwD
+frK
 vEO
 hvQ
 bIG
 ukp
-dHD
+lhg
 gcv
-aqG
-dHD
-evs
+hOa
+pwD
+frK
 vEO
 hvQ
 tvw
