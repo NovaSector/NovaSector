@@ -1023,6 +1023,12 @@
   RatFromTheJungle:
   - balance: Maint loot piles should be dropping not only more varied loot, but 'rarer'
       loot more often! (making it atleast slightly worth-while)
+  - qol: made the sm less of the dangerous, by the scram machine do the much less
+      explode in more time
+  - code_imp: the mid-round-event handler was changed heavily, expect to see like
+      'annoying' midrounds, and more player controlled ones!
+  - code_imp: Longarms are now universally restricted in Company Imports, inline with
+      new corporate regulations policy.
   RealWinterFrost:
   - sound: the *beep2 emote for silicons now gets its own unique sound effect instead
       of just playing the same one as *beep
@@ -1104,6 +1110,11 @@
       power to shuttles, nor can they be used to add unlimited shuttle power.
   - bugfix: Constructed shuttle engines now connect to shuttles when build, rather
       than needing to be unachored and then reanchored.
+  Zenitheevee:
+  - rscadd: Added megafauna variety of resetting vents
+  - rscadd: Added lavaland and icemoon variants
+  - rscadd: randomized variable for vents, Replacing the current geosite vents with
+      ones that randomize at start.
   hack-wrench:
   - rscadd: Added syndie fitness nunchuks to spy uplink (medium-high bounty)
   hry-gh:
