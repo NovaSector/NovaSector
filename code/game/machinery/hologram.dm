@@ -741,7 +741,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 	var/datum/language_holder/holder = hologram.get_language_holder()
 	holder.selected_language = record.language
-	hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
+	//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // NOVA EDIT REMOVAL - Making holograms clickable/examinable
 	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 	hologram.set_anchored(TRUE)//So space wind cannot drag it.
