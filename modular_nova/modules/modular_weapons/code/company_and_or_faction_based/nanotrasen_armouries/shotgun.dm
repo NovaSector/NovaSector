@@ -26,9 +26,9 @@
 
 	can_suppress = FALSE
 	burst_size = 2
-	fire_delay = 0.85 SECONDS // NOVA EDIT CHANGE - Original: fire_delay = 1
+	fire_delay = 0.85 SECONDS // Bulldog Stat Original: fire_delay = 1
 
-	fire_sound = 'sound/items/weapons/gun/shotgun/shot_alt.ogg'
+	fire_sound = 'modular_nova/master_files/sound/weapons/shotgun_nova.ogg' // Meatier shotgun sound
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
 	mag_display = TRUE
@@ -62,3 +62,20 @@
 /obj/item/gun/ballistic/shotgun/spikewall/Initialize(mapload)
 	. = ..()
 	update_appearance()
+
+
+/obj/item/gun/ballistic/shotgun/spikewall/civilian
+	name = "\improper Spikewall Shotgun"
+	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
+		nicknamed 'spikewall' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
+		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
+
+	icon_state = "marauder"
+	worn_icon_state = "marauder"
+	inhand_icon_state = "marauder"
+
+	projectile_damage_multiplier = 1
+
+	accepted_magazine_type = /obj/item/ammo_box/magazine/marauder
+	spawn_magazine_type = /obj/item/ammo_box/magazine/marauder
+	can_suppress = FALSE
