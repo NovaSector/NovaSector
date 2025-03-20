@@ -40,8 +40,8 @@
 	if(implanted_in.handcuffed || implanted_in.legcuffed)
 		return TRUE
 
-	if(implanted_in.has_status_effect(/datum/status_effect/tased))
-		return TRUE
+	if(implanted_in.has_status_effect(/datum/status_effect/tased)) //Nova edit begin: addition of ability to remove taser electrode
+		return TRUE						//Nova edit begin: addition of ability to remove taser electrode
 
 	var/obj/item/clothing/shoes/shoes = implanted_in.shoes
 	if(istype(shoes) && shoes.tied == SHOES_KNOTTED)
