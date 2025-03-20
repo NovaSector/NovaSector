@@ -1,0 +1,5 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "added clay pots to ceramics; you are now able to remake those nice potted plants with some sand, a seed, and a clay pot."
+  - code_imp: "cleaned up the look of the code, as well as fixed a switch in the code to be better looking."
