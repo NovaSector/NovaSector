@@ -107,7 +107,7 @@
 		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
 		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
 		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/nt20,
-		"Spikewall Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/spikewall,
+		"Katyusha Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/katyusha,
 	)
 
 	return selectable_gun_types

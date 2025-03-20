@@ -3,6 +3,6 @@
 		"kineticballs",
 		"pepperballs",
 		"mag_c20r",
-		"mag_spikewall",
+		"mag_katyusha",
 	)
 	return ..()

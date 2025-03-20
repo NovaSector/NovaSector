@@ -1,7 +1,7 @@
-/obj/item/gun/ballistic/shotgun/spikewall
-	name = "\improper Spikewall Shotgun"
+/obj/item/gun/ballistic/shotgun/katyusha
+	name = "\improper Катюша Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
-		nicknamed 'spikewall' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
+		nicknamed 'Kopfjäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
 		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
 
 	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armouries/ballistic48x.dmi'
@@ -18,11 +18,11 @@
 
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
-
+	obj_flags = UNIQUE_RENAME
 	projectile_damage_multiplier = 1.2
 	weapon_weight = WEAPON_MEDIUM
-	accepted_magazine_type = /obj/item/ammo_box/magazine/spikewall
-	spawn_magazine_type = /obj/item/ammo_box/magazine/spikewall
+	accepted_magazine_type = /obj/item/ammo_box/magazine/katyusha
+	spawn_magazine_type = /obj/item/ammo_box/magazine/katyusha/buckshot
 
 	can_suppress = FALSE
 	burst_size = 2
@@ -41,33 +41,33 @@
 	tac_reloads = TRUE
 	burst_fire_selection = TRUE
 
-/obj/item/gun/ballistic/shotgun/spikewall/examine_more(mob/user)
+/obj/item/gun/ballistic/shotgun/katyusha/examine_more(mob/user)
 	. = ..()
 
-	. += "The Nanotrasen Armories Spikewall is a recent release from NT's esteemed private arms division, \
+	. += "The Nanotrasen Armories Katyusha Magfed Shotgun is a recent release from NT's esteemed private arms division, \
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
 		issued it in the ongoing rollout. \
-		Though certain rival manufacturers have dismissed the Spikewall as a \"fake\" or a \"blatant bootleg,\"  \
+		Though certain rival manufacturers have dismissed the Katyusha as a \"fake\" or a \"blatant bootleg,\"  \
 		the inimitable burst fire and a patent-pending multi-stage delayed blowback system \
-		make the Spikewall powerful, reliable, accurate, and shockingly comfortable to fire."
+		make the Katyusha powerful, reliable, accurate, and shockingly comfortable to fire."
 
-/obj/item/gun/ballistic/shotgun/spikewall/give_manufacturer_examine()
+/obj/item/gun/ballistic/shotgun/katyusha/give_manufacturer_examine()
     AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
-/obj/item/storage/toolbox/guncase/nova/spikewall
-	name = "\improper Nanotrasen Armories \"spikewall\" gunset"
-	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/spikewall
-	extra_to_spawn = /obj/item/ammo_box/magazine/spikewall/buckshot
+/obj/item/storage/toolbox/guncase/nova/katyusha
+	name = "\improper Nanotrasen Armories \"katyusha\" gunset"
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/katyusha
+	extra_to_spawn = /obj/item/ammo_box/magazine/katyusha/buckshot
 
-/obj/item/gun/ballistic/shotgun/spikewall/Initialize(mapload)
+/obj/item/gun/ballistic/shotgun/katyusha/Initialize(mapload)
 	. = ..()
 	update_appearance()
 
 
-/obj/item/gun/ballistic/shotgun/spikewall/marauder
-	name = "\improper Spikewall Shotgun"
+/obj/item/gun/ballistic/shotgun/katyusha/jager
+	name = "\improper jäger Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
-		nicknamed 'spikewall' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
+		nicknamed 'jäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
 		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
 
 	icon_state = "marauder"
@@ -76,6 +76,6 @@
 
 	projectile_damage_multiplier = 1
 
-	accepted_magazine_type = /obj/item/ammo_box/magazine/marauder
-	spawn_magazine_type = /obj/item/ammo_box/magazine/marauder/rubbershot
+	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
+	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
 	can_suppress = FALSE
