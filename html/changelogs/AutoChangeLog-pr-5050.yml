@@ -1,0 +1,5 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "added a new ashwalker ritual: summon ore seed. Ore seed will summon an ore vent at the cost of life."
+  - code_imp: "made the code blocks prettier, both in spacing and repeated code usage."
