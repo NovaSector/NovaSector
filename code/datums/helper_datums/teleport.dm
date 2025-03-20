@@ -113,12 +113,11 @@
 			// [mob/living].forceMove() forces mobs to unbuckle, so we need to buckle them again
 			teleatom.buckle_mob(rider, force=TRUE)
 
-	//NOVA EDIT START
+	//NOVA EDIT ADDITION START
 	if(iscarbon(teleatom))
 		var/mob/living/carbon/tele_carbon = teleatom
 		tele_carbon.apply_status_effect(/datum/status_effect/tele_sickness)
-	//NOVA EDIT STOP
-
+	//NOVA EDIT ADDITION END
 /proc/tele_play_specials(atom/movable/teleatom, atom/location, datum/effect_system/effect, sound)
 	if(!location)
 		return
