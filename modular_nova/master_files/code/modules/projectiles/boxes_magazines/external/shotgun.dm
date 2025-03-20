@@ -27,6 +27,13 @@
 	casing_phrasing = "shell"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
+/obj/item/ammo_box/magazine/spikewall/buckshot
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armouries/magazines.dmi'
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+	caliber = CALIBER_SHOTGUN
+	casing_phrasing = "shell"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+
 /obj/item/ammo_box/magazine/marauder/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[LAZYLEN(stored_ammo) ? "full" : "empty"]"
@@ -50,6 +57,10 @@
 	max_ammo = 8
 	casing_phrasing = "shell"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+
+/obj/item/ammo_box/magazine/marauder/rubbershot
+
+	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
 
 /obj/item/ammo_box/magazine/marauder/large
 	name = "Large Marauder Magazine"

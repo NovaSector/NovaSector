@@ -56,15 +56,15 @@
 
 /obj/item/storage/toolbox/guncase/nova/spikewall
 	name = "\improper Nanotrasen Armories \"spikewall\" gunset"
-	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nt20
-	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45
+	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/spikewall
+	extra_to_spawn = /obj/item/ammo_box/magazine/spikewall/buckshot
 
 /obj/item/gun/ballistic/shotgun/spikewall/Initialize(mapload)
 	. = ..()
 	update_appearance()
 
 
-/obj/item/gun/ballistic/shotgun/spikewall/civilian
+/obj/item/gun/ballistic/shotgun/spikewall/marauder
 	name = "\improper Spikewall Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'spikewall' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
@@ -77,5 +77,5 @@
 	projectile_damage_multiplier = 1
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/marauder
-	spawn_magazine_type = /obj/item/ammo_box/magazine/marauder
+	spawn_magazine_type = /obj/item/ammo_box/magazine/marauder/rubbershot
 	can_suppress = FALSE
