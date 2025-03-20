@@ -312,6 +312,10 @@
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/cafeteria,
 /area/space)
+"bC" = (
+/obj/effect/spawner/random/entertainment/arcade,
+/turf/open/floor/eighties/red,
+/area/space)
 "bE" = (
 /obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/plating,
@@ -2041,6 +2045,11 @@
 	},
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
+/area/space)
+"jB" = (
+/obj/effect/spawner/random/entertainment/arcade,
+/obj/machinery/light/very_dim/directional/north,
+/turf/open/floor/eighties,
 /area/space)
 "jC" = (
 /obj/effect/turf_decal/weather/snow,
@@ -4218,6 +4227,11 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/plating/rust,
 /area/space)
+"tz" = (
+/obj/effect/spawner/random/entertainment/arcade,
+/obj/machinery/light/very_dim/directional/east,
+/turf/open/floor/eighties/red,
+/area/space)
 "tA" = (
 /obj/machinery/mechpad,
 /obj/effect/turf_decal/bot,
@@ -4759,6 +4773,9 @@
 "vU" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
+/area/space)
+"vY" = (
+/turf/open/floor/eighties/red,
 /area/space)
 "wb" = (
 /obj/machinery/door/airlock/bathroom,
@@ -5566,6 +5583,10 @@
 /obj/item/stack/cable_coil,
 /obj/structure/sign/poster/official/build/directional/east,
 /turf/open/floor/plating,
+/area/space)
+"Am" = (
+/obj/machinery/light/very_dim/directional/south,
+/turf/open/floor/eighties,
 /area/space)
 "Ap" = (
 /obj/machinery/oven/range_frontier,
@@ -6524,6 +6545,10 @@
 "EE" = (
 /obj/effect/rune/convert,
 /turf/open/floor/plating,
+/area/space)
+"EF" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/eighties,
 /area/space)
 "EG" = (
 /obj/effect/spawner/random/trash/food_packaging,
@@ -8927,6 +8952,10 @@
 /obj/structure/flora/tree/mushroom/green,
 /turf/open/misc/asteroid/forest/mushroom/green,
 /area/space)
+"Qt" = (
+/obj/machinery/light/very_dim/directional/west,
+/turf/open/floor/eighties/red,
+/area/space)
 "Qu" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 5
@@ -10615,6 +10644,10 @@
 /obj/effect/spawner/random/structure/crate,
 /obj/item/storage/box/monkeycubes,
 /turf/open/floor/plating,
+/area/space)
+"XX" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/eighties/red,
 /area/space)
 "XZ" = (
 /obj/structure/destructible/cult/pants_altar,
@@ -23305,7 +23338,7 @@ GS
 GS
 GS
 GS
-rJ
+EF
 GS
 GS
 GS
@@ -23916,7 +23949,7 @@ Fq
 VC
 Fq
 VC
-Fq
+Am
 GS
 uG
 uG
@@ -24104,16 +24137,16 @@ uG
 GS
 uG
 GS
-Fq
-Fq
-Fq
-Fq
-Fq
+bC
+vY
+Qt
+vY
+bC
 GS
 uG
 uG
 GS
-VC
+jB
 Fq
 VC
 Fq
@@ -24306,11 +24339,11 @@ uG
 GS
 uG
 GS
-Fq
-Fq
-Fq
-Fq
-Fq
+bC
+vY
+bC
+vY
+bC
 GS
 uG
 uG
@@ -24508,11 +24541,11 @@ GS
 GS
 rJ
 GS
-Fq
-Fq
-Fq
-Fq
-Fq
+bC
+vY
+bC
+vY
+bC
 GS
 uG
 uG
@@ -24710,11 +24743,11 @@ GS
 uG
 uG
 GS
-Fq
-Fq
-Fq
-Fq
-Fq
+bC
+vY
+bC
+vY
+bC
 GS
 uG
 uG
@@ -24911,12 +24944,12 @@ uG
 GS
 uG
 uG
-rJ
-Fq
-Fq
-Fq
-Fq
-Fq
+XX
+vY
+vY
+tz
+vY
+vY
 GS
 uG
 uG
@@ -25118,7 +25151,7 @@ GS
 GS
 GS
 GS
-rJ
+XX
 GS
 GS
 GS
