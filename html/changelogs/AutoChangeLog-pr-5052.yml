@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "The ammo counter HUD element now accounts for open bolt weapons (e.g. the Sindano)."
