@@ -10,7 +10,7 @@
 	var/static/list/requesters = list()
 
 /obj/machinery/door/airlock/attack_hand_secondary(mob/living/user, list/modifiers)
-	if(world.time < requesters[user.name] + 10 SECONDS)
+	if(world.time < requesters[user.ckey] + 10 SECONDS)
 		to_chat(user, span_warning("Hold on, let the AI parse your request."))
 		return
 	. = ..()
