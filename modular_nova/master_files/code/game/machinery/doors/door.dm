@@ -1,7 +1,7 @@
-#define LINK_DENY "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=deny'> (deny)</a>"
-#define LINK_OPEN "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=open'> (open)</a>"
-#define LINK_BOLT "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=bolt'> (bolt)</a>"
-#define LINK_SHOCK "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=shock'> (shock)</a>"
+#define LINK_DENY "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=deny'> (Deny)</a>"
+#define LINK_OPEN "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=open'> (Open)</a>"
+#define LINK_BOLT "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=bolt'> (Bolt)</a>"
+#define LINK_SHOCK "<a href='?_src_=usr;open_door=[REF(src)];user=[REF(user)];action=shock'> (Shock)</a>"
 
 /obj/machinery/door/airlock
 	//so the AI doesn't get spammed
