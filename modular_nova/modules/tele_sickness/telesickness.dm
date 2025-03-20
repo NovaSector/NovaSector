@@ -4,7 +4,7 @@
 	timeout = 3 MINUTES
 
 /datum/component/tele_sickness
-	/// The stage that the teleport sickness is currently on
+	/// The stage that the teleport sickness is currently on: each teleport adds a stage
 	var/stage = 0
 
 	/// The carbon parent the component is attached to
@@ -20,6 +20,10 @@
 /datum/component/tele_sickness/RegisterWithParent()
 	RegisterSignal(carbon_parent, COMSIG_MOVABLE_POST_TELEPORT, PROC_REF(stage_changing))
 
+/datum/component/tele_sickness/UnregisterFromParent()
+	UnregisterSignal(carbon_parent, COMSIG_MOVABLE_POST_TELEPORT)
+
+/// Flashbang proc for the viewers of the recently deceased light particle
 /datum/component/tele_sickness/proc/bang(turf/turf, mob/living/living_mob)
 	if(living_mob.stat == DEAD) //They're dead!
 		return
@@ -28,19 +32,21 @@
 
 //Flash
 	if(living_mob.flash_act(affect_silicon = 1))
-		living_mob.Paralyze(max(20/max(1, distance), 5))
-		living_mob.Knockdown(max(200/max(1, distance), 60))
+		living_mob.Paralyze(max(2 SECONDS/max(1, distance), 5))
+		living_mob.Knockdown(max(20 SECONDS/max(1, distance), 60))
 
 //Bang
 	if(distance <= 1) // Adds more stun as to not prime n' pull (#45381)
-		living_mob.Paralyze(5)
-		living_mob.Knockdown(30)
+		living_mob.Paralyze(0.5 SECONDS)
+		living_mob.Knockdown(3 SECONDS)
 	living_mob.soundbang_act(1, max(200 / max(1, distance), 60), rand(0, 5))
 
+/// adds a stage and does the stage effects: is listening for the post teleport comsig
 /datum/component/tele_sickness/proc/stage_changing()
 	stage += 1
 	stage_effects()
 
+/// these are the stage effects from teleporting too much-- every other stage has new effects
 /datum/component/tele_sickness/proc/stage_effects()
 	switch(stage)
 		if(1 to 2)
@@ -48,17 +54,17 @@
 
 		if(3 to 4)
 			carbon_parent.add_mood_event("tele_sick", /datum/mood_event/disgust/tele_sickness)
-			carbon_parent.adjust_eye_blur(30 SECONDS)
+			carbon_parent.adjust_eye_blur_up_to(30 SECONDS, 2 MINUTES)
 
 		if(5 to 6)
 			carbon_parent.add_mood_event("tele_sick", /datum/mood_event/disgust/tele_sickness)
-			carbon_parent.adjust_eye_blur(30 SECONDS)
-			carbon_parent.adjust_confusion(30 SECONDS)
+			carbon_parent.adjust_eye_blur_up_to(30 SECONDS, 2 MINUTES)
+			carbon_parent.adjust_confusion_up_to(30 SECONDS, 2 MINUTES)
 
 		if(7 to 100)
 			carbon_parent.add_mood_event("tele_sick", /datum/mood_event/disgust/tele_sickness)
-			carbon_parent.adjust_eye_blur(30 SECONDS)
-			carbon_parent.adjust_confusion(30 SECONDS)
+			carbon_parent.adjust_eye_blur_up_to(30 SECONDS, 2 MINUTES)
+			carbon_parent.adjust_confusion_up_to(30 SECONDS, 2 MINUTES)
 			carbon_parent.adjust_disgust(150)
 
 		if(101 to INFINITY)
@@ -77,6 +83,7 @@
 
 	return TRUE
 
+/// this is the "timer" that counts and brings down the stages from teleporting: it will stop if the target teleported too much however
 /datum/component/tele_sickness/proc/stage_counting()
 	if(!stage_effects())
 		return
