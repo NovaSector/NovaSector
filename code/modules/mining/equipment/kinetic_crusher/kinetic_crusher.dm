@@ -53,9 +53,6 @@
 	/// Used by retool kits when changing the crusher's projectile sprite
 	var/projectile_icon = "pulse1"
 
-	/// NOVA EDIT ADDTION START - AHABS_SPEAR
-	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi' // Used by retool kits when changing the crusher's projectile appearance
-	/// NOVA EDIT ADDITION END
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
