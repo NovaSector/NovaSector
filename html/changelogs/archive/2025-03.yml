@@ -1129,3 +1129,11 @@
   - balance: The cargo console now has a delay to express orders (renamed to autodelivery)
   vinylspiders:
   - qol: adds veteran status to OOC notes in player panel + character directory
+2025-03-20:
+  Hatterhat:
+  - rscadd: .35 Sol Short flash ammunition is now in circulation at your local ammo
+      bench.
+  RatFromTheJungle:
+  - balance: Syndicate space troopers (with the shotty) not only fire one-shot, meaning
+      they're alot less likely to instantly nuke you on first-contact (but still hurt,
+      really bad)
