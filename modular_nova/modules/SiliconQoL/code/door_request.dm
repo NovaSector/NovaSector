@@ -1,19 +1,3 @@
-/mob/living/silicon/Topic(href, href_list)
-	. = ..()
-	if(href_list["open_door"])
-		var/obj/machinery/door/airlock/door = locate(href_list["open_door"]) in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/airlock)
-		var/mob/living/requester = locate(href_list["user"]) in GLOB.mob_list
-
-		if(!requester)
-			return
-		if(!door)
-			return
-		fulfill_door_request(requester, door, href_list["action"])
-	if(href_list["track"])
-		var/mob/living/silicon/ai/AI = src
-		if(AI.deployed_shell)
-			AI.deployed_shell.undeploy()
-		AI.ai_tracking_tool.track_name(src, href_list["track"])
 
 /// Allows the AI to interact somewhat with a door if the requester can be tracked by cameras and the AI can normally access it.
 /mob/living/silicon/proc/fulfill_door_request(mob/living/requester, obj/machinery/door/airlock/door, action)
