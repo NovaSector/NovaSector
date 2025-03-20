@@ -64,7 +64,7 @@
 	)
 	//technically it's huge and bulky, but this provides an incentive to use it
 	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
-	// NOVA EDIT ADDITION START - AHABS_SPEAR
+	// NOVA EDIT ADDITION START
 	if (flags_1 & HAS_CONTEXTUAL_SCREENTIPS_1)
 		return
 	// NOVA EDIT ADDITION END
