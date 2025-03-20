@@ -53,9 +53,9 @@
 	/// Used by retool kits when changing the crusher's projectile sprite
 	var/projectile_icon = "pulse1"
 
-	/// nova edit: used by retool kits when changing the crusher's projectile sprite
-	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
-
+	/// NOVA EDIT ADDTION START - AHABS_SPEAR
+	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi' // Used by retool kits when changing the crusher's projectile appearance
+	/// NOVA EDIT ADDITION END
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
@@ -64,7 +64,7 @@
 	)
 	//technically it's huge and bulky, but this provides an incentive to use it
 	AddComponent(/datum/component/two_handed, force_unwielded=0, force_wielded=20)
-	// NOVA EDIT ADDITION START
+	// NOVA EDIT ADDITION START - AHABS_SPEAR
 	if (flags_1 & HAS_CONTEXTUAL_SCREENTIPS_1)
 		return
 	// NOVA EDIT ADDITION END
