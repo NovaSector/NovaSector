@@ -36,8 +36,8 @@
 
 //Flash
 	if(living_mob.flash_act(affect_silicon = 1))
-		living_mob.Paralyze(max(2 SECONDS/max(1, distance), 5))
-		living_mob.Knockdown(max(20 SECONDS/max(1, distance), 60))
+		living_mob.Paralyze(max(2 SECONDS/max(1, distance), 0.5 SECONDS))
+		living_mob.Knockdown(max(20 SECONDS/max(1, distance), 6 SECONDS))
 
 //Bang
 	if(distance <= 1) // Adds more stun as to not prime n' pull (#45381)
