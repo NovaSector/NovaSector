@@ -99,7 +99,7 @@
 
 /datum/loadout_item/gloves/tactical_maid_sleeves
 	name = "tactical maid sleeves"
-	item_path = /obj/item/clothing/gloves/maid_arm_covers/tactical_maid
+	item_path = /obj/item/clothing/gloves/tactical_maid
 
 /datum/loadout_item/gloves/armwraps
 	name = "Colourable Arm Wraps"

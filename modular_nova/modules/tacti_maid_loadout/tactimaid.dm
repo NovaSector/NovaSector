@@ -7,10 +7,14 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/head/costume.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 
-/obj/item/clothing/gloves/maid_arm_covers/tactical_maid
+/obj/item/clothing/gloves/tactical_maid
 	name = "Tactical maid sleeves"
 	desc = "These 'tactical' gloves and heavy and warm."
+	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "syndimaid_arms"
+
+
 
 /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
 	name = "tactical maid outfit"
