@@ -167,9 +167,7 @@
 
 	new chosen_sheet(get_turf(src))
 
-/obj/machinery/bluespace_miner/proc/ore_quantity_function(ore_floor)
-	return SHEET_MATERIAL_AMOUNT * round(BOULDER_SIZE_SMALL * (log(rand(1 + ore_floor, 4 + ore_floor)) ** -1))
-
+///sets the focus of the bsminer if no focus, or removes focus if a focus. focus will multiply by 3, unfocus will divide by 3
 /obj/machinery/bluespace_miner/proc/set_focus(mob/user)
 	if(focused_item)
 		ore_chance[focused_item] /= 3
@@ -235,8 +233,6 @@
 	obj_flags |= EMAGGED
 	balloon_alert_to_viewers("fizzles!")
 	return TRUE
-
-/obj/machinery/bluespace_miner/
 
 /obj/item/circuitboard/machine/bluespace_miner
 	name = "Bluespace Miner"
