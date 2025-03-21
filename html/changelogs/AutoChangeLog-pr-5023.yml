@@ -1,4 +1,0 @@
-author: "Bannhammger"
-delete-after: True
-changes:
-  - code_imp: "removed forced WALK on gunpoint. now you run"
