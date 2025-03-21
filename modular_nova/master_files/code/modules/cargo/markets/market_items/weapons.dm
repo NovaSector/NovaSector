@@ -28,6 +28,7 @@
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 6
 	availability_prob = 40
+	stock_max = 2
 
 /datum/market_item/weapon/milspec_slugs
 	name = "Mil-Spec Slug Box"
@@ -36,3 +37,4 @@
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 6
 	availability_prob = 40
+	stock_max = 2
