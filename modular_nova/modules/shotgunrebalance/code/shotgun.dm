@@ -99,6 +99,7 @@
 	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mgshell"
 	variance = 15
+	advanced_print_req = TRUE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6 // 6 * 12 = 72
@@ -113,6 +114,7 @@
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mblshell"
+	advanced_print_req = TRUE
 
 /obj/projectile/bullet/shotgun_slug/milspec
 	damage = 65 // the fine art of physically removing chunks of flesh from your fellow spaceman
