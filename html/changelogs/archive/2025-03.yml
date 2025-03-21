@@ -1023,6 +1023,12 @@
   RatFromTheJungle:
   - balance: Maint loot piles should be dropping not only more varied loot, but 'rarer'
       loot more often! (making it atleast slightly worth-while)
+  - qol: made the sm less of the dangerous, by the scram machine do the much less
+      explode in more time
+  - code_imp: the mid-round-event handler was changed heavily, expect to see like
+      'annoying' midrounds, and more player controlled ones!
+  - code_imp: Longarms are now universally restricted in Company Imports, inline with
+      new corporate regulations policy.
   RealWinterFrost:
   - sound: the *beep2 emote for silicons now gets its own unique sound effect instead
       of just playing the same one as *beep
@@ -1104,6 +1110,11 @@
       power to shuttles, nor can they be used to add unlimited shuttle power.
   - bugfix: Constructed shuttle engines now connect to shuttles when build, rather
       than needing to be unachored and then reanchored.
+  Zenitheevee:
+  - rscadd: Added megafauna variety of resetting vents
+  - rscadd: Added lavaland and icemoon variants
+  - rscadd: randomized variable for vents, Replacing the current geosite vents with
+      ones that randomize at start.
   hack-wrench:
   - rscadd: Added syndie fitness nunchuks to spy uplink (medium-high bounty)
   hry-gh:
@@ -1118,3 +1129,34 @@
   - balance: The cargo console now has a delay to express orders (renamed to autodelivery)
   vinylspiders:
   - qol: adds veteran status to OOC notes in player panel + character directory
+2025-03-20:
+  Hatterhat:
+  - rscadd: .35 Sol Short flash ammunition is now in circulation at your local ammo
+      bench.
+  - bugfix: The ammo counter HUD element now accounts for open bolt weapons (e.g.
+      the Sindano).
+  RatFromTheJungle:
+  - balance: Syndicate space troopers (with the shotty) not only fire one-shot, meaning
+      they're alot less likely to instantly nuke you on first-contact (but still hurt,
+      really bad)
+  jjpark-kb:
+  - rscadd: added clay pots to ceramics; you are now able to remake those nice potted
+      plants with some sand, a seed, and a clay pot.
+  - code_imp: cleaned up the look of the code, as well as fixed a switch in the code
+      to be better looking.
+  - qol: cargo teleporter marker selection happens less often
+  - rscadd: 'added a new ashwalker ritual: summon ore seed. Ore seed will summon an
+      ore vent at the cost of life.'
+  - code_imp: made the code blocks prettier, both in spacing and repeated code usage.
+2025-03-21:
+  Bannhammger:
+  - code_imp: removed forced WALK on gunpoint. now you run
+  FlufflesTheDog:
+  - bugfix: Records and crew manifest for round-start players once again exists
+  RealWinterFrost:
+  - balance: Solfed marshals have now recieved their pistol certifications
+  - image: modified security alert screens for better immersion and detail
+  - admin: added Epsilon Alert
+  - admin: added Federal Alert
+  vinylspiders:
+  - bugfix: the bump teleporter effect functions again
