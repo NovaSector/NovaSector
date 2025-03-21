@@ -41,9 +41,6 @@
 /obj/item/ammo_casing/shotgun/techshell
 	can_be_printed = FALSE // techshell... casing! so not really usable on its own but if you're gonna make these go raid a seclathe.
 
-/obj/item/ammo_casing/shotgun/improvised
-	can_be_printed = FALSE // this is literally made out of scrap why would you use this if you have a perfectly good ammolathe
-
 /obj/item/ammo_casing/shotgun/dart/bioterror
 	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
 
@@ -72,9 +69,6 @@
 /obj/item/ammo_casing/shotgun/pulseslug
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
-/obj/item/ammo_casing/shotgun/laserslug
-	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
-
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
@@ -94,15 +88,35 @@
 	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
 	variance = 20
 
+/obj/item/ammo_casing/shotgun/buckshot/old
+	name = "old buckshot shell"
+	desc = "A 12 gauge buckshot shell. Improper storage makes using this a questionable prospect, at best."
+
 /obj/projectile/bullet/pellet/shotgun_buckshot
-	name = "buckshot pellet"
 	damage = 5
 
 /obj/item/ammo_casing/shotgun/buckshot/milspec
-	pellets = 10
+	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
+	icon_state = "mgshell"
+	variance = 15
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
-	damage = 6
+	damage = 6 // 6 * 12 = 72
+	damage_falloff_tile = -0.1
+	wound_falloff_tile = -0.25
+	speed = 1.5
+	armour_penetration = 5
+
+/obj/projectile/bullet/shotgun_slug
+	damage = 50 // based on old stats
+
+/obj/item/ammo_casing/shotgun/milspec
+	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
+	icon_state = "mblshell"
+
+/obj/projectile/bullet/shotgun_slug/milspec
+	damage = 65 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	speed = 1.5
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
@@ -128,7 +142,7 @@
 	advanced_print_req = TRUE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
-	name = "magnum buckshot pellet"
+	name = "magnum blockshot pellet"
 	damage = 10
 	wound_bonus = 10
 	armour_penetration = 5
@@ -147,7 +161,7 @@
 	variance = 12 // Slightly less spread then buckshot
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express
-	name = "express buckshot pellet"
+	name = "express pelletshot pellet"
 	damage = 4
 	wound_bonus = 0
 
@@ -253,9 +267,6 @@
 /obj/projectile/bullet/shotgun_slug/hunter/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = 5)
-
-/obj/projectile/bullet/pellet/shotgun_improvised
-	weak_against_armour = TRUE // We will not have Improvised are Better 2.0
 
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"
