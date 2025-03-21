@@ -261,6 +261,11 @@
 
 /obj/item/melee/ashen_blade/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/crusher_trophy))
+		if(prob(50)) //50-50 chance of it consuming properly
+			to_chat(user, span_warning("Your [src] consumes [tool] without benefit!"))
+			qdel(tool)
+			return ITEM_INTERACT_BLOCKING
+
 		to_chat(user, span_warning("Your [src] consumes [tool]!"))
 		playsound(get_turf(src), 'sound/effects/magic/demon_attack1.ogg', 50, TRUE)
 		qdel(tool)
@@ -279,4 +284,6 @@
 		else if(consumed_trophies == 6) //just so you aren't spammed...
 			to_chat(user, span_warning("[src] can no longer grow stronger!"))
 
-	return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_BLOCKING
+
+	return ..()
