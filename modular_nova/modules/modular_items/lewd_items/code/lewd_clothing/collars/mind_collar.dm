@@ -17,9 +17,8 @@
 	src.collar = collar_init
 
 /obj/item/mind_controller/Destroy(force)
-	collar?.remote = null
-	collar = null
-	return
+	QDEL_NULL(collar)
+	return ..()
 
 /obj/item/mind_controller/attack_self(mob/user)
 	if(!collar)
