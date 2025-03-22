@@ -54,4 +54,4 @@
 /obj/item/clothing/neck/mind_collar/Destroy()
 	remote?.collar = null
 	remote = null
-	. = ..()
+	return ..()
