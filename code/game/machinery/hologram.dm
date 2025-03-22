@@ -108,6 +108,7 @@ Possible to do for anyone motivated enough:
 		)
 	)
 	AddElement(/datum/element/contextual_screentip_mob_typechecks, hovering_mob_typechecks)
+	set_wires(new /datum/wires/holopad(src))
 
 	if(on_network)
 		holopads += src
@@ -550,15 +551,14 @@ Possible to do for anyone motivated enough:
 
 		if(AI)
 			AI.eyeobj.setLoc(get_turf(src)) //ensure the AI camera moves to the holopad
-			hologram.Impersonation = AI //NOVA EDIT -- ADDITION -- Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
+			hologram.Impersonation = AI //NOVA EDIT ADDITION - Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
 		else //make it like real life
 			hologram.Impersonation = user
-		//Hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. //NOVA EDIT -- Customization; Making holograms clickable/examinable
+		//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // NOVA EDIT REMOVAL - Making holograms clickable/examinable
 		hologram.layer = FLY_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 		SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 		hologram.set_anchored(TRUE)//So space wind cannot drag it.
-		//hologram.name = "[user.name] (Hologram)"//If someone decides to right click. // ORIGINAL
-		hologram.name = user.name //NOVA EDIT -- Make the name exact, so that the double-emotes are less jarring in the chat
+		hologram.name = user.name //NOVA EDIT CHANGE - Make the name exact, so that the double-emotes are less jarring in the chat - ORIGINAL: hologram.name = "[user.name] (Hologram)"//If someone decides to right click.
 		set_holo(user, hologram)
 
 		set_holo(user, hologram)
@@ -623,10 +623,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return TRUE
 
 /obj/machinery/holopad/proc/clear_holo(datum/owner)
-	qdel(masters[owner]) // Get rid of owner's hologram
+	if(!disk || !disk.record)
+		return FALSE
+
+	qdel(masters[owner])
 	unset_holo(owner)
 	return TRUE
-
 /**
  * Called by holocall to inform outgoing_call that the receiver picked up.
  */
@@ -742,7 +744,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 	var/datum/language_holder/holder = hologram.get_language_holder()
 	holder.selected_language = record.language
-	hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
+	//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // NOVA EDIT REMOVAL - Making holograms clickable/examinable
 	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 	hologram.set_anchored(TRUE)//So space wind cannot drag it.
@@ -753,6 +755,14 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return hologram
 
 /obj/machinery/holopad/proc/replay_start()
+	if(!disk)
+		say("Please insert the disc to play the recording.")
+		return
+
+	if(!disk.record)
+		say("There is no record on the disc. Please check the disk.")
+		return
+
 	if(!replay_mode)
 		replay_mode = TRUE
 		replay_holo = setup_replay_holo(disk.record)
@@ -760,6 +770,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		replay_entry(1)
 
 /obj/machinery/holopad/proc/replay_stop()
+	if(!disk || !disk.record)
+		return FALSE
 	if(replay_mode)
 		replay_mode = FALSE
 		offset = FALSE

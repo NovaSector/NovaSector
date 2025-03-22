@@ -94,6 +94,11 @@
 		wings.burnt = FALSE
 		burnt = FALSE
 
+/obj/item/organ/wings/moth/feel_for_damage(self_aware)
+	if(burnt)
+		return "Your wings are all burnt up!"
+	return ..()
+
 ///Moth wing bodypart overlay, including burn functionality!
 /datum/bodypart_overlay/mutant/wings/moth
 	feature_key = "wings" // NOVA EDIT - Customization - ORIGINAL: feature_key = "moth_wings"
@@ -112,10 +117,13 @@
 /datum/bodypart_overlay/mutant/wings/moth/get_global_feature_list()
 	return SSaccessories.sprite_accessories["wings"] // NOVA EDIT - Customization - ORIGINAL: return SSaccessories.moth_wings_list
 
-/datum/bodypart_overlay/mutant/wings/moth/can_draw_on_bodypart(mob/living/carbon/human/human)
-	if(!(human.wear_suit?.flags_inv & HIDEMUTWINGS))
-		return ..(human, ignore_suit = TRUE) // NOVA EDIT - Customization - ORIGINAL: return TRUE
-	return FALSE
+/datum/bodypart_overlay/mutant/wings/moth/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	var/mob/living/carbon/human/human = bodypart_owner.owner
+	if(!istype(human))
+		return TRUE
+	if(human.wear_suit?.flags_inv & HIDEMUTWINGS)
+		return FALSE
+	return ..(bodypart_owner, ignore_suit = TRUE) // NOVA EDIT - Customization - ORIGINAL: return TRUE
 
 /datum/bodypart_overlay/mutant/wings/moth/get_base_icon_state()
 	return burnt ? burn_datum.icon_state : sprite_datum.icon_state

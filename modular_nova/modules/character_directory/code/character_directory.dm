@@ -205,6 +205,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/vore
 	var/noncon
 	var/hypno
+	var/veteran_status
 	var/character_ad
 	var/headshot
 	var/ref
@@ -255,6 +256,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
+		veteran_status = GLOB.veteran_list[mob.ckey]
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
 
@@ -269,6 +271,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"vore" = vore,
 			"noncon" = noncon,
 			"hypno" = hypno,
+			"veteran_status" = veteran_status,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
 			"headshot" = headshot,
