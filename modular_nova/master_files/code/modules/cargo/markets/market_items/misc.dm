@@ -42,3 +42,32 @@
 	price_max = CARGO_CRATE_VALUE
 	stock_max = 4
 	availability_prob = 80
+
+/datum/market_item/misc/Foam_smg
+	name = "Foam force SMG"
+	desc = "Foam force SMG that somehow was smuggled into blackmarket. don't ask why, magazines sold separetely"
+	item = /obj/item/gun/ballistic/automatic/toy
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE
+	stock_max = 2
+	availability_prob = 80
+
+/datum/market_item/misc/Foam_smg_riotmag
+	name = "Foam force SMG magazine"
+	desc = "Foam force SMG magazines filled with riot darts"
+	item = /obj/item/ammo_box/magazine/toy/smg/riot
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE
+	stock_max = 2
+	availability_prob = 80
+
+/datum/market_item/misc/engineer_chip
+	name = "Engineer skillchip"
+	desc = "Skillchip that was crudely taken out of engineer, still stained in blood"
+	item = /obj/item/skillchip/job/engineer
+	price_min = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 3
+	stock_max = 1
+	availability_prob = 80
+
+

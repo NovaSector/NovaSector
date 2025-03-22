@@ -16,6 +16,45 @@
 	stock_max = 1
 	availability_prob = 55
 
+/datum/market_item/weapon/edagger
+	name = "Incospicous pen"
+	desc = "A pen that seems to be having some additional functions installed."
+	item = /obj/item/pen/edagger
+	price_min = CARGO_CRATE_VALUE * 3
+	price_max = CARGO_CRATE_VALUE * 7
+	stock_max = 1
+	availability_prob = 25
+
+/datum/market_item/weapon/telescopic_bronze
+	name = "Bronze telescopic batton"
+	desc = "Telescopic batton that seems to be stolen from some unfortunate quartermaster"
+	item = /obj/item/melee/baton/telescopic/bronze
+	price_min = CARGO_CRATE_VALUE * 8
+	price_max = CARGO_CRATE_VALUE * 13
+	stock_max = 1
+	availability_prob = 45
+
+/datum/market_item/weapon/Assasin_kit
+	name = "Assasin starter kit"
+	desc = "Gun kit that somehow ended up on market. seller claims no responsibility for contents of the kit or it's functionality."
+	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov
+	price_min = CARGO_CRATE_VALUE * 15
+	price_max = CARGO_CRATE_VALUE * 25
+	stock_max = 1
+	availability_prob = 5
+
+/datum/market_item/weapon/telescopic_bronze
+	name = "9mm HP mag"
+	desc = "Magazine of 9mm hollowpoint. acquired somewhere illegaly"
+	item = /obj/item/ammo_box/magazine/m9mm/hp
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE * 0.7
+	stock_max = 3
+	availability_prob = 15
+
+
+
+
 // Makes this even more expensive
 /datum/market_item/weapon/dimensional_bomb
 	price_min = CARGO_CRATE_VALUE * 180
