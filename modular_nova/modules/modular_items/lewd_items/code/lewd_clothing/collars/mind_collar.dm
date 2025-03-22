@@ -55,6 +55,5 @@
 		user.emote("me", 1, "[emoting]", TRUE)
 
 /obj/item/clothing/neck/mind_collar/Destroy()
-	remote?.collar = null
-	remote = null
+	QDEL_NULL(remote)
 	return ..()
