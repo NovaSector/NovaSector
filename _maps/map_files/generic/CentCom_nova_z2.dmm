@@ -10846,7 +10846,7 @@
 /area/centcom/holding/cafe)
 "lSJ" = (
 /obj/machinery/door/poddoor/ert,
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/centcom/interlink)
 "lTP" = (
 /obj/effect/light_emitter/interlink,
