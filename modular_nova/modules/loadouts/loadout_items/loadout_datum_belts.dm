@@ -67,8 +67,8 @@
 	item_path = /obj/item/storage/belt/fannypack/white
 
 /datum/loadout_item/belts/erpbelt
-	name = "Black Leather Belt"
-	item_path = /obj/item/storage/belt/erpbelt
+	name = "Thigh Satchel"
+	item_path = /obj/item/storage/belt/thigh_satchel
 	erp_item = TRUE
 
 /datum/loadout_item/belts/lantern

@@ -1,0 +1,10 @@
+{
+	"balletheels": [
+		{
+			"type": "icon_state",
+			"icon_state": "ballet_heels",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

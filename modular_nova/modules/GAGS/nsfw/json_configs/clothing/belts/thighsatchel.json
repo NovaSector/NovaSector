@@ -1,0 +1,22 @@
+{
+	"thighsatchel": [
+		{
+			"type": "icon_state",
+			"icon_state": "thighsatchel_straps",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "thighsatchel_bag",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "thighsatchel_hardware",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

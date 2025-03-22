@@ -9,25 +9,27 @@
 
 /obj/item/clothing/mask/gas/bdsm_mask
 	name = "latex gasmask"
-	desc = "A toned gas mask that completely muffles the wearer. Wearing this makes breathing a lot difficult."
-	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
-	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+	desc = "A strict-tensity gas mask that hugs to the face and completely muffles the wearer."
+	greyscale_colors = "#383840#dc7ef4"
+	greyscale_config = /datum/greyscale_config/dorms_mask
+	greyscale_config_worn = /datum/greyscale_config/dorms_mask/worn
+	greyscale_config_worn_muzzled = /datum/greyscale_config/dorms_mask/worn/muzzled
+	flags_1 = IS_PLAYER_COLORABLE_1
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
-	icon_state = "mask_pink_off"
-	base_icon_state = "mask"
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
+	worn_icon_muzzled = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks_muzzled.dmi'
+	icon_state = "mask"
 	slot_flags = ITEM_SLOT_MASK
 	starting_filter_type = null
 	w_class = WEIGHT_CLASS_SMALL
 	flags_cover = MASKCOVERSMOUTH
+	flags_inv = HIDEFACIALHAIR|HIDESNOUT
 	var/mask_on = FALSE
-	var/current_mask_color = "pink"
 	var/breath_status = TRUE
 	var/time_to_choke = 12	// How long can breath hold
 	var/time_to_choke_left	// Time left before start choking
 	var/time = 2			// Interval for emotes
 	var/tt					// Interval timer
-	var/color_changed = FALSE
-	var/static/list/mask_designs
 	actions_types = list(
 		/datum/action/item_action/toggle_breathcontrol,
 		/datum/action/item_action/mask_inhale,
@@ -47,11 +49,8 @@
 
 	new /obj/item/reagent_containers/cup/lewd_filter(src)
 	AddElement(/datum/element/update_icon_updates_onmob)
-	update_icon_state()
 	update_icon()
 	update_mob_action_buttonss()
-	if(!length(mask_designs))
-		populate_mask_designs()
 
 /// Can the user reach the filter, false if equipped and active
 /obj/item/clothing/mask/gas/bdsm_mask/proc/is_locked(mob/living/carbon/user)
@@ -63,10 +62,10 @@
 
 	for(button in src.actions)
 		if(istype(button, /datum/action/item_action/toggle_breathcontrol))
-			button.button_icon_state = "[current_mask_color]_switch_[mask_on? "on" : "off"]"
+			button.button_icon_state = "pink_switch_[mask_on? "on" : "off"]"
 			button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 		if(istype(button, /datum/action/item_action/mask_inhale))
-			button.button_icon_state = "[current_mask_color]_breath"
+			button.button_icon_state = "pink_breath"
 			button.button_icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_icons.dmi'
 	update_icon()
 
@@ -92,40 +91,6 @@
 						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f2.ogg',
 						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f3.ogg',
 						'modular_nova/modules/modular_items/lewd_items/sounds/under_moan_f4.ogg'), 70, 1, -1)
-
-// Create radial menu
-/obj/item/clothing/mask/gas/bdsm_mask/proc/populate_mask_designs()
-	mask_designs = list(
-		"pink" = image (icon = src.icon, icon_state = "mask_pink_off"),
-		"cyan" = image(icon = src.icon, icon_state = "mask_cyan_off"))
-
-// Using multitool on pole
-/obj/item/clothing/mask/gas/bdsm_mask/click_alt(mob/user)
-	if(color_changed == FALSE)
-		var/choice = show_radial_menu(user, src, mask_designs, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE)
-		if(!choice)
-			return CLICK_ACTION_BLOCKING
-		atom_storage.click_alt_open = TRUE
-		current_mask_color = choice
-		update_icon_state()
-		update_icon()
-		update_mob_action_buttonss()
-		color_changed = TRUE
-	return CLICK_ACTION_SUCCESS
-
-// To check if we can change mask's model
-/obj/item/clothing/mask/gas/bdsm_mask/proc/check_menu(mob/living/user)
-	if(!istype(user))
-		return FALSE
-	if(user.incapacitated)
-		return FALSE
-	return TRUE
-
-// To update icon state properly
-/obj/item/clothing/mask/gas/bdsm_mask/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]_[current_mask_color]_[mask_on? "on" : "off"]"
-	inhand_icon_state = "[base_icon_state]_[current_mask_color]_[mask_on? "on" : "off"]"
 
 /obj/item/clothing/mask/gas/bdsm_mask/proc/try_unequip(mob/user)
 	if(!do_after(user, 60 SECONDS, target = user))
@@ -262,7 +227,6 @@
 	mask_on = !mask_on
 	to_chat(user, span_notice("You turn the air filter [mask_on ? "on. Use with caution!" : "off. Now it's safe to wear."]"))
 	playsound_if_pref(user, mask_on ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)
-	update_icon_state()
 	update_mob_action_buttonss()
 	update_icon()
 	if(mask_on)

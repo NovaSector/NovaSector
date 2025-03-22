@@ -1,0 +1,36 @@
+{
+	"kinkphones_off": [
+		{
+			"type": "icon_state",
+			"icon_state": "kinkphones_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "kinkphones_accent",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"kinkphones_on": [
+		{
+			"type": "icon_state",
+			"icon_state": "kinkphones_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "kinkphones_accent",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "kinkphones_notes",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

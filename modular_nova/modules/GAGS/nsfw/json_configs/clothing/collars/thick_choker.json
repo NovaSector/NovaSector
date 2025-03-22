@@ -1,0 +1,10 @@
+{
+	"thick_choker": [
+		{
+			"type": "icon_state",
+			"icon_state": "thick_strip",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

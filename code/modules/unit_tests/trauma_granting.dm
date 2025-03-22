@@ -17,9 +17,6 @@
 	trauma_blacklist += typesof(/datum/brain_trauma/special/imaginary_friend)
 	// Requires a obsession target
 	trauma_blacklist += typesof(/datum/brain_trauma/special/obsessed)
-	//NOVA EDIT START
-	trauma_blacklist += typesof(/datum/brain_trauma/very_special/induced_hypnosis) // Requires an object to properly work
-	//NOVA EDIT END
 
 	for(var/datum/brain_trauma/trauma as anything in typesof(/datum/brain_trauma) - trauma_blacklist)
 		if(trauma == initial(trauma.abstract_type))

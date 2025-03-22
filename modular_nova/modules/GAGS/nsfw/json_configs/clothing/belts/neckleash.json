@@ -1,0 +1,22 @@
+{
+	"neckleash": [
+		{
+			"type": "icon_state",
+			"icon_state": "neckleash_body",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "neckleash_accent",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "neckleash_clip",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

@@ -241,7 +241,7 @@
 /obj/item/storage/box/collar_bomb/PopulateContents()
 	var/obj/item/collar_bomb_button/button = new(src)
 	new /obj/item/clothing/neck/collar_bomb(src, button)
-	
+
 /obj/item/storage/box/lewd_toys
 	name = "lewd toys box"
 	desc = "Contains lewd impliments for spending time alone, or together with someone! Try to hide it better next time."
@@ -253,4 +253,4 @@
 	new /obj/item/spanking_pad(src)
 	new /obj/item/clothing/mask/ballgag(src)
 	new /obj/item/clothing/suit/straight_jacket/shackles(src)
-	new /obj/item/clothing/glasses/blindfold/kinky(src)
+	new /obj/item/clothing/glasses/blindfold/dorms(src)

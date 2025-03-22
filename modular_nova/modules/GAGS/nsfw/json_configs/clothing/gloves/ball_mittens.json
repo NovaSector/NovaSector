@@ -1,0 +1,10 @@
+{
+	"ball_mittens": [
+		{
+			"type": "icon_state",
+			"icon_state": "ballmittens",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

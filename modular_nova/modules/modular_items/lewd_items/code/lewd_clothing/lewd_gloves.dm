@@ -1,46 +1,54 @@
-//normal ball mittens
 /obj/item/clothing/gloves/ball_mittens
 	name = "ball mittens"
-	desc = "A nice, comfortable pair of inflatable ball gloves."
-	icon_state = "ballmittens"
-	inhand_icon_state = null
+	desc = "A pair of spherical mitts; made to suppress the wearer's hands and prevent fine motor control."
+	icon_state = "ball_mittens"
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
+	greyscale_colors = "#383840"
+	greyscale_config = /datum/greyscale_config/ball_mittens
+	greyscale_config_worn = /datum/greyscale_config/ball_mittens/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 	breakouttime = 1 SECONDS
 	resist_cooldown = CLICK_CD_SLOW
 
-//That part allows reinforcing this item with handcuffs
+/// Reinforce the breakout time on this, if that's your thing
 /obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(.)
 		return
-	if(!istype(attacking_item, /obj/item/restraints/handcuffs))
+	if(!istype(attacking_item, /obj/item/restraints/handcuffs) || !initial(breakouttime))
 		return
-	var/obj/item/clothing/gloves/ball_mittens_reinforced/reinforced_muffs = new
-	remove_item_from_storage(user)
-	user.put_in_hands(reinforced_muffs)
-	to_chat(user, span_notice("You reinforced the belts on [src] with [attacking_item]."))
+	to_chat(user, span_notice("You reinforce the belts on [src] with [attacking_item]."))
+	name = "reinforced [initial(name)]"
+	clothing_flags = DANGEROUS_OBJECT
+	breakouttime = 100 SECONDS
 	qdel(attacking_item)
-	qdel(src)
 	return TRUE
 
-//ball_mittens reinforced
-/obj/item/clothing/gloves/ball_mittens_reinforced //We getting this item by using handcuffs on normal ball mittens
-	name = "reinforced ball mittens"
-	desc = "Do not put these on, it's REALLY hard to take them off! But they look so comfortable..."
-	icon_state = "ballmittens"
-	inhand_icon_state = null
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
-	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
-	clothing_flags = DANGEROUS_OBJECT
-	breakouttime = 100 SECONDS //do not touch this, i beg you.
+/obj/item/clothing/gloves/ball_mittens/examine(mob/user)
+	. = ..()
+	if(breakouttime == initial(breakouttime))
+		. += span_notice("You could probably reinforce it with a pair of [span_bold("handcuffs")]...")
 
-//latex gloves
-/obj/item/clothing/gloves/latex_gloves
-	name = "latex gloves"
-	desc = "Awesome looking gloves that are satisfying to the touch."
-	icon_state = "latexgloves"
-	inhand_icon_state = "latex_gloves"
+/// Paw mittens; which vary only in looks from ball mittens
+/obj/item/clothing/gloves/ball_mittens/paw_mittens
+	name = "paw mittens"
+	desc = "Mittens that compress the hand into a tight space, and restrict fine motor control."
+	icon_state = "paw_mittens"
+	greyscale_colors = "#383840#dc7ef4"
+	greyscale_config = /datum/greyscale_config/paw_mittens
+	greyscale_config_worn = /datum/greyscale_config/paw_mittens/worn
+
+
+/// Long (Formerly Latex) Gloves
+/obj/item/clothing/gloves/long_gloves
+	name = "long gloves"
+	desc = "Sleek gloves that go up towards the shoulder."
+	icon_state = "long_gloves"
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
+	greyscale_colors = "#383840"
+	greyscale_config = /datum/greyscale_config/long_gloves
+	greyscale_config_worn = /datum/greyscale_config/long_gloves/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
