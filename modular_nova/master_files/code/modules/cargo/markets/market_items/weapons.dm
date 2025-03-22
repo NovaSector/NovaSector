@@ -52,6 +52,23 @@
 	stock_max = 3
 	availability_prob = 15
 
+/datum/market_item/weapon/sord
+	name = "SORD"
+	desc = "This thing is so unspeakably shitty you are not sure why everyone wants to sell it."
+	item = /obj/item/sord
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE * 0.7
+	stock_max = 1
+	availability_prob = 100
+
+/datum/market_item/weapon/carrot
+	name = "carrot shiv"
+	desc = "Unlike other carrots, you should probably keep this far away from your eyes."
+	item = /obj/item/knife/shiv/carrot
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE * 0.7
+	stock_max = 5
+	availability_prob = 75
 
 
 
