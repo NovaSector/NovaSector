@@ -5976,6 +5976,12 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"dJF" = (
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Breaks-The-PRs"
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "dLq" = (
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron/dark,
@@ -13198,6 +13204,10 @@
 "pCd" = (
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/centcom/holding/cafepark)
+"pCh" = (
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/centcom/interlink)
 "pDd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Offices"
@@ -39867,9 +39877,9 @@ xpl
 qWQ
 mjo
 tvw
-aaa
-aaa
-aaa
+pCh
+aqG
+pCh
 tvw
 vLx
 vLx
@@ -40124,9 +40134,9 @@ tvw
 tvw
 tvw
 tvw
-aaa
-aaa
-aaa
+aqG
+dJF
+aqG
 tvw
 vLx
 tpU
@@ -40381,9 +40391,9 @@ pMg
 rmA
 fGC
 tvw
-aaa
-aaa
-aaa
+pCh
+aqG
+pCh
 tvw
 vLx
 tpU
