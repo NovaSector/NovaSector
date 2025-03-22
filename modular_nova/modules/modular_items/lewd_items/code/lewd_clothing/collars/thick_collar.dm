@@ -4,6 +4,7 @@
 	greyscale_config = /datum/greyscale_config/thick_collar
 	greyscale_config_worn = /datum/greyscale_config/thick_collar/worn
 
+
 /obj/item/clothing/neck/collar/thick/bell
 	name = "thick bell collar"
 	desc = /obj/item/clothing/neck/collar/bell::desc
