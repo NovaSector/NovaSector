@@ -110,6 +110,7 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define TPACKB "Beltpack"
 #define TPACKA "Waistpack"
 #define TPACKC "Chest pack"
+#define GUNCASE "Guncase"
 // NOVA EDIT ADDITION END
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
@@ -125,6 +126,7 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	TPACKB,
 	TPACKA,
 	TPACKC,
+	GUNCASE,
 	// NOVA EDIT ADDITION END
 ))
 
