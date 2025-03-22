@@ -93,7 +93,6 @@
 		return
 	to_chat(user, span_warning("You hear a heavy click near your neck - it's apparant the collar's locked on!"))
 
-
 /// This is a KEY moment of this code. You got it. Key.
 /// ...
 /// It's 2:56 of 08.04.2021, i want to sleep. Please laugh. // your suffering has been preserved for future generations
