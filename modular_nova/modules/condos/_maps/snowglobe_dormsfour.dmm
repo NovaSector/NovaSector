@@ -76,7 +76,6 @@
 /turf/open/floor/grass,
 /area/misc/condo)
 "x" = (
-/obj/effect/landmark/start/hangover,
 /obj/structure/fluff/fake_scrubber,
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
