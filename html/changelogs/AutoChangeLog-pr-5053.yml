@@ -1,0 +1,5 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "adds the ability to focus the bluespace miner, tripling the chance for an ore"
+  - code_imp: "made some of the code blocks prettier/more readable."
