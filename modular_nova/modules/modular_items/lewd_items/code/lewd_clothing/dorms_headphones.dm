@@ -26,7 +26,6 @@
 	icon_state = "[base_icon_state]_[playing_music? "on" : "off"]"
 	inhand_icon_state = "[base_icon_state]_[playing_music? "on" : "off"]"
 
-
 /obj/item/clothing/ears/dorms_headphones/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(!(istype(user) && (slot & ITEM_SLOT_EARS)))
