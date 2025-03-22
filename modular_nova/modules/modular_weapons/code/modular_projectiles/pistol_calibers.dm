@@ -59,11 +59,6 @@
 /*
 *	.357 Magnum
 */
-/obj/item/ammo_casing/c357    //We can keep the Magnum classic.
-	name = ".357 bullet casing"
-	desc = "A .357 bullet casing.\
-	<br><br>\
-	<i>HAND CANNON: Fired out of a handgun, deals disproportionately large damage.</i>"
 
 /obj/item/ammo_casing/c357/match
 	desc = "A .357 bullet casing, manufactured to exceedingly high standards.\
@@ -88,8 +83,8 @@
 /obj/item/ammo_casing/c357/haywire
 	name = ".357 Haywire+ bullet casing"
 	desc = "A .357 Haywire+ bullet casing, with a high-efficiency electromagnetic generator in the tip.\
-		<br><br>\
-		<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
+	<br><br>\
+	<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
 	projectile_type = /obj/projectile/bullet/c357/haywire
 	ammo_categories = AMMO_CLASS_NICHE_SMART
 	custom_materials = AMMO_MATS_EMP
@@ -103,24 +98,10 @@
 	ammo_band_color = COLOR_AMMO_EMP
 
 /*
-*	.454 Trucidator (renamed .50 AE)
+*	.45
 */
-/obj/item/ammo_casing/a50ae
-	name = ".454 Trucidator bullet casing"
-	desc = "A .454 Trucidator bullet casing. Extremely powerful.\
-	<br><br>\
-	<i>HAND CANNON: Fired out of a handgun, deals disproportionately large damage.</i>"
-
-/*
-*	.460 Ceres (renamed tgcode .45)
-*/
-
-/obj/item/ammo_casing/c45
-	name = ".460 Ceres bullet casing"
-	desc = "A .460 bullet casing."
 
 /obj/item/ammo_casing/c45/ap
-	name = ".460 Ceres armor-piercing bullet casing"
 	desc = "An armor-piercing .460 bullet casing.\
 	<br><br>\
 	<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
@@ -128,43 +109,29 @@
 	ammo_categories = AMMO_CLASS_ARMORPEN
 
 /obj/item/ammo_casing/c45/hp
-	name = ".460 Ceres hollow-point bullet casing"
-	desc = "A hollow-point .460 bullet casing.\
+	desc = "A hollow-point .45 bullet casing.\
 	<br><br>\
 	<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
 	projectile_type = /obj/projectile/bullet/c45/hp
 	ammo_categories = AMMO_CLASS_HOLLOW
 
 /obj/item/ammo_casing/c45/inc
-	name = ".460 Ceres incendiary bullet casing"
-	desc = "An incendiary .460 bullet casing.\
+	desc = "An incendiary .45 bullet casing.\
 	<br><br>\
 	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	custom_materials = AMMO_MATS_TEMP
 	ammo_categories = AMMO_CLASS_THERMAL
 
 /obj/item/ammo_casing/c45/rubber
-	name = ".460 Ceres rubber bullet casing"
-	desc = "A .460 rubber bullet casing.\
+	desc = "A .45 rubber bullet casing.\
 	<br><br>\
 	<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
 	projectile_type = /obj/projectile/bullet/c45/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
 
-
-// ammo boxes
-
-/obj/item/ammo_box/c45
-	name = "ammo box (.460 Ceres)"
-	desc = "A box of .460 Ceres ammunition, a modern successor to the .45 round."
-
-/obj/item/ammo_box/magazine/m45
-	name = "handgun magazine (.460 Ceres)"
-	desc = "A magazine chambered in .460 meant to fit in handguns."
-
 /*
-*	9x25mm Mk.12 (tgcode 9mm)
+*	9mm
 */
 
 /obj/item/ammo_casing/c9mm/ap
