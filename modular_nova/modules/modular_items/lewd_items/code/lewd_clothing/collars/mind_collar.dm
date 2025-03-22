@@ -49,6 +49,7 @@
 	remote = new /obj/item/mind_controller(src, src)
 	remote.forceMove(src)
 
+/// Makes the controlled person actually perform the emote.
 /obj/item/clothing/neck/mind_collar/proc/emoting_proc()
 	var/mob/living/carbon/human/user = src.loc
 	if(istype(user) && src == user.wear_neck)
