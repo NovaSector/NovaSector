@@ -1,7 +1,7 @@
 /datum/mood_event/disgust/tele_sickness
 	description = "I've teleported way too often..."
 	mood_change = -6
-	timeout = 3 MINUTES
+	timeout = 2 MINUTES
 
 /atom/movable/screen/alert/status_effect/tele_sickness
 	name = "Teleport Sickness"
@@ -11,7 +11,7 @@
 /datum/status_effect/tele_sickness
 	id = "tele_sickness"
 	status_type = STATUS_EFFECT_REFRESH
-	duration = 3 MINUTES
+	duration = 2 MINUTES
 	alert_type = /atom/movable/screen/alert/status_effect/tele_sickness
 	remove_on_fullheal = TRUE // staff of healing ~synergy~
 	show_duration = TRUE
@@ -58,17 +58,17 @@
 
 		if(3 to 4)
 			owner.add_mood_event("tele_sick", /datum/mood_event/disgust/tele_sickness)
-			owner.adjust_eye_blur_up_to(30 SECONDS, 2 MINUTES)
+			owner.adjust_eye_blur_up_to(10 SECONDS, 1 MINUTES)
 
 		if(5 to 6)
 			owner.add_mood_event("tele_sick", /datum/mood_event/disgust/tele_sickness)
-			owner.adjust_eye_blur_up_to(30 SECONDS, 2 MINUTES)
-			owner.adjust_confusion_up_to(30 SECONDS, 2 MINUTES)
+			owner.adjust_eye_blur_up_to(10 SECONDS, 1 MINUTES)
+			owner.adjust_confusion_up_to(10 SECONDS, 1 MINUTES)
 
 		if(7 to 100)
 			owner.add_mood_event("tele_sick", /datum/mood_event/disgust/tele_sickness)
-			owner.adjust_eye_blur_up_to(30 SECONDS, 2 MINUTES)
-			owner.adjust_confusion_up_to(30 SECONDS, 2 MINUTES)
+			owner.adjust_eye_blur_up_to(10 SECONDS, 1 MINUTES)
+			owner.adjust_confusion_up_to(10 SECONDS, 1 MINUTES)
 			owner.adjust_disgust(150)
 
 		if(101 to INFINITY)
@@ -95,4 +95,4 @@
 	if(stage > 0)
 		stage -= 1
 
-	addtimer(CALLBACK(src, PROC_REF(stage_counting)), 2 MINUTES, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, PROC_REF(stage_counting)), 1 MINUTES, TIMER_STOPPABLE | TIMER_DELETE_ME)
