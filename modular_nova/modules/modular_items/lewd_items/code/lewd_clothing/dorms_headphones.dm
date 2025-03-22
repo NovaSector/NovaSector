@@ -40,7 +40,6 @@
 	REMOVE_TRAIT(user, TRAIT_DEAF, CLOTHING_TRAIT)
 	to_chat(user, span_purple("You can finally hear the world around you once more."))
 
-
 /obj/item/clothing/ears/dorms_headphones/proc/toggle(owner)
 	playing_music = !playing_music
 	update_icon()
