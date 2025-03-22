@@ -32,9 +32,11 @@
 		/datum/action/item_action/toggle_hearing,
 		/datum/action/item_action/toggle_speech,
 	)
-	//these three vars needed to turn deprivation stuff on or off
+	/// Is speech being prevented
 	var/muzzle = FALSE
+	/// Is hearing being prevented
 	var/earmuffs = FALSE
+	/// Is vision being prevented
 	var/prevent_vision = FALSE
 
 
