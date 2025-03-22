@@ -37,6 +37,7 @@
 	inhand_icon_state = null
 	/// Reference to the mind control remote
 	var/obj/item/mind_controller/remote = null
+	/// What the default emoting pattern is set to
 	var/emoting = "Shivers."
 
 /obj/item/clothing/neck/mind_collar/Initialize(mapload)
