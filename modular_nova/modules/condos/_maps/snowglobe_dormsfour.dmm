@@ -18,7 +18,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
 "d" = (
-/turf/closed/wall,
+/turf/closed/indestructible/normal_wall,
 /area/misc/condo)
 "f" = (
 /obj/machinery/light/small/directional/west,
@@ -40,7 +40,7 @@
 /area/misc/condo)
 "l" = (
 /obj/effect/planetary_turf_atmos_helper,
-/turf/closed/wall,
+/turf/closed/indestructible/normal_wall,
 /area/misc/condo)
 "p" = (
 /turf/cordon,
