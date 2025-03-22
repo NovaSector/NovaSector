@@ -114,10 +114,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/hunter
 	icon_state = "stack_spec"
 
-/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/improvised
-	name = "12 gauge improvised shells"
-	ammo_type = /obj/item/ammo_casing/shotgun/improvised
-
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/incendiary
 	name = "12 gauge incendiary shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/incendiary

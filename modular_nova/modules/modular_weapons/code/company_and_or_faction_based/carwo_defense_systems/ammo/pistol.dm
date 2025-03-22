@@ -52,6 +52,7 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/incapacitator
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 
 /obj/projectile/bullet/c35sol/incapacitator
@@ -97,7 +98,7 @@
 	projectile_type = /obj/projectile/bullet/c35sol/ripper
 
 	custom_materials = AMMO_MATS_RIPPER
-	advanced_print_req = TRUE
+	ammo_categories = AMMO_CLASS_HOLLOW
 
 
 /obj/projectile/bullet/c35sol/ripper
@@ -143,6 +144,7 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/flash
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/c35sol/flash
 	name = ".35 Sol Short flash bullet"

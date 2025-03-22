@@ -52,7 +52,7 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/fragmentation
 
-	advanced_print_req = TRUE
+	ammo_categories = AMMO_CLASS_NONE // it's. on a technicality
 
 	harmful = FALSE
 
@@ -104,8 +104,8 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/pierce
 
+	ammo_categories = AMMO_CLASS_ARMORPEN
 	custom_materials = AMMO_MATS_AP
-	advanced_print_req = TRUE
 
 
 /obj/projectile/bullet/c40sol/pierce
@@ -163,8 +163,8 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/incendiary
 
+	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_TEMP
-	advanced_print_req = TRUE
 
 
 /obj/projectile/bullet/c40sol/incendiary

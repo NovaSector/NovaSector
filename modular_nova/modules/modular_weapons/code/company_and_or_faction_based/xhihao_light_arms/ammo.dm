@@ -12,6 +12,7 @@
 	icon_state = "310-casing-rubber"
 
 	projectile_type = /obj/projectile/bullet/strilka310/rubber
+	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
 
 /obj/projectile/bullet/strilka310/rubber
@@ -36,8 +37,8 @@
 	icon_state = "310-casing-ap"
 
 	projectile_type = /obj/projectile/bullet/strilka310/ap
+	ammo_categories = AMMO_CLASS_ARMORPEN
 	custom_materials = AMMO_MATS_AP
-	advanced_print_req = TRUE
 
 /obj/projectile/bullet/strilka310/ap
 	name = ".310 armor-piercing bullet"

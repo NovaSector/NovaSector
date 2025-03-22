@@ -130,7 +130,7 @@
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel
 
 	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
-	advanced_print_req = TRUE
+	ammo_categories = AMMO_CLASS_LETHAL
 
 	harmful = TRUE
 
@@ -180,7 +180,7 @@
 	icon_state = "980_gas_alternate"
 
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/phosphor
-
+	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_GRENADE_INCENDIARY
 
 
@@ -223,7 +223,7 @@
 	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Bursts into a tear gas cloud."
 
 	icon_state = "980_gas"
-
+	ammo_categories = AMMO_CLASS_NICHE_LTL
 	projectile_type = /obj/projectile/bullet/c980grenade/riot
 
 

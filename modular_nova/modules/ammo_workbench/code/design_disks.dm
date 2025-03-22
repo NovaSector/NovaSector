@@ -11,10 +11,11 @@
 	name = "advanced munitions datadisk"
 	desc = "An datadisk filled with advanced munition fabrication data for the ammunition workbench, including lethal ammotypes if not previously enabled. \
 	No parties are liable for any incidents that occur if safeties were circumvented beforehand."
-
+/*
 /obj/item/disk/ammo_workbench/advanced/on_bench_install(obj/machinery/ammo_workbench/ammobench)
 	ammobench.allowed_harmful = TRUE
 	ammobench.allowed_advanced = TRUE
+*/
 
 /datum/design/disk/ammo_workbench_lethal
 	name = "Ammo Workbench Advanced Munitions Datadisk"
