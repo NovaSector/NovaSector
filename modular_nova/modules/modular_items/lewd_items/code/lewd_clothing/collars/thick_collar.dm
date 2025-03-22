@@ -12,6 +12,7 @@
 	greyscale_config = /datum/greyscale_config/thick_collar/bell
 	greyscale_config_worn = /datum/greyscale_config/thick_collar/bell/worn
 
+
 /obj/item/clothing/neck/collar/thick/bell/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/effects/jingle.ogg'=1), 25, 50, 16)
