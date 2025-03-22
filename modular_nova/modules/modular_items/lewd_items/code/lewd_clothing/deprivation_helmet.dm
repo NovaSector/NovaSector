@@ -144,7 +144,7 @@
 		to_chat(usr, DEPHELMET_BLIND_TEXT)
 
 
-/// We've been taken off or dropped! Check if we should fix anything.
+// We've been taken off or dropped! Check if we should fix anything.
 /obj/item/clothing/head/deprivation_helmet/dropped(mob/living/carbon/human/user)
 	. = ..()
 	if(muzzle == TRUE)
