@@ -25,7 +25,6 @@
 	transform = MAP_SWITCH(TRANSLATE_MATRIX(-4, -4), matrix())
 
 	temperature = TCMB
-	color = "#677" //NOVA EDIT ADDITION
 	var/turf/turf_type = /turf/open/misc/asteroid/airless
 	/// The path of the ore stack we spawn when we're mined.
 	var/obj/item/stack/ore/mineralType = null
@@ -311,13 +310,11 @@
 		var/path = pick(spawn_chance_list)
 		if(ispath(path, /turf))
 			var/stored_flags = 0
-			var/stored_color = color //NOVA EDIT ADDITION
 			if(turf_flags & NO_RUINS)
 				stored_flags |= NO_RUINS
 			var/turf/T = ChangeTurf(path,null,CHANGETURF_IGNORE_AIR)
 			T.flags_1 |= stored_flags
 
-			T.color = stored_color //NOVA EDIT ADDITION
 			if(ismineralturf(T))
 				var/turf/closed/mineral/M = T
 				M.turf_type = src.turf_type
@@ -852,13 +849,13 @@
 		stage = GIBTONITE_DETONATE
 		explosion(bombturf, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 5, flame_range = 0, flash_range = 0, adminlog = FALSE, explosion_cause = src)
 	if(stage == GIBTONITE_STABLE) //Gibtonite deposit is now benign and extractable. Depending on how close you were to it blowing up before defusing, you get better quality ore.
-		var/obj/item/gibtonite/G = new (src)
+		var/obj/item/gibtonite/ore = new (src)
 		if(det_time <= 0)
-			G.quality = 3
-			G.icon_state = "gibtonite_3"
+			ore.quality = GIBTONITE_QUALITY_HIGH
+			ore.icon_state = "gibtonite_3"
 		if(det_time >= 1 && det_time <= 2)
-			G.quality = 2
-			G.icon_state = "gibtonite_2"
+			ore.quality = GIBTONITE_QUALITY_MEDIUM
+			ore.icon_state = "gibtonite_2"
 
 	var/flags = NONE
 	var/old_type = type

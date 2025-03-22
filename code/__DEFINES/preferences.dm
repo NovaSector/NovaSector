@@ -80,6 +80,13 @@
 
 #define DEFAULT_CYBORG_NAME "Default Cyborg Name"
 
+// Choose grid or list TGUI layouts for UI's, when possible.
+/// Default layout will be used. It can be either a grid or a list
+#define TGUI_LAYOUT_DEFAULT "default"
+/// Force grid layout, even if default is a list.
+#define TGUI_LAYOUT_GRID "grid"
+/// Force list layout, even if default is a grid.
+#define TGUI_LAYOUT_LIST "list"
 
 //Job preferences levels
 #define JP_ANY 0
@@ -159,3 +166,8 @@
 #define INFO_RESKIN "reskin"
 /// Handles which layer the item will be on, for accessories
 #define INFO_LAYER "layer"
+
+// Lipstick styles
+#define UPPER_LIP "Upper"
+#define MIDDLE_LIP "Middle"
+#define LOWER_LIP "Lower"

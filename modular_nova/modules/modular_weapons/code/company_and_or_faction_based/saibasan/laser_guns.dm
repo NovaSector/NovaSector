@@ -64,8 +64,8 @@
 	var/speech_json_file = LONG_MOD_LASER_SPEECH
 	/// Keeps track of the last processed charge, prevents message spam
 	var/last_charge = 0
-	/// If the gun's personality speech thing is on, defaults to on because just listen to her
-	var/personality_mode = TRUE
+	/// If the gun's personality speech thing is on, defaults to on because just listen to her // Defaults its to Off, so its easier to advertice that someone wants a talking gun and companion.
+	var/personality_mode = FALSE
 	/// Keeps track of our soulcatcher component
 	var/datum/component/soulcatcher/tracked_soulcatcher
 	/// What is this gun's extended examine, we only have to do this because the carbine is a subtype
@@ -248,10 +248,6 @@
 	name = "Toggle Weapon Personality"
 	desc = "Toggles the weapon's personality core. Studies find that turning them off makes them quite sad, however."
 	background_icon_state = "bg_mod"
-
-/datum/component/soulcatcher/modular_laser
-	max_souls = 1
-	communicate_as_parent = TRUE
 
 //Short version of the above modular rifle, has less charge and different modes
 /obj/item/gun/energy/modular_laser_rifle/carbine

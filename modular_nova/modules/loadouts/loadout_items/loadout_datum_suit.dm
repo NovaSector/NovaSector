@@ -123,25 +123,29 @@
 	name = "Medical Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
 
-/datum/loadout_item/suit/labcoat_regular
-	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
-
 /datum/loadout_item/suit/labcoat_lalunevest
 	name = "Designer Buttoned Coat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
 
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Recolorable Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy
+
+/datum/loadout_item/suit/labcoat_regular
+	name = "Researcher's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
+
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
 
 /datum/loadout_item/suit/labcoat_geneticist
 	name = "Geneticist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/geneticist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
 
 /datum/loadout_item/suit/labcoat_roboticist
 	name = "Roboticist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/roboticist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
 
 /datum/loadout_item/suit/labcoat_custom
 	name = "Custom Labcoat"
@@ -676,9 +680,40 @@
 	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/suit/peacekeeper_wintercoat
+	name = "Security Winter Jacket"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/detjacket
+	name = "Detective Jacket (Dark)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/dark
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjackenoir
+	name = "Detective Jacket (Noir)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjacketbrown
+	name = "Detective's Brown Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/brown 
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjacketplain
+	name = "Detective's Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detectivearmorvest
+	name = "Detective's Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+
 /datum/loadout_item/suit/peacekeeper_jacket/badge
 	name = "Badged Peacekeeper Jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Off-Department Jacket"

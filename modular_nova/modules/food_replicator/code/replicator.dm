@@ -10,14 +10,21 @@
 	from clothes to food to first-aid medical supplies."
 	icon = 'modular_nova/modules/food_replicator/icons/biogenerator.dmi'
 	circuit = /obj/item/circuitboard/machine/biogenerator/food_replicator
-	efficiency = 0.75
-	productivity = 0.75
 	show_categories = list(
 		RND_CATEGORY_NRI_FOOD,
 		RND_CATEGORY_NRI_MEDICAL,
 		RND_CATEGORY_NRI_CLOTHING,
 	)
 
+/obj/machinery/biogenerator/food_replicator/RefreshParts()
+	. = ..()
+	efficiency *= 0.75
+	productivity *= 0.75
+
 /obj/item/circuitboard/machine/biogenerator/food_replicator
 	name = "Colonial Supply Core"
 	build_path = /obj/machinery/biogenerator/food_replicator
+
+/obj/item/flatpack/food_replicator
+	name = "colonial supply core"
+	board = /obj/item/circuitboard/machine/biogenerator/food_replicator

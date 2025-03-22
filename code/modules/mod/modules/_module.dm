@@ -331,6 +331,7 @@
 	SIGNAL_HANDLER
 
 	if(source == device)
+		device.moveToNullspace() // NOVA EDIT ADDITION
 		device = null
 		qdel(src)
 

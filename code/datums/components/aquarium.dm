@@ -27,13 +27,13 @@
 	var/list/used_layers = list()
 
 	///The minimum pixel x of the area where vis overlays should be displayed
-	var/aquarium_zone_min_px
+	var/aquarium_zone_min_pw
 	///The maximum pixel x of the area where vis overlays should be displayed
-	var/aquarium_zone_max_px
+	var/aquarium_zone_max_pw
 	///The minimum pixel y of the area where vis overlays should be displayed
-	var/aquarium_zone_min_py
+	var/aquarium_zone_min_pz
 	///The maximum pixel y of the area where vis overlays should be displayed
-	var/aquarium_zone_max_py
+	var/aquarium_zone_max_pz
 
 	///While the feed (reagent) storage is not empty, this is the interval which the fish are fed.
 	var/feeding_interval = 3 MINUTES
@@ -73,10 +73,10 @@
 	src.default_beauty = default_beauty
 	src.reagents_size = reagents_size
 
-	aquarium_zone_min_px = min_px
-	aquarium_zone_max_px = max_px
-	aquarium_zone_min_py = min_py
-	aquarium_zone_max_py = max_py
+	aquarium_zone_min_pw = min_px
+	aquarium_zone_max_pw = max_px
+	aquarium_zone_min_pz = min_py
+	aquarium_zone_max_pz = max_py
 
 	src.min_fluid_temp = min_fluid_temp
 	src.max_fluid_temp = max_fluid_temp
@@ -105,7 +105,7 @@
 		if(movable.reagents.total_volume)
 			start_autofeed(movable.reagents)
 		else
-			RegisterSignal(movable.reagents, COMSIG_REAGENTS_NEW_REAGENT, PROC_REF(start_autofeed))
+			RegisterSignal(movable.reagents, COMSIG_REAGENTS_HOLDER_UPDATED, PROC_REF(start_autofeed))
 		RegisterSignal(movable, COMSIG_PLUNGER_ACT, PROC_REF(on_plunger_act))
 
 	RegisterSignal(movable, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(on_item_interaction))
@@ -153,7 +153,7 @@
 		COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM,
 	))
 	if(movable.reagents)
-		UnregisterSignal(movable, COMSIG_REAGENTS_NEW_REAGENT)
+		UnregisterSignal(movable, COMSIG_REAGENTS_HOLDER_UPDATED)
 		STOP_PROCESSING(SSobj, src)
 	beauty_by_content = null
 	tracked_fish_by_type = null
@@ -242,10 +242,10 @@
 	return ITEM_INTERACT_SUCCESS
 
 ///Called when the feed storage is no longer empty.
-/datum/component/aquarium/proc/start_autofeed(datum/reagents/source, new_reagent, amount, reagtemp, data, no_react)
+/datum/component/aquarium/proc/start_autofeed(datum/reagents/source)
 	SIGNAL_HANDLER
+	UnregisterSignal(source, COMSIG_REAGENTS_HOLDER_UPDATED)
 	START_PROCESSING(SSobj, src)
-	UnregisterSignal(source, COMSIG_REAGENTS_NEW_REAGENT)
 
 ///Feed the fish at defined intervals until the feed storage is empty.
 /datum/component/aquarium/process(seconds_per_tick)
@@ -256,7 +256,7 @@
 	var/atom/movable/movable = parent
 	if(!movable.reagents?.total_volume)
 		if(movable.reagents)
-			RegisterSignal(movable.reagents, COMSIG_REAGENTS_NEW_REAGENT, PROC_REF(start_autofeed))
+			RegisterSignal(movable.reagents, COMSIG_REAGENTS_HOLDER_UPDATED, PROC_REF(start_autofeed))
 		return PROCESS_KILL
 	if(world.time < last_feeding + feeding_interval)
 		return
@@ -424,10 +424,10 @@
 	SIGNAL_HANDLER
 	used_layers -= visual.layer
 	visual.layer = request_layer(visual.layer_mode)
-	visual.aquarium_zone_min_px = aquarium_zone_min_px
-	visual.aquarium_zone_max_px = aquarium_zone_max_px
-	visual.aquarium_zone_min_py = aquarium_zone_min_py
-	visual.aquarium_zone_max_py = aquarium_zone_max_py
+	visual.aquarium_zone_min_pw = aquarium_zone_min_pw
+	visual.aquarium_zone_max_pw = aquarium_zone_max_pw
+	visual.aquarium_zone_min_pz = aquarium_zone_min_pz
+	visual.aquarium_zone_max_pz = aquarium_zone_max_pz
 	visual.fluid_type = fluid_type
 
 /datum/component/aquarium/proc/request_layer(layer_type)

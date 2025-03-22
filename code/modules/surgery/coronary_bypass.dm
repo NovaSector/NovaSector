@@ -12,8 +12,8 @@
 		/datum/surgery_step/close,
 	)
 
-/datum/surgery/gastrectomy/mechanic
-	name = "Engine Diagnostic (Heart)" // Nova Edit: Original name = "Engine Diagnostic"
+/datum/surgery/coronary_bypass/mechanic
+	name = "Engine Diagnostic"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,

@@ -91,11 +91,17 @@
 	desc = "A 12 gauge buckshot shell."
 	icon_state = "gshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
-	pellets = 8 // 8 * 6 for 48 damage if every pellet hits, we want to keep lethal shells ~50 damage
-	variance = 25
+	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
+	variance = 20
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	name = "buckshot pellet"
+	damage = 5
+
+/obj/item/ammo_casing/shotgun/buckshot/milspec
+	pellets = 10
+
+/obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6
 
 /obj/item/ammo_casing/shotgun/rubbershot
@@ -104,11 +110,12 @@
 	icon_state = "rshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_rubbershot
 	pellets = 6 // 6 * 10 for 60 stamina damage, + some small amount of brute, we want to keep less lethal shells ~60
-	variance = 20
+	variance = 27
 	harmful = FALSE
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
+	speed = 1
 
 /obj/item/ammo_casing/shotgun/magnum
 	name = "magnum blockshot shell"
@@ -116,14 +123,15 @@
 		especially against the likes of vox."
 	icon_state = "magshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
-	pellets = 4 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
+	pellets = 6 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
 	advanced_print_req = TRUE
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
-	name = "magnum blockshot pellet"
-	damage = 12
+	name = "magnum buckshot pellet"
+	damage = 10
 	wound_bonus = 10
+	armour_penetration = 5
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
 	. = ..()
@@ -135,8 +143,8 @@
 		openly near teshari, for reasons you would be personally blessed to not know at least some of."
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
-	pellets = 12 // 1.3x The pellets for 0.6x the damage, same overall damage as buckshot
-	variance = 30 // Slightly wider spread than buckshot
+	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
+	variance = 12 // Slightly less spread then buckshot
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	name = "express buckshot pellet"
@@ -153,7 +161,7 @@
 	icon_state = "fshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/flechette
 	pellets = 8 //8 x 6 = 48 Damage Potential
-	variance = 25
+	variance = 15
 	custom_materials = AMMO_MATS_SHOTGUN_FLECH
 	advanced_print_req = TRUE
 
@@ -205,46 +213,13 @@
 
 /obj/item/ammo_casing/shotgun/antitide
 	name = "stardust shell"
-	desc = "A highly experimental shell filled with nanite electrodes that will embed themselves in soft targets. The electrodes are charged from kinetic movement which means moving targets will get punished more."
+	desc = "A highly experimental shell filled with nanite electrodes that form a much bigger-electrode on launch, functioning nearly identical to a taser; even leaving a cable back to the shell itself! Unlimited power!"
 	icon_state = "lasershell"
-	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/antitide
-	pellets = 8 // 8 * 7 for 56 stamina damage, plus whatever the embedded shells do
-	variance = 30
+	projectile_type = /obj/projectile/energy/electrode
 	harmful = FALSE
 	fire_sound = 'sound/items/weapons/taser.ogg'
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
 	advanced_print_req = TRUE
-
-/obj/projectile/bullet/pellet/shotgun_buckshot/antitide
-	name = "electrode"
-	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
-	icon_state = "stardust"
-	damage = 2
-	stamina = 8
-	damage_falloff_tile = -0.2
-	stamina_falloff_tile = -0.3
-	wound_bonus = 0
-	bare_wound_bonus = 0
-	stutter = 3 SECONDS
-	jitter = 5 SECONDS
-	eyeblur = 1 SECONDS
-	sharpness = NONE
-	range = 8
-	embed_type = /datum/embedding/shotgun_buckshot/antitide
-
-/datum/embedding/shotgun_buckshot/antitide
-	embed_chance = 70
-	pain_chance = 25
-	fall_chance = 15
-	jostle_chance = 80
-	ignore_throwspeed_threshold = TRUE
-	pain_stam_pct = 0.9
-	pain_mult = 2
-	rip_time = 1 SECONDS
-
-/obj/projectile/bullet/pellet/shotgun_buckshot/antitide/on_range()
-	do_sparks(1, TRUE, src)
-	..()
 
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
@@ -287,7 +262,7 @@
 	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti, yippie!"
 	icon_state = "honkshell"
 	projectile_type = /obj/projectile/bullet/honkshot
-	pellets = 12
+	pellets = 19 // The most crucial buff.
 	variance = 35
 	fire_sound = 'sound/items/bikehorn.ogg'
 	harmful = FALSE

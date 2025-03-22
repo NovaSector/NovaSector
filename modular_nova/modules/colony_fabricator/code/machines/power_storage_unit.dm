@@ -5,7 +5,7 @@
 		<b>higher maximum output</b> than some larger units. Most commonly seen being used not for their ability to store \
 		power, but rather for use in regulating power input and output."
 	icon = 'modular_nova/modules/colony_fabricator/icons/power_storage_unit/small_battery.dmi'
-	capacity = 7.5 * STANDARD_BATTERY_CHARGE
+	capacity = 10 * STANDARD_BATTERY_CHARGE // Same as 1 whole high-capac megacell
 	input_level_max = 400 KILO WATTS
 	output_level_max = 400 KILO WATTS
 	circuit = null

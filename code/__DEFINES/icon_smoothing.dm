@@ -138,18 +138,17 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_BOSS_WALLS S_TURF(58) ///turf/closed/indestructible/riveted/boss
 #define SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS S_TURF(59) ///turf/closed/wall/mineral/titanium/survival
 #define SMOOTH_GROUP_TURF_OPEN_CLIFF S_TURF(60) ///turf/open/cliff
+#define SMOOTH_GROUP_HIEROPHANT S_TURF(61) ///turf/closed/indestructible/riveted/hierophant
 
 // NOVA EDIT ADDITION
-#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(61)
-#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(62)
+#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(62)
+#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(63)
 
-#define SMOOTH_GROUP_FISSURE S_TURF(63)
+#define SMOOTH_GROUP_FISSURE S_TURF(64)
 
-#define SMOOTH_GROUP_MUSHROOM S_TURF(64)
-
-#define MAX_S_TURF 64 //Always match this value with the one above it.
-//NOVA EDIT END
-
+#define SMOOTH_GROUP_MUSHROOM S_TURF(65)
+//NOVA EDIT ADDITION END
+#define MAX_S_TURF 65 //Always match this value with the one above it. // NOVA EDIT CHANGE - Original: #define MAX_S_TURF 61
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */

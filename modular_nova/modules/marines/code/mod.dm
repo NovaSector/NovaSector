@@ -14,8 +14,7 @@
 	resistance_flags = FIRE_PROOF|ACID_PROOF
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
-	slowdown_inactive = 0.5
-	slowdown_active = 0
+	slowdown_deployed = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 10 //drr drr drr
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
@@ -32,6 +31,8 @@
 		"marine" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/wornmod.dmi',
+			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod_worn_mutant.dmi',
+			MOD_SNOUT_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod_worn_mutant.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = SNUG_FIT,
