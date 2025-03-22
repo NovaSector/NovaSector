@@ -160,7 +160,7 @@
 	if(src == user.head)
 		if(muzzle == TRUE) // This text works for the mute as well, so no additional check.
 			to_chat(user, DEPHELMET_UNGAGGED_TEXT)
-		if(earmuffs == TRUE && !HAS_TRAIT(user,TRAIT_DEAF))
+		if(earmuffs == TRUE && !HAS_TRAIT(user, TRAIT_DEAF))
 			to_chat(user, DEPHELMET_HEARING_TEXT)
 		if(prevent_vision == TRUE && !user.is_blind())
 			to_chat(user, DEPHELMET_SIGHT_TEXT)
