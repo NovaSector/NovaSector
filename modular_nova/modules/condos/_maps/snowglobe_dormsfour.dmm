@@ -38,6 +38,10 @@
 /obj/structure/fluff/fake_vent,
 /turf/open/floor/carpet/royalblue,
 /area/misc/condo)
+"l" = (
+/obj/effect/planetary_turf_atmos_helper,
+/turf/closed/wall,
+/area/misc/condo)
 "p" = (
 /turf/cordon,
 /area/misc/condo)
@@ -254,7 +258,7 @@ d
 F
 f
 T
-d
+l
 "}
 (3,1,1) = {"
 p
