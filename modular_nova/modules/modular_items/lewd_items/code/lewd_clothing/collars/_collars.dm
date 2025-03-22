@@ -53,7 +53,6 @@
 	owner.balloon_alert(stripper, "locked!")
 	return FALSE
 
-
 /obj/item/clothing/neck/collar/proc/set_lock(to_lock, mob/user)
 	if(!broken_lock)
 		to_chat(user, span_warning("[to_lock ? "The collar locks with a resounding click!" : "The collar unlocks with a small clunk."]"))
