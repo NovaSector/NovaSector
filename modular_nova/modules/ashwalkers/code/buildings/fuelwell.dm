@@ -26,6 +26,7 @@
 		O.play_tool_sound(src)
 		deconstruct()
 		return 1
+
 	if(istype(O, /obj/item/reagent_containers)) //Refilling bottles with oil
 		var/obj/item/reagent_containers/RG = O
 		if(RG.is_refillable())
@@ -33,21 +34,27 @@
 				RG.reagents.add_reagent(dispensedreagent, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 				to_chat(user, span_notice("You fill [RG] from [src]."))
 				return TRUE
+
 			to_chat(user, span_notice("\The [RG] is full."))
 			return FALSE
+
 	if(O.tool_behaviour == TOOL_WELDER)
 		if(!reagents.has_reagent(/datum/reagent/fuel))
 			to_chat(user, span_warning("[src] is out of fuel!"))
 			return
+
 		var/obj/item/weldingtool/W = O
 		if(istype(W) && !W.welding)
 			if(W.reagents.has_reagent(/datum/reagent/fuel, W.max_fuel))
 				to_chat(user, span_warning("Your [W.name] is already full!"))
 				return
+
 			reagents.trans_to(W, W.max_fuel, transferred_by = user)
 			user.visible_message(span_notice("[user] refills [user.p_their()] [W.name]."), span_notice("You refill [W]."))
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			W.update_appearance()
+
 		return
+
 	else
 		return ..()
