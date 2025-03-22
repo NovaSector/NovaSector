@@ -22,7 +22,6 @@
 	/// Is the lock busted?
 	var/broken_lock = FALSE
 
-
 /obj/item/clothing/neck/collar/Initialize(mapload)
 	. = ..()
 	// First; create our internal matching key
