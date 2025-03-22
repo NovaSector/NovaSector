@@ -19,7 +19,7 @@
 /obj/item/mind_controller/Destroy(force)
 	collar?.remote = null
 	collar = null
-	. = ..()
+	return
 
 /obj/item/mind_controller/attack_self(mob/user)
 	if(!collar)
