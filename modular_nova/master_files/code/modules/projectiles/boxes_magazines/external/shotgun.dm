@@ -8,7 +8,7 @@
 	. = ..()
 	icon_state = "[base_icon_state]-[LAZYLEN(stored_ammo) ? "full" : "empty"]"
 /obj/item/ammo_box/magazine/katyusha/empty
-	name = "Катюша Drum Magazine (12g shells)"
+	name = "Katyusha Drum Magazine (12g shells)"
 	desc = "A drum magazine of shotgun shells, suitable for the c combat shotgun."
 	icon_state = "spikewall_mag-empty"
 	ammo_type = /obj/item/ammo_casing/shotgun
@@ -16,8 +16,8 @@
 	casing_phrasing = "shell"
 
 /obj/item/ammo_box/magazine/katyusha
-	name = "Катюша Drum Magazine"
-	desc = "A drum magazine of shotgun shells, suitable for the Spikewall combat shotgun."
+	name = "Katyusha Drum Magazine"
+	desc = "A drum magazine of shotgun shells, suitable for the Katyusha combat shotgun."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armouries/magazines.dmi'
 	icon_state = "spikewall_mag"
 	base_icon_state = "spikewall_mag"
@@ -39,8 +39,6 @@
 	icon_state = "[base_icon_state]-[LAZYLEN(stored_ammo) ? "full" : "empty"]"
 
 /obj/item/ammo_box/magazine/jager/empty
-	name = "Jäger Magazine (12g shells)"
-	desc = "A drum magazine of shotgun shells, suitable for the c combat shotgun."
 	icon_state = "marauder_mag-empty"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	start_empty = TRUE
@@ -48,7 +46,7 @@
 
 /obj/item/ammo_box/magazine/jager
 	name = "Jäger Magazine"
-	desc = "A magazine of shotgun shells, suitable for the 'Marauder' combat shotgun."
+	desc = "A magazine of shotgun shells, suitable for the 'Jäger' combat shotgun."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armouries/magazines.dmi'
 	icon_state = "marauder_mag"
 	base_icon_state = "marauder_mag"
@@ -74,8 +72,6 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/jager/large/empty
-	name = "Large Jäger Magazine (12g shells)"
-	desc = "A drum magazine of shotgun shells, suitable for the c combat shotgun."
 	icon_state = "marauder_mag-empty"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	start_empty = TRUE

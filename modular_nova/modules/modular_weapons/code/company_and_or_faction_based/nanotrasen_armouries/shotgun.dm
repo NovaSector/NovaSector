@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/shotgun/katyusha
-	name = "\improper Катюша Shotgun"
+	name = "\improper Katyusha Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'Kopfjäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
 		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
@@ -65,9 +65,9 @@
 
 
 /obj/item/gun/ballistic/shotgun/katyusha/jager
-	name = "\improper jäger Shotgun"
+	name = "\improper Jäger Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
-		nicknamed 'jäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
+		nicknamed 'Jäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
 		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
 
 	icon_state = "marauder"
