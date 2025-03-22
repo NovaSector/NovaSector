@@ -1160,3 +1160,8 @@
   - admin: added Federal Alert
   vinylspiders:
   - bugfix: the bump teleporter effect functions again
+2025-03-22:
+  Jedi-Toothpaste:
+  - rscadd: New Donator Item, Ahab's Spear Retool Kit
+  the-og-gear:
+  - rscdel: RD and Scientists no longer have a ballmer's peak by default
