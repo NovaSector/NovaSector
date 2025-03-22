@@ -1,10 +1,19 @@
 import { Fragment, useState } from 'react';
-import { useBackend } from 'tgui/backend';
+// NOVA EDIT CHANGE - Original: import { useBackend } from 'tgui/backend';
+import { useBackend, useLocalState } from 'tgui/backend';
 import { CharacterPreview } from 'tgui/interfaces/common/CharacterPreview';
+// NOVA EDIT ADDITION: Multiple loadout presets
+import { removeAllSkiplines } from 'tgui/interfaces/TextInputModal';
+// NOVA EDIT ADDITION START: Multiple loadout presets
+import { Flex } from 'tgui-core/components';
 import {
   Box,
   Button,
+  // NOVA EDIT ADDITION: Multiple loadout presets
+  Dimmer,
   Divider,
+  // NOVA EDIT ADDITION START: Multiple loadout presets
+  Dropdown,
   Icon,
   Input,
   NoticeBox,
@@ -26,10 +35,9 @@ import { LoadoutModifyDimmer } from './ModifyPanel';
 export function LoadoutPage(props) {
   const serverData = useServerPrefs();
   const loadout_tabs = serverData?.loadout.loadout_tabs || [];
-  // NOVA EDIT ADDITION START
-  const { data } = useBackend<LoadoutManagerData>();
-  const { erp_pref } = data;
-  // NOVA EDIT ADDITION END
+  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>();
+  const { erp_pref } = data; */
+  const erp_pref = useBackend<LoadoutManagerData>().data.erp_pref;
 
   const [searchLoadout, setSearchLoadout] = useState('');
   const [selectedTabName, setSelectedTab] = useState(
@@ -38,6 +46,24 @@ export function LoadoutPage(props) {
   const [modifyItemDimmer, setModifyItemDimmer] = useState<LoadoutItem | null>(
     null,
   );
+  // NOVA EDIT ADDITION START: Multiple loadout presets
+  const [managingPreset, _setManagingPreset] = useLocalState<string | null>(
+    'managingPreset',
+    null,
+  );
+  const { act, data } = useBackend<LoadoutManagerData>();
+  const [input, setInput] = useState('');
+  const setManagingPreset = (value) => {
+    _setManagingPreset(value);
+    setInput('');
+  };
+  const onType = (value: string) => {
+    if (value === input) {
+      return;
+    }
+    setInput(removeAllSkiplines(value));
+  };
+  // NOVA EDIT END
 
   if (!serverData) {
     return <NoticeBox>Loading...</NoticeBox>;
@@ -46,6 +72,81 @@ export function LoadoutPage(props) {
   return (
     <Stack vertical fill>
       <Stack.Item>
+        {/* NOVA EDIT ADDITION START: Multiple loadout presets */}
+        {!!managingPreset && (
+          <Dimmer style={{ zIndex: '100' }}>
+            <Stack
+              vertical
+              width="400px"
+              backgroundColor="#101010"
+              style={{
+                borderRadius: '2px',
+                position: 'relative',
+                display: 'inline-block',
+                padding: '5px',
+              }}
+            >
+              <Stack.Item height="20px" width="100%">
+                <Flex>
+                  <Flex.Item fontSize="1.3rem">
+                    {managingPreset} Loadout Preset
+                  </Flex.Item>
+                  {managingPreset === 'Add' && (
+                    <Flex.Item ml="6px" mt="4px">
+                      (
+                      {
+                        data.character_preferences.misc.loadout_lists.loadouts
+                          .length
+                      }{' '}
+                      of 12 total)
+                    </Flex.Item>
+                  )}
+                  <Flex.Item ml="auto">
+                    <Button
+                      icon="times"
+                      color="red"
+                      onClick={() => {
+                        setManagingPreset(null);
+                      }}
+                    />
+                  </Flex.Item>
+                </Flex>
+              </Stack.Item>
+              <Stack.Item width="100%" height="20px">
+                <Input
+                  placeholder="Maximum of 24 characters long"
+                  width="100%"
+                  maxLength={24}
+                  onChange={(_, value) => onType(value)}
+                  onInput={(_, value) => onType(value)}
+                  onEnter={(event) => {
+                    event.preventDefault();
+                    act(`${managingPreset.toLowerCase()}_loadout_preset`, {
+                      name: input,
+                    });
+                    setManagingPreset(null);
+                  }}
+                  onEscape={() => setManagingPreset(null)}
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <Stack justify="center">
+                  <Button
+                    onClick={() => {
+                      act(`${managingPreset.toLowerCase()}_loadout_preset`, {
+                        name: input,
+                      });
+                      setManagingPreset(null);
+                    }}
+                  >
+                    Done
+                  </Button>
+                </Stack>
+              </Stack.Item>
+            </Stack>
+          </Dimmer>
+        )}
+        {/* NOVA EDIT END */}
         {!!modifyItemDimmer && (
           <LoadoutModifyDimmer
             modifyItemDimmer={modifyItemDimmer}
@@ -127,13 +228,75 @@ function LoadoutTabs(props: LoadoutTabsProps) {
   });
   const searching = currentSearch.length > 1;
 
+  // NOVA EDIT ADDITION START: Multiple loadout presets
+  const { act, data } = useBackend<LoadoutManagerData>();
+  const [_, setManagingPreset] = useLocalState<string | null>(
+    'managingPreset',
+    null,
+  );
+  // NOVA EDIT END
+
   return (
     <Stack fill height="550px">
       <Stack.Item align="center" width="250px" height="100%">
         <Stack vertical fill>
-          <Stack.Item height="60%">
+          <Stack.Item
+            height="50%" // NOVA EDIT: Better loadout pref: ORIGINAL: 60%
+          >
             <LoadoutPreviewSection />
           </Stack.Item>
+          {/* NOVA EDIT ADDITION START: Multiple loadout presets */}
+          <Stack.Item>
+            <Section>
+              <Stack vertical>
+                <Stack.Item>
+                  <Dropdown
+                    mb="2px"
+                    width="100%"
+                    options={
+                      data.character_preferences.misc.loadout_lists.loadouts
+                    }
+                    selected={data.character_preferences.misc.loadout_index}
+                    onSelected={(value) =>
+                      act('set_loadout_preset', { name: value })
+                    }
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <Button.Confirm
+                    icon="times"
+                    color="red"
+                    align="center"
+                    disabled={
+                      data.character_preferences.misc.loadout_index ===
+                      'Default'
+                    }
+                    tooltip={
+                      data.character_preferences.misc.loadout_index ===
+                      'Default'
+                        ? "Can't delete the default loadout entry."
+                        : 'Delete the current loadout entry.'
+                    }
+                    onClick={() => act('remove_loadout_preset')}
+                  >
+                    Delete
+                  </Button.Confirm>
+                  <Button onClick={() => setManagingPreset('Add')} icon="plus">
+                    Add Loadout
+                  </Button>
+                  <Button
+                    icon="pen"
+                    onClick={() => setManagingPreset('Rename')}
+                    disabled={
+                      data.character_preferences.misc.loadout_index ===
+                      'Default'
+                    }
+                  />
+                </Stack.Item>
+              </Stack>
+            </Section>
+          </Stack.Item>
+          {/* NOVA EDIT END */}
           <Stack.Item grow>
             <LoadoutSelectedSection
               all_tabs={loadout_tabs}
@@ -253,7 +416,7 @@ type LoadoutSelectedSectionProps = {
 
 function LoadoutSelectedSection(props: LoadoutSelectedSectionProps) {
   const { act, data } = useBackend<LoadoutManagerData>();
-  const { loadout_list } = data.character_preferences.misc;
+  const loadout_list = data.character_preferences.misc.loadout_lists.loadout; // NOVA EDIT: Multiple loadout presets: ORIGINAL: const { loadout_list } = data.character_preferences.misc;
   const { all_tabs, modifyItemDimmer, setModifyItemDimmer } = props;
 
   return (
@@ -296,16 +459,17 @@ function LoadoutPreviewSection() {
   return (
     <Section
       fill
-      title="&nbsp;"
-      buttons={
-        <Button.Checkbox
-          align="center"
-          checked={data.job_clothes}
-          onClick={() => act('toggle_job_clothes')}
-        >
-          Job Clothes
-        </Button.Checkbox>
-      }
+      // NOVA EDIT REMOVAL: Better loadout pref
+      // title="&nbsp;"
+      // buttons={
+      //   <Button.Checkbox
+      //     align="center"
+      //     checked={data.job_clothes}
+      //     onClick={() => act('toggle_job_clothes')}
+      //   >
+      //     Job Clothes
+      //   </Button.Checkbox>
+      // }
     >
       <Stack vertical fill>
         <Stack.Item grow align="center">
@@ -314,6 +478,19 @@ function LoadoutPreviewSection() {
         <Stack.Divider />
         <Stack.Item align="center">
           <Stack>
+            {/* NOVA EDIT ADDITION START: Better loadout pref */}
+            <Stack.Item>
+              <Dropdown
+                selected={data.preview_selection}
+                options={data.preview_options}
+                onSelected={(value) =>
+                  act('update_preview', {
+                    updated_preview: value,
+                  })
+                }
+              />
+            </Stack.Item>
+            {/* NOVA EDIT END */}
             <Stack.Item>
               <Button
                 icon="chevron-left"
