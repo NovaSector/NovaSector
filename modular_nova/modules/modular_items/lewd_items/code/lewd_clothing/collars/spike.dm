@@ -1,5 +1,5 @@
-/// I originally scrapped this when I was working through these again but I don't feel particularly comfortable just killing them off here either
-/// So, in lieu of figuring out their resprite finally - weird compromise with an old sprite lol
+// I originally scrapped this when I was working through these again but I don't feel particularly comfortable just killing them off here either
+// So, in lieu of figuring out their resprite finally - weird compromise with an old sprite lol
 
 /obj/item/clothing/neck/collar/spike
 	name = "spiked collar"
