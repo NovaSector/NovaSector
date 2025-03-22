@@ -7166,7 +7166,6 @@
 #include "modular_nova\modules\aesthetics\disposals\code\disposals.dm"
 #include "modular_nova\modules\aesthetics\disposals\code\pipes.dm"
 #include "modular_nova\modules\aesthetics\emitter\code\emitter.dm"
-#include "modular_nova\modules\aesthetics\extinguisher\code\extinguisher.dm"
 #include "modular_nova\modules\aesthetics\firealarm\code\firealarm.dm"
 #include "modular_nova\modules\aesthetics\firedoor\code\firedoor.dm"
 #include "modular_nova\modules\aesthetics\flag\code\signs_flags.dm"
