@@ -114,10 +114,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/hunter
 	icon_state = "stack_spec"
 
-/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/improvised
-	name = "12 gauge improvised shells"
-	ammo_type = /obj/item/ammo_casing/shotgun/improvised
-
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/incendiary
 	name = "12 gauge incendiary shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
@@ -130,6 +126,14 @@
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/rubbershot
 	name = "12 gauge rubbershot shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
+
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/milspec
+	name = "12 gauge milspec slug shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/milspec
+
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot/milspec
+	name = "12 gauge milspec buckshot shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot/milspec
 
 // Pistol ammo
 
