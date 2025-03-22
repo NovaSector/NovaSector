@@ -1,19 +1,14 @@
 import { Fragment, useState } from 'react';
-// NOVA EDIT CHANGE - Original: import { useBackend } from 'tgui/backend';
-import { useBackend, useLocalState } from 'tgui/backend';
+import { useBackend } from 'tgui/backend';
 import { CharacterPreview } from 'tgui/interfaces/common/CharacterPreview';
-// NOVA EDIT ADDITION: Multiple loadout presets
-import { removeAllSkiplines } from 'tgui/interfaces/TextInputModal';
-// NOVA EDIT ADDITION START: Multiple loadout presets
-import { Flex } from 'tgui-core/components';
+import { removeAllSkiplines } from 'tgui/interfaces/TextInputModal'; // NOVA EDIT ADDITION: Multiple loadout presets
+import { Flex } from 'tgui-core/components'; // NOVA EDIT ADDITION: Multiple loadout presets
 import {
   Box,
   Button,
-  // NOVA EDIT ADDITION: Multiple loadout presets
-  Dimmer,
+  Dimmer, // NOVA EDIT ADDITION: Multiple loadout presets
   Divider,
-  // NOVA EDIT ADDITION START: Multiple loadout presets
-  Dropdown,
+  Dropdown, // NOVA EDIT ADDITION: Multiple loadout presets
   Icon,
   Input,
   NoticeBox,
@@ -22,6 +17,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
+import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
 import {
   LoadoutCategory,
@@ -47,11 +43,8 @@ export function LoadoutPage(props) {
     null,
   );
   // NOVA EDIT ADDITION START: Multiple loadout presets
-  const [managingPreset, _setManagingPreset] = useLocalState<string | null>(
-    'managingPreset',
-    null,
-  );
-  const { act, data } = useBackend<LoadoutManagerData>();
+  const [managingPreset, _setManagingPreset] = useState<string | null>(null);
+  const { act, data } = useBackend<PreferencesMenuData>();
   const [input, setInput] = useState('');
   const setManagingPreset = (value) => {
     _setManagingPreset(value);
@@ -201,6 +194,7 @@ export function LoadoutPage(props) {
           currentSearch={searchLoadout}
           modifyItemDimmer={modifyItemDimmer}
           setModifyItemDimmer={setModifyItemDimmer}
+          setManagingPreset={setManagingPreset} // NOVA EDIT ADDITION: Multiple loadout presets
         />
       </Stack.Item>
     </Stack>
@@ -213,6 +207,7 @@ type LoadoutTabsProps = {
   currentSearch: string;
   modifyItemDimmer: LoadoutItem | null;
   setModifyItemDimmer: (dimmer: LoadoutItem | null) => void;
+  setManagingPreset: (string) => void; // NOVA EDIT ADDITION: Multiple loadout presets
 };
 
 function LoadoutTabs(props: LoadoutTabsProps) {
@@ -222,20 +217,14 @@ function LoadoutTabs(props: LoadoutTabsProps) {
     currentSearch,
     modifyItemDimmer,
     setModifyItemDimmer,
+    setManagingPreset, // NOVA EDIT ADDITION: Multiple loadout presets
   } = props;
   const activeCategory = loadout_tabs.find((curTab) => {
     return curTab.name === currentTab;
   });
   const searching = currentSearch.length > 1;
 
-  // NOVA EDIT ADDITION START: Multiple loadout presets
-  const { act, data } = useBackend<LoadoutManagerData>();
-  const [_, setManagingPreset] = useLocalState<string | null>(
-    'managingPreset',
-    null,
-  );
-  // NOVA EDIT END
-
+  const { act, data } = useBackend<PreferencesMenuData>(); // NOVA EDIT ADDITION: Multiple loadout presets
   return (
     <Stack fill height="550px">
       <Stack.Item align="center" width="250px" height="100%">
