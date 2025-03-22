@@ -35,7 +35,7 @@
 	empty_indicator = TRUE
 	empty_alarm = TRUE
 	casing_ejector = TRUE
-	mag_display_ammo = TRUE
+	mag_display_ammo = FALSE
 	semi_auto = TRUE
 	internal_magazine = FALSE
 	tac_reloads = TRUE
