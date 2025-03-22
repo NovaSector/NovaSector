@@ -1,7 +1,7 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
-	icon = 'icons/obj/wallmounts.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "extinguisher_closed"
 	anchored = TRUE
 	density = FALSE
@@ -16,8 +16,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 	. = ..()
 	if(building)
 		opened = TRUE
-		//icon_state = "extinguisher_empty" ORIGINAL
-		icon_state = "extinguisher_empty_open"	//NOVA EDIT CHANGE - AESTHETICS
+		icon_state = "extinguisher_empty"
 	else
 		stored_extinguisher = new /obj/item/extinguisher(src)
 	update_appearance(UPDATE_ICON)
@@ -141,7 +140,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 		opened = !opened
 		update_appearance(UPDATE_ICON)
 
-/* NOVA EDIT REMOVAL BEGIN - AESTHETICS - MOVED TO MODULAR.
 /obj/structure/extinguisher_cabinet/update_icon_state()
 	icon_state = "extinguisher"
 
@@ -157,7 +155,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 		icon_state += "_default"
 
 	return ..()
-*/
 
 /obj/structure/extinguisher_cabinet/update_overlays()
 	. = ..()
