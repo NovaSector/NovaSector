@@ -629,7 +629,7 @@
 	item_path = /obj/item/clothing/under/maid_costume
 
 /datum/loadout_item/under/miscellaneous/tactical_maid_costume
-	name ="Tactical Maid Uniform"
+	name = "Tactical Maid Uniform"
 	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
 
 
