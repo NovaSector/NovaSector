@@ -2663,7 +2663,7 @@
 	. = ..()
 	target.adjust_hallucinations(5 SECONDS * REM * seconds_per_tick)
 	var/datum/antagonist/changeling/changeling = IS_CHANGELING(target)
-	changeling.adjust_chemicals(-4 * REM * seconds_per_tick) //NOVA EDIT - BZ-BUFF-VS-LING - ORIGINAL: changeling.adjust_chemicals(-2 * REM * seconds_per_tick)
+	changeling?.adjust_chemicals(-4 * REM * seconds_per_tick) // NOVA EDIT CHANGE - BZ-BUFF-VS-LING - ORIGINAL: changeling?.adjust_chemicals(-2 * REM * seconds_per_tick)
 
 /datum/reagent/pax/peaceborg
 	name = "Synthpax"
