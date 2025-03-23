@@ -45,7 +45,9 @@
 	qdel(weapon)
 	active = TRUE
 	update_appearance(UPDATE_ICON_STATE)
-	update_transform_action()
+	/// NOVA EDIT REMOVE START (fix issue with polymorph belt making your spritesize 1 upon scanning a mob/touching the belt after a mob is scanned on it)
+	/// update_transform_action()
+	/// NOVA EDIT REMOVE END
 	playsound(src, 'sound/machines/crate/crate_open.ogg', 50, FALSE)
 
 /obj/item/polymorph_belt/attack(mob/living/target_mob, mob/living/user, params)
