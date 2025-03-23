@@ -91,7 +91,7 @@
 	update_transform_action()
 	// NOVA EDIT ADDITION START
 	var/mob/living/carbon/carbon_mob = user
-	if(istype(carbon_mob)
+	if(istype(carbon_mob))
 		carbon_mob.dna?.update_body_size() 
 	// NOVA EDIT ADDITION END
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
