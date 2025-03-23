@@ -1160,3 +1160,13 @@
   - admin: added Federal Alert
   vinylspiders:
   - bugfix: the bump teleporter effect functions again
+2025-03-22:
+  Jedi-Toothpaste:
+  - rscadd: New Donator Item, Ahab's Spear Retool Kit
+  the-og-gear:
+  - rscdel: RD and Scientists no longer have a ballmer's peak by default
+2025-03-23:
+  jjpark-kb:
+  - rscadd: adds the ability to focus the bluespace miner, tripling the chance for
+      an ore
+  - code_imp: made some of the code blocks prettier/more readable.
