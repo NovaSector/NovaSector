@@ -1,4 +1,0 @@
-author: "jjpark-kb"
-delete-after: True
-changes:
-  - code_imp: "beautify the slide component (not player facing)"
