@@ -88,7 +88,9 @@
 		return TRUE
 	visible_message(span_notice("[user] scans [target_mob] with [src]."))
 	stored_mob_type = target_mob.type
-	update_transform_action()
+	/// NOVA EDIT REMOVAL START
+	/// update_transform_action()
+	/// NOVA EDIT REMOVAL END
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
 
