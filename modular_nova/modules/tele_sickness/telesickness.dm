@@ -5,7 +5,7 @@
 
 /atom/movable/screen/alert/status_effect/tele_sickness
 	name = "Teleport Sickness"
-	desc = "Your body has teleported far too often, and feels quite fatigued. It may be dangerous to continue teleporting."
+	desc = "Your body has teleported recently. It may be dangerous to continue teleporting."
 	icon_state = "flux"
 
 /datum/status_effect/tele_sickness
