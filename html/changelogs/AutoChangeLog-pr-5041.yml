@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "Antagonists tab in preferences, scrollable in Byond 516 now /:cl:\n---\nSeparated out because it causes a bug with the quirks tab in 515."
