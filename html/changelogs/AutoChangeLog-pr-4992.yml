@@ -1,7 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - balance: "Solfed marshals have now recieved their pistol certifications"
-  - image: "modified security alert screens for better immersion and detail"
-  - admin: "added Epsilon Alert"
-  - admin: "added Federal Alert"
