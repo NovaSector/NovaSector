@@ -1,0 +1,4 @@
+author: "Kocma-san"
+delete-after: True
+changes:
+  - rscdel: "unused traits related to xenomorphs have been removed"

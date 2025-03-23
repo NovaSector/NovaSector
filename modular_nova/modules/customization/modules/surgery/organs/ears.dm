@@ -1,4 +1,4 @@
-/obj/item/organ/ears_cosmetic
+/obj/item/organ/ears_external
 	name = "fluffy ears"
 	desc = "Wait, there's two pairs of these?"
 	icon = 'icons/obj/clothing/head/costume.dmi'
