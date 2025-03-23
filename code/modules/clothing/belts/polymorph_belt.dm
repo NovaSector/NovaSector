@@ -89,7 +89,11 @@
 	visible_message(span_notice("[user] scans [target_mob] with [src]."))
 	stored_mob_type = target_mob.type
 	update_transform_action()
-	user.dna?.update_body_size() // NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
+	var/mob/living/carbon/carbon_mob = user
+	if(istype(carbon_mob)
+		carbon_mob.dna?.update_body_size() 
+	// NOVA EDIT ADDITION END
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
 
