@@ -47,7 +47,10 @@
 
 /// adds a stage and does the stage effects: is listening for the post teleport comsig
 /datum/status_effect/tele_sickness/proc/stage_changing()
-	stage += 1
+	if(IS_SPACE_NINJA(owner)
+		stage += 0.5
+	else
+		stage += 1
 	stage_effects()
 
 /// these are the stage effects from teleporting too much-- every other stage has new effects
