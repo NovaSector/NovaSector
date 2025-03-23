@@ -1,0 +1,16 @@
+{
+	"hypnogoggles": [
+		{
+			"type": "icon_state",
+			"icon_state": "hypnogoggles_strap",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "hypnogoggles_visor",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}
