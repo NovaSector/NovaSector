@@ -1,0 +1,4 @@
+author: "Floofies"
+delete-after: True
+changes:
+  - bugfix: "Fixed ears sprites becoming invisible for non-default ears options."
