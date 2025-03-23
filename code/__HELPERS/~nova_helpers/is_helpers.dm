@@ -31,6 +31,3 @@
 #define isfeline(A) (isfelinid(A) || istajaran(A) || HAS_TRAIT(A, TRAIT_FELINE))
 #define iscanine(A) (isvulpkanin(A) || HAS_TRAIT(A, TRAIT_CANINE))
 #define isavian(A) (isteshari(A) || isvox(A) || isvoxprimalis(A) || HAS_TRAIT(A, TRAIT_AVIAN))
-
-// Xen mobs
-#define isxenmob(A) (istype(A, /mob/living/simple_animal/hostile/blackmesa/xen))
