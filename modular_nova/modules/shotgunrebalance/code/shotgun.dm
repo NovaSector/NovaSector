@@ -118,7 +118,7 @@
 	advanced_print_req = TRUE
 
 /obj/projectile/bullet/shotgun_slug/milspec
-	damage = 65 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
 	speed = 1.5
 
 /obj/item/ammo_casing/shotgun/rubbershot
@@ -147,7 +147,7 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot pellet"
 	damage = 10
-	wound_bonus = 10
+	bare_wound_bonus = 10
 	armour_penetration = 5
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
