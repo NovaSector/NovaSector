@@ -1,34 +1,102 @@
 /*
-*	Overwrites all the security icons with our own bluesec versions; this means little to no mapping/spawning conflicts!
-*	(Also includes 'old' versions at the bottom of the file, for the purpose of crates/vendors/admin shenanigans. Can't remove them ENTIRELY after all!)
+*	Overrides some of the security items, giving them more reskin options while avoiding needless conflict or bloat.
 */
 
 /*
 *	PLASMAMEN
 *	This goes first due to simultaneously being easy to do, and complex to organize
+*	We'll give them an option of reskinning their outfit to either color due to their envirosuits not being available in secdrobes.
 */
 
 /obj/item/clothing/under/plasmaman/security
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi'
-	icon_state = "security_envirosuit_new"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "security_envirosuit",
+			RESKIN_WORN_ICON_STATE = "security_envirosuit"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi',
+			RESKIN_ICON_STATE = "security_envirosuit_new",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi',
+			RESKIN_WORN_ICON_STATE = "security_envirosuit_new"
+		),
+	)
 
 /obj/item/clothing/under/plasmaman/security/warden
-	icon_state = "warden_envirosuit_new"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "warden_envirosuit",
+			RESKIN_WORN_ICON_STATE = "warden_envirosuit"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi',
+			RESKIN_ICON_STATE = "warden_envirosuit_new",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi',
+			RESKIN_WORN_ICON_STATE = "warden_envirosuit_new"
+		),
+	)
 
 /obj/item/clothing/under/plasmaman/security/head_of_security
-	icon_state = "hos_envirosuit_new"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "hos_envirosuit",
+			RESKIN_WORN_ICON_STATE = "hos_envirosuit"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi',
+			RESKIN_ICON_STATE = "hos_envirosuit_new",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi',
+			RESKIN_WORN_ICON_STATE = "hos_envirosuit_new"
+		),
+	)
 
 /obj/item/clothing/head/helmet/space/plasmaman/security
-	icon = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi'
-	icon_state = "security_envirohelm_new"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "security_envirohelm",
+			RESKIN_WORN_ICON_STATE = "security_envirohelm"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi',
+			RESKIN_ICON_STATE = "security_envirohelm_new",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi',
+			RESKIN_WORN_ICON_STATE = "security_envirohelm_new"
+		),
+	)
 
 /obj/item/clothing/head/helmet/space/plasmaman/security/warden
-	icon_state = "warden_envirohelm_new"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "warden_envirohelm",
+			RESKIN_WORN_ICON_STATE = "warden_envirohelm"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi',
+			RESKIN_ICON_STATE = "warden_envirohelm_new",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi',
+			RESKIN_WORN_ICON_STATE = "warden_envirohelm_new"
+		),
+	)
 
 /obj/item/clothing/head/helmet/space/plasmaman/security/head_of_security
-	icon_state = "hos_envirohelm_new"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "hos_envirohelm",
+			RESKIN_WORN_ICON_STATE = "hos_envirohelm"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi',
+			RESKIN_ICON_STATE = "hos_envirohelm_new",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi',
+			RESKIN_WORN_ICON_STATE = "hos_envirohelm_new"
+		),
+	)
 
 /*
 * ACCESSORIES
