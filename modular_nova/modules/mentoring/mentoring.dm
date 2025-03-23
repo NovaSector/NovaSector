@@ -1,3 +1,9 @@
+#define AUTHOR_LEVEL_NOVICE 2
+#define AUTHOR_LEVEL_APPRENTICE 3
+#define AUTHOR_LEVEL_JOURNEYMAN 4
+#define AUTHOR_LEVEL_EXPERT 5
+#define AUTHOR_LEVEL_MASTER 6
+
 /datum/crafting_recipe/mentoring_book
 	name = "Mentoring Book"
 	result = /obj/item/mentoring_book
