@@ -100,8 +100,8 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/express
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette
-	name = "12 gauge flechette shells"
-	ammo_type = /obj/item/ammo_casing/shotgun/flechette
+	name = "12 gauge ripper flechette shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova
 	icon_state = "stack_spec"
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/frag12

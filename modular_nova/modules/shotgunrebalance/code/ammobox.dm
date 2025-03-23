@@ -50,10 +50,10 @@
 	max_ammo = 15
 
 /obj/item/ammo_box/advanced/s12gauge/flechette
-	name = "shell box (flechette)"
-	desc = "A box of 15 flechette shells. Each shell contains a small group of tumbling blades that excel at causing terrible wounds."
+	name = "shell box (ripper flechette)"
+	desc = "A box of 15 ripper flechette shells. Each shell contains a small group of tumbling blades that excel at causing terrible wounds."
 	icon_state = "flechette"
-	ammo_type = /obj/item/ammo_casing/shotgun/flechette
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova
 	max_ammo = 15
 
 /obj/item/ammo_box/advanced/s12gauge/beehive

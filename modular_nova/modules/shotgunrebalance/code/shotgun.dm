@@ -91,6 +91,7 @@
 /obj/item/ammo_casing/shotgun/buckshot/old
 	name = "old buckshot shell"
 	desc = "A 12 gauge buckshot shell. Improper storage makes using this a questionable prospect, at best."
+	can_be_printed = FALSE // it's just not good
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	damage = 5
@@ -172,25 +173,37 @@
 	transform = transform.Scale(0.75, 0.75)
 
 /obj/item/ammo_casing/shotgun/flechette
-	name = "flechette shell"
+	name = "shredder flechette shell"
+	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
+	// pellets remaining unchanged but getting a damage buff
+
+/obj/projectile/bullet/pellet/flechette
+	name = "shredder flechette"
+	damage = 5 // 8*5 = 40 damage but you've got 30 AP
+	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
+	speed = 1.3 // you can have above average projectile speed. as a treat
+	// embeds staying untouched because i think they're evil and deserve to wreak havoc
+
+/obj/item/ammo_casing/shotgun/flechette_nova
+	name = "ripper flechette shell"
 	desc = "A 12 gauge flechette shell that specializes in ripping unarmored targets apart."
 	icon_state = "fshell"
-	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/flechette
+	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova
 	pellets = 8 //8 x 6 = 48 Damage Potential
 	variance = 15
 	custom_materials = AMMO_MATS_SHOTGUN_FLECH
 	advanced_print_req = TRUE
 
-/obj/projectile/bullet/pellet/shotgun_buckshot/flechette
-	name = "flechette"
+/obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova
+	name = "ripper flechette"
 	icon = 'modular_nova/modules/shotgunrebalance/icons/projectiles.dmi'
 	icon_state = "flechette"
 	damage = 6
-	wound_bonus = 10
-	bare_wound_bonus = 20
+	wound_bonus = 0
+	bare_wound_bonus = 15
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
 
-/obj/projectile/bullet/pellet/shotgun_buckshot/flechette/Initialize(mapload)
+/obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova/Initialize(mapload)
 	. = ..()
 	SpinAnimation()
 
