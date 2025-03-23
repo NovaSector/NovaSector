@@ -283,7 +283,7 @@
 	item_path = /obj/item/clothing/head/maid_headband
 
 /datum/loadout_item/head/tactical_headband
-	name ="tactical Maid headband"
+	name ="tactical maid headband"
 	item_path = /obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
 
 /datum/loadout_item/head/hairpin
