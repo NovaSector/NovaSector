@@ -29,8 +29,6 @@
 		if(!isnull(species_instance.name))
 			GLOB.default_mutant_bodyparts[species_instance.name] = species_instance.get_default_mutant_bodyparts()
 			// Prevent ears from randomizing when set to None
-			if(!("ears" in GLOB.default_mutant_bodyparts[species_instance.name]))
-				GLOB.default_mutant_bodyparts[species_instance.name]["ears"] = list("None", FALSE)
 			if(species_instance.can_have_genitals)
 				for(var/genital in GLOB.possible_genitals)
 					GLOB.default_mutant_bodyparts[species_instance.name] += list((genital) = list("None", FALSE))
