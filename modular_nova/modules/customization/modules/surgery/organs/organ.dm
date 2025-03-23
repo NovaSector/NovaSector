@@ -5,11 +5,13 @@
 	var/sprite_accessory_flags = NONE
 	/// Relevant layer flags, as set by the organ's associated sprite_accessory, should there be one.
 	var/relevant_layers
-
-/obj/item/organ
 	///This is for associating an organ with a mutant bodypart. Look at tails for examples
 	var/mutantpart_key
+	/// A list with utant part preference name, its color and emissives if they exist (check code\__DEFINES\~nova_defines\DNA.dm)
 	var/list/list/mutantpart_info
+	/// Whether or not we're a species-specific organ that will override
+	/// the ear choice on a certain species, while still applying its visuals.
+	var/overrides_sprite_datum_organ_type = FALSE
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
@@ -17,10 +19,8 @@
 		color = mutantpart_info[MUTANT_INDEX_COLOR_LIST][1]
 
 /obj/item/organ/Remove(mob/living/carbon/organ_owner, special, movement_flags)
-	// NOVA EDIT ADDITION START
 	if(mutantpart_key)
 		transfer_mutantpart_info(organ_owner, special)
-	// NOVA EDIT ADDITION END
 	return ..()
 
 /// Copies the organ's mutantpart_info to the owner's mutant_bodyparts
