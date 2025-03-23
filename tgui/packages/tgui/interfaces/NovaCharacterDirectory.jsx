@@ -204,7 +204,7 @@ const ViewCharacter = (props) => {
                   title="OOC Notes"
                   preserveWhitespace
                 >
-                  {overlay.veteran_status && (
+                  {!!overlay.veteran_status && (
                     <Stack.Item>
                       <span
                         style={{
