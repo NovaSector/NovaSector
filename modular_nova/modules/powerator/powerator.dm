@@ -162,6 +162,8 @@
 
 		current_power = attached_cable.newavail()
 
+	current_power = clamp(current_power, 0, max_power)
+
 	if(current_power == 0)
 		return
 
