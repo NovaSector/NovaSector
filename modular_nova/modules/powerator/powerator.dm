@@ -167,10 +167,12 @@
 
 	attached_cable.add_delayedload(current_power)
 
-	var/money_ratio = round(current_power * divide_ratio)
-	var/datum/bank_account/synced_bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	synced_bank_account.adjust_money(money_ratio)
-	credits_made += money_ratio
+	var/money_ratio = round(current_power * divide_ratio) * 0.5 //split it in half for cargo and engi
+	var/datum/bank_account/synced_cargo_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
+	var/datum/bank_account/synced_engi_account = SSeconomy.get_dep_account(ACCOUNT_ENG)
+	synced_cargo_account.adjust_money(money_ratio)
+	synced_engi_account.adjust_money(money_ratio)
+	credits_made += money_ratio //don't want to be misleading, but just display what half each departments get and not the total
 
 /obj/machinery/powerator/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
