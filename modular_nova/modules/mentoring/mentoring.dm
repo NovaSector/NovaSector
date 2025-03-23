@@ -56,15 +56,15 @@
 	var/level_name
 	if(author_level)
 		switch(author_level)
-			if(2)
+			if(AUTHOR_LEVEL_NOVICE)
 				level_name = "novice"
-			if(3)
+			if(AUTHOR_LEVEL_APPRENTICE)
 				level_name = "apprentice"
-			if(4)
+			if(AUTHOR_LEVEL_JOURNEYMAN)
 				level_name = "journeyman"
-			if(5)
+			if(AUTHOR_LEVEL_EXPERT)
 				level_name = "expert"
-			if(6)
+			if(AUTHOR_LEVEL_MASTER)
 				level_name = "master"
 
 	if(taught_skill)
