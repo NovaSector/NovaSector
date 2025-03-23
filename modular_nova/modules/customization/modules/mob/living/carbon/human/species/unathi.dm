@@ -25,6 +25,7 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("Smooth", TRUE),
 		"snout" = list("Sharp + Light", TRUE),
 		"spines" = list("None", FALSE),
