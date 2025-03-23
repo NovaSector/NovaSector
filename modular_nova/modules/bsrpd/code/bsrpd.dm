@@ -36,8 +36,6 @@
 		current_capacity += BSRPD_CAPACITY_NEW
 		return ITEM_INTERACT_SUCCESS
 
-		return ITEM_INTERACT_BLOCKING
-
 	if(istype(tool, /obj/item/assembly/signaler/anomaly/bluespace))
 		if(ranged_use_cost)
 			to_chat(user, span_notice("You slot [tool] into [src]; supercharging the bluespace capacitor!"))
