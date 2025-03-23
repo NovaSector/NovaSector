@@ -49,7 +49,7 @@
 
 		return ITEM_INTERACT_BLOCKING
 
-	return ITEM_INTERACT_SUCCESS
+	return NONE
 
 /obj/item/pipe_dispenser/bluespace/examine(mob/user)
 	. = ..()
