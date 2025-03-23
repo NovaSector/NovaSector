@@ -2,6 +2,10 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 
+/obj/item/clothing/under/rank/security/warden/nova
+	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+
 /obj/item/clothing/under/rank/security/head_of_security/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
@@ -11,6 +15,115 @@
 /*
 *	SECURITY OFFICER
 */
+
+/obj/item/clothing/under/rank/security/nova/officer //Bluesec suit
+	name = "security uniform"
+	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
+	icon_state = "security_black"
+	alt_covers_chest = TRUE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "security_black",
+			RESKIN_WORN_ICON_STATE = "security_black"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "security_blue",
+			RESKIN_WORN_ICON_STATE = "security_blue"
+		),
+		"White Variant" = list(
+			RESKIN_ICON_STATE = "security_white",
+			RESKIN_WORN_ICON_STATE = "security_white"
+		),
+	)
+
+/obj/item/clothing/under/rank/security/nova/formal
+	name = "security formal suit"
+	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
+	icon_state = "peacekeeper" //rename this
+
+/obj/item/clothing/under/rank/security/nova/formal/blue
+	icon_state = "peacekeeper_blue" //rename this
+
+/obj/item/clothing/under/rank/security/nova/officer/skirt
+	name = "security jumpskirt"
+	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
+	icon_state = "jumpskirt_blue"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "jumpskirt_blue",
+			RESKIN_WORN_ICON_STATE = "jumpskirt_blue"
+        ),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "jumpskirt_black",
+			RESKIN_WORN_ICON_STATE = "jumpskirt_black"
+		),
+	)
+
+/obj/item/clothing/under/rank/security/nova/plain_skirt
+	name = "security plain skirt"
+	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
+	icon_state = "plain_skirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "plain_skirt",
+			RESKIN_WORN_ICON_STATE = "plain_skirt"
+	    ),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "plain_skirt_black",
+			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
+	    ),
+	)
+
+/obj/item/clothing/under/rank/security/nova/plain_skirt/blue
+	icon_state = "plain_skirt_blue"
+	unique_reskin = list(
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "plain_skirt_blue",
+			RESKIN_WORN_ICON_STATE = "plain_skirt_blue"
+	    ),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "plain_skirt_black",
+			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
+	    ),
+	)
+
+/obj/item/clothing/under/rank/security/nova/miniskirt
+	name = "security miniskirt"
+	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
+	icon_state = "miniskirt"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	gets_cropped_on_taurs = FALSE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "miniskirt",
+			RESKIN_WORN_ICON_STATE = "miniskirt"
+	    ),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "miniskirt_black",
+			RESKIN_WORN_ICON_STATE = "miniskirt_black"
+	    ),
+	)
+
+/obj/item/clothing/under/rank/security/nova/miniskirt/blue
+	icon_state = "miniskirt_blue"
+	unique_reskin = list(
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "miniskirt_blue",
+			RESKIN_WORN_ICON_STATE = "miniskirt_blue"
+	    ),
+		"Black Variant" = list(
+			RESKIN_ICON_STATE = "miniskirt_black",
+			RESKIN_WORN_ICON_STATE = "miniskirt_black"
+	    ),
+	)
 
 /obj/item/clothing/under/rank/security/nova/utility
 	name = "security utility uniform"
@@ -123,76 +236,70 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
 	icon_state = "jumpsuit_blue"
 
-/obj/item/clothing/under/rank/security/nova/plain_skirt
-	name = "security plain skirt"
-	desc = "Plain-shirted uniform commonly worn by NT officers, attached with a skirt."
-	icon_state = "plain_skirt"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	gets_cropped_on_taurs = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt",
-			RESKIN_WORN_ICON_STATE = "plain_skirt"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_black",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
-	    ),
-	)
+/*
+*	WARDEN
+*/
 
-/obj/item/clothing/under/rank/security/nova/plain_skirt/blue
-	icon_state = "plain_skirt_blue"
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_blue",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_blue"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_black",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
-	    ),
-	)
+/obj/item/clothing/under/rank/security/warden/nova
+	icon_state = "warden_black"
+	inhand_icon_state = "r_suit"
 
-/obj/item/clothing/under/rank/security/nova/miniskirt
-	name = "security miniskirt"
-	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
-	icon_state = "miniskirt"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	gets_cropped_on_taurs = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt",
-			RESKIN_WORN_ICON_STATE = "miniskirt"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_black"
-	    ),
-	)
+/obj/item/clothing/under/rank/security/warden/nova/suit
+	name = "warden's suit"
+	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
+	icon_state = "peacekeeper_warden" //rename this
 
-/obj/item/clothing/under/rank/security/nova/miniskirt/blue
-	icon_state = "miniskirt_blue"
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_blue",
-			RESKIN_WORN_ICON_STATE = "miniskirt_blue"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_black"
-	    ),
-	)
+/obj/item/clothing/under/rank/security/warden/nova/suit/blue
+	icon_state = "peacekeeper_warden_blue" //rename this
 
 /*
 *	HEAD OF SECURITY
 */
 
+/obj/item/clothing/under/rank/security/head_of_security/nova
+	icon_state = "hos_black"
+
+/obj/item/clothing/under/rank/security/head_of_security/nova/formal
+	name = "head of security's formal suit"
+	desc = "A security suit decorated for those few with the dedication to achieve the position of Head of Security."
+	icon_state = "peacekeeper_hos" //rename this
+
+/obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue
+	icon_state = "peacekeeper_hos_blue" //rename this
+
 /obj/item/clothing/under/rank/security/head_of_security/nova/imperial //Rank pins of the Grand General
 	desc = "A tar black naval suit and a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
 	name = "head of security's naval jumpsuit"
 	icon_state = "imphos"
+
+/obj/item/clothing/under/rank/security/head_of_security/nova/parade
+	name = "head of security's parade uniform"
+	desc = "A male head of security's luxury-wear, for special occasions."
+	icon_state = "hos_parade_male_blue"
+	inhand_icon_state = "r_suit"
+	can_adjust = FALSE
+
+/obj/item/clothing/under/rank/security/head_of_security/nova/parade/female
+	name = "head of security's formal uniform"
+	desc = "A female head of security's luxury-wear, for special occasions."
+	icon_state = "hos_parade_fem_blue"
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+
+/obj/item/clothing/under/rank/security/head_of_security/nova/alt
+	name = "head of security's turtleneck"
+	desc = "A stylish alternative to the normal head of security jumpsuit, complete with tactical pants."
+	icon_state = "hosalt_blue"
+	inhand_icon_state = "bl_suit"
+	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/rank/security/head_of_security/nova/alt/skirt
+	name = "head of security's turtleneck skirt"
+	desc = "A stylish alternative to the normal head of security jumpsuit, complete with a tactical skirt."
+	icon_state = "hosalt_skirt_blue"
+	body_parts_covered = CHEST|GROIN|ARMS
+	dying_key = DYE_REGISTRY_JUMPSKIRT
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /*
 *	SYNDICATE
