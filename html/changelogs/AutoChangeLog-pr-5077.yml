@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "fixed ear sprite getting removed when you change you ears in augs+ or through surgery"

@@ -282,6 +282,10 @@
 	name = "Colourable Maid Headband"
 	item_path = /obj/item/clothing/head/maid_headband
 
+/datum/loadout_item/head/tactical_headband
+	name ="tactical maid headband"
+	item_path = /obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
+
 /datum/loadout_item/head/hairpin
 	name = "Fancy Hairpin"
 	item_path = /obj/item/clothing/head/costume/hairpin
@@ -604,7 +608,7 @@
 
 /datum/loadout_item/head/solpolicehelmet
 	name = "Sol Police Helmet"
-	item_path = /obj/item/clothing/head/helmet/sec/sol 
+	item_path = /obj/item/clothing/head/helmet/sec/sol
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 
 /datum/loadout_item/head/officerpatrolcap
