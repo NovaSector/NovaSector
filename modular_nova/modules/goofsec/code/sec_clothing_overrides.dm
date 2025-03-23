@@ -146,15 +146,15 @@
 	unique_reskin = NONE
 	current_skin = "securitywebbing" //Prevents reskinning
 
-/obj/item/storage/belt/security/webbing/peacekeeper
+/obj/item/storage/belt/security/webbing/blue
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	current_skin = "peacekeeper_webbing"
+	current_skin = "peacekeeper_webbing" //To rename
 
-/obj/item/storage/belt/security/webbing/armadyne
+/obj/item/storage/belt/security/webbing/red
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	current_skin = "armadyne_webbing"
+	current_skin = "armadyne_webbing" //To rename
 
 ///Enables you to quickdraw weapons from security holsters
 /datum/storage/security/open_storage(datum/source, mob/user)
@@ -533,75 +533,21 @@
 * UNDER
 */
 //Officer
+//Adds reskin for redsec suit
 /obj/item/clothing/under/rank/security/officer
-	desc = "A tactical security uniform for officers, complete with a Lopland belt buckle."
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "security_black"
-	alt_covers_chest = TRUE
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
+			RESKIN_ALT_COVERS_CHEST = TRUE
 			RESKIN_ICON_STATE = "security_black",
 			RESKIN_WORN_ICON_STATE = "security_black"
 		),
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "security_blue",
-			RESKIN_WORN_ICON_STATE = "security_blue"
-		),
 		"White Variant" = list(
+			RESKIN_ALT_COVERS_CHEST = TRUE
 			RESKIN_ICON_STATE = "security_white",
 			RESKIN_WORN_ICON_STATE = "security_white"
 		),
 	)
-
-/obj/item/clothing/under/rank/security/officer/formal
-	unique_reskin = null // prevents you from losing the unique sprite
-
-/obj/item/clothing/under/rank/security/officer/skirt
-	name = "security jumpskirt"
-	desc = "Turtleneck sweater commonly worn by Peacekeepers, attached with a skirt."
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "jumpskirt_blue"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	gets_cropped_on_taurs = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Blue Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_blue",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_blue"
-        ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "jumpskirt_black",
-			RESKIN_WORN_ICON_STATE = "jumpskirt_black"
-		),
-	)
-
-//Warden
-/obj/item/clothing/under/rank/security/warden
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "warden_black"
-
-//HoS
-/obj/item/clothing/under/rank/security/head_of_security
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "hos_black"
-
-/obj/item/clothing/under/rank/security/head_of_security/parade
-	icon_state = "hos_parade_male_blue"
-
-/obj/item/clothing/under/rank/security/head_of_security/parade/female
-	icon_state = "hos_parade_fem_blue"
-
-/obj/item/clothing/under/rank/security/head_of_security/alt
-	icon_state = "hosalt_blue"
-
-/obj/item/clothing/under/rank/security/head_of_security/alt/skirt
-	icon_state = "hosalt_skirt_blue"
-
 /*
 * FEET
 */

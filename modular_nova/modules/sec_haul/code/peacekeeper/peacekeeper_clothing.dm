@@ -67,35 +67,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
 
-//PEACEKEEPER UNIFORM
-/obj/item/clothing/under/rank/security/peacekeeper
-	name = "peacekeeper uniform"
-	desc = "A sleek peacekeeper uniform, made to a price."
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "peacekeeper"
-	can_adjust = TRUE
-	sensor_mode = SENSOR_COORDS
-	random_sensor = FALSE
-
-/obj/item/clothing/under/rank/security/warden/peacekeeper
-	name = "peacekeeper wardens suit"
-	desc = "A formal security suit for officers complete with Armadyne belt buckle."
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "peacekeeper_warden"
-
-/obj/item/clothing/under/rank/security/warden
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-
-/obj/item/clothing/under/rank/security/head_of_security/peacekeeper
-	name = "head of security's peacekeeper jumpsuit"
-	desc = "A security jumpsuit decorated for those few with the dedication to achieve the position of Head of Security."
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
-	icon_state = "peacekeeper_hos"
-
 //PEACEKEEPER ARMOR
 /obj/item/clothing/suit/armor/vest/peacekeeper
 	name = "peacekeeper armor vest"
