@@ -43,6 +43,7 @@
 	stock_max = 4
 	availability_prob = 80
 
+
 /datum/market_item/misc/Foam_smg
 	name = "Foam force SMG"
 	desc = "Foam force SMG that somehow was smuggled into blackmarket. don't ask why, magazines sold separetely"
@@ -70,4 +71,11 @@
 	stock_max = 1
 	availability_prob = 35
 
-
+/datum/market_item/misc/leadacid
+	name = "lead-acid battery"
+	desc = "A primitive battery. It is quite large and feels unexpectedly heavy."
+	item = /obj/item/stock_parts/power_store/cell/lead
+	stock = 2
+	price_min = CARGO_CRATE_VALUE * 4
+	price_max = CARGO_CRATE_VALUE * 6
+	availability_prob = 100
