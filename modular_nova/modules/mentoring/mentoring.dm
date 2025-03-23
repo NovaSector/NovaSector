@@ -79,6 +79,7 @@
 	if(taught_language)
 		examine_list += "This book can teach you to become fluent in [initial(taught_language.name)]"
 
+/// when given a message and an amount of time, requires the user to stand still while receiving the message
 /obj/item/mentoring_book/proc/timed_sentence(mob/user, var/sent_message, var/time_amount)
 	to_chat(user, span_notice(sent_message))
 	if(!do_after(user, time_amount, target = src))
