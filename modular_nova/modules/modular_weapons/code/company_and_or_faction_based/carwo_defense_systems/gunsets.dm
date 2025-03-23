@@ -17,7 +17,7 @@
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty/PopulateContents()
-	return
+	return NONE
 
 // Sindano in a box, how innovative!
 
@@ -28,14 +28,13 @@
 	extra_to_spawn = /obj/item/ammo_box/magazine/c35sol_pistol/stendo
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/PopulateContents()
-	new weapon_to_spawn (src)
-
-	generate_items_inside(list(
+	flatten_quantified_list(list(
+		weapon_to_spawn = 1,
 		/obj/item/ammo_box/c35sol/incapacitator = 1,
 		/obj/item/ammo_box/c35sol = 1,
 		/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty = 1,
 		/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty = 2,
-	), src)
+	))
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_smg/evil/no_mag
@@ -49,12 +48,11 @@
 	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle/PopulateContents()
-	new weapon_to_spawn (src)
-
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
+		weapon_to_spawn = 1,
 		/obj/item/ammo_box/c40sol = 3,
 		/obj/item/ammo_box/magazine/c40sol_rifle/starts_empty = 2,
-	), src)
+	))
 
 // Boxed grenade launcher, grenades sold seperately on this one
 
@@ -71,25 +69,23 @@
 	extra_to_spawn = /obj/item/ammo_box/magazine/c980_grenade/starts_empty
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/PopulateContents()
-	new weapon_to_spawn (src)
-
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
+		weapon_to_spawn = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/thunderdome_shrapnel = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/thunderdome_smoke = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/thunderdome_gas = 1,
-	), src)
+	))
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil/no_mag
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/thunderdome_kiboko/evil/PopulateContents()
-	new weapon_to_spawn (src)
-
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
+		weapon_to_spawn = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_fire = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel = 1,
 		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_gas = 1,
-	), src)
+	))
 
 /obj/structure/closet/secure_closet/armory_kiboko
 	name = "heavy equipment locker"

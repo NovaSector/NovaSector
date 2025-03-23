@@ -25,8 +25,10 @@
 	name = "knight's kit"
 
 /obj/item/storage/box/holy/knight/PopulateContents()
-	new /obj/item/clothing/head/helmet/chaplain/bland(src)
-	new /obj/item/clothing/suit/chaplainsuit/armor/templar/generic(src)
+	return list(
+		/obj/item/clothing/head/helmet/chaplain/bland,
+		/obj/item/clothing/suit/chaplainsuit/armor/templar/generic,
+	)
 
 //make chaplain version w/ unique sprite?
 /obj/item/clothing/suit/hooded/cultlain_robe
@@ -56,8 +58,10 @@
 	name = "ancient kit"
 
 /obj/item/storage/box/holy/narsian/PopulateContents()
-	new /obj/item/clothing/suit/hooded/cultlain_robe(src)
-	new /obj/item/clothing/shoes/cult/alt(src)
+	return list(
+		/obj/item/clothing/suit/hooded/cultlain_robe,
+		/obj/item/clothing/shoes/cult/alt,
+	)
 
 /obj/item/nullrod/cultdagger
 	name = "ritual dagger"

@@ -301,12 +301,9 @@
 /obj/item/storage/pouch/ammo/clock
 
 /obj/item/storage/pouch/ammo/clock/PopulateContents()
-	var/static/items_inside = list(
-		/obj/item/ammo_box/strilka310/lionhunter/clock = 3
-	)
-
-	generate_items_inside(items_inside, src)
-
+	. = list()
+	for(var/i in 1 to 3)
+		. += /obj/item/ammo_box/strilka310/lionhunter/clock
 
 #undef HAMMER_FLING_DISTANCE
 #undef HAMMER_THROW_FLING_DISTANCE

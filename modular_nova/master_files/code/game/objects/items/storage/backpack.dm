@@ -1,4 +1,10 @@
+// Ghosts can't see smuggler's satchels
+/obj/item/storage/backpack/satchel/flat/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE, INVISIBILITY_MAXIMUM, use_anchor = TRUE)
+
 /obj/item/storage/backpack/satchel/flat/PopulateContents()
+	. = list()
 	var/contraband_list = list(
 		/obj/item/storage/belt/utility/syndicate = 1,
 		/obj/item/storage/toolbox/syndicate = 7,
@@ -31,11 +37,13 @@
 	for(var/i in 1 to 3)
 		var/contraband_type = pick_weight(contraband_list)
 		contraband_list -= contraband_type
-		new contraband_type(src)
+		. += contraband_type
 
 /obj/item/storage/backpack/satchel/flat/with_tools/PopulateContents()
-	new /obj/item/stack/tile/iron/base(src)
-	new /obj/item/crowbar(src)
+	return list(
+		/obj/item/stack/tile/iron/base,
+		/obj/item/crowbar,
+	)
 
 /*
  * Messenger Bag Types

@@ -45,7 +45,7 @@
 /obj/item/storage/toolbox/guncase/nova/empty
 
 /obj/item/storage/toolbox/guncase/nova/empty/PopulateContents()
-	return
+	return NONE
 
 // Small case for pistols and whatnot
 
@@ -67,4 +67,4 @@
 /obj/item/storage/toolbox/guncase/nova/pistol/empty
 
 /obj/item/storage/toolbox/guncase/nova/pistol/empty/PopulateContents()
-	return
+	return NONE

@@ -6,14 +6,16 @@
 	illustration = null
 
 /obj/item/storage/box/nri_survival_pack/PopulateContents()
-	new /obj/item/oxygen_candle(src)
-	new /obj/item/tank/internals/emergency_oxygen/double(src)
-	new /obj/item/stack/spacecash/c1000(src)
-	new /obj/item/storage/pill_bottle/iron(src)
-	new /obj/item/storage/box/colonial_rations(src)
-	new /obj/item/storage/box/nri_pens(src)
-	new /obj/item/storage/box/nri_flares(src)
-	new /obj/item/crowbar/red(src)
+	return list(
+		/obj/item/oxygen_candle,
+		/obj/item/tank/internals/emergency_oxygen/double,
+		/obj/item/stack/spacecash/c1000,
+		/obj/item/storage/pill_bottle/iron,
+		/obj/item/storage/box/colonial_rations,
+		/obj/item/storage/box/nri_pens,
+		/obj/item/storage/box/nri_flares,
+		/obj/item/crowbar/red,
+	)
 
 /obj/item/storage/box/nri_pens
 	name = "box of injectors"
@@ -21,15 +23,17 @@
 	illustration = "epipen"
 
 /obj/item/storage/box/nri_pens/PopulateContents()
-	new /obj/item/reagent_containers/hypospray/medipen/ekit(src)
-	new /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor(src)
-	new /obj/item/reagent_containers/hypospray/medipen/oxandrolone(src)
-	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
-	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
-	new /obj/item/reagent_containers/hypospray/medipen/penacid(src)
-	new /obj/item/reagent_containers/hypospray/medipen/salbutamol(src)
-	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
-	new /obj/item/reagent_containers/hypospray/medipen/blood_loss(src)
+	return list(
+		/obj/item/reagent_containers/hypospray/medipen/ekit,
+		/obj/item/reagent_containers/hypospray/medipen/stimpack/traitor,
+		/obj/item/reagent_containers/hypospray/medipen/oxandrolone,
+		/obj/item/reagent_containers/hypospray/medipen/salacid,
+		/obj/item/reagent_containers/hypospray/medipen/salacid,
+		/obj/item/reagent_containers/hypospray/medipen/penacid,
+		/obj/item/reagent_containers/hypospray/medipen/salbutamol,
+		/obj/item/reagent_containers/hypospray/medipen/atropine,
+		/obj/item/reagent_containers/hypospray/medipen/blood_loss,
+	)
 
 /obj/item/storage/box/nri_flares
 	name = "box of flares"
@@ -37,5 +41,6 @@
 	illustration = "firecracker"
 
 /obj/item/storage/box/nri_flares/PopulateContents()
+	. = list()
 	for(var/i in 1 to 7)
-		new /obj/item/flashlight/flare(src)
+		. += /obj/item/flashlight/flare

@@ -3,16 +3,18 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the blueshield."
 
 /obj/item/storage/bag/garment/blueshield/PopulateContents()
-	new /obj/item/clothing/suit/hooded/wintercoat/nova/blueshield(src)
-	new /obj/item/clothing/head/beret/blueshield(src)
-	new /obj/item/clothing/head/beret/blueshield/navy(src)
-	new /obj/item/clothing/under/rank/blueshield(src)
-	new /obj/item/clothing/under/rank/blueshield/skirt(src)
-	new /obj/item/clothing/under/rank/blueshield/turtleneck(src)
-	new /obj/item/clothing/under/rank/blueshield/turtleneck/skirt(src)
-	new /obj/item/clothing/suit/armor/vest/blueshield(src)
-	new /obj/item/clothing/suit/armor/vest/blueshield/jacket(src)
-	new /obj/item/clothing/neck/mantle/bsmantle(src)
+	return list(
+		/obj/item/clothing/suit/hooded/wintercoat/nova/blueshield,
+		/obj/item/clothing/head/beret/blueshield,
+		/obj/item/clothing/head/beret/blueshield/navy,
+		/obj/item/clothing/under/rank/blueshield,
+		/obj/item/clothing/under/rank/blueshield/skirt,
+		/obj/item/clothing/under/rank/blueshield/turtleneck,
+		/obj/item/clothing/under/rank/blueshield/turtleneck/skirt,
+		/obj/item/clothing/suit/armor/vest/blueshield,
+		/obj/item/clothing/suit/armor/vest/blueshield/jacket,
+		/obj/item/clothing/neck/mantle/bsmantle,
+	)
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"

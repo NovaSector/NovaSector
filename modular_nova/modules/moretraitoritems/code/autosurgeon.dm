@@ -61,13 +61,15 @@
 	reagents.add_reagent_list(list(/datum/reagent/cryostylane = 60))
 
 /obj/item/storage/organbox/strange/PopulateContents()
-	new /obj/item/autosurgeon/xeno(src)
-	new /obj/item/organ/alien/plasmavessel/opfor(src)
-	new /obj/item/organ/alien/resinspinner(src)
-	new /obj/item/organ/alien/acid(src)
-	new /obj/item/organ/alien/neurotoxin(src)
-	new /obj/item/organ/alien/hivenode(src)
+	return list(
+		/obj/item/autosurgeon/xeno,
+		/obj/item/organ/alien/plasmavessel/opfor,
+		/obj/item/organ/alien/resinspinner,
+		/obj/item/organ/alien/acid,
+		/obj/item/organ/alien/neurotoxin,
+		/obj/item/organ/alien/hivenode,
+	)
 
 /obj/item/storage/organbox/strange/eggsac/PopulateContents()
 	. = ..()
-	new /obj/item/organ/alien/eggsac(src)
+	. += /obj/item/organ/alien/eggsac

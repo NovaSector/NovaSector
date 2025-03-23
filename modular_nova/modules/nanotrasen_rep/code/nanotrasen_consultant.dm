@@ -120,22 +120,24 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the Nanotrasen consultant."
 
 /obj/item/storage/bag/garment/nanotrasen_consultant/PopulateContents()
-	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/glasses/sunglasses/gar/giga(src)
-	new /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant(src)
-	new /obj/item/clothing/gloves/combat/naval/nanotrasen_consultant/black(src)
-	new /obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant(src)
-	new /obj/item/clothing/under/rank/nanotrasen_consultant(src)
-	new /obj/item/clothing/under/rank/nanotrasen_consultant/skirt(src)
-	new /obj/item/clothing/under/rank/centcom/officer(src)
-	new /obj/item/clothing/under/rank/centcom/officer_skirt(src)
-	new /obj/item/clothing/head/nanotrasen_consultant(src)
-	new /obj/item/clothing/head/nanotrasen_consultant/beret(src)
-	new /obj/item/clothing/head/beret/centcom_formal/nt_consultant(src)
-	new /obj/item/clothing/head/hats/centhat(src)
-	new /obj/item/clothing/suit/armor/centcom_formal/nt_consultant(src)
-	new /obj/item/clothing/under/rank/centcom/intern(src)
-	new /obj/item/clothing/head/hats/intern(src)
+	return list(
+		/obj/item/clothing/shoes/sneakers/brown,
+		/obj/item/clothing/glasses/sunglasses/gar/giga,
+		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant,
+		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant/black,
+		/obj/item/clothing/suit/hooded/wintercoat/centcom/nt_consultant,
+		/obj/item/clothing/under/rank/nanotrasen_consultant,
+		/obj/item/clothing/under/rank/nanotrasen_consultant/skirt,
+		/obj/item/clothing/under/rank/centcom/officer,
+		/obj/item/clothing/under/rank/centcom/officer_skirt,
+		/obj/item/clothing/head/nanotrasen_consultant,
+		/obj/item/clothing/head/nanotrasen_consultant/beret,
+		/obj/item/clothing/head/beret/centcom_formal/nt_consultant,
+		/obj/item/clothing/head/hats/centhat,
+		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant,
+		/obj/item/clothing/under/rank/centcom/intern,
+		/obj/item/clothing/head/hats/intern,
+	)
 
 /obj/structure/closet/secure_closet/nanotrasen_consultant
 	name = "nanotrasen consultant's locker"

@@ -46,13 +46,17 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/cerberus/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
-	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
-	new /obj/item/ammo_box/magazine/c585trappiste_pistol(src)
+	return list(
+		/obj/item/ammo_box/magazine/c585trappiste_pistol,
+		/obj/item/ammo_box/magazine/c585trappiste_pistol,
+		/obj/item/ammo_box/magazine/c585trappiste_pistol,
+	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	return list(
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+	)
 
 ////// Turrets //////
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/cerberus

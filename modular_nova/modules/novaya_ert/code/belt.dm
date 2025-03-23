@@ -27,44 +27,46 @@
 	worn_icon_state = "russian_brown_belt"
 
 /obj/item/storage/belt/military/nri/plus_mre/PopulateContents()
-	new /obj/item/storage/box/nri_survival_pack/raider(src)
+	return list(
+		/obj/item/storage/box/nri_survival_pack/raider,
+	)
 
 /obj/item/storage/belt/military/nri/soldier/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/ammo_box/magazine/lanca = 4,
 		/obj/item/knife/combat = 1,
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/grenade/frag = 1,
-	),src)
+	))
 
 /obj/item/storage/belt/military/nri/heavy/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/ammo_box/magazine/m9mm_aps = 4,
 		/obj/item/knife/combat = 1,
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/grenade/frag = 1,
-	),src)
+	))
 
 /obj/item/storage/belt/military/nri/captain/full/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/ammo_box/magazine/lanca = 4,
 		/obj/item/knife/combat = 1,
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/grenade/frag = 1,
-	),src)
+	))
 
 /obj/item/storage/belt/military/nri/medic/full/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/ammo_box/magazine/miecz = 4,
 		/obj/item/knife/combat = 1,
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/grenade/frag = 1,
-	),src)
+	))
 
 /obj/item/storage/belt/military/nri/engineer/full/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/ammo_box/magazine/miecz = 4,
 		/obj/item/knife/combat = 1,
 		/obj/item/grenade/smokebomb = 1,
 		/obj/item/grenade/frag = 1,
-	),src)
+	))

@@ -20,17 +20,21 @@
 	special_desc = "Supplied to Syndicate contractors, providing their specialised MODSuit and chameleon uniform."
 
 /obj/item/storage/box/syndicate/contractor_loadout/PopulateContents()
-	new /obj/item/mod/control/pre_equipped/contractor(src)
-	. = ..() // so their MODSuit is first
-	new /obj/item/uplink/old_radio(src)
-	new /obj/item/jammer(src)
+	. = list()
+	. += /obj/item/mod/control/pre_equipped/contractor
+	. += ..() // so their MODSuit is first
+	. += /obj/item/uplink/old_radio
+	. += /obj/item/jammer
 
 /obj/item/storage/box/contractor/fulton_extraction/PopulateContents()
-	new /obj/item/extraction_pack/contractor(src)
-	new /obj/item/fulton_core(src)
+	return list(
+		/obj/item/extraction_pack/contractor,
+		/obj/item/fulton_core,
+	)
 
 /obj/item/storage/box/syndicate/contract_kit/midround/PopulateContents()
-	var/static/list/item_list = list(
+	. = list()
+	var/list/item_list = list(
 		/obj/item/storage/backpack/duffelbag/syndie/x4,
 		/obj/item/storage/box/syndie_kit/throwing_weapons,
 		/obj/item/gun/syringe/syndicate,
@@ -53,14 +57,13 @@
 	)
 	// All about 4 TC or less - some nukeops only items, but fit nicely to the theme.
 	for(var/iteration in 1 to SMALL_ITEM_AMOUNT)
-		var/obj/item/small_item = pick_n_take(item_list)
-		new small_item(src)
+		. += pick_n_take(item_list)
 
 	// Paper guide
-	new /obj/item/paper/contractor_guide/midround(src)
-	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
-	new /obj/item/jammer(src)
-	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
-	new /obj/item/lighter(src)
+	. += /obj/item/paper/contractor_guide/midround
+	. += /obj/item/reagent_containers/hypospray/medipen/atropine
+	. += /obj/item/jammer
+	. += /obj/item/storage/fancy/cigarettes/cigpack_syndicate
+	. += /obj/item/lighter
 
 #undef SMALL_ITEM_AMOUNT

@@ -22,8 +22,10 @@
 	box_storage_slots = 2
 
 /obj/item/storage/box/spaceman_ration/plants/PopulateContents()
-	new /obj/item/food/grown/peas(src)
-	new /obj/item/food/grown/potato(src)
+	return list(
+		/obj/item/food/grown/peas,
+		/obj/item/food/grown/potato,
+	)
 
 // Alternate diet, themed around martian food a bit more
 
@@ -32,8 +34,10 @@
 	icon_state = "plants_alt"
 
 /obj/item/storage/box/spaceman_ration/plants/alternate/PopulateContents()
-	new /obj/item/food/grown/cabbage(src)
-	new /obj/item/food/grown/onion(src)
+	return list(
+		/obj/item/food/grown/cabbage,
+		/obj/item/food/grown/onion,
+	)
 
 // For the moths amogus
 
@@ -42,8 +46,10 @@
 	icon_state = "plants_moth"
 
 /obj/item/storage/box/spaceman_ration/plants/mothic/PopulateContents()
-	new /obj/item/food/grown/chili(src)
-	new /obj/item/food/grown/potato(src)
+	return list(
+		/obj/item/food/grown/chili,
+		/obj/item/food/grown/potato,
+	)
 
 // For the lizards amongus
 
@@ -53,10 +59,12 @@
 	box_storage_slots = 4
 
 /obj/item/storage/box/spaceman_ration/plants/lizard/PopulateContents()
-	new /obj/item/food/grown/korta_nut(src)
-	new /obj/item/food/grown/korta_nut(src)
-	new /obj/item/food/grown/potato(src)
-	new /obj/item/food/grown/potato(src)
+	return list(
+		/obj/item/food/grown/korta_nut,
+		/obj/item/food/grown/korta_nut,
+		/obj/item/food/grown/potato,
+		/obj/item/food/grown/potato,
+	)
 
 // Contains your allotted meats, tasty!
 
@@ -66,9 +74,11 @@
 	icon_state = "meats"
 
 /obj/item/storage/box/spaceman_ration/meats/PopulateContents()
-	new /obj/item/food/meat/slab/pig(src)
 	var/secondary_meat = pick(/obj/item/food/raw_sausage, /obj/item/food/meat/slab/chicken, /obj/item/food/meat/slab/meatproduct)
-	new secondary_meat(src)
+	return list(
+		/obj/item/food/meat/slab/pig,
+		secondary_meat,
+	)
 
 // Seafood variant
 
@@ -77,9 +87,11 @@
 	icon_state = "meats_fish"
 
 /obj/item/storage/box/spaceman_ration/meats/fish/PopulateContents()
-	new /obj/item/food/meat/slab/pig(src)
 	var/secondary_meat = pick(/obj/item/food/meat/slab/rawcrab, /obj/item/food/fishmeat)
-	new secondary_meat(src)
+	return list(
+		/obj/item/food/meat/slab/pig,
+		secondary_meat,
+	)
 
 // For the lizards amongus
 
@@ -88,9 +100,11 @@
 	icon_state = "meats_lizard"
 
 /obj/item/storage/box/spaceman_ration/meats/lizard/PopulateContents()
-	new /obj/item/food/fishmeat/moonfish(src)
 	var/secondary_meat = pick(/obj/item/food/raw_tiziran_sausage, /obj/item/food/liver_pate)
-	new secondary_meat(src)
+	return list(
+		/obj/item/food/fishmeat/moonfish,
+		secondary_meat,
+	)
 
 // Paper sack that spawns a random two slices of bread
 
@@ -104,7 +118,9 @@
 
 /obj/item/storage/box/papersack/ration_bread_slice/PopulateContents()
 	var/bread_slice = pick(/obj/item/food/breadslice/plain, /obj/item/food/breadslice/reispan, /obj/item/food/breadslice/root)
-	new bread_slice(src)
-	new bread_slice(src)
 	var/cheese_slice = pick(/obj/item/food/cheese/wedge, /obj/item/food/cheese/firm_cheese_slice, /obj/item/food/cheese/cheese_curds, /obj/item/food/cheese/mozzarella)
-	new cheese_slice(src)
+	return list(
+		bread_slice,
+		bread_slice,
+		cheese_slice,
+	)

@@ -13,12 +13,14 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the station admiral."
 
 /obj/item/storage/bag/garment/station_admiral/PopulateContents()
-	new /obj/item/clothing/head/hats/hos/cap/syndicate(src)
-	new /obj/item/clothing/suit/armor/vest/capcarapace/syndicate(src)
-	new /obj/item/clothing/under/rank/captain/nova/utility/syndicate(src)
-	new /obj/item/clothing/suit/armor/vest/capcarapace/syndicate/winter(src)
-	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/accessory/medal/gold/admiral(src)
+	return list(
+		/obj/item/clothing/head/hats/hos/cap/syndicate,
+		/obj/item/clothing/suit/armor/vest/capcarapace/syndicate,
+		/obj/item/clothing/under/rank/captain/nova/utility/syndicate,
+		/obj/item/clothing/suit/armor/vest/capcarapace/syndicate/winter,
+		/obj/item/clothing/glasses/sunglasses,
+		/obj/item/clothing/accessory/medal/gold/admiral,
+	)
 
 /obj/structure/closet/secure_closet/des_two/sa_locker/PopulateContents()
 	..()
@@ -53,13 +55,15 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the master at arms."
 
 /obj/item/storage/bag/garment/master_arms/PopulateContents()
-	new /obj/item/clothing/accessory/medal/silver/maa_medal(src)
-	new /obj/item/clothing/suit/armor/vest/warden/syndicate(src)
-	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
-	new /obj/item/clothing/under/suit/nova/helltaker(src)
-	new /obj/item/clothing/suit/armor/hos/maa_greatcoat(src)
-	new /obj/item/clothing/head/beret/sec/navywarden/syndicate(src)
-	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
+	return list(
+		/obj/item/clothing/accessory/medal/silver/maa_medal,
+		/obj/item/clothing/suit/armor/vest/warden/syndicate,
+		/obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate,
+		/obj/item/clothing/under/suit/nova/helltaker,
+		/obj/item/clothing/suit/armor/hos/maa_greatcoat,
+		/obj/item/clothing/head/beret/sec/navywarden/syndicate,
+		/obj/item/clothing/head/hats/hos/beret/syndicate,
+	)
 
 /obj/structure/closet/secure_closet/des_two/maa_locker/PopulateContents()
 	..()
@@ -89,12 +93,15 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the corprate liaison."
 
 /obj/item/storage/bag/garment/corprate_liaison/PopulateContents()
-	new /obj/item/clothing/under/syndicate/nova/baseball(src)
-	new /obj/item/clothing/under/rank/captain/nova/utility/syndicate(src)
-	new /obj/item/clothing/under/suit/nova/helltaker(src)
-	new /obj/item/clothing/neck/chaplain/black/cl_cloak(src)
-	new /obj/item/clothing/head/hats/hos/beret/syndicate(src)
-	new /obj/item/clothing/glasses/sunglasses(src)
+	return list(
+		/obj/item/clothing/under/syndicate/nova/baseball,
+		/obj/item/clothing/under/rank/captain/nova/utility/syndicate,
+		/obj/item/clothing/under/suit/nova/helltaker,
+		/obj/item/clothing/neck/chaplain/black/cl_cloak,
+		/obj/item/clothing/head/hats/hos/beret/syndicate,
+		/obj/item/clothing/glasses/sunglasses,
+	)
+
 
 /obj/structure/closet/secure_closet/des_two/cl_locker/PopulateContents()
 	..()

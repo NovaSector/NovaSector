@@ -767,8 +767,9 @@
 		))
 
 /obj/item/storage/belt/sabre/darksabre/PopulateContents()
-	new /obj/item/toy/darksabre(src)
-	update_icon()
+	return list(
+		/obj/item/toy/darksabre,
+	)
 
 // Donation reward for inferno707
 /obj/item/clothing/suit/armor/vest/darkcarapace

@@ -18,12 +18,14 @@
 	icon_state = "syndiebox"
 
 /obj/item/storage/box/syndie_kit/recharger/PopulateContents()
-	new /obj/item/circuitboard/machine/recharger(src)
-	new /obj/item/stock_parts/capacitor/quadratic(src)
-	new /obj/item/stack/sheet/iron/five(src)
-	new /obj/item/stack/cable_coil/five(src)
-	new /obj/item/screwdriver/nuke(src)
-	new /obj/item/wrench(src)
+	return list(
+		/obj/item/circuitboard/machine/recharger,
+		/obj/item/stock_parts/capacitor/quadratic,
+		/obj/item/stack/sheet/iron/five,
+		/obj/item/stack/cable_coil/five,
+		/obj/item/screwdriver/nuke,
+		/obj/item/wrench,
+	)
 
 //Back-up space suit
 /obj/item/storage/box/syndie_kit/space_suit
@@ -44,23 +46,35 @@
 /obj/item/storage/box/syndie_kit/space_suit/PopulateContents()
 	switch(pick(list("red", "green", "dgreen", "blue", "orange", "black")))
 		if("green")
-			new /obj/item/clothing/head/helmet/space/syndicate/green(src)
-			new /obj/item/clothing/suit/space/syndicate/green(src)
+			return list(
+				/obj/item/clothing/head/helmet/space/syndicate/green,
+				/obj/item/clothing/suit/space/syndicate/green,
+			)
 		if("dgreen")
-			new /obj/item/clothing/head/helmet/space/syndicate/green/dark(src)
-			new /obj/item/clothing/suit/space/syndicate/green/dark(src)
+			return list(
+				/obj/item/clothing/head/helmet/space/syndicate/green/dark,
+				/obj/item/clothing/suit/space/syndicate/green/dark,
+			)
 		if("blue")
-			new /obj/item/clothing/head/helmet/space/syndicate/blue(src)
-			new /obj/item/clothing/suit/space/syndicate/blue(src)
+			return list(
+				/obj/item/clothing/head/helmet/space/syndicate/blue,
+				/obj/item/clothing/suit/space/syndicate/blue,
+			)
 		if("red")
-			new /obj/item/clothing/head/helmet/space/syndicate(src)
-			new /obj/item/clothing/suit/space/syndicate(src)
+			return list(
+				/obj/item/clothing/head/helmet/space/syndicate,
+				/obj/item/clothing/suit/space/syndicate,
+			)
 		if("orange")
-			new /obj/item/clothing/head/helmet/space/syndicate/orange(src)
-			new /obj/item/clothing/suit/space/syndicate/orange(src)
+			return list(
+				/obj/item/clothing/head/helmet/space/syndicate/orange,
+				/obj/item/clothing/suit/space/syndicate/orange,
+			)
 		if("black")
-			new /obj/item/clothing/head/helmet/space/syndicate/black(src)
-			new /obj/item/clothing/suit/space/syndicate/black(src)
+			return list(
+				/obj/item/clothing/head/helmet/space/syndicate/black,
+				/obj/item/clothing/suit/space/syndicate/black,
+			)
 
 //Spy
 /obj/item/clothing/suit/jacket/det_suit/noir/armoured

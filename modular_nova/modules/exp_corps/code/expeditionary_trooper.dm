@@ -10,13 +10,15 @@
 	illustration = null
 
 /obj/item/storage/box/expeditionary_survival/PopulateContents()
-	new /obj/item/storage/box/donkpockets(src)
-	new /obj/item/flashlight/glowstick(src)
-	new /obj/item/tank/internals/emergency_oxygen/double(src)
-	new /obj/item/reagent_containers/cup/glass/waterbottle(src)
-	new /obj/item/reagent_containers/blood/universal(src)
-	new /obj/item/reagent_containers/syringe(src)
-	new /obj/item/storage/pill_bottle/multiver(src)
+	return list(
+		/obj/item/storage/box/donkpockets,
+		/obj/item/flashlight/glowstick,
+		/obj/item/tank/internals/emergency_oxygen/double,
+		/obj/item/reagent_containers/cup/glass/waterbottle,
+		/obj/item/reagent_containers/blood/universal,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/storage/pill_bottle/multiver,
+	)
 
 //edgy loner with knives AND A FUKKEN gun
 /obj/structure/closet/crate/secure/exp_corps/marksman/PopulateContents()

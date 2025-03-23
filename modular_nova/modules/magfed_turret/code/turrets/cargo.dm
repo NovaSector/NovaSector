@@ -23,7 +23,9 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/toy/smg(src)
+	return list(
+		/obj/item/ammo_box/magazine/toy/smg,
+	)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy
 	name = "\improper Cubicle Point-Defense Turret"

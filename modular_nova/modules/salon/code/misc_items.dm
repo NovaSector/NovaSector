@@ -3,11 +3,12 @@
 	name = "lipstick box"
 
 /obj/item/storage/box/lipsticks/PopulateContents()
-	..()
-	new /obj/item/lipstick(src)
-	new /obj/item/lipstick/purple(src)
-	new /obj/item/lipstick/jade(src)
-	new /obj/item/lipstick/black(src)
+	return list(
+		/obj/item/lipstick,
+		/obj/item/lipstick/purple,
+		/obj/item/lipstick/jade,
+		/obj/item/lipstick/black,
+	)
 
 /obj/item/lipstick/quantum
 	name = "quantum lipstick"
@@ -182,13 +183,15 @@
 	name = "box of perfumes"
 
 /obj/item/storage/box/perfume/PopulateContents()
-	new /obj/item/perfume/cologne(src)
-	new /obj/item/perfume/wood(src)
-	new /obj/item/perfume/rose(src)
-	new /obj/item/perfume/jasmine(src)
-	new /obj/item/perfume/mint(src)
-	new /obj/item/perfume/vanilla(src)
-	new /obj/item/perfume/pear(src)
-	new /obj/item/perfume/strawberry(src)
-	new /obj/item/perfume/cherry(src)
-	new /obj/item/perfume/amber(src)
+	return list(
+		/obj/item/perfume/cologne,
+		/obj/item/perfume/wood,
+		/obj/item/perfume/rose,
+		/obj/item/perfume/jasmine,
+		/obj/item/perfume/mint,
+		/obj/item/perfume/vanilla,
+		/obj/item/perfume/pear,
+		/obj/item/perfume/strawberry,
+		/obj/item/perfume/cherry,
+		/obj/item/perfume/amber,
+	)

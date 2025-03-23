@@ -7,9 +7,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/renoster
 
 /obj/item/storage/toolbox/guncase/nova/opfor/renoster/PopulateContents()
-	new /obj/item/gun/ballistic/shotgun/riot/sol/evil(src)
-	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
-	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
+	return list(
+		/obj/item/gun/ballistic/shotgun/riot/sol/evil,
+		/obj/item/ammo_box/advanced/s12gauge/buckshot,
+		/obj/item/ammo_box/advanced/s12gauge/buckshot,
+	)
 
 /datum/opposing_force_equipment/ranged/infanteria
 	name = "Carwo-Cawil Battle Rifle"
@@ -17,9 +19,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/infanteria
 
 /obj/item/storage/toolbox/guncase/nova/opfor/infanteria/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/sol_rifle/evil(src)
-	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
-	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/sol_rifle/evil,
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+	)
 
 /datum/opposing_force_equipment/ranged/miecz
 	name = "'Miecz' Submachinegun"
@@ -27,9 +31,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/miecz
 
 /obj/item/storage/toolbox/guncase/nova/opfor/miecz/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/miecz(src)
-	new /obj/item/ammo_box/magazine/miecz(src)
-	new /obj/item/ammo_box/magazine/miecz(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/miecz,
+		/obj/item/ammo_box/magazine/miecz,
+		/obj/item/ammo_box/magazine/miecz,
+	)
 
 /datum/opposing_force_equipment/ranged/kiboko
 	name = "Kiboko Grenade Launcher"
@@ -37,9 +43,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/kiboko
 
 /obj/item/storage/toolbox/guncase/nova/opfor/kiboko/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil(src)
-	new /obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel(src)
-	new /obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil,
+		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel,
+		/obj/item/ammo_box/magazine/c980_grenade/drum/thunderdome_shrapnel,
+	)
 
 /datum/opposing_force_equipment/ranged/amr
 	name = "'Wyłom' AMR"
@@ -47,9 +55,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/amr
 
 /obj/item/storage/toolbox/guncase/nova/opfor/amr/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/wylom(src)
-	new /obj/item/ammo_box/magazine/wylom(src)
-	new /obj/item/ammo_box/magazine/wylom(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/wylom,
+		/obj/item/ammo_box/magazine/wylom,
+		/obj/item/ammo_box/magazine/wylom,
+	)
 
 /datum/opposing_force_equipment/ranged/lmg
 	name = "L6 SAW LMG"
@@ -57,9 +67,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/lmg
 
 /obj/item/storage/toolbox/guncase/nova/opfor/lmg/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/l6_saw/unrestricted(src)
-	new /obj/item/ammo_box/magazine/m7mm(src)
-	new /obj/item/ammo_box/magazine/m7mm(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted,
+		/obj/item/ammo_box/magazine/m7mm,
+		/obj/item/ammo_box/magazine/m7mm,
+	)
 
 /datum/opposing_force_equipment/ranged/hook_shotgun
 	name = "Hook Modified Sawn-off Shotgun"
@@ -67,9 +79,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun
 
 /obj/item/storage/toolbox/guncase/nova/opfor/hook_shotgun/PopulateContents()
-	new /obj/item/gun/ballistic/shotgun/hook(src)
-	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
-	new /obj/item/ammo_box/advanced/s12gauge/buckshot(src)
+	return list(
+		/obj/item/gun/ballistic/shotgun/hook,
+		/obj/item/ammo_box/advanced/s12gauge/buckshot,
+		/obj/item/ammo_box/advanced/s12gauge/buckshot,
+	)
 
 /datum/opposing_force_equipment/ranged/rebar_crossbow
 	name = "Syndicate Rebar Crossbow"
@@ -78,8 +92,10 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/rebar_crossbow
 
 /obj/item/storage/toolbox/guncase/nova/opfor/rebar_crossbow/PopulateContents()
-	new /obj/item/gun/ballistic/rifle/rebarxbow/syndie(src)
-	new /obj/item/book/granter/crafting_recipe/dusting/rebarxbowsyndie_ammo(src)
+	return list(
+		/obj/item/gun/ballistic/rifle/rebarxbow/syndie,
+		/obj/item/book/granter/crafting_recipe/dusting/rebarxbowsyndie_ammo,
+	)
 
 //laser
 /datum/opposing_force_equipment/ranged/ion
@@ -88,8 +104,10 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/ion
 
 /obj/item/storage/toolbox/guncase/nova/opfor/ion/PopulateContents()
-	new /obj/item/gun/energy/ionrifle/carbine(src)
-	new /obj/item/storage/box/syndie_kit/recharger(src)
+	return list(
+		/obj/item/gun/energy/ionrifle/carbine,
+		/obj/item/storage/box/syndie_kit/recharger,
+	)
 
 /datum/opposing_force_equipment/ranged/carbine
 	name = "laser carbine"
@@ -97,8 +115,10 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/carbine
 
 /obj/item/storage/toolbox/guncase/nova/opfor/carbine/PopulateContents()
-	new /obj/item/gun/energy/laser/carbine(src)
-	new /obj/item/storage/box/syndie_kit/recharger(src)
+	return list(
+		/obj/item/gun/energy/laser/carbine,
+		/obj/item/storage/box/syndie_kit/recharger,
+	)
 
 /datum/opposing_force_equipment/ranged/laser
 	name = "laser gun"
@@ -106,8 +126,10 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/laser
 
 /obj/item/storage/toolbox/guncase/nova/opfor/laser/PopulateContents()
-	new /obj/item/gun/energy/laser(src)
-	new /obj/item/storage/box/syndie_kit/recharger(src)
+	return list(
+		/obj/item/gun/energy/laser,
+		/obj/item/storage/box/syndie_kit/recharger,
+	)
 
 //foamforce
 /datum/opposing_force_equipment/ranged/foamforce_lmg
@@ -116,9 +138,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/foamforce_lmg
 
 /obj/item/storage/toolbox/guncase/nova/opfor/foamforce_lmg/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted/riot(src)
-	new /obj/item/ammo_box/magazine/toy/m762/riot(src)
-	new /obj/item/ammo_box/magazine/toy/m762/riot(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted/riot,
+		/obj/item/ammo_box/magazine/toy/m762/riot,
+		/obj/item/ammo_box/magazine/toy/m762/riot,
+	)
 
 
 /datum/opposing_force_equipment/ranged_stealth
@@ -130,12 +154,14 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/rapid_syringe
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/rapid_syringe/PopulateContents()
-	new /obj/item/gun/syringe/rapidsyringe(src)
-	new /obj/item/storage/belt/medbandolier(src)
-	new /obj/item/reagent_containers/syringe/piercing(src)
-	new /obj/item/reagent_containers/syringe/piercing(src)
-	new /obj/item/reagent_containers/syringe/piercing(src)
-	new /obj/item/reagent_containers/syringe/piercing(src)
+	return list(
+		/obj/item/gun/syringe/rapidsyringe,
+		/obj/item/storage/belt/medbandolier,
+		/obj/item/reagent_containers/syringe/piercing,
+		/obj/item/reagent_containers/syringe/piercing,
+		/obj/item/reagent_containers/syringe/piercing,
+		/obj/item/reagent_containers/syringe/piercing,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/c20r
 	name = "C-20r SMG"
@@ -143,9 +169,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/c20r
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/c20r/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/c20r/unrestricted(src)
-	new /obj/item/ammo_box/magazine/smgm45(src)
-	new /obj/item/ammo_box/magazine/smgm45(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/c20r/unrestricted,
+		/obj/item/ammo_box/magazine/smgm45,
+		/obj/item/ammo_box/magazine/smgm45,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/sindano
 	name = "Sindano SMG"
@@ -153,9 +181,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/sindano
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/sindano/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/sol_smg/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol/stendo(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/sol_smg/evil,
+		/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
+		/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/wespe
 	name = "Wespe Pistol"
@@ -163,9 +193,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/pistol/sol/evil(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/pistol/sol/evil,
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/makarov
 	name = "Makarov Pistol"
@@ -173,10 +205,12 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/pistol(src)
-	new /obj/item/suppressor(src)
-	new /obj/item/ammo_box/magazine/m9mm(src)
-	new /obj/item/ammo_box/magazine/m9mm(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/suppressor,
+		/obj/item/ammo_box/magazine/m9mm,
+		/obj/item/ammo_box/magazine/m9mm,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/m1911
 	name = "M1911 Pistol"
@@ -184,9 +218,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/m1911
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/m1911/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/pistol/m1911(src)
-	new /obj/item/ammo_box/magazine/m45(src)
-	new /obj/item/ammo_box/magazine/m45(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/pistol/m1911,
+		/obj/item/ammo_box/magazine/m45,
+		/obj/item/ammo_box/magazine/m45,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/plasma_pistol
 	name = "'Słońce' Plasma Projector"
@@ -194,9 +230,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/plasma_pistol
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/plasma_pistol/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/pistol/plasma_thrower(src)
-	new /obj/item/ammo_box/magazine/recharge/plasma_battery(src)
-	new /obj/item/ammo_box/magazine/recharge/plasma_battery(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/plasma_marksman
 	name = "'Gwiazda' Plasma Sharpshooter"
@@ -204,9 +242,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/plasma_marksman
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/plasma_marksman/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/pistol/plasma_marksman(src)
-	new /obj/item/ammo_box/magazine/recharge/plasma_battery(src)
-	new /obj/item/ammo_box/magazine/recharge/plasma_battery(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/syndie_revolver
 	name = "Syndicate Revolver"
@@ -214,9 +254,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/badass(src)
-	new /obj/item/ammo_box/a357(src)
-	new /obj/item/ammo_box/a357(src)
+	return list(
+		/obj/item/gun/ballistic/revolver/badass,
+		/obj/item/ammo_box/a357,
+		/obj/item/ammo_box/a357,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/ocelot
 	name = "Colt Peacemaker revolver"
@@ -225,9 +267,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/ocelot
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/ocelot/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/ocelot(src)
-	new /obj/item/ammo_box/a357/peacemaker(src)
-	new /obj/item/ammo_box/a357/peacemaker(src)
+	return list(
+		/obj/item/gun/ballistic/revolver/ocelot,
+		/obj/item/ammo_box/a357/peacemaker,
+		/obj/item/ammo_box/a357/peacemaker,
+	)
 
 //foamforce
 /datum/opposing_force_equipment/ranged_stealth/foamforce_smg
@@ -236,9 +280,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/foamforce_smg
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/foamforce_smg/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/c20r/toy/unrestricted/riot(src)
-	new /obj/item/ammo_box/magazine/toy/smgm45/riot(src)
-	new /obj/item/ammo_box/magazine/toy/smgm45/riot(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted/riot,
+		/obj/item/ammo_box/magazine/toy/smgm45/riot,
+		/obj/item/ammo_box/magazine/toy/smgm45/riot,
+	)
 
 /datum/opposing_force_equipment/ranged_stealth/foamforce_smg_basic
 	name = "Foamforce SMG"
@@ -246,9 +292,11 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/foamforce_smg_basic
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/foamforce_smg_basic/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/toy(src)
-	new /obj/item/ammo_box/magazine/toy/smg/riot(src)
-	new /obj/item/ammo_box/magazine/toy/smg/riot(src)
+	return list(
+		/obj/item/gun/ballistic/automatic/toy,
+		/obj/item/ammo_box/magazine/toy/smg/riot,
+		/obj/item/ammo_box/magazine/toy/smg/riot,
+	)
 
 //laser
 /datum/opposing_force_equipment/ranged_stealth/fisher
@@ -263,5 +311,7 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/egun_mini
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/egun_mini/PopulateContents()
-	new /obj/item/gun/energy/e_gun/mini(src)
-	new /obj/item/storage/box/syndie_kit/recharger(src)
+	return list(
+		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/storage/box/syndie_kit/recharger,
+	)

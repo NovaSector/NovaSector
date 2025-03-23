@@ -44,7 +44,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)
 
 /obj/item/storage/medkit/robotic_repair/preemo
 	name = "premium robotic repair equipment kit"
@@ -72,4 +72,4 @@
 		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)

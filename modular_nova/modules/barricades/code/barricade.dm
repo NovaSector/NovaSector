@@ -829,7 +829,8 @@
 	atom_storage.max_total_storage = 21
 
 /obj/item/storage/barricade/PopulateContents()
+	. = list()
 	for(var/i = 0, i < 3, i++)
-		new /obj/item/quickdeploy/barricade/plasteel(src)
-	for(var/i = 0, i < 9, i ++)
-		new /obj/item/quickdeploy/barricade(src)
+		. += /obj/item/quickdeploy/barricade/plasteel
+	for(var/i = 0, i < 9, i++)
+		. += /obj/item/quickdeploy/barricade

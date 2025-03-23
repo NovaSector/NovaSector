@@ -36,8 +36,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/military/odst/PopulateContents()
-	new /obj/item/crowbar/red (src)
-	new /obj/item/grenade/frag (src)
-	new /obj/item/grenade/frag (src)
+	return list(
+		/obj/item/crowbar/red,
+		/obj/item/grenade/frag,
+		/obj/item/grenade/frag,
+	)
 
 

@@ -112,10 +112,12 @@
 	icon_state = "bubblegum"
 
 /obj/item/storage/box/gum/colonial/PopulateContents()
-	new /obj/item/food/bubblegum(src)
-	new /obj/item/food/bubblegum(src)
-	new /obj/item/food/bubblegum/nicotine(src)
-	new /obj/item/food/bubblegum/nicotine(src)
+	return list(
+		/obj/item/food/bubblegum,
+		/obj/item/food/bubblegum,
+		/obj/item/food/bubblegum/nicotine,
+		/obj/item/food/bubblegum/nicotine,
+	)
 
 /obj/item/storage/box/utensils
 	name = "utensils package"
@@ -137,10 +139,12 @@
 	atom_storage.max_slots = 4
 
 /obj/item/storage/box/utensils/PopulateContents()
-	new /obj/item/kitchen/spoon/plastic(src)
-	new /obj/item/kitchen/fork/plastic(src)
-	new /obj/item/serviette/colonial(src)
-	new /obj/item/serviette/colonial(src)
+	return list(
+		/obj/item/kitchen/spoon/plastic,
+		/obj/item/kitchen/fork/plastic,
+		/obj/item/serviette/colonial,
+		/obj/item/serviette/colonial,
+	)
 
 /obj/item/serviette/colonial
 	name = "colonial napkin"
@@ -184,9 +188,11 @@
 			return
 
 /obj/item/storage/box/colonial_rations/PopulateContents()
-	new /obj/item/food/colonial_course/pljeskavica(src)
-	new /obj/item/food/colonial_course/nachos(src)
-	new /obj/item/food/colonial_course/blins(src)
-	new /obj/item/reagent_containers/cup/glass/coffee/colonial(src)
-	new /obj/item/storage/box/gum/colonial(src)
-	new /obj/item/storage/box/utensils(src)
+	return list(
+		/obj/item/food/colonial_course/pljeskavica,
+		/obj/item/food/colonial_course/nachos,
+		/obj/item/food/colonial_course/blins,
+		/obj/item/reagent_containers/cup/glass/coffee/colonial,
+		/obj/item/storage/box/gum/colonial,
+		/obj/item/storage/box/utensils,
+	)

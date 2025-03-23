@@ -15,7 +15,7 @@
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/empty
 
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/empty/PopulateContents()
-	return
+	return NONE
 
 // Gunset for the Wespe pistol
 

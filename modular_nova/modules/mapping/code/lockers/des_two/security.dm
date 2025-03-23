@@ -20,14 +20,16 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to a brig officer."
 
 /obj/item/storage/bag/garment/brig_officer/PopulateContents()
-	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
-	new /obj/item/clothing/head/beret/sec/syndicate(src)
-	new /obj/item/clothing/accessory/armband(src)
-	new /obj/item/clothing/mask/gas/syndicate(src)
-	new /obj/item/clothing/suit/toggle/jacket/sec/old/syndicate(src)
-	new /obj/item/clothing/mask/neck_gaiter(src)
-	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec(src)
-	new /obj/item/clothing/glasses/hud/security/sunglasses/redsec(src)
+	return list(
+		/obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate,
+		/obj/item/clothing/head/beret/sec/syndicate,
+		/obj/item/clothing/accessory/armband,
+		/obj/item/clothing/mask/gas/syndicate,
+		/obj/item/clothing/suit/toggle/jacket/sec/old/syndicate,
+		/obj/item/clothing/mask/neck_gaiter,
+		/obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec,
+		/obj/item/clothing/glasses/hud/security/sunglasses/redsec,
+	)
 
 /obj/structure/closet/secure_closet/des_two/brig_officer_locker/PopulateContents()
 	..()

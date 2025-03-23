@@ -52,5 +52,6 @@
 	return ..()
 
 /obj/item/storage/belt/bowie_sheath/PopulateContents()
-	new /obj/item/knife/bowie(src)
-	update_appearance()
+	return list(
+		/obj/item/knife/bowie,
+	)

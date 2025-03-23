@@ -3,4 +3,4 @@
 
 /obj/item/storage/fish_case/donkfish/PopulateContents()
 	. = ..()
-	new /obj/item/fish/donkfish(src)
+	. += /obj/item/fish/donkfish

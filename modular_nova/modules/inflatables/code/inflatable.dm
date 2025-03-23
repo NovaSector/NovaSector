@@ -234,10 +234,11 @@
 	atom_storage.set_holdable(typesof(/obj/item/inflatable))
 
 /obj/item/storage/inflatable/PopulateContents()
+	. = list()
 	for(var/i = 0, i < BOX_DOOR_AMOUNT, i++)
-		new /obj/item/inflatable/door(src)
-	for(var/i = 0, i < BOX_WALL_AMOUNT, i ++)
-		new /obj/item/inflatable(src)
+		. += /obj/item/inflatable/door
+	for(var/i = 0, i < BOX_WALL_AMOUNT, i++)
+		. += /obj/item/inflatable
 
 #undef TAPE_REQUIRED_TO_FIX
 #undef INFLATABLE_DOOR_OPENED

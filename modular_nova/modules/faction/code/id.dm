@@ -51,10 +51,9 @@
 	desc = "In case you'd want to recruit people. Keep this safe."
 
 /obj/item/storage/box/faction_access_cards/PopulateContents()
-	for(var/i in 1 to 3)
-		new /obj/item/card/faction_access/guest(src)
-	for(var/i in 1 to 3)
-		new /obj/item/card/faction_access/crew(src)
-	new /obj/item/card/faction_access/command(src)
-	for(var/i in 1 to 4)
-		new /obj/item/encryptionkey/headset_faction(src)
+	return flatten_quantified_list(list(
+		/obj/item/card/faction_access/guest = 3,
+		/obj/item/card/faction_access/crew = 4,
+		/obj/item/card/faction_access/command = 1,
+		/obj/item/encryptionkey/headset_faction = 4,
+	))

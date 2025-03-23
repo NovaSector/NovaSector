@@ -106,8 +106,9 @@
 	return ..()
 
 /obj/item/storage/belt/machete/full/PopulateContents()
-	new /obj/item/machete(src)
-	update_appearance()
+	return list(
+		/obj/item/machete,
+	)
 
 /// triggers on item removal from the scabbard - plays a draw sound, which should be the rustle sound
 /// had to snowflake it because remove rustle sounds are. never triggered in the code. funnily enough

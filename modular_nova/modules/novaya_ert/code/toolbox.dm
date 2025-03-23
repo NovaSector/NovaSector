@@ -3,8 +3,7 @@
 
 /obj/item/storage/toolbox/ammobox/full/PopulateContents()
 	if(!isnull(ammo_to_spawn))
-		for(var/i in 1 to amount)
-			new ammo_to_spawn(src)
+		return flatten_quantified_list(list(ammo_to_spawn = amount))
 
 /obj/item/storage/toolbox/ammobox/full/sakhno
 	name = "ammo box (Sakhno)"

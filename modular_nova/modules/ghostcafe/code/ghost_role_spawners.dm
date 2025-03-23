@@ -114,16 +114,18 @@
 	atom_storage.max_total_storage = 50 // To actually acommodate the stuff being added.
 
 /obj/item/storage/box/syndie_kit/chameleon/ghostcafe/PopulateContents() // Doesn't contain a PDA, for isolation reasons.
-	new /obj/item/clothing/under/chameleon(src)
-	new /obj/item/clothing/suit/chameleon(src)
-	new /obj/item/clothing/gloves/chameleon(src)
-	new /obj/item/clothing/shoes/chameleon(src)
-	new /obj/item/clothing/glasses/chameleon(src)
-	new /obj/item/clothing/head/chameleon(src)
-	new /obj/item/clothing/mask/chameleon(src)
-	new /obj/item/clothing/neck/chameleon(src)
-	new /obj/item/storage/belt/chameleon(src)
-	new /obj/item/hhmirror/syndie(src)
+	return list(
+		/obj/item/clothing/under/chameleon,
+		/obj/item/clothing/suit/chameleon,
+		/obj/item/clothing/gloves/chameleon,
+		/obj/item/clothing/shoes/chameleon,
+		/obj/item/clothing/glasses/chameleon,
+		/obj/item/clothing/head/chameleon,
+		/obj/item/clothing/mask/chameleon,
+		/obj/item/clothing/neck/chameleon,
+		/obj/item/storage/belt/chameleon,
+		/obj/item/hhmirror/syndie,
+	)
 
 /obj/item/card/id/advanced/chameleon/ghost_cafe
 	name = "\improper Cafe ID"

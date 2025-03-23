@@ -186,7 +186,7 @@
 	return list_to_clean
 
 /obj/item/storage/briefcase/empty/PopulateContents()
-	return
+	return NONE
 
 // Cyborg loadouts (currently used for hats)
 /mob/living/silicon/robot/on_job_equipping(datum/job/equipping, client/player_client)

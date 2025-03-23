@@ -9,15 +9,14 @@
 	custom_premium_price = PAYCHECK_CREW * 2
 
 /obj/item/storage/briefcase/secure/white/wargame_kit/PopulateContents()
-	var/static/items_inside = list(
-		/obj/item/wargame_projector/ships = 1,
-		/obj/item/wargame_projector/ships/red = 1,
-		/obj/item/wargame_projector/terrain = 1,
-		/obj/item/storage/dice = 1,
-		/obj/item/book/manual/wargame_rules = 1,
-		/obj/item/book/manual/wargame_rules/examples = 1,
-		)
-	generate_items_inside(items_inside,src)
+	return list(
+		/obj/item/wargame_projector/ships,
+		/obj/item/wargame_projector/ships/red,
+		/obj/item/wargame_projector/terrain,
+		/obj/item/storage/dice,
+		/obj/item/book/manual/wargame_rules,
+		/obj/item/book/manual/wargame_rules/examples,
+	)
 
 /obj/item/book/manual/wargame_rules
 	name = "Wargame: Blue Lizard - Example Ruleset"

@@ -62,6 +62,6 @@
 
 /obj/item/storage/box/syndie_kit/chameleon/PopulateContents()
 	. = ..()
-	new /obj/item/hhmirror/syndie(src)
-	new /obj/item/dyespray(src)
+	. += /obj/item/hhmirror/syndie
+	. += /obj/item/dyespray
 

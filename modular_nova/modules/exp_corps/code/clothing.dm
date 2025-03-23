@@ -37,42 +37,50 @@
 	name = "combat tech's chest rig"
 
 /obj/item/storage/belt/military/expeditionary_corps/combat_tech/PopulateContents()
-	new /obj/item/screwdriver(src)
-	new /obj/item/wrench(src)
-	new /obj/item/weldingtool(src)
-	new /obj/item/crowbar(src)
-	new /obj/item/wirecutters(src)
-	new /obj/item/multitool(src)
-	new /obj/item/stack/cable_coil(src)
+	return list(
+		/obj/item/screwdriver,
+		/obj/item/wrench,
+		/obj/item/weldingtool,
+		/obj/item/crowbar,
+		/obj/item/wirecutters,
+		/obj/item/multitool,
+		/obj/item/stack/cable_coil,
+	)
 
 /obj/item/storage/belt/military/expeditionary_corps/field_medic
 	name = "field medic's chest rig"
 
 /obj/item/storage/belt/military/expeditionary_corps/field_medic/PopulateContents()
-	new /obj/item/scalpel(src)
-	new /obj/item/circular_saw/field_medic(src)
-	new /obj/item/hemostat(src)
-	new /obj/item/retractor(src)
-	new /obj/item/cautery(src)
-	new /obj/item/surgical_drapes(src)
-	new /obj/item/bonesetter(src)
+	return list(
+		/obj/item/scalpel,
+		/obj/item/circular_saw/field_medic,
+		/obj/item/hemostat,
+		/obj/item/retractor,
+		/obj/item/cautery,
+		/obj/item/surgical_drapes,
+		/obj/item/bonesetter,
+	)
 
 /obj/item/storage/belt/military/expeditionary_corps/pointman
 	name = "pointman's chest rig"
 
 /obj/item/storage/belt/military/expeditionary_corps/pointman/PopulateContents()
-	new /obj/item/reagent_containers/cup/glass/bottle/whiskey(src)
-	new /obj/item/stack/sheet/plasteel(src,5)
-	new /obj/item/reagent_containers/cup/bottle/morphine(src)
+	return list(
+		/obj/item/reagent_containers/cup/glass/bottle/whiskey,
+		new /obj/item/stack/sheet/plasteel(null, 5),
+		/obj/item/reagent_containers/cup/bottle/morphine,
+	)
 
 /obj/item/storage/belt/military/expeditionary_corps/marksman
 	name = "marksman's chest rig"
 
 /obj/item/storage/belt/military/expeditionary_corps/marksman/PopulateContents()
-	new /obj/item/binoculars(src)
-	new /obj/item/storage/fancy/cigarettes/cigpack_robust(src)
-	new /obj/item/lighter(src)
-	new /obj/item/clothing/mask/bandana/skull(src)
+	return list(
+		/obj/item/binoculars,
+		/obj/item/storage/fancy/cigarettes/cigpack_robust,
+		/obj/item/lighter,
+		/obj/item/clothing/mask/bandana/skull,
+	)
 
 /obj/item/clothing/shoes/combat/expeditionary_corps
 	name = "expeditionary corps boots"
