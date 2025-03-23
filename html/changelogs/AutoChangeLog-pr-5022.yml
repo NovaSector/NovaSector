@@ -1,0 +1,5 @@
+author: "unit0016"
+delete-after: True
+changes:
+  - rscadd: "A lot of dorms-related clothing, accessories, and tools've received greyscale coloration!"
+  - code_imp: "A significant amount of the backend of the dorms module's been overhauled. If anything's broken; give a shout!"
