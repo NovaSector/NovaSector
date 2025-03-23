@@ -186,21 +186,21 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
 			RESKIN_ICON_STATE = "belt_black",
-			RESKIN_WORN_ICON_STATE = "belt_black"
+			RESKIN_WORN_ICON_STATE = "belt_black",
 			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 		),
 		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
 			RESKIN_ICON_STATE = "belt_blue",
-			RESKIN_WORN_ICON_STATE = "belt_blue"
+			RESKIN_WORN_ICON_STATE = "belt_blue",
 			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 		),
 		"White Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/belts.dmi',
 			RESKIN_ICON_STATE = "belt_white",
-			RESKIN_WORN_ICON_STATE = "belt_white"
+			RESKIN_WORN_ICON_STATE = "belt_white",
 			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 		),
 		"Basic Variant" = list(
@@ -606,12 +606,12 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE
+			RESKIN_ALT_COVERS_CHEST = TRUE,
 			RESKIN_ICON_STATE = "security_black",
 			RESKIN_WORN_ICON_STATE = "security_black"
 		),
 		"White Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE
+			RESKIN_ALT_COVERS_CHEST = TRUE,
 			RESKIN_ICON_STATE = "security_white",
 			RESKIN_WORN_ICON_STATE = "security_white"
 		),

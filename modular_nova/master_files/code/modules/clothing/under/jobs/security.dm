@@ -10,22 +10,20 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
 
-//DEBATE MOVING *ALL* SECURITY STUFF HERE? Even overrides, at least as a like, sub-file?
-
 /*
 *	SECURITY OFFICER
 */
 
-/obj/item/clothing/under/rank/security/nova/officer //Bluesec suit
+/obj/item/clothing/under/rank/security/nova/officer //Bluesec uniform
 	name = "security uniform"
 	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
-	icon_state = "security_black"
+	icon_state = "security_blue_black"
 	alt_covers_chest = TRUE
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "security_black",
-			RESKIN_WORN_ICON_STATE = "security_black"
+			RESKIN_ICON_STATE = "security_blue_black",
+			RESKIN_WORN_ICON_STATE = "security_blue_black"
 		),
 		"Blue Variant" = list(
 			RESKIN_ICON_STATE = "security_blue",
@@ -40,10 +38,10 @@
 /obj/item/clothing/under/rank/security/nova/formal
 	name = "security formal suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
-	icon_state = "peacekeeper" //rename this
+	icon_state = "formal"
 
 /obj/item/clothing/under/rank/security/nova/formal/blue
-	icon_state = "peacekeeper_blue" //rename this
+	icon_state = "formal_blue"
 
 /obj/item/clothing/under/rank/security/nova/officer/skirt
 	name = "security jumpskirt"
@@ -66,23 +64,10 @@
 /obj/item/clothing/under/rank/security/nova/plain_skirt
 	name = "security plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
-	icon_state = "plain_skirt"
+	icon_state = "plain_skirt_blue"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt",
-			RESKIN_WORN_ICON_STATE = "plain_skirt"
-	    ),
-		"Black Variant" = list(
-			RESKIN_ICON_STATE = "plain_skirt_black",
-			RESKIN_WORN_ICON_STATE = "plain_skirt_black"
-	    ),
-	)
-
-/obj/item/clothing/under/rank/security/nova/plain_skirt/blue
-	icon_state = "plain_skirt_blue"
 	unique_reskin = list(
 		"Blue Variant" = list(
 			RESKIN_ICON_STATE = "plain_skirt_blue",
@@ -242,15 +227,17 @@
 
 /obj/item/clothing/under/rank/security/warden/nova
 	icon_state = "warden_black"
-	inhand_icon_state = "r_suit"
+
+/obj/item/clothing/under/rank/security/warden/nova/blue
+	icon_state = "warden_blue_black"
 
 /obj/item/clothing/under/rank/security/warden/nova/suit
 	name = "warden's suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
-	icon_state = "peacekeeper_warden" //rename this
+	icon_state = "formal_warden"
 
 /obj/item/clothing/under/rank/security/warden/nova/suit/blue
-	icon_state = "peacekeeper_warden_blue" //rename this
+	icon_state = "formal_warden_blue"
 
 /*
 *	HEAD OF SECURITY
@@ -259,13 +246,16 @@
 /obj/item/clothing/under/rank/security/head_of_security/nova
 	icon_state = "hos_black"
 
+/obj/item/clothing/under/rank/security/head_of_security/nova/blue
+	icon_state = "hos_blue_black"
+
 /obj/item/clothing/under/rank/security/head_of_security/nova/formal
 	name = "head of security's formal suit"
 	desc = "A security suit decorated for those few with the dedication to achieve the position of Head of Security."
-	icon_state = "peacekeeper_hos" //rename this
+	icon_state = "formal_hos"
 
 /obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue
-	icon_state = "peacekeeper_hos_blue" //rename this
+	icon_state = "formal_hos_blue"
 
 /obj/item/clothing/under/rank/security/head_of_security/nova/imperial //Rank pins of the Grand General
 	desc = "A tar black naval suit and a rank badge denoting the Officer of The Internal Security Division. Be careful your underlings don't bump their head on a door."
