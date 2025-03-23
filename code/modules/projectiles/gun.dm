@@ -294,17 +294,11 @@
 	return NONE
 
 /obj/item/gun/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	// NOVA EDIT ADDITION START - Move this check up from below, should probably be upstreamed but breaks unit tests for us
 	if(user.combat_mode && isliving(interacting_with))
 		return ITEM_INTERACT_SKIP_TO_ATTACK // Gun bash / bayonet attack
-	// NOVA EDIT ADDITION END
+
 	if(!can_hold_up || !isliving(interacting_with))
 		return interact_with_atom(interacting_with, user, modifiers)
-
-	/* // NOVA EDIT REMOVAL START
-	if(user.combat_mode && isliving(interacting_with))
-		return ITEM_INTERACT_SKIP_TO_ATTACK // Gun bash / bayonet attack
-	*/ // NOVA EDIT REMOVAL END
 
 	var/datum/component/gunpoint/gunpoint_component = user.GetComponent(/datum/component/gunpoint)
 	if (gunpoint_component)
