@@ -34,6 +34,8 @@
 		tool.use(1)
 		to_chat(user, span_notice("You recharge the bluespace capacitor inside of [src]"))
 		current_capacity += BSRPD_CAPACITY_NEW
+		return ITEM_INTERACT_SUCCESS
+
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/assembly/signaler/anomaly/bluespace))
