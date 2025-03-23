@@ -1129,3 +1129,44 @@
   - balance: The cargo console now has a delay to express orders (renamed to autodelivery)
   vinylspiders:
   - qol: adds veteran status to OOC notes in player panel + character directory
+2025-03-20:
+  Hatterhat:
+  - rscadd: .35 Sol Short flash ammunition is now in circulation at your local ammo
+      bench.
+  - bugfix: The ammo counter HUD element now accounts for open bolt weapons (e.g.
+      the Sindano).
+  RatFromTheJungle:
+  - balance: Syndicate space troopers (with the shotty) not only fire one-shot, meaning
+      they're alot less likely to instantly nuke you on first-contact (but still hurt,
+      really bad)
+  jjpark-kb:
+  - rscadd: added clay pots to ceramics; you are now able to remake those nice potted
+      plants with some sand, a seed, and a clay pot.
+  - code_imp: cleaned up the look of the code, as well as fixed a switch in the code
+      to be better looking.
+  - qol: cargo teleporter marker selection happens less often
+  - rscadd: 'added a new ashwalker ritual: summon ore seed. Ore seed will summon an
+      ore vent at the cost of life.'
+  - code_imp: made the code blocks prettier, both in spacing and repeated code usage.
+2025-03-21:
+  Bannhammger:
+  - code_imp: removed forced WALK on gunpoint. now you run
+  FlufflesTheDog:
+  - bugfix: Records and crew manifest for round-start players once again exists
+  RealWinterFrost:
+  - balance: Solfed marshals have now recieved their pistol certifications
+  - image: modified security alert screens for better immersion and detail
+  - admin: added Epsilon Alert
+  - admin: added Federal Alert
+  vinylspiders:
+  - bugfix: the bump teleporter effect functions again
+2025-03-22:
+  Jedi-Toothpaste:
+  - rscadd: New Donator Item, Ahab's Spear Retool Kit
+  the-og-gear:
+  - rscdel: RD and Scientists no longer have a ballmer's peak by default
+2025-03-23:
+  jjpark-kb:
+  - rscadd: adds the ability to focus the bluespace miner, tripling the chance for
+      an ore
+  - code_imp: made some of the code blocks prettier/more readable.
