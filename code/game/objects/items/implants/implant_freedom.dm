@@ -36,10 +36,8 @@
 /obj/item/implant/freedom/proc/can_trigger(mob/living/carbon/implanted_in)
 	if(implanted_in.handcuffed || implanted_in.legcuffed)
 		return TRUE
-//Nova edit begin
-	if(implanted_in.has_status_effect(/datum/status_effect/tased)) 
-		return TRUE						
-//Nova edit end
+
+	return implanted_in.has_status_effect(/datum/status_effect/tased)) // NOVA EDIT ADDITION
 	var/obj/item/clothing/shoes/shoes = implanted_in.shoes
 	if(istype(shoes) && shoes.tied == SHOES_KNOTTED)
 		return TRUE
