@@ -1,0 +1,30 @@
+{
+	"bunnysuit": [
+		{
+			"type": "icon_state",
+			"icon_state": "bunnysuit_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bunnysuit_collar",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"bunnysuit_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "bunnysuit_base_displaced",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bunnysuit_collar",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}
