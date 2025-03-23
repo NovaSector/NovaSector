@@ -43,6 +43,7 @@
 			to_chat(user, span_notice("You slot [tool] into [src]; supercharging the bluespace capacitor!"))
 			ranged_use_cost = 0
 			qdel(tool)
+			return ITEM_INTERACT_SUCCESS
 
 		else
 			to_chat(user, span_warning("You cannot improve the [src] further."))
