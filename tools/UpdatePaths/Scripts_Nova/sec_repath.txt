@@ -1,0 +1,6 @@
+/obj/item/clothing/under/rank/security/peacekeeper/dress : /obj/item/clothing/under/rank/security/nova/dress
+/obj/item/clothing/under/rank/security/peacekeeper/trousers : /obj/item/clothing/under/rank/security/nova/trousers
+/obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts : /obj/item/clothing/under/rank/security/nova/trousers/shorts
+/obj/item/clothing/under/rank/security/peacekeeper/jumpsuit : /obj/item/clothing/under/rank/security/nova/turtleneck
+/obj/item/clothing/under/rank/security/peacekeeper/plain_skirt : /obj/item/clothing/under/rank/security/nova/plain_skirt
+/obj/item/clothing/under/rank/security/peacekeeper/miniskirt : /obj/item/clothing/under/rank/security/nova/miniskirt
