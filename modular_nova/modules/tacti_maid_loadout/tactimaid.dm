@@ -14,8 +14,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	icon_state = "syndimaid_arms"
 
-
-
 /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
 	name = "tactical maid outfit"
 	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit"
