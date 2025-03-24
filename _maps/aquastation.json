@@ -14,12 +14,27 @@
 	},
 	"traits": [
 		{
+			"Up": true,
 			"Mining": true,
-			"Baseturf": "/turf/open/misc/asteroid",
+			"Linkage": null,
+			"Gravity": true,
+			"Baseturf": "/turf/open/misc/ocean",
+			"Trench Ruins": true,
+			"No Parallax": true
+		},
+		{
+			"Down": true,
+			"Baseturf": "/turf/open/openspace/ocean",
 			"Linkage": null,
 			"Gravity": true,
 			"Ocean Ruins": true,
 			"No Parallax": true
+		},
+		{
+			"Linkage": "Cross",
+			"Gravity": false,
+			"No Parallax": false
 		}
-	]
+	],
+	"minetype": "lavaland"
 }

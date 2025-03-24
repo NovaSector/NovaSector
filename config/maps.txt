@@ -87,3 +87,7 @@ endmap
 map snowglobe
 	votable
 endmap
+
+map aquastation
+	votable
+endmap
