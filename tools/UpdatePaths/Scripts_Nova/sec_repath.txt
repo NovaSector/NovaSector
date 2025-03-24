@@ -2,8 +2,8 @@
 /obj/item/clothing/under/rank/security/peacekeeper/trousers : /obj/item/clothing/under/rank/security/nova/trousers{@OLD}
 /obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts : /obj/item/clothing/under/rank/security/nova/trousers/shorts{@OLD}
 /obj/item/clothing/under/rank/security/peacekeeper/jumpsuit : /obj/item/clothing/under/rank/security/nova/turtleneck{@OLD}
-/obj/item/clothing/under/rank/security/peacekeeper/plain_skirt : /obj/item/clothing/under/rank/security/nova/plain_skirt{@OLD}
-/obj/item/clothing/under/rank/security/peacekeeper/miniskirt : /obj/item/clothing/under/rank/security/nova/miniskirt{@OLD}
+/obj/item/clothing/under/rank/security/peacekeeper/plain_skirt : /obj/item/clothing/under/rank/security/nova/skirt/plain{@OLD}
+/obj/item/clothing/under/rank/security/peacekeeper/miniskirt : /obj/item/clothing/under/rank/security/nova/skirt/mini{@OLD}
 /obj/item/clothing/under/rank/security/warden/peacekeeper : /obj/item/clothing/under/rank/security/warden/nova/suit{@OLD}
 /obj/item/clothing/under/rank/security/peacekeeper : /obj/item/clothing/under/rank/security/nova/formal{@OLD}
 /obj/item/clothing/under/rank/security/head_of_security/peacekeeper : /obj/item/clothing/under/rank/security/head_of_security/nova/formal{@OLD}
@@ -17,4 +17,10 @@
 /obj/effect/turf_decal/delivery/blue : /obj/effect/turf_decal/delivery/red{@OLD}
 /obj/effect/turf_decal/caution/blue : /obj/effect/turf_decal/caution/red{@OLD}
 /obj/item/clothing/accessory/armband/deputy/lopland : /obj/item/clothing/accessory/armband/deputy{@OLD}
-/obj/item/clothing/accessory/armband/deputy/lopland/nonsec : /obj/item/clothing/accessory/armband/deputy/nonsec{@OLD}
+/obj/item/clothing/accessory/armband/deputy/lopland/nonsec : /obj/item/clothing/accessory/armband/red{@OLD}
+/obj/item/clothing/head/beret/sec/peacekeeper : /obj/item/clothing/head/beret/sec/nova{@OLD}
+/obj/item/clothing/head/hats/hos/beret/peacekeeper : /obj/item/clothing/head/hats/hos/beret/nova{@OLD}
+/obj/item/clothing/head/beret/sec/navywarden/peacekeeper : /obj/item/clothing/head/beret/sec/navywarden/nova{@OLD}
+/obj/item/riding_saddle/leather/peacekeeper : /obj/item/riding_saddle/leather/sec/blue{@old}
+/obj/item/storage/backpack/security/redsec : /obj/item/storage/backpack/security{@old}
+/obj/item/clothing/glasses/hud/security/sunglasses/redsec : /obj/item/clothing/glasses/hud/security/sunglasses{@OLD}

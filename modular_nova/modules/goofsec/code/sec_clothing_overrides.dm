@@ -102,7 +102,7 @@
 * ACCESSORIES
 */
 // For consistency with other armbands
-/obj/item/clothing/accessory/armband/nonsec
+/obj/item/clothing/accessory/armband/sec
 	desc = "An armband, worn to signify proficiency in a skill or association with a department. This one is red."
 
 /*
@@ -270,7 +270,7 @@
 		"Dark-Tint Red Sunglasses" = list(
 			RESKIN_ICON_STATE = "sunhudsec",
 			RESKIN_WORN_ICON_STATE = "sunhudsec"
-		)
+		),
 		"Dark-Tint Blue Sunglasses" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "security_hud_blue_black",
@@ -293,7 +293,7 @@
 		"Red Eyepatches" = list(
 			RESKIN_ICON_STATE = "hudpatch",
 			RESKIN_WORN_ICON_STATE = "hudpatch"
-		)
+		),
 		"Blue Eyepatches" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "security_eyepatch",
@@ -307,7 +307,7 @@
 		"Red Gars" = list(
 			RESKIN_ICON_STATE = "gar_sec",
 			RESKIN_WORN_ICON_STATE = "gar_sec"
-		)
+		),
 		"Blue Gars" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "gar_sec",

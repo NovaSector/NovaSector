@@ -18,11 +18,11 @@
 			RESKIN_WORN_ICON = 'icons/mob/clothing/hands.dmi',
 			RESKIN_WORN_ICON_STATE = "black"
 		),
-		"Peacekeeper Gloves" = list(
+		"Blue Gloves" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "peacekeeper_gloves",
+			RESKIN_ICON_STATE = "black_blue",
 			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "peacekeeper"
+			RESKIN_WORN_ICON_STATE = "black_blue"
 		)
 	)
 	// NOVA EDIT ADDITION END

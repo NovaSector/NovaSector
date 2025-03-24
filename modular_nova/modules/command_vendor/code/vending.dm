@@ -118,7 +118,7 @@
 		/obj/item/clothing/head/hats/hos/cap = 1,
 		/obj/item/clothing/head/hats/hos/beret/navyhos = 1,
 		/obj/item/clothing/head/hats/imperial/hos = 1,
-		/obj/item/clothing/under/rank/security/head_of_security/peacekeeper = 1,
+		/obj/item/clothing/under/rank/security/head_of_security/nova = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/alt = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/alt/skirt = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/nova/imperial = 1,
@@ -126,7 +126,7 @@
 		/obj/item/clothing/under/rank/security/head_of_security/parade = 1,
 		/obj/item/clothing/suit/armor/hos/hos_formal = 1,
 		/obj/item/clothing/neck/cloak/hos = 1,
-		/obj/item/clothing/neck/cloak/hos/redsec = 1,
+		/obj/item/clothing/neck/cloak/hos/blue = 1,
 		/obj/item/clothing/neck/mantle/hosmantle = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,
 	)

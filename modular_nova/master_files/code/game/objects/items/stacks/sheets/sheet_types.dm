@@ -135,7 +135,7 @@ GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
 	new/datum/stack_recipe("cowboy belt (thigh holster)", /obj/item/storage/belt/holster/cowboy, 3, crafting_flags = NONE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe_list("saddles", list(
 		new/datum/stack_recipe("riding saddle (normal)", /obj/item/riding_saddle/leather, 5, category = CAT_CLOTHING),
-		new/datum/stack_recipe("riding saddle (peacekeeper)", /obj/item/riding_saddle/leather/peacekeeper, 5, category = CAT_CLOTHING),
+		new/datum/stack_recipe("riding saddle (blue)", /obj/item/riding_saddle/leather/blue, 5, category = CAT_CLOTHING),
 	)),
 ))
 

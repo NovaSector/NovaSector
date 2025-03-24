@@ -52,7 +52,7 @@
 
 /datum/loadout_item/accessory/armband_security_nonsec
 	name = "Red Armband"
-	item_path = /obj/item/clothing/accessory/armband/nonsec
+	item_path = /obj/item/clothing/accessory/armband/red
 
 /datum/loadout_item/accessory/armband_security
 	name = "Security Deputy Armband"

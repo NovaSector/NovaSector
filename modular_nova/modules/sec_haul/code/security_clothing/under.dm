@@ -43,7 +43,7 @@
 /obj/item/clothing/under/rank/security/nova/formal/blue
 	icon_state = "formal_blue"
 
-/obj/item/clothing/under/rank/security/nova/officer/skirt
+/obj/item/clothing/under/rank/security/nova/skirt
 	name = "security jumpskirt"
 	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
 	icon_state = "jumpskirt_blue"
@@ -93,7 +93,7 @@
 	    ),
 	)
 
-/obj/item/clothing/under/rank/security/nova/miniskirt/blue
+/obj/item/clothing/under/rank/security/nova/skirt/mini/blue
 	icon_state = "miniskirt_blue"
 	unique_reskin = list(
 		"Blue Variant" = list(
@@ -209,13 +209,13 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck
 	name = "security turtleneck"
 	desc = "Turtleneck sweater commonly worn by trained Officers, attached with pants."
-	icon_state = "turtleneck" // switch to turtleneck on both mob and obj
+	icon_state = "turtleneck"
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
-	icon_state = "jumpsuit_blue"
+	icon_state = "turtleneck_blue"
 
 /*
 *	WARDEN
