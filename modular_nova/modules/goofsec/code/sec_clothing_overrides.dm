@@ -494,9 +494,18 @@
 	icon_state = "tackle_blue"
 
 /obj/item/clothing/gloves/krav_maga/sec
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
-	icon_state = "fightgloves_blue"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "fightgloves",
+			RESKIN_WORN_ICON_STATE = "fightgloves"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
+			RESKIN_ICON_STATE = "fightgloves_blue",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
+			RESKIN_WORN_ICON_STATE = "fightgloves_blue"
+		),
 
 /*
 * SUITS
