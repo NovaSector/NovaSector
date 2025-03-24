@@ -3435,9 +3435,6 @@
 /area/centcom/interlink)
 "aQz" = (
 /obj/structure/closet/crate/bin,
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
 "aQD" = (
@@ -5846,6 +5843,9 @@
 "dyE" = (
 /obj/structure/table,
 /obj/machinery/light/directional/north,
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
 "dyI" = (
@@ -7503,6 +7503,12 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"gvg" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/dark_red/filled/arrow_cw,
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "gxF" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -8990,6 +8996,16 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink)
+"iWd" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/arrow_cw{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "iWF" = (
 /obj/effect/turf_decal/trimline/dark_green/filled/warning{
 	dir = 6
@@ -10085,6 +10101,12 @@
 	desc = "There's been a recent disturbance right here, it's evident something must've been buried; but it's pretty deep. A faint, yet deep humming sound emanates from the spot as you get closer."
 	},
 /area/centcom/holding/cafepark)
+"kMv" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/dark_red/filled/arrow_ccw,
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "kMw" = (
 /obj/structure/chair/stool/directional/south{
 	dir = 4
@@ -10278,6 +10300,16 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"kZL" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark_red/filled/arrow_ccw{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/centcom/interlink)
 "kZQ" = (
 /obj/machinery/modular_computer/preset/command{
 	dir = 1
@@ -15045,6 +15077,18 @@
 	icon_state = "white"
 	},
 /area/centcom/holding/cafepark)
+"sfS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark/side{
+	dir = 1
+	},
+/area/centcom/interlink)
 "sga" = (
 /obj/machinery/computer,
 /turf/open/floor/plating,
@@ -18457,11 +18501,10 @@
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "xPW" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing,
 /obj/machinery/light/floor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron,
+/turf/open/floor/iron/dark/side,
 /area/centcom/interlink)
 "xPZ" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -39894,10 +39937,10 @@ hHP
 hHP
 hHP
 evs
-vEO
+sfS
 hvQ
 bIG
-ukp
+xPW
 dHD
 hHP
 hHP
@@ -41179,10 +41222,10 @@ rYR
 tUz
 pWk
 pDN
-alx
+iWd
 kKo
 quv
-nKw
+kMv
 pDN
 rYR
 tUz
@@ -41438,7 +41481,7 @@ tUz
 cAI
 puC
 hvQ
-xPW
+bIG
 tUA
 cAI
 tUz
@@ -42464,10 +42507,10 @@ xPx
 tUz
 xPx
 nJQ
-vEO
+sfS
 hvQ
 bIG
-ukp
+xPW
 nJQ
 xPx
 tUz
@@ -43749,10 +43792,10 @@ wHS
 tUz
 uET
 pDN
-xDn
+kZL
 kKo
 uks
-tNs
+gvg
 pDN
 wHS
 tUz
