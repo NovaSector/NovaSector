@@ -7187,7 +7187,6 @@
 #include "modular_nova\modules\aesthetics\plasticflaps\code\plasticflaps.dm"
 #include "modular_nova\modules\aesthetics\posters\posters.dm"
 #include "modular_nova\modules\aesthetics\rack\code\rack.dm"
-#include "modular_nova\modules\aesthetics\shieldgen\code\shieldgen.dm"
 #include "modular_nova\modules\aesthetics\stationobjs\stationobjs.dm"
 #include "modular_nova\modules\aesthetics\storage\storage.dm"
 #include "modular_nova\modules\aesthetics\tools\code\tools.dm"
