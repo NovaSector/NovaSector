@@ -41,6 +41,13 @@
 		var/datum/quirk_constant_data/constant_data = GLOB.all_quirk_constant_data[quirk]
 		var/list/datum/preference/customization_options = constant_data?.get_customization_data()
 
+// NOVA EDIT START - Species only quirks
+		var/list/species_whitelist = list()
+		for(var/species_id in GLOB.quirk_species_whitelist[quirk])
+			var/datum/species/species_type = GLOB.species_list[species_id]
+			var/species_name = initial(species_type.name)
+			species_whitelist[species_id] += species_name // NOVA EDIT END - Species only quirks
+
 		quirk_info[sanitize_css_class_name(quirk_name)] = list(
 			"description" = initial(quirk.desc),
 			"icon" = initial(quirk.icon),
@@ -50,6 +57,7 @@
 			"customization_options" = customization_options,
 			"veteran_only" = initial(quirk.veteran_only), // NOVA EDIT ADDITION - Veteran quirks
 			"erp_quirk" = initial(quirk.erp_quirk), // NOVA EDIT ADDITION - Purple ERP quirks
+			"species_whitelist" = species_whitelist, //NOVA EDIT - Species quirks
 		)
 
 	return list(

@@ -56,7 +56,6 @@ export type Species = {
   enabled_features: string[];
 
   veteran_only: boolean; // NOVA EDIT - Veteran quirks
-
   perks: {
     positive: Perk[];
     negative: Perk[];
@@ -98,6 +97,7 @@ export type Quirk = {
   customization_options?: string[];
   veteran_only: boolean; // NOVA EDIT ADDITION - Veteran quirks
   erp_quirk: boolean; // NOVA EDIT ADDITION - Purple ERP quirks
+  species_whitelist: Record<string, string>[]; // NOVA EDIT ADDITION - Species quirks
 };
 
 // NOVA EDIT START
