@@ -12,6 +12,11 @@
 	},
 /turf/open/misc/asteroid,
 /area/space)
+"ad" = (
+/obj/structure/easel,
+/obj/item/canvas/nineteen_nineteen,
+/turf/open/floor/sepia,
+/area/space)
 "ae" = (
 /turf/open/chasm/true/fakeout,
 /area/space)
@@ -300,6 +305,7 @@
 /area/space)
 "bt" = (
 /obj/structure/lattice,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "bu" = (
@@ -349,7 +355,8 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "bJ" = (
@@ -359,9 +366,30 @@
 /obj/machinery/disposal/bin,
 /turf/open/floor/plating,
 /area/space)
+"bK" = (
+/obj/item/crowbar,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/sepia{
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
+	},
+/area/space)
 "bL" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
+/area/space)
+"bN" = (
+/obj/item/crowbar,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/sepia{
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
+	},
 /area/space)
 "bO" = (
 /obj/effect/spawner/random/structure/crate,
@@ -427,6 +455,12 @@
 	},
 /obj/effect/decal/remains/human,
 /turf/open/floor/wood,
+/area/space)
+"co" = (
+/obj/structure/flora/bush/jungle/c/style_random,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
 /area/space)
 "cp" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -529,7 +563,8 @@
 "cG" = (
 /obj/machinery/porta_turret/syndicate/energy/heavy,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "cH" = (
@@ -537,6 +572,15 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/space)
+"cI" = (
+/obj/structure/safe/vault,
+/obj/structure/cursed_money,
+/obj/item/shell/money_bot,
+/obj/item/documents,
+/obj/item/documents,
+/obj/item/documents,
+/turf/open/floor/iron,
 /area/space)
 "cJ" = (
 /obj/machinery/hydroponics/soil/fake_turf,
@@ -660,6 +704,8 @@
 /area/space)
 "dm" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "dn" = (
@@ -671,7 +717,8 @@
 "do" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "dp" = (
@@ -684,6 +731,7 @@
 /area/space)
 "dr" = (
 /mob/living/basic/gorilla,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "ds" = (
@@ -708,7 +756,8 @@
 	name = "\improper A Simpleton's Guide to Trolling"
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "dv" = (
@@ -719,6 +768,10 @@
 /mob/living/basic/mouse/rat,
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
+/area/space)
+"dx" = (
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/sepia,
 /area/space)
 "dy" = (
 /obj/machinery/hydroponics/soil/fake_turf,
@@ -774,7 +827,8 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/sign/warning/biohazard/directional/north,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "dL" = (
@@ -864,6 +918,51 @@
 	dir = 4
 	},
 /turf/open/water/no_planet_atmos,
+/area/space)
+"el" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/item/storage/bag/money,
+/turf/open/floor/iron,
 /area/space)
 "em" = (
 /mob/living/basic/regal_rat/controlled,
@@ -1088,6 +1187,33 @@
 /obj/structure/closet/crate/preopen,
 /turf/open/floor/plating/rust,
 /area/space)
+"fh" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/misc/beach/sand,
+/area/space)
+"fi" = (
+/obj/structure/rack,
+/obj/item/gun/energy/pulse/carbine{
+	anchored = 1;
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/gun/energy/pulse/pistol/m1911{
+	anchored = 1
+	},
+/obj/item/shield/energy{
+	pixel_y = -7;
+	pixel_x = -3;
+	anchored = 1
+	},
+/obj/item/melee/energy/sword/saber/blue,
+/obj/item/clothing/glasses/night/colorless,
+/obj/item/reagent_containers/hypospray/medipen/survival/luxury{
+	pixel_y = -7;
+	pixel_x = 7
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "fj" = (
 /turf/open/floor/carpet/green,
 /area/space)
@@ -1168,6 +1294,13 @@
 /obj/structure/lattice,
 /obj/structure/sign/warning/secure_area/directional/east,
 /turf/open/misc/asteroid/forest/mushroom/green,
+/area/space)
+"fB" = (
+/obj/structure/safe/floor,
+/obj/effect/spawner/random/entertainment/money_medium,
+/obj/effect/spawner/random/entertainment/money_medium,
+/obj/item/card/id,
+/turf/open/floor/iron,
 /area/space)
 "fC" = (
 /obj/structure/cable,
@@ -1257,6 +1390,15 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/plating,
 /area/space)
+"fX" = (
+/obj/structure/flora/grass/jungle/b/style_random,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/throwing_star/toy,
+/turf/open/misc/ashplanet/wateryrock{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
+/area/space)
 "fY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1307,6 +1449,10 @@
 "gm" = (
 /obj/item/clockwork_alloy,
 /turf/open/floor/bronze/filled,
+/area/space)
+"gn" = (
+/obj/item/target,
+/turf/open/misc/beach/sand,
 /area/space)
 "go" = (
 /obj/structure/sign/poster/contraband/random/directional/east,
@@ -1398,6 +1544,8 @@
 "gC" = (
 /obj/structure/flora/bush/jungle/b/style_random,
 /obj/machinery/light/floor,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "gE" = (
@@ -1535,7 +1683,8 @@
 	name = "Rare pepe"
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "gY" = (
@@ -1625,6 +1774,13 @@
 /obj/structure/spacevine,
 /obj/structure/punji_sticks,
 /turf/open/floor/plating,
+/area/space)
+"hq" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/ar/modular/m44a/grenadelauncher{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "hr" = (
 /obj/effect/mapping_helpers/burnt_floor,
@@ -1778,13 +1934,34 @@
 	},
 /obj/item/food/classic_hard_shell_taco,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "id" = (
 /obj/structure/broken_flooring/corner/directional/south,
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plating,
+/area/space)
+"ie" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/m44a{
+	pixel_x = -7;
+	anchored = 1
+	},
+/obj/item/ammo_box/magazine/m44a{
+	pixel_x = -2;
+	anchored = 1
+	},
+/obj/item/ammo_box/magazine/m44a{
+	pixel_x = 3;
+	anchored = 1
+	},
+/obj/item/ammo_box/magazine/m44a{
+	pixel_x = 8;
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "ih" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
@@ -1832,6 +2009,10 @@
 /obj/effect/spawner/random/food_or_drink/pizzaparty,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/white,
+/area/space)
+"it" = (
+/obj/item/kirbyplants/organic/plant12,
+/turf/open/floor/sepia,
 /area/space)
 "iu" = (
 /obj/machinery/hydroponics/soil/fake_turf,
@@ -2041,7 +2222,8 @@
 "ju" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "jv" = (
@@ -2103,6 +2285,16 @@
 /obj/effect/spawner/random/food_or_drink/readydonk,
 /obj/effect/spawner/random/food_or_drink/readydonk,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/space)
+"jE" = (
+/obj/item/crowbar,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/sepia{
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
+	},
 /area/space)
 "jF" = (
 /obj/machinery/mech_bay_recharge_port,
@@ -2226,6 +2418,10 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"kk" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/sepia,
+/area/space)
 "kl" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/circuit/red/anim,
@@ -2252,6 +2448,29 @@
 /obj/effect/gibspawner/human,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating,
+/area/space)
+"kr" = (
+/obj/structure/rack,
+/obj/item/reagent_containers/hypospray/medipen/stimulants{
+	pixel_y = 8;
+	anchored = 1
+	},
+/obj/item/reagent_containers/hypospray/medipen/stimulants{
+	pixel_y = 4;
+	anchored = 1
+	},
+/obj/item/reagent_containers/hypospray/medipen/stimulants{
+	anchored = 1
+	},
+/obj/item/reagent_containers/hypospray/medipen/stimulants{
+	pixel_y = -4;
+	anchored = 1
+	},
+/obj/item/reagent_containers/hypospray/medipen/stimulants{
+	pixel_y = -8;
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "ks" = (
 /obj/structure/chair/sofa/bench{
@@ -2282,6 +2501,7 @@
 "kz" = (
 /obj/structure/cable,
 /obj/machinery/power/rtg/lavaland,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "kA" = (
@@ -2292,6 +2512,7 @@
 /area/space)
 "kB" = (
 /mob/living/carbon/human/species/monkey,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "kC" = (
@@ -2329,7 +2550,8 @@
 "kM" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "kN" = (
@@ -2342,6 +2564,7 @@
 /area/space)
 "kP" = (
 /obj/structure/flora/bush/jungle/c/style_random,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "kQ" = (
@@ -2436,6 +2659,9 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"lf" = (
+/turf/open/misc/beach/sand,
+/area/space)
 "lg" = (
 /obj/item/clothing/suit/syndicatefake,
 /obj/item/weldingtool/largetank{
@@ -2479,6 +2705,13 @@
 /area/space)
 "lq" = (
 /turf/open/floor/circuit/red,
+/area/space)
+"ls" = (
+/obj/structure/safe/vault,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/turf/open/floor/iron,
 /area/space)
 "lt" = (
 /obj/structure/table,
@@ -2651,7 +2884,8 @@
 	pixel_y = 6
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "mk" = (
@@ -2783,7 +3017,8 @@
 "mD" = (
 /obj/item/sticker/right_arrow,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "mE" = (
@@ -2907,6 +3142,21 @@
 "nc" = (
 /obj/structure/fluff/clockwork/alloy_shards/medium,
 /turf/open/indestructible/reebe_void,
+/area/space)
+"ne" = (
+/obj/structure/rack,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/turf/open/floor/iron/smooth,
+/area/space)
+"nf" = (
+/obj/item/chisel,
+/obj/item/storage/toolbox/artistic,
+/obj/structure/rack,
+/obj/item/storage/crayons,
+/turf/open/floor/sepia,
 /area/space)
 "nh" = (
 /obj/effect/spawner/random/structure/grille,
@@ -3165,6 +3415,8 @@
 "ok" = (
 /obj/structure/flora/rock/pile/jungle/large/style_random,
 /obj/machinery/light/floor,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "om" = (
@@ -3347,6 +3599,7 @@
 /area/space)
 "pc" = (
 /obj/structure/flora/tree/jungle/small/style_random,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "pe" = (
@@ -3375,6 +3628,7 @@
 "pj" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /mob/living/basic/gorilla,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "pk" = (
@@ -3482,6 +3736,7 @@
 /area/space)
 "pF" = (
 /obj/structure/holosign/barrier/cyborg,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "pG" = (
@@ -3499,6 +3754,11 @@
 	},
 /obj/structure/window/spawner/directional/north,
 /turf/open/floor/iron/dark/textured,
+/area/space)
+"pI" = (
+/obj/structure/table/wood,
+/obj/item/stack/cannonball/the_big_one/five,
+/turf/open/floor/wood,
 /area/space)
 "pJ" = (
 /obj/structure/fluff/tram_rail/anchor{
@@ -3549,6 +3809,14 @@
 "pV" = (
 /obj/structure/rack/skeletal,
 /turf/open/floor/plating,
+/area/space)
+"pW" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Security - Permabrig Meditation";
+	network = list("ss13","prison")
+	},
+/obj/item/canvas/drawingtablet,
+/turf/open/floor/sepia,
 /area/space)
 "pY" = (
 /obj/machinery/hydroponics/soil/fake_turf,
@@ -3603,7 +3871,8 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "qn" = (
@@ -3650,6 +3919,10 @@
 "qB" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron,
+/area/space)
+"qG" = (
+/obj/item/kirbyplants/organic/plant10,
+/turf/open/floor/sepia,
 /area/space)
 "qH" = (
 /obj/structure/broken_flooring/singular/directional/south,
@@ -3701,6 +3974,13 @@
 /obj/item/storage/toolbox/drone,
 /turf/open/floor/wood,
 /area/space)
+"qR" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/sol_rifle{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "qT" = (
 /obj/machinery/door/airlock{
 	name = "Room 2"
@@ -3732,6 +4012,11 @@
 	normal_integrity = 50000;
 	name = "maintenance access of warding+87"
 	},
+/turf/open/floor/plating,
+/area/space)
+"qX" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/machinery/scanner_gate/luxury_shuttle,
 /turf/open/floor/plating,
 /area/space)
 "qZ" = (
@@ -3844,6 +4129,7 @@
 "rv" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /obj/machinery/light/floor,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "rw" = (
@@ -3951,7 +4237,8 @@
 /obj/structure/safe/floor,
 /obj/item/clothing/sextoy/dildo,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "rX" = (
@@ -3985,6 +4272,13 @@
 /obj/structure/broken_flooring/pile/directional/east,
 /obj/structure/alien/weeds/node,
 /turf/open/floor/plating,
+/area/space)
+"sf" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/nt20{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "sh" = (
 /obj/effect/spawner/random/trash/graffiti{
@@ -4121,6 +4415,30 @@
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red,
+/area/space)
+"sL" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/sniper_rounds{
+	anchored = 1;
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/obj/item/ammo_box/magazine/sniper_rounds{
+	anchored = 1;
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/item/ammo_box/magazine/sniper_rounds{
+	anchored = 1;
+	pixel_y = -3;
+	pixel_x = -4
+	},
+/obj/item/ammo_box/magazine/sniper_rounds{
+	anchored = 1;
+	pixel_y = -3;
+	pixel_x = 5
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "sN" = (
 /obj/structure/rack,
@@ -4365,7 +4683,8 @@
 /obj/structure/barricade/wooden/crude,
 /obj/structure/barricade/wooden,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "tO" = (
@@ -4437,7 +4756,8 @@
 /obj/item/forging/reagent_weapon/axe/fake_copper,
 /obj/item/claymore/weak/weaker,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "tZ" = (
@@ -4578,7 +4898,8 @@
 	slowdown = 4
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "uE" = (
@@ -4653,6 +4974,12 @@
 	},
 /turf/open/floor/iron,
 /area/space)
+"vb" = (
+/obj/structure/rack,
+/obj/item/borg/sight/hud/med,
+/obj/item/borg/sight/hud/med,
+/turf/open/floor/iron/smooth,
+/area/space)
 "vc" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -4714,6 +5041,11 @@
 /obj/structure/alien/weeds,
 /turf/open/floor/plating,
 /area/space)
+"vo" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
+/area/space)
 "vq" = (
 /obj/structure/sign/poster/contraband/random/directional/west,
 /obj/item/kirbyplants/random,
@@ -4756,7 +5088,8 @@
 "vy" = (
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "vz" = (
@@ -4856,6 +5189,16 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
 /area/space)
+"vX" = (
+/obj/item/crowbar,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/sepia{
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
+	},
+/area/space)
 "vY" = (
 /turf/open/floor/eighties/red,
 /area/space)
@@ -4885,6 +5228,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/space)
+"wg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/target,
+/turf/open/misc/beach/sand,
+/area/space)
 "wh" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/holosign/barrier/atmos,
@@ -4899,6 +5247,11 @@
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/grille,
 /turf/open/floor/iron/white,
+/area/space)
+"wm" = (
+/obj/structure/table/wood,
+/obj/item/stack/cannonball/shellball/fourteen,
+/turf/open/floor/wood,
 /area/space)
 "ws" = (
 /obj/structure/sign/warning/secure_area,
@@ -4921,7 +5274,8 @@
 /obj/item/flamethrower/full/tank,
 /obj/item/flamethrower/full/tank,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "wx" = (
@@ -4971,7 +5325,8 @@
 /obj/item/sticker/left_arrow,
 /obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "wJ" = (
@@ -5035,6 +5390,19 @@
 /obj/item/stack/sheet/rglass/fifty,
 /turf/open/floor/circuit/red/anim,
 /area/space)
+"wX" = (
+/obj/machinery/door/airlock/vault{
+	max_integrity = 50000;
+	normal_integrity = 50000;
+	name = "Reinforced vault door"
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/mapping_helpers/airlock/welded,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
+/turf/open/floor/iron,
+/area/space)
 "wZ" = (
 /obj/structure/safe/floor,
 /obj/effect/turf_decal/stripes/line{
@@ -5048,7 +5416,8 @@
 /obj/effect/spawner/random/entertainment/money_large,
 /obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "xd" = (
@@ -5092,6 +5461,10 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured,
+/area/space)
+"xs" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/plating,
 /area/space)
 "xt" = (
 /obj/structure/table/wood,
@@ -5328,7 +5701,8 @@
 "yx" = (
 /obj/machinery/suit_storage_unit/medical,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "yz" = (
@@ -5358,6 +5732,7 @@
 "yE" = (
 /obj/structure/flora/tree/jungle/small/style_random,
 /obj/machinery/light/floor,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "yF" = (
@@ -5367,7 +5742,8 @@
 /area/space)
 "yG" = (
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "yH" = (
@@ -5385,11 +5761,31 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
 /area/space)
+"yN" = (
+/obj/structure/rack,
+/obj/item/clothing/suit/armor/vest/marine/engineer{
+	pixel_y = -3;
+	anchored = 1
+	},
+/obj/item/clothing/head/helmet/marine/engineer{
+	pixel_y = 5;
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "yO" = (
 /obj/structure/sign/poster/contraband/random/directional/north,
 /obj/effect/spawner/random/engineering/tank,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
+/area/space)
+"yP" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/flora/bush/jungle/a/style_random,
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/ashplanet/wateryrock{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
 /area/space)
 "yW" = (
 /obj/structure/fluff/clockwork/alloy_shards/large,
@@ -5450,6 +5846,9 @@
 /obj/machinery/light/red/directional/north,
 /turf/open/floor/plating,
 /area/space)
+"zm" = (
+/turf/open/floor/sepia,
+/area/space)
 "zn" = (
 /obj/machinery/power/rtg/lavaland,
 /obj/structure/cable,
@@ -5459,6 +5858,13 @@
 /obj/structure/alien/weeds,
 /obj/structure/cable,
 /turf/open/misc/asteroid,
+/area/space)
+"zq" = (
+/obj/machinery/door/poddoor/shutters/window/indestructible{
+	name = "Armory";
+	desc = "A shutter with a thick see-through polycarbonate window, you get the feeling that breaking into here will not be worth your time."
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "zr" = (
 /obj/structure/rack,
@@ -5489,6 +5895,18 @@
 "zv" = (
 /obj/structure/water_source/puddle,
 /turf/open/misc/asteroid,
+/area/space)
+"zw" = (
+/obj/structure/rack,
+/obj/item/clothing/head/helmet/marine/medic{
+	pixel_y = 5;
+	anchored = 1
+	},
+/obj/item/clothing/suit/armor/vest/marine/medic{
+	pixel_y = -3;
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "zx" = (
 /obj/item/toy/plush/lizard_plushie/green{
@@ -5639,7 +6057,8 @@
 	name = "Hardend conveyer belt"
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Ag" = (
@@ -5668,7 +6087,8 @@
 	},
 /obj/item/implanter/krav_maga,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Al" = (
@@ -5718,12 +6138,18 @@
 	name = "Punishment"
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Av" = (
 /mob/living/simple_animal/hostile/cult/assassin,
 /turf/open/floor/plating,
+/area/space)
+"Ay" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/target,
+/turf/open/misc/beach/sand,
 /area/space)
 "Az" = (
 /obj/effect/decal/remains/human,
@@ -6051,10 +6477,37 @@
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
 /area/space)
+"BI" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard{
+	pixel_y = -5;
+	pixel_x = -8
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/standard{
+	pixel_y = -5
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/standard{
+	pixel_y = -5;
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/standard{
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/standard{
+	pixel_y = 5
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle/standard{
+	pixel_y = 5;
+	pixel_x = -8
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "BL" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "BN" = (
@@ -6148,6 +6601,11 @@
 "Ch" = (
 /obj/machinery/door/poddoor/shutters/window/indestructible,
 /turf/open/floor/iron/diagonal,
+/area/space)
+"Ci" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/bag/money,
+/turf/open/floor/plating,
 /area/space)
 "Ck" = (
 /obj/effect/spawner/structure/window/bronze,
@@ -6354,6 +6812,17 @@
 	dir = 4
 	},
 /area/space)
+"Dj" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/napad{
+	pixel_x = -5
+	},
+/obj/item/ammo_box/magazine/napad,
+/obj/item/ammo_box/magazine/napad{
+	pixel_x = 6
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
 "Dl" = (
 /obj/structure/table,
 /obj/item/food/grown/wheat,
@@ -6446,6 +6915,10 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/plating,
 /area/space)
+"DK" = (
+/obj/structure/girder,
+/turf/open/misc/beach/sand,
+/area/space)
 "DR" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
@@ -6481,6 +6954,7 @@
 /area/space)
 "DX" = (
 /obj/effect/mob_spawn/corpse/human/assistant,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "DY" = (
@@ -6619,6 +7093,11 @@
 	light_color = "#9bbbff"
 	},
 /turf/open/floor/asphalt,
+/area/space)
+"Ey" = (
+/obj/structure/flora/bush/jungle/a/style_random,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
 /area/space)
 "Ez" = (
 /obj/machinery/teleport/station,
@@ -6814,6 +7293,8 @@
 "Fg" = (
 /obj/structure/flora/bush/jungle/b/style_random,
 /mob/living/basic/gorilla,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "Fh" = (
@@ -6852,6 +7333,13 @@
 /obj/item/clothing/gloves/clockwork,
 /obj/item/clothing/glasses/clockwork/wraith_spectacles,
 /turf/open/floor/bronze/filled,
+/area/space)
+"Fo" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/sepia{
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
+	},
 /area/space)
 "Fp" = (
 /obj/structure/bed,
@@ -7009,6 +7497,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/space)
+"FR" = (
+/turf/closed/wall/mineral/sandstone,
+/area/space)
 "FT" = (
 /mob/living/simple_animal/hostile/evilborg/protect{
 	faction = list("hostile","cult")
@@ -7072,6 +7563,13 @@
 /obj/machinery/light/directional/south,
 /obj/structure/table,
 /turf/open/floor/iron/chapel,
+/area/space)
+"Gh" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/rifle/sniper_rifle{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Gi" = (
 /mob/living/simple_animal/hostile/evilborg{
@@ -7257,7 +7755,8 @@
 /obj/item/clothing/suit/syndicatefake,
 /obj/item/clothing/head/syndicatefake,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Ha" = (
@@ -7368,6 +7867,12 @@
 	},
 /turf/open/floor/iron/diagonal,
 /area/space)
+"HE" = (
+/obj/structure/flora/bush/jungle/b/style_random,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
+/area/space)
 "HG" = (
 /obj/structure/barricade/wooden/crude,
 /obj/structure/barricade/wooden,
@@ -7414,6 +7919,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
+/area/space)
+"HL" = (
+/obj/item/grenade/c4/x4,
+/obj/structure/table/reinforced,
+/obj/item/clothing/neck/stethoscope,
+/turf/open/floor/plating,
 /area/space)
 "HP" = (
 /obj/machinery/scanner_gate/luxury_shuttle,
@@ -7516,6 +8027,7 @@
 /area/space)
 "Iz" = (
 /obj/structure/flora/rock/pile/jungle/large/style_random,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "IA" = (
@@ -7581,10 +8093,29 @@
 	},
 /turf/open/floor/iron,
 /area/space)
+"IS" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/mask/balaclava,
+/turf/open/floor/plating,
+/area/space)
 "IU" = (
 /obj/effect/spawner/random/trash/garbage,
 /obj/item/broken_bottle,
 /turf/open/floor/plating/rust,
+/area/space)
+"IV" = (
+/obj/machinery/suit_storage_unit/open,
+/obj/item/mod/control/pre_equipped/elite{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/space)
+"IW" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/napad{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "IY" = (
 /obj/effect/turf_decal/delivery,
@@ -7628,7 +8159,8 @@
 	dir = 1
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Ji" = (
@@ -7981,6 +8513,7 @@
 /area/space)
 "Lc" = (
 /obj/item/storage/toolbox/guncase/monkeycase,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "Ld" = (
@@ -8086,6 +8619,26 @@
 "Lx" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/chapel,
+/area/space)
+"Ly" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/m7mm{
+	pixel_y = -4;
+	pixel_x = -5
+	},
+/obj/item/ammo_box/magazine/m7mm{
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/obj/item/ammo_box/magazine/m7mm{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/obj/item/ammo_box/magazine/m7mm{
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Lz" = (
 /obj/effect/spawner/random/structure/closet_empty/crate,
@@ -8208,6 +8761,14 @@
 /obj/item/t_scanner,
 /turf/open/floor/plating/rust,
 /area/space)
+"LY" = (
+/obj/structure/rack,
+/obj/item/ammo_box/c40sol,
+/obj/item/ammo_box/c40sol,
+/obj/item/ammo_box/c40sol,
+/obj/item/ammo_box/c40sol/pierce,
+/turf/open/floor/iron/smooth,
+/area/space)
 "LZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/engineering/tank,
@@ -8232,6 +8793,11 @@
 /obj/structure/bedsheetbin,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/wood,
+/area/space)
+"Md" = (
+/obj/machinery/door/airlock/vault,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plating,
 /area/space)
 "Mg" = (
 /obj/structure/disposalpipe/trunk{
@@ -8336,7 +8902,8 @@
 /obj/structure/safe/floor,
 /obj/item/card/emagfake,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "MF" = (
@@ -8355,6 +8922,7 @@
 /area/space)
 "MI" = (
 /obj/effect/gibspawner/human,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "ML" = (
@@ -8526,7 +9094,8 @@
 	},
 /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Nz" = (
@@ -8598,6 +9167,11 @@
 /obj/machinery/light/floor,
 /turf/open/floor/bronze/filled,
 /area/space)
+"NH" = (
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
+/area/space)
 "NJ" = (
 /obj/item/reagent_containers/spray/plantbgone,
 /obj/item/reagent_containers/spray/pestspray{
@@ -8629,6 +9203,10 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plating,
+/area/space)
+"NQ" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
 /area/space)
 "NR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -8672,7 +9250,8 @@
 	name = "Hardend conveyer belt"
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Oa" = (
@@ -8771,7 +9350,7 @@
 /area/space)
 "OA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/vehicle/sealed/mecha/odysseus,
+/obj/structure/mecha_wreckage/odysseus,
 /turf/open/floor/circuit/green,
 /area/space)
 "OE" = (
@@ -8813,6 +9392,14 @@
 	},
 /obj/item/stamp/denied,
 /turf/open/floor/plating/rust,
+/area/space)
+"OK" = (
+/obj/structure/rack,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm/ap,
+/turf/open/floor/iron/smooth,
 /area/space)
 "OO" = (
 /obj/structure/fluff/tram_rail,
@@ -8960,7 +9547,8 @@
 /obj/structure/safe/floor,
 /obj/item/fakeartefact,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "PS" = (
@@ -9002,7 +9590,8 @@
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/shuttle/exploration/hazardstripe,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Qd" = (
@@ -9114,7 +9703,8 @@
 /obj/item/disk/nuclear/fake/obvious,
 /obj/item/clothing/glasses/fake_sunglasses/aviator,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "QD" = (
@@ -9438,7 +10028,8 @@
 "RL" = (
 /obj/structure/closet/l3closet/scientist,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "RN" = (
@@ -9502,6 +10093,12 @@
 /obj/structure/cable,
 /obj/machinery/power/floodlight,
 /turf/open/floor/black,
+/area/space)
+"RZ" = (
+/obj/structure/rack,
+/obj/item/clothing/glasses/welding/up,
+/obj/item/clothing/glasses/welding/up,
+/turf/open/floor/iron/smooth,
 /area/space)
 "Sc" = (
 /turf/open/floor/iron/tgmcemblem{
@@ -9806,6 +10403,14 @@
 /obj/item/organ/heart/rat,
 /turf/open/floor/plating/rust,
 /area/space)
+"Tu" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/machinery/light/warm/directional/north,
+/turf/open/misc/ashplanet/wateryrock{
+	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
+	},
+/area/space)
 "Tv" = (
 /obj/structure/fluff/clockwork/fallen_armor,
 /turf/open/floor/bronze/filled,
@@ -9831,6 +10436,14 @@
 /obj/structure/lattice/catwalk/mining,
 /obj/item/extinguisher/mini,
 /turf/open/lava/smooth/basketball,
+/area/space)
+"TC" = (
+/obj/structure/rack,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/obj/item/ammo_box/c45,
+/turf/open/floor/iron/smooth,
 /area/space)
 "TF" = (
 /obj/machinery/light/floor,
@@ -9881,7 +10494,8 @@
 	},
 /obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "TP" = (
@@ -9894,7 +10508,8 @@
 "TQ" = (
 /obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "TS" = (
@@ -9925,12 +10540,14 @@
 "TX" = (
 /obj/structure/flora/bush/jungle/c/style_random,
 /obj/machinery/light/floor,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "TZ" = (
 /obj/machinery/door/airlock/science,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Ua" = (
@@ -9952,6 +10569,10 @@
 /obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/plating,
 /area/space)
+"Uf" = (
+/obj/machinery/light/red,
+/turf/open/floor/engine/cult,
+/area/space)
 "Ug" = (
 /obj/structure/sink/directional/west,
 /obj/machinery/shower/directional/north,
@@ -9962,7 +10583,8 @@
 "Ui" = (
 /obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Um" = (
@@ -10023,6 +10645,14 @@
 /obj/structure/fluff/divine/powerpylon,
 /turf/open/floor/iron/chapel,
 /area/space)
+"UA" = (
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	scan_range = 16;
+	throw_range = 16;
+	name = "Enhanced heavy"
+	},
+/turf/open/floor/iron,
+/area/space)
 "UB" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 8
@@ -10036,6 +10666,17 @@
 "UF" = (
 /obj/effect/rune/empower,
 /turf/open/floor/engine/cult,
+/area/space)
+"UG" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/smgm45{
+	pixel_y = -4
+	},
+/obj/item/ammo_box/magazine/smgm45,
+/obj/item/ammo_box/magazine/smgm45{
+	pixel_y = 4
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "UH" = (
 /obj/structure/disposalpipe/segment{
@@ -10058,12 +10699,14 @@
 /area/space)
 "UK" = (
 /obj/structure/flora/bush/jungle/b/style_random,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "UL" = (
 /obj/machinery/light/floor,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "UO" = (
@@ -10216,6 +10859,7 @@
 /area/space)
 "Vl" = (
 /obj/item/gun/ballistic/shotgun/monkey,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "Vm" = (
@@ -10270,6 +10914,7 @@
 /area/space)
 "VF" = (
 /obj/machinery/light/floor,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/space)
 "VH" = (
@@ -10427,6 +11072,18 @@
 /obj/structure/table/wood,
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/wood,
+/area/space)
+"Wo" = (
+/obj/structure/rack,
+/obj/item/clothing/suit/armor/vest/marine/sulaco{
+	pixel_y = -3;
+	anchored = 1
+	},
+/obj/item/clothing/head/helmet/marine/pmc{
+	pixel_y = 5;
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "Wp" = (
 /obj/effect/turf_decal/tile/red/opposingcorners,
@@ -10593,6 +11250,9 @@
 	},
 /turf/open/floor/plating/rust,
 /area/space)
+"WN" = (
+/turf/open/floor/asphalt,
+/area/space)
 "WO" = (
 /obj/structure/closet/lasertag/blue,
 /obj/structure/railing{
@@ -10615,7 +11275,8 @@
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /obj/machinery/door/airlock/science,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "WY" = (
@@ -10647,6 +11308,12 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/space)
+"Xh" = (
+/obj/structure/flora/tree/jungle/small/style_random,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
 /area/space)
 "Xi" = (
 /obj/structure/disposalpipe/segment,
@@ -10683,6 +11350,12 @@
 /obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating,
 /area/space)
+"Xp" = (
+/obj/structure/flora/bush/jungle/b/style_random,
+/mob/living/basic/gorilla,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/grass/jungle,
+/area/space)
 "Xq" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -10703,6 +11376,20 @@
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
+/area/space)
+"Xs" = (
+/obj/structure/filingcabinet{
+	pixel_x = -10
+	},
+/obj/structure/filingcabinet,
+/obj/structure/filingcabinet{
+	pixel_x = 10
+	},
+/obj/effect/spawner/random/entertainment/money_small,
+/obj/effect/spawner/random/entertainment/money_small,
+/obj/effect/spawner/random/entertainment/money_small,
+/obj/effect/spawner/random/entertainment/money_small,
+/turf/open/floor/iron,
 /area/space)
 "Xt" = (
 /obj/item/surgery_tray/full,
@@ -10820,7 +11507,8 @@
 	dir = 1
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Ye" = (
@@ -10974,7 +11662,8 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/light/floor,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "YY" = (
@@ -11007,7 +11696,8 @@
 /obj/item/clothing/neck/stethoscope,
 /obj/item/crowbar,
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "Zf" = (
@@ -11127,7 +11817,8 @@
 	name = "Hardend conveyer belt"
 	},
 /turf/open/floor/sepia{
-	slowdown = 10
+	slowdown = 1000;
+	name = "Floortiles of DOOM"
 	},
 /area/space)
 "ZC" = (
@@ -11151,6 +11842,13 @@
 	},
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
+/area/space)
+"ZG" = (
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/l6_saw{
+	anchored = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/space)
 "ZH" = (
 /turf/open/misc/asteroid/forest/mushroom,
@@ -11809,10 +12507,10 @@ yY
 Ja
 GS
 uG
-Jw
-uG
-uG
-Jw
+QK
+Il
+Il
+QK
 PV
 oY
 GS
@@ -12010,10 +12708,10 @@ Sq
 Il
 yd
 GS
-uG
-GS
-uG
 VI
+GS
+Il
+Uf
 GS
 HI
 qU
@@ -12214,8 +12912,8 @@ Il
 GS
 uG
 GS
-uG
-uG
+Il
+Il
 GS
 UF
 ZS
@@ -17644,11 +18342,11 @@ uG
 GS
 uG
 uG
-rJ
-uG
-uG
-uG
-uG
+kk
+zm
+zm
+zm
+ad
 GS
 HW
 GS
@@ -17847,10 +18545,10 @@ rJ
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+dx
+zm
+zm
+ad
 GS
 HW
 GS
@@ -18049,10 +18747,10 @@ GS
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+fX
+zm
+zm
+pW
 GS
 HW
 GS
@@ -18251,10 +18949,10 @@ GS
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+Tu
+zm
+zm
+zm
 GS
 HW
 GS
@@ -18453,10 +19151,10 @@ GS
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+yP
+qG
+nf
+it
 GS
 HW
 GS
@@ -18857,10 +19555,10 @@ GS
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+yG
+yG
+yG
+yG
 GS
 HW
 GS
@@ -19058,11 +19756,11 @@ uG
 GS
 uG
 uG
-rJ
-uG
-uG
-uG
-uG
+Fo
+bK
+yG
+vX
+yG
 GS
 HW
 GS
@@ -19259,12 +19957,12 @@ uG
 uG
 GS
 uG
-uG
+VI
 GS
-uG
-uG
-uG
-uG
+yG
+yG
+yG
+yG
 GS
 HW
 GS
@@ -19463,10 +20161,10 @@ GS
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+bN
+yG
+jE
+yG
 GS
 HW
 GS
@@ -19665,10 +20363,10 @@ GS
 uG
 uG
 GS
-uG
-uG
-uG
-uG
+yG
+yG
+yG
+yG
 GS
 Jw
 GS
@@ -22271,7 +22969,7 @@ WH
 WH
 jf
 jf
-gx
+wm
 vf
 vf
 vf
@@ -22473,7 +23171,7 @@ WH
 WH
 jf
 jf
-gx
+pI
 Sl
 Nw
 vf
@@ -24771,17 +25469,17 @@ yG
 yG
 vy
 jf
-ii
-ii
-iT
-ii
+NQ
+NQ
+Ey
+NQ
 kP
-ii
+NQ
 kB
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
 kB
 jf
 ih
@@ -24933,7 +25631,7 @@ GS
 GS
 GS
 GS
-rJ
+GS
 GS
 GS
 uG
@@ -24973,18 +25671,18 @@ yG
 yG
 vy
 jf
-ii
+NQ
 UK
-ii
+NQ
 VF
-ii
-ii
-ii
-iT
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+Ey
+NQ
+NQ
+NQ
+NQ
 jf
 ih
 YJ
@@ -25135,11 +25833,11 @@ uG
 uG
 uG
 GS
-uG
-uG
+uh
+uh
 GS
-uG
-uG
+uh
+uh
 uG
 uG
 uG
@@ -25176,14 +25874,14 @@ yG
 do
 jf
 dr
-ii
-ii
+NQ
+NQ
 Vl
 pc
 Iz
-ii
+NQ
 pc
-ii
+NQ
 pc
 kP
 UK
@@ -25337,11 +26035,11 @@ uG
 uG
 uG
 GS
-uG
-uG
-GS
-GS
-GS
+uh
+ls
+cI
+ls
+uh
 GS
 GS
 GS
@@ -25377,18 +26075,18 @@ yG
 yG
 Jf
 jf
-ii
-ii
-iT
-ii
-ii
-ii
+NQ
+NQ
+Ey
+NQ
+NQ
+NQ
 kP
-ii
-ii
-iT
+NQ
+NQ
+Ey
 VF
-ii
+NQ
 jf
 ih
 ge
@@ -25539,11 +26237,11 @@ uG
 uG
 uG
 GS
-uG
-uG
-uG
-uG
-uG
+uh
+el
+iA
+el
+uh
 uG
 uG
 rJ
@@ -25579,18 +26277,18 @@ RL
 TQ
 Jf
 jf
-ii
-ii
-ii
-ii
-ii
-iT
-ii
-iT
+NQ
+NQ
+NQ
+NQ
+NQ
+Ey
+NQ
+Ey
 dr
-ii
-ii
-ii
+NQ
+NQ
+NQ
 jf
 uG
 PJ
@@ -25740,13 +26438,13 @@ GS
 uG
 uG
 uG
-GS
-GS
-GS
-GS
-GS
-GS
-GS
+uh
+uh
+uh
+wX
+uh
+uh
+uh
 GS
 GS
 rJ
@@ -25781,17 +26479,17 @@ jf
 jf
 jf
 jf
-ii
+NQ
 pc
-ii
-ii
+NQ
+NQ
 pc
-ii
+NQ
 kP
-ii
-iT
+NQ
+Ey
 kP
-ii
+NQ
 UK
 jf
 jf
@@ -25942,13 +26640,13 @@ GS
 uG
 uG
 uG
-GS
-uG
-uG
-uG
-uG
-uG
-GS
+uh
+Xs
+fB
+iA
+fB
+Xs
+uh
 uG
 uG
 uG
@@ -25974,34 +26672,34 @@ yG
 yG
 yG
 jf
-ii
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
+NQ
 kP
-ii
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NH
+NQ
 VF
-ii
-ii
+NQ
+NQ
 VF
-ii
+NQ
 kP
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NH
 VF
-ii
+NQ
 MI
-ii
+NQ
 DX
 MI
-ii
+NQ
 jf
 yG
 jf
@@ -26144,13 +26842,13 @@ GS
 uG
 uG
 uG
-GS
-uG
-uG
-uG
-uG
-uG
-GS
+uh
+Xs
+fB
+iA
+fB
+Xs
+uh
 uG
 uG
 uG
@@ -26176,32 +26874,32 @@ yG
 cG
 yG
 jf
-ii
-ii
-ii
+NQ
+NQ
+NQ
 rv
-ii
-ii
-ii
+NQ
+NQ
+NQ
 pc
-ii
+NQ
 gC
-ii
-Fg
-ii
-ii
+NQ
+Xp
+NQ
+NQ
 Lc
 pc
-ii
+NQ
 UK
-ii
-ii
+NQ
+NQ
+Xh
+NQ
+NQ
 pc
-ii
-ii
-pc
-ii
-ii
+NQ
+NQ
 pc
 DX
 jf
@@ -26346,13 +27044,13 @@ GS
 uG
 uG
 uG
-GS
-uG
-uG
-uG
-uG
-uG
-GS
+uh
+Xs
+fB
+UA
+fB
+Xs
+uh
 uG
 uG
 uG
@@ -26383,28 +27081,28 @@ pF
 pF
 UK
 dr
-ii
-ii
-ii
-ii
-pc
-ii
+NQ
+NQ
+NQ
+NQ
+Xh
+NQ
 kP
 UK
-ii
-ii
-ii
-iT
+NQ
+NQ
+NQ
+Ey
 pc
-ii
+NQ
 kP
-ii
-ii
-ii
-iT
-ii
-ii
-ii
+NH
+NQ
+NQ
+Ey
+NQ
+NQ
+NQ
 UK
 jf
 yG
@@ -26548,13 +27246,13 @@ GS
 GS
 GS
 rJ
-GS
-uG
-uG
-uG
-uG
-uG
-GS
+uh
+Xs
+fB
+iA
+fB
+Xs
+uh
 uG
 uG
 GS
@@ -26577,35 +27275,35 @@ ZB
 yG
 yG
 jf
-ii
-ii
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NH
+NQ
+NQ
 pc
-ii
+NQ
 Iz
-ii
-ii
-ii
+NQ
+NQ
+NQ
 Fg
-ii
-ii
-ii
+NQ
+NQ
+NQ
 Iz
 pj
-ii
+NQ
 kP
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NH
 dr
-ii
-ii
+NQ
+NQ
 Iz
-ii
+NQ
 pc
 MI
 jf
@@ -26750,13 +27448,13 @@ uG
 uG
 uG
 uG
-GS
-uG
-uG
-uG
-uG
-uG
-GS
+uh
+Xs
+fB
+iA
+fB
+Xs
+uh
 rJ
 GS
 GS
@@ -26780,36 +27478,36 @@ yG
 cG
 jf
 UK
-ii
-UK
-iT
-ii
-ii
+NQ
+HE
+Ey
+NQ
+NQ
 pF
 kP
-ii
-ii
+NQ
+NQ
 UK
-ii
-ii
-ii
-ii
-ii
+NQ
+NH
+NQ
+NQ
+NQ
 pc
-ii
-ii
-ii
+NQ
+NQ
+NQ
 TX
 kP
-iT
-UK
-ii
-iT
+Ey
+HE
+NQ
+Ey
 pc
-ii
-iT
-ii
-ii
+NQ
+Ey
+NQ
+NQ
 jf
 yG
 jf
@@ -26822,10 +27520,6 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
 jf
 jf
 jf
@@ -26848,8 +27542,12 @@ jf
 jf
 jf
 jf
-jf
-jf
+WN
+WN
+WN
+WN
+WN
+WN
 jf
 jf
 jf
@@ -26952,13 +27650,13 @@ Nz
 uG
 Nz
 uG
-GS
-uG
-uG
-uG
-uG
-uG
-GS
+uh
+Xs
+fB
+iA
+fB
+Xs
+uh
 uG
 uG
 GS
@@ -26981,36 +27679,36 @@ Ae
 yG
 yG
 jf
-ii
-ii
+NQ
+NQ
 yE
 Iz
-ii
+NQ
 kP
 pF
-ii
-ii
+NQ
+NQ
 pj
 VF
 kP
-ii
-ii
+NH
+NQ
 pc
-ii
-ii
+NQ
+NQ
 kP
-ii
-ii
-ii
-ii
-ii
-ii
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
+NQ
+NH
+NQ
+NQ
+NQ
+NQ
 VF
-ii
+NQ
 dr
 jf
 yG
@@ -27024,45 +27722,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+FR
+lf
+FR
+FR
+FR
+FR
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+IV
+fi
+pp
+pp
+pp
+pp
+pp
+pp
+RZ
+jf
 WH
 jf
 oD
@@ -27147,20 +27845,20 @@ GS
 GS
 rJ
 GS
-GS
-GS
-GS
-GS
-rJ
-GS
-GS
-GS
-GS
-GS
-GS
-rJ
-GS
-GS
+uh
+uh
+uh
+uh
+qX
+uh
+uh
+uh
+uh
+uh
+uh
+Md
+uh
+uh
 uG
 uG
 GS
@@ -27183,36 +27881,36 @@ NZ
 jf
 jf
 jf
-ii
-ii
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
+NQ
+NQ
 pc
-ii
+NQ
 UK
-ii
-iT
-ii
-ii
+NQ
+Ey
+NQ
+NH
 kP
 VF
-ii
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
+NQ
 pc
-ii
+NQ
 UK
 ok
-ii
+NQ
 UK
-ii
-ii
+NQ
+NQ
 pc
-ii
+NQ
 pc
 jf
 yG
@@ -27226,45 +27924,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+FR
+lf
+lf
+fh
+lf
+FR
+lf
+lf
+lf
+lf
+fh
+lf
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+LY
+jf
 WH
 jf
 oD
@@ -27349,7 +28047,7 @@ uG
 GS
 uG
 uG
-GS
+uh
 mg
 uG
 uG
@@ -27359,7 +28057,7 @@ DG
 uG
 AI
 AI
-GS
+uh
 uG
 uG
 GS
@@ -27373,49 +28071,49 @@ uG
 jf
 VF
 bt
-ii
-ii
+NQ
+NQ
 bt
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
 Bl
 EV
 Bl
-ii
-ii
-pc
-ii
-ii
+NQ
+NQ
+Xh
+NQ
+NQ
 UK
 bt
-ii
+NQ
 pF
-iT
-ii
-dm
+Ey
+NQ
+vo
 bt
 bt
 dm
-ii
+NQ
 bt
-ii
-ii
-pc
-ii
-ii
+NQ
+NH
+Xh
+NH
+NH
+co
+NQ
+bt
+NH
 kP
-ii
+NQ
+NQ
+NQ
 bt
-ii
-kP
-ii
-ii
-ii
-bt
-ii
-ii
+NQ
+NQ
 jf
 yG
 jf
@@ -27428,45 +28126,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+FR
+lf
+lf
+lf
+wg
+FR
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+nT
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+Wo
+Wo
+Wo
+Wo
+yN
+yN
+pp
+LY
+jf
 WH
 jf
 oD
@@ -27551,7 +28249,7 @@ uG
 GS
 uG
 uG
-GS
+uh
 Xo
 uG
 Fd
@@ -27561,7 +28259,7 @@ uG
 uG
 Ns
 uG
-GS
+uh
 uG
 uG
 GS
@@ -27579,22 +28277,22 @@ GS
 GS
 GS
 GS
-ii
+NQ
 yE
-ii
+NQ
 Bl
 EV
 Bl
-ii
+NQ
 VF
-ii
+NQ
 GS
 GS
 GS
 iU
 GS
-ii
-ii
+NQ
+NQ
 GS
 cp
 GS
@@ -27603,10 +28301,10 @@ cp
 GS
 GS
 GS
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
 VF
 GS
 GS
@@ -27630,45 +28328,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+FR
+FR
+FR
+DK
+DK
+DK
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+nT
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+sL
+ie
+BI
+BI
+Dj
+Dj
+pp
+OK
+jf
 WH
 jf
 oD
@@ -27753,7 +28451,7 @@ uG
 GS
 GS
 uG
-GS
+uh
 uG
 uG
 uG
@@ -27763,7 +28461,7 @@ DG
 uG
 AI
 AI
-GS
+uh
 uG
 uG
 GS
@@ -27781,15 +28479,15 @@ JK
 mB
 Bz
 GS
-ii
-ii
-ii
+NQ
+NQ
+NQ
 eO
 WU
 yb
 kz
 UK
-ii
+NQ
 GS
 oH
 gE
@@ -27805,11 +28503,11 @@ iA
 GS
 Xb
 GS
-ii
-ii
-ii
+NQ
+NQ
+NQ
 pj
-ii
+NQ
 GS
 CB
 LG
@@ -27832,45 +28530,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+fh
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+OK
+jf
 WH
 jf
 oD
@@ -27955,7 +28653,7 @@ uG
 uG
 GS
 uG
-GS
+uh
 uG
 uG
 qt
@@ -27965,9 +28663,9 @@ Mu
 uG
 uG
 uG
-GS
-uG
-uG
+uh
+Jw
+Jw
 GS
 GS
 rJ
@@ -28010,8 +28708,8 @@ GS
 kP
 VF
 pc
-ii
-ii
+NQ
+NQ
 GS
 mH
 aG
@@ -28034,45 +28732,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+FR
+FR
+DK
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+fh
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+Gh
+hq
+qR
+qR
+IW
+IW
+pp
+kr
+jf
 WH
 jf
 oD
@@ -28157,7 +28855,7 @@ uG
 uG
 GS
 uG
-GS
+uh
 uG
 uG
 uG
@@ -28167,7 +28865,7 @@ uG
 qt
 DG
 uG
-GS
+uh
 uG
 uG
 GS
@@ -28209,10 +28907,10 @@ de
 oJ
 uG
 GS
-ii
-ii
-ii
-ii
+NQ
+NQ
+NQ
+NQ
 UK
 GS
 GS
@@ -28236,45 +28934,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+FR
+lf
+lf
+fh
+DK
+lf
+lf
+lf
+fh
+lf
+lf
+fh
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+nT
+WN
+WN
+WN
+WN
+WN
+zq
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+ne
+jf
 WH
 jf
 oD
@@ -28359,7 +29057,7 @@ uG
 uG
 GS
 uG
-GS
+uh
 uG
 zO
 uG
@@ -28369,7 +29067,7 @@ mk
 uG
 uG
 Xo
-GS
+uh
 uG
 uG
 rJ
@@ -28438,45 +29136,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+FR
+lf
+lf
+Ay
+lf
+fh
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+fh
+lf
+lf
+lf
+lf
+nT
+nT
+WN
+WN
+WN
+WN
+WN
+zq
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+ne
+jf
 WH
 jf
 oD
@@ -28561,7 +29259,7 @@ uG
 uG
 GS
 uG
-GS
+uh
 uG
 uG
 uG
@@ -28571,7 +29269,7 @@ uG
 uG
 Sv
 Xo
-GS
+uh
 uG
 uG
 GS
@@ -28640,45 +29338,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+FR
+lf
+fh
+lf
+fh
+lf
+lf
+lf
+lf
+lf
+lf
+fh
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+ZG
+hq
+qR
+qR
+sf
+sf
+pp
+kr
+jf
 WH
 jf
 oD
@@ -28763,18 +29461,18 @@ uG
 uG
 GS
 uG
-GS
-GS
-GS
-GS
+uh
+uh
+uh
+uh
 uG
 Ah
 uG
 Fd
 hl
 Fd
-GS
-GS
+uh
+uh
 rJ
 GS
 tI
@@ -28842,45 +29540,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+FR
+FR
+FR
+FR
+DK
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+FR
+FR
+lf
+FR
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+TC
+jf
 WH
 jf
 oD
@@ -28968,7 +29666,7 @@ uG
 uG
 GS
 uG
-GS
+uh
 uG
 uG
 uG
@@ -28976,7 +29674,7 @@ uG
 uG
 DG
 uG
-GS
+uh
 uG
 GS
 tI
@@ -29044,45 +29742,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+FR
+lf
+fh
+FR
+lf
+lf
+lf
+nT
+nT
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+Ly
+ie
+BI
+BI
+UG
+UG
+pp
+TC
+jf
 WH
 jf
 oD
@@ -29170,15 +29868,15 @@ uG
 uG
 GS
 GS
-GS
-GS
-GS
-GS
-GS
-GS
-GS
-rJ
-GS
+uh
+uh
+uh
+uh
+uh
+uh
+uh
+qX
+uh
 uG
 GS
 tI
@@ -29246,45 +29944,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+FR
+fh
+gn
+FR
+lf
+lf
+lf
+nT
+nT
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+Wo
+Wo
+Wo
+Wo
+zw
+zw
+pp
+LY
+jf
 WH
 jf
 oD
@@ -29448,45 +30146,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+FR
+FR
+FR
+FR
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+pp
+LY
+jf
 WH
 jf
 oD
@@ -29650,45 +30348,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+lf
+nT
+WN
+WN
+WN
+WN
+WN
+WN
+jf
+IV
+fi
+pp
+pp
+pp
+pp
+pp
+pp
+vb
+jf
 WH
 jf
 oD
@@ -29852,45 +30550,45 @@ WH
 WH
 WH
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
 WH
 jf
 oD
@@ -30594,7 +31292,7 @@ PA
 op
 GS
 uG
-uG
+xs
 uG
 GS
 uG
@@ -30795,9 +31493,9 @@ cJ
 op
 AY
 GS
-uG
-uG
-uG
+IS
+Ci
+HL
 GS
 uG
 uG
