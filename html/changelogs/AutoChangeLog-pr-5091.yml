@@ -1,4 +1,0 @@
-author: "81fm"
-delete-after: True
-changes:
-  - bugfix: "fixed polymorph belt changing spritesize when scanning a mob/picking up a polymorph belt that has scanned a mob"
