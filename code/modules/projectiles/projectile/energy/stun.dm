@@ -186,7 +186,7 @@
 			), forced = "hulk")
 		// NOVA EDIT ADDITION START - addition of ability to remove taser electrode
 		if(HAS_TRAIT(owner, TRAIT_BATON_RESISTANCE)) // If you have baton resistance while being tased, significantly decreases the stamina damage.
-			to_chat(owner, span_notice("You feel a slight shock, and attempt to shrug it off.")
+			to_chat(owner, span_notice("You feel a slight shock, and attempt to shrug it off."))
 			stamina_per_second /= 4																 
 			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)										 
 		if(HAS_TRAIT(owner, TRAIT_SHOCKIMMUNE)) // genetics mutation insulated protects from taser shock, as well as voltaic heart				 
