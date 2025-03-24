@@ -90,14 +90,14 @@
 
 /obj/item/mentoring_book/attack_self(mob/user, modifiers)
 	if(isnull(taught_skill) && isnull(taught_language))
-		to_chat(user, span_notice("[src] does not have any meaningful content inside."))
 		var/scribble_choice = tgui_input_list(user, "Would you like to scribble?", "Practice Handwriting", list("Yes", "No"))
 		if(isnull(scribble_choice))
 			to_chat(user, span_notice("You decide against scribbling in the book..."))
 			return
 
 		for(var/scribble_iteration in 1 to 10)
-			if(!do_after(user, 5 SECONDS, target = src))
+			var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/language, SKILL_SPEED_MODIFIER)
+			if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 				to_chat(user, span_notice("You put [src] down."))
 				return
 
