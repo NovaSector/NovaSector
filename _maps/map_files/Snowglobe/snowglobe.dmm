@@ -20247,7 +20247,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/gamer_lair)
 "fxb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/structure/closet{
 	name = "Jacket Storage"
 	},
@@ -20257,6 +20256,9 @@
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/station/common/shipyardlobby)
 "fxg" = (
@@ -28733,13 +28735,13 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "hJY" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 6
-	},
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/structure/tank_dispenser/oxygen,
+/obj/machinery/atmospherics/pipe/smart/simple/supply{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/station/common/shipyardlobby)
 "hKe" = (
@@ -40942,9 +40944,8 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "kQr" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 4;
-	name = "Air to Distro"
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/station/common/shipyardlobby)
@@ -64837,9 +64838,6 @@
 /turf/open/floor/iron/grimy,
 /area/station/maintenance/hiddenlibrary)
 "rAV" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/structure/railing{
 	dir = 1
 	},
