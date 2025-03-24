@@ -32,24 +32,17 @@
 
 	spread = 7.5
 
+	lore_blurb = "The Sindano submachinegun was originally produced for a military contract.<br><br>\
+		Thanks to that, they could be found in the hands of any SolFed second-line force, \
+		such as, but not limited to, medics, ship techs, and logistics officers. \
+		Funnily enough, shuttle pilots often had several just to show off. \
+		Due to SolFed's quest to extend the lifespans of their logistics officers and quartermasters, \
+		the Sindano uses the same standard pistol cartridge that most other SolFed military weapons of \
+		small caliber do.<br><br>\
+		This results in interchangeable magazines between pistols and submachineguns. Neat!"
+
 /obj/item/gun/ballistic/automatic/sol_smg/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
-
-/obj/item/gun/ballistic/automatic/sol_smg/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/sol_smg/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The Sindano submachinegun was originally produced for a military contract.<br><br>\
-	Thanks to that, they could be found in the hands of any SolFed second-line force; \
-	from medics, to ship techs, to logistics officers. Funnily enough, shuttle pilots often had several just to show off. \
-	Due to SolFed's quest to extend the lifespans of their logistics officers and quartermasters, \
-	the Sindano uses the same standard pistol cartridge that most other SolFed military weapons of \
-	small caliber do.<br><br>\
-	This results in interchangeable magazines between pistols and submachineguns. Neat!</i>"
-
 
 /obj/item/gun/ballistic/automatic/sol_smg/no_mag
 	spawnwithmagazine = FALSE

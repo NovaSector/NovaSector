@@ -29,26 +29,19 @@
 	suppressor_x_offset = 7
 	suppressor_y_offset = -3
 
-	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_BACK
-
-/obj/item/gun/ballistic/shotgun/riot/sol/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
-
-/obj/item/gun/ballistic/shotgun/riot/sol/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/shotgun/riot/sol/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The M64 was designed, at its core, as a police shotgun.<br><br>\
+	lore_blurb = "The M64 was designed, at its core, as a police shotgun.<br><br>\
 	As a consequence, it holds all the qualities a police force would want \
 	in a shotgun; a large capacity, robust frame, and enough modularity \
 	to satiate even the most overfunded of peacekeeper forces. \
 	Inevitably, it made its way into civilian markets, \
 	alongside its sale to several military branches that also \
-	saw value in having a heavy shotgun.</i>"
+	saw value in having a heavy shotgun."
+
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK
+
+/obj/item/gun/ballistic/shotgun/riot/sol/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/update_appearance(updates)
 	if(sawn_off)

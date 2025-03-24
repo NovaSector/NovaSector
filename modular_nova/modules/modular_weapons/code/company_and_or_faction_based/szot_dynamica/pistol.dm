@@ -3,9 +3,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower
 	name = "\improper Słońce Plasma Projector"
-	desc = "A full auto plasma-spewer, in the flavor of 'dirt cheap.' \
-		Uses plasma power packs. \
-		Spews an inaccurate stream of searing plasma out the magnetic barrel so long as it has power and the trigger is pulled."
+	desc = "An inaccurate, plasma-spewing pistol, for melting the broad side of a barn. Uses plasma power packs."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "slonce"
 
@@ -22,6 +20,13 @@
 	fire_delay = 0.1 SECONDS
 	spread = 15
 
+	lore_blurb = "The Słońce Plasma Projector is an exercise in magnetically-agitated volume of plasmic fire.<br><br>\
+		Originally designed as a means to deter larger crowds, it quickly found a second life as a frontier all-rounder, \
+		on account of it's cheap and rechargable packs, full-auto capabilities, \
+		and the intimidation factor of throwing a wall of searing plasma in the vague direction of what it's pointed at. \
+		Earlier iterations had some performance issues against layers of armor, \
+		but refinements to the magnetic chamber mitigated previous plasma adherence issues, mitigating that issue."
+
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower/Initialize(mapload)
 	. = ..()
 
@@ -30,28 +35,12 @@
 /obj/item/gun/ballistic/automatic/pistol/plasma_thrower/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
-/obj/item/gun/ballistic/automatic/pistol/plasma_thrower/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/pistol/plasma_thrower/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The Słońce Plasma Projector is an exercise in magnetically-agitated volume of plasmic fire.<br><br>\
-	Originally started as a means to deter large crowds, it quickly found a second life \
-	as a frontier all-rounder on account of it's cheap and rechargable packs, full-auto capabilities, \
-	and the intimidation factor of throwing a wall of searing plasma in the vague direction of what it's pointed at. \
-	Earlier iterations had some performance issues against layers of armor, \
-	but refinements to the magnetic chamber mitigated previous plasma adherence issues, mitigating that issue.</i>"
-
 // Plasma sharpshooter pistol
 // Shoots single, strong plasma blasts at a slow rate
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_marksman
 	name = "\improper Gwiazda Plasma Sharpshooter"
-	desc = "An accurate, plasma spitting pistol-'prototype,' atleast it shoots straight.\
-		Uses plasma power packs. \
-		Fires relatively accurate globs of searing plasma."
+	desc = "An accurized, plasma-spitting pistol, for melting the narrow side of a barn. Uses plasma power packs."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_32.dmi'
 	icon_state = "gwiazda"
 
@@ -71,22 +60,15 @@
 	projectile_damage_multiplier = 3 // 30 damage a shot
 	projectile_wound_bonus = 20 // base projectile has -20 wound bonus, this brings it back up to 0. burns are pretty schnasty though
 
-/obj/item/gun/ballistic/automatic/pistol/plasma_marksman/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-
-/obj/item/gun/ballistic/automatic/pistol/plasma_marksman/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/pistol/plasma_marksman/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The 'Gwiazda' is a further refinement of the 'Słońce' design, \
-		serving as an exercise in magnetically-agitated precision of plasmic fire. \
+	lore_blurb = "The 'Gwiazda' is a further refinement of the 'Słońce' design, \
+		serving as an exercise in magnetically-agitated precision of plasmic fire.<br><br>\
 		Sharing its predecessor's cheap and rechargable power packs, this iteration trades \
 		in the intimidation factor of its haphazard automatic mode for much better per-glob performance. \
 		With improved energy cycling, a better-tuned \"precision\" magnetic chamber, and an overall more \
-		ergonomic design, end-users report that it is actually capable of shooting in a line straighter than other variants.</i>"
+		ergonomic design, end-users report that it is actually capable of shooting in a line straighter than other variants."
+
+/obj/item/gun/ballistic/automatic/pistol/plasma_marksman/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
 // A revolver, but it can hold shotgun shells
 // Woe, buckshot be upon ye
@@ -103,20 +85,17 @@
 	fire_sound = 'modular_nova/modules/sec_haul/sound/revolver_fire.ogg'
 	spread = 15
 
-/obj/item/gun/ballistic/revolver/shotgun_revolver/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-
-/obj/item/gun/ballistic/revolver/shotgun_revolver/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The 'Bóbr' is a twelve gauge shotgun in the somewhat comical form-factor of a revolver, \
-		which doesn't prove particularly conducive to controlling recoil.<br><br>\
+	lore_blurb = "The 'Bóbr' is a twelve gauge shotgun in the somewhat comical form-factor of a revolver, \
+		which doesn't prove particularly conducive to controlling recoil or lining up a good shot.<br><br>\
 		The Bóbr started development as a limited run sporting weapon, \
 		before quickly finding a place with both colonial militias and the general populace of rougher frontiers. \
 		It's been favored by cargo-runners on both sides of the law, due to the ease of finding or reloading ammunition. \
 		Unlike the silver and wood sporting variants, this is the pure survival model, which uses a \
 		standard, rubberized pistol grip, and weather-resistant finish. \
-		While the 'Bóbr' isn't the most appealing weapon to grace someone's hands, it's at least somewhat practical.</i>"
+		While the 'Bóbr' isn't the most appealing weapon to grace someone's hands, it's at least somewhat practical."
+
+/obj/item/gun/ballistic/revolver/shotgun_revolver/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
 // A 10mm pistol that shoots slow as all get out, but has that deep dish magazine going on
 
@@ -139,6 +118,15 @@
 	fire_sound_volume = 80
 	custom_premium_price = PAYCHECK_COMMAND * 6
 
+	lore_blurb = "The 'Zashchitnik' self-loading pistol is a hefty handgun with a focus on reliability and magazine size.<br><br>\
+		Originally designed as a police and security sidearm for ballistic-favoring forces, \
+		Szot Dynamica chose to chamber it for the 10mm cartridge for its exceptional stopping power. \
+		The hulking pistol is known to be a powerful firearm with a surprisingly tame recoil, thanks to \
+		the sheer bulk of it; a trait that some find satisfying while others find suboptimal for aiming consecutive shots. \
+		The size was dictated necessary for several reasons during the design, not the least so that it can load expansive \
+		magazines flush to the grip that allow for exceptionally large amounts of firepower. \
+		It has found niche use with security forces both corporate and state-sponsored in more middling economic locations."
+
 /obj/item/gun/ballistic/automatic/pistol/zashch/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 
@@ -148,14 +136,3 @@
 		is_light_removable = FALSE, \
 	)
 
-/obj/item/gun/ballistic/automatic/pistol/zashch/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The 'Zashchitnik' self-loading pistol is a hefty handgun with a focus on reliability and magazine size.<br><br>\
-		Originally designed as a police and security sidearm for ballistic-favoring forces, \
-		Szot Dynamica chose to chamber it for the 10mm cartridge for its exceptional stopping power. \
-		The hulking pistol is known to be a powerful firearm with a surprisingly tame recoil, thanks to \
-		the sheer bulk of it; a trait that some find satisfying while others find suboptimal for aiming consecutive shots. \
-		The size was dictated necessary for several reasons during the design, not the least so that it can load expansive \
-		magazines flush to the grip that allow for exceptionally large amounts of firepower. \
-		It has found niche use with security forces both corporate and state-sponsored in more middling economic locations.</i>"

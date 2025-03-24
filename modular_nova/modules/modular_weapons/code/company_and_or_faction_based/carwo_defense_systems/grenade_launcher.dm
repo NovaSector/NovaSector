@@ -39,28 +39,21 @@
 	/// The maximum range we can set grenades to detonate at, just to be safe
 	var/maximum_target_range = 14
 
+	lore_blurb = "The Kiboko, a light grenade launcher, is one of the strangest weapons Carwo offers, \
+		and is noteworthy for its lighter, nonstandard grenade size.<br><br>\
+		The much lighter .980 Tydhouer grenades developed for the weapon offer many advantages \
+		over other conventional launcher grenade systems. \
+		For a start, Tydhouer grenades are significantly lighter, and easier to carry large \
+		amounts of. The main reason SolFed funded the project, though, \
+		was its reliable, on-the-fly programmable variable time fuze. \
+		Using the large (and expensive, to the chagrin of quartermasters) ranging sight on the \
+		launcher, users can set an exact distance for the grenade to self-detonate at; \
+		the decades-held dream of militaries, finally realized. \
+		The smaller shells do not, however, make the weapon any more enjoyable to fire. \
+		The kick is only barely manageable thanks to the massive muzzle brake at the front."
+
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
-
-/obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The Kiboko, a light grenade launcher, is one of the strangest weapons Carwo offers, \
-	and is noteworthy for its lighter, nonstandard grenade size.<br><br>\
-	The much lighter .980 Tydhouer grenades developed for the weapon offer many advantages \
-	over other conventional launcher grenade systems. \
-	For a start, Tydhouer grenades are significantly lighter, and easier to carry large \
-	amounts of. The main reason SolFed funded the project, though, \
-	was its reliable, on-the-fly programmable variable time fuze. \
-	Using the large (and expensive, to the chagrin of quartermasters) ranging sight on the \
-	launcher, users can set an exact distance for the grenade to self-detonate at; \
-	the decades-held dream of militaries, finally realized. \
-	The smaller shells do not, however, make the weapon any more enjoyable to fire. \
-	The kick is only barely manageable thanks to the massive muzzle brake at the front.</i>"
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine(mob/user)
 	. = ..()

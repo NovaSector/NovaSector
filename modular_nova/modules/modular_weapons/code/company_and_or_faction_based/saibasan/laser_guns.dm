@@ -68,8 +68,10 @@
 	var/personality_mode = FALSE
 	/// Keeps track of our soulcatcher component
 	var/datum/component/soulcatcher/tracked_soulcatcher
-	/// What is this gun's extended examine, we only have to do this because the carbine is a subtype
-	var/expanded_examine_text = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
+	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
+	COOLDOWN_DECLARE(last_speech)
+
+	lore_blurb = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
 		from Cybersun Industries.<br><br>\
 		Like her younger sister weapon, the Hoshi carbine, CI used funding aid provided \
 		by SolFed to develop a portable weapon fueled by a proprietary generator \
@@ -79,8 +81,6 @@
 		Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
 		is shipped with a more professional and understated personality—since influenced by 'negligence' from users in \
 		wiping the intelligence's memory before resale or transport."
-	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
-	COOLDOWN_DECLARE(last_speech)
 
 /obj/item/gun/energy/modular_laser_rifle/Initialize(mapload)
 	. = ..()
@@ -94,12 +94,7 @@
 
 /obj/item/gun/energy/modular_laser_rifle/examine(mob/user)
 	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
 	. += span_notice("You can <b>Alt-Click</b> this gun to access the <b>internal soulcatcher</b>.")
-
-/obj/item/gun/energy/modular_laser_rifle/examine_more(mob/user)
-	. = ..()
-	. += "<i>[expanded_examine_text]</i>"
 
 /obj/item/gun/energy/modular_laser_rifle/Destroy()
 	QDEL_NULL(tracked_soulcatcher)
@@ -275,7 +270,7 @@
 	)
 	default_selected_mode = "Incinerate"
 	speech_json_file = SHORT_MOD_LASER_SPEECH
-	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
+	lore_blurb = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
 		Cybersun Industries.<br><br>\
 		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
 		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \

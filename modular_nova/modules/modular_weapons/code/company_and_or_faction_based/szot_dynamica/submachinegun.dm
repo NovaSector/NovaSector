@@ -37,18 +37,7 @@
 	projectile_damage_multiplier = 0.65
 	spread = 6
 
-/obj/item/gun/ballistic/automatic/napad/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-	AddComponent(/datum/component/automatic_fire, fire_delay)
-
-/obj/item/gun/ballistic/automatic/napad/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/napad/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The 'Napadayuschiy' is a heavy sub-machine gun with a focus on reliability and a very large magazine size. \
+	lore_blurb = "<i>The 'Napadayuschiy' is a heavy sub-machine gun with a focus on reliability and a very large magazine size.<br><br>\
 		Originally, it was designed for the inevitable situation of its sibling, the Zashchitnik handgun, \
 		not bringing enough to bear for any given situation. \
 		It sports a colossal magazine and a oversized stature familiar to the Zashchitnik. \
@@ -58,6 +47,10 @@
 		if the charging handle isn't placed into the loading notch before inserting a fresh magazine, \
 		the spring pressure of fifty 10mm rounds will make operating the charging handle require \
 		a herculean feat of strength.</i>"
+
+/obj/item/gun/ballistic/automatic/napad/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
+	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 /obj/item/gun/ballistic/automatic/napad/no_mag
 	spawnwithmagazine = FALSE

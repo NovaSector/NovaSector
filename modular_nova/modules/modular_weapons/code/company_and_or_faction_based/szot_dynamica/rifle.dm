@@ -43,26 +43,19 @@
 	spread = 1
 	recoil = 0.5
 
+	lore_blurb = "The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
+		a figuratively 'tested' design, though you couldn't be sure which one.<br><br>\
+		It fires the .27-54 'intermediary' caliber round, if only to dodge classification as a rifle. \
+		Overall, it's decently accurate, lightweight, reeks of gun-grease, \
+		and might feel a little more homely then the next gun over... allegedly, anyway.<br><br>\
+		The wood-substitute material is known to have various side-effects. Contact your local health department before use."
+
 /obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 /obj/item/gun/ballistic/automatic/miecz/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-
-/obj/item/gun/ballistic/automatic/miecz/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/miecz/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
-	a figuratively 'tested' design, though you couldn't be sure which one.<br><br>\
-	It fires the .27-54 'intermediary' caliber round, if only to dodge classification as a rifle. \
-	Overall, it's decently accurate, lightweight, reeks of gun-grease, \
-	and might feel a little more homely then the next gun over... allegedly, anyway.<br><br>\
-	The wood-substitute material is known to have various side-effects. Contact your local health department before use.</i>"
 
 /obj/item/gun/ballistic/automatic/miecz/no_mag
 	spawnwithmagazine = FALSE
@@ -110,27 +103,20 @@
 	spread = 2.5
 	projectile_wound_bonus = -20
 
+	lore_blurb = "The Lanca started as an attempt to replace the confusing position of the Miecz.<br><br>\
+		Originally designed as an attempt to upscale the Miecz to a marksman caliber, \
+		it eventually ended up as little more then an odd cousin to it's starting frame. \
+		Initial efforts to upscale from the Miecz's .27-caliber cartridge, to a full-size .310 \
+		necessitated a rework of the entire bolt, updated upper receiver, and a much stronger recoil spring. \
+		To make up for the added weight, the stock was skeletonized, and the barrel assembly was changed out for a minimalist design.<br><br>\
+		All in all, you get less rifle for the somewhat paradoxical privilege of a bigger bang."
+
 /obj/item/gun/ballistic/automatic/lanca/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
 /obj/item/gun/ballistic/automatic/lanca/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-
-/obj/item/gun/ballistic/automatic/lanca/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/lanca/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The Lanca started as an attempt to replace the confusing position of the Miecz.<br><br>\
-	Originally designed as an attempt to upscale the Miecz to a marksman caliber, \
-	it eventually ended up as little more then an odd cousin to it's starting frame. \
-	Initial efforts to upscale from the Miecz's .27-caliber cartridge, to a full-size .310 \
-	necessitated a rework of the entire bolt, updated upper receiver, and a much stronger recoil spring. \
-	To make up for the added weight, the stock was skeletonized, and the barrel assembly was changed out for a minimalist design.<br><br>\
-	All in all, you get less rifle for the somewhat paradoxical privilege of a bigger bang.</i>"
 
 /obj/item/gun/ballistic/automatic/lanca/no_mag
 	spawnwithmagazine = FALSE
@@ -172,6 +158,14 @@
 
 	force = 15 // I mean if you're gonna beat someone with the thing you might as well get damage appropriate for how big the fukken thing is
 
+	lore_blurb = "The 'Wyłom' AMR was not originally made for unaided human hands. \
+		The original rifle had mounting points for a specialized suit attachment system, \
+		but that quickly fell through once it was announced, as exosuit hunting isn't exactly a common frontier pastime. \
+		Generally considered a strong contender for the definition of \"anti-armor\", \
+		a strong argument exists to consider it closer to \"anti-anything\".<br><br>\
+		A laser-etched warning label warns users of the weapon to be wary of side-blast from the muzzle brake... \
+		and to not fire unsupported if one is not of appropriate mass to \"wrestle\" the recoil."
+
 /obj/item/gun/ballistic/automatic/wylom/Initialize(mapload)
 	. = ..()
 
@@ -180,18 +174,3 @@
 /obj/item/gun/ballistic/automatic/wylom/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 	AddElement(/datum/element/gun_launches_little_guys, throwing_force = 3, throwing_range = 5)
-
-/obj/item/gun/ballistic/automatic/wylom/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/wylom/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The 'Wyłom' AMR was not originally made for unaided human hands. \
-	The original rifle had mounting points for a specialized suit attachment system, \
-	but that quickly fell through once it was announced, as exosuit hunting isn't exactly a common frontier pastime. \
-	Generally considered a strong contender for the definition of \"anti-armor\", \
-	a strong argument exists to consider it closer to \"anti-anything\".<br><br>\
-	A laser-etched warning label warns users of the weapon to be wary of side-blast from the muzzle brake... \
-	and to not fire unsupported if one is not of appropriate mass to \"wrestle\" the recoil.</i>"

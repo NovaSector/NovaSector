@@ -19,25 +19,7 @@
 	can_be_sawn_off = FALSE
 	weapon_weight = WEAPON_HEAVY
 
-/obj/item/gun/ballistic/rifle/sporterized/Initialize(mapload)
-	. = ..()
-
-	AddComponent(/datum/component/scope, range_modifier = 1.5)
-
-/obj/item/gun/ballistic/rifle/sporterized/add_bayonet_point()
-	AddComponent(/datum/component/bayonet_attachable, offset_x = 35, offset_y = 12)
-
-/obj/item/gun/ballistic/rifle/sporterized/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
-
-/obj/item/gun/ballistic/rifle/sporterized/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/rifle/sporterized/examine_more(mob/user)
-	. = ..()
-
-	. += "<i>The Xhihao 'Rengo' rifle is a conversion of the venerable Sakhno Precision Rifle, \
+	lore_blurb = "<i>The Xhihao 'Rengo' rifle is a conversion of the venerable Sakhno Precision Rifle, \
 		with \"modern\" features such as an accessory rail and detachable magazines.<br><br>\
 		Initially a set of chassis parts sold in a single kit by Xhihao Light Arms, \
 		the 'Rengo' kit is designed to replace much of the furniture on a typical Sakhno \
@@ -49,6 +31,17 @@
 		in uncomfortably close quarters for a precision weapon. \
 		Due to the reduced space between components, the Rengo cannot be sawn off; \
 		cutting... any part of this weapon off, really, would make it either hazardous to fire or non-functional.</i>"
+
+/obj/item/gun/ballistic/rifle/sporterized/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/scope, range_modifier = 1.5)
+
+/obj/item/gun/ballistic/rifle/sporterized/add_bayonet_point()
+	AddComponent(/datum/component/bayonet_attachable, offset_x = 35, offset_y = 12)
+
+/obj/item/gun/ballistic/rifle/sporterized/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
 
 /obj/item/gun/ballistic/rifle/sporterized/empty
 	bolt_locked = TRUE // so the bolt starts visibly open
