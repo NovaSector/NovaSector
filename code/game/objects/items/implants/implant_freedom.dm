@@ -37,7 +37,7 @@
 	if(implanted_in.handcuffed || implanted_in.legcuffed)
 		return TRUE
 
-	return implanted_in.has_status_effect(/datum/status_effect/tased)) // NOVA EDIT ADDITION
+	return implanted_in.has_status_effect(/datum/status_effect/tased) // NOVA EDIT ADDITION
 	var/obj/item/clothing/shoes/shoes = implanted_in.shoes
 	if(istype(shoes) && shoes.tied == SHOES_KNOTTED)
 		return TRUE
