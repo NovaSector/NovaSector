@@ -31,6 +31,7 @@
 			"name" = "Accessories",
 			"icon" = "glasses",
 			"products" = list(
+				/obj/item/storage/belt/thigh_satchel = 5,
 				/obj/item/clothing/neck/ranger_poncho = 5,
 				/obj/item/clothing/neck/cloak/colourable = 5,
 				/obj/item/clothing/neck/cloak/colourable/veil = 5,
