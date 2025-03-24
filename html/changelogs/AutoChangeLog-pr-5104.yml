@@ -1,0 +1,4 @@
+author: "unit0016"
+delete-after: True
+changes:
+  - spellcheck: "All in-game references to 'broken_lock' should be gone."

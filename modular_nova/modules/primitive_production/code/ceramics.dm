@@ -31,9 +31,11 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		var/obj/item/stack/ore/glass/glass_item = O
 		if(!glass_item.use(1))
 			return
+
 		new /obj/item/stack/clay(get_turf(src))
 		user.mind.adjust_experience(/datum/skill/production, 1)
 		return
+
 	return ..()
 
 /turf/open/water/attackby(obj/item/C, mob/user, params)
@@ -41,23 +43,29 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		var/obj/item/stack/ore/glass/glass_item = C
 		if(!glass_item.use(1))
 			return
+
 		new /obj/item/stack/clay(src)
 		user.mind.adjust_experience(/datum/skill/production, 1)
 		return
+
 	return ..()
 
 /obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
 	if(istype(O, /obj/item/stack/ore/glass))
 		if(dispensedreagent != /datum/reagent/water)
 			return
+
 		if(reagents.total_volume <= 0)
 			return
+
 		var/obj/item/stack/ore/glass/glass_item = O
 		if(!glass_item.use(1))
 			return
+
 		new /obj/item/stack/clay(get_turf(src))
 		user.mind.adjust_experience(/datum/skill/production, 1)
 		return
+
 	return ..()
 
 /obj/item/ceramic
@@ -69,9 +77,11 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		var/obj/item/toy/crayon/crayon_item = attacking_item
 		if(!forge_item || !crayon_item.paint_color)
 			return
+
 		color = crayon_item.paint_color
 		to_chat(user, span_notice("You color [src] with [crayon_item]..."))
 		return
+
 	return ..()
 
 /obj/item/stack/clay
@@ -89,6 +99,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		/obj/item/plate/ceramic,
 		/obj/item/plate/oven_tray/material/ceramic,
 		/obj/item/reagent_containers/cup/bowl/ceramic,
+		/obj/item/clay_pot,
 		/obj/item/reagent_containers/cup/beaker/large/ceramic,
 	)
 
@@ -100,6 +111,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	unit_name = "unfinished ceramic product"
 	export_types = list(/obj/item/ceramic/plate,
 						/obj/item/ceramic/bowl,
+						/obj/item/ceramic/pot,
 						/obj/item/ceramic/tray,
 						/obj/item/ceramic/cup)
 
@@ -108,7 +120,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 /obj/item/ceramic/plate
 	name = "ceramic plate"
-	desc = "A piece of clay that is flat, in the shape of a plate."
+	desc = "A piece of clay that is flat, in the shape of a plate. Requires heat treatment in a forge."
 	icon_state = "clay_plate"
 	forge_item = /obj/item/plate/ceramic
 
@@ -117,9 +129,62 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "clay_plate"
 
+/obj/item/ceramic/pot
+	name = "ceramic pot"
+	desc = "A piece of clay that is curved upwards, in the shape of a pot. Requires heat treatment in a forge."
+	icon_state = "clay_pot"
+	forge_item = /obj/item/clay_pot
+
+/obj/item/clay_pot
+	name = "clay pot"
+	desc = "A very empty clay pot. Put some sand and a seed in and call it a day."
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
+	icon_state = "clay_pot"
+
+	///whether there is sand, which is required to add turn into a kirby plant from a seed
+	var/has_sand = FALSE
+
+/obj/item/clay_pot/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/ore/glass))
+		var/obj/item/stack/use_stack = tool
+		if(has_sand)
+			to_chat(user, span_warning("There is already sand in the pot!"))
+			return ITEM_INTERACT_BLOCKING
+
+		to_chat(user, span_notice("You begin to fill [src] with some sand..."))
+		if(!do_after(user, 3 SECONDS, target = src))
+			to_chat(user, span_notice("You decide against filling the pot with sand."))
+			return ITEM_INTERACT_BLOCKING
+
+		if(!use_stack.use(1))
+			to_chat(user, span_warning("You find yourself unable to part with [use_stack]!"))
+			return ITEM_INTERACT_BLOCKING
+
+		to_chat(user, span_notice("You fill [src] with some sand."))
+		has_sand = TRUE
+		return ITEM_INTERACT_SUCCESS
+
+	if(istype(tool, /obj/item/seeds))
+		if(!has_sand)
+			to_chat(user, span_warning("Sand is absolutely required to start planting!"))
+			return ITEM_INTERACT_BLOCKING
+
+		to_chat(user, span_notice("You begin to plant a seed inside [src]..."))
+		if(!do_after(user, 3 SECONDS, target = src))
+			to_chat(user, span_notice("You decide against planting the seed."))
+			return ITEM_INTERACT_BLOCKING
+
+		to_chat(user, span_notice("You plant [tool] into the pot."))
+		qdel(tool)
+		new /obj/item/kirbyplants(drop_location(src))
+		qdel(src)
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
+
 /obj/item/ceramic/tray
 	name = "ceramic tray"
-	desc = "A piece of clay that is flat, in the shape of a tray."
+	desc = "A piece of clay that is flat, in the shape of a tray. Requires heat treatment in a forge."
 	icon_state = "clay_tray"
 	forge_item = /obj/item/plate/oven_tray/material/ceramic
 
@@ -130,7 +195,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 /obj/item/ceramic/bowl
 	name =  "ceramic bowl"
-	desc = "A piece of clay with a raised lip, in the shape of a bowl."
+	desc = "A piece of clay with a raised lip, in the shape of a bowl. Requires heat treatment in a forge."
 	icon_state = "clay_bowl"
 	forge_item = /obj/item/reagent_containers/cup/bowl/ceramic
 
@@ -142,7 +207,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 /obj/item/ceramic/cup
 	name = "ceramic cup"
-	desc = "A piece of clay with high walls, in the shape of a cup. It can hold 120 units."
+	desc = "A piece of clay with high walls, in the shape of a cup. It can hold 120 units. Requires heat treatment in a forge."
 	icon_state = "clay_cup"
 	forge_item = /obj/item/reagent_containers/cup/beaker/large/ceramic
 
@@ -167,10 +232,23 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon_state = "throw_wheel_empty"
 	density = TRUE
 	anchored = TRUE
+
 	///if the structure has clay
 	var/has_clay = FALSE
+
 	//if the structure is in use or not
 	var/in_use = FALSE
+
+	///the list of items that the throwing wheel can make
+	var/static/list/production_list = list(
+		"Cup" = /obj/item/ceramic/cup,
+		"Plate" = /obj/item/ceramic/plate,
+		"Bowl" = /obj/item/ceramic/bowl,
+		"Pot" = /obj/item/ceramic/pot,
+		"Tray" = /obj/item/ceramic/tray,
+		"Brick" = /obj/item/ceramic/brick,
+	)
+
 	///the list of messages that are sent whilst "working" the clay
 	var/static/list/given_message = list(
 		"You slowly start spinning the throwing wheel...",
@@ -183,12 +261,15 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	if(istype(attacking_item, /obj/item/stack/clay))
 		if(has_clay)
 			return
+
 		var/obj/item/stack/stack_item = attacking_item
 		if(!stack_item.use(1))
 			return
+
 		has_clay = TRUE
 		icon_state = "throw_wheel_full"
 		return
+
 	return ..()
 
 /obj/structure/throwing_wheel/crowbar_act(mob/living/user, obj/item/tool)
@@ -196,6 +277,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	new /obj/item/stack/sheet/iron/ten(get_turf(src))
 	if(has_clay)
 		new /obj/item/stack/clay(get_turf(src))
+
 	qdel(src)
 
 /obj/structure/throwing_wheel/wrench_act(mob/living/user, obj/item/tool)
@@ -208,7 +290,9 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		if(!do_after(user, spinning_speed, target = src))
 			in_use = FALSE
 			return
+
 		to_chat(user, span_notice(given_message[loop_try]))
+
 	new spawn_type(get_turf(src))
 	user.mind.adjust_experience(/datum/skill/production, 50)
 	has_clay = FALSE
@@ -218,6 +302,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	. = ..()
 	if(in_use)
 		return
+
 	use(user)
 	in_use = FALSE
 
@@ -235,28 +320,23 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	if(!has_clay)
 		balloon_alert(user, "there is no clay!")
 		return
+
 	var/user_input = tgui_alert(user, "What would you like to do?", "Choice Selection", list("Create", "Remove"))
 	if(!user_input)
 		return
+
 	switch(user_input)
 		if("Create")
-			var/creation_choice = tgui_input_list(user, "What you like to create?", "Creation Choice", list("Cup", "Plate", "Bowl", "Tray", "Brick"))
-			if(!creation_choice)
+			var/creation_choice = tgui_input_list(user, "What you like to create?", "Creation Choice", production_list)
+			if(isnull(creation_choice))
 				return
-			switch(creation_choice)
-				if("Cup")
-					use_clay(/obj/item/ceramic/cup, user)
-				if("Plate")
-					use_clay(/obj/item/ceramic/plate, user)
-				if("Bowl")
-					use_clay(/obj/item/ceramic/bowl, user)
-				if("Tray")
-					use_clay(/obj/item/ceramic/tray, user)
-				if("Brick")
-					use_clay(/obj/item/ceramic/brick, user)
+
+			use_clay(production_list[creation_choice], user)
+
 		if("Remove")
 			if(!do_after(user, spinning_speed, target = src))
 				return
+
 			var/atom/movable/new_clay = new /obj/item/stack/clay(get_turf(src))
 			user.put_in_active_hand(new_clay)
 			has_clay = FALSE

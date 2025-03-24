@@ -1421,7 +1421,7 @@
 		affected_mob.adjust_hallucinations(-10 SECONDS * REM * seconds_per_tick)
 
 	if(affected_mob.getStaminaLoss() >= 100)
-		affected_mob.reagents.remove_reagent(type, 2 * REM * seconds_per_tick)
+		affected_mob.reagents.remove_reagent(type, metabolization_rate * REM * seconds_per_tick)
 
 	var/need_mob_update = FALSE
 	if(SPT_PROB(10, seconds_per_tick))
@@ -1672,8 +1672,7 @@
 	if(!(methods & (TOUCH|VAPOR)) || !ishuman(exposed_human) || (reac_volume < 0.5))
 		return
 	exposed_human.set_facial_haircolor("#9922ff", update = FALSE)
-	exposed_human.set_haircolor(color, update = TRUE)
-	exposed_human.update_body_parts()
+	exposed_human.set_haircolor(color) //this will call update_body_parts()
 
 /datum/reagent/medicine/polypyr/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()

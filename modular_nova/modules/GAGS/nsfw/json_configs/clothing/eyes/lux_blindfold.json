@@ -1,0 +1,16 @@
+{
+	"kblindfold": [
+		{
+			"type": "icon_state",
+			"icon_state": "kblindfold_strap",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "kblindfold_cover",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

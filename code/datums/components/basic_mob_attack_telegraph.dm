@@ -50,6 +50,10 @@
 /// When we attempt to attack, check if it is allowed
 /datum/component/basic_mob_attack_telegraph/proc/on_attack(mob/living/basic/source, atom/target)
 	SIGNAL_HANDLER
+	// NOVA EDIT ADDITION START - Makes it so this doesn't activate when a player controlled mob has it
+	if (source.mind)
+		return
+	// NOVA EDIT ADDITION END
 	if (!(isliving(target) || ismecha(target))) // Curse you CLARKE
 		return
 	if (HAS_TRAIT_FROM(source, TRAIT_BASIC_ATTACK_FORECAST, REF(src)))
@@ -73,7 +77,7 @@
 
 	on_began_forecast?.Invoke(target)
 	//we stop the do_after if the target moves out of neighboring turfs but if they dance around us they get their face smashed
-	if (!do_after(source, delay = telegraph_duration, target = target, timed_action_flags = IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(source, TYPE_PROC_REF(/atom/movable, Adjacent), target), interaction_key = INTERACTION_BASIC_ATTACK_FORCEAST))
+	if (!do_after(source, delay = telegraph_duration, target = target, timed_action_flags = IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(source, TYPE_PROC_REF(/atom/movable, Adjacent), target), interaction_key = INTERACTION_BASIC_ATTACK_FORCEAST, hidden = TRUE))
 		forget_target(target)
 		return
 	if (isnull(target)) // They got out of the way :(
