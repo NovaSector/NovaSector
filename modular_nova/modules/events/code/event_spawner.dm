@@ -128,9 +128,7 @@
 
 	if(gets_loadout && !isnull(H.client?.prefs))
 		var/datum/preferences/preference_source = H.client.prefs
-		var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
-		var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
-		var/list/loadout = loadout_list_to_datums(loadout_list)
+		var/list/loadout = H.client.get_loadout_datums()
 		for(var/datum/loadout_item/item as anything in loadout)
 			item.post_equip_item(preference_source, H)
 

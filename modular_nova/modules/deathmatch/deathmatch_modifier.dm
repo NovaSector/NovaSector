@@ -11,9 +11,7 @@
 
 	// using briefcase since im gonna be fuckin honest i tried to refactor the loadout helper code to not depend on outfits
 	// and i failed so womp womp
-	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
-	var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
-	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
+	var/list/loadout_datums = player.client.get_loadout_datums()
 
 	var/obj/item/storage/briefcase/empty/briefcase = new(get_turf(player))
 

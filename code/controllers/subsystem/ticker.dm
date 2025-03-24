@@ -447,10 +447,7 @@ SUBSYSTEM_DEF(ticker)
 		if(ishuman(new_player_living))
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 			//NOVA EDIT ADDITION
-			var/datum/preferences/preference_source = new_player_mob.client.prefs
-			var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
-			var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
-			var/list/loadout = loadout_list_to_datums(loadout_list)
+			var/list/loadout = new_player_living.client.get_loadout_datums()
 			for(var/datum/loadout_item/item as anything in loadout)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
