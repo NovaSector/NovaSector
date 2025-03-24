@@ -450,7 +450,7 @@
 	base_icon_state = "cone"
 	icon_state = "cone"
 	worn_icon_state = "cone_close"
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/head.dmi'
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
 	slot_flags = parent_type::slot_flags | ITEM_SLOT_NECK
