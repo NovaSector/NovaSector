@@ -61,12 +61,10 @@
 		),
 	)
 
-/obj/item/clothing/under/rank/security/nova/plain_skirt
+/obj/item/clothing/under/rank/security/nova/skirt/plain
 	name = "security plain skirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
 	icon_state = "plain_skirt_blue"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	gets_cropped_on_taurs = FALSE
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Blue Variant" = list(
@@ -79,12 +77,10 @@
 	    ),
 	)
 
-/obj/item/clothing/under/rank/security/nova/miniskirt
+/obj/item/clothing/under/rank/security/nova/skirt/mini
 	name = "security miniskirt"
 	desc = "This miniskirt was originally featured in a gag calendar, but entered official use once they realized its potential for arid climates."
 	icon_state = "miniskirt"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	gets_cropped_on_taurs = FALSE
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Red Variant" = list(

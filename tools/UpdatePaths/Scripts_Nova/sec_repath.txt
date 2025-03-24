@@ -16,3 +16,5 @@
 /obj/effect/turf_decal/box/blue : /obj/effect/turf_decal/box/red{@OLD}
 /obj/effect/turf_decal/delivery/blue : /obj/effect/turf_decal/delivery/red{@OLD}
 /obj/effect/turf_decal/caution/blue : /obj/effect/turf_decal/caution/red{@OLD}
+/obj/item/clothing/accessory/armband/deputy/lopland : /obj/item/clothing/accessory/armband/deputy{@OLD}
+/obj/item/clothing/accessory/armband/deputy/lopland/nonsec : /obj/item/clothing/accessory/armband/deputy/nonsec{@OLD}
