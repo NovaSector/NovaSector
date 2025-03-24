@@ -133,11 +133,11 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 	/datum/wound = list(
 		"TRAIT_WOUND_SCANNED" = TRAIT_WOUND_SCANNED,
 	),
-	// NOVA EDIT ADDITON BEGIN - Synthetic wounds
+	// NOVA EDIT ADDITION BEGIN - Synthetic wounds
 	/datum/wound/electrical_damage = list(
 		"TRAIT_ELECTRICAL_DAMAGE_REPAIRING" = TRAIT_ELECTRICAL_DAMAGE_REPAIRING,
 	),
-	// NOVA EDIT ADDITON END - Synthetic wounds
+	// NOVA EDIT ADDITION END - Synthetic wounds
 	/obj = list(
 		"TRAIT_CONTRABAND" = TRAIT_CONTRABAND,
 		"TRAIT_SPEED_POTIONED" = TRAIT_SPEED_POTIONED,
