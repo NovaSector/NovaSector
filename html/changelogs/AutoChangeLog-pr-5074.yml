@@ -1,4 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - image: "removed the sprite override on Extinguisher Cabinets, now using the upstream resprite. Remember to refill your extinguishers and put them back in their cabinet when you're done fighting fires!"
