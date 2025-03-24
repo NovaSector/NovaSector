@@ -71,4 +71,4 @@
 	desc = "High speed, low drag combat boots."
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
-	icon_state = "blue_webbing"
+	icon_state = "peacekeeper"

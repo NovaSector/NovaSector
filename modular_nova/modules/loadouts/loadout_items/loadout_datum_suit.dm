@@ -667,7 +667,7 @@
 
 /datum/loadout_item/suit/brit
 	name = "High Vis Armored Vest"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/brit
+	item_path = /obj/item/clothing/suit/armor/vest/brit
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/british_jacket
@@ -677,7 +677,7 @@
 
 /datum/loadout_item/suit/peacekeeper_jacket
 	name = "High Vis Security Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+	item_path = /obj/item/clothing/suit/armor/vest/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/peacekeeper_wintercoat

@@ -26,3 +26,11 @@
 /obj/item/clothing/glasses/hud/security/sunglasses/redsec : /obj/item/clothing/glasses/hud/security/sunglasses{@OLD}
 /obj/item/clothing/suit/armor/vest/peacekeeper/brit : /obj/item/clothing/suit/armor/vest/brit{@OLD}
 /obj/item/clothing/suit/armor/vest/peacekeeper/jacket : /obj/item/clothing/suit/armor/vest/jacket{@OLD}
+/obj/item/clothing/under/rank/security/peacekeeper/armadyne : /obj/item/clothing/under/rank/security/armadyne{@OLD}
+/obj/item/clothing/under/rank/security/peacekeeper/armadyne/tactical : /obj/item/clothing/under/rank/security/armadyne/tactical{@OLD}
+/obj/item/clothing/head/beret/sec/peacekeeper/armadyne : /obj/item/clothing/head/beret/sec/armadyne{@OLD}
+/obj/item/clothing/suit/armor/vest/peacekeeper/armadyne : /obj/item/clothing/suit/armor/vest/armadyne{@OLD}
+/obj/item/clothing/suit/armor/vest/peacekeeper/armadyne/armor : /obj/item/clothing/suit/armor/vest/armadyne/armor{@OLD}
+/obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne : /obj/item/clothing/glasses/hud/security/sunglasses/armadyne{@OLD}
+/obj/item/clothing/gloves/combat/peacekeeper/armadyne : /obj/item/clothing/gloves/combat/armadyne{@OLD}
+/obj/item/clothing/shoes/jackboots/peacekeeper/armadyne : /obj/item/clothing/shoes/jackboots/armadyne{@OLD}
