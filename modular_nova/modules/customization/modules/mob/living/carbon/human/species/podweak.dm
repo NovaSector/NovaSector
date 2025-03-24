@@ -11,6 +11,7 @@
 
 /datum/species/pod/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"pod_hair" = list("Ivy", TRUE),
 		"legs" = list("Normal Legs", FALSE),
 	)

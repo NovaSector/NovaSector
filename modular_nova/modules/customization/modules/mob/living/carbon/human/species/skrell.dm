@@ -34,6 +34,7 @@
 
 /datum/species/skrell/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"skrell_hair" = list("Short", TRUE),
 	)
 

@@ -33,10 +33,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 */
 /obj/item/organ/proc/setup_bodypart_overlay(accessory_type)
 	bodypart_overlay = new bodypart_overlay(src)
-
-	// cache_key = jointext(generate_icon_cache(), "_") // NOVA EDIT - Species stuff that Goofball ported from /tg/, apparently. Commented for now, to see if I can make it work without it.
-	// NOVA EDIT: we have like 145+ fucking dna blocks lmao
-	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference]
+	dna_block = SSaccessories.dna_mutant_bodypart_blocks[preference] // NOVA EDIT ADDITION - we have like 145+ fucking dna blocks lmao
 
 	accessory_type = accessory_type ? accessory_type : sprite_accessory_override
 	var/update_overlays = TRUE
