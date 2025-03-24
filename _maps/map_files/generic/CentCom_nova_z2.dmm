@@ -2287,8 +2287,8 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "aCR" = (
-/obj/item/hilbertshotel/ghostdojo,
-/turf/open/indestructible/hotelwood,
+/obj/machinery/cafe_condo_teleporter,
+/turf/open/indestructible/dark/smooth_large,
 /area/centcom/holding/cafe)
 "aCS" = (
 /obj/machinery/light/directional/west,
@@ -4154,7 +4154,7 @@
 /turf/open/floor/iron/freezer,
 /area/centcom/holding/cafe)
 "aXV" = (
-/obj/structure/table,
+/obj/item/kirbyplants/random,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aXW" = (
@@ -8778,6 +8778,10 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
+"iCR" = (
+/obj/item/kirbyplants/random,
+/turf/open/indestructible/dark,
+/area/centcom/holding/cafe)
 "iDL" = (
 /obj/effect/turf_decal/siding{
 	color = "#2e2e2e"
@@ -11545,6 +11549,14 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
+"naj" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/structure/railing/corner/end,
+/obj/effect/turf_decal/arrows/white,
+/turf/open/indestructible/dark/smooth_large,
+/area/centcom/holding/cafe)
 "nap" = (
 /mob/living/basic/crab{
 	name = "Shelly"
@@ -13292,6 +13304,13 @@
 	},
 /turf/open/floor/grass,
 /area/centcom/interlink)
+"pFW" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/arrows/white,
+/turf/open/indestructible/dark/smooth_large,
+/area/centcom/holding/cafe)
 "pGK" = (
 /turf/open/floor/iron/dark/side,
 /area/centcom/holding/cafe)
@@ -13471,6 +13490,16 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink)
+"pPd" = (
+/obj/machinery/cafe_condo_teleporter,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/indestructible/dark/smooth_large,
+/area/centcom/holding/cafe)
 "pPH" = (
 /obj/structure/stone_tile/surrounding_tile/cracked,
 /obj/structure/flora/ash/stem_shroom,
@@ -16768,6 +16797,12 @@
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
+"uVp" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/indestructible/dark,
+/area/centcom/holding/cafe)
 "uWe" = (
 /obj/structure/stone_tile/block,
 /obj/structure/stone_tile/block/cracked{
@@ -63295,9 +63330,9 @@ aUo
 ayo
 ahY
 aqf
-aUo
+apc
 fmr
-aUo
+aXV
 aqf
 bcb
 bcb
@@ -65604,7 +65639,7 @@ aKB
 aGo
 ayk
 aqf
-apc
+aUo
 aUo
 aUo
 aUo
@@ -65861,9 +65896,9 @@ apx
 apx
 aoR
 aqf
-aXV
-aXV
 aam
+agV
+avu
 aUo
 aUo
 aUo
@@ -66120,7 +66155,7 @@ aqf
 aqf
 aqf
 aqf
-agV
+xqI
 aUo
 aUo
 atf
@@ -66379,8 +66414,8 @@ aAX
 ajx
 aUo
 aUo
-aUo
-xqI
+naj
+pPd
 aqf
 vTT
 vTT
@@ -66636,8 +66671,8 @@ aqf
 aqf
 aHM
 aUo
-aUo
-avu
+uVp
+iCR
 aqf
 vTT
 kJu
@@ -66893,7 +66928,7 @@ aAX
 ajx
 aUo
 aUo
-aUo
+pFW
 aCR
 aqf
 vTT

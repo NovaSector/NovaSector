@@ -1166,7 +1166,134 @@
   the-og-gear:
   - rscdel: RD and Scientists no longer have a ballmer's peak by default
 2025-03-23:
+  AyIong:
+  - bugfix: Fixed preferences layout for Byond 515 after fixing it for Byond 516
+  EmptyLullaby:
+  - bugfix: donksoft flechette box has been fixed
+  Floofies:
+  - bugfix: Fixed ears sprites becoming invisible for non-default ears options.
+  Ghommie:
+  - bugfix: Adds missing aquarium props box to goodies and games vending machine.
+  - bugfix: fixed a small rendering issue with fishes inside an aquarium.
+  - bugfix: The number of coins, chips or bills that can fit inside a piggy bank is
+      now capped, anything exceeding that amount is converted into a single holochip.
+  GremlinSeeker:
+  - map: redesigned wawa station's atmospherics
+  GreytideSkye:
+  - spellcheck: Photocopier finally learned about %date and %time, and changed the
+      forms' fields to accommodate them.
+  Holoo-1:
+  - rscadd: AIs now can create a popup window via multicam
+  Jedi-Toothpaste:
+  - bugfix: Fixes the trophy projectiles on Ahab's Harpoon
+  LemonInTheDark:
+  - rscadd: Smoothed objects on shuttles now will only smooth with other shuttles
+      (added support for extensions of this system)
+  - refactor: I've funked around with our smoothing system, cutting out some older
+      code. Lemme know if anything is weird PLEASE
+  Maximal08:
+  - spellcheck: changes the description of the stable red extract from "Nullifies
+      all equipment based slowdowns." to "Nullifies all equipment based speed change."
+  Melbert:
+  - qol: Corpses spawned from human-like NPCs will spawn damaged according to how
+      they died (or will even gib if the npc was gibbed)
+  - bugfix: Maint Russians with guns will now spawn corpses instead of vanishing
+  - rscadd: HoP now spawns with a platinum ID card which can hold infinite common
+      access slots, but is still limited in amount of command slots.
+  - bugfix: Fixed drunkness mood printout
+  - bugfix: Some niche bullets are now hidden when embedded
+  MelokGleb:
+  - rscadd: The Blood-Drunk Miner has found an ancient hunting knife...
+  RandomDudeFromTheRim:
+  - bugfix: You can no longer stuff anomaly cores into an autolathe for glass and
+      iron
+  Rhials:
+  - qol: Blobs now have a custom icon for the orbit menu/ComboHUD.
+  SmArtKar:
+  - qol: Improved formatting on holopad controls for AI
+  - bugfix: Fixed holopads softlocking AIs
+  - bugfix: You can no longer dupe loot by reviving certain mobs (like ash drakes)
+  - refactor: Refactored how overlay lights work - having one in your pocket will
+      no longer color air around you into piss
+  - qol: Painted flashlights once again emit colored light.
+  - bugfix: Fixed premium internals boxes still being stretched
+  - bugfix: Fixed escape shuttles only taking 4/9/19 minutes to arrive
+  - bugfix: Fixed emergency mode lighting using incorrect light color
+  - balance: Improved crate mimics' disguise
+  - bugfix: Playing battle arcades now gives you a moodlet and counts as gaming for
+      the gamer quirk
+  - code_imp: Cleaned up real gamer code
+  TealSeer:
+  - bugfix: fixed the blood filter whitelist doing the opposite of what it should
+  Twaticus:
+  - image: resprites party pod and harvester
+  - image: Resprites trashcarts, cardboard boxes, and tattoo kits.
+  deathrobotpunch:
+  - qol: Removed the access restrictions from mail sorter vending machine
   jjpark-kb:
   - rscadd: adds the ability to focus the bluespace miner, tripling the chance for
       an ore
   - code_imp: made some of the code blocks prettier/more readable.
+  - code_imp: beautified bsrpd code, as well as switch attackby to item_interaction
+  - code_imp: beautify the slide component (not player facing)
+  necromanceranne:
+  - balance: Flechette has been reworked into an AP pellet round that embeds and wounds,
+      but has less actual damage to buckshot. You can print it once Exotic Ammunition
+      has been researched. Also available to Nuclear Operatives.
+  - rscadd: Donk Co. 'Donk Spike' flechette rounds. No longer offered by Donk Co.
+      It can sometimes shows up in trashbins and dumpsters. And operatives can buy
+      it in bulk if they really feel like it.
+  - balance: Mech PKA now once again mines turfs and does full damage on its AOE explosion
+      (still only hitting mining mobs).
+  - balance: The standard PKA AOE mods are now by default 10% capacity. But they cannot
+      be used with one another.
+  - balance: The standard PKA offensive AOE mod now does the PKA's full damage in
+      its AOE.
+  - balance: Mining AOEs will affect everything within a 2 tile radius around the
+      point of impact, up from a 1 tile radius.
+  - code_imp: Changes floor diseases from advanced diseases into basic diseases. Should
+      mostly function the same, except you can't mutate them.
+  timothymtorres:
+  - code_imp: Remove redundant NOT operator from CALCULATE_ADJACENT_TURFS
+  unit0016:
+  - rscadd: A lot of dorms-related clothing, accessories, and tools've received greyscale
+      coloration!
+  - code_imp: A significant amount of the backend of the dorms module's been overhauled.
+      If anything's broken; give a shout!
+  vinylspiders:
+  - bugfix: 'Antagonists tab in preferences, scrollable in Byond 516 now /:cl:
+
+      ---
+
+      Separated out because it causes a bug with the quirks tab in 515.'
+  - bugfix: combat rmb will no longer fire the gun at the same time as pistol whipping
+      for certain guns
+  warbluke:
+  - rscadd: Added Holodisks to loadout options
+  - bugfix: Toner cartridges are no longer larger than the airlock sprayer.
+2025-03-24:
+  81fm:
+  - bugfix: fixed polymorph belt changing spritesize when scanning a mob/picking up
+      a polymorph belt that has scanned a mob
+  Bannhammger:
+  - rscadd: Armorless tactical maid suit to the loadout
+  Hatterhat:
+  - bugfix: Slim colonial webbings no longer require a uniform to cover the chest
+      to attach.
+  - bugfix: Cargo uniforms with alt styles that cover the chest now should... cover
+      the chest when using those alt styles, as appropriate.
+  Iajret:
+  - bugfix: fixed ear sprite getting removed when you change you ears in augs+ or
+      through surgery
+  Kocma-san:
+  - rscdel: unused traits related to xenomorphs have been removed
+  OrionTheFox:
+  - image: removed the sprite override on Extinguisher Cabinets, now using the upstream
+      resprite. Remember to refill your extinguishers and put them back in their cabinet
+      when you're done fighting fires!
+  lessthnthree, unit0016:
+  - rscadd: The infinidorms have been rewritten and rethemed significantly, coming
+      with a handful of new rooms in the process.
+  vinylspiders:
+  - bugfix: fixes veteran status not displaying correctly in examine panel for some
+      people
