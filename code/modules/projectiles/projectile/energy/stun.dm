@@ -193,7 +193,7 @@
 			to_chat(owner, span_notice("The electrode hits you, but it only tickles."))									 
 			stamina_per_second = 0																 
 			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)
-			// NOVA EDIT ADDITION END
+		// NOVA EDIT ADDITION END
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		human_owner.force_say()
