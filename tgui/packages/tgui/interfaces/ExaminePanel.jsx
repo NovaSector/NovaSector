@@ -110,7 +110,7 @@ export const ExaminePanel = (props) => {
                       title="OOC Notes"
                       preserveWhitespace
                     >
-                      {veteran_status && (
+                      {!!veteran_status && (
                         <Stack.Item>
                           <span
                             style={{

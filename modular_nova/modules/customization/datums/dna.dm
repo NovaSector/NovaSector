@@ -162,7 +162,10 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 					var/list/marking_list = GLOB.body_markings_per_limb[zone]
 					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len))
 
-/datum/dna/proc/update_body_size()
+/// Updates the mob's body size to prefs features
+/datum/dna/proc/update_body_size(force_reapply = FALSE)
+	if(force_reapply)
+		current_body_size = BODY_SIZE_NORMAL
 	if(!holder || species.body_size_restricted || current_body_size == features["body_size"])
 		return
 	var/change_multiplier = features["body_size"] / current_body_size

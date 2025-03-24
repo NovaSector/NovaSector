@@ -1271,3 +1271,29 @@
   warbluke:
   - rscadd: Added Holodisks to loadout options
   - bugfix: Toner cartridges are no longer larger than the airlock sprayer.
+2025-03-24:
+  81fm:
+  - bugfix: fixed polymorph belt changing spritesize when scanning a mob/picking up
+      a polymorph belt that has scanned a mob
+  Bannhammger:
+  - rscadd: Armorless tactical maid suit to the loadout
+  Hatterhat:
+  - bugfix: Slim colonial webbings no longer require a uniform to cover the chest
+      to attach.
+  - bugfix: Cargo uniforms with alt styles that cover the chest now should... cover
+      the chest when using those alt styles, as appropriate.
+  Iajret:
+  - bugfix: fixed ear sprite getting removed when you change you ears in augs+ or
+      through surgery
+  Kocma-san:
+  - rscdel: unused traits related to xenomorphs have been removed
+  OrionTheFox:
+  - image: removed the sprite override on Extinguisher Cabinets, now using the upstream
+      resprite. Remember to refill your extinguishers and put them back in their cabinet
+      when you're done fighting fires!
+  lessthnthree, unit0016:
+  - rscadd: The infinidorms have been rewritten and rethemed significantly, coming
+      with a handful of new rooms in the process.
+  vinylspiders:
+  - bugfix: fixes veteran status not displaying correctly in examine panel for some
+      people
