@@ -514,7 +514,7 @@
 
 /datum/mood_event/encountered_evil
 	description = "I didn't want to believe it, but there are people out there that are genuinely evil."
-	mood_change = -4
+	mood_change = 0 // NOVA EDIT CHANGE - Original: -4 - This causes a mood debuf on people that get a positive quirk over examining someone with a neutral quirk otherwise.
 	timeout = 1 MINUTES
 
 /datum/mood_event/smoke_in_face
