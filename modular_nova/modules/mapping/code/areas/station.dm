@@ -723,3 +723,50 @@
 /area/station/maintenance/condemned_med
 	name = "Old Medbay"
 	icon_state = "abandoned_medbay"
+
+/// AquaStation
+
+/area/station/engineering/theremogen
+	name = "Thermoelectric Generator Hall"
+
+/area/station/engineering/theremogen/engine // named engine instead of generator just in case!
+	name = "Thermoelectric Generator Room"
+
+/area/station/engineering/theremogen/cooling
+	name = "Thermoelectric Generator Cooling Control"
+
+/area/station/engineering/theremogen/burning
+	name = "Thermoelectric Generator Burn Control"
+
+/area/station/engineering/auxillaryengine
+	name = "Auxillary Engine Room"
+
+/area/station/common/publicminingdock
+	name = "Public Mining Dock"
+
+/area/station/common/waterlock
+	name = "Waterlock"
+
+/area/station/common/waterlock/north
+	name = "North Waterlock"
+
+/area/station/common/waterlock/north_east
+	name = "North East Waterlock"
+
+/area/station/common/waterlock/east
+	name = "East Waterlock"
+
+/area/station/common/waterlock/south_east
+	name = "South East Waterlock"
+
+/area/station/common/waterlock/south
+	name = "South Waterlock"
+
+/area/station/common/waterlock/south_west
+	name = "South West Waterlock"
+
+/area/station/common/waterlock/west
+	name = "West Waterlock"
+
+/area/station/common/waterlock/north_west
+	name = "North West Waterlock"
