@@ -140,16 +140,6 @@
 	unique_reskin = NONE
 	current_skin = "securitywebbing" //Prevents reskinning
 
-/obj/item/storage/belt/security/webbing/blue
-	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	current_skin = "blue_webbing"
-
-/obj/item/storage/belt/security/webbing/red
-	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	current_skin = "red_webbing"
-
 /obj/item/storage/belt/holster
 	desc = "A rather plain but still cool looking holster that can hold a handgun, and some ammo."
 
@@ -428,6 +418,10 @@
 //Standard Bulletproof Vest
 /obj/item/clothing/suit/armor/bulletproof
 	desc = "A Type-III-NT-P heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+//Ablative Armor
+/obj/item/clothing/suit/hooded/ablative
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /*

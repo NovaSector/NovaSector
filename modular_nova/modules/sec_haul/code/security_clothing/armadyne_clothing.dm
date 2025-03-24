@@ -81,12 +81,12 @@
 	icon_state = "armadyne_belt"
 	worn_icon_state = "armadyne_belt"
 
-/obj/item/storage/belt/security/webbing/armadyne
-	name = "armadyne webbing"
+/obj/item/storage/belt/security/webbing/red
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	icon_state = "armadyne_webbing"
-	worn_icon_state = "armadyne_webbing"
+	icon_state = "red_webbing"
+	current_skin = "red_webbing" //Prevents reskinning
+
 
 /datum/outfit/armadyne_rep
 	name = "Armadyne Corporate Representative"

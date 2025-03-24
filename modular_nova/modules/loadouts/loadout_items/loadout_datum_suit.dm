@@ -671,12 +671,12 @@
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/british_jacket
-	name = "Peacekeeper Officer Coat"
+	name = "Officer Coat"
 	item_path = /obj/item/clothing/suit/british_officer
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/peacekeeper_jacket
-	name = "Peacekeeper Jacket"
+	name = "High Vis Security Jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
@@ -697,7 +697,7 @@
 
 /datum/loadout_item/suit/detjacketbrown
 	name = "Detective's Brown Jacket"
-	item_path = /obj/item/clothing/suit/jacket/det_suit/brown 
+	item_path = /obj/item/clothing/suit/jacket/det_suit/brown
 	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/suit/detjacketplain
