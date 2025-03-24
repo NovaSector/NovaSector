@@ -7153,7 +7153,6 @@
 #include "modular_nova\modules\aesthetics\abductor\abductor.dm"
 #include "modular_nova\modules\aesthetics\airalarm\code\airalarm.dm"
 #include "modular_nova\modules\aesthetics\airlock\code\airlock.dm"
-#include "modular_nova\modules\aesthetics\airlock_machines\airlock_machines.dm"
 #include "modular_nova\modules\aesthetics\apc\code\apc.dm"
 #include "modular_nova\modules\aesthetics\blast_door\code\blast_door.dm"
 #include "modular_nova\modules\aesthetics\bureaucracy\bureaucracy.dm"
