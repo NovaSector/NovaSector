@@ -1,0 +1,84 @@
+"aV" = (/obj/machinery/light_switch/directional/west,/turf/open/floor/carpet/red,/area/misc/condo)
+"bg" = (/obj/item/kirbyplants/random,/turf/open/floor/wood/tile,/area/misc/condo)
+"dj" = (/obj/effect/turf_decal/weather/dirt{dir = 6},/obj/effect/turf_decal/weather/dirt{dir = 1},/turf/open/floor/grass,/area/misc/condo)
+"dF" = (/obj/machinery/door/airlock/wood/glass,/obj/structure/fans/tiny/invisible,/turf/open/floor/wood/tile,/area/misc/condo)
+"ey" = (/turf/closed/indestructible/rock,/area/misc/condo)
+"fk" = (/obj/structure/table/wood,/obj/item/storage/box/matches{pixel_x = -8; pixel_y = 4},/obj/item/stack/sheet/mineral/wood/fifty{pixel_x = 7; pixel_y = 3},/turf/open/floor/carpet/green,/area/misc/condo)
+"fE" = (/obj/effect/turf_decal/siding/wood{dir = 6},/obj/structure/fireplace{dir = 4},/turf/open/floor/stone,/area/misc/condo)
+"fY" = (/obj/structure/flora/tree/jungle/style_6,/turf/open/floor/grass,/area/misc/condo)
+"go" = (/obj/effect/turf_decal/weather/dirt,/obj/structure/flora/tree/jungle/style_4,/turf/open/floor/grass,/area/misc/condo)
+"gt" = (/obj/effect/spawner/liquids_spawner,/turf/open/floor/iron/pool/cobble,/area/misc/condo)
+"io" = (/obj/structure/chair/sofa/right/maroon,/obj/machinery/light_switch/directional/north,/turf/open/floor/wood,/area/misc/condo)
+"lq" = (/obj/structure/sign/painting/library{pixel_x = -32},/turf/open/floor/wood/tile,/area/misc/condo)
+"mR" = (/obj/structure/chair/sofa/corner/maroon,/obj/structure/sign/painting/library{pixel_x = 32; pixel_y = 0},/turf/open/floor/wood,/area/misc/condo)
+"qn" = (/obj/effect/turf_decal/weather/dirt,/obj/structure/chair/sofa/bench/right,/turf/open/floor/grass,/area/misc/condo)
+"qx" = (/obj/effect/turf_decal/weather/dirt{dir = 1},/turf/open/floor/grass,/area/misc/condo)
+"rb" = (/turf/open/misc/dirt,/area/misc/condo)
+"rq" = (/obj/machinery/light/warm/dim/directional/south,/obj/structure/sign/painting/large/library{pixel_x = 0; pixel_y = -34},/obj/structure/table/wood,/obj/structure/towel_bin,/turf/open/floor/wood/tile,/area/misc/condo)
+"tb" = (/obj/effect/turf_decal/weather/dirt{dir = 5},/turf/open/floor/grass,/area/misc/condo)
+"tp" = (/obj/structure/flora/bush/ferny/style_3,/turf/open/floor/grass,/area/misc/condo)
+"tF" = (/obj/structure/mirror/directional/south,/obj/effect/turf_decal/siding/wideplating{dir = 4},/turf/open/floor/iron/showroomfloor,/area/misc/condo)
+"vg" = (/obj/effect/turf_decal/weather/dirt,/obj/structure/chair/sofa/bench/left,/turf/open/floor/grass,/area/misc/condo)
+"wf" = (/obj/effect/turf_decal/siding/wood{dir = 5},/obj/structure/closet/crate/bin{pixel_x = -4; pixel_y = 8},/turf/open/floor/stone,/area/misc/condo)
+"wm" = (/obj/structure/flora/rock/pile/jungle/style_3,/obj/effect/turf_decal/weather/dirt{dir = 5},/turf/open/floor/grass,/area/misc/condo)
+"yo" = (/obj/structure/bed/double/pod,/obj/effect/spawner/random/bedsheet/any/double,/turf/open/floor/wood/tile,/area/misc/condo)
+"yt" = (/obj/machinery/grill,/obj/effect/turf_decal/siding/wood{dir = 6},/turf/open/floor/stone,/area/misc/condo)
+"yR" = (/obj/effect/turf_decal/weather/dirt,/turf/open/floor/grass,/area/misc/condo)
+"zw" = (/obj/structure/table/wood,/obj/effect/spawner/random/food_or_drink/three_course_meal{pixel_x = 2; pixel_y = 5},/turf/open/floor/carpet/green,/area/misc/condo)
+"zI" = (/obj/structure/dresser,/obj/structure/sign/painting/library{pixel_x = 32; pixel_y = 0},/turf/open/floor/wood/tile,/area/misc/condo)
+"zQ" = (/obj/effect/turf_decal/weather/dirt{dir = 6},/obj/structure/flora/rock/pile/jungle/style_3,/turf/open/floor/grass,/area/misc/condo)
+"zS" = (/obj/effect/turf_decal/weather/dirt,/obj/structure/flora/bush/jungle/b,/turf/open/floor/grass,/area/misc/condo)
+"Ar" = (/obj/effect/decal/remains/human,/turf/open/misc/dirt,/area/misc/condo)
+"As" = (/obj/structure/sign/painting/library{pixel_x = -32},/turf/open/floor/wood,/area/misc/condo)
+"Bv" = (/obj/structure/flora/tree/jungle/style_2,/turf/open/floor/grass,/area/misc/condo)
+"BQ" = (/obj/structure/flora/rock/pile/jungle/style_5,/obj/effect/turf_decal/weather/dirt{dir = 4},/turf/open/floor/grass,/area/misc/condo)
+"BV" = (/obj/machinery/door/airlock/wood,/turf/open/floor/wood/tile,/area/misc/condo)
+"Ck" = (/turf/open/floor/wood,/area/misc/condo)
+"DG" = (/turf/open/floor/carpet/red,/area/misc/condo)
+"Fc" = (/obj/effect/turf_decal/siding/wood,/obj/structure/closet/crate/freezer,/obj/item/food/meat/rawcutlet,/obj/item/food/meat/rawcutlet,/obj/item/food/meat/rawcutlet,/obj/item/food/meat/slab,/obj/item/food/meat/slab,/obj/item/food/meat/slab,/obj/item/food/meat/slab/chicken,/obj/item/food/meat/slab/chicken,/obj/item/food/meat/slab/chicken,/turf/open/floor/stone,/area/misc/condo)
+"Fr" = (/obj/machinery/shower/directional/south,/obj/structure/drain,/obj/structure/curtain,/turf/open/floor/iron/showroomfloor,/area/misc/condo)
+"GY" = (/obj/structure/chair/sofa/left/maroon{dir = 8},/turf/open/floor/wood,/area/misc/condo)
+"HU" = (/turf/open/floor/wood/tile,/area/misc/condo)
+"Ir" = (/turf/open/floor/carpet/green,/area/misc/condo)
+"Kq" = (/obj/structure/flora/bush/jungle/c,/turf/open/floor/grass,/area/misc/condo)
+"KO" = (/obj/effect/turf_decal/weather/dirt{dir = 4},/turf/open/floor/grass,/area/misc/condo)
+"Mk" = (/obj/structure/closet/cabinet,/turf/open/floor/wood/tile,/area/misc/condo)
+"MT" = (/turf/closed/indestructible/hoteldoor/fakedoor,/area/misc/condo)
+"NB" = (/obj/effect/turf_decal/weather/dirt{dir = 9},/obj/structure/flora/rock/pile/jungle,/turf/open/floor/grass,/area/misc/condo)
+"Pu" = (/obj/structure/flora/bush/ferny/style_2,/turf/open/floor/grass,/area/misc/condo)
+"PJ" = (/obj/effect/turf_decal/weather/dirt,/obj/structure/flora/tree/jungle/style_5,/turf/open/floor/grass,/area/misc/condo)
+"Qz" = (/obj/structure/flora/rock/pile/jungle/style_2,/turf/open/floor/grass,/area/misc/condo)
+"QL" = (/turf/open/floor/grass,/area/misc/condo)
+"RI" = (/obj/structure/bookcase/random,/turf/open/floor/carpet/red,/area/misc/condo)
+"RP" = (/obj/effect/turf_decal/weather/dirt{dir = 6},/turf/open/floor/grass,/area/misc/condo)
+"Su" = (/obj/effect/turf_decal/weather/dirt{dir = 9},/turf/open/floor/grass,/area/misc/condo)
+"SH" = (/obj/structure/chair/comfy/beige,/turf/open/floor/carpet/red,/area/misc/condo)
+"Te" = (/obj/structure/flora/rock/pile/jungle/style_3,/turf/open/floor/grass,/area/misc/condo)
+"TG" = (/obj/effect/turf_decal/siding/wood{dir = 10},/obj/machinery/light/small/dim/directional/north,/obj/item/reagent_containers/cup/bottle/welding_fuel{pixel_x = 7; pixel_y = 3},/obj/structure/table/wood,/obj/item/flashlight/lantern{pixel_x = -7; pixel_y = 12},/turf/open/floor/stone,/area/misc/condo)
+"TQ" = (/obj/structure/flora/rock/pile/jungle/style_4,/turf/open/floor/grass,/area/misc/condo)
+"TR" = (/obj/structure/flora/tree/jungle/style_4,/obj/effect/turf_decal/weather/dirt{dir = 6},/turf/open/floor/grass,/area/misc/condo)
+"UF" = (/obj/structure/toilet,/obj/machinery/light/small/directional/north,/obj/structure/sign/painting/large/library{dir = 1},/obj/effect/turf_decal/siding/wideplating{dir = 4},/turf/open/floor/iron/showroomfloor,/area/misc/condo)
+"Vq" = (/turf/closed/wall/mineral/wood,/area/misc/condo)
+"Xs" = (/obj/machinery/light_switch/directional/south,/turf/open/floor/iron/showroomfloor,/area/misc/condo)
+"Xy" = (/obj/machinery/light/warm/dim/directional/east,/turf/open/floor/wood/tile,/area/misc/condo)
+"Ym" = (/obj/machinery/light/warm/dim/directional/east,/obj/structure/chair/sofa/middle/maroon{dir = 8},/turf/open/floor/wood,/area/misc/condo)
+"Yv" = (/obj/machinery/door/airlock/wood,/obj/structure/fans/tiny/invisible,/turf/open/floor/wood/tile,/area/misc/condo)
+"ZP" = (/obj/structure/window/green_glass_pane,/obj/structure/curtain/cloth/fancy,/turf/open/floor/wood/tile,/area/misc/condo)
+
+(1,1,1) = {"
+eyeyeyeyeyeyeyeyeyeyeyeyeyeyeyey
+eyeyQLQLQLQLTeTefYtpTQQLQLzQrbey
+eyTQQLyRzSgoyRqnvgyRyRPJRPrbrbey
+eyKqTRrbrbrbrbrbrbrbrbrbrbrbrbey
+eyBQrbrbNBqxqxqxqxqxqxdjrbrbrbey
+eyVqYvZPVqQLQLQLQLQLeyrbrbrbrbey
+eyVqlqbgVqZPVqTQBvQLeyrbrbArrbey
+eyVqCkCkiomRVqeyQzPueyeyrbrbrbey
+eyVqwfIrzwYmVqVqZPVqVqeyeyrbrbey
+eyVqfEIrfkGYVqRISHzIVqeyeyeyeyey
+eyVqAsCkCkCkBVDGDGyoVqVqVqVqVqey
+eyVqdFVqZPVqVqaVDGXyVqFrUFgtVqey
+eywmrbTGFcytZPMkrqHUBVXstFgtVqey
+eyKOrbSuqxtbVqVqVqVqVqVqVqVqVqey
+eyeyMTeyeyeyeyeyeyeyeyeyeyeyeyey
+"}
