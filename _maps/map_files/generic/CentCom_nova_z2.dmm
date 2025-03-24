@@ -3435,6 +3435,9 @@
 /area/centcom/interlink)
 "aQz" = (
 /obj/structure/closet/crate/bin,
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
 "aQD" = (
@@ -9267,6 +9270,12 @@
 /obj/effect/landmark/latejoin,
 /turf/open/floor/iron,
 /area/centcom/interlink)
+"jra" = (
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
+/turf/open/water/hot_spring/cafe,
+/area/centcom/interlink/dorm_rooms)
 "jsN" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/delivery,
@@ -15434,6 +15443,12 @@
 /obj/structure/window/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
+"sJU" = (
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
+/turf/closed/indestructible/riveted,
+/area/centcom/interlink/dorm_rooms)
 "sKg" = (
 /obj/effect/turf_decal/trimline/green/filled/arrow_cw{
 	dir = 4
@@ -18196,6 +18211,15 @@
 /obj/structure/fans/tiny/invisible,
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
+"xyc" = (
+/obj/machinery/door/airlock/bathroom{
+	name = "Bathroom"
+	},
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
+/turf/open/floor/iron/white,
+/area/centcom/interlink/dorm_rooms)
 "xyn" = (
 /obj/structure/flora/grass/jungle/a/style_4,
 /obj/machinery/light/directional/north,
@@ -39603,7 +39627,7 @@ hvQ
 tvw
 bvf
 wXo
-wXo
+jra
 lcR
 sOn
 iph
@@ -40375,7 +40399,7 @@ tvw
 rHY
 rmA
 pMg
-vsB
+xyc
 fXw
 mjA
 aPY
@@ -40632,7 +40656,7 @@ tvw
 lrp
 pMg
 bsj
-lcR
+sJU
 ckV
 kdU
 xqq
