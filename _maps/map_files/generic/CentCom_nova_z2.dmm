@@ -9270,12 +9270,6 @@
 /obj/effect/landmark/latejoin,
 /turf/open/floor/iron,
 /area/centcom/interlink)
-"jra" = (
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
-/turf/open/water/hot_spring/cafe,
-/area/centcom/interlink/dorm_rooms)
 "jsN" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/delivery,
@@ -9468,10 +9462,10 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafepark)
 "jHu" = (
-/obj/machinery/door/airlock{
-	name = "Cabin"
-	},
 /obj/machinery/nova/fan/self_powered,
+/obj/machinery/door/airlock/wood{
+	name = "Personal Sauna"
+	},
 /turf/open/floor/iron,
 /area/centcom/interlink/dorm_rooms)
 "jHv" = (
@@ -11082,11 +11076,16 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "mqS" = (
-/obj/effect/turf_decal/stripes/asteroid/line{
+/obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/turf/closed/wall/mineral/titanium,
-/area/centcom/interlink)
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/light/small/directional/east,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/centcom/interlink/dorm_rooms)
 "mtv" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
@@ -11816,8 +11815,11 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light/small/directional/east,
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms)
 "nsT" = (
@@ -11859,8 +11861,8 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "nCY" = (
-/obj/machinery/door/airlock{
-	name = "Cabin"
+/obj/machinery/door/airlock/wood{
+	name = "Personal Hotspring"
 	},
 /turf/open/floor/iron,
 /area/centcom/interlink/dorm_rooms)
@@ -12125,9 +12127,14 @@
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "nYF" = (
-/obj/effect/turf_decal/siding/wood/corner,
-/turf/closed/indestructible/riveted,
-/area/centcom/interlink)
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/railing/wooden_fencing{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/centcom/interlink/dorm_rooms)
 "nYN" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/light/warm/directional/north,
@@ -12520,11 +12527,10 @@
 	},
 /area/centcom/interlink)
 "oCR" = (
-/obj/effect/turf_decal/stripes/asteroid/line{
-	dir = 1
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/centcom/interlink)
+/obj/structure/table/wood,
+/obj/structure/towel_bin,
+/turf/open/floor/wood,
+/area/centcom/interlink/dorm_rooms)
 "oCU" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -13560,7 +13566,7 @@
 /area/centcom/interlink)
 "pWs" = (
 /obj/machinery/door/airlock{
-	name = "Sauna";
+	name = "Hot Spring";
 	id_tag = "sauna2"
 	},
 /turf/open/floor/iron/dark,
@@ -14203,7 +14209,7 @@
 /area/centcom/holding/cafe)
 "qUe" = (
 /obj/machinery/door/airlock{
-	name = "Sauna";
+	name = "Hot Spring";
 	id_tag = "sauna1"
 	},
 /turf/open/floor/iron/dark,
@@ -15443,12 +15449,6 @@
 /obj/structure/window/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
-"sJU" = (
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
-/turf/closed/indestructible/riveted,
-/area/centcom/interlink/dorm_rooms)
 "sKg" = (
 /obj/effect/turf_decal/trimline/green/filled/arrow_cw{
 	dir = 4
@@ -18103,9 +18103,7 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "xpl" = (
-/obj/structure/chair/sofa/bench/left{
-	greyscale_colors = "#AA8A61"
-	},
+/obj/structure/chair/sofa/bench/left,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
@@ -18211,15 +18209,6 @@
 /obj/structure/fans/tiny/invisible,
 /turf/open/floor/wood,
 /area/centcom/holding/cafedorms)
-"xyc" = (
-/obj/machinery/door/airlock/bathroom{
-	name = "Bathroom"
-	},
-/obj/structure/sign/painting/library{
-	pixel_y = 32
-	},
-/turf/open/floor/iron/white,
-/area/centcom/interlink/dorm_rooms)
 "xyn" = (
 /obj/structure/flora/grass/jungle/a/style_4,
 /obj/machinery/light/directional/north,
@@ -34748,8 +34737,8 @@ ufi
 wXo
 wXo
 oUD
-iph
-nYF
+oCR
+tvw
 lBC
 nJp
 aDg
@@ -35261,7 +35250,7 @@ wXo
 wXo
 wXo
 wXo
-aAe
+nYF
 udJ
 tvw
 lBC
@@ -36033,7 +36022,7 @@ ufi
 wXo
 wXo
 oUD
-iph
+oCR
 tvw
 lBC
 nJp
@@ -36546,7 +36535,7 @@ wXo
 wXo
 wXo
 wXo
-aAe
+nYF
 aGZ
 tvw
 xFJ
@@ -36803,7 +36792,7 @@ wXo
 alQ
 wXo
 wXo
-nrz
+mqS
 aRk
 tvw
 xFJ
@@ -39627,7 +39616,7 @@ hvQ
 tvw
 bvf
 wXo
-jra
+wXo
 lcR
 sOn
 iph
@@ -40399,7 +40388,7 @@ tvw
 rHY
 rmA
 pMg
-xyc
+vsB
 fXw
 mjA
 aPY
@@ -40640,7 +40629,7 @@ xPx
 xPx
 pFm
 xPx
-oCR
+xPx
 vEO
 hvQ
 bIG
@@ -40649,14 +40638,14 @@ xPx
 xPx
 pFm
 xPx
-oCR
+xPx
 vEO
 hvQ
 tvw
 lrp
 pMg
 bsj
-sJU
+lcR
 ckV
 kdU
 xqq
@@ -40897,7 +40886,7 @@ nJQ
 wHS
 tUz
 hnf
-mqS
+nJQ
 ins
 hvQ
 bIG
@@ -40906,7 +40895,7 @@ nJQ
 wHS
 tUz
 hnf
-mqS
+nJQ
 ins
 hvQ
 tvw
