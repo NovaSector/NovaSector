@@ -22,12 +22,12 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 /obj/item/gun/ballistic/automatic/nt20/examine_more(mob/user)
 	. = ..()
 
-	. += "The Nanotrasen Armories NT20 is a recent release from NT's esteemed private arms division, \
+	. += "<i>The Nanotrasen Armories NT20 is a recent release from NT's esteemed private arms division, \
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
-		issued it in the ongoing rollout. \
+		issued it in its ongoing rollout.<br><br>\
 		Though certain rival manufacturers have dismissed the NT20 as a \"fake\" or a \"blatant bootleg,\"  \
 		the inimitable .460 Ceres round and a patent-pending multi-stage delayed blowback system \
-		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire."
+		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire.</i>"
 
 /obj/item/gun/ballistic/automatic/nt20/give_manufacturer_examine()
     AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)

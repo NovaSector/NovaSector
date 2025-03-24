@@ -70,11 +70,14 @@
 	var/datum/component/soulcatcher/tracked_soulcatcher
 	/// What is this gun's extended examine, we only have to do this because the carbine is a subtype
 	var/expanded_examine_text = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
-		from Cybersun Industries. Like her younger sister weapon, the Hoshi carbine, CI used funding aid provided \
-		by SolFed to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
-		A rugged and hefty weapon, the Hyeseong stars in applications anywhere from medium to long ranges, though struggling \
-		in CQB. Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
-		is shipped with a more professional and understated personality-- since influenced by 'negligence' from users in \
+		from Cybersun Industries.<br><br>\
+		Like her younger sister weapon, the Hoshi carbine, CI used funding aid provided \
+		by SolFed to develop a portable weapon fueled by a proprietary generator \
+		rumored to be fueled by superstable plasma. \
+		A rugged and hefty weapon, the Hyeseong stars in applications anywhere from medium to long ranges, though it struggles \
+		in CQB.<br><br>\
+		Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
+		is shipped with a more professional and understated personality—since influenced by 'negligence' from users in \
 		wiping the intelligence's memory before resale or transport."
 	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
 	COOLDOWN_DECLARE(last_speech)
@@ -96,8 +99,7 @@
 
 /obj/item/gun/energy/modular_laser_rifle/examine_more(mob/user)
 	. = ..()
-	. += expanded_examine_text
-	return .
+	. += "<i>[expanded_examine_text]</i>"
 
 /obj/item/gun/energy/modular_laser_rifle/Destroy()
 	QDEL_NULL(tracked_soulcatcher)
@@ -274,11 +276,13 @@
 	default_selected_mode = "Incinerate"
 	speech_json_file = SHORT_MOD_LASER_SPEECH
 	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
-		Cybersun Industries. Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
-		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. A \
-		lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts; though \
-		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
-		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
+		Cybersun Industries.<br><br>\
+		Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
+		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
+		A lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts, \
+		at the cost of longer-ranged combat performance.<br><br>\
+		Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
+		was originally shipped with a more energetic personality—since influenced by 'negligence' \
 		from users in wiping the intelligence's memory before resale or transport."
 
 /obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)

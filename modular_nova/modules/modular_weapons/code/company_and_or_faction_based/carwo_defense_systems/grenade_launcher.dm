@@ -49,18 +49,18 @@
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine_more(mob/user)
 	. = ..()
 
-	. += "The Kiboko is one of the strangest weapons Carwo offers. A grenade launcher, \
-		though not in the standard grenade size. The much lighter .980 Tydhouer grenades \
-		developed for the weapon offered many advantages over standard grenade launching \
-		ammunition. For a start, it was significantly lighter, and easier to carry large \
-		amounts of. What it also offered, however, and the reason SolFed funded the \
-		project: Variable time fuze. Using the large and expensive ranging sight on the \
-		launcher, its user can set an exact distance for the grenade to self detonate at. \
-		The dream of militaries for decades, finally realized. The smaller shells do not, \
-		however, make the weapon any more enjoyable to fire. The kick is only barely \
-		manageable thanks to the massive muzzle brake at the front."
-
-	return .
+	. += "<i>The Kiboko, a light grenade launcher, is one of the strangest weapons Carwo offers, \
+	and is noteworthy for its lighter, nonstandard grenade size.<br><br>\
+	The much lighter .980 Tydhouer grenades developed for the weapon offer many advantages \
+	over other conventional launcher grenade systems. \
+	For a start, Tydhouer grenades are significantly lighter, and easier to carry large \
+	amounts of. The main reason SolFed funded the project, though, \
+	was its reliable, on-the-fly programmable variable time fuze. \
+	Using the large (and expensive, to the chagrin of quartermasters) ranging sight on the \
+	launcher, users can set an exact distance for the grenade to self-detonate at; \
+	the decades-held dream of militaries, finally realized. \
+	The smaller shells do not, however, make the weapon any more enjoyable to fire. \
+	The kick is only barely manageable thanks to the massive muzzle brake at the front.</i>"
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/examine(mob/user)
 	. = ..()

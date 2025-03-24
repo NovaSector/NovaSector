@@ -2,7 +2,7 @@
 
 /obj/item/gun/ballistic/shotgun/riot/sol
 	name = "\improper M64 Shotgun"
-	desc = "A twelve gauge shotgun with a six shell capacity... ontop? Made for and used by SolFed's various military branches."
+	desc = "A robust twelve-gauge shotgun with an eight-shell, top-mounted magazine tube. Made for and used by SolFed's various military and police forces."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "renoster"
@@ -25,6 +25,7 @@
 	can_suppress = TRUE
 	rack_delay = 0.5 SECONDS
 	fire_delay = 0.5 SECONDS // Turns out, this is actually pretty fairly balanced
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol
 	suppressor_x_offset = 7
 	suppressor_y_offset = -3
 
@@ -41,15 +42,13 @@
 /obj/item/gun/ballistic/shotgun/riot/sol/examine_more(mob/user)
 	. = ..()
 
-	. += "The M64 was designed at its core as a police shotgun. \
-		As consequence, it holds all the qualities a police force would want \
-		in one. Large shell capacity, sturdy frame, while holding enough \
-		capacity for modification to satiate even the most overfunded of \
-		peacekeeper forces. Inevitably, the weapon made its way into civilian \
-		markets alongside its sale to several military branches that also \
-		saw value in having a heavy shotgun."
-
-	return .
+	. += "<i>The M64 was designed, at its core, as a police shotgun.<br><br>\
+	As a consequence, it holds all the qualities a police force would want \
+	in a shotgun; a large capacity, robust frame, and enough modularity \
+	to satiate even the most overfunded of peacekeeper forces. \
+	Inevitably, it made its way into civilian markets, \
+	alongside its sale to several military branches that also \
+	saw value in having a heavy shotgun.</i>"
 
 /obj/item/gun/ballistic/shotgun/riot/sol/update_appearance(updates)
 	if(sawn_off)
@@ -58,26 +57,27 @@
 
 	. = ..()
 
-/obj/item/ammo_box/magazine/internal/shot/riot
-	max_ammo = 8 // putting this here, because this is the only one we have on station at the start.
+/obj/item/ammo_box/magazine/internal/shot/sol
+	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
+	max_ammo = 8
 
 /obj/item/gun/ballistic/shotgun/riot/sol/thunderdome
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol/thunderdome
 
-/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome
+/obj/item/ammo_box/magazine/internal/shot/sol/thunderdome
 	ammo_type = /obj/item/ammo_casing/shotgun/beehive
 
 // Shotgun but EVIL!
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil
-	desc = "A twleve guage shotgun with an eight shell capacity... on top? This one is painted in a tacticool black."
+	desc = parent_type::desc + "This one is painted in a tacticool black."
 
 	icon_state = "renoster_evil"
 	worn_icon_state = "renoster_evil"
 	inhand_icon_state = "renoster_evil"
 
 /obj/item/gun/ballistic/shotgun/riot/sol/evil/thunderdome
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol/thunderdome/evil
 
-/obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
+/obj/item/ammo_box/magazine/internal/shot/sol/thunderdome/evil
 	ammo_type = /obj/item/ammo_casing/shotgun/flechette
