@@ -199,7 +199,6 @@
 		human_owner.force_say()
 	return TRUE
 
-
 /datum/status_effect/tased/on_remove()
 	if(istype(taser, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/taser_turret = taser
