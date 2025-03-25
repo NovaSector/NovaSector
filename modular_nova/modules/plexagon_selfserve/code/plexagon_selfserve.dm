@@ -231,7 +231,7 @@
 	shame_box.locked_contents = english_list(shamebox_items)
 	var/datum/effect_system/spark_spread/quantum/sparks = new
 	sparks.set_up(10, 1, user)
-	sparks.attach(user.loc)
+	sparks.attach(human_user.loc)
 	sparks.start()
 	to_chat(human_user, span_warning("You feel weight lifted off your shoulders as items are teleported off your body!"))
 	to_chat(human_user, span_notice("Items moved to lockbox: [shame_box.locked_contents]."))
