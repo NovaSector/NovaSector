@@ -15,5 +15,7 @@
 		default = 1
 	)
 	if(duration == 0)
-		duration = -1
-	SetSleeping(duration MINUTES, is_voluntary = TRUE)
+		duration = STATUS_EFFECT_PERMANENT
+	else
+		duration = duration MINUTES
+	Sleeping(duration, is_voluntary = TRUE)
