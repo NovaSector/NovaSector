@@ -43,7 +43,7 @@
 	stock_max = 1
 	availability_prob = 5
 
-/datum/market_item/weapon/9mm_hollowpoint
+/datum/market_item/weapon/hollowpoint9mm
 	name = "9mm HP mag"
 	desc = "Magazine of 9mm hollowpoint. acquired somewhere illegaly"
 	item = /obj/item/ammo_box/magazine/m9mm/hp
