@@ -1,8 +1,7 @@
 /obj/item/gun/ballistic/shotgun/katyusha
 	name = "\improper Katyusha Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
-		nicknamed 'Kopfjäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
-		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
+		nicknamed 'Katyusha' by the blueshields for its versatility. Compatible only with specialized 16-shell drum magazines."
 
 	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armouries/ballistic48x.dmi'
 	icon_state = "spikewall"
