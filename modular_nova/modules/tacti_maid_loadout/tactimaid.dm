@@ -17,6 +17,7 @@
 /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
 	name = "tactical maid outfit"
 	desc = "A 'tactical' skirtleneck fashioned to the likeness of a maid outfit"
+	has_sensor = HAS_SENSORS
 	icon_state = "syndimaid"
 	armor_type = /datum/armor/clothing_under/none
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY

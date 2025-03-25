@@ -8,7 +8,7 @@
 	greyscale_colors = "#383840"
 	greyscale_config = /datum/greyscale_config/ballet_heel
 	greyscale_config_worn = /datum/greyscale_config/ballet_heel/worn
-	greyscale_config_worn = /datum/greyscale_config/ballet_heel/worn/digi
+	greyscale_config_worn_digi = /datum/greyscale_config/ballet_heel/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
@@ -39,6 +39,6 @@
 	greyscale_colors = "#383840"
 	greyscale_config = /datum/greyscale_config/latex_socks
 	greyscale_config_worn = /datum/greyscale_config/latex_socks/worn
-	greyscale_config_worn = /datum/greyscale_config/latex_socks/worn/digi
+	greyscale_config_worn_digi = /datum/greyscale_config/latex_socks/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
