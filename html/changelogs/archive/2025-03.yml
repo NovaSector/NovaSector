@@ -1271,3 +1271,66 @@
   warbluke:
   - rscadd: Added Holodisks to loadout options
   - bugfix: Toner cartridges are no longer larger than the airlock sprayer.
+2025-03-24:
+  81fm:
+  - bugfix: fixed polymorph belt changing spritesize when scanning a mob/picking up
+      a polymorph belt that has scanned a mob
+  Bannhammger:
+  - rscadd: Armorless tactical maid suit to the loadout
+  Hatterhat:
+  - bugfix: Slim colonial webbings no longer require a uniform to cover the chest
+      to attach.
+  - bugfix: Cargo uniforms with alt styles that cover the chest now should... cover
+      the chest when using those alt styles, as appropriate.
+  Iajret:
+  - bugfix: fixed ear sprite getting removed when you change you ears in augs+ or
+      through surgery
+  Kocma-san:
+  - rscdel: unused traits related to xenomorphs have been removed
+  OrionTheFox:
+  - image: removed the sprite override on Extinguisher Cabinets, now using the upstream
+      resprite. Remember to refill your extinguishers and put them back in their cabinet
+      when you're done fighting fires!
+  lessthnthree, unit0016:
+  - rscadd: The infinidorms have been rewritten and rethemed significantly, coming
+      with a handful of new rooms in the process.
+  vinylspiders:
+  - bugfix: fixes veteran status not displaying correctly in examine panel for some
+      people
+2025-03-25:
+  FlufflesTheDog:
+  - bugfix: hat offsets on some quad borgs
+  - rscadd: Cone collars, available using plastic and/or at the medbay autolathe
+  HalcyonicWolf:
+  - image: added/modified several protective clothing sprites for Vox Primalis
+  Hatterhat:
+  - rscadd: Mil-spec shell boxes can now be found on the black market. Rarely. And
+      at a horrific markup.
+  - balance: Slugs are now back to doing 50 brute.
+  - balance: Mil-spec buckshot travels faster, has less damage/wound-bonus falloff
+      over distance, and has a smidge of AP.
+  - balance: Mil-spec slugs deal more damage and travel faster.
+  - balance: Reloading shotguns from ammo handfuls now only inflicts a 0.4s click-delay
+      cooldown. Ammo boxes still have full 0.8s click delay penalty, however.
+  - balance: Magnum buckshot's wound bonus moved mainly to bare wound bonus instead
+      of regular wound bonus.
+  - bugfix: /tg/station's new flechettes and DonkCo flechettes are no longer invisible,
+      and have been adjusted to be more in line with other shotgun shells.
+  Knouli:
+  - bugfix: Domestic servants wearing red uniforms have no time to bleed out in dark
+      maintenance tunnels - their uniforms have been modified with standard issue
+      suit sensors to combat inefficiency.
+  RealWinterFrost:
+  - map: added blueshift dorm rooms to interlink
+  - map: expands interlink caves
+  - map: added more employees to ert bay on interlink
+  - map: added room variety to interlink
+  - map: added sauna to interlink
+  - map: added hotspring to interlink
+  Yobrocharlie:
+  - rscadd: Adds a new gateway destination.
+  jjpark-kb:
+  - rscadd: reagent fertilizer (ez, left, and robust) now heal plant biotype persons
+  - balance: naga tails (legs) are less prone to wounds
+  unit0016:
+  - spellcheck: All in-game references to 'broken_lock' should be gone.

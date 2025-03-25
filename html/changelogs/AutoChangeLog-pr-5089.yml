@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "Slim colonial webbings no longer require a uniform to cover the chest to attach."
-  - bugfix: "Cargo uniforms with alt styles that cover the chest now should... cover the chest when using those alt styles, as appropriate."
