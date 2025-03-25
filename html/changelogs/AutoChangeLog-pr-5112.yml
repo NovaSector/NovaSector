@@ -1,0 +1,4 @@
+author: "unit0016"
+delete-after: True
+changes:
+  - bugfix: "Ballet Heels and Latex Socks now use the proper icon state for non-digis."
