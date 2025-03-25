@@ -8694,7 +8694,7 @@
 #include "modular_nova\modules\sec_haul\code\security_clothing\gloves.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\head.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\neck.dm"
-#include "modular_nova\modules\sec_haul\code\security_clothing\security_clothing.dm"
+#include "modular_nova\modules\sec_haul\code\security_clothing\peacekeeper_clothing.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\shoes.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\suit.dm"
 #include "modular_nova\modules\sec_haul\code\security_clothing\under.dm"

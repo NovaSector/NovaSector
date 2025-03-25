@@ -102,7 +102,7 @@
 * ACCESSORIES
 */
 // For consistency with other armbands
-/obj/item/clothing/accessory/armband/sec
+/obj/item/clothing/accessory/armband/nonsec
 	desc = "An armband, worn to signify proficiency in a skill or association with a department. This one is red."
 
 /*
@@ -319,7 +319,7 @@
 		"Blue Cap" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
 			RESKIN_ICON_STATE = "hoscap_blue",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dm',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dmi',
 			RESKIN_WORN_ICON_STATE = "hoscap_blue"
 		),
 		"Sol Cap" = list(
@@ -330,13 +330,13 @@
 		"Sheriff Hat" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
 			RESKIN_ICON_STATE = "cowboyhat_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dm',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dmi',
 			RESKIN_WORN_ICON_STATE = "cowboyhat_black"
 		),
 		"Wide Sheriff Hat" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/hats.dmi',
 			RESKIN_ICON_STATE = "cowboy_black",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dm',
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head.dmi',
 			RESKIN_WORN_ICON_STATE = "cowboy_black"
 		)
 	)
@@ -423,26 +423,6 @@
 //Ablative Armor
 /obj/item/clothing/suit/hooded/ablative
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/*
-* UNDER
-*/
-//Officer
-//Adds reskin for redsec suit
-/obj/item/clothing/under/rank/security/officer
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Black Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE,
-			RESKIN_ICON_STATE = "security_black",
-			RESKIN_WORN_ICON_STATE = "security_black"
-		),
-		"White Variant" = list(
-			RESKIN_ALT_COVERS_CHEST = TRUE,
-			RESKIN_ICON_STATE = "security_white",
-			RESKIN_WORN_ICON_STATE = "security_white"
-		),
-	)
 
 /*
 * FEET

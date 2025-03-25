@@ -147,7 +147,7 @@
 	suit = /obj/item/clothing/suit/armor/vest/armadyne/armor
 	suit_store = /obj/item/gun/ballistic/automatic/sol_rifle
 	shoes = /obj/item/clothing/shoes/jackboots/armadyne
-	belt = /obj/item/storage/belt/security/webbing/armadyne
+	belt = /obj/item/storage/belt/security/webbing/red
 	backpack_contents = list(
 		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/wespe,
 		/obj/item/storage/box/handcuffs,
@@ -162,7 +162,7 @@
 
 /datum/outfit/armadyne_security/high_alert
 	name = "Armadyne Corporate Security (High Alert)"
-	belt = /obj/item/storage/belt/security/webbing/armadyne
+	belt = /obj/item/storage/belt/security/webbing/red
 	suit_store = /obj/item/gun/ballistic/automatic/sol_rifle
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic,

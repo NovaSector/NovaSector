@@ -1718,7 +1718,7 @@
 /obj/machinery/stasis{
 	dir = 4
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "azd" = (
@@ -5976,7 +5976,7 @@
 /obj/machinery/iv_drip,
 /obj/item/bedsheet/medical,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/white/herringbone,
 /area/station/medical/virology)
 "bNu" = (
@@ -8154,7 +8154,7 @@
 	name = "science water reservoir"
 	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/textured,
 /area/station/maintenance/department/science/xenobiology)
 "cxw" = (
@@ -12179,7 +12179,7 @@
 	},
 /obj/machinery/newscaster/directional/east,
 /obj/machinery/duct,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/bedsheet/medical,
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
@@ -14969,7 +14969,7 @@
 	name = "science water reservoir"
 	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/smooth,
 /area/station/commons/vacant_room)
 "eou" = (
@@ -21203,7 +21203,7 @@
 	},
 /obj/machinery/newscaster/directional/west,
 /obj/machinery/duct,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/bedsheet/medical{
 	dir = 4
 	},
@@ -22994,7 +22994,7 @@
 	desc = "A cold, hard place for your final rest.";
 	name = "Morgue Slab"
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/morgue)
@@ -38052,7 +38052,7 @@
 /obj/machinery/stasis,
 /obj/machinery/defibrillator_mount/directional/east,
 /obj/effect/turf_decal/tile/blue/fourcorners,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/freezer,
 /area/station/medical/treatment_center)
 "kMA" = (
@@ -38164,7 +38164,7 @@
 	dir = 4;
 	location = "Medbay"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/maintenance/department/medical)
 "kOs" = (
@@ -41730,7 +41730,7 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/calendar/directional/south,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/storage)
 "lML" = (
@@ -44056,7 +44056,7 @@
 /obj/machinery/defibrillator_mount/directional/east{
 	pixel_y = 4
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/freezer,
 /area/station/medical/surgery)
 "muc" = (
@@ -48832,7 +48832,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/medical)
 "nMh" = (
@@ -52539,7 +52539,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/white/herringbone,
 /area/station/medical/virology)
 "oLS" = (
@@ -57638,7 +57638,7 @@
 	dir = 1;
 	name = "engineering water reservoir"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/engine/atmos)
 "qbt" = (
@@ -65688,7 +65688,7 @@
 /obj/machinery/defibrillator_mount/directional/east{
 	pixel_y = 4
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/freezer,
 /area/station/medical/surgery)
 "sqJ" = (
@@ -78574,7 +78574,7 @@
 	dir = 1;
 	name = "science water reservoir"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/smooth,
 /area/station/commons/vacant_room)
 "vPf" = (

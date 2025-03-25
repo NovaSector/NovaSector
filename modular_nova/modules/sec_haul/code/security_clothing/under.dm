@@ -14,7 +14,30 @@
 *	SECURITY OFFICER
 */
 
-/obj/item/clothing/under/rank/security/nova/officer //Bluesec uniform
+//Redsec uniform with black pants
+/obj/item/clothing/under/rank/security/nova/officer/black
+	icon_state = "security_black"
+	alt_covers_chest = TRUE
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Black Variant" = list(
+			RESKIN_ALT_COVERS_CHEST = TRUE,
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi',
+			RESKIN_ICON_STATE = "security_black",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi',
+			RESKIN_WORN_ICON_STATE = "security_black"
+		),
+		"White Variant" = list(
+			RESKIN_ALT_COVERS_CHEST = TRUE,
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi',
+			RESKIN_ICON_STATE = "security_white",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi',
+			RESKIN_WORN_ICON_STATE = "security_white"
+		),
+	)
+
+//Bluesec uniform
+/obj/item/clothing/under/rank/security/nova/officer
 	name = "security uniform"
 	desc = "A tactical security uniform for officers complete with Nanotrasen belt buckle."
 	icon_state = "security_blue_black"

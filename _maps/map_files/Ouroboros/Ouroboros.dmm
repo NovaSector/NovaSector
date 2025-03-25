@@ -1442,7 +1442,7 @@
 /area/station/science/ordnance/bomb)
 "awS" = (
 /obj/item/radio/intercom/directional/north,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/machinery/fishing_portal_generator,
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
@@ -2733,7 +2733,7 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/bed/medical/emergency,
 /obj/structure/railing,
 /turf/open/floor/iron/white,
@@ -18157,7 +18157,7 @@
 	},
 /area/station/commons/storage/mining)
 "fmL" = (
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/aquarium_kit{
 	pixel_x = 1
 	},
@@ -19872,7 +19872,7 @@
 /obj/item/storage/fish_case/random/saltwater{
 	pixel_y = 7
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/machinery/airalarm/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -22473,7 +22473,7 @@
 /obj/item/storage/fish_case/random/freshwater{
 	pixel_y = 6
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/machinery/light/warm/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -29956,7 +29956,7 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "iKI" = (
-/obj/effect/turf_decal/arrows/blue{
+/obj/effect/turf_decal/arrows/red{
 	pixel_y = 15
 	},
 /obj/effect/turf_decal/stripes/corner{
@@ -32185,7 +32185,7 @@
 /area/station/maintenance/disposal/incinerator)
 "jrk" = (
 /obj/structure/rack/shelf,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/fishing_line{
 	pixel_x = -5;
 	pixel_y = 2
@@ -34091,7 +34091,7 @@
 	pixel_x = 4
 	},
 /obj/structure/rack/shelf,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
 "jUB" = (
@@ -39841,7 +39841,7 @@
 /turf/open/floor/iron,
 /area/station/common/laser_tag)
 "lxS" = (
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/engine,
 /area/station/engineering/atmos/hfr_room)
 "lxW" = (
@@ -40652,7 +40652,7 @@
 /area/station/maintenance/department/security/upper)
 "lKw" = (
 /obj/machinery/digital_clock/directional/north,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/machinery/fishing_portal_generator,
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
@@ -42294,7 +42294,7 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/bed/medical/emergency{
 	dir = 4
 	},
@@ -47298,7 +47298,7 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/bed/medical/emergency{
 	dir = 4
 	},
@@ -49943,7 +49943,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "orS" = (
 /obj/structure/rack/shelf,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/fishing_rod{
 	pixel_x = 6
 	},
@@ -50614,7 +50614,7 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/airalarm/directional/west,
 /obj/structure/bed/medical/emergency,
 /obj/structure/railing,
@@ -56169,7 +56169,7 @@
 /area/station/engineering/supermatter/room)
 "qkz" = (
 /obj/structure/rack/shelf,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/item/fishing_hook{
 	pixel_y = -5;
 	pixel_x = 5
@@ -60434,7 +60434,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/command/nuke_storage)
 "rCS" = (
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /obj/effect/turf_decal/siding/white/corner{
 	dir = 1
 	},
@@ -75102,7 +75102,7 @@
 	pixel_y = -8;
 	pixel_x = 3
 	},
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/plastic,
 /area/station/common/carpshop)
 "vLk" = (
@@ -81625,7 +81625,7 @@
 	dir = 4
 	},
 /obj/machinery/light/cold/directional/east,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},

@@ -63,6 +63,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/wintercoat.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/wintercoat.dmi'
 	icon_state = "coatsecurity_winter"
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/security/blue
 
 /*
 *	WARDEN
@@ -96,5 +97,5 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hosformal_black"
-	current_skin = "hosformal_black"	//prevents reskinning (but not toggling!)
+	current_skin = "hosformal_black"	//Prevents reskinning (but not toggling!)
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

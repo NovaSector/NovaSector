@@ -105,8 +105,8 @@
 	desc = "A robust messenger bag for security related needs."
 	icon = 'icons/obj/storage/backpack.dmi'
 	worn_icon = 'icons/mob/clothing/back/backpack.dmi'
-	lefthand_file = 'icons/mob/inhands/clothing/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/clothing/backpack_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	icon_state = "messenger_security"
 	inhand_icon_state = "messenger_security"
 

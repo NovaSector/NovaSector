@@ -17,7 +17,7 @@
 /obj/effect/turf_decal/delivery/blue : /obj/effect/turf_decal/delivery/red{@OLD}
 /obj/effect/turf_decal/caution/blue : /obj/effect/turf_decal/caution/red{@OLD}
 /obj/item/clothing/accessory/armband/deputy/lopland : /obj/item/clothing/accessory/armband/deputy{@OLD}
-/obj/item/clothing/accessory/armband/deputy/lopland/nonsec : /obj/item/clothing/accessory/armband/red{@OLD}
+/obj/item/clothing/accessory/armband/deputy/lopland/nonsec : /obj/item/clothing/accessory/armband/nonsec{@OLD}
 /obj/item/clothing/head/beret/sec/peacekeeper : /obj/item/clothing/head/beret/sec/nova{@OLD}
 /obj/item/clothing/head/hats/hos/beret/peacekeeper : /obj/item/clothing/head/hats/hos/beret/nova{@OLD}
 /obj/item/clothing/head/beret/sec/navywarden/peacekeeper : /obj/item/clothing/head/beret/sec/navywarden/nova{@OLD}
@@ -34,3 +34,4 @@
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne : /obj/item/clothing/glasses/hud/security/sunglasses/armadyne{@OLD}
 /obj/item/clothing/gloves/combat/peacekeeper/armadyne : /obj/item/clothing/gloves/combat/armadyne{@OLD}
 /obj/item/clothing/shoes/jackboots/peacekeeper/armadyne : /obj/item/clothing/shoes/jackboots/armadyne{@OLD}
+/obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge : /obj/item/clothing/suit/armor/vest/jacket/badge{@OLD}
