@@ -1297,3 +1297,8 @@
   vinylspiders:
   - bugfix: fixes veteran status not displaying correctly in examine panel for some
       people
+2025-03-25:
+  HalcyonicWolf:
+  - image: added/modified several protective clothing sprites for Vox Primalis
+  unit0016:
+  - spellcheck: All in-game references to 'broken_lock' should be gone.
