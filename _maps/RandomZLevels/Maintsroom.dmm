@@ -8699,72 +8699,44 @@
 /area/space)
 "Kq" = (
 /mob/living/basic/skeleton/templar{
-	loot = list(/obj/effect/decal/remains/human,/obj/item/clothing/suit/chaplainsuit/armor/templar,/obj/item/clothing/head/helmet/chaplain,/obj/item/claymore {name = "holy sword"	
+	loot = list(/obj/effect/decal/remains/human,/obj/item/clothing/suit/chaplainsuit/armor/templar,/obj/item/clothing/head/helmet/chaplain,/obj/item/claymore {name = "holy sword"		
 	},
 /turf/open/floor/iron/chapel{
-	dir = 1
+		dir  =  1	
 	},
 /area/space)
 "KB" = (
-/obj/effect/spawner/random/entertainment/deck,
 /obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/wood,
 /area/space)
 "KC" = (
-/area/space)
+)
 "KR" = (
-/mob/living/basic/chicken{
-	name = "Featherbottom";
-	real_name = "Featherbottom"
-	},
 /obj/structure/flora/bush/fullgrass,
 /turf/open/floor/grass,
 /area/space)
 "KT" = (
-/obj/structure/barricade/wooden/crude,
 /obj/structure/barricade/wooden,
 /obj/structure/trap/stun,
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Auxiliary Power"
+		name  =  "Engineering Auxiliary Power"	
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/space)
-"KU" = (
-/obj/structure/window/spawner/directional/north,
-/turf/open/misc/grass/jungle,
-/area/space)
 "KY" = (
-/obj/structure/fluff/tram_rail/anchor,
-/obj/structure/fluff/tram_rail,
-/turf/closed/indestructible/reinforced,
-/area/space)
-"KZ" = (
-/mob/living/basic/clown,
-/obj/item/grown/bananapeel,
-/turf/open/floor/mineral/bananium,
-/area/space)
-"La" = (
-/obj/structure/destructible/clockwork/gear_base/powered/interdiction_lens,
-/turf/open/floor/bronze/filled,
-/area/space)
-"Lc" = (
-/obj/item/storage/toolbox/guncase/monkeycase,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/grass/jungle,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/plating,
 /area/space)
 "Ld" = (
-/obj/structure/bed/double/pod{
-	dir = 4
-	},
 /obj/item/bedsheet/cosmos/double{
-	dir = 4
+		dir  =  4	
 	},
 /turf/open/floor/iron/white,
 /area/space)
 "Le" = (
-/obj/structure/table,
 /obj/item/restraints/handcuffs/cable/red,
 /obj/item/clothing/suit/apron/surgical,
 /obj/item/weldingtool/mini,
@@ -8772,87 +8744,64 @@
 /turf/open/floor/iron/smooth,
 /area/space)
 "Lf" = (
-/obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/space)
 "Lg" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
 /turf/open/floor/carpet/blue/airless,
 /area/space)
-"Li" = (
-/obj/structure/trap/stun,
-/turf/open/floor/plating,
-/area/space)
 "Lj" = (
-/obj/effect/turf_decal/bot,
 /obj/structure/rack,
 /obj/item/reagent_containers/blood/random{
-	pixel_x = 4;
-	pixel_y = 4
+		pixel_x  =  4;
+		pixel_y  =  4	
 	},
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random{
-	pixel_x = -4;
-	pixel_y = -4
+		pixel_x  =  -4;
+		pixel_y  =  -4	
 	},
 /turf/open/floor/iron/smooth,
 /area/space)
 "Lk" = (
 /obj/item/clothing/shoes/clockwork,
-/obj/item/clothing/shoes/clockwork,
 /obj/structure/rack/wooden,
 /turf/open/floor/bronze/filled,
 /area/space)
 "Ll" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/stripes/line{
-	dir = 1
+		dir  =  1	
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 1
+		dir  =  1	
 	},
 /turf/open/floor/iron,
 /area/space)
 "Lm" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Engineering Auxiliary Power"
-	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
-	dir = 1
+		dir  =  1	
 	},
 /obj/effect/mapping_helpers/airlock/unres{
-	dir = 1
+		dir  =  1	
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/space)
 "Ln" = (
-/obj/machinery/light/small/broken{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/dresser,
 /obj/item/toy/figure/curator{
-	pixel_x = 2;
-	pixel_y = 13
+		pixel_x  =  2;
+		pixel_y  =  13	
 	},
 /obj/item/toy/figure/detective{
-	pixel_x = -7;
-	pixel_y = 12
+		pixel_x  =  -7;
+		pixel_y  =  12	
 	},
 /turf/open/floor/wood,
-/area/space)
-"Lp" = (
-/mob/living/simple_animal/bot/secbot{
-	faction = list("hostile","cult")
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "Lr" = (
 /obj/effect/turf_decal/stripes/line{
@@ -13047,9 +12996,9 @@ HI
 qU
 GS
 uv
-KZ
+uv
 ao
-KZ
+uv
 jg
 Ct
 GS
@@ -13848,7 +13797,7 @@ Sq
 GS
 uG
 uG
-Lf
+KY
 By
 hr
 ED
@@ -15509,7 +15458,7 @@ fK
 wL
 Bh
 Bh
-La
+Bh
 Bh
 wL
 Bh
@@ -15677,7 +15626,7 @@ Xt
 kU
 pu
 GS
-Lf
+KY
 GS
 GS
 GS
@@ -16660,9 +16609,9 @@ wQ
 wQ
 aQ
 Nv
-Lp
+aQ
 lq
-Lp
+aQ
 lq
 dc
 lx
@@ -16727,7 +16676,7 @@ df
 GS
 GS
 GS
-Lf
+KY
 jf
 yG
 jf
@@ -16928,7 +16877,7 @@ GS
 GS
 GS
 mS
-Li
+uG
 uG
 jf
 yG
@@ -17329,7 +17278,7 @@ mE
 GS
 uG
 GS
-Lf
+KY
 GS
 GS
 GS
@@ -17730,14 +17679,14 @@ Cx
 Hi
 nM
 rI
-Lf
+KY
 uG
 GS
 uG
 GS
 GS
 GS
-Lf
+KY
 jf
 yG
 jf
@@ -18141,7 +18090,7 @@ SR
 GS
 mS
 uG
-Li
+uG
 jf
 yG
 jf
@@ -18339,7 +18288,7 @@ Tx
 GS
 uG
 GS
-Li
+uG
 GS
 bO
 uG
@@ -19147,7 +19096,7 @@ GS
 GS
 GS
 GS
-Lf
+KY
 GS
 GS
 GS
@@ -21320,7 +21269,7 @@ hZ
 aQ
 aQ
 xH
-KU
+ii
 iT
 ii
 wQ
@@ -21522,7 +21471,7 @@ aQ
 os
 Tr
 xH
-KU
+ii
 yl
 ii
 wQ
@@ -21926,7 +21875,7 @@ kl
 Kd
 oV
 kl
-KU
+ii
 ii
 ii
 wQ
@@ -22571,7 +22520,7 @@ uG
 GS
 GS
 GS
-uG
+rJ
 GS
 NE
 GS
@@ -22964,7 +22913,7 @@ lT
 nh
 nh
 nh
-Li
+uG
 GS
 GS
 GS
@@ -23173,7 +23122,7 @@ LK
 LK
 GS
 HB
-Li
+uG
 uG
 qt
 DG
@@ -24159,7 +24108,7 @@ GS
 GS
 GS
 lT
-Li
+uG
 Fk
 TW
 kO
@@ -25586,7 +25535,7 @@ uG
 uG
 GS
 uG
-Li
+uG
 jf
 do
 yG
@@ -27218,7 +27167,7 @@ NQ
 Xp
 NQ
 NQ
-Lc
+NQ
 pc
 NQ
 UK
@@ -32339,7 +32288,7 @@ jf
 jf
 jf
 pJ
-KY
+BP
 jf
 jf
 jf
