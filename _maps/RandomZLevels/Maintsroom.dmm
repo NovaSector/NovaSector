@@ -8678,7 +8678,7 @@
 	loot = list(/obj/effect/decal/remains/human,/obj/item/clothing/suit/chaplainsuit/armor/templar,/obj/item/clothing/head/helmet/chaplain,/obj/item/claymore {name = "holy sword"})
 	},
 /turf/open/floor/iron/chapel{
-			dir   =   1		
+			dir   =   1
 	},
 /area/awaymission/caves/maintsroom)
 "KB" = (
@@ -8696,9 +8696,6 @@
 /area/awaymission/caves/maintsroom)
 "KT" = (
 /obj/structure/trap/stun,
-/obj/machinery/door/airlock/engineering{
-			name   =   "Engineering Auxiliary Power"		
-	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
@@ -8715,12 +8712,12 @@
 "Lj" = (
 /obj/item/reagent_containers/blood/random{
 			pixel_x   =   4;
-			pixel_y   =   4		
+			pixel_y   =   4
 	},
 /obj/item/reagent_containers/blood/random,
 /obj/item/reagent_containers/blood/random{
 			pixel_x   =   -4;
-			pixel_y   =   -4		
+			pixel_y   =   -4
 	},
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
@@ -8730,19 +8727,19 @@
 /area/awaymission/caves/maintsroom)
 "Ll" = (
 /obj/effect/turf_decal/stripes/line{
-			dir   =   1		
+			dir   =   1
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
-			dir   =   1		
+			dir   =   1
 	},
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "Lm" = (
 /obj/effect/turf_decal/stripes/line{
-			dir   =   1		
+			dir   =   1
 	},
 /obj/effect/mapping_helpers/airlock/unres{
-			dir   =   1		
+			dir   =   1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/structure/cable,
@@ -8752,11 +8749,11 @@
 /obj/structure/dresser,
 /obj/item/toy/figure/curator{
 			pixel_x   =   2;
-			pixel_y   =   13		
+			pixel_y   =   13
 	},
 /obj/item/toy/figure/detective{
 			pixel_x   =   -7;
-			pixel_y   =   12		
+			pixel_y   =   12
 	},
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
@@ -8770,25 +8767,25 @@
 "Ly" = (
 /obj/item/ammo_box/magazine/m7mm{
 		pixel_y  =  -4;
-		pixel_x  =  -5	
+		pixel_x  =  -5
 	},
 /obj/item/ammo_box/magazine/m7mm{
 		pixel_y  =  -4;
-		pixel_x  =  6	
+		pixel_x  =  6
 	},
 /obj/item/ammo_box/magazine/m7mm{
 		pixel_y  =  3;
-		pixel_x  =  6	
+		pixel_x  =  6
 	},
 /obj/item/ammo_box/magazine/m7mm{
 		pixel_y  =  3;
-		pixel_x  =  -5	
+		pixel_x  =  -5
 	},
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "Lz" = (
 /obj/item/stack/ore/glass{
-		amount  =  20	
+		amount  =  20
 	},
 /obj/structure/alien/weeds,
 /turf/open/misc/asteroid,
@@ -8796,7 +8793,7 @@
 "LA" = (
 /obj/item/ectoplasm,
 /turf/open/floor/iron/chapel{
-		dir  =  4	
+		dir  =  4
 	},
 /area/awaymission/caves/maintsroom)
 "LC" = (
@@ -8835,22 +8832,22 @@
 /area/awaymission/caves/maintsroom)
 "LN" = (
 /turf/open/floor/iron/chapel{
-		dir  =  1	
+		dir  =  1
 	},
 /area/awaymission/caves/maintsroom)
 "LP" = (
 /obj/item/weldingtool/advanced{
 		pixel_y  =  4;
 		pixel_x  =  -5;
-		anchored  =  1	
+		anchored  =  1
 	},
 /obj/item/clothing/head/utility/welding{
 		pixel_y  =  9;
 		pixel_x  =  10;
-		anchored  =  1	
+		anchored  =  1
 	},
 /obj/item/storage/backpack/duffelbag/syndie/ammo/mech{
-		anchored  =  1	
+		anchored  =  1
 	},
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
@@ -8859,7 +8856,7 @@
 /area/awaymission/caves/maintsroom)
 "LT" = (
 /turf/open/misc/beach/coast{
-		dir  =  1	
+		dir  =  1
 	},
 /area/awaymission/caves/maintsroom)
 "LV" = (
@@ -8940,7 +8937,7 @@
 "Mv" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
-		dir  =  8	
+		dir  =  8
 	},
 /obj/structure/bed/medical/emergency,
 /obj/machinery/iv_drip,
@@ -8960,7 +8957,7 @@
 /obj/item/screwdriver,
 /obj/item/grenade/firecracker{
 		pixel_x  =  -3;
-		pixel_y  =  9	
+		pixel_y  =  9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -8968,32 +8965,32 @@
 "MC" = (
 /obj/item/book/manual/wiki/cooking_to_serve_man{
 		pixel_x  =  5;
-		pixel_y  =  3	
+		pixel_y  =  3
 	},
 /obj/structure/table,
 /obj/item/reagent_containers/condiment/saltshaker{
 		pixel_x  =  -11;
-		pixel_y  =  14	
+		pixel_y  =  14
 	},
 /obj/item/reagent_containers/condiment/peppermill{
 		pixel_x  =  -6;
-		pixel_y  =  10	
+		pixel_y  =  10
 	},
 /obj/item/reagent_containers/cup/rag{
 		pixel_x  =  -10;
-		pixel_y  =  4	
+		pixel_y  =  4
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "MD" = (
 /obj/effect/turf_decal/stripes/line{
-		dir  =  8	
+		dir  =  8
 	},
 /obj/structure/safe/floor,
 /obj/item/card/emagfake,
 /turf/open/floor/sepia{
 		slowdown  =  1000;
-		name  =  "Floortiles of DOOM"	
+		name  =  "Floortiles of DOOM"
 	},
 /area/awaymission/caves/maintsroom)
 "MF" = (
@@ -9002,7 +8999,7 @@
 /area/awaymission/caves/maintsroom)
 "MH" = (
 /obj/machinery/door/airlock/grunge{
-		name  =  "St. Brendan's"	
+		name  =  "St. Brendan's"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
