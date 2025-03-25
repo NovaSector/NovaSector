@@ -124,8 +124,8 @@
 			RESKIN_WORN_ICON_STATE = "miniskirt_blue"
 	    ),
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_black",
-			RESKIN_WORN_ICON_STATE = "miniskirt_black"
+			RESKIN_ICON_STATE = "miniskirt_black_blue",
+			RESKIN_WORN_ICON_STATE = "miniskirt_black_blue"
 	    ),
 	)
 

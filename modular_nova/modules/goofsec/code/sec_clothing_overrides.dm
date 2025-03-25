@@ -356,8 +356,8 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Red Variant" = list(
-			RESKIN_ICON_STATE = "fightgloves",
-			RESKIN_WORN_ICON_STATE = "fightgloves"
+			RESKIN_ICON_STATE = "tackle",
+			RESKIN_WORN_ICON_STATE = "tackle"
 		),
 		"Blue Variant" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
