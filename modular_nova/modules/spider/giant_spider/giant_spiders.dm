@@ -286,6 +286,7 @@
 		/datum/action/cooldown/mob_cooldown/command_spiders,
 		/datum/action/cooldown/mob_cooldown/spider_leap,
 		/datum/action/cooldown/mob_cooldown/charge/triple_charge,
+		/datum/action/cooldown/mob_cooldown/watcher_gaze,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
