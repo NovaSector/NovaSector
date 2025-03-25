@@ -234,7 +234,7 @@
 		/datum/reagent/consumable/starfruit_juice = 5,
 	)
 	tastes = list("tender meat" = 2, "sweet sauce" = 1, "sugary glaze" = 1)
-	foodtypes = MEAT
+	foodtypes = MEAT | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /datum/crafting_recipe/food/meatplatter
@@ -260,7 +260,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("tender meat" = 2, "sweet sauce" = 1, "smokey BBQ" = 1, "sugary glaze" = 1)
-	foodtypes = MEAT
+	foodtypes = MEAT | VEGETABLES | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /datum/crafting_recipe/food/chicken_alfredo
@@ -273,6 +273,7 @@
 	)
 	result = /obj/item/food/chicken_alfredo
 	category = CAT_MISCFOOD
+	removed_foodtypes = RAW
 
 /obj/item/food/chicken_alfredo
 	name = "starfruit chicken alfredo"
@@ -286,7 +287,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("sweet chicken" = 2, "creamy sauce" = 1, "cursed knowledge" = 1, "tasty noodles" = 1)
-	foodtypes = MEAT | GRAIN
+	foodtypes = MEAT | GRAIN | FRUIT| SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitsushiroll
@@ -298,6 +299,7 @@
 	)
 	result = /obj/item/food/starfruitsushiroll
 	category = CAT_SEAFOOD
+	removed_foodtypes = BREAKFAST
 
 /obj/item/food/starfruitsushiroll
 	name = "starfruit sushi roll"
@@ -309,7 +311,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
 	tastes = list("boiled rice" = 2, "starfruit" = 2, "fish" = 2)
-	foodtypes = SEAFOOD
+	foodtypes = SEAFOOD | VEGETABLES | GRAIN |FRUIT | SUGAR
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -352,7 +354,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("raw fish" = 2, "sweet fish" = 1, "soy sauce" = 1)
-	foodtypes = SEAFOOD
+	foodtypes = SEAFOOD | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /datum/crafting_recipe/food/eggplantfry
@@ -379,7 +381,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("eggplant" = 2, "simmered starfruit" = 1, "sautaed vegetables" = 1)
-	foodtypes = VEGETABLES
+	foodtypes = VEGETABLES | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/tofubeef
@@ -405,7 +407,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("noodles" = 2, "boiled starfruit" = 1, "sweet ramen" = 1)
-	foodtypes = VEGETABLES | MEAT | GRAIN
+	foodtypes = VEGETABLES | MEAT | GRAIN | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitplate
@@ -431,7 +433,7 @@
 		/datum/reagent/consumable/starfruit_juice = 10,
 	)
 	tastes = list("sweet spagetti" = 2, "simmered starfruit" = 1, "savory meat" = 1)
-	foodtypes = GRAIN | MEAT
+	foodtypes = GRAIN | VEGETABLES | MEAT | FRUIT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /datum/crafting_recipe/food/starfruitcake
@@ -531,7 +533,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 5,
 	)
 	tastes = list("pie" = 1, "sugar" = 2, "starfruit" = 1, "cosmic longing" = 1)
-	foodtypes = GRAIN | FRUIT
+	foodtypes = GRAIN | FRUIT | FRUIT | DAIRY | SUGAR
 
 /datum/crafting_recipe/food/starfruit_toast
 	name = "Starfruit Jellied Toast"
@@ -541,6 +543,7 @@
 	)
 	result = /obj/item/food/starfruit_toast
 	category = CAT_BREAD
+	added_foodtypes = BREAKFAST
 
 /obj/item/food/starfruit_toast
 	name = "starfruit jellied toast"
@@ -577,7 +580,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 6,
 	)
 	tastes = list("starfruit" = 1, "pie" = 1, "cosmic longing" = 1)
-	foodtypes = GRAIN | FRUIT | SUGAR
+	foodtypes = GRAIN | FRUIT | SUGAR | DAIRY
 	slice_type = /obj/item/food/pieslice/starfruitpie
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -660,7 +663,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
 	tastes = list("cake" = 3, "starfruit" = 1)
-	foodtypes = GRAIN | FRUIT | SUGAR
+	foodtypes = GRAIN | FRUIT | SUGAR | DAIRY
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
