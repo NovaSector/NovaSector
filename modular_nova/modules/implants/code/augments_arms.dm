@@ -43,6 +43,7 @@
 	items_to_create = list(/obj/item/melee/implantarmblade)
 	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	icon_state = "mantis_blade"
+	aug_icon = "toolkit"
 
 /obj/item/organ/cyberimp/arm/armblade/emag_act()
 	if(obj_flags & EMAGGED)
@@ -155,9 +156,9 @@
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	icon_state = "steel"
 	items_to_create = list(/obj/item/pickaxe/drill/implant)
-	implant_color = null
-	/// The bodypart overlay datum we should apply to whatever mob we are put into's someone's arm
-	var/datum/bodypart_overlay/simple/steel_drill/drill_overlay
+	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
+	aug_overlay = "steel"
+	hand_state = FALSE
 
 /obj/item/organ/cyberimp/arm/mining_drill/right_arm //You know the drill.
     zone = BODY_ZONE_R_ARM
@@ -166,33 +167,6 @@
 /obj/item/organ/cyberimp/arm/mining_drill/left_arm
     zone = BODY_ZONE_L_ARM
     slot = ORGAN_SLOT_LEFT_ARM_AUG
-
-/datum/bodypart_overlay/simple/steel_drill
-	icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
-	layers = EXTERNAL_FRONT_OVER
-
-/datum/bodypart_overlay/simple/steel_drill/left
-	icon_state = "steel_left"
-
-/datum/bodypart_overlay/simple/steel_drill/right
-	icon_state = "steel_right"
-
-/obj/item/organ/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
-	. = ..()
-	if(isteshari(owner))
-		return
-	if(zone == BODY_ZONE_L_ARM)
-		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/left
-	else
-		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/right
-	limb.add_bodypart_overlay(drill_overlay)
-	owner?.update_body_parts()
-
-/obj/item/organ/cyberimp/arm/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
-	. = ..()
-	bodypart_owner?.remove_bodypart_overlay(drill_overlay)
-	arm_owner.update_body_parts()
-	QDEL_NULL(drill_overlay)
 
 /obj/item/pickaxe/drill/implant
 	name = "integrated mining drill"
@@ -237,6 +211,7 @@
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
 	items_to_create = list(/obj/item/pickaxe/drill/implant/diamond)
+	aug_overlay = "toolkit"
 
 /obj/item/pickaxe/drill/implant/diamond
 	name = "integrated diamond mining drill"
@@ -255,11 +230,13 @@
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_multitool"
 	items_to_create = list(/obj/item/screwdriver/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/abductor/implant)
+	aug_overlay = "toolkit"
 
 /obj/item/organ/cyberimp/arm/botany
 	name = "botany arm implant"
 	desc = "A rather simple arm implant containing tools used in gardening and botanical research."
 	items_to_create = list(/obj/item/cultivator, /obj/item/shovel/spade, /obj/item/hatchet, /obj/item/gun/energy/floragun, /obj/item/plant_analyzer, /obj/item/geneshears, /obj/item/secateurs, /obj/item/storage/bag/plants, /obj/item/storage/bag/plants/portaseeder)
+	aug_overlay = "toolkit"
 
 /obj/item/implant_mounted_chainsaw
 	name = "integrated chainsaw"
@@ -299,6 +276,7 @@
 	name = "janitorial tools implant"
 	desc = "A set of janitorial tools on the user's arm."
 	items_to_create = list(/obj/item/lightreplacer, /obj/item/holosign_creator, /obj/item/soap/nanotrasen, /obj/item/reagent_containers/spray/cyborg_drying, /obj/item/mop/advanced, /obj/item/paint/paint_remover, /obj/item/reagent_containers/cup/beaker/large, /obj/item/reagent_containers/spray/cleaner) //Beaker if for refilling sprays
+	aug_overlay = "toolkit"
 
 /obj/item/organ/cyberimp/arm/janitor/emag_act()
 	if(obj_flags & EMAGGED)
@@ -314,6 +292,7 @@
 	name = "lighter implant"
 	desc = "A... implanted lighter. Incredibly useless."
 	items_to_create = list(/obj/item/lighter/greyscale) //Hilariously useless.
+	aug_overlay = "toolkit"
 
 /obj/item/organ/cyberimp/arm/lighter/emag_act()
 	if(obj_flags & EMAGGED)
@@ -431,6 +410,7 @@
 	items_to_create = list(/obj/item/gun/ballistic/shotgun/shell_launcher)
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "shell_cannon"
+	aug_overlay = "toolkit"
 
 /obj/item/autosurgeon/syndicate/shell_launcher
 	name = "shell launcher autosurgeon"

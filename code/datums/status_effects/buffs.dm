@@ -310,15 +310,8 @@
 					if(itemUser.regenerate_limb(zone, FALSE))
 						itemUser.put_in_hand(newRod, hand, forced = TRUE)
 					else
-						var/obj/item/bodypart/L = itemUser.newBodyPart(BODY_ZONE_L_ARM, FALSE, FALSE)
-						if(L.try_attach_limb(itemUser))
-							L.update_limb(is_creating = TRUE)
-							itemUser.update_body_parts()
-							itemUser.put_in_hand(newRod, hand, forced = TRUE)
-						else
-							qdel(L)
-							consume_owner() //see above comment
-							return
+						consume_owner() //we can't regrow, abort abort
+						return
 					to_chat(itemUser, span_notice("Your arm suddenly grows back with the Rod of Asclepius still attached!"))
 				else
 					//Otherwise get rid of whatever else is in their hand and return the rod to said hand
@@ -444,7 +437,7 @@
 	owner.log_message("entered a blood frenzy", LOG_ATTACK)
 	to_chat(owner, span_narsiesmall("KILL, KILL, KILL! YOU HAVE NO ALLIES ANYMORE, NO TEAM MATES OR ALLEGIANCES! KILL THEM ALL!"))
 
-	var/datum/client_colour/colour = owner.add_client_colour(/datum/client_colour/bloodlust)
+	var/datum/client_colour/colour = owner.add_client_colour(/datum/client_colour/bloodlust, REF(src))
 	QDEL_IN(colour, 1.1 SECONDS)
 	return TRUE
 
@@ -622,29 +615,33 @@
 	desc = "You're immune to radiation, get settled quick!"
 	icon_state = "radiation_shield"
 
-/// Heal in darkness and potentially trigger other effects, persists for a short duration after leaving
-/datum/status_effect/shadow_regeneration
-	id = "shadow_regeneration"
+/// Throw an alert we're in darkness!! Nightvision can make it hard to tell so this is useful
+/datum/status_effect/shadow
+	id = "shadow"
 	duration = 2 SECONDS
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/shadow_regeneration
 
-/datum/status_effect/shadow_regeneration/on_apply()
+/// Same as above, but also heal in darkness!! Mostly superseded but some simple mobs use this
+/datum/status_effect/shadow/regeneration
+	id = "shadow_regeneration"
+
+/datum/status_effect/shadow/regeneration/on_apply()
 	. = ..()
 	if (!.)
 		return FALSE
 	heal_owner()
 	return TRUE
 
-/datum/status_effect/shadow_regeneration/refresh(effect)
+/datum/status_effect/shadow/regeneration/refresh(effect)
 	. = ..()
 	heal_owner()
 
 /// Regenerate health whenever this status effect is applied or reapplied
-/datum/status_effect/shadow_regeneration/proc/heal_owner()
+/datum/status_effect/shadow/regeneration/proc/heal_owner()
 	owner.heal_overall_damage(brute = 1, burn = 1, required_bodytype = BODYTYPE_ORGANIC)
 
 /atom/movable/screen/alert/status_effect/shadow_regeneration
 	name = "Shadow Regeneration"
-	desc = "Bathed in soothing darkness, you will slowly heal yourself."
+	desc = "Bathed in soothing darkness, you will slowly heal yourself"
 	icon_state = "lightless"
