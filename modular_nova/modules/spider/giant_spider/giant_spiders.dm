@@ -297,7 +297,7 @@
 		/datum/action/cooldown/mob_cooldown/lay_web/sealer,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_reflector,
 	)
-/mob/living/basic/spider/giant/pit/Initialize(mapload)
+/mob/living/basic/spider/giant/baron/Initialize(mapload)
 	. = ..()
 	var/datum/action/cooldown/mob_cooldown/lay_web/solid_web/web_solid = new(src)
 	web_solid.Grant(src)
