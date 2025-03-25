@@ -27,7 +27,7 @@
 	can_suppress = FALSE
 	burst_size = 2
 	fire_delay = 0.85 SECONDS // Bulldog Stat Original: fire_delay = 1
-
+	burst_delay = 0.30 SECONDS
 	fire_sound = 'modular_nova/master_files/sound/weapons/shotgun_nova.ogg' // Meatier shotgun sound
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
@@ -67,15 +67,25 @@
 /obj/item/gun/ballistic/shotgun/katyusha/jager
 	name = "\improper Jäger Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
-		nicknamed 'Jäger' by the blueshields. Compatible only with specialized 16-shell drum magazines. \
-		Reversed engineering of the syndicate's 'bulldog' dual mag shotgun."
+		nicknamed 'Jäger' by the Solar Federation Marines for its versatility in clearing tight corridors, and special operations in hunting individuals."
 
 	icon_state = "marauder"
 	worn_icon_state = "marauder"
 	inhand_icon_state = "marauder"
 
 	projectile_damage_multiplier = 1
-
+	burst_delay = 0.30 SECONDS
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
-	can_suppress = FALSE
+
+/obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()
+    AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)
+
+/obj/item/gun/ballistic/shotgun/katyusha/jager/examine_more(mob/user)
+	. = ..()
+
+	. = "The Solar Federation Surplus 'Jäger' Magfed Shotgun is a recent release from Solar Federation Surplus. \
+		and it's received a warm welcome from the Solar Federation Marines and S.W.A.T. Teams. \
+		issued it in the ongoing rollout. \
+		\ the inimitable burst fire and multi-shell compatability \
+		makes the Jager powerful, reliable, accurate, and shockingly comfortable to fire."

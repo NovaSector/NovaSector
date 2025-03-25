@@ -39,10 +39,7 @@
 	icon_state = "[base_icon_state]-[LAZYLEN(stored_ammo) ? "full" : "empty"]"
 
 /obj/item/ammo_box/magazine/jager/empty
-	icon_state = "marauder_mag-empty"
-	ammo_type = /obj/item/ammo_casing/shotgun
 	start_empty = TRUE
-	casing_phrasing = "shell"
 
 /obj/item/ammo_box/magazine/jager
 	name = "Jäger Magazine"
@@ -72,7 +69,23 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/jager/large/empty
-	icon_state = "marauder_mag-empty"
-	ammo_type = /obj/item/ammo_casing/shotgun
 	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/shitzu/empty
+	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/shitzu
+	name = "Shitzu Shotgun Magazine"
+	desc = "A magazine of shotgun shells, suitable for the 'Shitzu' combat shotgun."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/syndicate_armaments/magazines.dmi'
+	icon_state = "shitzu_mag"
+	base_icon_state = "shitzu_mag"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	caliber = CALIBER_SHOTGUN
+	max_ammo = 12
 	casing_phrasing = "shell"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+
+/obj/item/ammo_box/magazine/shitzu/milspec
+
+	ammo_type = /obj/item/ammo_casing/shotgun/milspec
