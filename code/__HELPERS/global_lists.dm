@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(WALLITEMS_INTERIOR, typecacheof(list(
 	/obj/machinery/status_display,
 	/obj/machinery/ticket_machine,
 	/obj/machinery/turretid,
-	/obj/machinery/time_clock, // NOVA EDIT ADDITION - TIME CLOCK
+	/obj/machinery/modular_computer/preset/time_clock, // NOVA EDIT ADDITION - TIME CLOCK
 	/obj/structure/wall_torch, // NOVA EDIT ADDITION - Wall-mounted torches
 	/obj/machinery/barsign,
 	/obj/structure/extinguisher_cabinet,

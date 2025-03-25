@@ -17,12 +17,15 @@
 
 	stored_trim = attached_id.trim
 	stored_assignment = attached_id.assignment
+	///When was this timer added?
+	var/init_time
 
 
 	if(cooldown_timer)
 		on_cooldown = TRUE
 		addtimer(CALLBACK(src, PROC_REF(remove_cooldown)), cooldown_timer)
 
+	init_time = world.time
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(attempt_unlock))
 
 /datum/component/off_duty_timer/Destroy(force)
