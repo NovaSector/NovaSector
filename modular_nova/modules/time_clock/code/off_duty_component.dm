@@ -7,6 +7,8 @@
 	var/hop_locked = FALSE
 	///What was the name of the job the person was working when they clocked out?
 	var/stored_assignment = ""
+	///When was this timer added?
+	var/init_time
 
 /datum/component/off_duty_timer/Initialize(cooldown_timer = 0)
 	. = ..()
@@ -17,8 +19,6 @@
 
 	stored_trim = attached_id.trim
 	stored_assignment = attached_id.assignment
-	///When was this timer added?
-	var/init_time
 
 
 	if(cooldown_timer)
