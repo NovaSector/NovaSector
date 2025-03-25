@@ -22,7 +22,7 @@ Overrides the sleep verb and some associated code chunks to implement enhancesme
   - Edited `/datum/status_effect/proc/remove_duration()`:
     - Added conditional to allow for handling new variable `pause_expiry` and pausing status effect expiration.
 - Edited `code\modules\mob\living\status_procs.dm`:
-  - Edited `/mob/living/proc/SetSleeping()`:
+  - Edited `/mob/living/proc/Sleeping()`:
     - Added argument `is_voluntary` to differentiate voluntary and involuntary sleeping.
 - Edited `code/modules/surgery/organs/internal/stomach/_stomach.dm`:
   - Edited `/obj/item/organ/internal/stomach/proc/handle_hunger()`:
