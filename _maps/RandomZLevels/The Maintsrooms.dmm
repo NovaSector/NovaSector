@@ -8699,56 +8699,18 @@
 /area/space)
 "Kq" = (
 /mob/living/basic/skeleton/templar{
-	loot = list(/obj/effect/decal/remains/human,/obj/item/clothing/suit/chaplainsuit/armor/templar,/obj/item/clothing/head/helmet/chaplain,/obj/item/claymore {name = "holy sword"
-	})
-"Kr" = (
-/obj/structure/bed/double{
-		dir  =  1	
+	loot = list(/obj/effect/decal/remains/human,/obj/item/clothing/suit/chaplainsuit/armor/templar,/obj/item/clothing/head/helmet/chaplain,/obj/item/claymore {name = "holy sword"	
 	},
-/turf/open/floor/iron/small,
-/area/space)
-"Kz" = (
-/obj/machinery/conveyor{
-		dir  =  1;
-		id  =  "QMLoad"	
+/turf/open/floor/iron/chapel{
+	dir = 1
 	},
-/turf/open/floor/plating,
 /area/space)
 "KB" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/entertainment/deck,
 /obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/wood,
 /area/space)
 "KC" = (
-/turf/open/mirage{
-		range  =  1;
-		target_turf_x  =  -10;
-		dir  =  8	
-	},
-/area/space)
-"KG" = (
-/obj/machinery/processor{
-		pixel_y  =  1	
-	},
-/turf/open/floor/plating,
-/area/space)
-"KI" = (
-/obj/effect/spawner/random/techstorage/ai_all,
-/turf/open/floor/circuit/red/anim,
-/area/space)
-"KK" = (
-/obj/machinery/mech_bay_recharge_port{
-	dir = 2
-	},
-/turf/open/floor/plating,
-/area/space)
-"KQ" = (
-/obj/machinery/door/window/left/directional/north{
-		name  =  "MuleBot Access";
-		req_access  =  list("shipping")
-	},
-/turf/open/floor/plating,
 /area/space)
 "KR" = (
 /mob/living/basic/chicken{
@@ -19138,7 +19100,7 @@ wQ
 xH
 aQ
 aQ
-KI
+xH
 wQ
 kd
 kd
@@ -20134,7 +20096,7 @@ HW
 GS
 wQ
 jt
-KK
+uG
 gy
 ln
 rP
@@ -21381,7 +21343,7 @@ GS
 GS
 GS
 uG
-KQ
+uG
 Fb
 uG
 lT
@@ -22384,7 +22346,7 @@ GS
 rX
 sA
 MC
-KG
+uG
 GS
 HZ
 ZD
@@ -25449,7 +25411,7 @@ GS
 ih
 Yx
 Sr
-Kz
+uG
 Sr
 Sr
 jf
@@ -30900,7 +30862,7 @@ Dg
 nS
 XF
 LC
-Kr
+Uv
 wQ
 QA
 QA
