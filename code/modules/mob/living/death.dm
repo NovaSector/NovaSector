@@ -196,6 +196,7 @@
 
 	if (client)
 		client.move_delay = initial(client.move_delay)
-		client.player_details.time_of_death = timeofdeath
+
+	persistent_client?.time_of_death = timeofdeath
 
 	return TRUE

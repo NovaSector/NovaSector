@@ -505,11 +505,3 @@ directory = "_maps/nova/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [116, 95, 1]
 trait_name = "Station"
-
-# Nebulastation Anti-Hotwire
-[templates.nebulastation_no_hotwire]
-map_files = ["nebulastation_no_hotwire.dmm"]
-directory = "_maps/nova/automapper/templates/nebulastation/"
-required_map = "NebulaStation.dmm"
-coordinates = [119, 114, 1]
-trait_name = "Station"

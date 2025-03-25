@@ -200,6 +200,10 @@
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
 
+/datum/loadout_item/toys/human
+	name = "Human Plushie"
+	item_path = /obj/item/toy/plush/human
+
 /datum/loadout_item/toys/seaduplush
 	name = "Sneed Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/seaduplush

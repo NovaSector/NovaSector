@@ -292,6 +292,8 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 
 /datum/fishing_challenge/proc/no_longer_fishing(datum/source)
 	SIGNAL_HANDLER
+	if(completed) //we already won/lost
+		return
 	user.balloon_alert(user, "interrupted!")
 	interrupt()
 
@@ -404,8 +406,8 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	deltimer(next_phase_timer)
 	phase = WAIT_PHASE
 	//Bobbing animation
-	animate(float, pixel_y = 1, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
-	animate(pixel_y = -1, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
+	animate(float, pixel_z = 1, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
+	animate(pixel_z = -1, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
 	next_phase_timer = addtimer(CALLBACK(src, PROC_REF(start_biting_phase)), wait_time, TIMER_STOPPABLE|TIMER_DELETE_ME)
 	if(float.spin_frequency)
 		set_lure_timers()
@@ -462,8 +464,8 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 				send_alert("organ!!!")
 	else
 		send_alert("!!!")
-	animate(float, pixel_y = 3, time = 5, loop = -1, flags = ANIMATION_RELATIVE)
-	animate(pixel_y = -3, time = 5, flags = ANIMATION_RELATIVE)
+	animate(float, pixel_z = 3, time = 5, loop = -1, flags = ANIMATION_RELATIVE)
+	animate(pixel_z = -3, time = 5, flags = ANIMATION_RELATIVE)
 	if(special_effects & FISHING_MINIGAME_AUTOREEL)
 		addtimer(CALLBACK(src, PROC_REF(automatically_start_minigame)), 0.2 SECONDS)
 	// Setup next phase
@@ -893,6 +895,14 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 		RegisterSignal(spot, COMSIG_MOVABLE_MOVED, PROC_REF(follow_movable))
 	SET_BASE_PIXEL(spot.pixel_x, spot.pixel_y)
 	SET_BASE_VISUAL_PIXEL(spot.pixel_w, spot.pixel_z)
+	// early return for spots with a plane lower than this. the floor plane is topdown and we don't want to inherit their layers.
+	if(spot.plane < plane)
+		return
+	if(spot.plane > plane) //We want this to render above the fishing spot.
+		var/turf/turf = get_turf(spot)
+		SET_PLANE_EXPLICIT(src, PLANE_TO_TRUE(spot.plane), turf)
+	if(spot.layer > layer) //Ditto. New stuff renders above old stuff if the layer is the same iirc (with some caveats).
+		layer = spot.layer
 
 /obj/effect/fishing_float/proc/follow_movable(atom/movable/source)
 	SIGNAL_HANDLER
