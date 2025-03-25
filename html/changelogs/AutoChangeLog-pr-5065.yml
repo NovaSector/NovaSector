@@ -1,0 +1,10 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "Mil-spec shell boxes can now be found on the black market. Rarely. And at a horrific markup."
+  - balance: "Slugs are now back to doing 50 brute."
+  - balance: "Mil-spec buckshot travels faster, has less damage/wound-bonus falloff over distance, and has a smidge of AP."
+  - balance: "Mil-spec slugs deal more damage and travel faster."
+  - balance: "Reloading shotguns from ammo handfuls now only inflicts a 0.4s click-delay cooldown. Ammo boxes still have full 0.8s click delay penalty, however."
+  - balance: "Magnum buckshot's wound bonus moved mainly to bare wound bonus instead of regular wound bonus."
+  - bugfix: "/tg/station's new flechettes and DonkCo flechettes are no longer invisible, and have been adjusted to be more in line with other shotgun shells."

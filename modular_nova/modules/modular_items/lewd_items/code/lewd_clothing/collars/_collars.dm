@@ -57,7 +57,7 @@
 		to_chat(user, span_warning("[to_lock ? "The collar locks with a resounding click!" : "The collar unlocks with a small clunk."]"))
 		locked = to_lock
 		return
-	to_chat(user, span_warning("It looks like the lock is broken_lock - now it's just an ordinary old collar."))
+	to_chat(user, span_warning("It looks like the lock is busted - now it's just an ordinary old collar."))
 	locked = FALSE
 
 /obj/item/clothing/neck/collar/tool_act(mob/living/user, obj/item/tool, list/modifiers)
@@ -73,7 +73,7 @@
 /obj/item/clothing/neck/collar/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(broken_lock)
-		to_chat(user, span_warning("The lock is already broken_lock!"))
+		to_chat(user, span_warning("The lock is already broken!"))
 		return
 	to_chat(user, span_warning("You jam your screwdriver into the lock, searching to exploit the tension..."))
 	if(!do_after(user, 3 SECONDS, user))
