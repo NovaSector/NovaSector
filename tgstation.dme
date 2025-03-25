@@ -6731,6 +6731,8 @@
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\lungs.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\night_vision.dm"
 #include "modular_nova\master_files\code\datums\quirks\positive_quirks\spacer.dm"
+#include "modular_nova\master_files\code\datums\quirks\positive_quirks\venomous\venomous_bite.dm"
+#include "modular_nova\master_files\code\datums\quirks\positive_quirks\venomous\venomous_bite_quirk.dm"
 #include "modular_nova\master_files\code\datums\records\record.dm"
 #include "modular_nova\master_files\code\datums\station_traits\negative_traits.dm"
 #include "modular_nova\master_files\code\datums\storage\storage.dm"
