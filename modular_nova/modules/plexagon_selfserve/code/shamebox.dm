@@ -1,7 +1,7 @@
 /obj/item/storage/lockbox/timeclock
 	name = "crew equipment lockbox"
 	desc = "Holds a crew's restricted equipment while they are temporarily assigned off-duty. A service contract between Nanotrasen and Lustwish stipulates that company issued batons, masks, restraints, and other equipment are not to be used for recreational purposes. Employees may purchase recreational provisions from an approved vendor."
-	icon = 'modular_nova/modules/plexigon_selfserve/icons/shame_box.dmi'
+	icon = 'modular_nova/modules/plexagon_selfserve/icons/shame_box.dmi'
 	icon_state = "crewbox+l"
 	icon_locked = "crewbox+l"
 	icon_closed = "crewbox"
@@ -67,7 +67,6 @@
 
 /// Timeclock boxes are one time use. When unlocked, release the contents and go away.
 /obj/item/storage/lockbox/timeclock/proc/release_contents()
-	do_harmless_sparks(number = 6, source = src)
 	emptyStorage()
 	usr.visible_message(span_notice("[usr] activates the lockbox mechanism, releasing its contents before vanishing in a puff of bluespace smoke!"))
 	associated_card = null

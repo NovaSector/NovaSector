@@ -1,7 +1,7 @@
 /obj/machinery/modular_computer/preset/time_clock
 	name = "punch clock"
 	desc = "Allows employees to punch in and out of their jobs. Figuratively, not literally... I hope."
-	icon = 'modular_nova/modules/plexigon_selfserve/icons/time_clock.dmi'
+	icon = 'modular_nova/modules/plexagon_selfserve/icons/time_clock.dmi'
 	density = FALSE
 	light_color = LIGHT_COLOR_DARK_BLUE
 	starting_programs = list(
