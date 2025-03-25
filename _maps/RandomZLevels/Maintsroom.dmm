@@ -8988,10 +8988,6 @@
 	},
 /obj/structure/safe/floor,
 /obj/item/card/emagfake,
-/turf/open/floor/sepia{
-		slowdown  =  1000;
-		name  =  "Floortiles of DOOM"
-	},
 /area/awaymission/caves/maintsroom)
 "MF" = (
 /obj/item/storage/fancy/candle_box,
