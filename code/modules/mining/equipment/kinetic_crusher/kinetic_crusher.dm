@@ -29,6 +29,7 @@
 	attack_verb_simple = list("smash", "crush", "cleave", "chop", "pulp")
 	sharpness = SHARP_EDGED
 	actions_types = list(/datum/action/item_action/toggle_light)
+	action_slots = ALL
 	obj_flags = UNIQUE_RENAME
 	light_system = OVERLAY_LIGHT
 	light_range = 5
@@ -220,6 +221,7 @@
 	if(!isturf(proj_turf))
 		return
 	var/obj/projectile/destabilizer/destabilizer = new(proj_turf)
+	destabilizer.icon = projectile_icon_file // NOVA EDIT ADDITION - for extended crusher retool support
 	destabilizer.icon_state = "[projectile_icon]"
 	for(var/obj/item/crusher_trophy/attached_trophy as anything in trophies)
 		attached_trophy.on_projectile_fire(destabilizer, user)
@@ -320,7 +322,7 @@
 		if(QDELETED(hit_mineral))
 			return ..()
 		new /obj/effect/temp_visual/kinetic_blast(hit_mineral)
-		hit_mineral.gets_drilled(firer, TRUE)
+		hit_mineral.gets_drilled(firer, 1)
 		if(!iscarbon(firer))
 			return ..()
 		var/mob/living/carbon/carbon_firer = firer

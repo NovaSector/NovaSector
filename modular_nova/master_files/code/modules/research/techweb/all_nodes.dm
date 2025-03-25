@@ -95,6 +95,7 @@
 		"hospital_gown",
 		"anesthetic_machine",
 		"smartdartgun",
+		"cone_of_shame",
 	)
 	return ..()
 
@@ -242,6 +243,13 @@
 /datum/techweb_node/mod_security/New()
 	design_ids += list(
 		"mod_retract_plates",
+	)
+	return ..()
+
+/datum/techweb_node/exotic_ammo/New()
+	design_ids += list(
+		"c38_haywire",
+		"c38_haywire_mag",
 	)
 	return ..()
 

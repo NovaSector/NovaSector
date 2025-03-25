@@ -11,6 +11,7 @@
 	)
 	result = /obj/item/food/snacks/store/bread/haggis
 	category = CAT_MISCFOOD
+	added_foodtypes =  MEAT
 
 /datum/crafting_recipe/food/neep_tatty_haggis
 	name = "Haggis With Neeps and Tatties"
@@ -43,6 +44,7 @@
 	)
 	result = /obj/item/food/cookie/shortbread
 	category = CAT_PASTRY
+	added_foodtypes = JUNKFOOD | SUGAR
 
 /datum/crafting_recipe/food/tuna
 	name = "Can of Tuna"
