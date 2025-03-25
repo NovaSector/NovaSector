@@ -54,15 +54,6 @@
 	price_max = CARGO_CRATE_VALUE * 3
 	availability_prob = 5
 
-/datum/market_item/consumable/donk_secret_recipe
-	name = "Donk Co. Secret Recipe"
-	desc = "Highly, very, extremely illegal. take it off my hands ASAP"
-	item = /obj/item/book/granter/crafting_recipe/donk_secret_recipe
-	stock_max = 1
-	price_min = CARGO_CRATE_VALUE * 7
-	price_max = CARGO_CRATE_VALUE * 10
-	availability_prob = 1
-
 /datum/market_item/consumable/cooking_sweets_101
 	name = "Cooking Desserts 101"
 	desc = "A cook book that teaches you some more of the newest desserts. AI approved, and a bestseller on Honkplanet"
