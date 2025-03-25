@@ -398,8 +398,7 @@
 		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
 	return S
 
-// NOVA EDIT - ORIGINAL: /mob/living/proc/SetSleeping(amount) //Sets remaining duration
-/mob/living/proc/SetSleeping(amount, is_voluntary = FALSE) //Sets remaining duration
+/mob/living/proc/SetSleeping(amount, is_voluntary = FALSE) //Sets remaining duration // NOVA EDIT - ORIGINAL: /mob/living/proc/SetSleeping(amount) //Sets remaining duration
 	if(SEND_SIGNAL(src, COMSIG_LIVING_STATUS_SLEEP, amount) & COMPONENT_NO_STUN)
 		return
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
@@ -411,8 +410,7 @@
 	else if(S)
 		S.duration = world.time + amount
 	else
-		// NOVA EDIT - ORIGINAL: S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
-		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount, is_voluntary)
+		S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount, is_voluntary) // NOVA EDIT - ORIGINAL: S = apply_status_effect(/datum/status_effect/incapacitating/sleeping, amount)
 	return S
 
 /mob/living/proc/AdjustSleeping(amount) //Adds to remaining duration

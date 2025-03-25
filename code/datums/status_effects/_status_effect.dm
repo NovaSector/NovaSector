@@ -128,9 +128,7 @@
 			return
 
 	if(duration != STATUS_EFFECT_PERMANENT)
-		// NOVA EDIT CHANGE - ORIGINAL: if(duration < world.time)
-		if((duration < world.time) && !pause_expiry)
-		// NOVA EDIT CHANGE END
+		if((duration < world.time) && !pause_expiry) // NOVA EDIT: Enhanced sleep - ORIGINAL: if(duration < world.time)
 			qdel(src)
 			return
 		update_shown_duration()
@@ -212,9 +210,7 @@
 		return FALSE
 
 	duration -= seconds
-	// NOVA EDIT CHANGE - ORIGINAL: if(duration <= world.time)
-	if((duration <= world.time) && !pause_expiry)
-	// NOVA EDIT CHANGE END
+	if((duration <= world.time) && !pause_expiry) // NOVA EDIT: Enhanced sleep - ORIGINAL: if(duration <= world.time)
 		qdel(src)
 		return TRUE
 
