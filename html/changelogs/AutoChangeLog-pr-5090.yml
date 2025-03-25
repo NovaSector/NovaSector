@@ -1,0 +1,4 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "reagent fertilizer (ez, left, and robust) now heal plant biotype persons"
