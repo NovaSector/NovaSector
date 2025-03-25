@@ -12,8 +12,7 @@
 	name = "Stimulant Medipen"
 	desc = "Someoneone's unfortunate agent gear getting fenced"
 	item = /obj/item/reagent_containers/hypospray/medipen/stimulants
-	stock_min = 1
-	stock_max = 2
+	stock_max = 1
 	price_min = CARGO_CRATE_VALUE * 5
 	price_max = CARGO_CRATE_VALUE * 7
 	availability_prob = 25
