@@ -127,6 +127,7 @@
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "Has the ability to destroy walls and limbs, and to send warnings to the nest."
+	ai_controller = /datum/ai_controller/basic_controller/pit
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/wrap,
 		/datum/action/cooldown/mob_cooldown/command_spiders,
@@ -165,6 +166,7 @@
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "Extremely tanky with very poor offense. Able to self-heal and lay reflective silk screens, passages, and traps."
+	ai_controller = /datum/ai_controller/basic_controller/ogre
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
@@ -226,6 +228,7 @@
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "The life of the nest, injects spidereggs that will grow inside the host and burrow out."
+	ai_controller = /datum/ai_controller/basic_controller/carrier
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
@@ -264,7 +267,7 @@
 	wound_bonus = 30
 	bare_wound_bonus = 60
 	poison_per_bite = 5
-	speed = 3.5
+	speed = 5
 	unsuitable_atmos_damage = 0
 	minimum_survivable_temperature = 0
 	maximum_survivable_temperature = INFINITY
