@@ -250,8 +250,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	var/new_eye_color = input(user, "Choose your eye color", "Eye Color", user.eye_color_left) as color|null
 	if(isnull(new_eye_color))
 		return TRUE
-	user.eye_color_left = sanitize_hexcolor(new_eye_color)
-	user.eye_color_right = sanitize_hexcolor(new_eye_color)
+	user.set_eye_color(sanitize_hexcolor(new_eye_color))
 	user.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
 	user.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
 	user.update_body()
@@ -385,14 +384,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror/broken, 28)
 	var/new_hair_color = input(user, "Choose your hair color", "Hair Color", user.hair_color) as color|null
 
 	if(new_hair_color)
-		user.set_haircolor(sanitize_hexcolor(new_hair_color), update = FALSE)
+		user.set_haircolor(sanitize_hexcolor(new_hair_color))
 		user.dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
 	if(user.physique == MALE)
 		var/new_face_color = input(user, "Choose your facial hair color", "Hair Color", user.facial_hair_color) as color|null
 		if(new_face_color)
-			user.set_facial_haircolor(sanitize_hexcolor(new_face_color), update = FALSE)
+			user.set_facial_haircolor(sanitize_hexcolor(new_face_color))
 			user.dna.update_ui_block(DNA_FACIAL_HAIR_COLOR_BLOCK)
-	user.update_body_parts()
 
 /obj/structure/mirror/magic/attack_hand(mob/living/carbon/human/user)
 	. = ..()
