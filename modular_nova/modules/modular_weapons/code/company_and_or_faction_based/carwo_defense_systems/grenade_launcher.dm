@@ -40,17 +40,18 @@
 	var/maximum_target_range = 14
 
 	lore_blurb = "The Kiboko, a light grenade launcher, is one of the strangest weapons Carwo offers, \
-		and is noteworthy for its lighter, nonstandard grenade size.<br><br>\
-		The much lighter .980 Tydhouer grenades developed for the weapon offer many advantages \
+		and is noteworthy for the nonstandard size and innovative technologies used in its grenades.<br><br>\
+		The more compact but no less impactful .980 Tydhouer grenades developed for the system offer many advantages \
 		over other conventional launcher grenade systems. \
-		For a start, Tydhouer grenades are significantly lighter, and easier to carry large \
-		amounts of. The main reason SolFed funded the project, though, \
+		For a start, Tydhouer grenades are significantly lighter; combined with their smaller sizes, \
+		it's easier to carry larger amounts of these grenades compared to other contemporary launcher grenades.<br><br>\
+		The main reason SolFed funded the project, though, \
 		was its reliable, on-the-fly programmable variable time fuze. \
-		Using the large (and expensive, to the chagrin of quartermasters) ranging sight on the \
-		launcher, users can set an exact distance for the grenade to self-detonate at; \
-		the decades-held dream of militaries, finally realized. \
+		Using the ranging sight (which is large, expensive, and computerized, to the chagrin of quartermasters) \
+		on the launcher, users can set an exact distance for the grenade to self-detonate at; \
+		finally realizing military dreams of reliable man-portable airburst munitions.<br><br>\
 		The smaller shells do not, however, make the weapon any more enjoyable to fire. \
-		The kick is only barely manageable thanks to the massive muzzle brake at the front."
+		The kick from launched grenades is only barely manageable thanks to the massive muzzle brake at the front."
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)

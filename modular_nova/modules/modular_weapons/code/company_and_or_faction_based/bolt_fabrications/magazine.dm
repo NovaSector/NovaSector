@@ -47,11 +47,11 @@
 	name = "ammo box (kinetic balls)"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/stingstopbox.dmi'
 	icon_state = "stingstopbox"
-	desc = "A box of kinetic balls rounds, holds twenty seven rounds."
+	desc = "A box of kinetic balls rounds, holds twenty-four rounds."
 	custom_price = PAYCHECK_CREW * 2
 	ammo_type = /obj/item/ammo_casing/kineticball
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2,
 	)
-	max_ammo = 27
+	max_ammo = 24

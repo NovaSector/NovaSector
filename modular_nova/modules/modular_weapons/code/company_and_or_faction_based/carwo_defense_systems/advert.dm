@@ -28,6 +28,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/carwo_grenade, 3
 	. += "<i>Small text details that certain types of magazines may not be available in your \
 		region depending on local weapons regulations. Suspiciously, however, if you squint at \
 		it a bit, the background colors of the image come together vaguely in the shape of \
-		a computer board and a multitool. What did they mean by this?</i>"
+		a computer board and a multitool.<br><br>\
+		What did they mean by this?</i>"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/carwo_magazine, 32)
