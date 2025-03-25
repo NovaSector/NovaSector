@@ -7,7 +7,7 @@
 "fE" = (/obj/effect/turf_decal/siding/wood{dir = 6},/obj/structure/fireplace{dir = 4},/turf/open/floor/stone,/area/misc/condo)
 "fY" = (/obj/structure/flora/tree/jungle/style_6,/turf/open/floor/grass,/area/misc/condo)
 "go" = (/obj/effect/turf_decal/weather/dirt,/obj/structure/flora/tree/jungle/style_4,/turf/open/floor/grass,/area/misc/condo)
-"gt" = (/obj/effect/spawner/liquids_spawner,/turf/open/floor/iron/pool/cobble,/area/misc/condo)
+"gt" = (/turf/open/water/hot_spring/cafe,/area/misc/condo)
 "io" = (/obj/structure/chair/sofa/right/maroon,/obj/machinery/light_switch/directional/north,/turf/open/floor/wood,/area/misc/condo)
 "lq" = (/obj/structure/sign/painting/library{pixel_x = -32},/turf/open/floor/wood/tile,/area/misc/condo)
 "mR" = (/obj/structure/chair/sofa/corner/maroon,/obj/structure/sign/painting/library{pixel_x = 32; pixel_y = 0},/turf/open/floor/wood,/area/misc/condo)
