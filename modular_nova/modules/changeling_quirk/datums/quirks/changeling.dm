@@ -5,6 +5,7 @@
 	value = 0
 	medical_record_text = ""
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
+	veteran_only = TRUE
 
 /datum/quirk/changeling/add(client/client_source)
 	var/datum/mind/target_mind = quirk_holder.mind
