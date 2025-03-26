@@ -1,0 +1,6 @@
+author: "Bannhammger"
+delete-after: True
+changes:
+  - rscadd: "Freedom implant now allows you to escape taser electrode"
+  - balance: "owners of TRAIT_BATON_RESISTANCE gain less stamina damage while getting tased"
+  - balance: "owners of  TRAIT_SHOCKIMMUNE gain nostamina damage while getting tased\nbalance :owners of  TRAIT_SHOCKIMMUNE of  TRAIT_BATON_RESISTANCE gain no slowdown as they are tased."
