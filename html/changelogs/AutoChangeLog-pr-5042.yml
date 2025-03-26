@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - rscadd: "Security officers can spawn with a whistle, for whistling, in their mask slot."
