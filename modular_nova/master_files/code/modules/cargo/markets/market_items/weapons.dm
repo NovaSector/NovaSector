@@ -61,8 +61,8 @@
 	stock_max = 1
 	availability_prob = 100
 
-/datum/market_item/weapon/carrot
-	name = "carrot shiv"
+/datum/market_item/weapon/carrotshiv
+	name = "Carrot Shiv"
 	desc = "Unlike other carrots, you should probably keep this far away from your eyes."
 	item = /obj/item/knife/shiv/carrot
 	price_min = CARGO_CRATE_VALUE * 0.5
