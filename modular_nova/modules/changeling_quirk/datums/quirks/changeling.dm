@@ -1,9 +1,10 @@
 /datum/quirk/changeling
 	name = "Changeling"
-	desc = "You're a member of the Changeling Hive, a species of alien predator that is capable of shapeshifting. You have a stinger and can synthesize deadly chemicals internally. All Changelings are linked together through a hivemind."
+	desc = "You are a changeling, one that for some reason or another has entered a dormant, non-predatory state. The crew will likely still hunt you down if you are discovered, because as far as they're concerned, you're the same monster through-and-through. As part of this momentary suppressed state, some of your typical abilities seem to be just as dormant."
 	icon = FA_ICON_SPAGHETTI_MONSTER_FLYING
 	value = 0
-	medical_record_text = "Patient possesses dangerous and alien abilities including a stinger, chemical enhancements, and some form of natural bio-camo!"
+	medical_record_text = ""
+	quirk_flags = QUIRK_HIDE_FROM_SCAN
 
 /datum/quirk/changeling/add(client/client_source)
 	var/datum/mind/target_mind = quirk_holder.mind
