@@ -35,8 +35,8 @@
 	availability_prob = 45
 
 /datum/market_item/weapon/Assasin_kit
-	name = "Assasin starter kit"
-	desc = "Gun kit that somehow ended up on market. seller claims no responsibility for contents of the kit or it's functionality."
+	name = "Assassin Starter Kit"
+	desc = "An extremely illegal gun kit that somehow ended up on the black market. Seller claims no responsibility for the contents of the kit, their functionality, or the actions of future owners."
 	item = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov
 	price_min = CARGO_CRATE_VALUE * 15
 	price_max = CARGO_CRATE_VALUE * 25
