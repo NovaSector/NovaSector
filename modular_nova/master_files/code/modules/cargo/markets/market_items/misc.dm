@@ -44,9 +44,9 @@
 	availability_prob = 80
 
 
-/datum/market_item/misc/Foam_smg
-	name = "Foam force SMG"
-	desc = "Foam force SMG that somehow was smuggled into blackmarket. don't ask why, magazines sold separetely"
+/datum/market_item/misc/foam_smg
+	name = "Foam Force SMG"
+	desc = "A Foam Force SMG that someone is selling on the black market. Don't ask why. Foam Force magazines sold separately."
 	item = /obj/item/gun/ballistic/automatic/toy
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE
