@@ -3,6 +3,9 @@
 /mob/living/silicon/proc/fulfill_door_request(mob/living/requester, obj/machinery/door/airlock/door, action)
 	if(!istype(requester))
 		return
+	if(QDELETED(door))
+		to_chat(user, span_warning("Connection lost! Unable to locate airlock on network."))
+		return
 	if(!istype(door))
 		return
 
@@ -13,8 +16,14 @@
 	if(!requester.can_track(src))
 		to_chat(src, span_notice("Unable to track requester."))
 		return
-	if(door.aiControlDisabled != AI_WIRE_NORMAL)
-		to_chat(src, span_notice("Unable to access airlock"))
+	if(!door.hasPower())
+		to_chat(user, span_warning("This airlock isn't powered."))
+		return
+	if(!door.canAIControl))
+		to_chat(src, span_notice("Unable to access airlock."))
+		return
+	if(door.obj_flags & EMAGGED))
+		to_chat("Airlock is unresponsive.")
 		return
 
 	COOLDOWN_START(door, answer_cd, 10 SECONDS)
