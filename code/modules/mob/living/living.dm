@@ -1154,6 +1154,7 @@
 	trail.existing_dirs += newdir
 	trail.add_overlay(image('icons/effects/blood.dmi', trail_type, dir = newdir))
 	trail.transfer_mob_blood_dna(src)
+	trail.color = "#FF291E" // NOVA EDIT ADDITION
 	trail.bloodiness = min(bleed_amount, BLOOD_POOL_MAX)
 
 /mob/living/proc/get_trail_blood()

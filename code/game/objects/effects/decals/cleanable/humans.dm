@@ -2,12 +2,14 @@
 	name = "blood"
 	desc = "It's red and gooey. Perhaps it's the chef's cooking?"
 	icon = 'icons/effects/blood.dmi'
+
 	icon_state = "floor1"
 	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
 	blood_state = BLOOD_STATE_HUMAN
 	bloodiness = BLOOD_AMOUNT_PER_DECAL
 	beauty = -100
 	clean_type = CLEAN_TYPE_BLOOD
+	color = "#FF291E" // NOVA EDIT ADDITION
 	var/should_dry = TRUE
 	var/dryname = "dried blood" //when the blood lasts long enough, it becomes dry and gets a new name
 	var/drydesc = "Looks like it's been here a while. Eew." //as above
@@ -21,7 +23,7 @@
 	if(bloodiness)
 		start_drying()
 	else
-		dry()
+		dry(change_color = FALSE) // NOVA EDIT CHANGE
 
 /obj/effect/decal/cleanable/blood/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -39,7 +41,7 @@
 	START_PROCESSING(SSobj, src)
 
 ///This is what actually "dries" the blood. Returns true if it's all out of blood to dry, and false otherwise
-/obj/effect/decal/cleanable/blood/proc/dry()
+/obj/effect/decal/cleanable/blood/proc/dry(change_color = TRUE)
 	if(bloodiness > 20)
 		bloodiness -= BLOOD_AMOUNT_PER_DECAL
 		get_timer()
@@ -48,7 +50,8 @@
 		name = dryname
 		desc = drydesc
 		bloodiness = 0
-		color = list(0.5,0,0,0, 0,0.5,0,0, 0,0,0.5,0, 0,0,0,1, 0,0,0,0)  //not all blood splatters have their own sprites... It still looks pretty nice // NOVA EDIT CHANGE - ORIGINAL: color = COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
+		if(change_color) // NOVA EDIT
+			color = list(0.5,0,0,0, 0,0.5,0,0, 0,0,0.5,0, 0,0,0,1, 0,0,0,0)  //not all blood splatters have their own sprites... It still looks pretty nice // NOVA EDIT CHANGE - ORIGINAL: color = COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
 
@@ -114,7 +117,7 @@
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"
 	desc = "They look bloody and gruesome."
-	icon = 'icons/effects/blood_gray.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/effects/blood.dmi'
+	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
 	layer = GIB_LAYER
 	plane = GAME_PLANE
@@ -133,7 +136,7 @@
 	AddElement(/datum/element/squish_sound)
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
 	// NOVA EDIT ADDITION START
-	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = RESET_COLOR)
+	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = RESET_COLOR|KEEP_APART)
 	add_overlay(gib_overlay)
 	// NOVA EDIT ADDITION END
 
