@@ -1074,7 +1074,7 @@
 				brute_blood_overlay.color = "#FF291E"
 				var/image/brute_damage_overlay = icon('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", image_dir)
 				if(isimage(brute_damage_overlay))
-					brute_blood_overlay.overlays +=brute_damage_overlay
+					brute_blood_overlay.overlays += brute_damage_overlay
 				. += image(brute_blood_overlay, layer = -DAMAGE_LAYER)
 			// NOVA EDIT CHANGE END
 			if(burnstate)
