@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - qol: "guncases (large) are now a backpack slot item in the loadout!"
