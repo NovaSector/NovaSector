@@ -38,6 +38,10 @@
 //Defines used to override MOD clothing's icon and worn icon files in the skin.
 #define MOD_ICON_OVERRIDE "mod_icon_override"
 #define MOD_WORN_ICON_OVERRIDE "mod_worn_icon_override"
+// NOVA EDIT ADDITION START
+#define MOD_DIGITIGRADE_ICON_OVERRIDE "mod_digitigrade_icon_override"
+#define MOD_SNOUT_ICON_OVERRIDE "mod_snout_icon_override"
+// NOVA EDIT ADDITION END
 
 //Defines for MODlink frequencies
 #define MODLINK_FREQ_NANOTRASEN "NT"

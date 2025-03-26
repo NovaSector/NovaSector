@@ -45,7 +45,7 @@
 		return signal_face // no need to null-check, because force_set will always set a signal_face
 	var/face_name = !isnull(signal_face) ? signal_face : get_face_name("")
 	var/id_name = !isnull(signal_id) ? signal_id : get_id_name("")
-	if (force_real_name)
+	if(force_real_name)
 		var/fake_name
 		if (face_name && face_name != real_name)
 			fake_name = face_name
@@ -167,8 +167,7 @@
 	for(var/i in missing_bodyparts)
 		var/datum/scar/scaries = new
 		scars += "[scaries.format_amputated(i)]"
-	for(var/i in all_scars)
-		var/datum/scar/iter_scar = i
+	for(var/datum/scar/iter_scar as anything in all_scars)
 		if(!iter_scar.fake)
 			scars += "[iter_scar.format()];"
 	return scars
@@ -389,3 +388,17 @@
 	user.visible_message(span_notice("[user] fixes some of the [message] [src]'s [affecting.name]."), \
 		span_notice("You fix some of the [message] [src == user ? "your" : "[src]'s"] [affecting.name]."))
 	return TRUE
+
+/// Sets both mob's and eye organ's eye color values
+/// If color_right is not passed, its assumed to be the same as color_left
+/mob/living/carbon/human/proc/set_eye_color(color_left, color_right)
+	if (!color_right)
+		color_right = color_left
+	eye_color_left = color_left
+	eye_color_right = color_right
+	// Doesn't assign eye color if they already have one from their type
+	var/obj/item/organ/eyes/eyes = get_organ_by_type(/obj/item/organ/eyes)
+	if (istype(eyes) && !initial(eyes.eye_color_left) && !initial(eyes.eye_color_right))
+		eyes.eye_color_left = color_left
+		eyes.eye_color_right = color_right
+		eyes.refresh(src, FALSE)

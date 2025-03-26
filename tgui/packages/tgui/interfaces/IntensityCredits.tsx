@@ -1,6 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { Flex, NoticeBox, Section } from 'tgui-core/components';
+
 import { useBackend } from '../backend';
-import { Flex, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 type ICESData = {

@@ -106,7 +106,7 @@
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(checkObstacle))
 	playsound(user, 'sound/items/weapons/thudswoosh.ogg', 40, TRUE, -1)
 
-	var/leap_word = isfeline(user) ? "pounce" : "leap" //If cat, "pounce" instead of "leap". // NOVA EDIT - FELINE TRAITS. Was: isfelinid(user)
+	var/leap_word = isfeline(user) || HAS_TRAIT(user, TRAIT_TACKLING_TAILED_POUNCE) ? "pounce" : "leap" //If cat, "pounce" instead of "leap". // NOVA EDIT CHANGE- FELINE TRAITS. Was: isfelinid(user)
 	if(can_see(user, clicked_atom, 7))
 		user.visible_message(span_warning("[user] [leap_word]s at [clicked_atom]!"), span_danger("You [leap_word] at [clicked_atom]!"))
 	else
@@ -152,7 +152,7 @@
 		return
 
 	var/mob/living/carbon/target = hit
-	var/tackle_word = isfeline(user) ? "pounce" : "tackle" //If cat, "pounce" instead of "tackle". // NOVA EDIT - FELINE TRAITS - ORIGINAL : var/tackle_word = isfelinid(user) ? "pounce" : "tackle" 
+	var/tackle_word = isfeline(user) ? "pounce" : "tackle" //If cat, "pounce" instead of "tackle". // NOVA EDIT - FELINE TRAITS - ORIGINAL : var/tackle_word = isfelinid(user) ? "pounce" : "tackle"
 
 	var/roll = rollTackle(target)
 	tackling = FALSE
@@ -434,6 +434,10 @@
 	if(HAS_TRAIT(sacker, TRAIT_NOGUNS)) //Those dedicated to martial combat are particularly skilled tacklers
 		attack_mod += 2
 
+	if(HAS_TRAIT(sacker, TRAIT_TACKLING_TAILED_POUNCE))
+		var/obj/item/organ/tail/lizard/sacker_tail = sacker.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+		attack_mod += sacker_tail ? 2 : -2
+
 	if(HAS_TRAIT(sacker, TRAIT_TACKLING_WINGED_ATTACKER))
 		var/obj/item/organ/wings/moth/sacker_moth_wing = sacker.get_organ_slot(ORGAN_SLOT_EXTERNAL_WINGS)
 		if(!sacker_moth_wing || sacker_moth_wing.burnt)
@@ -601,7 +605,7 @@
 	if(windscreen_casualty.type in list(/obj/structure/window, /obj/structure/window/fulltile, /obj/structure/window/unanchored, /obj/structure/window/fulltile/unanchored)) // boring unreinforced windows
 		for(var/i in 1 to speed)
 			var/obj/item/shard/shard = new /obj/item/shard(get_turf(user))
-			shard.set_embed(/datum/embed_data/glass_candy)
+			shard.set_embed(/datum/embedding/glass_candy)
 			user.hitby(shard, skipcatch = TRUE, hitpush = FALSE)
 			shard.set_embed(initial(shard.embed_type))
 		windscreen_casualty.atom_destruction()

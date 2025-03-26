@@ -20,3 +20,21 @@
 /datum/market_item/weapon/dimensional_bomb
 	price_min = CARGO_CRATE_VALUE * 180
 	price_max = CARGO_CRATE_VALUE * 200
+
+/datum/market_item/weapon/milspec_buck
+	name = "Mil-Spec Buckshot Box"
+	desc = "A standard-sized box of 15 Scarborough-manufactured, hot-loaded buckshot shells, for those with a penchant for grievous bodily harm."
+	item = /obj/item/ammo_box/advanced/s12gauge/buckshot/milspec
+	price_min = CARGO_CRATE_VALUE * 3
+	price_max = CARGO_CRATE_VALUE * 6
+	availability_prob = 40
+	stock_max = 2
+
+/datum/market_item/weapon/milspec_slugs
+	name = "Mil-Spec Slug Box"
+	desc = "A standard-sized box of 15 Scarborough-manufactured, hot-loaded slug shells, for those with a penchant for grievous bodily harm."
+	item = /obj/item/ammo_box/advanced/s12gauge/milspec
+	price_min = CARGO_CRATE_VALUE * 3
+	price_max = CARGO_CRATE_VALUE * 6
+	availability_prob = 40
+	stock_max = 2

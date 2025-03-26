@@ -98,7 +98,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	resistance_flags = FIRE_PROOF
 	obj_flags_nova = ANVIL_REPAIR
-	can_be_tied = FALSE
+	fastening_type = SHOES_SLIPON
 	body_parts_covered = FEET|LEGS
 
 /datum/armor/shoes_forging_plate_boots
@@ -129,7 +129,10 @@
 	desc = "A collar that is ready to be worn for certain individuals."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
-	icon_state = "collar_cyan"
+	icon_state = "thick_strip"
+	greyscale_colors = null
+	greyscale_config = null
+	greyscale_config_worn = null
 	inhand_icon_state = null
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK

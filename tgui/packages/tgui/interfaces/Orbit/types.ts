@@ -1,4 +1,4 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 import { VIEWMODE } from './constants';
 
@@ -36,6 +36,7 @@ export type Observable = {
   mind_job: string;
   name: string;
   orbiters: number;
+  ckey: string;
 }>;
 
 type Critical = {

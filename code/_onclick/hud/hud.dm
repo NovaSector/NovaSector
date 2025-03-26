@@ -436,7 +436,12 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	// Handles alerts - the things on the right side of the screen
 	reorganize_alerts(screenmob)
 	screenmob.reload_fullscreen()
-	update_parallax_pref(screenmob)
+
+	if(screenmob == mymob)
+		update_parallax_pref(screenmob)
+	else
+		viewmob.hud_used.update_parallax_pref()
+
 	update_reuse(screenmob)
 
 	// ensure observers get an accurate and up-to-date view
@@ -586,6 +591,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 			floating_actions += button
 			button.screen_loc = position
 			position = SCRN_OBJ_FLOATING
+			toggle_palette.update_state()
 
 	button.location = position
 
@@ -604,6 +610,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 				position_action(button, button.linked_action.default_button_position)
 				return
 			button.screen_loc = get_valid_screen_location(relative_to.screen_loc, ICON_SIZE_ALL, our_client.view_size.getView()) // Asks for a location adjacent to our button that won't overflow the map
+			toggle_palette.update_state()
 
 	button.location = relative_to.location
 
@@ -614,6 +621,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 			CRASH("We just tried to hide an action buttion that somehow has the default position as its location, you done fucked up")
 		if(SCRN_OBJ_FLOATING)
 			floating_actions -= button
+			toggle_palette.update_state()
 		if(SCRN_OBJ_IN_LIST)
 			listed_actions.remove_action(button)
 		if(SCRN_OBJ_IN_PALETTE)

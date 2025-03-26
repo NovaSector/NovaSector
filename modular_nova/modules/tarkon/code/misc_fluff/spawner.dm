@@ -30,9 +30,12 @@
 		/obj/item/crowbar = 1
 		)
 	var/backpack = /obj/item/storage/backpack/tarkon //Replaces "back" item with provided backpack based on preference on role spawn. Will be used further in project Colony Echo
-	var/satchel = /obj/item/storage/backpack/satchel/tarkon //Replaces "back" item with provided satchel
-	var/duffelbag = /obj/item/storage/backpack/duffelbag/tarkon //Replaces "back" item with provided duffelbag
-	var/messenger = /obj/item/storage/backpack/messenger/tarkon //Replaces "back" item with provided messenger bag.
+	/// Replaces "back" item with provided satchel
+	var/satchel = /obj/item/storage/backpack/satchel/tarkon
+	/// Replaces "back" item with provided duffelbag
+	var/duffelbag = /obj/item/storage/backpack/duffelbag/tarkon
+	/// Replaces "back" item with provided messenger bag.
+	var/messenger = /obj/item/storage/backpack/messenger/tarkon
 
 /datum/outfit/tarkon/pre_equip(mob/living/carbon/human/tarkon, visuals_only = FALSE)
 	if(ispath(back, /obj/item/storage/backpack)) //we just steal this from the job outfit datum.

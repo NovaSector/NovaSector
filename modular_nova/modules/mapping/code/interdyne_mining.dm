@@ -15,6 +15,7 @@
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
 		CATEGORY_INTERDYNE,
+		CATEGORY_GOLEM,
 	)
 
 // This is honestly quite terrible but, replaces voucher spawned mining drones with the interdyne subtype at this console

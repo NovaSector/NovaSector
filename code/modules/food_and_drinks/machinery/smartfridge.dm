@@ -64,7 +64,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		user.visible_message(
-			span_notice("[user.name] starts to cut the [name] free from the floor."),
+			span_notice("[user.name] starts to cut \the [src] free from the floor."),
 			span_notice("You start to cut [src] free from the floor..."),
 			span_hear("You hear welding."),
 		)
@@ -84,7 +84,7 @@
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user.name] starts to weld the [name] to the floor."),
+		span_notice("[user.name] starts to weld \the [src] to the floor."),
 		span_notice("You start to weld [src] to the floor..."),
 		span_hear("You hear welding."),
 	)
@@ -737,7 +737,7 @@
 		return FALSE
 
 	// empty pill prank ok
-	if(istype(weapon, /obj/item/reagent_containers/pill))
+	if(istype(weapon, /obj/item/reagent_containers/applicator))
 		return TRUE
 
 	//check each pill in the pill bottle
@@ -768,8 +768,8 @@
 
 /obj/machinery/smartfridge/chemistry/preloaded
 	initial_contents = list(
-		/obj/item/reagent_containers/pill/epinephrine = 12,
-		/obj/item/reagent_containers/pill/multiver = 5,
+		/obj/item/reagent_containers/applicator/pill/epinephrine = 12,
+		/obj/item/reagent_containers/applicator/pill/multiver = 5,
 		/obj/item/reagent_containers/cup/bottle/epinephrine = 1,
 		/obj/item/reagent_containers/cup/bottle/multiver = 1)
 

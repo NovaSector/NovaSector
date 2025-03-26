@@ -468,6 +468,46 @@
 	name = "Giant Scarf"
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
 
+/datum/loadout_item/under/miscellaneous/giant_scarf_crystal
+	name = "Giant Scarf (Crystal)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/crystal
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_stripe
+	name = "Giant Scarf (Stripe)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/stripe
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_twotone
+	name = "Giant Scarf (Two-Tone)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/two_tone
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_arrow
+	name = "Giant Scarf (Arrow)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/arrow
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_fancy
+	name = "Giant Scarf (Fancy)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/fancy
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_sepharim
+	name = "Giant Scarf (Sepharim)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/sepharim
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_bones
+	name = "Giant Scarf (Bones)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/bones
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_lines
+	name = "Giant Scarf (Lines)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/lines
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_runes
+	name = "Giant Scarf (Runes)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/runes
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_heart
+	name = "Giant Scarf (Heart)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/heart
+
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/red_skirt
@@ -588,6 +628,11 @@
 	name = "Colourable Maid Uniform"
 	item_path = /obj/item/clothing/under/maid_costume
 
+/datum/loadout_item/under/miscellaneous/tactical_maid_costume
+	name = "Tactical Maid Uniform"
+	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
+
+
 /datum/loadout_item/under/miscellaneous/yukata
 	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
@@ -697,8 +742,8 @@
 	item_path = /obj/item/clothing/under/misc/latex_catsuit
 
 /datum/loadout_item/under/miscellaneous/stripper_outfit
-	name = "Stripper Outfit"
-	item_path = /obj/item/clothing/under/stripper_outfit
+	name = "Tearaway Garments"
+	item_path = /obj/item/clothing/under/tearaway_garments
 	erp_item = TRUE
 
 /datum/loadout_item/under/miscellaneous/lewdmaid
