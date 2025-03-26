@@ -1,14 +1,20 @@
+// Sec overrides can be found on
+// modular_nova\modules\goofsec\code\sec_clothing_overrides.dm
+
 /obj/item/clothing/under/rank/security/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
 
 /obj/item/clothing/under/rank/security/warden/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
 
 /obj/item/clothing/under/rank/security/head_of_security/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/security.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
 
 /*
 *	SECURITY OFFICER
@@ -124,8 +130,8 @@
 			RESKIN_WORN_ICON_STATE = "miniskirt_blue"
 	    ),
 		"Black Variant" = list(
-			RESKIN_ICON_STATE = "miniskirt_black_blue",
-			RESKIN_WORN_ICON_STATE = "miniskirt_black_blue"
+			RESKIN_ICON_STATE = "miniskirt_blue_black",
+			RESKIN_WORN_ICON_STATE = "miniskirt_blue_black"
 	    ),
 	)
 

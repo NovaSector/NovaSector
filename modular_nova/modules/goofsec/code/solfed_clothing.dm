@@ -1,7 +1,7 @@
 // Peacekeeper jumpsuit
 
 /obj/item/clothing/under/sol_peacekeeper
-	name = "sol peacekeeper uniform"
+	name = "sol military uniform"
 	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
 		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
 	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'

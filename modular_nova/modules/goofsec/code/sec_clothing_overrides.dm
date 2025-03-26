@@ -383,6 +383,18 @@
 	)
 
 /*
+* UNDER
+*/
+
+/obj/item/clothing/under/rank/security/officer // Digis for sec
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
+
+/obj/item/clothing/under/rank/security/warden/
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
+
+/obj/item/clothing/under/rank/security/head_of_security
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/security_digi.dmi'
+/*
 * SUITS
 */
 /obj/item/clothing/suit/armor/vest/alt/sec

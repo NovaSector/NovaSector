@@ -28,6 +28,11 @@
 	name = "Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots
 
+/datum/loadout_item/shoes/jackboots_sec_blue
+	name = "Blue Security Jackboots"
+	item_path = /obj/item/clothing/shoes/jackboots/sec/blue
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
 // Thedragmeme's donator reward, they've decided to make them available to everybody.
 /datum/loadout_item/shoes/jackboots/heel
 	name = "High-Heel Jackboots"
