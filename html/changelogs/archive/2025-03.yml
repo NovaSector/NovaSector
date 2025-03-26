@@ -1334,3 +1334,13 @@
   - balance: naga tails (legs) are less prone to wounds
   unit0016:
   - spellcheck: All in-game references to 'broken_lock' should be gone.
+2025-03-26:
+  OrbisAnima:
+  - qol: Empathic personel got so used to the high population of, for a better word,
+      fundamentally evil crewmembers, that they had become jaded to their presence
+      and no longer get a mood impact upon encountering one. They still get the shakes
+      though.
+  RatFromTheJungle:
+  - rscadd: subtler makes a sound, that you can also turn off
+  unit0016:
+  - bugfix: Ballet Heels and Latex Socks now use the proper icon state for non-digis.
