@@ -304,12 +304,8 @@
 		if(iter_part.brutestate)
 			//we're adding icon_states of the base image as overlays
 			// NOVA EDIT CHANGE START
-			var/icon/brute_blood_icon = icon('icons/mob/effects/dam_mob.dmi', "[iter_part.dmg_overlay_type]_[iter_part.body_zone]_[iter_part.brutestate]0")
-			brute_blood_icon.Blend("#FF291E", ICON_MULTIPLY)
-			var/icon/brute_damage_icon = icon('icons/mob/effects/dam_mob.dmi', "[iter_part.dmg_overlay_type]_[iter_part.body_zone]_[iter_part.brutestate]0_overlay")
-			if(isicon(brute_damage_icon))
-				brute_blood_icon.Blend(brute_damage_icon, ICON_OVERLAY)
-			damage_overlay.add_overlay(image(brute_blood_icon), appearance_flags = RESET_COLOR)
+			damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_[iter_part.brutestate]0") //we're adding icon_states of the base image as overlays
+			damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_[iter_part.brutestate]0_overlay") //we're adding icon_states of the base image as overlays
 			// NOVA EDIT CHANGE END
 		if(iter_part.burnstate)
 			damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_0[iter_part.burnstate]")
