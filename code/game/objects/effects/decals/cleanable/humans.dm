@@ -23,7 +23,7 @@
 	if(bloodiness)
 		start_drying()
 	else
-		dry(change_color = FALSE) // NOVA EDIT CHANGE
+		dry()
 
 /obj/effect/decal/cleanable/blood/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -41,7 +41,7 @@
 	START_PROCESSING(SSobj, src)
 
 ///This is what actually "dries" the blood. Returns true if it's all out of blood to dry, and false otherwise
-/obj/effect/decal/cleanable/blood/proc/dry(change_color = TRUE)
+/obj/effect/decal/cleanable/blood/proc/dry()
 	if(bloodiness > 20)
 		bloodiness -= BLOOD_AMOUNT_PER_DECAL
 		get_timer()
@@ -50,8 +50,7 @@
 		name = dryname
 		desc = drydesc
 		bloodiness = 0
-		if(change_color) // NOVA EDIT
-			color = list(0.5,0,0,0, 0,0.5,0,0, 0,0,0.5,0, 0,0,0,1, 0,0,0,0)  //not all blood splatters have their own sprites... It still looks pretty nice // NOVA EDIT CHANGE - ORIGINAL: color = COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
+		add_atom_colour(BlendRGB(color, COLOR_BLACK, 0.5), FIXED_COLOUR_PRIORITY)
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
 

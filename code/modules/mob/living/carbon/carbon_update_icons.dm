@@ -322,7 +322,9 @@
 			if(iter_part.limb_id == SPECIES_XENO)
 				wound_overlay ||= mutable_appearance('modular_nova/master_files/icons/effects/x_bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
 			else
-				wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+				var/mutable_appearance/blood_overlay = mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+				blood_overlay.color = "#FF291E"
+				wound_overlay ||= blood_overlay
 			// NOVA EDIT ADDITION END
 			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)
 
