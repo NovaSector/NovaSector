@@ -29,7 +29,7 @@
 // .45
 
 /obj/projectile/bullet/c45/rubber
-	name = ".460 Ceres rubber bullet"
+	name = ".45 rubber bullet"
 	damage = 10
 	stamina = 30
 	ricochets_max = 6
