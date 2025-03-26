@@ -27,7 +27,7 @@
 	availability_prob = 25
 
 /datum/market_item/consumable/combat_baking
-	name = "the anarchist's cookbook"
+	name = "The Anarchist's Cookbook"
 	desc = "A widely illegal recipe book, which will teach you how to bake croissants to die for."
 	item = /obj/item/book/granter/crafting_recipe/combat_baking
 	stock_max = 1
