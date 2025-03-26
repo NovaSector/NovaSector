@@ -20,13 +20,14 @@
 /obj/item/clothing/glasses/hud/eyepatch/sec
 	name = "security HUD eyepatch"
 	desc = "Lost your eye beating an innocent clown? Thankfully your corporate overlords have made something to make up for this. May not do well against flashes."
+	icon_state = "security_eyepatch"
 	clothing_traits = list(TRAIT_SECURITY_HUD)
-	glass_colour_type = /datum/client_colour/glass_colour/blue
+	glass_colour_type = /datum/client_colour/glass_colour/red
 
 	unique_reskin = list(
 		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON_STATE = "hudpatch"
+			RESKIN_ICON_STATE = "security_eyepatch",
+			RESKIN_WORN_ICON_STATE = "security_eyepatch"
 		),
 		"Fake Blindfold" = list(
 			RESKIN_ICON_STATE = "secfold",

@@ -147,11 +147,6 @@
 	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
-/datum/loadout_item/under/jumpsuit/security_jumpskirt
-	name = "Security Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/security/officer/skirt
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-
 /datum/loadout_item/under/jumpsuit/security_jumpskirt_blue
 	name = "Blue Security Jumpskirt"
 	item_path = /obj/item/clothing/under/rank/security/nova/skirt
@@ -173,13 +168,8 @@
 	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
-/datum/loadout_item/under/jumpsuit/security_jumpsuit
-	name = "Security Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/security/officer
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-
 /datum/loadout_item/under/jumpsuit/security_jumpsuit_black
-	name = "Security Jumpsuit (Black and Red)"
+	name = "Security Jumpsuit"
 	item_path = /obj/item/clothing/under/rank/security/nova/officer
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
