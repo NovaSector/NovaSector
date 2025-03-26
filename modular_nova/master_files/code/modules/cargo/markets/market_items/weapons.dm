@@ -44,8 +44,8 @@
 	availability_prob = 5
 
 /datum/market_item/weapon/hollowpoint9mm
-	name = "9mm HP mag"
-	desc = "Magazine of 9mm hollowpoint. acquired somewhere illegaly"
+	name = "9mm HP Magazine"
+	desc = "8-round magazine of 9mm hollowpoint. Obviously, this is illegally acquired, and likely made to fit into an even more illegal weapon."
 	item = /obj/item/ammo_box/magazine/m9mm/hp
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE * 0.7
