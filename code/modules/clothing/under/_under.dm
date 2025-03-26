@@ -103,7 +103,7 @@
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damageduniform")
 	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "uniformblood")
-		blood_overlay.color = color = "#FF291E"
+		blood_overlay.color = "#FF291E"
 		. += blood_overlay
 	if(accessory_overlay)
 		. += modify_accessory_overlay() // NOVA EDIT CHANGE - ORIGINAL: . += accessory_overlay

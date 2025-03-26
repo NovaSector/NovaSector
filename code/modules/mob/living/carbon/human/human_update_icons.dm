@@ -208,11 +208,11 @@ There are several things that need to be remembered:
 			var/mutable_appearance/hands_combined = mutable_appearance(layer = -GLOVES_LAYER, appearance_flags = KEEP_TOGETHER)
 			if(has_left_hand(check_disabled = FALSE))
 				var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands_left")
-				blood_overlay.color = color = "#FF291E"
+				blood_overlay.color = "#FF291E"
 				hands_combined.overlays += blood_overlay
 			if(has_right_hand(check_disabled = FALSE))
 				var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands_right")
-				blood_overlay.color = color = "#FF291E"
+				blood_overlay.color = "#FF291E"
 				hands_combined.overlays += blood_overlay
 			overlays_standing[GLOVES_LAYER] = hands_combined
 			apply_overlay(GLOVES_LAYER)
