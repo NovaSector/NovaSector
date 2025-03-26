@@ -135,8 +135,9 @@
 	AddElement(/datum/element/squish_sound)
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
 	// NOVA EDIT ADDITION START
-	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = RESET_COLOR|KEEP_APART)
-	add_overlay(gib_overlay)
+	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = KEEP_APART|RESET_COLOR)
+	if(gib_overlay)
+		add_overlay(gib_overlay)
 	// NOVA EDIT ADDITION END
 
 /obj/effect/decal/cleanable/blood/gibs/Destroy()

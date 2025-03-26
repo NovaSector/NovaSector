@@ -237,7 +237,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(!IS_ROBOTIC_ORGAN(src) && !(item_flags & NO_BLOOD_ON_ITEM) && !QDELING(src))
-		AddElement(/datum/element/decal/blood)
+		AddElement(/datum/element/decal/blood, _color = "#FF291E")
 
 	item_flags &= ~ABSTRACT
 	REMOVE_TRAIT(src, TRAIT_NODROP, ORGAN_INSIDE_BODY_TRAIT)
@@ -278,7 +278,7 @@
 /obj/item/organ/proc/on_surgical_removal(mob/living/user, mob/living/carbon/old_owner, target_zone, obj/item/tool)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ORGAN_SURGICALLY_REMOVED, user, old_owner, target_zone, tool)
-	RemoveElement(/datum/element/decal/blood)
+	RemoveElement(/datum/element/decal/blood, _color = "#FF291E")
 /**
  * Proc that gets called when the organ is surgically inserted by someone. Seem familiar?
  */

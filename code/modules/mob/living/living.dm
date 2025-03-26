@@ -1142,6 +1142,7 @@
 		trail.existing_dirs += newdir
 		trail.add_overlay(image('icons/effects/blood.dmi', trail_type, dir = newdir))
 		trail.transfer_mob_blood_dna(src)
+		trail.color = "#FF291E"
 		trail.bloodiness = min(trail.bloodiness + bleed_amount, BLOOD_POOL_MAX)
 		found_trail = TRUE
 		break

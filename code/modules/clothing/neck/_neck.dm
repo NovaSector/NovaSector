@@ -16,7 +16,9 @@
 		if(damaged_clothes)
 			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
 		if(GET_ATOM_BLOOD_DNA_LENGTH(src))
-			. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
+			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "maskblood")
+			blood_overlay.color = color = "#FF291E"
+			. += blood_overlay
 
 /obj/item/clothing/neck/bowtie
 	name = "bow tie"

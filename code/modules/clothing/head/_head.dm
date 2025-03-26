@@ -66,9 +66,13 @@
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedhelmet")
 	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(clothing_flags & LARGE_WORN_ICON)
-			. += mutable_appearance('icons/effects/64x64.dmi', "helmetblood_large")
+			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/64x64.dmi', "helmetblood_large")
+			blood_overlay.color = color = "#FF291E"
+			. += blood_overlay
 		else
-			. += mutable_appearance('icons/effects/blood.dmi', "helmetblood")
+			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "helmetblood")
+			blood_overlay.color = color = "#FF291E"
+			. += blood_overlay
 
 /obj/item/clothing/head/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()

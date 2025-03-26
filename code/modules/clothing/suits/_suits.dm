@@ -34,7 +34,8 @@
 		//. += mutable_appearance('icons/effects/blood.dmi', "[blood_overlay_type]blood") //ORIGINAL
 		var/bloodfile2use = (mutant_styles & STYLE_TAUR_ALL) ? 'modular_nova/master_files/icons/mob/64x32_blood.dmi' : 'icons/effects/blood.dmi'
 		var/mutable_appearance/blood_overlay = mutable_appearance(bloodfile2use, "[blood_overlay_type]blood")
-		blood_overlay.color = "#FF291E" // NOVA EDIT ADDITION
+		blood_overlay.color = "#FF291E"
+		. += blood_overlay
 		//NOVA EDIT CHANGE END
 
 	// NOVA EDIT TAUR-FULLBODY SUITS START

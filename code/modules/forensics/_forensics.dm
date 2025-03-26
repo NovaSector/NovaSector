@@ -231,4 +231,4 @@
 		return
 	if(!length(blood_DNA))
 		return
-	parent.AddElement(/datum/element/decal/blood)
+	parent.AddElement(/datum/element/decal/blood, _color = "#FF291E")
