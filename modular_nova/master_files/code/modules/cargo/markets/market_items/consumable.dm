@@ -45,8 +45,8 @@
 	availability_prob = 5
 
 /datum/market_item/consumable/trash_cannon
-	name = "diary of a demoted engineer"
-	desc = "Sellers note:reeks of oil and extremely slippery"
+	name = "Diary of a Demoted Engineer"
+	desc = "Some dusty book smuggled away from a maintenance cleaning team. Sellers note: reeks of oil, bit slippery too. Probably makes good tinder."
 	item = /obj/item/book/granter/crafting_recipe/trash_cannon
 	stock_max = 1
 	price_min = CARGO_CRATE_VALUE * 2
