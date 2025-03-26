@@ -26,8 +26,8 @@
 	availability_prob = 25
 
 /datum/market_item/weapon/telescopic_bronze
-	name = "Bronze telescopic batton"
-	desc = "Telescopic batton that seems to be stolen from some unfortunate quartermaster"
+	name = "Bronze-capped Telescopic Baton"
+	desc = "A reinforced telescopic baton, likely stolen from some unfortunate Quartermaster."
 	item = /obj/item/melee/baton/telescopic/bronze
 	price_min = CARGO_CRATE_VALUE * 8
 	price_max = CARGO_CRATE_VALUE * 13
