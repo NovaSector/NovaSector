@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "amber, violet, orange and some other alert levels are now rendered properly in PDAs"
