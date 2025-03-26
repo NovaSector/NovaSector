@@ -36,9 +36,10 @@
 		var/is_quirk_changeling = istype(changeling, /datum/antagonist/changeling/quirk) // NOVA EDIT - Changeling quirk
 		abilities = list()
 		for(var/datum/action/changeling/ability_path as anything in changeling.all_powers)
-			// Nova edit - Changeling quirk
+			// NOVA EDIT BEGIN - Changeling quirk
 			if(is_quirk_changeling && initial(ability_path.hide_from_quirk_changeling))
 				continue
+			// NOVA EDIT END
 
 			var/dna_cost = initial(ability_path.dna_cost)
 
