@@ -54,7 +54,7 @@
 
 /datum/market_item/weapon/sord
 	name = "SORD"
-	desc = "This thing is so unspeakably shitty you are not sure why everyone wants to sell it."
+	desc = "This thing is so unspeakably shitty that the only thing more foolish than trying to sell it, is to buy it."
 	item = /obj/item/sord
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE * 0.7
