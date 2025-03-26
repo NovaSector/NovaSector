@@ -72,7 +72,7 @@
 	availability_prob = 35
 
 /datum/market_item/misc/leadacid
-	name = "lead-acid battery"
+	name = "Lead-acid Battery"
 	desc = "A primitive battery. It is quite large and feels unexpectedly heavy."
 	item = /obj/item/stock_parts/power_store/cell/lead
 	stock = 2
