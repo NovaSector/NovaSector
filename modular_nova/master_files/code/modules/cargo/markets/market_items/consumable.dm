@@ -10,7 +10,7 @@
 
 /datum/market_item/consumable/stimpack
 	name = "Stimulant Medipen"
-	desc = "Someoneone's unfortunate agent gear getting fenced"
+	desc = "A medipen of fast acting stimulants. Probably some unfortunate agent's gear being fenced."
 	item = /obj/item/reagent_containers/hypospray/medipen/stimulants
 	stock_max = 1
 	price_min = CARGO_CRATE_VALUE * 5
