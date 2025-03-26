@@ -21,3 +21,15 @@
 
 /datum/action/changeling/sting/extract_dna
 	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/sting/mute
+	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/sting/blind
+	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/defib_grasp
+	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/adrenaline
+	hide_from_quirk_changeling = TRUE
