@@ -36,8 +36,8 @@
 	availability_prob = 35
 
 /datum/market_item/consumable/pipegun_reciept
-	name = "diary of a dead assistant"
-	desc = "Sellers note:fragile"
+	name = "Diary of a Dead Assistant"
+	desc = "Some dusty book smuggled away from a maintenance cleaning team. Sellers note: extremely fragile."
 	item = /obj/item/book/granter/crafting_recipe/dusting/pipegun_prime
 	stock_max = 1
 	price_min = CARGO_CRATE_VALUE * 2
