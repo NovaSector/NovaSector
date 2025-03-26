@@ -17,8 +17,8 @@
 	availability_prob = 55
 
 /datum/market_item/weapon/edagger
-	name = "Incospicous pen"
-	desc = "A pen that seems to be having some additional functions installed."
+	name = "Inconspicuous Pen"
+	desc = "A seemingly normal pen with some sort of generator installed in the cam (the bit that toggles the tip)."
 	item = /obj/item/pen/edagger
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 7
