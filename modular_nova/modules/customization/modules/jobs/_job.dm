@@ -65,7 +65,7 @@
 
 /datum/job/prisoner
 	required_languages = null
-	banned_quirks = list("changeling" = true)
+	banned_quirks = list("changeling" = TRUE)
 
 //Security
 /datum/job/security_officer
