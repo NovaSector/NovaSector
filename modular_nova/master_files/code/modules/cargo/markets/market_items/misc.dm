@@ -64,7 +64,7 @@
 
 /datum/market_item/misc/engineer_chip
 	name = "Engineer skillchip"
-	desc = "Skillchip that was crudely taken out of engineer, still stained in blood"
+	desc = "A skillchip that was crudely taken out of an engineer, still stained in blood."
 	item = /obj/item/skillchip/job/engineer
 	price_min = CARGO_CRATE_VALUE * 2
 	price_max = CARGO_CRATE_VALUE * 3
