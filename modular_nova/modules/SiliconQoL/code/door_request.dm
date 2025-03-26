@@ -19,10 +19,10 @@
 	if(!door.hasPower())
 		to_chat(src, span_warning("This airlock isn't powered."))
 		return
-	if(!door.canAIContro())
+	if(!door.canAIControl())
 		to_chat(src, span_notice("Unable to access airlock."))
 		return
-	if(door.obj_flags & EMAGGED))
+	if(door.obj_flags & EMAGGED)
 		to_chat("Airlock is unresponsive.")
 		return
 
