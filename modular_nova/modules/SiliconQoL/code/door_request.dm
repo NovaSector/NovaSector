@@ -4,7 +4,7 @@
 	if(!istype(requester))
 		return
 	if(QDELETED(door))
-		to_chat(user, span_warning("Connection lost! Unable to locate airlock on network."))
+		to_chat(src, span_warning("Connection lost! Unable to locate airlock on network."))
 		return
 	if(!istype(door))
 		return
@@ -17,9 +17,9 @@
 		to_chat(src, span_notice("Unable to track requester."))
 		return
 	if(!door.hasPower())
-		to_chat(user, span_warning("This airlock isn't powered."))
+		to_chat(src, span_warning("This airlock isn't powered."))
 		return
-	if(!door.canAIControl))
+	if(!door.canAIContro())
 		to_chat(src, span_notice("Unable to access airlock."))
 		return
 	if(door.obj_flags & EMAGGED))
