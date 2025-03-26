@@ -19,7 +19,7 @@
 
 /datum/market_item/consumable/twitch
 	name = "TWitch Sensory Stimulant Injector"
-	desc = "highly illegal sensory stimulant that migh or might not be expired"
+	desc = "Highly illegal sensory stimulant. This one may or may not be expired."
 	item = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch
 	stock_max = 1
 	price_min = CARGO_CRATE_VALUE * 2
