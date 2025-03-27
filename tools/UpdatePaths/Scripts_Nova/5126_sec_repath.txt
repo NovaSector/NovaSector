@@ -35,3 +35,4 @@
 /obj/item/clothing/gloves/combat/peacekeeper/armadyne : /obj/item/clothing/gloves/combat/armadyne{@OLD}
 /obj/item/clothing/shoes/jackboots/peacekeeper/armadyne : /obj/item/clothing/shoes/jackboots/armadyne{@OLD}
 /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge : /obj/item/clothing/suit/armor/vest/jacket/badge{@OLD}
+/obj/machinery/door/airlock/security/old/glass : /obj/machinery/door/airlock/security/glass{@OLD}

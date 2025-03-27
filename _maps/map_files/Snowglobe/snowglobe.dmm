@@ -22161,7 +22161,7 @@
 "fWI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Prison Wing"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
@@ -25347,7 +25347,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Processing"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
@@ -28911,7 +28911,7 @@
 	},
 /area/station/security/prison/mess)
 "hMb" = (
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Prison Wing"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
@@ -33331,7 +33331,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Prison Wing"
 	},
 /obj/machinery/door/poddoor/preopen{
@@ -44868,7 +44868,7 @@
 	},
 /area/station/command/teleporter)
 "lWY" = (
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Processing"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
@@ -50972,7 +50972,7 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
 "nGd" = (
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Processing"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
