@@ -45,17 +45,29 @@ export const RBMK2 = (props) => {
         <Section textAlign="center" title="Status">
           <LabeledList>
             <LabeledList.Item label="Activity">
-              <NoticeBox danger textAlign="center" backgroundColor={data.active ? 'good' : 'bad'}>
+              <NoticeBox
+                danger
+                textAlign="center"
+                backgroundColor={data.active ? 'good' : 'bad'}
+              >
                 {data.active ? 'ONLINE' : 'OFFLINE'}
               </NoticeBox>
             </LabeledList.Item>
             <LabeledList.Item label="Reaction">
-              <NoticeBox danger textAlign="center" backgroundColor={data.meltdown ? 'bad' : 'good'}>
+              <NoticeBox
+                danger
+                textAlign="center"
+                backgroundColor={data.meltdown ? 'bad' : 'good'}
+              >
                 {data.meltdown ? 'MELTDOWN' : 'STABLE'}
               </NoticeBox>
             </LabeledList.Item>
             <LabeledList.Item label="Clearance">
-              <NoticeBox danger textAlign="center" backgroundColor={data.jammed ? 'bad' : 'good'}>
+              <NoticeBox
+                danger
+                textAlign="center"
+                backgroundColor={data.jammed ? 'bad' : 'good'}
+              >
                 {data.jammed ? 'JAMMED' : 'SAFE'}
               </NoticeBox>
             </LabeledList.Item>
@@ -65,9 +77,15 @@ export const RBMK2 = (props) => {
                 minValue={0}
                 maxValue={data.safeties_max_power_generation}
                 ranges={{
-                  maroon: [(data.max_power_generation * 10), Infinity],
-                  bad: [data.max_power_generation, (data.max_power_generation * 10)],
-                  yellow: [data.safeties_max_power_generation, data.max_power_generation],
+                  maroon: [data.max_power_generation * 10, Infinity],
+                  bad: [
+                    data.max_power_generation,
+                    data.max_power_generation * 10,
+                  ],
+                  yellow: [
+                    data.safeties_max_power_generation,
+                    data.max_power_generation,
+                  ],
                   good: [0, data.safeties_max_power_generation],
                 }}
               >
@@ -80,11 +98,17 @@ export const RBMK2 = (props) => {
                 minValue={0}
                 maxValue={data.rod_pressure_limit}
                 ranges={{
-                  maroon: [(data.rod_pressure_limit * 2), Infinity],
-                  bad: [data.rod_pressure_limit, (data.rod_pressure_limit * 2)],
-                  orange: [(data.rod_pressure_limit * 0.75), data.rod_pressure_limit],
-                  yellow: [(data.rod_pressure_limit * 0.5), (data.rod_pressure_limit * 0.75)],
-                  good: [-Infinity, (data.rod_pressure_limit * 0.5)],
+                  maroon: [data.rod_pressure_limit * 2, Infinity],
+                  bad: [data.rod_pressure_limit, data.rod_pressure_limit * 2],
+                  orange: [
+                    data.rod_pressure_limit * 0.75,
+                    data.rod_pressure_limit,
+                  ],
+                  yellow: [
+                    data.rod_pressure_limit * 0.5,
+                    data.rod_pressure_limit * 0.75,
+                  ],
+                  good: [-Infinity, data.rod_pressure_limit * 0.5],
                 }}
               >
                 {data.rod_mix_pressure} kPa
@@ -92,20 +116,20 @@ export const RBMK2 = (props) => {
             </LabeledList.Item>
             <LabeledList.Item label="Rod Temperature">
               <ProgressBar
-                  value={data.rod_mix_temperature}
-                  // Thermomachine/gas meter colors + maroon.
-                  ranges={{
-                    maroon: [2000, Infinity],
-                    red: [700, 2000],
-                    orange: [460, 700],
-                    yellow: [340, 460],
-                    good: [200, 340],
-                    cyan: [120, 200],
-                    blue: [60, 120],
-                    violet: [-Infinity, 60],
-                  }}
-                >
-                  {data.rod_mix_temperature} K
+                value={data.rod_mix_temperature}
+                // Thermomachine/gas meter colors + maroon.
+                ranges={{
+                  maroon: [2000, Infinity],
+                  red: [700, 2000],
+                  orange: [460, 700],
+                  yellow: [340, 460],
+                  good: [200, 340],
+                  cyan: [120, 200],
+                  blue: [60, 120],
+                  violet: [-Infinity, 60],
+                }}
+              >
+                {data.rod_mix_temperature} K
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Remaining Fuel">
@@ -115,10 +139,10 @@ export const RBMK2 = (props) => {
                 maxValue={9}
                 ranges={{
                   // Assuming a sane operator, 9 moles can produce 1 MW for 3 hours. We have calculated for 5, 10, and 15 minutes to give colored warnings.
-                  bad: [-Infinity, (data.raw_consuming * 300)],
-                  orange: [(data.raw_consuming * 300), (data.raw_consuming * 600)],
-                  yellow: [(data.raw_consuming * 600), (data.raw_consuming * 900)],
-                  good: [(data.raw_consuming * 900), Infinity],
+                  bad: [-Infinity, data.raw_consuming * 300],
+                  orange: [data.raw_consuming * 300, data.raw_consuming * 600],
+                  yellow: [data.raw_consuming * 600, data.raw_consuming * 900],
+                  good: [data.raw_consuming * 900, Infinity],
                 }}
               >
                 {data.rod_trit_moles} Moles
@@ -192,17 +216,16 @@ export const RBMK2 = (props) => {
               </NoticeBox>
             )}
           </LabeledList>
-        <Section title="Vent Controls" textAlign="center">NOTICE: The vents must be off to change directions. This is a cost saving measure, do not print this part.</Section>
+          <Section title="Vent Controls" textAlign="center">
+            NOTICE: The vents must be off to change directions. This is a cost
+            saving measure, do not print this part.
+          </Section>
           <LabeledList>
             <LabeledList.Item
               label="Vent Power"
               buttons={
                 <>
-                  <Box
-                    inline
-                    mx={2}
-                    color={data.venting ? 'good' : 'bad'}
-                  >
+                  <Box inline mx={2} color={data.venting ? 'good' : 'bad'}>
                     {data.venting ? 'ONLINE' : 'OFFLINE'}
                   </Box>
                   <Button.Confirm
@@ -211,21 +234,17 @@ export const RBMK2 = (props) => {
                     icon="fa-fan"
                     color={data.venting ? 'bad' : 'good'}
                     onClick={() => act('venttoggle')}
-                  >TOGGLE
-
+                  >
+                    TOGGLE
                   </Button.Confirm>
                 </>
               }
-             />
+            />
             <LabeledList.Item
               label="Vent Direction"
               buttons={
                 <>
-                  <Box
-                    inline
-                    mx={5.68}
-                    color={data.vent_dir ? 'bad' : 'good'}
-                  >
+                  <Box inline mx={5.68} color={data.vent_dir ? 'bad' : 'good'}>
                     {data.vent_dir ? 'PULLING' : 'PUSHING'}
                   </Box>
                   <Button
@@ -246,41 +265,36 @@ export const RBMK2 = (props) => {
                   />
                 </>
               }
-             />
+            />
           </LabeledList>
-        <Section title="Adv. Controls" textAlign="center">WARNING: Settings within this section may explosively void your warranty.</Section>
+          <Section title="Adv. Controls" textAlign="center">
+            WARNING: Settings within this section may explosively void your
+            warranty.
+          </Section>
           <LabeledList>
             <LabeledList.Item
-                label="Safeties"
-                buttons={
-                  <>
-                    <Box
-                      inline
-                      mx={2}
-                      color={data.safety ? 'good' : 'bad'}
-                    >
-                      {data.safety ? 'ONLINE' : 'OFFLINE'}
-                    </Box>
-                    <Button.Confirm
-                      tooltip="DANGER: Toggle safeties on/off"
-                      icon="fa-helmet-safety"
-                      color={data.safety ? 'bad' : 'good'}
-                      onClick={() => act('safetytoggle')}
-                    >
-                      TOGGLE
-                    </Button.Confirm>
-                  </>
-                }
-             />
+              label="Safeties"
+              buttons={
+                <>
+                  <Box inline mx={2} color={data.safety ? 'good' : 'bad'}>
+                    {data.safety ? 'ONLINE' : 'OFFLINE'}
+                  </Box>
+                  <Button.Confirm
+                    tooltip="DANGER: Toggle safeties on/off"
+                    icon="fa-helmet-safety"
+                    color={data.safety ? 'bad' : 'good'}
+                    onClick={() => act('safetytoggle')}
+                  >
+                    TOGGLE
+                  </Button.Confirm>
+                </>
+              }
+            />
             <LabeledList.Item
               label="Overclock"
               buttons={
                 <>
-                  <Box
-                    inline
-                    mx={2}
-                    color={data.overclocked ? 'good' : 'bad'}
-                  >
+                  <Box inline mx={2} color={data.overclocked ? 'good' : 'bad'}>
                     {data.overclocked ? 'ONLINE' : 'OFFLINE'}
                   </Box>
                   <Button.Confirm
@@ -293,7 +307,7 @@ export const RBMK2 = (props) => {
                   </Button.Confirm>
                 </>
               }
-             />
+            />
           </LabeledList>
         </Section>
       </Window.Content>
