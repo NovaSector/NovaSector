@@ -1070,12 +1070,13 @@
 		if(dmg_overlay_type)
 			if(brutestate)
 			// NOVA EDIT CHANGE START
-				var/image/brute_blood_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0", image_dir)
+				var/image/brute_blood_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0", -DAMAGE_LAYER, image_dir)
 				brute_blood_overlay.color = "#FF291E"
-				var/mutable_appearance/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", appearance_flags = RESET_COLOR)
+				var/mutable_appearance/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER, appearance_flags = RESET_COLOR)
+				brute_damage_overlay.dir = image_dir
 				if(brute_damage_overlay)
 					brute_blood_overlay.overlays += brute_damage_overlay
-				. += image(brute_blood_overlay, layer = -DAMAGE_LAYER)
+				. += brute_blood_overlay
 			// NOVA EDIT CHANGE END
 			if(burnstate)
 				. += image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_0[burnstate]", -DAMAGE_LAYER, image_dir)
