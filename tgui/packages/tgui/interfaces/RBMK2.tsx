@@ -59,7 +59,6 @@ export const RBMK2 = (props) => {
                 {data.jammed ? 'JAMMED' : 'SAFE'}
               </NoticeBox>
             </LabeledList.Item>
-            <LabeledList.Divider size={1}></LabeledList.Divider>
             <LabeledList.Item label="Power Generation">
               <ProgressBar
                 value={data.raw_last_power_output}
@@ -76,7 +75,7 @@ export const RBMK2 = (props) => {
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Rod Pressure">
-            <ProgressBar
+              <ProgressBar
                 value={data.rod_mix_pressure}
                 minValue={0}
                 maxValue={data.rod_pressure_limit}
@@ -92,21 +91,21 @@ export const RBMK2 = (props) => {
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Rod Temperature">
-            <ProgressBar
-                value={data.rod_mix_temperature}
-                // Thermomachine/gas meter colors + maroon.
-                ranges={{
-                  maroon: [2000, Infinity],
-                  red: [700, 2000],
-                  orange: [460, 700],
-                  yellow: [340, 460],
-                  good: [200, 340],
-                  cyan: [120, 200],
-                  blue: [60, 120],
-                  violet: [-Infinity, 60]
-                }}
-              >
-                {data.rod_mix_temperature} K
+              <ProgressBar
+                  value={data.rod_mix_temperature}
+                  // Thermomachine/gas meter colors + maroon.
+                  ranges={{
+                    maroon: [2000, Infinity],
+                    red: [700, 2000],
+                    orange: [460, 700],
+                    yellow: [340, 460],
+                    good: [200, 340],
+                    cyan: [120, 200],
+                    blue: [60, 120],
+                    violet: [-Infinity, 60],
+                  }}
+                >
+                  {data.rod_mix_temperature} K
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Remaining Fuel">
@@ -129,7 +128,7 @@ export const RBMK2 = (props) => {
               {data.consuming} μmol/s
             </LabeledList.Item>
             <LabeledList.Item label="Criticality">
-            <ProgressBar
+              <ProgressBar
                 value={data.criticality}
                 minValue={0}
                 maxValue={100}
@@ -145,7 +144,7 @@ export const RBMK2 = (props) => {
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Integrity">
-            <ProgressBar
+              <ProgressBar
                 value={data.health_percent}
                 minValue={0}
                 maxValue={100}
@@ -170,7 +169,7 @@ export const RBMK2 = (props) => {
               width="100%"
               icon="fa-power-off"
               confirmContent="Are you sure?"
-              //selected={data.active}
+              // selected={data.active}
               color={data.active ? 'yellow' : 'good'}
               onClick={() => act('activate')}
             >
@@ -193,7 +192,7 @@ export const RBMK2 = (props) => {
               </NoticeBox>
             )}
           </LabeledList>
-        <Section title="Vent Controls" textAlign="center">NOTICE: The vents must be off to change directions. This is a cost saving measure, don't print this part.</Section>
+        <Section title="Vent Controls" textAlign="center">NOTICE: The vents must be off to change directions. This is a cost saving measure, do not print this part.</Section>
           <LabeledList>
             <LabeledList.Item
               label="Vent Power"
@@ -212,11 +211,12 @@ export const RBMK2 = (props) => {
                     icon="fa-fan"
                     color={data.venting ? 'bad' : 'good'}
                     onClick={() => act('venttoggle')}
-                  >TOGGLE</Button.Confirm>
+                  >TOGGLE
+
+                  </Button.Confirm>
                 </>
               }
-            >
-            </LabeledList.Item>
+             />
             <LabeledList.Item
               label="Vent Direction"
               buttons={
@@ -233,7 +233,7 @@ export const RBMK2 = (props) => {
                     icon="fa-clock-rotate-left"
                     disabled={data.venting}
                     color={data.vent_dir ? 'yellow' : 'blue'}
-                    //content="PULL"
+                    // content="PULL"
                     onClick={() => act('ventpull')}
                   />
                   <Button
@@ -241,13 +241,12 @@ export const RBMK2 = (props) => {
                     icon="fa-clock-rotate-left fa-flip-horizontal"
                     disabled={data.venting}
                     color={data.vent_dir ? 'blue' : 'good'}
-                    //content="PUSH"
+                    // content="PUSH"
                     onClick={() => act('ventpush')}
                   />
                 </>
               }
-            >
-            </LabeledList.Item>
+             />
           </LabeledList>
         <Section title="Adv. Controls" textAlign="center">WARNING: Settings within this section may explosively void your warranty.</Section>
           <LabeledList>
@@ -264,19 +263,15 @@ export const RBMK2 = (props) => {
                     </Box>
                     <Button.Confirm
                       tooltip="DANGER: Toggle safeties on/off"
-                      //textAlign="center"
-                      //width="100%"
                       icon="fa-helmet-safety"
                       color={data.safety ? 'bad' : 'good'}
                       onClick={() => act('safetytoggle')}
-                      //{data.safety ? 'Toggle OFF' : 'Toggle ON'}
                     >
                       TOGGLE
                     </Button.Confirm>
                   </>
                 }
-            >
-            </LabeledList.Item>
+             />
             <LabeledList.Item
               label="Overclock"
               buttons={
@@ -290,19 +285,15 @@ export const RBMK2 = (props) => {
                   </Box>
                   <Button.Confirm
                     tooltip="DANGER: Toggle overclock on/off"
-                    //textAlign="center"
-                    //width="100%"
                     icon="exclamation-triangle"
                     color={data.overclocked ? 'yellow' : 'good'}
                     onClick={() => act('overclocktoggle')}
-                    //{data.overclocked ? 'Toggle OFF' : 'Toggle ON'}
                   >
                     TOGGLE
                   </Button.Confirm>
                 </>
               }
-            >
-            </LabeledList.Item>
+             />
           </LabeledList>
         </Section>
       </Window.Content>
