@@ -453,6 +453,11 @@
 		msg += "[span_notice("No clue.")]\n"
 	// NOVA EDIT CHANGE END
 
+	var/list/additional_lines = list()
+	SEND_SIGNAL(user, COMSIG_CARBON_MOOD_CHECK, additional_lines)
+	if (length(additional_lines))
+		msg += "[additional_lines.Join("<br>")]<br>"
+
 	msg += "[span_notice("Moodlets:")]<br>"//All moodlets
 	msg += get_alcohol_processing(user) // NOVA EDIT ADDITION
 	msg += get_drunk_mood(user) // NOVA EDIT ADDITION
