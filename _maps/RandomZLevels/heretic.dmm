@@ -1276,7 +1276,12 @@
 /obj/structure/safe/floor{
 	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Hardened Marine confidential containment safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\""
 	},
-/obj/item/antag_granter/changeling,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/spacecash/c10000,
+/obj/item/stack/sheet/mineral/gold,
+/obj/item/stack/sheet/mineral/silver,
+/obj/item/stack/sheet/mineral/diamond,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "uV" = (
