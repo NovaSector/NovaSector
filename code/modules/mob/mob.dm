@@ -230,7 +230,7 @@
 	if(!client)
 		return FALSE
 
-	msg = copytext_char(msg, 1, MAX_MESSAGE_LEN+100)
+	msg = copytext_char(msg, 1, MAX_MESSAGE_LEN+200)
 
 	// Return TRUE if we sent the original msg, otherwise return FALSE
 	. = TRUE
