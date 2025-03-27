@@ -1334,3 +1334,36 @@
   - balance: naga tails (legs) are less prone to wounds
   unit0016:
   - spellcheck: All in-game references to 'broken_lock' should be gone.
+2025-03-26:
+  Bannhammger:
+  - rscadd: Freedom implant now allows you to escape taser electrode
+  - balance: owners of TRAIT_BATON_RESISTANCE gain less stamina damage while getting
+      tased
+  - balance: 'owners of  TRAIT_SHOCKIMMUNE gain nostamina damage while getting tased
+
+      balance :owners of  TRAIT_SHOCKIMMUNE of  TRAIT_BATON_RESISTANCE gain no slowdown
+      as they are tased.'
+  Iajret:
+  - bugfix: amber, violet, orange and some other alert levels are now rendered properly
+      in PDAs
+  MrSunabouzu:
+  - rscadd: Added shipyard and quiet room back to Snowglobe.
+  Odairu:
+  - qol: AIs can open doors without looking
+  OrbisAnima:
+  - qol: Empathic personel got so used to the high population of, for a better word,
+      fundamentally evil crewmembers, that they had become jaded to their presence
+      and no longer get a mood impact upon encountering one. They still get the shakes
+      though.
+  RatFromTheJungle:
+  - rscadd: subtler makes a sound, that you can also turn off
+  - qol: guncases (large) are now a backpack slot item in the loadout!
+  - rscadd: Security officers can spawn with a whistle, for whistling, in their mask
+      slot.
+  - rscadd: Sweater-foxes are now available for pet-owners, and as the name implies,
+      they're foxes in... well, sweaters!
+  - rscadd: New animated bears, for lizards but fits with alot of other snouts (tongue-flick!)
+  unit0016:
+  - bugfix: Ballet Heels and Latex Socks now use the proper icon state for non-digis.
+  - bugfix: It is no longer possible to dilute the fishing pool via the ghost cafe
+      condos. Please stop trying. You're worrying us.
