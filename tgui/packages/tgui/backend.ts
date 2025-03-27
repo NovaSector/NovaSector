@@ -245,7 +245,7 @@ export const sendAct = (action: string, payload: object = {}) => {
     logger.error(`Payload for act() must be an object, got this:`, payload);
     return;
   }
-  let MAX_PACKET_SIZE = 300;
+  let MAX_PACKET_SIZE = 1024;
   let stringified_payload = JSON.stringify(payload);
   if (stringified_payload.length > MAX_PACKET_SIZE) {
     let chunks: string[] = [];
