@@ -15,10 +15,16 @@
 
 	///the temperature of the co2 produced per successful process (its really 100) KELVIN
 	var/gas_temp = 100
+
 	///the amount of seconds process_speed goes on cooldown for
 	var/processing_speed = 6 SECONDS
+
 	///the current status of the enviroment. Any nonzero value means we can't work
 	var/mining_stat = NONE
+
+	///whether to ignore the machine stats
+	var/debug_mode = FALSE
+
 	///the chance each ore has to be picked, weighted list
 	var/list/ore_chance = list(
 		/obj/item/stack/sheet/iron = 20,
@@ -31,6 +37,10 @@
 		/obj/item/stack/sheet/mineral/gold = 3,
 		/obj/item/stack/sheet/mineral/diamond = 1,
 	)
+
+	///what object the bluespace miner is focused on
+	var/focused_item
+
 	COOLDOWN_DECLARE(process_speed)
 
 /obj/machinery/bluespace_miner/RefreshParts()
@@ -49,20 +59,26 @@
 	cut_overlays()
 	if(panel_open)
 		add_overlay("miner_open")
+
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
+
 	if(mining_stat)
 		add_overlay("miner_error")
 		// This one overrides all the following overlays so we check it first
 		if(mining_stat & BLUESPACE_MINER_TOO_CLOSE)
 			add_overlay("miner_proximity")
 			return
+
 		if(mining_stat & BLUESPACE_MINER_TOO_HOT)
 			add_overlay("miner_hot")
+
 		if(mining_stat & BLUESPACE_MINER_LOW_PRESSURE)
 			add_overlay("miner_plow")
+
 		else if(mining_stat & BLUESPACE_MINER_HIGH_PRESSURE)
 			add_overlay("miner_phigh")
+
 	else
 		add_overlay("miner_on")
 
@@ -70,15 +86,19 @@
 	. = ..()
 	if(obj_flags & EMAGGED)
 		. += span_warning("The safeties are turned off!")
+
 	// We don't need to run any more checks if this is functioning. Genuinely the old code is terrible
 	if(mining_stat)
 		if(mining_stat & BLUESPACE_MINER_TOO_CLOSE)
 			. += span_warning("[src] is in a suboptimal environment: TOO CLOSE TO ANOTHER BLUESPACE MINER")
 			return . // This needs relocation to fix so we won't bother with the rest
+
 		if(mining_stat & BLUESPACE_MINER_TOO_HOT)
 			. += span_warning("[src] is in a suboptimal environment: " + span_boldwarning("TEMPERATURE TOO HIGH!"))
+
 		if(mining_stat & BLUESPACE_MINER_LOW_PRESSURE)
 			. += span_warning("[src] is in a suboptimal environment: " + span_boldwarning("PRESSURE TOO LOW!"))
+
 		else if(mining_stat & BLUESPACE_MINER_HIGH_PRESSURE)
 			. += span_warning("[src] is in a suboptimal environment: " + span_boldwarning("PRESSURE TOO HIGH!"))
 
@@ -87,23 +107,31 @@
 /obj/machinery/bluespace_miner/proc/check_factors()
 	if(!COOLDOWN_FINISHED(src, process_speed))
 		return FALSE
+
 	COOLDOWN_START(src, process_speed, processing_speed)
+	if(debug_mode)
+		return TRUE
+
 	// cant be broken or unpowered
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
+
 	// cant be unanchored or open panel
 	if(!anchored || panel_open)
 		return FALSE
+
 	var/previous_mining_stat = mining_stat
 	// Generates the mining_stat to use for overlays and checks
 	update_mining_stat()
 	// Updates the overlays, if it is needed
 	if(mining_stat != previous_mining_stat)
 		update_appearance()
+
 	// Check if it is nonzero
 	if(mining_stat)
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 		return FALSE
+
 	// mining_stat = 0, we are ready to go
 	return TRUE
 
@@ -119,23 +147,51 @@
 		if(bs_miner != src)
 			mining_stat = mining_stat | BLUESPACE_MINER_TOO_CLOSE
 			return // This is allmighty
+
 	// if it's hotter than (or equal to) room temp, don't work
 	if(environment.temperature >= T20C)
 		mining_stat = mining_stat | BLUESPACE_MINER_TOO_HOT
+
 	// if it's lesser than(or equal to) normal pressure, don't work. Same goes for over(or equal to) 150% pressure
 	if(environment.return_pressure() <= ONE_ATMOSPHERE)
 		mining_stat = mining_stat | BLUESPACE_MINER_LOW_PRESSURE
+
 	else if(environment.return_pressure() >= (ONE_ATMOSPHERE * 1.5))
 		mining_stat = mining_stat | BLUESPACE_MINER_HIGH_PRESSURE
 
 //if check_factors is good, then we spawn materials
 /obj/machinery/bluespace_miner/proc/spawn_mats()
 	var/obj/chosen_sheet = pick_weight(ore_chance)
+	if(focused_item && focused_item != chosen_sheet)
+		return
+
 	new chosen_sheet(get_turf(src))
+
+///sets the focus of the bsminer if no focus, or removes focus if a focus. focus will multiply by 3, unfocus will divide by 3
+/obj/machinery/bluespace_miner/proc/set_focus(mob/user)
+	if(focused_item)
+		ore_chance[focused_item] /= 3
+		focused_item = null
+		balloon_alert(user, "removed focus mode")
+		return TRUE
+
+	var/choice = tgui_input_list(user, "Which would you like to triple?", "Focus Mode", ore_chance)
+	if(isnull(choice))
+		return FALSE
+
+	ore_chance[choice] *= 3
+	focused_item = choice
+	balloon_alert(user, "added focus mode")
+	return TRUE
+
+/obj/machinery/bluespace_miner/attack_hand(mob/living/user, list/modifiers)
+	if(!set_focus(user))
+		return ..()
 
 /obj/machinery/bluespace_miner/process()
 	if(!check_factors())
 		return
+
 	// Generate all the waste gas
 	var/datum/gas_mixture/merger = new
 	merger.assert_gas(/datum/gas/carbon_dioxide)
@@ -143,6 +199,7 @@
 	if(obj_flags & EMAGGED)
 		merger.assert_gas(/datum/gas/tritium)
 		merger.gases[/datum/gas/tritium][MOLES] = MOLES_CELLSTANDARD
+
 	merger.temperature = (T20C + gas_temp)
 	var/turf/src_turf = get_turf(src)
 	src_turf.assume_air(merger)
@@ -160,15 +217,18 @@
 	. = TRUE
 	if(..())
 		return
+
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
 		update_appearance()
 		return
+
 	return FALSE
 
 /obj/machinery/bluespace_miner/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
 		balloon_alert(user, "already emagged!")
 		return FALSE
+
 	ore_chance += list(/obj/item/stack/sheet/mineral/bananium = 1)
 	obj_flags |= EMAGGED
 	balloon_alert_to_viewers("fizzles!")

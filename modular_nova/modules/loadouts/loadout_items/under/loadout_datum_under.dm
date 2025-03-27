@@ -659,6 +659,11 @@
 	name = "Colourable Maid Uniform"
 	item_path = /obj/item/clothing/under/maid_costume
 
+/datum/loadout_item/under/miscellaneous/tactical_maid_costume
+	name = "Tactical Maid Uniform"
+	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
+
+
 /datum/loadout_item/under/miscellaneous/yukata
 	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
@@ -768,8 +773,8 @@
 	item_path = /obj/item/clothing/under/misc/latex_catsuit
 
 /datum/loadout_item/under/miscellaneous/stripper_outfit
-	name = "Stripper Outfit"
-	item_path = /obj/item/clothing/under/stripper_outfit
+	name = "Tearaway Garments"
+	item_path = /obj/item/clothing/under/tearaway_garments
 	erp_item = TRUE
 
 /datum/loadout_item/under/miscellaneous/lewdmaid

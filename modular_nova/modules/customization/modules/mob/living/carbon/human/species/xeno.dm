@@ -41,6 +41,7 @@
 
 /datum/species/xeno/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("Xenomorph Tail", FALSE),
 		"xenodorsal" = list("Standard", TRUE),
 		"xenohead" = list("Standard", TRUE),

@@ -2253,6 +2253,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	greyscale_config_worn = /datum/greyscale_config/half_leotard/worn
 	greyscale_colors = "#80C7D0"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = NONE
 	body_parts_covered = CHEST|ARM_RIGHT|HAND_RIGHT|GROIN
 

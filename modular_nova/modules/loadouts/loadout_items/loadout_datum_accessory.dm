@@ -30,6 +30,10 @@
 	name = "Stardress hydro-vaporizer"
 	item_path = /obj/item/clothing/accessory/vaporizer
 
+/datum/loadout_item/accessory/maidcorset_tactical
+	name = "tactical maid apron"
+	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
+
 /*
 *	ARMBANDS
 */

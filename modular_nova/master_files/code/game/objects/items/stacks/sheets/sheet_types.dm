@@ -164,6 +164,16 @@ GLOBAL_LIST_INIT(nova_snow_recipes, list(
 	. = ..()
 	. += GLOB.nova_snow_recipes
 
+// Plastic
+
+GLOBAL_LIST_INIT(nova_plastic_recipes, list(
+	new /datum/stack_recipe("cone collar", /obj/item/clothing/head/cone_of_shame, time = 1 SECONDS, category = CAT_CLOTHING),
+))
+
+/obj/item/stack/sheet/plastic/get_main_recipes()
+	. = ..()
+	. += GLOB.nova_plastic_recipes
+
 // Sand
 
 GLOBAL_LIST_INIT(nova_sand_recipes, list(

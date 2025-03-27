@@ -952,3 +952,9 @@
 	name = "Heirloom Dress"
 	item_path = /obj/item/clothing/under/dress/heirloomdagmar
 	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/pocket_items/ahabs_spear
+	name = "Ahab's Spear Retool Kit"
+	item_path = /obj/item/crusher_trophy/retool_kit/ahab
+	ckeywhitelist = list("tamaya")
+	restricted_roles = list(JOB_SHAFT_MINER)
