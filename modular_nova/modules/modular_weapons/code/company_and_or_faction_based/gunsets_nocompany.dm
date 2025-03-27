@@ -1,7 +1,7 @@
 // Base yellow carwo case
 
 /obj/item/storage/toolbox/guncase/nova/syndicate
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick black gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "syndicase"
 	worn_icon_state = "syndicase"
 	inhand_icon_state = "syndicase"
@@ -29,7 +29,7 @@
 /// Interdyne Case
 
 /obj/item/storage/toolbox/guncase/nova/interdyne
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick white gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "dynecase"
 	worn_icon_state = "dynecase"
 	inhand_icon_state = "dynecase"
@@ -53,7 +53,7 @@
 /// Interdyne Special Case
 
 /obj/item/storage/toolbox/guncase/nova/interdynespec
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick black gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "dynespeccase"
 	worn_icon_state = "dynespeccase"
 	inhand_icon_state = "dynespeccase"
@@ -77,7 +77,7 @@
 /// Solfed
 
 /obj/item/storage/toolbox/guncase/nova/solfed
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick blue gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "solfedcase"
 	worn_icon_state = "solfedcase"
 	inhand_icon_state = "solfedcase"
@@ -102,7 +102,7 @@
 /// Solfed Special
 
 /obj/item/storage/toolbox/guncase/nova/solfedspec
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick black gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "solfedspeccase"
 	worn_icon_state = "solfedspeccase"
 	inhand_icon_state = "solfedspeccase"
@@ -127,7 +127,7 @@
 /// NT Case
 
 /obj/item/storage/toolbox/guncase/nova/ntcase
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick blue gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "ntcase"
 	worn_icon_state = "ntcase"
 	inhand_icon_state = "ntcase"
@@ -152,7 +152,7 @@
 /// NT Special Case (CC/Gold Varient) (used for NTC/Blueshield & Other CC related drops)
 
 /obj/item/storage/toolbox/guncase/nova/ntspecial
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick dark blue gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "cc_case"
 	worn_icon_state = "cc_case"
 	inhand_icon_state = "cc_case"
@@ -176,7 +176,7 @@
 // Colourful Cases
 
 /obj/item/storage/toolbox/guncase/nova/greencase
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick green gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "greencase"
 	worn_icon_state = "greencase"
 	inhand_icon_state = "greencase"
@@ -198,7 +198,7 @@
 	return
 
 /obj/item/storage/toolbox/guncase/nova/redcase
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick red gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "redcase"
 	worn_icon_state = "redcase"
 	inhand_icon_state = "redcase"
@@ -220,7 +220,7 @@
 	return
 
 /obj/item/storage/toolbox/guncase/nova/bluecase
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick blue gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "bluecase"
 	worn_icon_state = "bluecase"
 	inhand_icon_state = "bluecase"
@@ -242,7 +242,7 @@
 	return
 
 /obj/item/storage/toolbox/guncase/nova/purplecase
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick purple gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "purplecase"
 	worn_icon_state = "purplecase"
 	inhand_icon_state = "purplecase"
@@ -265,7 +265,7 @@
 
 
 /obj/item/storage/toolbox/guncase/nova/orangecase
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	desc = "A thick orange gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
 	icon_state = "orangecase"
 	worn_icon_state = "orangecase"
 	inhand_icon_state = "orangecase"
