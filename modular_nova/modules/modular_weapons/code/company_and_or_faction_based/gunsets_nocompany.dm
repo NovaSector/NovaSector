@@ -171,7 +171,7 @@
 
 /obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/empty
 /obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/empty/PopulateContents()
-	returns
+	return
 
 // Colourful Cases
 
