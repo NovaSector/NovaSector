@@ -280,7 +280,7 @@
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
 	unique_reskin = list(
-		"Red Eyepatches" = list(
+		"Red Eyepatch" = list(
 			RESKIN_ICON_STATE = "hudpatch",
 			RESKIN_WORN_ICON_STATE = "hudpatch"
 		),
