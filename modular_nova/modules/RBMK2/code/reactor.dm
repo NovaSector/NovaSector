@@ -363,14 +363,21 @@
 
 	venting = desired_state
 
+	var/turf/our_turf = get_turf(src)
 	if(!venting)
-		var/turf/our_turf = get_turf(src)
 		if(user)
 			user.log_message("had vents turned off by [src]", LOG_GAME)
 			investigate_log("had vents turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 		else
 			log_game("[src] had vents turned off at [AREACOORD(our_turf)]")
 			investigate_log("had vents turned off at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
+	if(venting) // We want logging for on/off so as to avoid false flagging people who did nothing wrong.
+		if(user)
+			user.log_message("had vents turned on by [src]", LOG_GAME)
+			investigate_log("had vents turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+		else
+			log_game("[src] had vents turned on at [AREACOORD(our_turf)]")
+			investigate_log("had vents turned on at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	update_appearance(UPDATE_ICON)
 
@@ -434,11 +441,33 @@
 
 /obj/machinery/power/rbmk2/ui_data(mob/user)
 	var/list/data = list()
+	// Progress Bars
+	data["criticality"] = criticality
+	data["health_percent"] = (atom_integrity/max_integrity)*100
+	data["rod_mix_pressure"] = stored_rod?.air_contents.return_pressure() || 0				// Used to display the current pressure
+	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0							// Used as a comparison point for the progress bar
+	data["rod_mix_pressure"] = stored_rod?.air_contents.return_pressure() || 0				// Used to display the current pressure
+	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0							// Used as a comparison point for the progress bar
+	data["rod_trit_moles"] = stored_rod?.air_contents.gases[/datum/gas/tritium][MOLES] || 0	// Look for specifically tritium, don't need to show moderators.
+	data["rod_mix_temperature"] = stored_rod?.air_contents.temperature || 0
+	data["safeties_max_power_generation"] = safeties_max_power_generation					// This variable and the next allows our limits in the UI to change based on part tiers.
+	data["max_power_generation"] = max_power_generation
+	data["last_power_output"] = display_power(last_power_generation) 						// We use this to display our power using this
+	data["raw_last_power_output"] = last_power_generation									// but we use this raw to calculate the progress bar
+	data["consuming"] = last_tritium_consumption*1000000*0.5 								// Changed because 1/10,000th is not a micromole. Div 2 because only procs every two seconds not every second
+	data["raw_consuming"] = last_tritium_consumption*0.5 									// Required to calculate remaining fuel
+
+	// Buttons
+	data["venting"] = venting
+	data["vent_dir"] = vent_reverse_direction
 	data["active"] = active
+	data["safety"] = safety
+	data["overclocked"] = overclocked
 	data["rod"] = stored_rod
-	data["last_power_output"] = display_power(last_power_generation)
-	data["efficiency"] = power_efficiency*100
-	data["consuming"] = last_tritium_consumption*10000
+
+	// Misc
+	data["jammed"] = jammed
+	data["meltdown"] = meltdown
 	return data
 
 /obj/machinery/power/rbmk2/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -446,6 +475,7 @@
 	if(.)
 		return
 	var/mob/user = ui.user
+	var/turf/machine_turf = get_turf(src) // Move up here, we only need this line once.
 
 	switch(action)
 		if("activate")
@@ -457,11 +487,13 @@
 		if("venttoggle")
 			toggle_vents(user)
 			. = TRUE
-		if("ventdirection")
-			toggle_reverse_vents(user)
+		if("ventpush") // Vent push and vent pull are separate because I wanted pretty buttons and didn't know how else to implement them.
+			toggle_reverse_vents(user, FALSE)
+			. = TRUE
+		if("ventpull")
+			toggle_reverse_vents(user, TRUE)
 			. = TRUE
 		if("safetytoggle")
-			var/turf/machine_turf = get_turf(src)
 			if(safety == TRUE)
 				balloon_alert(user, "safety lights are off")
 				safety = FALSE
@@ -481,6 +513,26 @@
 				else
 					log_game("[src] had the safety turned on at [AREACOORD(machine_turf)]")
 					investigate_log("had the safety turned on at [AREACOORD(src)]", INVESTIGATE_ENGINE)
+				return
+			. = TRUE
+		if("overclocktoggle")
+			if(overclocked == TRUE)
+				overclocked = FALSE
+				if(isliving(user))
+					user.log_message("turned the overclock off of [src]", LOG_GAME)
+					investigate_log("had the overclock turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+				else
+					log_game("[src] had the overclock turned off at [AREACOORD(machine_turf)]")
+					investigate_log("had the overclock turned off at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
+				return
+			if(overclocked == FALSE)
+				overclocked = TRUE
+				if(isliving(user))
+					user.log_message("turned the overclock on of [src]", LOG_GAME)
+					investigate_log("had the overclock turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+				else
+					log_game("[src] had the overclock turned on at [AREACOORD(machine_turf)]")
+					investigate_log("had the overclock turned on at [AREACOORD(src)]", INVESTIGATE_ENGINE)
 				return
 			. = TRUE
 
