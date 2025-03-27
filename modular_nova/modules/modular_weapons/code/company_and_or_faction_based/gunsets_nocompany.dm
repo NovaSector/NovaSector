@@ -171,5 +171,117 @@
 
 /obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/empty
 /obj/item/storage/toolbox/guncase/nova/ntspecial/pistol/empty/PopulateContents()
+	returns
+
+// Colourful Cases
+
+/obj/item/storage/toolbox/guncase/nova/greencase
+	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	icon_state = "greencase"
+	worn_icon_state = "greencase"
+	inhand_icon_state = "greencase"
+/obj/item/storage/toolbox/guncase/nova/greencase/empty
+/obj/item/storage/toolbox/guncase/nova/greencase/empty/PopulateContents()
 	return
 
+/obj/item/storage/toolbox/guncase/nova/greencase/pistol
+	name = "small gun case"
+
+	icon_state = "greencase_s"
+
+	slot_flags = NONE
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/toolbox/guncase/nova/greencase/pistol/empty
+/obj/item/storage/toolbox/guncase/nova/greencase/pistol/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/redcase
+	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	icon_state = "redcase"
+	worn_icon_state = "redcase"
+	inhand_icon_state = "redcase"
+/obj/item/storage/toolbox/guncase/nova/redcase/empty
+/obj/item/storage/toolbox/guncase/nova/redcase/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/redcase/pistol
+	name = "small gun case"
+
+	icon_state = "redcase_s"
+
+	slot_flags = NONE
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/toolbox/guncase/nova/redcase/pistol/empty
+/obj/item/storage/toolbox/guncase/nova/redcase/pistol/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/bluecase
+	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	icon_state = "bluecase"
+	worn_icon_state = "bluecase"
+	inhand_icon_state = "bluecase"
+/obj/item/storage/toolbox/guncase/nova/bluecase/empty
+/obj/item/storage/toolbox/guncase/nova/bluecase/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/bluecase/pistol
+	name = "small gun case"
+
+	icon_state = "bluecase_s"
+
+	slot_flags = NONE
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/toolbox/guncase/nova/bluecase/pistol/empty
+/obj/item/storage/toolbox/guncase/nova/bluecase/pistol/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/purplecase
+	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	icon_state = "purplecase"
+	worn_icon_state = "purplecase"
+	inhand_icon_state = "purplecase"
+/obj/item/storage/toolbox/guncase/nova/purplecase/empty
+/obj/item/storage/toolbox/guncase/nova/purplecase/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/purplecase/pistol
+	name = "small gun case"
+
+	icon_state = "purplecase_s"
+
+	slot_flags = NONE
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/toolbox/guncase/nova/purplecase/pistol/empty
+/obj/item/storage/toolbox/guncase/nova/purplecase/pistol/empty/PopulateContents()
+	return
+
+
+/obj/item/storage/toolbox/guncase/nova/orangecase
+	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
+	icon_state = "orangecase"
+	worn_icon_state = "orangecase"
+	inhand_icon_state = "orangecase"
+/obj/item/storage/toolbox/guncase/nova/orangecase/empty
+/obj/item/storage/toolbox/guncase/nova/orangecase/empty/PopulateContents()
+	return
+
+/obj/item/storage/toolbox/guncase/nova/orangecase/pistol
+	name = "small gun case"
+
+	icon_state = "orangecase_s"
+
+	slot_flags = NONE
+
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/toolbox/guncase/nova/orangecase/pistol/empty
+/obj/item/storage/toolbox/guncase/nova/orangecase/pistol/empty/PopulateContents()
+	return
