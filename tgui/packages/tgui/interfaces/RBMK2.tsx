@@ -50,12 +50,12 @@ export const RBMK2 = (props) => {
               </NoticeBox>
             </LabeledList.Item>
             <LabeledList.Item label="Reaction">
-              <NoticeBox danger textAlign="center" backgroundColor={data.active ? 'bad' : 'good'}>
+              <NoticeBox danger textAlign="center" backgroundColor={data.meltdown ? 'bad' : 'good'}>
                 {data.meltdown ? 'MELTDOWN' : 'STABLE'}
               </NoticeBox>
             </LabeledList.Item>
             <LabeledList.Item label="Clearance">
-              <NoticeBox danger textAlign="center" backgroundColor={data.active ? 'bad' : 'good'}>
+              <NoticeBox danger textAlign="center" backgroundColor={data.jammed ? 'bad' : 'good'}>
                 {data.jammed ? 'JAMMED' : 'SAFE'}
               </NoticeBox>
             </LabeledList.Item>
