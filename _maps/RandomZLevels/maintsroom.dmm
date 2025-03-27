@@ -2553,6 +2553,11 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"ka" = (
+/obj/structure/destructible/cult/pylon,
+/obj/effect/rune/empower,
+/turf/open/floor/engine/cult,
+/area/awaymission/caves/maintsroom)
 "kc" = (
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/door/airlock/maintenance/external{
@@ -4211,6 +4216,9 @@
 "qB" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"qD" = (
+/turf/open/water/hot_spring/cafe,
 /area/awaymission/caves/maintsroom)
 "qE" = (
 /obj/effect/light_emitter{
@@ -8360,6 +8368,10 @@
 /obj/item/clothing/head/syndicatefake,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
+"GY" = (
+/obj/machinery/vending/dorms,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Ha" = (
 /obj/structure/sign/poster/official/nanotrasen_logo/directional/north,
 /turf/open/floor/iron,
@@ -9018,6 +9030,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/maintsroom)
+"Kj" = (
+/obj/item/door_seal,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Kk" = (
 /obj/structure/chair/wood/wings,
 /obj/item/newspaper,
@@ -9294,6 +9310,11 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"Ls" = (
+/obj/item/flashlight/lantern,
+/obj/item/clothing/head/utility/welding,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Lt" = (
@@ -11143,6 +11164,10 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/storage/toolbox/electrical,
 /obj/item/clothing/head/utility/welding,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"Tc" = (
+/obj/structure/fluff/divine/powerpylon,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Td" = (
@@ -13873,7 +13898,7 @@ Il
 zX
 UF
 oS
-lu
+ka
 jR
 uG
 GS
@@ -24539,11 +24564,11 @@ Yb
 Yb
 Yb
 GS
-uG
-uG
-uG
-uG
-uG
+qD
+qD
+qD
+qD
+Ls
 sB
 GS
 Kf
@@ -24741,11 +24766,11 @@ GS
 GS
 GS
 GS
-uG
-uG
-uG
-uG
-uG
+qD
+qD
+qD
+qD
+Kj
 sB
 GS
 uG
@@ -24943,11 +24968,11 @@ WM
 cS
 Tt
 GS
-lT
-uG
-uG
-uG
-uG
+qD
+qD
+qD
+qD
+GY
 Eq
 GS
 uG
@@ -38113,7 +38138,7 @@ Mi
 Mi
 eN
 Jq
-vf
+Tc
 IF
 xj
 tu
