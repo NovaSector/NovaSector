@@ -245,6 +245,34 @@ export const sendAct = (action: string, payload: object = {}) => {
     logger.error(`Payload for act() must be an object, got this:`, payload);
     return;
   }
+  let MAX_PACKET_SIZE = 300;
+  let stringified_payload = JSON.stringify(payload);
+  if (stringified_payload.length > MAX_PACKET_SIZE) {
+    let chunks: string[] = [];
+
+    for (
+      let i = 0, charsLength = stringified_payload.length;
+      i < charsLength;
+      i += MAX_PACKET_SIZE
+    ) {
+      chunks.push(stringified_payload.substring(i, i + MAX_PACKET_SIZE));
+    }
+
+    for (let i = 0; i < chunks.length; i++) {
+      let to_send = chunks[i];
+      let message = {
+        type: 'act/' + action,
+        packet: to_send,
+        packetId: i + 1,
+        totalPackets: chunks.length,
+        tgui: 1,
+        window_id: Byond.windowId,
+      };
+      Byond.topic(message);
+    }
+
+    return;
+  }
   Byond.sendMessage('act/' + action, payload);
 };
 

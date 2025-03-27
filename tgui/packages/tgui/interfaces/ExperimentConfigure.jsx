@@ -139,7 +139,11 @@ export const ExperimentConfigure = (props) => {
                 ))}
             </Section>
           </Flex.Item>
-          <Flex.Item mb={has_start_callback ? 1 : 0} grow={1}>
+          <Flex.Item
+            mb={has_start_callback ? 1 : 0}
+            grow={1}
+            style={{ overflowY: 'auto', overflowX: 'hidden' }}
+          >
             {techwebs.some((e) => e.selected) && (
               <Section
                 title="Experiments"
