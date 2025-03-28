@@ -364,20 +364,13 @@
 	venting = desired_state
 
 	var/turf/our_turf = get_turf(src)
-	if(!venting)
-		if(user)
-			user.log_message("had vents turned off by [src]", LOG_GAME)
-			investigate_log("had vents turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-		else
-			log_game("[src] had vents turned off at [AREACOORD(our_turf)]")
-			investigate_log("had vents turned off at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
-	if(venting) // We want logging for on/off so as to avoid false flagging people who did nothing wrong.
-		if(user)
-			user.log_message("had vents turned on by [src]", LOG_GAME)
-			investigate_log("had vents turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-		else
-			log_game("[src] had vents turned on at [AREACOORD(our_turf)]")
-			investigate_log("had vents turned on at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
+
+	if(user)
+		user.log_message("had vents turned [venting ? "on" : "off"] by [src]", LOG_GAME)
+		investigate_log("had vents turned [venting ? "on" : "off"] by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+	else
+		log_game("[src] had vents turned [venting ? "on" : "off"] at [AREACOORD(our_turf)]")
+		investigate_log("had vents turned [venting ? "on" : "off"] at [AREACOORD(our_turf)]", INVESTIGATE_ENGINE)
 
 	update_appearance(UPDATE_ICON)
 
@@ -494,46 +487,32 @@
 			toggle_reverse_vents(user, TRUE)
 			. = TRUE
 		if("safetytoggle")
-			if(safety == TRUE)
-				balloon_alert(user, "safety lights are off")
-				safety = FALSE
-				if(isliving(user))
-					user.log_message("turned the safety off of [src]", LOG_GAME)
-					investigate_log("had the safety turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-				else
-					log_game("[src] had the safety turned off at [AREACOORD(machine_turf)]")
-					investigate_log("had the safety turned off at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
-				return
-			if(safety == FALSE)
-				balloon_alert(user, "safety lights are on")
-				safety = TRUE
-				if(isliving(user))
-					user.log_message("turned the safety on of [src]", LOG_GAME)
-					investigate_log("had the safety turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-				else
-					log_game("[src] had the safety turned on at [AREACOORD(machine_turf)]")
-					investigate_log("had the safety turned on at [AREACOORD(src)]", INVESTIGATE_ENGINE)
-				return
+
+			safety = !safety
+
+			balloon_alert(user, "safeties are [safety ? "on" : "off"]")
+
+			if(isliving(user))
+				user.log_message("turned the safety [safety ? "on" : "off"] of [src]", LOG_GAME)
+				investigate_log("had the safety turned [safety ? "on" : "off"] by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+			else
+				log_game("[src] had the safety turned [safety ? "on" : "off"] at [AREACOORD(machine_turf)]")
+				investigate_log("had the safety turned [safety ? "on" : "off"] at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
+			return
 			. = TRUE
 		if("overclocktoggle")
-			if(overclocked == TRUE)
-				overclocked = FALSE
-				if(isliving(user))
-					user.log_message("turned the overclock off of [src]", LOG_GAME)
-					investigate_log("had the overclock turned off by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-				else
-					log_game("[src] had the overclock turned off at [AREACOORD(machine_turf)]")
-					investigate_log("had the overclock turned off at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
-				return
-			if(overclocked == FALSE)
-				overclocked = TRUE
-				if(isliving(user))
-					user.log_message("turned the overclock on of [src]", LOG_GAME)
-					investigate_log("had the overclock turned on by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
-				else
-					log_game("[src] had the overclock turned on at [AREACOORD(machine_turf)]")
-					investigate_log("had the overclock turned on at [AREACOORD(src)]", INVESTIGATE_ENGINE)
-				return
+
+			overclocked = !overclocked
+
+			balloon_alert(user, "overclocking is [overclocked ? "on" : "off"]")
+
+			if(isliving(user))
+				user.log_message("turned the overclock [overclocked ? "on" : "off"] of [src]", LOG_GAME)
+				investigate_log("had the overclock turned [overclocked ? "on" : "off"] by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
+			else
+				log_game("[src] had the overclock turned [overclocked ? "on" : "off"] at [AREACOORD(machine_turf)]")
+				investigate_log("had the overclock turned [overclocked ? "on" : "off"] at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
+			return
 			. = TRUE
 
 /obj/machinery/power/rbmk2/examine(mob/user)
