@@ -498,12 +498,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
-"co" = (
-/obj/structure/flora/bush/jungle/c/style_random,
-/obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/grass/jungle,
-/area/awaymission/caves/maintsroom)
 "cp" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/barricade/wooden/crude,
@@ -757,12 +751,6 @@
 	},
 /obj/item/wrench,
 /turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"dm" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "dn" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
@@ -1627,7 +1615,6 @@
 /obj/structure/flora/bush/jungle/b/style_random,
 /obj/machinery/light/floor,
 /obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "gE" = (
@@ -2204,13 +2191,6 @@
 /obj/item/clothing/mask/gas/prop,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
-"iI" = (
-/turf/open/mirage{
-	dir = 8;
-	range = 1;
-	target_turf_x = 8
-	},
-/area/awaymission/caves/maintsroom)
 "iK" = (
 /turf/closed/wall/rust,
 /area/awaymission/caves/maintsroom)
@@ -2740,7 +2720,9 @@
 /area/awaymission/caves/maintsroom)
 "kM" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "kN" = (
 /obj/machinery/door/poddoor/shutters/window/indestructible,
@@ -3009,14 +2991,6 @@
 	},
 /obj/structure/sign/poster/contraband/busty_backdoor_xeno_babes_6/directional/west,
 /turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"lP" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y = null
-	},
-/turf/open/floor/iron/stairs{
-	dir = 4
-	},
 /area/awaymission/caves/maintsroom)
 "lR" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -3647,7 +3621,6 @@
 /obj/structure/flora/rock/pile/jungle/large/style_random,
 /obj/machinery/light/floor,
 /obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "om" = (
@@ -4106,12 +4079,6 @@
 	},
 /turf/open/misc/asteroid/forest/mushroom/blue,
 /area/awaymission/caves/maintsroom)
-"ql" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = -13
-	},
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
 "qm" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
@@ -4478,7 +4445,9 @@
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "rS" = (
 /obj/effect/turf_decal/sand/plating,
@@ -4564,12 +4533,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
-"sl" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y = -2
-	},
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
 "sm" = (
 /obj/machinery/door/poddoor/shutters,
 /turf/open/floor/iron/white,
@@ -4585,14 +4548,6 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/light_construct/directional/west,
 /turf/open/floor/iron,
-/area/awaymission/caves/maintsroom)
-"su" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
-	},
-/obj/structure/falsewall,
-/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "sv" = (
 /obj/effect/turf_decal/stripes/line,
@@ -5239,14 +5194,6 @@
 /obj/item/robot_model/security,
 /obj/structure/closet/crate/engineering/electrical,
 /turf/open/floor/mineral/plastitanium,
-/area/awaymission/caves/maintsroom)
-"uY" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y = 40
-	},
-/turf/open/floor/iron/stairs{
-	dir = 4
-	},
 /area/awaymission/caves/maintsroom)
 "uZ" = (
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
@@ -6152,6 +6099,11 @@
 /obj/machinery/camera/emp_proof/directional/north,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"zc" = (
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
+/area/awaymission/caves/maintsroom)
 "ze" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/mob_spawn/corpse/human/assistant/brainrot_infection,
@@ -6415,7 +6367,9 @@
 	max_integrity = 2000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "Ag" = (
 /obj/structure/window/spawner/directional/west,
@@ -6653,10 +6607,17 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/caves/maintsroom)
 "AV" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y_offset = 13
+/obj/machinery/light/red,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
 	},
-/turf/open/floor/plating,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "AX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7027,12 +6988,6 @@
 /area/awaymission/caves/maintsroom)
 "Cu" = (
 /turf/open/floor/iron/white,
-/area/awaymission/caves/maintsroom)
-"Cw" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_x = -2
-	},
-/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Cx" = (
 /obj/effect/turf_decal/trimline/red/line,
@@ -7655,7 +7610,9 @@
 	max_integrity = 2000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "EW" = (
 /obj/effect/gibspawner/human,
@@ -7723,11 +7680,14 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fg" = (
-/obj/structure/flora/bush/jungle/b/style_random,
-/mob/living/basic/gorilla,
-/obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/grass/jungle,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/structure/falsewall,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "Fh" = (
 /obj/machinery/recycler{
@@ -8148,13 +8108,6 @@
 	dir = 4
 	},
 /area/awaymission/caves/maintsroom)
-"GK" = (
-/turf/open/mirage{
-	dir = 8;
-	range = 1;
-	target_turf_x = 4
-	},
-/area/awaymission/caves/maintsroom)
 "GL" = (
 /obj/effect/spawner/random/trash/botanical_waste,
 /turf/open/floor/plating,
@@ -8339,10 +8292,11 @@
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "HE" = (
-/obj/structure/flora/bush/jungle/b/style_random,
-/obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/grass/jungle,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "HF" = (
 /obj/structure/sign/poster/contraband/random/directional/south,
@@ -8977,15 +8931,13 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "KC" = (
-/obj/machinery/light/red,
-/obj/effect/spawner/random/trash/garbage{
-	spawn_scatter_radius = 1
-	},
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "KF" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -9671,7 +9623,9 @@
 	dir = 1
 	},
 /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "Nz" = (
 /obj/machinery/light/red/directional/east,
@@ -9745,11 +9699,6 @@
 "NG" = (
 /obj/machinery/light/floor,
 /turf/open/floor/bronze/filled,
-/area/awaymission/caves/maintsroom)
-"NH" = (
-/obj/effect/light_emitter/fake_outdoors,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "NI" = (
 /obj/structure/trash_pile,
@@ -9844,7 +9793,9 @@
 	max_integrity = 2000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "Oa" = (
 /obj/effect/turf_decal/stripes/line,
@@ -12266,7 +12217,9 @@
 /obj/machinery/conveyor/auto{
 	dir = 1
 	},
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "Ye" = (
 /obj/effect/decal/cleanable/dirt,
@@ -12588,7 +12541,9 @@
 	max_integrity = 2000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "ZC" = (
 /obj/structure/rack,
@@ -14109,7 +14064,7 @@ ED
 bO
 uG
 GS
-GK
+uG
 GS
 PD
 Cu
@@ -14311,7 +14266,7 @@ qt
 ED
 df
 GS
-Cw
+uG
 GS
 GS
 GS
@@ -14720,7 +14675,7 @@ GS
 GS
 tl
 uG
-qr
+KC
 uG
 zE
 GS
@@ -14922,7 +14877,7 @@ GS
 lT
 uG
 YZ
-qr
+KC
 uG
 uN
 uG
@@ -15326,7 +15281,7 @@ GS
 lT
 uG
 Yz
-qr
+KC
 Yz
 uG
 bO
@@ -15528,7 +15483,7 @@ GS
 df
 uG
 Yz
-qr
+KC
 Yz
 uG
 uG
@@ -15730,7 +15685,7 @@ GS
 lT
 uG
 Yz
-qr
+KC
 Yz
 EU
 lT
@@ -15932,7 +15887,7 @@ GS
 lT
 uG
 Yz
-qr
+KC
 Yz
 uG
 uG
@@ -16134,7 +16089,7 @@ GS
 GS
 GS
 GS
-qr
+KC
 GS
 GS
 GS
@@ -16336,7 +16291,7 @@ GS
 Av
 UU
 GS
-KC
+AV
 GS
 lT
 kK
@@ -16538,7 +16493,7 @@ Jw
 uG
 pV
 GS
-qr
+KC
 GS
 YZ
 BB
@@ -16740,7 +16695,7 @@ GS
 GS
 GS
 GS
-su
+Fg
 GS
 GS
 BB
@@ -17514,7 +17469,7 @@ ov
 TM
 wQ
 wQ
-uY
+HW
 GS
 aQ
 Oq
@@ -17918,7 +17873,7 @@ uG
 uG
 wQ
 GS
-iI
+HW
 GS
 Az
 GS
@@ -18120,7 +18075,7 @@ uG
 uG
 wQ
 GS
-lP
+HW
 GS
 Pu
 GS
@@ -22324,15 +22279,15 @@ jf
 jf
 jf
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
 jf
 jf
 jf
@@ -22524,19 +22479,19 @@ pp
 pp
 dt
 uG
-ql
-jf
 uG
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-jf
-sl
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
 mQ
 er
 zz
@@ -22726,19 +22681,19 @@ pp
 uG
 dt
 pp
-ql
-jf
 uG
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-jf
-AV
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
 mQ
 er
 zz
@@ -22928,19 +22883,19 @@ pp
 pp
 HP
 uG
-ql
-jf
 uG
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-jf
-AV
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
 mQ
 er
 zz
@@ -23132,15 +23087,15 @@ jf
 jf
 jf
 jf
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
 jf
 jf
 jf
@@ -26850,7 +26805,7 @@ ju
 WV
 YW
 mj
-zm
+zc
 zm
 zm
 zm
@@ -27047,7 +27002,7 @@ Ny
 Yd
 Yd
 Yd
-qm
+HE
 kM
 jf
 yx
@@ -27463,7 +27418,7 @@ kP
 NQ
 NQ
 NQ
-NH
+NQ
 NQ
 VF
 NQ
@@ -27474,7 +27429,7 @@ kP
 NQ
 NQ
 NQ
-NH
+NQ
 VF
 NQ
 MI
@@ -27676,7 +27631,7 @@ NQ
 UK
 NQ
 NQ
-Xh
+pc
 NQ
 NQ
 pc
@@ -27867,7 +27822,7 @@ NQ
 NQ
 NQ
 NQ
-Xh
+pc
 NQ
 kP
 UK
@@ -27878,7 +27833,7 @@ Ey
 pc
 NQ
 kP
-NH
+NQ
 NQ
 NQ
 Ey
@@ -28060,7 +28015,7 @@ jf
 NQ
 NQ
 NQ
-NH
+NQ
 NQ
 NQ
 pc
@@ -28069,7 +28024,7 @@ Iz
 NQ
 NQ
 NQ
-Fg
+Xp
 NQ
 NQ
 NQ
@@ -28080,7 +28035,7 @@ kP
 NQ
 NQ
 NQ
-NH
+NQ
 dr
 NQ
 NQ
@@ -28261,7 +28216,7 @@ cG
 jf
 UK
 NQ
-HE
+UK
 Ey
 NQ
 NQ
@@ -28271,7 +28226,7 @@ NQ
 NQ
 UK
 NQ
-NH
+NQ
 NQ
 NQ
 NQ
@@ -28282,7 +28237,7 @@ NQ
 TX
 kP
 Ey
-HE
+UK
 NQ
 Ey
 pc
@@ -28473,7 +28428,7 @@ NQ
 pj
 VF
 kP
-NH
+NQ
 NQ
 pc
 NQ
@@ -28484,7 +28439,7 @@ NQ
 NQ
 NQ
 NQ
-NH
+NQ
 NQ
 NQ
 NQ
@@ -28675,7 +28630,7 @@ UK
 NQ
 Ey
 NQ
-NH
+NQ
 kP
 VF
 NQ
@@ -28877,18 +28832,18 @@ NQ
 vo
 bt
 bt
-dm
+vo
 NQ
 bt
 NQ
-NH
-Xh
-NH
-NH
-co
+NQ
+pc
+NQ
+NQ
+kP
 NQ
 bt
-NH
+NQ
 kP
 NQ
 NQ
