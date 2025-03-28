@@ -97,11 +97,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "az" = (
@@ -410,10 +406,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/turf/open/floor/sepia{
-	slowdown = 1000;
-	name = "Floortiles of DOOM"
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "bL" = (
 /obj/effect/turf_decal/stripes/line,
@@ -425,10 +418,7 @@
 	dir = 5
 	},
 /obj/machinery/light/warm/directional/north,
-/turf/open/floor/sepia{
-	slowdown = 1000;
-	name = "Floortiles of DOOM"
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "bO" = (
 /obj/effect/spawner/random/structure/crate,
@@ -539,11 +529,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "cv" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "cw" = (
@@ -952,12 +938,8 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "dY" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
 /obj/structure/frame/machine/secured,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "ea" = (
@@ -1046,14 +1028,6 @@
 /obj/effect/spawner/random/trash/mess,
 /obj/vehicle/ridden/wheelchair/motorized/improved,
 /turf/open/floor/plating/rust,
-/area/awaymission/caves/maintsroom)
-"eo" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/machinery/light/directional/east,
-/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "eq" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -1289,11 +1263,7 @@
 /area/awaymission/caves/maintsroom)
 "fh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "fi" = (
@@ -1402,7 +1372,6 @@
 /area/awaymission/caves/maintsroom)
 "fB" = (
 /obj/structure/safe/floor,
-/obj/effect/spawner/random/entertainment/money_medium,
 /obj/effect/spawner/random/entertainment/money_medium,
 /obj/item/card/id,
 /turf/open/floor/iron,
@@ -1557,11 +1526,7 @@
 /area/awaymission/caves/maintsroom)
 "gn" = (
 /obj/item/target,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "go" = (
@@ -1762,11 +1727,7 @@
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "gR" = (
@@ -2158,11 +2119,7 @@
 /area/awaymission/caves/maintsroom)
 "ir" = (
 /obj/machinery/vending/liberationstation,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "is" = (
@@ -2491,10 +2448,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/turf/open/floor/sepia{
-	slowdown = 1000;
-	name = "Floortiles of DOOM"
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "jF" = (
 /obj/machinery/mech_bay_recharge_port,
@@ -3371,7 +3325,7 @@
 "mU" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/lattice/catwalk/mining,
-/turf/open/lava/smooth/basketball,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "mW" = (
 /obj/machinery/light/red{
@@ -3526,11 +3480,7 @@
 /area/awaymission/caves/maintsroom)
 "nB" = (
 /obj/item/target,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/water/beach,
 /area/awaymission/caves/maintsroom)
 "nD" = (
@@ -3941,11 +3891,6 @@
 	target_turf_x = -5
 	},
 /area/awaymission/caves/maintsroom)
-"po" = (
-/obj/structure/cable,
-/obj/machinery/power/smes/engineering,
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
 "pp" = (
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
@@ -4221,11 +4166,7 @@
 /turf/open/water/hot_spring/cafe,
 /area/awaymission/caves/maintsroom)
 "qE" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/black,
 /area/awaymission/caves/maintsroom)
 "qG" = (
@@ -4512,11 +4453,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "rI" = (
@@ -4536,6 +4473,10 @@
 "rQ" = (
 /obj/machinery/recycler/deathtrap{
 	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -4627,10 +4568,7 @@
 /obj/effect/step_trigger/teleporter/offset{
 	teleport_y = -2
 	},
-/turf/open/mirage{
-	dir = 1;
-	target_turf_x = 5
-	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "sm" = (
 /obj/machinery/door/poddoor/shutters,
@@ -4649,8 +4587,12 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "su" = (
-/obj/structure/lattice/catwalk/mining,
-/turf/open/lava/smooth/basketball,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/structure/falsewall,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "sv" = (
 /obj/effect/turf_decal/stripes/line,
@@ -5548,10 +5490,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/turf/open/floor/sepia{
-	slowdown = 1000;
-	name = "Floortiles of DOOM"
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "vY" = (
 /turf/open/floor/eighties/red,
@@ -5585,11 +5524,7 @@
 "wg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/target,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "wh" = (
@@ -6141,12 +6076,6 @@
 /obj/item/clothing/head/costume/festive,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"yG" = (
-/turf/open/floor/sepia{
-	slowdown = 1000;
-	name = "Floortiles of DOOM"
-	},
-/area/awaymission/caves/maintsroom)
 "yH" = (
 /obj/machinery/mecha_part_fabricator/maint,
 /turf/open/floor/circuit/red/anim,
@@ -6221,11 +6150,6 @@
 /area/awaymission/caves/maintsroom)
 "zb" = (
 /obj/machinery/camera/emp_proof/directional/north,
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"zc" = (
-/obj/structure/cable,
-/obj/machinery/light/directional/east,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "ze" = (
@@ -6585,11 +6509,7 @@
 "Ay" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/target,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "Az" = (
@@ -6736,16 +6656,7 @@
 /obj/effect/step_trigger/teleporter/offset{
 	teleport_y_offset = 13
 	},
-/turf/open/mirage{
-	dir = 1;
-	target_turf_x = -25
-	},
-/area/awaymission/caves/maintsroom)
-"AW" = (
-/turf/open/mirage{
-	dir = 1;
-	target_turf_x = -2
-	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "AX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7058,16 +6969,12 @@
 /area/awaymission/caves/maintsroom)
 "Cc" = (
 /mob/living/basic/trooper/nanotrasen/ranged/elite{
-	health = 1000;
+	health = 1500;
 	name = "Seargent Crowlie";
 	desc = "He stands looking out at the water of this fake domed beach, he stands completely still- that is until he hears you to which he imeediatly takes up a combative stance and starts opening fire.";
 	loot = list(/obj/item/keycard/blue)
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "Cd" = (
@@ -7075,13 +6982,6 @@
 /obj/effect/spawner/random/trash/garbage,
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
-/area/awaymission/caves/maintsroom)
-"Cf" = (
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Cg" = (
 /obj/effect/rune/blood_boil,
@@ -7150,11 +7050,7 @@
 /obj/item/ammo_box/magazine/mmg_box,
 /obj/item/ammo_box/magazine/mmg_box,
 /obj/structure/closet/crate/secure/weapon,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "CB" = (
@@ -7438,11 +7334,7 @@
 /area/awaymission/caves/maintsroom)
 "DK" = (
 /obj/structure/girder,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "DM" = (
@@ -7590,11 +7482,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/turf/open/mirage{
-	dir = 4;
-	range = 1;
-	target_turf_x = 5
-	},
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Eq" = (
 /obj/structure/disposalpipe/trunk{
@@ -7643,11 +7531,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 8
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "Ey" = (
@@ -7686,13 +7570,6 @@
 "EG" = (
 /obj/effect/spawner/random/trash/food_packaging,
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"EI" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "EJ" = (
@@ -7806,11 +7683,7 @@
 /area/awaymission/caves/maintsroom)
 "EZ" = (
 /obj/structure/barricade/sandbags,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "Fa" = (
@@ -7900,13 +7773,6 @@
 /obj/item/clothing/glasses/clockwork/wraith_spectacles,
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
-"Fo" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/open/floor/sepia{
-	slowdown = 1000;
-	name = "Floortiles of DOOM"
-	},
-/area/awaymission/caves/maintsroom)
 "Fp" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
@@ -7942,11 +7808,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "Fu" = (
@@ -8077,11 +7939,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "FR" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/closed/wall/mineral/sandstone,
 /area/awaymission/caves/maintsroom)
 "FT" = (
@@ -9119,14 +8977,15 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "KC" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_x = -2
+/obj/machinery/light/red,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
 	},
-/turf/open/mirage{
-	range = 1;
-	target_turf_x = -10;
-	dir = 8
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
 	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "KF" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -9413,9 +9272,6 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "LM" = (
-/obj/effect/temp_visual/cybersun_ai_core_death{
-	desc = "It appears to have deleted itself or at least its core components before you got to it, coward."
-	},
 /obj/item/malf_upgrade,
 /obj/item/aiupgrade/surveillance_upgrade,
 /turf/open/floor/mineral/plastitanium,
@@ -9447,11 +9303,7 @@
 /turf/open/chasm,
 /area/awaymission/caves/maintsroom)
 "LT" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/coast{
 	dir = 1
 	},
@@ -10501,12 +10353,8 @@
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "QD" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
 /obj/structure/sign/flag/nanotrasen/directional/south,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "QF" = (
@@ -10663,11 +10511,7 @@
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "Rf" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "Rh" = (
@@ -10961,11 +10805,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 1
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "Sh" = (
@@ -11305,7 +11145,7 @@
 "TA" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/extinguisher/mini,
-/turf/open/lava/smooth/basketball,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "TB" = (
 /obj/effect/spawner/random/engineering/canister,
@@ -11350,7 +11190,7 @@
 /area/awaymission/caves/maintsroom)
 "TM" = (
 /obj/structure/lattice/catwalk/mining,
-/turf/open/lava/smooth/weak,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "TN" = (
 /mob/living/simple_animal/bot/secbot/grievous/toy{
@@ -11662,11 +11502,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "UX" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "UY" = (
@@ -11698,11 +11534,7 @@
 /obj/effect/turf_decal/trimline/dark_red/line{
 	dir = 4
 	},
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "Vd" = (
@@ -12152,6 +11984,7 @@
 /area/awaymission/caves/maintsroom)
 "WN" = (
 /obj/machinery/door/puzzle/keycard/blue_required,
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "WO" = (
@@ -12168,11 +12001,7 @@
 /area/awaymission/caves/maintsroom)
 "WR" = (
 /obj/item/mounted_machine_gun_folded,
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "WU" = (
@@ -12317,11 +12146,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Xx" = (
-/obj/effect/light_emitter{
-	set_cap = 3;
-	set_luminosity = 6;
-	light_color = "#9bbbff"
-	},
+/obj/effect/light_emitter/fake_outdoors,
 /turf/open/water/beach,
 /area/awaymission/caves/maintsroom)
 "Xy" = (
@@ -13423,7 +13248,7 @@ WH
 jf
 jf
 mx
-su
+TM
 ov
 ov
 ov
@@ -13431,7 +13256,7 @@ ov
 ov
 ov
 TM
-su
+TM
 ov
 ov
 ov
@@ -13444,7 +13269,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 RC
@@ -13631,7 +13456,7 @@ ov
 ov
 ov
 ov
-su
+TM
 Qi
 TA
 ov
@@ -13646,7 +13471,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 mw
@@ -13848,7 +13673,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 vP
@@ -14050,7 +13875,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 ha
@@ -14252,7 +14077,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 hz
@@ -14454,7 +14279,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 oE
@@ -14508,7 +14333,7 @@ pb
 jR
 uG
 GS
-AW
+wH
 PZ
 nc
 PZ
@@ -14656,7 +14481,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 lF
@@ -14710,7 +14535,7 @@ Ry
 jR
 uG
 GS
-AW
+wH
 md
 PZ
 PZ
@@ -14858,7 +14683,7 @@ ov
 ov
 ov
 ov
-su
+TM
 wQ
 sb
 kf
@@ -14895,7 +14720,7 @@ GS
 GS
 tl
 uG
-uG
+qr
 uG
 zE
 GS
@@ -14912,7 +14737,7 @@ ve
 GS
 uG
 GS
-AW
+wH
 PZ
 PZ
 PZ
@@ -15046,21 +14871,21 @@ ov
 ov
 ov
 ov
-su
-su
+TM
+TM
 mU
-su
-su
-su
-su
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
 ov
-su
+TM
 wQ
 sb
 RQ
@@ -15097,7 +14922,7 @@ GS
 lT
 uG
 YZ
-uG
+qr
 uG
 uN
 uG
@@ -15114,7 +14939,7 @@ vA
 GS
 uG
 GS
-AW
+wH
 PZ
 yW
 pl
@@ -15248,21 +15073,21 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 sb
 fw
@@ -15450,7 +15275,7 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
@@ -15462,9 +15287,9 @@ fS
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 sb
 UQ
@@ -15501,7 +15326,7 @@ GS
 lT
 uG
 Yz
-uG
+qr
 Yz
 uG
 bO
@@ -15652,21 +15477,21 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 sb
 Sf
@@ -15703,7 +15528,7 @@ GS
 df
 uG
 Yz
-uG
+qr
 Yz
 uG
 uG
@@ -15854,21 +15679,21 @@ ov
 ov
 ov
 ov
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
 fS
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
 ov
-su
+TM
 wQ
 sb
 oz
@@ -15905,7 +15730,7 @@ GS
 lT
 uG
 Yz
-uG
+qr
 Yz
 EU
 lT
@@ -16056,21 +15881,21 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 sb
 PK
@@ -16107,7 +15932,7 @@ GS
 lT
 uG
 Yz
-uG
+qr
 Yz
 uG
 uG
@@ -16258,7 +16083,7 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
@@ -16270,9 +16095,9 @@ fS
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 sb
 nv
@@ -16309,7 +16134,7 @@ GS
 GS
 GS
 GS
-KC
+qr
 GS
 GS
 GS
@@ -16460,21 +16285,21 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 sb
 iK
@@ -16511,7 +16336,7 @@ GS
 Av
 UU
 GS
-VI
+KC
 GS
 lT
 kK
@@ -16662,21 +16487,21 @@ ov
 ov
 ov
 ov
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
 fS
-su
+TM
 mU
-su
-su
-su
-su
+TM
+TM
+TM
+TM
 ov
-su
+TM
 wQ
 wQ
 GS
@@ -16713,7 +16538,7 @@ Jw
 uG
 pV
 GS
-uG
+qr
 GS
 YZ
 BB
@@ -16864,21 +16689,21 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 wQ
 uX
@@ -16915,7 +16740,7 @@ GS
 GS
 GS
 GS
-YZ
+su
 GS
 GS
 BB
@@ -17066,7 +16891,7 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
@@ -17078,9 +16903,9 @@ fS
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 wQ
 lq
@@ -17268,21 +17093,21 @@ ov
 ov
 ov
 ov
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 zn
 zn
 zn
-su
+TM
 ov
-su
+TM
 wQ
 wQ
 aQ
@@ -17471,20 +17296,20 @@ ov
 ov
 ov
 mU
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
 fS
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
 ov
-su
+TM
 wQ
 wQ
 GS
@@ -17677,16 +17502,16 @@ ov
 ov
 ov
 ov
-su
+TM
 fS
-su
+TM
 ov
 ov
 ov
 ov
 ov
 ov
-su
+TM
 wQ
 wQ
 uY
@@ -17866,29 +17691,29 @@ LS
 LS
 jf
 jf
-su
-su
-su
-su
-su
-su
-su
-su
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
 fS
-su
-su
-su
-su
-su
-su
-su
-su
+TM
+TM
+TM
+TM
+TM
+TM
+TM
+TM
 wQ
 GS
 sE
@@ -18083,14 +17908,14 @@ uG
 uG
 uG
 fS
-fS
-fS
-EI
-EI
-EI
-EI
-EI
-EI
+uG
+uG
+uG
+uG
+uG
+uG
+uG
+uG
 wQ
 GS
 iI
@@ -18284,15 +18109,15 @@ uG
 zg
 zg
 uG
-uG
 fS
 uG
-po
-po
-po
-po
-po
-po
+uG
+uG
+uG
+uG
+uG
+uG
+uG
 wQ
 GS
 lP
@@ -18486,15 +18311,15 @@ uG
 uG
 uG
 uG
-uG
 fS
 uG
-po
-po
-po
-po
-po
-po
+uG
+uG
+uG
+uG
+uG
+uG
+uG
 wQ
 GS
 HW
@@ -18689,14 +18514,14 @@ sJ
 JT
 JT
 Dq
-zc
-fS
-Cf
-Cf
-Cf
-eo
-Cf
-Cf
+PJ
+uG
+uG
+uG
+uG
+PJ
+uG
+uG
 wQ
 GS
 HW
@@ -19891,9 +19716,9 @@ EL
 nl
 uG
 uG
-uh
-uh
-uh
+GS
+GS
+GS
 KA
 DN
 IE
@@ -20091,9 +19916,9 @@ jf
 wQ
 wQ
 wQ
-uh
+GS
 qW
-uh
+GS
 zz
 qW
 zZ
@@ -20290,20 +20115,20 @@ WH
 WH
 jf
 jf
-uh
-uh
-uh
-uh
+GS
+GS
+GS
+GS
 zz
 zz
 zz
-uh
-uh
-uh
-uh
-uh
-uh
-uh
+GS
+GS
+GS
+GS
+GS
+GS
+GS
 GS
 ho
 GS
@@ -20505,17 +20330,17 @@ zz
 zz
 zz
 zz
-uh
+GS
 MS
 KA
 GS
 KA
 KA
 GS
-yG
-yG
-yG
-yG
+zm
+zm
+zm
+zm
 GS
 HW
 GS
@@ -20707,17 +20532,17 @@ bB
 bB
 bB
 zz
-qW
+rJ
 KA
 KA
 GS
 KA
 KA
-Fo
+kk
 bK
-yG
+zm
 vX
-yG
+zm
 GS
 HW
 GS
@@ -20909,17 +20734,17 @@ bB
 bB
 bB
 zz
-uh
+GS
 IE
 DN
 GS
 DN
 cO
 GS
-yG
-yG
-yG
-yG
+zm
+zm
+zm
+zm
 GS
 HW
 GS
@@ -21111,7 +20936,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 KA
 KA
 GS
@@ -21119,9 +20944,9 @@ IE
 KA
 GS
 bN
-yG
+zm
 jE
-yG
+zm
 GS
 HW
 GS
@@ -21313,17 +21138,17 @@ bB
 bB
 bB
 zz
-uh
+GS
 KA
 zZ
 GS
 KA
 KA
 GS
-yG
-yG
-yG
-yG
+zm
+zm
+zm
+zm
 GS
 Jw
 GS
@@ -21515,7 +21340,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 KA
 IE
 GS
@@ -21717,7 +21542,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 DN
 KA
 GS
@@ -21919,7 +21744,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 hT
 iZ
 wr
@@ -22121,7 +21946,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 cY
 GS
 GS
@@ -22323,7 +22148,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 il
 qN
 iZ
@@ -22525,7 +22350,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 KA
 KA
 KA
@@ -22727,7 +22552,7 @@ bB
 bB
 bB
 zz
-uh
+GS
 MS
 KA
 KA
@@ -22929,9 +22754,9 @@ bB
 bB
 bB
 zz
-uh
-uh
-uh
+GS
+GS
+GS
 GS
 GS
 GS
@@ -23133,7 +22958,7 @@ bB
 zz
 zz
 zz
-qW
+rJ
 uG
 uG
 GS
@@ -23335,7 +23160,7 @@ zz
 zz
 zz
 zz
-uh
+GS
 uG
 uG
 GS
@@ -23522,22 +23347,22 @@ WH
 WH
 jf
 jf
-uh
-uh
-uh
-uh
-uh
-uh
-uh
-qW
-uh
-qW
-uh
-uh
-uh
-uh
-uh
-uh
+GS
+GS
+GS
+GS
+GS
+GS
+GS
+rJ
+GS
+rJ
+GS
+GS
+GS
+GS
+GS
+GS
 uG
 uG
 GS
