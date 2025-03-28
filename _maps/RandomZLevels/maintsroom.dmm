@@ -3952,12 +3952,6 @@
 /obj/structure/closet/body_bag,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
-"pC" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/maintenance,
-/obj/machinery/hydroponics/soil/fake_turf,
-/turf/open/space/basic,
-/area/awaymission/caves/maintsroom)
 "pF" = (
 /obj/structure/holosign/barrier/cyborg,
 /obj/effect/light_emitter/fake_outdoors,
@@ -10409,13 +10403,6 @@
 	},
 /mob/living/basic/mouse/rat,
 /turf/open/floor/plating/rust,
-/area/awaymission/caves/maintsroom)
-"QU" = (
-/turf/open/mirage{
-	dir = 4;
-	range = 1;
-	target_turf_x = -10
-	},
 /area/awaymission/caves/maintsroom)
 "QV" = (
 /obj/item/shard/plasma{
@@ -25236,7 +25223,7 @@ fP
 fP
 Xi
 fP
-pC
+QZ
 fP
 fP
 fP
@@ -32295,7 +32282,7 @@ GS
 GS
 GS
 GS
-QU
+PB
 GS
 QA
 QA
