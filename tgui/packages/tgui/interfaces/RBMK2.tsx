@@ -144,7 +144,7 @@ export const RBMK2 = (props) => {
             </LabeledList.Item>
             <LabeledList.Item
               label="Remaining Fuel"
-              tooltip="Assuming a sane operator, 9 moles can produce 1 MW for 3 hours. We have calculated for 5, 10, and 15 minutes to give colored warnings."
+              tooltip="Amount of tritium remaining in the current rod. Assuming a sane operator, 9 moles can produce 1 MW for 3 hours. We have calculated for 5, 10, and 15 minutes to give colored warnings."
             >
               <ProgressBar // Changes color based on rate of consumption while giving you a total reading.
                 value={data.rod_trit_moles}
@@ -163,7 +163,10 @@ export const RBMK2 = (props) => {
             <LabeledList.Item label="Tritium Usage">
               {data.consuming} {data.consuming_unit}s
             </LabeledList.Item>
-            <LabeledList.Item label="Criticality">
+            <LabeledList.Item
+              label="Criticality"
+              tooltip="Criticality will increase during meltdowns. The higher this goes, the more explosive integrity failure will be. Above 100% there is a chance for the reactor to spontaneously explode."
+            >
               <ProgressBar
                 value={data.criticality}
                 minValue={0}
