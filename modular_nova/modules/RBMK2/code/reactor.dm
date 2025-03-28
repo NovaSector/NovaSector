@@ -499,7 +499,7 @@
 				log_game("[src] had the safety turned [safety ? "on" : "off"] at [AREACOORD(machine_turf)]")
 				investigate_log("had the safety turned [safety ? "on" : "off"] at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
 			return
-			. = TRUE
+		. = TRUE
 		if("overclocktoggle")
 
 			overclocked = !overclocked
@@ -513,7 +513,7 @@
 				log_game("[src] had the overclock turned [overclocked ? "on" : "off"] at [AREACOORD(machine_turf)]")
 				investigate_log("had the overclock turned [overclocked ? "on" : "off"] at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
 			return
-			. = TRUE
+		. = TRUE
 
 /obj/machinery/power/rbmk2/examine(mob/user)
 	. = ..()
