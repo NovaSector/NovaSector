@@ -18,7 +18,7 @@
 	availability_prob = 25
 
 /datum/market_item/consumable/twitch
-	name = "TWitch Sensory Stimulant Injector"
+	name = "Twitch Sensory Stimulant Injector"
 	desc = "Highly illegal sensory stimulant. This one may or may not be expired."
 	item = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch
 	stock_max = 1
