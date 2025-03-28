@@ -70,8 +70,6 @@
 	stock_max = 5
 	availability_prob = 75
 
-
-
 // Makes this even more expensive
 /datum/market_item/weapon/dimensional_bomb
 	price_min = CARGO_CRATE_VALUE * 180
