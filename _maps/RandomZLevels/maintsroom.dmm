@@ -195,6 +195,16 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"aW" = (
+/obj/effect/spawner/random/engineering/canister,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "aX" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/drinkingglass{
@@ -2536,6 +2546,10 @@
 /obj/item/reagent_containers/cup/beaker/large,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"jU" = (
+/obj/effect/spawner/random/structure/closet_empty/crate,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "jX" = (
 /obj/item/circuitboard/machine/medical_kiosk,
 /obj/structure/frame/machine,
@@ -3533,6 +3547,11 @@
 	},
 /turf/open/water/beach,
 /area/awaymission/caves/maintsroom)
+"nC" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "nD" = (
 /obj/effect/turf_decal/trimline/blue/line,
 /turf/open/floor/iron/dark/textured,
@@ -3771,6 +3790,10 @@
 	},
 /obj/structure/trash_pile,
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"oA" = (
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "oD" = (
 /turf/closed/mineral/random/stationside/asteroid/rockplanet,
@@ -4086,6 +4109,13 @@
 /area/awaymission/caves/maintsroom)
 "pP" = (
 /turf/open/floor/iron/chapel,
+/area/awaymission/caves/maintsroom)
+"pQ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "pT" = (
 /mob/living/simple_animal/hostile/cult/mannequin,
@@ -6821,6 +6851,12 @@
 /obj/machinery/porta_turret/syndicate/energy/heavy,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
+"Bg" = (
+/obj/effect/spawner/random/engineering/canister,
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Bh" = (
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
@@ -7395,6 +7431,12 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/structure/closet_empty/crate,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"Dz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/bamboo,
 /area/awaymission/caves/maintsroom)
 "DA" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
@@ -8384,6 +8426,13 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"He" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Hf" = (
 /obj/structure/frame/machine,
 /obj/item/circuitboard/machine/chem_master,
@@ -8729,9 +8778,15 @@
 /obj/item/gun/energy/laser/musket/prime,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
+"IM" = (
+/obj/effect/spawner/random/decoration/microwave,
+/obj/effect/spawner/random/structure/crate_abandoned,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "IN" = (
 /obj/structure/sink/directional/east,
 /obj/structure/disposalpipe/segment,
+/obj/effect/spawner/random/structure/girder,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "IO" = (
@@ -9088,6 +9143,17 @@
 	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/maintsroom)
+"Ks" = (
+/obj/effect/spawner/random/engineering/canister,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Kt" = (
 /obj/structure/chair/pew/right{
 	dir = 1
@@ -9298,6 +9364,16 @@
 	pixel_y = 12
 	},
 /turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"Lo" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/mob/living/basic/trooper/syndicate/ranged/smg/anthro{
+	name = "Syndicate Vietnamese ambush moth"
+	},
+/obj/structure/flora/bush/large/style_random,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Lp" = (
 /mob/living/simple_animal/bot/secbot{
@@ -9577,6 +9653,10 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"Mz" = (
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "MB" = (
 /obj/structure/table,
@@ -10038,6 +10118,10 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
+"Oj" = (
+/obj/effect/spawner/random/decoration/statue,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Ok" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt,
@@ -10106,6 +10190,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/mecha_wreckage/odysseus,
 /turf/open/floor/circuit/green,
+/area/awaymission/caves/maintsroom)
+"OC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/effect/spawner/random/structure/girder,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "OE" = (
 /obj/structure/closet/cardboard,
@@ -11224,6 +11315,9 @@
 /obj/item/reagent_containers/cup/glass/bottle/beer,
 /obj/item/reagent_containers/cup/glass/bottle/beer,
 /turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"Tm" = (
+/turf/open/floor/bamboo,
 /area/awaymission/caves/maintsroom)
 "To" = (
 /obj/structure/fluff/tram_rail{
@@ -12787,6 +12881,10 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"ZF" = (
+/obj/effect/spawner/random/structure/crate_loot,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "ZG" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/automatic/l6_saw{
@@ -12841,7 +12939,12 @@
 /obj/item/clothing/gloves/color/plasmaman/atmos,
 /obj/item/clothing/under/plasmaman/atmospherics,
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/plasma_pistol,
+/obj/item/construction/rcd,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"ZO" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/bamboo,
 /area/awaymission/caves/maintsroom)
 "ZP" = (
 /obj/item/food/cubannachos,
@@ -12851,6 +12954,13 @@
 "ZQ" = (
 /mob/living/basic/construct/artificer,
 /turf/open/floor/engine/cult,
+/area/awaymission/caves/maintsroom)
+"ZR" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "ZS" = (
 /obj/structure/destructible/cult/item_dispenser/altar,
@@ -21729,9 +21839,9 @@ DO
 KA
 MS
 GS
-uG
-uG
-uG
+Mz
+Mz
+Mz
 wQ
 qZ
 jL
@@ -22134,7 +22244,7 @@ KA
 YM
 GS
 uG
-uG
+Mz
 uG
 kV
 BY
@@ -23336,7 +23446,7 @@ zz
 zz
 zz
 uh
-uG
+zl
 uG
 GS
 ci
@@ -23349,7 +23459,7 @@ ps
 bu
 uG
 uG
-uG
+Mz
 uG
 uG
 uG
@@ -23378,7 +23488,7 @@ ps
 ps
 ps
 ps
-ps
+nC
 ps
 ps
 ps
@@ -23538,7 +23648,7 @@ uh
 uh
 uh
 uh
-uG
+jU
 uG
 GS
 YM
@@ -23547,11 +23657,11 @@ GS
 ho
 GS
 GS
+zl
 uG
 uG
 uG
-uG
-uG
+Mz
 uG
 uG
 uG
@@ -23731,16 +23841,16 @@ vf
 vf
 AA
 GS
-uG
+oA
 GS
 uG
-uG
+zJ
 Sy
 uG
 uG
 PL
 GS
-uG
+TB
 uG
 GS
 ci
@@ -23759,8 +23869,8 @@ GS
 GS
 GS
 GS
-uG
-uG
+aW
+Ks
 uG
 GS
 GS
@@ -23942,7 +24052,7 @@ uG
 uG
 PL
 GS
-uG
+jU
 uG
 GS
 il
@@ -23961,8 +24071,8 @@ GS
 lT
 DM
 GS
-uG
-uG
+TB
+Bg
 kK
 dC
 QF
@@ -24135,7 +24245,7 @@ vf
 HA
 vf
 GS
-uG
+zl
 GS
 WM
 uG
@@ -24153,7 +24263,7 @@ GS
 GS
 GS
 GS
-BB
+ZR
 rJ
 uG
 uG
@@ -24163,8 +24273,8 @@ GS
 qq
 Td
 GS
-uG
-uG
+TB
+Bg
 sB
 GS
 BB
@@ -24349,7 +24459,7 @@ CF
 GS
 uG
 uG
-uG
+Mz
 uG
 uG
 uG
@@ -24751,11 +24861,11 @@ GS
 GS
 GS
 GS
-uG
-uG
-uG
-uG
-uG
+df
+df
+Oj
+IM
+ZF
 uG
 lT
 GS
@@ -24943,14 +25053,7 @@ vf
 qp
 qp
 GS
-uG
-uG
-rJ
-uG
-uG
-uG
-uG
-uG
+TB
 uG
 rJ
 uG
@@ -24958,8 +25061,15 @@ uG
 uG
 uG
 uG
+zJ
+rJ
 uG
 uG
+uG
+Mz
+Mz
+uG
+Lo
 GS
 BB
 GS
@@ -25542,7 +25652,7 @@ WH
 WH
 jf
 jf
-uG
+zJ
 uG
 GS
 kK
@@ -25563,10 +25673,10 @@ Fq
 VC
 Fq
 GS
-uG
+zJ
 uG
 GS
-uG
+jU
 BB
 rJ
 Dn
@@ -25765,7 +25875,7 @@ Fq
 VC
 Am
 GS
-uG
+jU
 uG
 GS
 uG
@@ -25947,7 +26057,7 @@ WH
 jf
 jf
 uG
-uG
+TB
 GS
 BB
 GS
@@ -25970,7 +26080,7 @@ GS
 uG
 uG
 GS
-uG
+jU
 BB
 GS
 GS
@@ -26172,7 +26282,7 @@ GS
 uG
 uG
 GS
-uG
+jU
 Kf
 ps
 ps
@@ -26371,7 +26481,7 @@ Fq
 DF
 Fq
 GS
-uG
+jU
 uG
 GS
 uG
@@ -26804,7 +26914,7 @@ uG
 BB
 GS
 BB
-uG
+Mz
 uG
 sB
 uG
@@ -27006,7 +27116,7 @@ uG
 Kf
 VL
 Xg
-uG
+Mz
 uG
 sB
 uG
@@ -27162,7 +27272,7 @@ uG
 GS
 uG
 GS
-uG
+TB
 uG
 uG
 uG
@@ -27174,15 +27284,15 @@ uG
 GS
 uG
 uG
-uG
-uG
+TB
+jU
 WM
 GS
 GS
 GS
 GS
 GS
-uG
+TB
 BB
 GS
 uG
@@ -27208,7 +27318,7 @@ uG
 uG
 GS
 Kf
-ps
+nC
 ps
 bu
 lT
@@ -27384,13 +27494,13 @@ ps
 kn
 QF
 GS
-uG
+jU
 BB
 GS
-uG
+TB
 BB
 GS
-uG
+Mz
 GS
 pp
 lR
@@ -27606,7 +27716,7 @@ Xs
 uh
 lT
 uG
-uG
+Mz
 uG
 lT
 GS
@@ -27778,9 +27888,9 @@ uG
 uG
 uG
 uG
-uG
-uG
-uG
+Mz
+jU
+TB
 uG
 GF
 GS
@@ -27790,7 +27900,7 @@ BB
 GS
 GS
 BB
-uG
+TB
 GS
 BB
 GS
@@ -27808,7 +27918,7 @@ Xs
 uh
 uG
 uG
-uG
+Mz
 uG
 uG
 GS
@@ -27980,7 +28090,7 @@ ps
 ps
 ps
 ps
-ps
+nC
 ps
 ps
 ps
@@ -27992,7 +28102,7 @@ bu
 uG
 GS
 BB
-uG
+jU
 GS
 BB
 GS
@@ -28011,7 +28121,7 @@ uh
 uG
 uG
 uG
-uG
+Nz
 uG
 GS
 uG
@@ -28194,7 +28304,7 @@ uG
 uG
 GS
 BB
-uG
+jU
 GS
 DZ
 GS
@@ -28602,7 +28712,7 @@ ps
 Zx
 bu
 uG
-uG
+jU
 Nz
 uG
 Nz
@@ -28778,8 +28888,8 @@ LH
 eX
 PB
 GS
-uG
-uG
+Mz
+Mz
 GS
 lT
 BB
@@ -28819,8 +28929,8 @@ uh
 uG
 uG
 GS
-uG
-uG
+Mz
+Mz
 GS
 uG
 jf
@@ -28983,8 +29093,8 @@ GS
 GS
 rJ
 GS
-uG
-BB
+Mz
+He
 GS
 uG
 uG
@@ -29016,7 +29126,7 @@ AI
 AI
 uh
 uG
-uG
+zJ
 GS
 uG
 uG
@@ -29204,7 +29314,7 @@ kd
 uG
 uG
 GS
-uG
+jU
 uG
 uh
 Xo
@@ -29826,7 +29936,7 @@ uh
 lT
 uG
 GS
-uG
+zJ
 uG
 lT
 GS
@@ -30028,7 +30138,7 @@ uh
 uG
 uG
 rJ
-uG
+Nz
 uG
 uG
 rJ
@@ -30820,8 +30930,8 @@ uG
 uG
 uG
 GS
-kK
-ps
+pQ
+nC
 QF
 GS
 GS
@@ -31022,7 +31132,7 @@ GS
 GS
 GS
 GS
-sB
+OC
 GS
 jm
 GS
@@ -31226,7 +31336,7 @@ uG
 bf
 sB
 GS
-Kf
+Dz
 VL
 bu
 uG
@@ -31403,8 +31513,8 @@ jf
 HO
 bQ
 GS
-uG
-uG
+Mz
+Mz
 GS
 GS
 GS
@@ -31428,7 +31538,7 @@ uG
 uG
 sB
 GS
-uG
+Tm
 GS
 GS
 GS
@@ -31440,7 +31550,7 @@ GS
 GS
 GS
 GS
-uG
+oA
 GS
 GS
 GS
@@ -31605,8 +31715,8 @@ jf
 Sb
 BB
 GS
-uG
-uG
+Mz
+Mz
 GS
 lT
 uG
@@ -31620,7 +31730,7 @@ GS
 uG
 uG
 uG
-uG
+Mz
 GS
 uG
 ZV
@@ -31630,7 +31740,7 @@ uG
 uG
 sB
 GS
-uG
+Tm
 GS
 hX
 IC
@@ -31832,7 +31942,7 @@ uG
 uG
 sB
 GS
-uG
+Tm
 GS
 HY
 AY
@@ -32023,7 +32133,7 @@ GS
 GS
 uG
 uG
-uG
+Mz
 uG
 GS
 uG
@@ -32034,7 +32144,7 @@ ps
 ps
 NI
 GS
-uG
+Tm
 GS
 hX
 AY
@@ -32236,8 +32346,8 @@ GS
 GS
 GS
 GS
-uG
-rJ
+Tm
+ZO
 IC
 AY
 IC
@@ -32427,7 +32537,7 @@ ps
 ps
 ps
 ps
-ps
+nC
 ps
 ps
 ps
@@ -32435,10 +32545,10 @@ ps
 ps
 bu
 rJ
-uG
-uG
-uG
-uG
+Tm
+Tm
+Tm
+Tm
 GS
 AY
 iu
