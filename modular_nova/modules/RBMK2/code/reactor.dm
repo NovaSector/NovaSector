@@ -491,7 +491,7 @@
 			safety = !safety
 
 			balloon_alert(user, "safeties are [safety ? "on" : "off"]")
-
+			. = TRUE
 			if(isliving(user))
 				user.log_message("turned the safety [safety ? "on" : "off"] of [src]", LOG_GAME)
 				investigate_log("had the safety turned [safety ? "on" : "off"] by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
@@ -499,13 +499,12 @@
 				log_game("[src] had the safety turned [safety ? "on" : "off"] at [AREACOORD(machine_turf)]")
 				investigate_log("had the safety turned [safety ? "on" : "off"] at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
 			return
-		. = TRUE
 		if("overclocktoggle")
 
 			overclocked = !overclocked
 
 			balloon_alert(user, "overclocking is [overclocked ? "on" : "off"]")
-
+			. = TRUE
 			if(isliving(user))
 				user.log_message("turned the overclock [overclocked ? "on" : "off"] of [src]", LOG_GAME)
 				investigate_log("had the overclock turned [overclocked ? "on" : "off"] by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
@@ -513,7 +512,6 @@
 				log_game("[src] had the overclock turned [overclocked ? "on" : "off"] at [AREACOORD(machine_turf)]")
 				investigate_log("had the overclock turned [overclocked ? "on" : "off"] at [AREACOORD(machine_turf)]", INVESTIGATE_ENGINE)
 			return
-		. = TRUE
 
 /obj/machinery/power/rbmk2/examine(mob/user)
 	. = ..()
