@@ -1,6 +1,7 @@
 /obj/item/storage/bag/garment/hos/alternate
 	name = "head of security's alternate garment bag"
 	desc = "An extra bag for storing alternative designs of their clothes and shoes. This one belongs to the head of security."
+	icon_state = "garment_bag_blue"
 	icon = '/modular_nova/modules/sec_haul/icons/garment.dmi'
 
 /obj/item/storage/bag/garment/captain/PopulateContents()
