@@ -414,7 +414,7 @@ ROUNDSTART_RACES teshari
 ROUNDSTART_RACES hemophage
 ROUNDSTART_RACES vox_primalis
 ROUNDSTART_RACES abductorweak
-ROUNDSTART_RACES golem
+ROUNDSTART_RACES golemweak
 ROUNDSTART_RACES dullahan
 
 ##-------------------------------------------------------------------------------------------
