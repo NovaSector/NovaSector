@@ -193,7 +193,6 @@ export const RBMK2 = (props) => {
               width="100%"
               icon="fa-power-off"
               confirmContent="Are you sure?"
-              // selected={data.active}
               color={data.active ? 'yellow' : 'good'}
               onClick={() => act('activate')}
             >
@@ -252,7 +251,6 @@ export const RBMK2 = (props) => {
                     icon="fa-clock-rotate-left"
                     disabled={data.venting}
                     color={data.vent_dir ? 'yellow' : 'blue'}
-                    // content="PULL"
                     onClick={() => act('ventpull')}
                   />
                   <Button
@@ -260,7 +258,6 @@ export const RBMK2 = (props) => {
                     icon="fa-clock-rotate-left fa-flip-horizontal"
                     disabled={data.venting}
                     color={data.vent_dir ? 'blue' : 'good'}
-                    // content="PUSH"
                     onClick={() => act('ventpush')}
                   />
                 </>
