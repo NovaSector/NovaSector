@@ -3,5 +3,5 @@
 	id = AWAYSTART_HERETIC
 
 /obj/effect/landmark/awaystart/maintsroom
-	name = "Maintsroom"
+	name = "maintsroom"
 	id = AWAYSTART_MAINTSROOM
