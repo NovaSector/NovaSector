@@ -216,8 +216,8 @@ export const RBMK2 = (props) => {
             )}
           </LabeledList>
           <Section title="Vent Controls" textAlign="center">
-            NOTICE: The vents must be off to change directions. This is a cost
-            saving measure, do not print this part.
+            NOTICE: The vents must be off to change directions. (This is a cost
+            saving measure - do not print this part.)
           </Section>
           <LabeledList>
             <LabeledList.Item
