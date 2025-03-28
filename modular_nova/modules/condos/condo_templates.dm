@@ -121,3 +121,21 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 	mappath = "modular_nova/modules/condos/_maps/xeno_resin.dmm"
 	landing_zone_x_offset = 2
 	landing_zone_y_offset = 1
+	
+/datum/map_template/condo/cabin_woods
+	name = "Condo - Cabin In The Woods"
+	mappath = "modular_nova/modules/condos/_maps/cabin_woods.dmm"
+	landing_zone_x_offset = 2
+	landing_zone_y_offset = 1
+	
+/datum/map_template/condo/ship_bridge
+	name = "Condo - Spaceship Bridge"
+	mappath = "modular_nova/modules/condos/_maps/ship_bridge.dmm"
+	landing_zone_x_offset = 2
+	landing_zone_y_offset = 8
+	
+/datum/map_template/condo/public_library
+	name = "Condo - Public Library"
+	mappath = "modular_nova/modules/condos/_maps/public_library.dmm"
+	landing_zone_x_offset = 7
+	landing_zone_y_offset = 1
