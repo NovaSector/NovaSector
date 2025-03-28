@@ -63,7 +63,6 @@
 	/// Maybe don't enable this for shotgun ammo boxes.
 	var/multitype = TRUE
 
-
 ///GUN SPRITE OVERWRITES
 /obj/item/gun/energy/ionrifle
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
@@ -101,14 +100,12 @@
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/m1911
-	desc = "A classic handgun, modern variants of which take .460 Ceres."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 	inhand_icon_state = "colt"
 	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/c20r
-	desc = "A bullpup three-round burst .460 Ceres SMG, designated 'C-20r'. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/m90
@@ -240,7 +237,7 @@
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 	name = "syndicate sniper rifle"
-	desc = "An illegally modified .416 Stabilis sniper rifle with suppression compatibility. Quickscoping still doesn't work."
+	desc = "An illegally modified .50 sniper rifle with suppressor compatibility. Quickscoping still doesn't work."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper2"
 	worn_icon_state = "sniper"
@@ -262,7 +259,7 @@
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/modular/syndicate
 	name = "'Caracal' anti-materiel rifle"  //we flop out
-	desc = "A sleek, light bullpup .416 Stabilis sniper rifle with a reciprocating barrel, nicknamed 'Caracal' by Scarborough Arms. Its compact folding parts make it able to fit into a backpack, and its modular barrel can have a suppressor installed within it rather than as a muzzle extension. Its advanced scope accounts for all ballistic inaccuracies of a reciprocating barrel."
+	desc = "A sleek, light bullpup .50 sniper rifle with a reciprocating barrel, nicknamed 'Caracal' by Scarborough Arms. Its compact folding parts make it able to fit into a backpack, and its modular barrel can have a suppressor installed within it rather than as a muzzle extension. Its advanced scope accounts for all ballistic inaccuracies of a reciprocating barrel."
 	icon_state = "sysniper"
 	fire_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle.ogg'
 	suppressed_sound = 'modular_nova/modules/aesthetics/guns/sound/sniperrifle_s.ogg'
@@ -299,7 +296,7 @@
 
 /obj/item/gun/ballistic/automatic/ar/modular
 	name = "\improper NT ARG-63"
-	desc = "Nanotrasen's prime ballistic option based on the Stoner design, fitted with a light polymer frame and other tactical furniture, and chambered in .277 Aestus - nicknamed 'Boarder' by Special Operations teams."
+	desc = "Nanotrasen's prime ballistic option based on the Stoner design, fitted with a light polymer frame and other tactical furniture, chambered in .223 - nicknamed 'Boarder' by Special Operations teams."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "arg"
 	inhand_icon_state = "arg"
