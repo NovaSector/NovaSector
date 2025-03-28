@@ -1004,9 +1004,9 @@
 	cooldown = CLICK_CD_MELEE
 	knockdown_time = 0.25 SECONDS
 	demolition_mod = 1.5
-	stamina_damage = 30 // 4 hit stamcrit
+	stamina_damage = 35 // 4 hit stamcrit
 	stun_armour_penetration = 30 // bronze-silver telescopic
-	force = 16 // 7 hit crit
+	force = 21 // 7 hit crit
 	bare_wound_bonus = 5
 
 /obj/item/melee/baton/nunchaku/proc/randomize_state()
@@ -1038,3 +1038,13 @@
 		melee_attack_chain(owner, attacker, LEFT_CLICK)
 
 	return ..()
+
+
+// NOVA EDIT
+/obj/item/melee/baton/nunchaku
+	stamina_damage = 35 // 4 hit stamcrit
+	force = 21 // 7 hit crit
+	special_desc_requirement = EXAMINE_CHECK_SYNDICATE
+	special_desc = "A Syndicate fitness equipment used in training and spec-ops.\
+					It is painted in the syndicate's colors and has the organization's logo."
+// NOVA EDIT
