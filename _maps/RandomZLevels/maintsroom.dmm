@@ -11602,7 +11602,9 @@
 /turf/open/floor/grass,
 /area/awaymission/caves/maintsroom)
 "VA" = (
-/obj/machinery/power/apc/worn_out/directional/north,
+/obj/machinery/power/apc/worn_out/directional/north{
+	cell_type = /obj/item/stock_parts/power_store/cell/infinite
+	},
 /obj/structure/cable,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/caves/maintsroom)
