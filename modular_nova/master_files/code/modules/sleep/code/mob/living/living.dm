@@ -14,6 +14,8 @@
 		min_value = 0,
 		default = 1
 	)
+	if(isnull(duration))
+		return
 	if(duration == 0)
 		duration = STATUS_EFFECT_PERMANENT
 	else
