@@ -142,13 +142,15 @@ export const RBMK2 = (props) => {
                 {data.rod_mix_temperature} K
               </ProgressBar>
             </LabeledList.Item>
-            <LabeledList.Item label="Remaining Fuel">
+            <LabeledList.Item
+              label="Remaining Fuel"
+              tooltip="Assuming a sane operator, 9 moles can produce 1 MW for 3 hours. We have calculated for 5, 10, and 15 minutes to give colored warnings."
+            >
               <ProgressBar // Changes color based on rate of consumption while giving you a total reading.
                 value={data.rod_trit_moles}
                 minValue={0}
                 maxValue={9}
                 ranges={{
-                  // Assuming a sane operator, 9 moles can produce 1 MW for 3 hours. We have calculated for 5, 10, and 15 minutes to give colored warnings.
                   bad: [-Infinity, data.raw_consuming * 300],
                   orange: [data.raw_consuming * 300, data.raw_consuming * 600],
                   yellow: [data.raw_consuming * 600, data.raw_consuming * 900],
