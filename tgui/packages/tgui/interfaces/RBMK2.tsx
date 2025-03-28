@@ -45,7 +45,10 @@ export const RBMK2 = (props) => {
       <Window.Content>
         <Section textAlign="center" title="Status">
           <LabeledList>
-            <LabeledList.Item label="Activity">
+            <LabeledList.Item
+              label="Activity"
+              tooltip="NOTICE: REACTOR CANNOT BE DEACTIVATED DURING MELTDOWN"
+            >
               <NoticeBox
                 danger
                 textAlign="center"
@@ -54,7 +57,10 @@ export const RBMK2 = (props) => {
                 {data.active ? 'ONLINE' : 'OFFLINE'}
               </NoticeBox>
             </LabeledList.Item>
-            <LabeledList.Item label="Reaction">
+            <LabeledList.Item
+              label="Reaction"
+              tooltip="NOTICE: ATTEMPTING TO DEACTIVATE WHILE REACTION SAYS 'MELTDOWN' WILL RESULT IN A JAM."
+            >
               <NoticeBox
                 danger
                 textAlign="center"
@@ -63,7 +69,10 @@ export const RBMK2 = (props) => {
                 {data.meltdown ? 'MELTDOWN' : 'STABLE'}
               </NoticeBox>
             </LabeledList.Item>
-            <LabeledList.Item label="Clearance">
+            <LabeledList.Item
+              label="Clearance"
+              tooltip="NOTICE: DOES NOT SHOW WHETHER OR NOT THE ROD WILL JAM WHEN ATTEMPTING TO DEACTIVATE."
+            >
               <NoticeBox
                 danger
                 textAlign="center"
