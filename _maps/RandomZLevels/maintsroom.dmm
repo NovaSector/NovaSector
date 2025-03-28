@@ -252,6 +252,9 @@
 /obj/effect/spawner/random/decoration/showcase,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"bi" = (
+/turf/closed/mineral/earth_like,
+/area/awaymission/caves/maintsroom)
 "bj" = (
 /obj/effect/step_trigger/teleporter/offset{
 	teleport_y = -2
@@ -948,7 +951,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/turf/open/floor/carpet/blue/airless,
+/turf/open/floor/carpet/blue,
 /area/awaymission/caves/maintsroom)
 "eg" = (
 /obj/structure/chair/stool/directional/north,
@@ -1610,6 +1613,16 @@
 	pixel_y = -6
 	},
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"gB" = (
+/mob/living/basic/heretic_summon/raw_prophet/ruins{
+	name = "You shouldnt be here";
+	bare_wound_bonus = 100;
+	wound_bonus = 100;
+	melee_damage_upper = 50;
+	health = 2000
+	},
+/turf/open/misc/grass/jungle/station,
 /area/awaymission/caves/maintsroom)
 "gC" = (
 /obj/structure/flora/bush/jungle/b/style_random,
@@ -4748,6 +4761,9 @@
 	dir = 8
 	},
 /area/awaymission/caves/maintsroom)
+"th" = (
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/awaymission/caves/maintsroom)
 "ti" = (
 /obj/machinery/griddle,
 /turf/open/floor/iron/cafeteria,
@@ -6747,6 +6763,9 @@
 /obj/structure/light_construct/small/directional/east,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
+"Bt" = (
+/turf/open/misc/grass/jungle/station,
+/area/awaymission/caves/maintsroom)
 "By" = (
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
@@ -7038,7 +7057,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/turf/open/floor/carpet/blue/airless,
+/turf/open/floor/carpet/blue,
 /area/awaymission/caves/maintsroom)
 "CK" = (
 /obj/structure/filingcabinet,
@@ -8997,6 +9016,14 @@
 /obj/structure/window/spawner/directional/north,
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
+"KV" = (
+/obj/machinery/power/rtg/debug{
+	power_gen = 2000000;
+	name = "More powerful debug RTG"
+	},
+/obj/structure/cable,
+/turf/open/misc/grass/jungle/station,
+/area/awaymission/caves/maintsroom)
 "KY" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/structure/fluff/tram_rail,
@@ -9042,7 +9069,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/turf/open/floor/carpet/blue/airless,
+/turf/open/floor/carpet/blue,
 /area/awaymission/caves/maintsroom)
 "Li" = (
 /obj/structure/trap/stun,
@@ -11300,7 +11327,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/turf/open/floor/carpet/blue/airless,
+/turf/open/floor/carpet/blue,
 /area/awaymission/caves/maintsroom)
 "Uy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -11573,6 +11600,11 @@
 /obj/structure/flora/bush/ferny/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
+/area/awaymission/caves/maintsroom)
+"VA" = (
+/obj/machinery/power/apc/worn_out/directional/north,
+/obj/structure/cable,
+/turf/open/misc/grass/jungle/station,
 /area/awaymission/caves/maintsroom)
 "VC" = (
 /obj/effect/spawner/random/entertainment/arcade,
@@ -31836,10 +31868,10 @@ SS
 yR
 UP
 jf
-QA
-QA
-QA
-QA
+jf
+jf
+jf
+jf
 QA
 QA
 QA
@@ -32038,10 +32070,10 @@ Gl
 Aw
 Gl
 jf
-QA
-QA
-QA
-QA
+th
+VA
+gB
+jf
 QA
 QA
 QA
@@ -32240,10 +32272,10 @@ aM
 SS
 FM
 jf
-QA
-QA
-QA
-QA
+bi
+KV
+Bt
+jf
 QA
 QA
 QA
