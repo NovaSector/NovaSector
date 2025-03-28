@@ -25,6 +25,7 @@ type ReactorInfo = {
   raw_last_power_output: number;
   last_power_output: string;
   consuming: string;
+  consuming_unit: string;
   raw_consuming: number;
   rod: BooleanLike;
   rod_mix_pressure: number;
@@ -40,7 +41,7 @@ type ReactorInfo = {
 export const RBMK2 = (props) => {
   const { act, data } = useBackend<ReactorInfo>();
   return (
-    <Window width={355} height={710}>
+    <Window width={360} height={710}>
       <Window.Content>
         <Section textAlign="center" title="Status">
           <LabeledList>
@@ -149,7 +150,7 @@ export const RBMK2 = (props) => {
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Tritium Usage">
-              {data.consuming} μmol/s
+              {data.consuming} {data.consuming_unit}s
             </LabeledList.Item>
             <LabeledList.Item label="Criticality">
               <ProgressBar

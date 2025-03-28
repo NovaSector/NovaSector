@@ -434,6 +434,7 @@
 
 /obj/machinery/power/rbmk2/ui_data(mob/user)
 	var/list/data = list()
+	var/list/consuming_si_derived_data = siunit_isolated(last_tritium_consumption*0.5, "mole", maxdecimals=3) // Div 2 (x0.5) because only procs every two seconds not every second
 	// Progress Bars
 	data["criticality"] = criticality
 	data["health_percent"] = (atom_integrity/max_integrity)*100
@@ -447,8 +448,9 @@
 	data["max_power_generation"] = max_power_generation
 	data["last_power_output"] = display_power(last_power_generation) 						// We use this to display our power using this
 	data["raw_last_power_output"] = last_power_generation									// but we use this raw to calculate the progress bar
-	data["consuming"] = last_tritium_consumption*1000000*0.5 								// Changed because 1/10,000th is not a micromole. Div 2 because only procs every two seconds not every second
-	data["raw_consuming"] = last_tritium_consumption*0.5 									// Required to calculate remaining fuel
+	data["consuming"] = consuming_si_derived_data[SI_COEFFICIENT]							// Changed because 1/10,000th and si makes more sense during meltdowns.
+	data["consuming_unit"] = consuming_si_derived_data[SI_UNIT]
+	data["raw_consuming"] = last_tritium_consumption*0.5 									// Required to calculate remaining fuel in the rod_trit_moles progressbar
 
 	// Buttons
 	data["venting"] = venting
