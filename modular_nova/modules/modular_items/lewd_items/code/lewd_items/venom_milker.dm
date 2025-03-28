@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/venom_milker
-	name = "\improper venom siphon"
+	name = "venom siphon"
 	desc = "A commercial grade venom siphon, made for use on larger - typically human sized - animals. \
 	Has a built-in reagent neutralizer that inhibits the effects of most extracted toxins for safe handling, but it cannot be guaranteed to work."
 
