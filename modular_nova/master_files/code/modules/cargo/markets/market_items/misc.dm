@@ -55,7 +55,7 @@
 
 /datum/market_item/misc/foam_smg_riotmag
 	name = "Foam Force SMG Magazine"
-	desc = "A magazine for a Foam Force SMG, filled with riot darts. Foam Force SMG sold seperately."
+	desc = "A magazine for a Foam Force SMG, filled with riot darts. Foam Force SMG sold separately."
 	item = /obj/item/ammo_box/magazine/toy/smg/riot
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE
