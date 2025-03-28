@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - rscadd: "Added a new quirk, and a 'dorms module' item with it: Venomous bite, and the venom-milker!"
