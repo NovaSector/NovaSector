@@ -7,7 +7,7 @@
 /obj/item/gun/examine(mob/user)
 	. = ..()
 	if(lore_blurb)
-		. += span_notice("You can <b>examine closer</b> to learn a little more about [src].")
+		. += span_notice("You can [EXAMINE_HINT("examine more")] to learn a little more about [src].")
 
 /obj/item/gun/examine_more(mob/user)
 	. = ..()
