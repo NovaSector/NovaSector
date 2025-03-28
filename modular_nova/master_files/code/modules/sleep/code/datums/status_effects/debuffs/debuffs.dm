@@ -6,7 +6,7 @@
 /datum/status_effect/incapacitating/sleeping/on_creation(mob/living/new_owner, set_duration, is_voluntary = FALSE)
 	voluntary = is_voluntary
 	// Hide sleep duration if permanent
-	if(set_duration == -1)
+	if(set_duration == STATUS_EFFECT_PERMANENT)
 		show_duration = FALSE
 	return ..()
 
