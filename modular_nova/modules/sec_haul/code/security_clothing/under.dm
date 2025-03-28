@@ -1,5 +1,5 @@
 // Sec overrides can be found on
-// modular_nova\modules\goofsec\code\sec_clothing_overrides.dm
+// modular_nova\modules\sec_haul\code\security_clothing\sec_clothing_overrides.dm
 
 /obj/item/clothing/under/rank/security/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/security.dmi'

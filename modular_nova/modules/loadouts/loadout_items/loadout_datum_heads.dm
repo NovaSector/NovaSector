@@ -606,11 +606,6 @@
 	item_path = /obj/item/clothing/head/beret/sec/peacekeeper
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 
-/datum/loadout_item/head/solpolicehelmet
-	name = "Sol Police Helmet"
-	item_path = /obj/item/clothing/head/helmet/sec/sol
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
-
 /datum/loadout_item/head/officerpatrolcap
 	name = "Security Officer Patrol Cap"
 	item_path = /obj/item/clothing/head/hats/warden/police/patrol

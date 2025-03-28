@@ -91,21 +91,6 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/hats_warden
 
-/obj/item/clothing/head/helmet/sec/sol
-	name = "sol police helmet"
-	desc = "A helmet to protect any officer from bludgeoning attacks, or the occasional bullet."
-	icon = 'modular_nova/master_files/icons/obj/clothing/head/helmet.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/helmet.dmi'
-	icon_state = "security_helmet_novisor"
-	base_icon_state = "security_helmet_novisor"
-	actions_types = NONE
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	flags_cover = /obj/item/clothing/head/helmet::flags_cover
-	armor_type = /datum/armor/head_helmet
-
-/obj/item/clothing/head/helmet/sec/sol/click_alt(mob/user)
-	return NONE // No visor to flip
-
 /obj/item/clothing/head/hats/warden/police/patrol
 	name = "police patrol cap"
 	desc = "A dark colored hat with a silver badge, for the officer interested in style."

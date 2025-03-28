@@ -59,7 +59,7 @@
 	icon_state = "fightgloves_blue"
 
 //PEACEKEEPER WEBBING
-/obj/item/storage/belt/security/webbing/blue
+/obj/item/storage/belt/security/webbing/peacekeeper
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "blue_webbing"

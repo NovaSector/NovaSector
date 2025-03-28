@@ -209,7 +209,7 @@
 	item_path = /obj/item/clothing/under/rank/security/detective/kim
 
 /datum/loadout_item/under/jumpsuit/sol_peacekeeper
-	name = "Sol Military Uniform"
+	name = "Sol Peacekeeper Uniform"
 	item_path = /obj/item/clothing/under/sol_peacekeeper
 
 /datum/loadout_item/under/jumpsuit/sol_emt
