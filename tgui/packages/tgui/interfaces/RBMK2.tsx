@@ -40,7 +40,7 @@ type ReactorInfo = {
 export const RBMK2 = (props) => {
   const { act, data } = useBackend<ReactorInfo>();
   return (
-    <Window width={350} height={710}>
+    <Window width={355} height={710}>
       <Window.Content>
         <Section textAlign="center" title="Status">
           <LabeledList>
@@ -216,8 +216,9 @@ export const RBMK2 = (props) => {
             )}
           </LabeledList>
           <Section title="Vent Controls" textAlign="center">
-            NOTICE: The vents must be off to change directions. (This is a cost
-            saving measure - do not print this part.)
+            NOTICE: The vents must be off to change directions.
+            <br />
+            <i>(This is a cost saving measure - do not print this part.)</i>
           </Section>
           <LabeledList>
             <LabeledList.Item
