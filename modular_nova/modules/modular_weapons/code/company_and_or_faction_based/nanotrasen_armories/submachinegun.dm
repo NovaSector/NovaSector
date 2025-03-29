@@ -1,10 +1,12 @@
-/* The Nanotrasen Armouries NT20, a revamped (nerfed) variant of the C20-r for the Blueshield's personal (and hopefully exclusive) use.
+/*
+The Nanotrasen Armories NT20, a revamped (nerfed) variant of the C20-r for the Blueshield's personal (and hopefully exclusive) use.
 If you're thinking of putting this in Company Imports: don't. Stop! We've been through this once already with the CMG.
-This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I'll haunt you. Thaaaanks! */
+This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I'll haunt you. Thaaaanks!
+*/
 
 /obj/item/gun/ballistic/automatic/nt20
 	name = "\improper NT20 Submachine Gun"
-	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armouries/ballistic.dmi'
+	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
 	desc = "A sleek, select-fire SMG chambered in the imposing .460 Ceres cartridge. The Blueshield's favorite toy."
 	icon_state = "nt20"
 	inhand_icon_state = "c20r"
@@ -19,13 +21,10 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	projectile_damage_multiplier = 0.75
 	spread = 6
 
-/obj/item/gun/ballistic/automatic/nt20/examine_more(mob/user)
-	. = ..()
-
-	. += "The Nanotrasen Armories NT20 is a recent release from NT's esteemed private arms division, \
+	lore_blurb = "The Nanotrasen Armories NT20 is a recent release from NT's esteemed private arms division, \
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
-		issued it in the ongoing rollout. \
-		Though certain rival manufacturers have dismissed the NT20 as a \"fake\" or a \"blatant bootleg,\"  \
+		issued it in its ongoing rollout.<br><br>\
+		Though certain rival manufacturers have dismissed the NT20 as a \"fake\" or a \"blatant bootleg,\" \
 		the inimitable .460 Ceres round and a patent-pending multi-stage delayed blowback system \
 		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire."
 

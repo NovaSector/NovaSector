@@ -83,8 +83,8 @@
 
 	ore_input.color = COLOR_MODERATE_BLUE
 	var/mutable_appearance/light_in = emissive_appearance(ore_input.icon, ore_input.icon_state, offset_spokesman = src, alpha = ore_input.alpha)
-	light_in.pixel_y = ore_input.pixel_y
-	light_in.pixel_x = ore_input.pixel_x
+	light_in.pixel_w = ore_input.pixel_y
+	light_in.pixel_z = ore_input.pixel_x
 	. += ore_input
 	. += light_in
 
