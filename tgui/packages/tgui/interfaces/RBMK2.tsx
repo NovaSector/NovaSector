@@ -81,7 +81,10 @@ export const RBMK2 = (props) => {
                 {data.jammed ? 'JAMMED' : 'SAFE'}
               </NoticeBox>
             </LabeledList.Item>
-            <LabeledList.Item label="Power Generation">
+            <LabeledList.Item
+              label="Power Generation"
+              tooltip="Power generation is influenced by pressure and temperature. If unsure, view those meters for further explanations."
+            >
               <ProgressBar
                 value={data.raw_last_power_output}
                 minValue={0}
@@ -102,7 +105,10 @@ export const RBMK2 = (props) => {
                 {data.last_power_output}
               </ProgressBar>
             </LabeledList.Item>
-            <LabeledList.Item label="Rod Pressure">
+            <LabeledList.Item
+              label="Rod Pressure"
+              tooltip="Pressures above 4500 kPa begin to increasingly slow down the reaction, with the slowest speed by 18,000 kPa. Safety systems will trigger at pressures exceeding 9000 kPa."
+            >
               <ProgressBar
                 value={data.rod_mix_pressure}
                 minValue={0}
@@ -124,7 +130,10 @@ export const RBMK2 = (props) => {
                 {data.rod_mix_pressure} kPa
               </ProgressBar>
             </LabeledList.Item>
-            <LabeledList.Item label="Rod Temperature">
+            <LabeledList.Item
+              label="Rod Temperature"
+              tooltip="As the temperature of the mixt increases, fuel consumption rises, leading to greater power generation. If safeties are disabled, the reactor will begin to melt down at 2,073.15°K."
+            >
               <ProgressBar
                 value={data.rod_mix_temperature}
                 // Thermomachine/gas meter colors + maroon.
@@ -165,7 +174,7 @@ export const RBMK2 = (props) => {
             </LabeledList.Item>
             <LabeledList.Item
               label="Criticality"
-              tooltip="Criticality will increase during meltdowns. The higher this goes, the more explosive integrity failure will be. Above 100% there is a chance for the reactor to spontaneously explode."
+              tooltip="During meltdowns, criticality levels rise significantly. As criticality rises, the risk of explosive integrity failure intensifies (as does the blast radius.) Exceeding 100% criticality poses a severe risk of spontaneous reactor explosion. Kindly don't let this happen planetside; we don't want another incident."
             >
               <ProgressBar
                 value={data.criticality}
@@ -215,7 +224,7 @@ export const RBMK2 = (props) => {
             </Button.Confirm>
             {data.rod ? (
               <Button.Confirm
-                tooltip="Fuel Rod Ejection Button"
+                tooltip="Ejects currently inserted rod. NOTE: We haven't been able to consistently recreate this in testing, but this button can (rarely) unjam the rod. It's better to use a crowbar."
                 textAlign="center"
                 width="100%"
                 icon="fa-eject"
@@ -263,14 +272,14 @@ export const RBMK2 = (props) => {
                     {data.vent_dir ? 'PULLING' : 'PUSHING'}
                   </Box>
                   <Button
-                    tooltip="Sets the vents to vacuum from the surrounding environment into the internal RBMK2 chamber."
+                    tooltip="Adjust the vents to draw air from the surrounding environment into the internal chamber of the RBMK2."
                     icon="fa-clock-rotate-left"
                     disabled={data.venting}
                     color={data.vent_dir ? 'yellow' : 'blue'}
                     onClick={() => act('ventpull')}
                   />
                   <Button
-                    tooltip="Sets the vents to exhaust their contents into the surrounding environment."
+                    tooltip="Adjust the vents to release the contents of the RBMK2's internal chamber into the surrounding environment."
                     icon="fa-clock-rotate-left fa-flip-horizontal"
                     disabled={data.venting}
                     color={data.vent_dir ? 'blue' : 'good'}
@@ -293,7 +302,7 @@ export const RBMK2 = (props) => {
                     {data.safety ? 'ONLINE' : 'OFFLINE'}
                   </Box>
                   <Button.Confirm
-                    tooltip="DANGER: Toggle safeties on/off"
+                    tooltip="DANGER: Toggle safeties on/off. Only do this if you KNOW what you're doing!"
                     icon="fa-helmet-safety"
                     color={data.safety ? 'bad' : 'good'}
                     onClick={() => act('safetytoggle')}
@@ -311,7 +320,7 @@ export const RBMK2 = (props) => {
                     {data.overclocked ? 'ONLINE' : 'OFFLINE'}
                   </Box>
                   <Button.Confirm
-                    tooltip="DANGER: Toggle overclock on/off"
+                    tooltip="DANGER: Toggle overclock on/off. When combined with disabled safeties, this can be very volatile! Make sure you know what you're doing!"
                     icon="exclamation-triangle"
                     color={data.overclocked ? 'yellow' : 'good'}
                     onClick={() => act('overclocktoggle')}
