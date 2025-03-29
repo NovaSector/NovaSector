@@ -236,7 +236,7 @@
 	to_chat(human_user, span_warning("You feel weight lifted off your shoulders as items are teleported off your body!"))
 	to_chat(human_user, span_notice("Items moved to lockbox: [shame_box.locked_contents]."))
 	computer.say(
-		message = "A service contract between Nanotrasen and Lustwish stipulates that company issued batons, masks, restraints, and other equipment are not to be used for recreational purposes. Employees may purchase recreational provisions from an approved vendor. Your restricted items have been placed in a lockbox to be retrieved after punch in.",
+		message = "Nanotrasen contracts stipulate that company issued batons, masks, restraints, and other equipment are not to be used for recreational purposes. Your restricted items have been placed in a lockbox to be retrieved after punch in.",
 		forced = TRUE,
 	)
 	return TRUE
