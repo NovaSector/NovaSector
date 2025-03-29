@@ -1,7 +1,7 @@
 /datum/quirk/genetic_mutation
 	name = "Genetic Mutation"
 	desc = "For some reason or another, you've got an unusual genetic mutation, the rest is up to fate."
-	icon = FA_ICON_DNA
+	icon = FA_ICON_RECEIPT
 	value = 6
 	gain_text = "If everyone's super, no one is."
 	lose_text = "You feel like everyone else might be super after all."
