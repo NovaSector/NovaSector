@@ -14,10 +14,12 @@
 	var/damage_type
 	/// Whether to flavor it as drinking rather than eating.
 	var/drinking
+	/// If true, we put food in our tummy instead of deleting it
+	var/add_to_contents
 	/// Types the animal can eat.
 	var/list/food_types
 
-/datum/element/basic_eating/Attach(datum/target, heal_amt = 0, damage_amount = 0, damage_type = null, drinking = FALSE, food_types = list())
+/datum/element/basic_eating/Attach(datum/target, heal_amt = 0, damage_amount = 0, damage_type = null, drinking = FALSE, add_to_contents = FALSE, food_types = list())
 	. = ..()
 
 	if(!isliving(target))
@@ -28,6 +30,7 @@
 	src.damage_amount = damage_amount
 	src.damage_type = damage_type
 	src.drinking = drinking
+	src.add_to_contents = add_to_contents
 	src.food_types = food_types
 
 	RegisterSignal(target, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_feed))
@@ -65,6 +68,8 @@
 		return FALSE
 	if(SEND_SIGNAL(eater, COMSIG_MOB_PRE_EAT, target, feeder) & COMSIG_MOB_CANCEL_EAT)
 		return FALSE
+	if(add_to_contents && !ismovable(target))
+		return FALSE
 	var/eat_verb
 	if(drinking)
 		eat_verb = pick("slurp","sip","guzzle","drink","quaff","suck")
@@ -89,14 +94,20 @@
 /datum/element/basic_eating/proc/finish_eating(mob/living/eater, atom/target, mob/living/feeder)
 	set waitfor = FALSE
 	if(drinking)
-		playsound(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
+		playsound_if_pref(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE)
 	else
-		playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
+		playsound_if_pref(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE, pref_to_check = /datum/preference/toggle/sound_eating) // NOVA EDIT CHANGE - Original: playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	var/atom/final_target = target
 	if(SEND_SIGNAL(eater, COMSIG_MOB_ATE, final_target, feeder) & COMSIG_MOB_TERMINATE_EAT)
 		return
 	if(isstack(target)) //if stack, only consume 1
 		var/obj/item/stack/food_stack = target
 		final_target = food_stack.split_stack(eater, 1)
-	eater.log_message("has eaten [target]!", LOG_ATTACK)
-	qdel(final_target)
+
+	eater.log_message("has eaten [target], [add_to_contents ? "swallowing it" : "destroying it"]!", LOG_ATTACK)
+
+	if (add_to_contents)
+		var/atom/movable/movable_target = final_target
+		movable_target.forceMove(eater)
+	else
+		qdel(final_target)

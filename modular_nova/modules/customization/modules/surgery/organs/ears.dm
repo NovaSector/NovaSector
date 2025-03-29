@@ -1,13 +1,15 @@
-/obj/item/organ/ears/mutant
+/obj/item/organ/ears_external
 	name = "fluffy ears"
 	desc = "Wait, there's two pairs of these?"
 	icon = 'icons/obj/clothing/head/costume.dmi'
 	icon_state = "kitty"
+	mutantpart_key = "ears"
+	mutantpart_info = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF", "#FFFFFF", "#FFFFFF"))
+	zone = BODY_ZONE_HEAD
+	slot = ORGAN_SLOT_EXTERNAL_EARS
+	organ_flags = ORGAN_EXTERNAL
+	preference = "feature_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
-
-/obj/item/organ/ears/cat
-
-/obj/item/organ/ears/fox
 
 /datum/bodypart_overlay/mutant/ears
 	feature_key = "ears"

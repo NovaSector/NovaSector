@@ -72,6 +72,9 @@
 /mob/living/carbon/human/species/skrell
 	race = /datum/species/skrell
 
+/mob/living/carbon/human/species/abductorweak
+	race = /datum/species/abductor/abductorweak
+
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
 	set name = "Toggle underwear visibility"

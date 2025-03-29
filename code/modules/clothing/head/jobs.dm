@@ -175,7 +175,6 @@
 	desc = "There's only one man who can sniff out the dirty stench of crime, and he's likely wearing this hat."
 	armor_type = /datum/armor/fedora_det_hat
 	icon_state = "detective"
-	inhand_icon_state = "det_hat"
 	interaction_flags_click = NEED_DEXTERITY|NEED_HANDS|ALLOW_RESTING
 	dog_fashion = /datum/dog_fashion/head/detective
 	/// Path for the flask that spawns inside their hat roundstart
@@ -239,10 +238,9 @@
 ///Detectives Fedora, but like Inspector Gadget. Not a subtype to not inherit candy corn stuff
 /obj/item/clothing/head/fedora/inspector_hat
 	name = "inspector's fedora"
-	desc = "There's only one man can try to stop an evil villian."
+	desc = "There's only one man can try to stop an evil villain."
 	armor_type = /datum/armor/fedora_det_hat
 	icon_state = "detective"
-	inhand_icon_state = "det_hat"
 	dog_fashion = /datum/dog_fashion/head/detective
 	interaction_flags_click = FORBID_TELEKINESIS_REACH|ALLOW_RESTING
 	///prefix our phrases must begin with

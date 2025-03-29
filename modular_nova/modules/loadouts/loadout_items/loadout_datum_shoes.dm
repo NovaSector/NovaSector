@@ -1,7 +1,4 @@
-/datum/loadout_category/feet
-	category_name = "Feet"
-	category_ui_icon = FA_ICON_SHOE_PRINTS
-	type_to_generate = /datum/loadout_item/shoes
+/datum/loadout_category/shoes
 	tab_order = /datum/loadout_category/hands::tab_order + 1
 
 /*
@@ -225,7 +222,7 @@
 
 /datum/loadout_item/shoes/dominaheels
 	name = "Dominant Heels"
-	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
+	item_path = /obj/item/clothing/shoes/ballet_heels/domina_heels
 	erp_item = TRUE
 
 /datum/loadout_item/shoes/latex_socks
@@ -233,9 +230,9 @@
 	item_path = /obj/item/clothing/shoes/latex_socks
 	erp_item = TRUE
 
-/datum/loadout_item/shoes/latex_heels
-	name = "Latex Heels"
-	item_path = /obj/item/clothing/shoes/latex_heels
+/datum/loadout_item/shoes/ballet_heels
+	name = "Ballet Heels"
+	item_path = /obj/item/clothing/shoes/ballet_heels
 	erp_item = TRUE
 
 /datum/loadout_item/shoes/griffin

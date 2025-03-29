@@ -53,7 +53,6 @@ GLOBAL_LIST_EMPTY(starlight)
 	temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
-	var/starlight_source_count = 0
 
 	var/destination_z
 	var/destination_x
@@ -272,7 +271,7 @@ GLOBAL_LIST_EMPTY(starlight)
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/open/space/openspace/LateInitialize()
-	AddElement(/datum/element/turf_z_transparency)
+	ADD_TURF_TRANSPARENCY(src, INNATE_TRAIT)
 
 /turf/open/space/openspace/Destroy()
 	// Signals persist through destroy, GO HOME

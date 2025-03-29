@@ -441,8 +441,7 @@
 	. = ..()
 	if(!active)
 		return
-	var/mutable_appearance/light_icon = mutable_appearance(overlay_icon_file, "module_light_on", layer = standing.layer + 0.2)
-	light_icon.appearance_flags = RESET_COLOR
+	var/mutable_appearance/light_icon = mutable_appearance(overlay_icon_file, "module_light_on", layer = standing.layer + 0.2, appearance_flags = RESET_COLOR)
 	light_icon.color = light_color
 	. += light_icon
 
@@ -667,11 +666,9 @@
 	required_slots = list(ITEM_SLOT_HEAD)
 
 /obj/item/mod/module/plasma_stabilizer/generate_worn_overlay(mutable_appearance/standing)
-	if (!active)
-		return list()
 	var/mutable_appearance/visor_overlay = mod.get_visor_overlay(standing)
 	visor_overlay.appearance_flags |= RESET_COLOR
-	visor_overlay.color = COLOR_VOID_PURPLE
+	visor_overlay.color = COLOR_VIOLET
 	return list(visor_overlay)
 
 /obj/item/mod/module/plasma_stabilizer/on_equip()

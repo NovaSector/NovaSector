@@ -18,7 +18,7 @@ import { createSearch } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { Food } from './PreferencesMenu/data';
+import { Food } from './PreferencesMenu/types';
 
 const TYPE_ICONS = {
   'Can Make': 'utensils',
@@ -267,6 +267,7 @@ export const PersonalCrafting = (props) => {
                 <Stack.Item>
                   <Input
                     autoFocus
+                    expensive
                     placeholder={
                       'Search in ' +
                       data.recipes.length +
@@ -333,8 +334,8 @@ export const PersonalCrafting = (props) => {
                     </Tabs.Tab>
                   </Tabs>
                 </Stack.Item>
-                <Stack.Item grow m={-1}>
-                  <Box height={'100%'} p={1} style={{ overflowY: 'auto' }}>
+                <Stack.Item grow m={-1} style={{ overflowY: 'auto' }}>
+                  <Box height={'100%'} p={1}>
                     <Tabs vertical>
                       {tabMode === TABS.foodtype &&
                         mode === MODE.cooking &&

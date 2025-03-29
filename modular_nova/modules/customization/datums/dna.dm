@@ -162,7 +162,10 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 					var/list/marking_list = GLOB.body_markings_per_limb[zone]
 					set_uni_feature_block(blocknumber, construct_block(marking_list.Find(marking), marking_list.len))
 
-/datum/dna/proc/update_body_size()
+/// Updates the mob's body size to prefs features
+/datum/dna/proc/update_body_size(force_reapply = FALSE)
+	if(force_reapply)
+		current_body_size = BODY_SIZE_NORMAL
 	if(!holder || species.body_size_restricted || current_body_size == features["body_size"])
 		return
 	var/change_multiplier = features["body_size"] / current_body_size
@@ -195,10 +198,11 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 
 	skin_tone = GLOB.skin_tones[deconstruct_block(get_uni_identity_block(structure, DNA_SKIN_TONE_BLOCK), GLOB.skin_tones.len)]
 
-	eye_color_left = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_LEFT_BLOCK))
-	eye_color_right = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_RIGHT_BLOCK))
+	set_eye_color(sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_LEFT_BLOCK)), sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_RIGHT_BLOCK)))
 	set_haircolor(sanitize_hexcolor(get_uni_identity_block(structure, DNA_HAIR_COLOR_BLOCK)), update = FALSE)
 	set_facial_haircolor(sanitize_hexcolor(get_uni_identity_block(structure, DNA_FACIAL_HAIR_COLOR_BLOCK)), update = FALSE)
+	set_hair_gradient_color(sanitize_hexcolor(get_uni_identity_block(structure, DNA_HAIR_COLOR_GRADIENT_BLOCK)), update = FALSE)
+	set_facial_hair_gradient_color(sanitize_hexcolor(get_uni_identity_block(structure, DNA_FACIAL_HAIR_COLOR_GRADIENT_BLOCK)), update = FALSE)
 
 	if(eyeorgancolor_update)
 		add_eye_color_left(eye_color_left, EYE_COLOR_ORGAN_PRIORITY, update_body = FALSE)
@@ -208,13 +212,17 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 		set_facial_hairstyle("Shaved", update = FALSE)
 	else
 		var/style = SSaccessories.facial_hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_FACIAL_HAIRSTYLE_BLOCK), SSaccessories.facial_hairstyles_list.len)]
+		var/gradient_style = SSaccessories.facial_hair_gradients_list[deconstruct_block(get_uni_identity_block(structure, DNA_FACIAL_HAIRSTYLE_GRADIENT_BLOCK), length(SSaccessories.facial_hair_gradients_list))]
 		set_facial_hairstyle(style, update = FALSE)
+		set_facial_hair_gradient_style(gradient_style, update = FALSE)
 
 	if(HAS_TRAIT(src, TRAIT_BALD))
 		set_hairstyle("Bald", update = FALSE)
 	else
-		var/style = SSaccessories.hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_HAIRSTYLE_BLOCK), SSaccessories.hairstyles_list.len)]
+		var/style = SSaccessories.hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_HAIRSTYLE_BLOCK), length(SSaccessories.hairstyles_list))]
+		var/gradient_style = SSaccessories.hair_gradients_list[deconstruct_block(get_uni_identity_block(structure, DNA_HAIRSTYLE_GRADIENT_BLOCK), length(SSaccessories.hair_gradients_list))]
 		set_hairstyle(style, update = FALSE)
+		set_hair_gradient_style(gradient_style, update = FALSE)
 
 	var/features = dna.unique_features
 	if(dna.features["mcolor"])
@@ -228,7 +236,8 @@ GLOBAL_LIST_EMPTY(total_uf_len_by_block)
 	if(dna.features["skin_color"])
 		dna.features["skin_color"] = sanitize_hexcolor(get_uni_feature_block(features, DNA_SKIN_COLOR_BLOCK))
 
+	for(var/obj/item/organ/organ in organs)
+		organ.mutate_feature(features, src)
+
 	if(icon_update)
 		update_body(is_creating = mutcolor_update)
-		if(mutations_overlay_update)
-			update_mutations_overlay()

@@ -137,6 +137,7 @@
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "craft"
 	screen_loc = ui_crafting
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/area_creator
 	name = "create new area"
@@ -915,7 +916,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 	for(var/i = 1; i <= length(streak); ++i)
 		var/intent_text = copytext(streak, i, i + 1)
 		var/image/intent_icon = image(icon,src,"combo_[intent_text]")
-		intent_icon.pixel_x = 16 * (i - 1) - 8 * length(streak)
+		intent_icon.pixel_w = 16 * (i - 1) - 8 * length(streak)
 		add_overlay(intent_icon)
 	return ..()
 

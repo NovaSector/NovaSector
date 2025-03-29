@@ -535,12 +535,14 @@
  * Water reaction to turf
  */
 
-/datum/reagent/hydrogen_peroxide/expose_turf(turf/open/exposed_turf, reac_volume)
+/datum/reagent/hydrogen_peroxide/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
-	if(!istype(exposed_turf))
+	if (reac_volume < 1.5)
 		return
-	if(reac_volume >= 5)
-		exposed_turf.MakeSlippery(TURF_WET_WATER, 10 SECONDS, min(reac_volume*1.5 SECONDS, 60 SECONDS))
+	if (!isplatingturf(exposed_turf) && exposed_turf.type != /turf/closed/wall)
+		return
+	if (!HAS_TRAIT(exposed_turf, TRAIT_RUSTY))
+		exposed_turf.AddElement(/datum/element/rust)
 /*
  * Water reaction to a mob
  */
@@ -1085,7 +1087,7 @@
 
 /datum/reagent/sulfur
 	name = "Sulfur"
-	description = "A sickly yellow solid mostly known for its nasty smell. It's actually much more helpful than it looks in biochemisty."
+	description = "A sickly yellow solid mostly known for its nasty smell. It's actually much more helpful than it looks in biochemistry."
 	color = "#BF8C00" // rgb: 191, 140, 0
 	taste_description = "rotten eggs"
 	ph = 4.5
@@ -1254,11 +1256,49 @@
 	default_container = /obj/effect/decal/cleanable/greenglow
 	/// How much tox damage to deal per tick
 	var/tox_damage = 0.5
+	/// How radioactive is this reagent
+	var/rad_power = 1
 
 /datum/reagent/uranium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
+	if(!HAS_TRAIT(affected_mob, TRAIT_IRRADIATED) && SSradiation.can_irradiate_basic(affected_mob))
+		var/chance = min(volume / (20 - rad_power * 5), rad_power)
+		if(SPT_PROB(chance, seconds_per_tick)) // ignore rad protection calculations bc it's inside of us
+			affected_mob.AddComponent(/datum/component/irradiated)
 	if(affected_mob.adjustToxLoss(tox_damage * seconds_per_tick * REM, updating_health = FALSE))
 		return UPDATE_MOB_HEALTH
+
+/datum/reagent/uranium/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
+	. = ..()
+
+	if(!SSradiation.can_irradiate_basic(exposed_obj))
+		return
+
+	radiation_pulse(
+		source = exposed_obj,
+		max_range = 0,
+		threshold = RAD_VERY_LIGHT_INSULATION,
+		chance = (min(reac_volume * rad_power, CALCULATE_RAD_MAX_CHANCE(rad_power))),
+	)
+
+/datum/reagent/uranium/expose_mob(mob/living/exposed_mob, methods, reac_volume)
+	. = ..()
+
+	if(!SSradiation.can_irradiate_basic(exposed_mob))
+		return
+
+	if(ishuman(exposed_mob) && SSradiation.wearing_rad_protected_clothing(exposed_mob))
+		return
+
+	if(!(methods & (TOUCH|VAPOR)))
+		return
+
+	radiation_pulse(
+		source = exposed_mob,
+		max_range = 0,
+		threshold = RAD_VERY_LIGHT_INSULATION,
+		chance = (min(reac_volume * rad_power, CALCULATE_RAD_MAX_CHANCE(rad_power))),
+	)
 
 /datum/reagent/uranium/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -1284,6 +1324,7 @@
 	material = null
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	rad_power = 2
 
 /datum/reagent/bluespace
 	name = "Bluespace Dust"
@@ -1789,7 +1830,8 @@
 /datum/reagent/plantnutriment/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(SPT_PROB(tox_prob, seconds_per_tick))
-		if(affected_mob.adjustToxLoss(1, updating_health = FALSE, required_biotype = affected_biotype))
+		var/flipped_number = (affected_mob.mob_biotypes & MOB_PLANT) ? -1 : 1 //NOVA EDIT ADDITION: Plant mobs will be healed instead
+		if(affected_mob.adjustToxLoss(flipped_number, updating_health = FALSE, required_biotype = affected_biotype)) // NOVA EDIT CHANGE - ORIGINAL: if(affected_mob.adjustToxLoss(1, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 /datum/reagent/plantnutriment/eznutriment
@@ -1988,7 +2030,7 @@
 
 /datum/reagent/carpet/royal/black
 	name = "Royal Black Carpet"
-	description = "For those that feel the need to show off their timewasting skills."
+	description = "For those that feel the need to show off their time-wasting skills."
 	color = COLOR_BLACK
 	taste_description = "royalty"
 	carpet_type = /turf/open/floor/carpet/royalblack
@@ -1996,7 +2038,7 @@
 
 /datum/reagent/carpet/royal/blue
 	name = "Royal Blue Carpet"
-	description = "For those that feel the need to show off their timewasting skills.. in BLUE."
+	description = "For those that feel the need to show off their time-wasting skills... in BLUE."
 	color = "#5A64C8"
 	taste_description = "blueyalty" //also intentional
 	carpet_type = /turf/open/floor/carpet/royalblue
@@ -2004,7 +2046,7 @@
 
 /datum/reagent/carpet/neon
 	name = "Neon Carpet"
-	description = "For those who like the 1980s, vegas, and debugging."
+	description = "For those who like the 1980s, Vegas, and debugging."
 	color = COLOR_ALMOST_BLACK
 	taste_description = "neon"
 	ph = 6
@@ -2212,7 +2254,7 @@
 	. = ..()
 	var/picked_color = pick(random_color_list)
 	var/color_filter = color_transition_filter(picked_color, SATURATION_OVERRIDE)
-	if (can_color_clothing && (methods & TOUCH|VAPOR|INHALE))
+	if (can_color_clothing && (methods & (TOUCH|VAPOR|INHALE)))
 		var/include_flags = INCLUDE_HELD|INCLUDE_ACCESSORIES
 		if (methods & VAPOR|INHALE)
 			include_flags |= INCLUDE_POCKETS
@@ -2232,15 +2274,13 @@
 		exposed_mob.add_atom_colour(color_filter, WASHABLE_COLOUR_PRIORITY)
 		return
 
-	if (!(methods & TOUCH|VAPOR|INHALE))
-		return
-
 	var/mob/living/carbon/exposed_carbon = exposed_mob
-	for (var/obj/item/bodypart/part as anything in exposed_carbon.bodyparts)
-		part.add_atom_colour(color_filter, WASHABLE_COLOUR_PRIORITY)
 
 	for (var/obj/item/organ/organ as anything in exposed_carbon.organs)
 		organ.add_atom_colour(color_filter, WASHABLE_COLOUR_PRIORITY)
+
+	for (var/obj/item/bodypart/part as anything in exposed_carbon.bodyparts)
+		part.add_atom_colour(color_filter, WASHABLE_COLOUR_PRIORITY)
 
 /datum/reagent/colorful_reagent/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -2290,8 +2330,7 @@
 
 	var/mob/living/carbon/human/exposed_human = exposed_mob
 	exposed_human.set_facial_haircolor(pick(potential_colors), update = FALSE)
-	exposed_human.set_haircolor(pick(potential_colors), update = TRUE)
-	exposed_human.update_body_parts()
+	exposed_human.set_haircolor(pick(potential_colors)) //this will call update_body_parts()
 
 /datum/reagent/barbers_aid
 	name = "Barber's Aid"
@@ -2347,13 +2386,11 @@
 		if(!head || (head.head_flags & HEAD_HAIR))
 			return
 		head.head_flags |= HEAD_HAIR
-		var/message
 		if(HAS_TRAIT(affected_mob, TRAIT_BALD))
-			message = span_warning("You feel your scalp mutate, but you are still hopelessly bald.")
+			to_chat(affected_mob, span_warning("You feel your scalp mutate, but you are still hopelessly bald."))
 		else
-			message = span_notice("Your scalp mutates, a full head of hair sprouting from it.")
-		to_chat(affected_mob, message)
-		human_mob.update_body_parts()
+			to_chat(affected_mob, span_notice("Your scalp mutates, a full head of hair sprouting from it."))
+			human_mob.update_body_parts()
 
 /datum/reagent/baldium
 	name = "Baldium"
@@ -2509,7 +2546,7 @@
 
 /datum/reagent/magillitis
 	name = "Magillitis"
-	description = "An experimental serum which causes rapid muscular growth in Hominidae. Side-affects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
+	description = "An experimental serum which causes rapid muscular growth in Hominidae. Side effects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
 	color = "#00f041"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
 
@@ -2625,10 +2662,9 @@
 
 /datum/reagent/bz_metabolites/on_mob_life(mob/living/carbon/target, seconds_per_tick, times_fired)
 	. = ..()
-	if(target.mind)
-		var/datum/antagonist/changeling/changeling = IS_CHANGELING(target)
-		if(changeling)
-			changeling.adjust_chemicals(-4 * REM * seconds_per_tick) //NOVA EDIT - BZ-BUFF-VS-LING - ORIGINAL: changeling.adjust_chemicals(-2 * REM * seconds_per_tick)
+	target.adjust_hallucinations(5 SECONDS * REM * seconds_per_tick)
+	var/datum/antagonist/changeling/changeling = IS_CHANGELING(target)
+	changeling?.adjust_chemicals(-4 * REM * seconds_per_tick) // NOVA EDIT CHANGE - BZ-BUFF-VS-LING - ORIGINAL: changeling?.adjust_chemicals(-2 * REM * seconds_per_tick)
 
 /datum/reagent/pax/peaceborg
 	name = "Synthpax"
@@ -2820,7 +2856,7 @@
 
 /datum/reagent/gravitum
 	name = "Gravitum"
-	description = "A rare kind of null fluid, capable of temporalily removing all weight of whatever it touches." //i dont even
+	description = "A rare kind of null fluid, capable of temporarily removing all weight of whatever it touches." //i dont even
 	color = "#050096" // rgb: 5, 0, 150
 	taste_mult = 0 // oderless and tasteless
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM //20 times as long, so it's actually viable to use
@@ -2843,7 +2879,7 @@
 
 /datum/reagent/cellulose
 	name = "Cellulose Fibers"
-	description = "A crystaline polydextrose polymer, plants swear by this stuff."
+	description = "A crystalline polydextrose polymer, plants swear by this stuff."
 	color = "#E6E6DA"
 	taste_mult = 0
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2923,6 +2959,11 @@
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
+/datum/reagent/eldritch/expose_turf(turf/exposed_turf, reac_volume)
+	. = ..()
+	if ((reac_volume >= 1.5 || isplatingturf(exposed_turf)) && !HAS_TRAIT(exposed_turf, TRAIT_RUSTY))
+		exposed_turf.rust_turf()
+
 /datum/reagent/universal_indicator
 	name = "Universal Indicator"
 	description = "A solution that can be used to create pH paper booklets, or sprayed on things to colour them by their pH."
@@ -2990,7 +3031,7 @@
 /datum/reagent/ants/on_mob_end_metabolize(mob/living/living_anthill)
 	. = ..()
 	ant_ticks = 0
-	to_chat(living_anthill, span_notice("You feel like the last of the [name] are out of your system."))
+	to_chat(living_anthill, span_notice("You feel like the last of \the [src] are out of your system."))
 
 /datum/reagent/ants/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -3129,20 +3170,22 @@
 /datum/reagent/hauntium
 	name = "Hauntium"
 	color = "#3B3B3BA3"
-	description = "An eerie liquid created by purifying the prescence of ghosts. If it happens to get in your body, it starts hurting your soul." //soul as in mood and heart
+	description = "An eerie liquid created by purifying the presence of ghosts. If it happens to get in your body, it starts hurting your soul." //soul as in mood and heart
 	taste_description = "evil spirits"
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM
 	material = /datum/material/hauntium
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-//gives 15 seconds of haunting effect for every unit of it that touches an object
+//gives 20 seconds of haunting effect for every unit of it that touches an object
 /datum/reagent/hauntium/expose_obj(obj/exposed_obj, reac_volume, methods=TOUCH, show_message=TRUE)
 	. = ..()
+	if(!isitem(exposed_obj))
+		return
 	if(HAS_TRAIT_FROM(exposed_obj, TRAIT_HAUNTED, HAUNTIUM_REAGENT_TRAIT))
 		return
 	exposed_obj.make_haunted(HAUNTIUM_REAGENT_TRAIT, "#f8f8ff")
-	addtimer(CALLBACK(exposed_obj, TYPE_PROC_REF(/atom/movable/, remove_haunted), HAUNTIUM_REAGENT_TRAIT), volume * 20 SECONDS)
+	addtimer(CALLBACK(exposed_obj, TYPE_PROC_REF(/atom/movable/, remove_haunted), HAUNTIUM_REAGENT_TRAIT), reac_volume * 20 SECONDS)
 
 /datum/reagent/hauntium/on_mob_metabolize(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -3257,6 +3300,7 @@
 	if (eyes && !IS_ROBOTIC_ORGAN(eyes))
 		eyes.eye_color_left = color
 		eyes.eye_color_right = color
+		affected_human.update_body()
 
 /datum/reagent/luminescent_fluid/red
 	name = "Red Luminiscent Fluid"
@@ -3264,7 +3308,7 @@
 	// The glow *is* unnatural, so...
 	metabolized_traits = list(TRAIT_MINOR_NIGHT_VISION, TRAIT_UNNATURAL_RED_GLOWY_EYES)
 
-/datum/reagent/luminescent_fluid/overdose_start(mob/living/affected_mob)
+/datum/reagent/luminescent_fluid/red/overdose_start(mob/living/affected_mob)
 	. = ..()
 	if (!ishuman(affected_mob))
 		return

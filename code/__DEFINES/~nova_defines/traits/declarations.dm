@@ -47,6 +47,9 @@
 /// One can breath under water, you get me?
 #define TRAIT_WATER_BREATHING "water_breathing"
 
+/// Trait to assign to pets who've already had a space treat to prevent double-feeding
+#define TRAIT_PET_SPACE_TREAT "space_pet_treat"
+
 /// The trait which Akulas inherit, for their species mechanic revolving around wet_stacks
 #define TRAIT_SLICK_SKIN "slick_skin"
 /// The trait which is applied when a `slick skin` trait haver actually gets wet_stacks
@@ -82,13 +85,6 @@
 
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
-
-/// Trait source for xeno innate abilities
-#define TRAIT_XENO_INNATE "xeno_innate"
-/// Trait source for something added BY a xeno ability
-#define TRAIT_XENO_ABILITY_GIVEN "xeno_ability_given"
-/// Determines if something can receive healing from a xeno
-#define TRAIT_XENO_HEAL_AURA "trait_xeno_heal_aura"
 
 /// Trait that was granted by a reagent.
 #define TRAIT_REAGENT "reagent"
