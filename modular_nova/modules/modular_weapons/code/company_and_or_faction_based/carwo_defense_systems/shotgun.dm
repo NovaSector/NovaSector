@@ -80,4 +80,4 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
 
 /obj/item/ammo_box/magazine/internal/shot/riot/sol_thunderdome/evil
-	ammo_type = /obj/item/ammo_casing/shotgun/flechette
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova

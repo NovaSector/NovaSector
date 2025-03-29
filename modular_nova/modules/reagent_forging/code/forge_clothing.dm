@@ -26,6 +26,7 @@
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_OCLOTHING)
 
 	allowed += /obj/item/forging/reagent_weapon
+	allowed += /obj/item/kinetic_crusher
 
 // Gloves
 /obj/item/clothing/gloves/forging_plate_gloves

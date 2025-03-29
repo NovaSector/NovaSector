@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	return ..()
 
 /// Makes a managed character preview view for a specific user
-/datum/character_directory/proc/create_character_preview_view(mob/user)
+/datum/character_directory/proc/create_character_preview_view(mob/user, datum/tgui_window/window)
 	var/assigned_view = CHAR_DIRECTORY_ASSIGNED_VIEW(user.ckey)
 
 	// sometimes--e.g. if you have a ui open and you observe--you can end up with a stuck map_view, which leads to subsequent previews not rendering.
@@ -122,29 +122,19 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/atom/movable/screen/map_view/char_preview/directory/new_view = new(null)
 	new_view.client_ckey = user.ckey
 	new_view.generate_view(assigned_view)
-	new_view.display_to(user)
+	new_view.display_to(user, window)
 	return new_view
 
 /// Takes a record and updates the character preview view to match it.
-/datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance)
+/datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance, datum/tgui_window/window)
 	var/mutable_appearance/preview = new(appearance)
-	// This is so scaled mobs aren't just getting cut off for being too big
-	if(iscarbon(user))
-		var/mob/living/carbon/carbon_user = user
-		if(carbon_user.dna && carbon_user.dna.current_body_size != BODY_SIZE_NORMAL)
-			// we are basically just reversing their size increase to make them size 1 again in the previews.
-			var/change_multiplier = BODY_SIZE_NORMAL / carbon_user.dna.current_body_size
-			var/translate = ((change_multiplier-1) * 32)/2
-			preview.transform = preview.transform.Scale(change_multiplier)
-			var/translate_x = translate * ( preview.transform.b / carbon_user.dna.current_body_size)
-			var/translate_y = translate * ( preview.transform.e / carbon_user.dna.current_body_size)
-			preview.transform = preview.transform.Translate(translate_x, translate_y)
 
 	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
 		return
 
 	old_view.appearance = preview.appearance
+	old_view.display_to(user, window)
 
 /datum/character_directory/ui_state(mob/user)
 	return GLOB.always_state
@@ -152,7 +142,8 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		character_preview_views[user.ckey] = create_character_preview_view(user)
+		var/atom/movable/screen/map_view/char_preview/directory/character_preview_view = create_character_preview_view(user, ui)
+		character_preview_views[user.ckey] = character_preview_view
 		ui = new(user, src, "NovaCharacterDirectory", "Character Directory")
 		ui.set_autoupdate(FALSE)
 		ui.open()
@@ -256,8 +247,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
-		if(SSplayer_ranks.is_veteran(mob.client, admin_bypass = FALSE))
-			veteran_status = TRUE
+		veteran_status = SSplayer_ranks.is_veteran(mob.client, admin_bypass = FALSE)
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
 
@@ -312,5 +302,5 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			ghost.reset_perspective(null)
 			return TRUE
 		if("view_character")
-			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]])
+			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]], ui.window)
 			return TRUE
