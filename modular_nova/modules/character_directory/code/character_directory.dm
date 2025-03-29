@@ -132,7 +132,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
-		var/atom/movable/screen/map_view/char_preview/directory/character_preview_view = create_character_preview_view(user, window)
+		create_character_preview_view(user, window)
 		return
 
 	old_view.appearance = preview.appearance
