@@ -4,7 +4,6 @@
 	mutantears = /obj/item/organ/ears/vox
 	mutantliver = /obj/item/organ/liver/vox
 	mutantstomach = /obj/item/organ/stomach/vox
-	exotic_bloodtype = "U"
 
 /datum/species/vox_primalis
 	mutantheart = /obj/item/organ/heart/vox
@@ -12,7 +11,6 @@
 	mutantears = /obj/item/organ/ears/vox
 	mutantliver = /obj/item/organ/liver/vox
 	mutantstomach = /obj/item/organ/stomach/vox
-	exotic_bloodtype = "U"
 
 /obj/item/organ/heart/vox
 	icon = 'modular_nova/modules/voxes/icons/organs.dmi'
