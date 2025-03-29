@@ -40,10 +40,7 @@
 	tac_reloads = TRUE
 	burst_fire_selection = TRUE
 
-/obj/item/gun/ballistic/shotgun/katyusha/examine_more(mob/user)
-	. = ..()
-
-	. += "The Nanotrasen Armories Katyusha Magfed Shotgun is a recent release from NT's esteemed private arms division, \
+	lore_blurb =  "The Nanotrasen Armories Katyusha Magfed Shotgun is a recent release from NT's esteemed private arms division, \
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
 		issued it in the ongoing rollout. \
 		Though certain rival manufacturers have dismissed the Katyusha as a \"fake\" or a \"blatant bootleg,\"  \
@@ -76,15 +73,11 @@
 	burst_delay = 0.30 SECONDS
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
-
-/obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)
-
-/obj/item/gun/ballistic/shotgun/katyusha/jager/examine_more(mob/user)
-	. = ..()
-
-	. = "The Solar Federation Surplus 'Jäger' Magfed Shotgun is a recent release from Solar Federation Surplus. \
+	lore_blurb = "The Solar Federation Surplus 'Jäger' Magfed Shotgun is a recent release from Solar Federation Surplus. \
 		and it's received a warm welcome from the Solar Federation Marines and S.W.A.T. Teams. \
 		issued it in the ongoing rollout. \
 		\ the inimitable burst fire and multi-shell compatability \
 		makes the Jager powerful, reliable, accurate, and shockingly comfortable to fire."
+
+/obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()
+    AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)

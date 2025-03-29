@@ -19,14 +19,10 @@
 	// fire_delay = time betweeen single fire (semi-auto)
 	accepted_magazine_type = /obj/item/ammo_box/magazine/shitzu
 	spawn_magazine_type = /obj/item/ammo_box/magazine/shitzu/milspec
-
-/obj/item/gun/ballistic/shotgun/katyusha/shitzu/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)
-
-/obj/item/gun/ballistic/shotgun/katyusha/shitzu/examine_more(mob/user)
-	. = ..()
-
-	. = "The Syndicate Surplus 'Shitzu' Magfed Shotgun is a addition and remodification of the bulldog. \
+	lore_blurb = "The Syndicate Surplus 'Shitzu' Magfed Shotgun is a addition and remodification of the bulldog. \
 		and it's received a warm welcome from many loud and clandestine operatives. \
 		the intimidating burst fire and slimmer nature makes the Shitzu a terrifying piece of equipment to utilize.\
 		it is regarded widely as uncomfortable, and extremely violent to use, but has gotten the job done."
+
+/obj/item/gun/ballistic/shotgun/katyusha/shitzu/give_manufacturer_examine()
+    AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)

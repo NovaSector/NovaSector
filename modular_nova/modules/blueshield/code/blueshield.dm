@@ -91,9 +91,8 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield
-	name = "Weaponry beacon"
+	name = "weaponry beacon"
 	desc = "A single use beacon to deliver a weapon or set of your choice. Please only call this in your office!"
-
 	icon_state = "bs_becon"
 	inhand_icon_state = "bs_becon"
 	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
