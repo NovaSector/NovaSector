@@ -69,8 +69,6 @@
 				/obj/item/clothing/shoes/ballet_heels = 4,
 				/obj/item/clothing/shoes/latex_socks = 8,
 
-				/obj/item/storage/belt/thigh_satchel = 5,//Leather Belt, holds a lot of tools.
-
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
