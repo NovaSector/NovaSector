@@ -103,8 +103,8 @@
 	projectile_wound_bonus = 3
 
 	model_specific_lore = "This variant is the Infantry model, and is the primary rifle \
-	for both the SolFed Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
-	and a specialized three-shot burst designed to complete before recoil can impact the shooter."
+		for both the SolFed Hydro Corps and Atmospheric Corps. It features excellent accuracy and durability, \
+		and a specialized three-shot burst designed to complete before recoil can impact the shooter."
 
 /obj/item/gun/ballistic/automatic/sol_rifle/marksman/Initialize(mapload)
 	. = ..()
@@ -138,12 +138,12 @@
 	projectile_wound_bonus = -20
 
 	model_specific_lore = "This variant is the Qarad model, a conversion of the rifle into \
-	a passable, if suboptimal, light machine gun. To support its new, fully-automatic role, \
-	the firing system was converted into a faster, open-bolt configuration, and the barrel \
-	was replaced with a heavier, heat-resistant assembly with quick-change support. \
-	These modifications, combined with a battle rifle platform not meant to be used \
-	much in full-auto to begin with, made for a relatively unwieldy weapon.<br><br>\
-	A machinegun, however, is still a machinegun, no matter how hard it is to keep on target."
+		a passable, if suboptimal, light machine gun. To support its new, fully-automatic role, \
+		the firing system was converted into a faster, open-bolt configuration, and the barrel \
+		was replaced with a heavier, heat-resistant assembly with quick-change support. \
+		These modifications, combined with a battle rifle platform not meant to be used \
+		much in full-auto to begin with, made for a relatively unwieldy weapon.<br><br>\
+		A machinegun, however, is still a machinegun, no matter how hard it is to keep on target."
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun/no_mag
 	spawnwithmagazine = FALSE

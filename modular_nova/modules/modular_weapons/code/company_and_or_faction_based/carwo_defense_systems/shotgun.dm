@@ -30,12 +30,12 @@
 	suppressor_y_offset = -3
 
 	lore_blurb = "The M64 was designed, at its core, as a police shotgun.<br><br>\
-	As a consequence, it holds all the qualities a police force would want \
-	in a shotgun; a large capacity, robust frame, and enough modularity \
-	to satiate even the most overfunded of peacekeeper forces. \
-	Inevitably, it made its way into civilian markets, \
-	alongside its sale to several military branches that also \
-	saw value in having a heavy shotgun."
+		As a consequence, it holds all the qualities a police force would want \
+		in a shotgun; a large capacity, robust frame, and enough modularity \
+		to satiate even the most overfunded of peacekeeper forces. \
+		Inevitably, it made its way into civilian markets, \
+		alongside its sale to several military branches that also \
+		saw value in having a heavy shotgun."
 
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
