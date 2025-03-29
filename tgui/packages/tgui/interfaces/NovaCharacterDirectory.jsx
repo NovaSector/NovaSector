@@ -16,9 +16,7 @@ import {
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { createLogger } from '../logging';
 import { CharacterPreview } from './common/CharacterPreview';
-const logger = createLogger('backend');
 const formatURLs = (text) => {
   if (!text) return;
   const parts = [];
@@ -89,6 +87,13 @@ export const NovaCharacterDirectory = (props) => {
     setOverlay(character);
   };
 
+  // For hack to get the view to show up correctly
+  // See MedicalRecords/RecordTabs.tsx for explanation
+  const [viewCreated, setViewCreated] = useState(false);
+  const updateViewCreated = (created) => {
+    setViewCreated(created);
+  };
+
   const [searchTerm, setSearchTerm] = useState(startViewing || '');
   const updateSearchTerm = (character) => {
     setSearchTerm(character);
@@ -113,6 +118,8 @@ export const NovaCharacterDirectory = (props) => {
       <Window.Content scrollable>
         {(overlay && (
           <ViewCharacter
+            viewCreated={setViewCreated}
+            setViewCreated={setViewCreated}
             overlay={overlay}
             updateOverlay={updateOverlay}
             assignedView={assignedView}
@@ -147,7 +154,8 @@ export const NovaCharacterDirectory = (props) => {
               </LabeledList>
             </Section>
             <CharacterDirectoryList
-              overlay={overlay}
+              viewCreated={viewCreated}
+              setViewCreated={setViewCreated}
               updateOverlay={updateOverlay}
               searchTerm={searchTerm}
               updateSearchTerm={updateSearchTerm}
@@ -272,7 +280,8 @@ const ViewCharacter = (props) => {
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
   const {
-    overlay,
+    viewCreated,
+    setViewCreated,
     updateOverlay,
     searchTerm,
     updateSearchTerm,
@@ -299,15 +308,17 @@ const CharacterDirectoryList = (props) => {
     if (directory.length > 0) {
       const randomIndex = Math.floor(Math.random() * directory.length);
       const randomCharacter = directory[randomIndex];
-      if (overlay === null) {
+      // See MedicalRecords/RecordTabs.tsx for explanation
+      if (!viewCreated) {
         setTimeout(() => {
           act('view_character', {
             assigned_view: assignedView,
             name: randomCharacter.appearance_name,
           });
         });
-        updateOverlay(randomCharacter);
       }
+      setViewCreated(true);
+      updateOverlay(randomCharacter);
       act('view_character', {
         assigned_view: assignedView,
         name: randomCharacter.appearance_name,
@@ -467,8 +478,7 @@ const CharacterDirectoryList = (props) => {
               <Button
                 onClick={() => {
                   // See MedicalRecords/RecordTabs.tsx for explanation
-                  logger.log('idk', overlay);
-                  if (overlay === null) {
+                  if (!viewCreated) {
                     setTimeout(() => {
                       act('view_character', {
                         assigned_view: assignedView,
@@ -476,10 +486,8 @@ const CharacterDirectoryList = (props) => {
                       });
                     });
                   }
-
-                  logger.log('idk2', overlay);
+                  setViewCreated(true);
                   updateOverlay(character);
-                  logger.log('idk3', overlay);
                   act('view_character', {
                     assigned_view: assignedView,
                     name: character.appearance_name,
