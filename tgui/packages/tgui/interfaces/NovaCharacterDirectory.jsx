@@ -298,9 +298,11 @@ const CharacterDirectoryList = (props) => {
       const randomIndex = Math.floor(Math.random() * directory.length);
       const randomCharacter = directory[randomIndex];
       updateOverlay(randomCharacter);
-      act('view_character', {
-        assigned_view: assignedView,
-        name: randomCharacter.appearance_name,
+      setTimeout(() => {
+        act('view_character', {
+          assigned_view: assignedView,
+          name: randomCharacter.appearance_name,
+        });
       });
     }
   };
@@ -457,6 +459,12 @@ const CharacterDirectoryList = (props) => {
               <Button
                 onClick={() => {
                   updateOverlay(character);
+                  setTimeout(() => {
+                    act('view_character', {
+                      assigned_view: assignedView,
+                      name: character.appearance_name,
+                    });
+                  });
                   act('view_character', {
                     assigned_view: assignedView,
                     name: character.appearance_name,
