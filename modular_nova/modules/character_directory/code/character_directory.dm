@@ -123,6 +123,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	new_view.client_ckey = user.ckey
 	new_view.generate_view(assigned_view)
 	new_view.display_to(user, window)
+	character_preview_views[user.ckey] = new_view
 	return new_view
 
 /// Takes a record and updates the character preview view to match it.
@@ -132,11 +133,9 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
 		var/atom/movable/screen/map_view/char_preview/directory/character_preview_view = create_character_preview_view(user, window)
-		character_preview_views[user.ckey] = character_preview_view
 		return
 
 	old_view.appearance = preview.appearance
-	old_view.display_to(user, window)
 
 /datum/character_directory/ui_state(mob/user)
 	return GLOB.always_state
@@ -147,7 +146,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		ui = new(user, src, "NovaCharacterDirectory", "Character Directory")
 		ui.set_autoupdate(FALSE)
 		ui.open()
-		update_preview(user, ui.window)
 
 /datum/character_directory/ui_close(mob/user)
 	var/atom/movable/screen/map_view/char_preview/directory/old_preview = character_preview_views[user.ckey]

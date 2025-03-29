@@ -16,8 +16,9 @@ import {
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+import { createLogger } from '../logging';
 import { CharacterPreview } from './common/CharacterPreview';
-
+const logger = createLogger('backend');
 const formatURLs = (text) => {
   if (!text) return;
   const parts = [];
@@ -271,6 +272,7 @@ const ViewCharacter = (props) => {
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
   const {
+    overlay,
     updateOverlay,
     searchTerm,
     updateSearchTerm,
@@ -297,12 +299,14 @@ const CharacterDirectoryList = (props) => {
     if (directory.length > 0) {
       const randomIndex = Math.floor(Math.random() * directory.length);
       const randomCharacter = directory[randomIndex];
-      updateOverlay(randomCharacter);
-      if (randomCharacter === null) {
-        act('view_character', {
-          assigned_view: assignedView,
-          name: randomCharacter.appearance_name,
+      if (overlay === null) {
+        setTimeout(() => {
+          act('view_character', {
+            assigned_view: assignedView,
+            name: randomCharacter.appearance_name,
+          });
         });
+        updateOverlay(randomCharacter);
       }
       act('view_character', {
         assigned_view: assignedView,
@@ -462,9 +466,9 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell collapsing textAlign="right">
               <Button
                 onClick={() => {
-                  updateOverlay(character);
                   // See MedicalRecords/RecordTabs.tsx for explanation
-                  if (character === null) {
+                  logger.log('idk', overlay);
+                  if (overlay === null) {
                     setTimeout(() => {
                       act('view_character', {
                         assigned_view: assignedView,
@@ -472,6 +476,10 @@ const CharacterDirectoryList = (props) => {
                       });
                     });
                   }
+
+                  logger.log('idk2', overlay);
+                  updateOverlay(character);
+                  logger.log('idk3', overlay);
                   act('view_character', {
                     assigned_view: assignedView,
                     name: character.appearance_name,
