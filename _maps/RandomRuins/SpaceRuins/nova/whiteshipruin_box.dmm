@@ -1606,7 +1606,7 @@
 /area/ruin/space/has_grav/whiteship/box)
 "Zu" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/glass/plastitanium,

@@ -665,7 +665,7 @@
 /turf/open/floor/iron,
 /area/station/security/prison/upper)
 "ahd" = (
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -12794,7 +12794,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Permabrig Visitation"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -19756,7 +19756,7 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
@@ -25358,7 +25358,7 @@
 /area/station/maintenance/department/medical/morgue)
 "ePG" = (
 /obj/effect/turf_decal/box/white,
-/obj/effect/turf_decal/arrows/blue{
+/obj/effect/turf_decal/arrows/red{
 	pixel_y = 13
 	},
 /turf/open/floor/engine,
@@ -25410,7 +25410,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
 /turf/open/floor/iron/white,
@@ -28775,7 +28775,7 @@
 	id_tag = "MedbayFoyer";
 	name = "Brig Infirmary"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -36527,7 +36527,7 @@
 	name = "Prison Blast Door"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -37345,7 +37345,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/poddoor/preopen{
 	id = "brigfront";
 	name = "Brig Blast Door"
@@ -37730,7 +37730,7 @@
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 1
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/poddoor/preopen{
 	id = "brigfront";
 	name = "Brig Blast Door"
@@ -41277,7 +41277,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Equipment Room"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
@@ -41432,7 +41432,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/caution/stand_clear/blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
 /obj/machinery/door/poddoor/shutters/window/preopen{
 	id = "Psychward2";
 	name = "Cell Door 2"
@@ -42189,7 +42189,7 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -45035,7 +45035,7 @@
 /obj/machinery/door/airlock/security{
 	name = "Interrogation"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
@@ -51045,8 +51045,8 @@
 /turf/open/floor/iron/smooth,
 /area/station/cargo/miningdock)
 "jPv" = (
-/obj/effect/turf_decal/caution/stand_clear/blue,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -59873,8 +59873,8 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/ce)
 "lze" = (
-/obj/effect/turf_decal/caution/stand_clear/blue,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
@@ -62324,7 +62324,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "lXk" = (
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/rack,
 /turf/open/floor/iron/dark/small,
 /area/station/medical/break_room)
@@ -63212,7 +63212,7 @@
 /obj/machinery/computer/rdservercontrol{
 	dir = 4
 	},
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/science/server)
@@ -67083,7 +67083,7 @@
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen/diner)
 "mSZ" = (
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/rack,
 /obj/item/bodybag{
 	pixel_x = -6;
@@ -70572,7 +70572,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
 "nDO" = (
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
@@ -70872,7 +70872,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/oxygen_candle,
 /obj/item/oxygen_candle,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/item/storage/pod{
 	pixel_y = -25
 	},
@@ -71201,7 +71201,7 @@
 	name = "Security Desk"
 	},
 /obj/structure/cable,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -76902,7 +76902,7 @@
 /area/station/science/robotics/lab)
 "oLA" = (
 /obj/machinery/field/generator,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -77814,7 +77814,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Warden's Office"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -78263,7 +78263,7 @@
 	name = "Prison Wing"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
@@ -90739,7 +90739,7 @@
 	id_tag = "innerbrig";
 	name = "Brig"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/poddoor/preopen{
 	id = "brigfront";
 	name = "Brig Blast Door"
@@ -91710,7 +91710,7 @@
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/poddoor/preopen{
 	id = "brigfront";
 	name = "Brig Blast Door"
@@ -93310,7 +93310,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Equipment Requisition"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -93463,7 +93463,7 @@
 "rVq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -95580,8 +95580,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "sqV" = (
-/obj/effect/turf_decal/caution/stand_clear/blue,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
@@ -96865,7 +96865,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Gear Room"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/structure/disposalpipe/segment,
@@ -103328,7 +103328,7 @@
 "tNE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/caution/stand_clear/blue{
+/obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
@@ -104063,7 +104063,7 @@
 /obj/machinery/door/airlock/security{
 	name = "Interrogation Monitoring"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -104820,7 +104820,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/caution/stand_clear/blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
 /obj/machinery/door/poddoor/shutters/window/preopen{
 	id = "Psychward3";
 	name = "Cell Door 3"
@@ -105031,7 +105031,7 @@
 	},
 /area/station/hallway/primary/port)
 "ueB" = (
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/airlock/security/glass{
 	name = "Gear Room"
 	},
@@ -109654,7 +109654,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 8
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/engineering/atmos_aux_port)
 "uXj" = (
@@ -112330,8 +112330,8 @@
 /turf/open/floor/wood/parquet,
 /area/station/common/gaskiosk)
 "vxA" = (
-/obj/effect/turf_decal/caution/stand_clear/blue,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "vxB" = (
@@ -113713,7 +113713,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Secure Gear Storage"
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/mapping_helpers/airlock/access/all/security/armory,
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
@@ -116218,7 +116218,7 @@
 "whK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/field/generator,
-/obj/effect/turf_decal/box/blue,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage)
 "whU" = (
@@ -123030,7 +123030,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/caution/stand_clear/blue,
+/obj/effect/turf_decal/caution/stand_clear/red,
 /obj/machinery/door/poddoor/shutters/window/preopen{
 	id = "Psychward1";
 	name = "Cell Door 1"

@@ -5846,7 +5846,7 @@
 	},
 /obj/machinery/portable_atmospherics/pump,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/camera/autoname/directional/east{
 	network = list("intd13")
 	},
@@ -5920,7 +5920,7 @@
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "VX" = (
 /obj/machinery/portable_atmospherics/pump,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 1
 	},

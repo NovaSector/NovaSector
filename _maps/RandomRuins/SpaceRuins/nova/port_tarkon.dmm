@@ -328,7 +328,9 @@
 /obj/item/clothing/under/tarkon/sec,
 /obj/item/storage/backpack/duffelbag/sec/redsec,
 /obj/item/storage/backpack/satchel/sec/redsec,
-/obj/item/storage/backpack/security/redsec,
+/obj/item/storage/backpack/security{
+	@old = None
+	},
 /obj/item/clothing/head/utility/welding/hat,
 /obj/item/clothing/head/utility/welding/hat,
 /obj/machinery/camera/autoname/tarkon/directional/east,

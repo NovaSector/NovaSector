@@ -77,7 +77,7 @@
 
 /obj/item/clothing/suit/toggle/jacket/sec
 	name = "security jacket"
-	desc = "A comfortable jacket in security blue. Probably against uniform regulations."
+	desc = "A comfortable jacket in security red. Probably against uniform regulations."
 	icon_state = "sec_dep_jacket"
 	armor_type = /datum/armor/sec_dep_jacket
 
@@ -94,8 +94,9 @@
 	fire = 30
 	acid = 45
 
-/obj/item/clothing/suit/toggle/jacket/sec/old	//Oldsec (Red)
-	icon_state = "sec_dep_jacket_old"
+/obj/item/clothing/suit/toggle/jacket/sec/blue
+	desc = "An outdated jacket in blue. Probably against uniform regulations."
+	icon_state = "sec_dep_jacket_blue"
 
 //Flannels
 /obj/item/clothing/suit/toggle/jacket/flannel
