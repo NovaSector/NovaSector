@@ -1,11 +1,11 @@
-/datum/quirk/genetic_freak
-	name = "Genetic Freak"
-	desc = "Based either on your unusual DNA, or previous genework, you've gained a new power!"
+/datum/quirk/genetic_mutation
+	name = "Genetic Mutation"
+	desc = "For some reason or another, you've got an unusual genetic mutation, the rest is up to fate."
 	icon = FA_ICON_DNA
 	value = 6
-	gain_text = "If everybodies super, no one is-"
-	lose_text = "Everyone else feels alot more super all the sudden."
-	medical_record_text = "Patient has an unusual proclivity towards genetic mutations."
+	gain_text = "If everyone's super, no one is."
+	lose_text = "You feel like everyone else might be super after all."
+	medical_record_text = "Patient has unusual genetic sequences."
 	var/applied_mutation
 
 /datum/quirk_constant_data/genetic_mutation
