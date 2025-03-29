@@ -35,6 +35,7 @@
 		TPACKB,
 		TPACKA,
 		TPACKC,
+		GUNCASE,
 		// NOVA EDIT ADDITION END
 	)
 /datum/preference/choiced/backpack/create_default_value()
@@ -59,6 +60,8 @@
 			return /obj/item/storage/backpack/tinypaka
 		if (TPACKC)
 			return /obj/item/storage/backpack/tinypakc
+		if (GUNCASE)
+			return /obj/item/storage/toolbox/guncase/nova
 		// NOVA EDIT ADDITION END
 
 		// In a perfect world, these would be your department's backpack.

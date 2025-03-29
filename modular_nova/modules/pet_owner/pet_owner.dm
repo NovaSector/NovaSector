@@ -84,6 +84,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
 	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
+	"Sweater Fox" = /mob/living/basic/pet/fox/docile/sweater,
 	"Frog" = /mob/living/basic/frog,
 	"Giant ant" = /mob/living/basic/ant,
 	"Kitten" = /mob/living/basic/pet/cat/kitten,

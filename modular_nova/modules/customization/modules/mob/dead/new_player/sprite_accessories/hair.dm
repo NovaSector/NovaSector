@@ -719,3 +719,19 @@
 /datum/sprite_accessory/facial_hair/nova/selleckreceeded
 	name = "Moustache (Selleck - Alt)"
 	icon_state = "facial_selleckreceeded"
+
+/datum/sprite_accessory/facial_hair/nova/faciallizardlick
+	name = "Lizard Tongue Flick"
+	icon_state = "facial_lizardlick_s"
+
+/datum/sprite_accessory/facial_hair/nova/faciallizardlickslow
+	name = "Lizard Tongue Flick Slow"
+	icon_state = "facial_lizardlickslow_s"
+
+/datum/sprite_accessory/facial_hair/nova/faciallizardlickfast
+	name = "Lizard Tongue Flick Fast"
+	icon_state = "facial_lizardlickfast_s"
+
+/datum/sprite_accessory/facial_hair/nova/noselick
+	name = "Nose Lick"
+	icon_state = "noselick"
