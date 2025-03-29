@@ -36,7 +36,7 @@
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
 		examine_panel_screen = new
-		examine_panel.generate_view("examine_panel_[REF(holder)]_map")
+		examine_panel_screen.generate_view("examine_panel_[REF(holder)]_map")
 
 	var/mutable_appearance/current_mob_appearance = new(holder)
 	current_mob_appearance.setDir(SOUTH)
