@@ -33,3 +33,6 @@
 
 /datum/action/changeling/adrenaline
 	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/horror_form
+	hide_from_quirk_changeling = TRUE
