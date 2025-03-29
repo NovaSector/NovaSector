@@ -7,11 +7,13 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to medical."
 
 /obj/item/storage/bag/garment/syndicate_medical/PopulateContents()
-	new /obj/item/clothing/gloves/latex/nitrile/ntrauma(src)
-	new /obj/item/clothing/suit/toggle/labcoat/interdyne(src)
-	new /obj/item/clothing/suit/toggle/labcoat/interdyne(src)
-	new /obj/item/clothing/glasses/hud/ar/aviator/health(src)
-	new /obj/item/clothing/glasses/hud/ar/aviator/health(src)
+	return list(
+		/obj/item/clothing/gloves/latex/nitrile/ntrauma,
+		/obj/item/clothing/suit/toggle/labcoat/interdyne,
+		/obj/item/clothing/suit/toggle/labcoat/interdyne,
+		/obj/item/clothing/glasses/hud/ar/aviator/health,
+		/obj/item/clothing/glasses/hud/ar/aviator/health,
+	)
 
 /obj/structure/closet/secure_closet/des_two/medical/PopulateContents()
 	..()

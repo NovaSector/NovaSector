@@ -104,7 +104,7 @@
 	AddComponent(/datum/component/two_handed, require_twohands = TRUE)
 
 /obj/item/storage/toolbox/emergency/turret/nri/PopulateContents()
-	return null
+	return NONE
 
 /obj/item/storage/toolbox/emergency/turret/nri/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH && user.combat_mode)
@@ -144,10 +144,6 @@
 	desc = "A secure military-grade crate. According to the markings, -as well as mixed Cyrillics-, it was shipped and provided by the NRI Defense Collegium."
 	req_access = list(ACCESS_CENT_GENERAL)
 	var/loadout_desc = "Whoever picks this is might be busy debugging this copypasted code."
-
-//base, don't use this, but leaving it for admin spawns is probably a good call? (no because it's literally freaking empty lmfao)
-/obj/structure/closet/crate/secure/weapon/nri/PopulateContents()
-	return null
 
 //defensive engineering loadout
 /obj/structure/closet/crate/secure/weapon/nri/engineer/defense

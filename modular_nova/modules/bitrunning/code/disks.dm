@@ -215,9 +215,10 @@
 	desc = "A rather plain pair of shoulder holsters with a bit of padding inside. Meant to hold a twinned pair of nanite pistols, but can fit several kinds of energy handguns as well."
 
 /obj/item/storage/belt/holster/energy/nanite/PopulateContents()
-	generate_items_inside(list(
-		/obj/item/gun/energy/laser/thermal = 2,
-	),src)
+	return list(
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/gun/energy/laser/thermal,
+	)
 
 /datum/orderable_item/bitrunning_tech/item_tier1
 	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, a combat knife, or a military webbing."

@@ -41,16 +41,18 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to an engine tech."
 
 /obj/item/storage/bag/garment/syndicate_engie/PopulateContents()
-	new /obj/item/clothing/suit/hooded/wintercoat/engineering(src)
-	new /obj/item/clothing/head/soft/sec/syndicate(src)
-	new /obj/item/clothing/under/syndicate/nova/overalls(src)
-	new /obj/item/clothing/under/syndicate/nova/overalls/skirt(src)
-	new /obj/item/clothing/under/rank/engineering/engineer/nova/utility/syndicate(src)
-	new /obj/item/clothing/suit/jacket/gorlex_harness(src)
-	new /obj/item/clothing/suit/hazardvest(src)
-	new /obj/item/clothing/accessory/armband/engine/syndicate(src)
-	new /obj/item/clothing/accessory/armband/engine/syndicate(src)
-	new /obj/item/clothing/glasses/hud/ar/aviator/meson(src)
+	return list(
+		/obj/item/clothing/suit/hooded/wintercoat/engineering,
+		/obj/item/clothing/head/soft/sec/syndicate,
+		/obj/item/clothing/under/syndicate/nova/overalls,
+		/obj/item/clothing/under/syndicate/nova/overalls/skirt,
+		/obj/item/clothing/under/rank/engineering/engineer/nova/utility/syndicate,
+		/obj/item/clothing/suit/jacket/gorlex_harness,
+		/obj/item/clothing/suit/hazardvest,
+		/obj/item/clothing/accessory/armband/engine/syndicate,
+		/obj/item/clothing/accessory/armband/engine/syndicate,
+		/obj/item/clothing/glasses/hud/ar/aviator/meson,
+	)
 
 /obj/item/clothing/accessory/armband/engine/syndicate
 	name = "engine technician armband"

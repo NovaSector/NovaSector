@@ -31,9 +31,9 @@
 /obj/item/storage/backpack/duffelbag/drone/PopulateContents()
 	//Populate the drone duffelbag with our extra items
 	. = ..()
-	new /obj/item/t_scanner(src)
-	new /obj/item/analyzer(src)
-	new /obj/item/pipe_dispenser(src)
+	. += /obj/item/t_scanner
+	. += /obj/item/analyzer
+	. += /obj/item/pipe_dispenser
 
 /obj/effect/mob_spawn/ghost_role/drone/derelict/babylon
 	desc = "A shell of a maintenance drone, an expendable robot built to perform station repairs."

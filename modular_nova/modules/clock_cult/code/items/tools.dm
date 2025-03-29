@@ -50,11 +50,13 @@
 	desc = "Holds tools. This one's seen better days, though. There's the outline of a cog roughly cut into the leather on one side."
 
 /obj/item/storage/belt/utility/clock/PopulateContents()
-	new /obj/item/screwdriver/brass(src)
-	new /obj/item/crowbar/brass(src)
-	new /obj/item/weldingtool/experimental/brass(src)
-	new /obj/item/wirecutters/brass(src)
-	new /obj/item/wrench/brass(src)
-	new /obj/item/multitool(src)
+	return list(
+		/obj/item/screwdriver/brass,
+		/obj/item/crowbar/brass,
+		/obj/item/weldingtool/experimental/brass,
+		/obj/item/wirecutters/brass,
+		/obj/item/wrench/brass,
+		/obj/item/multitool,
+	)
 
 #undef BRASS_TOOLSPEED_MOD

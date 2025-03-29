@@ -9,7 +9,7 @@
 
 /obj/item/storage/box/survival/interdyne/PopulateContents()
 	..()
-	new /obj/item/crowbar/red(src)
-	new /obj/item/screwdriver/red(src)
-	new /obj/item/weldingtool/mini(src)
+	. += /obj/item/crowbar/red
+	. += /obj/item/screwdriver/red
+	. += /obj/item/weldingtool/mini
 

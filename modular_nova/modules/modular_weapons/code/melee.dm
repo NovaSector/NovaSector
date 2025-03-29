@@ -7,8 +7,9 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 
 /obj/item/storage/belt/sabre/cargo/PopulateContents()
-	new /obj/item/melee/sabre/cargo(src)
-	update_appearance()
+	return list(
+		/obj/item/melee/sabre/cargo
+	)
 
 /obj/item/melee/sabre
 	force = 20 // Original: 15

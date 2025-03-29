@@ -510,17 +510,19 @@
 	illustration = "disk_kit"
 
 /obj/item/storage/box/nif_ghost_box/PopulateContents()
-	new /obj/item/autosurgeon/organ/nif/ghost_role(src)
-	new /obj/item/disk/nifsoft_uploader/shapeshifter(src)
-	new /obj/item/disk/nifsoft_uploader/summoner(src)
-	new /obj/item/disk/nifsoft_uploader/dorms(src)
-	new /obj/item/disk/nifsoft_uploader/dorms/hypnosis(src)
-	new /obj/item/disk/nifsoft_uploader/soulcatcher(src)
-	new /obj/item/disk/nifsoft_uploader/money_sense(src)
+	return list(
+		/obj/item/autosurgeon/organ/nif/ghost_role,
+		/obj/item/disk/nifsoft_uploader/shapeshifter,
+		/obj/item/disk/nifsoft_uploader/summoner,
+		/obj/item/disk/nifsoft_uploader/dorms,
+		/obj/item/disk/nifsoft_uploader/dorms/hypnosis,
+		/obj/item/disk/nifsoft_uploader/soulcatcher,
+		/obj/item/disk/nifsoft_uploader/money_sense,
+		)
 
 /obj/item/storage/box/nif_ghost_box/ghost_role/PopulateContents()
 	. = ..()
-	new /obj/item/disk/nifsoft_uploader/hivemind(src)
+	. += /obj/item/disk/nifsoft_uploader/hivemind
 
 #undef NIF_CALIBRATION_STAGE_1
 #undef NIF_CALIBRATION_STAGE_1_END

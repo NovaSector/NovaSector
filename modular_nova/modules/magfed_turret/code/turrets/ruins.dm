@@ -14,8 +14,10 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/outpost/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
+	return list(
+		/obj/item/ammo_box/magazine/c40sol_rifle,
+		/obj/item/ammo_box/magazine/c40sol_rifle,
+	)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost
 	name = "\improper Outpost Point-Defense Turret"
@@ -54,8 +56,10 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/colonist/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
-	new /obj/item/ammo_box/magazine/c40sol_rifle(src)
+	return list(
+		/obj/item/ammo_box/magazine/c40sol_rifle,
+		/obj/item/ammo_box/magazine/c40sol_rifle,
+	)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/colonist
 	name = "\improper Colonist Point-Defense Turret"
@@ -96,7 +100,9 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	return list(
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+	)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider
 	name = "\improper Stinger Spider Turret"
@@ -120,7 +126,9 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/malf
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/malf/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
+	return list(
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+	)
 
 ////// Twin-Fang turret. Spider Turret's nastier cousin. Slightly less durable but more vitriol. Chambered in .27-54
 
@@ -137,7 +145,9 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/miecz(src)
+	return list(
+		/obj/item/ammo_box/magazine/miecz,
+	)
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang
 	name = "\improper Twin-Fang Spider Turret"
@@ -167,7 +177,9 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/spider/twin_fang/malf
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/spider/twin_fang/malf/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/miecz(src)
+	return list(
+		/obj/item/ammo_box/magazine/miecz,
+	)
 
 ////// Shotgun Turret. Surprisingly nothing new added as the firing proc will handle pellet clouds. Note however that shotgun rounds CANT smart-gun around allies.
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster
@@ -188,9 +200,9 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/duster/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot(src)
-	new /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot(src)
-	new /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot(src)
+	. = list()
+	for(var/i in 1 to 3)
+		. += /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster
 	name = "\improper Duster Emergent Turret"

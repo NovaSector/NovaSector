@@ -3,15 +3,17 @@
 	desc = "A sleek, industrial-strength duffelbag issued to robotics personnel. This one has a tag implying it came stocked with surgical tools."
 
 /obj/item/storage/backpack/duffelbag/science/robo/surgery/PopulateContents()
-	new /obj/item/scalpel(src)
-	new /obj/item/hemostat(src)
-	new /obj/item/retractor(src)
-	new /obj/item/circular_saw(src)
-	new /obj/item/surgicaldrill(src)
-	new /obj/item/cautery(src)
-	new /obj/item/bonesetter(src)
-	new /obj/item/surgical_drapes(src)
-	new /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown(src)
-	new /obj/item/clothing/mask/surgical(src)
-	new /obj/item/razor(src)
-	new /obj/item/blood_filter(src)
+	return list(
+		/obj/item/scalpel,
+		/obj/item/hemostat,
+		/obj/item/retractor,
+		/obj/item/circular_saw,
+		/obj/item/surgicaldrill,
+		/obj/item/cautery,
+		/obj/item/bonesetter,
+		/obj/item/surgical_drapes,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/razor,
+		/obj/item/blood_filter,
+	)

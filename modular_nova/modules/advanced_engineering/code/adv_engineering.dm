@@ -1,11 +1,13 @@
 /obj/item/storage/belt/utility/full/powertools/ircd/PopulateContents()
-	new /obj/item/screwdriver/power(src)
-	new /obj/item/crowbar/power(src)
-	new /obj/item/weldingtool/electric(src)
-	new /obj/item/construction/rcd/combat(src)
-	new /obj/item/pipe_dispenser(src)
-	new /obj/item/wrench/bolter(src)
-	new /obj/item/analyzer/ranged(src)
+	return list(
+		/obj/item/screwdriver/power,
+		/obj/item/crowbar/power,
+		/obj/item/weldingtool/electric,
+		/obj/item/construction/rcd/combat,
+		/obj/item/pipe_dispenser,
+		/obj/item/wrench/bolter,
+		/obj/item/analyzer/ranged,
+	)
 
 /obj/item/mod/control/pre_equipped/advanced/atmos
 	theme = /datum/mod_theme/advanced/atmos
@@ -48,5 +50,6 @@
 	)
 
 /obj/item/storage/box/rcd_ammo/PopulateContents()
+	. = list()
 	for(var/i in 1 to 4)
-		new/obj/item/rcd_ammo/combat(src)
+		. += /obj/item/rcd_ammo/combat

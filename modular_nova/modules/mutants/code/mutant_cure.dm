@@ -370,8 +370,10 @@
 	max_integrity = 500
 
 /obj/item/storage/briefcase/virology/hnz/PopulateContents()
-	new /obj/item/reagent_containers/cup/bottle/hnz/one(src)
-	new /obj/item/reagent_containers/cup/bottle/hnz/one(src)
-	new /obj/item/circuitboard/machine/rna_recombinator(src)
-	new /obj/item/rna_extractor(src)
-	new /obj/item/rna_vial(src)
+	return list(
+		/obj/item/reagent_containers/cup/bottle/hnz/one,
+		/obj/item/reagent_containers/cup/bottle/hnz/one,
+		/obj/item/circuitboard/machine/rna_recombinator,
+		/obj/item/rna_extractor,
+		/obj/item/rna_vial,
+	)

@@ -176,10 +176,12 @@
 /obj/item/storage/box/donator/sqn
 
 /obj/item/storage/box/donator/sqn/PopulateContents()
-	new /obj/item/holosign_creator/hardlight_wheelchair(src)
-	new /obj/item/nanite_leg_reinforcement(src)
-	new /obj/item/lipstick/quantum/sqn(src)
-	new /obj/item/clothing/glasses/hud/ar/projector/science/sqn(src)
+	return list(
+		/obj/item/holosign_creator/hardlight_wheelchair,
+		/obj/item/nanite_leg_reinforcement,
+		/obj/item/lipstick/quantum/sqn,
+		/obj/item/clothing/glasses/hud/ar/projector/science/sqn,
+	)
 
 /obj/vehicle/ridden/wheelchair/hardlight
 	name = "hardlight wheelchair"

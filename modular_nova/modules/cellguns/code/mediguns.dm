@@ -104,8 +104,10 @@
 	desc = "A briefcase that contains the CWM-479 medigun and an instruction manual."
 
 /obj/item/storage/briefcase/medicalgunset/standard/PopulateContents()
-	new /obj/item/gun/energy/cell_loaded/medigun/standard(src)
-	new /obj/item/book/manual/wiki/mediguns(src)
+	return list(
+		/obj/item/gun/energy/cell_loaded/medigun/standard,
+		/obj/item/book/manual/wiki/mediguns,
+	)
 
 /obj/item/storage/briefcase/medicalgunset/cmo
 	name = "VeyMedical CWM-479-CC cell-powered medigun case"
@@ -113,11 +115,13 @@
 	icon_state = "case_cmo"
 
 /obj/item/storage/briefcase/medicalgunset/cmo/PopulateContents()
-	new /obj/item/gun/energy/cell_loaded/medigun/cmo(src)
-	new /obj/item/weaponcell/medical/brute(src)
-	new /obj/item/weaponcell/medical/burn(src)
-	new /obj/item/weaponcell/medical/toxin(src)
-	new /obj/item/book/manual/wiki/mediguns(src)
+	return list(
+		/obj/item/gun/energy/cell_loaded/medigun/cmo,
+		/obj/item/weaponcell/medical/brute,
+		/obj/item/weaponcell/medical/burn,
+		/obj/item/weaponcell/medical/toxin,
+		/obj/item/book/manual/wiki/mediguns,
+	)
 
 /*
 * Medigun Cells - Spritework is done by Arctaisia!

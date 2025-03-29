@@ -44,6 +44,8 @@
 	desc = "Can you remember?"
 
 /obj/item/storage/box/hero/mushperson/PopulateContents()
-	new /obj/item/clothing/suit/mush(src)
-	new /obj/item/clothing/head/mush_helmet(src)
-	new /obj/item/mushpunch(src)
+	return list(
+		/obj/item/clothing/suit/mush,
+		/obj/item/clothing/head/mush_helmet,
+		/obj/item/mushpunch,
+	)
