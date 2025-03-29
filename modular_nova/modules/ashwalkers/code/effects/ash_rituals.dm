@@ -183,7 +183,7 @@
 		/obj/item/crusher_trophy/watcher_wing,
 	)
 	ritual_success_items = list(
-		/obj/item/tendril_seed,
+		/obj/item/ash_seed/tendril,
 	)
 
 /// Spawns a new megafauna randomly in the ashen wastes
@@ -192,13 +192,13 @@
 	desc = "Causes a horrible, unrecognizable sound that will attract the large fauna from around the planet."
 	required_components = list(
 		"north" = /mob/living/carbon/human,
-		"south" = /obj/item/tendril_seed,
+		"south" = /obj/item/ash_seed/tendril,
 		"east" = /mob/living/carbon/human,
 		"west" = /mob/living/carbon/human,
 	)
 	consumed_components = list(
 		/mob/living/carbon/human,
-		/obj/item/tendril_seed,
+		/obj/item/ash_seed/tendril,
 	)
 
 /datum/ash_ritual/incite_megafauna/ritual_success(obj/effect/ash_rune/success_rune)
@@ -505,3 +505,23 @@
 	for(var/mob/living/carbon/human/lizard_target in range(2, get_turf(success_rune)))
 		lizard_target.faction.Add(FACTION_MINING_FAUNA)
 		ADD_TRAIT(lizard_target, TRAIT_PACIFISM, SPECIES_TRAIT)
+
+/// Summon Ore Seed
+/datum/ash_ritual/summon_ore_seed
+	name = "Summon Ore Seed"
+	desc = "Summons a seed that, when used in the hand, will cause a tendril to dig through the crust of the surface causing an ore vent to appear."
+	required_components = list(
+		"north" = /obj/item/crusher_trophy/legion_skull,
+		"south" = /obj/item/organ/monster_core/regenerative_core,
+		"east" = /obj/item/crusher_trophy/watcher_wing,
+		"west" = /obj/item/crusher_trophy/goliath_tentacle,
+	)
+	consumed_components = list(
+		/obj/item/crusher_trophy/legion_skull,
+		/obj/item/organ/monster_core/regenerative_core,
+		/obj/item/crusher_trophy/watcher_wing,
+		/obj/item/crusher_trophy/goliath_tentacle,
+	)
+	ritual_success_items = list(
+		/obj/item/ash_seed/vent,
+	)

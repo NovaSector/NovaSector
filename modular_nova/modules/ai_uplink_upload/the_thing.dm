@@ -3,6 +3,7 @@
 	/// not all of actual external organs have it. Better to double check in case someone messes up with flags or something.
 	var/static/list/ignored_organ_slots = list(
 		ORGAN_SLOT_EXTERNAL_CAP,
+		ORGAN_SLOT_EXTERNAL_EARS,
 		ORGAN_SLOT_EXTERNAL_FLUFF,
 		ORGAN_SLOT_EXTERNAL_FRILLS,
 		ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY,

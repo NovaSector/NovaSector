@@ -25,7 +25,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 2
 	)
 	tastes = list("spicy meatballs" = 5, "chicken" = 4)
-	foodtypes = MEAT
+	foodtypes = MEAT|VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
 
@@ -42,7 +42,7 @@
 		/datum/reagent/consumable/coco = 2
 	)
 	tastes = list("coffee" = 10, "pastry" = 4 , "sugar" = 5)
-	foodtypes = SUGAR | GRAIN | DAIRY
+	foodtypes = JUNKFOOD | SUGAR | GRAIN | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
