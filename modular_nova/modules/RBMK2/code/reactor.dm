@@ -440,8 +440,6 @@
 	data["health_percent"] = (atom_integrity/max_integrity)*100
 	data["rod_mix_pressure"] = stored_rod?.air_contents.return_pressure() || 0				// Used to display the current pressure
 	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0							// Used as a comparison point for the progress bar
-	data["rod_mix_pressure"] = stored_rod?.air_contents.return_pressure() || 0				// Used to display the current pressure
-	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0							// Used as a comparison point for the progress bar
 	data["rod_trit_moles"] = stored_rod?.air_contents.gases[/datum/gas/tritium][MOLES] || 0	// Look for specifically tritium, don't need to show moderators.
 	data["rod_mix_temperature"] = stored_rod?.air_contents.temperature || 0
 	data["safeties_max_power_generation"] = safeties_max_power_generation					// This variable and the next allows our limits in the UI to change based on part tiers.
