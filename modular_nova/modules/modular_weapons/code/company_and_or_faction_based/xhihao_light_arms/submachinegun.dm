@@ -37,27 +37,23 @@
 	// Hope you didn't need to see anytime soon
 	recoil = 2
 
+	lore_blurb = "The Bogseo submachinegun, chambered in the monstrous .585 Trappiste, \
+		is an exercise in shoulder-bruising close-quarters brutality.<br><br>\
+		Depending on who you ask, it's seen in very different lights; \
+		ask a Jovian, and they'll go off all day about how they \
+		love the thing so, thanks to its efficacy against large targets, like \
+		fuel-stat raiders in large suits of armor. \
+		Ask a space pirate, however, and you'll get a different story, \
+		thanks to many SolFed anti-piracy units picking the Bogseo as their standard boarding weapon.<br><br>\
+		What better option to ruin a brigand's day than a hail of bullets \
+		large enough to turn them into mist at full auto, after all?"
+
 /obj/item/gun/ballistic/automatic/xhihao_smg/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
 	AddComponent(/datum/component/automatic_fire, fire_delay)
 
-/obj/item/gun/ballistic/automatic/xhihao_smg/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
 /obj/item/gun/ballistic/automatic/xhihao_smg/examine_more(mob/user)
 	. = ..()
-
-	. += "The Bogseo submachinegun is seen in highly different lights based on \
-		who you ask. Ask a Jovian, and they'll go off all day about how they \
-		love the thing so. A big weapon for shooting big targets, like the \
-		fuel-stat raiders in their large suits of armor. Ask a space pirate, however \
-		and you'll get a different story. That is thanks to many SolFed anti-piracy \
-		units picking the Bogseo as their standard boarding weapon. What better \
-		to ruin a brigand's day than a bullet large enough to turn them into \
-		mist at full auto, after all?"
-
-	return .
 
 /obj/item/gun/ballistic/automatic/xhihao_smg/no_mag
 	spawnwithmagazine = FALSE
