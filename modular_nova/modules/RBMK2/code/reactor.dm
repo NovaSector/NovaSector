@@ -448,7 +448,7 @@
 	data["max_power_generation"] = max_power_generation
 	data["last_power_output"] = display_power(last_power_generation) 						// We use this to display our power using this
 	data["raw_last_power_output"] = last_power_generation									// but we use this raw to calculate the progress bar
-	data["consuming"] = consuming_si_derived_data[SI_COEFFICIENT]							// Changed because 1/10,000th and si makes more sense during meltdowns.
+	data["consuming"] = consuming_si_derived_data[SI_COEFFICIENT]							// Changed because 1/10,000th is not a micromole and si makes more sense during meltdowns.
 	data["consuming_unit"] = consuming_si_derived_data[SI_UNIT]
 	data["raw_consuming"] = last_tritium_consumption*0.5 									// Required to calculate remaining fuel in the rod_trit_moles progressbar
 
