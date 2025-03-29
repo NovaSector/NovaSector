@@ -1,7 +1,6 @@
-import { capitalizeFirst } from 'common/string';
+import { Button, NoticeBox, Section, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
-import { Button, NoticeBox, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 import { NTOSData } from '../layouts/NtosWindow';
 
@@ -60,9 +59,6 @@ const SelfServePage = (props) => {
           </Stack.Item>
           <Stack.Item width="100%" mt={1} ml={0}>
             Current Status: {trimClockedOut ? 'Off-Duty' : 'Active Duty'}
-          </Stack.Item>
-          <Stack.Item width="100%" mt={1} ml={0}>
-            Station Alert Level: {capitalizeFirst(stationAlertLevel) || '-----'}
           </Stack.Item>
         </Stack>
       </Section>
