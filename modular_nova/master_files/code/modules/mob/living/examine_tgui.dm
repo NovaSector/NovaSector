@@ -27,6 +27,7 @@
 /atom/movable/screen/map_view/examine_panel_screen
 	name = "examine panel screen"
 
+
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
 		examine_panel_screen = new
