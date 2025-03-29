@@ -132,7 +132,7 @@ export const RBMK2 = (props) => {
             </LabeledList.Item>
             <LabeledList.Item
               label="Rod Temperature"
-              tooltip="As the temperature of the mixt increases, fuel consumption rises, leading to greater power generation. If safeties are disabled, the reactor will begin to meltdown at 2,073.15°K."
+              tooltip="As the temperature of the mix increases, fuel consumption rises, leading to greater power generation. If safeties are disabled, the reactor will begin to meltdown at 2,073.15°K."
             >
               <ProgressBar
                 value={data.rod_mix_temperature}
