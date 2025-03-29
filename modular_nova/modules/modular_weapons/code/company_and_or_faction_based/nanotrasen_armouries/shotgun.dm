@@ -76,8 +76,8 @@
 	lore_blurb = "The Solar Federation Surplus 'Jäger' Magfed Shotgun is a recent release from Solar Federation Surplus. \
 		and it's received a warm welcome from the Solar Federation Marines and S.W.A.T. Teams. \
 		issued it in the ongoing rollout. \
-		\ the inimitable burst fire and multi-shell compatability \
-		makes the Jager powerful, reliable, accurate, and shockingly comfortable to fire."
+		the inimitable burst fire and multi-shell compatibility \
+		makes the Jäger powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()
     AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)
