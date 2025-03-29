@@ -36,3 +36,6 @@
 
 /datum/action/changeling/horror_form
 	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/dissonant_shriek
+	hide_from_quirk_changeling = TRUE
