@@ -59,7 +59,6 @@
 	. = ..()
 	update_appearance()
 
-
 /obj/item/gun/ballistic/shotgun/katyusha/jager
 	name = "\improper Jäger Shotgun"
 	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \

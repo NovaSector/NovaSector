@@ -41,6 +41,7 @@
 	icon_state = "marauder_mag"
 	base_icon_state = "marauder_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
+	caliber = CALIBER_SHOTGUN
 	max_ammo = 8
 
 /obj/item/ammo_box/magazine/jager/rubbershot
