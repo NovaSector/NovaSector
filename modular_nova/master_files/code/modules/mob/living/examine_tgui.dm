@@ -51,9 +51,9 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		examine_panel_screen.display_to(user, ui.window)
 		ui = new(user, src, "ExaminePanel")
 		ui.open()
+		examine_panel_screen.display_to(user, ui.window)
 
 
 /datum/examine_panel/ui_data(mob/user)
