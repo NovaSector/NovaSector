@@ -45,7 +45,6 @@
 /obj/item/organ/lungs/nitrogen/vox
 	icon = 'modular_nova/modules/voxes/icons/organs.dmi'
 
-
 /obj/item/organ/brain/vox
 	icon = 'modular_nova/modules/voxes/icons/organs.dmi'
 
