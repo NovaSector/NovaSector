@@ -102,7 +102,7 @@
 */
 
 /obj/item/ammo_casing/c45/ap
-	desc = "An armor-piercing .460 bullet casing.\
+	desc = "An armor-piercing .45 bullet casing.\
 	<br><br>\
 	<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
 	custom_materials = AMMO_MATS_AP
