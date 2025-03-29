@@ -28,13 +28,15 @@
 	name = "examine panel screen"
 
 
+/atom/movable/screen/map_view/examine_panel/generate_view(map_key)
+	. = ..()
+	name = "screen"
+	del_on_map_removal = FALSE
+
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
 		examine_panel_screen = new
-		examine_panel_screen.name = "screen"
-		examine_panel_screen.assigned_map = "examine_panel_[REF(holder)]_map"
-		examine_panel_screen.del_on_map_removal = FALSE
-		examine_panel_screen.screen_loc = "[examine_panel_screen.assigned_map]:1,1"
+		examine_panel.generate_view("examine_panel_[REF(holder)]_map")
 
 	var/mutable_appearance/current_mob_appearance = new(holder)
 	current_mob_appearance.setDir(SOUTH)
@@ -49,8 +51,7 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		examine_panel_screen.display_to(user)
-		user.client.register_map_obj(examine_panel_screen)
+		examine_panel_screen.display_to(user, ui.window)
 		ui = new(user, src, "ExaminePanel")
 		ui.open()
 
