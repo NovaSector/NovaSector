@@ -17,6 +17,7 @@ import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { CharacterPreview } from './common/CharacterPreview';
+
 const formatURLs = (text) => {
   if (!text) return;
   const parts = [];
