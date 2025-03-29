@@ -7,17 +7,10 @@
 	use_power = IDLE_POWER_USE
 	circuit = /obj/item/circuitboard/machine/ammo_workbench
 	var/busy = FALSE
-	/// if it's hacked it's gonna be able to print lethals. it'll be mad at you for doing so but it'll print basic lethals.
-	var/hacked = FALSE
-	var/disabled = FALSE
-	var/shocked = FALSE
-	var/hack_wire
-	var/disable_wire
 	var/error_message = ""
 	var/error_type = ""
 	var/disk_error = ""
 	var/disk_error_type = ""
-	var/shock_wire
 	var/timer_id
 	var/turbo_boost = FALSE
 	var/obj/item/ammo_box/loaded_magazine = null
@@ -29,10 +22,8 @@
 	var/list/valid_casings = list()
 	/// the material requirement strings for these casings (for the tooltip)
 	var/list/casing_mat_strings = list()
-	/// can it print ammunition flagged as harmful (e.g. most ammo)?
-	var/allowed_harmful = FALSE
-	/// can it print advanced ammunition types (e.g. armor-piercing)? see modular_nova\modules\modular_weapons\code\modular_projectiles.dm
-	var/allowed_advanced = FALSE
+	/// bitflags for allowed ammo types (see modular_nova/modules/ammo_workbench/code/ammo_bench_defines.dm)
+	var/ammo_categories = 0
 	/// what datadisks have been loaded. uh... honestly this doesn't really do much either
 	var/list/loaded_datadisks = list()
 	/// current multiplier for material cost per round
@@ -52,11 +43,10 @@
 	var/adminbus = FALSE
 
 /obj/machinery/ammo_workbench/unlocked
-	allowed_harmful = TRUE
-	allowed_advanced = TRUE
+	ammo_categories = AMMO_ALL_TYPES
 
 /obj/item/circuitboard/machine/ammo_workbench
-	name = "Ammunition Workbench (Machine Board)"
+	name = "Ammunition Workbench"
 	icon_state = "circuit_map"
 	build_path = /obj/machinery/ammo_workbench
 	req_components = list(
@@ -74,7 +64,6 @@
 		allowed_items = /obj/item/stack, \
 	)
 	. = ..()
-	set_wires(new /datum/wires/ammo_workbench(src))
 
 /obj/machinery/ammo_workbench/examine(mob/user)
 	. += ..()
@@ -87,9 +76,6 @@
 	if(!ui)
 		ui = new(user, src, "AmmoWorkbench")
 		ui.open()
-
-	if(shocked)
-		shock(user, 80)
 
 /obj/machinery/ammo_workbench/proc/update_ammotypes()
 	LAZYCLEARLIST(valid_casings)
@@ -111,10 +97,8 @@
 		if(!adminbus)
 			if(!(initial(our_casing.can_be_printed))) // if we're not supposed to be printed (looking at you, smartgun rails)
 				continue // go home
-			if(initial(our_casing.harmful) && (!allowed_harmful && !hacked)) // if you hack it that's on you.
-				continue
-			if(initial(our_casing.advanced_print_req) && !allowed_advanced) // if its got a funny function (hello, AP!) and we're not good for it yet,
-				continue // no
+			if(!((initial(our_casing.ammo_categories) & ammo_categories) == our_casing.ammo_categories)) // categorical mismatch?
+				continue // nuh uh
 		if(initial(our_casing.projectile_type) == null) // spent casing subtypes >:(
 			continue
 		// i'm very sorry for this, but literally every other thing i tried to get the material composition didn't copy at all
@@ -167,7 +151,6 @@
 
 	data["efficiency"] = creation_efficiency
 	data["time"] = time_per_round / 10
-	data["hacked"] = hacked
 	data["turboBoost"] = turbo_boost
 
 	data["materials"] = list()
@@ -310,11 +293,10 @@
 
 	var/obj/item/ammo_casing/our_casing = casing_type
 
-	if(initial(our_casing.harmful) && !allowed_harmful)
+	if(!(initial(our_casing.ammo_categories) & ammo_categories))
 		error_message = "SYSTEM CORRUPTION DETECTED, PLEASE EJECT CONTAINER AND SUBMIT SUPPORT TICKET"
 		error_type = "bad"
-		if(!hacked)
-			return
+		return
 
 	if(!loaded_magazine)
 		error_message = "NO MAGAZINE INSERTED"
@@ -476,27 +458,11 @@
 
 	return ..()
 
-/obj/machinery/ammo_workbench/proc/shock(mob/user, prb)
-	if(machine_stat & (BROKEN|NOPOWER)) // unpowered, no shock
-		return FALSE
-	if(!prob(prb))
-		return FALSE
-	do_sparks(5, TRUE, src)
-	if (electrocute_mob(user, get_area(src), src, 0.7, TRUE))
-		return TRUE
-	else
-		return FALSE
-
 /obj/machinery/ammo_workbench/attackby(obj/item/O, mob/user, params)
 	if (default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), O))
 		return
 	if(default_deconstruction_crowbar(O))
 		return
-	if(panel_open && is_wire_tool(O))
-		wires.interact(user)
-		return TRUE
-	if(is_refillable() && O.is_drainable())
-		return FALSE //inserting reagents into the machine
 	if(Insert_Item(O, user))
 		return TRUE
 	else
@@ -561,9 +527,6 @@
 	if(panel_open)
 		to_chat(user, span_warning("You can't load [src] while it's opened!"))
 		return FALSE
-	if(disabled)
-		to_chat(user, span_warning("The insertion belts of [src] won't engage!"))
-		return FALSE
 	if(machine_stat & BROKEN)
 		to_chat(user, span_warning("[src] is broken."))
 		return FALSE
@@ -574,71 +537,3 @@
 		to_chat(user, span_warning("[src] already has a disk inserted."))
 		return FALSE
 	return TRUE
-
-/obj/machinery/ammo_workbench/proc/reset(wire)
-	switch(wire)
-		if(WIRE_HACK)
-			if(!wires.is_cut(wire))
-				adjust_hacked(FALSE)
-		if(WIRE_SHOCK)
-			if(!wires.is_cut(wire))
-				shocked = FALSE
-		if(WIRE_DISABLE)
-			if(!wires.is_cut(wire))
-				disabled = FALSE
-
-/obj/machinery/ammo_workbench/proc/adjust_hacked(state)
-	hacked = state
-
-
-// WIRE DATUM
-/datum/wires/ammo_workbench
-	holder_type = /obj/machinery/ammo_workbench
-	proper_name = "Ammunition Workbench"
-
-/datum/wires/ammo_workbench/New(atom/holder)
-	wires = list(
-		WIRE_HACK, WIRE_DISABLE,
-		WIRE_SHOCK, WIRE_ZAP
-	)
-	add_duds(6)
-	..()
-
-/datum/wires/ammo_workbench/interactable(mob/user)
-	if(!..())
-		return FALSE
-	var/obj/machinery/ammo_workbench/A = holder
-	if(A.panel_open)
-		return TRUE
-
-/datum/wires/ammo_workbench/get_status()
-	var/obj/machinery/ammo_workbench/A = holder
-	var/list/status = list()
-	status += "The red light is [A.disabled ? "on" : "off"]."
-	status += "The blue light is [A.hacked ? "on" : "off"]."
-	return status
-
-/datum/wires/ammo_workbench/on_pulse(wire)
-	var/obj/machinery/ammo_workbench/A = holder
-	switch(wire)
-		if(WIRE_HACK)
-			A.adjust_hacked(!A.hacked)
-			addtimer(CALLBACK(A, TYPE_PROC_REF(/obj/machinery/ammo_workbench, reset), wire), 60)
-		if(WIRE_SHOCK)
-			A.shocked = !A.shocked
-			addtimer(CALLBACK(A, TYPE_PROC_REF(/obj/machinery/ammo_workbench, reset), wire), 60)
-		if(WIRE_DISABLE)
-			A.disabled = !A.disabled
-			addtimer(CALLBACK(A, TYPE_PROC_REF(/obj/machinery/ammo_workbench, reset), wire), 60)
-
-/datum/wires/ammo_workbench/on_cut(wire, mend, source)
-	var/obj/machinery/ammo_workbench/A = holder
-	switch(wire)
-		if(WIRE_HACK)
-			A.adjust_hacked(!mend)
-		if(WIRE_HACK)
-			A.shocked = !mend
-		if(WIRE_DISABLE)
-			A.disabled = !mend
-		if(WIRE_ZAP)
-			A.shock(usr, 50)
