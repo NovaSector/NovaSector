@@ -459,12 +459,15 @@ const CharacterDirectoryList = (props) => {
               <Button
                 onClick={() => {
                   updateOverlay(character);
-                  setTimeout(() => {
-                    act('view_character', {
-                      assigned_view: assignedView,
-                      name: character.appearance_name,
+                  // See MedicalRecords/RecordTabs.tsx for explanation
+                  if (character === null) {
+                    setTimeout(() => {
+                      act('view_character', {
+                        assigned_view: assignedView,
+                        name: character.appearance_name,
+                      });
                     });
-                  });
+                  }
                   act('view_character', {
                     assigned_view: assignedView,
                     name: character.appearance_name,

@@ -27,7 +27,6 @@
 /atom/movable/screen/map_view/examine_panel_screen
 	name = "examine panel screen"
 
-
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
 		examine_panel_screen = new
@@ -50,8 +49,9 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ExaminePanel")
-		examine_panel_screen.display_to(user, ui.window)
 		ui.open()
+		examine_panel_screen.display_to(user, ui.window)
+
 
 /datum/examine_panel/ui_data(mob/user)
 	var/list/data = list()

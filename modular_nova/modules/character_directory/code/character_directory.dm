@@ -131,6 +131,8 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 
 	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
+		var/atom/movable/screen/map_view/char_preview/directory/character_preview_view = create_character_preview_view(user, window)
+		character_preview_views[user.ckey] = character_preview_view
 		return
 
 	old_view.appearance = preview.appearance
@@ -142,11 +144,10 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /datum/character_directory/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		var/atom/movable/screen/map_view/char_preview/directory/character_preview_view = create_character_preview_view(user, ui)
-		character_preview_views[user.ckey] = character_preview_view
 		ui = new(user, src, "NovaCharacterDirectory", "Character Directory")
 		ui.set_autoupdate(FALSE)
 		ui.open()
+		update_preview(user, ui.window)
 
 /datum/character_directory/ui_close(mob/user)
 	var/atom/movable/screen/map_view/char_preview/directory/old_preview = character_preview_views[user.ckey]
