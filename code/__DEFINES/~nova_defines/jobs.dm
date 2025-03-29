@@ -22,8 +22,6 @@
 
 /// What items do we want to remove from the person clocking out?
 #define SELF_SERVE_RETURN_ITEMS list( \
-	/obj/item/melee/baton/security, \
-	/obj/item/melee/baton/security/loaded, \
 	/obj/item/melee/baton/telescopic, \
 	/obj/item/melee/baton, \
 	/obj/item/assembly/flash/handheld, \
@@ -50,25 +48,19 @@
 	/obj/item/storage/belt/security/full, \
 	/obj/item/gun/energy/e_gun/hos, \
 	/obj/item/pinpointer/nuke, \
-	/obj/item/gun/energy/e_gun, \
 	/obj/item/storage/belt/sabre, \
 	/obj/item/mod/control/pre_equipped/magnate, \
 	/obj/item/mod/control/pre_equipped/blueshield, \
 	/obj/item/clothing/suit/armor/vest/warden, \
-	/obj/item/clothing/glasses/hud/security/sunglasses, \
 	/obj/item/clothing/gloves/krav_maga/sec, \
 	/obj/item/clothing/suit/armor/vest/alt/sec, \
 	/obj/item/storage/belt/holster/detective/full, \
-	/obj/item/reagent_containers/spray/pepper, \
 	/obj/item/detective_scanner, \
-	/obj/item/gun/ballistic/revolver/c38/detective, \
 	/obj/item/mod/control/pre_equipped/security, \
 	/obj/item/mod/control/pre_equipped/safeguard, \
 	/obj/item/gun/energy/cell_loaded/medigun/cmo, \
-	/obj/item/defibrillator/compact/loaded, \
 	/obj/item/storage/hypospraykit/cmo/preloaded, \
 	/obj/item/mod/control/pre_equipped/rescue, \
-	/obj/item/clothing/glasses/hud/gun_permit/sunglasses, \
 	/obj/item/card/id/departmental_budget/car, \
 	/obj/item/clothing/suit/armor/reactive/teleport, \
 	/obj/item/mod/control/pre_equipped/research, \
