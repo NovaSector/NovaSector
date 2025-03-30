@@ -66,3 +66,6 @@
 
 /datum/uplink_item/suits/modsuit
 	cost = 6
+
+/datum/uplink_item/dangerous/doublesword
+	cost = 28

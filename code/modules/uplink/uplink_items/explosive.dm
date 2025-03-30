@@ -91,7 +91,7 @@
 	..()
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_CYBERNETIC_REVOLUTION))
 		cost *= 2
-/* // NOVA EDIT REMOVAL START
+
 /datum/uplink_item/explosives/syndicate_bomb
 	name = "Syndicate Bomb"
 	desc = "The Syndicate bomb is a fearsome device capable of massive destruction. It has an adjustable timer, \
@@ -107,4 +107,4 @@
 /datum/uplink_item/explosives/syndicate_bomb/New()
 	. = ..()
 	desc = replacetext(desc, "%MIN_BOMB_TIMER", SYNDIEBOMB_MIN_TIMER_SECONDS)
-*/ // NOVA EDIT REMOVAL END
+
