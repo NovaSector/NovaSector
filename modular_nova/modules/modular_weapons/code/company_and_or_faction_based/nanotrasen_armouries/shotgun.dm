@@ -26,7 +26,7 @@
 	can_suppress = FALSE
 	burst_size = 2
 	fire_delay = 0.85 SECONDS // Bulldog Stat Original: fire_delay = 1
-	burst_delay = 0.30 SECONDS
+	burst_delay = 0.35 SECONDS
 	fire_sound = 'modular_nova/master_files/sound/weapons/shotgun_nova.ogg' // Meatier shotgun sound
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
@@ -69,7 +69,7 @@
 	inhand_icon_state = "marauder"
 
 	projectile_damage_multiplier = 1
-	burst_delay = 0.30 SECONDS
+	burst_delay = 0.45 SECONDS
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
 	lore_blurb = "The Solar Federation Surplus 'Jäger' Magfed Shotgun is a recent release from Solar Federation Surplus. \

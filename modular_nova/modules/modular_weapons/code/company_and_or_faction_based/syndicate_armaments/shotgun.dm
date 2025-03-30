@@ -14,7 +14,7 @@
 	inhand_icon_state = "shitzu"
 
 	projectile_damage_multiplier = 1
-	burst_delay = 0.20 SECONDS // Burst and Fire delay are different
+	burst_delay = 0.35 SECONDS // Burst and Fire delay are different
 	// burst_delay = time between shots in burst
 	// fire_delay = time betweeen single fire (semi-auto)
 	accepted_magazine_type = /obj/item/ammo_box/magazine/shitzu
