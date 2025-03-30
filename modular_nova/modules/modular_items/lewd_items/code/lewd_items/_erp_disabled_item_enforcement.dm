@@ -58,11 +58,6 @@
 	if(CONFIG_GET(flag/disable_lewd_items))
 		return INITIALIZE_HINT_QDEL
 
-/obj/item/storage/belt/thigh_satchel/Initialize(mapload)
-	. = ..()
-	if(CONFIG_GET(flag/disable_lewd_items))
-		return INITIALIZE_HINT_QDEL
-
 /obj/item/clothing/glasses/hypno/Initialize(mapload)
 	. = ..()
 	if(CONFIG_GET(flag/disable_lewd_items))

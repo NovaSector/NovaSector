@@ -52,10 +52,10 @@
 		if(premium[item] < MINIMUM_CLOTHING_STOCK && allow_increase(item))
 			premium[item] = MINIMUM_CLOTHING_STOCK
 
-	QDEL_NULL(products_nova)
-	QDEL_NULL(product_categories_nova)
-	QDEL_NULL(premium_nova)
-	QDEL_NULL(contraband_nova)
+	products_nova?.Cut()
+	product_categories_nova?.Cut()
+	premium_nova?.Cut()
+	contraband_nova?.Cut()
 	return ..()
 
 /obj/machinery/vending/spawn_frame(disassembled)

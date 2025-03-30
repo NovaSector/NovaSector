@@ -1,5 +1,5 @@
 /obj/item/ammo_box/magazine/kineticballs
-	name = "kinetic balls pistol magazine"
+	name = "kinetic ball pistol magazine"
 	desc = "A gun magazine filled with balls. The kind that makes makes people stop, holds twelve rounds."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type207magazine.dmi'
 	icon_state = "type207mag"
@@ -15,7 +15,7 @@
 // Magazine for the Type 213
 
 /obj/item/ammo_box/magazine/kineticballsbig
-	name = "\improper Kinetic Submachine Gun magazine"
+	name = "kinetic submachine gun magazine"
 	desc = "A large magazine for a Type 213 Submachine Gun. Holds 24 rounds of ammunition."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type213magazine.dmi'
 	icon_state = "type213mag"
@@ -47,11 +47,11 @@
 	name = "ammo box (kinetic balls)"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/stingstopbox.dmi'
 	icon_state = "stingstopbox"
-	desc = "A box of kinetic balls rounds, holds twenty seven rounds."
+	desc = "A box of kinetic balls rounds, holds twenty-four rounds."
 	custom_price = PAYCHECK_CREW * 2
 	ammo_type = /obj/item/ammo_casing/kineticball
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2,
 	)
-	max_ammo = 26
+	max_ammo = 24

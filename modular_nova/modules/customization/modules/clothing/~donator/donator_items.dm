@@ -444,3 +444,65 @@
 	))
 	return ..()
 
+/obj/item/clothing/head/cone_of_shame
+	name = "collar cone"
+	desc = "A protective guard used to prevent infections. Its advertisement claims it is: \"used to prevent unnecessary scratching, biting or licking of wounds to better facilitate healing. Works on people and pets alike!\" You question its efficacy, while also feeling a mild sense of shame while wearing it."
+	base_icon_state = "cone"
+	icon_state = "cone"
+	worn_icon_state = "cone_close"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
+	slot_flags = parent_type::slot_flags | ITEM_SLOT_NECK
+	dog_fashion = /datum/dog_fashion/head/cone
+	var/toggle_state = "close"
+
+/obj/item/clothing/head/cone_of_shame/click_alt(mob/user)
+	if(toggle_state == "open")
+		toggle_state = "close"
+	else
+		toggle_state = "open"
+
+	balloon_alert(user, "[toggle_state == "open" ? "opened" : "closed"]")
+	update_icon(UPDATE_ICON_STATE)
+
+	var/mob/living/wearer = loc
+	if(!istype(wearer))
+		return CLICK_ACTION_SUCCESS
+
+	var/equipped_slot = wearer.get_slot_by_item(src)
+	if(equipped_slot & slot_flags)
+		wearer.update_clothing(equipped_slot)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/cone_of_shame/equipped(mob/living/user, slot)
+	if(slot & slot_flags)
+		update_layer(user)
+		RegisterSignal(user, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(on_dir_change))
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame/dropped(mob/user)
+	if(user.get_slot_by_item(src) & slot_flags)
+		UnregisterSignal(user, COMSIG_ATOM_POST_DIR_CHANGE)
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame/proc/on_dir_change(mob/wearer, old_dir, new_dir)
+	SIGNAL_HANDLER
+	var/old_south = old_dir == SOUTH
+	var/new_south = new_dir == SOUTH
+	if(old_south == new_south)
+		return // either still facing south or still not facing south
+	update_layer(wearer)
+
+/obj/item/clothing/head/cone_of_shame/proc/update_layer(mob/wearer)
+	// renders behind hair only when facing exactly south, and above pretty much anything on the head any other direction
+	// diagonals render as east/west first so only need the exact cardinal
+	if(wearer.dir == SOUTH)
+		alternate_worn_layer = HAIR_LAYER + 0.1
+	else
+		alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
+	wearer.update_clothing(wearer.get_slot_by_item(src))
+
+/obj/item/clothing/head/cone_of_shame/update_icon_state()
+	worn_icon_state = "[base_icon_state]_[toggle_state]"
+	return ..()
