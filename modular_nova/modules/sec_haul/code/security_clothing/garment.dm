@@ -1,10 +1,10 @@
-/obj/item/storage/bag/garment/hos/alternate
+/obj/item/storage/bag/garment/hos/blue
 	name = "head of security's alternate garment bag"
 	desc = "An extra bag for storing alternative designs of their clothes and shoes. This one belongs to the head of security."
+	icon = 'modular_nova/modules/sec_haul/icons/garment.dmi'
 	icon_state = "garment_bag_blue"
-	icon = '/modular_nova/modules/sec_haul/icons/garment.dmi'
 
-/obj/item/storage/bag/garment/captain/PopulateContents()
+/obj/item/storage/bag/garment/hos/blue/PopulateContents()
 	new /obj/item/clothing/head/hats/hos/beret/nova(src)
 	new /obj/item/clothing/neck/cloak/hos/blue(src)
 	new /obj/item/clothing/suit/armor/hos/hos_formal/black(src)
@@ -19,11 +19,13 @@
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/alt/skirt(src)
 	new /obj/item/clothing/shoes/jackboots/sec/blue(src)
 
-/obj/item/storage/bag/garment/warden/alternate
+/obj/item/storage/bag/garment/warden/blue
 	name = "warden's alternate garment bag"
 	desc = "A bag for storing alternative designs of their clothes and shoes. This one belongs to the warden."
+	icon = 'modular_nova/modules/sec_haul/icons/garment.dmi'
+	icon_state = "garment_bag_blue"
 
-/obj/item/storage/bag/garment/warden/PopulateContents()
+/obj/item/storage/bag/garment/warden/blue/PopulateContents()
 	new /obj/item/clothing/head/beret/sec/navywarden/nova(src)
 	new /obj/item/clothing/suit/armor/vest/warden/alt(src)
 	new /obj/item/clothing/suit/armor/vest/warden/blue(src)

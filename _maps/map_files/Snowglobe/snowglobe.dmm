@@ -67131,10 +67131,10 @@
 /area/station/maintenance/abandon_wrestle)
 "seb" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/vest/alt/sec/redsec,
-/obj/item/clothing/suit/armor/vest/alt/sec/redsec,
-/obj/item/clothing/suit/armor/vest/alt/sec/redsec,
-/obj/item/clothing/suit/armor/vest/alt/sec/redsec,
+/obj/item/clothing/suit/armor/vest/alt/sec,
+/obj/item/clothing/suit/armor/vest/alt/sec,
+/obj/item/clothing/suit/armor/vest/alt/sec,
+/obj/item/clothing/suit/armor/vest/alt/sec,
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},

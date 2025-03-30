@@ -9,13 +9,6 @@
 /obj/item/clothing/under/rank/security/head_of_security/peacekeeper : /obj/item/clothing/under/rank/security/head_of_security/nova/formal{@OLD}
 /obj/item/storage/belt/security/webbing/peacekeeper : /obj/item/storage/belt/security/webbing/blue{@OLD}
 /obj/item/storage/belt/security/webbing/armadyne : /obj/item/storage/belt/security/webbing/red{@OLD}
-/obj/effect/turf_decal/bot_blue : /obj/effect/turf_decal/bot_red{@OLD}
-/obj/effect/turf_decal/stripes/blue : /obj/effect/turf_decal/stripes/red{@OLD}
-/obj/effect/turf_decal/caution/stand_clear/blue : /obj/effect/turf_decal/caution/stand_clear/red{@OLD}
-/obj/effect/turf_decal/arrows/blue : /obj/effect/turf_decal/arrows/red{@OLD}
-/obj/effect/turf_decal/box/blue : /obj/effect/turf_decal/box/red{@OLD}
-/obj/effect/turf_decal/delivery/blue : /obj/effect/turf_decal/delivery/red{@OLD}
-/obj/effect/turf_decal/caution/blue : /obj/effect/turf_decal/caution/red{@OLD}
 /obj/item/clothing/accessory/armband/deputy/lopland : /obj/item/clothing/accessory/armband/deputy{@OLD}
 /obj/item/clothing/accessory/armband/deputy/lopland/nonsec : /obj/item/clothing/accessory/armband/nonsec{@OLD}
 /obj/item/clothing/head/beret/sec/peacekeeper : /obj/item/clothing/head/beret/sec/nova{@OLD}
@@ -25,7 +18,6 @@
 /obj/item/storage/backpack/security/redsec : /obj/item/storage/backpack/security{@OLD}
 /obj/item/storage/backpack/satchel/sec/redsec : /obj/item/storage/backpack/satchel/sec{@OLD}
 /obj/item/storage/backpack/duffelbag/sec/redsec : /obj/item/storage/backpack/duffelbag/sec/redsec{@OLD}
-
 /obj/item/clothing/glasses/hud/security/sunglasses/redsec : /obj/item/clothing/glasses/hud/security/sunglasses{@OLD}
 /obj/item/clothing/suit/armor/vest/peacekeeper/brit : /obj/item/clothing/suit/armor/vest/brit{@OLD}
 /obj/item/clothing/suit/armor/vest/peacekeeper/jacket : /obj/item/clothing/suit/armor/vest/jacket{@OLD}

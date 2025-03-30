@@ -8280,7 +8280,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Education Chamber"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/armory,

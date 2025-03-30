@@ -3268,7 +3268,7 @@
 "pN" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line,
 /obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/caution/red{
+/obj/effect/turf_decal/caution/blue{
 	dir = 1
 	},
 /turf/open/indestructible/hotelwood,
@@ -3286,7 +3286,7 @@
 /area/ruin/space/has_grav/hotel)
 "pS" = (
 /obj/structure/holopay,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/bot_blue,
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
@@ -4176,7 +4176,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/effect/turf_decal/caution/red{
+/obj/effect/turf_decal/caution/blue{
 	dir = 4
 	},
 /turf/open/indestructible/hotelwood,
@@ -5756,7 +5756,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/effect/turf_decal/caution/red{
+/obj/effect/turf_decal/caution/blue{
 	dir = 8
 	},
 /turf/open/indestructible/hotelwood,
@@ -8448,7 +8448,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/effect/turf_decal/caution/red,
+/obj/effect/turf_decal/caution/blue,
 /turf/open/indestructible/hotelwood,
 /area/ruin/space/has_grav/hotel/pool)
 "Yu" = (

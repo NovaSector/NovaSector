@@ -18,7 +18,6 @@
 	)
 	premium = list(
 		/obj/item/storage/belt/security/webbing = 5,
-		/obj/item/storage/belt/security/webbing/blue = 5,
 		/obj/item/coin/antagtoken = 1,
 		/obj/item/clothing/head/helmet/blueshirt = 3,
 		/obj/item/clothing/suit/armor/vest/blueshirt = 3,
