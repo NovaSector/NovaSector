@@ -178,7 +178,7 @@
 /obj/machinery/computer/shuttle/arrivals/recall{
 	dir = 8
 	},
-/obj/effect/turf_decal/delivery/red,
+/obj/effect/turf_decal/delivery/blue,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "qd" = (

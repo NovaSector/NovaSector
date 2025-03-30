@@ -67816,8 +67816,7 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
 "tKr" = (
-/obj/effect/turf_decal/tile/red{
-	},
+/obj/effect/turf_decal/tile/red,
 /obj/machinery/status_display/door_timer{
 	id = "Cell 1";
 	name = "Cell 1";
@@ -80696,8 +80695,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "xpB" = (
 /obj/structure/chair/office,
-/obj/effect/turf_decal/tile/red{
-	},
+/obj/effect/turf_decal/tile/red,
 /obj/effect/landmark/start/security_officer,
 /obj/structure/disposalpipe/sorting/mail,
 /obj/effect/mapping_helpers/mail_sorting/security/general,

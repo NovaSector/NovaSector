@@ -4802,7 +4802,6 @@
 /area/station/tcommsat/computer)
 "bkW" = (
 /obj/machinery/airalarm/directional/north,
-/obj/effect/turf_decal/tile/red,
 /turf/closed/wall/r_wall,
 /area/station/security/prison/visit)
 "bkX" = (
@@ -40512,7 +40511,7 @@
 	dir = 1
 	},
 /obj/machinery/vending/wardrobe/coroner_wardrobe,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/bot_blue,
 /obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
@@ -44412,7 +44411,7 @@
 	name = "Corpse Removal Chute"
 	},
 /obj/effect/turf_decal/tile/dark_blue,
-/obj/effect/turf_decal/bot_red,
+/obj/effect/turf_decal/bot_blue,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/station/medical/morgue)
