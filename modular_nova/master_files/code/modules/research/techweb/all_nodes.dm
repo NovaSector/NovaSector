@@ -95,6 +95,7 @@
 		"hospital_gown",
 		"anesthetic_machine",
 		"smartdartgun",
+		"cone_of_shame",
 	)
 	return ..()
 

@@ -30,6 +30,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "cyberpunkgoggle"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	hair_mask = "" //The shape of this hat is too tight to the head to not look insane with a mask
 
 /obj/item/clothing/head/fedora/det_hat/cybergoggles/civilian //Actually civilian with no armor for drip purposes only
 	name = "type-34C semi-enclosed headwear"
@@ -39,6 +40,7 @@
 	icon_state = "cyberpunkgoggle"
 	armor_type = /datum/armor/none
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	hair_mask = "" //The shape of this hat is too tight to the head to not look insane with a mask
 
 /obj/item/clothing/head/hats/intern/developer
 	name = "intern beancap"
@@ -175,7 +177,6 @@
 /obj/item/clothing/head/fedora/brown //Fedora without detective's candy corn gimmick
 	name = "brown fedora"
 	icon_state = "detective"
-	inhand_icon_state = "det_hat"
 
 /obj/item/clothing/head/standalone_hood
 	name = "hood"

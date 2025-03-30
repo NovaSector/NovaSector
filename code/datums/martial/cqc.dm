@@ -17,14 +17,15 @@
 	var/block_chance = 75
 	var/list/cqc_traits = list(TRAIT_NOGUNS)
 
-/datum/martial_art/cqc/on_teach(mob/living/new_holder)
+/datum/martial_art/cqc/activate_style(mob/living/new_holder)
 	. = ..()
 	new_holder.add_traits(cqc_traits, CQC_TRAIT)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 
-/datum/martial_art/cqc/on_remove(mob/living/remove_from)
-	remove_from.remove_traits(cqc_traits, CQC_TRAIT)
+/datum/martial_art/cqc/deactivate_style(mob/living/remove_from)
+	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
+	return ..()
 
 ///Signal from getting attacked with an item, for a special interaction with touch spells
 /datum/martial_art/cqc/proc/on_attackby(mob/living/cqc_user, obj/item/attack_weapon, mob/attacker, params)

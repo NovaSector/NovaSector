@@ -20,3 +20,17 @@
 	desc = "A forked cybernetic tongue."
 	id = "cybernetic_tongue_lizard"
 	build_path = /obj/item/organ/tongue/lizard/cybernetic
+
+/datum/design/cone_of_shame
+	name = "Collar Cone"
+	desc = "A protective guard used to prevent infections. Its advertisement claims it is: \"used to prevent unnecessary scratching, biting or licking of wounds to better facilitate healing. Works on people and pets alike!\" You question its efficacy, while also feeling a mild sense of shame while wearing it."
+	id = "cone_of_shame"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/clothing/head/cone_of_shame
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL

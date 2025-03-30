@@ -110,6 +110,7 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define TPACKB "Beltpack"
 #define TPACKA "Waistpack"
 #define TPACKC "Chest pack"
+#define GUNCASE "Guncase"
 // NOVA EDIT ADDITION END
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
@@ -125,6 +126,7 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	TPACKB,
 	TPACKA,
 	TPACKC,
+	GUNCASE,
 	// NOVA EDIT ADDITION END
 ))
 
@@ -264,12 +266,14 @@ GLOBAL_LIST_INIT(status_display_approved_pictures, list(
 	"lockdown",
 	"greenalert",
 	"bluealert",
-	"violetalert", // NOVA EDIT ADD - Alert Levels
-	"orangealert", // NOVA EDIT ADD - Alert Levels
-	"amberalert", // NOVA EDIT ADD - Alert Levels
+	"violetalert", // NOVA EDIT ADDITION - Alert Levels
+	"orangealert", // NOVA EDIT ADDITION - Alert Levels
+	"amberalert", // NOVA EDIT ADDITION - Alert Levels
 	"redalert",
 	"deltaalert",
-	"gammaalert", // NOVA EDIT ADD - Alert Levels
+	"gammaalert", // NOVA EDIT ADDITION - Alert Levels
+	"epsilonalert", // NOVA EDIT ADDITION - Alert Levels
+	"federalalert", // NOVA EDIT ADDITION - Alert Levels
 	"radiation",
 	"currentalert", //For automatic set of status display on current level
 ))

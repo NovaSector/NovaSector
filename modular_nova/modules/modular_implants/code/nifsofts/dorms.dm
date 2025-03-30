@@ -36,29 +36,29 @@
 					/obj/item/clothing/mask/ballgag/choking,
 					/obj/item/clothing/mask/muzzle/ring,
 					/obj/item/clothing/head/deprivation_helmet,
-					/obj/item/clothing/glasses/blindfold/kinky,
-					/obj/item/clothing/ears/kinky_headphones,
+					/obj/item/clothing/glasses/blindfold/dorms,
+					/obj/item/clothing/ears/dorms_headphones,
 					/obj/item/clothing/mask/gas/bdsm_mask,
 					/obj/item/clothing/glasses/hypno,
-					/obj/item/clothing/neck/kink_collar,
+					/obj/item/clothing/neck/collar/holocollar,
 
 
 					//Torso / Belt Items
 					/obj/item/clothing/under/misc/latex_catsuit,
+					/obj/item/clothing/suit/corset,
 					/obj/item/clothing/suit/straight_jacket/latex_straight_jacket,
 					/obj/item/clothing/suit/straight_jacket/shackles,
 					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag,
 					/obj/item/clothing/neck/mind_collar,
 					/obj/item/clothing/strapon,
-					/obj/item/storage/belt/erpbelt,
 
 					//Hand Items
 					/obj/item/clothing/gloves/ball_mittens,
-					/obj/item/clothing/gloves/latex_gloves,
+					/obj/item/clothing/gloves/long_gloves,
 
 					//Feet items
 					/obj/item/clothing/shoes/latex_socks,
-					/obj/item/clothing/shoes/latex_heels,
+					/obj/item/clothing/shoes/ballet_heels,
 	)
 	purchase_price = 150
 
