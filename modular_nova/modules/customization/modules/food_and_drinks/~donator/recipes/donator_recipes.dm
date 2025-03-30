@@ -50,6 +50,7 @@
 	result = /obj/item/food/donator/red_planet_parm
 	category = CAT_MARTIAN
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	removed_foodtypes = RAW
 
 // mrsanderp's donator item
 /datum/crafting_recipe/food/aubergine_rolls
@@ -77,3 +78,4 @@
 	result = /obj/item/food/donator/pineapple_trifle
 	category = CAT_MARTIAN
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	added_foodtypes = SUGAR

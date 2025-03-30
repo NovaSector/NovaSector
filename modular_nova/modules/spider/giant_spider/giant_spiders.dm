@@ -18,6 +18,7 @@
 	speed = 5
 	player_speed_modifier = -3.1
 	gold_core_spawnable = NO_SPAWN
+	sight = SEE_TURFS
 	menu_description = "somewhat slow, throw webs to ensnare."
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
@@ -55,10 +56,10 @@
 	speed = 2.8
 	player_speed_modifier = -3.1
 	gold_core_spawnable = NO_SPAWN
+	sight = SEE_TURFS
 	menu_description = "fast but not sturdy, your bites inject teslium"
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
-		/datum/action/cooldown/mob_cooldown/wrap,
 	)
 
 /mob/living/basic/spider/giant/voltaic/Initialize(mapload)
@@ -77,6 +78,7 @@
 	icon_state = "pit"
 	icon_living = "pit"
 	icon_dead = "pit_dead"
+	gender = MALE
 	maxHealth = 250
 	health = 250
 	armour_penetration = 25
@@ -94,6 +96,7 @@
 	limb_destroyer = 50
 	speed = 5
 	player_speed_modifier = -4
+	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "Has the ability to destroy walls and limbs, and to send warnings to the nest."
 	innate_actions = list(
@@ -120,6 +123,7 @@
 	icon_state = "ogre"
 	icon_living = "ogre"
 	icon_dead = "ogre_dead"
+	gender = FEMALE
 	maxHealth = 600 // hah fat
 	health = 600
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
@@ -130,9 +134,10 @@
 	obj_damage = 15
 	speed = 5
 	player_speed_modifier = -4
+	gold_core_spawnable = NO_SPAWN
+	sight = SEE_TURFS
 	menu_description = "Extremely tanky with very poor offense. Able to self-heal and lay reflective silk screens, passages, and traps."
 	innate_actions = list(
-		/datum/action/cooldown/mob_cooldown/wrap,
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
@@ -165,3 +170,39 @@
 		balloon_alert(src, "you can only heal yourself!")
 		return FALSE
 	return TRUE
+
+/**
+ * ### Carrier Spider
+ * A lithe infectious spider that injects spider egg reagents into their victims.
+ */
+
+/mob/living/basic/spider/giant/carrier
+	name = "carrier spider"
+	desc = "Chitinous with a sickly green and red carapace, it makes you shudder to look at it. This one has sharp neon eyes."
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
+	icon_state = "carrier"
+	icon_living = "carrier"
+	icon_dead = "carrier_dead"
+	gender = FEMALE
+	maxHealth = 225
+	health = 225
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	poison_per_bite = 2
+	poison_type = /datum/reagent/spidereggs
+	speed = 3.5
+	player_speed_modifier = -3.1
+	gold_core_spawnable = NO_SPAWN
+	sight = SEE_TURFS
+	menu_description = "The life of the nest, injects spidereggs that will grow inside the host and burrow out."
+	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
+		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
+		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
+		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
+	)
+
+/mob/living/basic/spider/giant/carrier/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)

@@ -210,6 +210,7 @@
 		TRAIT_SILICON_ACCESS,
 		TRAIT_REAGENT_SCANNER,
 		TRAIT_UNOBSERVANT,
+		TRAIT_SILICON_EMOTES_ALLOWED,
 	), INNATE_TRAIT)
 
 	listener = new(list(ALARM_ATMOS, ALARM_FIRE, ALARM_POWER), list(z))
@@ -277,7 +278,7 @@
 
 	//Hands
 	for(var/obj/item/held_thing in held_items)
-		if(held_thing.item_flags & (ABSTRACT|EXAMINE_SKIP|HAND_ITEM))
+		if((held_thing.item_flags & (ABSTRACT|HAND_ITEM)) || HAS_TRAIT(held_thing, TRAIT_EXAMINE_SKIP))
 			continue
 		. += "It has [held_thing.examine_title(user)] in its [get_held_index_name(get_held_index_of_item(held_thing))]."
 

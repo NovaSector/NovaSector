@@ -30,7 +30,7 @@
 	message_param = "beeps sharply at %t."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/twobeep.ogg'
+	sound = 'modular_nova/modules/emotes/sound/emotes/twobeep_fast.ogg'
 
 
 /datum/emote/silicon/laughtrack

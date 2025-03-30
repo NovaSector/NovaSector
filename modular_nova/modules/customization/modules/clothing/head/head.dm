@@ -175,7 +175,6 @@
 /obj/item/clothing/head/fedora/brown //Fedora without detective's candy corn gimmick
 	name = "brown fedora"
 	icon_state = "detective"
-	inhand_icon_state = "det_hat"
 
 /obj/item/clothing/head/standalone_hood
 	name = "hood"

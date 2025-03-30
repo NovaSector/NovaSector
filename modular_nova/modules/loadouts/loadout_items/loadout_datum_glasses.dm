@@ -53,10 +53,6 @@
 	name = "Modern Glasses"
 	item_path = /obj/item/clothing/glasses/regular/betterunshit
 
-/datum/loadout_item/glasses/prescription_glasses/kim
-	name = "Binoclard Lenses"
-	item_path = /obj/item/clothing/glasses/regular/kim
-
 /*
 *	COSMETIC GLASSES
 */
@@ -120,10 +116,6 @@
 /datum/loadout_item/glasses/eyewrap
 	name = "Eyepatch Wrap"
 	item_path = /obj/item/clothing/glasses/eyepatch/wrap
-
-/datum/loadout_item/glasses/monocle
-	name = "Monocle"
-	item_path = /obj/item/clothing/glasses/monocle
 
 /datum/loadout_item/glasses/biker
 	name = "Biker Goggles"

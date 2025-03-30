@@ -1,9 +1,15 @@
-/obj/item/clothing/shoes/worn_overlays(isinhands = FALSE,icon_file,mutant_styles=NONE)
+/obj/item/clothing/shoes/worn_overlays(isinhands = FALSE,icon_file, mutant_styles = NONE)
 	. = ..()
 	if(isinhands)
 		return
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
+
+/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE)
+	. = ..()
+	if(isinhands)
+		return
+
 	if(GET_ATOM_BLOOD_DNA(src))
 		var/mutable_appearance/blood_overlay
 		if (mutant_styles & CLOTHING_DIGITIGRADE_VARIATION)

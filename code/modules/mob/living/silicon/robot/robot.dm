@@ -61,6 +61,7 @@
 		var/obj/item/borg/upgrade/ai/board = new(src)
 		make_shell(board)
 		add_to_upgrades(board)
+		ADD_TRAIT(src, TRAIT_CAN_GET_AI_TRACKING_MESSAGE, INNATE_TRAIT)
 	else
 		//MMI stuff. Held togheter by magic. ~Miauw
 		if(!mmi?.brainmob)
@@ -967,18 +968,20 @@
 	if(can_buckle && isliving(user) && isliving(M) && !(M in buckled_mobs) && ((user != src) || (!combat_mode)))
 		return user_buckle_mob(M, user, check_loc = FALSE)
 
-/mob/living/silicon/robot/buckle_mob(mob/living/M, force = FALSE, check_loc = TRUE, buckle_mob_flags= RIDER_NEEDS_ARM)
-	if(!is_type_in_typecache(M, can_ride_typecache))
-		M.visible_message(span_warning("[M] really can't seem to mount [src]..."))
-		return
-
-	if(stat || incapacitated)
-		return
+/mob/living/silicon/robot/is_buckle_possible(mob/living/target, force, check_loc)
+	if(incapacitated)
+		return FALSE
+	if(!HAS_TRAIT(target, TRAIT_CAN_MOUNT_CYBORGS))
+		target.visible_message(span_warning("[target] really can't seem to mount [src]..."))
+		return FALSE
 	if(model && !model.allow_riding)
-		M.visible_message(span_boldwarning("Unfortunately, [M] just can't seem to hold onto [src]!"))
-		return
+		target.visible_message(span_boldwarning("Unfortunately, [target] just can't seem to hold onto [src]!"))
+		return FALSE
 
-	buckle_mob_flags= RIDER_NEEDS_ARM // just in case
+	return ..()
+
+/mob/living/silicon/robot/buckle_mob(mob/living/M, force, check_loc, buckle_mob_flags)
+	buckle_mob_flags = RIDER_NEEDS_ARM // just in case
 	return ..()
 
 /mob/living/silicon/robot/post_buckle_mob(mob/living/victim_to_boot)
@@ -1062,7 +1065,7 @@
 			'icons/mob/effects/onfire.dmi',
 			fire_icon,
 			-HIGHEST_LAYER,
-			appearance_flags = RESET_COLOR,
+			appearance_flags = RESET_COLOR|KEEP_APART,
 		)
 		GLOB.fire_appearances[fire_icon] = new_fire_overlay
 

@@ -39,14 +39,16 @@
 
 /obj/item/clothing/under/rank/cargo/tech/nova/turtleneck
 	name = "supply turtleneck"
-	desc = "A snug turtleneck sweater worn by the Supply department.."
+	desc = "A snug turtleneck sweater worn by the Supply department."
 	icon_state = "turtleneck_cargo"
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/cargo/tech/nova/turtleneck/skirt
 	name = "supply skirtleneck"
 	desc = "A snug turtleneck sweater worn by Supply, this time with a skirt attached!"
 	icon_state = "skirtleneck"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/cargo/tech/nova/evil
 	name = "black cargo uniform"
