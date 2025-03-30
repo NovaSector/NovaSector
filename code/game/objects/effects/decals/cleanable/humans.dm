@@ -133,14 +133,17 @@
 	. = ..()
 	AddElement(/datum/element/squish_sound)
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/effect/decal/cleanable/blood/gibs/update_overlays()
+	. = ..()
 	// NOVA EDIT ADDITION START
 	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = KEEP_APART|RESET_COLOR)
 	if(gib_overlay)
-		add_overlay(gib_overlay)
+		if(name == dryname)
+			gib_overlay.color = COLOR_GRAY
+		. += gib_overlay
 	// NOVA EDIT ADDITION END
-
-/obj/effect/decal/cleanable/blood/gibs/Destroy()
-	return ..()
 
 /obj/effect/decal/cleanable/blood/gibs/replace_decal(obj/effect/decal/cleanable/C)
 	return FALSE //Never fail to place us
@@ -149,6 +152,8 @@
 	. = ..()
 	if(!.)
 		return
+
+	update_appearance(UPDATE_OVERLAYS)
 	//AddComponent(/datum/component/rot, 0, 5 MINUTES, 0.7) NOVA EDIT
 
 /obj/effect/decal/cleanable/blood/gibs/ex_act(severity, target)
