@@ -63,7 +63,8 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "blue_webbing"
-	current_skin = "blue_webbing" //Prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 //BOOTS
 /obj/item/clothing/shoes/jackboots/peacekeeper

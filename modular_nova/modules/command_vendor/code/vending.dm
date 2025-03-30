@@ -132,7 +132,6 @@
 		/obj/item/clothing/head/hats/hos/cap = 1,
 		/obj/item/clothing/mask/gas/sechailer/swat = 1,
 		/obj/item/clothing/neck/cloak/hos = 1,
-		/obj/item/clothing/head/hats/hos/beret/nova = 1,
 		/obj/item/clothing/neck/cloak/hos/blue = 1,
 		/obj/item/clothing/suit/armor/hos/hos_formal/black = 1,
 		/obj/item/clothing/under/rank/security/head_of_security/nova = 1,

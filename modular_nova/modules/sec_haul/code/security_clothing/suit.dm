@@ -73,21 +73,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "vest_warden"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Standard" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "vest_warden",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "vest_warden",
-		),
-		"Basic Warden Armor" = list(
-			RESKIN_ICON = 'icons/obj/clothing/suits/armor.dmi',
-			RESKIN_ICON_STATE = "warden_alt",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/suits/armor.dmi',
-			RESKIN_WORN_ICON_STATE = "warden_alt"
-		),
-	)
 
 /*
 *	Head of Security
@@ -97,5 +82,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hosformal_black"
-	current_skin = "hosformal_black"	//Prevents reskinning (but not toggling!)
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	uses_advanced_reskins = FALSE
+	unique_reskin = null

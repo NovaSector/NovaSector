@@ -169,3 +169,21 @@ SPECIES RESTRICTED
 	name = "Envirosuit Kit: Protoype"
 	item_path = /obj/item/storage/box/envirosuit/prototype
 	restricted_species = list(SPECIES_PLASMAMAN)
+
+/datum/loadout_item/inhand/envirokit_security
+	name = "Alternate Envirosuit Kit: Security Officer"
+	item_path = /obj/item/storage/box/envirosuit/security
+	restricted_species = list(SPECIES_PLASMAMAN)
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/inhand/envirokit_security_warden
+	name = "Alternate Envirosuit Kit: Warden"
+	item_path = /obj/item/storage/box/envirosuit/security_warden
+	restricted_species = list(SPECIES_PLASMAMAN)
+	restricted_roles = list(JOB_WARDEN)
+
+/datum/loadout_item/inhand/envirokit_head_of_security
+	name = "Alternate Envirosuit Kit: Head of Security"
+	item_path = /obj/item/storage/box/envirosuit/security_hos
+	restricted_species = list(SPECIES_PLASMAMAN)
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)

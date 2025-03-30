@@ -77,11 +77,6 @@
 	icon_state = "beret"
 	greyscale_colors = "#EAEAEA"
 
-/obj/item/clothing/head/hats/hos/beret/nova
-	desc = "A special beret with the Head of Security's insignia emblazoned on it. A symbol of excellence, a badge of courage, a mark of distinction."
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-	armor_type = /datum/armor/hats_hos
-
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy

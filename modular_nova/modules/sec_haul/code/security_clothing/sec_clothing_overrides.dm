@@ -3,102 +3,6 @@
 */
 
 /*
-*	PLASMAMEN
-*	This goes first due to simultaneously being easy to do, and complex to organize
-*	We'll give them an option of reskinning their outfit to either color due to their envirosuits not being available in secdrobes.
-*/
-
-/obj/item/clothing/under/plasmaman/security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "security_envirosuit",
-			RESKIN_WORN_ICON_STATE = "security_envirosuit"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi',
-			RESKIN_ICON_STATE = "security_envirosuit_new",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi',
-			RESKIN_WORN_ICON_STATE = "security_envirosuit_new"
-		),
-	)
-
-/obj/item/clothing/under/plasmaman/security/warden
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "warden_envirosuit",
-			RESKIN_WORN_ICON_STATE = "warden_envirosuit"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi',
-			RESKIN_ICON_STATE = "warden_envirosuit_new",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi',
-			RESKIN_WORN_ICON_STATE = "warden_envirosuit_new"
-		),
-	)
-
-/obj/item/clothing/under/plasmaman/security/head_of_security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "hos_envirosuit",
-			RESKIN_WORN_ICON_STATE = "hos_envirosuit"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/under/plasmaman.dmi',
-			RESKIN_ICON_STATE = "hos_envirosuit_new",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/under/plasmaman.dmi',
-			RESKIN_WORN_ICON_STATE = "hos_envirosuit_new"
-		),
-	)
-
-/obj/item/clothing/head/helmet/space/plasmaman/security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "security_envirohelm",
-			RESKIN_WORN_ICON_STATE = "security_envirohelm"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi',
-			RESKIN_ICON_STATE = "security_envirohelm_new",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi',
-			RESKIN_WORN_ICON_STATE = "security_envirohelm_new"
-		),
-	)
-
-/obj/item/clothing/head/helmet/space/plasmaman/security/warden
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "warden_envirohelm",
-			RESKIN_WORN_ICON_STATE = "warden_envirohelm"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi',
-			RESKIN_ICON_STATE = "warden_envirohelm_new",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi',
-			RESKIN_WORN_ICON_STATE = "warden_envirohelm_new"
-		),
-	)
-
-/obj/item/clothing/head/helmet/space/plasmaman/security/head_of_security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Red Variant" = list(
-			RESKIN_ICON_STATE = "hos_envirohelm",
-			RESKIN_WORN_ICON_STATE = "hos_envirohelm"
-		),
-		"Blue Variant" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/head/plasmaman_hats.dmi',
-			RESKIN_ICON_STATE = "hos_envirohelm_new",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/head/plasmaman_head.dmi',
-			RESKIN_WORN_ICON_STATE = "hos_envirohelm_new"
-		),
-	)
-
-/*
 * ACCESSORIES
 */
 // For consistency with other armbands
@@ -136,7 +40,6 @@
 	)
 
 /obj/item/storage/belt/security/webbing
-	uses_advanced_reskins = FALSE
 	unique_reskin = list(
 		"Basic Variant" = list(
 			RESKIN_ICON_STATE = "security",
@@ -292,7 +195,8 @@
 	)
 
 /obj/item/clothing/glasses/hud/security/night
-	current_skin = "securityhudnight" //Prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
 	unique_reskin = list(
@@ -357,9 +261,9 @@
 		)
 	)
 
-//Need to quickly redefine this so the icon doesnt break
 /obj/item/clothing/head/hats/hos/cap/syndicate
-	current_skin = "hoscap" //Prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 /*
 * GLOVES
@@ -433,7 +337,8 @@
 	)
 
 /obj/item/clothing/suit/armor/hos/trenchcoat/winter
-	current_skin = "hoswinter" //prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 //Standard Bulletproof Vest
 /obj/item/clothing/suit/armor/bulletproof
@@ -449,9 +354,9 @@
 */
 
 //Adds special footstep noises
-/obj/item/clothing/shoes/jackboots/sec
+/obj/item/clothing/shoes/jackboots
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) // We have other footsteps.
 
-/obj/item/clothing/shoes/jackboots/sec/Initialize(mapload)
+/obj/item/clothing/shoes/jackboots/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep1.ogg'=1,'modular_nova/master_files/sound/effects/footstep2.ogg'=1, 'modular_nova/master_files/sound/effects/footstep3.ogg'=1), 100)

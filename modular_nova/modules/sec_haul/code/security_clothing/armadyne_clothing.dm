@@ -27,7 +27,8 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	icon_state = "armadyne_trench"
-	current_skin = "armadyne_trench" //prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 /obj/item/clothing/suit/armor/vest/armadyne
 	name = "armadyne jacket"
@@ -81,11 +82,13 @@
 	icon_state = "armadyne_belt"
 	worn_icon_state = "armadyne_belt"
 
-/obj/item/storage/belt/security/webbing/red
+/obj/item/storage/belt/security/webbing/armadyne
+	name = "armadyne webbing"
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	icon_state = "red_webbing"
-	current_skin = "red_webbing" //Prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 
 /datum/outfit/armadyne_rep
@@ -147,7 +150,7 @@
 	suit = /obj/item/clothing/suit/armor/vest/armadyne/armor
 	suit_store = /obj/item/gun/ballistic/automatic/sol_rifle
 	shoes = /obj/item/clothing/shoes/jackboots/armadyne
-	belt = /obj/item/storage/belt/security/webbing/red
+	belt = /obj/item/storage/belt/security/webbing/armadyne
 	backpack_contents = list(
 		/obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/wespe,
 		/obj/item/storage/box/handcuffs,
@@ -162,7 +165,7 @@
 
 /datum/outfit/armadyne_security/high_alert
 	name = "Armadyne Corporate Security (High Alert)"
-	belt = /obj/item/storage/belt/security/webbing/red
+	belt = /obj/item/storage/belt/security/webbing/armadyne
 	suit_store = /obj/item/gun/ballistic/automatic/sol_rifle
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic,

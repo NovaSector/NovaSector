@@ -5,12 +5,9 @@
 	icon_state = "garment_bag_blue"
 
 /obj/item/storage/bag/garment/hos/blue/PopulateContents()
-	new /obj/item/clothing/head/hats/hos/beret/nova(src)
 	new /obj/item/clothing/neck/cloak/hos/blue(src)
 	new /obj/item/clothing/suit/armor/hos/hos_formal/black(src)
-	new /obj/item/clothing/under/rank/security/head_of_security/nova(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/blue(src)
-	new /obj/item/clothing/under/rank/security/head_of_security/nova/formal(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/formal/blue(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/imperial(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/parade(src)
@@ -27,12 +24,8 @@
 
 /obj/item/storage/bag/garment/warden/blue/PopulateContents()
 	new /obj/item/clothing/head/beret/sec/navywarden/nova(src)
-	new /obj/item/clothing/suit/armor/vest/warden/alt(src)
 	new /obj/item/clothing/suit/armor/vest/warden/blue(src)
-	new /obj/item/clothing/under/rank/security/warden/formal(src)
-	new /obj/item/clothing/under/rank/security/warden/nova(src)
 	new /obj/item/clothing/under/rank/security/warden/nova/blue(src)
-	new /obj/item/clothing/under/rank/security/warden/nova/suit(src)
 	new /obj/item/clothing/under/rank/security/warden/nova/suit/blue(src)
 	new /obj/item/clothing/suit/jacket/warden/blue(src)
 	new /obj/item/clothing/shoes/jackboots/sec/blue(src)
