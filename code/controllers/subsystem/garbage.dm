@@ -349,7 +349,7 @@ SUBSYSTEM_DEF(garbage)
 		if(isnull(to_delete))
 			return
 		else if(islist(to_delete))
-			stack_trace("Lists should not be directly passed to qdel! You likely want either list.Cut(), QDEL_LIST(list), QDEL_LIST_ASSOC(list), or QDEL_LIST_ASSOC_VAL(list)")
+			stack_trace("[to_delete] Lists should not be directly passed to qdel! You likely want either list.Cut(), QDEL_LIST(list), QDEL_LIST_ASSOC(list), or QDEL_LIST_ASSOC_VAL(list)")
 		else if(to_delete != world)
 			stack_trace("Tried to qdel possibly invalid value: [to_delete]")
 #ifndef DISABLE_DREAMLUAU

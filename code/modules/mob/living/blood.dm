@@ -320,6 +320,12 @@
 		return dna.species.exotic_blood
 	else if(HAS_TRAIT(src, TRAIT_NOBLOOD))
 		return
+	// NOVA EDIT ADDITION START
+	if(HAS_TRAIT(src, TRAIT_UNUSUAL_BIOCHEMISTRY))
+		var/datum/quirk/unusual_biochemistry/blood_quirk = get_quirk(/datum/quirk/unusual_biochemistry)
+		if(blood_quirk)
+			return blood_quirk.get_blood_type()
+	// NOVA EDIT ADDITION END
 	return /datum/reagent/blood
 
 // This is has more potential uses, and is probably faster than the old proc.
@@ -338,7 +344,11 @@
 		"O-" = list("O-"),
 		"O+" = list("O-", "O+"),
 		"L" = list("L"),
-		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
+		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U"),
+		// NOVA EDIT ADDITION START - Unusual Biochemistry
+		"Chlorocruorin" = list("Chlorocruorin"),
+		"Hemerythrin" = list("Hemerythrin"),
+		// NOVA EDIT ADDITION END
 	)
 
 	var/safe = bloodtypes_safe[bloodtype]

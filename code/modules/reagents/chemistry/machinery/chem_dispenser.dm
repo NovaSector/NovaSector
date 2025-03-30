@@ -70,6 +70,7 @@
 		/datum/reagent/iodine,
 		/datum/reagent/iron,
 		/datum/reagent/lithium,
+		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry quirk
 		/datum/reagent/mercury,
 		/datum/reagent/nitrogen,
 		/datum/reagent/oxygen,
@@ -837,6 +838,7 @@
 		/datum/reagent/iodine,
 		/datum/reagent/iron,
 		/datum/reagent/lithium,
+		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry
 		/datum/reagent/mercury,
 		/datum/reagent/nitrogen,
 		/datum/reagent/oxygen,
