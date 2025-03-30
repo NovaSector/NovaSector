@@ -1004,7 +1004,7 @@
 	cooldown = CLICK_CD_MELEE
 	knockdown_time = 0.25 SECONDS
 	demolition_mod = 1.5
-	stamina_damage = 35 // 4 hit stamcrit
+	stamina_damage = 30 // 4 hit stamcrit
 	stun_armour_penetration = 30 // bronze-silver telescopic
 	force = 21 // 7 hit crit
 	bare_wound_bonus = 5
