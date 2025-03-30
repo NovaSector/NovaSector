@@ -35,7 +35,6 @@
 	purchasable_from = ~UPLINK_SPY //spy get their own tg version
 	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
 
-
 // TG Overrides - Raises cost of this by 2x
 /datum/uplink_item/role_restricted/his_grace
 	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
