@@ -10884,7 +10884,9 @@
 	},
 /area/centcom/holding/cafe)
 "lSJ" = (
-/obj/machinery/door/poddoor/ert,
+/obj/machinery/door/poddoor/ert{
+	id = "interlink_shuttles"
+	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "lTP" = (

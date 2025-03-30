@@ -27,6 +27,7 @@
  */
 /datum/security_level/violet
 	name = "violet"
+	name_shortform = "VLT"
 	announcement_color = "purple"
 	number_level = SEC_LEVEL_VIOLET
 	status_display_icon_state = "violetalert"
@@ -43,6 +44,7 @@
  */
 /datum/security_level/orange
 	name = "orange"
+	name_shortform = "ORNG"
 	announcement_color = "orange"
 	number_level = SEC_LEVEL_ORANGE
 	status_display_icon_state = "orangealert"
@@ -60,6 +62,7 @@
 
 /datum/security_level/amber
 	name = "amber"
+	name_shortform = "AMBR"
 	announcement_color = "yellow"
 	number_level = SEC_LEVEL_AMBER
 	status_display_icon_state = "amberalert"
@@ -77,6 +80,7 @@
 
 /datum/security_level/epsilon
 	name = "epsilon"
+	name_shortform = "ε"
 	announcement_color = "purple"
 	number_level = SEC_LEVEL_EPSILON
 	status_display_icon_state = "epsilonalert"
@@ -95,6 +99,7 @@
  */
 /datum/security_level/gamma
 	name = "gamma"
+	name_shortform = "γ"
 	announcement_color = "pink"
 	number_level = SEC_LEVEL_GAMMA
 	status_display_icon_state = "gammaalert"
@@ -114,6 +119,7 @@
 
 /datum/security_level/federal
 	name = "federal"
+	name_shortform = "FED"
 	announcement_color = "blue"
 	number_level = SEC_LEVEL_FEDERAL
 	status_display_icon_state = "federalalert"

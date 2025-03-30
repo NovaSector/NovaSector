@@ -44,6 +44,7 @@
 				/obj/item/spanking_pad = 4,
 				/obj/item/tickle_feather = 8,
 				/obj/item/borg/upgrade/dominatrixmodule = 5,
+				/obj/item/reagent_containers/venom_milker = 5,
 			),
 		),
 		list(
@@ -67,8 +68,6 @@
 				/obj/item/clothing/gloves/long_gloves = 8,
 				/obj/item/clothing/shoes/ballet_heels = 4,
 				/obj/item/clothing/shoes/latex_socks = 8,
-
-				/obj/item/storage/belt/thigh_satchel = 5,//Leather Belt, holds a lot of tools.
 
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
