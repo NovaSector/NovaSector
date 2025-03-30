@@ -603,7 +603,7 @@
 
 /datum/loadout_item/head/officerberet
 	name = "Security Officer's Beret"
-	item_path = /obj/item/clothing/head/beret/sec/peacekeeper
+	item_path = /obj/item/clothing/head/beret/sec/nova
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 
 /datum/loadout_item/head/officerpatrolcap

@@ -70,13 +70,6 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
 
-/obj/item/clothing/head/beret/sec/nova/white
-	greyscale_config = /datum/greyscale_config/beret
-	greyscale_config_worn = /datum/greyscale_config/beret/worn
-	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
-	icon_state = "beret"
-	greyscale_colors = "#EAEAEA"
-
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy
