@@ -1584,3 +1584,31 @@
   zxaber:
   - qol: Cyborg PDAs' home screens now have Robotact at the top of the screen.
   - bugfix: Sheets of materials with NODROP can no longer be given to repair bots.
+2025-03-30:
+  FeenieRU:
+  - rscadd: Added some new undecayable organs for vox.
+  FlufflesTheDog:
+  - bugfix: Interlink external blast doors have been secured from remote intrusions.
+  Hatterhat:
+  - spellcheck: 'examine_more()s on a bunch of Nova guns have been somewhat tweaked
+      to be stylistically consistent (read: italicised).'
+  - balance: The Sol marksman rifle burst now fires scarily fast in return for long
+      delays between bursts, and now has a functional fire selector.
+  - balance: The plasma marksman pistol probably inflicts more wounds now.
+  - bugfix: Plasma globs are no longer torturously slow. (They're just regular slow.)
+  OrbisAnima:
+  - qol: Black Belts / Thigh Satchels can now be used to hold any kind of small item
+      or smaller, up to 7, a recolorable generalist belt in essence.
+  OrionTheFox:
+  - bugfix: fixed Bouncers/Service Guards not being sorted with Service in the Orbit
+      menu
+  RatFromTheJungle:
+  - rscadd: Reproductive equipment now comes in before unrealized sizes.
+  RealWinterFrost:
+  - bugfix: How to fix the size collar with one line of code! Coders hate them! Find
+      out now!
+  Saukykouko:
+  - rscadd: Added medical jumpsuit/skirt to loadout.
+  vinylspiders:
+  - bugfix: fixes the examine panel character preview being tiny
+  - bugfix: fixes the character directory view preview being tiny
