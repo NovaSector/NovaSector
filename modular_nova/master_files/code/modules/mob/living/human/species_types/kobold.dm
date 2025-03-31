@@ -2,7 +2,6 @@
 	name = "\improper Kobold"
 	id = SPECIES_KOBOLD
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs")
 	body_markings = list(
 		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
 	)
@@ -12,6 +11,7 @@
 		/obj/item/organ/snout = "Round",
 		/obj/item/organ/tail/lizard = "Smooth",
 	)
+	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/lizard
 	mutanteyes = /obj/item/organ/eyes/lizard
 	skinned_type = /obj/item/stack/sheet/animalhide/lizard
@@ -47,21 +47,20 @@
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
 		"tail" = list("Smooth", TRUE),
-		"snout" = list("Sharp + Light", TRUE),
-		"spines" = list("Long + Membrane", TRUE),
+		"snout" = list("Round", TRUE),
 		"frills" = list("Short", TRUE),
 		"horns" = list("Curled", TRUE),
-		"body_markings" = list("Light Belly", TRUE),
-		"legs" = list(DIGITIGRADE_LEGS,FALSE),
-		"taur" = list("None", FALSE),
-		"wings" = list("None", FALSE),
 	)
 
 /datum/species/monkey/kobold/randomize_features()
 	var/list/features = ..()
+	features["tail"] = pick(list("Smooth","Spikes","Short"))
+	features["snout"] = pick(list("Round","Sharp + Light"))
+	features["horns"] = pick(list("Curled","Short","Ram","Simple"))
+	features["frills"] = pick(list("Short","Simple"))
 	var/main_color = "#[random_color()]"
-	var/second_color= "#[random_color()]"
-	var/third_color= "#[random_color()]"
+	var/second_color
+	var/third_color
 	var/random = rand(1,3)
 	switch(random)
 		if(1) //First random case - all is the same
