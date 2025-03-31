@@ -15,8 +15,7 @@
 	obj_damage = 45
 	melee_damage_lower = 25
 	melee_damage_upper = 30
-	speed = 5
-	player_speed_modifier = -3.1
+	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "somewhat slow, throw webs to ensnare."
@@ -77,8 +76,7 @@
 	melee_damage_upper = 8
 	poison_per_bite = 2
 	poison_type = /datum/reagent/teslium
-	speed = 2.8
-	player_speed_modifier = -3.1
+	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "fast but not sturdy, your bites inject teslium"
@@ -122,7 +120,7 @@
 	obj_damage = 60
 	web_speed = 0.25
 	limb_destroyer = 50
-	speed = 5
+	speed = 3
 	player_speed_modifier = -4
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
@@ -161,8 +159,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	obj_damage = 15
-	speed = 5
-	player_speed_modifier = -4
+	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "Extremely tanky with very poor offense. Able to self-heal and lay reflective silk screens, passages, and traps."
@@ -223,8 +220,7 @@
 	melee_damage_upper = 15
 	poison_per_bite = 2
 	poison_type = /datum/reagent/spidereggs
-	speed = 3.5
-	player_speed_modifier = -3.1
+	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "The life of the nest, injects spidereggs that will grow inside the host and burrow out."
@@ -267,7 +263,7 @@
 	wound_bonus = 30
 	bare_wound_bonus = 60
 	poison_per_bite = 5
-	speed = 5
+	speed = 3
 	unsuitable_atmos_damage = 0
 	minimum_survivable_temperature = 0
 	maximum_survivable_temperature = INFINITY
@@ -290,6 +286,7 @@
 		/datum/action/cooldown/mob_cooldown/spider_leap,
 		/datum/action/cooldown/mob_cooldown/charge/triple_charge,
 		/datum/action/cooldown/mob_cooldown/watcher_gaze,
+		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
@@ -304,3 +301,14 @@
 
 	AddElement(/datum/element/wall_tearer)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
+	AddComponent(/datum/component/seethrough_mob)
+
+	AddComponent(/datum/component/healing_touch,\
+		heal_brute = 50,\
+		heal_burn = 50,\
+		heal_time = 2.5 SECONDS,\
+		interaction_key = DOAFTER_SOURCE_SPIDER,\
+		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
+		action_text = "%SOURCE% begins wrapping the wounds of %TARGET% with medicated webs.",\
+		complete_text = "%SOURCE% wraps the wounds of %TARGET%.",\
+	)

@@ -14,11 +14,12 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
+		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/targeted_mob_ability/arachnid_restrain,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/webslinger,
 		/datum/ai_planning_subtree/flee_target/webslinger,
-		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance,
+		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
 		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
@@ -29,14 +30,14 @@
 	action_cooldown = 5 SECONDS
 
 ///destroy surveillance objects to boost our stealth
-/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance
+/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider
 	target_key = BB_SURVEILLANCE_TARGET
-	finding_behavior = /datum/ai_behavior/find_hunt_target/find_active_surveillance
+	finding_behavior = /datum/ai_behavior/find_hunt_target/find_active_surveillance/spider
 	hunting_behavior = /datum/ai_behavior/hunt_target/interact_with_target
 	hunt_targets = list(/obj/machinery/camera, /obj/machinery/light)
 	hunt_range = 7
 
-/datum/ai_behavior/find_hunt_target/find_active_surveillance
+/datum/ai_behavior/find_hunt_target/find_active_surveillance/spider
 
 /datum/ai_behavior/find_hunt_target/find_active_camera/valid_dinner(mob/living/source, obj/machinery/dinner, radius)
 	if(dinner.machine_stat & BROKEN)
@@ -104,9 +105,10 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
+		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance,
+		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
 		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
@@ -124,9 +126,10 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
+		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance,
+		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
 		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
@@ -144,9 +147,10 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
+		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance,
+		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
 		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
@@ -164,8 +168,9 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance,
+		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
 		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
@@ -183,9 +188,11 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/attack_obstacle_in_path,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
+		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
+		/datum/ai_planning_subtree/targeted_mob_ability/arachnid_restrain,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance,
+		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
 		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
