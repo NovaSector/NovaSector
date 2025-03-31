@@ -437,18 +437,30 @@
 	// Progress Bars
 	data["criticality"] = criticality
 	data["health_percent"] = (atom_integrity/max_integrity)*100
-	data["rod_mix_pressure"] = stored_rod?.air_contents.return_pressure() || 0				// Used to display the current pressure
-	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0							// Used as a comparison point for the progress bar
-	data["rod_trit_moles"] = stored_rod?.air_contents.gases[/datum/gas/tritium][MOLES] || 0	// Look for specifically tritium, don't need to show moderators.
-	data["rod_mix_temperature"] = stored_rod?.air_contents.temperature || 0
-	data["safeties_max_power_generation"] = safeties_max_power_generation					// This variable and the next allows our limits in the UI to change based on part tiers.
-	data["max_power_generation"] = max_power_generation
-	data["last_power_output"] = display_power(last_power_generation) 						// We use this to display our power using this
-	data["raw_last_power_output"] = last_power_generation									// but we use this raw to calculate the progress bar
-	data["consuming"] = siunit(last_tritium_consumption*0.5, "mole", maxdecimals=3)			// Changed because 1/10,000th is not a micromole and si makes more sense during meltdowns. Div 2 (x0.5) because only procs every two seconds not every second
-	data["raw_consuming"] = last_tritium_consumption*0.5 									// Required to calculate remaining fuel in the rod_trit_moles progressbar
 
-	// Buttons
+	// Used to display the current rod pressure
+	data["rod_mix_pressure"] = stored_rod?.air_contents.return_pressure() || 0
+	// Used as a comparison point for the progress bar
+	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0
+	// Look for specifically tritium, don't need to show moderators.
+	data["rod_trit_moles"] = stored_rod?.air_contents.gases[/datum/gas/tritium][MOLES] || 0
+	// rod temperature
+	data["rod_mix_temperature"] = stored_rod?.air_contents.temperature || 0
+
+	// This variable and the next allows our limits in the UI to change based on part tiers.
+	data["safeties_max_power_generation"] = safeties_max_power_generation
+	data["max_power_generation"] = max_power_generation
+	// We use this to display our power using this
+	data["last_power_output"] = display_power(last_power_generation)
+	// but we use this raw to calculate the progress bar
+	data["raw_last_power_output"] = last_power_generation
+
+	// Changed because 1/10,000th is not a micromole and si makes more sense during meltdowns. Div 2 (x0.5) because only procs every two seconds not every second
+	data["consuming"] = siunit(last_tritium_consumption*0.5, "mole", maxdecimals=3)
+	// Required to calculate remaining fuel in the rod_trit_moles progressbar
+	data["raw_consuming"] = last_tritium_consumption*0.5
+
+	// Button data
 	data["venting"] = venting
 	data["vent_dir"] = vent_reverse_direction
 	data["active"] = active
@@ -456,7 +468,7 @@
 	data["overclocked"] = overclocked
 	data["rod"] = stored_rod
 
-	// Misc
+	// Status displays
 	data["jammed"] = jammed
 	data["meltdown"] = meltdown
 	return data
