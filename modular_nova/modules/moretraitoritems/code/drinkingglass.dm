@@ -15,5 +15,6 @@
 	illustration = "drinkglass"
 
 /obj/item/storage/box/syndieshotglasses/PopulateContents()
+	. = list()
 	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate(src)
+		. += /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate

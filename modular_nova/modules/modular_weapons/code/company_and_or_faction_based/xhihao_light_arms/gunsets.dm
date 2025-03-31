@@ -10,7 +10,7 @@
 /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/empty
 
 /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/empty/PopulateContents()
-	return
+	return NONE
 
 // Contains the Bogseo submachinegun, excellent for breaking shoulders
 
@@ -21,10 +21,9 @@
 	extra_to_spawn = /obj/item/ammo_box/magazine/c585trappiste_pistol
 
 /obj/item/storage/toolbox/guncase/nova/xhihao_large_case/bogseo/PopulateContents()
-	new weapon_to_spawn (src)
-
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
+		weapon_to_spawn = 1,
 		/obj/item/ammo_box/c585trappiste/incapacitator = 1,
 		/obj/item/ammo_box/c585trappiste = 1,
 		/obj/item/ammo_box/magazine/c585trappiste_pistol/spawns_empty = 3,
-	), src)
+	))

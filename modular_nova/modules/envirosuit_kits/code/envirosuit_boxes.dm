@@ -5,9 +5,11 @@
 	desc = "A box containing a complete plasmaman envirosuit in a garish orange. For the most average of bones."
 
 /obj/item/storage/box/envirosuit/PopulateContents()
-	new /obj/item/clothing/under/plasmaman(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman(src)
-	new /obj/item/clothing/gloves/color/plasmaman(src)
+	return list(
+		/obj/item/clothing/under/plasmaman,
+		/obj/item/clothing/head/helmet/space/plasmaman,
+		/obj/item/clothing/gloves/color/plasmaman,
+	)
 
 /// Slacks
 
@@ -16,9 +18,11 @@
 	desc = "A box containing a complete set of plasmaman's formals. For the fanciest of bones."
 
 /obj/item/storage/box/envirosuit/slacks/PopulateContents()
-	new /obj/item/clothing/under/plasmaman/enviroslacks(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman/white(src)
-	new /obj/item/clothing/gloves/color/plasmaman/white(src)
+	return list(
+		/obj/item/clothing/under/plasmaman/enviroslacks,
+		/obj/item/clothing/head/helmet/space/plasmaman/white,
+		/obj/item/clothing/gloves/color/plasmaman/white,
+	)
 
 /// White
 
@@ -27,9 +31,11 @@
 	desc = "A box containing a complete plasmaman envirosuit in white. For the brightest of bones."
 
 /obj/item/storage/box/envirosuit/white/PopulateContents()
-	new /obj/item/clothing/under/plasmaman/white(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman/white(src)
-	new /obj/item/clothing/gloves/color/plasmaman/white(src)
+	return list(
+		/obj/item/clothing/under/plasmaman/white,
+		/obj/item/clothing/head/helmet/space/plasmaman/white,
+		/obj/item/clothing/gloves/color/plasmaman/white,
+	)
 
 /// Black
 
@@ -38,9 +44,11 @@
 	desc = "A box containing a complete plasmaman envirosuit in black. For the edgiest of bones."
 
 /obj/item/storage/box/envirosuit/black/PopulateContents()
-	new /obj/item/clothing/under/plasmaman/black(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman/black(src)
-	new /obj/item/clothing/gloves/color/plasmaman/black(src)
+	return list(
+		/obj/item/clothing/under/plasmaman/black,
+		/obj/item/clothing/head/helmet/space/plasmaman/black,
+		/obj/item/clothing/gloves/color/plasmaman/black,
+	)
 
 /// Khaki
 
@@ -49,9 +57,11 @@
 	desc = "A box containing a complete plasmaman envirosuit in a drab khaki. For the most adventurous of bones."
 
 /obj/item/storage/box/envirosuit/khaki/PopulateContents()
-	new /obj/item/clothing/under/plasmaman/khaki(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman/khaki(src)
-	new /obj/item/clothing/gloves/color/plasmaman/explorer(src)
+	return list(
+		/obj/item/clothing/under/plasmaman/khaki,
+		/obj/item/clothing/head/helmet/space/plasmaman/khaki,
+		/obj/item/clothing/gloves/color/plasmaman/explorer,
+	)
 
 /// Prototype
 
@@ -60,9 +70,11 @@
 	desc = "A box containing a complete prototype plasmaman envirosuit. For the most nostalgic of bones."
 
 /obj/item/storage/box/envirosuit/prototype/PopulateContents()
-	new /obj/item/clothing/under/plasmaman/prototype(src)
-	new /obj/item/clothing/head/helmet/space/plasmaman/prototype(src)
-	new /obj/item/clothing/gloves/color/plasmaman/prototype(src)
+	return list(
+		/obj/item/clothing/under/plasmaman/prototype,
+		/obj/item/clothing/head/helmet/space/plasmaman/prototype,
+		/obj/item/clothing/gloves/color/plasmaman/prototype,
+	)
 
 
 

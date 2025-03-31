@@ -101,7 +101,7 @@
 
 /obj/item/storage/belt/crusader/PopulateContents()
 	. = ..()
-	new /obj/item/storage/belt/storage_pouch(src)
+	. += /obj/item/storage/belt/storage_pouch
 
 /obj/item/storage/belt/storage_pouch	//seperate mini-storage inside the belt, leaving room for only one sword. Inspired by a (very poorly implemented) belt on Desert Rose
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'

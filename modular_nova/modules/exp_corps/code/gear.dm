@@ -7,27 +7,31 @@
 
 /obj/item/storage/medkit/expeditionary/PopulateContents()
 	if(empty)
-		return
-	new /obj/item/stack/medical/gauze(src)
-	new /obj/item/defibrillator/compact/loaded(src)
-	new /obj/item/reagent_containers/hypospray/combat(src)
-	new /obj/item/stack/medical/mesh/advanced(src)
-	new /obj/item/stack/medical/suture/medicated(src)
-	new /obj/item/clothing/glasses/hud/health(src)
+		return NONE
+	return list(
+		/obj/item/stack/medical/gauze,
+		/obj/item/defibrillator/compact/loaded,
+		/obj/item/reagent_containers/hypospray/combat,
+		/obj/item/stack/medical/mesh/advanced,
+		/obj/item/stack/medical/suture/medicated,
+		/obj/item/clothing/glasses/hud/health,
+	)
 
 /obj/item/storage/medkit/expeditionary/surplus
 	desc = "Now with less bullshit. And more dust. But mainly less bullshit. If you have to use this, there's no way you've got insurance."
 
 /obj/item/storage/medkit/expeditionary/surplus/PopulateContents()
 	if(empty)
-		return
-	new /obj/item/stack/medical/gauze/twelve(src)
-	new /obj/item/reagent_containers/hypospray/combat(src) // epi/atro + lepo + omnizine
-	new /obj/item/stack/medical/suture/medicated(src)
-	new /obj/item/stack/medical/suture/medicated(src)
-	new /obj/item/stack/medical/mesh/advanced(src)
-	new /obj/item/stack/medical/mesh/advanced(src)
-	new /obj/item/clothing/glasses/hud/health(src)
+		return NONE
+	return list(
+		/obj/item/stack/medical/gauze/twelve,
+		/obj/item/reagent_containers/hypospray/combat, // epi/atro + lepo + omnizine
+		/obj/item/stack/medical/suture/medicated,
+		/obj/item/stack/medical/suture/medicated,
+		/obj/item/stack/medical/mesh/advanced,
+		/obj/item/stack/medical/mesh/advanced,
+		/obj/item/clothing/glasses/hud/health,
+	)
 
 //Field Medic's weapon, no more tomahawk!
 /obj/item/circular_saw/field_medic
@@ -149,8 +153,6 @@
 	can_hold = typecacheof(list(/obj/item/knife/combat))
 
 /obj/item/storage/pouch/ammo/marksman/PopulateContents() //can kill most basic enemies with 5 knives, though marksmen shouldn't be soloing enemies anyways
-	new /obj/item/knife/combat/throwing(src)
-	new /obj/item/knife/combat/throwing(src)
-	new /obj/item/knife/combat/throwing(src)
-	new /obj/item/knife/combat/throwing(src)
-	new /obj/item/knife/combat/throwing(src)
+	. = list()
+	for(var/i in 1 to 5)
+		. += /obj/item/knife/combat/throwing

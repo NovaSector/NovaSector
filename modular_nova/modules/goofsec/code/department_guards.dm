@@ -137,11 +137,14 @@
 	worn_icon_state = "science"
 
 /obj/item/storage/belt/security/department_guard/science/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/pink(src)
-	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/ammo_box/magazine/pepperball(src)
-	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security/loaded/departmental/science(src)
+	return list(
+		/obj/item/restraints/handcuffs/cable/pink,
+		/obj/item/assembly/flash/handheld,
+		/obj/item/ammo_box/magazine/pepperball,
+		/obj/item/gun/ballistic/automatic/pistol/pepperball,
+		/obj/item/melee/baton/security/loaded/departmental/science,
+	)
+
 
 /obj/item/storage/belt/security/department_guard/medical
 	name = "medical guard belt"
@@ -149,11 +152,13 @@
 	worn_icon_state = "medical"
 
 /obj/item/storage/belt/security/department_guard/medical/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/blue(src)
-	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/ammo_box/magazine/pepperball(src)
-	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security/loaded/departmental/medical(src)
+	return list(
+		/obj/item/restraints/handcuffs/cable/blue,
+		/obj/item/assembly/flash/handheld,
+		/obj/item/ammo_box/magazine/pepperball,
+		/obj/item/gun/ballistic/automatic/pistol/pepperball,
+		/obj/item/melee/baton/security/loaded/departmental/medical,
+	)
 
 /obj/item/storage/belt/security/department_guard/engineering
 	name = "engineer guard belt"
@@ -161,11 +166,13 @@
 	worn_icon_state = "engine"
 
 /obj/item/storage/belt/security/department_guard/engineering/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/yellow(src)
-	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/ammo_box/magazine/pepperball(src)
-	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security/loaded/departmental/engineering(src)
+	return list(
+		/obj/item/restraints/handcuffs/cable/yellow,
+		/obj/item/assembly/flash/handheld,
+		/obj/item/ammo_box/magazine/pepperball,
+		/obj/item/gun/ballistic/automatic/pistol/pepperball,
+		/obj/item/melee/baton/security/loaded/departmental/engineering,
+	)
 
 /obj/item/storage/belt/security/department_guard/cargo
 	name = "cargo guard belt"
@@ -173,11 +180,13 @@
 	worn_icon_state = "cargo"
 
 /obj/item/storage/belt/security/department_guard/cargo/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/orange(src)
-	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/ammo_box/magazine/pepperball(src)
-	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security/loaded/departmental/cargo(src)
+	return list(
+		/obj/item/restraints/handcuffs/cable/orange,
+		/obj/item/assembly/flash/handheld,
+		/obj/item/ammo_box/magazine/pepperball,
+		/obj/item/gun/ballistic/automatic/pistol/pepperball,
+		/obj/item/melee/baton/security/loaded/departmental/cargo,
+	)
 
 /obj/item/storage/belt/security/department_guard/service
 	name = "service guard belt"
@@ -185,11 +194,13 @@
 	worn_icon_state = "service"
 
 /obj/item/storage/belt/security/department_guard/service/PopulateContents()
-	new /obj/item/restraints/handcuffs/cable/green(src)
-	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/ammo_box/magazine/pepperball(src)
-	new /obj/item/gun/ballistic/automatic/pistol/pepperball(src)
-	new /obj/item/melee/baton/security/loaded/departmental/service(src)
+	return list(
+		/obj/item/restraints/handcuffs/cable/green,
+		/obj/item/assembly/flash/handheld,
+		/obj/item/ammo_box/magazine/pepperball,
+		/obj/item/gun/ballistic/automatic/pistol/pepperball,
+		/obj/item/melee/baton/security/loaded/departmental/service,
+	)
 
 /*
 	LANDMARKS
@@ -860,7 +871,7 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the science guard."
 
 /obj/item/storage/bag/garment/science_guard/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/radio/headset/headset_sci = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova = 2,
@@ -868,14 +879,14 @@
 		/obj/item/clothing/head/beret/sec/science = 2,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
-	), src)
+	))
 
 /obj/item/storage/bag/garment/orderly
 	name = "orderly's garments"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the orderly."
 
 /obj/item/storage/bag/garment/orderly/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/radio/headset/headset_med = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/orderly = 2,
@@ -883,14 +894,14 @@
 		/obj/item/clothing/head/beret/sec/medical = 2,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/orderly = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
-	), src)
+	))
 
 /obj/item/storage/bag/garment/engineering_guard
 	name = "engineering guard's garments"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the engineering guard."
 
 /obj/item/storage/bag/garment/engineering_guard/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/radio/headset/headset_eng = 2,
 		/obj/item/clothing/shoes/workboots = 2,
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/engineering_guard = 2,
@@ -898,14 +909,14 @@
 		/obj/item/clothing/head/beret/sec/engineering = 2,
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/engineering_guard = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
-	), src)
+	))
 
 /obj/item/storage/bag/garment/customs_agent
 	name = "customs agent's garments"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the customs agent."
 
 /obj/item/storage/bag/garment/customs_agent/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/radio/headset/headset_cargo = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
 		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/customs_agent = 2,
@@ -914,4 +925,4 @@
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 		/obj/item/clothing/glasses/hud/gun_permit = 2,
-	), src)
+	))

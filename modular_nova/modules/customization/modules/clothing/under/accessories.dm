@@ -115,13 +115,12 @@
 
 /obj/item/storage/box/holobadge/PopulateContents()
 	. = ..()
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo/cord(src)
-	new /obj/item/clothing/accessory/badge/holo/cord(src)
-	return
+	. += /obj/item/clothing/accessory/badge/holo
+	. += /obj/item/clothing/accessory/badge/holo
+	. += /obj/item/clothing/accessory/badge/holo
+	. += /obj/item/clothing/accessory/badge/holo
+	. += /obj/item/clothing/accessory/badge/holo/cord
+	. += /obj/item/clothing/accessory/badge/holo/cord
 
 /obj/item/clothing/accessory/badge/holo/warden
 	name = "warden's holobadge"
@@ -153,14 +152,13 @@
 
 /obj/item/storage/box/holobadge/hos/PopulateContents()
 	. = ..()
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo/warden(src)
-	new /obj/item/clothing/accessory/badge/holo/detective(src)
-	new /obj/item/clothing/accessory/badge/holo/detective(src)
-	new /obj/item/clothing/accessory/badge/holo/hos(src)
-	new /obj/item/clothing/accessory/badge/holo/cord(src)
-	return
+	. += /obj/item/clothing/accessory/badge/holo
+	. += /obj/item/clothing/accessory/badge/holo
+	. += /obj/item/clothing/accessory/badge/holo/warden
+	. += /obj/item/clothing/accessory/badge/holo/detective
+	. += /obj/item/clothing/accessory/badge/holo/detective
+	. += /obj/item/clothing/accessory/badge/holo/hos
+	. += /obj/item/clothing/accessory/badge/holo/cord
 
 // The newbie pin
 /obj/item/clothing/accessory/green_pin

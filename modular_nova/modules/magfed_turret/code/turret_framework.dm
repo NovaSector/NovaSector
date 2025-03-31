@@ -75,11 +75,13 @@
 		. += span_notice("You can change if the turret obeys flags with a <b>multitool.</b>")
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/PopulateContents()
+	return NONE
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/pre_filled/PopulateContents()
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-	new /obj/item/ammo_box/magazine/c35sol_pistol(src)
-
+	return list(
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+		/obj/item/ammo_box/magazine/c35sol_pistol,
+	)
 
 ///Grabs a mag to load into the turret
 /obj/item/storage/toolbox/emergency/turret/mag_fed/proc/get_mag(keep = FALSE)

@@ -7,8 +7,9 @@
 	custom_price = PAYCHECK_CREW * 1.5
 
 /obj/item/storage/pill_bottle/painkiller/PopulateContents()
+	. = list()
 	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/applicator/pill/amollin(src)
+		. += /obj/item/reagent_containers/applicator/pill/amollin
 
 /obj/item/reagent_containers/applicator/pill/amollin
 	name = "amollin pill"
@@ -37,8 +38,9 @@
 	))
 
 /obj/item/storage/pill_bottle/prescription_stimulant/PopulateContents()
+	. = list()
 	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/applicator/pill/prescription_stimulant(src)
+		. += /obj/item/reagent_containers/applicator/pill/prescription_stimulant
 
 /obj/item/reagent_containers/applicator/pill/prescription_stimulant
 	name = "alifil pill"
@@ -83,7 +85,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
 	)
-	generate_items_inside(items_inside, src)
+	return flatten_quantified_list(items_inside)
 
 /obj/item/storage/medkit/civil_defense/thunderdome
 	/// List of random medpens we can pick from
@@ -108,9 +110,9 @@
 	atom_storage.max_slots = 6
 
 /obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
+	. = list()
 	for(var/pens in 1 to 6)
-		var/new_pen = pick(random_medpen_options)
-		new new_pen(src)
+		. += pick(random_medpen_options)
 
 // Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
 /obj/item/storage/medkit/civil_defense/comfort
@@ -125,7 +127,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 3,
 		/obj/item/storage/pill_bottle/prescription_stimulant = 1,
 	)
-	generate_items_inside(items_inside, src)
+	return flatten_quantified_list(items_inside)
 
 // Pre-packed frontier medkit, with supplies to repair most common frontier health issues
 /obj/item/storage/medkit/frontier
@@ -156,7 +158,7 @@
 		/obj/item/stack/medical/gauze/sterilized = 1,
 		/obj/item/storage/pill_bottle/painkiller = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)
 
 // Pre-packed combat surgeon medkit, with items for fixing more specific injuries and wounds
 /obj/item/storage/medkit/combat_surgeon
@@ -189,7 +191,7 @@
 		/obj/item/stack/medical/gauze/sterilized = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)
 
 // Big medical kit that can be worn like a bag, holds a LOT of medical items but works like a duffelbag
 /obj/item/storage/backpack/duffelbag/deforest_medkit
@@ -234,7 +236,7 @@
 		/obj/item/storage/pill_bottle/painkiller = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)
 
 /datum/storage/duffel/deforest_medkit
 	max_specific_storage = WEIGHT_CLASS_SMALL
@@ -325,7 +327,7 @@
 		/obj/item/stack/sticky_tape/surgical = 1,
 		/obj/item/stack/medical/bone_gel = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)
 
 /datum/storage/duffel/deforest_big_surgery
 	max_total_storage = 14 * WEIGHT_CLASS_NORMAL
@@ -439,7 +441,7 @@
 		/obj/item/reagent_containers/cup/vial/small/seiver = 1,
 		/obj/item/healthanalyzer/advanced = 1,
 	)
-	generate_items_inside(items_inside,src)
+	return flatten_quantified_list(items_inside)
 
 /datum/storage/duffel/deforest_paramedic
 	max_specific_storage = WEIGHT_CLASS_SMALL

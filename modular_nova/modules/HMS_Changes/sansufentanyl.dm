@@ -60,12 +60,12 @@
 	desc = "Contains everything you'll need to create new batches of sansufentanyl. Careful, do not spill contents."
 
 /obj/item/storage/box/syndie_kit/sansufentanyl/PopulateContents()
-	generate_items_inside(list(
+	return flatten_quantified_list(list(
 		/obj/item/reagent_containers/cup/beaker/sansufentanyl_base = 1,
 		/obj/item/reagent_containers/cup/beaker/large/spaceacillin = 1,
 		/obj/item/stack/ore/bluespace_crystal = 15,
 		/obj/item/paper/fluff/sansufentanyl = 1,
-	), src)
+	))
 
 /datum/chemical_reaction/randomized/sansufentanyl
 	randomize_req_temperature = FALSE

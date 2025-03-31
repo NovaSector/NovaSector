@@ -13,10 +13,11 @@
 	var/condiment_pack = /obj/item/reagent_containers/condiment/pack/ketchup
 
 /obj/item/storage/box/foodpack/PopulateContents()
-	. = ..()
-	new main_course(src)
-	new side_item(src)
-	new condiment_pack(src)
+	return list(
+		main_course,
+		side_item,
+		condiment_pack,
+	)
 
 /obj/item/storage/box/foodpack/nt
 	name = "\improper NT-Combo Meal - Salisbury Steak"

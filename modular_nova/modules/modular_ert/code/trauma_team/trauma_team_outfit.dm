@@ -43,12 +43,13 @@
 	illustration = "medgel"
 
 /obj/item/storage/box/medicells/PopulateContents()
-	. = ..()
-	new /obj/item/weaponcell/medical/brute(src)
-	new /obj/item/weaponcell/medical/burn(src)
-	new /obj/item/weaponcell/medical/toxin/tier_2(src)
-	new /obj/item/weaponcell/medical/utility/temperature(src)
-	new /obj/item/weaponcell/medical/utility/bed(src)
+	return list(
+		/obj/item/weaponcell/medical/brute,
+		/obj/item/weaponcell/medical/burn,
+		/obj/item/weaponcell/medical/toxin/tier_2,
+		/obj/item/weaponcell/medical/utility/temperature,
+		/obj/item/weaponcell/medical/utility/bed,
+	)
 
 /datum/id_trim/centcom/ert/medical/ntrauma
 	assignment = "Trauma Team Specialist"
@@ -70,25 +71,29 @@
 	worn_icon_state = "ert_ntrauma"
 
 /obj/item/storage/belt/military/ntrauma/PopulateContents()
-	new /obj/item/surgical_drapes(src)
-	new /obj/item/scalpel/advanced(src)
-	new	/obj/item/cautery/advanced(src)
-	new /obj/item/retractor/advanced(src)
-	new /obj/item/healthanalyzer/advanced(src)
-	new	/obj/item/reagent_containers/hypospray/combat(src)
+	return list(
+		/obj/item/surgical_drapes,
+		/obj/item/scalpel/advanced,
+		/obj/item/cautery/advanced,
+		/obj/item/retractor/advanced,
+		/obj/item/healthanalyzer/advanced,
+		/obj/item/reagent_containers/hypospray/combat,
+	)
 
 /obj/item/storage/medkit/tactical/ntrauma
 	name = "trauma medical kit"
 	desc = "I hope you've got insurance, because the Trauma Team's premiums are HIGH."
 
 /obj/item/storage/medkit/tactical/ntrauma/PopulateContents()
-	new /obj/item/stack/medical/gauze(src)
-	new /obj/item/defibrillator/compact/combat/loaded/nanotrasen(src)
-	new /obj/item/reagent_containers/applicator/patch/libital(src)
-	new /obj/item/reagent_containers/applicator/patch/libital(src)
-	new /obj/item/reagent_containers/applicator/patch/aiuri(src)
-	new /obj/item/reagent_containers/applicator/patch/aiuri(src)
-	new	/obj/item/holosign_creator/medical (src)
+	return list(
+		/obj/item/stack/medical/gauze,
+		/obj/item/defibrillator/compact/combat/loaded/nanotrasen,
+		/obj/item/reagent_containers/applicator/patch/libital,
+		/obj/item/reagent_containers/applicator/patch/libital,
+		/obj/item/reagent_containers/applicator/patch/aiuri,
+		/obj/item/reagent_containers/applicator/patch/aiuri,
+		/obj/item/holosign_creator/medical,
+	)
 
 /obj/item/clothing/gloves/latex/nitrile/ntrauma
 	name = "trauma specialist gloves"

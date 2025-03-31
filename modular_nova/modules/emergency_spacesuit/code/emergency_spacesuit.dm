@@ -91,5 +91,7 @@
 		))
 
 /obj/item/storage/box/emergency_spacesuit/PopulateContents()
-	new /obj/item/clothing/head/helmet/space/emergency(src)
-	new /obj/item/clothing/suit/space/emergency(src)
+	return list(
+		/obj/item/clothing/head/helmet/space/emergency,
+		/obj/item/clothing/suit/space/emergency,
+	)

@@ -15,9 +15,11 @@
 	icon_open = "syndboxopen"
 
 /obj/item/storage/lockbox/medal/nova/synd/PopulateContents()
-	new /obj/item/clothing/accessory/medal/nova/syndicate(src)
-	new /obj/item/clothing/accessory/medal/nova/syndicate/espionage(src)
-	new /obj/item/clothing/accessory/medal/nova/syndicate/interrogation(src)
-	new /obj/item/clothing/accessory/medal/nova/syndicate/intelligence(src)
-	new /obj/item/clothing/accessory/medal/nova/syndicate/diligence(src)
-	new /obj/item/clothing/accessory/medal/nova/syndicate/communications(src)
+	return list(
+		/obj/item/clothing/accessory/medal/nova/syndicate,
+		/obj/item/clothing/accessory/medal/nova/syndicate/espionage,
+		/obj/item/clothing/accessory/medal/nova/syndicate/interrogation,
+		/obj/item/clothing/accessory/medal/nova/syndicate/intelligence,
+		/obj/item/clothing/accessory/medal/nova/syndicate/diligence,
+		/obj/item/clothing/accessory/medal/nova/syndicate/communications,
+	)
