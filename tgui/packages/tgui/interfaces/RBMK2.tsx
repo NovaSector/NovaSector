@@ -170,7 +170,7 @@ export const RBMK2 = (props) => {
               </ProgressBar>
             </LabeledList.Item>
             <LabeledList.Item label="Tritium Usage">
-              {data.consuming} {data.consuming_unit}/s
+              {data.consuming}/s
             </LabeledList.Item>
             <LabeledList.Item
               label="Criticality"
