@@ -65,12 +65,12 @@
 
 #undef SMALL_ITEM_AMOUNT
 
-/obj/item/storage/box/syndicate/stealth_contractor
+/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor
 	name = "Stealth Kit"
 	desc = "It's just an ordinary box."
 	special_desc = "Supplied to Syndicate contractors. Intended to support stealthy operations."
 
-/obj/item/storage/box/syndicate/stealth_contractor/PopulateContents()
+/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor/PopulateContents()
 	new /obj/item/fake_identity_kit(src)
 	new /obj/item/clothing/head/chameleon(src)
 	new /obj/item/clothing/mask/chameleon(src)
