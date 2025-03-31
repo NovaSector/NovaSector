@@ -275,8 +275,8 @@
 	if(footprint_sprite)
 		src.footprint_sprite = footprint_sprite
 	if(!bloody_feet)
-		bloody_feet = mutable_appearance('icons/effects/blood.dmi', "shoeblood", SHOES_LAYER)
-		bloody_feet.color = "#FF291E" // NOVA EDIT ADDITION
+		bloody_feet = mutable_appearance('icons/effects/blood.dmi', "shoeblood", SHOES_LAYER, appearance_flags = RESET_COLOR)
+		bloody_feet.color = "#FF291E"
 
 	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(on_clean))
 	RegisterSignal(parent, COMSIG_STEP_ON_BLOOD, PROC_REF(on_step_blood))
@@ -289,6 +289,7 @@
 	if(bloody_shoes[BLOOD_STATE_HUMAN] > 0 && !is_obscured())
 		wielder.remove_overlay(SHOES_LAYER)
 		wielder.overlays_standing[SHOES_LAYER] = bloody_feet
+		bloody_feet.color = wielder.dna.blood_type.color // NOVA EDIT ADDITION
 		wielder.apply_overlay(SHOES_LAYER)
 	else
 		wielder.update_worn_shoes()

@@ -60,17 +60,19 @@
 	if(iscarbon(exposed_mob))
 		var/mob/living/carbon/exposed_carbon = exposed_mob
 		if(exposed_carbon.get_blood_id() == type && ((methods & INJECT) || ((methods & INGEST) && HAS_TRAIT(exposed_carbon, TRAIT_DRINKS_BLOOD))))
-			if(!data || !(data["blood_type"] in get_safe_blood(exposed_carbon.dna.blood_type)))
-				exposed_carbon.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
-			else
-				/* NOVA EDIT - Rebalancing blood for Hemophages - ORIGINAL:
-				exposed_carbon.blood_volume = min(exposed_carbon.blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
-				*/ // ORIGINAL END - NOVA EDIT:
-				// We do a max() here so that being injected with monkey blood when you're past 560u doesn't reset you back to 560
-				var/max_blood_volume = data["monkey_origins"] ? max(exposed_carbon.blood_volume, BLOOD_VOLUME_NORMAL) : BLOOD_VOLUME_MAXIMUM
+			if(data && data["blood_type"])
+				var/datum/blood_type/blood_type = data["blood_type"]
+				if(blood_type.type in exposed_carbon.dna.blood_type.compatible_types)
+					exposed_carbon.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
+				else
+					/* NOVA EDIT - Rebalancing blood for Hemophages - ORIGINAL:
+					exposed_carbon.blood_volume = min(exposed_carbon.blood_volume + round(reac_volume, 0.1), BLOOD_VOLUME_MAXIMUM)
+					*/ // ORIGINAL END - NOVA EDIT:
+					// We do a max() here so that being injected with monkey blood when you're past 560u doesn't reset you back to 560
+					var/max_blood_volume = data["monkey_origins"] ? max(exposed_carbon.blood_volume, BLOOD_VOLUME_NORMAL) : BLOOD_VOLUME_MAXIMUM
 
-				exposed_carbon.blood_volume = min(exposed_carbon.blood_volume + round(reac_volume, 0.1), max_blood_volume)
-				// NOVA EDIT END
+					exposed_carbon.blood_volume = min(exposed_carbon.blood_volume + round(reac_volume, 0.1), max_blood_volume)
+					// NOVA EDIT END
 
 			exposed_carbon.reagents.remove_reagent(type, reac_volume) // Because we don't want blood to just lie around in the patient's blood, makes no sense.
 
@@ -85,6 +87,9 @@
 	. = ..()
 	if(istype(data))
 		SetViruses(src, data)
+		var/datum/blood_type/blood_type = data["blood_type"]
+		if(blood_type && blood_type.color != "#FF291E")
+			color = blood_type.color
 
 /datum/reagent/blood/on_merge(list/mix_data)
 	if(data && mix_data)

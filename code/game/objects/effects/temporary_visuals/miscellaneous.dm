@@ -5,10 +5,12 @@
 	randomdir = FALSE
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
-	color = "#FF291E" // NOVA EDIT ADDITION
+	color = "#FF291E"
 	var/splatter_type = "splatter"
 
-/obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir)
+/obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir, set_color)
+	if(set_color)
+		color = set_color
 	if(ISDIAGONALDIR(set_dir))
 		icon_state = "[splatter_type][pick(1, 2, 6)]"
 	else
@@ -44,6 +46,7 @@
 
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter
 	splatter_type = "xsplatter"
+	color = null
 
 /obj/effect/temp_visual/dir_setting/speedbike_trail
 	name = "speedbike trails"

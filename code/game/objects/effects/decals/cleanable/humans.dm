@@ -32,6 +32,11 @@
 	if(world.time > drytime)
 		dry()
 
+/obj/effect/decal/cleanable/blood/add_blood_DNA(list/blood_DNA, no_visuals = FALSE)
+	. = ..()
+	if(!no_visuals && length(blood_DNA))
+		color = get_blood_dna_color(blood_DNA)
+
 /obj/effect/decal/cleanable/blood/proc/get_timer()
 	drytime = world.time + 3 MINUTES
 
@@ -181,7 +186,9 @@
 		for (var/i in 1 to range)
 			var/turf/my_turf = get_turf(src)
 			if(!isgroundlessturf(my_turf) || GET_TURF_BELOW(my_turf))
-				new /obj/effect/decal/cleanable/blood/splatter(my_turf)
+				var/obj/effect/decal/cleanable/blood/splatter/new_splatter = new /obj/effect/decal/cleanable/blood/splatter(my_turf)
+				new_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
+
 			if (!step_to(src, get_step(src, direction), 0))
 				break
 		return
@@ -193,7 +200,8 @@
 	SIGNAL_HANDLER
 	if(NeverShouldHaveComeHere(loc))
 		return
-	new /obj/effect/decal/cleanable/blood/splatter(loc)
+	var/obj/effect/decal/cleanable/blood/splatter/new_splatter = new /obj/effect/decal/cleanable/blood/splatter(loc)
+	new_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	icon_state = "gibup1"
@@ -268,7 +276,6 @@
 
 	dryname = "dried footprints"
 	drydesc = "HMM... SOMEONE WAS HERE!"
-	color = "#FF291E" // NOVA EDIT ADDITION
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload, footprint_sprite)
 	src.footprint_sprite = footprint_sprite
@@ -468,6 +475,7 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 				final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
 			else
 				final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
+				final_splatter.add_blood_DNA(blood_dna_info)
 			// NOVA EDIT CHANGE END
 			final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
 			final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
@@ -485,6 +493,7 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 		final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
 	else
 		final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
+		final_splatter.add_blood_DNA(blood_dna_info)
 	// NOVA EDIT CHANGE END
 	final_splatter.forceMove(the_window)
 	the_window.vis_contents += final_splatter

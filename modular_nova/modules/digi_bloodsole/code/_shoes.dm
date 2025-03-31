@@ -22,5 +22,5 @@
 				blood_overlay = mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
 			else
 				blood_overlay = mutable_appearance('icons/effects/blood.dmi', "shoeblood")
-		blood_overlay.color = "#FF291E" // NOVA EDIT ADDITION
+		blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
 		. += blood_overlay

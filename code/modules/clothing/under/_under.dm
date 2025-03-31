@@ -110,7 +110,7 @@
 		return
 	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "uniformblood")
-		blood_overlay.color = "#FF291E"
+		blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
 		. += blood_overlay
 
 /obj/item/clothing/under/attackby(obj/item/attacking_item, mob/user, params)

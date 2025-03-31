@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(blood_type_to_color, list(
 
 /datum/quirk/unusual_biochemistry
 	name = "Unusual Biochemistry"
-	desc = "You bring your pet to work with you so that it, too, can experience the dangers of station life."
+	desc = "Your blood's chemical makeup differs from that of a typical crew member."
 	icon = FA_ICON_DROPLET
 	value = 0
 	mob_trait = TRAIT_UNUSUAL_BIOCHEMISTRY
@@ -46,16 +46,15 @@ GLOBAL_LIST_INIT(blood_type_to_color, list(
 		human_holder.dna.species.exotic_blood = exotic_blood_reagent
 		human_holder.dna.species.exotic_bloodtype = blood_type
 	else
-		human_holder.dna.blood_type = blood_type
 		human_holder.dna.species.exotic_blood = null
 		human_holder.dna.species.exotic_bloodtype = null
 
-/// Returns the blood reagent subtype for get_blood_id()
-/datum/quirk/unusual_biochemistry/proc/get_blood_type()
-	if(blood_type == "Chlorocruorin")
-		/datum/reagent/blood/chlorocruorin
-	else
-		return /datum/reagent/blood/hemerythrin
+	human_holder.dna.blood_type = get_blood_type_by_name(blood_type)
+
+	// updates the cached organ blood types
+	var/list/blood_dna_info = human_holder.get_blood_dna_list()
+	for(var/obj/item/organ/organ in human_holder.organs)
+		organ.blood_dna_info = blood_dna_info
 
 /datum/preference/choiced/unusual_biochemistry
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED

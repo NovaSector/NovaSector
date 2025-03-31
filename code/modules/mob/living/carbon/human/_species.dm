@@ -298,6 +298,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/organ/existing_organ = organ_holder.get_organ_slot(slot)
 		var/obj/item/organ/new_organ = get_mutant_organ_type_for_slot(slot)
 		var/old_organ_type = old_species?.get_mutant_organ_type_for_slot(slot)
+		// make sure blood type gets cached properly for all the existing organs
 
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
@@ -386,19 +387,25 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(old_species.type != type)
 		replace_body(human_who_gained_species, src)
 
-	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs) // NOVA EDIT - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs)
-	// Update locked slots AFTER all organ and body stuff is handled
-	human_who_gained_species.hud_used?.update_locked_slots()
-	// Drop the items the new species can't wear
-	INVOKE_ASYNC(src, PROC_REF(worn_items_fit_body_check), human_who_gained_species, TRUE)
-
 	//Assigns exotic blood type if the species has one
-	if(exotic_bloodtype && human_who_gained_species.dna.blood_type != exotic_bloodtype)
-		human_who_gained_species.dna.blood_type = exotic_bloodtype
+	if(exotic_bloodtype && human_who_gained_species.dna.blood_type?.name != exotic_bloodtype)
+		human_who_gained_species.dna.blood_type = get_blood_type_by_name(exotic_bloodtype)
 	//Otherwise, check if the previous species had an exotic bloodtype and we do not have one and assign a random blood type
 	//(why the fuck is blood type not tied to a fucking DNA block?)
 	else if(old_species.exotic_bloodtype && !exotic_bloodtype)
 		human_who_gained_species.dna.blood_type = random_blood_type()
+
+	// updates the cached organ blood types
+	var/list/blood_dna_info = human_who_gained_species.get_blood_dna_list()
+	for(var/obj/item/organ/organ in human_who_gained_species.organs)
+		organ.blood_dna_info = blood_dna_info
+
+	regenerate_organs(human_who_gained_species, old_species, replace_current = human_who_gained_species.visual_only_organs, visual_only = human_who_gained_species.visual_only_organs) // NOVA EDIT - Allows existing organs to be properly removed when regenerating organs - ORIGINAL: regenerate_organs(human_who_gained_species, old_species, replace_current = FALSE, visual_only = human_who_gained_species.visual_only_organs)
+
+	// Update locked slots AFTER all organ and body stuff is handled
+	human_who_gained_species.hud_used?.update_locked_slots()
+	// Drop the items the new species can't wear
+	INVOKE_ASYNC(src, PROC_REF(worn_items_fit_body_check), human_who_gained_species, TRUE)
 
 	//Resets blood if it is excessively high so they don't gib
 	normalize_blood(human_who_gained_species)
