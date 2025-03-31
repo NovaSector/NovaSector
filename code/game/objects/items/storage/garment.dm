@@ -97,10 +97,10 @@
 	// NOVA EDIT ADDITION END
 
 /obj/item/storage/bag/garment/warden/PopulateContents()
-	new /obj/item/clothing/suit/armor/vest/warden(src)
-	new /obj/item/clothing/head/hats/warden(src)
+	// new /obj/item/clothing/suit/armor/vest/warden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
+	// new /obj/item/clothing/head/hats/warden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
 	new /obj/item/clothing/head/hats/warden/drill(src)
-	new /obj/item/clothing/head/beret/sec/navywarden(src)
+	// new /obj/item/clothing/head/beret/sec/navywarden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
 	new /obj/item/clothing/under/rank/security/warden/skirt(src)
 	new /obj/item/clothing/gloves/krav_maga/sec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)

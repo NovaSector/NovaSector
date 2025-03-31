@@ -23,9 +23,12 @@
 	icon_state = "garment_bag_blue"
 
 /obj/item/storage/bag/garment/warden/blue/PopulateContents()
+	new /obj/item/clothing/head/hats/warden(src)
 	new /obj/item/clothing/head/beret/sec/navywarden/nova(src)
+	new /obj/item/clothing/head/beret/sec/navywarden(src)
+	new /obj/item/clothing/suit/armor/vest/warden(src)
+	new /obj/item/clothing/suit/jacket/warden/blue(src)
 	new /obj/item/clothing/suit/armor/vest/warden/blue(src)
 	new /obj/item/clothing/under/rank/security/warden/nova/blue(src)
 	new /obj/item/clothing/under/rank/security/warden/nova/suit/blue(src)
-	new /obj/item/clothing/suit/jacket/warden/blue(src)
 	new /obj/item/clothing/shoes/jackboots/sec/blue(src)

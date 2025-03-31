@@ -32,5 +32,4 @@
 /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge : /obj/item/clothing/suit/armor/vest/jacket/badge{@OLD}
 /obj/machinery/door/airlock/security/old/glass : /obj/machinery/door/airlock/security/glass{@OLD}
 /obj/machinery/door/airlock/security/old : /obj/machinery/door/airlock/security{@OLD}
-/obj/effect/turf_decal/tile/red/real_red : /obj/effect/turf_decal/tile/red{OLD}
 /obj/item/clothing/suit/armor/vest/alt/sec/redsec : /obj/item/clothing/suit/armor/vest/alt/sec{@OLD}
