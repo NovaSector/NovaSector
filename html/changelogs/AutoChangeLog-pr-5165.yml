@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - balance: "Added fake identity kit to midround contractor loadout"

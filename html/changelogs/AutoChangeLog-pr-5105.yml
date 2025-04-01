@@ -1,7 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - spellcheck: "examine_more()s on a bunch of Nova guns have been somewhat tweaked to be stylistically consistent (read: italicised)."
-  - balance: "The Sol marksman rifle burst now fires scarily fast in return for long delays between bursts, and now has a functional fire selector."
-  - balance: "The plasma marksman pistol probably inflicts more wounds now."
-  - bugfix: "Plasma globs are no longer torturously slow. (They're just regular slow.)"
