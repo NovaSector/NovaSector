@@ -38,8 +38,8 @@
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Smooth", FALSE),
-		"snout" = list("Round", FALSE),
+		"tail" = list("Smooth", TRUE),
+		"snout" = list("Round", TRUE),
 		"frills" = list("Short", FALSE),
 		"horns" = list("Curled", FALSE),
 	)
