@@ -129,7 +129,7 @@
 
 	return to_add
 
-/datum/species/kobold/prepare_human_for_preview(mob/living/carbon/human/kobold)
+/datum/species/monkey/kobold/prepare_human_for_preview(mob/living/carbon/human/kobold)
 	var/main_color = "#926838"
 	var/second_color = "#926838"
 	var/third_color = "#926838"
