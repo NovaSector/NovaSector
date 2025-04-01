@@ -379,3 +379,11 @@ rough example of the "cone" made by the 3 dirs checked
 		"x" = icon_width > ICON_SIZE_X && pixel_x != 0 ? (icon_width - ICON_SIZE_X) * 0.5 : 0,
 		"y" = icon_height > ICON_SIZE_Y && pixel_y != 0 ? (icon_height - ICON_SIZE_Y) * 0.5 : 0,
 	)
+
+/// The subject of the preview looked lonely
+/proc/time_to_photobomb(mutable_appearance/preview)
+	var/whoisit = pick(list("fox", "corgi", "cool_sloth", "cat_rest", "pug", "cat2_rest", "spacecat", "bullterrier", "ant"))
+	var/mutable_appearance/finnegan_no = mutable_appearance('icons/mob/simple/pets.dmi', whoisit)
+	if(whoisit != "cat_rest" && whoisit != "cat2_rest")
+		finnegan_no.pixel_x = pick(8, -8)
+	preview.underlays += finnegan_no
