@@ -2,15 +2,7 @@
 	name = "\improper Kobold"
 	id = SPECIES_KOBOLD
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	body_markings = list(
-		/datum/bodypart_overlay/simple/body_marking/lizard = SPRITE_ACCESSORY_NONE,
-	)
-	mutant_organs = list(
-		/obj/item/organ/horns = SPRITE_ACCESSORY_NONE,
-		/obj/item/organ/frills = SPRITE_ACCESSORY_NONE,
-		/obj/item/organ/snout = "Round",
-		/obj/item/organ/tail/lizard = "Smooth",
-	)
+	mutant_organs = list()
 	mutant_bodyparts = list()
 	mutanttongue = /obj/item/organ/tongue/lizard
 	mutanteyes = /obj/item/organ/eyes/lizard
@@ -54,10 +46,6 @@
 
 /datum/species/monkey/kobold/randomize_features()
 	var/list/features = ..()
-	features["tail"] = pick(list("Smooth","Spikes","Short"))
-	features["snout"] = pick(list("Round","Sharp + Light"))
-	features["horns"] = pick(list("Curled","Short","Ram","Simple"))
-	features["frills"] = pick(list("Short","Simple"))
 	var/main_color = "#[random_color()]"
 	var/second_color
 	var/third_color
@@ -139,3 +127,19 @@
 	)
 
 	return to_add
+
+/datum/species/kobold/prepare_human_for_preview(mob/living/carbon/human/kobold)
+	var/main_color = "#926838"
+	var/second_color = "#926838"
+	var/third_color = "#926838"
+
+	kobold.dna.features["mcolor"] = main_color
+	kobold.dna.features["mcolor2"] = second_color
+	kobold.dna.features["mcolor3"] = third_color
+	kobold.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Round", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Smooth", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts["horns"] = list(MUTANT_INDEX_NAME = "Curled", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	kobold.dna.mutant_bodyparts["frills"] = list(MUTANT_INDEX_NAME = "Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
+	regenerate_organs(kobold, src, visual_only = TRUE)
+	kobold.update_body(TRUE)
+
