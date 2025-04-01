@@ -38,10 +38,10 @@
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Smooth", TRUE),
-		"snout" = list("Round", TRUE),
-		"frills" = list("Short", TRUE),
-		"horns" = list("Curled", TRUE),
+		"tail" = list("Smooth", FALSE),
+		"snout" = list("Round", FALSE),
+		"frills" = list("Short", FALSE),
+		"horns" = list("Curled", FALSE),
 	)
 
 /datum/species/monkey/kobold/randomize_features()
@@ -63,6 +63,7 @@
 	features["mcolor"] = main_color
 	features["mcolor2"] = second_color
 	features["mcolor3"] = third_color
+	features -= "tail"
 	return features
 
 /datum/species/monkey/kobold/get_scream_sound(mob/living/carbon/human/kobold)
