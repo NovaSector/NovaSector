@@ -5,7 +5,6 @@
 	icon_state = "slug"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 15
-	multitype = FALSE // if you enable this and set the box's caliber var to CALIBER_SHOTGUN (at time of writing, "shotgun"), then you can have the fabled any-ammo shellbox
 
 /obj/item/ammo_box/advanced/s12gauge/buckshot
 	name = "shell box (buckshot)"

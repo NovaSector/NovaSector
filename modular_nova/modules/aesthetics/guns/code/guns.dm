@@ -58,11 +58,6 @@
 /obj/item/ammo_casing
 	custom_materials = AMMO_MATS_BASIC
 
-/obj/item/ammo_box
-	/// When inserted into an ammo workbench, does this ammo box check for parent ammunition to search for subtypes of? Relevant for surplus clips, multi-sprite magazines.
-	/// Maybe don't enable this for shotgun ammo boxes.
-	var/multitype = TRUE
-
 ///GUN SPRITE OVERWRITES
 /obj/item/gun/energy/ionrifle
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'

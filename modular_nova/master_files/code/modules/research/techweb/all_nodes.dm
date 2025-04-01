@@ -224,7 +224,7 @@
 
 /datum/techweb_node/basic_arms/New()
 	design_ids += list(
-		"ammoworkbench_disk_lethal",
+//		"ammoworkbench_disk_lethal",
 	)
 	return ..()
 

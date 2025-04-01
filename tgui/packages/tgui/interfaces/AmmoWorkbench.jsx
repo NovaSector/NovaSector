@@ -53,7 +53,6 @@ export const AmmunitionsTab = (props) => {
   const {
     mag_loaded,
     system_busy,
-    hacked,
     error,
     error_type,
     mag_name,
@@ -151,13 +150,6 @@ export const AmmunitionsTab = (props) => {
           </Flex.Item>
         )}
       </Section>
-      {!!hacked && (
-        <NoticeBox textAlign="center" color="bad">
-          !WARNING! - ARMADYNE SAFETY PROTOCOLS ARE NOT ENGAGED! MISUSE IS NOT
-          COVERED UNDER WARRANTY. SOME MUNITION TYPES MAY CONSTITUTE A WAR CRIME
-          IN YOUR AREA. PLEASE CONTACT AN ARMADYNE ADMINISTRATOR IMMEDIATELY.
-        </NoticeBox>
-      )}
     </>
   );
 };
@@ -205,20 +197,12 @@ export const DatadiskTab = (props) => {
       <Section
         title="Datadisk"
         buttons={
-          <>
-            <Button
-              icon="save"
-              content="Load Disk"
-              disabled={!datadisk_loaded}
-              onClick={() => act('ReadDisk')}
-            />
-            <Button
-              icon="eject"
-              content="Eject"
-              disabled={!datadisk_loaded}
-              onClick={() => act('EjectDisk')}
-            />
-          </>
+          <Button
+            icon="eject"
+            content="Eject"
+            disabled={!datadisk_loaded | system_busy}
+            onClick={() => act('EjectDisk')}
+          />
         }
       >
         {!!datadisk_loaded && (
