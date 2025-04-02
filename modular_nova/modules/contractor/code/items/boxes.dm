@@ -23,7 +23,6 @@
 	new /obj/item/mod/control/pre_equipped/contractor(src)
 	. = ..() // so their MODSuit is first
 	new /obj/item/uplink/old_radio(src)
-	new /obj/item/jammer(src)
 
 /obj/item/storage/box/contractor/fulton_extraction/PopulateContents()
 	new /obj/item/extraction_pack/contractor(src)
@@ -58,9 +57,22 @@
 
 	// Paper guide
 	new /obj/item/paper/contractor_guide/midround(src)
+	new /obj/item/fake_identity_kit(src)
 	new /obj/item/reagent_containers/hypospray/medipen/atropine(src)
 	new /obj/item/jammer(src)
 	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
 	new /obj/item/lighter(src)
 
 #undef SMALL_ITEM_AMOUNT
+
+/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor
+	name = "Stealth Kit"
+	desc = "It's just an ordinary box."
+	special_desc = "Supplied to Syndicate contractors. Intended to support stealthy operations."
+
+/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor/PopulateContents()
+	new /obj/item/fake_identity_kit(src)
+	new /obj/item/clothing/head/chameleon(src)
+	new /obj/item/clothing/mask/chameleon(src)
+	new /obj/item/clothing/under/chameleon(src)
+	new /obj/item/clothing/shoes/chameleon(src)
