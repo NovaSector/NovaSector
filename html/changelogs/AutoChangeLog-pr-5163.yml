@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - image: "updated the Digitigrade sprites for formal suits (such as the lawyer suits) to match TG. If you find an error, please make a bug report!"
