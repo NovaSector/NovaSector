@@ -129,10 +129,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 /// Takes a record and updates the character preview view to match it.
 /datum/character_directory/proc/update_preview(mob/user, assigned_view, mutable_appearance/appearance, datum/tgui_window/window)
 	var/mutable_appearance/preview = new(appearance)
-	if(!isnull(appearance) && prob(15))
-		time_to_photobomb(preview)
-	else if(prob(33))
-		preview.underlays += mutable_appearance('modular_nova/master_files/icons/effects/hearts.dmi', "hearts")
 
 	var/atom/movable/screen/map_view/char_preview/directory/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)

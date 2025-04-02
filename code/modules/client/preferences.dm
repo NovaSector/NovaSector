@@ -441,12 +441,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		body.wipe_state()
 
 	appearance = preferences.render_new_preview_appearance(body, show_job_clothes)
-	// NOVA EDIT ADDITION START
-	var/mutable_appearance/improved_preview = new(appearance)
-	if(prob(20))
-		time_to_photobomb(improved_preview)
-	appearance = improved_preview
-	// NOVA EDIT ADDITION END
 
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
