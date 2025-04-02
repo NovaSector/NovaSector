@@ -127,6 +127,12 @@
 	var/mutable_appearance/preview = new(target.character_appearance)
 	preview.underlays += mutable_appearance('icons/effects/effects.dmi', "static_base", alpha = 20)
 	preview.add_overlay(mutable_appearance(generate_icon_alpha_mask('icons/effects/effects.dmi', "scanline"), alpha = 20))
+	// NOVA EDIT ADDITION START
+	if(prob(25))
+		time_to_photobomb(preview)
+	else if(prob(25))
+		preview.underlays += mutable_appearance('modular_nova/master_files/icons/effects/hearts.dmi', "hearts")
+	// NOVA EDIT ADDITION END
 
 	var/atom/movable/screen/map_view/char_preview/old_view = user.client?.screen_maps[assigned_view]?[1]
 	if(!old_view)
