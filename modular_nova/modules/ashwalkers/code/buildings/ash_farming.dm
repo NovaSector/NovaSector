@@ -204,7 +204,7 @@
 
 		return ITEM_INTERACT_BLOCKING
 
-	return ITEM_INTERACT_SUCCESS
+	return ..()
 
 /**
  * a proc that will increase the amount of items the crop could produce (at a maximum of 6, from base of 3)

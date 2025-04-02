@@ -69,7 +69,7 @@
 		icon_state = "plant_tank_f"
 		return ITEM_INTERACT_BLOCKING
 
-	return ITEM_INTERACT_SUCCESS
+	return ..()
 
 /obj/structure/plant_tank/process(seconds_per_tick)
 	if(operation_number <= 0) //we require "fuel" to actually produce stuff
