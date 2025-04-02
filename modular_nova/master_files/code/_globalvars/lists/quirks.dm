@@ -1,9 +1,5 @@
 GLOBAL_LIST_INIT(genetic_mutation_choice, list(
-	"Cold Adaption" = /datum/mutation/human/adaptation/cold,
-	"Heat Adaption" = /datum/mutation/human/adaptation/heat,
-	"Pressure Adaption" = /datum/mutation/human/adaptation/pressure,
 	"Antenna" = /datum/mutation/human/antenna,
-	"Mind Reader" = /datum/mutation/human/mindreader,
 	"Autotomy" = /datum/mutation/human/self_amputation,
 	"Glowy" = /datum/mutation/human/glow,
 	"Anti-Glowy" = /datum/mutation/human/glow/anti,
@@ -13,10 +9,7 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Geladikinesis" = /datum/mutation/human/geladikinesis,
 	"Cindikinesis" = /datum/mutation/human/cindikinesis,
 	"Transcendent Olfaction" = /datum/mutation/human/olfaction,
-	"Telekinesis" = /datum/mutation/human/telekinesis,
 	"Elastic Arms" = /datum/mutation/human/elastic_arms,
 	"Telepathy" = /datum/mutation/human/telepathy,
-	"Mending Touch" = /datum/mutation/human/lay_on_hands,
-	"Shock Touch" = /datum/mutation/human/shock,
 	"Webbing" = /datum/mutation/human/webbing,
 ))
