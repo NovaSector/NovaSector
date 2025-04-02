@@ -501,7 +501,7 @@
 	name = "Fish, Long (TG)"
 
 /datum/sprite_accessory/tails/fish/shark
-	name = "Fish, Shark"
+	name = "Fish, Shark (TG)"
 
 /datum/sprite_accessory/tails/fish/chonky
 	name = "Fish, Chonky (TG)"
