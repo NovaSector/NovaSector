@@ -69,6 +69,7 @@
 	inhand_icon_state = "marauder"
 
 	projectile_damage_multiplier = 1
+	fire_delay = 1.5 SECONDS
 	burst_delay = 0.45 SECONDS
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
