@@ -488,7 +488,6 @@
 // TG Fish infusion tails
 /datum/sprite_accessory/tails/fish
 	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC)
-	icon = 'icons/mob/human/fish_features.dmi'
 	color_src = USE_ONE_COLOR
 	feature_key_override = "fish_tail"
 
