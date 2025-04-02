@@ -493,24 +493,16 @@
 
 /datum/sprite_accessory/tails/fish/simple
 	name = "Fish, Simple (TG)"
-	icon_state = "simple"
 
 /datum/sprite_accessory/tails/fish/crescent
 	name = "Fish, Crescent (TG)"
-	icon_state = "crescent"
 
 /datum/sprite_accessory/tails/fish/long
 	name = "Fish, Long (TG)"
-	icon_state = "long"
-	center = TRUE
-	dimension_x = 38
 
 /datum/sprite_accessory/tails/fish/shark
 	name = "Fish, Shark"
-	icon_state = "shark"
 
 /datum/sprite_accessory/tails/fish/chonky
 	name = "Fish, Chonky (TG)"
-	icon_state = "chonky"
-	center = TRUE
-	dimension_x = 36
+
