@@ -89,6 +89,11 @@
 	visible_message(span_notice("[user] scans [target_mob] with [src]."))
 	stored_mob_type = target_mob.type
 	update_transform_action()
+	// NOVA EDIT ADDITION START - For some reason this likes to reset our transform and get rid of size. Stop doing that!
+	var/mob/living/carbon/carbon_mob = user
+	if(istype(carbon_mob))
+		carbon_mob.dna?.update_body_size(force_reapply = TRUE)
+	// NOVA EDIT ADDITION END
 	playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
 
