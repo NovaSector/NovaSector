@@ -492,17 +492,17 @@
 	feature_key_override = "fish_tail"
 
 /datum/sprite_accessory/tails/fish/simple
-	name = "Fish, Simple (TG)"
+	name = "Simple (Fish Infusion)"
 
 /datum/sprite_accessory/tails/fish/crescent
-	name = "Fish, Crescent (TG)"
+	name = "Crescent (Fish Infusion)"
 
 /datum/sprite_accessory/tails/fish/long
-	name = "Fish, Long (TG)"
+	name = "Long (Fish Infusion)"
 
 /datum/sprite_accessory/tails/fish/shark
-	name = "Fish, Shark (TG)"
+	name = "Shark (Fish Infusion)"
 
 /datum/sprite_accessory/tails/fish/chonky
-	name = "Fish, Chonky (TG)"
+	name = "Chonky (Fish Infusion)"
 
