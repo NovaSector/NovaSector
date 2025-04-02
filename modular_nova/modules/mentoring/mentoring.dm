@@ -29,6 +29,9 @@
 	///if selected, this is the language that will be taught to the reader
 	var/datum/language/taught_language
 
+	///if selected, will teach sign-language-- because it isn't a language...?
+	var/teach_sign = FALSE
+
 	///the list of sentences sent to the author as they write the book
 	var/static/list/writing_sentences = list(
 		"You philosophize the pedagogical approach for this term...",
@@ -64,24 +67,34 @@
 		switch(author_level)
 			if(AUTHOR_LEVEL_NOVICE)
 				level_name = "novice"
+
 			if(AUTHOR_LEVEL_APPRENTICE)
 				level_name = "apprentice"
+
 			if(AUTHOR_LEVEL_JOURNEYMAN)
 				level_name = "journeyman"
+
 			if(AUTHOR_LEVEL_EXPERT)
 				level_name = "expert"
+
 			if(AUTHOR_LEVEL_MASTER)
 				level_name = "master"
 
 	if(taught_skill)
-		examine_list += "This book can teach you to become a [level_name] [initial(taught_skill.title)]."
+		examine_list += "This book can teach you to become a(n) [level_name] [initial(taught_skill.title)]."
 
 	if(taught_language)
-		examine_list += "This book can teach you to become fluent in [initial(taught_language.name)]"
+		examine_list += "This book can teach you to become fluent in [initial(taught_language.name)]."
+
+	if(teach_sign)
+		examine_list += "This book can teach you sign language."
+
+	examine_list += "Using a pen will allow you to impart your knowledge about language or skills to the book!"
 
 /// when given a message and an amount of time, requires the user to stand still while receiving the message
 /obj/item/mentoring_book/proc/timed_sentence(mob/user, var/sent_message, var/time_amount)
 	to_chat(user, span_notice(sent_message))
+	playsound(src, SFX_PAGE_TURN, 30, TRUE)
 	if(!do_after(user, time_amount, target = src))
 		to_chat(user, span_notice("You put the book down..."))
 		return FALSE
@@ -89,19 +102,15 @@
 	return TRUE
 
 /obj/item/mentoring_book/attack_self(mob/user, modifiers)
-	if(isnull(taught_skill) && isnull(taught_language))
-		var/scribble_choice = tgui_input_list(user, "Would you like to scribble?", "Practice Handwriting", list("Yes", "No"))
-		if(isnull(scribble_choice))
-			to_chat(user, span_notice("You decide against scribbling in the book..."))
-			return
-
-		for(var/scribble_iteration in 1 to 10)
+	if(isnull(taught_skill) && isnull(taught_language) && !teach_sign)
+		for(var/scribble_iteration in 1 to 50)
 			var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/language, SKILL_SPEED_MODIFIER)
 			if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 				to_chat(user, span_notice("You put [src] down."))
 				return
 
 			user.mind?.adjust_experience(/datum/skill/language, 5)
+
 		return
 
 	if(taught_skill)
@@ -135,6 +144,34 @@
 		to_chat(user, span_notice("You have fully learned [initial(taught_language.name)]"))
 		return
 
+	if(teach_sign)
+		if(isliving(user))
+			var/mob/living/living_user = user
+			if(living_user.has_quirk(/datum/quirk/item_quirk/signer))
+				to_chat(living_user, span_warning("You already know all about sign language!"))
+				return
+
+			for(var/language_learning in 1 to 5)
+				if(!timed_sentence(living_user, pick(learning_sentences), 6 SECONDS))
+					return
+
+			living_user.add_quirk(/datum/quirk/item_quirk/signer)
+			to_chat(living_user, span_notice("You have fully learned sign language!"))
+			return
+
+		else
+			if(user.GetComponent(/datum/component/sign_language))
+				to_chat(user, span_warning("You already know all about sign language!"))
+				return
+
+			for(var/language_learning in 1 to 5)
+				if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+					return
+
+			user.AddComponent(/datum/component/sign_language)
+			to_chat(user, span_notice("You have fully learned sign language!"))
+			return
+
 	return ..()
 
 /obj/item/mentoring_book/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -154,9 +191,11 @@
 				return ITEM_INTERACT_BLOCKING
 
 			to_chat(user, span_warning("You erased the knowledge!"))
+			playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 			taught_skill = null
 			author_level = null
 			taught_language = null
+			teach_sign = FALSE
 			return ITEM_INTERACT_SUCCESS
 
 		var/writing_choice = tgui_input_list(user, "What would you like to write in the book?", "Book Choice", list("Languages", "Skills"))
@@ -166,12 +205,19 @@
 		switch(writing_choice)
 			if("Languages")
 				var/current_lang = user.mind?.get_skill_level(/datum/skill/language)
-				if(current_lang < SKILL_LEVEL_MASTER)
+				var/datum/language_holder/lang_holder = user.get_language_holder()
+				var/list/language_list = list()
+				if(current_lang >= SKILL_LEVEL_MASTER)
+					language_list += lang_holder.understood_languages
+
+				if(user.GetComponent(/datum/component/sign_language))
+					language_list += list("/datum/language/sign_language")
+
+				if(length(language_list) < 1 || current_lang < SKILL_LEVEL_MASTER)
 					to_chat(user, span_warning("You are not a master at languages, and therefore cannot write books teaching languages."))
 					return ITEM_INTERACT_BLOCKING
 
-				var/datum/language_holder/lang_holder = user.get_language_holder()
-				var/language_choice = tgui_input_list(user, "Which language would you like to write about?", "Language Selection", lang_holder.understood_languages)
+				var/language_choice = tgui_input_list(user, "Which language would you like to write about?", "Language Selection", language_list)
 				if(isnull(language_choice))
 					to_chat(user, span_notice("You decide against writing."))
 					return ITEM_INTERACT_BLOCKING
@@ -181,8 +227,14 @@
 						return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your language."))
-				taught_language = language_choice
-				author_level = current_lang - 1
+				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
+				if(language_choice == "/datum/language/sign_language")
+					teach_sign = TRUE
+
+				else
+					taught_language = language_choice
+					author_level = current_lang - 1
+
 				return ITEM_INTERACT_SUCCESS
 
 			if("Skills")
@@ -200,6 +252,7 @@
 						return ITEM_INTERACT_BLOCKING
 
 				to_chat(user, span_notice("You finish writing inside the book about your skill."))
+				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 				taught_skill = skill_choice
 				author_level = skill_level - 1
 				return ITEM_INTERACT_SUCCESS
