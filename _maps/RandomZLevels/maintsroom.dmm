@@ -4498,9 +4498,7 @@
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "rS" = (
 /obj/effect/turf_decal/sand/plating,
@@ -4949,8 +4947,8 @@
 /turf/open/floor/black,
 /area/awaymission/caves/maintsroom)
 "tH" = (
-/obj/structure/mold/structure/core/radioactive,
-/turf/open/indestructible/meat,
+/obj/effect/mapping_helpers/turn_off_lights_with_lightswitch,
+/turf/closed/indestructible/reinforced,
 /area/awaymission/caves/maintsroom)
 "tI" = (
 /turf/closed/indestructible/meat,
@@ -5450,6 +5448,12 @@
 /obj/machinery/photocopier,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"vI" = (
+/obj/item/grown/bananapeel{
+	name = "The banana peel that kills you if you slip on it."
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "vK" = (
 /obj/effect/spawner/random/engineering/material,
 /obj/structure/rack,
@@ -5764,7 +5768,6 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "xf" = (
@@ -6693,9 +6696,7 @@
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "AW" = (
 /obj/vehicle/sealed/mecha/durand,
@@ -7781,14 +7782,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fg" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
-	},
-/obj/structure/falsewall,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/obj/structure/mold/structure/core/disease,
+/turf/open/indestructible/meat,
 /area/awaymission/caves/maintsroom)
 "Fh" = (
 /obj/machinery/recycler{
@@ -9064,9 +9059,7 @@
 	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "KF" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -10296,10 +10289,10 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "PK" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/oil/streak,
-/mob/living/basic/trooper/russian,
-/turf/open/floor/plating/rust,
+/obj/machinery/light_switch/directional/north{
+	name = "A light switch with a lot of wires attached to it."
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "PL" = (
 /obj/effect/spawner/random/engineering/atmospherics_portable,
@@ -10726,6 +10719,11 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
+"RA" = (
+/obj/structure/light_prism,
+/obj/effect/light_emitter/podbay,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "RB" = (
 /obj/machinery/power/port_gen/pacman/solid_fuel,
 /obj/structure/cable,
@@ -11146,6 +11144,7 @@
 /area/awaymission/caves/maintsroom)
 "Tc" = (
 /obj/structure/fluff/divine/powerpylon,
+/obj/effect/overlay/spotlight,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Td" = (
@@ -12497,6 +12496,7 @@
 /area/awaymission/caves/maintsroom)
 "Yz" = (
 /obj/structure/punji_sticks,
+/obj/effect/light_emitter/podbay,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "YD" = (
@@ -17189,9 +17189,9 @@ uG
 GS
 uG
 uG
-uG
+RA
 rQ
-uG
+RA
 uG
 df
 GS
@@ -18024,7 +18024,7 @@ ov
 TM
 wQ
 sb
-PK
+PU
 Yk
 fe
 dG
@@ -18709,7 +18709,7 @@ Jw
 uG
 pV
 GS
-KC
+vI
 GS
 YZ
 BB
@@ -18926,7 +18926,7 @@ GS
 GS
 GS
 GS
-Fg
+Jw
 GS
 GS
 BB
@@ -20606,13 +20606,13 @@ jf
 UD
 Yr
 wQ
-wQ
+jf
 JX
+jf
 wQ
 wQ
 wQ
-wQ
-uG
+PK
 uG
 uG
 uG
@@ -21908,9 +21908,9 @@ jf
 UD
 AQ
 wQ
-wQ
+jf
 xA
-wQ
+jf
 wQ
 wQ
 wQ
@@ -24297,7 +24297,7 @@ bB
 bB
 bB
 bB
-bB
+Fg
 bB
 bB
 bB
@@ -25165,7 +25165,7 @@ bB
 bB
 bB
 bB
-tH
+bB
 bB
 bB
 bB
@@ -37854,7 +37854,7 @@ jf
 jf
 "}
 (116,1,1) = {"
-jf
+tH
 jf
 jf
 jf
