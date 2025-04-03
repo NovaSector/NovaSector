@@ -33,24 +33,15 @@
 	icon_state = "eyepatch_white"
 	base_icon_state = "eyepatch_white"
 
-///GLASSSES
-/obj/item/clothing/glasses/thin
-	name = "thin glasses"
-	desc = "Often seen staring down at someone taking a book."
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
-	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
-	icon_state = "glasses_thin"
-	inhand_icon_state = "glasses"
-	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
+///GLASSES
 
-/obj/item/clothing/glasses/regular/betterunshit
+/obj/item/clothing/glasses/regular/modern
 	name = "modern glasses"
 	desc = "After Nerd. Co went bankrupt for tax evasion and invasion, they were bought out by Dork.Co, who revamped their classic design."
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
 	icon_state = "glasses_alt"
 	inhand_icon_state = "glasses"
-	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/kim
 	name = "binoclard lenses"
