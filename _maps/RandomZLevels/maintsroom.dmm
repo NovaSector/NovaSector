@@ -78,10 +78,10 @@
 /area/awaymission/caves/maintsroom)
 "at" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/chair{
-	dir = 8
+/obj/machinery/light_switch/directional/north{
+	name = "A light switch with a lot of wires attached to it.";
+	desc = "A light swtch with a lot of wires connected to it, you get the feeling that flipping this switch and turning on the lights may be EXTREMELY IMPORTANT"
 	},
-/obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "au" = (
@@ -89,6 +89,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth,
+/area/awaymission/caves/maintsroom)
+"ax" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
+	},
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "ay" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
@@ -1047,11 +1053,7 @@
 "er" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
-/obj/machinery/door/airlock/vault{
-	max_integrity = 50000;
-	normal_integrity = 50000;
-	name = "Reinforced vault door"
-	},
+/obj/machinery/door/airlock/vault,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "es" = (
@@ -1503,6 +1505,12 @@
 /obj/structure/alien/weeds,
 /obj/structure/cable,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"gd" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "ge" = (
 /obj/machinery/conveyor{
@@ -2143,7 +2151,10 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "ir" = (
-/obj/machinery/vending/liberationstation,
+/obj/machinery/vending/liberationstation{
+	premium = list(/obj/item/ammo_box/magazine/smgm9mm = 2, /obj/item/ammo_box/magazine/m50 = 4, /obj/item/ammo_box/magazine/m45 = 2, /obj/item/ammo_box/magazine/m75 = 2, /obj/item/food/cheesyfries = 5, /obj/item/food/burger/baconburger = 5, /obj/item/ammo_box/magazine/m223 = 6,);
+	products = list(/obj/item/food/burger/plain = 5, /obj/item/food/burger/baseball = 3, /obj/item/food/fries = 5, /obj/item/reagent_containers/cup/glass/bottle/beer/light = 10, /obj/item/gun/ballistic/automatic/pistol/deagle/gold = 2, /obj/item/gun/ballistic/automatic/pistol/deagle/camo = 2, /obj/item/gun/ballistic/automatic/pistol/m1911 = 2, /obj/item/gun/ballistic/automatic/proto/unrestricted = 2, /obj/item/gun/ballistic/shotgun/automatic/combat = 2, /obj/item/gun/ballistic/shotgun = 2, /obj/item/gun/ballistic/automatic/ar = 2)
+	},
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
@@ -2661,11 +2672,10 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "ks" = (
+/obj/machinery/light/floor,
 /obj/structure/chair/sofa/bench{
 	dir = 8
 	},
-/obj/machinery/light/floor,
-/obj/machinery/light/floor,
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "kt" = (
@@ -3032,6 +3042,12 @@
 /obj/structure/sign/poster/contraband/busty_backdoor_xeno_babes_6/directional/west,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"lQ" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/awaymission/caves/maintsroom)
 "lR" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/holosign/barrier/engineering,
@@ -3326,9 +3342,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "mU" = (
-/obj/structure/lattice/catwalk/mining,
-/obj/structure/lattice/catwalk/mining,
-/turf/open/floor/plating,
+/obj/structure/chair/sofa/bench/left,
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "mW" = (
 /obj/machinery/light/red{
@@ -4282,12 +4297,11 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "qW" = (
-/obj/machinery/door/airlock/maintenance{
-	max_integrity = 50000;
-	normal_integrity = 50000;
-	name = "maintenance access of warding+87"
+/obj/machinery/light/floor,
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "qX" = (
 /obj/machinery/door/airlock/maintenance,
@@ -5732,16 +5746,12 @@
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
 "wX" = (
-/obj/machinery/door/airlock/vault{
-	max_integrity = 50000;
-	normal_integrity = 50000;
-	name = "Reinforced vault door"
-	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/effect/mapping_helpers/airlock/welded,
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
+/obj/machinery/door/airlock/vault,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "wZ" = (
@@ -6799,8 +6809,10 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Bl" = (
-/obj/structure/lattice,
-/turf/closed/indestructible/reinforced,
+/obj/structure/chair/sofa/bench/left{
+	dir = 1
+	},
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "Bn" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -8068,6 +8080,12 @@
 /obj/structure/table,
 /turf/open/floor/iron/chapel,
 /area/awaymission/caves/maintsroom)
+"Gf" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/turf/open/floor/iron/cafeteria,
+/area/awaymission/caves/maintsroom)
 "Gh" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/rifle/sniper_rifle{
@@ -9278,6 +9296,10 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"Lv" = (
+/obj/structure/chair/sofa/bench/right,
+/turf/open/floor/iron/cafeteria,
+/area/awaymission/caves/maintsroom)
 "Lx" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/chapel,
@@ -9368,8 +9390,9 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "LM" = (
-/obj/item/malf_upgrade,
-/obj/item/aiupgrade/surveillance_upgrade,
+/obj/structure/ai_core{
+	desc = "The framework for an artificial intelligence core, this one seems to have been hastily deconstructed, you assume that the ai mightve sensed that you were coming in and hastily moved its positronic- or whatever was controlling it, elsewhere."
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "LN" = (
@@ -9790,10 +9813,10 @@
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "NB" = (
-/obj/structure/chair/sofa/bench{
+/obj/machinery/light/floor,
+/obj/structure/chair/sofa/bench/left{
 	dir = 8
 	},
-/obj/machinery/light/floor,
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "NC" = (
@@ -10018,14 +10041,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Ol" = (
-/obj/machinery/syndicatebomb/self_destruct{
-	anchored = 1
-	},
-/obj/machinery/door/window/brigdoor/left/directional/south{
-	req_access = list("syndicate");
-	name = "Self Destruct Option";
-	dir = 8
-	},
+/obj/machinery/syndicatebomb,
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Oq" = (
@@ -10289,10 +10305,10 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "PK" = (
-/obj/machinery/light_switch/directional/north{
-	name = "A light switch with a lot of wires attached to it."
+/obj/structure/chair/sofa/bench/left{
+	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "PL" = (
 /obj/effect/spawner/random/engineering/atmospherics_portable,
@@ -10775,6 +10791,8 @@
 /area/awaymission/caves/maintsroom)
 "RE" = (
 /obj/structure/table/reinforced,
+/obj/item/aiupgrade/surveillance_upgrade,
+/obj/item/malf_upgrade,
 /obj/item/mmi/posibrain,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
@@ -16924,7 +16942,7 @@ ov
 ov
 TM
 TM
-mU
+TM
 TM
 TM
 TM
@@ -18666,7 +18684,7 @@ TM
 TM
 fS
 TM
-mU
+TM
 TM
 TM
 TM
@@ -19526,7 +19544,7 @@ ov
 ov
 ov
 ov
-mU
+TM
 TM
 TM
 TM
@@ -20612,7 +20630,7 @@ jf
 wQ
 wQ
 wQ
-PK
+uG
 uG
 uG
 uG
@@ -22343,10 +22361,10 @@ wQ
 wQ
 wQ
 GS
-qW
+rJ
 GS
 zz
-qW
+uG
 zZ
 KA
 iB
@@ -23382,11 +23400,11 @@ mf
 mf
 Hc
 mf
-ZL
+PK
 eG
 ZL
 ZL
-eG
+qW
 mf
 pp
 ou
@@ -23485,8 +23503,8 @@ GS
 oa
 eg
 vf
-JN
 vf
+on
 Bn
 uE
 YP
@@ -23816,11 +23834,11 @@ mf
 mf
 mf
 mf
+ax
 sj
 sj
 sj
-sj
-sj
+Gf
 mf
 pp
 pp
@@ -24249,13 +24267,13 @@ jf
 mf
 mf
 mf
-me
+Lv
 Vr
-eM
+Bl
 mf
-me
+Lv
 Vr
-eM
+Bl
 pp
 pp
 pp
@@ -26036,9 +26054,9 @@ uh
 uh
 uh
 uh
-qW
+rJ
 uh
-qW
+rJ
 uh
 uh
 uh
@@ -26419,13 +26437,13 @@ jf
 mf
 mf
 mf
-me
+mU
 Vr
-eM
+gd
 mf
-me
+mU
 Vr
-eM
+gd
 pp
 pp
 pp
@@ -26854,11 +26872,11 @@ mf
 mf
 mf
 mf
+PK
 ZL
 ZL
 ZL
-ZL
-ZL
+lQ
 mf
 pp
 pp
@@ -27288,7 +27306,7 @@ mf
 mf
 Hc
 mf
-sj
+ax
 ks
 sj
 sj
@@ -31946,9 +31964,9 @@ NQ
 NQ
 NQ
 NQ
-Bl
+jf
 EV
-Bl
+jf
 NQ
 NQ
 Xh
@@ -32163,9 +32181,9 @@ GS
 NQ
 yE
 NQ
-Bl
+jf
 EV
-Bl
+jf
 NQ
 VF
 NQ
