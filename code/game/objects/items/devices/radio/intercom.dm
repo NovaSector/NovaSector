@@ -1,7 +1,7 @@
-/obj/item/radio/intercom //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+/obj/item/radio/intercom
 	name = "station intercom"
 	desc = "A trusty station intercom, ready to spring into action even when the headsets go silent."
-	icon = 'icons/obj/machines/wallmounts.dmi'
+	icon = 'icons/obj/machines/wallmounts.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "intercom"
 	anchored = TRUE
 	w_class = WEIGHT_CLASS_BULKY
