@@ -14,7 +14,7 @@
 	return draw_color
 
 /datum/bodypart_overlay/mutant/tail/get_feature_key_for_overlay()
-	return (wagging ? "wagging" : "") + feature_key
+	return (wagging ? "wagging" : "") + ..()
 
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return sprite_datum.icon_state
