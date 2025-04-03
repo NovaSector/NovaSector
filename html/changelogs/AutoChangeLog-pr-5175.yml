@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - image: "Makes the TG fish infusion sprites available as round selection tails"
