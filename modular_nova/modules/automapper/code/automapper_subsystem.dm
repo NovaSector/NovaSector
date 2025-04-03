@@ -15,7 +15,9 @@
 SUBSYSTEM_DEF(automapper)
 	name = "Automapper"
 	flags = SS_NO_FIRE
-	init_order = INIT_ORDER_AUTOMAPPER
+	dependents = list(
+		/datum/controller/subsystem/mapping,
+	)
 	/// The path to our TOML file
 	var/config_file = "_maps/nova/automapper/automapper_config.toml"
 	/// Our loaded TOML file

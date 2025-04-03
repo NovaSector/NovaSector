@@ -1,7 +1,6 @@
 SUBSYSTEM_DEF(title)
 	name = "Title Screen"
 	flags = SS_NO_FIRE
-	init_order = INIT_ORDER_TITLE
 
 	var/file_path
 	var/icon/startup_splash
