@@ -1,5 +1,0 @@
-author: "Opalite Industries"
-delete-after: True
-changes:
-  - qol: "Teshari now can properly wear TinyPacks."
-  - rscadd: "Added teshari sprites for \"Waistpack\", \"Chest Pack\", and \"BeltPack\"."

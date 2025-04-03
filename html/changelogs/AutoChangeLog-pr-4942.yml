@@ -1,9 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - rscadd: "Added new \"Katyusha\" magfed shotgun to blueshield's arsenal"
-  - rscadd: "Added \"Katyusha\" shotgun mags to be craftable at security lathe"
-  - rscadd: "Added new \"Shitzu\" magfed shotgun to OPFOR Application"
-  - rscadd: "Added new civilian \"Jager\" magfed shotgun"
-  - image: "added new gunbeacon sprite for blueshield & ntc replacing the generic one in code."
-  - image: "added new sprites for Katyusha, Jager, and Shitzu shotguns and respective mags."
