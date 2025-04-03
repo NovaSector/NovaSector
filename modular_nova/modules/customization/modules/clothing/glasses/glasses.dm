@@ -43,15 +43,6 @@
 	icon_state = "glasses_alt"
 	inhand_icon_state = "glasses"
 
-/obj/item/clothing/glasses/kim
-	name = "binoclard lenses"
-	desc = "Stylish round lenses subtly shaded for your protection and criminal discomfort."
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
-	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
-	icon_state = "binoclard_lenses"
-	inhand_icon_state = "glasses"
-	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
-
 /obj/item/clothing/glasses/trickblindfold/hamburg
 	name = "thief visor"
 	desc = "Perfect for stealing hamburgers from innocent multinational capitalist monopolies."
