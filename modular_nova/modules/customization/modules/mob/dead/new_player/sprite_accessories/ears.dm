@@ -486,7 +486,6 @@
 	icon_state = "hawk"
 
 /datum/sprite_accessory/ears/external/cat_alt
-<<<<<<< HEAD
 	name = "Cat (Colorable Inner)"
 	icon_state = "cat_alt"
 
@@ -508,3 +507,4 @@
 
 /datum/sprite_accessory/ears/external/big_alt
 	name = "Big (Colorable Inner)"
+	icon_state = "big_alt"
