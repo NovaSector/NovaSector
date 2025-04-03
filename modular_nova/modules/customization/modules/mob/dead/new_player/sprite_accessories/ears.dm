@@ -472,3 +472,39 @@
 /datum/sprite_accessory/ears/external/acrador/short/alt_4
 	name = "Acrador (Short) (Alt 4)"
 	icon_state = "acrador_short_alt_4"
+
+/datum/sprite_accessory/ears/external/possum
+	name = "Possum"
+	icon_state = "possum"
+
+/datum/sprite_accessory/ears/external/lunasune
+	name = "Lunasune"
+	icon_state = "lunasune"
+
+/datum/sprite_accessory/ears/external/hawk
+	name = "Hawk"
+	icon_state = "hawk"
+
+/datum/sprite_accessory/ears/external/cat_alt
+	name = "Cat (ALT)"
+	icon_state = "cat_alt"
+
+/datum/sprite_accessory/ears/external/miqo_alt
+	name = "Miqo'te (ALT)"
+	icon_state = "miqo_alt"
+
+/datum/sprite_accessory/ears/external/lynx_alt
+	name = "Lynx (ALT)"
+	icon_state = "lynx_alt"
+
+/datum/sprite_accessory/ears/external/round_alt
+	name = "Round (ALT)"
+	icon_state = "round_alt"
+
+/datum/sprite_accessory/ears/external/fold_alt
+	name = "Fold (ALT)"
+	icon_state = "fold_alt"
+
+/datum/sprite_accessory/ears/external/big_alt
+	name = "Big (ALT)"
+	icon_state = "big_alt"
