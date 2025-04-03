@@ -486,6 +486,7 @@
 	icon_state = "hawk"
 
 /datum/sprite_accessory/ears/external/cat_alt
+<<<<<<< HEAD
 	name = "Cat (Colorable Inner)"
 	icon_state = "cat_alt"
 
@@ -507,4 +508,27 @@
 
 /datum/sprite_accessory/ears/external/big_alt
 	name = "Big (Colorable Inner)"
+=======
+	name = "Cat (ALT)"
+	icon_state = "cat_alt"
+
+/datum/sprite_accessory/ears/external/miqo_alt
+	name = "Miqo'te (ALT)"
+	icon_state = "miqo_alt"
+
+/datum/sprite_accessory/ears/external/lynx_alt
+	name = "Lynx (ALT)"
+	icon_state = "lynx_alt"
+
+/datum/sprite_accessory/ears/external/round_alt
+	name = "Round (ALT)"
+	icon_state = "round_alt"
+
+/datum/sprite_accessory/ears/external/fold_alt
+	name = "Fold (ALT)"
+	icon_state = "fold_alt"
+
+/datum/sprite_accessory/ears/external/big_alt
+	name = "Big (ALT)"
+>>>>>>> 58376636443b36d1d29379ba5470a2a222affbec
 	icon_state = "big_alt"
