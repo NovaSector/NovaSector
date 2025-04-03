@@ -6,7 +6,7 @@
 
 /proc/reagent_process_flags_valid(mob/processor, datum/reagent/reagent)
 	if(!ishuman(processor))
-		if(reagent.process_flags == REAGENT_SYNTHETIC)
+		if(reagent.process_flags == REAGENT_SYNTHETIC) // nonhumans can't be synths
 			return FALSE
 		return TRUE
 

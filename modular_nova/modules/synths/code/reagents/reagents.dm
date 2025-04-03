@@ -48,7 +48,7 @@
 	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(prob(10))
 		var/obj/item/organ/brain/owner_brain = affected_mob.get_organ_slot(ORGAN_SLOT_BRAIN)
-		if(!owner_brain || !(owner_brain.organ_flags & affected_organ_flags))
+		if(!isnull(owner_brain) || !(owner_brain.organ_flags & affected_organ_flags))
 			return ..()
 		affected_mob.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
 	return ..()
