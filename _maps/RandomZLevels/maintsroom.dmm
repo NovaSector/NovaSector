@@ -3834,7 +3834,7 @@
 "oU" = (
 /obj/structure/lattice,
 /obj/effect/spawner/random/structure/grille,
-/turf/open/floor/plating,
+/turf/open/misc/asteroid/forest/mushroom,
 /area/awaymission/caves/maintsroom)
 "oV" = (
 /obj/effect/spawner/random/vending/snackvend,
