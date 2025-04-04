@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY_TYPED(pda_messengers, /datum/computer_file/program/messenger)
 	var/subtle
 	// NOVA EDIT ADDITION END
 
-/datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE, subtle) // NOVA ADDITION - ORIGINAL: /datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE) 
+/datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE, subtle) // NOVA ADDITION - ORIGINAL: /datum/pda_message/New(message, outgoing, timestamp, photo_name = null, everyone = FALSE)
 	src.message = message
 	src.outgoing = outgoing
 	src.timestamp = timestamp
@@ -154,5 +154,5 @@ GLOBAL_LIST_EMPTY_TYPED(pda_messengers, /datum/computer_file/program/messenger)
 	data["photo_path"] = photo_name ? SSassets.transport.get_asset_url(photo_name) : null
 	data["everyone"] = everyone
 	data["timestamp"] = timestamp
-	data["subtle"] = subtle // NOVA EDIT ADDITON
+	data["subtle"] = subtle // NOVA EDIT ADDITION
 	return data
