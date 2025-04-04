@@ -8440,7 +8440,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\submachinegun.dm"
-#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armouries\shotgun.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\nanotrasen_armories\shotgun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\laser_guns.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\mode_datums.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\saibasan\projectiles.dm"

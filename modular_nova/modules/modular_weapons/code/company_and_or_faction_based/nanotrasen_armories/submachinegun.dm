@@ -6,7 +6,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 
 /obj/item/gun/ballistic/automatic/nt20
 	name = "\improper NT20 Submachine Gun"
-	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
 	desc = "A sleek, select-fire SMG chambered in the venerable .45 cartridge. The Blueshield's favorite toy."
 	icon_state = "nt20"
 	inhand_icon_state = "c20r"

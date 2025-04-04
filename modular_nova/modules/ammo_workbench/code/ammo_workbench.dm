@@ -14,7 +14,7 @@
 	var/timer_id
 	var/turbo_boost = FALSE
 	var/obj/item/ammo_box/loaded_magazine = null
-	var/obj/item/disk/ammo_workbench/loaded_datadisk = null
+	var/obj/item/ammo_workbench_module/loaded_module = null
 	/// A list of all possible ammo types.
 	var/list/possible_ammo_types = list()
 	// hello future codediver. open to suggestions on how to do the following without it sucking so badly
@@ -115,12 +115,11 @@
 				mat_string += ", "
 
 		valid_casings += our_casing // adding the valid typepath
-		valid_casings[our_casing] = initial(our_casing.name)
+		valid_casings[our_casing] = initial(our_casing.name) + " \[[our_casing.print_cost]\]"
 		casing_mat_strings += mat_string // adding the casing material cost string
 		// we pray to god these indexes stay consistent.
 
 /obj/machinery/ammo_workbench/ui_data(mob/user)
-	// i kinda hate how all of this is done on every tgui process tick
 	var/list/data = list()
 
 	data["datadisk_loaded"] = FALSE
@@ -130,10 +129,11 @@
 	data["disk_error"] = disk_error
 	data["disk_error_type"] = disk_error_type
 
-	if(loaded_datadisk)
+	if(loaded_module)
 		data["datadisk_loaded"] = TRUE
-		data["datadisk_name"] = initial(loaded_datadisk.name)
-		data["datadisk_desc"] = initial(loaded_datadisk.desc)
+		data["datadisk_name"] = loaded_module.name
+		data["datadisk_desc"] = loaded_module.desc
+		data["datadisk_points"] = loaded_module.allowed_prints
 
 	data["mag_loaded"] = FALSE
 	data["error"] = null
@@ -228,7 +228,7 @@
 			loadDisk()
 
 		if("EjectDisk")
-			ejectDisk()
+			eject_disk()
 
 		if("turboBoost")
 			toggle_turbo_boost()
@@ -287,19 +287,9 @@
 		error_type = "bad"
 		return
 
-	if(loaded_datadisk && (loaded_datadisk.allowed_prints < casing_type.print_cost))
+	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
 		error_message = "Hardware module licensing insufficient!"
 		error_type = "bad"
-		return
-
-	if(!(casing_type.ammo_categories & ammo_categories))
-		error_message = "Allowed ammunition design type mismatch, please verify hardware authentication module."
-		error_type = "bad"
-		return
-
-	if(!loaded_magazine)
-		error_message = "No ammunition container detected!"
-		error_type = ""
 		return
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
@@ -325,7 +315,7 @@
 	if(!loaded_magazine)
 		return
 
-	if(loaded_datadisk && (loaded_datadisk.allowed_prints < casing_type.print_cost))
+	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
 		error_message = "Hardware module licensing insufficient!"
 		error_type = "bad"
 		ammo_fill_finish(FALSE)
@@ -358,8 +348,8 @@
 		materials.use_materials(efficient_materials)
 		new_casing.set_custom_materials(efficient_materials)
 		loaded_magazine.update_appearance()
-		if(loaded_datadisk && new_casing.ammo_categories)
-			loaded_datadisk.allowed_prints -= new_casing.print_cost
+		if(loaded_module && new_casing.ammo_categories)
+			loaded_module.allowed_prints -= new_casing.print_cost
 		flick("ammobench_process", src)
 		use_energy(active_power_usage)
 		playsound(loc, 'sound/machines/piston/piston_raise.ogg', 60, 1)
@@ -393,7 +383,7 @@
 /obj/machinery/ammo_workbench/proc/loadDisk()
 	disk_error = ""
 	disk_error_type = ""
-	if(!loaded_datadisk)
+	if(!loaded_module)
 		disk_error = "No disk detected!"
 		disk_error_type = "bad"
 		return FALSE
@@ -402,22 +392,22 @@
 	disk_error_type = "good"
 	return TRUE
 
-/obj/machinery/ammo_workbench/proc/ejectDisk()
-	if(loaded_datadisk)
-		loaded_datadisk.forceMove(drop_location())
-		loaded_datadisk = null
+/obj/machinery/ammo_workbench/proc/eject_disk()
+	if(loaded_module)
+		loaded_module.forceMove(drop_location())
+		loaded_module = null
 		ammo_categories = initial(ammo_categories)
+		update_ammotypes()
 		disk_error = ""
 		disk_error_type = ""
 
 /datum/design/board/ammo_workbench
 	name = "Ammunition Workbench"
-	desc = "A machine made specifically for manufacturing ammunition. It has a slot for ammunition containers, like magazines or stripper clips."
+	desc = "A machine made specifically for manufacturing ammunition."
 	id = "ammo_workbench"
 	build_path = /obj/item/circuitboard/machine/ammo_workbench
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_FAB)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
-
 
 //MISC MACHINE PROCS
 
@@ -517,12 +507,16 @@
 		update_ammotypes()
 		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		return TRUE
-	if(istype(O, /obj/item/disk/ammo_workbench))
+	if(istype(O, /obj/item/ammo_workbench_module))
+		if(loaded_module)
+			balloon_alert(user, "module already inserted!")
+			to_chat(user, span_warning("There's already a fabricator module inside [src]."))
+			return FALSE
 		if(!user.transferItemToLoc(O, src))
 			return FALSE
-		loaded_datadisk = O
-		ammo_categories = loaded_datadisk.ammo_categories
-		to_chat(user, span_notice("You insert [O] into [src]'s floppydisk port."))
+		loaded_module = O
+		ammo_categories = loaded_module.ammo_categories
+		to_chat(user, span_notice("You insert [O] into [src]'s authentication module port."))
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
@@ -540,7 +534,7 @@
 	if(machine_stat & NOPOWER)
 		to_chat(user, span_warning("[src] has no power."))
 		return FALSE
-	if(istype(O, /obj/item/disk/ammo_workbench) && loaded_datadisk)
-		to_chat(user, span_warning("[src] already has a disk inserted."))
+	if(istype(O, /obj/item/ammo_workbench_module) && loaded_module)
+		to_chat(user, span_warning("[src] already has a module inserted."))
 		return FALSE
 	return TRUE

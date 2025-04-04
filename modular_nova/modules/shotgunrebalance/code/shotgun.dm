@@ -19,6 +19,19 @@
 	desc = "A 12 gauge iron slug."
 	custom_materials = AMMO_MATS_SHOTGUN
 
+/obj/projectile/bullet/shotgun_slug
+	damage = 50 // based on old stats
+
+/obj/item/ammo_casing/shotgun/milspec
+	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
+	icon_state = "mblshell"
+	ammo_categories = AMMO_CLASS_SUPER
+	print_cost = 2
+
+/obj/projectile/bullet/shotgun_slug/milspec
+	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
+	speed = 1.5
+
 // THE BELOW TWO SLUGS ARE NOTED AS ADMINONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
 /obj/item/ammo_casing/shotgun/executioner
 	name = "expanding shotgun slug"
@@ -29,6 +42,11 @@
 	name = "pulverizer shotgun slug"
 	desc = "A 12 gauge uranium slug purpose-built to break bones on impact."
 	can_be_printed = FALSE // noted as adminonly in code/modules/projectiles/projectile/bullets/shotgun.dm
+
+/obj/item/ammo_casing/shotgun/beanbag
+	harmful = FALSE
+	print_cost = 0
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/item/ammo_casing/shotgun/incendiary
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
@@ -67,14 +85,6 @@
 	<i>HIGH EXPLOSIVE: Explodes on impact.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
-/obj/item/ammo_casing/shotgun/incapacitate
-	name = "hornet's nest shell"
-	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
-	sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
-	<br><br>\
-	<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
-	can_be_printed = FALSE
-
 /obj/item/ammo_casing/shotgun/buckshot
 	name = "buckshot shell"
 	desc = "A 12 gauge buckshot shell."
@@ -96,6 +106,7 @@
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
+	print_cost = 2
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6 // 6 * 12 = 72
@@ -103,18 +114,6 @@
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
-
-/obj/projectile/bullet/shotgun_slug
-	damage = 50 // based on old stats
-
-/obj/item/ammo_casing/shotgun/milspec
-	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
-	icon_state = "mblshell"
-	ammo_categories = AMMO_CLASS_SUPER
-
-/obj/projectile/bullet/shotgun_slug/milspec
-	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
-	speed = 1.5
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
@@ -125,10 +124,30 @@
 	variance = 27
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	print_cost = 0
 
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
 	speed = 1
+
+/obj/item/ammo_casing/shotgun/incapacitate
+	name = "hornet's nest shell"
+	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
+	sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
+	<br><br>\
+	<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
+
+/obj/item/ammo_casing/shotgun/flechette
+	name = "shredder flechette shell"
+	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
+	// pellets remaining unchanged but getting a damage buff
+
+/obj/projectile/bullet/pellet/flechette
+	name = "shredder flechette"
+	damage = 5 // 8*5 = 40 damage but you've got 30 AP
+	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
+	speed = 1.3 // you can have above average projectile speed. as a treat
+	// embeds staying untouched because i think they're evil and deserve to wreak havoc
 
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
@@ -159,6 +178,7 @@
 	pellets = 6 // Half as many pellets for twice the damage each pellet, same overall damage as buckshot
 	variance = 20
 	ammo_categories = AMMO_CLASS_SUPER
+	print_cost = 2
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot pellet"
@@ -188,18 +208,6 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot/express/Initialize(mapload)
 	. = ..()
 	transform = transform.Scale(0.75, 0.75)
-
-/obj/item/ammo_casing/shotgun/flechette
-	name = "shredder flechette shell"
-	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
-	// pellets remaining unchanged but getting a damage buff
-
-/obj/projectile/bullet/pellet/flechette
-	name = "shredder flechette"
-	damage = 5 // 8*5 = 40 damage but you've got 30 AP
-	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
-	speed = 1.3 // you can have above average projectile speed. as a treat
-	// embeds staying untouched because i think they're evil and deserve to wreak havoc
 
 /obj/item/ammo_casing/shotgun/flechette_nova
 	name = "ripper flechette shell"
@@ -310,6 +318,7 @@
 	variance = 35
 	fire_sound = 'sound/items/bikehorn.ogg'
 	harmful = FALSE
+	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/honkshot

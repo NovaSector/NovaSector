@@ -53,7 +53,7 @@
 	projectile_type = /obj/projectile/bullet/c40sol/fragmentation
 
 	ammo_categories = AMMO_CLASS_NONE // it's. on a technicality
-
+	print_cost = 0
 	harmful = FALSE
 
 

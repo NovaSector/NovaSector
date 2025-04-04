@@ -1,3 +1,9 @@
+/obj/item/ammo_casing/foam_dart
+	ammo_categories = AMMO_CLASS_NONE
+
+/obj/item/ammo_casing/c160smart
+	ammo_categories = AMMO_CLASS_SMART
+
 /*
 *	.38 Special
 */
@@ -13,6 +19,7 @@
 /obj/item/ammo_casing/c38/match/bouncy
 	ammo_categories = AMMO_CLASS_NONE // less-lethal so no categories needed
 	harmful = FALSE
+	print_cost = 0
 
 /obj/item/ammo_casing/c38/match/true
 	ammo_categories = AMMO_CLASS_NICHE // less damage but funkier ricochets than match
@@ -129,6 +136,7 @@
 	projectile_type = /obj/projectile/bullet/c45/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	print_cost = 0
 
 /*
 *	9mm
@@ -162,6 +170,7 @@
 	projectile_type = /obj/projectile/bullet/c9mm/ihdf
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	print_cost = 0
 
 /obj/item/ammo_casing/c9mm/rubber
 	name = "9mm rubber bullet casing"
@@ -171,6 +180,7 @@
 	projectile_type = /obj/projectile/bullet/c9mm/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	print_cost = 0
 
 /*
 *	10mm Auto
@@ -204,6 +214,7 @@
 	projectile_type = /obj/projectile/bullet/c10mm/ihdf
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	print_cost = 0
 
 /obj/item/ammo_casing/c10mm/rubber
 	name = "10mm rubber bullet casing"
@@ -213,6 +224,7 @@
 	projectile_type = /obj/projectile/bullet/c10mm/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	print_cost = 0
 
 /obj/item/ammo_casing/c10mm/reaper
 	can_be_printed = FALSE

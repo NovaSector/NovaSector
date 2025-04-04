@@ -52,6 +52,7 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/incapacitator
 	harmful = FALSE
+	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 
@@ -144,6 +145,7 @@
 
 	projectile_type = /obj/projectile/bullet/c35sol/flash
 	harmful = FALSE
+	print_cost = 0
 	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/c35sol/flash

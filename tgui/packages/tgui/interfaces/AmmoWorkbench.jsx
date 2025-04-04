@@ -29,7 +29,7 @@ export const AmmoWorkbench = (props) => {
       title="Ammunitions Workbench"
     >
       <Window.Content scrollable>
-        <Tabs>
+        <Tabs fluid textAlign="center">
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
             Ammunitions
           </Tabs.Tab>
@@ -37,7 +37,7 @@ export const AmmoWorkbench = (props) => {
             Materials
           </Tabs.Tab>
           <Tabs.Tab selected={tab === 3} onClick={() => setTab(3)}>
-            Datadisks
+            Fabrication Module
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && <AmmunitionsTab />}
@@ -62,6 +62,8 @@ export const AmmunitionsTab = (props) => {
     efficiency,
     time,
     caliber,
+    datadisk_loaded,
+    datadisk_points,
     available_rounds = [],
   } = data;
   return (
@@ -82,12 +84,13 @@ export const AmmunitionsTab = (props) => {
           />
         </Box>
         <Box>Time Per Round: {time} seconds</Box>
+        {!!datadisk_loaded && <Box>Points Left: {datadisk_points}</Box>}
         <Button.Checkbox
           textAlign="right"
           checked={turboBoost}
           onClick={() => act('turboBoost')}
         >
-          Turbo Boost
+          Overclock
         </Button.Checkbox>
       </Section>
       <Section
@@ -181,9 +184,11 @@ export const DatadiskTab = (props) => {
   const { act, data } = useBackend();
   const {
     loaded_datadisks = [],
+    system_busy,
     datadisk_loaded,
     datadisk_name,
     datadisk_desc,
+    datadisk_points,
     disk_error,
     disk_error_type,
   } = data;
@@ -195,7 +200,7 @@ export const DatadiskTab = (props) => {
         </NoticeBox>
       )}
       <Section
-        title="Datadisk"
+        title="Authentication Module"
         buttons={
           <Button
             icon="eject"
@@ -207,22 +212,10 @@ export const DatadiskTab = (props) => {
       >
         {!!datadisk_loaded && (
           <Box>
-            Inserted Datadisk: {datadisk_name}
-            <Box>Description: {datadisk_desc}</Box>
+            Installed: {datadisk_name}
+            <Box>{datadisk_desc}</Box>
           </Box>
         )}
-      </Section>
-      <Section title="Loaded Datadisks">
-        <Table>
-          {loaded_datadisks.map((loaded_datadisk) => (
-            <Box key={loaded_datadisk.loaded_disk_name}>
-              {loaded_datadisk.loaded_disk_name}
-              <Box textAlign="right">
-                Description: {loaded_datadisk.loaded_disk_desc}
-              </Box>
-            </Box>
-          ))}
-        </Table>
       </Section>
     </>
   );

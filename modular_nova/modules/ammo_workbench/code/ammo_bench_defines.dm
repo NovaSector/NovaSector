@@ -28,6 +28,8 @@ unlocked in the ammo bench.
 #define AMMO_CLASS_NONE			0
 /// This ammo is nonlethal, less-lethal, or otherwise unremarkable in regards to turning men into corpses, but has some niche applications.
 #define AMMO_CLASS_NICHE_LTL	(AMMO_CATEGORY_NICHE)
+/// This ammo is nonlethal, less-lethal, or otherwise unremarkable in regards to turning men into corpses, but has some techy bits more involved than most.
+#define AMMO_CLASS_SMART_LTL	(AMMO_CATEGORY_SMART)
 
 /// This ammo is lethal, but otherwise unremarkable in regards to turning men into corpses.
 #define AMMO_CLASS_LETHAL		(AMMO_CATEGORY_LETHAL)

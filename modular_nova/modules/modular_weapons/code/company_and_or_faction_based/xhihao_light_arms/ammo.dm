@@ -13,6 +13,7 @@
 
 	projectile_type = /obj/projectile/bullet/strilka310/rubber
 	ammo_categories = AMMO_CLASS_NONE
+	print_cost = 0
 	harmful = FALSE
 
 /obj/projectile/bullet/strilka310/rubber
