@@ -5,17 +5,55 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
-	inhand_icon_state = "sunhudmed"
-	uses_advanced_reskins = TRUE
-	can_switch_eye = TRUE	//See modular_nova\modules\customization\modules\clothing\glasses\glasses.dm
-	actions_types = list(/datum/action/item_action/flip)
+	inhand_icon_state = null
 
+	actions_types = list(/datum/action/item_action/toggle_wearable_hud,
+	/datum/action/item_action/flip)
+	var/flipped = FALSE
 
-/obj/item/clothing/glasses/hud/eyepatch/attack_self(mob/user, modifiers)
+/*
+All this is copied  eyepatch toggle/tint code from
+code\modules\clothing\glasses\_glasses.dm so HUD eyepatches function with
+scarred eye.
+*/
+/obj/item/clothing/glasses/hud/eyepatch/attack_self(mob/user)
 	. = ..()
-	icon_state = (icon_state == base_icon_state) ? "[base_icon_state]_flipped" : base_icon_state
-	user.update_worn_glasses()
+	flip_eyepatch()
 
+/obj/item/clothing/glasses/hud/eyepatch/proc/flip_eyepatch()
+	flipped = !flipped
+	icon_state = flipped ? "[base_icon_state]_flipped" : base_icon_state
+	if (!ismob(loc))
+		return
+	var/mob/user = loc
+	user.update_worn_glasses()
+	if (!ishuman(user))
+		return
+	var/mob/living/carbon/human/human_user = user
+	if (human_user.get_eye_scars() & (flipped ? RIGHT_EYE_SCAR : LEFT_EYE_SCAR))
+		tint = INFINITY
+	else
+		tint = initial(tint)
+	human_user.update_tint()
+
+/obj/item/clothing/glasses/hud/eyepatch/equipped(mob/living/user, slot)
+	if (!ishuman(user))
+		return ..()
+	var/mob/living/carbon/human/human_user = user
+	// lol lmao
+	if (human_user.get_eye_scars() & (flipped ? RIGHT_EYE_SCAR : LEFT_EYE_SCAR))
+		tint = INFINITY
+	else
+		tint = initial(tint)
+	return ..()
+
+/obj/item/clothing/glasses/hud/eyepatch/dropped(mob/living/user)
+	. = ..()
+	tint = initial(tint)
+
+/*
+End of the copy-paste.
+*/
 
 /obj/item/clothing/glasses/hud/eyepatch/sec
 	name = "security HUD eyepatch"
@@ -23,16 +61,6 @@
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/blue
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON_STATE = "hudpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "secfold",
-			RESKIN_WORN_ICON_STATE = "secfold"
-		)
-	)
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one scans humanoids in view and provides accurate data about their health status."
@@ -40,17 +68,6 @@
 	base_icon_state = "medpatch"
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
-
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "medpatch",
-			RESKIN_WORN_ICON_STATE = "medpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "medfold",
-			RESKIN_WORN_ICON_STATE = "medfold"
-		)
-	)
 
 /obj/item/clothing/glasses/hud/eyepatch/meson
 	name = "mesons HUD eyepatch"
@@ -62,57 +79,25 @@
 	color_cutoffs = list(5, 15, 5)
 	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
-
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "mesonpatch",
-			RESKIN_WORN_ICON_STATE = "mesonpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "mesonfold",
-			RESKIN_WORN_ICON_STATE = "mesonfold"
-		)
-	)
+	actions_types = list(/datum/action/item_action/flip)
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
 	name = "diagnostic HUD eyepatch"
-	desc = "A HUD designed to interface directly with optical nerves. This one analyzes the integrity and status of robotics and exosuits.
+	desc = "A HUD designed to interface directly with optical nerves. This one analyzes the integrity and status of robotics and exosuits."
 	icon_state = "robopatch"
 	base_icon_state = "robopatch"
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "robopatch",
-			RESKIN_WORN_ICON_STATE = "robopatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "robofold",
-			RESKIN_WORN_ICON_STATE = "robofold"
-		)
-	)
-
 /obj/item/clothing/glasses/hud/eyepatch/sci
 	name = "science HUD eyepatch"
-	desc = "A HUD designed to interface directly with optical nerves. This one is fitted with an analyzer for scanning items and reagents.
+	desc = "A HUD designed to interface directly with optical nerves. This one is fitted with an analyzer for scanning items and reagents."
 	icon_state = "scipatch"
 	base_icon_state = "scipatch"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
+	actions_types = list(/datum/action/item_action/flip)
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "scipatch",
-			RESKIN_WORN_ICON_STATE = "scipatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "scifold",
-			RESKIN_WORN_ICON_STATE = "scifold"
-		)
-	)
-
-
-/// BLINDFOLD HUDS ///
+/// BLINDFOLD HUD (Used with NIF upgrade)///
 /obj/item/clothing/glasses/trickblindfold/obsolete
 	name = "obsolete fake blindfold"
 	desc = "An ornate fake blindfold, devoid of any electronics. It's belived to be originally worn by members of bygone military force that sought to protect humanity."
@@ -120,34 +105,3 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "obsoletefold"
 	base_icon_state = "obsoletefold"
-	can_switch_eye = TRUE
-
-/obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
-	name = "sec blindfold HUD"
-	desc = "a fake blindfold with a security HUD inside, helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
-	icon_state =  "secfold"
-	base_icon_state =  "secfold"
-
-/obj/item/clothing/glasses/hud/eyepatch/med/blindfold
-	name = "medical blindfold HUD"
-	desc = "a fake blindfold with a medical HUD inside, great for helping keep a poker face when dealing with patients."
-	icon_state =  "medfold"
-	base_icon_state =  "medfold"
-
-/obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
-	name = "meson blindfold HUD"
-	desc = "a fake blindfold with meson lenses inside. Doesn't shield against welding."
-	icon_state =  "mesonfold"
-	base_icon_state =  "mesonfold"
-
-/obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
-	name = "diagnostic blindfold HUD"
-	desc = "a fake blindfold with a diagnostic HUD inside, excellent for working on androids."
-	icon_state =  "robofold"
-	base_icon_state =  "robofold"
-
-/obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
-	name = "science blindfold HUD"
-	desc = "a fake blindfold with a science HUD inside, provides a way to get used to blindfolds before you eventually end up needing the real thing."
-	icon_state =  "scifold"
-	base_icon_state =  "scifold"
