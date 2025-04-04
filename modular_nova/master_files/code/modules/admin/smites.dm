@@ -9,6 +9,7 @@
 /obj/item/clothing/head/cone_of_shame/bad_dog
 	name = "THE CONE."
 	desc = "You've been VERY BAD."
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/item/clothing/head/cone_of_shame/bad_dog/equipped(mob/user, slot)
 	. = ..()
