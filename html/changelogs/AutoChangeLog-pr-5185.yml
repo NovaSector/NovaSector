@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Mining MODsuits no longer erroneously slow you down when fully ashed."
