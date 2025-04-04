@@ -1,7 +1,6 @@
 /// Applies the dreaded cone of shame to a target.
 /datum/smite/cone_of_shame
 	name = "Cone of Shame"
-	var/slot
 
 /datum/smite/cone_of_shame/divine
 	name = "Cone of Shame (Divine)"
