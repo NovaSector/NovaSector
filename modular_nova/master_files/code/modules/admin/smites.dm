@@ -22,15 +22,16 @@
 	var/obj/item/clothing/head/cone_of_shame/bad_dog/thecone = new
 	if(iscarbon(target))
 		var/mob/living/carbon/shamed = target
-		if(istype(shamed.wear_neck, /obj/item))
-			var/obj/item/worn_necky = shamed.wear_neck
+		var/obj/item/worn_necky = shamed.wear_neck
+		if(istype(worn_necky))
 			shamed.dropItemToGround(worn_necky)
 		shamed.visible_message(span_warning("A Cone of Shame appears around [shamed]'s neck!"))
-		shamed.equip_to_slot_if_possible(thecone,ITEM_SLOT_NECK,1,1,1)
+		shamed.equip_to_slot_if_possible(thecone, ITEM_SLOT_NECK ,qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE)
 		return
 	if(iscyborg(target))
 		var/mob/living/silicon/robot/borgy = target
 		borgy.place_on_head(thecone)
 		borgy.visible_message(span_warning("A Cone of Shame appears around [borgy]'s neck!"))
 		return
+	qdel(thecone)
 
