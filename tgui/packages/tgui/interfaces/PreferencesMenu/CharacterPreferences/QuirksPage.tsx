@@ -243,7 +243,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
-                maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
+                maxWidth="325px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
                 backgroundColor="black"
                 px="5px"
                 py="3px"
@@ -262,7 +262,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                       serverData,
                       randomBodyEnabled,
                     )}
-                    maxHeight="100px"
+                    maxHeight="150px" // NOVA EDIT CHANGE - ORIGINAL: 100px
                   />
                 </Stack.Item>
               </Stack>

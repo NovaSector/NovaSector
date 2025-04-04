@@ -1,9 +1,9 @@
-GLOBAL_LIST_INIT(blood_type_to_color, list(
-	"Haemocyanin" = "#3399FF",
-	"Chlorocruorin" = "#9FF73B",
-	"Hemerythrin" = "#C978DD",
-	"Pinnaglobin" = "#CDC020",
-	"Exotic" = "#333333",
+GLOBAL_LIST_INIT(possible_blood_types, list(
+	"Haemocyanin" = list("color" = "#3399FF", "chemical" = /datum/reagent/copper::name),
+	"Chlorocruorin" = list("color" = "#9FF73B", "chemical" = /datum/reagent/iron::name),
+	"Hemerythrin" = list("color" = "#C978DD", "chemical" = /datum/reagent/iron::name),
+	"Pinnaglobin" = list("color" = "#CDC020", "chemical" = /datum/reagent/manganese::name),
+	"Exotic" = list("color" = "#333333", "chemical" = /datum/reagent/sulfur::name, "blurb" = "This blood color does not appear to exist naturally in nature, but with exposure to sulfur or some other genetic engineering or corruption it might be possible."),
 ))
 
 /datum/quirk/unusual_biochemistry
@@ -34,9 +34,9 @@ GLOBAL_LIST_INIT(blood_type_to_color, list(
 /datum/quirk/unusual_biochemistry/add(client/client_source)
 	blood_type = client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry)
 	if(blood_type)
-		blood_color = GLOB.blood_type_to_color[blood_type]
+		blood_color = GLOB.possible_blood_types[blood_type]["color"]
 	else
-		blood_color = pick(flatten_list(GLOB.blood_type_to_color)) // no client/prefs for some reason? pick a random one
+		blood_color = pick(flatten_list(GLOB.possible_blood_types["color"])) // no client/prefs for some reason? pick a random one
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 
@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(blood_type_to_color, list(
 	can_randomize = FALSE
 
 /datum/preference/choiced/unusual_biochemistry/init_possible_values()
-	return assoc_to_keys(GLOB.blood_type_to_color)
+	return assoc_to_keys(GLOB.possible_blood_types)
 
 /datum/preference/choiced/unusual_biochemistry/create_default_value()
 	return "Haemocyanin"
@@ -73,6 +73,14 @@ GLOBAL_LIST_INIT(blood_type_to_color, list(
 		return FALSE
 
 	return "Unusual Biochemistry" in preferences.all_quirks
+
+/datum/preference/choiced/unusual_biochemistry/compile_constant_data()
+	var/list/data = ..()
+
+	// An assoc list of values to display names so we don't show players numbers in their settings!
+	data["extra_quirk_data"] = GLOB.possible_blood_types
+
+	return data
 
 /datum/preference/choiced/unusual_biochemistry/apply_to_human(mob/living/carbon/human/target, value)
 	return

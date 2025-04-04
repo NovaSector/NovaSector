@@ -1,8 +1,8 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { FeatureChoiced } from '../../base';
-import { FeatureDropdownInput } from '../../dropdowns';
+import { FeatureColoredDropdownInput } from '../../dropdowns_nova';
+import { FeatureChoiced } from '../base';
 
-export const unusual_biochemistry: FeatureChoiced = {
+export const unusual_biochemistry: FeatureChoiced<string> = {
   name: 'Blood Type',
-  component: FeatureDropdownInput,
+  component: FeatureColoredDropdownInput,
 };
