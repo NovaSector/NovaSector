@@ -485,10 +485,6 @@
 	name = "Hawk"
 	icon_state = "hawk"
 
-/datum/sprite_accessory/ears/external/cat_alt
-	name = "Cat (Colorable Inner)"
-	icon_state = "cat_alt"
-
 /datum/sprite_accessory/ears/external/miqo_alt
 	name = "Miqo'te (Colorable Inner)"
 	icon_state = "miqo_alt"
