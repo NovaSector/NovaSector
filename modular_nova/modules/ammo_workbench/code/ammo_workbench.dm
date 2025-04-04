@@ -44,7 +44,7 @@
 	ammo_categories = AMMO_ALL_TYPES
 
 /obj/item/circuitboard/machine/ammo_workbench
-	name = "ammunition workbench"
+	name = "Ammunition Workbench"
 	icon_state = "circuit_map"
 	build_path = /obj/machinery/ammo_workbench
 	req_components = list(
@@ -484,7 +484,7 @@
 /obj/machinery/ammo_workbench/proc/Insert_Item(obj/item/O, mob/living/user)
 	if(user.combat_mode)
 		return FALSE
-	if(!is_insertion_ready(user))
+	if(!is_insertion_ready(user, O))
 		return FALSE
 	if(istype(O, /obj/item/ammo_box))
 		if(!user.transferItemToLoc(O, src))
@@ -508,10 +508,6 @@
 		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		return TRUE
 	if(istype(O, /obj/item/ammo_workbench_module))
-		if(loaded_module)
-			balloon_alert(user, "module already inserted!")
-			to_chat(user, span_warning("There's already a fabricator module inside [src]."))
-			return FALSE
 		if(!user.transferItemToLoc(O, src))
 			return FALSE
 		loaded_module = O
@@ -538,3 +534,7 @@
 		to_chat(user, span_warning("[src] already has a module inserted."))
 		return FALSE
 	return TRUE
+
+/obj/item/flatpack/ammo_workbench
+	name = "flatpacked ammunition workbench"
+	board = /obj/item/circuitboard/machine/ammo_workbench

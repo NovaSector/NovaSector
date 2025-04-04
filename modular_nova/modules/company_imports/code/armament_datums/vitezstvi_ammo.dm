@@ -8,15 +8,27 @@
 	subcategory = "Ammunition Manufacturing Equipment"
 
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/bench_itself
-	item_type = /obj/item/circuitboard/machine/ammo_workbench
+	item_type = /obj/item/flatpack/ammo_workbench
 	cost = PAYCHECK_COMMAND * 5
-/*
+
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk
-	item_type = /obj/item/disk/ammo_workbench/advanced
+	item_type = /obj/item/ammo_workbench_module/lethal/bulk
 	cost = PAYCHECK_COMMAND * 5
-*/
+
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/variant
+	item_type = /obj/item/ammo_workbench_module/lethal_variant
+	cost = PAYCHECK_COMMAND * 10
+
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
+	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
+	cost = PAYCHECK_COMMAND * 7.5
+
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/reboot
+	item_type = /obj/item/ammo_workbench_reboot
+	cost = PAYCHECK_CREW
+
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/bullet_drive
-	item_type = /obj/item/circuitboard/machine/dish_drive/bullet
+	item_type = /obj/item/flatpack/bullet_drive
 	cost = PAYCHECK_COMMAND * 2
 
 // Weapon accessories

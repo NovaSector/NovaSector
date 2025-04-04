@@ -30,6 +30,9 @@
 *	.223
 */
 
+/obj/item/ammo_casing/a223/weak
+	can_be_printed = FALSE
+
 /obj/item/ammo_casing/a223/phasic
 	desc = "A .223 phasic bullet casing.\
 	<br><br>\
@@ -45,6 +48,7 @@
 	ammo_categories = AMMO_CLASS_NONE
 	projectile_type = /obj/projectile/bullet/a223/rubber
 	harmful = FALSE
+	print_cost = 0
 
 /obj/item/ammo_casing/a223/ap
 	name = ".223 armor-piercing bullet casing"

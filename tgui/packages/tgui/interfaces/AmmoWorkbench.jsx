@@ -22,16 +22,11 @@ import { Window } from '../layouts';
 export const AmmoWorkbench = (props) => {
   const [tab, setTab] = useSharedState('tab', 1);
   return (
-    <Window
-      width={600}
-      height={600}
-      theme="hackerman"
-      title="Ammunitions Workbench"
-    >
+    <Window width={600} height={600} title="Ammunitions Workbench">
       <Window.Content scrollable>
         <Tabs fluid textAlign="center">
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
-            Ammunitions
+            Ammunition
           </Tabs.Tab>
           <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
             Materials
@@ -63,6 +58,7 @@ export const AmmunitionsTab = (props) => {
     time,
     caliber,
     datadisk_loaded,
+    datadisk_name,
     datadisk_points,
     available_rounds = [],
   } = data;
@@ -84,6 +80,7 @@ export const AmmunitionsTab = (props) => {
           />
         </Box>
         <Box>Time Per Round: {time} seconds</Box>
+        {!!datadisk_loaded && <Box>Loaded Module: {datadisk_name}</Box>}
         {!!datadisk_loaded && <Box>Points Left: {datadisk_points}</Box>}
         <Button.Checkbox
           textAlign="right"
