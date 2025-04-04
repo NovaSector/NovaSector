@@ -10,6 +10,7 @@
 
 /obj/item/ammo_box/magazine/katyusha/empty
 	icon_state = "spikewall_mag-empty"
+	start_empty = TRUE
 
 /obj/item/ammo_box/magazine/katyusha
 	name = "\improper Katyusha Drum Magazine"
