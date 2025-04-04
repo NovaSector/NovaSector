@@ -1,6 +1,6 @@
 /obj/item/clothing/glasses/hud/eyepatch
 	name = "HUD eyepatch"
-	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
+	desc = "A HUD designed to interface directly with optical nerves. This one is broken."
 	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
 	icon_state = "hudpatch"
@@ -19,7 +19,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/sec
 	name = "security HUD eyepatch"
-	desc = "Lost your eye beating an innocent clown? Thankfully your corporate overlords have made something to make up for this. May not do well against flashes."
+	desc = "A HUD designed to interface directly with optical nerves. This one scans humanoids in view and provides accurate data about their ID status and security records."
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/blue
 
@@ -35,7 +35,7 @@
 	)
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
-	desc = "Do no harm, maybe harm has befell to you, or your poor eyeball, thankfully there's a way to continue your oath, thankfully it didn't mention sleepdarts or monkey men."
+	desc = "A HUD designed to interface directly with optical nerves. This one scans humanoids in view and provides accurate data about their health status."
 	icon_state = "medpatch"
 	base_icon_state = "medpatch"
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
@@ -54,7 +54,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/meson
 	name = "mesons HUD eyepatch"
-	desc = "For those that only want to go half insane when staring at the supermatter."
+	desc = "A HUD designed to interface directly with optical nerves. This one displays basic structural and terrain layouts through walls, regardless of lighting conditions."
 	icon_state = "mesonpatch"
 	base_icon_state = "mesonpatch"
 	clothing_traits = list(TRAIT_MADNESS_IMMUNE)
@@ -76,7 +76,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
 	name = "diagnostic HUD eyepatch"
-	desc = "Lost your eyeball to a rogue borg? Dare to tell a Dogborg to do its job? Got bored? Whatever the reason, this bit of tech will help you still repair borgs, they'll never need it since they usually do it themselves, but it's the thought that counts."
+	desc = "A HUD designed to interface directly with optical nerves. This one analyzes the integrity and status of robotics and exosuits.
 	icon_state = "robopatch"
 	base_icon_state = "robopatch"
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
@@ -95,7 +95,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/sci
 	name = "science HUD eyepatch"
-	desc = "Every few years, the aspiring mad scientist says to themselves 'I've got the castle, the evil laugh and equipment, but what I need is a look', thankfully, Dr. Galox has already covered that for you dear friend - while it doesn't do much beyond scan chemicals, what it lacks in use it makes up for in style."
+	desc = "A HUD designed to interface directly with optical nerves. This one is fitted with an analyzer for scanning items and reagents.
 	icon_state = "scipatch"
 	base_icon_state = "scipatch"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
