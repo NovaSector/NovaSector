@@ -19,7 +19,7 @@
 	if (!iscarbon(target) && !iscyborg(target))
 		to_chat(user, span_warning("This must be used on a carbon or cyborg mob."), confidential = TRUE)
 		return
-	var/thecone = new /obj/item/clothing/head/cone_of_shame/bad_dog
+	var/obj/item/clothing/head/cone_of_shame/bad_dog/thecone = new
 	if(iscarbon(target))
 		var/mob/living/carbon/shamed = target
 		if(istype(shamed.wear_neck, /obj/item))
