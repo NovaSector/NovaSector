@@ -114,7 +114,7 @@ type ListProps = {
 
 export function ItemListDisplay(props: ListProps) {
   const { data } = useBackend<LoadoutManagerData>();
-  const { loadout_list } = data.character_preferences.misc;
+  const loadout_list = data.character_preferences.misc.loadout_lists.loadout; // NOVA EDIT CHANGE: Multiple loadout presets: ORIGINAL: const { loadout_list } = data.character_preferences.misc;
   const itemList = FilterItemList(props.items); // NOVA EDIT ADDITION - Expanded loadout framework
   return (
     <Flex wrap>
