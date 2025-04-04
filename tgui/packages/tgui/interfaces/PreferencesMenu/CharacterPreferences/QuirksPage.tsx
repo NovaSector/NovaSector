@@ -392,6 +392,25 @@ export function QuirksPage(props) {
       }
     }
 
+          // NOVA EDIT ADDITION START - Species quirks
+          const currentSpeciesID = data.character_preferences.misc.species;
+          // keys are the species_ids, values are the species names
+          const speciesWhitelistKeys = Object.keys(quirk.species_whitelist);
+          if (
+            speciesWhitelistKeys?.length &&
+            !speciesWhitelistKeys.includes(currentSpeciesID)
+          ) {
+            const speciesWhitelistNames = Object.values(
+              quirk.species_whitelist,
+            );
+            if (speciesWhitelistNames.length === 1) {
+              return `This quirk can only be taken by the ${speciesWhitelistNames[0]} species.`;
+            }
+            const speciesList = speciesWhitelistNames.join(', ');
+            return `This quirk can only be taken by the following species: ${speciesList}.`;
+          }
+          // NOVA EDIT ADDITION END
+
     return;
   }
 
