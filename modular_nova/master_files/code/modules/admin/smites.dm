@@ -31,7 +31,6 @@
 		return
 	if(iscyborg(target))
 		var/mob/living/silicon/robot/borgy = target
-		//var/obj/item/worn_hat = borgy.hat
 		borgy.place_on_head(thecone)
 		borgy.visible_message(span_warning("A Cone of Shame appears around [borgy]'s neck!"))
 		return
