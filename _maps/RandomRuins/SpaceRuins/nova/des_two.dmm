@@ -3440,6 +3440,8 @@
 /obj/item/crowbar/power/syndicate{
 	pixel_y = -4
 	},
+/obj/item/ammo_workbench_module/lethal_super/evil,
+/obj/item/ammo_workbench_reboot,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "oS" = (
@@ -7737,12 +7739,10 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "IU" = (
-/obj/item/circuitboard/machine/ammo_workbench,
-/obj/item/disk/ammo_workbench/advanced,
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/structure/frame/machine/secured,
+/obj/item/flatpack/ammo_workbench,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/armory)
 "IV" = (

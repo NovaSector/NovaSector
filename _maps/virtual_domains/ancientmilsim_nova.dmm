@@ -72,10 +72,6 @@
 /obj/item/pen/fourcolor,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/atrium)
-"cp" = (
-/obj/item/disk/ammo_workbench/advanced,
-/turf/open/floor/iron/smooth_large,
-/area/virtual_domain/ancient_milsim/atrium)
 "cx" = (
 /turf/closed/wall/r_wall,
 /area/virtual_domain/ancient_milsim/snpc_cave)
@@ -1190,6 +1186,8 @@
 /area/virtual_domain/ancient_milsim/snpc_reward)
 "DN" = (
 /obj/structure/table,
+/obj/item/ammo_workbench_module/lethal_variant,
+/obj/item/ammo_workbench_reboot,
 /turf/open/floor/iron/white,
 /area/virtual_domain/ancient_milsim/medbay)
 "DO" = (
@@ -1587,7 +1585,6 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "NA" = (
 /obj/structure/sign/poster/random/directional/west,
-/obj/item/storage/toolbox/maint_kit,
 /obj/structure/table/wood,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
@@ -4526,7 +4523,7 @@ yh
 yh
 yh
 XS
-cp
+Iz
 ie
 El
 CV

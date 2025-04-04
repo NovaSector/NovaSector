@@ -2818,9 +2818,7 @@
 /area/ruin/interdyne_planetary_base/main)
 "hE" = (
 /obj/machinery/light/small/directional/west,
-/obj/structure/frame/machine/secured,
-/obj/item/circuitboard/machine/ammo_workbench,
-/obj/item/disk/ammo_workbench/advanced,
+/obj/item/flatpack/ammo_workbench,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hF" = (
@@ -2863,6 +2861,8 @@
 "hM" = (
 /obj/item/gun/ballistic/rifle/sniper_rifle/syndicate,
 /obj/structure/rack/gunrack,
+/obj/item/ammo_workbench_module/lethal_variant,
+/obj/item/ammo_workbench_reboot,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "hN" = (
@@ -2912,7 +2912,6 @@
 	name = "chameleon kit";
 	desc = "It's a box, for storing things."
 	},
-/obj/item/disk/ammo_workbench/advanced,
 /obj/item/suppressor,
 /obj/item/toy/redbutton,
 /obj/item/folder/syndicate/mining,
