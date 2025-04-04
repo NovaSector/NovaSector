@@ -8,11 +8,11 @@
 	smite_flags = SMITE_DIVINE
 
 /obj/item/clothing/head/cone_of_shame/bad_dog
+	name = "THE CONE."
+	desc = "You've been VERY BAD."
 
 /obj/item/clothing/head/cone_of_shame/bad_dog/equipped(mob/user, slot)
 	. = ..()
-	name = "THE CONE."
-	desc = "You've been VERY BAD."
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /datum/smite/cone_of_shame/effect(client/user, mob/living/target)
