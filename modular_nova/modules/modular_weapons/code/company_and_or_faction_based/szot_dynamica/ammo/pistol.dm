@@ -47,6 +47,7 @@
 
 	icon_state = "27-54cesarzowa_rubber"
 	ammo_categories = AMMO_CLASS_NONE
+	print_cost = 0
 	projectile_type = /obj/projectile/bullet/c27_54cesarzowa/rubber
 
 /obj/projectile/bullet/c27_54cesarzowa/rubber

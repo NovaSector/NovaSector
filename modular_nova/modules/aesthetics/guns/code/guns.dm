@@ -55,6 +55,24 @@
 	/datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.4, \
 )
 
+#define AMMO_MATS_HEAVY list( \
+	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 6, \
+)
+
+#define AMMO_MATS_HEAVY_TEMP list( \
+	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, \
+	/datum/material/plasma = SMALL_MATERIAL_AMOUNT, \
+)
+#define AMMO_MATS_HEAVY_EMP list( \
+	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, \
+	/datum/material/uranium = SMALL_MATERIAL_AMOUNT, \
+)
+
+#define AMMO_MATS_HEAVY_FAST list( \
+	/datum/material/iron = SMALL_MATERIAL_AMOUNT * 5, \
+	/datum/material/titanium = SMALL_MATERIAL_AMOUNT, \
+)
+
 /obj/item/ammo_casing
 	custom_materials = AMMO_MATS_BASIC
 

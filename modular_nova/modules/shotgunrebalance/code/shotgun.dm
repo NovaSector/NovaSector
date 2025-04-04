@@ -243,7 +243,7 @@
 	fire_sound = 'sound/items/weapons/taser.ogg'
 	harmful = FALSE
 	custom_materials = AMMO_MATS_SHOTGUN_HIVE
-	ammo_categories = AMMO_CLASS_NICHE_LTL
+	ammo_categories = AMMO_CLASS_NICHE_LTL | AMMO_CATEGORY_SMART
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	name = "hornet flechette"
