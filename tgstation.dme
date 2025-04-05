@@ -6830,6 +6830,7 @@
 #include "modular_nova\master_files\code\game\turfs\open\floor\iron_floor.dm"
 #include "modular_nova\master_files\code\game\turfs\open\space\space.dm"
 #include "modular_nova\master_files\code\modules\admin\admin.dm"
+#include "modular_nova\master_files\code\modules\admin\smites.dm"
 #include "modular_nova\master_files\code\modules\antagonists\_common\antag_datum.dm"
 #include "modular_nova\master_files\code\modules\antagonists\ashwalker\ashwalker.dm"
 #include "modular_nova\master_files\code\modules\antagonists\changeling\changeling.dm"
