@@ -193,6 +193,11 @@
 		/datum/blood_type/ethereal,
 	)
 
+/datum/blood_type/oil
+	name = "Oil"
+	color = "#1f1a00"
+	reagent_type = /datum/reagent/fuel/oil
+
 /datum/blood_type/vampire
 	name = "V"
 	compatible_types = list(
@@ -224,12 +229,14 @@
 	name = "TOX"
 	color = /datum/reagent/toxin/slimejelly::color
 	reagent_type = /datum/reagent/toxin/slimejelly
+	no_bleed_overlays = TRUE
 
 /// Podpeople blood
 /datum/blood_type/water
 	name = "H2O"
 	color = /datum/reagent/water::color
 	reagent_type = /datum/reagent/water
+	no_bleed_overlays = TRUE
 
 /// Snaiil blood
 /datum/blood_type/snail
