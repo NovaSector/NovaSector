@@ -34,7 +34,7 @@ export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
       let displayText: ReactNode = serverData.display_names?.[choice]
         ? serverData.display_names?.[choice]
         : capitalizeFirst(choice);
-      let color: ReactNode = serverData.extra_quirk_data?.[choice]['color'];
+      let color = serverData.extra_quirk_data?.[choice]['color'];
 
       if (serverData.extra_quirk_data?.[choice]) {
         displayText = (
