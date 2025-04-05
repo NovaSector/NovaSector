@@ -1477,6 +1477,8 @@
 /mob/living/carbon/proc/spray_blood(splatter_direction, splatter_strength = 3)
 	if(!isturf(loc))
 		return
+	if(dna.blood_type.no_bleed_overlays)
+		return
 	// NOVA EDIT CHANGE BEGIN - ORIGINAL: var/obj/effect/decal/cleanable/blood/hitsplatter/our_splatter = new(loc)
 	var/obj/effect/decal/cleanable/blood/hitsplatter/our_splatter
 	if(get_blood_id() == /datum/reagent/toxin/acid)

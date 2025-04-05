@@ -49,6 +49,8 @@
 	var/datum/reagent/reagent_type = /datum/reagent/blood
 	/// What chem is used to restore this blood type (outside of itself, of course)?
 	var/datum/reagent/restoration_chem = /datum/reagent/iron
+	/// Whether or not this blood type should create blood trails, blood sprays, etc
+	var/no_bleed_overlays
 
 /datum/blood_type/New()
 	. = ..()
@@ -186,6 +188,7 @@
 /datum/blood_type/ethereal
 	name = "LE"
 	color = /datum/reagent/consumable/liquidelectricity::color
+	no_bleed_overlays = TRUE
 	compatible_types = list(
 		/datum/blood_type/ethereal,
 	)
