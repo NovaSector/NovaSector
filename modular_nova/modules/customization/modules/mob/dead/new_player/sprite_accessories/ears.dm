@@ -485,7 +485,7 @@
 	name = "Cat (Colorable Inner)"
 	icon_state = "cat_alt"
 
-/datum/sprite_accessory/ears/external/cat_alt
+/datum/sprite_accessory/ears/external/cat_alt_behind_hair
 	name = "Cat (Colorable Inner, Behind Hair)"
 	icon_state = "cat_alt_underhair"
 
