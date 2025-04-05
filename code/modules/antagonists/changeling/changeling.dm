@@ -556,6 +556,11 @@
 	new_profile.target_mob_size = target.mob_size
 	//NOVA EDIT ADDITION END
 
+	// NOVA EDIT ADDITION VOICE_BARK BEGIN
+	for(var/datum/quirk/target_quirk in target.quirks)
+		LAZYADD(new_profile.quirks, new target_quirk.type)
+	//NOVA EDIT ADDITION VOICE_BARK END
+
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
 
@@ -932,6 +937,14 @@
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
 	// NOVA EDIT END
+
+//THE NOVA EDIT ADDITION BEGIN VOICE_BARK
+	user.blooper = null
+	user.blooper_id = chosen_profile.blooper_id
+	user.blooper_pitch = chosen_profile.blooper_pitch
+	user.blooper_speed = chosen_profile.blooper_speed
+	user.blooper_pitch_range = chosen_profile.blooper_pitch_range
+	//THE NOVA ADDITION END
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.
 /datum/changeling_profile
