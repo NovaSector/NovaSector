@@ -28,6 +28,7 @@
 		/datum/reagent/blood = 20,
 	)
 	result = /obj/item/food/hemophage/blood_noodles/raw
+	added_foodtypes = RAW|GORE|BLOODY
 
 
 /datum/crafting_recipe/food/hemophage/boat_noodles
@@ -37,6 +38,7 @@
 		/obj/item/food/hemophage/blood_curd = 1,
 	)
 	result = /obj/item/food/hemophage/blood_noodles/boat_noodles
+	removed_foodtypes = RAW
 
 
 /datum/crafting_recipe/food/hemophage/blood_cake
@@ -47,6 +49,7 @@
 		/datum/reagent/consumable/peanut_butter = 5,
 	)
 	result = /obj/item/food/hemophage/blood_cake
+	added_foodtypes = SUGAR|NUTS|GORE|BLOODY
 
 
 /datum/crafting_recipe/food/hemophage/blood_soup
@@ -60,3 +63,4 @@
 		/obj/item/reagent_containers/cup/bowl = 1,
 	)
 	result = /obj/item/food/soup/hemophage/blood_soup
+	removed_foodtypes = RAW

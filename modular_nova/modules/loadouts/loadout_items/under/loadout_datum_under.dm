@@ -287,6 +287,14 @@
 	item_path = /obj/item/clothing/under/tarkon/com
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/under/jumpsuit/medical_uniform
+	name = "Medical Doctor's jumpsuit"
+	item_path = /obj/item/clothing/under/rank/medical/doctor
+
+/datum/loadout_item/under/jumpsuit/medical_uniform_skirt
+	name = "Medical Doctor's jumpskirt"
+	item_path = /obj/item/clothing/under/rank/medical/doctor/skirt
+
 /*
  *	MISC UNDERSUITS
  */
@@ -628,6 +636,11 @@
 	name = "Colourable Maid Uniform"
 	item_path = /obj/item/clothing/under/maid_costume
 
+/datum/loadout_item/under/miscellaneous/tactical_maid_costume
+	name = "Tactical Maid Uniform"
+	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
+
+
 /datum/loadout_item/under/miscellaneous/yukata
 	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
@@ -737,8 +750,8 @@
 	item_path = /obj/item/clothing/under/misc/latex_catsuit
 
 /datum/loadout_item/under/miscellaneous/stripper_outfit
-	name = "Stripper Outfit"
-	item_path = /obj/item/clothing/under/stripper_outfit
+	name = "Tearaway Garments"
+	item_path = /obj/item/clothing/under/tearaway_garments
 	erp_item = TRUE
 
 /datum/loadout_item/under/miscellaneous/lewdmaid

@@ -35,7 +35,7 @@
 	if(isnull(feature_key)) // if not explicitly set, just use the feature_key of the bodypart_overlay
 		feature_key = src.feature_key
 	var/list/mutantparts_list = dna.mutant_bodyparts[feature_key] ? dna.mutant_bodyparts : dna.species.mutant_bodyparts
-	if(!mutantparts_list[feature_key])
+	if(!(feature_key in mutantparts_list) || !mutantparts_list[feature_key])
 		return FALSE
 	sprite_datum = fetch_sprite_datum_from_name(accessory_name ? accessory_name : mutantparts_list[feature_key][MUTANT_INDEX_NAME])
 	modsuit_affected = sprite_datum.use_custom_mod_icon
@@ -83,11 +83,14 @@
  * overriden in the cases where `feature_key` is not what we want to use here.
  */
 /datum/bodypart_overlay/mutant/proc/get_feature_key_for_overlay()
-	return feature_key
+	return sprite_datum?.feature_key_override || feature_key
 
 
-/datum/bodypart_overlay/mutant/can_draw_on_bodypart(mob/living/carbon/human/human)
-	return !sprite_datum.is_hidden(human)
+/datum/bodypart_overlay/mutant/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	var/mob/living/carbon/human/human = bodypart_owner.owner
+	if(!istype(human))
+		return TRUE
+	return !isnull(sprite_datum) && !sprite_datum.is_hidden(human)
 
 
 /// Get the images we need to draw on the person. Called from get_overlay() which is called from _bodyparts.dm.
