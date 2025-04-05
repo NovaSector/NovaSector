@@ -292,7 +292,7 @@
 	if (current_version < VERSION_CAT_EARS_DUPES)
 		var/current_ears = save_data["feature_ears"]
 		if(current_ears == "Cat, Big")
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner)")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner, Behind Hair)")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
