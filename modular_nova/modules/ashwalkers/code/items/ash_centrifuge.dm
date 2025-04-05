@@ -16,17 +16,19 @@
 
 	var/datum/user_input = tgui_input_list(user, "Select which chemical to remove.", "Removal Selection", reagents.reagent_list)
 
-	if(!user_input)
+	if(isnull(user_input))
 		balloon_alert(user, "no selection!")
 		return CLICK_ACTION_BLOCKING
 
 	user.balloon_alert_to_viewers("spinning [src]...")
-	if(!do_after(user, 5 SECONDS, target = src))
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+	if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 		user.balloon_alert_to_viewers("stopped spinning [src]")
 		return CLICK_ACTION_BLOCKING
 
 	reagents.del_reagent(user_input.type)
 	balloon_alert(user, "removed reagent from [src]")
+	user.mind?.adjust_experience(/datum/skill/primitive, 2)
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/reagent_containers/cup/primitive_centrifuge/click_ctrl_shift(mob/user)
@@ -35,12 +37,13 @@
 
 	var/datum/user_input = tgui_input_list(user, "Select which chemical to keep, the rest removed.", "Keep Selection", reagents.reagent_list)
 
-	if(!user_input)
+	if(isnull(user_input))
 		balloon_alert(user, "no selection!")
 		return
 
 	user.balloon_alert_to_viewers("spinning [src]...")
-	if(!do_after(user, 5 SECONDS, target = src))
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+	if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 		user.balloon_alert_to_viewers("stopped spinning [src]")
 		return
 
@@ -49,3 +52,4 @@
 			reagents.del_reagent(remove_reagent.type)
 
 	balloon_alert(user, "removed reagents from [src]")
+	user.mind?.adjust_experience(/datum/skill/primitive, 2)

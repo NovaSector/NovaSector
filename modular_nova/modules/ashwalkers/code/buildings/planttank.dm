@@ -24,42 +24,50 @@
 	if(!find_farm)
 		. += span_notice("<br>Use five sand to allow planting!")
 
-/obj/structure/plant_tank/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/food) || istype(attacking_item, /obj/item/stack/worm_fertilizer))
-		var/obj/item/stack/stack_item = attacking_item
+/obj/structure/plant_tank/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/food) || istype(tool, /obj/item/stack/worm_fertilizer))
+		var/obj/item/stack/stack_item = tool
 		if(isstack(stack_item))
 			if(!stack_item.use(1))
-				return
+				return ITEM_INTERACT_BLOCKING
 
 		else
-			qdel(attacking_item)
+			qdel(tool)
 
-		balloon_alert(user, "[attacking_item] placed inside")
+		balloon_alert(user, "[tool] placed inside")
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 		operation_number += 2
-		return
-
-	if(istype(attacking_item, /obj/item/storage/bag/plants))
-		balloon_alert(user, "placing food inside")
-		for(var/obj/item/food/selected_food in attacking_item.contents)
-			qdel(selected_food)
+		if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
 			operation_number += 2
 
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
+	if(istype(tool, /obj/item/storage/bag/plants))
+		balloon_alert(user, "placing food inside")
+		for(var/obj/item/food/selected_food in tool.contents)
+			qdel(selected_food)
+			operation_number += 2
+			if(prob(user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_PROBS_MODIFIER)))
+				operation_number += 2
+
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
+
+		return ITEM_INTERACT_BLOCKING
+
+	if(istype(tool, /obj/item/stack/ore/glass))
 		var/datum/component/simple_farm/find_farm = GetComponent(/datum/component/simple_farm)
 		if(find_farm)
-			balloon_alert(user, "no more [attacking_item] required")
-			return
+			balloon_alert(user, "no more [tool] required")
+			return ITEM_INTERACT_BLOCKING
 
-		var/obj/item/stack/attacking_stack = attacking_item
+		var/obj/item/stack/attacking_stack = tool
 		if(!attacking_stack.use(5))
 			balloon_alert(user, "farms require five sand")
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 12))
 		icon_state = "plant_tank_f"
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	return ..()
 
