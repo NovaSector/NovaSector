@@ -30,6 +30,7 @@
 	custom_materials = AMMO_MATS_GRENADE
 
 	harmful = FALSE //Erm, technically
+	ammo_categories = AMMO_CLASS_SMART_LTL
 
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
@@ -130,7 +131,7 @@
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel
 
 	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
-	advanced_print_req = TRUE
+	ammo_categories = AMMO_CLASS_SMART
 
 	harmful = TRUE
 
@@ -180,7 +181,7 @@
 	icon_state = "980_gas_alternate"
 
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/phosphor
-
+	ammo_categories = AMMO_CLASS_THERMAL | AMMO_CLASS_SMART
 	custom_materials = AMMO_MATS_GRENADE_INCENDIARY
 
 
@@ -223,7 +224,7 @@
 	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Bursts into a tear gas cloud."
 
 	icon_state = "980_gas"
-
+	ammo_categories = AMMO_CLASS_NICHE_LTL
 	projectile_type = /obj/projectile/bullet/c980grenade/riot
 
 

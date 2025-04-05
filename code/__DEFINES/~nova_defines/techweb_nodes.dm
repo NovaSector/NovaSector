@@ -28,3 +28,4 @@
 #define TECHWEB_NODE_XENOARCH_MACHINES "xenoarch_machines"
 #define TECHWEB_NODE_XENOARCH_STORAGE "xenoarch_storage"
 #define TECHWEB_NODE_RMBK "rmbk2"
+#define TECHWEB_NODE_AMMOBENCH_MORE "ammobench_addtl"

@@ -1,0 +1,2 @@
+/obj/item/disk/ammo_workbench/@SUBTYPES : /obj/item/ammo_workbench_module/lethal_super
+# kind of a lazy replacement you really should manually remap these.

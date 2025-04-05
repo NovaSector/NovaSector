@@ -36,6 +36,7 @@
 	caliber = CALIBER_PEPPERBALL
 	projectile_type = /obj/projectile/bullet/pepperball
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/pepperball
 	name = "pepperball orb"
