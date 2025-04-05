@@ -661,7 +661,6 @@
 #include "code\_globalvars\lists\pipe_recipes.dm"
 #include "code\_globalvars\lists\plumbing.dm"
 #include "code\_globalvars\lists\poll_ignore.dm"
-#include "code\_globalvars\lists\quirks.dm"
 #include "code\_globalvars\lists\rcd.dm"
 #include "code\_globalvars\lists\reagents.dm"
 #include "code\_globalvars\lists\rtd.dm"
