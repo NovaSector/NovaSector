@@ -6,6 +6,7 @@
 	gain_text = "If everyone's super, no one is."
 	lose_text = "You feel like everyone else might be super after all."
 	medical_record_text = "Patient has unusual genetic sequences."
+	/// The mutation that's applied to the mob, for ease of removal
 	var/applied_mutation
 
 /datum/quirk_constant_data/genetic_mutation
