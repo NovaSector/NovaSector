@@ -234,7 +234,7 @@
 	icon_state = "big_alt"
 
 /datum/sprite_accessory/ears/external/cat/cat_alert
-	name = "Cat, Alert""
+	name = "Cat, Alert"
 	icon_state = "cat_alert"
 
 /datum/sprite_accessory/ears/external/rabbit
