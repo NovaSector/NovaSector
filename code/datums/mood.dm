@@ -607,11 +607,11 @@
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/high_sanity)
 			sanity_level = SANITY_LEVEL_GREAT
 
-	// Crazy or insane = add some uncommon hallucinations
+	/* // Crazy or insane = add some uncommon hallucinations // NOVA EDIT - Removes low-sanity halluctinations
 	if(sanity_level >= SANITY_LEVEL_CRAZY)
 		mob_parent.apply_status_effect(/datum/status_effect/hallucination/sanity)
 	else
-		mob_parent.remove_status_effect(/datum/status_effect/hallucination/sanity)
+		mob_parent.remove_status_effect(/datum/status_effect/hallucination/sanity) */
 
 	update_mood_icon()
 
