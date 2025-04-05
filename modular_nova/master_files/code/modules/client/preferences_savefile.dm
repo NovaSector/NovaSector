@@ -295,6 +295,8 @@
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner, Behind Hair)")
 		else if(current_ears == "Cat, normal")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat, Normal")
+		else if(current_ears == "Cat, Big (Alt)")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner)")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)

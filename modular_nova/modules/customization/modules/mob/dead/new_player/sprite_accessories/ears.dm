@@ -214,23 +214,23 @@
 	icon_state = "cat_alt_underhair"
 
 /datum/sprite_accessory/ears/external/cat/miqo_alt
-	name = "Miqo'te (Colorable Inner)"
+	name = "Cat, Miqo'te (Colorable Inner)"
 	icon_state = "miqo_alt"
 
 /datum/sprite_accessory/ears/external/cat/lynx_alt
-	name = "Lynx (Colorable Inner)"
+	name = "Cat, Lynx (Colorable Inner)"
 	icon_state = "lynx_alt"
 
 /datum/sprite_accessory/ears/external/cat/round_alt
-	name = "Round (Colorable Inner)"
+	name = "Cat, Round (Colorable Inner)"
 	icon_state = "round_alt"
 
 /datum/sprite_accessory/ears/external/cat/fold_alt
-	name = "Fold (Colorable Inner)"
+	name = "Cat, Fold (Colorable Inner)"
 	icon_state = "fold_alt"
 
 /datum/sprite_accessory/ears/external/cat/big_alt
-	name = "Big (Colorable Inner)"
+	name = "Cat, Big (Colorable Inner)"
 	icon_state = "big_alt"
 
 /datum/sprite_accessory/ears/external/cat/cat_normal
