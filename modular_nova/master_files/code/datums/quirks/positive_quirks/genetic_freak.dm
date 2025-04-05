@@ -1,3 +1,19 @@
+GLOBAL_LIST_INIT(genetic_mutation_choice, list(
+	"Antenna" = /datum/mutation/human/antenna,
+	"Autotomy" = /datum/mutation/human/self_amputation,
+	"Glowy" = /datum/mutation/human/glow,
+	"Anti-Glowy" = /datum/mutation/human/glow/anti,
+	"Strength" = /datum/mutation/human/strong,
+	"Stimmed" = /datum/mutation/human/stimmed,
+	"Chameleon" = /datum/mutation/human/chameleon,
+	"Geladikinesis" = /datum/mutation/human/geladikinesis,
+	"Cindikinesis" = /datum/mutation/human/cindikinesis,
+	"Transcendent Olfaction" = /datum/mutation/human/olfaction,
+	"Elastic Arms" = /datum/mutation/human/elastic_arms,
+	"Telepathy" = /datum/mutation/human/telepathy,
+	"Webbing" = /datum/mutation/human/webbing,
+))
+
 /datum/quirk/genetic_mutation
 	name = "Genetic Mutation"
 	desc = "For some reason or another, you've got an unusual genetic mutation, the rest is up to fate."
