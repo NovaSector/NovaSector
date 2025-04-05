@@ -42,7 +42,7 @@
 	update_appearance(UPDATE_OVERLAYS)
 
 // NOVA EDIT ADDITION START
-/obj/effect/decal/cleanable/blood/gibs/update_overlays()
+/obj/effect/decal/cleanable/xenoblood/xgibs/update_overlays()
 	. = ..()
 	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = KEEP_APART|RESET_COLOR)
 	if(gib_overlay)
