@@ -1,5 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - bugfix: "Gives the corrected schematics to the security lathe for the \"Katyusha Magfed shotgun\""
-  - bugfix: "Anchors and neutralizes a bluespace anomaly involving the \"Jager\" shotgun magazine's ammo not being percieved correctly."
