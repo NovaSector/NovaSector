@@ -50,9 +50,9 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 	human_holder.dna.blood_type = blood_type_datum
 
 	// Redo the mail goodies if we somehow got blood deficiency added first
-	var/datum/quirk/blooddeficiency/blood_deficiency_quirk = quirk_holder.get_quirk(/datum/quirk/blooddeficiency)
-	if(istype(blood_deficiency_quirk))
-		blood_deficiency_quirk.update_mail()
+//	var/datum/quirk/blooddeficiency/blood_deficiency_quirk = quirk_holder.get_quirk(/datum/quirk/blooddeficiency)
+//	if(istype(blood_deficiency_quirk))
+//		blood_deficiency_quirk.update_mail(new_species = human_holder.dna.species)
 
 	// updates the cached organ blood types
 	var/list/blood_dna_info = human_holder.get_blood_dna_list()

@@ -13,10 +13,6 @@
 
 /datum/quirk/blooddeficiency/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(lose_blood))
-	RegisterSignal(quirk_holder, COMSIG_SPECIES_GAIN, PROC_REF(update_mail))
-
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	update_mail(new_species = human_holder.dna.species)
 
 /datum/quirk/blooddeficiency/remove()
 	UnregisterSignal(quirk_holder, list(COMSIG_HUMAN_ON_HANDLE_BLOOD, COMSIG_SPECIES_GAIN))
@@ -33,28 +29,27 @@
 
 	human_holder.blood_volume = max(min_blood, human_holder.blood_volume - human_holder.dna.species.blood_deficiency_drain_rate * seconds_per_tick)
 
+
+/datum/quirk/blooddeficiency/add_unique(client/client_source)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	update_mail(new_species = human_holder.dna.species)
+
+/datum/quirk/blooddeficiency/post_add()
+	RegisterSignal(quirk_holder, COMSIG_SPECIES_GAIN, PROC_REF(update_mail))
+
 /datum/quirk/blooddeficiency/proc/update_mail(datum/source, datum/species/new_species, datum/species/old_species, pref_load, regenerate_icons)
 	SIGNAL_HANDLER
 
-	mail_goodies.Cut()
+	if(TRAIT_NOBLOOD in new_species.inherent_traits)
+		mail_goodies.Cut()
+		return
 
-	if(isnull(new_species.exotic_blood) && isnull(new_species.exotic_bloodtype))
-		if(TRAIT_NOBLOOD in new_species.inherent_traits)
-			return
-
-		var/mob/living/carbon/human/human_holder = quirk_holder
-		var/datum/blood_type/blood_type = human_holder.dna.blood_type
-		if(isnull(blood_type))
-			return
-
-		for(var/obj/item/reagent_containers/blood/blood_bag as anything in typesof(/obj/item/reagent_containers/blood))
-			if(initial(blood_bag.blood_type) == blood_type.name)
-				mail_goodies += blood_bag
-				break
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/datum/blood_type/blood_type = human_holder.dna.blood_type
+	if(isnull(blood_type))
 		return
 
 	for(var/obj/item/reagent_containers/blood/blood_bag as anything in typesof(/obj/item/reagent_containers/blood))
-		var/right_blood_type = !isnull(new_species.exotic_bloodtype) && initial(blood_bag.blood_type) == new_species.exotic_bloodtype
-		var/right_blood_reagent = !isnull(new_species.exotic_blood) && initial(blood_bag.unique_blood) == new_species.exotic_blood
-		if(right_blood_type || right_blood_reagent)
-			mail_goodies += blood_bag
+		if(initial(blood_bag.blood_type) == blood_type.name)
+			mail_goodies = list(blood_bag)
+			return

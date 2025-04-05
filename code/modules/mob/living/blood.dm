@@ -334,7 +334,7 @@
 		var/last_added_bloodtype_key = blood_DNA[length(blood_DNA)]
 		blood_type = blood_DNA[last_added_bloodtype_key]
 	if(!istype(blood_type))
-		blood_type = get_blood_type_by_name("O+")
+		blood_type = get_blood_type_by_name(blood_type) || random_blood_type()
 	return blood_type.color
 
 /**

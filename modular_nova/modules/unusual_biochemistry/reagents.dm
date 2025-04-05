@@ -216,7 +216,7 @@
 
 /datum/blood_type/xeno
 	name = "X*"
-	color = "#96BB00"
+	color = "#C8F000"
 	compatible_types = list(/datum/blood_type/xeno)
 
 /// April fool's blood for clowns
