@@ -59,7 +59,7 @@
 /datum/sprite_accessory/ears/external/vulpkanin
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_VULP, SPECIES_HUMANOID, SPECIES_GHOUL)
 
-/datum/sprite_accessory/ears/external/tajaran
+/datum/sprite_accessory/ears/external/cat
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_TAJARAN, SPECIES_HUMANOID, SPECIES_GHOUL)
 
 /datum/sprite_accessory/ears/external/akula
@@ -100,14 +100,6 @@
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
 	icon_state = "bunny"
-
-/datum/sprite_accessory/ears/external/tajaran/catbigalt
-	name = "Cat, Big (Alt)"
-	icon_state = "catbigalt"
-
-/datum/sprite_accessory/ears/external/tajaran/catnormal
-	name = "Cat, normal"
-	icon_state = "catnormal"
 
 /datum/sprite_accessory/ears/external/cow
 	name = "Cow"
@@ -212,6 +204,38 @@
 /datum/sprite_accessory/ears/external/protogen
 	name = "Protogen"
 	icon_state = "protogen"
+
+/datum/sprite_accessory/ears/external/cat/cat_alt
+	name = "Cat (Colorable Inner)"
+	icon_state = "cat_alt"
+
+/datum/sprite_accessory/ears/external/cat/cat_alt_behind_hair
+	name = "Cat (Colorable Inner, Behind Hair)"
+	icon_state = "cat_alt_underhair"
+
+/datum/sprite_accessory/ears/external/cat/miqo_alt
+	name = "Miqo'te (Colorable Inner)"
+	icon_state = "miqo_alt"
+
+/datum/sprite_accessory/ears/external/cat/lynx_alt
+	name = "Lynx (Colorable Inner)"
+	icon_state = "lynx_alt"
+
+/datum/sprite_accessory/ears/external/cat/round_alt
+	name = "Round (Colorable Inner)"
+	icon_state = "round_alt"
+
+/datum/sprite_accessory/ears/external/cat/fold_alt
+	name = "Fold (Colorable Inner)"
+	icon_state = "fold_alt"
+
+/datum/sprite_accessory/ears/external/cat/big_alt
+	name = "Big (Colorable Inner)"
+	icon_state = "big_alt"
+
+/datum/sprite_accessory/ears/external/cat/cat_normal
+	name = "Cat, Normal"
+	icon_state = "catnormal"
 
 /datum/sprite_accessory/ears/external/rabbit
 	name = "Rabbit"
@@ -480,31 +504,3 @@
 /datum/sprite_accessory/ears/external/hawk
 	name = "Hawk"
 	icon_state = "hawk"
-
-/datum/sprite_accessory/ears/external/cat_alt
-	name = "Cat (Colorable Inner)"
-	icon_state = "cat_alt"
-
-/datum/sprite_accessory/ears/external/cat_alt_behind_hair
-	name = "Cat (Colorable Inner, Behind Hair)"
-	icon_state = "cat_alt_underhair"
-
-/datum/sprite_accessory/ears/external/miqo_alt
-	name = "Miqo'te (Colorable Inner)"
-	icon_state = "miqo_alt"
-
-/datum/sprite_accessory/ears/external/lynx_alt
-	name = "Lynx (Colorable Inner)"
-	icon_state = "lynx_alt"
-
-/datum/sprite_accessory/ears/external/round_alt
-	name = "Round (Colorable Inner)"
-	icon_state = "round_alt"
-
-/datum/sprite_accessory/ears/external/fold_alt
-	name = "Fold (Colorable Inner)"
-	icon_state = "fold_alt"
-
-/datum/sprite_accessory/ears/external/big_alt
-	name = "Big (Colorable Inner)"
-	icon_state = "big_alt"

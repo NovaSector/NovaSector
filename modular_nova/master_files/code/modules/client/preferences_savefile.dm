@@ -293,6 +293,8 @@
 		var/current_ears = save_data["feature_ears"]
 		if(current_ears == "Cat, Big")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner, Behind Hair)")
+		else if(current_ears == "Cat, normal")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat, Normal")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
