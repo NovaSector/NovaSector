@@ -1,0 +1,5 @@
+author: "wivernshy"
+delete-after: True
+changes:
+  - rscadd: "Makes 3 unused ears usable: Possum, lunasune, and hawk"
+  - image: "Colorable alts of the default cat ears"
