@@ -101,10 +101,6 @@
 	name = "Bunny"
 	icon_state = "bunny"
 
-/datum/sprite_accessory/ears/external/tajaran/catbig
-	name = "Cat, Big"
-	icon_state = "catbig"
-
 /datum/sprite_accessory/ears/external/tajaran/catbigalt
 	name = "Cat, Big (Alt)"
 	icon_state = "catbigalt"
@@ -484,6 +480,10 @@
 /datum/sprite_accessory/ears/external/hawk
 	name = "Hawk"
 	icon_state = "hawk"
+
+/datum/sprite_accessory/ears/external/cat_alt
+	name = "Cat (Colorable Inner)"
+	icon_state = "cat_alt"
 
 /datum/sprite_accessory/ears/external/miqo_alt
 	name = "Miqo'te (Colorable Inner)"
