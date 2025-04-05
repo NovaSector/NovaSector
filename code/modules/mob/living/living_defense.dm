@@ -267,7 +267,7 @@
 	var/splatter_color
 	var/mob/living/carbon/carbon_mob = src
 	if(istype(carbon_mob) && carbon_mob.dna)
-		splatter_color = carbon_mob.dna.blood_type?.color
+		splatter_color = carbon_mob.dna.blood_type.color
 	new /obj/effect/temp_visual/dir_setting/bloodsplatter(get_turf(src), splatter_dir, splatter_color)
 
 ///The core of catching thrown items, which non-carbons cannot without the help of items or abilities yet, as they've no throw mode.
