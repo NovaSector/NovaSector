@@ -7,25 +7,26 @@
 	w_class = WEIGHT_CLASS_TINY
 
 
-//Code to redeem new items at the mining vendor using the suit voucher
-//More items can be added in the lists and in the if statement.
-/obj/machinery/computer/order_console/mining/proc/redeem_suit_voucher(obj/item/suit_voucher/voucher, mob/redeemer)
-	var/items = list(
-		"SEVA suit" = image(icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi', icon_state = "seva"),
-		"Explorer suit" = image(icon = 'icons/obj/clothing/suits/utility.dmi', icon_state = "explorer"),
+/datum/voucher_set/mining_suits/seva
+	name = "SEVA Suit"
+	description = "Contains a whole new mining starter kit for one crewmember, consisting of a proto-kinetic accelerator, a survival knife, a seclite, an explorer's suit, mesons, an automatic mining scanner, a mining satchel, a gas mask, a mining radio key and a special ID card with a basic mining access."
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
+	icon_state = "seva"
+	set_items = list(
+		/obj/item/clothing/suit/hooded/seva,
+		/obj/item/clothing/mask/gas/seva,
 	)
 
-	var/selection = show_radial_menu(redeemer, src, items, require_near = TRUE, tooltips = TRUE)
-	if(!selection || !Adjacent(redeemer) || QDELETED(voucher) || voucher.loc != redeemer)
-		return
-	var/drop_location = drop_location()
-	switch(selection)
-		if("SEVA suit")
-			new /obj/item/clothing/suit/hooded/seva(drop_location)
-			new /obj/item/clothing/mask/gas/seva(drop_location)
-		if("Explorer suit")
-			new /obj/item/clothing/suit/hooded/explorer(drop_location)
-			new /obj/item/clothing/mask/gas/explorer(drop_location)
+/datum/voucher_set/mining_suits/explorer
+	name = "Explorer Suit"
+	description = "Contains a whole new mining starter kit for one crewmember, consisting of a proto-kinetic accelerator, a survival knife, a seclite, an explorer's suit, mesons, an automatic mining scanner, a mining satchel, a gas mask, a mining radio key and a special ID card with a basic mining access."
+	icon = 'icons/obj/clothing/suits/utility.dmi'
+	icon_state = "explorer"
+	set_items = list(
+		/obj/item/clothing/suit/hooded/explorer,
+		/obj/item/clothing/mask/gas/explorer,
+	)
 
-	SSblackbox.record_feedback("tally", "suit_voucher_redeemed", 1, selection)
-	qdel(voucher)
+/obj/machinery/computer/order_console/mining/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/voucher_redeemer, /obj/item/suit_voucher, /datum/voucher_set/mining_suits)

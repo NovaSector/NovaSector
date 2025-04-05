@@ -222,6 +222,7 @@ export const DmTarget = new Juke.Target({
     'icons/**',
     'interface/**',
     'sound/**',
+    'tgui/public/tgui.html',
     'modular_nova/**', ///NOVA EDIT ADDITION - Making the CBT work
     `${DME_NAME}.dme`,
     NamedVersionFile,
