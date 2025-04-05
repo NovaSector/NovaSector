@@ -330,7 +330,7 @@
 				wound_overlay ||= mutable_appearance('modular_nova/master_files/icons/effects/x_bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
 			else
 				var/mutable_appearance/blood_overlay = mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
-				blood_overlay.color = dna.blood_type? .color || "#FF291E"
+				blood_overlay.color = dna.blood_type?.color || "#FF291E"
 				wound_overlay ||= blood_overlay
 			// NOVA EDIT ADDITION END
 			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)

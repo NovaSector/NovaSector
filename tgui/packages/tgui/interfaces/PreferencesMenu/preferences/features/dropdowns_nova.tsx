@@ -3,11 +3,17 @@ import { ComponentProps, ReactNode, useEffect, useState } from 'react';
 import { Box, ColorBox, Dropdown, Stack } from 'tgui-core/components';
 import { capitalizeFirst } from 'tgui-core/string';
 
-import { FeatureChoicedServerData, FeatureValueProps } from './base';
+import { Feature, FeatureChoicedServerData, FeatureValueProps } from './base';
 
 type ColorDropdownInputProps = FeatureValueProps<
   string,
   string,
+  FeatureChoicedServerData
+>;
+
+export type FeatureWithExtraQuirkData<T> = Feature<
+  string,
+  T,
   FeatureChoicedServerData
 >;
 
