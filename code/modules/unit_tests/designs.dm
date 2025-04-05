@@ -55,7 +55,7 @@
 			if (!all_designs[design_id])
 				TEST_FAIL("Techweb node [node.display_name] ([node.id]) has a design_id \"[design_id]\" which doesn't correspond to any existing design!")
 				continue
-			all_designs -= design_id
+			// all_designs -= design_id // NOVA EDIT REMOVAL - We have some reduntant ways to get some designs, that ain't hurting anyone, probably
 		qdel(node)
 
 	// Designs can also be disk-exclusive
