@@ -233,9 +233,9 @@
 	name = "Cat, Big (Colorable Inner)"
 	icon_state = "big_alt"
 
-/datum/sprite_accessory/ears/external/cat/cat_normal
-	name = "Cat, Normal"
-	icon_state = "catnormal"
+/datum/sprite_accessory/ears/external/cat/cat_alert
+	name = "Cat, Alert""
+	icon_state = "cat_alert"
 
 /datum/sprite_accessory/ears/external/rabbit
 	name = "Rabbit"
