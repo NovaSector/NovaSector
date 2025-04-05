@@ -118,7 +118,7 @@
 		/obj/item/clothing/glasses/phantom,
 		/obj/item/clothing/glasses/salesman, // Now's your chance.
 		/obj/item/clothing/glasses/nice_goggles,
-		/obj/item/clothing/glasses/thin,
+		/obj/item/clothing/glasses/regular/thin,
 		/obj/item/clothing/glasses/biker,
 		/obj/item/clothing/glasses/sunglasses/gar,
 		/obj/item/clothing/glasses/hypno,
