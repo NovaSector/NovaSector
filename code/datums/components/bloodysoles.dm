@@ -324,7 +324,7 @@
 
 	..()
 
- // NOVA EDIT ADDITION START
+// NOVA EDIT ADDITION START
 /datum/component/bloodysoles/feet/share_blood(obj/effect/decal/cleanable/pool)
 	. = ..()
 	if(.)
