@@ -1,12 +1,9 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { ComponentProps, ReactNode, useEffect, useState } from 'react';
-import { createLogger } from 'tgui/logging';
 import { Box, ColorBox, Dropdown, Stack } from 'tgui-core/components';
 import { capitalizeFirst } from 'tgui-core/string';
 
 import { FeatureChoicedServerData, FeatureValueProps } from './base';
-
-const logger = createLogger('window');
 
 type ColorDropdownInputProps = FeatureValueProps<
   string,
@@ -49,7 +46,6 @@ export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
           </Stack>
         );
       }
-      logger.log('color:', choice);
       setDropdownOptions(newOptions);
       newOptions.push({
         displayText,
@@ -70,7 +66,7 @@ export function FeatureBloodTypeDropdownInput(props: ColorDropdownInputProps) {
   const blurb = serverData?.extra_quirk_data?.[value]['blurb'];
 
   return (
-    <Stack grow fitted vertical>
+    <Stack vertical>
       <Stack.Item>
         <Dropdown
           buttons
