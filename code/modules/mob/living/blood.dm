@@ -253,7 +253,7 @@
 							continue
 						carbon_receiver.ForceContractDisease(blood_disease)
 				var/datum/blood_type/blood_type = blood_data["blood_type"]
-				if(!ignore_incompatibility && !blood_type || !(blood_type.type in carbon_receiver.dna.blood_type.compatible_types))
+				if(!ignore_incompatibility || !(blood_type?.type in carbon_receiver.dna.blood_type.compatible_types))
 					carbon_receiver.reagents.add_reagent(/datum/reagent/toxin, amount * 0.5)
 					return TRUE
 

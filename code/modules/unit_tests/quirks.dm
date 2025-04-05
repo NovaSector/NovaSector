@@ -49,7 +49,7 @@
 		/datum/species/ethereal = /obj/item/reagent_containers/blood/ethereal,
 		/datum/species/skeleton = null, // Anyone with noblood should not get a blood bag
 		/datum/species/jelly = /obj/item/reagent_containers/blood/toxin,
-		/datum/species/human = /obj/item/reagent_containers/blood/o_minus,
+		//datum/species/human = /obj/item/reagent_containers/blood/o_minus, // NOVA EDIT REMOVAL
 	)
 
 /datum/unit_test/blood_deficiency_mail/Run()

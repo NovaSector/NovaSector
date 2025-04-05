@@ -289,7 +289,6 @@
 	if(bloody_shoes[BLOOD_STATE_HUMAN] > 0 && !is_obscured())
 		wielder.remove_overlay(SHOES_LAYER)
 		wielder.overlays_standing[SHOES_LAYER] = bloody_feet
-		bloody_feet.color = wielder.dna.blood_type.color // NOVA EDIT ADDITION
 		wielder.apply_overlay(SHOES_LAYER)
 	else
 		wielder.update_worn_shoes()
@@ -324,6 +323,16 @@
 		return
 
 	..()
+
+ // NOVA EDIT ADDITION START
+/datum/component/bloodysoles/feet/share_blood(obj/effect/decal/cleanable/pool)
+	. = ..()
+	if(.)
+		return
+
+	bloody_feet.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(pool))
+	update_icon()
+// NOVA EDIT ADDITION END
 
 /datum/component/bloodysoles/feet/proc/unequip_shoecover(datum/source)
 	SIGNAL_HANDLER

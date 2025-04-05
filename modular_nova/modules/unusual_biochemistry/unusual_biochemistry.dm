@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(possible_blood_types, list(
-	"Haemocyanin" = list("color" = "#3399FF", "chemical" = /datum/reagent/copper::name),
-	"Chlorocruorin" = list("color" = "#9FF73B", "chemical" = /datum/reagent/iron::name),
-	"Hemerythrin" = list("color" = "#C978DD", "chemical" = /datum/reagent/iron::name),
-	"Pinnaglobin" = list("color" = "#CDC020", "chemical" = /datum/reagent/manganese::name),
-	"Exotic" = list("color" = "#333333", "chemical" = /datum/reagent/sulfur::name, "blurb" = "This blood color does not appear to exist naturally in nature, but with exposure to sulfur or some other genetic engineering or corruption it might be possible."),
+	/datum/blood_type/haemocyanin,
+	/datum/blood_type/chlorocruorin,
+	/datum/blood_type/hemerythrin,
+	/datum/blood_type/pinnaglobin,
+	/datum/blood_type/exotic,
 ))
 
 /datum/quirk/unusual_biochemistry
@@ -16,11 +16,7 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 	lose_text = span_danger("Your biochemistry has become... normal.")
 	medical_record_text = "Patient possessess an unusual biochemistry. Blood transfusions may require the assistance of a chemist."
 	quirk_flags = QUIRK_HUMAN_ONLY
-	var/static/list/exotic_blood_reagents = list(
-		"Haemocyanin" = /datum/reagent/copper,
-		"Pinnaglobin" = /datum/reagent/manganese,
-		"Exotic" = /datum/reagent/sulfur,
-	)
+	var/static/list/exotic_blood_reagents = list()
 
 	/// The unusual blood type chosen by quirk prefs
 	var/blood_type
@@ -33,10 +29,12 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 
 /datum/quirk/unusual_biochemistry/add(client/client_source)
 	blood_type = client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry)
-	if(blood_type)
-		blood_color = GLOB.possible_blood_types[blood_type]["color"]
+	var/datum/blood_type/blood_type_datum = get_blood_type_by_name(blood_type)
+	if(blood_type_datum)
+		blood_color = blood_type_datum.color
 	else
-		blood_color = pick(flatten_list(GLOB.possible_blood_types["color"])) // no client/prefs for some reason? pick a random one
+		blood_type_datum = get_blood_type_by_name(pick(GLOB.possible_blood_types)) // no client/prefs for some reason? pick a random one
+		blood_color = blood_type_datum.color
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 
@@ -49,7 +47,12 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 		human_holder.dna.species.exotic_blood = null
 		human_holder.dna.species.exotic_bloodtype = null
 
-	human_holder.dna.blood_type = get_blood_type_by_name(blood_type)
+	human_holder.dna.blood_type = blood_type_datum
+
+	// Redo the mail goodies if we somehow got blood deficiency added first
+	var/datum/quirk/blooddeficiency/blood_deficiency_quirk = quirk_holder.get_quirk(/datum/quirk/blooddeficiency)
+	if(istype(blood_deficiency_quirk))
+		blood_deficiency_quirk.update_mail()
 
 	// updates the cached organ blood types
 	var/list/blood_dna_info = human_holder.get_blood_dna_list()
@@ -63,7 +66,10 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 	can_randomize = FALSE
 
 /datum/preference/choiced/unusual_biochemistry/init_possible_values()
-	return assoc_to_keys(GLOB.possible_blood_types)
+	var/list/possible_blood_types = list()
+	for(var/datum/blood_type/blood_type as anything in GLOB.possible_blood_types)
+		possible_blood_types += blood_type::name
+	return possible_blood_types
 
 /datum/preference/choiced/unusual_biochemistry/create_default_value()
 	return "Haemocyanin"
@@ -77,8 +83,15 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 /datum/preference/choiced/unusual_biochemistry/compile_constant_data()
 	var/list/data = ..()
 
-	// An assoc list of values to display names so we don't show players numbers in their settings!
-	data["extra_quirk_data"] = GLOB.possible_blood_types
+	var/list/blood_type_data = list()
+	for(var/datum/blood_type/blood_type as anything in GLOB.possible_blood_types)
+		blood_type_data[blood_type::name] = list(
+			"color" = blood_type::color,
+			"chemical" = blood_type::restoration_chem::name,
+			"blurb" = blood_type::desc,
+		)
+
+	data["extra_quirk_data"] = blood_type_data
 
 	return data
 

@@ -10,6 +10,25 @@
 	mail_goodies = list(/obj/item/reagent_containers/blood/o_minus) // universal blood type that is safe for all
 	/// Minimum amount of blood the paint is set to
 	var/min_blood = BLOOD_VOLUME_SAFE - 25 // just barely survivable without treatment
+	var/list/static/blood_pack_to_spawn = list(
+		"[/datum/blood_type/a_plus]" = /obj/item/reagent_containers/blood/a_plus,
+		"[/datum/blood_type/a_minus]" = /obj/item/reagent_containers/blood/a_minus,
+		"[/datum/blood_type/b_plus]" = /obj/item/reagent_containers/blood/b_plus,
+		"[/datum/blood_type/b_minus]" = /obj/item/reagent_containers/blood/b_minus,
+		"[/datum/blood_type/o_plus]" = /obj/item/reagent_containers/blood/o_plus,
+		"[/datum/blood_type/o_minus]" = /obj/item/reagent_containers/blood/o_minus,
+		"[/datum/blood_type/lizard]" = /obj/item/reagent_containers/blood/lizard,
+		"[/datum/blood_type/haemocyanin]" = /obj/item/reagent_containers/blood/haemocyanin,
+		"[/datum/blood_type/chlorocruorin]" = /obj/item/reagent_containers/blood/chlorocruorin,
+		"[/datum/blood_type/hemerythrin]" = /obj/item/reagent_containers/blood/hemerythrin,
+		"[/datum/blood_type/pinnaglobin]" = /obj/item/reagent_containers/blood/pinnaglobin,
+		"[/datum/blood_type/exotic]" = /obj/item/reagent_containers/blood/exotic,
+		"[/datum/blood_type/haemocyanin]" = /obj/item/reagent_containers/blood/haemocyanin,
+		"[/datum/blood_type/chlorocruorin]" = /obj/item/reagent_containers/blood/chlorocruorin,
+		"[/datum/blood_type/hemerythrin]" = /obj/item/reagent_containers/blood/hemerythrin,
+		"[/datum/blood_type/pinnaglobin]" = /obj/item/reagent_containers/blood/pinnaglobin,
+		"[/datum/blood_type/exotic]" = /obj/item/reagent_containers/blood/exotic,
+	)
 
 /datum/quirk/blooddeficiency/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(lose_blood))
@@ -42,7 +61,9 @@
 		if(TRAIT_NOBLOOD in new_species.inherent_traits)
 			return
 
-		mail_goodies += /obj/item/reagent_containers/blood/o_minus
+		var/mob/living/carbon/human/human_holder = quirk_holder
+		var/datum/blood_type = human_holder.dna.blood_type
+		mail_goodies += blood_pack_to_spawn[blood_type.type] || /obj/item/reagent_containers/blood/o_minus
 		return
 
 	for(var/obj/item/reagent_containers/blood/blood_bag as anything in typesof(/obj/item/reagent_containers/blood))

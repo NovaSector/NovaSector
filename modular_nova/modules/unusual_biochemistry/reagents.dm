@@ -9,7 +9,6 @@
 // New blood packs
 /obj/item/reagent_containers/blood/haemocyanin
 	blood_type = "Haemocyanin"
-	unique_blood = /datum/reagent/copper
 
 /obj/item/reagent_containers/blood/chlorocruorin
 	blood_type = "Chlorocruorin"
@@ -19,15 +18,29 @@
 
 /obj/item/reagent_containers/blood/pinnaglobin
 	blood_type = "Pinnaglobin"
-	unique_blood = /datum/reagent/manganese
 
 /obj/item/reagent_containers/blood/exotic
 	blood_type = "Exotic"
-	unique_blood = /datum/reagent/sulfur
+
+/datum/supply_pack/medical/bloodpacks
+	name = "Uncommon Blood Pack Variety Crate"
+	desc = "Contains ten different uncommmon blood packs for reintroducing blood to patients."
+	cost = CARGO_CRATE_VALUE * 7
+	contains = list(
+		/obj/item/reagent_containers/blood/haemocyanin = 2,
+		/obj/item/reagent_containers/blood/chlorocruorin = 2,
+		/obj/item/reagent_containers/blood/hemerythrin = 2,
+		/obj/item/reagent_containers/blood/pinnaglobin = 2,
+		/obj/item/reagent_containers/blood/exotic = 2,
+	)
+	crate_name = "blood freezer"
+	crate_type = /obj/structure/closet/crate/freezer
 
 /datum/blood_type
 	/// Displayed name of the blood type.
 	var/name = "?"
+	/// A description of the blood type.
+	var/desc
 	/// Shown color of the blood type.
 	var/color = "#FF291E"
 	/// Blood types that are safe to use with people that have this blood type.
@@ -55,7 +68,6 @@
  */
 /datum/blood_type/proc/type_key()
 	return type
-
 
 /datum/blood_type/a_minus
 	name = "A-"
@@ -116,9 +128,19 @@
 		/datum/blood_type/o_plus,
 	)
 
+/datum/blood_type/haemocyanin
+	name = "Haemocyanin"
+	color = "#3399FF"
+	desc = "This oxygen-carrying macromolecule is formed using copper instead of iron (giving it its blue color), and has similar efficiency to haemoglobin in colder temperatures."
+	restoration_chem = /datum/reagent/copper
+	compatible_types = list(
+		/datum/blood_type/haemocyanin,
+	)
+
 /datum/blood_type/chlorocruorin
 	name = "Chlorocruorin"
 	color = "#9FF73B"
+	desc = "Chlorocruorin molecules are massive relative to other oxygen carriers and get their green color from the presence of an abnormal heme group."
 	compatible_types = list(
 		/datum/blood_type/chlorocruorin,
 	)
@@ -126,11 +148,30 @@
 /datum/blood_type/hemerythrin
 	name = "Hemerythrin"
 	color = "#C978DD"
+	desc  = "The pink hemerythrin macromolecules actually bind to oxygen by creating a hydroperoxide, a unique mechanism for blood oxygen."
 	compatible_types = list(
 		/datum/blood_type/hemerythrin,
 	)
 
-/datum/blood_type/animal //for simplemob gib dna
+/datum/blood_type/pinnaglobin
+	name = "Pinnaglobin"
+	color = "#CDC020"
+	restoration_chem = /datum/reagent/manganese
+	desc = "Most similar to haemocyanin, pinnaglobin possesses manganese atoms in place of copper, giving it a unique color."
+	compatible_types = list(
+		/datum/blood_type/pinnaglobin,
+	)
+
+/datum/blood_type/exotic
+	name = "Exotic"
+	color = "#333333"
+	restoration_chem = /datum/reagent/sulfur
+	compatible_types = list(
+		/datum/blood_type/exotic,
+	)
+	desc = "This blood color does not appear to exist naturally in nature, but with exposure to sulfur or some other genetic engineering or corruption it might be possible."
+
+/datum/blood_type/animal
 	name = "Y-"
 	compatible_types = list(
 		/datum/blood_type/animal,
@@ -138,14 +179,19 @@
 
 /datum/blood_type/lizard
 	name = "L"
-	color = "#009696"
 	compatible_types = list(
 		/datum/blood_type/lizard,
 	)
 
+/datum/blood_type/ethereal
+	name = "LE"
+	color = /datum/reagent/consumable/liquidelectricity::color
+	compatible_types = list(
+		/datum/blood_type/ethereal,
+	)
+
 /datum/blood_type/vampire
 	name = "V"
-	color = "#009696"
 	compatible_types = list(
 		/datum/blood_type/vampire,
 	)
@@ -162,27 +208,27 @@
 
 /datum/blood_type/xeno
 	name = "X*"
+	color = "#96BB00"
 	compatible_types = list(/datum/blood_type/xeno)
 
-/// Clown blood, only used on April Fools
+/// April fool's blood for clowns
 /datum/blood_type/clown
 	name = "C"
-	color = "#FF00FF"
 	reagent_type = /datum/reagent/colorful_reagent
 
-/// Slimeperson's jelly blood, is also known as "toxic" or "toxin" blood
+/// Slimeperson blood, aka 'toxin' blood type
 /datum/blood_type/slime
 	name = "TOX"
 	color = /datum/reagent/toxin/slimejelly::color
 	reagent_type = /datum/reagent/toxin/slimejelly
 
-/// Water based blood for Podpeople primairly
+/// Podpeople blood
 /datum/blood_type/water
 	name = "H2O"
 	color = /datum/reagent/water::color
 	reagent_type = /datum/reagent/water
 
-/// Snails have Lube for blood, for some reason?
+/// Snaiil blood
 /datum/blood_type/snail
 	name = "Lube"
 	reagent_type = /datum/reagent/lube

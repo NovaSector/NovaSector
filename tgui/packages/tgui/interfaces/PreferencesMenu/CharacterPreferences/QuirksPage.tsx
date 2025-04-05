@@ -262,7 +262,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                       serverData,
                       randomBodyEnabled,
                     )}
-                    maxHeight="150px" // NOVA EDIT CHANGE - ORIGINAL: 100px
+                    maxHeight="160px" // NOVA EDIT CHANGE - ORIGINAL: 100px
                   />
                 </Stack.Item>
               </Stack>

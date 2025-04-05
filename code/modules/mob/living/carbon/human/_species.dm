@@ -787,10 +787,18 @@ GLOBAL_LIST_EMPTY(features_by_species)
  **/
 /datum/species/proc/handle_chemical(datum/reagent/chem, mob/living/carbon/human/affected, seconds_per_tick, times_fired)
 	SHOULD_CALL_PARENT(TRUE)
-	if(chem.type == exotic_blood)
-		affected.blood_volume = min(affected.blood_volume + round(chem.volume, 0.1), BLOOD_VOLUME_MAXIMUM)
-		affected.reagents.del_reagent(chem.type)
-		return COMSIG_MOB_STOP_REAGENT_CHECK
+	// NOVA EDIT CHANGE START
+	if(!istype(chem, /datum/reagent/blood))
+		var/datum/blood_type/blood_type = affected.dna.blood_type
+		if(chem.type == blood_type?.reagent_type)
+			affected.blood_volume = min(affected.blood_volume + round(chem.volume, 0.1), BLOOD_VOLUME_MAXIMUM)
+			affected.reagents.del_reagent(chem.type)
+			return COMSIG_MOB_STOP_REAGENT_CHECK
+		if(chem.type == blood_type?.restoration_chem && affected.blood_volume < BLOOD_VOLUME_NORMAL)
+			affected.blood_volume += 0.25 * seconds_per_tick
+			affected.reagents.remove_reagent(chem.type, chem.metabolization_rate * seconds_per_tick)
+			return COMSIG_MOB_STOP_REAGENT_CHECK
+	// NOVA EDIT CHANGE END
 	if(!chem.overdosed && chem.overdose_threshold && chem.volume >= chem.overdose_threshold && !HAS_TRAIT(affected, TRAIT_OVERDOSEIMMUNE))
 		chem.overdosed = TRUE
 		chem.overdose_start(affected)
