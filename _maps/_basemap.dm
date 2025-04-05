@@ -21,15 +21,15 @@
 		#include "map_files\SerenityStation\SerenityStation.dmm"
 		#include "map_files\AquaStation\AquaStation.dmm" // Underwater high pop
 		#include "map_files\HeskiStation\HeskiStation.dmm" // Underwater low pop
-		#include "map_files\NomadStation\NomadStation.dmm" // Space (bunch of ships welded together)
-		#include "map_files\WaveBreaker\WaveBreaker.dmm" // Plasmarig Highpop
-		#include "map_files\RustRig\RustRig.dmm" // Plasmarig Lowpop
-		#include "map_files\AlterisStation\AlterisStation.dmm" // Water Platform Highpop
-		#include "map_files\AmmixStation\AmmixStation.dmm" // Water Platform Lowpop
-		#include "map_files\RainStation\RainStation.dmm" // Constantly Raining Planet Highpop
-		#include "map_files\HeliosStation\HeliosStation.dmm" // Constantly Raining Planet Lowpop
-		#include "map_files\OasisStation\OasisStation.dmm" // Desert Planet Highpop
-		#include "map_files\DuneStation\DuneStation.dmm" // Desert Raining Planet Lowpop
+		#include "map_files\NomadStation\NomadStation.dmm" // Space (bunch of ships welded together, such as Interdyne, IRN, NT Vessels and many more!)
+		#include "map_files\WaveBreaker\WaveBreaker.dmm" // OCEAN (NOT PLASMALAKE) || Plasmarig Highpop (think of an oil rig on an ocean) || Breathable Atmosphere
+		#include "map_files\RustRig\RustRig.dmm" // OCEAN (NOT PLASMALAKE) || Plasmarig Lowpop || May have a retextured gas miner to "Mine" the plasma from the planet || Breathable Atmosphere
+		#include "map_files\AlterisStation\AlterisStation.dmm" // OCEAN (NOT PLASMALAKE) || Water Platform Highpop (Like plasma rig but it doesnt mine anything) || Breathable Atmosphere
+		#include "map_files\AmmixStation\AmmixStation.dmm" // OCEAN (NOT PLASMALAKE) || Water Platform Lowpop (Like plasma rig but it doesnt mine anything) || Breathable Atmosphere
+		#include "map_files\RainStation\RainStation.dmm" // Constantly Raining Planet Highpop || Breathable Atmosphere
+		#include "map_files\HeliosStation\HeliosStation.dmm" // Constantly Raining Planet Lowpop || Breathable Atmosphere
+		#include "map_files\OasisStation\OasisStation.dmm" // Desert Planet Highpop || Breathable Atmosphere
+		#include "map_files\DuneStation\DuneStation.dmm" // Desert Raining Planet Lowpop || Breathable Atmosphere
 		// NOVA EDIT END
 		#ifdef CIBUILDING
 			#include "templates.dm"
