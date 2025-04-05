@@ -5,7 +5,7 @@
 	default_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA
-	ambience_index = AMBIENCE_OASIS
+	ambience_index = AMBIENCE_GENERIC
 	sound_environment = SOUND_AREA_FOREST
 	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
 	always_unpowered = TRUE
@@ -16,7 +16,7 @@
 	min_ambience_cooldown = 70 SECONDS
 	max_ambience_cooldown = 220 SECONDS
 	static_lighting = FALSE
-	base_lighting_alpha = 150
+	base_lighting_alpha = 255
 
 /area/sandplanet/outdoors // parent that defines if something is on the exterior of the station.
 	name = "Dunes"
@@ -90,3 +90,9 @@
 	max_ambience_cooldown = initial(max_ambience_cooldown)
 
 */
+
+/area/station/commons/changingroom
+	name = "Changing Room"
+
+/area/station/commons/shipyardhall
+	name = "Changing Room"
