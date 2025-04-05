@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "fixes the loadout guncase from giving you a free makarov and ammo and replaces it with the right guncase"
