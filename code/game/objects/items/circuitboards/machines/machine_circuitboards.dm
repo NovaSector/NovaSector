@@ -662,7 +662,7 @@
 		/obj/machinery/vending/medical = "NanoMed Plus",
 		/obj/machinery/vending/modularpc = "Deluxe Silicate Selections",
 		/obj/machinery/vending/robotics = "Robotech Deluxe",
-		/obj/machinery/vending/security = "Armadyne Peacekeeper Equipment Vendor", //NOVA EDIT CHANGE - SEC_HUAL - ORIGINAL: /obj/machinery/vending/security = "SecTech",
+		/obj/machinery/vending/security = "SecTech",
 		/obj/machinery/vending/snack = "Getmore Chocolate Corp",
 		/obj/machinery/vending/sovietsoda = "BODA",
 		/obj/machinery/vending/sustenance = "Sustenance Vendor",

@@ -171,7 +171,7 @@
 
 /obj/item/clothing/under/akula_wetsuit/job/security
 	name = "security Shoredress wetsuit"
-	desc = "The 'Security'-Type Shoredress is a model commissioned by Lopland; but the origins of this wetsuit lie in designs belonging to \
+	desc = "The 'Security'-Type Shoredress is a model produced by Nanotrasen; but the origins of this wetsuit lie in designs belonging to \
 		rank-and-file warriors and fighters in the New Principalities. Designed to be protective over comfortable, these suits are no true \
 		replacement for true armor, but make an excellent undersuit for even civilian plate carriers. \n\
 		The systems inside have been reinforced to their logical endpoint, though their temperatures -- much like the attitude of their wearers, tends to run a bit hot due to a possible manufacturing defect."

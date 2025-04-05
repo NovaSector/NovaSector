@@ -134,7 +134,7 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "oY" = (
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Emergency Shuttle Brig";
 	req_access = list("brig")
 	},

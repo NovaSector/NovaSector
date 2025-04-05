@@ -1,5 +1,5 @@
 /datum/design/nifsoft_remover
-	name = "Lopland 'Wrangler' NIF-Cutter"
+	name = "Nanotrasen 'Wrangler' NIF-Cutter"
 	desc = "A small device that lets the user remove NIFSofts from a NIF user."
 	id = "nifsoft_remover"
 	build_type = PROTOLATHE | AWAY_LATHE

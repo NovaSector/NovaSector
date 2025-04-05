@@ -296,7 +296,7 @@
 "bU" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/iron/twenty,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -326,9 +326,9 @@
 /obj/item/clothing/under/tarkon/sec,
 /obj/item/clothing/under/tarkon/sec,
 /obj/item/clothing/under/tarkon/sec,
-/obj/item/storage/backpack/duffelbag/sec/redsec,
-/obj/item/storage/backpack/satchel/sec/redsec,
-/obj/item/storage/backpack/security/redsec,
+/obj/item/storage/backpack/duffelbag/sec,
+/obj/item/storage/backpack/satchel/sec,
+/obj/item/storage/backpack/security,
 /obj/item/clothing/head/utility/welding/hat,
 /obj/item/clothing/head/utility/welding/hat,
 /obj/machinery/camera/autoname/tarkon/directional/east,
@@ -459,7 +459,7 @@
 "dg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "dj" = (
@@ -745,7 +745,7 @@
 	pixel_y = 6
 	},
 /obj/item/folder/red,
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "fk" = (
@@ -838,13 +838,13 @@
 	pixel_x = 7;
 	pixel_y = 7
 	},
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "fZ" = (
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /obj/machinery/camera/autoname/tarkon/directional/north,
@@ -2089,7 +2089,7 @@
 /obj/item/ammo_box/magazine/c35sol_pistol,
 /obj/item/ammo_box/magazine/c35sol_pistol,
 /obj/item/ammo_box/magazine/c35sol_pistol,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -2311,7 +2311,7 @@
 /obj/effect/mob_spawn/ghost_role/human/tarkon/sec{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "pt" = (
@@ -2407,7 +2407,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/observ)
 "pS" = (
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -2426,7 +2426,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "qc" = (
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "qd" = (
@@ -2575,7 +2575,7 @@
 /obj/machinery/door/window/brigdoor/tarkon/right/directional/west,
 /obj/item/mod/module/springlock,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 4
 	},
 /turf/open/floor/iron,
@@ -2776,10 +2776,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/machinery/door/airlock/security/old,
+/obj/machinery/door/airlock/security,
 /obj/effect/mapping_helpers/airlock/access/all/tarkon/general,
 /obj/machinery/door/firedoor/solid,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -2942,7 +2942,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
@@ -3078,7 +3078,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/red/real_red{
+/obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
@@ -3135,7 +3135,7 @@
 "va" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/red/anticorner{
 	dir = 1
 	},
 /obj/machinery/camera/autoname/tarkon/directional/north,
@@ -3263,7 +3263,7 @@
 	name = "Starboard Primary Hallway"
 	},
 /obj/machinery/door/firedoor/solid,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -3304,7 +3304,7 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/mapping_helpers/apc/full_charge,
 /obj/effect/mapping_helpers/apc/unlocked,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -3659,7 +3659,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/airalarm/directional/east,
 /obj/structure/safe/floor,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 4
 	},
 /obj/item/target_designator,
@@ -4190,7 +4190,7 @@
 /obj/machinery/computer/camera_advanced/tarkon_cam{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "Cq" = (
@@ -4372,7 +4372,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "DG" = (
@@ -4540,7 +4540,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/real_red/half,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
 "EH" = (
@@ -5264,7 +5264,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -5488,7 +5488,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/light_switch/directional/west,
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/red/anticorner{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -5646,7 +5646,7 @@
 /area/ruin/space/has_grav/port_tarkon/comms)
 "Mg" = (
 /obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 8
 	},
 /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled,
@@ -5767,7 +5767,7 @@
 /obj/item/assembly/flash,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -5814,7 +5814,7 @@
 /obj/machinery/light/directional/east,
 /obj/structure/noticeboard/directional/east,
 /obj/item/paper/fluff/ruins/tarkon/detain,
-/obj/effect/turf_decal/tile/red/real_red/anticorner,
+/obj/effect/turf_decal/tile/red/anticorner,
 /obj/item/paper/fluff/ruins/tarkon/sop,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/secoff)
@@ -6233,7 +6233,7 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "PG" = (
 /obj/machinery/light_switch/directional/north,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -6673,7 +6673,7 @@
 /obj/item/clothing/suit/armor/vest,
 /obj/machinery/airalarm/directional/north,
 /obj/item/clothing/suit/armor/vest,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -6893,7 +6893,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/knife/combat/survival,
 /obj/item/tape/ruins/tarkon,
-/obj/effect/turf_decal/tile/red/real_red/anticorner{
+/obj/effect/turf_decal/tile/red/anticorner{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/tarkon/directional/north,
@@ -6932,7 +6932,7 @@
 /area/ruin/space/has_grav/port_tarkon/mining)
 "UD" = (
 /obj/machinery/ammo_workbench/unlocked,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -6957,7 +6957,7 @@
 /area/ruin/space/has_grav/port_tarkon/kitchen)
 "UO" = (
 /obj/structure/filingcabinet,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -7250,7 +7250,7 @@
 /obj/item/clothing/head/helmet,
 /obj/item/clothing/head/helmet,
 /obj/item/clothing/head/helmet,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /turf/open/floor/iron,
@@ -7474,7 +7474,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/red/real_red/half{
+/obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{

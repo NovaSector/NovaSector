@@ -1447,7 +1447,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	hackProof = 1;
 	name = "Long-Term Brig"
 	},
@@ -1540,7 +1540,7 @@
 /turf/open/floor/iron/dark/textured_half,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "gF" = (
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Security"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
@@ -3667,7 +3667,7 @@
 "pB" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Long-Term Brig"
 	},
 /obj/effect/turf_decal/stripes/red/line{
@@ -3751,7 +3751,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "pZ" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/warning,
+/obj/effect/turf_decal/trimline/red/filled/warning,
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
@@ -4529,7 +4529,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "tP" = (
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	hackProof = 1;
 	name = "Armory"
 	},
@@ -4710,7 +4710,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Security Checkpoint"
 	},
 /obj/effect/mapping_helpers/airlock/unres,
@@ -4979,7 +4979,7 @@
 /turf/template_noop,
 /area/template_noop)
 "wj" = (
-/obj/machinery/vending/wardrobe/sec_wardrobe/red,
+/obj/machinery/vending/wardrobe/sec_wardrobe,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "wk" = (
@@ -5752,7 +5752,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	hackProof = 1;
 	name = "Long-Term Brig"
 	},
@@ -8141,7 +8141,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "KN" = (
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Security"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
@@ -8290,7 +8290,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Lx" = (
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	hackProof = 1;
 	id_tag = "smasteratarms";
 	name = "Master At Arms' Office"
@@ -8431,7 +8431,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/trimline/red/real_red/filled/warning,
+/obj/effect/turf_decal/trimline/red/filled/warning,
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 1
 	},
@@ -10629,7 +10629,7 @@
 "Wu" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = "Long-Term Brig"
 	},
 /obj/effect/turf_decal/stripes/red/line{
