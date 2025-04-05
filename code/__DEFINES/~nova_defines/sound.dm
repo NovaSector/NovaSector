@@ -14,6 +14,11 @@
 
 #define AMBIENCE_MUSHROOM "mushroom"
 #define AMBIENCE_FOREST "forest"
+#define AMBIENCE_DUNES "dunes"
+#define AMBIENCE_OASIS "oasis"
+#define AMBIENCE_DEEPSEA "deepsea"
+#define AMBIENCE_DEEPSEATRENCH "deepseatrenches"
+
 
 #define SOUND_AREA_MUSHROOM_CAVES SOUND_ENVIRONMENT_CAVE
 #define SOUND_AREA_FOREST SOUND_ENVIRONMENT_FOREST

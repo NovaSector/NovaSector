@@ -19,7 +19,17 @@
 		#include "map_files\NSVBlueshift\Blueshift.dmm"
 		#include "map_files\Ouroboros\Ouroboros.dmm"
 		#include "map_files\SerenityStation\SerenityStation.dmm"
-		#include "map_files\AquaStation\AquaStation.dmm"
+		#include "map_files\AquaStation\AquaStation.dmm" // Underwater high pop
+		#include "map_files\HeskiStation\HeskiStation.dmm" // Underwater low pop
+		#include "map_files\NomadStation\NomadStation.dmm" // Space (bunch of ships welded together)
+		#include "map_files\WaveBreaker\WaveBreaker.dmm" // Plasmarig Highpop
+		#include "map_files\RustRig\RustRig.dmm" // Plasmarig Lowpop
+		#include "map_files\AlterisStation\AlterisStation.dmm" // Water Platform Highpop
+		#include "map_files\AmmixStation\AmmixStation.dmm" // Water Platform Lowpop
+		#include "map_files\RainStation\RainStation.dmm" // Constantly Raining Planet Highpop
+		#include "map_files\HeliosStation\HeliosStation.dmm" // Constantly Raining Planet Lowpop
+		#include "map_files\OasisStation\OasisStation.dmm" // Desert Planet Highpop
+		#include "map_files\DuneStation\DuneStation.dmm" // Desert Raining Planet Lowpop
 		// NOVA EDIT END
 		#ifdef CIBUILDING
 			#include "templates.dm"
