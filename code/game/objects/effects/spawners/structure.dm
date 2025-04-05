@@ -389,4 +389,3 @@ again.
 	var/obj/structure/table/table_to_flipped = new table_to_spawn(loc)
 	table_to_flipped.dir = dir
 	table_to_flipped.flip_table()
-
