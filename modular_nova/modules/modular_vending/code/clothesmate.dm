@@ -31,6 +31,7 @@
 			"name" = "Accessories",
 			"icon" = "glasses",
 			"products" = list(
+				/obj/item/storage/belt/thigh_satchel = 5,
 				/obj/item/clothing/neck/ranger_poncho = 5,
 				/obj/item/clothing/neck/cloak/colourable = 5,
 				/obj/item/clothing/neck/cloak/colourable/veil = 5,
@@ -41,8 +42,8 @@
 				/obj/item/clothing/neck/long_cape = 5,
 				/obj/item/clothing/neck/wide_cape = 5,
 				/obj/item/clothing/neck/robe_cape = 5,
-				/obj/item/clothing/glasses/regular/betterunshit = 5,
-				/obj/item/clothing/glasses/thin = 5,
+				/obj/item/clothing/glasses/regular/modern = 5,
+				/obj/item/clothing/glasses/regular/thin = 5,
 				/obj/item/clothing/glasses/hud/ar/projector = 5,
 				/obj/item/clothing/neck/face_scarf = 5,
 				/obj/item/clothing/mask/neck_gaiter = 5,

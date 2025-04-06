@@ -1,0 +1,7 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - image: "removed some (hopefully) unused Glasses/Ears/Belt/Neck icons! Please report any errors!"
+  - image: "resprited the Modern glasses to actually be as modern as all other glasses."
+  - rscdel: "removed a modular version of Eyepatch eye-switching, in favor of TG's (which works with scarred eyes.) Please report any issues with Eyepatches or Eyepatch HuDs!"
+  - rscdel: "the above unfortunately has the consequence of removing the Blindfold reskins from Eyepatch HuDs."

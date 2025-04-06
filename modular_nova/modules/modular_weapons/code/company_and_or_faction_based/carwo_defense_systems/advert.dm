@@ -7,12 +7,11 @@
 /obj/structure/sign/poster/official/carwo_grenade/examine_more(mob/user)
 	. = ..()
 
-	. += "Small text details that certain types of grenades may not be available in your \
+	. += "<i>Small text details that certain types of grenades may not be available in your \
 		region depending on local weapons regulations. Suspiciously, however, if you squint at \
 		it a bit, the background colors of the image come together vaguely in the shape of \
-		a computer board and a multitool. What did they mean by this?"
-
-	return .
+		a computer board and a multitool.<br><br>\
+		What did they mean by this?</i>"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/carwo_grenade, 32)
 
@@ -26,11 +25,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/carwo_grenade, 3
 /obj/structure/sign/poster/official/carwo_magazine/examine_more(mob/user)
 	. = ..()
 
-	. += "Small text details that certain types of magazines may not be available in your \
+	. += "<i>Small text details that certain types of magazines may not be available in your \
 		region depending on local weapons regulations. Suspiciously, however, if you squint at \
 		it a bit, the background colors of the image come together vaguely in the shape of \
-		a computer board and a multitool. What did they mean by this?"
-
-	return .
+		a computer board and a multitool.<br><br>\
+		What did they mean by this?</i>"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/carwo_magazine, 32)

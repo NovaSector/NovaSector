@@ -1526,16 +1526,6 @@
 	if(!LAZYLEN(unique_reskin))
 		return
 
-	/// Is the obj a glasses icon with swappable item states?
-	var/is_swappable = FALSE
-	/// if the item are glasses, this variable stores the item.
-	var/obj/item/clothing/glasses/reskinned_glasses
-
-	if(istype(src, /obj/item/clothing/glasses)) // TODO - Remove this mess about glasses, it shouldn't be necessary anymore.
-		reskinned_glasses = src
-		if(reskinned_glasses.can_switch_eye)
-			is_swappable = TRUE
-
 	var/list/items = list()
 
 
@@ -1555,11 +1545,7 @@
 		icon = unique_reskin[pick][RESKIN_ICON]
 
 	if(unique_reskin[pick][RESKIN_ICON_STATE])
-		if(is_swappable)
-			base_icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
-			icon_state = base_icon_state
-		else
-			icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
+		icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
 
 	if(unique_reskin[pick][RESKIN_WORN_ICON])
 		worn_icon = unique_reskin[pick][RESKIN_WORN_ICON]
@@ -1688,6 +1674,8 @@
 
 	var/image/attack_image = image(icon = used_item)
 	attack_image.plane = attacked_atom.plane + 1
+	attack_image.pixel_w = used_item.base_pixel_x + used_item.base_pixel_w
+	attack_image.pixel_z = used_item.base_pixel_y + used_item.base_pixel_z
 	// Scale the icon.
 	attack_image.transform *= 0.5
 	// The icon should not rotate.

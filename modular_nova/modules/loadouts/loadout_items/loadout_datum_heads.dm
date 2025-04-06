@@ -142,6 +142,10 @@
 *	FEDORAS
 */
 
+/datum/loadout_item/head/greyscale_fedora
+	name = "Recolorable Fedora"
+	item_path = /obj/item/clothing/head/fedora/greyscale
+
 /datum/loadout_item/head/black_fedora
 	name = "Black Fedora"
 	item_path = /obj/item/clothing/head/fedora
