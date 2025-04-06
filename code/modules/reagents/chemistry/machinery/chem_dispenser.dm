@@ -70,7 +70,6 @@
 		/datum/reagent/iodine,
 		/datum/reagent/iron,
 		/datum/reagent/lithium,
-		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry quirk
 		/datum/reagent/mercury,
 		/datum/reagent/nitrogen,
 		/datum/reagent/oxygen,
@@ -85,6 +84,7 @@
 		/datum/reagent/toxin/acid,
 		/datum/reagent/water,
 		/datum/reagent/fuel,
+		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry quirk
 	)
 
 	//NOVA EDIT CHANGE BEGIN - ORIGINAL
@@ -838,7 +838,6 @@
 		/datum/reagent/iodine,
 		/datum/reagent/iron,
 		/datum/reagent/lithium,
-		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry
 		/datum/reagent/mercury,
 		/datum/reagent/nitrogen,
 		/datum/reagent/oxygen,
@@ -868,6 +867,7 @@
 		/datum/reagent/uranium,
 		/datum/reagent/consumable/liquidelectricity/enriched,
 		/datum/reagent/medicine/c2/synthflesh
+		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry quirk
 	)
 
 /obj/machinery/chem_dispenser/abductor/Initialize(mapload)
