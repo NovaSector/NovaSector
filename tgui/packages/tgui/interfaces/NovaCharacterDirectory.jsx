@@ -88,6 +88,13 @@ export const NovaCharacterDirectory = (props) => {
     setOverlay(character);
   };
 
+  // For hack to get the view to show up correctly
+  // See MedicalRecords/RecordTabs.tsx for explanation
+  const [viewCreated, setViewCreated] = useState(false);
+  const updateViewCreated = (created) => {
+    setViewCreated(created);
+  };
+
   const [searchTerm, setSearchTerm] = useState(startViewing || '');
   const updateSearchTerm = (character) => {
     setSearchTerm(character);
@@ -112,6 +119,8 @@ export const NovaCharacterDirectory = (props) => {
       <Window.Content scrollable>
         {(overlay && (
           <ViewCharacter
+            viewCreated={setViewCreated}
+            setViewCreated={setViewCreated}
             overlay={overlay}
             updateOverlay={updateOverlay}
             assignedView={assignedView}
@@ -146,7 +155,8 @@ export const NovaCharacterDirectory = (props) => {
               </LabeledList>
             </Section>
             <CharacterDirectoryList
-              overlay={overlay}
+              viewCreated={viewCreated}
+              setViewCreated={setViewCreated}
               updateOverlay={updateOverlay}
               searchTerm={searchTerm}
               updateSearchTerm={updateSearchTerm}
@@ -271,6 +281,8 @@ const ViewCharacter = (props) => {
 const CharacterDirectoryList = (props) => {
   const { act, data } = useBackend();
   const {
+    viewCreated,
+    setViewCreated,
     updateOverlay,
     searchTerm,
     updateSearchTerm,
@@ -297,6 +309,16 @@ const CharacterDirectoryList = (props) => {
     if (directory.length > 0) {
       const randomIndex = Math.floor(Math.random() * directory.length);
       const randomCharacter = directory[randomIndex];
+      // See MedicalRecords/RecordTabs.tsx for explanation
+      if (!viewCreated) {
+        setTimeout(() => {
+          act('view_character', {
+            assigned_view: assignedView,
+            name: randomCharacter.appearance_name,
+          });
+        });
+      }
+      setViewCreated(true);
       updateOverlay(randomCharacter);
       act('view_character', {
         assigned_view: assignedView,
@@ -456,6 +478,16 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell collapsing textAlign="right">
               <Button
                 onClick={() => {
+                  // See MedicalRecords/RecordTabs.tsx for explanation
+                  if (!viewCreated) {
+                    setTimeout(() => {
+                      act('view_character', {
+                        assigned_view: assignedView,
+                        name: character.appearance_name,
+                      });
+                    });
+                  }
+                  setViewCreated(true);
                   updateOverlay(character);
                   act('view_character', {
                     assigned_view: assignedView,

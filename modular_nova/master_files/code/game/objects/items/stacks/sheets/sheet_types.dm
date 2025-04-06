@@ -133,6 +133,7 @@ GLOBAL_LIST_INIT(nova_leather_belt_recipes, list(
 	new/datum/stack_recipe("gear harness", /obj/item/clothing/under/misc/nova/gear_harness, 6, category = CAT_CLOTHING),
 	new/datum/stack_recipe("ammo pouch", /obj/item/storage/pouch/ammo, 4, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("cowboy belt (thigh holster)", /obj/item/storage/belt/holster/cowboy, 3, crafting_flags = NONE, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("thigh satchel (black belt)", /obj/item/storage/belt/thigh_satchel, 3, crafting_flags = NONE, category = CAT_CONTAINERS),
 	new/datum/stack_recipe_list("saddles", list(
 		new/datum/stack_recipe("riding saddle (normal)", /obj/item/riding_saddle/leather, 5, category = CAT_CLOTHING),
 		new/datum/stack_recipe("riding saddle (peacekeeper)", /obj/item/riding_saddle/leather/peacekeeper, 5, category = CAT_CLOTHING),
@@ -163,6 +164,16 @@ GLOBAL_LIST_INIT(nova_snow_recipes, list(
 /obj/item/stack/sheet/mineral/snow/get_main_recipes()
 	. = ..()
 	. += GLOB.nova_snow_recipes
+
+// Plastic
+
+GLOBAL_LIST_INIT(nova_plastic_recipes, list(
+	new /datum/stack_recipe("cone collar", /obj/item/clothing/head/cone_of_shame, time = 1 SECONDS, category = CAT_CLOTHING),
+))
+
+/obj/item/stack/sheet/plastic/get_main_recipes()
+	. = ..()
+	. += GLOB.nova_plastic_recipes
 
 // Sand
 

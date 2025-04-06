@@ -1,0 +1,62 @@
+2025-04-02:
+  Blackjack (Syndie Maid):
+  - balance: adding nunchuks to traitor uplink (7 TC) and opfor, tweak stats to TG
+      values.
+  Hardly:
+  - spellcheck: Fixes some misspellings ashwalkers clothing descriptions
+  Iajret:
+  - balance: Added fake identity kit to midround contractor loadout
+2025-04-03:
+  Bannhammger:
+  - rscadd: Black market has acquired influx of various gear maybe illegal
+  Opalite Industries:
+  - qol: Teshari now can properly wear TinyPacks.
+  - rscadd: Added teshari sprites for "Waistpack", "Chest Pack", and "BeltPack".
+  OrionTheFox:
+  - image: updated the Digitigrade sprites for formal suits (such as the lawyer suits)
+      to match TG. If you find an error, please make a bug report!
+  - image: 'A whole list of icons have been set back to TG due to resprites improving
+      quality: the E.X.P.E.R.I-MENTOR, Buckets/Wooden Buckets, Emergency Medkits (in
+      O2 Lockers), and all the remaining overridden Atmospherics wall-mounts.'
+  - image: A few Box drawings have been updated, and the fishing boxes now have modular
+      drawings so they don't revert back to TG's box icons.
+  RealWinterFrost:
+  - rscadd: Added new "Katyusha" magfed shotgun to blueshield's arsenal
+  - rscadd: Added "Katyusha" shotgun mags to be craftable at security lathe
+  - rscadd: Added new "Shitzu" magfed shotgun to OPFOR Application
+  - rscadd: Added new civilian "Jager" magfed shotgun
+  - image: added new gunbeacon sprite for blueshield & ntc replacing the generic one
+      in code.
+  - image: added new sprites for Katyusha, Jager, and Shitzu shotguns and respective
+      mags.
+2025-04-04:
+  RealWinterFrost:
+  - sound: modifies Lizard plush to "Weh" instead of making scratching noises
+  vinylspiders:
+  - image: Makes the TG fish infusion sprites available as round selection tails
+2025-04-05:
+  FlufflesTheDog:
+  - bugfix: Voice actor and oversized now work properly in the ghost cafe
+  Hatterhat:
+  - bugfix: Mining MODsuits no longer erroneously slow you down when fully ashed.
+  RealWinterFrost:
+  - bugfix: Gives the corrected schematics to the security lathe for the "Katyusha
+      Magfed shotgun"
+  - bugfix: Anchors and neutralizes a bluespace anomaly involving the "Jager" shotgun
+      magazine's ammo not being percieved correctly.
+  sqnztb:
+  - rscadd: 'A new smite for your friendly admins to use on player: The Cone of Shame!'
+2025-04-06:
+  Zergspower:
+  - bugfix: fixes the loadout guncase from giving you a free makarov and ammo and
+      replaces it with the right guncase
+  chestlet:
+  - code_imp: We've noticed that the Radioscopical Bluespace Reactor Mark Two blueprints
+      provided to frontier stations came with antiquated firmware. This issue has
+      been rectified. (Significant rework of the RB-MK2 GUI)
+  - bugfix: Corrected micromole math in the RB-MK2.
+  - admin: Improved RB-MK2 logging so admins have a full trace of exactly what happened
+      with it.
+  wivernshy:
+  - rscadd: 'Makes 3 unused ears usable: Possum, lunasune, and hawk'
+  - image: Colorable alts of the default cat ears
