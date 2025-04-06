@@ -367,7 +367,7 @@
 		///there are still licing mobs inside that item. Stop, don't sell it ffs.
 		if(locate(/mob/living) in item_on_pad.get_all_contents())
 			continue
-		export_item_and_contents(item_on_pad, apply_elastic = FALSE, dry_run = dry_run, delete_unsold = FALSE, external_report = report, ignore_typecache = nosell_typecache, export_market = EXPORT_MARKET_PIRACY)
+		export_item_and_contents(item_on_pad, apply_elastic = FALSE, dry_run = dry_run, delete_unsold = FALSE, external_report = report, ignore_typecache = nosell_typecache, export_market = EXPORT_MARKET_STATION) // NOVA SECTOR EDIT - FIXES DS2/DYNE EXPORTS
 	return report
 
 /// Prepares to sell the items on the pad
@@ -402,7 +402,7 @@
 	deltimer(sending_timer)
 
 /datum/export/pirate
-	sales_market = EXPORT_MARKET_PIRACY
+	sales_market = EXPORT_MARKET_STATION // NOVA SECTOR EDIT - FIXES DS2/DYNE EXPORTS
 
 /// Attempts to find the thing on station
 /datum/export/pirate/proc/find_loot()
