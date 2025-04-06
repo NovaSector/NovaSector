@@ -33,8 +33,6 @@
 /datum/quirk/blooddeficiency/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	update_mail(new_species = human_holder.dna.species)
-
-/datum/quirk/blooddeficiency/post_add()
 	RegisterSignal(quirk_holder, COMSIG_SPECIES_GAIN, PROC_REF(update_mail))
 
 /datum/quirk/blooddeficiency/proc/update_mail(datum/source, datum/species/new_species, datum/species/old_species, pref_load, regenerate_icons)
@@ -50,6 +48,6 @@
 		return
 
 	for(var/obj/item/reagent_containers/blood/blood_bag as anything in typesof(/obj/item/reagent_containers/blood))
-		if(initial(blood_bag.blood_type) == blood_type.name)
+		if(blood_bag::blood_type == blood_type.name)
 			mail_goodies = list(blood_bag)
 			return
