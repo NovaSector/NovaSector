@@ -371,14 +371,14 @@
 /mob/proc/can_see_visible_message(atom/source)
 	if(see_invisible < source.invisibility)
 		return FALSE
-	var/turf/our_turf = get_turf(src)
-	if(our_turf != source.loc && our_turf != source)
+	var/turf/source_turf = get_turf(source)
+	if(source_turf != source.loc && source_turf != source)
 		if(src != source.loc)
 			return FALSE
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_HEAR_THROUGH_DARKNESS))
 		return TRUE
-	if(lighting_cutoff < LIGHTING_CUTOFF_HIGH && our_turf.is_softly_lit() && !in_range(our_turf, src))
+	if(lighting_cutoff < LIGHTING_CUTOFF_HIGH && source_turf.is_softly_lit() && !in_range(source_turf, src))
 		return FALSE
 	return TRUE
 

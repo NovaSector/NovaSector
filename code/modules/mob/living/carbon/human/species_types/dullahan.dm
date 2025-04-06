@@ -57,6 +57,7 @@
 	eyes.eye_color_right = human.eye_color_right
 	eyes.bodypart_insert(head)
 	human.update_body()
+	head.update_limb()
 	head.update_icon_dropped()
 	RegisterSignal(head, COMSIG_QDELETING, PROC_REF(on_head_destroyed))
 
@@ -228,11 +229,17 @@
 	RegisterSignal(owner, COMSIG_CLICK_SHIFT, PROC_REF(examinate_check))
 	RegisterSignal(owner, COMSIG_CARBON_REGENERATE_LIMBS, PROC_REF(unlist_head))
 	RegisterSignal(owner, COMSIG_LIVING_REVIVE, PROC_REF(retrieve_head))
-	RegisterSignal(owner, COMSIG_HUMAN_PREFS_APPLIED, PROC_REF(update_prefs_name))
+	RegisterSignal(owner, COMSIG_HUMAN_PREFS_APPLIED, PROC_REF(on_prefs_loaded))
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/dullahan_relay/Destroy()
 	lose_hearing_sensitivity(ROUNDSTART_TRAIT)
+	if(!QDELETED(owner))
+		var/mob/living/carbon/human/human = owner
+		if(isdullahan(human))
+			var/datum/species/dullahan/dullahan_species = human.dna.species
+			dullahan_species.my_head = null
+			owner.gib(DROP_ALL_REMAINS)
 	owner = null
 	return ..()
 
@@ -243,15 +250,18 @@
 	return PROCESS_KILL
 
 /// Updates our names after applying name prefs
-/obj/item/dullahan_relay/proc/update_prefs_name(mob/living/carbon/human/wearer)
+/obj/item/dullahan_relay/proc/on_prefs_loaded(mob/living/carbon/human/headless)
 	SIGNAL_HANDLER
 	var/obj/item/bodypart/head/detached_head = loc
 	if (!istype(detached_head))
 		return // It's so over
-	detached_head.real_name = wearer.real_name
-	detached_head.name = wearer.real_name
+	detached_head.real_name = headless.real_name
+	detached_head.name = headless.real_name
 	var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in detached_head
-	brain.name = "[wearer.name]'s brain"
+	brain.name = "[headless.name]'s brain"
+
+	detached_head.copy_appearance_from(headless)
+	detached_head.update_icon_dropped()
 
 /obj/item/dullahan_relay/proc/examinate_check(mob/user, atom/source)
 	SIGNAL_HANDLER
@@ -284,14 +294,3 @@
 	var/turf/body_turf = get_turf(owner)
 	if(head && istype(head) && body_turf && !(head in owner.get_all_contents()))
 		head.forceMove(body_turf)
-
-/obj/item/dullahan_relay/Destroy()
-	if(!QDELETED(owner))
-		var/mob/living/carbon/human/human = owner
-		if(isdullahan(human))
-			var/datum/species/dullahan/dullahan_species = human.dna.species
-			dullahan_species.my_head = null
-			owner.gib(DROP_ALL_REMAINS)
-	owner = null
-	return ..()
-
