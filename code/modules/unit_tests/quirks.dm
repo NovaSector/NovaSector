@@ -58,7 +58,7 @@
 	var/datum/quirk/blooddeficiency/quirk = dummy.get_quirk(/datum/quirk/blooddeficiency)
 
 	TEST_ASSERT((species_to_test[dummy.dna.species.type] in quirk.mail_goodies), "Blood deficiency quirk did not get the right blood bag in its mail goodies for [dummy.dna.species.type]! \
-		It should be getting species_to_test[dummy.dna.species.type]."
+		It should be getting species_to_test[dummy.dna.species.type]." \
 	)
 
 	for(var/species_type in species_to_test)
