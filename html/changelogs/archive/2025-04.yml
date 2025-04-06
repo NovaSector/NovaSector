@@ -46,3 +46,17 @@
       magazine's ammo not being percieved correctly.
   sqnztb:
   - rscadd: 'A new smite for your friendly admins to use on player: The Cone of Shame!'
+2025-04-06:
+  Zergspower:
+  - bugfix: fixes the loadout guncase from giving you a free makarov and ammo and
+      replaces it with the right guncase
+  chestlet:
+  - code_imp: We've noticed that the Radioscopical Bluespace Reactor Mark Two blueprints
+      provided to frontier stations came with antiquated firmware. This issue has
+      been rectified. (Significant rework of the RB-MK2 GUI)
+  - bugfix: Corrected micromole math in the RB-MK2.
+  - admin: Improved RB-MK2 logging so admins have a full trace of exactly what happened
+      with it.
+  wivernshy:
+  - rscadd: 'Makes 3 unused ears usable: Possum, lunasune, and hawk'
+  - image: Colorable alts of the default cat ears
