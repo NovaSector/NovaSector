@@ -40,12 +40,12 @@
 	// Synth fuels only work on robotic mobs
 	if(!(affected_mob.mob_biotypes & MOB_ROBOTIC))
 		return FALSE
-	// Synth fuels only work with the synthetic bio-reactor
+	// Synth fuels only work with the synthetic fuel cell
 	if(!istype(affected_mob.get_organ_slot(ORGAN_SLOT_STOMACH), /obj/item/organ/stomach/synth))
 		return FALSE
 	return TRUE
 
-// Fuels for the synthetic bio-reactor
+// Fuels for the synthetic fuel cell
 /datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/affected_mob)
 	if(can_fuel_synth(affected_mob))
 		affected_mob.nutrition = min(affected_mob.nutrition + 5, NUTRITION_LEVEL_FULL-1)
