@@ -152,7 +152,7 @@
 	var/icon/brother2_icon = render_preview_outfit(/datum/outfit/job/scientist/consistent, brother2)
 	var/icon/brother2_blood_icon = icon('icons/effects/blood.dmi', "uniformblood")
 	brother2_blood_icon.Blend("#FF291E", ICON_MULTIPLY)
-	brother1_icon.Blend(brother2_blood_icon, ICON_OVERLAY)
+	brother2_icon.Blend(brother2_blood_icon, ICON_OVERLAY)
 	brother2_icon.Shift(EAST, 8)
 
 	var/icon/final_icon = brother1_icon
