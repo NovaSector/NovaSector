@@ -866,7 +866,7 @@
 		/datum/reagent/toxin/plasma,
 		/datum/reagent/uranium,
 		/datum/reagent/consumable/liquidelectricity/enriched,
-		/datum/reagent/medicine/c2/synthflesh
+		/datum/reagent/medicine/c2/synthflesh, // NOVA EDIT CHANGE
 		/datum/reagent/manganese, // NOVA EDIT ADDITION - Unusual biochemistry quirk
 	)
 
