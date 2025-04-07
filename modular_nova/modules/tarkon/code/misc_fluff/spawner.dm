@@ -197,7 +197,7 @@
 	computer_area = /area/ruin/space/has_grav/port_tarkon
 
 /datum/outfit/tarkon/director //Look at me, I'm the director now.
-	name = "Port Tarkon Ensigns Outfit"
+	name = "Port Tarkon Directors Outfit"
 	uniform = /obj/item/clothing/under/tarkon/com
 	ears = /obj/item/radio/headset/tarkon/command
 	id = /obj/item/card/id/advanced/tarkon/director

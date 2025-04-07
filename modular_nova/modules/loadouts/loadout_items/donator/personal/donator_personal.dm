@@ -827,7 +827,6 @@
 /datum/loadout_item/toys/delphic_synth
 	name = "Surgery Synth Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
-	ckeywhitelist = list("sciamach")
 
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
@@ -952,3 +951,9 @@
 	name = "Heirloom Dress"
 	item_path = /obj/item/clothing/under/dress/heirloomdagmar
 	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/pocket_items/ahabs_spear
+	name = "Ahab's Spear Retool Kit"
+	item_path = /obj/item/crusher_trophy/retool_kit/ahab
+	ckeywhitelist = list("tamaya")
+	restricted_roles = list(JOB_SHAFT_MINER)

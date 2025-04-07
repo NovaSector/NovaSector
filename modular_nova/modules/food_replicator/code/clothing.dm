@@ -69,6 +69,7 @@
 	icon = 'modular_nova/modules/food_replicator/icons/clothing.dmi'
 	worn_icon = 'modular_nova/modules/food_replicator/icons/clothing_worn.dmi'
 	icon_state = "accessory_webbing"
+	attachment_slot = NONE
 
 /obj/item/clothing/accessory/colonial_webbing/Initialize(mapload)
 	. = ..()
