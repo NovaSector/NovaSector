@@ -15,6 +15,8 @@
 	obj_damage = 45
 	melee_damage_lower = 25
 	melee_damage_upper = 30
+	poison_per_bite = 1.5
+	poison_type = /datum/reagent/toxin/hunterspider
 	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
@@ -33,7 +35,7 @@
 /mob/living/basic/spider/giant/webslinger/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 	AddComponent(/datum/component/seethrough_mob)
 	AddComponent(/datum/component/appearance_on_aggro, alpha_on_aggro = 255, alpha_on_deaggro = alpha)
@@ -71,7 +73,6 @@
 	gender = FEMALE
 	maxHealth = 175
 	health = 175
-
 	melee_damage_lower = 8
 	melee_damage_upper = 8
 	poison_per_bite = 2
@@ -91,7 +92,7 @@
 /mob/living/basic/spider/giant/voltaic/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 /**
  * ### Pit Spider
@@ -137,7 +138,7 @@
 	web_solid.Grant(src)
 
 	AddElement(/datum/element/wall_tearer)
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 /**
  * ### Ogre Spider
@@ -154,8 +155,8 @@
 	maxHealth = 600 // hah fat
 	health = 600
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
-	poison_per_bite = 1
-	poison_type = /datum/reagent/toxin/hunterspider
+	poison_per_bite = 1.5
+	poison_type = /datum/reagent/toxin/viperspider
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	obj_damage = 15
@@ -238,7 +239,7 @@
 /mob/living/basic/spider/giant/carrier/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 
 /**
@@ -254,8 +255,8 @@
 	icon_living = "baron"
 	icon_dead = "baron_dead"
 	gender = MALE
-	maxHealth = 1750
-	health = 1750
+	maxHealth = 2000
+	health = 2000
 	obj_damage = 200
 	armour_penetration = 50
 	melee_damage_lower = 10
@@ -263,6 +264,7 @@
 	wound_bonus = 30
 	bare_wound_bonus = 60
 	poison_per_bite = 5
+	poison_type = /datum/reagent/toxin/viperspider
 	speed = 3
 	unsuitable_atmos_damage = 0
 	minimum_survivable_temperature = 0
@@ -300,15 +302,56 @@
 	web_solid.Grant(src)
 
 	AddElement(/datum/element/wall_tearer)
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 	AddComponent(/datum/component/seethrough_mob)
 
 	AddComponent(/datum/component/healing_touch,\
 		heal_brute = 50,\
 		heal_burn = 50,\
-		heal_time = 2.5 SECONDS,\
+		heal_time = 3 SECONDS,\
+		self_targeting = HEALING_TOUCH_SELF_ONLY,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
+		extra_checks = CALLBACK(src, PROC_REF(can_mend)),\
 		action_text = "%SOURCE% begins wrapping the wounds of %TARGET% with medicated webs.",\
 		complete_text = "%SOURCE% wraps the wounds of %TARGET%.",\
 	)
+
+/mob/living/basic/spider/giant/baron/proc/can_mend(mob/living/source, mob/living/target)
+	if (on_fire)
+		balloon_alert(src, "can't heal while on fire!")
+		return FALSE
+	return TRUE
+
+/**
+ * ### Badnana Spider
+ * Laugh yourself to death!
+ */
+
+/mob/living/basic/spider/giant/badnana_spider
+	name = "badnana spider"
+	desc = "WHY WOULD GOD ALLOW THIS?!"
+	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
+	icon_state = "badnanaspider" // created by Coldstorm on the Skyrat Discord
+	icon_living = "badnanaspider"
+	icon_dead = "badnanaspider_d"
+	maxHealth = 40
+	health = 40
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	poison_per_bite = 5
+	poison_type = /datum/reagent/toxin/laughjuice
+	speed = 3
+	faction = list(FACTION_SPIDER)
+	ai_controller = /datum/ai_controller/basic_controller/badnana
+	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
+		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
+		/datum/action/cooldown/mob_cooldown/secrete_acid,
+		/datum/action/cooldown/mob_cooldown/web_effigy,
+	)
+
+/mob/living/basic/spider/giant/badnana_spider/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)

@@ -65,7 +65,7 @@
 ///only engage in melee combat against cuffed targets, otherwise keep throwing restraints at them
 /datum/ai_planning_subtree/basic_melee_attack_subtree/webslinger
 	///minimum health our target must be before we can attack them
-	var/minimum_health = 75
+	var/minimum_health = 100
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/webslinger/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
@@ -109,7 +109,7 @@
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
-		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
+		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
 	)
@@ -130,7 +130,7 @@
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
-		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
+		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
 	)
@@ -151,7 +151,7 @@
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
-		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
+		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
 	)
@@ -171,7 +171,7 @@
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
-		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
+		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
 	)
@@ -193,7 +193,32 @@
 		/datum/ai_planning_subtree/targeted_mob_ability/arachnid_restrain,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 		/datum/ai_planning_subtree/find_and_hunt_target/destroy_surveillance/spider,
-		/datum/ai_planning_subtree/random_speech/insect, // Space spiders are taxonomically insects not arachnids, don't DM me
+		/datum/ai_planning_subtree/random_speech/insect,
 		/datum/ai_planning_subtree/find_unwebbed_turf,
 		/datum/ai_planning_subtree/spin_web,
 	)
+
+/**
+ * ### Badnana Spider
+ */
+
+
+/datum/ai_controller/basic_controller/badnana
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/,
+		/datum/ai_planning_subtree/random_speech/insect/laugh,
+		/datum/ai_planning_subtree/find_unwebbed_turf,
+		/datum/ai_planning_subtree/spin_web,
+	)
+
+/datum/ai_planning_subtree/random_speech/insect/laugh
+	speech_chance = 5
+	sound = list('sound/mobs/non-humanoids/insect/chitter.ogg')
+	emote_hear = list("laughs.")
