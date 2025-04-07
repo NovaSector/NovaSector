@@ -20,9 +20,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/supply)
-"i" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/space)
 "j" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/supply)
@@ -50,9 +47,6 @@
 /obj/machinery/power/shuttle_engine/heater,
 /turf/open/floor/plating/airless,
 /area/shuttle/supply)
-"r" = (
-/turf/open/floor/iron/dark/small,
-/area/space)
 "s" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -73,16 +67,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/supply)
-"v" = (
-/obj/machinery/door/airlock/shuttle{
-	name = "Supply Shuttle Airlock"
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/supply)
-"x" = (
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/dark/small,
-/area/space)
 "y" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark/small,
@@ -101,20 +85,13 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/supply)
-"B" = (
-/turf/closed/wall/mineral/titanium,
-/area/space)
-"D" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/dark/textured_large,
-/area/space)
 "E" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
 "H" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
-/turf/open/floor/plating,
-/area/space)
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/supply)
 "I" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8
@@ -196,15 +173,15 @@
 /area/shuttle/supply)
 
 (1,1,1) = {"
-B
-H
-H
-B
+E
+P
+P
+E
 E
 m
-v
+T
 E
-v
+T
 m
 E
 E
@@ -215,10 +192,10 @@ p
 K
 "}
 (2,1,1) = {"
-B
-x
-r
-r
+E
+y
+X
+X
 Z
 e
 t
@@ -234,10 +211,10 @@ E
 j
 "}
 (3,1,1) = {"
-B
-x
-r
-r
+E
+y
+X
+X
 X
 R
 l
@@ -253,10 +230,10 @@ L
 K
 "}
 (4,1,1) = {"
-B
-D
-i
-i
+E
+H
+l
+l
 l
 l
 l
@@ -272,10 +249,10 @@ L
 K
 "}
 (5,1,1) = {"
-B
-x
-r
-r
+E
+y
+X
+X
 X
 R
 l
@@ -291,10 +268,10 @@ L
 K
 "}
 (6,1,1) = {"
-B
-x
-r
-r
+E
+y
+X
+X
 Z
 W
 t
@@ -310,10 +287,10 @@ E
 j
 "}
 (7,1,1) = {"
-B
-H
-H
-B
+E
+P
+P
+E
 E
 z
 T
