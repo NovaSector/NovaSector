@@ -9,7 +9,7 @@
 /obj/structure/water_source/fuel_well/attack_hand(mob/living/user, list/modifiers)
 	flick("puddle-oil-splash", src)
 	reagents.expose(user, TOUCH, 20) //Covers target in 20u of fuel.
-	to_chat(user, span_notice("You touch the pool of fuel, only to get fuel all over yourself. It would be wise to wash this off with water."))
+	to_chat(user, span_warning("You touch the pool of fuel, only to get fuel all over yourself! It would be wise to wash this off with water."))
 
 /obj/structure/water_source/fuel_well/attackby(obj/item/attacking_item, mob/living/user, params)
 	flick("puddle-oil-splash", src)
