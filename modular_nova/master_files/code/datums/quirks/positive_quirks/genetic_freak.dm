@@ -10,7 +10,6 @@ GLOBAL_LIST_INIT(genetic_mutation_choice, list(
 	"Cindikinesis" = /datum/mutation/human/cindikinesis,
 	"Transcendent Olfaction" = /datum/mutation/human/olfaction,
 	"Elastic Arms" = /datum/mutation/human/elastic_arms,
-	"Telepathy" = /datum/mutation/human/telepathy,
 	"Webbing" = /datum/mutation/human/webbing,
 ))
 
