@@ -6119,7 +6119,7 @@
 /area/space/nearstation)
 "bLM" = (
 /obj/effect/turf_decal/weather/snow,
-/obj/structure/table,
+/obj/structure/reagent_dispensers/cooking_oil,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "bLR" = (
