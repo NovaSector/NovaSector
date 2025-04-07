@@ -7,7 +7,7 @@
 	"height_autosetup": 0,
 	"allow_space_when_planetary": 1,
 	"shuttles": {
-		"cargo": "cargo_nova",
+		"cargo": "cargo_oasis",
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_box",
 		"emergency": "emergency_box"
@@ -16,11 +16,12 @@
 		{
 			"Linkage": null,
 			"Gravity": true,
-			"Baseturf": "/turf/open/misc/dirt/forest",
+			"Baseturf": "/turf/open/misc/beach/sand",
 			"No Parallax": true
 		},
 		{
 			"Linkage": "Cross",
+			"Baseturf": "/turf/open/openspace",
 			"Gravity": false,
 			"No Parallax": false
 		}
