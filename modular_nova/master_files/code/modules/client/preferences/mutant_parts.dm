@@ -505,8 +505,8 @@
 /datum/preference/color/mutant/ipc_screen_color/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
 		return FALSE
-	if(preferences.read_preference(/datum/preference/choiced/mutant_choice/ipc_screen/))
-		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ipc_screen/]
+	if(preferences.read_preference(/datum/preference/choiced/mutant_choice/ipc_screen))
+		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ipc_screen]
 		return ipc_screen_pref.is_accessible(preferences) // check if the associated type is even accessible
 
 /datum/preference/toggle/emissive/ipc_screen_emissive
