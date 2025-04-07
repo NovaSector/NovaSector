@@ -22,7 +22,7 @@
 /obj/item/reagent_containers/blood/exotic
 	blood_type = "Exotic"
 
-/datum/supply_pack/medical/bloodpacks
+/datum/supply_pack/medical/bloodpacks/uncommon
 	name = "Uncommon Blood Pack Variety Crate"
 	desc = "Contains ten different uncommmon blood packs for reintroducing blood to patients."
 	cost = CARGO_CRATE_VALUE * 7
