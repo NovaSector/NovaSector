@@ -83,7 +83,7 @@
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
-		))
+	))
 
 /obj/item/storage/belt/holster/detective
 	name = "detective's holster"
@@ -109,7 +109,7 @@
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
-		))
+	))
 
 /obj/item/storage/belt/holster/energy/Initialize(mapload)
 	. = ..()

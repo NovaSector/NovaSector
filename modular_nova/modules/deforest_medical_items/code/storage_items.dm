@@ -32,9 +32,7 @@
 	. = ..()
 	// Make sure we can only hold alifil pills since this is nested inside a symptom support kit
 	atom_storage.max_slots = 5
-	atom_storage.set_holdable(list(
-		/obj/item/reagent_containers/applicator/pill/prescription_stimulant,
-	))
+	atom_storage.set_holdable(/obj/item/reagent_containers/applicator/pill/prescription_stimulant)
 
 /obj/item/storage/pill_bottle/prescription_stimulant/PopulateContents()
 	for(var/i in 1 to 5)
