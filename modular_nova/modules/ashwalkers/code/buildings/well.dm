@@ -16,26 +16,25 @@
 
 /obj/structure/water_source/fuel_well/attackby(obj/item/attacking_item, mob/living/user, params)
 	flick("puddle-oil-splash", src)
-	if(attacking_item.tool_behaviour == TOOL_SHOVEL)
-		to_chat(user, "You fill in [src] with soil.")
-		attacking_item.play_tool_sound(src)
-		deconstruct()
-		return TRUE
+	return ..()
 
-	if(attacking_item.tool_behaviour == TOOL_WELDER)
-		var/obj/item/weldingtool/attacking_welder = attacking_item
-		if(istype(attacking_welder) && !attacking_welder.welding)
-			if(attacking_welder.reagents.has_reagent(/datum/reagent/fuel, attacking_welder.max_fuel))
-				to_chat(user, span_warning("Your [attacking_welder.name] is already full!"))
-				return
+/obj/structure/water_source/fuel_well/shovel_act(mob/living/user, obj/item/tool)
+	to_chat(user, "You fill in [src] with soil.")
+	tool.play_tool_sound(src)
+	deconstruct()
 
-			reagents.trans_to(attacking_welder, attacking_welder.max_fuel, transferred_by = user)
-			user.visible_message(span_notice("[user] refills [user.p_their()] [attacking_welder.name]."), span_notice("You refill [attacking_welder]."))
-			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
-			attacking_welder.update_appearance()
+/obj/structure/water_source/fuel_well/welder_act(mob/living/user, obj/item/tool)
+	var/obj/item/weldingtool/attacking_welder = tool
+	if(istype(attacking_welder) && !attacking_welder.welding)
+		if(attacking_welder.reagents.has_reagent(/datum/reagent/fuel, attacking_welder.max_fuel))
+			to_chat(user, span_warning("Your [attacking_welder.name] is already full!"))
 			return
 
-	return ..()
+		reagents.trans_to(attacking_welder, attacking_welder.max_fuel, transferred_by = user)
+		user.visible_message(span_notice("[user] refills [user.p_their()] [attacking_welder.name]."), span_notice("You refill [attacking_welder]."))
+		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+		attacking_welder.update_appearance()
+		return
 
 /obj/structure/water_source/brick_well
 	name = "brick well"
@@ -81,19 +80,18 @@
 
 	return ..()
 
+/obj/structure/water_source/brick_well/shovel_act(mob/living/user, obj/item/tool)
+	to_chat(user, span_notice("You begin to deconstruct [src]."))
+	tool.play_tool_sound(src)
+	if(!do_after(user, 5 SECONDS, target = src))
+		return
+
+	to_chat(user, span_notice("You deconstruct [src]."))
+	tool.play_tool_sound(src)
+	deconstruct()
+
 //I don't enjoy the fact it is an attackby, but the parent obj uses this proc, so I'm putting the cover check here as well
 /obj/structure/water_source/brick_well/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(attacking_item.tool_behaviour == TOOL_SHOVEL)
-		to_chat(user, span_notice("You begin to deconstruct [src]."))
-		attacking_item.play_tool_sound(src)
-		if(!do_after(user, 5 SECONDS, target = src))
-			return TRUE
-
-		to_chat(user, span_notice("You deconstruct [src]."))
-		attacking_item.play_tool_sound(src)
-		deconstruct()
-		return TRUE
-
 	if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood))
 		if(well_covered)
 			to_chat(user, span_notice("[src] is already covered..."))
