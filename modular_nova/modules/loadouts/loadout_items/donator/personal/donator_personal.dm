@@ -827,7 +827,6 @@
 /datum/loadout_item/toys/delphic_synth
 	name = "Surgery Synth Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
-	ckeywhitelist = list("sciamach")
 
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
