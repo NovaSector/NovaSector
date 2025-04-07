@@ -496,12 +496,19 @@
 
 	return ..()
 
-
 /datum/preference/color/mutant/ipc_screen_color
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_screen_color"
 	relevant_mutant_bodypart = MUTANT_SYNTH_SCREEN
+	type_to_check = /datum/preference/choiced/mutant_choice/ipc_screen
+
+/datum/preference/color/mutant/ipc_screen_color/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[type_to_check]
+		return ipc_screen_pref.is_accessible(preferences) // check if the associated type is even accessible
 
 /datum/preference/toggle/emissive/ipc_screen_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
@@ -510,6 +517,13 @@
 	relevant_mutant_bodypart = MUTANT_SYNTH_SCREEN
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/ipc_screen
+
+/datum/preference/toggle/emissive/ipc_screen_emissive/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[type_to_check]
+		return ipc_screen_pref.is_accessible(preferences) // check if the associated type is even accessible
 
 /// IPC Antennas
 
