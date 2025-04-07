@@ -150,10 +150,8 @@
 
 /obj/item/organ/ashen_armblade/Destroy()
 	QDEL_NULL(summoned_armblade)
-	if(owner)
-		granted_action.Remove(owner)
-	qdel(granted_action)
-	. = ..()
+	QDEL_NULL(granted_action)
+	return ..()
 
 /obj/item/organ/ashen_armblade/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
@@ -219,8 +217,13 @@
 	/// how many trophies we have consumed
 	var/consumed_trophies = 0
 
-	/// the alternate sharpness phrases
+	/// how many trophies we can consume
+	var/max_trophies = 7
+
+	/// the alternate continuous sharpness phrases
 	var/list/alt_continuous = list("stabs", "pierces", "impales")
+
+	/// the alternate simple sharpness phrases
 	var/list/alt_simple = list("stab", "pierce", "impale")
 
 /obj/item/melee/ashen_blade/Initialize(mapload)
@@ -261,7 +264,7 @@
 
 /obj/item/melee/ashen_blade/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/crusher_trophy))
-		if(prob(50)) //50-50 chance of it consuming properly
+		if(prob(25)) //by chance, you should get at least every 3 out of 4 trophies.
 			to_chat(user, span_warning("Your [src] consumes [tool] without benefit!"))
 			qdel(tool)
 			return ITEM_INTERACT_BLOCKING
@@ -275,13 +278,13 @@
 			living_user.adjustBruteLoss(-5)
 			living_user.adjustFireLoss(-5)
 
-		if(consumed_trophies <= 5)
+		if(consumed_trophies <= max_trophies)
 			force += 5
 			armour_penetration += 5
 			wound_bonus += 2
 			bare_wound_bonus += 2
 
-		else if(consumed_trophies == 6) //just so you aren't spammed...
+		else if(consumed_trophies == (max_trophies + 1)) //just so you aren't spammed...
 			to_chat(user, span_warning("[src] can no longer grow stronger!"))
 
 		return ITEM_INTERACT_BLOCKING
