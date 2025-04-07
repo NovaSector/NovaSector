@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - image: "The wespe has been reverted from it's over-top loading system, as it was deemed 'too expensive to keep making'"
