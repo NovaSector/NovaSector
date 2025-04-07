@@ -60,3 +60,18 @@
   wivernshy:
   - rscadd: 'Makes 3 unused ears usable: Possum, lunasune, and hawk'
   - image: Colorable alts of the default cat ears
+2025-04-07:
+  OrionTheFox:
+  - image: removed some (hopefully) unused Glasses/Ears/Belt/Neck icons! Please report
+      any errors!
+  - image: resprited the Modern glasses to actually be as modern as all other glasses.
+  - rscdel: removed a modular version of Eyepatch eye-switching, in favor of TG's
+      (which works with scarred eyes.) Please report any issues with Eyepatches or
+      Eyepatch HuDs!
+  - rscdel: the above unfortunately has the consequence of removing the Blindfold
+      reskins from Eyepatch HuDs.
+  RatFromTheJungle:
+  - image: The wespe has been reverted from it's over-top loading system, as it was
+      deemed 'too expensive to keep making'
+  jjpark-kb:
+  - rscadd: adds the powerator, which allows you to sell power

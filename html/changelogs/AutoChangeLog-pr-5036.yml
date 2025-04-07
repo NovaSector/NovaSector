@@ -1,4 +1,0 @@
-author: "jjpark-kb"
-delete-after: True
-changes:
-  - rscadd: "adds the powerator, which allows you to sell power"
