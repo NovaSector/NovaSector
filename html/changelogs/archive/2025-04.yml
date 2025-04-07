@@ -29,3 +29,49 @@
       in code.
   - image: added new sprites for Katyusha, Jager, and Shitzu shotguns and respective
       mags.
+2025-04-04:
+  RealWinterFrost:
+  - sound: modifies Lizard plush to "Weh" instead of making scratching noises
+  vinylspiders:
+  - image: Makes the TG fish infusion sprites available as round selection tails
+2025-04-05:
+  FlufflesTheDog:
+  - bugfix: Voice actor and oversized now work properly in the ghost cafe
+  Hatterhat:
+  - bugfix: Mining MODsuits no longer erroneously slow you down when fully ashed.
+  RealWinterFrost:
+  - bugfix: Gives the corrected schematics to the security lathe for the "Katyusha
+      Magfed shotgun"
+  - bugfix: Anchors and neutralizes a bluespace anomaly involving the "Jager" shotgun
+      magazine's ammo not being percieved correctly.
+  sqnztb:
+  - rscadd: 'A new smite for your friendly admins to use on player: The Cone of Shame!'
+2025-04-06:
+  Zergspower:
+  - bugfix: fixes the loadout guncase from giving you a free makarov and ammo and
+      replaces it with the right guncase
+  chestlet:
+  - code_imp: We've noticed that the Radioscopical Bluespace Reactor Mark Two blueprints
+      provided to frontier stations came with antiquated firmware. This issue has
+      been rectified. (Significant rework of the RB-MK2 GUI)
+  - bugfix: Corrected micromole math in the RB-MK2.
+  - admin: Improved RB-MK2 logging so admins have a full trace of exactly what happened
+      with it.
+  wivernshy:
+  - rscadd: 'Makes 3 unused ears usable: Possum, lunasune, and hawk'
+  - image: Colorable alts of the default cat ears
+2025-04-07:
+  OrionTheFox:
+  - image: removed some (hopefully) unused Glasses/Ears/Belt/Neck icons! Please report
+      any errors!
+  - image: resprited the Modern glasses to actually be as modern as all other glasses.
+  - rscdel: removed a modular version of Eyepatch eye-switching, in favor of TG's
+      (which works with scarred eyes.) Please report any issues with Eyepatches or
+      Eyepatch HuDs!
+  - rscdel: the above unfortunately has the consequence of removing the Blindfold
+      reskins from Eyepatch HuDs.
+  RatFromTheJungle:
+  - image: The wespe has been reverted from it's over-top loading system, as it was
+      deemed 'too expensive to keep making'
+  jjpark-kb:
+  - rscadd: adds the powerator, which allows you to sell power

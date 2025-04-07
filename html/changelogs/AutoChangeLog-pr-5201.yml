@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - bugfix: "fixes the replica parade jacket not working on digitigrade characters"
