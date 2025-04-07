@@ -522,6 +522,13 @@
 /datum/preference/choiced/mutant_choice/synth_antenna/is_part_enabled(datum/preferences/preferences)
 	return TRUE
 
+/datum/preference/choiced/mutant_choice/synth_antenna/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/species_path = preferences?.read_preference(/datum/preference/choiced/species)
+	if(!ispath(species_path, /datum/species/synthetic)) // This is what we do so it doesn't show up on non-synthetics.
+		return
+
+	return ..()
+
 /datum/preference/tri_color/synth_antenna
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -567,6 +574,13 @@
 
 	return data
 
+/datum/preference/choiced/mutant_choice/synth_chassis/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/species_path = preferences?.read_preference(/datum/preference/choiced/species)
+	if(!ispath(species_path, /datum/species/synthetic)) // This is what we do so it doesn't show up on non-synthetics.
+		return
+
+	return ..()
+
 /datum/preference/color/mutant/synth_chassis
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -601,6 +615,13 @@
 	data[SUPPLEMENTAL_FEATURE_KEY] = "ipc_head_color"
 
 	return data
+
+/datum/preference/choiced/mutant_choice/synth_head/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/species_path = preferences?.read_preference(/datum/preference/choiced/species)
+	if(!ispath(species_path, /datum/species/synthetic)) // This is what we do so it doesn't show up on non-synthetics.
+		return
+
+	return ..()
 
 /datum/preference/color/mutant/synth_head
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
