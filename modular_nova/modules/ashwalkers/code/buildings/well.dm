@@ -7,6 +7,9 @@
 
 //attack hand is for cleaning stuff on the parent obj, and I don't want you cleaning stuff with welding fuel!
 /obj/structure/water_source/fuel_well/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(.)
+		return
 	flick("puddle-oil-splash", src)
 	reagents.expose(user, TOUCH, 20) //Covers target in 20u of fuel.
 	to_chat(user, span_warning("You touch the pool of fuel, only to get fuel all over yourself! It would be wise to wash this off with water."))
