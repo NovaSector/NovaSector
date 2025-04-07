@@ -402,7 +402,7 @@
 	deltimer(sending_timer)
 
 /datum/export/pirate
-	sales_market = EXPORT_MARKET_STATION // NOVA SECTOR EDIT - FIXES DS2/DYNE EXPORTS
+	sales_market = EXPORT_MARKET_PIRACY // NOVA SECTOR EDIT - FIXES DS2/DYNE EXPORTS
 
 /// Attempts to find the thing on station
 /datum/export/pirate/proc/find_loot()
