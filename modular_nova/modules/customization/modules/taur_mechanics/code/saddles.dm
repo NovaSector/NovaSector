@@ -31,16 +31,16 @@
 /obj/item/riding_saddle/leather/Initialize(mapload)
 	. = ..()
 
-/obj/item/riding_saddle/leather/peacekeeper
-	name = "peacekeeper saddle"
+/obj/item/riding_saddle/leather/blue
+	name = "blue riding saddle"
 
-	icon_state = "saddle_sec_item"
-	worn_icon_state = "saddle_sec"
+	icon_state = "saddle_blue_item"
+	worn_icon_state = "saddle_blue"
 
-/obj/item/riding_saddle/leather/peacekeeper/Initialize(mapload)
+/obj/item/riding_saddle/leather/blue/Initialize(mapload)
 	. = ..()
 
-	desc += " This one is painted in peacekeeper livery."
+	desc += " This one is painted in blue and white."
 
 /obj/item/storage/backpack/saddlebags
 	name = "saddlebags"
