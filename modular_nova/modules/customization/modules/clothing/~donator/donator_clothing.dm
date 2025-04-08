@@ -1467,7 +1467,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	desc = "A customized eyepatch with a bright pink HUD floating in front of it. It looks like there's more to it than just an eyepatch, considering the materials it's made of."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/glasses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/eyes.dmi'
-	icon_state = "rosepatch_R"
+	icon_state = "rosepatch"
 	base_icon_state = "rosepatch"
 
 // Donation reward for Cimika
@@ -2191,6 +2191,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
 	greyscale_colors = "#b0c5ff#434343"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
 	. = ..()

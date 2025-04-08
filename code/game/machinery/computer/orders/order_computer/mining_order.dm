@@ -72,11 +72,11 @@
 	if(istype(weapon, /obj/item/mining_voucher))
 		redeem_voucher(weapon, user)
 		return
-	//NOVA EDIT ADDITON BEGIN - SEVA
+	//NOVA EDIT ADDITION BEGIN - SEVA
 	if(istype(weapon, /obj/item/suit_voucher))
 		redeem_suit_voucher(weapon, user)
 		return
-	//NOVA EDIT ADDITON END
+	//NOVA EDIT ADDITION END
 	return ..()
 
 /obj/machinery/computer/order_console/mining/update_icon_state()

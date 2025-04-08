@@ -83,7 +83,7 @@
  * overriden in the cases where `feature_key` is not what we want to use here.
  */
 /datum/bodypart_overlay/mutant/proc/get_feature_key_for_overlay()
-	return feature_key
+	return sprite_datum?.feature_key_override || feature_key
 
 
 /datum/bodypart_overlay/mutant/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
