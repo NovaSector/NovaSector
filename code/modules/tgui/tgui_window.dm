@@ -28,8 +28,6 @@
 
 	var/list/oversized_payloads = list()
 
-	var/list/oversized_payloads = list()
-
 /**
  * public
  *
