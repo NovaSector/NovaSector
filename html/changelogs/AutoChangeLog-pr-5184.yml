@@ -1,6 +1,0 @@
-author: "jjpark-kb"
-delete-after: True
-changes:
-  - rscadd: "added ashen forging tools (check crafting menu)"
-  - rscadd: "added brick well (sandstone and stone stack recipe menu)"
-  - code_imp: "repathed the fuel well to be in line with the brick well"
