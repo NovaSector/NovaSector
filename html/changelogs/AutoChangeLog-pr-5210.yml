@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "security will no longer have to ctrl+click flashbangs during greenshift to use them"
