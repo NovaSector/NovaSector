@@ -134,7 +134,7 @@
 
 /obj/item/clothing/shoes/jackboots/knee
 	name = "knee boots"
-	desc = "Black leather boots that go up to the knee."
+	desc = "A pair of typical Nanotrasen-issue combat jackboots, long enough to reach the wearer's knee. Most commonly worn by commanding officers."
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "kneeboots"
