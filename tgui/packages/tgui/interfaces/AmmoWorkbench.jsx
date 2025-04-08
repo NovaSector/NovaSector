@@ -153,10 +153,9 @@ export const AmmunitionsTab = (props) => {
       </Section>
       {!!hacked && (
         <NoticeBox textAlign="center" color="bad">
-          !WARNING! - WORKBENCH SAFETY PROTOCOLS ARE NOT ENGAGED! MISUSE IS NOT
+          !WARNING! - ARMADYNE SAFETY PROTOCOLS ARE NOT ENGAGED! MISUSE IS NOT
           COVERED UNDER WARRANTY. SOME MUNITION TYPES MAY CONSTITUTE A WAR CRIME
-          IN YOUR AREA. PLEASE CONTACT A CUSTOMER SERVICE REPRESENTATIVE
-          IMMEDIATELY.
+          IN YOUR AREA. PLEASE CONTACT AN ARMADYNE ADMINISTRATOR IMMEDIATELY.
         </NoticeBox>
       )}
     </>
