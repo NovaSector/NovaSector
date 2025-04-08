@@ -63,14 +63,6 @@
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
 
-/obj/item/clothing/shoes/kimshoes
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
-	name = "aerostatic boots"
-	desc = "A brown pair of boots, prim and proper, ready to set off and get a body out of a tree."
-	icon_state = "aerostatic_boots"
-
-
 /obj/item/clothing/shoes/jungleboots
 	name = "jungle boots"
 	desc = "Take me to your paradise, I want to see the Jungle. A brown pair of boots."
