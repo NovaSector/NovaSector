@@ -27,7 +27,7 @@
 	/// bursty bois
 	var/burst_shots
 	/// dead
-	var/death_loot = list()
+	var/list/death_loot
 	/// Loot box
 	var/corpse = /obj/effect/gibspawner/robot
 

@@ -27,7 +27,8 @@
 	/// What gun shoot
 	var/casingtype = /obj/item/ammo_casing/c9mm
 	/// Lootbox
-	var/death_loot = list(
+	var/list/death_loot
+	death_loot = list(
 		/obj/effect/spawner/random/maintenance/three,
 		)
 

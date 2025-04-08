@@ -27,7 +27,7 @@
 	/// What gun shoot
 	var/casingtype = /obj/item/ammo_casing/c9mm
 	/// Lootbox
-	var/list/death_loot = list()
+	var/list/death_loot
 	/// why he dead?
 	var/corpse = /obj/effect/gibspawner/human
 	death_loot = list(
@@ -107,6 +107,15 @@
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/five,
 		)
+
+/mob/living/basic/looter/ranged/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/ranged_attacks,\
+		casing_type = casingtype,\
+		projectile_sound = projectilesound,\
+		cooldown_time = ranged_cooldown,\
+	)
 
 /*
 * Guys i swear it's just a makarov

@@ -28,7 +28,7 @@
 	/// he ded, so what he pop to
 	var/corpse = /obj/effect/gibspawner/human
 	/// Get that LEWT
-	var/death_loot = list()
+	var/list/death_loot
 
 /mob/living/basic/cult/Initialize(mapload)
 	. = ..()
@@ -178,8 +178,6 @@
 /mob/living/basic/cult/magic/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-/mob/living/basic/vox/ranged/Initialize(mapload)
-	. = ..()
 	AddComponent(\
 		/datum/component/ranged_attacks,\
 		casing_type = casingtype,\
@@ -211,7 +209,7 @@
 */
 
 /mob/living/basic/cult/magic/elite/fireball
-	name = "Cult Master"
+	name = "Cult Fire Master"
 	desc = "A cultist with powerful command over blood magic, seeming to be at a much higher rank in the cult."
 	icon_state = "cultelite"
 	icon_living = "cultelite"
