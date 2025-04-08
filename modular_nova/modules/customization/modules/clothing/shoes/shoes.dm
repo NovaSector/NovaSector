@@ -1,8 +1,11 @@
+#define MODULAR_SHOES_ICON 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+#define MODULAR_SHOES_WORN_ICON 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+
 /obj/item/clothing/shoes/wraps
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	name = "gilded leg wraps"
 	desc = "Ankle coverings. These ones have a golden design."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "gildedcuffs"
 	body_parts_covered = FALSE
 
@@ -22,8 +25,8 @@
 	icon_state = "bluecuffs"
 
 /obj/item/clothing/shoes/cowboy/laced/recolorable
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "cowboy_greyscale"
 	greyscale_colors = "#412e22#daeeee"
 	greyscale_config = /datum/greyscale_config/cowboy_boots
@@ -32,10 +35,10 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/high_heels
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	name = "high heels"
 	desc = "A fancy pair of high heels. Won't compensate for your below average height that much."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "heels"
 	greyscale_config = /datum/greyscale_config/heels
 	greyscale_config_worn = /datum/greyscale_config/heels/worn
@@ -50,9 +53,9 @@
 /obj/item/clothing/shoes/fancy_heels
 	name = "fancy heels"
 	desc = "A pair of fancy high heels that are much smaller on your feet."
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "fancyheels"
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	greyscale_colors = "#FFFFFF"
 	greyscale_config = /datum/greyscale_config/fancyheels
 	greyscale_config_worn = /datum/greyscale_config/fancyheels/worn
@@ -66,8 +69,8 @@
 /obj/item/clothing/shoes/jungleboots
 	name = "jungle boots"
 	desc = "Take me to your paradise, I want to see the Jungle. A brown pair of boots."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "jungle"
 	inhand_icon_state = "jackboots"
 	strip_delay = 30
@@ -82,8 +85,8 @@
 /obj/item/clothing/shoes/jackboots/black
 	name = "dark jackboots"
 	desc = "Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time. These are fully black."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "blackjack"
 
 /obj/item/clothing/shoes/wraps/cloth
@@ -111,30 +114,30 @@
 /obj/item/clothing/shoes/sports
 	name = "sport shoes"
 	desc = "Shoes for the sporty individual. The giants of Charlton play host to the titans of Ipswich - making them both seem normal sized."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "sportshoe"
 
 /obj/item/clothing/shoes/jackboots/knee
 	name = "knee boots"
 	desc = "A pair of typical Nanotrasen-issue combat jackboots, long enough to reach the wearer's knee. Most commonly worn by commanding officers."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "kneeboots"
 
 /obj/item/clothing/shoes/jackboots/timbs
 	name = "fashionable boots"
 	desc = "Fresh from Luna, deadass good for rappers."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "timbs"
 	fastening_type = SHOES_LACED
 
 /obj/item/clothing/shoes/jackboots/duckboots
 	name = "northeastern duck boots"
 	desc = "A sturdy pair of winter boots. A cowhide top stitched to a rubber bottom provides unparalleled water resistance, while the tread pattern ensures high grip in rough terrain."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "duckboots"
 	fastening_type = SHOES_LACED
 
@@ -161,8 +164,8 @@
 /obj/item/clothing/shoes/clown_shoes/pink
 	name = "pink clown shoes"
 	desc = "A particularly pink pair of punny shoes."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	icon = MODULAR_SHOES_ICON
+	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "pink_clown_shoes"
 
 //Modular overide to give jackboots laces
