@@ -20,7 +20,7 @@
 	base_icon_state = "spikewall_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	caliber = CALIBER_SHOTGUN
-	max_ammo = 16
+	max_ammo = 12
 	casing_phrasing = "shell"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
