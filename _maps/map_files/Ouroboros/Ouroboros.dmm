@@ -19446,7 +19446,7 @@
 /turf/open/floor/iron/small,
 /area/station/science/robotics/lab)
 "fIC" = (
-/mob/living/simple_animal/hostile/looter,
+/mob/living/basic/looter,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/spawner/random/mod/maint,
 /obj/effect/spawner/random/mod/maint{
@@ -62417,7 +62417,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "sfh" = (
-/mob/living/simple_animal/hostile/evilborg/roomba,
+/mob/living/basic/evilborgs/evilborg/roomba,
 /obj/structure/cable,
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/iron,
