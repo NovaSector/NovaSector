@@ -12,6 +12,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	speed = 2.5
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	faction = list(FACTION_HOSTILE)

@@ -12,6 +12,8 @@
 	health = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 	attack_verb_continuous = "punches"
 	attack_verb_simple = "punch"
 	attack_sound = 'sound/items/weapons/punch1.ogg'

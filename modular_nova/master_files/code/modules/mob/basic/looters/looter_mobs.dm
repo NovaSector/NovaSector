@@ -5,6 +5,8 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "scavpipe"
 	icon_living = "scavpipe"
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	sentience_type = SENTIENCE_HUMANOID
 	gender = NEUTER
 	basic_mob_flags = DEL_ON_DEATH
 	maxHealth = 125
@@ -129,6 +131,8 @@
 	projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	casingtype = /obj/item/ammo_casing/shotgun/buckshot
 	ai_controller = /datum/ai_controller/basic_controller/looter/ranged
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 
 /mob/living/basic/looter/ranged/space/Initialize(mapload)
 	. = ..()

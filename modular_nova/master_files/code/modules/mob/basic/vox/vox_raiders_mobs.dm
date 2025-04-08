@@ -4,6 +4,8 @@
 	name = "Vox Raider"
 	desc = "Vox are typically one of two things. Shady traders or hostile raiders. This one seems to be pretty hostile."
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	sentience_type = SENTIENCE_HUMANOID
 	icon_state = "vox"
 	icon_living = "vox"
 	icon_dead = "voxdead"
@@ -34,7 +36,8 @@
 
 /mob/living/basic/vox/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/death_drops, death_loot)
+		death_loot = string_list(death_loot)
+		AddElement(/datum/element/death_drops, death_loot)
 
 /*
 * Vox Slappies
@@ -109,6 +112,8 @@
 	icon_living = "voxspace"
 	icon_dead = "voxspacedead"
 	projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
 	death_loot = list(
 		/obj/effect/spawner/random/maintenance/five,
 		)
