@@ -63,13 +63,6 @@
 	. = ..()
 	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
 
-/obj/item/clothing/shoes/discoshoes
-	name = "green snakeskin shoes"
-	desc = "They may have lost some of their lustre over the years, but these green crocodile leather shoes fit you perfectly."
-	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
-	icon_state = "lizardskin_shoes"
-
 /obj/item/clothing/shoes/kimshoes
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'

@@ -193,7 +193,7 @@
 	item_path = /obj/item/clothing/shoes/fancy_heels
 
 /datum/loadout_item/shoes/disco
-	name = "Green Snakeskin Shoes"
+	name = "Green Lizardskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
 /datum/loadout_item/shoes/kim
