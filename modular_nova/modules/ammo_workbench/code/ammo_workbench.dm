@@ -5,6 +5,8 @@
 	icon_state = "ammobench"
 	density = TRUE
 	use_power = IDLE_POWER_USE
+	// active power usage taken from autolathes
+	active_power_usage = 0.025 * STANDARD_CELL_RATE
 	circuit = /obj/item/circuitboard/machine/ammo_workbench
 	var/busy = FALSE
 	var/error_message = ""
@@ -68,7 +70,7 @@
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>\
-		Material consumption at <b>[creation_efficiency*100]%</b>.")
+			Material consumption at <b>[creation_efficiency*100]%</b>.")
 
 /obj/machinery/ammo_workbench/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -148,11 +150,11 @@
 	var/datum/component/material_container/mat_container = GetComponent(/datum/component/material_container)
 	if (mat_container)
 		for(var/mat in mat_container.materials)
-			var/datum/material/M = mat
-			var/amount = mat_container.materials[M]
+			var/datum/material/material = mat
+			var/amount = mat_container.materials[material]
 			var/sheet_amount = amount / SHEET_MATERIAL_AMOUNT
-			var/ref = REF(M)
-			data["materials"] += list(list("name" = M.name, "id" = ref, "amount" = sheet_amount))
+			var/ref = REF(material)
+			data["materials"] += list(list("name" = material.name, "id" = ref, "amount" = sheet_amount))
 
 	if(error_message)
 		data["error"] = error_message
@@ -188,9 +190,11 @@
 	. = ..()
 	if(.)
 		return
+	if(!isliving(usr))
+		return
 	switch(action)
 		if("EjectMag")
-			eject_ammobox()
+			eject_ammobox(usr)
 			. = TRUE
 
 		if("FillMagazine")
@@ -228,7 +232,7 @@
 			loadDisk()
 
 		if("EjectDisk")
-			eject_disk()
+			eject_disk(usr)
 
 		if("turboBoost")
 			toggle_turbo_boost()
@@ -288,7 +292,7 @@
 		return
 
 	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
-		error_message = "Hardware module licensing insufficient!"
+		error_message = "Fabrication module license insufficient for chosen ammo type; reauthenticate module or change selected munition type."
 		error_type = "bad"
 		return
 
@@ -316,7 +320,7 @@
 		return
 
 	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
-		error_message = "Hardware module licensing insufficient!"
+		error_message = "Fabrication module license insufficient for chosen ammo type; reauthenticate module or change selected munition type!"
 		error_type = "bad"
 		ammo_fill_finish(FALSE)
 		return
@@ -392,9 +396,9 @@
 	disk_error_type = "good"
 	return TRUE
 
-/obj/machinery/ammo_workbench/proc/eject_disk()
+/obj/machinery/ammo_workbench/proc/eject_disk(mob/user)
 	if(loaded_module)
-		loaded_module.forceMove(drop_location())
+		try_put_in_hand(loaded_module, user)
 		loaded_module = null
 		ammo_categories = initial(ammo_categories)
 		update_ammotypes()
@@ -481,16 +485,16 @@
 /obj/machinery/ammo_workbench/attack_ai_secondary(mob/user, list/modifiers)
 	return attack_hand_secondary(user, modifiers)
 
-/obj/machinery/ammo_workbench/proc/Insert_Item(obj/item/O, mob/living/user)
+/obj/machinery/ammo_workbench/proc/Insert_Item(obj/item/inserted, mob/living/user)
 	if(user.combat_mode)
 		return FALSE
-	if(!is_insertion_ready(user, O))
+	if(!is_insertion_ready(user, inserted))
 		return FALSE
-	if(istype(O, /obj/item/ammo_box))
-		if(!user.transferItemToLoc(O, src))
+	if(istype(inserted, /obj/item/ammo_box))
+		if(!user.transferItemToLoc(inserted, src))
 			return FALSE
 		if(loaded_magazine)
-			to_chat(user, span_notice("You quickly swap [loaded_magazine] for [O]."))
+			to_chat(user, span_notice("You quickly swap [loaded_magazine] for [inserted]."))
 			loaded_magazine.forceMove(drop_location())
 			user.put_in_hands(loaded_magazine)
 			loaded_magazine = null
@@ -500,19 +504,19 @@
 			if(timer_id)
 				deltimer(timer_id)
 				timer_id = null
-		loaded_magazine = O
-		to_chat(user, span_notice("You insert [O] into [src]'s reciprocal."))
+		loaded_magazine = inserted
+		to_chat(user, span_notice("You insert [inserted] into [src]'s reciprocal."))
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
 		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		return TRUE
-	if(istype(O, /obj/item/ammo_workbench_module))
-		if(!user.transferItemToLoc(O, src))
+	if(istype(inserted, /obj/item/ammo_workbench_module))
+		if(!user.transferItemToLoc(inserted, src))
 			return FALSE
-		loaded_module = O
+		loaded_module = inserted
 		ammo_categories = loaded_module.ammo_categories
-		to_chat(user, span_notice("You insert [O] into [src]'s authentication module port."))
+		to_chat(user, span_notice("You insert [inserted] into [src]'s authentication module port."))
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
@@ -520,7 +524,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/ammo_workbench/proc/is_insertion_ready(mob/user, obj/item/O)
+/obj/machinery/ammo_workbench/proc/is_insertion_ready(mob/user, obj/item/inserted)
 	if(panel_open)
 		to_chat(user, span_warning("You can't load [src] while it's opened!"))
 		return FALSE
@@ -530,7 +534,7 @@
 	if(machine_stat & NOPOWER)
 		to_chat(user, span_warning("[src] has no power."))
 		return FALSE
-	if(istype(O, /obj/item/ammo_workbench_module) && loaded_module)
+	if(istype(inserted, /obj/item/ammo_workbench_module) && loaded_module)
 		to_chat(user, span_warning("[src] already has a module inserted."))
 		return FALSE
 	return TRUE

@@ -26,7 +26,7 @@
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mblshell"
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
+	print_cost = 4
 
 /obj/projectile/bullet/shotgun_slug/milspec
 	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
@@ -50,15 +50,15 @@
 
 /obj/item/ammo_casing/shotgun/incendiary
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
-	<br><br>\
-	<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
+		<br><br>\
+		<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
 	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_SHOTGUN_PLASMA
 
 /obj/item/ammo_casing/shotgun/incendiary/no_trail
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
-	<br><br>\
-	<i>PRECISION INCENDIARY: Sets targets aflame. Does not leave a flaming trail when shot.</i>"
+		<br><br>\
+		<i>PRECISION INCENDIARY: Sets targets aflame. Does not leave a flaming trail when shot.</i>"
 
 /obj/item/ammo_casing/shotgun/dragonsbreath
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
@@ -71,8 +71,8 @@
 /obj/item/ammo_casing/shotgun/meteorslug
 	name = "meteorslug shell"
 	desc = "A 12 gauge shell rigged with CMC technology which launches a heap of matter with great force when fired.\
-	<br><br>\
-	<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
+		<br><br>\
+		<i>METEOR: Fires a meteor-like projectile that knocks back movable objects like people and airlocks.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
 /obj/item/ammo_casing/shotgun/pulseslug
@@ -81,13 +81,12 @@
 /obj/item/ammo_casing/shotgun/frag12
 	name = "FRAG-12 slug"
 	desc = "A 12 gauge shell containing high explosives designed for defeating some barriers and light vehicles, disrupting IEDs, or intercepting assistants.\
-	<br><br>\
-	<i>HIGH EXPLOSIVE: Explodes on impact.</i>"
+		<br><br>\
+		<i>HIGH EXPLOSIVE: Explodes on impact.</i>"
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
 /obj/item/ammo_casing/shotgun/buckshot
 	name = "buckshot shell"
-	desc = "A 12 gauge buckshot shell."
 	icon_state = "gshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
 	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
@@ -106,7 +105,7 @@
 	icon_state = "mgshell"
 	variance = 15
 	ammo_categories = AMMO_CLASS_SUPER
-	print_cost = 2
+	print_cost = 4
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/milspec
 	damage = 6 // 6 * 12 = 72
@@ -133,9 +132,9 @@
 /obj/item/ammo_casing/shotgun/incapacitate
 	name = "hornet's nest shell"
 	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
-	sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
-	<br><br>\
-	<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
+		sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
+		<br><br>\
+		<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
 
 /obj/item/ammo_casing/shotgun/flechette
 	name = "shredder flechette shell"
@@ -197,6 +196,7 @@
 	icon_state = "expshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/express
 	ammo_categories = AMMO_CLASS_SUPER
+	print_cost = 2
 	pellets = 15 // 4 * 15 for 60 damage, with less spread then buckshot.
 	variance = 12 // Slightly less spread then buckshot
 
@@ -267,7 +267,8 @@
 
 /obj/item/ammo_casing/shotgun/antitide
 	name = "stardust shell"
-	desc = "A highly experimental shell filled with nanite electrodes that form a much bigger-electrode on launch, functioning nearly identical to a taser; even leaving a cable back to the shell itself! Unlimited power!"
+	desc = "A highly experimental shell filled with nanite electrodes that form a much bigger-electrode on launch, \
+		functioning nearly identical to a taser; even leaving a cable back to the shell itself! Unlimited power!"
 	icon_state = "lasershell"
 	projectile_type = /obj/projectile/energy/electrode
 	harmful = FALSE
@@ -277,7 +278,7 @@
 
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
-	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to the local planetary fauna"
+	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
 	icon_state = "huntershell"
 	projectile_type = /obj/projectile/bullet/shotgun_slug/hunter
 	ammo_categories = AMMO_CLASS_HOLLOW
@@ -311,7 +312,7 @@
 
 /obj/item/ammo_casing/shotgun/honkshot
 	name = "confetti shell"
-	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti, yippie!"
+	desc = "A 12 gauge buckshot shell thats been filled to the brim with confetti. Yippie!"
 	icon_state = "honkshell"
 	projectile_type = /obj/projectile/bullet/honkshot
 	pellets = 19 // The most crucial buff.

@@ -106,7 +106,7 @@
 
 	ammo_categories = AMMO_CLASS_ARMORPEN
 	custom_materials = AMMO_MATS_AP
-
+	print_cost = 2
 
 /obj/projectile/bullet/c40sol/pierce
 	name = ".40 Sol match bullet"
@@ -165,7 +165,7 @@
 
 	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_TEMP
-
+	print_cost = 2
 
 /obj/projectile/bullet/c40sol/incendiary
 	name = ".40 Sol Long incendiary bullet"

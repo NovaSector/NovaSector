@@ -30,10 +30,12 @@
 /obj/item/ammo_casing/c38/hotshot
 	ammo_categories = AMMO_CLASS_THERMAL // temp bullets.
 	custom_materials = AMMO_MATS_TEMP
+	print_cost = 2
 
 /obj/item/ammo_casing/c38/iceblox
 	ammo_categories = AMMO_CLASS_THERMAL // temp bullets.
 	custom_materials = AMMO_MATS_TEMP
+	print_cost = 2
 
 /obj/item/ammo_casing/c38/holy
 	can_be_printed = FALSE // it's the chaplain's
@@ -69,29 +71,31 @@
 
 /obj/item/ammo_casing/c357/match
 	desc = "A .357 bullet casing, manufactured to exceedingly high standards.\
-	<br><br>\
-	<i>MATCH: Ricochets everywhere. Like crazy.</i>"
+		<br><br>\
+		<i>MATCH: Ricochets everywhere. Like crazy.</i>"
 	ammo_categories = AMMO_CLASS_NICHE // ricocheting as a gimmick. tight tolerances
 
 /obj/item/ammo_casing/c357/phasic
 	desc = "A .357 phasic bullet casing.\
-	<br><br>\
-	<i>PHASIC: Ignores all surfaces except organic matter.</i>"
+		<br><br>\
+		<i>PHASIC: Ignores all surfaces except organic matter.</i>"
 	ammo_categories = AMMO_CLASS_ESOTERIC
 	custom_materials = AMMO_MATS_PHASIC
+	print_cost = 4
 
 /obj/item/ammo_casing/c357/heartseeker
 	desc = "A .357 heartseeker bullet casing.\
-	<br><br>\
-	<i>HEARTSEEKER: Has homing capabilities, methodology unknown.</i>"
+		<br><br>\
+		<i>HEARTSEEKER: Has homing capabilities, methodology unknown.</i>"
 	ammo_categories = AMMO_CLASS_ESOTERIC
 	custom_materials = AMMO_MATS_HOMING // meme ammo. meme print cost
+	print_cost = 4
 
 /obj/item/ammo_casing/c357/haywire
 	name = ".357 Haywire+ bullet casing"
 	desc = "A .357 Haywire+ bullet casing, with a high-efficiency electromagnetic generator in the tip.\
-	<br><br>\
-	<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
+		<br><br>\
+		<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
 	projectile_type = /obj/projectile/bullet/c357/haywire
 	ammo_categories = AMMO_CLASS_NICHE_SMART
 	custom_materials = AMMO_MATS_EMP
@@ -110,29 +114,31 @@
 
 /obj/item/ammo_casing/c45/ap
 	desc = "An armor-piercing .45 bullet casing.\
-	<br><br>\
-	<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
+		<br><br>\
+		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
 	custom_materials = AMMO_MATS_AP
 	ammo_categories = AMMO_CLASS_ARMORPEN
+	print_cost = 2
 
 /obj/item/ammo_casing/c45/hp
 	desc = "A hollow-point .45 bullet casing.\
-	<br><br>\
-	<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
-	projectile_type = /obj/projectile/bullet/c45/hp
+		<br><br>\
+		<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
 	ammo_categories = AMMO_CLASS_HOLLOW
+	print_cost = 2
 
 /obj/item/ammo_casing/c45/inc
 	desc = "An incendiary .45 bullet casing.\
-	<br><br>\
-	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
+		<br><br>\
+		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	custom_materials = AMMO_MATS_TEMP
 	ammo_categories = AMMO_CLASS_THERMAL
+	print_cost = 2
 
 /obj/item/ammo_casing/c45/rubber
 	desc = "A .45 rubber bullet casing.\
-	<br><br>\
-	<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
+		<br><br>\
+		<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
 	projectile_type = /obj/projectile/bullet/c45/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
@@ -144,29 +150,32 @@
 
 /obj/item/ammo_casing/c9mm/ap
 	desc = "A 9mm armor-piercing bullet casing.\
-	<br><br>\
-	<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
+		<br><br>\
+		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
 	ammo_categories = AMMO_CLASS_ARMORPEN
 	custom_materials = AMMO_MATS_AP
+	print_cost = 2
 
 /obj/item/ammo_casing/c9mm/hp
 	desc = "A 9mm hollow-point bullet casing.\
-	<br><br>\
-	<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
+		<br><br>\
+		<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
 	ammo_categories = AMMO_CLASS_HOLLOW
+	print_cost = 2
 
 /obj/item/ammo_casing/c9mm/fire
 	desc = "A 9mm incendiary bullet casing.\
-	<br><br>\
-	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
+		<br><br>\
+		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_TEMP
+	print_cost = 2
 
 /obj/item/ammo_casing/c9mm/ihdf
 	name = "9mm IHDF bullet casing"
 	desc = "A 9mm IHDF bullet casing.\
-	<br><br>\
-	<i>INTELLIGENT HIGH-IMPACT DISPERSAL FOAM: Deals only stamina damage.</i>"
+		<br><br>\
+		<i>INTELLIGENT HIGH-IMPACT DISPERSAL FOAM: Deals only stamina damage.</i>"
 	projectile_type = /obj/projectile/bullet/c9mm/ihdf
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
@@ -175,8 +184,8 @@
 /obj/item/ammo_casing/c9mm/rubber
 	name = "9mm rubber bullet casing"
 	desc = "A 9mm rubber bullet casing.\
-	<br><br>\
-	<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
+		<br><br>\
+		<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
 	projectile_type = /obj/projectile/bullet/c9mm/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
@@ -188,29 +197,32 @@
 
 /obj/item/ammo_casing/c10mm/ap
 	desc = "A 10mm armor-piercing bullet casing.\
-	<br><br>\
-	<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
+		<br><br>\
+		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
 	ammo_categories = AMMO_CLASS_ARMORPEN
 	custom_materials = AMMO_MATS_AP
+	print_cost = 2
 
 /obj/item/ammo_casing/c10mm/hp
 	desc = "A 10mm hollow-point bullet casing.\
-	<br><br>\
-	<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
+		<br><br>\
+		<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
 	ammo_categories = AMMO_CLASS_HOLLOW
+	print_cost = 2
 
 /obj/item/ammo_casing/c10mm/fire
 	desc = "A 10mm incendiary bullet casing.\
-	<br><br>\
-	<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
+		<br><br>\
+		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_TEMP
+	print_cost = 2
 
 /obj/item/ammo_casing/c10mm/ihdf
 	name = "10mm IHDF bullet casing"
 	desc = "A 10mm IHDF bullet casing.\
-	<br><br>\
-	<i>INTELLIGENT HIGH-IMPACT DISPERSAL FOAM: Deals only stamina damage.</i>"
+		<br><br>\
+		<i>INTELLIGENT HIGH-IMPACT DISPERSAL FOAM: Deals only stamina damage.</i>"
 	projectile_type = /obj/projectile/bullet/c10mm/ihdf
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
@@ -219,8 +231,8 @@
 /obj/item/ammo_casing/c10mm/rubber
 	name = "10mm rubber bullet casing"
 	desc = "A 10mm rubber bullet casing.\
-	<br><br>\
-	<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
+		<br><br>\
+		<i>RUBBER: Less than lethal ammo. Deals both stamina damage and regular damage.</i>"
 	projectile_type = /obj/projectile/bullet/c10mm/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE

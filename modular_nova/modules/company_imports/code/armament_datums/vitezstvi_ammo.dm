@@ -15,13 +15,17 @@
 	item_type = /obj/item/ammo_workbench_module/lethal/bulk
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/variant
-	item_type = /obj/item/ammo_workbench_module/lethal_variant
-	cost = PAYCHECK_COMMAND * 10
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/bulk
+	item_type = /obj/item/ammo_workbench_module/lethal/bulk
+	cost = PAYCHECK_COMMAND * 7.5
 
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
 	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
 	cost = PAYCHECK_COMMAND * 7.5
+
+/datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/variant
+	item_type = /obj/item/ammo_workbench_module/lethal_variant
+	cost = PAYCHECK_COMMAND * 10
 
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/reboot
 	item_type = /obj/item/ammo_workbench_reboot

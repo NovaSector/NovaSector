@@ -100,7 +100,7 @@
 
 	custom_materials = AMMO_MATS_RIPPER
 	ammo_categories = AMMO_CLASS_HOLLOW
-
+	print_cost = 2
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"

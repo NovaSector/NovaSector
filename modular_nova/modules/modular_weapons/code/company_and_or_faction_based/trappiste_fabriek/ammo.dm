@@ -75,6 +75,7 @@
 
 	ammo_categories = AMMO_CLASS_THERMAL
 	custom_materials = AMMO_MATS_TEMP
+	print_cost = 2
 
 /obj/projectile/bullet/c585trappiste/incendiary
 	name = ".585 Trappiste incendiary bullet"
