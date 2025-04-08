@@ -1587,7 +1587,7 @@
 /area/virtual_domain/ancient_milsim/snpc_garage)
 "NA" = (
 /obj/structure/sign/poster/random/directional/west,
-/obj/item/storage/toolbox/maint_kit,
+/obj/item/gun_maintenance_supplies,
 /obj/structure/table/wood,
 /turf/open/floor/carpet/red,
 /area/virtual_domain/ancient_milsim/snpc_bar)
