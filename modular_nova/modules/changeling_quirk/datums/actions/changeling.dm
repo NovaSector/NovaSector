@@ -33,3 +33,7 @@
 
 /datum/action/changeling/adrenaline
 	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/weapon/arm_blade
+	hide_from_quirk_changeling = TRUE
+
