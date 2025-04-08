@@ -36,7 +36,7 @@
 	var/list/alt_continuous = list("stabs", "pierces", "impales")
 	var/list/alt_simple = list("stab", "pierce", "impale")
 
-/obj/item/melee/arm_blade/Initialize(mapload,silent,synthetic)
+/obj/item/melee/changeling_claws/Initialize(mapload,silent,synthetic)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc) && !silent)
