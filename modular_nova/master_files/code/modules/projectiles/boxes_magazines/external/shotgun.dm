@@ -53,7 +53,7 @@
 	desc = "A magazine of shotgun shells, suitable for the 'Jager' combat shotgun."
 	icon_state = "marauder_mag_large"
 	base_icon_state = "marauder_mag_large"
-	max_ammo = 12
+	max_ammo = 10
 
 /obj/item/ammo_box/magazine/jager/large/empty
 	start_empty = TRUE
