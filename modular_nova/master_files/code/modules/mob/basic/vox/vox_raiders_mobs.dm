@@ -28,6 +28,8 @@
 	var/projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	/// What gun shoot
 	var/casingtype = /obj/item/ammo_casing/c9mm
+	/// why he dead?
+	var/corpse = /obj/effect/decal/cleanable/blood/gibs
 	/// Lootbox
 	var/list/death_loot
 	death_loot = list(
@@ -36,6 +38,8 @@
 
 /mob/living/basic/vox/Initialize(mapload)
 	. = ..()
+	if(LAZYLEN(death_loot) || corpse)
+		LAZYOR(death_loot, corpse)
 		death_loot = string_list(death_loot)
 		AddElement(/datum/element/death_drops, death_loot)
 
