@@ -93,10 +93,6 @@
 
 /mob/living/basic/vox/ranged/laser/Initialize(mapload)
 	. = ..()
-	var/static/list/death_loot = list(
-		/obj/effect/spawner/random/engineering/material_rare = 2,
-		)
-	AddElement(/datum/element/death_drops, death_loot)
 	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/energy/laser/hellfire, cooldown_time = ranged_attack_cooldown)
 
 /*

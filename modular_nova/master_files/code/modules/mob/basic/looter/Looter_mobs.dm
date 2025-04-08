@@ -125,11 +125,6 @@
 /mob/living/basic/looter/ranged/space/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	var/static/list/death_loot = list(
-		/obj/effect/decal/cleanable/blood/gibs,
-		/obj/effect/spawner/random/maintenance/five,
-		)
-	AddElement(/datum/element/death_drops, death_loot)
 	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/c9mm, cooldown_time = ranged_attack_cooldown)
 
 /*
@@ -148,9 +143,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	var/static/list/death_loot = list(
-		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/six,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
 	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/energy/laser/hellfire, cooldown_time = ranged_attack_cooldown)
 
