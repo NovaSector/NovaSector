@@ -6,6 +6,7 @@
 	icon_state = "cult"
 	icon_living = "cult"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	basic_mob_flags = DEL_ON_DEATH
 	speed = 2.5
 	maxHealth = 100
 	health = 100
@@ -15,19 +16,27 @@
 	attack_verb_simple = "punch"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
 	faction = list(FACTION_HOSTILE, FACTION_CULT)
+	ai_controller =/datum/ai_controller/basic_controller/cult
 	///does this type do range attacks?
 	var/ranged_attacker = FALSE
 	/// How often can we shoot?
-	var/ranged_attack_cooldown = 3 SECONDS
-	ai_controller =/datum/ai_controller/basic_controller/cult
+	var/ranged_cooldown = 3 SECONDS
+	/// Projectile sound
+	var/projectilesound = 'sound/effects/magic/magic_missile.ogg'
+	/// What gun shoot
+	var/casingtype = /obj/item/ammo_casing/magic/magic_missile
+	/// he ded, so what he pop to
+	var/corpse = /obj/effect/gibspawner/human
+	/// Get that LEWT
+	var/death_loot = list()
 
 /mob/living/basic/cult/Initialize(mapload)
 	. = ..()
-	var/static/list/death_loot = list(
-		/obj/effect/gibspawner/human,
-		)
+	if(LAZYLEN(death_loot) || corpse)
+		LAZYOR(death_loot, corpse)
+		death_loot = string_list(death_loot)
+		AddElement(/datum/element/death_drops, death_loot)
 	ADD_TRAIT(src,TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE)
-	AddElement(/datum/element/death_drops, death_loot)
 
 /*
 * Spookyyyyyy
@@ -64,13 +73,7 @@
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	ai_controller =/datum/ai_controller/basic_controller/cult
-
-/mob/living/basic/cult/mannequin/Initialize(mapload)
-	. = ..()
-	var/static/list/death_loot = list(
-		/obj/effect/gibspawner/robot,
-		)
-	AddElement(/datum/element/death_drops, death_loot)
+	corpse = /obj/effect/gibspawner/robot
 
 /*
 * Call the ambulance
@@ -155,27 +158,37 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "cultmage"
 	icon_living = "cultmage"
-	attack_sound = 'sound/effects/magic/ethereal_enter.ogg'
 	maxHealth = 115
 	health = 115
 	obj_damage = 20
 	melee_damage_lower = 12
 	melee_damage_upper = 12
 	attack_verb_continuous = "punches"
-	attack_sound = 'sound/effects/magic/magic_missile.ogg'
+	projectilesound = 'sound/effects/magic/magic_missile.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/cult/magic
-
+	casingtype = /obj/item/ammo_casing/magic/magic_missile
+	ranged_attacker = TRUE
 
 /obj/projectile/magic/spell/magic_missile/lesser
-	color = "red"
+	color = "#792300"
+
+/obj/item/ammo_casing/magic/magic_missile
+	projectile_type = /obj/projectile/magic/spell/magic_missile/lesser
 
 /mob/living/basic/cult/magic/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/magic/arcane_barrage, cooldown_time = ranged_attack_cooldown)
+/mob/living/basic/vox/ranged/Initialize(mapload)
+	. = ..()
+	AddComponent(\
+		/datum/component/ranged_attacks,\
+		casing_type = casingtype,\
+		projectile_sound = projectilesound,\
+		cooldown_time = ranged_cooldown,\
+	)
 
 /*
-* FIREBALL USE FIREBALL JUST FIREBALL
+* Arcane grunge
 */
 
 /mob/living/basic/cult/magic/elite
@@ -185,12 +198,28 @@
 	icon_living = "cultelite"
 	maxHealth = 200
 	health = 200
-	attack_sound = 'sound/items/weapons/barragespellhit.ogg'
+	projectilesound = 'sound/items/weapons/barragespellhit.ogg'
+	casingtype = /obj/item/ammo_casing/magic/arcane_barrage
+	ranged_attacker = TRUE
 
 /mob/living/basic/cult/magic/elite/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/magic/fireball, cooldown_time = ranged_attack_cooldown)
+
+/*
+* FIREBALL USE FIREBALL JUST FIREBALL
+*/
+
+/mob/living/basic/cult/magic/elite/fireball
+	name = "Cult Master"
+	desc = "A cultist with powerful command over blood magic, seeming to be at a much higher rank in the cult."
+	icon_state = "cultelite"
+	icon_living = "cultelite"
+	maxHealth = 300
+	health = 300
+	projectilesound = 'sound/items/weapons/barragespellhit.ogg'
+	casingtype = /obj/item/ammo_casing/magic/fireball
+	ranged_attacker = TRUE
 
 /*
 * People are way too... 'into' this ones sprite
@@ -204,6 +233,7 @@
 	icon_living = "engorgedemon"
 	icon_dead = "demondead"
 	mob_biotypes = MOB_SPIRIT
+	basic_mob_flags = NONE
 	butcher_results = list(/obj/item/stack/sheet/runed_metal/ten = 1)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
@@ -232,6 +262,7 @@
 	icon_living = "devourdemon"
 	icon_dead = "demondead"
 	mob_biotypes = MOB_SPIRIT
+	basic_mob_flags = NONE
 	butcher_results = list(/obj/item/stack/sheet/runed_metal/ten = 1)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"

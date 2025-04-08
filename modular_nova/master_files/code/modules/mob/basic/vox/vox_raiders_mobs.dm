@@ -18,16 +18,21 @@
 	attack_sound = 'sound/items/weapons/pierce_slow.ogg'
 	faction = list(FACTION_HOSTILE)
 	ai_controller = /datum/ai_controller/basic_controller/voxraider
-	///does this type do range attacks?
-	var/ranged_attacker = TRUE
+	/// Does this type do range attacks?
+	var/ranged_attacker = FALSE
 	/// How often can we shoot?
-	var/ranged_attack_cooldown = 3 SECONDS
+	var/ranged_cooldown = 2 SECONDS
+	/// Projectile sound
+	var/projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	/// What gun shoot
+	var/casingtype = /obj/item/ammo_casing/c9mm
+	/// Lootbox
+	var/death_loot = list(
+		/obj/effect/spawner/random/maintenance/three,
+		)
 
 /mob/living/basic/vox/Initialize(mapload)
 	. = ..()
-	var/static/list/death_loot = list(
-		/obj/effect/spawner/random/maintenance/three,
-		)
 	AddElement(/datum/element/death_drops, death_loot)
 
 /*
@@ -47,13 +52,9 @@
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	ai_controller = /datum/ai_controller/basic_controller/voxraider
-
-/mob/living/basic/vox/melee/Initialize(mapload)
-	. = ..()
-	var/static/list/death_loot = list(
+	death_loot = list(
 		/obj/effect/spawner/random/medical/medkit,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
 
 /*
 * Guns
@@ -69,14 +70,19 @@
 	melee_damage_upper = 10
 	attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/voxraider/ranged
+	ranged_attacker = TRUE
+	death_loot = list(
+		/obj/effect/spawner/random/engineering/material_rare = 2,
+		)
 
 /mob/living/basic/vox/ranged/Initialize(mapload)
 	. = ..()
-	var/static/list/death_loot = list(
-		/obj/effect/spawner/random/engineering/material_rare = 2,
-		)
-	AddElement(/datum/element/death_drops, death_loot)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/c9mm, cooldown_time = ranged_attack_cooldown)
+	AddComponent(\
+		/datum/component/ranged_attacks,\
+		casing_type = casingtype,\
+		projectile_sound = projectilesound,\
+		cooldown_time = ranged_cooldown,\
+	)
 
 /*
 * LASERS
@@ -88,12 +94,8 @@
 	icon_state = "voxlaser"
 	icon_living = "voxlaser"
 	icon_dead = "voxsuitdead"
-	attack_sound = 'sound/items/weapons/laser3.ogg'
-	ai_controller = /datum/ai_controller/basic_controller/voxraider/ranged
-
-/mob/living/basic/vox/ranged/laser/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/energy/laser/hellfire, cooldown_time = ranged_attack_cooldown)
+	projectilesound = 'sound/items/weapons/laser3.ogg'
+	casingtype = /obj/item/ammo_casing/energy/laser/hellfire
 
 /*
 * Space guns
@@ -105,17 +107,14 @@
 	icon_state = "voxspace"
 	icon_living = "voxspace"
 	icon_dead = "voxspacedead"
-	attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
-	ai_controller = /datum/ai_controller/basic_controller/voxraider/ranged
+	projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	death_loot = list(
+		/obj/effect/spawner/random/maintenance/five,
+		)
 
 /mob/living/basic/vox/ranged/space/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	var/static/list/death_loot = list(
-		/obj/effect/spawner/random/maintenance/five,
-		)
-	AddElement(/datum/element/death_drops, death_loot)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/c9mm, cooldown_time = ranged_attack_cooldown)
 
 /*
 * Space LASERS
@@ -127,15 +126,8 @@
 	icon_state = "voxspacelaser"
 	icon_living = "voxspacelaser"
 	icon_dead = "voxspacedead"
-	attack_sound = 'sound/items/weapons/laser3.ogg'
-	ai_controller = /datum/ai_controller/basic_controller/voxraider/ranged
-
-/mob/living/basic/vox/ranged/space/laser/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	var/static/list/death_loot = list(
+	projectilesound = 'sound/items/weapons/laser3.ogg'
+	casingtype = /obj/item/ammo_casing/energy/laser/hellfire
+	death_loot = list(
 		/obj/effect/spawner/random/engineering/material_rare = 4,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/energy/laser/hellfire, cooldown_time = ranged_attack_cooldown)
-

@@ -6,6 +6,7 @@
 	icon_state = "scavpipe"
 	icon_living = "scavpipe"
 	gender = NEUTER
+	basic_mob_flags = DEL_ON_DEATH
 	maxHealth = 125
 	health = 125
 	melee_damage_lower = 18
@@ -17,22 +18,30 @@
 	gold_core_spawnable = NO_SPAWN
 	faction = list(FACTION_HOSTILE)
 	ai_controller = /datum/ai_controller/basic_controller/looter
-	///does this type do range attacks?
+	/// Does this type do range attacks?
 	var/ranged_attacker = FALSE
 	/// How often can we shoot?
-	var/ranged_attack_cooldown = 3 SECONDS
-
-/mob/living/basic/looter/Initialize(mapload)
-	. = ..()
-	var/static/list/death_loot = list(
+	var/ranged_cooldown = 2 SECONDS
+	/// Projectile sound
+	var/projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	/// What gun shoot
+	var/casingtype = /obj/item/ammo_casing/c9mm
+	/// Lootbox
+	var/list/death_loot = list()
+	/// why he dead?
+	var/corpse = /obj/effect/gibspawner/human
+	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/three,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
+
+/mob/living/basic/looter/Initialize(mapload)
+	. = ..()
+	if(LAZYLEN(death_loot) || corpse)
+		LAZYOR(death_loot, corpse)
+		death_loot = string_list(death_loot)
+		AddElement(/datum/element/death_drops, death_loot)
 	AddComponent(/datum/component/appearance_on_aggro, overlay_icon = icon, overlay_state = "[initial(icon_state)]_attack")
-	if(!ranged_attacker)
-		return
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/hivebot, cooldown_time = ranged_attack_cooldown)
 
 /*
 * I am Heavy weapons guy, and this is my saw arm
@@ -51,14 +60,10 @@
 	attack_verb_continuous = "punches"
 	attack_verb_simple = "slam"
 	ai_controller = /datum/ai_controller/basic_controller/looter
-
-/mob/living/basic/looter/big/Initialize(mapload)
-	. = ..()
-	var/static/list/death_loot = list(
+	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/six,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
 
 /*
 * lil fatter
@@ -77,14 +82,10 @@
 	attack_verb_simple = "smash"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/looter
-
-/mob/living/basic/looter/crusher/Initialize(mapload)
-	. = ..()
-	var/static/list/death_loot = list(
+	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/six,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
 
 /*
 * Shotty
@@ -98,17 +99,14 @@
 	icon_living = "scavshotgun"
 	maxHealth = 110
 	health = 110
-	attack_sound = 'sound/items/weapons/gun/shotgun/shot.ogg'
+	projectilesound = 'sound/items/weapons/gun/shotgun/shot.ogg'
+	casingtype = /obj/item/ammo_casing/shotgun/buckshot
 	ai_controller = /datum/ai_controller/basic_controller/trooper/ranged/shotgunner/looter
-
-/mob/living/basic/looter/ranged/Initialize(mapload)
-	. = ..()
-	var/static/list/death_loot = list(
+	ranged_attacker = TRUE
+	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/five,
 		)
-	AddElement(/datum/element/death_drops, death_loot)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/shotgun/buckshot, cooldown_time = ranged_attack_cooldown)
 
 /*
 * Guys i swear it's just a makarov
@@ -119,16 +117,16 @@
 	desc = "A scavenger with an outdated spacesuit, likely out here to get salvage."
 	icon_state = "scavsmg"
 	icon_living = "scavsmg"
-	attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	casingtype = /obj/item/ammo_casing/shotgun/buckshot
 	ai_controller = /datum/ai_controller/basic_controller/looter/ranged
 
 /mob/living/basic/looter/ranged/space/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/c9mm, cooldown_time = ranged_attack_cooldown)
 
 /*
-* Igive me your fuckin wallet SKREK!
+* Give me your fuckin wallet SKREK!
 */
 
 /mob/living/basic/looter/ranged/space/laser
@@ -136,14 +134,11 @@
 	desc = "A shipbreaker scavenger, carrying a laser gun."
 	icon_state = "scavlaser"
 	icon_living = "scavlaser"
-	attack_sound = 'sound/items/weapons/laser3.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/looter/ranged
-
-/mob/living/basic/looter/ranged/space/laser/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	var/static/list/death_loot = list(
+	projectilesound = 'sound/items/weapons/lasercannonfire.ogg'
+	casingtype = /obj/item/ammo_casing/energy/laser/hellfire
+	death_loot = list(
 		/obj/effect/spawner/random/maintenance/six,
 		)
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/energy/laser/hellfire, cooldown_time = ranged_attack_cooldown)
+
 

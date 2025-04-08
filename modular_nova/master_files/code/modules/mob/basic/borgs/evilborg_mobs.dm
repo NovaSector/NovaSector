@@ -6,6 +6,7 @@
 	icon_state = "evilbotold"
 	icon_living = "evilbotold"
 	gender = NEUTER
+	basic_mob_flags = DEL_ON_DEATH
 	maxHealth = 125
 	health = 125
 	melee_damage_lower = 20
@@ -15,19 +16,29 @@
 	sight = SEE_TURFS
 	faction = list(FACTION_HOSTILE)
 	ai_controller = /datum/ai_controller/basic_controller/evilborgs
-	///does this type do range attacks?
-	var/ranged_attacker = TRUE
+	/// Does this type do range attacks?
+	var/ranged_attacker = FALSE
 	/// How often can we shoot?
-	var/ranged_attack_cooldown = 3 SECONDS
+	var/ranged_cooldown = 3 SECONDS
+	/// Projectile sound
+	var/projectilesound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	/// What gun shoot
+	var/casingtype = /obj/item/ammo_casing/c9mm
+	/// bursty bois
+	var/burst_shots
+	/// dead
+	var/death_loot = list()
+	/// Loot box
+	var/corpse = /obj/effect/gibspawner/robot
+
 
 /mob/living/basic/evilborgs/evilborg/Initialize(mapload)
 	. = ..()
-	var/static/list/death_loot = list(/obj/effect/gibspawner/robot)
-	AddElement(/datum/element/death_drops, death_loot)
+	if(LAZYLEN(death_loot) || corpse)
+		LAZYOR(death_loot, corpse)
+		death_loot = string_list(death_loot)
+		AddElement(/datum/element/death_drops, death_loot)
 	AddComponent(/datum/component/appearance_on_aggro, overlay_icon = icon, overlay_state = "[initial(icon_state)]_attack")
-	if(!ranged_attacker)
-		return
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/hivebot, cooldown_time = ranged_attack_cooldown)
 
 /mob/living/basic/evilborgs/evilborg/death(gibbed)
 	do_sparks(number = 3, cardinal_only = TRUE, source = src)
@@ -42,8 +53,6 @@
 	desc = "A large cyborg unit, hacked or malfunctioning. It- oh my god is that a chainsaw?!"
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "evilbotheavy"
-	icon_living = "evilbotheavy"
-	ranged_attacker = FALSE
 	health = 200
 	maxHealth = 200
 	melee_damage_lower = 20
@@ -63,7 +72,6 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "evilbotpeace"
 	icon_living = "evilbotpeace"
-	ranged_attacker = FALSE
 	health = 125
 	maxHealth = 125
 	melee_damage_lower = 18
@@ -83,7 +91,6 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "evilbotengi"
 	icon_living = "evilbotengi"
-	ranged_attacker = FALSE
 	health = 145
 	maxHealth = 145
 	melee_damage_type = BURN
@@ -112,12 +119,20 @@
 	attack_verb_simple = "gunbutt"
 	attack_sound = 'sound/items/weapons/smash.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/evilborgs/ranged
+	burst_shots = 2
+	ranged_attacker = TRUE
 
-/mob/living/basic/evilborgs/evilborg/Initialize(mapload)
+/mob/living/basic/evilborgs/evilborg/sec/Initialize(mapload)
 	. = ..()
-	if(!ranged_attacker)
-		return
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/c45/ap, cooldown_time = ranged_attack_cooldown)
+	AddComponent(\
+		/datum/component/ranged_attacks,\
+		casing_type = casingtype,\
+		projectile_sound = projectilesound,\
+		cooldown_time = ranged_cooldown,\
+		burst_shots = burst_shots,\
+	)
+	if (ranged_cooldown <= 1 SECONDS)
+		AddComponent(/datum/component/ranged_mob_full_auto)
 
 /*
 * I clean the floors and your skin
@@ -129,7 +144,6 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	icon_state = "evilbotroomba"
 	icon_living = "evilbotroomba"
-	ranged_attacker = FALSE
 	health = 110
 	maxHealth = 110
 	melee_damage_lower = 12
@@ -149,7 +163,6 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs64x32.dmi'
 	icon_state = "evilbotmine"
 	icon_living = "evilbotmine"
-	ranged_attacker = FALSE
 	health = 155
 	maxHealth = 155
 	melee_damage_lower = 12
@@ -169,7 +182,6 @@
 	icon = 'modular_nova/master_files/icons/mob/newmobs64x32.dmi'
 	icon_state = "evilbotelite" // ported from VORE
 	icon_living = "evilbotelite"
-	ranged_attacker = FALSE
 	health = 180
 	maxHealth = 180
 	melee_damage_lower = 18
@@ -197,13 +209,23 @@
 	attack_verb_simple = "gunbutt"
 	attack_sound = 'sound/items/weapons/smash.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/evilborgs/burst
-	ranged_attack_cooldown = 1.2 SECONDS
+	burst_shots = 5
+	ranged_cooldown = 1.2 SECONDS
+	ranged_attacker = TRUE
+	casingtype = /obj/item/ammo_casing/c45/ap
 
-/mob/living/basic/evilborgs/evilborg/Initialize(mapload)
+/mob/living/basic/evilborgs/evilborg/bigguy/Initialize(mapload)
 	. = ..()
-	if(!ranged_attacker)
-		return
-	AddComponent(/datum/component/ranged_attacks, /obj/item/ammo_casing/c45/ap, cooldown_time = ranged_attack_cooldown)
+	AddComponent(\
+		/datum/component/ranged_attacks,\
+		casing_type = casingtype,\
+		projectile_sound = projectilesound,\
+		cooldown_time = ranged_cooldown,\
+		burst_shots = burst_shots,\
+	)
+	if (ranged_cooldown <= 1 SECONDS)
+		AddComponent(/datum/component/ranged_mob_full_auto)
+
 
 /*
 * Totally not copyright infringing content here
