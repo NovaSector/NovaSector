@@ -85,25 +85,9 @@
 *	COWBOY
 */
 
-/datum/loadout_item/shoes/brown_cowboy_boots
-	name = "Brown Cowboy Boots"
-	item_path = /obj/item/clothing/shoes/cowboy
-
-/datum/loadout_item/shoes/black_cowboy_boots
-	name = "Black Cowboy Boots"
-	item_path = /obj/item/clothing/shoes/cowboy/black
-
-/datum/loadout_item/shoes/white_cowboy_boots
-	name = "White Cowboy Boots"
-	item_path = /obj/item/clothing/shoes/cowboy/white
-
-/datum/loadout_item/shoes/cowboyboots
-	name = "Cowboy Boots (Brown)"
-	item_path = /obj/item/clothing/shoes/cowboyboots
-
-/datum/loadout_item/shoes/cowboyboots_black
-	name = "Cowboy Boots (Black)"
-	item_path = /obj/item/clothing/shoes/cowboyboots/black
+/datum/loadout_item/shoes/cowboy_recolorable
+	name = "Cowboy Boots (Recolorable)"
+	item_path = /obj/item/clothing/shoes/cowboy/laced/recolorable
 
 /*
 *	SNEAKERS

@@ -21,17 +21,15 @@
 	desc = "Ankle coverings. Hang ten, brother."
 	icon_state = "bluecuffs"
 
-/obj/item/clothing/shoes/cowboyboots
+/obj/item/clothing/shoes/cowboy/laced/recolorable
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
-	name = "cowboy boots"
-	desc = "A standard pair of brown cowboy boots."
-	icon_state = "cowboyboots"
-
-/obj/item/clothing/shoes/cowboyboots/black
-	name = "black cowboy boots"
-	desc = "A pair of black cowboy boots, pretty easy to scuff up."
-	icon_state = "cowboyboots_black"
+	icon_state = "cowboy_greyscale"
+	greyscale_colors = "#412e22#daeeee"
+	greyscale_config = /datum/greyscale_config/cowboy_boots
+	greyscale_config_worn = /datum/greyscale_config/cowboy_boots/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/cowboy_boots/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/high_heels
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
