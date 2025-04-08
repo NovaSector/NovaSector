@@ -7,7 +7,7 @@
 	dna_cost = 1
 	req_human = TRUE
 	weapon_type = /obj/item/melee/changeling_claws
-	weapon_name_simple = "blade"
+	weapon_name_simple = "claws"
 
 /obj/item/melee/changeling_claws
 	name = "Claw hand"
