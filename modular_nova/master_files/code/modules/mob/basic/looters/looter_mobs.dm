@@ -16,6 +16,9 @@
 	attack_verb_continuous = "pipes"
 	attack_verb_simple = "bludgeon"
 	attack_sound = 'sound/items/weapons/smash.ogg'
+	unsuitable_atmos_damage = 7.5
+	unsuitable_cold_damage = 7.5
+	unsuitable_heat_damage = 7.5
 	speed = 2.5
 	gold_core_spawnable = NO_SPAWN
 	faction = list(FACTION_HOSTILE)

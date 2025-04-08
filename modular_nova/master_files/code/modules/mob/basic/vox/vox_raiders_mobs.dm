@@ -18,6 +18,10 @@
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"
 	attack_sound = 'sound/items/weapons/pierce_slow.ogg'
+	minimum_survivable_temperature = 0
+	unsuitable_atmos_damage = 7.5
+	unsuitable_cold_damage = 7.5
+	unsuitable_heat_damage = 7.5
 	faction = list(FACTION_HOSTILE)
 	ai_controller = /datum/ai_controller/basic_controller/voxraider
 	/// Does this type do range attacks?
@@ -104,6 +108,9 @@
 	icon_dead = "voxsuitdead"
 	projectilesound = 'sound/items/weapons/laser3.ogg'
 	casingtype = /obj/item/ammo_casing/energy/laser/hellfire
+	unsuitable_atmos_damage = 0
+	unsuitable_cold_damage = 0
+	unsuitable_heat_damage = 0
 
 /*
 * Space guns

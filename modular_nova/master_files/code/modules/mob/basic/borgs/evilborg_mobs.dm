@@ -14,6 +14,9 @@
 	speed = 2.5
 	unsuitable_atmos_damage = 0
 	minimum_survivable_temperature = 0
+	unsuitable_atmos_damage = 7.5
+	unsuitable_cold_damage = 7.5
+	unsuitable_heat_damage = 7.5
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	faction = list(FACTION_HOSTILE)
