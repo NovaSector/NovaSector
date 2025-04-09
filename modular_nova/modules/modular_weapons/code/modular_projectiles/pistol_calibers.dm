@@ -7,7 +7,6 @@
 /*
 *	.38 Special
 */
-#define COLOR_AMMO_EMP "#5f959c" // not undefining because it might be applicable for other EMP bullets in the future. no modular color defines file exists
 
 /obj/item/ammo_casing/c38/trac
 	ammo_categories = AMMO_CLASS_SMART // tracking implant bullets

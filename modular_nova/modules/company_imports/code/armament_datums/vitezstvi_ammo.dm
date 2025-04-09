@@ -9,24 +9,29 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/bench_itself
 	item_type = /obj/item/flatpack/ammo_workbench
-	cost = PAYCHECK_COMMAND * 5
+	cost = PAYCHECK_COMMAND * 2
 
+// basic disk
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk
-	item_type = /obj/item/ammo_workbench_module/lethal/bulk
-	cost = PAYCHECK_COMMAND * 5
+	item_type = /obj/item/ammo_workbench_module/lethal
+	cost = PAYCHECK_COMMAND * 3
 
+// basic disk with more capacity. convenience fee
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/bulk
 	item_type = /obj/item/ammo_workbench_module/lethal/bulk
-	cost = PAYCHECK_COMMAND * 7.5
+	cost = PAYCHECK_COMMAND * 4
 
+// disk but with the bits needed for EMP bullets,
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
 	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
-	cost = PAYCHECK_COMMAND * 7.5
+	cost = PAYCHECK_COMMAND * 5
 
+// disk but it's got HP/AP
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/variant
 	item_type = /obj/item/ammo_workbench_module/lethal_variant
-	cost = PAYCHECK_COMMAND * 10
+	cost = PAYCHECK_COMMAND * 8
 
+// not a disk. adds print points
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/reboot
 	item_type = /obj/item/ammo_workbench_reboot
 	cost = PAYCHECK_CREW
