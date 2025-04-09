@@ -114,7 +114,7 @@ There are several things that need to be remembered:
 		var/woman
 		var/digi // NOVA EDIT ADDITION - Digi female gender shaping
 		var/female_sprite_flags = uniform.female_sprite_flags // NOVA EDIT ADDITION - Digi (and taur) female gender shaping
-		var/mutant_styles = NONE // NOVA EDIT ADDITON - mutant styles to pass down to build_worn_icon.
+		var/mutant_styles = NONE // NOVA EDIT ADDITION - mutant styles to pass down to build_worn_icon.
 		//BEGIN SPECIES HANDLING
 		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			icon_file = uniform.worn_icon_digi || DIGITIGRADE_UNIFORM_FILE // NOVA EDIT CHANGE - ORIGINAL: icon_file = DIGITIGRADE_UNIFORM_FILE
