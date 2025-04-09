@@ -5,6 +5,7 @@
 	inhand_icon_state = "messenger"
 	icon = 'modular_nova/modules/clothing_improvements/code/clothing.dmi'
 	worn_icon = 'modular_nova/modules/clothing_improvements/code/clothing_worn.dmi'
+	worn_icon_teshari = "tinypakb_tesh"
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 
@@ -15,6 +16,7 @@
 	inhand_icon_state = "messenger"
 	icon = 'modular_nova/modules/clothing_improvements/code/clothing.dmi'
 	worn_icon = 'modular_nova/modules/clothing_improvements/code/clothing_worn.dmi'
+	worn_icon_teshari = "tinypaka_tesh"
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 
@@ -25,5 +27,6 @@
 	inhand_icon_state = "messenger"
 	icon = 'modular_nova/modules/clothing_improvements/code/clothing.dmi'
 	worn_icon = 'modular_nova/modules/clothing_improvements/code/clothing_worn.dmi'
+	worn_icon_teshari = "tinypakc_tesh"
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'

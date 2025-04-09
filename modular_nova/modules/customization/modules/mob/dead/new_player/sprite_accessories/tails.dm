@@ -484,3 +484,25 @@
 /datum/sprite_accessory/tails/mammal/wagging/gecko
 	name = "Gecko"
 	icon_state = "gecko"
+
+// TG Fish infusion tails
+/datum/sprite_accessory/tails/fish
+	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC)
+	color_src = USE_ONE_COLOR
+	feature_key_override = "fish_tail"
+
+/datum/sprite_accessory/tails/fish/simple
+	name = "Simple (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/crescent
+	name = "Crescent (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/long
+	name = "Long (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/shark
+	name = "Shark (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/chonky
+	name = "Chonky (Fish Infusion)"
+

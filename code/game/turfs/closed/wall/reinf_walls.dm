@@ -1,7 +1,7 @@
 /turf/closed/wall/r_wall
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to separate rooms."
-	icon = 'icons/turf/walls/reinforced_wall.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/turf/walls/reinforced_wall.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 	opacity = TRUE

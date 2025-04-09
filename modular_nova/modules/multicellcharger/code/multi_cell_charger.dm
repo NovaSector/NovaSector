@@ -29,7 +29,7 @@
 		var/mutable_appearance/charge_overlay = mutable_appearance(icon, "[base_icon_state]-o[newlevel]")
 		var/mutable_appearance/cell_overlay = mutable_appearance(icon, "[base_icon_state]-cell")
 		charge_overlay.pixel_w = 5 * (i - 1)
-		cell_overlay.pixel_z = 5 * (i - 1)
+		cell_overlay.pixel_w = 5 * (i - 1)
 		. += new /mutable_appearance(charge_overlay)
 		. += new /mutable_appearance(cell_overlay)
 

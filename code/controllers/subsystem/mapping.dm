@@ -1,6 +1,11 @@
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
-	init_order = INIT_ORDER_MAPPING
+	dependencies = list(
+		/datum/controller/subsystem/job,
+		/datum/controller/subsystem/processing/station,
+		/datum/controller/subsystem/processing/reagents,
+		/datum/controller/subsystem/automapper,
+	)
 	runlevels = ALL
 
 	var/list/nuke_tiles = list()
@@ -849,6 +854,8 @@ ADMIN_VERB(load_away_mission, R_FUN, "Load Away Mission", "Load a specific away 
 
 /datum/controller/subsystem/mapping/proc/lazy_load_template(template_key, force = FALSE)
 	RETURN_TYPE(/datum/turf_reservation)
+
+	UNTIL(initialized)
 	var/static/lazy_loading = FALSE
 	UNTIL(!lazy_loading)
 

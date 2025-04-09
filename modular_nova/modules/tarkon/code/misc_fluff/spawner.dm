@@ -154,7 +154,7 @@
 /datum/outfit/tarkon/sec
 	name = "Port Tarkon Security Outfit"
 	uniform = /obj/item/clothing/under/tarkon/sec
-	glasses = /obj/item/clothing/glasses/hud/security/redsec
+	glasses = /obj/item/clothing/glasses/hud/security
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	id = /obj/item/card/id/advanced/tarkon/sec
@@ -197,7 +197,7 @@
 	computer_area = /area/ruin/space/has_grav/port_tarkon
 
 /datum/outfit/tarkon/director //Look at me, I'm the director now.
-	name = "Port Tarkon Ensigns Outfit"
+	name = "Port Tarkon Directors Outfit"
 	uniform = /obj/item/clothing/under/tarkon/com
 	ears = /obj/item/radio/headset/tarkon/command
 	id = /obj/item/card/id/advanced/tarkon/director
