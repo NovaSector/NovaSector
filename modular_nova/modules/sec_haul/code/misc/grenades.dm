@@ -12,7 +12,10 @@
 
 /// If the company policy currently forbids flashbangs during green alert
 /obj/item/grenade/flashbang/proc/is_currently_forbidden(mob/user)
-	if(!CONFIG_GET(flag/flashbangs_forbidden_during_green) || SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_GREEN)
+	if(!CONFIG_GET(flag/flashbangs_forbidden_during_green))
+		return FALSE
+
+	if(SSsecurity_level.get_current_level_as_number() != SEC_LEVEL_GREEN)
 		return FALSE
 
 	if(!(user.mind?.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY|DEPARTMENT_BITFLAG_COMMAND)))
