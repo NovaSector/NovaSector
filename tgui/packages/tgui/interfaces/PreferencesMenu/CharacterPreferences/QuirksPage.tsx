@@ -71,7 +71,7 @@ function QuirkList(props: QuirkProps & QuirkListProps) {
   } = props;
 
   return (
-    <Stack vertical>
+    <Stack vertical g={0}>
       {quirks.map(([quirkKey, quirk]) => (
         <Stack.Item key={quirkKey} m={0}>
           <QuirkDisplay
