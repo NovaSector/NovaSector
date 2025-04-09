@@ -110,7 +110,7 @@
 	new_asset.RegisterSignal(src, COMSIG_QDELETING, TYPE_PROC_REF(/obj/structure/fleshmind, controller_destroyed))
 
 /// Defines the processing time for spread, requirements if it can spread
-/datum/fleshmind_controller/process(delta_time)
+/datum/fleshmind_controller/process(seconds_per_tick)
 	if(!LAZYLEN(cores)) // We have no more processor cores, it's time to die.
 		if(death_behaviour == CONTROLLER_DEATH_SLOW_DECAY)
 			handle_slow_decay()
@@ -118,7 +118,7 @@
 			WARNING("Wireweed controller has no post core behaviours and isn't deleting.")
 		return
 
-	spread_progress += spread_progress_per_second * delta_time
+	spread_progress += spread_progress_per_second * seconds_per_tick
 	var/spread_times = 0
 	while(spread_progress >= FLESHCORE_SPREAD_PROGRESS_REQUIRED)
 		spread_progress -= FLESHCORE_SPREAD_PROGRESS_REQUIRED
@@ -183,7 +183,7 @@
 
 						if(prob(attack_prob))
 							wireweed.do_attack_animation(object, ATTACK_EFFECT_CLAW)
-							playsound(object, 'sound/effects/attackblob.ogg', 50, TRUE)
+							playsound(object, 'sound/effects/blob/attackblob.ogg', 50, TRUE)
 							object.take_damage(wireweed.object_attack_damage, BRUTE, MELEE, 1, get_dir(object, wireweed))
 						break
 

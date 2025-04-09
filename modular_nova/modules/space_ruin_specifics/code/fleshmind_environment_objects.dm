@@ -82,7 +82,7 @@
 	if(QDELETED(src))
 		return
 
-	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
+	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_BITMASK)))
 		if(!vent_burrow)
 			QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)

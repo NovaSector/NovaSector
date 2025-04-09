@@ -297,7 +297,7 @@
 	. = ..()
 	explosion(src, 0, 2, 4, 6, 6)
 
-/obj/structure/fleshmind/structure/core/process(delta_time)
+/obj/structure/fleshmind/structure/core/process(seconds_per_tick)
 	var/mob/living/carbon/human/target = locate() in view(5, src)
 	if(target && target.stat == CONSCIOUS)
 		if(get_dist(src, target) <= 1)
@@ -360,7 +360,7 @@
 
 	if(has_attacked)
 		thing.visible_message(span_warning("\The [src] strikes [thing]!"), span_userdanger("\The [src] strikes you!"))
-		playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
+		playsound(loc, 'sound/effects/blob/attackblob.ogg', 100, TRUE)
 		do_attack_animation(thing, ATTACK_EFFECT_PUNCH)
 		return TRUE
 
@@ -378,7 +378,7 @@
 		if(faction_check(faction_types, iterating_mob.faction))
 			continue
 
-		playsound(iterating_mob, 'sound/weapons/whip.ogg', 70, TRUE)
+		playsound(iterating_mob, 'sound/items/weapons/whip.ogg', 70, TRUE)
 		new /obj/effect/temp_visual/kinetic_blast(get_turf(iterating_mob))
 
 		var/atom/throw_target = get_edge_target_turf(iterating_mob, get_dir(src, get_step_away(iterating_mob, src)))
@@ -568,7 +568,7 @@
 	if(!our_controller)
 		return
 
-	playsound(src, 'sound/items/rped.ogg', 100)
+	playsound(src, 'sound/items/tools/rped.ogg', 100)
 	flick("[base_icon_state]-anim", src)
 	do_squish(0.8, 1.2)
 
@@ -608,7 +608,7 @@
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/fleshmind/structure/turret/process(delta_time)
+/obj/structure/fleshmind/structure/turret/process(seconds_per_tick)
 	if(disabled)
 		return
 
@@ -641,7 +641,7 @@
 	playsound(loc, 'modular_nova/modules/space_ruin_specifics/sound/laser.ogg', 75, TRUE)
 	var/obj/projectile/new_projectile = new projectile_type
 	var/turf/our_turf = get_turf(src)
-	new_projectile.preparePixelProjectile(triggered_mob, our_turf)
+	new_projectile.aim_projectile(triggered_mob, our_turf)
 	new_projectile.firer = src
 	new_projectile.fired_from = src
 	new_projectile.ignored_factions = faction_types
