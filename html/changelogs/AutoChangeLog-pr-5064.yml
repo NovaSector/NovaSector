@@ -1,0 +1,5 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - qol: "the ash age now displays when you can use the ash age ritual now"
+  - rscadd: "added more stages to the ash age ritual (boulder breaker and an ashen armblade)"
