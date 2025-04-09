@@ -41796,6 +41796,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
+/mob/living/basic/cult/mannequin,
 /turf/open/floor/mineral/plastitanium/red,
 /area/station/maintenance/cult_chapel_maint)
 "iaz" = (
@@ -59892,7 +59893,6 @@
 "lzq" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/cable,
-/mob/living/simple_animal/hostile/cult/mannequin,
 /turf/open/floor/cult,
 /area/station/maintenance/cult_chapel_maint)
 "lzr" = (
@@ -66100,8 +66100,11 @@
 /turf/open/floor/iron,
 /area/station/security/brig)
 "mJr" = (
-/mob/living/simple_animal/hostile/cult/mannequin,
-/turf/open/floor/cult,
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/mob/living/basic/cult/mannequin,
+/turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/cult_chapel_maint)
 "mJv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -89484,13 +89487,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/supply)
 "rgn" = (
-/obj/effect/decal/cleanable/dirt{
-	icon_state = "dirt-flat-1"
-	},
-/mob/living/simple_animal/hostile/cult/horror{
-	health = 150;
-	maxHealth = 150
-	},
+/mob/living/basic/cult/horror,
 /turf/open/floor/cult,
 /area/station/maintenance/cult_chapel_maint)
 "rgo" = (
@@ -233878,7 +233875,7 @@ dpl
 jVg
 jVg
 jCY
-mJr
+oYm
 yau
 oAc
 kbi
@@ -234135,7 +234132,7 @@ xxS
 jVg
 wnq
 oYm
-oYm
+rgn
 myL
 vcW
 vbk
@@ -234391,7 +234388,7 @@ tzf
 xxS
 jVg
 sKy
-rgn
+myL
 wrz
 oYm
 cSf
@@ -234656,7 +234653,7 @@ otv
 mSe
 fwj
 aWh
-fwj
+mJr
 gIR
 aqy
 kkI
