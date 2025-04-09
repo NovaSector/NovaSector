@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes IPC prefs cluttering the prefs menu for non-synths. fixes an bug where the ipc antennae would persist upon changing species from ipc to something else and be unchangeable until you went back to ipc."

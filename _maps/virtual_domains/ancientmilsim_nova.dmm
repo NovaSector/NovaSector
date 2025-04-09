@@ -378,6 +378,12 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron/smooth,
 /area/virtual_domain/ancient_milsim/hallway)
+"kW" = (
+/obj/structure/table,
+/obj/item/ammo_workbench_module/lethal_variant,
+/obj/item/ammo_workbench_reboot,
+/turf/open/floor/iron/white,
+/area/virtual_domain/ancient_milsim/medbay)
 "kX" = (
 /turf/open/floor/plating,
 /area/virtual_domain/ancient_milsim/snpc_cave)
@@ -902,6 +908,12 @@
 /obj/structure/flora/tree/stump,
 /turf/open/misc/grass/planet/ancient_milsim,
 /area/virtual_domain/ancient_milsim/loot_camp)
+"wK" = (
+/obj/structure/sign/poster/random/directional/west,
+/obj/item/gun_maintenance_supplies,
+/obj/structure/table/wood,
+/turf/open/floor/carpet/red,
+/area/virtual_domain/ancient_milsim/snpc_bar)
 "wQ" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/misc/dirt/planet,
@@ -1125,8 +1137,13 @@
 	pixel_x = -4;
 	pixel_y = 9
 	},
-/obj/item/ammo_box/advanced/s12gauge{
-	pixel_x = 6
+/obj/item/ammo_box/advanced/s12gauge/buckshot/milspec{
+	pixel_x = 4;
+	pixel_y = -8
+	},
+/obj/item/ammo_box/advanced/s12gauge/milspec{
+	pixel_x = 9;
+	pixel_y = 3
 	},
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_hallway)
@@ -1184,12 +1201,6 @@
 /obj/machinery/light/small/dim/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/virtual_domain/ancient_milsim/snpc_reward)
-"DN" = (
-/obj/structure/table,
-/obj/item/ammo_workbench_module/lethal_variant,
-/obj/item/ammo_workbench_reboot,
-/turf/open/floor/iron/white,
-/area/virtual_domain/ancient_milsim/medbay)
 "DO" = (
 /turf/open/floor/iron/smooth_corner,
 /area/virtual_domain/ancient_milsim/atrium)
@@ -1583,11 +1594,6 @@
 /obj/structure/closet/crate/cardboard,
 /turf/open/floor/iron,
 /area/virtual_domain/ancient_milsim/snpc_garage)
-"NA" = (
-/obj/structure/sign/poster/random/directional/west,
-/obj/structure/table/wood,
-/turf/open/floor/carpet/red,
-/area/virtual_domain/ancient_milsim/snpc_bar)
 "NJ" = (
 /obj/effect/baseturf_helper/virtual_domain/ancient_milsim,
 /turf/open/misc/grass/planet/ancient_milsim,
@@ -3196,7 +3202,7 @@ oJ
 TE
 TE
 Bd
-NA
+wK
 Zg
 OS
 Ox
@@ -4279,7 +4285,7 @@ iq
 zE
 kh
 iz
-DN
+kW
 rl
 yh
 uY

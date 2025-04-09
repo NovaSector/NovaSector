@@ -29,8 +29,8 @@
 /datum/species/tajaran/get_default_mutant_bodyparts()
 	return list(
 		"tail" = list("Cat (Big)", TRUE),
-		"snout" = list("Cat, normal", TRUE),
-		"ears" = list("Cat, normal", TRUE),
+		"snout" = list("Mammal, Short", TRUE),
+		"ears" = list("Cat, Alert", TRUE),
 		"legs" = list("Normal Legs", FALSE),
 	)
 
@@ -89,7 +89,7 @@
 	cat.dna.features["mcolor3"] = second_color
 	cat.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
 	cat.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, normal", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, Alert", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
 	regenerate_organs(cat, src, visual_only = TRUE)
 	cat.update_body(TRUE)
 
