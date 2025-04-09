@@ -126,8 +126,8 @@
 	icon_state = "kneeboots"
 
 /obj/item/clothing/shoes/jackboots/timbs
-	name = "fashionable boots"
-	desc = "Fresh from Luna, deadass good for rappers."
+	name = "hiking boots"
+	desc = "While not quite as protective as Nanotrasen-issue workboots, these fashionable boots are still plenty effective in harsh climates."
 	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "timbs"

@@ -54,7 +54,7 @@
 */
 
 /datum/loadout_item/shoes/timbs
-	name = "Fashionable Boots"
+	name = "Hiking Boots"
 	item_path = /obj/item/clothing/shoes/jackboots/timbs
 
 /datum/loadout_item/shoes/jungle
