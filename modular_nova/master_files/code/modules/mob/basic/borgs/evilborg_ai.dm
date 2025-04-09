@@ -3,7 +3,7 @@
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
-		BB_REINFORCEMENTS_SAY = "Engaging hostile protocols!"
+		BB_REINFORCEMENTS_SAY = "Engaging hostile protocols!",
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -20,7 +20,7 @@
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
-		BB_REINFORCEMENTS_SAY = "Engaging hostile protocols!"
+		BB_REINFORCEMENTS_SAY = "Engaging hostile protocols!",
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -45,7 +45,7 @@
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
-		BB_REINFORCEMENTS_SAY = "Engaging hostile protocols!"
+		BB_REINFORCEMENTS_SAY = "Engaging hostile protocols!",
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -57,6 +57,7 @@
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,
 	)
+
 /datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/evilborgs
 	ranged_attack_behavior = /datum/ai_behavior/basic_ranged_attack/trooper/evilborgs
 

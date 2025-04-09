@@ -38,7 +38,7 @@
 	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/three,
-		)
+	)
 
 /mob/living/basic/looter/Initialize(mapload)
 	. = ..()
@@ -68,7 +68,7 @@
 	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/six,
-		)
+	)
 
 /*
 * lil fatter
