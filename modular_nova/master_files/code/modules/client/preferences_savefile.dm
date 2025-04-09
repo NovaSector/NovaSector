@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 11
+#define MODULAR_SAVEFILE_VERSION_MAX 12
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -17,7 +17,7 @@
 #define VERSION_SKRELL_HAIR_NAME_UPDATE 8
 #define VERSION_TG_EMOTE_SOUNDS 9
 #define VERSION_CAT_EARS_DUPES 10
-#define VERSION_LOADOUT_PRESETS 10
+#define VERSION_LOADOUT_PRESETS 12
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
