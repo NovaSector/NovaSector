@@ -94,7 +94,6 @@
 		if(3)
 			ADD_TRAIT(human_target, TRAIT_BOULDER_BREAKER, REF(src))
 			to_chat(human_target, span_notice("The boulders look easier to break open, even with your hands..."))
-
 		if(4)
 			human_target.add_movespeed_modifier(/datum/movespeed_modifier/ash_aged)
 			to_chat(human_target, span_notice("Your body seems lighter..."))
@@ -275,7 +274,7 @@
 		consumed_trophies += 1
 		if(isliving(user)) //give a reason to consume past the increased damage
 			var/mob/living/living_user = user
-			living_user.adjustBruteLoss(-5)
+			living_user.adjustBruteLoss(-5, updating_health = FALSE)
 			living_user.adjustFireLoss(-5)
 
 		if(consumed_trophies <= max_trophies)
