@@ -1294,7 +1294,6 @@
 		if(tool_behaviour == checking_behavior)
 			user.mind?.adjust_experience(/datum/skill/construction, 2)
 	//NOVA EDIT STOP: Construction Skill
-
 	return TRUE
 
 /// Called before [obj/item/proc/use_tool] if there is a delay, or by [obj/item/proc/use_tool] if there isn't. Only ever used by welding tools and stacks, so it's not added on any other [obj/item/proc/use_tool] checks.
