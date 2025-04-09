@@ -167,11 +167,6 @@
 /area/awaymission/beach/heretic)
 "dv" = (
 /obj/structure/ladder,
-/mob/living/simple_animal/hostile/devourdem{
-	faction = list("heretics","hostile");
-	maxHealth = 500;
-	health = 500
-	},
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "dy" = (
@@ -470,6 +465,10 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/awaymission/beach/heretic)
+"hI" = (
+/mob/living/basic/cult/engorge/devourdem,
+/turf/open/misc/beach/sand,
 /area/awaymission/beach/heretic)
 "hL" = (
 /obj/structure/railing{
@@ -14564,7 +14563,7 @@ RM
 RM
 XV
 XV
-XV
+hI
 XV
 RM
 RM
