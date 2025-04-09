@@ -27,8 +27,11 @@
  */
 /datum/security_level/violet
 	name = "violet"
+	name_shortform = "VLT"
 	announcement_color = "purple"
 	number_level = SEC_LEVEL_VIOLET
+	status_display_icon_state = "violetalert"
+	fire_alarm_light_color = COLOR_VIOLET
 	lowering_to_configuration_key = /datum/config_entry/string/alert_violet_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_violet_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/violet.ogg'
@@ -41,8 +44,11 @@
  */
 /datum/security_level/orange
 	name = "orange"
+	name_shortform = "ORNG"
 	announcement_color = "orange"
 	number_level = SEC_LEVEL_ORANGE
+	status_display_icon_state = "orangealert"
+	fire_alarm_light_color = LIGHT_COLOR_ORANGE
 	lowering_to_configuration_key = /datum/config_entry/string/alert_orange_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_orange_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/orange.ogg'
@@ -56,13 +62,35 @@
 
 /datum/security_level/amber
 	name = "amber"
+	name_shortform = "AMBR"
 	announcement_color = "yellow"
 	number_level = SEC_LEVEL_AMBER
+	status_display_icon_state = "amberalert"
+	fire_alarm_light_color = LIGHT_COLOR_DIM_YELLOW
 	lowering_to_configuration_key = /datum/config_entry/string/alert_amber_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_amber_upto
 	sound = 'modular_nova/modules/alerts/sound/security_levels/amber.ogg'
 	shuttle_call_time_mod = 0.5
 
+/**
+ * Epsilon
+ *
+ * Centcomm Emergency Intervention
+ */
+
+/datum/security_level/epsilon
+	name = "epsilon"
+	name_shortform = "ε"
+	announcement_color = "purple"
+	number_level = SEC_LEVEL_EPSILON
+	status_display_icon_state = "epsilonalert"
+	fire_alarm_light_color = COLOR_BIOLUMINESCENCE_PURPLE
+	lowering_to_configuration_key = /datum/config_entry/string/alert_epsilon_downto
+	elevating_to_configuration_key = /datum/config_entry/string/alert_epsilon_upto
+	shuttle_call_time_mod = 0.15
+	sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon_loop.ogg'
+	looping_sound_interval = 15 SECONDS
 
 /**
  * Gamma
@@ -71,10 +99,32 @@
  */
 /datum/security_level/gamma
 	name = "gamma"
+	name_shortform = "γ"
 	announcement_color = "pink"
 	number_level = SEC_LEVEL_GAMMA
-	elevating_to_configuration_key = /datum/config_entry/string/alert_gamma
+	status_display_icon_state = "gammaalert"
+	fire_alarm_light_color = COLOR_ASSEMBLY_PURPLE
+	lowering_to_configuration_key = /datum/config_entry/string/alert_gamma_downto
+	elevating_to_configuration_key = /datum/config_entry/string/alert_gamma_upto
 	shuttle_call_time_mod = 0.25
+	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
+	looping_sound_interval = 13 SECONDS
+
+/**
+ * Epsilon
+ *
+ * Solfed Military Takeover
+ */
+
+/datum/security_level/federal
+	name = "federal"
+	name_shortform = "FED"
+	announcement_color = "blue"
+	number_level = SEC_LEVEL_FEDERAL
+	status_display_icon_state = "federalalert"
+	fire_alarm_light_color = COLOR_THEME_GLASS
+	elevating_to_configuration_key = /datum/config_entry/string/alert_federal
 	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound_interval = 13 SECONDS

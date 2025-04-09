@@ -13,6 +13,7 @@
 		/obj/item/clothing/under/syndicate/tacticool = 20,
 		/obj/item/food/grown/cannabis/white = 10,
 		/obj/item/storage/box/fireworks/dangerous = 10,
+		/obj/item/circuitboard/machine/ltsrbt = 10, //NOVA EDIT ADDITION - More widespread Black Market
 		/obj/item/storage/pill_bottle/zoom = 10,
 		/obj/item/storage/pill_bottle/happy = 10,
 		/obj/item/storage/pill_bottle/lsd = 10,
@@ -22,8 +23,15 @@
 		/obj/item/storage/fancy/cigarettes/cigpack_shadyjims = 10,
 		/obj/item/storage/box/donkpockets = 10,
 		/obj/effect/spawner/random/contraband/plus = 10,
-		/obj/item/reagent_containers/pill/maintenance = 5,
+		/obj/item/reagent_containers/applicator/pill/maintenance = 5,
+		/obj/item/survivalcapsule/fishing = 5,
 	)
+
+
+/obj/effect/spawner/random/contraband/make_item(spawn_loc, type_path_to_make)
+	var/obj/item/made = ..()
+	ADD_TRAIT(made, TRAIT_CONTRABAND, INNATE_TRAIT)
+	return made
 
 /obj/effect/spawner/random/contraband/plus
 	name = "contraband loot spawner plus"
@@ -36,6 +44,7 @@
 		/obj/item/reagent_containers/cup/blastoff_ampoule = 5,
 		/obj/item/food/drug/moon_rock = 5,
 		/obj/item/grenade/empgrenade = 5,
+		/obj/item/survivalcapsule/fishing/hacked = 1,
 		/obj/effect/spawner/random/contraband/armory = 1,
 	)
 

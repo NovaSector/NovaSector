@@ -58,7 +58,7 @@
 //when someone pulls back their fishing rod
 #define COMSIG_FINISH_FISHING "finish_fishing"
 
-/// From /obj/item/organ/internal/stomach/after_eat(atom/edible)
+/// From /obj/item/organ/stomach/after_eat(atom/edible)
 #define COMSIG_STOMACH_AFTER_EAT "stomach_after_eat"
 
 /// For when a Hemophage's pulsating tumor gets added to their body.

@@ -187,8 +187,10 @@
 		/obj/item/xenoarch/hammer,
 		/obj/item/xenoarch/brush,
 		/obj/item/xenoarch/tape_measure,
+		/obj/item/xenoarch/core_sampler,
 		/obj/item/xenoarch/handheld_scanner,
 		/obj/item/xenoarch/handheld_recoverer,
+		/obj/item/xenoarch/anomaly_stabilizer,
 		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/mining_scanner,
 		/obj/item/gps

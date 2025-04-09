@@ -3,7 +3,7 @@
 /turf/closed/wall/prefab_plastic
 	name = "prefabricated wall"
 	desc = "A conservatively built metal frame with plastic paneling covering a thin air-seal layer. \
-		It's a little unnerving, but its better than nothing at all."
+		It's a little unnerving, but it's better than nothing at all."
 	icon = 'modular_nova/modules/colony_fabricator/icons/prefab_wall.dmi'
 	icon_state = "prefab-0"
 	base_icon_state = "prefab"

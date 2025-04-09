@@ -12,6 +12,11 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	interaction_flags_mouse_drop = NEED_HANDS
 
+/obj/item/clothing/shoes/sneakers/random/Initialize(mapload)
+	. = ..()
+	greyscale_colors = "#" + random_color() + "#" + random_color()
+	update_greyscale()
+
 /obj/item/clothing/shoes/sneakers/black
 	name = "black shoes"
 	desc = "A pair of black shoes."
@@ -168,7 +173,7 @@
 	greyscale_config_worn = /datum/greyscale_config/sneakers_marisa/worn
 	strip_delay = 5
 	equip_delay_other = 50
-	can_be_tied = FALSE
+	fastening_type = SHOES_SLIPON
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/shoes/sneakers/cyborg

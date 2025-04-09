@@ -5,10 +5,9 @@
 	icon = 'icons/mob/human/human.dmi'
 	icon_state = "human_basic"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPSEC_FIRST_HUD,IMPSEC_SECOND_HUD,ANTAG_HUD,GLAND_HUD,SENTIENT_DISEASE_HUD,FAN_HUD,PERMIT_HUD, DNR_HUD) //NOVA EDIT ADDITION - PERMIT_HUD, DNR_HUD
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPSEC_FIRST_HUD,IMPSEC_SECOND_HUD,ANTAG_HUD,GLAND_HUD,FAN_HUD,PERMIT_HUD,DNR_HUD) //NOVA EDIT ADDITION - PERMIT_HUD, DNR_HUD
 	hud_type = /datum/hud/human
 	pressure_resistance = 25
-	can_buckle = TRUE
 	buckle_lying = 0
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	can_be_shoved_into = TRUE
@@ -35,11 +34,14 @@
 	var/facial_hair_color = COLOR_BLACK
 	var/facial_hairstyle = "Shaved"
 
-	//Eye colour
+	// Base "natural" eye color
 	var/eye_color_left = COLOR_BLACK
 	var/eye_color_right = COLOR_BLACK
 	/// Var used to keep track of a human mob having a heterochromatic right eye. To ensure prefs don't overwrite shit
 	var/eye_color_heterochromatic = FALSE
+	// Eye color overrides assoc lists - priority key to hex color
+	var/list/eye_color_left_overrides
+	var/list/eye_color_right_overrides
 
 	var/skin_tone = "caucasian1" //Skin tone
 
@@ -74,13 +76,6 @@
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
 	var/datum/physiology/physiology
-
-	/// What types of mobs are allowed to ride/buckle to this mob
-	var/static/list/can_ride_typecache = typecacheof(list(
-		/mob/living/basic/parrot,
-		/mob/living/carbon/human,
-		/mob/living/basic/slime,
-	))
 
 	var/account_id
 

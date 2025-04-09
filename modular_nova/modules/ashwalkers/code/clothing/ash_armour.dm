@@ -134,6 +134,7 @@
 	icon_state = "bone_greaves"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	armor_type = /datum/armor/bone_greaves
+	body_parts_covered = FEET|LEGS
 
 /datum/crafting_recipe/ash_recipe/bone_greaves
 	name = "Bone Greaves"

@@ -61,6 +61,16 @@
 	new /obj/item/ammo_box/magazine/m7mm(src)
 	new /obj/item/ammo_box/magazine/m7mm(src)
 
+/datum/opposing_force_equipment/ranged/shitzu
+	name = "Shitzu Shotgun"
+	description = "A modified magfed shotgun gun, designated 'Shitzu'."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/shitzu
+
+/obj/item/storage/toolbox/guncase/nova/opfor/shitzu/PopulateContents()
+	new /obj/item/gun/ballistic/shotgun/katyusha/shitzu(src)
+	new /obj/item/ammo_box/magazine/shitzu/milspec(src)
+	new /obj/item/ammo_box/magazine/shitzu/milspec(src)
+
 /datum/opposing_force_equipment/ranged/hook_shotgun
 	name = "Hook Modified Sawn-off Shotgun"
 	description = "Range isn't an issue when you can bring your victim to you."
@@ -214,7 +224,7 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/syndie_revolver/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/syndicate(src)
+	new /obj/item/gun/ballistic/revolver/badass(src)
 	new /obj/item/ammo_box/a357(src)
 	new /obj/item/ammo_box/a357(src)
 
@@ -246,7 +256,7 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/foamforce_smg_basic
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/foamforce_smg_basic/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/toy/unrestricted(src)
+	new /obj/item/gun/ballistic/automatic/toy(src)
 	new /obj/item/ammo_box/magazine/toy/smg/riot(src)
 	new /obj/item/ammo_box/magazine/toy/smg/riot(src)
 

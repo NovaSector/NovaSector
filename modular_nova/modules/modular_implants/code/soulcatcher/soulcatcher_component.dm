@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		qdel(soulcatcher_room)
 
 	var/mob/living/soulcatcher_owner = parent
-	var/obj/item/organ/internal/cyberimp/brain/nif/parent_nif = parent
+	var/obj/item/organ/cyberimp/brain/nif/parent_nif = parent
 	if(istype(parent_nif))
 		soulcatcher_owner = parent_nif.linked_mob
 
@@ -300,7 +300,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	if(!message_to_send) //Why say nothing?
 		return FALSE
 
-	var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
+	var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
 	var/tag = sheet.icon_tag("nif-soulcatcher")
 	var/soulcatcher_icon = ""
 

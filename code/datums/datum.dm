@@ -1,7 +1,7 @@
 /**
  * The absolute base class for everything
  *
- * A datum instantiated has no physical world prescence, use an atom if you want something
+ * A datum instantiated has no physical world presence, use an atom if you want something
  * that actually lives in the world
  *
  * Be very mindful about adding variables to this class, they are inherited by every single
@@ -79,6 +79,8 @@
 #ifdef DATUMVAR_DEBUGGING_MODE
 	var/list/cached_vars
 #endif
+	///The layout pref we take from the player looking at this datum's UI to know what layout to give.
+	var/datum/preference/choiced/layout_prefs_used = /datum/preference/choiced/tgui_layout
 
 /**
  * Called when a href for this datum is clicked
@@ -93,7 +95,7 @@
  * Default implementation of clean-up code.
  *
  * This should be overridden to remove all references pointing to the object being destroyed, if
- * you do override it, make sure to call the parent and return it's return value by default
+ * you do override it, make sure to call the parent and return its return value by default
  *
  * Return an appropriate [QDEL_HINT][QDEL_HINT_QUEUE] to modify handling of your deletion;
  * in most cases this is [QDEL_HINT_QUEUE].
@@ -141,6 +143,12 @@
 
 	_clear_signal_refs()
 	//END: ECS SHIT
+
+#ifndef DISABLE_DREAMLUAU
+	if(!(datum_flags & DF_STATIC_OBJECT))
+		DREAMLUAU_CLEAR_REF_USERDATA(vars) // vars ceases existing when src does, so we need to clear any lua refs to it that exist.
+		DREAMLUAU_CLEAR_REF_USERDATA(src)
+#endif
 
 	return QDEL_HINT_QUEUE
 
@@ -340,7 +348,7 @@
 	. = ..()
 	update_item_action_buttons()
 
-/** Update a filter's parameter to the new one. If the filter doesnt exist we won't do anything.
+/** Update a filter's parameter to the new one. If the filter doesn't exist we won't do anything.
  *
  * Arguments:
  * * name - Filter name
@@ -358,7 +366,7 @@
 			filter_data[name][thing] = new_params[thing]
 	update_filters()
 
-/** Update a filter's parameter and animate this change. If the filter doesnt exist we won't do anything.
+/** Update a filter's parameter and animate this change. If the filter doesn't exist we won't do anything.
  * Basically a [datum/proc/modify_filter] call but with animations. Unmodified filter parameters are kept.
  *
  * Arguments:
@@ -404,16 +412,26 @@
 
 	var/list/names = islist(name_or_names) ? name_or_names : list(name_or_names)
 
+	. = FALSE
 	for(var/name in names)
 		if(filter_data[name])
 			filter_data -= name
-	update_filters()
+			. = TRUE
+
+	if(.)
+		update_filters()
+	return .
 
 /datum/proc/clear_filters()
 	ASSERT(isatom(src) || isimage(src))
 	var/atom/atom_cast = src // filters only work with images or atoms.
 	filter_data = null
 	atom_cast.filters = null
+
+/// Calls qdel on itself, because signals dont allow callbacks
+/datum/proc/selfdelete()
+	SIGNAL_HANDLER
+	qdel(src)
 
 /// Return text from this proc to provide extra context to hard deletes that happen to it
 /// Optional, you should use this for cases where replication is difficult and extra context is required

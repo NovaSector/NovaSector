@@ -7,9 +7,8 @@
 	shoes = /obj/item/clothing/shoes/cult/alt
 	r_hand = /obj/item/melee/blood_magic/stun
 
-/datum/outfit/cultist/post_equip(mob/living/carbon/human/equipped, visualsOnly)
-	equipped.eye_color_left = BLOODCULT_EYE
-	equipped.eye_color_right = BLOODCULT_EYE
+/datum/outfit/cultist/post_equip(mob/living/carbon/human/equipped, visuals_only)
+	equipped.set_eye_color(BLOODCULT_EYE)
 	equipped.update_body()
 
 ///Returns whether the given mob is convertable to the blood cult
@@ -25,8 +24,6 @@
 		return FALSE
 #endif
 
-	if(target.mind.unconvertable)
-		return FALSE
 	if(ishuman(target) && target.mind.holy_role)
 		return FALSE
 	if(specific_cult?.is_sacrifice_target(target.mind))
@@ -36,6 +33,6 @@
 		return FALSE
 	if(IS_HERETIC_OR_MONSTER(target))
 		return FALSE
-	if(HAS_TRAIT(target, TRAIT_MINDSHIELD) || issilicon(target) || isbot(target) || isdrone(target))
+	if(HAS_MIND_TRAIT(target, TRAIT_UNCONVERTABLE) || issilicon(target) || isbot(target) || isdrone(target))
 		return FALSE //can't convert machines, shielded, or braindead
 	return TRUE

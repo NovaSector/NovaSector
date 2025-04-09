@@ -22,6 +22,38 @@
 	design_ids = list("borg_shapeshifter_module")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
+/datum/techweb_node/android_chassis
+	id = TECHWEB_NODE_ANDROID_CHASSIS
+	starting_node = TRUE
+	display_name = "Android Technology"
+	description = "Shiny parts for your shiny friends!"
+	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
+	design_ids = list(
+		"synth_head",
+		"synth_chest",
+		"synth_l_arm",
+		"synth_r_arm",
+		"synth_l_leg",
+		"synth_r_leg",
+		"synth_l_d_leg",
+		"synth_r_d_leg",
+	)
+
+/datum/techweb_node/android_organs
+	id = TECHWEB_NODE_ANDROID_ORGANS
+	starting_node = TRUE
+	display_name = "Android Organs"
+	description = "Internal Mechanisms for Synthetics and IPC's."
+	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
+	design_ids = list(
+		"synth_eyes",
+		"synth_tongue",
+		"synth_liver",
+		"synth_lungs",
+		"synth_stomach",
+		"synth_ears",
+		"synth_heart",
+	)
 
 // MODULAR ADDITIONS AND REMOVALS
 
@@ -41,6 +73,7 @@
 /datum/techweb_node/office_equip/New()
 	design_ids += list(
 		"gbp_machine",
+		"pen",
 	)
 	return ..()
 
@@ -50,31 +83,12 @@
 	)
 	return ..()
 
-/datum/techweb_node/cafeteria_equip/New()
-	design_ids += list(
-		"bowl",
-		"drinking_glass",
-		"shot_glass",
-	)
-	return ..()
-
 /datum/techweb_node/medbay_equip/New()
 	design_ids += list(
 		"hospital_gown",
 		"anesthetic_machine",
 		"smartdartgun",
-	)
-	return ..()
-
-/datum/techweb_node/augmentation/New()
-	design_ids += list(
-		"synth_eyes",
-		"synth_tongue",
-		"synth_liver",
-		"synth_lungs",
-		"synth_stomach",
-		"synth_ears",
-		"synth_heart",
+		"cone_of_shame",
 	)
 	return ..()
 
@@ -109,6 +123,7 @@
 /datum/techweb_node/consoles/New()
 	design_ids += list(
 		"time_clock_frame",
+		"nif_service_tools",
 	)
 	return ..()
 
@@ -141,6 +156,11 @@
 	return ..()
 
 ////////////////////////Medical////////////////////////
+/datum/techweb_node/surgery/New()
+	design_ids += list(
+		"nif_surgery_tools",
+	)
+	return ..()
 
 /datum/techweb_node/gene_engineering/New()
 	design_ids += list(
@@ -188,6 +208,8 @@
 /datum/techweb_node/sec_equip/New()
 	design_ids += list(
 		"nifsoft_remover",
+		"nif_detective_tools",
+
 	)
 	return ..()
 
@@ -211,6 +233,19 @@
 	)
 	return ..()
 
+/datum/techweb_node/mod_security/New()
+	design_ids += list(
+		"mod_retract_plates",
+	)
+	return ..()
+
+/datum/techweb_node/exotic_ammo/New()
+	design_ids += list(
+		"c38_haywire",
+		"c38_haywire_mag",
+	)
+	return ..()
+
 ////////////////////////Alien technology////////////////////////
 
 /datum/techweb_node/alien_surgery/New()
@@ -223,6 +258,12 @@
 	return ..()
 
 /////////////////////////engineering tech/////////////////////////
+
+/datum/techweb_node/parts_upg/New()
+	design_ids += list(
+		"nif_general_tools",
+	)
+	return ..()
 
 /datum/techweb_node/fusion/New()
 	design_ids += list(
@@ -245,6 +286,7 @@
 /datum/techweb_node/mining/New()
 	design_ids += list(
 		"mesons_prescription",
+		"bsc_nt",
 	)
 	return ..()
 
@@ -282,9 +324,5 @@
 /datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
-	)
-
-	design_ids -= list(
-		"borg_upgrade_pinpointer",
 	)
 	return ..()

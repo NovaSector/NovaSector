@@ -60,7 +60,7 @@
 /turf/open/floor/holofloor/grass
 	gender = PLURAL
 	name = "lush grass"
-	desc = "Looking at the lushious field, you suddenly feel homesick."
+	desc = "Looking at the luscious field, you suddenly feel homesick."
 	icon_state = "grass0"
 	bullet_bounce_sound = null
 	tiled_dirt = FALSE
@@ -120,7 +120,11 @@
 	. = ..()
 	if(prob(15))
 		icon_state = "basalt[rand(0, 12)]"
-		set_basalt_light(src)
+		switch(icon_state)
+			if("basalt1", "basalt2", "basalt3")
+				set_light(BASALT_LIGHT_RANGE_BRIGHT, BASALT_LIGHT_POWER, LIGHT_COLOR_LAVA)
+			if("basalt5", "basalt9")
+				set_light(BASALT_LIGHT_RANGE_DIM, BASALT_LIGHT_POWER, LIGHT_COLOR_LAVA)
 
 /turf/open/floor/holofloor/space
 	name = "\proper space"

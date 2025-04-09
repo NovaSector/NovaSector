@@ -89,7 +89,7 @@
 		atom_storage.close_all()
 		attach_to.clone_storage(atom_storage)
 		attach_to.atom_storage.set_real_location(src)
-		attach_to.atom_storage.rustle_sound = TRUE // it's on the suit now
+		attach_to.atom_storage.do_rustle = TRUE // it's on the suit now
 
 	var/num_other_accessories = LAZYLEN(attach_to.attached_accessories)
 	layer = FLOAT_LAYER + clamp(attach_to.max_number_of_accessories - num_other_accessories, 0, 10)
@@ -97,8 +97,8 @@
 
 	if(minimize_when_attached)
 		transform *= 0.5
-		pixel_x += 8
-		pixel_y += (-8 + LAZYLEN(attach_to.attached_accessories) * 2)
+		pixel_w += 8
+		pixel_z += (-8 + LAZYLEN(attach_to.attached_accessories) * 2)
 
 	RegisterSignal(attach_to, COMSIG_ITEM_EQUIPPED, PROC_REF(on_uniform_equipped))
 	RegisterSignal(attach_to, COMSIG_ITEM_DROPPED, PROC_REF(on_uniform_dropped))

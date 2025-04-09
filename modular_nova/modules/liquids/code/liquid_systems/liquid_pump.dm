@@ -13,7 +13,7 @@
 	var/max_volume = 10000
 	/// Whether spewing reagents out, instead of siphoning them
 	var/spewing_mode = FALSE
-	/// Whether its turned on and processing
+	/// Whether it's turned on and processing
 	var/turned_on = FALSE
 	/// How fast does the pump work, in percentages relative to the volume we're working with
 	var/pump_speed_percentage = 0.4
@@ -42,9 +42,9 @@
 
 /obj/structure/liquid_pump/examine(mob/user)
 	. = ..()
-	. += span_notice("It's anchor bolts are [anchored ? "down and secured" : "up"].")
-	. += span_notice("It's currently [turned_on ? "ON" : "OFF"].")
-	. += span_notice("It's mode currently is set to [spewing_mode ? "SPEWING" : "SIPHONING"]. (Alt-click to switch)")
+	. += span_notice("Its anchor bolts are [anchored ? "down and secured" : "up"].")
+	. += span_notice("Its currently [turned_on ? "ON" : "OFF"].")
+	. += span_notice("Its mode currently is set to [spewing_mode ? "SPEWING" : "SIPHONING"]. (Alt-click to switch)")
 	. += span_notice("The pressure gauge shows [reagents.total_volume]/[reagents.maximum_volume].")
 
 /obj/structure/liquid_pump/process()

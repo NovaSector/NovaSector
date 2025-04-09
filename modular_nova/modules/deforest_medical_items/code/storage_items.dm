@@ -1,18 +1,18 @@
 // Bottle of painkiller pills
 /obj/item/storage/pill_bottle/painkiller
 	name = "amollin pill bottle"
-	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve and Lidocaine."
+	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve, Lidocaine, and Sugar."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	custom_price = PAYCHECK_CREW * 1.5
 
 /obj/item/storage/pill_bottle/painkiller/PopulateContents()
 	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/pill/amollin(src)
+		new /obj/item/reagent_containers/applicator/pill/amollin(src)
 
-/obj/item/reagent_containers/pill/amollin
+/obj/item/reagent_containers/applicator/pill/amollin
 	name = "amollin pill"
-	desc = "Neutralizes many common pains and ailments. A blend of Miner's Salve and Lidocaine."
+	desc = "Neutralizes many common pains and ailments. A blend of Miner's Salve, Lidocaine, and Sugar."
 	icon_state = "pill9"
 	list_reagents = list(
 		/datum/reagent/medicine/mine_salve = 10,
@@ -33,14 +33,14 @@
 	// Make sure we can only hold alifil pills since this is nested inside a symptom support kit
 	atom_storage.max_slots = 5
 	atom_storage.set_holdable(list(
-		/obj/item/reagent_containers/pill/prescription_stimulant,
+		/obj/item/reagent_containers/applicator/pill/prescription_stimulant,
 	))
 
 /obj/item/storage/pill_bottle/prescription_stimulant/PopulateContents()
 	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/pill/prescription_stimulant(src)
+		new /obj/item/reagent_containers/applicator/pill/prescription_stimulant(src)
 
-/obj/item/reagent_containers/pill/prescription_stimulant
+/obj/item/reagent_containers/applicator/pill/prescription_stimulant
 	name = "alifil pill"
 	desc = "Used to treat symptoms of drowsiness and sudden loss of consciousness. Contains a mix of sugar, synaptizine and modafinil. A warning label reads: <b>Take in moderation</b>."
 	icon_state = "pill15"
@@ -137,10 +137,11 @@
 	lefthand_file = 'modular_nova/modules/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/deforest_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "frontier"
+	worn_icon_state = "frontier"
 	worn_icon = 'modular_nova/modules/deforest_medical_items/icons/worn/worn.dmi'
 	worn_icon_teshari = 'modular_nova/modules/deforest_medical_items/icons/worn/worn_teshari.dmi'
-	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
-	drop_sound = 'sound/items/handling/cloth_drop.ogg'
+	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
+	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
 	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/storage/medkit/frontier/stocked
@@ -169,8 +170,8 @@
 	worn_icon = 'modular_nova/modules/deforest_medical_items/icons/worn/worn.dmi'
 	worn_icon_teshari = 'modular_nova/modules/deforest_medical_items/icons/worn/worn_teshari.dmi'
 	worn_icon_state = "frontier"
-	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
-	drop_sound = 'sound/items/handling/cloth_drop.ogg'
+	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
+	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
 
 /obj/item/storage/medkit/combat_surgeon/Initialize(mapload)
 	. = ..()
@@ -202,8 +203,8 @@
 	worn_icon = 'modular_nova/modules/deforest_medical_items/icons/worn/worn.dmi'
 	worn_icon_teshari = 'modular_nova/modules/deforest_medical_items/icons/worn/worn_teshari.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
-	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
-	drop_sound = 'sound/items/handling/cloth_drop.ogg'
+	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
+	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	storage_type = /datum/storage/duffel/deforest_medkit
 	zip_slowdown = 0.25 // Most won't notice normally but it'll hurt you if you're a paramedic or in combat
@@ -250,7 +251,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
 		/obj/item/flashlight/pen,
@@ -273,7 +274,7 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/medigel,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/reagent_containers/spray,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/stack/medical,
@@ -298,8 +299,8 @@
 	worn_icon = 'modular_nova/modules/deforest_medical_items/icons/worn/worn.dmi'
 	worn_icon_teshari = 'modular_nova/modules/deforest_medical_items/icons/worn/worn_teshari.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
-	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
-	drop_sound = 'sound/items/handling/cloth_drop.ogg'
+	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
+	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	storage_type = /datum/storage/duffel/deforest_big_surgery
 	zip_slowdown = 0.5 // Its a bulkier bag and thus slows you down a little more when unzipped
@@ -334,6 +335,7 @@
 	. = ..()
 
 	can_hold = typecacheof(list(
+		/obj/item/autopsy_scanner,
 		/obj/item/blood_filter,
 		/obj/item/bonesetter,
 		/obj/item/cautery,
@@ -344,7 +346,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
 		/obj/item/construction/plumbing,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
@@ -371,7 +373,7 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/medigel,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/reagent_containers/spray,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/retractor,
@@ -406,8 +408,8 @@
 	worn_icon = 'modular_nova/modules/deforest_medical_items/icons/worn/worn.dmi'
 	worn_icon_teshari = 'modular_nova/modules/deforest_medical_items/icons/worn/worn_teshari.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
-	pickup_sound = 'sound/items/handling/cloth_pickup.ogg'
-	drop_sound = 'sound/items/handling/cloth_drop.ogg'
+	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
+	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	storage_type = /datum/storage/duffel/deforest_paramedic
 	zip_slowdown = 0.3 // Midrange between the other two bags
@@ -420,7 +422,7 @@
 		/obj/item/scalpel = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/retractor = 1,
-		/obj/item/circular_saw/field_medic = 1,
+		/obj/item/circular_saw/field_medic/lowforce = 1,
 		/obj/item/bonesetter = 1,
 		/obj/item/cautery = 1,
 		/obj/item/surgical_drapes = 1,
@@ -435,7 +437,7 @@
 		/obj/item/reagent_containers/cup/vial/small/libital = 1,
 		/obj/item/reagent_containers/cup/vial/small/lenturi = 1,
 		/obj/item/reagent_containers/cup/vial/small/seiver = 1,
-		/obj/item/healthanalyzer = 1,
+		/obj/item/healthanalyzer/advanced = 1,
 	)
 	generate_items_inside(items_inside,src)
 
@@ -455,7 +457,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/muzzle,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown,
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown,
 		/obj/item/dnainjector,
 		/obj/item/extinguisher/mini,
 		/obj/item/flashlight/pen,
@@ -478,7 +480,7 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/medigel,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/reagent_containers/spray,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/retractor,

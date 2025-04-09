@@ -1,13 +1,12 @@
 /datum/species/moth
 	mutant_bodyparts = list()
 	inherent_traits = list(
-		TRAIT_TACKLING_WINGED_ATTACKER,
-		TRAIT_ANTENNAE,
 		TRAIT_MUTANT_COLORS,
 	)
 
 /datum/species/moth/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"fluff" = list("Plain", FALSE),
 		"wings" = list("Moth (Plain)", TRUE),
 		"moth_antennae" = list("Plain", TRUE),
@@ -19,7 +18,7 @@
 	return features
 
 /datum/species/moth/get_random_body_markings(list/passed_features)
-	var/name = "None"
+	var/name = SPRITE_ACCESSORY_NONE
 	var/list/candidates = GLOB.body_marking_sets.Copy()
 	for(var/candi in candidates)
 		var/datum/body_marking_set/setter = GLOB.body_marking_sets[candi]

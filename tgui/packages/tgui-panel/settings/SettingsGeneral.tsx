@@ -1,5 +1,3 @@
-import { toFixed } from 'common/math';
-import { capitalize } from 'common/string';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'tgui/backend';
 import {
@@ -8,16 +6,19 @@ import {
   Divider,
   Input,
   LabeledList,
-  NumberInput,
   Section,
+  Slider,
   Stack,
-} from 'tgui/components';
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+import { capitalize } from 'tgui-core/string';
 
 import { clearChat, saveChatToDisk } from '../chat/actions';
 import { THEMES } from '../themes';
-import { updateSettings } from './actions';
+import { exportSettings, updateSettings } from './actions';
 import { FONTS } from './constants';
 import { selectSettings } from './selectors';
+import { importChatSettings } from './settingsImExport';
 
 export function SettingsGeneral(props) {
   const { theme, fontFamily, fontSize, lineHeight } =
@@ -109,35 +110,34 @@ export function SettingsGeneral(props) {
             )}
           </Stack.Item>
         </LabeledList.Item>
-        <LabeledList.Item label="Font size">
-          <NumberInput
-            width="4.2em"
-            step={1}
-            stepPixelSize={10}
-            minValue={8}
-            maxValue={32}
-            value={fontSize}
-            unit="px"
-            format={(value) => toFixed(value)}
-            onChange={(value) =>
-              dispatch(
-                updateSettings({
-                  fontSize: value,
-                }),
-              )
-            }
-          />
+        <LabeledList.Item label="Font size" verticalAlign="middle">
+          <Stack textAlign="center">
+            <Stack.Item grow>
+              <Slider
+                width="100%"
+                step={1}
+                stepPixelSize={20}
+                minValue={8}
+                maxValue={32}
+                value={fontSize}
+                unit="px"
+                format={(value) => toFixed(value)}
+                onChange={(e, value) =>
+                  dispatch(updateSettings({ fontSize: value }))
+                }
+              />
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
         <LabeledList.Item label="Line height">
-          <NumberInput
-            width="4.2em"
+          <Slider
+            width="100%"
             step={0.01}
-            stepPixelSize={2}
             minValue={0.8}
             maxValue={5}
             value={lineHeight}
             format={(value) => toFixed(value, 2)}
-            onDrag={(value) =>
+            onDrag={(e, value) =>
               dispatch(
                 updateSettings({
                   lineHeight: value,
@@ -149,6 +149,25 @@ export function SettingsGeneral(props) {
       </LabeledList>
       <Divider />
       <Stack fill>
+        <Stack.Item mt={0.15}>
+          <Button
+            icon="compact-disc"
+            tooltip="Export chat settings"
+            onClick={() => dispatch(exportSettings())}
+          >
+            Export settings
+          </Button>
+        </Stack.Item>
+        <Stack.Item mt={0.15}>
+          <Button.File
+            accept=".json"
+            tooltip="Import chat settings"
+            icon="arrow-up-from-bracket"
+            onSelectFiles={(files) => importChatSettings(files)}
+          >
+            Import settings
+          </Button.File>
+        </Stack.Item>
         <Stack.Item grow mt={0.15}>
           <Button
             icon="save"

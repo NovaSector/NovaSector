@@ -132,26 +132,8 @@
 
 // Masks
 
-/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter
-	name = "neck gaiter"
-	desc = "A cloth for covering your neck, and usually part of your face too, but that part's optional."
-	icon_state = "gaiter"
-	inhand_icon_state = "balaclava"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-	greyscale_config = /datum/greyscale_config/primitive_catgirl_gaiter
-	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_gaiter/worn
+/obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter
 	greyscale_colors = "#364660"
-	w_class = WEIGHT_CLASS_TINY
-	flags_inv = HIDEFACE|HIDESNOUT
-	flags_cover = MASKCOVERSMOUTH
-	visor_flags_inv = HIDEFACE|HIDESNOUT
-	visor_flags_cover = MASKCOVERSMOUTH
-	flags_1 = IS_PLAYER_COLORABLE_1
-	actions_types = list(/datum/action/item_action/adjust)
-
-/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter/attack_self(mob/user)
-	adjust_visor(user)
 
 // Head
 

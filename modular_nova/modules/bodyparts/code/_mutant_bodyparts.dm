@@ -19,6 +19,12 @@
 	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
 	var/digitigrade_type = /obj/item/bodypart/leg/left/digitigrade
 
+// Just blanket apply the footstep pref on limb addition, it gets far too complicated otherwise as limbs are getting replaced more often than you'd think
+/obj/item/bodypart/leg/on_adding(mob/living/carbon/new_owner)
+	. = ..()
+	var/mob/living/carbon/human/human_owner = new_owner
+	if(istype(human_owner) && human_owner.footstep_type)
+		footstep_type = human_owner.footstep_type
 
 /// General mutant bodyparts. Used in most mutant species.
 /obj/item/bodypart/head/mutant
@@ -36,8 +42,8 @@
 	limb_id = SPECIES_MAMMAL
 	unarmed_attack_verbs = list("slash")
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	unarmed_attack_sound = 'sound/weapons/slash.ogg'
-	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/slash.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 
 
 /obj/item/bodypart/arm/right/mutant
@@ -45,8 +51,8 @@
 	limb_id = SPECIES_MAMMAL
 	unarmed_attack_verbs = list("slash")
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	unarmed_attack_sound = 'sound/weapons/slash.ogg'
-	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/slash.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 
 
 /obj/item/bodypart/leg/left/mutant

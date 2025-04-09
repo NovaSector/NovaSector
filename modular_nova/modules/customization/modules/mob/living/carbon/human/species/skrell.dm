@@ -14,15 +14,15 @@
 	bodytemp_cold_damage_limit = (T20C - 10)
 	species_language_holder = /datum/language_holder/skrell
 	mutant_bodyparts = list()
-	mutanttongue = /obj/item/organ/internal/tongue/skrell
+	mutanttongue = /obj/item/organ/tongue/skrell
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
-	mutantbrain = /obj/item/organ/internal/brain/skrell
-	mutanteyes = /obj/item/organ/internal/eyes/skrell
-	mutantlungs = /obj/item/organ/internal/lungs/skrell
-	mutantheart = /obj/item/organ/internal/heart/skrell
-	mutantliver = /obj/item/organ/internal/liver/skrell
-	mutanttongue = /obj/item/organ/internal/tongue/skrell
+	mutantbrain = /obj/item/organ/brain/skrell
+	mutanteyes = /obj/item/organ/eyes/skrell
+	mutantlungs = /obj/item/organ/lungs/skrell
+	mutantheart = /obj/item/organ/heart/skrell
+	mutantliver = /obj/item/organ/liver/skrell
+	mutanttongue = /obj/item/organ/tongue/skrell
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/skrell,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/skrell,
@@ -34,7 +34,8 @@
 
 /datum/species/skrell/get_default_mutant_bodyparts()
 	return list(
-		"skrell_hair" = list("Male", TRUE),
+		"ears" = list("None", FALSE),
+		"skrell_hair" = list("Short", TRUE),
 	)
 
 /datum/species/skrell/get_species_description()
@@ -71,12 +72,12 @@
 	skrell.dna.features["mcolor"] = skrell_color
 	skrell.dna.features["mcolor2"] = skrell_color
 	skrell.dna.features["mcolor3"] = skrell_color
-	skrell.dna.mutant_bodyparts["skrell_hair"] = list(MUTANT_INDEX_NAME = "Female", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
+	skrell.dna.mutant_bodyparts["skrell_hair"] = list(MUTANT_INDEX_NAME = "Long", MUTANT_INDEX_COLOR_LIST = list(skrell_color, skrell_color, skrell_color))
 	regenerate_organs(skrell, src, visual_only = TRUE)
 	skrell.update_body(TRUE)
 
 
-/obj/item/organ/internal/tongue/skrell
+/obj/item/organ/tongue/skrell
 	name = "internal vocal sacs"
 	desc = "An Strange looking sac."
 	icon = 'modular_nova/modules/organs/icons/skrell_organ.dmi'
@@ -106,27 +107,27 @@
 	disliked_foodtypes = RAW | CLOTH
 	toxic_foodtypes = DAIRY | MEAT
 
-/obj/item/organ/internal/tongue/skrell/get_possible_languages()
+/obj/item/organ/tongue/skrell/get_possible_languages()
 	return languages_possible_skrell
 
-/obj/item/organ/internal/heart/skrell
+/obj/item/organ/heart/skrell
 	name = "skrellian heart"
 	icon = 'modular_nova/modules/organs/icons/skrell_organ.dmi'
 	icon_state = "heart"
 
-/obj/item/organ/internal/brain/skrell
+/obj/item/organ/brain/skrell
 	name = "spongy brain"
 	icon = 'modular_nova/modules/organs/icons/skrell_organ.dmi'
 	icon_state = "brain2"
 
-/obj/item/organ/internal/eyes/skrell
+/obj/item/organ/eyes/skrell
 	name = "amphibian eyes"
 	desc = "Large black orbs."
 	icon = 'modular_nova/modules/organs/icons/skrell_organ.dmi'
 	icon_state = "eyes"
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 
-/obj/item/organ/internal/lungs/skrell
+/obj/item/organ/lungs/skrell
 	name = "skrell lungs"
 	icon = 'modular_nova/modules/organs/icons/skrell_organ.dmi'
 	icon_state = "lungs"
@@ -152,7 +153,7 @@
 	heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	heat_damage_type = BURN
 
-/obj/item/organ/internal/liver/skrell
+/obj/item/organ/liver/skrell
 	name = "skrell liver"
 	icon_state = "liver"
 	icon = 'modular_nova/modules/organs/icons/skrell_organ.dmi'

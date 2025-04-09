@@ -208,7 +208,7 @@
 	)
 	construction_time = 30 SECONDS
 
-// Really, its just a microwave
+// Really, it's just a microwave
 
 /datum/design/macrowave
 	name = "Microwave Oven"

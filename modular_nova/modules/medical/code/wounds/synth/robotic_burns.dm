@@ -220,9 +220,9 @@
 	var/reagent_coeff = base_reagent_temp_coefficient
 	if (!get_location_accessible(victim, limb.body_zone))
 		if (ishuman(victim))
-			// hi! its niko! small rant
+			// hi! it's niko! small rant
 			// this proc has no goddamn reason to be on human, it could so easily just have used a proc on carbon that would get the required bodyparts to check
-			// but no. it had to hardcode the list in the proc itself so its impossible to modularly fix this
+			// but no. it had to hardcode the list in the proc itself so it's impossible to modularly fix this
 			// so instead we just say fuck it and hope to god only human subtypes get this wound
 			// tldr; ryll why
 			var/mob/living/carbon/human/human_victim = victim
@@ -283,7 +283,7 @@
 			var/gauze_or_not = (!isnull(gauze) ? ", but [gauze] helps to keep it together" : "")
 			var/clothing_text = (!get_location_accessible(victim, limb.body_zone) ? ", [victim.p_their()] clothing absorbing some of the liquid" : "")
 			victim.visible_message(span_warning("[victim]'s [limb.plaintext_zone] strains from the thermal shock[clothing_text][gauze_or_not]!"))
-			playsound(victim, 'sound/items/welder.ogg', 25)
+			playsound(victim, 'sound/items/tools/welder.ogg', 25)
 
 		var/damage = (((abs(temp_delta) * heat_shock_delta_to_damage_ratio) * gauze_mult) * heat_shock_damage_mult) * heat_adjustment_used
 		limb.receive_damage(brute = damage, wound_bonus = CANT_WOUND)

@@ -13,7 +13,6 @@
 		/obj/item/food/meat/slab = 1,
 	)
 	collar_icon_state = null
-	has_collar_resting_icon_state = FALSE
 	can_be_held = TRUE
 	worn_slot_flags = ITEM_SLOT_HEAD
 	held_state = "fennec"
@@ -58,5 +57,5 @@
 	AddComponent(\
 		/datum/component/breed,\
 		can_breed_with = typecacheof(list(/mob/living/basic/pet/cat/fennec)),\
-		baby_path = /mob/living/basic/pet/cat/fennec,\
+		baby_paths = list(/mob/living/basic/pet/cat/fennec),\
 	)

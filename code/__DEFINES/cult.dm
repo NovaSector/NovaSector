@@ -22,7 +22,7 @@
 #define BLOOD_BEAM_COST 500
 #define IRON_TO_CONSTRUCT_SHELL_CONVERSION 50
 //screen locations
-#define DEFAULT_BLOODSPELLS "6:-29,4:-2"
+#define DEFAULT_BLOODSPELLS "6:-29,4:+15"
 //misc
 #define SOULS_TO_REVIVE 3
 #define BLOODCULT_EYE COLOR_RED
@@ -58,5 +58,5 @@ GLOBAL_LIST(sacrificed)
 
 // Used to keep track of items rewarded after a heretic is sacked.
 #define CURSED_BLADE_UNLOCKED "Cursed Blade"
-#define CRIMSON_FOCUS_UNLOCKED "Crimson Focus"
+#define CRIMSON_MEDALLION_UNLOCKED "Crimson Medallion"
 #define PROTEON_ORB_UNLOCKED "Proteon Orb"

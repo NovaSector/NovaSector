@@ -56,6 +56,10 @@
 	name = "Lovers"
 	icon_state = "lovers"
 
+/datum/body_marking/moth/lightbearer
+	name = "Lightbearer"
+	icon_state = "lightbearer"
+
 /datum/body_marking/moth/grayscale
 	icon = 'modular_nova/master_files/icons/mob/body_markings/moth_grayscale_markings.dmi'
 

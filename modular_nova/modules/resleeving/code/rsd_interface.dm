@@ -9,7 +9,7 @@
 
 /// Attempts to use the item on the target brain.
 /obj/item/rsd_interface/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!istype(interacting_with, /obj/item/organ/internal/brain))
+	if(!istype(interacting_with, /obj/item/organ/brain))
 		return NONE
 
 	if(HAS_TRAIT(interacting_with, TRAIT_RSD_COMPATIBLE))
@@ -18,14 +18,14 @@
 
 	user.visible_message(span_notice("[user] upgrades [interacting_with] with [src]."), span_notice("You upgrade [interacting_with] to be RSD compatible."))
 	interacting_with.AddElement(/datum/element/rsd_interface)
-	playsound(interacting_with.loc, 'sound/weapons/circsawhit.ogg', 50, vary = TRUE)
+	playsound(interacting_with.loc, 'sound/items/weapons/circsawhit.ogg', 50, vary = TRUE)
 
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
 
 /datum/element/rsd_interface/Attach(datum/target)
 	. = ..()
-	if(!istype(target, /obj/item/organ/internal/brain))
+	if(!istype(target, /obj/item/organ/brain))
 		return ELEMENT_INCOMPATIBLE
 
 	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))

@@ -49,18 +49,18 @@
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 //Overrides normal dumping code to instead dump from the pouch item inside
-/datum/storage/belt/crusader/dump_content_at(atom/dest_object, mob/dumping_mob)
+/datum/storage/belt/crusader/dump_content_at(atom/dest_object, dump_loc, mob/user)
 	var/atom/used_belt = parent
 	if(!used_belt)
 		return
 	var/obj/item/storage/belt/storage_pouch/pouch = locate() in real_location
 	if(!pouch)
-		pouch.balloon_alert(dumping_mob, "no pouch!")
+		pouch.balloon_alert(user, "no pouch!")
 		return //oopsie!! If we don't have a pouch! You're fucked!
 	if(locked)
-		pouch.balloon_alert(dumping_mob, "locked!")
+		pouch.balloon_alert(user, "locked!")
 		return
-	pouch.atom_storage.dump_content_at(dest_object, dumping_mob)
+	pouch.atom_storage.dump_content_at(dest_object, user = user)
 
 /obj/item/storage/belt/crusader/item_ctrl_click(mob/user)	//Makes ctrl-click also open the inventory, so that you can open it with full hands without dropping the sword
 	. = ..()
@@ -110,7 +110,7 @@
 	desc = span_notice("Click on this to open your belt's inventory!")
 	icon_state = "storage_pouch_icon"
 	worn_icon_state = "storage_pouch_icon"
-	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, its technically a belt
+	w_class = WEIGHT_CLASS_BULKY //Still cant put it in your bags, it's technically a belt
 	anchored = 1	//Dont want people taking it out with their hands
 
 /obj/item/storage/belt/storage_pouch/attack_hand(mob/user, list/modifiers)	//Opens the bag on click - considering it's already anchored, this makes it function similar to how ghosts can open all nested inventories
@@ -150,7 +150,7 @@
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/cup/bottle,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/medigel,
 		/obj/item/storage/pill_bottle,

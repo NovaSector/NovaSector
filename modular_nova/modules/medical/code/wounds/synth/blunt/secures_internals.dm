@@ -173,7 +173,7 @@
 		victim_message = self_message
 	to_chat(victim, victim_message)
 
-	playsound(get_turf(crowbarring_item), 'sound/machines/airlock_alien_prying.ogg', 30, TRUE)
+	playsound(get_turf(crowbarring_item), 'sound/machines/airlock/airlock_alien_prying.ogg', 30, TRUE)
 	if (!crowbarring_item.use_tool(target = victim, user = user, delay = (7 SECONDS * delay_mult), volume = 50, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return TRUE
 
@@ -286,7 +286,7 @@
 	if (crowbarred_open)
 		chance *= 4 // even self-tends get a high chance of success if torn open!
 	if (HAS_TRAIT(user, TRAIT_KNOW_ROBO_WIRES))
-		chance *= 8 // almost guaranteed if its not self surgery - guaranteed with diag hud
+		chance *= 8 // almost guaranteed if it's not self surgery - guaranteed with diag hud
 		delay_mult *= 0.75
 		knows_wires = TRUE
 	else if (HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))

@@ -108,11 +108,11 @@
 	if(!SPT_PROB(0.5, seconds_per_tick))
 		return
 	if(!resting)
-		manual_emote(pick("lets out a hiss before resting.", "catches a break.", "gives a simmering hiss before lounging.", "exams her surroundings before relaxing."))
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, manual_emote), (pick("lets out a hiss before resting.", "catches a break.", "gives a simmering hiss before lounging.", "exams her surroundings before relaxing.")))
 		set_resting(TRUE)
 		return
 	else
-		manual_emote(pick("stretches her claws, rising...", "diligently gets up, ready to inspect!", "stops her resting."))
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, manual_emote), (pick("stretches her claws, rising...", "diligently gets up, ready to inspect!", "stops her resting.")))
 		set_resting(FALSE)
 
 	return ..()
@@ -128,9 +128,9 @@
 	upset = TRUE
 	icon_state = "poppypossum_aaa"
 
-	emote("sweatdrop")
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob, emote), "sweatdrop")
 	do_jitter_animation(60)
-	manual_emote("'s fur stands up, [src.p_their()] body trembling...")
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, manual_emote), "'s fur stands up, [src.p_their()] body trembling...")
 
 	notify_ghosts("[src] was startled by the supermatter!",
 		source = src,

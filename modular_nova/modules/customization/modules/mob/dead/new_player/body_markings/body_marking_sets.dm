@@ -7,7 +7,7 @@
 	var/recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_VULP, SPECIES_AQUATIC, SPECIES_AKULA)
 
 /datum/body_marking_set/none
-	name = "None"
+	name = SPRITE_ACCESSORY_NONE
 	recommended_species = null
 	body_marking_list = list()
 
@@ -306,3 +306,7 @@
 /datum/body_marking_set/moth/lovers
 	name = "Lovers"
 	body_marking_list = list("Lovers")
+
+/datum/body_marking_set/moth/lightbearer
+	name = "Lightbearer"
+	body_marking_list = list("Lightbearer")

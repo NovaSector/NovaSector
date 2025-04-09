@@ -11,6 +11,8 @@
 	worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/belt.dmi'
 	has_latches = FALSE
 	slot_flags = ITEM_SLOT_BELT
+	easy_deploy = TRUE
+	easy_deploy_timer = 1.5 SECONDS
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/cerberus //To make it more available for subtyping. LET. THEM. COOK.
 	mag_slots = 3 //how many magazines can be held.
 	mag_types_allowed = list( //This is a whitelist for what is allowed. Nothing else may enter.
@@ -35,6 +37,8 @@
 	turret_type = /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/hoplite
 	mag_slots = 2
 	slot_flags = ITEM_SLOT_BELT
+	easy_deploy = TRUE
+	easy_deploy_timer = 1.5 SECONDS
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/c35sol_pistol,
 		/obj/item/ammo_box/magazine/c585trappiste_pistol,
@@ -72,3 +76,17 @@
 	shot_delay = 15 //1.5 seconds
 	faction = list(FACTION_TARKON, FACTION_TURRET)
 	mag_box_type = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite/pre_filled
+
+/obj/item/turret_assembly/cerberus
+	name = "cerberus plate assembly"
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	icon_state = "cerberus_assembly"
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one is for a \"Cerberus\" model turret type."
+	design = /obj/item/storage/toolbox/emergency/turret/mag_fed/cerberus
+
+/obj/item/turret_assembly/hoplite
+	name = "hoplite plate assembly"
+	icon = 'modular_nova/modules/tarkon/icons/obj/turret.dmi'
+	icon_state = "hoplite_assembly"
+	desc = "A set of assembly parts for a magazine-fed turret, requiring a receiver, servo and sensor along with construction. This one is for a \"Hoplite\" model turret type."
+	design = /obj/item/storage/toolbox/emergency/turret/mag_fed/hoplite

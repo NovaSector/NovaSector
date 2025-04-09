@@ -657,8 +657,6 @@
 	metabolization_rate = 1.25 * REAGENTS_METABOLISM
 	taste_description = "ancient icicles"
 	overdose_threshold = 25
-	var/obj/structure/ice_stasis/cube
-	var/atom/movable/screen/alert/status_effect/freon/cryostylane_alert
 
 /datum/glass_style/drinking_glass/blizzard_brew
 	required_drink_type = /datum/reagent/consumable/ethanol/blizzard_brew
@@ -676,17 +674,17 @@
 
 /datum/reagent/consumable/ethanol/blizzard_brew/overdose_start(mob/living/carbon/drinker)
 	. = ..()
-	cube = new /obj/structure/ice_stasis(get_turf(drinker))
-	cube.color = COLOR_CYAN
-	cube.set_anchored(TRUE)
-	drinker.forceMove(cube)
-	cryostylane_alert = drinker.throw_alert("cryostylane_alert", /atom/movable/screen/alert/status_effect/freon/cryostylane)
-	cryostylane_alert.attached_effect = src //so the alert can reference us, if it needs to
+	drinker.apply_status_effect(/datum/status_effect/frozenstasis/irresistable)
 
-/datum/reagent/consumable/ethanol/blizzard_brew/on_mob_delete(mob/living/carbon/drinker, amount)
-	QDEL_NULL(cube)
-	drinker.clear_alert("cryostylane_alert")
+/datum/reagent/consumable/ethanol/blizzard_brew/on_mob_delete(mob/living/carbon/drinker)
+	drinker.remove_status_effect(/datum/status_effect/frozenstasis/irresistable)
 	return ..()
+
+/datum/reagent/consumable/ethanol/blizzard_brew/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(!affected_mob.has_status_effect(/datum/status_effect/frozenstasis/irresistable))
+		holder.remove_reagent(type, volume) // remove it all if we were broken out
+		return
 
 /datum/reagent/consumable/ethanol/molten_mead
 	name = "Molten Mead"
@@ -831,6 +829,30 @@
 	icon_state = "cityofsin"
 	name = "glass of city of sin"
 	desc = "Looking at it makes you recall every mistake you've made."
+
+/datum/reagent/consumable/ethanol/cringe_weaver
+	name = "Cringe Weaver"
+	description = "An infrangibly awful-tasting drink that 'smart' people inexplicably covet. For when they ask for a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+	color = "#2BFE3C"
+	boozepwr = -20 //spicy. sobering. burning. cringe.
+	taste_description = "cringe and latin"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/ethanol/cringe_weaver/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
+	. = ..()
+	var/obj/item/organ/liver/liver = drinker.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver && HAS_TRAIT(liver, TRAIT_CORONER_METABOLISM))
+		if(drinker.heal_bodypart_damage(1 * REM * seconds_per_tick, 1 * REM * seconds_per_tick)) //coroners love drinking formaldehyde
+			return UPDATE_MOB_HEALTH
+	else
+		drinker.adjust_disgust(1 * REM * seconds_per_tick)
+
+/datum/glass_style/drinking_glass/cringe_weaver
+	required_drink_type = /datum/reagent/consumable/ethanol/cringe_weaver
+	name = "Cringe Weaver"
+	desc = "Spicy, sobering, burning, and of course - irrefutably cringe. Enjoyed by patrons who ask for a plum in a man's hat."
+	icon = 'modular_nova/master_files/icons/obj/drinks.dmi'
+	icon_state = "cringe_weaver"
 
 /datum/reagent/consumable/ethanol/shakiri
 	name = "Shakiri"

@@ -49,7 +49,7 @@
 		if (DEFIB_FAIL_TISSUE_DAMAGE, DEFIB_FAIL_HUSK)
 			fail_reason = "[carbon_target]'s body seems way too damaged for this to work..."
 		if (DEFIB_FAIL_NO_BRAIN)
-			fail_reason = "[carbon_target]'s head looks like its missing something important."
+			fail_reason = "[carbon_target]'s head looks like it's missing something important."
 
 	if(carbon_target.health <= HEALTH_THRESHOLD_FULLCRIT)
 		fail_reason = "[carbon_target]'s body seems just a little too damaged for this to work..."
@@ -59,7 +59,10 @@
 		return
 
 	carbon_target.adjustOxyLoss(amount = 60, updating_health = TRUE)
-	playsound(src, 'modular_nova/modules/emotes/sound/emotes/female/female_sniff.ogg', 50, FALSE)
+	if(carbon_target.gender == MALE)
+		playsound(src, 'sound/mobs/humanoids/human/sniff/male_sniff.ogg', 50, FALSE)
+	else
+		playsound(src, 'sound/mobs/humanoids/human/sniff/female_sniff.ogg', 50, FALSE)
 	carbon_target.set_heartattack(FALSE)
 
 	if(defib_result == DEFIB_POSSIBLE)

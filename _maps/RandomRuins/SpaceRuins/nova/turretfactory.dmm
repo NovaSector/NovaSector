@@ -1,0 +1,2069 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ay" = (
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"aR" = (
+/obj/structure/filingcabinet/filingcabinet,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"aZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"bg" = (
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"bi" = (
+/obj/structure/table/reinforced,
+/obj/item/wrench/caravan,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"bp" = (
+/obj/structure/decorative/shelf/soda_multipacks,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"bv" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/item/conveyor_switch_construct,
+/obj/machinery/button/door/directional/south{
+	id = "turretfactorytrap"
+	},
+/obj/item/stack/cable_coil/cut,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"bP" = (
+/obj/effect/spawner/structure/window/reinforced/no_firelock,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"bQ" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"cO" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"dM" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"dO" = (
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/item/screwdriver,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ej" = (
+/obj/machinery/firealarm/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"em" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"eB" = (
+/obj/machinery/firealarm/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"eC" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/obj/item/stamp/denied,
+/obj/item/stamp/granted,
+/obj/machinery/light/cold/directional/east,
+/obj/structure/window/reinforced,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"eZ" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 4
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"fa" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"fI" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"gg" = (
+/obj/structure/table/rolling,
+/obj/item/stock_parts/servo,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"gp" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"gw" = (
+/obj/machinery/button/door/directional/east{
+	id = "turretfactorylobbydesk"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"gP" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"he" = (
+/obj/machinery/atmospherics/components/binary/valve/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"hw" = (
+/obj/structure/safe,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_medium,
+/obj/effect/spawner/random/entertainment/money,
+/obj/effect/spawner/random/entertainment/money_small,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"hA" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"hH" = (
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"hJ" = (
+/obj/structure/decorative/shelf/crates,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"io" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ip" = (
+/obj/structure/table/reinforced,
+/obj/item/weaponcrafting/receiver,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"iS" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/laser_pointer,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"je" = (
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"jq" = (
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"jy" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/entertainment/coin,
+/obj/effect/spawner/random/food_or_drink/booze,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"jz" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/effect/spawner/random/turretassembly,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"jB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"jE" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/effect/spawner/random/throwturretkit,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"kb" = (
+/obj/machinery/autolathe/hacked,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/item/stock_parts/servo,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"kd" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/c35sol_pistol/starts_empty,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"kI" = (
+/obj/effect/spawner/structure/window/reinforced/no_firelock,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"mz" = (
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/iron/twenty,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"no" = (
+/obj/structure/chair/office,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"nu" = (
+/obj/structure/chair/stool/bar/directional/south,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ny" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/wallframe/button,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"nI" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/miecz/spawns_empty,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"nY" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "tf_assembly"
+	},
+/obj/item/assembly/prox_sensor,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"oe" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"on" = (
+/obj/structure/table/reinforced,
+/obj/item/stock_parts/servo,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"oQ" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"oY" = (
+/obj/structure/table/glass,
+/obj/item/book/manual/random,
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"pn" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"pr" = (
+/turf/closed/mineral/random/high_chance,
+/area/ruin/space)
+"ps" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/ammo_workbench/unlocked,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"pA" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"pR" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/effect/spawner/random/throwturretkit,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"pS" = (
+/obj/structure/chair/sofa/corp/right{
+	dir = 4
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"qa" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"qo" = (
+/obj/machinery/firealarm/directional/south,
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"qY" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "turretfactorytrap"
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"rh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"rU" = (
+/obj/structure/table/glass,
+/obj/item/book/bible/booze,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"rX" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"sx" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/food_or_drink/booze,
+/obj/item/stamp/cat,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"sF" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"sI" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ts" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"tK" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/newspaper,
+/obj/item/ammo_box/magazine/toy/smg/riot,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"tT" = (
+/turf/closed/mineral/random/asteroid,
+/area/ruin/space)
+"tW" = (
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ud" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/table/reinforced,
+/obj/item/stack/sheet/iron/ten,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"uf" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"uA" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"uC" = (
+/obj/structure/table/reinforced,
+/obj/item/pizzabox/random,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"uM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"uZ" = (
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/outpost/malf,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"vD" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/closet/firecloset/wall{
+	pixel_x = -30
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"vM" = (
+/obj/structure/chair/office,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"vX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"wl" = (
+/obj/structure/filingcabinet,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"wu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"wD" = (
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"wZ" = (
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo/starts_empty,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"xh" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/rack/shelf,
+/obj/item/stack/sheet/iron/five,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"xr" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"xK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"xQ" = (
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"yp" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"yx" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/autolathe/hacked,
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"yH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"yS" = (
+/obj/machinery/atmospherics/components/tank/air,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible/layer4,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"zz" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"zL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ag" = (
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Av" = (
+/obj/structure/disposalpipe/segment,
+/obj/item/assembly/prox_sensor,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Bh" = (
+/obj/structure/table/glass,
+/obj/item/paper/pamphlet/ruin/spacehotel,
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Bz" = (
+/obj/structure/table/rolling,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/weaponcrafting/receiver,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Cc" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty,
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"CX" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Dv" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"DQ" = (
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/disposalpipe/trunk,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ei" = (
+/obj/structure/closet/firecloset/wall{
+	pixel_y = 27
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Er" = (
+/obj/machinery/airalarm/directional/south,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/multitool,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ex" = (
+/obj/machinery/door/window/brigdoor/security,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"EB" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"EG" = (
+/turf/closed/wall,
+/area/ruin/space)
+"ET" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/chair/sofa/corp/right{
+	dir = 8
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Fg" = (
+/turf/closed/wall,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Fh" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/machinery/autolathe/hacked,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Fi" = (
+/turf/template_noop,
+/area/template_noop)
+"Fk" = (
+/obj/structure/table/reinforced,
+/obj/item/turret_assembly/twin_fang,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ft" = (
+/obj/structure/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"FB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"FL" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/closet/ammunitionlocker/useful,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"FT" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/entertainment/lighter,
+/obj/effect/spawner/random/entertainment/cigarette_pack,
+/obj/effect/spawner/random/food_or_drink/booze,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Gm" = (
+/obj/structure/disposalpipe/segment,
+/obj/item/turret_assembly,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"GZ" = (
+/obj/structure/chair/office,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Hf" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/gps/spaceruin,
+/obj/structure/window/reinforced,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"HE" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Iu" = (
+/obj/machinery/door/airlock,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"IP" = (
+/obj/machinery/autolathe/hacked,
+/obj/machinery/conveyor/auto,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Jd" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Jq" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/light/cold/directional/north,
+/obj/item/assembly/prox_sensor,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ke" = (
+/obj/machinery/door/airlock/external/glass/ruin,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Kn" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/high_volume/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Kv" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled,
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"KS" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/c40sol_rifle,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Lq" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/structure/rack/shelf,
+/obj/item/stack/sheet/iron/five,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"LE" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"LG" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/express,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"LQ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/pen,
+/obj/structure/window/reinforced,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"MH" = (
+/obj/structure/decorative/shelf,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"MW" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/closet/emcloset/wall{
+	pixel_x = 29
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ng" = (
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/powered/turretfactory)
+"NC" = (
+/obj/structure/table/reinforced,
+/obj/structure/disposalpipe/segment,
+/obj/item/stack/sheet/iron/five,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"OQ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Po" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/closet/emcloset/anchored,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"QF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"QP" = (
+/obj/structure/decorative/shelf/crates1,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ra" = (
+/obj/machinery/disposal/delivery_chute{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"RK" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/carpet/purple,
+/area/ruin/space/has_grav/powered/turretfactory)
+"RS" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/door/firedoor,
+/obj/item/paper_bin,
+/obj/structure/window/reinforced,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Sg" = (
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"Sh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/item/target_designator/sniper,
+/obj/structure/table/reinforced/plastitaniumglass,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Sm" = (
+/obj/effect/spawner/structure/window/reinforced/no_firelock,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"SI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/conveyor{
+	dir = 5;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Tp" = (
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Tt" = (
+/obj/structure/chair/stool/bar/directional/east,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"TE" = (
+/obj/machinery/door/airlock/external/glass/ruin,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"TK" = (
+/obj/structure/table/reinforced,
+/obj/item/screwdriver/red,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"TL" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "turretfactorytrap"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ug" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ui" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"UK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"US" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"UX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/structure/closet/emcloset/wall{
+	pixel_y = -31
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Vf" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Vh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/item/stock_parts/servo,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Vr" = (
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/duster,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Vy" = (
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"VR" = (
+/obj/structure/table/reinforced,
+/obj/item/stock_parts/servo,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"WC" = (
+/obj/structure/table/rolling,
+/obj/structure/disposalpipe/segment,
+/obj/item/assembly/prox_sensor,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"XA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"XX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "tf_assembly"
+	},
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Ya" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "turretfactorytrap"
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Yb" = (
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Yj" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+"Yu" = (
+/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
+	dir = 8
+	},
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"Zv" = (
+/turf/open/floor/carpet/cyan,
+/area/ruin/space/has_grav/powered/turretfactory)
+"ZD" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "turretfactorylobbydesk"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/obj/item/pen/red,
+/obj/structure/window/reinforced,
+/turf/open/floor/carpet/black,
+/area/ruin/space/has_grav/powered/turretfactory)
+
+(1,1,1) = {"
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+Fi
+"}
+(2,1,1) = {"
+Fi
+Fi
+Fi
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Fi
+Fi
+Fi
+Fi
+Fi
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Fi
+Fi
+Fi
+Fi
+Fi
+"}
+(3,1,1) = {"
+Fi
+Fi
+Sg
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+pr
+Sg
+Sg
+Fi
+Fi
+Fi
+"}
+(4,1,1) = {"
+Fi
+Sg
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+pr
+pr
+Sg
+Fi
+Fi
+"}
+(5,1,1) = {"
+Fi
+tT
+tT
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+pr
+pr
+Sg
+Fi
+Fi
+"}
+(6,1,1) = {"
+Fi
+tT
+tT
+Ng
+wD
+jq
+DQ
+ip
+VR
+bi
+NC
+US
+vD
+WC
+Dv
+Fh
+xQ
+xh
+Dv
+yx
+Dv
+Lq
+tW
+kb
+Ng
+pr
+tT
+Sg
+Fi
+Fi
+"}
+(7,1,1) = {"
+Fi
+tT
+tT
+Ng
+wD
+SI
+rX
+rX
+rX
+Gm
+rX
+hA
+rX
+rX
+rX
+rX
+rX
+rX
+Av
+rX
+jB
+XX
+Ui
+eB
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(8,1,1) = {"
+Fi
+tT
+tT
+Ng
+on
+vX
+uZ
+yH
+zL
+ao
+ao
+wu
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+Ug
+xK
+xK
+Vr
+UX
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(9,1,1) = {"
+Fi
+tT
+tT
+Ng
+TK
+vX
+CX
+yH
+HE
+aZ
+Dv
+uf
+pA
+Dv
+Dv
+Dv
+Dv
+xr
+OQ
+XA
+XA
+qa
+Sh
+dO
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(10,1,1) = {"
+Fi
+tT
+tT
+Ng
+EB
+vX
+wD
+yH
+XA
+XA
+wD
+yp
+wD
+wD
+aZ
+Dv
+Dv
+OQ
+XA
+XA
+XA
+XA
+XA
+bv
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(11,1,1) = {"
+Fi
+tT
+tT
+Ng
+wD
+Vh
+wD
+yH
+XA
+XA
+aZ
+uf
+Dv
+Dv
+ts
+bg
+OQ
+XA
+XA
+XA
+XA
+XA
+ny
+Er
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(12,1,1) = {"
+Fi
+Fi
+tT
+Ng
+IP
+vX
+wD
+yH
+XA
+Bz
+XA
+Fg
+Fg
+Fg
+Fg
+Fg
+Ya
+Ya
+Ya
+Ya
+Ya
+Ya
+Ya
+TL
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(13,1,1) = {"
+Fi
+Fi
+tT
+Ng
+Ei
+vX
+wD
+yH
+XA
+XA
+gp
+Fg
+ay
+Ft
+dM
+Fg
+Jq
+jz
+KS
+pR
+nI
+pR
+Vf
+jE
+Ng
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(14,1,1) = {"
+Fi
+tT
+tT
+Ng
+IP
+vX
+wD
+yH
+XA
+UK
+ej
+Fg
+vM
+fI
+RK
+Fg
+qY
+qY
+qY
+qY
+qY
+qY
+qY
+qY
+Ng
+tT
+tT
+Fi
+Fi
+Fi
+"}
+(15,1,1) = {"
+Fi
+tT
+tT
+Ng
+Tp
+vX
+wD
+yH
+XA
+wD
+XA
+Fg
+GZ
+tK
+RK
+Fg
+Ra
+Ra
+Ra
+Ra
+Ra
+Ra
+Ra
+Ra
+Ng
+tT
+tT
+Fi
+Fi
+Fi
+"}
+(16,1,1) = {"
+Fi
+tT
+tT
+Ng
+IP
+nY
+wD
+yH
+XA
+wD
+XA
+Iu
+vM
+Kv
+RK
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+tT
+tT
+Fi
+Fi
+Fi
+"}
+(17,1,1) = {"
+Fi
+tT
+tT
+Ng
+wD
+XA
+wD
+yH
+pn
+wD
+XA
+Fg
+vM
+iS
+RK
+Ng
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+Fi
+Fi
+Fi
+"}
+(18,1,1) = {"
+Fi
+tT
+tT
+Ng
+wD
+XA
+wD
+yH
+XA
+wD
+XA
+Fg
+ay
+hH
+ay
+Ng
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+Fi
+Fi
+Fi
+"}
+(19,1,1) = {"
+Fi
+tT
+tT
+Ng
+yp
+zz
+yp
+FB
+zz
+yp
+zz
+Fg
+Fg
+Fg
+Fg
+Ng
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+tT
+tT
+Fi
+Fi
+Fi
+"}
+(20,1,1) = {"
+Sg
+tT
+tT
+Ng
+wD
+XA
+CX
+yH
+XA
+wD
+UK
+gg
+vD
+Dv
+sI
+wD
+Fg
+Vy
+Vy
+Ex
+Vy
+Zv
+eZ
+pS
+Fg
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(21,1,1) = {"
+Sg
+tT
+tT
+Ng
+wZ
+XA
+wD
+yH
+XA
+wD
+wD
+wD
+wD
+wD
+je
+Fg
+Fg
+Vy
+Vy
+Hf
+Vy
+Zv
+oY
+rU
+Fg
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(22,1,1) = {"
+Sg
+tT
+tT
+Ng
+mz
+XA
+wD
+yH
+xK
+yH
+yH
+yH
+yH
+yH
+yH
+em
+QF
+fa
+fa
+ZD
+fa
+rh
+ET
+oQ
+Fg
+tT
+tT
+Sg
+Fi
+Fi
+"}
+(23,1,1) = {"
+Sg
+tT
+tT
+Ng
+Fk
+XA
+wD
+sF
+XA
+io
+wD
+wD
+wD
+Tt
+Tt
+kI
+Vy
+cO
+Vy
+LQ
+Vy
+Kn
+rh
+gP
+Fg
+EG
+EG
+EG
+Fi
+Fi
+"}
+(24,1,1) = {"
+Sg
+tT
+tT
+Ng
+LG
+ts
+wD
+wD
+XA
+io
+wD
+wD
+nu
+jy
+sx
+kI
+hw
+Vy
+Vy
+RS
+Vy
+Zv
+rh
+Zv
+Fg
+oe
+Yb
+Fg
+Fi
+Fi
+"}
+(25,1,1) = {"
+Sg
+tT
+tT
+Ng
+kd
+uZ
+wD
+wD
+XA
+he
+wD
+wD
+nu
+FT
+uC
+kI
+aR
+Vy
+no
+Yj
+Vy
+bQ
+rh
+rh
+Ke
+yH
+uM
+TE
+Fi
+Fi
+"}
+(26,1,1) = {"
+Sg
+tT
+tT
+Ng
+ps
+Cc
+ud
+sI
+MW
+yS
+FL
+bp
+MH
+QP
+hJ
+Sm
+wl
+Jd
+gw
+eC
+LE
+Ag
+Bh
+qo
+Fg
+Po
+uA
+kI
+Fi
+Fi
+"}
+(27,1,1) = {"
+Sg
+tT
+tT
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+Fg
+bP
+kI
+Fg
+Fi
+Fi
+"}
+(28,1,1) = {"
+Fi
+Sg
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+Yu
+Sg
+Fi
+Fi
+Fi
+"}
+(29,1,1) = {"
+Fi
+Fi
+Sg
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+tT
+Sg
+Fi
+Fi
+Fi
+Fi
+"}
+(30,1,1) = {"
+Fi
+Fi
+Fi
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Fi
+Fi
+Fi
+Fi
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Sg
+Fi
+Fi
+Fi
+Fi
+Fi
+"}

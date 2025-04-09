@@ -105,7 +105,6 @@
 /datum/techweb_node/alien_surgery/New()
 	design_ids += list(
 		"hypomkii_deluxe",
-		"hypomkii_advanced",
 	)
 	return ..()
 
@@ -125,15 +124,6 @@
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL_ADVANCED,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
-
-// Tarkon and similar get enough to work with, but if they want deluxe kits/hypos they still need to trade with the station for 'em.
-/datum/techweb_node/oldstation_surgery/New()
-	design_ids += list(
-		"hypokit",
-		"hypomkii",
-	)
-	return ..()
-
 
 
 /// For reasons unknown, pens are included as an autolathe design here, in the hypospray module of all places.

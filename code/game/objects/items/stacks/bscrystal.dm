@@ -21,6 +21,8 @@
 	points = 0
 	refined_type = null
 	merge_type = /obj/item/stack/ore/bluespace_crystal/refined
+	drop_sound = null //till I make a better one
+	pickup_sound = null
 
 /obj/item/stack/ore/bluespace_crystal/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	. = ..()
@@ -60,6 +62,8 @@
 	refined_type = null
 	grind_results = list(/datum/reagent/bluespace = 10, /datum/reagent/silicon = 20)
 	merge_type = /obj/item/stack/ore/bluespace_crystal/artificial
+	drop_sound = null //till I make a better one
+	pickup_sound = null
 
 //Polycrystals, aka stacks
 /obj/item/stack/sheet/bluespace_crystal
@@ -79,6 +83,7 @@
 	material_type = /datum/material/bluespace
 	var/crystal_type = /obj/item/stack/ore/bluespace_crystal/refined
 
+
 /obj/item/stack/sheet/bluespace_crystal/attack_self(mob/user)// to prevent the construction menu from ever happening
 	to_chat(user, span_warning("You cannot crush the polycrystal in-hand, try breaking one off."))
 
@@ -96,3 +101,6 @@
 			to_chat(user, span_notice("You break off a crystal."))
 	else
 		..()
+
+/obj/item/stack/sheet/bluespace_crystal/fifty
+	amount = 50

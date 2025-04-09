@@ -11,11 +11,11 @@
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
-	mutantlungs = /obj/item/organ/internal/lungs/nitrogen/vox
-	mutantbrain = /obj/item/organ/internal/brain/vox
+	mutantlungs = /obj/item/organ/lungs/nitrogen/vox
+	mutantbrain = /obj/item/organ/brain/vox
 	breathid = "n2"
 	mutant_bodyparts = list()
-	mutanttongue = /obj/item/organ/internal/tongue/vox
+	mutanttongue = /obj/item/organ/tongue/vox
 	payday_modifier = 1.0
 	outfit_important_for_life = /datum/outfit/vox
 	species_language_holder = /datum/language_holder/vox
@@ -48,6 +48,7 @@
 
 /datum/species/vox_primalis/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("Vox Primalis Tail", FALSE),
 	)
 
@@ -103,7 +104,7 @@
 		While these Vox are often pushed by other Primalis to 'hurry up already,' it is the wide consensus of Vox that 'A lone leader is worse than a larva, for while even a larva has a future, all the leader has is a disgraced past.'"
 	)
 
-/datum/species/vox_primalis/on_species_gain(mob/living/carbon/human/transformer)
+/datum/species/vox_primalis/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	var/vox_color = transformer.dna.features["vox_bodycolor"]
 	if(!vox_color || vox_color == "default")

@@ -5,6 +5,8 @@ import {
   Button,
   ColorBox,
   Divider,
+  DmIcon,
+  Icon,
   LabeledList,
   NumberInput,
   ProgressBar,
@@ -13,7 +15,7 @@ import {
   Table,
   Tooltip,
 } from 'tgui-core/components';
-import { BooleanLike, classes } from 'tgui-core/react';
+import { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
@@ -22,6 +24,7 @@ import { Beaker, BeakerReagent } from './common/BeakerDisplay';
 
 type Container = {
   icon: string;
+  icon_state: string;
   ref: string;
   name: string;
   volume: number;
@@ -52,13 +55,16 @@ type Data = {
   isPrinting: BooleanLike;
   printingProgress: number;
   printingTotal: number;
+  selectedPillDuration: number;
   maxPrintable: number;
+  maxPillDuration: number;
   beaker: AnalyzableBeaker;
   buffer: AnalyzableBeaker;
   isTransfering: BooleanLike;
   suggestedContainerRef: string;
   selectedContainerRef: string;
   selectedContainerVolume: number;
+  selectedContainerCategory?: string;
 };
 
 export const ChemMaster = (props) => {
@@ -92,12 +98,15 @@ const ChemMasterContent = (props: {
     isPrinting,
     printingProgress,
     printingTotal,
+    selectedPillDuration,
     maxPrintable,
+    maxPillDuration,
     isTransfering,
     beaker,
     buffer,
     categories,
     selectedContainerVolume,
+    selectedContainerCategory,
   } = data;
 
   const [itemCount, setItemCount] = useState<number>(1);
@@ -203,6 +212,20 @@ const ChemMasterContent = (props: {
                     setItemCount(value);
                   }}
                 />
+                {selectedContainerCategory === 'pills' && (
+                  <NumberInput
+                    unit={'s'}
+                    step={1}
+                    value={selectedPillDuration}
+                    minValue={1}
+                    maxValue={maxPillDuration}
+                    onChange={(value) => {
+                      act('setPillDuration', {
+                        duration: value,
+                      });
+                    }}
+                  />
+                )}
                 <Box inline mx={1}>
                   {`${
                     Math.round(
@@ -291,7 +314,7 @@ const ReagentEntry = (props: ReagentProps) => {
       <Table.Cell color="label">
         {`${chemical.name} `}
         <AnimatedNumber value={chemical.volume} initial={0} />
-        {`u`}
+        {'u'}
       </Table.Cell>
       <Table.Cell collapsing>
         <Button
@@ -375,6 +398,8 @@ const ContainerButton = (props: CategoryButtonProps) => {
   const { isPrinting, selectedContainerRef, suggestedContainerRef } = data;
   const { category, container, showPreferredContainer } = props;
   const isPillPatch = ['pills', 'patches'].includes(category.name);
+  const fallback = <Icon m="18px" name="spinner" spin />;
+  const fallbackPillPatch = <Icon m="10px" name="spinner" spin />;
 
   return (
     <Tooltip
@@ -402,12 +427,13 @@ const ContainerButton = (props: CategoryButtonProps) => {
           });
         }}
       >
-        <Box
-          m={isPillPatch ? '0' : '8px'}
-          style={{
-            transform: 'scale(2)',
-          }}
-          className={classes(['chemmaster32x32', container.icon])}
+        <DmIcon
+          m={isPillPatch ? '-16px' : '-8px'}
+          fallback={isPillPatch ? fallbackPillPatch : fallback}
+          icon={container.icon}
+          icon_state={container.icon_state}
+          height="64px"
+          width="64px"
         />
       </Button>
     </Tooltip>

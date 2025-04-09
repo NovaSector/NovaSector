@@ -1,0 +1,106 @@
+{
+	"ccmedal": [
+		{
+			"type": "icon_state",
+			"icon_state": "cc_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "cc_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "cc_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crown",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
+		}
+	],
+	"medalarrow": [
+		{
+			"type": "icon_state",
+			"icon_state": "ribbon_arrow_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "ribbon_arrow_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "ribbon_arrow_3",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crown",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
+		}
+	],
+	"medalhollow": [
+		{
+			"type": "icon_state",
+			"icon_state": "ribbonarrow_hollow_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "ribbonarrow_hollow_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "thevoid",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crown",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
+		}
+	],
+	"medalbars": [
+		{
+			"type": "icon_state",
+			"icon_state": "ribbonbars_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "ribbonbars_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "thevoid",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "crown",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
+		}
+	]
+}

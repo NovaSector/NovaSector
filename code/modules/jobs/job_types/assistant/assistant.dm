@@ -37,7 +37,9 @@ Assistant
 	rpg_title = "Lout"
 	config_tag = "ASSISTANT"
 
-/datum/job/assistant/get_outfit()
+/datum/job/assistant/get_outfit(consistent)
+	if(consistent)
+		return /datum/outfit/job/assistant/preview
 	if(!HAS_TRAIT(SSstation, STATION_TRAIT_ASSISTANT_GIMMICKS))
 		return ..()
 
@@ -87,10 +89,19 @@ Assistant
 /datum/outfit/job/assistant/consistent/give_jumpsuit(mob/living/carbon/human/target)
 	uniform = /obj/item/clothing/under/color/grey
 
-/datum/outfit/job/assistant/consistent/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/assistant/consistent/post_equip(mob/living/carbon/human/H, visuals_only)
 	..()
 
 	// This outfit is used by the assets SS, which is ran before the atoms SS
 	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
 		H.w_uniform?.update_greyscale()
 		H.update_worn_undersuit()
+
+/datum/outfit/job/assistant/preview
+	name = "Assistant - Preview"
+
+/datum/outfit/job/assistant/preview/give_jumpsuit(mob/living/carbon/human/target)
+	if (target.jumpsuit_style == PREF_SUIT)
+		uniform = /obj/item/clothing/under/color/grey
+	else
+		uniform = /obj/item/clothing/under/color/jumpskirt/grey

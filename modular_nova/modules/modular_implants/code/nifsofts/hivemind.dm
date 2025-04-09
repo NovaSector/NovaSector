@@ -277,7 +277,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 /obj/item/hivemind_keyboard/proc/send_message(mob/living/carbon/human/user)
 	var/mob/living/carbon/human/kebyoard_owner = source_user
 	var/mob/living/carbon/human/network_owner = connected_network.parent
-	var/message = tgui_input_text(user, "Enter a message to transmit.", "[connected_network.network_name] Telepathy")
+	var/message = tgui_input_text(user, "Enter a message to transmit.", "[connected_network.network_name] Telepathy", max_length = MAX_MESSAGE_LEN)
 	if(!message || QDELETED(src) || QDELETED(user) || user.stat == DEAD)
 		return
 
@@ -285,7 +285,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 		to_chat(user, span_warning("The link seems to have been severed."))
 		return
 
-	var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
+	var/datum/asset/spritesheet_batched/sheet = get_asset_datum(/datum/asset/spritesheet_batched/chat)
 	var/tag = sheet.icon_tag("nif-phone")
 	var/hivemind_icon = ""
 

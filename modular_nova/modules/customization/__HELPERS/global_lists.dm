@@ -72,9 +72,12 @@
 		/obj/item/stack/sheet/iron = list(GLOB.nova_metal_recipes, GLOB.nova_metal_airlock_recipes),
 		/obj/item/stack/sheet/plasteel = list(GLOB.nova_plasteel_recipes),
 		/obj/item/stack/sheet/mineral/wood = list(GLOB.nova_wood_recipes),
+		/obj/item/stack/sheet/cardboard = list(GLOB.nova_cardboard_recipes),
 		/obj/item/stack/sheet/cloth = list(GLOB.nova_cloth_recipes),
 		/obj/item/stack/ore/glass = list(GLOB.nova_sand_recipes),
+		/obj/item/stack/sheet/mineral/sandstone = list(GLOB.nova_sandstone_recipes),
 		/obj/item/stack/rods = list(GLOB.nova_rod_recipes),
+		/obj/item/stack/sheet/plastic = list(GLOB.nova_plastic_recipes),
 		/obj/item/stack/sheet/mineral/stone = list(GLOB.stone_recipes),
 		/obj/item/stack/sheet/mineral/clay = list(GLOB.clay_recipes),
 		/obj/item/stack/sheet/plastic_wall_panel = list(GLOB.plastic_wall_panel_recipes),
@@ -121,36 +124,23 @@
 	// See Initialize() on SSReagents
 
 	// Loadouts
+	for(var/datum/loadout_category/category in GLOB.all_loadout_categories)
+		if (category.erp_category)
+			GLOB.all_loadout_categories -= category
+	for(var/datum/loadout_category/category in GLOB.all_loadout_categories)
+		for(var/datum/loadout_item/loadout_item in category.associated_items)
+			if(!loadout_item.erp_item)
+				continue
+
+			category.associated_items -= loadout_item
+
 	for(var/loadout_path in GLOB.all_loadout_datums)
 		var/datum/loadout_item/loadout_datum = GLOB.all_loadout_datums[loadout_path]
 		if(!loadout_datum.erp_item)
 			continue
-		GLOB.all_loadout_datums -= loadout_path
+		qdel(loadout_datum) // This actually handles removing it from the list.
 		// Ensure this FULLY works later
 
-	var/list/loadout_lists = list(
-		GLOB.loadout_belts,
-		GLOB.loadout_ears,
-		GLOB.loadout_glasses,
-		GLOB.loadout_gloves,
-		GLOB.loadout_helmets,
-		GLOB.loadout_masks,
-		GLOB.loadout_necks,
-		GLOB.loadout_shoes,
-		GLOB.loadout_exosuits,
-		GLOB.loadout_jumpsuits,
-		GLOB.loadout_undersuits,
-		GLOB.loadout_miscunders,
-		GLOB.loadout_accessory,
-		GLOB.loadout_inhand_items,
-		GLOB.loadout_toys,
-		GLOB.loadout_pocket_items,
-	)
-	for(var/loadout_list in loadout_lists)
-		for(var/datum/loadout_item/loadout_typepath in loadout_list)
-			if(!initial(loadout_typepath.erp_item))
-				continue
-			loadout_list -= loadout_typepath
 
 	// Underwear
 	for(var/sprite_name in SSaccessories.underwear_list)

@@ -47,7 +47,7 @@
 					var/mob/living/living_target = pick(shock_mobs)
 					do_sparks(number = 3, cardinal_only = FALSE, source = living_target)
 					living_target.electrocute_act(rand(5, 25), "electrical arc")
-					playsound(get_turf(living_target), 'sound/magic/lightningshock.ogg', 75, TRUE)
+					playsound(get_turf(living_target), 'sound/effects/magic/lightningshock.ogg', 75, TRUE)
 					Beam(living_target, icon_state = "lightning[rand(1, 12)]", icon = 'icons/effects/beam.dmi', time = 5)
 					energy_fail(2)
 			if(MAKE_SPARKS)
@@ -75,7 +75,7 @@
 	bronze.use(1)
 	balloon_alert(user, "installed arc shielding")
 	arc_shielded = TRUE
-	playsound(src, 'sound/items/rped.ogg', 20)
+	playsound(src, 'sound/items/tools/rped.ogg', 20)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/apc/wrench_act(mob/living/user, obj/item/tool)

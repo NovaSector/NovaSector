@@ -26,7 +26,7 @@
 /obj/item/anointing_oil/proc/try_anoint(mob/living/target_mob, mob/living/user)
 	being_used = TRUE
 
-	var/new_name = sanitize_name(tgui_input_text(user, "Speak forth this beast's new name for all the Kin to hear.", "Input a name", target_mob.name, MAX_NAME_LEN))
+	var/new_name = sanitize_name(tgui_input_text(user, "Speak forth this beast's new name for all the Kin to hear.", "Input a name", target_mob.name, max_length = MAX_NAME_LEN))
 
 	if(!new_name || QDELETED(src) || QDELETED(target_mob) || new_name == target_mob.name || !target_mob.Adjacent(user))
 		being_used = FALSE
@@ -64,20 +64,13 @@
 
 	result = /obj/item/anointing_oil
 
-/obj/item/clothing/suit/armor/handcrafted_hearthkin_armor
+/obj/item/clothing/suit/armor/forging_plate_armor/hearthkin
 	name = "handcrafted hearthkin armor"
 	desc = "An armor obviously crafted by the expertise of a hearthkin. It has leather shoulder pads and a chain mail underneath."
 	icon_state = "chained_leather_armor"
 	icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-	resistance_flags = FIRE_PROOF
 	body_parts_covered = GROIN|CHEST
-	obj_flags_nova = ANVIL_REPAIR
-	armor_type = /datum/armor/armor_forging_plate_armor
-
-/obj/item/clothing/suit/armor/handcrafted_hearthkin_armor/Initialize(mapload)
-    . = ..()
-    allowed += /obj/item/forging/reagent_weapon
 
 /datum/crafting_recipe/handcrafted_hearthkin_armor
 	name = "Handcrafted Hearthkin Armor"
@@ -91,7 +84,7 @@
 		/obj/item/stack/sheet/leather = 2,
 	)
 
-	result = /obj/item/clothing/suit/armor/handcrafted_hearthkin_armor
+	result = /obj/item/clothing/suit/armor/forging_plate_armor/hearthkin
 
 // Hearthkin Exclusive Beds
 /obj/structure/bed/double/pelt
@@ -161,8 +154,8 @@
         to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
         return
 
-    if(istype(interacting_with, /obj/item/organ/internal/lungs))
-        var/obj/item/organ/internal/lungs/target_lungs = interacting_with
+    if(istype(interacting_with, /obj/item/organ/lungs))
+        var/obj/item/organ/lungs/target_lungs = interacting_with
         if(IS_ROBOTIC_ORGAN(target_lungs))
             user.balloon_alert(user, "The lungs have to be organic!")
             return
@@ -170,7 +163,7 @@
         playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)
         user.visible_message(span_notice("[user] pours a strange blue liquid over the set of lungs. The flesh starts glistening in a strange cyan light, transforming before your very eyes!"),
             span_notice("Recalling the instructions for the lung transfiguration ritual, you pour the liquid over the flesh of the organ. Soon, the lungs glow in a mute cyan light, before they turn dim and change form before your very eyes!"))
-        var/obj/item/organ/internal/lungs/icebox_adapted/new_lungs = new(location)
+        var/obj/item/organ/lungs/icebox_adapted/new_lungs = new(location)
         new_lungs.damage = target_lungs.damage
         qdel(target_lungs)
         qdel(src)

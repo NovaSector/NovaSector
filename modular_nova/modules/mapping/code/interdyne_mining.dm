@@ -15,19 +15,17 @@
 		CATEGORY_TOYS_DRONE,
 		CATEGORY_PKA,
 		CATEGORY_INTERDYNE,
+		CATEGORY_GOLEM,
 	)
 
 // This is honestly quite terrible but, replaces voucher spawned mining drones with the interdyne subtype at this console
-
-/obj/machinery/computer/order_console/mining/interdyne/redeem_voucher(obj/item/mining_voucher/voucher, mob/redeemer)
-	. = ..()
-	for(var/mob/living/basic/mining_drone/drone in drop_location())
-		// There could already be an interdyne drone there
-		if(!istype(drone, /mob/living/basic/mining_drone/interdyne))
-			qdel(drone)
-			new /mob/living/basic/mining_drone/interdyne(drop_location())
-
-// Interdyne minebot
+/datum/voucher_set/mining/minebot_kit/spawn_set(atom/spawn_loc)
+	if(!istype(get_area(spawn_loc), /area/ruin/interdyne_planetary_base))
+		return ..()
+	var/drone_index = set_items.Find(/mob/living/basic/mining_drone)
+	if(drone_index)
+		set_items[drone_index] = /mob/living/basic/mining_drone/interdyne
+	return ..()
 
 /mob/living/basic/mining_drone/interdyne
 	name = "\improper Interdyne minebot"

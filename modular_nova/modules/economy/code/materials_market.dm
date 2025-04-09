@@ -8,6 +8,6 @@
 /obj/machinery/materials_market/attackby(obj/item/attacking_item, mob/user, params)
 	if(is_type_in_list(attacking_item, exportable_material_items))
 		say("Selling materials to the GMM is no longer available due to volatile logistics conditions in frontier space. Please export your materials via standard Union-NT cargo arrangements.")
-		playsound(src, 'sound/machines/scanbuzz.ogg', 25, FALSE)
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, FALSE)
 		return TRUE
 	return ..()

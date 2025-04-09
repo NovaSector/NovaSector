@@ -2,6 +2,7 @@
 	desc = "They're like gloves, but made of metal. Better not touch any live wires!"
 	siemens_coefficient = 1
 	armor_type = /datum/armor/plate_larp
+	body_parts_covered = HANDS|ARMS
 
 /datum/armor/plate_larp
 	melee = 10

@@ -39,7 +39,7 @@
 
 /datum/computer_file/program/science/ui_assets(mob/user)
 	return list(
-		get_asset_datum(/datum/asset/spritesheet/research_designs)
+		get_asset_datum(/datum/asset/spritesheet_batched/research_designs)
 	)
 
 // heavy data from this proc should be moved to static data when possible
@@ -50,6 +50,7 @@
 		return data
 	data += list(
 		"nodes" = list(),
+		"queue_nodes" = stored_research.research_queue_nodes,
 		"experiments" = list(),
 		"researched_designs" = stored_research.researched_designs,
 		"points" = stored_research.research_points,
@@ -64,6 +65,10 @@
 	// Serialize all nodes to display
 	for(var/tier in stored_research.tiers)
 		var/datum/techweb_node/node = SSresearch.techweb_node_by_id(tier)
+		var/enqueued_by_user = FALSE
+
+		if((tier in stored_research.research_queue_nodes) && stored_research.research_queue_nodes[tier] == user)
+			enqueued_by_user = TRUE
 
 		// Ensure node is supposed to be visible
 		if (stored_research.hidden_nodes[tier])
@@ -71,8 +76,11 @@
 
 		data["nodes"] += list(list(
 			"id" = node.id,
+			"is_free" = node.is_free(stored_research),
 			"can_unlock" = stored_research.can_unlock_node(node),
-			"tier" = stored_research.tiers[node.id]
+			"have_experiments_done" = stored_research.have_experiments_for_node(node),
+			"tier" = stored_research.tiers[node.id],
+			"enqueued_by_user" = enqueued_by_user
 		))
 
 	// Get experiments and serialize them
@@ -110,6 +118,12 @@
 			return TRUE
 		if ("researchNode")
 			research_node(params["node_id"], usr)
+			return TRUE
+		if ("enqueueNode")
+			enqueue_node(params["node_id"], usr)
+			return TRUE
+		if ("dequeueNode")
+			dequeue_node(params["node_id"], usr)
 			return TRUE
 
 /datum/computer_file/program/science/ui_static_data(mob/user)
@@ -153,7 +167,7 @@
 
 	// Build design cache
 	var/design_cache = list()
-	var/datum/asset/spritesheet/research_designs/spritesheet = get_asset_datum(/datum/asset/spritesheet/research_designs)
+	var/datum/asset/spritesheet_batched/research_designs/spritesheet = get_asset_datum(/datum/asset/spritesheet_batched/research_designs)
 	var/size32x32 = "[spritesheet.name]32x32"
 	for (var/design_id in SSresearch.techweb_designs)
 		var/datum/design/design = SSresearch.techweb_designs[design_id] || SSresearch.error_design
@@ -187,6 +201,20 @@
 		id_cache[id] = id_cache_seq
 		id_cache_seq += 1
 	return id_cache[id]
+
+/datum/computer_file/program/science/proc/enqueue_node(id, mob/user)
+	if(!stored_research || !stored_research.available_nodes[id] || stored_research.researched_nodes[id])
+		computer.say("Node enqueue failed: Either no techweb is found, node is already researched or is not available!")
+		return FALSE
+	stored_research.enqueue_node(id, user)
+	return TRUE
+
+/datum/computer_file/program/science/proc/dequeue_node(id, mob/user)
+	if(!stored_research || !stored_research.available_nodes[id] || stored_research.researched_nodes[id])
+		computer.say("Node dequeue failed: Either no techweb is found, node is already researched or is not available!")
+		return FALSE
+	stored_research.dequeue_node(id, user)
+	return TRUE
 
 /datum/computer_file/program/science/proc/research_node(id, mob/user)
 	if(!stored_research || !stored_research.available_nodes[id] || stored_research.researched_nodes[id])

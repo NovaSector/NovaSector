@@ -61,7 +61,7 @@
 			if(!traitor_data.uplink_handler.contractor_hub)
 				traitor_data.uplink_handler.contractor_hub = new
 				traitor_data.uplink_handler.contractor_hub.create_contracts(traitor_user.owner)
-				user.playsound_local(user, 'sound/effects/contractstartup.ogg', 100, FALSE)
+				user.playsound_local(user, 'sound/music/antag/contractstartup.ogg', 100, FALSE)
 				program_open_overlay = "contractor-contractlist"
 			NOVA EDIT REMOVAL END */
 			// NOVA EDIT ADDITION START
@@ -75,7 +75,7 @@
 				return FALSE
 			// Only play greet sound, and handle contractor hub when assigning for the first time.
 			if (!opfor_data.contractor_hub)
-				user.playsound_local(user, 'sound/effects/contractstartup.ogg', 100, FALSE)
+				user.playsound_local(user, 'sound/music/antag/contractstartup.ogg', 100, FALSE)
 				opfor_data.contractor_hub = new
 				opfor_data.contractor_hub.create_hub_items()
 
@@ -98,10 +98,10 @@
 
 					program_open_overlay = "contractor-extracted"
 				else
-					user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
+					user.playsound_local(user, 'sound/machines/uplink/uplinkerror.ogg', 50)
 					error = "Either both you or your target aren't at the dropoff location, or the pod hasn't got a valid place to land. Clear space, or make sure you're both inside."
 			else
-				user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
+				user.playsound_local(user, 'sound/machines/uplink/uplinkerror.ogg', 50)
 				error = "Already extracting... Place the target into the pod. If the pod was destroyed, this contract is no longer possible."
 
 			return TRUE
@@ -128,7 +128,7 @@
 				uplink_computer.opfor_data.contractor_hub.contract_TC_to_redeem = 0 // NOVA EDIT CHANGE - ORIGINAL: traitor_data.uplink_handler.contractor_hub.contract_TC_to_redeem = 0
 				return TRUE
 			else
-				user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
+				user.playsound_local(user, 'sound/machines/uplink/uplinkerror.ogg', 50)
 			return TRUE
 		if ("PRG_clear_error")
 			error = ""

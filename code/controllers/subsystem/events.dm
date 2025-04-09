@@ -1,6 +1,8 @@
 SUBSYSTEM_DEF(events)
 	name = "Events"
-	init_order = INIT_ORDER_EVENTS
+	dependencies = list(
+		/datum/controller/subsystem/processing/station
+	)
 	runlevels = RUNLEVEL_GAME
 	///list of all datum/round_event_control. Used for selecting events based on weight and occurrences.
 	var/list/control = list()
@@ -8,7 +10,7 @@ SUBSYSTEM_DEF(events)
 	var/list/running = list()
 	///cache of currently running events, for lag checking.
 	var/list/currentrun = list()
-	///The next world.time that a naturally occuring random event can be selected.
+	///The next world.time that a naturally occurring random event can be selected.
 	var/scheduled = 0
 	///The lower bound for how soon another random event can be scheduled.
 	var/frequency_lower = 2.5 MINUTES
@@ -68,7 +70,7 @@ SUBSYSTEM_DEF(events)
 	scheduled = world.time + rand(frequency_lower, max(frequency_lower,frequency_upper))
 
 /**
- * Selects a random event based on whether it can occur and it's 'weight'(probability)
+ * Selects a random event based on whether it can occur and its 'weight'(probability)
  *
  * Arguments:
  * * excluded_event - The event path we will be foregoing, if present.
@@ -165,10 +167,10 @@ GLOBAL_LIST(holidays)
 		for(var/timezone in holiday.timezones)
 			var/time_in_timezone = world.realtime + timezone HOURS
 
-			var/YYYY = text2num(time2text(time_in_timezone, "YYYY")) // get the current year
-			var/MM = text2num(time2text(time_in_timezone, "MM")) // get the current month
-			var/DD = text2num(time2text(time_in_timezone, "DD")) // get the current day
-			var/DDD = time2text(time_in_timezone, "DDD") // get the current weekday
+			var/YYYY = text2num(time2text(time_in_timezone, "YYYY", world.timezone)) // get the current year
+			var/MM = text2num(time2text(time_in_timezone, "MM", world.timezone)) // get the current month
+			var/DD = text2num(time2text(time_in_timezone, "DD", world.timezone)) // get the current day
+			var/DDD = time2text(time_in_timezone, "DDD", world.timezone) // get the current weekday
 
 			if(holiday.shouldCelebrate(DD, MM, YYYY, DDD))
 				holiday.celebrate()

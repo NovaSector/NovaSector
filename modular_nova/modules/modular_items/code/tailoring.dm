@@ -29,7 +29,7 @@
 /datum/crafting_recipe/crusader_satchel
 	name = "Crusader Satchel"
 	result = /obj/item/storage/backpack/satchel/crusader
-	reqs = list(/obj/item/stack/sheet/cloth = 2, /obj/item/stack/sheet/leather = 1)	//Cheap because its really just a re-texture of the satchel
+	reqs = list(/obj/item/stack/sheet/cloth = 2, /obj/item/stack/sheet/leather = 1)	//Cheap because it's really just a re-texture of the satchel
 	tool_behaviors = list(TOOL_WIRECUTTER)
 	time = 15
 	category = CAT_CLOTHING

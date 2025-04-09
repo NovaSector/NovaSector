@@ -102,7 +102,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	return data
 
-/obj/machinery/computer/cryopod/ui_act(action, list/params)
+/obj/machinery/computer/cryopod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -208,17 +208,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/close_machine(atom/movable/target, density_to_set = TRUE)
 	if(!control_computer_weakref)
 		find_control_computer(TRUE)
-	if((isnull(target) || isliving(target)) && state_open && !panel_open)
-		..(target)
-		var/mob/living/mob_occupant = occupant
-		if(mob_occupant && mob_occupant.stat != DEAD)
-			to_chat(occupant, span_notice("<b>You feel cool air surround you. You go numb as your senses turn inward.</b>"))
+	if(!isliving(target) || !state_open || panel_open)
+		return
+	target.forceMove(src)
+	set_occupant(target)
+	..()
+	var/mob/living/mob_occupant = occupant
+	if(mob_occupant && mob_occupant.stat != DEAD)
+		to_chat(occupant, span_notice("<b>You feel cool air surround you. You go numb as your senses turn inward.</b>"))
 
-		var/mob/living/carbon/human/human_occupant = occupant
-		if(istype(human_occupant) && human_occupant.mind)
-			human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
+	var/mob/living/carbon/human/human_occupant = occupant
+	if(istype(human_occupant) && human_occupant.mind)
+		human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
-		COOLDOWN_START(src, despawn_world_time, time_till_despawn)
+	COOLDOWN_START(src, despawn_world_time, time_till_despawn)
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
@@ -359,9 +362,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	else
 		control_computer.frozen_crew += list(list("name" = occupant_name, "job" = occupant_rank))
 
-	// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
-	if(!quiet)
-		control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
+		// Make an announcement and log the person entering storage. If set to quiet, does not make an announcement.
+		if(!quiet)
+			control_computer.announce("CRYO_LEAVE", mob_occupant.real_name, announce_rank, occupant_departments_bitflags, occupant_job_radio)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
@@ -415,7 +418,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 // Allows players to cryo others. Checks if they have been AFK for 30 minutes.
 	if(target.key && user != target)
-		if (target.get_organ_by_type(/obj/item/organ/internal/brain) ) //Target the Brain
+		if (target.get_organ_by_type(/obj/item/organ/brain) ) //Target the Brain
 			if(!target.mind || target.ssd_indicator ) // Is the character empty / AI Controlled
 				if(target.lastclienttime + ssd_time >= world.time)
 					to_chat(user, span_notice("You can't put [target] into [src] for another [round(((ssd_time - (world.time - target.lastclienttime)) / (1 MINUTES)), 1)] minutes."))

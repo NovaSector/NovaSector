@@ -9,6 +9,8 @@ import { storage } from 'common/storage';
 import { setClientTheme } from '../themes';
 import {
   addHighlightSetting,
+  exportSettings,
+  importSettings,
   loadSettings,
   removeHighlightSetting,
   updateHighlightSetting,
@@ -16,7 +18,10 @@ import {
 } from './actions';
 import { FONTS_DISABLED } from './constants';
 import { selectSettings } from './selectors';
+import { exportChatSettings } from './settingsImExport';
 
+let statFontTimer: NodeJS.Timeout;
+let statTabsTimer: NodeJS.Timeout;
 let overrideRule: HTMLStyleElement;
 let overrideFontFamily: string | undefined;
 let overrideFontSize: string;
@@ -44,12 +49,35 @@ function updateGlobalOverrideRule() {
   document.body.style.setProperty('font-size', overrideFontSize);
 }
 
-function setGlobalFontSize(fontSize: string) {
+function setGlobalFontSize(
+  fontSize: string,
+  statFontSize: string,
+  statLinked: boolean,
+) {
   overrideFontSize = `${fontSize}px`;
+
+  // Used solution from theme.ts
+  clearInterval(statFontTimer);
+  Byond.command(
+    `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
+  );
+  statFontTimer = setTimeout(() => {
+    Byond.command(
+      `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
+    );
+  }, 1500);
 }
 
 function setGlobalFontFamily(fontFamily: string) {
   overrideFontFamily = fontFamily === FONTS_DISABLED ? undefined : fontFamily;
+}
+
+function setStatTabsStyle(style: string) {
+  clearInterval(statTabsTimer);
+  Byond.command(`.output statbrowser:set_tabs_style ${style}`);
+  statTabsTimer = setTimeout(() => {
+    Byond.command(`.output statbrowser:set_tabs_style ${style}`);
+  }, 1500);
 }
 
 export function settingsMiddleware(store) {
@@ -64,12 +92,19 @@ export function settingsMiddleware(store) {
         store.dispatch(loadSettings(settings));
       });
     }
+    if (type === exportSettings.type) {
+      const state = store.getState();
+      const settings = selectSettings(state);
+      exportChatSettings(settings, state.chat.pageById);
+      return;
+    }
     if (
       type !== updateSettings.type &&
       type !== loadSettings.type &&
       type !== addHighlightSetting.type &&
       type !== removeHighlightSetting.type &&
-      type !== updateHighlightSetting.type
+      type !== updateHighlightSetting.type &&
+      type !== importSettings.type
     ) {
       return next(action);
     }
@@ -85,8 +120,19 @@ export function settingsMiddleware(store) {
 
     const settings = selectSettings(store.getState());
 
+    if (importSettings.type) {
+      setClientTheme(settings.theme);
+    }
+
+    // Update stat panel settings
+    setStatTabsStyle(settings.statTabsStyle);
+
     // Update global UI font size
-    setGlobalFontSize(settings.fontSize);
+    setGlobalFontSize(
+      settings.fontSize,
+      settings.statFontSize,
+      settings.statLinked,
+    );
     setGlobalFontFamily(settings.fontFamily);
     updateGlobalOverrideRule();
 

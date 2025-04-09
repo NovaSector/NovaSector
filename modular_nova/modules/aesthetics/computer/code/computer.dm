@@ -1,6 +1,6 @@
 
 /obj/machinery/computer
-	var/clicksound = "keyboard"
+	var/clicksound = SFX_KEYBOARD
 	var/clickvol = 40
 	var/next_clicksound
 

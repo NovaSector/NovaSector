@@ -41,9 +41,9 @@
 	if(is_mentor(whom))
 		to_chat(GLOB.mentors, span_purple(span_mentor("[src] has started replying to [whom]'s mhelp.")))
 
-	//get message text, limit it's length.and clean/escape html
+	//get message text, limit its length.and clean/escape html
 	if(!msg)
-		msg = tgui_input_text(src, "Message:", "Private message")
+		msg = tgui_input_text(src, "Message:", "Private message", max_length = MAX_MESSAGE_LEN)
 
 		if(!msg)
 			if (is_mentor(whom))

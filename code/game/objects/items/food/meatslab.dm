@@ -150,7 +150,7 @@
 	blood_decal_type = null
 
 /obj/item/food/meat/slab/human/mutant/skeleton/make_processable()
-	return //skeletons dont have cutlets
+	return //skeletons don't have cutlets
 
 /obj/item/food/meat/slab/human/mutant/zombie
 	name = "meat (rotten)"
@@ -353,7 +353,7 @@
 /obj/item/food/meat/rawbacon
 	name = "raw piece of bacon"
 	desc = "A raw piece of bacon."
-	icon_state = "baconb"
+	icon_state = "bacon"
 	bite_consumption = 2
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 2,
@@ -369,7 +369,7 @@
 /obj/item/food/meat/bacon
 	name = "piece of bacon"
 	desc = "A delicious piece of bacon."
-	icon_state = "baconcookedb"
+	icon_state = "baconcooked"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
@@ -512,7 +512,6 @@
 	name = "[source_item.name] steak"
 
 /obj/item/food/meat/steak/plain
-	foodtypes = MEAT
 
 /obj/item/food/meat/steak/plain/human
 	tastes = list("tender meat" = 1)
@@ -549,6 +548,7 @@
 /obj/item/food/meat/steak/spider
 	name = "spider steak"
 	tastes = list("cobwebs" = 1)
+	foodtypes = parent_type::foodtypes | TOXIC
 
 /obj/item/food/meat/steak/goliath
 	name = "goliath steak"
@@ -557,7 +557,6 @@
 	icon_state = "goliathsteak"
 	trash_type = null
 	tastes = list("meat" = 1, "rock" = 1)
-	foodtypes = MEAT
 
 /obj/item/food/meat/steak/gondola
 	name = "gondola steak"
@@ -679,6 +678,7 @@
 	name = "raw spider cutlet"
 	tastes = list("cobwebs" = 1)
 	blood_decal_type = /obj/effect/decal/cleanable/insectguts
+	foodtypes = parent_type::foodtypes | TOXIC
 
 /obj/item/food/meat/rawcutlet/spider/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/spider, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
@@ -768,6 +768,7 @@
 /obj/item/food/meat/cutlet/spider
 	name = "spider cutlet"
 	tastes = list("cobwebs" = 1)
+	foodtypes = parent_type::foodtypes | TOXIC
 
 /obj/item/food/meat/cutlet/gondola
 	name = "gondola cutlet"

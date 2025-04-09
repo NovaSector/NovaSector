@@ -1,17 +1,16 @@
-#define MINIMUM_VALUE_MULT 0.5 // NOVA EDIT: used in price_minimum declarations, /tg/ default is 0.5
-#define MAXIMUM_VALUE_MULT 3 // NOVA EDIT: used in prixe_maximum declarations, /tg/ default is 3
+#define MINIMUM_VALUE_MULT 0.95 // NOVA EDIT: used in price_minimum declarations, /tg/ default is 0.5
+#define MAXIMUM_VALUE_MULT 1.05 // NOVA EDIT: used in prixe_maximum declarations, /tg/ default is 3
 
 SUBSYSTEM_DEF(stock_market)
 	name = "Stock Market"
 	wait = 60 SECONDS
-	init_order = INIT_ORDER_DEFAULT
 	runlevels = RUNLEVEL_GAME
 
 	/// Associated list of materials and their prices at the given time.
 	var/list/materials_prices = list()
 	/// Associated list of materials alongside their market trends. 1 is up, 0 is stable, -1 is down.
 	var/list/materials_trends = list()
-	/// Associated list of materials alongside the life of it's current trend. After it's life is up, it will change to a new trend.
+	/// Associated list of materials alongside the life of its current trend. After its life is up, it will change to a new trend.
 	var/list/materials_trend_life = list()
 	/// Associated list of materials alongside their available quantity. This is used to determine how much of a material is available to buy, and how much buying and selling affects the price.
 	var/list/materials_quantity = list()

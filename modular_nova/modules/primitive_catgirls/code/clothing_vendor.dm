@@ -3,11 +3,11 @@
 	desc = "It's a big wardrobe filled up with all sorts of clothing."
 	icon = 'icons/obj/storage/closet.dmi'
 	icon_state = "cabinet"
-
 	use_power = FALSE
-
 	shut_up = TRUE
 	vend_reply = null
+	onstation = FALSE // we don't ever want these to be targetable by the brand intelligence event.
+	all_products_free = TRUE // we don't want them to charge anything either. it's a wardrobe.
 
 	products = list(
 		/obj/item/clothing/under/dress/skirt/primitive_catgirl_body_wraps = 15,
@@ -19,7 +19,7 @@
 		/obj/item/clothing/gloves/fingerless/primitive_catgirl_armwraps = 15,
 		/obj/item/clothing/shoes/winterboots/ice_boots/primitive_catgirl_boots = 15,
 		/obj/item/clothing/gloves/fingerless/primitive_catgirl_gauntlets = 10,
-		/obj/item/clothing/mask/primitive_catgirl_greyscale_gaiter = 10,
+		/obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter = 10,
 		/obj/item/clothing/suit/apron/chef/colorable_apron/primitive_catgirl_leather = 10,
 		/obj/item/clothing/head/standalone_hood/primitive_catgirl_colors = 10,
 		/obj/item/clothing/neck/scarf/primitive_catgirl_scarf = 5,
@@ -43,11 +43,6 @@
 		/obj/item/clothing/head/costume/nova/papakha/white = 5,
 		/obj/item/clothing/head/hair_tie = 5,
 	)
-
-/obj/machinery/vending/primitive_catgirl_clothing_vendor/Initialize(mapload)
-	. = ..()
-
-	onstation = FALSE
 
 /obj/machinery/vending/primitive_catgirl_clothing_vendor/speak(message)
 	return

@@ -1,9 +1,9 @@
 /datum/quirk/equipping/lungs
 	abstract_parent_type = /datum/quirk/equipping/lungs
 	icon = FA_ICON_LUNGS
-	var/obj/item/organ/internal/lungs/lungs_holding
-	var/obj/item/organ/internal/lungs/lungs_added
-	var/lungs_typepath = /obj/item/organ/internal/lungs
+	var/obj/item/organ/lungs/lungs_holding
+	var/obj/item/organ/lungs/lungs_added
+	var/lungs_typepath = /obj/item/organ/lungs
 	items = list(/obj/item/clothing/accessory/breathing = list(ITEM_SLOT_BACKPACK))
 	var/breath_type = "oxygen"
 
@@ -26,7 +26,7 @@
 	var/mob/living/carbon/carbon_holder = quirk_holder
 	if (!istype(carbon_holder) || !istype(lungs_holding))
 		return
-	var/obj/item/organ/internal/lungs/lungs = carbon_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
+	var/obj/item/organ/lungs/lungs = carbon_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if (lungs != lungs_added && lungs != lungs_holding)
 		qdel(lungs_holding)
 		return
@@ -39,7 +39,9 @@
 		return
 	var/obj/item/clothing/accessory/breathing/acc = equipped
 	acc.breath_type = breath_type
-	if (acc.can_attach_accessory(human_holder?.w_uniform, human_holder))
+
+	var/obj/item/clothing/under/attach_to = human_holder?.w_uniform
+	if (attach_to && acc.can_attach_accessory(attach_to, human_holder))
 		acc.attach(human_holder.w_uniform, human_holder)
 
 /obj/item/clothing/accessory/breathing
@@ -78,7 +80,7 @@
 	forced_items = list(
 		/obj/item/clothing/mask/breath = list(ITEM_SLOT_MASK),
 		/obj/item/tank/internals/nitrogen/belt/full = list(ITEM_SLOT_HANDS, ITEM_SLOT_LPOCKET, ITEM_SLOT_RPOCKET))
-	lungs_typepath = /obj/item/organ/internal/lungs/nitrogen
+	lungs_typepath = /obj/item/organ/lungs/nitrogen
 	breath_type = "nitrogen"
 
 /datum/quirk/equipping/lungs/nitrogen/on_equip_item(obj/item/equipped, success)

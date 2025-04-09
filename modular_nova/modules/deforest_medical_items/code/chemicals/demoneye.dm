@@ -21,7 +21,6 @@
 	name = "DemonEye"
 	description = "A performance enhancing drug originally developed on mars. \
 		A favorite among gangs and other outlaws on the planet, though overuse can cause terrible addiction and bodily damage."
-	reagent_state = LIQUID
 	color = "#af00be"
 	taste_description = "industrial shuttle fuel"
 	metabolization_rate = 0.65 * REAGENTS_METABOLISM
@@ -43,8 +42,7 @@
 	user_left_eye_color = our_guy.eye_color_left
 	user_right_eye_color = our_guy.eye_color_right
 
-	our_guy.eye_color_left = BLOODCULT_EYE
-	our_guy.eye_color_right = BLOODCULT_EYE
+	our_guy.set_eye_color(BLOODCULT_EYE)
 	our_guy.update_body()
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
@@ -108,7 +106,7 @@
 	our_guy.add_mood_event("tweaking", /datum/mood_event/stimulant_heavy/sundowner, name)
 
 	our_guy.adjustStaminaLoss(-10 * REM * seconds_per_tick)
-	our_guy.AdjustSleeping(-20 * REM * seconds_per_tick)
+	our_guy.AdjustSleeping(-2 SECONDS * REM * seconds_per_tick)
 	our_guy.adjust_drowsiness(-5 * REM * seconds_per_tick)
 
 	if(SPT_PROB(25, seconds_per_tick))
@@ -131,7 +129,7 @@
 		hurt_that_mans_organs(our_guy, 5, TRUE)
 
 
-/// Hurts a random organ, if its 'really_bad' we'll vomit blood too
+/// Hurts a random organ, if it's 'really_bad' we'll vomit blood too
 /datum/reagent/drug/demoneye/proc/hurt_that_mans_organs(mob/living/carbon/our_guy, damage, really_bad = FALSE)
 	/// List of organs we can randomly damage
 	var/static/list/organs_we_damage = list(

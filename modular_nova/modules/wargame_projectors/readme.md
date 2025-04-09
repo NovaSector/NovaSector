@@ -23,4 +23,3 @@ Based upon a silly idea and a silly game made up in a round, projectors for part
 - N/A
 
 ### Credits:
-Paxilmaniac - Everything

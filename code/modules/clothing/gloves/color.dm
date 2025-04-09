@@ -9,24 +9,6 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	cut_type = /obj/item/clothing/gloves/fingerless
-	// NOVA EDIT ADDITION START
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic Gloves" = list(
-			RESKIN_ICON = 'icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "black",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "black"
-		),
-		"Peacekeeper Gloves" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "peacekeeper_gloves",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "peacekeeper"
-		)
-	)
-	// NOVA EDIT ADDITION END
-	clothing_traits = list(TRAIT_FAST_CUFFING)
 
 /obj/item/clothing/gloves/color/black/Initialize(mapload)
 	. = ..()
@@ -36,6 +18,15 @@
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
 	)
+
+/obj/item/clothing/gloves/color/black/security
+	name = "security gloves"
+	desc = "These security gloves come with microchips that help the user quickly restrain suspects."
+	icon_state = "sec"
+	clothing_traits = list(TRAIT_FAST_CUFFING)
+
+/obj/item/clothing/gloves/color/black/security/blu
+	icon_state = "sec_blu"
 
 /obj/item/clothing/gloves/fingerless
 	name = "fingerless gloves"
@@ -53,6 +44,7 @@
 /obj/item/clothing/gloves/color/fingerless/Initialize(mapload)
 	. = ..()
 	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/gripperoffbrand)
+	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
 
 	AddElement(
 		/datum/element/slapcrafting,\

@@ -113,7 +113,7 @@
 				continue // go home
 			if(initial(our_casing.harmful) && (!allowed_harmful && !hacked)) // if you hack it that's on you.
 				continue
-			if(initial(our_casing.advanced_print_req) && !allowed_advanced) // if it's got a funny function (hello, AP!) and we're not good for it yet,
+			if(initial(our_casing.advanced_print_req) && !allowed_advanced) // if its got a funny function (hello, AP!) and we're not good for it yet,
 				continue // no
 		if(initial(our_casing.projectile_type) == null) // spent casing subtypes >:(
 			continue
@@ -373,7 +373,7 @@
 		loaded_magazine.update_appearance()
 		flick("ammobench_process", src)
 		use_energy(active_power_usage)
-		playsound(loc, 'sound/machines/piston_raise.ogg', 60, 1)
+		playsound(loc, 'sound/machines/piston/piston_raise.ogg', 60, 1)
 	else
 		qdel(new_casing)
 		ammo_fill_finish(FALSE)
@@ -394,7 +394,7 @@
 	if(successfully)
 		playsound(loc, 'sound/machines/ping.ogg', 40, TRUE)
 	else
-		playsound(loc, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
+		playsound(loc, 'sound/machines/buzz/buzz-sigh.ogg', 40, TRUE)
 	update_appearance()
 	busy = FALSE
 	if(timer_id)
@@ -467,7 +467,6 @@
 		. += "ammobench_loaded"
 
 /obj/machinery/ammo_workbench/Destroy()
-	QDEL_NULL(wires)
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
@@ -545,7 +544,7 @@
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
-		playsound(loc, 'sound/weapons/autoguninsert.ogg', 35, 1)
+		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		return TRUE
 	if(istype(O, /obj/item/disk/ammo_workbench))
 		if(!user.transferItemToLoc(O, src))
@@ -554,7 +553,7 @@
 		to_chat(user, span_notice("You insert [O] to into [src]'s floppydisk port."))
 		flick("h_lathe_load", src)
 		update_appearance()
-		playsound(loc, 'sound/machines/terminal_insert_disc.ogg', 35, 1)
+		playsound(loc, 'sound/machines/terminal/terminal_insert_disc.ogg', 35, 1)
 		return TRUE
 	return FALSE
 

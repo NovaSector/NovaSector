@@ -33,9 +33,9 @@
 /datum/status_effect/grouped/wetsuit
 	id = "wetsuit"
 	alert_type = null
-	tick_interval = 10 SECONDS
+	tick_interval = 5 SECONDS
 
 /datum/status_effect/grouped/wetsuit/tick(seconds_between_ticks)
-	owner.set_wet_stacks(STATUS_EFFECT_STACKS)
+	owner.set_wet_stacks(stacks = STATUS_EFFECT_STACKS, remove_fire_stacks = FALSE)
 
 #undef STATUS_EFFECT_STACKS

@@ -1,11 +1,6 @@
 /datum/techweb_node/cyber/cyber_implants/New()
 	design_ids += list(
 		"ci-scanner",
-		"ci-gloweyes",
-		"ci-welding",
-		"ci-medhud",
-		"ci-sechud",
-		"ci-diaghud",
 		"ci-botany",
 		"ci-janitor",
 		"ci-lighter",
@@ -42,7 +37,7 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/mining_adv/New() //Here for the integrated drill augments.
-	design_ids = list(
-		"ci-drill-diamond"
+	design_ids += list(
+		"ci-drill-diamond",
 	)
 	return ..()

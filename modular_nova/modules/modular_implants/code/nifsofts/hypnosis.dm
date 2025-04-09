@@ -57,7 +57,7 @@
 			target_human.SetSleeping(0)
 			return FALSE
 
-		var/input_text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion")
+		var/input_text = tgui_input_text(user, "What would you like to suggest?", "Hypnotic Suggestion", max_length = MAX_MESSAGE_LEN)
 		to_chat(user, span_purple("You whisper into [target_human]'s ears in a soothing voice."))
 		to_chat(target_human, span_hypnophrase("[input_text]"))
 		secondary_choice = tgui_alert(user, "Would you like to give [target_human] an additional hypnotic suggestion or release them?", "Hypnosis", list("Suggestion", "Release"))

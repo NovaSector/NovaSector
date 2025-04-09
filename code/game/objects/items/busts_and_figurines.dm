@@ -50,16 +50,12 @@
 	..()
 	if(!(slot & ITEM_SLOT_HANDS))
 		return
-	var/datum/atom_hud/our_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	our_hud.show_to(user)
 	ADD_TRAIT(user, TRAIT_MEDICAL_HUD, type)
 
 /obj/item/statuebust/hippocratic/dropped(mob/living/carbon/human/user)
 	..()
 	if(HAS_TRAIT_NOT_FROM(user, TRAIT_MEDICAL_HUD, type))
 		return
-	var/datum/atom_hud/our_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	our_hud.hide_from(user)
 	REMOVE_TRAIT(user, TRAIT_MEDICAL_HUD, type)
 
 /obj/item/statuebust/hippocratic/attack_self(mob/user)
@@ -132,8 +128,8 @@
 /obj/item/maneki_neko/Initialize(mapload)
 	. = ..()
 	//Not compatible with greyscale configs because it's animated.
-	color = pick_weight(list(COLOR_WHITE = 3, COLOR_GOLD = 2, COLOR_DARK = 1))
-	var/mutable_appearance/neko_overlay = mutable_appearance(icon, "maneki-neko-overlay", appearance_flags = RESET_COLOR)
+	add_atom_colour(pick_weight(list(COLOR_WHITE = 3, COLOR_GOLD = 2, COLOR_DARK = 1)), FIXED_COLOUR_PRIORITY)
+	var/mutable_appearance/neko_overlay = mutable_appearance(icon, "maneki-neko-overlay", appearance_flags = RESET_COLOR|KEEP_APART)
 	add_overlay(neko_overlay)
 	AddElement(/datum/element/art, GOOD_ART)
 	AddElement(/datum/element/beauty, 800)

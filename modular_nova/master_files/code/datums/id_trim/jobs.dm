@@ -1,25 +1,5 @@
 // MODULAR ID TRIM ACCESS OVERRIDES GO HERE!!
 
-//(Most) of Security has inverted IDs, with custom blue-on-black icons. This is to distinguish them from their head, who has a white-on-blue icon
-/datum/id_trim/job/head_of_security
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-/datum/id_trim/job/warden
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-/datum/id_trim/job/security_officer
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-/datum/id_trim/job/detective
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
-
-
 /datum/id_trim/job/chief_engineer/New()
 	. = ..()
 
@@ -74,15 +54,13 @@
 		ACCESS_SCIENCE,
 		ACCESS_TELEPORTER,
 		ACCESS_WEAPONS,
-	)
-	minimal_wildcard_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL,
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 	)
+	job = /datum/job/blueshield
 
 /datum/id_trim/job/nanotrasen_consultant
 	assignment = "Nanotrasen Consultant"
@@ -98,7 +76,6 @@
 		ACCESS_BAR,
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_CENT_GENERAL,
-		ACCESS_CHANGE_IDS,
 		ACCESS_CHAPEL_OFFICE,
 		ACCESS_COMMAND,
 		ACCESS_CONSTRUCTION,
@@ -131,22 +108,20 @@
 		ACCESS_THEATRE,
 		ACCESS_VAULT,
 		ACCESS_WEAPONS,
-	)
-	minimal_wildcard_access = list(
 		ACCESS_CAPTAIN,
-		ACCESS_CENT_GENERAL,
 	)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 	)
+	job = /datum/job/nanotrasen_consultant
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_corrections_officer"
-	department_color = COLOR_ASSEMBLY_BLACK
-	subdepartment_color = COLOR_ASSEMBLY_BLACK
+	department_color = COLOR_SECURITY_RED
+	subdepartment_color = COLOR_SECURITY_RED
 	sechud_icon_state = SECHUD_CORRECTIONS_OFFICER
 	extra_access = list()
 	minimal_access = list(

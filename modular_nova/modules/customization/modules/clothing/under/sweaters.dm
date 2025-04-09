@@ -4,6 +4,7 @@
 	icon_state = "cableknit_sweater"
 	greyscale_config = /datum/greyscale_config/cableknit_sweater
 	greyscale_config_worn = /datum/greyscale_config/cableknit_sweater/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/cableknit_sweater/worn/teshari
 	greyscale_colors = "#b2a484"
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY

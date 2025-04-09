@@ -29,6 +29,10 @@
 	fire = 100
 	acid = 100
 
+/obj/vehicle/sealed/mecha/honker/Initialize(mapload, built_manually)
+	. = ..()
+	AddElementTrait(TRAIT_WADDLING, REF(src), /datum/element/waddling)
+
 /obj/vehicle/sealed/mecha/honker/play_stepsound()
 	if(squeak)
 		playsound(src, SFX_CLOWN_STEP, 70, 1)
@@ -53,7 +57,7 @@
 		MECHA_R_ARM = 1,
 		MECHA_UTILITY = 3,
 		MECHA_POWER = 1,
-		MECHA_ARMOR = 3,
+		MECHA_ARMOR = 2,
 	)
 
 /obj/vehicle/sealed/mecha/honker/dark/loaded

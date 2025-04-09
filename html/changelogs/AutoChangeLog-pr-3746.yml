@@ -1,5 +1,0 @@
-author: "NovaBot13"
-delete-after: True
-changes:
-  - refactor: "request managers have been refactored to typescript"
-  - bugfix: "request manager type filter now works"

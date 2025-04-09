@@ -24,8 +24,6 @@
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
 	var/list/allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
-	/// Is the hypospray only able to use small vials. Relates to the loaded overlays
-	var/small_only = TRUE
 	/// The presently-inserted vial.
 	var/obj/item/reagent_containers/cup/vial/vial
 	/// If the Hypospray starts with a vial, which vial does it start with?
@@ -53,11 +51,9 @@
 	icon_state = "bighypo2"
 	gags_bodystate = "hypo2_deluxe"
 	desc = "The deluxe variant in the DeForest Hypospray Mk. II series, able to take both 100u and 50u vials."
-	small_only = FALSE
 
 /obj/item/hypospray/mkii/piercing
 	name = "hypospray Mk.II advanced"
-	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small)
 	icon_state = "piercinghypo2"
 	gags_bodystate = "hypo2_piercing"
 	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor and quickly inject the chemicals."
@@ -126,7 +122,7 @@
 		return
 	if(vial.reagents.total_volume)
 		var/vial_spritetype = "chem-color"
-		if(!small_only)
+		if(istype(vial, /obj/item/reagent_containers/cup/vial/large))
 			vial_spritetype += "[vial.type_suffix]"
 		else
 			vial_spritetype += "-s"
@@ -178,7 +174,7 @@
 		to_chat(user, span_notice("You remove [vial] from [src]."))
 		vial = null
 		update_icon()
-		playsound(loc, 'sound/weapons/empty.ogg', 50, 1)
+		playsound(loc, 'sound/items/weapons/empty.ogg', 50, 1)
 	else
 		to_chat(user, span_notice("This hypo isn't loaded!"))
 		return
@@ -197,7 +193,7 @@
 			vial.forceMove(quickswap_loc)
 	vial = new_vial
 	user.visible_message(span_notice("[user] has loaded a vial into [src]."), span_notice("You have loaded [vial] into [src]."))
-	playsound(loc, 'sound/weapons/autoguninsert.ogg', 35, 1)
+	playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 	update_appearance()
 
 /obj/item/hypospray/mkii/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -305,7 +301,7 @@
 
 /obj/item/hypospray/mkii/attack_hand(mob/living/user)
 	if(user && loc == user && user.is_holding(src))
-		if(user.incapacitated())
+		if(user.incapacitated)
 			return
 		else if(!vial)
 			. = ..()

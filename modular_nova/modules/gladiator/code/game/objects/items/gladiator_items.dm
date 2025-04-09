@@ -68,7 +68,7 @@
 
 /obj/item/clothing/head/hooded/berserker/gatsu
 	name = "berserker helmet"
-	desc = "A uniquely styled helmet with ghastly red eyes that seals it's user inside."
+	desc = "A uniquely styled helmet with ghastly red eyes that seals its user inside."
 	icon_state = "berk_helm"
 	icon = 'modular_nova/modules/gladiator/icons/berserk_icons.dmi'
 	worn_icon = 'modular_nova/modules/gladiator/icons/berserk_suit.dmi'
@@ -183,7 +183,7 @@
 /datum/status_effect/dodgeroll_iframes/proc/whiff()
 	SIGNAL_HANDLER
 	owner.balloon_alert_to_viewers("MISS!")
-	playsound(src, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+	playsound(src, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	return SUCCESSFUL_BLOCK
 
 /obj/item/claymore/dragonslayer/very_fucking_loud

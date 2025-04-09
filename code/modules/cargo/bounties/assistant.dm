@@ -1,9 +1,12 @@
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/strange_object
 	name = "Strange Object"
 	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
 	wanted_types = list(/obj/item/relic = TRUE)
+*/ // NOVA EDIT REMOVAL END 
 
+/* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
 /datum/bounty/item/assistant/scooter
 	name = "Scooter"
 	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
@@ -19,6 +22,7 @@
 		/obj/vehicle/ridden/scooter/skateboard = TRUE,
 		/obj/item/melee/skateboard = TRUE,
 	)
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
@@ -26,12 +30,14 @@
 	reward = CARGO_CRATE_VALUE * 2.6
 	wanted_types = list(/obj/item/melee/baton/security/cattleprod = TRUE)
 
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/soap
 	name = "Soap"
 	description = "Soap has gone missing from CentCom's bathrooms and nobody knows who took it. Replace it and be the hero CentCom needs."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/soap = TRUE)
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/spear
 	name = "Spears"
@@ -49,10 +55,11 @@
 
 /datum/bounty/item/assistant/statue
 	name = "Statue"
-	description = "Central Command would like to commision an artsy statue for the lobby. Ship one out, when possible."
+	description = "Central Command would like to commission an artsy statue for the lobby. Ship one out, when possible."
 	reward = CARGO_CRATE_VALUE * 4
 	wanted_types = list(/obj/structure/statue = TRUE)
 
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/clown_box
 	name = "Clown Box"
 	description = "The universe needs laughter. Stamp cardboard with a clown stamp and ship it out."
@@ -65,6 +72,7 @@
 	reward = CARGO_CRATE_VALUE * 2.4
 	required_count = 3
 	wanted_types = list(/obj/item/food/cheesiehonkers = TRUE)
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/baseball_bat
 	name = "Baseball Bat"
@@ -99,12 +107,14 @@
 	reward = CARGO_CRATE_VALUE * 3
 	wanted_types = list(/obj/item/stack/sheet/animalhide/monkey = TRUE)
 
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/dead_mice
 	name = "Dead Mice"
 	description = "Station 14 ran out of freeze-dried mice. Ship some fresh ones so their janitor doesn't go on strike."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 5
 	wanted_types = list(/obj/item/food/deadmouse = TRUE)
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/comfy_chair
 	name = "Comfy Chairs"
@@ -129,12 +139,14 @@
 	wanted_types = list(/obj/item/food/grown/poppy = TRUE)
 	include_subtypes = FALSE
 
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/potted_plants
 	name = "Potted Plants"
 	description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 8
 	wanted_types = list(/obj/item/kirbyplants = TRUE)
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/monkey_cubes
 	name = "Monkey Cubes"
@@ -150,6 +162,7 @@
 	required_count = 3
 	wanted_types = list(/obj/item/grenade/iedcasing = TRUE)
 
+/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/corgimeat
 	name = "Raw Corgi Meat"
 	description = "The Syndicate recently stole all of CentCom's corgi meat. Ship out a replacement immediately."
@@ -174,8 +187,9 @@
 	name = "Crayons"
 	description = "Dr. Jones's kid ate all of our crayons again. Please send us yours."
 	reward = CARGO_CRATE_VALUE * 4
-	required_count = 24
+	required_count = 8
 	wanted_types = list(/obj/item/toy/crayon = TRUE)
+*/ // NOVA EDIT REMOVAL END 
 
 /datum/bounty/item/assistant/pens
 	name = "Pens"
@@ -213,7 +227,7 @@
 /datum/bounty/item/assistant/fish
 	name = "Fish"
 	description = "We need fish to populate our aquariums with. Fishes that are dead or bought from cargo will only be paid half as much."
-	reward = CARGO_CRATE_VALUE * 9
+	reward = CARGO_CRATE_VALUE * 9.5
 	required_count = 4
 	wanted_types = list(/obj/item/fish = TRUE, /obj/item/storage/fish_case = TRUE)
 	///the penalty for shipping dead/bought fish, which can subtract up to half the reward in total.
@@ -244,12 +258,12 @@
 	var/obj/item/fish/fishie = shipped
 	if(istype(shipped, /obj/item/storage/fish_case))
 		fishie = locate() in shipped
-	if(fishie.status == FISH_DEAD || HAS_TRAIT(fishie, TRAIT_FISH_FROM_CASE))
+	if(fishie.status == FISH_DEAD || HAS_TRAIT(fishie, TRAIT_FISH_LOW_PRICE))
 		reward -= shipping_penalty
 
 ///A subtype of the fish bounty that requires fish with a specific fluid type
 /datum/bounty/item/assistant/fish/fluid
-	reward = CARGO_CRATE_VALUE * 11
+	reward = CARGO_CRATE_VALUE * 12
 	///The required fluid type of the fish for it to be shipped
 	var/fluid_type
 
@@ -261,42 +275,3 @@
 
 /datum/bounty/item/assistant/fish/fluid/can_ship_fish(obj/item/fish/fishie)
 	return compatible_fluid_type(fishie.required_fluid_type, fluid_type)
-
-///A subtype of the fish bounty that requires specific fish types. The higher their rarity, the better the pay.
-/datum/bounty/item/assistant/fish/specific
-	description = "Our prestigious fish collection is currently lacking a few specific species. Fishes that are dead or bought from cargo will only be paid half as much."
-	reward = CARGO_CRATE_VALUE * 16
-	required_count = 3
-	wanted_types = list(/obj/item/storage/fish_case = TRUE)
-
-/datum/bounty/item/assistant/fish/specific/New()
-	var/static/list/choosable_fishes
-	if(isnull(choosable_fishes))
-		choosable_fishes = list()
-		for(var/obj/item/fish/prototype as anything in subtypesof(/obj/item/fish))
-			if(initial(prototype.experisci_scannable) && initial(prototype.show_in_catalog))
-				choosable_fishes += prototype
-
-	var/list/fishes_copylist = choosable_fishes.Copy()
-	///Used to calculate the extra reward
-	var/total_rarity = 0
-	var/list/name_list = list()
-	var/num_paths = rand(2,3)
-	for(var/i in 1 to num_paths)
-		var/obj/item/fish/chosen_path = pick_n_take(fishes_copylist)
-		wanted_types[chosen_path] = TRUE
-		name_list += initial(chosen_path.name)
-		total_rarity += initial(chosen_path.random_case_rarity) / num_paths
-	name = english_list(name_list)
-
-	switch(total_rarity)
-		if(FISH_RARITY_NOPE to FISH_RARITY_GOOD_LUCK_FINDING_THIS)
-			reward += CARGO_CRATE_VALUE * 14
-		if(FISH_RARITY_GOOD_LUCK_FINDING_THIS to FISH_RARITY_VERY_RARE)
-			reward += CARGO_CRATE_VALUE * 6.5
-		if(FISH_RARITY_VERY_RARE to FISH_RARITY_RARE)
-			reward += CARGO_CRATE_VALUE * 3
-		if(FISH_RARITY_RARE to FISH_RARITY_BASIC-1)
-			reward += CARGO_CRATE_VALUE * 1
-
-	..()

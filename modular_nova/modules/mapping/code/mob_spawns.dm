@@ -40,6 +40,23 @@
 	handlebank(shady)
 	return ..()
 
+/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader
+	desc = "A laser gun primarily used by syndicate security guards. It fires a rapid spray of low-power plasma beams. This one seems to have had its firing pin replaced."
+	pin = /obj/item/firing_pin
+
+/obj/effect/spawner/random/weapon/black_market_trader
+	name = "black market trader weapon spawner"
+	icon_state = "pistol"
+	loot = list(
+		/obj/item/gun/energy/laser/carbine/cybersun/black_market_trader = 80,
+		/obj/item/gun/energy/e_gun/old = 50,
+		/obj/item/gun/ballistic/shotgun/automatic/combat = 50,
+		/obj/item/gun/ballistic/automatic/pistol/contraband = 30,
+		/obj/item/gun/ballistic/automatic/sol_rifle/evil  = 20,
+		/obj/item/gun/ballistic/automatic/sol_smg/evil = 20,
+		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
+	)
+
 /obj/effect/mob_spawn/ghost_role/human/ds2
 	name = "DS2 personnel"
 	use_outfit_name = TRUE
@@ -261,9 +278,9 @@
 	id_trim = /datum/id_trim/syndicom/nova/ds2/brigofficer
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/bulletproof/old
-	back = /obj/item/storage/backpack/security/redsec
+	back = /obj/item/storage/backpack/security
 	head = /obj/item/clothing/head/helmet/swat/ds
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/gun/ballistic/automatic/pistol/sol/evil = 1,
@@ -299,8 +316,8 @@
 	id_trim = /datum/id_trim/syndicom/nova/ds2/masteratarms
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/vest/warden/syndicate
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	back = /obj/item/storage/backpack/satchel/sec
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,
 	)

@@ -26,7 +26,7 @@
 					break
 
 			if(!already_exists)
-				product_categories += category
+				product_categories += list(category)
 
 	if(premium_nova)
 		// We need this, because duplicates screw up the spritesheet!
@@ -52,10 +52,15 @@
 		if(premium[item] < MINIMUM_CLOTHING_STOCK && allow_increase(item))
 			premium[item] = MINIMUM_CLOTHING_STOCK
 
-	QDEL_NULL(products_nova)
-	QDEL_NULL(product_categories_nova)
-	QDEL_NULL(premium_nova)
-	QDEL_NULL(contraband_nova)
+	products_nova?.Cut()
+	product_categories_nova?.Cut()
+	premium_nova?.Cut()
+	contraband_nova?.Cut()
+	return ..()
+
+/obj/machinery/vending/spawn_frame(disassembled)
+	if(ai_controller) // Vendor uprising, vending machines that are jumping around shouldn't be anchored
+		set_anchored(FALSE)
 	return ..()
 
 /// This proc checks for forbidden traits cause it'd be pretty bad to have 5 insuls available to assistants roundstart at the vendor!

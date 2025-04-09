@@ -1,5 +1,5 @@
 #define RADIO_CHANNEL_SOLFED "SolFed"
-#define RADIO_KEY_SOLFED "l"
-#define RADIO_TOKEN_SOLFED ":l"
+#define RADIO_KEY_SOLFED "f"
+#define RADIO_TOKEN_SOLFED ":f"
 
 #define FREQ_SOLFED 1377

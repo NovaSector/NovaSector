@@ -21,7 +21,7 @@
 	if(!length(possible_turfs)) // Out of turfs to place a curiosity
 		return FALSE
 
-	if(generated_domain.secondary_loot_generated >= assoc_value_sum(generated_domain.secondary_loot)) // Out of curiosities to place
+	if(generated_domain.secondary_loot_generated >= counterlist_sum(generated_domain.secondary_loot)) // Out of curiosities to place
 		return FALSE
 
 	shuffle_inplace(possible_turfs)
@@ -38,9 +38,14 @@
 
 
 /// Generates a new avatar for the bitrunner.
-/obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit)
+/obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit, datum/preferences/prefs, include_loadout = FALSE) // NOVA EDIT CHANGE - Prefs argument - ORIGINAL: /obj/machinery/quantum_server/proc/generate_avatar(turf/destination, datum/outfit/netsuit)
 	var/mob/living/carbon/human/avatar = new(destination)
 
+	// NOVA EDIT ADDITION START - PREFS!
+	if(!isnull(prefs))
+		prefs.safe_transfer_prefs_to(avatar)
+	ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, "Bitrunning") // Stops the funny ethereal bug
+	// NOVA EDIT ADDITION END
 	var/outfit_path = generated_domain.forced_outfit || netsuit
 	var/datum/outfit/to_wear = new outfit_path()
 
@@ -53,7 +58,7 @@
 	to_wear.suit = null
 	to_wear.suit_store = null
 
-	avatar.equipOutfit(to_wear, visualsOnly = TRUE)
+	avatar.equipOutfit(to_wear, visuals_only = TRUE)
 
 	var/obj/item/clothing/under/jumpsuit = avatar.w_uniform
 	if(istype(jumpsuit))
@@ -77,6 +82,10 @@
 			new /obj/item/flashlight,
 		)
 
+	// NOVA EDIT ADDITION START
+	if(!isnull(prefs) && include_loadout)
+		avatar.equip_outfit_and_loadout(new /datum/outfit(), prefs)
+	// NOVA EDIT ADDITION END
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
 		outfit_id.registered_account = new()
@@ -116,65 +125,42 @@
 			path = pick(generated_domain.mob_modules)
 
 		var/datum/modular_mob_segment/segment = new path()
-		segment.spawn_mobs(get_turf(landmark))
-		mutation_candidate_refs += segment.spawned_mob_refs
+
+		var/list/mob_spawns = landmark.spawn_mobs(get_turf(landmark), segment)
+		if(length(mob_spawns))
+			mutation_candidate_refs += mob_spawns
+
 		qdel(landmark)
+		qdel(segment)
 
 	return TRUE
 
 
 /// Scans over neo's contents for bitrunning tech disks. Loads the items or abilities onto the avatar.
 /obj/machinery/quantum_server/proc/stock_gear(mob/living/carbon/human/avatar, mob/living/carbon/human/neo, datum/lazy_template/virtual_domain/generated_domain)
-	var/domain_forbids_items = generated_domain.forbids_disk_items
-	var/domain_forbids_spells = generated_domain.forbids_disk_spells
+	var/domain_forbids_flags = generated_domain.external_load_flags
 
 	var/import_ban = list()
 	var/disk_ban = list()
-	if(domain_forbids_items)
+	if(domain_forbids_flags & DOMAIN_FORBIDS_ITEMS)
 		import_ban += "smuggled digital equipment"
 		disk_ban += "items"
-	if(domain_forbids_spells)
+	if(domain_forbids_flags & DOMAIN_FORBIDS_ABILITIES)
 		import_ban += "imported_abilities"
 		disk_ban += "powers"
 
 	if(length(import_ban))
-		to_chat(neo, span_warning("This domain forbids the use of [english_list(import_ban)], your disk [english_list(disk_ban)] will not be granted!"))
+		to_chat(neo, span_warning("This domain forbids the use of [english_list(import_ban)], your externally loaded [english_list(disk_ban)] will not be granted!"))
 
-	var/failed = FALSE
+	var/return_flags = NONE
+	return_flags = SEND_SIGNAL(neo, COMSIG_BITRUNNER_STOCKING_GEAR, avatar, domain_forbids_flags)
 
-	// We don't need to bother going over the disks if neither of the types can be used.
-	if(domain_forbids_spells && domain_forbids_items)
-		return
-	for(var/obj/item/bitrunning_disk/disk in neo.get_contents())
-		if(istype(disk, /obj/item/bitrunning_disk/ability) && !domain_forbids_spells)
-			var/obj/item/bitrunning_disk/ability/ability_disk = disk
+	if(return_flags & BITRUNNER_GEAR_LOAD_FAILED)
+		to_chat(neo, span_warning("At least one of your external data sources has encountered a failure in its loading process. Check for overlapping or inactive disks."))
+	if(return_flags & BITRUNNER_GEAR_LOAD_BLOCKED)
+		to_chat(neo, span_warning("At least one of your external data sources has been blocked from fully loading. Check domain restrictions."))
 
-			if(isnull(ability_disk.granted_action))
-				failed = TRUE
-				continue
-
-			var/datum/action/our_action = new ability_disk.granted_action()
-
-			if(locate(our_action.type) in avatar.actions)
-				failed = TRUE
-				continue
-
-			our_action.Grant(avatar)
-			continue
-
-		if(istype(disk, /obj/item/bitrunning_disk/item) && !domain_forbids_items)
-			var/obj/item/bitrunning_disk/item/item_disk = disk
-
-			if(isnull(item_disk.granted_item))
-				failed = TRUE
-				continue
-
-			avatar.put_in_hands(new item_disk.granted_item())
-
-	if(failed)
-		to_chat(neo, span_warning("One of your disks failed to load. Check for duplicate or inactive disks."))
-
-	var/obj/item/organ/internal/brain/neo_brain = neo.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/neo_brain = neo.get_organ_slot(ORGAN_SLOT_BRAIN)
 	for(var/obj/item/skillchip/skill_chip as anything in neo_brain?.skillchips)
 		if(!skill_chip.active)
 			continue

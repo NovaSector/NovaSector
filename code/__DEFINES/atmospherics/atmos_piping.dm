@@ -38,6 +38,9 @@
 #define TRINARY 3
 #define QUATERNARY 4
 
+// The volume per direction of atmos pipes.
+#define UNARY_PIPE_VOLUME 35
+
 //TANKS
 /// The volume of the standard handheld gas tanks on the station.
 #define TANK_STANDARD_VOLUME 70
@@ -69,6 +72,9 @@
 /// Additional information of the tank.
 #define TANK_RESULTS_MISC 2
 
+/// Color used by omni-color pipes
+#define ATMOS_COLOR_OMNI COLOR_VERY_LIGHT_GRAY
+
 //MULTIPIPES
 //IF YOU EVER CHANGE THESE CHANGE SPRITES TO MATCH.
 //layer = initial(layer) + piping_layer / 1000 in atmospherics/update_icon() to determine order of pipe overlap
@@ -91,6 +97,8 @@
 #define PIPING_ALL_COLORS (1<<4)
 /// can bridge over pipenets
 #define PIPING_BRIDGE (1<<5)
+/// intended to connect with layers 2 and 4 only
+#define PIPING_DISTRO_AND_WASTE_LAYERS (1<<6)
 
 // Ventcrawling bitflags, handled in var/vent_movement
 ///Allows for ventcrawling to occur. All atmospheric machines have this flag on by default. Cryo is the exception

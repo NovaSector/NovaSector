@@ -117,7 +117,7 @@
  * The full BSA cannon
  *
  * This operates by charging a "capacitor" bank which is then discharged in the beam.
- * The capacitor bank is charged during the power up phase, it essentially drains the connected powernet until it reaches it's target power, and then fires.
+ * The capacitor bank is charged during the power up phase, it essentially drains the connected powernet until it reaches its target power, and then fires.
  */
 /obj/machinery/bsa/full
 	name = "Bluespace Artillery"

@@ -45,7 +45,7 @@
 	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return TRUE
 	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 40, TRUE)
 		return FALSE
 
 /obj/item/summon_beacon/proc/generate_display_names()
@@ -98,7 +98,7 @@
 	podspawn(list(
 		"target" = target_turf,
 		"path" = supply_pod_stay ? /obj/structure/closet/supplypod/podspawn/no_return : /obj/structure/closet/supplypod/podspawn,
-		"style" = STYLE_CENTCOM,
+		"style" = /datum/pod_style/centcom,
 		"spawn" = selected_atom,
 	))
 

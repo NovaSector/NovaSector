@@ -61,6 +61,13 @@
 	affected_bodyparts = CHEST
 	gendered = FALSE
 
+/datum/body_marking/other/belly_slim_toned
+	name = "Belly Slim (Alt) + Tonage"
+	icon_state = "bellyslimtoned"
+	default_color = "#555555"
+	affected_bodyparts = CHEST
+	gendered = FALSE
+
 /datum/body_marking/other/flushed_cheeks
 	name = "Flushed Cheeks"
 	icon_state = "flushed_cheeks"
@@ -188,6 +195,20 @@
 	affected_bodyparts = HEAD
 	always_color_customizable = TRUE
 
+/datum/body_marking/other/anime_inner
+	name = "Anime Eyes (Inner)"
+	icon_state = "anime_inner"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
+/datum/body_marking/other/anime_outer
+	name = "Anime Eyes (Outer)"
+	icon_state = "anime_outer"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+	always_color_customizable = TRUE
+
 /datum/body_marking/other/claws
 	name = "Claw Tips"
 	icon_state = "claws"
@@ -243,6 +264,18 @@
 	name = "Protogen Chest"
 	icon_state = "protogen"
 	affected_bodyparts = CHEST
+
+/datum/body_marking/other/jackal_fur
+	name = "Jackal Back Fur"
+	icon_state = "jackalfur"
+	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
+	gendered = FALSE
+
+/datum/body_marking/other/jackal_back
+	name = "Jackal Back Fur Accents"
+	icon_state = "jackalback"
+	affected_bodyparts = CHEST | ARM_RIGHT | ARM_LEFT
+	gendered = FALSE
 
 /datum/body_marking/secondary
 	icon = 'modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi'

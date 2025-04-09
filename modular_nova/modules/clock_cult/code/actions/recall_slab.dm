@@ -58,7 +58,7 @@
 			if(mark_loc.item_flags & ABSTRACT)
 				break
 
-		// If its on someone, properly drop it
+		// If it's on someone, properly drop it
 		if(ismob(item_to_retrieve.loc))
 			var/mob/holding_mark = item_to_retrieve.loc
 
@@ -102,4 +102,4 @@
 		item_to_retrieve.forceMove(usr.drop_location())
 		item_to_retrieve.loc.visible_message(span_warning("[item_to_retrieve] suddenly appears!"))
 
-	playsound(get_turf(item_to_retrieve), 'sound/magic/summonitems_generic.ogg', 50, TRUE)
+	playsound(get_turf(item_to_retrieve), 'sound/effects/magic/summonitems_generic.ogg', 50, TRUE)

@@ -35,6 +35,7 @@
 	book_data = new(starting_title, starting_author, starting_content)
 
 	AddElement(/datum/element/falling_hazard, damage = 5, wound_bonus = 0, hardhat_safety = TRUE, crushes = FALSE, impact_sound = drop_sound)
+	AddElement(/datum/element/burn_on_item_ignition)
 
 /obj/item/book/examine(mob/user)
 	. = ..()
@@ -98,9 +99,6 @@
 	display_content(user)
 
 /obj/item/book/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(burn_paper_product_attackby_check(attacking_item, user))
-		return
-
 	if(IS_WRITING_UTENSIL(attacking_item))
 		if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 			return
@@ -131,23 +129,26 @@
 					to_chat(user, span_warning("That title is invalid."))
 					return
 				name = newtitle
+				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 				book_data.set_title(html_decode(newtitle)) //Don't want to double encode here
 			if("Contents")
-				var/content = tgui_input_text(user, "Write your book's contents (HTML NOT allowed)", "Book Contents", multiline = TRUE)
+				var/content = tgui_input_text(user, "Write your book's contents (HTML NOT allowed)", "Book Contents", max_length = MAX_PAPER_LENGTH, multiline = TRUE)
 				if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 					return
 				if(!content)
 					to_chat(user, span_warning("The content is invalid."))
 					return
 				book_data.set_content(html_decode(content))
+				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 			if("Author")
-				var/author = tgui_input_text(user, "Write the author's name", "Author Name")
+				var/author = tgui_input_text(user, "Write the author's name", "Author Name", max_length = MAX_NAME_LEN)
 				if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 					return
 				if(!author)
 					to_chat(user, span_warning("The name is invalid."))
 					return
 				book_data.set_author(html_decode(author)) //Setting this encodes, don't want to double up
+				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 
 	else if(istype(attacking_item, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = attacking_item
@@ -193,7 +194,7 @@
 	if(!user.combat_mode)
 		return FALSE
 	//special check for wirecutter's because they don't have a sharp edge
-	if((carving_item.sharpness & SHARP_EDGED) || (carving_item.tool_behaviour == TOOL_WIRECUTTER))
+	if((carving_item.get_sharpness() & SHARP_EDGED) || (carving_item.tool_behaviour == TOOL_WIRECUTTER))
 		balloon_alert(user, "carving out...")
 		if(!do_after(user, 3 SECONDS, target = src))
 			balloon_alert(user, "interrupted!")

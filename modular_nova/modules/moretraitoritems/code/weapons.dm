@@ -6,7 +6,7 @@
 	icon_state = "c38_panther"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder
 
-/obj/item/ammo_casing/a357/peacemaker
+/obj/item/ammo_casing/c357/peacemaker
 	name = ".357 Peacemaker bullet casing"
 	desc = "A .357 Peacemaker bullet casing."
 	caliber = CALIBER_357
@@ -40,7 +40,7 @@
 	name = "speed loader (.357 Peacemaker)"
 	desc = "Designed to quickly reload revolvers."
 	icon_state = "357"
-	ammo_type = /obj/item/ammo_casing/a357/peacemaker
+	ammo_type = /obj/item/ammo_casing/c357/peacemaker
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_PER_BULLET
 	item_flags = NO_MAT_REDEMPTION

@@ -5,7 +5,7 @@
 	name = "Fireball"
 	item_type = /obj/item/book/granter/action/spell/fireball
 	description = "This spells fires an explosive fireball at a target."
-	admin_note = "WARNING: This spells has a fairly short cooldown, and can KO/kill on it's own."
+	admin_note = "WARNING: This spells has a fairly short cooldown, and can KO/kill on its own."
 
 /datum/opposing_force_equipment/spells/sacredflame
 	name = "Sacred Flame"

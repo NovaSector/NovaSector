@@ -1,12 +1,15 @@
+/datum/loadout_category/suit
+	category_name = "Suit"
+	category_ui_icon = FA_ICON_VEST
+	type_to_generate = /datum/loadout_item/suit
+	tab_order = /datum/loadout_category/neck::tab_order + 1
+
 /*
 *	LOADOUT ITEM DATUMS FOR THE (EXO/OUTER)SUIT SLOT
 */
 
-/// Exosuit / Outersuit Slot Items (Moves items to backpack)
-GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/suit))
-
 /datum/loadout_item/suit
-	category = LOADOUT_ITEM_SUIT
+	abstract_type = /datum/loadout_item/suit
 
 /datum/loadout_item/suit/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // don't bother storing in backpack, can't fit
 	if(initial(outfit_important_for_life.suit))
@@ -120,13 +123,33 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Medical Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
 
+/datum/loadout_item/suit/labcoat_lalunevest
+	name = "Designer Buttoned Coat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
+
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Recolorable Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy
+
 /datum/loadout_item/suit/labcoat_regular
 	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
 
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
+
+/datum/loadout_item/suit/labcoat_geneticist
+	name = "Geneticist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
+
+/datum/loadout_item/suit/labcoat_roboticist
+	name = "Roboticist's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
+
+/datum/loadout_item/suit/labcoat_custom
+	name = "Custom Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/custom
 
 /*
 *	PONCHOS
@@ -461,6 +484,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Colourable Leather Jacket"
 	item_path = /obj/item/clothing/suit/jacket/leather/colourable
 
+/datum/loadout_item/suit/frontierjacket
+	abstract_type = /datum/loadout_item/suit/frontierjacket
+
 /datum/loadout_item/suit/frontierjacket/short
 	name = "Frontier Jacket (Short)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
@@ -509,6 +535,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /*
 *	HOODIES
 */
+/datum/loadout_item/suit/hoodie
+	abstract_type = /datum/loadout_item/suit/hoodie
+
 
 /datum/loadout_item/suit/hoodie/greyscale
 	name = "Greyscale Hoodie"
@@ -638,22 +667,58 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 
 /datum/loadout_item/suit/brit
 	name = "High Vis Armored Vest"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/brit
+	item_path = /obj/item/clothing/suit/armor/vest/brit
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/british_jacket
-	name = "Peacekeeper Officer Coat"
+	name = "Officer Coat"
 	item_path = /obj/item/clothing/suit/british_officer
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
-/datum/loadout_item/suit/peacekeeper_jacket
-	name = "Peacekeeper Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+/datum/loadout_item/suit/highvis_jacket
+	name = "High Vis Security Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
-/datum/loadout_item/suit/peacekeeper_jacket/badge
-	name = "Badged Peacekeeper Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+/datum/loadout_item/suit/security_wintercoat
+	name = "Security Winter Coat"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/security_wintercoat_blue
+	name = "Security Winter Jacket (Blue)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/detjacket
+	name = "Detective Jacket (Dark)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/dark
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjackenoir
+	name = "Detective Jacket (Noir)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjacketbrown
+	name = "Detective's Brown Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/brown
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjacketplain
+	name = "Detective's Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detectivearmorvest
+	name = "Detective's Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/highvis_jacket/badge
+	name = "Badged High Vis Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/jacket/badge
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Off-Department Jacket"
@@ -718,6 +783,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 */
 
 /datum/loadout_item/suit/donator
+	abstract_type = /datum/loadout_item/suit/donator
 	donator_only = TRUE
 
 /datum/loadout_item/suit/donator/furredjacket
@@ -739,6 +805,9 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/donator/blondie
 	name = "Cowboy Vest"
 	item_path = /obj/item/clothing/suit/cowboyvest
+
+/datum/loadout_item/suit/donator/digicoat
+	abstract_type = /datum/loadout_item/suit/donator/digicoat
 
 /datum/loadout_item/suit/donator/digicoat/nanotrasen
 	name = "nanotrasen digicoat"
@@ -773,13 +842,31 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Colourable Heart Sweater"
 	item_path = /obj/item/clothing/suit/heart_sweater
 
+// Fancy crop-top jackets
+
 /datum/loadout_item/suit/crop_jacket
 	name = "Colourable Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket
 
+/datum/loadout_item/suit/shortsleeve_crop_jacket
+	name = "Colourable Short-Sleeved Crop-Top Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve
+
 /datum/loadout_item/suit/sleeveless_crop_jacket
 	name = "Colourable Sleeveless Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless
+
+/datum/loadout_item/suit/sports_jacket
+	name = "Colourable Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/long
+
+/datum/loadout_item/suit/shortsleeve_sports_jacket
+	name = "Colourable Short-Sleeved Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/shortsleeve/long
+
+/datum/loadout_item/suit/sleeveless_sports_jacket
+	name = "Colourable Sleeveless Sports Jacket"
+	item_path = /obj/item/clothing/suit/crop_jacket/sleeveless/long
 
 /*
 *	CHAPLAIN

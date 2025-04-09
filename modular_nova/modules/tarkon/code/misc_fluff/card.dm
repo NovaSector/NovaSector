@@ -108,5 +108,5 @@
 
 /obj/item/card/id/advanced/tarkon/director
 	name = "Tarkon port director's access card"
-	desc = "An access card designated for \"Tarkon Port Director\". Its no longer hesitation, only consideration."
+	desc = "An access card designated for \"Tarkon Port Director\". It's no longer hesitation, only consideration."
 	trim = /datum/id_trim/away/tarkon/director

@@ -3,7 +3,10 @@
 
 SUBSYSTEM_DEF(minor_mapping)
 	name = "Minor Mapping"
-	init_order = INIT_ORDER_MINOR_MAPPING
+	dependencies = list(
+		/datum/controller/subsystem/mapping,
+		/datum/controller/subsystem/atoms,
+	)
 	flags = SS_NO_FIRE
 
 /datum/controller/subsystem/minor_mapping/Initialize()
@@ -49,6 +52,8 @@ SUBSYSTEM_DEF(minor_mapping)
 	///List of areas where satchels should not be placed.
 	var/list/blacklisted_area_types = list(
 		/area/station/holodeck,
+		/area/space/nearstation,
+		/area/station/solars,
 		)
 
 	while(turfs.len && satchel_amount > 0)

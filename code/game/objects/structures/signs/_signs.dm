@@ -12,7 +12,7 @@
 	var/buildable_sign = TRUE
 	///This determines if you can select this sign type when using a pen on a sign backing. False by default, set to true per sign type to override.
 	var/is_editable = FALSE
-	///sign_change_name is used to make nice looking, alphebetized and categorized names when you use a pen on any sign item or structure which is_editable.
+	///sign_change_name is used to make nice looking, alphabetized and categorized names when you use a pen on any sign item or structure which is_editable.
 	var/sign_change_name
 	///Callback to the knock down proc for wallmounting behavior.
 	var/knock_down_callback
@@ -135,7 +135,7 @@
 	unwrenched_sign.setDir(dir)
 	qdel(src) //The sign structure on the wall goes poof and only the sign item from unwrenching remains.
 
-/obj/structure/sign/blank //This subtype is necessary for now because some other things (posters, picture frames, paintings) inheret from the parent type.
+/obj/structure/sign/blank //This subtype is necessary for now because some other things (posters, picture frames, paintings) inherit from the parent type.
 	icon_state = "backing"
 	name = "sign backing"
 	desc = "A plastic sign backing, use a pen to change the decal. It can be detached from the wall with a wrench."
@@ -210,7 +210,7 @@
 	return ..()
 
 /obj/item/sign/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!iswallturf(interacting_with))
+	if(!iswallturf(interacting_with) && !istype(interacting_with, /obj/structure/tram))
 		return NONE
 	var/turf/target_turf = interacting_with
 	var/turf/user_turf = get_turf(user)
@@ -275,6 +275,11 @@
 		var/obj/structure/sign/potential_sign = s
 		if(!initial(potential_sign.is_editable))
 			continue
-		output[initial(potential_sign.sign_change_name)] = potential_sign
+		var/shown_name = initial(potential_sign.sign_change_name) || capitalize(format_text(initial(potential_sign.name)))
+		if(output[shown_name])
+			if(!ispath(potential_sign, output[shown_name]))
+				stack_trace("Two signs share the same sign_change_name: [output[shown_name]] and [potential_sign]")
+			continue
+		output[shown_name] = potential_sign
 	output = sort_list(output) //Alphabetizes the results.
 	return output

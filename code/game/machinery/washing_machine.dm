@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		DYE_QM = /obj/item/clothing/gloves/color/brown,
 		DYE_CAPTAIN = /obj/item/clothing/gloves/captain,
 		DYE_HOP = /obj/item/clothing/gloves/color/grey,
-		DYE_HOS = /obj/item/clothing/gloves/color/black,
+		DYE_HOS = /obj/item/clothing/gloves/color/black/security,
 		DYE_CE = /obj/item/clothing/gloves/chief_engineer,
 		DYE_RD = /obj/item/clothing/gloves/color/grey,
 		DYE_CMO = /obj/item/clothing/gloves/latex/nitrile,
@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 /obj/machinery/washing_machine
 	name = "washing machine"
 	desc = "Gets rid of those pesky bloodstains, or your money back!"
-	icon = 'icons/obj/machines/washing_machine.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/washing_machine.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "wm_1_0"
 	density = TRUE
 	state_open = TRUE

@@ -1,5 +1,5 @@
 /obj/item/clothing/neck/heretic_focus
-	name = "Amber Focus"
+	name = "amber focus"
 	desc = "An amber focusing glass that provides a link to the world beyond. The necklace seems to twitch, but only when you look at it from the corner of your eye."
 	icon_state = "eldritch_necklace"
 	w_class = WEIGHT_CLASS_SMALL
@@ -9,16 +9,16 @@
 	. = ..()
 	AddElement(/datum/element/heretic_focus)
 
-/obj/item/clothing/neck/heretic_focus/crimson_focus
-	name = "Crimson Focus"
+/obj/item/clothing/neck/heretic_focus/crimson_medallion
+	name = "crimson medallion"
 	desc = "A blood-red focusing glass that provides a link to the world beyond, and worse. Its eye is constantly twitching and gazing in all directions. It almost seems to be silently screaming..."
-	icon_state = "crimson_focus"
+	icon_state = "crimson_medallion"
 	/// The aura healing component. Used to delete it when taken off.
 	var/datum/component/component
 	/// If active or not, used to add and remove its cult and heretic buffs.
 	var/active = FALSE
 
-/obj/item/clothing/neck/heretic_focus/crimson_focus/equipped(mob/living/user, slot)
+/obj/item/clothing/neck/heretic_focus/crimson_medallion/equipped(mob/living/user, slot)
 	. = ..()
 	if(!(slot & ITEM_SLOT_NECK))
 		return
@@ -51,7 +51,7 @@
 		healing_color = team_color, \
 	)
 
-/obj/item/clothing/neck/heretic_focus/crimson_focus/dropped(mob/living/user)
+/obj/item/clothing/neck/heretic_focus/crimson_medallion/dropped(mob/living/user)
 	. = ..()
 
 	if(!istype(user))
@@ -75,7 +75,7 @@
 	magic_holder?.magic_enhanced = FALSE
 
 
-/obj/item/clothing/neck/heretic_focus/crimson_focus/attack_self(mob/living/user, modifiers)
+/obj/item/clothing/neck/heretic_focus/crimson_medallion/attack_self(mob/living/user, modifiers)
 	. = ..()
 	to_chat(user, span_danger("You start tightly squeezing [src]..."))
 	if(!do_after(user, 1.25 SECONDS, src))
@@ -90,7 +90,7 @@
 	user.reagents?.add_reagent(/datum/reagent/eldritch, rand(6, 10))
 	qdel(src)
 
-/obj/item/clothing/neck/heretic_focus/crimson_focus/examine(mob/user)
+/obj/item/clothing/neck/heretic_focus/crimson_medallion/examine(mob/user)
 	. = ..()
 
 	var/magic_dude
@@ -105,7 +105,7 @@
 		. += span_red("You can also squeeze it to recover a large amount of health quickly, at a cost...")
 
 /obj/item/clothing/neck/eldritch_amulet
-	name = "Warm Eldritch Medallion"
+	name = "warm eldritch medallion"
 	desc = "A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others."
 	icon = 'icons/obj/antags/eldritch.dmi'
 	icon_state = "eye_medalion"
@@ -134,7 +134,7 @@
 	user.update_sight()
 
 /obj/item/clothing/neck/eldritch_amulet/piercing
-	name = "Piercing Eldritch Medallion"
+	name = "piercing eldritch medallion"
 	desc = "A strange medallion. Peering through the crystalline surface, the light refracts into new and terrifying spectrums of color. You see yourself, reflected off cascading mirrors, warped into impossible shapes."
 	heretic_only_trait = TRAIT_XRAY_VISION
 
@@ -149,7 +149,7 @@
 
 // The amulet conversion tool used by moon heretics
 /obj/item/clothing/neck/heretic_focus/moon_amulet
-	name = "Moonlight Amulet"
+	name = "moonlight amulet"
 	desc = "A piece of the mind, the soul and the moon. Gazing into it makes your head spin and hear whispers of laughter and joy."
 	icon = 'icons/obj/antags/eldritch.dmi'
 	icon_state = "moon_amulette"
@@ -162,19 +162,23 @@
 	if(!IS_HERETIC_OR_MONSTER(user))
 		user.balloon_alert(user, "you feel a presence watching you")
 		user.add_mood_event("Moon Amulet Insanity", /datum/mood_event/amulet_insanity)
-		user.mob_mood.set_sanity(user.mob_mood.sanity - 50)
+		user.mob_mood.adjust_sanity(-50)
 		return
-	if(hit.can_block_magic())
+
+	if(hit.can_block_magic(MAGIC_RESISTANCE|MAGIC_RESISTANCE_MIND))
 		return
+
 	if(!hit.mob_mood)
 		return
-	if(hit.mob_mood.sanity_level < SANITY_LEVEL_UNSTABLE)
+
+	if(hit.mob_mood.sanity_level > SANITY_LEVEL_UNSTABLE)
 		user.balloon_alert(user, "their mind is too strong!")
 		hit.add_mood_event("Moon Amulet Insanity", /datum/mood_event/amulet_insanity)
-		hit.mob_mood.set_sanity(hit.mob_mood.sanity - sanity_damage)
-	else
-		user.balloon_alert(user, "their mind bends to see the truth!")
-		hit.apply_status_effect(/datum/status_effect/moon_converted)
-		user.log_message("made [target] insane.", LOG_GAME)
-		hit.log_message("was driven insane by [user]")
+		hit.mob_mood.adjust_sanity(-sanity_damage)
+		return ..()
+
+	user.balloon_alert(user, "their mind bends to see the truth!")
+	hit.apply_status_effect(/datum/status_effect/moon_converted)
+	user.log_message("made [target] insane.", LOG_GAME)
+	hit.log_message("was driven insane by [user]")
 	. = ..()

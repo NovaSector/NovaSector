@@ -35,14 +35,16 @@
 
 	// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
 	// GOOD NEWS! we can re-use the runechat colour stuff for this (probably)
-	human_holder.remove_client_colour(/datum/client_colour/monochrome/blind) // get rid of the existing blind one
-	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom)
+	var/datum/status_effect/grouped/blindness/blindness_status_effect = human_holder.has_status_effect(/datum/status_effect/grouped/blindness)
+	if(blindness_status_effect)
+		human_holder.remove_client_colour(REF(blindness_status_effect)) // get rid of the existing blind one
+	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom, QUIRK_TRAIT)
 	var/col = process_chat_color(client_source?.prefs.read_preference(/datum/preference/color/echolocation_outline))
 	esp_color.priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
-	esp_color.update_colour(col)
+	esp_color.update_color(col)
 
 	// double the ear/hearing damage multiplier from any source.
-	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
 	if (!istype(echo_ears))
 		return
 
@@ -57,11 +59,11 @@
 	QDEL_NULL(esp) // echolocation component removal handles graceful disposal of everything above except the ears
 	QDEL_NULL(added_action) // remove the stall action, too
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/organ/internal/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
 	if (!istype(echo_ears))
 		return
 	echo_ears.damage_multiplier = initial(echo_ears.damage_multiplier)
-	human_holder.remove_client_colour(/datum/client_colour/echolocation_custom) // clean up the custom colour override we added
+	human_holder.remove_client_colour(QUIRK_TRAIT) // clean up the custom colour override we added
 
 /datum/client_colour/echolocation_custom
 

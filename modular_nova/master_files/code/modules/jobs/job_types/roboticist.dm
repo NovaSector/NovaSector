@@ -26,7 +26,7 @@
 		/obj/item/healthanalyzer/advanced = 15,
 		/obj/item/screwdriver/power/science = 6,
 		/obj/item/crowbar/power/science = 6,
-		/obj/item/weldingtool/experimental = 2, // a lot rarer since its relatively powerful
+		/obj/item/weldingtool/experimental = 2, // a lot rarer since it's relatively powerful
 		/obj/item/scalpel/advanced = 6,
 		/obj/item/retractor/advanced = 6,
 		/obj/item/cautery/advanced = 6,

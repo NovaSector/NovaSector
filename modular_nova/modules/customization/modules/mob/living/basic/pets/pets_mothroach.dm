@@ -4,20 +4,6 @@
 
 	ai_controller = /datum/ai_controller/basic_controller/mothroach/pet
 
-	// doesn't include attack bc mothroaches are prolly too weak for that
-	var/static/list/pet_commands = list(
-		/datum/pet_command/idle,
-		/datum/pet_command/free,
-		/datum/pet_command/good_boy,
-		/datum/pet_command/follow,
-		/datum/pet_command/point_targeting/fetch,
-		/datum/pet_command/play_dead,
-	)
-
-/mob/living/basic/mothroach/pet/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/obeys_commands, pet_commands)
-
 /mob/living/basic/mothroach/pet/gib()
 	// Peoples' bespoke pets probably shouldn't be gibbable.
 	// This is both for RP reasons (don't force people to RP permanent pet death) and to prevent griefing.
@@ -29,11 +15,9 @@
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
 	)
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/random_speech/mothroach,
 		/datum/ai_planning_subtree/pet_planning,
+		/datum/ai_planning_subtree/random_speech/mothroach,
 	)
-
-
 
 /// == DONATOR PET: Mr. Fluff, Central's Mothroach, ckey centralsmith ==
 /mob/living/basic/mothroach/pet/mr_fluff

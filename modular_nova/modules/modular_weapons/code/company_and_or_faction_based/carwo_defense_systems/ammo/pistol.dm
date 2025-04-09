@@ -111,11 +111,11 @@
 	wound_bonus = 20
 	bare_wound_bonus = 20
 
-	embed_type = /datum/embed_data/c35sol_ripper
+	embed_type = /datum/embedding/c35sol_ripper
 
 	embed_falloff_tile = -15
 
-/datum/embed_data/c35sol_ripper
+/datum/embedding/c35sol_ripper
 	embed_chance = 75
 	fall_chance = 3
 	jostle_chance = 4
@@ -132,3 +132,40 @@
 	icon_state = "35box_shrapnel"
 
 	ammo_type = /obj/item/ammo_casing/c35sol/ripper
+
+// .35 Sol flash, similar to Polaris code flash ammo for pistols.
+
+/obj/item/ammo_casing/c35sol/flash
+	name = ".35 Sol Short flash bullet casing"
+	desc = "A SolFed standard caseless less-lethal pistol round. Creates a small, pyrotechnic flash on hit; insufficient to overload cyborgs."
+
+	icon_state = "35sol_flash"
+
+	projectile_type = /obj/projectile/bullet/c35sol/flash
+	harmful = FALSE
+
+/obj/projectile/bullet/c35sol/flash
+	name = ".35 Sol Short flash bullet"
+	damage = 5
+
+	shrapnel_type = null
+	sharpness = NONE
+	embed_data = null
+
+/obj/projectile/bullet/c35sol/flash/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	do_sparks(rand(1, 4), FALSE, src)
+	if(isliving(target))
+		var/mob/living/flashed_living = target
+		flashed_living.ignite_mob() // lmao
+		if(flashed_living.flash_act(intensity = 1, affect_silicon = TRUE, length = 1 SECONDS))
+			flashed_living.set_confusion_if_lower(2 SECONDS)
+			flashed_living.adjustStaminaLoss(rand(30, 35))
+
+/obj/item/ammo_box/c35sol/flash
+	name = "ammo box (.35 Sol Short flash)"
+	desc = "A box of .35 Sol Short pistol rounds, holds twenty-four rounds. The orange stripe indicates this should hold flash ammunition, which poses an incendiary risk."
+
+	icon_state = "35box_flash"
+
+	ammo_type = /obj/item/ammo_casing/c35sol/flash

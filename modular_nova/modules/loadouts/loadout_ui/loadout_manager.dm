@@ -1,3 +1,4 @@
+/*
 /// -- The loadout manager and UI --
 /// Tracking when a client has an open loadout manager, to prevent funky stuff.
 /client
@@ -100,12 +101,12 @@
 
 		if("donator_explain")
 			if(GLOB.donator_list[owner.ckey])
-				to_chat(owner, examine_block("<b><font color='#f566d6'>Thank you for donating, this item is for you <3!</font></b>"))
+				to_chat(owner, boxed_message("<b><font color='#f566d6'>Thank you for donating, this item is for you <3!</font></b>"))
 			else
-				to_chat(owner, examine_block(span_boldnotice("This item is restricted to donators only, for more information, please check the discord(#server-info) for more information!")))
+				to_chat(owner, boxed_message(span_boldnotice("This item is restricted to donators only, for more information, please check the discord(#server-info) for more information!")))
 
 		if("ckey_explain")
-			to_chat(owner, examine_block(span_green("This item is restricted to your ckey only. Thank you!")))
+			to_chat(owner, boxed_message(span_green("This item is restricted to your ckey only. Thank you!")))
 
 	return TRUE
 
@@ -202,8 +203,8 @@
 	if(INFO_DESCRIBED in owner.prefs.loadout_list[item.item_path])
 		current_desc = owner.prefs.loadout_list[item.item_path][INFO_DESCRIBED]
 
-	var/input_name = tgui_input_text(owner, "What name do you want to give [item.name]? Leave blank to clear.", "[item.name] name", current_name, MAX_NAME_LEN)
-	var/input_desc = tgui_input_text(owner, "What description do you want to give [item.name]? 256 character max, leave blank to clear.", "[item.name] description", current_desc, 256, multiline = TRUE)
+	var/input_name = tgui_input_text(owner, "What name do you want to give [item.name]? Leave blank to clear.", "[item.name] name", current_name, max_length = MAX_NAME_LEN)
+	var/input_desc = tgui_input_text(owner, "What description do you want to give [item.name]? 256 character max, leave blank to clear.", "[item.name] description", current_desc, max_length = 256, multiline = TRUE)
 	if(QDELETED(src) || QDELETED(owner) || QDELETED(owner.prefs))
 		return
 
@@ -226,7 +227,7 @@
 	for(var/job_type in item.restricted_roles)
 		composed_message += span_green("[job_type] <br>")
 
-	to_chat(owner, examine_block(composed_message))
+	to_chat(owner, boxed_message(composed_message))
 
 /// If certain jobs aren't allowed to equip this loadout item, display which
 /datum/loadout_manager/proc/display_job_blacklists(datum/loadout_item/item)
@@ -236,7 +237,7 @@
 	for(var/job_type in item.blacklisted_roles)
 		composed_message += span_red("[job_type] <br>")
 
-	to_chat(owner, examine_block(composed_message))
+	to_chat(owner, boxed_message(composed_message))
 
 /// If only a certain species is allowed to equip this loadout item, display which
 /datum/loadout_manager/proc/display_species_restrictions(datum/loadout_item/item)
@@ -246,7 +247,7 @@
 	for(var/species_type in item.restricted_species)
 		composed_message += span_grey("[species_type] <br>")
 
-	to_chat(owner, examine_block(composed_message))
+	to_chat(owner, boxed_message(composed_message))
 
 /datum/loadout_manager/ui_data(mob/user)
 	var/list/data = list()
@@ -272,6 +273,7 @@
 	//  - [contents.tooltip_text], any additional tooltip text that hovers over the item's select button
 
 	var/list/loadout_tabs = list()
+	/*
 	loadout_tabs += list(list("name" = "Belt", "title" = "Belt Slot Items", "contents" = list_to_data(GLOB.loadout_belts)))
 	loadout_tabs += list(list("name" = "Ears", "title" = "Ear Slot Items", "contents" = list_to_data(GLOB.loadout_ears)))
 	loadout_tabs += list(list("name" = "Glasses", "title" = "Glasses Slot Items", "contents" = list_to_data(GLOB.loadout_glasses)))
@@ -288,6 +290,7 @@
 	loadout_tabs += list(list("name" = "Inhand", "title" = "In-hand Items", "contents" = list_to_data(GLOB.loadout_inhand_items)))
 	loadout_tabs += list(list("name" = "Toys", "title" = "Toys! ([MAX_ALLOWED_MISC_ITEMS] max)", "contents" = list_to_data(GLOB.loadout_toys)))
 	loadout_tabs += list(list("name" = "Other", "title" = "Backpack Items ([MAX_ALLOWED_MISC_ITEMS] max)", "contents" = list_to_data(GLOB.loadout_pocket_items)))
+	*/
 
 	data["loadout_tabs"] = loadout_tabs
 
@@ -332,11 +335,11 @@
 		formatted_item["is_species_restricted"] = !isnull(item.restricted_species)
 		formatted_item["is_donator_only"] = !isnull(item.donator_only)
 		formatted_item["is_ckey_whitelisted"] = !isnull(item.ckeywhitelist)
-		if(LAZYLEN(item.additional_tooltip_contents))
-			formatted_item["tooltip_text"] = item.additional_tooltip_contents.Join("\n")
+		if(LAZYLEN(item.additional_displayed_text))
+			formatted_item["tooltip_text"] = item.additional_displayed_text.Join("\n")
 
 		formatted_list[array_index++] = formatted_item
 
 	return formatted_list
 
-
+*/

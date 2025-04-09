@@ -11,7 +11,7 @@ GLOBAL_DATUM(admin_sparks_system, /datum/effect_system/spark_spread/admin_sparks
 /obj/effect/particle_effect/sparks/quantum/inert/LateInitialize()
 	. = ..()
 	UnregisterSignal(src, list(COMSIG_MOVABLE_CROSS, COMSIG_MOVABLE_CROSS_OVER))
-	
+
 /obj/effect/particle_effect/sparks/quantum/inert/affect_location(turf/location, just_initialized = FALSE)
 	return
 
@@ -21,12 +21,12 @@ GLOBAL_DATUM(admin_sparks_system, /datum/effect_system/spark_spread/admin_sparks
 	if(isnull(location))
 		return
 
-	playsound(location, 'sound/magic/Repulse.ogg', 100, 1)
+	playsound(location, 'sound/effects/magic/Repulse.ogg', 100, 1)
 
 	// only created when needed
-	if(isnull(GLOB.admin_sparks_system)) 
+	if(isnull(GLOB.admin_sparks_system))
 		GLOB.admin_sparks_system = new
-	
+
 	var/datum/effect_system/spark_spread/admin_sparks/admin_sparks = GLOB.admin_sparks_system
 	admin_sparks.set_up(number, cardinals_only, location)
 	admin_sparks.attach(location)

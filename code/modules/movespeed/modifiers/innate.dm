@@ -1,5 +1,5 @@
 /datum/movespeed_modifier/strained_muscles
-	multiplicative_slowdown = -0.55
+	multiplicative_slowdown = -0.35 // NOVA EDIT CHANGE - Heavy nerf, because speedboosts are way-way more effective here - ORIGINAL: multiplicative_slowdown = -0.55
 	blacklisted_movetypes = (FLYING|FLOATING)
 
 /datum/movespeed_modifier/pai_spacewalk
@@ -18,3 +18,8 @@
 /datum/movespeed_modifier/dna_vault_speedup
 	blacklisted_movetypes = (FLYING|FLOATING)
 	multiplicative_slowdown = -0.4
+
+/// The movespeed modifier from the heavy fish trait when applied to mobs.
+/datum/movespeed_modifier/heavy_fish
+	multiplicative_slowdown = 0.4
+	flags = IGNORE_NOSLOW

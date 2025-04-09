@@ -10,15 +10,14 @@
 	school = SCHOOL_FORBIDDEN
 	cooldown_time = 15 SECONDS
 
-	invocation = "Askgraar' goetur!"
+	invocation = "ASH'N P'SSG'"
 	invocation_type = INVOCATION_WHISPER
 	spell_requirements = NONE
 
 	exit_jaunt_sound = null
 	jaunt_duration = 1.1 SECONDS
 	jaunt_in_time = 1.3 SECONDS
-	jaunt_out_time = 0.6 SECONDS
-	jaunt_in_type = /obj/effect/temp_visual/dir_setting/ash_shift
+	jaunt_type = /obj/effect/dummy/phased_mob/spell_jaunt/red
 	jaunt_out_type = /obj/effect/temp_visual/dir_setting/ash_shift/out
 
 /datum/action/cooldown/spell/jaunt/ethereal_jaunt/ash/do_steam_effects()
