@@ -60,3 +60,31 @@
   wivernshy:
   - rscadd: 'Makes 3 unused ears usable: Possum, lunasune, and hawk'
   - image: Colorable alts of the default cat ears
+2025-04-07:
+  OrionTheFox:
+  - image: removed some (hopefully) unused Glasses/Ears/Belt/Neck icons! Please report
+      any errors!
+  - image: resprited the Modern glasses to actually be as modern as all other glasses.
+  - rscdel: removed a modular version of Eyepatch eye-switching, in favor of TG's
+      (which works with scarred eyes.) Please report any issues with Eyepatches or
+      Eyepatch HuDs!
+  - rscdel: the above unfortunately has the consequence of removing the Blindfold
+      reskins from Eyepatch HuDs.
+  RatFromTheJungle:
+  - image: The wespe has been reverted from it's over-top loading system, as it was
+      deemed 'too expensive to keep making'
+  jjpark-kb:
+  - rscadd: adds the powerator, which allows you to sell power
+2025-04-08:
+  FlufflesTheDog:
+  - rscadd: Surgery Synth Plushie now available in the loadout
+  RatFromTheJungle:
+  - bugfix: fixes the replica parade jacket not working on digitigrade characters
+  RealWinterFrost:
+  - map: Hired a technician to fix the doors for the tramline at the "Interlink" as
+      it was connected to our Emergency Response Team bay. The original technician
+      that installed them has been fired.
+  jjpark-kb:
+  - rscadd: added ashen forging tools (check crafting menu)
+  - rscadd: added brick well (sandstone and stone stack recipe menu)
+  - code_imp: repathed the fuel well to be in line with the brick well
