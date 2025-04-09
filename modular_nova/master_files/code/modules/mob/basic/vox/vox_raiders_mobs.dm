@@ -2,7 +2,7 @@
 
 /mob/living/basic/vox
 	name = "Vox Raider"
-	desc = "Vox are typically one of two things. Shady traders or hostile raiders. This one seems to be pretty hostile."
+	desc = "Vox are typically one of two things: shady traders or hostile raiders. This one seems to be pretty hostile."
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	sentience_type = SENTIENCE_HUMANOID
@@ -38,7 +38,7 @@
 	var/list/death_loot
 	death_loot = list(
 		/obj/effect/spawner/random/maintenance/three,
-		)
+	)
 
 /mob/living/basic/vox/Initialize(mapload)
 	. = ..()
@@ -66,7 +66,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/voxraider
 	death_loot = list(
 		/obj/effect/spawner/random/medical/medkit,
-		)
+	)
 
 /*
 * Guns
@@ -85,7 +85,7 @@
 	ranged_attacker = TRUE
 	death_loot = list(
 		/obj/effect/spawner/random/engineering/material_rare = 2,
-		)
+	)
 
 /mob/living/basic/vox/ranged/Initialize(mapload)
 	. = ..()
@@ -127,7 +127,7 @@
 	minimum_survivable_temperature = 0
 	death_loot = list(
 		/obj/effect/spawner/random/maintenance/five,
-		)
+	)
 
 /mob/living/basic/vox/ranged/space/Initialize(mapload)
 	. = ..()
@@ -147,4 +147,4 @@
 	casingtype = /obj/item/ammo_casing/energy/laser/hellfire
 	death_loot = list(
 		/obj/effect/spawner/random/engineering/material_rare = 4,
-		)
+	)

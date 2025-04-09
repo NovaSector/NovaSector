@@ -90,7 +90,7 @@
 	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/six,
-		)
+	)
 
 /*
 * Shotty
@@ -111,7 +111,7 @@
 	death_loot = list(
 		/obj/effect/decal/cleanable/blood/gibs,
 		/obj/effect/spawner/random/maintenance/five,
-		)
+	)
 
 /mob/living/basic/looter/ranged/Initialize(mapload)
 	. = ..()
@@ -155,6 +155,6 @@
 	casingtype = /obj/item/ammo_casing/energy/laser/hellfire
 	death_loot = list(
 		/obj/effect/spawner/random/maintenance/six,
-		)
+	)
 
 
