@@ -115,3 +115,6 @@
 /obj/item/toy/plush/nova/cat/white
 	name = "white cat plushie"
 	icon_state = "whitecat"
+
+/obj/item/toy/plush/lizard_plushie
+	squeak_override = list('modular_nova/modules/emotes/sound/voice/weh.ogg' = 1)

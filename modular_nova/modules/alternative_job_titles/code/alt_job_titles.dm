@@ -389,7 +389,6 @@
 /datum/job/security_officer
 	alt_titles = list(
 		"Security Officer",
-		"Peacekeeper",
 		"Security Operative",
 		"Security Cadet",
 		"Security Specialist",

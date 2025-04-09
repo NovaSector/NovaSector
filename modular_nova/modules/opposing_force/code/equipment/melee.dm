@@ -65,6 +65,8 @@
 	description = "An extremely sharp and robust sword perfect to cleave through any opposition. Also highly illegal."
 	admin_note = "WARNING: 30 force, 35 armor pen."
 
+/datum/opposing_force_equipment/melee/nunchaku
+	item_type = /obj/item/melee/baton/nunchaku
 
 /datum/opposing_force_equipment/melee_stealth
 	category = OPFOR_EQUIPMENT_CATEGORY_MELEE_STEALTH

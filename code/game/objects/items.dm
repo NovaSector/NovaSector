@@ -24,6 +24,10 @@
 
 	/// Angle of the icon, used for piercing and slashing attack animations, clockwise from *east-facing* sprites
 	var/icon_angle = 0
+	///icon file for an alternate attack icon
+	var/attack_icon
+	///icon state for an alternate attack icon
+	var/attack_icon_state
 
 	///Icon file for mob worn overlays.
 	var/icon/worn_icon
@@ -915,7 +919,7 @@
 	else
 		playsound(hit_atom, 'sound/items/weapons/throwtap.ogg', volume, TRUE, -1)
 
-/obj/item/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE)
+/obj/item/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, force, gentle = FALSE, quickstart = TRUE, throw_type_path = /datum/thrownthing)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
 		return
 	thrownby = WEAKREF(thrower)
@@ -1526,16 +1530,6 @@
 	if(!LAZYLEN(unique_reskin))
 		return
 
-	/// Is the obj a glasses icon with swappable item states?
-	var/is_swappable = FALSE
-	/// if the item are glasses, this variable stores the item.
-	var/obj/item/clothing/glasses/reskinned_glasses
-
-	if(istype(src, /obj/item/clothing/glasses)) // TODO - Remove this mess about glasses, it shouldn't be necessary anymore.
-		reskinned_glasses = src
-		if(reskinned_glasses.can_switch_eye)
-			is_swappable = TRUE
-
 	var/list/items = list()
 
 
@@ -1555,11 +1549,7 @@
 		icon = unique_reskin[pick][RESKIN_ICON]
 
 	if(unique_reskin[pick][RESKIN_ICON_STATE])
-		if(is_swappable)
-			base_icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
-			icon_state = base_icon_state
-		else
-			icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
+		icon_state = unique_reskin[pick][RESKIN_ICON_STATE]
 
 	if(unique_reskin[pick][RESKIN_WORN_ICON])
 		worn_icon = unique_reskin[pick][RESKIN_WORN_ICON]
@@ -1686,7 +1676,7 @@
 	if (isnull(used_item))
 		return
 
-	var/image/attack_image = image(icon = used_item)
+	var/image/attack_image = isnull(used_item.attack_icon) ? image(icon = used_item) : image(icon = used_item.attack_icon, icon_state = used_item.attack_icon_state)
 	attack_image.plane = attacked_atom.plane + 1
 	attack_image.pixel_w = used_item.base_pixel_x + used_item.base_pixel_w
 	attack_image.pixel_z = used_item.base_pixel_y + used_item.base_pixel_z

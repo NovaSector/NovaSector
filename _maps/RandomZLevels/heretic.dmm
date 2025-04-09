@@ -540,7 +540,7 @@
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
 "iu" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/end,
+/obj/effect/turf_decal/trimline/red/filled/end,
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
 "iw" = (
@@ -909,7 +909,7 @@
 /turf/open/misc/beach/sand,
 /area/awaymission/beach/heretic)
 "pr" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled,
+/obj/effect/turf_decal/trimline/red/filled,
 /obj/structure/rack/shelf,
 /obj/item/mecha_ammo/missiles_srm{
 	pixel_y = 3;
@@ -1236,7 +1236,7 @@
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
 "un" = (
-/obj/effect/turf_decal/trimline/red/real_red/line,
+/obj/effect/turf_decal/trimline/red/line,
 /turf/closed/wall/mineral/iron,
 /area/awaymission/beach/heretic)
 "ur" = (
@@ -1327,7 +1327,7 @@
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
 "vL" = (
-/obj/effect/turf_decal/trimline/red/real_red/arrow_ccw,
+/obj/effect/turf_decal/trimline/red/arrow_ccw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
 	pixel_y = 8;
 	pixel_x = -15;
@@ -1791,7 +1791,7 @@
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
 "DP" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled,
+/obj/effect/turf_decal/trimline/red/filled,
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
 "DT" = (
@@ -1865,7 +1865,7 @@
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
 "EJ" = (
-/obj/effect/turf_decal/trimline/red/real_red/arrow_cw,
+/obj/effect/turf_decal/trimline/red/arrow_cw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
 	pixel_y = 9;
 	pixel_x = 15;

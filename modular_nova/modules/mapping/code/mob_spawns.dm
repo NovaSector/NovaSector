@@ -278,9 +278,9 @@
 	id_trim = /datum/id_trim/syndicom/nova/ds2/brigofficer
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/bulletproof/old
-	back = /obj/item/storage/backpack/security/redsec
+	back = /obj/item/storage/backpack/security
 	head = /obj/item/clothing/head/helmet/swat/ds
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,
 		/obj/item/gun/ballistic/automatic/pistol/sol/evil = 1,
@@ -316,8 +316,8 @@
 	id_trim = /datum/id_trim/syndicom/nova/ds2/masteratarms
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	suit = /obj/item/clothing/suit/armor/vest/warden/syndicate
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/redsec
-	back = /obj/item/storage/backpack/satchel/sec/redsec
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	back = /obj/item/storage/backpack/satchel/sec
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne = 1,
 	)

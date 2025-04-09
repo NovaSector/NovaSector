@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 10
+#define MODULAR_SAVEFILE_VERSION_MAX 11
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -16,6 +16,7 @@
 #define VERSION_INTERNAL_EXTERNAL_ORGANS 7
 #define VERSION_SKRELL_HAIR_NAME_UPDATE 8
 #define VERSION_TG_EMOTE_SOUNDS 9
+#define VERSION_CAT_EARS_DUPES 10
 #define VERSION_LOADOUT_PRESETS 10
 
 #define INDEX_UNDERWEAR 1
@@ -289,6 +290,15 @@
 		if(current_scream == "Moth Scream 2")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/scream], "Lizard Scream")
 
+	if (current_version < VERSION_CAT_EARS_DUPES)
+		var/current_ears = save_data["feature_ears"]
+		if(current_ears == "Cat, Big")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner, Behind Hair)")
+		else if(current_ears == "Cat, normal")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat, Alert")
+		else if(current_ears == "Cat, Big (Alt)")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/mutant_choice/ears], "Cat (Colorable Inner)")
+
 	if(current_version < VERSION_LOADOUT_PRESETS)
 		write_preference(GLOB.preference_entries[/datum/preference/loadout], list("Default" = save_data["loadout_list"]))
 
@@ -376,4 +386,5 @@
 #undef VERSION_INTERNAL_EXTERNAL_ORGANS
 #undef VERSION_SKRELL_HAIR_NAME_UPDATE
 #undef VERSION_TG_EMOTE_SOUNDS
+#undef VERSION_CAT_EARS_DUPES
 #undef VERSION_LOADOUT_PRESETS
