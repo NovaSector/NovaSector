@@ -57,6 +57,7 @@
 	weak_against_armour = TRUE
 	wound_bonus = -30
 	bare_wound_bonus = -10
+	sharpness = NONE
 
 /obj/item/ammo_box/c27_54cesarzowa/rubber
 	name = "ammo box (.27-54 Cesarzowa rubber)"

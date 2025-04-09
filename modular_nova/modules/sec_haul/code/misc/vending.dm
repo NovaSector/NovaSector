@@ -9,6 +9,8 @@
 		/obj/item/flashlight/seclite = 6,
 		/obj/item/restraints/legcuffs/bola/energy = 10,
 		/obj/item/clothing/gloves/tackler/security = 5,
+		/obj/item/holosign_creator/security = 2,
+		/obj/item/gun_maintenance_supplies = 2,
 		/obj/item/gun/energy/e_gun/advtaser = 3,
 	)
 	contraband = list(
@@ -17,6 +19,7 @@
 		/obj/item/melee/baton/security/stun_gun/stun_knife = 3,
 	)
 	premium = list(
+		/obj/item/ammo_workbench_module/lethal = 1,
 		/obj/item/storage/belt/security/webbing = 5,
 		/obj/item/coin/antagtoken = 1,
 		/obj/item/clothing/head/helmet/blueshirt = 3,

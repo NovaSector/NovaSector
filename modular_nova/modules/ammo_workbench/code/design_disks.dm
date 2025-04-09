@@ -15,20 +15,25 @@
 	/// What ammo categories does this module unlock?
 	var/ammo_categories = NONE
 	/// How many points is this module still good for?
-	var/allowed_prints = 60
+	var/allowed_prints = 120
 
 /obj/item/ammo_workbench_module/examine(mob/user)
 	. = ..()
-	. += span_notice("A small display on the board reads \"<b>[allowed_prints]</b> authentication points left\".")
+	. += span_notice("A small display on the board reads \"<b>[allowed_prints]/[initial(allowed_prints)]</b> authentication points left\".")
 
 /obj/item/ammo_workbench_module/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(istype(tool, /obj/item/ammo_workbench_reboot))
 		var/obj/item/ammo_workbench_reboot/rex_sploded = tool
-		to_chat(user, span_notice("You reset [src] with [rex_sploded]."))
-		allowed_prints = initial(allowed_prints)
-		rex_sploded.reboots--
-		if(rex_sploded.reboots < 1)
+		var/current_diff_to_cap = allowed_prints - initial(allowed_prints)
+		if(current_diff_to_cap >= 0) // in case there's a varedited one with a bajillion points or w/e
+			to_chat(user, span_notice("You try to reallocate some license points to [src], but its authentication module is fully licensed, and nothing happens."))
+			return NONE // no need to reauth
+		var/reauth_amount = min(rex_sploded.license_points, abs(current_diff_to_cap))
+		to_chat(user, span_notice("You reallocate [reauth_amount] license points to [src] with [rex_sploded]."))
+		allowed_prints += reauth_amount
+		rex_sploded.license_points -= reauth_amount
+		if(!rex_sploded.license_points)
 			to_chat(user, span_warning("[rex_sploded] self-destructs."))
 			rex_sploded.dust()
 
@@ -51,7 +56,7 @@
 	This one should have the keys to allow fabricating standard lethal ammunition - and \
 	the expanded license allowance to print lots and lots of it. \
 	Useful for selling people the means by which to solve problems."
-	allowed_prints = 150
+	allowed_prints = 300
 
 /obj/item/ammo_workbench_module/lethal_variant
 	name = "variant lethal " + parent_type::name
@@ -69,7 +74,9 @@
 
 /obj/item/ammo_workbench_module/lethal_super/evil
 	name = "marauder " + parent_type::name
-	desc = parent_type::desc + " This one's been marked with a stylized imprint of a Gorlex Marauders MODsuit helmet."
+	desc = parent_type::desc + " This one's been marked with a stylized imprint of a Gorlex Marauders MODsuit helmet, \
+	and is specifically labeled as being of Scarborough Arms manufacture, which probably makes it less than legal to use \
+	on corporate installations."
 
 /obj/item/ammo_workbench_module/lethal_super/evil/Initialize(mapload)
 	. = ..()
@@ -102,14 +109,14 @@
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
 	icon_state = "card_mini"
 
-	desc = "A hardware authentication module reauthenticator, for resetting a fabricator module's licenses. \
+	desc = "A hardware authentication module reauthenticator, for extending a fabricator module's license point allowance. \
 	Digital rights management for ammo is real, but you can bribe your way out of it."
-	/// How many print resets do we have left?
-	var/reboots = 3
+	/// How many additional license points do we have left?
+	var/license_points = 120
 
 /obj/item/ammo_workbench_reboot/examine(mob/user)
 	. = ..()
-	. += span_notice("A small display on the board reads \"<b>[reboots]</b> reauthentications left\".")
+	. += span_notice("A small display on the board reads \"<b>[license_points]</b> license points left\".")
 
 /datum/design/ammo_workbench_module_gimmick
 	name = "Ammo Workbench Niche Nonlethal Module"
