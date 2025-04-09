@@ -298,7 +298,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/organ/existing_organ = organ_holder.get_organ_slot(slot)
 		var/obj/item/organ/new_organ = get_mutant_organ_type_for_slot(slot)
 		var/old_organ_type = old_species?.get_mutant_organ_type_for_slot(slot)
-		// make sure blood type gets cached properly for all the existing organs
 
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		if(!new_organ)
