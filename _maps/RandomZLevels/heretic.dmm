@@ -1390,9 +1390,9 @@
 /area/awaymission/beach/heretic)
 "wS" = (
 /obj/structure/closet/ammunitionlocker,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
 /obj/item/ammo_box/magazine/sniper_rounds,
 /obj/item/ammo_box/magazine/sniper_rounds,
 /obj/item/ammo_box/magazine/sniper_rounds,
