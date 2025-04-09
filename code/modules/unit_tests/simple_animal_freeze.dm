@@ -84,6 +84,7 @@
 		/mob/living/simple_animal/hostile/fleshmind/mechiver,
 		/mob/living/simple_animal/hostile/fleshmind/mauler_monkey,
 		/mob/living/simple_animal/hostile/fleshmind,
+		/mob/living/simple_animal/hostile/ooze/grapes/xenobio, // update when grapes are updated, must be here to stop errors
 		// DO NOT ADD NEW ENTRIES TO THIS LIST
 		// READ THE COMMENT ABOVE
 	)
