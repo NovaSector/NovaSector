@@ -75,3 +75,137 @@
       deemed 'too expensive to keep making'
   jjpark-kb:
   - rscadd: adds the powerator, which allows you to sell power
+2025-04-08:
+  FlufflesTheDog:
+  - rscadd: Surgery Synth Plushie now available in the loadout
+  RatFromTheJungle:
+  - bugfix: fixes the replica parade jacket not working on digitigrade characters
+  RealWinterFrost:
+  - map: Hired a technician to fix the doors for the tramline at the "Interlink" as
+      it was connected to our Emergency Response Team bay. The original technician
+      that installed them has been fired.
+  jjpark-kb:
+  - rscadd: added ashen forging tools (check crafting menu)
+  - rscadd: added brick well (sandstone and stone stack recipe menu)
+  - code_imp: repathed the fuel well to be in line with the brick well
+2025-04-09:
+  Absolucy:
+  - refactor: Refactored some code related to initialization.
+  - code_imp: Runtime errors will now print to the chat while debugging.
+  - admin: 'Added some new Lua functions: SS13.ispath, SS13.typecacheof, SS13.is_type_in_typecache,
+      SS13.get_turf, and SS13.get_area'
+  - bugfix: Fixed a broken check in the SS13.register_signal Lua function.
+  - bugfix: Fixed the _winget SDQL2/Lua wrapper, so it actually returns the return
+      value of winget.
+  AyIong:
+  - bugfix: de-shrunked alternate names modal
+  Ben10Omintrix:
+  - rscadd: adds the cain and abel to the colossus lootpool!
+  EnterTheJake:
+  - bugfix: Space phase is as fast as it used to be.
+  Ezel:
+  - map: Hopline looks now more like a line.
+  - bugfix: medbay grid is wired to eachother again
+  Gaxeer:
+  - bugfix: '`round_time` in stat panel and ESC menu will show actual time since the
+      round start, not the world time'
+  Ghommie:
+  - bugfix: Fish will no longer drown if left half-submerged in a fishable turf on
+      which it can normally be found. Instead it will disperse after a while or if
+      starving. Note that this only happens if the fish is native to such turfs (eg.
+      lavaloop on beach water will still die).
+  Hardly:
+  - rscadd: Redsec is back
+  - rscadd: Bluesec is still here under a separate tab in secdrobe, as well as separate
+      garments for warden and HoS.
+  - rscdel: Peacekeeper title for security
+  - rscdel: Sol Police Helmet. Use the regular helmet and alt+click for a visorless
+      helmet
+  - rscdel: Black gloves reskinning due to it causing issues and being duplicate of
+      bluesec's
+  - balance: Adjusted all stock of secdrobe items (except premium) to be 4 from 10
+      with some bluesec armor reduced down to 3
+  - sound: All jackboots variants now makes the same footstep sounds as sec's
+  - image: Plasmamen can switch their uniform color by reskinning them through alt+click
+  - image: Redsec variants of existing Nova sec clothing
+  - image: Redsec digitigrade variants for all the uniforms
+  - map: Removed bluesec decals and replaced them with redsec's
+  - map: Security doors are now red
+  - spellcheck: Genericizes mentions of Armadyne and Lopland, as well as their Peacekeepers
+  Jacquerel:
+  - rscadd: Handcuffed people can now be tied to the tram rails
+  - balance: tram rails will no longer electrocute you if they're not powered
+  Kashargul:
+  - bugfix: confirm buttons on the chat window
+  - bugfix: scroll tracking failing on large display counts when large messages blocks
+      where received
+  LT3:
+  - bugfix: Tram information plate and other signs mount correctly on tram walls
+  Melbert:
+  - refactor: Minor mining voucher refactor, report any oddities.
+  - qol: Burning paper (and similar) is now two way. Rather than needing to click
+      on the paper with a burning item, you can now click on a burning item with the
+      paper. This means you can burn paper on your lit cigarette like a badass.
+  - qol: You can now light cigarettes on candles.
+  - rscdel: Flares and candles can no longer craft into flashlight eyes, I guess.
+  - qol: All spell invocations have been made a bit more consistent - some have changed
+      slightly, some are now punctuated. "Dragon Form" and "Bear Form" are now emotes
+      invocations.
+  - qol: '"Unknown" mobs are now properly referred to as they/them'
+  OrionTheFox:
+  - spellcheck: added a missing space to the description of the Donk Co. Failed Products
+      Schematics research
+  - bugfix: fixed multi-cell chargers offsetting stored cells incorrectly (no more
+      cell charging towers)
+  Singul0:
+  - rscadd: You can now flip tables by right clicking them!
+  SmArtKar:
+  - balance: Restaurant portals can now be printed, constructed and deconstructed.
+      They're also no longer completely invulnerable.
+  - bugfix: Fixed gas station and phonebooth ruins magically summoning weather on
+      bottom levels of Icebox
+  - bugfix: Fixed weather from Z levels above rendering over players' UI
+  - qol: Multi-Z Detail setting has been renamed to Multi-Z Depth with an explanation
+      on what it does. "Standard" setting has been renamed to "No Culling"
+  - bugfix: Fixed encryption keys in makeshift jammer crafting recipes not having
+      an icon.
+  TiviPlus:
+  - refactor: "Logging and IC timestamps will now always use UTC\xB10 and not be affected\
+      \ by server system timezone changes"
+  - bugfix: "Station and round times will not longer be incorrect if the system timezone\
+      \ is not UTC\xB10"
+  Watermelon914:
+  - refactor: Refactored subsystem initialization
+  - admin: Play Internet Sound will now automatically stop lobby music and prevent
+      lobby music from playing at roundend whilst active.
+  Y0SH1M4S73R:
+  - code_imp: Any tgui message that would be too big to send to the server is now
+      split into chunks and sent in sequence. This fixes several issues, such as...
+  - bugfix: It is once again possible to save large amounts of text on paper at once.
+  jlsnow301:
+  - bugfix: Fixed the circuit UI titlebar spacing
+  - bugfix: The library console has been refactored. Report any issues in the github!
+  necromanceranne:
+  - bugfix: Attempts were made to make chemical interactions with regards to splashes
+      or exposure to chemicals on your skin respect clothing cover. If you have clothing
+      with biological protecting properties, chemicals may not affect you as easily.
+      Good for you.
+  - balance: Some chems may behave differently than they originally did in light of
+      utilizing suit protections appropriately. Make sure if you want someone to be
+      exposed to the full effect of a chemical that they're not wearing anything in
+      the way before splashing them.
+  timothymtorres:
+  - bugfix: Fix soviet bears basketball minigame map not loading due to a misspelled
+      name when looking up map file.
+  - bugfix: Basketball runtimes when minigame mobs get deleted with clients
+  - map: Moved basketball maps into minigames folder. Removed centcomm landmark for
+      basketball minigame.
+  - refactor: Refactored basketball minigame to use lazyloading instead of the default
+      maploader.
+  - map: Move mafia, CTF, and deathmatch maps into minigame folder
+  vinylspiders:
+  - bugfix: fixes IPC prefs cluttering the prefs menu for non-synths. fixes an bug
+      where the ipc antennae would persist upon changing species from ipc to something
+      else and be unchangeable until you went back to ipc.
+  - bugfix: security will no longer have to ctrl+click flashbangs during greenshift
+      to use them
