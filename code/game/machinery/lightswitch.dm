@@ -1,12 +1,13 @@
 /// The light switch. Can have multiple per area.
 /obj/machinery/light_switch
 	name = "light switch"
-	icon = 'icons/obj/machines/wallmounts.dmi' //NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/wallmounts.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "light-nopower"
 	base_icon_state = "light"
 	desc = "Make dark."
 	power_channel = AREA_USAGE_LIGHT
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.02
+	mouse_over_pointer = MOUSE_HAND_POINTER
 	/// Set this to a string, path, or area instance to control that area
 	/// instead of the switch's location.
 	var/area/area = null

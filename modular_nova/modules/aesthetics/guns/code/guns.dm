@@ -101,12 +101,14 @@
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/pistol/m1911
+	desc = "A classic handgun, modern variants of which take .460 Ceres."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 	inhand_icon_state = "colt"
 	lefthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/aesthetics/guns/icons/guns_righthand.dmi'
 
 /obj/item/gun/ballistic/automatic/c20r
+	desc = "A bullpup three-round burst .460 Ceres SMG, designated 'C-20r'. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 /obj/item/gun/ballistic/automatic/m90
@@ -118,8 +120,15 @@
 /obj/item/gun/ballistic/automatic/pistol
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
+/obj/item/gun/ballistic/automatic/pistol/doorhickey
+	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+
+/obj/item/gun/ballistic/automatic/pistol/deagle
+	desc = "A robust .454 Trucidator handgun."
+
 /obj/item/gun/ballistic/automatic/pistol/deagle/regal
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+	desc = "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .454 Trucidator ammo."
 
 /obj/item/gun/ballistic/automatic/pistol/clandestine/fisher
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
@@ -221,7 +230,7 @@
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2)
 
-/obj/item/gun/ballistic/automatic/sniper_rifle/reset_semicd()
+/obj/item/gun/ballistic/automatic/sniper_rifle/reset_fire_cd()
 	. = ..()
 	if(suppressed)
 		playsound(src, 'sound/machines/eject.ogg', 25, TRUE, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
@@ -230,7 +239,7 @@
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
 	name = "syndicate sniper rifle"
-	desc = "An illegally modified .50 cal sniper rifle with suppression compatibility. Quickscoping still doesn't work."
+	desc = "An illegally modified .416 Stabilis sniper rifle with suppression compatibility. Quickscoping still doesn't work."
 	icon = 'modular_nova/modules/aesthetics/guns/icons/guns_gubman2.dmi'
 	icon_state = "sniper2"
 	worn_icon_state = "sniper"
@@ -294,11 +303,6 @@
 	icon_state = "arg"
 	inhand_icon_state = "arg"
 	can_suppress = FALSE
-
-/obj/item/gun/ballistic/automatic/surplus
-	name = "\improper Type-69 surplus rifle"
-	desc = "One of countless obsolete ballistic rifles that still sees use as a cheap deterrent. Uses 10mm ammo and its bulky frame prevents one-hand firing."
-	icon = 'modular_nova/modules/aesthetics/guns/icons/guns.dmi'
 
 // GUBMAN3 - FULL BULLET RENAME
 // i loathe the above
@@ -419,6 +423,20 @@
 	custom_materials = AMMO_MATS_TEMP
 	advanced_print_req = TRUE
 
+/obj/item/ammo_casing/c45/hp
+	name = ".460 Ceres hollow point bullet casing"
+	desc = "A .460 bullet casing."
+	projectile_type = /obj/projectile/bullet/c45/hp
+
+
+/obj/item/ammo_box/c45
+	name = "ammo box (.460 Ceres)"
+	desc = "A box of .460 Ceres ammunition, a modern successor to the .45 round."
+
+/obj/item/ammo_box/magazine/m45
+	name = "handgun magazine (.460 Ceres)"
+	desc = "A magazine chambered in .460 meant to fit in handguns."
+
 // overrides for .50AE, used in the deagle
 /obj/item/ammo_casing/a50ae
 	name = ".454 Trucidator bullet casing"
@@ -427,18 +445,18 @@
 	<i>HAND CANNON: Fired out of a handgun, deals disproportionately large damage.</i>"
 
 // overrides for .357, used in the .357 revolver
-/obj/item/ammo_casing/a357    //We can keep the Magnum classic.
+/obj/item/ammo_casing/c357    //We can keep the Magnum classic.
 	name = ".357 bullet casing"
 	desc = "A .357 bullet casing.\
 	<br><br>\
 	<i>HAND CANNON: Fired out of a handgun, deals disproportionately large damage.</i>"
 
-/obj/item/ammo_casing/a357/match
+/obj/item/ammo_casing/c357/match
 	desc = "A .357 bullet casing, manufactured to exceedingly high standards.\
 	<br><br>\
 	<i>MATCH: Ricochets everywhere. Like crazy.</i>"
 
-/obj/item/ammo_casing/a357/phasic
+/obj/item/ammo_casing/c357/phasic
 	desc = "A .357 phasic bullet casing.\
 	<br><br>\
 	<i>PHASIC: Ignores all surfaces except organic matter.</i>"
@@ -446,7 +464,7 @@
 	custom_materials = AMMO_MATS_PHASIC
 	can_be_printed = FALSE // shot from cargo to sec with cameras needed to see if you hit your target, it can be fun for event where we play extreme battleships.
 
-/obj/item/ammo_casing/a357/heartseeker
+/obj/item/ammo_casing/c357/heartseeker
 	desc = "A .357 heartseeker bullet casing.\
 	<br><br>\
 	<i>HEARTSEEKER: Has homing capabilities, methodology unknown.</i>"
@@ -497,9 +515,12 @@
 
 /obj/projectile/bullet/c45/ap
 	name = ".460 armor-piercing bullet"
+	armour_penetration = 20
+	damage = 20
 
 /obj/projectile/bullet/incendiary/c45
 	name = ".460 incendiary bullet"
+	leaves_fire_trail = FALSE
 
 /obj/projectile/bullet/c46x30mm
 	name = "8mm Usurpator bullet"
@@ -534,6 +555,10 @@
 
 /obj/item/ammo_box/magazine/wt550m9/wtic
 	name = "\improper WT-550 IND magazine"
+
+/obj/item/ammo_box/magazine/smgm45/hp
+	name = ".460 Ceres HP SMG magazine"
+	ammo_type = /obj/item/ammo_casing/c45/hp
 
 /obj/item/ammo_box/magazine/smgm45
 	name = ".460 Ceres SMG magazine"

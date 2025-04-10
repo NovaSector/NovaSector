@@ -1,11 +1,16 @@
-/mob/living/silicon/ai/compose_track_href(atom/movable/speaker, namepart)
+//the following 2 procs are staying here because its for AI and its shells (also AI controlled)
+/mob/living/silicon/compose_track_href(atom/movable/speaker, namepart)
+	if(!HAS_TRAIT(src, TRAIT_CAN_GET_AI_TRACKING_MESSAGE))
+		return ""
 	var/mob/M = speaker.GetSource()
 	if(M)
-		return "<a href='?src=[REF(src)];track=[html_encode(namepart)]'>"
+		return "<a href='byond://?src=[REF(src)];track=[html_encode(namepart)]'>"
 	return ""
 
-/mob/living/silicon/ai/compose_job(atom/movable/speaker, message_langs, raw_message, radio_freq)
+/mob/living/silicon/compose_job(atom/movable/speaker, message_langs, raw_message, radio_freq)
 	//Also includes the </a> for AI hrefs, for convenience.
+	if(!HAS_TRAIT(src, TRAIT_CAN_GET_AI_TRACKING_MESSAGE))
+		return ""
 	return "[radio_freq ? " (" + speaker.GetJob() + ")" : ""]" + "[speaker.GetSource() ? "</a>" : ""]"
 
 /mob/living/silicon/ai/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
@@ -83,7 +88,7 @@
 	var/index = 0
 	for(var/word in get_vox_sounds(vox_type)) // NOVA EDIT CHANGE - VOX types - ORIGINAL: for(var/word in GLOB.vox_sounds)
 		index++
-		dat += "<A href='?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
+		dat += "<A href='byond://?src=[REF(src)];say_word=[word]'>[capitalize(word)]</A>"
 		if(index != length(get_vox_sounds(vox_type))) // NOVA EDIT CHANGE - VOX types - ORIGINAL: if(index != GLOB.vox_sounds.len)
 			dat += " / "
 
@@ -171,42 +176,47 @@
 	if(GLOB.vox_sounds[word])
 
 		var/sound_file = GLOB.vox_sounds[word]
-		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX)
 	*/
+	var/vox_volume_modifier = 1
+	var/sound_file
 	if(the_AI.get_vox_sounds(the_AI.vox_type)[word])
-		var/sound_file = the_AI.get_vox_sounds(the_AI.vox_type)[word]
-		var/volume = 100
-		switch(the_AI.vox_type)
-			if(VOX_HL)
-				volume = 75
-			if(VOX_MIL)
-				volume = 50 // My poor ears...
+		sound_file = the_AI.get_vox_sounds(the_AI.vox_type)[word]
 		// If the vox stuff are disabled, or we failed getting the word from the list, just early return.
 		if(!sound_file)
 			return FALSE
-		var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = volume)
+		switch(the_AI.vox_type)
+			if(VOX_HL)
+				vox_volume_modifier = 0.75
+			if(VOX_MIL)
+				vox_volume_modifier = 0.50 // My poor ears...
 	// NOVA EDIT CHANGE END
-		voice.status = SOUND_STREAM
 
 	// If there is no single listener, broadcast to everyone in the same z level
 		if(!only_listener)
 			// Play voice for all mobs in the z level
 			for(var/mob/player_mob as anything in GLOB.player_list)
-				if(!player_mob.can_hear() || !safe_read_pref(player_mob.client, /datum/preference/toggle/sound_ai_vox))
+				var/pref_volume = safe_read_pref(player_mob.client, /datum/preference/numeric/volume/sound_ai_vox)
+				pref_volume *= vox_volume_modifier // NOVA EDIT ADDITION
+				if(!player_mob.can_hear() || !pref_volume)
 					continue
 
 				var/turf/player_turf = get_turf(player_mob)
 				if(!is_valid_z_level(ai_turf, player_turf))
 					continue
 
+				var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = pref_volume)
+				voice.status = SOUND_STREAM
 				SEND_SOUND(player_mob, voice)
 		else
+			var/pref_volume = safe_read_pref(only_listener.client, /datum/preference/numeric/volume/sound_ai_vox)
+			var/sound/voice = sound(sound_file, wait = 1, channel = CHANNEL_VOX, volume = pref_volume)
+			voice.status = SOUND_STREAM
 			SEND_SOUND(only_listener, voice)
 		return TRUE
 	return FALSE
 
 /proc/does_target_have_vox_off(mob/target)
-	return !safe_read_pref(target.client, /datum/preference/toggle/sound_ai_vox)
+	return !safe_read_pref(target.client, /datum/preference/numeric/volume/sound_ai_vox)
 
 #undef VOX_DELAY
 #endif

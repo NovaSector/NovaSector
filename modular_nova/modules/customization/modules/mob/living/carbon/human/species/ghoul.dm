@@ -33,6 +33,7 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("None", FALSE),
 		"ears" = list("None", FALSE),
 		"legs" = list("Normal Legs", FALSE),
@@ -87,7 +88,7 @@
 		limb.replace_limb(src, TRUE)
 		qdel(right_leg)
 
-/datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load)
+/datum/species/ghoul/on_species_gain(mob/living/carbon/new_ghoul, datum/species/old_species, pref_load, regenerate_icons)
 	// Missing Defaults in DNA? Randomize!
 	proof_ghoul_features(new_ghoul.dna.features)
 

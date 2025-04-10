@@ -60,6 +60,7 @@
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("None", FALSE),
 		"ears" = list("None", FALSE),
 		"legs" = list("Normal Legs", FALSE),
@@ -86,7 +87,7 @@
 	playsound(transformer.loc, 'sound/machines/chime.ogg', 50, TRUE)
 	transformer.visible_message(span_notice("[transformer]'s [screen ? "monitor lights up" : "eyes flicker to life"]!"), span_notice("All systems nominal. You're back online!"))
 
-/datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer)
+/datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))

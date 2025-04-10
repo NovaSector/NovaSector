@@ -2,27 +2,48 @@
 	category = NAKAMURA_ENGINEERING_MODSUITS_NAME
 	company_bitflag = CARGO_COMPANY_NAKAMURA_MODSUITS
 
+// Mod Suits
+
+/datum/armament_entry/company_import/nakamura_modsuits/mods
+	subcategory = "Ready to use Modsuits"
+
+/datum/armament_entry/company_import/nakamura_modsuits/mods/hazard_mod
+	name = "HAZARD Frontier Belt Modsuit"
+	item_type = /obj/item/mod/control/pre_equipped/frontier_colonist
+	description = "Spaceproof, shockproof, fits on your belt, and barely slows you down thanks \
+		thanks to proprietary \"not putting servos in the joints\" technology! \
+		What more could you ask for in the dead of space?"
+	cost = PAYCHECK_COMMAND * 6.5
+
+/datum/armament_entry/company_import/nakamura_modsuits/mods/civilian_mod
+	name = "Civilian Miniaturized Belt Modsuit"
+	item_type = /obj/item/mod/control/pre_equipped/civilian
+	description = "A non spaceproof belt Modsuit made for civilian operations and Modsuit training \
+		this convenient frame allows the user to enjoy most Modsuit Modules without having to rely \
+		on a heavy backpack control unit, making its operation less taxing and convenient for the \
+		average user."
+	cost = PAYCHECK_COMMAND * 5
+
 // MOD cores
 
 /datum/armament_entry/company_import/nakamura_modsuits/core
 	subcategory = "MOD Core Modules"
+	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nakamura_modsuits/core/standard
 	item_type = /obj/item/mod/core/standard
-	cost = PAYCHECK_CREW * 2
 
 /datum/armament_entry/company_import/nakamura_modsuits/core/plasma
 	item_type = /obj/item/mod/core/plasma
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/core/ethereal
 	item_type = /obj/item/mod/core/ethereal
-	cost = PAYCHECK_CREW
 
 // MOD plating
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating
 	subcategory = "MOD External Plating"
+	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/standard
 	name = "MOD Standard Plating"
@@ -32,29 +53,23 @@
 /datum/armament_entry/company_import/nakamura_modsuits/plating/medical
 	name = "MOD Medical Plating"
 	item_type = /obj/item/mod/construction/plating/medical
-	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/engineering
 	name = "MOD Engineering Plating"
 	item_type = /obj/item/mod/construction/plating/engineering
-	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/atmospherics
 	name = "MOD Atmospherics Plating"
 	item_type = /obj/item/mod/construction/plating/atmospheric
-	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/security
 	name = "MOD Security Plating"
 	item_type = /obj/item/mod/construction/plating/security
 	cost = PAYCHECK_COMMAND * 2
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/plating/clown
 	name = "MOD CosmoHonk (TM) Plating"
 	item_type = /obj/item/mod/construction/plating/cosmohonk
-	cost = PAYCHECK_COMMAND * 2
-	contraband = TRUE
 
 // MOD modules
 
@@ -62,57 +77,78 @@
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules
 	subcategory = "MOD Protection Modules"
+	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/welding
 	item_type = /obj/item/mod/module/welding
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/longfall
 	item_type = /obj/item/mod/module/longfall
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/rad_protection
 	item_type = /obj/item/mod/module/rad_protection
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/emp_shield
 	item_type = /obj/item/mod/module/emp_shield
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/armor_plates
 	item_type = /obj/item/mod/module/armor_booster/retractplates
 	cost = PAYCHECK_COMMAND * 3
-	restricted = TRUE
-	contraband = TRUE
+
+// Medical Mods
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules
+	subcategory = "MOD Medical Modules"
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules/injector
+	name = "MOD injector module"
+	item_type = /obj/item/mod/module/injector
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules/organizer
+	name = "MOD organizer module"
+	item_type = /obj/item/mod/module/organizer
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules/patient_transport
+	name = "MOD patient transport module"
+	item_type = /obj/item/mod/module/criminalcapture/patienttransport
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules/thread_ripper
+	name = "MOD thread ripper module"
+	item_type = /obj/item/mod/module/thread_ripper
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules/surgical_processor
+	name = "MOD surgical processor module"
+	item_type = /obj/item/mod/module/surgical_processor
+
+/datum/armament_entry/company_import/nakamura_modsuits/medical_modules/quick_carry
+	name = "MOD quick carry module"
+	item_type = /obj/item/mod/module/quick_carry
+
 
 // Utility modules, general purpose stuff that really anyone might want
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules
 	subcategory = "MOD Utility Modules"
+	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/flashlight
 	item_type = /obj/item/mod/module/flashlight
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/regulator
 	item_type = /obj/item/mod/module/thermal_regulator
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/mouthhole
 	item_type = /obj/item/mod/module/mouthhole
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/signlang
 	item_type = /obj/item/mod/module/signlang_radio
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/plasma_stabilizer
 	item_type = /obj/item/mod/module/plasma_stabilizer
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/basic_storage
 	item_type = /obj/item/mod/module/storage
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/utility_modules/expanded_storage
 	item_type = /obj/item/mod/module/storage/large_capacity
@@ -130,14 +166,14 @@
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules
 	subcategory = "MOD Mobility Modules"
+	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/tether
 	item_type = /obj/item/mod/module/tether
-	cost = PAYCHECK_LOWER
+	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/magboot
 	item_type = /obj/item/mod/module/magboot
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/jetpack
 	item_type = /obj/item/mod/module/jetpack
@@ -145,11 +181,9 @@
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/pathfinder
 	item_type = /obj/item/mod/module/pathfinder
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/disposals
 	item_type = /obj/item/mod/module/disposal_connector
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/sphere
 	item_type = /obj/item/mod/module/sphere_transform
@@ -158,38 +192,37 @@
 /datum/armament_entry/company_import/nakamura_modsuits/mobility_modules/atrocinator
 	item_type = /obj/item/mod/module/atrocinator
 	cost = PAYCHECK_COMMAND * 2
-	contraband = TRUE
 
 // Novelty modules, goofy stuff that's rare/unprintable, but doesn't fit in any of the above categories
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules
 	subcategory = "MOD Novelty Modules"
+	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/waddle
 	item_type = /obj/item/mod/module/waddle
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/bike_horn
 	item_type = /obj/item/mod/module/bikehorn
-	cost = PAYCHECK_LOWER
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/microwave_beam
 	item_type = /obj/item/mod/module/microwave_beam
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/tanner
 	item_type = /obj/item/mod/module/tanner
-	cost = PAYCHECK_CREW
-	contraband = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/rave
 	item_type = /obj/item/mod/module/visor/rave
-	cost = PAYCHECK_CREW
-	contraband = TRUE
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/hat_stabilizer
 	item_type = /obj/item/mod/module/hat_stabilizer
-	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/dart_collector_safe
+	item_type = /obj/item/mod/module/recycler/donk/safe
+
+/datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/dart_collector
+	item_type = /obj/item/mod/module/recycler/donk
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/nakamura_modsuits/novelty_modules/kinesis
 	item_type = /obj/item/mod/module/anomaly_locked/kinesis/prebuilt/locked

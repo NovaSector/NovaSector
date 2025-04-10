@@ -162,16 +162,16 @@
 /obj/item/reagent_containers/cup/beaker/cryoxadone,
 /obj/item/reagent_containers/cup/beaker/synthflesh,
 /obj/item/reagent_containers/cup/beaker/synthflesh,
-/obj/item/reagent_containers/pill/iron{
+/obj/item/reagent_containers/applicator/pill/iron{
 	pixel_x = 8
 	},
-/obj/item/reagent_containers/pill/iron{
+/obj/item/reagent_containers/applicator/pill/iron{
 	pixel_x = 8
 	},
-/obj/item/reagent_containers/pill/iron{
+/obj/item/reagent_containers/applicator/pill/iron{
 	pixel_x = 8
 	},
-/obj/item/reagent_containers/pill/iron{
+/obj/item/reagent_containers/applicator/pill/iron{
 	pixel_x = 8
 	},
 /obj/effect/turf_decal/tile/brown/full,
@@ -329,7 +329,7 @@
 "lC" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "lV" = (
 /obj/machinery/power/smes/magical{
@@ -1266,16 +1266,16 @@
 /obj/item/reagent_containers/medigel/libital{
 	pixel_x = -8
 	},
-/obj/item/reagent_containers/pill/stimulant{
+/obj/item/reagent_containers/applicator/pill/stimulant{
 	pixel_y = -8
 	},
-/obj/item/reagent_containers/pill/stimulant{
+/obj/item/reagent_containers/applicator/pill/stimulant{
 	pixel_y = -8
 	},
-/obj/item/reagent_containers/pill/stimulant{
+/obj/item/reagent_containers/applicator/pill/stimulant{
 	pixel_y = -8
 	},
-/obj/item/reagent_containers/pill/stimulant{
+/obj/item/reagent_containers/applicator/pill/stimulant{
 	pixel_y = -8
 	},
 /obj/effect/turf_decal/tile/brown/full,
@@ -1346,7 +1346,7 @@
 /area/ruin/space/has_grav/powered)
 "UM" = (
 /obj/structure/lattice/catwalk,
-/turf/open/space/basic,
+/turf/open/floor/engine/airless,
 /area/ruin/space)
 "Vm" = (
 /obj/machinery/door/airlock/captain,

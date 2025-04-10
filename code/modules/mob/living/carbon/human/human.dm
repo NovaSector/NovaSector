@@ -15,14 +15,16 @@
 	setup_human_dna()
 
 	create_carbon_reagents()
-	set_species(dna.species.type)
+	set_species(dna.species.type, icon_update = FALSE) //carbon/Initialize will call update_body()
+	//set species enables and disables the flag. Just to be sure, we re-enable it now until it's removed by the parent call.
+	living_flags |= STOP_OVERLAY_UPDATE_BODY_PARTS
 
 	prepare_huds() //Prevents a nasty runtime on human init
 
 	. = ..()
 
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_FACE_ACT, PROC_REF(clean_face))
-	AddComponent(/datum/component/personal_crafting)
+	AddComponent(/datum/component/personal_crafting, ui_human_crafting)
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 0.6, -6) // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	AddComponent(/datum/component/bloodysoles/feet, FOOTPRINT_SPRITE_SHOES)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
@@ -35,6 +37,8 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	GLOB.human_list += src
 	SSopposing_force.give_opfor_button(src) //NOVA EDIT - OPFOR SYSTEM
+	ADD_TRAIT(src, TRAIT_CAN_MOUNT_HUMANS, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_CAN_MOUNT_CYBORGS, INNATE_TRAIT)
 
 /mob/living/carbon/human/proc/setup_physiology()
 	physiology = new()
@@ -57,7 +61,7 @@
 	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 
 /mob/living/carbon/human/proc/setup_human_dna()
-	randomize_human_normie(src, randomize_mutations = TRUE)
+	randomize_human_normie(src, randomize_mutations = TRUE, update_body = FALSE)
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(physiology)
@@ -125,6 +129,10 @@
 			id_species ||= dna.species.name
 			id_blood_type ||= dna.blood_type
 
+		if(istype(id, /obj/item/card/id/advanced))
+			var/obj/item/card/id/advanced/advancedID = id
+			id_job = advancedID.trim_assignment_override || id_job
+
 		var/id_examine = span_slightly_larger(separator_hr("This is <em>[src]'s ID card</em>."))
 		id_examine += "<div class='img_by_text_container'>"
 		id_examine += "[id_icon]"
@@ -140,7 +148,7 @@
 		id_examine += "</div>" // container
 		id_examine += "</div>" // text
 
-		to_chat(viewer, examine_block(span_info(id_examine)))
+		to_chat(viewer, boxed_message(span_info(id_examine)))
 
 ///////HUDs///////
 	if(href_list["hud"])
@@ -323,7 +331,7 @@
 						sec_record_message += "\n<b>Crime:</b> [crime.name]"
 						sec_record_message += "\n<b>Details:</b> [crime.details]"
 						sec_record_message += "\nAdded by [crime.author] at [crime.time]"
-				to_chat(human_or_ghost_user, examine_block(sec_record_message))
+				to_chat(human_or_ghost_user, boxed_message(sec_record_message))
 				return
 			// NOVA EDIT ADDITION START- EXAMINE RECORDS
 			if(href_list["genrecords"])
@@ -434,10 +442,7 @@
 /mob/living/carbon/human/try_inject(mob/user, target_zone, injection_flags)
 	. = ..()
 	if(!. && (injection_flags & INJECT_TRY_SHOW_ERROR_MESSAGE) && user)
-		if(!target_zone)
-			target_zone = get_bodypart(check_zone(user.zone_selected))
-		var/obj/item/bodypart/the_part = isbodypart(target_zone) ? target_zone : get_bodypart(check_zone(target_zone)) //keep these synced
-		to_chat(user, span_alert("There is no exposed flesh or thin material on [p_their()] [the_part.name]."))
+		balloon_alert(user, "no exposed skin on [parse_zone(target_zone || check_zone(user.zone_selected))]!")
 
 /mob/living/carbon/human/get_butt_sprite()
 	var/obj/item/bodypart/chest/chest = get_bodypart(BODY_ZONE_CHEST)
@@ -1074,14 +1079,13 @@
 
 	return buckle_mob(target, TRUE, TRUE, RIDER_NEEDS_ARMS)
 
-/mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, buckle_mob_flags= NONE)
-	if(!is_type_in_typecache(target, can_ride_typecache))
+/mob/living/carbon/human/is_buckle_possible(mob/living/target, force, check_loc)
+	if(!HAS_TRAIT(target, TRAIT_CAN_MOUNT_HUMANS))
 		target.visible_message(span_warning("[target] really can't seem to mount [src]..."))
-		return
-
-	if(!force)//humans are only meant to be ridden through piggybacking and special cases
-		return
-
+		return FALSE
+	// if you don't invoke it with forced, IE via piggyback / fireman, always fail
+	if(!force)
+		return FALSE
 	return ..()
 
 /mob/living/carbon/human/reagent_check(datum/reagent/chem, seconds_per_tick, times_fired)

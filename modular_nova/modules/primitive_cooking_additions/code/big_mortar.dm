@@ -68,8 +68,10 @@
 
 /obj/structure/large_mortar/item_interaction(mob/living/user, obj/item/tool, list/modifiers, is_right_clicking)
 	. = ..()
+
 	if(. || user.combat_mode || tool.is_refillable())
 		return .
+
 	if(istype(tool, /obj/item/storage/bag))
 		if(length(contents) >= maximum_contained_items)
 			balloon_alert(user, "already full!")
@@ -88,8 +90,10 @@
 
 		if (length(contents) >= maximum_contained_items)
 			balloon_alert(user, "filled")
+
 		else
 			balloon_alert(user, "transferred")
+
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/pestle))
@@ -114,16 +118,19 @@
 
 		if(!in_range(src, user) || !user.is_holding(tool) || !picked_option)
 			return ITEM_INTERACT_BLOCKING
+
 		var/act_verb = LOWER_TEXT(picked_option)
 		var/act_verb_ing
 		if(act_verb == "juice")
 			act_verb_ing = "juicing"
+
 		else
 			act_verb_ing = "[act_verb]ing"
 
 		var/has_resource
 		if(picked_option == "Mix")
 			has_resource = reagents.total_volume > 0
+
 		else
 			has_resource = length(contents) > 0
 
@@ -132,7 +139,8 @@
 			return ITEM_INTERACT_BLOCKING
 
 		balloon_alert_to_viewers("[act_verb_ing]...")
-		if(!do_after(user, 5 SECONDS, target = src))
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+		if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
 			balloon_alert_to_viewers("stopped [act_verb_ing]")
 			return ITEM_INTERACT_BLOCKING
 
@@ -143,8 +151,10 @@
 					if (reagents.total_volume >= reagents.maximum_volume)
 						balloon_alert(user, "overflowing!")
 						break
+
 					if(target_item.juice_typepath)
 						juice_target_item(target_item, user)
+
 					else
 						grind_target_item(target_item, user)
 
@@ -153,8 +163,10 @@
 					if (reagents.total_volume >= reagents.maximum_volume)
 						balloon_alert(user, "overflowing!")
 						break
+
 					if(target_item.grind_results)
 						grind_target_item(target_item, user)
+
 					else
 						juice_target_item(target_item, user)
 			if("Mix")
@@ -184,6 +196,7 @@
 		to_chat(user, span_danger("You fail to juice [to_be_juiced]."))
 
 	to_chat(user, span_notice("You juice [to_be_juiced] into a liquid."))
+	user.mind?.adjust_experience(/datum/skill/primitive, 2)
 	QDEL_NULL(to_be_juiced)
 
 ///Grinds the passed target item, and transfers any contained chems to the mortar as well
@@ -196,14 +209,16 @@
 	if(!to_be_ground.grind(src.reagents, user))
 		if(isstack(to_be_ground))
 			to_chat(user, span_notice("[src] attempts to grind as many pieces of [to_be_ground] as possible."))
+
 		else
 			to_chat(user, span_danger("You fail to grind [to_be_ground]."))
 
 	to_chat(user, span_notice("You break [to_be_ground] into a fine powder."))
+	user.mind?.adjust_experience(/datum/skill/primitive, 2)
 	QDEL_NULL(to_be_ground)
 
 ///Mixes contained reagents, creating butter/mayo/whipped cream
-/obj/structure/large_mortar/proc/mix()
+/obj/structure/large_mortar/proc/mix(mob/user)
 	//Recipe to make Butter
 	var/butter_amt = FLOOR(reagents.get_reagent_amount(/datum/reagent/consumable/milk) / MILK_TO_BUTTER_COEFF, 1)
 	var/purity = reagents.get_reagent_purity(/datum/reagent/consumable/milk)
@@ -211,14 +226,17 @@
 	for(var/i in 1 to butter_amt)
 		var/obj/item/food/butter/tasty_butter = new(drop_location())
 		tasty_butter.reagents.set_all_reagents_purity(purity)
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 
 	//Recipe to make Mayonnaise
 	if (reagents.has_reagent(/datum/reagent/consumable/eggyolk))
 		reagents.convert_reagent(/datum/reagent/consumable/eggyolk, /datum/reagent/consumable/mayonnaise)
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 
 	//Recipe to make whipped cream
 	if (reagents.has_reagent(/datum/reagent/consumable/cream))
 		reagents.convert_reagent(/datum/reagent/consumable/cream, /datum/reagent/consumable/whipped_cream)
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 
 #undef LARGE_MORTAR_STAMINA_MINIMUM
 #undef LARGE_MORTAR_STAMINA_USE

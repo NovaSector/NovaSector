@@ -41,7 +41,7 @@
 	if(!can_be_layer_adjusted)
 		return FALSE
 
-	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout()// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
 	if(!loadout?[item_path])
 		return FALSE
 
@@ -49,7 +49,7 @@
 		loadout[item_path][INFO_LAYER] = FALSE
 
 	loadout[item_path][INFO_LAYER] = !loadout[item_path][INFO_LAYER]
-	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout)// NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE // Update UI
 
 /datum/loadout_item/accessory/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
@@ -85,6 +85,10 @@
 	name = "Pocket Protector (Filled)"
 	item_path = /obj/item/clothing/accessory/pocketprotector/full
 	additional_displayed_text = list("Contains pens")
+
+/datum/loadout_item/accessory/colonial_webbing
+	name = "Slim Colonial Webbing"
+	item_path = /obj/item/clothing/accessory/colonial_webbing
 
 /datum/loadout_item/accessory/pride
 	name = "Pride Pin"

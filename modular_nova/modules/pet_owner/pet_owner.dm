@@ -28,6 +28,7 @@
 
 	var/obj/item/pet_carrier/carrier = new /obj/item/pet_carrier(get_turf(quirk_holder))
 	var/mob/living/basic/pet/pet = new pet_type(carrier)
+	var/obj/item/pet_food/pet_space_treat/space_treat = new /obj/item/pet_food/pet_space_treat
 	var/new_name = client_source?.prefs.read_preference(/datum/preference/text/pet_name)
 	if (new_name)
 		pet.name = new_name
@@ -47,6 +48,15 @@
 			LOCATION_HANDS = ITEM_SLOT_HANDS
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
+	)
+	give_item_to_holder(
+		space_treat,
+		list(
+			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
+			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
+			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
+			LOCATION_HANDS = ITEM_SLOT_HANDS,
+		),
 	)
 
 /datum/preference/choiced/pet_owner
@@ -74,6 +84,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
 	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
+	"Sweater Fox" = /mob/living/basic/pet/fox/docile/sweater,
 	"Frog" = /mob/living/basic/frog,
 	"Giant ant" = /mob/living/basic/ant,
 	"Kitten" = /mob/living/basic/pet/cat/kitten,
@@ -91,6 +102,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Snake" = /mob/living/basic/snake,
 	"Spider" = /mob/living/basic/spider/maintenance,
 	"Tegu" = /mob/living/basic/lizard/tegu,
+	"Turtle" = /mob/living/basic/turtle,
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
 
 /datum/preference/choiced/pet_owner/init_possible_values()

@@ -88,6 +88,10 @@
 		check_activity = "_active"
 	icon_state = "artifact_[artifact_type_id][check_activity]"
 
+/obj/machinery/artifact/emp_act(severity)
+	if(!QDELING(src))
+		return ..()
+
 /obj/machinery/artifact/Destroy()
 	do_destroy_effects()
 	loc.visible_message(

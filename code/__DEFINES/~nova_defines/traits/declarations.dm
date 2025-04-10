@@ -15,6 +15,7 @@
 #define TRAIT_EXCITABLE "wagwag" //Will wag when patted!
 #define TRAIT_OXYIMMUNE	"oxyimmune" // Immune to oxygen damage, ideally give this to all non-breathing species or bad stuff will happen
 #define TRAIT_AFFECTION_AVERSION "affection_aversion" // No more dogborg licking. "Dogborg bad" is no longer a personality
+#define TRAIT_SENSITIVE_HEARING "sensitive_hearing" // Teshari hearing, but as a quirk
 #define TRAIT_PERSONALSPACE "personalspace" // Block/counter-attack ass-slaps
 #define TRAIT_QUICKREFLEXES "quickreflexes" // Counters hugs and headpats
 #define TRAIT_MOOD_NOEXAMINE "mood_noexamine" // Can't assess your own mood
@@ -45,6 +46,9 @@
 
 /// One can breath under water, you get me?
 #define TRAIT_WATER_BREATHING "water_breathing"
+
+/// Trait to assign to pets who've already had a space treat to prevent double-feeding
+#define TRAIT_PET_SPACE_TREAT "space_pet_treat"
 
 /// The trait which Akulas inherit, for their species mechanic revolving around wet_stacks
 #define TRAIT_SLICK_SKIN "slick_skin"
@@ -81,13 +85,6 @@
 
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
-
-/// Trait source for xeno innate abilities
-#define TRAIT_XENO_INNATE "xeno_innate"
-/// Trait source for something added BY a xeno ability
-#define TRAIT_XENO_ABILITY_GIVEN "xeno_ability_given"
-/// Determines if something can receive healing from a xeno
-#define TRAIT_XENO_HEAL_AURA "trait_xeno_heal_aura"
 
 /// Trait that was granted by a reagent.
 #define TRAIT_REAGENT "reagent"

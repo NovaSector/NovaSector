@@ -20,15 +20,62 @@
 	name = "default port tarkon outfit"
 	uniform = /obj/item/clothing/under/tarkon
 	head = /obj/item/clothing/head/utility/welding/hat
-	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/winterboots
 	gloves = /obj/item/clothing/gloves/combat
+	back = /obj/item/storage/backpack
 	id = /obj/item/card/id/advanced/tarkon
 	id_trim = /datum/id_trim/away/tarkon
 	ears = /obj/item/radio/headset/tarkon
 	backpack_contents = list(
 		/obj/item/crowbar = 1
 		)
+	var/backpack = /obj/item/storage/backpack/tarkon //Replaces "back" item with provided backpack based on preference on role spawn. Will be used further in project Colony Echo
+	/// Replaces "back" item with provided satchel
+	var/satchel = /obj/item/storage/backpack/satchel/tarkon
+	/// Replaces "back" item with provided duffelbag
+	var/duffelbag = /obj/item/storage/backpack/duffelbag/tarkon
+	/// Replaces "back" item with provided messenger bag.
+	var/messenger = /obj/item/storage/backpack/messenger/tarkon
+
+/datum/outfit/tarkon/pre_equip(mob/living/carbon/human/tarkon, visuals_only = FALSE)
+	if(ispath(back, /obj/item/storage/backpack)) //we just steal this from the job outfit datum.
+		switch(tarkon.backpack)
+			if(GBACKPACK)
+				back = /obj/item/storage/backpack //Grey backpack
+			if(GSATCHEL)
+				back = /obj/item/storage/backpack/satchel //Grey satchel
+			if(GDUFFELBAG)
+				back = /obj/item/storage/backpack/duffelbag //Grey Duffel bag
+			if(LSATCHEL)
+				back = /obj/item/storage/backpack/satchel/leather //Leather Satchel
+			if(GMESSENGER)
+				back = /obj/item/storage/backpack/messenger //Grey messenger bag
+			if(DBACKPACK)
+				back = backpack //faction backpack
+			if(DSATCHEL)
+				back = satchel //faction satchel
+			if(DMESSENGER)
+				back = messenger //faction messenger bag
+			if(DDUFFELBAG)
+				back = duffelbag //faction duffel bag
+			else
+				back = backpack //faction backpack fallback incase bag pref shits bed
+
+	var/client/client = GLOB.directory[ckey(tarkon.mind?.key)]
+
+	if(isplasmaman(tarkon))
+		uniform = /obj/item/clothing/under/plasmaman
+		gloves = /obj/item/clothing/gloves/color/plasmaman
+		head = /obj/item/clothing/head/helmet/space/plasmaman
+		r_hand = /obj/item/tank/internals/plasmaman/belt/full
+		internals_slot = ITEM_SLOT_HANDS
+	if(isvox(tarkon) || isvoxprimalis(tarkon))
+		r_hand = /obj/item/tank/internals/nitrogen/belt/full
+		mask = /obj/item/clothing/mask/breath/vox
+		internals_slot = ITEM_SLOT_HANDS
+
+	if(client?.is_veteran() && client?.prefs.read_preference(/datum/preference/toggle/playtime_reward_cloak))
+		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
 
 /datum/outfit/tarkon/post_equip(mob/living/carbon/human/tarkon, visualsOnly = FALSE)
 	var/obj/item/card/id/id_card = tarkon.wear_id
@@ -107,7 +154,7 @@
 /datum/outfit/tarkon/sec
 	name = "Port Tarkon Security Outfit"
 	uniform = /obj/item/clothing/under/tarkon/sec
-	glasses = /obj/item/clothing/glasses/hud/security/redsec
+	glasses = /obj/item/clothing/glasses/hud/security
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	id = /obj/item/card/id/advanced/tarkon/sec
@@ -150,7 +197,7 @@
 	computer_area = /area/ruin/space/has_grav/port_tarkon
 
 /datum/outfit/tarkon/director //Look at me, I'm the director now.
-	name = "Port Tarkon Ensigns Outfit"
+	name = "Port Tarkon Directors Outfit"
 	uniform = /obj/item/clothing/under/tarkon/com
 	ears = /obj/item/radio/headset/tarkon/command
 	id = /obj/item/card/id/advanced/tarkon/director

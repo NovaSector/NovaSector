@@ -22,7 +22,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "bi" = (
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
@@ -46,7 +46,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "cf" = (
 /obj/machinery/light/small/red/directional/west,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
@@ -97,7 +97,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "db" = (
 /obj/machinery/light/broken/directional/east,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
@@ -174,18 +174,12 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "fa" = (
-/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
+/mob/living/basic/looter/big,
+/turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ff" = (
 /turf/closed/wall/mineral/titanium/survival,
@@ -235,7 +229,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "gm" = (
 /obj/machinery/light/small/red/directional/south,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "gr" = (
@@ -309,7 +303,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "hU" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "iy" = (
@@ -350,7 +344,7 @@
 /turf/open/floor/iron/white/smooth_half,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "iU" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
@@ -380,7 +374,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "kn" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/cheesezombie,
+/mob/living/basic/zombie/cheesezombie,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "kA" = (
@@ -412,12 +406,12 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lx" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/looter/ranged/space/laser,
+/mob/living/basic/looter/ranged/space/laser,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lK" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lM" = (
@@ -496,7 +490,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "nO" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/looter/big,
+/mob/living/basic/vox/ranged/space/laser,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "nR" = (
@@ -644,7 +638,7 @@
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "sV" = (
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "sY" = (
@@ -943,6 +937,7 @@
 	},
 /obj/item/pen/fountain/captain,
 /obj/item/folder,
+/mob/living/basic/looter/crusher,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "zA" = (
@@ -1026,7 +1021,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Cu" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -1123,7 +1118,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ej" = (
 /obj/structure/rack/shelf,
-/obj/item/surgery_tray/full,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "El" = (
@@ -1174,7 +1169,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EL" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
@@ -1198,7 +1193,7 @@
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "EY" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -1329,7 +1324,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "IZ" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie/nocorpse,
+/mob/living/basic/zombie/nocorpse,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ja" = (
@@ -1388,7 +1383,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Kk" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
@@ -1549,7 +1544,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ny" = (
-/mob/living/simple_animal/hostile/zombie/cheesezombie,
+/mob/living/basic/looter/crusher,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Nz" = (
@@ -1574,7 +1569,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "NU" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
@@ -1704,7 +1699,6 @@
 /turf/closed/indestructible/fakedoor/maintenance,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "QW" = (
-/obj/effect/mapping_helpers/airlock/locked,
 /turf/closed/indestructible/fakedoor/glass_airlock,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "RA" = (
@@ -1805,8 +1799,8 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ud" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/looter,
-/turf/open/floor/carpet/lone,
+/mob/living/basic/looter/big,
+/turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ul" = (
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -1878,14 +1872,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/cup/beaker/synthflesh,
 /obj/item/reagent_containers/cup/beaker/synthflesh,
-/obj/item/reagent_containers/pill/iron,
-/obj/item/reagent_containers/pill/iron,
-/obj/item/reagent_containers/pill/iron,
-/obj/item/reagent_containers/pill/oxandrolone,
-/obj/item/reagent_containers/pill/oxandrolone,
-/obj/item/reagent_containers/pill/potassiodide,
-/obj/item/reagent_containers/pill/potassiodide,
-/obj/item/reagent_containers/pill/stimulant,
+/obj/item/reagent_containers/applicator/pill/iron,
+/obj/item/reagent_containers/applicator/pill/iron,
+/obj/item/reagent_containers/applicator/pill/iron,
+/obj/item/reagent_containers/applicator/pill/oxandrolone,
+/obj/item/reagent_containers/applicator/pill/oxandrolone,
+/obj/item/reagent_containers/applicator/pill/potassiodide,
+/obj/item/reagent_containers/applicator/pill/potassiodide,
+/obj/item/reagent_containers/applicator/pill/stimulant,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
@@ -1906,12 +1900,11 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "YG" = (
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/basic/zombie,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "YP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
@@ -2416,7 +2409,7 @@ yy
 Mf
 oP
 se
-Qj
+Ud
 CT
 lx
 dk
@@ -2444,7 +2437,7 @@ Mf
 ax
 Ou
 zr
-Ud
+CT
 wi
 dk
 fw
@@ -2606,7 +2599,7 @@ Ou
 iM
 Mv
 wu
-fa
+VU
 qM
 We
 fw
@@ -2780,7 +2773,7 @@ fw
 We
 Nz
 WT
-kc
+fa
 kc
 uv
 wa

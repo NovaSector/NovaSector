@@ -94,37 +94,88 @@
 	. = ..()
 	. += span_notice("To be used on tendrils. It will visually change the tendril to indicate whether it has been cursed or not.")
 
-/obj/item/tendril_seed
-	name = "tendril seed"
-	desc = "A horrible fleshy mass that pulse with a dark energy."
+/obj/item/ash_seed
 	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
-	icon_state = "tendril_seed"
 
-/obj/item/tendril_seed/examine(mob/user)
+	///list of things the ash seed can spawn
+	var/list/spawn_list
+
+/obj/item/ash_seed/examine(mob/user)
 	. = ..()
 	. += span_notice("In order to be planted, it is required to be on the mining level as well as on basalt.")
 
-/obj/item/tendril_seed/attack_self(mob/user, modifiers)
+/obj/item/ash_seed/proc/harm_user(mob/living/user, var/sent_message, var/damage_amount)
+	to_chat(user, span_warning(sent_message))
+	user.adjustBruteLoss(damage_amount)
+	if(!do_after(user, 4 SECONDS, target = src))
+		to_chat(user, span_warning("You stop the process of planting [src]!"))
+		return FALSE
+
+	return TRUE
+
+/obj/item/ash_seed/attack_self(mob/user, modifiers)
 	. = ..()
+	if(isnull(spawn_list))
+		return
+
 	var/turf/src_turf = get_turf(src)
 	if(!is_mining_level(src_turf.z) || !istype(src_turf, /turf/open/misc/asteroid/basalt))
 		return
+
 	if(!isliving(user))
 		return
+
 	var/mob/living/living_user = user
-	to_chat(living_user, span_warning("You begin to squeeze [src]..."))
-	if(!do_after(living_user, 4 SECONDS, target = src))
+	if(!harm_user(user, "You begin to squeeze [src]...", 20))
 		return
-	to_chat(living_user, span_warning("[src] begins to crawl between your hand's appendages, crawling up your arm..."))
-	living_user.adjustBruteLoss(35)
-	if(!do_after(living_user, 4 SECONDS, target = src))
+
+	if(!harm_user(user, "[src] begins to crawl between your hand's appendages, crawling up your arm...", 20))
 		return
-	to_chat(living_user, span_warning("[src] wraps around your chest and begins to tighten, causing an odd needling sensation..."))
-	living_user.adjustBruteLoss(35)
-	if(!do_after(living_user, 4 SECONDS, target = src))
+
+	if(!harm_user(user, "[src] wraps around your chest and begins to tighten, causing an odd needling sensation...", 20))
 		return
+
 	to_chat(living_user, span_warning("[src] leaps from you satisfied and begins to grossly assemble itself!"))
-	var/type = pick(/obj/structure/spawner/lavaland, /obj/structure/spawner/lavaland/goliath, /obj/structure/spawner/lavaland/legion)
+	var/type = pick(spawn_list)
 	new type(user.loc)
 	playsound(get_turf(src), 'sound/effects/magic/demon_attack1.ogg', 50, TRUE)
 	qdel(src)
+
+/obj/item/ash_seed/tendril
+	name = "tendril seed"
+	desc = "A horrible fleshy mass that pulse with a dark energy."
+	icon_state = "tendril_seed"
+	spawn_list = list(/obj/structure/spawner/lavaland, /obj/structure/spawner/lavaland/goliath, /obj/structure/spawner/lavaland/legion)
+
+/obj/item/ash_seed/vent
+	name = "ore seed"
+	desc = "A horrible fleshy mass covers a boulder. It seems to slowly pulse, reacting to you near it"
+	icon_state = "vent_seed"
+	spawn_list = list(/obj/structure/ore_vent/random)
+
+/obj/item/forging/tongs/ashwalker
+	name = "primitive forging tongs"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+/datum/crafting_recipe/ash_recipe/ash_tongs
+	name = "Ash Forging Tongs"
+	result = /obj/item/forging/tongs/ashwalker
+
+/obj/item/forging/hammer/ashwalker
+	name = "primitive forging hammer"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+/datum/crafting_recipe/ash_recipe/ash_hammer
+	name = "Ash Forging Hammer"
+	result = /obj/item/forging/hammer/ashwalker
+
+/obj/item/forging/billow/ashwalker
+	name = "primitive forging billow"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+/datum/crafting_recipe/ash_recipe/ash_billow
+	name = "Ash Forging Billow"
+	result = /obj/item/forging/billow/ashwalker

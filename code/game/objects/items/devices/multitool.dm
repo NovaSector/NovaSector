@@ -10,12 +10,13 @@
 
 
 
-/obj/item/multitool //NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/multitool
 	name = "multitool"
 	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors. You can activate it in-hand to locate the nearest APC."
-	icon = 'icons/obj/devices/tool.dmi'
+	icon = 'icons/obj/devices/tool.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "multitool"
 	inhand_icon_state = "multitool"
+	icon_angle = -90
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	force = 5
@@ -294,6 +295,7 @@
 	desc = "Optimised version of a regular multitool. Streamlines processes handled by its internal microchip."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_multitool"
+	icon_angle = 0
 	toolspeed = 0.5
 
 #undef PROXIMITY_NEAR

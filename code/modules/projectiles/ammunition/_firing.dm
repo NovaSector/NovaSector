@@ -27,7 +27,7 @@
 		user.newtonian_move(get_angle(target, user), drift_force = newtonian_force)
 	else if(ismovable(fired_from))
 		var/atom/movable/firer = fired_from
-		if(!firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force))
+		if(!firer.anchored && !firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force)) // NOVA EDIT CHANGE - ORIGINAL: if(!firer.newtonian_move(get_angle(target, fired_from), instant = TRUE, drift_force = newtonian_force))
 			var/throwtarget = get_step(fired_from, get_dir(target, fired_from))
 			firer.safe_throw_at(throwtarget, 1, 2)
 	update_appearance()
@@ -61,6 +61,8 @@
 
 		loaded_projectile.damage *= gun.projectile_damage_multiplier * integrity_mult
 		loaded_projectile.stamina *= gun.projectile_damage_multiplier * integrity_mult
+
+		loaded_projectile.speed *= gun.projectile_speed_multiplier * integrity_mult
 
 		loaded_projectile.wound_bonus += gun.projectile_wound_bonus
 		loaded_projectile.wound_bonus *= loaded_projectile.wound_bonus >= 0 ? 1 : 2 - integrity_mult

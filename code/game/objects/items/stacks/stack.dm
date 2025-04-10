@@ -47,7 +47,7 @@
 	/// Does this stack require a unique girder in order to make a wall?
 	var/has_unique_girder = FALSE
 	/// What typepath table we create from this stack
-	var/obj/structure/table/tableVariant
+	var/obj/structure/table/table_type
 	/// What typepath stairs do we create from this stack
 	var/obj/structure/stairs/stairs_type
 	/// If TRUE, we'll use a radial instead when displaying recipes
@@ -215,6 +215,12 @@
 	else
 		. = (amount)
 
+/// Gets the table type we make, accounting for potential exceptions.
+/obj/item/stack/proc/get_table_type()
+	if(ispath(table_type, /obj/structure/table/greyscale) && isnull(material_type))
+		return // This table type breaks without a material type.
+	return table_type
+
 /**
  * Builds all recipes in a given recipe list and returns an association list containing them
  *
@@ -239,12 +245,21 @@
  * * R - The stack recipe we are using to get a list of properties
  */
 /obj/item/stack/proc/build_recipe(datum/stack_recipe/R)
-	return list(
-		"res_amount" = R.res_amount,
-		"max_res_amount" = R.max_res_amount,
-		"req_amount" = R.req_amount,
-		"ref" = text_ref(R),
-	)
+	var/list/data = list()
+	var/obj/result = R.result_type
+
+	data["ref"] = text_ref(R)
+	data["req_amount"] = R.req_amount
+	data["res_amount"] = R.res_amount
+	data["max_res_amount"] = R.max_res_amount
+	data["icon"] = result.icon
+	data["icon_state"] = result.icon_state
+
+	// DmIcon cannot paint images. So, if we have grayscale sprite, we need ready base64 image.
+	if(R.result_image)
+		data["image"] = R.result_image
+
+	return data
 
 /**
  * Checks if the recipe is valid to be used
@@ -386,7 +401,8 @@
 			adjusted_time = (recipe.time * recipe.trait_modifier)
 		else
 			adjusted_time = recipe.time
-		if(!do_after(builder, adjusted_time, target = builder))
+		var/skill_modifier = builder.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT ADDITION: Construction Skill
+		if(!do_after(builder, adjusted_time * skill_modifier, target = builder)) //NOVA EDIT ADDITION: Construction Skill
 			builder.balloon_alert(builder, "interrupted!")
 			return
 		if(!building_checks(builder, recipe, multiplier))
@@ -415,6 +431,7 @@
 		SEND_SIGNAL(created, COMSIG_ATOM_CONSTRUCTED, builder)
 		on_item_crafted(builder, created)
 
+	builder.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 	// Use up the material
 	use(recipe.req_amount * multiplier)
 	builder.investigate_log("crafted [recipe.title]", INVESTIGATE_CRAFTING)

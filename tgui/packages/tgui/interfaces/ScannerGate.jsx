@@ -1,5 +1,6 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
+
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
@@ -12,6 +13,18 @@ const DISEASE_THEASHOLD_LIST = [
   'Dangerous',
   'BIOHAZARD',
 ];
+// NOVA EDIT ADDITION START
+const TARGET_GENDER_LIST = [
+  {
+    name: 'Male',
+    value: 'male',
+  },
+  {
+    name: 'Female',
+    value: 'female',
+  },
+];
+// NOVA EDIT ADDITION END
 
 const TARGET_NUTRITION_LIST = [
   {

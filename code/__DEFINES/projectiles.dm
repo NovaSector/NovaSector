@@ -18,18 +18,18 @@
 #define CALIBER_9MM "9mm"
 /// The caliber used by smart SMG ammunition
 #define CALIBER_160SMART ".160 Smart"
-/// The caliber used as the default for ballistic guns. Only not overridden for the [surplus rifle][/obj/item/gun/ballistic/automatic/surplus].
+/// The caliber used as the default for ballistic guns.
 #define CALIBER_10MM "10mm"
 /// The caliber used by most revolver variants.
 #define CALIBER_357 ".357"
 /// The caliber used by the detective's revolver.
 #define CALIBER_38 ".38"
 /// The caliber used by the C-20r SMG, the tommygun, and the M1911 pistol.
-#define CALIBER_45 ".45"
+#define CALIBER_45 ".460 Ceres" // NOVA EDIT CHANGE - ORIGINAL: #define CALIBER_45 ".45"
 /// The caliber used by sniper rifles.
-#define CALIBER_50BMG ".50BMG"
+#define CALIBER_50BMG ".416 Stabilis" // NOVA EDIT - CHANGE - ORIGINAL: #define CALIBER_50BMG ".50BMG"
 /// The caliber used by the desert eagle.
-#define CALIBER_50AE ".50AE"
+#define CALIBER_50AE ".454 Trucidator" // NOVA EDIT CHANGE - ORIGINAL: #define CALIBER_50AE ".50AE"
 /// The caliber used by the gyrojet pistol.
 #define CALIBER_75 ".75"
 /// The caliber used by [one revolver variant][/obj/item/gun/ballistic/revolver/nagant].
@@ -37,7 +37,7 @@
 /// The caliber used by the the M-90gl Carbine, and NT-ARG 'Boarder'.
 #define CALIBER_A223 "a223"
 /// The caliber used by bolt action rifles.
-#define CALIBER_STRILKA310 ".310_strilka"
+#define CALIBER_STRILKA310 ".310 strilka"
 /// The caliber used by shotguns.
 #define CALIBER_SHOTGUN "shotgun"
 /// The caliber used by grenade launchers.
@@ -49,7 +49,7 @@
 /// The caliber used by most energy guns.
 #define CALIBER_ENERGY "energy"
 /// The acliber used by foam force and donksoft toy guns.
-#define CALIBER_FOAM "foam_force"
+#define CALIBER_FOAM "foam force"
 /// The caliber used by the bow and arrow.
 #define CALIBER_ARROW "arrow"
 /// The caliber used by the harpoon gun.
@@ -62,6 +62,8 @@
 #define CALIBER_TENTACLE "tentacle"
 /// The caliber used by pipeguns and pipe pistols
 #define CALIBER_JUNK "junk"
+/// The caliber used by the (gatfruit) peashooter
+#define CALIBER_PEA "pea"
 
 /// For gunpoints, how many tiles around the target the shooter can roam without losing their shot
 #define GUNPOINT_SHOOTER_STRAY_RANGE 2

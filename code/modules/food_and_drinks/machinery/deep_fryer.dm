@@ -13,12 +13,13 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	/obj/item/reagent_containers/cup,
 	/obj/item/reagent_containers/syringe,
 	/obj/item/reagent_containers/hypospray/medipen, //letting medipens become edible opens them to being injected/drained with IV drip & saltshakers
+	/obj/item/slimecrossbeaker/autoinjector, //same as medipen
 )))
 
-/obj/machinery/deepfryer//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/machinery/deepfryer
 	name = "deep fryer"
 	desc = "Deep fried <i>everything</i>."
-	icon = 'icons/obj/machines/kitchen.dmi'
+	icon = 'icons/obj/machines/kitchen.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "fryer_off"
 	density = TRUE
 	pass_flags_self = PASSMACHINE | LETPASSTHROW
@@ -103,7 +104,7 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 
 /obj/machinery/deepfryer/attackby(obj/item/weapon, mob/user, params)
 	// Dissolving pills into the frier
-	if(istype(weapon, /obj/item/reagent_containers/pill))
+	if(istype(weapon, /obj/item/reagent_containers/applicator/pill))
 		if(!reagents.total_volume)
 			to_chat(user, span_warning("There's nothing to dissolve [weapon] in!"))
 			return

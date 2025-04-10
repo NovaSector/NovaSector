@@ -98,8 +98,8 @@
 	item_path = /obj/item/clothing/shoes/combat/rax
 	ckeywhitelist = list("raxraus")
 
-/datum/loadout_item/suit/rax_peacekeeper_jacket
-	name = "Peacekeeper jacket"
+/datum/loadout_item/suit/rax_officer_jacket
+	name = "Officer jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/warden/rax
 	ckeywhitelist = list("raxraus")
 	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
@@ -139,12 +139,12 @@
 /datum/loadout_item/mask/divemask_koru
 	name = "S.O.K.O. Gaiter"
 	item_path = /obj/item/clothing/mask/gas/signalis_gaiter
-	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf", "opportunerover22")
+	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf", "opportunerover22", "regaleira")
 
 /datum/loadout_item/under/jumpsuit/divesuit_koru
 	name = "S.O.K.O. Bodysuit"
 	item_path = /obj/item/clothing/under/bodysuit_koruu
-	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf", "opportunerover22")
+	ckeywhitelist = list("koruu", "foxyandiknowit", "candlejax", "shyelf", "opportunerover22", "regaleira")
 
 /datum/loadout_item/under/jumpsuit/anasuit
 	name = "Azulean's Enviro-Suit"
@@ -827,7 +827,6 @@
 /datum/loadout_item/toys/delphic_synth
 	name = "Surgery Synth Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
-	ckeywhitelist = list("sciamach")
 
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"
@@ -859,7 +858,7 @@
     item_path = /obj/item/storage/backpack/satchel/drop_pouch
     ckeywhitelist = list("alvcyktor", "snakebittenn")
 
-/datum/loadout_item/inhand/melonseva
+/datum/loadout_item/pocket_items/melonseva
 	name = "Sundowner SEVA"
 	item_path = /obj/item/clothing/suit/hooded/seva/melon
 	ckeywhitelist = list("deadmonwonderland")
@@ -915,3 +914,46 @@
 	name = "Worn Corporate Cloak"
 	item_path = /obj/item/clothing/neck/tattered
 	ckeywhitelist = list("jaklz")
+
+/datum/loadout_item/toys/commandant
+	name = "Commandant Plushie"
+	item_path = /obj/item/toy/plush/nova/donator/commandant
+// ckeywhitelist = list("bonkaitheroris") // Asked it to be public
+
+/datum/loadout_item/neck/noble_cloak
+	name = "Noble Cloak"
+	item_path = /obj/item/clothing/neck/noble_mantle
+	ckeywhitelist = list("sharkoink")
+
+/datum/loadout_item/pocket_items/comvest
+	name = "Command Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat/melon
+	ckeywhitelist = list("deadmonwonderland")
+	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/pocket_items/amps
+	name = "Anomalous Materials Protection Suit"
+	item_path = /obj/item/clothing/suit/hooded/explorer/melon
+	ckeywhitelist = list("deadmonwonderland")
+	restricted_roles = list(JOB_SHAFT_MINER)
+
+/datum/loadout_item/under/formal/ambassadordagmar
+	name = "Ambassador's Dress"
+	item_path = /obj/item/clothing/under/dress/ambassadordagmar
+	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/under/formal/neoflapper
+	name = "Neo-Flapper Dress"
+	item_path = /obj/item/clothing/under/dress/neoflapperdagmar
+	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/under/formal/heirloomdagmar
+	name = "Heirloom Dress"
+	item_path = /obj/item/clothing/under/dress/heirloomdagmar
+	ckeywhitelist = list("spookyrotini")
+
+/datum/loadout_item/pocket_items/ahabs_spear
+	name = "Ahab's Spear Retool Kit"
+	item_path = /obj/item/crusher_trophy/retool_kit/ahab
+	ckeywhitelist = list("tamaya")
+	restricted_roles = list(JOB_SHAFT_MINER)

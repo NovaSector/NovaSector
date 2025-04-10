@@ -5,6 +5,7 @@
 
 ##RESPAWN
 #_maps/RandomRuins/AnywhereRuins/golem_ship.dmm
+#_maps/RandomRuins/IceRuins/icemoon_duo_hermit.dmm
 _maps/RandomRuins/IceRuins/icemoon_underground_comms_agent.dmm
 #_maps/RandomRuins/IceRuins/icemoon_underground_hermit.dmm
 

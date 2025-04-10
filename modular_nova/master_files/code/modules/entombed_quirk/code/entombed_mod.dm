@@ -10,8 +10,7 @@
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
 	charge_drain = DEFAULT_CHARGE_DRAIN
-	slowdown_inactive = 2.5 // very slow because the quirk infers you rely on this to move/exist
-	slowdown_active = 0.95
+	slowdown_deployed = 0.95
 	inbuilt_modules = list(
 		/obj/item/mod/module/joint_torsion/entombed,
 		/obj/item/mod/module/storage,
@@ -69,7 +68,8 @@
 	if (!host_suit)
 		//if we have no host suit, we shouldn't exist, so delete
 		host = null
-		qdel(parent)
+		if(!QDELETED(parent))
+			qdel(parent)
 		return
 
 	var/obj/item/clothing/piece = parent
@@ -110,7 +110,7 @@
 	who.balloon_alert(who, "can't strip a fused MODsuit!")
 	return ..()
 
-/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part)
+/obj/item/mod/control/pre_equipped/entombed/retract(mob/user, obj/item/part, instant)
 	if (ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/datum/quirk/equipping/entombed/tomb_quirk = human_user.get_quirk(/datum/quirk/equipping/entombed)

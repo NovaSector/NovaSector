@@ -494,6 +494,12 @@
 /obj/structure/marker_beacon/lime,
 /turf/open/floor/plating/lavaland_atmos,
 /area/ruin/interdyne_planetary_base)
+"eo" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base)
 "es" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood,
@@ -1934,6 +1940,12 @@
 	},
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
+"qj" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base/serv/bar)
 "ql" = (
 /obj/effect/turf_decal/trimline/dark_green/warning{
 	dir = 1
@@ -2005,7 +2017,7 @@
 /area/ruin/interdyne_planetary_base/eng)
 "qw" = (
 /obj/structure/table/reinforced/rglass,
-/obj/item/surgery_tray/full/morgue,
+/obj/effect/spawner/surgery_tray/full/morgue,
 /obj/machinery/camera/autoname/directional/east{
 	network = list("intd13")
 	},
@@ -2969,6 +2981,12 @@
 /obj/structure/railing,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
+"zE" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ruin/interdyne_planetary_base/cargo)
 "zI" = (
 /obj/effect/turf_decal/siding/dark{
@@ -4641,6 +4659,12 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/ruin/interdyne_planetary_base/med)
+"MK" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "IP"
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ruin/interdyne_planetary_base/cargo/deck)
 "MM" = (
 /obj/effect/turf_decal/tile/dark_green/half{
 	dir = 4
@@ -5691,6 +5715,18 @@
 "UE" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/syndicate/red/secretformula,
+/obj/item/circuitboard/computer/syndiepad{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/circuitboard/machine/syndiepad{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/circuitboard/computer/cargo/express/interdyne{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "UN" = (
@@ -6590,7 +6626,7 @@ By
 By
 By
 By
-By
+MK
 LH
 ko
 RD
@@ -7738,7 +7774,7 @@ rj
 sN
 pn
 jo
-Ih
+zE
 xB
 ql
 oa
@@ -7771,7 +7807,7 @@ fm
 fm
 kk
 Iu
-vu
+eo
 ta
 LY
 Wf
@@ -7826,7 +7862,7 @@ KE
 ZV
 OU
 TV
-RY
+qj
 EA
 XG
 Zk

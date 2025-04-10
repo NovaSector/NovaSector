@@ -37,7 +37,7 @@
 			if(QDELETED(chosen_machine))
 				return
 
-			new /mob/living/simple_animal/hostile/mimic/copy/machine(get_turf(chosen_machine), chosen_machine, holder, TRUE)
+			new /mob/living/basic/mimic/copy/machine(get_turf(chosen_machine), chosen_machine, holder, TRUE)
 
 /**
  * Tries to mess with silicon's laws OR emag simple bots

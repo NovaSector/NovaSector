@@ -1,4 +1,4 @@
-/obj/item/gun/energy/ionrifle // NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+/obj/item/gun/energy/ionrifle //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "ion rifle"
 	desc = "A man-portable anti-armor weapon designed to disable mechanical threats at range."
 	icon_state = "ionrifle"
@@ -364,7 +364,7 @@
 	name = "tesla cannon"
 	icon_state = "tesla"
 	inhand_icon_state = "tesla"
-	desc = "A gun that shoots balls of \"tesla\", whatever that is."
+	desc = "A gun powered by a flux anomaly that shoots lightning bolts. Electrically insulating clothing may protect from some of the damage."
 	ammo_type = list(/obj/item/ammo_casing/energy/tesla_cannon)
 	shaded_charge = TRUE
 	weapon_weight = WEAPON_HEAVY

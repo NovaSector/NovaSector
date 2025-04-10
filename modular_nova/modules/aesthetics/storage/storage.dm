@@ -1,6 +1,3 @@
-/obj/item/storage/medkit/emergency
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
-
 /obj/item/borg/upgrade/rped
 	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
 	icon_state = "borgrped"
@@ -34,23 +31,6 @@
 /obj/item/storage/box/cyber_implants
 	illustration = null //Included in the sprite
 
-/obj/item/storage/box/fishing_hooks
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/fishing_lures
-	icon = 'icons/obj/storage/box.dmi'
-/obj/item/storage/box/fishing_lines
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/fish_debug
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/fish_revival_kit
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/aquarium_props
-	icon = 'icons/obj/storage/box.dmi'
-
 /obj/item/storage/box/mothic_rations
 	icon = 'icons/obj/storage/box.dmi'
 
@@ -68,7 +48,6 @@
 
 /obj/item/storage/box/tiziran_goods
 	icon = 'icons/obj/storage/box.dmi'
-
 
 /*
 // Medical
@@ -164,3 +143,43 @@
 
 /obj/item/storage/box/exileimp
 	icon_state = "secbox"
+
+/*
+// Paper Bags
+*/
+/obj/item/storage/box/papersack
+	/// The modular icon file for the new designs
+	var/modular_additions_icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'
+
+/obj/item/storage/box/papersack/Initialize(mapload)
+	. = ..()
+
+	papersack_designs  += list(
+		"Grey" = image(icon = modular_additions_icon, icon_state = "paperbag_Grey"),
+		"Black" = image(icon = modular_additions_icon, icon_state = "paperbag_Black"),
+		"Sec" = image(icon = modular_additions_icon, icon_state = "paperbag_Sec"),
+		"Medical" = image(icon = modular_additions_icon, icon_state = "paperbag_Medical"),
+		"Fox" = image(icon = modular_additions_icon, icon_state = "paperbag_Fox"),
+		"Bunny" = image(icon = modular_additions_icon, icon_state = "paperbag_Bunny"),
+	)
+	sort_list(papersack_designs)
+	update_appearance()
+
+/obj/item/storage/box/papersack/update_desc(updates)
+	icon = modular_additions_icon
+	switch(design_choice)
+		if("Grey")
+			desc = "A grey sack neatly crafted out of paper."
+		if("Black")
+			desc = "A black sack neatly crafted out of paper."
+		if("Sec")
+			desc = "A sturdy paper sack ideal to carry lunch on those lonely long patrols."
+		if("Medical")
+			desc = "A Nitrile lined sack useful to carry sanitized snacks for both patients and medical staff alike."
+		if("Fox")
+			desc = "A paper sack with a prowling fox etched onto the side."
+		if("Bunny")
+			desc = "A paper sack with a hopping bunny etched onto the side."
+		else
+			icon = initial(icon)
+	return ..()

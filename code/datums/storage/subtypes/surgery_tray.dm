@@ -18,7 +18,7 @@
 		/obj/item/cautery,
 		/obj/item/circular_saw,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/hospitalgown, // NOVA EDIT ADDITION
+		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown, // NOVA EDIT ADDITION
 		/obj/item/hemostat,
 		/obj/item/razor,
 		/obj/item/retractor,

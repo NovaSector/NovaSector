@@ -162,7 +162,7 @@ trait_name = "Station"
 map_files = ["icebox_ntrep_office.dmm"]
 directory = "_maps/nova/automapper/templates/icebox/"
 required_map = "IceBoxStation.dmm"
-coordinates = [92, 118, 2]
+coordinates = [92, 120, 2]
 trait_name = "Station"
 
 # Icebox HoP Maint
@@ -504,12 +504,4 @@ map_files = ["nebulastation_supermatter.dmm"]
 directory = "_maps/nova/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [116, 95, 1]
-trait_name = "Station"
-
-# Nebulastation Anti-Hotwire
-[templates.nebulastation_no_hotwire]
-map_files = ["nebulastation_no_hotwire.dmm"]
-directory = "_maps/nova/automapper/templates/nebulastation/"
-required_map = "NebulaStation.dmm"
-coordinates = [119, 114, 1]
 trait_name = "Station"

@@ -5,7 +5,7 @@
 	extended_desc = "A built-in app for cyborg self-management and diagnostics."
 	ui_header = "robotact.gif" //DEBUG -- new icon before PR
 	program_open_overlay = "command"
-	program_flags = NONE
+	program_flags = PROGRAM_HEADER
 	undeletable = TRUE
 	can_run_on_flags = PROGRAM_PDA
 	size = 5
@@ -182,3 +182,11 @@
 				return
 			if(cyborg.emagged || istype(cyborg, /mob/living/silicon/robot/model/syndicate)) //This option shouldn't even be showing otherwise
 				cyborg.self_destruct(cyborg)
+	//NOVA EDIT ADDITION BEGIN - Adds in a Toggle for the Camera, blocking the AI from doing so
+		if("cameraToggle")
+			if(istype(cyborg, /mob/living/silicon/robot/shell))
+				to_chat(cyborg, span_warning("Disabling your own camera seems like a bad idea."))
+				return
+			else
+				cyborg.builtInCamera.toggle_cam()
+	//NOVA EDIT ADDITION END

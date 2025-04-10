@@ -1,7 +1,8 @@
 // THIS IS A NOVA SECTOR UI FILE
+import { ByondUi, Section, Stack } from 'tgui-core/components';
+
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { ByondUi, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 const formatURLs = (text) => {
@@ -43,6 +44,7 @@ export const ExaminePanel = (props) => {
     custom_species,
     custom_species_lore,
     headshot,
+    veteran_status,
     ideal_antag_optin_status,
     current_antag_optin_status,
     opt_in_colors = { optin, color },
@@ -108,6 +110,19 @@ export const ExaminePanel = (props) => {
                       title="OOC Notes"
                       preserveWhitespace
                     >
+                      {!!veteran_status && (
+                        <Stack.Item>
+                          <span
+                            style={{
+                              color: 'gold',
+                              fontWeight: 'bold',
+                            }}
+                          >
+                            Player is a Veteran.
+                          </span>
+                          {'\n\n'}
+                        </Stack.Item>
+                      )}
                       {ideal_antag_optin_status && (
                         <Stack.Item>
                           Current Antag Opt-In Status:{' '}
