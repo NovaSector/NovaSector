@@ -64,5 +64,28 @@
 	new /obj/item/clothing/head/helmet/space/plasmaman/prototype(src)
 	new /obj/item/clothing/gloves/color/plasmaman/prototype(src)
 
+/// Security
 
+/obj/item/storage/box/envirosuit/security
+	name = "alternate security envirosuit kit"
+	desc = "A box containing a complete alternate Security plasmaman envirosuit. For the sadistic of bones."
 
+/obj/item/storage/box/envirosuit/security/PopulateContents()
+	new /obj/item/clothing/under/plasmaman/security/nova(src)
+	new /obj/item/clothing/head/helmet/space/plasmaman/security/nova(src)
+
+/obj/item/storage/box/envirosuit/security_warden
+	name = "alternate warden envirosuit kit"
+	desc = "A box containing a complete alternate Warden plasmaman envirosuit. For the protective of bones."
+
+/obj/item/storage/box/envirosuit/security_warden/PopulateContents()
+	new /obj/item/clothing/under/plasmaman/security/nova/warden(src)
+	new /obj/item/clothing/head/helmet/space/plasmaman/security/nova/warden(src)
+
+/obj/item/storage/box/envirosuit/security_hos
+	name = "alternate head of security envirosuit kit"
+	desc = "A box containing a complete alternate Head of Security plasmaman envirosuit. For the authoritative of bones."
+
+/obj/item/storage/box/envirosuit/security_hos/PopulateContents()
+	new /obj/item/clothing/under/plasmaman/security/nova/head_of_security(src)
+	new /obj/item/clothing/head/helmet/space/plasmaman/security/nova/head_of_security(src)

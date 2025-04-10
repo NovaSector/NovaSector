@@ -22,7 +22,7 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "g" = (
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/firealarm/directional/east,
 /obj/structure/closet/secure_closet/armory_kiboko,
 /turf/open/floor/iron/dark,
@@ -59,7 +59,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -132,7 +132,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/ai_monitored/security/armory)
 "D" = (
-/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -240,7 +240,7 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "P" = (
-/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
 /obj/structure/rack/gunrack,
@@ -248,10 +248,10 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "Q" = (
-/obj/effect/turf_decal/trimline/dark_blue/filled/corner,
-/obj/effect/turf_decal/trimline/dark_blue/filled/warning{
+/obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
 	},
+/obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "R" = (
