@@ -513,17 +513,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /obj/machinery/cryopod/send_to_ghostcafe
 	name = "Ghost cafe pod"
-	icon_state = "ghostcafepod"
+	desc = parent_type::desc + " This one is primed to ship its occupant to the ghost cafe."
+	icon_state = "ghostcafepod-open"
 	base_icon_state = "ghostcafepod"
-	open_icon_state = "ghostcafepod"
 	despawn_to_ghostcafe = TRUE
-	time_till_despawn = 5 SECONDS
+	time_till_despawn = 6 SECONDS
 
 /// Special wall mounted cryopod for the prison, making it easier to autospawn.
 /obj/machinery/cryopod/prison
-	icon_state = "prisonpod"
-	base_icon_state = "prisonpod"
-	open_icon_state = "prisonpod"
+	icon_state = "ghostcafepod-open"
+	base_icon_state = "ghostcafepod"
 	density = FALSE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
@@ -543,7 +542,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	/// For figuring out where the local cryopod computer is. Must be set for cryo computer announcements.
 	var/area/computer_area
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout)
 	var/mob/living/spawned_mob = ..()
 	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
 
