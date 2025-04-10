@@ -177,7 +177,7 @@
 
 /// Sets the description of the item.
 /datum/loadout_item/proc/set_description(datum/preference_middleware/loadout/manager, mob/user)
-	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/loadout = manager.get_current_loadout()
 	var/input_desc = tgui_input_text(
 		user = user,
 		message = "What description do you want to give the [name]? Leave blank to clear.",
@@ -188,7 +188,7 @@
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
 		return FALSE
 
-	loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
+	loadout = manager.get_current_loadout() // Make sure no shenanigans happened
 	if(!loadout?[item_path])
 		return FALSE
 
