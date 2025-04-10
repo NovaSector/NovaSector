@@ -158,8 +158,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	/// Time until despawn when a mob enters a cryopod. You cannot other people in pods unless they're catatonic.
 	var/time_till_despawn = 30 SECONDS
-	/// Cooldown for when it's now safe to try an despawn the player.
-	COOLDOWN_DECLARE(despawn_world_time)
 
 	///Weakref to our controller
 	var/datum/weakref/control_computer_weakref
@@ -168,6 +166,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/quiet = FALSE
 	/// Has the occupant been tucked in?
 	var/tucked = FALSE
+	/// If this cryopod should despawn the occupant to the ghost cafe
+	var/despawn_to_ghostcafe
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
@@ -221,7 +221,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(istype(human_occupant) && human_occupant.mind)
 		human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
-	COOLDOWN_START(src, despawn_world_time, time_till_despawn)
+	addtimer(CALLBACK(src, PROC_REF(despawn_after_timer)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
@@ -237,7 +237,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/relaymove(mob/user)
 	container_resist_act(user)
 
-/obj/machinery/cryopod/process()
+/// Despawn the mob. To be called via addtimer.
+/obj/machinery/cryopod/proc/despawn_after_timer()
 	if(!occupant)
 		return
 
@@ -245,7 +246,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(mob_occupant.stat == DEAD)
 		open_machine()
 
-	if(!mob_occupant.client && COOLDOWN_FINISHED(src, despawn_world_time))
+	if(!mob_occupant.client)
 		if(!control_computer_weakref)
 			find_control_computer(urgent = TRUE)
 
@@ -387,7 +388,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
-	mob_occupant.ghostize()
+	var/mob/dead/observer/occupant_ghost_mob = mob_occupant.ghostize()
+	if(despawn_to_ghostcafe)
+		var/obj/effect/mob_spawn/ghost_role/ghostcafe_spawner
+		if(iscyborg(mob_occupant))
+			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/robot/ghostcafe::name]
+		else
+			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/human/ghostcafe::name]
+		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, use_loadout = TRUE)
 	QDEL_NULL(occupant)
 	open_machine()
 	name = initial(name)
@@ -502,6 +510,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/update_icon_state()
 	icon_state = state_open ? open_icon_state : base_icon_state
 	return ..()
+
+/obj/machinery/cryopod/send_to_ghostcafe
+	name = "Ghost cafe pod"
+	icon_state = "ghostcafepod"
+	base_icon_state = "ghostcafepod"
+	open_icon_state = "ghostcafepod"
+	despawn_to_ghostcafe = TRUE
+	time_till_despawn = 5 SECONDS
 
 /// Special wall mounted cryopod for the prison, making it easier to autospawn.
 /obj/machinery/cryopod/prison
