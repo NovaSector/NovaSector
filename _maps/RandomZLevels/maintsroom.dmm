@@ -7214,8 +7214,8 @@
 /area/awaymission/caves/maintsroom)
 "CX" = (
 /obj/effect/rune/apocalypse,
-/mob/living/basic/cult/magic/elite{
-	loot = list(/obj/item/melee/cultblade/haunted)
+/mob/living/basic/cult/magic/elite/fireball{
+	death_loot = list(/obj/item/melee/cultblade/haunted)
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -9025,10 +9025,10 @@
 /turf/open/floor/iron/grimy,
 /area/awaymission/caves/maintsroom)
 "Kq" = (
-/mob/living/basic/skeleton/templar,
 /obj/structure/chair{
 	dir = 8
 	},
+/mob/living/basic/skeleton/templar,
 /turf/open/floor/iron/chapel{
 	dir = 8
 	},
