@@ -250,7 +250,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		if(!control_computer_weakref)
 			find_control_computer(urgent = TRUE)
 
-		despawn_occupant()
+	despawn_occupant()
 
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
