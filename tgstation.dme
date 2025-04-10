@@ -7938,6 +7938,8 @@
 #include "modular_nova\modules\exp_corps\code\expeditionary_trooper.dm"
 #include "modular_nova\modules\exp_corps\code\gear.dm"
 #include "modular_nova\modules\exp_corps\code\tomahawk.dm"
+#include "modular_nova\modules\extra_skills\rewards.dm"
+#include "modular_nova\modules\extra_skills\skills.dm"
 #include "modular_nova\modules\extra_vv\code\extra_vv.dm"
 #include "modular_nova\modules\faction\code\clothes.dm"
 #include "modular_nova\modules\faction\code\id.dm"
