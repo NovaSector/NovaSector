@@ -234,3 +234,6 @@
   - code_imp: updated some of our modular code to use the newer procs
   sergeirocks100:
   - map: There is now a cooking oil vat in SerenityStation's cold room.
+  vinylspiders:
+  - bugfix: fixes proto kinetic crushers having the wrong inhand icons when a retool
+      kit is applied
