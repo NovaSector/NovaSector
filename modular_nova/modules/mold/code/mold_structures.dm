@@ -35,7 +35,7 @@
 	update_appearance()
 
 /obj/structure/mold/LateInitialize()
-	if(isnull(mold_type)
+	if(isnull(mold_type))
 		mold_type = mold_controller?.mold_type
 
 	color = mold_type.mold_color
@@ -57,7 +57,7 @@
 			light_color = mold_type.structure_light_color
 
 /obj/structure/mold/structure/LateInitialize()
-	if(isnull(mold_type)
+	if(isnull(mold_type))
 		mold_type = mold_controller?.mold_type
 
 	color = mold_type.mold_color
