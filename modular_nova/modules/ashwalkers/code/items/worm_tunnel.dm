@@ -68,17 +68,19 @@ GLOBAL_LIST_EMPTY(ashwalker_tunnels)
 			to_chat(user, span_warning("There is already wood blocking [src]!"))
 			return ITEM_INTERACT_BLOCKING
 
-		if(!do_after(user, 5 SECONDS, target = src))
-			to_chat(user, span_notice("You decide against covering [src]."))
-			return ITEM_INTERACT_BLOCKING
-
 		if(!tool.use(2))
 			to_chat(user, span_warning("You are unable to use [tool] to cover [src]!"))
+			return ITEM_INTERACT_BLOCKING
+
+		if(!do_after(user, 5 SECONDS, target = src))
+			to_chat(user, span_notice("You decide against covering [src]."))
 			return ITEM_INTERACT_BLOCKING
 
 		covered_tunnel = TRUE
 		add_overlay("tunnel_cover")
 		return ITEM_INTERACT_BLOCKING
+
+	return ..()
 
 /obj/structure/worm_tunnel/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -96,15 +98,16 @@ GLOBAL_LIST_EMPTY(ashwalker_tunnels)
 	if(isnull(tunnel_choice))
 		return
 
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
 	if(isashwalker(user))
-		if(!do_after(user, 10 SECONDS, target = src))
+		if(!do_after(user, 10 SECONDS * skill_modifier, target = src))
 			to_chat(user, span_notice("You decide against going through [src]."))
 			return
 
 	else
 		to_chat(user, span_warning("You are attempting to enter [src]! It fights back! Perhaps some persistence will help?"))
 		for(var/iterations in 1 to 3)
-			if(!do_after(user, 6 SECONDS, target = src))
+			if(!do_after(user, 6 SECONDS * skill_modifier, target = src))
 				return
 			user.adjustBruteLoss(10)
 
