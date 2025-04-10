@@ -401,8 +401,8 @@
 			adjusted_time = (recipe.time * recipe.trait_modifier)
 		else
 			adjusted_time = recipe.time
-		var/skill_modifier = builder.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT: Construction Skill
-		if(!do_after(builder, adjusted_time * skill_modifier, target = builder)) //NOVA EDIT: Construction Skill
+		var/skill_modifier = builder.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT ADDITION: Construction Skill
+		if(!do_after(builder, adjusted_time * skill_modifier, target = builder)) //NOVA EDIT ADDITION: Construction Skill
 			builder.balloon_alert(builder, "interrupted!")
 			return
 		if(!building_checks(builder, recipe, multiplier))
@@ -431,8 +431,7 @@
 		SEND_SIGNAL(created, COMSIG_ATOM_CONSTRUCTED, builder)
 		on_item_crafted(builder, created)
 
-	builder.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT: Construction Skill
-
+	builder.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 	// Use up the material
 	use(recipe.req_amount * multiplier)
 	builder.investigate_log("crafted [recipe.title]", INVESTIGATE_CRAFTING)

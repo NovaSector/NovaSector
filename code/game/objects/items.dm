@@ -1256,12 +1256,12 @@
 			if(user.mind.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_JOURNEYMAN && prob(user.mind.get_skill_modifier(/datum/skill/mining, SKILL_PROBS_MODIFIER))) // we check if the skill level is greater than Journeyman and then we check for the probality for that specific level.
 				mineral_scan_pulse(get_turf(user), SKILL_LEVEL_JOURNEYMAN - 2, scanner = src) //SKILL_LEVEL_JOURNEYMAN = 3 So to get range of 1+ we have to subtract 2 from it,.
 
-	//NOVA EDIT START: Construction Skill
+	//NOVA EDIT ADDITION START: Construction Skill
 	var/construction_tools = list(TOOL_CROWBAR, TOOL_MULTITOOL, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH, TOOL_WELDER)
 	for(var/checking_behavior in construction_tools)
 		if(tool_behaviour == checking_behavior)
 			skill_modifier = user.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER)
-
+	//NOVA EDIT ADDITION END
 	delay *= toolspeed * skill_modifier
 
 	// Play tool sound at the beginning of tool usage.
@@ -1289,7 +1289,7 @@
 	// but only if the delay between the beginning and the end is not too small
 	if(delay >= MIN_TOOL_SOUND_DELAY)
 		play_tool_sound(target, volume)
-
+	//NOVA EDIT ADDITION START: Construction Skill
 	for(var/checking_behavior in construction_tools)
 		if(tool_behaviour == checking_behavior)
 			user.mind?.adjust_experience(/datum/skill/construction, 2)
