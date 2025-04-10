@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes proto kinetic crushers having the wrong inhand icons when a retool kit is applied"
