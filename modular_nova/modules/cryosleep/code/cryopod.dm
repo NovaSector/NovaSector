@@ -247,7 +247,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /// Immediately despawn them and stop the timer when they ghost.
 /obj/machinery/cryopod/proc/on_occupant_ghosted(datum/source)
-
 	on_set_occupant(src)
 	initiate_despawn_occupant()
 
@@ -416,7 +415,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
-	var/mob/dead/observer/occupant_ghost_mob = mob_occupant.ghostize()
+
+	// The ghost mob is needed for transporting them directly to the ghost cafe, so let's keep track of that
+	var/mob/dead/observer/occupant_ghost_mob
+	if(isnull(occupant.ckey)) // they ghosted early
+		for(var/mob/dead/observer/ghost as anything in GLOB.dead_player_list) // so we must find them in the list
+			if(ghost.ckey == occupant_ckey)
+				occupant_ghost_mob = ghost
+	else
+		occupant_ghost_mob = mob_occupant.ghostize() // otherwise they're just sitting patiently in the pod waiting, ghost them
+
+	// Ghost cafe cryopods
 	if(despawn_to_ghostcafe)
 		var/obj/effect/mob_spawn/ghost_role/ghostcafe_spawner
 		if(iscyborg(mob_occupant))
@@ -424,6 +433,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/human/ghostcafe::name]
 		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, use_loadout = TRUE)
+
 	QDEL_NULL(occupant)
 	open_machine()
 	name = initial(name)
