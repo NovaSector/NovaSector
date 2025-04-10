@@ -233,7 +233,7 @@
 	if(!temp_body)
 		user.mind = null // dissassociate mind, don't let it follow us to the next life
 
-	var/created = create(user, use_loadout = use_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/created = create(user)
+	var/created = create(user, /* newname */, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/created = create(user)
 	LAZYREMOVE(ckeys_trying_to_spawn, user_ckey) // We do this AFTER the create() so that we're basically sure that the user won't be in their ghost body anymore, so they can't click on the spawner again.
 
 	if(!created)
