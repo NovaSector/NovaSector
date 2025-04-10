@@ -223,18 +223,34 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(istype(human_occupant) && human_occupant.mind)
 		human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
-	timerid = addtimer(CALLBACK(src, PROC_REF(despawn_after_timer)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
+	timerid = addtimer(CALLBACK(src, PROC_REF(initiate_despawn_occupant)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
 	RegisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT, PROC_REF(on_set_occupant))
+	RegisterSignal(human_occupant, COMSIG_MOB_GHOSTIZED, PROC_REF(on_occupant_ghosted))
 
-/// Stop the cryo process
+/// Called when the mob leaves the pod.
 /obj/machinery/cryopod/proc/on_set_occupant(datum/source, mob/living/new_occupant)
 	SIGNAL_HANDLER
+
+	stop_cryo_process()
+
+/// Stop the cryo process.
+/obj/machinery/cryopod/proc/stop_cryo_timer()
 
 	if(timerid)
 		deltimer(timerid)
 		timerid = null
 
 	UnregisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT)
+
+	if(occupant)
+		UnregisterSignal(occupant, COMSIG_MOB_GHOSTIZED)
+
+/// Immediately despawn them and stop the timer when they ghost.
+/obj/machinery/cryopod/proc/on_occupant_ghosted(datum/source)
+	SIGNAL_HANDLER
+
+	on_set_occupant(src)
+	initiate_despawn_occupant()
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
@@ -250,8 +266,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/relaymove(mob/user)
 	container_resist_act(user)
 
-/// Despawn the mob. To be called via addtimer.
-/obj/machinery/cryopod/proc/despawn_after_timer()
+/// Despawn the mob. To be called via addtimer or when the mob ghosts.
+/obj/machinery/cryopod/proc/initiate_despawn_occupant()
 	if(!occupant)
 		return
 
