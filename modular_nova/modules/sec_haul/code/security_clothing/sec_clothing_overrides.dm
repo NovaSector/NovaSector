@@ -194,6 +194,21 @@
 		),
 	)
 
+/obj/item/clothing/glasses/hud/security/sunglasses/blue
+	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
+	icon_state = 'security_hud_blue_black'
+	unique_reskin = list(
+		"Dark-Tint Blue Sunglasses" = list(
+			RESKIN_ICON_STATE = "security_hud_blue_black",
+			RESKIN_WORN_ICON_STATE = "security_hud_blue_black"
+		),
+		"Light-Tint Blue Sunglasses" = list(
+			RESKIN_ICON_STATE = "security_hud_blue",
+			RESKIN_WORN_ICON_STATE = "security_hud_blue"
+		),
+	)
+
 /obj/item/clothing/glasses/hud/security/night
 	uses_advanced_reskins = FALSE
 	unique_reskin = null
