@@ -40,6 +40,8 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/ai
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
+	/// The timerid of the cryo countdown, so we can stop it if the mob leaves the pod.
+	var/timerid
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
@@ -221,7 +223,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(istype(human_occupant) && human_occupant.mind)
 		human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
-	addtimer(CALLBACK(src, PROC_REF(despawn_after_timer)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
+	timerid = addtimer(CALLBACK(src, PROC_REF(despawn_after_timer)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
+	RegisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT, PROC_REF(on_set_occupant))
+
+/// Stop the cryo process
+/obj/machinery/cryopod/proc/on_set_occupant(datum/source, mob/living/new_occupant)
+	SIGNAL_HANDLER
+
+	if(timerid)
+		deltimer(timerid)
+		timerid = null
+
+	UnregisterSignal(COMSIG_MACHINERY_SET_OCCUPANT)
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
@@ -511,13 +524,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	icon_state = state_open ? open_icon_state : base_icon_state
 	return ..()
 
-/obj/machinery/cryopod/send_to_ghostcafe
-	name = "Ghost cafe pod"
+/obj/machinery/cryopod/despawn_to_ghostcafe
+	name = "Ghost Cafe Pod"
 	desc = parent_type::desc + " This one is primed to ship its occupant to the ghost cafe."
 	icon_state = "ghostcafepod-open"
 	base_icon_state = "ghostcafepod"
+	open_icon_state = "ghostcafepod-open"
 	despawn_to_ghostcafe = TRUE
-	time_till_despawn = 6 SECONDS
+	time_till_despawn = 4 SECONDS
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/despawn_to_ghostcafe, 32)
 
 /// Special wall mounted cryopod for the prison, making it easier to autospawn.
 /obj/machinery/cryopod/prison
