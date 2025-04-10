@@ -231,7 +231,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/proc/on_set_occupant(datum/source, mob/living/new_occupant)
 	SIGNAL_HANDLER
 
-	stop_cryo_process()
+	stop_cryo_timer()
 
 /// Stop the cryo process.
 /obj/machinery/cryopod/proc/stop_cryo_timer()
