@@ -8,4 +8,4 @@
 /datum/skill/language/level_gained(datum/mind/mind, new_level, old_level, silent)
 	. = ..()
 	if(new_level >= SKILL_LEVEL_APPRENTICE && old_level < SKILL_LEVEL_APPRENTICE)
-		ADD_TRAIT(mind, TRAIT_LITERATE, SKILL_TRAIT)
+		ADD_TRAIT(mind.current, TRAIT_LITERATE, SKILL_TRAIT)
