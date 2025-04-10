@@ -197,5 +197,5 @@
 	else if(input_desc == "")
 		loadout[item_path] -= INFO_DESCRIBED
 
-	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.save_current_loadout(loadout)
 	return TRUE // just so that it updates the UI. Gonna change it later, upstream.

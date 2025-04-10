@@ -204,7 +204,7 @@ export type PreferencesMenuData = {
       gender: Gender;
       joblessrole: JoblessRole;
       species: string;
-      loadout_lists: LoadoutList; // NOVA EDIT: Multiple loadout presets: ORIGINAL: loadout_list: LoadoutList;
+      loadout_lists: LoadoutList; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout_list: LoadoutList;
       job_clothes: BooleanLike;
       loadout_index: string; // NOVA EDIT ADDITION: Multiple loadout presets
     };
