@@ -8738,16 +8738,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Jd" = (
-/mob/living/basic/cult/engorge{
-	desc = "A demonic creature that moves relatively fast, but DOES do a lot of damage.";
-	obj_damage = 30;
-	melee_damage_upper = 30;
-	melee_damage_lower = 30;
-	harm_intent_damage = 30;
-	health = 230;
-	maxHealth = 230;
-	name = "Creature of the night"
-	},
+/mob/living/basic/cult/engorge,
 /turf/open/floor/black,
 /area/awaymission/caves/maintsroom)
 "Jf" = (
