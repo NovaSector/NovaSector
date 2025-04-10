@@ -266,6 +266,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /// Despawn the mob. To be called via addtimer or when the mob ghosts.
 /obj/machinery/cryopod/proc/initiate_despawn_occupant()
+	stop_cryo_timer()
+
 	if(!occupant)
 		return
 
