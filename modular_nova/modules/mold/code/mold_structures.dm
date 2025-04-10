@@ -34,6 +34,15 @@
 	name = "[mold_type.name] [name]"
 	update_appearance()
 
+/obj/structure/mold/LateInitialize()
+	if(isnull(mold_type)
+		mold_type = mold_controller?.mold_type
+
+	color = mold_type.mold_color
+	resistance_flags = mold_type.resistance_flags
+	name = "[mold_type.name] [name]"
+	update_appearance()
+
 /obj/structure/mold/structure
 	density = TRUE
 	/// Does the structure emit light?
@@ -46,6 +55,15 @@
 		light_power = 1
 		if(mold_type.structure_light_color)
 			light_color = mold_type.structure_light_color
+
+/obj/structure/mold/structure/LateInitialize()
+	if(isnull(mold_type)
+		mold_type = mold_controller?.mold_type
+
+	color = mold_type.mold_color
+	resistance_flags = mold_type.resistance_flags
+	name = "[mold_type.name] [name]"
+	update_appearance()
 
 /datum/looping_sound/core_heartbeat
 	mid_length = 3 SECONDS
