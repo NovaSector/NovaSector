@@ -325,14 +325,9 @@
 	var/mutable_appearance/wound_overlay
 	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
 		if(iter_part.bleed_overlay_icon)
-			// NOVA EDIT ADDITION BEGIN - Xenohybrid blood color
-			if(iter_part.limb_id == SPECIES_XENO)
-				wound_overlay ||= mutable_appearance('modular_nova/master_files/icons/effects/x_bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
-			else
-				var/mutable_appearance/blood_overlay = mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
-				blood_overlay.color = dna.blood_type.color
-				wound_overlay ||= blood_overlay
-			// NOVA EDIT ADDITION END
+			var/mutable_appearance/blood_overlay = mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			blood_overlay.color = dna.blood_type.color
+			wound_overlay ||= blood_overlay
 			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)
 
 	if(isnull(wound_overlay))
