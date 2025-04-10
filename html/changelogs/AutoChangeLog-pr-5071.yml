@@ -1,5 +1,0 @@
-author: "jjpark-kb"
-delete-after: True
-changes:
-  - rscadd: "added three new skills: primitive, research, and construction"
-  - code_imp: "updated some of our modular code to use the newer procs"

@@ -1,5 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - code_imp: "converts 33 SimpleAnimals into Basic Mobs"
-  - bugfix: "fixes broken mobs within Cargodise Lost (freighter) and the Ruined wreckage"
