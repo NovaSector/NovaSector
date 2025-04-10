@@ -209,3 +209,31 @@
       else and be unchangeable until you went back to ipc.
   - bugfix: security will no longer have to ctrl+click flashbangs during greenshift
       to use them
+2025-04-10:
+  RatFromTheJungle:
+  - rscadd: Added a new quirk (credit to goofball) 'genetic mutation' which allows
+      you to start the round with 1 genetic mutation (minus a few)
+  Zergspower:
+  - code_imp: converts 33 SimpleAnimals into Basic Mobs
+  - bugfix: fixes broken mobs within Cargodise Lost (freighter) and the Ruined wreckage
+  - rscadd: Added new boss spider - The Baron Spider!
+  - rscadd: Added a new spider attack - Leap
+  - qol: adjusted abilities and health for most new spiders
+  - qol: The webslinger can now heal other spiders
+  - balance: The webslinger AI will now try to snare you and stay hidden, rather than
+      walk and bite
+  - balance: gave all new spider types an ai controller to make them be more interactive
+  - balance: eating extracted spider eggs will now infect you with the reagents that
+      formed the eggsac to begin with
+  - bugfix: the badnana spider will now make you laugh so hard you can die!
+  jjpark-kb:
+  - qol: the ash age now displays when you can use the ash age ritual now
+  - rscadd: added more stages to the ash age ritual (boulder breaker and an ashen
+      armblade)
+  - rscadd: 'added three new skills: primitive, research, and construction'
+  - code_imp: updated some of our modular code to use the newer procs
+  sergeirocks100:
+  - map: There is now a cooking oil vat in SerenityStation's cold room.
+  vinylspiders:
+  - bugfix: fixes proto kinetic crushers having the wrong inhand icons when a retool
+      kit is applied

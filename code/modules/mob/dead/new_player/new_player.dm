@@ -285,7 +285,7 @@
 
 	// NOVA EDIT ADDITION START
 	if(humanc)
-		var/list/loadout = loadout_list_to_datums(humanc.client?.prefs?.read_preference(/datum/preference/loadout))
+		var/list/loadout = humanc.client?.get_loadout_datums()
 		for(var/datum/loadout_item/item as anything in loadout)
 			if (item.restricted_roles && length(item.restricted_roles) && !(job.title in item.restricted_roles))
 				continue
