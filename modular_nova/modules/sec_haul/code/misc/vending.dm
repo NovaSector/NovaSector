@@ -17,7 +17,6 @@
 		/obj/item/melee/baton/security/stun_gun/stun_knife = 3,
 	)
 	premium = list(
-		/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
 		/obj/item/storage/belt/security/webbing = 5,
 		/obj/item/coin/antagtoken = 1,
 		/obj/item/clothing/head/helmet/blueshirt = 3,
@@ -68,6 +67,7 @@
 			"name" = "Alternate",
 			"icon" = "shield-halved",
 			"products" = list(
+		/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
 				/obj/item/clothing/head/beret/sec/nova = 4,
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
