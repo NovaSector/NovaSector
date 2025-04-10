@@ -739,7 +739,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "dd" = (
-/mob/living/basic/hostile/evilborg/peace{
+/mob/living/simple_animal/hostile/evilborg/peace{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red/off,
@@ -2052,7 +2052,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "hZ" = (
-/mob/living/basic/hostile/evilborg/sec{
+/mob/living/simple_animal/hostile/evilborg/sec{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -4396,7 +4396,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "rq" = (
-/mob/living/basic/hostile/evilborg/protect{
+/mob/living/simple_animal/hostile/evilborg/protect{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -6184,7 +6184,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "za" = (
-/mob/living/basic/hostile/evilborg/heavy{
+/mob/living/simple_animal/hostile/evilborg/heavy{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red/anim,
@@ -7232,7 +7232,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Dc" = (
-/mob/living/basic/hostile/evilborg{
+/mob/living/simple_animal/hostile/evilborg{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit,
@@ -8018,7 +8018,7 @@
 /turf/closed/wall/mineral/sandstone,
 /area/awaymission/caves/maintsroom)
 "FT" = (
-/mob/living/basic/hostile/evilborg/protect{
+/mob/living/simple_animal/hostile/evilborg/protect{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/green,
@@ -8101,7 +8101,7 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "Gi" = (
-/mob/living/basic/hostile/evilborg{
+/mob/living/simple_animal/hostile/evilborg{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/green,
@@ -9013,10 +9013,10 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Kn" = (
-/mob/living/basic/hostile/evilborg/bigguy{
+/mob/living/simple_animal/hostile/evilborg/bigguy{
 	name = "High end military robot";
 	desc = "A military robot unit, hacked or malfunctioning. This one looks really tough, and even tougher than its usual model! you should RUN.";
-	health = 750
+	health = 500
 	},
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
@@ -9663,7 +9663,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "MV" = (
-/mob/living/basic/hostile/evilborg/sec{
+/mob/living/simple_animal/hostile/evilborg/sec{
 	faction = list("hostile","cult")
 	},
 /obj/item/kirbyplants/random,
@@ -11030,7 +11030,7 @@
 "Su" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/basic/hostile/evilborg/roomba{
+/mob/living/simple_animal/hostile/evilborg/roomba{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/green,
@@ -11495,7 +11495,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "Ur" = (
-/mob/living/basic/hostile/evilborg/heavy{
+/mob/living/simple_animal/hostile/evilborg/heavy{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -12832,7 +12832,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "ZK" = (
-/mob/living/basic/hostile/evilborg/roomba{
+/mob/living/simple_animal/hostile/evilborg/roomba{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red/off,
