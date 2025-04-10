@@ -234,7 +234,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		deltimer(timerid)
 		timerid = null
 
-	UnregisterSignal(COMSIG_MACHINERY_SET_OCCUPANT)
+	UnregisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT)
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
