@@ -98,8 +98,8 @@
 	item_path = /obj/item/clothing/shoes/combat/rax
 	ckeywhitelist = list("raxraus")
 
-/datum/loadout_item/suit/rax_peacekeeper_jacket
-	name = "Peacekeeper jacket"
+/datum/loadout_item/suit/rax_officer_jacket
+	name = "Officer jacket"
 	item_path = /obj/item/clothing/suit/armor/vest/warden/rax
 	ckeywhitelist = list("raxraus")
 	restricted_roles = list(JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
@@ -827,7 +827,6 @@
 /datum/loadout_item/toys/delphic_synth
 	name = "Surgery Synth Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/delphic_synth
-	ckeywhitelist = list("sciamach")
 
 /datum/loadout_item/under/miscellaneous/rem
 	name = "M.I.A. Limiter"

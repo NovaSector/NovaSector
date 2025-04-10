@@ -47,11 +47,11 @@
 
 /datum/loadout_item/glasses/prescription_glasses/thin
 	name = "Thin Glasses"
-	item_path = /obj/item/clothing/glasses/thin
+	item_path = /obj/item/clothing/glasses/regular/thin
 
 /datum/loadout_item/glasses/prescription_glasses/better
 	name = "Modern Glasses"
-	item_path = /obj/item/clothing/glasses/regular/betterunshit
+	item_path = /obj/item/clothing/glasses/regular/modern
 
 /*
 *	COSMETIC GLASSES

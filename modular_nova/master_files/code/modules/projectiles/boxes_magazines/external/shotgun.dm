@@ -10,6 +10,7 @@
 
 /obj/item/ammo_box/magazine/katyusha/empty
 	icon_state = "spikewall_mag-empty"
+	start_empty = TRUE
 
 /obj/item/ammo_box/magazine/katyusha
 	name = "\improper Katyusha Drum Magazine"
@@ -27,7 +28,7 @@
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armouries/magazines.dmi'
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 
-/obj/item/ammo_box/magazine/marauder/update_icon_state()
+/obj/item/ammo_box/magazine/jager/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[LAZYLEN(stored_ammo) ? "full" : "empty"]"
 
