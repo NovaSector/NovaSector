@@ -418,7 +418,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	// The ghost mob is needed for transporting them directly to the ghost cafe, so let's keep track of that
 	var/mob/dead/observer/occupant_ghost_mob
-	if(isnull(occupant.ckey)) // they ghosted early
+	if(isnull(mob_occupant.ckey)) // they ghosted early
 		for(var/mob/dead/observer/ghost as anything in GLOB.dead_player_list) // so we must find them in the list
 			if(ghost.ckey == occupant_ckey)
 				occupant_ghost_mob = ghost
