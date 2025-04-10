@@ -188,7 +188,6 @@
 			if(!isgroundlessturf(my_turf) || GET_TURF_BELOW(my_turf))
 				var/obj/effect/decal/cleanable/blood/splatter/new_splatter = new /obj/effect/decal/cleanable/blood/splatter(my_turf)
 				new_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
-
 			if (!step_to(src, get_step(src, direction), 0))
 				break
 		return
