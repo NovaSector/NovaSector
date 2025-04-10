@@ -247,7 +247,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /// Immediately despawn them and stop the timer when they ghost.
 /obj/machinery/cryopod/proc/on_occupant_ghosted(datum/source)
-	SIGNAL_HANDLER
 
 	on_set_occupant(src)
 	initiate_despawn_occupant()
