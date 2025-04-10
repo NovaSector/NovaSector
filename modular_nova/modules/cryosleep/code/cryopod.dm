@@ -40,8 +40,6 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/obj/item/radio/headset/radio = /obj/item/radio/headset/silicon/ai
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
-	/// The timerid of the cryo countdown, so we can stop it if the mob leaves the pod.
-	var/timerid
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
@@ -170,6 +168,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/tucked = FALSE
 	/// If this cryopod should despawn the occupant to the ghost cafe
 	var/despawn_to_ghostcafe
+	/// The timerid of the cryo countdown, so we can stop it if the mob leaves the pod.
+	var/timerid
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
