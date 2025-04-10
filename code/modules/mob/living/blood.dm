@@ -335,7 +335,7 @@
 		blood_type = blood_DNA[last_added_bloodtype_key]
 	if(!istype(blood_type))
 		blood_type = get_blood_type_by_name(blood_type) || random_blood_type()
-	return blood_type.color
+	return blood_type.get_color()
 
 /**
  * Returns TRUE if src is compatible with donor's blood, otherwise FALSE.
@@ -396,7 +396,7 @@
 		blood_spew.add_blood_DNA(temp_blood_DNA, no_visuals = small_drip)
 
 /mob/living/carbon/human/add_splatter_floor(turf/splatter_turf, small_drip)
-	if(!HAS_TRAIT(src, TRAIT_NOBLOOD))
+	if(!HAS_TRAIT(src, TRAIT_NOBLOOD) && !dna?.blood_type.no_bleed_overlays)
 		. = ..()
 
 /mob/living/carbon/alien/add_splatter_floor(turf/splatter_turf, small_drip)

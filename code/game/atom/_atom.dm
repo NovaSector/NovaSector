@@ -494,8 +494,8 @@
 
 ///Get the mobs dna list
 /mob/living/carbon/get_blood_dna_list()
-	if(!(get_blood_id() in list(/datum/reagent/blood, /datum/reagent/toxin/acid))) // NOVA EDIT CHANGE START - ORIGINAL: if(get_blood_id() != /datum/reagent/blood)
-		return
+	//if(!(get_blood_id() in list(/datum/reagent/blood, /datum/reagent/toxin/acid))) // NOVA EDIT CHANGE START - ORIGINAL: if(get_blood_id() != /datum/reagent/blood)
+	//	return
 	var/list/blood_dna = list()
 	if(dna)
 		blood_dna[dna.unique_enzymes] = dna.blood_type
