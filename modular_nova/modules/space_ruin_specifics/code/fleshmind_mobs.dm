@@ -14,7 +14,9 @@
 	mob_biotypes = MOB_ROBOTIC
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
+	AIStatus = AI_ON
 	maxbodytemp = INFINITY
+	combat_mode = TRUE
 	/// A link to our controller
 	var/datum/fleshmind_controller/our_controller
 	/// If we have been converted from another mob, here is our reference.
@@ -121,7 +123,7 @@
 
 /mob/living/simple_animal/hostile/fleshmind/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	. = ..()
-	if(!.) //dead
+	if(!.) //Checks if they are dead as a rock.
 		return
 
 	if(key)
@@ -753,6 +755,8 @@
 
 /mob/living/simple_animal/hostile/fleshmind/himan/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	. = ..()
+	if(!.) //Checks if they are dead as a rock.
+		return
 	if(health < (maxHealth * 0.5) && !faking_death && COOLDOWN_FINISHED(src, fake_death) && !key)
 		fake_our_death()
 
@@ -1006,6 +1010,7 @@
 	. = ..()
 	if(!.) //dead
 		return
+
 	if(!target && COOLDOWN_FINISHED(src, closet_ability_cooldown) && !key)
 		enter_nearby_closet()
 		COOLDOWN_START(src, closet_ability_cooldown, closet_ability_cooldown_time)

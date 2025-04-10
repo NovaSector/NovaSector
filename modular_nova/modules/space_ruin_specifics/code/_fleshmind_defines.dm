@@ -43,7 +43,7 @@
 #define MOB_RALLY_SPEED 1
 
 /// The max spread distance a wireweed can spread thru a vent.
-#define MAX_VENT_SPREAD_DISTANCE 6
+#define MAX_VENT_SPREAD_DISTANCE 10
 
 #define FLESHMIND_EVENT_MAKE_CORRUPTION_CHANCE 2
 
@@ -84,11 +84,11 @@
 // Balance specific defines
 
 // How much progress is required to spread?
-#define FLESHCORE_SPREAD_PROGRESS_REQUIRED 200
+#define FLESHCORE_SPREAD_PROGRESS_REQUIRED 100
 // How many times do we need to spread until we can create a new structure?
 #define FLESHCORE_SPREADS_FOR_STRUCTURE 50
 // Upon creation, how many times do we spread instantly?
-#define FLESHCORE_INITIAL_EXPANSION_SPREADS 30
+#define FLESHCORE_INITIAL_EXPANSION_SPREADS 40
 // Upon creation, how many structures do we spawn instantly?
 #define FLESHCORE_INITIAL_EXPANSION_STRUCTURES 5
 // Every subsystem fire, how much progress do we gain?
