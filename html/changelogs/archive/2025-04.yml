@@ -237,3 +237,16 @@
   vinylspiders:
   - bugfix: fixes proto kinetic crushers having the wrong inhand icons when a retool
       kit is applied
+2025-04-11:
+  Hardly3D:
+  - bugfix: Fixes red security turtleneck being swapped with the turtleneck undershirt
+  RimiNosha:
+  - rscadd: Loadout presets! Make multiple loadouts, be able to switch between them
+      in a couple of clicks!
+  - qol: Replaced the defunct job checkbox on the loadout page with a working dropdown.
+  - bugfix: Loadout items can be edited again.
+  - bugfix: Using the clear loadout button should no longer brick your loadout data.
+      Woops.
+  vinylspiders:
+  - bugfix: the icecat spawner will no longer ignore you when you try to spawn in
+      as one
