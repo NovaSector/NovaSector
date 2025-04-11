@@ -1,39 +1,8 @@
-<<<<<<< HEAD
-@use 'sass:color';
-@use 'sass:math';
-@use '../base';
-@use '../functions';
-@use '../colors';
-
-$msgcolor-outgoing: hsl(213, 50%, 35%);
-$msgcolor-incoming: hsl(213, 0%, 20%);
-$msgcolor-subtle-outgoing: hsl(281, 39%, 59%); // NOVA EDIT ADDITION
-$msgcolor-subtle-incoming: hsl(281, 15%, 59%); // NOVA EDIT ADDITION
-
-$msgpadding: 0.7rem;
-
-// very nasty theme hacks inbound
-
-.theme-ntOS95 {
-  .NtosChatMessage {
-    color: white !important;
-
-    padding: $msgpadding - base.rem(2px);
-
-    border-radius: 0;
-
-    background-color: color.adjust($msgcolor-incoming, $lightness: 10%);
-    &_outgoing {
-      border-color: color.adjust($msgcolor-outgoing, $lightness: 20%);
-      background-color: color.adjust($msgcolor-outgoing, $lightness: 30%);
-    }
-=======
 /* Some themes have bad contrast on primary color */
 .NtosChatMessage {
   .theme-ntOS95 & {
     --color-primary: var(--color-section);
     border: var(--border-thickness-small) outset var(--95-outline);
->>>>>>> d7d22f7c8... [TGUI v6] Migration to CSS Variables, styles refactor & React 19 (#90424)
   }
 
   .theme-ntos_terminal & {
@@ -59,14 +28,14 @@ $msgpadding: 0.7rem;
   // NOVA EDIT ADDITION START
   &_subtle_outgoing {
     @extend .NtosChatMessage;
-    background-color: $msgcolor-subtle-outgoing;
+    background-color: hsl(281, 39%, 59%);
     text-align: right;
     float: right;
   }
 
   &_subtle {
     @extend .NtosChatMessage;
-    background-color: $msgcolor-subtle-incoming;
+    background-color: hsl(281, 15%, 59%);
   }
   // NOVA EDIT ADDITION END
 

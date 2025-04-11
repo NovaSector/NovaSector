@@ -97,7 +97,7 @@ export function ItemDisplay(props: DisplayProps) {
         {
           // NOVA EDIT START - Expanded loadout framework
           ShouldDisplayRestriction(item) && (
-            <Flex.Item ml={5.7} mt={0.35}>
+            <Flex.Item ml={6.7} mt={0.35}>
               {ItemRestriction(item)}
             </Flex.Item>
           )

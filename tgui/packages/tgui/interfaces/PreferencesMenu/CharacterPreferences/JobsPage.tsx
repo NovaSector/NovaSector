@@ -331,20 +331,6 @@ function Department(props: DepartmentProps) {
 
   return (
     <Box>
-<<<<<<< HEAD
-      {/* <Stack vertical fill> // NOVA EDIT REMOVAL - For the alt titles dropdowns to not be screwed up */}
-      {jobsForDepartment.map(([name, job]) => {
-        return (
-          <JobRow
-            className={classes([className, name === department.head && 'head'])}
-            key={name}
-            job={job}
-            name={name}
-          />
-        );
-      })}
-      {/* </Stack> // NOVA EDIT REMOVAL */}
-=======
       <Stack fill vertical g={0}>
         {jobsForDepartment.map(([name, job]) => {
           return (
@@ -360,7 +346,6 @@ function Department(props: DepartmentProps) {
           );
         })}
       </Stack>
->>>>>>> d7d22f7c8... [TGUI v6] Migration to CSS Variables, styles refactor & React 19 (#90424)
 
       {children}
     </Box>

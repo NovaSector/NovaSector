@@ -138,12 +138,12 @@ $department_map: (
           border: var(--border-thickness-small) outset colors.fg($color-value);
           color: black;
 
-          // NOVA EDIT START
           > * {
             height: calc(100% + 0.2em);
+            //padding-bottom: 0.2em; // NOVA EDIT REMOVAL
           }
 
-<<<<<<< HEAD
+          // NOVA EDIT ADDITION START
           .jobRow {
             align-items: center;
             justify-content: center;
@@ -159,14 +159,7 @@ $department_map: (
             margin-right: 0.2em;
             margin-top: 0.2em;
           }
-          // NOVA EDIT END
-
-          &:first-child {
-            border-top: 2px solid hsla(0, 0%, 0%, 0.3);
-          }
-
-=======
->>>>>>> d7d22f7c8... [TGUI v6] Migration to CSS Variables, styles refactor & React 19 (#90424)
+          // NOVA EDIT ADDITION END
           .options {
             margin-right: var(--space-xxs);
             background: hsla(0, 0%, 0%, 0.2);
@@ -180,14 +173,10 @@ $department_map: (
         }
 
         &--Captain {
-<<<<<<< HEAD
-          border: 3px solid hsla(60, 100%, 39.2%, 1);
-          border-bottom: 0; // NOVA EDIT
-=======
           border: var(--border-thickness-medium)
             outset
             hsla(60, 100%, 39.2%, 1);
->>>>>>> d7d22f7c8... [TGUI v6] Migration to CSS Variables, styles refactor & React 19 (#90424)
+          border-bottom: 0; // NOVA EDIT
 
           &:first-child {
             border-top: var(--border-thickness-medium)
@@ -195,11 +184,11 @@ $department_map: (
               hsla(60, 100%, 39.2%, 1);
           }
 
-          // NOVA EDIT START -- Taking the second last because last is {children}
+          // NOVA EDIT ADDITION START -- Taking the second last because last is {children}
           &:nth-last-child(2) {
             border-bottom: 3px solid rgba(200, 200, 0, 1);
           }
-          // NOVA EDIT END
+          // NOVA EDIT ADDITION END
         }
       }
 
@@ -245,18 +234,10 @@ $department_map: (
         transition: background-color var(--transition-time-fast) ease-in;
 
         $quality_map: (
-<<<<<<< HEAD
-          'positive': colors.$green,
-          'neutral': colors.$white,
-          'negative': colors.$red,
-          // NOVA EDIT ADDITION START - Purple ERP quirks
-          'erp_quirk': colors.$purple,
-          // NOVA EDIT ADDITION END
-=======
           'positive': var(--color-green),
           'neutral': var(--color-white),
           'negative': var(--color-red),
->>>>>>> d7d22f7c8... [TGUI v6] Migration to CSS Variables, styles refactor & React 19 (#90424)
+          'erp_quirk': var(--color-purple), // NOVA EDIT ADDITION - Purple ERP quirks
         );
 
         @each $quality, $color-value in $quality_map {
