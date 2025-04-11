@@ -525,3 +525,21 @@
 	ritual_success_items = list(
 		/obj/item/ash_seed/vent,
 	)
+
+/// Summon Tunneling Worm
+/datum/ash_ritual/summon_tunneling_worm
+	name = "Summon Tunneling Worm"
+	desc = "Summons a worm that has the ability to create deep tunnels that connect to one another."
+	required_components = list(
+		"north" = /obj/item/crusher_trophy/bileworm_spewlet,
+		"south" = /obj/item/organ/monster_core/regenerative_core,
+		"east" = /obj/item/stack/ore/bluespace_crystal,
+		"west" = /obj/item/stack/ore/bluespace_crystal,
+	)
+	consumed_components = list(
+		/obj/item/crusher_trophy/bileworm_spewlet,
+		/obj/item/organ/monster_core/regenerative_core,
+	)
+	ritual_success_items = list(
+		/obj/item/tunneling_worm,
+	)
