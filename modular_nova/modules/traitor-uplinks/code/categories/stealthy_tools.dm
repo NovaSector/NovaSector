@@ -18,4 +18,4 @@
 	restricted_roles = list(JOB_BARTENDER)
 
 /datum/uplink_item/stealthy_weapons/martialarts
-	cost = 32
+	cost = 32 // original cost: 17
