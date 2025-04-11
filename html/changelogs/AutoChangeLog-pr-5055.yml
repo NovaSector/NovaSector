@@ -1,0 +1,5 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "added the language skill: gain experience by reading books"
+  - rscadd: "added the mentoring book; if you are skilled enough in skills, you can pass down your knowledge through these books"
