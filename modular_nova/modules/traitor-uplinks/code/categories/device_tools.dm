@@ -55,13 +55,13 @@
 
 
 /datum/uplink_item/device_tools/thermal
-	cost = 6
+	cost = 6 // original cost: 4
 
 /datum/uplink_item/device_tools/emag
-	cost = 7
+	cost = 7 // original cost: 4
 
 /datum/uplink_item/device_tools/doorjack
-	cost = 6
+	cost = 6 // original cost: 3
 
 /datum/uplink_item/device_tools/powersink
-	cost = 18
+	cost = 18 // original cost: 11
