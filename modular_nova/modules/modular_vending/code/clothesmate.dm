@@ -170,6 +170,7 @@
 				/obj/item/clothing/shoes/wraps/colourable = 5,
 				/obj/item/clothing/shoes/wraps/cloth = 5,
 				/obj/item/clothing/shoes/jungleboots = 5,
+				/obj/item/clothing/shoes/cowboy/laced/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/knee = 5,
 				/obj/item/clothing/shoes/jackboots/recolorable = 5,
 				/obj/item/clothing/shoes/jackboots/duckboots = 5,
