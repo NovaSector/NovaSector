@@ -63812,7 +63812,7 @@
 /obj/effect/turf_decal/trimline/dark_green/line{
 	dir = 9
 	},
-/obj/machinery/time_clock/directional/west,
+/obj/machinery/modular_computer/preset/time_clock/directional/west,
 /obj/structure/sign/poster/timeclock_psa/directional/north,
 /turf/open/floor/iron/corner,
 /area/station/common/cryopods)
