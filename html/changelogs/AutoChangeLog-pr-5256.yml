@@ -1,4 +1,0 @@
-author: "wivernshy"
-delete-after: True
-changes:
-  - code_imp: "Non-IPCs can now use synth antenna again with mismatch parts."
