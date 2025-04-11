@@ -1477,6 +1477,8 @@
 /mob/living/carbon/proc/spray_blood(splatter_direction, splatter_strength = 3)
 	if(!isturf(loc))
 		return
+	if(dna.blood_type.no_bleed_overlays)
+		return
 	// NOVA EDIT CHANGE BEGIN - ORIGINAL: var/obj/effect/decal/cleanable/blood/hitsplatter/our_splatter = new(loc)
 	var/obj/effect/decal/cleanable/blood/hitsplatter/our_splatter
 	if(get_blood_id() == /datum/reagent/toxin/acid)
@@ -1486,6 +1488,7 @@
 	// NOVA EDIT CHANGE END
 	our_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
 	our_splatter.blood_dna_info = get_blood_dna_list()
+	our_splatter.color = get_blood_dna_color(our_splatter.blood_dna_info)
 	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
 	our_splatter.fly_towards(targ, splatter_strength)
 

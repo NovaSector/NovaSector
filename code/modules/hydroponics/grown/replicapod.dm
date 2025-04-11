@@ -204,8 +204,16 @@
 		if(reagents_add[reagent] > most_plentiful_reagent[most_plentiful_reagent[1]])
 			most_plentiful_reagent.Cut()
 			most_plentiful_reagent[reagent] = reagents_add[reagent]
+	// NOVA EDIT CHANGE START
+	var/datum/reagent/new_blood_reagent = most_plentiful_reagent[1]
+	podman.dna.species.exotic_blood = new_blood_reagent
+	var/datum/blood_type/new_blood_type = GLOB.blood_types[new_blood_reagent]
+	if(isnull(new_blood_type)) // this blood type doesn't exist yet in the global list, so make a mew one
+		new_blood_type = new /datum/blood_type/random_chemical(new_blood_reagent)
+		GLOB.blood_types[new_blood_type::name] = new_blood_type
+	podman.dna.blood_type = new_blood_type
+	// NOVA EDIT CHANGE END
 
-	podman.dna.species.exotic_blood = most_plentiful_reagent[1]
 	investigate_log("[key_name(mind)] cloned as a podman via [src] in [parent]", INVESTIGATE_BOTANY)
 	parent.update_tray(user, 1)
 	return result

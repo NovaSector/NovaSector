@@ -157,7 +157,7 @@
 			if (istype(I, /obj/item/food/meat/slab))
 				user.put_in_hands(I)
 
-			new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, target.dir)
+			new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, target.dir, target.dna.blood_type.color)
 			target.add_splatter_floor(target.loc)
 			target.bleed(60)
 
