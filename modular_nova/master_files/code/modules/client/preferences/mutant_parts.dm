@@ -523,7 +523,7 @@
 	savefile_key = "ipc_antenna_toggle"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 
-	/datum/preference/choiced/mutant_choice/synth_antenna
+/datum/preference/choiced/mutant_choice/synth_antenna
 	savefile_key = "feature_ipc_antenna"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 	default_accessory_type = /datum/sprite_accessory/antenna/none
