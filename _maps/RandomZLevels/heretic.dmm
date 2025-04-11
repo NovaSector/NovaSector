@@ -165,15 +165,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
-"dv" = (
-/obj/structure/ladder,
-/mob/living/simple_animal/hostile/devourdem{
-	faction = list("heretics","hostile");
-	maxHealth = 500;
-	health = 500
-	},
-/turf/open/floor/plating,
-/area/awaymission/beach/heretic)
 "dy" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 8
@@ -403,6 +394,10 @@
 /obj/structure/flora/bush/jungle/c/style_random,
 /obj/structure/spacevine,
 /turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
+"gT" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "gX" = (
 /obj/machinery/light/small/directional/west,
@@ -807,6 +802,19 @@
 "nM" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/iron/white/textured_large,
+/area/awaymission/beach/heretic)
+"nO" = (
+/obj/structure/closet/ammunitionlocker,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "nR" = (
 /obj/item/clothing/suit/armor/riot,
@@ -1294,6 +1302,10 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"vg" = (
+/mob/living/basic/cult/engorge/devourdem,
+/turf/open/misc/beach/sand,
+/area/awaymission/beach/heretic)
 "vp" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -1387,19 +1399,6 @@
 	dir = 10
 	},
 /turf/open/water/beach,
-/area/awaymission/beach/heretic)
-"wS" = (
-/obj/structure/closet/ammunitionlocker,
-/obj/item/ammo_box/advanced/s12gauge/buckshot,
-/obj/item/ammo_box/advanced/s12gauge/buckshot,
-/obj/item/ammo_box/advanced/s12gauge/buckshot,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "wZ" = (
 /obj/item/stack/sheet/mineral/sandstone,
@@ -9459,7 +9458,7 @@ Ie
 Ie
 ey
 cs
-dv
+gT
 Kx
 gv
 hs
@@ -9610,7 +9609,7 @@ Ie
 Ie
 Ie
 ey
-wS
+nO
 Xc
 Xc
 NX
@@ -14564,7 +14563,7 @@ RM
 RM
 XV
 XV
-XV
+vg
 XV
 RM
 RM

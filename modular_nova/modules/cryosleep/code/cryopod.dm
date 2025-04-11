@@ -158,8 +158,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	/// Time until despawn when a mob enters a cryopod. You cannot other people in pods unless they're catatonic.
 	var/time_till_despawn = 30 SECONDS
-	/// Cooldown for when it's now safe to try an despawn the player.
-	COOLDOWN_DECLARE(despawn_world_time)
 
 	///Weakref to our controller
 	var/datum/weakref/control_computer_weakref
@@ -168,6 +166,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	var/quiet = FALSE
 	/// Has the occupant been tucked in?
 	var/tucked = FALSE
+	/// If this cryopod should despawn the occupant to the ghost cafe
+	var/despawn_to_ghostcafe
+	/// The timerid of the cryo countdown, so we can stop it if the mob leaves the pod.
+	var/timerid
 
 /obj/machinery/cryopod/quiet
 	quiet = TRUE
@@ -221,7 +223,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(istype(human_occupant) && human_occupant.mind)
 		human_occupant.save_individual_persistence(mob_occupant.ckey || mob_occupant.mind?.key)
 
-	COOLDOWN_START(src, despawn_world_time, time_till_despawn)
+	timerid = addtimer(CALLBACK(src, PROC_REF(initiate_despawn_occupant)), time_till_despawn, TIMER_DELETE_ME|TIMER_STOPPABLE)
+	RegisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT, PROC_REF(on_set_occupant))
+	RegisterSignal(human_occupant, COMSIG_MOB_GHOSTIZED, PROC_REF(on_occupant_ghosted))
+
+/// Called when the mob leaves the pod.
+/obj/machinery/cryopod/proc/on_set_occupant(datum/source, mob/living/new_occupant)
+	SIGNAL_HANDLER
+
+	stop_cryo_timer()
+
+/// Stop the cryo process.
+/obj/machinery/cryopod/proc/stop_cryo_timer()
+
+	if(timerid)
+		deltimer(timerid)
+		timerid = null
+
+	UnregisterSignal(src, COMSIG_MACHINERY_SET_OCCUPANT)
+
+	if(occupant)
+		UnregisterSignal(occupant, COMSIG_MOB_GHOSTIZED)
+
+/// Immediately despawn them and stop the timer when they ghost.
+/obj/machinery/cryopod/proc/on_occupant_ghosted(datum/source)
+	on_set_occupant(src)
+	initiate_despawn_occupant()
 
 /obj/machinery/cryopod/open_machine(drop = TRUE, density_to_set = FALSE)
 	..()
@@ -237,7 +264,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/relaymove(mob/user)
 	container_resist_act(user)
 
-/obj/machinery/cryopod/process()
+/// Despawn the mob. To be called via addtimer or when the mob ghosts.
+/obj/machinery/cryopod/proc/initiate_despawn_occupant()
+	stop_cryo_timer()
+
 	if(!occupant)
 		return
 
@@ -245,11 +275,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	if(mob_occupant.stat == DEAD)
 		open_machine()
 
-	if(!mob_occupant.client && COOLDOWN_FINISHED(src, despawn_world_time))
+	if(!mob_occupant.client)
 		if(!control_computer_weakref)
 			find_control_computer(urgent = TRUE)
 
-		despawn_occupant()
+	despawn_occupant()
 
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
@@ -387,7 +417,25 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
-	mob_occupant.ghostize()
+
+	// The ghost mob is needed for transporting them directly to the ghost cafe, so let's keep track of that
+	var/mob/dead/observer/occupant_ghost_mob
+	if(isnull(mob_occupant.ckey)) // they ghosted early
+		for(var/mob/dead/observer/ghost as anything in GLOB.dead_player_list) // so we must find them in the list
+			if(ghost.ckey == occupant_ckey)
+				occupant_ghost_mob = ghost
+	else
+		occupant_ghost_mob = mob_occupant.ghostize() // otherwise they're just sitting patiently in the pod waiting, ghost them
+
+	// Ghost cafe cryopods
+	if(despawn_to_ghostcafe)
+		var/obj/effect/mob_spawn/ghost_role/ghostcafe_spawner
+		if(iscyborg(mob_occupant))
+			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/robot/ghostcafe::name]
+		else
+			ghostcafe_spawner = locate() in GLOB.mob_spawners[/obj/effect/mob_spawn/ghost_role/human/ghostcafe::name]
+		ghostcafe_spawner.create_from_ghost(occupant_ghost_mob, use_loadout = TRUE)
+
 	QDEL_NULL(occupant)
 	open_machine()
 	name = initial(name)
@@ -473,7 +521,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	else
 		visible_message(span_infoplain("[user] starts putting [target] into the cryo pod."))
 
-	to_chat(target, span_warning("<b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b>"))
+	to_chat(target, span_warning("<b>If you remain in the pod for [time_till_despawn] seconds, your character will be permanently removed from the round.</b>"))
 
 	log_admin("[key_name(target)] entered a stasis pod.")
 	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
@@ -503,11 +551,21 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	icon_state = state_open ? open_icon_state : base_icon_state
 	return ..()
 
+/obj/machinery/cryopod/despawn_to_ghostcafe
+	name = "Ghost Cafe Pod"
+	desc = parent_type::desc + " This one is primed to ship its occupant to the ghost cafe."
+	icon_state = "ghostcafepod-open"
+	base_icon_state = "ghostcafepod"
+	open_icon_state = "ghostcafepod-open"
+	despawn_to_ghostcafe = TRUE
+	time_till_despawn = 4 SECONDS
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/despawn_to_ghostcafe, 32)
+
 /// Special wall mounted cryopod for the prison, making it easier to autospawn.
 /obj/machinery/cryopod/prison
-	icon_state = "prisonpod"
-	base_icon_state = "prisonpod"
-	open_icon_state = "prisonpod"
+	icon_state = "ghostcafepod-open"
+	base_icon_state = "ghostcafepod"
 	density = FALSE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
@@ -527,7 +585,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 	/// For figuring out where the local cryopod computer is. Must be set for cryo computer announcements.
 	var/area/computer_area
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/mob/living/spawned_mob = ..()
 	var/obj/machinery/computer/cryopod/control_computer = find_control_computer()
 
