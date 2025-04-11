@@ -82,7 +82,7 @@
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 6
 	availability_prob = 40
-	stock_max = 2
+	stock_max = 3
 
 /datum/market_item/weapon/milspec_slugs
 	name = "Mil-Spec Slug Box"
@@ -91,4 +91,13 @@
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 6
 	availability_prob = 40
-	stock_max = 2
+	stock_max = 3
+
+/datum/market_item/weapon/ammobench_lethal_super
+	name = "Ammo Fabricator Advanced Lethal Authentication Module"
+	desc = "A Gorlex Marauders-modified ammunition fabricator module, loaded with the authentication keys for causing lots and lots of problems."
+	item = /obj/item/ammo_workbench_module/lethal_super/evil
+	price_min = CARGO_CRATE_VALUE * 10
+	price_max = CARGO_CRATE_VALUE * 20
+	availability_prob = 20
+	stock_max = 1
