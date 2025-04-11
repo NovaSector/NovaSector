@@ -29,9 +29,9 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 	if (combat_indicator_vehicle)
 		if(world.time > vehicle_next_combat_popup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 10 secs, so this is asking "has 10 secs past between last activation of CI?"
 			vehicle_next_combat_popup = world.time + COMBAT_NOTICE_COOLDOWN
-			playsound(src, 'sound/machines/chime.ogg', vol = 10, vary = FALSE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
-			flick_emote_popup_on_obj("combat", 20)
 			visible_message(span_boldwarning("[src] prepares for combat!"))
+			playsound(src, 'sound/machines/chime.ogg', vol = 10, vary = FALSE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+			addtimer(CALLBACK(src, PROC_REF(flick_emote_popup_on_obj), "combat", 2 SECONDS), 2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 		combat_indicator_vehicle = TRUE
 	else
 		combat_indicator_vehicle = FALSE
@@ -100,8 +100,6 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 /mob/living/proc/enable_combat_indicator()
 	if(world.time > nextcombatpopup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 10 secs, so this is asking "has 10 secs past between last activation of CI?"
 		nextcombatpopup = world.time + COMBAT_NOTICE_COOLDOWN
-		playsound(src, 'sound/machines/chime.ogg', vol = 10, vary = FALSE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
-		flick_emote_popup_on_mob("combat", 20)
 		var/ciweapon
 		if(get_active_held_item())
 			ciweapon = get_active_held_item()
@@ -122,6 +120,8 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 	apply_status_effect(/datum/status_effect/grouped/surrender, src)
 	log_message("<font color='red'>[src] has turned ON the combat indicator!</font>", LOG_ATTACK)
 	RegisterSignal(src, COMSIG_MOB_STATCHANGE , PROC_REF(ci_on_stat_change))
+	playsound(src, 'sound/machines/chime.ogg', vol = 10, vary = FALSE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+	addtimer(CALLBACK(src, PROC_REF(flick_emote_popup_on_mob), "combat", 2 SECONDS), 2 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 	update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
 /**
