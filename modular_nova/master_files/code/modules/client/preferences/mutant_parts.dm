@@ -496,7 +496,6 @@
 
 	return ..()
 
-
 /datum/preference/color/mutant/ipc_screen_color
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -511,6 +510,13 @@
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/ipc_screen
 
+/datum/preference/toggle/emissive/ipc_screen_emissive/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[type_to_check]
+		return ipc_screen_pref.is_accessible(preferences) // check if the associated type is even accessible
+
 /// IPC Antennas
 
 /datum/preference/choiced/mutant_choice/synth_antenna
@@ -522,6 +528,13 @@
 /datum/preference/choiced/mutant_choice/synth_antenna/is_part_enabled(datum/preferences/preferences)
 	return TRUE
 
+/datum/preference/choiced/mutant_choice/synth_antenna/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/species_path = preferences?.read_preference(/datum/preference/choiced/species)
+	if(!ispath(species_path, /datum/species/synthetic)) // This is what we do so it doesn't show up on non-synthetics.
+		return
+
+	return ..()
+
 /datum/preference/tri_color/synth_antenna
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -530,6 +543,13 @@
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
 
+/datum/preference/tri_color/synth_antenna/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/synth_antenna/antenna_pref = GLOB.preference_entries[type_to_check]
+		return antenna_pref.is_accessible(preferences) // check if the associated type is even accessible
+
 /datum/preference/tri_bool/synth_antenna_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -537,6 +557,13 @@
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+
+/datum/preference/tri_bool/synth_antenna_emissive/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/synth_antenna/antenna_pref = GLOB.preference_entries[type_to_check]
+		return antenna_pref.is_accessible(preferences) // check if the associated type is even accessible
 
 /// IPC Chassis
 

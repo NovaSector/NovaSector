@@ -3,8 +3,6 @@
 
 SUBSYSTEM_DEF(ticker)
 	name = "Ticker"
-	init_order = INIT_ORDER_TICKER
-
 	priority = FIRE_PRIORITY_TICKER
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
@@ -446,8 +444,8 @@ SUBSYSTEM_DEF(ticker)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
 		if(ishuman(new_player_living))
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
-			//NOVA EDIT ADDITION
-			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))
+			//NOVA EDIT ADDITION START
+			var/list/loadout = new_player_living.client?.get_loadout_datums()
 			for(var/datum/loadout_item/item as anything in loadout)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue

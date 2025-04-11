@@ -234,7 +234,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Hostage Containment"
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -416,7 +416,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
 	},
-/obj/machinery/door/airlock/security/old{
+/obj/machinery/door/airlock/security{
 	name = "Defensive Operations"
 	},
 /turf/open/floor/iron/dark/textured_large,
