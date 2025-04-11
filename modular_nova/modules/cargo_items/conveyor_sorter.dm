@@ -1,7 +1,7 @@
 /obj/item/conveyor_sorter
 	name = "conveyor sorter lister"
 	desc = "A tool that is used to not only create the conveyor sorters, but give lists to the conveyor sorters."
-	icon = 'modular_nova/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
+	icon = 'modular_nova/modules/cargo_items/conveyor_sorter.dmi'
 	icon_state = "lister"
 	///the list of conveyor sorters spawned by
 	var/list/spawned_sorters = list()
@@ -59,7 +59,7 @@
 /obj/effect/decal/conveyor_sorter
 	name = "conveyor sorter"
 	desc = "A mark that will sort items out based on what they are."
-	icon = 'modular_nova/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
+	icon = 'modular_nova/modules/cargo_items/conveyor_sorter.dmi'
 	icon_state = "sorter"
 	layer = OBJ_LAYER
 	plane = GAME_PLANE
@@ -153,16 +153,6 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
-/datum/techweb_node/conveyor_sorter
-	id = TECHWEB_NODE_CONVEYOR_SORTER
-	display_name = "Conveyor Sorter"
-	description = "Finally, the ability to automatically sort stuff."
-	prereq_ids = list(TECHWEB_NODE_BLUESPACE_THEORY)
-	design_ids = list(
-		"conveysorter",
-	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
-
 /obj/item/conveyor_sorter/improved
 	name = "improved conveyor sorter lister"
 	desc = "A tool that is used to not only create the conveyor sorters, but give lists to the conveyor sorters."
@@ -174,7 +164,7 @@
 /obj/effect/decal/conveyor_sorter/improved
 	name = "improved conveyor sorter"
 	desc = "A mark that will sort items out based on what they are. This one can sort in ordinal directions as well!"
-	icon = 'modular_nova/modules/conveyor_sorter/icons/conveyor_sorter.dmi'
+	icon = 'modular_nova/modules/cargo_items/conveyor_sorter.dmi'
 	icon_state = "sorter_improved"
 	light_range = 3
 	light_color = COLOR_BLUE_LIGHT
@@ -192,12 +182,11 @@
 		/datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
-
 /datum/techweb_node/conveyor_sorter/improved
 	id = TECHWEB_NODE_CONVEYOR_SORTER_IMPROVED
 	display_name = "Improved Conveyor Sorter"
 	description = "An improved version of the conveyor sorter, this one allows for more control over sorting."
-	prereq_ids = list(TECHWEB_NODE_APPLIED_BLUESPACE)
+	prereq_ids = list(TECHWEB_NODE_MISC_CARGO)
 	design_ids = list(
 		"conveyor_sorter_improved",
 	)
