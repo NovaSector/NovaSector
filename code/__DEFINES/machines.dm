@@ -137,7 +137,7 @@
 #define ORION_GAMER_REPORT_THRESHOLD 2
 
 /// What's the minimum duration of a syndie bomb (in seconds)
-#define SYNDIEBOMB_MIN_TIMER_SECONDS 90
+#define SYNDIEBOMB_MIN_TIMER_SECONDS 600 // NOVA EDIT CHANGE - ORIGINAL: #define SYNDIEBOMB_MIN_TIMER_SECONDS 90
 
 // Camera upgrade bitflags.
 #define CAMERA_UPGRADE_XRAY (1<<0)

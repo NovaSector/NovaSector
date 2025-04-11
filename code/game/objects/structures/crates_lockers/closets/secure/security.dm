@@ -63,6 +63,7 @@
 	new /obj/item/radio/headset/heads/hos(src)
 	new /obj/item/radio/headset/heads/hos/alt(src)
 	new /obj/item/storage/bag/garment/hos(src)
+	new /obj/item/storage/bag/garment/hos/blue(src) // NOVA EDIT ADDITION - Bluesec alternative
 	new /obj/item/storage/lockbox/medal/sec(src)
 	new /obj/item/megaphone/sec(src)
 	new /obj/item/holosign_creator/security(src)
@@ -92,6 +93,7 @@
 	new /obj/item/radio/headset/headset_sec(src)
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/storage/bag/garment/warden(src)
+	new /obj/item/storage/bag/garment/warden/blue(src) // NOVA EDIT ADDITION - Bluesec alternative
 	new /obj/item/storage/box/zipties(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/belt/security/full(src)
@@ -113,13 +115,12 @@
 /obj/structure/closet/secure_closet/security/PopulateContents()
 	..()
 	new /obj/item/clothing/suit/armor/vest/alt/sec(src)
-	new /obj/item/clothing/head/security_cap(src) // NOVA EDIT ADDITION
 	new /obj/item/clothing/head/helmet/sec(src)
 	new /obj/item/radio/headset/headset_sec(src)
 	new /obj/item/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/flashlight/seclite(src)
-	new /obj/item/clothing/gloves/tackler/security(src) // NOVA EDIT CHANGE - Gives Them The Blue Ones - ORIGINAL: new /obj/item/clothing/gloves/tackler(src)
+	new /obj/item/clothing/gloves/tackler(src)
 
 /obj/structure/closet/secure_closet/security/sec
 

@@ -1,4 +1,4 @@
-import { Placement } from '@popperjs/core';
+import { type Placement } from '@floating-ui/react';
 import { BooleanLike } from 'tgui-core/react';
 
 export type PodLauncherData = {
