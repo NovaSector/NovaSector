@@ -36018,7 +36018,7 @@
 /area/station/engineering/atmos/pumproom)
 "gTg" = (
 /obj/effect/decal/cleanable/glass,
-/obj/structure/flippedtable{
+/obj/effect/spawner/structure/flipped_table{
 	dir = 4
 	},
 /obj/structure/grille/broken,
@@ -88387,7 +88387,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage)
 "qWn" = (
-/obj/structure/flippedtable{
+/obj/effect/spawner/structure/flipped_table{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -120787,7 +120787,7 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/medical/central)
 "xbC" = (
-/obj/structure/flippedtable,
+/obj/effect/spawner/structure/flipped_table,
 /obj/machinery/light/broken/directional/north,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
