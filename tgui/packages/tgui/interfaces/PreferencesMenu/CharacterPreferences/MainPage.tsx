@@ -4,12 +4,8 @@ import { sendAct, useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
-<<<<<<< HEAD
   Dropdown, // NOVA EDIT ADDITION
-  Flex,
-=======
   Floating,
->>>>>>> d81a46c05... Squashed commit of the following:
   Input,
   LabeledList,
   Section,

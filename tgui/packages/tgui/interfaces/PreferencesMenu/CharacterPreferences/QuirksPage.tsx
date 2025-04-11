@@ -229,28 +229,6 @@ function QuirkPopper(props: QuirkPopperProps) {
       placement="bottom-end"
       onOpenChange={setCustomizationExpanded}
       content={
-<<<<<<< HEAD
-        <div>
-          {!!customization_options && hasExpandableCustomization && (
-            <Box
-              mt="1px"
-              style={{
-                boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
-              }}
-            >
-              <Stack
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-                maxWidth="400px" // NOVA EDIT CHANGE - Original: 300px - Prevents Quirks like Death Degradation from being cut off
-                backgroundColor="black"
-                px="5px"
-                py="3px"
-              >
-                <Stack.Item>
-                  <PreferenceList
-                    preferences={getCorrespondingPreferences(
-=======
         hasExpandableCustomization && (
           <Box
             onClick={(e) => {
@@ -260,7 +238,8 @@ function QuirkPopper(props: QuirkPopperProps) {
               boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
             }}
           >
-            <Stack maxWidth="300px" backgroundColor="black" px="5px" py="3px">
+            {/* NOVA EDIT CHANGE - ORIGINAL: <Stack maxWidth="300px" backgroundColor="black" px="5px" py="3px"> */}
+            <Stack maxWidth="400px" backgroundColor="black" px="5px" py="3px">
               <Stack.Item>
                 <PreferenceList
                   preferences={getCorrespondingPreferences(
@@ -269,7 +248,6 @@ function QuirkPopper(props: QuirkPopperProps) {
                   )}
                   randomizations={getRandomization(
                     getCorrespondingPreferences(
->>>>>>> d81a46c05... Squashed commit of the following:
                       customization_options,
                       character_preferences.manually_rendered_features,
                     ),
