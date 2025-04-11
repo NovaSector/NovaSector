@@ -4,9 +4,9 @@ import { useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
+  Floating,
   Icon,
   Input,
-  Popper,
   Stack,
   Tooltip,
 } from 'tgui-core/components';
@@ -220,17 +220,16 @@ function QuirkPopper(props: QuirkPopperProps) {
   const hasExpandableCustomization =
     customizable &&
     selected &&
-    customizationExpanded &&
     customization_options &&
     Object.entries(customization_options).length > 0;
 
   return (
-    <Popper
+    <Floating
+      stopChildPropagation
       placement="bottom-end"
-      onClickOutside={() => setCustomizationExpanded(false)}
-      isOpen={customizationExpanded}
-      baseZIndex={1}
+      onOpenChange={setCustomizationExpanded}
       content={
+<<<<<<< HEAD
         <div>
           {!!customization_options && hasExpandableCustomization && (
             <Box
@@ -251,43 +250,53 @@ function QuirkPopper(props: QuirkPopperProps) {
                 <Stack.Item>
                   <PreferenceList
                     preferences={getCorrespondingPreferences(
+=======
+        hasExpandableCustomization && (
+          <Box
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            style={{
+              boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
+            }}
+          >
+            <Stack maxWidth="300px" backgroundColor="black" px="5px" py="3px">
+              <Stack.Item>
+                <PreferenceList
+                  preferences={getCorrespondingPreferences(
+                    customization_options,
+                    character_preferences.manually_rendered_features,
+                  )}
+                  randomizations={getRandomization(
+                    getCorrespondingPreferences(
+>>>>>>> d81a46c05... Squashed commit of the following:
                       customization_options,
                       character_preferences.manually_rendered_features,
-                    )}
-                    randomizations={getRandomization(
-                      getCorrespondingPreferences(
-                        customization_options,
-                        character_preferences.manually_rendered_features,
-                      ),
-                      serverData,
-                      randomBodyEnabled,
-                    )}
-                    maxHeight="100px"
-                  />
-                </Stack.Item>
-              </Stack>
-            </Box>
-          )}
-        </div>
+                    ),
+                    serverData,
+                    randomBodyEnabled,
+                  )}
+                  maxHeight="100px"
+                />
+              </Stack.Item>
+            </Stack>
+          </Box>
+        )
       }
     >
-      <div>
+      <div style={{ display: 'flow-root' }}>
         {selected && (
           <Button
             selected={customizationExpanded}
             icon="cog"
             tooltip="Customize"
-            onClick={(e) => {
-              e.stopPropagation();
-              setCustomizationExpanded(!customizationExpanded);
-            }}
             style={{
               float: 'right',
             }}
           />
         )}
       </div>
-    </Popper>
+    </Floating>
   );
 }
 
