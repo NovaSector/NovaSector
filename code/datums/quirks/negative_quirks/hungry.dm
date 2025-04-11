@@ -18,6 +18,11 @@
 		/obj/item/reagent_containers/cup/glass/dry_ramen,
 	)
 
+/datum/quirk/hungry/is_species_appropriate(datum/species/mob_species)
+	if(TRAIT_NOHUNGER in GLOB.species_prototypes[mob_species].inherent_traits)
+		return FALSE
+	return ..()
+
 /datum/quirk/hungry/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(istype(human_holder))

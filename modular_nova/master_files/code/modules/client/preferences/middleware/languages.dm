@@ -57,8 +57,6 @@
 	qdel(lang_holder)
 	qdel(species)
 
-	return ..()
-
 /datum/preference_middleware/languages/get_ui_data(mob/user)
 	if(length(name_to_language) != length(GLOB.all_languages))
 		initialize_name_to_language()

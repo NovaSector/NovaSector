@@ -239,48 +239,62 @@ function LoadoutTabs(props: LoadoutTabsProps) {
             <Section>
               <Stack vertical>
                 <Stack.Item>
-                  <Dropdown
-                    mb="2px"
-                    width="100%"
-                    options={
-                      data.character_preferences.misc.loadout_lists.loadouts
-                    }
-                    selected={data.character_preferences.misc.loadout_index}
-                    onSelected={(value) =>
-                      act('set_loadout_preset', { name: value })
-                    }
-                  />
+                  <Stack>
+                    <Stack.Item>
+                      <Dropdown
+                        width="209px"
+                        options={
+                          data.character_preferences.misc.loadout_lists.loadouts
+                        }
+                        selected={data.character_preferences.misc.loadout_index}
+                        onSelected={(value) =>
+                          act('set_loadout_preset', { name: value })
+                        }
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="pen"
+                        onClick={() => setManagingPreset('Rename')}
+                        disabled={
+                          data.character_preferences.misc.loadout_index ===
+                          'Default'
+                        }
+                      />
+                    </Stack.Item>
+                  </Stack>
                 </Stack.Item>
                 <Stack.Item>
-                  <Button.Confirm
-                    icon="times"
-                    color="red"
-                    align="center"
-                    disabled={
-                      data.character_preferences.misc.loadout_index ===
-                      'Default'
-                    }
-                    tooltip={
-                      data.character_preferences.misc.loadout_index ===
-                      'Default'
-                        ? "Can't delete the default loadout entry."
-                        : 'Delete the current loadout entry.'
-                    }
-                    onClick={() => act('remove_loadout_preset')}
-                  >
-                    Delete
-                  </Button.Confirm>
-                  <Button onClick={() => setManagingPreset('Add')} icon="plus">
-                    Add Loadout
-                  </Button>
-                  <Button
-                    icon="pen"
-                    onClick={() => setManagingPreset('Rename')}
-                    disabled={
-                      data.character_preferences.misc.loadout_index ===
-                      'Default'
-                    }
-                  />
+                  <Stack>
+                    <Stack.Item>
+                      <Button
+                        onClick={() => setManagingPreset('Add')}
+                        icon="plus"
+                        color="good"
+                      >
+                        Add New Loadout
+                      </Button>
+                    </Stack.Item>
+                    <Stack.Item ml={12.5}>
+                      <Button.Confirm
+                        icon="trash"
+                        color="red"
+                        align="center"
+                        confirmContent="✓"
+                        disabled={
+                          data.character_preferences.misc.loadout_index ===
+                          'Default'
+                        }
+                        tooltip={
+                          data.character_preferences.misc.loadout_index ===
+                          'Default'
+                            ? "Can't delete the default loadout entry."
+                            : 'Delete the current loadout entry.'
+                        }
+                        onClick={() => act('remove_loadout_preset')}
+                      />
+                    </Stack.Item>
+                  </Stack>
                 </Stack.Item>
               </Stack>
             </Section>
