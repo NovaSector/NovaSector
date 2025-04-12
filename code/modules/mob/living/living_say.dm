@@ -536,7 +536,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		to_chat(src, span_warning("You can't use the radio right now as you can't reach the button!"))
 		return ITALICS | REDUCE_RANGE
 	//NOVA EDIT END
-	var/obj/item/implant/radio/imp = locate() in src
+	var/obj/item/implant/radio/imp = locate() in src // NOVA EDIT CHANGE - ORIGINAL: var/obj/item/implant/radio/imp = locate() in src
 	if(imp?.radio.is_on())
 		if(message_mods[MODE_HEADSET])
 			imp.radio.talk_into(src, message, , spans, language, message_mods)

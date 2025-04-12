@@ -33,6 +33,7 @@
 /obj/item/implant/radio
 	name = "internal radio implant"
 	var/obj/item/radio/radio
+	var/radio_type = /obj/item/radio // NOVA EDIT ADDITION
 	var/radio_key
 	var/subspace_transmission = FALSE
 	icon = 'icons/obj/devices/voice.dmi'
@@ -46,7 +47,7 @@
 /obj/item/implant/radio/Initialize(mapload)
 	. = ..()
 
-	radio = new(src)
+	radio = new radio_type(src) // NOVA EDIT CHANGE - ORIGINAL: radio = new(src)
 	// almost like an internal headset, but without the
 	// "must be in ears to hear" restriction.
 	radio.name = "internal radio"
