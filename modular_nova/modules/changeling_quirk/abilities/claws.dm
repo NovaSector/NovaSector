@@ -47,6 +47,6 @@
 	alt_simple = string_list(alt_simple)
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -5)
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS, \
-	effectiveness = 80, \
+		speed = 6 SECONDS, \
+		effectiveness = 80, \
 	)

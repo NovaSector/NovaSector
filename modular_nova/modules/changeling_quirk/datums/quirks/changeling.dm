@@ -7,7 +7,7 @@
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	veteran_only = TRUE
 
-/datum/quirk/changeling/add(client/client_source)
+/datum/quirk/changeling/add_unique(client/client_source)
 	var/datum/mind/target_mind = quirk_holder.mind
 	var/datum/antagonist/changeling/quirk/changeling_datum = target_mind.has_antag_datum(/datum/antagonist/changeling/quirk)
 	if(isnull(changeling_datum))
