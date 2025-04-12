@@ -9,11 +9,11 @@
 
 /datum/quirk/changeling/add(client/client_source)
 	var/datum/mind/target_mind = quirk_holder.mind
-	var/datum/antagonist/changeling/quirk/C = target_mind.has_antag_datum(/datum/antagonist/changeling/quirk)
-	if(!C)
-		C = target_mind.add_antag_datum(/datum/antagonist/changeling/quirk)
+	var/datum/antagonist/changeling/quirk/changeling_datum = target_mind.has_antag_datum(/datum/antagonist/changeling/quirk)
+	if(isnull(changeling_datum))
+		changeling_datum = target_mind.add_antag_datum(/datum/antagonist/changeling/quirk)
 		target_mind.special_role = ROLE_CHANGELING
-	return C
+	return changeling_datum
 
 /datum/quirk/changeling/remove(client/client_source)
 	var/datum/mind/target_mind = quirk_holder.mind
