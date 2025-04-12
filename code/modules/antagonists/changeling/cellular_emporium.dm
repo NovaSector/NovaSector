@@ -33,7 +33,7 @@
 
 	var/static/list/abilities
 	if(isnull(abilities))
-		var/is_quirk_changeling = istype(changeling, /datum/antagonist/changeling/quirk) // NOVA EDIT - Changeling quirk
+		var/is_quirk_changeling = istype(changeling, /datum/antagonist/changeling/quirk) // NOVA EDIT ADDITION - Changeling quirk
 		abilities = list()
 		for(var/datum/action/changeling/ability_path as anything in changeling.all_powers)
 			// NOVA EDIT BEGIN - Changeling quirk
