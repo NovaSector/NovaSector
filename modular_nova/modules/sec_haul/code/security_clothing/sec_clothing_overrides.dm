@@ -163,8 +163,10 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Red HUD" = list(
-			RESKIN_ICON_STATE = "security_hud",
-			RESKIN_WORN_ICON_STATE = "security_hud"
+			RESKIN_ICON = 'icons/obj/clothing/glasses.dmi',
+			RESKIN_ICON_STATE = "securityhud",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/eyes.dmi',
+			RESKIN_WORN_ICON_STATE = "securityhud"
 		),
 		"Blue HUD" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
@@ -175,11 +177,9 @@
 	)
 
 /obj/item/clothing/glasses/hud/security/sunglasses
-	uses_advanced_reskins = FALSE
 	unique_reskin = null
 
 /obj/item/clothing/glasses/hud/security/prescription
-	uses_advanced_reskins = FALSE
 	unique_reskin = null
 
 /obj/item/clothing/glasses/hud/security/sunglasses/blue
@@ -189,30 +189,35 @@
 	worn_icon_state = "security_hud_blue_black"
 	unique_reskin = list(
 		"Dark-Tint Blue Sunglasses" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "security_hud_blue_black",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
 			RESKIN_WORN_ICON_STATE = "security_hud_blue_black"
 		),
 		"Light-Tint Blue Sunglasses" = list(
+			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "security_hud_blue",
+			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
 			RESKIN_WORN_ICON_STATE = "security_hud_blue"
 		),
 	)
 
 /obj/item/clothing/glasses/hud/security/night
-	uses_advanced_reskins = FALSE
 	unique_reskin = null
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
 	unique_reskin = list(
 		"Red Eyepatches" = list(
+			RESKIN_ICON = 'icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "hudpatch",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/eyes.dmi',
 			RESKIN_WORN_ICON_STATE = "hudpatch"
 		),
 		"Blue Eyepatches" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "security_eyepatch",
+			RESKIN_ICON_STATE = "hudpatch",
 			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "security_eyepatch"
+			RESKIN_WORN_ICON_STATE = "hudpatch"
 		),
 	)
 
