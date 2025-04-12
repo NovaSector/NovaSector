@@ -17,7 +17,7 @@
 
 /datum/quirk/changeling/remove(client/client_source)
 	var/datum/mind/target_mind = quirk_holder.mind
-	var/datum/antagonist/changeling/quirk/C = quirk_holder?.mind.has_antag_datum(/datum/antagonist/changeling/quirk)
-	if(C)
+	var/datum/antagonist/changeling/quirk/changeling_datum = quirk_holder?.mind.has_antag_datum(/datum/antagonist/changeling/quirk)
+	if(changeling_datum)
 		target_mind.remove_antag_datum(/datum/antagonist/changeling/quirk)
 		target_mind.special_role = null
