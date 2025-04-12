@@ -73,7 +73,7 @@
 	icon_state = "585trappiste_hot"
 	projectile_type = /obj/projectile/bullet/c585trappiste/incendiary
 
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 

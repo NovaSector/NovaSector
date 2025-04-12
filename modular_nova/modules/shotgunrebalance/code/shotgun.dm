@@ -52,7 +52,7 @@
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
 		<br><br>\
 		<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_SHOTGUN_PLASMA
 
 /obj/item/ammo_casing/shotgun/incendiary/no_trail
@@ -130,11 +130,13 @@
 	speed = 1
 
 /obj/item/ammo_casing/shotgun/incapacitate
-	name = "hornet's nest shell"
+	name = "incapacitator shell"
 	desc = "A 12 gauge shell filled with some kind of material that excels at incapacitating targets. Contains a lot of pellets, \
 		sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
 		<br><br>\
-		<i>HORNET'S NEST: Fire an overwhelming amount of projectiles in a single shot.</i>"
+		<i>INCAPACITATOR: Fire an overwhelming amount of projectiles in a single shot.</i>"
+	ammo_categories = AMMO_CLASS_NICHE_LTL
+	harmful = FALSE
 
 /obj/item/ammo_casing/shotgun/flechette
 	name = "shredder flechette shell"
@@ -148,11 +150,15 @@
 	speed = 1.3 // you can have above average projectile speed. as a treat
 	// embeds staying untouched because i think they're evil and deserve to wreak havoc
 
+/obj/item/ammo_casing/shotgun/flechette/donk
+	ammo_categories = AMMO_CLASS_NONE
+	print_cost = 0 // lmao
+
 /obj/item/ammo_casing/shotgun/ion
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble
 
 /obj/item/ammo_casing/shotgun/scatterlaser
-	ammo_categories = AMMO_CLASS_SMART // it's techy okay.
+	ammo_categories = AMMO_CLASS_NICHE // it's techy okay.
 
 /obj/item/ammo_casing/shotgun/techshell
 	can_be_printed = FALSE // techshell... casing! so not really usable on its own but if you're gonna make these go raid a seclathe.
@@ -164,7 +170,7 @@
 	can_be_printed = FALSE // PRELOADED WITH TERROR CHEMS MAYBE LET'S NOT
 
 /obj/item/ammo_casing/shotgun/breacher
-	ammo_categories = AMMO_CLASS_NICHE
+	ammo_categories = AMMO_CLASS_SUPER // puts up diabolical numbers against doors and stuff
 
 // everything beyond this point is nova content
 
@@ -216,7 +222,7 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova
 	pellets = 8 //8 x 6 = 48 Damage Potential
 	variance = 15
-	ammo_categories = AMMO_CLASS_HOLLOW
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_SHOTGUN_FLECH
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova
@@ -243,7 +249,7 @@
 	fire_sound = 'sound/items/weapons/taser.ogg'
 	harmful = FALSE
 	custom_materials = AMMO_MATS_SHOTGUN_HIVE
-	ammo_categories = AMMO_CLASS_NICHE_LTL | AMMO_CATEGORY_SMART
+	ammo_categories = AMMO_CLASS_NICHE_LTL
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/beehive
 	name = "hornet flechette"
@@ -274,14 +280,13 @@
 	harmful = FALSE
 	fire_sound = 'sound/items/weapons/taser.ogg'
 	custom_materials = AMMO_MATS_SHOTGUN_TIDE
-	ammo_categories = AMMO_CLASS_NICHE_LTL | AMMO_CATEGORY_SMART
+	ammo_categories = AMMO_CLASS_NICHE_LTL
 
 /obj/item/ammo_casing/shotgun/hunter
 	name = "hunter slug shell"
 	desc = "A 12 gauge slug shell that fires specially designed slugs that deal extra damage to local fauna."
 	icon_state = "huntershell"
 	projectile_type = /obj/projectile/bullet/shotgun_slug/hunter
-	ammo_categories = AMMO_CLASS_HOLLOW
 
 /obj/projectile/bullet/shotgun_slug/hunter
 	name = "12g hunter slug"

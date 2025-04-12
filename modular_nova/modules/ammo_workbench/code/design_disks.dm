@@ -1,15 +1,15 @@
 /obj/item/ammo_workbench_module
-	name = "ammo fabricator module"
+	name = "ammo module"
 
-	icon = 'icons/obj/devices/circuitry_n_data.dmi'
+	icon = 'modular_nova/modules/ammo_workbench/icons/ammo_workbench.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
 	drop_sound = 'sound/items/handling/disk_drop.ogg'
 	pickup_sound = 'sound/items/handling/disk_pickup.ogg'
+	icon_state = "lethal_mod"
 
-	icon_state = "std_mod" // colorcoding one day, right chat
 	desc = "A blank hardware authentication module for inserting into ammunition workbenches. \
 	Digital rights management for ammo is real, and it's coming for you."
 	/// What ammo categories does this module unlock?
@@ -39,38 +39,31 @@
 
 /obj/item/ammo_workbench_module/gimmick
 	name = "niche nonlethal " + parent_type::name
-	desc = "A hardware authentication module for inserting into ammunition workbenches. \
-	This one should have the keys to print smart or otherwise niche non-or-less-lethal ammunition."
-	ammo_categories = AMMO_CATEGORY_NICHE | AMMO_CATEGORY_SMART
+	desc = "A hardware authentication module for ammunition workbenches, \
+	with keys to print niche non- or less-lethal ammunition."
+	icon_state = "nonlethal_mod"
+	ammo_categories = AMMO_CATEGORY_NICHE
 
 /obj/item/ammo_workbench_module/lethal
 	name = "standard lethal " + parent_type::name
-	desc = "A hardware authentication module for inserting into ammunition workbenches. \
-	This one should have the keys to allow fabricating standard lethal ammunition. \
-	Useful for solving problems."
+	desc = "A hardware authentication module for ammunition workbenches, \
+	with keys to allow fabricating standard lethal ammunition."
+	icon_state = "lethal_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL
-
-/obj/item/ammo_workbench_module/lethal/bulk
-	name = "bulk " + parent_type::name
-	desc = "A hardware authentication module for inserting into ammunition workbenches. \
-	This one should have the keys to allow fabricating standard lethal ammunition - and \
-	the expanded license allowance to print lots and lots of it. \
-	Useful for selling people the means by which to solve problems."
-	allowed_prints = 300
 
 /obj/item/ammo_workbench_module/lethal_variant
 	name = "variant lethal " + parent_type::name
-	desc = "A hardware authentication module for inserting into ammunition workbenches. \
-	This one has the keys to allow fabricating standard, hollow-point, or armor-piercing lethal ammunition. \
-	Useful for solving specific problems."
-	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_HOLLOW | AMMO_CATEGORY_ARMORPEN
+	desc = "A hardware authentication module for ammunition workbenches, \
+	with keys to allow fabricating standard or enhanced lethal ammunition."
+	icon_state = "lethal_plus_mod"
+	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_PLUS
 
 /obj/item/ammo_workbench_module/lethal_super
 	name = "advanced lethal " + parent_type::name
-	desc = "A hardware authentication module for inserting into ammunition workbenches. \
-	This one should have the keys to allow fabricating standard, hollow-point, armor-piercing, or premium lethal ammunition. \
-	Useful for causing lots of problems very intentionally."
-	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_HOLLOW | AMMO_CATEGORY_ARMORPEN | AMMO_CATEGORY_SUPER
+	desc = "A hardware authentication module for ammunition workbenches, \
+	with keys to allow fabricating standard, enhanced, or premium lethal ammunition."
+	icon_state = "lethal_super_mod"
+	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_PLUS | AMMO_CATEGORY_SUPER
 
 /obj/item/ammo_workbench_module/lethal_super/evil
 	name = "marauder " + parent_type::name
@@ -83,24 +76,24 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SCARBOROUGH)
 
 /obj/item/ammo_workbench_module/lethal_gimmick
-	name = "niche lethal" + parent_type::name
-	desc = "A hardware authentication module for inserting into ammunition workbenches. \
-	This one should have the keys to allow fabricating standard, niche, electronic, or thermal ammunition. \
-	Useful for solving particular problems with equally particular solutions."
-	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE | AMMO_CATEGORY_SMART | AMMO_CATEGORY_THERMAL
+	name = "niche lethal " + parent_type::name
+	desc = "A hardware authentication module for ammunition workbenches, \
+	with keys to allow fabricating standard or niche ammunition."
+	icon_state = "lethal_gimmick_mod"
+	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE
 
 // esoteric ammo includes phasic, so probably be careful with this
 /obj/item/ammo_workbench_module/lethal_esoteric
-	name = "esoteric lethal" + parent_type::name
-	desc = "A very limited hardware authentication module for inserting into ammunition workbenches. \
-	This one should have the keys to allow fabricating standard, niche, electronic, thermal, or esoteric ammunition. \
-	Useful for solving, or causing, especially weird problems."
-	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE | AMMO_CATEGORY_SMART | AMMO_CATEGORY_THERMAL | AMMO_CATEGORY_ESOTERIC
+	name = "esoteric lethal " + parent_type::name
+	desc = "A very limited hardware authentication module for ammunition workbenches, \
+	with keys to allow fabricating standard, niche, or esoteric ammunition."
+	icon_state = "lethal_weird_mod"
+	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE | AMMO_CATEGORY_ESOTERIC
 
 /obj/item/ammo_workbench_reboot
 	name = "ammo fabricator module reauthenticator"
 
-	icon = 'icons/obj/devices/circuitry_n_data.dmi'
+	icon = 'modular_nova/modules/ammo_workbench/icons/ammo_workbench.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'

@@ -117,7 +117,7 @@
 				mat_string += ", "
 
 		valid_casings += our_casing // adding the valid typepath
-		valid_casings[our_casing] = initial(our_casing.name) + " \[[our_casing.print_cost]\]"
+		valid_casings[our_casing] = initial(our_casing.name) + " \[[our_casing.print_cost]pt\]"
 		casing_mat_strings += mat_string // adding the casing material cost string
 		// we pray to god these indexes stay consistent.
 
@@ -289,16 +289,19 @@
 	if(!(casing_type in possible_ammo_types))
 		error_message = "Ammunition type mismatch!"
 		error_type = "bad"
+		ammo_fill_finish(FALSE)
 		return
 
 	if(loaded_module && (loaded_module.allowed_prints < casing_type.print_cost))
 		error_message = "Fabrication module license insufficient for chosen ammo type; reauthenticate module or change selected munition type."
 		error_type = "bad"
+		ammo_fill_finish(FALSE)
 		return
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
 		error_message = "Ammunition container full."
 		error_type = "good"
+		ammo_fill_finish(TRUE)
 		return
 
 	if(busy)
@@ -363,7 +366,7 @@
 		return
 
 	if(loaded_magazine.stored_ammo.len >= loaded_magazine.max_ammo)
-		ammo_fill_finish()
+		ammo_fill_finish(TRUE)
 		error_message = "Ammunition container full."
 		error_type = "good"
 		return
@@ -497,7 +500,6 @@
 		if(!user.transferItemToLoc(inserted, src))
 			return FALSE
 		if(loaded_magazine)
-			to_chat(user, span_notice("You quickly swap [loaded_magazine] for [inserted]."))
 			loaded_magazine.forceMove(drop_location())
 			user.put_in_hands(loaded_magazine)
 			loaded_magazine = null
@@ -517,9 +519,19 @@
 	if(istype(inserted, /obj/item/ammo_workbench_module))
 		if(!user.transferItemToLoc(inserted, src))
 			return FALSE
+		if(loaded_module)
+			loaded_module.forceMove(drop_location())
+			user.put_in_hands(loaded_module)
+			loaded_module = null
+			busy = FALSE
+			error_message = ""
+			error_type = ""
+			if(timer_id)
+				deltimer(timer_id)
+				timer_id = null
 		loaded_module = inserted
 		ammo_categories = loaded_module.ammo_categories
-		to_chat(user, span_notice("You insert [inserted] into [src]'s authentication module port."))
+		to_chat(user, span_notice("You insert [inserted] into [src]'s module port."))
 		flick("h_lathe_load", src)
 		update_appearance()
 		update_ammotypes()
@@ -536,9 +548,6 @@
 		return FALSE
 	if(machine_stat & NOPOWER)
 		to_chat(user, span_warning("[src] has no power."))
-		return FALSE
-	if(istype(inserted, /obj/item/ammo_workbench_module) && loaded_module)
-		to_chat(user, span_warning("[src] already has a module inserted."))
 		return FALSE
 	return TRUE
 

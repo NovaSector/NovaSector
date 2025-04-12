@@ -6,7 +6,7 @@
 	desc = "A 4.6x30mm armor-piercing bullet casing.\
 		<br><br>\
 		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 
@@ -14,7 +14,7 @@
 	desc = "A 4.6x30mm incendiary bullet casing.\
 		<br><br>\
 		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 
@@ -59,7 +59,7 @@
 		<br><br>\
 		<i>ARMOR PIERCING: Increased armor piercing capabilities.</i>"
 	projectile_type = /obj/projectile/bullet/a223/ap
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 
@@ -73,16 +73,16 @@
 */
 
 /obj/item/ammo_casing/m7mm/ap
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 
 /obj/item/ammo_casing/m7mm/hollow
-	ammo_categories = AMMO_CLASS_HOLLOW
+	ammo_categories = AMMO_CLASS_PLUS
 	print_cost = 2
 
 /obj/item/ammo_casing/m7mm/incen
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 
@@ -112,7 +112,7 @@
 	desc = "A .50 BMG disruptor bullet casing.\
 		<br><br>\
 		<i>DISRUPTOR: Forces humanoid targets to sleep, does heavy damage against cyborgs, EMPs struck targets.</i>"
-	ammo_categories = AMMO_CLASS_SMART | AMMO_CLASS_SUPER
+	ammo_categories = AMMO_CLASS_SUPER | AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_HEAVY
 
 /obj/item/ammo_casing/p50/incendiary
@@ -120,21 +120,21 @@
 		<br><br>\
 		<i>INCENDIARY: Lacks innate dismemberment ability and contact-stun. Creates hotspots on impact. Sets people very on fire.</i>"
 	projectile_type = /obj/projectile/bullet/p50/incendiary
-	ammo_categories = AMMO_CLASS_THERMAL | AMMO_CLASS_SUPER
+	ammo_categories = AMMO_CLASS_SUPER | AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_HEAVY
 
 /obj/item/ammo_casing/p50/penetrator
 	desc = "A .50 BMG penetrator bullet casing.\
 		<br><br>\
 		<i>PENETRATOR: Goes through basically everything. Lacks innate dismemberment ability and contact-stun.</i>"
-	ammo_categories = AMMO_CLASS_ARMORPEN | AMMO_CLASS_SUPER
+	ammo_categories = AMMO_CLASS_SUPER | AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_HEAVY
 
 /obj/item/ammo_casing/p50/marksman
 	desc = "A .50 BMG marksman bullet casing.\
 		<br><br>\
-		<i>MARKSMAN: Bullets have <b>no</b> travel time, and can ricochet once. Does slightly less damage, lacks innate dismemberment and contact-stun capabilities.</i>"
-	ammo_categories = AMMO_CLASS_ARMORPEN | AMMO_CLASS_SUPER
+		<i>MARKSMAN: Bullets have <b>no</b> travel time, and can ricochet once. Does slightly less damage, lacks innate dismemberment and contact-stun.</i>"
+	ammo_categories = AMMO_CLASS_SUPER | AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_HEAVY_FAST
 
 /*
@@ -152,7 +152,7 @@
 	can_be_printed = FALSE // these are Really Really Better Rubbers
 
 /obj/item/ammo_casing/strilka310/phasic
-	ammo_categories = AMMO_CLASS_ESOTERIC
+	ammo_categories = AMMO_CLASS_SUPER | AMMO_CLASS_ESOTERIC
 	custom_materials = AMMO_MATS_PHASIC
 	print_cost = 4
 
@@ -192,7 +192,7 @@
 	icon_state = "310-casing-ap"
 
 	projectile_type = /obj/projectile/bullet/strilka310/ap
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 

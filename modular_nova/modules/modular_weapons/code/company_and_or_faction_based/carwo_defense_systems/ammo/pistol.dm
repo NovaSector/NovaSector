@@ -99,7 +99,7 @@
 	projectile_type = /obj/projectile/bullet/c35sol/ripper
 
 	custom_materials = AMMO_MATS_RIPPER
-	ammo_categories = AMMO_CLASS_HOLLOW
+	ammo_categories = AMMO_CLASS_PLUS
 	print_cost = 2
 
 /obj/projectile/bullet/c35sol/ripper

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {
   Box,
   Button,
+  Collapsible,
   Flex,
   NoticeBox,
   NumberInput,
@@ -31,13 +32,9 @@ export const AmmoWorkbench = (props) => {
           <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
             Materials
           </Tabs.Tab>
-          <Tabs.Tab selected={tab === 3} onClick={() => setTab(3)}>
-            Fabrication Module
-          </Tabs.Tab>
         </Tabs>
         {tab === 1 && <AmmunitionsTab />}
         {tab === 2 && <MaterialsTab />}
-        {tab === 3 && <DatadiskTab />}
       </Window.Content>
     </Window>
   );
@@ -80,8 +77,6 @@ export const AmmunitionsTab = (props) => {
           />
         </Box>
         <Box>Time Per Round: {time} seconds</Box>
-        {!!datadisk_loaded && <Box>Loaded Module: {datadisk_name}</Box>}
-        {!!datadisk_loaded && <Box>Points Left: {datadisk_points}</Box>}
         <Button.Checkbox
           textAlign="right"
           checked={turboBoost}
@@ -150,6 +145,41 @@ export const AmmunitionsTab = (props) => {
           </Flex.Item>
         )}
       </Section>
+      <Section
+        title="Module Management"
+        buttons={
+          <Button
+            icon="eject"
+            content="Eject"
+            disabled={!datadisk_loaded}
+            onClick={() => act('EjectDisk')}
+          />
+        }
+      >
+        {!!datadisk_loaded && <Box>Loaded Module: {datadisk_name}</Box>}
+        {!!datadisk_loaded && <Box>Points Left: {datadisk_points}</Box>}
+        <Collapsible title="Owner's Manual">
+          <Section color="label">
+            The ammunition workbench, by default, can print basic non-lethal
+            ammunition (e.g. rubber bullets, IHDF). If a non-lethal ammo type
+            isn&apos;t listed, but one exists, a classification issue probably
+            exists, and you should probably submit a bug report.
+            <br />
+            <br />
+            Additional modules, which have point limits, can be purchased from
+            Cargo or printed with sufficient research, enabling the printing of
+            other ammunition variants, such as lethal, armor-piercing, or
+            hollow-point ammunition, with different ammunition having different
+            point costs.
+            <br />
+            <br />
+            License modules are <b>reusable</b> and can their license points
+            recharged with <b>authenticators</b>, which are <b>much cheaper</b>
+            than individual modules, and can be purchased from Cargo or printed
+            from techfabs with the proper technology researched.
+          </Section>
+        </Collapsible>
+      </Section>
     </>
   );
 };
@@ -160,61 +190,22 @@ export const MaterialsTab = (props) => {
   return (
     <Section title="Materials">
       <Table>
-        {materials.map((material) => (
-          <MaterialRow
-            key={material.id}
-            material={material}
-            onRelease={(amount) =>
-              act('Release', {
-                id: material.id,
-                sheets: amount,
-              })
-            }
-          />
-        ))}
+        {materials
+          .filter((material) => material.amount > 0)
+          .map((material) => (
+            <MaterialRow
+              key={material.id}
+              material={material}
+              onRelease={(amount) =>
+                act('Release', {
+                  id: material.id,
+                  sheets: amount,
+                })
+              }
+            />
+          ))}
       </Table>
     </Section>
-  );
-};
-
-export const DatadiskTab = (props) => {
-  const { act, data } = useBackend();
-  const {
-    loaded_datadisks = [],
-    system_busy,
-    datadisk_loaded,
-    datadisk_name,
-    datadisk_desc,
-    datadisk_points,
-    disk_error,
-    disk_error_type,
-  } = data;
-  return (
-    <>
-      {!!disk_error && (
-        <NoticeBox textAlign="center" color={disk_error_type}>
-          {disk_error}
-        </NoticeBox>
-      )}
-      <Section
-        title="Authentication Module"
-        buttons={
-          <Button
-            icon="eject"
-            content="Eject"
-            disabled={!datadisk_loaded | system_busy}
-            onClick={() => act('EjectDisk')}
-          />
-        }
-      >
-        {!!datadisk_loaded && (
-          <Box>
-            Installed: {datadisk_name}
-            <Box>{datadisk_desc}</Box>
-          </Box>
-        )}
-      </Section>
-    </>
   );
 };
 
@@ -240,7 +231,7 @@ const MaterialRow = (props) => {
           minValue={1}
           maxValue={50}
           value={amount}
-          onChange={(e, value) => setAmount(value)}
+          onChange={(value) => setAmount(value)}
         />
         <Button
           disabled={amountAvailable < 1}

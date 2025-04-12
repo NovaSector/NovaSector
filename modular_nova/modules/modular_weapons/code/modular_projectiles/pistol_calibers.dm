@@ -1,19 +1,21 @@
 /obj/item/ammo_casing/foam_dart
 	ammo_categories = AMMO_CLASS_NONE
+	print_cost = 0
 
 /obj/item/ammo_casing/c160smart
-	ammo_categories = AMMO_CLASS_SMART
+	ammo_categories = AMMO_CLASS_LETHAL // surplus gun has it rough enough already
 
 /*
 *	.38 Special
 */
 
 /obj/item/ammo_casing/c38/trac
-	ammo_categories = AMMO_CLASS_SMART // tracking implant bullets
+	ammo_categories = AMMO_CLASS_NICHE_LTL // tracking implant bullets
 	custom_materials = AMMO_MATS_TRAC
 
 /obj/item/ammo_casing/c38/match
 	ammo_categories = AMMO_CLASS_NICHE // ricocheting as a gimmick. tight tolerances
+	print_cost = 2
 
 /obj/item/ammo_casing/c38/match/bouncy
 	ammo_categories = AMMO_CLASS_NONE // less-lethal so no categories needed
@@ -22,17 +24,19 @@
 
 /obj/item/ammo_casing/c38/match/true
 	ammo_categories = AMMO_CLASS_NICHE // less damage but funkier ricochets than match
+	print_cost = 2
 
 /obj/item/ammo_casing/c38/dumdum
-	ammo_categories = AMMO_CLASS_HOLLOW // sucks against armor but embeds good?
+	ammo_categories = AMMO_CLASS_PLUS // sucks against armor but embeds good? basically HP
+	print_cost = 2
 
 /obj/item/ammo_casing/c38/hotshot
-	ammo_categories = AMMO_CLASS_THERMAL // temp bullets.
+	ammo_categories = AMMO_CLASS_NICHE // temp bullets.
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 
 /obj/item/ammo_casing/c38/iceblox
-	ammo_categories = AMMO_CLASS_THERMAL // temp bullets.
+	ammo_categories = AMMO_CLASS_NICHE // temp bullets.
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 
@@ -45,7 +49,7 @@
 		<br><br>\
 		<i>HAYWIRE: Electromagnetic pulse ammo. Deals little damage, but causes a small electromagnetic pulse.</i>"
 	projectile_type = /obj/projectile/bullet/c38/haywire
-	ammo_categories = AMMO_CLASS_NICHE_SMART
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_EMP
 
 // ammo boxes
@@ -96,7 +100,7 @@
 		<br><br>\
 		<i>HAYWIRE+: Electromagnetic pulse ammo. Deals moderate damage, and cause a small, but powerful, electromagnetic pulse.</i>"
 	projectile_type = /obj/projectile/bullet/c357/haywire
-	ammo_categories = AMMO_CLASS_NICHE_SMART
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_EMP
 
 // ammo boxes
@@ -116,14 +120,14 @@
 		<br><br>\
 		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
 	custom_materials = AMMO_MATS_AP
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	print_cost = 2
 
 /obj/item/ammo_casing/c45/hp
 	desc = "A hollow-point .45 bullet casing.\
 		<br><br>\
 		<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
-	ammo_categories = AMMO_CLASS_HOLLOW
+	ammo_categories = AMMO_CLASS_PLUS
 	print_cost = 2
 
 /obj/item/ammo_casing/c45/inc
@@ -131,7 +135,7 @@
 		<br><br>\
 		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
 	custom_materials = AMMO_MATS_TEMP
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	print_cost = 2
 
 /obj/item/ammo_casing/c45/rubber
@@ -151,7 +155,7 @@
 	desc = "A 9mm armor-piercing bullet casing.\
 		<br><br>\
 		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 
@@ -159,14 +163,14 @@
 	desc = "A 9mm hollow-point bullet casing.\
 		<br><br>\
 		<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
-	ammo_categories = AMMO_CLASS_HOLLOW
+	ammo_categories = AMMO_CLASS_PLUS
 	print_cost = 2
 
 /obj/item/ammo_casing/c9mm/fire
 	desc = "A 9mm incendiary bullet casing.\
 		<br><br>\
 		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 
@@ -198,7 +202,7 @@
 	desc = "A 10mm armor-piercing bullet casing.\
 		<br><br>\
 		<i>ARMOR PIERCING: Increased armor piercing capabilities. Reduced stopping power.</i>"
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 
@@ -206,14 +210,14 @@
 	desc = "A 10mm hollow-point bullet casing.\
 		<br><br>\
 		<i>HOLLOW-POINT: Very lethal against unarmored opponents. Suffers against armor.</i>"
-	ammo_categories = AMMO_CLASS_HOLLOW
+	ammo_categories = AMMO_CLASS_PLUS
 	print_cost = 2
 
 /obj/item/ammo_casing/c10mm/fire
 	desc = "A 10mm incendiary bullet casing.\
 		<br><br>\
 		<i>INCENDIARY: Leaves a trail of fire when shot, sets targets aflame.</i>"
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 

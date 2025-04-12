@@ -104,7 +104,7 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/pierce
 
-	ammo_categories = AMMO_CLASS_ARMORPEN
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
 	print_cost = 2
 
@@ -163,7 +163,7 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/incendiary
 
-	ammo_categories = AMMO_CLASS_THERMAL
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
 	print_cost = 2
 

@@ -30,7 +30,8 @@
 	custom_materials = AMMO_MATS_GRENADE
 
 	harmful = FALSE //Erm, technically
-	ammo_categories = AMMO_CLASS_SMART_LTL
+	ammo_categories = AMMO_CLASS_NONE
+	print_cost = 0
 
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
@@ -97,6 +98,7 @@
 	icon_state = "980_smoke"
 
 	projectile_type = /obj/projectile/bullet/c980grenade/smoke
+	print_cost = 0
 
 
 /obj/projectile/bullet/c980grenade/smoke
@@ -131,7 +133,7 @@
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel
 
 	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
-	ammo_categories = AMMO_CLASS_SMART
+	ammo_categories = AMMO_CLASS_LETHAL
 
 	harmful = TRUE
 
@@ -181,7 +183,7 @@
 	icon_state = "980_gas_alternate"
 
 	projectile_type = /obj/projectile/bullet/c980grenade/shrapnel/phosphor
-	ammo_categories = AMMO_CLASS_THERMAL | AMMO_CLASS_SMART
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_GRENADE_INCENDIARY
 
 

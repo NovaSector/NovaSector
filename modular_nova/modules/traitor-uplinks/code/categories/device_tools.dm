@@ -53,7 +53,6 @@
 	item = /obj/item/borg/upgrade/transform/syndicatejack
 	cost = 5 //Support item and the fact that you need a emag to use it on a cyborg
 
-
 /datum/uplink_item/device_tools/thermal
 	cost = 6 // original cost: 4
 
