@@ -48,7 +48,6 @@
 		human_who_gained_species.AddElement(/datum/element/human_biter)
 		return
 	// NOVA EDIT ADDITION END
-	human_who_gained_species.AddElement(/datum/element/human_biter)
 	human_who_gained_species.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
 	human_who_gained_species.dna.activate_mutation(/datum/mutation/human/race)
 	human_who_gained_species.AddElement(/datum/element/human_biter)
