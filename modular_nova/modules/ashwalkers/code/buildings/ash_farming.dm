@@ -40,12 +40,14 @@
 			return
 
 		locate_farm = new(get_turf(atom_parent))
+		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		locate_farm.pixel_x = pixel_shift[1]
 		locate_farm.pixel_y = pixel_shift[2]
 		locate_farm.layer = atom_parent.layer + 0.1
 		if(ismovable(atom_parent))
 			var/atom/movable/movable_parent = atom_parent
 			locate_farm.glide_size = movable_parent.glide_size
+
 		attacking_item.forceMove(locate_farm)
 		locate_farm.planted_seed = attacking_item
 		locate_farm.attached_atom = atom_parent
@@ -147,52 +149,60 @@
 
 	COOLDOWN_START(src, harvest_timer, harvest_cooldown)
 	create_harvest()
+	user.mind?.adjust_experience(/datum/skill/primitive, 2)
 	update_appearance()
 	return ..()
 
-/obj/structure/simple_farm/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/simple_farm/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	//if its a shovel or knife, dismantle
-	if(attacking_item.tool_behaviour == TOOL_SHOVEL || attacking_item.tool_behaviour == TOOL_KNIFE)
+	if(tool.tool_behaviour == TOOL_SHOVEL || tool.tool_behaviour == TOOL_KNIFE)
 		var/turf/src_turf = get_turf(src)
 		src_turf.balloon_alert_to_viewers("the plant crumbles!")
 		Destroy()
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/storage/bag/plants))
+	if(istype(tool, /obj/item/storage/bag/plants))
 		if(!COOLDOWN_FINISHED(src, harvest_timer))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		COOLDOWN_START(src, harvest_timer, harvest_cooldown)
-		create_harvest(attacking_item, user)
+		create_harvest(tool, user)
+		user.mind?.adjust_experience(/datum/skill/primitive, 2)
 		update_appearance()
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	var/obj/item/stack/use_item = attacking_item
+	var/obj/item/stack/use_item = tool
 	if(istype(use_item) && !use_item.tool_use_check(1))
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	//if its sinew, lower the cooldown
 	if(istype(use_item, /obj/item/stack/sheet/sinew))
 		if(decrease_cooldown(user))
 			use_item.use(1)
-		return
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
+
+		return ITEM_INTERACT_BLOCKING
 
 	//if its goliath hide, increase the amount dropped
 	if(istype(use_item, /obj/item/stack/sheet/animalhide/goliath_hide))
 		if(increase_yield(user))
 			use_item.use(1)
-		return
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
+
+		return ITEM_INTERACT_BLOCKING
 
 	if(istype(use_item, /obj/item/stack/worm_fertilizer))
 		var/cooldown_improved = decrease_cooldown(user, silent = TRUE)
 		var/yield_improved = increase_yield(user, silent = TRUE)
 		if (cooldown_improved || yield_improved)
 			use_item.use(1)
+			user.mind?.adjust_experience(/datum/skill/primitive, 2)
 			balloon_alert(user, "fertilized")
+
 		else
 			balloon_alert(user, "already fertilized!")
-		return
 
+		return ITEM_INTERACT_BLOCKING
 
 	return ..()
 

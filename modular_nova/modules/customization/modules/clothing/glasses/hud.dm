@@ -59,7 +59,8 @@ End of the copy-paste.
 	name = "security HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one scans humanoids in view and provides accurate data about their ID status and security records."
 	clothing_traits = list(TRAIT_SECURITY_HUD)
-	glass_colour_type = /datum/client_colour/glass_colour/blue
+	glass_colour_type = /datum/client_colour/glass_colour/red
+	icon_state = "security_eyepatch"
 
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
