@@ -186,7 +186,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/list/outfit_override_registry = list()
 
 	var/monkey_species = /datum/species/monkey // NOVA EDIT ADDITION: Kobors
-
 ///////////
 // PROCS //
 ///////////

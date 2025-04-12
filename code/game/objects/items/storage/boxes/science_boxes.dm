@@ -49,7 +49,7 @@
 /obj/item/storage/box/monkeycubes/PopulateContents()
 	for(var/i in 1 to 5)
 		var/new_cube_type = islist(cube_type) ? pick_weight(cube_type) : cube_type // NOVA EDIT ADDITION
-		new new_cube_type(src)
+		new new_cube_type(src) // NOVA EDIT CHANGE - ORIGINAL: new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
 	desc = "Waffle Corp. brand monkey cubes. Just add water and a dash of subterfuge!"

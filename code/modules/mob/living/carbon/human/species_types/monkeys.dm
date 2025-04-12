@@ -44,10 +44,11 @@
 	. = ..()
 	passtable_on(human_who_gained_species, SPECIES_TRAIT)
 	// NOVA EDIT ADDITION START - Add this later on for roundstart kobolds until we can figure out why adding mutations breaks the char preveiew
-	if(pref_load)
+	if(pref_load && istype(src, /datum/species/monkey/kobold))
 		human_who_gained_species.AddElement(/datum/element/human_biter)
 		return
 	// NOVA EDIT ADDITION END
+	human_who_gained_species.AddElement(/datum/element/human_biter)
 	human_who_gained_species.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
 	human_who_gained_species.dna.activate_mutation(/datum/mutation/human/race)
 	human_who_gained_species.AddElement(/datum/element/human_biter)
