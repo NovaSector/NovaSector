@@ -2,10 +2,14 @@
 	name = "internal headset implant"
 	radio_type = /obj/item/radio/headset/dullahan
 
+/obj/item/radio/headset/dullahan/ui_status(mob/user, datum/ui_state/state)
+	if(!user.stat)
+		return UI_INTERACTIVE
+
 // Sets things up for the second radio key. This is gross but until someone refactors radio code to be less stupid this will have to do.
-/obj/item/implant/radio/headset/Initialize(mapload, radio_key, radio_key_2)
-	if(radio_key)
-		radio_key = radio_key
+/obj/item/implant/radio/headset/dullahan/Initialize(mapload, radio_key_1, radio_key_2)
+	if(radio_key_1)
+		radio_key = radio_key_1
 
 	. = ..()
 
@@ -14,10 +18,11 @@
 	radio.name = "internal headset"
 	icon = 'icons/obj/clothing/headsets.dmi'
 	icon_state = "headset"
+	subspace_transmission = TRUE // because this will get set to FALSE
 
 	if(radio_key_2)
 		headset.keyslot2 = new radio_key_2
-	radio.recalculateChannels()
+		headset.recalculateChannels()
 
 /obj/item/radio/headset/dullahan
 
@@ -45,7 +50,7 @@
 	var/obj/item/radio/headset/radio_item = radio_head.radio
 	user.ears = radio_item
 	radio_item.grant_headset_languages(user)
-	radio_item.set_broadcasting(TRUE)
+	radio_item.set_listening(TRUE)
 	var/datum/species/dullahan/dullahan_species = user.dna.species
 	var/obj/item/dullahan_relay = dullahan_species.my_head
 	radio_head.forceMove(dullahan_relay.loc)
