@@ -1,0 +1,8 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - image: "removed some (hopefully) unused Shoe icons! Please report any errors!"
+  - image: "resprited (almost) ALL Digitigrade Shoe icons! They should look much closer to the Plantigrade ones. Please report any errors!"
+  - image: "resprited Hiking Boots to be closer to the source material (previously Fashionable Boots) (they're just Timbs)"
+  - image: "resprited Duckboots"
+  - rscadd: "added Recolorable Cowboy Boots, available in the Loadout or a Clothesmate near you! Spurs included, guaranteed mostly snake free!"
