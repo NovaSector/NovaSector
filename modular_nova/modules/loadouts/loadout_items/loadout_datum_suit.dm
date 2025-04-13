@@ -692,7 +692,7 @@
 
 /datum/loadout_item/suit/detjacket
 	name = "Detective Jacket (Dark)"
-	item_path = /obj/item/clothing/suit/jacket/det_suit/dark
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench/noir
 	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/suit/detjackenoir
@@ -702,12 +702,12 @@
 
 /datum/loadout_item/suit/detjacketbrown
 	name = "Detective's Brown Jacket"
-	item_path = /obj/item/clothing/suit/jacket/det_suit/brown
+	item_path = /obj/item/clothing/suit/jacket/det_suit
 	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/suit/detjacketplain
 	name = "Detective's Jacket"
-	item_path = /obj/item/clothing/suit/jacket/det_suit
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench
 	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/suit/detectivearmorvest

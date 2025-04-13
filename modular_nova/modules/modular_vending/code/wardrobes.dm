@@ -155,7 +155,7 @@
 		/obj/item/clothing/under/rank/security/detective/runner = 2,
 		/obj/item/clothing/suit/toggle/labcoat/nova/highvis = 2,
 		/obj/item/clothing/under/rank/security/detective/cowboy = 2,
-		/obj/item/clothing/suit/jacket/det_suit/cowboyvest = 2,
+		/obj/item/clothing/suit/toggle/jacket/det_trench/cowboyvest = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 	)
 	premium_nova = list(/obj/item/disk/nifsoft_uploader/summoner/detective = 2)
