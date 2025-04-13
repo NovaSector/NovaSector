@@ -162,13 +162,13 @@
 					floorlight.pixel_z = 32
 				if (SOUTH)
 					floorlight.pixel_w = 0
-					floorlight.pixel_y = -32
+					floorlight.pixel_z = -32
 				if (EAST)
 					floorlight.pixel_w = 32
-					floorlight.pixel_y = 0
+					floorlight.pixel_z = 0
 				if (WEST)
-					floorlight.pixel_z = -32
-					floorlight.pixel_y = 0
+					floorlight.pixel_w = -32
+					floorlight.pixel_z = 0
 			. += floorlight
 
 //STATION AIRLOCKS
