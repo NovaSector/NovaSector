@@ -37,3 +37,11 @@
 /datum/action/changeling/weapon/arm_blade
 	hide_from_quirk_changeling = TRUE
 
+/datum/action/changeling/sting/false_armblade
+	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/sting/lsd
+	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/sting/cryo
+	hide_from_quirk_changeling = TRUE
