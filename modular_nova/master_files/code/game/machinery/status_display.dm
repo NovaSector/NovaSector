@@ -29,6 +29,38 @@ GLOBAL_LIST_INIT(alert_picture_options_nova, list(
 	. = ..()
 	set_picture("default")
 
+/obj/machinery/status_display/evac
+	var/static/list/alert_list = list(
+		"greenalert",
+		"bluealert",
+		"violetalert",
+		"orangealert",
+		"amberalert",
+		"redalert",
+		"deltaalert",
+		"gammaalert",
+		"epsilonalert",
+		"federalalert",
+	)
+
+/obj/machinery/status_display/evac/Initialize(mapload, ndir, building)
+	. = ..()
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_sec_level_change))
+
+/obj/machinery/status_display/evac/Destroy()
+	. = ..()
+	UnregisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED)
+
+/obj/machinery/status_display/evac/proc/on_sec_level_change(datum/source, new_level)
+	SIGNAL_HANDLER
+	if(current_mode != SD_PICTURE)
+		return
+	if(!(current_picture in alert_list))
+		return
+
+	var/datum/security_level/alert_level = SSsecurity_level.available_levels[SSsecurity_level.number_level_to_text(new_level)]
+	set_picture(alert_level.status_display_icon_state)
+
 /obj/machinery/status_display/syndie
 	name = "syndicate status display"
 
