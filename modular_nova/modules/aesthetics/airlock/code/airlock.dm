@@ -423,6 +423,10 @@
 	return
 
 //ASSEMBLYS
+/obj/structure/door_assembly
+	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/public.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/overlays.dmi'
+
 /obj/structure/door_assembly/door_assembly_public
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station2/glass.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station2/overlays.dmi'
@@ -485,7 +489,6 @@
 /obj/structure/door_assembly/door_assembly_vault
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/vault/vault.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/vault/overlays.dmi'
-
 
 /obj/structure/door_assembly/door_assembly_centcom
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/centcom/centcom.dmi'
@@ -591,7 +594,3 @@
 
 /obj/structure/door_assembly/door_assembly_hydro
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/botany.dmi'
-
-/obj/structure/door_assembly/
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/public.dmi'
-	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/overlays.dmi'
