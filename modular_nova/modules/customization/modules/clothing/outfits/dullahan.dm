@@ -1,6 +1,7 @@
 /obj/item/implant/radio/headset/dullahan
 	name = "internal headset implant"
 	radio_type = /obj/item/radio/headset/dullahan
+	subspace_transmission =  TRUE
 
 /obj/item/radio/headset/dullahan/ui_status(mob/user, datum/ui_state/state)
 	if(!user.stat)
@@ -18,7 +19,6 @@
 	radio.name = "internal headset"
 	icon = 'icons/obj/clothing/headsets.dmi'
 	icon_state = "headset"
-	subspace_transmission = TRUE // because this will get set to FALSE
 
 	if(radio_key_2)
 		headset.keyslot2 = new radio_key_2
@@ -43,7 +43,7 @@
 		return
 
 	// Set up the right encryption keys from their job
-	radio_head = new/obj/item/implant/radio/headset/dullahan(user, work_headset::keyslot, work_headset::keyslot2)
+	radio_head = new /obj/item/implant/radio/headset/dullahan(user, work_headset::keyslot, work_headset::keyslot2)
 
 	// Implant it and then move it to the head loc
 	radio_head.implant(user)

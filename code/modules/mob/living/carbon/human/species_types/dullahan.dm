@@ -45,6 +45,8 @@
 
 	var/obj/item/bodypart/head/head = human.get_bodypart(BODY_ZONE_HEAD)
 	head.speech_span = null
+	if(isnull(human.drop_location()))
+		return
 	head?.drop_limb()
 	if(QDELETED(head)) //drop_limb() deletes the limb if no drop location exists and character setup dummies are located in nullspace.
 		return
@@ -64,8 +66,10 @@
 /// If we gained a new body part, it had better not be a head
 /datum/species/dullahan/proc/on_gained_part(mob/living/carbon/human/dullahan, obj/item/bodypart/part)
 	SIGNAL_HANDLER
-	if (part.body_zone != BODY_ZONE_HEAD)
+	if(part.body_zone != BODY_ZONE_HEAD)
 		return
+	if(isnull(dullahan.drop_location()))
+		return // don't gib nullspace
 	my_head = null
 	dullahan.investigate_log("has been gibbed by having an illegal head put on [dullahan.p_their()] shoulders.", INVESTIGATE_DEATHS)
 	dullahan.gib(DROP_ALL_REMAINS) // Yeah so giving them a head on their body is really not a good idea, so their original head will remain but uh, good luck fixing it after that.
@@ -74,7 +78,7 @@
 /datum/species/dullahan/proc/on_head_destroyed()
 	SIGNAL_HANDLER
 	var/mob/living/human = my_head?.owner
-	if (QDELETED(human))
+	if(QDELETED(human))
 		return // guess we already died
 	my_head = null
 	human.investigate_log("has been gibbed by the loss of [human.p_their()] head.", INVESTIGATE_DEATHS)
