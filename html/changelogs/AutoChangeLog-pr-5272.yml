@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - bugfix: "fixed Unrestricted Access floorlights not projecting correctly from airlocks, and a slight timing issue with the External Airlock animations."
