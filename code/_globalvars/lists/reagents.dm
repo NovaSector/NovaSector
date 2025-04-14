@@ -65,6 +65,9 @@ GLOBAL_LIST_INIT(blacklisted_metalgen_types, typecacheof(list(
 )))
 /// Map of reagent names to its datum path
 GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
+// NOVA EDIT ADDITION - name2reagent list which omits neuroware reagents
+GLOBAL_LIST_INIT(name2reagent_normalized, build_name2reagentlist_normalized())
+// NOVA EDIT END
 /// list of all plan traits
 GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 
@@ -202,3 +205,14 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	//build map with sorted keys
 	for(var/name as anything in only_names)
 		.[name] = name_to_reagent[name]
+
+// NOVA EDIT ADDITION BEGIN - Neuroware disks
+///Same as build_name2reagentlist but omits neuroware reagents
+/proc/build_name2reagentlist_normalized()
+	var/list/reagent_list = GLOB.name2reagent.Copy()
+	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
+		if(reagent.chemical_flags & REAGENT_NEUROWARE)
+			continue
+		reagent_list.Remove(initial(reagent.name))
+	return reagent_list
+// NOVA EDIT END
