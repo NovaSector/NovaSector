@@ -1,0 +1,7 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - balance: "Magfed shotguns (Katyusha, Jager, Shitzu) no longer fire in bursts."
+  - balance: "Removes 1.2x damage multiplier from Katyusha"
+  - balance: "Katyusha and Shitzu's magazine is now 10 from 16"
+  - balance: "Jager's large magazine is now 9 from 12, with regular magazine being 7 from 8"
