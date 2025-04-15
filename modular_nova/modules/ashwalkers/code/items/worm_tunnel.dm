@@ -59,8 +59,8 @@ GLOBAL_LIST_EMPTY(ashwalker_tunnels)
 
 /obj/structure/worm_tunnel/examine(mob/user)
 	. = ..()
-	. += "<br>Using a shovel will destroy the tunnel."
-	. += "Using two pieces of wood will block the tunnel until removed."
+	. += span_notice("<br>Using a shovel will destroy the tunnel.")
+	. += span_notice("Using two pieces of wood will block the tunnel until removed.")
 
 /obj/structure/worm_tunnel/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/stack/sheet/mineral/wood))
