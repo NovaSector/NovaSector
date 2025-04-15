@@ -21,6 +21,11 @@
 /datum/nifsoft/blood_steal/activate()
 	. = ..()
 	if(active)
+		if(!issynthetic(linked_mob))
+			to_chat(linked_mob, span_warning("Organic tissue detected! Augmentation aborted."))
+			installed_nif.power_usage -= active_cost
+			active = FALSE
+			return FALSE
 		martial_to_learn.teach(linked_mob)
 		linked_mob.log_message("learned the martial art [martial_to_learn]", LOG_ATTACK, color = "orange")
 		to_chat(linked_mob, span_danger("SEVMTE8gV09STEQ="))
@@ -48,11 +53,6 @@
 
 /datum/martial_art/blood_steal/deactivate_style(mob/living/remove_from)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_PRE_BULLET_ACT))
-	return ..()
-
-/datum/martial_art/blood_steal/can_use(mob/living/martial_artist)
-	if(!issynthetic(martial_artist))
-		return FALSE
 	return ..()
 
 /datum/martial_art/blood_steal/disarm_act(mob/living/attacker, mob/living/defender)
@@ -154,7 +154,7 @@
 	var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
 	new /obj/effect/temp_visual/explosion/fast(get_turf(defender))
 	defender.throw_at(throw_target, 2, 7, attacker)
-	defender.apply_damage(10, attacker.get_attack_type())
+	defender.apply_damage(attacker == defender ? 20 : 10, attacker.get_attack_type())
 	defender.adjustStaminaLoss(10)
 	log_combat(attacker, defender, "knuckleblasted")
 
@@ -175,28 +175,29 @@
 		return FALSE
 	return TRUE
 
-/// Handles our blocking signals, similar to hit_reaction() on items. Only blocks while not-V1 is in throw mode.
+/// Handles our parrying signals, similar to hit_reaction() on items. Only parries while not-V1 is in throw mode.
 /datum/martial_art/blood_steal/proc/attempt_parry(mob/living/attacker, obj/projectile/hitting_projectile, def_zone)
 	SIGNAL_HANDLER
+
+	if(QDELETED(hitting_projectile) || hitting_projectile.deletion_queued)
+		return NONE
 
 	if(!can_deflect(attacker))
 		return NONE
 
-	if (hitting_projectile.firer != attacker)
-		if (abs(hitting_projectile.angle - dir2angle(hitting_projectile.dir)) < 15)
-			hitting_projectile.set_angle((hitting_projectile.angle + 180) % 360 + rand(-3, 3))
-		else
-			hitting_projectile.set_angle(dir2angle(hitting_projectile.dir) + rand(-3, 3))
-		hitting_projectile.visible_message(span_warning("[attacker] expertly parries [hitting_projectile] with [attacker.p_their()] bare hand!"), span_warning("You parry [hitting_projectile] with your hand!"))
-	else
-		hitting_projectile.visible_message(span_warning("[attacker] boosts [hitting_projectile] with [attacker.p_their()] bare hand!"), span_warning("You boost [hitting_projectile] with your hand!"))
-	hitting_projectile.firer = hitting_projectile
-	hitting_projectile.speed *= (hitting_projectile.firer == hitting_projectile) ? 1.5 : 1.25
-	hitting_projectile.damage *= (hitting_projectile.firer == hitting_projectile) ? 1.5 : 1.25
+	hitting_projectile.set_angle((hitting_projectile.angle + 180) % 360 + rand(-3, 3))
+	hitting_projectile.visible_message(span_warning("[attacker] expertly parries [hitting_projectile] with [attacker.p_their()] bare hand!"))
+	hitting_projectile.firer = attacker
+	hitting_projectile.speed *= 1.25
+	hitting_projectile.damage *= 1.25
+	hitting_projectile.icon = 'icons/obj/weapons/guns/projectiles.dmi' //In case of modular projectiles.
+	hitting_projectile.icon_state = "redtrac"
 	hitting_projectile.add_atom_colour(COLOR_RED_LIGHT, TEMPORARY_COLOUR_PRIORITY)
+	attacker.overlay_fullscreen("projectile_parry", /atom/movable/screen/fullscreen/crit/projectile_parry, 2)
+	addtimer(CALLBACK(attacker, TYPE_PROC_REF(/mob, clear_fullscreen), "projectile_parry"), 0.25 SECONDS)
 	playsound(attacker, 'sound/effects/parry.ogg', 75, TRUE)
 	COOLDOWN_START(src, parry_cooldown_timer, 5 SECONDS)
-	return PROJECTILE_INTERRUPT_HIT_PHASE
+	return COMPONENT_BULLET_PIERCED
 
 /mob/living/proc/blood_steal_help()
 	set name = "Access Core Imprint"
@@ -205,8 +206,8 @@
 	to_chat(usr, "<b><i>You try to remember core Blood Steal protocols.</i></b>")
 
 	to_chat(usr, "[span_notice("Feedbacker")]: Punch. Deal extra damage and steal blood, converting some damage dealt as health.")
-	to_chat(usr, "[span_notice("Knuckleblaster")]: Shove. Knocks opponent away. Does stamina damage to fallen opponents.")
+	to_chat(usr, "[span_notice("Knuckleblaster")]: Shove. Knocks opponent away. Deals negligible brute and stamina damage.")
 
-	to_chat(usr, "<b><i>In addition, by having your throw mode on when being shot at, you enter an active defense mode where you have an untimed, yet single-projectile parry with a moderately long refresh cooldown.</i></b>")
+	to_chat(usr, "<b><i>In addition, by having your throw mode on when being shot at, you enter an active defense mode where you have a perfect, yet single-projectile parry with a moderately long refresh cooldown.</i></b>")
 
 #undef MARTIALART_BLOODSTEAL

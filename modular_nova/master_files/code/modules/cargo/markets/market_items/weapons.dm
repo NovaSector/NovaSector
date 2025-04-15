@@ -70,6 +70,15 @@
 	stock_max = 5
 	availability_prob = 75
 
+/datum/market_item/weapon/ultranif
+	name = "Blood Steal NIFsoft"
+	desc = "Reverse-engineered nanite template."
+	item = /obj/item/disk/nifsoft_uploader/blood_steal
+	price_min = CARGO_CRATE_VALUE * 12
+	price_max = CARGO_CRATE_VALUE * 24
+	availability_prob = 40
+	stock_max = 2
+
 // Makes this even more expensive
 /datum/market_item/weapon/dimensional_bomb
 	price_min = CARGO_CRATE_VALUE * 180
