@@ -21,3 +21,16 @@
 	if(changeling_datum)
 		target_mind.remove_antag_datum(/datum/antagonist/changeling/quirk)
 		target_mind.special_role = null
+
+/datum/quirk/changeling/is_species_appropriate(datum/species/mob_species)
+	if (ispath(mob_species, /datum/species/synthetic))
+		return FALSE
+	if (ispath(mob_species, /datum/species/hemophage))
+		return FALSE
+	if (ispath(mob_species, /datum/species/jelly))
+		return FALSE
+	if (ispath(mob_species, /datum/species/plasmaman))
+		return FALSE
+	if (ispath(mob_species, /datum/species/ethereal))
+		return FALSE
+	return ..()
