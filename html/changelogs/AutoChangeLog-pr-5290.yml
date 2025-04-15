@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "sol peacekeeper uniform and sol medical uniform have functional suit sensors"
