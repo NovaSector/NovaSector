@@ -38,7 +38,7 @@
 
 /obj/item/ammo_box/magazine/napad
 	name = "\improper Napad submachinegun magazine"
-	desc = "A massive magazine for the Napadayuschiy Submachine gun. Holds fifty rounds of 10mm ammunition."
+	desc = "A massive magazine for the Napadayuschiy submachine gun. Holds fifty rounds of 10mm ammunition."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "napad_mag"

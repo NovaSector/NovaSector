@@ -14,17 +14,17 @@
 //Check modular_nova\modules\nanotrasen_naval_command\code\clothing.dm for more of these! (Or, currently, ALL of these.)
 
 /*
-*	LOPLAND
+*	LOPLAND (On the chopping block)
 */
 /obj/item/clothing/under/rank/centcom/nova/lopland
-	name = "\improper Lopland corporate uniform"
-	desc = "A sleek jumpsuit worn by Lopland corporate. Its surprisingly well padded."
+	name = "\improper Contractor corporate uniform"
+	desc = "A sleek jumpsuit worn by a PMC corporate. Its surprisingly well padded."
 	icon_state = "lopland_shirt"
 	worn_icon_state = "lopland_shirt"
 
 /obj/item/clothing/under/rank/centcom/nova/lopland/instructor
-	name = "\improper Lopland instructor's uniform"
-	desc = "A over-the-top, militaristic jumpsuit worn by Lopland-certified instructors, with a big Lopland logo slapped on the back. The amount of pockets could make a space marine cry."
+	name = "\improper Contractor instructor's uniform"
+	desc = "A over-the-top, militaristic jumpsuit worn by PMC-certified instructors, with a big PMC logo slapped on the back. The amount of pockets could make a space marine cry."
 	icon_state = "lopland_tac"
 	worn_icon_state = "lopland_tac"
 

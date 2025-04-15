@@ -4,8 +4,10 @@
 	icon_state = "hilbertshotel"
 	requires_power = FALSE
 	default_gravity = STANDARD_GRAVITY
-	area_flags = NOTELEPORT | HIDDEN_AREA
+	area_flags = NOTELEPORT | HIDDEN_AREA | UNLIMITED_FISHING
 	static_lighting = TRUE
+	mood_bonus = /area/centcom/holding::mood_bonus
+	mood_message = /area/centcom/holding::mood_message
 	var/condo_number = 0
 	var/obj/machinery/cafe_condo_teleporter/parent_object
 	var/datum/turf_reservation/reservation

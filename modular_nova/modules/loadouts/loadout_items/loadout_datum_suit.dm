@@ -667,22 +667,27 @@
 
 /datum/loadout_item/suit/brit
 	name = "High Vis Armored Vest"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/brit
+	item_path = /obj/item/clothing/suit/armor/vest/brit
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/british_jacket
-	name = "Peacekeeper Officer Coat"
+	name = "Officer Coat"
 	item_path = /obj/item/clothing/suit/british_officer
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
-/datum/loadout_item/suit/peacekeeper_jacket
-	name = "Peacekeeper Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+/datum/loadout_item/suit/highvis_jacket
+	name = "High Vis Security Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
-/datum/loadout_item/suit/peacekeeper_wintercoat
-	name = "Security Winter Jacket"
+/datum/loadout_item/suit/security_wintercoat
+	name = "Security Winter Coat"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/security_wintercoat_blue
+	name = "Security Winter Jacket (Blue)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/detjacket
@@ -697,7 +702,7 @@
 
 /datum/loadout_item/suit/detjacketbrown
 	name = "Detective's Brown Jacket"
-	item_path = /obj/item/clothing/suit/jacket/det_suit/brown 
+	item_path = /obj/item/clothing/suit/jacket/det_suit/brown
 	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/suit/detjacketplain
@@ -710,9 +715,9 @@
 	item_path = /obj/item/clothing/suit/armor/vest/det_suit
 	restricted_roles = list(JOB_DETECTIVE)
 
-/datum/loadout_item/suit/peacekeeper_jacket/badge
-	name = "Badged Peacekeeper Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+/datum/loadout_item/suit/highvis_jacket/badge
+	name = "Badged High Vis Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/jacket/badge
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/offdep_jacket

@@ -620,7 +620,7 @@
 	data["PC_programheaders"] = program_headers
 
 	data["PC_stationtime"] = station_time_timestamp()
-	data["PC_stationdate"] = "[time2text(world.realtime, "DDD, Month DD")], [CURRENT_STATION_YEAR]"
+	data["PC_stationdate"] = "[time2text(world.realtime, "DDD, Month DD", NO_TIMEZONE)], [CURRENT_STATION_YEAR]"
 	data["PC_showexitprogram"] = !!active_program // Hides "Exit Program" button on mainscreen
 	return data
 
@@ -997,13 +997,32 @@
 		if(SEC_LEVEL_RED) // all-hands-on-deck situations, everyone is responsible for combatting a threat
 			return ALERT_RELEVANCY_PERTINENT
 		if(SEC_LEVEL_BLUE) // suspected threat. security needs to be alert and possibly preparing for it, no further concerns
-			if(ACCESS_SECURITY in computer_id_slot.access)
+			if(ACCESS_SECURITY in computer_id_slot?.access)
 				return ALERT_RELEVANCY_PERTINENT
 			else
 				return ALERT_RELEVANCY_WARN
 		if(SEC_LEVEL_GREEN) // no threats, no concerns
 			return ALERT_RELEVANCY_SAFE
 
+		// NOVA EDIT START. ADDITION - ALERTS
+		if(SEC_LEVEL_EPSILON, SEC_LEVEL_GAMMA)
+			return ALERT_RELEVANCY_PERTINENT
+		if(SEC_LEVEL_AMBER, SEC_LEVEL_FEDERAL)
+			if(ACCESS_SECURITY in computer_id_slot.access)
+				return ALERT_RELEVANCY_PERTINENT
+			else
+				return ALERT_RELEVANCY_WARN
+		if(SEC_LEVEL_VIOLET)
+			if(ACCESS_MEDICAL in computer_id_slot.access)
+				return ALERT_RELEVANCY_PERTINENT
+			else
+				return ALERT_RELEVANCY_WARN
+		if(SEC_LEVEL_ORANGE)
+			if(ACCESS_ENGINEERING in computer_id_slot.access)
+				return ALERT_RELEVANCY_PERTINENT
+			else
+				return ALERT_RELEVANCY_WARN
+		// NOVA EDIT END
 	return 0
 
 #undef ALERT_RELEVANCY_SAFE

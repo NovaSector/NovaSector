@@ -9,23 +9,6 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	cut_type = /obj/item/clothing/gloves/fingerless
-	// NOVA EDIT ADDITION START
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic Gloves" = list(
-			RESKIN_ICON = 'icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "black",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "black"
-		),
-		"Peacekeeper Gloves" = list(
-			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi',
-			RESKIN_ICON_STATE = "peacekeeper_gloves",
-			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/hands.dmi',
-			RESKIN_WORN_ICON_STATE = "peacekeeper"
-		)
-	)
-	// NOVA EDIT ADDITION END
 
 /obj/item/clothing/gloves/color/black/Initialize(mapload)
 	. = ..()
@@ -129,7 +112,7 @@
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	resistance_flags = NONE
-	clothing_flags = THICKMATERIAL
+	clothing_flags = parent_type::clothing_flags | THICKMATERIAL
 
 /obj/item/clothing/gloves/color/light_brown
 	name = "light brown gloves"

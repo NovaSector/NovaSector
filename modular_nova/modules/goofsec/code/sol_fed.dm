@@ -363,7 +363,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "811 Response: Advanced Atmospherics"
 	back = /obj/item/mod/control/pre_equipped/advanced/atmos
 	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
-	shoes = /obj/item/clothing/shoes/jackboots/peacekeeper
+	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/atmos
 	mask = /obj/item/clothing/mask/gas/atmos/glass
 	belt = /obj/item/storage/belt/utility/full/powertools/ircd
