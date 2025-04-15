@@ -60,11 +60,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/dullahan
 	mutant_bodyparts = list()
-	outfit_important_for_life = /datum/outfit/dullahan
-
-/datum/species/dullahan/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
-	. = ..()
-	give_important_for_life(equipping)
+	veteran_only = TRUE
 
 /datum/species/human/felinid
 	mutant_bodyparts = list()

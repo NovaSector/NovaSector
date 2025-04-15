@@ -26,31 +26,28 @@
 
 /obj/item/radio/headset/dullahan
 
-/datum/outfit/dullahan // empty outfit, we are basically just making use of post_equip() in order to set them up with a headset
-
-/datum/outfit/dullahan/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
+/datum/species/dullahan/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
 	. = ..()
-	if(visuals_only || isnull(user.mind))
+	if(visuals_only || isnull(equipping.mind))
 		return
 
 	var/obj/item/implant/radio/radio_head
 
-	var/datum/job/dullahan_job = user.mind.assigned_role
-	var/datum/outfit/work_outfit = dullahan_job.outfit
+	var/datum/outfit/work_outfit = job.outfit
 	var/obj/item/radio/headset/work_headset = work_outfit::ears
 
 	if(isnull(work_headset)) // No headset in their work outfit, we probably shouldn't give them one
 		return
 
 	// Set up the right encryption keys from their job
-	radio_head = new /obj/item/implant/radio/headset/dullahan(user, work_headset::keyslot, work_headset::keyslot2)
+	radio_head = new /obj/item/implant/radio/headset/dullahan(equipping, work_headset::keyslot, work_headset::keyslot2)
 
 	// Implant it and then move it to the head loc
-	radio_head.implant(user)
+	radio_head.implant(equipping)
 	var/obj/item/radio/headset/radio_item = radio_head.radio
-	user.ears = radio_item
-	radio_item.grant_headset_languages(user)
+	equipping.ears = radio_item
+	radio_item.grant_headset_languages(equipping)
 	radio_item.set_listening(TRUE)
-	var/datum/species/dullahan/dullahan_species = user.dna.species
+	var/datum/species/dullahan/dullahan_species = equipping.dna.species
 	var/obj/item/dullahan_relay = dullahan_species.my_head
 	radio_head.forceMove(dullahan_relay.loc)
