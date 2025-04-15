@@ -29,8 +29,8 @@
 
 /obj/item/goodycase_holder/examine(mob/user)
 	. = ..()
-	. += "<br>There are [length(goodycase_list)]/[max_goodycases] cases currently stored."
-	. += "To access contents inside, press this item."
+	. += span_notice("<br>There are [length(goodycase_list)]/[max_goodycases] cases currently stored.")
+	. += span_notice("To access contents inside, press this item.")
 
 /obj/item/goodycase_holder/update_appearance(updates)
 	. = ..()
