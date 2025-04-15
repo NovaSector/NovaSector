@@ -212,8 +212,8 @@
 		/obj/item/xenoarch/anomaly_stabilizer,
 		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/mining_scanner,
-		/obj/item/gps
-		))
+		/obj/item/gps,
+	))
 
 /obj/item/storage/bag/xenoarch
 	name = "xenoarch mining satchel"
