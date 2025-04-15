@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - rscadd: "Adds blue security sunglasses and gives it to the blueshields, secoffs and guards can also get it through secdrobe."
+  - bugfix: "Deletes a duplicate sec eyepatch"
