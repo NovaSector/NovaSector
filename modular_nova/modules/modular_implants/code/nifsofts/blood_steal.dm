@@ -106,7 +106,7 @@
 		attacker,
 	)
 
-	to_chat(attacker, span_danger("You crushed [defender]!"))
+	to_chat(attacker, span_danger("You've crushed [defender]!"))
 
 	defender.apply_damage(damage, damage_type, affecting, armor_block)
 
