@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(ashwalker_tunnels)
 /obj/item/tunneling_worm/examine(mob/user)
 	. = ..()
 	. += "<br>Use on the planet's surface to create a tunnel."
-	. += "[tunnels_remaining] tunnel(s) remaining."
+	. += span_notice("[tunnels_remaining] tunnel(s) remaining.")
 
 /obj/item/tunneling_worm/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(istype(interacting_with, /turf/open/misc/asteroid/basalt/lava_land_surface)) //eventually we could spread this to more than just lavaland?
