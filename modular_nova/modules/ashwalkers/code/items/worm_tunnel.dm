@@ -14,7 +14,7 @@ GLOBAL_LIST_EMPTY(ashwalker_tunnels)
 
 /obj/item/tunneling_worm/examine(mob/user)
 	. = ..()
-	. += "<br>Use on the planet's surface to create a tunnel."
+	. += span_notice("<br>Use on the planet's surface to create a tunnel.")
 	. += span_notice("[tunnels_remaining] tunnel(s) remaining.")
 
 /obj/item/tunneling_worm/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
