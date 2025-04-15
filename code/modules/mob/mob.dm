@@ -296,7 +296,7 @@
 		message = span_emote("<b>[src]</b>[separation][message]") // NOVA EDIT - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 
 	for(var/atom/movable/hearer in hearers)
-		hearer.recieve_emote(src, message, MSG_VISUAL, blind_message, MSG_AUDIBLE, raw_msg, visible_message_flags, pref_to_check)
+		hearer.receive_emote(src, message, MSG_VISUAL, blind_message, MSG_AUDIBLE, raw_msg, visible_message_flags, pref_to_check)
 
 ///Adds the functionality to self_message.
 /mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, separation = " ", pref_to_check)  // NOVA EDIT ADDITION - Better emotes, pref checks
@@ -338,7 +338,7 @@
 	if(audible_message_flags & EMOTE_MESSAGE)
 		message = span_emote("<b>[src]</b>[separation][message]") //NOVA EDIT CHANGE - Better emotes - ORIGINAL: message = span_emote("<b>[src]</b> [message]")
 	for(var/atom/movable/hearer in hearers)
-		hearer.recieve_emote(src, message, MSG_AUDIBLE, deaf_message, MSG_VISUAL, raw_msg, audible_message_flags, pref_to_check)
+		hearer.receive_emote(src, message, MSG_AUDIBLE, deaf_message, MSG_VISUAL, raw_msg, audible_message_flags, pref_to_check)
 
 /**
  * Show a message to all mobs in earshot of this one
@@ -395,25 +395,25 @@
 	return FALSE
 
 /// Handles an atom "hearing" an emote,
-/atom/movable/proc/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+/atom/movable/proc/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
 	return
 
-/mob/eye/camera/ai/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
+/mob/eye/camera/ai/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
 	if(source == ai)
 		return
-	return ai?.recieve_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+	return ai?.receive_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
 
-/obj/effect/overlay/holo_pad_hologram/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
+/obj/effect/overlay/holo_pad_hologram/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
 	if(source == Impersonation)
 		return
-	return Impersonation?.recieve_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+	return Impersonation?.receive_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
 
-/obj/item/dullahan_relay/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
+/obj/item/dullahan_relay/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check) // NOVA EDIT
 	if(source == owner)
 		return
-	return owner?.recieve_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+	return owner?.receive_emote(source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
 
-/mob/recieve_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
+/mob/receive_emote(atom/source, message, message_type, alt_message, alt_type, raw_message, message_flags, pref_to_check)
 	if(!client)
 		return
 	if(pref_to_check && !client.prefs.read_preference(pref_to_check))
