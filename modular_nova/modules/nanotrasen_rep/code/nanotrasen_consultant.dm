@@ -72,12 +72,16 @@
 	id = /obj/item/card/id/advanced/centcom/station
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
 
+/obj/item/encryptionkey/headset_cent/ccrep
+	name = "\improper CentCom representative's encryption key"
+	channels = list(RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_SECURITY = 1)
+
 /obj/item/radio/headset/heads/nanotrasen_consultant
 	name = "\proper the Nanotrasen consultant's headset"
 	desc = "An official Central Command headset."
 	icon_state = "cent_headset"
 	keyslot = new /obj/item/encryptionkey/headset_com
-	keyslot2 = new /obj/item/encryptionkey/headset_cent
+	keyslot2 = new /obj/item/encryptionkey/headset_cent/ccrep
 
 /obj/item/radio/headset/heads/nanotrasen_consultant/alt
 	name = "\proper the Nanotrasen consultant's bowman headset"
@@ -158,6 +162,11 @@
 /obj/item/choice_beacon/ntc
 	name = "gunset beacon"
 	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
+	icon_state = "cc_becon"
+	inhand_icon_state = "cc_becon"
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/lefthand_remote.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/righthand_remote.dmi'
 	company_source = "Trappiste Fabriek Company"
 	company_message = span_bold("Supply Pod incoming please stand by")
 

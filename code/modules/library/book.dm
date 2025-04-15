@@ -35,6 +35,7 @@
 	book_data = new(starting_title, starting_author, starting_content)
 
 	AddElement(/datum/element/falling_hazard, damage = 5, wound_bonus = 0, hardhat_safety = TRUE, crushes = FALSE, impact_sound = drop_sound)
+	AddElement(/datum/element/burn_on_item_ignition)
 
 /obj/item/book/examine(mob/user)
 	. = ..()
@@ -89,6 +90,7 @@
 
 	user.add_mood_event("book_nerd", /datum/mood_event/book_nerd)
 	user.mind.book_titles_read[starting_title] = TRUE
+	user.mind?.adjust_experience(/datum/skill/language, 10) // NOVA EDIT ADDITION - you'd need to read 150 books to get to legendary...
 
 /obj/item/book/attack_self(mob/user)
 	if(!can_read_book(user))
@@ -98,9 +100,6 @@
 	display_content(user)
 
 /obj/item/book/attackby(obj/item/attacking_item, mob/living/user, params)
-	if(burn_paper_product_attackby_check(attacking_item, user))
-		return
-
 	if(IS_WRITING_UTENSIL(attacking_item))
 		if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 			return

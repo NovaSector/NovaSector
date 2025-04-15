@@ -184,6 +184,16 @@
 				"NNNNNNNNGGGGGGGGHH!",
 				";AAAAAAARRRGH!",
 			), forced = "hulk")
+		// NOVA EDIT ADDITION START - addition of ability to remove taser electrode
+		if(HAS_TRAIT(owner, TRAIT_BATON_RESISTANCE)) // If you have baton resistance while being tased, significantly decreases the stamina damage.
+			to_chat(owner, span_notice("You feel a slight shock, and attempt to shrug it off."))
+			stamina_per_second /= 4																 
+			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)										 
+		if(HAS_TRAIT(owner, TRAIT_SHOCKIMMUNE)) // genetics mutation insulated protects from taser shock, as well as voltaic heart				 
+			to_chat(owner, span_notice("The electrode hits you, but it only tickles."))									 
+			stamina_per_second = 0																 
+			owner.remove_movespeed_modifier(/datum/movespeed_modifier/being_tased)
+		// NOVA EDIT ADDITION END
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		human_owner.force_say()
@@ -210,7 +220,10 @@
 
 	taser = null
 	firer = null
-	QDEL_NULL(tase_line)
+	if(!QDELING(tase_line))
+		QDEL_NULL(tase_line)
+	else
+		tase_line = null
 
 /datum/status_effect/tased/tick(seconds_between_ticks)
 	if(!do_tase_with(taser, seconds_between_ticks))

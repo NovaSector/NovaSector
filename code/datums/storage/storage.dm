@@ -147,7 +147,7 @@
 
 /datum/storage/Destroy()
 
-	for(var/mob/person in is_using)
+	for(var/mob/person as anything in is_using)
 		hide_contents(person)
 
 	is_using.Cut()
@@ -161,7 +161,7 @@
 /datum/storage/proc/on_deconstruct()
 	SIGNAL_HANDLER
 
-	remove_all()
+	remove_all(update_storage = FALSE)
 
 /// Automatically ran on all object insertions: flag marking and view refreshing.
 /datum/storage/proc/handle_enter(datum/source, obj/item/arrived)
@@ -533,7 +533,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(silent)
 		return
 
-	if(do_rustle)
+	if(do_rustle && rustle_sound)
 		playsound(parent, rustle_sound, 50, rustle_vary, -5)
 
 	if(!silent_for_user)
@@ -552,8 +552,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * * obj/item/thing - the object we're removing
  * * atom/remove_to_loc - where we're placing the item
  * * silent - if TRUE, we won't play any exit sounds
+ * * visual_updates - if TRUE we update storage views & animate parent appearance
  */
-/datum/storage/proc/attempt_remove(obj/item/thing, atom/remove_to_loc, silent = FALSE)
+/datum/storage/proc/attempt_remove(obj/item/thing, atom/remove_to_loc, silent = FALSE, visual_updates = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(istype(thing) && ismob(parent.loc))
@@ -564,19 +565,20 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		reset_item(thing)
 		thing.forceMove(remove_to_loc)
 
-		if(do_rustle && !silent)
+		if(!silent && do_rustle)
 			if(remove_rustle_sound)
 				playsound(parent, remove_rustle_sound, 50, TRUE, -5)
-			else
+			else if(rustle_sound)
 				playsound(parent, rustle_sound, 50, TRUE, -5)
 	else
 		thing.moveToNullspace()
 
-	if(animated)
-		animate_parent()
+	if(visual_updates)
+		if(animated)
+			animate_parent()
 
-	refresh_views()
-	parent.update_appearance()
+		refresh_views()
+		parent.update_appearance()
 
 	SEND_SIGNAL(parent, COMSIG_ATOM_REMOVED_ITEM, thing, remove_to_loc, silent)
 	SEND_SIGNAL(src, COMSIG_STORAGE_REMOVED_ITEM, thing, remove_to_loc, silent)
@@ -587,10 +589,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  *
  * Arguments
  * * atom/drop_loc - where we're placing the item
+ * * update_storage - should we update the parent to show visual effects
  */
-/datum/storage/proc/remove_all(atom/drop_loc = parent.drop_location())
+/datum/storage/proc/remove_all(atom/drop_loc = parent.drop_location(), update_storage = TRUE)
 	for(var/obj/item/thing in real_location)
-		if(!attempt_remove(thing, drop_loc, silent = TRUE))
+		if(!attempt_remove(thing, drop_loc, silent = TRUE, visual_updates = update_storage))
 			continue
 		thing.pixel_x = thing.base_pixel_x + rand(-8, 8)
 		thing.pixel_y = thing.base_pixel_y + rand(-8, 8)
@@ -671,7 +674,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/remove_and_refresh(atom/movable/gone)
 	SIGNAL_HANDLER
 
-	for(var/mob/user in is_using)
+	for(var/mob/user as anything in is_using)
 		if(user.client)
 			var/client/cuser = user.client
 			cuser.screen -= gone
@@ -958,8 +961,14 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /// Close the storage UI for everyone viewing us.
 /datum/storage/proc/close_all()
-	for(var/mob/user in is_using)
+	for(var/mob/user as anything in is_using)
 		hide_contents(user)
+
+/// Closes the storage UIs of this and everything inside the parent for everyone viewing them.
+/datum/storage/proc/close_all_recursive()
+	close_all()
+	for(var/atom/movable/movable as anything in parent.get_all_contents())
+		movable.atom_storage?.close_all()
 
 /// Refresh the views of everyone currently viewing the storage.
 /datum/storage/proc/refresh_views()
@@ -1141,3 +1150,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 
 	changed.visible_message(span_warning("[changed] falls out of [parent]!"), vision_distance = COMBAT_MESSAGE_RANGE)
+
+///Assign a new value to the locked variable. If it's higher than NOT_LOCKED, close the UIs and update the appearance of the parent.
+/datum/storage/proc/set_locked(new_locked)
+	if(locked == new_locked)
+		return
+	locked = new_locked
+	if(new_locked > STORAGE_NOT_LOCKED)
+		close_all_recursive()
+	parent.update_appearance()

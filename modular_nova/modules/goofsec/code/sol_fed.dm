@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 			//Spawn the body
 			var/mob/living/carbon/human/cop = new(spawn_loc)
 			chosen_candidate.client.prefs.safe_transfer_prefs_to(cop, is_antag = TRUE)
-			cop.key = chosen_candidate.key
+			cop.PossessByPlayer(chosen_candidate.key)
 
 			//Give antag datum
 			var/datum/antagonist/ert/request_911/ert_antag = new cops_to_send
@@ -339,6 +339,8 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	l_pocket = /obj/item/restraints/handcuffs
 	id = /obj/item/card/id/advanced/solfed
 	backpack_contents = list(
+		/obj/item/gun/ballistic/automatic/pistol/sol = 1,
+		/obj/item/ammo_box/magazine/c35sol_pistol = 4,
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/solfed_reporter/swat_caller = 1,
@@ -361,7 +363,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "811 Response: Advanced Atmospherics"
 	back = /obj/item/mod/control/pre_equipped/advanced/atmos
 	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
-	shoes = /obj/item/clothing/shoes/jackboots/peacekeeper
+	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/atmos
 	mask = /obj/item/clothing/mask/gas/atmos/glass
 	belt = /obj/item/storage/belt/utility/full/powertools/ircd
@@ -639,7 +641,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 					//Spawn the body
 					var/mob/living/carbon/human/cop = new(spawn_loc)
 					chosen_candidate.client.prefs.safe_transfer_prefs_to(cop, is_antag = TRUE)
-					cop.key = chosen_candidate.key
+					cop.PossessByPlayer(chosen_candidate.key)
 
 					//Give antag datum
 					var/datum/antagonist/ert/request_911/ert_antag = new type_to_summon

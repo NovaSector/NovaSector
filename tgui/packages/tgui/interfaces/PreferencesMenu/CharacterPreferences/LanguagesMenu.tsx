@@ -12,6 +12,7 @@ export const KnownLanguage = (props) => {
         {props.language.description}
         <br />
         <Button
+          mt={1.5}
           color="bad"
           onClick={() =>
             act('remove_language', { language_name: props.language.name })
@@ -32,6 +33,7 @@ export const UnknownLanguage = (props) => {
         {props.language.description}
         <br />
         <Button
+          mt={1.5}
           color="good"
           onClick={() =>
             act('give_language', { language_name: props.language.name })

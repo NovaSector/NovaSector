@@ -142,6 +142,10 @@
 *	FEDORAS
 */
 
+/datum/loadout_item/head/greyscale_fedora
+	name = "Recolorable Fedora"
+	item_path = /obj/item/clothing/head/fedora/greyscale
+
 /datum/loadout_item/head/black_fedora
 	name = "Black Fedora"
 	item_path = /obj/item/clothing/head/fedora
@@ -281,6 +285,10 @@
 /datum/loadout_item/head/maid_headband
 	name = "Colourable Maid Headband"
 	item_path = /obj/item/clothing/head/maid_headband
+
+/datum/loadout_item/head/tactical_headband
+	name ="tactical maid headband"
+	item_path = /obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
 
 /datum/loadout_item/head/hairpin
 	name = "Fancy Hairpin"
@@ -587,6 +595,26 @@
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 
+/datum/loadout_item/head/officergarrisoncap
+	name = "Security Officer Garrison Cap"
+	item_path = /obj/item/clothing/head/security_garrison
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+
+/datum/loadout_item/head/officercap
+	name = "Security Officer's Cap"
+	item_path = /obj/item/clothing/head/security_cap
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+
+/datum/loadout_item/head/officerberet
+	name = "Security Officer's Beret"
+	item_path = /obj/item/clothing/head/beret/sec/nova
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+
+/datum/loadout_item/head/officerpatrolcap
+	name = "Security Officer Patrol Cap"
+	item_path = /obj/item/clothing/head/hats/warden/police/patrol
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+
 /datum/loadout_item/head/navybluewardenberet
 	name = "Warden's Navy Blue beret"
 	item_path = /obj/item/clothing/head/beret/sec/navywarden
@@ -600,6 +628,11 @@
 	name = "Type-34P Forensics Headwear"
 	item_path = /obj/item/clothing/head/fedora/det_hat/cybergoggles
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/head/detfedora
+	name = "Detective's Fedora"
+	item_path = /obj/item/clothing/head/fedora/det_hat
+	restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/head/nursehat
 	name = "Nurse Hat"

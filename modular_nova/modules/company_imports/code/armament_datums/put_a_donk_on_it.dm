@@ -48,26 +48,22 @@
 
 /datum/armament_entry/company_import/donk/merch
 	subcategory = "Donk Co. Merchandise"
+	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/donk_carpet
 	item_type = /obj/item/stack/tile/carpet/donk/thirty
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/tacticool_turtleneck
 	item_type = /obj/item/clothing/under/syndicate/tacticool
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/tacticool_turtleneck_skirt
 	item_type = /obj/item/clothing/under/syndicate/tacticool/skirt
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/fake_centcom_turtleneck
 	item_type = /obj/item/clothing/under/rank/centcom/officer/replica
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/fake_centcom_turtleneck_skirt
 	item_type = /obj/item/clothing/under/rank/centcom/officer_skirt/replica
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/snack_rig
 	item_type = /obj/item/storage/belt/military/snack
@@ -75,11 +71,9 @@
 
 /datum/armament_entry/company_import/donk/merch/fake_syndie_suit
 	item_type = /obj/item/storage/box/fakesyndiesuit
-	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/donk/merch/valid_bloon
 	item_type = /obj/item/toy/balloon/arrest
-	cost = PAYCHECK_CREW
 
 // Donksoft weapons
 
@@ -110,17 +104,6 @@
 	item_type = /obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/donk/mod_modules
-	subcategory = "Donk Co. MOD modules"
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/donk/mod_modules/dart_collector_safe
-	item_type = /obj/item/mod/module/recycler/donk/safe
-	cost = PAYCHECK_COMMAND
-
-/datum/armament_entry/company_import/donk/mod_modules/dart_collector
-	item_type = /obj/item/mod/module/recycler/donk
-	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/donk/foamforce_ammo
 	subcategory = "Foam Force (TM) Dart Accessories"
@@ -128,7 +111,7 @@
 
 /datum/armament_entry/company_import/donk/foamforce_ammo/darts
 	item_type = /obj/item/ammo_box/foambox
-	cost = PAYCHECK_LOWER
+	cost = PAYCHECK_CREW * 0.5
 
 /datum/armament_entry/company_import/donk/foamforce_ammo/riot_darts
 	item_type = /obj/item/ammo_box/foambox/riot

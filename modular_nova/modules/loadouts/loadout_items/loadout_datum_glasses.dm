@@ -47,15 +47,11 @@
 
 /datum/loadout_item/glasses/prescription_glasses/thin
 	name = "Thin Glasses"
-	item_path = /obj/item/clothing/glasses/thin
+	item_path = /obj/item/clothing/glasses/regular/thin
 
 /datum/loadout_item/glasses/prescription_glasses/better
 	name = "Modern Glasses"
-	item_path = /obj/item/clothing/glasses/regular/betterunshit
-
-/datum/loadout_item/glasses/prescription_glasses/kim
-	name = "Binoclard Lenses"
-	item_path = /obj/item/clothing/glasses/regular/kim
+	item_path = /obj/item/clothing/glasses/regular/modern
 
 /*
 *	COSMETIC GLASSES
@@ -120,10 +116,6 @@
 /datum/loadout_item/glasses/eyewrap
 	name = "Eyepatch Wrap"
 	item_path = /obj/item/clothing/glasses/eyepatch/wrap
-
-/datum/loadout_item/glasses/monocle
-	name = "Monocle"
-	item_path = /obj/item/clothing/glasses/monocle
 
 /datum/loadout_item/glasses/biker
 	name = "Biker Goggles"

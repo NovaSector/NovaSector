@@ -85,10 +85,21 @@
 		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 	if(part_datum.can_overslot)
 		var/obj/item/overslot = wearer.get_item_by_slot(part.slot_flags)
-		if(overslot)
+		/* // NOVA EDIT REMOVAL START
+		if(overslot && istype(overslot, /obj/item/clothing))
+			var/obj/item/clothing/clothing = overslot
+			if(clothing.clothing_flags & CLOTHING_MOD_OVERSLOTTING)
+			if(!HAS_TRAIT(overslot, TRAIT_NODROP))
+				part_datum.overslotting = overslot
+				wearer.transferItemToLoc(overslot, part, force = TRUE)
+				RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
+		if(overslot && !HAS_TRAIT(overslot, TRAIT_NODROP))
 			part_datum.overslotting = overslot
 			wearer.transferItemToLoc(overslot, part, force = TRUE)
 			RegisterSignal(part, COMSIG_ATOM_EXITED, PROC_REF(on_overslot_exit))
+		// NOVA EDIT ADDITION END
 	if(wearer.equip_to_slot_if_possible(part, part.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
 		ADD_TRAIT(part, TRAIT_NODROP, MOD_TRAIT)
 		wearer.update_clothing(slot_flags)
@@ -266,7 +277,8 @@
 		part.heat_protection = NONE
 		part.cold_protection = NONE
 		part.alternate_worn_layer = part_datum.unsealed_layer
-	// generate_suit_mask() NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	//generate_suit_mask() // NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	update_speed()
 	wearer.update_clothing(part.slot_flags | slot_flags)
 	wearer.update_obscured_slots(part.visor_flags_inv)
 	if((part.clothing_flags & (MASKINTERNALS|HEADINTERNALS)) && wearer.invalid_internals())
@@ -310,10 +322,9 @@
 			if(!module.active || (module.allow_flags & MODULE_ALLOW_INACTIVE))
 				continue
 			module.deactivate(display_message = FALSE)
-	update_speed()
 	update_charge_alert()
 	update_appearance(UPDATE_ICON_STATE)
-	// generate_suit_mask() NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
+	//generate_suit_mask() // NOVA EDIT REMOVAL - why are you generating masks before you need them on suits that 80% of the time will not need them (also we're not currently caching)
 	wearer.update_clothing(slot_flags)
 
 /// Quickly deploys all the suit parts and if successful, seals them and turns on the suit. Intended mostly for outfits.

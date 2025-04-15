@@ -26,7 +26,10 @@
 /datum/bodypart_overlay/mutant/snout/override_color(rgb_value)
 	return draw_color
 
-/datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(mob/living/carbon/human/human)
+/datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	var/mob/living/carbon/human/human = bodypart_owner.owner
+	if(!istype(human))
+		return TRUE
 	return !sprite_datum.is_hidden(human)
 
 
@@ -111,6 +114,13 @@
 /datum/sprite_accessory/snouts/mammal/corvidbeak
 	name = "Corvid Beak"
 	icon_state = "corvidbeak"
+
+/datum/sprite_accessory/snouts/mammal/dragonfly
+	name = "Dragonfly"
+	icon_state = "dragonfly"
+	flags_for_organ = NONE
+	color_src = USE_MATRIXED_COLORS
+	organ_type = /obj/item/organ/snout/top_adj
 
 /datum/sprite_accessory/snouts/mammal/bug
 	name = "Bug"

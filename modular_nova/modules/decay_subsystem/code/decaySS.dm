@@ -18,7 +18,7 @@ These procs are incredibly expensive and should only really be run once. That's 
 SUBSYSTEM_DEF(decay)
 	name = "Decay System"
 	flags = SS_NO_FIRE
-	init_order = INIT_ORDER_DECAY
+	init_stage = INITSTAGE_LAST
 
 	/// This is used to determine what maps we should not spawn on.
 	var/list/station_filter = list("Birdshot Station", "Runtime Station", "MultiZ Debug", "Gateway Test")
@@ -30,8 +30,8 @@ SUBSYSTEM_DEF(decay)
 		/obj/structure/mob_spawner/spiders,
 		/obj/structure/mob_spawner/bush,
 		/obj/structure/mob_spawner/beehive,
-		/obj/structure/mob_spawner/rats
-		)
+		/obj/structure/mob_spawner/rats,
+	)
 
 /datum/controller/subsystem/decay/Initialize()
 	if(CONFIG_GET(flag/ssdecay_disabled))

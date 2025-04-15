@@ -63,7 +63,7 @@
 
 	head = /obj/item/clothing/head/beret/blueshield
 	box = /obj/item/storage/box/survival/security
-	belt = /obj/item/modular_computer/pda/security
+	belt = /obj/item/modular_computer/pda/blueshield
 	l_pocket = /obj/item/sensor_device/blueshield
 
 	id_trim = /datum/id_trim/job/blueshield
@@ -73,6 +73,15 @@
 
 	head = /obj/item/clothing/head/helmet/space/plasmaman/blueshield
 	uniform = /obj/item/clothing/under/plasmaman/blueshield
+
+/obj/item/modular_computer/pda/blueshield
+	name = "blueshield's PDA"
+	inserted_item = /obj/item/pen/fountain
+	greyscale_colors = "#2B356D#1E1E1E"
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/robocontrol,
+	)
 
 /*
 	Blueshield's Hellfire is between SC-1 and the Hellfire in terms of Damage and wound output
@@ -91,9 +100,14 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/hellfire/blueshield)
 
 /obj/item/choice_beacon/blueshield
-	name = "gunset beacon"
-	desc = "A single use beacon to deliver a gunset of your choice. Please only call this in your office"
-	company_source = "Sol Defense Contracting"
+	name = "weaponry beacon"
+	desc = "A single use beacon to deliver a weapon or set of your choice. Please only call this in your office!"
+	icon_state = "bs_becon"
+	inhand_icon_state = "bs_becon"
+	icon = 'modular_nova/modules/modular_items/icons/remote.dmi'
+	lefthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/lefthand_remote.dmi'
+	righthand_file = 'modular_nova/modules/modular_items/icons/inhand/mobs/righthand_remote.dmi'
+	company_source = "Nanotrasen Rapid Equipment Deployment Division"
 	company_message = span_bold("Supply Pod incoming, please stand by.")
 
 /obj/item/choice_beacon/blueshield/generate_display_names()
@@ -101,6 +115,7 @@
 		"Takbok Revolver Set" = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/takbok,
 		"Custom Hellfire Laser Rifle" = /obj/item/gun/energy/laser/hellgun/blueshield,
 		"NT20 Submachinegun Gunset" = /obj/item/storage/toolbox/guncase/nova/nt20,
+		"Katyusha Shotgun Gunset" = /obj/item/storage/toolbox/guncase/nova/katyusha,
 	)
 
 	return selectable_gun_types

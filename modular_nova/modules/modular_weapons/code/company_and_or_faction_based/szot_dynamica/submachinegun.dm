@@ -1,71 +1,8 @@
-// Rapid firing submachinegun firing .27-54 Cesarzowa
-
-/obj/item/gun/ballistic/automatic/miecz
-	name = "\improper Miecz Submachine Gun"
-	desc = "A short barrel, weapon riding the line between submachine gun, and a rifle. \
-		Features an over-the-top carry handle, pre-threaded barrel, and magazine indicating sights. \
-		Whatever the hell that means."
-
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
-	icon_state = "miecz"
-
-	inhand_icon_state = "c20r"
-	worn_icon_state = "gun"
-
-	SET_BASE_PIXEL(-8, 0)
-
-	special_mags = FALSE
-
-	bolt_type = BOLT_TYPE_STANDARD
-
-	w_class = WEIGHT_CLASS_NORMAL
-	weapon_weight = WEAPON_MEDIUM
-	slot_flags = ITEM_SLOT_BELT
-
-	accepted_magazine_type = /obj/item/ammo_box/magazine/miecz
-
-	fire_sound = 'modular_nova/modules/modular_weapons/sounds/smg_light.ogg'
-	can_suppress = TRUE
-	suppressor_x_offset = 0
-	suppressor_y_offset = 0
-
-	burst_size = 1
-	fire_delay = 0.3 SECONDS
-	actions_types = list()
-
-	spread = 5
-
-/obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/automatic_fire, fire_delay)
-
-/obj/item/gun/ballistic/automatic/miecz/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-
-/obj/item/gun/ballistic/automatic/miecz/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/miecz/examine_more(mob/user)
-	. = ..()
-
-	. += "The Miecz is one of the staple weapons of the frontier, simple, effective, and based on \
-		a figuratively 'tested' design, though you couldn't be sure which one that is. \
-		Fires the .24-57 'pistol' caliber round, if only to dodge it's classification as a rifle. \
-		Overall, it's decently accurate, lightweight, somehow still squeezes into your bag,  \
-		and might feel a little more homely then the next gun over... or, atleast that's what the label says. \
-		The Wood-Substitute material is known to have various side-effects, contact your local health department before use."
-
-	return .
-
-/obj/item/gun/ballistic/automatic/miecz/no_mag
-	spawnwithmagazine = FALSE
 
 
 /obj/item/gun/ballistic/automatic/napad
 	name = "\improper 'Napad' Submachine Gun"
-	desc = "A bulky submachine gun holding a close relation to the Zashchitnik pistol. Designated 'Napadayuschiy'. \
-		It holds a notable fifty rounds of 10mm in the magazine."
+	desc = "A bulky, 10mm submachine gun with sizeable magazines holding a close relation to the Zashchitnik pistol. Designated 'Napadayuschiy'."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
 	icon_state = "napad"
@@ -100,26 +37,20 @@
 	projectile_damage_multiplier = 0.65
 	spread = 6
 
+	lore_blurb = "<i>The 'Napadayuschiy' is a heavy sub-machine gun with a focus on reliability and a very large magazine size.<br><br>\
+		Originally, it was designed for the inevitable situation of its sibling, the Zashchitnik handgun, \
+		not bringing enough to bear for any given situation. \
+		It sports a colossal magazine and a oversized stature familiar to the Zashchitnik. \
+		However, the sheer size of the magazine is a point of contention; its simple, angular construction means \
+		it sticks far from the gun, making it easy to catch on surfaces and door frames. \
+		Regardless, the weapon is reliable, albeit with a small quirk regarding the manual of arms; \
+		if the charging handle isn't placed into the loading notch before inserting a fresh magazine, \
+		the spring pressure of fifty 10mm rounds will make operating the charging handle require \
+		a herculean feat of strength.</i>"
+
 /obj/item/gun/ballistic/automatic/napad/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 	AddComponent(/datum/component/automatic_fire, fire_delay)
-
-/obj/item/gun/ballistic/automatic/napad/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/napad/examine_more(mob/user)
-	. = ..()
-
-	. += "The Napadayuschiy was made for the inevitable situation of the Zashchitnik not being enough firepower \
-		for the job. The Napadayuschiy sports a colossal magazine and a familiarly oversized stature to the Zashchitnik. \
-		The massive magazine is a point of contention, being a stick magazine, it sticks far from the gun, \
-		making it easy to catch on surfaces and door frames. Regardless, the weapon is reliable, \
-		though if you do not place the charging handle into the loading notch before inserting a fresh magazine, \
-		the spring pressure of the weapon's fully loaded magazine will make operating the charging handle require \
-		a herculean feat of strength."
-
-	return .
 
 /obj/item/gun/ballistic/automatic/napad/no_mag
 	spawnwithmagazine = FALSE

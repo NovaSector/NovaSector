@@ -45,7 +45,7 @@
 	if(need_mob_update)
 		. = UPDATE_MOB_HEALTH
 
-	if(good_kind_of_healing && !reaping && SPT_PROB(0.00005, seconds_per_tick)) //janken with the grim reaper!
+	if(good_kind_of_healing && !reaping && SPT_PROB(0.005, seconds_per_tick)) //janken with the grim reaper!
 		notify_ghosts(
 			"[affected_mob] has entered a game of rock-paper-scissors with death!",
 			source = affected_mob,
@@ -493,7 +493,7 @@
 	ph = 7.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/medicine/c2/synthflesh/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE)
+/datum/reagent/medicine/c2/synthflesh/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	if(!iscarbon(exposed_mob))
 		return
@@ -504,8 +504,11 @@
 		return
 	var/current_bruteloss = carbies.getBruteLoss() // because this will be changed after calling adjustBruteLoss()
 	var/current_fireloss = carbies.getFireLoss() // because this will be changed after calling adjustFireLoss()
-	var/harmies = clamp(carbies.adjustBruteLoss(-1.25 * reac_volume, updating_health = FALSE, required_bodytype = affected_bodytype), 0, current_bruteloss)
-	var/burnies = clamp(carbies.adjustFireLoss(-1.25 * reac_volume, updating_health = FALSE, required_bodytype = affected_bodytype), 0, current_fireloss)
+	var/touch_protection_interference = (1 - touch_protection)
+	if(!touch_protection_interference)
+		return
+	var/harmies = clamp(carbies.adjustBruteLoss(-1.25 * reac_volume * touch_protection_interference, updating_health = FALSE, required_bodytype = affected_bodytype), 0, current_bruteloss)
+	var/burnies = clamp(carbies.adjustFireLoss(-1.25 * reac_volume * touch_protection_interference, updating_health = FALSE, required_bodytype = affected_bodytype), 0, current_fireloss)
 	for(var/i in carbies.all_wounds)
 		var/datum/wound/iter_wound = i
 		iter_wound.on_synthflesh(reac_volume)
@@ -539,11 +542,6 @@
 	if(current_volume >= SYNTHFLESH_UNHUSK_MAX || current_volume * current_purity >= SYNTHFLESH_UNHUSK_AMOUNT)
 		carbies.cure_husk(BURN)
 		carbies.visible_message(span_nicegreen("A rubbery liquid coats [carbies]'s burns. [carbies] looks a lot healthier!")) //we're avoiding using the phrases "burnt flesh" and "burnt skin" here because carbies could be a skeleton or a golem or something
-	// NOVA EDIT ADDITION BEGIN - non-modular changeling balancing
-	if(HAS_TRAIT_FROM(exposed_mob, TRAIT_HUSK, CHANGELING_DRAIN) && (carbies.reagents.get_reagent_amount(/datum/reagent/medicine/c2/synthflesh) + reac_volume >= SYNTHFLESH_LING_UNHUSK_AMOUNT))//Costs a little more than a normal husk
-		carbies.cure_husk(CHANGELING_DRAIN)
-		carbies.visible_message(span_nicegreen("A rubbery liquid coats [carbies]'s tissues. [carbies] looks a lot healthier!"))
-	// NOVA EDIT ADDITION END
 
 /******ORGAN HEALING******/
 /*Suffix: -rite*/
@@ -581,7 +579,7 @@
 
 /datum/reagent/medicine/c2/penthrite/on_mob_metabolize(mob/living/user)
 	. = ..()
-	user.throw_alert("penthrite", /atom/movable/screen/alert/penthrite)
+	send_alert(user)
 	user.add_traits(subject_traits, type)
 
 /datum/reagent/medicine/c2/penthrite/on_mob_life(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
@@ -619,7 +617,7 @@
 
 /datum/reagent/medicine/c2/penthrite/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
-	affected_mob.clear_alert("penthrite")
+	remove_alert(affected_mob)
 	affected_mob.remove_traits(subject_traits, type)
 
 /datum/reagent/medicine/c2/penthrite/overdose_process(mob/living/carbon/human/affected_mob, seconds_per_tick, times_fired)
@@ -632,6 +630,11 @@
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
+/datum/reagent/medicine/c2/penthrite/proc/send_alert(mob/living/affected_mob)
+	affected_mob.throw_alert("penthrite", /atom/movable/screen/alert/penthrite)
+
+/datum/reagent/medicine/c2/penthrite/proc/remove_alert(mob/living/affected_mob)
+	affected_mob.clear_alert("penthrite")
 
 /******NICHE******/
 //todo

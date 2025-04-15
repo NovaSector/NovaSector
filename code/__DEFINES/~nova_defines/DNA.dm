@@ -46,6 +46,7 @@
 
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_CAP "cap"
+#define ORGAN_SLOT_EXTERNAL_EARS "ears_external"
 #define ORGAN_SLOT_EXTERNAL_FLUFF "fluff"
 #define ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY "head_accessory"
 #define ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS "moth_markings"
@@ -68,14 +69,14 @@
 
 //In inches
 #define PENIS_MIN_GIRTH PENIS_MIN_LENGTH
-#define PENIS_MAX_GIRTH 20
+#define PENIS_MAX_GIRTH 35
 /// for non oversized mobs with a 'normal' body size
 #define PENIS_MAX_GIRTH_NORMAL_SIZED 15
 #define PENIS_DEFAULT_GIRTH 5 // a lil big but not by much
 #define PENIS_MIN_LENGTH 1
-#define PENIS_MAX_LENGTH 36
+#define PENIS_MAX_LENGTH 86
 /// for non oversized mobs with a 'normal' body size
-#define PENIS_MAX_LENGTH_NORMAL_SIZED 20
+#define PENIS_MAX_LENGTH_NORMAL_SIZED 25
 #define PENIS_DEFAULT_LENGTH 6 //still a lil long but not insane
 
 #define TESTICLES_MIN_SIZE 0

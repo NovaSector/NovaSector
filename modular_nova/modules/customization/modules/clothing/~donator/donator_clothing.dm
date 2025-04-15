@@ -1116,7 +1116,7 @@
 // Donation reward for Raxraus
 /obj/item/clothing/shoes/combat/rax
 	name = "tactical boots"
-	desc = "Tactical and sleek. This model seems to resemble Armadyne's."
+	desc = "Tactical and sleek. This model seems to resemble an armament manufacturer retired long ago."
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
@@ -1467,7 +1467,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	desc = "A customized eyepatch with a bright pink HUD floating in front of it. It looks like there's more to it than just an eyepatch, considering the materials it's made of."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/glasses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/eyes.dmi'
-	icon_state = "rosepatch_R"
+	icon_state = "rosepatch"
 	base_icon_state = "rosepatch"
 
 // Donation reward for Cimika
@@ -2191,6 +2191,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
 	greyscale_colors = "#b0c5ff#434343"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/replica_parade_jacket/Initialize(mapload)
 	. = ..()
@@ -2253,6 +2254,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	greyscale_config_worn = /datum/greyscale_config/half_leotard/worn
 	greyscale_colors = "#80C7D0"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	supports_variations_flags = NONE
 	body_parts_covered = CHEST|ARM_RIGHT|HAND_RIGHT|GROIN
 

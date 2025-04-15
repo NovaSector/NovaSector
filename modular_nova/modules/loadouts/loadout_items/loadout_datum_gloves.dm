@@ -97,13 +97,17 @@
 	name = "Colourable Maid Arm Covers"
 	item_path = /obj/item/clothing/gloves/maid_arm_covers
 
+/datum/loadout_item/gloves/tactical_maid_sleeves
+	name = "tactical maid sleeves"
+	item_path = /obj/item/clothing/gloves/tactical_maid
+
 /datum/loadout_item/gloves/armwraps
 	name = "Colourable Arm Wraps"
 	item_path = /obj/item/clothing/gloves/bracer/wraps
 
 /datum/loadout_item/gloves/latex
-	name = "Latex Gloves"
-	item_path = /obj/item/clothing/gloves/latex_gloves
+	name = "Long Gloves"
+	item_path = /obj/item/clothing/gloves/long_gloves
 	erp_item = TRUE
 
 /*
