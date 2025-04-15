@@ -24,6 +24,7 @@
 		SOL_DEFENSE_DEFENSE_NAME,
 		MICROSTAR_ENERGY_NAME,
 		VITEZSTVI_AMMO_NAME,
+		MINING_CORPS_NAME,
 	)
 
 	pod_type = /obj/structure/closet/supplypod/bluespacepod

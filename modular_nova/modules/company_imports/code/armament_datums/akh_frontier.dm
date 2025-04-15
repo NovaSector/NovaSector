@@ -93,3 +93,25 @@
 /datum/armament_entry/company_import/akh_frontier/deployables/rtg
 	item_type = /obj/item/flatpacked_machine/rtg
 	cost = PAYCHECK_COMMAND * 2
+
+// Building Capsules
+
+/datum/armament_entry/company_import/akh_frontier/capsules
+	subcategory = "Deployable Building Capsules"
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/akh_frontier/capsules/survivalcapsule
+	item_type = /obj/item/survivalcapsule
+	cost = PAYCHECK_CREW * 3.5
+
+/datum/armament_entry/company_import/akh_frontier/capsules/bathroom
+	item_type = /obj/item/survivalcapsule/bathroom
+	cost = PAYCHECK_CREW * 2.5
+
+/datum/armament_entry/company_import/akh_frontier/capsules/luxury
+	item_type = /obj/item/survivalcapsule/luxury
+	cost = PAYCHECK_CREW * 23
+
+/datum/armament_entry/company_import/akh_frontier/capsules/luxuryelite
+	item_type = /obj/item/survivalcapsule/luxuryelite
+	cost = PAYCHECK_CREW * 70

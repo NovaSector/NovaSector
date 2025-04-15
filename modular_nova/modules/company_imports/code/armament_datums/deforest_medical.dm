@@ -112,6 +112,11 @@
 	item_type = /obj/item/storage/pill_bottle/mannitol
 	cost = PAYCHECK_COMMAND * 4 // pricey to not obsolete med if they ARE here
 
+/datum/armament_entry/company_import/deforest/first_aid/bubblegum
+	name = "Blood Bubblegum"
+	item_type = /obj/item/storage/box/gum/bubblegum
+	cost = PAYCHECK_CREW
+
 // Autoinjectors for healing
 
 /datum/armament_entry/company_import/deforest/medpens
@@ -182,6 +187,14 @@
 /datum/armament_entry/company_import/deforest/medpens_stim/demoneye
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye
 	cost = PAYCHECK_COMMAND * 3
+
+/datum/armament_entry/company_import/deforest/medpens_stim/survival
+	item_type = /obj/item/reagent_containers/hypospray/medipen/survival
+	cost = PAYCHECK_CREW * 2
+
+/datum/armament_entry/company_import/deforest/medpens_stim/luxury
+	item_type = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
+	cost = PAYCHECK_CREW * 7
 
 // Equipment, from defibs to scanners to surgical tools
 

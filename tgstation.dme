@@ -7561,6 +7561,7 @@
 #include "modular_nova\modules\company_imports\code\armament_datums\jarnsmiour.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\kahraman_industries.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\microstar_energy.dm"
+#include "modular_nova\modules\company_imports\code\armament_datums\mining_corps.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\nakamura_modsuits.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\nri_military_surplus.dm"
 #include "modular_nova\modules\company_imports\code\armament_datums\put_a_donk_on_it.dm"
