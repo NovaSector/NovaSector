@@ -196,6 +196,7 @@
 /obj/item/organ/ears/dullahan
 	zone = BODY_ZONE_CHEST
 	organ_flags = parent_type::organ_flags & ORGAN_UNREMOVABLE
+	decay_factor = 0
 
 /obj/item/organ/eyes/dullahan
 	name = "head vision"
@@ -203,6 +204,7 @@
 	actions_types = list(/datum/action/item_action/organ_action/dullahan)
 	zone = BODY_ZONE_CHEST
 	organ_flags = parent_type::organ_flags & ORGAN_UNREMOVABLE
+	decay_factor = 0
 	tint = INFINITY // to switch the vision perspective to the head on species_gain() without issue.
 
 /datum/action/item_action/organ_action/dullahan
