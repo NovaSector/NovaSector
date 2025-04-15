@@ -22,7 +22,7 @@
 #define SOL_DEFENSE_DEFENSE_NAME "Sol Defense Imports"
 #define MICROSTAR_ENERGY_NAME "MicroStar Energy Weapon Coalition"
 #define VITEZSTVI_AMMO_NAME "Vitezstvi Ammo & Weapon Accessories"
-#define MINING_CORPS_NAME "NanoTransen Mining & Salvage Subdivision"
+#define MINING_CORPS_NAME "Nanotrasen Heavy Industries"
 
 
 #define COMPANY_INTEREST_GAIN_BIG 10
