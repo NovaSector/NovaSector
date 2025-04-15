@@ -1005,6 +1005,9 @@
 			return DEFIB_FAIL_FAILING_HEART
 
 	var/obj/item/organ/brain/current_brain = get_organ_by_type(/obj/item/organ/brain)
+	if(isdullahan(src))
+		var/datum/species/dullahan/dullahan_species = src.dna.species
+		current_brain = locate() in dullahan_species.my_head
 
 	if (QDELETED(current_brain))
 		return DEFIB_FAIL_NO_BRAIN
