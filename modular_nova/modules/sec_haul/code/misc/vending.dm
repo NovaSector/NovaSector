@@ -70,6 +70,7 @@
 			"name" = "Alternate",
 			"icon" = "shield-halved",
 			"products" = list(
+		/obj/item/clothing/glasses/hud/security/sunglasses/blue = 3,
 				/obj/item/clothing/head/beret/sec/nova = 4,
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,

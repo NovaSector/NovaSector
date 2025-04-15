@@ -505,3 +505,20 @@
   - bugfix: fixes flipped table spawners not initializing correctly
   wivernshy:
   - code_imp: Non-IPCs can now use synth antenna again with mismatch parts.
+2025-04-13:
+  OrionTheFox:
+  - image: removed some (hopefully) unused Shoe icons! Please report any errors!
+  - image: resprited (almost) ALL Digitigrade Shoe icons! They should look much closer
+      to the Plantigrade ones. Please report any errors!
+  - image: resprited Hiking Boots to be closer to the source material (previously
+      Fashionable Boots) (they're just Timbs)
+  - image: resprited Duckboots
+  - rscadd: added Recolorable Cowboy Boots, available in the Loadout or a Clothesmate
+      near you! Spurs included, guaranteed mostly snake free!
+  RatFromTheJungle:
+  - balance: '''Pellet'' shells for shotguns, including buckshot and rubbershot now
+      fair worse against armor all-around!'
+2025-04-15:
+  OrionTheFox:
+  - bugfix: fixed Unrestricted Access floorlights not projecting correctly from airlocks,
+      and a slight timing issue with the External Airlock animations.
