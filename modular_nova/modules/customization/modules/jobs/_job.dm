@@ -75,6 +75,7 @@
 /datum/job/detective
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 
 /datum/job/warden
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
@@ -158,18 +159,23 @@
 
 /datum/job/orderly
 	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 
 /datum/job/science_guard
 	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 
 /datum/job/customs_agent
 	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 
 /datum/job/bouncer
 	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 
 /datum/job/engineering_guard
 	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	species_blacklist = list(SPECIES_DULLAHAN = TRUE)
 
 /datum/job/proc/has_required_languages(datum/preferences/pref)
 	if(!required_languages)
