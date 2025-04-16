@@ -154,6 +154,14 @@
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"aL" = (
+/obj/effect/gibspawner/human,
+/obj/effect/light_emitter/fake_outdoors,
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "aM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/firecloset,
@@ -555,12 +563,11 @@
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
 /obj/machinery/door/window/right/directional/west,
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_x = -2
-	},
-/obj/machinery/light/red/directional/east,
 /obj/effect/decal/remains/human,
-/turf/open/space/bluespace,
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "cx" = (
 /obj/item/ectoplasm/construct,
@@ -3135,6 +3142,10 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"mn" = (
+/obj/structure/blob/special/node,
+/turf/open/indestructible/meat,
+/area/awaymission/caves/maintsroom)
 "mo" = (
 /obj/machinery/mech_bay_recharge_port,
 /turf/open/floor/iron,
@@ -3202,10 +3213,12 @@
 	name = "Bait?"
 	},
 /obj/item/upgradescroll,
-/obj/item/upgradescroll,
-/obj/item/upgradescroll,
-/obj/item/upgradescroll,
-/obj/item/upgradescroll,
+/obj/item/stack/sheet/greatergem,
+/obj/item/stack/sheet/mineral/mythril,
+/obj/item/stack/sheet/mineral/mythril,
+/obj/item/stack/sheet/mineral/mythril,
+/obj/item/stack/sheet/mineral/mythril,
+/obj/item/stack/sheet/mineral/mythril,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "my" = (
@@ -5872,6 +5885,12 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
+"xC" = (
+/obj/item/claymore,
+/turf/open/floor/iron/chapel{
+	dir = 8
+	},
+/area/awaymission/caves/maintsroom)
 "xG" = (
 /turf/open/lava/smooth/weak,
 /area/awaymission/caves/maintsroom)
@@ -7616,7 +7635,10 @@
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "Ez" = (
-/obj/machinery/teleport/station,
+/obj/machinery/teleport/station{
+	name = "Forcefield generator"
+	},
+/obj/machinery/light/red/directional/east,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "EC" = (
@@ -7801,8 +7823,20 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fg" = (
-/obj/structure/mold/structure/core/disease,
-/turf/open/indestructible/meat,
+/obj/machinery/light/red/directional/north,
+/obj/machinery/light/red/directional/south,
+/obj/effect/oneway{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/obj/structure/plasticflaps{
+	name = "One direction plastic flaps";
+	desc = "Heavy duty, airtight, plastic flaps. you- A B S O L U T E L Y cannot go back the way you came if you go under these.";
+	max_integrity = 100000
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fh" = (
 /obj/machinery/recycler{
@@ -8606,7 +8640,7 @@
 /area/awaymission/caves/maintsroom)
 "IA" = (
 /obj/machinery/telecomms/hub{
-	name = "Pre-set teleporter designator"
+	name = "Forcefield designator"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -10422,10 +10456,10 @@
 "Qi" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/forging/reagent_weapon/sword,
-/obj/item/upgradescroll,
 /obj/structure/closet/crate/goldcrate{
 	name = "Bait"
 	},
+/obj/item/disk/design_disk/cleric_mace,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Qm" = (
@@ -11309,6 +11343,7 @@
 "TA" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/extinguisher/mini,
+/obj/item/stack/sheet/mineral/adamantine,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "TB" = (
@@ -19592,7 +19627,7 @@ Yc
 bO
 GS
 fV
-LG
+xC
 tr
 vE
 tr
@@ -23455,13 +23490,13 @@ jf
 zz
 bB
 bB
+mn
 bB
 bB
 bB
 bB
 bB
-bB
-bB
+mn
 bB
 bB
 zz
@@ -24325,7 +24360,7 @@ bB
 bB
 bB
 bB
-Fg
+bB
 bB
 bB
 bB
@@ -25191,13 +25226,13 @@ er
 zz
 bB
 bB
+mn
 bB
 bB
 bB
 bB
 bB
-bB
-bB
+mn
 bB
 bB
 zz
@@ -30272,7 +30307,7 @@ jf
 jf
 jf
 ws
-jf
+Fg
 jf
 jf
 zm
@@ -30489,7 +30524,7 @@ NQ
 MI
 NQ
 DX
-MI
+aL
 NQ
 jf
 zm
