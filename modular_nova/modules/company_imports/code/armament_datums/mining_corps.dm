@@ -77,7 +77,7 @@
 
 /datum/armament_entry/company_import/mining_corps/mining/extraction_pack
 	item_type = /obj/item/extraction_pack
-	cost = PAYCHECK_CREW * 8
+	cost = PAYCHECK_CREW * 6
 
 /datum/armament_entry/company_import/mining_corps/mining/wormhole_jaunter
 	item_type = /obj/item/wormhole_jaunter
