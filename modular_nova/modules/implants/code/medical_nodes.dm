@@ -1,11 +1,6 @@
 /datum/techweb_node/cyber/cyber_implants/New()
 	design_ids += list(
 		"ci-scanner",
-		"ci-gloweyes",
-		"ci-welding",
-		"ci-medhud",
-		"ci-sechud",
-		"ci-diaghud",
 		"ci-botany",
 		"ci-janitor",
 		"ci-lighter",

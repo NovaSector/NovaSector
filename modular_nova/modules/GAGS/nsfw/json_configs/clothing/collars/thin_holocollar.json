@@ -1,0 +1,16 @@
+{
+	"holocollar": [
+		{
+			"type": "icon_state",
+			"icon_state": "thin_strip",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "holotag",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

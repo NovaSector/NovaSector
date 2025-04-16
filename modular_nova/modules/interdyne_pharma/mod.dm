@@ -22,7 +22,7 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/restraints/handcuffs,
 		/obj/item/sensor_device,

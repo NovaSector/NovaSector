@@ -1,3 +1,4 @@
+#define RESKIN_ALT_COVERS_CHEST "reskin_alt_covers_chest"
 #define RESKIN_ICON "reskin_icon"
 #define RESKIN_ICON_STATE "reskin_icon_state"
 #define RESKIN_WORN_ICON "reskin_worn_icon"

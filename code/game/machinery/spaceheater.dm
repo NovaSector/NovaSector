@@ -8,7 +8,7 @@
 	anchored = FALSE
 	density = TRUE
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN
-	icon = 'icons/obj/pipes_n_cables/atmos.dmi' // NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/pipes_n_cables/atmos.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "sheater-off"
 	base_icon_state = "sheater"
 	name = "space heater"
@@ -88,6 +88,11 @@
 		LAZYADD(component_parts, cell)
 		cell = null
 	return ..()
+
+/obj/machinery/space_heater/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == cell)
+		cell = null
 
 /obj/machinery/space_heater/examine(mob/user)
 	. = ..()
@@ -288,7 +293,6 @@
 		if("eject")
 			if(panel_open && cell)
 				usr.put_in_hands(cell)
-				cell = null
 				. = TRUE
 
 /obj/machinery/space_heater/proc/toggle_power(user)

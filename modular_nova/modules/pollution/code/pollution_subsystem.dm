@@ -1,6 +1,8 @@
 SUBSYSTEM_DEF(pollution)
 	name = "Pollution"
-	init_order = INIT_ORDER_POLLUTION //Before atoms, because the emitters may need to know the singletons
+	dependents = list(
+		/datum/controller/subsystem/atoms,
+	) //Before atoms, because the emitters may need to know the singletons
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	wait = 2 SECONDS
 	/// Currently active pollution

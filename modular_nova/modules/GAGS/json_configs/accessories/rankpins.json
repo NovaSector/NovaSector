@@ -1,0 +1,24 @@
+{
+	"rank1": [
+		{
+			"type": "icon_state",
+			"icon_state": "rankpin_star",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	],	"rank2": [
+		{
+			"type": "icon_state",
+			"icon_state": "rankpin_bar1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	],	"rank3": [
+		{
+			"type": "icon_state",
+			"icon_state": "rankpin_bar2",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

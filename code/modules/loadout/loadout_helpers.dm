@@ -28,7 +28,7 @@
 		CRASH("Invalid outfit passed to equip_outfit_and_loadout ([outfit])")
 
 	var/list/preference_list = preference_source.read_preference(/datum/preference/loadout)
-	var/list/loadout_datums = loadout_list_to_datums(preference_list)
+	var/list/loadout_datums = loadout_list_to_datums(preference_list[preference_source.read_preference(/datum/preference/loadout_index)]) // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: var/list/loadout_datums = loadout_list_to_datums(preference_list)
 	// Slap our things into the outfit given
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		item.insert_path_into_outfit(equipped_outfit, src, visuals_only)
@@ -39,17 +39,13 @@
 	var/list/new_contents = get_all_gear()
 	var/update = NONE
 	for(var/datum/loadout_item/item as anything in loadout_datums)
-		var/obj/item/equipped = locate(item.item_path) in new_contents
-		if(isnull(equipped))
-			continue
 		update |= item.on_equip_item(
-			equipped_item = equipped,
+			equipped_item = locate(item.item_path) in new_contents,
 			preference_source = preference_source,
 			preference_list = preference_list,
 			equipper = src,
 			visuals_only = visuals_only,
 		)
-
 	if(update)
 		update_clothing(update)
 

@@ -1,0 +1,22 @@
+{
+	"leather_tagged_collar": [
+		{
+			"type": "icon_state",
+			"icon_state": "thick_strip",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "thick_lining",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "tag",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

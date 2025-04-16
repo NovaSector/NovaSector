@@ -18,3 +18,7 @@
 	description = "Having my robotic parts messed with while I was conscious felt wrong... if only I had a sleep mode!\n"
 	mood_change = -4
 	timeout = 10 MINUTES
+
+// This causes a mood debuff on people that get a positive quirk over examining someone with a neutral quirk otherwise.
+/datum/mood_event/encountered_evil
+	mood_change = 0 // originally -4

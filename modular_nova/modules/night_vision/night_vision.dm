@@ -24,5 +24,9 @@
 	var/obj/item/organ/eyes/eyes = human_quirk_holder.get_organ_by_type(/obj/item/organ/eyes)
 	if(!eyes)
 		return
+
+	// NIGHT VISION ADJUSTMENT - adjusts color cutoffs based on chosen quirk color, or left eye colour if not available
+	nv_color_cutoffs = calculate_color_cutoffs(nv_color)
+	eyes.color_cutoffs = nv_color_cutoffs
 	// We've either added or removed TRAIT_NIGHT_VISION before calling this proc. Just refresh the eyes.
 	eyes.refresh()

@@ -255,12 +255,10 @@ GLOBAL_LIST_INIT(ai_employers, list(
 /// Checks if the given mob is a heretic and is guaranteed to return the datum if possible - will cause issues with above trait
 #define GET_HERETIC(mob) (mob.mind?.has_antag_datum(/datum/antagonist/heretic))
 
-/// Check if the given mob is a heretic monster.
-#define IS_HERETIC_MONSTER(mob) (mob.mind?.has_antag_datum(/datum/antagonist/heretic_monster))
 /// Check if the given mob is a  lunatic
 #define IS_LUNATIC(mob) (mob.mind?.has_antag_datum(/datum/antagonist/lunatic))
 /// Checks if the given mob is either a heretic, heretic monster or a lunatic.
-#define IS_HERETIC_OR_MONSTER(mob) (IS_HERETIC(mob) || IS_HERETIC_MONSTER(mob) || IS_LUNATIC(mob))
+#define IS_HERETIC_OR_MONSTER(mob) (IS_HERETIC(mob) || HAS_TRAIT(mob, TRAIT_HERETIC_SUMMON) || IS_LUNATIC(mob))
 /// CHecks if the given mob is in the mansus realm
 #define IS_IN_MANSUS(mob) (istype(get_area(mob), /area/centcom/heretic_sacrifice))
 
@@ -335,9 +333,9 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define MAROON_PROB 30
 
 /// How many telecrystals a normal traitor starts with
-#define TELECRYSTALS_DEFAULT 20
+#define TELECRYSTALS_DEFAULT 35 // NOVA EDIT CHANGE - ORIGINAL: #define TELECRYSTALS_DEFAULT 20
 /// How many telecrystals mapper/admin only "precharged" uplink implant
-#define TELECRYSTALS_PRELOADED_IMPLANT 10
+#define TELECRYSTALS_PRELOADED_IMPLANT 20 // NOVA EDIT CHANGE - ORIGINAL: #define TELECRYSTALS_PRELOADED_IMPLANT 10
 /// The normal cost of an uplink implant; used for calcuating how many
 /// TC to charge someone if they get a free implant through choice or
 /// because they have nothing else that supports an implant.

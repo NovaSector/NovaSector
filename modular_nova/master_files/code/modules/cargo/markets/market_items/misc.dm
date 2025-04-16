@@ -42,3 +42,40 @@
 	price_max = CARGO_CRATE_VALUE
 	stock_max = 4
 	availability_prob = 80
+
+
+/datum/market_item/misc/foam_smg
+	name = "Foam Force SMG"
+	desc = "A Foam Force SMG that someone is selling on the black market. Don't ask why. Foam Force magazines sold separately."
+	item = /obj/item/gun/ballistic/automatic/toy
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE
+	stock_max = 2
+	availability_prob = 80
+
+/datum/market_item/misc/foam_smg_riotmag
+	name = "Foam Force SMG Magazine"
+	desc = "A magazine for a Foam Force SMG, filled with riot darts. Foam Force SMG sold separately."
+	item = /obj/item/ammo_box/magazine/toy/smg/riot
+	price_min = CARGO_CRATE_VALUE * 0.5
+	price_max = CARGO_CRATE_VALUE
+	stock_max = 2
+	availability_prob = 80
+
+/datum/market_item/misc/engineer_chip
+	name = "Engineer skillchip"
+	desc = "A skillchip that was crudely taken out of an engineer, still stained in blood."
+	item = /obj/item/skillchip/job/engineer
+	price_min = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 3
+	stock_max = 1
+	availability_prob = 35
+
+/datum/market_item/misc/leadacid
+	name = "Lead-acid Battery"
+	desc = "A primitive battery. It is quite large and feels unexpectedly heavy."
+	item = /obj/item/stock_parts/power_store/cell/lead
+	stock = 2
+	price_min = CARGO_CRATE_VALUE * 4
+	price_max = CARGO_CRATE_VALUE * 6
+	availability_prob = 100

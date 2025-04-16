@@ -4,7 +4,7 @@
 	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
 	wanted_types = list(/obj/item/relic = TRUE)
-*/ // NOVA EDIT REMOVAL END 
+*/ // NOVA EDIT REMOVAL END
 
 /* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
 /datum/bounty/item/assistant/scooter
@@ -22,7 +22,7 @@
 		/obj/vehicle/ridden/scooter/skateboard = TRUE,
 		/obj/item/melee/skateboard = TRUE,
 	)
-*/ // NOVA EDIT REMOVAL END 
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
@@ -37,7 +37,7 @@
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 3
 	wanted_types = list(/obj/item/soap = TRUE)
-*/ // NOVA EDIT REMOVAL END 
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bounty/item/assistant/spear
 	name = "Spears"
@@ -47,11 +47,41 @@
 	wanted_types = list(/obj/item/spear = TRUE)
 
 /datum/bounty/item/assistant/toolbox
-	name = "Toolboxes"
-	description = "There's an absence of robustness at Central Command. Hurry up and ship some toolboxes as a solution."
+	name = "Stocked Toolbox"
+	description = "There's an absence of robustness at Central Command. Ship them a fully packed toolbox as a solution, containing a screwdriver, wrench, welding tool, crowbar, analyzer, and wirecutters."
 	reward = CARGO_CRATE_VALUE * 4
-	required_count = 6
 	wanted_types = list(/obj/item/storage/toolbox = TRUE)
+	/// Typecache of tools that we want to see sorted into a toolbox. Unpacked in New(), verified in applies_to(), and then contents are filtered out in ship().
+	var/list/static_packing_list = list(
+		/obj/item/screwdriver = TRUE,
+		/obj/item/wrench = TRUE,
+		/obj/item/weldingtool = TRUE,
+		/obj/item/crowbar = TRUE,
+		/obj/item/analyzer = TRUE,
+		/obj/item/wirecutters = TRUE,
+	)
+
+/datum/bounty/item/assistant/toolbox/New()
+	. = ..()
+	static_packing_list = string_assoc_list(zebra_typecacheof(static_packing_list, only_root_path = FALSE))
+
+/datum/bounty/item/assistant/toolbox/applies_to(obj/shipped)
+	var/list/packing_list = static_packing_list.Copy()
+	for(var/obj/item_contents as anything in shipped.contents)
+		if(is_type_in_typecache(item_contents.type, packing_list))
+			packing_list -= subtypesof(item_contents.type)
+			packing_list -= item_contents.type
+		if(!length(packing_list))
+			return ..()
+
+	return FALSE
+
+/datum/bounty/item/assistant/toolbox/ship(obj/shipped)
+	. = ..()
+	for(var/obj/object as anything in shipped.contents)
+		if(!is_type_in_typecache(object.type, static_packing_list))
+			object.forceMove(shipped.drop_location())
+
 
 /datum/bounty/item/assistant/statue
 	name = "Statue"
@@ -72,7 +102,7 @@
 	reward = CARGO_CRATE_VALUE * 2.4
 	required_count = 3
 	wanted_types = list(/obj/item/food/cheesiehonkers = TRUE)
-*/ // NOVA EDIT REMOVAL END 
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bounty/item/assistant/baseball_bat
 	name = "Baseball Bat"
@@ -114,7 +144,7 @@
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 5
 	wanted_types = list(/obj/item/food/deadmouse = TRUE)
-*/ // NOVA EDIT REMOVAL END 
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bounty/item/assistant/comfy_chair
 	name = "Comfy Chairs"
@@ -139,14 +169,15 @@
 	wanted_types = list(/obj/item/food/grown/poppy = TRUE)
 	include_subtypes = FALSE
 
-/* NOVA EDIT REMOVAL START - Removes bounties that are luck or destruction based
 /datum/bounty/item/assistant/potted_plants
 	name = "Potted Plants"
 	description = "Central Command is looking to commission a new BirdBoat-class station. You've been ordered to supply the potted plants."
 	reward = CARGO_CRATE_VALUE * 4
-	required_count = 8
-	wanted_types = list(/obj/item/kirbyplants = TRUE)
-*/ // NOVA EDIT REMOVAL END 
+	required_count = 3
+	wanted_types = list(
+		/obj/item/kirbyplants = TRUE,
+		/obj/item/kirbyplants/synthetic = FALSE
+		)
 
 /datum/bounty/item/assistant/monkey_cubes
 	name = "Monkey Cubes"
@@ -169,12 +200,12 @@
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/food/meat/slab/corgi = TRUE)
 
-/datum/bounty/item/assistant/action_figures
-	name = "Action Figures"
-	description = "The vice president's son saw an ad for action figures on the telescreen and now he won't shut up about them. Ship some to ease his complaints."
+/datum/bounty/item/assistant/toys
+	name = "Arcade Toys"
+	description = "The vice president's son saw an ad for new toys on the telescreen and now he won't shut up about them. Ship some arcade toys over to ease his complaints."
 	reward = CARGO_CRATE_VALUE * 8
 	required_count = 5
-	wanted_types = list(/obj/item/toy/figure = TRUE)
+	wanted_types = list(/obj/item/toy = TRUE)
 
 /datum/bounty/item/assistant/paper_bin
 	name = "Paper Bins"
@@ -189,15 +220,7 @@
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 8
 	wanted_types = list(/obj/item/toy/crayon = TRUE)
-*/ // NOVA EDIT REMOVAL END 
-
-/datum/bounty/item/assistant/pens
-	name = "Pens"
-	description = "We are hosting the intergalactic pen balancing competition. We need you to send us some standardized black ballpoint pens."
-	reward = CARGO_CRATE_VALUE * 4
-	required_count = 10
-	include_subtypes = FALSE
-	wanted_types = list(/obj/item/pen = TRUE)
+*/ // NOVA EDIT REMOVAL END
 
 /datum/bounty/item/assistant/water_tank
 	name = "Water Tank"
@@ -258,7 +281,7 @@
 	var/obj/item/fish/fishie = shipped
 	if(istype(shipped, /obj/item/storage/fish_case))
 		fishie = locate() in shipped
-	if(fishie.status == FISH_DEAD || HAS_TRAIT(fishie, TRAIT_FISH_FROM_CASE))
+	if(fishie.status == FISH_DEAD || HAS_TRAIT(fishie, TRAIT_FISH_LOW_PRICE))
 		reward -= shipping_penalty
 
 ///A subtype of the fish bounty that requires fish with a specific fluid type

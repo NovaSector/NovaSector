@@ -1,0 +1,679 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ax" = (
+/turf/closed/indestructible/rock,
+/area/misc/condo)
+"aK" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 8
+	},
+/turf/open/floor/iron/kitchen,
+/area/misc/condo)
+"cf" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/water/beach,
+/area/misc/condo)
+"de" = (
+/obj/effect/turf_decal/weather/sand{
+	dir = 5
+	},
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/iron/sepia,
+/area/misc/condo)
+"dP" = (
+/turf/closed/indestructible/sandstone,
+/area/misc/condo)
+"eS" = (
+/turf/closed/indestructible/fakeglass,
+/area/misc/condo)
+"fa" = (
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"hc" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/wood,
+/area/misc/condo)
+"hT" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"ii" = (
+/obj/structure/dresser,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"jr" = (
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"jY" = (
+/obj/structure/fake_stairs/wood/directional/south,
+/turf/open/misc/beach/sand,
+/area/misc/condo)
+"ko" = (
+/obj/structure/closet/secure_closet/freezer/fridge/all_access,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"kp" = (
+/turf/open/floor/carpet/purple,
+/area/misc/condo)
+"kI" = (
+/obj/effect/turf_decal/siding/wood/end{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood,
+/area/misc/condo)
+"lN" = (
+/obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"mN" = (
+/obj/effect/planetary_turf_atmos_helper,
+/turf/closed/indestructible/sandstone,
+/area/misc/condo)
+"oJ" = (
+/turf/closed/indestructible/hoteldoor/fakedoor,
+/area/misc/condo)
+"pb" = (
+/obj/structure/chair/sofa/right{
+	dir = 1
+	},
+/turf/open/floor/iron/sepia,
+/area/misc/condo)
+"pD" = (
+/turf/open/misc/beach/coast/corner{
+	dir = 8
+	},
+/area/misc/condo)
+"qe" = (
+/turf/cordon,
+/area/misc/condo)
+"qm" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 9
+	},
+/turf/open/floor/iron/kitchen,
+/area/misc/condo)
+"qq" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"qT" = (
+/obj/effect/turf_decal/siding/white,
+/obj/machinery/door/window/left/directional/south,
+/obj/effect/turf_decal/trimline/purple/line,
+/turf/open/indestructible/hoteltile,
+/area/misc/condo)
+"sS" = (
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/kitchen,
+/area/misc/condo)
+"tS" = (
+/obj/effect/turf_decal/weather/sand{
+	dir = 1
+	},
+/turf/open/floor/iron/sepia,
+/area/misc/condo)
+"uF" = (
+/turf/open/misc/beach/coast{
+	dir = 1
+	},
+/area/misc/condo)
+"vS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/grille/broken,
+/turf/open/floor/plating,
+/area/misc/condo)
+"wk" = (
+/obj/effect/spawner/liquids_spawner,
+/turf/open/floor/iron/pool,
+/area/misc/condo)
+"wF" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/door/airlock/grunge{
+	name = "Master Bedroom"
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"xg" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"xv" = (
+/obj/item/kirbyplants/random,
+/obj/structure/sign/poster/official/corporate_perks_vacation/directional/north,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"xV" = (
+/obj/machinery/shower/directional/west,
+/obj/effect/spawner/liquids_spawner,
+/turf/open/floor/iron/pool,
+/area/misc/condo)
+"xW" = (
+/turf/closed/indestructible/wood,
+/area/misc/condo)
+"yu" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/door/airlock/silver{
+	dir = 4;
+	name = "Bathroom"
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Am" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 6;
+	pixel_x = -7
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Bb" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"Dh" = (
+/obj/effect/turf_decal/weather/sand{
+	dir = 5
+	},
+/turf/open/floor/iron/sepia,
+/area/misc/condo)
+"Dr" = (
+/obj/structure/sink/directional/south,
+/obj/structure/mirror/directional/north,
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 1
+	},
+/turf/open/indestructible/hoteltile,
+/area/misc/condo)
+"Ei" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/door/morgue{
+	dir = 4;
+	name = "Sunroom"
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"EC" = (
+/turf/closed/wall/mineral/sandstone,
+/area/misc/condo)
+"Fu" = (
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Fz" = (
+/obj/structure/curtain/cloth/fancy,
+/turf/closed/indestructible/fakeglass,
+/area/misc/condo)
+"FG" = (
+/obj/structure/sign/painting/library{
+	pixel_y = 32
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"GS" = (
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/double,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"HH" = (
+/obj/effect/turf_decal/trimline/dark/filled/line,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/turf/open/floor/wood,
+/area/misc/condo)
+"HM" = (
+/turf/open/misc/beach/coast{
+	dir = 9
+	},
+/area/misc/condo)
+"Ii" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"Ix" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/grille,
+/turf/open/floor/plating,
+/area/misc/condo)
+"JB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/misc/condo)
+"JE" = (
+/turf/open/misc/beach/sand,
+/area/misc/condo)
+"JK" = (
+/turf/open/water/beach,
+/area/misc/condo)
+"LM" = (
+/obj/structure/chair/sofa/left{
+	dir = 1
+	},
+/turf/open/floor/iron/sepia,
+/area/misc/condo)
+"Mx" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/door/airlock/grunge{
+	dir = 4;
+	name = "Kitchenette"
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Ok" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/rag{
+	pixel_y = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"PP" = (
+/obj/machinery/jukebox/no_access,
+/turf/open/misc/beach/sand,
+/area/misc/condo)
+"Qd" = (
+/obj/structure/fluff/beach_umbrella/science,
+/turf/open/misc/beach/coast{
+	dir = 1
+	},
+/area/misc/condo)
+"Qo" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_y = 8
+	},
+/turf/open/floor/iron/kitchen,
+/area/misc/condo)
+"RP" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"RZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/door/airlock/sandstone{
+	name = "Sunroom"
+	},
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Sr" = (
+/turf/open/misc/beach/coast/corner{
+	dir = 4
+	},
+/area/misc/condo)
+"SS" = (
+/turf/open/misc/beach/coast{
+	dir = 5
+	},
+/area/misc/condo)
+"Th" = (
+/obj/structure/bed/dogbed,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"TD" = (
+/obj/effect/turf_decal/trimline/dark/filled/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner,
+/obj/effect/turf_decal/trimline/dark/filled/mid_joiner{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/misc/condo)
+"Vf" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/condo)
+"WH" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"WU" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+"Xa" = (
+/obj/effect/turf_decal/siding/white,
+/obj/machinery/door/window/right/directional/south,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/purple/line,
+/turf/open/indestructible/hoteltile,
+/area/misc/condo)
+"Xc" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/beach/sand,
+/area/misc/condo)
+"XA" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/trimline/purple/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/indestructible/hoteltile,
+/area/misc/condo)
+"Zg" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/condo)
+"ZL" = (
+/obj/structure/chair/comfy/teal{
+	dir = 8
+	},
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/wood/large,
+/area/misc/condo)
+
+(1,1,1) = {"
+qe
+qe
+qe
+qe
+ax
+ax
+ax
+ax
+ax
+qe
+dP
+dP
+dP
+dP
+mN
+"}
+(2,1,1) = {"
+qe
+ax
+ax
+ax
+ax
+uF
+JE
+JE
+dP
+dP
+dP
+JB
+vS
+Ix
+dP
+"}
+(3,1,1) = {"
+ax
+ax
+JK
+JK
+JK
+uF
+JE
+JE
+dP
+kI
+dP
+EC
+EC
+EC
+dP
+"}
+(4,1,1) = {"
+ax
+JK
+cf
+JK
+HM
+Sr
+Xc
+jY
+RZ
+hc
+xW
+XA
+qT
+wk
+dP
+"}
+(5,1,1) = {"
+ax
+JK
+JK
+JK
+uF
+JE
+JE
+dP
+dP
+Ei
+xW
+Dr
+Xa
+xV
+dP
+"}
+(6,1,1) = {"
+ax
+ax
+JK
+JK
+uF
+JE
+dP
+dP
+ii
+jr
+xW
+yu
+xW
+dP
+dP
+"}
+(7,1,1) = {"
+qe
+ax
+JK
+HM
+Sr
+JE
+Fz
+Th
+Am
+qq
+xW
+FG
+Vf
+eS
+TD
+"}
+(8,1,1) = {"
+ax
+ax
+JK
+Qd
+kp
+kp
+Fz
+jr
+jr
+jr
+wF
+fa
+fa
+oJ
+HH
+"}
+(9,1,1) = {"
+ax
+JK
+JK
+SS
+pD
+JE
+Fz
+GS
+ZL
+WU
+xW
+hT
+Bb
+eS
+HH
+"}
+(10,1,1) = {"
+ax
+JK
+JK
+JK
+uF
+JE
+dP
+dP
+dP
+xW
+xW
+Mx
+xW
+dP
+dP
+"}
+(11,1,1) = {"
+ax
+JK
+JK
+JK
+uF
+JE
+tS
+LM
+Fz
+WH
+Ii
+fa
+Fu
+xg
+dP
+"}
+(12,1,1) = {"
+ax
+ax
+cf
+JK
+SS
+pD
+de
+pb
+Fz
+RP
+Ok
+fa
+fa
+lN
+dP
+"}
+(13,1,1) = {"
+ax
+ax
+JK
+JK
+JK
+uF
+JE
+Dh
+Fz
+Zg
+Zg
+fa
+qm
+aK
+dP
+"}
+(14,1,1) = {"
+qe
+ax
+ax
+JK
+JK
+uF
+JE
+JE
+dP
+dP
+xv
+ko
+sS
+Qo
+dP
+"}
+(15,1,1) = {"
+qe
+qe
+ax
+ax
+JK
+SS
+pD
+JE
+PP
+dP
+dP
+dP
+dP
+dP
+dP
+"}
+(16,1,1) = {"
+qe
+qe
+qe
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+qe
+qe
+qe
+qe
+qe
+"}

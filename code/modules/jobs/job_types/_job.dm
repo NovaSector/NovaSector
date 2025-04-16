@@ -401,6 +401,8 @@
 				back = /obj/item/storage/backpack/tinypaka
 			if(TPACKC)
 				back = /obj/item/storage/backpack/tinypakc
+			if(GUNCASE)
+				back = /obj/item/storage/toolbox/guncase/nova/empty
 			// NOVA EDIT ADDITION START
 			else
 				back = backpack //Department backpack
@@ -452,7 +454,7 @@
 	var/obj/item/modular_computer/pda/pda = equipped.get_item_by_slot(pda_slot)
 
 	if(istype(pda))
-		pda.imprint_id(equipped.real_name, equipped_job.title)
+		pda.imprint_id(equipped.real_name, equipped_job.title, card)
 		pda.update_ringtone(equipped_job.job_tone)
 		pda.UpdateDisplay()
 

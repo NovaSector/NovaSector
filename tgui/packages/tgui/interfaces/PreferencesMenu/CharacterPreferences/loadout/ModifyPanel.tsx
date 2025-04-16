@@ -34,7 +34,7 @@ type ButtonProps = {
 
 function LoadoutModifyButton(props: ButtonProps) {
   const { act, data } = useBackend<LoadoutManagerData>();
-  const { loadout_list } = data.character_preferences.misc;
+  const loadout_list = data.character_preferences.misc.loadout_lists.loadout; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: const { loadout_list } = data.character_preferences.misc;
   const { button, modifyItemDimmer } = props;
 
   const buttonIsActive =
@@ -82,7 +82,7 @@ type ButtonsProps = {
 
 function LoadoutModifyButtons(props: ButtonsProps) {
   const { act, data } = useBackend<LoadoutManagerData>();
-  const { loadout_list } = data.character_preferences.misc;
+  const loadout_list = data.character_preferences.misc.loadout_lists.loadout; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: const { loadout_list } = data.character_preferences.misc;
   const { modifyItemDimmer } = props;
 
   function isActive(item: LoadoutItem, reskin: ReskinOption) {

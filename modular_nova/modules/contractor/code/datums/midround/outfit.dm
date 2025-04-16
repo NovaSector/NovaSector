@@ -17,6 +17,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/syndie,
 		/obj/item/storage/box/syndicate/contract_kit/midround,
+		/obj/item/storage/box/syndicate/contractor_loadout/stealth_contractor,
 		/obj/item/knife/combat/survival,
 		/obj/item/pinpointer/crew/contractor,
 	)
