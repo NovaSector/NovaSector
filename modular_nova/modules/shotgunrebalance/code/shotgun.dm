@@ -91,7 +91,6 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
 	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
 	variance = 20
-	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/buckshot/old
 	name = "old buckshot shell"
@@ -100,6 +99,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	damage = 5
+	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/buckshot/milspec
 	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
@@ -114,6 +114,7 @@
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
+	// weak_against_armour = FALSE // don't uncomment this unless you want to reintroduce the tyranny of Evil Buckshot
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
@@ -129,6 +130,7 @@
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
 	speed = 1
+	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/incapacitate
 	name = "incapacitator shell"
@@ -136,17 +138,22 @@
 		sacrificing individual pellet strength for sheer stopping power in what's best described as \"spitting distance\".\
 		<br><br>\
 		<i>INCAPACITATOR: Fire an overwhelming amount of projectiles in a single shot.</i>"
+	// 12 pellets * 6 stam per pellet = 72 stam
+	// but it's also got 25 variance so you're either in spitting distance or missing
 	ammo_categories = AMMO_CLASS_NICHE_LTL
 	harmful = FALSE
 
 /obj/item/ammo_casing/shotgun/flechette
 	name = "shredder flechette shell"
 	desc = "A 12 gauge flechette shell that specializes in cutting through armor and embedding like hell."
+	ammo_categories = AMMO_CLASS_SUPER // i mean with exotic tech you get to print this for free anyway
+	// but if you want early access you pay up
 	// pellets remaining unchanged but getting a damage buff
+	print_cost = 4
 
 /obj/projectile/bullet/pellet/flechette
 	name = "shredder flechette"
-	damage = 5 // 8*5 = 40 damage but you've got 30 AP
+	damage = 5 // 8*5 = 40 damage but you've got 30 AP which basically smokes most armor
 	damage_falloff_tile = -0.1 // less falloff/longer ranges, though
 	speed = 1.3 // you can have above average projectile speed. as a treat
 	// embeds staying untouched because i think they're evil and deserve to wreak havoc
@@ -274,8 +281,8 @@
 
 /obj/item/ammo_casing/shotgun/antitide
 	name = "stardust shell"
-	desc = "A highly experimental shell filled with nanite electrodes that form a much bigger-electrode on launch, \
-		functioning nearly identical to a taser; even leaving a cable back to the shell itself! Unlimited power!"
+	desc = "A highly experimental shell filled with nanite electrodes that form a much bigger electrode on launch, \
+		forming a cable back to the shell itself and acting much like a taser. Unlimited power!"
 	icon_state = "lasershell"
 	projectile_type = /obj/projectile/energy/electrode
 	harmful = FALSE
