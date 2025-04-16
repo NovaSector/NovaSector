@@ -18,6 +18,10 @@
 	equip_delay_other = 2 SECONDS
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/evening_gloves
+	greyscale_config_worn = /datum/greyscale_config/evening_gloves/worn
+	greyscale_colors = "#FFFFFF"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/gloves/designer
 	name = "designer long gloves"
@@ -27,6 +31,10 @@
 	worn_icon = MODULAR_HANDS_WORN_ICON
 	strip_delay = 4 SECONDS
 	equip_delay_other = 2 SECONDS
+	greyscale_config = /datum/greyscale_config/designer_gloves
+	greyscale_config_worn = /datum/greyscale_config/designer_gloves/worn
+	greyscale_colors = "#2F2E31"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/gloves/military
 	name = "military gloves"
