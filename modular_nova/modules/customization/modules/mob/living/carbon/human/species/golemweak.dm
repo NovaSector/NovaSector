@@ -8,6 +8,7 @@
 		/datum/golem_food_buff/titanium,
 		/datum/golem_food_buff/plasma,
 	)
+	mutantstomach = /obj/item/organ/stomach/golem/weak
 
 /datum/golem_food_buff/can_consume(mob/living/carbon/human/consumer)
 	var/datum/species/golem/weak/golem_snacker = consumer.dna.species
@@ -15,3 +16,5 @@
 		return FALSE
 	return ..()
 
+/obj/item/organ/stomach/golem/weak
+	hunger_modifier = 1
