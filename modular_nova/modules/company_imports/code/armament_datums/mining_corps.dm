@@ -134,10 +134,6 @@
 	item_type = /obj/item/clothing/glasses/meson/prescription
 	cost = PAYCHECK_CREW * 3
 
-/datum/armament_entry/company_import/mining_corps/gear/style_meter
-	item_type = /obj/item/style_meter
-	cost = PAYCHECK_CREW * 12
-
 /datum/armament_entry/company_import/mining_corps/gear/ore
 	item_type =  /obj/item/storage/bag/ore
 
