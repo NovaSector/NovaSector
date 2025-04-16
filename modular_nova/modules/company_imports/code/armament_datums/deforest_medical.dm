@@ -192,10 +192,6 @@
 	item_type = /obj/item/reagent_containers/hypospray/medipen/survival
 	cost = PAYCHECK_CREW * 2
 
-/datum/armament_entry/company_import/deforest/medpens_stim/luxury
-	item_type = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
-	cost = PAYCHECK_CREW * 7
-
 // Equipment, from defibs to scanners to surgical tools
 
 /datum/armament_entry/company_import/deforest/equipment
