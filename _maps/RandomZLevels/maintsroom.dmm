@@ -160,7 +160,7 @@
 /obj/machinery/conveyor{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
 "aM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -787,6 +787,13 @@
 /obj/item/wrench,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"dm" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/holosign/barrier/atmos,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "dn" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
@@ -1207,6 +1214,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured,
+/area/awaymission/caves/maintsroom)
+"eL" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/holosign/barrier/atmos,
+/turf/open/misc/asteroid/forest/mushroom/blue,
 /area/awaymission/caves/maintsroom)
 "eM" = (
 /obj/structure/chair/sofa/bench{
@@ -2624,6 +2639,7 @@
 /area/awaymission/caves/maintsroom)
 "kk" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/structure/holosign/barrier/atmos,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "kl" = (
@@ -3051,6 +3067,13 @@
 	dir = 4
 	},
 /obj/structure/sign/poster/contraband/busty_backdoor_xeno_babes_6/directional/west,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"lO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "lQ" = (
@@ -5640,8 +5663,8 @@
 /area/awaymission/caves/maintsroom)
 "ww" = (
 /obj/structure/rack,
-/obj/item/flamethrower/full/tank,
-/obj/item/flamethrower/full/tank,
+/obj/item/tank/internals/plasma/full,
+/obj/item/tank/internals/plasma/full,
 /obj/item/flamethrower/full/tank,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
@@ -5801,6 +5824,7 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/hangover/closet,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "xf" = (
@@ -7573,6 +7597,11 @@
 "Em" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"En" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/holosign/barrier/atmos,
+/turf/open/misc/asteroid/forest/mushroom/blue,
 /area/awaymission/caves/maintsroom)
 "Eo" = (
 /obj/structure/sign/poster/contraband/random/directional/south,
@@ -10310,6 +10339,13 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
+"Pz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/structure/holosign/barrier/atmos,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "PA" = (
 /obj/machinery/hydroponics/soil/fake_turf,
 /obj/effect/decal/cleanable/dirt,
@@ -10429,6 +10465,14 @@
 	spawn_scatter_radius = 1
 	},
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"PY" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/holosign/barrier/atmos,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "PZ" = (
 /turf/open/indestructible/reebe_void,
@@ -10710,6 +10754,11 @@
 "Rf" = (
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
+/area/awaymission/caves/maintsroom)
+"Rg" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/holosign/barrier/atmos,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Rh" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
@@ -15967,7 +16016,7 @@ is
 GS
 jR
 xw
-qU
+Il
 nI
 CX
 nI
@@ -22416,10 +22465,10 @@ wQ
 wQ
 wQ
 GS
-rJ
+Rg
 GS
 zz
-ho
+En
 zZ
 KA
 iB
@@ -23076,7 +23125,7 @@ jH
 jH
 jH
 zz
-rJ
+Rg
 KA
 KA
 GS
@@ -25469,14 +25518,14 @@ GS
 GS
 GS
 GS
-cY
+eL
 GS
 GS
 IE
 ci
 GS
 lT
-kK
+lO
 ps
 ps
 ps
@@ -25693,7 +25742,7 @@ KA
 gr
 GS
 GS
-DZ
+PY
 GS
 GS
 GS
@@ -26559,8 +26608,8 @@ wn
 iZ
 ze
 iZ
-Eg
-QF
+dm
+Pz
 GS
 BJ
 BJ
