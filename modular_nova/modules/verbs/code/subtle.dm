@@ -57,6 +57,9 @@
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
 		viewers |= get_hearers_in_view(SUBTLE_DEFAULT_DISTANCE, hologram)
+	for(var/obj/item/dullahan_relay/dullahan in viewers)
+		viewers -= dullahan
+		viewers += dullahan.owner
 
 	for(var/obj/effect/overlay/holo_pad_hologram/iterating_hologram in viewers)
 		if(iterating_hologram?.Impersonation?.client)
@@ -116,7 +119,9 @@
 
 		for(var/mob/eye/camera/ai/ai_eye in in_view)
 			in_view.Remove(ai_eye)
-
+		for(var/obj/item/dullahan_relay/dullahan in in_view)
+			in_view -= dullahan
+			in_view += dullahan.owner
 		var/list/targets = list(SUBTLE_ONE_TILE_TEXT, SUBTLE_SAME_TILE_TEXT) + in_view
 		target = tgui_input_list(user, "Pick a target", "Target Selection", targets)
 		if(!target)
@@ -172,6 +177,9 @@
 		for(var/obj/effect/overlay/holo_pad_hologram/holo in ghostless)
 			if(holo?.Impersonation?.client)
 				ghostless |= holo.Impersonation
+		for(var/obj/item/dullahan_relay/dullahan in ghostless)
+			ghostless -= dullahan
+			ghostless += dullahan.owner
 
 		for(var/mob/receiver in ghostless)
 			receiver.show_message(subtler_message, alt_msg = subtler_message)
