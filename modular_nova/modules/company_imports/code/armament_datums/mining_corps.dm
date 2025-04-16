@@ -43,9 +43,6 @@
 	item_type = /obj/item/gun/energy/plasmacutter
 	cost = PAYCHECK_CREW * 6
 
-/datum/armament_entry/company_import/mining_corps/drill/plasmacutter_adv
-	item_type = /obj/item/gun/energy/plasmacutter/adv
-	cost = PAYCHECK_CREW * 16
 
 // Equipment and things that arent weapons, suits or ways to mine.
 
