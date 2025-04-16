@@ -108,6 +108,6 @@
 /datum/cargo_company/mining_corps
 	name = MINING_CORPS_NAME
 	company_flag = CARGO_COMPANY_MINING_CORPS
-	cost = 3000
+	cost = 5000
 	cost_change_lower = -1000
 	cost_change_upper = 2000
