@@ -78,6 +78,9 @@
 /mob/living/carbon/human/species/golem/weak
 	race = /datum/species/golem/weak
 
+/mob/living/carbon/human/species/monkey/kobold
+	race = /datum/species/monkey/kobold
+
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
 	set name = "Toggle underwear visibility"
