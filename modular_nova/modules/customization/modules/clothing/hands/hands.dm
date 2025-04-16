@@ -1,3 +1,6 @@
+#define MODULAR_HANDS_ICON 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+#define MODULAR_HANDS_WORN_ICON 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
 /obj/item/clothing/gloves/color/ffyellow // EXTRA fake, for the loadout
 	name = "yellow gloves"
 	desc = "At first glance these may look like insulated gloves, but they're actually just plain fabric."
@@ -6,13 +9,13 @@
 	siemens_coefficient = 0.5
 
 /obj/item/clothing/gloves/evening
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	name = "evening gloves"
-	desc = "Thin, pretty gloves intended for use in regal feminine attire, but knowing Space China these are just for some maid fetish."
+	desc = "Thin, elegant gloves intended for use in regal attire. An unsubtle way to say you don't need to use your hands for laborious work."
 	icon_state = "evening"
-	strip_delay = 40
-	equip_delay_other = 20
+	icon = MODULAR_HANDS_ICON
+	worn_icon = MODULAR_HANDS_WORN_ICON
+	strip_delay = 4 SECONDS
+	equip_delay_other = 2 SECONDS
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 
@@ -26,11 +29,11 @@
 	equip_delay_other = 2 SECONDS
 
 /obj/item/clothing/gloves/military
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 	name = "military gloves"
 	desc = "Tactical gloves made for military personnel, they are thin to allow easy operation of most firearms."
 	icon_state = "military_gloves"
+	icon = MODULAR_HANDS_ICON
+	worn_icon = MODULAR_HANDS_WORN_ICON
 	siemens_coefficient = 0.4
 	strip_delay = 60
 	equip_delay_other = 60
@@ -64,4 +67,3 @@
 	greyscale_config_inhand_right = null
 	greyscale_colors = "#7b9ab5#edf9ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
-
