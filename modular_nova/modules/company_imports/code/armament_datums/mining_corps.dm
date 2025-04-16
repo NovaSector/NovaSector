@@ -53,10 +53,6 @@
 /datum/armament_entry/company_import/mining_corps/mining/mining_scanner
 	item_type = /obj/item/mining_scanner
 
-/datum/armament_entry/company_import/mining_corps/mining/adv_mining_scanner
-	item_type = /obj/item/t_scanner/adv_mining_scanner
-	cost = PAYCHECK_CREW * 6
-
 /datum/armament_entry/company_import/mining_corps/gear/emergency_oxygen
 	item_type = /obj/item/tank/internals/emergency_oxygen/engi
 
