@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/color/ffyellow // EXTRA fake, for the loadout
 	name = "yellow gloves"
-	desc = "At first glance these may look like insulated gloves, but are actually just plain fabric."
+	desc = "At first glance these may look like insulated gloves, but they're actually just plain fabric."
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
 	siemens_coefficient = 0.5
