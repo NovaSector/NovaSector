@@ -1,0 +1,5 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - qol: "added the new Recolorable Trenchcoat to the loadout, so crew don't need to use the vendor every shift."
+  - bugfix: "fixed the new Recolorable Trenchcoat having an error sprite on Digitigrade crew."
