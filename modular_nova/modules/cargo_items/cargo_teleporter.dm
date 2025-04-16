@@ -3,7 +3,7 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 /obj/item/cargo_teleporter
 	name = "cargo teleporter"
 	desc = "An item that can set down a set number of markers, allowing them to teleport items within a tile to the set markers."
-	icon = 'modular_nova/modules/cargo_teleporter/icons/cargo_teleporter.dmi'
+	icon = 'modular_nova/modules/cargo_items/cargo_teleporter.dmi'
 	icon_state = "cargo_tele"
 	///the list of markers spawned by this item
 	var/list/marker_children = list()
@@ -114,20 +114,10 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
-/datum/techweb_node/cargo_teleporter
-	id = TECHWEB_NODE_CARGO_TELEPORTER
-	display_name = "Cargo Teleporter"
-	description = "We can teleport items across long distances, as long as they are not blocked."
-	prereq_ids = list(TECHWEB_NODE_BLUESPACE_THEORY)
-	design_ids = list(
-		"cargotele",
-	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
-
 /obj/effect/decal/cleanable/cargo_mark
 	name = "cargo mark"
 	desc = "A mark left behind by a cargo teleporter, which allows targeted teleportation. Can be removed by the cargo teleporter."
-	icon = 'modular_nova/modules/cargo_teleporter/icons/cargo_teleporter.dmi'
+	icon = 'modular_nova/modules/cargo_items/cargo_teleporter.dmi'
 	icon_state = "marker"
 	///the reference to the item that spawned the cargo mark
 	var/obj/item/cargo_teleporter/parent_item

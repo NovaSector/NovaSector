@@ -38,7 +38,7 @@
 	icon_state = "monkeycubebox"
 	illustration = null
 	/// Which type of cube are we spawning in this box?
-	var/cube_type = /obj/item/food/monkeycube
+	var/cube_type = list(/obj/item/food/monkeycube = 66, /obj/item/food/monkeycube/kobold = 33) // NOVA EDIT ORIGINAL: var/cube_type = /obj/item/food/monkeycube
 	custom_price = PAYCHECK_CREW * 2
 
 /obj/item/storage/box/monkeycubes/Initialize(mapload)
@@ -51,7 +51,8 @@
 
 /obj/item/storage/box/monkeycubes/PopulateContents()
 	for(var/i in 1 to 5)
-		new cube_type(src)
+		var/new_cube_type = islist(cube_type) ? pick_weight(cube_type) : cube_type // NOVA EDIT ADDITION
+		new new_cube_type(src) // NOVA EDIT CHANGE - ORIGINAL: new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
 	desc = "Waffle Corp. brand monkey cubes. Just add water and a dash of subterfuge!"
