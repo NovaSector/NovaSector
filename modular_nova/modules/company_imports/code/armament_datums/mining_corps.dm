@@ -126,12 +126,6 @@
 	subcategory = "Mining Gear"
 	cost = PAYCHECK_CREW
 
-/datum/armament_entry/company_import/mining_corps/gear/uniform
-	item_type = /obj/item/clothing/under/rank/cargo/miner
-
-/datum/armament_entry/company_import/mining_corps/gear/workboots
-	item_type = /obj/item/clothing/shoes/workboots/mining
-
 /datum/armament_entry/company_import/mining_corps/gear/bhop
 	item_type = /obj/item/clothing/shoes/bhop
 	cost = PAYCHECK_CREW * 20
@@ -147,13 +141,6 @@
 	item_type = /obj/item/clothing/suit/hooded/seva
 	cost = PAYCHECK_CREW * 4
 
-/datum/armament_entry/company_import/mining_corps/gear/explorer_mask
-	item_type = /obj/item/clothing/mask/gas/explorer
-
-/datum/armament_entry/company_import/mining_corps/gear/explorer
-	item_type = /obj/item/clothing/suit/hooded/explorer
-	cost = PAYCHECK_CREW * 4
-
 /datum/armament_entry/company_import/mining_corps/gear/kheiral_cuffs
 	item_type = /obj/item/kheiral_cuffs
 	cost = PAYCHECK_CREW * 6
@@ -164,16 +151,6 @@
 /datum/armament_entry/company_import/mining_corps/gear/prescription
 	item_type = /obj/item/clothing/glasses/meson/prescription
 	cost = PAYCHECK_CREW * 3
-
-/datum/armament_entry/company_import/mining_corps/gear/night
-	item_type = /obj/item/clothing/glasses/meson/night
-	cost = PAYCHECK_CREW * 8
-
-/datum/armament_entry/company_import/mining_corps/gear/health_night_meson
-	item_type = /obj/item/clothing/glasses/hud/health/night/meson
-	description = "An optical meson scanner fitted with an amplified visible light spectrum overlay, \
-					providing greater visual clarity in darkness. These ones have a medical hud attached."
-	cost = PAYCHECK_CREW * 20
 
 /datum/armament_entry/company_import/mining_corps/gear/style_meter
 	item_type = /obj/item/style_meter
@@ -200,65 +177,6 @@
 	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator
 	cost = PAYCHECK_CREW * 6
 
-/datum/armament_entry/company_import/mining_corps/pka/repeater
-	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/pka/shotgun
-	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shotgun
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/pka/shockwave
-	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/shockwave
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/pka/glock
-	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/pka/railgun
-	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/railgun
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/pka/m79
-	item_type = /obj/item/gun/energy/recharge/kinetic_accelerator/variant/nomod/m79
-	cost = PAYCHECK_CREW * 12 
-
-/datum/armament_entry/company_import/mining_corps/pka/range
-	name = "Range PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/range
-	cost = PAYCHECK_CREW * 6
-
-/datum/armament_entry/company_import/mining_corps/pka/damage
-	name = "Damage PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/damage
-	cost = PAYCHECK_CREW * 6
-
-/datum/armament_entry/company_import/mining_corps/pka/cooldown
-	name = "Cooldown PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/cooldown
-	cost = PAYCHECK_CREW * 6
-
-/datum/armament_entry/company_import/mining_corps/pka/aoe_mobs
-	name = "Offensive Explosion PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/aoe/mobs
-	cost = PAYCHECK_CREW * 15
-
-/datum/armament_entry/company_import/mining_corps/pka/aoe_turfs
-	name = "Mining Explosion PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/aoe/turfs
-	cost = PAYCHECK_CREW * 6
-
-/datum/armament_entry/company_import/mining_corps/pka/human_passthrough
-	name = "Human Passthrough PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/human_passthrough
-	cost = PAYCHECK_CREW * 7
-
-/datum/armament_entry/company_import/mining_corps/pka/minebot_passthrough
-	name = "Minebot Passthrough PKA Mod"
-	item_type = /obj/item/borg/upgrade/modkit/minebot_passthrough
-	cost = PAYCHECK_CREW * 8
-
 /datum/armament_entry/company_import/mining_corps/pka/tracer
 	name = "White Tracer PKA Mod"
 	item_type = /obj/item/borg/upgrade/modkit/tracer
@@ -277,41 +195,3 @@
 	name = "Hyper Chassis PKA Mod"
 	item_type = /obj/item/borg/upgrade/modkit/chassis_mod/orange
 	cost = PAYCHECK_CREW * 3
-
-// All KC Stuff
-
-/datum/armament_entry/company_import/mining_corps/kc
-	subcategory = "Kinetic Crushers"
-	cost = PAYCHECK_CREW
-
-/datum/armament_entry/company_import/mining_corps/kc/kinetic_crusher
-	item_type = /obj/item/kinetic_crusher
-	cost = PAYCHECK_CREW * 6
-
-/datum/armament_entry/company_import/mining_corps/kc/spear
-	item_type = /obj/item/kinetic_crusher/spear
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/kc/hammer
-	item_type = /obj/item/kinetic_crusher/hammer
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/kc/machete
-	item_type = /obj/item/kinetic_crusher/machete
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/kc/claw
-	item_type = /obj/item/kinetic_crusher/claw
-	cost = PAYCHECK_CREW * 12
-
-/datum/armament_entry/company_import/mining_corps/kc/retool_kit
-	item_type = /obj/item/crusher_trophy/retool_kit
-
-/datum/armament_entry/company_import/mining_corps/kc/harpoon
-	item_type = /obj/item/crusher_trophy/retool_kit/harpoon
-
-/datum/armament_entry/company_import/mining_corps/kc/dagger
-	item_type = /obj/item/crusher_trophy/retool_kit/dagger
-
-/datum/armament_entry/company_import/mining_corps/kc/glaive
-	item_type = /obj/item/crusher_trophy/retool_kit/glaive

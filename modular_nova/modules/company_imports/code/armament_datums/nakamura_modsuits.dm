@@ -24,12 +24,6 @@
 		average user."
 	cost = PAYCHECK_COMMAND * 5
 
-/datum/armament_entry/company_import/nakamura_modsuits/mods/mining_mod
-	name = "Mining Modsuit"
-	description = "A mining-themed MODsuit that works best when in a mining environment."
-	item_type = /obj/item/mod/control/pre_equipped/mining
-	cost = PAYCHECK_CREW * 25
-
 // MOD cores
 
 /datum/armament_entry/company_import/nakamura_modsuits/core
