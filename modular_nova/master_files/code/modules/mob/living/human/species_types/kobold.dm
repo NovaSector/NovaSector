@@ -71,7 +71,7 @@
 
 /datum/species/monkey/get_species_lore()
 	return list(
-		"Please, gently the kobolds.",
+		"A smaller subspecies of lizardperson, tends to be rather exiteable in nature.",
 	)
 
 /datum/species/monkey/kobold/create_pref_temperature_perks()
