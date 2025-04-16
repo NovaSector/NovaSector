@@ -54,7 +54,7 @@
 
 	id_trim = /datum/id_trim/job/telecomms_specialist
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm
-	suit = /obj/item/clothing/suit/toggle/jacket/tcomm
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/tcomm
 	neck = /obj/item/clothing/neck/link_scryer
 	belt = /obj/item/screwdriver
 	ears = /obj/item/radio/headset/headset_eng

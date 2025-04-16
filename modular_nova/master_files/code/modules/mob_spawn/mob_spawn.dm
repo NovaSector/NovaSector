@@ -13,7 +13,7 @@
 	/// Are we limited to a certain species type? LISTED TYPE
 	var/restricted_species
 
-/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout)
+/obj/effect/mob_spawn/ghost_role/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/load_prefs = FALSE
 	//if we can load our own appearance and it's not restricted, try
 	if(!random_appearance && mob_possessor?.client)
@@ -60,12 +60,11 @@
 
 /// This edit would cause somewhat ugly diffs, so I'm just replacing it.
 /// Original proc in code/modules/mob_spawn/mob_spawn.dm ~line 39.
-/obj/effect/mob_spawn/create(mob/mob_possessor, newname, is_pref_loaded, use_loadout)
+/obj/effect/mob_spawn/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
-	if(!is_pref_loaded)
-		equip(spawned_mob)
+	equip(spawned_mob)
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc

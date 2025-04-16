@@ -156,7 +156,7 @@
 		/obj/item/clothing/under/rank/cargo/qm/nova/turtleneck/skirt = 1,
 		/obj/item/clothing/suit/brownfurrich = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/casual = 1,
-		/obj/item/clothing/suit/toggle/jacket/supply/head = 1,
+		/obj/item/clothing/suit/toggle/jacket/nova/supply/head = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal = 1,
 		/obj/item/clothing/under/rank/cargo/qm/nova/formal/skirt = 1,
 		/obj/item/clothing/shoes/sneakers/brown = 1,

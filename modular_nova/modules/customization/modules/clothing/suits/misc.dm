@@ -65,7 +65,7 @@
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
-/obj/item/clothing/suit/toggle/jacket/cardigan
+/obj/item/clothing/suit/toggle/jacket/nova/cardigan
 	name = "cardigan"
 	desc = "It's like, half a jacket."
 	icon_state = "cardigan"
@@ -75,7 +75,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/toggle/jacket/cardigan/Initialize(mapload)
+/obj/item/clothing/suit/toggle/jacket/nova/cardigan/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_clothes, "cardigan_t")
 
