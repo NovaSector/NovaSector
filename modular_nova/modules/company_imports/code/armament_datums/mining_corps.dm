@@ -71,10 +71,6 @@
 	item_type = /obj/item/radio/weather_monitor
 	cost = PAYCHECK_CREW * 3
 
-/datum/armament_entry/company_import/mining_corps/mining/boulder_collector
-	item_type = /obj/item/flatpacked_machine/boulder_collector/nt
-	cost = PAYCHECK_CREW * 5
-
 /datum/armament_entry/company_import/mining_corps/mining/vent
 	item_type = /obj/item/pinpointer/vent
 	cost = PAYCHECK_CREW * 11
