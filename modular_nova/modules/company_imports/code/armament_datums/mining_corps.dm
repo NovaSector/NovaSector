@@ -78,7 +78,7 @@
 
 /datum/armament_entry/company_import/mining_corps/mining/environmental
 	item_type = /obj/item/bodybag/environmental
-	cost = PAYCHECK_CREW * 5
+	cost = PAYCHECK_CREW * 4
 
 /datum/armament_entry/company_import/mining_corps/mining/skeleton_key
 	item_type = /obj/item/skeleton_key
