@@ -26,9 +26,7 @@
 	. = ..()
 	// First; create our internal matching key
 	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(list(
-		/obj/item/key/collar,
-	))
+	atom_storage.set_holdable(/obj/item/key/collar)
 
 	if(!key_path)
 		return
