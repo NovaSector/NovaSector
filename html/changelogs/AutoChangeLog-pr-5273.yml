@@ -1,0 +1,5 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "added hivemind action to ashen age (for ashwalkers)"
+  - qol: "put together some of the ash ages together"
