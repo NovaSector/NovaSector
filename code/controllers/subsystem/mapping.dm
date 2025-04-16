@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(mapping)
 		/datum/controller/subsystem/job,
 		/datum/controller/subsystem/processing/station,
 		/datum/controller/subsystem/processing/reagents,
-		/datum/controller/subsystem/automapper,
+		/datum/controller/subsystem/automapper, // NOVA EDIT ADDITION
 	)
 	runlevels = ALL
 
