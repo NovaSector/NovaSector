@@ -121,7 +121,8 @@
 			in_view.Remove(ai_eye)
 		for(var/obj/item/dullahan_relay/dullahan in in_view)
 			in_view -= dullahan
-			in_view += dullahan.owner
+			if(user != dullahan.owner)
+				in_view += dullahan.owner
 		var/list/targets = list(SUBTLE_ONE_TILE_TEXT, SUBTLE_SAME_TILE_TEXT) + in_view
 		target = tgui_input_list(user, "Pick a target", "Target Selection", targets)
 		if(!target)
