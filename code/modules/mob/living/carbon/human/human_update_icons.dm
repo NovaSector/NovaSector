@@ -1000,9 +1000,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			shift_pixel_x = -16 // it doesnt look right otherwise
 	// NOVA EDIT ADDITION END
 	if(building_icon)
-		draw_target = mutable_appearance(building_icon)
+		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
-		draw_target = mutable_appearance(file2use, t_state)
+		draw_target = mutable_appearance(file2use, t_state, layer = -layer2use)
 	draw_target.pixel_x += shift_pixel_x // NOVA EDIT ADDITION - Taur-friendly uniforms and suits
 
 	//Get the overlays for this item when it's being worn

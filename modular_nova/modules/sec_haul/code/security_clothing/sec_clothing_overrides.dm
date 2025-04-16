@@ -83,7 +83,7 @@
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
-		))
+	))
 
 /obj/item/storage/belt/holster/detective
 	name = "detective's holster"
@@ -109,7 +109,7 @@
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
-		))
+	))
 
 /obj/item/storage/belt/holster/energy/Initialize(mapload)
 	. = ..()
@@ -163,8 +163,10 @@
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Red HUD" = list(
-			RESKIN_ICON_STATE = "security_hud",
-			RESKIN_WORN_ICON_STATE = "security_hud"
+			RESKIN_ICON = 'icons/obj/clothing/glasses.dmi',
+			RESKIN_ICON_STATE = "securityhud",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/eyes.dmi',
+			RESKIN_WORN_ICON_STATE = "securityhud"
 		),
 		"Blue HUD" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
@@ -175,11 +177,17 @@
 	)
 
 /obj/item/clothing/glasses/hud/security/sunglasses
+	unique_reskin = null
+
+/obj/item/clothing/glasses/hud/security/prescription
+	unique_reskin = null
+
+/obj/item/clothing/glasses/hud/security/sunglasses/blue
+	icon = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi'
+	icon_state = "security_hud_blue_black"
+	worn_icon_state = "security_hud_blue_black"
 	unique_reskin = list(
-		"Dark-Tint Red Sunglasses" = list(
-			RESKIN_ICON_STATE = "sunhudsec",
-			RESKIN_WORN_ICON_STATE = "sunhudsec"
-		),
 		"Dark-Tint Blue Sunglasses" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "security_hud_blue_black",
@@ -195,20 +203,21 @@
 	)
 
 /obj/item/clothing/glasses/hud/security/night
-	uses_advanced_reskins = FALSE
 	unique_reskin = null
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
 	unique_reskin = list(
 		"Red Eyepatches" = list(
+			RESKIN_ICON = 'icons/obj/clothing/glasses.dmi',
 			RESKIN_ICON_STATE = "hudpatch",
+			RESKIN_WORN_ICON = 'icons/mob/clothing/eyes.dmi',
 			RESKIN_WORN_ICON_STATE = "hudpatch"
 		),
 		"Blue Eyepatches" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/glasses.dmi',
-			RESKIN_ICON_STATE = "security_eyepatch",
+			RESKIN_ICON_STATE = "hudpatch",
 			RESKIN_WORN_ICON = 'modular_nova/master_files/icons/mob/clothing/eyes.dmi',
-			RESKIN_WORN_ICON_STATE = "security_eyepatch"
+			RESKIN_WORN_ICON_STATE = "hudpatch"
 		),
 	)
 
