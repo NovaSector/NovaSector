@@ -16,12 +16,12 @@
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 
-/obj/item/clothing/gloves/lalune_long
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+/obj/item/clothing/gloves/designer
 	name = "designer long gloves"
-	desc = "A fancy set of bicep-length black gloves. The La Lune insignia is sewn into the rims."
-	icon_state = "lalune_long"
+	desc = "A fancy set of bicep-length designer gloves. For those who live a life of luxury, and/or have poor spending habits."
+	icon_state = "designer"
+	icon = MODULAR_HANDS_ICON
+	worn_icon = MODULAR_HANDS_WORN_ICON
 	strip_delay = 4 SECONDS
 	equip_delay_other = 2 SECONDS
 
