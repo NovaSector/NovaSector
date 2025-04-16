@@ -151,7 +151,6 @@
 
 /obj/item/organ/tongue/xeno_hybrid/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
 	voice_filter = /obj/item/organ/tongue/alien::voice_filter
 
 /obj/item/organ/tongue/skrell
