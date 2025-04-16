@@ -29,10 +29,7 @@
 	if(!mold_type)
 		mold_type = mold_controller?.mold_type || passed_type
 
-	color = mold_type.mold_color
-	resistance_flags = mold_type.resistance_flags
 	return INITIALIZE_HINT_LATELOAD
-	update_appearance()
 
 /obj/structure/mold/LateInitialize()
 	if(isnull(mold_type))
@@ -48,14 +45,6 @@
 	/// Does the structure emit light?
 	var/emits_light = FALSE
 
-/obj/structure/mold/structure/Initialize(mapload, passed_type)
-	. = ..()
-	if(emits_light)
-		light_range = 2
-		light_power = 1
-		if(mold_type.structure_light_color)
-			light_color = mold_type.structure_light_color
-
 /obj/structure/mold/structure/LateInitialize()
 	if(isnull(mold_type))
 		mold_type = mold_controller?.mold_type
@@ -63,6 +52,7 @@
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
 	name = "[mold_type.name] [name]"
+
 	if(emits_light)
 		light_range = 2
 		light_power = 1
