@@ -21,3 +21,9 @@
 	cost = 2
 	uplink_item_flags = NONE
 	progression_minimum = 10 MINUTES
+
+/datum/uplink_item/suits/infiltrator_bundle
+	cost = 17 // original cost: 6
+
+/datum/uplink_item/suits/modsuit
+	cost = 10 // original cost: 8

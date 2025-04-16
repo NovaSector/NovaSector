@@ -238,13 +238,13 @@
 /obj/item/clothing/under/rank/security/nova/turtleneck
 	name = "security turtleneck"
 	desc = "Turtleneck sweater commonly worn by trained Officers, attached with pants."
-	icon_state = "turtleneck"
+	icon_state = "secturtleneck"
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/turtleneck/blue
-	icon_state = "turtleneck_blue"
+	icon_state = "secturtleneck_blue"
 
 /*
 *	WARDEN

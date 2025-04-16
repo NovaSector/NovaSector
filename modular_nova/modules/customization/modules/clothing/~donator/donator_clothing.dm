@@ -762,9 +762,7 @@
 
 /obj/item/storage/belt/sabre/darksabre/Initialize(mapload)
 	. = ..()
-	atom_storage.set_holdable(list(
-		/obj/item/toy/darksabre
-		))
+	atom_storage.set_holdable(/obj/item/toy/darksabre)
 
 /obj/item/storage/belt/sabre/darksabre/PopulateContents()
 	new /obj/item/toy/darksabre(src)

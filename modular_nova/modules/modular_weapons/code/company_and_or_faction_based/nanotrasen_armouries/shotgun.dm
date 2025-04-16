@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/shotgun/katyusha
 	name = "\improper Katyusha Shotgun"
-	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
+	desc = "A mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'Katyusha' by the blueshields for its versatility. Compatible only with specialized 16-shell drum magazines."
 
 	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armouries/ballistic48x.dmi'
@@ -18,17 +18,13 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	obj_flags = UNIQUE_RENAME
-	projectile_damage_multiplier = 1.2
 	weapon_weight = WEAPON_MEDIUM
 	accepted_magazine_type = /obj/item/ammo_box/magazine/katyusha
 	spawn_magazine_type = /obj/item/ammo_box/magazine/katyusha/buckshot
 
 	can_suppress = FALSE
-	burst_size = 2
-	fire_delay = 0.85 SECONDS // Bulldog Stat Original: fire_delay = 1
-	burst_delay = 0.35 SECONDS
+	fire_delay = 0.55 SECONDS
 	fire_sound = 'modular_nova/master_files/sound/weapons/shotgun_nova.ogg' // Meatier shotgun sound
-	actions_types = list(/datum/action/item_action/toggle_firemode)
 
 	mag_display = TRUE
 	empty_indicator = TRUE
@@ -38,13 +34,12 @@
 	semi_auto = TRUE
 	internal_magazine = FALSE
 	tac_reloads = TRUE
-	burst_fire_selection = TRUE
 
 	lore_blurb =  "The Nanotrasen Armories Katyusha Magfed Shotgun is a recent release from NT's esteemed private arms division, \
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
 		issued it in the ongoing rollout. \
 		Though certain rival manufacturers have dismissed the Katyusha as a \"fake\" or a \"blatant bootleg,\"  \
-		the inimitable burst fire and a patent-pending multi-stage delayed blowback system \
+		the inimitable firepower and a patent-pending multi-stage delayed blowback system \
 		make the Katyusha powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/give_manufacturer_examine()
@@ -61,22 +56,19 @@
 
 /obj/item/gun/ballistic/shotgun/katyusha/jager
 	name = "\improper Jäger Shotgun"
-	desc = "A 2-round burst fire, mag-fed shotgun for combat in narrow corridors, \
+	desc = "A mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'Jäger' by the Solar Federation Marines for its versatility in clearing tight corridors, and special operations in hunting individuals."
 
 	icon_state = "marauder"
 	worn_icon_state = "marauder"
 	inhand_icon_state = "marauder"
 
-	projectile_damage_multiplier = 1
-	fire_delay = 1.5 SECONDS
-	burst_delay = 0.45 SECONDS
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
 	lore_blurb = "The Solar Federation Surplus 'Jäger' Magfed Shotgun is a recent release from Solar Federation Surplus. \
 		and it's received a warm welcome from the Solar Federation Marines and S.W.A.T. Teams. \
 		issued it in the ongoing rollout. \
-		the inimitable burst fire and multi-shell compatibility \
+		the inimitable firepower and multi-shell compatibility \
 		makes the Jäger powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()

@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(atoms)
 		/datum/controller/subsystem/fluids,
 		/datum/controller/subsystem/mapping,
 		/datum/controller/subsystem/job,
-		/datum/controller/subsystem/automapper,
+		/datum/controller/subsystem/automapper, // NOVA EDIT ADDITION
 	)
 	flags = SS_NO_FIRE
 

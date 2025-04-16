@@ -87,6 +87,7 @@
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_buckshot
 	pellets = 12 // 5 * 12 for 60 damage if every pellet hits, we want to keep lethal shells ~50 damage
 	variance = 20
+	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/buckshot/old
 	name = "old buckshot shell"

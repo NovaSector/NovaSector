@@ -1,4 +1,0 @@
-author: "RatFromTheJungle"
-delete-after: True
-changes:
-  - rscadd: "Added a new quirk (credit to goofball) 'genetic mutation' which allows you to start the round with 1 genetic mutation (minus a few)"

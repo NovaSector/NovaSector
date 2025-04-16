@@ -1646,6 +1646,19 @@ TREK
 /datum/greyscale_config/boots/worn/oldvox
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_oldvox.dmi'
 
+/datum/greyscale_config/cowboy_boots
+	name = "Colorable Cowboy Boots"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/cowboy_boots.json'
+
+/datum/greyscale_config/cowboy_boots/worn
+	name = "Colorable Cowboy Boots (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+
+/datum/greyscale_config/cowboy_boots/worn/digi
+	name = "Colorable Cowboy Boots (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
 /datum/greyscale_config/boots/christmasboots
 	name = "christmas_boots"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
