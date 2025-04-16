@@ -207,6 +207,14 @@
 	name = "Recolorable Sweater Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/sweater
 
+/datum/loadout_item/suit/blazer_jacket
+	name = "Recolorable Blazer"
+	item_path = /obj/item/clothing/suit/jacket/blazer
+
+/datum/loadout_item/suit/jacket_trenchcoat
+	name = "Recolorable Trenchcoat"
+	item_path = /obj/item/clothing/suit/toggle/jacket/trenchcoat
+
 /datum/loadout_item/suit/jacket_oversized
 	name = "Recolorable Oversized Jacket"
 	item_path = /obj/item/clothing/suit/jacket/oversized
@@ -519,10 +527,6 @@
 /datum/loadout_item/suit/discojacket
 	name = "Disco Ass Blazer"
 	item_path = /obj/item/clothing/suit/discoblazer
-
-/datum/loadout_item/suit/blazer_jacket
-	name = "Colorable Blazer"
-	item_path = /obj/item/clothing/suit/jacket/blazer
 
 /datum/loadout_item/suit/kimjacket
 	name = "Aerostatic Bomber Jacket"
