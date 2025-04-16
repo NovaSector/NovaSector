@@ -80,9 +80,6 @@
 	item_type = /obj/item/bodybag/environmental
 	cost = PAYCHECK_CREW * 4
 
-/datum/armament_entry/company_import/mining_corps/mining/skeleton_key
-	item_type = /obj/item/skeleton_key
-	cost = PAYCHECK_CREW * 6
 
 /datum/armament_entry/company_import/mining_corps/mining/mining_stabilizer
 	item_type = /obj/item/mining_stabilizer
