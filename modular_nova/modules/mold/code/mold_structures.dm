@@ -35,6 +35,10 @@
 	if(isnull(mold_type))
 		mold_type = mold_controller?.mold_type
 
+	if(isnull(mold_type)) // still no mold type? pick a random one (mold code is in dire need of a total refactor it's baaad)
+		mold_type = pick(subtypesof(/datum/mold_type))
+		mold_type = new mold_type
+
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
 	name = "[mold_type.name] [name]"
@@ -48,6 +52,10 @@
 /obj/structure/mold/structure/LateInitialize()
 	if(isnull(mold_type))
 		mold_type = mold_controller?.mold_type
+
+	if(isnull(mold_type)) // still no mold type? pick a random one (mold code is in dire need of a total refactor it's baaad)
+		mold_type = pick(subtypesof(/datum/mold_type))
+		mold_type = new mold_type
 
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
@@ -83,6 +91,7 @@
 /obj/structure/mold/structure/core/Initialize(mapload, passed_type)
 	if(mold_type)
 		passed_type = new mold_type
+
 	new /datum/mold_controller(src, passed_type)
 	. = ..()
 	soundloop = new(src, TRUE)
