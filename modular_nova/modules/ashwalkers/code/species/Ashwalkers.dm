@@ -37,7 +37,7 @@
 	ashie_damage.register_mob_damage(living_target)
 
 /**
- * 15 minutes = armor + gps
+ * 15 minutes = armor
  * 30 minutes = base punch + boulder breaking
  * 45 minutes = hivemind
  * 60 minutes = speed
@@ -74,10 +74,8 @@
 	var/datum/species/species_target = human_target.dna.species
 	switch(current_stage)
 		if(1)
-			var/datum/action/ashen_actions/toggle_gps/grant_gps = new /datum/action/ashen_actions/toggle_gps(human_target)
-			grant_gps.Grant(human_target)
 			species_target.damage_modifier += 10
-			to_chat(human_target, span_notice("Your body seems to be sturdier and emits a strange pulse..."))
+			to_chat(human_target, span_notice("Your body seems to be sturdier..."))
 
 		if(2)
 			var/obj/item/bodypart/arm/left/left_arm = human_target.get_bodypart(BODY_ZONE_L_ARM)
@@ -291,24 +289,6 @@
 		return ITEM_INTERACT_BLOCKING
 
 	return ..()
-
-/datum/action/ashen_actions/toggle_gps
-	name = "Toggle GPS"
-	desc = "Enables/Disables being tracked by GPS."
-	button_icon_state = "gps"
-
-/datum/action/ashen_actions/toggle_gps/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
-
-	if(owner.GetComponent(/datum/component/gps))
-		qdel(owner.GetComponent(/datum/component/gps))
-		to_chat(owner, span_notice("Something inside feels like it has gone cold..."))
-		return
-
-	owner.AddComponent(/datum/component/gps, "Ashen Signal")
-	to_chat(owner, span_notice("Something inside feels like it has warmed up..."))
 
 /datum/action/ashen_actions/hivemind_speak
 	name = "Ashen Hivemend Speak"
