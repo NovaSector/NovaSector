@@ -351,10 +351,12 @@
 	return TRUE
 
 /obj/item/mod/module/auto_doc/on_install()
+	. = ..()
 	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
 	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
 
-/obj/item/mod/module/auto_doc/on_uninstall(deleting)
+/obj/item/mod/module/auto_doc/on_uninstall(deleting = FALSE)
+	. = ..()
 	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
 	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
 

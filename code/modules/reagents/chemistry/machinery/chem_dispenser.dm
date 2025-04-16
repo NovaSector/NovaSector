@@ -872,7 +872,7 @@
 		/datum/reagent/toxin/plasma,
 		/datum/reagent/uranium,
 		/datum/reagent/consumable/liquidelectricity/enriched,
-		/datum/reagent/medicine/c2/synthflesh, // NOVA EDIT CHANGE - add comma
+		/datum/reagent/medicine/c2/synthflesh,
 	)
 	// NOVA EDIT ADDITION START
 	var/static/list/abductor_dispensable_reagents_nova = list(

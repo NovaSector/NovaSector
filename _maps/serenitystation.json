@@ -25,6 +25,7 @@
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace/forest",
 			"No Parallax": true,
+			"Weather_Rainstorm": true,
 			"Down": true
 		},
 		{

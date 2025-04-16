@@ -30,9 +30,7 @@
 	. = ..()
 	atom_storage.max_slots = 1
 	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY
-	atom_storage.set_holdable(list(
-		/obj/item/knife/bowie,
-		))
+	atom_storage.set_holdable(/obj/item/knife/bowie)
 
 /obj/item/storage/belt/bowie_sheath/click_alt(mob/user)
 	if(length(contents))

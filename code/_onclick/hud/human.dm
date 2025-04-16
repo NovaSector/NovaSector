@@ -281,10 +281,6 @@
 	zone_select.icon = ui_style
 	zone_select.update_appearance()
 	static_inventory += zone_select
-
-	combo_display = new /atom/movable/screen/combo(null, src)
-	infodisplay += combo_display
-
 	ammo_counter = new /atom/movable/screen/ammo_counter(null, src) //NOVA EDIT ADDITION
 	infodisplay += ammo_counter //NOVA EDIT ADDITION
 
