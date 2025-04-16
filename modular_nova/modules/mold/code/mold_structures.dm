@@ -31,7 +31,7 @@
 
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
-	name = "[mold_type.name] [name]"
+	return INITIALIZE_HINT_LATELOAD
 	update_appearance()
 
 /obj/structure/mold/LateInitialize()
@@ -63,6 +63,11 @@
 	color = mold_type.mold_color
 	resistance_flags = mold_type.resistance_flags
 	name = "[mold_type.name] [name]"
+	if(emits_light)
+		light_range = 2
+		light_power = 1
+		if(mold_type.structure_light_color)
+			light_color = mold_type.structure_light_color
 	update_appearance()
 
 /datum/looping_sound/core_heartbeat
