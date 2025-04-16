@@ -31,13 +31,6 @@
 	item_type = /obj/item/pickaxe/drill
 	cost = PAYCHECK_CREW * 6
 
-/datum/armament_entry/company_import/mining_corps/drill/diamonddrill
-	item_type = /obj/item/pickaxe/drill/diamonddrill
-	cost = PAYCHECK_CREW * 14
-
-/datum/armament_entry/company_import/mining_corps/drill/jackhammer
-	item_type = /obj/item/pickaxe/drill/jackhammer
-	cost = PAYCHECK_CREW * 20
 
 /datum/armament_entry/company_import/mining_corps/drill/plasmacutter
 	item_type = /obj/item/gun/energy/plasmacutter
