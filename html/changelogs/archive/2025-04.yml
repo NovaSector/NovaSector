@@ -644,6 +644,13 @@
       for all your wrestling needs - but please do not let this pull request distract
       you from the fact that in 1998, The Undertaker threw Mankind off Hell In A Cell,
       and plummeted 16 ft through an announcer's table.
+  Zergspower:
+  - rscadd: Kobold Species has been added as a playable race
+  jjpark-kb:
+  - rscadd: added the tunneling worm; a ritual from ashies can obtain it-- it is used
+      to create tunnels to travel through
+  - rscadd: added hivemind action to ashen age (for ashwalkers)
+  - qol: put together some of the ash ages together
   necromanceranne:
   - balance: Combat shotguns have a x1.5 damage increase over riot shotguns. This
       extends to the compact combat shotgun.
