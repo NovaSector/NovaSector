@@ -114,7 +114,7 @@
 
 /datum/armament_entry/company_import/mining_corps/gear/ice_boots
 	item_type = /obj/item/clothing/shoes/winterboots/ice_boots
-	cost = PAYCHECK_CREW * 20
+	cost = PAYCHECK_CREW * 10
 
 /datum/armament_entry/company_import/mining_corps/gear/seva_mask
 	item_type = /obj/item/clothing/mask/gas/seva
