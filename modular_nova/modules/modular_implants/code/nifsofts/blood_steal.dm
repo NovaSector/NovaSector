@@ -45,6 +45,8 @@
 	id = MARTIALART_BLOODSTEAL
 	help_verb = /mob/living/proc/blood_steal_help
 	smashes_tables = TRUE
+	///Weakref to a machine that's just parried
+	VAR_PRIVATE/datum/weakref/parrying_machine
 
 	COOLDOWN_DECLARE(parry_cooldown_timer)
 
@@ -198,7 +200,7 @@
 	addtimer(CALLBACK(attacker, TYPE_PROC_REF(/mob, clear_fullscreen), "projectile_parry"), 0.25 SECONDS)
 	playsound(attacker, 'sound/effects/parry.ogg', 75, TRUE)
 	COOLDOWN_START(src, parry_cooldown_timer, 5 SECONDS)
-	addtimer(CALLBACK(attacker, TYPE_PROC_REF(/datum/martial_art/blood_steal, parry_availability)), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(parry_availability), attacker), 5 SECONDS)
 	return COMPONENT_BULLET_PIERCED
 
 /datum/martial_art/blood_steal/proc/parry_availability(mob/living/attacker)
