@@ -6015,7 +6015,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "yg" = (
 /obj/machinery/door/airlock{
@@ -10682,7 +10682,7 @@
 /obj/effect/spawner/random/trash/garbage{
 	spawn_scatter_radius = 1
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "QZ" = (
 /obj/structure/disposalpipe/segment,
