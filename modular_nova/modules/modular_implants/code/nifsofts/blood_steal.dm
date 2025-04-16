@@ -20,6 +20,7 @@
 
 /datum/nifsoft/blood_steal/activate()
 	. = ..()
+	var/obj/item/organ/cyberimp/brain/nif/installed_nif = parent_nif?.resolve()
 	if(active)
 		if(!issynthetic(linked_mob))
 			to_chat(linked_mob, span_warning("Organic tissue detected! Augmentation aborted."))
@@ -197,7 +198,12 @@
 	addtimer(CALLBACK(attacker, TYPE_PROC_REF(/mob, clear_fullscreen), "projectile_parry"), 0.25 SECONDS)
 	playsound(attacker, 'sound/effects/parry.ogg', 75, TRUE)
 	COOLDOWN_START(src, parry_cooldown_timer, 5 SECONDS)
+	addtimer(CALLBACK(attacker, TYPE_PROC_REF(/datum/martial_art/blood_steal, parry_availability)), 5 SECONDS)
 	return COMPONENT_BULLET_PIERCED
+
+/datum/martial_art/blood_steal/proc/parry_availability(mob/living/attacker)
+	if(COOLDOWN_FINISHED(src, parry_cooldown_timer))
+		attacker.balloon_alert(holder, "parry refreshed!")
 
 /mob/living/proc/blood_steal_help()
 	set name = "Access Core Imprint"
