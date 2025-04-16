@@ -622,6 +622,9 @@
   - bugfix: Foam and smoke no longer affect abstract objects like landmarks
   - admin: Metalgen imprinting is now logged
   - admin: Improved logging for foam and smoke, and plasma metalgenned objects
+  - rscadd: When a MODsuit piece overslots an item, it will now render beneath that
+      piece as long as its unsealed.
+  - refactor: Refactored how MODsuit modules are rendered, report any bugs on GitHub!
   SyncIt21:
   - code_imp: further improved storage code
   - bugfix: monkey cube boxes can no longer hold gorilla cubes & vice versa
