@@ -1,6 +1,0 @@
-author: "jjpark-kb"
-delete-after: True
-changes:
-  - rscadd: "added the goody case holder (can be researched)"
-  - qol: "put together some of the misc cargo items (cargo tele and conveyor sorter) in the same research as the goody case holder"
-  - code_imp: "consolidated some modules together so less file/folder bloat"
