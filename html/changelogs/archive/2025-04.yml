@@ -670,3 +670,14 @@
   - map: Add Rain Storms to Serenity Station
   vinylspiders:
   - bugfix: removed the gap from the quirks page menu items
+2025-04-17:
+  OrionTheFox:
+  - qol: added the new Recolorable Trenchcoat to the loadout, so crew don't need to
+      use the vendor every shift.
+  - bugfix: fixed the new Recolorable Trenchcoat having an error sprite on Digitigrade
+      crew.
+  jjpark-kb:
+  - rscadd: added the goody case holder (can be researched)
+  - qol: put together some of the misc cargo items (cargo tele and conveyor sorter)
+      in the same research as the goody case holder
+  - code_imp: consolidated some modules together so less file/folder bloat
