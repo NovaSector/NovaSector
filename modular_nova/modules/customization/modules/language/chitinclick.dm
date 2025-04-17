@@ -17,5 +17,10 @@
 		// Buzzwords
 		"zz", "buzz", "ZZ",
 	)
+	space_chance = 0
+	between_word_sentence_chance = 0
+	between_word_space_chance = 75
+	additional_syllable_low = -2
+	additional_syllable_high = -1
 	icon_state = "chitinclick"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'

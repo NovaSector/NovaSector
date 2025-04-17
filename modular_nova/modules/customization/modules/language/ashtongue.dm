@@ -23,7 +23,19 @@
 		"'ad","iir","krei","tii'","ruuk","nei","zirua","surai","lieket","miruk","ettirup","mireez","cqiek",
 		"brut","vaahk","nah'za","diierk","piut","vuurk","cs'eer","jeirk","qiruvk",
 	)
+	space_chance = 0
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = 0
+	additional_syllable_high = 0
 	icon_state = "ashtongue"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 90
 	secret = TRUE
+
+	mutual_understanding = list(
+	/datum/language/draconic = 70
+	/datum/language/common = 50,
+	/datum/language/uncommon = 33,
+	)

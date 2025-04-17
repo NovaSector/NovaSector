@@ -14,6 +14,11 @@
 		"enem","zandt","tzch","noch","hel","ischt","far","wa","baram","iereng","tech","lach","sam",
 		"mak","lich","gen","or","ag","eck","gec","stag","onn","bin","ket","einech","cresthz","azunein","ghzth"
 	)
+	sentence_chance = 0
+	between_word_sentence_chance = 5
+	between_word_space_chance = 0
+	additional_syllable_low = 0
+	additional_syllable_high = 0
 	icon_state = "canilunzt"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 90

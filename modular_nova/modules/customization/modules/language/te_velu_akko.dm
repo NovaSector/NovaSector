@@ -9,6 +9,11 @@
     key = "Z"
     flags = TONGUELESS_SPEECH
     space_chance = 70
+	sentence_chance = 20
+	between_word_sentence_chance = 10
+	between_word_space_chance = 50
+	additional_syllable_low = 5
+	additional_syllable_high = 0
     // Syllables derived from the Maori language.
     syllables = list (
         "ā", "ē", "ī", "ō", "a", "e", "i", "o", "u", "ha", "he", "hi", "ho", "hu", "ka", "ke", "ki", "ko", "ku", "ma", "me", "mi", "mo", "mu", "na", "ne", "ni", "no", "nu",
