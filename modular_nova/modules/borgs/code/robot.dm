@@ -57,7 +57,7 @@
 	var/list/choices = list("Resting", "Sitting", "Belly up")
 	if(model && model.model_features && (TRAIT_RESTING_ALTS in model.model_features))
 		choices = list("Resting", "Sitting", "Belly up", "Sleep", "Rest Wagging", "Sit Wagging")
-	var/choice = tgui_alert(src, "Select resting pose", "", choices)
+	var/choice = tgui_input_list(src, "Select resting pose", "", choices)
 	switch(choice)
 		if("Resting")
 			robot_rest_style = ROBOT_REST_NORMAL
