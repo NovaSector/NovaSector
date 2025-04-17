@@ -4,7 +4,6 @@
 	key = "Y"
 	flags = TONGUELESS_SPEECH
 	space_chance = 70
-	space_chance = 15
 	sentence_chance = 0
 	between_word_sentence_chance = 10
 	between_word_space_chance = 75

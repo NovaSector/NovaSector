@@ -35,7 +35,7 @@
 	secret = TRUE
 
 	mutual_understanding = list(
-	/datum/language/draconic = 70
+	/datum/language/draconic = 70,
 	/datum/language/common = 50,
 	/datum/language/uncommon = 33,
 	)
