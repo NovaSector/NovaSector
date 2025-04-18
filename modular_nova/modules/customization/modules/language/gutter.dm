@@ -5,10 +5,16 @@
 	flags = TONGUELESS_SPEECH
 	syllables = list (
 		"bai", "cai", "jai", "quai", "vai", "dei", "lei", "quei", "sei", "noi", "quoi", "voi", "beu", "queu", "seu", "gan", "zan", "quan", "len", "ten",
-		"ba", "be", "bi", "bo", "bu", "ca", "ce", "ci", "co", "cu", "da", "de", "di", "do", "du", "fa", "fe", "fi", "fo", "fu", "ga", "gue", "gui", "go", 
+		"ba", "be", "bi", "bo", "bu", "ca", "ce", "ci", "co", "cu", "da", "de", "di", "do", "du", "fa", "fe", "fi", "fo", "fu", "ga", "gue", "gui", "go",
 		"gu", "ña", "ñe", "ñi", "ño", "ñu", "que", "qui", "cha", "che", "chi", "cho", "chu", "lla", "lle", "lli", "llo", "llu",
 		"tá", "vé", "sál", "fáb", "l'e", "seu", "deu", "meu", "vai", "ción", "tá"
 	)
+	space_chance = 0
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 10
+	additional_syllable_low = 0
+	additional_syllable_high = 0
 	icon_state = "gutter"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 40
