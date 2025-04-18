@@ -8,4 +8,5 @@
 	name = "monkey plant"
 	desc = "Something that seems to have been made by the Nanotrasen science division, one might call it an abomination. It's heads seem... alive."
 	icon_state = "monkeyplant"
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi'
 	trimmable = FALSE
