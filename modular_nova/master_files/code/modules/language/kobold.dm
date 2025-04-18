@@ -3,6 +3,11 @@
 	desc = "Yip yip."
 	key = "k"
 	space_chance = 100
+	sentence_chance = 100
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = 0
+	additional_syllable_high = 3
 	syllables = list("yip", "yap", "eep", "mip", "meep", "merp", "ree", "ek")
 	default_priority = 80
 
