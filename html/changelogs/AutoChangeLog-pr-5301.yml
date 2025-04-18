@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "A previous balance change made buckshot and rubber shot weak against armor, but accidentally only set that condition for the casing. This has been rectified, and buckshot/rubber shot is now properly mitigated by ballistic protection."
