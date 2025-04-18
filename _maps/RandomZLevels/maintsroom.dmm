@@ -3119,7 +3119,7 @@
 /area/awaymission/caves/maintsroom)
 "md" = (
 /obj/structure/fluff/clockwork/alloy_shards/small,
-/turf/open/indestructible/reebe_void,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "me" = (
 /obj/structure/chair/sofa/bench,
@@ -3407,7 +3407,7 @@
 /area/awaymission/caves/maintsroom)
 "nc" = (
 /obj/structure/fluff/clockwork/alloy_shards/medium,
-/turf/open/indestructible/reebe_void,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "ne" = (
 /obj/structure/rack,
@@ -3949,7 +3949,7 @@
 /area/awaymission/caves/maintsroom)
 "pl" = (
 /obj/structure/fluff/clockwork/alloy_shards,
-/turf/open/indestructible/reebe_void,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "pm" = (
 /obj/structure/cable,
@@ -6233,7 +6233,7 @@
 /area/awaymission/caves/maintsroom)
 "yW" = (
 /obj/structure/fluff/clockwork/alloy_shards/large,
-/turf/open/indestructible/reebe_void,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "yX" = (
 /obj/structure/flora/rock/pile,
@@ -10507,7 +10507,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "PZ" = (
-/turf/open/indestructible/reebe_void,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "Qc" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
