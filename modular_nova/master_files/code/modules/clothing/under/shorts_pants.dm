@@ -47,11 +47,32 @@
 	greyscale_colors = "#3d3d3d" //Having all the configs for a single color feels wrong. This is wrong.
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+//See accessories.dm for the accessory version
 /obj/item/clothing/under/pants/nova/chaps
 	name = "black chaps"
 	desc = "Yeehaw"
 	icon_state = "chaps"
 
+/obj/item/clothing/under/pants/nova/chaps/click_ctrl_shift(mob/user)
+	if(attached_accessories) //Make sure they don't have any attachments first
+		balloon_alert(user, "remove attached accessories!")
+		return
+	//Converts the Chaps into an attachment
+	var/chaps_accessory = new /obj/item/clothing/accessory/chaps(user.drop_location())
+	balloon_alert(user, "changed to accessory!")
+	qdel(src)
+	user.put_in_hands(chaps_accessory)
+
+/obj/item/clothing/under/pants/nova/chaps/examine(mob/user)
+	. = ..()
+	. += span_notice("It can be [EXAMINE_HINT("ctrl+shift clicked")] to be worn as an accessory.")
+
+/obj/item/clothing/under/pants/nova/chaps/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(held_item != source) //Only works if held in-hand
+		return .
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Make attachable to uniform"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /*
 *	SHORTS
