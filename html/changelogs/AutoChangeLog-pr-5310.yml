@@ -1,0 +1,6 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "Medical Drake Borgs are both waggier and come in two flavors"
+  - rscdel: "Removed the remaining code for the standard borg which doesn't exist anymore"
+  - qol: "Drakeborgs seem happier and wiggly, watch out for their wagging tails"
