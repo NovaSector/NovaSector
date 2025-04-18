@@ -27,6 +27,7 @@
 /area/awaymission/caves/maintsroom)
 "ag" = (
 /obj/effect/mob_spawn/corpse/human/skeleton/cultist,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/chapel{
 	dir = 1
 	},
@@ -280,13 +281,9 @@
 /turf/closed/mineral/earth_like,
 /area/awaymission/caves/maintsroom)
 "bj" = (
-/obj/effect/step_trigger/teleporter/offset{
-	teleport_y = -2
-	},
-/turf/open/mirage{
-	dir = 1;
-	target_turf_x = -2
-	},
+/obj/machinery/light/red/directional/west,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "bk" = (
 /obj/structure/table,
@@ -571,6 +568,9 @@
 /area/awaymission/caves/maintsroom)
 "cx" = (
 /obj/item/ectoplasm/construct,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/iron/chapel{
 	dir = 1
 	},
@@ -3959,10 +3959,7 @@
 	name = "Abandoned Warehouse"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
-/turf/open/mirage{
-	dir = 1;
-	target_turf_x = -5
-	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "pp" = (
 /turf/open/floor/iron/smooth,
@@ -4062,7 +4059,7 @@
 /area/awaymission/caves/maintsroom)
 "pI" = (
 /obj/structure/table/wood,
-/obj/item/stack/cannonball/the_big_one/five,
+/obj/item/stack/cannonball/the_big_one,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "pJ" = (
@@ -4861,6 +4858,7 @@
 /area/awaymission/caves/maintsroom)
 "tg" = (
 /obj/item/grenade/chem_grenade/holy,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/chapel{
 	dir = 8
 	},
@@ -5574,6 +5572,15 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
+"vV" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "vX" = (
 /obj/item/crowbar,
 /obj/effect/turf_decal/stripes/line{
@@ -5813,6 +5820,10 @@
 /obj/effect/spawner/random/entertainment/money_large,
 /obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
+"xb" = (
+/obj/structure/sign/warning/biohazard/directional/east,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "xc" = (
 /obj/machinery/light/warm/dim/directional/south,
@@ -6134,6 +6145,11 @@
 "yx" = (
 /obj/machinery/suit_storage_unit/medical,
 /turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
+"yy" = (
+/obj/effect/turf_decal/trimline/green/filled/arrow_ccw,
+/obj/effect/decal/remains/human,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "yz" = (
 /obj/machinery/hydroponics/soil/fake_turf,
@@ -7097,10 +7113,11 @@
 /area/awaymission/caves/maintsroom)
 "Cc" = (
 /mob/living/basic/trooper/nanotrasen/ranged/elite{
-	health = 1500;
+	health = 2000;
 	name = "Seargent Crowlie";
 	desc = "He stands looking out at the water of this fake domed beach, he stands completely still- that is until he hears you to which he imeediatly takes up a combative stance and starts opening fire.";
-	loot = list(/obj/item/keycard/blue)
+	loot = list(/obj/item/keycard/blue);
+	maxHealth = 2000
 	},
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/beach/sand,
@@ -8180,8 +8197,8 @@
 /turf/open/floor/circuit/green,
 /area/awaymission/caves/maintsroom)
 "Gj" = (
-/obj/item/ammo_box/c35sol,
-/turf/open/floor/plating,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "Gk" = (
 /obj/item/radio/intercom/directional/east{
@@ -8302,6 +8319,10 @@
 	dir = 4
 	},
 /area/awaymission/caves/maintsroom)
+"GI" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "GL" = (
 /obj/effect/spawner/random/trash/botanical_waste,
 /turf/open/floor/plating,
@@ -8322,6 +8343,9 @@
 /obj/item/flashlight/flare/candle/infinite{
 	pixel_x = 6;
 	pixel_y = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
 	},
 /turf/open/floor/iron/chapel{
 	dir = 4
@@ -9123,6 +9147,13 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/caves/maintsroom)
+"Kx" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Ky" = (
 /obj/machinery/computer/mechpad{
 	dir = 8
@@ -9818,6 +9849,7 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/chapel{
 	dir = 8
 	},
@@ -11402,7 +11434,6 @@
 "TA" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/item/extinguisher/mini,
-/obj/item/stack/sheet/mineral/adamantine,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "TB" = (
@@ -11891,6 +11922,15 @@
 	},
 /obj/structure/cable,
 /turf/open/misc/grass/jungle/station,
+/area/awaymission/caves/maintsroom)
+"VB" = (
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "VC" = (
 /obj/effect/spawner/random/entertainment/arcade,
@@ -12685,6 +12725,11 @@
 "YP" = (
 /obj/item/sticker/left_arrow,
 /turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"YQ" = (
+/obj/effect/turf_decal/trimline/green/filled/arrow_ccw,
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "YR" = (
 /obj/structure/toilet{
@@ -17951,7 +17996,7 @@ uG
 GS
 lA
 uG
-Gj
+uG
 uG
 GS
 pA
@@ -19290,7 +19335,7 @@ ZH
 ZH
 GS
 GS
-bj
+uG
 bc
 YZ
 uG
@@ -20510,7 +20555,7 @@ jf
 jf
 iA
 EL
-nl
+Gj
 uG
 uG
 uG
@@ -20993,8 +21038,8 @@ cx
 tg
 ag
 Nn
-fI
-px
+Kx
+VB
 GS
 GS
 GS
@@ -21211,7 +21256,7 @@ Lx
 yo
 Uz
 GS
-BB
+uG
 GS
 am
 am
@@ -21423,12 +21468,12 @@ Fu
 GS
 GS
 GS
-fI
+vV
 GS
 GS
 GS
 GS
-BB
+GS
 GS
 ec
 ec
@@ -21640,12 +21685,12 @@ wQ
 wQ
 lT
 uG
-uG
-zJ
-uG
-uG
-uG
-BB
+Kf
+bj
+ps
+ps
+ps
+QF
 GS
 GS
 rG
@@ -25731,7 +25776,7 @@ jH
 zz
 zz
 zz
-rJ
+Rg
 uG
 uG
 GS
@@ -26158,9 +26203,9 @@ uh
 uh
 uh
 uh
-rJ
+Rg
 uh
-rJ
+Rg
 uh
 uh
 uh
@@ -26202,8 +26247,8 @@ uG
 Mz
 uG
 uG
-uG
-uG
+GS
+GS
 GS
 uG
 uG
@@ -29715,7 +29760,7 @@ ih
 YJ
 qr
 uG
-SW
+YQ
 cf
 ws
 zm
@@ -29931,8 +29976,8 @@ jf
 ih
 ge
 eT
-uG
-SW
+GI
+yy
 IA
 jf
 zm
@@ -30147,8 +30192,8 @@ NQ
 jf
 uG
 PJ
-uG
-uG
+xb
+xs
 cw
 Ez
 jf
