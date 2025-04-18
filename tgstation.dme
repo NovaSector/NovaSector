@@ -7073,6 +7073,7 @@
 #include "modular_nova\master_files\code\modules\mob\basic\looters\looter_mobs.dm"
 #include "modular_nova\master_files\code\modules\mob\basic\vox\vox_raiders_ai.dm"
 #include "modular_nova\master_files\code\modules\mob\basic\vox\vox_raiders_mobs.dm"
+#include "modular_nova\master_files\code\modules\mob\dead\dead.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\latejoin_menu.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\new_player.dm"
 #include "modular_nova\master_files\code\modules\mob\dead\new_player\preferences_setup.dm"
