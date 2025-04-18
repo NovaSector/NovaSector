@@ -1,7 +1,6 @@
 /obj/item/kirbyplants
 	name = "potted plant"
-	//icon = 'icons/obj/fluff/flora/plants.dmi' // ORIGINAL
-	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' // NOVA EDIT CHANGE
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: icon = 'icons/obj/fluff/flora/plants.dmi'
 	icon_state = "plant-01"
 	base_icon_state = "plant-01"
 	desc = "A little bit of nature contained in a pot."
@@ -90,7 +89,7 @@
 
 /obj/item/kirbyplants/random/Initialize(mapload)
 	. = ..()
-	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/obj/flora/plants.dmi'
+	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: icon = 'icons/obj/flora/plants.dmi'
 	randomize_base_icon_state()
 
 //Handles randomizing the icon during initialize()
