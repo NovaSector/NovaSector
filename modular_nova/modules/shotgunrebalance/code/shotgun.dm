@@ -19,18 +19,11 @@
 	desc = "A 12 gauge iron slug."
 	custom_materials = AMMO_MATS_SHOTGUN
 
-/obj/projectile/bullet/shotgun_slug
-	damage = 50 // based on old stats
-
 /obj/item/ammo_casing/shotgun/milspec
 	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
 	icon_state = "mblshell"
 	ammo_categories = AMMO_CLASS_SUPER
 	print_cost = 4
-
-/obj/projectile/bullet/shotgun_slug/milspec
-	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
-	speed = 1.5
 
 // THE BELOW TWO SLUGS ARE NOTED AS ADMINONLY AND HAVE ***EIGHTY*** WOUND BONUS. NOT BARE WOUND BONUS. FLAT WOUND BONUS.
 /obj/item/ammo_casing/shotgun/executioner
@@ -118,11 +111,6 @@
 
 /obj/projectile/bullet/shotgun_slug
 	damage = 50 // based on old stats
-
-/obj/item/ammo_casing/shotgun/milspec
-	desc = "A hot-loaded 12 gauge milspec slug shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
-	icon_state = "mblshell"
-	advanced_print_req = TRUE
 
 /obj/projectile/bullet/shotgun_slug/milspec
 	damage = 60 // the fine art of physically removing chunks of flesh from your fellow spaceman
