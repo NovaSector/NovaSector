@@ -2969,8 +2969,10 @@
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "ls" = (
-/obj/structure/no_effect_signpost/void,
 /obj/effect/light_emitter/fake_outdoors,
+/obj/structure/signpost/salvation{
+	name = "signpost at the edge of the universe"
+	},
 /turf/open/floor/holofloor/pure_white,
 /area/awaymission/caves/maintsroom)
 "lt" = (
@@ -6449,7 +6451,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "zO" = (
-/obj/machinery/gateway/away,
+/obj/machinery/teleport/station,
+/obj/machinery/status_display/evac/directional/east,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "zP" = (
@@ -6927,6 +6931,10 @@
 "Bt" = (
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/caves/maintsroom)
+"Bx" = (
+/obj/machinery/teleport/hub,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "By" = (
 /obj/structure/holosign/barrier/atmos,
 /turf/open/floor/plating,
@@ -7403,6 +7411,12 @@
 	},
 /obj/effect/turf_decal/bot/left,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"Dp" = (
+/obj/machinery/computer/teleporter{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Dq" = (
 /obj/structure/fluff/tram_rail,
@@ -8133,12 +8147,10 @@
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "FX" = (
-/obj/structure/closet/crate{
-	name = "Relief"
+/obj/structure/signpost/salvation{
+	name = "Sages Wisdom"
 	},
-/obj/structure/falsewall/reinforced,
-/obj/item/crowbar,
-/turf/open/floor/plating,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "FY" = (
 /obj/machinery/door/airlock/maintenance,
@@ -9627,6 +9639,12 @@
 /obj/effect/rune/summon,
 /mob/living/basic/cult/spear,
 /turf/open/floor/engine/cult,
+/area/awaymission/caves/maintsroom)
+"Mq" = (
+/obj/structure/signpost/salvation{
+	name = "Travelers respite"
+	},
+/turf/open/floor/carpet,
 /area/awaymission/caves/maintsroom)
 "Ms" = (
 /turf/open/floor/iron/dark/smooth_edge{
@@ -12726,6 +12744,12 @@
 /obj/item/clothing/head/utility/chefhat,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"YO" = (
+/obj/structure/signpost/salvation{
+	name = "Mothroaches Gift"
+	},
+/turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "YP" = (
 /obj/item/sticker/left_arrow,
@@ -15843,7 +15867,7 @@ GS
 Cu
 PN
 PN
-Cu
+YO
 PN
 PN
 GS
@@ -33174,7 +33198,7 @@ GS
 uG
 uh
 uG
-zO
+uG
 uG
 DG
 Mu
@@ -33390,9 +33414,9 @@ uG
 GS
 uG
 uh
-uG
-uG
-uG
+Bx
+zO
+Dp
 uG
 uG
 uG
@@ -44734,7 +44758,7 @@ Jq
 Tc
 IF
 xj
-tu
+Mq
 tu
 tu
 NY
