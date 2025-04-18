@@ -7431,7 +7431,6 @@
 #include "modular_nova\modules\borgs\code\robot_model.dm"
 #include "modular_nova\modules\borgs\code\robot_upgrade.dm"
 #include "modular_nova\modules\borgs\code\update_icons.dm"
-#include "modular_nova\modules\box_extra\code\boxes.dm"
 #include "modular_nova\modules\bsa_overhaul\code\admin_verb.dm"
 #include "modular_nova\modules\bsa_overhaul\code\bsa_cannon.dm"
 #include "modular_nova\modules\bsa_overhaul\code\bsa_computer.dm"
