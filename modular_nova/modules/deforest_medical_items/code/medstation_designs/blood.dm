@@ -163,7 +163,7 @@
 	)
 
 /datum/design/organic_bloodbag_exotic
-	name = "TOX Blood Pack"
+	name = "Exotic Blood Pack"
 	id = "organic_bloodbag_exotic"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 100)
