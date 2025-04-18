@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - code_imp: "updated the AESTHETICS Module .readme, to clarify the module is for overriding TG assets directly. Also better modularized potted plant overrides - if you find a broken potted plant (or items in general), don't forget to bug report!"
