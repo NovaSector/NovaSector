@@ -303,7 +303,7 @@
 #undef LIGHT_ON_DELAY_LOWER
 #undef NIGHTSHIFT_LIGHT_MODIFIER
 #undef NIGHTSHIFT_COLOR_MODIFIER
-// NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 /obj/machinery/light/update_current_power_usage()
 	if(!on && static_power_used > 0) //Light is off but still powered
