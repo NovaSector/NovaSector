@@ -1,7 +1,0 @@
-author: "Zergspower"
-delete-after: True
-changes:
-  - rscadd: "Adds Custom Speech bubbles to the Slime, Xeno, Akula(2) and Synth Race"
-  - rscadd: "Adds Custom Speech bubbles to the default Akula(1) tongue"
-  - bugfix: "Updates the borg language list to be current"
-  - code_imp: "updated custom languages to include new speech options"

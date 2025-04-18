@@ -1,5 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - bugfix: "fixed Deluxe Internals Boxes having a missing icon"
-  - qol: "you can now make Flat Boxes by jumping on a box! Just like they do in the Core systems."

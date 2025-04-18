@@ -681,3 +681,25 @@
   - qol: put together some of the misc cargo items (cargo tele and conveyor sorter)
       in the same research as the goody case holder
   - code_imp: consolidated some modules together so less file/folder bloat
+2025-04-18:
+  Hatterhat:
+  - bugfix: A previous balance change made buckshot and rubber shot weak against armor,
+      but accidentally only set that condition for the casing. This has been rectified,
+      and buckshot/rubber shot is now properly mitigated by ballistic protection.
+  OrionTheFox:
+  - bugfix: fixed Deluxe Internals Boxes having a missing icon
+  - qol: you can now make Flat Boxes by jumping on a box! Just like they do in the
+      Core systems.
+  - rscadd: Added Undershirt variants of the greyscale Fishnets (for wearing OVER
+      bras, as opposed to wearing them AS bras)
+  Zergspower:
+  - rscadd: Medical Drake Borgs are both waggier and come in two flavors
+  - rscdel: Removed the remaining code for the standard borg which doesn't exist anymore
+  - qol: Drakeborgs seem happier and wiggly, watch out for their wagging tails
+  - rscadd: Adds Custom Speech bubbles to the Slime, Xeno, Akula(2) and Synth Race
+  - rscadd: Adds Custom Speech bubbles to the default Akula(1) tongue
+  - bugfix: Updates the borg language list to be current
+  - code_imp: updated custom languages to include new speech options
+  mogeoko:
+  - qol: You can use padded headphones/deprivation helmet/latex gasmask in any possible
+      slot now.
