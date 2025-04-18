@@ -5475,7 +5475,7 @@
 /obj/item/storage/medkit/regular{
 	pixel_y = 6
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "cMd" = (
@@ -9277,7 +9277,7 @@
 /area/centcom/interlink/dorm_rooms)
 "jqm" = (
 /obj/structure/closet/crate/freezer/blood,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
 "jqo" = (
@@ -9971,10 +9971,6 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/centcom/interlink)
-"kHZ" = (
-/obj/machinery/vending/wardrobe/sec_wardrobe/red,
-/turf/open/misc/dirt/planet,
-/area/centcom/holding/cafepark)
 "kIR" = (
 /obj/structure/bed/abductor,
 /turf/open/floor/plating/abductor,
@@ -10523,7 +10519,7 @@
 /area/centcom/holding/cafe)
 "lla" = (
 /obj/machinery/iv_drip,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
 "lnP" = (
@@ -10858,7 +10854,7 @@
 	pixel_y = 6
 	},
 /obj/machinery/light/cold/directional/south,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron,
 /area/centcom/interlink)
 "lSB" = (
@@ -10884,7 +10880,7 @@
 	},
 /area/centcom/holding/cafe)
 "lSJ" = (
-/obj/machinery/door/poddoor/ert{
+/obj/machinery/door/poddoor{
 	id = "interlink_shuttles"
 	},
 /turf/open/floor/plating,
@@ -11047,7 +11043,7 @@
 /obj/item/storage/medkit/toxin{
 	pixel_y = 6
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
@@ -12626,7 +12622,7 @@
 "oJP" = (
 /obj/machinery/iv_drip,
 /obj/machinery/light/cold/directional/south,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
 "oKM" = (
@@ -13409,12 +13405,6 @@
 /obj/machinery/processor,
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
-"pKV" = (
-/obj/effect/turf_decal/arrows/blue{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/centcom/interlink)
 "pLq" = (
 /obj/structure/rack/wooden,
 /obj/item/dyespray{
@@ -17663,7 +17653,7 @@
 "wuH" = (
 /obj/structure/table,
 /obj/machinery/light/cold/directional/north,
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "wvy" = (
@@ -17798,7 +17788,7 @@
 /obj/machinery/computer/operating{
 	dir = 4
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "wHm" = (
@@ -18056,7 +18046,7 @@
 /obj/item/storage/medkit/fire{
 	pixel_y = 6
 	},
-/obj/effect/turf_decal/delivery/blue,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "xec" = (
@@ -18725,7 +18715,7 @@
 "ycL" = (
 /obj/structure/table/optable,
 /obj/effect/spawner/surgery_tray/full,
-/obj/effect/turf_decal/bot_blue,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "yde" = (
@@ -29715,7 +29705,7 @@ bOl
 cwA
 xsg
 cwA
-pKV
+ebz
 hvy
 aaa
 aaa
@@ -72602,7 +72592,7 @@ aPf
 aPf
 dai
 aPf
-kHZ
+aPf
 aPf
 aPf
 aPf

@@ -1,10 +1,3 @@
-/obj/item/clothing/neck/tie/disco
-	name = "horrific necktie"
-	icon = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
-	icon_state = "eldritch_tie"
-	desc = "The necktie is adorned with a garish pattern. It's disturbingly vivid. Somehow you feel as if it would be wrong to ever take it off. It's your friend now. You will betray it if you change it for some boring scarf."
-
 /obj/item/clothing/neck/mantle
 	name = "mantle"
 	desc = "A decorative drape over the shoulders. This one has a simple, dry color."
@@ -66,7 +59,18 @@
 	desc = "A plated mantle that one might wrap around the upper torso. The 'scales' of the garment signify the members of security and how you're carrying them on your shoulders."
 	icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
-	icon_state = "hosmantle_blue" //There's a red version if you remove the _blue, but it's not coded in currently.
+	icon_state = "hosmantle"
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Red Variant" = list(
+			RESKIN_ICON_STATE = "hosmantle",
+			RESKIN_WORN_ICON_STATE = "hosmantle"
+		),
+		"Blue Variant" = list(
+			RESKIN_ICON_STATE = "hosmantle_blue",
+			RESKIN_WORN_ICON_STATE = "hosmantle_blue"
+		),
+	)
 
 /obj/item/clothing/neck/mantle/bsmantle
 	name = "\proper the blueshield's mantle"

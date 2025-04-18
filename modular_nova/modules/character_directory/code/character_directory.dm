@@ -246,7 +246,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
-		veteran_status = SSplayer_ranks.is_veteran(mob.client, admin_bypass = FALSE)
+		veteran_status = mob.client && SSplayer_ranks.is_veteran(mob.client, admin_bypass = FALSE)
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
 

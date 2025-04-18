@@ -1,7 +1,7 @@
 /// The light switch. Can have multiple per area.
 /obj/machinery/light_switch
 	name = "light switch"
-	icon = 'icons/obj/machines/wallmounts.dmi' //NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/wallmounts.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "light-nopower"
 	base_icon_state = "light"
 	desc = "Make dark."
