@@ -9185,6 +9185,11 @@
 	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
+"KE" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "KF" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/plating,
@@ -29886,7 +29891,7 @@ jf
 jf
 uG
 GS
-uG
+Th
 GS
 GS
 GS
@@ -30108,7 +30113,7 @@ GS
 TB
 uG
 uG
-uG
+bc
 uG
 BB
 uG
@@ -30116,7 +30121,7 @@ uG
 uG
 GS
 uG
-uG
+bc
 TB
 jU
 WM
@@ -30759,11 +30764,11 @@ GS
 rJ
 GS
 GS
+bc
 uG
 uG
 uG
-uG
-uG
+bc
 uG
 uG
 Mz
@@ -31190,7 +31195,7 @@ PB
 dz
 PB
 GS
-uG
+Th
 uG
 GS
 uG
@@ -32277,7 +32282,7 @@ uG
 GS
 uG
 kK
-ps
+KE
 ps
 bu
 GS
@@ -32734,7 +32739,7 @@ uG
 GS
 uG
 uh
-uG
+Th
 uG
 qt
 uG
@@ -33605,7 +33610,7 @@ uh
 uh
 uh
 uh
-uG
+Th
 Ah
 uG
 Fd
