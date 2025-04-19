@@ -50,6 +50,7 @@
 	if (tool.GetID() && allowed(user))
 		locked = !locked
 		to_chat(user, span_notice("You [locked ? "lock" : "unlock"] the interface."))
+		update_static_data_for_all_viewers() // NOVA ADDITION
 		return ITEM_INTERACT_SUCCESS
 
 	if (istype(tool, /obj/item/disk/cargo/bluespace_pod))
@@ -104,7 +105,7 @@
 				"packs" = get_packs_data(pack.group, express = TRUE), // will you show me?
 			) // i'd be right happy to
 
-/obj/machinery/computer/cargo/express/ui_data(mob/user)
+/obj/machinery/computer/cargo/express/ui_static_data(mob/user) // NOVA EDIT
 	var/canBeacon = beacon && (isturf(beacon.loc) || ismob(beacon.loc))//is the beacon in a valid location?
 	var/list/data = list()
 	var/datum/bank_account/account = SSeconomy.get_dep_account(cargo_account)
