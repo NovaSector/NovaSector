@@ -287,18 +287,18 @@
 	name = "Nobido Neuroware Chip"
 	item_path = /obj/item/disk/neuroware/pentacamphor
 
-/datum/loadout_item/erp/crocin_neuroware
-	name = "EroStim Neuroware Box"
+/datum/loadout_item/erp/crocin_neuroware_box
+	name = "Neuroware Chips Box (Kaleido)"
 	item_path = /obj/item/storage/box/flat/neuroware/crocin
 
-/datum/loadout_item/erp/hexacrocin_neuroware
-	name = "EroStim Deluxe Neuroware Box"
+/datum/loadout_item/erp/hexacrocin_neuroware_box
+	name = "Neuroware Chips Box (EroStim Deluxe)"
 	item_path = /obj/item/storage/box/flat/neuroware/hexacrocin
 
-/datum/loadout_item/erp/camphor_neuroware
-	name = "AphroCalm Neuroware Box"
+/datum/loadout_item/erp/camphor_neuroware_box
+	name = "Neuroware Chips Box (AphroCalm)"
 	item_path = /obj/item/storage/box/flat/neuroware/camphor
 
-/datum/loadout_item/erp/pentacamphor_neuroware
-	name = "Nobido Neuroware Box"
+/datum/loadout_item/erp/pentacamphor_neuroware_box
+	name = "Neuroware Chips Box (Nobido Extreme)"
 	item_path = /obj/item/storage/box/flat/neuroware/pentacamphor

@@ -255,16 +255,16 @@
 	name = "Liberty Cap Seeds"
 	item_path = /obj/item/seeds/liberty
 
-/datum/loadout_item/pocket_items/neuroware_lsd
-	name = "Kaleido Neuroware Chips"
+/datum/loadout_item/pocket_items/neuroware_spacedrugs
+	name = "Neuroware Chips Box (Kaleido)"
 	item_path = /obj/item/storage/box/flat/neuroware/space_drugs
 
-/datum/loadout_item/pocket_items/neuroware_weed
-	name = "Mr.Stoned Neuroware Chips"
+/datum/loadout_item/pocket_items/neuroware_thc
+	name = "Neuroware Chips Box (Mr.Stoned)"
 	item_path = /obj/item/storage/box/flat/neuroware/thc
 
-/datum/loadout_item/pocket_items/neuroware_lsd
-	name = "PosiBlaster Neuroware Chips"
+/datum/loadout_item/pocket_items/neuroware_mindbreaker
+	name = "Neuroware Chips Box (PosiBlaster)"
 	item_path = /obj/item/storage/box/flat/neuroware/mindbreaker
 
 /*
