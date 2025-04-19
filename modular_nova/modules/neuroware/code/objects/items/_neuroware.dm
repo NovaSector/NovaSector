@@ -148,50 +148,6 @@
 
 	return TRUE
 
-///Neuroware which spawns in maintenance and have random reagent contents
-/obj/item/disk/neuroware/maintenance
-	name = "maintenance neuroware"
-	desc = "A strange neuroware chip found in the depths of maintenance."
-	icon_state = "chip_generic"
-	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	var/static/list/maint_neuroware_names = list(
-		"maintenance neuroware",
-		"trashed neuroware",
-		"unlabeled neuroware",
-		"suspicious neuroware",
-		"hacked neuroware",
-		"lucky neuroware",
-		"ominous neuroware",
-		"homebrew neuroware"
-	)
-	var/static/list/maint_neuroware_descs = list(
-		"Your feeling is telling you no, but...",
-		"Neuroware is expensive, you can't afford not to try any that you find.",
-		"Surely, there's no way this could go bad.",
-		"You wouldn't download a random- oh what the heck!",
-		"Free neuroware? At no cost, how could I lose?"
-	)
-	var/static/list/maint_neuroware_casings = list("chip_maint", "chip_caseless", "chip_generic")
-	var/static/list/maint_neuroware_colors = list(
-		CIRCUIT_COLOR_GENERIC,
-		CIRCUIT_COLOR_COMMAND,
-		CIRCUIT_COLOR_SECURITY,
-		CIRCUIT_COLOR_SCIENCE,
-		CIRCUIT_COLOR_SERVICE,
-		CIRCUIT_COLOR_MEDICAL,
-		CIRCUIT_COLOR_ENGINEERING,
-		CIRCUIT_COLOR_SUPPLY
-	)
-
-/obj/item/disk/neuroware/maintenance/Initialize(mapload)
-	name = pick(maint_neuroware_names)
-	list_reagents = list(get_random_neuroware() = rand(10,50))
-	if(prob(30))
-		desc = pick(maint_neuroware_descs)
-		icon_state = pick(maint_neuroware_casings)
-		greyscale_colors = pick(maint_neuroware_colors)
-	. = ..()
-
 #undef CHIP_LABEL_BISHOP
 #undef CHIP_LABEL_DEFOREST
 #undef CHIP_LABEL_DONK
