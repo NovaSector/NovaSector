@@ -62,8 +62,15 @@
 /mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language = null, list/message_mods = list(), forced = null, tts_message, list/tts_filter)
 	. = ..()
 
-	if(!(client?.prefs.read_preference(/datum/preference/toggle/send_sound_blooper)))
+	var/voice_type_pref = client?.prefs.read_preference(/datum/preference/choiced/voice_type)
+	if(voice_type_pref != VOICE_TYPE_BARK)
+		if((!SStts.tts_enabled && voice_type_pref == VOICE_TYPE_TTS) && client?.prefs.read_preference(/datum/preference/toggle/fallback_to_blooper))
+			play_bloopers(message_raw, message_range, source, message_mods) // if and only if we are using tts and fallback is enabled, we can bloop
 		return
+	play_bloopers(message_raw, message_range, source, message_mods)
+
+/// Plays the blooper sound effect based on the message provided
+/mob/living/proc/play_bloopers(message_raw, message_range, obj/source, list/message_mods = list())
 	blooper_volume = client?.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) //volume scales with your volume slider in game preferences.
 	if(HAS_TRAIT(src, TRAIT_SIGN_LANG) && !HAS_TRAIT(src, TRAIT_MUTE)) //if you can speak and you sign, your hands don't make a bark. Unless you are completely mute, you can have some hand bark.
 		return
@@ -74,22 +81,14 @@
 	var/is_yell = (say_test(message_raw) == "2")
 	//Listening gets trimmed here if a blooper blooper's present. If anyone ever makes this proc return listening, make sure to instead initialize a copy of listening in here to avoid wonkiness
 	if(blooper || blooper_id)
-		for(var/mob/M in listening)
-			if(!M.client)
+		for(var/mob/listener in listening)
+			if(!listener.client)
 				continue
 
-			var/tts_pref = M.client.prefs?.read_preference(/datum/preference/choiced/sound_tts)
-			var/hear_blooper = M.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)
+			var/hear_blooper = listener.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)
 
 			if(!hear_blooper) // Check pref for blooper
-				listening -= M
-
-			else if (CONFIG_GET(string/tts_http_url) && SStts.tts_enabled == TRUE) // TTS for vocal barks.
-				if (source.voice == "" || source.voice == "None") // "None" is for borgs
-					continue
-				if (tts_pref == TTS_SOUND_OFF)
-					continue
-				listening -= M
+				listening -= listener
 
 		var/bloopers = min(round((LAZYLEN(message_raw) / blooper_speed)) + 1, BLOOPER_MAX_BLOOPERS)
 		var/total_delay
@@ -99,4 +98,3 @@
 				break
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, blooper), listening, message_range + 1, (blooper_volume * (is_yell ? 2 : 1)), BLOOPER_DO_VARY(blooper_pitch, blooper_pitch_range), blooper_current_blooper), total_delay) //The function is zero on the seventh tile. This makes it a maximum of 1 more.
 			total_delay += rand(DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE), DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE) + DS2TICKS((blooper_speed / BLOOPER_SPEED_BASELINE) * (is_yell ? 0.5 : 1))) TICKS
-

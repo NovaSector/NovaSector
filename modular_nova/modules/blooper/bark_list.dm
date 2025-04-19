@@ -60,7 +60,6 @@
 	id = "moffsqueak"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/mothsqueak.ogg'
 	allow_random = TRUE
-	ignore = FALSE
 
 /datum/blooper/meow //Meow blooper?
 	name = "Meow"
