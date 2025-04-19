@@ -198,7 +198,7 @@
 		/obj/item/clothing/suit/blackfurrich = 1,
 		/obj/item/clothing/suit/frenchtrench = 1,
 		/obj/item/clothing/suit/toggle/labcoat/nova/lalunevest = 2,
-		/obj/item/clothing/gloves/lalune_long = 2,
+		/obj/item/clothing/gloves/designer = 2,
 		/obj/item/clothing/head/skrell_chain = 3,
 		/obj/item/clothing/head/skrell_chain/silver = 3,
 	)
