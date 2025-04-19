@@ -284,7 +284,7 @@
 	item_path = /obj/item/disk/neuroware/camphor
 
 /datum/loadout_item/erp/pentacamphor_neuroware
-	name = "Nobido Neuroware Chip"
+	name = "Nobido Xtreme Neuroware Chip"
 	item_path = /obj/item/disk/neuroware/pentacamphor
 
 /datum/loadout_item/erp/crocin_neuroware_box
@@ -300,5 +300,5 @@
 	item_path = /obj/item/storage/box/flat/neuroware/camphor
 
 /datum/loadout_item/erp/pentacamphor_neuroware_box
-	name = "Neuroware Chips Box (Nobido X-Treme)"
+	name = "Neuroware Chips Box (Nobido Xtreme)"
 	item_path = /obj/item/storage/box/flat/neuroware/pentacamphor
