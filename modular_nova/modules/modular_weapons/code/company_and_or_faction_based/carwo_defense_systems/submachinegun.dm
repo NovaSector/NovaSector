@@ -48,7 +48,8 @@
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
 
-
+/obj/item/gun/ballistic/automatic/sol_smg/no_mag
+	spawnwithmagazine = FALSE
 // Sindano (evil)
 
 /obj/item/gun/ballistic/automatic/sol_smg/evil
