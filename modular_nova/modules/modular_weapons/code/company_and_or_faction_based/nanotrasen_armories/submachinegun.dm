@@ -6,8 +6,8 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 
 /obj/item/gun/ballistic/automatic/nt20
 	name = "\improper NT20 Submachine Gun"
-	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
-	desc = "A sleek, select-fire SMG chambered in the imposing .460 Ceres cartridge. The Blueshield's favorite toy."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
+	desc = "A sleek, select-fire SMG chambered in the venerable .45 cartridge. The Blueshield's favorite toy."
 	icon_state = "nt20"
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
@@ -25,7 +25,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 		and it's received a warm welcome from the Shield teams and other NT armed forces who have been \
 		issued it in its ongoing rollout.<br><br>\
 		Though certain rival manufacturers have dismissed the NT20 as a \"fake\" or a \"blatant bootleg,\" \
-		the inimitable .460 Ceres round and a patent-pending multi-stage delayed blowback system \
+		the venerable .45 round and a patent-pending multi-stage delayed blowback system \
 		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/automatic/nt20/give_manufacturer_examine()

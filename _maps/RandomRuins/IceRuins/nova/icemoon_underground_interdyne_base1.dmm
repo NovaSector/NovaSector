@@ -1333,17 +1333,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/cargo/obs)
-"dD" = (
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/door/airlock/security/glass{
-	name = " Observation Center"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/ruin/interdyne_planetary_base/cargo/obs)
 "dE" = (
 /obj/effect/turf_decal/siding/thinplating,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2816,13 +2805,6 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main)
-"hE" = (
-/obj/machinery/light/small/directional/west,
-/obj/structure/frame/machine/secured,
-/obj/item/circuitboard/machine/ammo_workbench,
-/obj/item/disk/ammo_workbench/advanced,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/vault)
 "hF" = (
 /obj/machinery/syndicatebomb/self_destruct{
 	anchored = 1
@@ -2860,11 +2842,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/science)
-"hM" = (
-/obj/item/gun/ballistic/rifle/sniper_rifle/syndicate,
-/obj/structure/rack/gunrack,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/vault)
 "hN" = (
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/icemoon,
 /turf/open/floor/iron/dark/textured_large,
@@ -2904,20 +2881,6 @@
 /obj/item/reagent_containers/dropper,
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)
-"hR" = (
-/obj/structure/safe{
-	dir = 4
-	},
-/obj/item/storage/box/syndie_kit/chameleon/ghostcafe{
-	name = "chameleon kit";
-	desc = "It's a box, for storing things."
-	},
-/obj/item/disk/ammo_workbench/advanced,
-/obj/item/suppressor,
-/obj/item/toy/redbutton,
-/obj/item/folder/syndicate/mining,
-/turf/open/floor/iron/dark/textured_large,
-/area/ruin/interdyne_planetary_base/main/vault)
 "hS" = (
 /obj/machinery/autolathe/hacked,
 /turf/open/floor/vault/alien{
@@ -7098,6 +7061,11 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"Fi" = (
+/obj/machinery/light/small/directional/west,
+/obj/item/flatpack/ammo_workbench,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/vault)
 "FH" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
@@ -7260,6 +7228,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/cargo)
+"La" = (
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/airlock/security/glass{
+	name = " Observation Center"
+	},
+/turf/open/floor/iron/smooth_large,
+/area/ruin/interdyne_planetary_base/cargo/obs)
 "Lg" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -7520,6 +7499,13 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"WA" = (
+/obj/item/gun/ballistic/rifle/sniper_rifle/syndicate,
+/obj/structure/rack/gunrack,
+/obj/item/ammo_workbench_reboot,
+/obj/item/ammo_workbench_module/lethal_super/evil,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/vault)
 "WQ" = (
 /obj/structure/shipping_container/donk_co{
 	pixel_x = 6
@@ -7528,6 +7514,19 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"WT" = (
+/obj/structure/safe{
+	dir = 4
+	},
+/obj/item/storage/box/syndie_kit/chameleon/ghostcafe{
+	name = "chameleon kit";
+	desc = "It's a box, for storing things."
+	},
+/obj/item/suppressor,
+/obj/item/toy/redbutton,
+/obj/item/folder/syndicate/mining,
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/main/vault)
 "WZ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -9041,8 +9040,8 @@ ft
 ft
 qj
 hd
-hE
-hM
+Fi
+WA
 hb
 gj
 fv
@@ -9160,7 +9159,7 @@ fU
 hb
 hi
 hI
-hR
+WT
 hb
 iE
 iO
@@ -9325,7 +9324,7 @@ bD
 cp
 cU
 cX
-dD
+La
 dE
 ec
 qw

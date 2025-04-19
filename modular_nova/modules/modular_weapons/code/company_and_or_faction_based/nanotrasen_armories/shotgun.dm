@@ -3,14 +3,14 @@
 	desc = "A mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'Katyusha' by the blueshields for its versatility. Compatible only with specialized 16-shell drum magazines."
 
-	icon = 'modular_nova/modules/modular_weapons/code/company_and_or_faction_based/nanotrasen_armouries/ballistic48x.dmi'
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic48x.dmi'
 	icon_state = "spikewall"
 
-	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armouries/guns_worn.dmi'
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armories/guns_worn.dmi'
 	worn_icon_state = "spikewall"
 
-	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armouries/guns_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armouries/guns_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armories/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/nanotrasen_armories/guns_righthand.dmi'
 	inhand_icon_state = "spikewall"
 
 	SET_BASE_PIXEL(-8, 0)
@@ -46,7 +46,7 @@
     AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
 /obj/item/storage/toolbox/guncase/nova/katyusha
-	name = "\improper Nanotrasen Armories \"katyusha\" gunset"
+	name = "\improper Nanotrasen Armories \"Katyusha\" gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/katyusha
 	extra_to_spawn = /obj/item/ammo_box/magazine/katyusha/buckshot
 

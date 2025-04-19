@@ -63,16 +63,16 @@
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 2.2)
 
-/obj/item/gun/ballistic/shotgun/automatic/as2/ubsg
+/obj/item/gun/ballistic/shotgun/automatic/ubsg
 	name = "\improper M2 auto-shotgun underbarrel"
 	desc = "This shouldn't be heeere!"
 	can_suppress = FALSE
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/as2/ubsg
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/ubsg
 
-/obj/item/gun/ballistic/shotgun/automatic/as2/ubsg/give_gun_safeties()
+/obj/item/gun/ballistic/shotgun/automatic/ubsg/give_gun_safeties()
 	return
 
-/obj/item/ammo_box/magazine/internal/shot/as2/ubsg
+/obj/item/ammo_box/magazine/internal/shot/ubsg
 	max_ammo = 3
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 
@@ -82,11 +82,11 @@
 	icon_state = "m44a_sg"
 	inhand_icon_state = "m44a_sg"
 	/// Reference to the underbarrel shotgun
-	var/obj/item/gun/ballistic/shotgun/automatic/as2/ubsg/underbarrel
+	var/obj/item/gun/ballistic/shotgun/automatic/ubsg/underbarrel
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/shotgun/Initialize(mapload)
 	. = ..()
-	underbarrel = new /obj/item/gun/ballistic/shotgun/automatic/as2/ubsg(src)
+	underbarrel = new /obj/item/gun/ballistic/shotgun/automatic/ubsg(src)
 	update_appearance()
 
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/shotgun/Destroy()

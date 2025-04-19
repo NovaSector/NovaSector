@@ -53,7 +53,6 @@
 	item = /obj/item/borg/upgrade/transform/syndicatejack
 	cost = 5 //Support item and the fact that you need a emag to use it on a cyborg
 
-
 /datum/uplink_item/device_tools/thermal
 	cost = 6 // original cost: 4
 
@@ -65,3 +64,11 @@
 
 /datum/uplink_item/device_tools/powersink
 	cost = 18 // original cost: 11
+
+/datum/uplink_item/device_tools/evil_module
+	name = "Ammo Fabricator Advanced Lethal Authentication Module"
+	desc = "A Gorlex Marauders-modified ammunition fabricator module, loaded with the authentication keys for causing lots and lots of problems."
+	item = /obj/item/ammo_workbench_module/lethal_super/evil
+	cost = 5
+	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
