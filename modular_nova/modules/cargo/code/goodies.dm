@@ -218,3 +218,30 @@
 	contains = list(
 		/obj/item/clothing/accessory/vaporizer,
 	)
+
+/*
+* NEUROWARE CHIPS
+*/
+/datum/supply_pack/goody/brass_neuroware
+	name = "Brass/Wind Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with wind and brass synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/brass)
+
+/datum/supply_pack/goody/guitar_neuroware
+	name = "Guitar/Strings Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with guitar and string synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/guitar)
+
+/datum/supply_pack/goody/percussion_neuroware
+	name = "Percussion Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with percussion synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/percussion)
+
+/datum/supply_pack/goody/piano_neuroware
+	name = "Piano Instruments Neuroware Chip"
+	desc = "Contains a single neuroware chip with piano synthesizer instruments, for synthetic persons with persocom units."
+	cost = PAYCHECK_CREW * 2
+	contains = list(/obj/item/disk/neuroware/synthesizer/piano)
