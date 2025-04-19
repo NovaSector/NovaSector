@@ -73,9 +73,18 @@
 		/mob/living/simple_animal/hostile/syndimouse,
 		/mob/living/simple_animal/hostile/trog,
 		/mob/living/simple_animal/hostile/true_changeling,
-
+		/mob/living/simple_animal/hostile/fleshmind/slicer,
+		/mob/living/simple_animal/hostile/fleshmind/floater,
+		/mob/living/simple_animal/hostile/fleshmind/globber,
+		/mob/living/simple_animal/hostile/fleshmind/stunner,
+		/mob/living/simple_animal/hostile/fleshmind/hiborg,
+		/mob/living/simple_animal/hostile/fleshmind/himan,
+		/mob/living/simple_animal/hostile/fleshmind/treader,
+		/mob/living/simple_animal/hostile/fleshmind/phaser,
+		/mob/living/simple_animal/hostile/fleshmind/mechiver,
+		/mob/living/simple_animal/hostile/fleshmind/mauler_monkey,
+		/mob/living/simple_animal/hostile/fleshmind,
 		/mob/living/simple_animal/hostile/ooze/grapes/xenobio, // update when grapes are updated, must be here to stop errors
-
 		// DO NOT ADD NEW ENTRIES TO THIS LIST
 		// READ THE COMMENT ABOVE
 	)
