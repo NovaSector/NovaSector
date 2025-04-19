@@ -154,7 +154,7 @@
 /datum/armament_entry/company_import/deforest/medpens/pentibinin
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin
 
-/datum/armament_entry/company_import/deforest/medpens
+/datum/armament_entry/company_import/deforest/neuroware
 	subcategory = "Medical Neuroware Chips"
 	cost = PAYCHECK_LOWER * 3
 
