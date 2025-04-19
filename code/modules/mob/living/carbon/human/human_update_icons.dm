@@ -114,7 +114,7 @@ There are several things that need to be remembered:
 		var/woman
 		var/digi // NOVA EDIT ADDITION - Digi female gender shaping
 		var/female_sprite_flags = uniform.female_sprite_flags // NOVA EDIT ADDITION - Digi (and taur) female gender shaping
-		var/mutant_styles = NONE // NOVA EDIT ADDITON - mutant styles to pass down to build_worn_icon.
+		var/mutant_styles = NONE // NOVA EDIT ADDITION - mutant styles to pass down to build_worn_icon.
 		//BEGIN SPECIES HANDLING
 		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			icon_file = uniform.worn_icon_digi || DIGITIGRADE_UNIFORM_FILE // NOVA EDIT CHANGE - ORIGINAL: icon_file = DIGITIGRADE_UNIFORM_FILE
@@ -1000,9 +1000,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			shift_pixel_x = -16 // it doesnt look right otherwise
 	// NOVA EDIT ADDITION END
 	if(building_icon)
-		draw_target = mutable_appearance(building_icon)
+		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
-		draw_target = mutable_appearance(file2use, t_state)
+		draw_target = mutable_appearance(file2use, t_state, layer = -layer2use)
 	draw_target.pixel_x += shift_pixel_x // NOVA EDIT ADDITION - Taur-friendly uniforms and suits
 
 	//Get the overlays for this item when it's being worn

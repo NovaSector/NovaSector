@@ -1,7 +1,7 @@
 /turf/closed/wall
 	name = "wall"
-	desc = "A huge chunk of iron used to separate rooms." //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
-	icon = 'icons/turf/walls/wall.dmi'
+	desc = "A huge chunk of iron used to separate rooms."
+	icon = 'icons/turf/walls/wall.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	explosive_resistance = 1

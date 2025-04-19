@@ -152,3 +152,30 @@
 	desc = "A horrible fleshy mass covers a boulder. It seems to slowly pulse, reacting to you near it"
 	icon_state = "vent_seed"
 	spawn_list = list(/obj/structure/ore_vent/random)
+
+/obj/item/forging/tongs/ashwalker
+	name = "primitive forging tongs"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+/datum/crafting_recipe/ash_recipe/ash_tongs
+	name = "Ash Forging Tongs"
+	result = /obj/item/forging/tongs/ashwalker
+
+/obj/item/forging/hammer/ashwalker
+	name = "primitive forging hammer"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+/datum/crafting_recipe/ash_recipe/ash_hammer
+	name = "Ash Forging Hammer"
+	result = /obj/item/forging/hammer/ashwalker
+
+/obj/item/forging/billow/ashwalker
+	name = "primitive forging billow"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
+
+/datum/crafting_recipe/ash_recipe/ash_billow
+	name = "Ash Forging Billow"
+	result = /obj/item/forging/billow/ashwalker

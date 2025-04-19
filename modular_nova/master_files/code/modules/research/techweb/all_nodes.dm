@@ -73,20 +73,13 @@
 /datum/techweb_node/office_equip/New()
 	design_ids += list(
 		"gbp_machine",
+		"pen",
 	)
 	return ..()
 
 /datum/techweb_node/augmentation/New()
 	design_ids += list(
 		"affection_module",
-	)
-	return ..()
-
-/datum/techweb_node/cafeteria_equip/New()
-	design_ids += list(
-		"bowl",
-		"drinking_glass",
-		"shot_glass",
 	)
 	return ..()
 
@@ -331,9 +324,5 @@
 /datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
-	)
-
-	design_ids -= list(
-		"borg_upgrade_pinpointer",
 	)
 	return ..()

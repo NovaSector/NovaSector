@@ -1,4 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - bugfix: "fixed Bouncers/Service Guards not being sorted with Service in the Orbit menu"

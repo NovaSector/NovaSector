@@ -2,6 +2,9 @@
 Lizard subspecies: ASHWALKERS
 */
 
+/datum/species/lizard
+	monkey_species = /datum/species/monkey/kobold
+
 /datum/species/lizard/ashwalker/
 	language_prefs_whitelist = list(/datum/language/ashtongue)
 

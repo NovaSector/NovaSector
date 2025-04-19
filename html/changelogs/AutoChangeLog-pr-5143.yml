@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes the examine panel character preview being tiny"
-  - bugfix: "fixes the character directory view preview being tiny"
