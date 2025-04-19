@@ -222,7 +222,7 @@ GLOBAL_LIST_INIT(name2neuroware, build_name2neurowarelist())
 /proc/build_name2neurowarelist()
 	var/list/neuroware_list = GLOB.name2reagent.Copy()
 	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
-		if(!(reagent.chemical_flags & REAGENT_NEUROWARE))
+		if(reagent.chemical_flags & REAGENT_NEUROWARE)
 			continue
 		neuroware_list.Remove(initial(reagent.name))
 	return neuroware_list
