@@ -17,17 +17,6 @@
 		neuro_status.adjust_program_count(-1); \
 }
 
-///Returns a random neuroware reagent type, with the option to filter by blacklist. Excludes aphrodisiac reagents.
-/proc/get_random_neuroware(list/blacklist)
-	if(isnull(blacklist))
-		return GLOB.name2neuroware[pick(GLOB.name2neuroware)]
-
-	var/reagents_to_pick = list()
-	for(var/reagent_name in GLOB.name2neuroware)
-		var/datum/reagent/reagent_type = GLOB.name2neuroware[reagent_name]
-		if(is_path_in_list(reagent_type, blacklist))
-			continue
-		if(istype(reagent_type, /datum/reagent/drug/aphrodisiac))
-			continue
-		reagents_to_pick += reagent_type
-	return pick(reagents_to_pick)
+///Returns a random neuroware reagent type. Excludes aphrodisiac reagents.
+/proc/get_random_neuroware()
+	return GLOB.name2neuroware_safe[pick(GLOB.name2neuroware_safe)]

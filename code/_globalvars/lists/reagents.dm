@@ -67,11 +67,6 @@ GLOBAL_LIST_INIT(blacklisted_metalgen_types, typecacheof(list(
 GLOBAL_LIST_INIT(name2reagent, build_name2reagentlist())
 /// list of all plan traits
 GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
-/// NOVA EDIT ADDITION - name2reagent list which omits neuroware reagents
-GLOBAL_LIST_INIT(name2reagent_normalized, build_name2reagentlist_normalized())
-/// name2reagent list which omits neuroware reagents
-GLOBAL_LIST_INIT(name2neuroware, build_name2neurowarelist())
-// NOVA EDIT END
 
 /// Initialises all /datum/reagent into a list indexed by reagent id
 /proc/init_chemical_reagent_list()
@@ -207,22 +202,3 @@ GLOBAL_LIST_INIT(name2neuroware, build_name2neurowarelist())
 	//build map with sorted keys
 	for(var/name as anything in only_names)
 		.[name] = name_to_reagent[name]
-
-// NOVA EDIT ADDITION BEGIN - Neuroware
-///Same as build_name2reagentlist but omits neuroware reagents
-/proc/build_name2reagentlist_normalized()
-	var/list/reagent_list = GLOB.name2reagent.Copy()
-	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
-		if(reagent.chemical_flags & REAGENT_NEUROWARE)
-			reagent_list.Remove(initial(reagent.name))
-	return reagent_list
-
-///Same as build_name2reagentlist but contains only neuroware reagents.
-/proc/build_name2neurowarelist()
-	var/list/neuroware_list = GLOB.name2reagent.Copy()
-	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
-		if(reagent.chemical_flags & REAGENT_NEUROWARE)
-			continue
-		neuroware_list.Remove(initial(reagent.name))
-	return neuroware_list
-// NOVA EDIT END
