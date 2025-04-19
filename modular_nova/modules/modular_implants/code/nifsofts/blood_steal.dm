@@ -6,13 +6,23 @@
 
 /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
 	name = "Blood Steal"
-	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF. <br> \
+	An overly long beginning of an elaborate name stamped into its side, and what seemed to be a beginning of a patent number, were scratched off. \
+	Instead, a label is suck on its side, reading 'Blood Steal'."
 	icon_state = "hc_mil_disk"
 	loaded_nifsoft = /datum/nifsoft/blood_steal
 
 /datum/nifsoft/blood_steal
-	name = "Blood Steal"
-	program_desc = "Connects the user's brain to a database containing the current monetary values for most items, allowing them to determine their value in realtime."
+	name = "Pseudoalchemical Hemodecompositional Maintenance System"
+	program_desc = "Pseudoalchemical Hemodecompositional Maintenance System is a combat-oriented nanite package for use by the CQB-oriented synthetic units as a last resort means \
+	of protection, as well as a tactical self-repair and maintenance system by the means of hemodecomposition and chemical infusion. While the exact specifics of the \
+	design were not provided by the higher management, citing high confidentiality, the post-activation changes to synthetic design allow us to speculate on its inner workings. \
+	Upon activation, test subjects' body is impregnated with a thin web of microscopic needle-vessels going through the entire out casing, be it synthetic skin, \
+	polymers from rubber to bulletproof plastic, or metallic alloys; specialised blood banks interconnected with the synthetic's bioreactors and hydraulic pumps; \
+	and quick-reaction nanite chambers inside the right, and left wrists. This results in their hands being capable to absorb blood on punch through excessive kinetic force, \
+	or produce small-scale kinetic shockwaves to proper their target. Limb integrity is preserved by quick-reaction nanites, enveloping the impact zone to mitigate \
+	immediate damage to the machine. Further testing allowed to figure out that, after extensive testing, the following increase in temporary durability allows units \
+	to 'parry' high-velocity projectiles with high chance of success. Organic tests pending approval, but deemed 'inhumane' by most project participants."
 	activation_cost = 50
 	active_mode = TRUE
 	active_cost = 15
