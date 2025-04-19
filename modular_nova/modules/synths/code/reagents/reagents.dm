@@ -50,6 +50,8 @@
 	var/remove_amount = 1 * REM * seconds_per_tick;
 	for(var/thing in affected_mob.reagents.reagent_list)
 		var/datum/reagent/reagent = thing
+		if(reagent.chemical_flags & REAGENT_NEUROWARE)
+			continue
 		if(reagent != src)
 			affected_mob.reagents.remove_reagent(reagent.type, remove_amount)
 	..()
@@ -79,7 +81,7 @@
 	color = "#cccccc"
 	overdose_threshold = 20
 	metabolization_rate = 1.25 * REAGENTS_METABOLISM
-	process_flags = REAGENT_SYNTHETIC | REAGENT_ORGANIC
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	affected_bodytype = BODYTYPE_ROBOTIC
 	affected_biotype = MOB_ROBOTIC
