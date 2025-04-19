@@ -29,11 +29,11 @@
  *	PRESCRIPTION GLASSES
  */
 
-/datum/loadout_item/glasses/prescription_glasses/thin
+/datum/loadout_item/glasses/thin
 	name = "Thin Glasses"
 	item_path = /obj/item/clothing/glasses/regular/thin
 
-/datum/loadout_item/glasses/prescription_glasses/better
+/datum/loadout_item/glasses/better
 	name = "Modern Glasses"
 	item_path = /obj/item/clothing/glasses/regular/modern
 
