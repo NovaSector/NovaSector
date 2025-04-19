@@ -63,7 +63,7 @@
 /obj/item/disk/neuroware/examine()
 	. = ..()
 	if(uses > 0)
-		. += span_notice("It has [uses] user license[length(uses) > 1 ? "s" : ""] left.")
+		. += span_notice("It has [uses] user license[uses > 1 ? "s" : ""] left.")
 	else
 		. += span_notice("It is spent.")
 
@@ -123,13 +123,14 @@
 /obj/item/disk/neuroware/proc/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(isnull(list_reagents))
 		return TRUE
+	// Prevent install if it would cause a reagent overdose
 	if(!can_overdose)
 		for(var/reagent_type as anything in list_reagents)
 			var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
 			if(!existing_reagent)
 				continue
-			var/existing_volume = existing_reagent.volume
-			if(existing_volume >= existing_reagent.overdose_threshold)
+			var/new_volume = list_reagents[reagent_type] + existing_reagent.volume
+			if(new_volume >= existing_reagent.overdose_threshold)
 				return FALSE
 
 	var/total_units = counterlist_sum(list_reagents)
