@@ -1,3 +1,5 @@
+///Indicates when neuroware reagents are processing by displaying a screen alert.
+///Removes itself when program_count reaches 0.
 /datum/status_effect/neuroware
 	id = "neuroware"
 	status_type = STATUS_EFFECT_UNIQUE
