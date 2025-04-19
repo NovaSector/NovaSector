@@ -20,7 +20,7 @@
 ///Returns a random neuroware reagent type, with the option to filter by blacklist. Excludes aphrodisiac reagents.
 /proc/get_random_neuroware(list/blacklist)
 	if(isnull(blacklist))
-		return pick(GLOB.name2neuroware)
+		return GLOB.name2neuroware[pick(GLOB.name2neuroware)]
 
 	var/reagents_to_pick = list()
 	for(var/reagent_name in GLOB.name2neuroware)
