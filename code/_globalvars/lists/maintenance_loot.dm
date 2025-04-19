@@ -141,18 +141,18 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/reagent_containers/cup/bottle/random_buffer = 2,
 		/obj/item/reagent_containers/cup/rag = 1,
 		/obj/item/reagent_containers/hypospray/medipen/pumpup = 2,
-		/obj/item/disk/neuroware/maintenance = 2, // NOVA EDIT ADDITION
 		/obj/item/reagent_containers/syringe = 1,
 		/obj/item/stock_parts/power_store/cell/lead = 1,
 		/obj/item/storage/box/matches = 1,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 1,
+		/obj/item/disk/neuroware/pumpup = 2, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/civil_defense/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/frontier/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/combat_surgeon/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/stack/medical/suture = 1, // NOVA EDIT ADDITION
 		/obj/item/stack/medical/ointment/red_sun = 1, // NOVA EDIT ADDITION
 		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1, // NOVA EDIT ADDITION
-		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine =1, // NOVA EDIT ADDITION
+		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine = 1, // NOVA EDIT ADDITION
 		) = 1,
 
 	list(//food
