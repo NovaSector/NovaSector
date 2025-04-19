@@ -62,3 +62,11 @@
 	price_max = CARGO_CRATE_VALUE * 5
 	availability_prob = 40
 
+/datum/market_item/consumable/overclock
+	name = "Homebrew Overclock Neuroware"
+	desc = "A hacked neuroware chip containing someone's homebrew neurocomputing program. This one mimics the effects of adrenaline."
+	item = /obj/item/disk/neuroware/pumpup
+	stock_max = 3
+	price_min = PAYCHECK_CREW * 0.2
+	price_max = PAYCHECK_CREW * 0.4
+	availability_prob = 90

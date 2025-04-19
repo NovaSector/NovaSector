@@ -23,6 +23,7 @@
 		// NOVA EDIT BEGIN
 		/obj/item/condom_pack,
 		/obj/item/gbp_punchcard,
+		/obj/item/disk/neuroware,
 		// NOVA EDIT END
 		/obj/item/clothing/accessory/dogtag,
 		/obj/item/coin,

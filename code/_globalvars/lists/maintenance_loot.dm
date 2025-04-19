@@ -59,6 +59,7 @@ GLOBAL_LIST_INIT(trash_loot, list(//junk: useless, very easy to get, or ghetto c
 
 		/obj/item/reagent_containers/applicator/pill/maintenance/achievement = 1,
 		/obj/item/toy/eightball = 1,
+		/obj/item/disk/neuroware/maintenance = 1, // NOVA EDIT ADDITION
 		) = 8,
 
 	list(//tier 1 stock parts
@@ -107,8 +108,8 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/storage/belt/fannypack = 1,
 		/obj/item/storage/wallet/random = 1,
 		/obj/item/clothing/mask/gas/atmos/frontier_colonist = 1, // NOVA EDIT ADDITION
-		/obj/item/radio/headset/headset_frontier_colonist = 1, // NOVA EDIT ADDITION 
-		/obj/item/clothing/suit/frontier_colonist_flak = 1, // NOVA EDIT ADDITION 
+		/obj/item/radio/headset/headset_frontier_colonist = 1, // NOVA EDIT ADDITION
+		/obj/item/clothing/suit/frontier_colonist_flak = 1, // NOVA EDIT ADDITION
 		/obj/item/clothing/head/frontier_colonist_helmet = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/pouch/cin_general = 1, // NOVA EDIT ADDITION
 		) = 1,
@@ -140,10 +141,11 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/reagent_containers/cup/bottle/random_buffer = 2,
 		/obj/item/reagent_containers/cup/rag = 1,
 		/obj/item/reagent_containers/hypospray/medipen/pumpup = 2,
+		/obj/item/disk/neuroware/maintenance = 2, // NOVA EDIT ADDITION
 		/obj/item/reagent_containers/syringe = 1,
 		/obj/item/stock_parts/power_store/cell/lead = 1,
 		/obj/item/storage/box/matches = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 1, 
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 1,
 		/obj/item/storage/medkit/civil_defense/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/frontier/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/combat_surgeon/stocked = 1, // NOVA EDIT ADDITION
