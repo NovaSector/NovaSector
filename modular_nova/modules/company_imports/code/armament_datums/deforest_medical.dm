@@ -154,6 +154,22 @@
 /datum/armament_entry/company_import/deforest/medpens/pentibinin
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin
 
+/datum/armament_entry/company_import/deforest/medpens
+	subcategory = "Medical Neuroware Chips"
+	cost = PAYCHECK_LOWER * 3
+
+/datum/armament_entry/company_import/deforest/first_aid/reset_neuroware
+	item_type = /obj/item/disk/neuroware/reset
+
+/datum/armament_entry/company_import/deforest/first_aid/brain_neuroware
+	item_type = /obj/item/disk/neuroware/brain
+
+/datum/armament_entry/company_import/deforest/first_aid/synaptizine_neuroware
+	item_type = /obj/item/disk/neuroware/synaptizine
+
+/datum/armament_entry/company_import/deforest/first_aid/psicodine_neuroware
+	item_type = /obj/item/disk/neuroware/psicodine
+
 // Autoinjectors for fighting
 
 /datum/armament_entry/company_import/deforest/medpens_stim
@@ -239,6 +255,10 @@
 /datum/armament_entry/company_import/deforest/equipment/medstation
 	item_type = /obj/item/wallframe/frontier_medstation
 	cost = PAYCHECK_COMMAND * 5
+
+/datum/armament_entry/company_import/deforest/equipment/cyber_repair_paste
+	item_type = /obj/item/cybernetic_repair_paste
+	cost = PAYCHECK_COMMAND * 2
 
 // Advanced implants, some of these can be printed but this is a way to get them before tech if you REALLY wanted
 
