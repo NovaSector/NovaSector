@@ -511,7 +511,7 @@
 			for(var/r in target.reagents.reagent_list)
 				var/datum/reagent/reagent = r
 				// NOVA EDIT ADDITION BEGIN - Neuroware
-				if(reagent.chemical_flags & REAGENT_NEUROWARE)
+				if(reagent.chemical_flags == REAGENT_NEUROWARE)
 					neuroware_list += "<span class='notice ml-2'>[reagent.name]</span><br>"
 				// NOVA EDIT END
 				if(reagent.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
