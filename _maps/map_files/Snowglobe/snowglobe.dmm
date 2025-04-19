@@ -15905,7 +15905,7 @@
 /area/station/command/heads_quarters/blueshield)
 "enc" = (
 /obj/structure/cable,
-/obj/structure/flippedtable,
+/obj/effect/spawner/structure/flipped_table,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_office)

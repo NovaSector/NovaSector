@@ -36018,7 +36018,7 @@
 /area/station/engineering/atmos/pumproom)
 "gTg" = (
 /obj/effect/decal/cleanable/glass,
-/obj/structure/flippedtable{
+/obj/effect/spawner/structure/flipped_table{
 	dir = 4
 	},
 /obj/structure/grille/broken,
@@ -46625,7 +46625,7 @@
 /area/station/maintenance/abandon_art_studio)
 "iYN" = (
 /obj/item/clothing/under/rank/security/detective,
-/obj/item/clothing/suit/jacket/det_suit{
+/obj/item/clothing/suit/toggle/jacket/det_trench{
 	icon_state = "curator"
 	},
 /obj/item/clothing/head/fedora/det_hat{
@@ -88387,7 +88387,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage)
 "qWn" = (
-/obj/structure/flippedtable{
+/obj/effect/spawner/structure/flipped_table{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -104109,11 +104109,11 @@
 /area/station/engineering/transit_tube)
 "tUC" = (
 /obj/structure/window/spawner/directional/south,
-/obj/item/clothing/shoes/cowboyboots{
+/obj/item/clothing/shoes/cowboy{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/clothing/shoes/cowboyboots/black{
+/obj/item/clothing/shoes/cowboy/black{
 	pixel_y = 8
 	},
 /obj/item/clothing/shoes/jungleboots{
@@ -120787,7 +120787,7 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/medical/central)
 "xbC" = (
-/obj/structure/flippedtable,
+/obj/effect/spawner/structure/flipped_table,
 /obj/machinery/light/broken/directional/north,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,

@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "the icecat spawner will no longer ignore you when you try to spawn in as one"

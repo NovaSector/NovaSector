@@ -136,6 +136,9 @@
 #define TRAIT_R_SMALL "small_chassis"
 /// Any model that has a custom front panel
 #define TRAIT_R_UNIQUEPANEL "unique_openpanel"
+/// Any model that has extra rest options
+#define TRAIT_RESTING_ALTS "extra_resting_alts"
+
 
 // Lewd traits
 #define TRAIT_MASOCHISM "masochism"

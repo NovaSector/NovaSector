@@ -95,6 +95,7 @@
 
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	damage = 5
+	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/buckshot/milspec
 	desc = "A hot-loaded 12 gauge milspec buckshot shell, used by various paramilitaries and mercenary forces. Probably not legal to use under corporate regulations."
@@ -108,6 +109,7 @@
 	wound_falloff_tile = -0.25
 	speed = 1.5
 	armour_penetration = 5
+	// weak_against_armour = FALSE // Probably don't uncomment this unless you have a really compelling reason.
 
 /obj/projectile/bullet/shotgun_slug
 	damage = 50 // based on old stats
@@ -133,6 +135,7 @@
 /obj/projectile/bullet/pellet/shotgun_rubbershot
 	stamina = 10
 	speed = 1
+	weak_against_armour = TRUE
 
 /obj/item/ammo_casing/shotgun/magnum
 	name = "magnum blockshot shell"

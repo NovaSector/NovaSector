@@ -11,6 +11,10 @@
 	var/last_message_time = 0
 	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 
+/obj/item/organ/brain/synth/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "robot", BUBBLE_ICON_PRIORITY_ORGAN)
+
 /obj/item/organ/brain/synth/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
 
