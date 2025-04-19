@@ -158,16 +158,19 @@
 	subcategory = "Medical Neuroware Chips"
 	cost = PAYCHECK_LOWER * 3
 
-/datum/armament_entry/company_import/deforest/first_aid/reset_neuroware
+/datum/armament_entry/company_import/deforest/neuroware/reset
 	item_type = /obj/item/disk/neuroware/reset
 
-/datum/armament_entry/company_import/deforest/first_aid/brain_neuroware
+/datum/armament_entry/company_import/deforest/neuroware/brain
 	item_type = /obj/item/disk/neuroware/brain
 
-/datum/armament_entry/company_import/deforest/first_aid/synaptizine_neuroware
+/datum/armament_entry/company_import/deforest/neuroware/neuroware/happiness
+	item_type = /obj/item/disk/neuroware/happiness
+
+/datum/armament_entry/company_import/deforest/neuroware/synaptizine
 	item_type = /obj/item/disk/neuroware/synaptizine
 
-/datum/armament_entry/company_import/deforest/first_aid/psicodine_neuroware
+/datum/armament_entry/company_import/deforest/neuroware/psicodine
 	item_type = /obj/item/disk/neuroware/psicodine
 
 // Autoinjectors for fighting

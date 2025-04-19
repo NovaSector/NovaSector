@@ -79,9 +79,6 @@
 	subcategory = "Donk Co. Neuroware Chips"
 	cost = PAYCHECK_CREW
 
-/datum/armament_entry/company_import/donk/merch/neuroware/happiness
-	item_type = /obj/item/disk/neuroware/happiness
-
 /datum/armament_entry/company_import/donk/merch/neuroware/blastoff
 	item_type = /obj/item/disk/neuroware/blastoff
 
