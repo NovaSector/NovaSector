@@ -1,12 +1,18 @@
 #define MARTIALART_BLOODSTEAL "blood steal"
 
-/obj/item/disk/nifsoft_uploader/blood_steal
+/obj/item/disk/nifsoft_uploader/mil_grade
+	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "mil_disk"
+
+/obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
 	name = "Blood Steal"
+	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "hc_mil_disk"
 	loaded_nifsoft = /datum/nifsoft/blood_steal
 
 /datum/nifsoft/blood_steal
 	name = "Blood Steal"
-	program_desc = "Connects the user's brain to a database containing the current monetary values for most items, allowing them to determine their value in realtime"
+	program_desc = "Connects the user's brain to a database containing the current monetary values for most items, allowing them to determine their value in realtime."
 	activation_cost = 50
 	active_mode = TRUE
 	active_cost = 15
@@ -20,13 +26,11 @@
 
 /datum/nifsoft/blood_steal/activate()
 	. = ..()
-	var/obj/item/organ/cyberimp/brain/nif/installed_nif = parent_nif?.resolve()
 	if(active)
 		if(!issynthetic(linked_mob))
-			to_chat(linked_mob, span_warning("Organic tissue detected! Augmentation aborted."))
-			installed_nif.power_usage -= active_cost
-			active = FALSE
-			return FALSE
+			to_chat(linked_mob, span_warning("Organic tissue detected! Augmentation might result in:"))
+			to_chat(linked_mob, span_warning("Tissue necrosis, post-application open fractures and avulsions, acute hemolytic transfusion reaction, spontaneous outbursts of pain, and severe psychosis."))
+			to_chat(linked_mob, span_warning("Advised program uninstallation. Have a secure day."))
 		martial_to_learn.teach(linked_mob)
 		linked_mob.log_message("learned the martial art [martial_to_learn]", LOG_ATTACK, color = "orange")
 		to_chat(linked_mob, span_danger("SEVMTE8gV09STEQ="))
@@ -58,12 +62,14 @@
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_PRE_BULLET_ACT))
 	return ..()
 
-/datum/martial_art/blood_steal/disarm_act(mob/living/attacker, mob/living/defender)
-	knuckleblaster(attacker, defender)
-	return MARTIAL_ATTACK_SUCCESS
-
 /datum/martial_art/blood_steal/harm_act(mob/living/attacker, mob/living/defender)
 	feedbacker(attacker, defender)
+
+	return MARTIAL_ATTACK_SUCCESS
+
+/datum/martial_art/blood_steal/disarm_act(mob/living/attacker, mob/living/defender)
+	knuckleblaster(attacker, defender)
+
 	return MARTIAL_ATTACK_SUCCESS
 
 /datum/martial_art/blood_steal/proc/feedbacker(mob/living/attacker, mob/living/defender)
@@ -131,12 +137,16 @@
 			do_sparks(2, FALSE, carbon_defender.loc)
 			playsound(carbon_defender, 'modular_nova/modules/medical/sound/robotic_slash_T2.ogg', 100)
 	defender.blood_volume -= 10
+
 	if(!isliving(attacker))
 		return
 	var/mob/living/living_attacker = attacker
 	living_attacker.heal_ordered_damage(5, damage_heal_order)
 	if(living_attacker.blood_volume < BLOOD_VOLUME_MAXIMUM)
 		living_attacker.blood_volume += 5
+	if(isbodypart(active_arm) && !IS_ROBOTIC_LIMB(active_arm))
+		living_attacker.apply_damage(damage*0.75, TOX)
+		living_attacker.blood_volume -= 7
 
 	new /obj/effect/temp_visual/crit(get_turf(defender))
 
@@ -159,6 +169,13 @@
 	defender.throw_at(throw_target, 2, 7, attacker)
 	defender.apply_damage(attacker == defender ? 20 : 10, attacker.get_attack_type())
 	defender.adjustStaminaLoss(10)
+
+	var/obj/item/bodypart/arm/active_arm = attacker.get_active_hand()
+	var/mob/living/carbon/carbon_attacker = attacker
+	if(isbodypart(active_arm) && !IS_ROBOTIC_LIMB(active_arm))
+		carbon_attacker.apply_damage(attacker == defender ? 10 : 5, attacker.get_attack_type(), active_arm.body_zone)
+		carbon_attacker.cause_wound_of_type_and_severity(WOUND_BLUNT, active_arm, WOUND_SEVERITY_SEVERE)
+
 	log_combat(attacker, defender, "knuckleblasted")
 
 	return TRUE
@@ -179,7 +196,7 @@
 	return TRUE
 
 /// Handles our parrying signals, similar to hit_reaction() on items. Only parries while not-V1 is in throw mode.
-/datum/martial_art/blood_steal/proc/attempt_parry(mob/living/attacker, obj/projectile/hitting_projectile, def_zone)
+/datum/martial_art/blood_steal/proc/attempt_parry(mob/living/attacker, obj/projectile/hitting_projectile)
 	SIGNAL_HANDLER
 
 	if(QDELETED(hitting_projectile) || hitting_projectile.deletion_queued)
@@ -187,6 +204,16 @@
 
 	if(!can_deflect(attacker))
 		return NONE
+
+	var/obj/item/bodypart/affecting = attacker.get_active_hand()
+	if(isbodypart(affecting) && !IS_ROBOTIC_LIMB(affecting))
+		var/new_def_zone = affecting.body_zone
+		hitting_projectile.def_zone = new_def_zone
+		attacker.visible_message(span_warning("[attacker] attempts parrying [hitting_projectile] with [attacker.p_their()] bare hand... and cloves it asunder!"))
+		COOLDOWN_START(src, parry_cooldown_timer, 5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(parry_availability), attacker), 5 SECONDS)
+		attacker.projectile_hit(hitting_projectile, new_def_zone)
+		return COMPONENT_BULLET_ACTED
 
 	hitting_projectile.set_angle((hitting_projectile.angle + 180) % 360 + rand(-3, 3))
 	hitting_projectile.visible_message(span_warning("[attacker] expertly parries [hitting_projectile] with [attacker.p_their()] bare hand!"))

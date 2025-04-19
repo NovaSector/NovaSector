@@ -73,7 +73,7 @@
 /datum/market_item/weapon/ultranif
 	name = "Blood Steal NIFsoft"
 	desc = "Reverse-engineered nanite template."
-	item = /obj/item/disk/nifsoft_uploader/blood_steal
+	item = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
 	price_min = CARGO_CRATE_VALUE * 12
 	price_max = CARGO_CRATE_VALUE * 24
 	availability_prob = 40
