@@ -26,6 +26,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 	log_admin("[key_name(usr)] toggled Voice Barks.")
 	message_admins("[key_name_admin(usr)] toggled Voice Barks.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Voice Bark", "[GLOB.blooper_allowed ? "Enabled" : "Disabled"]")) // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+
 /proc/toggle_blooper(toggle = null)
 	if(toggle != null)
 		if(toggle != GLOB.blooper_allowed)

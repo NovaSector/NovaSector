@@ -1,6 +1,4 @@
 #define VOICE_TYPE_NONE "None"
-#define VOICE_TYPE_TTS "Text-to-speech"
-#define VOICE_TYPE_BARK "Vocal Barks"
 
 /datum/preference/choiced/voice/is_accessible(datum/preferences/preferences)
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/voice_type)
