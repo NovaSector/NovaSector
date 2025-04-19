@@ -270,3 +270,35 @@
 /datum/loadout_item/erp/incubus_draft
 	name = "Incubus Draft Bottle"
 	item_path = /obj/item/reagent_containers/cup/bottle/incubus_draft
+
+/datum/loadout_item/erp/crocin_neuroware
+	name = "EroStim Neuroware Chip"
+	item_path = /obj/item/disk/neuroware/crocin
+
+/datum/loadout_item/erp/hexacrocin_neuroware
+	name = "EroStim Deluxe Neuroware Chip"
+	item_path = /obj/item/disk/neuroware/hexacrocin
+
+/datum/loadout_item/erp/camphor_neuroware
+	name = "AphroCalm Neuroware Chip"
+	item_path = /obj/item/disk/neuroware/camphor
+
+/datum/loadout_item/erp/pentacamphor_neuroware
+	name = "Nobido Neuroware Chip"
+	item_path = /obj/item/disk/neuroware/pentacamphor
+
+/datum/loadout_item/erp/crocin_neuroware
+	name = "EroStim Neuroware Box"
+	item_path = /obj/item/storage/box/flat/neuroware/crocin
+
+/datum/loadout_item/erp/hexacrocin_neuroware
+	name = "EroStim Deluxe Neuroware Box"
+	item_path = /obj/item/storage/box/flat/neuroware/hexacrocin
+
+/datum/loadout_item/erp/camphor_neuroware
+	name = "AphroCalm Neuroware Box"
+	item_path = /obj/item/storage/box/flat/neuroware/camphor
+
+/datum/loadout_item/erp/pentacamphor_neuroware
+	name = "Nobido Neuroware Box"
+	item_path = /obj/item/storage/box/flat/neuroware/pentacamphor
