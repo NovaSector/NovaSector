@@ -63,6 +63,17 @@ End of the copy-paste.
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
+	unique_reskin = list(
+		"Eyepatch" = list(
+			RESKIN_ICON_STATE = "medpatch",
+			RESKIN_WORN_ICON_STATE = "medpatch"
+		),
+		"Fake Blindfold" = list(
+			RESKIN_ICON_STATE = "medfold",
+			RESKIN_WORN_ICON_STATE = "medfold"
+		)
+	)
+
 /obj/item/clothing/glasses/hud/eyepatch/meson
 	name = "mesons HUD eyepatch"
 	desc = "A HUD designed to interface directly with optical nerves. This one displays basic structural and terrain layouts through walls, regardless of lighting conditions."
