@@ -7,7 +7,9 @@
 	plane = GAME_PLANE
 	var/splatter_type = "splatter"
 
-/obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir)
+/obj/effect/temp_visual/dir_setting/bloodsplatter/Initialize(mapload, set_dir, set_color = BLOOD_COLOR_RED)
+	if(set_color)
+		color = set_color
 	if(ISDIAGONALDIR(set_dir))
 		icon_state = "[splatter_type][pick(1, 2, 6)]"
 	else
@@ -42,7 +44,13 @@
 	animate(src, pixel_x = target_pixel_x, pixel_y = target_pixel_y, alpha = 0, time = duration)
 
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter
-	splatter_type = "xsplatter"
+	splatter_type = "splatter"
+
+/obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter/Initialize(mapload, set_dir, set_color)
+	if(isnull(set_color))
+		var/datum/blood_type/xeno_blood_type = GLOB.blood_types[/datum/blood_type/xeno::name]
+		set_color = xeno_blood_type.get_color()
+	return ..(set_color = set_color)
 
 /obj/effect/temp_visual/dir_setting/speedbike_trail
 	name = "speedbike trails"

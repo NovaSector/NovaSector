@@ -100,8 +100,19 @@
 	var/is_powered = !(machine_stat & (BROKEN|NOPOWER))
 	if(safety_mode)
 		is_powered = FALSE
-	icon_state = icon_name + "[is_powered]" + "[(bloody ? "bld" : "")]" // add the blood tag at the end
+	icon_state = icon_name + "[is_powered]"
 	return ..()
+
+/obj/machinery/recycler/update_overlays()
+	. = ..()
+	if(bloody)
+		var/mutable_appearance/blood_overlay = mutable_appearance(icon, "[icon_state]bld", src, appearance_flags = RESET_COLOR)
+		var/blood_dna = GET_ATOM_BLOOD_DNA(src)
+		if(blood_dna)
+			blood_overlay.color = get_blood_dna_color(blood_dna)
+		else
+			blood_overlay.color = "#FF291E"
+		. += blood_overlay
 
 /obj/machinery/recycler/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -248,11 +259,11 @@
 
 	if(!bloody && !issilicon(L))
 		bloody = TRUE
-		update_appearance()
 
 	// Instantly lie down, also go unconscious from the pain, before you die.
 	L.Unconscious(100)
 	L.adjustBruteLoss(crush_damage)
+	update_appearance()
 
 /obj/machinery/recycler/on_deconstruction(disassembled)
 	safety_mode = TRUE

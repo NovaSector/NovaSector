@@ -59,8 +59,11 @@
 
 	if(iscarbon(exposed_mob))
 		var/mob/living/carbon/exposed_carbon = exposed_mob
-		if(exposed_carbon.get_blood_id() == type && ((methods & INJECT) || ((methods & INGEST) && HAS_TRAIT(exposed_carbon, TRAIT_DRINKS_BLOOD))))
-			if(!data || !(data["blood_type"] in get_safe_blood(exposed_carbon.dna.blood_type)))
+		var/datum/blood_type/carbon_blood_type = exposed_carbon.dna.blood_type
+		if(carbon_blood_type.reagent_type == type && ((methods & INJECT) || ((methods & INGEST) && HAS_TRAIT(exposed_carbon, TRAIT_DRINKS_BLOOD))))
+			var/datum/blood_type/recipient_blood_type = exposed_carbon.dna.blood_type // NOVA EDIT CHANGE
+			var/datum/blood_type/donor_blood_type = data["blood_type"]
+			if(!(donor_blood_type.type in recipient_blood_type.compatible_types)) // NOVA EDIT
 				exposed_carbon.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
 			else
 				/* NOVA EDIT - Rebalancing blood for Hemophages - ORIGINAL:
@@ -85,6 +88,9 @@
 	. = ..()
 	if(istype(data))
 		SetViruses(src, data)
+		var/datum/blood_type/blood_type = data["blood_type"]
+		if(blood_type && blood_type.color != "#FF291E")
+			color = blood_type.color
 
 /datum/reagent/blood/on_merge(list/mix_data)
 	if(data && mix_data)
@@ -1237,10 +1243,12 @@
 	color = "#606060" //pure iron? let's make it violet of course
 	ph = 6
 
+/* // NOVA EDIT REMOVAL START
 /datum/reagent/iron/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
 		affected_mob.blood_volume += BLOOD_REGEN_FACTOR * seconds_per_tick
+*/ // NOVA EDIT REMOVAL END
 
 /datum/reagent/gold
 	name = "Gold"

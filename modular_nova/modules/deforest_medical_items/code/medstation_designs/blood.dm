@@ -107,3 +107,68 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_DEFOREST_BLOOD,
 	)
+
+/datum/design/organic_bloodbag_slimeperson
+	name = "TOX Blood Pack"
+	id = "organic_bloodbag_slimeperson"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/toxin
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)
+
+/datum/design/organic_bloodbag_haemocyanin
+	name = "Haemocyanin Blood Pack"
+	id = "organic_bloodbag_haemocyanin"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/haemocyanin
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)
+
+/datum/design/organic_bloodbag_chlorocruorin
+	name = "Chlorocruorin Blood Pack"
+	id = "organic_bloodbag_chlorocruorin"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/chlorocruorin
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)
+
+/datum/design/organic_bloodbag_hemerythrin
+	name = "Hemerythrin Blood Pack"
+	id = "organic_bloodbag_hemerythrin"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/hemerythrin
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)
+/datum/design/organic_bloodbag_pinnaglobin
+	name = "Pinnaglobin Blood Pack"
+	id = "organic_bloodbag_pinnaglobin"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/pinnaglobin
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)
+
+/datum/design/organic_bloodbag_exotic
+	name = "Exotic Blood Pack"
+	id = "organic_bloodbag_exotic"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/exotic
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)
