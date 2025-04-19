@@ -1,9 +1,5 @@
 #define MARTIALART_BLOODSTEAL "blood steal"
 
-/obj/item/disk/nifsoft_uploader/mil_grade
-	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF."
-	icon_state = "mil_disk"
-
 /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
 	name = "Blood Steal"
 	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF. <br> \

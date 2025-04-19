@@ -215,4 +215,8 @@
 
 	attempt_software_install(mob)
 
+/obj/item/disk/nifsoft_uploader/mil_grade
+	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF."
+	icon_state = "mil_disk"
+
 #undef DEFAULT_NIFSOFT_COOLDOWN
