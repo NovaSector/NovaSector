@@ -21,22 +21,22 @@
 		if((reagent.process_flags & REAGENT_SYNTHETIC))
 			if(processor_flags & PROCESS_SYNTHETIC)
 				return TRUE
+			// SYNTHETIC-oriented neuroware can't affect non-synthetics
+			if(reagent.chemical_flags == REAGENT_NEUROWARE)
+				return FALSE
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(istype(owner_liver, /obj/item/organ/liver/synth))
-				// SYNTHETIC-oriented neuroware can't affect non-synthetics
-				if(reagent.chemical_flags == REAGENT_NEUROWARE)
-					return FALSE
 				return TRUE
 
 		// ORGANIC-oriented reagents require PROCESS_ORGANIC or a non-synth liver
 		if((reagent.process_flags & REAGENT_ORGANIC))
 			if(processor_flags & PROCESS_ORGANIC)
 				return TRUE
+			// ORGANIC-oriented drugs can't affect synthetic humanoids
+			if((processor_flags == PROCESS_SYNTHETIC) && !(reagent.process_flags & REAGENT_SYNTHETIC) && istype(reagent, /datum/reagent/drug))
+				return FALSE
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(!istype(owner_liver, /obj/item/organ/liver/synth))
-				// ORGANIC-oriented drugs can't affect synthetic humanoids
-				if((processor_flags == PROCESS_SYNTHETIC) && !(reagent.process_flags & REAGENT_SYNTHETIC) && istype(reagent, /datum/reagent/drug))
-					return FALSE
 				return TRUE
 
 		return FALSE
