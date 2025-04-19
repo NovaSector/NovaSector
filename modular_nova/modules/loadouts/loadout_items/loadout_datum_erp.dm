@@ -288,7 +288,7 @@
 	item_path = /obj/item/disk/neuroware/pentacamphor
 
 /datum/loadout_item/erp/crocin_neuroware_box
-	name = "Neuroware Chips Box (Kaleido)"
+	name = "Neuroware Chips Box (EroStim)"
 	item_path = /obj/item/storage/box/flat/neuroware/crocin
 
 /datum/loadout_item/erp/hexacrocin_neuroware_box

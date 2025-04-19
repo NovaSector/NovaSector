@@ -264,7 +264,7 @@
 	item_path = /obj/item/storage/box/flat/neuroware/thc
 
 /datum/loadout_item/pocket_items/neuroware_mindbreaker
-	name = "Neuroware Chips Box (PosiBlaster)"
+	name = "Neuroware Chips Box (PosiBlaster64)"
 	item_path = /obj/item/storage/box/flat/neuroware/mindbreaker
 
 /*
