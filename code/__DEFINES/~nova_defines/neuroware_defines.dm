@@ -11,6 +11,7 @@
 
 ///Allow neuroware status effect to remove itself when program_count reaches 0
 #define NEUROWARE_METABOLIZE_HELPER(path) ##path/on_mob_end_metabolize(mob/living/affected_mob) {\
+	ASSERT(ispath(path, /datum/reagent), "NEUROWARE_METABOLIZE_HELPER() was passed an invalid typepath! ([path]). It needs to be a typepath derived from /datum/reagent."); \
 	. = ..(); \
 	var/datum/status_effect/neuroware/neuro_status = affected_mob.has_status_effect(/datum/status_effect/neuroware); \
 	if(!isnull(neuro_status)) \
