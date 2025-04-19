@@ -83,4 +83,4 @@
 		desc = pick(maint_neuroware_descs)
 		icon_state = pick(maint_neuroware_casings)
 		greyscale_colors = pick(maint_neuroware_colors)
-	. = ..()
+	return ..()
