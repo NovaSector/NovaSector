@@ -95,7 +95,7 @@
 				// NOVA EDIT ADDITION BEGIN - Neuroware
 				if(chem.chemical_flags == REAGENT_NEUROWARE)
 					continue
-				// NOVA EDIT END
+				// NOVA EDIT ADDITION END
 				target.reagents.remove_reagent(chem.type, clamp(round(chem.volume * 0.22, 0.2), 0.4, 10))
 	display_results(
 		user,
