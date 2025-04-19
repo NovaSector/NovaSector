@@ -45,3 +45,6 @@
 
 /datum/action/changeling/sting/cryo
 	hide_from_quirk_changeling = TRUE
+
+/datum/action/changeling/fakedeath
+ 	hide_from_quirk_changeling = TRUE
