@@ -14,5 +14,4 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/consumable/laughter/synth)
 	self_consuming = TRUE
 	purge_multiplier = 0
 
-
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/consumable/superlaughter/synth)
