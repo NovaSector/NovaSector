@@ -7,7 +7,7 @@
 	list_reagents = list(
 		/datum/reagent/toxin/chloralhydrate/synth = 20,
 		/datum/reagent/toxin/mutetoxin/synth = 15,
-		/datum/reagent/toxin/staminatoxin/synth = 10
+		/datum/reagent/toxin/staminatoxin/synth = 10,
 	)
 	manufacturer_tag = NEUROWARE_SYNDIE
 	// Can be used on the target instantly
