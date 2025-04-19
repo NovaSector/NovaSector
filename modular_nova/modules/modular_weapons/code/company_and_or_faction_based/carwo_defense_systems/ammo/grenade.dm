@@ -247,6 +247,124 @@
 
 	ammo_type = /obj/item/ammo_casing/c980grenade/riot
 
+
+//.980 sting grenade
+
+/obj/item/ammo_casing/c980grenade/stingball
+	name = ".980 Tydhouer stingball grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Explodes into shrapnel on detonation."
+
+	icon_state = "980_explosive"
+
+	projectile_type = /obj/projectile/bullet/c980grenade/stingball
+
+	custom_materials = AMMO_MATS_GRENADE_SHRAPNEL
+	advanced_print_req = TRUE
+
+	harmful = TRUE
+
+
+/obj/projectile/bullet/c980grenade/stingball
+	name = ".980 Tydhouer stingball grenade"
+
+	/// What type of casing should we put inside the bullet to act as shrapnel later
+	var/casing_to_spawn = /obj/item/grenade/c980payload
+
+
+/obj/projectile/bullet/c980grenade/stingball/fuse_activation(atom/target)
+	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
+	shrapnel_maker.detonate()
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	qdel(shrapnel_maker)
+
+
+/obj/item/ammo_box/c980grenade/stingball
+	name = "ammo box (.980 Tydhouer stingball)"
+	desc = "A box of four .980 Tydhouer stinbgall grenades. Instructions on the box indicate these are shrapnel rounds. It's also covered in hazard signs, odd."
+
+	icon_state = "980box_explosive"
+
+	ammo_type = /obj/item/ammo_casing/c980grenade/stingball
+
+
+/obj/item/grenade/c980payload
+	shrapnel_type = /obj/projectile/bullet/pellet/stingball
+	shrapnel_radius = 5
+	ex_dev = 0
+	ex_heavy = 0
+	ex_light = 0
+	ex_flame = 0
+
+
+/obj/projectile/bullet/shrsapnel/short_range
+	range = 4
+
+
+//.980 extinguisher grenade.
+/obj/item/ammo_casing/c980grenade/extinguisher
+	name = ".980 Tydhouer extinguisher foam grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Bursts into extinguishing foam."
+
+	icon_state = "980_gas"
+
+	projectile_type = /obj/projectile/bullet/c980grenade/extinguisher
+
+
+/obj/projectile/bullet/c980grenade/extinguisher
+	name = ".980 Tydhouer extinguisher foam grenade"
+
+/obj/projectile/bullet/c980grenade/extinguisher/fuse_activation(atom/target)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'sound/effects/bubbles/bubbles2.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/foam/foam = new()
+		foam.chemholder.add_reagent(/datum/reagent/firefighting_foam, 20)
+	foam.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	foam.start()
+
+//.980 atmoresin grenade
+/obj/item/ammo_casing/c980grenade/resin
+	name = ".980 Tydhouer resin grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Bursts into a resin walls."
+
+	icon_state = "980_gas"
+
+	projectile_type = /obj/projectile/bullet/c980grenade/resin
+
+
+/obj/projectile/bullet/c980grenade/resin
+	name = ".980 Tydhouer resin grenade"
+
+/obj/projectile/bullet/c980grenade/resin/fuse_activation(atom/target)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'sound/effects/bubbles/bubbles2.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/foam/foam = new()
+	foam.chemholder.add_reagent(/obj/effect/particle_effect/fluid/foam/metal/resin/halon, 10)
+	foam.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	foam.start()
+
+// .980 sonic powder grenade
+/obj/item/ammo_casing/c980grenade/flashbang
+	name = ".980 Tydhouer flashbang grenade"
+	desc = "A large grenade shell that will detonate at a range given to it by the gun that fires it. Bursts into a blinding bright flash."
+
+	icon_state = "980_gas"
+
+	projectile_type = /obj/projectile/bullet/c980grenade/flashbang
+
+
+/obj/projectile/bullet/c980grenade/flashbang
+	name = ".980 Tydhouer flashbang grenade"
+
+/obj/projectile/bullet/c980grenade/flashbang/fuse_activation(atom/target)
+	playsound(src, 'modular_nova/modules/modular_weapons/sounds/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
+	var/datum/effect_system/fluid_spread/smoke/chem/quick = new()
+	quick.chemholder.add_reagent(/datum/reagent/flash_powder, 50)
+	quick.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
+	quick.start()
+
+
+
 #undef AMMO_MATS_GRENADE
 #undef AMMO_MATS_GRENADE_SHRAPNEL
 #undef AMMO_MATS_GRENADE_INCENDIARY
