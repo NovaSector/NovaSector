@@ -20,7 +20,7 @@ const FeatureBlooperDropdownInput = (
   const { act } = useBackend();
 
   return (
-    <Stack>
+    <Stack g={0.5}>
       <Stack.Item grow>
         <FeatureDropdownInput {...props} />
       </Stack.Item>
