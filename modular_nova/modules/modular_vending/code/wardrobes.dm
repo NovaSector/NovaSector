@@ -60,6 +60,9 @@
 		/obj/item/clothing/mask/breath = 2,
 		/obj/item/disk/neuroware/reset = 2,
 		/obj/item/disk/neuroware/brain = 2, // for brain damage
+		/obj/item/disk/neuroware/synaptizine = 2,
+		/obj/item/disk/neuroware/psicodine = 2,
+		/obj/item/disk/neuroware/mindbreaker = 2,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
 		/obj/item/reagent_containers/syringe = 2,
 		/obj/item/reagent_containers/spray/hercuri/chilled = 2,
