@@ -7,11 +7,12 @@
 
 /obj/item/disk/neuroware/happiness
 	name = "SmileML 2565 neuroware"
-	desc = "A neuroware chip containing the 2565 edition of SmileML, which induces happiness and blocks psychological pain."
+	desc = "A neuroware chip containing the 2565 edition of SmileML, which induces happiness and blocks psychological pain. Multi-user license included."
 	icon_state = "chip_zenghu"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	list_reagents = list(/datum/reagent/drug/happiness/synth = 15)
 	manufacturer_tag = NEUROWARE_ZENGHU
+	uses = 2
 
 /obj/item/disk/neuroware/space_drugs
 	name = "Kaleido Demo neuroware"
