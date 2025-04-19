@@ -300,5 +300,5 @@
 	item_path = /obj/item/storage/box/flat/neuroware/camphor
 
 /datum/loadout_item/erp/pentacamphor_neuroware_box
-	name = "Neuroware Chips Box (Nobido Extreme)"
+	name = "Neuroware Chips Box (Nobido X-Treme)"
 	item_path = /obj/item/storage/box/flat/neuroware/pentacamphor

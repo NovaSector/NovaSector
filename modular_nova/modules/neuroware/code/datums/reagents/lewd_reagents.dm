@@ -8,7 +8,7 @@
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/aphrodisiac/camphor/synth)
 
 /datum/reagent/drug/aphrodisiac/camphor/pentacamphor/synth
-	name = "nobido-v2.exe"
+	name = "nobido-xtreme.exe"
 	chemical_flags = REAGENT_NEUROWARE
 	process_flags = REAGENT_SYNTHETIC
 	self_consuming = TRUE

@@ -8,7 +8,7 @@
 	is_lewd = TRUE
 
 /obj/item/disk/neuroware/pentacamphor
-	name = "Nobido neuroware"
+	name = "Nobido X-Treme neuroware"
 	desc = "A neuroware chip containing Nobido, a very powerful \"anaphrodisiac\" emulator which causes an extreme reduction in libido. Over-installing may cause brain damage."
 	list_reagents = list(/datum/reagent/drug/aphrodisiac/camphor/pentacamphor/synth = 10)
 	icon_state = "chip_nolewd"
