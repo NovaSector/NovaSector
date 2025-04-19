@@ -76,7 +76,9 @@
 
 /obj/item/disk/neuroware/maintenance/Initialize(mapload)
 	name = pick(maint_neuroware_names)
-	list_reagents = list(get_random_neuroware() = rand(10,50))
+	var/datum/reagent/random_reagent = get_random_neuroware()
+	list_reagents = list()
+	list_reagents[random_reagent] = rand(10, initial(random_reagent.overdose_threshold) - 1)
 	if(prob(30))
 		desc = pick(maint_neuroware_descs)
 		icon_state = pick(maint_neuroware_casings)
