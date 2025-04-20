@@ -24,6 +24,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	flags_cover = MASKCOVERSMOUTH
 	flags_inv = HIDEFACIALHAIR|HIDESNOUT
+	action_slots = ALL
 	var/mask_on = FALSE
 	var/breath_status = TRUE
 	var/time_to_choke = 12	// How long can breath hold

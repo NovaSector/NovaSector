@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "roundstart slimes have 30% less resistance to burns across their entire body, owch!"
