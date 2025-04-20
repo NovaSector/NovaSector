@@ -66,7 +66,7 @@
 		if(chem.chemical_flags == REAGENT_NEUROWARE)
 			continue
 		found_reagents = TRUE
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		if(chem.type in bloodfilter.whitelist)
 			return TRUE
 
@@ -74,7 +74,7 @@
 	if(!found_reagents)
 		bloodfilter.audible_message(span_notice("[bloodfilter] pings as it reports no chemicals detected in [target]'s blood."))
 		playsound(get_turf(target), 'sound/machines/ping.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	return FALSE
 
 /datum/surgery_step/filter_blood

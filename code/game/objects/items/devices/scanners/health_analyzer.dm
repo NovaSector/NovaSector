@@ -505,7 +505,7 @@
 
 		// NOVA EDIT ADDITION BEGIN - Neuroware
 		var/list/neuroware_list = list()
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		// Blood reagents
 		if(target.reagents.reagent_list.len)
 			for(var/r in target.reagents.reagent_list)
@@ -513,7 +513,7 @@
 				// NOVA EDIT ADDITION BEGIN - Neuroware
 				if(reagent.chemical_flags == REAGENT_NEUROWARE)
 					neuroware_list += "<span class='notice ml-2'>[reagent.name]</span><br>"
-				// NOVA EDIT END
+				// NOVA EDIT ADDITION END
 				if(reagent.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
 					continue
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
@@ -525,7 +525,7 @@
 			else
 				render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
 				render_list += jointext(neuroware_list + "<br>", "")
-		// NOVA EDIT END
+		// NOVA EDIT ADDITION END
 		if(!length(render_block)) //If no VISIBLY DISPLAYED reagents are present, we report as if there is nothing.
 			render_list += "<span class='notice ml-1'>Subject contains no reagents in their blood.</span><br>"
 		else
