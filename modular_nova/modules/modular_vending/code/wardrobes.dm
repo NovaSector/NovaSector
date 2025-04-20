@@ -82,7 +82,7 @@
 
 	contraband_nova = list(
 		/obj/item/organ/tongue/lizard/robot = 2,
-		/obj/item/disk/neuroware/overclock = 2,
+		/obj/item/disk/neuroware/pumpup = 2,
 		/obj/item/disk/neuroware/maintenance = 2,
 	)
 
