@@ -10,7 +10,7 @@
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/clothing/rings_righthand.dmi'
 	gender = NEUTER
 	w_class = WEIGHT_CLASS_TINY
-	body_parts_covered = NULL
+	body_parts_covered = null
 	strip_delay = 4 SECONDS
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
 	resistance_flags = FIRE_PROOF
