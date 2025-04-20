@@ -25,11 +25,21 @@ if [ -d ".git" ]; then
 fi
 # NOVA EDIT ADDITION START - Get all the .dmis and json configs from modular_nova
 mkdir -p \
-		$1/modular_nova
+		$1/modular_nova/ \
+		$1/modular_nova/master_files/icons \
+		$1/modular_nova/modules/GAGS/json_configs/ \
+		$1/modular_nova/modules/GAGS/nsfw/json_configs/
 
-find modular_nova/ -name \*.dmi -exec cp --parents {} $1 \;
-find modular_nova/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
-find modular_nova/modules/GAGS/nsfw/json_configs -name \*.json -exec cp --parents {} $1 \;
+rsync -av --include="*/" --include="*.dmi" --exclude="*" modular_nova/ $1 \;
+
+cp -r modular_nova/master_files/icons/* $1/modular_nova/master_files/icons/ \;
+cp -r modular_nova/modules/GAGS/json_configs/* $1/modular_nova/modules/GAGS/json_configs/ \;
+cp -r modular_nova/modules/GAGS/nsfw/json_configs/* $1/modular_nova/modules/GAGS/nswf/json_configs/ \;
+
+for icondir in ${directories[@]}
+do
+    mkdir -p $1/$icondir
+cp -r $icondir/* $1/$icondir/
 # NOVA EDIT ADDITION END
 
 cp tgstation.dmb tgstation.rsc $1/
