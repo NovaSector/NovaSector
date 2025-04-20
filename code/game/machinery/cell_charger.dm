@@ -9,7 +9,7 @@
 	var/obj/item/stock_parts/power_store/cell/charging = null
 	var/charge_rate = STANDARD_CELL_RATE //NOVA EDIT CHANGE - ORIGINAL: 0.25 * STANDARD_CELL_RATE
 
-/* OVERWRITTEN IN modular_nova\modules\aesthetics\cells\cell.dm
+/* NOVA EDIT REMOVAL - AESTHETICS - OVERWRITTEN IN modular_nova/modules/aesthetics/cells/icons/cell.dm
 /obj/machinery/cell_charger/update_overlays()
 	. = ..()
 
@@ -25,7 +25,7 @@
 	. += "ccharger-[charging.connector_type]-on"
 	if((charging.charge > 0.01) && charging.charge_light_type)
 		. += mutable_appearance('icons/obj/machines/cell_charger.dmi', "cell-[charging.charge_light_type]-o[(charging.percent() >= 99.5) ? 2 : 1]")
-*/
+NOVA EDIT END */
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()

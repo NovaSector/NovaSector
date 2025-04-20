@@ -88,7 +88,7 @@
 	atom_storage.set_holdable(list(
 		/obj/item/clothing/head/helmet/space/emergency,
 		/obj/item/clothing/suit/space/emergency,
-		))
+	))
 
 /obj/item/storage/box/emergency_spacesuit/PopulateContents()
 	new /obj/item/clothing/head/helmet/space/emergency(src)
