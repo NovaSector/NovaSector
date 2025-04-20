@@ -7,7 +7,7 @@
 /obj/item/implantcase
 	icon = 'modular_nova/modules/aesthetics/implanter/implanter.dmi'
 
- //Code to make the breathing tube aug_overlay toggleable
+//Code to make the breathing tube aug_overlay toggleable
 /obj/item/organ/cyberimp/mouth/breathing_tube/examine()
 	. = ..()
 	. += span_info("It will currently be [aug_overlay ? "physicially visible" : "practically invisible"] upon installation. \
@@ -18,9 +18,13 @@
 	if(!aug_overlay)
 		name = "breathing tube implant"
 		aug_overlay = "breathing_tube"
+		if(!bodypart_aug) //Need to ensure there's one of these on the Integrated one, which starts null
+			bodypart_aug = new(src)
 	else
 		name = "integrated breathing tube implant"
 		aug_overlay = null
+	tool.play_tool_sound(src)
+	balloon_alert(user, "visibility toggled")
 
 //And a preset for the loadout
 /obj/item/organ/cyberimp/mouth/breathing_tube/hidden
