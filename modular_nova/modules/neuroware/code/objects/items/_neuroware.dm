@@ -127,7 +127,7 @@
 	if(!can_overdose)
 		for(var/reagent_type as anything in list_reagents)
 			var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
-			if(!existing_reagent)
+			if(!existing_reagent || existing_reagent.overdose_threshold == 0)
 				continue
 			var/new_volume = list_reagents[reagent_type] + existing_reagent.volume
 			if(new_volume >= existing_reagent.overdose_threshold)
