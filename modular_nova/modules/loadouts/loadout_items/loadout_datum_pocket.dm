@@ -4,8 +4,9 @@
 /datum/loadout_item/pocket_items/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // these go in the backpack
 	return FALSE
 
-/datum/loadout_item/pocket_items/wallet
-	additional_displayed_text = list("Auto-Filled")
+/datum/loadout_item/pocket_items/wallet/get_item_information()
+	. = ..()
+	.[FA_ICON_BOX] = "Auto-Filled"
 
 /*
 *	GUM
@@ -71,10 +72,6 @@
 	name = "Cheap Lighter"
 	item_path = /obj/item/lighter/greyscale
 
-/datum/loadout_item/pocket_items/zippolighter
-	name = "Zippo Lighter"
-	item_path = /obj/item/lighter
-
 /datum/loadout_item/pocket_items/ttsdevice
 	name = "Text-to-Speech Device"
 	item_path = /obj/item/ttsdevice
@@ -94,10 +91,6 @@
 /datum/loadout_item/pocket_items/cigar //smoking is bad mkay
 	name = "Cigar"
 	item_path = /obj/item/cigarette/cigar
-
-/datum/loadout_item/pocket_items/flask
-	name = "Flask"
-	item_path = /obj/item/reagent_containers/cup/glass/flask
 
 /datum/loadout_item/pocket_items/multipen
 	name = "Multicolored Pen"
@@ -142,10 +135,6 @@
 /datum/loadout_item/pocket_items/cross
 	name = "Ornate Cross"
 	item_path = /obj/item/crucifix
-
-/datum/loadout_item/pocket_items/clipboard
-	name = "Clipboard"
-	item_path = /obj/item/clipboard
 
 /datum/loadout_item/pocket_items/folder
 	name = "Folder"
