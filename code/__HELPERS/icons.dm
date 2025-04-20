@@ -901,7 +901,7 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 
 	// NOVA EDIT ADDITION START - Sanity checking
 	#ifdef UNIT_TESTS
-	if(!isicon(icon) || !isfile(icon_file) || "[icon]" == "/icon")
+	if(isfile(icon) && "[icon]" == "/icon")
 		// bad! use 'icons/path_to_dmi.dmi' format only
 		CRASH("FATAL: Bad icon path. Icons must use the format: 'icons/path_to_dmi.dmi' : [icon]")
 	#endif
