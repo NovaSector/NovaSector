@@ -527,7 +527,7 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
-/* NOVA EDIT - MOVED TO AIRLOCK.DM IN AESTHETICS MODULE
+/* NOVA EDIT REMOVAL - AESTHETICS - OVERWRITTEN IN modular_nova/modules/aesthetics/airlock/code/airlock.dm
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 

@@ -2,7 +2,10 @@
 	// A cloning mistake, crossing human and xenomorph DNA
 	name = "Xenomorph Hybrid"
 	id = SPECIES_XENO
-	family_heirlooms = list(/obj/item/toy/plush/rouny, /obj/item/clothing/mask/facehugger/toy)
+	family_heirlooms = list(
+		/obj/item/toy/plush/rouny,
+		/obj/item/clothing/mask/facehugger/toy
+		)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -169,6 +172,10 @@
 //Organ resprites
 /obj/item/organ/brain/xeno_hybrid
 	icon_state = "brain-x" //rebranding
+
+/obj/item/organ/brain/xeno_hybrid/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
 
 /obj/item/organ/stomach/xeno_hybrid
 	icon_state = "stomach-x"

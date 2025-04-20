@@ -19,7 +19,7 @@ import {
 
 import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
-import {
+import type {
   LoadoutCategory,
   LoadoutItem,
   LoadoutManagerData,
@@ -312,7 +312,7 @@ function LoadoutTabs(props: LoadoutTabsProps) {
       <Stack.Item grow>
         {searching || activeCategory?.contents ? (
           <Section
-            title={searching ? 'Searching...' : 'Catalog'}
+            title={searching ? 'Search results' : 'Catalog'}
             fill
             scrollable
             buttons={
@@ -440,7 +440,7 @@ function LoadoutSelectedSection(props: LoadoutSelectedSectionProps) {
         </Button.Confirm>
       }
     >
-      {loadout_list &&
+      {!loadout_list.length && // NOVA EDIT CHANGE - ORIGINAL: {loadout_list &&
         Object.entries(loadout_list).map(([path, item]) => (
           <Fragment key={path}>
             <LoadoutSelectedItem

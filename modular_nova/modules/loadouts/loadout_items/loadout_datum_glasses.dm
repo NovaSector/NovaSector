@@ -29,27 +29,11 @@
  *	PRESCRIPTION GLASSES
  */
 
-/datum/loadout_item/glasses/prescription_glasses
-	name = "Glasses"
-	item_path = /obj/item/clothing/glasses/regular
-
-/datum/loadout_item/glasses/prescription_glasses/circle_glasses
-	name = "Circle Glasses"
-	item_path = /obj/item/clothing/glasses/regular/circle
-
-/datum/loadout_item/glasses/prescription_glasses/hipster_glasses
-	name = "Hipster Glasses"
-	item_path = /obj/item/clothing/glasses/regular/hipster
-
-/datum/loadout_item/glasses/prescription_glasses/jamjar_glasses
-	name = "Jamjar Glasses"
-	item_path = /obj/item/clothing/glasses/regular/jamjar
-
-/datum/loadout_item/glasses/prescription_glasses/thin
+/datum/loadout_item/glasses/thin
 	name = "Thin Glasses"
 	item_path = /obj/item/clothing/glasses/regular/thin
 
-/datum/loadout_item/glasses/prescription_glasses/better
+/datum/loadout_item/glasses/better
 	name = "Modern Glasses"
 	item_path = /obj/item/clothing/glasses/regular/modern
 

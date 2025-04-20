@@ -670,3 +670,149 @@
   - map: Add Rain Storms to Serenity Station
   vinylspiders:
   - bugfix: removed the gap from the quirks page menu items
+2025-04-17:
+  OrionTheFox:
+  - qol: added the new Recolorable Trenchcoat to the loadout, so crew don't need to
+      use the vendor every shift.
+  - bugfix: fixed the new Recolorable Trenchcoat having an error sprite on Digitigrade
+      crew.
+  jjpark-kb:
+  - rscadd: added the goody case holder (can be researched)
+  - qol: put together some of the misc cargo items (cargo tele and conveyor sorter)
+      in the same research as the goody case holder
+  - code_imp: consolidated some modules together so less file/folder bloat
+2025-04-18:
+  Hatterhat:
+  - bugfix: A previous balance change made buckshot and rubber shot weak against armor,
+      but accidentally only set that condition for the casing. This has been rectified,
+      and buckshot/rubber shot is now properly mitigated by ballistic protection.
+  OrionTheFox:
+  - bugfix: fixed Deluxe Internals Boxes having a missing icon
+  - qol: you can now make Flat Boxes by jumping on a box! Just like they do in the
+      Core systems.
+  - rscadd: Added Undershirt variants of the greyscale Fishnets (for wearing OVER
+      bras, as opposed to wearing them AS bras)
+  Zergspower:
+  - rscadd: Medical Drake Borgs are both waggier and come in two flavors
+  - rscdel: Removed the remaining code for the standard borg which doesn't exist anymore
+  - qol: Drakeborgs seem happier and wiggly, watch out for their wagging tails
+  - rscadd: Adds Custom Speech bubbles to the Slime, Xeno, Akula(2) and Synth Race
+  - rscadd: Adds Custom Speech bubbles to the default Akula(1) tongue
+  - bugfix: Updates the borg language list to be current
+  - code_imp: updated custom languages to include new speech options
+  mogeoko:
+  - qol: You can use padded headphones/deprivation helmet/latex gasmask in any possible
+      slot now.
+2025-04-19:
+  00-Steven:
+  - refactor: Refactored polaroid camera item interactions. Please report any issues.
+  - spellcheck: The polaroid camera's description now talks about 'holorecord' disks
+      rather than 'holographic' disks.
+  - qol: Added screentips to the polaroid camera.
+  - qol: If a polaroid camera already has a holorecord disk, inserting a new one swaps
+      the old one out instead of blocking.
+  - qol: Added balloon alerts and sounds to polaroid camera interactions.
+  - bugfix: Polaroid camera can no longer record to holorecord disks outside of it
+      that left it via nonstandard means.
+  - bugfix: Rewind camera actually applies its special picture name.
+  Absolucy:
+  - qol: MODlink scryers now alert the user if they try to call without a charged
+      power cell.
+  - bugfix: Fixed FOV checks improperly handling diagonal directions.
+  AyIong:
+  - bugfix: Navigating to categories in preferences works again
+  Ezel:
+  - map: added an pacman to wawastation near science
+  - map: added pacmans to icebox
+  - map: removed some pacmans from metastation
+  FeudeyTF:
+  - qol: Better UI/UX for detective's board
+  FlufflesTheDog:
+  - bugfix: Pre-game "time to start" is once again displayed"
+  Goat:
+  - map: wawa now has curator trophy cases
+  Goat, LePiromano:
+  - qol: Photocopiers now have boards meaning you can build, destroy, and remake them.
+      (If you're a mapper use the prebuilt version to prestock your photocopiers)
+  Holoo-1:
+  - bugfix: camera consoles, admin supply pod launcher etc. no longer close game when
+      they are closed
+  - balance: emp flashlight costs 4 -> 2 tc
+  Iajret:
+  - bugfix: text areas in preferences window can be scrolled once again
+  - bugfix: fixed rnd experiments not working ant revealing for certain technologies
+  Jacquerel:
+  - rscadd: Occasionally when a Wizard is around, strange things may being falling
+      from the sky.
+  - bugfix: Mothroaches and other small animals will now realise that they're free
+      after being dumped from your backpack and resum their daily activities.
+  - rscadd: Mice can play synthesisers
+  - balance: Most mobs will now hesitate for a moment before attacking rather than
+      instantly hitting anything that enters melee range, to better simulate human
+      behaviour. Please report if this delay seems too short, or too long.
+  - balance: Most mobs which telegraphed their basic attacks on you now will not do
+      that
+  - image: Megafauna kill achievement icons now look more like the bosses actually
+      currently do
+  JohnFulpWillard:
+  - qol: Radios/headsets now have a slider to change the volume from radio noises.
+  LT3:
+  - bugfix: Fixed opening character preferences menu before subsystem is initialized
+  - bugfix: Synthflesh patches unhusk corpses as expected
+  - qol: Better information and feedback about de-husking corpses
+  Maximal08:
+  - bugfix: fixed manipulator throw mode UI
+  Melbert:
+  - bugfix: Mecha cargo holds no longer shove themselves inside themselves when being
+      deleted
+  - bugfix: You can't fax unfaxable things by putting them in faxable things
+  - rscadd: Cyborgs and the AI have regained understanding of various non-human languages,
+      but only partially (66%).
+  - rscadd: Human skin suit may trick the health analyzer... sort of
+  - bugfix: Human skin suit no longer gives a useless action
+  - bugfix: Fix PB shots with a revolver doing a melee attack
+  - bugfix: Fix Russian Revolver
+  - refactor: Refactored Russian Roulette entirely
+  - qol: Russian Revolver now has a do after associated before pulling the trigger.
+      You can alt-shift-click it to customize length of it, for dramatic effect (or
+      you can set it to 0 seconds)
+  - qol: Clowns can partake in Russian Roulette without fumbling
+  - rscadd: Adds a penalty for cheating the Cursed Russian Revolver
+  - rscadd: Cheating in Russian Roulette and losing now confers a different moodlet
+      than plain losing
+  - rscdel: You can no longer use telekinesis in Russian Roulette
+  - qol: You can rotate scanner gates (even though it functionally does nothing)
+  OrionTheFox:
+  - code_imp: updated the AESTHETICS Module .readme, to clarify the module is for
+      overriding TG assets directly. Also better modularized potted plant overrides
+      - if you find a broken potted plant (or items in general), don't forget to bug
+      report!
+  Rhials:
+  - balance: Bitrunning simulations of the lowest threat will not spawn Bitrunner
+      Glitches
+  SmArtKar:
+  - qol: Redesigned the loadout UI
+  - balance: Monocles now work as prescription glasses
+  - image: Loadout plushies no longer use mapper previews for their images
+  - bugfix: Fixed AIs being unable to scan ore vents
+  - bugfix: Ash storms do damage again
+  Thunder12345:
+  - rscadd: Added support for modularly loaded shuttles.
+  - rscadd: The Scrapheap Challenge emergency shuttle now comes in randomly generated
+      variants.
+  TiviPlus:
+  - refactor: Overhauled how looking up and looking down function. they should now
+      not jitter, and trying to look up/down while already doing so will cancel the
+      previous look up/down in the opposite direction
+  - bugfix: fixed a runtime with holo emissive overlays
+  Wallem, Kryson, Viro, Xhorian, Kreks:
+  - image: Updated a whole bunch of signs
+  hry-gh:
+  - qol: you can now reset the adjustable pane splitters in chat settings
+  jlsnow301:
+  - bugfix: The plant analyzer's progress bars should fill the window again
+  mcbalaam:
+  - qol: Improved chat messages when controlling a mech as an AI
+  vinylspiders:
+  - bugfix: shoes with the squeak component will no longer play a squeaking sound
+      when you aren't actually walking (like in a wheelchair for instance)
