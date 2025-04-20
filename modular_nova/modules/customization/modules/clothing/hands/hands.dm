@@ -24,7 +24,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/gloves/designer
-	name = "designer long gloves"
+	name = "designer gloves"
 	desc = "A fancy set of bicep-length designer gloves. For those who live a life of luxury, and/or have poor spending habits."
 	icon_state = "designer"
 	icon = MODULAR_HANDS_ICON
