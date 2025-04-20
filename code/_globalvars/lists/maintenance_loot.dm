@@ -59,7 +59,6 @@ GLOBAL_LIST_INIT(trash_loot, list(//junk: useless, very easy to get, or ghetto c
 
 		/obj/item/reagent_containers/applicator/pill/maintenance/achievement = 1,
 		/obj/item/toy/eightball = 1,
-		/obj/item/disk/neuroware/maintenance = 1, // NOVA EDIT ADDITION
 		) = 8,
 
 	list(//tier 1 stock parts
@@ -145,7 +144,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/stock_parts/power_store/cell/lead = 1,
 		/obj/item/storage/box/matches = 1,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 1,
-		/obj/item/disk/neuroware/pumpup = 2, // NOVA EDIT ADDITION
+		/obj/item/disk/neuroware/pumpup = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/civil_defense/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/frontier/stocked = 1, // NOVA EDIT ADDITION
 		/obj/item/storage/medkit/combat_surgeon/stocked = 1, // NOVA EDIT ADDITION
