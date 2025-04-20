@@ -1,0 +1,4 @@
+author: "Gboster-0"
+delete-after: True
+changes:
+  - bugfix: "fixed an extremelly rare edge case of the oversized quirk improperly removing limb damage if the quirk is ever removed"
