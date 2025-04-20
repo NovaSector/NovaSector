@@ -30,7 +30,7 @@ mkdir -p \
 		$1/modular_nova/modules/GAGS/json_configs/ \
 		$1/modular_nova/modules/GAGS/nsfw/json_configs/
 
-find modular_nova/modules/ -type f -name "*.dmi" -exec cp --parents {} $1 \;
+find modular_nova/ -name \*.dmi -exec cp --parents {} $1 \;
 
 cp -r modular_nova/master_files/icons/* $1/modular_nova/master_files/icons/ \;
 cp -r modular_nova/modules/GAGS/json_configs/* $1/modular_nova/modules/GAGS/json_configs/ \;
