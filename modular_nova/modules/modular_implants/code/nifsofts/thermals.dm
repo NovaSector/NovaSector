@@ -1,4 +1,4 @@
-/obj/item/disk/nifsoft_uploader/thermal
+/obj/item/disk/nifsoft_uploader/mil_grade/thermal
 	name = "Thermal Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/thermal
 
