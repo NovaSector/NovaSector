@@ -10,7 +10,6 @@
 	internals_slot = ITEM_SLOT_RPOCKET
 	belt = /obj/item/energy_katana
 	back = /obj/item/mod/control/pre_equipped/ninja
-	skillchips = list(/obj/item/skillchip/matrix_taunt)
 	//implants = list(/obj/item/implant/explosive) NOVA EDIT REMOVAL
 
 /datum/outfit/ninja/post_equip(mob/living/carbon/human/ninja)
