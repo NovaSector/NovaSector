@@ -12,6 +12,8 @@
 		/obj/item/disk/neuroware/synthesizer/piano = 2,
 	)
 	contraband_nova = list(
+		/obj/item/disk/neuroware/maintenance = 2,
+		/obj/item/disk/neuroware/pumpup = 2,
 		/obj/item/disk/neuroware/space_drugs = 2,
 		/obj/item/disk/neuroware/happiness = 2,
 		/obj/item/disk/neuroware/thc = 2,
