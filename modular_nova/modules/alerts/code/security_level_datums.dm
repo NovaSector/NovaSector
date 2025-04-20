@@ -93,7 +93,7 @@
 	fire_alarm_light_color = COLOR_BIOLUMINESCENCE_PURPLE
 	lowering_to_configuration_key = /datum/config_entry/string/alert_epsilon_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_epsilon_upto
-	shuttle_call_time_mod = ALERT_COEFF_NOVA
+	shuttle_call_time_mod = 0.15 // 1.5 minutes
 	sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon.ogg'
 	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/epsilon_loop.ogg'
 	looping_sound_interval = 15 SECONDS
@@ -112,7 +112,7 @@
 	fire_alarm_light_color = COLOR_ASSEMBLY_PURPLE
 	lowering_to_configuration_key = /datum/config_entry/string/alert_gamma_downto
 	elevating_to_configuration_key = /datum/config_entry/string/alert_gamma_upto
-	shuttle_call_time_mod = ALERT_COEFF_NOVA
+	shuttle_call_time_mod = 0.25 // 2.5 minutes
 	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound_interval = 13 SECONDS
@@ -134,6 +134,6 @@
 	sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound = 'modular_nova/modules/alerts/sound/security_levels/gamma_alert.ogg'
 	looping_sound_interval = 13 SECONDS
-	shuttle_call_time_mod = ALERT_COEFF_NOVA
+	shuttle_call_time_mod = 0.25 // 2.5 minutes
 
 #undef ALERT_COEFF_NOVA
