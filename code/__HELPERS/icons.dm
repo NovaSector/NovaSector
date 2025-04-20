@@ -898,6 +898,7 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	/// the dmi file path we attempt to return if the given object argument is associated with a stringifiable icon
 	/// if successful, this looks like "icons/path/to/dmi_file.dmi"
 	var/icon_path = ""
+
 	// NOVA EDIT ADDITION START - Sanity checking
 	#ifdef UNIT_TESTS
 	if(!isicon(icon) || !isfile(icon_file) || "[icon]" == "/icon")
