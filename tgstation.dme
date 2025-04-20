@@ -8453,6 +8453,7 @@
 #include "modular_nova\modules\modular_reagents\code\alert.dm"
 #include "modular_nova\modules\modular_reagents\code\reagents\medicine.dm"
 #include "modular_nova\modules\modular_reagents\code\recipes\medicine_recipes.dm"
+#include "modular_nova\modules\modular_vending\snack.dm"
 #include "modular_nova\modules\modular_vending\code\autodrobe.dm"
 #include "modular_nova\modules\modular_vending\code\boozeomat.dm"
 #include "modular_nova\modules\modular_vending\code\cigarette.dm"
