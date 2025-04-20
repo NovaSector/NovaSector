@@ -148,6 +148,8 @@
 				//neurowares
 				/obj/item/disk/neuroware/crocin = 20,
 				/obj/item/disk/neuroware/camphor = 10,
+				/obj/item/storage/box/flat/neuroware/crocin = 6,
+				/obj/item/storage/box/flat/neuroware/camphor = 3,
 			),
 		),
 		list(
@@ -184,6 +186,8 @@
 		/obj/item/reagent_containers/cup/bottle/pentacamphor = 2,
 		/obj/item/disk/neuroware/hexacrocin = 15,
 		/obj/item/disk/neuroware/pentacamphor = 10,
+		/obj/item/storage/box/flat/neuroware/hexacrocin = 4,
+		/obj/item/storage/box/flat/neuroware/pentacamphor = 2,
 	)
 
 	refill_canister = /obj/item/vending_refill/lustwish
