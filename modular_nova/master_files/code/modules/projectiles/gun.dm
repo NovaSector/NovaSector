@@ -3,6 +3,7 @@
 	/// What Nova-specific lore does this gun have when examined twice (triggering `examine_more()`)?
 	/// If this isn't `null`, informs users that they can examine this closer to get the lore blurb.
 	var/lore_blurb = null
+	can_hold_up = FALSE // originally TRUE
 
 /obj/item/gun/examine(mob/user)
 	. = ..()

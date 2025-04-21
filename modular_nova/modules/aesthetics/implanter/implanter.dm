@@ -1,11 +1,11 @@
 /obj/item/implanter
-	icon = 'modular_nova/modules/aesthetics/implanter/implanter.dmi'
+	icon = 'modular_nova/modules/aesthetics/implanter/icons/implanter.dmi'
 
 /obj/item/implantpad
-	icon = 'modular_nova/modules/aesthetics/implanter/implanter.dmi'
+	icon = 'modular_nova/modules/aesthetics/implanter/icons/implanter.dmi'
 
 /obj/item/implantcase
-	icon = 'modular_nova/modules/aesthetics/implanter/implanter.dmi'
+	icon = 'modular_nova/modules/aesthetics/implanter/icons/implanter.dmi'
 
 //Code to make the breathing tube aug_overlay toggleable
 /obj/item/organ/cyberimp/mouth/breathing_tube/examine()

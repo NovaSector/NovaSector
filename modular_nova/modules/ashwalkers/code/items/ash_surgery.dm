@@ -10,6 +10,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_cautery
 	name = "Ash Cautery"
@@ -26,6 +27,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_drill
 	name = "Ash Surgical Drill"
@@ -42,6 +44,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_scalpel
 	name = "Ash Scalpel"
@@ -58,6 +61,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_saw
 	name = "Ash Circular Saw"
@@ -74,6 +78,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_retractor
 	name = "Ash Retractor"
@@ -90,6 +95,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_hemostat
 	name = "Ash Hemostat"
@@ -106,6 +112,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_bonesetter
 	name = "Ash Bonesetter"
