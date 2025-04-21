@@ -13,8 +13,13 @@
 /datum/quirk/blooddeficiency/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(!isnull(human_holder.dna.species.exotic_blood))
-		blood_bag.blood_type = human_holder.dna.species.exotic_blood.name
-		blood_bag.unique_blood = human_holder.dna.species.exotic_blood
+		blood_bag = new()
+		var/blood_type = human_holder.dna.species.exotic_blood.name
+		var/unique_blood = human_holder.dna.species.exotic_blood
+		blood_bag.blood_type = blood_type
+		blood_bag.unique_blood = unique_blood
+		blood_bag.reagents.add_reagent(unique_blood ? unique_blood : /datum/reagent/blood, 200, list("viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
+		blood_bag.update_appearance()
 	give_item_to_holder_nova(
 		blood_bag,
 		list(
@@ -42,9 +47,9 @@
 	name = "Jelly Desiccation"
 	desc = "Your body can't produce enough jelly to sustain itself."
 	medical_record_text = "Patient requires regular treatment for slime jelly loss."
-	mail_goodies = list(/obj/item/reagent_containers/blood/jelly)
+	mail_goodies = list(/obj/item/reagent_containers/blood/toxin)
 	hidden_quirk = TRUE
-	blood_bag = /obj/item/reagent_containers/blood/jelly
+	blood_bag = /obj/item/reagent_containers/blood/toxin
 
 // Omits the NOBLOOD check for jelly/slime species.
 /datum/quirk/blooddeficiency/jelly/lose_blood(datum/source, seconds_per_tick, times_fired)
