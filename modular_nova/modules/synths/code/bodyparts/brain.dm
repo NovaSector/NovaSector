@@ -32,7 +32,7 @@
 	if(isnull(neuro_status))
 		return
 	for(var/datum/reagent/reagent as anything in organ_owner.reagents.reagent_list)
-		if(reagent.chemical_flags == REAGENT_NEUROWARE)
+		if(reagent.chemical_flags & REAGENT_NEUROWARE)
 			organ_owner.reagents.remove_reagent(reagent)
 
 /obj/item/organ/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health

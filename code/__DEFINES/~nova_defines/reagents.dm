@@ -2,7 +2,7 @@
 #define REAGENT_BLOOD_REGENERATING (1<<0)
 
 ///This reagent represents a neuroware program. Used in chemical_flags.
-#define REAGENT_NEUROWARE (REAGENT_INVISIBLE | 1<<20)
+#define REAGENT_NEUROWARE (REAGENT_INVISIBLE | 1<<12)
 
 ///Amount of synthflesh required to unhusk someone
 #define SYNTHFLESH_LING_UNHUSK_AMOUNT 120

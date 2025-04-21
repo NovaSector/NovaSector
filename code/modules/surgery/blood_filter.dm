@@ -63,7 +63,7 @@
 	var/found_reagents = FALSE // NOVA EDIT ADDITION - Neuroware
 	for(var/datum/reagent/chem as anything in target.reagents.reagent_list)
 		// NOVA EDIT ADDITION BEGIN - Neuroware
-		if(chem.chemical_flags == REAGENT_NEUROWARE)
+		if(chem.chemical_flags & REAGENT_NEUROWARE)
 			continue
 		found_reagents = TRUE
 		// NOVA EDIT ADDITION END
@@ -93,7 +93,7 @@
 		for(var/datum/reagent/chem as anything in target.reagents.reagent_list)
 			if(!length(bloodfilter.whitelist) || !(chem.type in bloodfilter.whitelist))
 				// NOVA EDIT ADDITION BEGIN - Neuroware
-				if(chem.chemical_flags == REAGENT_NEUROWARE)
+				if(chem.chemical_flags & REAGENT_NEUROWARE)
 					continue
 				// NOVA EDIT ADDITION END
 				target.reagents.remove_reagent(chem.type, clamp(round(chem.volume * 0.22, 0.2), 0.4, 10))

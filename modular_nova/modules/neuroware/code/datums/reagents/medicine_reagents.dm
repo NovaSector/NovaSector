@@ -46,7 +46,7 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/reset_neuroware)
 	var/remove_amount = 1 * REM * seconds_per_tick;
 	for(var/thing in affected_mob.reagents.reagent_list)
 		var/datum/reagent/reagent = thing
-		if((reagent.chemical_flags == REAGENT_NEUROWARE) && (reagent != src))
+		if((reagent.chemical_flags & REAGENT_NEUROWARE) && (reagent != src))
 			affected_mob.reagents.remove_reagent(reagent.type, remove_amount)
 	..()
 	return TRUE
