@@ -59,7 +59,7 @@
 
 	var/mob/living/carbon/human/consistent/lab_rat = EASY_ALLOCATE()
 	var/obj/item/organ/liver/lab_liver = lab_rat.get_organ_by_type(/obj/item/organ/liver)
-	TEST_ASSERT(!isnull(lab_liver) || (lab_liver.type != /obj/item/organ/liver), "Human does not have a regular cybernetic liver.")
+	TEST_ASSERT(!isnull(lab_liver) || (lab_liver.type != /obj/item/organ/liver), "Human does not have a regular liver.")
 
 	// Test neuroware reactions
 	// Human species should never be affected by neuroware reagents
