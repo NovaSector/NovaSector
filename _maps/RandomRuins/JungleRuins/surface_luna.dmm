@@ -9,7 +9,7 @@
 	dir = 1
 	},
 /obj/item/food/grown/moonflower,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "c" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -17,14 +17,14 @@
 	},
 /obj/structure/water_source/puddle,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "f" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "g" = (
 /obj/structure/flora/bush/jungle/b/style_random,
@@ -41,20 +41,20 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wideplating_new/dark,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "m" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "p" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 10
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "q" = (
 /turf/template_noop,
@@ -71,7 +71,7 @@
 	pixel_x = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/pod,
+/turf/open/floor/pod/forest,
 /area/ruin/unpowered/luna)
 "u" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -79,12 +79,12 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "v" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "x" = (
 /obj/structure/flora/bush/flowers_br/style_random,
@@ -100,7 +100,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 1
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "A" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
@@ -109,7 +109,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "C" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
@@ -120,7 +120,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 4
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "E" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -128,13 +128,13 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "F" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 9
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "J" = (
 /turf/closed/wall/mineral/iron{
@@ -147,7 +147,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 8
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "L" = (
 /turf/open/misc/dirt/forest,
@@ -158,7 +158,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "Q" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -166,7 +166,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 4
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "R" = (
 /turf/open/misc/asteroid/forest,
@@ -180,20 +180,20 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark/corner{
 	dir = 8
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "U" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 5
 	},
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "X" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/stone,
+/turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "Y" = (
 /obj/structure/flora/bush/reed/style_random,
