@@ -17,6 +17,7 @@
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/dirt/forest",
+			"Jungle Ruins": true,
 			"No Parallax": true,
 			"Up": true
 		},
@@ -24,6 +25,7 @@
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace/forest",
+			"Jungle Cave Ruins": true,
 			"No Parallax": true,
 			"Weather_Rainstorm": true,
 			"Down": true
