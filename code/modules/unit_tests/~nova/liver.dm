@@ -66,7 +66,7 @@
 	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
-	TEST_ASSERT(!test_robot.has_status_effect(/datum/status_effect/silenced), "Human affected by neuroware reagents.")
+	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human affected by neuroware reagents.")
 
 	// Test organic-oriented reagent reactions
 	lab_rat = allocate(/mob/living/carbon/human/consistent)
@@ -117,8 +117,8 @@
 	cyber_liver = allocate(/obj/item/organ/liver/cybernetic)
 	cyber_liver.Insert(test_robot, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	var/obj/item/bodypart/arm/right/human_arm = EASY_ALLOCATE()
-	lab_rat.del_and_replace_bodypart(human_arm)
-	human_arm.set_brute_dam(5)
+	test_robot.del_and_replace_bodypart(human_arm)
+	human_arm.brute_dam = 5
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	test_robot.reagents.add_reagent(libital, 15)
 	test_robot.Life(SSMOBS_DT)
@@ -128,8 +128,8 @@
 	test_robot = allocate(/mob/living/carbon/human/species/synth)
 	cyber_liver = allocate(/obj/item/organ/liver/cybernetic)
 	cyber_liver.Insert(test_robot, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-	var/robot_arm = test_robot.get_bodypart(BODY_ZONE_L_ARM)
-	robot_arm.set_brute_dam(5)
+	var/obj/item/bodypart/arm/left/robot_arm = test_robot.get_bodypart(BODY_ZONE_L_ARM)
+	robot_arm.brute_dam = 5
 	var/datum/reagent/medicine/nanite_slurry/slurry = /datum/reagent/medicine/nanite_slurry
 	test_robot.reagents.add_reagent(slurry, 15)
 	test_robot.Life(SSMOBS_DT)
@@ -154,13 +154,13 @@
 	var/datum/reagent/toxin/mutetoxin/synth/neuroware_mute_toxin = /datum/reagent/toxin/mutetoxin/synth
 	lab_rat.reagents.add_reagent(neuroware_mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
-	TEST_ASSERT(!test_robot.has_status_effect(/datum/status_effect/silenced), "Human with synth liver affected by neuroware reagents.")
+	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human with synth liver affected by neuroware reagents.")
 
 	// Test libital healing on organic arm
-	lab_rat = allocate(/mob/living/carbon/human/consistent)\
-	var/human_arm = test_robot.get_bodypart(BODY_ZONE_L_ARM)
+	lab_rat = allocate(/mob/living/carbon/human/consistent)
+	var/obj/item/bodypart/arm/left/human_arm = lab_rat.get_bodypart(BODY_ZONE_L_ARM)
 
-	human_arm.set_brute_dam(5)
+	human_arm.brute_dam = 5
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	lab_rat.reagents.add_reagent(libital, 15)
 	lab_rat.Life(SSMOBS_DT)
@@ -170,7 +170,7 @@
 	lab_rat = allocate(/mob/living/carbon/human/consistent)
 	var/obj/item/bodypart/arm/right/robot/robot_arm = EASY_ALLOCATE()
 	lab_rat.del_and_replace_bodypart(robot_arm)
-	robot_arm.set_brute_dam(5)
+	robot_arm.brute_dam = 5
 	var/datum/reagent/medicine/nanite_slurry/slurry = /datum/reagent/medicine/nanite_slurry
 	lab_rat.reagents.add_reagent(slurry, 15)
 	lab_rat.Life(SSMOBS_DT)
