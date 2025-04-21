@@ -36,5 +36,6 @@
 			"No Parallax": false
 		}
 	],
-	"minetype": "lavaland"
+	"minetype": "lavaland",
+	"blacklist_file": "jungleruinblacklist.txt"
 }
