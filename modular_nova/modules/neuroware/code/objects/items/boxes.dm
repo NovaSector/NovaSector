@@ -24,6 +24,10 @@
 	for(var/i in 1 to 5)
 		new /obj/item/disk/neuroware/mindbreaker(src)
 
+/obj/item/storage/box/flat/neuroware/synaptizine/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/disk/neuroware/synaptizine(src)
+
 /obj/item/storage/box/flat/neuroware/crocin/PopulateContents()
 	for(var/i in 1 to 5)
 		new /obj/item/disk/neuroware/crocin(src)

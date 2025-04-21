@@ -1,20 +1,54 @@
+/datum/quirk/blooddeficiency
+	species_quirks = list(
+		/datum/species/synthetic = /datum/quirk/blooddeficiency/synth,
+		/datum/species/jelly/slime = /datum/quirk/blooddeficiency/jelly,
+	)
+	var/obj/item/reagent_containers/blood/blood_bag = /obj/item/reagent_containers/blood/o_minus
+
+/datum/quirk/blooddeficiency/is_species_appropriate(datum/species/mob_species)
+	if(ispath(mob_species, /datum/species/jelly) || ispath(mob_species, /datum/species/synthetic))
+		return TRUE
+	return ..()
+
+/datum/quirk/blooddeficiency/add_unique(client/client_source)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if(!isnull(human_holder.dna.species.exotic_blood))
+		blood_bag.blood_type = human_holder.dna.species.exotic_blood.name
+		blood_bag.unique_blood = human_holder.dna.species.exotic_blood
+	give_item_to_holder_nova(
+		blood_bag,
+		list(
+			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
+			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
+			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
+			LOCATION_HANDS = ITEM_SLOT_HANDS,
+		),
+		flavour_text = "These will keep you alive until you can secure a supply of medication. Don't rely on them too much!",
+	)
+
 // Override of Blood Deficiency quirk for robotic/synthetic species.
 // Does not appear in TGUI or the character preferences window.
 /datum/quirk/blooddeficiency/synth
 	name = "Hydraulic Leak"
 	desc = "Your body's hydraulic fluids are leaking through their seals."
 	medical_record_text = "Patient requires regular treatment for hydraulic fluid loss."
-	icon = FA_ICON_GLASS_WATER_DROPLET
 	mail_goodies = list(/obj/item/reagent_containers/blood/oil)
-	// min_blood = BLOOD_VOLUME_BAD - 25; // TODO: Uncomment after TG PR #70563
 	hidden_quirk = TRUE
+	blood_bag = /obj/item/reagent_containers/blood/oil
 
-// If blooddeficiency is added to a synth, this detours to the blooddeficiency/synth quirk.
-/datum/quirk/blooddeficiency/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
-	if(!issynthetic(new_holder) || type != /datum/quirk/blooddeficiency)
-		// Defer to TG blooddeficiency if the character isn't robotic.
-		return ..()
+// Override of Blood Deficiency quirk for jelly/slime species.
+// Does not appear in TGUI or the character preferences window.
+/datum/quirk/blooddeficiency/jelly
+	name = "Jelly Desiccation"
+	desc = "Your body can't produce enough jelly to sustain itself."
+	medical_record_text = "Patient requires regular treatment for slime jelly loss."
+	mail_goodies = list(/obj/item/reagent_containers/blood/jelly)
+	hidden_quirk = TRUE
+	blood_bag = /obj/item/reagent_containers/blood/jelly
 
-	var/datum/quirk/blooddeficiency/synth/bd_synth = new
-	qdel(src)
-	return bd_synth.add_to_holder(new_holder, quirk_transfer)
+// Omits the NOBLOOD check for jelly/slime species.
+/datum/quirk/blooddeficiency/jelly/lose_blood(datum/source, seconds_per_tick, times_fired)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if(human_holder.stat == DEAD || human_holder.blood_volume <= min_blood)
+		return
+	human_holder.blood_volume = max(min_blood, human_holder.blood_volume - human_holder.dna.species.blood_deficiency_drain_rate * seconds_per_tick)
