@@ -17,6 +17,7 @@
 	attack_verb_continuous = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	block_chance = 0
 	armor_type = /datum/armor/claymore_bone
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/armor/claymore_bone
 	fire = 100

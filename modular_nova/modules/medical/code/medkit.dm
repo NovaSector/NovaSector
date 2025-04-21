@@ -174,11 +174,11 @@
 	name = "mechanical medkit"
 	desc = "For those mechanical booboos."
 
-	icon = 'modular_nova/modules/medical/code/medkit.dmi'
+	icon = 'modular_nova/modules/medical/icons/medkit.dmi'
 	icon_state = "medkit_mechanical"
 	inhand_icon_state = "medkit_mechanical"
-	lefthand_file = 'modular_nova/modules/medical/code/medical_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/medical/code/medical_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/medical/icons/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/medical/icons/medical_righthand.dmi'
 
 /obj/item/storage/medkit/mechanical/Initialize(mapload)
 	. = ..()
