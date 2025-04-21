@@ -7671,7 +7671,6 @@
 #include "modular_nova\modules\customization\datums\components\crafting\teshari_recipes.dm"
 #include "modular_nova\modules\customization\datums\keybinding\communication.dm"
 #include "modular_nova\modules\customization\game\objects\items\balls.dm"
-#include "modular_nova\modules\customization\game\objects\items\blood_pack.dm"
 #include "modular_nova\modules\customization\game\objects\items\conversion_kits.dm"
 #include "modular_nova\modules\customization\game\objects\items\donator_plushies.dm"
 #include "modular_nova\modules\customization\game\objects\items\instruments.dm"
