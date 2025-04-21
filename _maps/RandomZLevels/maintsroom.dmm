@@ -4065,11 +4065,6 @@
 /obj/structure/window/spawner/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/awaymission/caves/maintsroom)
-"pI" = (
-/obj/structure/table/wood,
-/obj/item/stack/cannonball/the_big_one,
-/turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
 "pJ" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -4565,9 +4560,6 @@
 "rS" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/door/airlock/external/glass,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
 /obj/structure/alien/weeds,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -7124,7 +7116,9 @@
 /area/awaymission/caves/maintsroom)
 "Cb" = (
 /obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim{
-	faction = list("hostile","cult")
+	faction = list("hostile","cult");
+	name = "anti-personel turret";
+	desc = "A repurposed point defense turret usually used to stop heavy projectiles or large missiles coming for small ships- imagine what it would do to you."
 	},
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
@@ -8114,11 +8108,12 @@
 /obj/item/clothing/under/rank/centcom/military,
 /obj/item/storage/belt/military,
 /obj/item/clothing/shoes/combat,
+/obj/item/radio/headset,
 /obj/item/storage/backpack/industrial/frontier_colonist{
 	name = "Military Backpack";
-	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it."
+	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it.";
+	storage_type = /datum/storage/duffel
 	},
-/obj/item/radio/headset,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "FP" = (
@@ -10717,6 +10712,7 @@
 /obj/effect/spawner/random/maintenance/three,
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/choice_beacon/augments,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "QR" = (
@@ -11294,6 +11290,7 @@
 "SX" = (
 /obj/item/reagent_containers/crackbrick,
 /obj/structure/rack,
+/obj/item/reagent_containers/heroinbrick,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "SY" = (
@@ -12318,6 +12315,7 @@
 /obj/item/food/cracker{
 	pixel_y = -2
 	},
+/obj/item/card/cardboard,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "WM" = (
@@ -26879,7 +26877,7 @@ WH
 WH
 jf
 jf
-pI
+gx
 Sl
 Nw
 vf
