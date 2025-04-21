@@ -46,7 +46,7 @@
 		var/map = tgui_input_list(user, "What Condo are you checking into?","Condo Archetypes", sort_list(SScondos.condo_templates))
 		if(!map || !check_target_eligibility(target))
 			return
-		/// Possible the room became active after we opened this UI - just enter it with a warning.
+		// Possible the room became active after we opened this UI - just enter it with a warning.
 		if(SScondos.active_condos["[requested_condo]"])
 			to_chat(target, span_warning("The room number you requested became occupied while you were selecting! Sending you to the occupied condo..."))
 			SScondos.enter_active_room(requested_condo, target)
