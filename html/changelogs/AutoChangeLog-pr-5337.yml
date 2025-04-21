@@ -1,0 +1,4 @@
+author: "RatFromTheJungle"
+delete-after: True
+changes:
+  - balance: "mold-core health is dropped to 450, from 1200, leaving it significantly easier to crush!"
