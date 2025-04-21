@@ -41,7 +41,7 @@
 	TEST_ASSERT(test_robot.getBruteLoss() < 5, "Synthetic humanoid not healed by nanite slurry reagent.")
 
 	// Test libital healing
-	test_robot = allocate(/mob/living/carbon/human/consistent)
+	test_robot = allocate(/mob/living/carbon/human/species/synth)
 	test_robot.adjustBruteLoss(5)
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	test_robot.reagents.add_reagent(libital, 15)
