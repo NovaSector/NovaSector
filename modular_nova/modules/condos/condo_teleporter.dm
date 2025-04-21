@@ -49,6 +49,8 @@
 		/// Possible the room became active after we opened this UI - just enter it with a warning.
 		if(SScondos.active_condos["[requested_condo]"])
 			to_chat(target, span_warning("The room number you requested became occupied while you were selecting! Sending you to the occupied condo..."))
+			SScondos.enter_active_room(requested_condo, target)
+			return
 		chosen_condo = SScondos.condo_templates[map]
 		SScondos.create_and_enter_condo(requested_condo, chosen_condo, user, src)
 
