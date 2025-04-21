@@ -26,14 +26,14 @@
 	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid not affected by neuroware reagents.")
 
 	// Test organic-oriented reagent reactions
-	test_robot = allocate(/mob/living/carbon/human/species/synth)
+	test_robot = EASY_ALLOCATE()
 	var/datum/reagent/toxin/mutetoxin/mute_toxin = /datum/reagent/toxin/mutetoxin
 	test_robot.reagents.add_reagent(mute_toxin, 15)
 	test_robot.Life(SSMOBS_DT)
 	TEST_ASSERT(!test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid affected by organic reagents.")
 
 	// Test synthetic-oriented reagent and nanite slurry healing
-	test_robot = allocate(/mob/living/carbon/human/species/synth)
+	test_robot = EASY_ALLOCATE()
 	test_robot.adjustBruteLoss(5)
 	var/datum/reagent/medicine/nanite_slurry/slurry = /datum/reagent/medicine/nanite_slurry
 	test_robot.reagents.add_reagent(slurry, 15)
@@ -41,7 +41,7 @@
 	TEST_ASSERT(test_robot.getBruteLoss() < 5, "Synthetic humanoid not healed by nanite slurry reagent.")
 
 	// Test libital healing
-	test_robot = allocate(/mob/living/carbon/human/species/synth)
+	test_robot = EASY_ALLOCATE()
 	test_robot.adjustBruteLoss(5)
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	test_robot.reagents.add_reagent(libital, 15)
@@ -69,14 +69,14 @@
 	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human affected by neuroware reagents.")
 
 	// Test organic-oriented reagent reactions
-	lab_rat = allocate(/mob/living/carbon/human/consistent)
+	lab_rat = EASY_ALLOCATE()
 	var/datum/reagent/toxin/mutetoxin/mute_toxin = /datum/reagent/toxin/mutetoxin
 	lab_rat.reagents.add_reagent(mute_toxin, 15)
 	lab_rat.Life(SSMOBS_DT)
 	TEST_ASSERT(lab_rat.has_status_effect(/datum/status_effect/silenced), "Human not affected by organic reagents.")
 
 	// Test synthetic-oriented reagent and nanite slurry healing
-	lab_rat = allocate(/mob/living/carbon/human/consistent)
+	lab_rat = EASY_ALLOCATE()
 	lab_rat.adjustBruteLoss(5)
 	var/datum/reagent/medicine/nanite_slurry/slurry = /datum/reagent/medicine/nanite_slurry
 	lab_rat.reagents.add_reagent(slurry, 15)
@@ -84,7 +84,7 @@
 	TEST_ASSERT(lab_rat.getBruteLoss() == 5, "Human healed by nanite slurry reagent.")
 
 	// Test libital healing
-	lab_rat = allocate(/mob/living/carbon/human/consistent)
+	lab_rat = EASY_ALLOCATE()
 	lab_rat.adjustBruteLoss(5)
 	var/datum/reagent/medicine/c2/libital/libital = /datum/reagent/medicine/c2/libital
 	lab_rat.reagents.add_reagent(libital, 15)
@@ -113,8 +113,8 @@
 	TEST_ASSERT(test_robot.has_status_effect(/datum/status_effect/silenced), "Synthetic humanoid with cybernetic liver not affected by neuroware reagents.")
 
 	// Test libital healing on an organic arm with cybernetic liver
-	test_robot = allocate(/mob/living/carbon/human/species/synth)
-	cyber_liver = allocate(/obj/item/organ/liver/cybernetic)
+	test_robot = EASY_ALLOCATE()
+	cyber_liver = EASY_ALLOCATE()
 	cyber_liver.Insert(test_robot, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	var/obj/item/bodypart/arm/right/human_arm = EASY_ALLOCATE()
 	test_robot.del_and_replace_bodypart(human_arm)
@@ -125,8 +125,8 @@
 	TEST_ASSERT(human_arm.get_damage() < 5, "Synthetic humanoid with organic arm and liver not healed by libital reagent.")
 
 	// Test nanite slurry healing on robotic arm with cybernetic liver
-	test_robot = allocate(/mob/living/carbon/human/species/synth)
-	cyber_liver = allocate(/obj/item/organ/liver/cybernetic)
+	test_robot = EASY_ALLOCATE()
+	cyber_liver = EASY_ALLOCATE()
 	cyber_liver.Insert(test_robot, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	var/obj/item/bodypart/arm/left/robot_arm = test_robot.get_bodypart(BODY_ZONE_L_ARM)
 	robot_arm.brute_dam = 5
@@ -157,7 +157,7 @@
 	TEST_ASSERT(!lab_rat.has_status_effect(/datum/status_effect/silenced), "Human with synth liver affected by neuroware reagents.")
 
 	// Test libital healing on organic arm
-	lab_rat = allocate(/mob/living/carbon/human/consistent)
+	lab_rat = EASY_ALLOCATE()
 	var/obj/item/bodypart/arm/left/human_arm = lab_rat.get_bodypart(BODY_ZONE_L_ARM)
 
 	human_arm.brute_dam = 5
@@ -167,7 +167,7 @@
 	TEST_ASSERT(human_arm.get_damage() < 5, "Human with robotic arm and liver not healed by libital reagent.")
 
 	// Test nanite slurry healing on robotic arm
-	lab_rat = allocate(/mob/living/carbon/human/consistent)
+	lab_rat = EASY_ALLOCATE()
 	var/obj/item/bodypart/arm/right/robot/robot_arm = EASY_ALLOCATE()
 	lab_rat.del_and_replace_bodypart(robot_arm)
 	robot_arm.brute_dam = 5
