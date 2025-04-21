@@ -816,3 +816,54 @@
   vinylspiders:
   - bugfix: shoes with the squeak component will no longer play a squeaking sound
       when you aren't actually walking (like in a wheelchair for instance)
+2025-04-20:
+  AniciaBelle:
+  - rscadd: adds Jumbo Dog Bone to the loadout in the 'Toys" section
+  Ezel/Improvedname, JohnFulpWillard:
+  - bugfix: Constructs now have their proper factions, so Wizard constructs can't
+      hit Wizard Apprentices.
+  - bugfix: Juggernaut's Gauntlet echo spell now respects factions.
+  FlufflesTheDog:
+  - bugfix: Passive modsuit modules (radiation protection, welding protection, etc)
+      should work reliably again.
+  Gboster-0:
+  - bugfix: fixed an extremelly rare edge case of the oversized quirk improperly removing
+      limb damage if the quirk is ever removed
+  Goku:
+  - bugfix: All surgery initiator items can now be used while laying down (bedsheets,
+      cloaks, towels...), and not just surgery drapes (fixes the surgery UI showing
+      as not-interactable).
+  Holoo-1:
+  - admin: supply pod launcher should be more reliable
+  - bugfix: fixed small view, refresh button
+  Iajret:
+  - bugfix: Fixed some more missing scrollbars in well everything that is left. Probably.
+      I haven't looked that thoroughly.
+  - bugfix: Experiment little question mark tooltip now occupies a single line instead
+      of two
+  JohnFulpWillard:
+  - bugfix: Drawing narsie rune will now always put it where you drew the rune from.
+  Kapu1178, Cirrial:
+  - bugfix: The server-configurable shuttle call when enough of the station dies will
+      now actually call the shuttle.
+  LT3:
+  - bugfix: Severe anxiety can be cured by drinking any type of alcohol
+  Melbert:
+  - rscadd: Tourist bots track in dirt occasionally
+  OrionTheFox:
+  - bugfix: NT has sliiiightly tweaked the sensitivity of the Delamination Suppression
+      System. It should no longer go off when there's a delamination in the range
+      of 50,000 kilometers, instead only working around 500 meters.
+  RatFromTheJungle:
+  - balance: roundstart slimes have 30% less resistance to burns across their entire
+      body, owch!
+  SmArtKar:
+  - bugfix: Toolbox bounties should no longer randomly fail
+  jlsnow301:
+  - bugfix: Fixed more bugs in tgui-say. Admin chat shouldn't be cut off any more.
+  necromanceranne:
+  - bugfix: Objects crafted from lavaland fauna materials (bone, sinew, hide) are
+      now fireproof and lavaproof. And also reinforced fishing lines.
+  vinylspiders:
+  - bugfix: fixes an issue that was causing a number of icons in the loadout menu
+      to not load correctly
