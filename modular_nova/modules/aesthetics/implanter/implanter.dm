@@ -15,14 +15,15 @@
 
 /obj/item/organ/cyberimp/mouth/breathing_tube/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
-	if(!aug_overlay)
+	if(isnull(aug_overlay))
 		name = "breathing tube implant"
 		aug_overlay = "breathing_tube"
-		if(!bodypart_aug) //Need to ensure there's one of these on the Integrated one, which starts null
+		if(isnull(bodypart_aug)) //Need to ensure there's one of these on the Integrated one, which starts null
 			bodypart_aug = new(src)
 	else
 		name = "integrated breathing tube implant"
 		aug_overlay = null
+		QDEL_NULL(bodypart_aug)
 	tool.play_tool_sound(src)
 	balloon_alert(user, "visibility toggled")
 
