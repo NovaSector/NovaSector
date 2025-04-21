@@ -1,0 +1,4 @@
+author: "Bannhammger"
+delete-after: True
+changes:
+  - bugfix: "Shotgun mags no longer load shells without CD."
