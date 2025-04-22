@@ -867,3 +867,27 @@
   vinylspiders:
   - bugfix: fixes an issue that was causing a number of icons in the loadout menu
       to not load correctly
+2025-04-22:
+  Bannhammger:
+  - rscadd: Spider Clan taught their ninjas to taunt, don't fall for it
+  - bugfix: Shotgun mags no longer load shells without CD.
+  OrbisAnima:
+  - qol: We added two extra syringes to all IV drips, so they can now transfer and
+      drain reagents thrice as fast!
+  OrionTheFox:
+  - qol: The Breathing Tube implant can now be converted to an "Integrated Breathing
+      Tube" using a screwdriver - this will hide the augment overlay, for users who
+      would rather the tube be invisible.
+  - rscadd: This "Integrated Breathing Tube" has been added to the loadout for crew
+      who wish to make their already-equipped tubes more subtle.
+  RatFromTheJungle:
+  - balance: 35 sol nerfed in both damage and wound bonus
+  - balance: The sindano is no longer burst, instead it's full auto and shoots about
+      at guepe pace
+  - balance: 'speaking of: the guepe is now semi-auto, and no longer restricted in
+      cargo. (also shoots slightly faster)'
+  - balance: mold-core health is dropped to 450, from 1200, leaving it significantly
+      easier to crush!
+  unit0016:
+  - bugfix: You can no longer stack multiple types of condos on the same door number.
+      Please stop solemnly opening the door expecting something different.
