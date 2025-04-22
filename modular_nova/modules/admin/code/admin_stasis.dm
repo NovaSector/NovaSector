@@ -1,6 +1,6 @@
 ADMIN_VERB(admin_stasis, R_ADMIN, "Toggle Admin Stasis", "Toggles admin stasis for a living mob.", ADMIN_CATEGORY_GAME)
 	var/mob/living/target_mob = user.mob
-	if (!isliving(target_mob))
+	if(!isliving(target_mob))
 		target_mob = tgui_input_list(user, "Select a mob to toggle admin stasis", "Pick a Living Mob", GLOB.alive_mob_list)
 		if(isnull(target_mob))
 			return
