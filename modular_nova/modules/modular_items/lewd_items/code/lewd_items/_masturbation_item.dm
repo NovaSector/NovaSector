@@ -67,18 +67,18 @@
 			user.visible_message(span_warning("[user] tries to cum, but nothing comes out!"), span_danger("You try to cum, but nothing comes out!"))
 		else if(target == user)
 			user.visible_message(span_warning("[user] cums on [target.p_them()]self!"), span_danger("You cum on yourself!"))
-			conditional_pref_sound(target, SFX_DESECRATION, 50, TRUE)
+			playsound_if_pref(target, SFX_DESECRATION, 50, TRUE)
 			affected_human.add_cum_splatter_floor(get_turf(target))
 		else if(target.is_refillable() && target.is_drainable())
 			var/cum_volume = mob_testicles.genital_size * CUM_VOLUME_MULTIPLIER
 			var/datum/reagents/applied_reagents = new/datum/reagents(50)
 			applied_reagents.add_reagent(/datum/reagent/consumable/cum, cum_volume) // probably should check what the target is actually cumming but we dont have custom cum settings enabled anyways...
 			user.visible_message(span_warning("[user] cums into [target]!"), span_danger("You cum into [target]!"))
-			conditional_pref_sound(target, SFX_DESECRATION, 50, TRUE)
+			playsound_if_pref(target, SFX_DESECRATION, 50, TRUE)
 			applied_reagents.trans_to(target, cum_volume)
 		else
 			user.visible_message(span_warning("[user] cums on [target]!"), span_danger("You cum on [target]!"))
-			conditional_pref_sound(target, SFX_DESECRATION, 50, TRUE)
+			playsound_if_pref(target, SFX_DESECRATION, 50, TRUE)
 			affected_human.add_cum_splatter_floor(get_turf(target))
 		log_combat(user, target, "came on")
 		if(prob(40))
