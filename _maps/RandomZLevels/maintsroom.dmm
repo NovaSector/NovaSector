@@ -2067,7 +2067,7 @@
 /area/awaymission/caves/maintsroom)
 "hS" = (
 /mob/living/basic/construct/proteon{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -3143,7 +3143,7 @@
 "mh" = (
 /obj/effect/rune/convert,
 /mob/living/basic/construct/harvester{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -3585,7 +3585,7 @@
 /area/awaymission/caves/maintsroom)
 "nI" = (
 /mob/living/basic/cult{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -3919,7 +3919,7 @@
 "pb" = (
 /obj/effect/rune/wall,
 /mob/living/basic/cult/warrior{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -4114,7 +4114,7 @@
 /area/awaymission/caves/maintsroom)
 "pT" = (
 /mob/living/basic/cult/mannequin{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -4834,7 +4834,7 @@
 "tb" = (
 /obj/item/bodypart/head,
 /mob/living/basic/construct/proteon{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -6634,7 +6634,7 @@
 /area/awaymission/caves/maintsroom)
 "Av" = (
 /mob/living/basic/cult/assassin{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -8853,7 +8853,7 @@
 /area/awaymission/caves/maintsroom)
 "Jd" = (
 /mob/living/basic/cult/engorge{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/black,
 /area/awaymission/caves/maintsroom)
@@ -9648,7 +9648,7 @@
 "Mp" = (
 /obj/effect/rune/summon,
 /mob/living/basic/cult/spear{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -11143,7 +11143,7 @@
 /area/awaymission/caves/maintsroom)
 "Sk" = (
 /mob/living/basic/cult/ghost{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -11162,7 +11162,7 @@
 /area/awaymission/caves/maintsroom)
 "Sq" = (
 /mob/living/basic/cult/horror{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -11900,7 +11900,7 @@
 /area/awaymission/caves/maintsroom)
 "Vg" = (
 /mob/living/basic/construct/wraith{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -12863,7 +12863,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "Zn" = (
-/obj/item/grenade/syndieminibomb/concussion,
+/obj/item/grenade/stingbang/mega,
 /turf/open/floor/plating{
 	icon_state = "foam_plating"
 	},
@@ -13045,7 +13045,7 @@
 /area/awaymission/caves/maintsroom)
 "ZQ" = (
 /mob/living/basic/construct/artificer{
-	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
