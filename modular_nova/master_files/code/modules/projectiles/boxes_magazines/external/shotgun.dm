@@ -20,7 +20,7 @@
 	base_icon_state = "spikewall_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	caliber = CALIBER_SHOTGUN
-	max_ammo = 16
+	max_ammo = 10
 	casing_phrasing = "shell"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
@@ -43,7 +43,7 @@
 	base_icon_state = "marauder_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	caliber = CALIBER_SHOTGUN
-	max_ammo = 8
+	max_ammo = 7
 
 /obj/item/ammo_box/magazine/jager/rubbershot
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
@@ -53,7 +53,7 @@
 	desc = "A magazine of shotgun shells, suitable for the 'Jager' combat shotgun."
 	icon_state = "marauder_mag_large"
 	base_icon_state = "marauder_mag_large"
-	max_ammo = 12
+	max_ammo = 9
 
 /obj/item/ammo_box/magazine/jager/large/empty
 	start_empty = TRUE
@@ -69,7 +69,7 @@
 	base_icon_state = "shitzu_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	caliber = CALIBER_SHOTGUN
-	max_ammo = 12
+	max_ammo = 10
 	casing_phrasing = "shell"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 

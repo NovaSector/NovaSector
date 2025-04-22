@@ -8,7 +8,7 @@
 	name = "brig officer gear locker"
 	req_access = list("syndicate_leader")
 
-/obj/item/clothing/suit/toggle/jacket/sec/old/syndicate
+/obj/item/clothing/suit/toggle/jacket/nova/sec/old/syndicate
 	name = "brig officer jacket"
 
 /obj/item/clothing/accessory/armband/syndicate
@@ -24,7 +24,7 @@
 	new /obj/item/clothing/head/beret/sec/syndicate(src)
 	new /obj/item/clothing/accessory/armband(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
-	new /obj/item/clothing/suit/toggle/jacket/sec/old/syndicate(src)
+	new /obj/item/clothing/suit/toggle/jacket/nova/sec/old/syndicate(src)
 	new /obj/item/clothing/mask/neck_gaiter(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)

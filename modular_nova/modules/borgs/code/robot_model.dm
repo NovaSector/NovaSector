@@ -28,7 +28,7 @@
 			QDEL_NULL(cyborg.particles)	// Removing left over particles
 
 
-/obj/item/robot_model/proc/update_dogborg()
+/obj/item/robot_model/proc/update_quadborg()
 	var/mob/living/silicon/robot/cyborg = robot || loc
 	if (!istype(robot))
 		return
@@ -41,22 +41,6 @@
 		cyborg.set_base_pixel_x(0)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/robot_lay_down)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/rest_style)
-
-//STANDARD
-/obj/item/robot_model/standard
-	name = "Standard"
-	borg_skins = list(
-		"Default" = list(SKIN_ICON_STATE = "robot", SKIN_FEATURES = list(TRAIT_R_SMALL)),
-		"Marina" = list(SKIN_ICON_STATE = "marinasd", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
-		"Heavy" = list(SKIN_ICON_STATE = "heavysd", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
-		"Eyebot" = list(SKIN_ICON_STATE = "eyebotsd", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_SMALL)),
-		"Robot" = list(SKIN_ICON_STATE = "robot_old", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
-		"Bootyborg" = list(SKIN_ICON_STATE = "bootysd", SKIN_ICON = CYBORG_ICON_STANDARD),
-		"Male Bootyborg" = list(SKIN_ICON_STATE = "male_bootysd", SKIN_ICON = CYBORG_ICON_STANDARD),
-		"Protectron" = list(SKIN_ICON_STATE = "protectron_standard", SKIN_ICON = CYBORG_ICON_STANDARD),
-		"Miss M" = list(SKIN_ICON_STATE = "missm_sd", SKIN_ICON = CYBORG_ICON_STANDARD),
-		"Partyhound" = list(SKIN_ICON_STATE = "k69", SKIN_ICON = CYBORG_ICON_SERVICE_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
-	)
 
 //SERVICE
 /obj/item/robot_model/service
@@ -124,7 +108,7 @@
 		/// 64x32 skins
 		"Blade" = list(SKIN_ICON_STATE = "blade", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE)),
 		"Vale" = list(SKIN_ICON_STATE = "valemine", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 2), "south" = list(16, 2), "east" = list(27, 2), "west" = list(4, 2))),
-		"Drake" = list(SKIN_ICON_STATE = "drakemine", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Drake" = list(SKIN_ICON_STATE = "drakemine", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
 		"Hound" = list(SKIN_ICON_STATE = "cargohound", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
 		"Darkhound" = list(SKIN_ICON_STATE = "cargohounddark", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
 		"Otie" = list(SKIN_ICON_STATE = "otiec", SKIN_ICON = CYBORG_ICON_MINING_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE)),
@@ -184,7 +168,7 @@
 		"Vale" = list(SKIN_ICON_STATE = "valeeng", SKIN_ICON = CYBORG_ICON_ENG_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 2), "south" = list(16, 2), "east" = list(27, 2), "west" = list(4, 2))),
 		"Hound" = list(SKIN_ICON_STATE = "engihound", SKIN_ICON = CYBORG_ICON_ENG_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
 		"Darkhound" = list(SKIN_ICON_STATE = "engihounddark", SKIN_ICON = CYBORG_ICON_ENG_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
-		"Drake" = list(SKIN_ICON_STATE = "drakeeng", SKIN_ICON = CYBORG_ICON_ENG_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Drake" = list(SKIN_ICON_STATE = "drakeeng", SKIN_ICON = CYBORG_ICON_ENG_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
 		/// 32x64 Skins
 		"Meka" = list(SKIN_ICON_STATE = "mekaengi", SKIN_ICON = CYBORG_ICON_ENG_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
 		"K4T (Technician)" = list(SKIN_ICON_STATE = "k4tengi", SKIN_ICON = CYBORG_ICON_ENG_TALL, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_UNIQUETIP, TRAIT_R_TALL), SKIN_HAT_OFFSET = list("north" = list(1, 15), "south" = list(1, 15), "east" = list(2, 15), "west" = list(-2, 15))),
@@ -218,7 +202,7 @@
 		/// 64x32 Skins
 		"Borgi" = list(SKIN_ICON_STATE = "borgi-jani", SKIN_ICON = CYBORG_ICON_JANI_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_R_SMALL), SKIN_HAT_OFFSET = list("north" = list(16, -8), "south" = list(16, -8), "east" = list(23, -8), "west" = list(9, -8))),
 		"Scrubpuppy" = list(SKIN_ICON_STATE = "scrubpup", SKIN_ICON = CYBORG_ICON_JANI_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
-		"Drake" = list(SKIN_ICON_STATE = "drakejanit", SKIN_ICON = CYBORG_ICON_JANI_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Drake" = list(SKIN_ICON_STATE = "drakejanit", SKIN_ICON = CYBORG_ICON_JANI_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
 		"Vale" = list(SKIN_ICON_STATE = "J9", SKIN_ICON = CYBORG_ICON_JANI_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 2), "south" = list(16, 2), "east" = list(27, 2), "west" = list(4, 2))),
 		"Otie" = list(SKIN_ICON_STATE = "otiej", SKIN_ICON = CYBORG_ICON_JANI_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE)),
 		/// 32x64 Skins
@@ -252,7 +236,8 @@
 		"Mech" = list(SKIN_ICON = CYBORG_ICON_MED, SKIN_ICON_STATE = "gibbs"),
 		/// 64x32 Skins
 		"Borgi" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "borgi-medi", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, -8), "south" = list(16, -8), "east" = list(23, -8), "west" = list(9, -8))),
-		"Drake" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "drakemed", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Drake" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "drakemed", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Trauma Drake" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "draketrauma", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
 		"Hound" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "medihound", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
 		"DarkHound" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "medihounddark", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
 		"Vale" = list(SKIN_ICON = CYBORG_ICON_MED_WIDE, SKIN_ICON_STATE = "valemed", SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 2), "south" = list(16, 2), "east" = list(27, 2), "west" = list(4, 2))),
@@ -282,7 +267,7 @@
 		"Insekt" = list(SKIN_ICON_STATE = "insekt-Default", SKIN_ICON = CYBORG_ICON_PEACEKEEPER),
 		"Omni" = list(SKIN_ICON_STATE = "omoikane", SKIN_ICON = CYBORG_ICON_PEACEKEEPER, SKIN_FEATURES = list(TRAIT_R_SMALL)),
 		/// 64x32 Skins
-		"Drake" = list(SKIN_ICON_STATE = "drakepeace", SKIN_ICON = CYBORG_ICON_PEACEKEEPER_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Drake" = list(SKIN_ICON_STATE = "drakepeace", SKIN_ICON = CYBORG_ICON_PEACEKEEPER_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
 		"Borgi" = list(SKIN_ICON_STATE = "borgi", SKIN_ICON = CYBORG_ICON_PEACEKEEPER_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_R_SMALL), SKIN_HAT_OFFSET = list("north" = list(16, -8), "south" = list(16, -8), "east" = list(23, -8), "west" = list(9, -8))),
 		"Vale" = list(SKIN_ICON_STATE = "valepeace", SKIN_ICON = CYBORG_ICON_PEACEKEEPER_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 2), "south" = list(16, 2), "east" = list(27, 2), "west" = list(4, 2))),
 		/// 32x64 Skins
@@ -315,7 +300,7 @@
 		"Borgi" = list(SKIN_ICON_STATE = "borgi-sec", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_R_SMALL), SKIN_HAT_OFFSET = list("north" = list(16, -8), "south" = list(16, -8), "east" = list(23, -8), "west" = list(9, -8))),
 		"Hound" = list(SKIN_ICON_STATE = "k9", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
 		"Darkhound" = list(SKIN_ICON_STATE = "k9dark", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(17, 2), "south" = list(17, 2), "east" = list(26, 2), "west" = list(4, 2))),
-		"Drake" = list(SKIN_ICON_STATE = "drakesec", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
+		"Drake" = list(SKIN_ICON_STATE = "drakesec", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE, TRAIT_RESTING_ALTS), SKIN_HAT_OFFSET = list("north" = list(16, 0), "south" = list(16, 0), "east" = list(34, 0), "west" = list(-4, 0))),
 		"Otie" = list(SKIN_ICON_STATE = "oties", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE)),
 		"Alina" = list(SKIN_ICON_STATE = "alina-sec", SKIN_LIGHT_KEY = "alina", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE)),
 		"Vale" = list(SKIN_ICON_STATE = "valesec", SKIN_ICON = CYBORG_ICON_SEC_WIDE, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_WIDE), SKIN_HAT_OFFSET = list("north" = list(16, 2), "south" = list(16, 2), "east" = list(27, 2), "west" = list(4, 2))),

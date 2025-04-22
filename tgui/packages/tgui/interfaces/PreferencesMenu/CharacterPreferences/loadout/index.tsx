@@ -19,7 +19,7 @@ import {
 
 import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
-import {
+import type {
   LoadoutCategory,
   LoadoutItem,
   LoadoutManagerData,
@@ -239,48 +239,62 @@ function LoadoutTabs(props: LoadoutTabsProps) {
             <Section>
               <Stack vertical>
                 <Stack.Item>
-                  <Dropdown
-                    mb="2px"
-                    width="100%"
-                    options={
-                      data.character_preferences.misc.loadout_lists.loadouts
-                    }
-                    selected={data.character_preferences.misc.loadout_index}
-                    onSelected={(value) =>
-                      act('set_loadout_preset', { name: value })
-                    }
-                  />
+                  <Stack>
+                    <Stack.Item>
+                      <Dropdown
+                        width="209px"
+                        options={
+                          data.character_preferences.misc.loadout_lists.loadouts
+                        }
+                        selected={data.character_preferences.misc.loadout_index}
+                        onSelected={(value) =>
+                          act('set_loadout_preset', { name: value })
+                        }
+                      />
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        icon="pen"
+                        onClick={() => setManagingPreset('Rename')}
+                        disabled={
+                          data.character_preferences.misc.loadout_index ===
+                          'Default'
+                        }
+                      />
+                    </Stack.Item>
+                  </Stack>
                 </Stack.Item>
                 <Stack.Item>
-                  <Button.Confirm
-                    icon="times"
-                    color="red"
-                    align="center"
-                    disabled={
-                      data.character_preferences.misc.loadout_index ===
-                      'Default'
-                    }
-                    tooltip={
-                      data.character_preferences.misc.loadout_index ===
-                      'Default'
-                        ? "Can't delete the default loadout entry."
-                        : 'Delete the current loadout entry.'
-                    }
-                    onClick={() => act('remove_loadout_preset')}
-                  >
-                    Delete
-                  </Button.Confirm>
-                  <Button onClick={() => setManagingPreset('Add')} icon="plus">
-                    Add Loadout
-                  </Button>
-                  <Button
-                    icon="pen"
-                    onClick={() => setManagingPreset('Rename')}
-                    disabled={
-                      data.character_preferences.misc.loadout_index ===
-                      'Default'
-                    }
-                  />
+                  <Stack>
+                    <Stack.Item>
+                      <Button
+                        onClick={() => setManagingPreset('Add')}
+                        icon="plus"
+                        color="good"
+                      >
+                        Add New Loadout
+                      </Button>
+                    </Stack.Item>
+                    <Stack.Item ml={12.5}>
+                      <Button.Confirm
+                        icon="trash"
+                        color="red"
+                        align="center"
+                        confirmContent="✓"
+                        disabled={
+                          data.character_preferences.misc.loadout_index ===
+                          'Default'
+                        }
+                        tooltip={
+                          data.character_preferences.misc.loadout_index ===
+                          'Default'
+                            ? "Can't delete the default loadout entry."
+                            : 'Delete the current loadout entry.'
+                        }
+                        onClick={() => act('remove_loadout_preset')}
+                      />
+                    </Stack.Item>
+                  </Stack>
                 </Stack.Item>
               </Stack>
             </Section>
@@ -298,7 +312,7 @@ function LoadoutTabs(props: LoadoutTabsProps) {
       <Stack.Item grow>
         {searching || activeCategory?.contents ? (
           <Section
-            title={searching ? 'Searching...' : 'Catalog'}
+            title={searching ? 'Search results' : 'Catalog'}
             fill
             scrollable
             buttons={
@@ -426,7 +440,7 @@ function LoadoutSelectedSection(props: LoadoutSelectedSectionProps) {
         </Button.Confirm>
       }
     >
-      {loadout_list &&
+      {!loadout_list.length && // NOVA EDIT CHANGE - ORIGINAL: {loadout_list &&
         Object.entries(loadout_list).map(([path, item]) => (
           <Fragment key={path}>
             <LoadoutSelectedItem

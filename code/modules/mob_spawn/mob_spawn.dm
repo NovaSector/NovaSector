@@ -224,7 +224,7 @@
  * If you are manually forcing a player into this mob spawn,
  * you should be using this and not directly calling [proc/create].
  */
-/obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user)
+/obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user, use_loadout = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user)
 	ASSERT(istype(user))
 	var/user_ckey = user.ckey // We need to do it before everything else, because after the create() the ckey will already have been transferred.
 
@@ -233,7 +233,7 @@
 	if(!temp_body)
 		user.mind = null // dissassociate mind, don't let it follow us to the next life
 
-	var/created = create(user, use_loadout = use_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/created = create(user)
+	var/created = create(user, /* newname */, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/created = create(user)
 	LAZYREMOVE(ckeys_trying_to_spawn, user_ckey) // We do this AFTER the create() so that we're basically sure that the user won't be in their ghost body anymore, so they can't click on the spawner again.
 
 	if(!created)

@@ -157,5 +157,5 @@
 		/obj/item/implanter,
 		/obj/item/hypospray/mkii,
 		/obj/item/reagent_containers/cup/vial,
-		/obj/item/weaponcell/medical
-		))
+		/obj/item/weaponcell/medical,
+	))

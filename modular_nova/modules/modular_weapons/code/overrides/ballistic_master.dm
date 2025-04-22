@@ -8,6 +8,18 @@
 /obj/item/ammo_box/advanced/s12gauge
 	reload_delay = CLICK_CD_MELEE // because it's a box but also you hold 15 shells in a box, that's a lot, man
 
+/obj/item/ammo_box/magazine/m12g
+	reload_delay = CLICK_CD_MELEE //Mags shouldn't load shells into tube-fed shotguns without zero CD
+
+/obj/item/ammo_box/magazine/katyusha
+	reload_delay = CLICK_CD_MELEE 
+
+/obj/item/ammo_box/magazine/jager
+	reload_delay = CLICK_CD_MELEE 
+
+/obj/item/ammo_box/magazine/shitzu
+	reload_delay = CLICK_CD_MELEE 
+
 /// Reloading with ammo box can incur penalty with some guns
 /obj/item/gun/ballistic/proc/handle_box_reload(mob/user, obj/item/ammo, num_loaded)
 	if(!istype(ammo, /obj/item/ammo_box))

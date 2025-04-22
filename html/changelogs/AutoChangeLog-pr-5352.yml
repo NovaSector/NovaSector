@@ -1,0 +1,4 @@
+author: "FlufflesTheDog"
+delete-after: True
+changes:
+  - bugfix: "Photocopiers on Nova maps start pre-stocked with paper and toner"
