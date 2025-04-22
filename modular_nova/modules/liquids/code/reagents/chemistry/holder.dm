@@ -19,22 +19,28 @@
 
 		// SYNTHETIC-oriented reagents require PROCESS_SYNTHETIC or a synth liver
 		if((reagent.process_flags & REAGENT_SYNTHETIC))
+			// SYNTHETIC-oriented neuroware can't affect organic brains
+			if(reagent.chemical_flags & REAGENT_NEUROWARE)
+				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
+				if(!(owner_brain.organ_flags & ORGAN_ROBOTIC))
+					return FALSE
 			if(processor_flags & PROCESS_SYNTHETIC)
 				return TRUE
-			// SYNTHETIC-oriented neuroware can't affect non-synthetics
-			if(reagent.chemical_flags & REAGENT_NEUROWARE)
-				return FALSE
+			// Human isn't synthetic species, requires synth liver to process synth reagents
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(istype(owner_liver, /obj/item/organ/liver/synth))
 				return TRUE
 
 		// ORGANIC-oriented reagents require PROCESS_ORGANIC or a non-synth liver
 		if((reagent.process_flags & REAGENT_ORGANIC))
+			// ORGANIC-oriented drugs can't affect synthetic brains
+			if(!(reagent.process_flags & REAGENT_SYNTHETIC) && istype(reagent, /datum/reagent/drug))
+				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
+				if(owner_brain.organ_flags & ORGAN_ROBOTIC)
+					return FALSE
 			if(processor_flags & PROCESS_ORGANIC)
 				return TRUE
-			// ORGANIC-oriented drugs can't affect synthetic humanoids
-			if((processor_flags == PROCESS_SYNTHETIC) && !(reagent.process_flags & REAGENT_SYNTHETIC) && istype(reagent, /datum/reagent/drug))
-				return FALSE
+			// Human isn't organic species, requires non-synth liver to process organic reagents
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(!istype(owner_liver, /obj/item/organ/liver/synth))
 				return TRUE
