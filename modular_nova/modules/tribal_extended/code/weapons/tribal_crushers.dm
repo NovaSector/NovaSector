@@ -13,17 +13,15 @@
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		balloon_alert(user, "wield it first!")
 		return ITEM_INTERACT_BLOCKING
-	if(interacting_with == user)
-		balloon_alert(user, "can't aim at yourself!")
-		return ITEM_INTERACT_BLOCKING
 	runic_spin()
 	user.changeNext_move(CLICK_CD_MELEE)
 	return ITEM_INTERACT_SUCCESS
 
-// Marks people in melee of the user if crusher is charged.
+// Marks living things in melee of the user if crusher is charged.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
 	var/spin_radius = 1 //Hits everyone around the user
-	var/spin_center = get_turf(src)
+	var/spin_center = get_turf(usr)
+	new /obj/effect/temp_visual/runic_spin(get_turf(usr))
 	if(!charged)
 		return
 	for(var/mob/living/living_target in range(spin_radius,spin_center))
@@ -34,6 +32,7 @@
 				continue
 			living_target.apply_status_effect(/datum/status_effect/crusher_mark)
 			living_target.update_appearance()
+			new /obj/effect/temp_visual/flying_rune(get_turf(living_target))
 	playsound(usr, 'sound/effects/magic/tail_swing.ogg', 100, TRUE)
 	charged = FALSE
 	icon_state = "swordoff"
@@ -41,6 +40,16 @@
 	worn_icon_state = "swordoff"
 	update_appearance()
 	attempt_recharge_runes()
+
+/obj/effect/temp_visual/runic_spin
+	icon = 'icons/effects/eldritch.dmi'
+	icon_state = "ring_leader_effect"
+	duration = 2
+
+/obj/effect/temp_visual/flying_rune
+	icon = 'icons/effects/eldritch.dmi'
+	icon_state = "small_rune_11"
+	duration = 6
 
 // Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
 /obj/item/kinetic_crusher/tribal/proc/attempt_recharge_runes(set_recharge_time)
@@ -64,4 +73,18 @@
 	. = ..()
 	inhand_icon_state = "swordon" // this is not icon_state and not supported by 2hcomponent
 
-// tofix : Add a visual, add recipe
+/datum/crafting_recipe/runic_greatsword
+	name = "Runic Greatsword"
+	category = CAT_WEAPON_MELEE
+	//recipe given to icecats as part of their spawner/team setting
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	reqs = list(
+		/obj/item/forging/complete/sword = 1,
+		/obj/item/stack/sheet/leather = 1,
+		/obj/item/stack/sheet/mineral/wood = 1,
+		// Add rare mat
+	)
+	tool_behaviors = list(TOOL_RUSTSCRAPER)
+	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
+
+// tofix : Add a visual, add rare mat from archeo
