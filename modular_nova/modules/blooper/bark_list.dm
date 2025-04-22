@@ -81,126 +81,125 @@
 	allow_random = TRUE
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/caw.ogg'
 
-//Undertale
-/datum/blooper/alphys
-	name = "Alphys"
-	id = "alphys"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_alphys.ogg'
+/datum/blooper/monster1
+	name = "Monster 1"
+	id = "monster1"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster1.ogg'
 	minvariance = 0
 
-/datum/blooper/asgore
-	name = "Asgore"
-	id = "asgore"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_asgore.ogg'
+/datum/blooper/monster2
+	name = "Monster 2"
+	id = "monster2"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster2.ogg'
 	minvariance = 0
 
-/datum/blooper/flowey
-	name = "Flowey (normal)"
-	id = "flowey1"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_flowey_1.ogg'
+/datum/blooper/monster3
+	name = "Monster 3"
+	id = "monster3"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster3.ogg'
 	minvariance = 0
 
-/datum/blooper/flowey/evil
-	name = "Flowey (evil)"
-	id = "flowey2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_flowey_2.ogg'
+/datum/blooper/monster4
+	name = "Monster 4"
+	id = "monster4"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster4.ogg'
 	minvariance = 0
 
-/datum/blooper/papyrus
-	name = "Papyrus"
-	id = "papyrus"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_papyrus.ogg'
+/datum/blooper/monster5
+	name = "Monster 5"
+	id = "monster5"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster5.ogg'
 	minvariance = 0
 
-/datum/blooper/ralsei
-	name = "Ralsei"
-	id = "ralsei"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_ralsei.ogg'
+/datum/blooper/monster6
+	name = "Monster 6"
+	id = "monster6"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster6.ogg'
 	minvariance = 0
 
-/datum/blooper/sans //real
-	name = "Sans"
-	id = "sans"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_sans.ogg'
+/datum/blooper/monster7
+	name = "Monster 7"
+	id = "monster7"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster7.ogg'
 	minvariance = 0
 
-/datum/blooper/toriel
-	name = "Toriel"
-	id = "toriel"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_toriel.ogg'
+/datum/blooper/monster8
+	name = "Monster 8"
+	id = "monster8"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster8.ogg'
 	minvariance = 0
 	maxpitch = BLOOPER_DEFAULT_MAXPITCH*2
 
-/datum/blooper/undyne
-	name = "Undyne"
-	id = "undyne"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_undyne.ogg'
+/datum/blooper/monster9
+	name = "Monster 9"
+	id = "monster9"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster9.ogg'
 	minvariance = 0
 
-/datum/blooper/temmie
-	name = "Temmie"
-	id = "temmie"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_temmie.ogg'
+/datum/blooper/monster10
+	name = "Monster 10"
+	id = "monster10"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster10.ogg'
 	minvariance = 0
 
-/datum/blooper/susie
-	name = "Susie"
-	id = "susie"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_susie.ogg'
+/datum/blooper/monster11
+	name = "Monster 11"
+	id = "monster11"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster11.ogg'
 	minvariance = 0
 
-/datum/blooper/gaster
-	name = "Gaster"
-	id = "gaster"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_gaster_1.ogg'
+/datum/blooper/monster12
+	name = "Monster 12"
+	id = "monster12"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster12.ogg'
 	minvariance = 0
 
-/datum/blooper/mettaton
-	name = "Mettaton"
-	id = "mettaton"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_metta_1.ogg'
+/datum/blooper/monster13
+	name = "Monster 13"
+	id = "monster13"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster13.ogg'
 	minvariance = 0
 
 /datum/blooper/gen_monster
 	name = "Generic Monster 1"
 	id = "gen_monster_1"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_monster1.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/voice_monster1.ogg'
 	minvariance = 0
 
 /datum/blooper/gen_monster/alt
 	name = "Generic Monster 2"
 	id = "gen_monster_2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/undertale/voice_monster2.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/voice_monster2.ogg'
 	minvariance = 0
 
-/datum/blooper/wilson
-	name = "Wilson"
-	id = "wilson"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/dont_starve/wilson_blooper.ogg'
+/datum/blooper/accordion
+	name = "Accordion"
+	id = "accordion"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/accordion.ogg'
 
-/datum/blooper/wolfgang
-	name = "Wolfgang"
-	id = "wolfgang"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/dont_starve/wolfgang_blooper.ogg'
+/datum/blooper/trombone
+	name = "Trombone"
+	id = "trombone"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/trumbone.ogg'
 	minspeed = 4
 	maxspeed = 10
 
-/datum/blooper/woodie
-	name = "Woodie"
-	id = "woodie"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/dont_starve/woodie_blooper.ogg'
+/datum/blooper/cello
+	name = "Cello"
+	id = "cello"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/cello.ogg'
 	minspeed = 4
 	maxspeed = 10
 
-/datum/blooper/wurt
-	name = "Wurt"
-	id = "wurt"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/dont_starve/wurt_blooper.ogg'
+/datum/blooper/blerp
+	name = "Blerp"
+	id = "blerp"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/blerp.ogg'
 
-/datum/blooper/wx78
-	name = "wx78"
-	id = "wx78"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/dont_starve/wx78_blooper.ogg'
+/datum/blooper/brrp
+	name = "Brrp"
+	id = "brrp"
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/brrp.ogg'
 	minspeed = 3
 	maxspeed = 9
 
@@ -304,114 +303,113 @@
 /datum/blooper/chitter/alt
 	name = "Chittery Alt"
 	id = "chitter2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/moth/mothchitter2.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/mothchitter2.ogg'
 
-// The Mayhem Special
 /datum/blooper/whistle
 	name = "Whistle 1"
 	id = "whistle1"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/birdwhistle.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/birdwhistle.ogg'
 
 /datum/blooper/whistle/alt1
 	name = "Whistle 2"
 	id = "whistle2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/birdwhistle2.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/birdwhistle2.ogg'
 
 /datum/blooper/caw/alt1
 	name = "Caw 2"
 	id = "caw2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/caw.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/caw2.ogg'
 	minspeed = 4
 	maxspeed = 9
 
 /datum/blooper/caw/alt2
 	name = "Caw 3"
 	id = "caw3"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/caw2.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/caw3.ogg'
 	minspeed = 3
 	maxspeed = 9
 
 /datum/blooper/caw/alt3
 	name = "Caw 4"
 	id = "caw4"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/caw3.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/caw4.ogg'
 	minspeed = 3
 	maxspeed = 9
 
 /datum/blooper/ehh
 	name = "Ehh 1"
 	id = "ehh1"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/ehh.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh.ogg'
 	minspeed = 3
 	maxspeed = 9
 
 /datum/blooper/ehh/alt1
 	name = "Ehh 2"
 	id = "ehh2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/ehh2.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh2.ogg'
 
 /datum/blooper/ehh/alt2
 	name = "Ehh 3"
 	id = "ehh3"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/ehh3.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh3.ogg'
 
 /datum/blooper/ehh/alt3
 	name = "Ehh 4"
 	id = "ehh4"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/ehh4.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh4.ogg'
 	minspeed = 3
 	maxspeed = 9
 
 /datum/blooper/ehh/alt5
 	name = "Ehh 5"
 	id = "ehh5"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/ehh5.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh5.ogg'
 
 /datum/blooper/faucet
 	name = "Faucet 1"
 	id = "faucet1"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/faucet.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/faucet.ogg'
 
 /datum/blooper/faucet/alt1
 	name = "Faucet 2"
 	id = "faucet2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/faucet2.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/faucet2.ogg'
 
 /datum/blooper/ribbit
 	name = "Ribbit"
 	id = "ribbit"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/ribbit.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ribbit.ogg'
 
 /datum/blooper/hoot
 	name = "Hoot"
 	id = "hoot"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/hoot.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/hoot.ogg'
 	minspeed = 4
 	maxspeed = 9
 
 /datum/blooper/tweet
 	name = "Tweet"
 	id = "tweet"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/tweet.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/tweet.ogg'
 
 /datum/blooper/dwoop
 	name = "Dwoop"
 	id = "dwoop"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/dwoop.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/dwoop.ogg'
 	minspeed = 3
 	maxspeed = 9
 
 /datum/blooper/uhm
 	name = "Uhm"
 	id = "uhm"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/uhm.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/uhm.ogg'
 
 /datum/blooper/wurtesh
 	name = "Wurtesh"
 	id = "wurtesh"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/wurble1.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/wurble1.ogg'
 
 /datum/blooper/chitter2
 	name = "Chitter2"
 	id = "chitter2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/kazooie/chitter1.ogg'
+	soundpath = 'modular_nova/modules/blooper/voice/bloopers/chitter1.ogg'
