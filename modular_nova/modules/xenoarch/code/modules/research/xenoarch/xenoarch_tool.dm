@@ -16,6 +16,7 @@
 	. = ..()
 	if(advanced)
 		. += span_notice("This is an advanced hammer. It can change its digging depth from 1 to 30. Click to change depth.")
+
 	. += span_notice("Current Digging Depth: [dig_amount]cm")
 
 /obj/item/xenoarch/hammer/attack_self(mob/user, modifiers)
@@ -23,20 +24,24 @@
 	if(!advanced)
 		to_chat(user, span_warning("This is not an advanced hammer, it cannot change its digging depth."))
 		return
+
 	var/user_choice = input(user, "Choose the digging depth. 1 to 30", "Digging Depth Selection") as null|num
 	if(!user_choice)
 		dig_amount = 1
 		dig_speed = 1
 		return
+
 	if(dig_amount <= 0)
 		dig_amount = 1
 		dig_speed = 1
 		return
+
 	var/round_dig = round(user_choice)
 	if(round_dig >= 30)
 		dig_amount = 30
 		dig_speed = 30
 		return
+
 	dig_amount = round_dig
 	dig_speed = round_dig * 0.5
 	to_chat(user, span_notice("You change the hammer's digging depth to [round_dig]cm."))
@@ -134,41 +139,55 @@
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/tech))
 		var/spawn_item = pick_weight(GLOB.tech_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/weapon))
 		var/spawn_item = pick_weight(GLOB.weapon_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/illegal))
 		var/spawn_item = pick_weight(GLOB.illegal_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/alien))
 		var/spawn_item = pick_weight(GLOB.alien_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/plant))
 		var/spawn_item = pick_weight(GLOB.plant_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/clothing))
 		var/spawn_item = pick_weight(GLOB.clothing_reward)
 		new spawn_item(target_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	if(istype(interacting_with, /obj/item/xenoarch/broken_item/animal))
 		var/spawn_item
 		var/turf/src_turf = get_turf(src)
 		for(var/looptime in 1 to rand(1,4))
 			spawn_item = pick_weight(GLOB.animal_reward)
 			new spawn_item(src_turf)
+		user.mind?.adjust_experience(/datum/skill/research, 5)
 		qdel(interacting_with)
 		return
+
 	return NONE
 
 /obj/item/storage/belt/utility/xenoarch
@@ -193,8 +212,8 @@
 		/obj/item/xenoarch/anomaly_stabilizer,
 		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/mining_scanner,
-		/obj/item/gps
-		))
+		/obj/item/gps,
+	))
 
 /obj/item/storage/bag/xenoarch
 	name = "xenoarch mining satchel"

@@ -45,7 +45,7 @@
 // OUTFITS
 
 /datum/outfit/lavaland_syndicate/comms
-	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/syndicate
 	ears = /obj/item/radio/headset/interdyne/comms
 
 /datum/outfit/lavaland_syndicate/comms/space

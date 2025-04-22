@@ -164,7 +164,7 @@
 		if(!candidates.len)
 			return
 		var/client/C = pick_n_take(candidates)
-		host.key = C.key
+		host.PossessByPlayer(C.key)
 	else
 		host.grab_ghost()
 	to_chat(host, span_notice("You feel an itching, both inside and \

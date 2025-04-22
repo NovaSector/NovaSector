@@ -1,11 +1,11 @@
 /obj/item/scythe
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
-	icon = 'modular_nova/modules/space_vines/items_and_weapons.dmi'
+	icon = 'modular_nova/modules/space_vines/icons/items_and_weapons.dmi'
 	icon_state = "scythe_t1"
-	worn_icon = 'modular_nova/modules/space_vines/back.dmi'
-	lefthand_file = 'modular_nova/modules/space_vines/polearms_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/space_vines/polearms_righthand.dmi'
+	worn_icon = 'modular_nova/modules/space_vines/icons/back.dmi'
+	lefthand_file = 'modular_nova/modules/space_vines/icons/polearms_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/space_vines/icons/polearms_righthand.dmi'
 	force = 13
 	throwforce = 5
 	throw_speed = 2
@@ -91,7 +91,7 @@
 		"scythet1",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
-	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = 500)
+	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_1_POINTS)
 
 /datum/techweb_node/scythe_t2
 	id = TECHWEB_NODE_SCYTHE_2
@@ -102,7 +102,7 @@
 		"scythet2",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
-	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = 1000)
+	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_2_POINTS)
 
 /datum/supply_pack/organic/tier3_scythe
 	name = "Tier 3 Scythe"

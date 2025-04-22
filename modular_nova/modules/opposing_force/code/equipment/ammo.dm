@@ -53,8 +53,8 @@
 	description = "A box of hornet's nest shotgun shells, a less-lethal pellet spread that bounces towards targets off of walls."
 	item_type = /obj/item/ammo_box/advanced/s12gauge/beehive
 
-/datum/opposing_force_equipment/ammo_exotic/stardust
-	description = "A box of stardust shotgun shells, a less-lethal spread of embedding electrodes that tire targets that move."
+/datum/opposing_force_equipment/ammo_exotic/lighting
+	description = "A box of lighting shotgun shells, a less-lethal cable similar to the taser, with its own power battery to disable and reduce the target."
 	item_type = /obj/item/ammo_box/advanced/s12gauge/antitide
 
 /datum/opposing_force_equipment/ammo_exotic/a357phasic

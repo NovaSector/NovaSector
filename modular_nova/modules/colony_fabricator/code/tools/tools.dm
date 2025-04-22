@@ -103,6 +103,7 @@
 	icon_state = "prybar"
 	toolspeed = 1.3
 	force_opens = TRUE
+	custom_premium_price = PAYCHECK_COMMAND * 5
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.75,
 		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,

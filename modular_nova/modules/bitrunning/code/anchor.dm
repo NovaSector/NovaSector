@@ -18,7 +18,9 @@
 		server.retries_spent -= 1
 		server.threat += 1
 		server.current_anchors += 1
-		server.radio.talk_into(src, "Potential secure datastream detected. Locking on the new spawn point.", RADIO_CHANNEL_SUPPLY)
+		var/obj/machinery/announcement_system/aas = get_announcement_system(source = server)
+		if(aas)
+			aas.broadcast("Potential secure datastream detected. Locking on the new spawn point.", list(RADIO_CHANNEL_SUPPLY))
 	new /obj/effect/landmark/bitrunning/domain_anchor(drop_location())
 	user.balloon_alert(user, "connection stabilized!")
 	qdel(src)

@@ -69,3 +69,45 @@
 
 /obj/item/melee/baton/security/stun_gun/loaded
 	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
+
+
+/obj/item/melee/baton/security/stun_gun/stun_knife
+	name = "\improper Makeshift Stun Knife"
+	desc = "A Kopřiva stun gun cobbled together with a standard survival knife, making an odd combination of a lethally... non-lethal weapon. \
+	Not the best for standing your ground, but it's better then nothing!"
+	desc_controls = "Left click to stun, right click to 'harm'."
+	icon = 'modular_nova/modules/novaya_ert/icons/stun_knife.dmi'
+	icon_state = "stun_knife"
+	lefthand_file = 'modular_nova/modules/novaya_ert/icons/stun_knife_left.dmi'
+	righthand_file = 'modular_nova/modules/novaya_ert/icons/stun_knife_right.dmi'
+	inhand_icon_state = "stun_knife"
+	base_icon_state = "stun_knife"
+	sharpness = SHARP_EDGED
+	force = 15
+	throwforce = 15
+	wound_bonus = 5
+	bare_wound_bonus = 15
+	embed_type = /datum/embedding/combat_knife/weak
+	tool_behaviour = TOOL_KNIFE
+	attack_verb_continuous = list("glances", "slices", "strikes")
+	attack_verb_simple = list("slash", "slice", "dice", "cut")
+	var/list/alt_continuous = list("stabs", "pierces", "shanks")
+	var/list/alt_simple = list("stab", "pierce", "shank")
+
+/obj/item/melee/baton/security/stun_gun/stun_knife/proc/make_stabby()
+	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple)
+
+/obj/item/melee/baton/security/stun_gun/stun_knife/loaded
+	preload_cell_type = /obj/item/stock_parts/power_store/cell/high
+
+/datum/crafting_recipe/knife_and_shocky
+	name = "Makeshift Stunknife"
+	desc = "cobble together an abomination against both man, and god."
+	result = /obj/item/melee/baton/security/stun_gun/stun_knife/loaded // Only because crafting it is going to be a bit of a hassle already, and it will absolutely eat the cell your stun gun might've had in it.
+	reqs = list(
+		/obj/item/knife/combat/survival = 1,
+		/obj/item/melee/baton/security/stun_gun = 1,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 10 SECONDS
+	category = CAT_WEAPON_MELEE

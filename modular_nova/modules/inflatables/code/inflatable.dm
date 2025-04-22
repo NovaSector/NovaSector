@@ -231,7 +231,7 @@
 
 /obj/item/storage/inflatable/Initialize(mapload)
 	. = ..()
-	atom_storage.set_holdable(typesof(/obj/item/inflatable))
+	atom_storage.set_holdable(/obj/item/inflatable)
 
 /obj/item/storage/inflatable/PopulateContents()
 	for(var/i = 0, i < BOX_DOOR_AMOUNT, i++)

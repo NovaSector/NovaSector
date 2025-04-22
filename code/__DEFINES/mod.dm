@@ -38,6 +38,10 @@
 //Defines used to override MOD clothing's icon and worn icon files in the skin.
 #define MOD_ICON_OVERRIDE "mod_icon_override"
 #define MOD_WORN_ICON_OVERRIDE "mod_worn_icon_override"
+// NOVA EDIT ADDITION START
+#define MOD_DIGITIGRADE_ICON_OVERRIDE "mod_digitigrade_icon_override"
+#define MOD_SNOUT_ICON_OVERRIDE "mod_snout_icon_override"
+// NOVA EDIT ADDITION END
 
 //Defines for MODlink frequencies
 #define MODLINK_FREQ_NANOTRASEN "NT"
@@ -57,9 +61,5 @@
 
 /// Global list of all /datum/mod_theme
 GLOBAL_LIST_INIT(mod_themes, setup_mod_themes())
-/// Global cache of mod skins to masks per different configuration of pulled out parts.
-GLOBAL_LIST_EMPTY(mod_masks)
-/// Global cache of mod skins to deployed parts to module icon states
-GLOBAL_LIST_EMPTY(mod_module_overlays)
 /// Global list of all ids associated to a /datum/mod_link instance
 GLOBAL_LIST_EMPTY(mod_link_ids)

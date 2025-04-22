@@ -10,4 +10,5 @@
 	premium_nova = list(
 		/obj/item/gun/ballistic/automatic/pistol/type207 = 5,
 		/obj/item/gun/ballistic/automatic/pistol/pepperball = 2,
+		/obj/item/nifsoft_remover = 3,
 	)

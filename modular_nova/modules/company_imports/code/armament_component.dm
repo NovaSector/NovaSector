@@ -20,12 +20,17 @@
 	. = ..()
 	if(istype(parent, /obj/machinery/computer/cargo))
 		console_state = CARGO_CONSOLE
+		RegisterSignal(parent, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag))
 	else if(istype(parent, /obj/item/modular_computer))
 		console_state = IRN_CONSOLE
 
 /datum/component/armament/company_imports/Destroy(force)
+	UnregisterSignal(parent, COMSIG_ATOM_EMAG_ACT)
 	parent_prog = null
 	. = ..()
+
+/datum/component/armament/company_imports/proc/on_emag(mob/user, obj/item/card/emag/emag_card)
+	update_static_data_for_all_viewers()
 
 /datum/component/armament/company_imports/on_attack_hand(datum/source, mob/living/user)
 	return
@@ -39,7 +44,6 @@
 	var/mob/living/carbon/human/the_person = user
 	var/obj/item/card/id/id_card
 	var/datum/bank_account/buyer = SSeconomy.get_dep_account(ACCOUNT_CAR)
-	var/cost_multiplier = COST_MULTIPLIER
 
 	if(console_state == IRN_CONSOLE)
 		id_card = parent_prog.computer.computer_id_slot?.GetID()
@@ -72,8 +76,6 @@
 
 	if(console_state == CARGO_CONSOLE)
 		var/obj/machinery/computer/cargo/console = parent
-		if(console.obj_flags & EMAGGED)
-			cost_multiplier *= EMAGGED_DISCOUNT
 		if(!console.requestonly || console.contraband)
 			cant_buy_restricted = FALSE
 
@@ -83,12 +85,19 @@
 				cant_buy_restricted = FALSE
 
 	data["cant_buy_restricted"] = !!cant_buy_restricted
-	data["cost_multiplier"] = cost_multiplier
 	data["budget_points"] = self_paid ? id_card?.registered_account?.account_balance : buyer?.account_balance
-	data["ammo_amount"] = ammo_purchase_num
 	data["self_paid"] = !!self_paid
+	return data
+
+/datum/component/armament/company_imports/ui_static_data(mob/user)
+	var/list/data = list()
 	data["armaments_list"] = list()
 
+	var/cost_multiplier = COST_MULTIPLIER
+	if(console_state == CARGO_CONSOLE)
+		var/obj/machinery/computer/cargo/console = parent
+		if(console.obj_flags & EMAGGED)
+			cost_multiplier *= EMAGGED_DISCOUNT
 	for(var/armament_category as anything in SSarmaments.entries)
 
 		var/list/armament_subcategories = list()

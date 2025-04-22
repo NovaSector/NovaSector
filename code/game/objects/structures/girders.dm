@@ -44,6 +44,7 @@
 			. += span_notice("[src] is designed for tram usage. Deconstructed with a screwdriver!")
 
 /obj/structure/girder/attackby(obj/item/W, mob/user, params)
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT ADDITION: Construction Skill
 	var/platingmodifier = 1
 	if(HAS_TRAIT(user, TRAIT_QUICK_BUILD))
 		platingmodifier = 0.7
@@ -86,11 +87,12 @@
 					balloon_alert(user, "need [amount] rods!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 2 SECONDS, target = src))
+				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 					if(rod.get_amount() < amount)
 						return
 					rod.use(amount)
 					var/obj/structure/falsewall/iron/FW = new (loc)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(FW)
 					qdel(src)
 					return
@@ -99,12 +101,13 @@
 					balloon_alert(user, "need [amount] rods!")
 					return
 				balloon_alert(user, "adding plating...")
-				if(do_after(user, 4 SECONDS, target = src))
+				if(do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(rod.get_amount() < amount)
 						return
 					rod.use(amount)
 					var/turf/T = get_turf(src)
 					T.place_on_top(/turf/closed/wall/mineral/iron)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(T)
 					qdel(src)
 				return
@@ -120,11 +123,12 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 20*platingmodifier, target = src))
+				if(do_after(user, 20 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 20*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
 					var/obj/structure/falsewall/F = new (loc)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(F)
 					qdel(src)
 					return
@@ -136,11 +140,12 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 4 SECONDS, target = src))
+				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
 					var/obj/structure/tram/alt/iron/tram_wall = new(loc)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(tram_wall)
 					qdel(src)
 				return
@@ -149,12 +154,13 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 40*platingmodifier, target = src))
+				if (do_after(user, 40 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 40*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
 					var/turf/T = get_turf(src)
 					T.place_on_top(/turf/closed/wall)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(T)
 					qdel(src)
 				return
@@ -165,11 +171,12 @@
 				balloon_alert(user, "need [amount] sheets!")
 				return
 			balloon_alert(user, "adding panel...")
-			if (do_after(user, 2 SECONDS, target = src))
+			if (do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 				if(sheets.get_amount() < amount)
 					return
 				sheets.use(amount)
 				var/obj/structure/tram/tram_wall = new(loc)
+				user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 				transfer_fingerprints_to(tram_wall)
 				qdel(src)
 			return
@@ -181,11 +188,12 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 2 SECONDS, target = src))
+				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
 					var/obj/structure/falsewall/reinforced/FW = new (loc)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(FW)
 					qdel(src)
 					return
@@ -194,12 +202,13 @@
 				if(sheets.get_amount() < amount)
 					return
 				balloon_alert(user, "adding plating...")
-				if(do_after(user, 50*platingmodifier, target = src))
+				if(do_after(user, 50 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 50*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
 					var/turf/T = get_turf(src)
 					T.place_on_top(/turf/closed/wall/r_wall)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(T)
 					qdel(src)
 				return
@@ -208,11 +217,12 @@
 				if(sheets.get_amount() < amount)
 					return
 				balloon_alert(user, "reinforcing frame...")
-				if(do_after(user, 60*platingmodifier, target = src))
+				if(do_after(user, 60 * platingmodifier * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 60*platingmodifier, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
 					var/obj/structure/girder/reinforced/R = new (loc)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(R)
 					qdel(src)
 				return
@@ -232,11 +242,12 @@
 					balloon_alert(user, "need titanium glass or mineral!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 4 SECONDS, target = src))
+				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					var/obj/structure/tram/tram_wall
 					tram_wall = new tram_wall_type(loc)
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					sheets.use(amount)
 					transfer_fingerprints_to(tram_wall)
 					qdel(src)
@@ -247,7 +258,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "concealing entrance...")
-				if(do_after(user, 2 SECONDS, target = src))
+				if(do_after(user, 2 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 2 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -261,6 +272,7 @@
 						if(material_list)
 							mat_falsewall.set_custom_materials(material_list)
 						falsewall = mat_falsewall
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(falsewall)
 					qdel(src)
 					return
@@ -269,7 +281,7 @@
 					balloon_alert(user, "need [amount] sheets!")
 					return
 				balloon_alert(user, "adding plating...")
-				if (do_after(user, 4 SECONDS, target = src))
+				if (do_after(user, 4 SECONDS * skill_modifier, target = src)) // NOVA EDIT CHANGE - ORIGINAL: if(do_after(user, 4 SECONDS, target = src))
 					if(sheets.get_amount() < amount)
 						return
 					sheets.use(amount)
@@ -283,6 +295,7 @@
 						if(material_list)
 							newturf.set_custom_materials(material_list)
 
+					user.mind?.adjust_experience(/datum/skill/construction, 2) //NOVA EDIT ADDITION: Construction Skill
 					transfer_fingerprints_to(T)
 					qdel(src)
 				return

@@ -4,6 +4,9 @@ SUBSYSTEM_DEF(ticket_ping)
 	flags = SS_BACKGROUND
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	wait = 3 MINUTES
+	dependencies = list(
+		/datum/controller/subsystem/opposing_force,
+	)
 
 /datum/controller/subsystem/ticket_ping/Initialize()
 	if(CONFIG_GET(number/ticket_ping_frequency) < 1)

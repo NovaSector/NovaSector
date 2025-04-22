@@ -1,5 +1,6 @@
 /datum/species/monkey/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("Monkey", FALSE),
 	)
 
@@ -18,3 +19,9 @@
 
 /datum/species/monkey/set_custom_worn_icon(item_slot, obj/item/item, icon/icon)
 	item.worn_icon_monkey = icon
+
+/mob/living/carbon/human/species/monkey/kobold/Initialize(mapload, cubespawned, mob/spawner)
+	. = ..()
+	var/datum/mutation/human/race/race_mut = dna.get_mutation(/datum/mutation/human/race)
+	race_mut.original_species = /datum/species/lizard
+	race_mut.original_name = generate_random_name_species_based(gender, species_type = /datum/species/lizard)

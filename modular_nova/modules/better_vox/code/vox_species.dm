@@ -48,6 +48,7 @@
 
 /datum/species/vox_primalis/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("Vox Primalis Tail", FALSE),
 	)
 

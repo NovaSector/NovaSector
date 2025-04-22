@@ -133,17 +133,3 @@
 	stamina = 30
 	eyeblur = 2 SECONDS
 	jitter = 8 SECONDS
-
-/datum/design/plastic_hair_tie
-	name = "Plastic Hair Tie"
-	id = "plastic_hair_tie"
-	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | COLONY_FABRICATOR
-	materials = list(
-		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	build_path = /obj/item/clothing/head/hair_tie/plastic_beads
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SERVICE,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE

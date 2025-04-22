@@ -42,8 +42,7 @@
 	user_left_eye_color = our_guy.eye_color_left
 	user_right_eye_color = our_guy.eye_color_right
 
-	our_guy.eye_color_left = BLOODCULT_EYE
-	our_guy.eye_color_right = BLOODCULT_EYE
+	our_guy.set_eye_color(BLOODCULT_EYE)
 	our_guy.update_body()
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
@@ -118,8 +117,7 @@
 		hurt_that_mans_organs(our_guy, 3, FALSE)
 
 	if(locate(/datum/reagent/drug/twitch) in our_guy.reagents.reagent_list) // Combining this with twitch could cause some heart attack problems
-		our_guy.ForceContractDisease(new /datum/disease/heart_failure(), FALSE, TRUE)
-
+		our_guy.apply_status_effect(/datum/status_effect/heart_attack)
 
 /datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
 	. = ..()

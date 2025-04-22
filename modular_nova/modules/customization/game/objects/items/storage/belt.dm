@@ -18,7 +18,7 @@
 	atom_storage.set_holdable(list(
 		/obj/item/mail,
 		/obj/item/mail/envelope,
-		/obj/item/paper
+		/obj/item/paper,
 	))
 
 /obj/item/storage/belt/mailbelt/white

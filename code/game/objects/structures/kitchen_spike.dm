@@ -1,8 +1,8 @@
 #define MEATSPIKE_IRONROD_REQUIREMENT 4
 
-/obj/structure/kitchenspike_frame//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/kitchenspike_frame
 	name = "meatspike frame"
-	icon = 'icons/obj/service/kitchen.dmi'
+	icon = 'icons/obj/service/kitchen.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "spikeframe"
 	desc = "The frame of a meat spike."
 	density = TRUE
@@ -64,9 +64,9 @@
 		return
 	balloon_alert(user, "[MEATSPIKE_IRONROD_REQUIREMENT] rods needed!")
 
-/obj/structure/kitchenspike//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/kitchenspike
 	name = "meat spike"
-	icon = 'icons/obj/service/kitchen.dmi'
+	icon = 'icons/obj/service/kitchen.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "spike"
 	desc = "A spike for collecting meat from animals."
 	density = TRUE
@@ -124,7 +124,7 @@
 	var/matrix/m180 = matrix(target.transform)
 	m180.Turn(180)
 	animate(target, transform = m180, time = 3)
-	target.pixel_y = target.base_pixel_y + PIXEL_Y_OFFSET_LYING
+	target.add_offsets(type, y_add = -6, animate = FALSE)
 	ADD_TRAIT(target, TRAIT_MOVE_UPSIDE_DOWN, REF(src))
 
 /obj/structure/kitchenspike/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
@@ -156,7 +156,7 @@
 	var/matrix/m180 = matrix(buckled_mob.transform)
 	m180.Turn(180)
 	animate(buckled_mob, transform = m180, time = 3)
-	buckled_mob.pixel_y = buckled_mob.base_pixel_y + PIXEL_Y_OFFSET_LYING
+	buckled_mob.remove_offsets(type, animate = FALSE)
 	REMOVE_TRAIT(buckled_mob, TRAIT_MOVE_UPSIDE_DOWN, REF(src))
 
 /obj/structure/kitchenspike/atom_deconstruct(disassembled = TRUE)
