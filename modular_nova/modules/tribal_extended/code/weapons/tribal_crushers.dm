@@ -1,0 +1,67 @@
+/obj/item/kinetic_crusher/tribal/runic_greatsword
+	icon = 'icons/obj/weapons/sword.dmi'
+	icon_state = "swordon"
+	inhand_icon_state = "swordon"
+	worn_icon_state = "swordon"
+	name = "Runic Greatsword"
+	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue"
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	light_color = "#8DEBFF"
+
+/obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
+		balloon_alert(user, "wield it first!")
+		return ITEM_INTERACT_BLOCKING
+	if(interacting_with == user)
+		balloon_alert(user, "can't aim at yourself!")
+		return ITEM_INTERACT_BLOCKING
+	runic_spin()
+	user.changeNext_move(CLICK_CD_MELEE)
+	return ITEM_INTERACT_SUCCESS
+
+// Marks people in melee of the user if crusher is charged.
+/obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
+	var/spin_radius = 1 //Hits everyone around the user
+	var/spin_center = get_turf(src)
+	if(!charged)
+		return
+	for(var/mob/living/living_target in range(spin_radius,spin_center))
+		if(living_target != usr && !(usr in living_target.buckled_mobs)) // we're not marking ourselves or our mount.
+			for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
+				crusher_trophy.on_projectile_hit_mob(living_target, usr)
+			if(QDELETED(living_target) || living_target.health <= 0)
+				continue
+			living_target.apply_status_effect(/datum/status_effect/crusher_mark)
+			living_target.update_appearance()
+	playsound(usr, 'sound/effects/magic/tail_swing.ogg', 100, TRUE)
+	charged = FALSE
+	icon_state = "swordoff"
+	inhand_icon_state = "swordoff"
+	worn_icon_state = "swordoff"
+	update_appearance()
+	attempt_recharge_runes()
+
+// Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
+/obj/item/kinetic_crusher/tribal/proc/attempt_recharge_runes(set_recharge_time)
+	if(!set_recharge_time)
+		set_recharge_time = charge_time
+	deltimer(charge_timer)
+	charge_timer = addtimer(CALLBACK(src, PROC_REF(recharge_runes)), set_recharge_time, TIMER_STOPPABLE)
+
+// Recharges the projectile (slight edit of kinetic_crusher.dm)
+/obj/item/kinetic_crusher/tribal/proc/recharge_runes()
+	if(!charged)
+		charged = TRUE
+		icon_state = "swordon"
+		inhand_icon_state = "swordon"
+		worn_icon_state = "swordon"
+		update_appearance()
+		playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
+
+//I'm not a spriter, reusing the moonlight greatsword which doesn't have a wielded icon, can probably removed if someone does a sprite with a wielded icon.
+/obj/item/kinetic_crusher/tribal/runic_greatsword/update_icon_state()
+	. = ..()
+	inhand_icon_state = "swordon" // this is not icon_state and not supported by 2hcomponent
+
+// tofix : Add a visual, add recipe
