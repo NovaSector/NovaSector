@@ -35,6 +35,8 @@
 // NOVA EDIT ADDITION START - Customization
 /// Synthetic organ granted by a species (for use for organ replacements between species)
 #define ORGAN_SYNTHETIC_FROM_SPECIES (1<<14)
+/// Organ flag for organs of hemophage origin, or organs that have since been infected by an hemophage's tumor.
+#define ORGAN_TUMOR_CORRUPTED (1<<15)
 // NOVA EDIT ADDITION END
 
 /// Scarring on the right eye
