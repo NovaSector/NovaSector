@@ -5565,7 +5565,7 @@
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
 "cTQ" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/siding/dark{
@@ -11940,7 +11940,7 @@
 /turf/open/floor/sepia,
 /area/centcom/holding/cafe)
 "nHC" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/button/door/directional/south{
 	id = "bs_shutters";
 	name = "Privacy Shutter Comtrol";
@@ -13453,7 +13453,7 @@
 /turf/open/floor/iron/white,
 /area/centcom/interlink/dorm_rooms)
 "pMm" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
@@ -13600,7 +13600,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "pVh" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/button/door/directional/north{
 	id = "ntrep_shutters";
 	name = "Privacy Shutter Comtrol";

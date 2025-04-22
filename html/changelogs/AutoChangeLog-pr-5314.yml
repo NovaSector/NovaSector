@@ -1,5 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - qol: "The Breathing Tube implant can now be converted to an \"Integrated Breathing Tube\" using a screwdriver - this will hide the augment overlay, for users who would rather the tube be invisible."
-  - rscadd: "This \"Integrated Breathing Tube\" has been added to the loadout for crew who wish to make their already-equipped tubes more subtle."
