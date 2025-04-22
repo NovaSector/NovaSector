@@ -22,8 +22,9 @@
 			// SYNTHETIC-oriented neuroware can't affect organic brains
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
 				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
-				if(!(owner_brain.organ_flags & ORGAN_ROBOTIC))
-					return FALSE
+				// Neuroware always metabolizes in synthetic brains regardless of liver
+				if(owner_brain.organ_flags & ORGAN_ROBOTIC)
+					return TRUE
 			if(processor_flags & PROCESS_SYNTHETIC)
 				return TRUE
 			// Human isn't synthetic species, requires synth liver to process synth reagents
