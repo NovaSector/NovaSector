@@ -9,7 +9,7 @@
 ///Neuroware chips are installed into this
 #define NEURO_SLOT_NAME "persocom chip slot"
 
-///Data chip which contextualizes drugs as "software" for synthetics or NIF users.
+///Data chip which contextualizes drugs as "software" for synthetic brains.
 ///Like pills, but doesn't directly contain reagents, instead adds them manually.
 /obj/item/disk/neuroware
 	name = "blank neuroware"
@@ -68,22 +68,27 @@
 		. += span_notice("It is spent.")
 
 /obj/item/disk/neuroware/attack_self(mob/user, modifiers)
-	try_install(user, user)
+	if(!try_install(user, user))
+		return ..()
 
 /obj/item/disk/neuroware/attack(mob/living/mob, mob/living/user, params)
-	try_install(mob, user)
+	if(!try_install(mob, user))
+		return ..()
 
 ///Safely implement any side-effects after installing.
 /obj/item/disk/neuroware/proc/after_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	return
 
-///Installs only if the mob has a NIF implant or is synthetic species.
+///Installs only if the mob has a synthetic brain
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
-	if(!issynthetic(target))
-		balloon_alert(user, "synthetic required!")
+	if(!ishuman(target))
 		return
 	if(uses == 0)
 		balloon_alert(user, "it's been used up!")
+		return
+	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
+		balloon_alert(user, "synthetic brain required!")
 		return
 	if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		balloon_alert(user, "installation failed!")
@@ -118,6 +123,8 @@
 	uses += -1
 	if(!reusable && (uses == 0))
 		qdel(src)
+
+	return TRUE
 
 ///Installs neuroware (insert reagents) into the target mob. Returns TRUE on success.
 /obj/item/disk/neuroware/proc/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
