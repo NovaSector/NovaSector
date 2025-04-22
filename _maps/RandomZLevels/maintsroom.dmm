@@ -760,7 +760,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "df" = (
-/obj/effect/spawner/random/engineering/tank,
+/obj/structure/reagent_dispensers/foamtank,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "dg" = (
@@ -813,7 +813,9 @@
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
 "dq" = (
-/obj/structure/light_construct/directional/east,
+/obj/structure/chair/stool/directional/north,
+/obj/effect/landmark/awaystart/maintsroom,
+/obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "dr" = (
@@ -1172,7 +1174,7 @@
 /area/awaymission/caves/maintsroom)
 "eD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/reagent_dispensers/foamtank,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
@@ -2064,7 +2066,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "hS" = (
-/mob/living/basic/construct/proteon,
+/mob/living/basic/construct/proteon{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "hT" = (
@@ -2949,7 +2953,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "ll" = (
-/obj/structure/destructible/clockwork/gear_base/powered/ocular_warden,
+/mob/living/basic/clockwork_marauder,
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "ln" = (
@@ -3097,7 +3101,7 @@
 /area/awaymission/caves/maintsroom)
 "lS" = (
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/random/engineering/tank,
+/obj/structure/reagent_dispensers/foamtank,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "lT" = (
@@ -3105,12 +3109,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "lV" = (
-/obj/item/bot_assembly/repairbot{
-	created_name = "FloorDiffBot";
-	desc = "Why won't it work?";
-	name = "FloorDiffBot"
-	},
-/turf/open/floor/wood,
+/obj/effect/spawner/random/exotic/antag_gear,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "lZ" = (
 /obj/machinery/door/airlock/freezer{
@@ -3142,7 +3142,9 @@
 /area/awaymission/caves/maintsroom)
 "mh" = (
 /obj/effect/rune/convert,
-/mob/living/basic/construct/harvester,
+/mob/living/basic/construct/harvester{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "mi" = (
@@ -3387,8 +3389,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "mS" = (
-/obj/structure/destructible/clockwork/gear_base/powered/ocular_warden,
-/turf/open/floor/plating,
+/obj/structure/reagent_dispensers/plumbed/fuel,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "mU" = (
 /obj/structure/chair/sofa/bench/left,
@@ -3582,7 +3584,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "nI" = (
-/mob/living/basic/cult,
+/mob/living/basic/cult{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "nJ" = (
@@ -3914,7 +3918,9 @@
 /area/awaymission/caves/maintsroom)
 "pb" = (
 /obj/effect/rune/wall,
-/mob/living/basic/cult/warrior,
+/mob/living/basic/cult/warrior{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "pc" = (
@@ -4107,7 +4113,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "pT" = (
-/mob/living/basic/cult/mannequin,
+/mob/living/basic/cult/mannequin{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "pU" = (
@@ -4236,7 +4244,7 @@
 /turf/open/floor/iron/dark/smooth_corner,
 /area/awaymission/caves/maintsroom)
 "qB" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/reagent_dispensers/foamtank,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "qD" = (
@@ -4825,7 +4833,9 @@
 /area/awaymission/caves/maintsroom)
 "tb" = (
 /obj/item/bodypart/head,
-/mob/living/basic/construct/proteon,
+/mob/living/basic/construct/proteon{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "tc" = (
@@ -6217,7 +6227,7 @@
 /area/awaymission/caves/maintsroom)
 "yO" = (
 /obj/structure/sign/poster/contraband/random/directional/north,
-/obj/effect/spawner/random/engineering/tank,
+/obj/structure/reagent_dispensers/watertank,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -6623,7 +6633,9 @@
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "Av" = (
-/mob/living/basic/cult/assassin,
+/mob/living/basic/cult/assassin{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Aw" = (
@@ -7296,7 +7308,8 @@
 "CX" = (
 /obj/effect/rune/apocalypse,
 /mob/living/basic/cult/magic/elite/fireball{
-	death_loot = list(/obj/item/melee/cultblade/haunted)
+	death_loot = list(/obj/item/melee/cultblade/haunted);
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
 	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
@@ -7325,16 +7338,13 @@
 /turf/open/floor/circuit,
 /area/awaymission/caves/maintsroom)
 "De" = (
-/obj/item/dice/d20,
-/obj/item/dice,
-/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/dice,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /obj/structure/light_construct/small/directional/south,
 /obj/structure/sign/poster/contraband/random/directional/south,
+/obj/structure/table/optable,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Df" = (
@@ -7920,22 +7930,11 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fi" = (
-/obj/item/poster/random_contraband,
-/obj/item/poster/random_contraband,
-/obj/item/poster/random_contraband,
-/obj/item/poster/random_contraband,
-/obj/item/poster/random_contraband,
-/obj/structure/table/wood,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/effect/spawner/random/food_or_drink/booze{
-	spawn_loot_count = 2;
-	spawn_random_offset = 1
-	},
-/obj/effect/spawner/random/entertainment/musical_instrument,
 /obj/structure/sign/poster/contraband/random/directional/east,
+/obj/machinery/stasis,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fk" = (
@@ -8320,7 +8319,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "GD" = (
-/obj/effect/spawner/random/engineering/tank,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "GF" = (
@@ -8853,7 +8852,9 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Jd" = (
-/mob/living/basic/cult/engorge,
+/mob/living/basic/cult/engorge{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/black,
 /area/awaymission/caves/maintsroom)
 "Jf" = (
@@ -9291,8 +9292,9 @@
 /turf/open/floor/mineral/bananium,
 /area/awaymission/caves/maintsroom)
 "La" = (
-/obj/structure/destructible/clockwork/gear_base/powered/interdiction_lens,
-/turf/open/floor/bronze/filled,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/surgery_tray/full,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Lc" = (
 /obj/item/storage/toolbox/guncase/monkeycase,
@@ -9580,7 +9582,7 @@
 /area/awaymission/caves/maintsroom)
 "LZ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/engineering/tank,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Ma" = (
@@ -9645,7 +9647,9 @@
 /area/awaymission/caves/maintsroom)
 "Mp" = (
 /obj/effect/rune/summon,
-/mob/living/basic/cult/spear,
+/mob/living/basic/cult/spear{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "Mq" = (
@@ -10697,7 +10701,7 @@
 /area/awaymission/caves/maintsroom)
 "QO" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/reagent_dispensers/foamtank,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
@@ -10815,6 +10819,11 @@
 	pixel_x = -33
 	},
 /turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
+"Re" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/spawner/random/exotic/antag_gear,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Rf" = (
 /obj/effect/light_emitter/fake_outdoors,
@@ -11133,7 +11142,9 @@
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "Sk" = (
-/mob/living/basic/cult/ghost,
+/mob/living/basic/cult/ghost{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Sl" = (
@@ -11150,7 +11161,9 @@
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "Sq" = (
-/mob/living/basic/cult/horror,
+/mob/living/basic/cult/horror{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "Sr" = (
@@ -11620,6 +11633,11 @@
 /obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
+"Ul" = (
+/obj/structure/destructible/clockwork/trap/skewer,
+/mob/living/basic/clockwork_marauder,
+/turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
 "Um" = (
 /obj/structure/mirror/directional/east,
 /obj/structure/sink/directional/west,
@@ -11799,7 +11817,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "UT" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/reagent_dispensers/foamtank,
 /obj/effect/decal/cleanable/fuel_pool,
 /obj/item/stock_parts/scanning_module,
 /turf/open/floor/plating/rust,
@@ -11881,7 +11899,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "Vg" = (
-/mob/living/basic/construct/wraith,
+/mob/living/basic/construct/wraith{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Vh" = (
@@ -12371,8 +12391,9 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "Xb" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/plating,
+/obj/structure/table/reinforced,
+/obj/structure/light_construct/directional/east,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Xc" = (
 /obj/structure/railing{
@@ -13023,7 +13044,9 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "ZQ" = (
-/mob/living/basic/construct/artificer,
+/mob/living/basic/construct/artificer{
+	ai_controller = /datum/ai_controller/basic_controller/skeleton
+	},
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "ZR" = (
@@ -15659,7 +15682,7 @@ GS
 jR
 lu
 Il
-yd
+Il
 Il
 Il
 qU
@@ -16288,7 +16311,7 @@ GS
 zl
 lT
 GS
-df
+jd
 uG
 uG
 Yg
@@ -16513,7 +16536,7 @@ Zn
 xV
 qt
 ED
-df
+jd
 GS
 uG
 GS
@@ -17391,7 +17414,7 @@ uG
 rQ
 uG
 uG
-df
+jd
 GS
 kG
 DU
@@ -17819,7 +17842,7 @@ Il
 Hp
 uG
 GS
-df
+jd
 uG
 Yz
 KC
@@ -18285,8 +18308,8 @@ fK
 wL
 Bh
 Bh
-La
 Bh
+ll
 wL
 Bh
 Bh
@@ -18499,7 +18522,7 @@ ZH
 ZH
 GS
 fK
-ll
+Bh
 Bh
 Bh
 Bh
@@ -18717,7 +18740,7 @@ Oc
 GS
 fK
 Bh
-wL
+Ul
 Bh
 wL
 Cq
@@ -19137,7 +19160,7 @@ GS
 uG
 xS
 hS
-df
+jd
 GS
 uG
 GS
@@ -19323,7 +19346,7 @@ GS
 GS
 hL
 GS
-df
+jd
 LJ
 uG
 uG
@@ -19588,8 +19611,8 @@ GS
 GS
 GS
 bO
-df
-df
+jd
+jd
 GS
 GS
 GS
@@ -19808,7 +19831,7 @@ GS
 GS
 GS
 GS
-mS
+vB
 Li
 uG
 jf
@@ -20426,7 +20449,7 @@ ae
 ae
 ae
 GS
-uG
+lV
 GS
 am
 am
@@ -20842,7 +20865,7 @@ GS
 uG
 uG
 GS
-Xb
+df
 JO
 VI
 GS
@@ -21110,7 +21133,7 @@ uG
 GS
 SR
 GS
-mS
+vB
 uG
 Li
 jf
@@ -21760,7 +21783,7 @@ GS
 GS
 GS
 uG
-mS
+vB
 GS
 uG
 uG
@@ -22818,10 +22841,10 @@ uz
 Tb
 qQ
 DT
-wz
+dq
 vf
 vf
-vf
+mS
 vf
 cQ
 Hd
@@ -23257,7 +23280,7 @@ on
 vf
 Bn
 vf
-Hd
+La
 Hd
 Xz
 Xz
@@ -23689,8 +23712,8 @@ Bn
 uE
 YP
 vf
-dq
-lV
+vf
+vf
 GS
 GS
 GS
@@ -23906,7 +23929,7 @@ vf
 GS
 UZ
 dh
-GS
+Xb
 Fi
 GS
 Yo
@@ -24769,7 +24792,7 @@ yn
 VQ
 GS
 jQ
-df
+jd
 hO
 GS
 Fc
@@ -26268,7 +26291,7 @@ GS
 KW
 uG
 GS
-rJ
+Re
 GS
 GS
 zl
@@ -27546,7 +27569,7 @@ GS
 GS
 GS
 df
-df
+jd
 Oj
 IM
 ZF
@@ -32597,7 +32620,7 @@ TJ
 Dm
 iA
 GS
-Xb
+df
 GS
 NQ
 NQ
@@ -33849,9 +33872,9 @@ uG
 GS
 GS
 uG
-df
+jd
 GS
-uG
+lV
 uh
 uG
 uG
@@ -34495,7 +34518,7 @@ uG
 uG
 uG
 GS
-df
+jd
 uG
 bf
 sB
