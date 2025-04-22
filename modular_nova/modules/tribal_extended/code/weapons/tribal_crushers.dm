@@ -9,6 +9,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	light_color = "#8DEBFF"
 
+//changed compared to the basic version, mainly we don't fire a projectile and we don't care if the cursor is over the player.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		balloon_alert(user, "wield it first!")
@@ -41,11 +42,13 @@
 	update_appearance()
 	attempt_recharge_runes()
 
+//visual feedback on ability use, might need something more visible
 /obj/effect/temp_visual/runic_spin
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "ring_leader_effect"
 	duration = 2
 
+//flavour, small rune pops where the marked target is.
 /obj/effect/temp_visual/flying_rune
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "small_rune_11"
@@ -87,4 +90,5 @@
 	tool_behaviors = list(TOOL_RUSTSCRAPER)
 	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
 
-// tofix : Add a visual, add rare mat from archeo
+// tofix : add rare mat from archeo
+// Possibilty to add a spear version, if I can learn to sprite something decent.
