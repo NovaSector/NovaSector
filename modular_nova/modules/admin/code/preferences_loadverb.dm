@@ -7,8 +7,9 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 		to_chat(user, span_warning("Filename must end in '.json': [jsonfile]"), confidential = TRUE)
 		return
 	var/player_key = input(user, "Enter player CKey to replace their save file", "Enter Player CKey")  as null|text
-	if(!player_key)
+	if(isnull(player_key))
 		return
+	player_key = LOWER_TEXT(player_key)
 
 	// Pre-parse the uploaded file to ensure valid JSON syntax
 	var/new_save = file2text(file(jsonfile))
