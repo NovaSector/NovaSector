@@ -43,5 +43,5 @@
 	visuals_only = FALSE,
 )
 	. = ..()
-	equipped_knife.allowed_ckeys = ckeywhitelist.Copy()
+	equipped_item.allowed_ckeys = ckeywhitelist.Copy()
 	equipper.add_mood_event("plasteel_chef", /datum/mood_event/plasteel_chef)
