@@ -19,6 +19,8 @@
 // Mood application
 /obj/item/knife/kitchen/plasteel_chef/equipped(mob/living/user, slot)
 	. = ..()
+	if(!(user.ckey in allowed_keys))
+		return
 	if(slot_flags & slot)
 		user.add_mood_event("plasteel_chef", /datum/mood_event/plasteel_chef)
 
