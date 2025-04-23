@@ -159,7 +159,7 @@
 
 	area_string = "any"
 
-	list/allowed_areas = list(
+	allowed_areas = list(
 		/area,
 	)
 
@@ -198,6 +198,6 @@
 	
 	uses = 99
 	
-	list/allowed_areas = list(
+	allowed_areas = list(
 		/area,
 	)
