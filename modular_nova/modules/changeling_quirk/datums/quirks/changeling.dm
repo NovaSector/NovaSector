@@ -2,7 +2,7 @@
 	name = "Changeling"
 	desc = "(THIS DOES NOT MAKE YOU AN ANTAG) You are a changeling, one that for some reason or another has entered a dormant, non-predatory state. The crew will likely still hunt you down if you are discovered, because as far as they're concerned, you're the same monster through-and-through. As part of this momentary suppressed state, some of your typical abilities seem to be just as dormant."
 	icon = FA_ICON_SPAGHETTI_MONSTER_FLYING
-	value = 0
+	value = 16
 	medical_record_text = ""
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	veteran_only = TRUE
