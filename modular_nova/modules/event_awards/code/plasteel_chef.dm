@@ -29,4 +29,16 @@
 /datum/loadout_item/inhand/plasteel_chef
 	name = "émincer"
 	item_path = /obj/item/knife/kitchen/plasteel_chef
-	ckeywhitelist = list("bearagon","mrsanderp","zergspower")
+	ckeywhitelist = list("bearagon", "mrsanderp", "zergspower")
+
+/datum/loadout_item/inhand/plasteel_chef/on_equip_item(
+	obj/item/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only = FALSE,
+)
+	. = ..()
+	var/obj/item/knife/kitchen/plasteel_chef/equipped_knife = equipped_item
+	equipped_knife.allowed_ckeys = ckeywhitelist.Copy()
+	equipper.add_mood_event("plasteel_chef", /datum/mood_event/plasteel_chef)
