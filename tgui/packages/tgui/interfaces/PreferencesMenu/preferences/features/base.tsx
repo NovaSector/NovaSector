@@ -253,11 +253,10 @@ export function FeatureShortTextInput(
   return (
     <Input
       disabled={!serverData}
-      width="100%"
+      fluid
       value={value}
       maxLength={serverData?.maximum_length}
-      updateOnPropsChange
-      onChange={(_, value) => handleSetValue(value)}
+      onChange={handleSetValue}
     />
   );
 }
@@ -273,11 +272,12 @@ export const FeatureTextInput = (
 
   return (
     <TextArea
-      scrollbar
       height="100px"
+      fluid
+      expensive
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={(_, value) => handleSetValue(value)}
+      onChange={(value) => handleSetValue(value)}
     />
   );
 };
