@@ -891,3 +891,13 @@
   unit0016:
   - bugfix: You can no longer stack multiple types of condos on the same door number.
       Please stop solemnly opening the door expecting something different.
+2025-04-23:
+  FlufflesTheDog:
+  - bugfix: Photocopiers on Nova maps start pre-stocked with paper and toner
+  Iajret:
+  - bugfix: After some long-winded discussion, medical committee finally declares
+      that hemophages organs are not, in fact, harmful (at least for the hemophages
+      themselves). All analyzers now come with updated firmware to account for that.
+  unit0016:
+  - rscadd: Serenitystation has received support for ruins!
+  - balance: LUNA has been entirely reworked.
