@@ -70,7 +70,7 @@
 
 	//  Handle OOC notes first
 	if(preferences)
-		if(preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		if(user.client.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 			var/e_prefs = preferences.read_preference(/datum/preference/choiced/erp_status)
 			var/e_prefs_hypno = preferences.read_preference(/datum/preference/choiced/erp_status_hypno)
 			var/e_prefs_v = preferences.read_preference(/datum/preference/choiced/erp_status_v)
