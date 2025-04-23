@@ -7,7 +7,9 @@
 	lefthand_file = 'modular_nova/modules/event_awards/icons/kitchen_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/event_awards/icons/kitchen_righthand.dmi'
 	slot_flags = ITEM_SLOT_HANDS
-	desc = "A custom exotic knife, made of plasteel with a golden trim on a wooden handle. An icon is etched at the base of the blade, with a chef knife crossing on top of a butchering cleaver. The winners named is carved on the handle. "
+	desc = "A custom exotic knife, made of plasteel with a golden trim on a wooden handle. An icon is etched at the base of the blade, with a chef knife crossing on top of a butchering cleaver. The winners named is carved on the handle."
+	/// The ckeys allowed to get the mood buff from this event reward.
+	var/static/list/allowed_ckeys
 
 // Mood define
 /datum/mood_event/plasteel_chef
