@@ -1128,6 +1128,10 @@
 /obj/effect/gibspawner/human,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
+"sH" = (
+/obj/structure/signpost/salvation,
+/turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
 "sQ" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
@@ -5015,7 +5019,7 @@ We
 We
 We
 Xk
-Io
+sH
 sa
 sa
 Ir
