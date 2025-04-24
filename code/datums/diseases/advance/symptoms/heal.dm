@@ -31,6 +31,7 @@
 	return power
 
 /datum/symptom/heal/proc/Heal(mob/living/M, datum/disease/advance/A, actual_power)
+	new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
 	return TRUE
 
 /datum/symptom/heal/proc/passive_message_condition(mob/living/M)
@@ -160,6 +161,8 @@
 
 	if(!parts.len)
 		return
+
+	new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
 
 	for(var/obj/item/bodypart/bodypart in parts)
 		if(bodypart.heal_damage(heal_amt/parts.len, heal_amt/parts.len, required_bodytype = BODYTYPE_ORGANIC))
@@ -300,6 +303,8 @@
 	if(!parts.len)
 		return
 
+	new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
+	
 	if(prob(5))
 		to_chat(M, span_notice("The darkness soothes and mends your wounds."))
 
@@ -405,6 +410,9 @@
 	if(!parts.len)
 		return
 
+	if (!deathgasp) // NOVA EDIT ADD - We ask for the stealth effect specifically as this is the only effect where the whole joke is to pass as dead, so you shouldnt be seen as being healing.
+		new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
+
 	for(var/obj/item/bodypart/bodypart in parts)
 		if(bodypart.heal_damage(heal_amt/parts.len, heal_amt/parts.len, required_bodytype = BODYTYPE_ORGANIC))
 			M.update_damage_overlays()
@@ -465,6 +473,8 @@
 
 	if(!parts.len)
 		return
+
+	new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
 
 	if(prob(5))
 		to_chat(M, span_notice("You feel yourself absorbing the water around you to soothe your damaged skin."))
@@ -575,6 +585,8 @@
 	if(prob(5))
 		to_chat(M, span_notice("You feel yourself absorbing plasma inside and around you..."))
 
+	new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
+
 	var/target_temp = M.get_body_temp_normal()
 	if(M.bodytemperature > target_temp)
 		M.adjust_bodytemperature(-20 * temp_rate * TEMPERATURE_DAMAGE_COEFFICIENT, target_temp)
@@ -641,6 +653,8 @@
 
 	if(!parts.len)
 		return
+
+	new /obj/effect/temp_visual/heal(get_turf(M), "#EC1C24") // NOVA EDIT ADD - adds visual effects to virus healing, only runs when healing.
 
 	if(prob(4))
 		to_chat(M, span_notice("Your skin glows faintly, and you feel your wounds mending themselves."))
