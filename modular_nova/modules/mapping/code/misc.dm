@@ -51,6 +51,7 @@
 			for(var/f in fragments)
 				var/obj/item/luna_fragment/Fragment = f
 				Fragment.remove_upgrade(src, user)
+				Fragment.forceMove(get_turf(src))
 		else
 			to_chat(user, span_warning("[src] is bare of any additional baubles."))
 	else if(istype(I, /obj/item/luna_fragment))
@@ -177,15 +178,13 @@
 	update_inhand_icon(user)
 	upgrade_appliable.set_light_on(FALSE)
 	playsound(upgrade_appliable, 'sound/items/weapons/saberoff.ogg', 35, TRUE)
-	upgrade_appliable.force = initial(force)
-	upgrade_appliable.throwforce = initial(throwforce)
-	upgrade_appliable.bare_wound_bonus = initial(bare_wound_bonus)
-	upgrade_appliable.demolition_mod = initial(demolition_mod)
-	upgrade_appliable.armour_penetration = initial(armour_penetration)
-	upgrade_appliable.block_chance = initial(block_chance)
+	upgrade_appliable.force = initial(upgrade_appliable.force)
+	upgrade_appliable.throwforce = initial(upgrade_appliable.throwforce)
+	upgrade_appliable.bare_wound_bonus = initial(upgrade_appliable.bare_wound_bonus)
+	upgrade_appliable.demolition_mod = initial(upgrade_appliable.demolition_mod)
+	upgrade_appliable.armour_penetration = initial(upgrade_appliable.armour_penetration)
+	upgrade_appliable.block_chance = initial(upgrade_appliable.block_chance)
 	return ..()
-
-
 
 /obj/item/mod/module/armor_booster/retractplates
 	name = "MOD retractive plates module"
