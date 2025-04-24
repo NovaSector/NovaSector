@@ -1,7 +1,7 @@
 /// LUNA ///
 // The sword itself
 /obj/item/claymore/cutlass/luna
-	name = "\proper luna"
+	name = "Luna"
 	desc = "Forged by a madwoman, in recognition of a time, a place - she thought almost real. Various etchings of moons are inscribed onto the surface, different phases marking different parts of the blade."
 	icon = 'modular_nova/modules/mapping/icons/obj/weapons/sword.dmi'
 	lefthand_file = 'modular_nova/modules/mapping/icons/mob/inhands/weapons/swords_lefthand.dmi'
