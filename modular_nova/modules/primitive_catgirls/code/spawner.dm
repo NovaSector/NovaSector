@@ -109,7 +109,7 @@
 	return FALSE
 
 
-/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	. = ..()
 
 	// We remove their name from there if they come back.

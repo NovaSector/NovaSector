@@ -2909,7 +2909,7 @@
 /turf/open/floor/iron/white/diagonal,
 /area/ruin/space/has_grav/nova/des_two/service/hydroponics)
 "mj" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/security/lawyer)
 "ml" = (
@@ -9107,8 +9107,8 @@
 	desc = "An armband, worn by the FOB's operatives to display which department they're assigned to.";
 	name = "researcher armband"
 	},
-/obj/item/clothing/suit/toggle/jacket/sci,
-/obj/item/clothing/suit/toggle/jacket/sci,
+/obj/item/clothing/suit/toggle/jacket/nova/sci,
+/obj/item/clothing/suit/toggle/jacket/nova/sci,
 /obj/item/clothing/suit/hooded/wintercoat/science,
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -9958,8 +9958,8 @@
 /obj/item/holosign_creator/atmos{
 	pixel_y = -8
 	},
-/obj/item/clothing/suit/toggle/jacket/engi,
-/obj/item/clothing/suit/toggle/jacket/engi,
+/obj/item/clothing/suit/toggle/jacket/nova/engi,
+/obj/item/clothing/suit/toggle/jacket/nova/engi,
 /obj/item/clothing/suit/hooded/wintercoat/engineering,
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/side{

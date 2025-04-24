@@ -51,7 +51,7 @@
 	id = /obj/item/card/id/advanced/centcom/station
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_bs/alt
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/blue
 	implants = list(/obj/item/implant/mindshield)
 	backpack_contents = list(
 		/obj/item/choice_beacon/blueshield = 1,

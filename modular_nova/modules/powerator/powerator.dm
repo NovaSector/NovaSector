@@ -49,7 +49,7 @@
 /obj/machinery/powerator
 	name = "powerator"
 	desc = "Beyond the ridiculous name, it is the standard for transporting and selling energy to power networks that require additional sources!"
-	icon = 'modular_nova/modules/powerator/machines.dmi'
+	icon = 'modular_nova/modules/powerator/icons/machines.dmi'
 	icon_state = "powerator"
 
 	density = TRUE

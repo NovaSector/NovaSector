@@ -16,6 +16,10 @@
 /datum/quirk/system_shock/remove()
 	UnregisterSignal(quirk_holder, list(COMSIG_LIVING_ELECTROCUTE_ACT, COMSIG_LIVING_MINOR_SHOCK))
 
+/datum/quirk/system_shock/is_species_appropriate(datum/species/mob_species)
+	if (!ispath(mob_species, /datum/species/synthetic))
+		return FALSE
+	return ..()
 
 /datum/quirk/system_shock/proc/on_electrocute()
 	SIGNAL_HANDLER
@@ -26,5 +30,5 @@
 	addtimer(CALLBACK(src, PROC_REF(knock_out), knockout_length - 0.4 SECONDS), 2 SECONDS)
 	//The intent with the 0.4 seconds is so that the visual static effect lasts longer than the actual knockout/sleeping effect.
 
-/datum/quirk/system_shock/proc/knock_out(var/length)
+/datum/quirk/system_shock/proc/knock_out(length)
 	quirk_holder.Sleeping(length)
