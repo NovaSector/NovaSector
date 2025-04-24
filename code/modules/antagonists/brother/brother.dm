@@ -12,7 +12,7 @@
 	stinger_sound = 'sound/music/antag/traitor/tatoralert.ogg'
 	VAR_PRIVATE
 		datum/team/brother_team/team
-	var/datum/action/cooldown/spell/bloodbrotheraura/aura = new // NOVA ADDITION, HEALING AURA FOR BLOOD BROTHERS, SEE 320 LINE FOR SPELL.
+	var/datum/action/cooldown/bloodbrotheraura/aura = new // NOVA ADDITION, HEALING AURA FOR BLOOD BROTHERS, SEE 320 LINE FOR SPELL.
 
 /datum/antagonist/brother/create_team(datum/team/brother_team/new_team)
 	if(!new_team)
@@ -318,7 +318,7 @@
 	return length(team?.members) > 1
 
 // NOVA ADDITION: HEALING AURA FOR BLOOD BROTHERS.
-/datum/action/cooldown/spell/bloodbrotheraura
+/datum/action/cooldown/bloodbrotheraura
 	name = "Brother Aura"
 	desc = "Brother and you in a range of 15 tiles will get passive healing that removes that types of damage: brute, burn, toxin, suffocation, wounds, stamina. Works better when there's a two brothers with auras!"
 	background_icon = 'icons/mob/actions/backgrounds.dmi'
@@ -328,17 +328,14 @@
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "berserk_mode"
 	cooldown_time = 1 SECONDS
-	invocation_type = NONE
-	spell_requirements = NONE
 	var/aura_active = FALSE
 	var/aura_duration = INFINITY
-	var/aura_range = 15
-	var/aura_healing_amount = 3.5
+	var/aura_range = 10
+	var/aura_healing_amount = 3
 	var/aura_healing_color = COLOR_PINK_RED
 	var/datum/component/aura_healing/aura_healing_component
-	var/datum/action/cooldown/spell/bloodbrotheraura/blaura
 
-/datum/action/cooldown/spell/bloodbrotheraura/Activate()
+/datum/action/cooldown/bloodbrotheraura/Activate()
 	. = ..()
 	if(aura_active)
 		aura_deactivate()
@@ -350,7 +347,7 @@
 	ADD_TRAIT(owner, TRAIT_BB_HEALING_AURA, ACTION_TRAIT) //we need this trait for heal aura.
 	return TRUE
 
-/datum/action/cooldown/spell/bloodbrotheraura/proc/aura_deactivate()
+/datum/action/cooldown/bloodbrotheraura/proc/aura_deactivate()
 	if(!aura_active)
 		return
 	aura_active = FALSE
