@@ -33,7 +33,7 @@
 /datum/loadout_item/inhand/plasteel_chef
 	name = "émincer"
 	item_path = /obj/item/knife/kitchen/plasteel_chef
-	ckeywhitelist = list("bearagon", "mrsanderp", "zergspower")
+	ckeywhitelist = list("bearagon", "mrsanderp")
 
 /datum/loadout_item/inhand/plasteel_chef/on_equip_item(
 	obj/item/knife/kitchen/plasteel_chef/equipped_item,
