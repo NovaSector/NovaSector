@@ -163,5 +163,6 @@
 
 /// If a slimeperson is currently protecting themselves from water
 #define TRAIT_SLIME_HYDROPHOBIA "slime_hydrophobia"
-
+/// Trait for bb healing aura
+#define TRAIT_BB_HEALING_AURA "blood_brother"
 // END TRAIT DEFINES

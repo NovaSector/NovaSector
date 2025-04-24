@@ -12,6 +12,7 @@
 	stinger_sound = 'sound/music/antag/traitor/tatoralert.ogg'
 	VAR_PRIVATE
 		datum/team/brother_team/team
+	var/datum/action/cooldown/spell/bloodbrotheraura/aura = new // NOVA ADDITION, HEALING AURA FOR BLOOD BROTHERS, SEE 320 LINE FOR SPELL.
 
 /datum/antagonist/brother/create_team(datum/team/brother_team/new_team)
 	if(!new_team)
@@ -193,6 +194,7 @@
 	. = ..()
 	var/mob/living/the_mob = owner.current || mob_override
 	add_team_hud(the_mob)
+	aura.Grant(the_mob) // NOVA ADDITION, HEALING AURA FOR BLOOD BROTHERS, SEE 320 LINE FOR SPELL.
 
 /datum/antagonist/brother/ui_static_data(mob/user)
 	var/list/data = list()
@@ -314,3 +316,46 @@
 
 /datum/objective/convert_brother/check_completion()
 	return length(team?.members) > 1
+
+// NOVA ADDITION: HEALING AURA FOR BLOOD BROTHERS.
+/datum/action/cooldown/spell/bloodbrotheraura
+	name = "Brother Aura"
+	desc = "Brother and you in a range of 15 tiles will get passive healing that removes that types of damage: brute, burn, toxin, suffocation, wounds, stamina. Works better when there's a two brothers with auras!"
+	background_icon = 'icons/mob/actions/backgrounds.dmi'
+	background_icon_state = "bg_hive"
+	overlay_icon = 'icons/mob/actions/backgrounds.dmi'
+	overlay_icon_state = "bg_hive_border"
+	button_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "berserk_mode"
+	cooldown_time = 1 SECONDS
+	invocation_type = NONE
+	spell_requirements = NONE
+	var/aura_active = FALSE
+	var/aura_duration = INFINITY
+	var/aura_range = 15
+	var/aura_healing_amount = 3.5
+	var/aura_healing_color = COLOR_PINK_RED
+	var/datum/component/aura_healing/aura_healing_component
+	var/datum/action/cooldown/spell/bloodbrotheraura/blaura
+
+/datum/action/cooldown/spell/bloodbrotheraura/Activate()
+	. = ..()
+	if(aura_active)
+		aura_deactivate()
+		return FALSE
+	owner.balloon_alert(owner, "healing aura started")
+	to_chat(owner, span_danger("We started to exchange energy of brotherly love, healing every brother in range and yourself."))
+	aura_active = TRUE
+	aura_healing_component = owner.AddComponent(/datum/component/aura_healing, range = aura_range, requires_visibility = FALSE, brute_heal = aura_healing_amount, burn_heal = aura_healing_amount, toxin_heal = aura_healing_amount, suffocation_heal = aura_healing_amount, wound_clotting = aura_healing_amount, stamina_heal = aura_healing_amount, blood_heal = aura_healing_amount, limit_to_trait = TRAIT_BB_HEALING_AURA, healing_color = aura_healing_color)
+	ADD_TRAIT(owner, TRAIT_BB_HEALING_AURA, ACTION_TRAIT) //we need this trait for heal aura.
+	return TRUE
+
+/datum/action/cooldown/spell/bloodbrotheraura/proc/aura_deactivate()
+	if(!aura_active)
+		return
+	aura_active = FALSE
+	QDEL_NULL(aura_healing_component)
+	owner.balloon_alert(owner, "healing aura removed")
+	REMOVE_TRAIT(owner, TRAIT_BB_HEALING_AURA, ACTION_TRAIT)
+
+//NOVA ADDITION ENDS.
