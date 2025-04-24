@@ -159,7 +159,6 @@
 		/obj/machinery/vending/assist, // "Part-Mart"
 		/obj/machinery/vending/autodrobe, // "AutoDrobe"
 		/obj/machinery/vending/boozeomat, // "Booze-O-Mat"
-		/obj/machinery/vending/cart, // "PTech"
 		/obj/machinery/vending/cigarette, // "ShadyCigs Deluxe"
 		/obj/machinery/vending/clothing, // "ClothesMate"
 		/obj/machinery/vending/coffee, // "Solar's Best Hot Drinks"
