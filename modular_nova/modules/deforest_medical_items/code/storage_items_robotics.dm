@@ -22,16 +22,13 @@
 		/obj/item/wirecutters,
 		/obj/item/multitool,
 		/obj/item/plunger,
-		/obj/item/clothing/head/utility/welding,
 		/obj/item/clothing/glasses/welding,
 	)
-	var/static/list/exception_cache = typecacheof(
-		/obj/item/clothing/head/utility/welding,
-	)
 
-	atom_storage.set_holdable(list_of_everything_mechanical_medkits_can_hold)
-	LAZYINITLIST(atom_storage.exception_hold)
-	atom_storage.exception_hold = atom_storage.exception_hold + exception_cache
+	atom_storage.set_holdable(
+		can_hold_list = list_of_everything_mechanical_medkits_can_hold,
+		exception_hold_list = /obj/item/clothing/head/utility/welding,
+	)
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/robotic_repair/stocked

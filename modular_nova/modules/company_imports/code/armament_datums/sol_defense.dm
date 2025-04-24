@@ -97,7 +97,6 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/sidearm/type207
 	item_type = /obj/item/gun/ballistic/automatic/pistol/type207

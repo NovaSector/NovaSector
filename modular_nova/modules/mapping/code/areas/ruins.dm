@@ -36,3 +36,17 @@
 	name = "Abandoned Sacred Temple"
 	icon_state = "ruins"
 	ambientsounds = list('sound/ambience/holy/ambiholy.ogg')
+
+/area/ruin/unpowered/luna
+	name = "\improper Unregistered Structure"
+	ambientsounds = list(
+		'modular_nova/modules/mapping/sounds/ambience/luna.ogg',
+		)
+	min_ambience_cooldown = 2 MINUTES
+	max_ambience_cooldown = 10 MINUTES
+
+/area/ruin/unpowered/bloodzone
+	name = "\improper Unknown Structure"
+
+/area/ruin/unpowered/trilogy_research
+	name = "\improper Unsanctioned Structure"
