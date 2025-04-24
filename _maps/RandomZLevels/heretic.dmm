@@ -466,10 +466,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/beach/heretic)
-"hI" = (
-/mob/living/basic/cult/engorge/devourdem,
-/turf/open/misc/beach/sand,
-/area/awaymission/beach/heretic)
 "hL" = (
 /obj/structure/railing{
 	dir = 5
@@ -1130,6 +1126,10 @@
 /area/awaymission/beach/heretic)
 "sD" = (
 /obj/effect/gibspawner/human,
+/turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
+"sH" = (
+/obj/structure/signpost/salvation,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
 "sQ" = (
@@ -2259,6 +2259,7 @@
 /area/awaymission/beach/heretic)
 "Kx" = (
 /obj/effect/heretic_rune/big,
+/mob/living/basic/cult/engorge/devourdem,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "Ky" = (
@@ -5018,7 +5019,7 @@ We
 We
 We
 Xk
-Io
+sH
 sa
 sa
 Ir
@@ -14563,7 +14564,7 @@ RM
 RM
 XV
 XV
-hI
+XV
 XV
 RM
 RM
