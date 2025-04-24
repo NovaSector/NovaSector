@@ -22,9 +22,9 @@
 /obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
 	var/spin_radius = 1 //Hits everyone around the user
 	var/spin_center = get_turf(usr)
-	new /obj/effect/temp_visual/runic_spin(get_turf(usr))
 	if(!charged)
 		return
+	new /obj/effect/temp_visual/runic_spin(get_turf(usr))
 	for(var/mob/living/living_target in range(spin_radius,spin_center))
 		if(living_target != usr && !(usr in living_target.buckled_mobs)) // we're not marking ourselves or our mount.
 			for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
@@ -33,7 +33,9 @@
 				continue
 			living_target.apply_status_effect(/datum/status_effect/crusher_mark)
 			living_target.update_appearance()
-			new /obj/effect/temp_visual/flying_rune(get_turf(living_target))
+	for(var/turf/open/aoe in range(spin_radius,spin_center))
+		if(aoe != get_turf(usr))
+			new /obj/effect/temp_visual/flying_rune(aoe)
 	playsound(usr, 'sound/effects/magic/tail_swing.ogg', 100, TRUE)
 	charged = FALSE
 	icon_state = "swordoff"
@@ -85,10 +87,48 @@
 		/obj/item/forging/complete/sword = 1,
 		/obj/item/stack/sheet/leather = 1,
 		/obj/item/stack/sheet/mineral/wood = 1,
-		// Add rare mat
+		/obj/item/icecat_ship_fragment_active = 1
 	)
-	tool_behaviors = list(TOOL_RUSTSCRAPER)
+	tool_behaviors = list(TOOL_HAMMER)
 	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
 
-// tofix : add rare mat from archeo
+/obj/item/icecat_ship_fragment_inactive
+	name = "Dormant fragment of the Stjarndrakkr"
+	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives—or a keen scientist—could uncover its purpose."
+	icon = 'icons/obj/antags/cult/items.dmi'
+	icon_state = "cult_sharpener_used"
+	drop_sound = SFX_STONE_DROP
+	pickup_sound = SFX_STONE_PICKUP
+
+/obj/item/icecat_ship_fragment_active
+	name = "Fragment of the Stjarndrakkr"
+	desc = "A piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange glowing symbols resembling Ættmál runes. Perhaps the natives—or a keen scientist—could uncover its purpose."
+	icon = 'icons/obj/antags/cult/items.dmi'
+	icon_state = "cult_sharpener"
+	drop_sound = SFX_STONE_DROP
+	pickup_sound = SFX_STONE_PICKUP
+
+/obj/item/icecat_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	add_fingerprint(user)
+	if(ispath(attacking_item.type, /obj/item/chisel))
+		user.balloon_alert(user, "begins engraving runes...")
+		playsound(src, pick('sound/effects/break_stone.ogg'), 50, TRUE)
+		var/engrave_time = 30 SECONDS
+		// Use built-in progress bar
+		if(do_after(user, engrave_time, target = src, progress = TRUE))
+			user.visible_message("<span class='success'>[user] completes the engraving — the fragment glows faintly.</span>")
+			var/turf/T = get_turf(src)
+			qdel(src)
+			new /obj/item/icecat_ship_fragment_active(T)
+		else
+			user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
+
+// Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find icecat colony ship fragment on lavaland.)
+/datum/controller/subsystem/mapping/Initialize()
+	. = ..()
+	if (SSmapping.current_map.map_name == "Ice Box Station" || SSmapping.current_map.map_name == "Snowglobe Station")
+		GLOB.tech_reward[/obj/item/icecat_ship_fragment_inactive] = 1
+
+// Maybe add a use for that mat for science ? (check useless relick code)
 // Possibilty to add a spear version, if I can learn to sprite something decent.
