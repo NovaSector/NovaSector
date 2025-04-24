@@ -1,3 +1,6 @@
+/obj/item/seeds/poppy/lily/
+	mutatelist = list(/obj/item/seeds/poppy/lily/trumpet, /obj/item/seeds/honeysuckle) //was originally gonna use New() to add it, but it ended up adding the mutation to trumpet too. - Original: list(/obj/item/seeds/poppy/lily/trumpet)
+
 // Honeysuckle
 /obj/item/seeds/honeysuckle
 	name = "honeysuckle seed pack"
@@ -15,6 +18,8 @@
 	icon_dead = "honeysuckle-dead"
 	genes = list(/datum/plant_gene/trait/preserved, /datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/honey = 0.2, /datum/reagent/consumable/nutriment = 0.05)
+	rarity = 30 //same as trumpet
+	graft_gene = /datum/plant_gene/trait/preserved
 
 /obj/item/food/grown/honeysuckle
 	seed = /obj/item/seeds/honeysuckle
