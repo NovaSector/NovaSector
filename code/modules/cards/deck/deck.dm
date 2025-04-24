@@ -69,6 +69,9 @@
 
 	. += span_notice("Click and drag the deck to yourself to pickup.") // This should be a context screentip
 
+	if(HAS_TRAIT(user, TRAIT_SLEIGHT_OF_HAND))
+		. += span_notice("Shuffle on combat mode to preserve the top card.")
+
 /obj/item/toy/cards/deck/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(src == held_item)
 		var/obj/item/toy/cards/deck/dealer_deck = held_item
@@ -101,8 +104,12 @@
 /obj/item/toy/cards/deck/proc/shuffle_cards(mob/living/user)
 	if(!COOLDOWN_FINISHED(src, shuffle_cooldown))
 		return
+	var/obj/item/toy/singlecard/topcard = card_atoms[1]
 	COOLDOWN_START(src, shuffle_cooldown, shuffle_time)
 	shuffle_inplace(fetch_card_atoms())
+	if(HAS_TRAIT(user, TRAIT_SLEIGHT_OF_HAND) && user.combat_mode)
+		LAZYREMOVE(card_atoms, topcard)
+		LAZYINSERT(card_atoms, 1, topcard)
 	playsound(src, 'sound/items/cards/cardshuffle.ogg', 50, TRUE)
 	user.balloon_alert_to_viewers("shuffles the deck")
 	addtimer(CALLBACK(src, PROC_REF(CardgameEvent), user), 60 SECONDS, TIMER_OVERRIDE|TIMER_UNIQUE)
@@ -182,6 +189,9 @@
 		insert(item)
 		var/card_grammar = istype(item, /obj/item/toy/singlecard) ? "card" : "cards"
 		user.balloon_alert_to_viewers("puts [card_grammar] in deck")
+		if(istype(item, /obj/item/toy/singlecard))
+			LAZYREMOVE(card_atoms, item)
+			LAZYINSERT(card_atoms, 1, item)
 		return
 	return ..()
 

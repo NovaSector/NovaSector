@@ -506,3 +506,101 @@
 /obj/item/clothing/head/cone_of_shame/update_icon_state()
 	worn_icon_state = "[base_icon_state]_[toggle_state]"
 	return ..()
+
+// Donation rewards for Lucine
+/obj/item/coin/donator/loaded
+	name = "lucky chip"
+	desc = "Seems to be a casino chip. Which one? Who knows. One side is embossed with a spade, the other with a diamond."
+	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
+	sideslist = list("spade", "diamond")
+	heads_name = "spade"
+	custom_materials = list(/datum/material/plastic = COIN_MATERIAL_AMOUNT)
+	material_flags = NONE
+	override_material_worth = TRUE
+	loaded_result = "spade"
+
+/obj/item/coin/donator/loaded/click_alt(mob/living/user)
+	if(user.ckey == "lucine")
+		loaded_result = (loaded_result == "spade") ? "diamond" : "spade"
+		to_chat(user, span_notice("You change the loaded side to [loaded_result]."))
+		return CLICK_ACTION_SUCCESS
+
+/obj/item/storage/dice/donator/loaded/PopulateContents()
+	new /obj/item/dice/donator/loaded/d4(src)
+	new /obj/item/dice/donator/loaded/d6(src)
+	new /obj/item/dice/donator/loaded/d8(src)
+	new /obj/item/dice/donator/loaded/d10(src)
+	new /obj/item/dice/donator/loaded/d12(src)
+	new /obj/item/dice/donator/loaded/d20(src)
+
+/obj/item/dice/donator/loaded
+	var/rigged_high = TRUE
+
+/obj/item/dice/donator/loaded/click_alt(mob/living/user)
+	if(user.ckey == "lucine")
+		rigged_high = !rigged_high
+		to_chat(user, span_notice("The die is now loaded in favour of [rigged_high ? "higher" : "lower"] results."))
+		return CLICK_ACTION_SUCCESS
+
+/obj/item/dice/donator/loaded/diceroll(mob/user, in_hand=FALSE)
+	var/tends_to_high = rigged_high ? prob(70) : !prob(70)
+	result = tends_to_high ? rand(round(sides / 2), sides) : rand(1, round(sides / 2))
+	playsound(src, 'sound/items/dice_roll.ogg', 50, TRUE)
+
+	var/fake_result = roll(sides)//Daredevil isn't as good as he used to be
+	var/comment = ""
+	if(sides > 5 && result == 1)  // less comment spam
+		comment = "Ouch, bad luck."
+	if(sides == 20 && result == 20)
+		comment = "NAT 20!"
+	update_appearance()
+	result = manipulate_result(result)
+	if(special_faces.len == sides)
+		comment = ""  // its not a number
+		result = special_faces[result]
+		if(!ISINTEGER(result))
+			comment = special_faces[result]  // should be a str now
+
+	if(in_hand) //Dice was rolled in someone's hand
+		user.visible_message(
+			span_notice("[user] rolls [src]. It lands on [result]. [comment]"),
+			span_notice("You roll [src]. It lands on [result]. [comment]"),
+			span_hear("You hear [src] rolling, it sounds like a [fake_result]."),
+		)
+	else
+		visible_message(span_notice("[src] rolls to a stop, landing on [result]. [comment]"))
+
+	return .
+
+/obj/item/dice/donator/loaded/d4
+	name = "d4"
+	desc = "A die with four sides. The nerd's caltrop."
+	icon_state = "d4"
+	sides = 4
+
+/obj/item/dice/donator/loaded/d6
+	name = "d6"
+
+/obj/item/dice/donator/loaded/d8
+	name = "d8"
+	desc = "A die with eight sides. It feels... lucky."
+	icon_state = "d8"
+	sides = 8
+
+/obj/item/dice/donator/loaded/d10
+	name = "d10"
+	desc = "A die with ten sides. Useful for percentages."
+	icon_state = "d10"
+	sides = 10
+
+/obj/item/dice/donator/loaded/d12
+	name = "d12"
+	desc = "A die with twelve sides. There's an air of neglect about it."
+	icon_state = "d12"
+	sides = 12
+
+/obj/item/dice/donator/loaded/d20
+	name = "d20"
+	desc = "A die with twenty sides. The preferred die to throw at the GM."
+	icon_state = "d20"
+	sides = 20

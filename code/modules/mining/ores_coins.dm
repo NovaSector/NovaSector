@@ -429,6 +429,10 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	var/heads_name = "heads"
 	/// If the coin has an action or not
 	var/has_action = FALSE
+	/// If set, what side the coin will be loaded towards. Otherwise it's even odds.
+	var/loaded_result
+	/// For sleight of hand quirk. If true, trying to flip it again will reveal the result
+	var/hidden_result = FALSE
 
 /obj/item/coin/Initialize(mapload)
 	. = ..()
@@ -500,22 +504,40 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	to_chat(user, span_notice("You detach the string from the coin."))
 	return TRUE
 
-/obj/item/coin/attack_self(mob/user)
+/obj/item/coin/dropped()
+	hidden_result = FALSE
+	return ..()
+
+/obj/item/coin/attack_self(mob/living/user)
+	if(hidden_result)
+		user.visible_message(span_notice("[user] reveals [src]. It landed on [coinflip]!"), \
+			span_notice("You reveal [src]. It's [coinflip]!"))
+		hidden_result = FALSE
+		return TRUE
 	if(cooldown < world.time)
 		if(string_attached) //does the coin have a wire attached
 			to_chat(user, span_warning("The coin won't flip very well with something attached!") )
 			return FALSE//do not flip the coin
 		cooldown = world.time + 15
 		flick("coin_[coinflip]_flip", src)
-		coinflip = pick(sideslist)
+		if(loaded_result)
+			coinflip = prob(70) ? loaded_result : pick(sideslist - loaded_result)
+		else
+			coinflip = pick(sideslist)
 		icon_state = "coin_[coinflip]"
 		playsound(user.loc, 'sound/items/coinflip.ogg', 50, TRUE)
 		var/oldloc = loc
 		sleep(1.5 SECONDS)
 		if(loc == oldloc && user && !user.incapacitated)
-			user.visible_message(span_notice("[user] flips [src]. It lands on [coinflip]."), \
-				span_notice("You flip [src]. It lands on [coinflip]."), \
-				span_hear("You hear the clattering of loose change."))
+			if(HAS_TRAIT(user, TRAIT_SLEIGHT_OF_HAND) && user.combat_mode)
+				hidden_result = TRUE
+				user.visible_message(span_notice("[user] flips [src] and covers it with their hand!"), \
+					span_notice("You flip [src] and quickly cover it up. It landed on [coinflip]!"), \
+					span_hear("You hear the clattering of loose change."))
+			else
+				user.visible_message(span_notice("[user] flips [src]. It lands on [coinflip]."), \
+					span_notice("You flip [src]. It lands on [coinflip]."), \
+					span_hear("You hear the clattering of loose change."))
 		if(has_action)
 			if(coinflip == heads_name)
 				heads_action(user)
@@ -577,6 +599,9 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	override_material_worth = TRUE
 
 /obj/item/coin/iron
+
+/obj/item/coin/iron/loaded
+	loaded_result = "heads"
 
 /obj/item/coin/gold/debug
 	custom_materials = list(/datum/material/gold = COIN_MATERIAL_AMOUNT)

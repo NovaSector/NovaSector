@@ -86,6 +86,9 @@
 /// The trait that determines if someone has the robotic limb reattachment quirk.
 #define TRAIT_ROBOTIC_LIMBATTACHMENT "trait_robotic_limbattachment"
 
+/// The trait that determines if someone has the sleight of hand quirk.
+#define TRAIT_SLEIGHT_OF_HAND "trait_sleight_of_hand"
+
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
 

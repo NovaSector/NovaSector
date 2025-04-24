@@ -319,6 +319,11 @@ JOB SPECIFIC MISCELLANY
 	name = "Iron Coin"
 	item_path = /obj/item/coin/iron
 
+/datum/loadout_item/pocket_items/donator/coin_loaded
+	name = "Loaded Coin"
+	item_path = /obj/item/coin/iron/loaded
+	veteran_only = TRUE
+
 /datum/loadout_item/pocket_items/donator/havana_cigar_case
 	name = "Havanian Cigars"
 	item_path = /obj/item/storage/fancy/cigarettes/cigars/havana
