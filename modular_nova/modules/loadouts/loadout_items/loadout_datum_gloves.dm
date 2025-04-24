@@ -71,7 +71,10 @@
 /datum/loadout_item/gloves/yellow
 	name = "Yellow Gloves"
 	item_path = /obj/item/clothing/gloves/color/ffyellow
-	additional_displayed_text = list("Non-Insulating")
+
+/datum/loadout_item/gloves/yellow/get_item_information()
+	. = ..()
+	.[FA_ICON_BOLT] = "Non-Insulating"
 
 /datum/loadout_item/gloves/white
 	name = "White Gloves"

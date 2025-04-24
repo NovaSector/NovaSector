@@ -703,3 +703,207 @@
   mogeoko:
   - qol: You can use padded headphones/deprivation helmet/latex gasmask in any possible
       slot now.
+2025-04-19:
+  00-Steven:
+  - refactor: Refactored polaroid camera item interactions. Please report any issues.
+  - spellcheck: The polaroid camera's description now talks about 'holorecord' disks
+      rather than 'holographic' disks.
+  - qol: Added screentips to the polaroid camera.
+  - qol: If a polaroid camera already has a holorecord disk, inserting a new one swaps
+      the old one out instead of blocking.
+  - qol: Added balloon alerts and sounds to polaroid camera interactions.
+  - bugfix: Polaroid camera can no longer record to holorecord disks outside of it
+      that left it via nonstandard means.
+  - bugfix: Rewind camera actually applies its special picture name.
+  Absolucy:
+  - qol: MODlink scryers now alert the user if they try to call without a charged
+      power cell.
+  - bugfix: Fixed FOV checks improperly handling diagonal directions.
+  AyIong:
+  - bugfix: Navigating to categories in preferences works again
+  Ezel:
+  - map: added an pacman to wawastation near science
+  - map: added pacmans to icebox
+  - map: removed some pacmans from metastation
+  FeudeyTF:
+  - qol: Better UI/UX for detective's board
+  FlufflesTheDog:
+  - bugfix: Pre-game "time to start" is once again displayed"
+  Goat:
+  - map: wawa now has curator trophy cases
+  Goat, LePiromano:
+  - qol: Photocopiers now have boards meaning you can build, destroy, and remake them.
+      (If you're a mapper use the prebuilt version to prestock your photocopiers)
+  Holoo-1:
+  - bugfix: camera consoles, admin supply pod launcher etc. no longer close game when
+      they are closed
+  - balance: emp flashlight costs 4 -> 2 tc
+  Iajret:
+  - bugfix: text areas in preferences window can be scrolled once again
+  - bugfix: fixed rnd experiments not working ant revealing for certain technologies
+  Jacquerel:
+  - rscadd: Occasionally when a Wizard is around, strange things may being falling
+      from the sky.
+  - bugfix: Mothroaches and other small animals will now realise that they're free
+      after being dumped from your backpack and resum their daily activities.
+  - rscadd: Mice can play synthesisers
+  - balance: Most mobs will now hesitate for a moment before attacking rather than
+      instantly hitting anything that enters melee range, to better simulate human
+      behaviour. Please report if this delay seems too short, or too long.
+  - balance: Most mobs which telegraphed their basic attacks on you now will not do
+      that
+  - image: Megafauna kill achievement icons now look more like the bosses actually
+      currently do
+  JohnFulpWillard:
+  - qol: Radios/headsets now have a slider to change the volume from radio noises.
+  LT3:
+  - bugfix: Fixed opening character preferences menu before subsystem is initialized
+  - bugfix: Synthflesh patches unhusk corpses as expected
+  - qol: Better information and feedback about de-husking corpses
+  Maximal08:
+  - bugfix: fixed manipulator throw mode UI
+  Melbert:
+  - bugfix: Mecha cargo holds no longer shove themselves inside themselves when being
+      deleted
+  - bugfix: You can't fax unfaxable things by putting them in faxable things
+  - rscadd: Cyborgs and the AI have regained understanding of various non-human languages,
+      but only partially (66%).
+  - rscadd: Human skin suit may trick the health analyzer... sort of
+  - bugfix: Human skin suit no longer gives a useless action
+  - bugfix: Fix PB shots with a revolver doing a melee attack
+  - bugfix: Fix Russian Revolver
+  - refactor: Refactored Russian Roulette entirely
+  - qol: Russian Revolver now has a do after associated before pulling the trigger.
+      You can alt-shift-click it to customize length of it, for dramatic effect (or
+      you can set it to 0 seconds)
+  - qol: Clowns can partake in Russian Roulette without fumbling
+  - rscadd: Adds a penalty for cheating the Cursed Russian Revolver
+  - rscadd: Cheating in Russian Roulette and losing now confers a different moodlet
+      than plain losing
+  - rscdel: You can no longer use telekinesis in Russian Roulette
+  - qol: You can rotate scanner gates (even though it functionally does nothing)
+  OrionTheFox:
+  - code_imp: updated the AESTHETICS Module .readme, to clarify the module is for
+      overriding TG assets directly. Also better modularized potted plant overrides
+      - if you find a broken potted plant (or items in general), don't forget to bug
+      report!
+  Rhials:
+  - balance: Bitrunning simulations of the lowest threat will not spawn Bitrunner
+      Glitches
+  SmArtKar:
+  - qol: Redesigned the loadout UI
+  - balance: Monocles now work as prescription glasses
+  - image: Loadout plushies no longer use mapper previews for their images
+  - bugfix: Fixed AIs being unable to scan ore vents
+  - bugfix: Ash storms do damage again
+  Thunder12345:
+  - rscadd: Added support for modularly loaded shuttles.
+  - rscadd: The Scrapheap Challenge emergency shuttle now comes in randomly generated
+      variants.
+  TiviPlus:
+  - refactor: Overhauled how looking up and looking down function. they should now
+      not jitter, and trying to look up/down while already doing so will cancel the
+      previous look up/down in the opposite direction
+  - bugfix: fixed a runtime with holo emissive overlays
+  Wallem, Kryson, Viro, Xhorian, Kreks:
+  - image: Updated a whole bunch of signs
+  hry-gh:
+  - qol: you can now reset the adjustable pane splitters in chat settings
+  jlsnow301:
+  - bugfix: The plant analyzer's progress bars should fill the window again
+  mcbalaam:
+  - qol: Improved chat messages when controlling a mech as an AI
+  vinylspiders:
+  - bugfix: shoes with the squeak component will no longer play a squeaking sound
+      when you aren't actually walking (like in a wheelchair for instance)
+2025-04-20:
+  AniciaBelle:
+  - rscadd: adds Jumbo Dog Bone to the loadout in the 'Toys" section
+  Ezel/Improvedname, JohnFulpWillard:
+  - bugfix: Constructs now have their proper factions, so Wizard constructs can't
+      hit Wizard Apprentices.
+  - bugfix: Juggernaut's Gauntlet echo spell now respects factions.
+  FlufflesTheDog:
+  - bugfix: Passive modsuit modules (radiation protection, welding protection, etc)
+      should work reliably again.
+  Gboster-0:
+  - bugfix: fixed an extremelly rare edge case of the oversized quirk improperly removing
+      limb damage if the quirk is ever removed
+  Goku:
+  - bugfix: All surgery initiator items can now be used while laying down (bedsheets,
+      cloaks, towels...), and not just surgery drapes (fixes the surgery UI showing
+      as not-interactable).
+  Holoo-1:
+  - admin: supply pod launcher should be more reliable
+  - bugfix: fixed small view, refresh button
+  Iajret:
+  - bugfix: Fixed some more missing scrollbars in well everything that is left. Probably.
+      I haven't looked that thoroughly.
+  - bugfix: Experiment little question mark tooltip now occupies a single line instead
+      of two
+  JohnFulpWillard:
+  - bugfix: Drawing narsie rune will now always put it where you drew the rune from.
+  Kapu1178, Cirrial:
+  - bugfix: The server-configurable shuttle call when enough of the station dies will
+      now actually call the shuttle.
+  LT3:
+  - bugfix: Severe anxiety can be cured by drinking any type of alcohol
+  Melbert:
+  - rscadd: Tourist bots track in dirt occasionally
+  OrionTheFox:
+  - bugfix: NT has sliiiightly tweaked the sensitivity of the Delamination Suppression
+      System. It should no longer go off when there's a delamination in the range
+      of 50,000 kilometers, instead only working around 500 meters.
+  RatFromTheJungle:
+  - balance: roundstart slimes have 30% less resistance to burns across their entire
+      body, owch!
+  SmArtKar:
+  - bugfix: Toolbox bounties should no longer randomly fail
+  jlsnow301:
+  - bugfix: Fixed more bugs in tgui-say. Admin chat shouldn't be cut off any more.
+  necromanceranne:
+  - bugfix: Objects crafted from lavaland fauna materials (bone, sinew, hide) are
+      now fireproof and lavaproof. And also reinforced fishing lines.
+  vinylspiders:
+  - bugfix: fixes an issue that was causing a number of icons in the loadout menu
+      to not load correctly
+2025-04-22:
+  Bannhammger:
+  - rscadd: Spider Clan taught their ninjas to taunt, don't fall for it
+  - bugfix: Shotgun mags no longer load shells without CD.
+  OrbisAnima:
+  - qol: We added two extra syringes to all IV drips, so they can now transfer and
+      drain reagents thrice as fast!
+  OrionTheFox:
+  - qol: The Breathing Tube implant can now be converted to an "Integrated Breathing
+      Tube" using a screwdriver - this will hide the augment overlay, for users who
+      would rather the tube be invisible.
+  - rscadd: This "Integrated Breathing Tube" has been added to the loadout for crew
+      who wish to make their already-equipped tubes more subtle.
+  RatFromTheJungle:
+  - balance: 35 sol nerfed in both damage and wound bonus
+  - balance: The sindano is no longer burst, instead it's full auto and shoots about
+      at guepe pace
+  - balance: 'speaking of: the guepe is now semi-auto, and no longer restricted in
+      cargo. (also shoots slightly faster)'
+  - balance: mold-core health is dropped to 450, from 1200, leaving it significantly
+      easier to crush!
+  unit0016:
+  - bugfix: You can no longer stack multiple types of condos on the same door number.
+      Please stop solemnly opening the door expecting something different.
+2025-04-23:
+  FlufflesTheDog:
+  - bugfix: Photocopiers on Nova maps start pre-stocked with paper and toner
+  Iajret:
+  - bugfix: After some long-winded discussion, medical committee finally declares
+      that hemophages organs are not, in fact, harmful (at least for the hemophages
+      themselves). All analyzers now come with updated firmware to account for that.
+  unit0016:
+  - rscadd: Serenitystation has received support for ruins!
+  - balance: LUNA has been entirely reworked.
+2025-04-24:
+  A.C.M.O.:
+  - rscadd: Added an otter snout and a waggable otter tail.
+  Iajret:
+  - bugfix: 'Interlink staffing changes: fired Breaks-The-PRs and hired Fixes-The-ATs
+      instead'

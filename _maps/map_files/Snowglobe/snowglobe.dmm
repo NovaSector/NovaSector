@@ -2698,7 +2698,7 @@
 "aHC" = (
 /obj/machinery/airalarm/directional/east,
 /obj/item/radio/intercom/directional/north,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/corner{
 	dir = 8
 	},
@@ -2907,7 +2907,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
 "aJS" = (
@@ -15910,7 +15910,7 @@
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_office)
 "enj" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/trimline/dark_blue/filled/warning{
 	dir = 1
 	},
@@ -39214,7 +39214,7 @@
 /area/station/hallway/primary/aftporthall)
 "kux" = (
 /obj/structure/cable,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -45546,7 +45546,7 @@
 /area/station/hallway/primary/port)
 "mhP" = (
 /obj/machinery/camera/autoname/directional/south,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/computer/security/telescreen/entertainment/directional/south,
 /turf/open/floor/carpet/red,
 /area/station/security/courtroom)
@@ -58183,7 +58183,7 @@
 "pCF" = (
 /obj/structure/cable,
 /obj/machinery/newscaster/directional/north,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/tile,
 /area/station/service/lawoffice)
 "pCG" = (
@@ -62875,7 +62875,7 @@
 /area/station/maintenance/bloodcasino)
 "qVq" = (
 /obj/effect/turf_decal/siding/yellow,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/white/smooth_half,
 /area/station/engineering/lobby)
 "qVx" = (
@@ -65933,7 +65933,7 @@
 /turf/open/floor/iron/pool,
 /area/station/command/heads_quarters/hos)
 "rRn" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood,
 /area/station/maintenance/abandon_office)
 "rRx" = (
@@ -70812,7 +70812,7 @@
 "tbF" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/light_switch/directional/north,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "tcg" = (
@@ -71297,7 +71297,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "tjh" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/siding/yellow/end{
 	dir = 8
 	},
@@ -85956,7 +85956,7 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 1
 	},
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/white/smooth_corner,
 /area/station/medical/treatment_center)
 "xaE" = (
@@ -90477,7 +90477,7 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/status_display/evac/directional/north,
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/station/science/ordnance/office)
 "yhP" = (

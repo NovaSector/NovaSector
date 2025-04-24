@@ -17,7 +17,7 @@
 /obj/item/goodycase_holder
 	name = "goody case holder"
 	desc = "Perhaps the companies never expected the cargo traffic that goody cases would cause. This holder is the solution to holding multiple goody cases."
-	icon = 'modular_nova/modules/cargo_items/import_holder.dmi'
+	icon = 'modular_nova/modules/cargo_items/icons/import_holder.dmi'
 	icon_state = "goodycase_holder"
 	w_class = WEIGHT_CLASS_BULKY
 

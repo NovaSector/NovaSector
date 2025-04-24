@@ -81,6 +81,10 @@
 		owner.investigate_log("starved to death from lack of blood caused by [src].", INVESTIGATE_DEATHS)
 		owner.death() // Owch! Ran out of blood.
 
+/obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips)
+	if(organ_flags & ORGAN_FAILING)
+		return conditional_tooltip("<font color='#cc3333'>Non-Functional</font>", "Repair surgically. Do not remove under any circumstances.", add_tooltips)
+	return ..()
 
 /// Simple helper proc that toggles the dormant state of the tumor, which also switches its appearance to reflect said change.
 /obj/item/organ/heart/hemophage/proc/toggle_dormant_state()

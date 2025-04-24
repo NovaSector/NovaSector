@@ -17,7 +17,7 @@
 /obj/item/mentoring_book
 	name = "mentoring book"
 	desc = "Written on the pages are countless tales of the author's experiences in certain skills. Perhaps reading will help you."
-	icon = 'modular_nova/modules/mentoring/mentoring.dmi'
+	icon = 'modular_nova/modules/mentoring/icons/mentoring.dmi'
 	icon_state = "book"
 
 	///the skill that is written within the book that will be taught
