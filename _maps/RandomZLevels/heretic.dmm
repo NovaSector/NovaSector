@@ -1141,10 +1141,6 @@
 /obj/effect/gibspawner/human,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
-"sH" = (
-/obj/structure/signpost/salvation,
-/turf/open/misc/grass/jungle/station,
-/area/awaymission/beach/heretic)
 "sQ" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
@@ -1307,7 +1303,9 @@
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
 "vg" = (
-)
+/mob/living/basic/cult/engorge/devourdem,
+/turf/open/misc/beach/sand,
+/area/awaymission/beach/heretic)
 "vp" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -2261,7 +2259,6 @@
 /area/awaymission/beach/heretic)
 "Kx" = (
 /obj/effect/heretic_rune/big,
-/mob/living/basic/cult/engorge/devourdem,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "Ky" = (
@@ -3353,7 +3350,6 @@ Ir
 Ir
 Ir
 Ir
-vg
 "}
 (2,1,1) = {"
 Ir
@@ -3506,7 +3502,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (3,1,1) = {"
 Ir
@@ -3659,7 +3654,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (4,1,1) = {"
 Ir
@@ -3812,7 +3806,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (5,1,1) = {"
 Ir
@@ -3965,7 +3958,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (6,1,1) = {"
 Ir
@@ -4118,7 +4110,6 @@ Io
 Io
 sa
 Ir
-vg
 "}
 (7,1,1) = {"
 Ir
@@ -4271,7 +4262,6 @@ Io
 pf
 Io
 Ir
-vg
 "}
 (8,1,1) = {"
 Ir
@@ -4424,7 +4414,6 @@ Io
 Io
 Io
 Ir
-vg
 "}
 (9,1,1) = {"
 Ir
@@ -4577,7 +4566,6 @@ Io
 Io
 Io
 Ir
-vg
 "}
 (10,1,1) = {"
 Ir
@@ -4730,7 +4718,6 @@ Io
 Io
 Io
 Ir
-vg
 "}
 (11,1,1) = {"
 Ir
@@ -4883,7 +4870,6 @@ Io
 Io
 Io
 Ir
-vg
 "}
 (12,1,1) = {"
 Ir
@@ -5032,11 +5018,10 @@ We
 We
 We
 Xk
-sH
+Io
 sa
 sa
 Ir
-vg
 "}
 (13,1,1) = {"
 Ir
@@ -5189,7 +5174,6 @@ Xk
 Xk
 sa
 Ir
-vg
 "}
 (14,1,1) = {"
 Ir
@@ -5342,7 +5326,6 @@ EN
 Xk
 Xk
 Ir
-vg
 "}
 (15,1,1) = {"
 Ir
@@ -5495,7 +5478,6 @@ EN
 iz
 Xk
 Ir
-vg
 "}
 (16,1,1) = {"
 Ir
@@ -5648,7 +5630,6 @@ yQ
 EN
 Xk
 Ir
-vg
 "}
 (17,1,1) = {"
 Ir
@@ -5801,7 +5782,6 @@ EN
 EN
 Xk
 Ir
-vg
 "}
 (18,1,1) = {"
 Ir
@@ -5954,7 +5934,6 @@ Uc
 cx
 Xk
 Ir
-vg
 "}
 (19,1,1) = {"
 Ir
@@ -6107,7 +6086,6 @@ Lz
 JU
 Xk
 Ir
-vg
 "}
 (20,1,1) = {"
 Ir
@@ -6260,7 +6238,6 @@ qb
 Xk
 Xk
 Ir
-vg
 "}
 (21,1,1) = {"
 Ir
@@ -6413,7 +6390,6 @@ Xk
 Xk
 sa
 Ir
-vg
 "}
 (22,1,1) = {"
 Ir
@@ -6566,7 +6542,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (23,1,1) = {"
 Ir
@@ -6719,7 +6694,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (24,1,1) = {"
 Ir
@@ -6872,7 +6846,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (25,1,1) = {"
 Ir
@@ -7025,7 +6998,6 @@ Io
 sa
 sa
 Ir
-vg
 "}
 (26,1,1) = {"
 Ir
@@ -7178,7 +7150,6 @@ Io
 sa
 sa
 Ir
-vg
 "}
 (27,1,1) = {"
 Ir
@@ -7331,7 +7302,6 @@ Io
 Io
 sa
 Ir
-vg
 "}
 (28,1,1) = {"
 Ir
@@ -7484,7 +7454,6 @@ Io
 Io
 sa
 Ir
-vg
 "}
 (29,1,1) = {"
 Ir
@@ -7637,7 +7606,6 @@ Io
 Io
 sa
 Ir
-vg
 "}
 (30,1,1) = {"
 Ir
@@ -7790,7 +7758,6 @@ Io
 Io
 sa
 Ir
-vg
 "}
 (31,1,1) = {"
 Ir
@@ -7943,7 +7910,6 @@ XV
 Io
 Io
 Ir
-vg
 "}
 (32,1,1) = {"
 Ir
@@ -8096,7 +8062,6 @@ XV
 Io
 Io
 Ir
-vg
 "}
 (33,1,1) = {"
 Ir
@@ -8249,7 +8214,6 @@ XV
 XV
 Io
 Ir
-vg
 "}
 (34,1,1) = {"
 Ir
@@ -8402,7 +8366,6 @@ OK
 XV
 Io
 Ir
-vg
 "}
 (35,1,1) = {"
 Ir
@@ -8555,7 +8518,6 @@ qp
 XV
 Io
 Ir
-vg
 "}
 (36,1,1) = {"
 Ir
@@ -8708,7 +8670,6 @@ qp
 XV
 XV
 Ir
-vg
 "}
 (37,1,1) = {"
 Ir
@@ -8861,7 +8822,6 @@ RM
 OK
 XV
 Ir
-vg
 "}
 (38,1,1) = {"
 Ir
@@ -9014,7 +8974,6 @@ RM
 HA
 XV
 Ir
-vg
 "}
 (39,1,1) = {"
 Ir
@@ -9167,7 +9126,6 @@ qp
 XV
 XV
 Ir
-vg
 "}
 (40,1,1) = {"
 Ir
@@ -9320,7 +9278,6 @@ HA
 XV
 XV
 Ir
-vg
 "}
 (41,1,1) = {"
 Ir
@@ -9473,7 +9430,6 @@ XV
 XV
 XV
 Ir
-vg
 "}
 (42,1,1) = {"
 Ir
@@ -9626,7 +9582,6 @@ XV
 XV
 Io
 Ir
-vg
 "}
 (43,1,1) = {"
 Ir
@@ -9779,7 +9734,6 @@ XV
 Io
 Io
 Ir
-vg
 "}
 (44,1,1) = {"
 Ir
@@ -9932,7 +9886,6 @@ Io
 sa
 sa
 Ir
-vg
 "}
 (45,1,1) = {"
 Ir
@@ -10085,7 +10038,6 @@ Io
 sa
 sa
 Ir
-vg
 "}
 (46,1,1) = {"
 Ir
@@ -10238,7 +10190,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (47,1,1) = {"
 Ir
@@ -10391,7 +10342,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (48,1,1) = {"
 Ir
@@ -10544,7 +10494,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (49,1,1) = {"
 Ir
@@ -10697,7 +10646,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (50,1,1) = {"
 Ir
@@ -10850,7 +10798,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (51,1,1) = {"
 Ir
@@ -11003,7 +10950,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (52,1,1) = {"
 Ir
@@ -11156,7 +11102,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (53,1,1) = {"
 Ir
@@ -11309,7 +11254,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (54,1,1) = {"
 Ir
@@ -11462,7 +11406,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (55,1,1) = {"
 Ir
@@ -11615,7 +11558,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (56,1,1) = {"
 Ir
@@ -11768,7 +11710,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (57,1,1) = {"
 Ir
@@ -11921,7 +11862,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (58,1,1) = {"
 Ir
@@ -12074,7 +12014,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (59,1,1) = {"
 Ir
@@ -12227,7 +12166,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (60,1,1) = {"
 Ir
@@ -12380,7 +12318,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (61,1,1) = {"
 Ir
@@ -12533,7 +12470,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (62,1,1) = {"
 Ir
@@ -12686,7 +12622,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (63,1,1) = {"
 Ir
@@ -12839,7 +12774,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (64,1,1) = {"
 Ir
@@ -12992,7 +12926,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (65,1,1) = {"
 Ir
@@ -13145,7 +13078,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (66,1,1) = {"
 Ir
@@ -13298,7 +13230,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (67,1,1) = {"
 Ir
@@ -13451,7 +13382,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (68,1,1) = {"
 Ir
@@ -13604,7 +13534,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (69,1,1) = {"
 Ir
@@ -13757,7 +13686,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (70,1,1) = {"
 Ir
@@ -13910,7 +13838,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (71,1,1) = {"
 Ir
@@ -14063,7 +13990,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (72,1,1) = {"
 Ir
@@ -14216,7 +14142,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (73,1,1) = {"
 Ir
@@ -14369,7 +14294,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (74,1,1) = {"
 Ir
@@ -14522,7 +14446,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (75,1,1) = {"
 Ir
@@ -14640,8 +14563,7 @@ RM
 RM
 XV
 XV
-XV
-XV
+vg
 XV
 RM
 RM
@@ -14828,7 +14750,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (77,1,1) = {"
 Ir
@@ -14981,7 +14902,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (78,1,1) = {"
 Ir
@@ -15134,7 +15054,6 @@ Ir
 Ir
 Ir
 Ir
-vg
 "}
 (79,1,1) = {"
 Ir
@@ -15287,7 +15206,6 @@ sa
 sa
 sa
 Ir
-vg
 "}
 (80,1,1) = {"
 Ir
@@ -15440,7 +15358,6 @@ Xk
 DL
 tq
 Ir
-vg
 "}
 (81,1,1) = {"
 Ir
@@ -15593,7 +15510,6 @@ sa
 Sh
 Io
 Ir
-vg
 "}
 (82,1,1) = {"
 Ir
@@ -15746,5 +15662,4 @@ Ir
 Ir
 Ir
 Ir
-vg
 "}
