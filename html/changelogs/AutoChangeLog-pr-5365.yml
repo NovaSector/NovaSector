@@ -1,0 +1,5 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - code_imp: "tweaks extreme roleplay toggle so that it hides others' preferences on examine and ooc notes if they have it disabled."
+  - bugfix: "silicon's roleplay preferences are now highlighted in purple"
