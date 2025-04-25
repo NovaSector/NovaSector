@@ -30,8 +30,8 @@ mkdir -p \
 		$1/modular_nova/modules/GAGS/nsfw/json_configs
 
 find modular_nova/ -name \*.dmi -exec cp --parents {} $1 \;
-cp -r modular_nova/modules/GAGS/json_configs/* $1/modular_nova/modules/GAGS/json_configs \;
-cp -r modular_nova/modules/GAGS/nsfw/json_configs/* $1/modular_nova/modules/GAGS/nsfw/json_configs \;
+find modular_nova/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
+find modular_nova/modules/GAGS/nsfw/json_configs -name \*.json -exec cp --parents {} $1 \;
 # NOVA EDIT ADDITION END
 
 cp tgstation.dmb tgstation.rsc $1/
