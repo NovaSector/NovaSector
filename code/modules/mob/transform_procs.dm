@@ -145,6 +145,10 @@
 	var/mob/living/silicon/robot/new_borg = new /mob/living/silicon/robot(loc)
 
 	new_borg.gender = gender
+	// NOVA EDIT ADDITION BEGIN
+	if(client)
+		new_borg.set_gender(client)
+	// NOVA EDIT ADDITION END
 	new_borg.SetInvisibility(INVISIBILITY_NONE)
 
 	if(client?.prefs.read_preference(/datum/preference/name/cyborg) != DEFAULT_CYBORG_NAME)

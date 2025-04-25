@@ -76,6 +76,10 @@
 			mmi.brainmob.container = mmi
 			mmi.update_appearance()
 		setup_default_name()
+		// NOVA EDIT ADDITION BEGIN - Silicon gender
+		if(mmi.brainmob)
+			gender = mmi.brainmob.gender
+		// NOVA EDIT ADDITION END
 
 	aicamera = new/obj/item/camera/siliconcam/robot_camera(src)
 	toner = tonermax
@@ -920,6 +924,10 @@
 
 	diag_hud_set_aishell()
 	undeployment_action.Grant(src)
+	// NOVA EDIT ADDITION BEGIN - Silicon gender
+	if(AI.client)
+		set_gender(AI.client)
+	// NOVA EDIT ADDITION END
 
 /datum/action/innate/undeployment
 	name = "Disconnect from shell"

@@ -28,7 +28,7 @@
 		new_spawn.updatename(new_spawn.client)
 		new_spawn.transfer_brain_pref(new_spawn.client)
 		new_spawn.transfer_emote_pref(new_spawn.client)
-		new_spawn.gender = NEUTER
+		new_spawn.set_gender(new_spawn.client)
 		var/area/A = get_area(src)
 		//new_spawn.AddElement(/datum/element/ghost_role_eligibility, free_ghosting = TRUE) SKYRAT PORT -- Needs to be completely rewritten
 		new_spawn.AddElement(/datum/element/dusts_on_catatonia)
