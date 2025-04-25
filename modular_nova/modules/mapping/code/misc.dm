@@ -65,13 +65,6 @@
 		return ITEM_INTERACT_SUCCESS
 	return ITEM_INTERACT_BLOCKING
 
-/obj/item/claymore/cutlass/luna/attackby(obj/item/attacking_item, mob/living/user)
-	if(istype(attacking_item, /obj/item/luna_fragment))
-		var/obj/item/luna_fragment/F = attacking_item
-		F.apply_upgrade(src, user)
-	else
-		return ..()
-
 /obj/item/claymore/cutlass/luna/attack_secondary(atom/target, mob/living/user, clickparams)
 	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
