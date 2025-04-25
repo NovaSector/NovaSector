@@ -219,6 +219,7 @@ In those cases, we've decided to apply the following convention, with examples:
   ```
 
   And for any removals that are moved to different files*:
+		*Please avoid this however, only to be done if there is no other option.
 
   ```byond
   /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
@@ -243,7 +244,6 @@ In those cases, we've decided to apply the following convention, with examples:
   return
   */ //NOVA EDIT REMOVAL END
   ```
-	\* NOTE: Please avoid removing things to other files, this is only to be done as a last-resort.
 
 - **Change:**
 
