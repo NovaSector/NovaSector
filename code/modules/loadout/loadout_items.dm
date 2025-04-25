@@ -73,8 +73,14 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(isnull(name))
 		name = item_path::name
 
-	if(isnull(ui_icon) && isnull(ui_icon_state))
-		ui_icon = item_path::icon_preview || item_path::icon
+	if(isnull(ui_icon))
+		if(can_be_greyscale)
+			var/datum/greyscale_config/our_greyscale_config = item_path::greyscale_config
+			ui_icon = item_path::icon_preview || our_greyscale_config::icon_file
+		else
+			ui_icon = item_path::icon_preview || item_path::icon
+
+	if(isnull(ui_icon_state))
 		ui_icon_state = item_path::icon_state_preview || item_path::icon_state
 
 	if(can_be_reskinned)
