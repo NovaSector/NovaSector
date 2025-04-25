@@ -260,9 +260,9 @@ In those cases, we've decided to apply the following convention, with examples:
 	indentation levels.
 
   ```byond
-  /* // NOVA EDIT REMOVAL START - Adds conditional
+  	/* // NOVA EDIT REMOVAL START - Adds conditional
 	    return 1
-  */ // NOVA EDIT REMOVAL
+  	*/ // NOVA EDIT REMOVAL
 	// NOVA EDIT ADDITION START - Adds conditional
 		if(!isnull(src))
       return 1
