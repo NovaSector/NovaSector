@@ -47,7 +47,7 @@
 		if(DEAD)
 			. += span_deadsay("It looks like its system is corrupted and requires a reset.")
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	. += get_silicon_flavortext()
+	. += get_silicon_flavortext(user)
 	//NOVA EDIT ADDITION END
 
 	. += ..()
