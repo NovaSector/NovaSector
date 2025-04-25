@@ -8,4 +8,4 @@
 /// Spider hud trait
 #define TRAIT_SPIDER_HOST "spider_host"
 ///for if we are army crawling or not
- #define TRAIT_PRONE "prone"
+#define TRAIT_PRONE "prone"
