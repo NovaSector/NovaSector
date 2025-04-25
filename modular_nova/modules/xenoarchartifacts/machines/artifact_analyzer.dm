@@ -73,7 +73,7 @@
 	dat += "<br>"
 	dat += "<hr>"
 
-	var/datum/browser/popup = new(user, "artanalyser", name, 450, 500, nref = src)
+	var/datum/browser/popup = new(user, "artanalyser", name, 450, 500, source = src)
 	popup.set_content(dat)
 	popup.open()
 
