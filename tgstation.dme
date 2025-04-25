@@ -6812,6 +6812,7 @@
 #include "modular_nova\master_files\code\game\objects\items\storage\lockbox.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\toolbox.dm"
 #include "modular_nova\master_files\code\game\objects\items\tools\weldingtool.dm"
+#include "modular_nova\master_files\code\game\objects\structures\ai_core.dm"
 #include "modular_nova\master_files\code\game\objects\structures\mannequin.dm"
 #include "modular_nova\master_files\code\game\objects\structures\mirror.dm"
 #include "modular_nova\master_files\code\game\objects\structures\railings.dm"
