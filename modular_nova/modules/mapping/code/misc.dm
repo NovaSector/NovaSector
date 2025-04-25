@@ -21,7 +21,7 @@
 	armour_penetration = 10 // Sharp enough to poke by default; but not exactly cleaving through any armor without the energy upgrade
 	block_chance = 20 // Definitely agile enough to block; but keep in mind it's a rapier and not a bulkier sword
 	sharpness = SHARP_POINTY // RAPIER. RAPIER. RAPIER!!!!
-	special_desc = "Corporate has this thing earmarked - someone pitched them that it's existence heralded an external dissident, and they've been quaking in their boots since. \
+	special_desc = "Corporate has this thing earmarked - someone pitched them that its existence heralded an external dissident, and they've been quaking in their boots since. \
 	In contrast, local reaction is much more... muted - most involved with today's deployment already used to it being nearby."
 	special_desc_requirement = EXAMINE_CHECK_JOB
 	special_desc_jobs = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_DETECTIVE)
