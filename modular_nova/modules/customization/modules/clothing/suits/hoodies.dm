@@ -55,7 +55,7 @@
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded
 	name = "NT hoodie"
-	desc = "A warm, blue sweatshirt.  It proudly bears the silver Nanotrasen insignia lettering on the back.  The edges are trimmed with silver."
+	desc = "A warm, blue sweatshirt. It proudly bears the silver Nanotrasen insignia lettering on the back.  The edges are trimmed with silver."
 	icon_state = "hoodie_NT"
 	greyscale_config = /datum/greyscale_config/hoodie_branded
 	greyscale_config_worn = /datum/greyscale_config/hoodie_branded/worn
@@ -70,19 +70,19 @@
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/mu
 	name = "mojave university hoodie"
-	desc = "A warm, gray sweatshirt.  It bears the letters MU on the front, a lettering to the well-known public college, Mojave University."
+	desc = "A warm, gray sweatshirt. It bears the letters MU on the front, a lettering to the well-known public college, Mojave University."
 	icon_state = "hoodie_MU"
 	greyscale_colors = "#747474#ffffff"
 
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/cti
 	name = "CTI hoodie"
-	desc = "A warm, black sweatshirt.  It bears the letters CTI on the back, a lettering to the prestigious university in Tau Ceti, Ceti Technical Institute.  There is a blue supernova embroidered on the front, the emblem of CTI."
+	desc = "A warm, black sweatshirt. It bears the letters CTI on the back, a lettering to the prestigious university in Tau Ceti, Ceti Technical Institute.  There is a blue supernova embroidered on the front, the emblem of CTI."
 	icon_state = "hoodie_CTI"
 	greyscale_colors = "#313131#ffffff"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw
 	name = "Space Mountain Wind hoodie"
-	desc = "A warm, black sweatshirt.  It has the logo for the popular softdrink Space Mountain Wind on both the front and the back."
+	desc = "A warm, black sweatshirt. It has the logo for the popular softdrink Space Mountain Wind on both the front and the back."
 	icon_state = "hoodie_SMW"
 	greyscale_colors = "#313131#ffffff"

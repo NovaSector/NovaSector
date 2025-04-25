@@ -285,7 +285,6 @@
 /datum/loadout_item/head/maid_headband
 	name = "Colourable Maid Headband"
 	item_path = /obj/item/clothing/head/maid_headband
-	ui_icon = 'modular_nova/modules/GAGS/icons/maid_costume.dmi'
 
 /datum/loadout_item/head/tactical_headband
 	name ="tactical maid headband"
