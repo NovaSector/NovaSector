@@ -255,6 +255,7 @@
 /datum/loadout_item/shoes/christmas
 	name = "Red Christmas Boots"
 	item_path = /obj/item/clothing/shoes/winterboots/christmas
+	ui_icon_state = "christmas_boots_base"
 
 /datum/loadout_item/shoes/christmas/green
 	name = "Green Christmas Boots"

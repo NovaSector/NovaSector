@@ -285,6 +285,7 @@
 /datum/loadout_item/head/maid_headband
 	name = "Colourable Maid Headband"
 	item_path = /obj/item/clothing/head/maid_headband
+	ui_icon = 'modular_nova/modules/GAGS/icons/maid_costume.dmi'
 
 /datum/loadout_item/head/tactical_headband
 	name ="tactical maid headband"
@@ -474,38 +475,47 @@
 /datum/loadout_item/head/cowboyhat
 	name = "Recolorable Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman
+	ui_icon_state = "cattleman_base"
 
 /datum/loadout_item/head/cowboyhat_black
 	name = "Recolorable Wide-Brimmed Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide
+	ui_icon_state = "cattleman_wide_base"
 
 /datum/loadout_item/head/cowboyhat_wide
 	name = "Wide-Brimmed Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/wide
+	ui_icon_state = "widebrim_base"
 
 /datum/loadout_item/head/cowboyhat_wide_feather
 	name = "Wide-Brimmed Feathered Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/wide/feathered
+	ui_icon_state = "widebrim_base"
 
 /datum/loadout_item/head/cowboyhat_flat
 	name = "Flat-Brimmed Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat
+	ui_icon_state = "flatbrim_base"
 
 /datum/loadout_item/head/cowboyhat_flat_cowl
 	name = "Flat-Brimmed Hat with Cowl"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl
+	ui_icon_state = "flatbrim_base"
 
 /datum/loadout_item/head/cowboyhat_sheriff
 	name = "Sheriff Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat/sheriff
+	ui_icon_state = "flatbrim_base"
 
 /datum/loadout_item/head/cowboyhat_deputy
 	name = "Deputy Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat/deputy
+	ui_icon_state = "flatbrim_base"
 
 /datum/loadout_item/head/cowboyhat_winter
 	name = "Winter Cowboy Hat"
 	item_path = /obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff
+	ui_icon_state = "flatbrim_base"
 
 /*
 *	TREK HATS (JOB-LOCKED)
@@ -576,11 +586,13 @@
 	name = "Cattleman Hat, Security"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/sec
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	ui_icon_state = "cattleman_base"
 
 /datum/loadout_item/head/cowboyhat_secwide
 	name = "Wide-Brimmed Cattleman Hat, Security"
 	item_path = /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	ui_icon_state = "cattleman_wide_base"
 
 /datum/loadout_item/head/ushanka/sec
 	name = "Security Ushanka"

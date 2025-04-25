@@ -170,6 +170,7 @@
 /datum/loadout_item/mask/kitsune
 	name = "Kitsune Mask"
 	item_path = /obj/item/clothing/mask/kitsune
+	ui_icon_state = "kitsune_base"
 
 /datum/loadout_item/mask/joy
 	name = "Joy Mask"
