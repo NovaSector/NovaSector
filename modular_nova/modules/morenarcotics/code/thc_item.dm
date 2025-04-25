@@ -100,7 +100,7 @@
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
 		/datum/reagent/consumable/sugar = 3,
-		/datum/reagent/drug/thc = 8
+		/datum/reagent/drug/thc = 8,
 	)
 	junkiness = 20
 	tastes = list("cannabis" = 1, "sour... apple?" = 1, "something sweet" = 1)
@@ -115,7 +115,7 @@
 	bite_consumption = 1
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
-		/datum/reagent/drug/thc = 10
+		/datum/reagent/drug/thc = 10,
 	)
 	tastes = list("cookie" = 1, "cannabis" = 1)
 	foodtypes = GRAIN | SUGAR
