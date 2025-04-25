@@ -110,7 +110,7 @@
 	/// What do we send to chat for the introductory hallucination?
 	var/hallucination_text = "Why.. do those stupid smelly nerds... not put an EXE file.. on the github..."
 
-/// Handles the logic for checking if an upgrade is valid; adding it, and playing it's introductory hallucination if it's new.
+/// Handles the logic for checking if an upgrade is valid; adding it, and playing its introductory hallucination if it's new.
 /obj/item/luna_fragment/proc/apply_upgrade(our_sord, mob/living/user)
 	var/obj/item/claymore/cutlass/luna/upgrade_appliable = our_sord
 	for(var/obj/item/luna_fragment/found_fragment as anything in upgrade_appliable.fragments)
@@ -129,7 +129,7 @@
 		has_spoken = TRUE
 	return
 
-/// Runs when this fragment is removed from LUNA via a crowbar - used to reset it's affects.
+/// Runs when this fragment is removed from LUNA via a crowbar - used to reset its affects.
 /obj/item/luna_fragment/proc/remove_upgrade(our_sord, mob/living/user)
 	return
 
@@ -165,8 +165,8 @@
 	desc = "A small, egg-shaped device - kitbashed from a hardlight projector, a x-ray focused laser diode, and, of all things - a flashlight; to be applied directly against the grip of a sword - trading \
 	the comfort of your thumb for a hardlight blade."
 	icon_state = "energy_retrofit"
-	effect_desc = "use a hardlight blade as a coating over it's own; trading it's strengths and weaknesses for that of an energy sword. As Luna is a rapier, however, it's reliance on precision strikes and \
-	thin blade prevent it from properly parrying; and weaken it's effectiveness against unarmored targets."
+	effect_desc = "use a hardlight blade as a coating over it's own; trading its strengths and weaknesses for that of an energy sword. As Luna is a rapier, however, its reliance on precision strikes and \
+	thin blade prevent it from properly parrying; and weaken its effectiveness against unarmored targets."
 	hallucination_sound = 'sound/effects/hallucinations/im_here2.ogg'
 	hallucination_text = "The lightest, most beautiful snowflakes I'd ever seen raining down upon me. I wasn't cold. I couldn't be. It couldn't overcome the warmth of my beating heart."
 
