@@ -251,6 +251,8 @@ In those cases, we've decided to apply the following convention, with examples:
   if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // NOVA EDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
   ```
 
+	Always put the original code (the full line!) and use the same formatting as above.
+
 	Multiline changes should be AVOIDED. Either put multiple single-line changes, or do this instead:
 
 	Example: Removal/addition combo.
