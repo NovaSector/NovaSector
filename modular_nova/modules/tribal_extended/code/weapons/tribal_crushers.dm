@@ -9,6 +9,13 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	light_color = "#8DEBFF"
 
+/obj/item/kinetic_crusher/tribal/runic_greataxe
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
+	icon_state = "rune_axe"
+	name = "Runic Greataxe"
+	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue"
+	light_color = "#8DEBFF"
+
 //changed compared to the basic version, mainly we don't fire a projectile and we don't care if the cursor is over the player.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
@@ -94,7 +101,7 @@
 
 /obj/item/icecat_ship_fragment_inactive
 	name = "Dormant fragment of the Stjarndrakkr"
-	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives—or a keen scientist—could uncover its purpose."
+	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener_used"
 	drop_sound = SFX_STONE_DROP
@@ -102,7 +109,7 @@
 
 /obj/item/icecat_ship_fragment_active
 	name = "Fragment of the Stjarndrakkr"
-	desc = "A piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange glowing symbols resembling Ættmál runes. Perhaps the natives—or a keen scientist—could uncover its purpose."
+	desc = "A piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange glowing symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener"
 	drop_sound = SFX_STONE_DROP
@@ -111,7 +118,7 @@
 /obj/item/icecat_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	add_fingerprint(user)
-	if(ispath(attacking_item.type, /obj/item/chisel))
+	if(ispath(attacking_item.type, /obj/item/chisel) && user.job == "Icemoon Dweller")
 		user.balloon_alert(user, "begins engraving runes...")
 		playsound(src, pick('sound/effects/break_stone.ogg'), 50, TRUE)
 		var/engrave_time = 30 SECONDS
