@@ -1302,10 +1302,6 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
-"vg" = (
-/mob/living/basic/cult/engorge/devourdem,
-/turf/open/misc/beach/sand,
-/area/awaymission/beach/heretic)
 "vp" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -14563,7 +14559,7 @@ RM
 RM
 XV
 XV
-vg
+XV
 XV
 RM
 RM
