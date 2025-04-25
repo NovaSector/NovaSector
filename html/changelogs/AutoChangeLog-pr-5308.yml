@@ -1,0 +1,5 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - image: "removed some (hopefully) unused Gloves icons! Please report any errors!"
+  - rscadd: "Evening and Designer Gloves are now greyscale!"
