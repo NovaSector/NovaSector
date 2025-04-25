@@ -426,7 +426,7 @@
  */
 /datum/round_event_control/radiation_leak
 	max_occurrences = 1
-	weight = MED_EVENT_FREQUENCY
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/radiation_storm
 	max_occurrences = 0
