@@ -16,6 +16,13 @@
 	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue"
 	light_color = "#8DEBFF"
 
+/obj/item/kinetic_crusher/spear/tribal/runic_spear
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
+	icon_state = "rune_spear"
+	name = "Runic Spear"
+	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue"
+	light_color = "#8DEBFF"
+
 //changed compared to the basic version, mainly we don't fire a projectile and we don't care if the cursor is over the player.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
@@ -98,6 +105,34 @@
 	)
 	tool_behaviors = list(TOOL_HAMMER)
 	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
+
+/datum/crafting_recipe/runic_greataxe
+	name = "Runic Greataxe"
+	category = CAT_WEAPON_MELEE
+	//recipe given to icecats as part of their spawner/team setting
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	reqs = list(
+		/obj/item/forging/complete/axe = 1,
+		/obj/item/stack/sheet/leather = 1,
+		/obj/item/stack/sheet/mineral/wood = 1,
+		/obj/item/icecat_ship_fragment_active = 1
+	)
+	tool_behaviors = list(TOOL_HAMMER)
+	result = /obj/item/kinetic_crusher/tribal/runic_greataxe
+
+/datum/crafting_recipe/runic_spear
+	name = "Runic Spear"
+	category = CAT_WEAPON_MELEE
+	//recipe given to icecats as part of their spawner/team setting
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	reqs = list(
+		/obj/item/forging/complete/spear = 1,
+		/obj/item/stack/sheet/leather = 1,
+		/obj/item/stack/sheet/mineral/wood = 1,
+		/obj/item/icecat_ship_fragment_active = 1
+	)
+	tool_behaviors = list(TOOL_HAMMER)
+	result = /obj/item/kinetic_crusher/spear/tribal/runic_spear
 
 /obj/item/icecat_ship_fragment_inactive
 	name = "Dormant fragment of the Stjarndrakkr"
