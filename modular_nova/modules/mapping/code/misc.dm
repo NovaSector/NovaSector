@@ -17,7 +17,7 @@
 	light_on = FALSE
 	force = 15
 	throwforce = 10
-	bare_wound_bonus = 35 // If your target's unarmored; lol. Lmao
+	bare_wound_bonus = 25 // Good precision weapon, though not perfect.
 	armour_penetration = 10 // Sharp enough to poke by default; but not exactly cleaving through any armor without the energy upgrade
 	block_chance = 20 // Definitely agile enough to block; but keep in mind it's a rapier and not a bulkier sword
 	sharpness = SHARP_POINTY // RAPIER. RAPIER. RAPIER!!!!
@@ -165,7 +165,8 @@
 	desc = "A small, egg-shaped device - kitbashed from a hardlight projector, a x-ray focused laser diode, and, of all things - a flashlight; to be applied directly against the grip of a sword - trading \
 	the comfort of your thumb for a hardlight blade."
 	icon_state = "energy_retrofit"
-	effect_desc = "use a hardlight blade as a coating over it's own; trading it's strengths and weaknesses for that of an energy sword."
+	effect_desc = "use a hardlight blade as a coating over it's own; trading it's strengths and weaknesses for that of an energy sword. As Luna is a rapier, however, it's reliance on precision strikes and \
+	thin blade prevent it from properly parrying; and weaken it's effectiveness against unarmored targets."
 	hallucination_sound = 'sound/effects/hallucinations/im_here2.ogg'
 	hallucination_text = "The lightest, most beautiful snowflakes I'd ever seen raining down upon me. I wasn't cold. I couldn't be. It couldn't overcome the warmth of my beating heart."
 
@@ -181,7 +182,6 @@
 	upgrade_appliable.bare_wound_bonus = /obj/item/melee/energy/sword::bare_wound_bonus
 	upgrade_appliable.demolition_mod = /obj/item/melee/energy/sword::demolition_mod
 	upgrade_appliable.armour_penetration = /obj/item/melee/energy/sword::armour_penetration
-	upgrade_appliable.block_chance = /obj/item/melee/energy/sword::block_chance
 	return ..()
 
 /obj/item/luna_fragment/energy_retrofit/remove_upgrade(our_sord, mob/living/user)
@@ -196,7 +196,6 @@
 	upgrade_appliable.bare_wound_bonus = initial(upgrade_appliable.bare_wound_bonus)
 	upgrade_appliable.demolition_mod = initial(upgrade_appliable.demolition_mod)
 	upgrade_appliable.armour_penetration = initial(upgrade_appliable.armour_penetration)
-	upgrade_appliable.block_chance = initial(upgrade_appliable.block_chance)
 	return ..()
 
 /obj/item/mod/module/armor_booster/retractplates
