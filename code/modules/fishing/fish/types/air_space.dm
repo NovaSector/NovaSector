@@ -51,7 +51,7 @@
 /obj/item/fish/bumpy
 	name = "bump-fish"
 	fish_id = "bumpy"
-	desc = "An misshapen fish-thing all covered in stubby little tendrils"
+	desc = "A misshapen fish-thing all covered in stubby little tendrils."
 	icon_state = "bumpy"
 	sprite_height = 4
 	sprite_width = 5
@@ -200,7 +200,7 @@
 	if(status == FISH_DEAD)
 		eyes.icon_state += "_dead"
 	else
-		eyes.appearance_flags = RESET_COLOR
+		eyes.appearance_flags = RESET_COLOR|KEEP_APART
 	. += eyes
 
 ///Determines the speed at which the carp grows based on how big it's

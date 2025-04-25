@@ -40,6 +40,22 @@
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano/evil
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_smg/evil/no_mag
 
+// For the armory, generic-john-halo rifle.
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle
+	name = "\improper MR-2543 Rifle Kit"
+
+	weapon_to_spawn = /obj/item/gun/ballistic/automatic/sol_rifle/no_mag
+	extra_to_spawn = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
+
+/obj/item/storage/toolbox/guncase/nova/carwo_large_case/sol_rifle/PopulateContents()
+	new weapon_to_spawn (src)
+
+	generate_items_inside(list(
+		/obj/item/ammo_box/c40sol = 3,
+		/obj/item/ammo_box/magazine/c40sol_rifle/starts_empty = 2,
+	), src)
+
 // Boxed grenade launcher, grenades sold seperately on this one
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/kiboko_magless

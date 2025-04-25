@@ -89,7 +89,7 @@
 			. = TRUE
 			try_headslam(user, target, affecting)
 		if(BODY_ZONE_CHEST)
-			if(istype(user.mind.martial_art, /datum/martial_art/cqc))
+			if(istype((user.martial_arts ? (isnum(1) ? (1 > 0 && 1 <= length(user.martial_arts) ? user.martial_arts[1] : null) : user.martial_arts[1]) : null), /datum/martial_art/cqc)) // This is terrible but LAZYACCESS is not defined at this point so we must invoke it without using the macro..
 			// If you know CQC, You can't suplex and instead have the ability to use the chokehold, Sorry.
 			// Sleeping people on demand is stronger anyway.
 				return FALSE

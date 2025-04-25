@@ -148,3 +148,11 @@
 	)
 	resulting_item = /obj/item/forging/incomplete_bow
 	required_good_hits = 8
+
+/datum/crafting_bench_recipe/fishing_rod
+	recipe_name = "fishing rod"
+	recipe_requirements = list(
+		/obj/item/forging/complete/staff = 1,
+	)
+	resulting_item = /obj/item/fishing_rod/material
+	required_good_hits = 8

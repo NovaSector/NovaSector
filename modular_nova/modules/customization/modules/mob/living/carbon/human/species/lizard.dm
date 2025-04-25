@@ -69,6 +69,5 @@
 
 
 /datum/species/lizard/silverscale/prepare_human_for_preview(mob/living/carbon/human/lizard, lizard_color = "#eeeeee")
-	lizard.eye_color_left = "#0000a0"
-	lizard.eye_color_right = "#0000a0"
+	lizard.set_eye_color("#0000a0")
 	. = ..(lizard, lizard_color)

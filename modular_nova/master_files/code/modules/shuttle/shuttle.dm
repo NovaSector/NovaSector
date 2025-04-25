@@ -66,7 +66,7 @@
 		for(var/mob/hearing_mob in range(sound_range, distant_source))
 			if(!hearing_mob?.client)
 				continue
-			var/volume_pref_modifier = hearing_mob.client.prefs.read_preference(/datum/preference/numeric/sound_ship_ambience_volume) / 100
+			var/volume_pref_modifier = hearing_mob.client.prefs.read_preference(/datum/preference/numeric/volume/sound_ship_ambience_volume) / 100
 			if(volume_pref_modifier == 0)
 				continue
 			var/dist = get_dist(hearing_mob.loc, distant_source.loc)

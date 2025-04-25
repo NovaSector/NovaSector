@@ -78,12 +78,6 @@
 	name = "Space-Ruin Abandoned Clothing Facility"
 	description = "A den of bad ideas. Secborgs were made here!"
 
-/datum/map_template/ruin/space/nova/luna
-	id = "luna"
-	suffix = "luna.dmm"
-	name = "Space-Ruin Luna"
-	description = "Please note for ethical concerns all experimentation regarding writing artificial intelligence units to beleive they are A, A fictional character and B, human have been suspended. Have a pleasant shift."
-
 /datum/map_template/ruin/space/nova/blackmarket
 	id = "blackmarket"
 	suffix = "blackmarket.dmm"
@@ -161,6 +155,12 @@
 	suffix = "turretfactory.dmm"
 	name = "Turret Factory"
 	description = "A turret factory that was forgotten. Maybe abandoned. Idk. Goodluck."
+
+/datum/map_template/ruin/space/nova/spacegeosite
+	id = "spacegeosite"
+	suffix = "space_geosite.dmm"
+	name = "Space-Ruin Geological Site"
+	description = "A rare set of asteroids with some interesting things inside."
 
 /datum/map_template/ruin/space/nova/escapefromtarkon
 	id = "escapefromtarkon"

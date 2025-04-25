@@ -48,7 +48,7 @@
  * Abductors
  */
 /datum/round_event_control/abductor
-	max_occurrences = 1
+	max_occurrences = 0
 	weight = VERY_LOW_EVENT_FREQ
 
 /**
@@ -85,25 +85,26 @@
 
 // We have other intensities
 /datum/round_event_control/anomaly/anomaly_grav
-	max_occurrences = 0
+	max_occurrences = 1
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/anomaly/anomaly_grav/high
 	max_occurrences = 1
 	min_players = 45
-	weight = MED_EVENT_FREQ
+	weight = VERY_LOW_EVENT_FREQ
 
 /datum/round_event_control/anomaly/anomaly_hallucination
 	max_occurrences = 1
-	weight = VERY_LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/anomaly/anomaly_pyro
 	max_occurrences = 1
 	min_players = 45
-	weight = MED_EVENT_FREQ
+	weight = VERY_LOW_EVENT_FREQ
 
 /datum/round_event_control/anomaly/anomaly_vortex
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = VERY_LOW_EVENT_FREQ
 
 /**
  * Aurora Caelus
@@ -112,7 +113,7 @@
  */
 /datum/round_event_control/aurora_caelus
 	max_occurrences = 1
-	weight = VERY_LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Blob
@@ -126,7 +127,7 @@
 /**
  * Brain Trauma
  *
- * Disabled: Interrupting scenes and preventing roleplay by interaction with medba
+ * Disabled: Interrupting scenes and preventing roleplay by interaction with medbay
  */
 /datum/round_event_control/brain_trauma
 	max_occurrences = 0
@@ -135,13 +136,13 @@
  * Brand Intelligence
  */
 /datum/round_event_control/brand_intelligence
-	max_occurrences = 2
-	weight = MED_EVENT_FREQ
+	max_occurrences = 1
+	weight = MIN_EVENT_FREQ
 
 /**
  * Bureaucratic Error
  *
- * Disabled: Too intrusive and should be staff-onl
+ * Disabled: Too intrusive and should be staff-only
  */
 /datum/round_event_control/bureaucratic_error
 	max_occurrences = 0
@@ -159,14 +160,14 @@
  * Carp Migration
  */
 /datum/round_event_control/carp_migration
-	max_occurrences = 2
+	max_occurrences = 1
 	weight = MED_EVENT_FREQ
 
 /**
  * Cortical Borers
  */
 /datum/round_event_control/cortical_borer
-	max_occurrences = 1
+	max_occurrences = 1 // I don't think this even rolls
 	weight = VERY_LOW_EVENT_FREQ
 
 /**
@@ -190,13 +191,14 @@
 /datum/round_event_control/processor_overload
 	max_occurrences = 2
 	weight = MED_EVENT_FREQ
+	intensity_restriction = TRUE
 
 /**
  * Obsessed
  */
 /datum/round_event_control/obsessed
 	max_occurrences = 1
-	weight = VERY_LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ // this is fine being more common
 
 /**
  * Medical
@@ -204,7 +206,7 @@
  * Combined weight: 40
  */
 /datum/round_event_control/disease_outbreak
-	max_occurrences = 0
+	max_occurrences = 1
 	min_players = 45
 	weight = VERY_LOW_EVENT_FREQ
 	intensity_restriction = TRUE
@@ -262,7 +264,7 @@
  */
 /datum/round_event_control/fugitives
 	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	weight = MED_EVENT_FREQ
 
 /**
  * Gravity Generator Blackout
@@ -276,7 +278,7 @@
  */
 /datum/round_event_control/grey_tide
 	max_occurrences = 2
-	weight = MED_EVENT_FREQ
+	weight = LOW_EVENT_FREQ
 
 /**
  * Ion Storm
@@ -290,7 +292,7 @@
  */
 /datum/round_event_control/immovable_rod
 	max_occurrences = 2
-	weight = HIGH_EVENT_FREQ
+	weight = LOW_EVENT_FREQ
 	intensity_restriction = TRUE
 
 /**
@@ -323,7 +325,7 @@
 
 /datum/round_event_control/meteor_wave/ices
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = VERY_LOW_EVENT_FREQ
 
 // No preset ones, we have our own custom preset above
 /datum/round_event_control/meteor_wave/threatening
@@ -344,7 +346,7 @@
 	intensity_restriction = TRUE
 
 /datum/round_event_control/space_dust
-	max_occurrences = 0
+	max_occurrences = 1
 	weight = MIN_EVENT_FREQ
 
 /datum/round_event_control/space_dust/major_dust
@@ -385,7 +387,7 @@
  */
 /datum/round_event_control/nightmare
 	max_occurrences = 1
-	weight = VERY_LOW_EVENT_FREQ
+	weight = LOW_EVENT_FREQ
 
 /**
  * Lone op
@@ -436,7 +438,8 @@
  * Combined weight: 32
  */
 /datum/round_event_control/scrubber_clog
-	max_occurrences = 0
+	max_occurrences = 1
+	weight = MED_EVENT_FREQ
 
 /datum/round_event_control/scrubber_clog/major
 	max_occurrences = 1
@@ -444,7 +447,7 @@
 
 /datum/round_event_control/scrubber_clog/critical
 	max_occurrences = 1
-	weight = MED_EVENT_FREQ
+	weight = LOW_EVENT_FREQ
 
 /datum/round_event_control/scrubber_clog/strange
 	max_occurrences = 1
@@ -542,7 +545,7 @@
 	weight = LOW_EVENT_FREQ
 
 /datum/round_event_control/stray_cargo/syndicate
-	max_occurrences = 2
+	max_occurrences = 3
 	weight = MED_EVENT_FREQ
 
 /**

@@ -1,12 +1,10 @@
 // MODsuit-related overrides for our digitigrade sprites and such
 /obj/item/clothing/head/mod
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
-	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi'
 	worn_icon_better_vox = 'modular_nova/modules/better_vox/icons/clothing/mod.dmi'
 
 /obj/item/clothing/suit/mod
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi'
 	worn_icon_better_vox = 'modular_nova/modules/better_vox/icons/clothing/mod.dmi'
 
 /obj/item/clothing/gloves/mod
@@ -15,7 +13,6 @@
 
 /obj/item/clothing/shoes/mod
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi'
 	worn_icon_better_vox = 'modular_nova/modules/better_vox/icons/clothing/mod.dmi'
 
 /obj/item/mod/control

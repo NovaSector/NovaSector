@@ -26,8 +26,8 @@
 			continue
 		if (!opt_in_disabled && !opt_in_valid(player))
 			continue
-		// NOVA EDIT END
-		if(player.mind && !player.mind.has_antag_datum(/datum/antagonist/cult) && !is_convertable_to_cult(player) && player.stat != DEAD)
+		// NOVA EDIT ADDITION END
+		if(player.mind && !IS_CULTIST(player) && !is_convertable_to_cult(player) && player.stat != DEAD && is_station_level(player.loc.z))
 			target_candidates += player.mind
 	if(target_candidates.len == 0)
 		message_admins("Cult Sacrifice: Could not find unconvertible target, checking for convertible target.")
@@ -37,8 +37,8 @@
 				continue
 			if (!opt_in_disabled && !opt_in_valid(player))
 				continue
-			// NOVA EDIT END
-			if(player.mind && !player.mind.has_antag_datum(/datum/antagonist/cult) && player.stat != DEAD)
+			// NOVA EDIT ADDITION END
+			if(player.mind && !IS_CULTIST(player) && player.stat != DEAD && is_station_level(player.loc.z))
 				target_candidates += player.mind
 	list_clear_nulls(target_candidates)
 	if(LAZYLEN(target_candidates))

@@ -8,14 +8,14 @@
 	crate_name = "Sindano Submachinegun Crate"
 
 /datum/supply_pack/security/armory/renoster
-	name = "Renoster Riot Shotgun Crate"
-	desc = "Three Renoster 12ga riot shotguns, with matching bandoliers for each."
+	name = "M64 Riot Shotgun Crate"
+	desc = "Three M64 12ga riot shotguns, with matching bandoliers for each."
 	cost = CARGO_CRATE_VALUE * 10
 	contains = list(
 		/obj/item/gun/ballistic/shotgun/riot/sol = 3,
 		/obj/item/storage/belt/bandolier = 3,
 	)
-	crate_name = "Renoster Riot Shotgun Crate"
+	crate_name = "M64 Riot Shotgun Crate"
 
 /datum/supply_pack/security/armory/kiboko
 	name = "Kiboko Grenade Launcher Crate"

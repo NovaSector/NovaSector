@@ -41,7 +41,7 @@
 
 /datum/armament_entry/company_import/deforest/first_aid_kit/technician_satchel
 	item_type = /obj/item/storage/backpack/duffelbag/deforest_paramedic/stocked
-	cost = PAYCHECK_COMMAND * 11.75
+	cost = PAYCHECK_COMMAND * 16
 
 // Basic first aid supplies like gauze, sutures, mesh, so on
 
@@ -85,7 +85,7 @@
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/deforest/first_aid/robo_patch
-	item_type = /obj/item/reagent_containers/pill/robotic_patch/synth_repair
+	item_type = /obj/item/stack/medical/synth_repair
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/deforest/first_aid/bandaid
@@ -263,29 +263,3 @@
 	name = "Binyat Wireless Hacking System Implant"
 	item_type = /obj/item/organ/cyberimp/hackerman_deck
 	cost = PAYCHECK_COMMAND * 10
-
-// Modsuit Modules from the medical category, here instead of in Nakamura because nobody buys from this company
-
-/datum/armament_entry/company_import/deforest/medical_modules
-	subcategory = "MOD Medical Modules"
-	cost = PAYCHECK_COMMAND * 2
-
-/datum/armament_entry/company_import/deforest/medical_modules/injector
-	name = "MOD injector module"
-	item_type = /obj/item/mod/module/injector
-
-/datum/armament_entry/company_import/deforest/medical_modules/organizer
-	name = "MOD organizer module"
-	item_type = /obj/item/mod/module/organizer
-
-/datum/armament_entry/company_import/deforest/medical_modules/patient_transport
-	name = "MOD patient transport module"
-	item_type = /obj/item/mod/module/criminalcapture/patienttransport
-
-/datum/armament_entry/company_import/deforest/medical_modules/thread_ripper
-	name = "MOD thread ripper module"
-	item_type = /obj/item/mod/module/thread_ripper
-
-/datum/armament_entry/company_import/deforest/medical_modules/surgical_processor
-	name = "MOD surgical processor module"
-	item_type = /obj/item/mod/module/surgical_processor

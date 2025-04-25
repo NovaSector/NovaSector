@@ -13,8 +13,7 @@
 
 /datum/mod_theme/interdyne/nerfed
 	armor_type = /datum/armor/mod_theme_interdyne/nerfed
-	slowdown_inactive = 0.0
-	slowdown_active = 0.25
+	slowdown_deployed = 0.25
 	allowed_suit_storage = list(
 		/obj/item/assembly/flash,
 		/obj/item/healthanalyzer,
@@ -23,7 +22,7 @@
 		/obj/item/reagent_containers/cup/tube,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/restraints/handcuffs,
 		/obj/item/sensor_device,

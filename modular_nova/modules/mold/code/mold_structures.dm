@@ -60,7 +60,7 @@
 	icon = 'modular_nova/modules/mold/icons/blob_core.dmi'
 	icon_state = "blob_core"
 	layer = TABLE_LAYER
-	max_integrity = 1200
+	max_integrity = 450
 
 	/// The soundloop played by the core
 	var/datum/looping_sound/core_heartbeat/soundloop

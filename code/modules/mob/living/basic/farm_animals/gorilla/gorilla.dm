@@ -101,7 +101,7 @@
 		return
 	ooga_ooga()
 	if (prob(paralyze_chance))
-		target.Paralyze(2 SECONDS)
+		target.Knockdown(1 SECONDS) // NOVA EDIT CHANGE - ORIGINAL:  target.Paralyze(2 SECONDS)
 		visible_message(span_danger("[src] knocks [target] down!"))
 	else
 		target.throw_at(get_edge_target_turf(target, dir), range = rand(1, 2), speed = 7, thrower = src)

@@ -9,6 +9,8 @@
 	var/mob/living/carbon/human/ling = setup_ling()
 	var/mob/living/carbon/human/victim = setup_victim()
 	var/datum/antagonist/changeling/ling_datum = IS_CHANGELING(ling)
+	RegisterSignal(ling, COMSIG_ATOM_DIR_CHANGE, PROC_REF(catch_that_lizard)) // NOVA EDIT ADDITION
+	RegisterSignal(victim, COMSIG_ATOM_DIR_CHANGE, PROC_REF(catch_that_lizard)) // NOVA EDIT ADDITION
 
 	// Get the ability we're testing
 	ling_datum.give_power(/datum/action/changeling/sting/transformation) // NOVA EDIT CHANGE - Transformation sting not purchasable here - ORIGINAL : ling_datum.purchase_power(/datum/action/changeling/sting/transformation)
@@ -42,6 +44,13 @@
 	add_to_screenshot(ling, victim, both_species = TRUE)
 
 	test_screenshot("appearances", final_icon)
+// NOVA EDIT ADDITION START - Sets a trap to catch that sneaky dir- changing lizard
+/datum/unit_test/transformation_sting/proc/catch_that_lizard(datum/source)
+	SIGNAL_HANDLER
+	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
+	stack_trace("[source] tried to change dir during the transformation sting unit test!")
+	TEST_FAIL("The lizard did a sneak! Please send this CI run to a maintainer immediately!")
+// NOVA EDIT ADDITION END
 
 /// Adds both mobs to the screenshot test, if both_species is TRUE, it also adds the victim in lizard form
 /datum/unit_test/transformation_sting/proc/add_to_screenshot(mob/living/carbon/human/ling, mob/living/carbon/human/victim, both_species = FALSE)
@@ -82,8 +91,7 @@
 	ling.dna.mutant_bodyparts["spines"] = list(MUTANT_INDEX_NAME = "Long + Membrane", MUTANT_INDEX_COLOR_LIST = list("#886600", "#886600", "#886600")) // NOVA EDIT CHANGE - ORIGINAL: ling.dna.features["spines"] = "Long + Membrane"
 	ling.dna.body_markings["chest"] = list("Light Belly" = list("#886600", 0)) // NOVA EDIT CHANGE - ORIGINAL : ling.dna.features["lizard_markings"] = "Light Belly"
 	ling.dna.features["legs"] = DIGITIGRADE_LEGS
-	ling.eye_color_left = COLOR_WHITE
-	ling.eye_color_right = COLOR_WHITE
+	ling.set_eye_color(COLOR_WHITE)
 	ling.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
 	ling.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
 	ling.set_species(/datum/species/lizard)

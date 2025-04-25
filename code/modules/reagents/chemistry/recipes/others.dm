@@ -594,8 +594,9 @@
 
 	// spawn from popssible fishes
 	for(var/i in 1 to rand(1, created_volume)) // More flop.
-		var/obj/item/fish/spawned_fish = pick(fish_types)
-		new spawned_fish(location)
+		var/spawned_fish = pick(fish_types)
+		var/obj/item/fish/new_fish = new spawned_fish(location)
+		ADD_TRAIT(new_fish, TRAIT_NO_FISHING_ACHIEVEMENT, TRAIT_GENERIC)
 	return ..()
 
 //monkey powder heehoo
@@ -773,11 +774,25 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
 /datum/chemical_reaction/metalgen_imprint/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	var/datum/reagent/metalgen/MM = holder.has_reagent(/datum/reagent/metalgen)
-	for(var/datum/reagent/R in holder.reagent_list)
-		if(R.material && R.volume >= 40)
-			MM.data["material"] = R.material
-			holder.remove_reagent(R.type, 40)
+	var/datum/reagent/metalgen/metalgen = holder.has_reagent(/datum/reagent/metalgen)
+	for (var/datum/reagent/metal in holder.reagent_list)
+		if (!metal.material || metal.volume < 40)
+			continue
+
+		metalgen.data["material"] = metal.material
+		holder.remove_reagent(metal.type, 40)
+		var/atom/container = holder.my_atom
+		var/area/container_area = get_area(container)
+		var/blame_msg = "with no known fingerprints"
+		var/lastkey = container.fingerprintslast
+		if (lastkey)
+			var/mob/scapegoat = get_mob_by_key(lastkey)
+			blame_msg = "last touched by [ADMIN_LOOKUPFLW(scapegoat)]"
+
+		if(!istype(container, /obj/machinery/plumbing) && !(container_area?.area_flags & QUIET_LOGS))
+			message_admins("[metalgen.volume]u of Metalgen have been imprinted with [metal.material::name] in [container] at [ADMIN_VERBOSEJMP(container)] [blame_msg]")
+		log_game("[metalgen.volume]u of Metalgen have been imprinted with [metal.material::name] in [container] at [AREACOORD(container)] [blame_msg]")
+		break
 
 /datum/chemical_reaction/gravitum
 	required_reagents = list(/datum/reagent/wittel = 1, /datum/reagent/sorium = 10)
@@ -927,7 +942,7 @@
 /datum/chemical_reaction/eigenstate/reaction_finish(datum/reagents/holder, datum/equilibrium/reaction, react_vol)
 	. = ..()
 	var/turf/open/location = get_turf(holder.my_atom)
-	if(reaction.data["ducts_teleported"] == TRUE) //If we teleported an duct, then we reconnect it at the end
+	if(reaction.data["ducts_teleported"] == TRUE) //If we teleported a duct, then we reconnect it at the end
 		for(var/obj/item/stack/ducts/duct in range(location, 3))
 			duct.check_attach_turf(duct.loc)
 
@@ -951,7 +966,7 @@
 	for(var/mob/living/nearby_mob in range(location, 3))
 		do_sparks(3,FALSE,nearby_mob)
 		do_teleport(nearby_mob, get_turf(holder.my_atom), 3, no_effects=TRUE)
-		nearby_mob.Knockdown(20, TRUE)
+		nearby_mob.Knockdown(20, ignore_canstun = TRUE)
 		nearby_mob.add_atom_colour("#cebfff", WASHABLE_COLOUR_PRIORITY)
 		do_sparks(3,FALSE,nearby_mob)
 	clear_products(holder, step_volume_added)

@@ -123,25 +123,29 @@
 	name = "Medical Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
 
-/datum/loadout_item/suit/labcoat_regular
-	name = "Researcher's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/regular
-
 /datum/loadout_item/suit/labcoat_lalunevest
 	name = "Designer Buttoned Coat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
 
+/datum/loadout_item/suit/fancy_labcoat
+	name = "Recolorable Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy
+
+/datum/loadout_item/suit/labcoat_regular
+	name = "Researcher's Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
+
 /datum/loadout_item/suit/labcoat_pharmacist
 	name = "Pharmacist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/pharmacist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
 
 /datum/loadout_item/suit/labcoat_geneticist
 	name = "Geneticist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/geneticist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
 
 /datum/loadout_item/suit/labcoat_roboticist
 	name = "Roboticist's Labcoat"
-	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/roboticist
+	item_path = /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
 
 /datum/loadout_item/suit/labcoat_custom
 	name = "Custom Labcoat"
@@ -202,6 +206,14 @@
 /datum/loadout_item/suit/jacket_sweater
 	name = "Recolorable Sweater Jacket"
 	item_path = /obj/item/clothing/suit/toggle/jacket/sweater
+
+/datum/loadout_item/suit/blazer_jacket
+	name = "Recolorable Blazer"
+	item_path = /obj/item/clothing/suit/jacket/blazer
+
+/datum/loadout_item/suit/jacket_trenchcoat
+	name = "Recolorable Trenchcoat"
+	item_path = /obj/item/clothing/suit/toggle/jacket/trenchcoat
 
 /datum/loadout_item/suit/jacket_oversized
 	name = "Recolorable Oversized Jacket"
@@ -401,23 +413,23 @@
 
 /datum/loadout_item/suit/flannel_gags
 	name = "Flannel Shirt"
-	item_path = /obj/item/clothing/suit/toggle/jacket/flannel/gags
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags
 
 /datum/loadout_item/suit/flannel_black
 	name = "Black Flannel"
-	item_path = /obj/item/clothing/suit/toggle/jacket/flannel
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel
 
 /datum/loadout_item/suit/flannel_red
 	name = "Red Flannel"
-	item_path = /obj/item/clothing/suit/toggle/jacket/flannel/red
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/red
 
 /datum/loadout_item/suit/flannel_aqua
 	name = "Aqua Flannel"
-	item_path = /obj/item/clothing/suit/toggle/jacket/flannel/aqua
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/aqua
 
 /datum/loadout_item/suit/flannel_brown
 	name = "Brown Flannel"
-	item_path = /obj/item/clothing/suit/toggle/jacket/flannel/brown
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/flannel/brown
 
 /*
 *	HAWAIIAN
@@ -474,7 +486,7 @@
 
 /datum/loadout_item/suit/jacketbomber_alt
 	name = "Bomber Jacket w/ Zipper"
-	item_path = /obj/item/clothing/suit/toggle/jacket
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova
 
 /datum/loadout_item/suit/colourable_leather_jacket
 	name = "Colourable Leather Jacket"
@@ -522,7 +534,7 @@
 
 /datum/loadout_item/suit/cardigan
 	name = "Cardigan"
-	item_path = /obj/item/clothing/suit/toggle/jacket/cardigan
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/cardigan
 
 /datum/loadout_item/suit/blastwave_suit
 	name = "Blastwave Trenchcoat"
@@ -537,63 +549,63 @@
 
 /datum/loadout_item/suit/hoodie/greyscale
 	name = "Greyscale Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie
 
 /datum/loadout_item/suit/hoodie/greyscale_trim
 	name = "Greyscale Trimmed Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/trim
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim
 
 /datum/loadout_item/suit/hoodie/greyscale_trim_alt
 	name = "Greyscale Trimmed Hoodie (Alt)"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/trim/alt
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim/alt
 
 /datum/loadout_item/suit/hoodie/black
 	name = "Black Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/black
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/black
 
 /datum/loadout_item/suit/hoodie/red
 	name = "Red Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/red
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/red
 
 /datum/loadout_item/suit/hoodie/blue
 	name = "Blue Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/blue
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/blue
 
 /datum/loadout_item/suit/hoodie/green
 	name = "Green Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/green
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/green
 
 /datum/loadout_item/suit/hoodie/orange
 	name = "Orange Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/orange
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/orange
 
 /datum/loadout_item/suit/hoodie/yellow
 	name = "Yellow Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/yellow
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/yellow
 
 /datum/loadout_item/suit/hoodie/grey
 	name = "Grey Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/grey
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/grey
 
 /datum/loadout_item/suit/hoodie/nt
 	name = "NT Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/branded
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded
 
 /datum/loadout_item/suit/hoodie/smw
 	name = "SMW Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/branded/smw
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw
 
 /datum/loadout_item/suit/hoodie/nrti
 	name = "NRTI Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/branded/nrti
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/nrti
 
 /datum/loadout_item/suit/hoodie/cti
 	name = "CTI Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/branded/cti
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/cti
 
 /datum/loadout_item/suit/hoodie/mu
 	name = "Mojave University Hoodie"
-	item_path = /obj/item/clothing/suit/toggle/jacket/hoodie/branded/mu
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/mu
 
 /*
 *	JOB-LOCKED
@@ -658,47 +670,83 @@
 
 /datum/loadout_item/suit/security_jacket
 	name = "Security Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/sec
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sec
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY) //Not giving this one to COs because it's actually better than the one they spawn with
 
 /datum/loadout_item/suit/brit
 	name = "High Vis Armored Vest"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/brit
+	item_path = /obj/item/clothing/suit/armor/vest/brit
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/british_jacket
-	name = "Peacekeeper Officer Coat"
+	name = "Officer Coat"
 	item_path = /obj/item/clothing/suit/british_officer
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
-/datum/loadout_item/suit/peacekeeper_jacket
-	name = "Peacekeeper Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket
+/datum/loadout_item/suit/highvis_jacket
+	name = "High Vis Security Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/jacket
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
-/datum/loadout_item/suit/peacekeeper_jacket/badge
-	name = "Badged Peacekeeper Jacket"
-	item_path = /obj/item/clothing/suit/armor/vest/peacekeeper/jacket/badge
+/datum/loadout_item/suit/security_wintercoat
+	name = "Security Winter Coat"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/security_wintercoat_blue
+	name = "Security Winter Jacket (Blue)"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security/blue
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/suit/detjacketplain
+	name = "Detective's Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjacket
+	name = "Detective Jacket (Dark)"
+	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench/noir
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjackenoir
+	name = "Detective Jacket (Noir)"
+	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detjacketbrown
+	name = "Detective's Brown Jacket"
+	item_path = /obj/item/clothing/suit/jacket/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/detectivearmorvest
+	name = "Detective's Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/vest/det_suit
+	restricted_roles = list(JOB_DETECTIVE)
+
+/datum/loadout_item/suit/highvis_jacket/badge
+	name = "Badged High Vis Jacket"
+	item_path = /obj/item/clothing/suit/armor/vest/jacket/badge
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/suit/offdep_jacket
 	name = "Off-Department Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/assistant
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/assistant
 
 /datum/loadout_item/suit/engi_jacket
 	name = "Engineering Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/engi
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/engi
 
 /datum/loadout_item/suit/sci_jacket
 	name = "Science Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/sci
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/sci
 
 /datum/loadout_item/suit/med_jacket
 	name = "Medbay Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/med
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/med
 
 /datum/loadout_item/suit/supply_jacket
 	name = "Supply Jacket"
-	item_path = /obj/item/clothing/suit/toggle/jacket/supply
+	item_path = /obj/item/clothing/suit/toggle/jacket/nova/supply
 
 /datum/loadout_item/suit/cargo_gorka_jacket
 	name = "Cargo Gorka Jacket"

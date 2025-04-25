@@ -10,8 +10,8 @@
 		new /obj/item/swab(src)
 
 /obj/item/storage/box/petridish
-	name = "box of petridishes"
-	desc = "This box purports to contain a number of high rim petridishes."
+	name = "box of petri dishes"
+	desc = "This box purports to contain a number of high rim petri dishes."
 	illustration = "petridish"
 
 /obj/item/storage/box/petridish/PopulateContents()
@@ -38,17 +38,21 @@
 	icon_state = "monkeycubebox"
 	illustration = null
 	/// Which type of cube are we spawning in this box?
-	var/cube_type = /obj/item/food/monkeycube
+	var/cube_type = list(/obj/item/food/monkeycube = 66, /obj/item/food/monkeycube/kobold = 33) // NOVA EDIT ORIGINAL: var/cube_type = /obj/item/food/monkeycube
 	custom_price = PAYCHECK_CREW * 2
 
 /obj/item/storage/box/monkeycubes/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 7
-	atom_storage.set_holdable(/obj/item/food/monkeycube)
+	atom_storage.set_holdable(
+		can_hold_list = /obj/item/food/monkeycube,
+		cant_hold_list = /obj/item/food/monkeycube/gorilla,
+	)
 
 /obj/item/storage/box/monkeycubes/PopulateContents()
 	for(var/i in 1 to 5)
-		new cube_type(src)
+		var/new_cube_type = islist(cube_type) ? pick_weight(cube_type) : cube_type // NOVA EDIT ADDITION
+		new new_cube_type(src) // NOVA EDIT CHANGE - ORIGINAL: new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
 	desc = "Waffle Corp. brand monkey cubes. Just add water and a dash of subterfuge!"
@@ -63,7 +67,7 @@
 /obj/item/storage/box/gorillacubes/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 3
-	atom_storage.set_holdable(/obj/item/food/monkeycube)
+	atom_storage.set_holdable(/obj/item/food/monkeycube/gorilla)
 
 /obj/item/storage/box/gorillacubes/PopulateContents()
 	for(var/i in 1 to 3)

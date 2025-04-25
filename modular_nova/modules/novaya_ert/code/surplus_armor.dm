@@ -121,6 +121,7 @@
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_undersuit
 	greyscale_config_worn_digi = /datum/greyscale_config/cin_surplus_undersuit/digi
 	greyscale_colors = "#bbbbc9#bbbbc9#34343a"
+	has_sensor = HAS_SENSORS
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/syndicate/rus_army/cin_surplus/desert

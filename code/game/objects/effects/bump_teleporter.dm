@@ -29,7 +29,6 @@
 /obj/effect/bump_teleporter/singularity_pull(atom/singularity, current_size)
 	return
 
-/* NOVA EDIT REMOVAL  - MOVED TO BLACK_MESA
 /obj/effect/bump_teleporter/Bumped(atom/movable/bumper)
 	if(!validate_setup(bumper))
 		return
@@ -40,7 +39,6 @@
 			return
 
 	stack_trace("Bump_teleporter [src] could not find a teleporter with id [id_target]!")
-*/
 
 /// Check to see if our teleporter was set up correctly mapside. Return TRUE if everything is fine, FALSE if not.
 /obj/effect/bump_teleporter/proc/validate_setup(atom/movable/checkable)

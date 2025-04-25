@@ -257,7 +257,14 @@
 			return ", must be made on a tram!"
 
 	//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
-	if(ismob(crafter) && !do_after(crafter, recipe.time, target = crafter))
+	//NOVA EDIT ADDITION START: Construction Skill
+	var/skill_modifier = 1
+	var/mob/crafting_mob
+	if(ismob(crafter))
+		crafting_mob = crafter
+		skill_modifier = crafting_mob.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER)
+	if(!do_after(crafter, recipe.time * skill_modifier, target = crafter))
+	//NOVA EDIT ADDITION END
 		return "."
 	contents = get_surroundings(crafter, recipe.blacklist)
 	if(!check_contents(crafter, recipe, contents))
@@ -275,6 +282,10 @@
 		if(result.atom_storage && recipe.delete_contents)
 			for(var/obj/item/thing in result)
 				qdel(thing)
+	//NOVA EDIT ADDITION START: Construction Skill
+	if(ismob(crafter))
+		crafting_mob.mind?.adjust_experience(/datum/skill/construction, 3)
+	//NOVA EDIT ADDITION END
 	var/datum/reagents/holder = locate() in parts
 	if(holder) //transfer reagents from ingredients to result
 		if(!ispath(recipe.result, /obj/item/reagent_containers) && result.reagents)
@@ -504,7 +515,7 @@
 	var/static/list/sprite_sheets
 	if(isnull(sprite_sheets))
 		sprite_sheets = ui_assets()
-	var/datum/asset/spritesheet/sheet = sprite_sheets[mode ? 2 : 1]
+	var/datum/asset/spritesheet_batched/sheet = sprite_sheets[mode ? 2 : 1]
 
 	data["icon_data"] = list()
 	for(var/atom/atom as anything in atoms)
@@ -581,8 +592,8 @@
 
 /datum/component/personal_crafting/ui_assets(mob/user)
 	return list(
-		get_asset_datum(/datum/asset/spritesheet/crafting),
-		get_asset_datum(/datum/asset/spritesheet/crafting/cooking),
+		get_asset_datum(/datum/asset/spritesheet_batched/crafting),
+		get_asset_datum(/datum/asset/spritesheet_batched/crafting/cooking),
 	)
 
 /datum/component/personal_crafting/proc/build_crafting_data(datum/crafting_recipe/recipe)

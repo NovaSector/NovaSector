@@ -531,8 +531,8 @@
 	switch(translation)
 		if(BREAST_SIZE_FLATCHESTED)
 			size_description = " They are small and flat, however."
-		if(BREAST_SIZE_BEYOND_MEASUREMENT)
-			size_description = " Their size is enormous, you estimate they're around [genital_size] inches in diameter."
+		if(BREAST_SIZE_HUGE, BREAST_SIZE_GIGANTIC, BREAST_SIZE_ENORMOUS, BREAST_SIZE_MASSIVE, BREAST_SIZE_IMPOSSIBLE, BREAST_SIZE_BEYOND_MEASUREMENT)
+			size_description = "They are beyond the concept of cup-sizes, you estimate they're around [genital_size] inches in diameter."
 		else
 			size_description = " You estimate they are [translation]-cups."
 	returned_string += size_description

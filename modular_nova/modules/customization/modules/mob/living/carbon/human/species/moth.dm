@@ -6,6 +6,7 @@
 
 /datum/species/moth/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"fluff" = list("Plain", FALSE),
 		"wings" = list("Moth (Plain)", TRUE),
 		"moth_antennae" = list("Plain", TRUE),

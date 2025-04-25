@@ -1,0 +1,10 @@
+{
+	"latex_socks": [
+		{
+			"type": "icon_state",
+			"icon_state": "latexsocks",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

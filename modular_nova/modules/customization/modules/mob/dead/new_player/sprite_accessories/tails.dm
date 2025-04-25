@@ -36,7 +36,7 @@
 
 /datum/sprite_accessory/tails/lizard
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER)
+	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD, SPECIES_LIZARD)
 	organ_type = /obj/item/organ/tail/lizard
 
 /datum/sprite_accessory/tails/lizard/short/twotone
@@ -273,6 +273,10 @@
 	name = "Otusian"
 	icon_state = "otie"
 
+/datum/sprite_accessory/tails/mammal/wagging/otter
+	name = "Otter"
+	icon_state = "otter"
+
 /datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"
 	icon_state = "plugtail"
@@ -484,3 +488,25 @@
 /datum/sprite_accessory/tails/mammal/wagging/gecko
 	name = "Gecko"
 	icon_state = "gecko"
+
+// TG Fish infusion tails
+/datum/sprite_accessory/tails/fish
+	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC)
+	color_src = USE_ONE_COLOR
+	feature_key_override = "fish_tail"
+
+/datum/sprite_accessory/tails/fish/simple
+	name = "Simple (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/crescent
+	name = "Crescent (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/long
+	name = "Long (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/shark
+	name = "Shark (Fish Infusion)"
+
+/datum/sprite_accessory/tails/fish/chonky
+	name = "Chonky (Fish Infusion)"
+

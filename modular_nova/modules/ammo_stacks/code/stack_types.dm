@@ -68,7 +68,7 @@
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/antitide
-	name = "12 gauge stardust shells"
+	name = "12 gauge lighting shot shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/antitide
 	icon_state = "stack_spec"
 
@@ -100,8 +100,8 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/express
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/flechette
-	name = "12 gauge flechette shells"
-	ammo_type = /obj/item/ammo_casing/shotgun/flechette
+	name = "12 gauge ripper flechette shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/flechette_nova
 	icon_state = "stack_spec"
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/frag12
@@ -113,10 +113,6 @@
 	name = "12 gauge hunter shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/hunter
 	icon_state = "stack_spec"
-
-/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/improvised
-	name = "12 gauge improvised shells"
-	ammo_type = /obj/item/ammo_casing/shotgun/improvised
 
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/incendiary
 	name = "12 gauge incendiary shells"
@@ -130,6 +126,14 @@
 /obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/rubbershot
 	name = "12 gauge rubbershot shells"
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
+
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/milspec
+	name = "12 gauge milspec slug shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/milspec
+
+/obj/item/ammo_box/magazine/ammo_stack/s12gauge/prefilled/buckshot/milspec
+	name = "12 gauge milspec buckshot shells"
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot/milspec
 
 // Pistol ammo
 
@@ -226,9 +230,9 @@
 	ammo_type = /obj/item/ammo_casing/c585trappiste/incapacitator
 	icon_state = "stack_spec"
 
-/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled/hollowpoint
-	name = ".585 Trappiste hollowhead casings"
-	ammo_type = /obj/item/ammo_casing/c585trappiste/hollowpoint
+/obj/item/ammo_box/magazine/ammo_stack/c585_trappiste/prefilled/incendiary
+	name = ".585 Trappiste incendiary casings"
+	ammo_type = /obj/item/ammo_casing/c585trappiste/incendiary
 	icon_state = "stack_spec"
 
 // Rifle ammo

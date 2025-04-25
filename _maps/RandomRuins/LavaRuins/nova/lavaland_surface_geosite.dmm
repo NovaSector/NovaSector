@@ -1,0 +1,264 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"d" = (
+/obj/effect/turf_decal/stripes/line,
+/mob/living/basic/mining/legion/dwarf,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"n" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"r" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"s" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"z" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/plating/lavaland_atmos,
+/area/lavaland/surface/outdoors)
+"B" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"C" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"E" = (
+/obj/item/gps/computer/beacon{
+	gpstag = "Geological Site"
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"F" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"G" = (
+/obj/structure/table/reinforced,
+/obj/item/flatpacked_machine/boulder_collector,
+/turf/open/floor/plating/lavaland_atmos,
+/area/lavaland/surface/outdoors)
+"H" = (
+/turf/template_noop,
+/area/template_noop)
+"J" = (
+/mob/living/basic/mining/legion,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"K" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/mob/living/basic/mining/legion,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"O" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"Q" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/mob/living/basic/mining/legion,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"S" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+"Y" = (
+/obj/structure/ore_vent/ghost_mining/lavaland/ras,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
+
+(1,1,1) = {"
+H
+H
+H
+H
+H
+H
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+H
+H
+H
+H
+H
+a
+n
+s
+s
+s
+r
+a
+"}
+(3,1,1) = {"
+H
+H
+H
+H
+a
+a
+Q
+a
+a
+a
+O
+a
+"}
+(4,1,1) = {"
+H
+H
+H
+H
+a
+a
+C
+a
+Y
+a
+O
+a
+"}
+(5,1,1) = {"
+H
+a
+a
+a
+a
+a
+C
+a
+a
+a
+O
+a
+"}
+(6,1,1) = {"
+H
+a
+a
+a
+G
+z
+F
+B
+B
+B
+S
+a
+"}
+(7,1,1) = {"
+a
+n
+s
+s
+s
+r
+E
+a
+a
+a
+H
+H
+"}
+(8,1,1) = {"
+a
+C
+a
+a
+a
+d
+a
+a
+J
+a
+H
+H
+"}
+(9,1,1) = {"
+a
+C
+a
+Y
+a
+O
+a
+a
+H
+H
+H
+H
+"}
+(10,1,1) = {"
+a
+C
+a
+a
+a
+O
+a
+a
+H
+H
+H
+H
+"}
+(11,1,1) = {"
+a
+K
+B
+B
+B
+S
+a
+a
+H
+H
+H
+H
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+H
+H
+H
+H
+H
+H
+"}

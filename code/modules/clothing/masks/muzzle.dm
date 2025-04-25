@@ -29,9 +29,14 @@
 	lefthand_file = 'icons/mob/inhands/clothing/masks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
 	body_parts_covered = NONE
+	flags_cover = NONE
 	clothing_flags = MASKINTERNALS
 	armor_type = /datum/armor/muzzle_breath
 	equip_delay_other = 25 // my sprite has 4 straps, a-la a head harness. takes a while to equip, longer than a muzzle
+
+/obj/item/clothing/mask/muzzle/breath/examine_tags(mob/user)
+	. = ..()
+	.["surgical"] = "Does not block surgery on covered bodyparts."
 
 /obj/item/clothing/mask/muzzle/tape
 	name = "tape piece"
@@ -86,7 +91,7 @@
 
 /obj/item/clothing/mask/muzzle/tape/super
 	name = "super tape piece"
-	desc = "A piece of tape that can be put over someone's mouth. This one has extra strengh."
+	desc = "A piece of tape that can be put over someone's mouth. This one has extra strength."
 	greyscale_colors = "#4D4D4D"
 	strip_delay = 80
 

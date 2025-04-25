@@ -116,8 +116,8 @@
 			marked_underlay = mutable_appearance('icons/effects/effects.dmi', "shield2")
 		else
 			marked_underlay = mutable_appearance('icons/effects/effects.dmi', "shield1")
-		marked_underlay.pixel_x = -owner.pixel_x
-		marked_underlay.pixel_y = -owner.pixel_y
+		marked_underlay.pixel_w = -owner.pixel_x
+		marked_underlay.pixel_z = -owner.pixel_y
 		owner.underlays += marked_underlay
 		return TRUE
 	return FALSE

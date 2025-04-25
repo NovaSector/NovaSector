@@ -43,6 +43,11 @@
 /datum/species/monkey/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	passtable_on(human_who_gained_species, SPECIES_TRAIT)
+	// NOVA EDIT ADDITION START - Add this later on for roundstart kobolds until we can figure out why adding mutations breaks the char preveiew
+	if(pref_load && istype(src, /datum/species/monkey/kobold))
+		human_who_gained_species.AddElement(/datum/element/human_biter)
+		return
+	// NOVA EDIT ADDITION END
 	human_who_gained_species.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
 	human_who_gained_species.dna.activate_mutation(/datum/mutation/human/race)
 	human_who_gained_species.AddElement(/datum/element/human_biter)
@@ -129,7 +134,7 @@
 
 /obj/item/organ/brain/primate //Ook Ook
 	name = "Primate Brain"
-	desc = "This wad of meat is small, but has enlaged occipital lobes for spotting bananas."
+	desc = "This wad of meat is small, but has enlarged occipital lobes for spotting bananas."
 	organ_traits = list(TRAIT_CAN_STRIP, TRAIT_PRIMITIVE, TRAIT_GUN_NATURAL) // No literacy or advanced tool usage.
 	actions_types = list(/datum/action/item_action/organ_action/toggle_trip)
 	/// Will this monkey stumble if they are crossed by a simple mob or a carbon in combat mode? Toggable by monkeys with clients, and is messed automatically set to true by monkey AI.
@@ -142,11 +147,7 @@
 	background_icon_state = "bg_default_on"
 	overlay_icon_state = "bg_default_border"
 
-/datum/action/item_action/organ_action/toggle_trip/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
-
+/datum/action/item_action/organ_action/toggle_trip/do_effect(trigger_flags)
 	var/obj/item/organ/brain/primate/monkey_brain = target
 	if(monkey_brain.tripping)
 		monkey_brain.tripping = FALSE
@@ -157,6 +158,7 @@
 		background_icon_state = "bg_default_on"
 		to_chat(monkey_brain.owner, span_notice("You will now stumble while colliding with people who are in combat mode."))
 	build_all_button_icons()
+	return TRUE
 
 /obj/item/organ/brain/primate/on_mob_insert(mob/living/carbon/primate)
 	. = ..()

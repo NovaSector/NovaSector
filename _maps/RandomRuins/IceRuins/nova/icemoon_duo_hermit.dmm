@@ -1,0 +1,600 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aM" = (
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"aV" = (
+/obj/structure/bed/double,
+/obj/item/bedsheet/black/double,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"bp" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/item/trash/shrimp_chips,
+/turf/open/floor/carpet/neon/simple/black,
+/area/ruin/powered/hermit)
+"bM" = (
+/obj/structure/fans/tiny/invisible,
+/obj/structure/mineral_door/wood/large_gate,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/ruin/powered/hermit)
+"cI" = (
+/obj/structure/wormfarm,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/powered/hermit)
+"dY" = (
+/obj/structure/curtain/cloth/fancy,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"fE" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/ruin/powered/hermit)
+"fS" = (
+/obj/structure/decorative/shelf,
+/obj/item/raptor_dex,
+/obj/structure/table/wood,
+/obj/item/xenoarch/brush,
+/obj/item/xenoarch/tape_measure,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"gP" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"ha" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"hN" = (
+/obj/item/shovel,
+/obj/item/cultivator/rake,
+/obj/item/cultivator,
+/obj/structure/ore_box,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/powered/hermit)
+"il" = (
+/obj/structure/table/wood,
+/obj/item/plate,
+/obj/effect/turf_decal/siding/wood,
+/obj/item/food/breadslice/moldy/bacteria,
+/turf/open/floor/carpet/neon/simple/black,
+/area/ruin/powered/hermit)
+"io" = (
+/obj/structure/table/wood,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/seeds/reishi,
+/obj/item/seeds/tower,
+/obj/item/seeds/tower,
+/obj/item/food/grown/ash_flora/mushroom_leaf,
+/obj/item/food/grown/mushroom/glowshroom,
+/obj/item/pickaxe/improvised,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/item/mining_scanner,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/powered/hermit)
+"jd" = (
+/obj/structure/railing/wooden_fencing/gate,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"jt" = (
+/obj/machinery/smartfridge/wooden/seed_shelf,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/powered/hermit)
+"jG" = (
+/obj/structure/wall_torch/directional/south,
+/obj/structure/wall_torch/mount_only/directional/south,
+/turf/closed/wall/mineral/wood,
+/area/ruin/powered/hermit)
+"ki" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/security/wooden_tv,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"oE" = (
+/obj/structure/decorative/shelf,
+/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"oJ" = (
+/obj/effect/mob_spawn/ghost_role/human/hermit{
+	dir = 10
+	},
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"ph" = (
+/turf/closed/mineral/snowmountain/icemoon/unscrapeable,
+/area/icemoon/underground/explored)
+"pA" = (
+/obj/structure/barricade/wooden/crude/snow,
+/obj/structure/railing/wooden_fencing,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/powered/hermit)
+"sy" = (
+/obj/structure/ore_container/food_trough/raptor_trough,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"sC" = (
+/obj/item/chair/wood/wings,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"uw" = (
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/ruin/powered/hermit)
+"uQ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/stone,
+/area/ruin/powered/hermit)
+"vr" = (
+/obj/structure/table/wood,
+/obj/structure/closet/crate/wooden,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"vy" = (
+/obj/structure/safe/floor,
+/obj/item/flatpacked_machine/wind_turbine,
+/obj/item/flatpacked_machine/wind_turbine,
+/obj/item/pipe_dispenser,
+/obj/item/circuitboard/machine/autolathe,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"vV" = (
+/obj/structure/closet/crate/grave/filled,
+/obj/item/xenoarch/handheld_recoverer,
+/obj/effect/decal/remains/human,
+/obj/item/pickaxe/silver,
+/obj/item/stack/cable_coil/five,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/servo,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"wf" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lantern,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/knife/hunting,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"wI" = (
+/obj/structure/dresser,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"xw" = (
+/obj/item/paper/guides/jobs/hydroponics,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"zd" = (
+/obj/structure/sink/directional/south,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"CR" = (
+/obj/item/flashlight/lantern,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"GU" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"IY" = (
+/obj/structure/chair/sofa/middle,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/neon/simple/black,
+/area/ruin/powered/hermit)
+"JI" = (
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"JS" = (
+/obj/structure/chair/sofa/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/carpet/neon/simple/black,
+/area/ruin/powered/hermit)
+"LI" = (
+/obj/structure/railing/wooden_fencing,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"Me" = (
+/obj/item/knife/combat,
+/obj/structure/decorative/shelf,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"Qr" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"QD" = (
+/turf/template_noop,
+/area/template_noop)
+"QK" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"Rr" = (
+/obj/structure/flora/tree/pine/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"Si" = (
+/obj/structure/fireplace{
+	dir = 8;
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/stone,
+/area/ruin/powered/hermit)
+"TL" = (
+/turf/closed/wall/mineral/wood,
+/area/ruin/powered/hermit)
+"Vc" = (
+/obj/item/storage/medkit/surgery,
+/obj/structure/decorative/shelf,
+/obj/item/clothing/neck/stethoscope,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"WK" = (
+/obj/structure/chair/sofa/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/carpet/neon/simple/black,
+/area/ruin/powered/hermit)
+"WP" = (
+/obj/structure/bed/dogbed,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+"Yi" = (
+/obj/structure/chair/sofa/left,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/carpet/neon/simple/black,
+/area/ruin/powered/hermit)
+"YA" = (
+/mob/living/basic/raptor/baby_raptor/white,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
+"ZO" = (
+/obj/machinery/space_heater,
+/turf/open/floor/wood,
+/area/ruin/powered/hermit)
+
+(1,1,1) = {"
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+"}
+(2,1,1) = {"
+QD
+QD
+QD
+QD
+ph
+ph
+ph
+ph
+ph
+ph
+ph
+ph
+ph
+ph
+QD
+QD
+"}
+(3,1,1) = {"
+QD
+QD
+QD
+ph
+ph
+ph
+ph
+aM
+aM
+aM
+aM
+jd
+vV
+ph
+ph
+ph
+"}
+(4,1,1) = {"
+QD
+QD
+ph
+ph
+ph
+ph
+ph
+aM
+xw
+aM
+aM
+LI
+aM
+aM
+ph
+ph
+"}
+(5,1,1) = {"
+QD
+uw
+uw
+uw
+uw
+uw
+uw
+hN
+io
+cI
+jt
+pA
+aM
+aM
+aM
+aM
+"}
+(6,1,1) = {"
+ph
+uw
+WK
+JS
+JI
+JI
+TL
+TL
+TL
+TL
+TL
+TL
+sy
+aM
+Rr
+aM
+"}
+(7,1,1) = {"
+ph
+uw
+IY
+il
+JI
+ki
+TL
+GU
+sC
+JI
+oJ
+TL
+YA
+aM
+aM
+aM
+"}
+(8,1,1) = {"
+ph
+uw
+Yi
+bp
+JI
+JI
+TL
+fS
+uQ
+fE
+fE
+bM
+aM
+aM
+Rr
+aM
+"}
+(9,1,1) = {"
+ph
+TL
+JI
+JI
+Si
+JI
+dY
+JI
+JI
+JI
+wf
+TL
+aM
+aM
+aM
+CR
+"}
+(10,1,1) = {"
+uw
+uw
+dY
+uw
+uw
+dY
+TL
+TL
+TL
+TL
+TL
+TL
+Qr
+aM
+aM
+aM
+"}
+(11,1,1) = {"
+uw
+gP
+JI
+WP
+uw
+JI
+JI
+dY
+JI
+JI
+oJ
+uw
+ph
+aM
+aM
+Rr
+"}
+(12,1,1) = {"
+uw
+ha
+JI
+JI
+uw
+zd
+JI
+jG
+oE
+JI
+QK
+uw
+ph
+aM
+aM
+aM
+"}
+(13,1,1) = {"
+uw
+wI
+aV
+vr
+uw
+Me
+Vc
+uw
+vy
+JI
+ZO
+uw
+aM
+aM
+Rr
+aM
+"}
+(14,1,1) = {"
+uw
+uw
+uw
+uw
+uw
+uw
+uw
+uw
+uw
+uw
+uw
+uw
+Rr
+aM
+aM
+aM
+"}
+(15,1,1) = {"
+ph
+ph
+ph
+ph
+ph
+ph
+ph
+ph
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+"}
+(16,1,1) = {"
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+QD
+aM
+aM
+QD
+QD
+QD
+"}

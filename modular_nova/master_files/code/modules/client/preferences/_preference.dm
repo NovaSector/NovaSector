@@ -122,10 +122,12 @@
 	var/list/crop_area
 	/// A color to apply to the icon if it's greyscale, and `generate_icons` is enabled.
 	var/greyscale_color
+	/// If 'allow mismatched parts' should allow this to be used
+	var/flexible_mismatch = TRUE
 
 /datum/preference/choiced/mutant_choice/is_accessible(datum/preferences/preferences)
 	var/passed_initial_check = ..(preferences)
-	var/overriding = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/overriding = flexible_mismatch && preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/part_enabled = is_part_enabled(preferences)
 	return (passed_initial_check || overriding) && part_enabled
 
@@ -145,20 +147,14 @@
 /// Generates and allows for post-processing on icons, such as greyscaling and cropping. This is cached.
 /datum/preference/choiced/mutant_choice/proc/generate_icon(datum/sprite_accessory/sprite_accessory)
 	if(!sprite_accessory.icon_state)
-		return icon('icons/mob/landmarks.dmi', "x")
+		return uni_icon('icons/mob/landmarks.dmi', "x")
 
-	var/icon/icon_to_process = icon(sprite_accessory.icon, generate_icon_state(sprite_accessory, sprite_accessory.icon_state), SOUTH, 1)
-
+	var/datum/universal_icon/icon_to_process = uni_icon(sprite_accessory.icon, generate_icon_state(sprite_accessory, sprite_accessory.icon_state), SOUTH, 1)
 	if(islist(crop_area) && crop_area.len == REQUIRED_CROP_LIST_SIZE)
-		icon_to_process.Crop(crop_area[1], crop_area[2], crop_area[3], crop_area[4])
-		icon_to_process.Scale(32, 32)
+		icon_to_process.crop(crop_area[1], crop_area[2], crop_area[3], crop_area[4])
+		icon_to_process.scale(32, 32)
 	else if(crop_area)
 		stack_trace("Invalid crop paramater! The provided crop area list is not four entries long, or is not a list!")
-
-	var/color = sanitize_hexcolor(greyscale_color)
-	if(color && sprite_accessory.color_src)
-		// This isn't perfect, but I don't want to add the significant overhead to make it be.
-		icon_to_process.ColorTone(color)
 
 	return icon_to_process
 

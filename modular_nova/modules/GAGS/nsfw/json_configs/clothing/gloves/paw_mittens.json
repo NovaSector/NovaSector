@@ -1,0 +1,16 @@
+{
+	"paw_mittens": [
+		{
+			"type": "icon_state",
+			"icon_state": "pawmittens",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "pawmittens-pawpad",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

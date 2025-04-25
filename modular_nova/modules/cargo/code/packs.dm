@@ -159,7 +159,7 @@
 /datum/supply_pack/security/armor_nova
 	name = "Armor Crate"
 	desc = "Three vests of well-rounded, decently-protective armor."
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 3
 	access_view = ACCESS_SECURITY
 	contains = list(
 		/obj/item/clothing/suit/armor/vest/alt,
@@ -171,8 +171,8 @@
 /datum/supply_pack/security/helmets_nova
 	name = "Helmets Crate"
 	desc = "Contains three standard-issue brain buckets."
-	cost = CARGO_CRATE_VALUE * 2
-	contains = list(/obj/item/clothing/head/helmet/sec/sol = 3)
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(/obj/item/clothing/head/helmet/sec = 3)
 	crate_name = "helmet crate"
 
 /datum/supply_pack/security/deployablebarricades
@@ -184,6 +184,26 @@
 		/obj/item/storage/barricade,
 	)
 	crate_name = "C.U.C.K.S Crate"
+
+/*
+* ARMORY
+*/
+
+/datum/supply_pack/security/armory/battle_rifle
+	cost = CARGO_CRATE_VALUE * 15
+	contains = list(
+		/obj/item/gun/ballistic/automatic/battle_rifle = 3,
+		/obj/item/ammo_box/magazine/m38 = 6,
+	)
+
+/datum/supply_pack/security/armory/br_mag
+	desc = "Fourteen .38 magazines, able to fit into the NT BR-38. Contains \
+		nine standard magazines, three Hot Shot magazines and three Iceblox magazines."
+	contains = list(
+		/obj/item/ammo_box/magazine/m38 = 8,
+		/obj/item/ammo_box/magazine/m38/hotshot = 3,
+		/obj/item/ammo_box/magazine/m38/iceblox = 3,
+	)
 
 /*
 *	ENGINEERING
@@ -653,7 +673,7 @@
 /datum/supply_pack/organic/lavalandsamples
 	name = "Planetary Flora Samples"
 	desc = "A box of samples taken from the surface of Lavaland. Requires Hydroponics access to open."
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 6
 	access_view = ACCESS_HYDROPONICS
 	contains = list(
 		/obj/item/seeds/lavaland/polypore,

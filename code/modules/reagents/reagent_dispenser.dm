@@ -103,8 +103,8 @@
 		holder.master = src
 		holder.on_attach()
 		assembliesoverlay = holder
-		assembliesoverlay.pixel_x += 6
-		assembliesoverlay.pixel_y += 1
+		assembliesoverlay.pixel_w += 6
+		assembliesoverlay.pixel_z += 1
 		add_overlay(assembliesoverlay)
 		RegisterSignal(src, COMSIG_IGNITER_ACTIVATE, PROC_REF(rig_boom))
 		log_bomber(user, "attached [holder.name] to ", src)
@@ -247,7 +247,7 @@
 	icon_state = "water_high" //I was gonna clean my room...
 	tank_volume = 3000
 
-/obj/structure/reagent_dispensers/foamtank//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/foamtank //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "firefighting foam tank"
 	desc = "A tank full of firefighting foam."
 	icon_state = "foam"
@@ -256,7 +256,7 @@
 	openable = TRUE
 	climbable = TRUE
 
-/obj/structure/reagent_dispensers/fueltank//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/fueltank //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "fuel tank"
 	desc = "A tank full of industrial welding fuel. Do not consume."
 	icon_state = "fuel"
@@ -372,7 +372,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/peppertank, 3
 		desc = "IT'S PEPPER TIME, BITCH!"
 	find_and_hang_on_wall()
 
-/obj/structure/reagent_dispensers/water_cooler//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/water_cooler //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "liquid cooler"
 	desc = "A machine that dispenses liquid to drink."
 	icon = 'icons/obj/machines/vending.dmi'
@@ -442,7 +442,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/virusfood, 30
 	anchored = TRUE
 	reagent_id = /datum/reagent/consumable/nutraslop
 
-/obj/structure/reagent_dispensers/plumbed//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/plumbed //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "stationary water tank"
 	anchored = TRUE
 	icon_state = "water_stationary"

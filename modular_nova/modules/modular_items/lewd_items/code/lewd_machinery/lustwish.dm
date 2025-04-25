@@ -44,6 +44,7 @@
 				/obj/item/spanking_pad = 4,
 				/obj/item/tickle_feather = 8,
 				/obj/item/borg/upgrade/dominatrixmodule = 5,
+				/obj/item/reagent_containers/venom_milker = 5,
 			),
 		),
 		list(
@@ -57,25 +58,24 @@
 				/obj/item/clothing/head/costume/kitty = 4,
 
 				/obj/item/clothing/head/domina_cap = 5,
-				/obj/item/clothing/shoes/latex_heels/domina_heels = 4,
+				/obj/item/clothing/shoes/ballet_heels/domina_heels = 4,
 				/obj/item/clothing/gloves/evening = 5,
 
 				/obj/item/clothing/under/misc/nova/gear_harness = 20,//Important "not-nude" outfit
 				/obj/item/clothing/shoes/jackboots/knee = 3,
 
 				/obj/item/clothing/under/misc/latex_catsuit = 8,
-				/obj/item/clothing/gloves/latex_gloves = 8,
-				/obj/item/clothing/shoes/latex_heels = 4,
+				/obj/item/clothing/gloves/long_gloves = 8,
+				/obj/item/clothing/shoes/ballet_heels = 4,
 				/obj/item/clothing/shoes/latex_socks = 8,
-
-				/obj/item/storage/belt/erpbelt = 5,//Leather Belt, holds a lot of tools.
 
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 				/obj/item/clothing/under/costume/lewdmaid = 5,
+				/obj/item/clothing/suit/corset = 5,
 
-				/obj/item/clothing/under/stripper_outfit = 5,
+				/obj/item/clothing/under/tearaway_garments = 5,
 				/obj/item/clothing/glasses/nice_goggles = 1, //easter egg, don't touch plz
 			),
 		),
@@ -93,8 +93,8 @@
 				/obj/item/clothing/mask/ballgag/choking = 8,
 				/obj/item/clothing/mask/muzzle/ring = 4,
 				/obj/item/clothing/head/deprivation_helmet = 5,
-				/obj/item/clothing/glasses/blindfold/kinky = 5,
-				/obj/item/clothing/ears/kinky_headphones = 5,
+				/obj/item/clothing/glasses/blindfold/dorms = 5,
+				/obj/item/clothing/ears/dorms_headphones = 5,
 				/obj/item/clothing/mask/gas/bdsm_mask = 5,
 				/obj/item/reagent_containers/cup/lewd_filter = 5,
 				/obj/item/clothing/glasses/hypno = 4,
@@ -102,14 +102,22 @@
 				//neck
 				/obj/item/key/collar = 48,
 				/obj/item/clothing/erp_leash = 8,
-				/obj/item/clothing/neck/kink_collar = 8,
-				/obj/item/clothing/neck/human_petcollar = 8,
-				/obj/item/clothing/neck/human_petcollar/choker = 8,
-				/obj/item/clothing/neck/human_petcollar/thinchoker = 8,
-				/obj/item/clothing/neck/human_petcollar/locked/bell = 8,
-				/obj/item/clothing/neck/human_petcollar/locked/cow = 8,
-				/obj/item/clothing/neck/human_petcollar/locked/cross = 8,
-				/obj/item/clothing/neck/human_petcollar/locked/spike = 8,
+				/obj/item/clothing/neck/collar = 8,
+				/obj/item/clothing/neck/collar/bell = 8,
+				/obj/item/clothing/neck/collar/cowbell = 8,
+				/obj/item/clothing/neck/collar/cross = 8,
+				/obj/item/clothing/neck/collar/tagged = 8,
+				/obj/item/clothing/neck/collar/thick = 8,
+				/obj/item/clothing/neck/collar/thick/bell = 8,
+				/obj/item/clothing/neck/collar/thick/cowbell = 8,
+				/obj/item/clothing/neck/collar/thick/cross = 8,
+				/obj/item/clothing/neck/collar/thick/tagged = 8,
+				/obj/item/clothing/neck/collar/spike = 8,
+				/obj/item/clothing/neck/collar/leather = 8,
+				/obj/item/clothing/neck/collar/leather/bell = 8,
+				/obj/item/clothing/neck/collar/leather/cowbell = 8,
+				/obj/item/clothing/neck/collar/leather/cross = 8,
+				/obj/item/clothing/neck/collar/leather/tagged = 8,
 
 				//torso clothing
 				/obj/item/clothing/suit/straight_jacket/latex_straight_jacket = 5,
@@ -117,6 +125,7 @@
 
 				//hands
 				/obj/item/clothing/gloves/ball_mittens = 8,
+				/obj/item/clothing/gloves/ball_mittens/paw_mittens = 8,
 			),
 		),
 			list(
@@ -129,8 +138,8 @@
 				/obj/item/fancy_pillow = 32,
 
 				//chems
-				/obj/item/reagent_containers/pill/crocin = 20,
-				/obj/item/reagent_containers/pill/camphor = 10,
+				/obj/item/reagent_containers/applicator/pill/crocin = 20,
+				/obj/item/reagent_containers/applicator/pill/camphor = 10,
 				/obj/item/reagent_containers/cup/bottle/crocin = 6,
 				/obj/item/reagent_containers/cup/bottle/camphor = 3,
 				/obj/item/reagent_containers/cup/bottle/succubus_milk = 6, //Those are legal 'cause you can just turn off prefs in round in "CLOWN SMOKE MACHINE+PENIS ENLARGEMENT CHEMICAL CASE". Yes, i have special code-phrase for this. I've seen some shit.
@@ -153,20 +162,20 @@
 	)
 
 	premium = list(
-		/obj/item/clothing/neck/human_petcollar/locked/holo = 3,
+		/obj/item/clothing/neck/collar/holocollar = 3,
+		/obj/item/clothing/neck/collar/thick/holocollar = 3,
+		/obj/item/clothing/neck/collar/leather/holocollar = 3,
 		/obj/item/clothing/neck/size_collar = 8,//It only works in the Interlink anyways
 		)
 
 	contraband = list(
 					/obj/item/electropack/shockcollar = 4,
-					/obj/item/clothing/neck/kink_collar/locked = 4,
 					/obj/item/clothing/neck/mind_collar = 2,
 					/obj/item/clothing/under/costume/jabroni = 4,
-					/obj/item/clothing/neck/human_petcollar/locked = 4,
 					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
 					/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
-					/obj/item/reagent_containers/pill/hexacrocin = 10,
-					/obj/item/reagent_containers/pill/pentacamphor = 5,
+					/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
+					/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,
 					/obj/item/reagent_containers/cup/bottle/hexacrocin = 4,
 					/obj/item/reagent_containers/cup/bottle/pentacamphor = 2)
 
