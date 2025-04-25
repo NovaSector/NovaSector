@@ -306,6 +306,24 @@
 	crate_name = "RBMK2 reactor rod"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
+/datum/supply_pack/engine/rbmk2_engine
+	name = "RBMK2 circuit boards and rods"
+	desc = "Contains four RBMK2 circuit boards for construction and fuel rods. Does not come with the required materials to construct them."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 55
+	contains = list(
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+	)
+	crate_name = "RBMK2 circuit boards"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
 /*
 *	MISC
 */
