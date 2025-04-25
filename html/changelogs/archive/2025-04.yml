@@ -901,3 +901,13 @@
   unit0016:
   - rscadd: Serenitystation has received support for ruins!
   - balance: LUNA has been entirely reworked.
+2025-04-24:
+  A.C.M.O.:
+  - rscadd: Added an otter snout and a waggable otter tail.
+  Iajret:
+  - bugfix: 'Interlink staffing changes: fired Breaks-The-PRs and hired Fixes-The-ATs
+      instead'
+2025-04-25:
+  Yobrocharlie:
+  - bugfix: fixed the heretic final boss not being where its meant to, and added a
+      backup exit.
