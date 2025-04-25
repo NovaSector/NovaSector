@@ -907,3 +907,7 @@
   Iajret:
   - bugfix: 'Interlink staffing changes: fired Breaks-The-PRs and hired Fixes-The-ATs
       instead'
+2025-04-25:
+  Yobrocharlie:
+  - bugfix: fixed the heretic final boss not being where its meant to, and added a
+      backup exit.
