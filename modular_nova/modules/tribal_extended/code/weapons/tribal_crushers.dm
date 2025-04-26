@@ -95,13 +95,13 @@
 /datum/crafting_recipe/runic_greatsword
 	name = "Runic Greatsword"
 	category = CAT_WEAPON_MELEE
-	//recipe given to icecats as part of their spawner/team setting
+	//recipe given to hearthkins as part of their spawner/team setting
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 	reqs = list(
 		/obj/item/forging/complete/sword = 1,
 		/obj/item/stack/sheet/leather = 1,
 		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/icecat_ship_fragment_active = 1
+		/obj/item/hearthkin_ship_fragment_active = 1
 	)
 	tool_behaviors = list(TOOL_HAMMER)
 	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
@@ -109,13 +109,13 @@
 /datum/crafting_recipe/runic_greataxe
 	name = "Runic Greataxe"
 	category = CAT_WEAPON_MELEE
-	//recipe given to icecats as part of their spawner/team setting
+	//recipe given to hearthkins as part of their spawner/team setting
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 	reqs = list(
 		/obj/item/forging/complete/axe = 1,
 		/obj/item/stack/sheet/leather = 1,
 		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/icecat_ship_fragment_active = 1
+		/obj/item/hearthkin_ship_fragment_active = 1
 	)
 	tool_behaviors = list(TOOL_HAMMER)
 	result = /obj/item/kinetic_crusher/tribal/runic_greataxe
@@ -123,18 +123,18 @@
 /datum/crafting_recipe/runic_spear
 	name = "Runic Spear"
 	category = CAT_WEAPON_MELEE
-	//recipe given to icecats as part of their spawner/team setting
+	//recipe given to hearthkins as part of their spawner/team setting
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 	reqs = list(
 		/obj/item/forging/complete/spear = 1,
 		/obj/item/stack/sheet/leather = 1,
 		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/icecat_ship_fragment_active = 1
+		/obj/item/hearthkin_ship_fragment_active = 1
 	)
 	tool_behaviors = list(TOOL_HAMMER)
 	result = /obj/item/kinetic_crusher/spear/tribal/runic_spear
 
-/obj/item/icecat_ship_fragment_inactive
+/obj/item/hearthkin_ship_fragment_inactive
 	name = "Dormant fragment of the Stjarndrakkr"
 	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
@@ -142,7 +142,7 @@
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
 
-/obj/item/icecat_ship_fragment_active
+/obj/item/hearthkin_ship_fragment_active
 	name = "Fragment of the Stjarndrakkr"
 	desc = "A piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange glowing symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
@@ -150,7 +150,7 @@
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
 
-/obj/item/icecat_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
+/obj/item/hearthkin_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	add_fingerprint(user)
 	if(ispath(attacking_item.type, /obj/item/chisel) && user.job == "Icemoon Dweller")
@@ -162,15 +162,15 @@
 			user.visible_message("<span class='success'>[user] completes the engraving — the fragment glows faintly.</span>")
 			var/turf/T = get_turf(src)
 			qdel(src)
-			new /obj/item/icecat_ship_fragment_active(T)
+			new /obj/item/hearthkin_ship_fragment_active(T)
 		else
 			user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
 
-// Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find icecat colony ship fragment on lavaland.)
+// Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
 	if (SSmapping.current_map.map_name == "Ice Box Station" || SSmapping.current_map.map_name == "Snowglobe Station")
-		GLOB.tech_reward[/obj/item/icecat_ship_fragment_inactive] = 1
+		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
 // Maybe add a use for that mat for science ? (check useless relick code)
 // Possibilty to add a spear version, if I can learn to sprite something decent.
