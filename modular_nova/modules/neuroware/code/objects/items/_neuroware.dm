@@ -1,11 +1,11 @@
-#define CHIP_LABEL_BISHOP " It has a <b>[span_cyan("Bishop Cybernetics, Inc.")]</b> label visible on it."
-#define CHIP_LABEL_DEFOREST " It has <b>[span_cyan("DeForest Medical Corporation")]</b> laser-etched into it."
-#define CHIP_LABEL_DONK " It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
-#define CHIP_LABEL_MAINT " It has <b>[span_sans("XLR8.EXE")]</b> and <b>[span_sans("wakes you up!")]</b> drawn onto it."
-#define CHIP_LABEL_NT " It has a <b>[span_blue("Nanotrasen Systems, Inc.")]</b> label visible on it."
-#define CHIP_LABEL_SYNDIE " It has <b>[span_red("Cybersun Industries")]</b> laser-etched into it."
-#define CHIP_LABEL_WARD " It has <b>[span_yellow("Ward-Takahashi Manufacturing")]</b> laser-etched into it."
-#define CHIP_LABEL_ZENGHU " It has a <b>[span_pink("Zeng-Hu Pharmaceuticals")]</b> label visible on it."
+#define CHIP_LABEL_BISHOP "It has a <b>[span_cyan("Bishop Cybernetics, Inc.")]</b> label visible on it."
+#define CHIP_LABEL_DEFOREST "It has <b>[span_cyan("DeForest Medical Corporation")]</b> laser-etched into it."
+#define CHIP_LABEL_DONK "It has a <b>[span_green("Donk Corporation")]</b> label visible on it."
+#define CHIP_LABEL_MAINT "It has <b>[span_sans("XLR8.EXE")]</b> and <b>[span_sans("wakes you up!")]</b> drawn onto it."
+#define CHIP_LABEL_NT "It has a <b>[span_blue("Nanotrasen Systems, Inc.")]</b> label visible on it."
+#define CHIP_LABEL_SYNDIE "It has <b>[span_red("Cybersun Industries")]</b> laser-etched into it."
+#define CHIP_LABEL_WARD "It has <b>[span_yellow("Ward-Takahashi Manufacturing")]</b> laser-etched into it."
+#define CHIP_LABEL_ZENGHU "It has a <b>[span_pink("Zeng-Hu Pharmaceuticals")]</b> label visible on it."
 ///Neuroware chips are installed into this
 #define NEURO_SLOT_NAME "persocom chip slot"
 
@@ -44,6 +44,7 @@
 		return INITIALIZE_HINT_QDEL
 	if(isnull(manufacturer_tag))
 		return
+	desc += "<br>"
 	switch(manufacturer_tag)
 		if(NEUROWARE_NT)
 			desc += CHIP_LABEL_NT
