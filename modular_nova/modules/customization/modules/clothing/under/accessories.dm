@@ -65,9 +65,14 @@
 /obj/item/clothing/accessory/badge/holo
 	name = "holobadge"
 	desc = "This glowing blue badge marks the holder as THE LAW."
-	icon_state = "holobadge_lopland"
+	icon_state = "holobadge"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
+/obj/item/clothing/accessory/badge/holo/blue
+	name = "blue holobadge"
+	desc = "This glowing blue badge marks the holder as THE LAW."
+	icon_state = "holobadge_blue"
 
 /obj/item/clothing/accessory/badge/holo/cord
 	name = "holobadge with lanyard"

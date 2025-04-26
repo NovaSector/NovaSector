@@ -73,20 +73,13 @@
 /datum/techweb_node/office_equip/New()
 	design_ids += list(
 		"gbp_machine",
+		"pen",
 	)
 	return ..()
 
 /datum/techweb_node/augmentation/New()
 	design_ids += list(
 		"affection_module",
-	)
-	return ..()
-
-/datum/techweb_node/cafeteria_equip/New()
-	design_ids += list(
-		"bowl",
-		"drinking_glass",
-		"shot_glass",
 	)
 	return ..()
 
@@ -173,18 +166,6 @@
 	design_ids += list(
 		"self_actualization_device",
 	)
-	return ..()
-
-/datum/techweb_node/xenobiology/New()
-	// QOL - Makes cytology experiment a discount rather than required experiment
-	required_experiments -= list(/datum/experiment/scanning/random/cytology)
-	discount_experiments += list(/datum/experiment/scanning/random/cytology)
-	return ..()
-
-/datum/techweb_node/selection/New()
-	// QOL - Makes wild harvest experiment a discount rather than required experiment
-	required_experiments -= list(/datum/experiment/scanning/random/plants/wild)
-	discount_experiments += list(/datum/experiment/scanning/random/plants/wild)
 	return ..()
 
 /datum/techweb_node/cyber/cyber_organs/New()
@@ -331,9 +312,5 @@
 /datum/techweb_node/borg_medical/New()
 	design_ids += list(
 		"borg_upgrade_surgicaltools",
-	)
-
-	design_ids -= list(
-		"borg_upgrade_pinpointer",
 	)
 	return ..()

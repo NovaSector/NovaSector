@@ -7,7 +7,7 @@
 ///Minimum possible IV drip transfer rate in units per second
 #define MIN_IV_TRANSFER_RATE 0
 ///Maximum possible IV drip transfer rate in units per second
-#define MAX_IV_TRANSFER_RATE 5
+#define MAX_IV_TRANSFER_RATE 15 // NOVA EDIT CHANGE - Made to triple the max rate of the IV transfer to avoid having players to need to use 3 IV drips. - Original: MAX_IV_TRANSFER_RATE 5
 ///Default IV drip transfer rate in units per second
 #define DEFAULT_IV_TRANSFER_RATE 5
 //Alert shown to mob the IV is still connected

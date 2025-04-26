@@ -19,6 +19,7 @@
 		/area/centcom/interlink/dorm_rooms,
 		/area/centcom/holding/cafedorms,
 		/area/misc/hilbertshotel,
+		/area/misc/condo,
 		/area/virtual_domain,
 		/area/space/virtual_domain,
 		/area/ruin/space/virtual_domain,

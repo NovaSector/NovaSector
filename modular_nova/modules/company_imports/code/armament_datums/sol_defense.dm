@@ -97,7 +97,6 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/sidearm/type207
 	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
@@ -138,13 +137,20 @@
 	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg
 	cost = PAYCHECK_COMMAND * 10
 
+/datum/armament_entry/company_import/sol_defense/longarm/jager
+	item_type = /obj/item/gun/ballistic/shotgun/katyusha/jager
+	cost = PAYCHECK_COMMAND * 20
+	restricted = TRUE
+
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
 	cost = PAYCHECK_COMMAND * 14
 
-/datum/armament_entry/company_import/sol_defense/longarm/outomaties
+/* //
+datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23
+	cost = PAYCHECK_COMMAND * 23 
+*/ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
@@ -185,5 +191,15 @@
 
 /datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_drum
 	item_type = /obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty
+	cost = PAYCHECK_CREW * 3
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/magazines/jager_shotgun_regular
+	item_type = /obj/item/ammo_box/magazine/jager/empty
+	cost = PAYCHECK_CREW
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/magazines/jager_shotgun_Large
+	item_type = /obj/item/ammo_box/magazine/jager/large/empty
 	cost = PAYCHECK_CREW * 3
 	restricted = TRUE

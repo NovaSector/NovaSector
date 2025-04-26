@@ -420,7 +420,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		if(mobs.client)
 			shake_camera(mobs, 15, 1)
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
-	//NOVA EDIT ADDITON BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION)) // SHUT THE FUCK UP ABANDONED STATIONS, I DON'T CARE
 		return
 	if(on)

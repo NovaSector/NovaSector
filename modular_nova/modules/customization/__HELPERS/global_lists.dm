@@ -75,6 +75,7 @@
 		/obj/item/stack/sheet/cardboard = list(GLOB.nova_cardboard_recipes),
 		/obj/item/stack/sheet/cloth = list(GLOB.nova_cloth_recipes),
 		/obj/item/stack/ore/glass = list(GLOB.nova_sand_recipes),
+		/obj/item/stack/sheet/mineral/sandstone = list(GLOB.nova_sandstone_recipes),
 		/obj/item/stack/rods = list(GLOB.nova_rod_recipes),
 		/obj/item/stack/sheet/plastic = list(GLOB.nova_plastic_recipes),
 		/obj/item/stack/sheet/mineral/stone = list(GLOB.stone_recipes),

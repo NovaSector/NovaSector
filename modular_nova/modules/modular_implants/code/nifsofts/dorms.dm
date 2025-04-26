@@ -51,7 +51,6 @@
 					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag,
 					/obj/item/clothing/neck/mind_collar,
 					/obj/item/clothing/strapon,
-					/obj/item/storage/belt/thigh_satchel,
 
 					//Hand Items
 					/obj/item/clothing/gloves/ball_mittens,

@@ -252,7 +252,8 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	if(get_amount() < 2)
 		user.balloon_alert(user, "not enough material!")
 		return ITEM_INTERACT_BLOCKING
-	if(!do_after(user, 4 SECONDS, build_on))
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/construction, SKILL_SPEED_MODIFIER) //NOVA EDIT ADDITION: Construction Skill
+	if(!do_after(user, 4 SECONDS * skill_modifier, build_on)) //NOVA EDIT ADDITION: Construction Skill
 		return ITEM_INTERACT_BLOCKING
 	if(build_on.is_blocked_turf())
 		user.balloon_alert(user, "something is blocking the tile!")
@@ -261,6 +262,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 		user.balloon_alert(user, "not enough material!")
 		return ITEM_INTERACT_BLOCKING
 	new/obj/structure/girder/displaced(build_on)
+	user.mind?.adjust_experience(/datum/skill/construction, 5) //NOVA EDIT ADDITION: Construction Skill
 	return ITEM_INTERACT_SUCCESS
 
 /*
@@ -823,6 +825,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	material_type = /datum/material/bone
 	drop_sound = null
 	pickup_sound = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/stack/sheet/bone/Initialize(mapload, new_amount, merge, list/mat_override, mat_amt)
 	. = ..()
