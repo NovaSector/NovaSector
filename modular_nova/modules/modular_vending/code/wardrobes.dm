@@ -60,9 +60,10 @@
 		/obj/item/clothing/mask/breath = 2,
 		/obj/item/disk/neuroware/reset = 2,
 		/obj/item/disk/neuroware/brain = 2, // for brain damage
+		/obj/item/disk/neuroware/morphine = 4,
+		/obj/item/disk/neuroware/lidocaine = 4,
 		/obj/item/disk/neuroware/synaptizine = 2,
 		/obj/item/disk/neuroware/psicodine = 2,
-		/obj/item/disk/neuroware/mindbreaker = 2,
 		/obj/item/reagent_containers/cup/bottle/morphine = 2,
 		/obj/item/reagent_containers/syringe = 2,
 		/obj/item/reagent_containers/spray/hercuri/chilled = 2,
@@ -84,6 +85,11 @@
 		/obj/item/organ/tongue/lizard/robot = 2,
 		/obj/item/disk/neuroware/pumpup = 2,
 		/obj/item/disk/neuroware/maintenance = 2,
+		/obj/item/disk/neuroware/space_drugs = 2,
+		/obj/item/disk/neuroware/happiness = 2,
+		/obj/item/disk/neuroware/thc = 2,
+		/obj/item/disk/neuroware/mushroomhallucinogen = 2,
+		/obj/item/disk/neuroware/mindbreaker = 2,
 	)
 
 /obj/machinery/vending/wardrobe/science_wardrobe
