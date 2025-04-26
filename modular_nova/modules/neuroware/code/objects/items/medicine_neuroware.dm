@@ -21,17 +21,35 @@
 /obj/item/disk/neuroware/synaptizine
 	name = "SynapTuner Pro neuroware"
 	desc = "A neuroware chip containing SynapTuner Pro, which reduces drowsiness and hallucinations while increasing resistance to stuns. Multi-user license included."
-	icon_state = "chip_bishop"
-	greyscale_colors = CIRCUIT_COLOR_SERVICE
+	icon_state = "chip_zenghu"
+	greyscale_colors = "#474747"
 	list_reagents = list(/datum/reagent/medicine/synaptizine/synth = 15)
-	manufacturer_tag = NEUROWARE_BISHOP
+	manufacturer_tag = NEUROWARE_ZENGHU
 	uses = 2
 
 /obj/item/disk/neuroware/psicodine
 	name = "Zen-First-Aid neuroware"
 	desc = "A neuroware chip containing Zen-First-Aid, an \"emotional first-aid kit\" which suppresses anxiety and mental distress. Multi-user license included."
-	icon_state = "chip_bishop"
+	icon_state = "chip_zenghu"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	list_reagents = list(/datum/reagent/medicine/psicodine/synth = 15)
-	manufacturer_tag = NEUROWARE_BISHOP
+	manufacturer_tag = NEUROWARE_ZENGHU
 	uses = 2
+
+/obj/item/disk/neuroware/morphine
+	name = "AnaSynthic neuroware"
+	desc = "A neuroware chip containing AnaSynthic, a general anasthetic program which blocks pain and causes unconsciousness. Multi-user license included."
+	icon_state = "chip_bishop"
+	greyscale_colors = CIRCUIT_COLOR_SERVICE
+	list_reagents = list(/datum/reagent/medicine/morphine/synth = 10)
+	manufacturer_tag = NEUROWARE_BISHOP
+	uses = 3
+
+/obj/item/disk/neuroware/lidocaine
+	name = "NGesic neuroware"
+	desc = "A neuroware chip containing NGesic, a \"painkiller\" analgesic program which blocks pain signals. Multi-user license included."
+	icon_state = "chip_bishop"
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
+	list_reagents = list(/datum/reagent/medicine/lidocaine/synth = 10)
+	manufacturer_tag = NEUROWARE_BISHOP
+	uses = 3

@@ -1,21 +1,3 @@
-/datum/reagent/medicine/synaptizine/synth
-	name = "synaptuner.exe"
-	chemical_flags = REAGENT_NEUROWARE
-	process_flags = REAGENT_SYNTHETIC
-	self_consuming = TRUE
-	purge_multiplier = 0
-
-NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/synaptizine/synth)
-
-/datum/reagent/medicine/psicodine/synth
-	name = "zen-firstaid.exe"
-	chemical_flags = REAGENT_NEUROWARE
-	process_flags = REAGENT_SYNTHETIC
-	self_consuming = TRUE
-	purge_multiplier = 0
-
-NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/psicodine/synth)
-
 /datum/reagent/medicine/brain_neuroware
 	name = "ntnetsys.robot-diag.exe"
 	description = "Repairs basic brain traumas in synthetics."
@@ -50,3 +32,39 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/reset_neuroware)
 			affected_mob.reagents.remove_reagent(reagent.type, remove_amount)
 	..()
 	return TRUE
+
+/datum/reagent/medicine/synaptizine/synth
+	name = "synaptuner.zhe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/synaptizine/synth)
+
+/datum/reagent/medicine/psicodine/synth
+	name = "zen-firstaid.zhe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/psicodine/synth)
+
+/datum/reagent/medicine/morphine/synth
+	name = "AnaSynthic.zhe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/morphine/synth)
+
+/datum/reagent/medicine/lidocaine/synth
+	name = "NGesic.zhe"
+	chemical_flags = REAGENT_NEUROWARE
+	process_flags = REAGENT_SYNTHETIC
+	self_consuming = TRUE
+	purge_multiplier = 0
+
+NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/morphine/synth)
