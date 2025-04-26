@@ -15,6 +15,8 @@
 	name = "Runic Greataxe"
 	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue"
 	light_color = "#8DEBFF"
+	worn_icon = 'icons/mob/clothing/back.dmi'
+	worn_icon_state = "crusher"
 
 /obj/item/kinetic_crusher/spear/tribal/runic_spear
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
