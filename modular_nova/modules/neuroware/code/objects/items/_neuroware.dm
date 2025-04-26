@@ -12,7 +12,7 @@
 ///Data chip which contextualizes drugs as "software" for synthetic brains.
 ///Like pills, but doesn't directly contain reagents, instead adds them manually.
 /obj/item/disk/neuroware
-	name = "blank neuroware"
+	name = "neuroware chip"
 	special_desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must be a synthetic humanoid. \
 	Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of artificial neural networks."
 	icon = 'modular_nova/modules/neuroware/icons/neuroware.dmi'
