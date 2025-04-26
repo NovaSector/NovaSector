@@ -92,48 +92,6 @@
 	. = ..()
 	inhand_icon_state = "swordon"
 
-/datum/crafting_recipe/runic_greatsword
-	name = "Runic Greatsword"
-	category = CAT_WEAPON_MELEE
-	//recipe given to hearthkins as part of their spawner/team setting
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
-	reqs = list(
-		/obj/item/forging/complete/sword = 1,
-		/obj/item/stack/sheet/leather = 1,
-		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/hearthkin_ship_fragment_active = 1
-	)
-	tool_behaviors = list(TOOL_HAMMER)
-	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
-
-/datum/crafting_recipe/runic_greataxe
-	name = "Runic Greataxe"
-	category = CAT_WEAPON_MELEE
-	//recipe given to hearthkins as part of their spawner/team setting
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
-	reqs = list(
-		/obj/item/forging/complete/axe = 1,
-		/obj/item/stack/sheet/leather = 1,
-		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/hearthkin_ship_fragment_active = 1
-	)
-	tool_behaviors = list(TOOL_HAMMER)
-	result = /obj/item/kinetic_crusher/tribal/runic_greataxe
-
-/datum/crafting_recipe/runic_spear
-	name = "Runic Spear"
-	category = CAT_WEAPON_MELEE
-	//recipe given to hearthkins as part of their spawner/team setting
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
-	reqs = list(
-		/obj/item/forging/complete/spear = 1,
-		/obj/item/stack/sheet/leather = 1,
-		/obj/item/stack/sheet/mineral/wood = 1,
-		/obj/item/hearthkin_ship_fragment_active = 1
-	)
-	tool_behaviors = list(TOOL_HAMMER)
-	result = /obj/item/kinetic_crusher/spear/tribal/runic_spear
-
 /obj/item/hearthkin_ship_fragment_inactive
 	name = "Dormant fragment of the Stjarndrakkr"
 	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
