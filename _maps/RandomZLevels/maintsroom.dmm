@@ -2209,11 +2209,15 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "ir" = (
-/obj/machinery/vending/liberationstation{
-	premium = list(/obj/item/ammo_box/magazine/smgm9mm = 2, /obj/item/ammo_box/magazine/m50 = 4, /obj/item/ammo_box/magazine/m45 = 2, /obj/item/ammo_box/magazine/m75 = 2, /obj/item/food/cheesyfries = 5, /obj/item/food/burger/baconburger = 5, /obj/item/ammo_box/magazine/m223 = 6,);
-	products = list(/obj/item/food/burger/plain = 5, /obj/item/food/burger/baseball = 3, /obj/item/food/fries = 5, /obj/item/reagent_containers/cup/glass/bottle/beer/light = 10, /obj/item/gun/ballistic/automatic/pistol/deagle/gold = 2, /obj/item/gun/ballistic/automatic/pistol/deagle/camo = 2, /obj/item/gun/ballistic/automatic/pistol/m1911 = 2, /obj/item/gun/ballistic/automatic/proto/unrestricted = 2, /obj/item/gun/ballistic/shotgun/automatic/combat = 2, /obj/item/gun/ballistic/shotgun = 2, /obj/item/gun/ballistic/automatic/ar = 2)
-	},
 /obj/effect/light_emitter/fake_outdoors,
+/obj/effect/spawner/armory_spawn/centcom_rifles,
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
+/obj/item/ammo_box/magazine/m50,
+/obj/item/ammo_box/magazine/m50,
+/obj/item/ammo_box/magazine/m50,
+/obj/item/ammo_box/magazine/m50,
+/obj/item/ammo_box/magazine/m50,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "is" = (
@@ -4027,6 +4031,15 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"po" = (
+/obj/effect/light_emitter/fake_outdoors,
+/obj/item/gun/ballistic/automatic/ar/modular,
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/m223,
+/obj/item/ammo_box/magazine/m223,
+/obj/item/ammo_box/magazine/m223,
+/turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "pp" = (
 /turf/open/floor/iron/smooth,
@@ -5923,6 +5936,15 @@
 /obj/structure/spacevine,
 /obj/structure/punji_sticks,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"xl" = (
+/obj/effect/light_emitter/fake_outdoors,
+/obj/item/gun/ballistic/automatic/sol_smg,
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
+/obj/item/ammo_box/magazine/c35sol_pistol/stendo,
+/turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "xq" = (
 /obj/item/reagent_containers/cup/bottle/adminordrazine{
@@ -9111,6 +9133,12 @@
 "JT" = (
 /obj/machinery/suit_storage_unit/engine,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"JU" = (
+/obj/effect/light_emitter/fake_outdoors,
+/obj/effect/spawner/armory_spawn/centcom_lasers,
+/obj/structure/rack,
+/turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "JV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -34143,7 +34171,7 @@ cv
 cv
 cv
 cv
-cv
+xl
 jf
 pp
 Ly
@@ -34360,7 +34388,7 @@ qE
 qE
 cv
 cv
-cv
+po
 jf
 pp
 Wo
@@ -34577,7 +34605,7 @@ cv
 cv
 qE
 cv
-cv
+JU
 jf
 pp
 pp
