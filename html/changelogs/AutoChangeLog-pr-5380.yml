@@ -1,0 +1,5 @@
+author: "1393F"
+delete-after: True
+changes:
+  - qol: "RB-MK2 reactor boards can be purchased from cargo along with their fuel rods! They come with mildly random tritium amounts."
+  - balance: "The RB-MK2 has been made less costly to build"
