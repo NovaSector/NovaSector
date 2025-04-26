@@ -29,6 +29,8 @@
 	var/external_delay = 5 SECONDS
 	///If set to FALSE, won't install if the same reagents already exist in the target.
 	var/can_overdose = FALSE
+	///If set to TRUE, can_overdose can be toggled between TRUE and FALSE via screwdriver.
+	var/can_hack = TRUE
 	///If set to FALSE, the chip gets deleted when uses reaches 0.
 	var/reusable = TRUE
 	///How many times the chip can be used.
@@ -62,10 +64,37 @@
 
 /obj/item/disk/neuroware/examine()
 	. = ..()
-	if(uses > 0)
-		. += span_notice("It has [uses] user license[uses > 1 ? "s" : ""] left.")
-	else
+	if(uses <= 0)
 		. += span_notice("It is spent.")
+		return
+	. += span_notice("Its overload safety could be [can_overdose ? "enabled" : "disabled"] with a screwdriver.")
+	. += span_notice("It has [uses] user license[uses > 1 ? "s" : ""] left.")
+
+// Toggle reagent overdose (overload) prevention
+/obj/item/disk/neuroware/screwdriver_act(mob/living/user, obj/item/screwdriver)
+	if(!can_hack)
+		return FALSE
+	if(uses <= 0)
+		balloon_alert(user, "it's been used up!")
+		return FALSE
+	balloon_alert(user, "[can_overdose ? "enabling" : "disabling"] safety...")
+	screwdriver.play_tool_sound(src, 100)
+	if(!screwdriver.use_tool(src, user, 2 SECONDS))
+		balloon_alert(user, "interrupted!")
+		return FALSE
+
+	can_overdose = !can_overdose
+
+	playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+	balloon_alert(user, "safety [can_overdose ? "disabled" : "enabled"]")
+	return TRUE
+
+/obj/item/disk/neuroware/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+	if(can_hack && (uses > 0) && istype(held_item, /obj/item/screwdriver))
+		context[SCREENTIP_CONTEXT_LMB] = "[can_overdose ? "Enable" : "Disable"] overload safety"
+		return CONTEXTUAL_SCREENTIP_SET
+	return .
 
 /obj/item/disk/neuroware/attack_self(mob/user, modifiers)
 	if(!try_install(user, user))
@@ -75,9 +104,21 @@
 	if(!try_install(mob, user))
 		return ..()
 
+
 ///Safely implement any side-effects after installing.
 /obj/item/disk/neuroware/proc/after_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	return
+
+///Returns TRUE if overdose would occur upon install(), overwise returns FALSE.
+/obj/item/disk/neuroware/proc/check_overdose(mob/living/carbon/human/target, list/reagent_list)
+	for(var/reagent_type as anything in reagent_list)
+		var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
+		if(!existing_reagent || existing_reagent.overdose_threshold == 0)
+			continue
+		var/new_volume = reagent_list[reagent_type] + existing_reagent.volume
+		if(new_volume >= existing_reagent.overdose_threshold)
+			return TRUE
+	return FALSE
 
 ///Installs only if the mob has a synthetic brain
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
@@ -111,13 +152,16 @@
 		if(target.is_blind())
 			to_chat(target, span_userdanger("Something was inserted into your [NEURO_SLOT_NAME]!"))
 
-	playsound(src, 'sound/machines/pda_button/pda_button1.ogg', 50, TRUE)
-	var/install_status = install(target, user)
-	if(!install_status)
-		balloon_alert(user, "installation failed!")
+	// Prevent reagent overdose if safety is enabled
+	if(length(list_reagents) && !can_overdose && check_overdose(target, list_reagents))
+		balloon_alert(user, "overload prevented!")
 		return
-
+	// Actually perform the installation
+	if(!install(target, user))
+		return
 	target.balloon_alert_to_viewers(success_message)
+	playsound(target, 'sound/machines/pda_button/pda_button1.ogg', 50, TRUE)
+	// Implement side-effects from subtypes
 	after_install(target, user)
 
 	uses += -1
@@ -130,21 +174,13 @@
 /obj/item/disk/neuroware/proc/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(isnull(list_reagents))
 		return TRUE
-	// Prevent install if it would cause a reagent overdose
-	if(!can_overdose)
-		for(var/reagent_type as anything in list_reagents)
-			var/datum/reagent/existing_reagent = target.has_reagent(reagent_type)
-			if(!existing_reagent || existing_reagent.overdose_threshold == 0)
-				continue
-			var/new_volume = list_reagents[reagent_type] + existing_reagent.volume
-			if(new_volume >= existing_reagent.overdose_threshold)
-				return FALSE
-
+	// Instantiate and transfer reagents to the target
 	var/total_units = counterlist_sum(list_reagents)
 	var/datum/reagents/chip_reagents = new(total_units)
 	chip_reagents.add_noreact_reagent_list(list_reagents)
 	chip_reagents.trans_to(target, total_units)
 
+	// Show status effect to the target
 	var/datum/status_effect/neuroware/neuro_status = target.has_status_effect(/datum/status_effect/neuroware)
 	if(isnull(neuro_status))
 		target.apply_status_effect(/datum/status_effect/neuroware, length(list_reagents))
