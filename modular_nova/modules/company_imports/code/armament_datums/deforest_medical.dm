@@ -164,6 +164,12 @@
 /datum/armament_entry/company_import/deforest/neuroware/brain
 	item_type = /obj/item/disk/neuroware/brain
 
+/datum/armament_entry/company_import/deforest/neuroware/morphine
+	item_type = /obj/item/disk/neuroware/morphine
+
+/datum/armament_entry/company_import/deforest/neuroware/lidocaine
+	item_type = /obj/item/disk/neuroware/lidocaine
+
 /datum/armament_entry/company_import/deforest/neuroware/neuroware/happiness
 	item_type = /obj/item/disk/neuroware/happiness
 
