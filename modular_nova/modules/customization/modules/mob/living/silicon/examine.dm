@@ -2,7 +2,7 @@
  *  Returns a list of lines containing silicon flavourtext, temporary flavourtext, ERP preferences and a link to "look closer" and open the examine panel.
  *  Intended to be appended at the end of examine() result.
  */
-/mob/living/silicon/proc/get_silicon_flavortext()
+/mob/living/silicon/proc/get_silicon_flavortext(mob/user)
 	. = list()
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's client's silicon_flavor_text preference datum. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
@@ -18,8 +18,8 @@
 
 	if(client)
 		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
-		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences))
-			. += span_notice("ERP STATUS: [erp_status_pref]")
+		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences) && user.client.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+			. += span_notice("ERP STATUS: [span_revenboldnotice(erp_status_pref)]")
 
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 		var/opt_in_status = mind?.get_effective_opt_in_level()
