@@ -5565,7 +5565,7 @@
 /turf/open/floor/wood/tile,
 /area/centcom/interlink)
 "cTQ" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/siding/dark{
@@ -5981,9 +5981,9 @@
 /area/centcom/holding/cafe)
 "dJF" = (
 /obj/item/toy/plush/lizard_plushie/green{
-	name = "Breaks-The-PRs"
+	name = "Fixes-The-ATs"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/centcom/interlink)
 "dLq" = (
 /obj/structure/sign/poster/random/directional/north,
@@ -6150,6 +6150,9 @@
 	name = "Interlink Cafe"
 	},
 /turf/open/floor/iron/cafeteria,
+/area/centcom/interlink)
+"dXO" = (
+/turf/open/floor/plating/airless,
 /area/centcom/interlink)
 "dYa" = (
 /obj/structure/stone_tile/surrounding_tile/cracked,
@@ -11940,7 +11943,7 @@
 /turf/open/floor/sepia,
 /area/centcom/holding/cafe)
 "nHC" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/button/door/directional/south{
 	id = "bs_shutters";
 	name = "Privacy Shutter Comtrol";
@@ -13453,7 +13456,7 @@
 /turf/open/floor/iron/white,
 /area/centcom/interlink/dorm_rooms)
 "pMm" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
@@ -13600,7 +13603,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "pVh" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/machinery/button/door/directional/north{
 	id = "ntrep_shutters";
 	name = "Privacy Shutter Comtrol";
@@ -39961,7 +39964,7 @@ qWQ
 mjo
 tvw
 pCh
-aqG
+dXO
 pCh
 tvw
 vLx
@@ -40217,9 +40220,9 @@ tvw
 tvw
 tvw
 tvw
-aqG
+dXO
 dJF
-aqG
+dXO
 tvw
 vLx
 tpU
@@ -40475,7 +40478,7 @@ rmA
 fGC
 tvw
 pCh
-aqG
+dXO
 pCh
 tvw
 vLx
