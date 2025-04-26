@@ -5,16 +5,21 @@
 	icon_state = "chip_nt"
 	success_message = "instruments upgraded"
 	manufacturer_tag = NEUROWARE_NT
+	can_hack = FALSE
 	var/list/add_instrument_ids
 
 /obj/item/disk/neuroware/synthesizer/install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	var/datum/action/sing_tones/sing_action = locate(/datum/action/sing_tones) in target.actions
+	// Mob has robotic brain, but isn't synthetic humanoid species
 	if(isnull(sing_action))
+		balloon_alert(user, "chip incompatible!")
 		return FALSE
 	var/datum/song/song = sing_action.song
 	// Prevent installing multiple times
 	if(song.allowed_instrument_ids.Find(add_instrument_ids[1]))
+		balloon_alert(user, "already installed!")
 		return FALSE
+	// Add the new instrments
 	song.allowed_instrument_ids += add_instrument_ids
 	song.set_instrument(add_instrument_ids[1])
 	return TRUE
@@ -41,17 +46,17 @@
 
 ///Neuroware which spawns in maintenance and have random reagent contents
 /obj/item/disk/neuroware/maintenance
-	name = "maintenance neuroware"
+	name = "unlabeled neuroware"
 	desc = "A strange neuroware chip found in the depths of maintenance."
 	icon_state = "chip_generic"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	can_hack = FALSE
 	var/static/list/maint_neuroware_names = list(
-		"maintenance neuroware",
 		"trashed neuroware",
 		"unlabeled neuroware",
-		"suspicious neuroware",
+		"strange neuroware",
 		"hacked neuroware",
-		"lucky neuroware",
+		"upgraded neuroware",
 		"ominous neuroware",
 		"homebrew neuroware"
 	)
