@@ -379,7 +379,7 @@
 	name = "Toggle Hiding"
 	button_icon_state = "hide"
 
-/datum/action/cooldown/mob_cooldown/borer/toggle_hiding/Trigger(trigger_flags, atom/target)
+/datum/action/cooldown/borer/toggle_hiding/Trigger(trigger_flags, atom/target)
 	. = ..()
 	if(!.)
 		return FALSE
