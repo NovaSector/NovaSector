@@ -9,6 +9,7 @@
 // Override of Brain Tumor quirk for species with artificial brains.
 // Does not appear in TGUI or the character preferences window.
 /datum/quirk/item_quirk/brainproblems/synth
+	name = "Positronic Cascade Anomaly"
 	gain_text = "<span class='danger'>You feel glitchy.</span>"
 	lose_text = "<span class='notice'>You no longer feel glitchy.</span>"
 	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
