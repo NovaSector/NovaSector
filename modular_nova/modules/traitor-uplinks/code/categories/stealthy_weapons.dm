@@ -6,3 +6,11 @@
 	surplus = 0
 	progression_minimum = 10 MINUTES
 	uplink_item_flags = NONE
+
+//In essence, this following code removes Romerol.
+/datum/uplink_item/stealthy_weapons/romerol_kit
+	item = /obj/item/bikehorn/rubberducky
+	purchasable_from = NONE
+	surplus = 0
+	progression_minimum = 777 MINUTES
+	cost = 500
