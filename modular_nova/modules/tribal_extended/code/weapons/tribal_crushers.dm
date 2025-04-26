@@ -34,21 +34,23 @@
 
 // Marks living things in melee of the user if crusher is charged.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
-	var/spin_radius = 1 //Hits everyone around the user
-	var/spin_center = get_turf(usr)
 	if(!charged)
 		return
-	new /obj/effect/temp_visual/runic_spin(get_turf(usr))
-	for(var/mob/living/living_target in range(spin_radius,spin_center))
-		if(living_target != usr && !(usr in living_target.buckled_mobs)) // we're not marking ourselves or our mount.
+	var/spin_radius = 1
+	var/spin_center = get_turf(usr)
+	new /obj/effect/temp_visual/runic_spin(spin_center)
+	var/list/living_targets = range(spin_radius, spin_center)
+	for(var/mob/living/living_target in living_targets)
+		if((living_target == usr) || (usr in living_target.buckled_mobs))
+			continue
+		if(!QDELETED(living_target) && living_target.health > 0)
 			for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
 				crusher_trophy.on_projectile_hit_mob(living_target, usr)
-			if(QDELETED(living_target) || living_target.health <= 0)
-				continue
+
 			living_target.apply_status_effect(/datum/status_effect/crusher_mark)
 			living_target.update_appearance()
-	for(var/turf/open/aoe in range(spin_radius,spin_center))
-		if(aoe != get_turf(usr))
+	for(var/turf/open/aoe in living_targets)
+		if(aoe != spin_center)
 			new /obj/effect/temp_visual/flying_rune(aoe)
 	playsound(usr, 'sound/effects/magic/tail_swing.ogg', 100, TRUE)
 	charged = FALSE
@@ -112,21 +114,23 @@
 /obj/item/hearthkin_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	add_fingerprint(user)
-	if(ispath(attacking_item.type, /obj/item/chisel) && user.job == "Icemoon Dweller")
-		user.balloon_alert(user, "begins engraving runes...")
-		playsound(src, pick('sound/effects/break_stone.ogg'), 50, TRUE)
-		var/engrave_time = 30 SECONDS
-		// Use built-in progress bar
-		if(do_after(user, engrave_time, target = src, progress = TRUE))
-			user.visible_message("<span class='success'>[user] completes the engraving — the fragment glows faintly.</span>")
-			var/turf/T = get_turf(src)
-			qdel(src)
-			new /obj/item/hearthkin_ship_fragment_active(T)
-		else
-			user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
+	if(!ispath(attacking_item.type, /obj/item/chisel))
+		return
+	if(user.job != "Icemoon Dweller")
+		return
+	user.balloon_alert(user, "begins engraving runes...")
+	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
+	var/engrave_time = 30 SECONDS
+	if(do_after(user, engrave_time, target = src, progress = TRUE))
+		user.visible_message("<span class='success'>[user] completes the engraving — the fragment glows faintly.</span>")
+		var/turf/T = get_turf(src)
+		qdel(src)
+		new /obj/item/hearthkin_ship_fragment_active(T)
+	else
+		user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
 
 // Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
-	if (SSmapping.current_map.map_name == "Ice Box Station" || SSmapping.current_map.map_name == "Snowglobe Station")
+	if(SSmapping.current_map?.map_name in list("Ice Box Station", "Snowglobe Station"))
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
