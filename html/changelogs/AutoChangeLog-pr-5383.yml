@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - bugfix: "fixed Interdyne biosuits being stocked in Virology, instead of Interdyne"
