@@ -146,10 +146,10 @@
 				/obj/item/reagent_containers/cup/bottle/incubus_draft = 6,
 
 				//neurowares
-				/obj/item/disk/neuroware/crocin = 20,
-				/obj/item/disk/neuroware/camphor = 10,
-				/obj/item/storage/box/flat/neuroware/crocin = 6,
-				/obj/item/storage/box/flat/neuroware/camphor = 3,
+				/obj/item/disk/neuroware/crocin = 30,
+				/obj/item/disk/neuroware/camphor = 20,
+				/obj/item/storage/box/flat/neuroware/crocin = 15,
+				/obj/item/storage/box/flat/neuroware/camphor = 10,
 			),
 		),
 		list(
