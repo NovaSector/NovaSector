@@ -29,8 +29,8 @@
 	item_path = /obj/item/clothing/gloves/fingerless
 
 /datum/loadout_item/gloves/lalune_long
-	name = "Designer Black Gloves"
-	item_path = /obj/item/clothing/gloves/lalune_long
+	name = "Designer Gloves"
+	item_path = /obj/item/clothing/gloves/designer
 
 /datum/loadout_item/gloves/black
 	name = "Black Gloves"

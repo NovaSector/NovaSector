@@ -867,3 +867,65 @@
   vinylspiders:
   - bugfix: fixes an issue that was causing a number of icons in the loadout menu
       to not load correctly
+2025-04-22:
+  Bannhammger:
+  - rscadd: Spider Clan taught their ninjas to taunt, don't fall for it
+  - bugfix: Shotgun mags no longer load shells without CD.
+  OrbisAnima:
+  - qol: We added two extra syringes to all IV drips, so they can now transfer and
+      drain reagents thrice as fast!
+  OrionTheFox:
+  - qol: The Breathing Tube implant can now be converted to an "Integrated Breathing
+      Tube" using a screwdriver - this will hide the augment overlay, for users who
+      would rather the tube be invisible.
+  - rscadd: This "Integrated Breathing Tube" has been added to the loadout for crew
+      who wish to make their already-equipped tubes more subtle.
+  RatFromTheJungle:
+  - balance: 35 sol nerfed in both damage and wound bonus
+  - balance: The sindano is no longer burst, instead it's full auto and shoots about
+      at guepe pace
+  - balance: 'speaking of: the guepe is now semi-auto, and no longer restricted in
+      cargo. (also shoots slightly faster)'
+  - balance: mold-core health is dropped to 450, from 1200, leaving it significantly
+      easier to crush!
+  unit0016:
+  - bugfix: You can no longer stack multiple types of condos on the same door number.
+      Please stop solemnly opening the door expecting something different.
+2025-04-23:
+  FlufflesTheDog:
+  - bugfix: Photocopiers on Nova maps start pre-stocked with paper and toner
+  Iajret:
+  - bugfix: After some long-winded discussion, medical committee finally declares
+      that hemophages organs are not, in fact, harmful (at least for the hemophages
+      themselves). All analyzers now come with updated firmware to account for that.
+  unit0016:
+  - rscadd: Serenitystation has received support for ruins!
+  - balance: LUNA has been entirely reworked.
+2025-04-24:
+  A.C.M.O.:
+  - rscadd: Added an otter snout and a waggable otter tail.
+  Iajret:
+  - bugfix: 'Interlink staffing changes: fired Breaks-The-PRs and hired Fixes-The-ATs
+      instead'
+2025-04-25:
+  Yobrocharlie:
+  - bugfix: fixed the heretic final boss not being where its meant to, and added a
+      backup exit.
+2025-04-26:
+  Bot-Tracc-200:
+  - balance: The carwo LMG has been removed from stock rotation, sources cite "Maybe
+      Nanotrasen really didn't want their station to have light machineguns present."
+  Darkinite:
+  - image: modified the present icon
+  Hardly:
+  - code_imp: tweaks extreme roleplay toggle so that it hides others' preferences
+      on examine and ooc notes if they have it disabled.
+  - bugfix: silicon's roleplay preferences are now highlighted in purple
+  OrbisAnima:
+  - qol: Pill Bottles capacity was increased from 7 to 21. Bandage boxes were increased
+      from 7 to 14. Nugget boxes were increased from 6 to 7.
+  OrionTheFox:
+  - image: removed some (hopefully) unused Gloves icons! Please report any errors!
+  - rscadd: Evening and Designer Gloves are now greyscale!
+  unit0016:
+  - bugfix: You can now properly remove LUNA's upgrades; should you wish to.
