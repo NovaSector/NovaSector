@@ -23,7 +23,7 @@
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue"
 	light_color = "#8DEBFF"
 
-//changed compared to the basic version, mainly we don't fire a projectile and we don't care if the cursor is over the player.
+//changed compared to kintetic_crusher.dm. We don't fire a projectile and we don't care if the cursor is over the player.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		balloon_alert(user, "wield it first!")
@@ -58,13 +58,13 @@
 	update_appearance()
 	attempt_recharge_runes()
 
-//visual feedback on ability use, might need something more visible
+//visual feedback on ability use. Supposedly a glint of the sword's metal.
 /obj/effect/temp_visual/runic_spin
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "ring_leader_effect"
 	duration = 2
 
-//flavour, small rune pops where the marked target is.
+//Visual feedback small rune pops where the marked target is.
 /obj/effect/temp_visual/flying_rune
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "small_rune_11"
@@ -87,10 +87,10 @@
 		update_appearance()
 		playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
 
-//I'm not a spriter, reusing the moonlight greatsword which doesn't have a wielded icon, can probably removed if someone does a sprite with a wielded icon.
+//I'm reusing the moonlight greatsword which doesn't have a wielded icon, can probably removed if someone does a 2h sword sprite with a wielded icon.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/update_icon_state()
 	. = ..()
-	inhand_icon_state = "swordon" // this is not icon_state and not supported by 2hcomponent
+	inhand_icon_state = "swordon"
 
 /datum/crafting_recipe/runic_greatsword
 	name = "Runic Greatsword"
@@ -150,6 +150,7 @@
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
 
+//Hearthkins can use a chisel on inactive ship fragments to activate them.
 /obj/item/hearthkin_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	add_fingerprint(user)
@@ -171,6 +172,3 @@
 	. = ..()
 	if (SSmapping.current_map.map_name == "Ice Box Station" || SSmapping.current_map.map_name == "Snowglobe Station")
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
-
-// Maybe add a use for that mat for science ? (check useless relick code)
-// Possibilty to add a spear version, if I can learn to sprite something decent.
