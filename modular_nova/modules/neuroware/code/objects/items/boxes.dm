@@ -12,21 +12,27 @@
 	atom_storage.max_slots = 5
 	atom_storage.set_holdable(/obj/item/disk/neuroware)
 
-/obj/item/storage/box/flat/neuroware/space_drugs/PopulateContents()
+/obj/item/storage/box/flat/neuroware/happiness/PopulateContents()
 	for(var/i in 1 to 5)
-		new /obj/item/disk/neuroware/space_drugs(src)
-
-/obj/item/storage/box/flat/neuroware/thc/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/disk/neuroware/thc(src)
+		new /obj/item/disk/neuroware/happiness(src)
 
 /obj/item/storage/box/flat/neuroware/mindbreaker/PopulateContents()
 	for(var/i in 1 to 5)
 		new /obj/item/disk/neuroware/mindbreaker(src)
 
+/obj/item/storage/box/flat/neuroware/space_drugs/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/disk/neuroware/space_drugs(src)
+
 /obj/item/storage/box/flat/neuroware/synaptizine/PopulateContents()
 	for(var/i in 1 to 5)
 		new /obj/item/disk/neuroware/synaptizine(src)
+
+/obj/item/storage/box/flat/neuroware/thc/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/disk/neuroware/thc(src)
+
+// Lewd neurowares
 
 /obj/item/storage/box/flat/neuroware/crocin/PopulateContents()
 	for(var/i in 1 to 5)
