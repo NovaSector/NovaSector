@@ -514,7 +514,7 @@
 				var/datum/reagent/reagent = r
 				// NOVA EDIT ADDITION BEGIN - Neuroware
 				if(reagent.chemical_flags & REAGENT_NEUROWARE)
-					neuroware_list += "<span class='notice ml-2'>[reagent.name]</span><br>"
+					neuroware_list += "<span class='notice ml-2'>[reagent.name] - [round(reagent.volume, 0.001)]GQ[reagent.overdosed ? "</span> - [span_bolddanger("OVERLOADING")]" : ".</span>"]<br>"
 				// NOVA EDIT ADDITION END
 				if(reagent.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
 					continue
