@@ -8466,6 +8466,7 @@
 #include "modular_nova\modules\modular_vending\code\medical.dm"
 #include "modular_nova\modules\modular_vending\code\megaseed.dm"
 #include "modular_nova\modules\modular_vending\code\security.dm"
+#include "modular_nova\modules\modular_vending\code\snack.dm"
 #include "modular_nova\modules\modular_vending\code\tool.dm"
 #include "modular_nova\modules\modular_vending\code\vending.dm"
 #include "modular_nova\modules\modular_vending\code\wardrobes.dm"
