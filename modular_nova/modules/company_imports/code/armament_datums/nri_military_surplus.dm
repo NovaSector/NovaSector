@@ -162,6 +162,11 @@
 	cost = PAYCHECK_COMMAND * 16
 	restricted = TRUE
 
+/datum/armament_entry/company_import/nri_surplus/firearm/browning
+	item_type = /obj/item/mounted_machine_gun_folded
+	cost = PAYCHECK_COMMAND * 16
+	restricted = TRUE
+
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo
 	subcategory = "Firearm Magazines"
 	cost = PAYCHECK_CREW
@@ -186,4 +191,8 @@
 
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/amr_magazine
 	item_type = /obj/item/ammo_box/magazine/wylom
+	cost = PAYCHECK_CREW * 3
+
+/datum/armament_entry/company_import/nri_surplus/firearm_ammo/browning_magazine
+	item_type = /obj/item/ammo_box/magazine/mmg_box
 	cost = PAYCHECK_CREW * 3
