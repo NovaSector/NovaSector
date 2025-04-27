@@ -222,6 +222,7 @@
 					else
 						new /obj/effect/pod_landingzone(landing_turf, pod_type, order)
 
+				update_appearance()
 				return TRUE
 
 			var/turf/landing_turf
@@ -240,6 +241,7 @@
 			else
 				new /obj/effect/pod_landingzone(landing_turf, pod_type, order)
 
+			update_appearance()
 			return TRUE
 
 #undef EXPRESS_EMAG_DISCOUNT
