@@ -1,10 +1,10 @@
 /obj/item/kinetic_crusher/tribal/runic_greatsword
-	icon = 'icons/obj/weapons/sword.dmi'
-	icon_state = "swordon"
-	inhand_icon_state = "swordon"
-	worn_icon_state = "swordon"
 	name = "Runic Greatsword"
-	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue"
+	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue."
+	icon_state = "swordon"
+	worn_icon_state = "swordon"
+	inhand_icon_state = "swordon"
+	icon = 'icons/obj/weapons/sword.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	light_color = "#8DEBFF"
