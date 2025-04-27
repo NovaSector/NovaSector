@@ -180,25 +180,45 @@
 /datum/armament_entry/company_import/vitezstvi/shot_shells/confetti
 	item_type = /obj/item/ammo_box/advanced/s12gauge/honkshot
 
-// Boxes of kiboko launcher ammo
+// Grenades like grenades and boxes of kiboko launcher ammo (which are grenades)
 
-/datum/armament_entry/company_import/vitezstvi/grenade_shells
-	subcategory = "Grenade Shells"
+/datum/armament_entry/company_import/vitezstvi/grenades
+	subcategory = "Grenades"
 	cost = PAYCHECK_COMMAND
 
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/practice
+/datum/armament_entry/company_import/vitezstvi/grenades/frag
+	item_type = /obj/item/grenade/frag
+	restricted = TRUE
+
+/datum/armament_entry/company_import/vitezstvi/grenades/smoke
+	item_type = /obj/item/grenade/smokebomb
+
+/datum/armament_entry/company_import/vitezstvi/grenades/stingbang
+	item_type = /obj/item/grenade/stingbang
+
+/datum/armament_entry/company_import/vitezstvi/grenades/ninebang
+	item_type = /obj/item/grenade/primer
+
+/datum/armament_entry/company_import/vitezstvi/grenades/ninestingbang
+	item_type = /obj/item/grenade/primer/stingbang
+
+/datum/armament_entry/company_import/vitezstvi/grenades/antigravity
+	item_type = /obj/item/grenade/antigravity
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_practice
 	item_type = /obj/item/ammo_box/c980grenade
 
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/smoke
+/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_smoke
 	item_type = /obj/item/ammo_box/c980grenade/smoke
 
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/riot
+/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_riot
 	item_type = /obj/item/ammo_box/c980grenade/riot
 
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/shrapnel
+/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_shrapnel
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel
 	restricted = TRUE
 
-/datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
+/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
 	restricted = TRUE
