@@ -13,7 +13,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
 	icon_state = "rune_axe"
 	name = "Runic Greataxe"
-	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue"
+	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue."
 	light_color = "#8DEBFF"
 	worn_icon = 'icons/mob/clothing/back.dmi'
 	worn_icon_state = "crusher"
@@ -22,7 +22,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
 	icon_state = "rune_spear"
 	name = "Runic Spear"
-	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue"
+	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	light_color = "#8DEBFF"
 
 //changed compared to kintetic_crusher.dm. We don't fire a projectile and we don't care if the cursor is over the player.
@@ -113,10 +113,10 @@
 	pickup_sound = SFX_STONE_PICKUP
 
 //Hearthkins can use a chisel on inactive ship fragments to activate them.
-/obj/item/hearthkin_ship_fragment_inactive/attackby(obj/item/attacking_item, mob/user)
+/obj/item/hearthkin_ship_fragment_inactive/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	add_fingerprint(user)
-	if(!ispath(attacking_item.type, /obj/item/chisel))
+	if(!ispath(tool.type, /obj/item/chisel))
 		return
 	if(user.job != "Icemoon Dweller")
 		return
