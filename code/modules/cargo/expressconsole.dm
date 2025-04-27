@@ -105,7 +105,7 @@
 				"packs" = get_packs_data(pack.group, express = TRUE), // will you show me?
 			) // i'd be right happy to
 
-/obj/machinery/computer/cargo/express/ui_static_data(mob/user) // NOVA EDIT
+/obj/machinery/computer/cargo/express/ui_data(mob/user)
 	var/canBeacon = beacon && (isturf(beacon.loc) || ismob(beacon.loc))//is the beacon in a valid location?
 	var/list/data = list()
 	var/datum/bank_account/account = SSeconomy.get_dep_account(cargo_account)
@@ -223,7 +223,6 @@
 					else
 						new /obj/effect/pod_landingzone(landing_turf, pod_type, order)
 
-				update_appearance()
 				return TRUE
 
 			var/turf/landing_turf
@@ -242,7 +241,6 @@
 			else
 				new /obj/effect/pod_landingzone(landing_turf, pod_type, order)
 
-			update_appearance()
 			return TRUE
 
 #undef EXPRESS_EMAG_DISCOUNT
