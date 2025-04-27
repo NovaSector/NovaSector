@@ -189,6 +189,7 @@
 /datum/armament_entry/company_import/vitezstvi/grenades/frag
 	item_type = /obj/item/grenade/frag
 	restricted = TRUE
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/grenades/smoke
 	item_type = /obj/item/grenade/smokebomb
@@ -204,7 +205,7 @@
 
 /datum/armament_entry/company_import/vitezstvi/grenades/antigravity
 	item_type = /obj/item/grenade/antigravity
-	cost = PAYCHECK_COMMAND * 2
+	cost = PAYCHECK_COMMAND * 3
 
 /datum/armament_entry/company_import/vitezstvi/grenades/kiboko_practice
 	item_type = /obj/item/ammo_box/c980grenade
