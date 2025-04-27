@@ -28,8 +28,8 @@
 /obj/item/knife/kitchen/plasteel_chef/equipped(mob/living/user, slot)
 	. = ..()
 	if(!(user.ckey in allowed_ckeys))
-            balloon_alert(user, "only a worthy chef may wield [src]!")
-            user.dropItemToGround(src)
+        balloon_alert(user, "only a worthy chef may wield [src]!")
+        user.dropItemToGround(src)
 		return
 	if(slot_flags & slot)
 		user.add_mood_event("plasteel_chef", /datum/mood_event/plasteel_chef)
