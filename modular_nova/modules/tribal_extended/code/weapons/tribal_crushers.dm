@@ -38,7 +38,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	return ITEM_INTERACT_SUCCESS
 
-// Marks living things in melee of the user if crusher is charged.
+/// Marks living things in melee of the user if crusher is charged.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
 	if(!charged)
 		return
@@ -73,14 +73,14 @@
 	icon_state = "small_rune_11"
 	duration = 6
 
-// Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
+/// Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
 /obj/item/kinetic_crusher/tribal/proc/attempt_recharge_runes(set_recharge_time)
 	if(!set_recharge_time)
 		set_recharge_time = charge_time
 	deltimer(charge_timer)
 	charge_timer = addtimer(CALLBACK(src, PROC_REF(recharge_runes)), set_recharge_time, TIMER_STOPPABLE)
 
-// Recharges the projectile (slight edit of kinetic_crusher.dm)
+/// Recharges the projectile (slight edit of kinetic_crusher.dm)
 /obj/item/kinetic_crusher/tribal/proc/recharge_runes()
 	if(!charged)
 		charged = TRUE
@@ -113,12 +113,12 @@
 	user.balloon_alert(user, "begins engraving runes...")
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 	if(do_after(user, 30 SECONDS, target = src, progress = TRUE))
-		user.visible_message("<span class='success'>[user] completes the engraving — the fragment glows faintly.</span>")
-		var/turf/T = get_turf(src)
+		user.visible_message(span_notice("[user] completes the engraving — the fragment glows faintly."))
+		var/turf/src_turf = get_turf(src)
+		new /obj/item/hearthkin_ship_fragment_active(src_turf)
 		qdel(src)
-		new /obj/item/hearthkin_ship_fragment_active(T)
 	else
-		user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
+		user.visible_message(span_warning("[user]'s engraving was interrupted."))
 
 // Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
 /datum/controller/subsystem/mapping/Initialize()
