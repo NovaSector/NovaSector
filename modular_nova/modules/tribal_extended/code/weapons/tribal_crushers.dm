@@ -1,26 +1,30 @@
 /obj/item/kinetic_crusher/tribal/runic_greatsword
 	name = "Runic Greatsword"
 	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue."
-	icon_state = "swordon"
-	worn_icon_state = "swordon"
-	inhand_icon_state = "swordon"
-	icon = 'icons/obj/weapons/sword.dmi'
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi'
+	icon_state = "runic_greatsword"
+	worn_icon = 'modular_nova/modules/tribal_extended/icons/back.dmi'
+	worn_icon_state = "runic_greatsword"
+	lefthand_file = 'modular_nova/modules/tribal_extended/icons/swords_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/tribal_extended/icons/swords_righthand.dmi'
 	light_color = "#8DEBFF"
+	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
+	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
 
 /obj/item/kinetic_crusher/tribal/runic_greataxe
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
-	icon_state = "rune_axe"
+	icon_state = "runic_axe"
 	name = "Runic Greataxe"
 	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue."
 	light_color = "#8DEBFF"
 	worn_icon = 'icons/mob/clothing/back.dmi'
 	worn_icon_state = "crusher"
+	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
+	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
 
 /obj/item/kinetic_crusher/spear/tribal/runic_spear
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
-	icon_state = "rune_spear"
+	icon_state = "runic_spear"
 	name = "Runic Spear"
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	light_color = "#8DEBFF"
@@ -48,7 +52,6 @@
 		if(!QDELETED(living_target) && living_target.health > 0)
 			for(var/obj/item/crusher_trophy/crusher_trophy as anything in trophies)
 				crusher_trophy.on_projectile_hit_mob(living_target, usr)
-
 			living_target.apply_status_effect(/datum/status_effect/crusher_mark)
 			living_target.update_appearance()
 	for(var/turf/open/aoe in living_targets)
@@ -56,10 +59,6 @@
 			new /obj/effect/temp_visual/flying_rune(aoe)
 	playsound(usr, 'sound/effects/magic/tail_swing.ogg', 100, TRUE)
 	charged = FALSE
-	icon_state = "swordoff"
-	inhand_icon_state = "swordoff"
-	worn_icon_state = "swordoff"
-	update_appearance()
 	attempt_recharge_runes()
 
 //visual feedback on ability use. Supposedly a glint of the sword's metal.
@@ -85,16 +84,7 @@
 /obj/item/kinetic_crusher/tribal/proc/recharge_runes()
 	if(!charged)
 		charged = TRUE
-		icon_state = "swordon"
-		inhand_icon_state = "swordon"
-		worn_icon_state = "swordon"
-		update_appearance()
 		playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
-
-//I'm reusing the moonlight greatsword which doesn't have a wielded icon, can probably removed if someone does a 2h sword sprite with a wielded icon.
-/obj/item/kinetic_crusher/tribal/runic_greatsword/update_icon_state()
-	. = ..()
-	inhand_icon_state = "swordon"
 
 /obj/item/hearthkin_ship_fragment_inactive
 	name = "Dormant fragment of the Stjarndrakkr"
