@@ -151,8 +151,13 @@
 	else
 		user.visible_message(span_warning("[user]'s engraving was interrupted."))
 
-// Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
+// Adds rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
 	if(SSmapping.current_map?.map_name in list("Ice Box Station", "Snowglobe Station"))
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
+
+// Adds an icon for the hammer in the crafting menu.
+/datum/asset/spritesheet_batched/crafting/create_spritesheets()
+	. = ..()
+	insert_icon(replacetext(TOOL_HAMMER, " ", ""), uni_icon('modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi', "hammer"))
