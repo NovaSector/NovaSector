@@ -128,7 +128,7 @@
 		new /obj/item/hearthkin_ship_fragment_active(src_turf)
 		qdel(src)
 	else
-		user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
+		user.visible_message(span_warning("[user]'s engraving was interrupted."))
 
 // Add rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
 /datum/controller/subsystem/mapping/Initialize()
