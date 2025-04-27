@@ -23,7 +23,7 @@
 
 /datum/quirk/system_shock/proc/on_electrocute()
 	SIGNAL_HANDLER
-	var/knockout_length = 7 SECONDS + rand(1 SECONDS, 3 SECONDS)
+	var/knockout_length = rand(8 SECONDS, 10 SECONDS)
 	quirk_holder.set_static_vision(knockout_length)
 	quirk_holder.balloon_alert(quirk_holder, "system rebooting")
 	to_chat(quirk_holder, span_danger("POWER INSTABILITY: SYSTEM RECALIBRATING."))
