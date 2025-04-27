@@ -27,7 +27,7 @@
 
 //changed compared to kintetic_crusher.dm. We don't fire a projectile and we don't care if the cursor is over the player.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded) // NOVA EDIT CHANGE - Original: if(!HAS_TRAIT(src, TRAIT_WIELDED))
+	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded)
 		balloon_alert(user, "wield it first!")
 		return ITEM_INTERACT_BLOCKING
 	runic_spin()
