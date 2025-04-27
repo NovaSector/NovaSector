@@ -56,7 +56,7 @@ export function ExaminePanel(props) {
   const [oocNotesIndex, setOocNotesIndex] = useState('SFW');
   const [flavorTextIndex, setFlavorTextIndex] = useState('SFW');
   return (
-    <Window title={`${character_name}`} width={900} height={670} theme="ntos">
+    <Window title={character_name} width={900} height={670} theme="ntos">
       <Window.Content>
         <Stack fill>
           <Stack.Item width="30%">
