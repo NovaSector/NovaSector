@@ -11,6 +11,13 @@
 	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
 	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
 
+/obj/item/kinetic_crusher/tribal/runic_greatsword/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+	else
+		. += emissive_appearance(icon_file, "[inhand_icon_state]-emissive", src, alpha = src.alpha)
+
 /obj/item/kinetic_crusher/tribal/runic_greataxe
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
 	icon_state = "runic_axe"
@@ -28,6 +35,30 @@
 	name = "Runic Spear"
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	light_color = "#8DEBFF"
+
+/obj/item/kinetic_crusher/proc/adding_glow()
+    return emissive_appearance(
+        'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi',
+        "[icon_state]-emissive",
+        src,
+        alpha = src.alpha
+    )
+
+/obj/item/kinetic_crusher/tribal/runic_greatsword/update_overlays()
+    . = ..()
+    . += adding_glow()
+
+/obj/item/kinetic_crusher/tribal/runic_greataxe/update_overlays()
+    . = ..()
+    . += adding_glow()
+
+/obj/item/kinetic_crusher/spear/tribal/runic_spear/update_overlays()
+    . = ..()
+    . += adding_glow()
+
+/obj/item/kinetic_crusher/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
 
 //changed compared to kintetic_crusher.dm. We don't fire a projectile and we don't care if the cursor is over the player.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
