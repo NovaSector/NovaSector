@@ -18,7 +18,7 @@
 	if(!(user.ckey in allowed_ckeys))
 		balloon_alert(user, "only a worthy chef may wield [src]!")
 		return
-    return ..()
+	return ..()
 // Mood define
 /datum/mood_event/plasteel_chef
 	description = "You have an extreme sense of pride at what you've accomplished."
@@ -27,7 +27,7 @@
 // Mood application & Booting item from hand of unworthy if equipped by other means
 /obj/item/knife/kitchen/plasteel_chef/equipped(mob/living/user, slot)
 	. = ..()
-    if(!(user.ckey in allowed_ckeys))
+	if(!(user.ckey in allowed_ckeys))
 		balloon_alert(user, "only a worthy chef may wield [src]!")
 		user.dropItemToGround(src)
 		return
