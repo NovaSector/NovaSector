@@ -74,7 +74,7 @@
 	icon_state = "small_rune_11"
 	duration = 6
 
-// Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
+/// Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
 /obj/item/kinetic_crusher/tribal/proc/attempt_recharge_runes(set_recharge_time)
 	if(!set_recharge_time)
 		set_recharge_time = charge_time
