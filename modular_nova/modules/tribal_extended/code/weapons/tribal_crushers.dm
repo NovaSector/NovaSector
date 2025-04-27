@@ -124,9 +124,9 @@
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 	if(do_after(user, 30 SECONDS, target = src, progress = TRUE))
 		user.visible_message(span_notice("[user] completes the engraving — the fragment glows faintly."))
-		var/turf/T = get_turf(src)
+		var/turf/src_turf = get_turf(src)
+		new /obj/item/hearthkin_ship_fragment_active(src_turf)
 		qdel(src)
-		new /obj/item/hearthkin_ship_fragment_active(T)
 	else
 		user.visible_message("<span class='warning'>[user]'s engraving was interrupted.</span>")
 
