@@ -13,15 +13,23 @@
 	/// The ckeys allowed to get the mood buff from this event reward.
 	var/static/list/allowed_ckeys
 
+// Prevents unworthy from picking up the item
+/obj/item/knife/kitchen/plasteel_chef/attack_hand(mob/living/user, list/modifiers)
+    if(!(user.ckey in allowed_ckeys))
+        balloon_alert(user, "only a worthy chef may wield [src]!")
+        return
+    return ..()
 // Mood define
 /datum/mood_event/plasteel_chef
 	description = "You have an extreme sense of pride at what you've accomplished."
 	mood_change = 3
 
-// Mood application
+// Mood application & Booting item from hand of unworthy if equipped by other means
 /obj/item/knife/kitchen/plasteel_chef/equipped(mob/living/user, slot)
 	. = ..()
 	if(!(user.ckey in allowed_ckeys))
+            balloon_alert(user, "only a worthy chef may wield [src]!")
+            user.dropItemToGround(src)
 		return
 	if(slot_flags & slot)
 		user.add_mood_event("plasteel_chef", /datum/mood_event/plasteel_chef)
