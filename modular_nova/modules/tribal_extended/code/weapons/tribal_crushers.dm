@@ -123,7 +123,7 @@
 	user.balloon_alert(user, "begins engraving runes...")
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 	if(do_after(user, 30 SECONDS, target = src, progress = TRUE))
-		user.visible_message("<span class='success'>[user] completes the engraving — the fragment glows faintly.</span>")
+		user.visible_message(span_notice("[user] completes the engraving — the fragment glows faintly."))
 		var/turf/T = get_turf(src)
 		qdel(src)
 		new /obj/item/hearthkin_ship_fragment_active(T)
