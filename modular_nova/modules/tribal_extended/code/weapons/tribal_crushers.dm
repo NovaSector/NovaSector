@@ -151,10 +151,10 @@
 	else
 		user.visible_message(span_warning("[user]'s engraving was interrupted."))
 
-// Adds rare xenoarch mat to global list "tech_reward" if map is Icebox or Snowglobe. (We don't want to find hearthkin colony ship fragment on lavaland.)
+// Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn, this will probably break if someone makes an ice map where the cat camp isn't on Zlevel 2 & 3.
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
-	if(SSmapping.current_map?.map_name in list("Ice Box Station", "Snowglobe Station"))
+	if (SSmapping.level_trait(2, ZTRAIT_ICE_RUINS_UNDERGROUND)&&SSmapping.level_trait(3, ZTRAIT_ICE_RUINS_UNDERGROUND))
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
 // Adds an icon for the hammer in the crafting menu.
