@@ -10,8 +10,9 @@
 	worn_icon_state = "frontier"
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
+	storage_type = /datum/storage/medkit/robotic_repair
 
-/obj/item/storage/medkit/robotic_repair/Initialize(mapload)
+/datum/storage/medkit/robotic_repair/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
 	. = ..()
 	var/static/list/list_of_everything_mechanical_medkits_can_hold = list_of_everything_medkits_can_hold + list(
 		/obj/item/stack/cable_coil,
@@ -25,11 +26,10 @@
 		/obj/item/clothing/glasses/welding,
 	)
 
-	atom_storage.set_holdable(
+	set_holdable(
 		can_hold_list = list_of_everything_mechanical_medkits_can_hold,
 		exception_hold_list = /obj/item/clothing/head/utility/welding,
 	)
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/robotic_repair/stocked
 
