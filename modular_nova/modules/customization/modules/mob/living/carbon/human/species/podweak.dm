@@ -47,7 +47,7 @@
 			H.adjustToxLoss(-0.1 * seconds_per_tick)
 			H.adjustOxyLoss(-0.2 * seconds_per_tick)
 			if(H.health < H.maxHealth)
-				new /obj/effect/temp_visual/heal(get_turf(H), "#EC1C24")
+				new /obj/effect/temp_visual/heal(get_turf(H), COLOR_EFFECT_HEAL_RED)
 
 	if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
 		H.take_overall_damage(1 * seconds_per_tick, 0)
