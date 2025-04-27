@@ -34,7 +34,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	return ITEM_INTERACT_SUCCESS
 
-// Marks living things in melee of the user if crusher is charged.
+/// Marks living things in melee of the user if crusher is charged.
 /obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
 	if(!charged)
 		return
