@@ -1,13 +1,15 @@
 // THIS IS A NOVA SECTOR UI FILE
-import { ByondUi, Section, Stack } from 'tgui-core/components';
+import { ReactNode, useState } from 'react';
+import { ByondUi, Section, Stack, Tabs } from 'tgui-core/components';
 
-import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
+import { resolveAsset } from '../../assets';
+import { useBackend } from '../../backend';
+import { Window } from '../../layouts';
+import { ExaminePanelData } from './data';
 
-const formatURLs = (text) => {
+function formatURLs(text: string) {
   if (!text) return;
-  const parts = [];
+  const parts: ReactNode[] = [];
   let regex = /https?:\/\/[^\s/$.?#].[^\s]*/gi;
   let lastIndex = 0;
 
@@ -17,7 +19,8 @@ const formatURLs = (text) => {
       <a
         style={{
           color: '#0591e3',
-          'text-decoration': 'none',
+          textDecoration: 'none',
+          borderBottom: 'solid 1.25px',
         }}
         href={url}
       >
@@ -31,26 +34,29 @@ const formatURLs = (text) => {
   parts.push(text.substring(lastIndex));
 
   return <div>{parts}</div>;
-};
+}
 
-export const ExaminePanel = (props) => {
-  const { act, data } = useBackend();
+export function ExaminePanel(props) {
+  const { data } = useBackend<ExaminePanelData>();
   const {
     character_name,
-    obscured,
     assigned_map,
     flavor_text,
+    flavor_text_nsfw,
     ooc_notes,
+    ooc_notes_nsfw,
     custom_species,
     custom_species_lore,
     headshot,
     veteran_status,
     ideal_antag_optin_status,
     current_antag_optin_status,
-    opt_in_colors = { optin, color },
+    opt_in_colors,
   } = data;
+  const [oocNotesIndex, setOocNotesIndex] = useState('SFW');
+  const [flavorTextIndex, setFlavorTextIndex] = useState('SFW');
   return (
-    <Window title="Examine Panel" width={900} height={670} theme="admin">
+    <Window title={`${character_name}`} width={900} height={670} theme="ntos">
       <Window.Content>
         <Stack fill>
           <Stack.Item width="30%">
@@ -95,10 +101,29 @@ export const ExaminePanel = (props) => {
                 <Section
                   scrollable
                   fill
-                  title={character_name + "'s Flavor Text:"}
                   preserveWhitespace
+                  title="Flavor Text"
+                  buttons={
+                    <Tabs>
+                      <Tabs.Tab
+                        selected={flavorTextIndex === 'SFW'}
+                        onClick={() => setFlavorTextIndex('SFW')}
+                        width="175px"
+                      >
+                        SFW
+                      </Tabs.Tab>
+                      <Tabs.Tab
+                        selected={flavorTextIndex === 'NSFW'}
+                        onClick={() => setFlavorTextIndex('NSFW')}
+                        width="175px"
+                      >
+                        NSFW
+                      </Tabs.Tab>
+                    </Tabs>
+                  }
                 >
-                  {formatURLs(flavor_text)}
+                  {flavorTextIndex === 'SFW' && formatURLs(flavor_text)}
+                  {flavorTextIndex === 'NSFW' && formatURLs(flavor_text_nsfw)}
                 </Section>
               </Stack.Item>
               <Stack.Item grow>
@@ -109,6 +134,24 @@ export const ExaminePanel = (props) => {
                       fill
                       title="OOC Notes"
                       preserveWhitespace
+                      buttons={
+                        <Tabs>
+                          <Tabs.Tab
+                            selected={oocNotesIndex === 'SFW'}
+                            onClick={() => setOocNotesIndex('SFW')}
+                            width="100px"
+                          >
+                            SFW
+                          </Tabs.Tab>
+                          <Tabs.Tab
+                            selected={oocNotesIndex === 'NSFW'}
+                            onClick={() => setOocNotesIndex('NSFW')}
+                            width="100px"
+                          >
+                            NSFW
+                          </Tabs.Tab>
+                        </Tabs>
+                      }
                     >
                       {!!veteran_status && (
                         <Stack.Item>
@@ -123,42 +166,49 @@ export const ExaminePanel = (props) => {
                           {'\n\n'}
                         </Stack.Item>
                       )}
-                      {ideal_antag_optin_status && (
+                      {oocNotesIndex === 'SFW' && (
                         <Stack.Item>
-                          Current Antag Opt-In Status:{' '}
-                          <span
-                            style={{
-                              fontWeight: 'bold',
-                              color: opt_in_colors[current_antag_optin_status],
-                            }}
-                          >
-                            {current_antag_optin_status}
-                          </span>
-                          {'\n'}
-                          Antag Opt-In Status {'(Preferences)'}:{' '}
-                          <span
-                            style={{
-                              color: opt_in_colors[ideal_antag_optin_status],
-                            }}
-                          >
-                            {ideal_antag_optin_status}
-                          </span>
-                          {'\n\n'}
+                          {ideal_antag_optin_status && (
+                            <Stack.Item>
+                              Current Antag Opt-In Status:{' '}
+                              <span
+                                style={{
+                                  fontWeight: 'bold',
+                                  color:
+                                    opt_in_colors[current_antag_optin_status],
+                                }}
+                              >
+                                {current_antag_optin_status}
+                              </span>
+                              {'\n'}
+                              Antag Opt-In Status {'(Preferences)'}:{' '}
+                              <span
+                                style={{
+                                  color:
+                                    opt_in_colors[ideal_antag_optin_status],
+                                }}
+                              >
+                                {ideal_antag_optin_status}
+                              </span>
+                              {'\n\n'}
+                            </Stack.Item>
+                          )}
+                          {formatURLs(ooc_notes)}
                         </Stack.Item>
                       )}
-                      {formatURLs(ooc_notes)}
+                      {oocNotesIndex === 'NSFW' && formatURLs(ooc_notes_nsfw)}
                     </Section>
                   </Stack.Item>
                   <Stack.Item grow basis={0}>
                     <Section
                       scrollable
                       fill
+                      preserveWhitespace
                       title={
                         custom_species
                           ? 'Species: ' + custom_species
                           : 'No Custom Species!'
                       }
-                      preserveWhitespace
                     >
                       {custom_species
                         ? formatURLs(custom_species_lore)
@@ -173,4 +223,4 @@ export const ExaminePanel = (props) => {
       </Window.Content>
     </Window>
   );
-};
+}

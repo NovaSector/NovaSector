@@ -223,7 +223,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 				species = "[human.dna.species.name]"
 			//Load standard flavor text preference
 			flavor_text = READ_PREFS(human, text/flavor_text) || ""
-			headshot = human.dna.features["headshot"] || ""
+			headshot = human.dna.features[EXAMINE_DNA_HEADSHOT] || ""
 		else if(issilicon(mob))
 			var/mob/living/silicon/silicon = mob
 			//If the target is a silicon, we want it to show its brain as its species
@@ -303,3 +303,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		if("view_character")
 			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]], ui.window)
 			return TRUE
+
+#undef READ_PREFS
+#undef CHAR_DIRECTORY_ASSIGNED_VIEW
