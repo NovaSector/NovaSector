@@ -173,9 +173,9 @@ export const AmmunitionsTab = (props) => {
             point costs.
             <br />
             <br />
-            License modules are <b>reusable</b> and can their license points
+            License modules are <b>reusable</b> and can have their license points
             recharged with <b>authenticators</b>, which are <b>much cheaper</b>
-            than individual modules, and can be purchased from Cargo or printed
+            than individual modules. These can be purchased from Cargo or printed
             from techfabs with the proper technology researched.
           </Section>
         </Collapsible>
