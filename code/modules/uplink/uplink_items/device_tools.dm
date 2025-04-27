@@ -209,7 +209,6 @@
 	item = /obj/item/card/emag
 	cost = 4
 
-/// Give this to interdyne
 /datum/uplink_item/device_tools/stimpack
 	name = "Stimpack"
 	desc = "Stimpacks, the tool of many great heroes, make you nearly immune to stuns and knockdowns for about \
