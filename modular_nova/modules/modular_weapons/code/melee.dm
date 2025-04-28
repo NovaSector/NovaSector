@@ -47,4 +47,4 @@
 	target.apply_damage(stamina_damage_per_jousting_tile * usable_charge, STAMINA)
 
 /obj/item/melee/baton/nunchaku
-	cooldown = 6 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you inmune to melee and throw 
+	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw 
