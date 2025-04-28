@@ -509,7 +509,6 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 		final_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter/over_window(prev_loc)
 	else
 		final_splatter = new /obj/effect/decal/cleanable/blood/splatter/over_window(prev_loc)
-		final_splatter.add_blood_DNA(blood_dna_info)
 	// NOVA EDIT CHANGE END
 	final_splatter.add_blood_DNA(blood_dna_info)
 	final_splatter.forceMove(the_window)

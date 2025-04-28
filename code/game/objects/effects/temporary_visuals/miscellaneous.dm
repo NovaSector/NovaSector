@@ -51,15 +51,6 @@
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter
 	splatter_type = "splatter"
 
-/obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter/Initialize(mapload, set_dir, set_color)
-	if(isnull(set_color))
-		var/datum/blood_type/xeno_blood_type = GLOB.blood_types[/datum/blood_type/xeno::name]
-		set_color = xeno_blood_type.get_color()
-	return ..(set_color = set_color)
-
-/obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter/Initialize(mapload, set_dir, set_color = GLOB.blood_types[/datum/blood_type/xeno::name])
-	return ..()
-
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter/Initialize(mapload, set_dir, set_color = GLOB.blood_types[/datum/blood_type/xeno::name])
 	return ..()
 
