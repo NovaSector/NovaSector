@@ -22,6 +22,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDESNOUT|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	clothing_flags = SNUG_FIT
+	action_slots = ALL
 	unique_reskin = list(
 		"Earred" = "dephelmet",
 		"Earless" = "dephelmet_earless"

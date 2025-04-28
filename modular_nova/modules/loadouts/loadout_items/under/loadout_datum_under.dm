@@ -43,12 +43,18 @@
 /datum/loadout_item/under/jumpsuit/random
 	name = "Random Jumpsuit"
 	item_path = /obj/item/clothing/under/color/random
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/under/jumpsuit/random/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 /datum/loadout_item/under/jumpsuit/random_skirt
 	name = "Random Jumpskirt"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/under/jumpsuit/random_skirt/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 /datum/loadout_item/under/jumpsuit/frontier
 	name = "Frontier Jumpsuit"

@@ -3,6 +3,7 @@
 	desc = "The circuit board for a RB-MK2 reactor."
 	id = "rbmk2_reactor"
 	build_path = /obj/item/circuitboard/machine/rbmk2
+	materials = list(/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 8)
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING,
 	)
@@ -32,7 +33,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/techweb_node/rbmk2
-	id = TECHWEB_NODE_RMBK
+	id = TECHWEB_NODE_RBMK
 	display_name = "RB-MK2"
 	description = "The latest in non-dangerous Nanotrasen power generation!"
 	prereq_ids = list(TECHWEB_NODE_ENERGY_MANIPULATION)

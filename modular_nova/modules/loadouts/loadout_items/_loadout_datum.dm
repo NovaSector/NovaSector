@@ -143,19 +143,6 @@
 
 	return buttons
 
-
-/datum/loadout_item/get_item_information()
-	var/list/displayed_text = ..()
-
-	if(donator_only)
-		displayed_text += "Donator-Only"
-
-	if(veteran_only)
-		displayed_text += "Veteran-Only"
-
-	return displayed_text
-
-
 /datum/loadout_item/to_ui_data()
 	var/list/formatted_item = ..()
 	formatted_item["ckey_whitelist"] = ckeywhitelist

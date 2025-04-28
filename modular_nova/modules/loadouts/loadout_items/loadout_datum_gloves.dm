@@ -29,8 +29,8 @@
 	item_path = /obj/item/clothing/gloves/fingerless
 
 /datum/loadout_item/gloves/lalune_long
-	name = "Designer Black Gloves"
-	item_path = /obj/item/clothing/gloves/lalune_long
+	name = "Designer Gloves"
+	item_path = /obj/item/clothing/gloves/designer
 
 /datum/loadout_item/gloves/black
 	name = "Black Gloves"
@@ -71,7 +71,10 @@
 /datum/loadout_item/gloves/yellow
 	name = "Yellow Gloves"
 	item_path = /obj/item/clothing/gloves/color/ffyellow
-	additional_displayed_text = list("Non-Insulating")
+
+/datum/loadout_item/gloves/yellow/get_item_information()
+	. = ..()
+	.[FA_ICON_BOLT] = "Non-Insulating"
 
 /datum/loadout_item/gloves/white
 	name = "White Gloves"

@@ -450,7 +450,13 @@ SUBSYSTEM_DEF(ticker)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-			//NOVA EDIT END
+			if(iskobold(new_player_living))
+				var/mob/living/carbon/human/new_kobold = new_player_living
+				new_kobold.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
+				new_kobold.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
+				new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
+				new_kobold.dna.activate_mutation(/datum/mutation/human/clever)
+			//NOVA EDIT ADDITION END
 		CHECK_TICK
 
 	if(captainless)
@@ -538,11 +544,17 @@ SUBSYSTEM_DEF(ticker)
 			queued_players -= next_in_line
 			queue_delay = 0
 
+///Whether the game has started, including roundend.
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
 
+///Whether the game is currently in progress, excluding roundend
 /datum/controller/subsystem/ticker/proc/IsRoundInProgress()
 	return current_state == GAME_STATE_PLAYING
+
+///Whether the game is currently in progress, excluding roundend
+/datum/controller/subsystem/ticker/proc/IsPostgame()
+	return current_state == GAME_STATE_FINISHED
 
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state
