@@ -80,8 +80,6 @@
 		migrate_nova(save_data)
 		addtimer(CALLBACK(src, PROC_REF(check_migration)), 10 SECONDS)
 
-	headshot = save_data["headshot"]
-
 
 	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
 
