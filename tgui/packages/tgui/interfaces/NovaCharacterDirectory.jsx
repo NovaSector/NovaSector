@@ -1,6 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 import {
+  Box,
   Button,
   Divider,
   Icon,
@@ -10,6 +11,7 @@ import {
   Section,
   Stack,
   Table,
+  Tabs,
   Tooltip,
 } from 'tgui-core/components';
 
@@ -30,7 +32,8 @@ const formatURLs = (text) => {
       <a
         style={{
           color: '#0591e3',
-          'text-decoration': 'none',
+          textDecoration: 'none',
+          borderBottom: 'solid 1.25px',
         }}
         href={url}
       >
@@ -176,6 +179,8 @@ export const NovaCharacterDirectory = (props) => {
 
 const ViewCharacter = (props) => {
   const { overlay, updateOverlay, assignedView } = props;
+  const [oocNotesIndex, setOocNotesIndex] = useState('SFW');
+  const [flavorTextIndex, setFlavorTextIndex] = useState('SFW');
 
   return (
     <Stack fill>
@@ -200,8 +205,28 @@ const ViewCharacter = (props) => {
               fill
               title="Flavor Text:"
               preserveWhitespace
+              buttons={
+                <Tabs>
+                  <Tabs.Tab
+                    selected={flavorTextIndex === 'SFW'}
+                    onClick={() => setFlavorTextIndex('SFW')}
+                    width="175px"
+                  >
+                    SFW
+                  </Tabs.Tab>
+                  <Tabs.Tab
+                    selected={flavorTextIndex === 'NSFW'}
+                    onClick={() => setFlavorTextIndex('NSFW')}
+                    width="175px"
+                  >
+                    NSFW
+                  </Tabs.Tab>
+                </Tabs>
+              }
             >
-              {formatURLs(overlay.flavor_text)}
+              {flavorTextIndex === 'SFW' && formatURLs(overlay.flavor_text)}
+              {flavorTextIndex === 'NSFW' &&
+                formatURLs(overlay.flavor_text_nsfw)}
             </Section>
           </Stack.Item>
           <Stack.Item grow>
@@ -213,9 +238,27 @@ const ViewCharacter = (props) => {
                   scrollable
                   title="OOC Notes"
                   preserveWhitespace
+                  buttons={
+                    <Tabs>
+                      <Tabs.Tab
+                        selected={oocNotesIndex === 'SFW'}
+                        onClick={() => setOocNotesIndex('SFW')}
+                        width="100px"
+                      >
+                        SFW
+                      </Tabs.Tab>
+                      <Tabs.Tab
+                        selected={oocNotesIndex === 'NSFW'}
+                        onClick={() => setOocNotesIndex('NSFW')}
+                        width="100px"
+                      >
+                        NSFW
+                      </Tabs.Tab>
+                    </Tabs>
+                  }
                 >
                   {!!overlay.veteran_status && (
-                    <Stack.Item>
+                    <Stack.Item mb="30px">
                       <span
                         style={{
                           color: 'gold',
@@ -224,30 +267,37 @@ const ViewCharacter = (props) => {
                       >
                         Player is a Veteran.
                       </span>
-                      {'\n\n'}
                     </Stack.Item>
                   )}
-                  <LabeledList>
-                    <LabeledList.Item label="Attraction">
-                      {overlay.attraction}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Gender">
-                      {overlay.gender}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="ERP">
-                      {overlay.erp}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Vore">
-                      {overlay.vore}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Hypnosis">
-                      {overlay.hypno}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Noncon">
-                      {overlay.noncon}
-                    </LabeledList.Item>
-                  </LabeledList>
-                  &nbsp; {formatURLs(overlay.ooc_notes)}
+                  {oocNotesIndex === 'NSFW' && (
+                    <>
+                      <LabeledList>
+                        <LabeledList.Item label="Attraction">
+                          {overlay.attraction}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Gender">
+                          {overlay.gender}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="ERP">
+                          {overlay.erp}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Vore">
+                          {overlay.vore}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Hypnosis">
+                          {overlay.hypno}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Noncon">
+                          {overlay.noncon}
+                        </LabeledList.Item>
+                      </LabeledList>
+                      <Box mt="6px" />
+                      {formatURLs(overlay.ooc_notes_nsfw)}
+                    </>
+                  )}
+                  {oocNotesIndex === 'SFW' && (
+                    <>{formatURLs(overlay.ooc_notes)}</>
+                  )}
                 </Section>
               </Stack.Item>
               <Stack.Item grow>

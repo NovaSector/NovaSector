@@ -154,7 +154,7 @@ export function ExaminePanel(props) {
                       }
                     >
                       {!!veteran_status && (
-                        <Stack.Item>
+                        <Stack.Item mb="30px">
                           <span
                             style={{
                               color: 'gold',
@@ -163,7 +163,6 @@ export function ExaminePanel(props) {
                           >
                             Player is a Veteran.
                           </span>
-                          {'\n\n'}
                         </Stack.Item>
                       )}
                       {oocNotesIndex === 'SFW' && (
