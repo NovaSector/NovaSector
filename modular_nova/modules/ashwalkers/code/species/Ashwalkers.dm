@@ -124,7 +124,7 @@
 	alert_type = null
 
 /datum/status_effect/age_evolve_ready/get_examine_text()
-	return span_warning("[owner.name] reached the age for evolving!")
+	return span_warning("[owner.name] has reached the age for evolving!")
 
 /datum/status_effect/ash_age
 	id = "ash_age"
