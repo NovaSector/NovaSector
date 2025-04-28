@@ -6,7 +6,7 @@
 
 /datum/preference/choiced/unusual_biochemistry/init_possible_values()
 	var/list/possible_blood_types = list()
-	for(var/datum/blood_type/blood_type as anything in GLOB.possible_blood_types)
+	for(var/datum/blood_type/blood_type as anything in GLOB.possible_unusual_biochem_blood_types)
 		possible_blood_types += blood_type::name
 	return possible_blood_types
 
@@ -23,7 +23,7 @@
 	var/list/data = ..()
 
 	var/list/blood_type_data = list()
-	for(var/datum/blood_type/blood_type as anything in GLOB.possible_blood_types)
+	for(var/datum/blood_type/blood_type as anything in GLOB.possible_unusual_biochem_blood_types)
 		blood_type_data[blood_type::name] = list(
 			"color" = blood_type::color,
 			"chemical" = blood_type::restoration_chem::name,

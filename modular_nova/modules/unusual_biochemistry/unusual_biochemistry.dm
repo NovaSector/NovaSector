@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(possible_blood_types, list(
+GLOBAL_LIST_INIT(possible_unusual_biochem_blood_types, list(
 	/datum/blood_type/haemocyanin,
 	/datum/blood_type/chlorocruorin,
 	/datum/blood_type/hemerythrin,
@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 	blood_type = client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry)
 	var/datum/blood_type/blood_type_datum = get_blood_type(blood_type)
 	if(isnull(blood_type_datum))
-		blood_type_datum = get_blood_type(pick(GLOB.possible_blood_types)) // no client/prefs for some reason? pick a random one
+		blood_type_datum = get_blood_type(pick(GLOB.possible_unusual_biochem_blood_types)) // no client/prefs for some reason? pick a random one
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 
