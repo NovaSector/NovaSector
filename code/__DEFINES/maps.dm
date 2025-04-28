@@ -145,6 +145,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 	ZTRAIT_LAVA_UNDERGROUND = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
 	ZTRAIT_ASHSTORM = FALSE, \
+	ZTRAIT_LAVA_RUINS = TRUE, \
 	ZTRAIT_UP = 1, \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
 ///Z level traits for Away Missions
