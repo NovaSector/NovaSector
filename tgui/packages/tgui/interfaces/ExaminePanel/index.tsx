@@ -114,17 +114,16 @@ export function ExaminePanel(props) {
                       >
                         SFW
                       </Button>
-                      {!!flavor_text_nsfw && (
-                        <Button
-                          selected={flavorTextIndex === 'NSFW'}
-                          bold={flavorTextIndex === 'NSFW'}
-                          onClick={() => setFlavorTextIndex('NSFW')}
-                          textAlign="center"
-                          width="150px"
-                        >
-                          NSFW
-                        </Button>
-                      )}
+                      <Button
+                        selected={flavorTextIndex === 'NSFW'}
+                        disabled={!flavor_text_nsfw}
+                        bold={flavorTextIndex === 'NSFW'}
+                        onClick={() => setFlavorTextIndex('NSFW')}
+                        textAlign="center"
+                        width="150px"
+                      >
+                        NSFW
+                      </Button>
                     </>
                   }
                 >
@@ -151,17 +150,16 @@ export function ExaminePanel(props) {
                           >
                             SFW
                           </Button>
-                          {!!ooc_notes_nsfw && (
-                            <Button
-                              selected={oocNotesIndex === 'NSFW'}
-                              bold={oocNotesIndex === 'NSFW'}
-                              onClick={() => setOocNotesIndex('NSFW')}
-                              textAlign="center"
-                              minWidth="60px"
-                            >
-                              NSFW
-                            </Button>
-                          )}
+                          <Button
+                            selected={oocNotesIndex === 'NSFW'}
+                            disabled={!ooc_notes_nsfw}
+                            bold={oocNotesIndex === 'NSFW'}
+                            onClick={() => setOocNotesIndex('NSFW')}
+                            textAlign="center"
+                            minWidth="60px"
+                          >
+                            NSFW
+                          </Button>
                         </>
                       }
                     >

@@ -215,17 +215,16 @@ const ViewCharacter = (props) => {
                   >
                     SFW
                   </Button>
-                  {!!overlay.flavor_text_nsfw && (
-                    <Button
-                      selected={flavorTextIndex === 'NSFW'}
-                      bold={flavorTextIndex === 'NSFW'}
-                      onClick={() => setFlavorTextIndex('NSFW')}
-                      width="150px"
-                      textAlign="center"
-                    >
-                      NSFW
-                    </Button>
-                  )}
+                  <Button
+                    selected={flavorTextIndex === 'NSFW'}
+                    disabled={!overlay.flavor_text_nsfw}
+                    bold={flavorTextIndex === 'NSFW'}
+                    onClick={() => setFlavorTextIndex('NSFW')}
+                    width="150px"
+                    textAlign="center"
+                  >
+                    NSFW
+                  </Button>
                 </>
               }
             >
@@ -257,6 +256,9 @@ const ViewCharacter = (props) => {
                       <Button
                         selected={oocNotesIndex === 'NSFW'}
                         bold={oocNotesIndex === 'NSFW'}
+                        disabled={
+                          overlay.erp === 'No' && !overlay.ooc_notes_nsfw
+                        }
                         onClick={() => setOocNotesIndex('NSFW')}
                         width="100px"
                         textAlign="center"
