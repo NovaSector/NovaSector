@@ -50,12 +50,6 @@
 
 	human_holder.blood_volume = max(min_blood, human_holder.blood_volume - human_holder.dna.species.blood_deficiency_drain_rate * seconds_per_tick)
 
-
-/datum/quirk/blooddeficiency/add_unique(client/client_source)
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	update_mail(new_species = human_holder.dna.species)
-	RegisterSignal(quirk_holder, COMSIG_SPECIES_GAIN, PROC_REF(update_mail))
-
 /datum/quirk/blooddeficiency/proc/update_mail(datum/source, datum/species/new_species, datum/species/old_species, pref_load, regenerate_icons)
 	SIGNAL_HANDLER
 
