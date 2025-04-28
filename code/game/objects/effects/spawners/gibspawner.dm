@@ -42,7 +42,7 @@
 		dna_to_add = temp_mob.get_blood_dna_list()
 		qdel(temp_mob)
 	else
-		dna_to_add = list("Non-human DNA" = random_blood_type()) //else, generate a random bloodtype for it.
+		dna_to_add = list("Non-human DNA" = random_human_blood_type()) //else, generate a random bloodtype for it.
 
 
 	for(var/i in 1 to gibtypes.len)
@@ -83,7 +83,7 @@
 	gib_mob_type = /mob/living/carbon/human
 	sound_vol = 50
 
-/obj/effect/gibspawner/human/Initialize(mapload)
+/obj/effect/gibspawner/human/Initialize(mapload, mob/living/source_mob, list/datum/disease/diseases, blood_dna_info)
 	if(!gibdirections.len)
 		gibdirections = list(
 			list(NORTH, NORTHEAST, NORTHWEST),
@@ -94,7 +94,9 @@
 			GLOB.alldirs,
 			list(),
 		)
-	add_blood_DNA(list("Human DNA" = random_blood_type()))
+	if(!iscarbon(source_mob) && isnull(blood_dna_info))
+		return ..(blood_dna_info = list("Human DNA" = random_human_blood_type()))
+
 	return ..()
 
 

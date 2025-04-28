@@ -18,7 +18,7 @@
 
 /obj/effect/decal/cleanable/xenoblood/Initialize(mapload)
 	. = ..()
-	add_blood_DNA(list("UNKNOWN DNA" = get_blood_type("X*")))
+	add_blood_DNA(list("UNKNOWN DNA" = get_blood_type(BLOOD_TYPE_XENO)))
 
 /obj/effect/decal/cleanable/xenoblood/xsplatter
 	random_icon_states = list("xgibbl1", "xgibbl2", "xgibbl3", "xgibbl4", "xgibbl5")
@@ -40,13 +40,11 @@
 	RegisterSignal(src, COMSIG_MOVABLE_PIPE_EJECTING, PROC_REF(on_pipe_eject))
 	update_appearance(UPDATE_OVERLAYS)
 
-// NOVA EDIT ADDITION START
 /obj/effect/decal/cleanable/xenoblood/xgibs/update_overlays()
 	. = ..()
 	var/mutable_appearance/gib_overlay = mutable_appearance(icon, "[icon_state]-overlay", appearance_flags = KEEP_APART|RESET_COLOR)
 	if(gib_overlay)
 		. += gib_overlay
-// NOVA EDIT ADDITION END
 
 /obj/effect/decal/cleanable/xenoblood/xgibs/proc/streak(list/directions, mapload=FALSE)
 	SEND_SIGNAL(src, COMSIG_GIBS_STREAK, directions)
@@ -61,7 +59,6 @@
 			if(!isgroundlessturf(my_turf) || GET_TURF_BELOW(my_turf))
 				var/obj/effect/decal/cleanable/xenoblood/xsplatter/new_splatter = new /obj/effect/decal/cleanable/xenoblood/xsplatter(my_turf)
 				new_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
-
 			if (!step_to(src, get_step(src, direction), 0))
 				break
 		return
@@ -127,4 +124,4 @@
 
 /obj/effect/decal/cleanable/blood/xtracks/Initialize(mapload)
 	. = ..()
-	add_blood_DNA(list("Unknown DNA" = "X*"))
+	add_blood_DNA(list("Unknown DNA" = get_blood_type(BLOOD_TYPE_XENO)))

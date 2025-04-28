@@ -139,7 +139,6 @@
 				var/mob/living/carbon/carbon_target = hittarget_living
 				blood_splatter.add_mob_blood(carbon_target)
 
-
 			log_combat(src, hittarget_living, "rammed into", null, "injuring all passengers and killing the [hittarget_living]")
 			dump_mobs(TRUE)
 			playsound(src, 'sound/vehicles/car_crash.ogg', 100)

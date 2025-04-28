@@ -7,13 +7,18 @@
 	circuit = /obj/item/circuitboard/machine/gibber
 	anchored_tabletop_offset = 8
 
-	var/operating = FALSE //Is it on?
-	var/dirty = FALSE // Does it need cleaning?
-	var/gibtime = 40 // Time from starting until meat appears
+	//Is it on?
+	var/operating = FALSE
+	/// Does it need cleaning?
+	var/dirty = FALSE
+	/// Time from starting until meat appears
+	var/gibtime = 40
+	/// How much meat we meet when we meat the meat
 	var/meat_produced = 2
+	/// If the gibber should give the 'Subject may not have abiotic items on' message
 	var/ignore_clothing = FALSE
-	var/blood_dna_info // The DNA of the last gibbed mob
-
+	/// The DNA info of the last gibbed mob
+	var/blood_dna_info
 
 /obj/machinery/gibber/Initialize(mapload)
 	. = ..()
@@ -49,11 +54,11 @@
 /obj/machinery/gibber/update_overlays()
 	. = ..()
 	if(dirty)
-		var/mutable_appearance/blood_overlay = mutable_appearance(icon, "grinder_bloody", src, appearance_flags = RESET_COLOR)
+		var/mutable_appearance/blood_overlay = mutable_appearance(icon, "grinder_bloody", appearance_flags = RESET_COLOR|KEEP_APART)
 		if(blood_dna_info)
 			blood_overlay.color = get_blood_dna_color(blood_dna_info)
 		else
-			blood_overlay.color = "#FF291E"
+			blood_overlay.color = BLOOD_COLOR_RED
 		. += blood_overlay
 	if(machine_stat & (NOPOWER|BROKEN) || panel_open)
 		return
@@ -202,12 +207,12 @@
 		blood_dna_info = gibee.get_blood_dna_list()
 
 	else if(iscarbon(occupant))
-		var/mob/living/carbon/C = occupant
-		typeofmeat = C.type_of_meat
-		gibtype = C.gib_type
-		if(isalien(C))
+		var/mob/living/carbon/carbon_occupant = occupant
+		typeofmeat = carbon_occupant.type_of_meat
+		gibtype = carbon_occupant.gib_type
+		if(isalien(carbon_occupant))
 			typeofskin = /obj/item/stack/sheet/animalhide/xeno
-		blood_dna_info = C.get_blood_dna_list()
+		blood_dna_info = carbon_occupant.get_blood_dna_list()
 
 	for (var/i in 1 to meat_produced)
 		var/obj/item/food/meat/slab/newmeat = new typeofmeat(null, blood_dna_info)
@@ -269,7 +274,6 @@
 				diseases_to_add += disease
 			if(LAZYLEN(diseases_to_add))
 				meatslab.AddComponent(/datum/component/infective, diseases_to_add)
-
 		if(blood_dna_info)
 			meatslab.add_blood_DNA(blood_dna_info)
 		meatslab.forceMove(loc)
