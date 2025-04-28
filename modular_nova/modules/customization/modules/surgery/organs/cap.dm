@@ -1,4 +1,4 @@
-/obj/item/organ/external/mushroom_cap
+/obj/item/organ/mushroom_cap
 	icon_state = "random_fly_1"
 
 	mutantpart_key = "caps"
@@ -6,7 +6,7 @@
 	slot = ORGAN_SLOT_EXTERNAL_CAP
 	preference = "feature_caps"
 
-/obj/item/organ/external/mushroom_cap/Initialize(mapload)
+/obj/item/organ/mushroom_cap/Initialize(mapload)
 	if(!ispath(bodypart_overlay))
 		mutantpart_info[MUTANT_INDEX_COLOR_LIST] = bodypart_overlay.draw_color
 	return ..()
@@ -26,5 +26,8 @@
 		randomize_cap_color()
 	return draw_color
 
-/datum/bodypart_overlay/mutant/mushroom_cap/can_draw_on_bodypart(mob/living/carbon/human/human)
+/datum/bodypart_overlay/mutant/mushroom_cap/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
+	var/mob/living/carbon/human/human = bodypart_owner.owner
+	if(!istype(human))
+		return TRUE
 	return !sprite_datum.is_hidden(human)

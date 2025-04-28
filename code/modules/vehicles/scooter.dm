@@ -154,7 +154,7 @@
 			sparks.start() //the most radical way to start plasma fires
 	for(var/mob/living/carbon/victim in location)
 		if(victim.body_position == LYING_DOWN)
-			playsound(location, 'sound/items/trayhit2.ogg', 40)
+			playsound(location, 'sound/items/trayhit/trayhit2.ogg', 40)
 			victim.apply_damage(damage = 25, damagetype = BRUTE, def_zone = victim.get_random_valid_zone(even_weights = TRUE), wound_bonus = 20)
 			victim.Paralyze(1.5 SECONDS)
 			skater.adjustStaminaLoss(instability)
@@ -169,7 +169,7 @@
 		pick_up_board(skater)
 
 /obj/vehicle/ridden/scooter/skateboard/proc/pick_up_board(mob/living/carbon/skater)
-	if (skater.incapacitated() || !Adjacent(skater))
+	if (skater.incapacitated || !Adjacent(skater))
 		return
 	if(has_buckled_mobs())
 		to_chat(skater, span_warning("You can't lift this up when somebody's on it."))
@@ -213,7 +213,7 @@
 	instability = 3
 	icon_state = "hoverboard_holy"
 
-/obj/vehicle/ridden/scooter/skateboard/hoverboard/make_ridable()
+/obj/vehicle/ridden/scooter/skateboard/hoverboard/holyboarded/make_ridable()
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/scooter/skateboard/hover/holy)
 
 /obj/vehicle/ridden/scooter/skateboard/hoverboard/holyboarded/Initialize(mapload)
@@ -241,7 +241,7 @@
 	icon_state = "scooter_frame"
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/scooter_frame/attackby(obj/item/I, mob/user, params)
+/obj/item/scooter_frame/attackby(obj/item/I, mob/user, list/modifiers)
 	if(!istype(I, /obj/item/stack/sheet/iron))
 		return ..()
 	if(!I.tool_start_check(user, amount=5))
@@ -264,7 +264,7 @@
 /obj/vehicle/ridden/scooter/skateboard/wrench_act(mob/living/user, obj/item/I)
 	return
 
-/obj/vehicle/ridden/scooter/skateboard/improvised/attackby(obj/item/I, mob/user, params)
+/obj/vehicle/ridden/scooter/skateboard/improvised/attackby(obj/item/I, mob/user, list/modifiers)
 	if(!istype(I, /obj/item/stack/rods))
 		return ..()
 	if(!I.tool_start_check(user, amount=2))

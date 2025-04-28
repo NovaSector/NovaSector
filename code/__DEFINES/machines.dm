@@ -23,8 +23,12 @@
 #define STATIC_TO_DYNAMIC_CHANNEL(static_channel) (static_channel - (AREA_USAGE_STATIC_START - AREA_USAGE_DYNAMIC_START))
 
 //Power use
+
+/// dont use power
 #define NO_POWER_USE 0
+/// use idle_power_usage i.e. the power needed just to keep the machine on
 #define IDLE_POWER_USE 1
+/// use active_power_usage i.e. the power the machine consumes to perform a specific task
 #define ACTIVE_POWER_USE 2
 
 ///Base global power consumption for idling machines
@@ -51,8 +55,11 @@
 /// We are getting this door open if it has not been physically held shut somehow. Play a special sound to signify this level of opening.
 #define BYPASS_DOOR_CHECKS 2
 
+/// Damage dealth to an airlock when prie
+#define AIRLOCK_PRY_DAMAGE 25
+
 //used in design to specify which machine can build it
-//Note: More than one of these can be added to a design but imprinter and lathe designs are incompatable.
+//Note: More than one of these can be added to a design but imprinter and lathe designs are incompatible.
 #define IMPRINTER (1<<0) //For circuits. Uses glass/chemicals.
 #define PROTOLATHE (1<<1) //New stuff. Uses various minerals
 #define AUTOLATHE (1<<2) //Prints basic designs without research
@@ -130,7 +137,7 @@
 #define ORION_GAMER_REPORT_THRESHOLD 2
 
 /// What's the minimum duration of a syndie bomb (in seconds)
-#define SYNDIEBOMB_MIN_TIMER_SECONDS 90
+#define SYNDIEBOMB_MIN_TIMER_SECONDS 600 // NOVA EDIT CHANGE - ORIGINAL: #define SYNDIEBOMB_MIN_TIMER_SECONDS 90
 
 // Camera upgrade bitflags.
 #define CAMERA_UPGRADE_XRAY (1<<0)
@@ -148,3 +155,5 @@
 #define SD_MESSAGE 2
 /// Shows an alert picture (e.g. red alert, radiation, etc.)
 #define SD_PICTURE 3
+/// Shows whoever or whatever is on the green screen in the captain's office
+#define SD_GREENSCREEN 4

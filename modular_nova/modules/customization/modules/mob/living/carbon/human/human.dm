@@ -16,7 +16,7 @@
 						continue
 					if(G.is_hidden(src))
 						continue
-					var/obj/item/organ/external/genital/ORG = get_organ_slot(G.associated_organ_slot)
+					var/obj/item/organ/genital/ORG = get_organ_slot(G.associated_organ_slot)
 					if(!ORG)
 						continue
 					line += ORG.get_description_string(G)
@@ -71,6 +71,12 @@
 
 /mob/living/carbon/human/species/skrell
 	race = /datum/species/skrell
+
+/mob/living/carbon/human/species/abductorweak
+	race = /datum/species/abductor/abductorweak
+
+/mob/living/carbon/human/species/monkey/kobold
+	race = /datum/species/monkey/kobold
 
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
@@ -136,7 +142,7 @@
 	// The total list of parts choosable
 	var/static/list/total_selection = list(
 		ORGAN_SLOT_EXTERNAL_HORNS = "horns",
-		ORGAN_SLOT_EXTERNAL_EARS = "ears",
+		ORGAN_SLOT_EARS = "ears",
 		ORGAN_SLOT_EXTERNAL_WINGS = "wings",
 		ORGAN_SLOT_EXTERNAL_TAIL = "tail",
 		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = "ipc_antenna",
@@ -165,7 +171,7 @@
 		else
 			for(var/part in available_selection)
 				LAZYOR(try_hide_mutant_parts, part)
-		update_mutant_bodyparts()
+		update_body_parts()
 		return
 
 	// Dont open the radial automatically just for one button
@@ -174,7 +180,7 @@
 	// If 'reveal all' is our only option just do it
 	if(!re_do && (("reveal all" in available_selection) && (length(available_selection) == 1)))
 		LAZYNULL(try_hide_mutant_parts)
-		update_mutant_bodyparts()
+		update_body_parts()
 		return
 
 	// Radial rendering
@@ -197,7 +203,7 @@
 	if(pick == "reveal all")
 		to_chat(usr, span_notice("You are no longer trying to hide your mutant parts."))
 		LAZYNULL(try_hide_mutant_parts)
-		update_mutant_bodyparts()
+		update_body_parts()
 		return
 
 	else if(pick in try_hide_mutant_parts)
@@ -206,7 +212,7 @@
 	else
 		to_chat(usr, span_notice("You are now trying to hide your [pick]."))
 		LAZYOR(try_hide_mutant_parts, pick)
-	update_mutant_bodyparts()
+	update_body_parts()
 	// automatically re-do the menu after making a selection
 	mutant_part_visibility(re_do = TRUE)
 

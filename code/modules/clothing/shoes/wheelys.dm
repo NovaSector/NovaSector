@@ -11,7 +11,7 @@
 	worn_icon = 'icons/mob/large-worn-icons/64x64/feet.dmi'
 	worn_x_dimension = 64
 	worn_y_dimension = 64
-	clothing_flags = LARGE_WORN_ICON
+	clothing_flags = parent_type::clothing_flags | LARGE_WORN_ICON
 	actions_types = list(/datum/action/item_action/wheelys)
 	///False means wheels are not popped out
 	var/wheelToggle = FALSE
@@ -51,7 +51,7 @@
 		worn_icon_state = "[initial(worn_icon_state)]-on"
 	else
 		worn_icon_state = "[initial(worn_icon_state)]"
-	playsound(src, 'sound/weapons/tap.ogg', 10, TRUE)
+	playsound(src, 'sound/items/weapons/tap.ogg', 10, TRUE)
 	update_appearance()
 
 /obj/item/clothing/shoes/wheelys/Destroy()

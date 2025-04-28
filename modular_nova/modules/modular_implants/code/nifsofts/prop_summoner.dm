@@ -202,6 +202,8 @@
 	name = "cloudstick"
 	special_desc = "One of mankind's many attempts at ending the legacy of Big Tobacco. Contributed by a fully anonymous engram and then forked countless times into countless replications of brands and flavors, the 'Cloudstick' is more of a genre than a single Icon. Most downloadable ones even allow the summoner to change the pixelation of the smoke, to grant them a more 'detached' experience from the real thing. Several summoners report these to help them in quitting smoking, others simply commenting 'It's why I first downloaded the Catchflame.'"
 
+/datum/nifsoft/summoner/job
+	mutually_exclusive_programs = list(/datum/nifsoft/summoner/job) //One job grimoire per person
 
 #undef SUMMONED_ITEM_ALPHA
 #undef SUMMONED_ITEM_LIGHT

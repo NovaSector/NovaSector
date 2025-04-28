@@ -671,7 +671,7 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/id_trim/job/bouncer
-	assignment = "Bouncer"
+	assignment = "Service Guard"
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_bouncer"
 	department_color = COLOR_SERVICE_LIME
@@ -713,11 +713,16 @@
 	name = "departmental stun baton"
 	desc = "A stun baton fitted with a departmental area-lock, based off the station's blueprint layout - outside of its department, it only has three uses."
 	icon = 'modular_nova/modules/goofsec/icons/departmental_batons.dmi'
-	icon_state = "prison_baton"
-	belt_icon_state = "stunbaton"
+	icon_state = "prison_stunbaton"
+	inside_belt_icon_state = "stunbaton"
+	var/department_icon_state = "prison"
 	var/list/valid_areas = list()
 	var/emagged = FALSE
 	var/non_departmental_uses_left = 4
+
+/obj/item/melee/baton/security/loaded/departmental/update_icon_state()
+	. = ..()
+	icon_state = "[department_icon_state]_[icon_state]"
 
 /obj/item/melee/baton/security/loaded/departmental/baton_attack(mob/living/target, mob/living/user, modifiers)
 	if(active && !emagged && cooldown_check <= world.time)
@@ -765,37 +770,37 @@
 /obj/item/melee/baton/security/loaded/departmental/medical
 	name = "medical stun baton"
 	desc = "A stun baton that doesn't operate outside of the Medical department, based off the station's blueprint layout. Can be used outside of Medical up to three times before needing to return!"
-	icon_state = "medical_baton"
+	department_icon_state = "medical"
 	valid_areas = list(/area/station/medical, /area/station/maintenance/department/medical, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/engineering
 	name = "engineering stun baton"
 	desc = "A stun baton that doesn't operate outside of the Engineering department, based off the station's blueprint layout. Can be used outside of Engineering up to three times before needing to return!"
-	icon_state = "engineering_baton"
+	department_icon_state = "engineering"
 	valid_areas = list(/area/station/engineering, /area/station/maintenance/department/engine, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/science
 	name = "science stun baton"
 	desc = "A stun baton that doesn't operate outside of the Science department, based off the station's blueprint layout. Can be used outside of Science up to three times before needing to return!"
-	icon_state = "science_baton"
+	department_icon_state = "science"
 	valid_areas = list(/area/station/science, /area/station/maintenance/department/science, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/cargo
 	name = "cargo stun baton"
 	desc = "A stun baton that doesn't operate outside of the Cargo department, based off the station's blueprint layout. Can be used outside of Cargo up to three times before needing to return!"
-	icon_state = "cargo_baton"
+	department_icon_state = "cargo"
 	valid_areas = list(/area/station/cargo, /area/station/maintenance/department/cargo, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/service
 	name = "service stun baton"
 	desc = "A stun baton that doesn't operate outside of the Service department, based off the station's blueprint layout. Can be used outside of Service up to three times before needing to return!"
-	icon_state = "service_baton"
+	department_icon_state = "service"
 	valid_areas = list(/area/station/service, /area/station/hallway/primary/fore, /area/station/commons/lounge, /area/station/maintenance/department/chapel, /area/station/maintenance/department/crew_quarters, /area/shuttle/escape)
 
 /obj/item/melee/baton/security/loaded/departmental/prison
 	name = "prison stun baton"
 	desc = "A stun baton that doesn't operate outside of the Prison, based off the station's blueprint layout. Can be used outside of the Prison up to three times before needing to return!"
-	icon_state = "prison_baton"
+	department_icon_state = "prison"
 	valid_areas = list(/area/station/security/prison, /area/station/security/processing, /area/shuttle/escape)
 
 /datum/supply_pack/security/baton_prison

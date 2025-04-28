@@ -39,8 +39,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 
 /obj/item/stack/marker_beacon/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Use in-hand to place a [singular_name].\n"+\
-	"Alt-click to select a color. Current color is [picked_color].</span>"
+	. += span_notice("Use in-hand to place a [singular_name].\nAlt-click to select a color. Current color is [picked_color].")
 
 /obj/item/stack/marker_beacon/update_icon_state()
 	icon_state = "[initial(icon_state)][LOWER_TEXT(picked_color)]"
@@ -135,7 +134,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 /obj/structure/marker_beacon/attack_tk(mob/user)
 	return
 
-/obj/structure/marker_beacon/attackby(obj/item/I, mob/user, params)
+/obj/structure/marker_beacon/attackby(obj/item/I, mob/user, list/modifiers)
 	if(istype(I, /obj/item/stack/marker_beacon))
 		var/obj/item/stack/marker_beacon/M = I
 		to_chat(user, span_notice("You start picking [src] up..."))
@@ -148,7 +147,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 		var/obj/effect/decal/cleanable/ash/A = new /obj/effect/decal/cleanable/ash(drop_location())
 		A.desc += "\nLooks like this used to be \a [src] some time ago."
 		visible_message(span_danger("[src] is disintegrated by [I]!"))
-		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
+		playsound(src, 'sound/items/tools/welder.ogg', 50, TRUE)
 		qdel(src)
 		return
 	return ..()

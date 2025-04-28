@@ -120,45 +120,89 @@
 *	COLLARS
 */
 
-/datum/loadout_item/neck/choker
-	name = "Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/choker
+/// THIN
 
 /datum/loadout_item/neck/thinchoker
-	name = "Thin Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/thinchoker
+	name = "Choker (Thin)"
+	item_path = /obj/item/clothing/neck/collar
 
 /datum/loadout_item/neck/collar
-	name = "Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar
-
-/datum/loadout_item/neck/leathercollar
-	name = "Leather Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/leather
+	name = "Collar (Tagged)"
+	item_path = /obj/item/clothing/neck/collar/tagged
 
 /datum/loadout_item/neck/cbellcollar
-	name = "Cowbell Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/cow
+	name = "Collar (Cowbell)"
+	item_path = /obj/item/clothing/neck/collar/cowbell
 
 /datum/loadout_item/neck/bellcollar
-	name = "Bell Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/bell
+	name = "Collar (Bell)"
+	item_path = /obj/item/clothing/neck/collar/bell
+
+/datum/loadout_item/neck/hcollar
+	name = "Collar (Holo)"
+	item_path = /obj/item/clothing/neck/collar/holocollar
+
+/datum/loadout_item/neck/crosscollar
+	name = "Collar (Cross)"
+	item_path = /obj/item/clothing/neck/collar/cross
+
+/// THICK
+
+/datum/loadout_item/neck/choker
+	name = "Choker"
+	item_path = /obj/item/clothing/neck/collar/thick
+
+/datum/loadout_item/neck/thick_bellcollar
+	name = "Collar (Bell, Thick)"
+	item_path = /obj/item/clothing/neck/collar/thick/bell
+
+/datum/loadout_item/neck/thick_cowbellcollar
+	name = "Collar (Cowbell, Thick)"
+	item_path = /obj/item/clothing/neck/collar/thick/cowbell
+
+/datum/loadout_item/neck/thick_crosscollar
+	name = "Collar (Cross, Thick)"
+	item_path = /obj/item/clothing/neck/collar/thick/cross
+
+/datum/loadout_item/neck/thick_holocollar
+	name = "Collar (Holocollar, Thick)"
+	item_path = /obj/item/clothing/neck/collar/thick/holocollar
+
+/datum/loadout_item/neck/thick_collar
+	name = "Collar (Thick)"
+	item_path = /obj/item/clothing/neck/collar/thick/tagged
+
+/// LEATHER
+
+/datum/loadout_item/neck/leater_collar
+	name = "Collar (Leather)"
+	item_path = /obj/item/clothing/neck/collar/leather
+
+/datum/loadout_item/neck/leather_bellcollar
+	name = "Collar (Bell, Leather)"
+	item_path = /obj/item/clothing/neck/collar/leather/bell
+
+/datum/loadout_item/neck/leather_cowbellcollar
+	name = "Collar (Cowbell, Leather)"
+	item_path = /obj/item/clothing/neck/collar/leather/cowbell
+
+/datum/loadout_item/neck/leather_crosscollar
+	name = "Collar (Cross, Leather)"
+	item_path = /obj/item/clothing/neck/collar/leather/cross
+
+/datum/loadout_item/neck/leather_holocollar
+	name = "Collar (Holocollar, Leather)"
+	item_path = /obj/item/clothing/neck/collar/leather/holocollar
+
+/datum/loadout_item/neck/leather_collar
+	name = "Collar (Tagged, Leather)"
+	item_path = /obj/item/clothing/neck/collar/leather/tagged
+
+/// SPIKE
 
 /datum/loadout_item/neck/spikecollar
 	name = "Spike Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/spike
-
-/datum/loadout_item/neck/hcollar
-	name = "Holocollar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/holo
-
-/datum/loadout_item/neck/crosscollar
-	name = "Cross Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/cross
-
-/datum/loadout_item/neck/kinkycollar
-	name = "Kinky Collar"
-	item_path = /obj/item/clothing/neck/kink_collar
+	item_path = /obj/item/clothing/neck/collar/spike
 	erp_item = TRUE
 
 /*
@@ -224,6 +268,10 @@
 /datum/loadout_item/neck/mantle
 	name = "Mantle"
 	item_path = /obj/item/clothing/neck/mantle
+
+/datum/loadout_item/neck/tesharian_mantle
+	name = "Tesharian Mantle"
+	item_path = /obj/item/clothing/neck/tesharian_mantle
 
 /datum/loadout_item/neck/mantle_qm
 	name = "Quartermaster's Mantle"
@@ -299,6 +347,15 @@
 	name = "Tarkon Confidante Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/tarkon
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/neck/security_cape
+	name = "Security Cape"
+	item_path = /obj/item/clothing/neck/security_cape
+
+/datum/loadout_item/neck/security_gauntlet
+	name = "Security Gauntlet"
+	item_path = /obj/item/clothing/neck/security_cape/armplate
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /*
 *	DONATOR

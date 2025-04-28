@@ -29,7 +29,7 @@
 /area/shuttle/abandoned/cargo)
 "cD" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_windows";
 	name = "Exterior Window Blast Door"
 	},
@@ -100,7 +100,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/item/organ/internal/stomach,
+/obj/item/organ/stomach,
 /obj/item/trash/syndi_cakes,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
@@ -194,7 +194,7 @@
 /area/shuttle/abandoned/bar)
 "iI" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_bridge";
 	name = "Cockpit Emergency Blast Door"
 	},
@@ -399,14 +399,7 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
 "ry" = (
-/obj/machinery/porta_turret/centcom_shuttle/weak{
-	dir = 4;
-	name = "Old Mining Turret";
-	lethal_projectile = /obj/projectile/kinetic/miner;
-	lethal_projectile_sound = 'sound/weapons/kinetic_accel.ogg';
-	stun_projectile = /obj/projectile/kinetic/miner;
-	stun_projectile_sound = 'sound/weapons/kinetic_accel.ogg'
-	},
+/obj/machinery/porta_turret/centcom_shuttle/weak/mining,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/bar)
 "rC" = (
@@ -641,7 +634,7 @@
 /area/shuttle/abandoned/bar)
 "FW" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_windows";
 	name = "Exterior Window Blast Door"
 	},
@@ -649,7 +642,7 @@
 /area/shuttle/abandoned/crew)
 "Gj" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_windows";
 	name = "Exterior Window Blast Door"
 	},
@@ -782,7 +775,7 @@
 /area/shuttle/abandoned/engine)
 "Kx" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_windows";
 	name = "Exterior Window Blast Door"
 	},
@@ -830,7 +823,7 @@
 /area/shuttle/abandoned/engine)
 "LK" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_windows";
 	name = "Exterior Window Blast Door"
 	},
@@ -1164,7 +1157,7 @@
 /area/shuttle/abandoned/engine)
 "YN" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
+/obj/machinery/door/poddoor/shutters{
 	id = "whiteship_windows";
 	name = "Exterior Window Blast Door"
 	},

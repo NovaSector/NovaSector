@@ -9,3 +9,7 @@
 /obj/item/gun/energy/e_gun
 	name = "\improper Allstar SC-2 energy carbine"
 	desc = "A basic hybrid energy carbine with two settings: disable and kill."
+
+/obj/item/gun/energy/e_gun/advtaser
+	w_class = WEIGHT_CLASS_NORMAL
+	custom_price = PAYCHECK_CREW * 5

@@ -24,7 +24,7 @@
 	if(fragile)
 		AddElement(/datum/element/can_shatter)
 
-/obj/item/plate/attackby(obj/item/I, mob/user, params)
+/obj/item/plate/attackby(obj/item/I, mob/user, list/modifiers)
 	if(!IS_EDIBLE(I))
 		balloon_alert(user, "not food!")
 		return
@@ -34,7 +34,6 @@
 	if(contents.len >= max_items)
 		balloon_alert(user, "can't fit!")
 		return
-	var/list/modifiers = params2list(params)
 	//Center the icon where the user clicked.
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
@@ -46,13 +45,13 @@
 	else
 		return ..()
 
-/obj/item/plate/pre_attack(atom/A, mob/living/user, params)
-	if(!iscarbon(A))
+/obj/item/plate/pre_attack(atom/target, mob/living/user, list/modifiers)
+	if(!iscarbon(target))
 		return
 	if(!contents.len)
 		return
 	var/obj/item/object_to_eat = contents[1]
-	A.attackby(object_to_eat, user)
+	target.attackby(object_to_eat, user)
 	return TRUE //No normal attack
 
 ///This proc adds the food to viscontents and makes sure it can deregister if this changes.
@@ -121,7 +120,7 @@
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "plate_shard1"
 	base_icon_state = "plate_shard"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	w_class = WEIGHT_CLASS_TINY
 	force = 5
 	throwforce = 5

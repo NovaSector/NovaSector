@@ -7,7 +7,7 @@
 	default = "Game Master"
 	protection = CONFIG_ENTRY_LOCKED
 
-/datum/config_entry/flag/auto_deadmin_players
+/datum/config_entry/flag/auto_deadmin_always
 	protection = CONFIG_ENTRY_LOCKED
 
 /datum/config_entry/number/auto_deadmin_timegate
@@ -18,6 +18,9 @@
 	protection = CONFIG_ENTRY_LOCKED
 
 /datum/config_entry/flag/auto_deadmin_heads
+	protection = CONFIG_ENTRY_LOCKED
+
+/datum/config_entry/flag/auto_deadmin_on_ready_or_latejoin
 	protection = CONFIG_ENTRY_LOCKED
 
 /datum/config_entry/flag/auto_deadmin_silicons
@@ -221,7 +224,7 @@
 		sync_validate = TRUE
 		var/datum/config_entry/number/ticklag/TL = config.entries_by_type[/datum/config_entry/number/ticklag]
 		if(!TL.sync_validate)
-			TL.ValidateAndSet(10 / config_entry_value)
+			TL.ValidateAndSet("[10 / config_entry_value]")
 		sync_validate = FALSE
 
 /datum/config_entry/number/ticklag
@@ -239,7 +242,7 @@
 		sync_validate = TRUE
 		var/datum/config_entry/number/fps/FPS = config.entries_by_type[/datum/config_entry/number/fps]
 		if(!FPS.sync_validate)
-			FPS.ValidateAndSet(10 / config_entry_value)
+			FPS.ValidateAndSet("[10 / config_entry_value]")
 		sync_validate = FALSE
 
 /datum/config_entry/flag/allow_holidays
@@ -314,16 +317,18 @@
 
 /datum/config_entry/string/server
 
+/datum/config_entry/string/public_address
+
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	default = "https://wiki.novasector13.com/index.php" //NOVA EDIT - Original: "http://www.tgstation13.org/wiki"
+	default = "https://wiki.novasector13.com/index.php" //NOVA EDIT CHANGE - Original: default = "http://tgstation13.org/wiki"
 
 /datum/config_entry/string/forumurl
 	default = "http://tgstation13.org/phpBB/index.php"
 
 /datum/config_entry/string/rulesurl
-	default = "http://www.tgstation13.org/wiki/Rules"
+	default = "http://tgstation13.org/wiki/Rules"
 
 /datum/config_entry/string/githuburl
 	default = "https://www.github.com/tgstation/tgstation"
@@ -573,25 +578,22 @@
 	integer = FALSE
 
 /datum/config_entry/flag/irc_announce_new_game
-	deprecated_by = /datum/config_entry/string/channel_announce_new_game
+	deprecated_by = /datum/config_entry/str_list/channel_announce_new_game
 
 /datum/config_entry/flag/irc_announce_new_game/DeprecationUpdate(value)
 	return "" //default broadcast
 
 /datum/config_entry/string/chat_announce_new_game
-	deprecated_by = /datum/config_entry/string/channel_announce_new_game
+	deprecated_by = /datum/config_entry/str_list/channel_announce_new_game
 
 /datum/config_entry/string/chat_announce_new_game/DeprecationUpdate(value)
 	return "" //default broadcast
 
-/datum/config_entry/string/channel_announce_new_game
-	default = null
+/datum/config_entry/str_list/channel_announce_new_game
 
-/datum/config_entry/string/channel_announce_end_game
-	default = null
+/datum/config_entry/str_list/channel_announce_end_game
 
-/datum/config_entry/string/chat_new_game_notifications
-	default = null
+/datum/config_entry/str_list/chat_new_game_notifications
 
 /// validate ownership of admin flags for chat commands
 /datum/config_entry/flag/secure_chat_commands
@@ -706,6 +708,9 @@
 /datum/config_entry/flag/cache_assets
 	default = TRUE
 
+/datum/config_entry/flag/smart_cache_assets
+	default = TRUE
+
 /datum/config_entry/flag/save_spritesheets
 	default = FALSE
 
@@ -742,3 +747,49 @@
 /datum/config_entry/number/upload_limit_admin
 	default = 5242880
 	min_val = 0
+
+/// The minimum number of tallies a map vote entry can have.
+/datum/config_entry/number/map_vote_minimum_tallies
+	default = 1
+	min_val = 0
+	max_val = 50
+
+/// The flat amount all maps get by default
+/datum/config_entry/number/map_vote_flat_bonus
+	default = 5
+	min_val = 0
+	max_val = INFINITY
+
+/// The maximum number of tallies a map vote entry can have.
+/datum/config_entry/number/map_vote_maximum_tallies
+	default = 200
+	min_val = 0
+	max_val = INFINITY
+
+/// The number of tallies that are carried over between rounds.
+/datum/config_entry/number/map_vote_tally_carryover_percentage
+	default = 100
+	min_val = 0
+	max_val = 100
+
+/// If admins with +DEBUG can initialize byond-tracy midround.
+/datum/config_entry/flag/allow_tracy_start
+	protection = CONFIG_ENTRY_LOCKED
+
+/// If admins with +DEBUG can queue byond-tracy to run the next round.
+/datum/config_entry/flag/allow_tracy_queue
+	protection = CONFIG_ENTRY_LOCKED
+
+/**
+ * Tgui ui_act payloads larger than 2kb are split into chunks a maximum of 1kb in size.
+ * This flag represents the maximum chunk count the server is willing to receive.
+ */
+/datum/config_entry/number/tgui_max_chunk_count
+	default = 32
+
+// If set, enables the "Link forum account" OOC verb
+/datum/config_entry/string/forum_link_uri
+
+/datum/config_entry/string/webmap_url
+	//ex: "https://webmap.affectedarc07.co.uk/maps/tgstation/"
+	default = ""

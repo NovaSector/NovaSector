@@ -1,8 +1,15 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
+import {
+  Box,
+  Button,
+  Divider,
+  Image,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 
 import { useBackend } from '../backend';
-import { Box, Button, Divider, Image, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 export const CargoImportConsole = (props) => {
@@ -121,9 +128,7 @@ export const CargoImportConsole = (props) => {
                             <Stack.Item>{item.description}</Stack.Item>
                             {!!cant_buy_restricted && !!item.restricted && (
                               <Stack.Item textColor={'red'}>
-                                {
-                                  'You cannot buy a restricted item from this console!'
-                                }
+                                {'You need a weapon permit to buy this item!'}
                               </Stack.Item>
                             )}
                             <Stack.Item

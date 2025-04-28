@@ -30,7 +30,7 @@
 	if(spawn_with_objectives)
 		give_random_objectives()
 	. = ..()
-	SEND_SOUND(owner.current, sound('sound/ambience/antag/spy.ogg'))
+	SEND_SOUND(owner.current, sound('sound/music/antag/spy.ogg'))
 
 /datum/antagonist/spy/ui_static_data(mob/user)
 	var/list/data = ..()
@@ -205,7 +205,7 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/fedora
-	suit = /obj/item/clothing/suit/jacket/trenchcoat
+	suit = /obj/item/clothing/suit/jacket/leather_trenchcoat
 	glasses = /obj/item/clothing/glasses/osi
 	ears = /obj/item/radio/headset
 

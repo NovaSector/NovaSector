@@ -8,13 +8,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	icon_state = "hilbertshotel"
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	var/list/static/hotel_maps = list("Generic", "Apartment", "Beach Condo")
-	//standart - hilber's hotel room
-	//apartment - see /datum/map_template/ghost_cafe_rooms
-	var/datum/map_template/ghost_cafe_rooms/apartment/ghost_cafe_rooms_apartment
-	var/datum/map_template/ghost_cafe_rooms/beach_condo/ghost_cafe_rooms_beach_condo
-	//NOVA EDIT END
 	var/datum/map_template/hilbertshotel/hotelRoomTemp
 	var/datum/map_template/hilbertshotel/empty/hotelRoomTempEmpty
 	var/datum/map_template/hilbertshotel/lore/hotelRoomTempLore
@@ -33,10 +26,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	hotelRoomTemp = new()
 	hotelRoomTempEmpty = new()
 	hotelRoomTempLore = new()
-	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	ghost_cafe_rooms_apartment = new()
-	ghost_cafe_rooms_beach_condo = new()
-	//NOVA EDIT END
 	var/area/currentArea = get_area(src)
 	if(currentArea.type == /area/ruin/space/has_grav/powered/hilbertresearchfacility/secretroom)
 		ruinSpawned = TRUE
@@ -83,12 +72,11 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		to_chat(target, span_warning("You too far away from \the [src] to enter it!"))
 
 	// If the target is incapacitated after selecting a room, they're not allowed to teleport.
-	if(target.incapacitated())
+	if(target.incapacitated)
 		to_chat(target, span_warning("You aren't able to activate \the [src] anymore!"))
 
 	// Has the user thrown it away or otherwise disposed of it such that it's no longer in their hands or in some storage connected to them?
-	// if(!(get_atom_on_turf(src, /mob) == user)) NOVA EDIT ORIGINAL
-	if(!Adjacent(user)) // NOVA EDIT -- Ghost Cafe Static Hilbertspawner
+	if(get_atom_on_turf(src, /mob) != user)
 		if(user == target)
 			to_chat(user, span_warning("\The [src] is no longer in your possession!"))
 		else
@@ -106,11 +94,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		else if(!user.dropItemToGround(src))
 			to_chat(user, span_warning("You can't seem to drop \the [src]! It must be stuck to your hand somehow! Prepare for unforeseen consequences..."))
 
-	//NOVA EDIT ADDITION - GHOST HOTEL UPDATE
-	var/chosen_room = "Nothing"
-	if(istype(src, /obj/item/hilbertshotel/ghostdojo)) //to don't add another one var
-		chosen_room = tgui_input_list(user, "Choose desired room:", "Time to choose", hotel_maps)
-	//NOVA EDIT END
 	if(!storageTurf) //Blame subsystems for not allowing this to be in Initialize
 		if(!GLOB.hhStorageTurf)
 			var/datum/map_template/hilbertshotelstorage/storageTemp = new()
@@ -124,7 +107,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		return
 	if(tryStoredRoom(chosenRoomNumber, target))
 		return
-	sendToNewRoom(chosenRoomNumber, target, chosen_room) //NOVA EDIT ADDITION - GHOST HOTEL UPDATE. Was sendToNewRoom(chosenRoomNumber, target)
+	sendToNewRoom(chosenRoomNumber, target)
 
 /obj/item/hilbertshotel/proc/tryActiveRoom(roomNumber, mob/user)
 	if(activeRooms["[roomNumber]"])
@@ -170,19 +153,13 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		return TRUE
 	return FALSE
 
-/obj/item/hilbertshotel/proc/sendToNewRoom(roomNumber, mob/user, chosen_room) //NOVA EDIT ADDITION - GHOST HOTEL UPDATE. Was sendToNewRoom(roomNumber, mob/user)
+/obj/item/hilbertshotel/proc/sendToNewRoom(roomNumber, mob/user)
 	var/datum/turf_reservation/roomReservation = SSmapping.request_turf_block_reservation(hotelRoomTemp.width, hotelRoomTemp.height, 1)
 	var/turf/bottom_left = roomReservation.bottom_left_turfs[1]
 	var/datum/map_template/load_from = hotelRoomTemp
 
 	if(ruinSpawned && roomNumber == GLOB.hhMysteryRoomNumber)
 		load_from = hotelRoomTempLore
-	//NOVA EDIT ADDITION START - GHOST HOTEL UPDATE
-	else if(chosen_room == "Apartment")
-		load_from = ghost_cafe_rooms_apartment
-	else if(chosen_room == "Beach Condo")
-		load_from = ghost_cafe_rooms_beach_condo
-	//NOVA EDIT ADDITION END
 
 	load_from.load(bottom_left)
 	activeRooms["[roomNumber]"] = roomReservation
@@ -324,6 +301,11 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	icon_state = "hoteldoor"
 	explosive_resistance = INFINITY
 	var/obj/item/hilbertshotel/parentSphere
+	// NOVA EDIT ADDITION START - Condos
+	var/leave_message = "Hilbert's Hotel would like to remind you that while we will do everything we can to protect the belongings \
+		you leave behind, we make no guarantees of their safety while you're gone, especially that of the health of any living creatures. \
+		With that in mind, are you ready to leave?"
+	// NOVA EDIT ADDITION END
 
 /turf/closed/indestructible/hoteldoor/Initialize(mapload)
 	. = ..()
@@ -342,7 +324,12 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	if(!parentSphere)
 		to_chat(user, span_warning("The door seems to be malfunctioning and refuses to operate!"))
 		return
+	/// NOVA EDIT CHANGE START - Condos
+	/* Original:
 	if(tgui_alert(user, "Hilbert's Hotel would like to remind you that while we will do everything we can to protect the belongings you leave behind, we make no guarantees of their safety while you're gone, especially that of the health of any living creatures. With that in mind, are you ready to leave?", "Exit", list("Leave", "Stay")) == "Leave")
+	*/
+	if(tgui_alert(user, leave_message, "Exit", list("Leave", "Stay")) == "Leave") // NOVA EDIT CHANGE - Moved blurb to leave_message variable
+	/// NOVA EDIT CHANGE END
 		if(HAS_TRAIT(user, TRAIT_IMMOBILIZED) || (get_dist(get_turf(src), get_turf(user)) > 1)) //no teleporting around if they're dead or moved away during the prompt.
 			return
 		user.forceMove(get_turf(parentSphere))
@@ -381,7 +368,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		to_chat(user, span_warning("Drats! Your vision is too poor to use this!"))
 		return CLICK_ACTION_BLOCKING
 
-	to_chat(user, span_notice("You peak through the door's bluespace peephole..."))
+	to_chat(user, span_notice("You peek through the door's bluespace peephole..."))
 	user.reset_perspective(parentSphere)
 	var/datum/action/peephole_cancel/PHC = new
 	user.overlay_fullscreen("remote_view", /atom/movable/screen/fullscreen/impaired, 1)
@@ -415,12 +402,10 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	icon = 'icons/area/areas_ruins.dmi'
 	icon_state = "hilbertshotel"
 	requires_power = FALSE
-	has_gravity = TRUE
+	default_gravity = STANDARD_GRAVITY
 	area_flags = NOTELEPORT | HIDDEN_AREA
 	static_lighting = TRUE
-	/* 	NOVA EDIT REMOVAL - GHOST HOTEL UPDATE
-	ambientsounds = list('sound/ambience/servicebell.ogg')
-	NOVA EDIT END */
+	// ambientsounds = list('sound/ambience/ruin/servicebell.ogg') // NOVA EDIT REMOVAL
 	var/roomnumber = 0
 	var/obj/item/hilbertshotel/parentSphere
 	var/datum/turf_reservation/reservation
@@ -508,7 +493,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	icon_state = "hilbertshotel"
 	requires_power = FALSE
 	area_flags = HIDDEN_AREA | NOTELEPORT | UNIQUE_AREA
-	has_gravity = TRUE
+	default_gravity = STANDARD_GRAVITY
 
 /obj/item/abstracthotelstorage
 	anchored = TRUE
@@ -550,25 +535,25 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	worn_icon_state = "analyzer"
 
 /obj/item/analyzer/hilbertsanalyzer/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(istype(interacting_with, /obj/item/hilbertshotel))
-		if(!Adjacent(interacting_with))
-			to_chat(user, span_warning("It's to far away to scan!"))
-			return ITEM_INTERACT_BLOCKING
-		var/obj/item/hilbertshotel/sphere = interacting_with
-		if(sphere.activeRooms.len)
-			to_chat(user, "Currently Occupied Rooms:")
-			for(var/roomnumber in sphere.activeRooms)
-				to_chat(user, roomnumber)
-		else
-			to_chat(user, "No currenty occupied rooms.")
-		if(sphere.storedRooms.len)
-			to_chat(user, "Vacated Rooms:")
-			for(var/roomnumber in sphere.storedRooms)
-				to_chat(user, roomnumber)
-		else
-			to_chat(user, "No vacated rooms.")
-		return ITEM_INTERACT_SUCCESS
-	return ..()
+	if(!istype(interacting_with, /obj/item/hilbertshotel))
+		return ..()
+	if(!user.CanReach(interacting_with))
+		to_chat(user, span_warning("It's to far away to scan!"))
+		return ITEM_INTERACT_BLOCKING
+	var/obj/item/hilbertshotel/sphere = interacting_with
+	if(sphere.activeRooms.len)
+		to_chat(user, "Currently Occupied Rooms:")
+		for(var/roomnumber in sphere.activeRooms)
+			to_chat(user, roomnumber)
+	else
+		to_chat(user, "No currenty occupied rooms.")
+	if(sphere.storedRooms.len)
+		to_chat(user, "Vacated Rooms:")
+		for(var/roomnumber in sphere.storedRooms)
+			to_chat(user, roomnumber)
+	else
+		to_chat(user, "No vacated rooms.")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/effect/landmark/transport/transport_id/hilbert
 	specific_transport_id = HILBERT_LINE_1
@@ -614,9 +599,9 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	id_trim = /datum/id_trim/away/hilbert
 
-/datum/outfit/doctorhilbert/pre_equip(mob/living/carbon/human/hilbert, visualsOnly)
+/datum/outfit/doctorhilbert/pre_equip(mob/living/carbon/human/hilbert, visuals_only)
 	. = ..()
-	if(!visualsOnly)
+	if(!visuals_only)
 		hilbert.gender = MALE
 		hilbert.update_body()
 
@@ -733,6 +718,9 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /obj/machinery/porta_turret/syndicate/teleport
 	name = "displacement turret"
 	desc = "A ballistic machine gun auto-turret that fires bluespace bullets."
-	lethal_projectile = /obj/projectile/magic/teleport
-	stun_projectile = /obj/projectile/magic/teleport
+	lethal_projectile = /obj/projectile/magic/teleport/bluespace
+	stun_projectile = /obj/projectile/magic/teleport/bluespace
 	faction = list(FACTION_TURRET)
+
+/obj/projectile/magic/teleport/bluespace
+	antimagic_flags = NONE

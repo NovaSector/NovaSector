@@ -4,7 +4,7 @@
 	desc = "Extremely sturdy."
 	icon_state = "engine"
 	holodeck_compatible = TRUE
-	thermal_conductivity = 0.025
+	thermal_conductivity = 0.01
 	heat_capacity = INFINITY
 	floor_tile = /obj/item/stack/rods
 	footstep = FOOTSTEP_PLATING
@@ -34,7 +34,7 @@
 		return ..()
 	return //unplateable
 
-/turf/open/floor/engine/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
+/turf/open/floor/engine/try_replace_tile(obj/item/stack/tile/T, mob/user, list/modifiers)
 	return
 
 /turf/open/floor/engine/crowbar_act(mob/living/user, obj/item/I)
@@ -75,7 +75,7 @@
 
 	return TRUE
 
-/turf/open/floor/engine/singularity_pull(S, current_size)
+/turf/open/floor/engine/singularity_pull(atom/singularity, current_size)
 	..()
 	if(current_size >= STAGE_FIVE)
 		if(floor_tile)

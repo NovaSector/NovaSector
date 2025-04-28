@@ -2,12 +2,12 @@
 	name = "Forest Planet"
 	icon = 'icons/area/areas_station.dmi'
 	icon_state = "explored"
-	has_gravity = STANDARD_GRAVITY
+	default_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
 	ambience_index = AMBIENCE_FOREST
 	sound_environment = SOUND_AREA_FOREST
-	ambient_buzz = 'sound/ambience/magma.ogg'
+	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
@@ -36,6 +36,9 @@
 	var/theme_song = 'modular_nova/master_files/sound/ambience/mushroom/mushroom_theme.ogg'
 	/// The additional cooldown to add if the theme song is being played.
 	var/theme_song_additional_cooldown = 115 SECONDS // The song is 183 seconds long, and minimum cooldown in this area is 70 seconds.
+
+/area/forestplanet/outdoors/unexplored/deep/no_mapgen
+	map_generator = null
 
 
 /area/forestplanet/outdoors/unexplored/deep/play_ambience(mob/listener, sound/override_sound, volume)

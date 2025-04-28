@@ -214,7 +214,7 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 
 	var/turf/point = get_front_turf()
 	var/turf/target = get_target_turf()
-	var/atom/movable/blocker
+	var/atom/blocker
 	for(var/T in get_line(get_step(point, dir), target))
 		var/turf/tile = T
 		if(SEND_SIGNAL(tile, COMSIG_ATOM_BSA_BEAM) & COMSIG_ATOM_BLOCKS_BSA_BEAM)
@@ -301,7 +301,7 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 		data["target"] = get_target_name()
 	return data
 
-/obj/machinery/computer/bsa_control/ui_act(action, params)
+/obj/machinery/computer/bsa_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

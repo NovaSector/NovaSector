@@ -1,7 +1,4 @@
-/datum/loadout_category/feet
-	category_name = "Feet"
-	category_ui_icon = FA_ICON_SHOE_PRINTS
-	type_to_generate = /datum/loadout_item/shoes
+/datum/loadout_category/shoes
 	tab_order = /datum/loadout_category/hands::tab_order + 1
 
 /*
@@ -31,6 +28,11 @@
 	name = "Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots
 
+/datum/loadout_item/shoes/jackboots_sec_blue
+	name = "Blue Security Jackboots"
+	item_path = /obj/item/clothing/shoes/jackboots/sec/blue
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
 // Thedragmeme's donator reward, they've decided to make them available to everybody.
 /datum/loadout_item/shoes/jackboots/heel
 	name = "High-Heel Jackboots"
@@ -57,7 +59,7 @@
 */
 
 /datum/loadout_item/shoes/timbs
-	name = "Fashionable Boots"
+	name = "Hiking Boots"
 	item_path = /obj/item/clothing/shoes/jackboots/timbs
 
 /datum/loadout_item/shoes/jungle
@@ -72,10 +74,6 @@
 	name = "Work Boots"
 	item_path = /obj/item/clothing/shoes/workboots
 
-/datum/loadout_item/shoes/work_boots/old
-	name = "Old Work Boots"
-	item_path = /obj/item/clothing/shoes/workboots/old
-
 /datum/loadout_item/shoes/mining_boots
 	name = "Mining Boots"
 	item_path = /obj/item/clothing/shoes/workboots/mining
@@ -84,29 +82,17 @@
 	name = "Russian Boots"
 	item_path = /obj/item/clothing/shoes/russian
 
+/datum/loadout_item/shoes/duck_boots
+	name = "Northeastern Duck Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/duckboots
+
 /*
 *	COWBOY
 */
 
-/datum/loadout_item/shoes/brown_cowboy_boots
-	name = "Brown Cowboy Boots"
-	item_path = /obj/item/clothing/shoes/cowboy
-
-/datum/loadout_item/shoes/black_cowboy_boots
-	name = "Black Cowboy Boots"
-	item_path = /obj/item/clothing/shoes/cowboy/black
-
-/datum/loadout_item/shoes/white_cowboy_boots
-	name = "White Cowboy Boots"
-	item_path = /obj/item/clothing/shoes/cowboy/white
-
-/datum/loadout_item/shoes/cowboyboots
-	name = "Cowboy Boots (Brown)"
-	item_path = /obj/item/clothing/shoes/cowboyboots
-
-/datum/loadout_item/shoes/cowboyboots_black
-	name = "Cowboy Boots (Black)"
-	item_path = /obj/item/clothing/shoes/cowboyboots/black
+/datum/loadout_item/shoes/cowboy_recolorable
+	name = "Cowboy Boots (Recolorable)"
+	item_path = /obj/item/clothing/shoes/cowboy/laced/recolorable
 
 /*
 *	SNEAKERS
@@ -119,34 +105,42 @@
 /datum/loadout_item/shoes/black_sneakers
 	name = "Black Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/black
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/blue_sneakers
 	name = "Blue Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/blue
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/brown_sneakers
 	name = "Brown Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/brown
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/green_sneakers
 	name = "Green Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/green
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/purple_sneakers
 	name = "Purple Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/purple
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/orange_sneakers
 	name = "Orange Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/orange
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/yellow_sneakers
 	name = "Yellow Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/yellow
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/shoes/white_sneakers
 	name = "White Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/white
+	can_be_greyscale = DONT_GREYSCALE
 
 /*
 *	LEG WRAPS
@@ -204,7 +198,7 @@
 	item_path = /obj/item/clothing/shoes/fancy_heels
 
 /datum/loadout_item/shoes/disco
-	name = "Green Snakeskin Shoes"
+	name = "Green Lizardskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
 /datum/loadout_item/shoes/kim
@@ -213,7 +207,7 @@
 
 /datum/loadout_item/shoes/dominaheels
 	name = "Dominant Heels"
-	item_path = /obj/item/clothing/shoes/latex_heels/domina_heels
+	item_path = /obj/item/clothing/shoes/ballet_heels/domina_heels
 	erp_item = TRUE
 
 /datum/loadout_item/shoes/latex_socks
@@ -221,9 +215,9 @@
 	item_path = /obj/item/clothing/shoes/latex_socks
 	erp_item = TRUE
 
-/datum/loadout_item/shoes/latex_heels
-	name = "Latex Heels"
-	item_path = /obj/item/clothing/shoes/latex_heels
+/datum/loadout_item/shoes/ballet_heels
+	name = "Ballet Heels"
+	item_path = /obj/item/clothing/shoes/ballet_heels
 	erp_item = TRUE
 
 /datum/loadout_item/shoes/griffin

@@ -2,6 +2,16 @@
 	max_total_storage = 30
 	max_slots = 21
 
+/datum/storage/duffel/New(
+	atom/parent,
+	max_slots,
+	max_specific_storage,
+	max_total_storage,
+)
+	. = ..()
+
+	set_holdable(exception_hold_list = /obj/item/fish_tank)
+
 // Syndi bags get some FUN extras
 // You can fit any 2 bulky objects (assuming they're in the whitelist)
 // Should have traitorus stuff in here, not just useful big things
@@ -60,11 +70,15 @@
 		/obj/item/storage/bag/money,
 		// Heads!
 		/obj/item/bodypart/head,
+		// Fish
+		/obj/item/fish,
+		/obj/item/fish_tank,
 	)
 
-	// We keep the type list and the typecache list separate...
-	var/static/list/exception_cache = typecacheof(exception_type_list)
-	exception_hold = exception_cache
+	set_holdable(exception_hold_list = exception_type_list)
 
 	//...So we can run this without it generating a line for every subtype.
-	can_hold_description = generate_hold_desc(exception_type_list)
+	var/list/desc = list()
+	for(var/obj/item/valid_item as anything in exception_type_list)
+		desc += "\a [initial(valid_item.name)]"
+	can_hold_description = "\n\t[span_notice("[desc.Join("\n\t")]")]"

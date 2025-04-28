@@ -26,7 +26,7 @@
 	)
 
 /datum/surgery/hepatectomy/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	if(isnull(target_liver) || target_liver.damage < 50 || target_liver.operated)
 		return FALSE
 	return ..()
@@ -41,9 +41,9 @@
 		/obj/item/knife = 45,
 		/obj/item/shard = 35)
 	time = 52
-	preop_sound = 'sound/surgery/scalpel1.ogg'
-	success_sound = 'sound/surgery/organ1.ogg'
-	failure_sound = 'sound/surgery/organ2.ogg'
+	preop_sound = 'sound/items/handling/surgery/scalpel1.ogg'
+	success_sound = 'sound/items/handling/surgery/organ1.ogg'
+	failure_sound = 'sound/items/handling/surgery/organ2.ogg'
 	surgery_effects_mood = TRUE
 
 /datum/surgery_step/hepatectomy/mechanic
@@ -54,8 +54,8 @@
 		/obj/item/melee/energy/sword = 65,
 		/obj/item/knife = 45,
 		/obj/item/shard = 35)
-	preop_sound = 'sound/items/ratchet.ogg'
-	success_sound = 'sound/machines/doorclick.ogg'
+	preop_sound = 'sound/items/tools/ratchet.ogg'
+	success_sound = 'sound/machines/airlock/doorclick.ogg'
 
 /datum/surgery_step/hepatectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(
@@ -69,15 +69,14 @@
 
 /datum/surgery_step/hepatectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/human_target = target
-	var/obj/item/organ/internal/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/liver/target_liver = target.get_organ_slot(ORGAN_SLOT_LIVER)
 	human_target.setOrganLoss(ORGAN_SLOT_LIVER, 10) //not bad, not great
 	if(target_liver)
 		//NOVA EDIT ADDITION BEGIN - This is so that you can do organ surgeries multiple times on slimepeople.
-		if(istype(target_liver, /obj/item/organ/internal/liver/slime))
+		if(istype(target_liver, /obj/item/organ/liver/slime))
 			addtimer(VARSET_CALLBACK(target_liver, operated, FALSE), 30 SECONDS)
-		else
 		//NOVA EDIT ADDITION END
-			target_liver.operated = TRUE // NOVA EDIT CHANGE - Not for slimepeople - Indents for else block
+		target_liver.operated = TRUE
 		if(target_liver.organ_flags & ORGAN_EMP) //If our organ is failing due to an EMP, fix that
 			target_liver.organ_flags &= ~ORGAN_EMP
 	display_results(

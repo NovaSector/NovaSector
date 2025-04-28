@@ -11,6 +11,8 @@
 	special = TRUE
 
 /datum/supply_pack/goody/mars_single
+	desc = "The HoS took your gun and your badge? No problem! Just pay a modest taxation fee and you too can be reunited with the (allegedly) lethal power of a .38!"
+	cost = PAYCHECK_COMMAND * 5
 	access_view = FALSE
 
 /datum/supply_pack/goody/Survivalknives_single

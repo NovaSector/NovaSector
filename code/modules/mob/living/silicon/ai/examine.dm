@@ -1,5 +1,5 @@
 /mob/living/silicon/ai/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] <EM>[src]</EM>!", EXAMINE_SECTION_BREAK) //NOVA EDIT CHANGE
+	. = list()
 	if(stat == DEAD)
 		. += span_deadsay("It appears to be powered-down.")
 	. += span_notice("Its floor <b>bolts</b> are [is_anchored ? "tightened" : "loose"].")
@@ -27,11 +27,7 @@
 		else if (!shunted && !client)
 			. += "[src]Core.exe has stopped responding! NTOS is searching for a solution to the problem..."
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
-	. += get_silicon_flavortext()
+	. += get_silicon_flavortext(user)
 	//NOVA EDIT ADDITION END
-	. += "</span>"
 
 	. += ..()
-
-/mob/living/silicon/ai/get_examine_string(mob/user, thats = FALSE)
-	return null

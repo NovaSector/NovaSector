@@ -1,7 +1,7 @@
 /turf/closed/wall/r_wall
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to separate rooms."
-	icon = 'icons/turf/walls/reinforced_wall.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/turf/walls/reinforced_wall.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 	opacity = TRUE
@@ -76,7 +76,7 @@
 
 		if(COVER)
 			if(W.tool_behaviour == TOOL_WELDER)
-				if(!W.tool_start_check(user, amount=2))
+				if(!W.tool_start_check(user, amount=2, heat_required = HIGH_TEMPERATURE_REQUIRED))
 					return
 				to_chat(user, span_notice("You begin slicing through the metal cover..."))
 				if(W.use_tool(src, user, 60, volume=100))
@@ -109,7 +109,7 @@
 				return TRUE
 
 			if(W.tool_behaviour == TOOL_WELDER)
-				if(!W.tool_start_check(user, amount=2))
+				if(!W.tool_start_check(user, amount=2, heat_required = HIGH_TEMPERATURE_REQUIRED))
 					return
 				to_chat(user, span_notice("You begin welding the metal cover back to the frame..."))
 				if(W.use_tool(src, user, 60, volume=100))
@@ -143,7 +143,7 @@
 
 		if(SUPPORT_RODS)
 			if(W.tool_behaviour == TOOL_WELDER)
-				if(!W.tool_start_check(user, amount=2))
+				if(!W.tool_start_check(user, amount=2, heat_required = HIGH_TEMPERATURE_REQUIRED))
 					return
 				to_chat(user, span_notice("You begin slicing through the support rods..."))
 				if(W.use_tool(src, user, 100, volume=100))
@@ -176,7 +176,7 @@
 				return TRUE
 
 			if(W.tool_behaviour == TOOL_WELDER)
-				if(!W.tool_start_check(user, amount=0))
+				if(!W.tool_start_check(user, amount=0, heat_required = HIGH_TEMPERATURE_REQUIRED))
 					return
 				to_chat(user, span_notice("You begin welding the support rods back together..."))
 				if(W.use_tool(src, user, 100, volume=100))
@@ -202,10 +202,10 @@
 // We don't react to smoothing changing here because this else exists only to "revert" intact changes
 /turf/closed/wall/r_wall/update_icon_state()
 	if(d_state != INTACT)
-		icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/turf/walls/reinforced_states.dmi'
+		icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi' // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: icon = 'icons/turf/walls/reinforced_states.dmi'
 		icon_state = "[base_decon_state]-[d_state]"
 	else
-		icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/turf/walls/reinforced_wall.dmi'
+		icon = 'modular_nova/modules/aesthetics/walls/icons/reinforced_wall.dmi' // NOVA EDIT CHANGE - AESTHETICS -  ORIGINAL: icon = 'icons/turf/walls/reinforced_wall.dmi'
 		icon_state = "[base_icon_state]-[smoothing_junction]"
 	return ..()
 
@@ -215,9 +215,13 @@
 			dismantle_wall()
 
 /turf/closed/wall/r_wall/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	if(the_rcd.canRturf || the_rcd.construction_mode == RCD_WALLFRAME)
+	if (the_rcd.construction_mode == RCD_WALLFRAME)
 		return ..()
-
+	if(!the_rcd.canRturf)
+		return
+	. = ..()
+	if (.)
+		.["delay"] *= RCD_RWALL_DELAY_MULT
 
 /turf/closed/wall/r_wall/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
 	if(the_rcd.canRturf || rcd_data["[RCD_DESIGN_MODE]"] == RCD_WALLFRAME)

@@ -3,7 +3,11 @@
 	desc = "A shiny black collar embeded with technology that allows the user to change their own size."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
-	icon_state = "collar_black"
+	greyscale_colors = "#2d2d33#dead39"
+	greyscale_config = /datum/greyscale_config/thin_collar/tagged
+	greyscale_config_worn = /datum/greyscale_config/thin_collar/tagged/worn
+	icon_state = "tagged_collar"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	/// Have we given the user the warning message yet?
 	var/warning_given = FALSE
 	/// The `temporary_size` component we have attached to the wearer.
@@ -15,6 +19,12 @@
 		/area/centcom/interlink/dorm_rooms,
 		/area/centcom/holding/cafedorms,
 		/area/misc/hilbertshotel,
+		/area/misc/condo,
+		/area/virtual_domain,
+		/area/space/virtual_domain,
+		/area/ruin/space/virtual_domain,
+		/area/icemoon/underground/explored/virtual_domain,
+		/area/lavaland/surface/outdoors/virtual_domain,
 	)
 
 /obj/item/clothing/neck/size_collar/attack_self(mob/user, modifiers)

@@ -18,8 +18,8 @@
 		return
 
 	var/mob/living/carbon/human/affected_human = user
-	var/obj/item/organ/external/genital/testicles/testicles = affected_human.get_organ_slot(ORGAN_SLOT_TESTICLES)
-	var/obj/item/organ/external/genital/penis/penis = affected_human.get_organ_slot(ORGAN_SLOT_PENIS)
+	var/obj/item/organ/genital/testicles/testicles = affected_human.get_organ_slot(ORGAN_SLOT_TESTICLES)
+	var/obj/item/organ/genital/penis/penis = affected_human.get_organ_slot(ORGAN_SLOT_PENIS)
 	var/datum/sprite_accessory/genital/penis_sprite = SSaccessories.sprite_accessories[ORGAN_SLOT_PENIS][affected_human.dna.species.mutant_bodyparts[ORGAN_SLOT_PENIS][MUTANT_INDEX_NAME]]
 	if(penis_sprite.is_hidden(affected_human))
 		to_chat(user, span_notice("You need to expose yourself in order to masturbate."))
@@ -47,11 +47,11 @@
 			var/datum/reagents/applied_reagents = new/datum/reagents(50)
 			applied_reagents.add_reagent(/datum/reagent/consumable/cum, cum_volume)
 			user.visible_message(span_warning("[user] cums into [target]!"), span_danger("You cum into [target]!"))
-			play_lewd_sound(target, SFX_DESECRATION, 50, TRUE)
+			playsound_if_pref(target, SFX_DESECRATION, 50, TRUE)
 			applied_reagents.trans_to(target, cum_volume)
 		else
 			user.visible_message(span_warning("[user] cums on [target]!"), span_danger("You cum on [target]!"))
-			play_lewd_sound(target, SFX_DESECRATION, 50, TRUE)
+			playsound_if_pref(target, SFX_DESECRATION, 50, TRUE)
 			affected_human.add_cum_splatter_floor(get_turf(target))
 
 		log_combat(user, target, "came on")

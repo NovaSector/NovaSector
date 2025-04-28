@@ -95,6 +95,7 @@
 	)
 	result = /obj/item/food/canned/chap
 	category = CAT_MEAT
+	removed_foodtypes = RAW
 
 /datum/crafting_recipe/food/grinder/chili_powder
 	reqs = list(/obj/item/food/dried_chili = 1)
@@ -105,11 +106,11 @@
 	result = /datum/reagent/consumable/bonito
 
 /datum/food_processor_process/moonfish_eggs
-	input = /obj/item/fish/dwarf_moonfish
+	input = /obj/item/fish/moonfish/dwarf
 	output = /obj/item/food/moonfish_eggs
 
 /datum/crafting_recipe/food/processor/moonfish_eggs
-	reqs = list(/obj/item/fish/dwarf_moonfish = 1)
+	reqs = list(/obj/item/fish/moonfish/dwarf = 1)
 	result = /obj/item/food/moonfish_eggs
 	category = CAT_SEAFOOD
 

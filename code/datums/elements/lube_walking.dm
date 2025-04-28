@@ -67,6 +67,6 @@
 	var/turf/open/turf_standing_on = get_turf(snail)
 	if(!istype(turf_standing_on))
 		return FALSE
-	turf_standing_on.MakeSlippery(wet_flags, min_wet_time = 1 SECONDS) //NOVA EDIT CHANGE: Roundstart Snails - No more lube - ORIGINAL: turf_standing_on.MakeSlippery(wet_flags, min_wet_time = min_time_wet_for)
+	turf_standing_on.MakeSlippery(TURF_WET_WATER, min_wet_time = 1 SECONDS) //NOVA EDIT CHANGE: Roundstart Snails - No more lube - ORIGINAL: turf_standing_on.MakeSlippery(wet_flags, min_wet_time = min_time_wet_for)
 	turf_standing_on.wash(CLEAN_WASH) //NOVA EDIT ADDITION: Roundstart Snails - Snails Keep Clean
 	return TRUE

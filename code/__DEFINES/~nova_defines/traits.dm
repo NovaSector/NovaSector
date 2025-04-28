@@ -5,3 +5,5 @@
 #define SLIPPERY_MAX 9
 /// Permit hud clothing trait
 #define TRAIT_PERMIT_HUD "permit_hud"
+/// Spider hud trait
+#define TRAIT_SPIDER_HOST "spider_host"

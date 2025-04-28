@@ -93,7 +93,7 @@
 				break
 
 
-/obj/structure/transit_tube/station/attackby(obj/item/W, mob/user, params)
+/obj/structure/transit_tube/station/attackby(obj/item/W, mob/user, list/modifiers)
 	if(W.tool_behaviour == TOOL_CROWBAR)
 		for(var/obj/structure/transit_tube_pod/P in loc)
 			P.deconstruct(FALSE, user)
@@ -251,7 +251,7 @@
 		return
 	var/obj/structure/transit_tube_pod/dispensed/pod = new(loc)
 	AM.visible_message(span_notice("[pod] forms around [AM]."), span_notice("[pod] materializes around you."))
-	playsound(src, 'sound/weapons/emitter2.ogg', 50, TRUE)
+	playsound(src, 'sound/items/weapons/emitter2.ogg', 50, TRUE)
 	pod.setDir(turn(src.dir, -90))
 	AM.forceMove(pod)
 	pod.update_appearance()

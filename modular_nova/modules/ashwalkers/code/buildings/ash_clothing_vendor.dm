@@ -6,6 +6,9 @@
 	icon_state = "ashclothvendor"
 	icon_deny = "necrocrate"
 
+	onstation = FALSE // we don't ever want these to be targetable by the brand intelligence event.
+	all_products_free = TRUE // we don't want them to charge anything either. it's a box.
+
 	products = list( //Relatively normal to have, I GUESS
 		/obj/item/clothing/under/costume/gladiator/ash_walker/tribal = 15,
 		/obj/item/clothing/under/costume/gladiator/ash_walker/chestwrap = 15,
@@ -34,7 +37,3 @@
 		/obj/item/clothing/accessory/skullcodpiece = 5,
 		/obj/item/clothing/accessory/talisman = 5,
 	)
-
-/obj/machinery/vending/ashclothingvendor/Initialize(mapload)
-	. = ..()
-	onstation = FALSE

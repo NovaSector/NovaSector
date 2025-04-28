@@ -5,7 +5,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
 	genetic = TRUE
-	organ_type = /obj/item/organ/external/horns
+	organ_type = /obj/item/organ/horns
 
 /datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
 	if(!wearer.head && !wearer.wear_mask)
@@ -32,10 +32,18 @@
 
 /datum/sprite_accessory/horns/angler
 	default_color = DEFAULT_SECONDARY
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER)
 
 /datum/sprite_accessory/horns/ram
 	name = "Ram"
 	icon_state = "ram"
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
+
+/datum/sprite_accessory/horns/short
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
+
+/datum/sprite_accessory/horns/simple
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_LIZARD, SPECIES_UNATHI, SPECIES_LIZARD_ASH, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD)
 
 /datum/sprite_accessory/horns/guilmon
 	name = "Guilmon"
@@ -140,7 +148,32 @@
 	name = "Broad Curls"
 	icon_state = "broadcurls"
 
+/datum/sprite_accessory/horns/antenna_fuzzball_v2
+	recommended_species = list(SPECIES_INSECT)
+	name = "Fuzzball Antenna"
+	icon_state = "antenna_fuzzballv2"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/horns/setaceous
+	recommended_species = list(SPECIES_INSECT)
+	name = "Setaceous Antenna"
+	icon_state = "setaceous"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/setaceousm
+	recommended_species = list(SPECIES_INSECT)
+	name = "Medium Setaceous Antenna"
+	icon_state = "setaceousm"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/geniculate
+	recommended_species = list(SPECIES_INSECT)
+	name = "Geniculate Antenna"
+	icon_state = "geniculate"
+	color_src = USE_ONE_COLOR
+
 /datum/sprite_accessory/horns/moogle_pom
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN)
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moogle_pom.dmi'
 	color_src = USE_MATRIXED_COLORS
 

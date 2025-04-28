@@ -77,7 +77,9 @@
 	cut_overlays()
 	if(showpipe)
 		// everything is already shifted so don't shift the cap
-		add_overlay(get_pipe_image(icon, "inje_cap", initialize_directions, pipe_color))
+		var/image/cap = get_pipe_image(icon, "inje_cap", initialize_directions, pipe_color)
+		cap.appearance_flags |= RESET_COLOR|KEEP_APART
+		add_overlay(cap)
 	else
 		PIPING_LAYER_SHIFT(src, PIPING_LAYER_DEFAULT)
 
@@ -122,7 +124,7 @@
 	data["max_rate"] = round(MAX_TRANSFER_RATE)
 	return data
 
-/obj/machinery/atmospherics/components/unary/outlet_injector/ui_act(action, params)
+/obj/machinery/atmospherics/components/unary/outlet_injector/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

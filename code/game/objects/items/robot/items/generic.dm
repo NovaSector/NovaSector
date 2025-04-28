@@ -30,7 +30,7 @@
 	if(ishuman(attacked_mob))
 		var/mob/living/carbon/human/human = attacked_mob
 		if(human.check_block(src, 0, "[attacked_mob]'s [name]", MELEE_ATTACK))
-			playsound(attacked_mob, 'sound/weapons/genhit.ogg', 50, TRUE)
+			playsound(attacked_mob, 'sound/items/weapons/genhit.ogg', 50, TRUE)
 			return FALSE
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/robot_user = user
@@ -55,7 +55,7 @@
 		)
 
 	SEND_SIGNAL(attacked_mob, COMSIG_LIVING_MINOR_SHOCK) // NOVA EDIT ADDITION
-	playsound(loc, 'sound/weapons/egloves.ogg', 50, TRUE, -1)
+	playsound(loc, 'sound/items/weapons/egloves.ogg', 50, TRUE, -1)
 	cooldown_check = world.time + cooldown
 	log_combat(user, attacked_mob, "stunned", src, "(Combat mode: [user.combat_mode ? "On" : "Off"])")
 
@@ -89,15 +89,15 @@
 			mode = HUG_MODE_NICE
 	switch(mode)
 		if(HUG_MODE_NICE)
-			to_chat(user, "<span class='infoplain'>Power reset. Hugs!</span>")
+			to_chat(user, span_infoplain("Power reset. Hugs!"))
 		if(HUG_MODE_HUG)
-			to_chat(user, "<span class='infoplain'>Power increased!</span>")
+			to_chat(user, span_infoplain("Power increased!"))
 		if(HUG_MODE_SHOCK)
 			to_chat(user, "<span class='warningplain'>BZZT. Electrifying arms...</span>")
 		if(HUG_MODE_CRUSH)
 			to_chat(user, "<span class='warningplain'>ERROR: ARM ACTUATORS OVERLOADED.</span>")
 
-/obj/item/borg/cyborghug/attack(mob/living/attacked_mob, mob/living/silicon/robot/user, params)
+/obj/item/borg/cyborghug/attack(mob/living/attacked_mob, mob/living/silicon/robot/user, list/modifiers)
 	if(attacked_mob == user)
 		return
 	if(attacked_mob.health < 0)
@@ -105,7 +105,6 @@
 	switch(mode)
 		if(HUG_MODE_NICE)
 			if(isanimal_or_basicmob(attacked_mob))
-				var/list/modifiers = params2list(params)
 				if (!user.combat_mode && !LAZYACCESS(modifiers, RIGHT_CLICK))
 					attacked_mob.attack_hand(user, modifiers) //This enables borgs to get the floating heart icon and mob emote from simple_animal's that have petbonus == true.
 				return
@@ -115,7 +114,7 @@
 					span_notice("You playfully boop [attacked_mob] on the head!"),
 				)
 				user.do_attack_animation(attacked_mob, ATTACK_EFFECT_BOOP)
-				playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE, -1)
+				playsound(loc, 'sound/items/weapons/tap.ogg', 50, TRUE, -1)
 			else if(ishuman(attacked_mob))
 				if(user.body_position == LYING_DOWN)
 					user.visible_message(
@@ -134,7 +133,7 @@
 					span_notice("[user] pets [attacked_mob]!"),
 					span_notice("You pet [attacked_mob]!"),
 				)
-			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+			playsound(loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 		if(HUG_MODE_HUG)
 			if(ishuman(attacked_mob))
 				attacked_mob.adjust_status_effects_on_shake_up()
@@ -161,7 +160,7 @@
 					span_warning("[user] bops [attacked_mob] on the head!"),
 					span_warning("You bop [attacked_mob] on the head!"),
 				)
-			playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE, -1)
+			playsound(loc, 'sound/items/weapons/tap.ogg', 50, TRUE, -1)
 		if(HUG_MODE_SHOCK)
 			if (!COOLDOWN_FINISHED(src, shock_cooldown))
 				return
@@ -185,7 +184,7 @@
 						span_userdanger("[user] shocks [attacked_mob]. It does not seem to have an effect"),
 						span_danger("You shock [attacked_mob] to no effect."),
 					)
-			playsound(loc, 'sound/effects/sparks2.ogg', 50, TRUE, -1)
+			playsound(loc, 'sound/effects/sparks/sparks2.ogg', 50, TRUE, -1)
 			user.cell.use(0.5 * STANDARD_CELL_CHARGE, force = TRUE)
 			COOLDOWN_START(src, shock_cooldown, HUG_SHOCK_COOLDOWN)
 		if(HUG_MODE_CRUSH)
@@ -201,7 +200,7 @@
 					span_userdanger("[user] crushes [attacked_mob]!"),
 						span_danger("You crush [attacked_mob]!"),
 				)
-			playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE, -1)
+			playsound(loc, 'sound/items/weapons/smash.ogg', 50, TRUE, -1)
 			attacked_mob.adjustBruteLoss(15)
 			user.cell.use(0.3 * STANDARD_CELL_CHARGE, force = TRUE)
 			COOLDOWN_START(src, crush_cooldown, HUG_CRUSH_COOLDOWN)
@@ -379,7 +378,7 @@
 			carbon.adjust_confusion(6 SECONDS)
 
 		audible_message("<font color='red' size='7'>HUMAN HARM</font>")
-		playsound(get_turf(src), 'sound/ai/harmalarm.ogg', 70, 3)
+		playsound(get_turf(src), 'sound/mobs/non-humanoids/cyborg/harmalarm.ogg', 70, 3)
 		COOLDOWN_START(src, alarm_cooldown, HARM_ALARM_SAFETY_COOLDOWN)
 		user.log_message("used a Cyborg Harm Alarm", LOG_ATTACK)
 		if(iscyborg(user))

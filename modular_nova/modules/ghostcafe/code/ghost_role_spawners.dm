@@ -32,8 +32,7 @@
 		var/area/A = get_area(src)
 		//new_spawn.AddElement(/datum/element/ghost_role_eligibility, free_ghosting = TRUE) SKYRAT PORT -- Needs to be completely rewritten
 		new_spawn.AddElement(/datum/element/dusts_on_catatonia)
-		new_spawn.AddElement(/datum/element/dusts_on_leaving_area,list(A.type, /area/misc/hilbertshotel, /area/centcom/holding/cafe,
-		/area/centcom/holding/cafevox, /area/centcom/holding/cafedorms, /area/centcom/holding/cafepark))
+		new_spawn.AddElement(/datum/element/dusts_on_leaving_area, list(A.type) + GLOB.ghost_cafe_areas)
 		new_spawn.RegisterSignal(new_spawn, COMSIG_MOVABLE_USING_RADIO, TYPE_PROC_REF(/mob/living, on_using_radio))
 		ADD_TRAIT(new_spawn, TRAIT_SIXTHSENSE, TRAIT_GHOSTROLE)
 		ADD_TRAIT(new_spawn, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
@@ -55,28 +54,27 @@
 	flavour_text = "You are off-duty and have decided to visit your favourite cafe. Enjoy yourself."
 	random_appearance = FALSE
 	loadout_enabled = TRUE
+	quirks_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ghostcafe/special(mob/living/carbon/human/new_spawn)
 	. = ..()
 	if(new_spawn.client)
 		var/area/A = get_area(src)
 		new_spawn.AddElement(/datum/element/dusts_on_catatonia)
-		new_spawn.AddElement(/datum/element/dusts_on_leaving_area,list(A.type, /area/misc/hilbertshotel, /area/centcom/holding/cafe,
-		/area/centcom/holding/cafevox, /area/centcom/holding/cafedorms, /area/centcom/holding/cafepark))
+		new_spawn.AddElement(/datum/element/dusts_on_leaving_area, list(A.type) + GLOB.ghost_cafe_areas)
 		new_spawn.RegisterSignal(new_spawn, COMSIG_MOVABLE_USING_RADIO, TYPE_PROC_REF(/mob/living, on_using_radio))
 		ADD_TRAIT(new_spawn, TRAIT_SIXTHSENSE, TRAIT_GHOSTROLE)
 		ADD_TRAIT(new_spawn, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
 		ADD_TRAIT(new_spawn, TRAIT_NOBREATH, TRAIT_GHOSTROLE)
 		to_chat(new_spawn,span_warning("<b>Ghosting is free!</b>"))
-		var/datum/action/toggle_dead_chat_mob/D = new(new_spawn)
-		SSquirks.AssignQuirks(new_spawn, new_spawn.client, TRUE, TRUE, null, FALSE, new_spawn)
-		D.Grant(new_spawn)
+		var/datum/action/toggle_dead_chat_mob/dchat_toggle_ability = new(new_spawn)
+		dchat_toggle_ability.Grant(new_spawn)
 
 /mob/living/proc/on_using_radio(atom/movable/talking_movable)
 	SIGNAL_HANDLER
 
 	var/area/target_area = get_area(talking_movable)
-	if(istype(target_area, /area/centcom/holding))
+	if(target_area.type in GLOB.ghost_cafe_areas)
 		return COMPONENT_CANNOT_USE_RADIO
 
 /datum/outfit/ghostcafe

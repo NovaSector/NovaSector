@@ -29,11 +29,15 @@
 	var/visible = TRUE
 	var/operating = FALSE
 	var/glass = FALSE
+	/// If something isn't a glass door but doesn't have a fill_closed icon (no glass slots), this prevents it from being used
+	var/can_be_glass = TRUE
 	/// Do we need to keep track of a filler panel with the airlock
 	var/multi_tile
 	/// A filler object used to fill the space of multi-tile airlocks
 	var/obj/structure/fluff/airlock_filler/filler
 	var/welded = FALSE
+	///Whether this door has a panel or not; FALSE also stops the examine blurb about the panel from showing up
+	var/has_access_panel = TRUE
 	/// For rglass-windowed airlocks and firedoors
 	var/heat_proof = FALSE
 	/// Emergency access override
@@ -122,7 +126,8 @@
 			. += span_notice("Due to a security threat, its access requirements have been lifted!")
 		else
 			. += span_notice("In the event of a red alert, its access requirements will automatically lift.")
-	. += span_notice("Its maintenance panel is [panel_open ? "open" : "<b>screwed</b> in place"].")
+	if(has_access_panel)
+		. += span_notice("Its maintenance panel is [panel_open ? "open" : "<b>screwed</b> in place"].")
 
 /obj/machinery/door/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
@@ -210,7 +215,7 @@
 	if(!red_alert_access)
 		return
 	audible_message(span_notice("[src] whirr[p_s()] as [p_they()] automatically lift[p_s()] access requirements!"))
-	playsound(src, 'sound/machines/boltsup.ogg', 50, TRUE)
+	playsound(src, 'sound/machines/airlock/boltsup.ogg', 50, TRUE)
 
 /obj/machinery/door/proc/try_safety_unlock(mob/user)
 	return FALSE
@@ -334,7 +339,7 @@
 	return
 
 
-/obj/machinery/door/proc/try_to_crowbar(obj/item/acting_object, mob/user)
+/obj/machinery/door/proc/try_to_crowbar(obj/item/acting_object, mob/user, forced = FALSE)
 	return
 
 /// Called when the user right-clicks on the door with a crowbar.
@@ -356,7 +361,7 @@
 	try_to_crowbar(tool, user, forced_open)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/door/attackby(obj/item/weapon, mob/living/user, params)
+/obj/machinery/door/attackby(obj/item/weapon, mob/living/user, list/modifiers)
 	if(istype(weapon, /obj/item/access_key))
 		var/obj/item/access_key/key = weapon
 		return key.attempt_open_door(user, src)
@@ -399,8 +404,9 @@
 	switch(damage_type)
 		if(BRUTE)
 			if(glass)
-				playsound(loc, 'sound/effects/glasshit.ogg', 90, TRUE)
+				playsound(loc, 'sound/effects/glass/glasshit.ogg', 90, TRUE)
 			else if(damage_amount)
+				//playsound(loc, 'sound/items/weapons/smash.ogg', 50, TRUE) // NOVA EDIT REMOVAL
 				//NOVA EDIT ADDITION - CREDITS TO WHITEDREAM(valtos)
 				playsound(src, pick('modular_nova/master_files/sound/effects/metalblock1.wav', 'modular_nova/master_files/sound/effects/metalblock2.wav', \
 									'modular_nova/master_files/sound/effects/metalblock3.wav', 'modular_nova/master_files/sound/effects/metalblock4.wav', \
@@ -408,9 +414,9 @@
 									'modular_nova/master_files/sound/effects/metalblock7.wav', 'modular_nova/master_files/sound/effects/metalblock8.wav'), 50, TRUE)
 				//NOVA EDIT END
 			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+				playsound(src, 'sound/items/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+			playsound(src.loc, 'sound/items/tools/welder.ogg', 100, TRUE)
 
 /obj/machinery/door/emp_act(severity)
 	. = ..()
@@ -615,6 +621,10 @@
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
+
+/obj/machinery/door/morgue/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/redirect_attack_hand_from_turf)
 
 /obj/machinery/door/get_dumping_location()
 	return null

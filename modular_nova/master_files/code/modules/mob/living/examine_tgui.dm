@@ -49,10 +49,9 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		examine_panel_screen.display_to(user)
-		user.client.register_map_obj(examine_panel_screen)
 		ui = new(user, src, "ExaminePanel")
 		ui.open()
+		examine_panel_screen.display_to(user, ui.window)
 
 
 /datum/examine_panel/ui_data(mob/user)
@@ -71,7 +70,7 @@
 
 	//  Handle OOC notes first
 	if(preferences)
-		if(preferences.read_preference(/datum/preference/toggle/master_erp_preferences))
+		if(user.client.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 			var/e_prefs = preferences.read_preference(/datum/preference/choiced/erp_status)
 			var/e_prefs_hypno = preferences.read_preference(/datum/preference/choiced/erp_status_hypno)
 			var/e_prefs_v = preferences.read_preference(/datum/preference/choiced/erp_status_v)
@@ -129,6 +128,7 @@
 /datum/examine_panel/ui_static_data(mob/user)
 	var/list/data = list()
 
+	data["veteran_status"] = SSplayer_ranks.is_veteran(holder.client, admin_bypass = FALSE)
 	data["opt_in_colors"] = GLOB.antag_opt_in_colors
 
 	return data

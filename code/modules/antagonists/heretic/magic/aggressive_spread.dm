@@ -5,12 +5,12 @@
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "corrode"
-	sound = 'sound/items/welder.ogg'
+	sound = 'sound/items/tools/welder.ogg'
 
 	school = SCHOOL_FORBIDDEN
 	cooldown_time = 30 SECONDS
 
-	invocation = "A'GRSV SPR'D"
+	invocation = "A'GRSV SPR'D."
 	invocation_type = INVOCATION_WHISPER
 	spell_requirements = NONE
 

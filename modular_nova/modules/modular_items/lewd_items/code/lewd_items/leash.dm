@@ -3,18 +3,18 @@
 	desc = "A guiding hand's best friend; in a sleek, semi-elastic package. Can either clip to a collar or be affixed to the neck on its own."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_belts.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_belts.dmi'
-	icon_state = "neckleash_pink"
+	icon_state = "neckleash"
+	greyscale_colors = "#383840#dc7ef4#d1d3e0"
+	greyscale_config = /datum/greyscale_config/neckleash
+	greyscale_config_worn = /datum/greyscale_config/neckleash/worn
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	drop_sound = 'sound/items/handling/toolbelt_drop.ogg'
 	slot_flags = ITEM_SLOT_BELT
 	breakouttime = 3 SECONDS
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 	/// Weakref to the leash component we're using, if it exists.
 	var/datum/weakref/our_leash_component
-
-	unique_reskin = list(
-		"Pink" = "neckleash_pink",
-		"Teal" = "neckleash_teal",
-	)
 
 	COOLDOWN_DECLARE(tug_cd)
 
@@ -66,7 +66,6 @@
 
 /datum/component/leash/erp
 	dupe_mode = COMPONENT_DUPE_UNIQUE
-	dupe_type = /datum/component/leash
 
 // 'owner' refers the leash item, while 'parent' refers to the one it's affixed to.
 /datum/component/leash/erp/RegisterWithParent()

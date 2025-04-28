@@ -48,8 +48,6 @@
 
 	return TRUE
 
-//NOVA EDIT REMOVAL BEGIN - NOVA_XENO_REDO - Moved to: modular_nova\modules\xenos_nova_redo\code\xeno_types\larva.dm
-/*
 /datum/action/cooldown/alien/larva_evolve/Activate(atom/target)
 	var/mob/living/carbon/alien/larva/larva = owner
 	var/static/list/caste_options
@@ -103,5 +101,3 @@
 
 	larva.alien_evolve(new_xeno)
 	return TRUE
-*/
-//NOVA EDIT REMOVAL END

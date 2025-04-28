@@ -23,6 +23,7 @@
 		"flatpack_rtg",
 		"flatpack_thermo",
 		"flatpack_ore_silo",
+		"flatpack_bsc",
 		"flatpack_turbine_team_fortress_two",
 		"flatpack_bootleg_teg",
 	)
@@ -146,9 +147,9 @@
 // PACMAN generator but epic!!
 
 /datum/design/flatpack_solids_generator
-	name = "Flat-Packed S.O.F.I.E. Generator"
-	desc = "A deployable plasma-burning generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
-		at expense of creating hot carbon dioxide exhaust."
+	name = "Flat-Packed A.W Generator"
+	desc = "A deployable uranium micro-generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
+		at expense of outputting radiation, and steaming water vapor."
 	id = "flatpack_fuel_generator"
 	build_type = COLONY_FABRICATOR
 	materials = list(
@@ -223,13 +224,29 @@
 	)
 	construction_time = 1 MINUTES
 
+// Orebox but auto-pickup boulders in a tile like an ORM
+
+/datum/design/flatpack_bsc
+	name = "Compressed BSC Refinery Box"
+	desc = "An upgrade to a normal orebox. Lavaproof, Fireproof, and auto-receive boulders into stable storage."
+	id = "flatpack_bsc"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3
+	)
+	build_path = /obj/item/flatpacked_machine/boulder_collector
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_MATERIALS,
+	)
+	construction_time = 30 SECONDS
+
 // Wind turbine, produces tiny amounts of power when placed outdoors in an atmosphere, but makes significantly more if there's a storm in that area
 
 /datum/design/flatpack_turbine_team_fortress_two
 	name = "Flat-Packed Miniature Wind Turbine"
-	desc = "A deployable fabricator capable of producing other flat-packed machines and other special equipment tailored for \
-		rapidly constructing functional structures given resources and power. While it cannot be upgraded, it can be repacked \
-		and moved to any location you see fit. This one makes specialized engineering designs and tools."
 	id = "flatpack_turbine_team_fortress_two"
 	build_type = COLONY_FABRICATOR
 	materials = list(

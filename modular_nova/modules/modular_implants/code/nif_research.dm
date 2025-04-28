@@ -1,5 +1,5 @@
 /datum/design/nifsoft_remover
-	name = "Lopland 'Wrangler' NIF-Cutter"
+	name = "Nanotrasen 'Wrangler' NIF-Cutter"
 	desc = "A small device that lets the user remove NIFSofts from a NIF user."
 	id = "nifsoft_remover"
 	build_type = PROTOLATHE | AWAY_LATHE
@@ -60,6 +60,70 @@
 		RND_CATEGORY_AI + RND_SUBCATEGORY_AI_MISC,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/nif_detective_tools
+	name = "Grimoire Vacholiere NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Vacholiere NIFSoft."
+	id = "nif_detective_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/summoner/detective
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SECURITY,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/nif_surgery_tools
+	name = "Grimoire Asclepius NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Asclepius NIFSoft."
+	id = "nif_surgery_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/summoner/surgery
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MEDICAL,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/nif_service_tools
+	name = "Grimoire Hestia NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Hestia NIFSoft."
+	id = "nif_service_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/summoner/service
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_SERVICE,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
+
+/datum/design/nif_general_tools
+	name = "Grimoire Opera NIFSoft"
+	desc = "A NIFSoft datadisk containing the Grimoire Opera NIFSoft."
+	id = "nif_general_tools"
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/disk/nifsoft_uploader/summoner/tools
+	materials = list(
+		/datum/material/diamond = SMALL_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_TOOLS,
+	)
+	departmental_flags = ALL
 
 /datum/design/nifsoft_hud
 	build_type = PROTOLATHE | AWAY_LATHE

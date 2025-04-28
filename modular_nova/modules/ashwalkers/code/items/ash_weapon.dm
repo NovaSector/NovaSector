@@ -16,6 +16,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/macahuitl
 	name = "Ash Macahuitl"

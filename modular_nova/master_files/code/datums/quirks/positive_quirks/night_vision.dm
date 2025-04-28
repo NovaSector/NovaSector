@@ -21,7 +21,7 @@
 	var/mob/living/carbon/human/target = quirk_holder
 
 	// if we have more sensitive eyes, increase the power
-	var/obj/item/organ/internal/eyes/target_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/target_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
 	if (!istype(target_eyes))
 		return
 	var/infravision_multiplier = max(0, (-(target_eyes.flash_protect) * NOVA_NIGHT_VISION_SENSITIVITY_MULT)) + 1

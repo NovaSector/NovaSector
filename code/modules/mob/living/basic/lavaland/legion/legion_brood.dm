@@ -10,7 +10,7 @@
 	basic_mob_flags = DEL_ON_DEATH
 	mob_size = MOB_SIZE_SMALL
 	pass_flags = PASSTABLE | PASSMOB
-	mob_biotypes = MOB_ORGANIC|MOB_BEAST
+	mob_biotypes = MOB_ORGANIC|MOB_UNDEAD|MOB_MINING
 	faction = list(FACTION_MINING)
 	unsuitable_atmos_damage = 0
 	minimum_survivable_temperature = 0
@@ -26,7 +26,7 @@
 	attack_verb_simple = "bite"
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	speak_emote = list("echoes") // who the fuck speaking as this mob it dies 10 seconds after it spawns
-	attack_sound = 'sound/weapons/pierce.ogg'
+	attack_sound = 'sound/items/weapons/pierce.ogg'
 	density = FALSE
 	ai_controller = /datum/ai_controller/basic_controller/legion_brood
 	/// Reference to a guy who made us
@@ -38,7 +38,6 @@
 	AddElement(/datum/element/simple_flying)
 	AddComponent(/datum/component/swarming)
 	AddComponent(/datum/component/clickbox, icon_state = "sphere", max_scale = 2)
-	AddComponent(/datum/component/basic_mob_attack_telegraph)
 	addtimer(CALLBACK(src, PROC_REF(death)), 10 SECONDS)
 
 /mob/living/basic/legion_brood/death(gibbed)

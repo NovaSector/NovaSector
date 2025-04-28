@@ -39,7 +39,7 @@
 	var/charge_tick = 0
 	var/charge_type
 	var/selfcharge = FALSE
-	var/fire_sound = 'sound/weapons/sonic_jackhammer.ogg'
+	var/fire_sound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	var/spin_item = TRUE //Do the projectiles spin when launched?
 	trigger_guard = TRIGGER_GUARD_NORMAL
 
@@ -103,12 +103,12 @@
 /obj/item/pneumatic_cannon/wrench_act(mob/living/user, obj/item/tool)
 	if(needs_air == FALSE)
 		return
-	playsound(src, 'sound/items/ratchet.ogg', 50, TRUE)
+	playsound(src, 'sound/items/tools/ratchet.ogg', 50, TRUE)
 	pressure_setting = pressure_setting >= HIGH_PRESSURE ? LOW_PRESSURE : pressure_setting + 1
 	balloon_alert(user, "output level set to [pressure_setting_to_text(pressure_setting)]")
 	return TRUE
 
-/obj/item/pneumatic_cannon/attackby(obj/item/W, mob/living/user, params)
+/obj/item/pneumatic_cannon/attackby(obj/item/W, mob/living/user, list/modifiers)
 	if(user.combat_mode)
 		return ..()
 	if(istype(W, /obj/item/tank/internals))

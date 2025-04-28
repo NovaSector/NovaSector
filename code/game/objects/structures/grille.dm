@@ -40,20 +40,23 @@
 	update_appearance()
 
 /obj/structure/grille/update_appearance(updates)
-	if(QDELETED(src) || broken)
+	if(QDELETED(src))
 		return
-
 	. = ..()
 	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & USES_SMOOTHING))
 		QUEUE_SMOOTH(src)
 
 /obj/structure/grille/update_icon_state()
-	icon_state = "[base_icon_state][((atom_integrity / max_integrity) <= 0.5) ? "50_[rand(0, 3)]" : null]"
+	if (broken)
+		icon_state = "broken[base_icon_state]"
+	else
+		icon_state = "[base_icon_state][((atom_integrity / max_integrity) <= 0.5) ? "50_[rand(0, 3)]" : null]"
 	return ..()
 
 /obj/structure/grille/examine(mob/user)
 	. = ..()
-
+	if(resistance_flags & INDESTRUCTIBLE)
+		return
 	if(anchored)
 		. += span_notice("It's secured in place with <b>screws</b>. The rods look like they could be <b>cut</b> through.")
 	else
@@ -216,7 +219,7 @@
 		span_notice("You [anchored ? "fasten [src] to" : "unfasten [src] from"] the floor."))
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/grille/attackby(obj/item/W, mob/user, params)
+/obj/structure/grille/attackby(obj/item/W, mob/user, list/modifiers)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(W, /obj/item/stack/rods) && broken && do_after(user, 1 SECONDS, target = src))
 		if(shock(user, 90))
@@ -286,9 +289,9 @@
 			if(damage_amount)
 				playsound(src, 'sound/effects/grillehit.ogg', 80, TRUE)
 			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+				playsound(src, 'sound/items/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
-			playsound(src, 'sound/items/welder.ogg', 80, TRUE)
+			playsound(src, 'sound/items/tools/welder.ogg', 80, TRUE)
 
 
 /obj/structure/grille/atom_deconstruct(disassembled = TRUE)
@@ -297,24 +300,26 @@
 
 /obj/structure/grille/atom_break()
 	. = ..()
-	if(!broken)
-		icon_state = "brokengrille"
-		set_density(FALSE)
-		atom_integrity = 20
-		broken = TRUE
-		rods_amount = 1
-		var/obj/item/dropped_rods = new rods_type(drop_location(), rods_amount)
-		transfer_fingerprints_to(dropped_rods)
+	if(broken)
+		return
+	set_density(FALSE)
+	atom_integrity = 20
+	broken = TRUE
+	rods_amount = 1
+	var/obj/item/dropped_rods = new rods_type(drop_location(), rods_amount)
+	transfer_fingerprints_to(dropped_rods)
+	update_appearance()
 
 /obj/structure/grille/proc/repair_grille()
-	if(broken)
-		icon_state = "grille"
-		set_density(TRUE)
-		atom_integrity = max_integrity
-		broken = FALSE
-		rods_amount = 2
-		return TRUE
-	return FALSE
+	if(!broken)
+		return FALSE
+
+	set_density(TRUE)
+	atom_integrity = max_integrity
+	broken = FALSE
+	rods_amount = 2
+	update_appearance()
+	return TRUE
 
 // shock user with probability prb (if all connections & power are working)
 // returns 1 if shocked, 0 otherwise
@@ -359,7 +364,7 @@
 					return FALSE
 				var/obj/structure/cable/C = T.get_cable_node()
 				if(C)
-					playsound(src, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
+					playsound(src, 'sound/effects/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 					tesla_zap(source = src, zap_range = 3, power = C.newavail() * 0.01, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES) //Zap for 1/100 of the amount of power. At a million watts in the grid, it will be as powerful as a tesla revolver shot.
 					C.add_delayedload(C.newavail() * 0.0375) // you can gain up to 3.5 via the 4x upgrades power is halved by the pole so thats 2x then 1X then .5X for 3.5x the 3 bounces shock. // What do you mean by this?
 	return ..()
@@ -371,7 +376,7 @@
 	if(dramatically_disappearing)
 		return
 
-	//dissapear in 1 second
+	//disappear in 1 second
 	dramatically_disappearing = TRUE
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, moveToNullspace)), time_to_go) //woosh
 

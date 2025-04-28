@@ -21,7 +21,7 @@
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
 
-	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size / 3), world.icon_size / 3)
+	dropping.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(ICON_SIZE_X / 3), ICON_SIZE_X / 3)
 	dropping.pixel_y = text2num(LAZYACCESS(modifiers, ICON_Y)) > 16 ? 10 : -4
 
 /obj/structure/rack/wooden/wrench_act_secondary(mob/living/user, obj/item/tool)

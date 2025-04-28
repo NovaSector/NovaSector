@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/sol_peacekeeper
 	head = null
-	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
+	mask = /obj/item/clothing/mask/neck_gaiter
 	gloves = /obj/item/clothing/gloves/frontier_colonist
 	suit = null
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
@@ -54,14 +54,15 @@
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/cybersun
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper/armadyne
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/armadyne
 	mask = /obj/item/clothing/mask/balaclavaadjust
 	head = /obj/item/clothing/head/helmet/cin_surplus_helmet/forest
-	back = /obj/item/storage/backpack/industrial/cin_surplus/forest
+	back = /obj/item/mod/control/pre_equipped/voskhod/ancient_milsim
 	backpack_contents = list(
 		/obj/item/storage/box/nri_survival_pack/raider,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
 		/obj/item/ammo_box/magazine/recharge/plasma_battery = 3,
+		/obj/item/reagent_containers/cup/glass/waterbottle/large/protozine = 2,
 	)
 	r_hand = null
 	l_hand = null

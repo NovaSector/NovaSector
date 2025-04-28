@@ -30,10 +30,10 @@
 
 	spark_at_location(cache) // abracadabra!
 	qdel(cache) // and it's gone!
-	SEND_SIGNAL(src, COMSIG_BITRUNNER_DOMAIN_COMPLETE, cache, generated_domain.reward_points)
+	SEND_SIGNAL(src, COMSIG_BITRUNNER_DOMAIN_COMPLETE, cache, generated_domain.reward_points * 1.5) // NOVA EDIT CHANGE - Original : SEND_SIGNAL(src, COMSIG_BITRUNNER_DOMAIN_COMPLETE, cache, generated_domain.reward_points)
 
 	points += generated_domain.reward_points
-	playsound(src, 'sound/machines/terminal_success.ogg', 30, vary = TRUE)
+	playsound(src, 'sound/machines/terminal/terminal_success.ogg', 30, vary = TRUE)
 
 	var/bonus = calculate_rewards()
 

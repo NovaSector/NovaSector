@@ -1,6 +1,4 @@
-import { decodeHtmlEntities } from 'common/string';
 import { useState } from 'react';
-import { useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
@@ -13,8 +11,11 @@ import {
   Table,
   TextArea,
   Tooltip,
-} from 'tgui/components';
-import { Window } from 'tgui/layouts';
+} from 'tgui-core/components';
+import { decodeHtmlEntities } from 'tgui-core/string';
+
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 type HoloPayData = {
   available_logos: string[];
@@ -27,11 +28,6 @@ type HoloPayData = {
   shop_logo: string;
   user: { name: string; balance: number };
 };
-
-const COPYRIGHT_SCROLLER = `Nanotrasen (c) 2525-2562. All sales final.
-Use of departmental funds is prohibited. For more information, visit
-the Head of Personnel. All rights reserved. All trademarks are property
-of their respective owners.`;
 
 export const HoloPay = (props) => {
   const { data } = useBackend<HoloPayData>();
@@ -122,7 +118,7 @@ const TerminalDisplay = (props) => {
       title="Terminal"
     >
       <Stack fill vertical>
-        <Stack.Item align="center">
+        <Stack.Item align="center" mt={3}>
           <Icon color="good" name={shop_logo} size={5} />
         </Stack.Item>
         <Stack.Item grow textAlign="center">
@@ -164,15 +160,6 @@ const TerminalDisplay = (props) => {
               textAlign="center"
             />
           )}
-        </Stack.Item>
-        <Stack.Item>
-          {/* @ts-ignore */}
-          <marquee scrollamount="2">
-            <Box color="darkgray" fontSize="8px">
-              {COPYRIGHT_SCROLLER}
-            </Box>
-            {/* @ts-ignore */}
-          </marquee>
         </Stack.Item>
       </Stack>
     </Section>

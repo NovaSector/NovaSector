@@ -15,7 +15,7 @@
 	. = ..()
 
 	// prevent these from being created outside of synth brains
-	if(!istype(loc, /obj/item/organ/internal/brain/synth))
+	if(!istype(loc, /obj/item/organ/brain/synth))
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/modular_computer/pda/synth/check_power_override()
@@ -28,14 +28,14 @@
 
 /datum/action/item_action/synth/open_internal_computer/Trigger(trigger_flags)
 	. = ..()
-	var/obj/item/organ/internal/brain/synth/targetmachine = target
+	var/obj/item/organ/brain/synth/targetmachine = target
 	targetmachine.internal_computer.interact(owner)
 
 /obj/item/modular_computer/pda/synth/ui_state(mob/user)
 	return GLOB.default_state
 
 /obj/item/modular_computer/pda/synth/ui_status(mob/user)
-	var/obj/item/organ/internal/brain/synth/brain_loc = loc
+	var/obj/item/organ/brain/synth/brain_loc = loc
 	if(!istype(brain_loc))
 		return UI_CLOSE
 
@@ -49,7 +49,7 @@
 
 /// Id card arg is optional. Leaving it null causes the id to become unpaired from the synth computer
 /obj/item/modular_computer/pda/synth/proc/update_id_slot(obj/item/card/id/id_card)
-	var/obj/item/organ/internal/brain/synth/brain_loc = loc
+	var/obj/item/organ/brain/synth/brain_loc = loc
 	if(!istype(brain_loc))
 		return
 	if(isnull(brain_loc.internal_computer))
@@ -144,7 +144,7 @@
 	if(!istype(targetmachine))
 		return ..()
 
-	var/obj/item/organ/internal/brain/synth/robotbrain = targetmachine.get_organ_slot(ORGAN_SLOT_BRAIN)
+	var/obj/item/organ/brain/synth/robotbrain = targetmachine.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(robotbrain))
 		if(user.zone_selected == BODY_ZONE_PRECISE_EYES)
 			balloon_alert(user, "Establishing SSH login with persocom...")
@@ -157,7 +157,7 @@
 
 /obj/item/modular_computer/pda/synth/get_header_data()
 	var/list/data = ..()
-	var/obj/item/organ/internal/brain/synth/brain_loc = loc
+	var/obj/item/organ/brain/synth/brain_loc = loc
 	// Battery level is now according to the synth charge
 	if(istype(brain_loc))
 		var/charge_level = (brain_loc.owner.nutrition / NUTRITION_LEVEL_FULL) * 100

@@ -42,7 +42,7 @@
 /datum/element/airbag/proc/on_altclick(atom/movable/clicked_atom, mob/living/clicker)
 	SIGNAL_HANDLER
 
-	if(!clicker.can_interact_with(clicked_atom))
+	if(!clicker.can_interact_with(clicked_atom) || !clicker.can_perform_action(clicked_atom, ALLOW_RESTING))
 		return
 	INVOKE_ASYNC(src, PROC_REF(disarm_airbag), clicked_atom, clicker)
 

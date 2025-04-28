@@ -72,7 +72,7 @@ RSF
 /obj/item/rsf/cyborg
 	matter = 30
 
-/obj/item/rsf/attackby(obj/item/W, mob/user, params)
+/obj/item/rsf/attackby(obj/item/W, mob/user, list/modifiers)
 	if(is_type_in_list(W,matter_by_item))//If the thing we got hit by is in our matter list
 		var/tempMatter = matter_by_item[W.type] + matter
 		if(tempMatter > max_matter)
@@ -121,7 +121,7 @@ RSF
 	return radial_list
 
 /obj/item/rsf/proc/check_menu(mob/user)
-	if(user.incapacitated() || !user.Adjacent(src))
+	if(user.incapacitated || !user.Adjacent(src))
 		return FALSE
 	return TRUE
 

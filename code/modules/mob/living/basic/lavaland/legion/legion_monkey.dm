@@ -12,7 +12,7 @@
 	attack_verb_continuous = "mauls"
 	attack_verb_simple = "maul"
 	attack_vis_effect = ATTACK_EFFECT_BITE
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'sound/items/weapons/bite.ogg'
 	speak_emote = list("chimpers")
 	corpse_type = /obj/effect/mob_spawn/corpse/human/monkey
 	ai_controller = /datum/ai_controller/basic_controller/legion_monkey
@@ -20,7 +20,6 @@
 /mob/living/basic/mining/legion/monkey/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
-	AddComponent(/datum/component/basic_mob_attack_telegraph)
 	AddComponent(/datum/component/regenerator, outline_colour = COLOR_SOFT_RED)
 
 /mob/living/basic/mining/legion/monkey/assign_abilities()

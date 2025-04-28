@@ -63,7 +63,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE) // Ugh. Ideally we shouldn't be setting cooldowns outside of click code.
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	playsound(loc, 'sound/weapons/tap.ogg', 40, TRUE, -1)
+	playsound(loc, 'sound/items/weapons/tap.ogg', 40, TRUE, -1)
 	user.visible_message(span_danger("[user] hits [src]. Nothing happens."), null, null, COMBAT_MESSAGE_RANGE)
 	log_message("Attack by hand/paw (no damage). Attacker - [user].", LOG_MECHA, color="red")
 
@@ -72,7 +72,7 @@
 
 /obj/vehicle/sealed/mecha/attack_alien(mob/living/user, list/modifiers)
 	log_message("Attack by alien. Attacker - [user].", LOG_MECHA, color="red")
-	playsound(loc, 'sound/weapons/slash.ogg', 100, TRUE)
+	playsound(loc, 'sound/items/weapons/slash.ogg', 100, TRUE)
 	attack_generic(user, rand(user.melee_damage_lower, user.melee_damage_upper), BRUTE, MELEE, 0)
 
 /obj/vehicle/sealed/mecha/attack_animal(mob/living/simple_animal/user, list/modifiers)
@@ -121,7 +121,7 @@
 		&& !(mecha_flags & SILICON_PILOT) \
 		&& (def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_CHEST))
 		var/mob/living/hitmob = pick(occupants)
-		return hitmob.bullet_act(hitting_projectile, def_zone, piercing_hit) //If the sides are open, the occupant can be hit
+		return hitmob.projectile_hit(hitting_projectile, def_zone, piercing_hit) //If the sides are open, the occupant can be hit
 
 	. = ..()
 
@@ -204,14 +204,14 @@
 			cookedalive.adjust_fire_stacks(1)
 			cookedalive.ignite_mob()
 
-/obj/vehicle/sealed/mecha/attackby_secondary(obj/item/weapon, mob/user, params)
+/obj/vehicle/sealed/mecha/attackby_secondary(obj/item/weapon, mob/user, list/modifiers)
 	if(istype(weapon, /obj/item/mecha_parts))
 		var/obj/item/mecha_parts/parts = weapon
 		parts.try_attach_part(user, src, TRUE)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
-/obj/vehicle/sealed/mecha/attackby(obj/item/weapon, mob/living/user, params)
+/obj/vehicle/sealed/mecha/attackby(obj/item/weapon, mob/living/user, list/modifiers)
 	if(user.combat_mode)
 		return ..()
 	if(istype(weapon, /obj/item/mmi))
@@ -268,7 +268,7 @@
 			cell = weapon
 			balloon_alert(user, "installed power cell")
 			diag_hud_set_mechcell()
-			playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
+			playsound(src, 'sound/items/tools/screwdriver2.ogg', 50, FALSE)
 			log_message("Power cell installed", LOG_MECHA)
 		else
 			balloon_alert(user, "already installed!")
@@ -280,7 +280,7 @@
 				return
 			scanmod = weapon
 			balloon_alert(user, "installed scanning module")
-			playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
+			playsound(src, 'sound/items/tools/screwdriver2.ogg', 50, FALSE)
 			log_message("[weapon] installed", LOG_MECHA)
 			update_part_values()
 		else
@@ -293,7 +293,7 @@
 				return
 			capacitor = weapon
 			balloon_alert(user, "installed capacitor")
-			playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
+			playsound(src, 'sound/items/tools/screwdriver2.ogg', 50, FALSE)
 			log_message("[weapon] installed", LOG_MECHA)
 			update_part_values()
 		else
@@ -306,7 +306,7 @@
 				return
 			servo = weapon
 			balloon_alert(user, "installed servo")
-			playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
+			playsound(src, 'sound/items/tools/screwdriver2.ogg', 50, FALSE)
 			log_message("[weapon] installed", LOG_MECHA)
 			update_part_values()
 		else
@@ -317,7 +317,7 @@
 	if(!attacking_item.force)
 		return
 
-	var/damage_taken = take_damage(attacking_item.force * attacking_item.demolition_mod, attacking_item.damtype, MELEE, 1)
+	var/damage_taken = take_damage(attacking_item.force * attacking_item.get_demolition_modifier(src), attacking_item.damtype, MELEE, 1, get_dir(src, user))
 	try_damage_component(damage_taken, user.zone_selected)
 
 	var/hit_verb = length(attacking_item.attack_verb_simple) ? "[pick(attacking_item.attack_verb_simple)]" : "hit"
@@ -406,7 +406,7 @@
 	if(atom_integrity >= max_integrity)
 		balloon_alert(user, "it's not damaged!")
 		return
-	if(!W.tool_start_check(user, amount=1))
+	if(!W.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
 		return
 	user.balloon_alert_to_viewers("started welding [src]", "started repairing [src]")
 	audible_message(span_hear("You hear welding."))
@@ -414,19 +414,18 @@
 	while(atom_integrity < max_integrity)
 		if(W.use_tool(src, user, 2.5 SECONDS, volume=50))
 			did_the_thing = TRUE
-			atom_integrity += min(10, (max_integrity - atom_integrity))
+			repair_damage(10)
 			audible_message(span_hear("You hear welding."))
 		else
 			break
 	if(did_the_thing)
 		user.balloon_alert_to_viewers("[(atom_integrity >= max_integrity) ? "fully" : "partially"] repaired [src]")
-		diag_hud_set_mechhealth()
 	else
 		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
 
 
 /obj/vehicle/sealed/mecha/proc/full_repair(charge_cell)
-	atom_integrity = max_integrity
+	repair_damage(max_integrity)
 	if(cell && charge_cell)
 		cell.charge = cell.maxcharge
 		diag_hud_set_mechcell()
@@ -440,6 +439,9 @@
 		clear_internal_damage(MECHA_CABIN_AIR_BREACH)
 	if(internal_damage & MECHA_INT_CONTROL_LOST)
 		clear_internal_damage(MECHA_INT_CONTROL_LOST)
+
+/obj/vehicle/sealed/mecha/repair_damage(amount)
+	. = ..()
 	diag_hud_set_mechhealth()
 
 /obj/vehicle/sealed/mecha/narsie_act()
@@ -481,7 +483,7 @@
 			else
 				gun.projectiles_cache = gun.projectiles_cache + ammo_needed
 			playsound(get_turf(user),A.load_audio,50,TRUE)
-			to_chat(user, span_notice("You add [ammo_needed] [A.ammo_type][ammo_needed > 1?"s":""] to the [gun.name]"))
+			to_chat(user, span_notice("You add [ammo_needed] [A.ammo_type][ammo_needed > 1?"s":""] to \the [gun]"))
 			A.rounds = A.rounds - ammo_needed
 			if(A.custom_materials)	//Change material content of the ammo box according to the amount of ammo deposited into the weapon
 				/// list of materials contained in the ammo box after we put it through the equation so we can stick this list into set_custom_materials()
@@ -500,7 +502,7 @@
 		else
 			gun.projectiles_cache = gun.projectiles_cache + A.rounds
 		playsound(get_turf(user),A.load_audio,50,TRUE)
-		to_chat(user, span_notice("You add [A.rounds] [A.ammo_type][A.rounds > 1?"s":""] to the [gun.name]"))
+		to_chat(user, span_notice("You add [A.rounds] [A.ammo_type][A.rounds > 1?"s":""] to \the [gun]"))
 		if(A.qdel_on_empty)
 			qdel(A)
 			return TRUE

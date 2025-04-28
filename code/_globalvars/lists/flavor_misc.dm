@@ -106,6 +106,12 @@ GLOBAL_LIST_INIT(security_depts_prefs, sort_list(list(
 #define GSATCHEL "Grey Satchel"
 #define GMESSENGER "Grey Messenger Bag"
 #define LSATCHEL "Leather Satchel"
+/// NOVA EDIT ADDITION START - Adds tpacks, tiny backpacks
+#define TPACKB "Beltpack"
+#define TPACKA "Waistpack"
+#define TPACKC "Chest pack"
+#define GUNCASE "Guncase"
+// NOVA EDIT ADDITION END
 GLOBAL_LIST_INIT(backpacklist, list(
 	DBACKPACK,
 	DDUFFELBAG,
@@ -116,6 +122,12 @@ GLOBAL_LIST_INIT(backpacklist, list(
 	GSATCHEL,
 	GMESSENGER,
 	LSATCHEL,
+	// NOVA EDIT ADDITION START
+	TPACKB,
+	TPACKA,
+	TPACKC,
+	GUNCASE,
+	// NOVA EDIT ADDITION END
 ))
 
 	//Suit/Skirt
@@ -134,22 +146,22 @@ GLOBAL_LIST_EMPTY(female_clothing_icons)
 GLOBAL_LIST_INIT(scarySounds, list(
 	'sound/effects/footstep/clownstep1.ogg',
 	'sound/effects/footstep/clownstep2.ogg',
-	'sound/effects/glassbr1.ogg',
-	'sound/effects/glassbr2.ogg',
-	'sound/effects/glassbr3.ogg',
-	'sound/items/welder.ogg',
-	'sound/items/welder2.ogg',
-	'sound/machines/airlock.ogg',
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg',
-	'sound/voice/hiss5.ogg',
-	'sound/voice/hiss6.ogg',
-	'sound/weapons/armbomb.ogg',
-	'sound/weapons/taser.ogg',
-	'sound/weapons/thudswoosh.ogg',
-	'sound/weapons/shove.ogg',
+	'sound/effects/glass/glassbr1.ogg',
+	'sound/effects/glass/glassbr2.ogg',
+	'sound/effects/glass/glassbr3.ogg',
+	'sound/items/tools/welder.ogg',
+	'sound/items/tools/welder2.ogg',
+	'sound/machines/airlock/airlock.ogg',
+	'sound/mobs/non-humanoids/hiss/hiss1.ogg',
+	'sound/mobs/non-humanoids/hiss/hiss2.ogg',
+	'sound/mobs/non-humanoids/hiss/hiss3.ogg',
+	'sound/mobs/non-humanoids/hiss/hiss4.ogg',
+	'sound/mobs/non-humanoids/hiss/hiss5.ogg',
+	'sound/mobs/non-humanoids/hiss/hiss6.ogg',
+	'sound/items/weapons/armbomb.ogg',
+	'sound/items/weapons/taser.ogg',
+	'sound/items/weapons/thudswoosh.ogg',
+	'sound/items/weapons/shove.ogg',
 ))
 
 
@@ -254,12 +266,14 @@ GLOBAL_LIST_INIT(status_display_approved_pictures, list(
 	"lockdown",
 	"greenalert",
 	"bluealert",
-	"violetalert", // NOVA EDIT ADD - Alert Levels
-	"orangealert", // NOVA EDIT ADD - Alert Levels
-	"amberalert", // NOVA EDIT ADD - Alert Levels
+	"violetalert", // NOVA EDIT ADDITION - Alert Levels
+	"orangealert", // NOVA EDIT ADDITION - Alert Levels
+	"amberalert", // NOVA EDIT ADDITION - Alert Levels
 	"redalert",
 	"deltaalert",
-	"gammaalert", // NOVA EDIT ADD - Alert Levels
+	"gammaalert", // NOVA EDIT ADDITION - Alert Levels
+	"epsilonalert", // NOVA EDIT ADDITION - Alert Levels
+	"federalalert", // NOVA EDIT ADDITION - Alert Levels
 	"radiation",
 	"currentalert", //For automatic set of status display on current level
 ))
@@ -269,3 +283,16 @@ GLOBAL_LIST_INIT(status_display_state_pictures, list(
 	"blank",
 	"shuttle",
 ))
+
+GLOBAL_LIST_INIT(fishing_tips, world.file2list("strings/fishing_tips.txt"))
+
+/// 1000 element long list containing the 1000 most common words in the English language.
+/// Indexed by word, value is the rank of the word in the list. So accessing it is fasta.
+GLOBAL_LIST_INIT(most_common_words, init_common_words())
+
+/proc/init_common_words()
+	. = list()
+	var/i = 1
+	for(var/word in world.file2list("strings/1000_most_common.txt"))
+		.[word] = i
+		i += 1

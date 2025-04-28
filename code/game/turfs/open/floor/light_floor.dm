@@ -129,7 +129,7 @@
 	currentcolor = choice
 	update_appearance()
 
-/turf/open/floor/light/attackby(obj/item/C, mob/user, params)
+/turf/open/floor/light/attackby(obj/item/C, mob/user, list/modifiers)
 	if(..())
 		return
 	if(istype(C, /obj/item/light/bulb)) //only for light tiles
@@ -184,7 +184,7 @@
 /turf/open/floor/light/proc/check_menu(mob/living/user, obj/item/multitool)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return FALSE
 	if(!multitool || !user.is_holding(multitool))
 		return FALSE

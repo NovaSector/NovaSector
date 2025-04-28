@@ -134,6 +134,7 @@
 	icon_state = "bouncy_castle"
 	anchored = TRUE
 	density = TRUE
+	layer = OBJ_LAYER
 
 /obj/structure/bouncy_castle/Initialize(mapload, mob/gored)
 	. = ..()
@@ -149,7 +150,7 @@
 
 	AddComponent(/datum/component/bloody_spreader,\
 		blood_left = INFINITY,\
-		blood_dna = list("meaty DNA" = "MT-"),\
+		blood_dna = list("meaty DNA" = get_blood_type(BLOOD_TYPE_MEAT)),\
 		diseases = null,\
 	)
 
@@ -157,11 +158,11 @@
 	switch(damage_type)
 		if(BRUTE)
 			if(damage_amount)
-				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
+				playsound(src, 'sound/effects/blob/attackblob.ogg', 50, TRUE)
 			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+				playsound(src, 'sound/items/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
-			playsound(src, 'sound/items/welder.ogg', 100, TRUE)
+			playsound(src, 'sound/items/tools/welder.ogg', 100, TRUE)
 
 /obj/item/paper/crumpled/fluff/fortune_teller
 	name = "scribbled note"

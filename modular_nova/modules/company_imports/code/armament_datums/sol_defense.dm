@@ -19,6 +19,7 @@
 /datum/armament_entry/company_import/sol_defense/armor
 	subcategory = "Ballistic Armor"
 	cost = PAYCHECK_CREW * 3
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/armor/ballistic_helmet
 	item_type = /obj/item/clothing/head/helmet/sf_peacekeeper/debranded
@@ -39,9 +40,16 @@
 	name = "type I vest"
 	item_type = /obj/item/clothing/suit/armor/vest
 
+/datum/armament_entry/company_import/sol_defense/armor/combat_boots // boots
+	name = "Combat Boots"
+	cost = PAYCHECK_CREW * 4
+	item_type = /obj/item/clothing/shoes/combat
+	restricted = FALSE
+
 /datum/armament_entry/company_import/sol_defense/armor_hardened
 	subcategory = "Hardened Armor"
 	cost = PAYCHECK_CREW * 3
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/armor_hardened/enclosed_helmet
 	item_type = /obj/item/clothing/head/helmet/toggleable/sf_hardened
@@ -82,14 +90,16 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm
 	subcategory = "Sidearms"
+	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/eland
 	item_type = /obj/item/gun/ballistic/revolver/sol
-	cost = PAYCHECK_COMMAND * 4
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	cost = PAYCHECK_COMMAND * 4
+
+/datum/armament_entry/company_import/sol_defense/sidearm/type207
+	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
 
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
 	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
@@ -103,15 +113,21 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm
 	subcategory = "Longarms"
+	cost = PAYCHECK_COMMAND * 6
 	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/renoster
 	item_type = /obj/item/gun/ballistic/shotgun/riot/sol
-	cost = PAYCHECK_COMMAND * 6
 
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
 	item_type = /obj/item/gun/ballistic/automatic/sol_smg
-	cost = PAYCHECK_COMMAND * 6
+
+/datum/armament_entry/company_import/sol_defense/longarm/type213
+	item_type = /obj/item/gun/ballistic/automatic/type213
+
+/datum/armament_entry/company_import/sol_defense/longarm/br38
+	item_type = /obj/item/gun/ballistic/automatic/battle_rifle
+	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/sol_defense/longarm/elite
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/marksman
@@ -120,22 +136,25 @@
 /datum/armament_entry/company_import/sol_defense/longarm/bogseo
 	item_type = /obj/item/gun/ballistic/automatic/xhihao_smg
 	cost = PAYCHECK_COMMAND * 10
-	contraband = TRUE
+
+/datum/armament_entry/company_import/sol_defense/longarm/jager
+	item_type = /obj/item/gun/ballistic/shotgun/katyusha/jager
+	cost = PAYCHECK_COMMAND * 20
+	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
 	cost = PAYCHECK_COMMAND * 14
-	contraband = TRUE
 
-/datum/armament_entry/company_import/sol_defense/longarm/outomaties
+/* //
+datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23
-	contraband = TRUE
+	cost = PAYCHECK_COMMAND * 23 
+*/ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
 	cost = PAYCHECK_COMMAND * 46
-	contraband = TRUE
 
 /datum/armament_entry/company_import/sol_defense/magazines
 	subcategory = "Magazines"
@@ -153,6 +172,15 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_short
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/starts_empty
 
+/datum/armament_entry/company_import/sol_defense/magazines/br38
+	item_type = /obj/item/ammo_box/magazine/m38/empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballs
+	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
+
+/datum/armament_entry/company_import/sol_defense/magazines/kineticballsbig
+	item_type = /obj/item/ammo_box/magazine/kineticballsbig/starts_empty
+
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
 	cost = PAYCHECK_COMMAND
@@ -164,4 +192,14 @@
 /datum/armament_entry/company_import/sol_defense/magazines/sol_grenade_drum
 	item_type = /obj/item/ammo_box/magazine/c980_grenade/drum/starts_empty
 	cost = PAYCHECK_CREW * 3
-	contraband = TRUE
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/magazines/jager_shotgun_regular
+	item_type = /obj/item/ammo_box/magazine/jager/empty
+	cost = PAYCHECK_CREW
+	restricted = TRUE
+
+/datum/armament_entry/company_import/sol_defense/magazines/jager_shotgun_Large
+	item_type = /obj/item/ammo_box/magazine/jager/large/empty
+	cost = PAYCHECK_CREW * 3
+	restricted = TRUE

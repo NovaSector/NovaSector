@@ -98,8 +98,7 @@
 	RegisterSignal(parent, COMSIG_USER_ITEM_INTERACTION, PROC_REF(hotswap))
 	RegisterSignal(parent, COMSIG_MOB_MINED, PROC_REF(on_mine))
 	RegisterSignal(parent, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_take_damage))
-	RegisterSignal(parent, COMSIG_MOB_EMOTED("flip"), PROC_REF(on_flip))
-	RegisterSignal(parent, COMSIG_MOB_EMOTED("spin"), PROC_REF(on_spin))
+	RegisterSignal(parent, COMSIG_MOB_EMOTED("taunt"), PROC_REF(on_taunt))
 	RegisterSignal(parent, COMSIG_MOB_ITEM_ATTACK, PROC_REF(on_attack))
 	RegisterSignal(parent, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_punch))
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(on_death))
@@ -114,7 +113,7 @@
 	UnregisterSignal(parent, COMSIG_USER_ITEM_INTERACTION)
 	UnregisterSignal(parent, COMSIG_MOB_MINED)
 	UnregisterSignal(parent, COMSIG_MOB_APPLY_DAMAGE)
-	UnregisterSignal(parent, list(COMSIG_MOB_EMOTED("flip"), COMSIG_MOB_EMOTED("spin")))
+	UnregisterSignal(parent, COMSIG_MOB_EMOTED("taunt"))
 	UnregisterSignal(parent, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_LIVING_UNARMED_ATTACK))
 	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH)
 	UnregisterSignal(parent, COMSIG_LIVING_RESONATOR_BURST)
@@ -294,7 +293,7 @@
 			return "#364866"
 
 /// A proc that lets a user, when their rank >= `hotswap_rank`, swap items in storage with what's in their hands, simply by clicking on the stored item with a held item
-/datum/component/style/proc/hotswap(mob/living/source, atom/target, obj/item/weapon, click_parameters)
+/datum/component/style/proc/hotswap(mob/living/source, atom/target, obj/item/weapon, list/modifiers)
 	SIGNAL_HANDLER
 
 	if((rank < hotswap_rank) || !isitem(target) || !(target in source.get_all_contents()))
@@ -342,7 +341,7 @@
 
 	add_action(ACTION_MELEED, 50 * (ismegafauna(attacked) ? 1.5 : 1))
 
-/datum/component/style/proc/on_mine(datum/source, turf/closed/mineral/rock, give_exp)
+/datum/component/style/proc/on_mine(datum/source, turf/closed/mineral/rock, exp_multiplier)
 	SIGNAL_HANDLER
 
 	if(istype(rock, /turf/closed/mineral/gibtonite))
@@ -361,11 +360,11 @@
 				return
 
 	if(rock.mineralType)
-		if(give_exp)
+		if(exp_multiplier)
 			add_action(ACTION_ORE_MINED, 40)
 		rock.mineralAmt = ROUND_UP(rock.mineralAmt * (1 + ((rank * 0.1) - 0.3))) // You start out getting 20% less ore, but it goes up to 20% more at S-tier
 
-	else if(give_exp)
+	else if(exp_multiplier)
 		add_action(ACTION_ROCK_MINED, 25)
 
 /datum/component/style/proc/on_resonator_burst(datum/source, mob/creator, mob/living/hit_living)
@@ -407,18 +406,11 @@
 
 
 // Emote-based multipliers
-/datum/component/style/proc/on_flip()
+/datum/component/style/proc/on_taunt()
 	SIGNAL_HANDLER
 
 	point_multiplier = round(min(point_multiplier + 0.5, 3), 0.1)
 	update_screen()
-
-/datum/component/style/proc/on_spin()
-	SIGNAL_HANDLER
-
-	point_multiplier = round(min(point_multiplier + 0.3, 3), 0.1)
-	update_screen()
-
 
 // Negative effects
 /datum/component/style/proc/on_take_damage(...)

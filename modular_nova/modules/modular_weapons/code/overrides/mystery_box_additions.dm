@@ -22,7 +22,7 @@ GLOBAL_LIST_INIT(nova_special_firearms, list(
 	/obj/item/gun/ballistic/automatic/pistol/trappiste,
 	/obj/item/gun/ballistic/revolver/sol,
 	/obj/item/gun/ballistic/revolver/takbok,
-	/obj/item/gun/ballistic/rifle/boltaction/sporterized,
+	/obj/item/gun/ballistic/rifle/sporterized,
 	/obj/item/gun/ballistic/automatic/xhihao_smg,
 ))
 

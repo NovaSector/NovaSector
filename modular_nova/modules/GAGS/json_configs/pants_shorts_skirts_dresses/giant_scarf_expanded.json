@@ -1,0 +1,143 @@
+{
+	"giant_scarf_crystal": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt1_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt1_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_stripe": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt2_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt2_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_twotone": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt3_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt3_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_arrow": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt4_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt4_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+
+	"giant_scarf_fancy": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt5_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt5_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_sepharim": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt6_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt6_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_bones": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt7_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt7_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_lines": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt8_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt8_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_runes": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt9_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt9_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	],
+	"giant_scarf_heart": [
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt10_1",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "giant_scarf_alt10_2",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

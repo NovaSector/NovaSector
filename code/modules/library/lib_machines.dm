@@ -80,7 +80,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	data["params_changed"] = params_changed
 	return data
 
-/obj/machinery/computer/libraryconsole/ui_act(action, params)
+/obj/machinery/computer/libraryconsole/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -406,7 +406,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	return data
 
 /obj/machinery/computer/libraryconsole/bookmanagement/ui_assets(mob/user)
-	return list(get_asset_datum(/datum/asset/spritesheet/bibles))
+	return list(get_asset_datum(/datum/asset/spritesheet_batched/bibles))
 
 /obj/machinery/computer/libraryconsole/bookmanagement/proc/load_nearby_books()
 	for(var/datum/book_info/book as anything in SSlibrary.get_area_books(get_area(src)))
@@ -424,7 +424,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 		scanner = WEAKREF(foundya)
 		return foundya
 
-/obj/machinery/computer/libraryconsole/bookmanagement/ui_act(action, params)
+/obj/machinery/computer/libraryconsole/bookmanagement/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	//The parent call takes care of stuff like searching, don't forget about that yeah?
 	. = ..()
 	if(.)
@@ -441,10 +441,12 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 			var/id = params["book_id"]
 			inventory -= id
 			inventory_update()
+			update_static_data_for_all_viewers()
 			return TRUE
 		if("switch_inventory_page")
 			inventory_page = sanitize_page_input(params["page"], inventory_page, inventory_page_count)
 			inventory_update()
+			update_static_data_for_all_viewers()
 			return TRUE
 		if("checkout")
 			var/list/available = list()
@@ -543,7 +545,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 			set_screen_state(MIN_LIBRARY)
 			return TRUE
 
-/obj/machinery/computer/libraryconsole/bookmanagement/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/libraryconsole/bookmanagement/attackby(obj/item/weapon, mob/user, list/modifiers)
 	if(!istype(weapon, /obj/item/barcodescanner))
 		return ..()
 	var/obj/item/barcodescanner/scanner = weapon
@@ -709,7 +711,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	cache = null
 	return ..()
 
-/obj/machinery/libraryscanner/attackby(obj/hitby, mob/user, params)
+/obj/machinery/libraryscanner/attackby(obj/hitby, mob/user, list/modifiers)
 	if(istype(hitby, /obj/item/book))
 		user.transferItemToLoc(hitby, src)
 		if(held_book)
@@ -753,7 +755,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 				return
 			cache = held_book.book_data.return_copy()
 			flick("bigscanner1", src)
-			playsound(src, 'sound/machines/scanner.ogg', vol = 50, vary = TRUE)
+			playsound(src, 'sound/machines/scanner/scanner.ogg', vol = 50, vary = TRUE)
 			return TRUE
 		if("clear")
 			cache = null
@@ -790,7 +792,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	if(default_deconstruction_crowbar(tool))
 		return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/bookbinder/attackby(obj/hitby, mob/user, params)
+/obj/machinery/bookbinder/attackby(obj/hitby, mob/user, list/modifiers)
 	if(istype(hitby, /obj/item/paper))
 		prebind_book(user, hitby)
 		return TRUE

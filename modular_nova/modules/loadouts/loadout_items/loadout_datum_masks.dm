@@ -91,15 +91,18 @@
 	name = "Half Mask Respirator"
 	item_path = /obj/item/clothing/mask/gas/respirator
 
-/datum/loadout_item/mask/sechailer_half_mask
-	name = "Tacticool Neck Gaiter"
-	item_path = /obj/item/clothing/mask/gas/sechailer/half_mask
+/datum/loadout_item/mask/neck_gaiter
+	name = "Neck Gaiter"
+	item_path = /obj/item/clothing/mask/neck_gaiter
 
 /*
 *	JOB-LOCKED
 */
 
-// Ain't a damn thing
+/datum/loadout_item/mask/whistlesec
+	name = "Police Whistle"
+	item_path = /obj/item/clothing/mask/whistle
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /*
 *	MASQUERADE MASKS

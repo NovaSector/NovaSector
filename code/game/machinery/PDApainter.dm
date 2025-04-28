@@ -109,7 +109,7 @@
 		power_change()
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/pdapainter/attackby(obj/item/O, mob/living/user, params)
+/obj/machinery/pdapainter/attackby(obj/item/O, mob/living/user, list/modifiers)
 	if(machine_stat & BROKEN)
 		if(O.tool_behaviour == TOOL_WELDER && !user.combat_mode)
 			if(!O.tool_start_check(user, amount=1))
@@ -279,7 +279,7 @@
 
 	return data
 
-/obj/machinery/pdapainter/ui_act(action, params)
+/obj/machinery/pdapainter/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -347,7 +347,7 @@
 
 			var/selection = params["selection"]
 			for(var/path in card_trims)
-				if(!(card_trims[path] == selection))
+				if(card_trims[path] != selection)
 					continue
 
 				if(SSid_access.apply_trim_to_card(stored_id_card, path, copy_access = FALSE))

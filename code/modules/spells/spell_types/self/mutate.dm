@@ -1,7 +1,7 @@
 /// A spell type that adds mutations to the caster temporarily.
 /datum/action/cooldown/spell/apply_mutations
 	button_icon_state = "mutate"
-	sound = 'sound/magic/mutate.ogg'
+	sound = 'sound/effects/magic/mutate.ogg'
 
 	school = SCHOOL_TRANSMUTATION
 
@@ -43,7 +43,7 @@
 	cooldown_reduction_per_rank = 5 SECONDS
 	spell_max_level = 3
 
-	invocation = "BIRUZ BENNAR"
+	invocation = "BIRUZ BENNAR!"
 	invocation_type = INVOCATION_SHOUT
 
 	mutations_to_add = list(/datum/mutation/human/laser_eyes, /datum/mutation/human/hulk/wizardly, /datum/mutation/human/gigantism)

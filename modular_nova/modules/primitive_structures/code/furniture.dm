@@ -3,7 +3,7 @@
 	desc = "A shooting target, specifically for bows."
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "archery_target"
-	impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
 
 /datum/crafting_recipe/archery_target
 

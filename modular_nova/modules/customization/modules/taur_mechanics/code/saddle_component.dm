@@ -72,12 +72,5 @@
 /datum/component/carbon_saddle/proc/wearer_has_requisite_organ(mob/living/carbon/target)
 	if (!istype(target))
 		return TRUE
-
-	for (var/obj/item/organ/iter_organ as anything in target.organs)
-		if (!istype(iter_organ, /obj/item/organ/external/taur_body))
-			continue
-		var/obj/item/organ/external/taur_body/taur_body = iter_organ
-		if (taur_body.can_use_saddle)
-			return TRUE
-
-	return FALSE
+	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	return istype(taur_body) && taur_body.can_use_saddle

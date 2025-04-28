@@ -45,7 +45,7 @@
 // OUTFITS
 
 /datum/outfit/lavaland_syndicate/comms
-	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/syndicate
 	ears = /obj/item/radio/headset/interdyne/comms
 
 /datum/outfit/lavaland_syndicate/comms/space
@@ -176,7 +176,7 @@
 	uniform = /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	suit = /obj/item/clothing/suit/syndicate/interdyne_jacket
 	r_pocket = /obj/item/storage/bag/ore
-	id_trim = /datum/id_trim/syndicom/nova/interdyne
+	id_trim = /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	back = /obj/item/storage/backpack/explorer
 	backpack_contents = list(
 		/obj/item/storage/box/survival/interdyne=1,
@@ -215,7 +215,7 @@
 	desc = "A bowman headset with a large red cross on the earpiece, has a small 'IP' written on the top strap. Protects the ears from flashbangs."
 	icon_state = "syndie_headset"
 	inhand_icon_state = null
-	radiosound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
+	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/syndie.ogg'
 	keyslot = new /obj/item/encryptionkey/headset_syndicate/interdyne
 
 /obj/item/radio/headset/interdyne/Initialize(mapload)
@@ -244,7 +244,7 @@
 /obj/structure/closet/l3closet/interdyne
 	name = "Interdyne level 3 biohazard gear closet"
 
-/obj/structure/closet/l3closet/virology/PopulateContents()
+/obj/structure/closet/l3closet/interdyne/PopulateContents()
 	new /obj/item/storage/bag/bio(src)
 	new /obj/item/clothing/suit/bio_suit/interdyne(src)
 	new /obj/item/clothing/head/bio_hood/interdyne(src)

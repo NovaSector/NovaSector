@@ -2,7 +2,7 @@
 
 #define in_range(source, user) (get_dist(source, user) <= 1 && (get_step(source, 0)?:z) == (get_step(user, 0)?:z))
 
-/// Within given range, but not counting z-levels
+/// Within given range and on the same z level (get dist is WEIRD bro)
 #define IN_GIVEN_RANGE(source, other, given_range) (get_dist(source, other) <= given_range && (get_step(source, 0)?:z) == (get_step(other, 0)?:z))
 
 #define isatom(A) (isloc(A))
@@ -35,6 +35,19 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 	)))
 
 #define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
+
+GLOBAL_LIST_INIT(turfs_no_slip_water, typecacheof(list(
+	/turf/open/misc/asteroid,
+	/turf/open/misc/dirt,
+	/turf/open/misc/grass,
+	/turf/open/misc/basalt,
+	/turf/open/misc/ashplanet,
+	/turf/open/misc/snow,
+	/turf/open/misc/sandy_dirt,
+	/turf/open/floor/noslip,
+	)))
+
+#define isnoslipturf(A) (is_type_in_typecache(A, GLOB.turfs_no_slip_water))
 
 GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 	/turf/open/openspace,
@@ -101,7 +114,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isdummy(A) (istype(A, /mob/living/carbon/human/dummy))
 
 //Human sub-species
-#define isabductor(A) (is_species(A, /datum/species/abductor))
+#define isabductor(A) (is_species(A, /datum/species/abductor) && !is_species(A, /datum/species/abductor/abductorweak)) // NOVA EDIT CHANGE - ORIGINAL: #define isabductor(A) (is_species(A, /datum/species/abductor))
 #define isgolem(A) (is_species(A, /datum/species/golem))
 #define islizard(A) (is_species(A, /datum/species/lizard))
 #define isashwalker(A) (is_species(A, /datum/species/lizard/ashwalker))
@@ -115,7 +128,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define ismoth(A) (is_species(A, /datum/species/moth))
 #define isfelinid(A) (is_species(A, /datum/species/human/felinid))
 #define isethereal(A) (is_species(A, /datum/species/ethereal))
-#define isvampire(A) (is_species(A,/datum/species/vampire))
+#define isvampire(A) (is_species(A,/datum/species/human/vampire))
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
@@ -139,18 +152,14 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 //Silicon mobs
 #define issilicon(A) (istype(A, /mob/living/silicon))
-///Define on whether A has access to Silicon stuff either through being a silicon, admin ghost or is a non-silicon holding the Silicon remote.
-///This can only be used for instances where you are not specifically looking for silicon, but access.
-#define HAS_SILICON_ACCESS(A) (istype(A, /mob/living/silicon) || isAdminGhostAI(A) || A.has_unlimited_silicon_privilege || istype(A.get_active_held_item(), /obj/item/machine_remote))
-
 #define isAI(A) (istype(A, /mob/living/silicon/ai))
-///Define on whether A has access to AI stuff either through being a AI, admin ghost, or is a non-silicon holding the Silicon remote
-///This can only be used for instances where you are not specifically looking for silicon, but access.
-#define HAS_AI_ACCESS(A) (istype(A, /mob/living/silicon/ai) || isAdminGhostAI(A) || istype(A.get_active_held_item(), /obj/item/machine_remote))
-
 #define iscyborg(A) (istype(A, /mob/living/silicon/robot))
-
 #define ispAI(A) (istype(A, /mob/living/silicon/pai))
+
+///This is used to see if you have Silicon access. This includes things like Admins, Drones, Bots, and Human wands.
+#define HAS_SILICON_ACCESS(possible_silicon) (HAS_TRAIT(possible_silicon, TRAIT_SILICON_ACCESS) || isAdminGhostAI(possible_silicon))
+///This is used to see if you have the access of an AI. This doesn't mean you are an AI, just have the same access as one.
+#define HAS_AI_ACCESS(possible_ai) (HAS_TRAIT(possible_ai, TRAIT_AI_ACCESS) || isAdminGhostAI(possible_ai))
 
 // basic mobs
 #define isbasicmob(A) (istype(A, /mob/living/basic))
@@ -169,9 +178,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isanimal_or_basicmob(A) (istype(A, /mob/living/simple_animal) || istype(A, /mob/living/basic))
 
 /// asteroid mobs, which are both simple and basic atm
-#define isminingpath(A) (ispath(A, /mob/living/simple_animal/hostile/asteroid) || ispath(A, /mob/living/basic/mining))
-
-#define ismining(A) (istype(A, /mob/living/simple_animal/hostile/asteroid) || istype(A, /mob/living/basic/mining))
+#define ismining(A) (A.mob_biotypes & MOB_MINING)
 
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
@@ -200,27 +207,29 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isguardian(A) (istype(A, /mob/living/basic/guardian))
 
-#define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
+#define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna) || istype(A, /mob/living/basic/boss))
 
 #define isclown(A) (istype(A, /mob/living/basic/clown))
 
 #define isspider(A) (istype(A, /mob/living/basic/spider))
 
+//Eye mobs
+#define iseyemob(A) (istype(A, /mob/eye))
 
-//Misc mobs
-#define isobserver(A) (istype(A, /mob/dead/observer))
+#define isovermind(A) (istype(A, /mob/eye/blob))
 
+#define iscameramob(A) (istype(A, /mob/eye/camera))
+
+#define isaicamera(A) (istype(A, /mob/eye/camera/ai))
+
+#define isremotecamera(A) (istype(A, /mob/eye/camera/remote))
+
+//Dead mobs
 #define isdead(A) (istype(A, /mob/dead))
 
+#define isobserver(A) (istype(A, /mob/dead/observer))
+
 #define isnewplayer(A) (istype(A, /mob/dead/new_player))
-
-#define isovermind(A) (istype(A, /mob/camera/blob))
-
-#define issentientdisease(A) (istype(A, /mob/camera/disease))
-
-#define iscameramob(A) (istype(A, /mob/camera))
-
-#define isaicamera(A) (istype(A, /mob/camera/ai_eye))
 
 //Objects
 #define isobj(A) istype(A, /obj) //override the byond proc because it returns true on children of /atom/movable that aren't objs
@@ -245,8 +254,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isstructure(A) (istype(A, /obj/structure))
 
-#define isaquarium(A) (istype(A, /obj/structure/aquarium))
-
 #define ismachinery(A) (istype(A, /obj/machinery))
 
 #define istramwall(A) (istype(A, /obj/structure/tram))
@@ -257,13 +264,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define ismecha(A) (istype(A, /obj/vehicle/sealed/mecha))
 
-#define ismopable(A) (A && (A.layer <= FLOOR_CLEAN_LAYER)) //If something can be cleaned by floor-cleaning devices such as mops or clean bots
-
 #define isorgan(A) (istype(A, /obj/item/organ))
-
-#define isinternalorgan(A) (istype(A, /obj/item/organ/internal))
-
-#define isexternalorgan(A) (istype(A, /obj/item/organ/external))
 
 #define isclothing(A) (istype(A, /obj/item/clothing))
 
@@ -282,6 +283,8 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isinstrument(A) (istype(A, /obj/item/instrument) || istype(A, /obj/structure/musician))
 
 #define is_reagent_container(O) (istype(O, /obj/item/reagent_containers))
+
+#define isapc(A) (istype(A, /obj/machinery/power/apc))
 
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
@@ -311,6 +314,9 @@ GLOBAL_LIST_INIT(glass_sheet_types, typecacheof(list(
 #define isProbablyWallMounted(O) (O.pixel_x > 20 || O.pixel_x < -20 || O.pixel_y > 20 || O.pixel_y < -20)
 #define isbook(O) (is_type_in_typecache(O, GLOB.book_types))
 
+// Is this an iron tile, or a material tile made from iron?
+#define ismetaltile(tile_thing) (istype(tile_thing, /obj/item/stack/tile/iron) || istype(tile_thing, /obj/item/stack/tile/material) && tile_thing.has_material_type(/datum/material/iron))
+
 GLOBAL_LIST_INIT(book_types, typecacheof(list(
 	/obj/item/book,
 	/obj/item/spellbook,
@@ -332,4 +338,4 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 #define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
 
 #define isprojectilespell(thing) (istype(thing, /datum/action/cooldown/spell/pointed/projectile))
-#define is_multi_tile_object(atom) (atom.bound_width > world.icon_size || atom.bound_height > world.icon_size)
+#define is_multi_tile_object(atom) (atom.bound_width > ICON_SIZE_X || atom.bound_height > ICON_SIZE_Y)

@@ -13,14 +13,14 @@
 	key = "yes"
 	message = "emits an affirmative blip."
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/synth_yes.ogg'
+	sound = 'sound/machines/synth/synth_yes.ogg'
 
 
 /datum/emote/silicon/no
 	key = "no"
 	message = "emits a negative blip."
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg'
+	sound = 'sound/machines/synth/synth_no.ogg'
 
 
 /datum/emote/silicon/beep2
@@ -30,11 +30,11 @@
 	message_param = "beeps sharply at %t."
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/twobeep.ogg'
+	sound = 'modular_nova/modules/emotes/sound/emotes/twobeep_fast.ogg'
 
 
 /datum/emote/silicon/laughtrack
 	key = "laughtrack"
 	message = "plays a laughtrack."
 	emote_type = EMOTE_AUDIBLE
-	sound = 'sound/items/sitcomlaugh2.ogg'
+	sound = 'sound/items/sitcom_laugh/sitcomLaugh2.ogg'

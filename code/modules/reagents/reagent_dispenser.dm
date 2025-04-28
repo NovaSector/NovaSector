@@ -84,14 +84,14 @@
 			boom(damage_type, guaranteed_violent)
 			//NOVA EDIT END
 
-/obj/structure/reagent_dispensers/attackby(obj/item/W, mob/user, params)
-	if(W.is_refillable())
+/obj/structure/reagent_dispensers/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+	if(attacking_item.is_refillable())
 		return FALSE //so we can refill them via their afterattack.
-	if(istype(W, /obj/item/assembly_holder) && accepts_rig)
+	if(istype(attacking_item, /obj/item/assembly_holder) && accepts_rig)
 		if(rig)
 			balloon_alert(user, "another device is in the way!")
 			return ..()
-		var/obj/item/assembly_holder/holder = W
+		var/obj/item/assembly_holder/holder = attacking_item
 		if(!(locate(/obj/item/assembly/igniter) in holder.assemblies))
 			return ..()
 
@@ -103,8 +103,8 @@
 		holder.master = src
 		holder.on_attach()
 		assembliesoverlay = holder
-		assembliesoverlay.pixel_x += 6
-		assembliesoverlay.pixel_y += 1
+		assembliesoverlay.pixel_w += 6
+		assembliesoverlay.pixel_z += 1
 		add_overlay(assembliesoverlay)
 		RegisterSignal(src, COMSIG_IGNITER_ACTIVATE, PROC_REF(rig_boom))
 		log_bomber(user, "attached [holder.name] to ", src)
@@ -112,8 +112,8 @@
 		user.balloon_alert_to_viewers("attached rig")
 		return
 
-	if(istype(W, /obj/item/stack/sheet/iron) && can_be_tanked)
-		var/obj/item/stack/sheet/iron/metal_stack = W
+	if(istype(attacking_item, /obj/item/stack/sheet/iron) && can_be_tanked)
+		var/obj/item/stack/sheet/iron/metal_stack = attacking_item
 		metal_stack.use(1)
 		var/obj/structure/reagent_dispensers/plumbed/storage/new_tank = new /obj/structure/reagent_dispensers/plumbed/storage(drop_location())
 		new_tank.reagents.maximum_volume = reagents.maximum_volume
@@ -247,7 +247,7 @@
 	icon_state = "water_high" //I was gonna clean my room...
 	tank_volume = 3000
 
-/obj/structure/reagent_dispensers/foamtank//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/foamtank //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "firefighting foam tank"
 	desc = "A tank full of firefighting foam."
 	icon_state = "foam"
@@ -256,7 +256,7 @@
 	openable = TRUE
 	climbable = TRUE
 
-/obj/structure/reagent_dispensers/fueltank//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/fueltank //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "fuel tank"
 	desc = "A tank full of industrial welding fuel. Do not consume."
 	icon_state = "fuel"
@@ -304,27 +304,39 @@
 	// if this sucks, feel free to change it, but make sure the damn thing will log. thanks.
 	return ..()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/living/user, params)
-	if(I.tool_behaviour == TOOL_WELDER)
-		if(!reagents.has_reagent(/datum/reagent/fuel))
-			to_chat(user, span_warning("[src] is out of fuel!"))
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+	if(attacking_item.tool_behaviour != TOOL_WELDER)
+		return ..()
+
+	var/obj/item/weldingtool/refilling_welder = attacking_item
+	if(istype(refilling_welder) && !refilling_welder.welding)
+		if(refilling_welder.reagents.has_reagent(/datum/reagent/fuel, refilling_welder.max_fuel))
+			to_chat(user, span_warning("Your [refilling_welder.name] is already full!"))
 			return
-		var/obj/item/weldingtool/W = I
-		if(istype(W) && !W.welding)
-			if(W.reagents.has_reagent(/datum/reagent/fuel, W.max_fuel))
-				to_chat(user, span_warning("Your [W.name] is already full!"))
-				return
-			reagents.trans_to(W, W.max_fuel, transferred_by = user)
-			user.visible_message(span_notice("[user] refills [user.p_their()] [W.name]."), span_notice("You refill [W]."))
-			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
-			W.update_appearance()
-		else
-			user.visible_message(span_danger("[user] catastrophically fails at refilling [user.p_their()] [I.name]!"), span_userdanger("That was stupid of you."))
-			log_bomber(user, "detonated a", src, "via welding tool")
-			boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE
+		reagents.trans_to(refilling_welder, refilling_welder.max_fuel, transferred_by = user)
+		user.visible_message(span_notice("[user] refills [user.p_their()] [refilling_welder.name]."), span_notice("You refill [refilling_welder]."))
+		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+		refilling_welder.update_appearance()
 		return
 
-	return ..()
+	var/obj/item/lighter/refilling_lighter = attacking_item
+	if(istype(refilling_lighter) && !refilling_lighter.lit)
+		if(refilling_lighter.reagents.has_reagent(/datum/reagent/fuel, refilling_lighter.maximum_fuel))
+			to_chat(user, span_warning("Your [refilling_lighter.name] is already full!"))
+			return
+		reagents.trans_to(refilling_lighter, refilling_lighter.maximum_fuel, transferred_by = user)
+		user.visible_message(span_notice("[user] refills [user.p_their()] [refilling_lighter.name]."), span_notice("You refill [refilling_lighter]."))
+		playsound(src, 'sound/effects/refill.ogg', 25, TRUE)
+		return
+
+	if(!reagents.has_reagent(/datum/reagent/fuel))
+		to_chat(user, span_warning("[src] is out of fuel!"))
+		return
+	user.visible_message(
+		span_danger("[user] catastrophically fails at refilling [user.p_their()] [attacking_item.name]!"),
+		span_userdanger("That was stupid of you."))
+	log_bomber(user, "detonated a", src, "via [attacking_item.name]")
+	boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE - ORIGINAL: boom()
 
 /obj/structure/reagent_dispensers/fueltank/large
 	name = "high capacity fuel tank"
@@ -360,7 +372,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/peppertank, 3
 		desc = "IT'S PEPPER TIME, BITCH!"
 	find_and_hang_on_wall()
 
-/obj/structure/reagent_dispensers/water_cooler//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/water_cooler //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "liquid cooler"
 	desc = "A machine that dispenses liquid to drink."
 	icon = 'icons/obj/machines/vending.dmi'
@@ -430,7 +442,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/virusfood, 30
 	anchored = TRUE
 	reagent_id = /datum/reagent/consumable/nutraslop
 
-/obj/structure/reagent_dispensers/plumbed//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/reagent_dispensers/plumbed //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	name = "stationary water tank"
 	anchored = TRUE
 	icon_state = "water_stationary"

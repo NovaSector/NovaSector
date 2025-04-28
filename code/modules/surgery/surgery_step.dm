@@ -79,7 +79,6 @@
 
 	return FALSE
 
-#define SURGERY_SPEEDUP_AREA 0.5 // NOVA EDIT Addition - reward for doing surgery in surgery
 #define SURGERY_SLOWDOWN_CAP_MULTIPLIER 2.5 //increase to make surgery slower but fail less, and decrease to make surgery faster but fail more
 ///Modifier given to surgery speed for dissected bodies.
 #define SURGERY_SPEED_DISSECTION_MODIFIER 0.8
@@ -87,6 +86,7 @@
 #define SURGERY_SPEED_MORBID_CURIOSITY 0.7
 ///Modifier given to patients with TRAIT_ANALGESIA
 #define SURGERY_SPEED_TRAIT_ANALGESIA 0.8
+#define SURGERY_SPEED_CALM_ENVIRONMENT 0.8 // NOVA EDIT ADDITION - Modifier given to surgery when done in calm areas (no other humans around)
 
 /datum/surgery_step/proc/initiate(mob/living/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
 	// Only followers of Asclepius have the ability to use Healing Touch and perform miracle feats of surgery.
@@ -122,6 +122,7 @@
 
 	if(HAS_TRAIT(target, TRAIT_ANALGESIA))
 		speed_mod *= SURGERY_SPEED_TRAIT_ANALGESIA
+		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!")) // NOVA EDIT ADDITION - Better feedback for the use of analgesia
 
 	var/implement_speed_mod = 1
 	if(implement_type) //this means it isn't a require hand or any item step.
@@ -141,17 +142,14 @@
 
 	var/was_sleeping = (target.stat != DEAD && target.IsSleeping())
 
-	// NOVA EDIT ADDITION START - reward for doing surgery on calm patients, and for using surgery rooms(ie. surgerying alone)
-	if(was_sleeping || HAS_TRAIT(target, TRAIT_ANALGESIA) || target.stat == DEAD)
-		modded_time *= SURGERY_SPEEDUP_AREA
-		to_chat(user, span_notice("You are able to work faster due to the patient's calm attitude!"))
-	var/quiet_enviromnent = TRUE
+	// NOVA EDIT ADDITION START - reward for doing surgery on a calm environment (no other humans around)
+	var/quiet_environment = TRUE
 	for(var/mob/living/carbon/human/loud_people in view(3, target))
 		if(loud_people != user && loud_people != target)
-			quiet_enviromnent = FALSE
+			quiet_environment = FALSE
 			break
-	if(quiet_enviromnent)
-		modded_time *= SURGERY_SPEEDUP_AREA
+	if(quiet_environment)
+		modded_time *= SURGERY_SPEED_CALM_ENVIRONMENT
 		to_chat(user, span_notice("You are able to work faster due to the quiet environment!"))
 	// NOVA EDIT ADDITION END
 	if(do_after(user, modded_time, target = target, interaction_key = user.has_status_effect(/datum/status_effect/hippocratic_oath) ? target : DOAFTER_SOURCE_SURGERY)) //If we have the hippocratic oath, we can perform one surgery on each target, otherwise we can only do one surgery in total.
@@ -179,7 +177,7 @@
 
 	surgery.step_in_progress = FALSE
 	return advance
-#undef SURGERY_SPEEDUP_AREA // NOVA EDIT ADDITION
+#undef SURGERY_SPEED_CALM_ENVIRONMENT // NOVA EDIT ADDITION
 
 /**
  * Handles updating the mob's mood depending on the surgery states.
@@ -196,7 +194,7 @@
 		target.add_mood_event("mild_surgery", /datum/mood_event/mild_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
 		return
 	if(target.stat >= UNCONSCIOUS)
-		var/datum/mood_event/surgery/target_mood_event = target.mob_mood.mood_events[SURGERY_MOOD_CATEGORY]
+		var/datum/mood_event/surgery/target_mood_event = target.mob_mood?.mood_events[SURGERY_MOOD_CATEGORY]
 		if(!target_mood_event || target_mood_event.surgery_completed) //don't give sleeping mobs trauma. that said, if they fell asleep mid-surgery after already getting the bad mood, lets make sure they wake up to a (hopefully) happy memory.
 			return
 	target.add_mood_event("severe_surgery", /datum/mood_event/severe_surgery) // NOVA EDIT ADDITION - Adds additional mood effects to surgeries
@@ -221,8 +219,6 @@
 	)
 
 /datum/surgery_step/proc/play_preop_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	if(!preop_sound)
-		return
 	var/sound_file_use
 	if(islist(preop_sound))
 		for(var/typepath in preop_sound)//iterate and assign subtype to a list, works best if list is arranged from subtype first and parent last
@@ -231,7 +227,9 @@
 				break
 	else
 		sound_file_use = preop_sound
-	playsound(get_turf(target), sound_file_use, 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
+	if(!sound_file_use)
+		return
+	playsound(target, sound_file_use, 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
 
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = TRUE)
 	SEND_SIGNAL(user, COMSIG_MOB_SURGERY_STEP_SUCCESS, src, target, target_zone, tool, surgery, default_display_results)
@@ -243,6 +241,11 @@
 			span_notice("[user] succeeds!"),
 			span_notice("[user] finishes."),
 		)
+	if(ishuman(user))
+		var/mob/living/carbon/human/surgeon = user
+		surgeon.add_blood_DNA_to_items(target.get_blood_dna_list(), ITEM_SLOT_GLOVES)
+	else
+		user.add_mob_blood(target)
 	return TRUE
 
 /datum/surgery_step/proc/play_success_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

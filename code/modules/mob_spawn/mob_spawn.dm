@@ -38,6 +38,12 @@
 	if(faction)
 		faction = string_list(faction)
 
+/obj/effect/mob_spawn/Destroy()
+	spawned_mob_ref = null
+	if(istype(outfit))
+		QDEL_NULL(outfit)
+	return ..()
+
 /// Creates whatever mob the spawner makes. Return FALSE if we want to exit from here without doing that, returning NULL will be logged to admins.
 /obj/effect/mob_spawn/proc/create(mob/mob_possessor, newname)
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
@@ -142,7 +148,7 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	LAZYADD(GLOB.mob_spawners[name], src)
 
-/obj/effect/mob_spawn/Destroy()
+/obj/effect/mob_spawn/ghost_role/Destroy()
 	var/list/spawners = GLOB.mob_spawners[name]
 	LAZYREMOVE(spawners, src)
 	if(!LAZYLEN(spawners))
@@ -218,7 +224,7 @@
  * If you are manually forcing a player into this mob spawn,
  * you should be using this and not directly calling [proc/create].
  */
-/obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user)
+/obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user, use_loadout = FALSE) // NOVA EDIT CHANGE - ORIGINAL: /obj/effect/mob_spawn/ghost_role/proc/create_from_ghost(mob/dead/user)
 	ASSERT(istype(user))
 	var/user_ckey = user.ckey // We need to do it before everything else, because after the create() the ckey will already have been transferred.
 
@@ -227,7 +233,7 @@
 	if(!temp_body)
 		user.mind = null // dissassociate mind, don't let it follow us to the next life
 
-	var/created = create(user)
+	var/created = create(user, /* newname */, use_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/created = create(user)
 	LAZYREMOVE(ckeys_trying_to_spawn, user_ckey) // We do this AFTER the create() so that we're basically sure that the user won't be in their ghost body anymore, so they can't click on the spawner again.
 
 	if(!created)
@@ -254,14 +260,14 @@
 		if(mob_possessor.mind)
 			mob_possessor.mind.transfer_to(spawned_mob, force_key_move = TRUE)
 		else
-			spawned_mob.key = mob_possessor.key
+			spawned_mob.PossessByPlayer(mob_possessor.key)
 	var/datum/mind/spawned_mind = spawned_mob.mind
 	if(spawned_mind)
-		spawned_mob.mind.set_assigned_role_with_greeting(SSjob.GetJobType(spawner_job_path))
+		spawned_mob.mind.set_assigned_role_with_greeting(SSjob.get_job_type(spawner_job_path))
 		spawned_mind.name = spawned_mob.real_name
 
 	if(show_flavor)
-		var/output_message = "<span class='infoplain'><span class='big bold'>[you_are_text]</span></span>"
+		var/output_message = span_infoplain("<span class='big bold'>[you_are_text]</span>")
 		if(flavour_text != "")
 			output_message += "\n<span class='infoplain'><b>[flavour_text]</b></span>"
 		if(important_text != "")
@@ -279,6 +285,7 @@
 
 ///these mob spawn subtypes trigger immediately (New or Initialize) and are not player controlled... since they're dead, you know?
 /obj/effect/mob_spawn/corpse
+	density = FALSE //these are pretty much abstract objects that leave a corpse in their place.
 	///when this mob spawn should auto trigger.
 	var/spawn_when = CORPSE_INSTANT
 

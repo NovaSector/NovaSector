@@ -1,14 +1,14 @@
-/proc/generate_underwear_icon(datum/sprite_accessory/accessory, icon/base_icon, color, icon_offset = 0) //NOVA EDIT CHANGE : adds icon_offset - Colorable Undershirt/Socks
-	var/icon/final_icon = new(base_icon)
+/proc/generate_underwear_icon(datum/sprite_accessory/accessory, datum/universal_icon/base_icon, color, icon_offset = 0) //NOVA EDIT CHANGE : adds icon_offset - Colorable Undershirt/Socks
+	var/datum/universal_icon/final_icon = base_icon.copy()
 
 	if (!isnull(accessory))
-		var/icon/accessory_icon = icon(accessory.icon, accessory.icon_state) // NOVA EDIT CHANGE: ORIGINAL - var/icon/accessory_icon = icon('icons/mob/clothing/underwear.dmi', accessory.icon_state)
+		var/datum/universal_icon/accessory_icon = uni_icon(accessory.icon, accessory.icon_state) // NOVA EDIT CHANGE - Original: var/datum/universal_icon/accessory_icon = uni_icon('icons/mob/clothing/underwear.dmi', accessory.icon_state)
 		if (color && !accessory.use_static)
-			accessory_icon.Blend(color, ICON_MULTIPLY)
-		final_icon.Blend(accessory_icon, ICON_OVERLAY)
+			accessory_icon.blend_color(color, ICON_MULTIPLY)
+		final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 
-	final_icon.Crop(10, 1+icon_offset, 22, 13+icon_offset)	//NOVA EDIT CHANGE : adds icon_offset - Colorable Undershirt/Socks
-	final_icon.Scale(32, 32)
+	final_icon.crop(10, 1+icon_offset, 22, 13+icon_offset)	//NOVA EDIT CHANGE : adds icon_offset - Colorable Undershirt/Socks
+	final_icon.scale(32, 32)
 
 	return final_icon
 
@@ -31,8 +31,13 @@
 		DSATCHEL,
 		DDUFFELBAG,
 		DMESSENGER,
+		// NOVA EDIT ADDITION START
+		TPACKB,
+		TPACKA,
+		TPACKC,
+		GUNCASE,
+		// NOVA EDIT ADDITION END
 	)
-
 /datum/preference/choiced/backpack/create_default_value()
 	return DBACKPACK
 
@@ -48,6 +53,16 @@
 			return /obj/item/storage/backpack/duffelbag
 		if (GMESSENGER)
 			return /obj/item/storage/backpack/messenger
+		// NOVA EDIT ADDITION START
+		if (TPACKB)
+			return /obj/item/storage/backpack/tinypakb
+		if (TPACKA)
+			return /obj/item/storage/backpack/tinypaka
+		if (TPACKC)
+			return /obj/item/storage/backpack/tinypakc
+		if (GUNCASE)
+			return /obj/item/storage/toolbox/guncase/nova/empty
+		// NOVA EDIT ADDITION END
 
 		// In a perfect world, these would be your department's backpack.
 		// However, this doesn't factor in assistants, or no high slot, and would
@@ -118,12 +133,12 @@
 	return /datum/sprite_accessory/socks/nude::name
 
 /datum/preference/choiced/socks/icon_for(value)
-	var/static/icon/lower_half
+	var/static/datum/universal_icon/lower_half
 
 	if (isnull(lower_half))
-		lower_half = icon('icons/blanks/32x32.dmi', "nothing")
-		lower_half.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_leg"), ICON_OVERLAY)
-		lower_half.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
+		lower_half = uni_icon('icons/blanks/32x32.dmi', "nothing")
+		lower_half.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_leg"), ICON_OVERLAY)
+		lower_half.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
 
 	return generate_underwear_icon(SSaccessories.socks_list[value], lower_half)
 
@@ -158,24 +173,24 @@
 */ // NOVA EDIT REMOVAL END
 
 /datum/preference/choiced/undershirt/icon_for(value)
-	var/static/icon/body
+	var/static/datum/universal_icon/body
 	if (isnull(body))
-		body = icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_leg")
-		body.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
-		body.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_arm"), ICON_OVERLAY)
-		body.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_arm"), ICON_OVERLAY)
-		body.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_hand"), ICON_OVERLAY)
-		body.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_hand"), ICON_OVERLAY)
-		body.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
+		body = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_leg")
+		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_arm"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_arm"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_hand"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_hand"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
 
-	var/icon/icon_with_undershirt = icon(body)
+	var/datum/universal_icon/icon_with_undershirt = body.copy()
 
 	if (value != "Nude")
 		var/datum/sprite_accessory/accessory = SSaccessories.undershirt_list[value]
-		icon_with_undershirt.Blend(icon(accessory.icon, accessory.icon_state), ICON_OVERLAY) // NOVA EDIT CHANGE: ORIGINAL - icon_with_undershirt.Blend(icon('icons/mob/clothing/underwear.dmi', accessory.icon_state), ICON_OVERLAY)
+		icon_with_undershirt.blend_icon(uni_icon(accessory.icon, accessory.icon_state), ICON_OVERLAY) // NOVA EDIT CHANGE - Original: icon_with_undershirt.blend_icon(uni_icon('icons/mob/clothing/underwear.dmi', accessory.icon_state), ICON_OVERLAY)
 
-	icon_with_undershirt.Crop(10, 11, 22, 23) // NOVA EDIT CHANGE : ORIGINAL - icon_with_undershirt.Crop(9, 9, 23, 23)
-	icon_with_undershirt.Scale(32, 32)
+	icon_with_undershirt.crop(10, 11, 23, 23) // NOVA EDIT CHANGE - Original: icon_with_undershirt.crop(9, 9, 23, 23)
+	icon_with_undershirt.scale(32, 32)
 	return icon_with_undershirt
 
 /datum/preference/choiced/undershirt/apply_to_human(mob/living/carbon/human/target, value)
@@ -197,13 +212,13 @@
 	return /datum/sprite_accessory/underwear/male_hearts::name
 
 /datum/preference/choiced/underwear/icon_for(value)
-	var/static/icon/lower_half
+	var/static/datum/universal_icon/lower_half
 
 	if (isnull(lower_half))
-		lower_half = icon('icons/blanks/32x32.dmi', "nothing")
-		lower_half.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
-		lower_half.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_leg"), ICON_OVERLAY)
-		lower_half.Blend(icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
+		lower_half = uni_icon('icons/blanks/32x32.dmi', "nothing")
+		lower_half.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
+		lower_half.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_r_leg"), ICON_OVERLAY)
+		lower_half.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
 
 	return generate_underwear_icon(SSaccessories.underwear_list[value], lower_half, COLOR_ALMOST_BLACK, icon_offset = 5) // NOVA EDIT CHANGE : ICON_OFFSET // NOVA EDIT CHANGE - ORIGINAL: return generate_underwear_icon(SSaccessories.underwear_list[value], lower_half, COLOR_ALMOST_BLACK)
 

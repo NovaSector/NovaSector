@@ -15,7 +15,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		if(readied_player.new_character)
 			log_manifest(readied_player.ckey, readied_player.new_character.mind, readied_player.new_character)
 		if(ishuman(readied_player.new_character))
-			inject(readied_player.new_character, readied_player.client) // NOVA EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
+			inject(readied_player.new_character, person_client = readied_player.client) // NOVA EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
 		CHECK_TICK
 
 /// Gets the current manifest.
@@ -31,7 +31,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		var/name = target.name
 		var/rank = target.rank // user-visible job
 		var/trim = target.trim // internal jobs by trim type
-		var/datum/job/job = SSjob.GetJob(trim)
+		var/datum/job/job = SSjob.get_job(trim)
 		if(!job || !(job.job_flags & JOB_CREW_MANIFEST) || !LAZYLEN(job.departments_list)) // In case an unlawful custom rank is added.
 			var/list/misc_list = manifest_out[DEPARTMENT_UNASSIGNED]
 			misc_list[++misc_list.len] = list(
@@ -98,7 +98,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 
 /// Injects a record into the manifest.
-/datum/manifest/proc/inject(mob/living/carbon/human/person, client/person_client) // NOVA EDIT - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person)
+/datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy, client/person_client) // NOVA EDIT CHANGE - RP Records - ORIGINAL: /datum/manifest/proc/inject(mob/living/carbon/human/person, atom/appearance_proxy)
 	set waitfor = FALSE
 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
@@ -107,7 +107,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	var/obj/item/card/id/id_card = person.get_idcard(hand_first = FALSE)
 	var/assignment = id_card?.get_trim_assignment() || person.mind.assigned_role.title
 
-	var/mutable_appearance/character_appearance = new(person.appearance)
+	var/mutable_appearance/character_appearance = new(appearance_proxy?.appearance || person.appearance)
 	var/person_gender = "Other"
 	if(person.gender == "male")
 		person_gender = "Male"
@@ -124,7 +124,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	var/datum/record/locked/lockfile = new(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type,
+		blood_type = record_dna.blood_type.name,
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
@@ -142,7 +142,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	new /datum/record/crew(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type,
+		blood_type = record_dna.blood_type.name,
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
@@ -176,6 +176,14 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 	target.rank = assignment
 	target.trim = trim
+
+///Removes a record based on its name.
+/datum/manifest/proc/remove(name)
+	var/datum/record/crew/target = find_record(name)
+	if(!target)
+		return
+	general -= target
+	qdel(target)
 
 /**
  * Using the name to find the record, and person in reference to the body, we recreate photos for the manifest (and records).

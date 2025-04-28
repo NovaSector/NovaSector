@@ -25,7 +25,6 @@
 /datum/reagent/drug/cocaine
 	name = "cocaine"
 	description = "A powerful stimulant extracted from coca leaves. Reduces stun times, but causes drowsiness and severe brain damage if overdosed."
-	reagent_state = LIQUID
 	color = "#ffffff"
 	overdose_threshold = 20
 	ph = 9
@@ -48,11 +47,11 @@
 		var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
 		to_chat(M, span_notice("[high_message]"))
 	M.add_mood_event("zoinked", /datum/mood_event/stimulant_heavy, name)
-	M.AdjustStun(-15 * REM * seconds_per_tick)
-	M.AdjustKnockdown(-15 * REM * seconds_per_tick)
-	M.AdjustUnconscious(-15 * REM * seconds_per_tick)
-	M.AdjustImmobilized(-15 * REM * seconds_per_tick)
-	M.AdjustParalyzed(-15 * REM * seconds_per_tick)
+	M.AdjustStun(-1.5 SECONDS * REM * seconds_per_tick)
+	M.AdjustKnockdown(-1.5 SECONDS * REM * seconds_per_tick)
+	M.AdjustUnconscious(-1.5 SECONDS * REM * seconds_per_tick)
+	M.AdjustImmobilized(-1.5 SECONDS * REM * seconds_per_tick)
+	M.AdjustParalyzed(-1.5 SECONDS* REM * seconds_per_tick)
 	if(M.adjustStaminaLoss(-2 * REM * seconds_per_tick, updating_stamina = FALSE))
 		. = UPDATE_MOB_HEALTH
 	if(SPT_PROB(2.5, seconds_per_tick))

@@ -70,7 +70,7 @@
 		/obj/item/storage/box/nri_flares = ITEM_WEIGHT_MISC,
 		/obj/item/pen/screwdriver = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/box/colonial_rations = ITEM_WEIGHT_MISC_BUT_RARER,
-		/obj/item/storage/toolbox/maint_kit = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/gun_maintenance_supplies = ITEM_WEIGHT_MISC_BUT_RARER,
 	)
 	/// lower bound of random crate budget
 	var/item_budget_min = CRATE_BUDGET_MINIMUM
@@ -120,6 +120,7 @@
 		/obj/item/storage/pouch/medical/firstaid/advanced = ITEM_WEIGHT_MISC_BUT_RARER,
 		// maybe not junk
 		/obj/item/knife/combat/throwing = ITEM_WEIGHT_MISC_BUT_RARER,
+		/obj/item/storage/belt/machete/full = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/storage/medkit/expeditionary/surplus = ITEM_WEIGHT_MISC_BUT_RARER,
 		/obj/item/pointman_broken = ITEM_WEIGHT_GUN_RARE, // diy project for a shield that you can wield for 75 blockchance + beat people to death with
 		/obj/item/clothing/gloves/chief_engineer/expeditionary_corps = ITEM_WEIGHT_MISC_BUT_RARER, // congratulations you won (it's basically combat gloves but not quite)

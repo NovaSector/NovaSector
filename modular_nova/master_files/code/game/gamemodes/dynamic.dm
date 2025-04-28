@@ -6,7 +6,7 @@
 /datum/controller/subsystem/dynamic/proc/send_trait_report()
 	. = "<b><i>Central Command Status Summary</i></b><hr>"
 
-	var/greenshift = GLOB.dynamic_forced_extended || (threat_level < MIN_MIDROUND_COST && shown_threat < MIN_MIDROUND_COST) // if both shown and real threat are below any ruleset, it's greenshift time
+	var/greenshift = GLOB.dynamic_forced_extended || (threat_level < MIN_MIDROUND_COST) //if threat is below any ruleset, its extended time
 	SSstation.generate_station_goals(greenshift ? INFINITY : CONFIG_GET(number/station_goal_budget))
 
 	if(!length(SSstation.get_station_goals()))

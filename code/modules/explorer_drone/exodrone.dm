@@ -63,12 +63,15 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /obj/item/exodrone/Initialize(mapload)
 	. = ..()
-	name = pick(strings(EXODRONE_FILE,"probe_names"))
-	if(name_counter[name])
-		name_counter[name]++
-		name = "[name] \Roman[name_counter[name]]"
+	if(name == /obj/item/exodrone::name)
+		name = pick(strings(EXODRONE_FILE,"probe_names"))
+		if(name_counter[name])
+			name_counter[name]++
+			name = "[name] \Roman[name_counter[name]]"
+		else
+			name_counter[name] = 1
 	else
-		name_counter[name] = 1
+		name = name
 	GLOB.exodrones += src
 	// Cargo storage
 	create_storage(max_slots = EXODRONE_CARGO_SLOTS, canthold = GLOB.blacklisted_cargo_types)
@@ -178,7 +181,7 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /// Crashes the drone somewhere random if there's no launchpad to be found.
 /obj/item/exodrone/proc/drop_somewhere_on_station()
-	var/turf/random_spot = get_safe_random_station_turf()
+	var/turf/random_spot = get_safe_random_station_turf_equal_weight()
 
 	var/obj/structure/closet/supplypod/pod = podspawn(list(
 		"target" = random_spot,
@@ -358,7 +361,7 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 	if(fuel_canister)
 		. += span_notice("You can remove the [fuel_canister] with a <b>prying tool</b>.")
 
-/obj/machinery/exodrone_launcher/attackby(obj/item/weapon, mob/living/user, params)
+/obj/machinery/exodrone_launcher/attackby(obj/item/weapon, mob/living/user, list/modifiers)
 	if(istype(weapon, /obj/item/fuel_pellet))
 		if(fuel_canister)
 			to_chat(user, span_warning("There's already fuel loaded inside [src]!"))

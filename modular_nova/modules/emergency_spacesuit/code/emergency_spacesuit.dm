@@ -38,7 +38,7 @@
 		balloon_alert_to_viewers("[src] tears!")
 		clothing_flags &= ~STOPSPRESSUREDAMAGE
 		torn = TRUE
-		playsound(src, 'sound/weapons/slashmiss.ogg', 50, TRUE)
+		playsound(src, 'sound/items/weapons/slashmiss.ogg', 50, TRUE)
 		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 		update_appearance()
 
@@ -88,7 +88,7 @@
 	atom_storage.set_holdable(list(
 		/obj/item/clothing/head/helmet/space/emergency,
 		/obj/item/clothing/suit/space/emergency,
-		))
+	))
 
 /obj/item/storage/box/emergency_spacesuit/PopulateContents()
 	new /obj/item/clothing/head/helmet/space/emergency(src)

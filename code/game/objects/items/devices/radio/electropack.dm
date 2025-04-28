@@ -37,7 +37,7 @@
 			return
 	return ..()
 
-/obj/item/electropack/attackby(obj/item/W, mob/user, params)
+/obj/item/electropack/attackby(obj/item/W, mob/user, list/modifiers)
 	if(istype(W, /obj/item/clothing/head/helmet))
 		var/obj/item/assembly/shock_kit/A = new /obj/item/assembly/shock_kit(user)
 		A.icon = 'icons/obj/devices/assemblies.dmi'
@@ -104,7 +104,7 @@
 	data["maxFrequency"] = MAX_FREE_FREQ
 	return data
 
-/obj/item/electropack/ui_act(action, params)
+/obj/item/electropack/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

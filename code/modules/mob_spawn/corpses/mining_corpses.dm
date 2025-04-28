@@ -26,22 +26,32 @@
 
 /obj/effect/mob_spawn/corpse/human/legioninfested/special(mob/living/carbon/human/spawned_human)
 	. = ..()
-	var/obj/item/organ/internal/legion_tumour/cancer = new()
+	var/obj/item/organ/legion_tumour/cancer = new()
 	cancer.Insert(spawned_human, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /// Returns the outfit worn by our corpse
 /obj/effect/mob_spawn/corpse/human/legioninfested/proc/select_outfit()
 	var/corpse_theme = pick_weight(list(
-		"Miner" = 64,
+		"Miner" = 53, // NOVA EDIT CHANGE - ORIGINAL: "Miner" = 64,
 		"Clown" = 5,
-		"Ashwalker" = 15,
-		"Golem" = 10,
+		"Ashwalker" = 13, //NOVA EDIT CHANGE - ORIGINAL: "Ashwalker" = 15,
+		"Golem" = 8, // NOVA EDIT CHANGE - ORIGINAL: "Golem" = 10,
 		pick(list(
 			"Cultist",
 			"Dame",
 			"Operative",
-			"Shadow",
+			// "Shadow", - NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
 		)) = 4,
+		// NOVA ADDITION START - NEW_LEGION_CORPSES
+		pick(list(
+			"Engineer",
+			"Scientist",
+			"Geneticist",
+			"CargoTech",
+			"Cook",
+			"Doctor",
+		)) = 15,
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
 	))
 
 	switch(corpse_theme)
@@ -59,8 +69,22 @@
 			return /datum/outfit/consumed_dame
 		if("Operative")
 			return /datum/outfit/syndicatecommandocorpse/lessenedgear
+		/* // NOVA EDIT REMOVAL START - NEW_LEGION_CORPSES
 		if("Shadow")
 			return /datum/outfit/consumed_shadowperson
+		*/ // NOVA EDIT REMOVAL END - NEW_LEGION_CORPSES
+		if("Engineer")
+			return /datum/outfit/consumed_engineer
+		if("Scientist")
+			return /datum/outfit/consumed_scientist
+		if("CargoTech")
+			return /datum/outfit/consumed_cargotech
+		if("Cook")
+			return /datum/outfit/consumed_cook
+		if("Doctor")
+			return /datum/outfit/consumed_doctor
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
+
 
 /// Corpse spawner used by dwarf legions to make small corpses
 /obj/effect/mob_spawn/corpse/human/legioninfested/dwarf
@@ -74,16 +98,26 @@
 
 /obj/effect/mob_spawn/corpse/human/legioninfested/snow/select_outfit()
 	var/corpse_theme = pick_weight(list(
-		"Miner" = 64,
+		"Miner" = 59, // NOVA EDIT CHANGE - ORIGINAL: "Miner" = 64,
 		"Clown" = 5,
-		"Golem" = 15,
-		"Settler" = 10,
+		"Golem" = 7, // NOVA EDIT CHANGE - ORIGINAL: "Golem" = 15,
+		"Settler" = 7, // NOVA EDIT CHANGE - ORIGINAL: "Settler" = 10,
 		pick(list(
 			"Cultist",
 			"Heremoth",
 			"Operative",
-			"Shadow",
+			//"Shadow", // NOVA EDIT REMOVAL - NEW_LEGION_CORPSES
 		)) = 4,
+		// NOVA ADDITION START - NEW_LEGION_CORPSES
+		pick(list(
+			"Engineer",
+			"Scientist",
+			"Geneticist",
+			"CargoTech",
+			"Cook",
+			"Doctor",
+		)) = 16,
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
 	))
 
 	switch(corpse_theme)
@@ -101,8 +135,22 @@
 			return /datum/outfit/consumed_golem
 		if("Operative")
 			return /datum/outfit/syndicatecommandocorpse/lessenedgear
+		/* // NOVA EDIT REMOVAL START - NEW_LEGION_CORPSES
 		if("Shadow")
 			return /datum/outfit/consumed_shadowperson
+		*/ //NOVA EDIT REMOVAL END - NEW_LEGION_CORPSES
+		// NOVA ADDITION START - NEW_LEGION_CORPSES
+		if("Engineer")
+			return /datum/outfit/consumed_engineer
+		if("Scientist")
+			return /datum/outfit/consumed_scientist
+		if("CargoTech")
+			return /datum/outfit/consumed_cargotech
+		if("Cook")
+			return /datum/outfit/consumed_cook
+		if("Doctor")
+			return /datum/outfit/consumed_doctor
+		// NOVA ADDITION END - NEW_LEGION_CORPSES
 
 /// Creates a dead legion-infested skeleton
 /obj/effect/mob_spawn/corpse/human/legioninfested/skeleton
@@ -135,9 +183,9 @@
 	mask = /obj/item/clothing/mask/gas/explorer
 	shoes = /obj/item/clothing/shoes/workboots/mining
 
-/datum/outfit/consumed_miner/pre_equip(mob/living/carbon/human/miner, visualsOnly = FALSE)
+/datum/outfit/consumed_miner/pre_equip(mob/living/carbon/human/miner, visuals_only = FALSE)
 	var/regular_uniform = FALSE
-	if(visualsOnly)
+	if(visuals_only)
 		regular_uniform = TRUE //assume human
 	else
 		var/new_species_type = pick_weight(list(
@@ -195,8 +243,8 @@
 	name = "Legion-Consumed Ashwalker"
 	uniform = /obj/item/clothing/under/costume/gladiator/ash_walker
 
-/datum/outfit/consumed_ashwalker/pre_equip(mob/living/carbon/human/ashwalker, visualsOnly = FALSE)
-	if(!visualsOnly)
+/datum/outfit/consumed_ashwalker/pre_equip(mob/living/carbon/human/ashwalker, visuals_only = FALSE)
+	if(!visuals_only)
 		ashwalker.set_species(/datum/species/lizard/ashwalker)
 	if(prob(95))
 		head = /obj/item/clothing/head/helmet/gladiator
@@ -234,8 +282,8 @@
 	///drops a pie cannon on post_equip. i'm so done with this stupid outfit trying to put shit that doesn't fit in the backpack!
 	var/drop_a_pie_cannon = FALSE
 
-/datum/outfit/consumed_clown/pre_equip(mob/living/carbon/human/clown, visualsOnly = FALSE)
-	if(!visualsOnly)
+/datum/outfit/consumed_clown/pre_equip(mob/living/carbon/human/clown, visuals_only = FALSE)
+	if(!visuals_only)
 		clown.fully_replace_character_name(clown.name, pick(GLOB.clown_names))
 	if(prob(70))
 		var/backpack_loot = pick(list(
@@ -260,7 +308,7 @@
 	if(prob(10))
 		r_pocket = /obj/item/implanter/sad_trombone
 
-/datum/outfit/consumed_clown/post_equip(mob/living/carbon/human/clown, visualsOnly)
+/datum/outfit/consumed_clown/post_equip(mob/living/carbon/human/clown, visuals_only)
 	. = ..()
 	if(drop_a_pie_cannon)
 		new /obj/item/pneumatic_cannon/pie(get_turf(clown))
@@ -269,8 +317,8 @@
 	name = "Legion-Consumed Golem"
 	//Oops! All randomized!
 
-/datum/outfit/consumed_golem/pre_equip(mob/living/carbon/human/golem, visualsOnly = FALSE)
-	if(!visualsOnly)
+/datum/outfit/consumed_golem/pre_equip(mob/living/carbon/human/golem, visuals_only = FALSE)
+	if(!visuals_only)
 		golem.set_species(/datum/species/golem)
 	if(prob(30))
 		glasses = pick_weight(list(
@@ -281,7 +329,7 @@
 			/obj/item/clothing/glasses/welding = 2,
 			/obj/item/clothing/glasses/night = 1,
 		))
-	if(prob(10) && !visualsOnly) //visualsonly = not a golem = can't put things in the belt slot without a jumpsuit
+	if(prob(10) && !visuals_only) //visuals_only = not a golem = can't put things in the belt slot without a jumpsuit
 		belt = pick(list(
 			/obj/item/crowbar/power,
 			/obj/item/screwdriver/power,
@@ -299,7 +347,7 @@
 	shoes = /obj/item/clothing/shoes/winterboots
 	mask = /obj/item/clothing/mask/breath
 
-/datum/outfit/consumed_ice_settler/pre_equip(mob/living/carbon/human/ice_settler, visualsOnly = FALSE)
+/datum/outfit/consumed_ice_settler/pre_equip(mob/living/carbon/human/ice_settler, visuals_only = FALSE)
 	if(prob(40))
 		r_pocket = pick_weight(list(
 			/obj/item/coin/silver = 5,
@@ -333,8 +381,8 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	r_pocket = /obj/item/tank/internals/emergency_oxygen
 
-/datum/outfit/consumed_dame/pre_equip(mob/living/carbon/human/dame, visualsOnly = FALSE)
-	if(!visualsOnly)
+/datum/outfit/consumed_dame/pre_equip(mob/living/carbon/human/dame, visuals_only = FALSE)
+	if(!visuals_only)
 		dame.gender = FEMALE
 		dame.physique = FEMALE
 		dame.update_body()
@@ -352,12 +400,12 @@
 	glasses = /obj/item/clothing/glasses/blindfold
 	mask = /obj/item/clothing/mask/breath
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	r_pocket = /obj/item/reagent_containers/pill/shadowtoxin
+	r_pocket = /obj/item/reagent_containers/applicator/pill/shadowtoxin
 
 	accessory = /obj/item/clothing/accessory/medal/plasma/nobel_science
 
-/datum/outfit/consumed_shadowperson/pre_equip(mob/living/carbon/human/shadowperson, visualsOnly = FALSE)
-	if(visualsOnly)
+/datum/outfit/consumed_shadowperson/pre_equip(mob/living/carbon/human/shadowperson, visuals_only = FALSE)
+	if(visuals_only)
 		return
 	shadowperson.set_species(/datum/species/shadow)
 
@@ -381,8 +429,8 @@
 	suit = /obj/item/clothing/suit/hooded/cultrobes/eldritch
 	head = /obj/item/clothing/head/hooded/cult_hoodie/eldritch
 
-/datum/outfit/consumed_heremoth/pre_equip(mob/living/carbon/human/moth, visualsOnly = FALSE)
-	if(!visualsOnly)
+/datum/outfit/consumed_heremoth/pre_equip(mob/living/carbon/human/moth, visuals_only = FALSE)
+	if(!visuals_only)
 		moth.set_species(/datum/species/moth)
 	if(prob(70))
 		glasses = /obj/item/clothing/glasses/blindfold

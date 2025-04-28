@@ -93,7 +93,7 @@
 
 
 	var/datum/component/soulcatcher/new_soulcatcher = interacting_with.AddComponent(/datum/component/soulcatcher/attachable_soulcatcher)
-	playsound(interacting_with.loc, 'sound/weapons/circsawhit.ogg', 50, vary = TRUE)
+	playsound(interacting_with.loc, 'sound/items/weapons/circsawhit.ogg', 50, vary = TRUE)
 
 	var/datum/soulcatcher_room/target_room = new_soulcatcher.soulcatcher_rooms[1]
 	var/list/current_souls = linked_soulcatcher.get_current_souls()

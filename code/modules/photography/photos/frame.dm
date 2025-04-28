@@ -147,7 +147,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 
-/obj/structure/sign/picture_frame/attackby(obj/item/I, mob/user, params)
+/obj/structure/sign/picture_frame/attackby(obj/item/I, mob/user, list/modifiers)
 
 	if(istype(I, /obj/item/photo))
 		if(framed)
@@ -278,6 +278,6 @@
 
 ///Generates a persistence id unique to the current map. Every bar should feel a little bit different after all.
 /obj/structure/sign/picture_frame/portrait/bar/Initialize(mapload)
-	if(SSmapping.config.map_path != CUSTOM_MAP_PATH) //skip adminloaded custom maps.
-		persistence_id = "frame_bar_[SSmapping.config.map_name]"
+	if(SSmapping.current_map.map_path != CUSTOM_MAP_PATH) //skip adminloaded custom maps.
+		persistence_id = "frame_bar_[SSmapping.current_map.map_name]"
 	return ..()

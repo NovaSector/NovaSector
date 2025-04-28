@@ -59,7 +59,7 @@
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/tank_dispenser/attackby(obj/item/I, mob/living/user, params)
+/obj/structure/tank_dispenser/attackby(obj/item/I, mob/living/user, list/modifiers)
 	var/full
 	if(istype(I, /obj/item/tank/internals/plasma))
 		if(plasmatanks < TANK_DISPENSER_CAPACITY)
@@ -71,7 +71,7 @@
 			oxygentanks++
 		else
 			full = TRUE
-	else if(!user.combat_mode)
+	else if(!user.combat_mode || (I.item_flags & NOBLUDGEON))
 		balloon_alert(user, "can't insert!")
 		return
 	else

@@ -1,8 +1,8 @@
 /// A mini-tool used to apply label items onto something to modify its name.
-/obj/item/hand_labeler //NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/hand_labeler
 	name = "hand labeler"
 	desc = "A combined label printer, applicator, and remover, all in a single portable device. Designed to be easy to operate and use."
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "labeler0"
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
@@ -116,8 +116,12 @@
 	labels_left = initial(labels_left) //Yes, it's capped at its initial value
 	return ITEM_INTERACT_SUCCESS
 
-/obj/item/hand_labeler/storage_insert_on_interaction(datum/storage, atom/storage_holder, mob/user)
-	return !mode
+/obj/item/hand_labeler/examine()
+	. = ..()
+	if(labels_left > 0)
+		. += span_notice("It looks like it could label [labels_left] more thing\s.")
+	else
+		. += span_notice("It's out of labels.")
 
 /obj/item/hand_labeler/borg
 	name = "cyborg-hand labeler"
@@ -214,7 +218,7 @@
 
 	return ..()
 
-/obj/item/label/proc/stick_to_atom(atom/applying_to, stick_px = world.icon_size / 2, stick_py = world.icon_size / 2)
+/obj/item/label/proc/stick_to_atom(atom/applying_to, stick_px = ICON_SIZE_X / 2, stick_py = ICON_SIZE_Y / 2)
 	applying_to.AddComponent( \
 		/datum/component/sticker, \
 		stickering_atom = src, \
@@ -290,7 +294,7 @@
 		playsound(sticking_to, 'sound/items/handling/component_pickup.ogg', 20, TRUE)
 		sticking_to.balloon_alert(user, "label renamed")
 	else
-		playsound(sticking_to, 'sound/items/poster_ripped.ogg', 20, TRUE)
+		playsound(sticking_to, 'sound/items/poster/poster_ripped.ogg', 20, TRUE)
 		sticking_to.balloon_alert(user, "label removed")
 		qdel(src)
 	return ITEM_INTERACT_SUCCESS

@@ -28,7 +28,7 @@
 		/datum/job_department/security,
 		)
 
-	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/beret/sec/peacekeeper) //NOVA EDIT ADD - /peacekeeper
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/beret/sec)
 
 	mail_goodies = list(
 		/obj/item/food/donut/caramel = 10,
@@ -91,7 +91,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 
 	var/ears = null
 	var/accessory = null
-	var/list/dep_trim = null
+	var/datum/id_trim/dep_trim = null
 	var/destination = null
 
 	switch(department)
@@ -135,7 +135,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 		var/obj/item/modular_computer/pda/pda = spawning.get_item_by_slot(ITEM_SLOT_BELT)
 		var/assignment = worn_id.get_trim_assignment()
 		if(istype(pda) && !isnull(assignment))
-			pda.imprint_id(spawning.real_name, assignment)
+			pda.imprint_id(spawning.real_name, assignment, worn_id)
 
 	var/spawn_point = pick(LAZYACCESS(GLOB.department_security_spawns, department))
 
@@ -165,11 +165,14 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	department,
 	distribution,
 )
-	var/obj/machinery/announcement_system/announcement_system = pick(GLOB.announcement_systems)
+	var/obj/machinery/announcement_system/announcement_system = get_announcement_system(/datum/aas_config_entry/announce_officer)
 	if (isnull(announcement_system))
 		return
 
-	announcement_system.announce_officer(officer, department)
+	announcement_system.announce(/datum/aas_config_entry/announce_officer, list(
+		"OFFICER" = officer.real_name,
+		"DEPARTMENT" = department,
+	), list(RADIO_CHANNEL_SECURITY))
 
 	var/list/targets = list()
 
@@ -190,10 +193,14 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	if (!targets.len)
 		return
 
+	// I thought it would be great, if AAS also modifies PDA messages. Especially because it's AASs message.
 	var/datum/signal/subspace/messaging/tablet_message/signal = new(announcement_system, list(
 		"fakename" = "Security Department Update",
 		"fakejob" = "Automated Announcement System",
-		"message" = "Officer [officer.real_name] has been assigned to your department, [department].",
+		"message" = announcement_system.compile_config_message(/datum/aas_config_entry/announce_officer, list(
+			"OFFICER" = officer.real_name,
+			"DEPARTMENT" = department,
+		)),
 		"targets" = targets,
 		"automated" = TRUE,
 	))
@@ -227,7 +234,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 	belt = /obj/item/modular_computer/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black/security
-	head = /obj/item/clothing/head/security_garrison //NOVA EDIT CHANGE - Original: /obj/item/clothing/head/helmet/sec
+	head = /obj/item/clothing/head/helmet/sec
 	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/assembly/flash/handheld

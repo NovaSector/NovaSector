@@ -10,7 +10,7 @@
 			severity = 2
 		if ("Sensitive")
 			severity = 1
-	var/obj/item/organ/internal/eyes/holder_eyes = quirk_holder.get_organ_slot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/eyes/holder_eyes = quirk_holder.get_organ_slot(ORGAN_SLOT_EYES)
 	restore_eyes(holder_eyes) // add_unique() happens after add() so we need to jank reset this to ensure sensitivity is properly applied at roundstart
 	check_eyes(holder_eyes)
 

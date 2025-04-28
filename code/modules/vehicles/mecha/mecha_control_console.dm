@@ -45,7 +45,7 @@
 
 	return data
 
-/obj/machinery/computer/mecha/ui_act(action, params)
+/obj/machinery/computer/mecha/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -55,7 +55,7 @@
 			var/obj/item/mecha_parts/mecha_tracking/MT = locate(params["tracker_ref"])
 			if(!istype(MT))
 				return
-			var/message = tgui_input_text(usr, "Input message", "Transmit message")
+			var/message = tgui_input_text(usr, "Input message", "Transmit message", max_length = MAX_MESSAGE_LEN)
 			var/obj/vehicle/sealed/mecha/M = MT.chassis
 			if(trim(message) && M)
 				to_chat(M.occupants, message)
@@ -93,18 +93,21 @@
 	if(!chassis)
 		return FALSE
 
+	var/list/output = list()
+
 	var/cell_charge = chassis.get_charge()
-	var/answer = {"<b>Name:</b> [chassis.name]<br>
-				<b>Integrity:</b> [round((chassis.get_integrity()/chassis.max_integrity * 100), 0.01)]%<br>
-				<b>Cell Charge:</b> [isnull(cell_charge) ? "Not Found":"[chassis.cell.percent()]%"]<br>
-				<b>Cabin Pressure:</b> [(chassis.mecha_flags & IS_ENCLOSED) ? "[round(chassis.return_pressure(), 0.01)] kPa" : "Not Sealed"]<br>
-				<b>Pilot:</b> [english_list(chassis.return_drivers(), nothing_text = "None")]<br>
-				<b>Location:</b> [get_area_name(chassis, TRUE) || "Unknown"]"}
+	output += "[span_bold("Name:")] [chassis.name]"
+	output += "[span_bold("Integrity:")] [round((chassis.get_integrity()/chassis.max_integrity * 100), 0.01)]%"
+	output += "[span_bold("Cell Charge:")] [isnull(cell_charge) ? "Not Found":"[chassis.cell.percent()]%"]"
+	output += "[span_bold("Cabin Pressure:")] [(chassis.mecha_flags & IS_ENCLOSED) ? "[round(chassis.return_pressure(), 0.01)] kPa" : "Not Sealed"]"
+	output += "[span_bold("Pilot:")] [english_list(chassis.return_drivers(), nothing_text = "None")]"
+	output += "[span_bold("Current Location:")] [get_area_name(chassis, TRUE) || "Unknown"]"
+
 	if(istype(chassis, /obj/vehicle/sealed/mecha/ripley))
 		var/obj/item/mecha_parts/mecha_equipment/ejector/cargo_holder = locate(/obj/item/mecha_parts/mecha_equipment/ejector) in chassis.equip_by_category[MECHA_UTILITY]
-		answer += "<br><b>Used Cargo Space:</b> [round((cargo_holder.contents.len / cargo_holder.cargo_capacity * 100), 0.01)]%"
+		output += "[span_bold("Used Cargo Space:")] [round((cargo_holder.contents.len / cargo_holder.cargo_capacity * 100), 0.01)]%"
 
-	return answer
+	return jointext(output, "\n")
 
 /obj/item/mecha_parts/mecha_tracking/emp_act(severity)
 	. = ..()

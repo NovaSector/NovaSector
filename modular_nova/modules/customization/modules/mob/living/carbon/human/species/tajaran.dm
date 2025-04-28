@@ -8,8 +8,9 @@
 		TRAIT_HATED_BY_DOGS,
 		TRAIT_MUTANT_COLORS,
 		TRAIT_CATLIKE_GRACE,
+		TRAIT_WATER_HATER,
 	)
-	mutanttongue = /obj/item/organ/internal/tongue/cat/tajaran
+	mutanttongue = /obj/item/organ/tongue/cat/tajaran
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
 	payday_modifier = 1.0
@@ -28,12 +29,12 @@
 /datum/species/tajaran/get_default_mutant_bodyparts()
 	return list(
 		"tail" = list("Cat (Big)", TRUE),
-		"snout" = list("Cat, normal", TRUE),
-		"ears" = list("Cat, normal", TRUE),
+		"snout" = list("Mammal, Short", TRUE),
+		"ears" = list("Cat, Alert", TRUE),
 		"legs" = list("Normal Legs", FALSE),
 	)
 
-/obj/item/organ/internal/tongue/cat/tajaran
+/obj/item/organ/tongue/cat/tajaran
 	liked_foodtypes = GRAIN | MEAT
 	disliked_foodtypes = CLOTH
 
@@ -88,7 +89,7 @@
 	cat.dna.features["mcolor3"] = second_color
 	cat.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Mammal, Short", MUTANT_INDEX_COLOR_LIST = list(main_color, main_color, main_color))
 	cat.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Cat", MUTANT_INDEX_COLOR_LIST = list(second_color, main_color, main_color))
-	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, normal", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
+	cat.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Cat, Alert", MUTANT_INDEX_COLOR_LIST = list(main_color, second_color, second_color))
 	regenerate_organs(cat, src, visual_only = TRUE)
 	cat.update_body(TRUE)
 

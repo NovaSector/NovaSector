@@ -98,6 +98,9 @@ DEFINE_BITFIELD(foodtypes, list(
 	"Bloody", /* NOVA EDIT - Hemophage Food */ \
 )
 
+/// Food types assigned to all podperson organs
+#define PODPERSON_ORGAN_FOODTYPES (VEGETABLES | RAW | GORE)
+
 #define DRINK_REVOLTING 1
 #define DRINK_NICE 2
 #define DRINK_GOOD 3
@@ -175,13 +178,22 @@ GLOBAL_LIST_INIT(food_buffs, list(
 #define FOOD_IN_CONTAINER (1<<0)
 /// Finger food can be eaten while walking / running around
 #define FOOD_FINGER_FOOD (1<<1)
+/// Examining this edible won't show infos on food types, bites and remote tasting etc.
+#define FOOD_NO_EXAMINE (1<<2)
+/// This food item doesn't track bitecounts, use responsibly.
+#define FOOD_NO_BITECOUNT (1<<3)
 
 DEFINE_BITFIELD(food_flags, list(
 	"FOOD_FINGER_FOOD" = FOOD_FINGER_FOOD,
 	"FOOD_IN_CONTAINER" = FOOD_IN_CONTAINER,
+	"FOOD_NO_EXAMINE" = FOOD_NO_EXAMINE,
+	"FOOD_NO_BITECOUNT" = FOOD_NO_BITECOUNT,
 ))
 
-#define STOP_SERVING_BREAKFAST (35 MINUTES) // NOVA EDIT - ORIGINAL: 15 MINUTES
+///Define for return value of the after_eat callback that will call OnConsume if it hasn't already.
+#define FOOD_AFTER_EAT_CONSUME_ANYWAY 2
+
+#define STOP_SERVING_BREAKFAST (35 MINUTES) // NOVA EDIT CHANGE - ORIGINAL: #define STOP_SERVING_BREAKFAST (15 MINUTES)
 
 #define FOOD_MEAT_HUMAN 50
 #define FOOD_MEAT_MUTANT 100
@@ -225,6 +237,15 @@ DEFINE_BITFIELD(food_flags, list(
 #define DRINK_PRICE_MEDIUM 80
 ///Drinks that are made through rare ingredients, or high levels of processing.
 #define DRINK_PRICE_HIGH 200
+
+/// Time spent deep frying an item after which it becomes fried.
+#define FRYING_TIME_FRIED (15 SECONDS)
+/// Time spent deep frying an item after which it becomes fried to perfection.
+#define FRYING_TIME_PERFECT (50 SECONDS)
+/// Time spent deep frying an item after which it becomes burnt.
+#define FRYING_TIME_BURNT (85 SECONDS)
+/// Time spent deep frying an item after which it starts smelling bad.
+#define FRYING_TIME_WARNING (120 SECONDS)
 
 
 /// Flavour defines (also names) for GLOB.ice_cream_flavours list access. Safer from mispelling than plain text.

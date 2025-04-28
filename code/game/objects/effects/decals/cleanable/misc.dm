@@ -10,6 +10,8 @@
 	desc = "Ashes to ashes, dust to dust, and into space."
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "ash"
+	plane = GAME_PLANE
+	layer = CLEANABLE_OBJECT_LAYER
 	mergeable_decal = FALSE
 	beauty = -50
 	decal_reagent = /datum/reagent/ash
@@ -62,7 +64,7 @@
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
 	desc = "Someone should clean that up."
-	icon = 'icons/effects/dirt.dmi'
+	icon = 'icons/effects/dirt_misc.dmi'
 	icon_state = "dirt-flat-0"
 	base_icon_state = "dirt"
 	smoothing_flags = NONE
@@ -70,6 +72,8 @@
 	canSmoothWith = SMOOTH_GROUP_CLEANABLE_DIRT + SMOOTH_GROUP_WALLS
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	beauty = -75
+	/// Set to FALSE if your dirt has no smoothing sprites
+	var/is_tileable = TRUE
 
 /obj/effect/decal/cleanable/dirt/Initialize(mapload)
 	. = ..()
@@ -78,7 +82,9 @@
 	if(!isnull(broken_flooring))
 		return
 	var/turf/T = get_turf(src)
-	if(T.tiled_dirt)
+	if(T.tiled_dirt && is_tileable)
+		icon = 'icons/effects/dirt.dmi'
+		icon_state = "dirt-0"
 		smoothing_flags = SMOOTH_BITMASK
 		QUEUE_SMOOTH(src)
 	if(smoothing_flags & USES_SMOOTHING)
@@ -94,6 +100,7 @@
 	desc = "A thin layer of dust coating the floor."
 	icon_state = "dust"
 	base_icon_state = "dust"
+	is_tileable = FALSE
 
 /obj/effect/decal/cleanable/dirt/dust/Initialize(mapload)
 	. = ..()
@@ -141,15 +148,18 @@
 	)
 
 /obj/effect/decal/cleanable/cobweb
+	SET_BASE_PIXEL(0, 24)
 	name = "cobweb"
 	desc = "Somebody should remove that."
 	gender = NEUTER
+	plane = GAME_PLANE
 	layer = WALL_OBJ_LAYER
 	icon = 'icons/effects/web.dmi'
 	icon_state = "cobweb1"
 	resistance_flags = FLAMMABLE
 	beauty = -100
 	clean_type = CLEAN_TYPE_HARD_DECAL
+	is_mopped = FALSE
 
 /obj/effect/decal/cleanable/cobweb/cobweb2
 	icon_state = "cobweb2"
@@ -160,6 +170,8 @@
 	gender = NEUTER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "molten"
+	plane = GAME_PLANE
+	layer = CLEANABLE_OBJECT_LAYER
 	mergeable_decal = FALSE
 	beauty = -150
 	clean_type = CLEAN_TYPE_HARD_DECAL
@@ -245,6 +257,8 @@
 	name = "chemical pile"
 	desc = "A pile of chemicals. You can't quite tell what's inside it."
 	gender = NEUTER
+	plane = GAME_PLANE
+	layer = CLEANABLE_OBJECT_LAYER
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "ash"
 
@@ -300,8 +314,9 @@
 	name = "insect guts"
 	desc = "One bug squashed. Four more will rise in its place."
 	icon = 'icons/effects/blood.dmi'
-	icon_state = "xfloor1"
-	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
+	icon_state = "floor1"
+	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
+	color = BLOOD_COLOR_XENO
 
 /obj/effect/decal/cleanable/confetti
 	name = "confetti"
@@ -322,6 +337,8 @@
 	desc = "Torn pieces of cardboard and paper, left over from a package."
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "paper_shreds"
+	plane = GAME_PLANE
+	layer = CLEANABLE_OBJECT_LAYER
 
 /obj/effect/decal/cleanable/wrapping/pinata
 	name = "pinata shreds"
@@ -340,7 +357,7 @@
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "garbage"
 	plane = GAME_PLANE
-	layer = FLOOR_CLEAN_LAYER //To display the decal over wires.
+	layer = CLEANABLE_OBJECT_LAYER
 	beauty = -150
 	clean_type = CLEAN_TYPE_HARD_DECAL
 
@@ -359,7 +376,7 @@
 	decal_reagent = /datum/reagent/ants
 	reagent_amount = 5
 	/// Sound the ants make when biting
-	var/bite_sound = 'sound/weapons/bite.ogg'
+	var/bite_sound = 'sound/items/weapons/bite.ogg'
 
 /obj/effect/decal/cleanable/ants/Initialize(mapload)
 	if(mapload && reagent_amount > 2)
@@ -443,7 +460,6 @@
 	name = "pool of fuel"
 	desc = "A pool of flammable fuel. Its probably wise to clean this off before something ignites it..."
 	icon_state = "fuel_pool"
-	layer = LOW_OBJ_LAYER
 	beauty = -50
 	clean_type = CLEAN_TYPE_BLOOD
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
@@ -520,10 +536,12 @@
 /obj/effect/decal/cleanable/fuel_pool/bullet_act(obj/projectile/hit_proj)
 	. = ..()
 	ignite()
+	log_combat(hit_proj.firer, src, "used [hit_proj] to ignite")
 
-/obj/effect/decal/cleanable/fuel_pool/attackby(obj/item/item, mob/user, params)
+/obj/effect/decal/cleanable/fuel_pool/attackby(obj/item/item, mob/user, list/modifiers)
 	if(item.ignition_effect(src, user))
 		ignite()
+		log_combat(user, src, "used [item] to ignite")
 	return ..()
 
 /obj/effect/decal/cleanable/fuel_pool/on_entered(datum/source, atom/movable/entered_atom)
@@ -558,6 +576,10 @@
 	icon_state = "rubble"
 	mergeable_decal = FALSE
 	beauty = -10
+	plane = GAME_PLANE
+	layer = GIB_LAYER
+	clean_type = CLEAN_TYPE_HARD_DECAL
+	is_mopped = FALSE
 
 /obj/effect/decal/cleanable/rubble/Initialize(mapload)
 	. = ..()

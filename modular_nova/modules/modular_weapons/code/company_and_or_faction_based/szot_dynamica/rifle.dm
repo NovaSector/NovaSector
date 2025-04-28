@@ -1,8 +1,70 @@
-// Semi-automatic rifle firing .310 with reduced damage compared to a Sakhno
+// Rapid firing scary military grade weapon firing .27-54 Cesarzowa
+
+/obj/item/gun/ballistic/automatic/miecz
+	name = "\improper Miecz Support Weapon"
+	desc = "A short barrel weapon riding the line between submachine gun and a rifle. \
+		Features plasticized furniture and a maintenance manual in the stock... \
+		Which just doesn't seem to come out no matter how hard you pull."
+
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
+	icon_state = "miecz"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
+	inhand_icon_state = "miecz"
+
+	worn_icon = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_worn.dmi'
+	worn_icon_state = "miecz"
+
+	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/szot_dynamica/guns_righthand.dmi'
+	inhand_icon_state = "miecz"
+
+	SET_BASE_PIXEL(-8, 0)
+
+	special_mags = FALSE
+
+	bolt_type = BOLT_TYPE_STANDARD
+
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_MEDIUM
+	slot_flags = ITEM_SLOT_BELT // we keeping this for the VIBE
+
+	accepted_magazine_type = /obj/item/ammo_box/magazine/miecz
+
+	fire_sound = 'modular_nova/modules/modular_weapons/sounds/ak_shoot.ogg'
+	can_suppress = TRUE
+	suppressor_x_offset = 5
+	suppressor_y_offset = 3
+
+	burst_size = 1
+	fire_delay = 3.5
+	actions_types = list()
+
+	spread = 1
+	recoil = 0.5
+
+	lore_blurb = "The Miecz is one of the staple weapons of the frontier; simple, effective, and based on \
+		a figuratively 'tested' design, though you couldn't be sure which one.<br><br>\
+		It fires the .27-54 'intermediary' caliber round, if only to dodge classification as a rifle. \
+		Overall, it's decently accurate, lightweight, reeks of gun-grease, \
+		and might feel a little more homely then the next gun over... allegedly, anyway.<br><br>\
+		The wood-substitute material is known to have various side-effects. Contact your local health department before use."
+
+/obj/item/gun/ballistic/automatic/miecz/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
+/obj/item/gun/ballistic/automatic/miecz/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
+
+/obj/item/gun/ballistic/automatic/miecz/no_mag
+	spawnwithmagazine = FALSE
+
+// Semi-automatic rifle firing .310 with reduced firerate compared to a Sakhno
 
 /obj/item/gun/ballistic/automatic/lanca
 	name = "\improper Lanca Battle Rifle"
-	desc = "A relatively compact, long barreled bullpup battle rifle chambered for .310 Strilka. Has an integrated sight with \
+	desc = "A relatively compact, long barreled battle rifle chambered for .310 Strilka. Has an integrated sight with \
 		a surprisingly functional amount of magnification, given its place of origin."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_48.dmi'
@@ -30,8 +92,8 @@
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/battle_rifle.ogg'
 	suppressed_sound = 'modular_nova/modules/modular_weapons/sounds/suppressed_heavy.ogg'
 	can_suppress = TRUE
-	suppressor_x_offset = 0
-	suppressor_y_offset = 0
+	suppressor_x_offset = 2
+	suppressor_y_offset = 1
 
 	burst_size = 1
 	fire_delay = 1.2 SECONDS
@@ -41,32 +103,20 @@
 	spread = 2.5
 	projectile_wound_bonus = -20
 
+	lore_blurb = "The Lanca started as an attempt to replace the confusing position of the Miecz.<br><br>\
+		Originally designed as an attempt to upscale the Miecz to a marksman caliber, \
+		it eventually ended up as little more then an odd cousin to it's starting frame. \
+		Initial efforts to upscale from the Miecz's .27-caliber cartridge, to a full-size .310 \
+		necessitated a rework of the entire bolt, updated upper receiver, and a much stronger recoil spring. \
+		To make up for the added weight, the stock was skeletonized, and the barrel assembly was changed out for a minimalist design.<br><br>\
+		All in all, you get less rifle for the somewhat paradoxical privilege of a bigger bang."
+
 /obj/item/gun/ballistic/automatic/lanca/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
 /obj/item/gun/ballistic/automatic/lanca/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
-
-/obj/item/gun/ballistic/automatic/lanca/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/lanca/examine_more(mob/user)
-	. = ..()
-
-	. += "The Lanca is a now relatively dated replacement for Kalashnikov pattern rifles \
-		adopted by states now combining to form the CIN. While the rifle that came before them \
-		had its benefits, leadership of many armies started to realize that the Kalashnikov-based \
-		rifles were really showing their age once the variants began reaching the thousands in serial. \
-		The solution was presented by a then new company, Szot Dynamica. This new rifle, not too \
-		unlike the one you are seeing now, adopted all of the latest technology of the time. Lightweight \
-		caseless ammunition, well known for its use in Sakhno rifles, as well as various electronics and \
-		other incredible technological advancements. These advancements may have already been around since \
-		before the creation of even the Sakhno, but the fact you're seeing this now fifty year old design \
-		must mean something, right?"
-
-	return .
 
 /obj/item/gun/ballistic/automatic/lanca/no_mag
 	spawnwithmagazine = FALSE
@@ -76,8 +126,8 @@
 
 /obj/item/gun/ballistic/automatic/wylom
 	name = "\improper Wyłom Anti-Materiel Rifle"
-	desc = "A massive, outdated beast of an anti materiel rifle that was once in use by CIN military forces. Fires the devastating .60 Strela caseless round, \
-		the massively overperforming penetration of which being the reason this weapon was discontinued."
+	desc = "A massive, outdated beast of an anti materiel rifle supposedly designed for 'fauna control.' Fires the devastating .60 Strela caseless round, \
+		the massively overperforming penetration of which being the reason this weapon was eventually restricted from galactic trade."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/guns_64.dmi'
 	base_pixel_x = -16 // This baby is 64 pixels wide
 	pixel_x = -16
@@ -89,7 +139,8 @@
 	icon_state = "wylom"
 	inhand_icon_state = "wylom"
 	worn_icon_state = "wylom"
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/wylom
@@ -107,6 +158,14 @@
 
 	force = 15 // I mean if you're gonna beat someone with the thing you might as well get damage appropriate for how big the fukken thing is
 
+	lore_blurb = "The 'Wyłom' AMR was not originally made for unaided human hands. \
+		The original rifle had mounting points for a specialized suit attachment system, \
+		but that quickly fell through once it was announced, as exosuit hunting isn't exactly a common frontier pastime. \
+		Generally considered a strong contender for the definition of \"anti-armor\", \
+		a strong argument exists to consider it closer to \"anti-anything\".<br><br>\
+		A laser-etched warning label warns users of the weapon to be wary of side-blast from the muzzle brake... \
+		and to not fire unsupported if one is not of appropriate mass to \"wrestle\" the recoil."
+
 /obj/item/gun/ballistic/automatic/wylom/Initialize(mapload)
 	. = ..()
 
@@ -115,22 +174,3 @@
 /obj/item/gun/ballistic/automatic/wylom/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_SZOT)
 	AddElement(/datum/element/gun_launches_little_guys, throwing_force = 3, throwing_range = 5)
-
-/obj/item/gun/ballistic/automatic/wylom/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/ballistic/automatic/wylom/examine_more(mob/user)
-	. = ..()
-
-	. += "The 'Wyłom' AMR was a weapon not originally made for unaided human hands. \
-		The original rifle had mounting points for a specialized suit attachment system, \
-		not too much unlike heavy smartguns that can be seen across the galaxy. CIN military \
-		command, however, deemed that expensive exoskeletons and rigs for carrying an organic \
-		anti material system were simply not needed, and that soldiers should simply 'deal with it'. \
-		Unsurprisingly, soldiers assigned this weapon tend to not be a massive fan of that fact, \
-		and smekalka within CIN ranks is common with troops finding novel ways to carry and use \
-		their large rifles with as little effort as possible. Most of these novel methods, of course, \
-		tend to shatter when the rifle is actually fired."
-
-	return .

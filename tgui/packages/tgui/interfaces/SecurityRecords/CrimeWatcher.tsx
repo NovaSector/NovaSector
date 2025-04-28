@@ -15,7 +15,7 @@ import {
   Tabs,
   TextArea,
   Tooltip,
-} from 'tgui/components';
+} from 'tgui-core/components';
 
 import { getSecurityRecord } from './helpers';
 import { Crime, SECURETAB, SecurityRecordsData } from './types';
@@ -274,9 +274,10 @@ const CrimeAuthor = (props) => {
       <Stack.Item color="label">
         Fine (leave blank to arrest)
         <RestrictedInput
-          onChange={(_, value) => setCrimeFine(value)}
           fluid
+          value={crimeFine}
           maxValue={1000}
+          onChange={(_, value) => setCrimeFine(value)}
         />
       </Stack.Item>
       <Stack.Item>

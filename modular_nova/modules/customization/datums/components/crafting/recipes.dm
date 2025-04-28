@@ -1,16 +1,17 @@
 /datum/crafting_recipe/food/haggis
 	name = "Haggis"
 	reqs = list(
-		/obj/item/organ/internal/heart = 1,
-		/obj/item/organ/internal/liver = 1,
-		/obj/item/organ/internal/lungs = 1,
-		/obj/item/organ/internal/stomach = 1,
+		/obj/item/organ/heart = 1,
+		/obj/item/organ/liver = 1,
+		/obj/item/organ/lungs = 1,
+		/obj/item/organ/stomach = 1,
 		/obj/item/food/grown/onion = 1,
 		/obj/item/food/grown/oat = 1,
 		/datum/reagent/consumable/salt = 1,
 	)
 	result = /obj/item/food/snacks/store/bread/haggis
 	category = CAT_MISCFOOD
+	added_foodtypes =  MEAT
 
 /datum/crafting_recipe/food/neep_tatty_haggis
 	name = "Haggis With Neeps and Tatties"
@@ -43,6 +44,7 @@
 	)
 	result = /obj/item/food/cookie/shortbread
 	category = CAT_PASTRY
+	added_foodtypes = JUNKFOOD | SUGAR
 
 /datum/crafting_recipe/food/tuna
 	name = "Can of Tuna"

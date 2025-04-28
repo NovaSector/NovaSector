@@ -28,6 +28,10 @@
 	name = "Fingerless Gloves"
 	item_path = /obj/item/clothing/gloves/fingerless
 
+/datum/loadout_item/gloves/lalune_long
+	name = "Designer Gloves"
+	item_path = /obj/item/clothing/gloves/designer
+
 /datum/loadout_item/gloves/black
 	name = "Black Gloves"
 	item_path = /obj/item/clothing/gloves/color/black
@@ -67,7 +71,10 @@
 /datum/loadout_item/gloves/yellow
 	name = "Yellow Gloves"
 	item_path = /obj/item/clothing/gloves/color/ffyellow
-	additional_displayed_text = list("Non-Insulating")
+
+/datum/loadout_item/gloves/yellow/get_item_information()
+	. = ..()
+	.[FA_ICON_BOLT] = "Non-Insulating"
 
 /datum/loadout_item/gloves/white
 	name = "White Gloves"
@@ -93,13 +100,17 @@
 	name = "Colourable Maid Arm Covers"
 	item_path = /obj/item/clothing/gloves/maid_arm_covers
 
+/datum/loadout_item/gloves/tactical_maid_sleeves
+	name = "tactical maid sleeves"
+	item_path = /obj/item/clothing/gloves/tactical_maid
+
 /datum/loadout_item/gloves/armwraps
 	name = "Colourable Arm Wraps"
 	item_path = /obj/item/clothing/gloves/bracer/wraps
 
 /datum/loadout_item/gloves/latex
-	name = "Latex Gloves"
-	item_path = /obj/item/clothing/gloves/latex_gloves
+	name = "Long Gloves"
+	item_path = /obj/item/clothing/gloves/long_gloves
 	erp_item = TRUE
 
 /*

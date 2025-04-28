@@ -9,7 +9,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/armblade
+	build_path = /obj/item/organ/cyberimp/arm/armblade
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
@@ -29,7 +29,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/razorwire
+	build_path = /obj/item/organ/cyberimp/arm/razorwire
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -48,7 +48,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/shell_launcher
+	build_path = /obj/item/organ/cyberimp/arm/shell_launcher
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -70,7 +70,7 @@
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/sensory_enhancer
+	build_path = /obj/item/organ/cyberimp/sensory_enhancer
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -91,7 +91,7 @@
 		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/hackerman_deck
+	build_path = /obj/item/organ/cyberimp/hackerman_deck
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -108,7 +108,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/razor_claws
+	build_path = /obj/item/organ/cyberimp/arm/razor_claws
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -125,7 +125,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/mining_drill
+	build_path = /obj/item/organ/cyberimp/arm/mining_drill
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -142,28 +142,11 @@
 		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/mining_drill/diamond
+	build_path = /obj/item/organ/cyberimp/arm/mining_drill/diamond
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_CARGO
-
-/datum/design/cyberimp_hacker
-	name = "Hacking Hand Implant"
-	desc = "An advanced hacking and machine modification toolkit fitted into an arm implant, designed to be installed on a subject's arm."
-	id = "ci-hacker"
-	build_type = MECHFAB
-	materials = list (
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/hacker
-	category = list(
-		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY,
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/cyberimp_flash
 	name = "Photon Projector Implant"
@@ -176,7 +159,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/flash
+	build_path = /obj/item/organ/cyberimp/arm/flash
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
@@ -194,7 +177,7 @@
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/botany
+	build_path = /obj/item/organ/cyberimp/arm/botany
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -213,7 +196,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 6,
 		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/eyes/night_vision/cyber
+	build_path = /obj/item/organ/eyes/night_vision/cyber
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_UTILITY,
 	)
@@ -231,7 +214,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 		)
-	build_path = /obj/item/organ/internal/cyberimp/brain/anti_sleep
+	build_path = /obj/item/organ/cyberimp/brain/anti_sleep
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT,
 	)
@@ -249,7 +232,7 @@
 		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
 		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/organ/internal/cyberimp/chest/scanner
+	build_path = /obj/item/organ/cyberimp/chest/scanner
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH,
 	)
@@ -266,7 +249,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 20 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/janitor
+	build_path = /obj/item/organ/cyberimp/arm/janitor
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
@@ -283,7 +266,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 10 SECONDS
-	build_path = /obj/item/organ/internal/cyberimp/arm/lighter
+	build_path = /obj/item/organ/cyberimp/arm/lighter
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_MISC,
 	)

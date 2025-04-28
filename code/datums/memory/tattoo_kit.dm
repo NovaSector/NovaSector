@@ -17,7 +17,7 @@
 		. += span_notice("This kit has enough ink for [uses] use\s.")
 	. += span_boldnotice("You can use a toner cartridge to refill this.")
 
-/obj/item/tattoo_kit/attackby(obj/item/toner/ink_cart, mob/living/tattoo_artist, params)
+/obj/item/tattoo_kit/attackby(obj/item/toner/ink_cart, mob/living/tattoo_artist, list/modifiers)
 	. = ..()
 	if(!istype(ink_cart))
 		return
@@ -29,7 +29,7 @@
 	qdel(ink_cart)
 	balloon_alert(tattoo_artist, "added tattoo ink")
 
-/obj/item/tattoo_kit/attack(mob/living/tattoo_holder, mob/living/tattoo_artist, params)
+/obj/item/tattoo_kit/attack(mob/living/tattoo_holder, mob/living/tattoo_artist, list/modifiers)
 	. = ..()
 	if(.)
 		return TRUE
@@ -46,11 +46,11 @@
 	if(!tattoo_target)
 		balloon_alert(tattoo_artist, "no limb to tattoo!")
 		return
-	if(HAS_TRAIT_FROM(tattoo_target, TRAIT_NOT_ENGRAVABLE, INNATE_TRAIT))
-		balloon_alert(tattoo_artist, "bodypart cannot be engraved!")
+	if(HAS_TRAIT_FROM(tattoo_target, TRAIT_NOT_ENGRAVABLE, ENGRAVED_TRAIT))
+		balloon_alert(tattoo_artist, "bodypart already tattooed!")
 		return
-	if(HAS_TRAIT_FROM(tattoo_target, TRAIT_NOT_ENGRAVABLE, TRAIT_GENERIC))
-		balloon_alert(tattoo_artist, "bodypart has already been engraved!")
+	if(HAS_TRAIT(tattoo_target, TRAIT_NOT_ENGRAVABLE))
+		balloon_alert(tattoo_artist, "bodypart cannot be tattooed!")
 		return
 	var/datum/memory/memory_to_tattoo = tattoo_artist.mind.select_memory("tattoo")
 	if(!memory_to_tattoo || !tattoo_artist.Adjacent(tattoo_holder) || !tattoo_holder.get_bodypart(selected_zone))

@@ -69,7 +69,7 @@
 		return ITEM_INTERACT_SUCCESS
 	return NONE
 
-/obj/item/universal_scanner/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/universal_scanner/attackby(obj/item/attacking_item, mob/user, list/modifiers)
 	. = ..()
 	if(scanning_mode == SCAN_SALES_TAG && isidcard(attacking_item))
 		var/obj/item/card/id/potential_acc = attacking_item
@@ -200,7 +200,7 @@
 		to_chat(user, span_notice(message))
 
 	if(price)
-		playsound(src, 'sound/machines/terminal_select.ogg', 50, vary = TRUE)
+		playsound(src, 'sound/machines/terminal/terminal_select.ogg', 50, vary = TRUE)
 
 	if(istype(target, /obj/item/delivery))
 		var/obj/item/delivery/parcel = target
@@ -257,7 +257,7 @@
 /obj/item/universal_scanner/proc/check_menu(mob/living/user)
 	if(!istype(user))
 		return FALSE
-	if(user.incapacitated())
+	if(user.incapacitated)
 		return FALSE
 	return TRUE
 

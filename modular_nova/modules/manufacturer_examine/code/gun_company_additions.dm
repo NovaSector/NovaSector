@@ -46,6 +46,12 @@
 /obj/item/gun/ballistic/shotgun/toy/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)
 
+/obj/item/gun/ballistic/automatic/pistol/toy/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)
+
+/obj/item/gun/ballistic/automatic/toy/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)
+
 /obj/item/gun/ballistic/automatic/c20r/toy/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)
 

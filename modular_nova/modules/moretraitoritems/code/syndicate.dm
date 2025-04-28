@@ -39,7 +39,7 @@
 	atom_storage.set_holdable(list(
 		/obj/item/clothing/head/helmet/space/syndicate,
 		/obj/item/clothing/suit/space/syndicate,
-		))
+	))
 
 /obj/item/storage/box/syndie_kit/space_suit/PopulateContents()
 	switch(pick(list("red", "green", "dgreen", "blue", "orange", "black")))
@@ -83,7 +83,7 @@
 	name = "gunman clothing bundle"
 	desc = "A box filled with armored and stylish clothing for the aspiring gunmans."
 
-/obj/item/clothing/suit/jacket/trenchcoat/gunman
+/obj/item/clothing/suit/jacket/leather_trenchcoat/gunman
 	name = "leather overcoat"
 	desc = "An armored leather overcoat, intended as the go-to wear for any aspiring gunman."
 	body_parts_covered = CHEST|GROIN|ARMS

@@ -51,11 +51,12 @@ em						{font-style: normal;	font-weight: bold;}
 .syndradio				{color: #6d3f40;}
 .centcomradio			{color: #686868;}
 .aiprivradio			{color: #ff00ff;}
+.enteradio				{color: #00ff99;}
 .redteamradio			{color: #ff0000;}
 .blueteamradio			{color: #0000ff;}
 .greenteamradio			{color: #00ff00;}
 .yellowteamradio		{color: #d1ba22;}
-.gangradio				{color: #ac2ea1;}
+.captaincast			{color: #00ff99;}
 
 .yell					{					font-weight: bold;}
 
@@ -94,6 +95,7 @@ h1.alert, h2.alert		{color: #000000;}
 .grey					{color: #838383;}
 .nicegreen				{color: #14a833;}
 .boldnicegreen			{color: #14a833;	font-weight: bold;}
+.tinynicegreen			{color: #14a833; font-size: 85%;}
 .cult					{color: #973e3b;}
 .cultlarge				{color: #973e3b;	font-weight: bold;	font-size: 3;}
 .narsie					{color: #973e3b;	font-weight: bold;	font-size: 15;}

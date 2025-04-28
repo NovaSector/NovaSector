@@ -89,16 +89,18 @@
 /// Interdyne
 
 /datum/id_trim/syndicom/nova/interdyne
+	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "Interdyne Scientist"
+	trim_state = "trim_interdyne"
+	department_color = COLOR_LIME
+	subdepartment_color = COLOR_VERY_DARK_LIME_GREEN
 	threat_modifier = 2 // Interdyne is allowed on station, so this'll get beepskys off them.
 
 /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	assignment = "Interdyne Shaft Miner"
 
 /datum/id_trim/syndicom/nova/interdyne/deckofficer
-	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "Deck Officer"
 	trim_state = "trim_deckofficer"
-	department_color = COLOR_COMMAND_BLUE
-	subdepartment_color = COLOR_CARGO_BROWN
+	department_color = COLOR_VERY_DARK_LIME_GREEN
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)

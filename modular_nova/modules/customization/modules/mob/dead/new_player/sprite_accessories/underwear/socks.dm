@@ -60,7 +60,7 @@
 
 /datum/sprite_accessory/socks/leggings/stirrups/gym
 	name = "Thigh-high Stirrups (black with stripe)"
-	icon_state = "leggings-stir-black"
+	icon_state = "leggings_black-stir"
 
 /datum/sprite_accessory/socks/bee_thigh
 	name = "Thigh-high - Bee (Old)"
@@ -164,3 +164,24 @@
 	name = "Socks - Latex"
 	icon_state = "socks_latex"
 	erp_accessory = TRUE
+
+/datum/sprite_accessory/socks/thigh_m
+	name = "Thigh-high Socks - Shaded"
+	icon_state = "socks_thigh_m"
+	use_static = FALSE
+
+/datum/sprite_accessory/socks/socks_knee_m
+	name = "Knee High Socks - Shaded"
+	icon_state = "socks_knee_m"
+	use_static = FALSE
+
+
+/datum/sprite_accessory/socks/leggings/gym
+	name = "Thigh-highs (black with stripe)"
+	icon_state = "leggings_black"
+	use_static = TRUE
+
+/datum/sprite_accessory/socks/ripped_thigh
+	name = "Ripped Black Thigh-highs"
+	icon_state = "thigh_high_ripped"
+	use_static = TRUE

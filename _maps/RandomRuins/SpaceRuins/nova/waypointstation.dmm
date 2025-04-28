@@ -7,7 +7,7 @@
 "ay" = (
 /obj/item/stack/sheet/iron,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/has_grav/waypoint)
 "aR" = (
 /obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/airless,
@@ -28,7 +28,9 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "bF" = (
-/mob/living/basic/alien/queen/large,
+/mob/living/basic/alien/queen/large{
+	minimum_survivable_temperature = 0
+	},
 /obj/structure/alien/weeds,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
@@ -52,9 +54,11 @@
 /area/ruin/space/has_grav/waypoint)
 "co" = (
 /obj/structure/lattice,
-/mob/living/basic/alien,
+/mob/living/basic/alien{
+	minimum_survivable_temperature = 0
+	},
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/unpowered)
 "cV" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/iron/airless,
@@ -67,14 +71,16 @@
 /turf/open/floor/carpet/royalblue/airless,
 /area/ruin/space/has_grav/waypoint)
 "dz" = (
-/mob/living/basic/alien,
+/mob/living/basic/alien{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "dQ" = (
 /obj/item/shard,
 /obj/structure/lattice,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/has_grav/waypoint)
 "eD" = (
 /obj/item/stack/cable_coil/cut{
 	pixel_x = 2;
@@ -137,10 +143,12 @@
 /obj/item/stack/tile/iron/base,
 /obj/structure/lattice,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/has_grav/waypoint)
 "hE" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/mob/living/basic/alien,
+/mob/living/basic/alien{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "iu" = (
@@ -162,7 +170,7 @@
 "ju" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/has_grav/waypoint)
 "ka" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/waypoint)
@@ -175,12 +183,16 @@
 /turf/open/floor/carpet/royalblue/airless,
 /area/ruin/space/has_grav/waypoint)
 "kR" = (
-/mob/living/basic/alien/sentinel,
+/mob/living/basic/alien/sentinel{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "lf" = (
 /obj/effect/decal/cleanable/blood/drip,
-/mob/living/basic/alien,
+/mob/living/basic/alien{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "lr" = (
@@ -222,7 +234,7 @@
 /obj/item/stack/sheet/iron,
 /obj/structure/lattice,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/has_grav/waypoint)
 "mJ" = (
 /obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -241,12 +253,16 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "nC" = (
-/mob/living/basic/alien/drone,
+/mob/living/basic/alien/drone{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "nO" = (
-/mob/living/basic/alien,
 /obj/structure/alien/weeds,
+/mob/living/basic/alien{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "oa" = (
@@ -298,13 +314,17 @@
 /obj/structure/alien/weeds,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
+"qR" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space)
 "qT" = (
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waypoint)
 "ra" = (
 /obj/item/stack/tile/iron/base,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space)
 "rc" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -351,7 +371,9 @@
 	pixel_x = -3;
 	pixel_y = 10
 	},
-/mob/living/basic/alien/sentinel,
+/mob/living/basic/alien/sentinel{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waypoint)
 "sw" = (
@@ -432,6 +454,9 @@
 "wB" = (
 /turf/closed/wall,
 /area/ruin/space/has_grav/waypoint)
+"wY" = (
+/turf/template_noop,
+/area/ruin/space/unpowered)
 "xi" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/carpet/royalblue/airless,
@@ -447,6 +472,10 @@
 	},
 /turf/open/floor/carpet/royalblue/airless,
 /area/ruin/space/has_grav/waypoint)
+"xU" = (
+/obj/item/stack/tile/iron/base,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "yn" = (
 /obj/effect/decal/cleanable/xenoblood/xgibs,
 /obj/structure/alien/weeds,
@@ -476,9 +505,11 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "zy" = (
-/mob/living/basic/alien/drone,
 /obj/effect/decal/cleanable/xenoblood,
 /obj/structure/sign/poster/contraband/lusty_xenomorph/directional/east,
+/mob/living/basic/alien/drone{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waypoint)
 "zE" = (
@@ -498,9 +529,14 @@
 	},
 /turf/open/floor/carpet/royalblue/airless,
 /area/ruin/space/has_grav/waypoint)
+"zJ" = (
+/turf/template_noop,
+/area/ruin/space)
 "Af" = (
-/mob/living/basic/alien/sentinel,
 /obj/structure/alien/weeds/node,
+/mob/living/basic/alien/sentinel{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "Al" = (
@@ -517,7 +553,9 @@
 /area/ruin/space/has_grav/waypoint)
 "AG" = (
 /obj/effect/decal/cleanable/blood/drip,
-/mob/living/basic/alien/drone,
+/mob/living/basic/alien/drone{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
 "AP" = (
@@ -537,7 +575,9 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/light/small/broken/directional/north,
-/mob/living/basic/alien/sentinel,
+/mob/living/basic/alien/sentinel{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waypoint)
 "BD" = (
@@ -619,6 +659,10 @@
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/carpet/royalblue/airless,
 /area/ruin/space/has_grav/waypoint)
+"FC" = (
+/obj/item/stack/sheet/iron,
+/turf/template_noop,
+/area/ruin/space/unpowered)
 "FS" = (
 /turf/closed/mineral/bananium,
 /area/ruin/space)
@@ -626,6 +670,10 @@
 /obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
+"Gj" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
+/area/ruin/space/unpowered)
 "Gv" = (
 /obj/machinery/power/solar/fake,
 /turf/open/floor/iron/solarpanel/airless,
@@ -650,6 +698,11 @@
 /obj/item/flashlight/flare,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/waypoint)
+"Hs" = (
+/obj/item/shard,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/unpowered)
 "Hx" = (
 /obj/item/shard{
 	pixel_x = -6;
@@ -727,7 +780,7 @@
 /area/ruin/space/has_grav/waypoint)
 "Ke" = (
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space/has_grav/waypoint)
 "Kh" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/airless,
@@ -959,9 +1012,15 @@
 /obj/item/stack/cable_coil{
 	pixel_y = -3
 	},
-/mob/living/basic/alien/drone,
+/mob/living/basic/alien/drone{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/waypoint)
+"Vy" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/unpowered)
 "VK" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/stack/cable_coil/cut{
@@ -971,7 +1030,9 @@
 /turf/open/floor/carpet/royalblue/airless,
 /area/ruin/space/has_grav/waypoint)
 "Wg" = (
-/mob/living/basic/alien/drone,
+/mob/living/basic/alien/drone{
+	minimum_survivable_temperature = 0
+	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/waypoint)
 "Wu" = (
@@ -1030,7 +1091,7 @@
 "YL" = (
 /obj/item/shard,
 /turf/template_noop,
-/area/ruin)
+/area/ruin/space)
 "YT" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/space/has_grav/waypoint)
@@ -1372,9 +1433,9 @@ hl
 hl
 ka
 co
-ju
-ju
-Ke
+Vy
+Vy
+zJ
 rH
 eP
 eP
@@ -1433,10 +1494,10 @@ ka
 rh
 pB
 ka
-bG
-dQ
-Ke
-Ke
+Gj
+Hs
+wY
+wY
 eP
 eP
 eP
@@ -1495,10 +1556,10 @@ ka
 ka
 Pj
 bG
-ju
-Ke
-Ke
-Ke
+Vy
+wY
+wY
+wY
 eP
 eP
 eP
@@ -1557,10 +1618,10 @@ qh
 bD
 bG
 ka
-ZA
-bG
-ju
-ay
+xU
+Gj
+Vy
+FC
 eP
 OB
 eP
@@ -1620,9 +1681,9 @@ qh
 yn
 zu
 bG
-ju
-Ke
-Ke
+Vy
+wY
+wY
 eP
 eP
 eP
@@ -1683,7 +1744,7 @@ hl
 qh
 Pj
 ZA
-ju
+Vy
 Ke
 ju
 Ke
@@ -2870,7 +2931,7 @@ eP
 bG
 IC
 bG
-ju
+qR
 OC
 eP
 rH
@@ -2930,10 +2991,10 @@ eP
 eP
 eP
 ZA
-ju
-Ke
+qR
+zJ
 YL
-ju
+qR
 eP
 eP
 eP
@@ -2991,11 +3052,11 @@ eP
 eP
 eP
 eP
-ju
+qR
 bG
-Ke
+zJ
 ra
-ju
+qR
 eP
 eP
 eP

@@ -43,7 +43,8 @@
 
 	var/override_preference = preference_source.read_preference(/datum/preference/choiced/loadout_override_preference)
 
-	var/list/loadout_list = preference_source?.read_preference(/datum/preference/loadout)
+	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
+	var/list/loadout_list = loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)]
 	var/list/loadout_datums = loadout_list_to_datums(loadout_list)
 	var/obj/item/storage/briefcase/empty/briefcase
 	var/obj/item/storage/box/erp/erpbox
@@ -133,7 +134,8 @@
  * equipping_job - The job that's being applied.
  */
 /mob/living/silicon/robot/proc/equip_outfit_and_loadout(datum/outfit/outfit, datum/preferences/preference_source = GLOB.preference_entries_by_key[ckey], visuals_only = FALSE, datum/job/equipping_job)
-	var/list/loadout_datums = loadout_list_to_datums(preference_source?.read_preference(/datum/preference/loadout))
+	var/list/loadout_entries = preference_source.read_preference(/datum/preference/loadout)
+	var/list/loadout_datums = loadout_list_to_datums(loadout_entries[preference_source.read_preference(/datum/preference/loadout_index)])
 	for (var/datum/loadout_item/head/item in loadout_datums)
 		if (!item.can_be_applied_to(src, preference_source, equipping_job))
 			continue
@@ -218,7 +220,7 @@
 	balloon_alert(user, "picking up hat...")
 	if (!do_after(user, 3 SECONDS, src))
 		return
-	if (QDELETED(src) || !Adjacent(user) || user.incapacitated())
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated)
 		return
 	user.place_on_head(src)
 	balloon_alert(user, "picked up hat")
@@ -235,7 +237,7 @@
 	balloon_alert(user, "dropping hat...")
 	if (!do_after(user, 3 SECONDS, src))
 		return
-	if (QDELETED(src) || !Adjacent(user) || user.incapacitated() || isnull(hat))
+	if (QDELETED(src) || !Adjacent(user) || user.incapacitated || isnull(hat))
 		return
 	hat.forceMove(get_turf(src))
 	hat = null

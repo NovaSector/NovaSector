@@ -57,7 +57,7 @@
 		span_notice("You wash your [washing_face ? "face" : "hands"] using [src]."),
 	)
 
-/obj/structure/water_source/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/water_source/attackby(obj/item/attacking_item, mob/living/user, list/modifiers)
 	if(busy)
 		to_chat(user, span_warning("Someone's already washing here!"))
 		return
@@ -114,7 +114,7 @@
 		attacking_item.use(1)
 		return
 
-	if(!user.combat_mode)
+	if(!user.combat_mode || (attacking_item.item_flags & NOBLUDGEON))
 		to_chat(user, span_notice("You start washing [attacking_item]..."))
 		busy = TRUE
 		if(!do_after(user, 4 SECONDS, target = src))
@@ -152,7 +152,7 @@
 	. = ..()
 	icon_state = base_icon_state
 
-/obj/structure/water_source/puddle/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/water_source/puddle/attackby(obj/item/attacking_item, mob/user, list/modifiers)
 	icon_state = "[base_icon_state]-splash"
 	. = ..()
 	icon_state = base_icon_state

@@ -42,8 +42,7 @@
 	for(var/obj/item/obj in src)
 		obj.forceMove(loc)
 
-/obj/structure/filingcabinet/attackby(obj/item/P, mob/living/user, params)
-	var/list/modifiers = params2list(params)
+/obj/structure/filingcabinet/attackby(obj/item/P, mob/living/user, list/modifiers)
 	if(P.tool_behaviour == TOOL_WRENCH && LAZYACCESS(modifiers, RIGHT_CLICK))
 		to_chat(user, span_notice("You begin to [anchored ? "unwrench" : "wrench"] [src]."))
 		if(P.use_tool(src, user, 20, volume=50))
@@ -56,7 +55,7 @@
 		icon_state = "[initial(icon_state)]-open"
 		sleep(0.5 SECONDS)
 		icon_state = initial(icon_state)
-	else if(!user.combat_mode)
+	else if(!user.combat_mode || (P.item_flags & NOBLUDGEON))
 		to_chat(user, span_warning("You can't put [P] in [src]!"))
 	else
 		return ..()
@@ -83,7 +82,7 @@
 
 	return data
 
-/obj/structure/filingcabinet/ui_act(action, params)
+/obj/structure/filingcabinet/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

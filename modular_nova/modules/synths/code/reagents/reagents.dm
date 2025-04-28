@@ -18,7 +18,6 @@
 /datum/reagent/medicine/system_cleaner
 	name = "System Cleaner"
 	description = "Neutralizes harmful chemical compounds inside synthetic systems and refreshes system software."
-	reagent_state = LIQUID
 	color = "#F1C40F"
 	taste_description = "ethanol"
 	metabolization_rate = 2 * REAGENTS_METABOLISM
@@ -38,7 +37,6 @@
 /datum/reagent/medicine/liquid_solder
 	name = "Liquid Solder"
 	description = "Repairs brain damage in synthetics."
-	reagent_state = LIQUID
 	color = "#727272"
 	taste_description = "metal"
 	process_flags = REAGENT_SYNTHETIC
@@ -52,7 +50,6 @@
 /datum/reagent/medicine/nanite_slurry
 	name = "Nanite Slurry"
 	description = "A localized swarm of nanomachines specialized in repairing mechanical parts. Due to the nanites needing to interface with the host's systems to repair them, a surplus of them will cause them to overheat, or for the swarm to forcefully eject out of the mouth of organics for safety."
-	reagent_state = LIQUID
 	color = "#cccccc"
 	overdose_threshold = 20
 	metabolization_rate = 1.25 * REAGENTS_METABOLISM
@@ -86,7 +83,6 @@
 	name = "Taste Suppressor"
 	description = "A colorless medicine aimed to dull the sense of taste of those that consumed it, as long as it's in their system."
 	color = "#AAAAAA77"
-	reagent_state = LIQUID
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	chemical_flags_nova = REAGENT_BLOOD_REGENERATING // It has REAGENT_BLOOD_REGENERATING only because it makes it so Hemophages can safely drink it, which makes complete sense considering this is meant to suppress their tumor's reactiveness to anything that doesn't regenerate blood.

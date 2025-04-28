@@ -128,7 +128,7 @@
 		/datum/reagent/consumable/sugar = 1,
 	)
 	tastes = list("chocolate" = 3, "oranges" = 1)
-	foodtypes = JUNKFOOD | SUGAR | ORANGES
+	foodtypes = JUNKFOOD|FRUIT|SUGAR|ORANGES
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
@@ -143,7 +143,7 @@
 		/datum/reagent/consumable/coco = 1,
 	)
 	tastes = list("chocolate" = 1)
-	foodtypes = DAIRY | JUNKFOOD | SUGAR
+	foodtypes = JUNKFOOD|SUGAR
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_TINY
 
@@ -176,7 +176,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
 	tastes = list("chocolate" = 1, "peanuts" = 1)
-	foodtypes = DAIRY | SUGAR | JUNKFOOD | NUTS
+	foodtypes = SUGAR|JUNKFOOD|NUTS
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/bonbon/peanut_butter_cup
@@ -188,7 +188,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
 	tastes = list("chocolate" = 1, "peanut butter" = 1)
-	foodtypes = DAIRY | SUGAR | JUNKFOOD | NUTS
+	foodtypes = SUGAR|JUNKFOOD|NUTS
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 // Gum
@@ -204,9 +204,6 @@
 	slot_flags = ITEM_SLOT_MASK
 	w_class = WEIGHT_CLASS_TINY
 
-	/// The amount to metabolize per second
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-
 /obj/item/food/bubblegum/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] swallows [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	qdel(src)
@@ -214,7 +211,7 @@
 
 /obj/item/food/bubblegum/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/chewable, metabolization_amount = metabolization_amount)
+	AddElement(/datum/element/chewable)
 
 /obj/item/food/bubblegum/nicotine
 	name = "nicotine gum"
@@ -238,7 +235,6 @@
 	color = "#913D3D"
 	food_reagents = list(/datum/reagent/blood = 15)
 	tastes = list("hell" = 1, "people" = 1)
-	metabolization_amount = REAGENTS_METABOLISM
 
 /obj/item/food/bubblegum/bubblegum/process()
 	if(iscarbon(loc))
@@ -246,7 +242,7 @@
 
 /obj/item/food/bubblegum/bubblegum/make_edible()
 	. = ..()
-	AddComponent(/datum/component/edible, on_consume = CALLBACK(src, PROC_REF(OnConsume)))
+	AddComponentFrom(SOURCE_EDIBLE_INNATE, /datum/component/edible, on_consume = CALLBACK(src, PROC_REF(OnConsume)))
 
 /obj/item/food/bubblegum/bubblegum/proc/OnConsume(mob/living/eater, mob/living/feeder)
 	if(iscarbon(eater))
@@ -306,18 +302,12 @@
 	venue_value = FOOD_PRICE_WORTHLESS
 	var/mutable_appearance/head
 	var/head_color = rgb(0, 0, 0)
-	/// NOVA EDIT ADDITION BEGIN
-	//Copies reagent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-	// NOVA EDIT ADDITION END
 
 /obj/item/food/lollipop/Initialize(mapload)
 	. = ..()
 	head = mutable_appearance('icons/obj/food/lollipop.dmi', "lollipop_head")
 	change_head_color(rgb(rand(0, 255), rand(0, 255), rand(0, 255)))
-	// NOVA EDIT CHANGE BEGIN: Original: AddElement(/datum/element/chewable)
-	AddElement(/datum/element/chewable, metabolization_amount)
-	// NOVA EDIT CHANGE END
+	AddElement(/datum/element/chewable)
 
 /obj/item/food/lollipop/proc/change_head_color(C)
 	head_color = C
@@ -352,20 +342,14 @@
 		/datum/reagent/medicine/omnizine = 2,
 	) //lollipop, but vitamins = toxins
 	tastes = list("cobwebs" = 1, "sugar" = 2)
-	foodtypes = JUNKFOOD | SUGAR | BUGS
+	foodtypes = JUNKFOOD|SUGAR|MEAT|BUGS
 	food_flags = FOOD_FINGER_FOOD
 	slot_flags = ITEM_SLOT_MASK
 	crafting_complexity = FOOD_COMPLEXITY_1
-	// NOVA EDIT ADDITION BEGIN
-	//Copies reagent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-	// NOVA EDIT ADDITION END
 
 /obj/item/food/spiderlollipop/Initialize(mapload)
 	. = ..()
-	// NOVA EDIT CHANGE BEGIN: Original: AddElement(/datum/element/chewable)
-	AddElement(/datum/element/chewable, metabolization_amount)
-	// NOVA EDIT CHANGE END
+	AddElement(/datum/element/chewable)
 
 /obj/item/food/swirl_lollipop
 	name = "swirl lollipop"
@@ -383,13 +367,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	slot_flags = ITEM_SLOT_MASK
 	crafting_complexity = FOOD_COMPLEXITY_1
-	/// NOVA EDIT ADDITION BEGIN
-	//Copies reagent metabolization from bubblegum so that you cant get infinite reagents from wearing lolipops
-	var/metabolization_amount = REAGENTS_METABOLISM / 2
-	// NOVA EDIT ADDITION END
 
 /obj/item/food/swirl_lollipop/Initialize(mapload)
 	. = ..()
-	// NOVA EDIT ADDITIONBEGIN: Original: AddElement(/datum/element/chewable)
-	AddElement(/datum/element/chewable, metabolization_amount)
-	// NOVA EDIT ADDITION END
+	AddElement(/datum/element/chewable)

@@ -10,7 +10,7 @@
 	/// Cooldown for how often we can pull rabbits out of here
 	COOLDOWN_DECLARE(rabbit_cooldown)
 
-/obj/item/clothing/head/hats/tophat/attackby(obj/item/hitby_item, mob/user, params)
+/obj/item/clothing/head/hats/tophat/attackby(obj/item/hitby_item, mob/user, list/modifiers)
 	. = ..()
 	if(istype(hitby_item, /obj/item/gun/magic/wand))
 		abracadabra(hitby_item, user)
@@ -21,7 +21,7 @@
 		return
 
 	COOLDOWN_START(src, rabbit_cooldown, RABBIT_CD_TIME)
-	playsound(get_turf(src), 'sound/weapons/emitter.ogg', 70)
+	playsound(get_turf(src), 'sound/items/weapons/emitter.ogg', 70)
 	do_smoke(amount = DIAMOND_AREA(1), holder = src, location = src, smoke_type=/obj/effect/particle_effect/fluid/smoke/quick)
 
 	if(prob(10))

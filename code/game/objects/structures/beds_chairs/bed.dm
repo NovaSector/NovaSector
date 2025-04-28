@@ -15,6 +15,7 @@
 	anchored = TRUE
 	can_buckle = TRUE
 	buckle_lying = 90
+	buckle_dir = SOUTH
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
 	integrity_failure = 0.35
@@ -24,17 +25,23 @@
 	var/build_stack_amount = 2
 	/// Mobs standing on it are nudged up by this amount. Also used to align the person back when buckled to it after init.
 	var/elevation = 8
+	/// If this bed can be deconstructed using a wrench
+	var/can_deconstruct = TRUE
+	/// Directions in which the bed has its headrest on the left side.
+	var/left_headrest_dirs = NORTHEAST
 
 /obj/structure/bed/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/soft_landing)
 	if(elevation)
 		AddElement(/datum/element/elevation, pixel_shift = elevation)
+	update_buckle_vars(dir)
 	register_context()
 
 /obj/structure/bed/examine(mob/user)
 	. = ..()
-	. += span_notice("It's held together by a couple of <b>bolts</b>.")
+	if (can_deconstruct)
+		. += span_notice("It's held together by a couple of <b>bolts</b>.")
 
 /obj/structure/bed/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(held_item)
@@ -48,6 +55,13 @@
 		context[SCREENTIP_CONTEXT_LMB] = "Unbuckle"
 		return CONTEXTUAL_SCREENTIP_SET
 
+/obj/structure/bed/setDir(newdir)
+	. = ..()
+	update_buckle_vars(newdir)
+
+/obj/structure/bed/proc/update_buckle_vars(newdir)
+	buckle_lying = newdir & left_headrest_dirs ? 270 : 90
+
 /obj/structure/bed/atom_deconstruct(disassembled = TRUE)
 	if(build_stack_type)
 		new build_stack_type(loc, build_stack_amount)
@@ -56,6 +70,8 @@
 	return attack_hand(user, modifiers)
 
 /obj/structure/bed/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	if (!can_deconstruct)
+		return NONE
 	..()
 	weapon.play_tool_sound(src)
 	deconstruct(disassembled = TRUE)
@@ -69,10 +85,14 @@
 	icon_state = "med_down"
 	base_icon_state = "med"
 	anchored = FALSE
+	left_headrest_dirs = SOUTHWEST
+	buckle_lying = 270
 	resistance_flags = NONE
 	build_stack_type = /obj/item/stack/sheet/mineral/titanium
 	build_stack_amount = 1
 	elevation = 0
+	buckle_sound = SFX_SEATBELT_BUCKLE
+	unbuckle_sound = SFX_SEATBELT_UNBUCKLE
 	/// The item it spawns when it's folded up.
 	var/foldable_type
 
@@ -154,7 +174,7 @@
 		. += mutable_appearance(icon, "brakes_down")
 		. += emissive_appearance(icon, "brakes_down", src, alpha = src.alpha)
 
-/obj/structure/bed/medical/emergency/attackby(obj/item/item, mob/user, params)
+/obj/structure/bed/medical/emergency/attackby(obj/item/item, mob/user, list/modifiers)
 	if(istype(item, /obj/item/emergency_bed/silicon))
 		var/obj/item/emergency_bed/silicon/silicon_bed = item
 		if(silicon_bed.loaded)
@@ -200,7 +220,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	w_class = WEIGHT_CLASS_NORMAL // No more excuses, stop getting blood everywhere
 
-/obj/item/emergency_bed/attackby(obj/item/item, mob/living/user, params)
+/obj/item/emergency_bed/attackby(obj/item/item, mob/living/user, list/modifiers)
 	if(istype(item, /obj/item/emergency_bed/silicon))
 		var/obj/item/emergency_bed/silicon/silicon_bed = item
 		if(silicon_bed.loaded)

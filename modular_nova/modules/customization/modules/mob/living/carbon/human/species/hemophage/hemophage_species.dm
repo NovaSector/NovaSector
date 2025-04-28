@@ -18,10 +18,10 @@
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
 	exotic_bloodtype = "U"
-	mutantheart = /obj/item/organ/internal/heart/hemophage
-	mutantliver = /obj/item/organ/internal/liver/hemophage
-	mutantstomach = /obj/item/organ/internal/stomach/hemophage
-	mutanttongue = /obj/item/organ/internal/tongue/hemophage
+	mutantheart = /obj/item/organ/heart/hemophage
+	mutantliver = /obj/item/organ/liver/hemophage
+	mutantstomach = /obj/item/organ/stomach/hemophage
+	mutanttongue = /obj/item/organ/tongue/hemophage
 	mutantlungs = null
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_HUMAN
@@ -42,7 +42,7 @@
 
 	return ..()
 
-/datum/species/hemophage/on_species_gain(mob/living/carbon/human/new_hemophage, datum/species/old_species, pref_load)
+/datum/species/hemophage/on_species_gain(mob/living/carbon/human/new_hemophage, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	to_chat(new_hemophage, HEMOPHAGE_SPAWN_TEXT)
 	new_hemophage.update_body()
@@ -172,6 +172,9 @@
 
 	return to_add
 
+/datum/species/hemophage/get_cry_sound(mob/living/carbon/human/hemophage)
+	var/datum/species/human/human_species = GLOB.species_prototypes[/datum/species/human]
+	return human_species.get_cry_sound(hemophage)
 
 // We don't need to mention that they're undead, as the perks that come from it are otherwise already explicited, and they might no longer be actually undead from a gameplay perspective, eventually.
 /datum/species/hemophage/create_pref_biotypes_perks()

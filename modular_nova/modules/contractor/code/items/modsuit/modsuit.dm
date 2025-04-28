@@ -9,6 +9,8 @@
 	applied_modules = list(
 		/obj/item/mod/module/dna_lock,
 		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/shock_absorber,
+		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/storage/syndicate,
@@ -25,6 +27,8 @@
 		/obj/item/mod/module/baton_holster/preloaded,
 		/obj/item/mod/module/dna_lock,
 		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/shock_absorber,
+		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/magnetic_harness,
 		/obj/item/mod/module/storage/syndicate,
@@ -39,6 +43,8 @@
 	applied_modules = list(
 		/obj/item/mod/module/baton_holster/preloaded,
 		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/shock_absorber,
+		/obj/item/mod/module/quick_cuff,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/scorpion_hook,
 		/obj/item/mod/module/springlock/contractor/no_complexity,

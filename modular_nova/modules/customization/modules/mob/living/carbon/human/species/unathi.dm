@@ -9,7 +9,7 @@
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list()
-	mutanttongue = /obj/item/organ/internal/tongue/unathi
+	mutanttongue = /obj/item/organ/tongue/unathi
 	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_LIZARD
@@ -25,6 +25,7 @@
 
 /datum/species/unathi/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("Smooth", TRUE),
 		"snout" = list("Sharp + Light", TRUE),
 		"spines" = list("None", FALSE),
@@ -34,7 +35,7 @@
 		"legs" = list("Normal Legs", FALSE),
 	)
 
-/obj/item/organ/internal/tongue/unathi
+/obj/item/organ/tongue/unathi
 	liked_foodtypes = GORE | MEAT | SEAFOOD | NUTS
 	disliked_foodtypes = GRAIN | DAIRY | CLOTH | GROSS
 	toxic_foodtypes = TOXIC

@@ -62,7 +62,7 @@ FLOOR SAFES
 	icon_state = "[initial(icon_state)][open ? null : "_locked"]"
 	return ..()
 
-/obj/structure/safe/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/safe/attackby(obj/item/attacking_item, mob/user, list/modifiers)
 	if(open)
 		. = TRUE //no afterattack
 		if(attacking_item.w_class + space <= maxspace)
@@ -129,7 +129,7 @@ FLOOR SAFES
 
 	return data
 
-/obj/structure/safe/ui_act(action, params)
+/obj/structure/safe/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -234,7 +234,7 @@ FLOOR SAFES
 	if(!canhear)
 		return
 	if(current_tick == 2)
-		to_chat(user, "<span class='italics'>The sounds from [src] are too fast and blend together.</span>")
+		to_chat(user, span_italics("The sounds from [src] are too fast and blend together."))
 	if(total_ticks == 1 || prob(SOUND_CHANCE))
 		balloon_alert(user, pick(sounds))
 

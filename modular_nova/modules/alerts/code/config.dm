@@ -37,5 +37,17 @@
 /datum/config_entry/string/alert_delta_downto
 	config_entry_value = "Destruction of the station is still imminent. All crew are instructed to obey all instructions given by heads of staff or security. Any violations of these orders can be punished by death. This is not a drill."
 
-/datum/config_entry/string/alert_gamma
-	config_entry_value = "The Solar Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill."
+/datum/config_entry/string/alert_gamma_downto
+	config_entry_value = "The Sol Federation has released Military Command of the station, the Sol Federation has detected and declared a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill."
+
+/datum/config_entry/string/alert_gamma_upto
+	config_entry_value = "The Sol Federation has placed this system under Gamma Alert status. This galactic system is facing a ZK-Class Reality Failure Scenario. Security Personnel is authorized full access to lethal equipment to enforce Martial Law. Failure to follow emergency procedures is punishable by death. This is not a drill."
+
+/datum/config_entry/string/alert_epsilon_upto
+	config_entry_value = "Nanotrasen Central Command has declared the station under full CentCom authority. All CentCom personnel and representatives now hold absolute control of the station and its assets. Crew cooperation is compulsory. Have a Secure Day!"
+
+/datum/config_entry/string/alert_epsilon_downto
+	config_entry_value = "The Sol Federation has released Military Command and action over the station. Central Command is now in full command authority of the station, comply with all instructions from Nanotrasen Central Command staff, Crew cooperation is compulsory! Have a Secure Day!"
+
+/datum/config_entry/string/alert_federal
+	config_entry_value = "The Sol Federation has placed this galactic sector under its full command. All star systems within this sector are now under Military Law. Comply with all official SolFed instructions."

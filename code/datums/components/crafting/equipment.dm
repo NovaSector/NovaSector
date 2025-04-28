@@ -23,7 +23,7 @@
 	time = 4 SECONDS
 	category = CAT_EQUIPMENT
 
-/datum/crafting_recipe/improvisedshield
+/datum/crafting_recipe/moonflowershield
 	name = "Moonflower Shield"
 	result = /obj/item/shield/buckler/moonflower
 	reqs = list(
@@ -156,13 +156,17 @@
 
 /datum/crafting_recipe/flashlight_eyes
 	name = "Flashlight Eyes"
-	result = /obj/item/organ/internal/eyes/robotic/flashlight
+	result = /obj/item/organ/eyes/robotic/flashlight
 	time = 10
 	reqs = list(
 		/obj/item/flashlight = 2,
 		/obj/item/restraints/handcuffs/cable = 1
 	)
 	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/flashlight_eyes/New()
+	. = ..()
+	blacklist += typesof(/obj/item/flashlight/flare)
 
 /datum/crafting_recipe/extendohand_r
 	name = "Extendo-Hand (Right Arm)"
@@ -286,3 +290,15 @@
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER)
 */
 // NOVA EDIT REMOVAL END
+
+/datum/crafting_recipe/tether_anchor
+	name = "Tether Anchor"
+	result = /obj/item/tether_anchor
+	reqs = list(
+		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/rods = 2,
+		/obj/item/stack/cable_coil = 15
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH)
+	time = 5 SECONDS
+	category = CAT_EQUIPMENT

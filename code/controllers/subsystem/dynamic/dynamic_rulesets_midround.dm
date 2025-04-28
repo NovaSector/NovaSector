@@ -238,7 +238,7 @@
 /datum/dynamic_ruleset/midround/from_living/autotraitor
 	name = "Syndicate Sleeper Agent"
 	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
-	antag_datum = /datum/antagonist/traitor/infiltrator/sleeper_agent
+	antag_datum = /datum/antagonist/traitor
 	antag_flag = ROLE_SLEEPER_AGENT
 	antag_flag_override = ROLE_TRAITOR
 	protected_roles = list(
@@ -269,7 +269,7 @@
 			candidates -= player
 		else if(is_centcom_level(player.z))
 			candidates -= player // We don't autotator people in CentCom
-		else if(player.mind && (player.mind.special_role || player.mind.antag_datums?.len > 0))
+		else if(player.mind && (player.mind.special_role || !player.mind.can_roll_midround(antag_datum)))
 			candidates -= player // We don't autotator people with roles already
 		//NOVA EDIT ADDITION
 		else if(player in rejected_traitor)
@@ -282,7 +282,7 @@
 	var/mob/M = pick(poll_candidates_for_one(candidates)) // NOVA EDIT CHANGE - ORIGINAL: var/mob/M = pick(candidates)
 	assigned += M
 	candidates -= M
-	var/datum/antagonist/traitor/infiltrator/sleeper_agent/newTraitor = new
+	var/datum/antagonist/traitor/newTraitor = new
 	M.mind.add_antag_datum(newTraitor)
 	message_admins("[ADMIN_LOOKUPFLW(M)] was selected by the [name] ruleset and has been made into a midround traitor.")
 	log_dynamic("[key_name(M)] was selected by the [name] ruleset and has been made into a midround traitor.")
@@ -330,7 +330,7 @@
 			continue
 		if(isnull(player.mind))
 			continue
-		if(player.mind.special_role || length(player.mind.antag_datums))
+		if(player.mind.special_role || !player.mind.can_roll_midround(antag_datum))
 			continue
 		candidates += player
 
@@ -369,6 +369,7 @@
 	requirements = REQUIREMENTS_VERY_HIGH_THREAT_NEEDED
 	flags = HIGH_IMPACT_RULESET
 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_WIZARDDEN)
+	signup_item_path = /obj/item/clothing/head/wizard
 
 /datum/dynamic_ruleset/midround/from_ghosts/wizard/ready(forced = FALSE)
 	if(!check_candidates())
@@ -408,6 +409,7 @@
 	requirements = REQUIREMENTS_VERY_HIGH_THREAT_NEEDED
 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_NUKIEBASE)
 	flags = HIGH_IMPACT_RULESET
+	signup_item_path = /obj/machinery/nuclearbomb
 
 	var/list/operative_cap = list(2,2,3,3,4,5,5,5,5,5)
 
@@ -431,7 +433,7 @@
 	return ..()
 
 /datum/dynamic_ruleset/midround/from_ghosts/nuclear/finish_setup(mob/new_character, index)
-	new_character.mind.set_assigned_role(SSjob.GetJobType(/datum/job/nuclear_operative))
+	new_character.mind.set_assigned_role(SSjob.get_job_type(/datum/job/nuclear_operative))
 	new_character.mind.special_role = ROLE_NUCLEAR_OPERATIVE
 	if(index == 1)
 		var/datum/antagonist/nukeop/leader/leader_antag_datum = new()
@@ -453,6 +455,7 @@
 	cost = 8
 	minimum_players = 25
 	repeatable = TRUE
+	signup_item_path = /obj/structure/blob/normal
 
 /datum/dynamic_ruleset/midround/from_ghosts/blob/generate_ruleset_body(mob/applicant)
 	var/body = applicant.become_overmind()
@@ -496,7 +499,7 @@
 			candidates -= player
 			continue
 
-		if(player.mind && (player.mind.special_role || length(player.mind.antag_datums) > 0))
+		if(player.mind && (player.mind.special_role || !player.mind.can_roll_midround(antag_datum)))
 			candidates -= player
 
 /datum/dynamic_ruleset/midround/from_living/blob_infection/execute()
@@ -526,6 +529,7 @@
 	cost = 10
 	minimum_players = 25
 	repeatable = TRUE
+	signup_item_path = /mob/living/basic/alien
 	var/list/vents = list()
 
 /datum/dynamic_ruleset/midround/from_ghosts/xenomorph/forget_startup()
@@ -554,7 +558,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/xenomorph/generate_ruleset_body(mob/applicant)
 	var/obj/vent = pick_n_take(vents)
 	var/mob/living/carbon/alien/larva/new_xeno = new(vent.loc)
-	new_xeno.key = applicant.key
+	new_xeno.PossessByPlayer(applicant.ckey)
 	new_xeno.move_into_vent(vent)
 	message_admins("[ADMIN_LOOKUPFLW(new_xeno)] has been made into an alien by the midround ruleset.")
 	log_dynamic("[key_name(new_xeno)] was spawned as an alien by the midround ruleset.")
@@ -574,6 +578,7 @@
 	cost = 5
 	minimum_players = 15
 	repeatable = TRUE
+	signup_item_path = /obj/item/light_eater
 
 /datum/dynamic_ruleset/midround/from_ghosts/nightmare/acceptable(population = 0, threat_level = 0)
 	var/turf/spawn_loc = find_maintenance_spawn(atmos_sensitive = TRUE, require_darkness = TRUE) //Checks if there's a single safe, dark tile on station.
@@ -587,12 +592,12 @@
 
 	var/mob/living/carbon/human/new_nightmare = new (find_maintenance_spawn(atmos_sensitive = TRUE, require_darkness = TRUE))
 	player_mind.transfer_to(new_nightmare)
-	player_mind.set_assigned_role(SSjob.GetJobType(/datum/job/nightmare))
+	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/nightmare))
 	player_mind.special_role = ROLE_NIGHTMARE
 	player_mind.add_antag_datum(/datum/antagonist/nightmare)
 	new_nightmare.set_species(/datum/species/shadow/nightmare)
 
-	playsound(new_nightmare, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
+	playsound(new_nightmare, 'sound/effects/magic/ethereal_exit.ogg', 50, TRUE, -1)
 	message_admins("[ADMIN_LOOKUPFLW(new_nightmare)] has been made into a Nightmare by the midround ruleset.")
 	log_dynamic("[key_name(new_nightmare)] was spawned as a Nightmare by the midround ruleset.")
 	return new_nightmare
@@ -610,6 +615,7 @@
 	cost = 7
 	minimum_players = 25
 	repeatable = TRUE
+	signup_item_path = /mob/living/basic/space_dragon
 	var/list/spawn_locs = list()
 
 /datum/dynamic_ruleset/midround/from_ghosts/space_dragon/forget_startup()
@@ -632,7 +638,7 @@
 	player_mind.transfer_to(S)
 	player_mind.add_antag_datum(/datum/antagonist/space_dragon)
 
-	playsound(S, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
+	playsound(S, 'sound/effects/magic/ethereal_exit.ogg', 50, TRUE, -1)
 	message_admins("[ADMIN_LOOKUPFLW(S)] has been made into a Space Dragon by the midround ruleset.")
 	log_dynamic("[key_name(S)] was spawned as a Space Dragon by the midround ruleset.")
 	priority_announce("A large organic energy flux has been recorded near of [station_name()], please stand-by.", "Lifesign Alert")
@@ -689,6 +695,7 @@
 	minimum_players = 30
 	repeatable = TRUE
 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_NINJA_HOLDING_FACILITY) // I mean, no one uses the nets anymore but whateva
+	signup_item_path = /obj/item/energy_katana
 
 	var/list/spawn_locs = list()
 
@@ -709,7 +716,7 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/space_ninja/generate_ruleset_body(mob/applicant)
 	var/mob/living/carbon/human/ninja = create_space_ninja(pick(spawn_locs))
-	ninja.key = applicant.key
+	ninja.PossessByPlayer(applicant.ckey)
 	ninja.mind.add_antag_datum(/datum/antagonist/ninja)
 
 	message_admins("[ADMIN_LOOKUPFLW(ninja)] has been made into a Space Ninja by the midround ruleset.")
@@ -748,6 +755,7 @@
 	cost = 5
 	minimum_players = 15
 	repeatable = TRUE
+	signup_item_path = /mob/living/basic/revenant
 	var/dead_mobs_required = 20
 	var/need_extra_spawns_value = 15
 	var/list/spawn_locs = list()
@@ -781,7 +789,7 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/revenant/generate_ruleset_body(mob/applicant)
 	var/mob/living/basic/revenant/revenant = new(pick(spawn_locs))
-	revenant.key = applicant.key
+	revenant.PossessByPlayer(applicant.ckey)
 	message_admins("[ADMIN_LOOKUPFLW(revenant)] has been made into a revenant by the midround ruleset.")
 	log_game("[key_name(revenant)] was spawned as a revenant by the midround ruleset.")
 	return revenant
@@ -855,7 +863,7 @@
 	candidates = living_players
 	for(var/mob/living/carbon/human/candidate in candidates)
 		if( \
-			!candidate.get_organ_by_type(/obj/item/organ/internal/brain) \
+			!candidate.get_organ_by_type(/obj/item/organ/brain) \
 			|| candidate.mind.has_antag_datum(/datum/antagonist/obsessed) \
 			|| candidate.stat == DEAD \
 			|| !(ROLE_OBSESSED in candidate.client?.prefs?.be_special) \
@@ -890,6 +898,7 @@
 	cost = 7
 	minimum_players = 15
 	repeatable = TRUE
+	signup_item_path = /obj/effect/meteor/meaty/changeling
 
 /datum/dynamic_ruleset/midround/from_ghosts/changeling_midround/generate_ruleset_body(mob/applicant)
 	var/body = generate_changeling_meteor(applicant)
@@ -941,7 +950,7 @@
 	new_datum.original_ref = WEAKREF(clone_victim.mind)
 	new_datum.setup_clone()
 
-	playsound(clone, 'sound/weapons/zapbang.ogg', 30, TRUE)
+	playsound(clone, 'sound/items/weapons/zapbang.ogg', 30, TRUE)
 	new /obj/item/storage/toolbox/mechanical(clone.loc) //so they dont get stuck in maints
 
 	message_admins("[ADMIN_LOOKUPFLW(clone)] has been made into a Paradox Clone by the midround ruleset.")
@@ -966,6 +975,7 @@
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ROUND_REMOVE)
 			continue
 		// NOVA EDIT ADDITION END
+		possible_targets += player
 
 	if(possible_targets.len)
 		return pick(possible_targets)
@@ -988,7 +998,7 @@
 	cost = 5
 	minimum_players = 40
 	repeatable = TRUE
-	signup_item_path = /obj/item/cosmic_skull
+	signup_item_path = /obj/item/clothing/head/helmet/skull/cosmic
 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_VOIDWALKER_VOID)
 	/// The space turf we find in acceptable(), cached for ease
 	var/space_turf
@@ -1006,11 +1016,11 @@
 
 	var/mob/living/carbon/human/voidwalker = new (space_turf)
 	player_mind.transfer_to(voidwalker)
-	player_mind.set_assigned_role(SSjob.GetJobType(/datum/job/voidwalker))
+	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/voidwalker))
 	player_mind.special_role = antag_flag
 	player_mind.add_antag_datum(antag_datum)
 
-	playsound(voidwalker, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
+	playsound(voidwalker, 'sound/effects/magic/ethereal_exit.ogg', 50, TRUE, -1)
 	message_admins("[ADMIN_LOOKUPFLW(voidwalker)] has been made into a Voidwalker by the midround ruleset.")
 	log_dynamic("[key_name(voidwalker)] was spawned as a Voidwalker by the midround ruleset.")
 	return voidwalker

@@ -1,7 +1,4 @@
-import { BooleanLike } from 'common/react';
 import { Component, createRef, RefObject } from 'react';
-
-import { useBackend } from '../../backend';
 import {
   Box,
   Button,
@@ -12,7 +9,10 @@ import {
   Section,
   Stack,
   Tooltip,
-} from '../../components';
+} from 'tgui-core/components';
+import { BooleanLike } from 'tgui-core/react';
+
+import { useBackend } from '../../backend';
 import { NtMessage, NtMessenger, NtPicture } from './types';
 
 type ChatScreenProps = {
@@ -40,7 +40,7 @@ const SEND_COOLDOWN_MS = 1000;
 
 export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
   readUnreadsTimeout: NodeJS.Timeout | null = null;
-  scrollRef: RefObject<HTMLDivElement>;
+  scrollRef: RefObject<HTMLDivElement | null>;
 
   state: ChatScreenState = {
     message: '',
@@ -188,7 +188,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
     const { message, canSend, previewingImage, selectingPhoto, subtleMode } =
       this.state;
 
-    let filteredMessages: JSX.Element[] = [];
+    let filteredMessages: React.JSX.Element[] = [];
 
     for (let index = 0; index < messages.length; index++) {
       const message = messages[index];
@@ -220,7 +220,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
       );
     }
 
-    let sendingBar: JSX.Element;
+    let sendingBar: React.JSX.Element;
 
     if (!canReply) {
       sendingBar = (
@@ -314,7 +314,6 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                   pt={1}
                   onClick={() => act('PDA_clearPhoto')}
                   tooltip="Remove attachment"
-                  tooltipPosition="auto-end"
                 >
                   <Image src={selectedPhoto} />
                 </Button>

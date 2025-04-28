@@ -109,7 +109,7 @@
 	return FALSE
 
 
-/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	. = ..()
 
 	// We remove their name from there if they come back.
@@ -137,7 +137,7 @@
 		return
 
 	if(target.key && target != user)
-		if(!target.get_organ_by_type(/obj/item/organ/internal/brain) || (target.mind && !target.ssd_indicator))
+		if(!target.get_organ_by_type(/obj/item/organ/brain) || (target.mind && !target.ssd_indicator))
 			to_chat(user, span_danger("Awake kin cannot be put back to sleep against their will."))
 			return
 

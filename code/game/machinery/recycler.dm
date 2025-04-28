@@ -15,7 +15,7 @@
 	var/amount_produced = 50
 	var/crush_damage = 1000
 	var/eat_victim_items = TRUE
-	var/item_recycle_sound = 'sound/items/welder.ogg'
+	var/item_recycle_sound = 'sound/items/tools/welder.ogg'
 	var/datum/component/material_container/materials
 
 /obj/machinery/recycler/Initialize(mapload)
@@ -66,7 +66,6 @@
 	The safety-sensors status light is [obj_flags & EMAGGED ? "off" : "on"]."}
 
 /obj/machinery/recycler/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
@@ -76,16 +75,15 @@
 		return FAILED_UNFASTEN
 	return SUCCESSFUL_UNFASTEN
 
-/obj/machinery/recycler/attackby(obj/item/I, mob/user, params)
-	if(default_deconstruction_screwdriver(user, "grinder-oOpen", "grinder-o0", I))
-		return
+/obj/machinery/recycler/crowbar_act(mob/living/user, obj/item/tool)
+	if(default_pry_open(tool, close_after_pry = TRUE))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
-	if(default_pry_open(I, close_after_pry = TRUE))
-		return
-
-	if(default_deconstruction_crowbar(I))
-		return
-	return ..()
+/obj/machinery/recycler/screwdriver_act(mob/living/user, obj/item/tool)
+	if(default_deconstruction_screwdriver(user, "grinder-oOpen", "grinder-o0", tool))
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/recycler/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
@@ -102,8 +100,21 @@
 	var/is_powered = !(machine_stat & (BROKEN|NOPOWER))
 	if(safety_mode)
 		is_powered = FALSE
-	icon_state = icon_name + "[is_powered]" + "[(bloody ? "bld" : "")]" // add the blood tag at the end
+	icon_state = icon_name + "[is_powered]"
 	return ..()
+
+/obj/machinery/recycler/update_overlays()
+	. = ..()
+	if(!bloody)
+		return
+
+	var/mutable_appearance/blood_overlay = mutable_appearance(icon, "[icon_state]bld", appearance_flags = RESET_COLOR|KEEP_APART)
+	var/blood_dna = GET_ATOM_BLOOD_DNA(src)
+	if(blood_dna)
+		blood_overlay.color = get_blood_dna_color(blood_dna)
+	else
+		blood_overlay.color = BLOOD_COLOR_RED
+	. += blood_overlay
 
 /obj/machinery/recycler/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -171,7 +182,7 @@
 				not_eaten += 1
 				continue
 
-		if (istype(thing, /obj/item/organ/internal/brain) || istype(thing, /obj/item/dullahan_relay))
+		if (istype(thing, /obj/item/organ/brain) || istype(thing, /obj/item/dullahan_relay))
 			living_detected = TRUE
 
 		if (istype(thing, /obj/item/mmi))
@@ -206,7 +217,7 @@
 	if(nom.len && sound)
 		playsound(src, item_recycle_sound, (50 + nom.len * 5), TRUE, nom.len, ignore_walls = (nom.len - 10)) // As a substitute for playing 50 sounds at once.
 	if(not_eaten)
-		playsound(src, 'sound/machines/buzz-sigh.ogg', (50 + not_eaten * 5), FALSE, not_eaten, ignore_walls = (not_eaten - 10)) // Ditto.
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', (50 + not_eaten * 5), FALSE, not_eaten, ignore_walls = (not_eaten - 10)) // Ditto.
 
 /obj/machinery/recycler/proc/recycle_item(obj/item/weapon)
 	. = FALSE
@@ -225,7 +236,7 @@
 	qdel(weapon)
 
 /obj/machinery/recycler/proc/emergency_stop()
-	playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
+	playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 	safety_mode = TRUE
 	update_appearance()
 	addtimer(CALLBACK(src, PROC_REF(reboot)), SAFETY_COOLDOWN)
@@ -235,26 +246,26 @@
 	safety_mode = FALSE
 	update_appearance()
 
-/obj/machinery/recycler/proc/crush_living(mob/living/L)
-	L.forceMove(loc)
+/obj/machinery/recycler/proc/crush_living(mob/living/living_mob)
+	living_mob.forceMove(loc)
 
-	if(issilicon(L))
-		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
+	if(issilicon(living_mob))
+		playsound(src, 'sound/items/tools/welder.ogg', 50, TRUE)
 	else
 		playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 
-	if(iscarbon(L))
-		if(L.stat == CONSCIOUS)
-			L.say("ARRRRRRRRRRRGH!!!", forced="recycler grinding")
-		add_mob_blood(L)
+	if(iscarbon(living_mob))
+		if(living_mob.stat == CONSCIOUS)
+			living_mob.say("ARRRRRRRRRRRGH!!!", forced= "recycler grinding")
+		add_mob_blood(living_mob)
 
-	if(!bloody && !issilicon(L))
+	if(!bloody && !issilicon(living_mob))
 		bloody = TRUE
-		update_appearance()
 
 	// Instantly lie down, also go unconscious from the pain, before you die.
-	L.Unconscious(100)
-	L.adjustBruteLoss(crush_damage)
+	living_mob.Unconscious(100)
+	living_mob.adjustBruteLoss(crush_damage)
+	update_appearance()
 
 /obj/machinery/recycler/on_deconstruction(disassembled)
 	safety_mode = TRUE

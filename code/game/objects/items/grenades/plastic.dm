@@ -58,7 +58,7 @@
 	to_chat(user, span_notice("The wire panel can be accessed without a screwdriver."))
 	return TRUE
 
-/obj/item/grenade/c4/attackby(obj/item/item, mob/user, params)
+/obj/item/grenade/c4/attackby(obj/item/item, mob/user, list/modifiers)
 	if(is_wire_tool(item))
 		wires.interact(user)
 	else
@@ -143,8 +143,7 @@
 		var/obj/item/thrown_weapon = bomb_target
 		thrown_weapon.throw_speed = max(1, (thrown_weapon.throw_speed - 3))
 		thrown_weapon.throw_range = max(1, (thrown_weapon.throw_range - 3))
-		if(thrown_weapon.get_embed())
-			thrown_weapon.set_embed(thrown_weapon.get_embed().generate_with_values(embed_chance = 0))
+		thrown_weapon.get_embed()?.embed_chance = 0
 	else if(isliving(bomb_target))
 		plastic_overlay.layer = FLOAT_LAYER
 

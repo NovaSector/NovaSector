@@ -13,7 +13,7 @@
 	melee_damage_upper = 5
 	attack_verb_continuous = "rams"
 	attack_verb_simple = "ram"
-	attack_sound = 'sound/weapons/punch2.ogg'
+	attack_sound = 'sound/items/weapons/punch2.ogg'
 	construct_spells = list(
 		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
 		/datum/action/cooldown/spell/conjure/construct/lesser,
@@ -48,6 +48,7 @@
 // Alternate artificer themes
 /mob/living/basic/construct/artificer/angelic
 	desc = "A bulbous construct dedicated to building and maintaining holy armies."
+	faction = list(FACTION_HOLY)
 	theme = THEME_HOLY
 	construct_spells = list(
 		/datum/action/cooldown/spell/conjure/soulstone/purified,
@@ -61,6 +62,7 @@
 	ADD_TRAIT(src, TRAIT_ANGELIC, INNATE_TRAIT)
 
 /mob/living/basic/construct/artificer/mystic
+	faction = list(ROLE_WIZARD)
 	theme = THEME_WIZARD
 	construct_spells = list(
 		/datum/action/cooldown/spell/conjure/cult_floor,

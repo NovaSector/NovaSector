@@ -1,11 +1,14 @@
 /obj/item/extinguisher
 	name = "fire extinguisher"
 	desc = "A traditional red fire extinguisher."
-	icon = 'icons/obj/tools.dmi' // NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "fire_extinguisher0"
 	worn_icon_state = "fire_extinguisher"
 	inhand_icon_state = "fire_extinguisher"
-	hitsound = 'sound/weapons/smash.ogg'
+	icon_angle = 90
+	hitsound = 'sound/items/weapons/smash.ogg'
+	pickup_sound = 'sound/items/handling/gas_tank/gas_tank_pick_up.ogg'
+	drop_sound = 'sound/items/handling/gas_tank/gas_tank_drop.ogg'
 	obj_flags = CONDUCTS_ELECTRICITY
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
@@ -47,6 +50,9 @@
 	var/cooling_power = 2
 	/// Icon state when inside a tank holder.
 	var/tank_holder_icon_state = "holder_extinguisher"
+	///The sound a fire extinguisher makes when picked up, dropped if there is liquid inside.
+	var/fire_extinguisher_reagent_sloshing_sound = SFX_DEFAULT_LIQUID_SLOSH
+
 
 /obj/item/extinguisher/Initialize(mapload)
 	. = ..()
@@ -65,6 +71,17 @@
 	context[SCREENTIP_CONTEXT_LMB] = "Engage nozzle"
 	context[SCREENTIP_CONTEXT_ALT_LMB] = "Empty"
 	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/extinguisher/dropped(mob/user, silent)
+	. = ..()
+	if(fire_extinguisher_reagent_sloshing_sound && reagents.total_volume > 0)
+		playsound(src, fire_extinguisher_reagent_sloshing_sound, LIQUID_SLOSHING_SOUND_VOLUME, vary = TRUE, ignore_walls = FALSE)
+
+/obj/item/extinguisher/equipped(mob/user, slot, initial = FALSE)
+	. = ..()
+	if((slot & ITEM_SLOT_HANDS) && fire_extinguisher_reagent_sloshing_sound && reagents.total_volume > 0)
+		playsound(src, fire_extinguisher_reagent_sloshing_sound, LIQUID_SLOSHING_SOUND_VOLUME, vary = TRUE, ignore_walls = FALSE)
+
 
 /obj/item/extinguisher/empty
 	starting_water = FALSE
@@ -170,7 +187,7 @@
 	else
 		return ..()
 
-/obj/item/extinguisher/attack_atom(obj/O, mob/living/user, params)
+/obj/item/extinguisher/attack_atom(obj/O, mob/living/user, list/modifiers)
 	if(AttemptRefill(O, user))
 		refilling = TRUE
 		return FALSE
@@ -207,13 +224,15 @@
 	else
 		return FALSE
 
-/obj/item/extinguisher/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	return interact_with_atom(interacting_with, user, modifiers)
-
 /obj/item/extinguisher/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if (interacting_with.loc == user)
+	if(interacting_with.loc == user)
 		return NONE
+	// Always skip interaction if it's a bag or table (that's not on fire)
+	if(!(interacting_with.resistance_flags & ON_FIRE) && HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION))
+		return NONE
+	return ranged_interact_with_atom(interacting_with, user, modifiers)
 
+/obj/item/extinguisher/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(refilling)
 		refilling = FALSE
 		return NONE
@@ -238,7 +257,7 @@
 		var/movementdirection = REVERSE_DIR(direction)
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/extinguisher, move_chair), B, movementdirection), 0.1 SECONDS)
 	else
-		user.newtonian_move(REVERSE_DIR(direction))
+		user.newtonian_move(dir2angle(REVERSE_DIR(direction)))
 
 	//Get all the turfs that can be shot at
 	var/turf/T = get_turf(interacting_with)
@@ -303,7 +322,7 @@
 		user.visible_message(span_notice("[user] empties out \the [src] onto the floor using the release valve."), span_info("You quietly empty out \the [src] using its release valve."))
 
 //firebot assembly
-/obj/item/extinguisher/attackby(obj/O, mob/user, params)
+/obj/item/extinguisher/attackby(obj/O, mob/user, list/modifiers)
 	if(istype(O, /obj/item/bodypart/arm/left/robot) || istype(O, /obj/item/bodypart/arm/right/robot))
 		to_chat(user, span_notice("You add [O] to [src]."))
 		qdel(O)

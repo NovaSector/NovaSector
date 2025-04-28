@@ -30,6 +30,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "cyberpunkgoggle"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	hair_mask = "" //The shape of this hat is too tight to the head to not look insane with a mask
 
 /obj/item/clothing/head/fedora/det_hat/cybergoggles/civilian //Actually civilian with no armor for drip purposes only
 	name = "type-34C semi-enclosed headwear"
@@ -39,6 +40,7 @@
 	icon_state = "cyberpunkgoggle"
 	armor_type = /datum/armor/none
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+	hair_mask = "" //The shape of this hat is too tight to the head to not look insane with a mask
 
 /obj/item/clothing/head/hats/intern/developer
 	name = "intern beancap"
@@ -175,7 +177,6 @@
 /obj/item/clothing/head/fedora/brown //Fedora without detective's candy corn gimmick
 	name = "brown fedora"
 	icon_state = "detective"
-	inhand_icon_state = "det_hat"
 
 /obj/item/clothing/head/standalone_hood
 	name = "hood"
@@ -255,3 +256,41 @@
 	greyscale_config_worn = /datum/greyscale_config/sweet_bow/worn
 	greyscale_colors = "#7b9ab5"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+// Skrell chains
+/obj/item/clothing/head/skrell_chain
+	name = "gold skrellian head chain"
+	desc = "Traditional Skrellian chain"
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	icon_state = "skrell_chain_gold"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/skrell_chains.dmi'
+	worn_icon_state = "chain_gold"
+	w_class = WEIGHT_CLASS_TINY
+	custom_price = PAYCHECK_CREW * 2
+	var/list/chain_styles = list(
+		"Long Diadema" = "long_diadema_gold",
+		"Short Diadema" = "short_diadema_gold",
+		"Long Fest" = "long_fest_gold",
+		"Short Fest" = "short_fest_gold",
+		"Chain" = "chain_gold",
+	)
+
+/obj/item/clothing/head/skrell_chain/examine(mob/user)
+	. = ..()
+	. += span_notice("<b>Use in hand</b> to pick a new style.")
+
+/obj/item/clothing/head/skrell_chain/attack_self(mob/user)
+	var/style_name = tgui_input_list(user, "How does chain look when it's up?", "Pick!", chain_styles)
+	worn_icon_state = chain_styles[style_name]
+	balloon_alert(user, "style choiced!")
+
+/obj/item/clothing/head/skrell_chain/silver
+	name = "silver skrellian head chain"
+	icon_state = "skrell_chain_silver"
+	worn_icon_state = "chain_silver"
+	custom_price = PAYCHECK_CREW
+	chain_styles = list(
+		"Long Diadema" = "long_diadema_silver",
+		"Short Diadema" = "short_diadema_silver",
+		"Chain" = "chain_silver",
+	)

@@ -31,6 +31,8 @@
 		"Off-Duty Staff",
 		"Colonist",
 		"Contractor",
+		"Visitor",
+		"Traveler",
 	)
 
 /datum/job/atmospheric_technician
@@ -234,6 +236,7 @@
 		"Physician",
 		"Surgeon",
 		"Medical Student",
+		"Registered Nurse",
 	)
 
 /datum/job/engineering_guard //see orderly
@@ -311,6 +314,7 @@
 		"Emergency Medical Technician",
 		"Search and Rescue Technician",
 		"Trauma Team Responder",
+		"Emergency Medical Responder",
 	)
 
 /datum/job/prisoner
@@ -320,6 +324,7 @@
 		"Maximum Security Prisoner",
 		"SuperMax Security Prisoner",
 		"Protective Custody Prisoner",
+		"Psychiatric Hold Prisoner",
 	)
 
 /datum/job/psychologist
@@ -349,6 +354,7 @@
 		"Lead Researcher",
 		"Research Supervisor",
 		"Silicon Administrator",
+		"Director of Science",
 	)
 
 /datum/job/roboticist
@@ -383,9 +389,9 @@
 /datum/job/security_officer
 	alt_titles = list(
 		"Security Officer",
-		"Peacekeeper",
 		"Security Operative",
 		"Security Cadet",
+		"Security Specialist",
 	)
 
 /datum/job/shaft_miner
@@ -408,6 +414,7 @@
 		"EVA Technician",
 		"Mechanic",
 		"Apprentice Engineer",
+		"Nuclear Engineer",
 	)
 
 /datum/job/telecomms_specialist

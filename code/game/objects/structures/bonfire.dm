@@ -39,7 +39,7 @@
 	QDEL_NULL(burning_loop)
 	. = ..()
 
-/obj/structure/bonfire/attackby(obj/item/used_item, mob/living/user, params)
+/obj/structure/bonfire/attackby(obj/item/used_item, mob/living/user, list/modifiers)
 	if(istype(used_item, /obj/item/stack/rods) && !can_buckle && !grill)
 		var/obj/item/stack/rods/rods = used_item
 		var/choice = tgui_alert(user, "What would you like to construct?", "Bonfire", list("Stake","Grill"))
@@ -52,7 +52,7 @@
 				buckle_requires_restraints = TRUE
 				to_chat(user, span_notice("You add a rod to \the [src]."))
 				var/mutable_appearance/rod_underlay = mutable_appearance('icons/obj/service/hydroponics/equipment.dmi', "bonfire_rod")
-				rod_underlay.pixel_y = 16
+				rod_underlay.pixel_z = 16
 				underlays += rod_underlay
 			if("Grill")
 				grill = TRUE
@@ -68,13 +68,12 @@
 		if(!user.combat_mode && !(used_item.item_flags & ABSTRACT))
 			if(user.temporarilyRemoveItemFromInventory(used_item))
 				used_item.forceMove(get_turf(src))
-				var/list/modifiers = params2list(params)
 				//Center the icon where the user clicked.
 				if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 					return
 				//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-				used_item.pixel_x = used_item.base_pixel_x + clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)
-				used_item.pixel_y = used_item.base_pixel_y + clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
+				used_item.pixel_x = used_item.base_pixel_x + clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(ICON_SIZE_X/2), ICON_SIZE_X/2)
+				used_item.pixel_y = used_item.base_pixel_y + clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(ICON_SIZE_Y/2), ICON_SIZE_Y/2)
 		else
 			return ..()
 
@@ -184,6 +183,13 @@
 
 /obj/structure/bonfire/dense
 	density = TRUE
+
+/obj/structure/bonfire/dense/prelit/Initialize(mapload)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/bonfire/dense/prelit/LateInitialize()
+	start_burning()
 
 /obj/structure/bonfire/prelit/Initialize(mapload)
 	. = ..()

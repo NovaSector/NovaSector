@@ -23,7 +23,7 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/can_shatter, number_of_shards = 0, shattering_sound = 'sound/weapons/gun/general/mag_bullet_remove.ogg', shatters_as_weapon = TRUE)
+	AddElement(/datum/element/can_shatter, number_of_shards = 0, shattering_sound = 'sound/items/weapons/gun/general/mag_bullet_remove.ogg', shatters_as_weapon = TRUE)
 
 /obj/item/ammo_box/magazine/ammo_stack/attack_self(mob/user)
 	. = ..()

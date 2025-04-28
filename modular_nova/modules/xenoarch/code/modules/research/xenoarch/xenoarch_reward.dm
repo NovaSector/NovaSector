@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(tier1_reward, list(
-	/obj/item/xenoarch/useless_relic = 5,
+	/obj/item/xenoarch/useless_relic = 10,
 	/obj/item/stack/sheet/sinew = 1,
 	/obj/item/stack/sheet/animalhide/goliath_hide = 1,
 	/obj/item/stack/sheet/bone = 1,
-	/obj/item/organ/internal/monster_core/regenerative_core/legion = 1,
+	/obj/item/organ/monster_core/regenerative_core/legion/preserved = 2,
 ))
 
 GLOBAL_LIST_INIT(tier2_reward, list(
@@ -11,14 +11,13 @@ GLOBAL_LIST_INIT(tier2_reward, list(
 	/obj/item/xenoarch/broken_item/plant = 1,
 	/obj/item/xenoarch/broken_item/clothing = 1,
 	/obj/item/xenoarch/broken_item/animal = 1,
-	/obj/item/xenoarch/useless_relic = 5,
 ))
 
 GLOBAL_LIST_INIT(tier3_reward, list(
 	/obj/item/xenoarch/broken_item/weapon = 3,
 	/obj/item/xenoarch/broken_item/illegal = 1,
-	/obj/item/xenoarch/broken_item/alien = 1,
-	/obj/item/stack/spacecash/c10000 = 1,
+	/obj/item/xenoarch/broken_item/alien = 2,
+	/obj/item/stack/spacecash/c5000 = 2,
 ))
 
 
@@ -40,14 +39,13 @@ GLOBAL_LIST_INIT(tech_reward, list(
 ))
 
 GLOBAL_LIST_INIT(weapon_reward, list(
-	/obj/item/spear/bonespear = 6,
+	/obj/item/spear/bonespear = 2,
 	/obj/item/gun/ballistic/bow/tribalbow/ashen = 2,
 	/obj/item/ammo_casing/arrow/ash = 1,
 	/obj/item/claymore/cutlass = 1,
-	/obj/item/gun/ballistic/automatic/pistol = 1,
+	/obj/item/pen/edagger = 1,
 	/obj/item/shield/riot = 1,
 	/obj/item/shield/roman = 1,
-	/obj/item/pneumatic_cannon = 1,
 	/obj/item/gun/syringe/rapidsyringe = 1,
 ))
 
@@ -71,10 +69,11 @@ GLOBAL_LIST_INIT(clothing_reward, list(
 	/obj/item/clothing/neck/necklace/translator/hearthkin = 1,
 	/obj/item/clothing/head/helmet/gladiator = 1,
 	/obj/item/clothing/under/costume/gladiator/ash_walker = 1,
+	/obj/item/storage/box/syndie_kit/chameleon = 5,
 ))
 
 GLOBAL_LIST_INIT(illegal_reward, list(
-	/obj/item/stack/telecrystal = 1,
+	/obj/item/card/emag/doorjack = 1,
 	/obj/item/storage/box/rndboards = 1,
 ))
 
@@ -96,7 +95,7 @@ GLOBAL_LIST_INIT(animal_reward, list(
 	/obj/item/stack/sheet/sinew = 1,
 	/obj/item/stack/sheet/animalhide/goliath_hide = 1,
 	/obj/item/stack/sheet/bone = 1,
-	/obj/item/organ/internal/monster_core/regenerative_core/legion = 1,
+	/obj/item/organ/monster_core/regenerative_core/legion/preserved = 2,
 ))
 
 GLOBAL_LIST_INIT(alien_reward, list(

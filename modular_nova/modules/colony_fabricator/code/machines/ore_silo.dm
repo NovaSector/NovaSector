@@ -9,7 +9,7 @@
 
 /obj/machinery/ore_silo/colony_lathe/silo_log(obj/machinery/machinery_in_question, action, amount, noun, list/mats)
 	. = ..()
-	playsound(src, 'sound/machines/beep.ogg', 30, TRUE)
+	playsound(src, 'sound/machines/beep/beep.ogg', 30, TRUE)
 	AddElement(/datum/element/repackable, packed_type, 10 SECONDS)
 
 /obj/machinery/ore_silo/colony_lathe/default_deconstruction_crowbar()
@@ -18,6 +18,7 @@
 // Item for deploying ore silos
 /obj/item/flatpacked_machine/ore_silo
 	name = "flat-packed ore silo"
+	desc = /obj/machinery/ore_silo/colony_lathe::desc
 	icon = 'modular_nova/modules/colony_fabricator/icons/ore_silo.dmi'
 	icon_state = "ore_silo"
 	type_to_deploy = /obj/machinery/ore_silo/colony_lathe

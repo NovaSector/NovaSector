@@ -1,7 +1,7 @@
 /obj/item/weldingtool/electric
 	name = "electrical welding tool"
 	desc = "An experimental welding tool capable of welding functionality through the use of electricity. The flame seems almost cold."
-	icon = 'modular_nova/modules/aesthetics/tools/tools.dmi'
+	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'
 	icon_state = "elwelder"
 	light_power = 1
 	light_color = LIGHT_COLOR_HALOGEN
@@ -24,7 +24,7 @@
 		if(!(item_use_power(power_use_amount, user, TRUE) & COMPONENT_POWER_SUCCESS))
 			return
 	powered = !powered
-	playsound(src, 'sound/effects/sparks4.ogg', 100, TRUE)
+	playsound(src, 'sound/effects/sparks/sparks4.ogg', 100, TRUE)
 	if(powered)
 		to_chat(user, span_notice("You turn [src] on."))
 		switched_on()
@@ -38,7 +38,7 @@
 	light_on = TRUE
 	force = 15
 	damtype = BURN
-	hitsound = 'sound/items/welder.ogg'
+	hitsound = 'sound/items/tools/welder.ogg'
 	set_light_on(powered)
 	update_appearance()
 	START_PROCESSING(SSobj, src)

@@ -50,9 +50,9 @@
  * Handles sending this signal to every available receiver and mainframe.
  */
 /datum/signal/subspace/proc/send_to_receivers()
-	for(var/obj/machinery/telecomms/receiver/receiver in GLOB.telecomms_list)
+	for(var/obj/machinery/telecomms/receiver/receiver in GLOB.telecomm_machines)
 		receiver.receive_signal(src)
-	for(var/obj/machinery/telecomms/allinone/all_in_one_receiver in GLOB.telecomms_list)
+	for(var/obj/machinery/telecomms/allinone/all_in_one_receiver in GLOB.telecomm_machines)
 		all_in_one_receiver.receive_signal(src)
 
 /// Handles broadcasting this signal out, to be implemented by subtypes.
@@ -155,7 +155,7 @@
 		if (TRANSMISSION_SUPERSPACE)
 			// Only radios which are independent
 			for(var/obj/item/radio/independent_radio in GLOB.all_radios["[frequency]"])
-				if(independent_radio.independent && independent_radio.can_receive(frequency, signal_reaches_every_z_level))
+				if((independent_radio.special_channels & RADIO_SPECIAL_CENTCOM) && independent_radio.can_receive(frequency, signal_reaches_every_z_level))
 					radios += independent_radio
 
 	for(var/obj/item/radio/called_radio as anything in radios)

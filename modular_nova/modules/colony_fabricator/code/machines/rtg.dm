@@ -6,7 +6,7 @@
 		application."
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	circuit = null
-	power_gen = 7.5 KILO WATTS
+	power_gen = 14 KILO WATTS // It's pretty expensive.
 	/// What we turn into when we are repacked
 	var/repacked_type = /obj/item/flatpacked_machine/rtg
 
@@ -32,6 +32,7 @@
 
 /obj/item/flatpacked_machine/rtg
 	name = "flat-packed radioisotope thermoelectric generator"
+	desc = /obj/machinery/power/rtg/portable::desc
 	icon_state = "rtg_packed"
 	type_to_deploy = /obj/machinery/power/rtg/portable
 	custom_materials = list(

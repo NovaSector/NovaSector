@@ -23,6 +23,10 @@
 	resistance_flags = NONE
 	max_integrity = 300
 	storage_type = /datum/storage/backpack
+	pickup_sound = 'sound/items/handling/backpack/backpack_pickup1.ogg'
+	drop_sound = 'sound/items/handling/backpack/backpack_drop1.ogg'
+	equip_sound = 'sound/items/equip/backpack_equip.ogg'
+	sound_vary = TRUE
 
 /obj/item/storage/backpack/Initialize(mapload)
 	. = ..()
@@ -34,7 +38,7 @@
 
 /obj/item/bag_of_holding_inert
 	name = "inert bag of holding"
-	desc = "What is currently a just an unwieldly block of metal with a slot ready to accept a bluespace anomaly core."
+	desc = "What is currently a just an unwieldy block of metal with a slot ready to accept a bluespace anomaly core."
 	icon = 'icons/obj/storage/backpack.dmi'
 	worn_icon = 'icons/mob/clothing/back/backpack.dmi'
 	icon_state = "bag_of_holding-inert"
@@ -59,6 +63,8 @@
 	item_flags = NO_MAT_REDEMPTION
 	armor_type = /datum/armor/backpack_holding
 	storage_type = /datum/storage/bag_of_holding
+	pickup_sound = null
+	drop_sound = null
 
 /datum/armor/backpack_holding
 	fire = 60
@@ -250,7 +256,7 @@
 	attack_verb_simple = list("MEAT", "MEAT MEAT")
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 25) // MEAT
 	///Sounds used in the squeak component
-	var/list/meat_sounds = list('sound/effects/blobattack.ogg' = 1)
+	var/list/meat_sounds = list('sound/effects/blob/blobattack.ogg' = 1)
 	///Reagents added to the edible component, ingested when you EAT the MEAT
 	var/list/meat_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 10,
@@ -265,7 +271,8 @@
 
 /obj/item/storage/backpack/meat/Initialize(mapload)
 	. = ..()
-	AddComponent(
+	AddComponentFrom(
+		SOURCE_EDIBLE_INNATE, \
 		/datum/component/edible,\
 		initial_reagents = meat_reagents,\
 		foodtypes = foodtypes,\
@@ -408,6 +415,7 @@
 	icon_state = "duffel"
 	inhand_icon_state = "duffel"
 	actions_types = list(/datum/action/item_action/zipper)
+	action_slots = ALL
 	storage_type = /datum/storage/duffel
 	// How much to slow you down if your bag isn't zipped up
 	var/zip_slowdown = 1
@@ -417,11 +425,11 @@
 	// How much time it takes to zip up (close) the duffelbag
 	var/zip_up_duration = 0.5 SECONDS
 	// Audio played during zipup
-	var/zip_up_sfx = 'sound/items/zip_up.ogg'
+	var/zip_up_sfx = 'sound/items/zip/zip_up.ogg'
 	// How much time it takes to unzip the duffel
 	var/unzip_duration = 2.1 SECONDS
 	// Audio played during unzip
-	var/unzip_sfx = 'sound/items/un_zip.ogg'
+	var/unzip_sfx = 'sound/items/zip/un_zip.ogg'
 
 /obj/item/storage/backpack/duffelbag/Initialize(mapload)
 	. = ..()
@@ -491,19 +499,16 @@
 	SEND_SIGNAL(src, COMSIG_DUFFEL_ZIP_CHANGE, new_zip)
 	if(zipped_up)
 		slowdown = initial(slowdown)
-		atom_storage.locked = STORAGE_SOFT_LOCKED
+		atom_storage.set_locked(STORAGE_SOFT_LOCKED)
 		atom_storage.display_contents = FALSE
-		for(var/obj/item/weapon as anything in get_all_contents_type(/obj/item)) //close ui of this and all items inside dufflebag
-			weapon.atom_storage?.close_all() //not everything has storage initialized
 	else
 		slowdown = zip_slowdown
-		atom_storage.locked = STORAGE_NOT_LOCKED
+		atom_storage.set_locked(STORAGE_NOT_LOCKED)
 		atom_storage.display_contents = TRUE
 
 	if(isliving(loc))
 		var/mob/living/wearer = loc
 		wearer.update_equipment_speed_mods()
-	update_appearance()
 
 /obj/item/storage/backpack/duffelbag/cursed
 	name = "living duffel bag"
@@ -592,7 +597,7 @@
 	new /obj/item/surgicaldrill(src)
 	new /obj/item/cautery(src)
 	new /obj/item/surgical_drapes(src)
-	new /obj/item/clothing/suit/toggle/labcoat/hospitalgown(src)	//NOVA EDIT ADDITION
+	new /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown(src) //NOVA EDIT ADDITION
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/blood_filter(src)
 
@@ -643,7 +648,7 @@
 	zip_slowdown = 0.3
 	// Faster unzipping. Utilizes the same noise as zipping up to fit the unzip duration.
 	unzip_duration = 0.5 SECONDS
-	unzip_sfx = 'sound/items/zip_up.ogg'
+	unzip_sfx = 'sound/items/zip/zip_up.ogg'
 
 //NOVA EDIT CHANGE START - It's just a black duffel.
 /obj/item/storage/backpack/duffelbag/syndie

@@ -152,7 +152,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 		wound2fix.remove_wound()
 		balloon_alert(user, "wound treated")
 		charge_amount -= 20
-		playsound(src, 'sound/surgery/saw.ogg', 40, TRUE)
+		playsound(src, 'sound/items/handling/surgery/saw.ogg', 40, TRUE)
 		update_appearance()
 	return TRUE
 
@@ -169,7 +169,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 			user.adjustOxyLoss(-overall_damage/2, updating_health = FALSE)
 			balloon_alert(user, "damage treated")
 			charge_amount -= 15
-			playsound(src, 'sound/surgery/retractor1.ogg', 40, TRUE)
+			playsound(src, 'sound/items/handling/surgery/retractor1.ogg', 40, TRUE)
 			update_appearance()
 	else
 		balloon_alert(user, "no damage!")

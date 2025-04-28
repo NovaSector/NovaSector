@@ -41,7 +41,7 @@
 		return
 	variant = rand(1,3)
 
-/obj/machinery/griddle/proc/on_expose_reagent(atom/parent_atom, datum/reagent/exposing_reagent, reac_volume)
+/obj/machinery/griddle/proc/on_expose_reagent(atom/parent_atom, datum/reagent/exposing_reagent, reac_volume, methods)
 	SIGNAL_HANDLER
 
 	if(griddled_objects.len >= max_items || !istype(exposing_reagent, /datum/reagent/consumable/pancakebatter) || reac_volume < 5)
@@ -62,19 +62,18 @@
 	return default_deconstruction_crowbar(I, ignore_panel = TRUE)
 
 
-/obj/machinery/griddle/attackby(obj/item/I, mob/user, params)
+/obj/machinery/griddle/attackby(obj/item/I, mob/user, list/modifiers)
 
 	if(griddled_objects.len >= max_items)
 		to_chat(user, span_notice("[src] can't fit more items!"))
 		return
-	var/list/modifiers = params2list(params)
 	//Center the icon where the user clicked.
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 		return
 	if(user.transferItemToLoc(I, src, silent = FALSE))
 		//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
-		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)
-		I.pixel_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
+		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(ICON_SIZE_X/2), ICON_SIZE_X/2)
+		I.pixel_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(ICON_SIZE_Y/2), ICON_SIZE_Y/2)
 		to_chat(user, span_notice("You place [I] on [src]."))
 		AddToGrill(I, user)
 	else

@@ -1,5 +1,0 @@
-author: "CliffracerX"
-delete-after: True
-changes:
-  - rscadd: "Expands character customization by adding all species limbs to the augments tab."
-  - bugfix: "Fixes augments that use icon_greyscale not rendering properly on character creation."

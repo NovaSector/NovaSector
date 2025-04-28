@@ -43,7 +43,7 @@
 	synced_bank_account = null
 	return ..()
 
-/obj/machinery/computer/bank_machine/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/computer/bank_machine/attackby(obj/item/weapon, mob/user, list/modifiers)
 	var/value = 0
 	if(istype(weapon, /obj/item/stack/spacecash))
 		var/obj/item/stack/spacecash/inserted_cash = weapon
@@ -51,6 +51,9 @@
 	else if(istype(weapon, /obj/item/holochip))
 		var/obj/item/holochip/inserted_holochip = weapon
 		value = inserted_holochip.credits
+	else if(istype(weapon, /obj/item/coin))
+		var/obj/item/coin/inserted_coin = weapon
+		value = inserted_coin.value
 	if(value)
 		if(synced_bank_account)
 			synced_bank_account.adjust_money(value)
@@ -73,7 +76,7 @@
 		end_siphon()
 		return
 
-	playsound(src, 'sound/items/poster_being_created.ogg', 100, TRUE)
+	playsound(src, 'sound/items/poster/poster_being_created.ogg', 100, TRUE)
 	syphoning_credits += siphon_am
 	synced_bank_account.adjust_money(-siphon_am)
 	if(next_warning < world.time && prob(15))

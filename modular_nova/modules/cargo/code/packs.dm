@@ -159,7 +159,7 @@
 /datum/supply_pack/security/armor_nova
 	name = "Armor Crate"
 	desc = "Three vests of well-rounded, decently-protective armor."
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 3
 	access_view = ACCESS_SECURITY
 	contains = list(
 		/obj/item/clothing/suit/armor/vest/alt,
@@ -171,8 +171,8 @@
 /datum/supply_pack/security/helmets_nova
 	name = "Helmets Crate"
 	desc = "Contains three standard-issue brain buckets."
-	cost = CARGO_CRATE_VALUE * 2
-	contains = list(/obj/item/clothing/head/helmet/sec/sol = 3)
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(/obj/item/clothing/head/helmet/sec = 3)
 	crate_name = "helmet crate"
 
 /datum/supply_pack/security/deployablebarricades
@@ -184,6 +184,26 @@
 		/obj/item/storage/barricade,
 	)
 	crate_name = "C.U.C.K.S Crate"
+
+/*
+* ARMORY
+*/
+
+/datum/supply_pack/security/armory/battle_rifle
+	cost = CARGO_CRATE_VALUE * 15
+	contains = list(
+		/obj/item/gun/ballistic/automatic/battle_rifle = 3,
+		/obj/item/ammo_box/magazine/m38 = 6,
+	)
+
+/datum/supply_pack/security/armory/br_mag
+	desc = "Fourteen .38 magazines, able to fit into the NT BR-38. Contains \
+		nine standard magazines, three Hot Shot magazines and three Iceblox magazines."
+	contains = list(
+		/obj/item/ammo_box/magazine/m38 = 8,
+		/obj/item/ammo_box/magazine/m38/hotshot = 3,
+		/obj/item/ammo_box/magazine/m38/iceblox = 3,
+	)
 
 /*
 *	ENGINEERING
@@ -275,6 +295,34 @@
 		/obj/item/construction/rcd/improved,
 	)
 	crate_name = "improved RCD crate"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
+/datum/supply_pack/engine/reactor_fuel
+	name = "Preloaded RBMK2 reactor rod"
+	desc = "Contains a single preloaded reactor rod. Comes with 80 moles of tritium."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(/obj/item/tank/rbmk2_rod/preloaded)
+	crate_name = "RBMK2 reactor rod"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
+/datum/supply_pack/engine/rbmk2_engine
+	name = "RBMK2 circuit boards and rods"
+	desc = "Contains four RBMK2 circuit boards for construction and fuel rods. Does not come with the required materials to construct them. Comes with a printed guide."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 55
+	contains = list(
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/paper/guides/jobs/engi/rbmk2,
+	)
+	crate_name = "RBMK2 circuit boards"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
 /*
@@ -503,7 +551,7 @@
 
 /datum/supply_pack/organic/bulkcanliz
 	name = "Bulk Lizard Goods"
-	desc = "Having some devious tastes? One of your scalie friends wanting something that isn't fried mystery meat? Well you're just one order away from from the perfect pleaser. Containing Three (3) Cans of our finest-sourced canned jellyfish, snails and bee larvae, An addition of Three (3) packs of cruelty free Moonfish eggs might get their hearts."
+	desc = "Having some devious tastes? One of your scalie friends wanting something that isn't fried mystery meat? Well you're just one order away from the perfect pleaser. Containing Three (3) Cans of our finest-sourced canned jellyfish, snails and bee larvae, An addition of Three (3) packs of cruelty free Moonfish eggs might get their hearts."
 	cost = CARGO_CRATE_VALUE * 3.5
 	contains = list(
 		/obj/item/food/canned/jellyfish,
@@ -644,7 +692,7 @@
 /datum/supply_pack/organic/lavalandsamples
 	name = "Planetary Flora Samples"
 	desc = "A box of samples taken from the surface of Lavaland. Requires Hydroponics access to open."
-	cost = CARGO_CRATE_VALUE * 2
+	cost = CARGO_CRATE_VALUE * 6
 	access_view = ACCESS_HYDROPONICS
 	contains = list(
 		/obj/item/seeds/lavaland/polypore,
@@ -709,3 +757,15 @@
 	desc = "Contains a single restock for the Fab-O-Vend, great for those who are indecisive about their looks."
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/barbervend)
+
+/datum/supply_pack/imports/starfruit_seed
+	name = "Primidine Starfruit Seeds"
+	desc = "A rare seed which grows into an even rarer Starfruit plant. The Starfruit was harvested for only 55 days each year on the planet Primidine, before it was made uninhabitable to colonists."
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(
+		/obj/item/seeds/starfruit = 2,
+		/obj/item/book/manual/starfruit = 1,
+	)
+
+/datum/supply_pack/imports/error
+	cost = CARGO_CRATE_VALUE * 400 // 20k is a lot on TG, it's not as much here. Upped to 80k

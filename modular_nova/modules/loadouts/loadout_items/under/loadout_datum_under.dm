@@ -43,12 +43,18 @@
 /datum/loadout_item/under/jumpsuit/random
 	name = "Random Jumpsuit"
 	item_path = /obj/item/clothing/under/color/random
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/under/jumpsuit/random/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 /datum/loadout_item/under/jumpsuit/random_skirt
 	name = "Random Jumpskirt"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/under/jumpsuit/random_skirt/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 /datum/loadout_item/under/jumpsuit/frontier
 	name = "Frontier Jumpsuit"
@@ -119,42 +125,73 @@
 
 /datum/loadout_item/under/jumpsuit/security_dress
 	name = "Security Battle Dress"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/dress
+	item_path = /obj/item/clothing/under/rank/security/nova/dress
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_dress_blue
+	name = "Blue Security Battle Dress"
+	item_path = /obj/item/clothing/under/rank/security/nova/dress/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_trousers
 	name = "Security Trousers"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers
+	item_path = /obj/item/clothing/under/rank/security/nova/trousers
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_trousers_blue
+	name = "Blue Security Trousers"
+	item_path = /obj/item/clothing/under/rank/security/nova/trousers/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_shorts
 	name = "Security Shorts"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/trousers/shorts
+	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
-/datum/loadout_item/under/jumpsuit/security_jumpskirt
-	name = "Security Jumpskirt"
-	item_path = /obj/item/clothing/under/rank/security/officer/skirt
+/datum/loadout_item/under/jumpsuit/security_shorts_blue
+	name = "Blue Security Shorts"
+	item_path = /obj/item/clothing/under/rank/security/nova/trousers/shorts/blue
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_jumpskirt_blue
+	name = "Blue Security Jumpskirt"
+	item_path = /obj/item/clothing/under/rank/security/nova/skirt
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_plain_skirt
-	name = "Security Plain Skirt"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/plain_skirt
+	name = "Blue Security Plain Skirt"
+	item_path = /obj/item/clothing/under/rank/security/nova/skirt/plain
+
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/security_miniskirt
 	name = "Security Miniskirt"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/miniskirt
+	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
-/datum/loadout_item/under/jumpsuit/security_jumpsuit
+/datum/loadout_item/under/jumpsuit/security_miniskirt_blue
+	name = "Blue Security Miniskirt"
+	item_path = /obj/item/clothing/under/rank/security/nova/skirt/mini/blue
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_jumpsuit_black
 	name = "Security Jumpsuit"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper/jumpsuit
+	item_path = /obj/item/clothing/under/rank/security/nova/officer
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
-/datum/loadout_item/under/jumpsuit/security_peacekeeper
-	name = "Security Peacekeeper Uniform"
-	item_path = /obj/item/clothing/under/rank/security/peacekeeper
+/datum/loadout_item/under/jumpsuit/security_turtleneck
+	name = "Security Turtleneck"
+	item_path = /obj/item/clothing/under/rank/security/nova/turtleneck
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_turtleneck_blue
+	name = "Blue Security Turtleneck"
+	item_path = /obj/item/clothing/under/rank/security/nova/turtleneck/blue
+	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
+
+/datum/loadout_item/under/jumpsuit/security_formal
+	name = "Security Formal Uniform"
+	item_path = /obj/item/clothing/under/rank/security/nova/formal
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/under/jumpsuit/colonial_uniform
@@ -287,6 +324,14 @@
 	item_path = /obj/item/clothing/under/tarkon/com
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
+/datum/loadout_item/under/jumpsuit/medical_uniform
+	name = "Medical Doctor's jumpsuit"
+	item_path = /obj/item/clothing/under/rank/medical/doctor
+
+/datum/loadout_item/under/jumpsuit/medical_uniform_skirt
+	name = "Medical Doctor's jumpskirt"
+	item_path = /obj/item/clothing/under/rank/medical/doctor/skirt
+
 /*
  *	MISC UNDERSUITS
  */
@@ -341,6 +386,10 @@
 /datum/loadout_item/under/miscellaneous/big_pants
 	name = "'JUNCO' Megacargo Pants"
 	item_path = /obj/item/clothing/under/pants/nova/big_pants
+
+/datum/loadout_item/under/miscellaneous/loose_pants
+	name = "Loose pants"
+	item_path = /obj/item/clothing/under/pants/nova/loose_pants
 
 /datum/loadout_item/under/miscellaneous/yoga
 	name = "Recolorable Yoga Pants"
@@ -459,6 +508,50 @@
 /datum/loadout_item/under/miscellaneous/wedding_dress/ribbon
 	name = "Wedding Dress With Ribbon"
 	item_path = /obj/item/clothing/under/dress/wedding_dress/ribbon
+
+/datum/loadout_item/under/miscellaneous/giant_scarf
+	name = "Giant Scarf"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_crystal
+	name = "Giant Scarf (Crystal)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/crystal
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_stripe
+	name = "Giant Scarf (Stripe)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/stripe
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_twotone
+	name = "Giant Scarf (Two-Tone)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/two_tone
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_arrow
+	name = "Giant Scarf (Arrow)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/arrow
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_fancy
+	name = "Giant Scarf (Fancy)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/fancy
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_sepharim
+	name = "Giant Scarf (Sepharim)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/sepharim
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_bones
+	name = "Giant Scarf (Bones)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/bones
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_lines
+	name = "Giant Scarf (Lines)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/lines
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_runes
+	name = "Giant Scarf (Runes)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/runes
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_heart
+	name = "Giant Scarf (Heart)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/heart
 
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"
@@ -580,6 +673,11 @@
 	name = "Colourable Maid Uniform"
 	item_path = /obj/item/clothing/under/maid_costume
 
+/datum/loadout_item/under/miscellaneous/tactical_maid_costume
+	name = "Tactical Maid Uniform"
+	item_path = /obj/item/clothing/under/syndicate/nova/maid/loadout_maid
+
+
 /datum/loadout_item/under/miscellaneous/yukata
 	name = "Yukata"
 	item_path = /obj/item/clothing/under/costume/nova/yukata
@@ -689,8 +787,8 @@
 	item_path = /obj/item/clothing/under/misc/latex_catsuit
 
 /datum/loadout_item/under/miscellaneous/stripper_outfit
-	name = "Stripper Outfit"
-	item_path = /obj/item/clothing/under/stripper_outfit
+	name = "Tearaway Garments"
+	item_path = /obj/item/clothing/under/tearaway_garments
 	erp_item = TRUE
 
 /datum/loadout_item/under/miscellaneous/lewdmaid
@@ -1116,26 +1214,18 @@
 /datum/loadout_item/under/formal/azulea_oldblood
 	name = " Oldblood's Royal regalia"
 	item_path = /obj/item/clothing/under/rank/azulean/old_blood
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/under/formal/azulea_oldblood/skirt
 	name = " Oldblood's Royal regalia (Skirt)"
 	item_path = /obj/item/clothing/under/rank/azulean/old_blood/skirt
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/under/formal/azulea_upstart
 	name = "Upstart's Noble Getup"
 	item_path = /obj/item/clothing/under/rank/azulean/upstart
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/under/formal/azulea_upstart/skirt
 	name = "Upstart's Noble Getup (Skirt)"
 	item_path = /obj/item/clothing/under/rank/azulean/upstart/skirt
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /// DONATOR
 /datum/loadout_item/under/donator

@@ -70,6 +70,7 @@
 /datum/job/security_officer
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/detective
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
@@ -78,35 +79,43 @@
 /datum/job/warden
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/blueshield
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/corrections_officer
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS)
 	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 // Command
 /datum/job/captain
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/nanotrasen_consultant
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/head_of_security
 	banned_quirks = list(SEC_RESTRICTED_QUIRKS, HEAD_RESTRICTED_QUIRKS)
 	banned_augments = list(SEC_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/chief_medical_officer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/chief_engineer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS, "Paraplegic" = TRUE)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
+	species_blacklist = list(SPECIES_ABDUCTORWEAK = TRUE)
 
 /datum/job/research_director
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)

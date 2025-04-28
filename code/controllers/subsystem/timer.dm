@@ -17,7 +17,6 @@
 SUBSYSTEM_DEF(timer)
 	name = "Timer"
 	wait = 1 // SS_TICKER subsystem, so wait is in ticks
-	init_order = INIT_ORDER_TIMER
 	priority = FIRE_PRIORITY_TIMER
 	flags = SS_TICKER|SS_NO_INIT
 
@@ -524,7 +523,7 @@ SUBSYSTEM_DEF(timer)
 		2 = timeToRun,
 		3 = wait,
 		4 = flags,
-		5 = callBack, /* Safe to hold this directly becasue it's never del'd */
+		5 = callBack, /* Safe to hold this directly because it's never del'd */
 		6 = "[callBack.object]",
 		7 = text_ref(callBack.object),
 		8 = getcallingtype(),
@@ -539,7 +538,7 @@ SUBSYSTEM_DEF(timer)
 		2 = timeToRun,
 		3 = wait,
 		4 = flags,
-		5 = callBack, /* Safe to hold this directly becasue it's never del'd */
+		5 = callBack, /* Safe to hold this directly because it's never del'd */
 		6 = "[callBack.object]",
 		7 = getcallingtype(),
 		8 = callBack.delegate,

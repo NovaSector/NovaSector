@@ -52,7 +52,9 @@
 		if(!(direction & initialize_directions))
 			continue
 
-		. += get_pipe_image(icon, "cap", direction, pipe_color, piping_layer, TRUE)
+		var/image/cap = get_pipe_image(icon, "cap", direction, pipe_color, piping_layer, TRUE)
+		cap.appearance_flags |= RESET_COLOR|KEEP_APART
+		. += cap
 
 /obj/machinery/atmospherics/components/trinary/mixer/update_icon_nopipes()
 	var/on_state = on && nodes[1] && nodes[2] && nodes[3] && is_operational
@@ -150,7 +152,7 @@
 	data["node2_concentration"] = round(node2_concentration*100, 1)
 	return data
 
-/obj/machinery/atmospherics/components/trinary/mixer/ui_act(action, params)
+/obj/machinery/atmospherics/components/trinary/mixer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

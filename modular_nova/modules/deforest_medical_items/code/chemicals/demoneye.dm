@@ -21,7 +21,6 @@
 	name = "DemonEye"
 	description = "A performance enhancing drug originally developed on mars. \
 		A favorite among gangs and other outlaws on the planet, though overuse can cause terrible addiction and bodily damage."
-	reagent_state = LIQUID
 	color = "#af00be"
 	taste_description = "industrial shuttle fuel"
 	metabolization_rate = 0.65 * REAGENTS_METABOLISM
@@ -43,8 +42,7 @@
 	user_left_eye_color = our_guy.eye_color_left
 	user_right_eye_color = our_guy.eye_color_right
 
-	our_guy.eye_color_left = BLOODCULT_EYE
-	our_guy.eye_color_right = BLOODCULT_EYE
+	our_guy.set_eye_color(BLOODCULT_EYE)
 	our_guy.update_body()
 
 	our_guy.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
@@ -108,7 +106,7 @@
 	our_guy.add_mood_event("tweaking", /datum/mood_event/stimulant_heavy/sundowner, name)
 
 	our_guy.adjustStaminaLoss(-10 * REM * seconds_per_tick)
-	our_guy.AdjustSleeping(-20 * REM * seconds_per_tick)
+	our_guy.AdjustSleeping(-2 SECONDS * REM * seconds_per_tick)
 	our_guy.adjust_drowsiness(-5 * REM * seconds_per_tick)
 
 	if(SPT_PROB(25, seconds_per_tick))
@@ -119,8 +117,7 @@
 		hurt_that_mans_organs(our_guy, 3, FALSE)
 
 	if(locate(/datum/reagent/drug/twitch) in our_guy.reagents.reagent_list) // Combining this with twitch could cause some heart attack problems
-		our_guy.ForceContractDisease(new /datum/disease/heart_failure(), FALSE, TRUE)
-
+		our_guy.apply_status_effect(/datum/status_effect/heart_attack)
 
 /datum/reagent/drug/demoneye/overdose_process(mob/living/carbon/our_guy, seconds_per_tick, times_fired)
 	. = ..()

@@ -6,7 +6,7 @@
 	display_name = "Cybersun Grunt"
 
 	uniform = /obj/item/clothing/under/syndicate/combat
-	mask = /obj/item/clothing/mask/gas/sechailer/syndicate
+	mask = /obj/item/clothing/mask/neck_gaiter/syndicate
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	id = /obj/item/card/id/advanced/chameleon
