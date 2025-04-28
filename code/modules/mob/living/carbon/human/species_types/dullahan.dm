@@ -190,7 +190,9 @@
 				if(speech_args[SPEECH_MODS][MODE_HEADSET] || speech_args[SPEECH_MODS][RADIO_EXTENSION])
 					human.radio(message = speech_args[SPEECH_MESSAGE], message_mods = speech_args[SPEECH_MODS], spans = speech_args[SPEECH_SPANS], language = speech_args[SPEECH_LANGUAGE])
 				// NOVA EDIT ADDITION END
-				head.say(speech_args[SPEECH_MESSAGE], spans = speech_args[SPEECH_SPANS], sanitize = FALSE, language = speech_args[SPEECH_LANGUAGE], message_range = speech_args[SPEECH_RANGE])
+				if(speech_args[SPEECH_MODS][WHISPER_MODE]) // whisper away
+					speech_args[SPEECH_SPANS] |= SPAN_ITALICS
+				head.say(speech_args[SPEECH_MESSAGE], spans = speech_args[SPEECH_SPANS], sanitize = FALSE, language = speech_args[SPEECH_LANGUAGE], message_range = speech_args[SPEECH_RANGE], message_mods = speech_args[SPEECH_MODS])
 	speech_args[SPEECH_MESSAGE] = ""
 
 /obj/item/organ/ears/dullahan
