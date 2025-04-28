@@ -5,16 +5,11 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "headshot"
 	maximum_value_length = MAX_MESSAGE_LEN
-	///Assoc list of ckeys and their links, used to cut down on chat spam
-	///Example structure:
-	///list("myckey" = list(
-	///	"human" = list("http://website.com/human_image.png"),
-	///	"silicon" = list("http://website.com/silicon_image.png"),
-	///))
-	// How much time between the informational chat messages?
+	///How much time between the informational chat messages?
 	var/cooldown_duration = 1 MINUTES
-	/// Handles the informational chat message timer.
+	///Handles the informational chat message timer.
 	var/cooldown_timer = 0
+	///Assoc list of ckeys and their links, used to cut down on chat spam
 	var/list/stored_links = list()
 	var/static/link_regex = regex("i.gyazo.com|files.byondhome.com|images2.imgbox.com")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
