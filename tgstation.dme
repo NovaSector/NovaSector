@@ -6790,6 +6790,8 @@
 #include "modular_nova\master_files\code\datums\traits\neutral.dm"
 #include "modular_nova\master_files\code\datums\votes\_vote_datum.dm"
 #include "modular_nova\master_files\code\datums\votes\map_vote.dm"
+#include "modular_nova\master_files\code\datums\wounds\pierce.dm"
+#include "modular_nova\master_files\code\datums\wounds\slash.dm"
 #include "modular_nova\master_files\code\game\atoms.dm"
 #include "modular_nova\master_files\code\game\sound.dm"
 #include "modular_nova\master_files\code\game\area\areas\ruins\lavaland.dm"
