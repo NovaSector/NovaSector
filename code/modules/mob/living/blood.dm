@@ -370,26 +370,26 @@
 				temp_blood_DNA = GET_ATOM_BLOOD_DNA(drop) //we transfer the dna from the drip to the splatter
 				qdel(drop)//the drip is replaced by a bigger splatter
 		else
-			//drop = new(splatter_turf, get_static_viruses()) // NOVA EDIT REMOVAL
 			// NOVA EDIT ADDITION START
 			if(get_blood_id() == /datum/reagent/toxin/acid)
 				drop = new /obj/effect/decal/cleanable/blood/drip/xenoblood(splatter_turf, get_static_viruses())
 			else
 				drop = new(splatter_turf, get_static_viruses())
 			// NOVA EDIT ADDITION END
+			//drop = new(splatter_turf, get_static_viruses()) // NOVA EDIT REMOVAL
 			drop.add_mob_blood(src)
 			return
 
 	// Find a blood decal or create a new one.
 	var/obj/effect/decal/cleanable/blood/blood_spew = locate() in splatter_turf
 	if(!blood_spew)
-		//blood_spew = new /obj/effect/decal/cleanable/blood/splatter(splatter_turf, get_static_viruses()) // NOVA EDIT REMOVAL
 		// NOVA EDIT ADDITION START
 		if(get_blood_id() == /datum/reagent/toxin/acid)
 			blood_spew = new /obj/effect/decal/cleanable/xenoblood/xsplatter(splatter_turf, get_static_viruses())
 		else
 			blood_spew = new /obj/effect/decal/cleanable/blood/splatter(splatter_turf, get_static_viruses())
 		// NOVA EDIT ADDITION END
+		//blood_spew = new /obj/effect/decal/cleanable/blood/splatter(splatter_turf, get_static_viruses()) // NOVA EDIT REMOVAL
 	if(QDELETED(blood_spew)) //Give it up
 		return
 	blood_spew.bloodiness = min((blood_spew.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
