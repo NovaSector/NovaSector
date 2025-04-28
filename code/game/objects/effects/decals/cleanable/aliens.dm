@@ -18,7 +18,7 @@
 
 /obj/effect/decal/cleanable/xenoblood/Initialize(mapload)
 	. = ..()
-	add_blood_DNA(list("UNKNOWN DNA" = get_blood_type_by_name("X*")))
+	add_blood_DNA(list("UNKNOWN DNA" = get_blood_type("X*")))
 
 /obj/effect/decal/cleanable/xenoblood/xsplatter
 	random_icon_states = list("xgibbl1", "xgibbl2", "xgibbl3", "xgibbl4", "xgibbl5")

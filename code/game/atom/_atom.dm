@@ -502,7 +502,7 @@
 	return blood_dna
 
 /mob/living/carbon/alien/get_blood_dna_list()
-	return list("UNKNOWN DNA" = get_blood_type_by_name("X*"))
+	return list("UNKNOWN DNA" = get_blood_type("X*"))
 
 /mob/living/silicon/get_blood_dna_list()
 	return

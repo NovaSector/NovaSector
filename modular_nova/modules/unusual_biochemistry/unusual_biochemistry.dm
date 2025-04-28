@@ -29,11 +29,11 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 
 /datum/quirk/unusual_biochemistry/add(client/client_source)
 	blood_type = client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry)
-	var/datum/blood_type/blood_type_datum = get_blood_type_by_name(blood_type)
+	var/datum/blood_type/blood_type_datum = get_blood_type(blood_type)
 	if(blood_type_datum)
 		blood_color = blood_type_datum.color
 	else
-		blood_type_datum = get_blood_type_by_name(pick(GLOB.possible_blood_types)) // no client/prefs for some reason? pick a random one
+		blood_type_datum = get_blood_type(pick(GLOB.possible_blood_types)) // no client/prefs for some reason? pick a random one
 		blood_color = blood_type_datum.color
 
 	var/mob/living/carbon/human/human_holder = quirk_holder

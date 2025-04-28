@@ -77,7 +77,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
-	blood_dna_info = get_blood_type_by_name("O+")
+	blood_dna_info = get_blood_type("O+")
 	if(organ_flags & ORGAN_EDIBLE)
 		AddComponentFrom(
 			SOURCE_EDIBLE_INNATE, \
