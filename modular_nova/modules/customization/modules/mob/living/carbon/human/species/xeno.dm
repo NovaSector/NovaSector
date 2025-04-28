@@ -106,9 +106,6 @@
 
 ///Xenohybrid additional blood color decals
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xhitsplatter1"
-	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
 	blood_state = BLOOD_STATE_XENO
 	blood_dna_info = list("UNKNOWN DNA" = "X*")
 
@@ -121,9 +118,6 @@
 /obj/effect/decal/cleanable/blood/drip/xenoblood
 	name = "drips of blood"
 	desc = "It's green."
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xdrip5"
-	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
 	should_dry = FALSE //human only thing
 	blood_state = BLOOD_STATE_XENO
 	beauty = -150
