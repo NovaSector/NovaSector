@@ -244,7 +244,7 @@
 /obj/structure/closet/l3closet/interdyne
 	name = "Interdyne level 3 biohazard gear closet"
 
-/obj/structure/closet/l3closet/virology/PopulateContents()
+/obj/structure/closet/l3closet/interdyne/PopulateContents()
 	new /obj/item/storage/bag/bio(src)
 	new /obj/item/clothing/suit/bio_suit/interdyne(src)
 	new /obj/item/clothing/head/bio_hood/interdyne(src)
