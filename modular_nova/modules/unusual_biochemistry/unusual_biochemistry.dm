@@ -17,11 +17,6 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 	medical_record_text = "Patient possessess an unusual biochemistry. Blood transfusions may require the assistance of a chemist."
 	quirk_flags = QUIRK_HUMAN_ONLY
 
-	/// The unusual blood type chosen by quirk prefs
-	var/blood_type
-	/// The blood color that corresponds to the chosen blood type
-	var/blood_color
-
 /datum/quirk_constant_data/unusual_biochemistry
 	associated_typepath = /datum/quirk/unusual_biochemistry
 	customization_options = list(/datum/preference/choiced/unusual_biochemistry)
@@ -29,11 +24,8 @@ GLOBAL_LIST_INIT(possible_blood_types, list(
 /datum/quirk/unusual_biochemistry/add(client/client_source)
 	blood_type = client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry)
 	var/datum/blood_type/blood_type_datum = get_blood_type(blood_type)
-	if(blood_type_datum)
-		blood_color = blood_type_datum.color
-	else
+	if(isnull(blood_type_datum))
 		blood_type_datum = get_blood_type(pick(GLOB.possible_blood_types)) // no client/prefs for some reason? pick a random one
-		blood_color = blood_type_datum.color
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
 
