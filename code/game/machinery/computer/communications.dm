@@ -117,13 +117,13 @@ GLOBAL_VAR_INIT(cops_arrived, FALSE)
 		return TRUE
 	return authenticated
 
-/// NOVA EDIT Start - Are we the AI?
+// NOVA EDIT ADDIOTN START - Are we the AI?
 /obj/machinery/computer/communications/proc/authenticated_as_ai_or_captain(mob/user)
 	if (isAI(user))
 		return TRUE
-	return ACCESS_CAPTAIN in authorize_access //NOVA EDIT End
-
-/obj/machinery/computer/communications/attackby(obj/I, mob/user, params)
+	return ACCESS_CAPTAIN in authorize_access
+// NOVA EDIT ADDITION END
+/obj/machinery/computer/communications/attackby(obj/I, mob/user, list/modifiers)
 	if(isidcard(I))
 		attack_hand(user)
 	else
