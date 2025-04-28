@@ -911,3 +911,176 @@
   Yobrocharlie:
   - bugfix: fixed the heretic final boss not being where its meant to, and added a
       backup exit.
+2025-04-26:
+  Bot-Tracc-200:
+  - balance: The carwo LMG has been removed from stock rotation, sources cite "Maybe
+      Nanotrasen really didn't want their station to have light machineguns present."
+  Darkinite:
+  - image: modified the present icon
+  Hardly:
+  - code_imp: tweaks extreme roleplay toggle so that it hides others' preferences
+      on examine and ooc notes if they have it disabled.
+  - bugfix: silicon's roleplay preferences are now highlighted in purple
+  OrbisAnima:
+  - qol: Pill Bottles capacity was increased from 7 to 21. Bandage boxes were increased
+      from 7 to 14. Nugget boxes were increased from 6 to 7.
+  OrionTheFox:
+  - image: removed some (hopefully) unused Gloves icons! Please report any errors!
+  - rscadd: Evening and Designer Gloves are now greyscale!
+  unit0016:
+  - bugfix: You can now properly remove LUNA's upgrades; should you wish to.
+2025-04-27:
+  1393F:
+  - qol: RB-MK2 reactor boards can be purchased from cargo along with their fuel rods!
+      They come with mildly random tritium amounts.
+  - balance: The RB-MK2 has been made less costly to build
+  Bisar:
+  - rscadd: The big manipulator now supports specifying whether the attached monkey
+      should use either combat mode, right clicking, or even both.
+  - qol: Ejecting monkeys from the big manipulator now uses a UI button instead.
+  - bugfix: You can no longer teleport monkeys into impossible areas with big manipulator
+      unbuckling.
+  - bugfix: You can no longer simultaneously buckle multiple monkeys into the big
+      manipulator.
+  - bugfix: The big manipulator will now properly clear old refs to former workers.
+  BurgerBB:
+  - bugfix: Fixes a taser runtime.
+  - bugfix: Fixes a Beepsky runtime.
+  Cirrial:
+  - bugfix: Made it so minebot commands don't talk about dumping ore when you're toggling
+      the lights.
+  - qol: Added some help for abductors if they get a weird half-machine test subject
+      in their ship.
+  DaCoolBoss:
+  - spellcheck: Removed 5 random wizard names. Added 6 to replace them.
+  EmptyLullaby:
+  - bugfix: The Quartermaster's skirt will no longer let one pixel of wild tail action
+      poke through the front.
+  Ezel:
+  - map: Rewired Centcom Checkpoint buttons to be more accurate
+  FlufflesTheDog:
+  - bugfix: Shuttle atmos volumes should no longer become negative
+  - bugfix: Shuttle atmos devices will no longer make illegal connections during rotations
+  Ghommie:
+  - qol: You can now interact with held mobs in more ways beside wearing them.
+  - bugfix: examining fishing spots twice with sufficient skill level while holding
+      a rod should work more reliably.
+  - bugfix: Fixed moonfish eggs appearing like huge errors inside aquariums.
+  - bugfix: Fixed starfish suicide sometimes not deleting you.
+  Goat:
+  - bugfix: Cain and Abel (the colossus drop) now require you to hold them to be able
+      to swing them around
+  - bugfix: The megacarp (shark) will now be able to fly through space when ridden
+      like its smaller carp siblings.
+  Jacquerel:
+  - rscadd: Emagging a fishing spot pod from the black market can create pools of
+      water deep enough to drown people in.
+  - bugfix: You can now bleed or vomit onto people below you rather than creating
+      puddles of substance hovering in mid-air.
+  - bugfix: If you are turned into a monkey via the DNA scanner, mutadone can once
+      again turn you back. If you are a monkey turned into a human via the DNA scanner,
+      mutadone can also turn you back.
+  - bugfix: If you are lucky enough to have the opportunity to be a monkey as a roundstart
+      species, the species info box will not lie to you about mutadone.
+  - bugfix: Space carp will no longer get distracted by repeatedly entering their
+      own portals instead of chasing you.
+  - rscadd: The nebulastation pool has been deepened, please keep drunks out of the
+      deep end to prevent drowning.
+  - bugfix: Holding a two-handed weapon in both hands will now once again appropriately
+      modify its attack power.
+  - bugfix: Floating motionless and face down in the water doesn't count as a workout
+  JohnFulpWillard:
+  - config: Removed event time/weight multipliers, now all events vars are editable
+      in config.
+  - qol: The TV on the title screen has round info once the round has started or ended.
+  - bugfix: The TV now fits on non-widescreen screens.
+  - admin: Admins can now link a URL for maps, used to give feedback on said maps.
+      Accessible through the roundend report, escape menu, and stat panel.
+  - qol: AIs can track their borgs by clicking on them in the stat panel.
+  - qol: You can now directly go to the webmap of maps from the stat panel (assuming
+      it's set in config).
+  LT3:
+  - bugfix: Fixed supermatter anomaly generation, hallucination is based on distance
+      and delam explosion size
+  LemonInTheDark:
+  - code_imp: Brought browser code up to standard with the rest of the codebase
+  - admin: Hey lads, I cleaned up how non TGUI windows work on the backend, please
+      let me know if anything is broken! PING ME MOTHERFUCKER
+  Melbert:
+  - rscadd: '"Common Second Language" quirk'
+  - qol: Language translations chunk sentences together better, making partial understanding
+      a bit easier to parse.
+  - qol: Moneybots round to the nearest 1 credit.
+  - qol: Moneybots have a 0.5 second cooldown between being able to dispense credits.
+  - qol: Moneybots won't dispense more than 50 credits on a tile.
+  - bugfix: 'Furious Steel now tracks consumed knives better: Using all three knives
+      to block no longer results in a 0 second cooldown, firing a single knife no
+      longer results in a 60 second cooldown.'
+  - bugfix: Losing Farsight or Rock Absorber mutations will properly drop their effects
+      as well
+  - balance: Heretics with Cybernetic Hearts can no longer complete the Living Heart
+      ritual with an organic heart to automatically have their heart replaced - you
+      will need to get it replaced surgically first, the hard way.
+  OrionTheFox:
+  - bugfix: fixed Interdyne biosuits being stocked in Virology, instead of Interdyne
+  Pepsilawn:
+  - bugfix: Tramstation, fixes a mop that happened to be grabbable while being 2 tiles
+      above its location in an entirely different room
+  RandomDudeFromTheRim:
+  - rscadd: Added a Rimworld reference
+  - rscdel: Removed a potential harmful stereotype
+  RatFromTheJungle:
+  - rscadd: various new THC-themed junkfood to various vendors for 4/20, Nanotrasen
+      and it's partners remind you being under the influence during important job
+      duties is a crime!
+  Saukykouko:
+  - rscadd: Added pony to the uplink!
+  SmArtKar:
+  - bugfix: Fixed AI not getting creampie face decals
+  - bugfix: Fixes burdened trauma not granting/losing burden levels when its added/lost
+  - bugfix: Fixed "shit be fucked" errors and missing lighting on shuttle ceilings
+      docked to bottom z levels of multiz maps
+  - bugfix: Fixed inconsistent proto-kinetic crusher descriptions
+  - bugfix: Fixed Bubblegum and Wendigo crusher trophies sometimes not working.
+  - bugfix: Fixed MODpaint menu bluescreening
+  SyncIt21:
+  - code_imp: cleans up teleportation code. `check_teleport_valid` is now a pure function
+      with no side effects
+  TiviPlus:
+  - bugfix: Look up/down now track with the thing you're inside instead of staying
+      in one spot
+  Twaticus:
+  - rscadd: Adds a crafters toolbox storing chisels and pipecleaners. Artistic toolbox
+      now stores various painting supplies instead.
+  hry-gh:
+  - qol: the statusbar at the bottom left now properly scales with your display
+  jlsnow301:
+  - bugfix: Inputs in tgui windows (not tgui-say) have been reworked, hopefully making
+      them FAST. Report if they are not FAST.
+  - bugfix: Fixed a bluescreen caused when moving a tgui window with a tooltip open.
+  loganuk:
+  - map: Added Boulder Retrieval Matrix (BRM) to Delta Station
+  necromanceranne:
+  - bugfix: The grenade launcher of the M-90gl can be reloaded once again.
+  - rscadd: Duct tape! Right-click objects and cyborgs with duct tape to repair them
+      if they have been damaged! Wrap objects in duct tape to make it completely incapable
+      of embedding! Find them in your nearest Part-Mart or Engi-Vend vending machines
+      today!
+  - balance: Part-Mart vending machines now have mousetraps, spare screwdrivers and
+      rifle stocks in their contraband section.
+  - bugfix: Duct tape properly updates the various icons and visuals of mechs, windows
+      and clothing that it repairs.
+  timothymtorres:
+  - rscadd: Allow boats to travel over water
+  zxaber:
+  - bugfix: Fixed a visual bug with cyborg tools that are able to carry items.
+2025-04-28:
+  OrbisAnima:
+  - rscdel: After a brave SolFed raid on a Syndicate black site, the terrorist organization's
+      Virology lab where it was rumored the deadly virus known as Romerol was destroyed.
+      Authorities indicate that this deadly virus will no longer be found in this
+      terrorist group operatives hands. The virus twisted creator has not been aprehended
+      though, and SolFed confirms the search for them continues.
+  - rscadd: Romerol can be selected on the optfor panel now.
+  Zergspower:
+  - rscadd: Plasteel Chef Event winners get a special loadout knife

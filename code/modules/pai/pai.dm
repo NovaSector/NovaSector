@@ -163,7 +163,7 @@
 	//NOVA EDIT ADDITION END
 
 /mob/living/silicon/pai/get_status_tab_items()
-	. += ..()
+	. = ..()
 	if(!stat)
 		. += "Emitter Integrity: [holochassis_health * (100 / HOLOCHASSIS_MAX_HEALTH)]."
 	else
