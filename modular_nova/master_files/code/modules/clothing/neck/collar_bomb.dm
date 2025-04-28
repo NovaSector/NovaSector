@@ -18,13 +18,13 @@
 		active = FALSE
 		return
 	// everything above this line is just copy-pasted as of 4/27/2025 m/d/y
-	visible_message(span_warning("[src] goes off, horrifically maiming [brian]!"), span_hear("You hear a boom!"))
+	brian.visible_message(span_warning("[src] goes off, horrifically maiming [brian]!"), span_hear("You hear a boom!"))
 	playsound(src, SFX_EXPLOSION, 30, TRUE)
 	var/obj/item/bodypart/head/dome = brian.get_bodypart(BODY_ZONE_HEAD)
 	// max damage to the head is 250 and we want to hit crit slash/crit bone/crit burn
-	dome.receive_damage(brute = 75, sharpness = SHARP_EDGED)
-	dome.receive_damage(brute = 75, sharpness = SHARP_EDGED)
-	dome.receive_damage(burn = 100)
+	dome.receive_damage(brute = 75, wound_bonus = 75, sharpness = SHARP_EDGED)
+	dome.receive_damage(brute = 75, wound_bonus = 75, sharpness = SHARP_EDGED)
+	dome.receive_damage(burn = 100, wound_bonus = 75)
 	var/datum/wound/cranial_fissure/crit_wound = new()
 	crit_wound.apply_wound(dome)
 	brian.investigate_log("has been blasted by [src].", INVESTIGATE_DEATHS)
