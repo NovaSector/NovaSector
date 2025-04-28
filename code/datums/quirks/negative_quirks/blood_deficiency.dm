@@ -17,6 +17,13 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(!istype(human_holder))
 		return
+	// NOVA EDIT ADDITION START
+	if(issynthetic(quirk_holder))
+		name = "Hydraulic Leak"
+		desc = "Your body's hydraulic fluids are leaking through their seals."
+		medical_record_text = "Patient requires regular treatment for hydraulic fluid loss."
+		mail_goodies = list(/obj/item/reagent_containers/blood/oil)
+	// NOVA EDIT ADDITION END
 	update_mail(new_species = human_holder.dna.species)
 	RegisterSignal(quirk_holder, COMSIG_SPECIES_GAIN, PROC_REF(update_mail))
 
