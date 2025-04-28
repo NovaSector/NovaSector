@@ -7676,6 +7676,7 @@
 #include "modular_nova\modules\customization\game\objects\items\donator_plushies.dm"
 #include "modular_nova\modules\customization\game\objects\items\instruments.dm"
 #include "modular_nova\modules\customization\game\objects\items\plushes.dm"
+#include "modular_nova\modules\customization\game\objects\items\staff_reward_plushies.dm"
 #include "modular_nova\modules\customization\game\objects\items\devices\crutch.dm"
 #include "modular_nova\modules\customization\game\objects\items\devices\ttsdevice.dm"
 #include "modular_nova\modules\customization\game\objects\items\storage\belt.dm"
