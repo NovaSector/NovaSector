@@ -36,13 +36,11 @@
 	return TRUE
 
 /datum/computer_file/program/crew_self_serve/kill_program(mob/user)
-	UnregisterSignal(computer, COMSIG_MODULAR_COMPUTER_INSERTED_ID)
-	UnregisterSignal(computer, COMSIG_MODULAR_COMPUTER_REMOVED_ID)
+	UnregisterSignal(computer, list(COMSIG_MODULAR_COMPUTER_INSERTED_ID, COMSIG_MODULAR_COMPUTER_REMOVED_ID))
 	return ..()
 
 /datum/computer_file/program/crew_self_serve/proc/register_signals()
-	RegisterSignal(computer, COMSIG_MODULAR_COMPUTER_INSERTED_ID, PROC_REF(id_changed))
-	RegisterSignal(computer, COMSIG_MODULAR_COMPUTER_REMOVED_ID, PROC_REF(id_changed))
+	RegisterSignals(computer, list(COMSIG_MODULAR_COMPUTER_INSERTED_ID, COMSIG_MODULAR_COMPUTER_REMOVED_ID) PROC_REF(id_changed))
 
 /datum/computer_file/program/crew_self_serve/proc/id_changed(source, obj/item/card/id/id_card, mob/user)
 	SIGNAL_HANDLER
@@ -69,7 +67,7 @@
 	if(!authenticated_card)
 		return FALSE
 
-	var/important = job_is_CMD_or_SEC()
+	var/important = is_job_important()
 	if(important)
 		if(tgui_alert(usr, "You are a member of security and/or command, make sure that you ahelp before punching out! If you decide to punch back in later, you will need to go to the Head of Personnel or Head of Security. Do you wish to continue?", "[src]", list("No", "Yes")) != "Yes")
 			return FALSE
@@ -134,7 +132,7 @@
 	return TRUE
 
 /// Is the job of the inserted ID being worked by a job that in an important department? If so, this proc will return TRUE.
-/datum/computer_file/program/crew_self_serve/proc/job_is_CMD_or_SEC()
+/datum/computer_file/program/crew_self_serve/proc/is_job_important()
 	if(!authenticated_card)
 		return FALSE
 

@@ -12,9 +12,12 @@
 	var/obj/item/card/id/associated_card
 	/// A display formatted list of the locked contents
 	var/locked_contents = null
+	item_flags = ABSTRACT | DROPDEL
 
 /obj/item/storage/lockbox/timeclock/Initialize(mapload, obj/item/card/id/crew_id)
 	. = ..()
+	if(!isnull(loc))
+		return INITIALIZE_HINT_QDEL // These should never be spawned in realspace
 	atom_storage.allow_big_nesting = TRUE
 	atom_storage.max_slots = 99
 	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
