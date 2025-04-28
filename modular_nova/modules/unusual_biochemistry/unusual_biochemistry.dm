@@ -16,15 +16,16 @@ GLOBAL_LIST_INIT(possible_unusual_biochem_blood_types, list(
 	lose_text = span_danger("Your biochemistry has become... normal.")
 	medical_record_text = "Patient possessess an unusual biochemistry. Blood transfusions may require the assistance of a chemist."
 	quirk_flags = QUIRK_HUMAN_ONLY
+	/// The unusual blood type chosen by quirk prefs
+	var/datum/blood_type/blood_type
 
 /datum/quirk_constant_data/unusual_biochemistry
 	associated_typepath = /datum/quirk/unusual_biochemistry
 	customization_options = list(/datum/preference/choiced/unusual_biochemistry)
 
 /datum/quirk/unusual_biochemistry/add(client/client_source)
-	blood_type = client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry)
-	var/datum/blood_type/blood_type_datum = get_blood_type(blood_type)
-	if(isnull(blood_type_datum))
+	blood_type = get_blood_type(client_source?.prefs.read_preference(/datum/preference/choiced/unusual_biochemistry))
+	if(!istype(blood_type))
 		blood_type_datum = get_blood_type(pick(GLOB.possible_unusual_biochem_blood_types)) // no client/prefs for some reason? pick a random one
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -33,7 +34,7 @@ GLOBAL_LIST_INIT(possible_unusual_biochem_blood_types, list(
 	human_holder.dna.species.exotic_blood = null
 	human_holder.dna.species.exotic_bloodtype = null
 
-	human_holder.set_blood_type(blood_type_datum)
+	human_holder.set_blood_type(blood_type)
 
 	// updates the cached organ blood types
 	var/list/blood_dna_info = human_holder.get_blood_dna_list()
