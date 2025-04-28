@@ -11,7 +11,6 @@ import {
   Section,
   Stack,
   Table,
-  Tabs,
   Tooltip,
 } from 'tgui-core/components';
 
@@ -206,22 +205,28 @@ const ViewCharacter = (props) => {
               title="Flavor Text:"
               preserveWhitespace
               buttons={
-                <Tabs>
-                  <Tabs.Tab
+                <>
+                  <Button
                     selected={flavorTextIndex === 'SFW'}
+                    bold={flavorTextIndex === 'SFW'}
                     onClick={() => setFlavorTextIndex('SFW')}
-                    width="175px"
+                    width="150px"
+                    textAlign="center"
                   >
                     SFW
-                  </Tabs.Tab>
-                  <Tabs.Tab
-                    selected={flavorTextIndex === 'NSFW'}
-                    onClick={() => setFlavorTextIndex('NSFW')}
-                    width="175px"
-                  >
-                    NSFW
-                  </Tabs.Tab>
-                </Tabs>
+                  </Button>
+                  {!!overlay.flavor_text_nsfw && (
+                    <Button
+                      selected={flavorTextIndex === 'NSFW'}
+                      bold={flavorTextIndex === 'NSFW'}
+                      onClick={() => setFlavorTextIndex('NSFW')}
+                      width="150px"
+                      textAlign="center"
+                    >
+                      NSFW
+                    </Button>
+                  )}
+                </>
               }
             >
               {flavorTextIndex === 'SFW' && formatURLs(overlay.flavor_text)}
@@ -239,22 +244,26 @@ const ViewCharacter = (props) => {
                   title="OOC Notes"
                   preserveWhitespace
                   buttons={
-                    <Tabs>
-                      <Tabs.Tab
+                    <>
+                      <Button
                         selected={oocNotesIndex === 'SFW'}
+                        bold={oocNotesIndex === 'SFW'}
                         onClick={() => setOocNotesIndex('SFW')}
                         width="100px"
+                        textAlign="center"
                       >
                         SFW
-                      </Tabs.Tab>
-                      <Tabs.Tab
+                      </Button>
+                      <Button
                         selected={oocNotesIndex === 'NSFW'}
+                        bold={oocNotesIndex === 'NSFW'}
                         onClick={() => setOocNotesIndex('NSFW')}
                         width="100px"
+                        textAlign="center"
                       >
                         NSFW
-                      </Tabs.Tab>
-                    </Tabs>
+                      </Button>
+                    </>
                   }
                 >
                   {!!overlay.veteran_status && (

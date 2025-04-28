@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { ReactNode, useState } from 'react';
-import { ByondUi, Section, Stack, Tabs } from 'tgui-core/components';
+import { Button, ByondUi, Section, Stack } from 'tgui-core/components';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
@@ -104,22 +104,28 @@ export function ExaminePanel(props) {
                   preserveWhitespace
                   title="Flavor Text"
                   buttons={
-                    <Tabs>
-                      <Tabs.Tab
+                    <>
+                      <Button
                         selected={flavorTextIndex === 'SFW'}
+                        bold={flavorTextIndex === 'SFW'}
                         onClick={() => setFlavorTextIndex('SFW')}
-                        width="175px"
+                        textAlign="center"
+                        width="150px"
                       >
                         SFW
-                      </Tabs.Tab>
-                      <Tabs.Tab
-                        selected={flavorTextIndex === 'NSFW'}
-                        onClick={() => setFlavorTextIndex('NSFW')}
-                        width="175px"
-                      >
-                        NSFW
-                      </Tabs.Tab>
-                    </Tabs>
+                      </Button>
+                      {!!flavor_text_nsfw && (
+                        <Button
+                          selected={flavorTextIndex === 'NSFW'}
+                          bold={flavorTextIndex === 'NSFW'}
+                          onClick={() => setFlavorTextIndex('NSFW')}
+                          textAlign="center"
+                          width="150px"
+                        >
+                          NSFW
+                        </Button>
+                      )}
+                    </>
                   }
                 >
                   {flavorTextIndex === 'SFW' && formatURLs(flavor_text)}
@@ -135,22 +141,28 @@ export function ExaminePanel(props) {
                       title="OOC Notes"
                       preserveWhitespace
                       buttons={
-                        <Tabs>
-                          <Tabs.Tab
+                        <>
+                          <Button
                             selected={oocNotesIndex === 'SFW'}
+                            bold={oocNotesIndex === 'SFW'}
                             onClick={() => setOocNotesIndex('SFW')}
-                            width="100px"
+                            textAlign="center"
+                            minWidth="60px"
                           >
                             SFW
-                          </Tabs.Tab>
-                          <Tabs.Tab
-                            selected={oocNotesIndex === 'NSFW'}
-                            onClick={() => setOocNotesIndex('NSFW')}
-                            width="100px"
-                          >
-                            NSFW
-                          </Tabs.Tab>
-                        </Tabs>
+                          </Button>
+                          {!!ooc_notes_nsfw && (
+                            <Button
+                              selected={oocNotesIndex === 'NSFW'}
+                              bold={oocNotesIndex === 'NSFW'}
+                              onClick={() => setOocNotesIndex('NSFW')}
+                              textAlign="center"
+                              minWidth="60px"
+                            >
+                              NSFW
+                            </Button>
+                          )}
+                        </>
                       }
                     >
                       {!!veteran_status && (
