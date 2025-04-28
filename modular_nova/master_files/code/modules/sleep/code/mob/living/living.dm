@@ -1,4 +1,4 @@
-// Replaces proc definition in [code\modules\mob\living\living.dm]
+///Replaces proc definition in [code\modules\mob\living\living.dm]
 /mob/living/proc/mob_sleep()
 	set name = "Sleep"
 	set category = "IC"

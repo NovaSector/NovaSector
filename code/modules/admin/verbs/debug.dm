@@ -197,6 +197,7 @@ ADMIN_VERB(cmd_give_direct_control, R_ADMIN, "Give Direct Control", "Give direct
 	M.client?.init_verbs()
 	if(delmob)
 		qdel(oldmob)
+	SEND_SIGNAL(M, COMSIG_MOB_GIVE_DIRECT_CONTROL) // NOVA EDIT ADDITION
 	message_admins(span_adminnotice("[key_name_admin(user)] gave away direct control of [M] to [newkey]."))
 	log_admin("[key_name(user)] gave away direct control of [M] to [newkey].")
 	BLACKBOX_LOG_ADMIN_VERB("Give Direct Control")

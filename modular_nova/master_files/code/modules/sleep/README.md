@@ -10,6 +10,8 @@ Overrides the sleep verb and some associated code chunks to implement enhancesme
 
 ### TG Proc Changes:
 
+- Edited `code/modules/admin/verbs/debug.dm`:
+  - Added signal `COMSIG_MOB_GIVE_DIRECT_CONTROL` to `/datum/admin_verb/cmd_give_direct_control()`.
 - Edited `code/modules/mob/living\living.dm`:
   - Commented out `/mob/living/proc/mob_sleep()`.
   - Edited `/mob/living/can_resist()`:
@@ -30,23 +32,27 @@ Overrides the sleep verb and some associated code chunks to implement enhancesme
 
 ### Defines:
 
-- N/A
+- Edited `code/__DEFINES/~nova_defines/signals.dm`:
+  - Added `COMSIG_MOB_GIVE_DIRECT_CONTROL`, emitted by `/datum/admin_verb/cmd_give_direct_control()`.
 
 ### Master file additions
 
 - Added new master files module `sleep`:
   - Created `master_files/code/modules/timed_sleep/code/mob/living/living.dm`
-    - Replacement implementation for `/mob/living/proc/mob_sleep()`.
+    - Added proc `/mob/living/proc/mob_sleep()`, replaces proc definition in `code\modules\mob\living\living.dm`.
   - Created `master_files/code/modules/timed_sleep/code/datums/status_effects/_status_effect_.dm`
     - Added variable `pause_expiry` to allow pausing of status effect expiration.
+    - Added procs `enable_expiry()` and `disable_expiry()` for signal handlers.
   - Created `master_files/code/modules/timed_sleep/code/datums/status_effects/debuffs/debuffs.dm`
     - Added variable `voluntary` to differentiate between voluntary sleep (sleep verb) and involuntary sleep.
     - Added `/atom/movable/screen/alert/status_effect/asleep/proc/Click()` to allow waking up from voluntary sleep.
+    - Overrode `/datum/status_effect/incapacitating/sleeping/on_apply()`
+      - Registers signals for setting `pause_expiry` upon mob login/logout, being ghostized, and when given control.
+    - Overrode `/datum/status_effect/incapacitating/sleeping/on_remove()`
+      - Handles unregistering signals for setting `pause_expiry`
     - Overrode `/datum/status_effect/incapacitating/sleeping/proc/on_creation()`:
       - Handles new argument `is_voluntary`.
       - Automatically hides sleep duration in the screen alert if it's infinite.
-    - Overrode `/datum/status_effect/incapacitating/proc/sleeping/proc/tick()`:
-      - Added a conditional to prolong sleep indefinitely when the client disconnects.
 
 ### Included files that are not contained in this module:
 

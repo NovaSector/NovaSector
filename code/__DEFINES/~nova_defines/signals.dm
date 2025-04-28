@@ -11,6 +11,8 @@
 #define COMSIG_MOB_CI_TOGGLED "mob_ci_toggled"
 /// When a hostile simple mob loses it's target.
 #define COMSIG_HOSTILE_MOB_LOST_TARGET "hostile_mob_lost_target"
+///When a client is given direct control of a mob via [/datum/admin_verb/cmd_give_direct_control()].
+#define COMSIG_MOB_GIVE_DIRECT_CONTROL "mob_give_direct_control"
 
 //Gun signals
 ///When a gun is switched to automatic fire mode
