@@ -15,7 +15,7 @@
 	var/cooldown_duration = 1 MINUTES
 	/// Handles the informational chat message timer.
 	var/cooldown_timer = 0
-	var/list/stored_link = list()
+	var/list/stored_links = list()
 	var/static/link_regex = regex("i.gyazo.com|files.byondhome.com|images2.imgbox.com")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
@@ -47,7 +47,7 @@
 		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com)'"))
 		return
 
-	if(stored_link[usr.ckey] != value && cooldown_timer >= world.time)
+	if(stored_links[usr.ckey] && stored_links[usr.ckey][type] != value && cooldown_timer <= world.time)
 		cooldown_timer = cooldown_duration + world.time
 		to_chat(usr, span_notice("Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Think of it as a headshot for your ID. Lastly, [span_bold("do not use a real life photo or use any image that is less than serious.")]"))
 		to_chat(usr, span_notice("If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser."))
@@ -58,7 +58,9 @@
 	return TRUE
 
 /datum/preference/text/headshot/proc/apply_headshot(value)
-	stored_link[usr?.ckey]["human"] = value
+	if(isnull(stored_links[usr?.ckey]))
+		stored_links[usr?.ckey] = list()
+	stored_links[usr?.ckey][type] = value
 	return TRUE
 
 /datum/preference/text/headshot/silicon
@@ -66,7 +68,3 @@
 
 /datum/preference/text/headshot/silicon/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
-
-/datum/preference/text/headshot/silicon/apply_headshot(value)
-	stored_link[usr?.ckey]["silicon"] = value
-	return TRUE
