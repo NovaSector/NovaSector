@@ -97,7 +97,6 @@
 
 ///Xenohybrid additional blood color decals
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	random_icon_states = list("hitsplatter1", "hitsplatter2", "hitsplatter3")
 	blood_state = BLOOD_STATE_XENO
 	blood_dna_info = list("UNKNOWN DNA" = "X*")
 

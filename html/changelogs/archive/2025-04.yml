@@ -1074,3 +1074,13 @@
   - rscadd: Allow boats to travel over water
   zxaber:
   - bugfix: Fixed a visual bug with cyborg tools that are able to carry items.
+2025-04-28:
+  OrbisAnima:
+  - rscdel: After a brave SolFed raid on a Syndicate black site, the terrorist organization's
+      Virology lab where it was rumored the deadly virus known as Romerol was destroyed.
+      Authorities indicate that this deadly virus will no longer be found in this
+      terrorist group operatives hands. The virus twisted creator has not been aprehended
+      though, and SolFed confirms the search for them continues.
+  - rscadd: Romerol can be selected on the optfor panel now.
+  Zergspower:
+  - rscadd: Plasteel Chef Event winners get a special loadout knife

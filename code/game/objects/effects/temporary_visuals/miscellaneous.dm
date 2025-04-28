@@ -60,6 +60,9 @@
 /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter/Initialize(mapload, set_dir, set_color = GLOB.blood_types[/datum/blood_type/xeno::name])
 	return ..()
 
+/obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter/Initialize(mapload, set_dir, set_color = GLOB.blood_types[/datum/blood_type/xeno::name])
+	return ..()
+
 /obj/effect/temp_visual/dir_setting/speedbike_trail
 	name = "speedbike trails"
 	icon_state = "ion_fade"
