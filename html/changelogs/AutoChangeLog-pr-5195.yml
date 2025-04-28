@@ -1,0 +1,6 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - rscadd: "Added the Unusual Biochemistry quirk, which lets you choose from 5 new blood types!"
+  - image: "all blood decals are now grayscaled. please report any issues to github!"
+  - refactor: "blood types are now datums. please report any issues to github!"
