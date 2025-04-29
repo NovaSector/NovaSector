@@ -1084,3 +1084,43 @@
   - rscadd: Romerol can be selected on the optfor panel now.
   Zergspower:
   - rscadd: Plasteel Chef Event winners get a special loadout knife
+2025-04-29:
+  00-Steven:
+  - rscadd: Certain items can now be placed directly on the floor in the clicked on
+      location. This currently includes warning cones, wet floor signs, candles, action
+      figures, plushies, mech toys, and a list of other toys.
+  - sound: Warning cones now use plastic pickup/drop sounds.
+  - sound: Wet floor signs now use plastic pickup/drop sounds.
+  Bisar:
+  - image: Handing someone something now plays an animation.
+  Ezel/Improvedname, JohnFulpWillard:
+  - balance: Players who use the DNA Infuser are now "derived mutants" of their original
+      species, meaning humans are no longer human after infusing themselves.
+  Floofies:
+  - qol: Adds a secondary runechat color option to the Voice Actor quirk.
+  Ghommie:
+  - bugfix: Examining a fishing lures box twice no longer says it can hold just artificial
+      minnows.
+  Jureiia:
+  - rscadd: Added Dullahan model cyborgs and their taur variants.
+  LemonInTheDark:
+  - bugfix: Tcomms machines will interoperate across z levels in the same "stack"
+      as expected now
+  OrbisAnima:
+  - balance: Increased the nunchakus cooldown from 0.8 to 2 seconds.
+  RatFromTheJungle:
+  - balance: Bleed wounds across the board 'bleed less,' due to biological changes
+      in the local-sector!
+  chestlet:
+  - bugfix: Paradox clones can actually spawn in now.
+  vinylspiders:
+  - rscadd: Added the Unusual Biochemistry quirk, which lets you choose from 5 new
+      blood types!
+  - image: all blood decals are now grayscaled. please report any issues to github!
+  - refactor: blood types are now datums. please report any issues to github!
+  - bugfix: fixes a lot of instances of gibs, bodyparts/organs, and blood decals not
+      getting the right forensics data attached to them
+  - refactor: blood types are now datums, in support of a more robust blood system
+  - image: all blood decals and overlays have been greyscaled, so ethereals will have
+      green blood now for instance. fundamentally evil quirk havers get black blood
+  - admin: new smite type, 'Clownify blood'. It pretty much does what you might expect.
