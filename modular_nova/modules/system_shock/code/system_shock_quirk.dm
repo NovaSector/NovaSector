@@ -26,7 +26,7 @@
 /datum/quirk/system_shock/proc/on_electrocute()
 	SIGNAL_HANDLER
 
-	if(COOLDOWN_FINISHED(src, system_shock_cooldown)
+	if(COOLDOWN_FINISHED(src, system_shock_cooldown))
 		do_system_shock()
 
 /// Apply our visual effect and knock the silicon out
