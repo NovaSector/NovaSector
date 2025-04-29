@@ -642,6 +642,7 @@
 			SetSleeping(400) //Short nap
 NOVA EDIT REMOVAL END */
 
+
 /mob/proc/get_contents()
 
 
