@@ -1,0 +1,9 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - rscadd: "Added a custom duration field to the Sleep verb, allowing players to sleep pick the length of their naps."
+  - qol: "Players can now wake up from voluntary sleep by resisting or clicking the alert icon."
+  - qol: "Players who sleep voluntarily can no longer be shaken awake."
+  - qol: "Players who disconnect while sleeping will now stay asleep until they reconnect."
+  - qol: "The Sleeping status effect now shows the duration if it isn't infinite."
+  - qol: "Sleeping and lying down now reduces your hunger rate by half."
