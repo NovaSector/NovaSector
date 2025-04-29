@@ -149,7 +149,7 @@
 
 /obj/item/clothing/shoes/forging_plate_boots/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/armor_plate, 1, /obj/item/stack/sheet/animalhide/goliath_hide, /datum/armor/armor_forging_upgrade)
+	AddComponent(/datum/component/armor_plate, 1, armor_mod = /datum/armor/armor_forging_upgrade)
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_FEET)
 	AddComponent(/datum/component/adjust_fishing_difficulty, 2)
 
