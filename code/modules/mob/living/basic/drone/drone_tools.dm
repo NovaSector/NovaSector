@@ -38,11 +38,10 @@
 	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/screwdriver/drone
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/screwdriver"
-	post_init_icon_state = "screwdriver_map"
 	name = "built-in screwdriver"
 	desc = "A screwdriver built into your chassis."
+	icon = 'icons/obj/items_cyborg.dmi'
+	icon_state = "toolkit_engiborg_screwdriver"
 	inhand_icon_state = "screwdriver"
 	item_flags = NO_MAT_REDEMPTION
 	random_color = FALSE

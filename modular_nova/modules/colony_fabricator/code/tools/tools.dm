@@ -5,6 +5,8 @@
 	desc = "The ultimate in multi purpose construction tools. With heads for wire cutting, bolt driving, and driving \
 		screws, what's not to love? Well, the slow speed. Compared to other power drills these tend to be \
 		<b>not much quicker than unpowered tools</b>."
+	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
+	icon_state = "drill"
 	inside_belt_icon_state = null
 	inhand_icon_state = "drill"
 	worn_icon_state = "drill"
@@ -26,9 +28,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 1
 	random_color = FALSE
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/screwdriver"
-	post_init_icon_state = "screwdriver_map"
 	greyscale_config = null
 	greyscale_config_belt = null
 	greyscale_config_inhand_left = null

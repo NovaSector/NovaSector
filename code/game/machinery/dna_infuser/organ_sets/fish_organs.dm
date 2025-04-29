@@ -163,9 +163,8 @@
 /obj/item/organ/tail/fish
 	name = "fish tail"
 	desc = "A severed tail from some sort of marine creature... or a fish-infused spaceman. It's smooth, faintly wet and definitely not flopping."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/organ/tail/fish"
-	post_init_icon_state = "fish_tail"
+	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
+	icon_state = "fish_tail"
 	greyscale_config = /datum/greyscale_config/fish_tail
 	greyscale_colors = FISH_ORGAN_COLOR
 
@@ -383,9 +382,8 @@
 /obj/item/organ/stomach/fish
 	name = "mutated fish-stomach"
 	desc = "Fish DNA infused into a stomach now permeated by the faint smell of salt and slightly putrefied fish."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/organ/stomach/fish"
-	post_init_icon_state = "stomach"
+	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
+	icon_state = "stomach"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = FISH_COLORS
 
@@ -433,9 +431,8 @@
 /obj/item/organ/liver/fish
 	name = "mutated fish-liver"
 	desc = "Fish DNA infused into a stomach that now uses tetrodotoxin as regenerative material. It also processes alcohol quite well."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/organ/liver/fish"
-	post_init_icon_state = "liver"
+	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
+	icon_state = "liver"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = FISH_COLORS
 

@@ -19,9 +19,6 @@
 	return FALSE //Roleplay borgs aren't truly borgs
 
 /obj/item/modular_computer/pda/silicon/cyborg/roleplay
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/modular_computer/pda/silicon"
-	post_init_icon_state = "tablet-silicon"
 	starting_programs = list( //Imaginary cyborgs do not get a PDA
 		/datum/computer_file/program/filemanager,
 		/datum/computer_file/program/robotact,

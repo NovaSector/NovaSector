@@ -145,9 +145,6 @@ GLOBAL_VAR(first_officer)
 	id_trim = /datum/id_trim/nri_police
 
 /obj/item/modular_computer/pda/nri_police
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/modular_computer/pda"
-	post_init_icon_state = "pda"
 	name = "\improper NRI police PDA"
 	device_theme = PDA_THEME_TERMINAL
 	greyscale_colors = "#363655#7878f7"

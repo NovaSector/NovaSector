@@ -388,9 +388,7 @@
 /obj/item/toy/plush/carpplushie
 	name = "space carp plushie"
 	desc = "An adorable stuffed toy that resembles a space carp."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/carpplushie"
-	post_init_icon_state = "map_plushie_carp"
+	icon_state = "map_plushie_carp"
 	greyscale_config = /datum/greyscale_config/plush_carp
 	greyscale_colors = "#cc99ff#000000"
 	inhand_icon_state = "carp_plushie"
@@ -510,9 +508,7 @@
 /obj/item/toy/plush/lizard_plushie
 	name = "lizard plushie"
 	desc = "An adorable stuffed toy that resembles a lizardperson."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie"
-	post_init_icon_state = "map_plushie_lizard"
+	icon_state = "map_plushie_lizard"
 	greyscale_config = /datum/greyscale_config/plush_lizard
 	attack_verb_continuous = list("claws", "hisses", "tail slaps")
 	attack_verb_simple = list("claw", "hiss", "tail slap")
@@ -534,16 +530,10 @@
 
 // Preset lizard plushie that uses the original lizard plush green. (Or close to it)
 /obj/item/toy/plush/lizard_plushie/green
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie"
-	post_init_icon_state = "map_plushie_lizard"
 	desc = "An adorable stuffed toy that resembles a green lizardperson. This one fills you with nostalgia and soul."
 	greyscale_colors = "#66ff33#000000"
 
 /obj/item/toy/plush/lizard_plushie/greyscale
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie"
-	post_init_icon_state = "map_plushie_lizard"
 	desc = "An adorable stuffed toy that resembles a lizardperson. This one has been custom made."
 	greyscale_colors = "#d3d3d3#000000"
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -551,27 +541,20 @@
 /obj/item/toy/plush/lizard_plushie/space
 	name = "space lizard plushie"
 	desc = "An adorable stuffed toy that resembles a very determined spacefaring lizardperson. To infinity and beyond, little guy."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie"
-	post_init_icon_state = "map_plushie_lizard"
+	icon_state = "map_plushie_spacelizard"
 	greyscale_config = /datum/greyscale_config/plush_spacelizard
 	// space lizards can't hit people with their tail, it's stuck in their suit
 	attack_verb_continuous = list("claws", "hisses", "bops")
 	attack_verb_simple = list("claw", "hiss", "bop")
 
 /obj/item/toy/plush/lizard_plushie/space/green
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie/space"
-	post_init_icon_state = "map_plushie_spacelizard"
 	desc = "An adorable stuffed toy that resembles a very determined spacefaring green lizardperson. To infinity and beyond, little guy. This one fills you with nostalgia and soul."
 	greyscale_colors = "#66ff33#000000"
 
 /obj/item/toy/plush/snakeplushie
 	name = "snake plushie"
 	desc = "An adorable stuffed toy that resembles a snake. Not to be mistaken for the real thing."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/snakeplushie"
-	post_init_icon_state = "map_plushie_snake"
+	icon_state = "map_plushie_snake"
 	greyscale_config = /datum/greyscale_config/plush_snake
 	greyscale_colors = "#99ff99#000000"
 	inhand_icon_state = null
@@ -600,9 +583,7 @@
 /obj/item/toy/plush/slimeplushie
 	name = "slime plushie"
 	desc = "An adorable stuffed toy that resembles a slime. It is practically just a hacky sack."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/toy/plush/slimeplushie"
-	post_init_icon_state = "map_plushie_slime"
+	icon_state = "map_plushie_slime"
 	greyscale_config = /datum/greyscale_config/plush_slime
 	greyscale_colors = "#aaaaff#000000"
 	inhand_icon_state = null

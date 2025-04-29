@@ -36,14 +36,13 @@
 /obj/item/screwdriver/advanced
 	name = "advanced screwdriver"
 	desc = "A classy silver screwdriver with an alien alloy tip, it works almost as well as the real thing. There's a sticker attached declaring that it needs updating from 'the latest samples'."
+	icon = 'modular_nova/modules/mapping/icons/obj/items/advancedtools.dmi'
+	icon_state = "screwdriver_a"
 	inhand_icon_state = "screwdriver_nuke"
 	usesound = 'sound/items/pshoom/pshoom.ogg'
 	toolspeed = 0.2
 	random_color = FALSE
 	greyscale_colors = null
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/screwdriver"
-	post_init_icon_state = "screwdriver_map"
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null

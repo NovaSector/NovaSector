@@ -2,6 +2,8 @@
 	name = "sticky tape"
 	singular_name = "sticky tape"
 	desc = "Used for sticking to things for sticking said things to people."
+	icon = 'icons/obj/tapes.dmi'
+	icon_state = "tape"
 	var/prefix = "sticky"
 	w_class = WEIGHT_CLASS_TINY
 	full_w_class = WEIGHT_CLASS_TINY
@@ -15,9 +17,6 @@
 	var/conferred_embed = /datum/embedding/sticky_tape
 	///The tape type you get when ripping off a piece of tape.
 	var/obj/tape_gag = /obj/item/clothing/mask/muzzle/tape
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/sticky_tape"
-	post_init_icon_state = "tape"
 	greyscale_config = /datum/greyscale_config/tape
 	greyscale_colors = "#B2B2B2#BD6A62"
 
@@ -84,9 +83,6 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/stack/sticky_tape/super
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/sticky_tape"
-	post_init_icon_state = "tape"
 	name = "super sticky tape"
 	singular_name = "super sticky tape"
 	desc = "Quite possibly the most mischievous substance in the galaxy. Use with extreme lack of caution."
@@ -105,12 +101,10 @@
 	name = "pointy tape"
 	singular_name = "pointy tape"
 	desc = "Used for sticking to things for sticking said things inside people."
+	icon_state = "tape_spikes"
 	prefix = "pointy"
 	conferred_embed = /datum/embedding/pointy_tape
 	merge_type = /obj/item/stack/sticky_tape/pointy
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/sticky_tape"
-	post_init_icon_state = "tape"
 	greyscale_config = /datum/greyscale_config/tape/spikes
 	greyscale_colors = "#E64539#808080#AD2F45"
 	tape_gag = /obj/item/clothing/mask/muzzle/tape/pointy
@@ -119,9 +113,6 @@
 	ignore_throwspeed_threshold = TRUE
 
 /obj/item/stack/sticky_tape/pointy/super
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/sticky_tape/pointy"
-	post_init_icon_state = "tape_spikes"
 	name = "super pointy tape"
 	singular_name = "super pointy tape"
 	desc = "You didn't know tape could look so sinister. Welcome to Space Station 13."
@@ -135,9 +126,6 @@
 	embed_chance = 100
 
 /obj/item/stack/sticky_tape/surgical
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/sticky_tape"
-	post_init_icon_state = "tape"
 	name = "surgical tape"
 	singular_name = "surgical tape"
 	desc = "Made for patching broken bones back together alongside bone gel, not for playing pranks."
@@ -156,9 +144,6 @@
 	return "tape" + (tray_extended ? "" : "_out")
 
 /obj/item/stack/sticky_tape/duct
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/sticky_tape"
-	post_init_icon_state = "tape"
 	name = "duct tape"
 	singular_name = "duct tape"
 	desc = "Tape designed for sealing punctures, holes and breakages in objects. Engineers swear by this stuff for practically all kinds of repairs. Maybe a little TOO much..."

@@ -18,9 +18,7 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy
 	name = "Greyscale Fancy Labcoat"
 	desc = "Throughout the test of determination, many have sought after such a fancy labcoat, one that was filled with many colors and wears."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
-	post_init_icon_state = "fancy_labcoat"
+	icon_state = "fancy_labcoat"
 	greyscale_config = /datum/greyscale_config/fancy_labcoat
 	greyscale_config_worn = /datum/greyscale_config/fancy_labcoat/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/fancy_labcoat/worn/teshari
@@ -29,9 +27,6 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
-	post_init_icon_state = "fancy_labcoat"
 	name = "research directors labcoat"
 	desc = "A Nanotrasen standard labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
 	greyscale_colors = "#620B73#EEEEEE"
@@ -46,9 +41,6 @@
 	acid = 70
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
-	post_init_icon_state = "fancy_labcoat"
 	name = "researcher's labcoat"
 	desc = "A Nanotrasen standard labcoat for researchers in the scientific field."
 	greyscale_colors = "#EEEEEE#B347A1"
@@ -61,27 +53,18 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
-	post_init_icon_state = "fancy_labcoat"
 	name = "pharmacist's labcoat"
 	desc = "A standard labcoat for chemistry which protects the wearer from acid spills."
 	greyscale_colors = "#EEEEEE#E6935C"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
-	post_init_icon_state = "fancy_labcoat"
 	name = "geneticist's labcoat"
 	desc = "A standard labcoat for geneticist."
 	greyscale_colors = "#EEEEEE#7497C0"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
-	post_init_icon_state = "fancy_labcoat"
 	name = "roboticist's labcoat"
 	desc = "A standard labcoat for roboticist."
 	greyscale_colors = "#2F2E31#A52F29"

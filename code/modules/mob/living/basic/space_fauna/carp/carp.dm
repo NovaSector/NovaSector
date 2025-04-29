@@ -13,6 +13,8 @@
 /mob/living/basic/carp
 	name = "space carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
+	icon = 'icons/mob/simple/carp.dmi'
+	icon_state = "base"
 	icon_living = "base"
 	icon_dead = "base_dead"
 	icon_gib = "carp_gib"
@@ -36,9 +38,6 @@
 	response_disarm_simple = "gently push aside"
 	faction = list(FACTION_CARP)
 	butcher_results = list(/obj/item/food/fishmeat/carp = 2, /obj/item/stack/sheet/animalhide/carp = 1)
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	greyscale_config = /datum/greyscale_config/carp
 	ai_controller = /datum/ai_controller/basic_controller/carp
 	initial_language_holder = /datum/language_holder/carp
@@ -61,7 +60,7 @@
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
 		/datum/pet_command/follow,
-/datum/pet_command/attack
+		/datum/pet_command/attack
 	)
 	/// Carp want to eat raw meat
 	var/static/list/desired_food = list(/obj/item/food/meat/slab, /obj/item/food/meat/rawcutlet)
@@ -179,11 +178,9 @@
  * Holographic carp from the holodeck
  */
 /mob/living/basic/carp/holographic
+	icon_state = "holocarp"
 	icon_living = "holocarp"
 	gold_core_spawnable = NO_SPAWN
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	greyscale_config = NONE
 	basic_mob_flags = DEL_ON_DEATH
 	cell_line = NONE
@@ -201,9 +198,6 @@
  * Pet carp, abstract carp which just holds some shared properties.
  */
 /mob/living/basic/carp/pet
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	speak_emote = list("squeaks")
 	gold_core_spawnable = NO_SPAWN
 	gender = FEMALE // Both current existing pet carp are female but you can remove this if someone else gets a male one?
@@ -229,9 +223,7 @@
 	icon_dead = "magicarp_dead"
 	icon_gib = "magicarp_gib"
 	icon_living = "magicarp"
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
+	icon_state = "magicarp"
 	greyscale_config = NONE
 
 /// Boosted chance for Cayenne to be silver
@@ -243,9 +235,6 @@
  * Is very talented and also capable of holding the nuclear disk.
  */
 /mob/living/basic/carp/pet/cayenne
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	name = "Cayenne"
 	real_name = "Cayenne"
 	desc = "A failed Syndicate experiment in weaponized space carp technology, it now serves as a lovable mascot."
@@ -284,9 +273,6 @@
 	new_overlays += disk_overlay
 
 /mob/living/basic/carp/advanced
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	health = 40
 	maxHealth = 40
 	obj_damage = 15
@@ -295,9 +281,6 @@
 
 ///Carp-parasite from carpellosis disease
 /mob/living/basic/carp/ella
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	name = "Ella"
 	real_name = "Ella"
 	desc = "It came out of someone."
@@ -309,9 +292,6 @@
 
 ///Wild carp that just vibe ya know
 /mob/living/basic/carp/passive
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	name = "false carp"
 	desc = "A close relative of the space carp which is entirely toothless and feeds by stealing its cousin's leftovers."
 

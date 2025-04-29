@@ -130,9 +130,6 @@
 	. += span_notice("The armor has been removed from the fabric.")
 
 /obj/item/clothing/mask/neck_gaiter/syndicate/tacticool
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/neck_gaiter"
-	post_init_icon_state = "gaiter"
 	name = "tacticool neck gaiter"
 	desc = "A techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
 /*

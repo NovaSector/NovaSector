@@ -1,9 +1,8 @@
 //ASH TOOL
 /obj/item/screwdriver/ashwalker
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/screwdriver"
-	post_init_icon_state = "screwdriver_map"
 	name = "primitive screwdriver"
+	icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_tools.dmi'
+	icon_state = "screwdriver"
 	custom_materials = list(/datum/material/bone = SMALL_MATERIAL_AMOUNT * 1)
 
 	greyscale_colors = null

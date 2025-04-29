@@ -80,9 +80,6 @@
 
 /obj/item/modular_computer/pda/telecomms
 	name = "telecomms PDA"
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/modular_computer/pda"
-	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_split
 	greyscale_colors = "#3267B1#3D83E3#D99A2E"
 	starting_programs = list(

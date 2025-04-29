@@ -165,9 +165,8 @@
 /obj/item/janicart_upgrade
 	name = "base upgrade"
 	desc = "An abstract upgrade for mobile janicarts."
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/janicart_upgrade"
-	post_init_icon_state = "janicart_upgrade"
+	icon = 'icons/obj/service/janicart_upgrade.dmi'
+	icon_state = "janicart_upgrade"
 	greyscale_config = /datum/greyscale_config/janicart_upgrade
 	/// The greyscale config for the on-cart installed upgrade overlay
 	var/overlay_greyscale_config = /datum/greyscale_config/janicart_upgrade/installed
@@ -191,9 +190,6 @@
 	return FALSE
 
 /obj/item/janicart_upgrade/buffer
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/janicart_upgrade"
-	post_init_icon_state = "janicart_upgrade"
 	name = "floor buffer upgrade"
 	desc = "An upgrade for mobile janicarts which adds a floor buffer functionality."
 	greyscale_colors = "#ffffff#6aa3ff#a2a2a2#d1d15f"
@@ -205,9 +201,6 @@
 	installee.RemoveElement(/datum/element/cleaning)
 
 /obj/item/janicart_upgrade/vacuum
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/janicart_upgrade"
-	post_init_icon_state = "janicart_upgrade"
 	name = "vacuum upgrade"
 	desc = "An upgrade for mobile janicarts which adds a vacuum functionality."
 	greyscale_colors = "#ffffff#ffea6a#a2a2a2#d1d15f"

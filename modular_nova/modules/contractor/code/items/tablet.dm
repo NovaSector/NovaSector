@@ -1,8 +1,5 @@
 /obj/item/modular_computer/pda/contractor
 	name = "contract PDA"
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/modular_computer/pda"
-	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#696969#000000#FFA500"
 	comp_light_luminosity = 6.3

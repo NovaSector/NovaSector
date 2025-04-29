@@ -26,12 +26,11 @@
 /obj/item/clothing/neck/bowtie
 	name = "bow tie"
 	desc = "A small neosilk bowtie."
+	icon = 'icons/obj/clothing/neck.dmi'
+	icon_state = "bowtie_greyscale"
 	inhand_icon_state = "" //no inhands
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_CREW
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/bowtie"
-	post_init_icon_state = "bowtie_greyscale"
 	greyscale_config = /datum/greyscale_config/ties
 	greyscale_config_worn = /datum/greyscale_config/ties/worn
 	greyscale_colors = "#151516ff"
@@ -40,9 +39,7 @@
 /obj/item/clothing/neck/bowtie/rainbow
 	name = "rainbow bow tie"
 	desc = "An extremely large neosilk rainbow-colored bowtie."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/bowtie"
-	post_init_icon_state = "bowtie_greyscale"
+	icon_state = "bowtie_rainbow"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
@@ -50,13 +47,12 @@
 /obj/item/clothing/neck/tie
 	name = "slick tie"
 	desc = "A neosilk tie."
+	icon = 'icons/obj/clothing/neck.dmi'
+	icon_state = "tie_greyscale_tied"
 	inhand_icon_state = "" //no inhands
 	alternate_worn_layer = LOW_NECK_LAYER // So that it renders below suit jackets, MODsuits, etc
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_CREW
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	greyscale_config = /datum/greyscale_config/ties
 	greyscale_config_worn = /datum/greyscale_config/ties/worn
 	greyscale_colors = "#4d4e4e"
@@ -157,69 +153,48 @@
 		. += undershirt.accessory_overlay
 
 /obj/item/clothing/neck/tie/blue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	name = "blue tie"
+	icon_state = "tie_greyscale_untied"
 	greyscale_colors = "#5275b6ff"
 
 /obj/item/clothing/neck/tie/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	name = "red tie"
+	icon_state = "tie_greyscale_untied"
 	greyscale_colors = "#c23838ff"
 
 /obj/item/clothing/neck/tie/red/tied
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/red/hitman
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	desc = "This is a $47,000 custom-tailored Référence Du Tueur À Gages tie. The clot is from neosilkworms raised at a tie microfarm in Cookwell, from a secret pattern passed down by monk tailors since the twenty-first century!"
+	icon_state = "tie_greyscale_untied"
 	tie_timer = 1 SECONDS // You're a professional.
 
 /obj/item/clothing/neck/tie/red/hitman/tied
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/black
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	name = "black tie"
+	icon_state = "tie_greyscale_untied"
 	greyscale_colors = "#151516ff"
 
 /obj/item/clothing/neck/tie/black/tied
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/horrible
 	name = "horrible tie"
 	desc = "A neosilk tie. This one is disgusting."
+	icon_state = "horribletie"
 	clip_on = TRUE
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
 
 /obj/item/clothing/neck/tie/disco
 	name = "horrific necktie"
+	icon_state = "eldritch_tie"
 	desc = "The necktie is adorned with a garish pattern. It's disturbingly vivid. Somehow you feel as if it would be wrong to ever take it off. It's your friend now. You will betray it if you change it for some boring scarf."
 	clip_on = TRUE
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
@@ -227,10 +202,8 @@
 /obj/item/clothing/neck/tie/detective
 	name = "loose tie"
 	desc = "A loosely tied necktie, a perfect accessory for the over-worked detective."
+	icon_state = "detective"
 	clip_on = TRUE
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/tie"
-	post_init_icon_state = "tie_greyscale_tied"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
@@ -376,135 +349,86 @@
 
 /obj/item/clothing/neck/scarf
 	name = "scarf"
+	icon_state = "scarf"
 	icon_preview = 'icons/obj/fluff/previews.dmi'
 	icon_state_preview = "scarf_cloth"
 	desc = "A stylish scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks."
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#EEEEEE#EEEEEE"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	greyscale_config = /datum/greyscale_config/scarf
 	greyscale_config_worn = /datum/greyscale_config/scarf/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/scarf/black
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "black scarf"
 	greyscale_colors = "#4A4A4B#4A4A4B"
 
 /obj/item/clothing/neck/scarf/pink
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "pink scarf"
 	greyscale_colors = "#F699CD#F699CD"
 
 /obj/item/clothing/neck/scarf/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "red scarf"
 	greyscale_colors = "#D91414#D91414"
 
 /obj/item/clothing/neck/scarf/green
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "green scarf"
 	greyscale_colors = "#5C9E54#5C9E54"
 
 /obj/item/clothing/neck/scarf/darkblue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "dark blue scarf"
 	greyscale_colors = "#1E85BC#1E85BC"
 
 /obj/item/clothing/neck/scarf/purple
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "purple scarf"
 	greyscale_colors = "#9557C5#9557C5"
 
 /obj/item/clothing/neck/scarf/yellow
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "yellow scarf"
 	greyscale_colors = "#E0C14F#E0C14F"
 
 /obj/item/clothing/neck/scarf/orange
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "orange scarf"
 	greyscale_colors = "#C67A4B#C67A4B"
 
 /obj/item/clothing/neck/scarf/cyan
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "cyan scarf"
 	greyscale_colors = "#54A3CE#54A3CE"
 
 /obj/item/clothing/neck/scarf/zebra
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "zebra scarf"
 	greyscale_colors = "#333333#EEEEEE"
 
 /obj/item/clothing/neck/scarf/christmas
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/scarf"
-	post_init_icon_state = "scarf"
 	name = "christmas scarf"
 	greyscale_colors = "#038000#960000"
 
 /obj/item/clothing/neck/large_scarf
 	name = "large scarf"
+	icon_state = "large_scarf"
 	icon_preview = 'icons/obj/fluff/previews.dmi'
 	icon_state_preview = "scarf_large"
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#C6C6C6#EEEEEE"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/large_scarf"
-	post_init_icon_state = "large_scarf"
 	greyscale_config = /datum/greyscale_config/scarf
 	greyscale_config_worn = /datum/greyscale_config/scarf/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/large_scarf/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/large_scarf"
-	post_init_icon_state = "large_scarf"
 	name = "large red scarf"
 	greyscale_colors = "#8A2908#A06D66"
 
 /obj/item/clothing/neck/large_scarf/green
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/large_scarf"
-	post_init_icon_state = "large_scarf"
 	name = "large green scarf"
 	greyscale_colors = "#525629#888674"
 
 /obj/item/clothing/neck/large_scarf/blue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/large_scarf"
-	post_init_icon_state = "large_scarf"
 	name = "large blue scarf"
 	greyscale_colors = "#20396C#6F7F91"
 
 /obj/item/clothing/neck/large_scarf/syndie
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/large_scarf"
-	post_init_icon_state = "large_scarf"
 	name = "suspicious looking striped scarf"
 	desc = "Ready to operate."
 	greyscale_colors = "#B40000#545350"
@@ -512,12 +436,10 @@
 
 /obj/item/clothing/neck/infinity_scarf
 	name = "infinity scarf"
+	icon_state = "infinity_scarf"
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/infinity_scarf"
-	post_init_icon_state = "infinity_scarf"
 	greyscale_config = /datum/greyscale_config/infinity_scarf
 	greyscale_config_worn = /datum/greyscale_config/infinity_scarf/worn
 	flags_1 = IS_PLAYER_COLORABLE_1

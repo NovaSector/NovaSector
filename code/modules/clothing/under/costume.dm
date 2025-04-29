@@ -311,9 +311,7 @@
 /obj/item/clothing/under/costume/buttondown/slacks
 	name = "button-down shirt with slacks"
 	desc = "A fancy button-down shirt with slacks."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/costume/buttondown/slacks"
-	post_init_icon_state = "buttondown_slacks"
+	icon_state = "buttondown_slacks"
 	greyscale_config = /datum/greyscale_config/buttondown_slacks
 	greyscale_config_worn = /datum/greyscale_config/buttondown_slacks/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
@@ -326,9 +324,7 @@
 /obj/item/clothing/under/costume/buttondown/shorts
 	name = "button-down shirt with shorts"
 	desc = "A fancy button-down shirt with shorts."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/costume/buttondown/shorts"
-	post_init_icon_state = "buttondown_shorts"
+	icon_state = "buttondown_shorts"
 	greyscale_config = /datum/greyscale_config/buttondown_shorts
 	greyscale_config_worn = /datum/greyscale_config/buttondown_shorts/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_shorts/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
@@ -338,9 +334,7 @@
 /obj/item/clothing/under/costume/buttondown/skirt
 	name = "button-down shirt with skirt"
 	desc = "A fancy button-down shirt with skirt."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/costume/buttondown/skirt"
-	post_init_icon_state = "buttondown_skirt"
+	icon_state = "buttondown_skirt"
 	greyscale_config = /datum/greyscale_config/buttondown_skirt
 	greyscale_config_worn = /datum/greyscale_config/buttondown_skirt/worn
 	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
@@ -367,10 +361,8 @@
 
 /obj/item/clothing/under/costume/football_suit
 	name = "football uniform"
+	icon_state = "football_suit"
 	can_adjust = FALSE
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/costume/football_suit"
-	post_init_icon_state = "football_suit"
 	greyscale_config = /datum/greyscale_config/football_suit
 	greyscale_config_worn = /datum/greyscale_config/football_suit/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/football_suit/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
@@ -430,9 +422,7 @@
 /obj/item/clothing/under/costume/gi
 	name = "martial gi"
 	desc = "Assistant, nukie, whatever. You can beat anyone; it's called hard work!"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/costume/gi"
-	post_init_icon_state = "martial_arts_gi"
+	icon_state = "martial_arts_gi"
 	greyscale_config = /datum/greyscale_config/gi
 	greyscale_config_worn = /datum/greyscale_config/gi/worn
 	greyscale_colors = "#f1eeee#000000"
@@ -447,11 +437,9 @@
 	update_icon(UPDATE_OVERLAYS)
 
 /obj/item/clothing/under/costume/gi/goku
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/costume/gi"
-	post_init_icon_state = "martial_arts_gi"
 	name = "sacred gi"
 	desc = "Created by a man who touched the hearts and lives of many."
+	icon_state = "martial_arts_gi_goku"
 	greyscale_colors = "#f89925#3e6dd7"
 
 /obj/item/clothing/under/costume/traditional

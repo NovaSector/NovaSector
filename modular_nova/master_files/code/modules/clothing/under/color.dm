@@ -1,7 +1,4 @@
 /obj/item/clothing/under/color/rainbow
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/color"
-	post_init_icon_state = "jumpsuit"
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/color_digi.dmi'
 
 /**

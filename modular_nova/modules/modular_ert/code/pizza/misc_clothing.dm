@@ -1,7 +1,4 @@
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/pizza
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
-	post_init_icon_state = "hoodie"
 	name = "dogginos hoodie"
 	desc = "A hoodie often worn by the delivery boys of this intergalactically known brand of pizza."
 	greyscale_colors = "#c40000"

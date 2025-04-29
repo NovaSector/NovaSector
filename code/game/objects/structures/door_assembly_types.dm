@@ -263,9 +263,6 @@
 	name = "airlock assembly"
 	airlock_type = /obj/machinery/door/airlock/material
 	glass_type = /obj/machinery/door/airlock/material/glass
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/structure/door_assembly/door_assembly_material"
-	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/material_airlock
 	nomineral = TRUE
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS

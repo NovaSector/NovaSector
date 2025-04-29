@@ -11,11 +11,9 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	name = "bandana"
 	desc = "A fine bandana with nanotech lining."
+	icon_state = "bandana"
 	icon_state_preview = "bandana_cloth"
 	inhand_icon_state = "greyscale_bandana"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	greyscale_config = /datum/greyscale_config/bandana
 	greyscale_config_worn = /datum/greyscale_config/bandana/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/bandana/inhands_left
@@ -87,72 +85,48 @@
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/bandana/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "red bandana"
 	desc = "A fine red bandana with nanotech lining."
 	greyscale_colors = "#A02525"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/blue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "blue bandana"
 	desc = "A fine blue bandana with nanotech lining."
 	greyscale_colors = "#294A98"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/purple
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "purple bandana"
 	desc = "A fine purple bandana with nanotech lining."
 	greyscale_colors = "#9900CC"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/green
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "green bandana"
 	desc = "A fine green bandana with nanotech lining."
 	greyscale_colors = "#3D9829"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/gold
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "gold bandana"
 	desc = "A fine gold bandana with nanotech lining."
 	greyscale_colors = "#DAC20E"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/orange
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "orange bandana"
 	desc = "A fine orange bandana with nanotech lining."
 	greyscale_colors = "#da930e"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/black
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "black bandana"
 	desc = "A fine black bandana with nanotech lining."
 	greyscale_colors = "#2e2e2e"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/white
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "white bandana"
 	desc = "A fine white bandana with nanotech lining."
 	greyscale_colors = "#DCDCDC"
@@ -160,9 +134,6 @@
 	icon_state_preview = "bandana_cloth"
 
 /obj/item/clothing/mask/bandana/durathread
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
 	name = "durathread bandana"
 	desc = "A bandana made from durathread, you wish it would provide some protection to its wearer, but it's far too thin..."
 	greyscale_colors = "#5c6d80"
@@ -173,9 +144,7 @@
 /obj/item/clothing/mask/bandana/striped
 	name = "striped bandana"
 	desc = "A fine bandana with nanotech lining and a stripe across."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
+	icon_state = "bandstriped"
 	greyscale_config = /datum/greyscale_config/bandana/striped
 	greyscale_config_worn = /datum/greyscale_config/bandana/striped/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/bandana/striped/inhands_left
@@ -184,63 +153,42 @@
 	undyeable = TRUE
 
 /obj/item/clothing/mask/bandana/striped/black
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped bandana"
 	desc = "A fine black and white bandana with nanotech lining and a stripe across."
 	greyscale_colors = "#2e2e2e#C6C6C6"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/security
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped security bandana"
 	desc = "A fine bandana with nanotech lining, a stripe across and security colors."
 	greyscale_colors = "#A02525#2e2e2e"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/science
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped science bandana"
 	desc = "A fine bandana with nanotech lining, a stripe across and science colors."
 	greyscale_colors = "#DCDCDC#8019a0"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/engineering
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped engineering bandana"
 	desc = "A fine bandana with nanotech lining, a stripe across and engineering colors."
 	greyscale_colors = "#dab50e#ec7404"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/medical
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped medical bandana"
 	desc = "A fine bandana with nanotech lining, a stripe across and medical colors."
 	greyscale_colors = "#DCDCDC#5995BA"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/cargo
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped cargo bandana"
 	desc = "A fine bandana with nanotech lining, a stripe across and cargo colors."
 	greyscale_colors = "#967032#5F350B"
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/botany
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/striped"
-	post_init_icon_state = "bandstriped"
 	name = "striped botany bandana"
 	desc = "A fine bandana with nanotech lining, a stripe across and botany colors."
 	greyscale_colors = "#3D9829#294A98"
@@ -249,9 +197,7 @@
 /obj/item/clothing/mask/bandana/skull
 	name = "skull bandana"
 	desc = "A fine bandana with nanotech lining and a skull emblem."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana"
-	post_init_icon_state = "bandana"
+	icon_state = "bandskull"
 	greyscale_config = /datum/greyscale_config/bandana/skull
 	greyscale_config_worn = /datum/greyscale_config/bandana/skull/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/bandana/skull/inhands_left
@@ -260,9 +206,6 @@
 	undyeable = TRUE
 
 /obj/item/clothing/mask/bandana/skull/black
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/bandana/skull"
-	post_init_icon_state = "bandskull"
 	desc = "A fine black bandana with nanotech lining and a skull emblem."
 	greyscale_colors = "#2e2e2e#C6C6C6"
 	flags_1 = NONE
@@ -271,6 +214,7 @@
 	name = "facescarf"
 	desc = "Cover your face like in the cowboy movies. It also has breathtube so you can wear it everywhere!"
 	actions_types = list(/datum/action/item_action/adjust)
+	icon_state = "facescarf"
 	inhand_icon_state = "greyscale_facescarf"
 	alternate_worn_layer = BACK_LAYER
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
@@ -282,9 +226,6 @@
 	visor_flags_cover = MASKCOVERSMOUTH
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#eeeeee"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/mask/facescarf"
-	post_init_icon_state = "facescarf"
 	greyscale_config = /datum/greyscale_config/facescarf
 	greyscale_config_worn = /datum/greyscale_config/facescarf/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/facescarf/inhands_left

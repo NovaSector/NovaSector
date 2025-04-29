@@ -654,9 +654,6 @@
 	desc = "A heavy jacket made from 'synthetic' animal furs, with custom colors."
 	hood_down_overlay_suffix = ""
 	greyscale_colors = "#ffffff#ffffff#808080#808080#808080#808080"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/custom"
-	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/winter_coats
 	greyscale_config_worn = /datum/greyscale_config/winter_coats/worn
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
@@ -682,9 +679,6 @@
 /obj/item/clothing/head/hooded/winterhood/custom
 	name = "tailored winter coat hood"
 	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/hooded/winterhood/custom"
-	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/winter_hoods
 	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
 

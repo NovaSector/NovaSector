@@ -190,13 +190,12 @@
 /obj/item/clothing/suit/armor/vest/ctf
 	name = "white shielded vest"
 	desc = "Standard issue vest for playing capture the flag."
+	icon = 'icons/mob/clothing/suits/ctf.dmi'
 	worn_icon = 'icons/mob/clothing/suits/ctf.dmi'
+	icon_state = "standard"
 	// Adding TRAIT_NODROP is done when the CTF spawner equips people
 	armor_type = /datum/armor/none
 	allowed = null
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf"
-	post_init_icon_state = "standard"
 	greyscale_config = /datum/greyscale_config/ctf_standard
 	greyscale_config_worn = /datum/greyscale_config/ctf_standard/worn
 	greyscale_colors = "#ffffff"
@@ -228,9 +227,7 @@
 /obj/item/clothing/suit/armor/vest/ctf/light
 	name = "light white shielded vest"
 	desc = "Lightweight vest for playing capture the flag."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf"
-	post_init_icon_state = "standard"
+	icon_state = "light"
 	greyscale_config = /datum/greyscale_config/ctf_light
 	greyscale_config_worn = /datum/greyscale_config/ctf_light/worn
 	slowdown = -0.25
@@ -486,9 +483,6 @@
 
 // Regular
 /obj/item/clothing/suit/armor/vest/ctf/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf"
-	post_init_icon_state = "standard"
 	name = "red shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-red"
@@ -496,9 +490,6 @@
 
 // Light
 /obj/item/clothing/suit/armor/vest/ctf/light/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf/light"
-	post_init_icon_state = "light"
 	name = "light red shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-red"
@@ -508,9 +499,6 @@
 
 // Regular
 /obj/item/clothing/suit/armor/vest/ctf/blue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf"
-	post_init_icon_state = "standard"
 	name = "blue shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-old"
@@ -518,9 +506,6 @@
 
 // Light
 /obj/item/clothing/suit/armor/vest/ctf/light/blue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf/light"
-	post_init_icon_state = "light"
 	name = "light blue shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-old"
@@ -530,9 +515,6 @@
 
 // Regular
 /obj/item/clothing/suit/armor/vest/ctf/green
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf"
-	post_init_icon_state = "standard"
 	name = "green shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-green"
@@ -540,9 +522,6 @@
 
 // Light
 /obj/item/clothing/suit/armor/vest/ctf/light/green
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf/light"
-	post_init_icon_state = "light"
 	name = "light green shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-green"
@@ -552,9 +531,6 @@
 
 // Regular
 /obj/item/clothing/suit/armor/vest/ctf/yellow
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf"
-	post_init_icon_state = "standard"
 	name = "yellow shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-yellow"
@@ -562,9 +538,6 @@
 
 // Light
 /obj/item/clothing/suit/armor/vest/ctf/light/yellow
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/ctf/light"
-	post_init_icon_state = "light"
 	name = "light yellow shielded vest"
 	inhand_icon_state = null
 	team_shield_icon = "shield-yellow"

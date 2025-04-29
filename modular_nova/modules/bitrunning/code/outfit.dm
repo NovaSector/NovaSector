@@ -9,9 +9,7 @@
 
 /obj/item/encryptionkey/headset_bitrunning
 	name = "bitrunning radio encryption key"
+	icon_state = "cypherkey_cargo"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_FACTION = 1)
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/encryptionkey/headset_bitrunning"
-	post_init_icon_state = "cypherkey_cargo"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
 	greyscale_colors = "#49241a#a3344c"

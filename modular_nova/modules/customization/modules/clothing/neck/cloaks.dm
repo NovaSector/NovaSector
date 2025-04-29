@@ -31,9 +31,7 @@
 /obj/item/clothing/neck/ranger_poncho
 	name = "ranger poncho"
 	desc = "Aim for the Heart, Ramon."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/ranger_poncho"
-	post_init_icon_state = "ranger_poncho"
+	icon_state = "ranger_poncho"
 	greyscale_config = /datum/greyscale_config/ranger_poncho
 	greyscale_config_worn = /datum/greyscale_config/ranger_poncho/worn
 	greyscale_colors = "#917A57#858585"	//Roughly the same color as the original non-greyscale item was
@@ -47,9 +45,7 @@
 /obj/item/clothing/neck/robe_cape
 	name = "robe cape"
 	desc = "A comfortable northern-style cape, draped down your back and held around your neck with a brooch. Reminds you of a sort of robe."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/robe_cape"
-	post_init_icon_state = "robe_cape"
+	icon_state = "robe_cape"
 	greyscale_config = /datum/greyscale_config/robe_cape
 	greyscale_config_worn = /datum/greyscale_config/robe_cape/worn
 	greyscale_colors = "#867361"
@@ -59,9 +55,7 @@
 /obj/item/clothing/neck/long_cape
 	name = "long cape"
 	desc = "A graceful cloak that carefully surrounds your body."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/long_cape"
-	post_init_icon_state = "long_cape"
+	icon_state = "long_cape"
 	greyscale_config = /datum/greyscale_config/long_cape
 	greyscale_config_worn = /datum/greyscale_config/long_cape/worn
 	greyscale_colors = "#867361#4d433d#b2a69c#b2a69c"
@@ -75,9 +69,7 @@
 /obj/item/clothing/neck/wide_cape
 	name = "wide cape"
 	desc = "A proud, broad-shouldered cloak with which you can protect the honor of your back."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/neck/wide_cape"
-	post_init_icon_state = "wide_cape"
+	icon_state = "wide_cape"
 	greyscale_config = /datum/greyscale_config/wide_cape
 	greyscale_config_worn = /datum/greyscale_config/wide_cape/worn
 	greyscale_colors = "#867361#4d433d#b2a69c"

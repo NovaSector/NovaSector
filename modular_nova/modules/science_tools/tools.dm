@@ -6,9 +6,7 @@
 	force_opens = FALSE
 
 /obj/item/screwdriver/power/science
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/screwdriver/power"
-	post_init_icon_state = "drill"
+	icon_state = "drill_sci"
 
 /obj/item/screwdriver/power/science/Initialize(mapload)
 	. = ..()

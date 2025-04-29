@@ -14,9 +14,6 @@
 	special_channels = RADIO_SPECIAL_CENTCOM
 
 /obj/item/encryptionkey/headset_cargo/tarkon
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/encryptionkey/headset_cargo"
-	post_init_icon_state = "cypherkey_cargo"
 	name = "tarkon industry radio encryption key"
 	channels = list(RADIO_CHANNEL_TARKON = 1)
 	special_channels = RADIO_SPECIAL_CENTCOM

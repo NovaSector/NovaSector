@@ -8,9 +8,7 @@
 	toolspeed = 0.3
 
 /obj/item/screwdriver/caravan
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/screwdriver"
-	post_init_icon_state = "screwdriver_map"
+	icon_state = "screwdriver_caravan"
 	desc = "A prototype of a new screwdriver design, allegedly the red color scheme makes it go faster."
 	name = "experimental screwdriver"
 	toolspeed = 0.3

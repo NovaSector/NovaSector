@@ -57,18 +57,12 @@
 	greyscale_config_worn_teshari = /datum/greyscale_config/jumpsuit/worn/teshari
 
 /obj/item/clothing/under/color/jumpskirt
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/color"
-	post_init_icon_state = "jumpsuit"
 	greyscale_config_worn_teshari = /datum/greyscale_config/jumpsuit/worn/teshari
 
 /obj/item/clothing/shoes/sneakers
 	greyscale_config_worn_teshari = /datum/greyscale_config/sneakers/worn/teshari
 
 /obj/item/clothing/shoes/sneakers/orange
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	greyscale_config_worn_teshari = /datum/greyscale_config/sneakers_orange/worn/teshari
 
 /obj/item/clothing/head/collectable/beret
@@ -90,87 +84,48 @@
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
 /obj/item/clothing/head/beret/badge
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/hats/hos/beret
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/sec
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/science/fancy
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/science/rd
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/durathread
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/centcom_formal
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/militia
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/sec/navywarden
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret/sec"
-	post_init_icon_state = "beret_badge"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge_fancy/worn/teshari
 
 /obj/item/clothing/head/beret/medical
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/engi
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/atmos
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/cargo/qm
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/hopcap/beret
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/blueshield
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret"
-	post_init_icon_state = "beret"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/flatcap
@@ -180,33 +135,21 @@
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret/worn/teshari
 
 /obj/item/clothing/head/beret/sec/navywarden/syndicate
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret/sec/navywarden"
-	post_init_icon_state = "beret_badge_fancy_twist"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/nanotrasen_consultant/beret
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/head/beret/sec/armadyne
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret/sec"
-	post_init_icon_state = "beret_badge"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge_fancy/worn/teshari
 
 /obj/item/clothing/head/beret/sec/nova
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret/sec"
-	post_init_icon_state = "beret_badge"
 	greyscale_config_worn_teshari = /datum/greyscale_config/beret_badge/worn/teshari
 
 /obj/item/clothing/neck/ranger_poncho
 	greyscale_config_worn_teshari = /datum/greyscale_config/ranger_poncho/worn/teshari
 
 /obj/item/clothing/under/dress/skirt/plaid
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/under/dress/skirt"
-	post_init_icon_state = "cardiganskirt"
 	greyscale_config_worn_teshari = /datum/greyscale_config/plaidskirt/worn/teshari
 
 /obj/item/clothing/under/dress/sundress

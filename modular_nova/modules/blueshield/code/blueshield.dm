@@ -75,9 +75,6 @@
 	uniform = /obj/item/clothing/under/plasmaman/blueshield
 
 /obj/item/modular_computer/pda/blueshield
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/modular_computer/pda"
-	post_init_icon_state = "pda"
 	name = "blueshield's PDA"
 	inserted_item = /obj/item/pen/fountain
 	greyscale_colors = "#2B356D#1E1E1E"

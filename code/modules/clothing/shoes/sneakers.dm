@@ -1,12 +1,10 @@
 /obj/item/clothing/shoes/sneakers
 	dying_key = DYE_REGISTRY_SNEAKERS
+	icon_state = "sneakers"
 	inhand_icon_state = "sneakers_back"
 	lefthand_file = 'icons/mob/inhands/clothing/shoes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/shoes_righthand.dmi'
 	greyscale_colors = "#2d2d33#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers
 	greyscale_config_worn = /datum/greyscale_config/sneakers/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/sneakers/inhand_left
@@ -20,9 +18,6 @@
 	update_greyscale()
 
 /obj/item/clothing/shoes/sneakers/black
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "black shoes"
 	desc = "A pair of black shoes."
 	custom_price = PAYCHECK_CREW
@@ -33,17 +28,11 @@
 	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
 
 /obj/item/clothing/shoes/sneakers/brown
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "brown shoes"
 	desc = "A pair of brown shoes."
 	greyscale_colors = "#472c21#ffffff"
 
 /obj/item/clothing/shoes/sneakers/blue
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "blue shoes"
 	greyscale_colors = "#4f88df#ffffff"
 	armor_type = /datum/armor/sneakers_blue
@@ -52,38 +41,23 @@
 	bio = 95
 
 /obj/item/clothing/shoes/sneakers/green
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "green shoes"
 	greyscale_colors = "#3bca5a#ffffff"
 
 /obj/item/clothing/shoes/sneakers/yellow
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "yellow shoes"
 	greyscale_colors = "#deb63d#ffffff"
 
 /obj/item/clothing/shoes/sneakers/purple
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "purple shoes"
 	greyscale_colors = "#7e1980#ffffff"
 
 /obj/item/clothing/shoes/sneakers/red
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "red shoes"
 	desc = "Stylish red shoes."
 	greyscale_colors = "#a52f29#ffffff"
 
 /obj/item/clothing/shoes/sneakers/white
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "white shoes"
 	greyscale_colors = "#ffffff#ffffff"
 	icon_preview = 'icons/obj/fluff/previews.dmi'
@@ -94,11 +68,9 @@
 	bio = 95
 
 /obj/item/clothing/shoes/sneakers/rainbow
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "rainbow shoes"
 	desc = "Very gay shoes."
+	icon_state = "rain_bow"
 	inhand_icon_state = "rainbow_sneakers"
 
 	greyscale_colors = null
@@ -113,9 +85,6 @@
 	icon_preview = 'icons/obj/fluff/previews.dmi'
 	icon_state_preview = "prisonshoes"
 	greyscale_colors = "#d15b1b#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
 	greyscale_config_worn = /datum/greyscale_config/sneakers_orange/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/sneakers_orange/inhand_left
@@ -193,9 +162,6 @@
 	return ..()
 
 /obj/item/clothing/shoes/sneakers/mime
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "mime shoes"
 	greyscale_colors = "#ffffff#ffffff"
 
@@ -203,9 +169,6 @@
 	desc = "A pair of magic black shoes."
 	name = "magic shoes"
 	greyscale_colors = "#2d2d33#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers_marisa
 	greyscale_config_worn = /datum/greyscale_config/sneakers_marisa/worn
 	strip_delay = 5
@@ -214,9 +177,6 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/shoes/sneakers/cyborg
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/shoes/sneakers"
-	post_init_icon_state = "sneakers"
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume."
 	greyscale_colors = "#4e4e4e#4e4e4e"

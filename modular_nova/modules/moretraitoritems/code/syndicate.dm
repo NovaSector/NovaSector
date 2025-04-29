@@ -67,9 +67,6 @@
 	armor_type = /datum/armor/heister
 
 /obj/item/clothing/head/frenchberet/armoured
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/frenchberet"
-	post_init_icon_state = "beret"
 	armor_type = /datum/armor/cosmetic_sec
 
 /obj/item/clothing/under/suit/black/armoured

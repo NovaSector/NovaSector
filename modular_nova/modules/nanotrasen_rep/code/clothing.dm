@@ -43,17 +43,12 @@
 /obj/item/clothing/head/nanotrasen_consultant/beret
 	name = "nanotrasen consultant's beret"
 	desc = "A beret made from durathread, it has an insignia on the front denoting the rank of \"Nanotrasen Consultant\"."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/nanotrasen_consultant/beret"
-	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#3F3C40#155326"
+	icon_state = "beret_badge"
 
 /obj/item/clothing/head/beret/centcom_formal/nt_consultant
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/beret/centcom_formal"
-	post_init_icon_state = "beret_badge"
 	armor_type = /datum/armor/beret_centcom_formal_nt_consultant
 
 /datum/armor/beret_centcom_formal_nt_consultant

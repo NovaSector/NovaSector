@@ -47,27 +47,18 @@
 	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/head/chaplain_muzzled.dmi'
 
 /obj/item/clothing/head/hooded/monkhabit
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/hooded/monkhabit"
-	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/monk_habit_hood
 	greyscale_config_worn = /datum/greyscale_config/monk_habit_hood/worn
 	greyscale_colors = "#8C531A#9C7132"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/chaplain/nun_hood
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/chaplain/nun_hood"
-	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/nun_hood
 	greyscale_config_worn = /datum/greyscale_config/nun_hood/worn
 	greyscale_colors = "#373548#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/chaplain/habit_veil
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/chaplain/habit_veil"
-	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/nun_veil
 	greyscale_config_worn = /datum/greyscale_config/nun_veil/worn
 	greyscale_colors = "#373548#FFFFFF"
