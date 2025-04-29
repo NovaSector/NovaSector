@@ -1108,6 +1108,8 @@
       as expected now
   OrbisAnima:
   - balance: Increased the nunchakus cooldown from 0.8 to 2 seconds.
+  - balance: Combat Shotguns projectile bonus damage reduced from 50% to 35%, and
+      down to 0% for the compact variant.
   RatFromTheJungle:
   - balance: Bleed wounds across the board 'bleed less,' due to biological changes
       in the local-sector!
