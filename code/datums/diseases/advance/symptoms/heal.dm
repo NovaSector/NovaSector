@@ -161,7 +161,6 @@
 	if(!parts.len)
 		return
 
-	display_heal_visual(M) //  NOVA EDIT ADDITION - display_heal_visual procs for adding visual effects to virus healing
 	for(var/obj/item/bodypart/bodypart in parts)
 		if(bodypart.heal_damage(heal_amt/parts.len, heal_amt/parts.len, required_bodytype = BODYTYPE_ORGANIC))
 			M.update_damage_overlays()
@@ -301,7 +300,6 @@
 	if(!parts.len)
 		return
 
-	display_heal_visual(M) //  NOVA EDIT ADDITION - display_heal_visual procs for adding visual effects to virus healing
 	if(prob(5))
 		to_chat(M, span_notice("The darkness soothes and mends your wounds."))
 
@@ -407,7 +405,6 @@
 	if(!parts.len)
 		return
 
-	display_heal_visual(M) //  NOVA EDIT ADDITION - display_heal_visual procs for adding visual effects to virus healing
 	for(var/obj/item/bodypart/bodypart in parts)
 		if(bodypart.heal_damage(heal_amt/parts.len, heal_amt/parts.len, required_bodytype = BODYTYPE_ORGANIC))
 			M.update_damage_overlays()
@@ -469,7 +466,6 @@
 	if(!parts.len)
 		return
 
-	display_heal_visual(M) //  NOVA EDIT ADDITION - display_heal_visual procs for adding visual effects to virus healing
 	if(prob(5))
 		to_chat(M, span_notice("You feel yourself absorbing the water around you to soothe your damaged skin."))
 
@@ -579,7 +575,6 @@
 	if(prob(5))
 		to_chat(M, span_notice("You feel yourself absorbing plasma inside and around you..."))
 
-	display_heal_visual(M) //  NOVA EDIT ADDITION - display_heal_visual procs for adding visual effects to virus healing
 	var/target_temp = M.get_body_temp_normal()
 	if(M.bodytemperature > target_temp)
 		M.adjust_bodytemperature(-20 * temp_rate * TEMPERATURE_DAMAGE_COEFFICIENT, target_temp)
@@ -647,7 +642,6 @@
 	if(!parts.len)
 		return
 
-	display_heal_visual(M) //  NOVA EDIT ADDITION - display_heal_visual procs for adding visual effects to virus healing
 	if(prob(4))
 		to_chat(M, span_notice("Your skin glows faintly, and you feel your wounds mending themselves."))
 
