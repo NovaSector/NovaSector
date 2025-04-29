@@ -208,7 +208,7 @@
 /datum/supply_pack/security/armory/ammobench_starter
 	name = "Ammunition Workbench Starter Kit"
 	desc = "Contains a flat-packed ammunition workbench, a standard lethal and niche non-lethal module pair, and a pair of reauthenticators. \
-	Bring your own magazines. And materials. And everything else you'd need to get an ammunition workbench working."
+		Bring your own magazines. And materials. And everything else you'd need to get an ammunition workbench working."
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(
 		/obj/item/flatpack/ammo_workbench,

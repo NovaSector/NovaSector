@@ -11,7 +11,7 @@
 	icon_state = "lethal_mod"
 
 	desc = "A blank hardware authentication module for inserting into ammunition workbenches. \
-	Digital rights management for ammo is real, and it's coming for you."
+		Digital rights management for ammo is real, and it's coming for you."
 	/// What ammo categories does this module unlock?
 	var/ammo_categories = NONE
 	/// How many points is this module still good for?
@@ -40,36 +40,36 @@
 /obj/item/ammo_workbench_module/gimmick
 	name = "niche nonlethal " + parent_type::name
 	desc = "A hardware authentication module for ammunition workbenches, \
-	with keys to print niche non- or less-lethal ammunition."
+		with keys to print niche non- or less-lethal ammunition."
 	icon_state = "nonlethal_mod"
 	ammo_categories = AMMO_CATEGORY_NICHE
 
 /obj/item/ammo_workbench_module/lethal
 	name = "standard lethal " + parent_type::name
 	desc = "A hardware authentication module for ammunition workbenches, \
-	with keys to allow fabricating standard lethal ammunition."
+		with keys to allow fabricating standard lethal ammunition."
 	icon_state = "lethal_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL
 
 /obj/item/ammo_workbench_module/lethal_variant
 	name = "variant lethal " + parent_type::name
 	desc = "A hardware authentication module for ammunition workbenches, \
-	with keys to allow fabricating standard or enhanced lethal ammunition."
+		with keys to allow fabricating standard or enhanced lethal ammunition."
 	icon_state = "lethal_plus_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_PLUS
 
 /obj/item/ammo_workbench_module/lethal_super
 	name = "advanced lethal " + parent_type::name
 	desc = "A hardware authentication module for ammunition workbenches, \
-	with keys to allow fabricating standard, enhanced, or premium lethal ammunition."
+		with keys to allow fabricating standard, enhanced, or premium lethal ammunition."
 	icon_state = "lethal_super_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_PLUS | AMMO_CATEGORY_SUPER
 
 /obj/item/ammo_workbench_module/lethal_super/evil
 	name = "marauder " + parent_type::name
 	desc = parent_type::desc + " This one's been marked with a stylized imprint of a Gorlex Marauders MODsuit helmet, \
-	and is specifically labeled as being of Scarborough Arms manufacture, which probably makes it less than legal to use \
-	on corporate installations."
+		and is specifically labeled as being of Scarborough Arms manufacture, which probably makes it less than legal to use \
+		on corporate installations."
 
 /obj/item/ammo_workbench_module/lethal_super/evil/Initialize(mapload)
 	. = ..()
@@ -78,7 +78,7 @@
 /obj/item/ammo_workbench_module/lethal_gimmick
 	name = "niche lethal " + parent_type::name
 	desc = "A hardware authentication module for ammunition workbenches, \
-	with keys to allow fabricating standard or niche ammunition."
+		with keys to allow fabricating standard or niche ammunition."
 	icon_state = "lethal_gimmick_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE
 
@@ -86,7 +86,7 @@
 /obj/item/ammo_workbench_module/lethal_esoteric
 	name = "esoteric lethal " + parent_type::name
 	desc = "A very limited hardware authentication module for ammunition workbenches, \
-	with keys to allow fabricating standard, niche, or esoteric ammunition."
+		with keys to allow fabricating standard, niche, or esoteric ammunition."
 	icon_state = "lethal_weird_mod"
 	ammo_categories = AMMO_CATEGORY_LETHAL | AMMO_CATEGORY_NICHE | AMMO_CATEGORY_ESOTERIC
 
@@ -103,7 +103,7 @@
 	icon_state = "card_mini"
 
 	desc = "A hardware authentication module reauthenticator, for extending a fabricator module's license point allowance. \
-	Digital rights management for ammo is real, but you can bribe your way out of it."
+		Digital rights management for ammo is real, but you can bribe your way out of it."
 	/// How many additional license points do we have left?
 	var/license_points = 120
 
