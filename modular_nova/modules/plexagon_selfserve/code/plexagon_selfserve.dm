@@ -40,7 +40,7 @@
 	return ..()
 
 /datum/computer_file/program/crew_self_serve/proc/register_signals()
-	RegisterSignals(computer, list(COMSIG_MODULAR_COMPUTER_INSERTED_ID, COMSIG_MODULAR_COMPUTER_REMOVED_ID) PROC_REF(id_changed))
+	RegisterSignals(computer, list(COMSIG_MODULAR_COMPUTER_INSERTED_ID, COMSIG_MODULAR_COMPUTER_REMOVED_ID), PROC_REF(id_changed))
 
 /datum/computer_file/program/crew_self_serve/proc/id_changed(source, obj/item/card/id/id_card, mob/user)
 	SIGNAL_HANDLER
