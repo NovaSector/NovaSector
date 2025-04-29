@@ -2080,6 +2080,8 @@ TREK
 	name = "Debug Medal Config"
 	//This sets the Obj icon. Worn configs still seperately change this to /mob/clothing/accessories.dmi
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	//This needs a json_config to work. Touch hacky, however, I *really* want this /medals for the subtyping.
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/bar_medal.json'
 
 //Medals
 /datum/greyscale_config/medals/bar
