@@ -2100,7 +2100,7 @@ TREK
 
 /datum/greyscale_config/medals/circle_hollow
 	name = "Hollow Circle Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/hollowcircle_medal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/circlehollow_medal.json'
 
 /datum/greyscale_config/medals/circle_hollow/worn
 	name = "Hollow Circle Medal (Worn)"
@@ -2116,7 +2116,7 @@ TREK
 
 /datum/greyscale_config/medals/crown_hollow
 	name = "Hollow Crown Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/hollowcrown_medal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/crownhollow_medal.json'
 
 /datum/greyscale_config/medals/crown_hollow/worn
 	name = "Hollow Crown Medal (Worn)"
@@ -2140,7 +2140,7 @@ TREK
 
 /datum/greyscale_config/medals/heart
 	name = "Heart Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/regheart_medal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/heart_medal.json'
 
 /datum/greyscale_config/medals/heart/worn
 	name = "Heart Medal (Worn)"
@@ -2148,7 +2148,7 @@ TREK
 
 /datum/greyscale_config/medals/heart_special
 	name = "Special Heart Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/specheart_medal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/heartspecial_medal.json'
 
 /datum/greyscale_config/medals/heart_special/worn
 	name = "Special Heart Medal (Worn)"
@@ -2156,7 +2156,7 @@ TREK
 
 /datum/greyscale_config/medals/shield_hollow
 	name = "Hollow Shield Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/hollowshield_medal.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/shieldhollow_medal.json'
 
 /datum/greyscale_config/medals/shield_hollow/worn
 	name = "Hollow Shield Medal (Worn)"
@@ -2173,7 +2173,7 @@ TREK
 //Pins
 /datum/greyscale_config/medals/neckpins
 	name = "Neckpin Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/specialpins.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/neckpins.json'
 
 /datum/greyscale_config/medals/neckpins/worn
 	name = "Neckpin Medal (Worn)"
