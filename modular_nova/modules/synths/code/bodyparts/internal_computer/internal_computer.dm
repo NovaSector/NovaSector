@@ -1,5 +1,8 @@
 /// Custom computer for synth brains
 /obj/item/modular_computer/pda/synth
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	name = "virtual persocom"
 
 	base_active_power_usage = 0 WATTS

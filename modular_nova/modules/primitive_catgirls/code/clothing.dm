@@ -18,10 +18,11 @@
 /obj/item/clothing/under/dress/skirt/primitive_catgirl_body_wraps
 	name = "body wraps"
 	desc = "Some pretty simple wraps to cover up your lower bits."
-	icon_state = "wraps"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	body_parts_covered = GROIN
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt"
+	post_init_icon_state = "cardiganskirt"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_wraps
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_wraps/worn
 	greyscale_colors = "#cec8bf#364660"
@@ -31,10 +32,11 @@
 /obj/item/clothing/under/dress/skirt/primitive_catgirl_tailored_dress
 	name = "tailored dress"
 	desc = "A handmade dress, tailored to fit perfectly to its wearer's body measurements."
-	icon_state = "tailored_dress"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	body_parts_covered = GROIN|CHEST
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt"
+	post_init_icon_state = "cardiganskirt"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_tailored_dress
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_tailored_dress/worn
 	greyscale_colors = "#cec8bf#364660"
@@ -44,10 +46,11 @@
 /obj/item/clothing/under/dress/skirt/primitive_catgirl_tunic
 	name = "handmade tunic"
 	desc = "A simple garment that reaches from the shoulders to above the knee. This one has a belt to secure it."
-	icon_state = "tunic"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	body_parts_covered = GROIN|CHEST
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt"
+	post_init_icon_state = "cardiganskirt"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_tunic
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_tunic/worn
 	greyscale_colors = "#cec8bf#faece4#594032"
@@ -59,9 +62,10 @@
 /obj/item/clothing/gloves/fingerless/primitive_catgirl_armwraps
 	name = "arm wraps"
 	desc = "Simple cloth to wrap around one's arms."
-	icon_state = "armwraps"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/gloves/fingerless/primitive_catgirl_armwraps"
+	post_init_icon_state = "armwraps"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_armwraps
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_armwraps/worn
 	greyscale_colors = "#cec8bf"
@@ -70,9 +74,10 @@
 /obj/item/clothing/gloves/fingerless/primitive_catgirl_gauntlets
 	name = "gauntlets"
 	desc = "Simple cloth arm wraps with overlying metal protection."
-	icon_state = "gauntlets"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/gloves/fingerless/primitive_catgirl_gauntlets"
+	post_init_icon_state = "gauntlets"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_gauntlets
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_gauntlets/worn
 	greyscale_config_inhand_left = null
@@ -85,19 +90,23 @@
 /obj/item/clothing/suit/jacket/primitive_catgirl_coat
 	name = "primitive fur coat"
 	desc = "A large piece of animal hide stuffed with fur, likely from the same animal."
-	icon_state = "coat"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	body_parts_covered = CHEST
 	cold_protection = CHEST
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/primitive_catgirl_coat"
+	post_init_icon_state = "coat"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_coat
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_coat/worn
 	greyscale_colors = "#594032#cec8bf"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/apron/chef/colorable_apron/primitive_catgirl_leather
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/apron/chef/colorable_apron"
+	post_init_icon_state = "apron"
 	greyscale_colors = "#594032"
 
 // Shoes
@@ -105,9 +114,10 @@
 /obj/item/clothing/shoes/winterboots/ice_boots/primitive_catgirl_boots
 	name = "primitive hiking boots"
 	desc = "A pair of heavy boots lined with fur and with soles special built to prevent slipping on ice."
-	icon_state = "boots"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/shoes/winterboots/ice_boots/primitive_catgirl_boots"
+	post_init_icon_state = "boots"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_boots
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_boots/worn
 	greyscale_colors = "#594032#cec8bf"
@@ -116,36 +126,58 @@
 // Neck
 
 /obj/item/clothing/neck/scarf/primitive_catgirl_scarf
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/scarf"
+	post_init_icon_state = "scarf"
 	greyscale_colors = "#cec8bf#cec8bf"
 
 /obj/item/clothing/neck/large_scarf/primitive_catgirl_off_white
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/large_scarf"
+	post_init_icon_state = "large_scarf"
 	greyscale_colors = "#cec8bf#cec8bf"
 
 /obj/item/clothing/neck/infinity_scarf/primitive_catgirl_blue
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/infinity_scarf"
+	post_init_icon_state = "infinity_scarf"
 	greyscale_colors = "#364660"
 
 /obj/item/clothing/neck/mantle/recolorable/primitive_catgirl_off_white
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/mantle/recolorable"
+	post_init_icon_state = "mantle"
 	greyscale_colors = "#cec8bf"
 
 /obj/item/clothing/neck/ranger_poncho/primitive_catgirl_leather
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/ranger_poncho"
+	post_init_icon_state = "ranger_poncho"
 	greyscale_colors = "#594032#594032"
 
 // Masks
 
 /obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/mask/neck_gaiter"
+	post_init_icon_state = "gaiter"
 	greyscale_colors = "#364660"
 
 // Head
 
 /obj/item/clothing/head/standalone_hood/primitive_catgirl_colors
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/standalone_hood"
+	post_init_icon_state = "hood"
 	greyscale_colors = "#594032#364660"
 
 /obj/item/clothing/head/primitive_catgirl_ferroniere
 	name = "Ferroniere"
 	desc = "A style of headband that encircles the wearer's forehead, with a small jewel suspended in the centre."
-	icon_state = "ferroniere"
-	icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/primitive_catgirl_ferroniere"
+	post_init_icon_state = "ferroniere"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_ferroniere
 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_ferroniere/worn
 	greyscale_colors = "#f1f6ff#364660"

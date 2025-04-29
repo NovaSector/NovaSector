@@ -12,10 +12,11 @@
 	toolspeed = 1.5
 
 /obj/item/screwdriver/makeshift
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/screwdriver"
+	post_init_icon_state = "screwdriver_map"
 	name = "makeshift screwdriver"
 	desc = "A makeshift screwdriver, flimsily made using cloth and some metal."
-	icon = 'modular_nova/modules/modular_items/icons/tools.dmi'
-	icon_state = "makeshift_screwdriver"
 	random_color = FALSE
 	force = 1
 	throwforce = 1

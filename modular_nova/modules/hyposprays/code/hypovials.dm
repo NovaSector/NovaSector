@@ -1,8 +1,9 @@
 /obj/item/reagent_containers/cup/vial
 	name = "broken hypovial"
 	desc = "You probably shouldn't be seeing this. Shout at a coder."
-	icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
-	icon_state = "hypovial"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	greyscale_config = /datum/greyscale_config/hypovial
 	fill_icon_state = "hypovial_fill"
 	spillable = FALSE
@@ -81,34 +82,55 @@
 
 //Fit in all hypos
 /obj/item/reagent_containers/cup/vial/small
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "hypovial"
 	desc = "A small, 50u capacity vial compatible with most hyposprays."
 	volume = 50
 	possible_transfer_amounts = list(1,2,5,10,15,25,50)
 
 /obj/item/reagent_containers/cup/vial/small/style
-	icon_state = "hypovial"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 
 //Styles
 /obj/item/reagent_containers/cup/vial/small/style/generic
-	icon_state = "hypovial-generic"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/small/style/brute
-	icon_state = "hypovial-brute"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/small/style/burn
-	icon_state = "hypovial-burn"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/small/style/toxin
-	icon_state = "hypovial-tox"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/small/style/oxy
-	icon_state = "hypovial-oxy"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/small/style/crit
-	icon_state = "hypovial-crit"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/small/style/buff
-	icon_state = "hypovial-buff"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 
 //Fit in CMO hypo only
 /obj/item/reagent_containers/cup/vial/large
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "large hypovial"
-	icon_state = "hypoviallarge"
 	fill_icon_state = "hypoviallarge_fill"
 	current_skin = "hypoviallarge"
 	desc = "A large, 100u capacity vial that fits only in the most deluxe hyposprays."
@@ -133,113 +155,159 @@
 
 //Styles
 /obj/item/reagent_containers/cup/vial/large/style/generic
-	icon_state = "hypoviallarge-generic"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/large/style/brute
-	icon_state = "hypoviallarge-brute"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/large/style/burn
-	icon_state = "hypoviallarge-burn"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/large/style/toxin
-	icon_state = "hypoviallarge-tox"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/large/style/oxy
-	icon_state = "hypoviallarge-oxy"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/large/style/crit
-	icon_state = "hypoviallarge-crit"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 /obj/item/reagent_containers/cup/vial/large/style/buff
-	icon_state = "hypoviallarge-buff"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 
 //Hypos that are in the CMO's kit round start
 /obj/item/reagent_containers/cup/vial/large/deluxe
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "deluxe hypovial"
-	icon_state = "hypoviallarge-buff"
 	list_reagents = list(/datum/reagent/medicine/omnizine = 15, /datum/reagent/medicine/leporazine = 15, /datum/reagent/medicine/atropine = 15)
 
 /obj/item/reagent_containers/cup/vial/large/salglu
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "large green hypovial (salglu)"
-	icon_state = "hypoviallarge-oxy"
 	list_reagents = list(/datum/reagent/medicine/salglu_solution = 50)
 
 /obj/item/reagent_containers/cup/vial/large/synthflesh
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "large orange hypovial (synthflesh)"
-	icon_state = "hypoviallarge-crit"
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 50)
 
 /obj/item/reagent_containers/cup/vial/large/multiver
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "large black hypovial (multiver)"
-	icon_state = "hypoviallarge-tox"
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 50)
 
 //Some bespoke helper types for preloaded combat medkits.
 /obj/item/reagent_containers/cup/vial/large/advbrute
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "Brute Heal"
-	icon_state = "hypoviallarge-brute"
 	list_reagents = list(/datum/reagent/medicine/c2/libital = 50, /datum/reagent/medicine/sal_acid = 50)
 
 /obj/item/reagent_containers/cup/vial/large/advburn
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "Burn Heal"
-	icon_state = "hypoviallarge-burn"
 	list_reagents = list(/datum/reagent/medicine/c2/aiuri = 50, /datum/reagent/medicine/oxandrolone = 50)
 
 /obj/item/reagent_containers/cup/vial/large/advtox
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "Toxin Heal"
-	icon_state = "hypoviallarge-tox"
 	list_reagents = list(/datum/reagent/medicine/pen_acid = 100)
 
 /obj/item/reagent_containers/cup/vial/large/advoxy
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "Oxy Heal"
-	icon_state = "hypoviallarge-oxy"
 	list_reagents = list(/datum/reagent/medicine/c2/tirimol = 50, /datum/reagent/medicine/salbutamol = 50)
 
 /obj/item/reagent_containers/cup/vial/large/advcrit
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "Crit Heal"
-	icon_state = "hypoviallarge-crit"
 	list_reagents = list(/datum/reagent/medicine/atropine = 100)
 
 /obj/item/reagent_containers/cup/vial/large/advomni
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "All-Heal"
-	icon_state = "hypoviallarge-buff"
 	list_reagents = list(/datum/reagent/medicine/regen_jelly = 100)
 
 /obj/item/reagent_containers/cup/vial/large/numbing
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "Numbing"
-	icon_state = "hypoviallarge-generic"
 	list_reagents = list(/datum/reagent/medicine/mine_salve = 50, /datum/reagent/medicine/morphine = 50)
 
 //Some bespoke helper types for preloaded paramedic kits.
 /obj/item/reagent_containers/cup/vial/small/libital
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "brute hypovial (libital)"
-	icon_state = "hypovial-brute"
 
 /obj/item/reagent_containers/cup/vial/small/libital/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/libital, amount = 50, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/lenturi
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "burn hypovial (lenturi)"
-	icon_state = "hypovial-burn"
 
 /obj/item/reagent_containers/cup/vial/small/lenturi/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/lenturi, amount = 50, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/seiver
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "tox hypovial (seiver)"
-	icon_state = "hypovial-tox"
 
 /obj/item/reagent_containers/cup/vial/small/seiver/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/seiver, amount = 50, reagtemp = 975, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/convermol
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "tox hypovial (convermol)"
-	icon_state = "hypovial-oxy"
 
 /obj/item/reagent_containers/cup/vial/small/convermol/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(reagent_type = /datum/reagent/medicine/c2/convermol, amount = 50, added_purity = 1)
 
 /obj/item/reagent_containers/cup/vial/small/atropine
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "crit hypovial (atropine)"
-	icon_state = "hypovial-crit"
 
 /obj/item/reagent_containers/cup/vial/small/atropine/Initialize(mapload)
 	. = ..()

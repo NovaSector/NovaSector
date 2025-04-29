@@ -1,4 +1,7 @@
 /obj/item/modular_computer/pda/expeditionary_corps
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	greyscale_colors = "#891417#000099"
 	name = "surplus military PDA"
 

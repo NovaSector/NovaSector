@@ -17,7 +17,7 @@
 
 	departments_list = list(
 		/datum/job_department/command,
-		/datum/job_department/central_command
+/datum/job_department/central_command
 	)
 
 	outfit = /datum/outfit/job/nanotrasen_consultant
@@ -73,6 +73,9 @@
 	id_trim = /datum/id_trim/job/nanotrasen_consultant
 
 /obj/item/encryptionkey/headset_cent/ccrep
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/encryptionkey/headset_cent"
+	post_init_icon_state = "cypherkey_centcom"
 	name = "\improper CentCom representative's encryption key"
 	channels = list(RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_SECURITY = 1)
 
@@ -110,6 +113,9 @@
 	head = /obj/item/clothing/head/helmet/space/plasmaman/centcom_official
 
 /obj/item/modular_computer/pda/nanotrasen_consultant
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	name = "nanotrasen consultant's PDA"
 	inserted_disk = /obj/item/computer_disk/command/captain
 	inserted_item = /obj/item/pen/fountain/captain

@@ -157,9 +157,15 @@
 	)
 
 /obj/item/clothing/shoes/sneakers/black
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/shoes/sneakers"
+	post_init_icon_state = "sneakers"
 	name = "sneaker of SNEAKING"
 
 /obj/item/clothing/mask/facescarf/rogue
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/mask/facescarf"
+	post_init_icon_state = "facescarf"
 	name = "cloth of DOOM"
 	greyscale_colors = "#292929"
 

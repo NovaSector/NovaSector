@@ -1,9 +1,10 @@
 /obj/item/modular_computer/pda
 	name = "pda"
-	icon = 'icons/obj/devices/modular_pda.dmi'
-	icon_state = "pda"
 	worn_icon_state = "nothing"
 	base_icon_state = "tablet"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet
 	greyscale_colors = "#999875#a92323"
 
@@ -265,6 +266,9 @@
 	device_theme = PDA_THEME_SYNDICATE
 	comp_light_luminosity = 6.3 //matching a flashlight
 	light_color = COLOR_RED
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
 	greyscale_colors = "#a80001#5C070F#000000"
 	long_ranged = TRUE
@@ -285,6 +289,9 @@
 	icon_state_menu = "contractor-assign"
 	comp_light_luminosity = 6.3
 	has_pda_programs = FALSE
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#696969#000000#FFA500"
 
@@ -300,8 +307,10 @@
  */
 /obj/item/modular_computer/pda/silicon
 	name = "modular interface"
-	icon_state = "tablet-silicon"
 	base_icon_state = "tablet-silicon"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	greyscale_config = null
 	greyscale_colors = null
 
@@ -321,12 +330,18 @@
 	var/mob/living/silicon/silicon_owner
 
 /obj/item/modular_computer/pda/silicon/pai
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda/silicon"
+	post_init_icon_state = "tablet-silicon"
 	starting_programs = list(
 		/datum/computer_file/program/messenger,
 		/datum/computer_file/program/chatclient,
 	)
 
 /obj/item/modular_computer/pda/silicon/cyborg
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda/silicon"
+	post_init_icon_state = "tablet-silicon"
 	starting_programs = list(
 		/datum/computer_file/program/filemanager,
 		/datum/computer_file/program/robotact,
@@ -430,7 +445,9 @@
 	return GLOB.deep_inventory_state
 
 /obj/item/modular_computer/pda/silicon/cyborg/syndicate
-	icon_state = "tablet-silicon-syndicate"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/modular_computer/pda/silicon"
+	post_init_icon_state = "tablet-silicon"
 	device_theme = PDA_THEME_SYNDICATE
 
 /obj/item/modular_computer/pda/silicon/cyborg/syndicate/Initialize(mapload)

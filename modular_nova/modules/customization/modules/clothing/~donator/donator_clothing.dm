@@ -2,10 +2,11 @@
 //SUITS
 /obj/item/clothing/suit/hooded/wintercoat/colourable
 	name = "custom winter coat"
-	icon_state = "winter_coat"
-	icon = null
 	worn_icon_state = null
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/colourable
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/colourable"
+	post_init_icon_state = "winter_coat"
 	greyscale_config = /datum/greyscale_config/winter_coat
 	greyscale_config_worn = /datum/greyscale_config/winter_coat_worn
 	greyscale_colors = "#666666#CCBBAA#0000FF"
@@ -41,7 +42,9 @@
 	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
 
 /obj/item/clothing/head/hooded/winterhood/colourable
-	icon_state = "hood_winter"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/winterhood/colourable"
+	post_init_icon_state = "hood_winter"
 	greyscale_config = /datum/greyscale_config/winter_hood
 	greyscale_config_worn = /datum/greyscale_config/winter_hood/worn
 
@@ -49,7 +52,9 @@
 
 /obj/item/clothing/neck/cloak/colourable
 	name = "colourable cloak"
-	icon_state = "gags_cloak"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable"
+	post_init_icon_state = "gags_cloak"
 	greyscale_config = /datum/greyscale_config/cloak
 	greyscale_config_worn = /datum/greyscale_config/cloak/worn
 	greyscale_colors = "#917A57#4e412e#4e412e"
@@ -57,19 +62,25 @@
 
 /obj/item/clothing/neck/cloak/colourable/veil
 	name = "colourable veil"
-	icon_state = "gags_veil"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable"
+	post_init_icon_state = "gags_cloak"
 	greyscale_config = /datum/greyscale_config/cloak/veil
 	greyscale_config_worn = /datum/greyscale_config/cloak/veil/worn
 
 /obj/item/clothing/neck/cloak/colourable/boat
 	name = "colourable boatcloak"
-	icon_state = "gags_boat"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable"
+	post_init_icon_state = "gags_cloak"
 	greyscale_config = /datum/greyscale_config/cloak/boat
 	greyscale_config_worn = /datum/greyscale_config/cloak/boat/worn
 
 /obj/item/clothing/neck/cloak/colourable/shroud
 	name = "colourable shroud"
-	icon_state = "gags_shroud"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable"
+	post_init_icon_state = "gags_cloak"
 	greyscale_config = /datum/greyscale_config/cloak/shroud
 	greyscale_config_worn = /datum/greyscale_config/cloak/shroud/worn
 
@@ -933,12 +944,13 @@
 // Donation Reward for Grand Vegeta
 /obj/item/clothing/shoes/sneakers/mikuleggings
 	name = "starlight singer leggings"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/shoes/sneakers"
+	post_init_icon_state = "sneakers"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
 	desc = " "
-	icon_state = "mikuleggings"
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
 	worn_icon_state = "mikuleggings"
 
@@ -1655,6 +1667,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 // Donation reward for thedragmeme and snailom
 /obj/item/clothing/shoes/fancy_heels/drag
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/shoes/fancy_heels"
+	post_init_icon_state = "fancyheels"
 	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
 
 /obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
@@ -2184,7 +2199,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/replica_parade_jacket
 	name = "replica parade jacket"
 	desc = "Ever see command staff in a fancy parade jacket and think to yourself, \"I want that\" without having to steal it? Here's your chance. Made from the finest synthleather and synthwool, it cost far more than most people care to admit they paid."
-	icon_state = "r_parade_jacket"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/replica_parade_jacket"
+	post_init_icon_state = "r_parade_jacket"
 	greyscale_config = /datum/greyscale_config/replica_parade_jacket
 	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
 	greyscale_colors = "#b0c5ff#434343"
@@ -2217,7 +2234,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/chokha
 	name = "\improper Iseurian chokha"
 	desc = "A ceremonial woolen coat sporting a high neck and decorative gunpowder cases on the breast. The label on this one bears the Iseurian Revolutionary flag."
-	icon_state = "chokha"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/chokha"
+	post_init_icon_state = "chokha"
 	greyscale_config = /datum/greyscale_config/chokha
 	greyscale_config_worn = /datum/greyscale_config/chokha/worn
 	greyscale_colors = "#1c1c1c#491618#1c1c1c#491618"
@@ -2247,7 +2266,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/under/pants/half_leotard_cosmiclaer
 	name = "one-sleeved leotard"
 	desc = "A fancy, top-of-the-line leotard that some barbarian lopped one of the arms off of."
-	icon_state = "half_leotard"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/half_leotard_cosmiclaer"
+	post_init_icon_state = "half_leotard"
 	greyscale_config = /datum/greyscale_config/half_leotard
 	greyscale_config_worn = /datum/greyscale_config/half_leotard/worn
 	greyscale_colors = "#80C7D0"

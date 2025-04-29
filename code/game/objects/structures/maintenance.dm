@@ -229,6 +229,9 @@ at the cost of risking a vicious bite.**/
 	return TRUE
 
 /obj/item/clothing/under/pants/slacks/altar
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/slacks"
+	post_init_icon_state = "slacks"
 	name = "strange pants"
 	desc = "A pair of pants. They do not look or feel natural, and smell like fresh blood."
 	greyscale_colors = "#ffffff#ffffff#ffffff"

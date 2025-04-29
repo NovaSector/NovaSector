@@ -10,11 +10,12 @@
 	toolspeed = BRASS_TOOLSPEED_MOD
 
 /obj/item/screwdriver/brass
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/screwdriver"
+	post_init_icon_state = "screwdriver_map"
 	name = "brass screwdriver"
 	desc = "A screwdriver made of brass. The handle feels warm to the touch."
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	icon = 'modular_nova/modules/clock_cult/icons/tools.dmi'
-	icon_state = "screwdriver_brass"
 	toolspeed = BRASS_TOOLSPEED_MOD
 	random_color = FALSE
 	greyscale_config_inhand_left = null

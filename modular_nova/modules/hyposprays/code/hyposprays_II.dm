@@ -18,8 +18,9 @@
 
 /obj/item/hypospray/mkii
 	name = "hypospray Mk.II"
-	icon_state = "hypo2"
-	icon = 'modular_nova/modules/hyposprays/icons/hyposprays.dmi'
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	greyscale_config = /datum/greyscale_config/hypospray_mkii
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
@@ -46,15 +47,19 @@
 	var/gags_bodystate = "hypo2_normal"
 
 /obj/item/hypospray/mkii/deluxe
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	name = "hypospray Mk.II deluxe"
 	allowed_containers = list(/obj/item/reagent_containers/cup/vial/small, /obj/item/reagent_containers/cup/vial/large)
-	icon_state = "bighypo2"
 	gags_bodystate = "hypo2_deluxe"
 	desc = "The deluxe variant in the DeForest Hypospray Mk. II series, able to take both 100u and 50u vials."
 
 /obj/item/hypospray/mkii/piercing
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	name = "hypospray Mk.II advanced"
-	icon_state = "piercinghypo2"
 	gags_bodystate = "hypo2_piercing"
 	desc = "The advanced variant in the DeForest Hypospray Mk. II series, able to pierce through thick armor and quickly inject the chemicals."
 	inject_wait = DELUXE_WAIT_INJECT
@@ -64,6 +69,9 @@
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
 /obj/item/hypospray/mkii/piercing/atropine
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	start_vial = /obj/item/reagent_containers/cup/vial/small/atropine
 
 // Deluxe hypo upgrade Kit
@@ -85,8 +93,10 @@
 	return TRUE
 
 /obj/item/hypospray/mkii/deluxe/cmo
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	name = "hypospray Mk.II deluxe: CMO edition"
-	icon_state = "cmo2"
 	gags_bodystate = "hypo2_cmo"
 	desc = "The CMO's prized Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, acting faster and able to deliver more reagents per spray."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
@@ -97,8 +107,10 @@
 	penetrates = INJECT_CHECK_PENETRATE_THICK
 
 /obj/item/hypospray/mkii/deluxe/cmo/combat
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	name = "hypospray Mk.II deluxe: combat edition"
-	icon_state = "combat2"
 	gags_bodystate = "hypo2_tactical"
 	desc = "A variant of the Hypospray Mk. II Deluxe, able to take both 100u and 50u vials, with overcharged applicators and an armor-piercing tip."
 	// Made non-indestructible since this is typically an admin spawn.  still robust though!

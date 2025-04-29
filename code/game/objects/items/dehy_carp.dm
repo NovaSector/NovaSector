@@ -5,6 +5,9 @@
 
 //Child of carpplushie because this should do everything the toy does and more
 /obj/item/toy/plush/carpplushie/dehy_carp
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/toy/plush/carpplushie"
+	post_init_icon_state = "map_plushie_carp"
 	var/mob/owner = null //Carp doesn't attack owner, set when using in hand
 	var/mobtype = /mob/living/basic/carp //So admins can change what mob spawns via var fuckery
 	var/swelling = FALSE
@@ -74,4 +77,7 @@
 	owner = null
 
 /obj/item/toy/plush/carpplushie/dehy_carp/peaceful
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/toy/plush/carpplushie"
+	post_init_icon_state = "map_plushie_carp"
 	mobtype = /mob/living/basic/carp/passive

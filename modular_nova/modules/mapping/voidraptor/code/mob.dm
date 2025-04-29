@@ -31,6 +31,9 @@
 	update_transform(0.5)
 
 /mob/living/basic/carp/mega/shorki
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/carp/mega"
+	post_init_icon_state = "megacarp_greyscale"
 	name = "Shorki"
 	desc = "A not so ferocious, fang bearing creature that resembles a shark. This one seems a little big for its tank."
 	faction = list(FACTION_NEUTRAL)

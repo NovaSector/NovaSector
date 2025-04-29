@@ -16,9 +16,10 @@
 	seed = /obj/item/seeds/poppy/opiumpoppy
 	name = "opium poppy seedpod"
 	desc = "The seedpod of the opium poppy plant, which contain opium latex."
-	icon = 'modular_nova/master_files/icons/obj/hydroponics/harvest.dmi'
-	icon_state = "opiumpoppy"
 	worn_icon_state = "map_flower"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/food/grown/poppy/opiumpoppy"
+	post_init_icon_state = "opiumpoppy"
 	greyscale_config = null
 	greyscale_config_worn = /datum/greyscale_config/flower_simple_worn
 	greyscale_colors = "#01690f"

@@ -5,12 +5,13 @@
 /obj/item/pet_carrier
 	name = "pet carrier"
 	desc = "A big white-and-blue pet carrier. Good for carrying <s>meat to the chef</s> cute animals around."
-	icon = 'icons/obj/pet_carrier.dmi'
 	base_icon_state = "pet_carrier"
-	icon_state = "pet_carrier_open"
 	inhand_icon_state = "pet_carrier"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/pet_carrier"
+	post_init_icon_state = "pet_carrier_open"
 	greyscale_config = /datum/greyscale_config/pet_carrier
 	greyscale_config_inhand_left = /datum/greyscale_config/pet_carrier_inhands_left
 	greyscale_config_inhand_right = /datum/greyscale_config/pet_carrier_inhands_right
@@ -225,8 +226,10 @@
 	name = "biopod"
 	desc = "Alien device used for undescribable purpose. Or carrying pets."
 	base_icon_state = "biopod"
-	icon_state = "biopod_open"
 	inhand_icon_state = "biopod"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/pet_carrier"
+	post_init_icon_state = "pet_carrier_open"
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
@@ -237,10 +240,12 @@
 	desc = "A small pet carrier for miniature sized animals."
 	w_class = WEIGHT_CLASS_NORMAL
 	base_icon_state = "small_carrier"
-	icon_state = "small_carrier_open"
 	inhand_icon_state = "syringe_kit"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/pet_carrier"
+	post_init_icon_state = "pet_carrier_open"
 	greyscale_config = null
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
@@ -250,10 +255,12 @@
 	allows_locking = FALSE
 
 /obj/item/pet_carrier/small/mouse
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/pet_carrier/small"
+	post_init_icon_state = "small_carrier_open"
 	name = "small mouse carrier"
 	desc = "A small pet carrier for miniature sized animals. This looks prepared for a mouse."
 	open = FALSE
-	icon_state = "small_carrier_occupied_unlocked"
 
 /obj/item/pet_carrier/small/mouse/Initialize(mapload)
 	var/mob/living/basic/mouse/hero_mouse = new /mob/living/basic/mouse(src)

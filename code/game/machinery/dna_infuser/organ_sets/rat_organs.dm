@@ -54,8 +54,9 @@
 /obj/item/organ/heart/rat
 	name = "mutated rat-heart"
 	desc = "Rat DNA infused into what was once a normal heart."
-	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
-	icon_state = "heart"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/organ/heart/rat"
+	post_init_icon_state = "heart"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = RAT_COLORS
 
@@ -88,10 +89,11 @@
 /obj/item/organ/tongue/rat
 	name = "mutated rat-tongue"
 	desc = "Rat DNA infused into what was once a normal tongue."
-	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
-	icon_state = "tongue"
 	say_mod = "squeaks"
 	modifies_speech = TRUE
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/organ/tongue/rat"
+	post_init_icon_state = "tongue"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = RAT_COLORS
 	liked_foodtypes = DAIRY //mmm, cheese. doesn't especially like anything else

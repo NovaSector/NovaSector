@@ -164,11 +164,16 @@
 	new_cooldown_time = 15 SECONDS
 
 /obj/item/hypospray/mkii/deluxe/cmo/combat/ancient_milsim
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/hypospray/mkii"
+	post_init_icon_state = "hypo2"
 	start_vial = /obj/item/reagent_containers/cup/vial/large/ancient_milsim
 
 /obj/item/reagent_containers/cup/vial/large/ancient_milsim
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	name = "All-Heal-Virtual"
-	icon_state = "hypoviallarge-buff"
 	list_reagents = list(
 		/datum/reagent/medicine/muscle_stimulant = 15,
 		/datum/reagent/medicine/regen_jelly = 30,

@@ -122,8 +122,10 @@
 	seed = /obj/item/seeds/poppy/geranium/fraxinella
 	name = "fraxinella"
 	desc = "A beautiful light pink flower."
-	icon_state = "fraxinella"
 	distill_reagent = /datum/reagent/ash
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/food/grown/poppy/geranium/fraxinella"
+	post_init_icon_state = "fraxinella"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null

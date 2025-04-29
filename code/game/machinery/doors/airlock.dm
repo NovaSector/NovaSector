@@ -2475,6 +2475,9 @@
 /obj/machinery/door/airlock/material
 	name = "Airlock"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/machinery/door/airlock/material"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/material_airlock
 	assemblytype = /obj/structure/door_assembly/door_assembly_material
 
@@ -2492,6 +2495,9 @@
 	..()
 
 /obj/machinery/door/airlock/material/glass
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/machinery/door/airlock/material"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	opacity = FALSE
 	glass = TRUE
 

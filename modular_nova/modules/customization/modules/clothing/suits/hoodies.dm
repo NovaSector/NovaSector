@@ -7,7 +7,9 @@
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie
 	name = "hoodie"
 	desc = "A warm hoodie. you cant help but mess with the zipper..."
-	icon_state = "hoodie"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_config = /datum/greyscale_config/hoodie
 	greyscale_config_worn = /datum/greyscale_config/hoodie/worn
 	greyscale_colors = "#FFFFFF"
@@ -17,14 +19,18 @@
 	min_cold_protection_temperature = T0C - 20	//Not as good as the base jacket
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim
-	icon_state = "hoodie_trim"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_config = /datum/greyscale_config/hoodie_trim
 	greyscale_config_worn = /datum/greyscale_config/hoodie_trim/worn
 	greyscale_colors = "#ffffff#313131"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim/alt
-	icon_state = "hoodie_trim_alt"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim"
+	post_init_icon_state = "hoodie_trim"
 	greyscale_colors = "#ffffff#313131"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -33,56 +39,87 @@
 */
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/grey
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#a8a8a8"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/black
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#313131"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/red
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#D13838"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/blue
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#034A8D"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/green
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#1DA103"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/orange
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#F79305"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/yellow
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_colors = "#F0D655"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded
 	name = "NT hoodie"
 	desc = "A warm, blue sweatshirt.  It proudly bears the silver Nanotrasen insignia lettering on the back.  The edges are trimmed with silver."
-	icon_state = "hoodie_NT"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
+	post_init_icon_state = "hoodie"
 	greyscale_config = /datum/greyscale_config/hoodie_branded
 	greyscale_config_worn = /datum/greyscale_config/hoodie_branded/worn
 	greyscale_colors = "#02519A#ffffff"	//white to prevent changing the actual color of the icon. I've no clue why it REQUIRES two inputs despite being set otherwise.
 	flags_1 = NONE
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/nrti
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded"
+	post_init_icon_state = "hoodie_NT"
 	name = "New Reykjavik Technical Institute hoodie"
 	desc = "A warm, gray sweatshirt. It bears the letters NRT on the back, in reference to Sif's premiere technical institute."
-	icon_state = "hoodie_NRTI"
 	greyscale_colors = "#747474#a83232"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/mu
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded"
+	post_init_icon_state = "hoodie_NT"
 	name = "mojave university hoodie"
 	desc = "A warm, gray sweatshirt.  It bears the letters MU on the front, a lettering to the well-known public college, Mojave University."
-	icon_state = "hoodie_MU"
 	greyscale_colors = "#747474#ffffff"
 
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/cti
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded"
+	post_init_icon_state = "hoodie_NT"
 	name = "CTI hoodie"
 	desc = "A warm, black sweatshirt.  It bears the letters CTI on the back, a lettering to the prestigious university in Tau Ceti, Ceti Technical Institute.  There is a blue supernova embroidered on the front, the emblem of CTI."
-	icon_state = "hoodie_CTI"
 	greyscale_colors = "#313131#ffffff"
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded/smw
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded"
+	post_init_icon_state = "hoodie_NT"
 	name = "Space Mountain Wind hoodie"
 	desc = "A warm, black sweatshirt.  It has the logo for the popular softdrink Space Mountain Wind on both the front and the back."
-	icon_state = "hoodie_SMW"
 	greyscale_colors = "#313131#ffffff"

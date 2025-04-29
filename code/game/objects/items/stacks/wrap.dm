@@ -7,9 +7,10 @@
 /obj/item/stack/wrapping_paper
 	name = "wrapping paper"
 	desc = "Wrap packages with this festive paper to make gifts."
-	icon = 'icons/obj/stack_objects.dmi'
-	icon_state = "wrap_paper"
 	inhand_icon_state = "wrap_paper"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/stack/wrapping_paper"
+	post_init_icon_state = "wrap_paper"
 	greyscale_config = /datum/greyscale_config/wrap_paper
 	amount = 25
 	max_amount = 25
@@ -64,7 +65,7 @@
 //preset wrapping paper meant to fill the original color configuration
 /obj/item/stack/wrapping_paper/xmas
 	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/stack/wrapping_paper/xmas"
+	icon_state = "/obj/item/stack/wrapping_paper"
 	post_init_icon_state = "wrap_paper"
 	greyscale_colors = "#00FF00#FF0000"
 
@@ -75,6 +76,9 @@
 		new /obj/item/c_tube(T)
 
 /obj/item/stack/wrapping_paper/small
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/stack/wrapping_paper"
+	post_init_icon_state = "wrap_paper"
 	desc = "Wrap packages with this festive paper to make gifts. This roll looks a bit skimpy."
 	amount = 10
 	merge_type = /obj/item/stack/wrapping_paper/small

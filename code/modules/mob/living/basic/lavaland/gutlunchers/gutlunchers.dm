@@ -6,8 +6,6 @@
 /mob/living/basic/mining/gutlunch
 	name = "gutlunch"
 	desc = "A scavenger that eats raw ores, often found alongside ash walkers. Produces a thick, nutritious milk."
-	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
-	icon_state = "gutlunch"
 	combat_mode = FALSE
 	icon_living = "gutlunch"
 	icon_dead = "gutlunch"
@@ -25,6 +23,9 @@
 	friendly_verb_simple = "pinch"
 	gold_core_spawnable = FRIENDLY_SPAWN
 	death_message = "is pulped into bugmash."
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/mining/gutlunch"
+	post_init_icon_state = "gutlunch"
 	greyscale_config = /datum/greyscale_config/gutlunch
 	///possible colors we can have
 	var/list/possible_colors = list(COLOR_WHITE)
@@ -86,6 +87,9 @@
 	)
 
 /mob/living/basic/mining/gutlunch/milk
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/mining/gutlunch"
+	post_init_icon_state = "gutlunch"
 	name = "gubbuck"
 	gender = FEMALE
 	possible_colors = list("#E39FBB","#817178","#9d667d")
@@ -106,6 +110,9 @@
 	full_udder.color = LAZYACCESS(atom_colours, FIXED_COLOUR_PRIORITY) || COLOR_GRAY
 
 /mob/living/basic/mining/gutlunch/warrior
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/mining/gutlunch"
+	post_init_icon_state = "gutlunch"
 	name = "gunther"
 	gender = MALE
 	melee_damage_lower = 8
@@ -140,6 +147,9 @@
 	. += full_udder
 
 /mob/living/basic/mining/gutlunch/grub
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/mining/gutlunch"
+	post_init_icon_state = "gutlunch"
 	name = "grublunch"
 	possible_colors = list("#cc9797", "#b74c4c")
 	can_breed = FALSE

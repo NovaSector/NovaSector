@@ -10,6 +10,9 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_NAKAMURA)
 
 /obj/item/screwdriver/integrated
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/screwdriver"
+	post_init_icon_state = "screwdriver_map"
 	name = "motorized fingertip screw-bit"
 	desc = "A cheap inverted fingertip replacement that extends into a sturdy universal screwdriver head, complete with a small-factor motor. A bit slow, but gets the job done."
 	toolspeed = 1.25

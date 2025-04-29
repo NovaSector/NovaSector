@@ -11,8 +11,10 @@
 /obj/item/clothing/under/trek/command
 	name = "command uniform"
 	desc = "An outdated uniform worn by command officers."
-	icon_state = "trek_tos_com" //Shirt has gold wrist-bands
 	inhand_icon_state = "y_suit"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/command" //Shirt has gold wrist-bands
+	post_init_icon_state = "trek_tos_com"
 	greyscale_config = /datum/greyscale_config/trek
 	greyscale_config_worn = /datum/greyscale_config/trek/worn
 	greyscale_colors = "#fab342"
@@ -20,8 +22,10 @@
 /obj/item/clothing/under/trek/engsec
 	name = "engsec uniform"
 	desc = "An outdated uniform worn by engineering/security officers."
-	icon_state = "trek_tos_sec" //Tucked-in shirt
 	inhand_icon_state = "r_suit"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/engsec" //Tucked-in shirt
+	post_init_icon_state = "trek_tos_sec"
 	greyscale_config = /datum/greyscale_config/trek
 	greyscale_config_worn = /datum/greyscale_config/trek/worn
 	greyscale_colors = "#B72B2F"
@@ -29,8 +33,10 @@
 /obj/item/clothing/under/trek/medsci
 	name = "medsci uniform"
 	desc = "An outdated worn by medical/science officers."
-	icon_state = "trek_tos"
 	inhand_icon_state = "b_suit"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/medsci"
+	post_init_icon_state = "trek_tos"
 	greyscale_config = /datum/greyscale_config/trek
 	greyscale_config_worn = /datum/greyscale_config/trek/worn
 	greyscale_colors = "#5FA4CC"
@@ -39,40 +45,58 @@
 *	The Next Generation
 */
 /obj/item/clothing/under/trek/command/next
-	icon_state = "trek_next" //Technically TNG had Command wearing red, but bc gold is closer to command roles for SS13 we're taking some liberties
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/command" //Technically TNG had Command wearing red, but bc gold is closer to command roles for SS13 we're taking some liberties
+	post_init_icon_state = "trek_tos_com"
 
 /obj/item/clothing/under/trek/engsec/next
-	icon_state = "trek_next"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/engsec"
+	post_init_icon_state = "trek_tos_sec"
 
 /obj/item/clothing/under/trek/medsci/next
-	icon_state = "trek_next"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/medsci"
+	post_init_icon_state = "trek_tos"
 
 /*
 *	Voyager
 */
 /obj/item/clothing/under/trek/command/voy
-	icon_state = "trek_voy" //Same point applies as TNG
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/command" //Same point applies as TNG
+	post_init_icon_state = "trek_tos_com"
 
 /obj/item/clothing/under/trek/engsec/voy
-	icon_state = "trek_voy"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/engsec"
+	post_init_icon_state = "trek_tos_sec"
 
 /obj/item/clothing/under/trek/medsci/voy
-	icon_state = "trek_voy"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/medsci"
+	post_init_icon_state = "trek_tos"
 
 /*
 *	Enterprise
 */
 /obj/item/clothing/under/trek/command/ent
-	icon_state = "trek_ent"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/command"
+	post_init_icon_state = "trek_tos_com"
 	//Greyscale sprite note, the base of it can't be greyscaled lest I make a whole new .json, but the color bands are greyscale at least.
 	inhand_icon_state = "bl_suit"
 
 /obj/item/clothing/under/trek/engsec/ent
-	icon_state = "trek_ent"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/engsec"
+	post_init_icon_state = "trek_tos_sec"
 	inhand_icon_state = "bl_suit"
 
 /obj/item/clothing/under/trek/medsci/ent
-	icon_state = "trek_ent"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/trek/medsci"
+	post_init_icon_state = "trek_tos"
 	inhand_icon_state = "bl_suit"
 
 //Q

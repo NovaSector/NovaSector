@@ -12,9 +12,11 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
 /obj/item/clothing/under/shorts/nova
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	//Need to reset all these so our custom stuff can choose independently to be greyscale or not. TG putting these on the basetype was kinda gross.
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts"
+	post_init_icon_state = "shorts"
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_config_worn_digi = null
@@ -30,7 +32,9 @@
 /obj/item/clothing/under/pants/nova/jeans_ripped
 	name = "ripped jeans"
 	desc = "A nondescript pair of tough jeans, with several rips and tears. The staple pants choice of both rebels and the poor."
-	icon_state = "jeans_ripped"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/jeans_ripped"
+	post_init_icon_state = "jeans_ripped"
 	greyscale_config = /datum/greyscale_config/jeans_ripped //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
 	greyscale_config_worn = /datum/greyscale_config/jeans_ripped/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/jeans_ripped/worn/digi
@@ -40,7 +44,9 @@
 /obj/item/clothing/under/pants/nova/yoga
 	name = "yoga pants"
 	desc = "Breathable and stretchy, perfect for exercising comfortably!"
-	icon_state = "yoga_pants"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/yoga"
+	post_init_icon_state = "yoga_pants"
 	greyscale_config = /datum/greyscale_config/yoga_pants //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
 	greyscale_config_worn = /datum/greyscale_config/yoga_pants/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/yoga_pants/worn/digi
@@ -60,7 +66,9 @@
 /obj/item/clothing/under/shorts/nova/shorts_ripped
 	name = "ripped shorts"
 	desc = "A nondescript pair of tough jean shorts, with the ends of the pantlegs frayed and torn. No one will ever know if this was done intentionally."
-	icon_state = "shorts_ripped"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/nova"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/shorts_ripped //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
 	greyscale_config_worn = /datum/greyscale_config/shorts_ripped/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shorts_ripped/worn/digi
@@ -71,7 +79,9 @@
 /obj/item/clothing/under/shorts/nova/shortershorts
 	name = "shorter shorts"
 	desc = "Show those legs off with these even shorter shorts!"
-	icon_state = "shortershorts"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/nova"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/shortershorts
 	greyscale_config_worn = /datum/greyscale_config/shortershorts/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shortershorts/worn/digi
@@ -86,7 +96,9 @@
 /obj/item/clothing/under/pants/nova/kilt
 	name = "recolorable kilt"
 	desc = "A kilt and buttondown, adorned with a tartan sash. It is NOT a skirt."
-	icon_state = "kilt"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/kilt"
+	post_init_icon_state = "kilt"
 	greyscale_config = /datum/greyscale_config/kilt
 	greyscale_config_worn = /datum/greyscale_config/kilt/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/kilt/worn/digi
@@ -115,6 +127,9 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/shorts/worn/digi
 
 /obj/item/clothing/under/shorts/jeanshorts
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts"
+	post_init_icon_state = "shorts"
 	greyscale_config_worn_digi = /datum/greyscale_config/jeanshorts/worn/digi
 
 /*
@@ -128,6 +143,9 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/jeans/worn/digi
 
 /obj/item/clothing/under/pants/camo
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/camo"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	greyscale_config = /datum/greyscale_config/camo_pants
 	greyscale_config_worn = /datum/greyscale_config/camo_pants/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/camo_pants/worn/digi

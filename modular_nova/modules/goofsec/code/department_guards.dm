@@ -96,27 +96,41 @@
 	worn_icon_state = "mallcop_helm"
 
 /obj/item/clothing/head/beret/sec/science
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec"
+	post_init_icon_state = "beret_badge"
 	name = "science guard beret"
 	desc = "A robust beret with an Erlenmeyer flask emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon_state = "beret_badge"
 	greyscale_colors = "#8D008F#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/medical
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec"
+	post_init_icon_state = "beret_badge"
 	name = "medical officer beret"
 	desc = "A robust beret with a Medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	greyscale_colors = "#16313D#F2F2F2" //Paramed blue to (mostly) match their vest (as opposed to medical white)
 
 /obj/item/clothing/head/beret/sec/engineering
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec"
+	post_init_icon_state = "beret_badge"
 	name = "engineer officer beret"
 	desc = "A robust beret with a hazard symbol emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	greyscale_colors = "#FFBC30#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/cargo
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec"
+	post_init_icon_state = "beret_badge"
 	name = "cargo officer beret"
 	desc = "A robust beret with a Crate emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	greyscale_colors = "#c99840#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/service
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec"
+	post_init_icon_state = "beret_badge"
 	name = "bouncer beret"
 	desc = "A robust beret with a simple badge emblazoned on it. Uses reinforced fabric to offer sufficient protection."
 	greyscale_colors = "#5E8F2D#F2F2F2"

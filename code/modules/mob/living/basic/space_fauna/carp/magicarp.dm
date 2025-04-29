@@ -50,6 +50,9 @@ GLOBAL_LIST_INIT(magicarp_spell_colours, list(
 	maxHealth = 50
 	health = 50
 	gold_core_spawnable = NO_SPAWN
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/carp"
+	post_init_icon_state = "base"
 	greyscale_config = /datum/greyscale_config/carp_magic
 	ai_controller = /datum/ai_controller/basic_controller/carp/ranged
 	initial_language_holder = /datum/language_holder/carp/hear_common // its magic
@@ -114,6 +117,9 @@ GLOBAL_LIST_INIT(magicarp_spell_colours, list(
  * They trade off for this with a tendency to fireball themselves.
  */
 /mob/living/basic/carp/magic/chaos
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/carp/magic"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	name = "chaos magicarp"
 	desc = "50% carp, 100% magic, 150% horrible."
 	maxHealth = 75
@@ -129,12 +135,18 @@ GLOBAL_LIST_INIT(magicarp_spell_colours, list(
 
 /// Has a more limited spell pool but can appear from gold slime cores
 /mob/living/basic/carp/magic/xenobiology
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/carp/magic"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	gold_core_spawnable = HOSTILE_SPAWN
 
 /mob/living/basic/carp/magic/xenobiology/spell_list()
 	return GLOB.xenobiology_magicarp_spell_types
 
 /mob/living/basic/carp/magic/chaos/xenobiology
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/carp/magic"
+	post_init_icon_state = "PLACEHOLDER_GAGS_STATE"
 	gold_core_spawnable = HOSTILE_SPAWN
 
 /mob/living/basic/carp/magic/chaos/xenobiology/spell_list()

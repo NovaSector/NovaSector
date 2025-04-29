@@ -976,10 +976,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/vape
 	name = "\improper E-Cigarette"
 	desc = "A classy and highly sophisticated electronic cigarette, for classy and dignified gentlemen. A warning label reads \"Warning: Do not fill with flammable materials.\""//<<< i'd vape to that.
-	icon = 'icons/obj/clothing/masks.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask.dmi' //NOVA EDIT: ADDITION
-	icon_state = "vape"
 	worn_icon_state = "vape_worn"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_config = /datum/greyscale_config/vape
 	greyscale_config_worn = /datum/greyscale_config/vape/worn
 	greyscale_config_worn_muzzled = /datum/greyscale_config/vape/worn/muzzled //NOVA EDIT ADDITION
@@ -1164,33 +1165,57 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	handle_reagents()
 
 /obj/item/vape/red
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#A02525"
 	flags_1 = NONE
 
 /obj/item/vape/blue
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#294A98"
 	flags_1 = NONE
 
 /obj/item/vape/purple
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#9900CC"
 	flags_1 = NONE
 
 /obj/item/vape/green
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#3D9829"
 	flags_1 = NONE
 
 /obj/item/vape/yellow
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#DAC20E"
 	flags_1 = NONE
 
 /obj/item/vape/orange
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#da930e"
 	flags_1 = NONE
 
 /obj/item/vape/black
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#2e2e2e"
 	flags_1 = NONE
 
 /obj/item/vape/white
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/vape"
+	post_init_icon_state = "vape"
 	greyscale_colors = "#DCDCDC"
 	flags_1 = NONE

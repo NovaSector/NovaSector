@@ -1,8 +1,6 @@
 /obj/item/wargame_projector
 	name = "holographic projector"
 	desc = "A handy-dandy holographic projector developed by Nanotrasen Naval Command for playing wargames with, this one seems broken."
-	icon = 'modular_nova/modules/wargame_projectors/icons/projectors_and_holograms.dmi'
-	icon_state = "projector"
 	inhand_icon_state = "electronic"
 	worn_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
@@ -13,6 +11,9 @@
 	throw_speed = 3
 	throw_range = 7
 	item_flags = NOBLUDGEON
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/wargame_projector"
+	post_init_icon_state = "projector"
 	greyscale_config = /datum/greyscale_config/wargame_hologram_projector
 	greyscale_colors = COLOR_WHITE
 	/// All of the signs this projector is maintaining
@@ -151,6 +152,9 @@ Actual projector types, split between the 'categories' of things they can projec
 */
 
 /obj/item/wargame_projector/ships
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/wargame_projector"
+	post_init_icon_state = "projector"
 	name = "holographic unit projector"
 	desc = "A handy-dandy holographic projector developed by Nanotrasen Naval Command for playing wargames with, this one creates markers for 'units'."
 	max_signs = 30
@@ -171,9 +175,15 @@ Actual projector types, split between the 'categories' of things they can projec
 	)
 
 /obj/item/wargame_projector/ships/red
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/wargame_projector"
+	post_init_icon_state = "projector"
 	holosign_color = COLOR_RED_LIGHT
 
 /obj/item/wargame_projector/terrain
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/wargame_projector"
+	post_init_icon_state = "projector"
 	name = "holographic terrain projector"
 	desc = "A handy-dandy holographic projector developed by Nanotrasen Naval Command for playing wargames with, this one creates markers for space 'terrain'."
 	max_signs = 30

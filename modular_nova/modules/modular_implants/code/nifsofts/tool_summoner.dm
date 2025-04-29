@@ -21,6 +21,9 @@
 	able_to_keep = FALSE
 
 /obj/item/screwdriver/omni_drill/nanite
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/screwdriver/omni_drill"
+	post_init_icon_state = "drill"
 	toolspeed = 1.5
 
 /obj/item/weldingtool/mini/nanite

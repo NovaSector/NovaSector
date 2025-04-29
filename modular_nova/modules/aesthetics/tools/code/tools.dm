@@ -24,7 +24,9 @@
 	icon = 'icons/obj/tools.dmi'
 
 /obj/item/screwdriver/power
-	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/screwdriver"
+	post_init_icon_state = "screwdriver_map"
 
 /obj/item/construction/plumbing //This icon override NEEDS to be here for the subtypes
 	icon = 'modular_nova/modules/aesthetics/tools/icons/tools.dmi'

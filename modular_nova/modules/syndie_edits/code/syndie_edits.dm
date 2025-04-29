@@ -45,9 +45,11 @@
 /obj/item/clothing/head/beret/sec/syndicate
 	name = "brig officer's beret"
 	desc = "A stylish and protective beret, produced and manufactured by Interdyne Pharmaceuticals with help from the Gorlex Marauders."
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec"
+	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	icon_state = "beret_badge"
 	greyscale_colors = "#3F3C40#DB2929"
 
 /obj/item/clothing/mask/gas/syndicate/ds
@@ -60,6 +62,9 @@
 	alternate_worn_layer = LOW_FACEMASK_LAYER //This lets it layer below glasses and headsets; yes, that's below hair, but it already has HIDEHAIR
 
 /obj/item/clothing/mask/neck_gaiter/syndicate
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/mask/neck_gaiter"
+	post_init_icon_state = "gaiter"
 	name = "tactical neck gaiter"
 	desc = "For the agent wanting to keep a low profile whilst concealing their identity. Has a small respirator to be used with internals."
 	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
@@ -230,6 +235,9 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/head/beret/medical/nova/interdyne
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/medical"
+	post_init_icon_state = "beret_badge_med"
 	name = "interdyne beret"
 	desc = "A white and green beret denoting one's allegiance to Interdyne Pharmaceutics."
 	greyscale_colors = "#FFFFFF#198019"
@@ -301,6 +309,9 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
+	post_init_icon_state = "fancy_labcoat"
 	greyscale_colors = "#FFFFFF#4F8F56"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 

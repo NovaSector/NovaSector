@@ -404,6 +404,9 @@
 
 
 /obj/item/stack/wrapping_paper/xmas/cyborg
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/stack/wrapping_paper"
+	post_init_icon_state = "wrap_paper"
 	name = "integrated wrapping paper"
 	is_cyborg = TRUE
 	source = /datum/robot_energy_storage/wrapping_paper
@@ -484,10 +487,11 @@
 		usesound = 'sound/items/tools/jaws_pry.ogg'
 
 /obj/item/screwdriver/cyborg/power
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/screwdriver"
+	post_init_icon_state = "screwdriver_map"
 	name =	"automated drill"
 	desc = "A cyborg fitted module resembling the hand drill"
-	icon = 'modular_nova/modules/borgs/icons/robot_items.dmi'
-	icon_state = "drill_screw_cyborg"
 	hitsound = 'sound/items/tools/drill_hit.ogg'
 	usesound = 'sound/items/tools/drill_use.ogg'
 	toolspeed = 0.5

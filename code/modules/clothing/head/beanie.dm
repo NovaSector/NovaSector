@@ -6,42 +6,64 @@
 /obj/item/clothing/head/beanie
 	name = "beanie"
 	desc = "A stylish beanie. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their heads."
-	icon = 'icons/obj/clothing/head/beanie.dmi'
 	worn_icon = 'icons/mob/clothing/head/beanie.dmi'
-	icon_state = "beanie"
 	icon_preview = 'icons/obj/fluff/previews.dmi'
 	icon_state_preview = "beanie_cloth"
 	custom_price = PAYCHECK_CREW * 1.2
 	greyscale_colors = "#EEEEEE#EEEEEE"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	greyscale_config = /datum/greyscale_config/beanie
 	greyscale_config_worn = /datum/greyscale_config/beanie/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/beanie/black
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "black beanie"
 	greyscale_colors = "#4A4A4B#4A4A4B"
 
 /obj/item/clothing/head/beanie/red
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "red beanie"
 	greyscale_colors = "#D91414#D91414"
 
 /obj/item/clothing/head/beanie/darkblue
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "dark blue beanie"
 	greyscale_colors = "#1E85BC#1E85BC"
 
 /obj/item/clothing/head/beanie/yellow
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "yellow beanie"
 	greyscale_colors = "#E0C14F#E0C14F"
 
 /obj/item/clothing/head/beanie/orange
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "orange beanie"
 	greyscale_colors = "#C67A4B#C67A4B"
 
 /obj/item/clothing/head/beanie/christmas
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "christmas beanie"
 	greyscale_colors = "#038000#960000"
 
 /obj/item/clothing/head/beanie/durathread
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "durathread beanie"
 	desc = "A beanie made from durathread, its resilient fibres provide some protection to the wearer."
 	icon_preview = 'icons/obj/fluff/previews.dmi'
@@ -66,6 +88,9 @@
 //No dog fashion sprites yet :(  poor Ian can't be dope like the rest of us yet
 
 /obj/item/clothing/head/beanie/black/dboy
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beanie"
+	post_init_icon_state = "beanie"
 	name = "test subject beanie"
 	desc = "A dingy and torn black beanie. Is that slime or grease?"
 	/// Used for the extra flavor text the d-boy himself sees

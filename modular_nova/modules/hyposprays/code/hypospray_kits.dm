@@ -1,10 +1,11 @@
 /obj/item/storage/hypospraykit
 	name = "hypospray kit"
 	desc = "A hypospray kit with foam insets for hypovials and a mounting point on the bottom."
-	icon = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
-	icon_state = "firstaid-mini"
 	worn_icon_state = "healthanalyzer" // Get a better sprite later
 	inhand_icon_state = "medkit"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/storage/hypospraykit"
+	post_init_icon_state = "firstaid-mini"
 	greyscale_config = /datum/greyscale_config/hypokit
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -174,13 +175,18 @@
 	new /obj/item/hypospray/mkii(src)
 
 /obj/item/storage/hypospraykit/empty
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/storage/hypospraykit"
+	post_init_icon_state = "firstaid-mini"
 	empty = TRUE
 
 /// Deluxe hypokit: more storage, but you can't pocket it.
 /obj/item/storage/hypospraykit/cmo
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/storage/hypospraykit"
+	post_init_icon_state = "firstaid-mini"
 	name = "deluxe hypospray kit"
 	desc = "An extended hypospray kit with foam insets for hypovials & a mounting point on the bottom."
-	icon_state = "cmo-mini"
 	current_case = "cmo"
 	is_xl = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -192,13 +198,18 @@
 	new /obj/item/hypospray/mkii/deluxe/cmo(src)
 
 /obj/item/storage/hypospraykit/cmo/empty
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/storage/hypospraykit"
+	post_init_icon_state = "firstaid-mini"
 	desc = "An extended hypospray kit with foam insets for hypovials & a mounting point on the bottom."
-	icon_state = "emt-mini"
 	current_case = "emt"
 	empty = TRUE
 
 /// Preloaded version: this is what goes in the locker.
 /obj/item/storage/hypospraykit/cmo/preloaded
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/storage/hypospraykit"
+	post_init_icon_state = "firstaid-mini"
 	name = "CMO's deluxe hypospray kit"
 	desc = "The CMO's precious extended hypospray kit, preloaded with a deluxe hypospray & a handful of vials.  Retains the usual insets and mounting point of smaller hypokits."
 
@@ -213,9 +224,11 @@
 
 /// Combat hypokit
 /obj/item/storage/hypospraykit/cmo/combat
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/storage/hypospraykit"
+	post_init_icon_state = "firstaid-mini"
 	name = "combat hypospray kit"
 	desc = "A larger tactical hypospray kit containing a combat-focused deluxe hypospray and vials."
-	icon_state = "tactical-mini"
 	current_case = "tactical"
 
 /obj/item/storage/hypospraykit/cmo/combat/PopulateContents()
@@ -273,6 +286,6 @@
 	. = ..()
 	var/static/list/hypokit_holdable = typecacheof(list(
 		/obj/item/hypospray/mkii,
-		/obj/item/reagent_containers/cup/vial
+/obj/item/reagent_containers/cup/vial
 	))
 	can_hold = hypokit_holdable
