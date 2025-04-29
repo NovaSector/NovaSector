@@ -19,21 +19,21 @@
 		. += emissive_appearance(icon_file, "[inhand_icon_state]-emissive", src, alpha = src.alpha)
 
 /obj/item/kinetic_crusher/tribal/runic_greataxe
-	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
-	icon_state = "runic_axe"
 	name = "Runic Greataxe"
 	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue."
-	light_color = "#8DEBFF"
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
+	icon_state = "runic_axe"
 	worn_icon = 'icons/mob/clothing/back.dmi'
 	worn_icon_state = "crusher"
+	light_color = "#8DEBFF"
 	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
 
 /obj/item/kinetic_crusher/spear/tribal/runic_spear
-	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
-	icon_state = "runic_spear"
 	name = "Runic Spear"
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
+	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
+	icon_state = "runic_spear"
 	light_color = "#8DEBFF"
 
 /obj/item/kinetic_crusher/proc/adding_glow()
