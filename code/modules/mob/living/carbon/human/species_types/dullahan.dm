@@ -292,7 +292,7 @@
 	return owner.Hear(message, speaker, message_language, raw_message, radio_freq, spans, message_mods, message_range = INFINITY)
 
 ///Stops dullahans from gibbing when regenerating limbs
-/obj/item/dullahan_relay/proc/unlist_head(datum/source, noheal = FALSE, list/excluded_zones)
+/obj/item/dullahan_relay/proc/unlist_head(datum/source, list/excluded_zones)
 	SIGNAL_HANDLER
 	excluded_zones |= BODY_ZONE_HEAD
 
