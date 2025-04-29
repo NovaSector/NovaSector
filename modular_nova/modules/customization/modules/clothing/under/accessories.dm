@@ -324,8 +324,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 */
 // Awardable medals
 /obj/item/clothing/accessory/medal/nova
-	name = "medal of honors"
-	desc = "awarded by members of central command, this medal is a commendation for individuals with the highest honors."
+	name = "debug medal"
+	desc = "You shouldn't have this, make a bug report!"
 	icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
@@ -370,8 +370,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 // Accessory Medals (Medals that are accessories - separate so that equipping doesn't try to "award" them)
 /obj/item/clothing/accessory/nova/acc_medal
-	name = "medal of colors"
-	desc = "A canvas covered in many colors this medal has no meaning to it. But artists claim meaning is present, perhaps only those who've enlightened themselves may find the truth"
+	name = "debug medal"
+	desc = "You shouldn't have this, make a bug report!"
 	icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
