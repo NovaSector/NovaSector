@@ -78,7 +78,7 @@
 
 /obj/item/clothing/suit/armor/forging_chain_shirt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/armor_plate, 2, /obj/item/stack/sheet/animalhide/goliath_hide, /datum/armor/armor_forging_upgrade)
+	AddComponent(/datum/component/armor_plate, 2, armor_mod = /datum/armor/armor_forging_upgrade)
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_OCLOTHING)
 
 	allowed += /obj/item/forging/reagent_weapon
