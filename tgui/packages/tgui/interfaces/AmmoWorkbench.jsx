@@ -161,23 +161,21 @@ export const AmmunitionsTab = (props) => {
         <Collapsible title="Owner's Manual">
           <Section color="label">
             The ammunition workbench, by default, can print basic non-lethal
-            ammunition (e.g. rubber bullets, IHDF). If a non-lethal ammo type
-            isn&apos;t listed, but one exists, a classification issue probably
-            exists, and you should probably submit a bug report.
+            ammunition (e.g. rubber bullets, IHDF).
             <br />
             <br />
-            Additional modules, which have point limits, can be purchased from
-            Cargo or printed with sufficient research, enabling the printing of
-            other ammunition variants, such as lethal, armor-piercing, or
-            hollow-point ammunition, with different ammunition having different
-            point costs.
+            License modules can be purchased from Cargo or printed with
+            sufficient research, enabling the printing of other ammunition
+            variants, such as lethal, armor-piercing, or hollow-point
+            ammunition. Each module have a limited number of usage points, with
+            different ammunition having different point costs.
             <br />
             <br />
-            License modules are <b>reusable</b> and can have their license
-            points recharged with <b>authenticators</b>, which are{' '}
-            <b>much cheaper</b>
-            than individual modules. These can be purchased from Cargo or
-            printed from techfabs with the proper technology researched.
+            These modules are <b>reusable</b> and can have their license points
+            recharged with <b>authenticators</b>, which are&nbsp;
+            <b>much cheaper</b> than individual modules. These can be purchased
+            from Cargo or printed from techfabs with the proper technology
+            researched.
           </Section>
         </Collapsible>
       </Section>
