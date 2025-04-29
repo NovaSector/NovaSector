@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY(gangster_cell_phones)
 
 /obj/item/gangster_cellphone/Destroy()
 	GLOB.gangster_cell_phones -= src
-	. = ..()
+	return ..()
 
 /obj/item/gangster_cellphone/attack_self(mob/user, modifiers)
 	. = ..()

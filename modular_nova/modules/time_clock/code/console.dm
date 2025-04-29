@@ -27,12 +27,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/time_clock, 28)
 	radio = new radio(src)
 
 /obj/machinery/time_clock/Destroy()
-	. = ..()
 	if(inserted_id)
 		inserted_id.forceMove(drop_location())
 
 	if(radio)
 		QDEL_NULL(radio)
+
+	return ..()
 
 /obj/machinery/time_clock/update_overlays()
 	. = ..()

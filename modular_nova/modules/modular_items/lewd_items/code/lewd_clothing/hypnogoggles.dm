@@ -17,8 +17,8 @@
 		codephrase = "Become... video deliveryman!"
 
 /obj/item/clothing/glasses/hypno/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSobj, src)
+	return ..()
 
 /obj/item/clothing/glasses/hypno/attack_self(mob/user)
 	. = ..()

@@ -105,7 +105,7 @@
 	if(sparks)
 		qdel(sparks)
 	sparks = null
-	. = ..()
+	return ..()
 
 /obj/item/donator/transponder/attack_self(mob/user)
 	if(QDELETED(src) || (next_activate > world.time))
