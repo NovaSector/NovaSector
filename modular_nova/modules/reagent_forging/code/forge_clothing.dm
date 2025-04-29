@@ -119,7 +119,7 @@
 	resistance_flags = FIRE_PROOF
 	flags_inv = null
 	obj_flags_nova = ANVIL_REPAIR
-	armor_type = /datum/armor/armor_forging_light
+	armor_type = /datum/armor/armor_forging_medium
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 
 /obj/item/clothing/head/helmet/forging_plate_helmet/Initialize(mapload)
