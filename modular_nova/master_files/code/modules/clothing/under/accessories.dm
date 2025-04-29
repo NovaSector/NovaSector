@@ -11,6 +11,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	attachment_slot = LEGS //Worn over pants
+	gender = PLURAL //"That's some chaps."
 	greyscale_config = /datum/greyscale_config/chaps
 	greyscale_config_worn = /datum/greyscale_config/chaps/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/chaps/worn/digi
