@@ -1,7 +1,9 @@
 /obj/item/clothing/suit/costume/wellworn_shirt
 	name = "well-worn shirt"
 	desc = "A worn out, curiously comfortable t-shirt. You wouldn't go so far as to say it feels like being hugged when you wear it, but it's pretty close. Good for sleeping in."
-	icon_state = "wellworn_shirt"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/suit/costume/wellworn_shirt"
+	post_init_icon_state = "wellworn_shirt"
 	inhand_icon_state = null
 	greyscale_config = /datum/greyscale_config/wellworn_shirt
 	greyscale_config_worn = /datum/greyscale_config/wellworn_shirt/worn
@@ -37,7 +39,8 @@
 /obj/item/clothing/suit/costume/wellworn_shirt/graphic
 	name = "well-worn graphic shirt"
 	desc = "A worn out, curiously comfortable t-shirt with a character from Phanic the Weasel on the front. It adds some charm points to itself and the wearer, and reminds you of when the series was still good; way back in 2500."
-	icon_state = "wellworn_shirt_gamer"
+	icon_state = "/obj/item/clothing/suit/costume/wellworn_shirt/graphic"
+	post_init_icon_state = "wellworn_shirt_gamer"
 	greyscale_colors = "#FFFFFF#46B45B"
 	greyscale_config = /datum/greyscale_config/wellworn_shirt_graphic
 	greyscale_config_worn = /datum/greyscale_config/wellworn_shirt_graphic/worn
