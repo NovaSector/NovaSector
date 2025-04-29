@@ -443,8 +443,16 @@
 
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
-			//NOVA EDIT START - Tail coiling
 			if(ishuman(M))
+				/* // NOVA EDIT REMOVAL START - Tail coiling - Original code
+				var/mob/living/carbon/human/grabbed_human = M
+				var/grabbed_by_hands = (zone_selected == "l_arm" || zone_selected == "r_arm") && grabbed_human.usable_hands > 0
+				M.visible_message(span_warning("[src] grabs [M] [grabbed_by_hands ? "by their hands":"passively"]!"), \
+								span_warning("[src] grabs you [grabbed_by_hands ? "by your hands":"passively"]!"), null, null, src)
+				to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their hands":"passively"]!"))
+				grabbed_human.share_blood_on_touch(src, grabbed_by_hands ? ITEM_SLOT_GLOVES : ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING)
+				*/ // NOVA EDIT REMOVAL END - Tail coiling
+				// NOVA EDIT ADDITION START - Tail coiling
 				if(zone_selected == BODY_ZONE_PRECISE_GROIN && M.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL) && src.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL))
 					M.visible_message(span_warning("[src] coils their tail with [AM], wow is that okay in public?!"), "[src] has entwined their tail with yours!")
 					to_chat(src, "You entwine your tail with [AM]")
@@ -454,7 +462,8 @@
 					M.visible_message(span_warning("[src] grabs [M] [grabbed_by_hands ? "by their hands":"passively"]!"), \
 									span_warning("[src] grabs you [grabbed_by_hands ? "by your hands":"passively"]!"), null, null, src)
 					to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their hands":"passively"]!"))
-			// NOVA EDIT END
+					grabbed_human.share_blood_on_touch(src, grabbed_by_hands ? ITEM_SLOT_GLOVES : ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING)
+				// NOVA EDIT ADDITION END
 			else
 				M.visible_message(span_warning("[src] grabs [M] passively!"), \
 								span_warning("[src] grabs you passively!"), null, null, src)
@@ -1151,7 +1160,7 @@
 
 		trail.existing_dirs += newdir
 		trail.add_overlay(image('icons/effects/blood.dmi', trail_type, dir = newdir))
-		trail.transfer_mob_blood_dna(src)
+		trail.add_mob_blood(src)
 		trail.bloodiness = min(trail.bloodiness + bleed_amount, BLOOD_POOL_MAX)
 		found_trail = TRUE
 		break
@@ -1163,14 +1172,14 @@
 	trail.blood_state = trail_blood_type
 	trail.existing_dirs += newdir
 	trail.add_overlay(image('icons/effects/blood.dmi', trail_type, dir = newdir))
-	trail.transfer_mob_blood_dna(src)
+	trail.add_mob_blood(src)
 	trail.bloodiness = min(bleed_amount, BLOOD_POOL_MAX)
 
 /mob/living/proc/get_trail_blood()
 	return BLOOD_STATE_HUMAN
 
 /mob/living/carbon/human/makeTrail(turf/T)
-	if(HAS_TRAIT(src, TRAIT_NOBLOOD) || !is_bleeding() || HAS_TRAIT(src, TRAIT_NOBLOOD))
+	if(HAS_TRAIT(src, TRAIT_NOBLOOD) || !is_bleeding() || dna.blood_type.no_bleed_overlays)
 		return
 	..()
 
@@ -3140,3 +3149,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(HAS_TRAIT(src, TRAIT_ANALGESIA) && !force)
 		return
 	INVOKE_ASYNC(src, PROC_REF(emote), "scream")
+
+/// Setter for changing a mob's blood type
+/mob/living/proc/set_blood_type(datum/blood_type/new_blood_type, update_cached_blood_dna_info)
+	return
