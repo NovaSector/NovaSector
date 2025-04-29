@@ -2076,15 +2076,6 @@ TREK
 *
 */
 
-/datum/greyscale_config/nova_medal
-	name = "nova_medal"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/nova_medal.json'
-
-/datum/greyscale_config/nova_medal/worn
-	name = "nova_medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/nova_medal.json'
 
 /datum/greyscale_config/syndi_medal
 	name = "syndi_medal"

@@ -326,14 +326,11 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/medal/nova
 	name = "medal of honors"
 	desc = "awarded by members of central command, this medal is a commendation for individuals with the highest honors."
-	icon_state = "debugmedal"
+	icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283#257283"
-	greyscale_config = /datum/greyscale_config/nova_medal
-	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
 
 // DS-2/Syndicate Medals
 /obj/item/clothing/accessory/medal/nova/syndicate
@@ -375,14 +372,11 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal
 	name = "medal of colors"
 	desc = "A canvas covered in many colors this medal has no meaning to it. But artists claim meaning is present, perhaps only those who've enlightened themselves may find the truth"
-	icon_state = "debugmedal"
+	icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283#257283"
-	greyscale_config = /datum/greyscale_config/nova_medal
-	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins
 	name = "\improper NT company neckpin"
