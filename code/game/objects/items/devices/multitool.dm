@@ -10,10 +10,10 @@
 
 
 
-/obj/item/multitool //NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/multitool
 	name = "multitool"
 	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors. You can activate it in-hand to locate the nearest APC."
-	icon = 'icons/obj/devices/tool.dmi'
+	icon = 'icons/obj/devices/tool.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "multitool"
 	inhand_icon_state = "multitool"
 	icon_angle = -90
@@ -207,7 +207,7 @@
 	var/turf/our_turf = get_turf(src)
 	detect_state = PROXIMITY_NONE
 
-	for(var/mob/eye/camera/ai/AI_eye as anything in GLOB.camera_eyes)
+	for(var/mob/eye/camera/ai/AI_eye in GLOB.camera_eyes)
 		if(!AI_eye.ai_detector_visible)
 			continue
 

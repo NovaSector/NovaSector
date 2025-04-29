@@ -114,7 +114,7 @@ There are several things that need to be remembered:
 		var/woman
 		var/digi // NOVA EDIT ADDITION - Digi female gender shaping
 		var/female_sprite_flags = uniform.female_sprite_flags // NOVA EDIT ADDITION - Digi (and taur) female gender shaping
-		var/mutant_styles = NONE // NOVA EDIT ADDITON - mutant styles to pass down to build_worn_icon.
+		var/mutant_styles = NONE // NOVA EDIT ADDITION - mutant styles to pass down to build_worn_icon.
 		//BEGIN SPECIES HANDLING
 		if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			icon_file = uniform.worn_icon_digi || DIGITIGRADE_UNIFORM_FILE // NOVA EDIT CHANGE - ORIGINAL: icon_file = DIGITIGRADE_UNIFORM_FILE
@@ -210,9 +210,13 @@ There are several things that need to be remembered:
 			// When byond gives us filters that respect dirs we can just use an alpha mask for this but until then, two icons weeeee
 			var/mutable_appearance/hands_combined = mutable_appearance(layer = -GLOVES_LAYER, appearance_flags = KEEP_TOGETHER)
 			if(has_left_hand(check_disabled = FALSE))
-				hands_combined.overlays += mutable_appearance('icons/effects/blood.dmi', "bloodyhands_left")
+				var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands_left")
+				blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
+				hands_combined.overlays += blood_overlay
 			if(has_right_hand(check_disabled = FALSE))
-				hands_combined.overlays += mutable_appearance('icons/effects/blood.dmi', "bloodyhands_right")
+				var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands_right")
+				blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
+				hands_combined.overlays += blood_overlay
 			overlays_standing[GLOVES_LAYER] = hands_combined
 			apply_overlay(GLOVES_LAYER)
 		return
@@ -1000,9 +1004,9 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 			shift_pixel_x = -16 // it doesnt look right otherwise
 	// NOVA EDIT ADDITION END
 	if(building_icon)
-		draw_target = mutable_appearance(building_icon)
+		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
-		draw_target = mutable_appearance(file2use, t_state)
+		draw_target = mutable_appearance(file2use, t_state, layer = -layer2use)
 	draw_target.pixel_x += shift_pixel_x // NOVA EDIT ADDITION - Taur-friendly uniforms and suits
 
 	//Get the overlays for this item when it's being worn
@@ -1083,7 +1087,7 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 
 	my_head.update_limb(is_creating = update_limb_data)
 
-	add_overlay(my_head.get_limb_icon())
+	add_overlay(my_head.get_limb_icon(dropped = FALSE, update_on = src))
 	update_worn_head()
 	update_worn_mask()
 

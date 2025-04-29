@@ -59,6 +59,9 @@
 // We use a trait to avoid erronous setting of a variable to false if two people are repairing and one stops.
 #define TRAIT_ELECTRICAL_DAMAGE_REPAIRING "electrical_damage_repairing"
 
+// unusual biochemistry quirk
+#define TRAIT_UNUSUAL_BIOCHEMISTRY "unusual_biochemistry"
+
 // felinid traits
 #define TRAIT_FELINE "feline_aspect"
 
@@ -136,6 +139,9 @@
 #define TRAIT_R_SMALL "small_chassis"
 /// Any model that has a custom front panel
 #define TRAIT_R_UNIQUEPANEL "unique_openpanel"
+/// Any model that has extra rest options
+#define TRAIT_RESTING_ALTS "extra_resting_alts"
+
 
 // Lewd traits
 #define TRAIT_MASOCHISM "masochism"

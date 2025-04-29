@@ -1646,6 +1646,19 @@ TREK
 /datum/greyscale_config/boots/worn/oldvox
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_oldvox.dmi'
 
+/datum/greyscale_config/cowboy_boots
+	name = "Colorable Cowboy Boots"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/cowboy_boots.json'
+
+/datum/greyscale_config/cowboy_boots/worn
+	name = "Colorable Cowboy Boots (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+
+/datum/greyscale_config/cowboy_boots/worn/digi
+	name = "Colorable Cowboy Boots (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
 /datum/greyscale_config/boots/christmasboots
 	name = "christmas_boots"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
@@ -1704,6 +1717,29 @@ TREK
 
 /datum/greyscale_config/sandals/worn/oldvox
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_oldvox.dmi'
+
+
+/*
+*	HANDS
+*/
+
+/datum/greyscale_config/evening_gloves
+	name = "Evening Gloves"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/evening_gloves.json'
+
+/datum/greyscale_config/evening_gloves/worn
+	name = "Evening Gloves (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/datum/greyscale_config/designer_gloves
+	name = "Designer Gloves"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/designer_gloves.json'
+
+/datum/greyscale_config/designer_gloves/worn
+	name = "Designer Gloves (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
 
 // WRAPS
 

@@ -1,4 +1,4 @@
-// MODULAR SECURITY WEAR (NOT OVERRIDES, LOOK IN 'modular_nova\modules\goofsec\code\sec_clothing_overrides.dm')
+// MODULAR SECURITY WEAR (NOT OVERRIDES, LOOK IN 'modular_nova\modules\sec_haul\code\security_clothing\sec_clothing_overrides.dm')
 
 // DETECTIVE
 /obj/item/clothing/under/rank/security/detective/cowboy
@@ -24,7 +24,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	heat_protection = CHEST|ARMS
 
-/obj/item/clothing/suit/jacket/det_suit/cowboyvest
+/obj/item/clothing/suit/toggle/jacket/nova/det_trench/cowboyvest
 	name = "blonde cowboy vest"
 	desc = "A white cream vest lined with... fur, of all things, for desert weather. There's a small deer head logo sewn into the vest."
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'

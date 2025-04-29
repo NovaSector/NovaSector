@@ -15,10 +15,12 @@
 /obj/item/stack/rail_track/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isopenturf(interacting_with))
 		return NONE
+
 	var/turf/open/target_turf = get_turf(interacting_with)
 	var/obj/structure/railroad/check_rail = locate() in target_turf
 	if(check_rail || !use(1))
 		return NONE
+
 	to_chat(user, span_notice("You place [src] on [target_turf]."))
 	new /obj/structure/railroad(target_turf)
 	return ITEM_INTERACT_SUCCESS
@@ -40,6 +42,7 @@
 	for(var/obj/structure/railroad/rail in range(1))
 		if(rail == src)
 			continue
+
 		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 5)
 
 /obj/structure/railroad/update_appearance(updates)
@@ -49,13 +52,16 @@
 		var/obj/structure/railroad/locate_rail = locate() in get_step(src_turf, direction)
 		if(!locate_rail)
 			continue
+
 		icon_state = "[icon_state][direction]"
+
 	return ..()
 
 /obj/structure/railroad/crowbar_act(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
 	if(!do_after(user, 2 SECONDS, src))
 		return
+
 	tool.play_tool_sound(src)
 	new /obj/item/stack/rail_track(get_turf(src))
 	qdel(src)
@@ -96,6 +102,7 @@
 	. = ..()
 	if(has_buckled_mobs())
 		add_overlay(railoverlay)
+
 	else
 		cut_overlay(railoverlay)
 
@@ -103,8 +110,10 @@
 	var/obj/structure/railroad/locate_rail = locate() in get_step(src, direction)
 	if(!canmove || !locate_rail)
 		return FALSE
+
 	if(is_driver(user))
 		return relaydrive(user, direction)
+
 	return FALSE
 
 /obj/vehicle/ridden/rail_cart/click_alt(mob/user)
@@ -120,6 +129,7 @@
 		var/obj/item/stack/ore/glass/use_item = attacking_item
 		if(has_sand || !use_item.use(10))
 			return ..()
+
 		AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 16))
 		has_sand = TRUE
 		RemoveElement(/datum/element/ridable)
@@ -129,6 +139,7 @@
 		var/datum/component/remove_component = GetComponent(/datum/component/simple_farm)
 		if(!remove_component)
 			return ..()
+
 		qdel(remove_component)
 		has_sand = FALSE
 		AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)
@@ -141,10 +152,12 @@
 	if(trailer)
 		remove_trailer()
 		return
+
 	for(var/direction in GLOB.cardinals)
 		var/obj/vehicle/ridden/rail_cart/locate_cart = locate() in get_step(src, direction)
 		if(!locate_cart || locate_cart.trailer == src)
 			continue
+
 		add_trailer(locate_cart)
 		break
 

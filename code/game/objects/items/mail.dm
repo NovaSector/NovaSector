@@ -100,7 +100,7 @@
 		postmark_image.appearance_flags |= RESET_COLOR|KEEP_APART
 		. += postmark_image
 
-/obj/item/mail/attackby(obj/item/W, mob/user, params)
+/obj/item/mail/attackby(obj/item/W, mob/user, list/modifiers)
 	// Destination tagging
 	if(istype(W, /obj/item/dest_tagger))
 		var/obj/item/dest_tagger/destination_tag = W
@@ -198,6 +198,10 @@
 			if(LAZYLEN(quirk.mail_goodies))
 				var/quirk_goodie = pick(quirk.mail_goodies)
 				goodies[quirk_goodie] = 5
+
+		if(LAZYLEN(GLOB.holiday_mail))
+			var/holiday_goodie = pick(GLOB.holiday_mail)
+			goodies[holiday_goodie] = 5
 
 	for(var/iterator in 1 to goodie_count)
 		var/target_good = pick_weight(goodies)

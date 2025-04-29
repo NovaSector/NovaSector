@@ -172,7 +172,7 @@
 	name = "Helmets Crate"
 	desc = "Contains three standard-issue brain buckets."
 	cost = CARGO_CRATE_VALUE * 3
-	contains = list(/obj/item/clothing/head/helmet/sec/sol = 3)
+	contains = list(/obj/item/clothing/head/helmet/sec = 3)
 	crate_name = "helmet crate"
 
 /datum/supply_pack/security/deployablebarricades
@@ -304,6 +304,25 @@
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(/obj/item/tank/rbmk2_rod/preloaded)
 	crate_name = "RBMK2 reactor rod"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
+/datum/supply_pack/engine/rbmk2_engine
+	name = "RBMK2 circuit boards and rods"
+	desc = "Contains four RBMK2 circuit boards for construction and fuel rods. Does not come with the required materials to construct them. Comes with a printed guide."
+	access = ACCESS_ENGINE_EQUIP
+	cost = CARGO_CRATE_VALUE * 55
+	contains = list(
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/circuitboard/machine/rbmk2,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/tank/rbmk2_rod/random_tritium,
+		/obj/item/paper/guides/jobs/engi/rbmk2,
+	)
+	crate_name = "RBMK2 circuit boards"
 	crate_type = /obj/structure/closet/crate/secure/engineering
 
 /*

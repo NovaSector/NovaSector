@@ -517,10 +517,7 @@ const SortButton = ({ id, sortId, sortOrder, onClick, children }) => (
     >
       {children}
       {sortId === id && (
-        <Icon
-          name={sortOrder === 'asc' ? 'sort-up' : 'sort-down'}
-          ml="0.25rem;"
-        />
+        <Icon name={sortOrder === 'asc' ? 'sort-up' : 'sort-down'} ml={0.75} />
       )}
     </Button>
   </Table.Cell>

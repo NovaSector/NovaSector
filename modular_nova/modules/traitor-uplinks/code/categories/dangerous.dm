@@ -26,6 +26,15 @@
 	cost = 1 // 1 whole dolar
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
+/datum/uplink_item/dangerous/nunchaku
+	name = "Syndie Fitness Nunchuks"
+	desc = "Heavyweight titanium nunchucks that can be used to knock out and harm your opponent quickly and easily.\
+		In close combat, it allows you to block all melee attacks and throws, punishing the offender."
+	item = /obj/item/melee/baton/nunchaku
+	cost = 7
+	purchasable_from = ~UPLINK_SPY //spy get their own tg version
+	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
+
 // TG Overrides - Raises cost of this by 2x
 /datum/uplink_item/role_restricted/his_grace
 	cost = 40 // forces you to murderbone, so we're taking two antags out for one if they try it
@@ -66,3 +75,6 @@
 
 /datum/uplink_item/suits/modsuit
 	cost = 6
+
+/datum/uplink_item/dangerous/doublesword
+	cost = 28 // original cost: 13

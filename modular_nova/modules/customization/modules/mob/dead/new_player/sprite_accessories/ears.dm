@@ -59,7 +59,7 @@
 /datum/sprite_accessory/ears/external/vulpkanin
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_VULP, SPECIES_HUMANOID, SPECIES_GHOUL)
 
-/datum/sprite_accessory/ears/external/tajaran
+/datum/sprite_accessory/ears/external/cat
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_TAJARAN, SPECIES_HUMANOID, SPECIES_GHOUL)
 
 /datum/sprite_accessory/ears/external/akula
@@ -100,18 +100,6 @@
 /datum/sprite_accessory/ears/external/bunny
 	name = "Bunny"
 	icon_state = "bunny"
-
-/datum/sprite_accessory/ears/external/tajaran/catbig
-	name = "Cat, Big"
-	icon_state = "catbig"
-
-/datum/sprite_accessory/ears/external/tajaran/catbigalt
-	name = "Cat, Big (Alt)"
-	icon_state = "catbigalt"
-
-/datum/sprite_accessory/ears/external/tajaran/catnormal
-	name = "Cat, normal"
-	icon_state = "catnormal"
 
 /datum/sprite_accessory/ears/external/cow
 	name = "Cow"
@@ -216,6 +204,38 @@
 /datum/sprite_accessory/ears/external/protogen
 	name = "Protogen"
 	icon_state = "protogen"
+
+/datum/sprite_accessory/ears/external/cat/cat_alt
+	name = "Cat (Colorable Inner)"
+	icon_state = "cat_alt"
+
+/datum/sprite_accessory/ears/external/cat/cat_alt_behind_hair
+	name = "Cat (Colorable Inner, Behind Hair)"
+	icon_state = "cat_alt_underhair"
+
+/datum/sprite_accessory/ears/external/cat/miqo_alt
+	name = "Cat, Miqo'te (Colorable Inner)"
+	icon_state = "miqo_alt"
+
+/datum/sprite_accessory/ears/external/cat/lynx_alt
+	name = "Cat, Lynx (Colorable Inner)"
+	icon_state = "lynx_alt"
+
+/datum/sprite_accessory/ears/external/cat/round_alt
+	name = "Cat, Round (Colorable Inner)"
+	icon_state = "round_alt"
+
+/datum/sprite_accessory/ears/external/cat/fold_alt
+	name = "Cat, Fold (Colorable Inner)"
+	icon_state = "fold_alt"
+
+/datum/sprite_accessory/ears/external/cat/big_alt
+	name = "Cat, Big (Colorable Inner)"
+	icon_state = "big_alt"
+
+/datum/sprite_accessory/ears/external/cat/cat_alert
+	name = "Cat, Alert"
+	icon_state = "cat_alert"
 
 /datum/sprite_accessory/ears/external/rabbit
 	name = "Rabbit"
@@ -472,3 +492,15 @@
 /datum/sprite_accessory/ears/external/acrador/short/alt_4
 	name = "Acrador (Short) (Alt 4)"
 	icon_state = "acrador_short_alt_4"
+
+/datum/sprite_accessory/ears/external/possum
+	name = "Possum"
+	icon_state = "possum"
+
+/datum/sprite_accessory/ears/external/lunasune
+	name = "Lunasune"
+	icon_state = "lunasune"
+
+/datum/sprite_accessory/ears/external/hawk
+	name = "Hawk"
+	icon_state = "hawk"

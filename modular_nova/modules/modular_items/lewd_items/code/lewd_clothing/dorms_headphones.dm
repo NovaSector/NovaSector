@@ -11,6 +11,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	strip_delay = 15
 	custom_price = PAYCHECK_CREW * 2
+	action_slots = ALL
 	actions_types = list(/datum/action/item_action/toggle_dorms_headphones)
 	/// Are we playing music? Controls icon state and flavor text.
 	var/playing_music = FALSE

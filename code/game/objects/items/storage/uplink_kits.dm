@@ -441,7 +441,10 @@
 /obj/item/storage/box/syndie_kit/space/Initialize(mapload)
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.set_holdable(list(/obj/item/clothing/suit/space/syndicate, /obj/item/clothing/head/helmet/space/syndicate))
+	atom_storage.set_holdable(list(
+		/obj/item/clothing/suit/space/syndicate,
+		/obj/item/clothing/head/helmet/space/syndicate
+	))
 
 /obj/item/storage/box/syndie_kit/space/PopulateContents()
 	var/obj/item/clothing/suit/space/syndicate/spess_suit = pick(GLOB.syndicate_space_suits_to_helmets)
@@ -894,6 +897,17 @@
 	new /obj/item/jammer(src)
 	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
 	new /obj/item/lighter(src)
+
+/obj/item/storage/box/syndicate/horse_box
+	name = "A pony box"
+	desc = "This is a set containing a syndicate pony cube and an apple, for the best cowboys in the wild station! Don't make an apple pie!"
+	icon_state = "syndiebox"
+	illustration = "writing_syndie"
+
+/obj/item/storage/box/syndicate/horse_box/PopulateContents()
+	new /obj/item/food/monkeycube/dangerous_horse(src)
+	new /obj/item/slimepotion/slime/sentience/nuclear/dangerous_horse(src)
+	new /obj/item/food/grown/apple(src)
 
 #undef KIT_RECON
 #undef KIT_BLOODY_SPAI
