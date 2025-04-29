@@ -2164,7 +2164,7 @@ TREK
 
 /datum/greyscale_config/medals/syndicate
 	name = "Syndicate Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/medals/syndicate.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/syndicate.json'
 
 /datum/greyscale_config/medals/syndicate/worn
 	name = "Syndicate Medal (Worn)"
