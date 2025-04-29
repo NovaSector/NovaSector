@@ -1,7 +1,7 @@
 import os
 import re
 
-greyscale_typepaths = {}
+modified_typepaths = {}
 
 def get_icon_path(typepath):
     if "/clothing/" in typepath:
@@ -19,7 +19,7 @@ def get_icon_path(typepath):
 
 def is_typepath_line(line):
     stripped = line.strip()
-    return re.match(r'^/(obj|mob|turf|datum|area)(/\w+)*$', stripped) is not None
+    return re.match(r'^/(obj|mob|turf|datum|area|clothing)(/\w+)*$', stripped) is not None
 
 def detect_line_ending(text):
     if "\r\n" in text:
@@ -29,192 +29,115 @@ def detect_line_ending(text):
     else:
         return "\n"
 
-def extract_comments(line):
-    if '//' in line:
-        _, comment = line.split('//', 1)
-        return '//' + comment.rstrip()
-    return ""
+def process_block(typepath, block_lines):
+    greyscale_line_index = None
+    icon_state_line_index = None
+    icon_line_index = None
+    old_icon_state_val = "Placeholder icon_state GAG"
 
-def get_parent_typepath(typepath):
-    if '/' not in typepath.strip('/'):
-        return None
-    return '/' + '/'.join(typepath.strip('/').split('/')[:-1])
+    modified = block_lines.copy()
 
-def parse_block_metadata(block_lines):
-    icon = None
-    icon_state = None
-    post_init_icon_state = None
+    for i, line in enumerate(block_lines):
+        if re.search(r'\bgreyscale_config\s*=\s*null\b', line):
+            return None  # skip this block entirely
 
-    for line in block_lines:
-        if re.match(r'^\s*icon\s*=', line):
-            match = re.search(r'=\s*(.+?)(\s*//.*)?$', line)
-            if match:
-                icon = match.group(1).strip()
+        if re.search(r'\bgreyscale_config\s*=', line) and not re.search(r'\bgreyscale_config_\w+\s*=', line):
+            greyscale_line_index = i
+
         if re.match(r'^\s*icon_state\s*=', line):
-            match = re.search(r'=\s*"?([^"]+)"?', line)
+            icon_state_line_index = i
+            match = re.search(r'=\s*["\']?([^"\']+)["\']?', line)
             if match:
-                icon_state = match.group(1).strip()
-        if re.match(r'^\s*post_init_icon_state\s*=', line):
-            match = re.search(r'=\s*"?([^"]+)"?', line)
-            if match:
-                post_init_icon_state = match.group(1).strip()
+                old_icon_state_val = match.group(1)
 
-    return icon, icon_state, post_init_icon_state
-
-def process_block(typepath, block_lines, parent_values=None, force=False):
-    existing_icon, existing_icon_state, existing_post = parse_block_metadata(block_lines)
-
-    icon_comment = ""
-    icon_state_comment = ""
-
-    new_block = []
-    for line in block_lines:
         if re.match(r'^\s*icon\s*=', line):
-            icon_comment = extract_comments(line)
-            continue
-        if re.match(r'^\s*icon_state\s*=', line):
-            icon_state_comment = extract_comments(line)
-            continue
-        if re.match(r'^\s*post_init_icon_state\s*=', line):
-            continue
-        new_block.append(line)
+            icon_line_index = i
 
-    insert_index = 0
-    for i, line in enumerate(new_block):
-        if "greyscale_config =" in line and "greyscale_config_" not in line:
-            insert_index = i
-            break
+    if greyscale_line_index is None:
+        return None  # skip modification if no greyscale_config line is found
 
-    if force or parent_values:
-        new_icon = parent_values["icon"] if parent_values else get_icon_path(typepath)
-        new_icon_state = parent_values["icon_state"] if parent_values else typepath
-        new_post = parent_values["post_init_icon_state"] if parent_values else existing_icon_state or "PLACEHOLDER_GAGS_STATE"
+    icon_line = f"\ticon = {get_icon_path(typepath)}"
+    icon_state_line = f'\ticon_state = "{typepath}"'
+    post_icon_line = f'\tpost_init_icon_state = "{old_icon_state_val}"'
 
-        if force or not parent_values or (
-            existing_icon != parent_values.get("icon") or
-            existing_icon_state != parent_values.get("icon_state") or
-            existing_post != parent_values.get("post_init_icon_state")
-        ):
-            if new_post:
-                new_block.insert(insert_index, f'\tpost_init_icon_state = "{new_post}"')
-            comment = f" {icon_state_comment}" if icon_state_comment else ""
-            new_block.insert(insert_index, f'\ticon_state = "{new_icon_state}"{comment}')
-            comment = f" {icon_comment}" if icon_comment else ""
-            new_block.insert(insert_index, f'\ticon = {new_icon}{comment}')
-            return [typepath] + new_block
+    lines_to_remove = sorted(
+        [i for i in [icon_line_index, icon_state_line_index] if i is not None],
+        reverse=True
+    )
+    for i in lines_to_remove:
+        del modified[i]
 
-    return None
+    insert_index = greyscale_line_index - sum(1 for i in lines_to_remove if i < greyscale_line_index)
+    modified.insert(insert_index, post_icon_line)
+    modified.insert(insert_index, icon_state_line)
+    modified.insert(insert_index, icon_line)
 
-def first_pass(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        text = f.read()
+    return [typepath] + modified
+
+def process_file(filepath):
+    with open(filepath, 'rb') as f:
+        raw = f.read()
+    text = raw.decode('utf-8')
+    newline = detect_line_ending(text)
     lines = text.splitlines()
-    typepath = None
-    block_lines = []
 
     output = []
-    newline = detect_line_ending(text)
+    block = []
+    typepath = None
+    inside_proc = False
     changed = False
 
-    def flush_block():
-        nonlocal changed
-        if typepath:
-            if any("greyscale_config =" in l and "greyscale_config_" not in l for l in block_lines):
-                result = process_block(typepath, block_lines, None, force=True)
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+
+        # Detect entering or leaving a proc block
+        if re.match(r'^/.*?/(proc|verb|Initialize|update_icon_state)\b', stripped):
+            inside_proc = True
+        if inside_proc and stripped == "":
+            inside_proc = False
+
+        if is_typepath_line(stripped) and not inside_proc:
+            if typepath:
+                result = process_block(typepath, block)
                 if result:
-                    greyscale_typepaths[typepath] = {
-                        "icon": get_icon_path(typepath),
-                        "icon_state": typepath,
-                        "post_init_icon_state": parse_block_metadata(block_lines)[1] or "PLACEHOLDER_GAGS_STATE"
-                    }
                     output.extend(result)
                     changed = True
                 else:
-                    output.extend([typepath] + block_lines)
-            else:
-                output.extend([typepath] + block_lines)
-
-    for line in lines:
-        stripped = line.strip()
-        if is_typepath_line(stripped):
-            flush_block()
+                    output.extend([typepath] + block)
+                block = []
             typepath = stripped
-            block_lines = []
-        elif typepath:
-            if line.strip().startswith("proc") or not line.startswith((" ", "\t")):
-                flush_block()
-                typepath = None
-                output.append(line)
-            else:
-                block_lines.append(line)
+        elif typepath and not inside_proc:
+            block.append(line)
         else:
+            if typepath:
+                result = process_block(typepath, block)
+                if result:
+                    output.extend(result)
+                    changed = True
+                else:
+                    output.extend([typepath] + block)
+                block = []
+                typepath = None
             output.append(line)
-    flush_block()
+
+    if typepath:
+        result = process_block(typepath, block)
+        if result:
+            output.extend(result)
+            changed = True
+        else:
+            output.extend([typepath] + block)
 
     if changed:
         with open(filepath, 'w', encoding='utf-8', newline='') as f:
             f.write(newline.join(output) + newline)
-        print(f"Updated (pass 1): {filepath}")
-
-def second_pass(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        text = f.read()
-    lines = text.splitlines()
-    newline = detect_line_ending(text)
-
-    output = []
-    typepath = None
-    block_lines = []
-    changed = False
-
-    def flush_block():
-        nonlocal changed
-        if typepath:
-            parent = get_parent_typepath(typepath)
-            while parent:
-                if parent in greyscale_typepaths:
-                    result = process_block(typepath, block_lines, greyscale_typepaths[parent], force=False)
-                    if result:
-                        output.extend(result)
-                        changed = True
-                    else:
-                        output.extend([typepath] + block_lines)
-                    break
-                parent = get_parent_typepath(parent)
-            else:
-                output.extend([typepath] + block_lines)
-
-    for line in lines:
-        stripped = line.strip()
-        if is_typepath_line(stripped):
-            flush_block()
-            typepath = stripped
-            block_lines = []
-        elif typepath:
-            if line.strip().startswith("proc") or not line.startswith((" ", "\t")):
-                flush_block()
-                typepath = None
-                output.append(line)
-            else:
-                block_lines.append(line)
-        else:
-            output.append(line)
-    flush_block()
-
-    if changed:
-        with open(filepath, 'w', encoding='utf-8', newline='') as f:
-            f.write(newline.join(output) + newline)
-        print(f"Updated (pass 2): {filepath}")
+        print("Edited:", filepath)
 
 def main():
-    for root, _, files in os.walk("."):
-        for file in files:
-            if file.endswith(".dm"):
-                first_pass(os.path.join(root, file))
-    for root, _, files in os.walk("."):
-        for file in files:
-            if file.endswith(".dm"):
-                second_pass(os.path.join(root, file))
+    for root, dirs, files in os.walk("."):
+        for name in files:
+            if name.endswith(".dm"):
+                process_file(os.path.join(root, name))
 
 if __name__ == "__main__":
     main()
