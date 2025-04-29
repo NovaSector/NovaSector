@@ -28,15 +28,17 @@ jobs:
         id: map_finder
 # NOVA EDIT ADDITION START - Exclude maps from CI
         run: |
-          #!/bin/bash
-            > maps_output.txt
-            for file in _maps/*.json; do
-              if ! grep -q '"exclude_from_ci"[[:space:]]*:[[:space:]]*true' "$file"; then
-                echo "\"$(basename "$file" .json)\"" >> maps_output.txt
-              fi
-            done
-            map_list=$(paste -sd, maps_output.txt)
-            echo "maps={\"paths\":[$map_list]}" >> "$GITHUB_OUTPUT"
+          > maps_output.txt
+          for file in _maps/*.json; do
+            if ! jq -e '.exclude_from_ci == true' "$file" >/dev/null 2>&1; then
+              echo "\"$(basename "$file" .json)\"" >> maps_output.txt
+            else
+              echo "Excluded: $file"
+            fi
+          done
+          map_list=$(paste -sd, maps_output.txt)
+          echo "Maps: $map_list"
+          echo "maps={\"paths\":[$map_list]}" >> "$GITHUB_OUTPUT"
 # NOVA EDIT ADDITION END
 # NOVA EDIT CHANGE - ORIGINAL
 #        run: |
