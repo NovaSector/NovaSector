@@ -4,7 +4,7 @@
 	melee = 40
 	bullet = 30
 	energy = 10
-	bomb = 50
+	bomb = 40
 	fire = 50
 	acid = 20
 	wound = 20
@@ -14,9 +14,9 @@
 	bullet = 20
 	laser = 10
 	energy = 20
-	bomb = 50
+	bomb = 70
 	fire = 50
-	acid = 20
+	acid = 40
 	wound = 20
 
 /datum/armor/armor_forging_light
@@ -24,9 +24,9 @@
 	bullet = 15
 	laser = 15
 	energy = 15
-	bomb = 20
+	bomb = 35
 	bio = 20
-	acid = 10
+	acid = 20
 	wound = 15
 
 /datum/armor/armor_forging_upgrade
@@ -35,6 +35,7 @@
 	laser = 5
 	energy = 5
 	wound = 5
+	bomb = 5
 
 // Vests
 /obj/item/clothing/suit/armor/forging_plate_armor
