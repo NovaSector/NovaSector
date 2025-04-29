@@ -1114,6 +1114,21 @@
 	name = "Ripped Jeans (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
+//The Chaps appear twice - an accessory and uniform, which can toggle between eachother
+/datum/greyscale_config/chaps
+	name = "Chaps"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/chaps.json'
+
+/datum/greyscale_config/chaps/worn
+	name = "Chaps (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+
+/datum/greyscale_config/chaps/worn/digi
+	name = "Chaps (Worn, Digi)"
+
+	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
+
 /datum/greyscale_config/yoga_pants
 	name = "Yoga Pants"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
