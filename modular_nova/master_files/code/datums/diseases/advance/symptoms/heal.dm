@@ -1,3 +1,10 @@
+// Display healing effect if we actually healed
+/datum/symptom/heal/proc/Heal(mob/living/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(mob/living/living_mob)
+
 /// Display_heal_visual procs for adding visual effects to virus healing
 /datum/symptom/heal/proc/display_heal_visual(mob/living/living_mob)
 	new /obj/effect/temp_visual/heal(get_turf(living_mob), COLOR_EFFECT_HEAL_RED)
