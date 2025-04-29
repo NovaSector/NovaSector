@@ -96,7 +96,7 @@
 	icon_state = "plate_gloves"
 	resistance_flags = FIRE_PROOF
 	obj_flags_nova = ANVIL_REPAIR
-	armor_type = /datum/armor/armor_forging_medium
+	armor_type = /datum/armor/armor_forging_light
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_COLOR
 	body_parts_covered = HANDS|ARMS
 
