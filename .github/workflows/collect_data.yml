@@ -26,11 +26,24 @@ jobs:
       - uses: actions/checkout@v4
       - name: Find Maps
         id: map_finder
+# NOVA EDIT ADDITION START - Exclude maps from CI
         run: |
-          echo "$(ls -mw0 _maps/*.json)" > maps_output.txt
-          sed -i -e s+_maps/+\"+g -e s+.json+\"+g maps_output.txt
-          echo "Maps: $(cat maps_output.txt)"
-          echo "maps={\"paths\":[$(cat maps_output.txt)]}" >> $GITHUB_OUTPUT
+          #!/bin/bash
+            > maps_output.txt
+            for file in _maps/*.json; do
+              if ! grep -q '"exclude_from_ci"[[:space:]]*:[[:space:]]*true' "$file"; then
+                echo "\"$(basename "$file" .json)\"" >> maps_output.txt
+              fi
+            done
+            map_list=$(paste -sd, maps_output.txt)
+            echo "maps={\"paths\":[$map_list]}" >> "$GITHUB_OUTPUT"
+# NOVA EDIT ADDITION END
+# NOVA EDIT CHANGE - ORIGINAL
+#        run: |
+#          echo "$(ls -mw0 _maps/*.json)" > maps_output.txt
+#          sed -i -e s+_maps/+\"+g -e s+.json+\"+g maps_output.txt
+#          echo "Maps: $(cat maps_output.txt)"
+#          echo "maps={\"paths\":[$(cat maps_output.txt)]}" >> $GITHUB_OUTPUT
       - name: Find Alternate Tests
         id: alternate_test_finder
         run: |
