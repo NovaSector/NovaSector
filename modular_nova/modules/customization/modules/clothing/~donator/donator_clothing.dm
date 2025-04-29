@@ -2358,3 +2358,48 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_c"
+
+// Kaynite Donor Items
+
+/obj/item/clothing/suit/hooded/merctac_hoodie
+	name = "MercTac Hoodie"
+	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
+	icon_state = "merctac_hoodie"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	inhand_icon_state = null
+	body_parts_covered = CHEST
+	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
+	hood_up_affix = ""
+
+/obj/item/clothing/head/hooded/merctac_hood
+	name = "MercTac Hood"
+	desc = "A MercTac Hood."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	icon_state = "merctac_hood"
+	body_parts_covered = HEAD
+	flags_inv = HIDEHAIR|HIDEEARS
+
+/obj/item/clothing/gloves/merctac_gloves
+	name = "MercTac Glove"
+	desc = "A singular fingerless glove in coyote tan, padded over the palms and knuckles for support."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
+	icon_state = "merctac_gloves"
+
+/obj/item/clothing/under/pants/merctac_pants
+	name = "MercTac Pants"
+	desc = "Surplus military battle dress, coupled with insertable kneepads and woven with highly durable cordura fabric."
+	icon_state = "merctac_pants"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+
+/obj/item/clothing/mask/merctac_mask
+	name = "Gambit's Mask"
+	desc = "A custom mask for the frontier mercenary known as Gambit. Off-putting in the light, menacing in the dark."
+	icon_state = "gambits_mask"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
+	flags_cover = MASKCOVERSMOUTH
