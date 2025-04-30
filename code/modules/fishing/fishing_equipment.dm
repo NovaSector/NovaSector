@@ -25,6 +25,7 @@
 	icon_state = "reel_green"
 	line_color = "#2aae34"
 	wiki_desc = "Allows you to fish in lava and plasma rivers and lakes."
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/fishing_line/reinforced/Initialize(mapload)
 	. = ..()
@@ -62,6 +63,7 @@
 	fishing_line_traits = FISHING_LINE_STIFF
 	line_color = "#d1cca3"
 	wiki_desc = "Crafted from sinew. It allows you to fish in lava and plasma like the reinforced line, but it'll make the minigame harder."
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/fishing_line/sinew/Initialize(mapload)
 	. = ..()
@@ -325,8 +327,8 @@
 /obj/item/storage/toolbox/fishing
 	name = "fishing toolbox"
 	desc = "Contains everything you need for your fishing trip."
-	icon_state = "fishing"
-	inhand_icon_state = "artistic_toolbox"
+	icon_state = "teal"
+	inhand_icon_state = "toolbox_teal"
 	material_flags = NONE
 	custom_price = PAYCHECK_CREW * 3
 	///How much holding this affects fishing difficulty
@@ -412,14 +414,6 @@
 	. = ..()
 	new /obj/item/fishing_line/auto_reel(src)
 
-/obj/item/storage/box/fish_debug
-	name = "box full of fish"
-	illustration = "fish"
-
-/obj/item/storage/box/fish_debug/PopulateContents()
-	for(var/fish_type in subtypesof(/obj/item/fish))
-		new fish_type(src)
-
 ///Used to give the average player info about fishing stuff that's unknown to many.
 /obj/item/paper/paperslip/fishing_tip
 	name = "fishing tip"
@@ -452,7 +446,7 @@
 
 /obj/item/storage/box/fishing_lures/PopulateContents()
 	new /obj/item/paper/lures_instructions(src)
-	var/list/typesof = typesof(/obj/item/fishing_lure)
+	var/list/typesof = subtypesof(/obj/item/fishing_lure)
 	for(var/type in typesof)
 		new type (src)
 	atom_storage.set_holdable(/obj/item/fishing_lure) //can only hold lures

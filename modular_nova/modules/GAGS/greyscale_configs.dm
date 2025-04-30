@@ -1718,6 +1718,29 @@ TREK
 /datum/greyscale_config/sandals/worn/oldvox
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_oldvox.dmi'
 
+
+/*
+*	HANDS
+*/
+
+/datum/greyscale_config/evening_gloves
+	name = "Evening Gloves"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/evening_gloves.json'
+
+/datum/greyscale_config/evening_gloves/worn
+	name = "Evening Gloves (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
+/datum/greyscale_config/designer_gloves
+	name = "Designer Gloves"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hands/designer_gloves.json'
+
+/datum/greyscale_config/designer_gloves/worn
+	name = "Designer Gloves (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
+
 // WRAPS
 
 /datum/greyscale_config/clothwraps
@@ -1787,7 +1810,23 @@ TREK
 	name = "Jester Shoes (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
-// TESHARI FALLBACKS.
+
+/*
+*	Belts
+*/
+
+/datum/greyscale_config/thigh_holster
+	name = "Thigh Holster"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/belt/thigh_holster.json'
+
+/datum/greyscale_config/thigh_holster/worn
+	name = "Thigh Holster (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+
+/*
+*	TESHARI FALLBACKS.
+*/
 
 /datum/greyscale_config/teshari
 	name = "Teshari Clothing"

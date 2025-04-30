@@ -33,7 +33,7 @@ in the core code, that we decide to change from 1 to 2 on our end,
 
 ```diff
 - var/something = 1
-+ var/something = 2 //NOVA EDIT
++ var/something = 2 // NOVA EDIT CHANGE - ORIGINAL: var/something = 1
 ```
 
 but then our upstream introduces a change in their codebase, changing it from 1 to 4
@@ -46,7 +46,7 @@ but then our upstream introduces a change in their codebase, changing it from 1 
 As easy of an example as it is, it results in a relatively simple conflict, in the form of
 
 ```byond
-var/something = 2 //NOVA EDIT
+var/something = 2 // NOVA EDIT CHANGE - ORIGINAL: var/something = 4
 ```
 
 where we pick the preferable option manually.
@@ -199,31 +199,30 @@ In those cases, we've decided to apply the following convention, with examples:
 - **Addition:**
 
   ```byond
-  //NOVA EDIT ADDITION BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
+  // NOVA EDIT ADDITION START - SHUTTLE_TOGGLE - (Optional Reason/comment)
   var/adminEmergencyNoRecall = FALSE
   var/lastMode = SHUTTLE_IDLE
   var/lastCallTime = 6000
-  //NOVA EDIT ADDITION END
+  // NOVA EDIT ADDITION END
   ```
 
 - **Removal:**
 
   ```byond
-  //NOVA EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
-  /*
+
+  /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Optional Reason/comment)
   for(var/obj/docking_port/stationary/S in stationary)
     if(S.id = id)
       return S
-  */
-  //NOVA EDIT REMOVAL END
+  */ // NOVA EDIT REMOVAL END
   WARNING("couldn't find dock with id: [id]")
   ```
 
-  And for any removals that are moved to different files:
+  And for any removals that are moved to different files*:
+		*Please avoid this however, only to be done if there is no other option.
 
   ```byond
-  //NOVA EDIT REMOVAL BEGIN - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
-  /*
+  /* // NOVA EDIT REMOVAL START - SHUTTLE_TOGGLE - (Moved to modular_nova/shuttle_toggle/randomverbs.dm)
   /client/proc/admin_call_shuttle()
   set category = "Admin - Events"
   set name = "Call Shuttle"
@@ -243,19 +242,34 @@ In those cases, we've decided to apply the following convention, with examples:
   log_admin("[key_name(usr)] admin-called the emergency shuttle.")
   message_admins(span_adminnotice("[key_name_admin(usr)] admin-called the emergency shuttle."))
   return
-  */
-  //NOVA EDIT REMOVAL END
+  */ //NOVA EDIT REMOVAL END
   ```
 
 - **Change:**
 
   ```byond
-  //NOVA EDIT CHANGE BEGIN - SHUTTLE_TOGGLE - (Optional Reason/comment)
-  //if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE) - NOVA EDIT - ORIGINAL
-  if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED)
-  //NOVA EDIT CHANGE END
-      return 1
+  if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED) // NOVA EDIT CHANGE - ORIGINAL: if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE)
   ```
+
+	Always put the original code (the full line!) and use the same formatting as above.
+
+	Multiline changes should be AVOIDED. Either put multiple single-line changes, or do this instead:
+
+	Example: Removal/addition combo.
+	This is the preferred way of dealing with changes that span more than one line and have varying
+	indentation levels.
+
+  ```byond
+	/* // NOVA EDIT REMOVAL START - Adds conditional
+		return 1
+	*/ // NOVA EDIT REMOVAL
+	// NOVA EDIT ADDITION START - Adds conditional
+		if(!isnull(src))
+			return 1
+	// NOVA EDIT ADDITION END
+
+	It makes resolving diffs during merge conflicts far easier this way for us because it makes the
+	diffs very clear and straightforward.
 
 ## Exceptional cases of modular code
 

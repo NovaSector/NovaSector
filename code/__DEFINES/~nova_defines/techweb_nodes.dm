@@ -13,6 +13,7 @@
 #define TECHWEB_NODE_CYBERNETICS_DIGITIGRADE_ADVANCED "adv_digitigrade_cyber"
 #define TECHWEB_NODE_CYBERNETICS_TESHARI "teshari_cyber"
 #define TECHWEB_NODE_CYBERNETICS_TESHARI_ADVANCED "adv_teshari_cyber"
+#define TECHWEB_NODE_MEDBAY_MEDIPENS "medbay_medipens"
 #define TECHWEB_NODE_MISC_CARGO "misc_cargo"
 #define TECHWEB_NODE_MUTANT_TECH "mutant_tech"
 #define TECHWEB_NODE_NIGHT_VISION_IMPLANTS "nv_implants"
@@ -26,4 +27,4 @@
 #define TECHWEB_NODE_XENOARCH_BASIC "basic_xenoarch"
 #define TECHWEB_NODE_XENOARCH_MACHINES "xenoarch_machines"
 #define TECHWEB_NODE_XENOARCH_STORAGE "xenoarch_storage"
-#define TECHWEB_NODE_RMBK "rmbk2"
+#define TECHWEB_NODE_RBMK "rbmk2"

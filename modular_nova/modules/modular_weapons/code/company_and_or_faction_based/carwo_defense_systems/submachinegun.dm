@@ -27,8 +27,8 @@
 
 	suppressor_x_offset = 11
 
-	burst_size = 3
-	fire_delay = 0.2 SECONDS
+	burst_size = 1
+	fire_delay = 0.3 SECONDS
 
 	spread = 7.5
 
@@ -44,9 +44,12 @@
 /obj/item/gun/ballistic/automatic/sol_smg/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_CARWO)
 
+/obj/item/gun/ballistic/automatic/sol_smg/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, fire_delay)
+
 /obj/item/gun/ballistic/automatic/sol_smg/no_mag
 	spawnwithmagazine = FALSE
-
 // Sindano (evil)
 
 /obj/item/gun/ballistic/automatic/sol_smg/evil

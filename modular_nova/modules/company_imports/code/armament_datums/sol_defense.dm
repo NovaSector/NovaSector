@@ -97,7 +97,6 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/sidearm/type207
 	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
@@ -147,9 +146,11 @@
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
 	cost = PAYCHECK_COMMAND * 14
 
-/datum/armament_entry/company_import/sol_defense/longarm/outomaties
+/* //
+datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23
+	cost = PAYCHECK_COMMAND * 23 
+*/ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
 	item_type = /obj/item/gun/ballistic/automatic/sol_grenade_launcher
