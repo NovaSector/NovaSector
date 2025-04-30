@@ -19,27 +19,13 @@
 	icon_state = "gas_alt2"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 
-/obj/item/clothing/mask/gas/german
-	name = "black gas mask"
-	desc = "A black gas mask. Are you my Mummy?"
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "m38_mask"
-
-/obj/item/clothing/mask/gas/hecu1
-	name = "modern gas mask"
-	desc = "MY. ASS. IS. HEAVY."
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "hecu"
-
-/obj/item/clothing/mask/gas/hecu2
+/obj/item/clothing/mask/gas/hecu
 	name = "M40 gas mask"
 	desc = "A deprecated field protective mask developed during the 20th century in Sol-3. It's designed to protect from chemical agents, biological agents, and nuclear fallout particles. It does not protect the user from ammonia or from lack of oxygen, though the filter can be replaced with a tube for any air tank."
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
-	icon_state = "hecu2"
+	icon_state = "hecu"
 
 /obj/item/clothing/mask/gas/soviet
 	name = "soviet gas mask"
