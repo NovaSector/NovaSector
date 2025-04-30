@@ -12,6 +12,10 @@
 	icon_state = "balaclava"
 	inhand_icon_state = "balaclava"
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
+	actions_types = list(/datum/action/item_action/toggle)
+
+/obj/item/clothing/mask/balaclava/adjustable/attack_self(mob/user)
+	adjust_mask(user)
 
 /obj/item/clothing/mask/balaclava/adjustable/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
@@ -21,30 +25,19 @@
 			if (0)
 				flags_inv = HIDEHAIR
 				icon_state = initial(icon_state) + "_open"
-				to_chat(user, "You pull the balaclava away, revealing your face.")
+				to_chat(user, span_notice("You pull the balaclava away, revealing your face."))
 				open = 1
 			if (1)
 				flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 				icon_state = initial(icon_state) + "_mouth"
-				to_chat(user, "You adjust the balaclava up to cover your mouth.")
+				to_chat(user, span_notice("You adjust the balaclava up to cover your mouth."))
 				open = 2
 			else
 				flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDEHAIR
 				icon_state = initial(icon_state)
-				to_chat(user, "You pull the balaclava up to cover your whole head.")
+				to_chat(user, span_notice("You pull the balaclava up to cover your whole head."))
 				open = 0
-		user.update_body_parts()
-		user.update_worn_ears()
-		user.update_worn_mask() //Updates mob icons
-
-/obj/item/clothing/mask/balaclava/adjustable/attack_self(mob/user)
-	adjust_mask(user)
-
-/obj/item/clothing/mask/balaclava/adjustable/verb/toggle()
-	set category = "Object"
-	set name = "Adjust Balaclava"
-	set src in usr
-	adjust_mask(usr)
+		user.update_clothing(slot_flags)
 
 /obj/item/clothing/mask/balaclava/threehole
 	name = "three hole balaclava"
