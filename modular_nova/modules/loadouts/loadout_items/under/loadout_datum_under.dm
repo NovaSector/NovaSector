@@ -706,10 +706,6 @@
 	name = "Shihakusho"
 	item_path = /obj/item/clothing/under/costume/nova/shihakusho
 
-/datum/loadout_item/under/miscellaneous/chaps
-	name = "Black Chaps"
-	item_path = /obj/item/clothing/under/pants/nova/chaps
-
 /datum/loadout_item/under/miscellaneous/tracky
 	name = "Blue Tracksuit"
 	item_path = /obj/item/clothing/under/misc/bluetracksuit
