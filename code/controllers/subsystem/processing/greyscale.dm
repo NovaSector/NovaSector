@@ -145,6 +145,8 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 		if(!greyscale_config || !greyscale_colors)
 			continue
 		var/icon/map_icon = GetColoredIconByType(greyscale_config, greyscale_colors, use_rustg_iconforge = FALSE)
+		if((map_icon.Height() > 32) || (map_icon.Width() > 32)) // No large icons, use icon_preview and icon_preview_state instead.
+			continue
 		if(!(fake::post_init_icon_state in map_icon.IconStates()))
 			stack_trace("GAGS configuration missing icon state needed to generate mapping tool graphic for '[fake]'. Make sure the right greyscale_config is set up.")
 			continue

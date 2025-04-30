@@ -267,7 +267,9 @@
 /obj/item/clothing/head/costume/party
 	name = "party hat"
 	desc = "A crappy paper hat that you are REQUIRED to wear."
-	icon_state = "party_hat"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/costume/party"
+	post_init_icon_state = "party_hat"
 	greyscale_config =  /datum/greyscale_config/party_hat
 	greyscale_config_worn = /datum/greyscale_config/party_hat/worn
 	flags_inv = 0
@@ -287,7 +289,9 @@
 
 /obj/item/clothing/head/costume/party/festive
 	name = "festive paper hat"
-	icon_state = "xmashat_grey"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/costume/party/festive"
+	post_init_icon_state = "xmashat_grey"
 	greyscale_config = /datum/greyscale_config/festive_hat
 	greyscale_config_worn = /datum/greyscale_config/festive_hat/worn
 

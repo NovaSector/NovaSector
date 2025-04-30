@@ -101,6 +101,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 	supports_variations_flags = NONE
 
 /obj/item/clothing/under/rank/prisoner/syndicate

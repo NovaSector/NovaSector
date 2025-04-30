@@ -1,8 +1,6 @@
 #define TANK_PLATING_SHEETS 12
 
 /obj/machinery/atmospherics/components/tank
-	icon = 'icons/obj/pipes_n_cables/stationary_canisters.dmi'
-	icon_state = "canister-0"
 	base_icon_state = "canister"
 
 	name = "pressure tank"
@@ -26,6 +24,9 @@
 	canSmoothWith = SMOOTH_GROUP_GAS_TANK
 	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/machinery/atmospherics/components/tank"
+	post_init_icon_state = "canister-0"
 	greyscale_config = /datum/greyscale_config/stationary_canister
 	greyscale_colors = "#ffffff"
 	var/overlay_greyscale_config = /datum/greyscale_config/stationary_canister_overlays

@@ -7,9 +7,10 @@
 /obj/item/stack/wrapping_paper
 	name = "wrapping paper"
 	desc = "Wrap packages with this festive paper to make gifts."
-	icon = 'icons/obj/stack_objects.dmi'
-	icon_state = "wrap_paper"
 	inhand_icon_state = "wrap_paper"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/stack/wrapping_paper"
+	post_init_icon_state = "wrap_paper"
 	greyscale_config = /datum/greyscale_config/wrap_paper
 	amount = 25
 	max_amount = 25

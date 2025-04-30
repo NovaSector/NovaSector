@@ -1,8 +1,9 @@
 /obj/item/reagent_containers/cup/vial
 	name = "broken hypovial"
 	desc = "You probably shouldn't be seeing this. Shout at a coder."
-	icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
-	icon_state = "hypovial"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/reagent_containers/cup/vial"
+	post_init_icon_state = "hypovial"
 	greyscale_config = /datum/greyscale_config/hypovial
 	fill_icon_state = "hypovial_fill"
 	spillable = FALSE
@@ -25,6 +26,8 @@
 		"Buff" = "hypovial-buff",
 		"Custom" = "hypovial-custom",
 	)
+	/// The original icon file where our overlays reside.
+	var/original_icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 
 /obj/item/reagent_containers/cup/vial/Initialize(mapload)
 	. = ..()
@@ -40,8 +43,8 @@
 
 /obj/item/reagent_containers/cup/vial/click_ctrl_shift(mob/user)
 	current_skin = null
-	icon_state = initial(icon_state)
-	icon = initial(icon)
+	icon_state = initial(post_init_icon_state)
+	icon = original_icon
 	greyscale_colors = null
 	reskin_obj(user)
 

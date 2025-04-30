@@ -1,8 +1,6 @@
 /mob/living/basic/garden_gnome
 	name = "Garden Gnome"
 	desc = "You have been gnomed."
-	icon = 'icons/mob/simple/garden_gnome.dmi'
-	icon_state = "gnome"
 	icon_living = "gnome"
 	pass_flags = PASSMOB
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -28,6 +26,9 @@
 	faction = list(FACTION_GNOME)
 	mob_size = MOB_SIZE_SMALL
 	gold_core_spawnable = HOSTILE_SPAWN
+	icon = 'icons/map_icons/mobs.dmi'
+	icon_state = "/mob/living/basic/garden_gnome"
+	post_init_icon_state = "gnome"
 	greyscale_config = /datum/greyscale_config/garden_gnome
 	ai_controller = /datum/ai_controller/basic_controller/garden_gnome
 	/// The damage resistence when sinked into the ground

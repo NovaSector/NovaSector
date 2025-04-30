@@ -30,7 +30,9 @@
 /obj/item/clothing/under/pants/nova/jeans_ripped
 	name = "ripped jeans"
 	desc = "A nondescript pair of tough jeans, with several rips and tears. The staple pants choice of both rebels and the poor."
-	icon_state = "jeans_ripped"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/jeans_ripped"
+	post_init_icon_state = "jeans_ripped"
 	greyscale_config = /datum/greyscale_config/jeans_ripped //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
 	greyscale_config_worn = /datum/greyscale_config/jeans_ripped/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/jeans_ripped/worn/digi
@@ -40,7 +42,9 @@
 /obj/item/clothing/under/pants/nova/yoga
 	name = "yoga pants"
 	desc = "Breathable and stretchy, perfect for exercising comfortably!"
-	icon_state = "yoga_pants"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/yoga"
+	post_init_icon_state = "yoga_pants"
 	greyscale_config = /datum/greyscale_config/yoga_pants //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
 	greyscale_config_worn = /datum/greyscale_config/yoga_pants/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/yoga_pants/worn/digi
@@ -52,7 +56,6 @@
 	desc = "Yeehaw"
 	icon_state = "chaps"
 
-
 /*
 *	SHORTS
 */
@@ -60,7 +63,9 @@
 /obj/item/clothing/under/shorts/nova/shorts_ripped
 	name = "ripped shorts"
 	desc = "A nondescript pair of tough jean shorts, with the ends of the pantlegs frayed and torn. No one will ever know if this was done intentionally."
-	icon_state = "shorts_ripped"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/nova/shorts_ripped"
+	post_init_icon_state = "shorts_ripped"
 	greyscale_config = /datum/greyscale_config/shorts_ripped //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
 	greyscale_config_worn = /datum/greyscale_config/shorts_ripped/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shorts_ripped/worn/digi
@@ -71,7 +76,9 @@
 /obj/item/clothing/under/shorts/nova/shortershorts
 	name = "shorter shorts"
 	desc = "Show those legs off with these even shorter shorts!"
-	icon_state = "shortershorts"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/nova/shortershorts"
+	post_init_icon_state = "shortershorts"
 	greyscale_config = /datum/greyscale_config/shortershorts
 	greyscale_config_worn = /datum/greyscale_config/shortershorts/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shortershorts/worn/digi
@@ -86,7 +93,8 @@
 /obj/item/clothing/under/pants/nova/kilt
 	name = "recolorable kilt"
 	desc = "A kilt and buttondown, adorned with a tartan sash. It is NOT a skirt."
-	icon_state = "kilt"
+	icon_state = "/obj/item/clothing/under/pants/nova/kilt"
+	post_init_icon_state = "kilt"
 	greyscale_config = /datum/greyscale_config/kilt
 	greyscale_config_worn = /datum/greyscale_config/kilt/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/kilt/worn/digi
@@ -99,7 +107,9 @@
 /obj/item/clothing/under/pants/nova/vicvest //there's no way I'm typing out a path called double_breasted 10 times over, too complex and everyone will be scared of it
 	name = "buttondown shirt with double-breasted vest"
 	desc = "A fancy buttondown shirt with slacks and a vest worn overtop, with a second row of buttons. Truly an outdated fashion statement."
-	icon_state = "buttondown_vicvest"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/vicvest"
+	post_init_icon_state = "buttondown_vicvest"
 	greyscale_config = /datum/greyscale_config/buttondown_vicvest
 	greyscale_config_worn = /datum/greyscale_config/buttondown_vicvest/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_vicvest/worn/digi
@@ -128,6 +138,9 @@
 	greyscale_config_worn_digi = /datum/greyscale_config/jeans/worn/digi
 
 /obj/item/clothing/under/pants/camo
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/pants/camo"
+	post_init_icon_state = "camopants"
 	greyscale_config = /datum/greyscale_config/camo_pants
 	greyscale_config_worn = /datum/greyscale_config/camo_pants/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/camo_pants/worn/digi

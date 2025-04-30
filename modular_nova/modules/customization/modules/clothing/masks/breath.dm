@@ -84,10 +84,12 @@
 	icon_state = "ringgag"
 
 /obj/item/clothing/mask/surgical/greyscale
-	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#AAE4DB"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/mask/surgical/greyscale"
+	post_init_icon_state = "sterile"
 	greyscale_config = /datum/greyscale_config/sterile_mask
 	greyscale_config_worn = /datum/greyscale_config/sterile_mask/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/sterile_mask/worn/snouted

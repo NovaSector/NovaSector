@@ -45,9 +45,11 @@
 /obj/item/clothing/head/beret/sec/syndicate
 	name = "brig officer's beret"
 	desc = "A stylish and protective beret, produced and manufactured by Interdyne Pharmaceuticals with help from the Gorlex Marauders."
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/head/beret/sec/syndicate"
+	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	icon_state = "beret_badge"
 	greyscale_colors = "#3F3C40#DB2929"
 
 /obj/item/clothing/mask/gas/syndicate/ds

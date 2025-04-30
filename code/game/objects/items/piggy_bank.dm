@@ -5,14 +5,15 @@
 /obj/item/piggy_bank
 	name = "piggy bank"
 	desc = "A pig-shaped money container made of porkelain, oink. <i>Do not throw.</i>" //pun very intended.
-	icon = 'icons/obj/fluff/general.dmi'
-	icon_state = "piggy_bank"
 	max_integrity = 8
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 12
 	throwforce = 15
 	throw_speed = 3
 	throw_range = 7
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/item/piggy_bank"
+	post_init_icon_state = "piggy_bank"
 	greyscale_config = /datum/greyscale_config/piggy_bank
 	///Some piggy banks are persistent, meaning they carry dosh between rounds.
 	var/persistence_id

@@ -1,7 +1,9 @@
 /obj/item/clothing/under/shorts
 	name = "shorts"
 	desc = "A pair of comfy shorts."
-	icon_state = "shorts"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts"
+	post_init_icon_state = "shorts"
 	greyscale_config = /datum/greyscale_config/shorts
 	greyscale_config_worn = /datum/greyscale_config/shorts/worn
 	greyscale_colors = "#575757#3E3E3E#75634F"
@@ -16,7 +18,9 @@
 /obj/item/clothing/under/shorts/jeanshorts
 	name = "jean shorts"
 	desc = "A nondescript pair of tough jean shorts."
-	icon_state = "jeanshorts"
+	icon = 'icons/map_icons/clothing.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/jeanshorts"
+	post_init_icon_state = "jeanshorts"
 	greyscale_config = /datum/greyscale_config/jeanshorts
 	greyscale_config_worn = /datum/greyscale_config/jeanshorts/worn
 	greyscale_colors = "#787878#723E0E#4D7EAC"

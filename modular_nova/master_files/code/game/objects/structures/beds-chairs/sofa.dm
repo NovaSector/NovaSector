@@ -13,7 +13,9 @@
 /obj/structure/chair/sofa/bench/color
 	name = "bench"
 	desc = "Perfectly designed to be comfortable to sit on, and hellish to sleep on."
-	icon_state = "bench_middle"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/structure/chair/sofa/bench/color"
+	post_init_icon_state = "bench_middle"
 	greyscale_config = /datum/greyscale_config/bench_middle
 	greyscale_colors = "#FFFFFF"
 
@@ -22,17 +24,25 @@
 	greyscale_colors = "#263188"
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left
-	icon_state = "bench_left"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left"
+	post_init_icon_state = "bench_left"
 	greyscale_config = /datum/greyscale_config/bench_left
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right
-	icon_state = "bench_right"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right"
+	post_init_icon_state = "bench_right"
 	greyscale_config = /datum/greyscale_config/bench_right
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/corner
-	icon_state = "bench_corner"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/corner"
+	post_init_icon_state = "bench_corner"
 	greyscale_config = /datum/greyscale_config/bench_corner
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/solo
-	icon_state = "bench_solo"
+	icon = 'icons/map_icons/items.dmi'
+	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/solo"
+	post_init_icon_state = "bench_solo"
 	greyscale_config = /datum/greyscale_config/bench_solo
