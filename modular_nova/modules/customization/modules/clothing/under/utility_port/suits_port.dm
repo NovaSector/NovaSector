@@ -123,7 +123,7 @@
 
 /obj/item/clothing/suit/toggle/jacket/nova/flannel/gags
 	name = "flannel shirt"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags"
 	post_init_icon_state = "flannelgags"
 	greyscale_config = /datum/greyscale_config/flannelgags

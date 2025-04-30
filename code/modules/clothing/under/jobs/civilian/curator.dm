@@ -37,7 +37,7 @@
 	desc = "It has a NASA logo on it and is made of space-proofed materials."
 	inhand_icon_state = "jumpsuit"
 	greyscale_colors = "#3f3f3f"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/rank/civilian/curator/nasa"
 	post_init_icon_state = "jumpsuit"
 	greyscale_config = /datum/greyscale_config/jumpsuit

@@ -2,7 +2,7 @@
 	name = "leather collar"
 	desc = "A firm collar made of leather; fit with a locking clasp. There's a little metallic ring on the front."
 	greyscale_colors = "#2d2d33#9b111e"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/leather"
 	post_init_icon_state = "leather_collar"
 	greyscale_config = /datum/greyscale_config/leather_collar
@@ -13,7 +13,7 @@
 	name = "leather bell collar"
 	desc = /obj/item/clothing/neck/collar/bell::desc
 	greyscale_colors = "#2d2d33#9b111e#dead39"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/leather/bell"
 	post_init_icon_state = "leather_bell_collar"
 	greyscale_config = /datum/greyscale_config/leather_collar/bell
@@ -39,7 +39,7 @@
 	name = "leather cross collar"
 	desc = /obj/item/clothing/neck/collar/cross::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/leather/bell::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/leather/cross"
 	post_init_icon_state = "leather_cross_collar"
 	greyscale_config = /datum/greyscale_config/leather_collar/cross
@@ -50,7 +50,7 @@
 	name = "leather tagged collar"
 	desc = /obj/item/clothing/neck/collar/tagged::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/leather/bell::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/leather/tagged"
 	post_init_icon_state = "leather_tagged_collar"
 	greyscale_config = /datum/greyscale_config/leather_collar/tagged
@@ -61,7 +61,7 @@
 	name = "leather holocollar"
 	desc = /obj/item/clothing/neck/collar/holocollar::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/leather/bell::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/leather/holocollar"
 	post_init_icon_state = "leather_holocollar"
 	greyscale_config = /datum/greyscale_config/leather_collar/holo

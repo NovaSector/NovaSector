@@ -5,7 +5,7 @@
 		only under very specific conditions."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
 	greyscale_colors = "#2d2d33"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar"
 	post_init_icon_state = "thin_choker"
 	greyscale_config = /datum/greyscale_config/thin_collar

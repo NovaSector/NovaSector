@@ -310,7 +310,7 @@
 	var/catTailToggled = FALSE
 	instrument_range = 1
 	greyscale_colors = "#FFFFFF#FFFFFF"
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/item/instrument/piano_synth/headphones/catear_headphone"
 	post_init_icon_state = "catear_headphone"
 	greyscale_config = /datum/greyscale_config/catear_headphone

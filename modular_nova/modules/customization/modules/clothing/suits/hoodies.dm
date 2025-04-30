@@ -7,7 +7,7 @@
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie
 	name = "hoodie"
 	desc = "A warm hoodie. you cant help but mess with the zipper..."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie"
 	post_init_icon_state = "hoodie"
 	greyscale_config = /datum/greyscale_config/hoodie
@@ -19,7 +19,7 @@
 	min_cold_protection_temperature = T0C - 20	//Not as good as the base jacket
 
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/trim"
 	post_init_icon_state = "hoodie_trim"
 	greyscale_config = /datum/greyscale_config/hoodie_trim
@@ -68,7 +68,7 @@
 /obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded
 	name = "NT hoodie"
 	desc = "A warm, blue sweatshirt.  It proudly bears the silver Nanotrasen insignia lettering on the back.  The edges are trimmed with silver."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/hoodie/branded"
 	post_init_icon_state = "hoodie_NT"
 	greyscale_config = /datum/greyscale_config/hoodie_branded

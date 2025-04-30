@@ -26,7 +26,7 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
 
 /obj/item/clothing/suit/chaplainsuit/habit
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/chaplainsuit/habit"
 	post_init_icon_state = "habit"
 	greyscale_config = /datum/greyscale_config/chappy_habit
@@ -35,7 +35,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/chaplainsuit/monkhabit"
 	post_init_icon_state = "monkfrock"
 	greyscale_config = /datum/greyscale_config/monk_habit

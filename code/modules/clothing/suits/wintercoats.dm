@@ -654,7 +654,7 @@
 	desc = "A heavy jacket made from 'synthetic' animal furs, with custom colors."
 	hood_down_overlay_suffix = ""
 	greyscale_colors = "#ffffff#ffffff#808080#808080#808080#808080"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/custom"
 	post_init_icon_state = "coatwinter"
 	greyscale_config = /datum/greyscale_config/winter_coats

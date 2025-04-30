@@ -19,7 +19,7 @@ do { \
 	name = "black jumpsuit"
 	desc = "It's a plain jumpsuit. It has a small dial on the wrist."
 	greyscale_colors = "#3f3f3f"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/chameleon"
 	post_init_icon_state = "jumpsuit"
 	greyscale_config = /datum/greyscale_config/jumpsuit
@@ -230,7 +230,7 @@ do { \
 	inhand_icon_state = "sneakers_back"
 	body_parts_covered = FEET|LEGS
 	greyscale_colors = "#545454#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/chameleon"
 	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers

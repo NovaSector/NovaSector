@@ -3,7 +3,7 @@
 	desc = "A mushroom cap, this one also doubles as an umbrella!"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head/costume.dmi'
 	worn_icon_state = "mush_cap"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/mush_helmet"
 	post_init_icon_state = "mush_cap"
 	greyscale_config = /datum/greyscale_config/mushcap

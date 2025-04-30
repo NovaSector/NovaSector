@@ -18,7 +18,7 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy
 	name = "Greyscale Fancy Labcoat"
 	desc = "Throughout the test of determination, many have sought after such a fancy labcoat, one that was filled with many colors and wears."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
 	post_init_icon_state = "fancy_labcoat"
 	greyscale_config = /datum/greyscale_config/fancy_labcoat
@@ -113,7 +113,7 @@
 /obj/item/clothing/suit/toggle/labcoat/medical //Renamed version of the Genetics labcoat for more generic medical purposes; just a subtype of /labcoat/ for the TG files
 	name = "medical labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a blue stripe on the shoulder."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/medical"
 	post_init_icon_state = "labcoat_job"
 	greyscale_config = /datum/greyscale_config/labcoat

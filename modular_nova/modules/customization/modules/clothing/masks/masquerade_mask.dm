@@ -11,7 +11,7 @@
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION | CLOTHING_SNOUTED_VOX_VARIATION | CLOTHING_SNOUTED_BETTER_VOX_VARIATION
 	greyscale_colors = "#ececec#333333#9b1e1e"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/masquerade"
 	post_init_icon_state = "maskerade"
 	greyscale_config = /datum/greyscale_config/masquerade_mask

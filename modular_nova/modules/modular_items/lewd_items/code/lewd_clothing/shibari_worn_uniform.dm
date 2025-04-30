@@ -115,7 +115,7 @@
 	name = "shibari ropes"
 	desc = "Nice looking rope bondage."
 
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/shibari/torso"
 	post_init_icon_state = "shibari_body"
 	greyscale_config = /datum/greyscale_config/shibari/body
@@ -139,7 +139,7 @@
 	name = "crotch rope shibari"
 	desc = "A rope that teases the wearer's genitals."
 
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/shibari/groin"
 	post_init_icon_state = "shibari_groin"
 	greyscale_config = /datum/greyscale_config/shibari/groin
@@ -173,7 +173,7 @@
 	name = "shibari fullbody ropes"
 	desc = "Bondage ropes that cover the whole body."
 
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/shibari/full"
 	post_init_icon_state = "shibari_fullbody"
 	greyscale_config = /datum/greyscale_config/shibari/fullbody

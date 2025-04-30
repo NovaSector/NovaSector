@@ -4,7 +4,7 @@
 	worn_icon_state = "wheelys"
 	inhand_icon_state = "sneakers_back"
 	greyscale_colors = "#545454#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/wheelys"
 	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers_wheelys

@@ -29,7 +29,7 @@
 	inhand_icon_state = "" //no inhands
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_CREW
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/bowtie"
 	post_init_icon_state = "bowtie_greyscale"
 	greyscale_config = /datum/greyscale_config/ties
@@ -54,7 +54,7 @@
 	alternate_worn_layer = LOW_NECK_LAYER // So that it renders below suit jackets, MODsuits, etc
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_CREW
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/tie"
 	post_init_icon_state = "tie_greyscale_tied"
 	greyscale_config = /datum/greyscale_config/ties
@@ -368,7 +368,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#EEEEEE#EEEEEE"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/scarf"
 	post_init_icon_state = "scarf"
 	greyscale_config = /datum/greyscale_config/scarf
@@ -435,7 +435,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#C6C6C6#EEEEEE"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/large_scarf"
 	post_init_icon_state = "large_scarf"
 	greyscale_config = /datum/greyscale_config/scarf
@@ -469,7 +469,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/infinity_scarf"
 	post_init_icon_state = "infinity_scarf"
 	greyscale_config = /datum/greyscale_config/infinity_scarf

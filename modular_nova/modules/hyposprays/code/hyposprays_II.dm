@@ -18,7 +18,7 @@
 
 /obj/item/hypospray/mkii
 	name = "hypospray Mk.II"
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "hypo2"
 	icon = 'modular_nova/modules/hyposprays/icons/hyposprays.dmi'
 	greyscale_config = /datum/greyscale_config/hypospray_mkii

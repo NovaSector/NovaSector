@@ -47,7 +47,7 @@
 	clothing_flags = INEDIBLE_CLOTHING
 	equip_delay_other = 40
 	strip_delay = 40
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/muzzle/tape"
 	post_init_icon_state = "tape_piece"
 	greyscale_config = /datum/greyscale_config/tape_piece
@@ -110,7 +110,7 @@
 	name = "pointy tape piece"
 	desc = "A piece of tape that can be put over someone's mouth. Looks like it will hurt if this is ripped off."
 	worn_icon_state = "tape_piece_spikes_worn"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/muzzle/tape/pointy"
 	post_init_icon_state = "tape_piece_spikes"
 	greyscale_config = /datum/greyscale_config/tape_piece/spikes

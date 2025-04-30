@@ -52,7 +52,7 @@
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/nova/big_pants"
 	post_init_icon_state = "big_pants"
 	greyscale_config = /datum/greyscale_config/big_pants
@@ -65,7 +65,7 @@
 /obj/item/clothing/under/pants/nova/loose_pants
 	name = "Loose pants"
 	desc = "Some loose pants with a belt that looks comfy."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/nova/loose_pants"
 	post_init_icon_state = "loose_pants"
 	greyscale_config = /datum/greyscale_config/loose_pants

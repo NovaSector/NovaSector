@@ -4,7 +4,7 @@
 	lefthand_file = 'icons/mob/inhands/clothing/shoes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/shoes_righthand.dmi'
 	greyscale_colors = "#2d2d33#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/sneakers"
 	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers
@@ -91,7 +91,7 @@
 /obj/item/clothing/shoes/sneakers/orange
 	name = "orange shoes"
 	greyscale_colors = "#d15b1b#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/sneakers/orange"
 	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
@@ -179,7 +179,7 @@
 	desc = "A pair of magic black shoes."
 	name = "magic shoes"
 	greyscale_colors = "#2d2d33#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/sneakers/marisa"
 	post_init_icon_state = "sneakers"
 	greyscale_config = /datum/greyscale_config/sneakers_marisa

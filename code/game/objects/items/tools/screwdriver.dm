@@ -27,7 +27,7 @@
 	drop_sound = 'sound/items/handling/tools/screwdriver_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/screwdriver_pickup.ogg'
 	sharpness = SHARP_POINTY
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "screwdriver_map"
 	greyscale_config = /datum/greyscale_config/screwdriver
 	greyscale_config_inhand_left = /datum/greyscale_config/screwdriver_inhand_left

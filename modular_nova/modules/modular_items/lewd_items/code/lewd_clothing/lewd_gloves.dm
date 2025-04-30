@@ -3,7 +3,7 @@
 	desc = "A pair of spherical mitts; made to suppress the wearer's hands and prevent fine motor control."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	greyscale_colors = "#383840"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/ball_mittens"
 	post_init_icon_state = "ball_mittens"
 	greyscale_config = /datum/greyscale_config/ball_mittens
@@ -36,7 +36,7 @@
 	name = "paw mittens"
 	desc = "Mittens that compress the hand into a tight space, and restrict fine motor control."
 	greyscale_colors = "#383840#dc7ef4"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/ball_mittens/paw_mittens"
 	post_init_icon_state = "paw_mittens"
 	greyscale_config = /datum/greyscale_config/paw_mittens
@@ -50,7 +50,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	greyscale_colors = "#383840"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/long_gloves"
 	post_init_icon_state = "long_gloves"
 	greyscale_config = /datum/greyscale_config/long_gloves

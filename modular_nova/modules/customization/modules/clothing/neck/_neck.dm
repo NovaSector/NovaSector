@@ -8,7 +8,7 @@
 /obj/item/clothing/neck/tesharian_mantle
 	name = "Tesharian mantle"
 	desc = "Locally sourced from 'Opalite Industries', sewed by the most gentle of packs; The Tesharian mantle is a comfortable knit to cover a decent amount of the average wearer's chest and neck in its luxurious fabric and wool, held together by adorned with stitching. Local Reviewers say: The human-sized ones seems to be made of some brandless knockoff 'eco-friendly' fabric..."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/tesharian_mantle"
 	post_init_icon_state = "tesharian_mantle"
 	greyscale_config = /datum/greyscale_config/tesharian_mantle
@@ -94,7 +94,7 @@
 	worn_icon = 'modular_nova/modules/GAGS/icons/neck/neck.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/neck/neck_teshari.dmi'
 	greyscale_colors = "#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/mantle/recolorable"
 	post_init_icon_state = "mantle"
 	greyscale_config = /datum/greyscale_config/mantle
@@ -107,7 +107,7 @@
 /obj/item/clothing/neck/face_scarf
 	name = "face scarf"
 	desc = "A warm looking scarf that you can easily put around your face."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/face_scarf"
 	post_init_icon_state = "face_scarf"
 	greyscale_config = /datum/greyscale_config/face_scarf
@@ -132,7 +132,7 @@
 /obj/item/clothing/neck/maid_neck_cover
 	name = "maid neck cover"
 	desc = "A neckpiece for a maid costume, it smells faintly of disappointment."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/maid_neck_cover"
 	post_init_icon_state = "maid_neck_cover"
 	greyscale_config = /datum/greyscale_config/maid_neck_cover

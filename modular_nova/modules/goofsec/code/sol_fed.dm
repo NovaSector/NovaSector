@@ -388,7 +388,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /obj/item/encryptionkey/headset_solfed/headset_solfed
 	does_not_generate_gags_preview = TRUE
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"

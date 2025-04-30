@@ -4,7 +4,7 @@
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_belts.dmi'
 	lefthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_left.dmi'
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/item/storage/belt/thigh_satchel"
 	post_init_icon_state = "thighsatchel"
 	greyscale_config = /datum/greyscale_config/thighsatchel

@@ -50,7 +50,10 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 /datum/controller/subsystem/processing/greyscale/PostInit()
 	. = ..()
 	if(CONFIG_GET(flag/generate_assets_in_init))
+		var/start_time = REALTIMEOFDAY
 		ExportMapPreviews()
+		var/message = "[name] gags map_icon preview generation finished in [(REALTIMEOFDAY - start_time)/10]s!"
+		to_chat(world, span_boldannounce("[message]"), MESSAGE_TYPE_DEBUG)
 
 #ifdef USE_RUSTG_ICONFORGE_GAGS
 /datum/controller/subsystem/processing/greyscale/proc/jobs_completed(list/job_ids)
@@ -121,8 +124,17 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 	var/static/list/types_that_get_their_own_file = list(
 		"turfs" = /turf, // None of these yet but it's harmless to be prepared
 		"mobs" = /mob, // Ditto
-		"clothing" = /obj/item/clothing,
-		"items" = /obj/item,
+		"clothing/accessory" = /obj/item/clothing/accessory,
+		"clothing/head" = /obj/item/clothing/head,
+		"clothing/mask" = /obj/item/clothing/mask,
+		"clothing/neck" = /obj/item/clothing/neck,
+		"clothing/shoes" = /obj/item/clothing/shoes,
+		"clothing/suit" = /obj/item/clothing/suit,
+		"clothing/under" = /obj/item/clothing/under,
+		"clothing/clothing" = /obj/item/clothing,
+		"items/encryptionkey" = /obj/item/encryptionkey,
+		"items/pda" = /obj/item/modular_computer/pda,
+		"items/item" = /obj/item,
 		"objects" = /obj,
 )
 

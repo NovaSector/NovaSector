@@ -978,7 +978,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A classy and highly sophisticated electronic cigarette, for classy and dignified gentlemen. A warning label reads \"Warning: Do not fill with flammable materials.\""//<<< i'd vape to that.
 	worn_icon_muzzled = 'modular_nova/master_files/icons/mob/clothing/mask.dmi' //NOVA EDIT: ADDITION
 	worn_icon_state = "vape_worn"
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/item/vape"
 	post_init_icon_state = "vape"
 	greyscale_config = /datum/greyscale_config/vape

@@ -3,7 +3,7 @@
 	desc = "A two-piece set that leaves little to the imagination."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform.dmi'
 	greyscale_colors = "#383840#dc7ef4"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/tearaway_garments"
 	post_init_icon_state = "stripper"
 	greyscale_config = /datum/greyscale_config/tearaway_garments

@@ -72,7 +72,7 @@
 	desc = "t3h c00L3st sh03z j00'LL 3v3r f1nd."
 	inhand_icon_state = null
 	greyscale_colors = "#4A3A40#8EEEEE"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/glow"
 	post_init_icon_state = "glow_shoes"
 	greyscale_config = /datum/greyscale_config/glow_shoes
@@ -104,7 +104,7 @@
 	desc = "Shoes that jingle with every step!!"
 	inhand_icon_state = null
 	greyscale_colors = "#00ff00#ff0000"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/jester_shoes"
 	post_init_icon_state = "jester_map"
 	greyscale_config = /datum/greyscale_config/jester_shoes

@@ -54,7 +54,7 @@
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/gas/clown_colourable"
 	post_init_icon_state = "gags_mask"
 	greyscale_config = /datum/greyscale_config/clown_mask
@@ -84,7 +84,7 @@
 	flags_cover = MASKCOVERSMOUTH
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#2E3333"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/gas/respirator"
 	post_init_icon_state = "respirator"
 	greyscale_config = /datum/greyscale_config/respirator

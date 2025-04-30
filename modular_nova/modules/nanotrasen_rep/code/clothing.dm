@@ -43,7 +43,7 @@
 /obj/item/clothing/head/nanotrasen_consultant/beret
 	name = "nanotrasen consultant's beret"
 	desc = "A beret made from durathread, it has an insignia on the front denoting the rank of \"Nanotrasen Consultant\"."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/nanotrasen_consultant/beret"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge

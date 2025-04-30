@@ -5,7 +5,7 @@
 	alternate_worn_layer = BODY_FRONT_UNDER_CLOTHES
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	inhand_icon_state = "balaclava"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/neck_gaiter"
 	post_init_icon_state = "gaiter"
 	greyscale_config = /datum/greyscale_config/neck_gaiter

@@ -9,7 +9,7 @@
 	slowdown = 4
 	item_flags = DROPDEL|IGNORE_DIGITIGRADE
 
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/shibari_legs"
 	post_init_icon_state = "shibari_legs"
 	greyscale_config = /datum/greyscale_config/shibari/legs

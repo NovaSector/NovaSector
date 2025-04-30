@@ -12,7 +12,7 @@
 	name = "bandana"
 	desc = "A fine bandana with nanotech lining."
 	inhand_icon_state = "greyscale_bandana"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/bandana"
 	post_init_icon_state = "bandana"
 	greyscale_config = /datum/greyscale_config/bandana
@@ -151,7 +151,7 @@
 /obj/item/clothing/mask/bandana/striped
 	name = "striped bandana"
 	desc = "A fine bandana with nanotech lining and a stripe across."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/bandana/striped"
 	post_init_icon_state = "bandstriped"
 	greyscale_config = /datum/greyscale_config/bandana/striped
@@ -213,7 +213,7 @@
 /obj/item/clothing/mask/bandana/skull
 	name = "skull bandana"
 	desc = "A fine bandana with nanotech lining and a skull emblem."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/bandana/skull"
 	post_init_icon_state = "bandskull"
 	greyscale_config = /datum/greyscale_config/bandana/skull
@@ -244,7 +244,7 @@
 	visor_flags_cover = MASKCOVERSMOUTH
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#eeeeee"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/facescarf"
 	post_init_icon_state = "facescarf"
 	greyscale_config = /datum/greyscale_config/facescarf

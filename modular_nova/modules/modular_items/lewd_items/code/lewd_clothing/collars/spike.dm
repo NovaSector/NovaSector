@@ -4,7 +4,7 @@
 /obj/item/clothing/neck/collar/spike
 	name = "spiked collar"
 	desc = "A collar, fit with a locking clasp and a handful of dull spikes."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/spike"
 	post_init_icon_state = "spike"
 	greyscale_config = /datum/greyscale_config/collar_spike

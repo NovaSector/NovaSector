@@ -329,7 +329,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/medal/nova"
 	post_init_icon_state = "debugmedal"
 	greyscale_config = /datum/greyscale_config/nova_medal
@@ -340,7 +340,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/medal/nova/syndicate
 	name = "syndicate medal of Robustness"
 	desc = "A medal dedicated to true syndicate agents for robustness in many fields"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate"
 	post_init_icon_state = "medal_robust"
 	greyscale_config = /datum/greyscale_config/syndi_medal
@@ -385,7 +385,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal"
 	post_init_icon_state = "debugmedal"
 	greyscale_config = /datum/greyscale_config/nova_medal
@@ -395,7 +395,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins
 	name = "\improper NT company neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/specialpins"
 	post_init_icon_state = "ntpin"
 	greyscale_config = /datum/greyscale_config/specialpins
@@ -452,7 +452,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/specheart
 	name = "special heart medal"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/specheart"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/specheart
@@ -477,7 +477,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/regheart
 	name = "heart medal"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/regheart"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/regheart
@@ -502,7 +502,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/hollowshield
 	name = "hollowed shield medal"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/hollowshield"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/hollowshield
@@ -527,7 +527,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/bbar
 	name = "bar medal"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bbar"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/blankbar
@@ -552,7 +552,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/crown
 	name = "crown medal"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/crown
@@ -576,7 +576,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 // Hollow crown
 /obj/item/clothing/accessory/nova/acc_medal/crown/hollow
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/hollowcrown
@@ -600,7 +600,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/circle
 	name = "circle medal"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/circle
@@ -624,7 +624,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /// Hollow Circle Variant
 /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow"
 	post_init_icon_state = "ccmedal"
 	greyscale_config = /datum/greyscale_config/hollowcircle
@@ -648,7 +648,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/glowbar
 	name = "glowbar necklace"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowbar"
 	post_init_icon_state = "necklace"
 	greyscale_config = /datum/greyscale_config/glowbar
@@ -660,7 +660,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 	name = "glowbarcrystal necklace"
 	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowcrystal"
 	post_init_icon_state = "necklace"
 	greyscale_config = /datum/greyscale_config/glowcrystal
@@ -674,7 +674,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	name = "Rank Pin"
 	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
 	desc = "A pin showing off your rank"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin"
 	post_init_icon_state = "rank1"
 	greyscale_config = /datum/greyscale_config/rankpin
@@ -697,7 +697,7 @@ Ribbon Accessories
 	name = "ribbon"
 	desc = "A normal everyday ribbon."
 	greyscale_colors = "#ffffff#664200#fff700"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/ribbon"
 	post_init_icon_state = "ribbon1"
 	greyscale_config = /datum/greyscale_config/color_ribbon
@@ -734,7 +734,7 @@ Ribbon Accessories
 /obj/item/clothing/accessory/nova/military_ribbon
 	name = "military ribbon"
 	desc = "An average military ribbon"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon"
 	post_init_icon_state = "ribbon1"
 	greyscale_config = /datum/greyscale_config/military_ribbon

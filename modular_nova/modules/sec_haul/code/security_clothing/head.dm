@@ -63,7 +63,7 @@
 	)
 
 /obj/item/clothing/head/beret/sec/nova
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/sec/nova"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -74,7 +74,7 @@
 
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/sec/navywarden/nova"
 	post_init_icon_state = "beret_badge_fancy_twist"
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy

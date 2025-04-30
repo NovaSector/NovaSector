@@ -1,6 +1,6 @@
 /obj/item/clothing/neck/collar/thick
 	name = "thick choker"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/thick"
 	post_init_icon_state = "thick_choker"
 	greyscale_config = /datum/greyscale_config/thick_collar
@@ -11,7 +11,7 @@
 	name = "thick bell collar"
 	desc = /obj/item/clothing/neck/collar/bell::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/bell::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/thick/bell"
 	post_init_icon_state = "thick_bell_collar"
 	greyscale_config = /datum/greyscale_config/thick_collar/bell
@@ -37,7 +37,7 @@
 	name = "thick cross collar"
 	desc = /obj/item/clothing/neck/collar/cross::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/cross::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/thick/cross"
 	post_init_icon_state = "thick_cross_collar"
 	greyscale_config = /datum/greyscale_config/thick_collar/cross
@@ -48,7 +48,7 @@
 	name = "thick tagged collar"
 	desc = /obj/item/clothing/neck/collar/tagged::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/tagged::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/thick/tagged"
 	post_init_icon_state = "thick_tagged_collar"
 	greyscale_config = /datum/greyscale_config/thick_collar/tagged
@@ -59,7 +59,7 @@
 	name = "thick holocollar"
 	desc = /obj/item/clothing/neck/collar/holocollar::desc
 	greyscale_colors = /obj/item/clothing/neck/collar/holocollar::greyscale_colors
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/collar/thick/holocollar"
 	post_init_icon_state = "thick_holocollar"
 	greyscale_config = /datum/greyscale_config/thick_collar/holo

@@ -35,7 +35,7 @@
 	max_integrity = 10 //small weak thing
 	base_icon_state = "toy"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/toy"
 	post_init_icon_state = "toy_off"
 	greyscale_config = /datum/greyscale_config/turret

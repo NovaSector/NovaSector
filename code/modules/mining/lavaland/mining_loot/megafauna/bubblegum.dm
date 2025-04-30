@@ -39,7 +39,7 @@
 	transparent_protection = HIDESUITSTORAGE|HIDEJUMPSUIT
 	allowed = null
 	greyscale_colors = "#4d4d4d#808080"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/hostile_environment"
 	post_init_icon_state = "hostile_env"
 	greyscale_config = /datum/greyscale_config/heck_suit
@@ -89,7 +89,7 @@
 	flags_cover = HEADCOVERSMOUTH
 	actions_types = list()
 	greyscale_colors = "#4d4d4d#808080#ff3300"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/hostile_environment"
 	post_init_icon_state = "hostile_env"
 	greyscale_config = /datum/greyscale_config/heck_helmet

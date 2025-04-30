@@ -15,7 +15,7 @@
 	name = "recolorable suit"
 	desc = "A semi-formal suit, clean-cut with a matching vest and slacks."
 	can_adjust = FALSE
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/recolorable"
 	post_init_icon_state = "recolorable_suit"
 	greyscale_config = /datum/greyscale_config/recolorable_suit
@@ -31,7 +31,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|GROIN|LEGS
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/recolorable/skirt"
 	post_init_icon_state = "recolorable_suitskirt"
 	greyscale_config = /datum/greyscale_config/recolorable_suitskirt
@@ -41,7 +41,7 @@
 /obj/item/clothing/under/suit/nova/recolorable/casual
 	name = "office casual suit"
 	desc = "A semi-formal suit, clean-cut with a matching vest and slacks."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/recolorable/casual"
 	post_init_icon_state = "fancysuit_casual"
 	greyscale_config = /datum/greyscale_config/fancysuit_casual
@@ -52,7 +52,7 @@
 /obj/item/clothing/under/suit/nova/recolorable/executive
 	name = "executive casual suit"
 	desc = "A formal suit, clean-cut with a matching vest, undershirt, tie and slacks."
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/recolorable/executive"
 	post_init_icon_state = "fancysuit_executive"
 	greyscale_config = /datum/greyscale_config/fancysuit_executive
@@ -66,7 +66,7 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	gets_cropped_on_taurs = FALSE
 	greyscale_colors = "#37373e#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/pencil"
 	post_init_icon_state = "pencilskirt_shirt"
 	greyscale_config = /datum/greyscale_config/pencilskirt_withshirt
@@ -78,7 +78,7 @@
 	name = "pencilskirt"
 	desc = "A tight-fitting pencilskirt, perfect to augment an undershirt."
 	greyscale_colors = "#37373e"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/pencil/noshirt"
 	post_init_icon_state = "pencilskirt"
 	greyscale_config = /datum/greyscale_config/pencilskirt
@@ -115,7 +115,7 @@
 	name = "executive pencilskirt"
 	desc = "A sleek suit with a tight-fitting pencilskirt."
 	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/pencil/black_really"
 	post_init_icon_state = "pencilskirt_suit"
 	greyscale_config = /datum/greyscale_config/pencilskirt_withsuit
@@ -126,7 +126,7 @@
 	name = "checkered pencilskirt and shirt"
 	desc = "A clean shirt with a tight-fitting checkered pencilskirt."
 	greyscale_colors = "#37373e#232323#ffffff"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/pencil/checkered"
 	post_init_icon_state = "pencilskirt_checkers_shirt"
 	greyscale_config = /datum/greyscale_config/pencilskirt_checkers_withshirt
@@ -137,7 +137,7 @@
 	name = "checkered pencilskirt"
 	desc = "A tight-fitting checkered pencilskirt."
 	greyscale_colors = "#37373e#232323"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/suit/nova/pencil/checkered/noshirt"
 	post_init_icon_state = "pencilskirt_checkers"
 	greyscale_config = /datum/greyscale_config/pencilskirt_checkers

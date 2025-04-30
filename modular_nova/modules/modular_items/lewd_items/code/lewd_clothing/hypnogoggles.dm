@@ -3,7 +3,7 @@
 	desc = "An all-in-one mnemonic impression repeater and vision tinter, used to entrance the wearer with a programmed phrase. Foam inserts, to boot."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_eyes.dmi'
 	greyscale_colors = "#383840#dc7ef4"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/clothing.dmi'
 	icon_state = "/obj/item/clothing/glasses/hypno"
 	post_init_icon_state = "hypnogoggles"
 	greyscale_config = /datum/greyscale_config/hypnogoggles

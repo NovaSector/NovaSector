@@ -14,7 +14,7 @@
 	base_icon_state = "dephelmet"
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_hats.dmi'
 	greyscale_colors = "#383840#dc7ef4#383840#dc7ef4"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/deprivation_helmet"
 	post_init_icon_state = "dephelmet"
 	greyscale_config = /datum/greyscale_config/dephelmet

@@ -16,7 +16,7 @@
 	name = "wide brimmed hat"
 	desc = "A wide-brimmed hat, to keep the sun out of your eyes in style."
 	greyscale_colors = "#4D4D4D#DE9754"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/cowboy/nova/wide"
 	post_init_icon_state = "widebrim"
 	greyscale_config = /datum/greyscale_config/cowboy_wide
@@ -27,7 +27,7 @@
 	name = "wide brimmed feathered hat"
 	desc = "A wide-brimmed hat adorned with a feather, the perfect flourish to a rugged outfit."
 	greyscale_colors = "#4D4D4D#DE9754#D5D5B9"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/cowboy/nova/wide/feathered"
 	post_init_icon_state = "widebrim_feathered"
 	greyscale_config = /datum/greyscale_config/cowboy_wide_feathered
@@ -37,7 +37,7 @@
 	name = "flat brimmed hat"
 	desc = "A finely made hat with a short flat brim, perfect for an old fashioned shootout."
 	greyscale_colors = "#BE925B#914C2F"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/cowboy/nova/flat"
 	post_init_icon_state = "flatbrim"
 	greyscale_config = /datum/greyscale_config/cowboy_flat
@@ -48,7 +48,7 @@
 	name = "flat brimmed hat with cowl"
 	desc = "A finely made hat with a short flat brim, paired with a snug and warm cowl. Today's a cold day to die..."
 	greyscale_colors = "#c26934#8f89ae#774B2D"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/cowboy/nova/flat/cowl"
 	post_init_icon_state = "flatbrim_cowl"
 	greyscale_config = /datum/greyscale_config/cowboy_flat_cowl
@@ -61,7 +61,7 @@
 	name = "cattleman hat"
 	desc = "A hat with a creased brim and a tall crown, intended to be pushed down further on the head to stay on in harsh weather. Not as relevant in space but still comes in handy."
 	greyscale_colors = "#725443#B2977C"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/cowboy/nova/cattleman"
 	post_init_icon_state = "cattleman"
 	greyscale_config = /datum/greyscale_config/cowboy_cattleman
@@ -72,7 +72,7 @@
 	name = "wide brimmed cattleman hat"
 	desc = "A hat with a wide, slightly creased brim. Good for working in the sun, not so much for fitting through tight gaps."
 	greyscale_colors = "#4D4D4D#5F666E"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/cowboy/nova/cattleman/wide"
 	post_init_icon_state = "cattleman_wide"
 	greyscale_config = /datum/greyscale_config/cowboy_cattleman_wide

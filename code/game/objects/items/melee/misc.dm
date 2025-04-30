@@ -62,7 +62,7 @@
 
 /obj/item/melee/sabre
 	name = "officer's sabre" //NOVA EDIT - Buffed in modular_nova/modules/modular_weapons/code/melee.dm
-	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease." 
+	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease."
 	icon = 'icons/obj/weapons/sword.dmi'
 	icon_state = "sabre"
 	inhand_icon_state = "sabre"
@@ -525,7 +525,7 @@
 	worn_icon_state = "default_worn"
 	icon_angle = -45
 
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/item/melee/cleric_mace"
 	post_init_icon_state = "default"
 	greyscale_config = /datum/greyscale_config/cleric_mace

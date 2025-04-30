@@ -7,7 +7,7 @@
 	righthand_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
 	minimize_when_attached = FALSE
 	attachment_slot = NONE
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/waistcoat"
 	post_init_icon_state = "waistcoat"
 	greyscale_config = /datum/greyscale_config/waistcoat

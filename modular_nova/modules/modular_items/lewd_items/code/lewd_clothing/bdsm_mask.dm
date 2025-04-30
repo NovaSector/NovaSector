@@ -11,7 +11,7 @@
 	name = "latex gasmask"
 	desc = "A strict-tensity gas mask that hugs to the face and completely muffles the wearer."
 	greyscale_colors = "#383840#dc7ef4"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	icon_state = "/obj/item/clothing/mask/gas/bdsm_mask"
 	post_init_icon_state = "mask"
 	greyscale_config = /datum/greyscale_config/dorms_mask

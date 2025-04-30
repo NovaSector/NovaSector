@@ -4,7 +4,7 @@
 	desc = "Restrictive, knee-high heels. Unfathomably difficult to walk in."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	greyscale_colors = "#383840"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/ballet_heels"
 	post_init_icon_state = "balletheels"
 	greyscale_config = /datum/greyscale_config/ballet_heel
@@ -38,7 +38,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	greyscale_colors = "#383840"
-	icon = 'icons/map_icons/clothing.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
 	icon_state = "/obj/item/clothing/shoes/latex_socks"
 	post_init_icon_state = "latex_socks"
 	greyscale_config = /datum/greyscale_config/latex_socks
