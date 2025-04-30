@@ -24,7 +24,7 @@
 	var/obj/item/clothing/under/pants/nova/chaps/chaps_uniform = new /obj/item/clothing/under/pants/nova/chaps(user.drop_location())
 	chaps_uniform.greyscale_colors = greyscale_colors
 	chaps_uniform.update_greyscale()
-	balloon_alert(user, "changed to uniform!")
+	user.balloon_alert(user, "changed to uniform!")
 	qdel(src)
 	user.put_in_hands(chaps_uniform)
 
