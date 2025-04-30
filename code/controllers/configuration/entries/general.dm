@@ -795,4 +795,4 @@
 	default = ""
 
 /datum/config_entry/flag/generate_assets_in_init
-	default = TRUE
+	default = FALSE
