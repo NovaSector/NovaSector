@@ -93,13 +93,13 @@
 	charged = FALSE
 	attempt_recharge_runes()
 
-//visual feedback on ability use. Supposedly a glint of the sword's metal.
+///visual feedback on ability use. Supposedly a glint of the sword's metal.
 /obj/effect/temp_visual/runic_spin
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "ring_leader_effect"
 	duration = 2
 
-//Visual feedback small rune pops where the marked target is.
+///Visual feedback small rune pops where the spin happens.
 /obj/effect/temp_visual/flying_rune
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "small_rune_11"
@@ -134,7 +134,7 @@
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
 
-//Hearthkins can use a chisel on inactive ship fragments to activate them.
+///Hearthkins can use a chisel on inactive ship fragments to activate them.
 /obj/item/hearthkin_ship_fragment_inactive/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	add_fingerprint(user)
@@ -155,13 +155,13 @@
 		qdel(src)
 		return ITEM_INTERACT_SUCCESS
 
-// Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn, this will probably break if someone makes an ice map where the cat camp isn't on Zlevel 2 & 3.
+///Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn, this will probably break if someone makes an ice map where the cat camp isn't on Zlevel 2 & 3.
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
 	if (SSmapping.level_trait(2, ZTRAIT_ICE_RUINS_UNDERGROUND)&&SSmapping.level_trait(3, ZTRAIT_ICE_RUINS_UNDERGROUND))
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
-// Adds an icon for the hammer in the crafting menu.
+///Adds an icon for the hammer in the crafting menu.
 /datum/asset/spritesheet_batched/crafting/create_spritesheets()
 	. = ..()
 	insert_icon(replacetext(TOOL_HAMMER, " ", ""), uni_icon('modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi', "hammer"))
