@@ -1,6 +1,7 @@
 /mob/living/basic/pony
 	name = "pony"
 	desc = "Look at my horse, my horse is amazing!"
+	icon_state = "pony"
 	icon_living = "pony"
 	icon_dead = "pony_dead"
 	gender = MALE
@@ -28,9 +29,6 @@
 	/// The person we've been tamed by
 	var/datum/weakref/my_owner
 
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/pony"
-	post_init_icon_state = "pony"
 	greyscale_config = /datum/greyscale_config/pony
 	/// Greyscale color config; 1st color is body, 2nd is mane
 	var/list/ponycolors = list("#cc8c5d", "#cc8c5d")
@@ -69,7 +67,7 @@
 	ai_controller.replace_planning_subtrees(list(
 		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
 		/datum/ai_planning_subtree/flee_target,
-/datum/ai_planning_subtree/random_speech/pony/tamed
+		/datum/ai_planning_subtree/random_speech/pony/tamed,
 	))
 
 	if(unique_tamer)
@@ -133,7 +131,7 @@
 		/datum/ai_planning_subtree/flee_target,
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-/datum/ai_planning_subtree/random_speech/pony
+		/datum/ai_planning_subtree/random_speech/pony,
 	)
 
 // A stronger horse is required for our strongest cowboys.

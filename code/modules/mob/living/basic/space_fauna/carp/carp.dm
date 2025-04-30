@@ -13,6 +13,8 @@
 /mob/living/basic/carp
 	name = "space carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
+	icon = 'icons/mob/simple/carp.dmi'
+	icon_state = "base"
 	icon_living = "base"
 	icon_dead = "base_dead"
 	icon_gib = "carp_gib"
@@ -36,9 +38,6 @@
 	response_disarm_simple = "gently push aside"
 	faction = list(FACTION_CARP)
 	butcher_results = list(/obj/item/food/fishmeat/carp = 2, /obj/item/stack/sheet/animalhide/carp = 1)
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp"
-	post_init_icon_state = "base"
 	greyscale_config = /datum/greyscale_config/carp
 	ai_controller = /datum/ai_controller/basic_controller/carp
 	initial_language_holder = /datum/language_holder/carp
@@ -61,7 +60,7 @@
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
 		/datum/pet_command/follow,
-/datum/pet_command/attack
+		/datum/pet_command/attack,
 	)
 	/// Carp want to eat raw meat
 	var/static/list/desired_food = list(/obj/item/food/meat/slab, /obj/item/food/meat/rawcutlet)
@@ -179,11 +178,9 @@
  * Holographic carp from the holodeck
  */
 /mob/living/basic/carp/holographic
+	icon_state = "base_friend"
 	icon_living = "holocarp"
 	gold_core_spawnable = NO_SPAWN
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp/holographic"
-	post_init_icon_state = "holocarp"
 	greyscale_config = NONE
 	basic_mob_flags = DEL_ON_DEATH
 	cell_line = NONE
@@ -223,12 +220,10 @@
 	faction = list(FACTION_NEUTRAL)
 	maxHealth = 200
 	health = 200
+	icon_state = "magicarp"
 	icon_dead = "magicarp_dead"
 	icon_gib = "magicarp_gib"
 	icon_living = "magicarp"
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp/pet/lia"
-	post_init_icon_state = "magicarp"
 	greyscale_config = NONE
 
 /// Boosted chance for Cayenne to be silver
@@ -299,12 +294,10 @@
 /mob/living/basic/carp/passive
 	name = "false carp"
 	desc = "A close relative of the space carp which is entirely toothless and feeds by stealing its cousin's leftovers."
-
+	icon_state = "base_friend"
 	icon_living = "base_friend"
 	icon_dead = "base_friend_dead"
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp/passive"
-	post_init_icon_state = "base_friend"
+
 	greyscale_config = /datum/greyscale_config/carp_friend
 
 	attack_verb_continuous = "suckers"

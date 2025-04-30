@@ -50,9 +50,6 @@ GLOBAL_LIST_INIT(magicarp_spell_colours, list(
 	maxHealth = 50
 	health = 50
 	gold_core_spawnable = NO_SPAWN
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp/magic"
-	post_init_icon_state = "base"
 	greyscale_config = /datum/greyscale_config/carp_magic
 	ai_controller = /datum/ai_controller/basic_controller/carp/ranged
 	initial_language_holder = /datum/language_holder/carp/hear_common // its magic

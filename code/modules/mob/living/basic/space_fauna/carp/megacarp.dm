@@ -20,9 +20,6 @@
 	obj_damage = 80
 	cell_line = CELL_LINE_TABLE_MEGACARP
 	ridable_data = /datum/component/riding/creature/megacarp
-	icon = 'icons/map_icons/mobs.dmi'
-	icon_state = "/mob/living/basic/carp/mega"
-	post_init_icon_state = "megacarp_greyscale"
 	greyscale_config = /datum/greyscale_config/carp_mega
 	butcher_results = list(/obj/item/food/fishmeat/carp = 2, /obj/item/stack/sheet/animalhide/carp = 3)
 	ai_controller = /datum/ai_controller/basic_controller/carp/mega
