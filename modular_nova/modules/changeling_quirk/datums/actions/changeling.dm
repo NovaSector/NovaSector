@@ -47,4 +47,4 @@
 	hide_from_quirk_changeling = TRUE
 
 /datum/action/changeling/fakedeath
- 	hide_from_quirk_changeling = TRUE
+	hide_from_quirk_changeling = TRUE
