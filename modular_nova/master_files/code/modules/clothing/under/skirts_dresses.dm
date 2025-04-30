@@ -27,7 +27,6 @@
 	icon_state = "null"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 	post_init_icon_state = null
-	does_not_generate_gags_preview = TRUE
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
