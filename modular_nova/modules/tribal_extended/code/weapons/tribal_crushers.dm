@@ -138,19 +138,22 @@
 /obj/item/hearthkin_ship_fragment_inactive/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	add_fingerprint(user)
-	if(!ispath(tool.type, /obj/item/chisel))
-		return
-	if(user.job != "Icemoon Dweller")
-		return
-	user.balloon_alert(user, "begins engraving runes...")
-	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
-	if(do_after(user, 30 SECONDS, target = src, progress = TRUE))
+	if(istype(tool, /obj/item/chisel))
+		if(!isprimitivedemihuman(user))
+			to_chat(user, span_warning("You find yourself unable to carve into [src]!"))
+			return ITEM_INTERACT_BLOCKING
+
+		user.balloon_alert(user, "begins engraving runes...")
+		playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
+		if(!do_after(user, 30 SECONDS, target = src))
+			user.visible_message(span_warning("[user]'s engraving was interrupted."))
+			return ITEM_INTERACT_BLOCKING
+
 		user.visible_message(span_notice("[user] completes the engraving — the fragment glows faintly."))
-		var/turf/src_turf = get_turf(src)
-		new /obj/item/hearthkin_ship_fragment_active(src_turf)
+		new /obj/item/hearthkin_ship_fragment_active(get_turf(src))
+		playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 		qdel(src)
-	else
-		user.visible_message(span_warning("[user]'s engraving was interrupted."))
+		return ITEM_INTERACT_SUCCESS
 
 // Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn, this will probably break if someone makes an ice map where the cat camp isn't on Zlevel 2 & 3.
 /datum/controller/subsystem/mapping/Initialize()
