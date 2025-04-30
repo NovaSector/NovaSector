@@ -1,6 +1,8 @@
 /obj/item/screwdriver
 	name = "screwdriver"
 	desc = "You can be totally screwy with this."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "screwdriver_map"
 	inhand_icon_state = "screwdriver"
 	worn_icon_state = "screwdriver"
 	inside_belt_icon_state = "screwdriver"
@@ -27,8 +29,6 @@
 	drop_sound = 'sound/items/handling/tools/screwdriver_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/screwdriver_pickup.ogg'
 	sharpness = SHARP_POINTY
-	icon = 'icons/map_icons/items/item.dmi'
-	icon_state = "screwdriver_map"
 	greyscale_config = /datum/greyscale_config/screwdriver
 	greyscale_config_inhand_left = /datum/greyscale_config/screwdriver_inhand_left
 	greyscale_config_inhand_right = /datum/greyscale_config/screwdriver_inhand_right

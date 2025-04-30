@@ -549,9 +549,7 @@
 /obj/item/toy/plush/lizard_plushie/space
 	name = "space lizard plushie"
 	desc = "An adorable stuffed toy that resembles a very determined spacefaring lizardperson. To infinity and beyond, little guy."
-	icon = 'icons/map_icons/items/item.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie/space"
-	post_init_icon_state = "map_plushie_spacelizard"
+	icon_state = "map_plushie_spacelizard"
 	greyscale_config = /datum/greyscale_config/plush_spacelizard
 	// space lizards can't hit people with their tail, it's stuck in their suit
 	attack_verb_continuous = list("claws", "hisses", "bops")
@@ -560,7 +558,7 @@
 /obj/item/toy/plush/lizard_plushie/space/green
 	desc = "An adorable stuffed toy that resembles a very determined spacefaring green lizardperson. To infinity and beyond, little guy. This one fills you with nostalgia and soul."
 	icon = 'icons/map_icons/items/item.dmi'
-	icon_state = "/obj/item/toy/plush/lizard_plushie/space/greenn"
+	icon_state = "/obj/item/toy/plush/lizard_plushie/space/green"
 	post_init_icon_state = "map_plushie_spacelizard"
 	greyscale_colors = "#66ff33#000000"
 

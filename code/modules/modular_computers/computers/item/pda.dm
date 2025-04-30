@@ -268,7 +268,6 @@
 	device_theme = PDA_THEME_SYNDICATE
 	comp_light_luminosity = 6.3 //matching a flashlight
 	light_color = COLOR_RED
-	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/item/modular_computer/pda/nukeops"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
 	greyscale_colors = "#a80001#5C070F#000000"
@@ -290,7 +289,6 @@
 	icon_state_menu = "contractor-assign"
 	comp_light_luminosity = 6.3
 	has_pda_programs = FALSE
-	icon = 'icons/map_icons/items/item.dmi'
 	icon_state = "/obj/item/modular_computer/pda/syndicate_contract_uplink"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#696969#000000#FFA500"
