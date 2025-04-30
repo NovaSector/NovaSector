@@ -60,7 +60,7 @@
 	space_dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/space/basic,
+/turf/open/floor/iron/dark,
 /area/station/maintenance/orbital_maints)
 "aD" = (
 /obj/structure/lattice/catwalk,
@@ -72,6 +72,16 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /turf/open/floor/iron/dark,
 /area/station/commons/orbital_lounge)
+"aF" = (
+/obj/machinery/door/airlock/service{
+	name = "Dorm 1";
+	id_tag = "OrbitDorm_1"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/commons/dorms/orbital/room3)
 "aG" = (
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -261,6 +271,13 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/orbital_utilities)
+"ch" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
+"cj" = (
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/space)
 "ck" = (
 /obj/structure/flora/grass/jungle/b/style_random,
 /mob/living/basic/cow,
@@ -327,6 +344,15 @@
 	dir = 8
 	},
 /area/sandplanet/outdoors)
+"cw" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "cy" = (
 /obj/docking_port/stationary/random{
 	name = "lavaland";
@@ -536,6 +562,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/sandplanet/companystage)
+"dM" = (
+/obj/effect/spawner/random/structure/closet_private,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "dO" = (
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/carpet/executive,
@@ -565,6 +597,7 @@
 /turf/open/floor/iron/edge,
 /area/sandplanet/outdoors)
 "dW" = (
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_lounge)
 "dX" = (
@@ -644,6 +677,10 @@
 "ez" = (
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/station/service/hydroponics)
+"eD" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "eM" = (
 /turf/open/floor/glass/reinforced,
 /area/station/commons/orbital_dock)
@@ -673,6 +710,9 @@
 /obj/item/soap/nanotrasen,
 /turf/open/floor/iron/dark,
 /area/sandplanet/outdoors)
+"eX" = (
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "fa" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/bananalamp{
@@ -685,6 +725,13 @@
 	},
 /turf/open/floor/iron,
 /area/sandplanet/outdoors)
+"fc" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "fd" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
@@ -717,6 +764,7 @@
 	name = "Gravity Generator Room"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/station/engineering/orbital_utilities)
 "fi" = (
@@ -859,6 +907,10 @@
 	},
 /turf/open/floor/plating,
 /area/sandplanet/outdoors)
+"gr" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/space)
 "gs" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/spawner/random/maintenance,
@@ -974,6 +1026,10 @@
 /obj/machinery/biogenerator,
 /turf/open/floor/iron,
 /area/sandplanet/outdoors)
+"gV" = (
+/obj/structure/closet/firecloset,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/orbital_maints)
 "gW" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
@@ -1217,6 +1273,12 @@
 "iy" = (
 /turf/open/floor/iron/stairs/medium,
 /area/sandplanet/outdoors)
+"iz" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/general,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/station/engineering/orbital_utilities)
 "iA" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1237,6 +1299,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/orbital_lounge)
+"iM" = (
+/obj/item/radio/intercom/directional/east,
+/obj/machinery/light/directional/east,
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "iO" = (
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/station/service/kitchen)
@@ -1554,6 +1625,11 @@
 /obj/structure/chair/sofa/corp/left,
 /turf/open/floor/iron/dark,
 /area/station/commons/orbital_lounge)
+"la" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/orbital_maints)
 "li" = (
 /turf/open/floor/wood/large,
 /area/sandplanet/path/east)
@@ -1904,6 +1980,13 @@
 "no" = (
 /turf/closed/wall/r_wall,
 /area/sandplanet/outdoors)
+"nu" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "nx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1914,6 +1997,16 @@
 /obj/structure/closet/toolcloset,
 /turf/open/floor/iron,
 /area/station/commons/orbital_dock)
+"nF" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/button/door/directional/west{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	id = "OrbitDorm_2";
+	name = "Door Lock"
+	},
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "nG" = (
 /obj/structure/chair/sofa/bench{
 	dir = 8
@@ -1953,6 +2046,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/station/engineering/orbital_utilities)
 "od" = (
@@ -2131,6 +2225,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/sandplanet/outdoors)
 "pu" = (
+/obj/effect/turf_decal/vg_decals/numbers/eight,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/orbital_maints)
 "py" = (
@@ -2277,6 +2372,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/orbital_checkpoint)
+"qv" = (
+/turf/closed/wall,
+/area/station/commons/dorms/orbital/room2)
 "qw" = (
 /obj/machinery/vending/hydroseeds,
 /turf/open/floor/iron,
@@ -2504,6 +2602,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/sandplanet/outdoors)
+"sk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "sl" = (
 /obj/structure/flora/tree/palm/style_random,
 /turf/open/misc/beach/sand,
@@ -2552,6 +2656,15 @@
 	},
 /turf/open/misc/beach/sand,
 /area/sandplanet/outdoors)
+"sD" = (
+/obj/item/radio/intercom/directional/east,
+/obj/machinery/light/directional/east,
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "sE" = (
 /obj/structure/rack,
 /obj/item/wallframe/digital_clock{
@@ -2779,6 +2892,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/sandplanet/outdoors)
+"up" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/orbital_maints)
 "uq" = (
 /obj/machinery/door/airlock/service,
 /obj/structure/disposalpipe/segment{
@@ -2795,7 +2912,8 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/turf/open/space/basic,
+/obj/effect/landmark/navigate_destination/dockescpod8,
+/turf/open/floor/iron/dark,
 /area/station/maintenance/orbital_maints)
 "ux" = (
 /obj/structure/flora/grass/jungle/b/style_random,
@@ -2813,6 +2931,16 @@
 "uD" = (
 /turf/open/water/beach,
 /area/sandplanet/pond/west)
+"uE" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
+"uG" = (
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "uI" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
@@ -2970,6 +3098,10 @@
 "wh" = (
 /turf/open/floor/iron/dark,
 /area/station/security/orbital_checkpoint)
+"wi" = (
+/obj/machinery/vending/dorms,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "wk" = (
 /obj/machinery/newscaster/directional/north,
 /obj/effect/turf_decal/siding/thinplating/dark,
@@ -2995,6 +3127,9 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/service/hydroponics)
+"wr" = (
+/turf/closed/wall,
+/area/station/commons/dorms/orbital/room1)
 "wv" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -3220,8 +3355,12 @@
 "yg" = (
 /obj/item/radio/intercom/directional/east,
 /obj/machinery/light/directional/east,
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/black,
-/area/space)
+/area/station/commons/dorms/orbital/room2)
 "yh" = (
 /obj/machinery/vending/autodrobe,
 /obj/item/toy/figure/clown{
@@ -3261,6 +3400,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/tools)
+"yu" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/warning/pods/directional/north,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/orbital_maints)
 "yB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -3355,6 +3501,9 @@
 /obj/machinery/vending/autodrobe,
 /turf/open/floor/wood,
 /area/sandplanet/outdoors)
+"zR" = (
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "zV" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/effect/turf_decal/trimline/purple/filled/line,
@@ -3426,8 +3575,15 @@
 /turf/open/floor/iron,
 /area/sandplanet/outdoors)
 "At" = (
+/obj/machinery/door/airlock/service{
+	name = "Dorm 2";
+	id_tag = "OrbitDorm_2"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
-/area/space)
+/area/station/commons/dorms/orbital/room2)
 "Au" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
@@ -3486,6 +3642,12 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/iron/dark/textured_large,
 /area/sandplanet/outdoors)
+"AH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/space)
 "AJ" = (
 /obj/item/wrench{
 	pixel_y = 7;
@@ -3585,6 +3747,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/orbital_checkpoint)
+"Bc" = (
+/turf/closed/wall,
+/area/station/commons/dorms/orbital/room3)
 "Bd" = (
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/carpet/lone,
@@ -3782,6 +3947,9 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
+"CP" = (
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/orbital_maints)
 "CU" = (
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 9
@@ -3817,6 +3985,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
 "Dc" = (
@@ -3926,6 +4095,12 @@
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/carpet/lone/lavaland,
 /area/sandplanet/pond)
+"DY" = (
+/obj/effect/spawner/random/structure/closet_private,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "Eb" = (
 /turf/open/misc/beach/sand,
 /area/sandplanet/pond/south)
@@ -3964,6 +4139,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_lounge)
 "Ep" = (
@@ -4019,8 +4195,9 @@
 /area/sandplanet/outdoors)
 "Ey" = (
 /obj/machinery/light_switch/directional/west,
+/obj/structure/dresser,
 /turf/open/floor/carpet/black,
-/area/space)
+/area/station/commons/dorms/orbital/room2)
 "EB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4190,6 +4367,10 @@
 	},
 /turf/open/floor/plating,
 /area/sandplanet/outdoors)
+"FD" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "FE" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4430,6 +4611,13 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
+"HH" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "HJ" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/open/floor/wood/large,
@@ -4597,6 +4785,12 @@
 "IX" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/orbital_utilities)
+"IY" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "IZ" = (
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -4669,8 +4863,19 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/station/engineering/orbital_utilities)
+"JI" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/button/door/directional/west{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	id = "OrbitDorm_1";
+	name = "Door Lock"
+	},
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "JJ" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/freezer,
@@ -4779,6 +4984,7 @@
 /obj/machinery/door/airlock/bathroom{
 	name = "Restroom"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/freezer,
 /area/station/commons/orbital_dock)
 "Ke" = (
@@ -4991,8 +5197,12 @@
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/station/service/kitchen)
 "Lr" = (
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
 /turf/open/floor/carpet/black,
-/area/space)
+/area/station/commons/dorms/orbital/room1)
 "Lu" = (
 /obj/item/storage/fancy/cigarettes/cigars/cohiba{
 	pixel_y = 3
@@ -5090,6 +5300,15 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/sandplanet/outdoors)
+"Mt" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "Mv" = (
 /obj/effect/turf_decal/trimline/green/line{
 	dir = 8
@@ -5101,6 +5320,11 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"MC" = (
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "ME" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
@@ -5144,6 +5368,7 @@
 /area/sandplanet/outdoors)
 "MP" = (
 /obj/machinery/door/airlock/public/glass,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/large,
 /area/station/commons/orbital_dock)
 "MW" = (
@@ -5291,6 +5516,10 @@
 "Oc" = (
 /turf/open/floor/iron/freezer,
 /area/station/commons/orbital_dock)
+"Od" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "Of" = (
 /obj/machinery/door/airlock/external{
 	name = "Transport Airlock"
@@ -5436,6 +5665,13 @@
 	dir = 1
 	},
 /area/sandplanet/outdoors)
+"PA" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "PC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -5471,6 +5707,16 @@
 "PN" = (
 /turf/open/misc/beach/sand,
 /area/sandplanet/pond/north)
+"PQ" = (
+/obj/machinery/door/airlock/service{
+	name = "Dorm 3";
+	id_tag = "OrbitDorm_3"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/commons/dorms/orbital/room1)
 "PR" = (
 /obj/structure/mop_bucket/janitorialcart{
 	dir = 4
@@ -5580,6 +5826,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Orbital EVA Dock"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/commons/orbital_dock)
 "QB" = (
@@ -5592,7 +5839,8 @@
 	space_dir = 1
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/space/basic,
+/obj/effect/landmark/navigate_destination/dockescpod7,
+/turf/open/floor/iron/dark,
 /area/station/commons/orbital_dock)
 "QH" = (
 /obj/effect/turf_decal/trimline/neutral/line{
@@ -5682,6 +5930,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/orbital_checkpoint)
+"Rm" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "Ro" = (
 /turf/open/floor/plating,
 /area/station/service/barber)
@@ -5802,6 +6054,15 @@
 /obj/machinery/power/smes,
 /turf/open/floor/plating,
 /area/sandplanet/outdoors)
+"Si" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "Sm" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 4
@@ -5964,7 +6225,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/turf/open/space/basic,
+/turf/open/floor/iron/dark,
 /area/station/commons/orbital_dock)
 "TA" = (
 /obj/machinery/door/airlock/service/glass,
@@ -6071,6 +6332,18 @@
 "Ue" = (
 /turf/open/floor/iron/dark,
 /area/sandplanet/companystage)
+"Ui" = (
+/obj/docking_port/stationary{
+	height = 6;
+	name = "Planetary Dock";
+	width = 4;
+	shuttle_id = "planetary_dock";
+	dir = 4;
+	roundstart_template = /datum/map_template/shuttle/planetary/planetary_ferry;
+	dwidth = 1
+	},
+/turf/open/misc/beach/sand,
+/area/sandplanet/outdoors)
 "Ul" = (
 /turf/open/floor/wood/large,
 /area/sandplanet/outdoors)
@@ -6096,6 +6369,11 @@
 /obj/machinery/requests_console/auto_name/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/orbital_utilities)
+"Uv" = (
+/obj/machinery/light_switch/directional/west,
+/obj/structure/dresser,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "UB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6274,6 +6552,9 @@
 /obj/machinery/chem_dispenser/drinks,
 /turf/open/floor/iron,
 /area/station/service/bar)
+"Wa" = (
+/turf/open/space/basic,
+/area/station/maintenance/central)
 "Wb" = (
 /turf/open/floor/wood/large,
 /area/station/service/hydroponics)
@@ -6307,6 +6588,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/sandplanet/outdoors)
+"Wr" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "Wu" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -6376,6 +6663,12 @@
 /obj/structure/chair/sofa/corp,
 /turf/open/floor/iron/dark,
 /area/station/commons/orbital_lounge)
+"Xq" = (
+/obj/effect/spawner/random/structure/closet_private,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "Xr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6448,6 +6741,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/sandplanet/outdoors)
+"XP" = (
+/obj/machinery/light_switch/directional/west,
+/obj/structure/dresser,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room3)
 "XV" = (
 /obj/machinery/door/airlock/security{
 	name = "Customs Desk"
@@ -6456,6 +6754,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/station/security/orbital_checkpoint)
 "XW" = (
@@ -6573,6 +6872,16 @@
 	dir = 4
 	},
 /area/sandplanet/pond/west)
+"YP" = (
+/obj/machinery/button/door/directional/west{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	id = "OrbitDorm_1";
+	name = "Door Lock"
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room1)
 "YQ" = (
 /obj/effect/turf_decal/trimline/green/corner{
 	dir = 1
@@ -6631,14 +6940,27 @@
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/iron,
 /area/sandplanet/outdoors)
+"Zn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
+/turf/open/floor/wood/large,
+/area/station/commons/orbital_dock)
 "Zr" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Orbital EVA Dock"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/commons/orbital_dock)
+"Zs" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/black,
+/area/station/commons/dorms/orbital/room2)
 "Zu" = (
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/wood/large,
@@ -6652,6 +6974,7 @@
 /turf/open/water/beach,
 /area/sandplanet/pond)
 "ZH" = (
+/obj/effect/turf_decal/vg_decals/numbers/seven,
 /turf/open/floor/iron/dark,
 /area/station/commons/orbital_dock)
 "ZI" = (
@@ -33899,7 +34222,7 @@ xW
 xW
 xW
 xW
-xW
+Ui
 xW
 xW
 xW
@@ -41571,7 +41894,7 @@ gt
 gt
 gt
 gt
-gN
+Wa
 fs
 fs
 fs
@@ -42085,9 +42408,9 @@ TX
 TX
 ez
 gt
+Wa
 gN
-gN
-gN
+Wa
 gN
 OX
 OX
@@ -103770,7 +104093,7 @@ pA
 BM
 aJ
 sJ
-gO
+MC
 OJ
 JC
 JC
@@ -104044,11 +104367,11 @@ bI
 dx
 wl
 pa
-pa
+Od
 eq
 Nt
 Au
-pa
+Rm
 pa
 pa
 fE
@@ -104301,8 +104624,8 @@ dC
 rG
 XJ
 vY
-XJ
-XJ
+Zn
+sk
 XJ
 XJ
 XJ
@@ -104311,7 +104634,7 @@ nj
 XJ
 XJ
 XJ
-XJ
+sk
 XJ
 XJ
 XJ
@@ -104791,7 +105114,7 @@ mT
 ze
 LD
 ze
-dl
+yu
 Je
 dl
 Qy
@@ -105570,7 +105893,7 @@ Yr
 as
 Br
 Qy
-pa
+Qa
 JC
 JC
 JC
@@ -105827,16 +106150,16 @@ nn
 YB
 yN
 Qy
-Qa
-pa
+wi
+JC
 pa
 WI
 pa
-pa
+JC
 pa
 Bt
 pa
-pa
+JC
 pa
 dW
 VX
@@ -106083,18 +106406,18 @@ Xt
 EJ
 Ky
 rg
-Qy
-wG
+wr
+wr
+PQ
+wr
+qv
+qv
 At
-wG
-wG
-wG
-At
-wG
-wG
-wG
-At
-wG
+qv
+Bc
+Bc
+aF
+Bc
 WU
 UX
 XK
@@ -106340,18 +106663,18 @@ KA
 KA
 qC
 du
-Qy
+wr
+Uv
+Wr
+YP
+qv
 Ey
-Lr
-Lr
-wG
-Ey
-Lr
-Lr
-wG
-Ey
-Lr
-Lr
+Zs
+nF
+Bc
+XP
+IY
+JI
 WU
 ml
 gR
@@ -106597,18 +106920,18 @@ TZ
 UD
 EE
 Ci
-Qy
-Lr
-Lr
-Lr
-wG
-Lr
-Lr
-Lr
-wG
-Lr
-Lr
-Lr
+wr
+FD
+cw
+zR
+qv
+eD
+Si
+uG
+Bc
+ch
+Mt
+eX
 WU
 WU
 WU
@@ -106852,20 +107175,20 @@ Qy
 Qy
 Qy
 Qy
+iz
 Qy
-Qy
-Qy
-Lr
-Lr
-Lr
-wG
-Lr
-Lr
-Lr
-wG
-Lr
-Lr
-Lr
+wr
+PA
+Wr
+zR
+qv
+nu
+Zs
+uG
+Bc
+fc
+IY
+eX
 ze
 UL
 mG
@@ -107107,22 +107430,22 @@ ze
 oW
 oW
 oW
-dl
-dl
-dl
-dl
+CP
 ze
+la
+gV
+wr
+Xq
+iM
 Lr
+qv
+dM
 yg
-Lr
-wG
-Lr
-yg
-Lr
-wG
-Lr
-yg
-Lr
+uE
+Bc
+DY
+sD
+HH
 ze
 UL
 zz
@@ -107363,23 +107686,23 @@ mT
 ze
 ze
 ze
-Lw
-Lw
+CP
+CP
 ze
-ze
-dl
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
-ze
+CP
+up
+wr
+wr
+wr
+wr
+qv
+qv
+qv
+qv
+Bc
+Bc
+Bc
+Bc
 ze
 zz
 UL
@@ -107619,11 +107942,11 @@ mT
 mT
 mT
 mT
-mT
-mT
-mT
-mT
-ze
+wG
+cj
+AH
+AH
+fS
 dl
 dl
 jK
@@ -107876,10 +108199,10 @@ mT
 mT
 mT
 mT
-mT
-mT
-mT
-mT
+wG
+gr
+gr
+wG
 ze
 ze
 Aj
