@@ -5581,8 +5581,8 @@
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "dNe" = (
-/obj/effect/turf_decal/trimline/white/filled/corner{
-	dir = 1
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 9
 	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
@@ -6070,6 +6070,16 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_large,
+/area/centcom/interlink)
+"eMq" = (
+/obj/structure/chair/comfy{
+	color = "#596479";
+	dir = 1
+	},
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Breaks-The-PRs"
+	},
+/turf/open/floor/carpet/blue,
 /area/centcom/interlink)
 "eNn" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -6575,6 +6585,9 @@
 /obj/structure/chair/comfy{
 	color = "#596479";
 	dir = 1
+	},
+/obj/item/toy/plush/lizard_plushie/green{
+	name = "Fixes-The-ATs"
 	},
 /turf/open/floor/carpet/blue,
 /area/centcom/interlink)
@@ -8761,12 +8774,6 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"jRk" = (
-/obj/effect/turf_decal/trimline/white/filled/line{
-	dir = 9
-	},
-/turf/open/floor/iron/smooth_large,
-/area/centcom/interlink)
 "jSd" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -12089,16 +12096,6 @@
 "pHc" = (
 /turf/open/water/hot_spring/cafe,
 /area/centcom/interlink)
-"pHe" = (
-/obj/structure/chair/comfy{
-	color = "#596479";
-	dir = 2
-	},
-/obj/item/toy/plush/lizard_plushie/green{
-	name = "Fixes-The-ATs"
-	},
-/turf/open/floor/carpet/blue,
-/area/centcom/interlink)
 "pHi" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 6
@@ -12650,9 +12647,6 @@
 	dir = 4
 	},
 /area/centcom/interlink)
-"qyP" = (
-/turf/open/space/basic,
-/area/centcom/interlink)
 "qze" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 5
@@ -12858,6 +12852,12 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/iron/pool/cobble,
 /area/centcom/holding/cafepark)
+"qOz" = (
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "qPk" = (
 /obj/structure/window/spawner/directional/south,
 /turf/open/floor/carpet/black,
@@ -16813,9 +16813,6 @@
 /obj/structure/chair/comfy{
 	color = "#596479";
 	dir = 2
-	},
-/obj/item/toy/plush/lizard_plushie/green{
-	name = "Breaks-The-PRs"
 	},
 /turf/open/floor/carpet/blue,
 /area/centcom/interlink)
@@ -27361,7 +27358,7 @@ wTY
 cGt
 dHV
 tAf
-fMM
+eMq
 mQI
 wTk
 vHU
@@ -27616,7 +27613,7 @@ vat
 vat
 wTY
 cGt
-pHe
+xPZ
 dCU
 xLv
 fCt
@@ -27864,7 +27861,7 @@ aaa
 aaa
 aaa
 aaa
-qyP
+aaa
 vLx
 vat
 vat
@@ -41255,8 +41252,8 @@ wTk
 wTk
 wTk
 wmd
-jRk
 dNe
+qOz
 dbl
 cVm
 lkz
@@ -46161,7 +46158,7 @@ sdx
 fcG
 sIm
 wTk
-qyP
+aaa
 aaa
 aaa
 aaa
