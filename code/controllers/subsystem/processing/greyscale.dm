@@ -142,7 +142,7 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 		handled_types[fake] = TRUE
 		var/greyscale_config = fake::greyscale_config
 		var/greyscale_colors = fake::greyscale_colors
-		if(!greyscale_config || !greyscale_colors)
+		if(!greyscale_config || !greyscale_colors || fake::no_preview_icon)
 			continue
 		var/icon/map_icon = GetColoredIconByType(greyscale_config, greyscale_colors, use_rustg_iconforge = FALSE)
 		if((map_icon.Height() > 32) || (map_icon.Width() > 32)) // No large icons, use icon_preview and icon_preview_state instead.
