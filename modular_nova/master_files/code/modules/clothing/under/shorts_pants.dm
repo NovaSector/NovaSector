@@ -48,10 +48,39 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/pants/nova/chaps
-	name = "black chaps"
-	desc = "Yeehaw"
+	name = "chaps"
+	desc = "Padding worn to protect the outside of one's legs from hazards. Usually it'd be worn over pants, \
+	but worn alone they technically still function as intended."
 	icon_state = "chaps"
+	greyscale_config = /datum/greyscale_config/chaps
+	greyscale_config_worn = /datum/greyscale_config/chaps/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/chaps/worn/digi
+	greyscale_colors = "#787878#252525#2B2B2B"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/under/pants/nova/chaps/click_ctrl_shift(mob/user)
+	if(attached_accessories) //Make sure they don't have any attachments first
+		balloon_alert(user, "remove attached accessories!")
+		return
+	//Converts the Chaps into an attachment
+	//See accessories.dm for the accessory version
+	var/obj/item/clothing/accessory/chaps/chaps_accessory = new /obj/item/clothing/accessory/chaps(user.drop_location())
+	chaps_accessory.greyscale_colors = greyscale_colors
+	chaps_accessory.update_greyscale()
+	user.balloon_alert(user, "changed to accessory!")
+	qdel(src)
+	user.put_in_hands(chaps_accessory)
+
+/obj/item/clothing/under/pants/nova/chaps/examine(mob/user)
+	. = ..()
+	. += span_notice("It can be [EXAMINE_HINT("ctrl+shift clicked")] to be worn as an accessory.")
+
+/obj/item/clothing/under/pants/nova/chaps/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(held_item != source) //Only works if held in-hand
+		return .
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Make attachable to uniform"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /*
 *	SHORTS
