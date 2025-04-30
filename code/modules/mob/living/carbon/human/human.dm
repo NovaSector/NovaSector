@@ -1021,9 +1021,15 @@
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
 	//NOVA EDIT ADDITION
-	else if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
+	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
+	else if(HAS_TRAIT(target, TRAIT_HEAVYSET))
+		if(fitness_level < 6) // Less than master
+			visible_message(span_warning("[src] tries to carry [target], but can't make them budge!"))
+			return
+		carrydelay = 5 SECONDS
+		skills_space = " strenuously"
 	//NOVA EDIT END
 	visible_message(span_notice("[src] starts[skills_space] lifting [target] onto [p_their()] back..."),
 		span_notice("You[skills_space] start to lift [target] onto your back..."))
@@ -1054,7 +1060,7 @@
 		target.visible_message(span_warning("[target] can't hang onto [src]!"))
 		return
 	//NOVA EDIT START
-	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
+	if((HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED)) || HAS_TRAIT(target, TRAIT_HEAVYSET))
 		target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 		var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))

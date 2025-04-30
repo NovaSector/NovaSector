@@ -80,6 +80,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait accompanying the "Heavyset" quirk.
+#define TRAIT_HEAVYSET "trait_heavyset"
+
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
 
