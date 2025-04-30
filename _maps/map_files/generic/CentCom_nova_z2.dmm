@@ -5580,6 +5580,12 @@
 /obj/structure/fermenting_barrel,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
+"dNe" = (
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "dNn" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -6064,10 +6070,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/centcom/interlink)
-"eMq" = (
-/obj/effect/turf_decal/trimline/white/filled/corner,
-/turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "eNn" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -6950,9 +6952,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "gpM" = (
-/obj/structure/statue/sandstone/venus{
-	layer = 3.1
-	},
+/obj/structure/statue/sandstone/venus,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "gqq" = (
@@ -7034,8 +7034,7 @@
 /area/centcom/holding/cafepark)
 "gtZ" = (
 /obj/structure/railing{
-	dir = 9;
-	layer = 3.1
+	dir = 9
 	},
 /obj/structure/flora/bush/flowers_yw,
 /obj/effect/light_emitter/interlink,
@@ -7150,8 +7149,7 @@
 /area/centcom/holding/cafe)
 "gMd" = (
 /obj/structure/railing{
-	dir = 9;
-	layer = 3.1
+	dir = 9
 	},
 /obj/machinery/vending/cigarette,
 /turf/open/floor/iron/large,
@@ -8763,6 +8761,12 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"jRk" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "jSd" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -9109,12 +9113,6 @@
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
-"kHZ" = (
-/obj/effect/turf_decal/trimline/white/filled/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth_large,
-/area/centcom/interlink)
 "kIR" = (
 /obj/structure/bed/abductor,
 /turf/open/floor/plating/abductor,
@@ -9445,8 +9443,7 @@
 /area/centcom/interlink)
 "lgc" = (
 /obj/structure/railing{
-	dir = 9;
-	layer = 3.1
+	dir = 9
 	},
 /obj/effect/turf_decal/siding/white{
 	dir = 9
@@ -10950,9 +10947,7 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "nPD" = (
-/obj/effect/turf_decal/trimline/white/filled/line{
-	dir = 9
-	},
+/obj/effect/turf_decal/trimline/white/filled/corner,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "nQF" = (
@@ -10968,8 +10963,7 @@
 /area/centcom/interlink)
 "nSZ" = (
 /obj/structure/railing{
-	dir = 9;
-	layer = 3.1
+	dir = 9
 	},
 /obj/structure/flora/grass/jungle,
 /obj/effect/light_emitter/interlink,
@@ -15071,6 +15065,9 @@
 /area/centcom/holding/cafepark)
 "uqJ" = (
 /obj/machinery/shower/directional/north,
+/obj/effect/turf_decal/trimline/dark_blue/end{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 "usc" = (
@@ -17024,6 +17021,7 @@
 /area/centcom/interlink)
 "ykt" = (
 /obj/machinery/shower/directional/south,
+/obj/effect/turf_decal/trimline/dark_blue/end,
 /turf/open/floor/iron/white,
 /area/centcom/interlink)
 
@@ -41257,8 +41255,8 @@ wTk
 wTk
 wTk
 wmd
-nPD
-kHZ
+jRk
+dNe
 dbl
 cVm
 lkz
@@ -46143,7 +46141,7 @@ rLK
 ekE
 dbl
 dbl
-eMq
+nPD
 qnN
 bWM
 wTk
