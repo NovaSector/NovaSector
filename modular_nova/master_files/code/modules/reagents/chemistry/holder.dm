@@ -95,7 +95,7 @@
 	for(var/reagent_type as anything in target_reagents)
 		var/datum/reagent/reagent = target_reagents[reagent_type]
 		var/distributed_volume = round(reagent.volume / possible_transfer_volume, CHEMICAL_QUANTISATION_LEVEL)
-		transfer_volumes[reagent.type] = empty_volume * distributed_volume
+		transfer_volumes[reagent.type] = round(empty_volume * distributed_volume, CHEMICAL_QUANTISATION_LEVEL)
 
 	// Actually perform the reagent transfers and return total volume transferred
 	var/transfer_total = 0
