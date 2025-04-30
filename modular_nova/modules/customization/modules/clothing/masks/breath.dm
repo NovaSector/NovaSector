@@ -53,7 +53,6 @@
 
 /obj/item/clothing/mask/balaclava/threehole
 	name = "three hole balaclava"
-	desc = "Tiocfaidh ar la."
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "balaclavam"
@@ -63,7 +62,6 @@
 
 /obj/item/clothing/mask/balaclava/threehole/green
 	name = "three hole green balaclava"
-	desc = "Tiocfaidh ar la."
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "swatclavam"
