@@ -4,7 +4,7 @@
 	actions_types = list()
 	flags_cover = NONE
 
-/obj/item/clothing/mask/balaclavaadjust
+/obj/item/clothing/mask/balaclava/adjustable
 	name = "adjustable balaclava"
 	desc = "Wider eyed and made of an elastic based material, this one seems like it can contort more."
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
@@ -17,7 +17,7 @@
 	alternate_worn_layer = LOW_FACEMASK_LAYER //This lets it layer below glasses and headsets - WILL LAYER BELOW HAIR IF HIDEHAIR IS NOT UPDATING CORRECTLY
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
 
-/obj/item/clothing/mask/balaclavaadjust/proc/adjust_mask(mob/living/carbon/human/user)
+/obj/item/clothing/mask/balaclava/adjustable/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
 	if(!user.incapacitated)
@@ -25,7 +25,7 @@
 			if (0)
 				flags_inv = HIDEHAIR
 				icon_state = initial(icon_state) + "_open"
-				to_chat(user, "You put the balaclava away, revealing your face.")
+				to_chat(user, "You pull the balaclava away, revealing your face.")
 				open = 1
 			if (1)
 				flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
@@ -41,10 +41,10 @@
 		user.update_worn_ears()
 		user.update_worn_mask() //Updates mob icons
 
-/obj/item/clothing/mask/balaclavaadjust/attack_self(mob/user)
+/obj/item/clothing/mask/balaclava/adjustable/attack_self(mob/user)
 	adjust_mask(user)
 
-/obj/item/clothing/mask/balaclavaadjust/verb/toggle()
+/obj/item/clothing/mask/balaclava/adjustable/verb/toggle()
 	set category = "Object"
 	set name = "Adjust Balaclava"
 	set src in usr
