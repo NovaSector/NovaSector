@@ -1084,3 +1084,74 @@
   - rscadd: Romerol can be selected on the optfor panel now.
   Zergspower:
   - rscadd: Plasteel Chef Event winners get a special loadout knife
+2025-04-29:
+  00-Steven:
+  - rscadd: Certain items can now be placed directly on the floor in the clicked on
+      location. This currently includes warning cones, wet floor signs, candles, action
+      figures, plushies, mech toys, and a list of other toys.
+  - sound: Warning cones now use plastic pickup/drop sounds.
+  - sound: Wet floor signs now use plastic pickup/drop sounds.
+  Bisar:
+  - image: Handing someone something now plays an animation.
+  Ezel/Improvedname, JohnFulpWillard:
+  - balance: Players who use the DNA Infuser are now "derived mutants" of their original
+      species, meaning humans are no longer human after infusing themselves.
+  Floofies:
+  - qol: Adds a secondary runechat color option to the Voice Actor quirk.
+  Ghommie:
+  - bugfix: Examining a fishing lures box twice no longer says it can hold just artificial
+      minnows.
+  Jureiia:
+  - rscadd: Added Dullahan model cyborgs and their taur variants.
+  LemonInTheDark:
+  - bugfix: Tcomms machines will interoperate across z levels in the same "stack"
+      as expected now
+  OrbisAnima:
+  - balance: Increased the nunchakus cooldown from 0.8 to 2 seconds.
+  - balance: Combat Shotguns projectile bonus damage reduced from 50% to 35%, and
+      down to 0% for the compact variant.
+  RatFromTheJungle:
+  - balance: Bleed wounds across the board 'bleed less,' due to biological changes
+      in the local-sector!
+  chestlet:
+  - bugfix: Paradox clones can actually spawn in now.
+  vinylspiders:
+  - rscadd: Added the Unusual Biochemistry quirk, which lets you choose from 5 new
+      blood types!
+  - image: all blood decals are now grayscaled. please report any issues to github!
+  - refactor: blood types are now datums. please report any issues to github!
+  - bugfix: fixes a lot of instances of gibs, bodyparts/organs, and blood decals not
+      getting the right forensics data attached to them
+  - refactor: blood types are now datums, in support of a more robust blood system
+  - image: all blood decals and overlays have been greyscaled, so ethereals will have
+      green blood now for instance. fundamentally evil quirk havers get black blood
+  - admin: new smite type, 'Clownify blood'. It pretty much does what you might expect.
+2025-04-30:
+  A.C.M.O.:
+  - rscadd: Added a custom duration field to the Sleep verb, allowing players to sleep
+      pick the length of their naps.
+  - qol: Players can now wake up from voluntary sleep by resisting or clicking the
+      alert icon.
+  - qol: Players who sleep voluntarily can no longer be shaken awake.
+  - qol: Players who disconnect while sleeping will now stay asleep until they reconnect.
+  - qol: The Sleeping status effect now shows the duration if it isn't infinite.
+  - qol: Sleeping and lying down now reduces your hunger rate by half.
+  Ignari-contrib:
+  - rscadd: Alters the original knockout texts to be a little more played straight.
+  - bugfix: 'Readjusts the knockout times for the quirk to be in line with original
+      design.
+
+      :cl:
+
+      <!-- Both :cl:''s are required for the changelog to work! You can put your name
+      to the right of the first :cl: if you want to overwrite your GitHub username
+      as author ingame. -->
+
+      <!-- You can use multiple of the same prefix (they''re only used for the icon
+      ingame) and delete the unneeded ones. Despite some of the tags, changelogs should
+      generally represent how a player might be affected by the changes rather than
+      a summary of the PR''s contents. -->'
+  OrionTheFox:
+  - rscadd: 'The Cowboy Belt (now renamed to Thigh Holster) is now Greyscale customizable!
+      Find it in the Belts section of the Loadout! (Note: crafting recipe is always
+      the same color.)'

@@ -95,20 +95,8 @@
 	. = ..()
 	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
 
-//Xenohybrid blood trails
-/mob/living/carbon/human/getTrail()
-	if(get_blood_id() != /datum/reagent/toxin/acid)
-		return ..()
-	if(getBruteLoss() < 300)
-		return pick (list("xltrails_1", "xltrails2"))
-	else
-		return pick (list("xttrails_1", "xttrails2"))
-
 ///Xenohybrid additional blood color decals
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xhitsplatter1"
-	random_icon_states = list("xhitsplatter1", "xhitsplatter2", "xhitsplatter3")
 	blood_state = BLOOD_STATE_XENO
 	blood_dna_info = list("UNKNOWN DNA" = "X*")
 
@@ -121,9 +109,6 @@
 /obj/effect/decal/cleanable/blood/drip/xenoblood
 	name = "drips of blood"
 	desc = "It's green."
-	icon = 'modular_nova/master_files/icons/effects/x_blood.dmi'
-	icon_state = "xdrip5"
-	random_icon_states = list("xdrip1","xdrip2","xdrip3","xdrip4","xdrip5")
 	should_dry = FALSE //human only thing
 	blood_state = BLOOD_STATE_XENO
 	beauty = -150

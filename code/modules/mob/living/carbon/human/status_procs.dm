@@ -21,7 +21,7 @@
 		amount *= (rand(125, 130) * 0.01)
 	return ..()
 
-/mob/living/carbon/human/Sleeping(amount)
+/mob/living/carbon/human/Sleeping(amount, is_voluntary = FALSE) // NOVA EDIT: Enhanced sleep - ORIGINAL: /mob/living/carbon/human/Sleeping(amount)
 	if(HAS_TRAIT(src, TRAIT_HEAVY_SLEEPER))
 		amount *= (rand(125, 130) * 0.01)
 	return ..()
