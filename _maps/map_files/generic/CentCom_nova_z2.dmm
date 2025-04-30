@@ -5580,11 +5580,6 @@
 /obj/structure/fermenting_barrel,
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
-"dNe" = (
-/obj/item/toy/plush/slimeplushie,
-/obj/effect/light_emitter/interlink,
-/turf/open/floor/carpet/stellar,
-/area/centcom/interlink)
 "dNn" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -6071,14 +6066,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "eMq" = (
-/obj/structure/chair/comfy{
-	color = "#596479";
-	dir = 1
-	},
-/obj/item/toy/plush/moth{
-	name = "Buzz Buzz"
-	},
-/turf/open/floor/carpet/blue,
+/obj/effect/turf_decal/trimline/white/filled/corner,
+/turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "eNn" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -6584,9 +6573,6 @@
 /obj/structure/chair/comfy{
 	color = "#596479";
 	dir = 1
-	},
-/obj/item/toy/plush/moth{
-	name = "Watch Commander Moffus"
 	},
 /turf/open/floor/carpet/blue,
 /area/centcom/interlink)
@@ -8777,10 +8763,6 @@
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"jRk" = (
-/mob/living/basic/pet/cat,
-/turf/open/space/basic,
-/area/space)
 "jSd" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -9128,9 +9110,11 @@
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
 "kHZ" = (
-/obj/machinery/vending/wardrobe/sec_wardrobe/red,
-/turf/open/misc/dirt/planet,
-/area/centcom/holding/cafepark)
+/obj/effect/turf_decal/trimline/white/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/centcom/interlink)
 "kIR" = (
 /obj/structure/bed/abductor,
 /turf/open/floor/plating/abductor,
@@ -10966,13 +10950,9 @@
 /turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "nPD" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 9
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "nQF" = (
@@ -12884,12 +12864,6 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/iron/pool/cobble,
 /area/centcom/holding/cafepark)
-"qOz" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Biodome"
-	},
-/turf/open/floor/iron/smooth_large,
-/area/centcom/interlink)
 "qPk" = (
 /obj/structure/window/spawner/directional/south,
 /turf/open/floor/carpet/black,
@@ -27389,7 +27363,7 @@ wTY
 cGt
 dHV
 tAf
-eMq
+fMM
 mQI
 wTk
 vHU
@@ -29201,7 +29175,7 @@ kdy
 aWb
 aWb
 xEn
-aOl
+aWb
 wTk
 wTk
 wTk
@@ -29458,7 +29432,7 @@ uaM
 kqs
 aWb
 xEn
-wTk
+aOl
 wTk
 wTk
 ucr
@@ -29716,7 +29690,7 @@ wTk
 wTk
 mtD
 wTk
-dVB
+wTk
 ucr
 kxy
 aTO
@@ -30100,7 +30074,7 @@ aaa
 aaa
 aaa
 aaa
-jRk
+aaa
 aaa
 aaa
 aaa
@@ -35905,7 +35879,7 @@ wTk
 wTk
 wTk
 wTk
-qOz
+wTk
 wTk
 wTk
 wTk
@@ -40008,7 +39982,7 @@ vat
 vat
 vat
 vat
-dNe
+nvI
 nvI
 aVQ
 vat
@@ -41027,7 +41001,7 @@ wTk
 wTk
 wTk
 wTk
-nPD
+nOf
 lXk
 iFY
 wTk
@@ -41283,8 +41257,8 @@ wTk
 wTk
 wTk
 wmd
-dbl
-dbl
+nPD
+kHZ
 dbl
 cVm
 lkz
@@ -46169,7 +46143,7 @@ rLK
 ekE
 dbl
 dbl
-dbl
+eMq
 qnN
 bWM
 wTk
@@ -70821,7 +70795,7 @@ aPf
 aPf
 dai
 aPf
-kHZ
+ayI
 aPf
 aPf
 aPf
