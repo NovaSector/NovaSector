@@ -1025,7 +1025,7 @@
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
 	else if(HAS_TRAIT(target, TRAIT_HEAVYSET))
-		if(fitness_level < 6) // Less than master
+		if(fitness_level < SKILL_LEVEL_MASTER - 1) // fitness_level has 1 subtracted from it
 			visible_message(span_warning("[src] tries to carry [target], but can't make them budge!"))
 			return
 		carrydelay = 5 SECONDS
