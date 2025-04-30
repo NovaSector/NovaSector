@@ -451,7 +451,8 @@
 /obj/item/clothing/under/costume/gi/goku
 	name = "sacred gi"
 	desc = "Created by a man who touched the hearts and lives of many."
-	icon_state = "martial_arts_gi_goku"
+	icon_state = "/obj/item/clothing/under/costume/gi/goku"
+	post_init_icon_state = "martial_arts_gi_goku"
 	greyscale_colors = "#f89925#3e6dd7"
 
 /obj/item/clothing/under/costume/traditional

@@ -95,6 +95,7 @@
 /obj/item/clothing/under/pants/nova/kilt
 	name = "recolorable kilt"
 	desc = "A kilt and buttondown, adorned with a tartan sash. It is NOT a skirt."
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/nova/kilt"
 	post_init_icon_state = "kilt"
 	greyscale_config = /datum/greyscale_config/kilt

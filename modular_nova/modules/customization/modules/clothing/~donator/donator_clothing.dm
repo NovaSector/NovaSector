@@ -1632,7 +1632,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 // Donation reward for BoisterousBeebz
 
-/obj/item/clothing/under/bubbly_clown/skirt
+/obj/item/clothing/under/bubbly_clown_skirt
 	name = "bubbly clown dress"
 	desc = "A bright and cheerful clown dress, honk!"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'

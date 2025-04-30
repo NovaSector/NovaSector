@@ -85,6 +85,7 @@
 /obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit //Essentially the same as the Turtleneck Skirt but with a different texture
 	name = "cableknit skirt"
 	desc = "A casual turtleneck skirt, with a cableknit pattern."
+	icon = 'icons/map_icons/clothing/under.dmi'
 	icon_state = "/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit"
 	post_init_icon_state = "turtleskirt_knit"
 	custom_price = PAYCHECK_CREW

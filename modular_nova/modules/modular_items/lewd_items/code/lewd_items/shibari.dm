@@ -61,7 +61,7 @@
 /obj/item/stack/shibari_rope/update_overlays()
 	. = ..()
 	if(glow)
-		. += emissive_appearance(icon, icon_state, src, alpha = alpha)
+		. += emissive_appearance(icon, post_init_icon_state, src, alpha = alpha)
 
 /obj/item/stack/shibari_rope/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
