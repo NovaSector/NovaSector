@@ -3,9 +3,8 @@
 	desc = "A hypospray kit with foam insets for hypovials and a mounting point on the bottom."
 	worn_icon_state = "healthanalyzer" // Get a better sprite later
 	inhand_icon_state = "medkit"
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/storage/hypospraykit"
-	post_init_icon_state = "firstaid-mini"
+	icon = 'modular_nova/modules/hyposprays/icons/hypokits.dmi'
+	icon_state = "firstaid-mini"
 	greyscale_config = /datum/greyscale_config/hypokit
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'

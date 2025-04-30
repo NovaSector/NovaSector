@@ -270,7 +270,6 @@
 	light_color = COLOR_RED
 	icon = 'icons/map_icons/items.dmi'
 	icon_state = "/obj/item/modular_computer/pda/nukeops"
-	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
 	greyscale_colors = "#a80001#5C070F#000000"
 	long_ranged = TRUE
@@ -293,7 +292,6 @@
 	has_pda_programs = FALSE
 	icon = 'icons/map_icons/items.dmi'
 	icon_state = "/obj/item/modular_computer/pda/syndicate_contract_uplink"
-	post_init_icon_state = "pda"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#696969#000000#FFA500"
 

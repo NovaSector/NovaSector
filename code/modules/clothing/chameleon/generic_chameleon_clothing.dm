@@ -312,8 +312,10 @@ do { \
 	name = "tablet"
 	actions_types = list(/datum/action/item_action/chameleon/change/tablet)
 	action_slots = ALL
+	does_not_generate_gags_preview = TRUE
 
 /obj/item/modular_computer/pda/chameleon/broken
+	does_not_generate_gags_preview = TRUE
 
 /obj/item/modular_computer/pda/chameleon/broken/Initialize(mapload)
 	. = ..()

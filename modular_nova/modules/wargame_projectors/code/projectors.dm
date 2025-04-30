@@ -154,6 +154,7 @@ Actual projector types, split between the 'categories' of things they can projec
 /obj/item/wargame_projector/ships
 	name = "holographic unit projector"
 	desc = "A handy-dandy holographic projector developed by Nanotrasen Naval Command for playing wargames with, this one creates markers for 'units'."
+	does_not_generate_gags_preview = TRUE
 	max_signs = 30
 	holosign_color = COLOR_BLUE_LIGHT
 	holosign_type = /obj/structure/wargame_hologram/ship_marker
@@ -172,11 +173,13 @@ Actual projector types, split between the 'categories' of things they can projec
 	)
 
 /obj/item/wargame_projector/ships/red
+	does_not_generate_gags_preview = TRUE
 	holosign_color = COLOR_RED_LIGHT
 
 /obj/item/wargame_projector/terrain
 	name = "holographic terrain projector"
 	desc = "A handy-dandy holographic projector developed by Nanotrasen Naval Command for playing wargames with, this one creates markers for space 'terrain'."
+	does_not_generate_gags_preview = TRUE
 	max_signs = 30
 	holosign_color = COLOR_GRAY
 	holosign_type = /obj/structure/wargame_hologram/asteroid

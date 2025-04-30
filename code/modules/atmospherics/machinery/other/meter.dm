@@ -7,7 +7,7 @@
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.03
 	max_integrity = 150
 	armor_type = /datum/armor/machinery_meter
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/objects.dmi'
 	icon_state = "/obj/machinery/meter"
 	post_init_icon_state = "meter"
 	greyscale_config = /datum/greyscale_config/meter
@@ -199,12 +199,15 @@
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 // why are you yelling?
 /obj/machinery/meter/turf
+	does_not_generate_gags_preview = TRUE
 
 /obj/machinery/meter/turf/reattach_to_layer()
 	target = loc
 
 /obj/machinery/meter/layer2
 	target_layer = 2
+	does_not_generate_gags_preview = TRUE
 
 /obj/machinery/meter/layer4
 	target_layer = 4
+	does_not_generate_gags_preview = TRUE

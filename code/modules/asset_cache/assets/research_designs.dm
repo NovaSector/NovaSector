@@ -40,7 +40,7 @@
 			if (item::greyscale_config)
 				var/datum/greyscale_config/greyscale_config = item::greyscale_config
 				icon_file = greyscale_config::icon_file
-				icon_state = item::post_init_icon_state
+				icon_state = item::post_init_icon_state || item::icon_state
 				if (item::greyscale_colors)
 					insert_icon(path::id, gags_to_universal_icon(item))
 					continue

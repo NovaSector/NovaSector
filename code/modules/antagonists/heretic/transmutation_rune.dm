@@ -208,9 +208,8 @@
 	pixel_x = -30
 	pixel_y = 18
 	pixel_z = -48
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/effect/heretic_rune/big"
-	post_init_icon_state = "transmutation_rune"
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "transmutation_rune"
 	greyscale_config = /datum/greyscale_config/heretic_rune
 
 /obj/effect/heretic_rune/big/Initialize(mapload, path_colour)
@@ -225,9 +224,8 @@
 	pixel_z = -48
 	plane = FLOOR_PLANE
 	layer = RUNE_LAYER
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/effect/temp_visual/drawing_heretic_rune"
-	post_init_icon_state = "transmutation_rune"
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "transmutation_rune"
 	greyscale_config = /datum/greyscale_config/heretic_rune
 	/// We only set this state after setting the colour, otherwise the animation doesn't colour correctly
 	var/animation_state = "transmutation_rune_draw"

@@ -94,6 +94,5 @@
 /obj/item/clothing/under/trek/q
 	name = "french marshall's uniform"
 	desc = "Something about this uniform feels off..."
-	icon_state = "/obj/item/clothing/under/trek/q"
-	post_init_icon_state = "trek_Q"
+	icon_state = "trek_Q"
 	inhand_icon_state = "r_suit"

@@ -6,7 +6,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/objects.dmi'
 	icon_state = "/obj/item/storage/toolbox/emergency/turret/mag_fed/toy"
 	post_init_icon_state = "toy_toolbox"
 	greyscale_config = /datum/greyscale_config/turret/toolbox
@@ -22,6 +22,9 @@
 	mag_types_allowed = list(
 		/obj/item/ammo_box/magazine/toy,
 	)
+
+/obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled
+	does_not_generate_gags_preview = TRUE
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled/PopulateContents()
 	new /obj/item/ammo_box/magazine/toy/smg(src)

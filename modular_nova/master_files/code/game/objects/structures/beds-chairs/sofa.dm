@@ -13,7 +13,7 @@
 /obj/structure/chair/sofa/bench/color
 	name = "bench"
 	desc = "Perfectly designed to be comfortable to sit on, and hellish to sleep on."
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/objects.dmi'
 	icon_state = "/obj/structure/chair/sofa/bench/color"
 	post_init_icon_state = "bench_middle"
 	greyscale_config = /datum/greyscale_config/bench_middle
@@ -21,6 +21,7 @@
 
 // Icemoon Blue sofa (Used on \_maps\RandomRuins\IceRuins\nova\icemoon_underground_interdyne_base1.dmm)
 /obj/structure/chair/sofa/bench/color/Interdyne/IceMoonBlue
+	icon_state = "/obj/structure/chair/sofa/bench/color/Interdyne/IceMoonBlue"
 	greyscale_colors = "#263188"
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left

@@ -2477,7 +2477,7 @@
 	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_AFFECT_STATISTICS
 	icon = 'icons/obj/doors/airlocks/material/material.dmi'
 	icon_state = ""
-	no_preview_icon = TRUE
+	does_not_generate_gags_preview = TRUE
 	greyscale_config = /datum/greyscale_config/material_airlock
 	assemblytype = /obj/structure/door_assembly/door_assembly_material
 

@@ -18,6 +18,7 @@
 
 /obj/item/clothing/under/dress/skirt/nova	//Just so they can stay under TG's skirts in case code needs subtypes of them (also SDMM dropdown looks nicer like this)
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	icon_state = "cardiganskirt"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 	post_init_icon_state = null
 	greyscale_config = null

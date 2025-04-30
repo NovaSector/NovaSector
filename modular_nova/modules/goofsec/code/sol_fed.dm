@@ -386,11 +386,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
+/obj/item/encryptionkey/headset_solfed/headset_solfed
+	does_not_generate_gags_preview = TRUE
+	icon = 'icons/map_icons/items.dmi'
+
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_solfed/atmos"
 	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
@@ -407,7 +410,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "\improper SolFed adv. Security encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_solfed/sec"
 	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
@@ -424,7 +426,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "\improper SolFed adv. Medical encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_solfed/med"
 	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical

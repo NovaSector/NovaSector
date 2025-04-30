@@ -682,9 +682,6 @@
 /obj/item/clothing/head/hooded/winterhood/custom
 	name = "tailored winter coat hood"
 	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
-	icon = 'icons/map_icons/clothing.dmi'
-	icon_state = "/obj/item/clothing/head/hooded/winterhood/custom"
-	post_init_icon_state = "hood_winter"
 	greyscale_config = /datum/greyscale_config/winter_hoods
 	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
 

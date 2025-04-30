@@ -30,7 +30,7 @@
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/big_manipulator
 	greyscale_colors = "#d8ce13"
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/objects.dmi'
 	icon_state = "/obj/machinery/big_manipulator"
 	post_init_icon_state = "core"
 	greyscale_config = /datum/greyscale_config/big_manipulator
@@ -823,9 +823,8 @@
 	layer = LOW_ITEM_LAYER
 	appearance_flags = KEEP_TOGETHER | LONG_GLIDE | TILE_BOUND | PIXEL_SCALE
 	anchored = TRUE
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/effect/big_manipulator_arm"
-	post_init_icon_state = "hand"
+	icon = 'icons/obj/machines/big_manipulator_parts/big_manipulator_hand.dmi'
+	icon_state = "hand"
 	greyscale_config = /datum/greyscale_config/manipulator_arm
 	pixel_x = -32
 	pixel_y = -32

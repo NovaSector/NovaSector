@@ -13,7 +13,9 @@
 
 /obj/item/clothing/under/shorts/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	icon_state = "shorts"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	post_init_icon_state = null
 	//Need to reset all these so our custom stuff can choose independently to be greyscale or not. TG putting these on the basetype was kinda gross.
 	greyscale_config = null
 	greyscale_config_worn = null

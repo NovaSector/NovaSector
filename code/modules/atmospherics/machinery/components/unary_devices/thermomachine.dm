@@ -18,7 +18,7 @@
 	vent_movement = NONE
 	pipe_flags = PIPING_ONE_PER_TURF
 
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/objects.dmi'
 	icon_state = "/obj/machinery/atmospherics/components/unary/thermomachine"
 	post_init_icon_state = "thermo_base"
 	greyscale_config = /datum/greyscale_config/thermomachine
@@ -333,6 +333,7 @@
 	return
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer
+	does_not_generate_gags_preview = TRUE
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer1
 	piping_layer = 1
@@ -350,6 +351,7 @@
 	on = TRUE
 	icon_state = "/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on"
 	post_init_icon_state = "thermo_1"
+	does_not_generate_gags_preview = FALSE
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/Initialize(mapload)
 	. = ..()
@@ -365,6 +367,7 @@
 	target_temperature = COLD_ROOM_TEMP
 
 /obj/machinery/atmospherics/components/unary/thermomachine/heater
+	does_not_generate_gags_preview = TRUE
 
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/layer1
 	piping_layer = 1
@@ -382,5 +385,6 @@
 	on = TRUE
 	icon_state = "/obj/machinery/atmospherics/components/unary/thermomachine/heater/on"
 	post_init_icon_state = "thermo_1"
+	does_not_generate_gags_preview = FALSE
 
 #undef THERMOMACHINE_POWER_CONVERSION

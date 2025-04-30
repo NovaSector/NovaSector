@@ -10,6 +10,7 @@
 	max_idle_programs = 3
 
 	max_capacity = 64
+	does_not_generate_gags_preview = TRUE
 
 /obj/item/modular_computer/pda/synth/Initialize(mapload)
 	. = ..()

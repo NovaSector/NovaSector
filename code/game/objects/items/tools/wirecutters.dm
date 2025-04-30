@@ -6,9 +6,8 @@
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 
-	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/wirecutters"
-	post_init_icon_state = "cutters_map"
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "cutters_map"
 	greyscale_config = /datum/greyscale_config/wirecutters
 	greyscale_config_belt = /datum/greyscale_config/wirecutters_belt_overlay
 	greyscale_config_inhand_left = /datum/greyscale_config/wirecutter_inhand_left

@@ -4,7 +4,7 @@
 		Its upper and lower bounds for temperature are highly limited, though it has a higher than standard heat capacity \
 		and the benefit of being undeployable when you're done with it."
 	circuit = null
-	icon = 'icons/map_icons/items.dmi'
+	icon = 'icons/map_icons/objects.dmi'
 	icon_state = "/obj/machinery/atmospherics/components/unary/thermomachine/deployable"
 	post_init_icon_state = "thermo_base"
 	greyscale_config = /datum/greyscale_config/thermomachine/deployable

@@ -19,8 +19,8 @@
 /obj/item/hypospray/mkii
 	name = "hypospray Mk.II"
 	icon = 'icons/map_icons/items.dmi'
-	icon_state = "/obj/item/hypospray/mkii"
-	post_init_icon_state = "hypo2"
+	icon_state = "hypo2"
+	icon = 'modular_nova/modules/hyposprays/icons/hyposprays.dmi'
 	greyscale_config = /datum/greyscale_config/hypospray_mkii
 	desc = "A new development from DeForest Medical, this hypospray takes 50-unit vials as the drug supply for easy swapping."
 	w_class = WEIGHT_CLASS_TINY
@@ -165,7 +165,7 @@
 		var/datum/greyscale_modify_menu/menu = new(src, usr, allowed_configs)
 		menu.ui_interact(usr)
 	else
-		icon_state = post_init_icon_state
+		icon_state = initial(icon_state)
 		icon = original_icon
 		greyscale_colors = null
 

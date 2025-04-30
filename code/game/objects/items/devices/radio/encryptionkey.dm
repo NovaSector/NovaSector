@@ -158,6 +158,9 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#2b2793#67a552"
 
+/obj/item/encryptionkey/heads
+	does_not_generate_gags_preview = TRUE
+
 /obj/item/encryptionkey/heads/captain
 	name = "\proper the captain's encryption key"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
@@ -259,6 +262,7 @@
 	greyscale_colors = "#24a157#dca01b"
 
 /obj/item/encryptionkey/ai //ported from NT, this goes 'inside' the AI.
+	does_not_generate_gags_preview = TRUE
 	channels = list(
 		RADIO_CHANNEL_COMMAND = 1,
 		RADIO_CHANNEL_SECURITY = 1,
@@ -273,6 +277,7 @@
 
 /obj/item/encryptionkey/ai_with_binary
 	name = "ai encryption key"
+	does_not_generate_gags_preview = TRUE
 	channels = list(
 		RADIO_CHANNEL_COMMAND = 1,
 		RADIO_CHANNEL_SECURITY = 1,

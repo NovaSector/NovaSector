@@ -5,7 +5,7 @@
 	/// Mostly intended for things that have a special map icon.
 	var/post_init_icon_state
 	/// When set TRUE, do not generate a preview icon for this atom.
-	var/no_preview_icon
+	var/does_not_generate_gags_preview
 
 /**
  * Updates the appearence of the icon
