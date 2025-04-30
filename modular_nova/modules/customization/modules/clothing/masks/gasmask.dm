@@ -163,9 +163,6 @@
 		if(human_user.dna.species.mutant_bodyparts["snout"])
 			icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
-			var/list/avian_snouts = list("Beak", "Big Beak", "Corvid Beak")
-			if(human_user.dna.species.mutant_bodyparts["snout"][MUTANT_INDEX_NAME] in avian_snouts)
-				icon_state = "[options[choice]]_b"
 		else
 			icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 			worn_icon = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
