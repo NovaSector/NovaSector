@@ -95,15 +95,6 @@
 	. = ..()
 	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
 
-//Xenohybrid blood trails
-/mob/living/carbon/human/getTrail()
-	if(get_blood_id() != /datum/reagent/toxin/acid)
-		return ..()
-	if(getBruteLoss() < 300)
-		return pick (list("xltrails_1", "xltrails2"))
-	else
-		return pick (list("xttrails_1", "xttrails2"))
-
 ///Xenohybrid additional blood color decals
 /obj/effect/decal/cleanable/blood/hitsplatter/xenoblood
 	blood_state = BLOOD_STATE_XENO

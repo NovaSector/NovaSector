@@ -1,0 +1,7 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - rscadd: "Added a new science techweb node, Auto-Injecting Medipen Syringes."
+  - rscadd: "Added a universal medipen and a low-pressure universal medipen to medical protolathes."
+  - rscadd: "Added empty medipens to medical lathe for Epinephrine, Atropine, Oxandrolone, Salicylic Acid, Salbutamol, and Pentetic Acid."
+  - bugfix: "Fixed a bug that caused the Medipen Refiller to only refill up to 10u."
