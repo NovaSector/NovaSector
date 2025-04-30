@@ -6,8 +6,10 @@
  * Has mildly randomised stats for some inexplicable reason, makes it somewhat more like a randomised Diablo mob.
  */
 /mob/living/basic/carp/mega
+	icon = 'icons/mob/simple/broadMobs.dmi'
 	name = "Mega Space Carp"
 	desc = "A ferocious, fang bearing creature that resembles a shark. This one seems especially ticked off."
+	icon_state = "megacarp_greyscale"
 	icon_living = "megacarp_greyscale"
 	icon_dead = "megacarp_dead_greyscale"
 	icon_gib = "megacarp_gib"
