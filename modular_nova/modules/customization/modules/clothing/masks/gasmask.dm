@@ -27,13 +27,6 @@
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
 	icon_state = "hecu"
 
-/obj/item/clothing/mask/gas/soviet
-	name = "soviet gas mask"
-	desc = "A white gas mask with a green filter, there's a small sticker attached saying it's not got Asbestos anymore."
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "gp5_mask"
-
 /obj/item/clothing/mask/gas/clown_colourable
 	name = "colourable clown mask"
 	desc = "The face of pure evil, now multicoloured."
