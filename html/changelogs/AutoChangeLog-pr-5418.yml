@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - rscadd: "Chaps are now Greyscale, and can now also be used as an accessory! Ctrl-Shift-Click to switch between Accessory and Uniform!"
