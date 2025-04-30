@@ -96,3 +96,15 @@
 
 /area/station/commons/shipyardhall
 	name = "Changing Room"
+
+/area/station/commons/dorms/orbital/room1
+	name = "\improper Orbital Dorms Room 1"
+	icon_state = "room1"
+
+/area/station/commons/dorms/orbital/room2
+	name = "\improper Orbital Dorms Room 2"
+	icon_state = "room2"
+
+/area/station/commons/dorms/orbital/room3
+	name = "\improper Orbital Dorms Room 3"
+	icon_state = "room3"
