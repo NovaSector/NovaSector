@@ -1455,13 +1455,13 @@
 /obj/item/poster/korpstech
 	name = "\improper Empire Enhancements poster"
 	poster_type = /obj/structure/sign/poster/contraband/korpstech
-	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
+	icon = 'modular_nova/modules/aesthetics/posters/icons/contraband.dmi'
 	icon_state = "rolled_poster"
 
 /obj/structure/sign/poster/contraband/korpstech
 	name = "Empire Enhancements"
 	desc = "This poster bears a huge, pink helix on it, with smaller text underneath it that mentions some alleged genetic advancements from a long time ago."
-	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
+	icon = 'modular_nova/modules/aesthetics/posters/icons/contraband.dmi'
 	icon_state = "korpsposter"
 	never_random = TRUE
 
