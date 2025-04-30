@@ -69,20 +69,6 @@
 	icon_state = "swatclavam"
 	inhand_icon_state = "balaclava"
 
-/obj/item/clothing/mask/muzzle/ball
-	name = "ballgag"
-	desc = "I'm pretty fuckin far from okay."
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "ballgag"
-
-/obj/item/clothing/mask/muzzle/ring
-	name = "ring gag"
-	desc = "A mouth wrap seemingly designed to hold the mouth open."
-	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "ringgag"
-
 /obj/item/clothing/mask/surgical/greyscale
 	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
