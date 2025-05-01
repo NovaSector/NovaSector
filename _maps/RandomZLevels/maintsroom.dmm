@@ -660,10 +660,10 @@
 	},
 /obj/item/clothing/neck/cross,
 /obj/item/clothing/mask/gas/nightlight,
-/obj/item/storage/belt/holster/cowboy,
 /obj/item/gun/ballistic/revolver/cowboy,
 /obj/item/storage/backpack/tinypakc,
 /obj/effect/light_emitter/fake_outdoors,
+/obj/item/storage/belt/holster,
 /turf/open/floor/holofloor/pure_white,
 /area/awaymission/caves/maintsroom)
 "cJ" = (
