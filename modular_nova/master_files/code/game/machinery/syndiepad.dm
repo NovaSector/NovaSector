@@ -14,7 +14,7 @@
 
 /obj/machinery/computer/piratepad_control
 	/// The market that the items are being sold to.
-	var/nova_export_market = EXPORT_MARKET_PIRACY
+	var/export_market = EXPORT_MARKET_PIRACY
 
 ///Pad for the Syndicate Bounty Control.
 /obj/item/circuitboard/machine/syndiepad
@@ -68,7 +68,7 @@
 	icon_keyboard = "syndie_key"
 	warmup_time = SYN_BOUNTY_PAD_WARM_TIME
 	circuit = /obj/item/circuitboard/computer/syndiepad
-	nova_export_market = EXPORT_MARKET_STATION
+	export_market = EXPORT_MARKET_STATION
 
 	/// The account to add balance
 	var/credits_account = ACCOUNT_INT
