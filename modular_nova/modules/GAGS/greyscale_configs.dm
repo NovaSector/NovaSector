@@ -520,7 +520,7 @@
 
 /datum/greyscale_config/tesharian_mantle/worn
 	name = "Tesharian Mantle (Worn)"
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/tesharian_mantle.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/tesharian_mantle_worn.json'
 
 /datum/greyscale_config/tesharian_mantle/worn/teshari
 	name = "Tesharian Mantle (Worn, Teshari)"
