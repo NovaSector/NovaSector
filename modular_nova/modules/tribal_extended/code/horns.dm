@@ -26,10 +26,20 @@
 		return
 	var/bhorn_origin = get_turf(user)
 	var/tune_played = tune_patterns[current_tune_index]
-	user.show_message(span_notice("You blow the horn as hard as you can."))
-	if (isspaceturf(bhorn_origin))
-		user.emote("tries to blow the horn in space. What did they expect?")
+	if (user.is_mouth_covered())
+		balloon_alert(user, "Something is in the way.")
+		return
+	else if (isspaceturf(bhorn_origin))
+		user.visible_message(
+			span_emote("[user] raises the horn and blows into the void of space. Nothing happens."),
+			span_notice("You try to blow the horn into the vacuum of space. What did you expect?")
+		)
+		return
 	else
+		user.visible_message(
+			span_emote("[user] raises the horn and blows it with all their strength."),
+			span_notice("You blow the horn as hard as you can.")
+		)
 		for (var/mob/hearing_player in range(170, bhorn_origin))
 			if (!hearing_player.can_hear())
 				continue
@@ -55,33 +65,39 @@
 /// War horn structure variant (stationary object)
 /obj/structure/war_horn
 	name = "War horn"
-	desc = "A horn older than memory, shaped by hands long vanished. When it sounds, the ground listens. The breath of old wars still lingers in its coil. One call, and those who remember will answer. (Ctrl-Click to switch tune.)"
+	desc = "A horn older than memory, shaped by hands long vanished. When it sounds, the ground listens. The breath of old wars still lingers in its coil. One call, and those who remember will answer. (Alt-Click to switch tune.)"
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "war_horn"
 	resistance_flags = FLAMMABLE
+	anchored = TRUE
 	var/list/tune_patterns = list("short short long", "long short", "short long short", "long long", "short short short")
 	var/current_tune_index = 1
 
 /// Switch war horn tune on alt-click
 /obj/structure/war_horn/click_alt(mob/living/user)
 	switch_tune(user)
+	return CLICK_ACTION_SUCCESS
 
 /// Plays war horn sound globally to all valid players
 /obj/structure/war_horn/attack_hand(mob/living/user)
 	if (!ishuman(user) || user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
 		balloon_alert(user, "too tired")
 		return
+	else if (user.is_mouth_covered())
+		balloon_alert(user, "Something is in the way.")
 	var/location = get_turf(user)
 	var/tune_played = tune_patterns[current_tune_index]
 	var/loc_text = "the molten wastes of Indecipheres"
 	if (SSmapping.level_trait(2, ZTRAIT_ICE_RUINS_UNDERGROUND) && SSmapping.level_trait(3, ZTRAIT_ICE_RUINS_UNDERGROUND))
 		loc_text = "the depths of Freyja's caves"
-	user.show_message(span_warning("You blow the war horn as hard as you can."))
+	user.visible_message(
+		span_emote("[user] braces and lets out a thunderous blast on the war horn."),
+		span_warning("You blow the war horn with all your strength.")
+	)
 	for (var/mob/hearing_player in GLOB.player_list)
 		if (!is_mining_level(hearing_player.z) || !hearing_player.can_hear())
 			continue
-		if (hearing_player != user)
-			hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[tune_played]'."))
+		hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[tune_played]'."))
 		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 100, TRUE)
 	user.adjustStaminaLoss(WHORN_STAMINA_USE)
 
