@@ -8288,7 +8288,6 @@
 #include "modular_nova\modules\modular_creatures\code\carp.dm"
 #include "modular_nova\modules\modular_creatures\code\creature.dm"
 #include "modular_nova\modules\modular_creatures\code\sweaterfox.dm"
-#include "modular_nova\modules\modular_creatures\code\telegraph_overrides.dm"
 #include "modular_nova\modules\modular_ert\code\engineer\engineer.dm"
 #include "modular_nova\modules\modular_ert\code\fumigators\ert.dm"
 #include "modular_nova\modules\modular_ert\code\fumigators\fumigator.dm"
