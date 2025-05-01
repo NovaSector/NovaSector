@@ -223,9 +223,12 @@
 	var/mob/user = loc
 	if(attached_hat)
 		attached_hat.forceMove(drop_location())
+		attached_hat = null
 
 	if(!istype(user))
 		return
+
+	qdel(GetComponent(/datum/component/wetsuit))
 	return ..()
 
 // Wearing hats inside the wetworks helmet
