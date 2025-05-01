@@ -59,6 +59,7 @@
 	human_target = parent
 	// when the rune successfully completes the age ritual, it will send the signal... do the proc when we receive the signal
 	RegisterSignal(human_target, COMSIG_RUNE_EVOLUTION, PROC_REF(check_evolution))
+	RegisterSignal(human_target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
 /// Age Ritual handler
 /datum/component/ash_age/proc/check_evolution()
@@ -70,7 +71,6 @@
 
 	// since it was time, go up a stage and now we check what to add
 	current_stage++
-	human_target.remove_status_effect(/datum/status_effect/age_evolve_ready)
 	human_target.apply_status_effect(/datum/status_effect/ash_age)
 	var/datum/species/species_target = human_target.dna.species
 	switch(current_stage)
@@ -119,24 +119,19 @@
 /datum/movespeed_modifier/ash_aged
 	multiplicative_slowdown = -0.2
 
-/datum/status_effect/age_evolve_ready
-	id = "age_evolve_ready"
-	alert_type = null
-
-/datum/status_effect/age_evolve_ready/get_examine_text()
-	return span_warning("[owner.name] has reached the age for evolving!")
+/// Examines
+/datum/component/ash_age/proc/on_examine(atom/target_atom, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	if(human_target.has_status_effect(/datum/status_effect/ash_age))
+		examine_list += span_notice("[human_target] has not yet reached the age for evolving.")
+		return
+	examine_list += span_warning("[human_target] has reached the age for evolving!")
 
 /datum/status_effect/ash_age
 	id = "ash_age"
 	duration = 15 MINUTES
 	show_duration = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/ash_age
-
-/datum/status_effect/ash_age/get_examine_text()
-	return span_notice("[owner.name] has not yet reached the age for evolving.")
-
-/datum/status_effect/ash_age/on_remove()
-	owner.apply_status_effect(/datum/status_effect/age_evolve_ready)
 
 /atom/movable/screen/alert/status_effect/ash_age
 	name = "Ashen Age Fatigue"
