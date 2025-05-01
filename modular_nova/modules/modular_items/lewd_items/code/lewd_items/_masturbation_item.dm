@@ -22,6 +22,7 @@
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "eggplant"
 	inhand_icon_state = "nothing"
+	item_flags = ABSTRACT | DROPDEL | HAND_ITEM
 
 // Jerk off into bottles and onto people.
 /obj/item/hand_item/coom/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
