@@ -1,4 +1,0 @@
-author: "TimErmolt"
-delete-after: True
-changes:
-  - bugfix: "Raptoral cybernetic heads now have the correct eyes sprite, and also retain the eye color selected in character setup."

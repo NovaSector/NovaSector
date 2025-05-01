@@ -1,0 +1,14 @@
+2025-05-01:
+  A.C.M.O.:
+  - rscadd: Added a new science techweb node, Auto-Injecting Medipen Syringes.
+  - rscadd: Added a universal medipen and a low-pressure universal medipen to medical
+      protolathes.
+  - rscadd: Added empty medipens to medical lathe for Epinephrine, Atropine, Oxandrolone,
+      Salicylic Acid, Salbutamol, and Pentetic Acid.
+  - bugfix: Fixed a bug that caused the Medipen Refiller to only refill up to 10u.
+  OrionTheFox:
+  - rscadd: Chaps are now Greyscale, and can now also be used as an accessory! Ctrl-Shift-Click
+      to switch between Accessory and Uniform!
+  TimErmolt:
+  - bugfix: Raptoral cybernetic heads now have the correct eyes sprite, and also retain
+      the eye color selected in character setup.
