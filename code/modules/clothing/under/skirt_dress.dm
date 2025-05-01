@@ -82,8 +82,8 @@
 /obj/item/clothing/under/dress/skirt/plaid
 	name = "plaid skirt"
 	desc = "A preppy plaid skirt with a white blouse."
- 	icon_state = "/obj/item/clothing/under/dress/skirt/plaid"
- 	post_init_icon_state = "plaidskirt"
+	icon_state = "/obj/item/clothing/under/dress/skirt/plaid"
+	post_init_icon_state = "plaidskirt"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 	custom_price = PAYCHECK_CREW
