@@ -13,7 +13,7 @@
 		visible_message("[crawler] begins to lower themself further")
 		if(!do_after(crawler, 3 SECONDS, extra_checks = CALLBACK(crawler, PROC_REF(can_army_crawl))))
 			if(!crawler.resting)
-				balloon_alert(crawler, "must be laying down!")
+				balloon_alert(crawler, "must remain lying down!")
 			return
 		crawler.AddComponent(/datum/component/prone_mob, block_hands = TRUE)
 	else
