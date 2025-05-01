@@ -1,0 +1,7 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Makes all Virology viruses get a health indicator when they regen, with a notable exception of the stealth version of Regenerative Coma, for obvious reasons."
+  - balance: "Makes Hemopages regen get a health indicator when they regen."
+  - balance: "Makes Slime People regen get a health indicator when they regen."
+  - balance: "Makes Pod People / Plant Persons regen get a health indicator when they regen., and show an annoyed one when dying from being starved."
