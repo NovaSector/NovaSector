@@ -15,3 +15,39 @@
 		return
 	return ..()
 
+// We overwrite every symptom to use our proc
+/datum/symptom/heal/starlight/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(M)
+
+/datum/symptom/heal/darkness/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(M)
+
+/datum/symptom/heal/coma/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(M)
+
+/datum/symptom/heal/water/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(M)
+
+/datum/symptom/heal/plasma/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(M)
+
+/datum/symptom/heal/radiation/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
+	. = ..()
+	if(!.)
+		return
+	display_heal_visual(M)
