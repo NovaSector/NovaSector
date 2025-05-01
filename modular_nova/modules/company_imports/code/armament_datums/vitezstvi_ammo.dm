@@ -24,10 +24,10 @@
 /datum/armament_entry/company_import/vitezstvi/accessory
 	subcategory = "Weapon Accessories"
 	cost = PAYCHECK_COMMAND
-
+/*
 /datum/armament_entry/company_import/vitezstvi/accessory/suppressor
 	item_type = /obj/item/suppressor/standard
-
+*/
 /datum/armament_entry/company_import/vitezstvi/accessory/seclight
 	item_type = /obj/item/flashlight/seclite
 
@@ -53,7 +53,7 @@
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes
 	subcategory = "Ammunition Boxes"
 	cost = PAYCHECK_CREW
-
+/*
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_lethal
 	item_type = /obj/item/ammo_box/c9mm
 
@@ -62,10 +62,10 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_ap
 	item_type = /obj/item/ammo_box/c9mm/ap
-
+*/
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/peacekeeper_rubber
 	item_type = /obj/item/ammo_box/c9mm/rubber
-
+/*
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_lethal
 	item_type = /obj/item/ammo_box/c10mm
 
@@ -122,10 +122,10 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/trappiste585_incendiary
 	item_type = /obj/item/ammo_box/c585trappiste/incendiary
-
+*/
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/kineticballs
 	item_type = /obj/item/ammo_box/advanced/kineticballs
-
+/*
 // Revolver speedloaders
 
 /datum/armament_entry/company_import/vitezstvi/speedloader
@@ -202,3 +202,4 @@
 /datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
 	restricted = TRUE
+*/

@@ -104,7 +104,7 @@
 /datum/armament_entry/company_import/nri_surplus/misc/nri_flag
 	item_type = /obj/item/sign/flag/nri
 	cost = PAYCHECK_CREW * 0.5
-
+/*
 /datum/armament_entry/company_import/nri_surplus/firearm
 	subcategory = "Firearms"
 	cost = PAYCHECK_COMMAND * 6
@@ -180,3 +180,4 @@
 /datum/armament_entry/company_import/nri_surplus/firearm_ammo/amr_magazine
 	item_type = /obj/item/ammo_box/magazine/wylom
 	cost = PAYCHECK_CREW * 3
+*/

@@ -84,7 +84,7 @@
 /datum/armament_entry/company_import/sol_defense/case/carwo
 	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	cost = PAYCHECK_COMMAND * 2
-
+/*
 /datum/armament_entry/company_import/sol_defense/sidearm
 	subcategory = "Sidearms"
 	cost = PAYCHECK_COMMAND * 4
@@ -118,10 +118,10 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm/sindano
 	item_type = /obj/item/gun/ballistic/automatic/sol_smg
-
+*/
 /datum/armament_entry/company_import/sol_defense/longarm/type213
 	item_type = /obj/item/gun/ballistic/automatic/type213
-
+/*
 /datum/armament_entry/company_import/sol_defense/longarm/br38
 	item_type = /obj/item/gun/ballistic/automatic/battle_rifle
 	cost = PAYCHECK_COMMAND * 8
@@ -145,7 +145,7 @@
 /* //
 datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23 
+	cost = PAYCHECK_COMMAND * 23
 */ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko
@@ -170,13 +170,13 @@ datum/armament_entry/company_import/sol_defense/longarm/outomaties
 
 /datum/armament_entry/company_import/sol_defense/magazines/br38
 	item_type = /obj/item/ammo_box/magazine/m38/empty
-
+*/
 /datum/armament_entry/company_import/sol_defense/magazines/kineticballs
 	item_type = /obj/item/ammo_box/magazine/kineticballs/starts_empty
 
 /datum/armament_entry/company_import/sol_defense/magazines/kineticballsbig
 	item_type = /obj/item/ammo_box/magazine/kineticballsbig/starts_empty
-
+/*
 /datum/armament_entry/company_import/sol_defense/magazines/sol_rifle_standard
 	item_type = /obj/item/ammo_box/magazine/c40sol_rifle/standard/starts_empty
 	cost = PAYCHECK_COMMAND
@@ -199,3 +199,4 @@ datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/ammo_box/magazine/jager/large/empty
 	cost = PAYCHECK_CREW * 3
 	restricted = TRUE
+*/

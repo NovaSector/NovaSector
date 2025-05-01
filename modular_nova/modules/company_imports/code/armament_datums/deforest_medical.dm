@@ -245,7 +245,7 @@
 /datum/armament_entry/company_import/deforest/cyber_implants
 	subcategory = "Cybernetic Implants"
 	cost = PAYCHECK_COMMAND * 3
-
+/*
 /datum/armament_entry/company_import/deforest/cyber_implants/razorwire
 	name = "Razorwire Spool Implant"
 	item_type = /obj/item/organ/cyberimp/arm/razorwire
@@ -253,7 +253,7 @@
 /datum/armament_entry/company_import/deforest/cyber_implants/shell_launcher
 	name = "Shell Launch System Implant"
 	item_type = /obj/item/organ/cyberimp/arm/shell_launcher
-
+*/
 /datum/armament_entry/company_import/deforest/cyber_implants/sandy
 	name = "Qani-Laaca Sensory Computer Implant"
 	item_type = /obj/item/organ/cyberimp/sensory_enhancer
