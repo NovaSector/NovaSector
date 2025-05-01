@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - bugfix: "Fixed the syndiepads to function and properly \"calculate\" value of of objects on them."
