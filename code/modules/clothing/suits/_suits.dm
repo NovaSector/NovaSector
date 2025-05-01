@@ -24,7 +24,11 @@
 		return
 
 	if(damaged_clothes)
-		. += mutable_appearance('icons/effects/item_damage.dmi', "damaged[blood_overlay_type]")
+		//. += mutable_appearance('icons/effects/item_damage.dmi', "damaged[blood_overlay_type]") // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION BEGIN
+		var/damagefile2use = (mutant_styles & STYLE_TAUR_ALL) ? 'modular_nova/master_files/icons/mob/64x32_item_damage.dmi' : 'icons/effects/item_damage.dmi'
+		. += mutable_appearance(damagefile2use, "damaged[blood_overlay_type]")
+		//NOVA EDIT ADDITION END
 
 	// NOVA EDIT ADDITION START - TAUR-FULLBODY SUITS
 	if(mutant_styles & STYLE_TAUR_ALL)
