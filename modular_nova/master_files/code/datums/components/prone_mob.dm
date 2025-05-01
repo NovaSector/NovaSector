@@ -24,6 +24,7 @@
 	))
 	return ..()
 
+/// Removes the component from the mob, along with any traits, and restores the mob's layer/passtable flags.
 /datum/component/prone_mob/proc/stop_army_crawl(mob/living/source)
 	SIGNAL_HANDLER
 	source = parent
