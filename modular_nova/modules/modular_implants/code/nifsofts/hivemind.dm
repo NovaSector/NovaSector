@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 		QDEL_NULL(keyboard_action)
 
 	if(linked_keyboard)
-		qdel(linked_keyboard)
+		QDEL_NULL(linked_keyboard)
 
 	linked_keyboard = null
 
@@ -61,7 +61,7 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 		to_chat(hivemind_owner, span_abductor("[linked_mob] has left your Hivemind."))
 		to_chat(linked_mob, span_abductor("You have left [hivemind_owner]'s Hivemind."))
 
-	qdel(user_network)
+	QDEL_NULL(user_network)
 	return ..()
 
 /datum/nifsoft/hivemind/activate()

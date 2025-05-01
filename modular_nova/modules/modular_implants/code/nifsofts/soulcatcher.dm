@@ -62,14 +62,14 @@
 /datum/nifsoft/soulcatcher/Destroy()
 	if(soulcatcher_action)
 		soulcatcher_action.Remove()
-		qdel(soulcatcher_action)
+		QDEL_NULL(soulcatcher_action)
 
 	if(linked_soulcatcher)
 		var/datum/component/soulcatcher/current_soulcatcher = linked_soulcatcher.resolve()
 		if(current_soulcatcher)
-			qdel(current_soulcatcher)
+			QDEL_NULL(current_soulcatcher)
 
-	qdel(soul_holder)
+	QDEL_NULL(soul_holder)
 
 	return ..()
 

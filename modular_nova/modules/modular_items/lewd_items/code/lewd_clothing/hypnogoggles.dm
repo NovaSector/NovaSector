@@ -26,7 +26,6 @@
 	if(!isnull(new_codephrase))
 		codephrase = new_codephrase
 
-
 /obj/item/clothing/glasses/hypno/equipped(mob/living/user, slot)
 	. = ..()
 	if(!(slot & ITEM_SLOT_EYES))

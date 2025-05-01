@@ -168,7 +168,7 @@
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
-	. = ..()
+	return ..()
 
 /obj/machinery/rnd/rna_recombinator/attackby(obj/item/weapon, mob/living/user, params)
 	if(user.combat_mode)
