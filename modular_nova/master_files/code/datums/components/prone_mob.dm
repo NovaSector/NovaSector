@@ -21,7 +21,7 @@
 	UnregisterSignal(parent, list(
 		COMSIG_LIVING_GET_PULLED,
 		COMSIG_LIVING_TRY_PULL,
-		))
+	))
 	return ..()
 
 /datum/component/prone_mob/proc/stop_army_crawl(mob/living/source)
