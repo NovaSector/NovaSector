@@ -17,7 +17,7 @@
 			return
 		crawler.AddComponent(/datum/component/prone_mob, block_hands = TRUE)
 	else
-		balloon_alert(crawler, "must be laying down!")
+		balloon_alert(crawler, "must be lying down!")
 
 /mob/living/carbon/proc/can_army_crawl()
 	return resting
