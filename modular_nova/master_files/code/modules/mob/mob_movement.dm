@@ -20,5 +20,6 @@
 	else
 		balloon_alert(crawler, "must be lying down!")
 
+/// Checks if the user is lying down (resting)
 /mob/living/carbon/proc/can_army_crawl()
 	return resting
