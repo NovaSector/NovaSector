@@ -162,7 +162,7 @@
 	)
 	return ..()
 
-/datum/techweb_node/gene_engineering/New()
+/datum/techweb_node/medbay_equip_adv/New()
 	design_ids += list(
 		"self_actualization_device",
 	)
