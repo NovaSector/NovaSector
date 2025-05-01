@@ -9,12 +9,12 @@
 
 /datum/emote/living/lewd/fap/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	var/obj/item/hand_item/coom/N = new(user)
-	if(user.put_in_hands(N))
-		to_chat(user, span_notice("You ready your hand."))
+	var/obj/item/hand_item/coom/eggplant = new(user)
+	if(user.put_in_hands(eggplant))
+		to_chat(user, span_notice("You ready your hand..."))
 	else
-		qdel(N)
-		to_chat(user, span_warning("You're incapable of masturbating like this in your current state."))
+		qdel(eggplant)
+		user.balloon_alert(user, "no free hand!")
 
 /obj/item/hand_item/coom
 	name = "cum"
