@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscdel: "Removed the melee telegraphs we had overriding mobs, now we use 100% the TG AI based attack delays, which are more efficient."
