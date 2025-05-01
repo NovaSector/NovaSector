@@ -92,6 +92,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SERVICE)
 
 /datum/techweb_node/scythe_t2
 	id = TECHWEB_NODE_SCYTHE_2
@@ -103,6 +104,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SERVICE)
 
 /datum/supply_pack/organic/tier3_scythe
 	name = "Tier 3 Scythe"
