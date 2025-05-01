@@ -9,6 +9,7 @@
 		if(!do_after(crawler, 3 SECONDS))
 			return
 		SEND_SIGNAL(crawler, COMSIG_MOVABLE_REMOVE_PRONE_STATE)
+		return
 	else if(crawler.can_army_crawl())
 		visible_message("[crawler] begins to lower themself further")
 		if(!do_after(crawler, 3 SECONDS, extra_checks = CALLBACK(crawler, PROC_REF(can_army_crawl))))
