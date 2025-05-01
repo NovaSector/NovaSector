@@ -387,7 +387,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/headset_solfed
-	does_not_generate_gags_preview = TRUE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	icon = 'icons/map_icons/items/item.dmi'
 
 /obj/item/encryptionkey/headset_solfed/atmos

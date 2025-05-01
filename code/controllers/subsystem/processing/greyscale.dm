@@ -151,7 +151,7 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 		handled_types[atom_type] = TRUE
 		var/greyscale_config = atom_type::greyscale_config
 		var/greyscale_colors = atom_type::greyscale_colors
-		if(!greyscale_config || !greyscale_colors || atom_type::does_not_generate_gags_preview)
+		if(!greyscale_config || !greyscale_colors || atom_type::flags_1 & NO_NEW_GAGS_PREVIEW_1)
 			continue
 		var/icon/map_icon = icon(GetColoredIconByType(greyscale_config, greyscale_colors))
 		if((map_icon.Height() > 32) || (map_icon.Width() > 32)) // No large icons, use icon_preview and icon_preview_state instead.

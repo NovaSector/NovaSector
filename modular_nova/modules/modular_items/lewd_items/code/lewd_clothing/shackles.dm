@@ -56,7 +56,7 @@
 /obj/item/clothing/suit/straight_jacket/shackles/reinforced
 	name = "reinforced shackles"
 	desc = "A set of sturdy shackles, with a heavy lock."
-	does_not_generate_gags_preview = TRUE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = 10 SECONDS
 	strip_delay = 12 SECONDS

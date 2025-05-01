@@ -333,7 +333,7 @@
 	return
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer
-	does_not_generate_gags_preview = TRUE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer1
 	piping_layer = 1
@@ -351,7 +351,7 @@
 	on = TRUE
 	icon_state = "/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on"
 	post_init_icon_state = "thermo_1"
-	does_not_generate_gags_preview = FALSE
+	flags_1 = /obj/machinery/atmospherics/components/unary/thermomachine::flags_1 // we want this one to generate a preview
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/Initialize(mapload)
 	. = ..()
@@ -367,7 +367,7 @@
 	target_temperature = COLD_ROOM_TEMP
 
 /obj/machinery/atmospherics/components/unary/thermomachine/heater
-	does_not_generate_gags_preview = TRUE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/machinery/atmospherics/components/unary/thermomachine/heater/layer1
 	piping_layer = 1
@@ -385,6 +385,6 @@
 	on = TRUE
 	icon_state = "/obj/machinery/atmospherics/components/unary/thermomachine/heater/on"
 	post_init_icon_state = "thermo_1"
-	does_not_generate_gags_preview = FALSE
+	flags_1 = /obj/machinery/atmospherics/components/unary/thermomachine::flags_1 // we want this one to generate a preview
 
 #undef THERMOMACHINE_POWER_CONVERSION

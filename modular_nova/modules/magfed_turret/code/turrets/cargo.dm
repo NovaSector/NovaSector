@@ -24,7 +24,7 @@
 	)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled
-	does_not_generate_gags_preview = TRUE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/toy/pre_filled/PopulateContents()
 	new /obj/item/ammo_box/magazine/toy/smg(src)
