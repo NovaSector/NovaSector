@@ -2300,6 +2300,9 @@
 /obj/effect/decal/cleanable/robot_debris/down,
 /obj/item/clothing/under/costume/skeleton,
 /obj/item/clothing/mask/gas/prop,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "iK" = (
@@ -2980,6 +2983,9 @@
 	pixel_y = 2
 	},
 /obj/effect/decal/cleanable/fuel_pool,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "lk" = (
@@ -4765,6 +4771,9 @@
 	},
 /obj/item/stock_parts/servo,
 /obj/item/stock_parts/subspace/filter,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "sA" = (
@@ -9682,6 +9691,9 @@
 "LV" = (
 /obj/item/kirbyplants/synthetic/plant29,
 /mob/living/basic/mouse/rat,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "LW" = (
@@ -9689,6 +9701,9 @@
 /obj/item/trash/syndi_cakes,
 /obj/effect/decal/cleanable/plastic,
 /obj/item/t_scanner,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "LY" = (
@@ -11471,6 +11486,9 @@
 /obj/effect/decal/cleanable/oil,
 /obj/item/reagent_containers/cup/bottle/morphine,
 /mob/living/basic/mouse/rat,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "Tb" = (
@@ -11804,6 +11822,9 @@
 /obj/item/restraints/handcuffs/cable/zipties/used,
 /obj/effect/spawner/random/decoration/flower,
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "Ur" = (
