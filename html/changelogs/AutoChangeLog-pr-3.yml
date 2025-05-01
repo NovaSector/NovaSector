@@ -1,4 +1,0 @@
-author: "81fm"
-delete-after: True
-changes:
-  - bugfix: "polymorph belt no longer messes with your sprite when scanning a creature"
