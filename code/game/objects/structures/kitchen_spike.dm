@@ -1,8 +1,8 @@
 #define MEATSPIKE_IRONROD_REQUIREMENT 4
 
-/obj/structure/kitchenspike_frame//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/kitchenspike_frame
 	name = "meatspike frame"
-	icon = 'icons/obj/service/kitchen.dmi'
+	icon = 'icons/obj/service/kitchen.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "spikeframe"
 	desc = "The frame of a meat spike."
 	density = TRUE
@@ -50,7 +50,7 @@
 	default_unfasten_wrench(user, tool)
 	return TRUE
 
-/obj/structure/kitchenspike_frame/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/kitchenspike_frame/attackby(obj/item/attacking_item, mob/user, list/modifiers)
 	add_fingerprint(user)
 	if(!istype(attacking_item, /obj/item/stack/rods))
 		return ..()
@@ -64,9 +64,9 @@
 		return
 	balloon_alert(user, "[MEATSPIKE_IRONROD_REQUIREMENT] rods needed!")
 
-/obj/structure/kitchenspike//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/structure/kitchenspike
 	name = "meat spike"
-	icon = 'icons/obj/service/kitchen.dmi'
+	icon = 'icons/obj/service/kitchen.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "spike"
 	desc = "A spike for collecting meat from animals."
 	density = TRUE

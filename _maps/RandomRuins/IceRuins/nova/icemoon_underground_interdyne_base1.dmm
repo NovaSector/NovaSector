@@ -1339,7 +1339,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/machinery/door/airlock/security/old/glass{
+/obj/machinery/door/airlock/security/glass{
 	name = " Observation Center"
 	},
 /turf/open/floor/iron/smooth_large,
@@ -2416,7 +2416,7 @@
 /area/ruin/interdyne_planetary_base/med/pharm)
 "gB" = (
 /obj/machinery/smartfridge/chemistry/preloaded{
-	initial_contents = list(/obj/item/reagent_containers/pill/epinephrine=12, /obj/item/reagent_containers/pill/multiver=5, /obj/item/reagent_containers/cup/bottle/epinephrine=1, /obj/item/reagent_containers/cup/bottle/multiver=1, /obj/item/storage/pill_bottle/sansufentanyl=10, /obj/item/storage/pill_bottle/mannitol=1)
+	initial_contents = list(/obj/item/reagent_containers/applicator/pill/epinephrine=12, /obj/item/reagent_containers/applicator/pill/multiver=5, /obj/item/reagent_containers/cup/bottle/epinephrine=1, /obj/item/reagent_containers/cup/bottle/multiver=1, /obj/item/storage/pill_bottle/sansufentanyl=10, /obj/item/storage/pill_bottle/mannitol=1)
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/med/pharm)

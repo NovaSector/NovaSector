@@ -26,6 +26,7 @@
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_OCLOTHING)
 
 	allowed += /obj/item/forging/reagent_weapon
+	allowed += /obj/item/kinetic_crusher
 
 // Gloves
 /obj/item/clothing/gloves/forging_plate_gloves
@@ -129,7 +130,10 @@
 	desc = "A collar that is ready to be worn for certain individuals."
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
-	icon_state = "collar_cyan"
+	icon_state = "thick_strip"
+	greyscale_colors = null
+	greyscale_config = null
+	greyscale_config_worn = null
 	inhand_icon_state = null
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK

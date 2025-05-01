@@ -14,7 +14,7 @@ GLOBAL_DATUM_INIT(status_font, /datum/font, new /datum/font/tiny_unicode/size_12
 /obj/machinery/status_display
 	name = "status display"
 	desc = null
-	icon = 'icons/obj/machines/status_display.dmi' //// NOVA EDIT CHANGE - ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/status_display.dmi'
 	icon_state = "frame"
 	verb_say = "beeps"
 	verb_ask = "beeps"
@@ -224,7 +224,7 @@ GLOBAL_LIST_EMPTY(key_to_status_display)
 			if(message1 == "" && message2 == "")
 				return
 
-	. += emissive_appearance('modular_nova/modules/aesthetics/status_display/icons/status_display.dmi', "outline", src, alpha = src.alpha) // NOVA EDIT CHANGE - AESTHETICS
+	. += emissive_appearance(icon, "outline", src, alpha = src.alpha)
 
 // Timed process - performs nothing in the base class
 /obj/machinery/status_display/process()
@@ -391,10 +391,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/status_display,
 	))
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_sec_level_change))
 	find_and_hang_on_wall()
 
 /obj/machinery/status_display/evac/Destroy()
 	SSradio.remove_object(src,frequency)
+	UnregisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED)
 	return ..()
 
 /obj/machinery/status_display/evac/process()
@@ -457,6 +459,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 	if(vname == NAMEOF(src, current_mode))
 		update_appearance()
 		update()
+
+/// Signal handler for [COMSIG_SECURITY_LEVEL_CHANGED] - Autoupdates our display to show current alert level.
+/// Changes only when we are in 'alert' mode ([SD_PICTURE] and one of the alert's icon state already set)
+/obj/machinery/status_display/evac/proc/on_sec_level_change(datum/source, new_level)
+	SIGNAL_HANDLER
+	if(current_mode != SD_PICTURE)
+		return
+	if(!(current_picture in SSsecurity_level.alert_level_icons))
+		return
+
+	var/datum/security_level/alert_level = SSsecurity_level.available_levels[SSsecurity_level.number_level_to_text(new_level)]
+	set_picture(alert_level.status_display_icon_state)
 
 /// Supply display which shows the status of the supply shuttle.
 /obj/machinery/status_display/supply
@@ -587,10 +601,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 		"Red Alert" = "redalert",
 		"Blue Alert" = "bluealert",
 		"Green Alert" = "greenalert",
-		"Violet Alert" = "violetalert", // NOVA EDIT ADD - Alert Levels
-		"Orange Alert" = "orangealert", // NOVA EDIT ADD - Alert Levels
-		"Amber Alert" = "amberalert", // NOVA EDIT ADD - Alert Levels
-		"Gamma Alert" = "gammaalert", // NOVA EDIT ADD - Alert Levels
 		"Biohazard" = "biohazard",
 		"Lockdown" = "lockdown",
 		"Radiation" = "radiation",
@@ -607,8 +617,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 	command = add_option_port("Command", command_options)
 	command_map = command_options
 
-	picture = add_option_port("Picture", picture_options)
-	picture_map = picture_options
+	picture = add_option_port("Picture", picture_options + GLOB.alert_picture_options_nova) // NOVA EDIT CHANGE - ORIGINAL: picture = add_option_port("Picture", picture_options)
+	picture_map = picture_options + GLOB.alert_picture_options_nova // NOVA EDIT CHANGE - ORIGINAL: picture_map = picture_options
 
 /obj/item/circuit_component/status_display/register_usb_parent(atom/movable/shell)
 	. = ..()

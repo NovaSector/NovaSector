@@ -45,19 +45,19 @@
 
 	var/obj/item/bodypart/arm/left/left_arm = human_holder.get_bodypart(BODY_ZONE_L_ARM)
 	if(left_arm)
-		left_arm.unarmed_damage_high = initial(left_arm.unarmed_damage_high)
+		left_arm.unarmed_damage_high -= OVERSIZED_HARM_DAMAGE_BONUS
 
 	var/obj/item/bodypart/arm/right/right_arm = human_holder.get_bodypart(BODY_ZONE_R_ARM)
 	if(right_arm)
-		right_arm.unarmed_damage_high = initial(right_arm.unarmed_damage_high)
+		right_arm.unarmed_damage_high -= OVERSIZED_HARM_DAMAGE_BONUS
 
 	var/obj/item/bodypart/leg/left_leg = human_holder.get_bodypart(BODY_ZONE_L_LEG)
-	if (left_leg)
-		left_leg.unarmed_effectiveness = initial(left_leg.unarmed_effectiveness)
+	if(left_leg)
+		left_leg.unarmed_effectiveness -= OVERSIZED_KICK_EFFECTIVENESS_BONUS
 
 	var/obj/item/bodypart/leg/right_leg = human_holder.get_bodypart(BODY_ZONE_R_LEG)
-	if (right_leg)
-		right_leg.unarmed_effectiveness = initial(right_leg.unarmed_effectiveness)
+	if(right_leg)
+		right_leg.unarmed_effectiveness -= OVERSIZED_KICK_EFFECTIVENESS_BONUS
 
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		bodypart.name = replacetext(bodypart.name, "oversized ", "")
@@ -91,14 +91,14 @@
 	// Oversized arms have a higher damage maximum. Pretty simple.
 	if(istype(gained, /obj/item/bodypart/arm))
 		var/obj/item/bodypart/arm/new_arm = gained
-		new_arm.unarmed_damage_high = initial(new_arm.unarmed_damage_high) + OVERSIZED_HARM_DAMAGE_BONUS
+		new_arm.unarmed_damage_high += OVERSIZED_HARM_DAMAGE_BONUS
 
 	// Before this, we never actually did anything with Oversized legs.
 	// This brings their unarmed_effectiveness up to 20 from 15, which is on par with mushroom legs.
 	// Functionally, this makes their prone kicks more accurate and increases the chance of extending prone knockdown... but only while the victim is already prone.
 	else if(istype(gained, /obj/item/bodypart/leg))
 		var/obj/item/bodypart/leg/new_leg = gained
-		new_leg.unarmed_effectiveness = initial(new_leg.unarmed_effectiveness) + OVERSIZED_KICK_EFFECTIVENESS_BONUS
+		new_leg.unarmed_effectiveness += OVERSIZED_KICK_EFFECTIVENESS_BONUS
 
 	gained.name = "oversized " + gained.name
 

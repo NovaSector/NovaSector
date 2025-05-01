@@ -33,6 +33,7 @@
 /datum/armament_entry/company_import/microstar/basic_energy_long_weapons/laser
 	item_type = /obj/item/gun/energy/laser
 	cost = PAYCHECK_CREW * 5
+	restricted = TRUE
 
 /datum/armament_entry/company_import/microstar/basic_energy_long_weapons/laser_carbine
 	item_type = /obj/item/gun/energy/laser/carbine
@@ -42,6 +43,7 @@
 /datum/armament_entry/company_import/microstar/basic_energy_long_weapons/egun
 	item_type = /obj/item/gun/energy/e_gun
 	cost = PAYCHECK_COMMAND * 4
+	restricted = TRUE
 
 /datum/armament_entry/company_import/microstar/basic_energy_long_weapons/mod_laser_small
 	item_type = /obj/item/gun/energy/modular_laser_rifle/carbine
@@ -59,12 +61,15 @@
 
 /datum/armament_entry/company_import/microstar/experimental_energy/hellfire
 	item_type = /obj/item/gun/energy/laser/hellgun
+	restricted = TRUE
 
 /datum/armament_entry/company_import/microstar/experimental_energy/ion_carbine
 	item_type = /obj/item/gun/energy/ionrifle/carbine
+	restricted = TRUE
 
 /datum/armament_entry/company_import/microstar/experimental_energy/xray_gun
 	item_type = /obj/item/gun/energy/xray
+	restricted = TRUE
 
 /datum/armament_entry/company_import/microstar/experimental_energy/tesla_cannon
 	item_type = /obj/item/gun/energy/tesla_cannon

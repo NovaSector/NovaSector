@@ -55,6 +55,9 @@
 /// We are getting this door open if it has not been physically held shut somehow. Play a special sound to signify this level of opening.
 #define BYPASS_DOOR_CHECKS 2
 
+/// Damage dealth to an airlock when prie
+#define AIRLOCK_PRY_DAMAGE 25
+
 //used in design to specify which machine can build it
 //Note: More than one of these can be added to a design but imprinter and lathe designs are incompatible.
 #define IMPRINTER (1<<0) //For circuits. Uses glass/chemicals.
@@ -134,7 +137,7 @@
 #define ORION_GAMER_REPORT_THRESHOLD 2
 
 /// What's the minimum duration of a syndie bomb (in seconds)
-#define SYNDIEBOMB_MIN_TIMER_SECONDS 90
+#define SYNDIEBOMB_MIN_TIMER_SECONDS 600 // NOVA EDIT CHANGE - ORIGINAL: #define SYNDIEBOMB_MIN_TIMER_SECONDS 90
 
 // Camera upgrade bitflags.
 #define CAMERA_UPGRADE_XRAY (1<<0)

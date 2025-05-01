@@ -142,6 +142,10 @@
 *	FEDORAS
 */
 
+/datum/loadout_item/head/greyscale_fedora
+	name = "Recolorable Fedora"
+	item_path = /obj/item/clothing/head/fedora/greyscale
+
 /datum/loadout_item/head/black_fedora
 	name = "Black Fedora"
 	item_path = /obj/item/clothing/head/fedora
@@ -282,6 +286,10 @@
 	name = "Colourable Maid Headband"
 	item_path = /obj/item/clothing/head/maid_headband
 
+/datum/loadout_item/head/tactical_headband
+	name ="tactical maid headband"
+	item_path = /obj/item/clothing/head/costume/maidheadband/syndicate/loadout_headband
+
 /datum/loadout_item/head/hairpin
 	name = "Fancy Hairpin"
 	item_path = /obj/item/clothing/head/costume/hairpin
@@ -405,12 +413,18 @@
 /datum/loadout_item/head/maidhead
 	name = "Simple Maid Headband"
 	item_path = /obj/item/clothing/head/costume/nova/maid
-	additional_displayed_text = list("Top of Head")
+
+/datum/loadout_item/head/maidhead/get_item_information()
+	. = ..()
+	.[FA_ICON_HAT_COWBOY] = "Top of Head"
 
 /datum/loadout_item/head/maidhead2
 	name = "Frilly Maid Headband"
 	item_path = /obj/item/clothing/head/costume/maidheadband
-	additional_displayed_text = list("Behind Ears")
+
+/datum/loadout_item/head/maidhead2/get_item_information()
+	. = ..()
+	.[FA_ICON_EAR_DEAF] = "Behind Ears"
 
 /datum/loadout_item/head/wig
 	name = "Wig"
@@ -599,12 +613,7 @@
 
 /datum/loadout_item/head/officerberet
 	name = "Security Officer's Beret"
-	item_path = /obj/item/clothing/head/beret/sec/peacekeeper
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
-
-/datum/loadout_item/head/solpolicehelmet
-	name = "Sol Police Helmet"
-	item_path = /obj/item/clothing/head/helmet/sec/sol 
+	item_path = /obj/item/clothing/head/beret/sec/nova
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 
 /datum/loadout_item/head/officerpatrolcap
@@ -750,9 +759,16 @@
 /datum/loadout_item/head/donator/rainbow_bunch
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/head/donator/rainbow_bunch/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 // Legacy unpaintable cowboy hat because it fits a character better
 /datum/loadout_item/head/cowboyhat_legacy
 	name = "Cowboy Hat (Legacy)"
 	item_path = /obj/item/clothing/head/costume/cowboyhat_old
+
+/datum/loadout_item/head/cone_of_shame
+	name = "Cone of Shame"
+	item_path = /obj/item/clothing/head/cone_of_shame
