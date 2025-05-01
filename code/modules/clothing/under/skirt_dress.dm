@@ -82,13 +82,12 @@
 /obj/item/clothing/under/dress/skirt/plaid
 	name = "plaid skirt"
 	desc = "A preppy plaid skirt with a white blouse."
+ 	icon_state = "/obj/item/clothing/under/dress/skirt/plaid"
+ 	post_init_icon_state = "plaidskirt"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = "#CC2102"
-	icon = 'icons/map_icons/clothing/under.dmi'
-	icon_state = "/obj/item/clothing/under/dress/skirt/plaid"
-	post_init_icon_state = "plaidskirt"
 	greyscale_config = /datum/greyscale_config/plaidskirt
 	greyscale_config_worn = /datum/greyscale_config/plaidskirt/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/plaidskirt/worn/digi //NOVA EDIT ADDITION - DigiGreyscale

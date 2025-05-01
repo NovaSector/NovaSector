@@ -205,11 +205,11 @@
 
 /// A 3x3 heretic rune. The kind heretics actually draw in game.
 /obj/effect/heretic_rune/big
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "transmutation_rune"
 	pixel_x = -30
 	pixel_y = 18
 	pixel_z = -48
-	icon = 'icons/effects/96x96.dmi'
-	icon_state = "transmutation_rune"
 	greyscale_config = /datum/greyscale_config/heretic_rune
 
 /obj/effect/heretic_rune/big/Initialize(mapload, path_colour)
@@ -218,14 +218,14 @@
 		set_greyscale(colors = list(path_colour))
 
 /obj/effect/temp_visual/drawing_heretic_rune
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "transmutation_rune"
 	duration = 30 SECONDS
 	pixel_x = -30
 	pixel_y = 18
 	pixel_z = -48
 	plane = FLOOR_PLANE
 	layer = RUNE_LAYER
-	icon = 'icons/effects/96x96.dmi'
-	icon_state = "transmutation_rune"
 	greyscale_config = /datum/greyscale_config/heretic_rune
 	/// We only set this state after setting the colour, otherwise the animation doesn't colour correctly
 	var/animation_state = "transmutation_rune_draw"

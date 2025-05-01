@@ -104,6 +104,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/apron/chef/colorable_apron/primitive_catgirl_leather
+	icon_state = "/obj/item/clothing/suit/apron/chef/colorable_apron/primitive_catgirl_leather"
 	greyscale_colors = "#594032"
 
 // Shoes
