@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Armor is no longer restricted on Cargo Imports. Vokshod Modsuit kit is still restricted, but not the depowered version."
