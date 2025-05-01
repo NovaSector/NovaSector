@@ -30,5 +30,5 @@
 	source = parent
 	parent.remove_traits(list(TRAIT_PRONE, TRAIT_FLOORED, TRAIT_NO_THROWING, TRAIT_HANDS_BLOCKED, TRAIT_IGNORE_ELEVATION), type)
 	passtable_off(parent, type)
-	source.layer = MOB_LAYER
+	source.layer = initial(source.layer)
 	qdel(src)
