@@ -42,6 +42,8 @@
 
 /datum/species/monkey/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
+	if (pref_load)
+		ADD_TRAIT(human_who_gained_species, TRAIT_BORN_MONKEY, INNATE_TRAIT) // Not a species trait, you cannot escape your genetic destiny
 	passtable_on(human_who_gained_species, SPECIES_TRAIT)
 	// NOVA EDIT ADDITION START - Add this later on for roundstart kobolds until we can figure out why adding mutations breaks the char preveiew
 	if(pref_load && istype(src, /datum/species/monkey/kobold))
@@ -105,12 +107,6 @@
 			SPECIES_PERK_NAME = "Primal Primate",
 			SPECIES_PERK_DESC = "Monkeys are primitive humans, and can't do most things a human can do. Computers are impossible, \
 				complex machines are right out, and most clothes don't fit your smaller form.",
-		),
-		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "capsules",
-			SPECIES_PERK_NAME = "Mutadone Averse",
-			SPECIES_PERK_DESC = "Monkeys are reverted into normal humans upon being exposed to Mutadone.",
 		),
 	)
 

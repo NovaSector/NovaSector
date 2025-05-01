@@ -975,6 +975,7 @@
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ROUND_REMOVE)
 			continue
 		// NOVA EDIT ADDITION END
+		possible_targets += player
 
 	if(possible_targets.len)
 		return pick(possible_targets)
