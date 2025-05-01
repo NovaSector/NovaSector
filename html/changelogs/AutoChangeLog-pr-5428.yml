@@ -1,0 +1,4 @@
+author: "A.C.M.O."
+delete-after: True
+changes:
+  - qol: "Changed the value of the Voice Actor quirk to 0, making it a neutral quirk."
