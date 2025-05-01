@@ -151,6 +151,7 @@
 /obj/item/clothing/under/costume/nova/christmas/green
 	name = "green christmas costume"
 	desc = "4:00, wallow in self-pity. 4:30, stare into the abyss. 5:00, solve world hunger, tell no one. 5:30, jazzercize; 6:30, dinner with me. I can't cancel that again. 7:00, wrestle with my self-loathing. I'm booked. Of course, if I bump the loathing to 9, I could still be done in time to lay in bed, stare at the ceiling and slip slowly into madness."
+	icon_state = "/obj/item/clothing/under/costume/nova/christmas/green"
 	greyscale_colors = "#1a991a#c4c2c2"
 
 /obj/item/clothing/under/costume/nova/christmas/croptop
@@ -170,6 +171,7 @@
 /obj/item/clothing/under/costume/nova/christmas/croptop/green
 	name = "sexy green christmas costume"
 	desc = "Stupid. Ugly. Out of date. If I can't find something nice to wear I'm not going."
+	icon_state = "/obj/item/clothing/under/costume/nova/christmas/croptop/green"
 	greyscale_colors = "#1a991a#c4c2c2"
 
 /*

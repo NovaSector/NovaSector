@@ -66,7 +66,6 @@
 	greyscale_config_worn = /datum/greyscale_config/naval_gold/worn
 	greyscale_colors = "#FF0000#333333"
 
-
 // NECK
 /obj/item/clothing/neck/pauldron
 	name = "lieutenant commander's pauldron"

@@ -9,7 +9,7 @@
 	/// Assoc list of language to how well understood it is. 0 is invalid, 100 is perfect.
 	var/list/language_data
 
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey"
 	post_init_icon_state = "cypherkey_basic"
 	greyscale_config = /datum/greyscale_config/encryptionkey_basic
@@ -50,7 +50,7 @@
 	name = "syndicate encryption key"
 	channels = list(RADIO_CHANNEL_SYNDICATE = 1)
 	special_channels = RADIO_SPECIAL_SYNDIE
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/syndicate"
 	post_init_icon_state = "cypherkey_syndicate"
 	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
@@ -62,7 +62,7 @@
 	language_data = list(
 		/datum/language/machine = 100,
 	)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/binary"
 	post_init_icon_state = "cypherkey_basic"
 	greyscale_config = /datum/greyscale_config/encryptionkey_basic
@@ -71,7 +71,7 @@
 /obj/item/encryptionkey/headset_sec
 	name = "security radio encryption key"
 	channels = list(RADIO_CHANNEL_SECURITY = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_sec"
 	post_init_icon_state = "cypherkey_security"
 	greyscale_config = /datum/greyscale_config/encryptionkey_security
@@ -80,7 +80,7 @@
 /obj/item/encryptionkey/headset_eng
 	name = "engineering radio encryption key"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_eng"
 	post_init_icon_state = "cypherkey_engineering"
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
@@ -89,7 +89,7 @@
 /obj/item/encryptionkey/headset_rob
 	name = "robotics radio encryption key"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_ENGINEERING = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_rob"
 	post_init_icon_state = "cypherkey_engineering"
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
@@ -98,7 +98,7 @@
 /obj/item/encryptionkey/headset_med
 	name = "medical radio encryption key"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_med"
 	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
@@ -107,7 +107,7 @@
 /obj/item/encryptionkey/headset_sci
 	name = "science radio encryption key"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_sci"
 	post_init_icon_state = "cypherkey_research"
 	greyscale_config = /datum/greyscale_config/encryptionkey_research
@@ -116,7 +116,7 @@
 /obj/item/encryptionkey/headset_medsci
 	name = "medical research radio encryption key"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_MEDICAL = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_medsci"
 	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
@@ -125,7 +125,7 @@
 /obj/item/encryptionkey/headset_srvsec
 	name = "law and order radio encryption key"
 	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_SECURITY = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_srvsec"
 	post_init_icon_state = "cypherkey_service"
 	greyscale_config = /datum/greyscale_config/encryptionkey_service
@@ -134,7 +134,7 @@
 /obj/item/encryptionkey/headset_srvmed
 	name = "psychology radio encryption key"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SERVICE = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_srvmed"
 	post_init_icon_state = "cypherkey_service"
 	greyscale_config = /datum/greyscale_config/encryptionkey_service
@@ -143,7 +143,7 @@
 /obj/item/encryptionkey/headset_srvent
 	name = "press radio encryption key"
 	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_ENTERTAINMENT = 0)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_srvent"
 	post_init_icon_state = "cypherkey_service"
 	greyscale_config = /datum/greyscale_config/encryptionkey_service
@@ -152,7 +152,7 @@
 /obj/item/encryptionkey/headset_com
 	name = "command radio encryption key"
 	channels = list(RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_com"
 	post_init_icon_state = "cypherkey_cube"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
@@ -164,7 +164,7 @@
 /obj/item/encryptionkey/heads/captain
 	name = "\proper the captain's encryption key"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/captain"
 	post_init_icon_state = "cypherkey_cube"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
@@ -173,7 +173,7 @@
 /obj/item/encryptionkey/heads/rd
 	name = "\proper the research director's encryption key"
 	channels = list(RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/rd"
 	post_init_icon_state = "cypherkey_research"
 	greyscale_config = /datum/greyscale_config/encryptionkey_research
@@ -182,7 +182,7 @@
 /obj/item/encryptionkey/heads/hos
 	name = "\proper the head of security's encryption key"
 	channels = list(RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/hos"
 	post_init_icon_state = "cypherkey_security"
 	greyscale_config = /datum/greyscale_config/encryptionkey_security
@@ -191,7 +191,7 @@
 /obj/item/encryptionkey/heads/ce
 	name = "\proper the chief engineer's encryption key"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/ce"
 	post_init_icon_state = "cypherkey_engineering"
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
@@ -200,7 +200,7 @@
 /obj/item/encryptionkey/heads/cmo
 	name = "\proper the chief medical officer's encryption key"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/cmo"
 	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
@@ -209,7 +209,7 @@
 /obj/item/encryptionkey/heads/hop
 	name = "\proper the head of personnel's encryption key"
 	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/hop"
 	post_init_icon_state = "cypherkey_cube"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
@@ -218,7 +218,7 @@
 /obj/item/encryptionkey/heads/qm
 	name = "\proper the quartermaster's encryption key"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/heads/qm"
 	post_init_icon_state = "cypherkey_cargo"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
@@ -227,7 +227,7 @@
 /obj/item/encryptionkey/headset_cargo
 	name = "supply radio encryption key"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_cargo"
 	post_init_icon_state = "cypherkey_cargo"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
@@ -236,7 +236,7 @@
 /obj/item/encryptionkey/headset_mining
 	name = "mining radio encryption key"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SCIENCE = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_mining"
 	post_init_icon_state = "cypherkey_cargo"
 	greyscale_config = /datum/greyscale_config/encryptionkey_cargo
@@ -245,7 +245,7 @@
 /obj/item/encryptionkey/headset_service
 	name = "service radio encryption key"
 	channels = list(RADIO_CHANNEL_SERVICE = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_service"
 	post_init_icon_state = "cypherkey_service"
 	greyscale_config = /datum/greyscale_config/encryptionkey_service
@@ -255,7 +255,7 @@
 	name = "\improper CentCom radio encryption key"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_CENTCOM = 1)
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/headset_cent"
 	post_init_icon_state = "cypherkey_centcom"
 	greyscale_config = /datum/greyscale_config/encryptionkey_centcom
@@ -298,7 +298,7 @@
 	name = "syndicate binary encryption key"
 	channels = list(RADIO_CHANNEL_SYNDICATE = 1)
 	special_channels = RADIO_SPECIAL_SYNDIE
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/encryptionkey.dmi'
 	icon_state = "/obj/item/encryptionkey/ai_with_binary"
 	post_init_icon_state = "cypherkey_syndicate"
 	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate

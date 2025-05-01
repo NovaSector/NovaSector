@@ -132,6 +132,8 @@
 /obj/item/clothing/mask/neck_gaiter/syndicate/tacticool
 	name = "tacticool neck gaiter"
 	desc = "A techwear mask. Its low-profile design contrasts with the edge. Has a small respirator to be used with internals."
+	does_not_generate_gags_preview = TRUE
+
 /*
 *	TACTICAL (Real)
 */

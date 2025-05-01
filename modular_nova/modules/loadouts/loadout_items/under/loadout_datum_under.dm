@@ -1176,8 +1176,8 @@
 	item_path = /obj/item/clothing/under/suit/nova/pencil/navy
 
 /datum/loadout_item/under/formal/pencil/burgandy
-	name = "Burgandy Pencilskirt"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/burgandy
+	name = "Burgundy Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/burgundy
 
 /datum/loadout_item/under/formal/pencil/checkered
 	name = "Checkered Pencilskirt with Shirt"

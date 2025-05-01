@@ -83,12 +83,14 @@
 /obj/item/clothing/head/cowboy/nova/flat/sheriff
 	name = "sheriff hat"
 	desc = "A dark brown hat with a smell of whiskey. There's a small set of antlers embroidered on the inside."
+	icon_state = "/obj/item/clothing/head/cowboy/nova/flat/sheriff"
 	greyscale_colors = "#704640#8f89ae"
 	flags_1 = NONE //No recoloring presets
 
 /obj/item/clothing/head/cowboy/nova/flat/deputy
 	name = "deputy hat"
 	desc = "A light brown hat with a smell of iron. There's a small set of antlers embroidered on the inside."
+	icon_state = "/obj/item/clothing/head/cowboy/nova/flat/deputy"
 	greyscale_colors = "#c26934#8f89ae"
 	flags_1 = NONE //No recoloring presets
 
@@ -96,12 +98,14 @@
 	name = "winter sheriff hat"
 	desc = "A dark hat with a matching dark cowl, warm yet breathable. There's a small set of antlers embroidered on the inside."
 	icon_state = "/obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff"
+	icon_state = "/obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff"
 	greyscale_colors = "#3F3F3F#716349#3F3F3F"
 	flags_1 = NONE //No recoloring presets
 
 /obj/item/clothing/head/cowboy/nova/cattleman/sec
 	name = "security cattleman hat"
 	desc = "A security cattleman hat, perfect for any true lawman."
+	icon_state = "/obj/item/clothing/head/cowboy/nova/cattleman/sec"
 	greyscale_colors = "#39393F#3F6E9E"
 	armor_type = /datum/armor/head_helmet
 	flags_1 = NONE //No recoloring presets
@@ -109,6 +113,7 @@
 /obj/item/clothing/head/cowboy/nova/cattleman/wide/sec
 	name = "wide brimmed security cattleman hat"
 	desc = "A bandit turned sheriff, his enforcement is brutal but effective - whether out of fear or respect is unclear, though not many bodies hang high. A peaceful land, a quiet people."
+	icon_state = "/obj/item/clothing/head/cowboy/nova/cattleman/wide/sec"
 	greyscale_colors = "#39393F#3F6E9E"
 	armor_type = /datum/armor/head_helmet
 	flags_1 = NONE //No recoloring presets

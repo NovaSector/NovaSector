@@ -164,8 +164,7 @@
 /obj/item/clothing/mask/bandana/striped/black
 	name = "striped bandana"
 	desc = "A fine black and white bandana with nanotech lining and a stripe across."
-	icon_state = "/obj/item/clothing/mask/bandana/striped/black"
-	greyscale_colors = "#2e2e2e#C6C6C6"
+	does_not_generate_gags_preview = TRUE // same exact icon/color as the base type
 	flags_1 = NONE
 
 /obj/item/clothing/mask/bandana/striped/security

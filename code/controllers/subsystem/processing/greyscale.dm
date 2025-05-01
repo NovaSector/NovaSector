@@ -72,7 +72,7 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 	for(var/i in configurations)
 		configurations[i].Refresh(TRUE)
 
-/datum/controller/subsystem/processing/greyscale/proc/GetColoredIconByType(type, list/colors, use_rustg_iconforge = TRUE)
+/datum/controller/subsystem/processing/greyscale/proc/GetColoredIconByType(type, list/colors)
 	if(!ispath(type, /datum/greyscale_config))
 		CRASH("An invalid greyscale configuration was given to `GetColoredIconByType()`: [type]")
 	if(!initialized)
@@ -83,26 +83,22 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 	else if(!istext(colors))
 		CRASH("Invalid colors were given to `GetColoredIconByType()`: [colors]")
 #ifdef USE_RUSTG_ICONFORGE_GAGS
-	if(use_rustg_iconforge)
-		var/uid = "[replacetext(replacetext(type, "/datum/greyscale_config/", ""), "/", "-")]-[colors]"
-		var/cached_file = gags_cache[uid]
-		if(cached_file)
-			return cached_file
-		var/output_path = "tmp/gags/gags-[uid].dmi"
-		var/iconforge_output = rustg_iconforge_gags(type, colors, output_path)
-		// Handle errors from IconForge
-		if(iconforge_output != "OK")
-			CRASH(iconforge_output)
-		// We'll just explicitly do fcopy_rsc here, so the game doesn't have to do it again later from the cached file.
-		var/rsc_gags_icon = fcopy_rsc(file(output_path))
-		gags_cache[uid] = rsc_gags_icon
-		return rsc_gags_icon
+	var/uid = "[replacetext(replacetext(type, "/datum/greyscale_config/", ""), "/", "-")]-[colors]"
+	var/cached_file = gags_cache[uid]
+	if(cached_file)
+		return cached_file
+	var/output_path = "tmp/gags/gags-[uid].dmi"
+	var/iconforge_output = rustg_iconforge_gags(type, colors, output_path)
+	// Handle errors from IconForge
+	if(iconforge_output != "OK")
+		CRASH(iconforge_output)
+	// We'll just explicitly do fcopy_rsc here, so the game doesn't have to do it again later from the cached file.
+	var/rsc_gags_icon = fcopy_rsc(file(output_path))
+	gags_cache[uid] = rsc_gags_icon
+	return rsc_gags_icon
 #else
-	if(!use_rustg_iconforge)
-		return configurations[type].Generate(colors)
+	return configurations[type].Generate(colors)
 #endif
-	if(!use_rustg_iconforge)
-		return configurations[type].Generate(colors)
 
 /datum/controller/subsystem/processing/greyscale/proc/GetColoredIconByTypeUniversalIcon(type, list/colors, target_icon_state)
 	if(!ispath(type, /datum/greyscale_config))
@@ -157,7 +153,7 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 		var/greyscale_colors = fake::greyscale_colors
 		if(!greyscale_config || !greyscale_colors || fake::does_not_generate_gags_preview)
 			continue
-		var/icon/map_icon = GetColoredIconByType(greyscale_config, greyscale_colors, use_rustg_iconforge = FALSE)
+		var/icon/map_icon = icon(GetColoredIconByType(greyscale_config, greyscale_colors))
 		if((map_icon.Height() > 32) || (map_icon.Width() > 32)) // No large icons, use icon_preview and icon_preview_state instead.
 			continue
 		if(!(fake::post_init_icon_state in map_icon.IconStates()))

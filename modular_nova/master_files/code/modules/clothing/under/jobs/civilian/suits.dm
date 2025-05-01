@@ -89,26 +89,31 @@
 /obj/item/clothing/under/suit/nova/pencil/charcoal
 	name = "charcoal pencilskirt"
 	desc = "A clean white shirt with a tight-fitting charcoal pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/nova/pencil/charcoal"
 	greyscale_colors = "#303030#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/navy
 	name = "navy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting navy-blue pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/nova/pencil/navy"
 	greyscale_colors = "#112334#ffffff"
 
-/obj/item/clothing/under/suit/nova/pencil/burgandy
-	name = "burgandy pencilskirt"
+/obj/item/clothing/under/suit/nova/pencil/burgundy
+	name = "burgundy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting burgandy-red pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/nova/pencil/burgundy"
 	greyscale_colors = "#3e1111#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/tan
 	name = "tan pencilskirt"
 	desc = "A clean white shirt with a tight-fitting tan pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/nova/pencil/tan"
 	greyscale_colors = "#8b7458#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/green
 	name = "green pencilskirt"
 	desc = "A clean white shirt with a tight-fitting green pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/nova/pencil/green"
 	greyscale_colors = "#113e20#ffffff"
 
 /obj/item/clothing/under/suit/nova/pencil/black_really

@@ -123,28 +123,35 @@
 // Neck
 
 /obj/item/clothing/neck/scarf/primitive_catgirl_scarf
+	icon_state = "/obj/item/clothing/neck/scarf/primitive_catgirl_scarf"
 	greyscale_colors = "#cec8bf#cec8bf"
 
 /obj/item/clothing/neck/large_scarf/primitive_catgirl_off_white
+	icon_state = "/obj/item/clothing/neck/large_scarf/primitive_catgirl_off_white"
 	greyscale_colors = "#cec8bf#cec8bf"
 
 /obj/item/clothing/neck/infinity_scarf/primitive_catgirl_blue
+	icon_state = "/obj/item/clothing/neck/infinity_scarf/primitive_catgirl_blue"
 	greyscale_colors = "#364660"
 
 /obj/item/clothing/neck/mantle/recolorable/primitive_catgirl_off_white
+	icon_state = "/obj/item/clothing/neck/mantle/recolorable/primitive_catgirl_off_white"
 	greyscale_colors = "#cec8bf"
 
 /obj/item/clothing/neck/ranger_poncho/primitive_catgirl_leather
+	icon_state = "/obj/item/clothing/neck/ranger_poncho/primitive_catgirl_leather"
 	greyscale_colors = "#594032#594032"
 
 // Masks
 
 /obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter
+	icon_state = "/obj/item/clothing/mask/neck_gaiter/primitive_catgirl_gaiter"
 	greyscale_colors = "#364660"
 
 // Head
 
 /obj/item/clothing/head/standalone_hood/primitive_catgirl_colors
+	icon_state = "/obj/item/clothing/head/standalone_hood/primitive_catgirl_colors"
 	greyscale_colors = "#594032#364660"
 
 /obj/item/clothing/head/primitive_catgirl_ferroniere

@@ -27,6 +27,7 @@
 /obj/item/clothing/under/ethereal_tunic/trailwarden
 	name = "trailwarden tunic"
 	desc = "Farmers and pilgrims would commonly find their clothes permanently stained from years of wading through the mud and bioluminescent flora of Sprout, eventually it became customary to dye clothes to replicate this effect purposefully."
+	icon_state = "/obj/item/clothing/under/ethereal_tunic/trailwarden"
 	greyscale_colors = "#32a87d"
 
 /obj/item/clothing/under/ethereal_tunic/trailwarden/equipped(mob/living/user, slot)
