@@ -1,0 +1,4 @@
+author: "FearfulFurnishing"
+delete-after: True
+changes:
+  - qol: "Ashwalker examine text now shows the observer if they are ready to evolve again or not."
