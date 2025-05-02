@@ -1,3 +1,4 @@
+/*
 /datum/supply_pack/goody/dumdum38
 	access_view = FALSE
 	special = TRUE
@@ -48,3 +49,4 @@
 
 /datum/supply_pack/goody/double_barrel
 	access_view = FALSE
+*/

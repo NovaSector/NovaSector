@@ -94,10 +94,10 @@
 
 /datum/armament_entry/company_import/sol_defense/sidearm/wespe
 	item_type = /obj/item/gun/ballistic/automatic/pistol/sol
-
+*/
 /datum/armament_entry/company_import/sol_defense/sidearm/type207
 	item_type = /obj/item/gun/ballistic/automatic/pistol/type207
-
+/*
 /datum/armament_entry/company_import/sol_defense/sidearm/skild
 	item_type = /obj/item/gun/ballistic/automatic/pistol/trappiste
 	cost = PAYCHECK_COMMAND * 6

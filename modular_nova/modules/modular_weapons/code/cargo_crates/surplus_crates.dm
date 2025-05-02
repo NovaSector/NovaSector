@@ -24,7 +24,7 @@
 	desc = "A collection of surplus equipment sourced from the Coalition of Independent Nations' military stockpiles. \
 	Likely to contain old and outdated equipment, as is the nature of surplus."
 	contraband = TRUE
-	cost = CARGO_CRATE_VALUE * 20
+	cost = CARGO_CRATE_VALUE * 10
 	contains = list(
 		// Clothing
 		/obj/item/clothing/under/syndicate/rus_army/cin_surplus/random_color = ITEM_WEIGHT_CLOTHING,
@@ -43,6 +43,7 @@
 		/obj/item/clothing/head/helmet/nri_police = ITEM_WEIGHT_ARMOR,
 		/obj/item/clothing/suit/armor/vest/nri_police = ITEM_WEIGHT_ARMOR,
 		// Weapons
+		/*
 		/obj/item/gun/ballistic/revolver/shotgun_revolver = ITEM_WEIGHT_GUN_COMMON,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower = ITEM_WEIGHT_GUN_COMMON,
 		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman = ITEM_WEIGHT_GUN_COMMON,
@@ -63,6 +64,7 @@
 		/obj/item/ammo_box/strilka310 = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/lanca/spawns_empty = ITEM_WEIGHT_AMMO_SINGLE,
 		/obj/item/ammo_box/magazine/wylom = ITEM_WEIGHT_AMMO_SINGLE,
+		*/
 		// Other items
 		/obj/item/sign/flag/nri = ITEM_WEIGHT_MISC,
 		/obj/item/trench_tool = ITEM_WEIGHT_MISC,
