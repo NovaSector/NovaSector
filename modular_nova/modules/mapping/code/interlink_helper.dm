@@ -1,5 +1,3 @@
-// Interlink helpers.
-
 /// A file to help with making it possible to load the Interlink *modularly* instead of leaving it stuck in Z-2 where station should be and spawning all manner of bad behaviour.
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
@@ -16,12 +14,3 @@
 		INIT_ANNOUNCE(msg)
 
 #undef INIT_ANNOUNCE
-
-
-// UN-LIMITED WATERRRRRRR
-/obj/machinery/shower/infinite/process(seconds_per_tick)
-    . = ..()
-    if(actually_on)
-        reagents.add_reagent(reagent_id, reagents.maximum_volume - reagents.total_volume)
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower/infinite, (-16))

@@ -91,3 +91,6 @@
 
 /// Whenever a baton successfully executes its nonlethal attack. WARNING HORRIBLE FUCKING CODE THIS IS ASS AAAAAAAAAAAAH
 #define COMSIG_PRE_BATON_FINALIZE_ATTACK "pre_baton_finalize_attack"
+
+/// Whenever the round ends
+#define COMSIG_TICKER_ROUND_ENDED "ticker_round_ended"
