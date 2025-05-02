@@ -119,7 +119,7 @@
 		/obj/item/hearthkin_ship_fragment_active = 1
 	)
 	tool_behaviors = list(TOOL_HAMMER)
-	result = /obj/item/kinetic_crusher/tribal/runic_greatsword
+	result = /obj/item/kinetic_crusher/runic_greatsword
 
 /datum/crafting_recipe/runic_greataxe
 	name = "Runic Greataxe"
@@ -133,7 +133,7 @@
 		/obj/item/hearthkin_ship_fragment_active = 1
 	)
 	tool_behaviors = list(TOOL_HAMMER)
-	result = /obj/item/kinetic_crusher/tribal/runic_greataxe
+	result = /obj/item/kinetic_crusher/runic_greataxe
 
 /datum/crafting_recipe/runic_spear
 	name = "Runic Spear"
@@ -147,4 +147,4 @@
 		/obj/item/hearthkin_ship_fragment_active = 1
 	)
 	tool_behaviors = list(TOOL_HAMMER)
-	result = /obj/item/kinetic_crusher/spear/tribal/runic_spear
+	result = /obj/item/kinetic_crusher/spear/runic_spear

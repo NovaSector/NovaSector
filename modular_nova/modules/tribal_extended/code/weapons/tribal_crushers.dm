@@ -1,8 +1,6 @@
 #define COLOR_RUNIC_GLOW "#8DEBFF"
 
-#define COLOR_RUNIC_GLOW "#8DEBFF"
-
-/obj/item/kinetic_crusher/tribal/runic_greatsword
+/obj/item/kinetic_crusher/runic_greatsword
 	name = "runic greatsword"
 	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi'
@@ -15,14 +13,14 @@
 	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
 	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
 
-/obj/item/kinetic_crusher/tribal/runic_greatsword/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+/obj/item/kinetic_crusher/runic_greatsword/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 	else
 		. += emissive_appearance(icon_file, "[inhand_icon_state]-emissive", src, alpha = src.alpha)
 
-/obj/item/kinetic_crusher/tribal/runic_greataxe
+/obj/item/kinetic_crusher/runic_greataxe
 	name = "runic greataxe"
 	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
@@ -33,7 +31,7 @@
 	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
 
-/obj/item/kinetic_crusher/spear/tribal/runic_spear
+/obj/item/kinetic_crusher/spear/runic_spear
 	name = "runic spear"
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
@@ -49,15 +47,15 @@
         alpha = src.alpha
     )
 
-/obj/item/kinetic_crusher/tribal/runic_greatsword/update_overlays()
+/obj/item/kinetic_crusher/runic_greatsword/update_overlays()
     . = ..()
     . += add_runic_glow()
 
-/obj/item/kinetic_crusher/tribal/runic_greataxe/update_overlays()
+/obj/item/kinetic_crusher/runic_greataxe/update_overlays()
     . = ..()
     . += add_runic_glow()
 
-/obj/item/kinetic_crusher/spear/tribal/runic_spear/update_overlays()
+/obj/item/kinetic_crusher/spear/runic_spear/update_overlays()
     . = ..()
     . += add_runic_glow()
 
@@ -66,7 +64,7 @@
 	update_appearance(UPDATE_OVERLAYS)
 
 //changed compared to kintetic_crusher.dm. We don't fire a projectile and we don't care if the cursor is over the player.
-/obj/item/kinetic_crusher/tribal/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+/obj/item/kinetic_crusher/runic_greatsword/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED) && !acts_as_if_wielded)
 		balloon_alert(user, "wield it first!")
 		return ITEM_INTERACT_BLOCKING
@@ -75,13 +73,14 @@
 	return ITEM_INTERACT_SUCCESS
 
 /// Marks living things in melee of the user if crusher is charged.
-/obj/item/kinetic_crusher/tribal/runic_greatsword/proc/runic_spin()
+/obj/item/kinetic_crusher/runic_greatsword/proc/runic_spin()
 	if(!charged)
 		return
 	var/spin_radius = 1
 	var/spin_center = get_turf(usr)
 	new /obj/effect/temp_visual/runic_spin(spin_center)
 	var/list/living_targets = range(spin_radius, spin_center)
+	usr.emote("spin")
 	for(var/mob/living/living_target in living_targets)
 		if((living_target == usr) || (usr in living_target.buckled_mobs))
 			continue
@@ -110,14 +109,14 @@
 	duration = 6
 
 /// Handles the timer for reloading the projectile (slight edit of kinetic_crusher.dm)
-/obj/item/kinetic_crusher/tribal/proc/attempt_recharge_runes(set_recharge_time)
+/obj/item/kinetic_crusher/proc/attempt_recharge_runes(set_recharge_time)
 	if(!set_recharge_time)
 		set_recharge_time = charge_time
 	deltimer(charge_timer)
 	charge_timer = addtimer(CALLBACK(src, PROC_REF(recharge_runes)), set_recharge_time, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Recharges the projectile (slight edit of kinetic_crusher.dm)
-/obj/item/kinetic_crusher/tribal/proc/recharge_runes()
+/obj/item/kinetic_crusher/proc/recharge_runes()
 	if(charged)
 		return
 	charged = TRUE
