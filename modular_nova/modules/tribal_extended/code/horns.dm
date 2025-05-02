@@ -44,7 +44,7 @@
 			if (!hearing_player.can_hear())
 				continue
 			var/direction_text = span_bold("[dir2text(get_dir(get_turf(hearing_player), bhorn_origin))]")
-			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 100, TRUE)
+			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 150, TRUE)
 			if (hearing_player != user)
 				hearing_player.show_message(span_warning("Somewhere to the [direction_text], a horn calls out in a pattern: '[tune_played]'."))
 	user.adjustStaminaLoss(BHORN_STAMINA_USE)
@@ -98,7 +98,7 @@
 		if (!is_mining_level(hearing_player.z) || !hearing_player.can_hear())
 			continue
 		hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[tune_played]'."))
-		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 100, TRUE)
+		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 150, TRUE)
 	user.adjustStaminaLoss(WHORN_STAMINA_USE)
 
 /// Switches the current tune of the horn to the next in the list
