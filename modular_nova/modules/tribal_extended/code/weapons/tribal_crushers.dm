@@ -9,7 +9,7 @@
 	worn_icon_state = "runic_greatsword"
 	lefthand_file = 'modular_nova/modules/tribal_extended/icons/swords_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/tribal_extended/icons/swords_righthand.dmi'
-	light_color = "#8DEBFF"
+	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
 	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
 
