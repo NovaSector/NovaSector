@@ -1078,7 +1078,7 @@
 	pixel_x = -4
 	},
 /obj/item/blowing_horn{
-	plane = -6
+	pixel_x = -6
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
