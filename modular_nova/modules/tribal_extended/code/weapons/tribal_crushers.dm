@@ -165,7 +165,7 @@
 /// Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
-	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND))
+	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)))
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
 ///Adds an icon for the hammer in the crafting menu.
