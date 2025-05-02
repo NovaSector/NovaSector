@@ -30,7 +30,7 @@
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
 
 /obj/item/kinetic_crusher/spear/tribal/runic_spear
-	name = "Runic Spear"
+	name = "runic spear"
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
 	icon_state = "runic_spear"
