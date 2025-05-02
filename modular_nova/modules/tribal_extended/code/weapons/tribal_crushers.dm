@@ -118,9 +118,10 @@
 
 /// Recharges the projectile (slight edit of kinetic_crusher.dm)
 /obj/item/kinetic_crusher/tribal/proc/recharge_runes()
-	if(!charged)
-		charged = TRUE
-		playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
+	if(charged)
+		return
+	charged = TRUE
+	playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
 
 /obj/item/hearthkin_ship_fragment_inactive
 	name = "Dormant fragment of the Stjarndrakkr"
