@@ -19,7 +19,7 @@
 		. += emissive_appearance(icon_file, "[inhand_icon_state]-emissive", src, alpha = src.alpha)
 
 /obj/item/kinetic_crusher/tribal/runic_greataxe
-	name = "Runic Greataxe"
+	name = "runic greataxe"
 	desc = "A greataxe of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Modified sprite from Roguetown
 	icon_state = "runic_axe"
