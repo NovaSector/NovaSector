@@ -124,7 +124,7 @@
 	playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
 
 /obj/item/hearthkin_ship_fragment_inactive
-	name = "Dormant fragment of the Stjarndrakkr"
+	name = "dormant fragment of the Stjarndrakkr"
 	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener_used"
