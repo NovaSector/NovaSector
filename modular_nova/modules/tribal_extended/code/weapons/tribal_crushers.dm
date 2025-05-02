@@ -1,5 +1,7 @@
 #define COLOR_RUNIC_GLOW "#8DEBFF"
 
+#define COLOR_RUNIC_GLOW "#8DEBFF"
+
 /obj/item/kinetic_crusher/tribal/runic_greatsword
 	name = "runic greatsword"
 	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue."
