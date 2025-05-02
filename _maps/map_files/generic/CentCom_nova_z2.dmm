@@ -5981,9 +5981,9 @@
 /area/centcom/holding/cafe)
 "dJF" = (
 /obj/item/toy/plush/lizard_plushie/green{
-	name = "Breaks-The-PRs"
+	name = "Fixes-The-ATs"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/centcom/interlink)
 "dLq" = (
 /obj/structure/sign/poster/random/directional/north,
@@ -6150,6 +6150,9 @@
 	name = "Interlink Cafe"
 	},
 /turf/open/floor/iron/cafeteria,
+/area/centcom/interlink)
+"dXO" = (
+/turf/open/floor/plating/airless,
 /area/centcom/interlink)
 "dYa" = (
 /obj/structure/stone_tile/surrounding_tile/cracked,
@@ -39961,7 +39964,7 @@ qWQ
 mjo
 tvw
 pCh
-aqG
+dXO
 pCh
 tvw
 vLx
@@ -40217,9 +40220,9 @@ tvw
 tvw
 tvw
 tvw
-aqG
+dXO
 dJF
-aqG
+dXO
 tvw
 vLx
 tpU
@@ -40475,7 +40478,7 @@ rmA
 fGC
 tvw
 pCh
-aqG
+dXO
 pCh
 tvw
 vLx

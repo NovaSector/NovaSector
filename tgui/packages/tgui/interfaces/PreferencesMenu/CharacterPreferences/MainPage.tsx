@@ -398,9 +398,10 @@ export function PreferenceList(props: PreferenceListProps) {
             return (
               <LabeledList.Item
                 key={featureId}
-                label={feature.name}
+                // NOVA EDIT CHANGE - ORIGINAL: label={feature.name}
+                label={<Box mt={0.5}>{feature.name}</Box>} // replicate middle align
                 tooltip={feature.description}
-                verticalAlign="middle"
+                verticalAlign="top" // NOVA EDIT CHANGE - Original: middle
               >
                 <Stack fill>
                   {randomSetting && (

@@ -17,22 +17,24 @@
 	light_on = FALSE
 	force = 15
 	throwforce = 10
-	bare_wound_bonus = 35 // If your target's unarmored; lol. Lmao
+	bare_wound_bonus = 25 // Good precision weapon, though not perfect.
 	armour_penetration = 10 // Sharp enough to poke by default; but not exactly cleaving through any armor without the energy upgrade
 	block_chance = 20 // Definitely agile enough to block; but keep in mind it's a rapier and not a bulkier sword
 	sharpness = SHARP_POINTY // RAPIER. RAPIER. RAPIER!!!!
-	special_desc = "Corporate has this thing earmarked - someone pitched them that it's existence heralded an external dissident, and they've been quaking in their boots since. \
-	In contrast; local reaction is much more... muted - most involved with today's deployment already used to it being nearby."
+	special_desc = "Corporate has this thing earmarked - someone pitched them that its existence heralded an external dissident, and they've been quaking in their boots since. \
+	In contrast, local reaction is much more... muted - most involved with today's deployment already used to it being nearby."
 	special_desc_requirement = EXAMINE_CHECK_JOB
 	special_desc_jobs = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_DETECTIVE)
+	/// Houses references to the current fragments we have attached.
 	var/list/fragments = list()
+	/// Whether or not we have access to the HPA's upgrade ability.
 	var/can_bloodbeam = FALSE
 
 /obj/item/claymore/cutlass/luna/examine(mob/living/user)
 	. = ..()
 	. += span_notice("The design looks modular - it's possible you might be able to find additional pieces to attach.")
-	for(var/f in fragments)
-		var/obj/item/luna_fragment/fragment = f
+	for(var/found_fragment in fragments)
+		var/obj/item/luna_fragment/fragment = found_fragment
 		. += span_notice("\a [fragment] has been attached, allowing for Luna to [fragment.effect_desc]")
 
 /obj/item/claymore/cutlass/luna/Destroy()
@@ -43,21 +45,25 @@
 	. = ..()
 	fragments -= gone
 
-/obj/item/claymore/cutlass/luna/attackby(obj/item/I, mob/living/user)
-	if(I.tool_behaviour == TOOL_CROWBAR)
-		if(LAZYLEN(fragments))
-			to_chat(user, span_notice("You remove [src]'s array of addons."))
-			I.play_tool_sound(src)
-			for(var/f in fragments)
-				var/obj/item/luna_fragment/Fragment = f
-				Fragment.remove_upgrade(src, user)
-		else
-			to_chat(user, span_warning("[src] is bare of any additional baubles."))
-	else if(istype(I, /obj/item/luna_fragment))
-		var/obj/item/luna_fragment/F = I
-		F.apply_upgrade(src, user)
-	else
-		return ..()
+/obj/item/claymore/cutlass/luna/crowbar_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(LAZYLEN(fragments))
+		to_chat(user, span_notice("You remove [src]'s array of addons."))
+		tool.play_tool_sound(src)
+		for(var/found_fragment in fragments)
+			var/obj/item/luna_fragment/Fragment = found_fragment
+			Fragment.remove_upgrade(src, user)
+			Fragment.forceMove(get_turf(src))
+		return ITEM_INTERACT_SUCCESS
+	to_chat(user, span_warning("[src] is bare of any additional baubles."))
+	return ITEM_INTERACT_BLOCKING
+
+/obj/item/claymore/cutlass/luna/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/luna_fragment))
+		var/obj/item/luna_fragment/applying_fragment = tool
+		applying_fragment.apply_upgrade(src, user)
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/item/claymore/cutlass/luna/attack_secondary(atom/target, mob/living/user, clickparams)
 	return SECONDARY_ATTACK_CONTINUE_CHAIN
@@ -75,6 +81,7 @@
 /obj/item/claymore/cutlass/luna/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	return interact_with_atom_secondary(interacting_with, user, modifiers)
 
+/// Shoots out a laser beam; damaging the user's stamina and blood. Called by right-clicking with the HPA upgrade.
 /obj/item/claymore/cutlass/luna/proc/send_sword_laser(atom/target, mob/living/user, list/modifiers)
 	var/turf/proj_turf = user.loc
 	if(!isturf(proj_turf))
@@ -94,15 +101,20 @@
 	name = "coder's bane"
 	desc = "report this on github! unless you got this from a christmas present!"
 	icon = 'modular_nova/modules/mapping/icons/obj/items/jungle_items.dmi'
+	/// What does this fragment do?
 	var/effect_desc = "Does literally nothing."
+	/// Has this fragment done it's introductory hallucination?
 	var/has_spoken = FALSE
+	/// What sound effect do we play for the introductory halluciantion?
 	var/hallucination_sound = 'sound/effects/hallucinations/im_here1.ogg'
+	/// What do we send to chat for the introductory hallucination?
 	var/hallucination_text = "Why.. do those stupid smelly nerds... not put an EXE file.. on the github..."
 
+/// Handles the logic for checking if an upgrade is valid; adding it, and playing its introductory hallucination if it's new.
 /obj/item/luna_fragment/proc/apply_upgrade(our_sord, mob/living/user)
 	var/obj/item/claymore/cutlass/luna/upgrade_appliable = our_sord
-	for(var/obj/item/luna_fragment/trophy as anything in upgrade_appliable.fragments)
-		if(istype(src, trophy))
+	for(var/obj/item/luna_fragment/found_fragment as anything in upgrade_appliable.fragments)
+		if(istype(src, found_fragment))
 			to_chat(user, span_warning("You can't seem to attach [src] to [upgrade_appliable]."))
 			return FALSE
 	if(!user.transferItemToLoc(src, upgrade_appliable))
@@ -114,8 +126,10 @@
 		var/mob/taylor = user
 		taylor.playsound_local(src.loc, hallucination_sound, 30, FALSE, 3)
 		to_chat(user, span_blue(hallucination_text))
+		has_spoken = TRUE
 	return
 
+/// Runs when this fragment is removed from LUNA via a crowbar - used to reset its affects.
 /obj/item/luna_fragment/proc/remove_upgrade(our_sord, mob/living/user)
 	return
 
@@ -128,8 +142,8 @@
 /// Blood Beam
 /obj/item/luna_fragment/blood_beam
 	name = "\improper H.P.A."
-	desc = "A \"hemophilic projectile apparatus\". In practice; it trades some of the electrical activity in the user's brain and some of their blood to fire off an armor-piercing laser, to be attached \
-	conveinently under cross-guard of a blade. Science CAN be metal!"
+	desc = "A \"hemophilic projectile apparatus\". In practice, it trades some of the electrical activity in the user's brain and some of their blood to fire off an armor-piercing laser, to be attached \
+	conveniently under cross-guard of a blade. Science CAN be metal!"
 	icon_state = "hpa"
 	effect_desc = "shoot a laser beam when right-clicking, in exchange for your stamina - and some blood."
 	hallucination_text = "Calm. Safe - A clearing. Trees that stretched on up unto the sky itself; covered in constant falls of new snowflakes on my skin. I wasn't cold."
@@ -148,10 +162,11 @@
 /// Sets LUNA's stats to be on par with a standard energy blade - for better and worse.
 /obj/item/luna_fragment/energy_retrofit
 	name = "\improper energy projection matrix"
-	desc = "A small; egg-shaped device - kitbashed from a hardlight projector, a x-ray focused laser diode, and, of all things - a flashlight; to be applied directly against the grip of a sword - trading \
+	desc = "A small, egg-shaped device - kitbashed from a hardlight projector, a x-ray focused laser diode, and, of all things - a flashlight; to be applied directly against the grip of a sword - trading \
 	the comfort of your thumb for a hardlight blade."
 	icon_state = "energy_retrofit"
-	effect_desc = "use a hardlight blade as a coating over it's own; trading it's strengths and weaknesses for that of an energy sword."
+	effect_desc = "use a hardlight blade as a coating over it's own; trading its strengths and weaknesses for that of an energy sword. As Luna is a rapier, however, its reliance on precision strikes and \
+	thin blade prevent it from properly parrying; and weaken its effectiveness against unarmored targets."
 	hallucination_sound = 'sound/effects/hallucinations/im_here2.ogg'
 	hallucination_text = "The lightest, most beautiful snowflakes I'd ever seen raining down upon me. I wasn't cold. I couldn't be. It couldn't overcome the warmth of my beating heart."
 
@@ -167,7 +182,6 @@
 	upgrade_appliable.bare_wound_bonus = /obj/item/melee/energy/sword::bare_wound_bonus
 	upgrade_appliable.demolition_mod = /obj/item/melee/energy/sword::demolition_mod
 	upgrade_appliable.armour_penetration = /obj/item/melee/energy/sword::armour_penetration
-	upgrade_appliable.block_chance = /obj/item/melee/energy/sword::block_chance
 	return ..()
 
 /obj/item/luna_fragment/energy_retrofit/remove_upgrade(our_sord, mob/living/user)
@@ -177,15 +191,12 @@
 	update_inhand_icon(user)
 	upgrade_appliable.set_light_on(FALSE)
 	playsound(upgrade_appliable, 'sound/items/weapons/saberoff.ogg', 35, TRUE)
-	upgrade_appliable.force = initial(force)
-	upgrade_appliable.throwforce = initial(throwforce)
-	upgrade_appliable.bare_wound_bonus = initial(bare_wound_bonus)
-	upgrade_appliable.demolition_mod = initial(demolition_mod)
-	upgrade_appliable.armour_penetration = initial(armour_penetration)
-	upgrade_appliable.block_chance = initial(block_chance)
+	upgrade_appliable.force = initial(upgrade_appliable.force)
+	upgrade_appliable.throwforce = initial(upgrade_appliable.throwforce)
+	upgrade_appliable.bare_wound_bonus = initial(upgrade_appliable.bare_wound_bonus)
+	upgrade_appliable.demolition_mod = initial(upgrade_appliable.demolition_mod)
+	upgrade_appliable.armour_penetration = initial(upgrade_appliable.armour_penetration)
 	return ..()
-
-
 
 /obj/item/mod/module/armor_booster/retractplates
 	name = "MOD retractive plates module"
