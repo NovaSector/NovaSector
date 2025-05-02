@@ -17,8 +17,6 @@
 /datum/outfit/subcontracted_bitrunner
 	name = "Subcontracted Bitrunner"
 	uniform = /obj/item/clothing/under/rank/cargo/bitrunner
-	belt = /obj/item/modular_computer/pda/bitrunner
-	ears = /obj/item/radio/headset/headset_cargo
 	back = /obj/item/storage/backpack/messenger
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	backpack_contents = list(

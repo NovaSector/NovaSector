@@ -23,15 +23,10 @@
 		carbon_mob.make_virtual_mob()
 
 /datum/antagonist/bitrunning_reinforcement/forge_objectives()
-	var/datum/objective/bitrunning_reinforcement_fluff/objective = new()
-	objective.owner = owner
-	objectives += objective
+	add_objective(new /datum/objective/bitrunning_reinforcement_fluff)
 
 /datum/objective/bitrunning_reinforcement_fluff
-
-/datum/objective/bitrunning_reinforcement_fluff/New()
 	explanation_text = "Assist Nanotrasen-aligned bitrunners with completion of domains. Goof off."
-	return ..()
 
 /datum/objective/bitrunning_reinforcement_fluff/check_completion()
 	if(locate(/mob/living/carbon) in (GLOB.alive_player_list - owner.current))
