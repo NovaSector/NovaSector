@@ -88,7 +88,7 @@
 	var/spin_center = get_turf(usr)
 	new /obj/effect/temp_visual/runic_spin(spin_center)
 	var/list/living_targets = range(spin_radius, spin_center)
-	usr.emote("spin")
+	usr.spin(0.6 SECONDS, 1)
 	for(var/mob/living/living_target in living_targets)
 		if((living_target == usr) || (usr in living_target.buckled_mobs))
 			continue
