@@ -162,7 +162,7 @@
 ///Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn, this will probably break if someone makes an ice map where the cat camp isn't on Zlevel 2 & 3.
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
-	if (SSmapping.level_trait(2, ZTRAIT_ICE_RUINS_UNDERGROUND)&&SSmapping.level_trait(3, ZTRAIT_ICE_RUINS_UNDERGROUND))
+	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND))
 		GLOB.tech_reward[/obj/item/hearthkin_ship_fragment_inactive] = 1
 
 ///Adds an icon for the hammer in the crafting menu.
