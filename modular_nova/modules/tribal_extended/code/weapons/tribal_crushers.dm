@@ -159,7 +159,7 @@
 		qdel(src)
 		return ITEM_INTERACT_SUCCESS
 
-///Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn, this will probably break if someone makes an ice map where the cat camp isn't on Zlevel 2 & 3.
+/// Adds a rare xenoarch mat to global list "tech_reward" if the map has the prerequisit for the icecat camp to spawn
 /datum/controller/subsystem/mapping/Initialize()
 	. = ..()
 	if(length(SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND))
