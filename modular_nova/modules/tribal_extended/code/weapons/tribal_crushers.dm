@@ -1,5 +1,5 @@
 /obj/item/kinetic_crusher/tribal/runic_greatsword
-	name = "Runic Greatsword"
+	name = "runic greatsword"
 	desc = "A greatsword of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi'
 	icon_state = "runic_greatsword"
