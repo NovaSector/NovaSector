@@ -14,6 +14,7 @@
 	slot_flags = ITEM_SLOT_SUITSTORE
 	var/list/tune_patterns = list("short short long", "long short", "short long short", "long long", "short short short")
 	var/current_tune_index = 1
+	layer = OBJ_LAYER
 
 /// Switch horn tune on ctrl+shift click
 /obj/item/blowing_horn/click_ctrl_shift(mob/user)
