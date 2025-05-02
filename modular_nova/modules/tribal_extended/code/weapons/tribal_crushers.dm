@@ -51,15 +51,15 @@
 
 /obj/item/kinetic_crusher/tribal/runic_greatsword/update_overlays()
     . = ..()
-    . += adding_glow()
+    . += add_runic_glow()
 
 /obj/item/kinetic_crusher/tribal/runic_greataxe/update_overlays()
     . = ..()
-    . += adding_glow()
+    . += add_runic_glow()
 
 /obj/item/kinetic_crusher/spear/tribal/runic_spear/update_overlays()
     . = ..()
-    . += adding_glow()
+    . += add_runic_glow()
 
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()
