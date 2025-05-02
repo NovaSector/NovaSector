@@ -169,3 +169,5 @@
 /datum/asset/spritesheet_batched/crafting/create_spritesheets()
 	. = ..()
 	insert_icon(replacetext(TOOL_HAMMER, " ", ""), uni_icon('modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi', "hammer"))
+
+#undef COLOR_RUNIC_GLOW
