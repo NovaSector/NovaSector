@@ -3079,6 +3079,9 @@
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /obj/effect/mapping_helpers/no_lava,
 /obj/item/blowing_horn{
+	pixel_x = 4
+	},
+/obj/item/blowing_horn{
 	pixel_x = 2
 	},
 /obj/item/blowing_horn,
@@ -3089,7 +3092,7 @@
 	pixel_x = -4
 	},
 /obj/item/blowing_horn{
-	pixel_x = -6
+	plane = -6
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
