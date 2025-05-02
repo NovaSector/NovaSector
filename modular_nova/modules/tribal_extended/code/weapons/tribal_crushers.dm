@@ -132,7 +132,7 @@
 	pickup_sound = SFX_STONE_PICKUP
 
 /obj/item/hearthkin_ship_fragment_active
-	name = "Fragment of the Stjarndrakkr"
+	name = "fragment of the Stjarndrakkr"
 	desc = "A piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange glowing symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener"
