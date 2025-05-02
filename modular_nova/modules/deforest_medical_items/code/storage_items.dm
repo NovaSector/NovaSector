@@ -5,10 +5,8 @@
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	custom_price = PAYCHECK_CREW * 1.5
-
-/obj/item/storage/pill_bottle/painkiller/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/reagent_containers/applicator/pill/amollin(src)
+	spawn_count = 7
+	spawn_type = /obj/item/reagent_containers/applicator/pill/amollin
 
 /obj/item/reagent_containers/applicator/pill/amollin
 	name = "amollin pill"
@@ -28,6 +26,8 @@
 	icon_state = "painkiller_bottle"
 	w_class = WEIGHT_CLASS_TINY // this is fine because we hard limit what can go in this thing
 	storage_type = /datum/storage/alifil_pills
+	spawn_count  = 5
+	spawn_type = /obj/item/reagent_containers/applicator/pill/prescription_stimulant
 
 /datum/storage/alifil_pills
 	max_slots = 5
@@ -38,10 +38,6 @@
 	. = ..()
 	// Make sure we can only hold alifil pills since this is nested inside a symptom support kit
 	set_holdable(/obj/item/reagent_containers/applicator/pill/prescription_stimulant)
-
-/obj/item/storage/pill_bottle/prescription_stimulant/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/applicator/pill/prescription_stimulant(src)
 
 /obj/item/reagent_containers/applicator/pill/prescription_stimulant
 	name = "alifil pill"
