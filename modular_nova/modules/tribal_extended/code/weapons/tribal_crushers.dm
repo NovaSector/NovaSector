@@ -36,7 +36,7 @@
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
 	icon_state = "runic_spear"
-	light_color = "#8DEBFF"
+	light_color = COLOR_RUNIC_GLOW
 
 /// Procs used to add the emissive layer (the runes) to the weapons.
 /obj/item/kinetic_crusher/proc/adding_glow()
