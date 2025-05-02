@@ -64,7 +64,7 @@
 
 /// War horn structure variant (stationary object)
 /obj/structure/war_horn
-	name = "War horn"
+	name = "war horn"
 	desc = "A horn older than memory, shaped by hands long vanished. When it sounds, the ground listens. The breath of old wars still lingers in its coil. One call, and those who remember will answer. (Alt-Click to switch tune.)"
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "war_horn"
