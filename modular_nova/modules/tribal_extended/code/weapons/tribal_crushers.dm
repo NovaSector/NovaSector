@@ -41,7 +41,7 @@
 	light_color = COLOR_RUNIC_GLOW
 
 /// Procs used to add the emissive layer (the runes) to the weapons.
-/obj/item/kinetic_crusher/proc/adding_glow()
+/obj/item/kinetic_crusher/proc/add_runic_glow()
     return emissive_appearance(
         'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi',
         "[icon_state]-emissive",
