@@ -6,7 +6,7 @@
 
 /// Blowing horn item variant (carried by players)
 /obj/item/blowing_horn
-	name = "Blowing horn"
+	name = "blowing horn"
 	desc = "A crude instrument fashioned from a beast’s horn, once used to rally kin during goblin raids — or so the stories go. (Shift+Ctrl+Click to switch tune.)"
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "blow_horn"
@@ -44,7 +44,7 @@
 			if (!hearing_player.can_hear())
 				continue
 			var/direction_text = span_bold("[dir2text(get_dir(get_turf(hearing_player), bhorn_origin))]")
-			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 150, TRUE)
+			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 100, TRUE)
 			if (hearing_player != user)
 				hearing_player.show_message(span_warning("Somewhere to the [direction_text], a horn calls out in a pattern: '[tune_played]'."))
 	user.adjustStaminaLoss(BHORN_STAMINA_USE)
@@ -80,12 +80,24 @@
 
 /// Plays war horn sound globally to all valid players
 /obj/structure/war_horn/attack_hand(mob/living/user)
-	if (!ishuman(user) || user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
+	if (!ishuman(user))
+		balloon_alert(user, "you cannot use this")
+		return
+	if (user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
 		balloon_alert(user, "too tired")
 		return
-	else if (user.is_mouth_covered())
+	if (user.is_mouth_covered())
 		balloon_alert(user, "Something is in the way.")
+		return
+	///This shouldn't happen as the war horn spawns in the natives camps and isn't movable.
 	var/location = get_turf(user)
+	if (!is_mining_level(user.z))
+		user.visible_message(
+			span_emote("[user] braces and lets out a weak sound from the instrument, tuned for a different atmosphere."),
+			span_warning("You blow the war horn, but it lets out a weak sound, tuned for a different atmosphere.")
+		)
+		playsound(location, 'modular_nova/modules/admin/sound/duckhonk.ogg', 100, TRUE)
+		return
 	var/tune_played = tune_patterns[current_tune_index]
 	var/loc_text = "the molten wastes of Indecipheres"
 	if (SSmapping.level_trait(2, ZTRAIT_ICE_RUINS_UNDERGROUND) && SSmapping.level_trait(3, ZTRAIT_ICE_RUINS_UNDERGROUND))
@@ -98,7 +110,7 @@
 		if (!is_mining_level(hearing_player.z) || !hearing_player.can_hear())
 			continue
 		hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[tune_played]'."))
-		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 150, TRUE)
+		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 100, TRUE)
 	user.adjustStaminaLoss(WHORN_STAMINA_USE)
 
 /// Switches the current tune of the horn to the next in the list
