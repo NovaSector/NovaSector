@@ -114,7 +114,7 @@
 	if(!set_recharge_time)
 		set_recharge_time = charge_time
 	deltimer(charge_timer)
-	charge_timer = addtimer(CALLBACK(src, PROC_REF(recharge_runes)), set_recharge_time, TIMER_STOPPABLE)
+	charge_timer = addtimer(CALLBACK(src, PROC_REF(recharge_runes)), set_recharge_time, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /// Recharges the projectile (slight edit of kinetic_crusher.dm)
 /obj/item/kinetic_crusher/tribal/proc/recharge_runes()
