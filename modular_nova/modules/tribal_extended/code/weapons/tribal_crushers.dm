@@ -27,7 +27,7 @@
 	icon_state = "runic_axe"
 	worn_icon = 'icons/mob/clothing/back.dmi'
 	worn_icon_state = "crusher"
-	light_color = "#8DEBFF"
+	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
 
