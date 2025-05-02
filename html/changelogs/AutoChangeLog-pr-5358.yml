@@ -1,0 +1,5 @@
+author: "sippykot, vinylspiders"
+delete-after: True
+changes:
+  - rscadd: "ability to climax into a reagent container"
+  - bugfix: "condoms are no longer broken (aka they're -able- to be broken again)"
