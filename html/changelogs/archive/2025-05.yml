@@ -1,0 +1,49 @@
+2025-05-01:
+  A.C.M.O.:
+  - rscadd: Added a new science techweb node, Auto-Injecting Medipen Syringes.
+  - rscadd: Added a universal medipen and a low-pressure universal medipen to medical
+      protolathes.
+  - rscadd: Added empty medipens to medical lathe for Epinephrine, Atropine, Oxandrolone,
+      Salicylic Acid, Salbutamol, and Pentetic Acid.
+  - bugfix: Fixed a bug that caused the Medipen Refiller to only refill up to 10u.
+  OrionTheFox:
+  - rscadd: Chaps are now Greyscale, and can now also be used as an accessory! Ctrl-Shift-Click
+      to switch between Accessory and Uniform!
+  TimErmolt:
+  - bugfix: Raptoral cybernetic heads now have the correct eyes sprite, and also retain
+      the eye color selected in character setup.
+2025-05-02:
+  A.C.M.O.:
+  - rscadd: Silicon Headshot character preference, to pick a unique AI/Cyborg headshot
+      image.
+  - qol: Changed the value of the Voice Actor quirk to 0, making it a neutral quirk.
+  FearfulFurnishing:
+  - qol: Ashwalker examine text now shows the observer if they are ready to evolve
+      again or not.
+  OrbisAnima:
+  - balance: Forged Armor was improved all around, made more significant and less
+      grindy to upgrade (6 pieces for a full set vs 12).  While it no longer reachs
+      Drake Armor levels of Melee protection, its other stats make it more formidable
+      and useful for the day to day.
+  - rscadd: Chainshirt added to the forging workbench, as an alternative for the Plate
+      mail, less focused on melee and bullets, more on energy types. Not to be confused
+      with the Heartkin Chainshirt, which has the same stats as the platemail.
+  - rscdel: Removed the melee telegraphs we had overriding mobs, now we use 100% the
+      TG AI based attack delays, which are more efficient.
+  - balance: Makes all Virology viruses get a health indicator when they regen, with
+      a notable exception of the stealth version of Regenerative Coma, for obvious
+      reasons.
+  - balance: Makes Hemopages regen get a health indicator when they regen.
+  - balance: Makes Slime People regen get a health indicator when they regen.
+  - balance: Makes Pod People / Plant Persons regen get a health indicator when they
+      regen., and show an annoyed one when dying from being starved.
+  - balance: Armor is no longer restricted on Cargo Imports. Vokshod Modsuit kit is
+      still restricted, but not the depowered version.
+  - qol: Bridge Assistants and hobbyist can now be more discrete when cleaning carpet
+      and polishing furniture, as tables are now  43% percent bigger, thus allowing
+      people to 'Army Crawl' under them. (New verb adquired on IC, Army Crawl, lets
+      you hide under things if you are resting, you cannot do anything other than
+      use emotes and move, credits to Odairu from Bubber for making the original code)
+  RealWinterFrost:
+  - bugfix: Fixed the syndiepads to function and properly "calculate" value of of
+      objects on them.

@@ -124,14 +124,19 @@
 	atom_storage.max_slots = 6
 	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL //Rather than have a huge whitelist, the belt can simply hold anything a pocket can hold - Can easily be changed if it somehow becomes an issue
 
-/obj/item/storage/belt/holster/cowboy
-	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
-	name = "cowboy belt"
-	desc = "Yee haw! The holster on the side of the hip is leather stamped with swirling lines, all leading back to a deer's antlers."
+/obj/item/storage/belt/holster/thigh
+	name = "thigh holster"
+	desc = "A fine leather holster, fastened to the hip and attached to a belt. Can hold a handgun and some ammo."
 	icon_state = "cowboy_belt"
 	worn_icon_state = "cowboy_belt"
+	icon_state_preview = "cowboy_belt_preview"
 	inhand_icon_state = "utility"
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	greyscale_config = /datum/greyscale_config/thigh_holster
+	greyscale_config_worn = /datum/greyscale_config/thigh_holster/worn
+	greyscale_colors = "#7B3B20#7B3B20"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/storage/belt/medbandolier
 	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'

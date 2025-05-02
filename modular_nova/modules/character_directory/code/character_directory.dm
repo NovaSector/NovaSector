@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			//Load silicon flavor text in place of normal flavor text
 			flavor_text = READ_PREFS(silicon, text/silicon_flavor_text) || ""
 			flavor_text_nsfw = READ_PREFS(silicon, text/silicon_flavor_text_nsfw) || ""
-			headshot = READ_PREFS(silicon, text/headshot) || ""
+			headshot = READ_PREFS(silicon, text/headshot/silicon) || ""
 		// Don't show if they are not a human or a silicon
 		else
 			continue

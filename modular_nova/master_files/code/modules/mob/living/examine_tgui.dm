@@ -93,7 +93,7 @@
 		custom_species_lore = "A silicon unit, like a cyborg or pAI."
 		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
 		ooc_notes_nsfw += preferences.read_preference(/datum/preference/text/ooc_notes_nsfw)
-		headshot += preferences.read_preference(/datum/preference/text/headshot)
+		headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
 
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
