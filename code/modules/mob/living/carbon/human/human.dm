@@ -1020,7 +1020,7 @@
 		skills_space = " very quickly"
 	else if(carrydelay <= 4 SECONDS)
 		skills_space = " quickly"
-	//NOVA EDIT ADDITION
+	// NOVA EDIT ADDITION START
 	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
 		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
 		return
@@ -1030,7 +1030,7 @@
 			return
 		carrydelay = 5 SECONDS
 		skills_space = " strenuously"
-	//NOVA EDIT END
+	// NOVA EDIT ADDITION END
 	visible_message(span_notice("[src] starts[skills_space] lifting [target] onto [p_their()] back..."),
 		span_notice("You[skills_space] start to lift [target] onto your back..."))
 	if(!do_after(src, carrydelay, target))

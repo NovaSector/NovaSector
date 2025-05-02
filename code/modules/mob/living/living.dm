@@ -1220,6 +1220,7 @@ NOVA EDIT REMOVAL END */
 /mob/living/experience_pressure_difference(pressure_difference, direction, pressure_resistance_prob_delta = 0)
 	// NOVA EDIT ADDITION - Heavyset Quirk
 	if(HAS_TRAIT(src, TRAIT_HEAVYSET))
+		playsound(src, 'sound/effects/space_wind.ogg', 50, TRUE)
 		return
 	// NOVA EDIT END
 	playsound(src, 'sound/effects/space_wind.ogg', 50, TRUE)
