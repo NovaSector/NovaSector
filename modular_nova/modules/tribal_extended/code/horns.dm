@@ -11,7 +11,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "blow_horn"
 	resistance_flags = FLAMMABLE
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	slot_flags = ITEM_SLOT_SUITSTORE
 	var/list/tune_patterns = list("short short long", "long short", "short long short", "long long", "short short short")
 	var/current_tune_index = 1
 
