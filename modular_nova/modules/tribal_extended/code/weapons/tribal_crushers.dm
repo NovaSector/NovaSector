@@ -1,4 +1,6 @@
 #define COLOR_RUNIC_GLOW "#8DEBFF"
+#define RUNIC_LIGHT_RANGE 3
+#define RUNIC_LIGHT_POWER 0.8
 
 /obj/item/kinetic_crusher/runic_greatsword
 	name = "runic greatsword"
@@ -9,6 +11,8 @@
 	worn_icon_state = "runic_greatsword"
 	lefthand_file = 'modular_nova/modules/tribal_extended/icons/swords_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/tribal_extended/icons/swords_righthand.dmi'
+	light_range = RUNIC_LIGHT_RANGE
+	light_power = RUNIC_LIGHT_POWER
 	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("slashes", "stabs", "slices", "cuts", "pierces", "thrusts", "lacerates", "carves")
 	attack_verb_simple = list("slash", "stab", "slice", "cut", "pierce", "thrust", "lacerate", "carve")
@@ -27,6 +31,8 @@
 	icon_state = "runic_axe"
 	worn_icon = 'icons/mob/clothing/back.dmi'
 	worn_icon_state = "crusher"
+	light_range = RUNIC_LIGHT_RANGE
+	light_power = RUNIC_LIGHT_POWER
 	light_color = COLOR_RUNIC_GLOW
 	attack_verb_continuous = list("chops", "cleaves", "hacks", "slashes", "sunders", "hewes", "splits", "smashes")
 	attack_verb_simple = list("chop", "cleave", "hack", "slash", "sunder", "hew", "split", "smash")
@@ -36,6 +42,8 @@
 	desc = "A spear of Hearthkin make. The runes on the blades glows a soft blue."
 	icon = 'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi' //Custom sprite, i'm a bad spriter, mhkay?
 	icon_state = "runic_spear"
+	light_range = RUNIC_LIGHT_RANGE
+	light_power = RUNIC_LIGHT_POWER
 	light_color = COLOR_RUNIC_GLOW
 
 /// Procs used to add the emissive layer (the runes) to the weapons.
@@ -120,7 +128,7 @@
 	if(charged)
 		return
 	charged = TRUE
-	playsound(src.loc, 'sound/items/weapons/kinetic_reload.ogg', 60, TRUE)
+	playsound(src.loc, 'sound/effects/magic/cosmic_energy.ogg', 60, TRUE)
 
 /obj/item/hearthkin_ship_fragment_inactive
 	name = "dormant fragment of the Stjarndrakkr"
@@ -173,3 +181,5 @@
 	insert_icon(replacetext(TOOL_HAMMER, " ", ""), uni_icon('modular_nova/modules/reagent_forging/icons/obj/forge_items.dmi', "hammer"))
 
 #undef COLOR_RUNIC_GLOW
+#undef RUNIC_LIGHT_RANGE
+#undef RUNIC_LIGHT_POWER
