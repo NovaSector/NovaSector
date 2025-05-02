@@ -1,21 +1,5 @@
 #define CUM_VOLUME_MULTIPLIER 10
 
-/datum/emote/living/lewd/fap
-	key = "fap"
-	key_third_person = "faps" // ?
-	hands_use_check = TRUE
-	cooldown = 3 SECONDS // probably for the best
-	mob_type_allowed_typecache = list(/mob/living/carbon/human)
-
-/datum/emote/living/lewd/fap/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	var/obj/item/hand_item/coom/eggplant = new(user)
-	if(user.put_in_hands(eggplant))
-		to_chat(user, span_notice("You ready your hand..."))
-	else
-		qdel(eggplant)
-		user.balloon_alert(user, "no free hand!")
-
 /obj/item/hand_item/coom
 	name = "cum"
 	desc = "C-can I watch...?"
