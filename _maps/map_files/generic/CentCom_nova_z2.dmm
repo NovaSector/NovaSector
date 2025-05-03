@@ -4980,7 +4980,9 @@
 /turf/open/floor/wood/parquet,
 /area/centcom/interlink)
 "cie" = (
-/turf/closed/indestructible/fakedoor/maintenance,
+/turf/closed/indestructible/fakedoor/maintenance{
+	name = "Storage"
+	},
 /area/centcom/interlink)
 "ckg" = (
 /obj/machinery/door/window/left/directional/north{
@@ -12880,6 +12882,7 @@
 /area/centcom/holding/cafe)
 "pMm" = (
 /obj/effect/turf_decal/siding/thinplating_new/light,
+/obj/machinery/modular_computer/preset/time_clock/directional/south,
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "pMT" = (
@@ -14145,7 +14148,6 @@
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 5
 	},
-/obj/machinery/modular_computer/preset/time_clock/directional/north,
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "rMY" = (
@@ -14876,7 +14878,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "sKa" = (
-/turf/closed/indestructible/fakedoor,
+/turf/closed/indestructible/fakedoor{
+	name = "Interlink Detention Center"
+	},
 /area/centcom/interlink)
 "sKP" = (
 /obj/effect/turf_decal/bot,
@@ -43351,7 +43355,7 @@ aaa
 aaa
 aaa
 aaa
-jiw
+wTk
 afL
 ekE
 dbl
@@ -43608,7 +43612,7 @@ aaa
 aaa
 aaa
 aaa
-jiw
+wTk
 rLK
 ekE
 dbl
@@ -43865,7 +43869,7 @@ aaa
 aaa
 aaa
 aaa
-jiw
+wTk
 tpv
 ekE
 dbl
@@ -44122,7 +44126,7 @@ aaa
 aaa
 aaa
 aaa
-jiw
+wTk
 aOF
 ekE
 dbl
@@ -44379,7 +44383,7 @@ aaa
 aaa
 aaa
 aaa
-jiw
+wTk
 afL
 ekE
 dbl
