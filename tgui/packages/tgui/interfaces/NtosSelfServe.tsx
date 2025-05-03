@@ -58,6 +58,7 @@ const SelfServePage = (props) => {
           <Stack.Item width="100%" mt={1} ml={0}>
             Current Status: {trimClockedOut ? 'Off-Duty' : 'Active Duty'}
           </Stack.Item>
+          <Stack.Divider />
         </Stack>
       )}
       {authIDName && (
