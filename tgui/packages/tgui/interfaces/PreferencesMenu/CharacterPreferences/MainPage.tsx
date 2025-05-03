@@ -32,6 +32,7 @@ import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
 import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
+import { VocalsInput, VoiceInput } from './vocals'; // NOVA EDIT ADDITION
 
 const CLOTHING_CELL_SIZE = 48;
 const CLOTHING_SIDEBAR_ROWS = 13.4; // NOVA EDIT CHANGE - ORIGINAL:  9
@@ -469,6 +470,7 @@ export function MainPage(props: MainPageProps) {
   const [deleteCharacterPopupOpen, setDeleteCharacterPopupOpen] =
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
+  const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // NOVA EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
 
   const serverData = useServerPrefs();
@@ -526,6 +528,20 @@ export function MainPage(props: MainPageProps) {
           names={data.character_preferences.names}
         />
       )}
+      {/* NOVA EDIT ADDITION START */}
+      {vocalsInputOpen && (
+        <VocalsInput
+          handleClose={() => setVocalsInputOpen(false)}
+          handleUpdateName={(nameType, value) =>
+            act('set_preference', {
+              preference: nameType,
+              value,
+            })
+          }
+          names={data.character_preferences.vocals}
+        />
+      )}
+      {/* NOVA EDIT ADDITION END */}
 
       {deleteCharacterPopupOpen && (
         <DeleteCharacterPopup
@@ -591,6 +607,17 @@ export function MainPage(props: MainPageProps) {
                 }}
               />
             </Stack.Item>
+            {/* NOVA EDIT ADDITION START */}
+            <Stack.Item position="relative">
+              <VoiceInput
+                name={data.character_preferences.names[data.name_to_use]}
+                handleUpdateName={createSetPreference(act, data.name_to_use)}
+                openMultiNameInput={() => {
+                  setMultiNameInputOpen(true);
+                }}
+              />
+            </Stack.Item>
+            {/* NOVA EDIT ADDITION END */}
           </Stack>
         </Stack.Item>
 

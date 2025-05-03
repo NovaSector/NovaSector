@@ -69,7 +69,7 @@
 
 /// Transfers the blooper prefs to the silicon mob
 /mob/living/silicon/proc/transfer_blooper_pref(client/player_client)
-	set_blooper(player_client.prefs.read_preference(/datum/preference/choiced/blooper))
+	set_blooper(player_client.prefs.read_preference(/datum/preference/choiced/vocals/blooper))
 	blooper_pitch = player_client.prefs.read_preference(/datum/preference/numeric/blooper_speech_pitch)
 	blooper_speed = player_client.prefs.read_preference(/datum/preference/numeric/blooper_speech_speed)
 	blooper_pitch_range = player_client.prefs.read_preference(/datum/preference/numeric/blooper_pitch_range)

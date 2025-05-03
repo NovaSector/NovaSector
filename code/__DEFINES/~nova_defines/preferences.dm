@@ -21,3 +21,5 @@
 
 #define VOICE_TYPE_TTS "Text-to-speech"
 #define VOICE_TYPE_BARK "Vocal Barks"
+
+#define PREFERENCE_CATEGORY_VOCALS "vocals"

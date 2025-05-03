@@ -306,7 +306,7 @@
 	if(current_version < VERSION_VOCAL_BARKS)
 		var/current_tts_voice = save_data["tts_voice"]
 		if(current_tts_voice != TTS_VOICE_NONE && current_tts_voice != "invalid") // make sure we don't turn off TTS for people who have it on
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/voice_type], "Text-to-speech")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/vocals/voice_type], "Text-to-speech")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
