@@ -6928,6 +6928,7 @@
 #include "modular_nova\master_files\code\modules\clothing\head\hardhat.dm"
 #include "modular_nova\master_files\code\modules\clothing\head\monkey_magnification_helmet.dm"
 #include "modular_nova\master_files\code\modules\clothing\masks\_masks.dm"
+#include "modular_nova\master_files\code\modules\clothing\masks\hailer.dm"
 #include "modular_nova\master_files\code\modules\clothing\neck\_neck.dm"
 #include "modular_nova\master_files\code\modules\clothing\outfits\ert.dm"
 #include "modular_nova\master_files\code\modules\clothing\outfits\standard.dm"
