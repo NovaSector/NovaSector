@@ -5,8 +5,8 @@
 	preview_outfit = /datum/outfit/job/bitrunner
 	show_in_roundend = FALSE
 	show_in_antagpanel = FALSE
-	show_name_in_check_antagonists = FALSE
-	show_to_ghosts = FALSE
+	show_name_in_check_antagonists = TRUE
+	show_to_ghosts = TRUE
 	suicide_cry = "ALT F4!"
 
 /datum/antagonist/bitrunning_reinforcement/greet()
@@ -23,13 +23,12 @@
 		carbon_mob.make_virtual_mob()
 
 /datum/antagonist/bitrunning_reinforcement/forge_objectives()
-	add_objective(new /datum/objective/bitrunning_reinforcement_fluff)
+	var/datum/objective/bitrunning_reinforcement_fluff/objective = new()
+	objective.owner = owner
+	objectives += objective
 
 /datum/objective/bitrunning_reinforcement_fluff
 	explanation_text = "Assist Nanotrasen-aligned bitrunners with completion of domains. Goof off."
 
 /datum/objective/bitrunning_reinforcement_fluff/check_completion()
-	if(locate(/mob/living/carbon) in (GLOB.alive_player_list - owner.current))
-		return FALSE
-
 	return TRUE
