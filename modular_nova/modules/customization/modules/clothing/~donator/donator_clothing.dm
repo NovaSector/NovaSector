@@ -941,6 +941,7 @@
 // Donation Reward for Grand Vegeta
 /obj/item/clothing/shoes/sneakers/mikuleggings
 	name = "starlight singer leggings"
+ 	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
