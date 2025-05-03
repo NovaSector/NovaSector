@@ -22,7 +22,7 @@
 	SIGNAL_HANDLER
 
 	toggled = !toggled
-	source.icon_state = (toggled ? toggled_icon_state : initial(source.icon_state))
+	source.icon_state = (toggled ? toggled_icon_state : initial(source.post_init_icon_state))
 	to_chat(clicker, "You toggle \the [source]!")
 	if(source.loc == clicker)
 		clicker.update_clothing(source.slot_flags)
