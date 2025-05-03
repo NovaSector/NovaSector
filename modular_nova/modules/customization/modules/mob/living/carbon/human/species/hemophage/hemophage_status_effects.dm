@@ -136,6 +136,7 @@
 		return
 
 	regenerator.blood_volume = max(regenerator.blood_volume - blood_used, MINIMUM_VOLUME_FOR_REGEN)
+	new /obj/effect/temp_visual/heal(get_turf(regenerator), COLOR_EFFECT_HEAL_RED)
 
 
 /datum/movespeed_modifier/hemophage_dormant_state
