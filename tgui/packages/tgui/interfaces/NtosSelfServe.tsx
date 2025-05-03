@@ -11,7 +11,6 @@ type Data = {
   authIDRank: string;
   hasTrim: boolean;
   trimAssignment: string;
-  stationAlertLevel: string;
   trimClockedOut: boolean;
   authCardHOPLocked: boolean;
   authCardTimeLocked: boolean;
@@ -19,8 +18,6 @@ type Data = {
 } & NTOSData;
 
 export const NtosSelfServe = (props) => {
-  const { act, data } = useBackend<Data>();
-
   return (
     <NtosWindow width={400} height={522}>
       <NtosWindow.Content>
@@ -42,14 +39,15 @@ const SelfServePage = (props) => {
     authIDRank,
     authCardHOPLocked,
     authCardTimeLocked,
-    stationAlertLevel,
     trimClockedOut,
     trimAssignment,
   } = data;
 
   return (
-    <Section title="Enterprise Resource Planning">
-      <Section title={'Welcome ' + authIDName}>
+    <Section
+      title={authIDName ? 'Welcome, ' + authIDName : 'Please Insert Your ID'}
+    >
+      {authIDName && (
         <Stack wrap="wrap">
           <Stack.Item width="100%" mt={1} ml={0}>
             Current Assignment: {trimAssignment || '-----'}
@@ -61,82 +59,88 @@ const SelfServePage = (props) => {
             Current Status: {trimClockedOut ? 'Off-Duty' : 'Active Duty'}
           </Stack.Item>
         </Stack>
-      </Section>
+      )}
+      {authIDName && (
+        <Section title="Punch Clock">
+          <Stack wrap="wrap">
+            <Stack.Item width="100%" mt={1} ml={0}>
+              <Stack>
+                <Stack.Item>
+                  <Button
+                    width="342px"
+                    disabled={
+                      authCardHOPLocked || authCardTimeLocked || !authIDName
+                    }
+                    onClick={() => act('PRG_change_status')}
+                  >
+                    <center>
+                      {trimClockedOut
+                        ? 'Return to Job Assignment'
+                        : 'Punch Out from Job Assignment'}
+                    </center>
+                  </Button>
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    right="0px"
+                    width="100%"
+                    icon="eject"
+                    onClick={() => act('PRG_eject_id')}
+                  />
+                </Stack.Item>
+              </Stack>
+            </Stack.Item>
+          </Stack>
+        </Section>
+      )}
+      {authIDName ? (
+        !trimClockedOut || !!authCardHOPLocked || !!authCardTimeLocked ? (
+          <Section title="Assignment Information">
+            <Stack wrap="wrap">
+              {!trimClockedOut && (
+                <Stack.Item width="100%" mt={0} ml={0}>
+                  <NoticeBox info>
+                    Before punching out, please return any job gear that is
+                    important or limited to your workplace.
+                  </NoticeBox>
+                  <NoticeBox info>
+                    While off-duty, any restricted items will be transferred to
+                    a crew equipment lockbox, to be returned upon punching in.
+                  </NoticeBox>
+                </Stack.Item>
+              )}
 
-      <Section title="Punch Clock">
-        <Stack wrap="wrap">
-          <Stack.Item width="100%" mt={1} ml={0}>
-            <Stack>
-              <Stack.Item>
-                <Button
-                  width="342px"
-                  disabled={
-                    authCardHOPLocked || authCardTimeLocked || !authIDName
-                  }
-                  onClick={() => act('PRG_change_status')}
-                >
-                  <center>
-                    {trimClockedOut
-                      ? 'Return to Job Assignment'
-                      : 'Punch Out from Job Assignment'}
-                  </center>
-                </Button>
-              </Stack.Item>
-              <Stack.Item>
-                <Button
-                  right="0px"
-                  width="100%"
-                  icon="eject"
-                  onClick={() => act('PRG_eject_id')}
-                />
-              </Stack.Item>
+              {!!authCardHOPLocked && (
+                <Stack.Item width="100%" mt={0} ml={0}>
+                  <NoticeBox danger>
+                    Assignment Locked!
+                    <br />
+                    <br />
+                    Security and Command members must visit an appropriate
+                    Command member to punch in!
+                  </NoticeBox>
+                </Stack.Item>
+              )}
+
+              {!authCardHOPLocked && !!authCardTimeLocked && (
+                <Stack.Item width="100%" mt={0} ml={0}>
+                  <NoticeBox>
+                    It is too early to return to your assignment!
+                    <br />
+                    Time remaining: {authCardTimeRemaining}
+                    <br />
+                    <br />
+                    Please visit the HoP window or your departmental Command
+                    member for an override.
+                  </NoticeBox>
+                </Stack.Item>
+              )}
             </Stack>
-          </Stack.Item>
-        </Stack>
-      </Section>
-      <Section title="Assignment Information">
-        <Stack wrap="wrap">
-          {!trimClockedOut ? (
-            <Stack.Item width="100%" mt={0} ml={0}>
-              <NoticeBox info>
-                Before punching out, please return any job gear that is
-                important or limited to your workplace.
-              </NoticeBox>
-              <NoticeBox info>
-                While off-duty, any restricted items will be transferred to a
-                crew equipment lockbox, to be returned upon punching in.
-              </NoticeBox>
-            </Stack.Item>
-          ) : (
-            ''
-          )}
-          {authCardHOPLocked ? (
-            <Stack.Item width="100%" mt={0} ml={0}>
-              <NoticeBox danger>
-                Assignment Locked!
-                <br />
-                <br />
-                Security and Command members must visit an appropriate Command
-                member to punch in!
-              </NoticeBox>
-            </Stack.Item>
-          ) : authCardTimeLocked ? (
-            <Stack.Item width="100%" mt={0} ml={0}>
-              <NoticeBox>
-                It is too early to return to your assignment!
-                <br />
-                Time remaining: {authCardTimeRemaining}
-                <br />
-                <br />
-                Please visit the HoP window or your departmental Command member
-                for an override.
-              </NoticeBox>
-            </Stack.Item>
-          ) : (
-            ''
-          )}
-        </Stack>
-      </Section>
+          </Section>
+        ) : null
+      ) : (
+        'Insert your ID to use the punch clock app.'
+      )}
     </Section>
   );
 };

@@ -9,7 +9,7 @@
 	program_open_overlay = "id"
 	extended_desc = "Allows crew members to remotely punch in or out of their job assignment, giving the impression they have a semblance of control over their lives."
 	program_flags = PROGRAM_ON_NTNET_STORE
-	size = 4
+	size = 0
 	tgui_id = "NtosSelfServe"
 	program_icon = "id-card"
 	/// The ID card used to authenticate.
@@ -298,7 +298,6 @@
 
 /datum/computer_file/program/crew_self_serve/ui_static_data(mob/user)
 	var/list/data = list()
-	data["stationAlertLevel"] = SSsecurity_level.get_current_level_as_text()
 	if(authenticated_card)
 		data["authIDName"] = authenticated_card.registered_name ? authenticated_card.registered_name : "-----"
 		data["authIDRank"] = authenticated_card.assignment ? authenticated_card.assignment : "Unassigned"

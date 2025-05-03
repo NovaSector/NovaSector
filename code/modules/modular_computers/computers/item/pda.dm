@@ -40,6 +40,7 @@
 		/datum/computer_file/program/nt_pay,
 		/datum/computer_file/program/notepad,
 		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/crew_self_serve, // NOVA EDIT ADDITION - Adds punch clock app to all base tablets
 		/datum/computer_file/program/maintenance/camera, // NOVA EDIT ADDITION - Adds camera to all base tablets
 	)
 	///List of items that can be stored in a PDA
