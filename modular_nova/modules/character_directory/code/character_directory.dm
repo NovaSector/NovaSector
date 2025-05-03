@@ -230,7 +230,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			species = READ_PREFS(silicon, choiced/brain_type)
 			//Load silicon flavor text in place of normal flavor text
 			flavor_text = READ_PREFS(silicon, text/silicon_flavor_text) || ""
-			headshot = READ_PREFS(silicon, text/headshot) || ""
+			headshot = READ_PREFS(silicon, text/headshot/silicon) || ""
 		// Don't show if they are not a human or a silicon
 		else
 			continue

@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - rscadd: "More techs added to technology announcement system. Pretty much, all of the Nova-specific nodes (or close to all)"

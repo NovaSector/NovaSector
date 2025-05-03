@@ -356,9 +356,8 @@ const CharacterDirectoryList = (props) => {
         <Stack.Item>
           <Input
             placeholder="Search name..."
-            onInput={(e, value) => {
-              updateSearchTerm(value);
-            }}
+            onChange={updateSearchTerm}
+            expensive
             value={searchTerm}
             mb={2}
           />
