@@ -476,6 +476,9 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	. = ..()
 	. += span_info("It's worth [value] credit\s.")
 
+	if(HAS_TRAIT(user, TRAIT_SLEIGHT_OF_HAND))
+		. += span_notice("Flip with combat mode to hide the result from others. Use again to reveal.")
+
 /obj/item/coin/attackby(obj/item/W, mob/user, list/modifiers)
 	if(istype(W, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/CC = W
