@@ -131,7 +131,6 @@
 	icon_state = "/obj/item/storage/belt/holster/thigh"
 	post_init_icon_state = "cowboy_belt"
 	worn_icon_state = "cowboy_belt"
-	icon_state_preview = "cowboy_belt_preview"
 	inhand_icon_state = "utility"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	greyscale_config = /datum/greyscale_config/thigh_holster
