@@ -79,6 +79,7 @@
 	desc = "Very gay shoes."
 	icon = 'icons/obj/clothing/shoes.dmi'
 	icon_state = "rain_bow"
+	post_init_icon_state = null
 	inhand_icon_state = "rainbow_sneakers"
 
 	greyscale_colors = null
