@@ -76,10 +76,7 @@
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/suit/toggle/jacket/nova/cardigan/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_clothes, "cardigan_t")
+	toggle_noun = "button"
 
 /obj/item/clothing/suit/discoblazer
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'

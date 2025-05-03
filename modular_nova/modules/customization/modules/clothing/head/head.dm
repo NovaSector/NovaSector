@@ -237,7 +237,7 @@
 
 /obj/item/clothing/head/small_bow/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/toggle_clothes, "small_bow_t")
+	AddComponent(/datum/component/toggle_icon, "switch side")
 
 /obj/item/clothing/head/large_bow
 	name = "large bow"

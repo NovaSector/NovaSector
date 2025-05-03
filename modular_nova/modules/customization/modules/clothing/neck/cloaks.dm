@@ -25,7 +25,7 @@
 
 /obj/item/clothing/neck/cowboylea/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/toggle_clothes, "cowboy_poncho_t")
+	AddComponent(/datum/component/toggle_icon, "over shoulder")
 
 //This one is greyscale :)
 /obj/item/clothing/neck/ranger_poncho
@@ -42,7 +42,7 @@
 
 /obj/item/clothing/neck/ranger_poncho/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/toggle_clothes, "ranger_poncho_t")
+	AddComponent(/datum/component/toggle_icon, "over shoulder")
 
 /obj/item/clothing/neck/robe_cape
 	name = "robe cape"
@@ -70,7 +70,7 @@
 
 /obj/item/clothing/neck/long_cape/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/toggle_clothes, "long_cape_t")
+	AddComponent(/datum/component/toggle_icon, "cover arm")
 
 /obj/item/clothing/neck/wide_cape
 	name = "wide cape"
