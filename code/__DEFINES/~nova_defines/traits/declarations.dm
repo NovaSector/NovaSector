@@ -159,8 +159,6 @@
 
 #define TRAIT_STRAPON "strapon"
 
-#define TRAIT_CONDOM_BROKEN "broken"
-
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"
 
