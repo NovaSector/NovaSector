@@ -47,3 +47,18 @@
   RealWinterFrost:
   - bugfix: Fixed the syndiepads to function and properly "calculate" value of of
       objects on them.
+2025-05-03:
+  Iajret:
+  - balance: Recent advancements made getting SAD blueprint a much easier affair,
+      requiring only a tiny fraction of CPU time from proprietary research neural
+      networks than it did before. SAD now comes as a part of advanced medical tech
+      (tm) node.
+  - rscadd: More techs added to technology announcement system. Pretty much, all of
+      the Nova-specific nodes (or close to all)
+  jlsnow301, aylong:
+  - bugfix: Inputs in tgui windows (not tgui-say) have been reworked, hopefully making
+      them FAST. Report if they are not FAST.
+  - bugfix: Fixed a bluescreen caused when moving a tgui window with a tooltip open.
+  sippykot, vinylspiders:
+  - rscadd: ability to climax into a reagent container
+  - bugfix: condoms are no longer broken (aka they're -able- to be broken again)

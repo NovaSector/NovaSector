@@ -123,10 +123,10 @@
 
 /datum/techweb_node/consoles/New()
 	design_ids += list(
-		"time_clock_frame",
 		"nif_service_tools",
 	)
 	return ..()
+
 
 /datum/techweb_node/hud/New()
 	design_ids += list(
