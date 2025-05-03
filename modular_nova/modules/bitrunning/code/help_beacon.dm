@@ -73,8 +73,21 @@
 		subrunner.forceMove(pick(GLOB.newplayer_start))
 	else
 		subrunner.forceMove(locate(1,1,1))
-	if(outfit)
-		subrunner.equip_species_outfit(outfit)
+	for(var/obj/machinery/quantum_server/server in SSmachines.get_machines_by_type(/obj/machinery/quantum_server))
+		var/outfit_path = server.generated_domain.forced_outfit ? server.generated_domain.forced_outfit : outfit
+		var/datum/outfit/to_wear = new outfit_path()
+		if(outfit_path)
+			subrunner.equipOutfit(to_wear, visuals_only = TRUE)
+		else
+			subrunner.equip_species_outfit(outfit)
+
+	subrunner.AddComponent( \
+		/datum/component/simple_bodycam, \
+		camera_name = "bitrunner bodycam", \
+		c_tag = "Avatar [subrunner.real_name]", \
+		network = BITRUNNER_CAMERA_NET, \
+		emp_proof = TRUE, \
+	)
 
 	var/obj/structure/closet/supplypod/pod = setup_pod()
 	subrunner.forceMove(pod)
