@@ -1,3 +1,6 @@
+#define PUNCH_ID_INVALID -1
+#define PUNCH_ID_OFF_COOLDOWN 0
+
 /datum/mind
 	/// Is our mind currently clocked out of their job?
 	var/clocked_out_of_job = FALSE
@@ -146,31 +149,31 @@
 /// Is the inserted ID on cooldown? return -1 if invalid ID, 0 if ID is not on cooldown, and remaining time until cooldown ends otherwise.
 /datum/computer_file/program/crew_self_serve/proc/id_cooldown_check()
 	if(!authenticated_card)
-		return -1
+		return PUNCH_ID_INVALID
 
 	var/datum/component/off_duty_timer/id_component = authenticated_card.GetComponent(/datum/component/off_duty_timer)
 	if(!id_component)
-		return -1
+		return PUNCH_ID_INVALID
 
 	if(!id_component.on_cooldown)
-		return 0
+		return PUNCH_ID_OFF_COOLDOWN
 
 	return max(TIMECLOCK_COOLDOWN - (world.time - id_component.init_time), 0)
 
 /// Returns the remaining time left for the ID, as a minutes:seconds string.
 /datum/computer_file/program/crew_self_serve/proc/id_cooldown_minutes_seconds()
-	var/cooldownTics = id_cooldown_check()
-	if (cooldownTics == -1)
+	var/remaining_cooldown_time = id_cooldown_check()
+	if (remaining_cooldown_time == PUNCH_ID_INVALID)
 		return "--:--"
 
-	var/cooldownMinutes = num2text(floor(cooldownTics / (1 MINUTES)))
+	var/cooldown_remaining_minutes = num2text(floor(remaining_cooldown_time / (1 MINUTES)))
 	if (length(cooldownMinutes) == 1)
-		cooldownMinutes = addtext("0", cooldownMinutes)
-	var/cooldownSeconds = num2text(floor(cooldownTics / (1 SECONDS)) % (60))
+		cooldown_remaining_minutes = addtext("0", cooldownMinutes)
+	var/cooldown_remaining_seconds = num2text(floor(remaining_cooldown_time / (1 SECONDS)) % (60))
 	if (length(cooldownSeconds) == 1)
-		cooldownSeconds = addtext("0", cooldownSeconds)
+		cooldown_remaining_seconds = addtext("0", cooldownSeconds)
 
-	return addtext(cooldownMinutes, ":", cooldownSeconds)
+	return addtext(cooldown_remaining_minutes, ":", cooldown_remaining_seconds)
 
 /// Is the inserted ID locked from clocking in? returns TRUE if the ID is locked
 /datum/computer_file/program/crew_self_serve/proc/id_locked_check()
@@ -315,3 +318,6 @@
 		data["trimAssignment"] = ""
 
 	return data
+
+#undef PUNCH_ID_INVALID
+#undef PUNCH_ID_OFF_COOLDOWN
