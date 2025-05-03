@@ -520,7 +520,7 @@
 
 /datum/greyscale_config/tesharian_mantle/worn
 	name = "Tesharian Mantle (Worn)"
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/tesharian_mantle.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/tesharian_mantle_worn.json'
 
 /datum/greyscale_config/tesharian_mantle/worn/teshari
 	name = "Tesharian Mantle (Worn, Teshari)"
@@ -898,7 +898,7 @@
 
 /datum/greyscale_config/croptop
 	name = "Croptop Sweater"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/suits/croptop/croptop.json'
 
 /datum/greyscale_config/croptop/worn
@@ -1073,15 +1073,15 @@
 
 /datum/greyscale_config/shortershorts
 	name = "Shorter Shorts"
-	icon_file = 'modular_nova/modules/GAGS/icons/shorts_pants.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/shortershorts.json'
 
 /datum/greyscale_config/shortershorts/worn
 	name = "Shorter Shorts (Worn)"
-	icon_file = 'modular_nova/modules/GAGS/icons/shorts_pants.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
 /datum/greyscale_config/shortershorts/worn/digi
-	name = "Ripped Shorts (Worn, Digi)"
+	name = "Shorter Shorts (Worn, Digi)"
 	icon_file = SHORTS_PANTS_SHIRTS_DIGIFILE
 
 /datum/greyscale_config/shorts_ripped
@@ -1089,7 +1089,7 @@
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/shorts_ripped.json'
 
-/datum/greyscale_config/shorts_ripped/worn //TG will hopefully start having worn as a subtype, it means only needing 1 .json
+/datum/greyscale_config/shorts_ripped/worn
 	name = "Ripped Shorts (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/shorts_pants_shirts.dmi'
 
