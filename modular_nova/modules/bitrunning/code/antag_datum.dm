@@ -9,18 +9,10 @@
 	show_to_ghosts = TRUE
 	suicide_cry = "ALT F4!"
 
-/datum/antagonist/bitrunning_reinforcement/greet()
-	. = ..()
-	owner.announce_objectives()
-
 /datum/antagonist/bitrunning_reinforcement/on_gain()
 	. = ..()
-
 	forge_objectives()
-
-	if(iscarbon(owner.current))
-		var/mob/living/carbon/carbon_mob = owner.current
-		carbon_mob.make_virtual_mob()
+	owner.announce_objectives()
 
 /datum/antagonist/bitrunning_reinforcement/forge_objectives()
 	var/datum/objective/bitrunning_reinforcement_fluff/objective = new()
