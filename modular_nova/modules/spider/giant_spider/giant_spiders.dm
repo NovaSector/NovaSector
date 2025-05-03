@@ -2,6 +2,7 @@
  * ### Webslinger Spider
  * A subtype of the giant spider which is slower, can throw webs to ensnare those pesky bipeds.
  */
+
 /mob/living/basic/spider/giant/webslinger
 	name = "webslinger spider"
 	desc = "Furry and white, it makes you shudder to look at it. Sharp green eyes are all that can be seen..."
@@ -167,6 +168,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/ogre
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
+		/datum/action/cooldown/mob_cooldown/lay_web/create_totem,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
@@ -221,6 +223,11 @@
 	melee_damage_upper = 15
 	poison_per_bite = 2
 	poison_type = /datum/reagent/spidereggs
+	butcher_results = list(
+		/obj/item/food/meat/slab/spider = 2,
+		/obj/item/food/spiderleg = 8,
+		/mob/living/basic/spider/growing/spiderling = 8,
+		)
 	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS

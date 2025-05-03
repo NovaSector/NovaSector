@@ -90,3 +90,128 @@
 		var/throwtarget = get_edge_target_turf(victim, throw_dir)
 		victim.throw_at(target = throwtarget, range = 1, speed = 1)
 		victim.visible_message(span_warning("[victim] is thrown clear of [owner]!"))
+
+/**
+ * ### Ogre
+ * These are the abilities tailored to specifically the Ogre
+ */
+// Create Effigy
+
+/datum/action/cooldown/mob_cooldown/lay_web/create_totem
+	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
+	cooldown_time = 2 MINUTES
+	name = "Plant Totem"
+	desc = "Plant a Spider Totem to spread webs."
+	button_icon_state = "spider_effigy"
+
+/datum/action/cooldown/mob_cooldown/lay_web/create_totem/obstructed_by_other_web()
+	return !!(locate(/obj/structure/spider/stickyweb/sealed/reflector) in get_turf(owner))
+
+/datum/action/cooldown/mob_cooldown/lay_web/create_totem/plant_web(turf/target_turf, obj/structure/spider/stickyweb/existing_web)
+	new /obj/structure/spider/stickyweb/alive/spider_effigy(target_turf)
+
+// let's piggy back on resin to avoid having to remake everything below it.
+#define EFFIGYRANGE 3
+
+/obj/structure/spider/stickyweb/alive
+	var/spider_effigy_range = EFFIGYRANGE
+	///the parent node that will determine if we grow or die
+	var/obj/structure/spider/stickyweb/alive/spider_effigy/parent_node
+	///the list of turfs that the weeds will not be able to grow over
+	var/static/list/blacklisted_turfs = list(
+		/turf/open/space,
+		/turf/open/chasm,
+		/turf/open/lava,
+		/turf/open/water,
+		/turf/open/openspace,
+	)
+
+/obj/structure/spider/stickyweb/alive/Initialize(mapload)
+	. = ..()
+
+	AddElement(/datum/element/atmos_sensitive, mapload)
+
+/obj/structure/spider/stickyweb/alive/Destroy()
+	if(parent_node)
+		UnregisterSignal(parent_node, COMSIG_QDELETING)
+		parent_node = null
+	return ..()
+
+/**
+ * Called when the spider_effigy is trying to grow/expand
+ */
+/obj/structure/spider/stickyweb/alive/proc/try_expand()
+	//we cant grow without a parent spider_effigy
+	if(!parent_node)
+		return
+	//lets make sure we are still on a valid location
+	var/turf/src_turf = get_turf(src)
+	if(is_type_in_list(src_turf, blacklisted_turfs))
+		qdel(src)
+		return
+	//lets try to grow in a direction
+	for(var/turf/check_turf in src_turf.get_atmos_adjacent_turfs())
+		//we cannot grow on blacklisted turfs
+		if(is_type_in_list(check_turf, blacklisted_turfs))
+			continue
+		var/obj/structure/spider/stickyweb/alive/check_web = locate() in check_turf
+		//we cannot grow onto other weeds
+		if(check_web)
+			continue
+		//spawn a new one in the turf
+		check_web = new(check_turf)
+		//set the new one's parent spider_effigy to our parent spider_effigy
+		check_web.parent_node = parent_node
+
+
+/obj/structure/spider/stickyweb/alive/spider_effigy
+	name = "spider effigy"
+	desc = "an organic structure that seems to spread webs"
+	icon = 'modular_nova/modules/spider/icons/spider.dmi'
+	icon_state = "spider_effigy"
+	base_icon_state = "spider_effigy"
+	smoothing_flags = NONE
+	smoothing_groups = NONE
+	canSmoothWith = NONE
+	///the minimum time it takes for another weed to spread from this one
+	var/minimum_growtime = 5 SECONDS
+	///the maximum time it takes for another weed to spread from this one
+	var/maximum_growtime = 10 SECONDS
+	//the cooldown between each growth
+	COOLDOWN_DECLARE(growtime)
+
+/obj/structure/spider/stickyweb/alive/spider_effigy/Initialize(mapload)
+	. = ..()
+	//we are the parent spider_effigy
+	parent_node = src
+
+	return INITIALIZE_HINT_LATELOAD
+
+// we do this in LateInitialize() because weeds on the same loc may not be done initializing yet (as in create_and_destroy)
+/obj/structure/spider/stickyweb/alive/spider_effigy/LateInitialize()
+	//destroy any non-spider_effigy weeds on turf
+	var/obj/structure/spider/stickyweb/alive/check_web = locate(/obj/structure/spider/stickyweb/alive) in loc
+	if(check_web && check_web != src)
+		qdel(check_web)
+
+	//start the cooldown
+	COOLDOWN_START(src, growtime, rand(minimum_growtime, maximum_growtime))
+
+	//start processing
+	START_PROCESSING(SSobj, src)
+
+/obj/structure/spider/stickyweb/alive/spider_effigy/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/structure/spider/stickyweb/alive/spider_effigy/process()
+	//we need to have a cooldown, so check and then add
+	if(!COOLDOWN_FINISHED(src, growtime))
+		return
+	COOLDOWN_START(src, growtime, rand(minimum_growtime, maximum_growtime))
+	//attempt to grow all webs in range
+	for(var/obj/structure/spider/stickyweb/alive/growing_web in range(spider_effigy_range, src))
+		growing_web.try_expand()
+
+
+#undef EFFIGYRANGE
