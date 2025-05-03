@@ -171,7 +171,7 @@
 		cooldown_remaining_minutes = addtext("0", cooldown_remaining_minutes)
 	var/cooldown_remaining_seconds = num2text(floor(remaining_cooldown_time / (1 SECONDS)) % (60))
 	if (length(cooldown_remaining_seconds) == 1)
-		cooldown_remaining_seconds = addtext("0", cooldownSeconds)
+		cooldown_remaining_seconds = addtext("0", cooldown_remaining_seconds)
 
 	return addtext(cooldown_remaining_minutes, ":", cooldown_remaining_seconds)
 
