@@ -271,7 +271,7 @@
 			if(do_after(user, 2 SECONDS, target = interacting_with))
 				var/design_cost = designs[machine_target.type]
 				var/to_return = min(design_cost, max_matter - matter) // Give back matter was used to create smth
-				if(to_return < design_cost):
+				if(to_return < design_cost)
 					balloon_alert(user, "storage full!")
 				matter += to_return
 				machine_target.deconstruct()
