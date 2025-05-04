@@ -50,7 +50,6 @@
 
 /datum/nifsoft/soul_poem/Destroy()
 	QDEL_NULL(proximity_datum)
-	proximity_datum = null
 
 	return ..()
 
