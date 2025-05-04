@@ -38,12 +38,12 @@
 		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 5)
 
 /obj/structure/railroad/Destroy()
-	. = ..()
 	for(var/obj/structure/railroad/rail in range(1))
 		if(rail == src)
 			continue
 
 		addtimer(CALLBACK(rail, /atom/proc/update_appearance), 5)
+	return ..()
 
 /obj/structure/railroad/update_appearance(updates)
 	icon_state = "rail"
