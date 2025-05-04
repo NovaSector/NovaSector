@@ -1,8 +1,10 @@
 "a" = (/turf/template_noop,/area/template_noop)
 "b" = (/obj/structure/table/wood/fancy/orange,/obj/item/coin/runite,/turf/open/floor/stone/icemoon,/area/template_noop)
+"c" = (/obj/structure/statue/hearthkin/frozenwake/puzzle_fall,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "d" = (/turf/open/misc/asteroid/snow/icemoon,/area/template_noop)
-"e" = (/obj/structure/ice_stasis,/turf/open/floor/stone/icemoon,/area/template_noop)
+"e" = (/obj/structure/ice_stasis/frozenwake,/turf/open/floor/stone/icemoon,/area/template_noop)
 "f" = (/obj/structure/flora/tree/jungle/small/style_6,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
+"g" = (/obj/structure/statue/hearthkin/frozenwake/stele/watch,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "h" = (/obj/structure/flora/bush/flowers_br/style_random,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
 "i" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
 "l" = (/obj/structure/bonfire/dense/prelit,/turf/open/floor/stone/icemoon,/area/template_noop)
@@ -10,21 +12,34 @@
 "n" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/tree/jungle/small/style_6,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
 "p" = (/turf/closed/mineral/snowmountain/icemoon,/area/template_noop)
 "q" = (/obj/structure/table/wood/fancy/orange,/obj/item/chisel,/turf/open/floor/stone/icemoon,/area/template_noop)
-"r" = (/obj/structure/statue/hearthkin/odin,/turf/open/floor/stone/icemoon,/area/template_noop)
+"r" = (/obj/structure/statue/hearthkin/frozenwake/stele/dream,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"s" = (/turf/open/misc/dirt/icemoon,/area/template_noop)
 "t" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"u" = (/obj/structure/sign/plaques/kiddie,/turf/closed/wall/mineral/stone,/area/template_noop)
+"u" = (/obj/structure/statue/hearthkin/frozenwake/stele/weeping_spear,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"v" = (/obj/structure/wall_torch/spawns_lit/directional/west,/turf/open/misc/dirt/icemoon,/area/template_noop)
 "w" = (/obj/effect/turf_decal/weather/snow,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
+"y" = (/obj/structure/wall_torch/directional/east,/turf/open/misc/dirt/icemoon,/area/template_noop)
 "z" = (/turf/open/floor/stone/icemoon,/area/template_noop)
 "A" = (/obj/structure/wall_torch/spawns_lit/directional/west,/turf/open/floor/stone/icemoon,/area/template_noop)
 "C" = (/obj/structure/mineral_door/wood/large_gate{dir = 1},/turf/open/floor/stone/icemoon,/area/template_noop)
+"D" = (/obj/effect/decal/cleanable/rubble,/obj/item/stack/stone,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"E" = (/obj/structure/statue/hearthkin/frozenwake/stele/mourning,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "F" = (/obj/effect/turf_decal/weather/snow,/turf/open/floor/stone/icemoon,/area/template_noop)
 "G" = (/mob/living/basic/ghost/swarm,/turf/open/floor/stone/icemoon,/area/template_noop)
 "H" = (/mob/living/basic/ghost/swarm,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
+"I" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/misc/dirt/icemoon,/area/template_noop)
+"J" = (/obj/item/stack/stone,/obj/effect/decal/cleanable/rubble,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"K" = (/obj/structure/statue/hearthkin/frozenwake/puzzle_circle,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "L" = (/obj/structure/mineral_door/wood/large_gate,/turf/open/floor/stone/icemoon,/area/template_noop)
-"N" = (/obj/item/stack/stone,/obj/effect/decal/cleanable/rubble,/turf/open/floor/stone/icemoon,/area/template_noop)
+"N" = (/obj/structure/statue/hearthkin/frozenwake/stele/oath,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "O" = (/obj/structure/barricade/wooden/crude/snow,/obj/structure/barricade/wooden/snowed,/obj/effect/turf_decal/weather/snow,/turf/open/floor/stone/icemoon,/area/template_noop)
+"P" = (/obj/structure/statue/hearthkin/frozenwake/puzzle_avenger,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"Q" = (/obj/structure/statue/hearthkin/frozenwake/puzzle_dreamer,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"R" = (/obj/structure/statue/hearthkin/frozenwake,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "T" = (/obj/structure/window/green_glass_pane,/turf/open/floor/stone/icemoon,/area/template_noop)
-"U" = (/obj/structure/table/wood/fancy/orange,/turf/open/floor/stone/icemoon,/area/template_noop)
+"U" = (/obj/structure/table/wood/fancy/orange,/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake,/turf/open/floor/stone/icemoon,/area/template_noop)
+"V" = (/obj/structure/statue/hearthkin/frozenwake/puzzle_betrayer,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
+"W" = (/obj/structure/statue/hearthkin/frozenwake/puzzle_watcher,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
 "X" = (/turf/closed/wall/mineral/stone,/area/template_noop)
 "Y" = (/obj/structure/wall_torch/directional/east,/turf/open/floor/stone/icemoon,/area/template_noop)
 "Z" = (/obj/structure/table/wood/fancy/orange,/obj/item/coin/gold,/turf/open/floor/stone/icemoon,/area/template_noop)
@@ -37,48 +52,48 @@ apdddddddddXXXXXXXddddddddddpa
 apdddddddddXqzzzUXddddddddddpa
 apdddddddddXXbzZXXddddddddddpa
 apdddXXTTTXXXXLXXXXTTTXXddddpa
-apddXXzzzzzzzzezzzzzzzzXXdddpa
-apdXXzzzzzzzzzzzzzzzzzGzXXddpa
-apdXAzzzrzzrzzzzzrzzrzzzYXddpa
-apdTzzzzzGzzzzzzzzzzzzzzzTddpa
-apdTzzzzzzzzzzzzzzzGzzzzzTddpa
-apdXAzzzrzzrzzzzzrzzrzzzYXddpa
-apdXXzzzzzGzzzzzzzzzzzzzXXddpa
+apddXXzzzzzzzzezzzzsszzXXdddpa
+apdXXzzzzzzzzzzzzzzszzGzXXddpa
+apdXAzQzzzVzzzzzzzDzzzPzYXddpa
+apdTzzzzzGzzzzzzzzszzzzzzTddpa
+apdTzzzzzzzsszzzzzzGzzzzzTddpa
+apdXAzczzsDszzzzzzKzzzWzYXddpa
+apdXXzzzzsGzzzzzzzzzzzzzXXddpa
 apddXXzzzzzzzzzzzzzzzzzXXdddpa
 apdddXTTTXXXXzzzXXXXTTTXddddpa
 apdddddddXXXAzzzYXXXddddddddpa
 apddddddXXzzzzzzzzzXXdddddddpa
-apdddddXXzzzzzuzzzzzXXddddddpa
-apddddXXAzzuzzzzzuzzYXXdddddpa
-apddddXzzzzzzzzzzzGzzzXdddddpa
-apdddXXzzNzzzzzzzzzNzzXXddddpa
-apdddTzzzzGzzzzzzzzzzzzTddddpa
-apdddTzzzzzzzzzzzzzzzzzTddddpa
-apdddXAzuzzzzzlzzzzzuzYXddddpa
-apdddTzzzzzzzzzzzzzzzzzTddddpa
+apdddddXXzszzzuzzzzzXXddddddpa
+apddddXXAzzJzzzzzEzzYXXdddddpa
+apddddXzzzzsszzzzzGsszXdddddpa
+apdddXXzzNzzzzzzzzsJzzXXddddpa
+apdddTzzzzGzzzzzzzszzzzTddddpa
+apdddTzzzzzzzzzzzzzzzzsTddddpa
+apdddXAzrzzzzzlzzzzzgsyXddddpa
+apdddTzzzzzzzzzzzzzzzszTddddpa
 apdddTzzttittzzztttitzzTddddpa
-apdddXXztfthtzzztfttmzXXddddpa
-apddddXzzitttzrzmtHizzXdddddpa
-apddddXXAztftzzztntzYXXdddddpa
+apdddXXstfthtzzztfttmzXXddddpa
+apddddXzsitttzRzmtHizzXdddddpa
+apddddXXvztftzzztntzYXXdddddpa
 apdddddXXzzitzzztmzzXXddddddpa
 apddddddXXzzzzzzzzzXXdddddddpa
-apdddddddXXXAzzzYXXXddddddddpa
-apdddddddddXXzzzXXddddddddddpa
-apddddddddddTztzTdddddddddddpa
-apddddddddddTztGTdddddddddddpa
+apdddddddXXXAzzsYXXXddddddddpa
+apdddddddddXXzssXXddddddddddpa
+apddddddddddTzIzTdddddddddddpa
+apddddddddddTsIGTdddddddddddpa
 apddddddddddTztzTdddddddddddpa
 apddddddddddXAtYXdddddddddddpa
 apddddddddddXztzXdddddddddddpa
 apddddddddddTGtzTdddddddddddpa
-apddddddddddTztzTdddddddddddpa
-apddddddddddTztzTdddddddddddpa
-apddddddddddXztzXdddddddddddpa
-apddddddddddXAtYXdddddddddddpa
+apddddddddddTzIzTdddddddddddpa
+apddddddddddTzIsTdddddddddddpa
+apddddddddddXztsXdddddddddddpa
+apddddddddddXAIYXdddddddddddpa
 apddddddddddXztzXdddddddddddpa
 apddddddddddTzHFOdddddddddddpa
-apddddddddddTzwFOdddddddddddpa
-apddddddddddTztFOdddddddddddpa
-apddddddddddXztzXdddddddddddpa
+apddddddddddTswFOdddddddddddpa
+apddddddddddTstFOdddddddddddpa
+apddddddddddXstzXdddddddddddpa
 apddddddddddXAtYXdddddddddddpa
 apddddddddddXLXCXdddddddddddpa
 apddddddddddddddddddddddddddpa
