@@ -14379,6 +14379,9 @@
 	},
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light/directional/east,
+/obj/structure/sign/painting/library{
+	pixel_x = 32
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room5)
 "saN" = (
@@ -16652,6 +16655,9 @@
 	dir = 1
 	},
 /obj/structure/chair/sofa/corp/right,
+/obj/structure/sign/painting/large/library{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room5)
 "vIX" = (
