@@ -182,44 +182,48 @@
 
 // Grenades like grenades and boxes of kiboko launcher ammo (which are grenades)
 
-/datum/armament_entry/company_import/vitezstvi/grenades
-	subcategory = "Grenades"
+/datum/armament_entry/company_import/vitezstvi/grenades_hand
+	subcategory = "Hand Grenades"
 	cost = PAYCHECK_COMMAND
 
-/datum/armament_entry/company_import/vitezstvi/grenades/frag
+/datum/armament_entry/company_import/vitezstvi/grenades_hand/frag
 	item_type = /obj/item/grenade/frag
 	restricted = TRUE
 	cost = PAYCHECK_COMMAND * 2
 
-/datum/armament_entry/company_import/vitezstvi/grenades/smoke
+/datum/armament_entry/company_import/vitezstvi/grenades_hand/smoke
 	item_type = /obj/item/grenade/smokebomb
 
-/datum/armament_entry/company_import/vitezstvi/grenades/stingbang
+/datum/armament_entry/company_import/vitezstvi/grenades_hand/stingbang
 	item_type = /obj/item/grenade/stingbang
 
-/datum/armament_entry/company_import/vitezstvi/grenades/ninebang
+/datum/armament_entry/company_import/vitezstvi/grenades_hand/ninebang
 	item_type = /obj/item/grenade/primer
 
-/datum/armament_entry/company_import/vitezstvi/grenades/ninestingbang
+/datum/armament_entry/company_import/vitezstvi/grenades_hand/ninestingbang
 	item_type = /obj/item/grenade/primer/stingbang
 
-/datum/armament_entry/company_import/vitezstvi/grenades/antigravity
+/datum/armament_entry/company_import/vitezstvi/grenades_hand/antigravity
 	item_type = /obj/item/grenade/antigravity
 	cost = PAYCHECK_COMMAND * 3
 
-/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_practice
+/datum/armament_entry/company_import/vitezstvi/grenades_kiboko
+	subcategory = "Grenade Shells"
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/vitezstvi/grenades_kiboko/kiboko_practice
 	item_type = /obj/item/ammo_box/c980grenade
 
-/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_smoke
+/datum/armament_entry/company_import/vitezstvi/grenades_kiboko/kiboko_smoke
 	item_type = /obj/item/ammo_box/c980grenade/smoke
 
-/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_riot
+/datum/armament_entry/company_import/vitezstvi/grenades_kiboko/kiboko_riot
 	item_type = /obj/item/ammo_box/c980grenade/riot
 
-/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_shrapnel
+/datum/armament_entry/company_import/vitezstvi/grenades_kiboko/kiboko_shrapnel
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel
 	restricted = TRUE
 
-/datum/armament_entry/company_import/vitezstvi/grenades/kiboko_phosphor
+/datum/armament_entry/company_import/vitezstvi/grenades_kiboko/kiboko_phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
 	restricted = TRUE
