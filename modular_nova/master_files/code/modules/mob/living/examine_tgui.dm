@@ -107,7 +107,7 @@
 		if(!obscured)
 			headshot += holder_human.dna.features[EXAMINE_DNA_HEADSHOT]
 
-	. = list(
+	var/list/data = list(
 		// Danger—do not touch
 		"assigned_map" = examine_panel_screen.assigned_map,
 		// Identity
@@ -126,10 +126,12 @@
 		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our opt-in status from prefs when we joined the game
 		"current_antag_optin_status" = current_antag_optin_status, // What it's being forced to if applicable
 	)
+	return data
 
 /datum/examine_panel/ui_static_data(mob/user)
-	. = list(
+	var/list/data = list(
 		"veteran_status" = SSplayer_ranks.is_veteran(holder.client, admin_bypass = FALSE),
 		"opt_in_colors" = GLOB.antag_opt_in_colors,
 	)
+	return data
 

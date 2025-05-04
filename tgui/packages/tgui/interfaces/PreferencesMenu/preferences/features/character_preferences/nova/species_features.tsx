@@ -36,20 +36,20 @@ export const feature_mcolor3: Feature<string> = {
 export const flavor_text: Feature<string> = {
   name: 'Flavor Text',
   description:
-    "Appears when your character is examined (but only if they're identifiable - try a gas mask). Do not put sexual things in here—move those to NSFW Flavor Text.",
+    "Appears when your character is examined (but only if they're identifiable - try a gas mask). Do not put sexual things in here—move those to Flavor Text (NSFW).",
   component: FeatureTextInput,
 };
 
 export const flavor_text_nsfw: Feature<string> = {
-  name: 'NSFW Flavor Text',
+  name: 'Flavor Text (NSFW)',
   description: 'Same as Flavor Text but requires you to click a tab to view.',
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text: Feature<string> = {
-  name: 'Flavor Text (Silicon)',
+  name: 'Flavor Text (Silicon, NSFW)',
   description:
-    "Only appears if you're playing as a borg/AI. Do not put sexual things in here—move those to NSFW Flavor Text (Silicon).",
+    "Only appears if you're playing as a borg/AI. Do not put sexual things in here—move those to Flavor Text (Silicon, NSFW).",
   component: FeatureTextInput,
 };
 
@@ -68,7 +68,7 @@ export const ooc_notes: Feature<string> = {
 };
 
 export const ooc_notes_nsfw: Feature<string> = {
-  name: 'NSFW OOC Notes',
+  name: 'OOC Notes (NSFW)',
   description: 'Same as OOC Notes but requires you to click a tab to view.',
   component: FeatureTextInput,
 };
