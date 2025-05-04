@@ -13,6 +13,7 @@
 		"ci-xray-moth",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/borg_shapeshifter
 	id = TECHWEB_NODE_BORG_SHAPESHIFTER
@@ -122,10 +123,10 @@
 
 /datum/techweb_node/consoles/New()
 	design_ids += list(
-		"time_clock_frame",
 		"nif_service_tools",
 	)
 	return ..()
+
 
 /datum/techweb_node/hud/New()
 	design_ids += list(
@@ -162,7 +163,7 @@
 	)
 	return ..()
 
-/datum/techweb_node/gene_engineering/New()
+/datum/techweb_node/medbay_equip_adv/New()
 	design_ids += list(
 		"self_actualization_device",
 	)

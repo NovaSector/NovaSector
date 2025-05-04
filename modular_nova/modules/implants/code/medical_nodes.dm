@@ -35,6 +35,7 @@
 		"ci-nv",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/mining_adv/New() //Here for the integrated drill augments.
 	design_ids += list(
