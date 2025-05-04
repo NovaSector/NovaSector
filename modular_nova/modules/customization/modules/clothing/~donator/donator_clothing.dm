@@ -2368,15 +2368,32 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	inhand_icon_state = null
-	body_parts_covered = CHEST
+	body_parts_covered = CHEST|ARM_LEFT
 	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
+	hood_up_affix = ""
+
+/obj/item/clothing/suit/hooded/merctac_hoodie_armored
+	name = "MercTac Armored Hoodie"
+	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
+	icon_state = "merctac_hoodie_alt"
+	worn_icon_state = "merctac_hoodie_alt"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	inhand_icon_state = null
+	body_parts_covered = CHEST|ARM_LEFT
+	cold_protection = CHEST|ARM_LEFT
+	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
+	heat_protection = CHEST|ARM_LEFT
+	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
+	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
+	armor_type = /datum/armor/merctac_armor_plate
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/merctac_hood
 	name = "MercTac Hood"
-	desc = "A MercTac Hood."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	desc = "Lined with synthetic fleece for maximum comfort."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	icon_state = "merctac_hood"
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEEARS
@@ -2403,3 +2420,23 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH
+
+/datum/armor/merctac_armor_plate
+	melee = 35
+	bullet = 30
+	laser = 30
+	energy = 40
+	bomb = 25
+	fire = 50
+	acid = 50
+	wound = 10
+
+/datum/crafting_recipe/merctac_armored_hoodie
+	name = "MercTac Armored Hoodie"
+	result = /obj/item/clothing/suit/hooded/merctac_hoodie_armored
+	time = 1 SECONDS
+	reqs = list(
+		/obj/item/clothing/suit/armor/vest/alt/sec = 1,
+		/obj/item/clothing/suit/hooded/merctac_hoodie = 1,
+	)
+	category = CAT_CLOTHING
