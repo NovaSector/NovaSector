@@ -19,7 +19,7 @@ import {
 
 import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
-import {
+import type {
   LoadoutCategory,
   LoadoutItem,
   LoadoutManagerData,
@@ -110,10 +110,8 @@ export function LoadoutPage(props) {
                   placeholder="Maximum of 24 characters long"
                   width="100%"
                   maxLength={24}
-                  onChange={(_, value) => onType(value)}
-                  onInput={(_, value) => onType(value)}
-                  onEnter={(event) => {
-                    event.preventDefault();
+                  onChange={(value) => onType(value)}
+                  onEnter={() => {
                     act(`${managingPreset.toLowerCase()}_loadout_preset`, {
                       name: input,
                     });
@@ -152,7 +150,7 @@ export function LoadoutPage(props) {
           buttons={
             <Input
               width="200px"
-              onInput={(_, value) => setSearchLoadout(value)}
+              onChange={setSearchLoadout}
               placeholder="Search for an item..."
               value={searchLoadout}
             />
@@ -312,7 +310,7 @@ function LoadoutTabs(props: LoadoutTabsProps) {
       <Stack.Item grow>
         {searching || activeCategory?.contents ? (
           <Section
-            title={searching ? 'Searching...' : 'Catalog'}
+            title={searching ? 'Search results' : 'Catalog'}
             fill
             scrollable
             buttons={
@@ -440,7 +438,7 @@ function LoadoutSelectedSection(props: LoadoutSelectedSectionProps) {
         </Button.Confirm>
       }
     >
-      {loadout_list &&
+      {!loadout_list.length && // NOVA EDIT CHANGE - ORIGINAL: {loadout_list &&
         Object.entries(loadout_list).map(([path, item]) => (
           <Fragment key={path}>
             <LoadoutSelectedItem

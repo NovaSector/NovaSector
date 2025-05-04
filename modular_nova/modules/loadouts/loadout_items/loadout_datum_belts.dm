@@ -81,12 +81,12 @@
 // HOLSTERS
 
 /datum/loadout_item/belts/holster_shoulders
-	name = "Shoulder Holster"
+	name = "Holster (Shoulder)"
 	item_path = /obj/item/storage/belt/holster
 
 /datum/loadout_item/belts/holster_cowboy
-	name = "Cowboy Belt (Thigh Holster)"
-	item_path = /obj/item/storage/belt/holster/cowboy
+	name = "Holster (Thigh)"
+	item_path = /obj/item/storage/belt/holster/thigh
 
 // RIGS/WEBBING (for military larpers)
 

@@ -7,7 +7,7 @@
 ///Minimum possible IV drip transfer rate in units per second
 #define MIN_IV_TRANSFER_RATE 0
 ///Maximum possible IV drip transfer rate in units per second
-#define MAX_IV_TRANSFER_RATE 5
+#define MAX_IV_TRANSFER_RATE 15 // NOVA EDIT CHANGE - Made to triple the max rate of the IV transfer to avoid having players to need to use 3 IV drips. - Original: MAX_IV_TRANSFER_RATE 5
 ///Default IV drip transfer rate in units per second
 #define DEFAULT_IV_TRANSFER_RATE 5
 //Alert shown to mob the IV is still connected
@@ -179,7 +179,7 @@
 	user.visible_message(span_warning("[user] attaches [src] to [target]."), span_notice("You attach [src] to [target]."))
 	attach_iv(target, user)
 
-/obj/machinery/iv_drip/attackby(obj/item/W, mob/user, params)
+/obj/machinery/iv_drip/attackby(obj/item/item, mob/user, list/modifiers)
 	if(use_internal_storage)
 		return ..()
 
@@ -190,15 +190,15 @@
 		/obj/item/reagent_containers/chem_pack,
 	))
 
-	if(is_type_in_typecache(W, drip_containers) || IS_EDIBLE(W))
+	if(is_type_in_typecache(item, drip_containers) || IS_EDIBLE(item))
 		if(reagent_container)
 			to_chat(user, span_warning("[reagent_container] is already loaded on [src]!"))
 			return
-		if(!user.transferItemToLoc(W, src))
+		if(!user.transferItemToLoc(item, src))
 			return
-		reagent_container = W
-		to_chat(user, span_notice("You attach [W] to [src]."))
-		user.log_message("attached a [W] to [src] at [AREACOORD(src)] containing ([reagent_container.reagents.get_reagent_log_string()])", LOG_ATTACK)
+		reagent_container = item
+		to_chat(user, span_notice("You attach [item] to [src]."))
+		user.log_message("attached a [item] to [src] at [AREACOORD(src)] containing ([reagent_container.reagents.get_reagent_log_string()])", LOG_ATTACK)
 		add_fingerprint(user)
 		update_appearance(UPDATE_ICON)
 		return

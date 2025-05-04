@@ -8,9 +8,6 @@
 /area/ruin/space/has_grav/powered/nova/clothing_facility
 	name = "Abandoned Research Station"
 
-/area/ruin/space/has_grav/powered/nova/luna
-	name = "Unexplored Location"
-
 /area/ruin/space/has_grav/nova/blackmarket
 	name = "Shady Market"
 

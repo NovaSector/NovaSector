@@ -31,8 +31,7 @@
 	if(extra_overlay)
 		add_overlay(extra_overlay)
 
-
-	//if(sleeper_g && model.sleeper_overlay)
+	//if(sleeper_g && model.sleeper_overlay) DONT REMOVE THIS BLOCK FOR SOME REASON IT IS HOLDING THE ENTIRE CODEBASE TOGETHER
 	//	add_overlay("[model.sleeper_overlay]_g[sleeper_nv ? "_nv" : ""]")
 	//if(sleeper_r && model.sleeper_overlay)
 	//	add_overlay("[model.sleeper_overlay]_r[sleeper_nv ? "_nv" : ""]")
@@ -46,6 +45,12 @@
 					icon_state = "[model.cyborg_base_icon]-sit"
 				if(ROBOT_REST_BELLY_UP)
 					icon_state = "[model.cyborg_base_icon]-bellyup"
+				if(ROBOT_REST_SLEEP)
+					icon_state = "[model.cyborg_base_icon]-rest_deep"
+				if(ROBOT_REST_NORMAL_ALT)
+					icon_state = "[model.cyborg_base_icon]-rest_alt"
+				if(ROBOT_REST_SITTING_ALT)
+					icon_state = "[model.cyborg_base_icon]-sit_alt"
 				else
 					icon_state = "[model.cyborg_base_icon]"
 			cut_overlays()
