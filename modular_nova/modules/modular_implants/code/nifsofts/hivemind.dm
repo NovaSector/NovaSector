@@ -52,8 +52,6 @@ GLOBAL_LIST_EMPTY(hivemind_users)
 	if(linked_keyboard)
 		QDEL_NULL(linked_keyboard)
 
-	linked_keyboard = null
-
 	for(var/datum/component/mind_linker/active_linking/nif/hivemind as anything in network_list)
 		hivemind.linked_mobs -= linked_mob
 		var/mob/living/hivemind_owner = hivemind.parent
