@@ -103,8 +103,7 @@
 
 /obj/item/donator/transponder/Destroy()
 	if(sparks)
-		qdel(sparks)
-	sparks = null
+		QDEL_NULL(sparks)
 	return ..()
 
 /obj/item/donator/transponder/attack_self(mob/user)
