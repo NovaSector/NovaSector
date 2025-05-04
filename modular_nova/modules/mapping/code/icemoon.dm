@@ -95,6 +95,25 @@
 
     . = ..()
 
+//code for the Frozenwake ruin
+/obj/structure/statue/hearthkin/baldr
+	name = "BaldR, the Fallen Light"
+	desc = "A solemn sculpture of BaldR rises from a bed of wind-swept snow, his form draped in robes of carved frost. His face is peaceful — too peaceful. Cracks run through the stone base, as if the grief of the world split it over time. His arms are open, not in triumph, but in farewell. Around the base, ancient runes flicker dimly, half-buried in ice. Strangely, their meaning seems to transcend languages. 'The light most pure was first to fade. We sang no songs loud enough to hold him here.'"
+	icon = 'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi'
+	icon_state = "odin_statue"
+
+/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
+	name = "ancient parchment"
+	desc = "A note written in Ættmál."
+	default_raw_text = "<i><center>They say the gods do not fall. But I saw it. I heard the silence after BaldR's light dimmed. The wind stopped singing. The fires would not answer. Even the stones wept — I swear it.<br>We carved these walls with aching hands, told his story in ice and stone, hoping the echo would reach the stars. Some say he will return, when the kinfire flares bright once more. I have waited a long time. My breath grows thin. My dreams colder.<br>If you’ve found this, you stand where hope froze. Perhaps you carry warmth yet. Perhaps you remember.</i> -Eldvarn Ice-Binder of the Lost Hall</center>"
+
+/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/ui_status(mob/user, datum/ui_state/state)
+    if(!user.has_language(/datum/language/primitive_catgirl))
+        to_chat(user, span_warning("This seems to be in a language you do not understand!"))
+        return UI_CLOSE
+
+    . = ..()
+
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.
 /datum/map_template/ruin/icemoon/nova/turret_bunker
