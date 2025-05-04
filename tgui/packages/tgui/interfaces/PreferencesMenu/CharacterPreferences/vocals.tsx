@@ -35,7 +35,7 @@ function sortNameWithKeyEntries(array: [string, NameWithKey[]][]) {
 type MultiNameProps = {
   handleClose: () => void;
   handleUpdateName: (nameType: string, value: string) => void;
-  names: Record<string, string>;
+  vocals: Record<string, string>;
 };
 
 export function VocalsInput(props: MultiNameProps) {
@@ -49,7 +49,7 @@ export function VocalsInput(props: MultiNameProps) {
 
   const namesIntoGroups: Record<string, NameWithKey[]> = {};
 
-  for (const [key, name] of Object.entries(data.names.types)) {
+  for (const [key, name] of Object.entries(data.vocals.types)) {
     namesIntoGroups[name.group] = binaryInsertName(
       namesIntoGroups[name.group] || [],
       {
@@ -78,9 +78,9 @@ export function VocalsInput(props: MultiNameProps) {
         >
           <LabeledList>
             {sortNameWithKeyEntries(Object.entries(namesIntoGroups)).map(
-              ([_, names], index, collection) => (
+              ([_, vocals], index, collection) => (
                 <>
-                  {names.map(({ key, name }) => {
+                  {vocals.map(({ key, name }) => {
                     let content;
 
                     if (currentlyEditingName === key) {
@@ -92,7 +92,7 @@ export function VocalsInput(props: MultiNameProps) {
                           onEscape={() => {
                             setCurrentlyEditingName(null);
                           }}
-                          value={props.names[key]}
+                          value={props.vocals[key]}
                         />
                       );
                     } else {
@@ -106,7 +106,7 @@ export function VocalsInput(props: MultiNameProps) {
                           }}
                         >
                           <FitText maxFontSize={12} maxWidth={130}>
-                            {props.names[key]}
+                            {props.vocals[key]}
                           </FitText>
                         </Button>
                       );
@@ -185,7 +185,7 @@ export function VoiceInput(props: NameInputProps) {
         </Stack.Item>
 
         {/* We only know other names when the server tells us */}
-        {data?.names && (
+        {data?.vocals && (
           <Stack.Item>
             <Button
               as="span"

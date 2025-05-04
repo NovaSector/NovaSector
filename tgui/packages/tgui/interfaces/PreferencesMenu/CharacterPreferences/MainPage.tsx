@@ -539,7 +539,7 @@ export function MainPage(props: MainPageProps) {
               value,
             })
           }
-          names={data.character_preferences.vocals}
+          vocals={data.character_preferences.vocals}
         />
       )}
       {/* NOVA EDIT ADDITION END */}
