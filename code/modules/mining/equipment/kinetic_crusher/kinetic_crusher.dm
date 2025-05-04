@@ -223,8 +223,9 @@
 	if(!isturf(proj_turf))
 		return
 	var/obj/projectile/destabilizer/destabilizer = new(proj_turf)
+	SEND_SIGNAL(src, COMSIG_CRUSHER_FIRED_BLAST, target, user, destabilizer)
 	destabilizer.icon = projectile_icon_file // NOVA EDIT ADDITION - for extended crusher retool support
-	destabilizer.icon_state = "[projectile_icon]"
+	destabilizer.icon_state = projectile_icon
 	for(var/obj/item/crusher_trophy/attached_trophy as anything in trophies)
 		attached_trophy.on_projectile_fire(destabilizer, user)
 	destabilizer.aim_projectile(target, user, modifiers)
