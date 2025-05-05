@@ -113,6 +113,7 @@
 // let's piggy back on resin to avoid having to remake everything below it.
 #define EFFIGYRANGE 3
 
+/// base web structure subtype, we wanna keep the web functions but make it so they can spread
 /obj/structure/spider/stickyweb/alive
 	var/spider_effigy_range = EFFIGYRANGE
 	///the parent node that will determine if we grow or die
@@ -128,8 +129,6 @@
 
 /obj/structure/spider/stickyweb/alive/Initialize(mapload)
 	. = ..()
-
-	AddElement(/datum/element/atmos_sensitive, mapload)
 
 /obj/structure/spider/stickyweb/alive/Destroy()
 	if(parent_node)
@@ -155,7 +154,7 @@
 		if(is_type_in_list(check_turf, blacklisted_turfs))
 			continue
 		var/obj/structure/spider/stickyweb/alive/check_web = locate() in check_turf
-		//we cannot grow onto other weeds
+		//we cannot grow onto other webs
 		if(check_web)
 			continue
 		//spawn a new one in the turf
@@ -163,7 +162,9 @@
 		//set the new one's parent spider_effigy to our parent spider_effigy
 		check_web.parent_node = parent_node
 
-
+/*
+* Spider Totem - Placing this will mirror how resin works for xenmorphs, but for webs
+*/
 /obj/structure/spider/stickyweb/alive/spider_effigy
 	name = "spider effigy"
 	desc = "an organic structure that seems to spread webs"
@@ -180,6 +181,7 @@
 	//the cooldown between each growth
 	COOLDOWN_DECLARE(growtime)
 
+/// Assign the boi as the parent
 /obj/structure/spider/stickyweb/alive/spider_effigy/Initialize(mapload)
 	. = ..()
 	//we are the parent spider_effigy
