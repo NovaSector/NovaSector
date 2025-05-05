@@ -254,7 +254,7 @@
 	shared_cooldown = NONE
 	click_to_activate = FALSE
 	/// The alpha we go to when sneaking.
-	var/sneak_alpha = 75
+	var/sneak_alpha = 125
 	/// How long it takes to become transparent
 	var/animation_time = 0.5 SECONDS
 
