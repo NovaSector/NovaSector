@@ -9372,13 +9372,10 @@
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
 "aIC" = (
-/obj/machinery/computer/security/telescreen/normal/directional/east{
-	network = list("atmossat");
-	name = "atmospherics satellite monitor"
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /obj/machinery/atmospherics/pipe/smart/simple/violet/visible/layer1,
 /obj/machinery/light/directional/east,
+/obj/machinery/computer/security/telescreen/engine/directional/east,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "aID" = (
@@ -28803,10 +28800,8 @@
 /area/station/hallway/primary/aft)
 "bYo" = (
 /obj/structure/table,
-/obj/machinery/computer/security/telescreen{
-	dir = 4;
-	name = "Test Chamber Monitor";
-	network = list("test")
+/obj/machinery/computer/security/telescreen/ordnance{
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/explab)
@@ -38148,6 +38143,9 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/supermatter/room)
+"eIV" = (
+/turf/open/space/basic,
+/area)
 "eJx" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -132476,7 +132474,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+eIV
 aaa
 aaa
 aaa
