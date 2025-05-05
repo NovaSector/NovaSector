@@ -40,7 +40,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	name = "\improper frozenwake stele"
 	desc = "A flat stone slab, worn smooth by time and scarred with ancient pitting. Hearthkin runes engraved deep into its surface, their edges aglow with faint emberlight when read, still radiating a quiet warmth. Soot-smudged fingerprints trail across the face — the marks of hands long vanished, as if the tale it tells was once traced in reverence, again and again."
 	icon = 'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi' // needs its own sprite
-	icon_state = "odin_statue"
+	icon_state = "runestone"
 	impressiveness = 30
 	resistance_flags = INDESTRUCTIBLE
 
@@ -162,3 +162,76 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	else
 		FROZENWAKE_PUZZLE.register_click(puzzle_id)
 	to_chat(user, "You touch the statue. The stone hums softly.")
+
+/obj/structure/statue/hearthkin/frozenwake/stele/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/structure/statue/hearthkin/frozenwake/stele/update_overlays()
+    . = ..()
+    . += add_runic_glow()
+
+/obj/structure/statue/hearthkin/frozenwake/stele/proc/add_runic_glow()
+    return emissive_appearance(
+        'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi',
+        "[icon_state]-emissive",
+        src,
+        alpha = src.alpha
+    )
+
+/mob/living/basic/ghost/swarm/frozenwake
+	name = "runebound echo"
+	desc = "A pale figure drifts silently through the frostbound halls. Faint, furred ears and a trailing tail mark it as once Hearthkin, though its steps follow a path long forgotten."
+	var/list/emotional_damage = (
+		"The oath... it was broken...",
+		"He was light. We let it die.",
+		"Stone remembers what kin forget.",
+		"I sang until my throat froze. No one heard.",
+		"The spear wept. The hand did not.",
+		"Even the fire turned its face away...",
+		"Wake him... let the silence end.",
+		"We were bound. We were blind.",
+		"His name is carved in sorrow.",
+		"I see him, still... waiting beneath the ice.",
+		"I begged the wind to carry our grief.",
+		"Who will avenge the fallen light?",
+		"No oath spared him. No song saved him.",
+		"He watched. He knew. He struck.",
+		"I dream of warmth... but only snow answers.",
+		"It was not supposed to end like this.",
+		"Baldr... forgive us.",
+		"We lit the fires. They would not burn.",
+		"The betrayer weeps, but the wound remains.",
+		"A voice... a voice in the dark... is it you?"
+	)
+
+/mob/living/basic/ghost/swarm/frozenwake/unproven
+	desc = "This small, ghostly form flits between icy pillars, downy ears twitching and a thin tail curling behind it. It hums a tuneless melody, unaware of your presence."
+	emotional_damage = (
+		"Where did the sun go?",
+		"He said he'd come back... he promised.",
+		"It's cold. I'm still waiting.",
+		"I made a song for him... but I forgot the end.",
+		"Mama said the light would keep us safe...",
+		"I held the rune tight... but it didn’t work.",
+		"They told me not to look. I looked anyway.",
+		"We played in the snow before the silence.",
+		"I can't find my brothers. Have you seen them?",
+		"I want to go home... but I don’t remember where it is.",
+	)
+
+/mob/living/basic/ghost/swarm/frozenwake/Initialize()
+	. = ..()
+	start_quote_loop()
+
+/mob/living/basic/ghost/swarm/frozenwake/proc/start_quote_loop()
+	/// Delay the first line randomly to desync mobs
+	addtimer(CALLBACK(src, .proc/speak_emotion), rand(100, 300)) // 10-30 seconds
+
+/mob/living/basic/ghost/swarm/frozenwake/proc/speak_emotion()
+	if(prob(40)) // 40% chance to speak when timer triggers
+		var/message = pick(emotional_damage)
+		say(span_warning("[message]"))
+
+	/// Re-add the timer with a random interval to keep them from being predictable
+	addtimer(CALLBACK(src, .proc/speak_emotion), rand(200, 600)) // 20-60 seconds
