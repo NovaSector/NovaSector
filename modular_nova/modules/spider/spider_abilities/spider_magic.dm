@@ -7,7 +7,9 @@
 	scan_desc = "extra-sensory paranoia"
 	gain_text = span_warning("You feel like something wants to kill you...")
 	lose_text = span_notice("You no longer feel many eyes on your back.")
+	/// The image holder var for the very real spider
 	var/obj/effect/client_image_holder/spider_phantom/spider
+	/// we only want to start panicing if the spider's getting closer
 	var/close_spider = FALSE //For heartbeat
 
 /datum/brain_trauma/magic/spider/Destroy()
@@ -27,7 +29,7 @@
 	QDEL_NULL(spider)
 	return ..()
 
-/// we don't really care if they're dead or a ghost, only the person with the trauma can 'see' it since it's not really real.
+// we don't really care if they're dead or a ghost, only the person with the trauma can 'see' it since it's not really real.
 /datum/brain_trauma/magic/spider/on_life(seconds_per_tick, times_fired)
 	// Dead and unconscious people are not interesting to the ethereal spider.
 	if(owner.stat != CONSCIOUS)
@@ -55,7 +57,7 @@
 			close_spider = FALSE
 	..()
 
-/// the Image holder, which in this case is just a spider icon - it isn't real and cant hurt you (or can it)
+// the Image holder, which in this case is just a spider icon - it isn't real and cant hurt you (or can it)
 /obj/effect/client_image_holder/spider_phantom
 	name = "???"
 	desc = "It's coming closer..."

@@ -94,8 +94,9 @@
 		victim.throw_at(target = throwtarget, range = 1, speed = 1)
 		victim.visible_message(span_warning("[victim] is thrown clear of [owner]!"))
 
-/// Baron's snare
+// Baron's snare
 /datum/action/cooldown/spell/pointed/projectile/web_restraints/baron
+	name = 'baron web restraint'
 	cooldown_time = 5 SECONDS
 	projectile_type = /obj/projectile/webslinger_snare
 
@@ -103,7 +104,7 @@
  * ### Ogre
  * These are the abilities tailored to specifically the Ogre
  */
-/// Create Effigy
+// Create Effigy
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem
 	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	cooldown_time = 2 MINUTES
@@ -120,7 +121,7 @@
 // let's piggy back on resin to avoid having to remake everything below it.
 #define EFFIGYRANGE 3
 
-/// base web structure subtype, we wanna keep the web functions but make it so they can spread
+// base web structure subtype, we wanna keep the web functions but make it so they can spread
 /obj/structure/spider/stickyweb/alive
 	var/spider_effigy_range = EFFIGYRANGE
 	///the parent node that will determine if we grow or die
@@ -188,7 +189,7 @@
 	//the cooldown between each growth
 	COOLDOWN_DECLARE(growtime)
 
-/// Assign the boi as the parent
+// Assign the boi as the parent
 /obj/structure/spider/stickyweb/alive/spider_effigy/Initialize(mapload)
 	. = ..()
 	//we are the parent spider_effigy
@@ -243,6 +244,7 @@
 	return ..()
 
 #undef EFFIGYRANGE
+
 /*
 * Ceiling Climb - Let's the spider crawl up the wall and be extra menacing by being on the ceiling
 */
