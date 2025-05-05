@@ -271,7 +271,7 @@
 	obj_damage = 200
 	armour_penetration = 50
 	melee_damage_lower = 20
-	melee_damage_upper = 35
+	melee_damage_upper = 40
 	wound_bonus = 30
 	bare_wound_bonus = 60
 	poison_per_bite = 5
