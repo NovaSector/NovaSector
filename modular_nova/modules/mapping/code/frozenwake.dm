@@ -157,10 +157,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
-	if(!FROZENWAKE_PUZZLE)
-		to_chat(user, span_warning("The puzzle controller is missing!"))
-	else
-		FROZENWAKE_PUZZLE.register_click(puzzle_id)
+	FROZENWAKE_PUZZLE.register_click(puzzle_id)
 	to_chat(user, "You touch the statue. The stone hums softly.")
 
 /obj/structure/statue/hearthkin/frozenwake/stele/Initialize(mapload)
@@ -231,7 +228,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 /mob/living/basic/ghost/swarm/frozenwake/proc/speak_emotion()
 	if(prob(40)) // 40% chance to speak when timer triggers
 		var/message = pick(emotional_damage)
-		say(span_warning("[message]"))
+		say(span_warning("[message]"), language = /datum/language/primitive_catgirl)
 
 	/// Re-add the timer with a random interval to keep them from being predictable
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(200, 600)) // 20-60 seconds
