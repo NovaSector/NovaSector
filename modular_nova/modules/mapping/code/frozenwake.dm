@@ -1,5 +1,5 @@
-DEFINE var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
-DEFINE var/global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET = null
+#define var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
+#define var/global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET = null
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
 	name = "ancient parchment"
@@ -240,5 +240,5 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET = null
 		STASIS_TARGET = null
 	return ..()
 
-UNDEF global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE
-UNDEF global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET
+#undef FROZENWAKE_PUZZLE
+#undef STASIS_TARGET
