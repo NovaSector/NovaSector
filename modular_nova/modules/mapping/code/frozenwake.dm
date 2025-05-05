@@ -147,6 +147,7 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		for(var/mob/emoted in view(7, reward_loc))
 			to_chat(emoted, span_notice("The ice cracks with a deep groan... and shatters!"))
 		qdel(stasis_target)
+		stasis_target = null
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 ///what happen when you touch a statue.
