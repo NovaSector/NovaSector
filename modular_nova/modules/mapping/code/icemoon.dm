@@ -96,6 +96,16 @@
     . = ..()
 
 //code for the Frozenwake ruin
+/datum/map_template/ruin/icemoon/underground/nova/frozenwake
+	name = "frozenwake"
+	id = "frozenwake"
+	description = "A forgotten Hearthkin shrine buried in ice and silence, where ancient runes whisper of a fallen light and a long-awaited return."
+	prefix = "_maps/RandomRuins/IceRuins/nova/"
+	suffix = "icemoon_underground_frozenwake.dmm"
+	allow_duplicates = FALSE
+	//for debug reasons
+	always_place = TRUE
+
 var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
 var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
@@ -233,7 +243,10 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
-	FROZENWAKE_PUZZLE.register_click(puzzle_id)
+	if(!FROZENWAKE_PUZZLE)
+		to_chat(user, span_warning("The puzzle controller is missing!"))
+	else
+		FROZENWAKE_PUZZLE.register_click(puzzle_id)
 	to_chat(user, "You touch the statue. The stone hums softly.")
 
 /*----- Above Ground -----*/

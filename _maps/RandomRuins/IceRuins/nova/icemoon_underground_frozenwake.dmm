@@ -1,103 +1,103 @@
 "a" = (/turf/template_noop,/area/template_noop)
-"b" = (/obj/structure/table/wood/fancy/orange,/obj/item/coin/runite,/turf/open/floor/stone/icemoon,/area/template_noop)
-"c" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/fall,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"d" = (/turf/open/misc/asteroid/snow/icemoon,/area/template_noop)
-"e" = (/obj/structure/ice_stasis/frozenwake,/turf/open/floor/stone/icemoon,/area/template_noop)
-"f" = (/obj/structure/flora/tree/jungle/small/style_6,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"g" = (/obj/structure/statue/hearthkin/frozenwake/stele/watch,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"h" = (/obj/structure/flora/bush/flowers_br/style_random,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"i" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"l" = (/obj/structure/bonfire/dense/prelit,/turf/open/floor/stone/icemoon,/area/template_noop)
-"m" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"n" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/tree/jungle/small/style_6,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"p" = (/turf/closed/mineral/snowmountain/icemoon,/area/template_noop)
-"q" = (/obj/structure/table/wood/fancy/orange,/obj/item/chisel,/turf/open/floor/stone/icemoon,/area/template_noop)
-"r" = (/obj/structure/statue/hearthkin/frozenwake/stele/dream,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"s" = (/turf/open/misc/dirt/icemoon,/area/template_noop)
-"t" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"u" = (/obj/structure/statue/hearthkin/frozenwake/stele/weeping_spear,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"v" = (/obj/structure/wall_torch/spawns_lit/directional/west,/turf/open/misc/dirt/icemoon,/area/template_noop)
-"w" = (/obj/effect/turf_decal/weather/snow,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"y" = (/obj/structure/wall_torch/directional/east,/turf/open/misc/dirt/icemoon,/area/template_noop)
-"z" = (/turf/open/floor/stone/icemoon,/area/template_noop)
-"A" = (/obj/structure/wall_torch/spawns_lit/directional/west,/turf/open/floor/stone/icemoon,/area/template_noop)
-"C" = (/obj/structure/mineral_door/wood/large_gate{dir = 1},/turf/open/floor/stone/icemoon,/area/template_noop)
-"D" = (/obj/effect/decal/cleanable/rubble,/obj/item/stack/stone,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"E" = (/obj/structure/statue/hearthkin/frozenwake/stele/mourning,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"F" = (/obj/effect/turf_decal/weather/snow,/turf/open/floor/stone/icemoon,/area/template_noop)
-"G" = (/mob/living/basic/ghost/swarm,/turf/open/floor/stone/icemoon,/area/template_noop)
-"H" = (/mob/living/basic/ghost/swarm,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/template_noop)
-"I" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/misc/dirt/icemoon,/area/template_noop)
-"J" = (/obj/item/stack/stone,/obj/effect/decal/cleanable/rubble,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"K" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/circle,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"L" = (/obj/structure/mineral_door/wood/large_gate,/turf/open/floor/stone/icemoon,/area/template_noop)
-"N" = (/obj/structure/statue/hearthkin/frozenwake/stele/oath,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"O" = (/obj/structure/barricade/wooden/crude/snow,/obj/structure/barricade/wooden/snowed,/obj/effect/turf_decal/weather/snow,/turf/open/floor/stone/icemoon,/area/template_noop)
-"P" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/avenger,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"Q" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/dreamer,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"R" = (/obj/structure/statue/hearthkin/frozenwake,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"T" = (/obj/structure/window/green_glass_pane,/turf/open/floor/stone/icemoon,/area/template_noop)
-"U" = (/obj/structure/table/wood/fancy/orange,/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake,/turf/open/floor/stone/icemoon,/area/template_noop)
-"V" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/betrayer,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"W" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/watcher,/turf/open/floor/mineral/gold/icemoon,/area/template_noop)
-"X" = (/turf/closed/wall/mineral/stone,/area/template_noop)
-"Y" = (/obj/structure/wall_torch/directional/east,/turf/open/floor/stone/icemoon,/area/template_noop)
-"Z" = (/obj/structure/table/wood/fancy/orange,/obj/item/coin/gold,/turf/open/floor/stone/icemoon,/area/template_noop)
+"b" = (/obj/structure/table/wood/fancy/orange,/obj/item/coin/runite,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"c" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/fall,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"d" = (/turf/closed/mineral/snowmountain/icemoon,/area/ruin/unpowered/frozenwake)
+"e" = (/obj/structure/ice_stasis/frozenwake,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"f" = (/obj/structure/flora/tree/jungle/small/style_6,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"g" = (/obj/structure/statue/hearthkin/frozenwake/stele/watch,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"h" = (/obj/structure/flora/bush/flowers_br/style_random,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"i" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_pp/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"l" = (/obj/structure/bonfire/dense/prelit,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"m" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/bush/flowers_br/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"n" = (/obj/structure/flora/bush/fullgrass/style_random,/obj/structure/flora/tree/jungle/small/style_6,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"p" = (/turf/open/misc/asteroid/snow/icemoon,/area/ruin/unpowered/frozenwake)
+"q" = (/obj/structure/table/wood/fancy/orange,/obj/item/chisel,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"r" = (/obj/structure/statue/hearthkin/frozenwake/stele/dream,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"s" = (/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/frozenwake)
+"t" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"u" = (/obj/structure/statue/hearthkin/frozenwake/stele/weeping_spear,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"v" = (/obj/structure/wall_torch/spawns_lit/directional/west,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/frozenwake)
+"w" = (/obj/effect/turf_decal/weather/snow,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"y" = (/obj/structure/wall_torch/directional/east,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/frozenwake)
+"z" = (/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"A" = (/obj/structure/wall_torch/spawns_lit/directional/west,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"C" = (/obj/structure/mineral_door/wood/large_gate{dir = 1},/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"D" = (/obj/effect/decal/cleanable/rubble,/obj/item/stack/stone,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"E" = (/obj/structure/statue/hearthkin/frozenwake/stele/mourning,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"F" = (/obj/effect/turf_decal/weather/snow,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"G" = (/mob/living/basic/ghost/swarm,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"H" = (/mob/living/basic/ghost/swarm,/obj/structure/flora/bush/fullgrass/style_random,/turf/open/floor/grass{initial_gas_mix = "ICEMOON_ATMOS"},/area/ruin/unpowered/frozenwake)
+"I" = (/obj/structure/flora/bush/fullgrass/style_random,/turf/open/misc/dirt/icemoon,/area/ruin/unpowered/frozenwake)
+"J" = (/obj/item/stack/stone,/obj/effect/decal/cleanable/rubble,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"K" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/circle,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"L" = (/obj/structure/mineral_door/wood/large_gate,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"N" = (/obj/structure/statue/hearthkin/frozenwake/stele/oath,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"O" = (/obj/structure/barricade/wooden/crude/snow,/obj/structure/barricade/wooden/snowed,/obj/effect/turf_decal/weather/snow,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"P" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/avenger,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"Q" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/dreamer,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"R" = (/obj/structure/statue/hearthkin/frozenwake,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"T" = (/obj/structure/window/green_glass_pane,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"U" = (/obj/structure/table/wood/fancy/orange,/obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"V" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/betrayer,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"W" = (/obj/structure/statue/hearthkin/frozenwake/puzzle/watcher,/turf/open/floor/mineral/gold/icemoon,/area/ruin/unpowered/frozenwake)
+"X" = (/turf/closed/wall/mineral/stone,/area/ruin/unpowered/frozenwake)
+"Y" = (/obj/structure/wall_torch/directional/east,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
+"Z" = (/obj/structure/table/wood/fancy/orange,/obj/item/coin/gold,/turf/open/floor/stone/icemoon,/area/ruin/unpowered/frozenwake)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-appppppppppppppppppppppppppppa
-apddddddddddddddddddddddddddpa
-apdddddddddXXXXXXXddddddddddpa
-apdddddddddXqzzzUXddddddddddpa
-apdddddddddXXbzZXXddddddddddpa
-apdddXXTTTXXXXLXXXXTTTXXddddpa
-apddXXzzzzzzzzezzzzsszzXXdddpa
-apdXXzzzzzzzzzzzzzzszzGzXXddpa
-apdXAzQzzzVzzzzzzzDzzzPzYXddpa
-apdTzzzzzGzzzzzzzzszzzzzzTddpa
-apdTzzzzzzzsszzzzzzGzzzzzTddpa
-apdXAzczzsDszzzzzzKzzzWzYXddpa
-apdXXzzzzsGzzzzzzzzzzzzzXXddpa
-apddXXzzzzzzzzzzzzzzzzzXXdddpa
-apdddXTTTXXXXzzzXXXXTTTXddddpa
-apdddddddXXXAzzzYXXXddddddddpa
-apddddddXXzzzzzzzzzXXdddddddpa
-apdddddXXzszzzuzzzzzXXddddddpa
-apddddXXAzzJzzzzzEzzYXXdddddpa
-apddddXzzzzsszzzzzGsszXdddddpa
-apdddXXzzNzzzzzzzzsJzzXXddddpa
-apdddTzzzzGzzzzzzzszzzzTddddpa
-apdddTzzzzzzzzzzzzzzzzsTddddpa
-apdddXAzrzzzzzlzzzzzgsyXddddpa
-apdddTzzzzzzzzzzzzzzzszTddddpa
-apdddTzzttittzzztttitzzTddddpa
-apdddXXstfthtzzztfttmzXXddddpa
-apddddXzsitttzRzmtHizzXdddddpa
-apddddXXvztftzzztntzYXXdddddpa
-apdddddXXzzitzzztmzzXXddddddpa
-apddddddXXzzzzzzzzzXXdddddddpa
-apdddddddXXXAzzsYXXXddddddddpa
-apdddddddddXXzssXXddddddddddpa
-apddddddddddTzIzTdddddddddddpa
-apddddddddddTsIGTdddddddddddpa
-apddddddddddTztzTdddddddddddpa
-apddddddddddXAtYXdddddddddddpa
-apddddddddddXztzXdddddddddddpa
-apddddddddddTGtzTdddddddddddpa
-apddddddddddTzIzTdddddddddddpa
-apddddddddddTzIsTdddddddddddpa
-apddddddddddXztsXdddddddddddpa
-apddddddddddXAIYXdddddddddddpa
-apddddddddddXztzXdddddddddddpa
-apddddddddddTzHFOdddddddddddpa
-apddddddddddTswFOdddddddddddpa
-apddddddddddTstFOdddddddddddpa
-apddddddddddXstzXdddddddddddpa
-apddddddddddXAtYXdddddddddddpa
-apddddddddddXLXCXdddddddddddpa
-apddddddddddddddddddddddddddpa
-apddddddddddddddddddddddddddpa
-appppppppppppppppppppppppppppa
+aaaaaaaaaadddddddddaaaaaaaaaaa
+aaaaaaaaaadddddddddaaaaaaaaaaa
+aaaddddddddXXXXXXXdddddddaaaaa
+aadddddddddXqzzzUXddddddddaaaa
+adddpppppppXXbzZXXpppppppddaaa
+addppXXTTTXXXXLXXXXTTTXXppddda
+ddppXXzzzzzzzzezzzzsszzXXppdda
+ddpXXzzzzzzzzzzzzzzszzGzXXpdda
+ddpXAzQzzzVzzzzzzzDzzzPzYXpdda
+ddpTzzzzzGzzzzzzzzszzzzzzTpdda
+ddpTzzzzzzzsszzzzzzGzzzzzTpdda
+ddpXAzczzsDszzzzzzKzzzWzYXpdda
+ddpXXzzzzsGzzzzzzzzzzzzzXXpdda
+ddppXXzzzzzzzzzzzzzzzzzXXppdda
+addppXTTTXXXXzzzXXXXTTTXppddda
+aaddpppppXXXAzzzYXXXpppppdddaa
+aaadddppXXzzzzzzzzzXXppddddaaa
+aaaddppXXzszzzuzzzzzXXppddaaaa
+aaaddpXXAzzJzzzzzEzzYXXpdddaaa
+aaddppXzzzzsszzzzzGsszXppddaaa
+aaddpXXzzNzzzzzzzzsJzzXXpddaaa
+aaddpTzzzzGzzzzzzzszzzzTpddaaa
+aaddpTzzzzzzzzzzzzzzzzsTpddaaa
+aaddpXAzrzzzzzlzzzzzgsyXpddaaa
+aaddpTzzzzzzzzzzzzzzzszTpddaaa
+aaddpTzzttittzzztttitzzTpddaaa
+aaddpXXstfthtzzztfttmzXXpddaaa
+aaddppXzsitttzRzmtHizzXppddaaa
+aaaddpXXvztftzzztntzYXXpdddaaa
+aaaddppXXzzitzzztmzzXXppddaaaa
+aaaaddppXXzzzzzzzzzXXppddaaaaa
+aaaaaddppXXXAzzsYXXXppddaaaaaa
+aaaaaaddpppXXzssXXpppddaaaaaaa
+aaaaaaadddppTzIzTppdddaaaaaaaa
+aaaaaaaaaddpTsIGTpdddaaaaaaaaa
+aaaaaaaaaddpTztzTpddaaaaaaaaaa
+aaaaaaaaaddpXAtYXpddaaaaaaaaaa
+aaaaaaaaaddpXztzXpddaaaaaaaaaa
+aaaaaaaaaddpTGtzTpddaaaaaaaaaa
+aaaaaaaaaddpTzIzTpddaaaaaaaaaa
+aaaaaaaaaddpTzIsTpddaaaaaaaaaa
+aaaaaaaaaddpXztsXpddaaaaaaaaaa
+aaaaaaaaaddpXAIYXpddaaaaaaaaaa
+aaaaaaaaaddpXztzXpddaaaaaaaaaa
+aaaaaaaaaddpTzHFOpddaaaaaaaaaa
+aaaaaaaaaddpTswFOpddaaaaaaaaaa
+aaaaaaaaaddpTstFOpddaaaaaaaaaa
+aaaaaaaaaddpXstzXpddaaaaaaaaaa
+aaaaaaaaaddpXAtYXpddaaaaaaaaaa
+aaaaaaaaaddpXLXCXpddaaaaaaaaaa
+aaaaaaaaaddpppppppddaaaaaaaaaa
+aaaaaaaaadddddddddddaaaaaaaaaa
+aaaaaaaaadddddddddddaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

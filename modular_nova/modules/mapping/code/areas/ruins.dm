@@ -37,6 +37,11 @@
 	icon_state = "ruins"
 	ambientsounds = list('sound/ambience/holy/ambiholy.ogg')
 
+/area/ruin/unpowered/frozenwake
+	name = "Frozenwake"
+	icon_state = "ruins"
+	ambientsounds = list()
+
 /area/ruin/unpowered/luna
 	name = "\improper Unregistered Structure"
 	ambientsounds = list(
