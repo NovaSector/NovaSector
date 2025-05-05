@@ -1,0 +1,1 @@
+/obj/machinery/time_clock/@SUBTYPES : /obj/machinery/modular_computer/preset/time_clock/@SUBTYPES
