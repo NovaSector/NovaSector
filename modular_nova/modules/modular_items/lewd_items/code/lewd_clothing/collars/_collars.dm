@@ -22,12 +22,33 @@
 	/// Is the lock busted?
 	var/broken_lock = FALSE
 
+/datum/storage/collar
+	max_slots = 1
+	max_specific_storage = WEIGHT_CLASS_SMALL
+	do_rustle = FALSE
+	attack_hand_interact = FALSE
+
+/datum/storage/collar/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+	. = ..()
+	if(length(holdables))
+		set_holdable(holdables)
+		return
+
+	set_holdable(list(
+		/obj/item/food/cookie,
+	))
+
+/datum/storage/collar/key/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+	holdables = list(
+		/obj/item/food/cookie,
+		/obj/item/key/collar,
+	)
+	return ..()
+
 /obj/item/clothing/neck/collar/Initialize(mapload)
 	. = ..()
 	// First; create our internal matching key
-	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(/obj/item/key/collar)
-
+	create_storage(storage_type = /datum/storage/collar/key)
 	if(!key_path)
 		return
 	var/obj/item/key/collar/key = new key_path(src)

@@ -48,12 +48,12 @@
 	desc = "An industrial-strength plastic box filled with supplies for repairing synthetics from critical damage. \
 		This one has extra storage on the sides for even more equipment than the standard medkit model."
 	icon_state = "synth_medkit_super"
+	storage_type = /datum/storage/medkit/robotic_repair/premium
 
-/obj/item/storage/medkit/robotic_repair/preemo/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_slots = 12
-	atom_storage.max_total_storage = 12 * WEIGHT_CLASS_NORMAL
+/datum/storage/medkit/robotic_repair/premium
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_slots = 12
+	max_total_storage = 12 * WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/robotic_repair/preemo/stocked
 

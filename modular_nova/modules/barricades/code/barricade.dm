@@ -823,10 +823,10 @@
 	desc = "Contains several deployable barricades."
 	icon_state = "box_metal"
 	w_class = WEIGHT_CLASS_NORMAL
+	storage_type = /datum/storage/barricade
 
-/obj/item/storage/barricade/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 21
+/datum/storage/barricade
+	max_total_storage = 21
 
 /obj/item/storage/barricade/PopulateContents()
 	for(var/i = 0, i < 3, i++)

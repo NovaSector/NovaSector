@@ -22,6 +22,13 @@
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		// NOVA EDIT ADDITION START
+		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
+		/obj/item/ammo_box/c38, // Revolver speedloaders.
+		/obj/item/ammo_box/a357,
+		/obj/item/ammo_box/strilka310,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+		// NOVA EDIT ADDITION END
 	))
 
 ///Energy holster
@@ -38,6 +45,12 @@
 		/obj/item/gun/energy/recharge/ebow,
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
+		// NOVA EDIT ADDITION START
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+		// NOVA EDIT ADDITION END
 	)
 
 	return ..()
@@ -66,6 +79,11 @@
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
+		// NOVA EDIT ADDITION START
+		/obj/item/ammo_box/magazine,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+		// NOVA EDIT ADDITION END
 	)
 
 	return ..()

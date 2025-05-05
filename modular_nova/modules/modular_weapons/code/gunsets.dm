@@ -14,14 +14,14 @@
 	slot_flags = ITEM_SLOT_BACK
 
 	material_flags = NONE
+	storage_type = /datum/storage/toolbox/guncase/nova
 
 	/// Is the case visually opened or not
 	var/opened = FALSE
 
-/obj/item/storage/toolbox/guncase/nova/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 14 // Technically means you could fit multiple large guns in here but it's a case you cant backpack anyways so what it do
-	atom_storage.max_slots = 6 // We store some extra items in these so lets make a little extra room
+/datum/storage/toolbox/guncase/nova
+	max_total_storage = 14 // Technically means you could fit multiple large guns in here but it's a case you cant backpack anyways so what it do
+	max_slots = 6 // We store some extra items in these so lets make a little extra room
 
 /obj/item/storage/toolbox/guncase/nova/update_icon()
 	. = ..()
@@ -57,13 +57,12 @@
 	slot_flags = NONE
 
 	w_class = WEIGHT_CLASS_NORMAL
+	storage_type = /datum/storage/toolbox/guncase/nova/pistol
 
-/obj/item/storage/toolbox/guncase/nova/pistol/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+/datum/storage/toolbox/guncase/nova/pistol
+	max_specific_storage = WEIGHT_CLASS_NORMAL
 
 // Empty pistol case
-
 /obj/item/storage/toolbox/guncase/nova/pistol/empty
 
 /obj/item/storage/toolbox/guncase/nova/pistol/empty/PopulateContents()
