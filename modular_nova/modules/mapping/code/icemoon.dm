@@ -96,6 +96,8 @@
     . = ..()
 
 //code for the Frozenwake ruin
+var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
+var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
 	name = "ancient parchment"
@@ -103,10 +105,10 @@
 	default_raw_text = "<i>They say the gods do not fall. But I saw it. I heard the silence after Baldr's light dimmed. The wind stopped singing. The fires would not answer. Even the stones wept — I swear it.<br>We carved these walls with aching hands, told his story in ice and stone, hoping the echo would reach the stars. Some say he will return, when the kinfire flares bright once more. I have waited a long time. My breath grows thin. My dreams colder.<br>If you’ve found this, you stand where hope froze. Perhaps you carry warmth yet. Perhaps you remember.</i><br>-Eldvarn Ice-Binder of the Lost Hall"
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/ui_status(mob/user, datum/ui_state/state)
-    if(!user.has_language(/datum/language/primitive_catgirl))
-        to_chat(user, span_warning("This seems to be in a language you do not understand!"))
-        return UI_CLOSE
-    . = ..()
+	if(!user.has_language(/datum/language/primitive_catgirl))
+		to_chat(user, span_warning("This seems to be in a language you do not understand!"))
+		return UI_CLOSE
+	. = ..()
 
 /obj/structure/statue/hearthkin/frozenwake
 	name = "baldr, the Fallen Light"
@@ -115,7 +117,9 @@
 	icon_state = "odin_statue"
 	anchored = 1
 	///variable added to let people understanding Ættmál (icecat, people having read the babel book that can spawn in the ruins.) read the runes.
-	var/added_desc = "Your understanding of Ættmál lets you read the runes. 'The light most pure was first to fade. We sang no songs loud enough to hold him here."
+	var/added_desc = "Your understanding of Ættmál lets you read the runes. 'The light most pure was first to fade. We sang no songs loud enough to hold him here.'"
+	///variables used for the puzzle controller.
+	var/puzzle_id = ""
 
 /obj/structure/statue/hearthkin/frozenwake/stele
 	name = "\improper frozenwake stele"
@@ -147,36 +151,42 @@
 	name = "the dreamer"
 	desc = "A noble Hearthkin with closed eyes, arms folded over his chest. A faint wisp curls from his brow like steam. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'He dreamed of a silence that could not be lifted.'"
+	puzzle_id = "dreamer"
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/circle
 	name = "the circle of kin"
 	desc = "Multiple figures linked in a ring, palm to palm, beneath a looming sky. Hearthkin runes are engraved on the base"
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'They bound the world in oaths for his safety.'"
+	puzzle_id = "circle"
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/betrayer
 	name = "the betrayer"
 	desc = "A blindfolded figure stands with arm outstretched, a wooden spear in hand. Their face is twisted in sorrow. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'One cast what he did not see.'"
+	puzzle_id = "betrayer"
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/fall
 	name = "the fall of light"
 	desc = "A noble Hearthkin lies fallen, rays carved behind him like shattered halos. Runes spiral outward from his body. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'The silence that followed was deeper than death.'"
+	puzzle_id = "fall"
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/avenger
 	name = "the avenger"
 	desc = "A Hearthkin shrouded in a heavy hood, gripping an axe streaked with frost. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'Grief made his hand swift.'"
+	puzzle_id = "avenger"
 
 /obj/structure/statue/hearthkin/frozenwake/puzzle/watcher
 	name = "the tomb watcher"
 	desc = "A guardian carved with closed eyes, standing beside the frozen sword, a hand raised to the ceiling. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'He watches still.'"
+	puzzle_id = "watcher"
 
 /obj/structure/statue/hearthkin/frozenwake/examine(mob/user)
 	. = ..()
 	if(user.has_language(/datum/language/primitive_catgirl))
-		. += "<br>" + span_warning(added_desc)
+		. += "<br>" + span_info(added_desc)
 
 /obj/structure/ice_stasis/frozenwake
 	name = "ice pillar"
@@ -186,7 +196,40 @@
 	density = TRUE
 	max_integrity = 100
 	armor_type = /datum/armor/structure_ice_stasis
+	resistance_flags = INDESTRUCTIBLE
 
+/obj/structure/ice_stasis/frozenwake/Initialize()
+	. = ..()
+	stasis_target = src
+
+/datum/frozenwake_puzzle
+	var/list/expected_order = list("dreamer", "circle", "betrayer", "fall")
+	var/list/current_sequence = list()
+
+/datum/frozenwake_puzzle/proc/register_click(statue_id)
+	current_sequence += statue_id
+
+	if(length(current_sequence) > length(expected_order))
+		current_sequence.Cut(1, 2) // Keep last N inputs
+
+	if(current_sequence == expected_order)
+		trigger_success()
+
+/obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi
+	name = "viðrhefjandi"
+	desc = "This greatsword pulses faintly with emberlight. Its edge is inscribed in Hearthkin runes — a blade meant not for war, but remembrance. It feels warm in your grasp, like a forgotten promise."
+
+/datum/frozenwake_puzzle/proc/trigger_success()
+	if(stasis_target)
+		var/turf/reward_loc = get_turf(stasis_target)
+		for(var/mob/emoted in view(7, reward_loc))
+			to_chat(emoted, span_notice("The ice cracks with a deep groan... and shatters!"))
+		qdel(stasis_target)
+		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
+
+/obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
+	FROZENWAKE_PUZZLE.register_click(puzzle_id)
+	to_chat(user, "You touch the statue. The stone hums softly.")
 
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.
