@@ -1,5 +1,5 @@
-#define var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
-#define var/global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET = null
+var/global/datum/frozenwake_puzzle/frozenwake_puzzle_controller = new()
+var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
 	name = "ancient parchment"
@@ -107,7 +107,7 @@
 
 /obj/structure/ice_stasis/frozenwake/Initialize()
 	. = ..()
-	STASIS_TARGET = src
+	stasis_target = src
 
 ///Used to check the progression of the puzzle.
 /datum/frozenwake_puzzle
@@ -142,16 +142,16 @@
 
 ///Breaks the ice and drops the sword if puzzle completed.
 /datum/frozenwake_puzzle/proc/trigger_success()
-	if(STASIS_TARGET)
-		var/turf/reward_loc = get_turf(STASIS_TARGET)
+	if(stasis_target)
+		var/turf/reward_loc = get_turf(stasis_target)
 		for(var/mob/emoted in view(7, reward_loc))
 			to_chat(emoted, span_notice("The ice cracks with a deep groan... and shatters!"))
-		qdel(STASIS_TARGET)
+		qdel(stasis_target)
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 ///what happen when you touch a statue.
 /obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
-	FROZENWAKE_PUZZLE.register_click(puzzle_id)
+	frozenwake_puzzle_controller.register_click(puzzle_id)
 	to_chat(user, "You touch the statue. The stone hums softly.")
 
 ///Initializing the glow for the steles.
@@ -202,7 +202,6 @@
 /mob/living/basic/ghost/swarm/frozenwake/unproven
 	name = "small runebound echo"
 	desc = "This small, ghostly form flits between icy pillars, downy ears twitching and a thin tail curling behind it. It hums a tuneless melody, unaware of your presence."
-	initial_size = 0.8 * RESIZE_DEFAULT_SIZE
 	emotional_damage = list(
 		"Where did the sun go?",
 		"He said he'd come back... he promised.",
@@ -234,11 +233,8 @@
 	/// Re-add the timer with a random interval to keep them from being predictable
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(200, 600)) // 20-60 seconds
 
-///Make sure the ref to it is removed if the item is deleted.
+///Make sure the ref to the ice pillar is removed if the item is deleted.
 /obj/structure/ice_stasis/frozenwake/Destroy()
-	if (STASIS_TARGET == src)
-		STASIS_TARGET = null
+	if (stasis_target == src)
+		stasis_target = null
 	return ..()
-
-#undef FROZENWAKE_PUZZLE
-#undef STASIS_TARGET
