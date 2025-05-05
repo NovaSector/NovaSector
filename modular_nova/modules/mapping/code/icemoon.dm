@@ -103,8 +103,6 @@
 	prefix = "_maps/RandomRuins/IceRuins/nova/"
 	suffix = "icemoon_underground_frozenwake.dmm"
 	allow_duplicates = FALSE
-	//for debug reasons
-	always_place = TRUE
 
 /*----- Above Ground -----*/
 ////// Yes, I know the "Above Ground" Is very limited in space. This is a... ~17x17? ruin.

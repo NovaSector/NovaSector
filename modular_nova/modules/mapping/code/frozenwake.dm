@@ -1,5 +1,5 @@
-var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
-var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
+DEFINE var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
+DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
 	name = "ancient parchment"
@@ -202,6 +202,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 /mob/living/basic/ghost/swarm/frozenwake/unproven
 	name = "small runebound echo"
 	desc = "This small, ghostly form flits between icy pillars, downy ears twitching and a thin tail curling behind it. It hums a tuneless melody, unaware of your presence."
+	initial_size = 0.8 * RESIZE_DEFAULT_SIZE
 	emotional_damage = list(
 		"Where did the sun go?",
 		"He said he'd come back... he promised.",
@@ -232,3 +233,6 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 	/// Re-add the timer with a random interval to keep them from being predictable
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(200, 600)) // 20-60 seconds
+
+UNDEF var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE
+UNDEF var/global/obj/structure/ice_stasis/frozenwake/stasis_target
