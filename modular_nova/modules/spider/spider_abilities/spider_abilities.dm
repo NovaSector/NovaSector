@@ -96,7 +96,7 @@
 
 // Baron's snare
 /datum/action/cooldown/spell/pointed/projectile/web_restraints/baron
-	name = 'baron web restraint'
+	name = "baron web restraint"
 	cooldown_time = 5 SECONDS
 	projectile_type = /obj/projectile/webslinger_snare
 
