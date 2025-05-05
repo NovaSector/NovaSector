@@ -1,5 +1,5 @@
 DEFINE var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE = new()
-DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
+DEFINE var/global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET = null
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
 	name = "ancient parchment"
@@ -107,7 +107,7 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 /obj/structure/ice_stasis/frozenwake/Initialize()
 	. = ..()
-	stasis_target = src
+	STASIS_TARGET = src
 
 ///Used to check the progression of the puzzle.
 /datum/frozenwake_puzzle
@@ -142,11 +142,11 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 ///Breaks the ice and drops the sword if puzzle completed.
 /datum/frozenwake_puzzle/proc/trigger_success()
-	if(stasis_target)
-		var/turf/reward_loc = get_turf(stasis_target)
+	if(STASIS_TARGET)
+		var/turf/reward_loc = get_turf(STASIS_TARGET)
 		for(var/mob/emoted in view(7, reward_loc))
 			to_chat(emoted, span_notice("The ice cracks with a deep groan... and shatters!"))
-		qdel(stasis_target)
+		qdel(STASIS_TARGET)
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 ///what happen when you touch a statue.
@@ -236,9 +236,9 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 ///Make sure the ref to it is removed if the item is deleted.
 /obj/structure/ice_stasis/frozenwake/Destroy()
-	if (stasis_target == src)
-		stasis_target = null
+	if (STASIS_TARGET == src)
+		STASIS_TARGET = null
 	return ..()
 
-UNDEF var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE
-UNDEF var/global/obj/structure/ice_stasis/frozenwake/stasis_target
+UNDEF global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE
+UNDEF global/obj/structure/ice_stasis/frozenwake/STASIS_TARGET
