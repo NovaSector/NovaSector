@@ -197,12 +197,15 @@
 	icon_state = "xenoarch_belt"
 	content_overlays = FALSE
 	custom_premium_price = PAYCHECK_CREW * 2
+	storage_type = /datum/storage/xenoarch_belt
 
-/obj/item/storage/belt/utility/xenoarch/Initialize(mapload)
+/datum/storage/xenoarch_belt
+	max_total_storage = 100
+	max_slots = 15
+
+/datum/storage/xenoarch_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_total_storage = 100
-	atom_storage.max_slots = 15
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/xenoarch/hammer,
 		/obj/item/xenoarch/brush,
 		/obj/item/xenoarch/tape_measure,
@@ -223,20 +226,22 @@
 	worn_icon_state = "satchel"
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
+	storage_type = /datum/storage/bag/xenoarch
 	var/insert_speed = 1 SECONDS
 	var/mob/listeningTo
 	var/range = null
 
 	var/spam_protection = FALSE //If this is TRUE, the holder won't receive any messages when they fail to pick up ore through crossing it
 
-/obj/item/storage/bag/xenoarch/Initialize(mapload)
+/datum/storage/bag/xenoarch
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = 1000
+	max_slots = 25
+	numerical_stacking = FALSE
+
+/datum/storage/bag/xenoarch/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	atom_storage.allow_quick_empty = TRUE
-	atom_storage.max_total_storage = 1000
-	atom_storage.max_slots = 25
-	atom_storage.numerical_stacking = FALSE
-	atom_storage.can_hold = typecacheof(list(/obj/item/xenoarch/strange_rock))
+	set_holdable(list(/obj/item/xenoarch/strange_rock))
 
 /obj/item/storage/bag/xenoarch/equipped(mob/user)
 	. = ..()
@@ -281,10 +286,10 @@
 	name = "advanced xenoarch mining satchel"
 	icon_state = "adv_satchel"
 	insert_speed = 0.1 SECONDS
+	storage_type = /datum/storage/bag/xenoarch/adv
 
-/obj/item/storage/bag/xenoarch/adv/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 50
+/datum/storage/bag/xenoarch/adv
+	max_slots = 50
 
 /obj/structure/closet/xenoarch
 	name = "xenoarchaeology equipment locker"

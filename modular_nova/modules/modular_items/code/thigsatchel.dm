@@ -15,10 +15,9 @@
 	pickup_sound =  'sound/items/handling/toolbelt_pickup.ogg'
 	flags_1 = IS_PLAYER_COLORABLE_1
 	w_class = WEIGHT_CLASS_BULKY
+	storage_type = /datum/storage/thigh_satchel
 
-/obj/item/storage/belt/thigh_satchel/Initialize(mapload)
-	. = ..()
-
-	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
-	atom_storage.max_total_storage = WEIGHT_CLASS_SMALL * 7
-	atom_storage.max_slots = 7
+/datum/storage/thigh_satchel
+	max_specific_storage = WEIGHT_CLASS_SMALL
+	max_total_storage = WEIGHT_CLASS_SMALL * 7
+	max_slots = 7

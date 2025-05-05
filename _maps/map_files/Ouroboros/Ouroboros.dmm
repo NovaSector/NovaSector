@@ -57372,7 +57372,7 @@
 /obj/effect/turf_decal/box/white{
 	color = "#9FED58"
 	},
-/obj/machinery/time_clock/directional/north,
+/obj/machinery/modular_computer/preset/time_clock/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/common/cryopods)
 "qDj" = (
@@ -64601,12 +64601,6 @@
 /obj/structure/lattice,
 /turf/open/space/openspace,
 /area/space/nearstation)
-"sLi" = (
-/obj/effect/turf_decal/tile/red,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 8
-	},
-/area/station/security/office)
 "sLo" = (
 /obj/structure/closet/secure_closet/injection{
 	name = "educational injections locker"
@@ -122619,7 +122613,7 @@ gAo
 jPP
 mki
 tiQ
-sLi
+lQb
 riH
 bWH
 aIU

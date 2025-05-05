@@ -15,7 +15,7 @@
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target?.dna.features["headshot"] = value
+	target?.dna.features[EXAMINE_DNA_HEADSHOT] = value
 
 /datum/preference/text/headshot/is_valid(value)
 	if(!length(value))
