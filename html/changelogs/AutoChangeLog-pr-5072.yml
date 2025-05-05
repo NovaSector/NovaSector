@@ -1,6 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "Due to lobbying by defense and import companies, ammunition workbenches now work on a more granular licensing system, dictating what ammo they can or cannot print based on what authentication modules are installed."
-  - spellcheck: "A lot of ammo types are back to more conventional names and not made-up cartridges. Probably."
-  - qol: "The ammunition workbench UI is no longer Green."
