@@ -25,12 +25,15 @@
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FLAMMABLE
 	interaction_flags_click = NEED_DEXTERITY
+	storage_type = /datum/storage/bowie
 
-/obj/item/storage/belt/bowie_sheath/Initialize(mapload)
+/datum/storage/bowie
+	max_slots = 1
+	max_specific_storage = WEIGHT_CLASS_BULKY
+
+/datum/storage/bowie/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_slots = 1
-	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY
-	atom_storage.set_holdable(/obj/item/knife/bowie)
+	set_holdable(/obj/item/knife/bowie)
 
 /obj/item/storage/belt/bowie_sheath/click_alt(mob/user)
 	if(length(contents))
