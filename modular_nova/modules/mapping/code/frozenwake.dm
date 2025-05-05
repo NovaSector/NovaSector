@@ -147,7 +147,6 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		for(var/mob/emoted in view(7, reward_loc))
 			to_chat(emoted, span_notice("The ice cracks with a deep groan... and shatters!"))
 		qdel(stasis_target)
-		stasis_target = null
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 ///what happen when you touch a statue.
@@ -234,6 +233,12 @@ DEFINE var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 	/// Re-add the timer with a random interval to keep them from being predictable
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(200, 600)) // 20-60 seconds
+
+///Make sure the ref to it is removed if the item is deleted.
+/obj/structure/ice_stasis/frozenwake/Destroy()
+	if (stasis_target == src)
+		stasis_target = null
+	return ..()
 
 UNDEF var/global/datum/frozenwake_puzzle/FROZENWAKE_PUZZLE
 UNDEF var/global/obj/structure/ice_stasis/frozenwake/stasis_target
