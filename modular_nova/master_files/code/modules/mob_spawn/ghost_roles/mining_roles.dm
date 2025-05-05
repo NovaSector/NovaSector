@@ -14,7 +14,6 @@
 	quirks_enabled = TRUE // ghost role quirks
 	random_appearance = FALSE // ghost role prefs
 	deletes_on_zero_uses_left = TRUE
-	role_ban = maintsroom
 
 /// Beach Dome
 
