@@ -41,6 +41,12 @@
 	name = "Frozenwake"
 	icon_state = "ruins"
 	ambientsounds = null
+	ambience_index = AMBIENCE_SPOOKY
+	ambient_buzz = null
+	forced_ambience = TRUE
+	sound_environment = SOUND_ENVIRONMENT_QUARRY
+	mood_bonus = -5
+	mood_message = "The weight of loss clings to the air. Every step feels like an echo of mourning."
 
 /area/ruin/unpowered/luna
 	name = "\improper Unregistered Structure"
