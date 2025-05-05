@@ -1,6 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - refactor: "ExaminePanel has been refactored to use TypeScript JSX instead of JavaScript JSX"
-  - qol: "You can (and should!) now use special NSFW fields for your flavor texts and OOC notes, instead of the normal fields! These require clicking a tab in the examine panel to see."
-  - qol: "Specific ERP preferences are hidden in the NSFW OOC notes tab."
