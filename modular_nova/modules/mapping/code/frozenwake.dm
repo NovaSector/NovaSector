@@ -109,10 +109,12 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	. = ..()
 	stasis_target = src
 
+///Used to check the progression of the puzzle.
 /datum/frozenwake_puzzle
 	var/list/expected_order = list("dreamer", "circle", "betrayer", "fall")
 	var/list/current_sequence = list()
 
+///Compares the puzzle expected_order to current_sequence
 /datum/frozenwake_puzzle/proc/lists_match(list/first_list, list/second_list)
 	if(length(first_list) != length(second_list))
 		return FALSE
@@ -123,6 +125,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 	return TRUE
 
+///adds the last clicked statue to the current_sequence. Keeps only the last 4 stored.
 /datum/frozenwake_puzzle/proc/register_click(statue_id)
 	current_sequence += statue_id
 
@@ -137,6 +140,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	name = "viðrhefjandi"
 	desc = "This greatsword pulses faintly with emberlight. Its edge is inscribed in Hearthkin runes — a blade meant not for war, but remembrance. It feels warm in your grasp, like a forgotten promise."
 
+///Breaks the ice and drops the sword if puzzle completed.
 /datum/frozenwake_puzzle/proc/trigger_success()
 	if(stasis_target)
 		var/turf/reward_loc = get_turf(stasis_target)
@@ -145,18 +149,22 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		qdel(stasis_target)
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
+///what happen when you touch a statue.
 /obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
 	FROZENWAKE_PUZZLE.register_click(puzzle_id)
 	to_chat(user, "You touch the statue. The stone hums softly.")
 
+///Initializing the glow for the steles.
 /obj/structure/statue/hearthkin/frozenwake/stele/Initialize(mapload)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
 
+///Adding the glowing runes overlay to the steles.
 /obj/structure/statue/hearthkin/frozenwake/stele/update_overlays()
     . = ..()
     . += add_runic_glow()
 
+///selecting the correct file for the glow.
 /obj/structure/statue/hearthkin/frozenwake/stele/proc/add_runic_glow()
     return emissive_appearance(
         'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi',
@@ -207,10 +215,12 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		"I want to go home... but I don’t remember where it is.",
 	)
 
+///Initialize the ghosts speaking loop.
 /mob/living/basic/ghost/swarm/frozenwake/Initialize()
 	. = ..()
 	start_quote_loop()
 
+///Ghost speaking loop, hopefully not too spammy.
 /mob/living/basic/ghost/swarm/frozenwake/proc/start_quote_loop()
 	/// Delay the first line randomly to desync mobs
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(100, 300)) // 10-30 seconds
