@@ -116,16 +116,20 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	icon = 'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi'
 	icon_state = "odin_statue"
 	anchored = 1
+	impressiveness = 30
 	///variable added to let people understanding Ættmál (icecat, people having read the babel book that can spawn in the ruins.) read the runes.
 	var/added_desc = "Your understanding of Ættmál lets you read the runes. 'The light most pure was first to fade. We sang no songs loud enough to hold him here.'"
 	///variables used for the puzzle controller.
 	var/puzzle_id = ""
+	resistance_flags = INDESTRUCTIBLE
 
 /obj/structure/statue/hearthkin/frozenwake/stele
 	name = "\improper frozenwake stele"
 	desc = "A flat stone slab, worn smooth by time and scarred with ancient pitting. Hearthkin runes engraved deep into its surface, their edges aglow with faint emberlight when read, still radiating a quiet warmth. Soot-smudged fingerprints trail across the face — the marks of hands long vanished, as if the tale it tells was once traced in reverence, again and again."
 	icon = 'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi' // needs its own sprite
 	icon_state = "odin_statue"
+	impressiveness = 30
+	resistance_flags = INDESTRUCTIBLE
 
 /obj/structure/statue/hearthkin/frozenwake/stele/dream
 	name = "\improper the dream"
@@ -197,6 +201,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	max_integrity = 100
 	armor_type = /datum/armor/structure_ice_stasis
 	resistance_flags = INDESTRUCTIBLE
+	anchored = TRUE
 
 /obj/structure/ice_stasis/frozenwake/Initialize()
 	. = ..()
