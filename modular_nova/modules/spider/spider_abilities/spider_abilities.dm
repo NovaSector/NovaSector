@@ -24,6 +24,9 @@
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "spideregg"
 	damage = 0
+	// So this is basically to avoid hitting webs before the person
+	projectile_phasing =  PASSTABLE | PASSGRILLE | PASSSTRUCTURE
+	reflectable = FALSE
 
 /obj/projectile/webslinger_snare/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
@@ -91,12 +94,16 @@
 		victim.throw_at(target = throwtarget, range = 1, speed = 1)
 		victim.visible_message(span_warning("[victim] is thrown clear of [owner]!"))
 
+/// Baron's snare
+/datum/action/cooldown/spell/pointed/projectile/web_restraints/baron
+	cooldown_time = 5 SECONDS
+	projectile_type = /obj/projectile/webslinger_snare
+
 /**
  * ### Ogre
  * These are the abilities tailored to specifically the Ogre
  */
-// Create Effigy
-
+/// Create Effigy
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem
 	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	cooldown_time = 2 MINUTES
@@ -202,7 +209,11 @@
 	//start processing
 	START_PROCESSING(SSobj, src)
 
+// apply trauma to those within a few blocks who break the effigy.
 /obj/structure/spider/stickyweb/alive/spider_effigy/Destroy()
+	for(var/mob/living/carbon/carbon_target in view(5,src))
+		carbon_target.gain_trauma(/datum/brain_trauma/magic/spider)
+		visible_message(span_bolddanger("The spider totem screeches as it breaks, piercing your mind!"))
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -215,5 +226,53 @@
 	for(var/obj/structure/spider/stickyweb/alive/growing_web in range(spider_effigy_range, src))
 		growing_web.try_expand()
 
+/obj/structure/spawner/lavaland/Destroy()
+	var/last_tendril = TRUE
+	if(GLOB.tendrils.len>1)
+		last_tendril = FALSE
+
+	if(last_tendril && !(flags_1 & ADMIN_SPAWNED_1))
+		if(SSachievements.achievements_enabled)
+			for(var/mob/living/L in view(7,src))
+				if(L.stat || !L.client)
+					continue
+				L.client.give_award(/datum/award/achievement/boss/tendril_exterminator, L)
+				L.client.give_award(/datum/award/score/tendril_score, L) //Progresses score by one
+	GLOB.tendrils -= src
+	QDEL_NULL(emitted_light)
+	return ..()
 
 #undef EFFIGYRANGE
+/*
+* Ceiling Climb - Let's the spider crawl up the wall and be extra menacing by being on the ceiling
+*/
+/datum/action/cooldown/mob_cooldown/ceiling_walk
+	name = "Climb"
+	desc = "Climb up the walls and onto the ceiling! Those pesky crew will never look up!"
+	background_icon_state = "bg_revenant"
+	overlay_icon_state = "bg_revenant_border"
+	shared_cooldown = NONE
+	click_to_activate = FALSE
+	/// The alpha we go to when sneaking.
+	var/sneak_alpha = 75
+	/// How long it takes to become transparent
+	var/animation_time = 0.5 SECONDS
+
+// add the element that makes them walk on the ceiling
+/datum/action/cooldown/mob_cooldown/ceiling_walk/Activate(atom/target)
+	if(HAS_TRAIT(owner, TRAIT_SNEAK))
+		animate(owner, alpha = initial(owner.alpha), time = animation_time)
+		owner.balloon_alert(owner, "you flop down off the ceiling")
+		owner.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
+		owner.density = TRUE
+		REMOVE_TRAIT(owner, TRAIT_SNEAK, ACTION_TRAIT)
+
+	else
+		animate(owner, alpha = sneak_alpha, time = animation_time)
+		owner.balloon_alert(owner, "you skitter up the wall")
+		owner.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
+		owner.density = FALSE // if we're on the ceiling...
+		ADD_TRAIT(owner, TRAIT_SNEAK, ACTION_TRAIT)
+
+	return TRUE
+
