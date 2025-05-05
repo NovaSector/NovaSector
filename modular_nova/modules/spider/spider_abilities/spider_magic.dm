@@ -1,3 +1,6 @@
+/*
+* Spider Phantom - same same as the elephant graveyard one but tailored towards spiders. Probably will be gained upon destroying a Spider Totem
+*/
 /datum/brain_trauma/magic/spider
 	name = "Stalking Phantom Spider"
 	desc = "Patient is stalked by a phantom only they can see."
@@ -15,6 +18,7 @@
 	create_spider()
 	return ..()
 
+/// Creates the '''spider''' just off screen in a corner, breaks immersion if someone see sit POOF in after all
 /datum/brain_trauma/magic/spider/proc/create_spider()
 	var/turf/spider_source = locate(owner.x + pick(-12, 12), owner.y + pick(-12, 12), owner.z) //random corner
 	spider = new(spider_source, owner)
@@ -23,6 +27,7 @@
 	QDEL_NULL(spider)
 	return ..()
 
+/// we don't really care if they're dead or a ghost, only the person with the trauma can 'see' it since it's not really real.
 /datum/brain_trauma/magic/spider/on_life(seconds_per_tick, times_fired)
 	// Dead and unconscious people are not interesting to the ethereal spider.
 	if(owner.stat != CONSCIOUS)
@@ -50,6 +55,7 @@
 			close_spider = FALSE
 	..()
 
+/// the Image holder, which in this case is just a spider icon - it isn't real and cant hurt you (or can it)
 /obj/effect/client_image_holder/spider_phantom
 	name = "???"
 	desc = "It's coming closer..."
