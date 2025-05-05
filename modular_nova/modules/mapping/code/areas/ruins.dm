@@ -40,7 +40,7 @@
 /area/ruin/unpowered/frozenwake
 	name = "Frozenwake"
 	icon_state = "ruins"
-	ambientsounds = list()
+	ambientsounds = null
 
 /area/ruin/unpowered/luna
 	name = "\improper Unregistered Structure"
