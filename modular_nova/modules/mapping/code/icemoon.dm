@@ -141,42 +141,42 @@
 
 /obj/structure/statue/hearthkin/frozenwake/stele/watch
 	name = "\improper The Watch"
-	added_desc = "Your understanding of Ættmál lets you read the runes. 'Your understanding of Ættmál let's you understand the runes. 'Baldr was bound in a ring of runes. The cold held him, but the hearth remembered. One day, a voice may call him home'."
+	added_desc = "Your understanding of Ættmál lets you read the runes. 'Baldr was bound in a ring of runes. The cold held him, but the hearth remembered. One day, a voice may call him home'."
 
-/obj/structure/statue/hearthkin/frozenwake/puzzle_dreamer
+/obj/structure/statue/hearthkin/frozenwake/puzzle/dreamer
 	name = "the dreamer"
-	desc = "A noble Hearthkin with closed eyes, arms folded over his chest. A faint wisp curls from his brow like steam. Hearthkin runes are engraved on the base"
+	desc = "A noble Hearthkin with closed eyes, arms folded over his chest. A faint wisp curls from his brow like steam. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'He dreamed of a silence that could not be lifted.'"
 
-/obj/structure/statue/hearthkin/frozenwake/puzzle_circle
+/obj/structure/statue/hearthkin/frozenwake/puzzle/circle
 	name = "the circle of kin"
 	desc = "Multiple figures linked in a ring, palm to palm, beneath a looming sky. Hearthkin runes are engraved on the base"
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'They bound the world in oaths for his safety.'"
 
-/obj/structure/statue/hearthkin/frozenwake/puzzle_betrayer
+/obj/structure/statue/hearthkin/frozenwake/puzzle/betrayer
 	name = "the betrayer"
-	desc = "A blindfolded figure stands with arm outstretched, a wooden spear in hand. Their face is twisted in sorrow. Hearthkin runes are engraved on the base"
+	desc = "A blindfolded figure stands with arm outstretched, a wooden spear in hand. Their face is twisted in sorrow. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'One cast what he did not see.'"
 
-/obj/structure/statue/hearthkin/frozenwake/puzzle_fall
+/obj/structure/statue/hearthkin/frozenwake/puzzle/fall
 	name = "the fall of light"
-	desc = "A noble Hearthkin lies fallen, rays carved behind him like shattered halos. Runes spiral outward from his body. Hearthkin runes are engraved on the base"
+	desc = "A noble Hearthkin lies fallen, rays carved behind him like shattered halos. Runes spiral outward from his body. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'The silence that followed was deeper than death.'"
 
-/obj/structure/statue/hearthkin/frozenwake/puzzle_avenger
+/obj/structure/statue/hearthkin/frozenwake/puzzle/avenger
 	name = "the avenger"
-	desc = "A Hearthkin shrouded in a heavy hood, gripping an axe streaked with frost. Hearthkin runes are engraved on the base"
+	desc = "A Hearthkin shrouded in a heavy hood, gripping an axe streaked with frost. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'Grief made his hand swift.'"
 
-/obj/structure/statue/hearthkin/frozenwake/puzzle_watcher
+/obj/structure/statue/hearthkin/frozenwake/puzzle/watcher
 	name = "the tomb watcher"
-	desc = "A guardian carved with closed eyes, standing beside the frozen sword, a hand raised to the ceiling. Hearthkin runes are engraved on the base"
+	desc = "A guardian carved with closed eyes, standing beside the frozen sword, a hand raised to the ceiling. Hearthkin runes are engraved on the base."
 	added_desc = "Your understanding of Ættmál lets you read the runes. 'He watches still.'"
 
 /obj/structure/statue/hearthkin/frozenwake/examine(mob/user)
 	. = ..()
 	if(user.has_language(/datum/language/primitive_catgirl))
-		to_chat(user, span_warning(added_desc))
+		. += "<br>" + span_warning(added_desc)
 
 /obj/structure/ice_stasis/frozenwake
 	name = "ice pillar"
