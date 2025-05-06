@@ -179,7 +179,7 @@
 
 /datum/opposing_force_equipment/ranged_stealth/makarov
 	name = "Makarov Pistol"
-	description = "A small, easily concealable 9x25mm Mk.12 handgun. This one is packed with a suppressor."
+	description = "A small, easily concealable 9mm handgun. This one is packed with a suppressor."
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/makarov/PopulateContents()

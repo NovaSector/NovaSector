@@ -34,7 +34,7 @@ export const CommandReportConsole = (props) => {
                 width="100%"
                 mt={1}
                 value={command_report_title}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('update_report_title', {
                     updated_title: value,
                   })
@@ -46,7 +46,7 @@ export const CommandReportConsole = (props) => {
                 height="200px"
                 mb={1}
                 value={command_report_content}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('update_report_contents', {
                     updated_contents: value,
                   })

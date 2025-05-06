@@ -144,7 +144,7 @@
 
 /obj/item/wargame_projector/Destroy()
 	QDEL_LAZYLIST(projections)
-	. = ..()
+	return ..()
 
 /*
 Actual projector types, split between the 'categories' of things they can project
