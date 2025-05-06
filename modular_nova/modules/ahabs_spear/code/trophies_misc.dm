@@ -11,7 +11,7 @@
 	normal_skin = FALSE
 
 /obj/item/crusher_trophy/retool_kit/ahab
-	name = "crusher Ahab's harpoon retool kit"
+	name = "Ahab's harpoon retool kit"
 	desc = "A toolkit for changing the crusher's appearance without affecting the device's function. This one will make it look like Ahab's harpoon, the weapon of legends."
 	icon = 'modular_nova/modules/ahabs_spear/icons/ahabs_spear.dmi'
 	retool_projectile_icon_file = 'modular_nova/modules/ahabs_spear/icons/projectiles.dmi'
