@@ -226,7 +226,7 @@
 	worn_icon_state = "satchel"
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
-	storage_type = /datum/storage/bag/xeno
+	storage_type = /datum/storage/bag/xenoarch
 	var/insert_speed = 1 SECONDS
 	var/mob/listeningTo
 	var/range = null

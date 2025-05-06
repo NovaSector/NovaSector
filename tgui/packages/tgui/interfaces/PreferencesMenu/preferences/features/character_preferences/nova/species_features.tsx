@@ -47,14 +47,14 @@ export const flavor_text_nsfw: Feature<string> = {
 };
 
 export const silicon_flavor_text: Feature<string> = {
-  name: 'Flavor Text (Silicon, NSFW)',
+  name: 'Flavor Text (Silicon)',
   description:
     "Only appears if you're playing as a borg/AI. Do not put sexual things in here—move those to Flavor Text (Silicon, NSFW).",
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text_nsfw: Feature<string> = {
-  name: 'NSFW Flavor Text (Silicon)',
+  name: 'Flavor Text (Silicon, NSFW)',
   description:
     'Same as Silicon Flavor Text but requires you to click a tab to view.',
   component: FeatureTextInput,
