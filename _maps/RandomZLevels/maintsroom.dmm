@@ -4178,6 +4178,10 @@
 /obj/structure/closet/body_bag,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
+"pC" = (
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "pF" = (
 /obj/structure/holosign/barrier/cyborg,
 /obj/effect/light_emitter/fake_outdoors,
@@ -29048,7 +29052,7 @@ GS
 BB
 uG
 uG
-uG
+pC
 GS
 uG
 uG
