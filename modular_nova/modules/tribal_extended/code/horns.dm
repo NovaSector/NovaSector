@@ -33,21 +33,6 @@
 	. = ..()
 	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
 
-/obj/item/blowing_horn/Initialize(mapload)
-	. = ..()
-	register_context()
-
-/obj/item/blowing_horn/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	. = NONE
-	if(isnull(held_item))
-		return
-	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
-	return CONTEXTUAL_SCREENTIP_SET
-
-/obj/item/blowing_horn/examine(mob/user)
-	. = ..()
-	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
-
 /// Switch horn tune on ctrl+shift click
 /obj/item/blowing_horn/click_ctrl_shift(mob/user)
 	switch_tune(user)
