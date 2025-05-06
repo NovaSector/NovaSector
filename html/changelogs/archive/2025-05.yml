@@ -98,3 +98,16 @@
       OOC notes, instead of the normal fields! These require clicking a tab in the
       examine panel to see.
   - qol: Specific ERP preferences are hidden in the NSFW OOC notes tab.
+2025-05-06:
+  JimKil3:
+  - rscadd: "adds the heavyset quirk, which makes it harder to move or be moved\n\
+      /\U0001F191"
+  Neocloudy:
+  - bugfix: Fixed both silicon flavor text fields in preferences appearing as NSFW
+  SyncIt21:
+  - bugfix: medical toolboxes have their storage adjusted correctly
+  - bugfix: surgery and tactical medkits no longer hold different items depending
+      on whether a premium tactical medkit was spawned first
+  - code_imp: storage initialization is slightly faster due to some file organizations
+  jjpark-kb:
+  - bugfix: the strange rocks can fit in the xenoarch bag once again
