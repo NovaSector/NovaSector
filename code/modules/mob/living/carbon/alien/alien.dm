@@ -93,9 +93,9 @@
 
 /mob/living/carbon/alien/getTrail()
 	if(getBruteLoss() < 200)
-		return pick (list("ltrails_1", "ltrails2")) // NOVA EDIT CHANGE - until upstream fix
+		return pick (list("ltrails_1", "ltrails2"))
 	else
-		return pick (list("trails_1", "trails2")) // NOVA EDIT CHANGE - until upstream fix
+		return pick (list("trails_1", "trails2"))
 
 /mob/living/carbon/alien/get_trail_blood()
 	return BLOOD_STATE_XENO

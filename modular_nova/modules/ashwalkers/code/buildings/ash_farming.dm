@@ -158,7 +158,7 @@
 	if(tool.tool_behaviour == TOOL_SHOVEL || tool.tool_behaviour == TOOL_KNIFE)
 		var/turf/src_turf = get_turf(src)
 		src_turf.balloon_alert_to_viewers("the plant crumbles!")
-		Destroy()
+		qdel(src)
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/storage/bag/plants))

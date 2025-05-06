@@ -143,7 +143,6 @@
 
 
 /obj/structure/stripper_pole/Destroy()
-	. = ..()
 	if(dancer)
 		dancer.SetStun(0)
 		dancer.pixel_y = 0
@@ -151,6 +150,7 @@
 		dancer.layer = layer
 		dancer.forceMove(get_turf(src))
 		dancer = null
+	return ..()
 
 /obj/structure/stripper_pole/click_ctrl_shift(mob/user)
 	add_fingerprint(user)
