@@ -32,16 +32,14 @@
 	update_appearance()
 
 /obj/item/clothing/under/akula_wetsuit/Destroy()
-	. = ..()
 	var/mob/user = loc
 	if(!istype(user))
-		return
+		return ..()
 
 	if(tail_overlay)
 		user.cut_overlay(tail_overlay)
 		tail_overlay = null
-
-	qdel(GetComponent(/datum/component/wetsuit))
+	return ..()
 
 /obj/item/clothing/under/akula_wetsuit/equipped(mob/user, slot)
 	. = ..()
@@ -189,7 +187,6 @@
 	base_icon_state = "command"
 	armor_type = /datum/armor/clothing_under/rank_security
 
-
 /obj/item/clothing/head/helmet/space/akula_wetsuit
 	name = "\improper Shoredress helm"
 	desc = "Known simply as a 'Glass' throughout Azulean society as a whole, these spheroidal helmets are often the main source of comfort for workers on land; domestic and abroad. \
@@ -222,15 +219,15 @@
 	update_appearance()
 
 /obj/item/clothing/head/helmet/space/akula_wetsuit/Destroy()
-	. = ..()
 	var/mob/user = loc
 	if(attached_hat)
 		attached_hat.forceMove(drop_location())
+		attached_hat = null
 
 	if(!istype(user))
-		return
+		return ..()
 
-	qdel(GetComponent(/datum/component/wetsuit))
+	return ..()
 
 // Wearing hats inside the wetworks helmet
 /obj/item/clothing/head/helmet/space/akula_wetsuit/examine()
