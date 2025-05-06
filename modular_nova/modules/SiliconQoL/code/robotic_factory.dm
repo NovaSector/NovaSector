@@ -55,7 +55,7 @@
 
 /obj/machinery/transformer_rp/Destroy()
 	QDEL_NULL(countdown)
-	. = ..()
+	return ..()
 
 /obj/machinery/transformer_rp/update_icon_state()
 	. = ..()
