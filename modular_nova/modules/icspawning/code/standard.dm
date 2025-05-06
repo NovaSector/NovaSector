@@ -68,6 +68,7 @@
 /obj/item/storage/part_replacer/bluespace/tier4/bst
 	name = "\improper Bluespace Tech RPED"
 	desc = "A specialized bluespace RPED for technicians that can manufacture stock parts on the fly. Alt-Right-Click to manufacture parts, change settings, or clear its internal storage."
+	storage_type = /datum/storage/rped/bluespace/silly
 	/// Whether or not auto-clear is enabled
 	var/auto_clear = TRUE
 	/// List of valid types for pick_stock_part().
@@ -77,10 +78,9 @@
 		/obj/item/reagent_containers/cup/beaker,
 	)
 
-/obj/item/storage/part_replacer/bluespace/tier4/bst/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 1000
-	atom_storage.max_total_storage = 20000
+/datum/storage/rped/bluespace/silly
+	max_slots = 1000
+	max_total_storage = 20000
 
 /// An extension to the default RPED part replacement action - if you don't have the requisite parts in the RPED already, it will spawn T4 versions to use.
 /obj/item/storage/part_replacer/bluespace/tier4/bst/interact_with_atom(obj/attacked_object, mob/living/user, list/modifiers)

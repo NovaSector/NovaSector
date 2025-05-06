@@ -189,7 +189,6 @@ DEFINE_BITFIELD(no_equip_flags, list(
 /// The sprite works fine for digitigrade legs as-is.
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
 /// Auto-generates the leg portion of the sprite with GAGS
-/// Suggested that you set [/obj/item/var/digitigrade_greyscale_config_worn] when using this flag
 #define CLOTHING_DIGITIGRADE_MASK (1<<3)
 // NOVA EDIT ADDITION START
 /// The sprite works fine for snouts.
