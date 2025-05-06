@@ -30,6 +30,18 @@
 /area/sandplanet/companystage
 	name = "Public Stage"
 
+/area/sandplanet/landingsite1
+	name = "Landing Zone 1"
+
+/area/sandplanet/landingsite2
+	name = "Landing Zone 2"
+
+/area/sandplanet/cclandingzone
+	name = "Corporate Landing Zone"
+
+/area/sandplanet/shipyard
+	name = "shipyard"
+
 /area/sandplanet/pond
 	name = "Central Pond"
 
@@ -108,3 +120,12 @@
 /area/station/commons/dorms/orbital/room3
 	name = "\improper Orbital Dorms Room 3"
 	icon_state = "room3"
+
+/area/station/command/heads_quarters/blueshield/armoury
+	name = "\improper Blueshield Command Center"
+
+/area/station/command/heads_quarters/blueshield/private
+	name = "\improper Blueshield's Quarters"
+
+/area/station/command/heads_quarters/nt_rep/private
+	name = "\improper Nanotrasen Consultant's Quarters"
