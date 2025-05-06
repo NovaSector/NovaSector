@@ -1,12 +1,12 @@
 ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a character preferences JSON file to the server.", ADMIN_CATEGORY_MAIN)
-	var/player_key = tgui_input_text(user, "Enter player CKey to replace their save file", "Enter Player CKey")
+	var/player_key = tgui_input_text(user, "Enter player CKey to replace their save file", "Import Preferences")
 	if(!length(player_key))
 		return
 
 	player_key = LOWER_TEXT(player_key)
 
 	// Prevent spelling mistakes
-	var/confirmation = tgui_alert(user, "Import preferences for \"[player_key]\"?", "Confirm CKey", list("Confirm", "Cancel"))
+	var/confirmation = tgui_alert(user, "Import preferences for \"[player_key]\"?", "Import Preferences", list("Confirm", "Cancel"))
 	if(confirmation != "Confirm")
 		return
 
@@ -15,13 +15,13 @@ ADMIN_VERB(import_preferences, R_ADMIN, "Import Preferences", "Upload a characte
 
 	// Prevent accidental overwriting
 	if(save_exists)
-		var/overwrite_confirmation = tgui_alert(user, "File already exists for \"[player_key]\".\nOverwrite existing file?", "Confirm Overwrite", list("Overwrite", "Cancel"))
+		var/overwrite_confirmation = tgui_alert(user, "File already exists for \"[player_key]\". Overwrite existing file?", "Import Preferences", list("Overwrite", "Cancel"))
 		if(overwrite_confirmation != "Overwrite")
 			return
 	// Prevent accidental typos
 	else
-		var/creation_confirmation = tgui_alert(user, "File not found for \"[player_key]\".\nCreate new file?", "Confirm Import", list("Create", "Cancel"))
-		if(creation_confirmation != "Overwrite")
+		var/creation_confirmation = tgui_alert(user, "File not found for \"[player_key]\". Create new file?", "Import Preferences", list("Create", "Cancel"))
+		if(creation_confirmation != "Create")
 			return
 
 	// Upload the new JSON file
