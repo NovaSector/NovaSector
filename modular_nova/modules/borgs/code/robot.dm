@@ -54,7 +54,10 @@
 	if(!can_rest())
 		to_chat(src, span_warning("You can't do that!"))
 		return
-	var/choice = tgui_alert(src, "Select resting pose", "", list("Resting", "Sitting", "Belly up"))
+	var/list/choices = list("Resting", "Sitting", "Belly up")
+	if(model && model.model_features && (TRAIT_RESTING_ALTS in model.model_features))
+		choices = list("Resting", "Sitting", "Belly up", "Sleep", "Rest Wagging", "Sit Wagging")
+	var/choice = tgui_input_list(src, "Select resting pose", "", choices)
 	switch(choice)
 		if("Resting")
 			robot_rest_style = ROBOT_REST_NORMAL
@@ -62,6 +65,12 @@
 			robot_rest_style = ROBOT_REST_SITTING
 		if("Belly up")
 			robot_rest_style = ROBOT_REST_BELLY_UP
+		if("Sleep")
+			robot_rest_style = ROBOT_REST_SLEEP
+		if("Rest Wagging")
+			robot_rest_style = ROBOT_REST_NORMAL_ALT
+		if("Sit Wagging")
+			robot_rest_style = ROBOT_REST_SITTING_ALT
 	robot_resting = robot_rest_style
 	if (robot_resting)
 		on_lying_down()

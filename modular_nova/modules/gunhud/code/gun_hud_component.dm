@@ -18,10 +18,10 @@
 	SIGNAL_HANDLER
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.is_holding(parent))
-			if(H.hud_used)
-				hud = H.hud_used.ammo_counter
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.is_holding(parent))
+			if(human_user.hud_used)
+				hud = human_user.hud_used.ammo_counter
 				if(!hud.on) // make sure we're not already turned on
 					current_hud_owner = WEAKREF(user)
 					RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))
@@ -67,7 +67,10 @@
 	if(istype(the_gun, /obj/item/gun/ballistic/bow))
 		return the_gun.get_ammo(countchambered = FALSE)
 
-	return the_gun.get_ammo(countchambered = TRUE)
+	if(the_gun.bolt_type == BOLT_TYPE_OPEN)
+		return the_gun.get_ammo(countchambered = FALSE)
+	else
+		return the_gun.get_ammo(countchambered = TRUE)
 
 
 /datum/component/ammo_hud/proc/update_hud()

@@ -10,15 +10,18 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "mailbelt"
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
+	storage_type = /datum/storage/mailbelt
 
-/obj/item/storage/belt/mailbelt/Initialize(mapload)
+/datum/storage/mailbelt
+	max_slots = 14
+	numerical_stacking = TRUE
+
+/datum/storage/mailbelt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_slots = 14
-	atom_storage.numerical_stacking = TRUE
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/mail,
 		/obj/item/mail/envelope,
-		/obj/item/paper
+		/obj/item/paper,
 	))
 
 /obj/item/storage/belt/mailbelt/white

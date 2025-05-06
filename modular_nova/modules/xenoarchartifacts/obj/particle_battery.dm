@@ -53,8 +53,7 @@
 /obj/item/xenoarch/xenoarch_utilizer/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	if(inserted_battery)
-		qdel(inserted_battery)
-	inserted_battery = null
+		QDEL_NULL(inserted_battery)
 	return ..()
 
 /obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/attacking_item, mob/user, params)

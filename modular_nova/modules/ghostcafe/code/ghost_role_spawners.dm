@@ -54,6 +54,7 @@
 	flavour_text = "You are off-duty and have decided to visit your favourite cafe. Enjoy yourself."
 	random_appearance = FALSE
 	loadout_enabled = TRUE
+	quirks_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ghostcafe/special(mob/living/carbon/human/new_spawn)
 	. = ..()
@@ -66,9 +67,8 @@
 		ADD_TRAIT(new_spawn, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)
 		ADD_TRAIT(new_spawn, TRAIT_NOBREATH, TRAIT_GHOSTROLE)
 		to_chat(new_spawn,span_warning("<b>Ghosting is free!</b>"))
-		var/datum/action/toggle_dead_chat_mob/D = new(new_spawn)
-		SSquirks.AssignQuirks(new_spawn, new_spawn.client, TRUE, TRUE, null, FALSE, new_spawn)
-		D.Grant(new_spawn)
+		var/datum/action/toggle_dead_chat_mob/dchat_toggle_ability = new(new_spawn)
+		dchat_toggle_ability.Grant(new_spawn)
 
 /mob/living/proc/on_using_radio(atom/movable/talking_movable)
 	SIGNAL_HANDLER
@@ -106,12 +106,12 @@
 	name = "cafe costuming kit"
 	desc = "Look just the way you did in life - or better!"
 	icon_state = "ghostcostuming"
+	storage_type = /datum/storage/chameleon_cafe
 
-/obj/item/storage/box/syndie_kit/chameleon/ghostcafe/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_HUGE // This is ghost cafe only, balance is not given a shit about.
-	atom_storage.max_slots = 14 // Holds all the starting stuff, plus a bit of change.
-	atom_storage.max_total_storage = 50 // To actually acommodate the stuff being added.
+/datum/storage/chameleon_cafe
+	max_specific_storage = WEIGHT_CLASS_HUGE // This is ghost cafe only, balance is not given a shit about.
+	max_slots = 14 // Holds all the starting stuff, plus a bit of change.
+	max_total_storage = 50 // To actually acommodate the stuff being added.
 
 /obj/item/storage/box/syndie_kit/chameleon/ghostcafe/PopulateContents() // Doesn't contain a PDA, for isolation reasons.
 	new /obj/item/clothing/under/chameleon(src)

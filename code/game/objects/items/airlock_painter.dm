@@ -134,7 +134,7 @@
 	. += span_notice("Its ink levels look [ink_level].")
 
 
-/obj/item/airlock_painter/attackby(obj/item/W, mob/user, params)
+/obj/item/airlock_painter/attackby(obj/item/W, mob/user, list/modifiers)
 	if(istype(W, /obj/item/toner))
 		if(ink)
 			to_chat(user, span_warning("[src] already contains \a [ink]!"))
@@ -391,7 +391,7 @@
 		list("Neutral", "#D4D4D432"),
 		list("Dark", "#0e0f0f"),
 		list("Bar Burgundy", "#79150082"),
-		list("Sec Blue", "#486091"), // NOVA EDIT CHANGE
+		list("Sec Red", "#DE3A3A"),
 		list("Cargo Brown", "#A46106"),
 		list("Engi Yellow", "#EFB341"),
 		list("Service Green", "#9FED58"),

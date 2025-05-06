@@ -108,8 +108,6 @@
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
-	overrides_sprite_datum_organ_type = TRUE
-	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 
 /obj/item/organ/tongue/jelly
 	zone = BODY_ZONE_CHEST
@@ -149,6 +147,7 @@
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
 
 /obj/item/organ/brain/slime/examine()
@@ -346,6 +345,8 @@
 			return
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
+		if(slime.health < slime.maxHealth)
+			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
 
 /**

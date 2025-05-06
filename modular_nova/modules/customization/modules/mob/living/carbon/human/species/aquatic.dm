@@ -38,6 +38,9 @@
 	disliked_foodtypes = CLOTH | GROSS
 	toxic_foodtypes = TOXIC
 
+/obj/item/organ/tongue/aquatic/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "fish", BUBBLE_ICON_PRIORITY_ORGAN)
 
 /datum/species/aquatic/randomize_features(mob/living/carbon/human/human_mob)
 	var/list/features = ..()

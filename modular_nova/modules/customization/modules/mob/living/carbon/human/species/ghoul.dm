@@ -33,6 +33,7 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("None", FALSE),
 		"ears" = list("None", FALSE),
 		"legs" = list("Normal Legs", FALSE),
@@ -156,7 +157,7 @@
 			if (istype(I, /obj/item/food/meat/slab))
 				user.put_in_hands(I)
 
-			new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, target.dir)
+			new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, target.dir, target.dna.blood_type.color)
 			target.add_splatter_floor(target.loc)
 			target.bleed(60)
 

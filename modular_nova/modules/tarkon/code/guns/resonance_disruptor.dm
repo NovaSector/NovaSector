@@ -65,7 +65,7 @@
 		if(idiot.has_status_effect(/datum/status_effect/resonant_link))
 			var/datum/status_effect/resonant_link/blaster = idiot.has_status_effect(/datum/status_effect/resonant_link)
 			blaster.detonate()
-			blaster.Destroy()
+			qdel(blaster)
 		else
 			var/datum/status_effect/resonant_link/connection = idiot.apply_status_effect(/datum/status_effect/resonant_link, firing_gun)
 			if(firing_gun)
@@ -116,8 +116,8 @@
 			marked_underlay = mutable_appearance('icons/effects/effects.dmi', "shield2")
 		else
 			marked_underlay = mutable_appearance('icons/effects/effects.dmi', "shield1")
-		marked_underlay.pixel_x = -owner.pixel_x
-		marked_underlay.pixel_y = -owner.pixel_y
+		marked_underlay.pixel_w = -owner.pixel_x
+		marked_underlay.pixel_z = -owner.pixel_y
 		owner.underlays += marked_underlay
 		return TRUE
 	return FALSE

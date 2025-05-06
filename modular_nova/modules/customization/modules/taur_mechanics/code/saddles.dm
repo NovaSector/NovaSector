@@ -3,9 +3,9 @@
 	desc = "someone spawned a basetype!"
 	slot_flags = ITEM_SLOT_BACK // no storage
 
-	icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
-	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
-	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
+	icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
+	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
+	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
 /obj/item/riding_saddle/Initialize(mapload)
@@ -31,16 +31,16 @@
 /obj/item/riding_saddle/leather/Initialize(mapload)
 	. = ..()
 
-/obj/item/riding_saddle/leather/peacekeeper
-	name = "peacekeeper saddle"
+/obj/item/riding_saddle/leather/blue
+	name = "blue riding saddle"
 
-	icon_state = "saddle_sec_item"
-	worn_icon_state = "saddle_sec"
+	icon_state = "saddle_blue_item"
+	worn_icon_state = "saddle_blue"
 
-/obj/item/riding_saddle/leather/peacekeeper/Initialize(mapload)
+/obj/item/riding_saddle/leather/blue/Initialize(mapload)
 	. = ..()
 
-	desc += " This one is painted in peacekeeper livery."
+	desc += " This one is painted in blue and white."
 
 /obj/item/storage/backpack/saddlebags
 	name = "saddlebags"
@@ -51,9 +51,9 @@
 
 	slot_flags = ITEM_SLOT_BACK
 
-	icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
-	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
-	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/sprites/saddles.dmi'
+	icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
+	worn_icon = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
+	worn_icon_taur_snake = 'modular_nova/modules/customization/modules/taur_mechanics/icons/saddles.dmi'
 	supports_variations_flags = STYLE_TAUR_HOOF|STYLE_TAUR_PAW
 
 	storage_type = /datum/storage/saddlebags

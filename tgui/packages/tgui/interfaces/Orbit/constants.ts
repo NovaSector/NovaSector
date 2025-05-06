@@ -108,7 +108,7 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
       'Mime',
       'Psychologist',
       'Barber', // NOVA EDIT ADDITION
-      'Bouncer', // NOVA EDIT ADDITION
+      'Service Guard', // NOVA EDIT ADDITION
     ],
   },
 };

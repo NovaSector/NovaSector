@@ -15,7 +15,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		if(readied_player.new_character)
 			log_manifest(readied_player.ckey, readied_player.new_character.mind, readied_player.new_character)
 		if(ishuman(readied_player.new_character))
-			inject(readied_player.new_character, readied_player.client) // NOVA EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
+			inject(readied_player.new_character, person_client = readied_player.client) // NOVA EDIT - RP Records - ORIGINAL: inject(readied_player.new_character)
 		CHECK_TICK
 
 /// Gets the current manifest.
@@ -124,7 +124,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	var/datum/record/locked/lockfile = new(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type,
+		blood_type = record_dna.blood_type.name,
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
@@ -142,7 +142,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	new /datum/record/crew(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type,
+		blood_type = record_dna.blood_type.name,
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),

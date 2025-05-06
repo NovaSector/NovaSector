@@ -160,12 +160,12 @@
 	item_path = /obj/item/clothing/head/deprivation_helmet
 
 /datum/loadout_item/erp/blindfold
-	name = "Kinky Blindfold"
-	item_path = /obj/item/clothing/glasses/blindfold/kinky
+	name = "Luxury Blindfold"
+	item_path = /obj/item/clothing/glasses/blindfold/dorms
 
 /datum/loadout_item/erp/kinky_headphones
-	name = "Kinky Headphones"
-	item_path = /obj/item/clothing/ears/kinky_headphones
+	name = "Padded Headphones"
+	item_path = /obj/item/clothing/ears/dorms_headphones
 
 /datum/loadout_item/erp/lewd_filter
 	name = "Crocin Filter"
@@ -183,27 +183,19 @@
 	name = "Ball Mittens"
 	item_path = /obj/item/clothing/gloves/ball_mittens
 
-/datum/loadout_item/erp/collar
-	name = "Locked Collar"
-	item_path = /obj/item/clothing/neck/kink_collar/locked
-
-/datum/loadout_item/erp/collar/shock
+/datum/loadout_item/erp/collar_shock
 	name = "Shock Collar"
 	item_path = /obj/item/electropack/shockcollar
 
-/datum/loadout_item/erp/collar/mind
+/datum/loadout_item/erp/collar_mind
 	name = "Mind Collar"
 	item_path = /obj/item/clothing/neck/mind_collar
 
-/datum/loadout_item/erp/collar/pet
-	name = "Locked Collar (Colorable)"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked
-
-/datum/loadout_item/erp/collar/size
+/datum/loadout_item/erp/collar_size
 	name = "Size Collar (Interlink Only)"
 	item_path = /obj/item/clothing/neck/size_collar
 
-/datum/loadout_item/erp/collar/key
+/datum/loadout_item/erp/collar_key
 	name = "Collar Key"
 	item_path = /obj/item/key/collar
 

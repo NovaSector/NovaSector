@@ -45,6 +45,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_headdress
 	name = "Ash Headdress"
@@ -79,6 +80,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_robes
 	name = "Ash Robes"
@@ -104,6 +106,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_plates
 	name = "Ash Combat Plates"
@@ -135,6 +138,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	armor_type = /datum/armor/bone_greaves
 	body_parts_covered = FEET|LEGS
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/bone_greaves
 	name = "Bone Greaves"

@@ -3,8 +3,6 @@
 
 SUBSYSTEM_DEF(ticker)
 	name = "Ticker"
-	init_order = INIT_ORDER_TICKER
-
 	priority = FIRE_PRIORITY_TICKER
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
@@ -446,13 +444,19 @@ SUBSYSTEM_DEF(ticker)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
 		if(ishuman(new_player_living))
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
-			//NOVA EDIT ADDITION
-			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))
+			//NOVA EDIT ADDITION START
+			var/list/loadout = new_player_living.client?.get_loadout_datums()
 			for(var/datum/loadout_item/item as anything in loadout)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-			//NOVA EDIT END
+			if(iskobold(new_player_living))
+				var/mob/living/carbon/human/new_kobold = new_player_living
+				new_kobold.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
+				new_kobold.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
+				new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
+				new_kobold.dna.activate_mutation(/datum/mutation/human/clever)
+			//NOVA EDIT ADDITION END
 		CHECK_TICK
 
 	if(captainless)
@@ -540,11 +544,17 @@ SUBSYSTEM_DEF(ticker)
 			queued_players -= next_in_line
 			queue_delay = 0
 
+///Whether the game has started, including roundend.
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
 
+///Whether the game is currently in progress, excluding roundend
 /datum/controller/subsystem/ticker/proc/IsRoundInProgress()
 	return current_state == GAME_STATE_PLAYING
+
+///Whether the game is currently in progress, excluding roundend
+/datum/controller/subsystem/ticker/proc/IsPostgame()
+	return current_state == GAME_STATE_FINISHED
 
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state
