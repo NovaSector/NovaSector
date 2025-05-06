@@ -1,4 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - bugfix: "Fixed both silicon flavor text fields in preferences appearing as NSFW"
