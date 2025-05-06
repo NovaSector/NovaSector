@@ -9,3 +9,7 @@
 /mob/living/reset_pull_offsets(mob/living/pull_target, override, animate)
 	. = ..()
 	SEND_SIGNAL(pull_target, COMSIG_LIVING_RESET_PULL_OFFSETS)
+
+/mob/living/experience_pressure_difference(pressure_difference, direction, pressure_resistance_prob_delta = 0)
+	if(HAS_TRAIT(src, TRAIT_HEAVYSET))
+		return

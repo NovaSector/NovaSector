@@ -80,12 +80,15 @@
 	icon = 'modular_nova/modules/more_briefcases/icons/briefcases.dmi'
 	icon_state = "briefcase_suit"
 	illustration = null
+	storage_type = /datum/storage/box/emergency_space
 
-/obj/item/storage/box/emergency_spacesuit/Initialize(mapload)
+/datum/storage/box/emergency_space
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	max_slots = 2
+
+/datum/storage/box/emergency_space/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.max_slots = 2
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/clothing/head/helmet/space/emergency,
 		/obj/item/clothing/suit/space/emergency,
 	))

@@ -136,9 +136,9 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define HIDETAUR (1<<19)
 //NOVA EDIT ADDITION END
 //bitflags for clothing coverage - also used for limbs
-#define HEAD (1<<0)
-#define CHEST (1<<1)
-#define GROIN (1<<2)
+#define CHEST (1<<0)
+#define GROIN (1<<1)
+#define HEAD (1<<2)
 #define LEG_LEFT (1<<3)
 #define LEG_RIGHT (1<<4)
 #define LEGS (LEG_LEFT | LEG_RIGHT)
@@ -189,7 +189,6 @@ DEFINE_BITFIELD(no_equip_flags, list(
 /// The sprite works fine for digitigrade legs as-is.
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
 /// Auto-generates the leg portion of the sprite with GAGS
-/// Suggested that you set [/obj/item/var/digitigrade_greyscale_config_worn] when using this flag
 #define CLOTHING_DIGITIGRADE_MASK (1<<3)
 // NOVA EDIT ADDITION START
 /// The sprite works fine for snouts.

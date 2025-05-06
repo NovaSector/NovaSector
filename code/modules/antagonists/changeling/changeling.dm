@@ -552,7 +552,7 @@
 	new_profile.emissive_eyes = target.emissive_eyes
 	new_profile.scream_type = target.selected_scream?.type || /datum/scream_type/none
 	new_profile.laugh_type = target.selected_laugh?.type || /datum/laugh_type/none
-	new_profile.target_height = target.get_mob_height()
+	new_profile.target_height = target.mob_height
 	new_profile.target_mob_size = target.mob_size
 	//NOVA EDIT ADDITION END
 
