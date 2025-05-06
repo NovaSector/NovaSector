@@ -62,7 +62,7 @@
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/nt_rep)
 "ti" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)

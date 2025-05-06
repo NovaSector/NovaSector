@@ -8,7 +8,7 @@
 	name = "brig officer gear locker"
 	req_access = list("syndicate_leader")
 
-/obj/item/clothing/suit/toggle/jacket/sec/old/syndicate
+/obj/item/clothing/suit/toggle/jacket/nova/sec/old/syndicate
 	name = "brig officer jacket"
 
 /obj/item/clothing/accessory/armband/syndicate
@@ -20,14 +20,14 @@
 	desc = "A bag for storing extra clothes and shoes. This one belongs to a brig officer."
 
 /obj/item/storage/bag/garment/brig_officer/PopulateContents()
-	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
+	new /obj/item/clothing/under/rank/security/nova/utility/syndicate(src)
 	new /obj/item/clothing/head/beret/sec/syndicate(src)
 	new /obj/item/clothing/accessory/armband(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
-	new /obj/item/clothing/suit/toggle/jacket/sec/old/syndicate(src)
+	new /obj/item/clothing/suit/toggle/jacket/nova/sec/old/syndicate(src)
 	new /obj/item/clothing/mask/neck_gaiter(src)
-	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec(src)
-	new /obj/item/clothing/glasses/hud/security/sunglasses/redsec(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 
 /obj/structure/closet/secure_closet/des_two/brig_officer_locker/PopulateContents()
 	..()

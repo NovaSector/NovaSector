@@ -1,5 +1,5 @@
 //Base Jacket - same stats as /obj/item/clothing/suit/jacket, just toggleable and serving as the base for all the departmental jackets and flannels
-/obj/item/clothing/suit/toggle/jacket
+/obj/item/clothing/suit/toggle/jacket/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	name = "bomber jacket"
@@ -13,14 +13,14 @@
 	toggle_noun = "zipper"
 
 //Job Jackets
-/obj/item/clothing/suit/toggle/jacket/engi
+/obj/item/clothing/suit/toggle/jacket/nova/engi
 	name = "engineering jacket"
 	desc = "A comfortable jacket in engineering yellow."
 	icon_state = "engi_dep_jacket"
 	armor_type = /datum/armor/jacket_engi
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/t_scanner, /obj/item/construction/rcd, /obj/item/pipe_dispenser, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter)
 
-/obj/item/clothing/suit/toggle/jacket/tcomm
+/obj/item/clothing/suit/toggle/jacket/nova/tcomm
 	name = "telecomms jacket"
 	desc = "A comfortable jacket in engineering yellow with blue telecomms trim."
 	icon_state = "tcomm_dep_jacket"
@@ -41,7 +41,7 @@
 	fire = 30
 	acid = 45
 
-/obj/item/clothing/suit/toggle/jacket/sci
+/obj/item/clothing/suit/toggle/jacket/nova/sci
 	name = "science jacket"
 	desc = "A comfortable jacket in science purple."
 	icon_state = "sci_dep_jacket"
@@ -50,7 +50,7 @@
 /datum/armor/jacket_sci
 	bomb = 10
 
-/obj/item/clothing/suit/toggle/jacket/med
+/obj/item/clothing/suit/toggle/jacket/nova/med
 	name = "medbay jacket"
 	desc = "A comfortable jacket in medical blue."
 	icon_state = "med_dep_jacket"
@@ -60,28 +60,28 @@
 	bio = 50
 	acid = 45
 
-/obj/item/clothing/suit/toggle/jacket/supply
+/obj/item/clothing/suit/toggle/jacket/nova/supply
 	name = "cargo jacket"
 	desc = "A comfortable jacket in supply brown."
 	icon_state = "supply_dep_jacket"
 
-/obj/item/clothing/suit/toggle/jacket/assistant
+/obj/item/clothing/suit/toggle/jacket/nova/assistant
 	name = "non-departmental jacket"
 	desc = "A comfortable jacket in a neutral black"
 	icon_state = "off_dep_jacket"
 
-/obj/item/clothing/suit/toggle/jacket/supply/head
+/obj/item/clothing/suit/toggle/jacket/nova/supply/head
 	name = "quartermaster's jacket"
 	desc = "Even if people refuse to recognize you as a head, they can recognize you as a badass."
 	icon_state = "qmjacket"
 
-/obj/item/clothing/suit/toggle/jacket/sec
+/obj/item/clothing/suit/toggle/jacket/nova/sec
 	name = "security jacket"
-	desc = "A comfortable jacket in security blue. Probably against uniform regulations."
+	desc = "A comfortable jacket in security red. Probably against uniform regulations."
 	icon_state = "sec_dep_jacket"
 	armor_type = /datum/armor/sec_dep_jacket
 
-/obj/item/clothing/suit/toggle/jacket/sec/Initialize(mapload)
+/obj/item/clothing/suit/toggle/jacket/nova/sec/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
@@ -94,11 +94,12 @@
 	fire = 30
 	acid = 45
 
-/obj/item/clothing/suit/toggle/jacket/sec/old	//Oldsec (Red)
-	icon_state = "sec_dep_jacket_old"
+/obj/item/clothing/suit/toggle/jacket/nova/sec/blue
+	desc = "An outdated jacket in blue. Probably against uniform regulations."
+	icon_state = "sec_dep_jacket_blue"
 
 //Flannels
-/obj/item/clothing/suit/toggle/jacket/flannel
+/obj/item/clothing/suit/toggle/jacket/nova/flannel
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suit.dmi'
 	name = "flannel jacket"
@@ -108,19 +109,19 @@
 	cold_protection = CHEST|ARMS
 	heat_protection = CHEST|ARMS	//As a plus side, they're more insulating, protecting a bit from the heat as well
 
-/obj/item/clothing/suit/toggle/jacket/flannel/red
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/red
 	name = "red flannel jacket"
 	icon_state = "flannel_red"
 
-/obj/item/clothing/suit/toggle/jacket/flannel/aqua
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/aqua
 	name = "aqua flannel jacket"
 	icon_state = "flannel_aqua"
 
-/obj/item/clothing/suit/toggle/jacket/flannel/brown
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/brown
 	name = "brown flannel jacket"
 	icon_state = "flannel_brown"
 
-/obj/item/clothing/suit/toggle/jacket/flannel/gags
+/obj/item/clothing/suit/toggle/jacket/nova/flannel/gags
 	name = "flannel shirt"
 	icon_state = "flannelgags"
 	greyscale_config = /datum/greyscale_config/flannelgags

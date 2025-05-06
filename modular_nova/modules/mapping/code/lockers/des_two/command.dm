@@ -55,7 +55,7 @@
 /obj/item/storage/bag/garment/master_arms/PopulateContents()
 	new /obj/item/clothing/accessory/medal/silver/maa_medal(src)
 	new /obj/item/clothing/suit/armor/vest/warden/syndicate(src)
-	new /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate(src)
+	new /obj/item/clothing/under/rank/security/nova/utility/syndicate(src)
 	new /obj/item/clothing/under/suit/nova/helltaker(src)
 	new /obj/item/clothing/suit/armor/hos/maa_greatcoat(src)
 	new /obj/item/clothing/head/beret/sec/navywarden/syndicate(src)

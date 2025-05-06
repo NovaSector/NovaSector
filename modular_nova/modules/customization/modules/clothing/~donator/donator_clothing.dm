@@ -720,8 +720,7 @@
 
 /obj/item/clothing/neck/inferno_collar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(/obj/item/food/cookie)
+	create_storage(storage_type = /datum/storage/collar)
 	if(treat_path)
 		new treat_path(src)
 
@@ -762,9 +761,7 @@
 
 /obj/item/storage/belt/sabre/darksabre/Initialize(mapload)
 	. = ..()
-	atom_storage.set_holdable(list(
-		/obj/item/toy/darksabre
-		))
+	atom_storage.set_holdable(/obj/item/toy/darksabre)
 
 /obj/item/storage/belt/sabre/darksabre/PopulateContents()
 	new /obj/item/toy/darksabre(src)
@@ -1116,7 +1113,7 @@
 // Donation reward for Raxraus
 /obj/item/clothing/shoes/combat/rax
 	name = "tactical boots"
-	desc = "Tactical and sleek. This model seems to resemble Armadyne's."
+	desc = "Tactical and sleek. This model seems to resemble an armament manufacturer retired long ago."
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'

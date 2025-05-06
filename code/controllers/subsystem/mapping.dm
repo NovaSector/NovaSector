@@ -1,6 +1,11 @@
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
-	init_order = INIT_ORDER_MAPPING
+	dependencies = list(
+		/datum/controller/subsystem/job,
+		/datum/controller/subsystem/processing/station,
+		/datum/controller/subsystem/processing/reagents,
+		/datum/controller/subsystem/automapper, // NOVA EDIT ADDITION
+	)
 	runlevels = ALL
 
 	var/list/nuke_tiles = list()
@@ -102,6 +107,9 @@ SUBSYSTEM_DEF(mapping)
 		if(!current_map || current_map.defaulted)
 			to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting to [old_config.map_name]."))
 			current_map = old_config
+	var/mapping_url = config.Get(/datum/config_entry/string/webmap_url)
+	if(mapping_url != "")
+		current_map.mapping_url = mapping_url
 	plane_offset_to_true = list()
 	true_to_offset_planes = list()
 	plane_to_offset = list()
@@ -849,6 +857,8 @@ ADMIN_VERB(load_away_mission, R_FUN, "Load Away Mission", "Load a specific away 
 
 /datum/controller/subsystem/mapping/proc/lazy_load_template(template_key, force = FALSE)
 	RETURN_TYPE(/datum/turf_reservation)
+
+	UNTIL(initialized)
 	var/static/lazy_loading = FALSE
 	UNTIL(!lazy_loading)
 
@@ -952,3 +962,14 @@ ADMIN_VERB(load_away_mission, R_FUN, "Load Away Mission", "Load a specific away 
 	var/number_of_remaining_levels = length(checkable_levels)
 	if(number_of_remaining_levels > 0)
 		CRASH("The following [number_of_remaining_levels] away mission(s) were not loaded: [checkable_levels.Join("\n")]")
+
+///Returns the map name, with an openlink action tied to it (if one exists) for the map.
+/datum/map_config/proc/return_map_name(webmap_included)
+	var/text
+	if(feedback_link)
+		text = "<a href='byond://?action=openLink&link=[url_encode(feedback_link)]'>[map_name]</a>"
+	else
+		text = map_name
+	if(webmap_included && !isnull(SSmapping.current_map.mapping_url))
+		text += " | <a href='byond://?action=openWebMap'>(Show Map)</a>"
+	return text

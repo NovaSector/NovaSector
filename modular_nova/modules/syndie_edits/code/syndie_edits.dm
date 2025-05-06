@@ -71,12 +71,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "combat"
 
-/obj/item/clothing/gloves/combat
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
-	icon_state = "combat"
-	worn_icon_teshari = TESHARI_HANDS_ICON
-
 // Remove the override for these subtypes
 /obj/item/clothing/gloves/combat/floortile
 	icon = 'icons/obj/clothing/gloves.dmi'
@@ -279,7 +273,8 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
-	current_skin = "ip_officercloak" //prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black
 	name = "interdyne black labcoat"
