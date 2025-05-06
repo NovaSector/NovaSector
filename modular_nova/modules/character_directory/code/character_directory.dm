@@ -180,15 +180,16 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	return data
 
 /datum/character_directory/ui_static_data(mob/user)
-	. = ..()
-	var/list/data = .
+	var/list/data = list()
 
 	// These are the variables we're trying to display in the directory
 	var/list/directory_mobs = list()
 	var/name
 	var/species
 	var/ooc_notes
+	var/ooc_notes_nsfw
 	var/flavor_text
+	var/flavor_text_nsfw
 	var/attraction
 	var/gender
 	var/erp
@@ -218,18 +219,19 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			if((human.wear_mask && (human.wear_mask.flags_inv & HIDEFACE)) || (human.head && (human.head.flags_inv & HIDEFACE)) || (HAS_TRAIT(human, TRAIT_UNKNOWN)))
 				continue
 			//Display custom species, otherwise show base species instead
-			species = (READ_PREFS(human, text/custom_species)) || "Unset"
+			species = human.dna.features["custom_species"] || "Unset"
 			if(species == "Unset")
 				species = "[human.dna.species.name]"
-			//Load standard flavor text preference
-			flavor_text = READ_PREFS(human, text/flavor_text) || ""
-			headshot = human.dna.features["headshot"] || ""
+			flavor_text = human.dna.features[EXAMINE_DNA_FLAVOR_TEXT] || ""
+			flavor_text_nsfw = human.dna.features[EXAMINE_DNA_FLAVOR_TEXT_NSFW] || ""
+			headshot = human.dna.features[EXAMINE_DNA_HEADSHOT] || ""
 		else if(issilicon(mob))
 			var/mob/living/silicon/silicon = mob
 			//If the target is a silicon, we want it to show its brain as its species
 			species = READ_PREFS(silicon, choiced/brain_type)
 			//Load silicon flavor text in place of normal flavor text
 			flavor_text = READ_PREFS(silicon, text/silicon_flavor_text) || ""
+			flavor_text_nsfw = READ_PREFS(silicon, text/silicon_flavor_text_nsfw) || ""
 			headshot = READ_PREFS(silicon, text/headshot/silicon) || ""
 		// Don't show if they are not a human or a silicon
 		else
@@ -246,6 +248,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno) || "Ask"
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
+		ooc_notes_nsfw = READ_PREFS(mob, text/ooc_notes_nsfw) || ""
 		veteran_status = mob.client && SSplayer_ranks.is_veteran(mob.client, admin_bypass = FALSE)
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
@@ -255,6 +258,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"appearance_name" = mob.real_name,
 			"species" = species,
 			"ooc_notes" = ooc_notes,
+			"ooc_notes_nsfw" = ooc_notes_nsfw,
 			"attraction" = attraction,
 			"gender" = gender,
 			"erp" = erp,
@@ -264,6 +268,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 			"veteran_status" = veteran_status,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
+			"flavor_text_nsfw" = flavor_text_nsfw,
 			"headshot" = headshot,
 			"ref" = ref
 		)))
@@ -286,7 +291,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		if("refresh")
 			// This is primarily to stop malicious users from trying to lag the server by spamming this verb
 			if(!COOLDOWN_FINISHED(user.client, char_directory_cooldown))
-				to_chat(user, "<span class='warning'>Please wait before refreshing the directory again.</span>")
+				to_chat(user, span_warning("Please wait before refreshing the directory again."))
 				return
 			COOLDOWN_START(user.client, char_directory_cooldown, 10)
 			update_static_data(user, ui)
@@ -303,3 +308,6 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		if("view_character")
 			update_preview(usr, params["assigned_view"], GLOB.name_to_appearance[params["name"]], ui.window)
 			return TRUE
+
+#undef READ_PREFS
+#undef CHAR_DIRECTORY_ASSIGNED_VIEW

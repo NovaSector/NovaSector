@@ -66,19 +66,24 @@
 	inhand_icon_state = "msheath"
 	worn_icon_state = "msheath"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	storage_type = /datum/storage/machete_belt
 	/// Used for deciding the worn icon_state variant, using defines for MACHETE_BACK, MACHETE_WAIST, MACHETE_LEG.
 	var/worn_variant = MACHETE_BACK
+
+/datum/storage/machete_belt
+	max_slots = 1
+	// not a rifle but this is the sound tgmc uses
+	rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	click_alt_open = FALSE
+
+/datum/storage/machete_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(/obj/item/machete)
 
 /obj/item/storage/belt/machete/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	atom_storage.max_slots = 1
-	// not a rifle but this is the sound tgmc uses
-	atom_storage.rustle_sound = 'modular_nova/modules/mauling_melees/sounds/rifle_draw.ogg'
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.set_holdable(/obj/item/machete)
-	atom_storage.click_alt_open = FALSE
-	RegisterSignal(atom_storage, COMSIG_STORAGE_REMOVED_ITEM, PROC_REF(on_item_removed))
 
 /obj/item/storage/belt/machete/examine(mob/user)
 	. = ..()
@@ -108,12 +113,6 @@
 /obj/item/storage/belt/machete/full/PopulateContents()
 	new /obj/item/machete(src)
 	update_appearance()
-
-/// triggers on item removal from the scabbard - plays a draw sound, which should be the rustle sound
-/// had to snowflake it because remove rustle sounds are. never triggered in the code. funnily enough
-/obj/item/storage/belt/machete/proc/on_item_removed()
-	SIGNAL_HANDLER
-	playsound(src, atom_storage.rustle_sound, 50, TRUE, -5)
 
 /// alt rmb to change wear style
 /obj/item/storage/belt/machete/click_alt_secondary(mob/user)
