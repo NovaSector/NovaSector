@@ -3,7 +3,5 @@
 
 /obj/item/storage/pill_bottle/lsdpsych/quirk
 	name = "antipsychotic pill"
-
-/obj/item/storage/pill_bottle/lsdpsych/quirk/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/applicator/pill/lsdpsych/quirk(src)
+	spawn_count = 5
+	spawn_type = /obj/item/reagent_containers/applicator/pill/lsdpsych/quirk
