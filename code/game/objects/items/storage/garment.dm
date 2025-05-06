@@ -5,6 +5,7 @@
 	desc = "A bag for storing extra clothes and shoes."
 	slot_flags = NONE
 	resistance_flags = FLAMMABLE
+	storage_type = /datum/storage/bag/garment
 
 /obj/item/storage/bag/garment/captain
 	name = "captain's garment bag"
@@ -38,15 +39,6 @@
 	name = "quartermasters's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the quartermaster."
 
-/obj/item/storage/bag/garment/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.numerical_stacking = FALSE
-	atom_storage.max_total_storage = 200
-	atom_storage.max_slots = 15
-	atom_storage.insert_preposition = "in"
-	atom_storage.set_holdable(/obj/item/clothing)
-
 /obj/item/storage/bag/garment/captain/PopulateContents()
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/under/rank/captain/skirt(src)
@@ -74,7 +66,7 @@
 	new /obj/item/clothing/shoes/laceup(src)
 
 /obj/item/storage/bag/garment/hos/PopulateContents()
-	//new /obj/item/clothing/under/rank/security/head_of_security/skirt(src) NOVA EDIT REMOVAL - Blue Sec
+	new /obj/item/clothing/under/rank/security/head_of_security/skirt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/alt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/alt/skirt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/grey(src)
@@ -91,19 +83,26 @@
 	new /obj/item/clothing/head/hats/hos/cap(src)
 	new /obj/item/clothing/mask/gas/sechailer/swat(src)
 	new /obj/item/clothing/neck/cloak/hos(src)
+	// NOVA EDIT ADDITION START - EXTRA GOODIES
+	new /obj/item/clothing/under/rank/security/head_of_security/nova(src)
+	new /obj/item/clothing/under/rank/security/head_of_security/nova/formal(src)
+	// NOVA EDIT ADDITION END
 
 /obj/item/storage/bag/garment/warden/PopulateContents()
-	new /obj/item/clothing/suit/armor/vest/warden(src)
-	//new /obj/item/clothing/head/hats/warden(src) NOVA EDIT REMOVAL
-	//new /obj/item/clothing/head/hats/warden/drill(src) NOVA EDIT REMOVAL
-	new /obj/item/clothing/head/beret/sec/navywarden(src)
-	//new /obj/item/clothing/suit/armor/vest/warden/alt(src) NOVA EDIT REMOVAL
-	new /obj/item/clothing/under/rank/security/warden/formal(src)
-	new /obj/item/clothing/suit/jacket/warden/blue(src) //NOVA ADDITION - FORMAL COAT
-	//new /obj/item/clothing/under/rank/security/warden/skirt(src) NOVA EDIT REMOVAL
+	// new /obj/item/clothing/suit/armor/vest/warden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
+	// new /obj/item/clothing/head/hats/warden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
+	new /obj/item/clothing/head/hats/warden/drill(src)
+	// new /obj/item/clothing/head/beret/sec/navywarden(src) NOVA EDIT - Moved to /obj/item/storage/bag/garment/warden/blue
+	new /obj/item/clothing/under/rank/security/warden/skirt(src)
 	new /obj/item/clothing/gloves/krav_maga/sec(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
+	// NOVA EDIT ADDITION START - EXTRA GOODIES
+	new /obj/item/clothing/under/rank/security/warden/nova(src)
+	new /obj/item/clothing/under/rank/security/warden/formal(src)
+	new /obj/item/clothing/under/rank/security/warden/nova/suit(src)
+	new /obj/item/clothing/suit/armor/vest/warden/alt(src)
+	// NOVA EDIT ADDITION END
 
 /obj/item/storage/bag/garment/research_director/PopulateContents()
 	new /obj/item/clothing/under/rank/rnd/research_director(src)

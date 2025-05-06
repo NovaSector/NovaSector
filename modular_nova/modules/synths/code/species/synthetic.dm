@@ -36,6 +36,7 @@
 	mutantliver = /obj/item/organ/liver/synth
 	mutantappendix = null
 	exotic_blood = /datum/reagent/fuel/oil
+	exotic_bloodtype = "Oil"
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
@@ -60,6 +61,7 @@
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("None", FALSE),
 		"ears" = list("None", FALSE),
 		"legs" = list("Normal Legs", FALSE),

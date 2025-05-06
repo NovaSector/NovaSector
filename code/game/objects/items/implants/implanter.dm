@@ -1,10 +1,10 @@
 /**
  * Players can use this item to put obj/item/implant's in living mobs. Can be renamed with a pen.
  */
-/obj/item/implanter//NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+/obj/item/implanter
 	name = "implanter"
 	desc = "A sterile automatic implant injector."
-	icon = 'icons/obj/medical/syringe.dmi'
+	icon = 'icons/obj/medical/syringe.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "implanter0"
 	inhand_icon_state = "syringe_0"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -44,7 +44,7 @@
 	else
 		to_chat(user, span_warning("[src] fails to implant [target]."))
 
-/obj/item/implanter/attackby(obj/item/I, mob/living/user, params)
+/obj/item/implanter/attackby(obj/item/I, mob/living/user, list/modifiers)
 	if(IS_WRITING_UTENSIL(I))
 		return ..()
 	if(!user.can_write(I))

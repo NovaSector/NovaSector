@@ -6,18 +6,11 @@
 
 # MAINTAINERS
 
-# GoldenAlpharex
-
-/.github/workflows/ @GoldenAlpharex
-/SQL/ @GoldenAlpharex
-/tools/ @GoldenAlpharex
-/modular_nova/ @GoldenAlpharex
-/icons/ @GoldenAlpharex
-
-# Jolly-66
-
-/tools/maplint/lints @Jolly-66
-/tools/UpdatePaths @Jolly-66
+# vinylspiders
+/.github/workflows/ @vinylspiders
+/SQL/ @vinylspiders
+/tools/ @vinylspiders
+/code/modules/tgui/ @vinylspiders
 
 # Zergspower
 
@@ -35,9 +28,11 @@
 
 # Maptainers
 
-/_maps/ @Jolly-66 @sqnztb @Zergspower
-/modular_nova/modules/mapping @Jolly-66  @sqnztb @Zergspower
+/tools/maplint/lints @sqnztb
+/tools/UpdatePaths @sqnztb
+/_maps/ @Zergspower @sqnztb
+/modular_nova/modules/mapping @Jolly-66 @Zergspower @sqnztb
 
 # Expensive files that touching basically always cause performance problems
 ## Init times
-**/*_EXPENSIVE.dm @GoldenAlpharex
+**/*_EXPENSIVE.dm @vinylspiders

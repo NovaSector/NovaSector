@@ -1,0 +1,42 @@
+{
+	"dephelmet": [
+		{
+			"type": "icon_state",
+			"icon_state": "dephelmet_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dephelmet_visor",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dephelmet_ears_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dephelmet_ears_accent",
+			"blend_mode": "overlay",
+			"color_ids": [ 4 ]
+		}
+	],
+	"dephelmet_earless": [
+		{
+			"type": "icon_state",
+			"icon_state": "dephelmet_base",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "dephelmet_visor",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

@@ -63,7 +63,7 @@
 	healed_mob.reagents.add_reagent(/datum/reagent/dinitrogen_plasmide, 5)
 
 // Synth repair patch, gives the synth a small amount of healing chems
-/obj/item/reagent_containers/pill/robotic_patch
+/obj/item/reagent_containers/applicator/pill/patch/robotic_patch
 	name = "robotic patch"
 	desc = "A chemical patch for touch-based applications on synthetics."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
@@ -71,12 +71,9 @@
 	inhand_icon_state = null
 	possible_transfer_amounts = list()
 	volume = 40
-	apply_type = PATCH
-	apply_method = "apply"
 	self_delay = 3 SECONDS
-	dissolvable = FALSE
 
-/obj/item/reagent_containers/pill/robotic_patch/attack(mob/living/L, mob/user)
+/obj/item/reagent_containers/applicator/pill/patch/robotic_patch/attack(mob/living/L, mob/user)
 	if(ishuman(L))
 		var/obj/item/bodypart/affecting = L.get_bodypart(check_zone(user.zone_selected))
 		if(!affecting)
@@ -87,7 +84,7 @@
 			return
 	return ..()
 
-/obj/item/reagent_containers/pill/robotic_patch/canconsume(mob/eater, mob/user)
+/obj/item/reagent_containers/applicator/pill/patch/robotic_patch/canconsume(mob/eater, mob/user)
 	if(!iscarbon(eater))
 		return FALSE
 	return TRUE

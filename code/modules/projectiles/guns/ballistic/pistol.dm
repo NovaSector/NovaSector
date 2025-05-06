@@ -1,7 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol
 	name = "\improper Makarov pistol"
-//	desc = "A small, easily concealable 9mm handgun. Has a threaded barrel for suppressors."	// NOVA EDIT: Original
-	desc = "A small, easily concealable 9x25mm Mk.12 handgun. Has a threaded barrel for suppressors."	// NOVA EDIT: Calibre rename
+	desc = "A small, easily concealable 9mm handgun. Has a threaded barrel for suppressors."
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_SMALL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m9mm
@@ -93,7 +92,7 @@
 		return underbarrel.try_fire_gun(target, user, params)
 	return ..()
 
-/obj/item/gun/ballistic/automatic/pistol/clandestine/fisher/afterattack(atom/target, mob/user, click_parameters)
+/obj/item/gun/ballistic/automatic/pistol/clandestine/fisher/afterattack(atom/target, mob/user, list/modifiers)
 	var/obj/projectile/energy/fisher/melee/simulated_hit = new
 	simulated_hit.firer = user
 	simulated_hit.on_hit(target)

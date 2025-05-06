@@ -4,48 +4,9 @@
 /datum/loadout_item/pocket_items/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // these go in the backpack
 	return FALSE
 
-// The wallet loadout item is special, and puts the player's ID and other small items into it on initialize (fancy!)
-/datum/loadout_item/pocket_items/wallet
-	name = "Wallet"
-	item_path = /obj/item/storage/wallet
-	additional_displayed_text = list("Auto-Filled")
-
-// We add our wallet manually, later, so no need to put it in any outfits.
-/datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)
-	return FALSE
-
-// We didn't spawn any item yet, so nothing to call here.
-/datum/loadout_item/pocket_items/wallet/on_equip_item(
-	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
-	mob/living/carbon/human/equipper,
-	visuals_only = FALSE,
-)
-	return FALSE
-
-// We add our wallet at the very end of character initialization (after quirks, etc) to ensure the backpack / their ID is all set by now.
-/datum/loadout_item/pocket_items/wallet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
-	var/obj/item/card/id/advanced/id_card = equipper.get_item_by_slot(ITEM_SLOT_ID)
-	if(istype(id_card, /obj/item/storage/wallet))
-		return
-
-	var/obj/item/storage/wallet/wallet = new(equipper)
-	if(istype(id_card))
-		equipper.temporarilyRemoveItemFromInventory(id_card, force = TRUE)
-		equipper.equip_to_slot_if_possible(wallet, ITEM_SLOT_ID, initial = TRUE)
-		id_card.forceMove(wallet)
-
-		if(equipper.back)
-			var/list/backpack_stuff = equipper.back.atom_storage?.return_inv(FALSE)
-			for(var/obj/item/thing in backpack_stuff)
-				if(wallet.contents.len >= 3)
-					break
-				if(thing.w_class <= WEIGHT_CLASS_SMALL)
-					wallet.atom_storage.attempt_insert(src, thing, equipper, TRUE, FALSE)
-	else
-		if(!equipper.equip_to_slot_if_possible(wallet, slot = ITEM_SLOT_BACKPACK, initial = TRUE))
-			wallet.forceMove(equipper.drop_location())
+/datum/loadout_item/pocket_items/wallet/get_item_information()
+	. = ..()
+	.[FA_ICON_BOX] = "Auto-Filled"
 
 /*
 *	GUM
@@ -91,10 +52,6 @@
 	name = "Purple Lipstick"
 	item_path = /obj/item/lipstick/purple
 
-/datum/loadout_item/pocket_items/lipstick_red
-	name = "Red Lipstick"
-	item_path = /obj/item/lipstick
-
 /*
 *	MISC
 */
@@ -115,10 +72,6 @@
 	name = "Cheap Lighter"
 	item_path = /obj/item/lighter/greyscale
 
-/datum/loadout_item/pocket_items/zippolighter
-	name = "Zippo Lighter"
-	item_path = /obj/item/lighter
-
 /datum/loadout_item/pocket_items/ttsdevice
 	name = "Text-to-Speech Device"
 	item_path = /obj/item/ttsdevice
@@ -138,10 +91,6 @@
 /datum/loadout_item/pocket_items/cigar //smoking is bad mkay
 	name = "Cigar"
 	item_path = /obj/item/cigarette/cigar
-
-/datum/loadout_item/pocket_items/flask
-	name = "Flask"
-	item_path = /obj/item/reagent_containers/cup/glass/flask
 
 /datum/loadout_item/pocket_items/multipen
 	name = "Multicolored Pen"
@@ -186,10 +135,6 @@
 /datum/loadout_item/pocket_items/cross
 	name = "Ornate Cross"
 	item_path = /obj/item/crucifix
-
-/datum/loadout_item/pocket_items/clipboard
-	name = "Clipboard"
-	item_path = /obj/item/clipboard
 
 /datum/loadout_item/pocket_items/folder
 	name = "Folder"
@@ -348,18 +293,8 @@ JOB SPECIFIC MISCELLANY
 */
 
 /datum/loadout_item/pocket_items/crusher_sword_kit
-	name = "Crusher Sword Retool Kit"
+	name = "Crusher Retool Kit"
 	item_path = /obj/item/crusher_trophy/retool_kit
-	restricted_roles = list(JOB_SHAFT_MINER) //needs to be in a list or causes tgui errors, tgui continues to amaze
-
-/datum/loadout_item/pocket_items/crusher_harpoon_kit
-	name = "Crusher Harpoon Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/harpoon
-	restricted_roles = list(JOB_SHAFT_MINER)
-
-/datum/loadout_item/pocket_items/crusher_dagger_kit
-	name = "Crusher Dagger Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/dagger
 	restricted_roles = list(JOB_SHAFT_MINER)
 
 /*

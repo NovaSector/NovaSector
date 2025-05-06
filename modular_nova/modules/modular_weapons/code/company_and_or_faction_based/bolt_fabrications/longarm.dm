@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/type213
 	name = "\improper Type 213 Kinetic Submachine Gun"
-	desc = "A completely nonlethal longarm used by Sol Fed Peacekeeping forces. It uses kinetic rounds to temporarily disable adversaries. Made as a companion to the Type 207 Kinetic Pistol."
+	desc = "A completely nonlethal longarm used by SolFed Peacekeeping forces, using kinetic rounds to temporarily disable adversaries. Made as a companion to the Type 207 Kinetic Pistol."
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/bolt_fabrications/type213.dmi'
 	icon_state = "type213"
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/company_and_or_faction_based/bolt_fabrications/guns_lefthand.dmi'

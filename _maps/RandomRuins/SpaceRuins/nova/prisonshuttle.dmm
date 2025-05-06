@@ -89,8 +89,8 @@
 /area/ruin/space/has_grav/powered/prison_shuttle)
 "is" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/automatic/sks,
-/obj/item/gun/ballistic/automatic/sks{
+/obj/item/gun/ballistic/rifle/sks,
+/obj/item/gun/ballistic/rifle/sks{
 	pixel_y = -7
 	},
 /obj/item/ammo_box/strilka310{

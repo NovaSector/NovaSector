@@ -178,14 +178,8 @@
 /turf/open/floor/carpet,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "fa" = (
-/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
+/mob/living/basic/looter/big,
+/turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "ff" = (
 /turf/closed/wall/mineral/titanium/survival,
@@ -412,7 +406,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lx" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/looter/ranged/space/laser,
+/mob/living/basic/looter/ranged/space/laser,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "lK" = (
@@ -496,7 +490,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "nO" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/looter/big,
+/mob/living/basic/vox/ranged/space/laser,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "nR" = (
@@ -943,6 +937,7 @@
 	},
 /obj/item/pen/fountain/captain,
 /obj/item/folder,
+/mob/living/basic/looter/crusher,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "zA" = (
@@ -1549,7 +1544,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ny" = (
-/mob/living/basic/zombie/cheesezombie,
+/mob/living/basic/looter/crusher,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Nz" = (
@@ -1804,8 +1799,8 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ud" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/looter,
-/turf/open/floor/carpet/lone,
+/mob/living/basic/looter/big,
+/turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "Ul" = (
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -1877,14 +1872,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/cup/beaker/synthflesh,
 /obj/item/reagent_containers/cup/beaker/synthflesh,
-/obj/item/reagent_containers/pill/iron,
-/obj/item/reagent_containers/pill/iron,
-/obj/item/reagent_containers/pill/iron,
-/obj/item/reagent_containers/pill/oxandrolone,
-/obj/item/reagent_containers/pill/oxandrolone,
-/obj/item/reagent_containers/pill/potassiodide,
-/obj/item/reagent_containers/pill/potassiodide,
-/obj/item/reagent_containers/pill/stimulant,
+/obj/item/reagent_containers/applicator/pill/iron,
+/obj/item/reagent_containers/applicator/pill/iron,
+/obj/item/reagent_containers/applicator/pill/iron,
+/obj/item/reagent_containers/applicator/pill/oxandrolone,
+/obj/item/reagent_containers/applicator/pill/oxandrolone,
+/obj/item/reagent_containers/applicator/pill/potassiodide,
+/obj/item/reagent_containers/applicator/pill/potassiodide,
+/obj/item/reagent_containers/applicator/pill/stimulant,
 /obj/effect/turf_decal/tile/brown/full,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
@@ -1910,7 +1905,6 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "YP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
@@ -2415,7 +2409,7 @@ yy
 Mf
 oP
 se
-Qj
+Ud
 CT
 lx
 dk
@@ -2443,7 +2437,7 @@ Mf
 ax
 Ou
 zr
-Ud
+CT
 wi
 dk
 fw
@@ -2605,7 +2599,7 @@ Ou
 iM
 Mv
 wu
-fa
+VU
 qM
 We
 fw
@@ -2779,7 +2773,7 @@ fw
 We
 Nz
 WT
-kc
+fa
 kc
 uv
 wa

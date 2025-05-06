@@ -677,9 +677,13 @@
 	name = "Theater Greenroom"
 	icon_state = "theatre"
 
-/area/station/service/newsroom
-	name = "News Room"
+/area/station/service/quietroom
+	name = "Quiet Room"
 	icon_state = "theatre"
+
+/area/station/common/shipyardlobby
+	name = "Shipyard Lobby"
+	icon_state = "mining"
 
 /area/station/cargo/miningstairs
 	name = "Mining Stairwell"

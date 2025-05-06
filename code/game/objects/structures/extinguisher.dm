@@ -1,8 +1,8 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
-	icon = 'icons/obj/wallmounts.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
-	icon_state = "extinguisher_closed"
+	icon = 'icons/obj/wallmounts.dmi'
+	icon_state = "extinguisher"
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 200
@@ -16,8 +16,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 	. = ..()
 	if(building)
 		opened = TRUE
-		//icon_state = "extinguisher_empty" ORIGINAL
-		icon_state = "extinguisher_empty_open"	//NOVA EDIT CHANGE - AESTHETICS
 	else
 		stored_extinguisher = new /obj/item/extinguisher(src)
 	update_appearance(UPDATE_ICON)
@@ -67,7 +65,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 		stored_extinguisher = null
 		update_appearance(UPDATE_ICON)
 
-/obj/structure/extinguisher_cabinet/attackby(obj/item/used_item, mob/living/user, params)
+/obj/structure/extinguisher_cabinet/attackby(obj/item/used_item, mob/living/user, list/modifiers)
 	if(used_item.tool_behaviour == TOOL_WRENCH && !stored_extinguisher)
 		user.balloon_alert(user, "deconstructing cabinet...")
 		used_item.play_tool_sound(src)
@@ -141,7 +139,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 		opened = !opened
 		update_appearance(UPDATE_ICON)
 
-/* NOVA EDIT REMOVAL BEGIN - AESTHETICS - MOVED TO MODULAR.
 /obj/structure/extinguisher_cabinet/update_icon_state()
 	icon_state = "extinguisher"
 
@@ -157,7 +154,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/extinguisher_cabinet, 29)
 		icon_state += "_default"
 
 	return ..()
-*/
 
 /obj/structure/extinguisher_cabinet/update_overlays()
 	. = ..()

@@ -18,6 +18,7 @@
 	inhand_icon_state = "ashenbow"
 	worn_icon_state = "ashenbow"
 	force = 20
+	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/item/gun/ballistic/bow/tribalbow/pipe
 	name = "pipe bow"

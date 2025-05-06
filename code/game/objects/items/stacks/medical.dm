@@ -480,7 +480,7 @@
 /obj/item/stack/medical/gauze/twelve
 	amount = 12
 
-/obj/item/stack/medical/gauze/attackby(obj/item/I, mob/user, params)
+/obj/item/stack/medical/gauze/attackby(obj/item/I, mob/user, list/modifiers)
 	if(I.tool_behaviour == TOOL_WIRECUTTER || I.get_sharpness())
 		if(get_amount() < 2)
 			balloon_alert(user, "not enough gauze!")
@@ -599,8 +599,11 @@
 	repeating = TRUE
 	sanitization = 0.75
 	flesh_regeneration = 3
-	pickup_sound = SFX_CLOTH_PICKUP
-	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_REGEN_MESH_PICKUP
+	drop_sound = SFX_REGEN_MESH_DROP
+	heal_begin_sound = SFX_REGEN_MESH_BEGIN
+	heal_continuous_sound = SFX_REGEN_MESH_CONTINUOUS
+	heal_end_sound = SFX_REGEN_MESH_END
 
 	var/is_open = TRUE ///This var determines if the sterile packaging of the mesh has been opened.
 	grind_results = list(/datum/reagent/medicine/spaceacillin = 2)

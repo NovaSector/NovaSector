@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		main_part = null
 	return ..()
 
-/obj/machinery/gravity_generator/part/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/gravity_generator/part/attackby(obj/item/weapon, mob/user, list/modifiers)
 	if(!main_part)
 		return
 	return main_part.attackby(weapon, user)
@@ -235,7 +235,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 			. += span_notice("The new plating just needs to be <b>bolted</b> into place now.")
 
 // Fixing the gravity generator.
-/obj/machinery/gravity_generator/main/attackby(obj/item/weapon, mob/user, params)
+/obj/machinery/gravity_generator/main/attackby(obj/item/weapon, mob/user, list/modifiers)
 	if(machine_stat & BROKEN)
 		switch(broken_state)
 			if(GRAV_NEEDS_SCREWDRIVER)
@@ -420,7 +420,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 		if(mobs.client)
 			shake_camera(mobs, 15, 1)
 			mobs.playsound_local(T, null, 100, 1, 0.5, sound_to_use = alert_sound)
-	//NOVA EDIT ADDITON BEGIN
+	//NOVA EDIT ADDITION BEGIN
 	if(!SSmapping.level_has_any_trait(z, ZTRAIT_STATION)) // SHUT THE FUCK UP ABANDONED STATIONS, I DON'T CARE
 		return
 	if(on)

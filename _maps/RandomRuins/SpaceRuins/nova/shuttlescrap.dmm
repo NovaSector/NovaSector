@@ -48,7 +48,7 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered/no_grav)
 "w" = (
-/mob/living/simple_animal/hostile/vox/ranged/space/laser,
+/mob/living/basic/vox/ranged/laser,
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered/no_grav)
 "y" = (
@@ -62,7 +62,7 @@
 /turf/open/floor/iron/dark/airless,
 /area/ruin/unpowered/no_grav)
 "K" = (
-/mob/living/simple_animal/hostile/vox/melee,
+/mob/living/basic/vox/melee,
 /turf/open/floor/plating,
 /area/ruin/unpowered/no_grav)
 "L" = (

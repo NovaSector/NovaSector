@@ -15,4 +15,7 @@ _maps/RandomZLevels/snowdin.dmm
 _maps/RandomZLevels/research.dmm
 _maps/RandomZLevels/SnowCabin.dmm
 _maps/RandomZLevels/museum.dmm
+
+# Nova Away Missions
 #_maps/RandomZLevels/mothership_astrum.dmm
+_maps/RandomZLevels/heretic.dmm

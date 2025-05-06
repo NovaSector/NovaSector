@@ -68,8 +68,8 @@
 	charge_overlay.color = shot.select_color
 
 	for(var/i in 0 to ratio)
-		charge_overlay.pixel_x = ammo_x_offset * (i - 1)
-		charge_overlay.pixel_y = ammo_y_offset * (i - 1)
+		charge_overlay.pixel_w = ammo_x_offset * (i - 1)
+		charge_overlay.pixel_z = ammo_y_offset * (i - 1)
 		. += new /mutable_appearance(charge_overlay)
 
 /obj/item/gun/energy/cell_loaded/click_alt(mob/user, modifiers)
