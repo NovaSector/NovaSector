@@ -7,6 +7,7 @@
 	scan_desc = "extra-sensory paranoia"
 	gain_text = span_warning("You feel like something wants to kill you...")
 	lose_text = span_notice("You no longer feel many eyes on your back.")
+	resilience = TRAUMA_RESILIENCE_SURGERY
 	/// The image holder var for the very real spider
 	var/obj/effect/client_image_holder/spider_phantom/spider
 	/// we only want to start panicing if the spider's getting closer
