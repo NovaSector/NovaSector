@@ -257,20 +257,21 @@
 	click_to_activate = FALSE
 	/// The alpha we go to when sneaking.
 	var/sneak_alpha = 125
-	/// How long it takes to become transparent
+	/// How long does it take to play our various animation stages
 	var/animation_time = 0.5 SECONDS
+
 
 // add the element that makes them walk on the ceiling
 /datum/action/cooldown/mob_cooldown/ceiling_walk/Activate(atom/target)
 	if(HAS_TRAIT(owner, TRAIT_SNEAK))
-		animate(owner, alpha = initial(owner.alpha), time = animation_time)
+		animate(owner, alpha = initial(owner.alpha), time = animation_time, delay = animation_time)
 		owner.balloon_alert(owner, "you flop down off the ceiling")
 		owner.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 		owner.density = TRUE
 		REMOVE_TRAIT(owner, TRAIT_SNEAK, ACTION_TRAIT)
 
 	else
-		animate(owner, alpha = sneak_alpha, time = animation_time)
+		animate(owner, alpha = sneak_alpha, time = animation_time, delay = animation_time)
 		owner.balloon_alert(owner, "you skitter up the wall")
 		owner.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 		owner.density = FALSE // if we're on the ceiling...
