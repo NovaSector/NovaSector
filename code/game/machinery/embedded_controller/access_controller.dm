@@ -32,7 +32,7 @@
 	return TRUE
 
 /obj/machinery/door_buttons/access_button
-	icon = 'icons/obj/machines/wallmounts.dmi' // NOVA EDIT CHANGE - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
+	icon = 'icons/obj/machines/wallmounts.dmi'
 	icon_state = "access_button_standby"
 	base_icon_state = "access_button"
 	name = "access button"

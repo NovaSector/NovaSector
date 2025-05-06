@@ -276,11 +276,6 @@ NOVA EDIT END */
 	icon_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
 	json_config = 'code/datums/greyscale/json_configs/jumpsuit_prison_inhand.json'
 
-/datum/greyscale_config/jumpsuit/worn_digi
-	name = "Jumpsuit Worn (Digitigrate)"
-	icon_file = 'icons/mob/clothing/under/digi_template.dmi'
-	json_config = 'code/datums/greyscale/json_configs/jumpsuit_worn_digilegs.json'
-
 /datum/greyscale_config/eth_tunic
 	name = "Ethereal Tunic"
 	icon_file = 'icons/obj/clothing/under/ethereal.dmi'
@@ -513,6 +508,24 @@ NOVA EDIT END */
 	name = "Sweater (Worn)"
 	icon_file = 'icons/mob/clothing/suits/jacket.dmi'
 
+/datum/greyscale_config/blazer
+	name = "Blazer"
+	icon_file = 'icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'code/datums/greyscale/json_configs/blazer.json'
+
+/datum/greyscale_config/blazer/worn
+	name = "Blazer (Worn)"
+	icon_file = 'icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/trenchcoat
+	name = "Trenchcoat"
+	icon_file = 'icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'code/datums/greyscale/json_configs/trenchcoat.json'
+
+/datum/greyscale_config/trenchcoat/worn
+	name = "Trenchcoat (Worn)"
+	icon_file = 'icons/mob/clothing/suits/jacket.dmi'
+
 /datum/greyscale_config/jacket_oversized
 	name = "Oversized Jacket"
 	icon_file = 'icons/obj/clothing/suits/jacket.dmi'
@@ -626,6 +639,14 @@ NOVA EDIT END */
 /datum/greyscale_config/waistcoat/worn
 	name = "Waistcoat (Worn)"
 	icon_file = 'icons/mob/clothing/accessories.dmi'
+
+// Digi Stuff
+
+/datum/greyscale_config/digitigrade
+	name = "Digitigrade Clothes"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/digi_template.dmi' // NOVA EDIT CHANGE - ORIGINAL: icon_file = 'icons/mob/clothing/digi_template.dmi'
+	json_config = 'code/datums/greyscale/json_configs/digitigrade.json'
+
 
 //
 // SUIT + HEAD

@@ -17,7 +17,7 @@
 	suppressor_x_offset = 0
 	suppressor_y_offset = 0
 
-	fire_delay = 0.3 SECONDS
+	fire_delay = 0.2 SECONDS
 
 	lore_blurb = "<i>The Guêpe is an evolution of an older pistol which has seen use for over a century, with incremental \
 		improvements keeping it up to date.<br><br>\
@@ -41,10 +41,6 @@
 
 /obj/item/gun/ballistic/automatic/pistol/sol/no_mag
 	spawnwithmagazine = FALSE
-
-/obj/item/gun/ballistic/automatic/pistol/sol/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 // Sol pistol evil gun
 

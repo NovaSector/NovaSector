@@ -24,7 +24,11 @@
 		return
 
 	if(damaged_clothes)
-		. += mutable_appearance('icons/effects/item_damage.dmi', "damaged[blood_overlay_type]")
+		//. += mutable_appearance('icons/effects/item_damage.dmi', "damaged[blood_overlay_type]") // NOVA EDIT REMOVAL
+		// NOVA EDIT ADDITION BEGIN
+		var/damagefile2use = (mutant_styles & STYLE_TAUR_ALL) ? 'modular_nova/master_files/icons/mob/64x32_item_damage.dmi' : 'icons/effects/item_damage.dmi'
+		. += mutable_appearance(damagefile2use, "damaged[blood_overlay_type]")
+		//NOVA EDIT ADDITION END
 
 	// NOVA EDIT ADDITION START - TAUR-FULLBODY SUITS
 	if(mutant_styles & STYLE_TAUR_ALL)
@@ -55,10 +59,16 @@
 		return
 	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		var/bloodfile2use = (mutant_styles & STYLE_TAUR_ALL) ? 'modular_nova/master_files/icons/mob/64x32_blood.dmi' : 'icons/effects/blood.dmi' // NOVA EDIT ADDITION
-		. += mutable_appearance(bloodfile2use, "[blood_overlay_type]blood") // NOVA_EDIT_CHANGE - ORIGINAL: . += mutable_appearance('icons/effects/blood.dmi', "[blood_overlay_type]blood")
+		var/mutable_appearance/blood_overlay = mutable_appearance(bloodfile2use, "[blood_overlay_type]blood") // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "[blood_overlay_type]blood")
+		blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
+		. += blood_overlay
 
 /obj/item/clothing/suit/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()
 	if(ismob(loc))
 		var/mob/M = loc
 		M.update_worn_oversuit()
+
+/obj/item/clothing/suit/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
+	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/digitigrade, greyscale_colors), "oversuit_worn")
+	return replace_icon_legs(base_icon, legs)

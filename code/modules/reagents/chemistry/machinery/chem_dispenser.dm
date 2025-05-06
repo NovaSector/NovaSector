@@ -85,6 +85,11 @@
 		/datum/reagent/water,
 		/datum/reagent/fuel,
 	)
+	// NOVA EDIT ADDITION START - Unusual biochemistry quirk
+	var/static/list/default_dispensable_reagents_nova = list(
+		/datum/reagent/manganese,
+	)
+	// NOVA EDIT ADDITION END
 
 	//NOVA EDIT CHANGE BEGIN - ORIGINAL
 	/*
@@ -153,6 +158,8 @@
 		upgrade3_reagents = default_upgrade3_reagents
 	if(upgrade3_reagents)
 		upgrade3_reagents = sort_list(upgrade3_reagents, GLOBAL_PROC_REF(cmp_reagents_asc))
+	if(dispensable_reagents)
+		dispensable_reagents += default_dispensable_reagents_nova
 	//NOVA EDIT ADDITION END
 
 	if(emagged_reagents != null && !emagged_reagents.len)
@@ -865,9 +872,15 @@
 		/datum/reagent/toxin/plasma,
 		/datum/reagent/uranium,
 		/datum/reagent/consumable/liquidelectricity/enriched,
-		/datum/reagent/medicine/c2/synthflesh
+		/datum/reagent/medicine/c2/synthflesh,
 	)
+	// NOVA EDIT ADDITION START
+	var/static/list/abductor_dispensable_reagents_nova = list(
+		/datum/reagent/manganese,
+	)
+	// NOVA EDIT ADDITION END
 
 /obj/machinery/chem_dispenser/abductor/Initialize(mapload)
 	dispensable_reagents = abductor_dispensable_reagents
 	. = ..()
+	dispensable_reagents += abductor_dispensable_reagents_nova // NOVA EDIT ADDITION - After the parent call so it does not get sorted

@@ -496,7 +496,6 @@
 
 	return ..()
 
-
 /datum/preference/color/mutant/ipc_screen_color
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -511,32 +510,38 @@
 	check_mode = TRICOLOR_CHECK_ACCESSORY
 	type_to_check = /datum/preference/choiced/mutant_choice/ipc_screen
 
+/datum/preference/toggle/emissive/ipc_screen_emissive/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+	if(preferences.read_preference(type_to_check))
+		var/datum/preference/choiced/mutant_choice/ipc_screen/ipc_screen_pref = GLOB.preference_entries[type_to_check]
+		return ipc_screen_pref.is_accessible(preferences) // check if the associated type is even accessible
+
 /// IPC Antennas
+
+/datum/preference/toggle/mutant_toggle/synth_antenna
+	savefile_key = "ipc_antenna_toggle"
+	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 
 /datum/preference/choiced/mutant_choice/synth_antenna
 	savefile_key = "feature_ipc_antenna"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
 	default_accessory_type = /datum/sprite_accessory/antenna/none
-	flexible_mismatch = FALSE
-
-/datum/preference/choiced/mutant_choice/synth_antenna/is_part_enabled(datum/preferences/preferences)
-	return TRUE
+	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /datum/preference/tri_color/synth_antenna
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_color"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
-	check_mode = TRICOLOR_CHECK_ACCESSORY
-	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /datum/preference/tri_bool/synth_antenna_emissive
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "ipc_antenna_emissive"
 	relevant_mutant_bodypart = MUTANT_SYNTH_ANTENNA
-	check_mode = TRICOLOR_CHECK_ACCESSORY
-	type_to_check = /datum/preference/choiced/mutant_choice/synth_antenna
+	type_to_check = /datum/preference/toggle/mutant_toggle/synth_antenna
 
 /// IPC Chassis
 
