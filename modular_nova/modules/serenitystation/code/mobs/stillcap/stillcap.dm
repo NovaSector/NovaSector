@@ -37,9 +37,6 @@
 	AddElement(/datum/element/can_hide/basic, list(/turf/open/misc/asteroid/forest/mushroom))
 	AddElement(/datum/element/ai_flee_while_injured)
 	AddElement(/datum/element/ai_retaliate)
-	AddComponent(/datum/component/basic_mob_ability_telegraph)
-	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_duration = 0.6 SECONDS)
-
 
 /mob/living/basic/mining/stillcap/red
 	name = "red stillcap"
