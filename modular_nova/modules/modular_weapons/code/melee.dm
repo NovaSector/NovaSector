@@ -45,3 +45,6 @@
 /// For jousting. Called when a joust is considered successfully done.
 /obj/item/melee/baton/proc/on_successful_joust(mob/living/target, mob/user, usable_charge)
 	target.apply_damage(stamina_damage_per_jousting_tile * usable_charge, STAMINA)
+
+/obj/item/melee/baton/nunchaku
+	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw 

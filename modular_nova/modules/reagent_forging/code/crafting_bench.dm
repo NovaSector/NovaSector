@@ -27,6 +27,7 @@
 	var/list/allowed_choices = list(
 		/datum/crafting_bench_recipe/plate_helmet,
 		/datum/crafting_bench_recipe/plate_vest,
+		/datum/crafting_bench_recipe/chain_shirt,
 		/datum/crafting_bench_recipe/plate_gloves,
 		/datum/crafting_bench_recipe/plate_boots,
 		/datum/crafting_bench_recipe/ring,

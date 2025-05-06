@@ -6,8 +6,14 @@
 	/// Which dna feature key to draw from
 	var/dna_feature_key
 	/// Which bodyparts do we apply ourselves to?
-	var/list/applies_to = list(/obj/item/bodypart/head, /obj/item/bodypart/chest, /obj/item/bodypart/arm/left, /obj/item/bodypart/arm/right, \
-		/obj/item/bodypart/leg/left, /obj/item/bodypart/leg/right)
+	var/list/applies_to = list(
+		/obj/item/bodypart/arm/left,
+		/obj/item/bodypart/arm/right,
+		/obj/item/bodypart/chest,
+		/obj/item/bodypart/head,
+		/obj/item/bodypart/leg/left,
+		/obj/item/bodypart/leg/right,
+	)
 
 /// Get the accessory list from SSaccessories. Used in species.dm to get the right sprite
 /datum/bodypart_overlay/simple/body_marking/proc/get_accessory(name)

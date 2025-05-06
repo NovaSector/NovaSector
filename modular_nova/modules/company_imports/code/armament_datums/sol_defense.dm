@@ -19,7 +19,6 @@
 /datum/armament_entry/company_import/sol_defense/armor
 	subcategory = "Ballistic Armor"
 	cost = PAYCHECK_CREW * 3
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/armor/ballistic_helmet
 	item_type = /obj/item/clothing/head/helmet/sf_peacekeeper/debranded
@@ -44,12 +43,10 @@
 	name = "Combat Boots"
 	cost = PAYCHECK_CREW * 4
 	item_type = /obj/item/clothing/shoes/combat
-	restricted = FALSE
 
 /datum/armament_entry/company_import/sol_defense/armor_hardened
 	subcategory = "Hardened Armor"
 	cost = PAYCHECK_CREW * 3
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/armor_hardened/enclosed_helmet
 	item_type = /obj/item/clothing/head/helmet/toggleable/sf_hardened
@@ -140,7 +137,6 @@
 /datum/armament_entry/company_import/sol_defense/longarm/jager
 	item_type = /obj/item/gun/ballistic/shotgun/katyusha/jager
 	cost = PAYCHECK_COMMAND * 20
-	restricted = TRUE
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle

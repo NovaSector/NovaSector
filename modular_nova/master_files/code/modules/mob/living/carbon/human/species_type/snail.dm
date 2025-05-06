@@ -16,6 +16,7 @@
 	obj_flags = IMMUTABLE_SLOW //This should hopefully solve other issues involing it as well.
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //This makes them layer over tails like the cult backpack; some tails really shouldn't appear over them!
 	uses_advanced_reskins = TRUE
+	storage_type = /datum/storage/backpack/snail
 	unique_reskin = list(
 		"Conical Shell" = list(
 			RESKIN_ICON = 'modular_nova/master_files/icons/obj/clothing/backpacks.dmi',
@@ -85,9 +86,8 @@
 		),
 	)
 
-/obj/item/storage/backpack/snail/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 30
+/datum/storage/backpack/snail
+	max_total_storage = 30
 
 /obj/item/storage/backpack/snail/build_worn_icon(
 	default_layer = 0,

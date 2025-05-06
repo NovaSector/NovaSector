@@ -59,6 +59,9 @@
 // We use a trait to avoid erronous setting of a variable to false if two people are repairing and one stops.
 #define TRAIT_ELECTRICAL_DAMAGE_REPAIRING "electrical_damage_repairing"
 
+// unusual biochemistry quirk
+#define TRAIT_UNUSUAL_BIOCHEMISTRY "unusual_biochemistry"
+
 // felinid traits
 #define TRAIT_FELINE "feline_aspect"
 
@@ -76,6 +79,9 @@
 
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
+
+/// The trait accompanying the "Heavyset" quirk.
+#define TRAIT_HEAVYSET "trait_heavyset"
 
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
@@ -155,8 +161,6 @@
 #define TRAIT_LEWDCHEM "lewdchem"
 
 #define TRAIT_STRAPON "strapon"
-
-#define TRAIT_CONDOM_BROKEN "broken"
 
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"

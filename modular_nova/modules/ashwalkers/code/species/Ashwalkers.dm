@@ -59,6 +59,7 @@
 	human_target = parent
 	// when the rune successfully completes the age ritual, it will send the signal... do the proc when we receive the signal
 	RegisterSignal(human_target, COMSIG_RUNE_EVOLUTION, PROC_REF(check_evolution))
+	RegisterSignal(human_target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
 /// Age Ritual handler
 /datum/component/ash_age/proc/check_evolution()
@@ -117,6 +118,14 @@
 /// Speed mod
 /datum/movespeed_modifier/ash_aged
 	multiplicative_slowdown = -0.2
+
+/// Examines
+/datum/component/ash_age/proc/on_examine(atom/target_atom, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	if(human_target.has_status_effect(/datum/status_effect/ash_age))
+		examine_list += span_notice("[human_target] has not yet reached the age for evolving.")
+		return
+	examine_list += span_warning("[human_target] has reached the age for evolving!")
 
 /datum/status_effect/ash_age
 	id = "ash_age"
