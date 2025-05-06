@@ -18,10 +18,10 @@
 	SIGNAL_HANDLER
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.is_holding(parent))
-			if(H.hud_used)
-				hud = H.hud_used.ammo_counter
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.is_holding(parent))
+			if(human_user.hud_used)
+				hud = human_user.hud_used.ammo_counter
 				if(!hud.on) // make sure we're not already turned on
 					current_hud_owner = WEAKREF(user)
 					RegisterSignal(user, COMSIG_QDELETING, PROC_REF(turn_off))

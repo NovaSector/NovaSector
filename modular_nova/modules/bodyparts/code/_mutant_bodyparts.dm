@@ -8,9 +8,6 @@
 	/// What is our normal limb ID? used for squashing legs.
 	var/base_limb_id = SPECIES_MAMMAL
 
-/obj/item/bodypart/proc/check_mutant_compatability()
-	return
-
 /obj/item/bodypart/leg/right
 	/// This is used in digitigrade legs, when this leg is swapped out with the digitigrade version.
 	var/digitigrade_type = /obj/item/bodypart/leg/right/digitigrade
@@ -65,20 +62,10 @@
 
 /obj/item/bodypart/leg/left/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = "digitigrade"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = "digitigrade"
-
-/obj/item/bodypart/leg/left/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
-	. = ..()
-	check_mutant_compatability()
+	base_limb_id = BODYPART_ID_DIGITIGRADE
 
 /obj/item/bodypart/leg/right/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
-	limb_id = "digitigrade"
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
-	base_limb_id = "digitigrade"
-
-/obj/item/bodypart/leg/right/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
-	. = ..()
-	check_mutant_compatability()
+	base_limb_id = BODYPART_ID_DIGITIGRADE
