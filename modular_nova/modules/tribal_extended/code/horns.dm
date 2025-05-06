@@ -168,7 +168,7 @@
 /// Switches the current tune of the horn to the next in the list
 /obj/structure/war_horn/proc/switch_tune(mob/user)
 	var/selected_tune = tgui_input_list(user, "Select a tune to play", "Tunes available", tune_patterns)
-	if(isnull(current_tune))
+	if(isnull(selected_tune))
 		return
 	current_tune = selected_tune
 	to_chat(user, span_notice("You prepare to sound the horn with the pattern: '[current_tune]'."))
