@@ -671,7 +671,7 @@
 	. = TRUE
 	switch(action)
 		if("add")
-			var/selected_reagent = tgui_input_list(usr, "Select reagent to filter", "Whitelist reagent", GLOB.name2reagent_normalized) // NOVA EDIT - Neuroware - ORIGINAL: GLOB.name2reagent
+			var/selected_reagent = tgui_input_list(usr, "Select reagent to filter", "Whitelist reagent", GLOB.name2reagent)
 			if(!selected_reagent)
 				return FALSE
 
