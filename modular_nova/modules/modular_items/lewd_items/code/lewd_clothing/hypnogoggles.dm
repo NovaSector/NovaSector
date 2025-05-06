@@ -17,15 +17,14 @@
 		codephrase = "Become... video deliveryman!"
 
 /obj/item/clothing/glasses/hypno/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSobj, src)
+	return ..()
 
 /obj/item/clothing/glasses/hypno/attack_self(mob/user)
 	. = ..()
 	var/new_codephrase = tgui_input_text(user, "Change The Hypnotic Phrase.", max_length = MAX_MESSAGE_LEN)
 	if(!isnull(new_codephrase))
 		codephrase = new_codephrase
-
 
 /obj/item/clothing/glasses/hypno/equipped(mob/living/user, slot)
 	. = ..()

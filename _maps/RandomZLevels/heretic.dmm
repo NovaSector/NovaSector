@@ -113,6 +113,10 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"cm" = (
+/obj/structure/signpost,
+/turf/open/water/beach,
+/area/awaymission/beach/heretic)
 "cs" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
@@ -163,10 +167,6 @@
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
 	},
-/turf/open/floor/plating,
-/area/awaymission/beach/heretic)
-"dv" = (
-/obj/structure/ladder,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "dy" = (
@@ -390,6 +390,10 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/beach/heretic)
+"gC" = (
+/mob/living/basic/cult/engorge/devourdem,
+/turf/open/floor/plating,
+/area/awaymission/beach/heretic)
 "gN" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/misc/beach/sand,
@@ -398,6 +402,10 @@
 /obj/structure/flora/bush/jungle/c/style_random,
 /obj/structure/spacevine,
 /turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
+"gT" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "gX" = (
 /obj/machinery/light/small/directional/west,
@@ -803,6 +811,19 @@
 /obj/machinery/washing_machine,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"nO" = (
+/obj/structure/closet/ammunitionlocker,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/open/floor/plating,
+/area/awaymission/beach/heretic)
 "nR" = (
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
@@ -1128,10 +1149,6 @@
 /obj/effect/gibspawner/human,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
-"sH" = (
-/obj/structure/signpost/salvation,
-/turf/open/misc/grass/jungle/station,
-/area/awaymission/beach/heretic)
 "sQ" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 4
@@ -1321,6 +1338,10 @@
 /obj/item/seeds/wheat,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
+"vH" = (
+/obj/structure/signpost/exit,
+/turf/open/water/beach,
+/area/awaymission/beach/heretic)
 "vI" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/green,
@@ -1386,19 +1407,6 @@
 	dir = 10
 	},
 /turf/open/water/beach,
-/area/awaymission/beach/heretic)
-"wS" = (
-/obj/structure/closet/ammunitionlocker,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "wZ" = (
 /obj/item/stack/sheet/mineral/sandstone,
@@ -2259,7 +2267,6 @@
 /area/awaymission/beach/heretic)
 "Kx" = (
 /obj/effect/heretic_rune/big,
-/mob/living/basic/cult/engorge/devourdem,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "Ky" = (
@@ -2581,6 +2588,10 @@
 	dir = 4
 	},
 /turf/open/floor/carpet,
+/area/awaymission/beach/heretic)
+"OZ" = (
+/obj/structure/signpost/salvation,
+/turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
 "Pe" = (
 /obj/effect/turf_decal/siding/blue{
@@ -3354,9 +3365,9 @@ Ir
 "}
 (2,1,1) = {"
 Ir
+vH
 RM
-RM
-RM
+cm
 RM
 RM
 RM
@@ -5019,7 +5030,7 @@ We
 We
 We
 Xk
-sH
+OZ
 sa
 sa
 Ir
@@ -9459,9 +9470,9 @@ Ie
 Ie
 ey
 cs
-dv
+gT
 Kx
-gv
+gC
 hs
 uT
 ey
@@ -9610,7 +9621,7 @@ Ie
 Ie
 Ie
 ey
-wS
+nO
 Xc
 Xc
 NX
