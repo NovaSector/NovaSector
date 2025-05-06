@@ -113,6 +113,10 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"cm" = (
+/obj/structure/signpost,
+/turf/open/water/beach,
+/area/awaymission/beach/heretic)
 "cs" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
@@ -385,6 +389,10 @@
 	desc = "This man, has terror in his eyes, he stays deadset on the console and he is constantly twitching, he doesnt acknowledge you and he doesnt do anything besides sit there. This mans mind seems to be lost"
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/awaymission/beach/heretic)
+"gC" = (
+/mob/living/basic/cult/engorge/devourdem,
+/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "gN" = (
 /obj/effect/turf_decal/siding/wood/corner,
@@ -1329,6 +1337,10 @@
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/wheat,
 /turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
+"vH" = (
+/obj/structure/signpost/exit,
+/turf/open/water/beach,
 /area/awaymission/beach/heretic)
 "vI" = (
 /obj/structure/table/wood,
@@ -2577,6 +2589,10 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"OZ" = (
+/obj/structure/signpost/salvation,
+/turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
 "Pe" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -3349,9 +3365,9 @@ Ir
 "}
 (2,1,1) = {"
 Ir
+vH
 RM
-RM
-RM
+cm
 RM
 RM
 RM
@@ -5014,7 +5030,7 @@ We
 We
 We
 Xk
-Io
+OZ
 sa
 sa
 Ir
@@ -9456,7 +9472,7 @@ ey
 cs
 gT
 Kx
-gv
+gC
 hs
 uT
 ey
