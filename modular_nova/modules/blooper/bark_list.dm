@@ -1,44 +1,11 @@
-/datum/blooper/mutedc2
-	name = "Muted String (Low)"
-	id = "mutedc2"
-	soundpath = 'sound/runtime/instruments/synthesis_samples/guitar/crisis_muted/C2.ogg'
-	allow_random = TRUE
-
-/datum/blooper/mutedc3
-	name = "Muted String (Medium)"
-	id = "mutedc3"
-	soundpath = 'sound/runtime/instruments/synthesis_samples/guitar/crisis_muted/C3.ogg'
-	allow_random = TRUE
-
-/datum/blooper/mutedc4
-	name = "Muted String (High)"
-	id = "mutedc4"
-	soundpath = 'sound/runtime/instruments/synthesis_samples/guitar/crisis_muted/C4.ogg'
-	allow_random = TRUE
-
-/datum/blooper/banjoc3
-	name = "Banjo (Medium)"
-	id = "banjoc3"
-	soundpath = 'sound/runtime/instruments/banjo/Cn3.ogg'
-	allow_random = TRUE
-
-/datum/blooper/banjoc4
-	name = "Banjo (High)"
-	id = "banjoc4"
-	soundpath = 'sound/runtime/instruments/banjo/Cn4.ogg'
-	allow_random = TRUE
-
+/// TOO loud for now otherwise good, just needs to be dropped down a couple decibles
+/*
 /datum/blooper/squeaky
 	name = "Squeaky"
 	id = "squeak"
 	soundpath = 'sound/items/toy_squeak/toysqueak1.ogg'
 	maxspeed = 4
-
-/datum/blooper/chitter
-	name = "Chittery"
-	id = "chitter"
-	minspeed = 4 //Even with the sound being replaced with a unique, shorter sound, this is still a little too long for higher speeds
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/chitter.ogg'
+*/
 
 /datum/blooper/synthetic_grunt
 	name = "Synthetic (Grunt)"
@@ -111,6 +78,8 @@
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster5.ogg'
 	minvariance = 0
 
+/// No funny skeletons as much as it would be funny, no. Maybe during halloween maybe.
+/*
 /datum/blooper/monster6
 	name = "Monster 6"
 	id = "monster6"
@@ -122,7 +91,7 @@
 	id = "monster7"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/monster7.ogg'
 	minvariance = 0
-
+*/
 /datum/blooper/monster8
 	name = "Monster 8"
 	id = "monster8"
@@ -171,25 +140,6 @@
 	id = "gen_monster_2"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/voice_monster2.ogg'
 	minvariance = 0
-
-/datum/blooper/accordion
-	name = "Accordion"
-	id = "accordion"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/accordion.ogg'
-
-/datum/blooper/trombone
-	name = "Trombone"
-	id = "trombone"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/trumbone.ogg'
-	minspeed = 4
-	maxspeed = 10
-
-/datum/blooper/cello
-	name = "Cello"
-	id = "cello"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/cello.ogg'
-	minspeed = 4
-	maxspeed = 10
 
 /datum/blooper/blerp
 	name = "Blerp"
@@ -300,11 +250,6 @@
 	id = "speak4"
 	soundpath = 'goon/sounds/speak_4.ogg'
 
-/datum/blooper/chitter/alt
-	name = "Chittery Alt"
-	id = "chitter2"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/mothchitter2.ogg'
-
 /datum/blooper/whistle
 	name = "Whistle 1"
 	id = "whistle1"
@@ -352,13 +297,6 @@
 	name = "Ehh 3"
 	id = "ehh3"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh3.ogg'
-
-/datum/blooper/ehh/alt3
-	name = "Ehh 4"
-	id = "ehh4"
-	soundpath = 'modular_nova/modules/blooper/voice/bloopers/ehh4.ogg'
-	minspeed = 3
-	maxspeed = 9
 
 /datum/blooper/ehh/alt5
 	name = "Ehh 5"
