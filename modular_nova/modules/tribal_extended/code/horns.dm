@@ -24,7 +24,7 @@
 
 /obj/item/blowing_horn/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = NONE
-	if(isnull(held_item))
+	if(!user.is_holding(src))
 		return
 	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
 	return CONTEXTUAL_SCREENTIP_SET
@@ -83,6 +83,7 @@
 	if (!in_range(user, src))
 		return
 	. += span_notice("Currently selected tune: <b>[current_tune]</b>")
+	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
 
 /// War horn structure variant (stationary object)
 /obj/structure/war_horn
@@ -97,6 +98,25 @@
 	///Currently selected tune in the previous list.
 	var/current_tune = "short short long"
 	COOLDOWN_DECLARE(whorn_cooldown)
+
+/obj/structure/war_horn/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/structure/war_horn/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = NONE
+	if (!in_range(user, src))
+		return
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Switch tune"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/// Adds additional info to horn examination
+/obj/structure/war_horn/examine(mob/user)
+	. = ..()
+	if (!in_range(user, src))
+		return
+	. += span_notice("Switch tune with [EXAMINE_HINT("Alt+Click")].")
+	. += span_notice("Currently selected tune: <b>[current_tune]</b>")
 
 /// Switch war horn tune on alt-click
 /obj/structure/war_horn/click_alt(mob/living/user)
@@ -148,13 +168,6 @@
 	if(isnull(current_tune))
 		return
 	to_chat(user, span_notice("You prepare to sound the horn with the pattern: '[current_tune]'."))
-
-/// Adds additional info to horn examination
-/obj/structure/war_horn/examine(mob/user)
-	. = ..()
-	if (!in_range(user, src))
-		return
-	. += span_notice("Currently selected tune: <b>[current_tune]</b>")
 
 /// Cleanup macros
 #undef BHORN_STAMINA_MINIMUM
