@@ -1,5 +1,4 @@
-/obj/machinery/vending/cigarette/
-	contraband = list()
+/obj/machinery/vending/cigarette
 	products_nova = list(
 		/obj/item/vape = 5,
 		/obj/item/reagent_containers/vapecart = 10,
