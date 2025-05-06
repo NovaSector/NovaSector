@@ -7,7 +7,7 @@
 /// Blowing horn item variant (carried by players)
 /obj/item/blowing_horn
 	name = "blowing horn"
-	desc = "A crude instrument fashioned from a beast’s horn, once used to rally kin during goblin raids — or so the stories go. (Shift+Ctrl+Click to switch tune.)"
+	desc = "A crude instrument fashioned from a beast’s horn, once used to rally kin during goblin raids — or so the stories go."
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "blow_horn"
 	resistance_flags = FLAMMABLE
@@ -17,6 +17,36 @@
 	///Currently selected tune in the previous list.
 	var/current_tune = "short short long"
 	COOLDOWN_DECLARE(bhorn_cooldown)
+
+/obj/item/blowing_horn/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/item/blowing_horn/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = NONE
+	if(isnull(held_item))
+		return
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/blowing_horn/examine(mob/user)
+	. = ..()
+	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
+
+/obj/item/blowing_horn/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/item/blowing_horn/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = NONE
+	if(isnull(held_item))
+		return
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/blowing_horn/examine(mob/user)
+	. = ..()
+	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
 
 /// Switch horn tune on ctrl+shift click
 /obj/item/blowing_horn/click_ctrl_shift(mob/user)
@@ -90,13 +120,13 @@
 /obj/structure/war_horn/attack_hand(mob/living/user)
 	if(COOLDOWN_FINISHED(src, whorn_cooldown))
 		if (!ishuman(user))
-			balloon_alert(user, "you cannot use this")
+			balloon_alert(user, "you cannot use this!")
 			return
 		if (user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
 			balloon_alert(user, "too tired")
 			return
 		if (user.is_mouth_covered())
-			balloon_alert(user, "Something is in the way.")
+			balloon_alert(user, "something is in the way!")
 			return
 		///This shouldn't happen as the war horn spawns in the natives camps and isn't movable.
 		var/location = get_turf(user)
@@ -125,6 +155,8 @@
 /// Switches the current tune of the horn to the next in the list
 /obj/structure/war_horn/proc/switch_tune(mob/user)
 	current_tune = tgui_input_list(user, "Select a tune to play", "Tunes available", tune_patterns)
+	if(isnull(current_tune))
+		return
 	to_chat(user, span_notice("You prepare to sound the horn with the pattern: '[current_tune]'."))
 
 /// Adds additional info to horn examination
