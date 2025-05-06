@@ -7880,7 +7880,9 @@
 /area/centcom/interlink)
 "hsr" = (
 /obj/effect/turf_decal/caution/stand_clear/red,
-/obj/machinery/door/poddoor/shutters/window/preopen,
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	id = "ilinkarrivalshutter"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "hsW" = (
