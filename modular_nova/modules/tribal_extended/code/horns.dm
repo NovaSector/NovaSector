@@ -74,7 +74,10 @@
 
 /// Switches the current tune of the horn to the next in the list
 /obj/item/blowing_horn/proc/switch_tune(mob/user)
-	current_tune = tgui_input_list(user, "Select a tune to play", "Tunes available", tune_patterns)
+	var/selected_tune = tgui_input_list(user, "Select a tune to play", "Tunes available", tune_patterns)
+	if(isnull(selected_tune))
+		return
+	current_tune = selected_tune
 	to_chat(user, span_notice("You prepare to sound the horn with the pattern: '[current_tune]'."))
 
 /// Adds additional info to horn examination
@@ -164,9 +167,10 @@
 
 /// Switches the current tune of the horn to the next in the list
 /obj/structure/war_horn/proc/switch_tune(mob/user)
-	current_tune = tgui_input_list(user, "Select a tune to play", "Tunes available", tune_patterns)
+	var/selected_tune = tgui_input_list(user, "Select a tune to play", "Tunes available", tune_patterns)
 	if(isnull(current_tune))
 		return
+	current_tune = selected_tune
 	to_chat(user, span_notice("You prepare to sound the horn with the pattern: '[current_tune]'."))
 
 /// Cleanup macros
