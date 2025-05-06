@@ -56,11 +56,11 @@
 /obj/item/blowing_horn/attack_self(mob/living/user)
 	if(COOLDOWN_FINISHED(src, bhorn_cooldown))
 		if (user.getStaminaLoss() > BHORN_STAMINA_MINIMUM)
-			balloon_alert(user, "too tired")
+			balloon_alert(user, "too tired!")
 			return
 		var/bhorn_origin = get_turf(user)
 		if (user.is_mouth_covered())
-			balloon_alert(user, "Something is in the way.")
+			balloon_alert(user, "Something is in the way!")
 			return
 		else if (isspaceturf(bhorn_origin))
 			user.visible_message(
@@ -123,7 +123,7 @@
 			balloon_alert(user, "you cannot use this!")
 			return
 		if (user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
-			balloon_alert(user, "too tired")
+			balloon_alert(user, "too tired!")
 			return
 		if (user.is_mouth_covered())
 			balloon_alert(user, "something is in the way!")
