@@ -257,7 +257,8 @@ export function FeatureShortTextInput(
       fluid
       value={value}
       maxLength={serverData?.maximum_length}
-      onBlur={handleSetValue} // NOVA EDIT CHANGE
+      onChange={handleSetValue}
+      expensive
     />
   );
 }
