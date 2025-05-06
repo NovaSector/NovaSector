@@ -1,0 +1,10 @@
+author: "Diltyrr"
+delete-after: True
+changes:
+  - rscadd: "Added blowing horns, a tribal handheld long distance communication tool."
+  - rscadd: "Added war horns, y tribal static long distance communication tool."
+  - sound: "Added blowing horn sound by Gear."
+  - sound: "Added war horn sound by anderson91santos."
+  - image: "Added blowing horn sprite by Diltyrr."
+  - image: "Added war horn sprite by Diltyrr."
+  - map: "Added 6 blowing horn and a war horn to both the Ashwalker and Hearthkin camps."
