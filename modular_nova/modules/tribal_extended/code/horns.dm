@@ -39,36 +39,38 @@
 
 /// Blows the horn if the user has enough stamina
 /obj/item/blowing_horn/attack_self(mob/living/user)
-	if(COOLDOWN_FINISHED(src, bhorn_cooldown))
-		if (user.getStaminaLoss() > BHORN_STAMINA_MINIMUM)
-			balloon_alert(user, "too tired!")
-			return
-		var/bhorn_origin = get_turf(user)
-		if (user.is_mouth_covered())
-			balloon_alert(user, "Something is in the way!")
-			return
-		else if (isspaceturf(bhorn_origin))
-			user.visible_message(
-				span_emote("[user] raises the horn and blows into the void of space. Nothing happens."),
-				span_notice("You try to blow the horn into the vacuum of space. What did you expect?")
-			)
-			return
-		else
-			user.visible_message(
-				span_emote("[user] raises the horn and blows it with all their strength."),
-				span_notice("You blow the horn as hard as you can.")
-			)
-			for (var/mob/hearing_player as anything in SSmobs.clients_by_zlevel[user.z])
-				if (get_dist(hearing_player, user) >= 170)
-					continue
-				if (!hearing_player.can_hear())
-					continue
-				var/direction_text = span_bold("[dir2text(get_dir(get_turf(hearing_player), bhorn_origin))]")
-				hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 150, TRUE)
-				if (hearing_player != user)
-					hearing_player.show_message(span_warning("Somewhere to the [direction_text], a horn calls out in a pattern: '[current_tune]'."))
-		user.adjustStaminaLoss(BHORN_STAMINA_USE)
-		COOLDOWN_START(src, bhorn_cooldown, 1 SECONDS)
+	if (user.getStaminaLoss() > BHORN_STAMINA_MINIMUM)
+		balloon_alert(user, "too tired!")
+		return
+	var/bhorn_origin = get_turf(user)
+	if (user.is_mouth_covered())
+		balloon_alert(user, "Something is in the way!")
+		return
+	else if (isspaceturf(bhorn_origin))
+		user.visible_message(
+			span_emote("[user] raises the horn and blows into the void of space. Nothing happens."),
+			span_notice("You try to blow the horn into the vacuum of space. What did you expect?")
+		)
+		return
+	if(!COOLDOWN_FINISHED(src, bhorn_cooldown))
+		balloon_alert(user, "wait [COOLDOWN_TIMELEFT(src, bhorn_cooldown) / 10] seconds!")
+		return
+	else
+		user.visible_message(
+			span_emote("[user] raises the horn and blows it with all their strength."),
+			span_notice("You blow the horn as hard as you can.")
+		)
+		for (var/mob/hearing_player as anything in SSmobs.clients_by_zlevel[user.z])
+			if (get_dist(hearing_player, user) >= 170)
+				continue
+			if (!hearing_player.can_hear())
+				continue
+			var/direction_text = span_bold("[dir2text(get_dir(get_turf(hearing_player), bhorn_origin))]")
+			hearing_player.playsound_local(bhorn_origin, 'modular_nova/master_files/sound/items/blow_horn.ogg', 150, TRUE)
+			if (hearing_player != user)
+				hearing_player.show_message(span_warning("Somewhere to the [direction_text], a horn calls out in a pattern: '[current_tune]'."))
+	user.adjustStaminaLoss(BHORN_STAMINA_USE)
+	COOLDOWN_START(src, bhorn_cooldown, 5.5 SECONDS)
 
 /// Switches the current tune of the horn to the next in the list
 /obj/item/blowing_horn/proc/switch_tune(mob/user)
@@ -103,39 +105,42 @@
 
 /// Plays war horn sound globally to all valid players
 /obj/structure/war_horn/attack_hand(mob/living/user)
-	if(COOLDOWN_FINISHED(src, whorn_cooldown))
-		if (!ishuman(user))
-			balloon_alert(user, "you cannot use this!")
-			return
-		if (user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
-			balloon_alert(user, "too tired!")
-			return
-		if (user.is_mouth_covered())
-			balloon_alert(user, "something is in the way!")
-			return
-		///This shouldn't happen as the war horn spawns in the natives camps and isn't movable.
-		var/location = get_turf(user)
-		if (!is_mining_level(user.z))
-			user.visible_message(
-				span_emote("[user] braces and lets out a weak sound from the instrument, tuned for a different atmosphere."),
-				span_warning("You blow the war horn, but it lets out a weak sound, tuned for a different atmosphere.")
-			)
-			playsound(location, 'modular_nova/modules/admin/sound/duckhonk.ogg', 100, TRUE)
-			return
-		var/loc_text = "the molten wastes of Indecipheres"
-		if (SSmapping.level_trait(user.z, ZTRAIT_ICE_RUINS_UNDERGROUND))
-			loc_text = "the depths of Freyja's caves"
+	if (!ishuman(user))
+		balloon_alert(user, "you cannot use this!")
+		return
+	if (user.getStaminaLoss() > WHORN_STAMINA_MINIMUM)
+		balloon_alert(user, "too tired!")
+		return
+	if (user.is_mouth_covered())
+		balloon_alert(user, "something is in the way!")
+		return
+	if(!COOLDOWN_FINISHED(src, whorn_cooldown))
+		balloon_alert(user, "wait [COOLDOWN_TIMELEFT(src, whorn_cooldown) / 10] seconds!")
+		return
+	///This shouldn't happen as the war horn spawns in the natives camps and isn't movable.
+	var/location = get_turf(user)
+	if (!is_mining_level(user.z))
 		user.visible_message(
-			span_emote("[user] braces and lets out a thunderous blast on the war horn."),
-			span_warning("You blow the war horn with all your strength.")
+			span_emote("[user] braces and lets out a weak sound from the instrument, tuned for a different atmosphere."),
+			span_warning("You blow the war horn, but it lets out a weak sound, tuned for a different atmosphere.")
 		)
-		for (var/mob/hearing_player in GLOB.player_list)
-			if (!is_mining_level(hearing_player.z) || !hearing_player.can_hear())
-				continue
-			hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[current_tune]'."))
-			hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 150, TRUE)
-		user.adjustStaminaLoss(WHORN_STAMINA_USE)
-		COOLDOWN_START(src, whorn_cooldown, 1 SECONDS)
+		playsound(location, 'modular_nova/modules/admin/sound/duckhonk.ogg', 100, TRUE)
+		return
+	var/loc_text = "the molten wastes of Indecipheres"
+	if (SSmapping.level_trait(user.z, ZTRAIT_ICE_RUINS_UNDERGROUND))
+		loc_text = "the depths of Freyja's caves"
+	user.visible_message(
+		span_emote("[user] braces and lets out a thunderous blast on the war horn."),
+		span_warning("You blow the war horn with all your strength.")
+	)
+	for (var/mob/hearing_player in GLOB.player_list)
+		if (!is_mining_level(hearing_player.z) || !hearing_player.can_hear())
+			continue
+		hearing_player.show_message(span_big("The sound of a war horn echoes from [loc_text] — its rhythm: '[current_tune]'."))
+		hearing_player.playsound_local(location, 'modular_nova/master_files/sound/items/war_horn.ogg', 150, TRUE)
+	user.adjustStaminaLoss(WHORN_STAMINA_USE)
+	COOLDOWN_START(src, whorn_cooldown, 11.5 SECONDS)
+
 
 /// Switches the current tune of the horn to the next in the list
 /obj/structure/war_horn/proc/switch_tune(mob/user)
