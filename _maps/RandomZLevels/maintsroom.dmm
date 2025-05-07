@@ -12390,8 +12390,7 @@
 /area/awaymission/caves/maintsroom)
 "Wa" = (
 /obj/structure/blob/shield/core,
-/obj/effect/decal/remains/human,
-/turf/open/indestructible/meat,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Wc" = (
 /obj/effect/turf_decal/trimline/red/line,
@@ -25705,8 +25704,8 @@ uG
 uG
 mQ
 er
-zz
 Wa
+jH
 jH
 mn
 jH
@@ -25922,7 +25921,7 @@ uG
 uG
 mQ
 er
-zz
+Wa
 jH
 tm
 jH
@@ -26139,9 +26138,9 @@ uG
 uG
 mQ
 er
-zz
-jH
 Wa
+jH
+jH
 jH
 jH
 jH
