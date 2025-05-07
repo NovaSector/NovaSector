@@ -8,7 +8,7 @@
 	to_chat(user, span_notice("You drink the contents of [src]."))
 	var/datum/action/cooldown/spell/jaunt/bloodcrawl/mining/new_spell =  new(user)
 	new_spell.Grant(user)
-	user.log_message("learned the spell bloodcrawl (Limited) ([new_spell])", LOG_ATTACK, color="orange")
+	user.log_message("learned the spell bloodcrawl (Mining) ([new_spell])", LOG_ATTACK, color="orange")
 	qdel(src)
 
 datum/action/cooldown/spell/jaunt/bloodcrawl
@@ -16,20 +16,49 @@ datum/action/cooldown/spell/jaunt/bloodcrawl
 	var/list/allowed_areas = list(
 		/area,
 	)
+	/// Custom message we say to the user when they try to cast in the wrong area
+	var/failure_message = "This spell cannot be used in this area!"
 
 /datum/action/cooldown/spell/jaunt/bloodcrawl/can_cast_spell(feedback = TRUE)
 	if (!is_type_in_list(get_area(owner), allowed_areas))
 		if(feedback)
-			owner.balloon_alert(owner, "This spell cannot be used in this area!")
+			owner.balloon_alert(owner, failure_message)
 		return FALSE
 	. = ..()
 
 datum/action/cooldown/spell/jaunt/bloodcrawl/mining
+	/// Instant was a bit too much.
+	enter_blood_time = 2 SECONDS
+	failure_message = "This ability can only be used on planetary areas untainted by technology!"
+	/// special snowflake jaunt type to eject on mining areas.
+	jaunt_type = /obj/effect/dummy/phased_mob/blood/mining
+	/// Mining areas we got.
 	allowed_areas = list(
 			/area/forestplanet,
 			/area/icemoon,
 			/area/lavaland,
 			/area/ocean/generated,
 			/area/ruin,
-			/area/mine,
 	)
+
+/obj/effect/dummy/phased_mob/blood
+	var/list/allowed_areas = list(
+		/area,
+	)
+
+/obj/effect/dummy/phased_mob/blood/mining/
+	allowed_areas = list(
+			/area/forestplanet,
+			/area/icemoon,
+			/area/lavaland,
+			/area/ocean/generated,
+			/area/ruin,
+	)
+
+/obj/effect/dummy/phased_mob/blood/relaymove(mob/living/user, direction)
+	var/turf/oldloc = loc
+	. = ..()
+	if(loc != oldloc)
+		if (!is_type_in_list(get_area(user), allowed_areas))
+			user.balloon_alert(user, "You are forcibly ejected!")
+			eject_jaunter(TRUE)
