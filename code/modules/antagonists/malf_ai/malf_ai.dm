@@ -58,7 +58,6 @@
 		var/mob/living/silicon/ai/malf_ai = owner.current
 		malf_ai.set_zeroth_law("")
 		malf_ai.remove_malf_abilities()
-
 		QDEL_NULL(malf_ai.malf_picker)
 
 	owner.special_role = null
