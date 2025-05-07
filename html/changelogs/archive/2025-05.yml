@@ -295,3 +295,14 @@
   - admin: Cancelling an ERT summon will now say so instead of saying there were no
       candidates
   - admin: Admins no longer need to hit enter to update custom command report names
+2025-05-07:
+  Diltyrr:
+  - rscadd: Added blowing horns, a tribal handheld long distance communication tool.
+  - rscadd: Added war horns, y tribal static long distance communication tool.
+  - sound: Added blowing horn sound by Gear.
+  - sound: Added war horn sound by anderson91santos.
+  - image: Added blowing horn sprite by Diltyrr.
+  - image: Added war horn sprite by Diltyrr.
+  - map: Added 6 blowing horn and a war horn to both the Ashwalker and Hearthkin camps.
+  OrionTheFox:
+  - bugfix: fixed some missing contraband in the ShadyCigs vendors
