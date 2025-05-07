@@ -1,14 +1,5 @@
 GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 
-// we let borgs have some bark too
-/mob/living/silicon/Login()
-	// This is the only found function that updates the client for borgs.
-	set_blooper(client.prefs.read_preference(/datum/preference/choiced/blooper))
-	blooper_pitch = client.prefs.read_preference(/datum/preference/numeric/blooper_speech_pitch)
-	blooper_speed = client.prefs.read_preference(/datum/preference/numeric/blooper_speech_speed)
-	blooper_pitch_range = client.prefs.read_preference(/datum/preference/numeric/blooper_pitch_range)
-	. = ..()
-
 // Mechanics for Changelings
 /datum/changeling_profile
 	/// Blooper ID of copied target
