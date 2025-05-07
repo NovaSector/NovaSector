@@ -97,6 +97,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 4
 	},
+/obj/machinery/camera/xray/directional/north,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "ax" = (
@@ -1023,6 +1024,10 @@
 	},
 /turf/open/floor/carpet/blue,
 /area/awaymission/caves/maintsroom)
+"ef" = (
+/mob/living/basic/creature,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "eg" = (
 /obj/structure/chair/stool/directional/north,
 /obj/effect/decal/cleanable/blood/old,
@@ -1454,8 +1459,9 @@
 /area/awaymission/caves/maintsroom)
 "fB" = (
 /obj/structure/safe/floor,
-/obj/effect/spawner/random/entertainment/money_medium,
 /obj/item/card/id,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c50,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "fC" = (
@@ -3483,7 +3489,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "mS" = (
-/obj/structure/reagent_dispensers/plumbed/fuel,
+/obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "mU" = (
@@ -4523,16 +4529,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "re" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Garden"
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
-/obj/effect/spawner/random/structure/grille,
-/obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/iron,
+/mob/living/basic/migo,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "rg" = (
 /obj/machinery/vending/boozeomat,
@@ -4700,15 +4698,8 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "rQ" = (
-/obj/machinery/recycler/deathtrap{
-	dir = 4
-	},
-/obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
-	},
-/turf/open/floor/sepia,
+/obj/machinery/light/small/red/directional/west,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "rS" = (
 /obj/effect/turf_decal/sand/plating,
@@ -5810,7 +5801,7 @@
 /area/awaymission/caves/maintsroom)
 "wm" = (
 /obj/structure/table/wood,
-/obj/item/stack/cannonball/shellball/fourteen,
+/obj/item/stack/cannonball/fourteen,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "wn" = (
@@ -6040,6 +6031,7 @@
 /obj/item/reagent_containers/cup/bottle/adminordrazine{
 	name = "Panacea"
 	},
+/obj/machinery/camera/xray/directional/north,
 /turf/open/misc/asteroid/forest/mushroom,
 /area/awaymission/caves/maintsroom)
 "xr" = (
@@ -6194,6 +6186,11 @@
 "xX" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/spawner/random/structure/crate,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"xY" = (
+/obj/structure/trash_pile,
+/obj/machinery/light/small/red/directional/west,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "xZ" = (
@@ -6804,14 +6801,8 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "Au" = (
-/obj/structure/safe/floor{
-	name = "Metagamers Floorsafe";
-	desc = "Aint no explaining this shit IC chief if im ghosting this round and i see that your ass dug up this floor safe im putting your nuts between a greathammer and an anvil bro"
-	},
-/obj/item/nuke_core/supermatter_sliver{
-	name = "Punishment"
-	},
-/turf/open/floor/sepia,
+/obj/item/sticker/syndicate/bomb,
+/turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Av" = (
 /mob/living/basic/cult/assassin{
@@ -7817,7 +7808,8 @@
 /turf/open/floor/circuit/green,
 /area/awaymission/caves/maintsroom)
 "Ej" = (
-/obj/structure/spawner/nether,
+/obj/machinery/light/red/directional/west,
+/obj/machinery/camera/xray/directional/north,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Ek" = (
@@ -8414,6 +8406,9 @@
 /area/awaymission/caves/maintsroom)
 "Gj" = (
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/vault{
+	name = "Vault"
+	},
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "Gk" = (
@@ -8489,6 +8484,10 @@
 /obj/effect/spawner/random/trash/hobo_squat,
 /obj/structure/bed/maint,
 /obj/structure/sign/poster/contraband/random/directional/south,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"Gy" = (
+/mob/living/basic/blankbody,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Gz" = (
@@ -8864,7 +8863,6 @@
 /area/awaymission/caves/maintsroom)
 "Ik" = (
 /obj/structure/sink/directional/east,
-/obj/machinery/light_switch/directional/west,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 1
 	},
@@ -9347,8 +9345,9 @@
 /obj/structure/filingcabinet{
 	pixel_x = 10
 	},
-/obj/effect/spawner/random/entertainment/money_small,
-/obj/effect/spawner/random/entertainment/money_small,
+/obj/item/stack/spacecash/c10,
+/obj/item/stack/spacecash/c10,
+/obj/item/stack/spacecash/c20,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "Kl" = (
@@ -9938,6 +9937,10 @@
 	dir = 8
 	},
 /area/awaymission/caves/maintsroom)
+"Mt" = (
+/obj/machinery/camera/xray/directional/north,
+/turf/open/floor/iron/smooth,
+/area/awaymission/caves/maintsroom)
 "Mu" = (
 /mob/living/basic/trooper/nanotrasen/ranged/assault,
 /turf/open/floor/plating,
@@ -10046,8 +10049,9 @@
 /area/awaymission/caves/maintsroom)
 "MN" = (
 /obj/structure/safe/vault,
-/obj/effect/spawner/random/entertainment/money_large,
-/obj/effect/spawner/random/entertainment/money_large,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "MO" = (
@@ -10457,7 +10461,6 @@
 /area/awaymission/caves/maintsroom)
 "Oi" = (
 /obj/machinery/biogenerator,
-/obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
@@ -10494,11 +10497,15 @@
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Os" = (
-/obj/effect/spawner/structure/window/reinforced/tinted,
-/obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
-/obj/effect/spawner/random/structure/grille,
-/turf/open/floor/plating,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	max_integrity = 2000;
+	name = "Hardend conveyer belt"
+	},
+/obj/machinery/recycler/deathtrap{
+	dir = 4
+	},
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "Ou" = (
 /obj/structure/table/reinforced,
@@ -11376,6 +11383,11 @@
 /obj/effect/spawner/random/maintenance,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"RV" = (
+/obj/item/stack/sheet/mineral/wood,
+/obj/item/stack/rods,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "RW" = (
 /obj/structure/fluff/divine/conduit,
@@ -12328,6 +12340,11 @@
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
+"VG" = (
+/obj/effect/light_emitter/fake_outdoors,
+/mob/living/basic/gorilla,
+/turf/open/misc/grass/jungle,
+/area/awaymission/caves/maintsroom)
 "VH" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
@@ -12420,6 +12437,11 @@
 "VZ" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"Wa" = (
+/obj/structure/blob/shield/core,
+/obj/effect/decal/remains/human,
+/turf/open/indestructible/meat,
 /area/awaymission/caves/maintsroom)
 "Wc" = (
 /obj/effect/turf_decal/trimline/red/line,
@@ -17124,9 +17146,9 @@ GS
 jR
 jR
 jR
-Os
-re
-Os
+jR
+jR
+jR
 jR
 jR
 jR
@@ -17768,7 +17790,7 @@ GS
 SF
 uG
 uG
-rQ
+KC
 uG
 uG
 jd
@@ -17973,7 +17995,7 @@ uG
 GS
 KF
 uG
-uG
+ef
 vj
 GS
 qv
@@ -17984,9 +18006,9 @@ mW
 GS
 lT
 uG
-Yz
-KC
-Yz
+uG
+Os
+uG
 uG
 bO
 GS
@@ -18190,7 +18212,7 @@ YZ
 GS
 Fh
 aT
-Ej
+uG
 OF
 GS
 qv
@@ -18406,7 +18428,7 @@ JO
 uG
 GS
 lA
-uG
+Gy
 uG
 uG
 GS
@@ -18624,7 +18646,7 @@ qt
 GS
 hE
 uG
-uG
+re
 uG
 GS
 pA
@@ -19274,9 +19296,9 @@ JO
 uG
 uG
 qt
+rQ
 uG
-uG
-lT
+xY
 GS
 YZ
 uG
@@ -20368,7 +20390,7 @@ GS
 BB
 GS
 Rp
-Cp
+RV
 HV
 Vm
 GS
@@ -23664,7 +23686,7 @@ kd
 kd
 uG
 jf
-Au
+zm
 jf
 jf
 jf
@@ -25739,7 +25761,7 @@ uG
 mQ
 er
 zz
-jH
+Wa
 jH
 mn
 jH
@@ -26174,7 +26196,7 @@ mQ
 er
 zz
 jH
-jH
+Wa
 jH
 jH
 jH
@@ -27257,7 +27279,7 @@ jf
 jf
 jf
 jf
-gx
+wm
 Sl
 Nw
 vf
@@ -29221,7 +29243,7 @@ Qt
 vY
 bC
 GS
-uG
+SF
 BB
 GS
 jB
@@ -30544,7 +30566,7 @@ BB
 GS
 uG
 GS
-pp
+Mt
 pp
 SC
 GS
@@ -31256,7 +31278,7 @@ NQ
 pc
 NQ
 NQ
-pc
+VG
 DX
 jf
 zm
@@ -32125,7 +32147,7 @@ NQ
 NQ
 VF
 NQ
-dr
+NQ
 jf
 zm
 jf
@@ -33375,7 +33397,7 @@ uh
 lT
 uG
 GS
-zJ
+Ej
 uG
 lT
 GS
@@ -36022,7 +36044,7 @@ Gk
 ku
 tw
 wQ
-lq
+Au
 GS
 DE
 eW
