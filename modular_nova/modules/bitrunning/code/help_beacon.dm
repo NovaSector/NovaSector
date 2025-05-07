@@ -17,10 +17,11 @@
 
 /// Checks whether the request beacon can be used
 /obj/item/antag_spawner/bitrunning_help/proc/check_usability(mob/user)
-	if(user.mind.has_antag_datum(/datum/antagonist/domain_ghost_actor,TRUE) || user.mind.has_antag_datum(/datum/antagonist/bitrunning_glitch,TRUE))
+	if(user.mind.has_antag_datum(/datum/antagonist/domain_ghost_actor, TRUE) || user.mind.has_antag_datum(/datum/antagonist/bitrunning_glitch, TRUE))
 		to_chat(user, span_danger("Listen here hacker. Your interest will be terminated. Bitrunner will be retained."))
 		var/mob/living/fakerunner = user
-		fakerunner.electrocute_act(15, user, 1, SHOCK_NOGLOVES|SHOCK_NOSTUN)
+		if(istype(fakerunner))
+			fakerunner.electrocute_act(15, user, 1, SHOCK_NOGLOVES|SHOCK_NOSTUN)
 		return FALSE
 	return TRUE
 
@@ -44,7 +45,16 @@
 			balloon_alert(user, "bandwidth limit reached!")
 			polling = FALSE
 			return FALSE
-		var/mob/chosen_one = SSpolling.poll_ghost_candidates("Do you want to play as a reinforcement subcontracted Bitrunner?", check_jobban = ROLE_GLITCH, role = ROLE_GLITCH, poll_time = 15 SECONDS, ignore_category = POLL_IGNORE_GLITCH, alert_pic = src, role_name_text = "Subcontracted Assisting Bitrunner", amount_to_pick = 1)
+		var/mob/chosen_one = SSpolling.poll_ghost_candidates(
+			"Do you want to play as a reinforcement subcontracted Bitrunner?",
+			check_jobban = ROLE_GLITCH,
+			role = ROLE_GLITCH,
+			poll_time = 15 SECONDS,
+			ignore_category = POLL_IGNORE_GLITCH,
+			alert_pic = src,
+			role_name_text = "Subcontracted Assisting Bitrunner",
+			amount_to_pick = 1
+		)
 		if(chosen_one)
 			if(QDELETED(src))
 				return
