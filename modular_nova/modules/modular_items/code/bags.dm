@@ -7,11 +7,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_POCKETS
+	storage_type = /datum/storage/pouch
 
-/obj/item/storage/pouch/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
-	atom_storage.max_slots = 5
+/datum/storage/pouch
+	max_specific_storage = WEIGHT_CLASS_SMALL
+	max_slots = 5
 
 /obj/item/storage/pouch/ammo
 	name = "ammo pouch"
@@ -30,24 +30,35 @@
 			RESKIN_ICON_STATE = "casingpouch"
 		),
 	)
+	storage_type = /datum/storage/pouch/ammo
 
-/obj/item/storage/pouch/ammo/Initialize(mapload)
+/datum/storage/pouch/ammo
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_total_storage = 12
+	max_slots = 4
+
+/datum/storage/pouch/ammo/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = 12
-	atom_storage.max_slots = 4
-	atom_storage.numerical_stacking = FALSE
-	atom_storage.can_hold = typecacheof(list(/obj/item/ammo_box/magazine, /obj/item/ammo_casing))
+	set_holdable(list(
+		/obj/item/ammo_box/magazine,
+		/obj/item/ammo_casing,
+	))
+
+/datum/storage/casing_pouch
+	max_specific_storage = WEIGHT_CLASS_TINY
+	numerical_stacking = TRUE
+	max_slots = 10
+	max_total_storage = WEIGHT_CLASS_TINY * 10
+
+/datum/storage/casing_pouch/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(list(/obj/item/ammo_casing))
 
 /obj/item/storage/pouch/ammo/post_reskin(mob/our_mob)
 	if(icon_state == "casingpouch")
 		name = "casing pouch"
 		desc = "A pouch for your ammo that goes in your pocket, carefully segmented for holding shell casings and nothing else."
-		atom_storage.can_hold = typecacheof(list(/obj/item/ammo_casing))
-		atom_storage.max_specific_storage = WEIGHT_CLASS_TINY
-		atom_storage.numerical_stacking = TRUE
-		atom_storage.max_slots = 10
-		atom_storage.max_total_storage = WEIGHT_CLASS_TINY * 10
+		create_storage(storage_type = /datum/storage/casing_pouch)
 
 /obj/item/storage/pouch/material
 	name = "material pouch"
@@ -56,14 +67,20 @@
 	icon_state = "materialpouch"
 	w_class = WEIGHT_CLASS_BULKY
 	custom_price = PAYCHECK_CREW * 4
+	storage_type = /datum/storage/pouch/material
 
-/obj/item/storage/pouch/material/Initialize(mapload)
+/datum/storage/pouch/material
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_total_storage = INFINITY
+	max_slots = 2
+	numerical_stacking = TRUE
+
+/datum/storage/pouch/material/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = INFINITY
-	atom_storage.max_slots = 2
-	atom_storage.numerical_stacking = TRUE
-	atom_storage.can_hold = typecacheof(list(/obj/item/rcd_ammo, /obj/item/stack/sheet))
+	set_holdable(list(
+		/obj/item/rcd_ammo,
+		/obj/item/stack/sheet,
+	))
 
 /// It's a pocket medkit. Use sparingly?
 /obj/item/storage/pouch/medical
@@ -71,8 +88,16 @@
 	desc = "A standard medkit pouch compartmentalized for field medical care. Comes with a set of pocket clips."
 	resistance_flags = FIRE_PROOF
 	icon_state = "medkit"
-	/// The list of things that medical pouches can hold. Stolen from what medkits can hold, but modified for things you would probably want at pocket-access.
-	var/static/list/med_pouch_holdables = list(
+	storage_type = /datum/storage/pouch/medical
+
+/datum/storage/pouch/medical
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_slots = 7
+	max_total_storage = 14
+
+/datum/storage/pouch/medical/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(list(
 		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
@@ -93,36 +118,32 @@
 		/obj/item/hemostat,
 		/obj/item/reagent_containers/blood,
 		/obj/item/stack/sticky_tape,
-	)
 
-/obj/item/storage/pouch/medical/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_slots = 7
-	atom_storage.max_total_storage = 14
-	atom_storage.set_holdable(med_pouch_holdables)
+	))
 
-/obj/item/storage/pouch/medical/loaded/Initialize(mapload)
-	. = ..()
-	var/static/items_inside = list(
+/obj/item/storage/pouch/medical/loaded
+	desc = parent_type::desc + " Repackaged with station-standard medical supplies."
+
+/obj/item/storage/pouch/medical/loaded/PopulateContents()
+	generate_items_inside(list(
 		/obj/item/stack/medical/gauze/twelve = 1,
 		/obj/item/stack/medical/suture = 2,
 		/obj/item/stack/medical/mesh = 2,
 		/obj/item/reagent_containers/hypospray/medipen = 1,
 		/obj/item/healthanalyzer/simple = 1,
-	)
-	generate_items_inside(items_inside, src)
-	desc += " Repackaged with station-standard medical supplies."
+	))
 
 /// It's... not as egregious as a full pocket medkit.
 /obj/item/storage/pouch/medical/firstaid
 	name = "first aid pouch"
 	desc = "A standard nondescript first-aid pouch, compartmentalized for the bare essentials of field medical care. Comes with a pocket clip."
 	icon_state = "firstaid"
+	storage_type = /datum/storage/pouch/medical/small
 
-/obj/item/storage/pouch/medical/firstaid/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+/datum/storage/pouch/medical/small
+	max_specific_storage = WEIGHT_CLASS_SMALL
+	max_slots = 5
+	max_total_storage = WEIGHT_CLASS_SMALL * 5
 	/*
 	hi. you might think this is egregious. five slots? that's a lot!
 	here's a thought: the pocket first aid kit from the colonial replicator [modular_nova\modules\food_replicator\code\storage.dm] has
@@ -131,8 +152,6 @@
 	this is a thing you have to buy from cargo's goodies tab. not even an import. and it only fits medical supplies.
 	i think it can have a lil extra storage as a treat.
 	*/
-	atom_storage.max_slots = 5
-	atom_storage.max_total_storage = 10
 
 /obj/item/storage/pouch/medical/firstaid/loaded/Initialize(mapload)
 	. = ..()

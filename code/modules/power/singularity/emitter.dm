@@ -356,6 +356,9 @@
 		return //NOVA EDIT END
 	if(!user.transferItemToLoc(energy_gun, src))
 		return
+	if(energy_gun.gun_flags & TURRET_INCOMPATIBLE)
+		user.balloon_alert(user, "[energy_gun] won't fit!")
+		return
 	gun = energy_gun
 	gun_properties = gun.get_turret_properties()
 	set_projectile()
