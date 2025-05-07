@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - qol: "unrestricts additional Vox voices away from being malf only"
