@@ -150,7 +150,9 @@
 	result = /obj/item/kinetic_crusher/spear/runic_spear
 
 /datum/crafting_recipe/hearthkin_ship_fragment_inactive
-	name = "Useless Relic Salvage"
+	name = "Salvage Useless Relics"
+	desc = "Sifting through all this junk, you find enough parts to rebuild a fragment of ancient hearthkin tech."
+	time = 10 SECONDS
 	category = CAT_MISC
 	//recipe given to hearthkins as part of their spawner/team setting
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
