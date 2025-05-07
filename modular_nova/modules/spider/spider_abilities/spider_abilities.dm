@@ -212,7 +212,7 @@
 
 // apply trauma to those within a few blocks who break the effigy.
 /obj/structure/spider/stickyweb/alive/spider_effigy/Destroy()
-	for(var/mob/living/carbon/carbon_target in view(5,src))
+	for(var/mob/living/carbon/carbon_target in view(4,src))
 		carbon_target.gain_trauma(/datum/brain_trauma/magic/spider)
 		visible_message(span_bolddanger("The spider totem screeches as it breaks, piercing your mind!"))
 	STOP_PROCESSING(SSobj, src)
@@ -226,22 +226,6 @@
 	//attempt to grow all webs in range
 	for(var/obj/structure/spider/stickyweb/alive/growing_web in range(spider_effigy_range, src))
 		growing_web.try_expand()
-
-/obj/structure/spawner/lavaland/Destroy()
-	var/last_tendril = TRUE
-	if(GLOB.tendrils.len>1)
-		last_tendril = FALSE
-
-	if(last_tendril && !(flags_1 & ADMIN_SPAWNED_1))
-		if(SSachievements.achievements_enabled)
-			for(var/mob/living/L in view(7,src))
-				if(L.stat || !L.client)
-					continue
-				L.client.give_award(/datum/award/achievement/boss/tendril_exterminator, L)
-				L.client.give_award(/datum/award/score/tendril_score, L) //Progresses score by one
-	GLOB.tendrils -= src
-	QDEL_NULL(emitted_light)
-	return ..()
 
 #undef EFFIGYRANGE
 
