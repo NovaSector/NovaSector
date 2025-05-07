@@ -15,6 +15,7 @@
 	/// Check to prevent request spamming
 	var/polling = FALSE
 
+/// checks whether the request beacon can be used
 /obj/item/antag_spawner/bitrunning_help/proc/check_usability(mob/user)
 	if(user.mind.has_antag_datum(/datum/antagonist/domain_ghost_actor,TRUE) || user.mind.has_antag_datum(/datum/antagonist/bitrunning_glitch,TRUE))
 		to_chat(user, span_danger("Listen here hacker. Your interest will be terminated. Bitrunner will be retained."))
