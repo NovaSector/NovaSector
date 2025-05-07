@@ -1,64 +1,80 @@
 /atom/movable
 	// Text-to-blooper sounds
 	// yes. all atoms can have a say.
-	var/sound/blooper
-	var/blooper_id
-	var/blooper_pitch = 1
-	var/blooper_pitch_range = 0.2 //Actual pitch is (pitch - (blooper_pitch_range*0.5)) to (pitch + (blooper_pitch_range*0.5))
-	var/blooper_volume = 50
-	var/blooper_speed = 4 //Lower values are faster, higher values are slower
-	var/blooper_current_blooper //When bloopers are queued, this gets passed to the blooper proc. If blooper_current_blooper doesn't match the args passed to the blooper proc (if passed at all), then the blooper simply doesn't play. Basic curtailing of spam~
 
+	/// Which sound is selected
+	var/sound/blooper
+	/// The ID of the blooper
+	var/blooper_id
+	/// Pitch of the soundd
+	var/blooper_pitch = 1
+	/// Range of the blooper sound
+	var/blooper_pitch_range = 0.2 //Actual pitch is (pitch - (blooper_pitch_range*0.5)) to (pitch + (blooper_pitch_range*0.5))
+	/// Volume of the blooper sound
+	var/blooper_volume = 50
+	/// Speed of the blooper sound
+	var/blooper_speed = 4 //Lower values are faster, higher values are slower
+	/// When bloopers are queued, this gets passed to the blooper proc. If blooper_current_blooper doesn't match the args passed to the blooper proc (if passed at all), then the blooper simply doesn't play. Basic curtailing of spam~
+	var/blooper_current_blooper
+
+/// Sets thee blooper's ID
 /atom/movable/proc/set_blooper(id)
 	if(!id)
 		return FALSE
-	var/datum/blooper/B = GLOB.blooper_list[id]
-	if(!B)
+	var/datum/blooper/BaseBloop = GLOB.blooper_list[id]
+	if(!BaseBloop)
 		return FALSE
-	blooper = sound(initial(B.soundpath))
+	blooper = sound(initial(BaseBloop.soundpath))
 	blooper_id = id
 	return blooper
 
+/// Proc for Voice Bloopers
 /atom/movable/proc/blooper(list/listeners, distance, volume, pitch, queue_time)
+	/// Checks if bloopere is alllowed
 	if(!GLOB.blooper_allowed)
 		return
+	/// Checks if blooper is queued or not
 	if(queue_time && blooper_current_blooper != queue_time)
 		return
 	if(!blooper)
 		if(!blooper_id || !set_blooper(blooper_id)) //just-in-time blooper generation
 			return
 	volume = min(volume, 100)
-	var/turf/T = get_turf(src)
-	for(var/mob/M in listeners)
-		M.playsound_local(T, vol = volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, sound_to_use = blooper, distance_multiplier = 1)
+	var/turf/TurfCheck = get_turf(src)
+	for(var/mob/Mobclient in listeners)
+		Mobclient.playsound_local(TurfCheck, vol = volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, sound_to_use = blooper, distance_multiplier = 1)
 
+/// Sends blooping sound/data
 /atom/movable/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE, tts_message, list/tts_filter)
 	. = ..()
 	var/list/listeners = get_hearers_in_view(range, source)
 	if(blooper || blooper_id)
-		for(var/mob/M in listeners)
-			if(!M.client)
+		for(var/mob/Mobclient in listeners)
+			if(!Mobclient.client)
 				continue
-			if(!(M.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)))
-				listeners -= M
+			if(!(Mobclient.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)))
+				listeners -= Mobclient
 		var/bloopers = min(round((LAZYLEN(message) / blooper_speed)) + 1, BLOOPER_MAX_BLOOPERS)
 		var/total_delay
 		blooper_current_blooper = world.time //this is juuuuust random enough to reliably be unique every time send_speech() is called, in most scenarios
-		for(var/i in 1 to bloopers)
+		for(var/blooperinteger in 1 to bloopers)
 			if(total_delay > BLOOPER_MAX_TIME)
 				break
 			addtimer(CALLBACK(src, PROC_REF(blooper), listeners, range, blooper_volume, BLOOPER_DO_VARY(blooper_pitch, blooper_pitch_range), blooper_current_blooper), total_delay)
 			total_delay += rand(DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE), DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE) + DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE)) TICKS
 
+
+/// Initializes Voice_Bark
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
-	// This gives a random vocal bark to a random created person
+	/// This gives a random vocal bark to a random created person
 	if(!client)
 		set_blooper(pick(GLOB.blooper_list))
 		blooper_pitch = BLOOPER_PITCH_RAND(gender)
 		blooper_pitch_range = BLOOPER_VARIANCE_RAND
 		blooper_speed = rand(BLOOPER_DEFAULT_MINSPEED, BLOOPER_DEFAULT_MAXSPEED)
 
+/// Sends speech from a living mob
 /mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language = null, list/message_mods = list(), forced = null, tts_message, list/tts_filter)
 	. = ..()
 
@@ -93,7 +109,7 @@
 		var/bloopers = min(round((LAZYLEN(message_raw) / blooper_speed)) + 1, BLOOPER_MAX_BLOOPERS)
 		var/total_delay
 		blooper_current_blooper = world.time
-		for(var/i in 1 to bloopers)
+		for(var/blooperinteger in 1 to bloopers)
 			if(total_delay > BLOOPER_MAX_TIME)
 				break
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, blooper), listening, message_range + 1, (blooper_volume * (is_yell ? 2 : 1)), BLOOPER_DO_VARY(blooper_pitch, blooper_pitch_range), blooper_current_blooper), total_delay) //The function is zero on the seventh tile. This makes it a maximum of 1 more.
