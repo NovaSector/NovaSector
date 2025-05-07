@@ -25,7 +25,7 @@
 	. = ..()
 	. += span_notice("The destabilizer only works on planetary surfaces, and specially stabilized mining areas.")
 	. += span_notice("The destabilizer can be enhanced by pushing it from behind while using a style meter, this will increase the \
-					destablization power and make backstab count from any direction")
+					destablization power and make backstab count from any direction.")
 
 /obj/item/kinetic_crusher/machete
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'
