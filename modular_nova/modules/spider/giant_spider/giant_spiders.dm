@@ -266,6 +266,7 @@
 	icon_living = "baron"
 	icon_dead = "baron_dead"
 	gender = MALE
+	mob_biotypes = MOB_SPECIAL
 	maxHealth = 2000
 	health = 2000
 	obj_damage = 200
