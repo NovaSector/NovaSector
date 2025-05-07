@@ -64,14 +64,14 @@
 			var/obj/machinery/announcement_system/aas = get_announcement_system(source = server)
 			if(aas)
 				aas.broadcast("Subcontractor query successful, bitrunner connecting.", list(RADIO_CHANNEL_SUPPLY, RADIO_CHANNEL_FACTION))
-			spawn_antag(chosen_one.client, get_turf(src), "subrunner", user.mind)
+			spawn_antag(chosen_one.client, get_turf(src), "subrunner", user.mind, server)
 			do_sparks(4, TRUE, src)
 			qdel(src)
 		else
 			polling = FALSE
 			to_chat(user, span_warning("Unable to detect spooling quantum servers. Please wait and try again later."))
 
-/obj/item/antag_spawner/bitrunning_help/spawn_antag(client/our_client, turf/T, kind, datum/mind/user)
+/obj/item/antag_spawner/bitrunning_help/spawn_antag(client/our_client, turf/T, kind, datum/mind/user, obj/machinery/quantum_server/connected_server)
 	var/mob/living/carbon/human/subrunner = new()
 	our_client.prefs.safe_transfer_prefs_to(subrunner, is_antag = TRUE)
 	subrunner.ckey = our_client.key
@@ -80,17 +80,16 @@
 	if(ghost_mind) // Preserves any previous bodies before making the switch
 		subrunner.AddComponent(/datum/component/temporary_body, ghost_mind, ghost_mind.current, TRUE)
 	subrunner.mind.add_antag_datum(/datum/antagonist/bitrunning_reinforcement)
-	if(length(GLOB.newplayer_start)) // needed as hud code doesn't render huds if the atom (in this case the subrunner) is in nullspace, so just move the subrunner somewhere safe
+	if(length(GLOB.newplayer_start)) // Needed as HUD code doesn't render HUDs if the atom (in this case the subrunner) is in nullspace, so just move the subrunner somewhere safe
 		subrunner.forceMove(pick(GLOB.newplayer_start))
 	else
 		subrunner.forceMove(locate(1,1,1))
-	for(var/obj/machinery/quantum_server/server in SSmachines.get_machines_by_type(/obj/machinery/quantum_server))
-		var/outfit_path = server.generated_domain.forced_outfit ? server.generated_domain.forced_outfit : outfit
-		var/datum/outfit/to_wear = new outfit_path()
-		if(outfit_path)
-			subrunner.equipOutfit(to_wear, visuals_only = TRUE)
-		else
-			subrunner.equip_species_outfit(outfit)
+	var/outfit_path = connected_server.generated_domain.forced_outfit ? connected_server.generated_domain.forced_outfit : outfit
+	var/datum/outfit/to_wear = new outfit_path()
+	if(outfit_path)
+		subrunner.equipOutfit(to_wear, visuals_only = TRUE)
+	else
+		subrunner.equip_species_outfit(outfit)
 
 	subrunner.AddComponent( \
 		/datum/component/simple_bodycam, \
