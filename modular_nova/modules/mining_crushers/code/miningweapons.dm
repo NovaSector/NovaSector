@@ -1,8 +1,31 @@
 /obj/item/kinetic_crusher
 	/// This var is used to imitate being weilded if it's one handed
 	var/acts_as_if_wielded
-	/// AHABS_SPEAR Module Change - This var is used by retool kits when changing the crusher's projectile appearance
+	/// This var is used by retool kits when changing the crusher's projectile appearance
 	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
+	/// This var is used to list the areas where the destabilizer is allowed to shoot.
+	var/list/allowed_areas_to_fire = list(
+			/area/forestplanet,
+			/area/icemoon,
+			/area/lavaland,
+			/area/ocean/generated,
+			/area/ruin,
+			/area/mine,
+	)
+
+/obj/item/kinetic_crusher/fire_kinetic_blast(atom/target, mob/living/user, list/modifiers)
+	if(!istype(user))
+		return
+	if (!is_type_in_list(get_area(user), allowed_areas_to_fire))
+		user.balloon_alert(user, "destabilizer cannot be used in this area!")
+		return
+	. = ..()
+
+/obj/item/kinetic_crusher/examine(mob/living/user)
+	. = ..()
+	. += span_notice("The destabilizer only works on planetary surfaces, and specially stabilized mining areas.")
+	. += span_notice("The destabilizer can be enhanced by pushing it from behind while using a style meter, this will increase the \
+					destablization power and make backstab count from any direction")
 
 /obj/item/kinetic_crusher/machete
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'
