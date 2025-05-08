@@ -180,17 +180,8 @@
 	var/datum/reagents/chip_reagents = new(total_units)
 	chip_reagents.add_noreact_reagent_list(list_reagents)
 	chip_reagents.trans_to(target, total_units)
-
-	// Show status effect to the target
-	var/datum/status_effect/neuroware/neuro_status = target.has_status_effect(/datum/status_effect/neuroware)
-	if(isnull(neuro_status))
-		target.apply_status_effect(/datum/status_effect/neuroware, length(list_reagents))
-	else
-		neuro_status.adjust_program_count(length(list_reagents))
-
 	if(target != user)
 		log_combat(user, target, "added neuroware to", chip_reagents.get_reagent_log_string())
-
 	return TRUE
 
 #undef CHIP_LABEL_BISHOP
