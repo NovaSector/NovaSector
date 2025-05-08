@@ -407,7 +407,7 @@
 
 	var/list/yes_voters = SSpolling.poll_candidates("Do you wish to banish [find_banished]?", poll_time = 10 SECONDS, group = asked_voters)
 
-	if(length(yes_voters) <= (length(asked_voters) * 0.5)) // you need a simple majority (ex: 10 people vote, need 6)
+	if(length(yes_voters) < max(1, ceil(length(asked_voters) / 2 + 0.01))) // you need a simple majority (ex: 10 people vote, need 6)
 		find_banished.balloon_alert_to_viewers("banishment failed!")
 		return
 
