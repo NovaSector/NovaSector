@@ -283,7 +283,7 @@
 			/mob/living/basic/mining/lobstrosity/lava,
 			/mob/living/basic/mining/bileworm,
 		)
-		new mob_type(success_rune.loc)
+		new mob_type(success_rune.drop_location())
 
 /// Colder versions of critters to summon
 /datum/ash_ritual/summon_icemoon_creature
