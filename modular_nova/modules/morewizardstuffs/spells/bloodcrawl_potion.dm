@@ -29,6 +29,7 @@
 	. = ..()
 
 /datum/action/cooldown/spell/jaunt/bloodcrawl/mining
+	name = "Necropolis Blood Crawl"
 	/// Instant was a bit too much.
 	enter_blood_time = 2 SECONDS
 	failure_message = "This ability can only be used on planetary areas untainted by civilization!"
