@@ -138,7 +138,8 @@
 		var/learning_exp = 10
 		while(user_level < author_level)
 			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
-				check_limit(user)
+				if(learning_exp > 10) // don't consume any charges if we have not gained any xp yet.
+					check_limit(user)
 				return
 			user.mind?.adjust_experience(taught_skill, learning_exp)
 			user_level = user.mind?.get_skill_level(taught_skill)
