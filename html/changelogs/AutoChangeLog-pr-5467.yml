@@ -1,0 +1,4 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - bugfix: "you can army crawl under glass tables without bonking your head on the extremely fragile glass"
