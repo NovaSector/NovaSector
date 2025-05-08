@@ -8315,6 +8315,7 @@
 #include "modular_nova\modules\mining_pka\code\modkit.dm"
 #include "modular_nova\modules\mining_pka\code\projectiles.dm"
 #include "modular_nova\modules\mining_vendor_additions\code\order_mining.dm"
+#include "modular_nova\modules\mining_vendor_additions\code\voucher_sets.dm"
 #include "modular_nova\modules\modsuit_armour\modsuit_armour.dm"
 #include "modular_nova\modules\modsuit_pai\code\mod_pai.dm"
 #include "modular_nova\modules\modular_creatures\code\carp.dm"
