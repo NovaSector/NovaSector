@@ -310,7 +310,7 @@
 			/mob/living/simple_animal/hostile/asteroid/polarbear,
 			/mob/living/basic/mining/wolf,
 		)
-		new mob_type(success_rune.loc)
+		new mob_type(success_rune.drop_location())
 
 /// Xenobio Ritual
 /datum/ash_ritual/uncover_rocks
