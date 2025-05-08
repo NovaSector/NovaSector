@@ -11,7 +11,7 @@
 	user.log_message("learned the spell bloodcrawl (Mining) ([new_spell])", LOG_ATTACK, color="orange")
 	qdel(src)
 
-datum/action/cooldown/spell/jaunt/bloodcrawl
+/datum/action/cooldown/spell/jaunt/bloodcrawl
 	/// A list of allowed areas that the spell can be used in
 	var/list/allowed_areas = list(
 		/area,
