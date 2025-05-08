@@ -74,12 +74,14 @@
 	special_desc = "During the crusher design pizza party, one member of the Mining Research and Development team brought out a real riot shotgun, and killed three \
 	other research members with one blast. The MR&D Director immediately thought of a genius idea, creating the proto-kinetic shotgun moments later, which he \
 	immediately used to execute the research member who brought the real shotgun. The proto-kinetic shotgun trades off some mod capacity and cooldown in favor \
-	of firing three shots at once with reduce range and power. The total damage of all three shots is higher than a regular PKA but the individual shots are weaker."
+	of firing three shots at once with reduce range and power. The total damage of all three shots is higher than a regular PKA but the individual shots are weaker. \
+	Looks like you need both hands to use it effectively."
 	icon = 'modular_nova/modules/mining_pka/icons/pka.dmi'
 	icon_state = "kineticshotgun"
 	base_icon_state = "kineticshotgun"
 	inhand_icon_state = "kineticgun"
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/shotgun)
+	weapon_weight = WEAPON_HEAVY
 	max_mod_capacity = 65
 	randomspread = 0
 
