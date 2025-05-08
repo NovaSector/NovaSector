@@ -17,7 +17,7 @@
 	if(!istype(user))
 		return
 	if (!is_type_in_list(get_area(user), allowed_areas_to_fire))
-		user.balloon_alert(user, "destabilizer cannot be used in this area!")
+		user.balloon_alert(user, "destabilizer cannot be used in [get_area(user)]!")
 		return
 	. = ..()
 
