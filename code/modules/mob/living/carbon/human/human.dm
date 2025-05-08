@@ -25,6 +25,7 @@
 
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_FACE_ACT, PROC_REF(clean_face))
 	AddComponent(/datum/component/personal_crafting, ui_human_crafting)
+	AddElement(/datum/element/skirt_peeking) // NOVA EDIT - SKIRT PEEKING
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 0.6, -6) // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	AddComponent(/datum/component/bloodysoles/feet)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
