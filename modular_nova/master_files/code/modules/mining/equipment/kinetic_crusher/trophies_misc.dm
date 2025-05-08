@@ -4,8 +4,8 @@
 
 /obj/item/crusher_trophy/retool_kit/add_to(obj/item/kinetic_crusher/pkc, mob/user)
 	. = ..()
-	pkc.projectile_icon_file = retool_projectile_icon_file
+	pkc.projectile_icon = retool_projectile_icon_file
 
 /obj/item/crusher_trophy/retool_kit/remove_from(obj/item/kinetic_crusher/pkc)
 	. = ..()
-	pkc.projectile_icon_file = initial(pkc.projectile_icon_file)
+	pkc.projectile_icon = pkc::projectile_icon
