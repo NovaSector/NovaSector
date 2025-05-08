@@ -281,8 +281,6 @@
 
 	return ..()
 
-/obj/item/mentoring_book
-
 #undef AUTHOR_LEVEL_NOVICE
 #undef AUTHOR_LEVEL_APPRENTICE
 #undef AUTHOR_LEVEL_JOURNEYMAN
