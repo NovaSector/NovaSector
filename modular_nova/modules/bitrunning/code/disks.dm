@@ -110,12 +110,12 @@
 	area_string = "virtual domains"
 	supply_pod_stay = FALSE
 
-/obj/item/summon_beacon/relax/equipped(mob/user, slot)
+/obj/item/summon_beacon/relax/equipped(mob/user, slot, initial)
+	. = ..()
 	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 		selectable_atoms += /obj/machinery/vending/dorms/bitrunning
 	else
-		var/obj/item/summon_beacon/relax/aux_vendor = New()
-		selectable_atoms = aux_vendor.selectable_atoms.Copy()
+		selectable_atoms -= /obj/machinery/vending/dorms/bitrunning
 
 /obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
 	. = ..()
