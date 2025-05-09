@@ -7,7 +7,7 @@
 	breakouttime = 5 SECONDS
 	item_flags = DROPDEL
 
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/shibari_hands"
 	post_init_icon_state = "shibari_arms"
 	greyscale_config = /datum/greyscale_config/shibari/hands

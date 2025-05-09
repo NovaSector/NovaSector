@@ -2259,7 +2259,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/under/pants/half_leotard_cosmiclaer
 	name = "one-sleeved leotard"
 	desc = "A fancy, top-of-the-line leotard that some barbarian lopped one of the arms off of."
-	icon = 'icons/map_icons/clothing/under.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/half_leotard_cosmiclaer"
 	post_init_icon_state = "half_leotard"
 	greyscale_config = /datum/greyscale_config/half_leotard

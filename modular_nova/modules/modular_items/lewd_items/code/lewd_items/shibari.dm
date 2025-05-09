@@ -13,7 +13,7 @@
 	max_amount = 5
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/stack/shibari_rope"
 	post_init_icon_state = "shibari_rope"
 	greyscale_config = /datum/greyscale_config/shibari_rope

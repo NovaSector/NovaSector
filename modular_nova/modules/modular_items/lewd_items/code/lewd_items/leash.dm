@@ -3,7 +3,7 @@
 	desc = "A guiding hand's best friend; in a sleek, semi-elastic package. Can either clip to a collar or be affixed to the neck on its own."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_belts.dmi'
 	greyscale_colors = "#383840#dc7ef4#d1d3e0"
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/erp_leash"
 	post_init_icon_state = "neckleash"
 	greyscale_config = /datum/greyscale_config/neckleash

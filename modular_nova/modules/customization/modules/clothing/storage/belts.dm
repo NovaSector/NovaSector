@@ -129,7 +129,7 @@
 /obj/item/storage/belt/holster/thigh
 	name = "thigh holster"
 	desc = "A fine leather holster, fastened to the hip and attached to a belt. Can hold a handgun and some ammo."
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/storage/belt/holster/thigh"
 	post_init_icon_state = "cowboy_belt"
 	worn_icon_state = "cowboy_belt"

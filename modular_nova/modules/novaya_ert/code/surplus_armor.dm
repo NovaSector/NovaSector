@@ -116,7 +116,7 @@
 	name = "\improper CIN combat uniform"
 	desc = "A CIN designed combat uniform that can come in any number of camouflauge variations. Despite this particular design being developed in the years leading up to the CIN-SolFed border war, the uniform is still in use by many member states to this day."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon = 'icons/map_icons/clothing/under.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/syndicate/rus_army/cin_surplus"
 	post_init_icon_state = "undersuit_greyscale"
 	greyscale_config = /datum/greyscale_config/cin_surplus_undersuit/object
@@ -197,7 +197,7 @@
 	desc = "A tactical webbing often used by the CIN's military forces."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
 	worn_icon_state = "chestrig"
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/storage/belt/military/cin_surplus"
 	post_init_icon_state = "chestrig"
 	greyscale_config = /datum/greyscale_config/cin_surplus_chestrig/object
@@ -238,7 +238,7 @@
 	name = "\improper CIN military backpack"
 	desc = "A rugged backpack often used by the CIN's military forces."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/storage/backpack/industrial/cin_surplus"
 	post_init_icon_state = "backpack"
 	greyscale_config = /datum/greyscale_config/cin_surplus_backpack/object

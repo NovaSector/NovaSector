@@ -16,7 +16,7 @@
 	equip_delay_other = 2 SECONDS
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/evening"
 	post_init_icon_state = "evening"
 	greyscale_config = /datum/greyscale_config/evening_gloves
@@ -30,7 +30,7 @@
 	worn_icon = MODULAR_HANDS_WORN_ICON
 	strip_delay = 4 SECONDS
 	equip_delay_other = 2 SECONDS
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/designer"
 	post_init_icon_state = "designer"
 	greyscale_config = /datum/greyscale_config/designer_gloves
@@ -57,7 +57,7 @@
 	name = "cloth arm wraps"
 	desc = "Cloth bracers, the colour all left up to the choice of the wearer."
 	inhand_icon_state = "greyscale_gloves"
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/bracer/wraps"
 	post_init_icon_state = "arm_wraps"
 	greyscale_config = /datum/greyscale_config/armwraps
@@ -71,7 +71,7 @@
 /obj/item/clothing/gloves/maid_arm_covers
 	name = "maid arm covers"
 	desc = "Maid in China."
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/maid_arm_covers"
 	post_init_icon_state = "maid_arm_covers"
 	greyscale_config = /datum/greyscale_config/maid_arm_covers

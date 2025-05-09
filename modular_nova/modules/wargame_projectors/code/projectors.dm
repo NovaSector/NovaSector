@@ -11,7 +11,7 @@
 	throw_speed = 3
 	throw_range = 7
 	item_flags = NOBLUDGEON
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/wargame_projector"
 	post_init_icon_state = "projector"
 	greyscale_config = /datum/greyscale_config/wargame_hologram_projector

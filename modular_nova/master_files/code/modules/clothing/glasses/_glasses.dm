@@ -20,7 +20,7 @@
 	name = "blind personnel blindfold"
 	desc = "Indicates that the wearer suffers from blindness."
 	worn_icon = 'modular_nova/modules/GAGS/icons/eyes_worn.dmi'
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/glasses/blindfold/color"
 	post_init_icon_state = "blindfoldcolor"
 	greyscale_config = /datum/greyscale_config/blindfold

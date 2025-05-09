@@ -19,7 +19,7 @@
 	name = "maid costume"
 	desc = "Maid in China."
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	icon = 'icons/map_icons/clothing/under.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/maid_costume"
 	post_init_icon_state = "maid_costume"
 	greyscale_config = /datum/greyscale_config/maid_costume

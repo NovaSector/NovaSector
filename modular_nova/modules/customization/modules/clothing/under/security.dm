@@ -115,14 +115,16 @@
 /obj/item/clothing/under/rank/prisoner/syndicate
 	name = "syndicate prisoner jumpsuit"
 	desc = "A crimson red jumpsuit worn by syndicate captives. Its sensors have been shorted out."
-	icon_state = "/obj/item/clothing/under/rank/prisoner/syndicate"
+	icon_state = "/obj/item/clothing/under/rank/prisoner/supermax" // same as supermax
 	greyscale_colors = "#992300"
 	has_sensor = FALSE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/clothing/under/rank/prisoner/skirt/syndicate
 	name = "syndicate prisoner jumpskirt"
 	desc = "A crimson red jumpskirt worn by syndicate captives. Its sensors have been shorted out."
-	icon_state = "/obj/item/clothing/under/rank/prisoner/skirt/syndicate"
+	icon_state = "/obj/item/clothing/under/rank/prisoner/skirt/supermax" // same as supermax
 	greyscale_colors = "#992300"
 	has_sensor = FALSE
 	supports_variations_flags = NONE
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1

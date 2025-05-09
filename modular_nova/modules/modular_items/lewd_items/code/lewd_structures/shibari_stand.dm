@@ -10,7 +10,7 @@
 	var/static/mutable_appearance/shibari_rope_overlay_behind
 	var/static/mutable_appearance/shibari_shadow_overlay = mutable_appearance('modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/shibari_stand.dmi', "shibari_shadow", LOW_OBJ_LAYER)
 
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/structure/chair/shibari_stand"
 	post_init_icon_state = "shibari_stand"
 	greyscale_config = /datum/greyscale_config/shibari_stand

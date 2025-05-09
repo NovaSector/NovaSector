@@ -4,7 +4,7 @@
 	base_icon_state = "kinkphones"
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_ears.dmi'
 	greyscale_colors = "#383840#dc7ef4#dc7ef4"
-	icon = 'icons/map_icons/clothing/clothing.dmi'
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/ears/dorms_headphones"
 	post_init_icon_state = "kinkphones_off"
 	greyscale_config = /datum/greyscale_config/dorms_headphones

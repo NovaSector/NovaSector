@@ -1,6 +1,7 @@
 //NOVA EDIT ADDITION - DigiGreyscale
-/obj/item/clothing/shoes/sneakers/
+/obj/item/clothing/shoes/sneakers
 	greyscale_config_worn_digi = /datum/greyscale_config/sneakers/worn/digi
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/sneakers/crimson
 	name = "dark red shoes"

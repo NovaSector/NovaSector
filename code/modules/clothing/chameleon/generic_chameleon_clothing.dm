@@ -19,9 +19,10 @@ do { \
 	name = "black jumpsuit"
 	desc = "It's a plain jumpsuit. It has a small dial on the wrist."
 	greyscale_colors = "#3f3f3f"
-	icon = 'icons/map_icons/clothing/under.dmi'
+	icon = 'icons/map_icons/clothing/under/color.dmi'
 	icon_state = "/obj/item/clothing/under/chameleon"
 	post_init_icon_state = "jumpsuit"
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	greyscale_config = /datum/greyscale_config/jumpsuit
 	greyscale_config_worn = /datum/greyscale_config/jumpsuit/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit/inhand_left
@@ -247,12 +248,14 @@ do { \
 	create_storage(storage_type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/chameleon/broken
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/clothing/shoes/chameleon/broken/Initialize(mapload)
 	. = ..()
 	BREAK_CHAMELEON_ACTION(src)
 
 /obj/item/clothing/shoes/chameleon/noslip
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 	clothing_traits = list(TRAIT_NO_SLIP_WATER)
 	can_be_bloody = FALSE
 

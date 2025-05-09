@@ -25,25 +25,25 @@
 	greyscale_colors = "#263188"
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/left"
 	post_init_icon_state = "bench_left"
 	greyscale_config = /datum/greyscale_config/bench_left
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/right"
 	post_init_icon_state = "bench_right"
 	greyscale_config = /datum/greyscale_config/bench_right
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/corner
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/corner"
 	post_init_icon_state = "bench_corner"
 	greyscale_config = /datum/greyscale_config/bench_corner
 
 /obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/solo
-	icon = 'icons/map_icons/items/item.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/structure/chair/sofa/bench/color/interdyne/icemoon_blue/solo"
 	post_init_icon_state = "bench_solo"
 	greyscale_config = /datum/greyscale_config/bench_solo
