@@ -33,6 +33,14 @@
 "i" = (
 /turf/template_noop,
 /area/template_noop)
+"k" = (
+/obj/machinery/cryopod,
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/white,
+/area/station/common/cryopods)
 "q" = (
 /turf/closed/wall,
 /area/station/common/cryopods)
@@ -64,7 +72,6 @@
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "M" = (
-/obj/machinery/light/directional/west,
 /obj/effect/turf_decal/siding{
 	dir = 8
 	},
@@ -123,7 +130,7 @@ i
 "}
 (3,1,1) = {"
 q
-P
+k
 a
 g
 q
@@ -141,7 +148,7 @@ B
 "}
 (5,1,1) = {"
 q
-P
+k
 a
 r
 b

@@ -76,6 +76,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "w" = (
@@ -83,7 +84,6 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "x" = (
-/obj/machinery/light/dim/directional/north,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "y" = (
@@ -108,6 +108,7 @@
 	id = "catwalkntrep";
 	pixel_y = 24
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "D" = (
