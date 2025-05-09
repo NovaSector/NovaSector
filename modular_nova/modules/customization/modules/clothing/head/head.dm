@@ -48,7 +48,6 @@
 /obj/item/clothing/head/beret/sec/navywarden/syndicate
 	name = "master at arms' beret"
 	desc = "Surprisingly stylish, if you lived in a silent impressionist film."
-	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/sec/navywarden/syndicate"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge

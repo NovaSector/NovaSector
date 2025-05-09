@@ -45,7 +45,6 @@
 /obj/item/clothing/head/beret/blueshield
 	name = "blueshield's beret"
 	desc = "A blue beret made of durathread with a genuine golden badge, denoting its owner as a Blueshield Lieuteneant. It seems to be padded with nano-kevlar, making it tougher than standard reinforced berets."
-	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/blueshield"
 	post_init_icon_state = "beret_badge_police"
 	greyscale_config = /datum/greyscale_config/beret_badge
