@@ -4,7 +4,7 @@
 	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY*35 //Assuming full case+manifest
 	atom_storage.max_slots = 35 //This is to avoid some instances of lost in shipment. In theory before hitting the limit you get a crate.
 	atom_storage.set_holdable(list(
-				/obj/item/paper,
+		/obj/item/paper,
 	))
 
 /*
