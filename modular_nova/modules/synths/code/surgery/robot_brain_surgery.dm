@@ -51,10 +51,10 @@
 
 	var/datum/status_effect/neuroware/neuro_status = target.has_status_effect(/datum/status_effect/neuroware)
 	if(!isnull(neuro_status))
+		target.balloon_alert_to_viewers("neuroware reset")
 		for(var/datum/reagent/reagent as anything in target.reagents.reagent_list)
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
 				target.reagents.del_reagent(reagent.type)
-			target.balloon_alert_to_viewers("neuroware reset")
 
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
