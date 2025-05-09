@@ -117,6 +117,8 @@
 	else
 		selectable_atoms -= /obj/machinery/vending/dorms/bitrunning
 
+// Be warned, ye who dares to optimize the following bit of code, Initialize is required for vendors to be all_products_free = TRUE, for the code designed for circuits actually resets the value on iniitialize otherwise. be warned and do not spend hours debugging as your predecesors had.
+
 /obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
 	. = ..()
 	all_products_free = TRUE
