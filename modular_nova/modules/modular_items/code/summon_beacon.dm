@@ -172,10 +172,16 @@
 		/obj/machinery/vending/snack, // "Getmore Chocolate Corp"
 		/obj/machinery/vending/tool, // "YouTool"
 		/obj/machinery/vending/barbervend, // "Fab-O-Vend"
-		/obj/machinery/vending/dorms, // "LustWish"
 		/obj/machinery/vending/imported/nt, // "NT Sustenance Supplier"
 		/obj/machinery/vending/imported/mothic, // "Nomad Fleet Ration Chit Exchange"
 		/obj/machinery/vending/imported/tiziran, // "Tiziran Imported Delicacies"
 		/obj/machinery/vending/imported/yangyu, // "Fudobenda"
 		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"	
 	)
+
+/obj/item/summon_beacon/vendors/equipped(mob/user, slot, initial)
+	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+		selectable_atoms += /obj/machinery/vending/dorms
+	else
+		var/obj/item/summon_beacon/vendors/aux_vendor = New()
+		selectable_atoms = aux_vendor.selectable_atoms.Copy()
