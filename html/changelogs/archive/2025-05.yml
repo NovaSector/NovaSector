@@ -320,3 +320,25 @@
   - bugfix: Fixed the error overlay caused by the Tress Shoulder hairstyle
   Zergspower:
   - qol: unrestricts additional Vox voices away from being malf only
+2025-05-09:
+  Diltyrr:
+  - rscadd: Added a new Hearthkin only recipe "Useless Relic Salvage". Turn 10 useless
+      relic into an inactive Stjarndrakkr fragment.
+  Hardly:
+  - bugfix: fixes security belt so it has 5 slots and item restrictions again
+  jjpark-kb:
+  - bugfix: you can army crawl under glass tables without bonking your head on the
+      extremely fragile glass
+  - bugfix: ashies can now actually complete the "summon lavaland creatures" ritual
+  - bugfix: the banishment ritual now actually requires a simple majority (rather
+      than requiring the whole tribe to vote yes)
+  - qol: all current ashie rituals no longer consume the bs crystal component-- still
+      required to be present
+  - balance: summon lavaland/icemoon creatures now summon two instead of one
+  - code_imp: added a limited version of the mentoring book, so other contributors
+      (and stuff in game) can modify it for whatever reason
+  - code_imp: removed the examine signal and just used the default examine proc...
+      I should have done that before
+  unit0016:
+  - rscadd: Weighted D20s are now available in the loadout! They're not guaranteed
+      winners, but skew results fairly heavily.
