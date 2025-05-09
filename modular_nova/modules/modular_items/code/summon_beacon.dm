@@ -179,7 +179,7 @@
 		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"	
 	)
 
-/obj/item/summon_beacon/vendors/equipped(mob/user, slot, initial)
+/obj/item/summon_beacon/vendors/equipped(mob/user, slot)
 	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 		selectable_atoms += /obj/machinery/vending/dorms
 	else
