@@ -1,5 +1,0 @@
-author: "jjpark-kb"
-delete-after: True
-changes:
-  - code_imp: "added a limited version of the mentoring book, so other contributors (and stuff in game) can modify it for whatever reason"
-  - code_imp: "removed the examine signal and just used the default examine proc... I should have done that before"
