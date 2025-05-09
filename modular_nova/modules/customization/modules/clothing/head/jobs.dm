@@ -3,7 +3,7 @@
 /obj/item/clothing/head/hats/hos/beret
 	name = "head of security beret"
 	desc = "A robust beret for the Head of Security, for looking stylish while not sacrificing protection."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hats/hos/beret"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -19,7 +19,6 @@
 /obj/item/clothing/head/beret/sec/navywarden
 	name = "warden's beret"
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/sec/navywarden"
 	post_init_icon_state = "beret_badge_fancy_twist"
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy
@@ -50,7 +49,6 @@
 /obj/item/clothing/head/beret/medical
 	name = "medical beret"
 	desc = "A medical-flavored beret for the doctor in you!"
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/medical"
 	post_init_icon_state = "beret_badge_med"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -82,7 +80,6 @@
 /obj/item/clothing/head/beret/engi
 	name = "engineering beret"
 	desc = "Might not protect you from radiation, but definitely will protect you from looking unfashionable!"
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/engi"
 	post_init_icon_state = "beret_badge_engi"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -93,7 +90,6 @@
 /obj/item/clothing/head/beret/atmos
 	name = "atmospheric beret"
 	desc = "While \"pipes\" and \"style\" might not rhyme, this beret sure makes you feel like they should!"
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/atmos"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -123,7 +119,6 @@
 
 /obj/item/clothing/head/beret/science/fancy
 	desc = "A science-themed beret for our hardworking scientists. This one comes with a fancy badge!"
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/science/fancy"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -146,7 +141,6 @@
 /obj/item/clothing/head/beret/cargo/qm
 	name = "quartermaster's beret"
 	desc = "A beret that helps the QM keep telling themselves that they're an official head of staff."
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/cargo/qm"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -168,7 +162,7 @@
 /obj/item/clothing/head/hopcap/beret
 	name = "head of personnel's beret"
 	desc = "A fancy beret designed by NT's Personnel division for their favorite head's head."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hopcap/beret"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge

@@ -72,7 +72,7 @@
 	name = "urban coat"
 	desc = "A coat built for urban life."
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/urban"
 	post_init_icon_state = "urban_coat"
 	greyscale_config = /datum/greyscale_config/urban_coat
@@ -103,7 +103,7 @@
 
 /obj/item/clothing/suit/jacket/leather/colourable
 	desc = "Now with more color!"
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/jacket/leather/colourable"
 	post_init_icon_state = "leather_jacket"
 	greyscale_config = /datum/greyscale_config/leather_jacket
@@ -115,7 +115,7 @@
 	name = "duster"
 	desc = "This station ain't big enough for the both of us."
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/duster"
 	post_init_icon_state = "duster"
 	greyscale_config = /datum/greyscale_config/duster
@@ -127,7 +127,7 @@
 	name = "peacoat"
 	desc = "The way you guys are blending in with the local colour. I mean, Flag Girl was bad enough, but U-Boat Captain?"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/peacoat"
 	post_init_icon_state = "peacoat"
 	greyscale_config = /datum/greyscale_config/peacoat
@@ -166,7 +166,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
 	body_parts_covered = CHEST|ARMS
 	cold_protection = CHEST|ARMS
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/jacket/croptop"
 	post_init_icon_state = "croptop"
 	greyscale_config = /datum/greyscale_config/croptop
@@ -188,7 +188,7 @@
 /obj/item/clothing/suit/varsity
 	name = "varsity jacket"
 	desc = "A simple varsity jacket with no obvious sources."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/varsity"
 	post_init_icon_state = "varsity_jacket"
 	greyscale_config = /datum/greyscale_config/varsity
@@ -223,7 +223,7 @@
 /obj/item/clothing/suit/tailored_jacket
 	name = "tailored jacket"
 	desc = "A somewhat long jacket tailor made for... however it looks right now!"
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/tailored_jacket"
 	post_init_icon_state = "tailored_jacket"
 	greyscale_config = /datum/greyscale_config/tailored_jacket
@@ -241,7 +241,7 @@
 /obj/item/clothing/suit/tailored_jacket/short
 	name = "tailored short jacket"
 	desc = "A jacket tailor made for... however it looks right now!"
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/tailored_jacket/short"
 	post_init_icon_state = "tailored_jacket"
 	greyscale_config = /datum/greyscale_config/tailored_short_jacket
@@ -251,7 +251,7 @@
 /obj/item/clothing/suit/warm_coat
 	name = "warm coat"
 	desc = "A long insulated coat with fur, it looks quite comfortable."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/warm_coat"
 	post_init_icon_state = "warm_coat"
 	greyscale_config = /datum/greyscale_config/warm_coat
@@ -271,7 +271,7 @@
 	name = "crop-top jacket"
 	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
 		some barbarian has cut the entire bottom half out."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/crop_jacket"
 	post_init_icon_state = "crop_jacket"
 	greyscale_config = /datum/greyscale_config/crop_jacket
@@ -290,7 +290,7 @@
 	name = "short-sleeved crop-top jacket"
 	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
 		some barbarian has cut the entire bottom half out, as well as half the sleeves."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/crop_jacket/shortsleeve"
 	post_init_icon_state = "crop_jacket_short"
 	greyscale_config = /datum/greyscale_config/shortsleeve_crop_jacket
@@ -300,7 +300,7 @@
 	name = "sleeveless crop-top jacket"
 	desc = "A jacket that, some time long past, probably made quite the effective outdoors wear. Now, \
 		some barbarian has cut the entire bottom half out, as well as the sleeves."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/crop_jacket/sleeveless"
 	post_init_icon_state = "crop_jacket_sleeveless"
 	greyscale_config = /datum/greyscale_config/sleeveless_crop_jacket
@@ -334,7 +334,7 @@
 		right down the precise tension of thread spun on the precisely correct looms. The pilots it pays homage \
 		to worked in small ships and in close proximity to their supercooled drives and needed extreme insulation, \
 		hence the bulk."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/big_jacket"
 	post_init_icon_state = "big_jacket"
 	greyscale_config = /datum/greyscale_config/big_jacket
@@ -356,7 +356,7 @@
 	name = "custom labcoat"
 	desc = "A suit that protects against minor chemical spills.  This one has custom stripes & coloration."
 	flags_1 = IS_PLAYER_COLORABLE_1
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/custom"
 	post_init_icon_state = "labcoat_job"
 	greyscale_config = /datum/greyscale_config/labcoat

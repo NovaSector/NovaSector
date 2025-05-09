@@ -95,7 +95,7 @@
 	cold_protection = CHEST
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/jacket/primitive_catgirl_coat"
 	post_init_icon_state = "coat"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_coat
@@ -159,7 +159,7 @@
 	name = "Ferroniere"
 	desc = "A style of headband that encircles the wearer's forehead, with a small jewel suspended in the centre."
 	worn_icon = 'modular_nova/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/primitive_catgirl_ferroniere"
 	post_init_icon_state = "ferroniere"
 	greyscale_config = /datum/greyscale_config/primitive_catgirl_ferroniere

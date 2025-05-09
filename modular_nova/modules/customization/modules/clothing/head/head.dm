@@ -48,7 +48,7 @@
 /obj/item/clothing/head/beret/sec/navywarden/syndicate
 	name = "master at arms' beret"
 	desc = "Surprisingly stylish, if you lived in a silent impressionist film."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/sec/navywarden/syndicate"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -71,7 +71,7 @@
 /obj/item/clothing/head/colourable_flatcap
 	name = "colourable flat cap"
 	desc = "You in the computers son? You work the computers?"
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/colourable_flatcap"
 	post_init_icon_state = "flatcap"
 	greyscale_config = /datum/greyscale_config/flatcap
@@ -194,7 +194,7 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#4e4a43#F1F1F1"
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/standalone_hood"
 	post_init_icon_state = "hood"
 	greyscale_config = /datum/greyscale_config/standalone_hood
@@ -206,7 +206,6 @@
 /obj/item/clothing/head/beret/badge
 	name = "badged beret"
 	desc = "A beret. With a badge. What do you want, a dissertation? It's a hat."
-	icon = 'icons/map_icons/clothing/head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/badge"
 	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
@@ -227,7 +226,7 @@
 /obj/item/clothing/head/small_bow
 	name = "small bow"
 	desc = "A small compact bow that you can place on the side of your hair."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/small_bow"
 	post_init_icon_state = "small_bow"
 	greyscale_config = /datum/greyscale_config/small_bow
@@ -242,7 +241,7 @@
 /obj/item/clothing/head/large_bow
 	name = "large bow"
 	desc = "A large bow that you can place on top of your head."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/large_bow"
 	post_init_icon_state = "large_bow"
 	greyscale_config = /datum/greyscale_config/large_bow
@@ -253,7 +252,7 @@
 /obj/item/clothing/head/back_bow
 	name = "back bow"
 	desc = "A large bow that you can place on the back of your head."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/back_bow"
 	post_init_icon_state = "back_bow"
 	greyscale_config = /datum/greyscale_config/back_bow
@@ -264,7 +263,7 @@
 /obj/item/clothing/head/sweet_bow
 	name = "sweet bow"
 	desc = "A sweet bow that you can place on the back of your head."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/sweet_bow"
 	post_init_icon_state = "sweet_bow"
 	greyscale_config = /datum/greyscale_config/sweet_bow

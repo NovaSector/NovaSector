@@ -49,7 +49,7 @@
 	icon_state = "naval_fleet_admiral"
 
 /obj/item/clothing/head/hats/caphat/naval/custom
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hats/caphat/naval/custom"
 	post_init_icon_state = "naval_silver"
 	greyscale_config = /datum/greyscale_config/naval
@@ -59,7 +59,7 @@
 	armor_type = /datum/armor/none
 
 /obj/item/clothing/head/hats/caphat/naval/custom/gold
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hats/caphat/naval/custom/gold"
 	post_init_icon_state = "naval_gold"
 	greyscale_config = /datum/greyscale_config/naval_gold

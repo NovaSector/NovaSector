@@ -21,7 +21,7 @@
 	icon_state = "fedcapblack"
 
 /obj/item/clothing/head/hats/caphat/parade/fedcap/custom
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hats/caphat/parade/fedcap/custom"
 	post_init_icon_state = "fedcap_silver"
 	greyscale_config = /datum/greyscale_config/fedcap
@@ -30,7 +30,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/hats/caphat/parade/fedcap/custom/gold
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hats/caphat/parade/fedcap/custom/gold"
 	post_init_icon_state = "fedcap_gold"
 	greyscale_config = /datum/greyscale_config/fedcap_gold

@@ -37,7 +37,7 @@
 	name = "\improper GZ-03 combat helmet"
 	desc = "An outdated service helmet previously used by CIN military forces. The design dates back to the years leading up to CIN - SolFed border war, and was in service until the advent of VOSKHOD powered armor becoming standard issue."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/helmet/cin_surplus_helmet"
 	post_init_icon_state = "helmet_plain"
 	greyscale_config = /datum/greyscale_config/cin_surplus_helmet/object

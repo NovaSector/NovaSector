@@ -68,7 +68,7 @@
 /obj/item/clothing/suit/toggle/jacket/nova/cardigan
 	name = "cardigan"
 	desc = "It's like, half a jacket."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/cardigan"
 	post_init_icon_state = "cardigan"
 	greyscale_config = /datum/greyscale_config/cardigan
@@ -295,7 +295,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 	greyscale_colors = "#ffffff"
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/apron/chef/colorable_apron"
 	post_init_icon_state = "apron"
 	greyscale_config = /datum/greyscale_config/apron
@@ -334,7 +334,7 @@
 	name = "warm sweater"
 	desc = "A comfortable warm-looking sweater."
 	body_parts_covered = CHEST|ARMS
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/warm_sweater"
 	post_init_icon_state = "warm_sweater"
 	greyscale_config = /datum/greyscale_config/warm_sweater
@@ -348,7 +348,7 @@
 	name = "heart sweater"
 	desc = "A comfortable warm-looking sweater. It even has a heart pattern on it, how cute."
 	body_parts_covered = CHEST|ARMS
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/heart_sweater"
 	post_init_icon_state = "heart_sweater"
 	greyscale_config = /datum/greyscale_config/heart_sweater
@@ -364,7 +364,7 @@
 		'seem to spring into existence without human intervention.' Made from a single piece of fabric with a seam \
 		and closure in the back, this mantle is almost austere enough to disguise its origin in a Marsian garment \
 		factory."
-	icon = 'icons/map_icons/clothing/suit.dmi'
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/dagger_mantle"
 	post_init_icon_state = "dagger_mantle"
 	greyscale_config = /datum/greyscale_config/dagger_mantle

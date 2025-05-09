@@ -15,7 +15,7 @@
 /obj/item/clothing/head/beret/sec/armadyne
 	name = "armadyne corporate beret"
 	desc = "A comfy yet robust beret worn by Armadyne corporate."
-	icon = 'icons/map_icons/clothing/head.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/beret/sec/armadyne"
 	post_init_icon_state = "beret_badge_fancy_diagonal"
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy
