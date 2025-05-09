@@ -1,0 +1,7 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - bugfix: "ashies can now actually complete the \"summon lavaland creatures\" ritual"
+  - bugfix: "the banishment ritual now actually requires a simple majority (rather than requiring the whole tribe to vote yes)"
+  - qol: "all current ashie rituals no longer consume the bs crystal component-- still required to be present"
+  - balance: "summon lavaland/icemoon creatures now summon two instead of one"

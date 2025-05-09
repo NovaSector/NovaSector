@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - bugfix: "fixes security belt so it has 5 slots and item restrictions again"
