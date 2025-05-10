@@ -957,3 +957,13 @@
 	item_path = /obj/item/crusher_trophy/retool_kit/ahab
 	ckeywhitelist = list("tamaya")
 	restricted_roles = list(JOB_SHAFT_MINER)
+
+/datum/loadout_item/pocket_items/loaded_coin
+	name = "Lucky Chip"
+	item_path = /obj/item/coin/donator/loaded
+	ckeywhitelist = list("lucine")
+
+/datum/loadout_item/pocket_items/loaded_dice
+	name = "Loaded Dice Bag"
+	item_path = /obj/item/storage/dice/donator/loaded
+	ckeywhitelist = list("lucine")
