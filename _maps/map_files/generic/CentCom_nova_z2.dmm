@@ -7293,7 +7293,6 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "gwt" = (
-/obj/item/kirbyplants/random,
 /obj/machinery/light/directional/north,
 /obj/machinery/button/door/directional/west{
 	name = "Checkpoints Shutters";
@@ -10473,7 +10472,9 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Biodome"
 	},
-/obj/machinery/door/poddoor/shutters/window/indestructible/roundend,
+/obj/machinery/door/poddoor/shutters/window/indestructible/roundend{
+	id = "ilinkeorgshutter"
+	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "mcx" = (
@@ -13447,11 +13448,6 @@
 /obj/structure/chair/office{
 	dir = 4
 	},
-/obj/machinery/button/door/directional/south{
-	name = "Shutters Cycle";
-	id = "IC2";
-	pixel_y = -30
-	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "qzX" = (
@@ -13686,11 +13682,6 @@
 /obj/effect/turf_decal/tile/red/opposingcorners,
 /obj/structure/chair/office{
 	dir = 8
-	},
-/obj/machinery/button/door/directional/south{
-	name = "Shutters Cycle";
-	id = "IC1";
-	pixel_y = -30
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/interlink)
@@ -15204,6 +15195,16 @@
 	icon_state = "white"
 	},
 /area/centcom/holding/cafepark)
+"tgf" = (
+/obj/effect/turf_decal/trimline/white/filled/line{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/obj/structure/extinguisher_cabinet/directional/west,
+/turf/open/floor/iron/edge{
+	dir = 4
+	},
+/area/centcom/interlink)
 "tgP" = (
 /obj/structure/wall_torch/spawns_lit,
 /turf/open/misc/dirt/planet,
@@ -15686,7 +15687,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/window/indestructible/roundend,
+/obj/machinery/door/poddoor/shutters/window/indestructible/roundend{
+	id = "ilinkeorgshutter"
+	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "tVb" = (
@@ -17342,7 +17345,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/door/poddoor/shutters/window/indestructible/roundend,
+/obj/machinery/door/poddoor/shutters/window/indestructible/roundend{
+	id = "ilinkeorgshutter"
+	},
 /turf/open/floor/iron/smooth_large,
 /area/centcom/interlink)
 "wJj" = (
@@ -27035,7 +27040,7 @@ tsM
 tsM
 xMX
 eGH
-qya
+tgf
 tsM
 tsM
 tsM
