@@ -560,7 +560,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	despawn_to_ghostcafe = TRUE
 	time_till_despawn = 4 SECONDS
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/despawn_to_ghostcafe, 32)
 
 /// Special wall mounted cryopod for the prison, making it easier to autospawn.
 /obj/machinery/cryopod/prison
