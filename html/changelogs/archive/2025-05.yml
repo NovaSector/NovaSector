@@ -320,3 +320,46 @@
   - bugfix: Fixed the error overlay caused by the Tress Shoulder hairstyle
   Zergspower:
   - qol: unrestricts additional Vox voices away from being malf only
+2025-05-09:
+  Diltyrr:
+  - rscadd: Added a new Hearthkin only recipe "Useless Relic Salvage". Turn 10 useless
+      relic into an inactive Stjarndrakkr fragment.
+  Hardly:
+  - bugfix: fixes security belt so it has 5 slots and item restrictions again
+  jjpark-kb:
+  - bugfix: you can army crawl under glass tables without bonking your head on the
+      extremely fragile glass
+  - bugfix: ashies can now actually complete the "summon lavaland creatures" ritual
+  - bugfix: the banishment ritual now actually requires a simple majority (rather
+      than requiring the whole tribe to vote yes)
+  - qol: all current ashie rituals no longer consume the bs crystal component-- still
+      required to be present
+  - balance: summon lavaland/icemoon creatures now summon two instead of one
+  - code_imp: added a limited version of the mentoring book, so other contributors
+      (and stuff in game) can modify it for whatever reason
+  - code_imp: removed the examine signal and just used the default examine proc...
+      I should have done that before
+  unit0016:
+  - rscadd: Weighted D20s are now available in the loadout! They're not guaranteed
+      winners, but skew results fairly heavily.
+2025-05-10:
+  Neocloudy:
+  - qol: You can now toggle being able to speak a language in your preferences, so
+      you can understand a language but not be able to speak it.
+  OrbisAnima:
+  - bugfix: Fixed a cargo exploit with goody cases, no longer they will be used as
+      cheap bluespace bags knock offs.
+  - bugfix: Ideally reduces the amount of instances where items are lost when ordering
+      things that have multiple cargo items.
+  - rscadd: Donk Co is happy to present to its Imports offers the new and completly
+      SafeVendor Beacon. Capable of delivering in an instant up to two vendors of
+      the consumer choice (of a highly curated list!), this product allows the consumer
+      to bring Capitalism anywhere!
+  - rscadd: Donk Co is now endorsing the legal bitrunning competitions, providing
+      their virtual products as free samples on the orderable relaxation disks, order
+      yours today! (Adds 3 new vendors to the relax vendor machine beacon for bitrunning,
+      Good fun, Disguises and Clothing!)
+  - code_imp: Makes both the new and bitrunning vendor beacons to respect preferences,
+      the beacons start without lushwish machines and only adds them when a user with
+      such preferences enabled (and the server) has erp enabled. If you start with
+      one spawned in your hand, drop it and grab it again for it to update!
