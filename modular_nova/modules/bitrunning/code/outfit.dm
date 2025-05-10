@@ -19,12 +19,4 @@
 	uniform = /obj/item/clothing/under/rank/cargo/bitrunner
 	back = /obj/item/storage/backpack/messenger
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	backpack_contents = list(
-		/obj/item/storage/box/survival,
-		/obj/item/storage/medkit/regular,
-		/obj/item/flashlight,
-		/obj/item/storage/box/nif_ghost_box,
-		/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
-	)
 	id = /obj/item/card/id/advanced
-	id_trim = /datum/id_trim/bit_avatar

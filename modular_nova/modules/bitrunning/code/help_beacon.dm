@@ -91,6 +91,24 @@
 	else
 		subrunner.equip_species_outfit(outfit)
 
+	var/obj/item/card/id/outfit_id = subrunner.wear_id
+	if(outfit_id)
+		outfit_id.registered_account = new()
+		outfit_id.registered_account.replaceable = FALSE
+
+		SSid_access.apply_trim_to_card(outfit_id, /datum/id_trim/bit_avatar)
+
+	var/obj/item/storage/backpack/bag = subrunner.back
+	if(istype(bag))
+		QDEL_LIST(bag.contents)
+
+		bag.contents += list(
+		new	/obj/item/storage/box/survival,
+		new	/obj/item/storage/medkit/regular,
+		new	/obj/item/flashlight,
+		new	/obj/item/storage/box/nif_ghost_box,
+		new	/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
+		)
 	subrunner.AddComponent( \
 		/datum/component/simple_bodycam, \
 		camera_name = "bitrunner bodycam", \
