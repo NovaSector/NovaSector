@@ -149,3 +149,39 @@
 
 	area_string = "atmospherics"
 	supply_pod_stay = TRUE
+
+/obj/item/summon_beacon/vendors
+	name = "Vendors beacon"
+	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
+	uses = 2
+
+	selectable_atoms = list(
+		/obj/machinery/vending/assist, // "Part-Mart"
+		/obj/machinery/vending/autodrobe, // "AutoDrobe"
+		/obj/machinery/vending/boozeomat, // "Booze-O-Mat"
+		/obj/machinery/vending/cigarette, // "ShadyCigs Deluxe"
+		/obj/machinery/vending/clothing, // "ClothesMate"
+		/obj/machinery/vending/coffee, // "Solar's Best Hot Drinks"
+		/obj/machinery/vending/cola, // "Robust Softdrinks"
+		/obj/machinery/vending/custom, // "Custom Vendor"
+		/obj/machinery/vending/dinnerware, // "Plasteel Chef's Dinnerware Vendor"
+		/obj/machinery/vending/games, // "Good Clean Fun"
+		/obj/machinery/vending/hydronutrients, // "NutriMax"
+		/obj/machinery/vending/hydroseeds, // "MegaSeed Servitor"
+		/obj/machinery/vending/modularpc, // "Deluxe Silicate Selections"
+		/obj/machinery/vending/snack, // "Getmore Chocolate Corp"
+		/obj/machinery/vending/tool, // "YouTool"
+		/obj/machinery/vending/barbervend, // "Fab-O-Vend"
+		/obj/machinery/vending/imported/nt, // "NT Sustenance Supplier"
+		/obj/machinery/vending/imported/mothic, // "Nomad Fleet Ration Chit Exchange"
+		/obj/machinery/vending/imported/tiziran, // "Tiziran Imported Delicacies"
+		/obj/machinery/vending/imported/yangyu, // "Fudobenda"
+		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"	
+	)
+
+/obj/item/summon_beacon/vendors/equipped(mob/user, slot, initial)
+	. = ..()
+	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+		selectable_atoms += /obj/machinery/vending/dorms
+	else
+		selectable_atoms -= /obj/machinery/vending/dorms
