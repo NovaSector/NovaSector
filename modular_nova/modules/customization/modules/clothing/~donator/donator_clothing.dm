@@ -2357,3 +2357,57 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_c"
+
+/obj/item/clothing/under/ecologist
+	name = "ecologist's garb"
+	desc = "A mix of clothing pieces given to NanoTrasen Ecology Specialists. Worn over plain clothes is a white gambeson with a breast \
+		guard on the left side. Moving down is a collection of several belts, most prominently an orange one holding a several \
+		small pouches and a cage for some endemic life, empty for now it seems. Just below that, a pair of blue chaps."
+	icon_state = "ecologist_under"
+	worn_icon_state = "ecologist_under"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
+
+/obj/item/clothing/shoes/ecologist
+	name = "ecologist's boots"
+	desc = "A pair of heavy duty, knee-high boots designed for multiple environments, \
+		complete with steel-toe plating, and several points of connection, such as for cleats, for adaptability sake."
+	icon_state = "ecologist_boots"
+	worn_icon_state = "ecologist_boots"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/feet_digi.dmi'
+
+/obj/item/clothing/suit/hooded/ecologist
+	name = "ecologist's coat"
+	desc = "A Fine Leather Coat for NanoTrasen Ecology Specialists. \
+		The leather has been dyed green and has patches of orange fabric sewn into the coat, \
+		it seems like there was at one point additional armor padding the coat, though it has since been removed, \
+		it could probably (Not) stop a Drake's bite still however."
+	icon_state = "ecologist_coat"
+	worn_icon_state = "ecologist_coat"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	hoodtype = /obj/item/clothing/head/hooded/ecologist
+	hood_up_affix = ""
+
+/obj/item/clothing/head/hooded/ecologist
+	name = "ecologist's coat hood"
+	desc = " A Leather hood attached to the main coat, for some reason the wearer's wearing an explorer gas mask \
+		on top of their head and under the hood instead of on their face.. weirdo."
+	icon_state = "ecologist_hood"
+	worn_icon_state = "ecologist_hood"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/gloves/ecologist
+	name = "ecologist's gloves"
+	desc = "A pair of leather gloves for NanoTrasen Ecology Specialists, with an experimental \"Slingshot\" \
+		firmly attached to the left glove, though for safety reasons, the rope was removed."
+	icon_state = "ecologist_claw"
+	worn_icon_state = "ecologist_claw"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
