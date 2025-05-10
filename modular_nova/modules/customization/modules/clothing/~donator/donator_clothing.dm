@@ -2381,7 +2381,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/hooded/ecologist
 	name = "ecologist's coat"
-	desc = "A Fine Leather Coat for NanoTrasen Ecology Specialists. \
+	desc = "A fine leather coat for NanoTrasen Ecology Specialists. \
 		The leather has been dyed green and has patches of orange fabric sewn into the coat, \
 		it seems like there was at one point additional armor padding the coat, though it has since been removed, \
 		it could probably (Not) stop a Drake's bite still however."
@@ -2395,7 +2395,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/hooded/ecologist
 	name = "ecologist's coat hood"
-	desc = " A Leather hood attached to the main coat, for some reason the wearer's wearing an explorer gas mask \
+	desc = " A leather hood attached to the main coat, for some reason the wearer's wearing an explorer gas mask \
 		on top of their head and under the hood instead of on their face.. weirdo."
 	icon_state = "ecologist_hood"
 	worn_icon_state = "ecologist_hood"
