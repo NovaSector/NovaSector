@@ -1,5 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - bugfix: "Fixed a cargo exploit with goody cases, no longer they will be used as cheap bluespace bags knock offs."
-  - bugfix: "Ideally reduces the amount of instances where items are lost when ordering things that have multiple cargo items."
