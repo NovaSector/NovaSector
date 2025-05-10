@@ -89,7 +89,7 @@
 	if(!isinhands)
 		// NOVA EDIT ADDITION START - Digi emissives
 		var/mob/living/carbon/human/wearer = loc
-		if(istype(loc) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
+		if(istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
 			var/obj/item/bodypart/leg = wearer.get_bodypart(BODY_ZONE_L_LEG)
 			if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)
 				. += emissive_appearance(DIGITIGRADE_SHOES_FILE, "glow_shoes_emissive", src, alpha = src.alpha)
@@ -101,7 +101,7 @@
 	. = ..()
 	// NOVA EDIT ADDITION START - Digi emissives
 	var/mob/living/carbon/human/wearer = loc
-	if(istype(loc) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
+	if(istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
 		var/obj/item/bodypart/leg = wearer.get_bodypart(BODY_ZONE_L_LEG)
 		if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)
 			. += emissive_appearance(DIGITIGRADE_SHOES_FILE, "glow_shoes_emissive", offset_spokesman = src, alpha = src.alpha)
