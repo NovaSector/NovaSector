@@ -98,10 +98,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
-"O" = (
-/obj/effect/turf_decal/siding/brown/corner,
-/turf/closed/wall,
-/area/station/common/cryopods)
 "P" = (
 /obj/machinery/cryopod,
 /obj/effect/turf_decal/siding{
@@ -134,7 +130,7 @@
 (1,1,1) = {"
 q
 q
-O
+q
 q
 q
 i
