@@ -32,6 +32,12 @@
 	///if selected, will teach sign-language-- because it isn't a language...?
 	var/teach_sign = FALSE
 
+	/// whether the book should have a limited amount of uses
+	var/limit_uses = FALSE
+
+	/// if limit_use is true, how many times should we be able to be used before disappearing
+	var/allowed_uses = 1
+
 	///the list of sentences sent to the author as they write the book
 	var/static/list/writing_sentences = list(
 		"You philosophize the pedagogical approach for this term...",
@@ -51,17 +57,11 @@
 		"You jot down some notes in the book, then scribble it out...",
 	)
 
-/obj/item/mentoring_book/Initialize(mapload)
+/obj/item/mentoring_book/limited
+	limit_uses = TRUE
+
+/obj/item/mentoring_book/examine(mob/user)
 	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
-
-/obj/item/mentoring_book/Destroy(force)
-	UnregisterSignal(src, COMSIG_ATOM_EXAMINE)
-	return ..()
-
-/obj/item/mentoring_book/proc/on_examine(datum/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-
 	var/level_name
 	if(author_level)
 		switch(author_level)
@@ -81,15 +81,31 @@
 				level_name = "master"
 
 	if(taught_skill)
-		examine_list += "This book can teach you to become a(n) [level_name] [initial(taught_skill.title)]."
+		. += span_notice("This book can teach you to become a(n) [level_name] [initial(taught_skill.title)].")
 
 	if(taught_language)
-		examine_list += "This book can teach you to become fluent in [initial(taught_language.name)]."
+		. += span_notice("This book can teach you to become fluent in [initial(taught_language.name)].")
 
 	if(teach_sign)
-		examine_list += "This book can teach you sign language."
+		. += span_notice("This book can teach you sign language.")
 
-	examine_list += "Using a pen will allow you to impart your knowledge about language or skills to the book!"
+	. += span_notice("Using a pen will allow you to impart your knowledge about language or skills to the book!")
+
+	if(limit_uses)
+		. += span_warning("This book can only be used [allowed_uses] more time(s)!")
+
+/// will lower the use by one (if allowed) and check if it should be destroyed
+/obj/item/mentoring_book/proc/check_limit(mob/user)
+	if(!limit_uses)
+		return
+
+	allowed_uses -= 1
+	if(allowed_uses > 0)
+		to_chat(user, span_notice("[src] looks a little more damaged..."))
+		return
+
+	to_chat(user, span_warning("[src] tears and breaks!"))
+	qdel(src)
 
 /// when given a message and an amount of time, requires the user to stand still while receiving the message
 /obj/item/mentoring_book/proc/timed_sentence(mob/user, var/sent_message, var/time_amount)
@@ -122,12 +138,15 @@
 		var/learning_exp = 10
 		while(user_level < author_level)
 			if(!timed_sentence(user, pick(learning_sentences), 6 SECONDS))
+				if(learning_exp > 10) // don't consume any charges if we have not gained any xp yet.
+					check_limit(user)
 				return
 			user.mind?.adjust_experience(taught_skill, learning_exp)
 			user_level = user.mind?.get_skill_level(taught_skill)
 			learning_exp += 5 //this means that it won't take 40 minutes to get from beginner to master... I definitely wouldn't know ;-;
 
 		to_chat(user, span_notice("You have learned all you can learn from [src]."))
+		check_limit(user)
 		return
 
 	if(taught_language)
@@ -142,6 +161,7 @@
 		user.remove_blocked_language(taught_language, source = LANGUAGE_BABEL)
 		user.grant_language(taught_language, source = LANGUAGE_BABEL)
 		to_chat(user, span_notice("You have fully learned [initial(taught_language.name)]"))
+		check_limit(user)
 		return
 
 	if(teach_sign)
@@ -157,6 +177,7 @@
 
 			living_user.add_quirk(/datum/quirk/item_quirk/signer)
 			to_chat(living_user, span_notice("You have fully learned sign language!"))
+			check_limit(user)
 			return
 
 		else
@@ -170,6 +191,7 @@
 
 			user.AddComponent(/datum/component/sign_language)
 			to_chat(user, span_notice("You have fully learned sign language!"))
+			check_limit(user)
 			return
 
 	return ..()

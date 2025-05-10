@@ -35,12 +35,6 @@
 	owner.special_role = job_rank
 	if(give_objectives)
 		forge_ai_objectives()
-	// NOVA EDIT START - Moving voice changing to Malf only
-#ifdef AI_VOX
-	var/mob/living/silicon/ai/malf_ai = owner.current
-	malf_ai.vox_voices += VOX_MIL
-#endif
-	// NOVA EDIT END
 
 	employer = pick(GLOB.ai_employers)
 	if(!employer)
@@ -64,12 +58,6 @@
 		var/mob/living/silicon/ai/malf_ai = owner.current
 		malf_ai.set_zeroth_law("")
 		malf_ai.remove_malf_abilities()
-		// NOVA EDIT START - Moving voice changing to Malf only
-#ifdef AI_VOX
-		malf_ai.vox_voices -= VOX_MIL
-		malf_ai.vox_type = VOX_NORMAL
-#endif
-		// NOVA EDIT END
 		QDEL_NULL(malf_ai.malf_picker)
 
 	owner.special_role = null
