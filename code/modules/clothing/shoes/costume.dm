@@ -87,10 +87,26 @@
 /obj/item/clothing/shoes/glow/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
+		// NOVA EDIT ADDITION START - Digi emissives
+		var/mob/living/carbon/human/wearer = loc
+		if(istype(loc) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
+			var/obj/item/bodypart/leg = wearer.get_bodypart(BODY_ZONE_L_LEG)
+			if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)
+				. += emissive_appearance(DIGITIGRADE_SHOES_FILE, "glow_shoes_emissive", src, alpha = src.alpha)
+			return
+		// NOVA EDIT ADDITION END
 		. += emissive_appearance(DEFAULT_SHOES_FILE, "glow_shoes_emissive", src, alpha = src.alpha)
 
 /obj/item/clothing/shoes/glow/update_overlays()
 	. = ..()
+	// NOVA EDIT ADDITION START - Digi emissives
+	var/mob/living/carbon/human/wearer = loc
+	if(istype(loc) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
+		var/obj/item/bodypart/leg = wearer.get_bodypart(BODY_ZONE_L_LEG)
+		if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)
+			. += emissive_appearance(DIGITIGRADE_SHOES_FILE, "glow_shoes_emissive", offset_spokesman = src, alpha = src.alpha)
+		return
+	// NOVA EDIT ADDITION END
 	. += emissive_appearance('icons/obj/clothing/shoes.dmi', "glow_shoes_emissive", offset_spokesman = src, alpha = src.alpha)
 
 /obj/item/clothing/shoes/saints

@@ -1825,6 +1825,9 @@ TREK
 	name = "Jester Shoes (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
+/datum/greyscale_config/glow_shoes/worn/digi
+	name = "Glow Shoes (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 /*
 *	Belts
