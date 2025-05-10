@@ -2,10 +2,11 @@
 /obj/item/clothing/shoes/ballet_heels
 	name = "ballet heels"
 	desc = "Restrictive, knee-high heels. Unfathomably difficult to walk in."
-	icon_state = "balletheels"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_shoes.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	greyscale_colors = "#383840"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/ballet_heels"
+	post_init_icon_state = "balletheels"
 	greyscale_config = /datum/greyscale_config/ballet_heel
 	greyscale_config_worn = /datum/greyscale_config/ballet_heel/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/ballet_heel/worn/digi
@@ -19,11 +20,13 @@
 /obj/item/clothing/shoes/ballet_heels/domina_heels
 	name = "dominant heels"
 	desc = "A pair of aesthetically pleasing heels."
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_shoes.dmi'
 	icon_state = "dominaheels"
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_config_worn_digi = null
+	post_init_icon_state = null
 
 /*
 *	LATEX SOCKS
@@ -33,10 +36,11 @@
 	name = "latex socks"
 	desc = "A pair of shiny, split-toe socks made of some strange material."
 	w_class = WEIGHT_CLASS_SMALL
-	icon_state = "latex_socks"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_shoes.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	greyscale_colors = "#383840"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/latex_socks"
+	post_init_icon_state = "latex_socks"
 	greyscale_config = /datum/greyscale_config/latex_socks
 	greyscale_config_worn = /datum/greyscale_config/latex_socks/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/latex_socks/worn/digi

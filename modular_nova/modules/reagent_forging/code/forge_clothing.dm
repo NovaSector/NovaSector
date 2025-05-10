@@ -177,6 +177,7 @@
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 	inhand_icon_state = null
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK

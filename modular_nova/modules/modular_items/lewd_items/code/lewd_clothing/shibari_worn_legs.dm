@@ -1,8 +1,6 @@
 /obj/item/clothing/shoes/shibari_legs
 	name = "shibari legs bondage"
 	desc = "Bondage ropes that cover legs."
-	icon_state = "shibari_legs"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_shoes.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes.dmi'
 	worn_icon_digi = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_shoes_digi.dmi'
 	body_parts_covered = NONE
@@ -11,6 +9,9 @@
 	slowdown = 4
 	item_flags = DROPDEL|IGNORE_DIGITIGRADE
 
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/shibari_legs"
+	post_init_icon_state = "shibari_legs"
 	greyscale_config = /datum/greyscale_config/shibari/legs
 	greyscale_config_worn = /datum/greyscale_config/shibari/legs/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shibari/legs/worn/digi

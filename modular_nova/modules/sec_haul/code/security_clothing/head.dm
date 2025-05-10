@@ -63,19 +63,21 @@
 	)
 
 /obj/item/clothing/head/beret/sec/nova
+	icon_state = "/obj/item/clothing/head/beret/sec/nova"
+	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	icon_state = "beret_badge"
 	greyscale_colors = "#3F3C40#375989"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/head_helmet
 
 /obj/item/clothing/head/beret/sec/navywarden/nova
 	desc = "A special beret with the Warden's insignia emblazoned on it. For wardens with class."
+	icon_state = "/obj/item/clothing/head/beret/sec/navywarden/nova"
+	post_init_icon_state = "beret_badge_fancy_twist"
 	greyscale_config = /datum/greyscale_config/beret_badge_fancy
 	greyscale_config_worn = /datum/greyscale_config/beret_badge_fancy/worn
 	greyscale_colors = "#3f6e9e#FF0000#00AEEF"
-	icon_state = "beret_badge_fancy_twist"
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/hats_warden
 

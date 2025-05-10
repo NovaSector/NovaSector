@@ -70,9 +70,11 @@
 /obj/item/clothing/shoes/glow
 	name = "glow shoes"
 	desc = "t3h c00L3st sh03z j00'LL 3v3r f1nd."
-	icon_state = "glow_shoes"
 	inhand_icon_state = null
 	greyscale_colors = "#4A3A40#8EEEEE"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/glow"
+	post_init_icon_state = "glow_shoes"
 	greyscale_config = /datum/greyscale_config/glow_shoes
 	greyscale_config_worn = /datum/greyscale_config/glow_shoes/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -85,10 +87,26 @@
 /obj/item/clothing/shoes/glow/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
+		// NOVA EDIT ADDITION START - Digi emissives
+		var/mob/living/carbon/human/wearer = loc
+		if(istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
+			var/obj/item/bodypart/leg = wearer.get_bodypart(BODY_ZONE_L_LEG)
+			if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)
+				. += emissive_appearance(DIGITIGRADE_SHOES_FILE, "glow_shoes_emissive", src, alpha = src.alpha)
+			return
+		// NOVA EDIT ADDITION END
 		. += emissive_appearance(DEFAULT_SHOES_FILE, "glow_shoes_emissive", src, alpha = src.alpha)
 
 /obj/item/clothing/shoes/glow/update_overlays()
 	. = ..()
+	// NOVA EDIT ADDITION START - Digi emissives
+	var/mob/living/carbon/human/wearer = loc
+	if(istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE))
+		var/obj/item/bodypart/leg = wearer.get_bodypart(BODY_ZONE_L_LEG)
+		if(leg.limb_id == "digitigrade" || leg.bodyshape & BODYSHAPE_DIGITIGRADE)
+			. += emissive_appearance(DIGITIGRADE_SHOES_FILE, "glow_shoes_emissive", offset_spokesman = src, alpha = src.alpha)
+		return
+	// NOVA EDIT ADDITION END
 	. += emissive_appearance('icons/obj/clothing/shoes.dmi', "glow_shoes_emissive", offset_spokesman = src, alpha = src.alpha)
 
 /obj/item/clothing/shoes/saints
@@ -100,9 +118,11 @@
 /obj/item/clothing/shoes/jester_shoes
 	name = "jester shoes"
 	desc = "Shoes that jingle with every step!!"
-	icon_state = "jester_map"
 	inhand_icon_state = null
 	greyscale_colors = "#00ff00#ff0000"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/jester_shoes"
+	post_init_icon_state = "jester_map"
 	greyscale_config = /datum/greyscale_config/jester_shoes
 	greyscale_config_worn = /datum/greyscale_config/jester_shoes/worn
 	flags_1 = IS_PLAYER_COLORABLE_1

@@ -230,11 +230,11 @@
 /obj/item/clothing/under/rank/prisoner
 	name = "prison jumpsuit"
 	desc = "Standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position."
-	icon_state = "jumpsuit"
-	icon_preview = 'icons/obj/fluff/previews.dmi'
-	icon_state_preview = "prisonsuit"
 	inhand_icon_state = "jumpsuit"
 	greyscale_colors = "#ff8300"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/prisoner"
+	post_init_icon_state = "jumpsuit"
 	greyscale_config = /datum/greyscale_config/jumpsuit/prison
 	greyscale_config_worn = /datum/greyscale_config/jumpsuit/prison/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit/prison/inhand_left
@@ -248,14 +248,15 @@
 	desc = "Standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"OFF\" position."
 	has_sensor = NO_SENSORS
 	sensor_mode = SENSOR_OFF
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/clothing/under/rank/prisoner/skirt
 	name = "prison jumpskirt"
 	desc = "Standardised Nanotrasen prisoner-wear. Its suit sensors are stuck in the \"Fully On\" position."
-	icon_state = "jumpskirt"
-	icon_preview = 'icons/obj/fluff/previews.dmi'
-	icon_state_preview = "prisonskirt"
 	greyscale_colors = "#ff8300"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/rank/prisoner/skirt"
+	post_init_icon_state = "jumpskirt"
 	greyscale_config = /datum/greyscale_config/jumpsuit/prison
 	greyscale_config_worn = /datum/greyscale_config/jumpsuit/prison/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/jumpsuit/prison/inhand_left
