@@ -9,6 +9,7 @@
 		"whiteship": "whiteship_tram",
 		"emergency": "emergency_nebula"
 	},
+	"exclude_from_ci": true,
 	"traits": [
 		{
 			"Up": true,
