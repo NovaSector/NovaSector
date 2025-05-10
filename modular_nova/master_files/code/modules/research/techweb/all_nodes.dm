@@ -52,6 +52,7 @@
 		"synth_liver",
 		"synth_lungs",
 		"synth_stomach",
+		"synth_charger",
 		"synth_ears",
 		"synth_heart",
 	)

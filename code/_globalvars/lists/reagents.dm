@@ -191,6 +191,10 @@ GLOBAL_LIST_INIT(plant_traits, init_plant_traits())
 	var/list/name_to_reagent = list()
 	var/list/only_names = list()
 	for (var/datum/reagent/reagent as anything in GLOB.chemical_reagents_list)
+		// NOVA EDIT ADDITION BEGIN
+		if(initial(reagent.chemical_flags) & REAGENT_NEUROWARE)
+			continue
+		// NOVA EDIT ADDITION END
 		var/name = initial(reagent.name)
 		if (length(name))
 			name_to_reagent[name] = reagent
