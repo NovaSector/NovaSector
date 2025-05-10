@@ -61942,7 +61942,7 @@
 /area/station/service/library/printer)
 "lSz" = (
 /obj/machinery/door/poddoor/shutters{
-	id = "teleporterhubshutters";
+	id = "teleportershutters";
 	name = "Teleporter Shutters"
 	},
 /obj/effect/turf_decal/delivery,
@@ -74091,7 +74091,7 @@
 /obj/machinery/button/door/directional/north{
 	id = "chem_lockdown";
 	name = "chemistry lockdown control";
-	req_access = list("chemistry")
+	req_access = list("plumbing")
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -88876,7 +88876,8 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/window/left/directional/east{
-	name = "'Monkey Pen"
+	name = "Monkey Pen";
+	req_access = list("genetics")
 	},
 /turf/open/floor/grass,
 /area/station/science/genetics)
