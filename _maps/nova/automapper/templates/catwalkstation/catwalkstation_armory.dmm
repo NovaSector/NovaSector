@@ -1,0 +1,109 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/item/clothing/suit/hooded/ablative{
+	pixel_x = 1
+	},
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/left/directional/north{
+	name = "Ablative Trenchcoat"
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/turf_decal/trimline/red/filled/mid_joiner{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/item/gun/energy/temperature/security,
+/obj/item/gun/energy/ionrifle{
+	pixel_y = -6
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/ai_monitored/security/armory)
+"p" = (
+/obj/structure/rack,
+/obj/machinery/airalarm/directional/west,
+/obj/effect/spawner/armory_spawn/shotguns,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/ai_monitored/security/armory)
+"x" = (
+/obj/machinery/requests_console/directional/north{
+	department = "Security";
+	name = "Security Requests Console";
+	pixel_x = -30;
+	pixel_y = 0
+	},
+/obj/effect/mapping_helpers/requests_console/supplies,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/structure/rack/gunrack,
+/obj/effect/spawner/armory_spawn/mod_lasers_small,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/ai_monitored/security/armory)
+"F" = (
+/obj/machinery/newscaster/directional/west,
+/obj/machinery/camera/motion{
+	c_tag = "Armory - Internal";
+	dir = 8
+	},
+/obj/structure/rack/gunrack,
+/obj/effect/spawner/armory_spawn/mod_lasers_big,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/ai_monitored/security/armory)
+"L" = (
+/obj/structure/table,
+/obj/item/radio/intercom/directional/west,
+/obj/machinery/light/small/directional/west,
+/obj/effect/spawner/armory_spawn/smg,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/ai_monitored/security/armory)
+
+(1,1,1) = {"
+a
+x
+F
+L
+a
+p
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+b
+"}
