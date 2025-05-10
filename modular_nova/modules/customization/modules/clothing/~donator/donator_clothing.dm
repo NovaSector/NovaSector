@@ -2234,6 +2234,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	greyscale_config_worn = /datum/greyscale_config/chokha/worn
 	greyscale_colors = "#1c1c1c#491618#1c1c1c#491618"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	support_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 //donator reward for Desminus
 
