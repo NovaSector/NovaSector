@@ -23,11 +23,16 @@
 	},
 /obj/effect/landmark/navigate_destination,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/large,
 /area/station/common/cryopods)
 "g" = (
 /obj/effect/turf_decal/siding,
 /obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "i" = (
@@ -46,6 +51,9 @@
 /area/station/common/cryopods)
 "r" = (
 /obj/effect/turf_decal/siding,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "u" = (
@@ -61,6 +69,19 @@
 /area/station/common/cryopods)
 "B" = (
 /obj/structure/cable,
+/turf/template_noop,
+/area/template_noop)
+"C" = (
+/obj/effect/turf_decal/siding,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/white,
+/area/station/common/cryopods)
+"D" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/template_noop,
 /area/template_noop)
 "H" = (
@@ -141,9 +162,9 @@ i
 q
 P
 a
-g
+C
 f
-B
+D
 B
 "}
 (5,1,1) = {"

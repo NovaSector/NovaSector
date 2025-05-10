@@ -57,6 +57,7 @@
 /obj/effect/turf_decal/tile/purple,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "o" = (
@@ -80,7 +81,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/template_noop)
+/area/station/hallway/primary/port)
 "s" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -102,6 +103,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plating,
 /area/station/service/barber)
 "x" = (
@@ -186,6 +188,7 @@
 	},
 /obj/effect/turf_decal/tile/purple,
 /obj/machinery/light/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 "W" = (
@@ -196,12 +199,25 @@
 /obj/effect/landmark/start/barber,
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
+"X" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/barber)
 "Z" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/barber)
 
@@ -230,7 +246,7 @@ o
 (3,1,1) = {"
 a
 m
-D
+X
 W
 D
 Z
