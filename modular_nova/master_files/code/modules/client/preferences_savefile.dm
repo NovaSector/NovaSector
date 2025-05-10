@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 12
+#define MODULAR_SAVEFILE_VERSION_MAX 13
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -18,6 +18,7 @@
 #define VERSION_TG_EMOTE_SOUNDS 9
 #define VERSION_CAT_EARS_DUPES 10
 #define VERSION_LOADOUT_PRESETS 12
+#define VERSION_EMO_LONG_REMOVAL 13
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -300,6 +301,11 @@
 	if(current_version < VERSION_LOADOUT_PRESETS)
 		write_preference(GLOB.preference_entries[/datum/preference/loadout], list("Default" = save_data["loadout_list"]))
 
+	if(current_version < VERSION_EMO_LONG_REMOVAL)
+		var/current_hair = save_data["hairstyle_name"]
+		if(current_hair == "Emo Long")
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/hairstyle], "Long Emo")
+
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, boxed_message(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
@@ -385,3 +391,4 @@
 #undef VERSION_TG_EMOTE_SOUNDS
 #undef VERSION_CAT_EARS_DUPES
 #undef VERSION_LOADOUT_PRESETS
+#undef VERSION_EMO_LONG_REMOVAL
