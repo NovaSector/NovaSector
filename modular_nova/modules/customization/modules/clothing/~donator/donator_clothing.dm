@@ -720,8 +720,7 @@
 
 /obj/item/clothing/neck/inferno_collar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(/obj/item/food/cookie)
+	create_storage(storage_type = /datum/storage/collar)
 	if(treat_path)
 		new treat_path(src)
 

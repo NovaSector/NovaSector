@@ -312,6 +312,12 @@
 /obj/effect/mapping_helpers/no_lava,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
+"dU" = (
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/obj/effect/mapping_helpers/no_lava,
+/obj/structure/war_horn,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
 "ed" = (
 /obj/structure/chair/stool/bamboo{
 	dir = 8
@@ -3072,6 +3078,22 @@
 /obj/structure/rack/wooden,
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /obj/effect/mapping_helpers/no_lava,
+/obj/item/blowing_horn{
+	pixel_x = 4
+	},
+/obj/item/blowing_horn{
+	pixel_x = 2
+	},
+/obj/item/blowing_horn,
+/obj/item/blowing_horn{
+	pixel_x = -2
+	},
+/obj/item/blowing_horn{
+	pixel_x = -4
+	},
+/obj/item/blowing_horn{
+	pixel_x = -6
+	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/ash_walkers)
 "SV" = (
@@ -4395,7 +4417,7 @@ Ie
 JC
 JC
 JC
-kf
+dU
 CV
 ed
 hE

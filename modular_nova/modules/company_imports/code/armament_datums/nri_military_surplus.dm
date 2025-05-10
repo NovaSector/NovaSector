@@ -20,22 +20,18 @@
 /datum/armament_entry/company_import/nri_surplus/clothing/helmet
 	item_type = /obj/item/clothing/head/helmet/cin_surplus_helmet/random_color
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/vest
 	item_type = /obj/item/clothing/suit/armor/vest/cin_surplus_vest
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/space_suit
 	item_type = /obj/item/clothing/suit/space/voskhod
 	cost = PAYCHECK_COMMAND*3
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/space_helmet
 	item_type = /obj/item/clothing/head/helmet/space/voskhod
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_uniform
 	item_type = /obj/item/clothing/under/colonial/nri_police
@@ -45,7 +41,6 @@
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_jacket
 	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_suit_jacket
 	item_type = /obj/item/clothing/suit/armor/vest/nri_police_jacket/suit
@@ -65,12 +60,10 @@
 /datum/armament_entry/company_import/nri_surplus/clothing/police_vest
 	item_type = /obj/item/clothing/head/helmet/nri_police
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 /datum/armament_entry/company_import/nri_surplus/clothing/police_helmet
 	item_type = /obj/item/clothing/suit/armor/vest/nri_police
 	cost = PAYCHECK_COMMAND
-	restricted = TRUE
 
 // Random surplus store tier stuff, flags, old rations, multitools you'll never use, so on
 
