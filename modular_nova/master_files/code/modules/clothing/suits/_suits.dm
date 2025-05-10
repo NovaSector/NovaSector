@@ -19,6 +19,9 @@
 /obj/item/clothing/suit/space
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/spacesuit_digi.dmi'
 
+/obj/item/clothing/suit/syndicatefake
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/spacesuit_digi.dmi'
+
 /obj/item/clothing/suit/chaplainsuit
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
 
