@@ -116,7 +116,8 @@
 	if(outfit_id)
 		outfit_id.registered_account = new()
 		outfit_id.registered_account.replaceable = FALSE
-
+		id_card.registered_name = user.real_name
+		id_card.update_label()
 		SSid_access.apply_trim_to_card(outfit_id, /datum/id_trim/bit_avatar)
 
 	subrunner.AddComponent( \
