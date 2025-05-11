@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {
   Box,
   Button,
+  Collapsible,
   Flex,
   NoticeBox,
   NumberInput,
@@ -22,27 +23,18 @@ import { Window } from '../layouts';
 export const AmmoWorkbench = (props) => {
   const [tab, setTab] = useSharedState('tab', 1);
   return (
-    <Window
-      width={600}
-      height={600}
-      theme="hackerman"
-      title="Ammunitions Workbench"
-    >
+    <Window width={600} height={600} title="Ammunitions Workbench">
       <Window.Content scrollable>
-        <Tabs>
+        <Tabs fluid textAlign="center">
           <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
-            Ammunitions
+            Ammunition
           </Tabs.Tab>
           <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
             Materials
           </Tabs.Tab>
-          <Tabs.Tab selected={tab === 3} onClick={() => setTab(3)}>
-            Datadisks
-          </Tabs.Tab>
         </Tabs>
         {tab === 1 && <AmmunitionsTab />}
         {tab === 2 && <MaterialsTab />}
-        {tab === 3 && <DatadiskTab />}
       </Window.Content>
     </Window>
   );
@@ -53,7 +45,6 @@ export const AmmunitionsTab = (props) => {
   const {
     mag_loaded,
     system_busy,
-    hacked,
     error,
     error_type,
     mag_name,
@@ -63,6 +54,9 @@ export const AmmunitionsTab = (props) => {
     efficiency,
     time,
     caliber,
+    datadisk_loaded,
+    datadisk_name,
+    datadisk_points,
     available_rounds = [],
   } = data;
   return (
@@ -88,7 +82,7 @@ export const AmmunitionsTab = (props) => {
           checked={turboBoost}
           onClick={() => act('turboBoost')}
         >
-          Turbo Boost
+          Overclock
         </Button.Checkbox>
       </Section>
       <Section
@@ -151,13 +145,40 @@ export const AmmunitionsTab = (props) => {
           </Flex.Item>
         )}
       </Section>
-      {!!hacked && (
-        <NoticeBox textAlign="center" color="bad">
-          !WARNING! - ARMADYNE SAFETY PROTOCOLS ARE NOT ENGAGED! MISUSE IS NOT
-          COVERED UNDER WARRANTY. SOME MUNITION TYPES MAY CONSTITUTE A WAR CRIME
-          IN YOUR AREA. PLEASE CONTACT AN ARMADYNE ADMINISTRATOR IMMEDIATELY.
-        </NoticeBox>
-      )}
+      <Section
+        title="Module Management"
+        buttons={
+          <Button
+            icon="eject"
+            content="Eject"
+            disabled={!datadisk_loaded}
+            onClick={() => act('EjectDisk')}
+          />
+        }
+      >
+        {!!datadisk_loaded && <Box>Loaded Module: {datadisk_name}</Box>}
+        {!!datadisk_loaded && <Box>Points Left: {datadisk_points}</Box>}
+        <Collapsible title="Owner's Manual">
+          <Section color="label">
+            The ammunition workbench, by default, can print basic non-lethal
+            ammunition (e.g. rubber bullets, IHDF).
+            <br />
+            <br />
+            License modules can be purchased from Cargo or printed with
+            sufficient research, enabling the printing of other ammunition
+            variants, such as lethal, armor-piercing, or hollow-point
+            ammunition. Each module have a limited number of usage points, with
+            different ammunition having different point costs.
+            <br />
+            <br />
+            These modules are <b>reusable</b> and can have their license points
+            recharged with <b>authenticators</b>, which are&nbsp;
+            <b>much cheaper</b> than individual modules. These can be purchased
+            from Cargo or printed from techfabs with the proper technology
+            researched.
+          </Section>
+        </Collapsible>
+      </Section>
     </>
   );
 };
@@ -168,79 +189,22 @@ export const MaterialsTab = (props) => {
   return (
     <Section title="Materials">
       <Table>
-        {materials.map((material) => (
-          <MaterialRow
-            key={material.id}
-            material={material}
-            onRelease={(amount) =>
-              act('Release', {
-                id: material.id,
-                sheets: amount,
-              })
-            }
-          />
-        ))}
+        {materials
+          .filter((material) => material.amount > 0)
+          .map((material) => (
+            <MaterialRow
+              key={material.id}
+              material={material}
+              onRelease={(amount) =>
+                act('Release', {
+                  id: material.id,
+                  sheets: amount,
+                })
+              }
+            />
+          ))}
       </Table>
     </Section>
-  );
-};
-
-export const DatadiskTab = (props) => {
-  const { act, data } = useBackend();
-  const {
-    loaded_datadisks = [],
-    datadisk_loaded,
-    datadisk_name,
-    datadisk_desc,
-    disk_error,
-    disk_error_type,
-  } = data;
-  return (
-    <>
-      {!!disk_error && (
-        <NoticeBox textAlign="center" color={disk_error_type}>
-          {disk_error}
-        </NoticeBox>
-      )}
-      <Section
-        title="Datadisk"
-        buttons={
-          <>
-            <Button
-              icon="save"
-              content="Load Disk"
-              disabled={!datadisk_loaded}
-              onClick={() => act('ReadDisk')}
-            />
-            <Button
-              icon="eject"
-              content="Eject"
-              disabled={!datadisk_loaded}
-              onClick={() => act('EjectDisk')}
-            />
-          </>
-        }
-      >
-        {!!datadisk_loaded && (
-          <Box>
-            Inserted Datadisk: {datadisk_name}
-            <Box>Description: {datadisk_desc}</Box>
-          </Box>
-        )}
-      </Section>
-      <Section title="Loaded Datadisks">
-        <Table>
-          {loaded_datadisks.map((loaded_datadisk) => (
-            <Box key={loaded_datadisk.loaded_disk_name}>
-              {loaded_datadisk.loaded_disk_name}
-              <Box textAlign="right">
-                Description: {loaded_datadisk.loaded_disk_desc}
-              </Box>
-            </Box>
-          ))}
-        </Table>
-      </Section>
-    </>
   );
 };
 
@@ -266,7 +230,7 @@ const MaterialRow = (props) => {
           minValue={1}
           maxValue={50}
           value={amount}
-          onChange={(e, value) => setAmount(value)}
+          onChange={(value) => setAmount(value)}
         />
         <Button
           disabled={amountAvailable < 1}

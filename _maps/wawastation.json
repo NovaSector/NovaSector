@@ -10,6 +10,7 @@
 		"whiteship": "whiteship_meta",
 		"emergency": "emergency_wawa"
 	},
+	"exclude_from_ci": true,
 	"traits": [
 		{
 			"Baseturf": "/turf/open/misc/asteroid/airless",
