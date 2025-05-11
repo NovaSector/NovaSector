@@ -77,10 +77,10 @@
 		. += "It has an extracted RNA sample in it."
 
 /obj/item/rna_extractor/Destroy()
-	. = ..()
 	if(loaded_vial)
 		loaded_vial.forceMove(loc)
 		loaded_vial = null
+	return ..()
 
 /obj/item/rna_vial
 	name = "raw RNA vial"
@@ -168,7 +168,7 @@
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
-	. = ..()
+	return ..()
 
 /obj/machinery/rnd/rna_recombinator/attackby(obj/item/weapon, mob/living/user, params)
 	if(user.combat_mode)

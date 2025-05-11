@@ -171,6 +171,22 @@
 //Modular overide to give jackboots laces
 /obj/item/clothing/shoes/jackboots
 	fastening_type = SHOES_STRAPS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/combat
+	fastening_type = SHOES_STRAPS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/workboots
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/russian
+	fastening_type = SHOES_STRAPS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/winterboots
+	fastening_type = SHOES_STRAPS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"

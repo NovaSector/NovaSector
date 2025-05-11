@@ -319,6 +319,7 @@
 		computer_id_slot.forceMove(drop_location())
 
 	computer_id_slot = null
+	SEND_SIGNAL(src, COMSIG_MODULAR_COMPUTER_REMOVED_ID, computer_id_slot, user) // NOVA EDIT ADDITION - Signal on ID removal
 
 	if(!silent && !isnull(user))
 		to_chat(user, span_notice("You remove the card from the card slot."))
@@ -901,6 +902,7 @@
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "inserted paper")
 	qdel(new_paper)
+	playsound(src, 'sound/machines/computer/paper_insert.ogg', 40, vary = TRUE)
 	stored_paper++
 	return ITEM_INTERACT_SUCCESS
 
@@ -917,6 +919,7 @@
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "inserted paper")
 	to_chat(user, span_notice("Added in [papers_added] new sheets. You now have [stored_paper] / [max_paper] printing paper stored."))
+	playsound(src, 'sound/machines/computer/paper_insert.ogg', 40, vary = TRUE)
 	bin.update_appearance()
 	return ITEM_INTERACT_SUCCESS
 

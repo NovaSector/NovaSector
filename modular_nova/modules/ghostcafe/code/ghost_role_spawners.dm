@@ -106,12 +106,12 @@
 	name = "cafe costuming kit"
 	desc = "Look just the way you did in life - or better!"
 	icon_state = "ghostcostuming"
+	storage_type = /datum/storage/chameleon_cafe
 
-/obj/item/storage/box/syndie_kit/chameleon/ghostcafe/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_HUGE // This is ghost cafe only, balance is not given a shit about.
-	atom_storage.max_slots = 14 // Holds all the starting stuff, plus a bit of change.
-	atom_storage.max_total_storage = 50 // To actually acommodate the stuff being added.
+/datum/storage/chameleon_cafe
+	max_specific_storage = WEIGHT_CLASS_HUGE // This is ghost cafe only, balance is not given a shit about.
+	max_slots = 14 // Holds all the starting stuff, plus a bit of change.
+	max_total_storage = 50 // To actually acommodate the stuff being added.
 
 /obj/item/storage/box/syndie_kit/chameleon/ghostcafe/PopulateContents() // Doesn't contain a PDA, for isolation reasons.
 	new /obj/item/clothing/under/chameleon(src)
