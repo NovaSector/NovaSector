@@ -236,7 +236,7 @@
 					language_list += initial(language.name)
 
 				if(user.GetComponent(/datum/component/sign_language))
-					language_list += list("Sign Language")
+					language_list += list("Galactic Standard Sign Language")
 
 				if(length(language_list) < 1 || current_lang < SKILL_LEVEL_MASTER)
 					to_chat(user, span_warning("You are not a master at languages, and therefore cannot write books teaching languages."))
@@ -253,7 +253,7 @@
 
 				to_chat(user, span_notice("You finish writing inside the book about your language."))
 				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
-				if(language_choice == "Sign Language")
+				if(language_choice == "Galactic Standard Sign Language")
 					teach_sign = TRUE
 
 				else
