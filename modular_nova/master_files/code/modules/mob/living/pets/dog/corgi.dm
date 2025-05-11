@@ -95,13 +95,13 @@
 
 	harass_target(target, always_shoot = TRUE)
 
-/mob/living/basic/pet/dog/corgi/borgi/proc/on_hitby(datum/source, obj/item/used_item)
+/mob/living/basic/pet/dog/corgi/borgi/proc/on_hitby(datum/source, atom/movable/thrown_movable, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
 
-	if(!istype(used_item) || used_item.throwforce < 5 || health <= 0)
+	if(!istype(thrown_movable) || thrown_movable.throwforce < 5 || health <= 0)
 		return
 
-	var/mob/living/carbon/human/thrown_by = used_item.thrownby?.resolve()
+	var/mob/living/carbon/human/thrown_by = throwingdatum.get_thrower()
 	if(!ishuman(thrown_by))
 		return
 

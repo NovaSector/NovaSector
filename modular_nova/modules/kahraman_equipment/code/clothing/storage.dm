@@ -43,14 +43,20 @@
 	worn_icon_state = "harness"
 	inhand_icon_state = null
 	resistance_flags = FIRE_PROOF
+	storage_type = /datum/storage/frontier_belt
 
 /obj/item/storage/belt/utility/frontier_colonist/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
-	atom_storage.max_slots = 6
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+
+/datum/storage/frontier_belt
+	max_slots = 6
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+
+/datum/storage/frontier_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
 	// Can hold whatever a toolbelt can + some mining equipment for convenience
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/airlock_painter,
 		/obj/item/analyzer,
 		/obj/item/assembly/signaler,

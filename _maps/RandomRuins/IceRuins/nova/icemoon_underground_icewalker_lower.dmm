@@ -1064,6 +1064,22 @@
 	pixel_x = 11
 	},
 /obj/structure/wall_torch/spawns_lit/directional/west,
+/obj/item/blowing_horn{
+	pixel_x = 4
+	},
+/obj/item/blowing_horn{
+	pixel_x = 2
+	},
+/obj/item/blowing_horn,
+/obj/item/blowing_horn{
+	pixel_x = -2
+	},
+/obj/item/blowing_horn{
+	pixel_x = -4
+	},
+/obj/item/blowing_horn{
+	pixel_x = -6
+	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_catgirl_den)
 "xI" = (

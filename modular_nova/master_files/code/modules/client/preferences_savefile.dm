@@ -80,8 +80,6 @@
 		migrate_nova(save_data)
 		addtimer(CALLBACK(src, PROC_REF(check_migration)), 10 SECONDS)
 
-	headshot = save_data["headshot"]
-
 
 	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
 
@@ -319,7 +317,6 @@
 	save_data["allow_advanced_colors"] = allow_advanced_colors
 	save_data["alt_job_titles"] = alt_job_titles
 	save_data["languages"] = languages
-	save_data["headshot"] = headshot
 	save_data["modular_version"] = MODULAR_SAVEFILE_VERSION_MAX
 	save_data["food_preferences"] = food_preferences
 
