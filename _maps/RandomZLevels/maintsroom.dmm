@@ -9398,7 +9398,7 @@
 	},
 /mob/living/basic/skeleton/templar,
 /turf/open/floor/iron/chapel{
-	dir = 8
+	dir = 1
 	},
 /area/awaymission/caves/maintsroom)
 "Kr" = (
@@ -11996,6 +11996,13 @@
 	spawn_scatter_radius = 1
 	},
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"Uq" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal/bin,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Ur" = (
 /mob/living/basic/evilborgs/evilborg/heavy{
@@ -16272,7 +16279,7 @@ jR
 XZ
 Il
 Il
-nI
+Il
 Il
 zX
 UF
@@ -16488,9 +16495,9 @@ uh
 jR
 xw
 Il
-nI
+Il
 CX
-nI
+Il
 gl
 mh
 UF
@@ -16706,7 +16713,7 @@ jR
 ZS
 Il
 Il
-nI
+Il
 Il
 gl
 gl
@@ -26881,7 +26888,7 @@ GS
 GS
 GS
 GS
-BB
+Uq
 HB
 GS
 BB
