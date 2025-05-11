@@ -90,7 +90,7 @@
 		. += span_notice("This book can teach you sign language.")
 
 	if(!(taught_skill || taught_language || teach_sign))
-		. += span_notice("Pondering about yet to be filled pages can give you insights in <b>Language skill<b>")
+		. += span_notice("Pondering about yet to be filled pages can give you insights in <b>Language skill<b>.")
 
 	. += span_notice("Using a pen will allow you to impart your knowledge about language or skills to the book!")
 
