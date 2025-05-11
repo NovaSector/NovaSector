@@ -20,12 +20,11 @@ export const NtosRecords = (props) => {
         </Section>
         <Section>
           <Input
-            placeholder="Filter results..."
+            placeholder={'Filter results...'}
             value={searchTerm}
             fluid
             textAlign="center"
-            onChange={setSearchTerm}
-            expensive
+            onChange={(e, value) => setSearchTerm(value)}
           />
         </Section>
         {mode === 'security' &&

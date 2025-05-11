@@ -75,9 +75,6 @@
 			mmi.update_appearance()
 		setup_default_name()
 
-		if(mmi.brainmob)
-			gender = mmi.brainmob.gender
-
 	aicamera = new/obj/item/camera/siliconcam/robot_camera(src)
 	toner = tonermax
 	diag_hud_set_borgcell()
@@ -907,8 +904,6 @@
 		builtInCamera.c_tag = real_name //update the camera name too
 	mainframe = AI
 	deployed = TRUE
-	if(AI.client)
-		set_gender(AI.client)
 	set_connected_ai(mainframe)
 	mainframe.connected_robots |= src
 	lawupdate = TRUE

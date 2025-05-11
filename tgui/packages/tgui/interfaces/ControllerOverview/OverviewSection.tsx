@@ -37,14 +37,15 @@ export function OverviewSection(props) {
             Fast
           </Button>
           <Button.Input
-            buttonText={`Average: ${(rolling_length / 10).toFixed(2)} Second(s)`}
-            value={(rolling_length / 10).toString()}
-            onCommit={(value) => {
+            currentValue={(rolling_length / 10).toString()}
+            onCommit={(e, value) => {
               act('set_rolling_length', {
                 rolling_length: value,
               });
             }}
-          />
+          >
+            Average: {rolling_length / 10} Second(s)
+          </Button.Input>
         </>
       }
     >

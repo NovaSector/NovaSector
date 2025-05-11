@@ -71,9 +71,8 @@ const MainScreen = (props: any) => {
               <Input
                 fluid
                 value={networkId}
-                onChange={setNetworkId}
+                onChange={(_, value) => setNetworkId(value)}
                 placeholder="Enter Network ID..."
-                onEnter={() => act('probe', { id: networkId })}
               />
             </Stack.Item>
             <Stack.Item>
@@ -212,7 +211,7 @@ const MachineList = (props: MachineListProps) => {
                 value={search}
                 verticalAlign="middle"
                 placeholder="Enter machine ID..."
-                onChange={setSearch}
+                onChange={(_e, value) => setSearch(value)}
               />
             </Stack.Item>
           )}

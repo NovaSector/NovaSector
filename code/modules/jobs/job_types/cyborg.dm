@@ -26,9 +26,10 @@
 	. = ..()
 	if(!iscyborg(spawned))
 		return
+	spawned.gender = NEUTER
 	var/mob/living/silicon/robot/robot_spawn = spawned
 	robot_spawn.notify_ai(AI_NOTIFICATION_NEW_BORG)
-	// NOVA EDIT ADDITION START
+	//NOVA EDIT START
 	var/list/malf_ais = list()
 	var/list/regular_ais = list()
 	for(var/mob/living/silicon/ai/ai_possible as anything in GLOB.ai_list)
@@ -53,9 +54,7 @@
 		robot_spawn.lawsync()
 		robot_spawn.lawupdate = TRUE
 		robot_spawn.show_laws()
-	// NOVA EDIT ADDITION END
-	if(player_client)
-		robot_spawn.set_gender(player_client)
+	//NOVA EDIT END
 	if(!robot_spawn.connected_ai) // Only log if there's no Master AI
 		robot_spawn.log_current_laws()
 

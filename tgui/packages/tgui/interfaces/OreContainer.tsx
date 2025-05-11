@@ -45,10 +45,12 @@ export const OreContainer = (props) => {
                 mt={0.5}
                 bottom="5%"
                 height="20px"
+                width="150px"
                 placeholder="Search Ore..."
                 value={searchItem}
-                onChange={setSearchItem}
-                expensive
+                onInput={(e, value) => {
+                  setSearchItem(value);
+                }}
                 fluid
               />
             </Section>

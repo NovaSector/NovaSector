@@ -94,7 +94,11 @@ export function PresetsPage(props) {
       {editing && (
         <Stack vertical>
           <Stack.Item>
-            <Input autoFocus onChange={setName} placeholder="Preset Name" />
+            <Input
+              autoFocus
+              onChange={(e, value) => setName(value)}
+              placeholder="Preset Name"
+            />
             <Button
               icon="check"
               inline

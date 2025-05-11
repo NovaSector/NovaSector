@@ -6,11 +6,11 @@
 */
 
 /obj/item/ammo_box/c9mm/rubber
-	name = "9mm rubber box"
+	name = "9x25mm rubber box"
 	ammo_type = /obj/item/ammo_casing/c9mm/rubber
 
 /obj/item/ammo_box/c9mm/ihdf
-	name = "9mm IHDF box"
+	name = "9x25mm IHDF box"
 	ammo_type = /obj/item/ammo_casing/c9mm/ihdf
 
 /*
@@ -18,9 +18,9 @@
 */
 
 /obj/item/ammo_box/c10mm/rubber
-	name = "10mm rubber box"
+	name = "10mm auto rubber box"
 	ammo_type = /obj/item/ammo_casing/c10mm/rubber
 
 /obj/item/ammo_box/c10mm/ihdf
-	name = "ammo box (10mm IHDF)"
+	name = "peacekeeper ammo box (10mm ihdf)"
 	ammo_type = /obj/item/ammo_casing/c10mm/ihdf

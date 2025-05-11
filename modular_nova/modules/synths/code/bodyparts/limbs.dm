@@ -392,6 +392,10 @@
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
+/obj/item/bodypart/leg/left/synth/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	check_mutant_compatability()
+
 /datum/design/synth_l_d_leg
 	name = "Android Digitigrade Left Leg Base"
 	id = "synth_l_d_leg"
@@ -412,6 +416,10 @@
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
+
+/obj/item/bodypart/leg/right/synth/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	check_mutant_compatability()
 
 /datum/design/synth_r_d_leg
 	name = "Android Digitigrade Right Leg Base"

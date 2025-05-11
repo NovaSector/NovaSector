@@ -308,7 +308,7 @@ const PetDetails = ({
               width="220px"
               maxLength={30}
               value={selectedName}
-              onChange={setSelectedName}
+              onInput={(_, value) => setSelectedName(value)}
               style={{ borderRadius: '1em' }}
             />
           </Stack.Item>
@@ -371,11 +371,11 @@ const TrickSequence = ({
     title={TrickName}
     buttons={
       <Button.Input
-        buttonText="Rename"
         color="transparent"
-        onCommit={setTrickName}
-        value={TrickName}
-      />
+        onCommit={(_, value) => setTrickName(value)}
+      >
+        Rename
+      </Button.Input>
     }
   >
     <Box ml={2}>

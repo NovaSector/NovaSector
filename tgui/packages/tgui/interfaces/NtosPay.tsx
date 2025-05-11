@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Box,
   Button,
@@ -27,6 +26,7 @@ type Transactions = {
   adjusted_money: number;
   reason: string;
 };
+let name_to_token, money_to_send, token;
 
 export const NtosPay = (props) => {
   return (
@@ -88,11 +88,6 @@ const TransferSection = (props) => {
   const { act, data } = useBackend<Data>();
   const { money, wanted_token } = data;
 
-  const [token, setToken] = useState('');
-  const [moneyToSend, setMoneyToSend] = useState(1);
-  const [nameToToken, setNameToToken] = useState('');
-  const [moneyToSendIsValid, setMoneyToSendIsValid] = useState(true);
-
   return (
     <Stack>
       <Stack.Item>
@@ -105,7 +100,7 @@ const TransferSection = (props) => {
               <Input
                 placeholder="Pay Token"
                 width="190px"
-                onChange={setToken}
+                onChange={(e, value) => (token = value)}
               />
             </Tooltip>
           </Box>
@@ -117,22 +112,19 @@ const TransferSection = (props) => {
               width="83px"
               minValue={1}
               maxValue={money}
-              onChange={setMoneyToSend}
-              onValidationChange={setMoneyToSendIsValid}
-              value={moneyToSend}
+              onChange={(_, value) => (money_to_send = value)}
+              value={1}
             />
           </Tooltip>
           <Button
-            disabled={!moneyToSendIsValid}
+            content="Send credits"
             onClick={() =>
               act('Transaction', {
                 token: token,
-                amount: moneyToSend,
+                amount: money_to_send,
               })
             }
-          >
-            Send credits
-          </Button>
+          />
         </Section>
       </Stack.Item>
       <Stack.Item>
@@ -141,17 +133,16 @@ const TransferSection = (props) => {
             <Input
               placeholder="Full name of account."
               width="190px"
-              onChange={setNameToToken}
+              onChange={(e, value) => (name_to_token = value)}
             />
             <Button
+              content="Get it"
               onClick={() =>
                 act('GetPayToken', {
-                  wanted_name: nameToToken,
+                  wanted_name: name_to_token,
                 })
               }
-            >
-              Get it
-            </Button>
+            />
           </Box>
           <Divider hidden />
           <Box nowrap>{wanted_token}</Box>

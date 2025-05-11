@@ -49,9 +49,8 @@ export function AiVoiceChanger(props) {
           </LabeledList.Item>
           <LabeledList.Item label="Verb">
             <Input
-              expensive
               value={say_verb}
-              onChange={(value) =>
+              onChange={(e, value) =>
                 act('verb', {
                   verb: value,
                 })
@@ -69,9 +68,8 @@ export function AiVoiceChanger(props) {
           </LabeledList.Item>
           <LabeledList.Item label="Fake name">
             <Input
-              expensive
               value={name}
-              onChange={(value) =>
+              onChange={(e, value) =>
                 act('name', {
                   name: value,
                 })

@@ -426,8 +426,7 @@ export function QuirksPage(props) {
               placeholder="Search quirks..."
               width="200px"
               value={searchQuery}
-              onChange={setSearchQuery}
-              expensive
+              onInput={(text, value) => setSearchQuery(value)}
             />
           </Stack.Item>
           <Stack.Item grow className="PreferencesMenu__Quirks__QuirkList">

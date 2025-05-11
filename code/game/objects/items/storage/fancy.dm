@@ -103,7 +103,10 @@
 	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 	custom_premium_price = PAYCHECK_COMMAND * 1.75
 	contents_tag = "donut"
-	storage_type = /datum/storage/donut
+
+/obj/item/storage/fancy/donut_box/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/food/donut)
 
 /obj/item/storage/fancy/donut_box/PopulateContents()
 	. = ..()
@@ -149,7 +152,10 @@
 	spawn_type = /obj/item/food/egg
 	spawn_count = 12
 	contents_tag = "egg"
-	storage_type = /datum/storage/egg_box
+
+/obj/item/storage/fancy/egg_box/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/food/egg)
 
 /*
  * Fertile Egg Box
@@ -179,7 +185,10 @@
 	spawn_count = 5
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 	contents_tag = "candle"
-	storage_type = /datum/storage/fancy_holder
+
+/obj/item/storage/fancy/candle_box/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/flashlight/flare/candle)
 
 ////////////
 //CIG PACK//
@@ -200,8 +209,6 @@
 	custom_price = PAYCHECK_CREW
 	age_restricted = TRUE
 	contents_tag = "cigarette"
-	storage_type = /datum/storage/cigarette_box
-
 	///for cigarette overlay
 	var/candy = FALSE
 	/// Does this cigarette packet come with a coupon attached?
@@ -227,7 +234,8 @@
 
 /obj/item/storage/fancy/cigarettes/Initialize(mapload)
 	. = ..()
-
+	atom_storage.display_contents = FALSE
+	atom_storage.set_holdable(list(/obj/item/cigarette, /obj/item/lighter))
 	register_context()
 
 /obj/item/storage/fancy/cigarettes/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -396,7 +404,10 @@
 	spawn_count = 10
 	custom_price = PAYCHECK_LOWER
 	has_open_closed_states = FALSE
-	storage_type = /datum/storage/fancy_holder
+
+/obj/item/storage/fancy/rollingpapers/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/rollingpaper)
 
 /obj/item/storage/fancy/rollingpapers/update_overlays()
 	. = ..()
@@ -474,7 +485,11 @@
 		/obj/item/food/bonbon/peanut_butter_cup,
 	)
 	spawn_count = 8
-	storage_type = /datum/storage/heart_box
+
+/obj/item/storage/fancy/heart_box/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/food/bonbon)
+
 
 /obj/item/storage/fancy/nugget_box
 	name = "nugget box"
@@ -486,7 +501,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	spawn_type = /obj/item/food/nugget
 	spawn_count = 6
-	storage_type = /datum/storage/fancy_holder
+
+/obj/item/storage/fancy/nugget_box/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/food/nugget)
 
 /*
  * Jar of pickles
@@ -505,7 +523,10 @@
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT)
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 	has_open_closed_states = FALSE
-	storage_type = /datum/storage/fancy_holder
+
+/obj/item/storage/fancy/pickles_jar/Initialize(mapload)
+	. = ..()
+	atom_storage.set_holdable(/obj/item/food/pickle)
 
 /obj/item/storage/fancy/pickles_jar/update_icon_state()
 	. = ..()
@@ -533,7 +554,16 @@
 	foldable_result = /obj/item/stack/sheet/mineral/wood
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 	has_open_closed_states = FALSE
-	storage_type = /datum/storage/coffee_condi_display
+
+/obj/item/storage/fancy/coffee_condi_display/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 14
+	atom_storage.set_holdable(list(
+		/obj/item/reagent_containers/condiment/pack/sugar,
+		/obj/item/reagent_containers/condiment/creamer,
+		/obj/item/reagent_containers/condiment/pack/astrotame,
+		/obj/item/reagent_containers/condiment/chocolate,
+	))
 
 /obj/item/storage/fancy/coffee_condi_display/update_overlays()
 	. = ..()

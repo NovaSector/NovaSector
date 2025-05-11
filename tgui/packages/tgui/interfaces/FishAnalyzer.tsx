@@ -84,12 +84,15 @@ export const FishAnalyzer = (props) => {
                   autoFocus
                   position="relative"
                   mt={0.5}
+                  bottom="5%"
                   height="20px"
+                  width="150px"
                   placeholder="Search Fish..."
                   value={searchText}
-                  onChange={setSearchText}
+                  onInput={(e, value) => {
+                    setSearchText(value);
+                  }}
                   fluid
-                  expensive
                 />
               </Section>
             </Stack.Item>

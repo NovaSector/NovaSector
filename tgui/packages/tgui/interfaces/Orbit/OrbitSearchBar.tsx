@@ -71,10 +71,9 @@ export function OrbitSearchBar(props) {
             autoFocus
             fluid
             onEnter={orbitMostRelevant}
-            onChange={setSearchQuery}
+            onInput={(event, value) => setSearchQuery(value)}
             placeholder="Search..."
             value={searchQuery}
-            expensive
           />
         </Stack.Item>
         <Stack.Divider />

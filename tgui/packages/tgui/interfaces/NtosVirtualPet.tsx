@@ -256,10 +256,11 @@ const PetTricks = (props) => {
       title={capitalize(TrickName)}
       buttons={
         <Button.Input
-          buttonText="Rename Trick"
           color="transparent"
-          onCommit={setTrickName}
-        />
+          onCommit={(_, value) => setTrickName(value)}
+        >
+          Rename Trick
+        </Button.Input>
       }
     >
       <LabeledList>
@@ -346,7 +347,7 @@ const Customization = (props) => {
               fluid
               maxLength={30}
               value={selectedName}
-              onChange={setSelectedName}
+              onInput={(_, value) => setSelectedName(value)}
             />
           </Section>
         </Stack.Item>

@@ -1,0 +1,4 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Increased the nunchakus cooldown from 0.8 to 2 seconds."

@@ -168,7 +168,7 @@ export const BotAnnouncement = (props) => {
           <Stack vertical>
             <Stack.Item>
               <Input
-                onChange={setSearch}
+                onInput={(event, newValue) => setSearch(newValue)}
                 fluid
                 autoFocus
                 placeholder="Search..."

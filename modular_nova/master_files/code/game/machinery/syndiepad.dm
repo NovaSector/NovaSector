@@ -12,10 +12,6 @@
  * Do not make this a subtype a subtype for the civilian bountypad it will break it
  */
 
-/obj/machinery/computer/piratepad_control
-	/// The market that the items are being sold to.
-	var/export_market = EXPORT_MARKET_PIRACY
-
 ///Pad for the Syndicate Bounty Control.
 /obj/item/circuitboard/machine/syndiepad
 	name = "Interdyne Sales Pad"
@@ -68,7 +64,6 @@
 	icon_keyboard = "syndie_key"
 	warmup_time = SYN_BOUNTY_PAD_WARM_TIME
 	circuit = /obj/item/circuitboard/computer/syndiepad
-	export_market = EXPORT_MARKET_STATION
 
 	/// The account to add balance
 	var/credits_account = ACCOUNT_INT

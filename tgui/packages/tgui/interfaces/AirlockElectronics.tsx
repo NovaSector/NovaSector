@@ -14,7 +14,7 @@ import { AccessConfig, Region } from './common/AccessConfig';
 type Data = {
   accesses: string[];
   oneAccess: BooleanLike;
-  passedCycleId: string;
+  passedCycleId: number;
   passedName: string;
   regions: Region[];
   shell: BooleanLike;
@@ -118,8 +118,7 @@ export function AirLockMainSection(props) {
                 fluid
                 maxLength={30}
                 value={passedName}
-                expensive
-                onChange={(value) =>
+                onChange={(e, value) =>
                   act('passedName', {
                     passedName: value,
                   })
@@ -131,8 +130,7 @@ export function AirLockMainSection(props) {
                 fluid
                 maxLength={30}
                 value={passedCycleId}
-                expensive
-                onChange={(value) =>
+                onChange={(e, value) =>
                   act('passedCycleId', {
                     passedCycleId: value,
                   })

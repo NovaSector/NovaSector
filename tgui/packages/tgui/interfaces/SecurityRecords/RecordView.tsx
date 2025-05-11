@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useBackend, useLocalState } from 'tgui/backend';
 import {
   Box,
@@ -76,8 +75,6 @@ const RecordInfo = (props) => {
     // NOVA EDIT END
   } = foundRecord;
 
-  const [isValid, setIsValid] = useState(true);
-
   const hasValidCrimes = !!crimes.find((crime) => !!crime.valid);
 
   return (
@@ -98,12 +95,11 @@ const RecordInfo = (props) => {
               </Stack.Item>
               <Stack.Item>
                 <Button.Confirm
+                  content="Delete"
                   icon="trash"
                   onClick={() => act('delete_record', { crew_ref: crew_ref })}
                   tooltip="Delete record data."
-                >
-                  Delete
-                </Button.Confirm>
+                />
               </Stack.Item>
             </Stack>
           }
@@ -163,15 +159,13 @@ const RecordInfo = (props) => {
               <RestrictedInput
                 minValue={min_age}
                 maxValue={max_age}
-                onEnter={(value) =>
-                  isValid &&
+                onEnter={(event, value) =>
                   act('edit_field', {
                     crew_ref: crew_ref,
                     field: 'age',
                     value: value,
                   })
                 }
-                onValidationChange={setIsValid}
                 value={age}
               />
             </LabeledList.Item>
@@ -180,7 +174,7 @@ const RecordInfo = (props) => {
               <RestrictedInput
                 minValue={min_age}
                 maxValue={max_chrono_age}
-                onEnter={(value) =>
+                onEnter={(event, value) =>
                   act('edit_field', {
                     crew_ref: crew_ref,
                     field: 'chrono_age',

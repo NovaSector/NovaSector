@@ -288,14 +288,15 @@ const AutolatheRecipe = (props: AutolatheRecipeProps) => {
       >
         <Button.Input
           color="transparent"
-          buttonText={`[Max: ${maxmult}]`}
-          onCommit={(value) =>
+          onCommit={(_e, value: string) =>
             act('make', {
               id: design.id,
               multiplier: value,
             })
           }
-        />
+        >
+          [Max: {maxmult}]
+        </Button.Input>
       </div>
     </div>
   );

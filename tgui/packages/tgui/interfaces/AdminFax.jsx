@@ -92,8 +92,8 @@ export const FaxMainPanel = (props) => {
             mb="5px"
             placeholder="Paper name..."
             value={paperName}
-            fluid
-            onChange={setPaperName}
+            width="100%"
+            onChange={(_, v) => setPaperName(v)}
           />
           <Button
             icon="n"
@@ -119,8 +119,8 @@ export const FaxMainPanel = (props) => {
               placeholder="From who..."
               tooltip="Name what be user in fax history"
               value={fromWho}
-              fluid
-              onChange={setFromWho}
+              width="100%"
+              onChange={(_, v) => setFromWho(v)}
             />
           </Tooltip>
           <Button
@@ -141,7 +141,9 @@ export const FaxMainPanel = (props) => {
             placeholder="Your message here..."
             height="200px"
             value={rawText}
-            onChange={setRawText}
+            onChange={(e, value) => {
+              setRawText(value);
+            }}
           />
         </Box>
         <Divider />
@@ -190,7 +192,7 @@ export const FaxMainPanel = (props) => {
                   minValue={0}
                   maxValue={360}
                   animated={false}
-                  onChange={setStampAngle}
+                  onChange={(_, v) => setStampAngle(v)}
                 />
               </Box>
             </Box>

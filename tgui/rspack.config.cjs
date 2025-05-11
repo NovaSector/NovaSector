@@ -38,7 +38,6 @@ module.exports = (env = {}, argv) => {
           directory: path.resolve(__dirname, '.yarn/rspack'),
         },
       },
-      css: true,
     },
     mode: mode === 'production' ? 'production' : 'development',
     context: path.resolve(__dirname),
@@ -79,6 +78,7 @@ module.exports = (env = {}, argv) => {
             {
               loader: 'builtin:swc-loader',
               options: {
+                isModule: 'unknown',
                 jsc: {
                   parser: {
                     syntax: 'typescript',
@@ -99,6 +99,12 @@ module.exports = (env = {}, argv) => {
           test: /\.(s)?css$/,
           use: [
             {
+              loader: rspack.CssExtractRspackPlugin.loader,
+            },
+            {
+              loader: require.resolve('css-loader'),
+            },
+            {
               loader: require.resolve('sass-loader'),
               options: {
                 api: 'modern-compiler',
@@ -106,7 +112,7 @@ module.exports = (env = {}, argv) => {
               },
             },
           ],
-          type: 'css',
+          type: 'javascript/auto',
         },
         {
           test: /\.(png|jpg)$/,
@@ -158,6 +164,10 @@ module.exports = (env = {}, argv) => {
         NODE_ENV: env.NODE_ENV || mode,
         WEBPACK_HMR_ENABLED: env.WEBPACK_HMR_ENABLED || argv.hot || false,
         DEV_SERVER_IP: env.DEV_SERVER_IP || null,
+      }),
+      new rspack.CssExtractRspackPlugin({
+        filename: '[name].bundle.css',
+        chunkFilename: '[name].bundle.css',
       }),
     ],
   });

@@ -190,7 +190,7 @@
 		if(isnull(creature))
 			continue
 
-		qdel(creature)
+		creature.dust(just_ash = TRUE, force = TRUE) // sometimes mobs just don't die
 
 	generated_domain.secondary_loot_generated = 0
 

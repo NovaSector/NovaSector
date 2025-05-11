@@ -20,7 +20,6 @@
 	caliber = CALIBER_KINETICBALL
 	projectile_type = /obj/projectile/bullet/kineticball
 	harmful = FALSE
-	ammo_categories = AMMO_CLASS_NONE
 
 /obj/item/ammo_box/magazine/ammo_stack/kineticball
 	name = "kinetic ball casings"

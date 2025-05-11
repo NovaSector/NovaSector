@@ -126,18 +126,15 @@
 	w_class = WEIGHT_CLASS_TINY
 	illustration = null
 	foldable_result = null
-	storage_type = /datum/storage/box/utensils
 
-/datum/storage/box/utensils
-	max_slots = 4
-
-/datum/storage/box/utensils/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/obj/item/storage/box/utensils/Initialize(mapload)
 	. = ..()
-	set_holdable(list(
+	atom_storage.set_holdable(list(
 		/obj/item/kitchen/spoon/plastic,
 		/obj/item/kitchen/fork/plastic,
 		/obj/item/serviette,
 	))
+	atom_storage.max_slots = 4
 
 /obj/item/storage/box/utensils/PopulateContents()
 	new /obj/item/kitchen/spoon/plastic(src)

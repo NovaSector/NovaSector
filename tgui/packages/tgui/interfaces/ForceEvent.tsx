@@ -117,10 +117,9 @@ function PanelOptions(props) {
         <Input
           autoFocus
           fluid
-          onChange={setSearchQuery}
+          onInput={(e, value) => setSearchQuery(value)}
           placeholder="Search..."
           value={searchQuery}
-          expensive
         />
       </Stack.Item>
       <Stack.Item>
