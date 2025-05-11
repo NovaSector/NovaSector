@@ -5,7 +5,7 @@
 	icon = 'modular_nova/modules/bitrunning/icons/remote.dmi'
 	icon_state = "delivery_running"
 	/// The applied outfit
-	var/datum/outfit/outfit = /datum/outfit/subcontracted_bitrunner
+	var/datum/outfit/subrunner_outfit = /datum/outfit/subcontracted_bitrunner
 	/// Does it use up retries?
 	var/spends_retries = TRUE
 	/// Style used by the droppod
@@ -84,19 +84,21 @@
 		subrunner.forceMove(pick(GLOB.newplayer_start))
 	else
 		subrunner.forceMove(locate(1,1,1))
-	var/outfit_path = connected_server.generated_domain.forced_outfit ? connected_server.generated_domain.forced_outfit : outfit
+	var/outfit_path = connected_server.generated_domain.forced_outfit || subrunner_outfit
 	var/datum/outfit/to_wear = new outfit_path()
-	if(outfit_path)
-		subrunner.equipOutfit(to_wear, visuals_only = TRUE)
-	else
-		subrunner.equip_species_outfit(outfit)
+	subrunner.equipOutfit(to_wear, visuals_only = TRUE)
 
-	var/obj/item/card/id/outfit_id = subrunner.wear_id
-	if(outfit_id)
-		outfit_id.registered_account = new()
-		outfit_id.registered_account.replaceable = FALSE
+	var/obj/item/clothing/under/jumpsuit = subrunner.w_uniform
+	if(istype(jumpsuit))
+		jumpsuit.set_armor(/datum/armor/clothing_under)
 
-		SSid_access.apply_trim_to_card(outfit_id, /datum/id_trim/bit_avatar)
+	var/obj/item/clothing/head/hat = locate() in subrunner.get_equipped_items()
+	if(istype(hat))
+		hat.set_armor(/datum/armor/none)
+
+	if(!connected_server.generated_domain.forced_outfit)
+		for(var/obj/thing in subrunner.held_items)
+			qdel(thing)
 
 	var/obj/item/storage/backpack/bag = subrunner.back
 	if(istype(bag))
@@ -109,6 +111,14 @@
 		new	/obj/item/storage/box/nif_ghost_box,
 		new	/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
 		)
+
+	var/obj/item/card/id/outfit_id = subrunner.wear_id
+	if(outfit_id)
+		outfit_id.registered_account = new()
+		outfit_id.registered_account.replaceable = FALSE
+
+		SSid_access.apply_trim_to_card(outfit_id, /datum/id_trim/bit_avatar)
+
 	subrunner.AddComponent( \
 		/datum/component/simple_bodycam, \
 		camera_name = "bitrunner bodycam", \
