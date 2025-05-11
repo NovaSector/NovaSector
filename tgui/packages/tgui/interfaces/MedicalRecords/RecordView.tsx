@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Box,
   Button,
@@ -60,8 +59,6 @@ export const MedicalRecordView = (props) => {
   const major_disabilities_array = getQuirkStrings(major_disabilities);
   const quirk_notes_array = getQuirkStrings(quirk_notes);
 
-  const [isValid, setIsValid] = useState(true);
-
   return (
     <Stack fill vertical>
       <Stack.Item grow>
@@ -78,13 +75,12 @@ export const MedicalRecordView = (props) => {
         <Section
           buttons={
             <Button.Confirm
+              content="Delete"
               icon="trash"
               disabled={!station_z}
               onClick={() => act('expunge_record', { crew_ref: crew_ref })}
               tooltip="Expunge record data."
-            >
-              Delete
-            </Button.Confirm>
+            />
           }
           fill
           scrollable
@@ -104,15 +100,13 @@ export const MedicalRecordView = (props) => {
               <RestrictedInput
                 minValue={min_age}
                 maxValue={max_age}
-                onEnter={(value) =>
-                  isValid &&
+                onEnter={(event, value) =>
                   act('edit_field', {
                     field: 'age',
                     ref: crew_ref,
                     value: value,
                   })
                 }
-                onValidationChange={setIsValid}
                 value={age}
               />
             </LabeledList.Item>
@@ -121,7 +115,7 @@ export const MedicalRecordView = (props) => {
               <RestrictedInput
                 minValue={min_age}
                 maxValue={max_chrono_age}
-                onEnter={(value) =>
+                onEnter={(event, value) =>
                   act('edit_field', {
                     field: 'chrono_age',
                     ref: crew_ref,

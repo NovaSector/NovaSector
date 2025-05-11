@@ -134,9 +134,9 @@ export class VariableMenu extends Component {
                   <Input
                     placeholder="Name"
                     fluid
-                    onChange={(val) =>
+                    onChange={(e, nameVal) =>
                       this.setState({
-                        variable_name: val,
+                        variable_name: nameVal,
                       })
                     }
                   />

@@ -105,6 +105,7 @@ export class PrimaryView extends Component {
                     </Box>
                     <Button.Confirm
                       disabled={!savableData || tooManyCharacters}
+                      content="Save"
                       color="good"
                       onClick={() => {
                         if (textAreaText.length) {
@@ -118,23 +119,21 @@ export class PrimaryView extends Component {
                           setInputFieldData({});
                         }
                       }}
-                    >
-                      Save
-                    </Button.Confirm>
+                    />
                   </>
                 }
               >
                 <TextArea
-                  style={{ border: 'none' }}
+                  scrollbar
+                  noborder
                   value={textAreaText}
                   textColor={useColor}
                   fontFamily={useFont}
                   bold={useBold}
                   height="100%"
-                  fluid
                   backgroundColor={paper_color}
-                  onChange={(value) => {
-                    setTextAreaText(value);
+                  onInput={(e, text) => {
+                    setTextAreaText(text);
 
                     if (this.scrollableRef.current) {
                       let thisDistFromBottom =

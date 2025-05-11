@@ -25,15 +25,14 @@ export const meta = {
 function Story() {
   const [number, setNumber] = useState(0);
   const [text, setText] = useState('Sample text');
-
   return (
     <Section>
       <LabeledList>
         <LabeledList.Item label="Input (onChange)">
-          <Input value={text} onChange={setText} />
+          <Input value={text} onChange={(e, value) => setText(value)} />
         </LabeledList.Item>
         <LabeledList.Item label="Input (onInput)">
-          <Input value={text} onChange={setText} />
+          <Input value={text} onInput={(e, value) => setText(value)} />
         </LabeledList.Item>
         <LabeledList.Item label="NumberInput (onChange)">
           <NumberInput

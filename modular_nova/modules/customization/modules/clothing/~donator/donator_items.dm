@@ -103,8 +103,9 @@
 
 /obj/item/donator/transponder/Destroy()
 	if(sparks)
-		QDEL_NULL(sparks)
-	return ..()
+		qdel(sparks)
+	sparks = null
+	. = ..()
 
 /obj/item/donator/transponder/attack_self(mob/user)
 	if(QDELETED(src) || (next_activate > world.time))

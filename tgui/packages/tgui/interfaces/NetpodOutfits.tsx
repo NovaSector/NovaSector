@@ -57,7 +57,7 @@ export const NetpodOutfits = (props) => {
               buttons={
                 <Input
                   autoFocus
-                  onChange={setSearch}
+                  onChange={(event, value) => setSearch(value)}
                   placeholder="Search"
                   value={search}
                 />

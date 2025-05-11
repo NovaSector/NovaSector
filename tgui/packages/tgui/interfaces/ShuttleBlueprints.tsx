@@ -236,7 +236,11 @@ const ShuttleConfiguration = () => {
         </h3>
       </Stack.Item>
       <Stack.Item>
-        <Input fluid placeholder="New Area Name" onChange={setName} />
+        <Input
+          fluid
+          placeholder="New Area Name"
+          onChange={(_, value) => setName(value)}
+        />
         <Stack>
           <Stack.Item>
             <Button.Confirm

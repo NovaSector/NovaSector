@@ -92,7 +92,7 @@
 		if (prob(50))
 			new_artifact.update_integrity(10) // It is on the edge of destruction
 		else
-			qdel(new_artifact)
+			new_artifact.Destroy()
 
 /obj/structure/boulder/Destroy() // spawns and destroys artifact immediately
 	if (!stabilised)

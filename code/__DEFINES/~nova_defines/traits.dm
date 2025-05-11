@@ -7,5 +7,3 @@
 #define TRAIT_PERMIT_HUD "permit_hud"
 /// Spider hud trait
 #define TRAIT_SPIDER_HOST "spider_host"
-///for if we are army crawling or not
-#define TRAIT_PRONE "prone"

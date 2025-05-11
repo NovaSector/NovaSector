@@ -33,11 +33,11 @@
 /// Attempts to find and return the soulcatcher the parent mob is currently using. If none can be found, returns `FALSE`
 /mob/living/proc/find_soulcatcher()
 	var/obj/item/soulcatcher_holder/soul_holder = locate(/obj/item/soulcatcher_holder) in contents
-	if(QDELETED(soul_holder))
+	if(!soul_holder)
 		return FALSE
 
 	var/datum/component/soulcatcher/target_soulcatcher = soul_holder.GetComponent(/datum/component/soulcatcher)
-	if(QDELETED(target_soulcatcher))
+	if(!target_soulcatcher)
 		return FALSE
 
 	return target_soulcatcher
@@ -48,11 +48,11 @@
 		return .
 
 	var/datum/nifsoft/soulcatcher/souclatcher_nifsoft = find_nifsoft(/datum/nifsoft/soulcatcher)
-	if(QDELETED(souclatcher_nifsoft))
+	if(!souclatcher_nifsoft)
 		return FALSE
 
 	var/datum/component/soulcatcher/target_soulcatcher = souclatcher_nifsoft.linked_soulcatcher.resolve()
-	if(QDELETED(target_soulcatcher))
+	if(!target_soulcatcher)
 		return FALSE
 
 	return target_soulcatcher

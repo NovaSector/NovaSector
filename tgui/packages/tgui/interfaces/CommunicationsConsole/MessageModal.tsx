@@ -36,7 +36,7 @@ export function MessageModal(props: Props) {
             fluid
             height="20vh"
             maxLength={maxMessageLength}
-            onChange={setInput}
+            onInput={(_, value) => setInput(value)}
             placeholder={label}
             value={input}
             width="80vw"

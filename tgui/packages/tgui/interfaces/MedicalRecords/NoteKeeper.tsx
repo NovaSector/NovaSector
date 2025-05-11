@@ -28,7 +28,7 @@ export const NoteKeeper = (props) => {
 
   const [writing, setWriting] = useLocalState('note', false);
 
-  const addNote = (value: string) => {
+  const addNote = (event, value: string) => {
     act('add_note', {
       crew_ref: crew_ref,
       content: value,

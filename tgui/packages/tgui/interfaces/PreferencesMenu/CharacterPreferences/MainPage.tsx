@@ -119,7 +119,7 @@ type ChoicedSelectionProps = {
 
 function ChoicedSelection(props: ChoicedSelectionProps) {
   const { catalog, supplementalFeature, supplementalValue } = props;
-  const [searchText, setSearchText] = useState('');
+  const [getSearchText, searchTextSet] = useState('');
 
   if (!catalog.icons) {
     return <Box color="red">Provided catalog had no icons!</Box>;
@@ -153,17 +153,16 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
           >
             <Input
               autoFocus
-              fluid
+              width="100%"
               placeholder="Search..."
-              onChange={setSearchText}
-              expensive
+              onInput={(_, value) => searchTextSet(value)}
             />
           </Section>
         </Stack.Item>
         <Stack.Item grow>
           <Section fill scrollable noTopPadding>
             <Stack wrap>
-              {searchInCatalog(searchText, catalog.icons).map(
+              {searchInCatalog(getSearchText, catalog.icons).map(
                 ([name, image], index) => {
                   return (
                     <Button

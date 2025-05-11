@@ -239,7 +239,9 @@ $department_map: (
           'positive': var(--color-green),
           'neutral': var(--color-white),
           'negative': var(--color-red),
-          'erp_quirk': var(--color-purple), // NOVA EDIT ADDITION - Purple ERP quirks
+          // NOVA EDIT ADDITION START - Purple ERP quirks
+          'erp_quirk': var(--color-purple),
+          // NOVA EDIT ADDITION END - Purple ERP quirks
         );
 
         @each $quality, $color-value in $quality_map {

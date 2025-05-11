@@ -1,9 +1,7 @@
 import {
   Box,
   Button,
-  Dimmer,
   DmIcon,
-  Dropdown,
   Flex,
   Icon,
   Knob,
@@ -11,7 +9,6 @@ import {
   NumberInput,
   Section,
   Stack,
-  Tooltip,
 } from 'tgui-core/components';
 import { BooleanLike } from 'tgui-core/react';
 import { capitalizeFirst } from 'tgui-core/string';
@@ -22,7 +19,6 @@ import { Window } from '../layouts';
 type Data = {
   temperature: number;
   fluidType: string;
-  lockedFluidTemp: BooleanLike;
   minTemperature: number;
   maxTemperature: number;
   fluidTypes: string[];
@@ -33,9 +29,6 @@ type Data = {
   heartIcon: string;
   heartIconState: string;
   heartEmptyIconState: string;
-  currentMode: string;
-  currentTooltip: string;
-  aquariumModes: string[];
 };
 
 type FishData = {
@@ -55,7 +48,7 @@ type PropData = {
 };
 
 export const Aquarium = (props) => {
-  const { data } = useBackend<Data>();
+  const { act, data } = useBackend<Data>();
   const { fishData } = data;
 
   return (
@@ -100,12 +93,8 @@ export const Aquarium = (props) => {
   );
 };
 
-type FishInfoProps = {
-  fish: FishData;
-};
-
-const FishInfo = (props: FishInfoProps) => {
-  const { act } = useBackend<Data>();
+const FishInfo = (props) => {
+  const { act, data } = useBackend<Data>();
   const { fish } = props;
 
   return (
@@ -130,11 +119,9 @@ const FishInfo = (props: FishInfoProps) => {
                 {fish.fish_name}
               </Stack.Item>
               <Stack.Item mt={fish.fish_health > 0 ? -4 : 1}>
-                {fish.fish_health > 0 ? (
+                {(fish.fish_health > 0 && (
                   <CalculateHappiness happiness={fish.fish_happiness} />
-                ) : (
-                  <Icon ml={2} name="skull-crossbones" textColor="white" />
-                )}
+                )) || <Icon ml={2} name="skull-crossbones" textColor="white" />}
               </Stack.Item>
             </Stack>
           </Flex.Item>
@@ -183,10 +170,9 @@ const FishInfo = (props: FishInfoProps) => {
               mt={1}
               ml={1}
               fluid
-              icon="keyboard"
-              buttonText="Rename"
+              placeholder="Rename"
               color="transparent"
-              onCommit={(value) => {
+              onCommit={(e, value) => {
                 act('rename_fish', {
                   fish_reference: fish.fish_ref,
                   chosen_name: value,
@@ -197,8 +183,14 @@ const FishInfo = (props: FishInfoProps) => {
                 borderRadius: '1em',
                 background: '#151326',
               }}
-              value={fish.fish_name}
-            />
+            >
+              <Flex>
+                <Flex.Item ml={3}>
+                  <Icon name="keyboard" />
+                </Flex.Item>
+                <Flex.Item ml={1}>Rename</Flex.Item>
+              </Flex>
+            </Button.Input>
           </Flex.Item>
         </Flex>
       </Stack.Item>
@@ -280,17 +272,12 @@ const Settings = (props) => {
     fluidType,
     safe_mode,
     feedingInterval,
-    lockedFluidTemp,
-    currentMode,
-    currentTooltip,
-    aquariumModes,
   } = data;
 
   return (
     <Flex fill>
       <Flex.Item grow>
         <Section fill title="Temperature">
-          {!!lockedFluidTemp && <LockedSection />}
           <Knob
             mt={3}
             size={1.5}
@@ -311,7 +298,6 @@ const Settings = (props) => {
       </Flex.Item>
       <Flex.Item ml={1} grow>
         <Section fill title="Fluid">
-          {!!lockedFluidTemp && <LockedSection />}
           <Flex direction="column" mb={1}>
             {fluidTypes.map((f) => (
               <Flex.Item className="candystripe" key={f}>
@@ -319,10 +305,11 @@ const Settings = (props) => {
                   textAlign="center"
                   fluid
                   color="transparent"
-                  content={f}
                   selected={fluidType === f}
                   onClick={() => act('fluid', { fluid: f })}
-                />
+                >
+                  {f}
+                </Button>
               </Flex.Item>
             ))}
           </Flex>
@@ -332,23 +319,15 @@ const Settings = (props) => {
         <Section fill title="Settings">
           <Box mt={2}>
             <LabeledList>
-              <LabeledList.Item label="Aquarium Mode">
-                <Dropdown
-                  width="80%"
-                  selected={currentMode}
-                  options={aquariumModes}
-                  onSelected={(value) =>
-                    act('change_mode', { new_mode: value })
-                  }
+              <LabeledList.Item label="Safe Mode">
+                <Button
+                  textAlign="center"
+                  width="75px"
+                  tooltip="Prevent fish dying in hostile water and temperatures at the cost of features like growth and reproduction"
+                  content={safe_mode ? 'Online' : 'Offline'}
+                  selected={safe_mode}
+                  onClick={() => act('safe_mode')}
                 />
-                <Tooltip content={currentTooltip}>
-                  <Icon
-                    name="question-circle"
-                    color="blue"
-                    size={1.5}
-                    m={0.5}
-                  />
-                </Tooltip>
               </LabeledList.Item>
               <LabeledList.Item label="Feeding Interval">
                 <NumberInput
@@ -375,16 +354,3 @@ const Settings = (props) => {
 function dissectName(input: string): string {
   return input.split(' ')[0].slice(0, 18);
 }
-
-const LockedSection = () => {
-  return (
-    <Dimmer>
-      <Stack align="baseline" vertical>
-        <Stack ml={-2}>
-          <Icon color="red" name="lock" size={3} />
-        </Stack>
-        <Stack.Item fontSize="20px">LOCKED</Stack.Item>
-      </Stack>
-    </Dimmer>
-  );
-};

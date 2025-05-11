@@ -170,8 +170,9 @@ const Cache = (props: CacheProps) => {
         Query and cache:&nbsp;
         <Input
           value={props.cacheInput}
-          expensive
-          onChange={(value) => props.setCacheInput(value.toLowerCase())}
+          onChange={(_: any, value: string) =>
+            props.setCacheInput(value.toLowerCase())
+          }
         />
         <NumberInput
           step={1}

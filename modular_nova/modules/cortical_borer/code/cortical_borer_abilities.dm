@@ -384,15 +384,15 @@
 	if(!.)
 		return FALSE
 	var/mob/living/basic/cortical_borer/cortical_owner = owner
-	if(HAS_TRAIT(cortical_owner, TRAIT_PRONE))
-		SEND_SIGNAL(cortical_owner, COMSIG_MOVABLE_REMOVE_PRONE_STATE)
+	if(owner.layer == PROJECTILE_HIT_THRESHHOLD_LAYER)
 		cortical_owner.upgrade_flags &= ~BORER_HIDING
 		owner.balloon_alert(owner, "stopped hiding")
+		owner.layer = BELOW_MOB_LAYER
 		StartCooldown()
 		return
 	cortical_owner.upgrade_flags |= BORER_HIDING
 	owner.balloon_alert(owner, "started hiding")
-	cortical_owner.AddComponent(/datum/component/prone_mob)
+	owner.layer = PROJECTILE_HIT_THRESHHOLD_LAYER
 	StartCooldown()
 
 //to paralyze people

@@ -27,8 +27,9 @@
 
 /obj/item/assembly/igniter/Destroy()
 	if(sparks)
-		QDEL_NULL(sparks)
-	return ..()
+		qdel(sparks)
+	sparks = null
+	. = ..()
 
 /obj/item/assembly/igniter/activate()
 	if(!..())

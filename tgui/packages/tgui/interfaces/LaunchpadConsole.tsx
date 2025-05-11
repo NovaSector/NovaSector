@@ -135,10 +135,9 @@ function LaunchpadTitle(props) {
       <Stack fill>
         <Stack.Item grow>
           <Input
-            expensive
             value={pad_name}
             width="170px"
-            onChange={(value) =>
+            onChange={(e, value) =>
               act('rename', {
                 name: value,
               })

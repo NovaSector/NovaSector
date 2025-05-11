@@ -1,10 +1,10 @@
-## Title: Storage
+## Title: Storage 
 
 MODULE ID: Storage
 
 ### Description:
 
-A /module/customization/clothing sub-module for adding new WORN storage items, i.e. bags and belts.
+A seperate folder under customization for adding new (WORN) storage items, such as new bags and belts.
 
 ### TG Proc Changes:
 
@@ -19,7 +19,7 @@ A /module/customization/clothing sub-module for adding new WORN storage items, i
 - N/A
 
 ### Included files that are not contained in this module:
-(Both sprite files, which are in the normal clothing icon locations)
+(Both the new sprite files, which are in the normal clothing icon locations)
 - modular_nova/master_files/icons/mob/clothing/storage.dmi
 - modular_nova/master_files/icons/obj/clothing/storage.dmi
 

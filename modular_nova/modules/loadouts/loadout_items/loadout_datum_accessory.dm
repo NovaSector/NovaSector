@@ -34,10 +34,6 @@
 	name = "tactical maid apron"
 	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
 
-/datum/loadout_item/accessory/chaps
-	name = "Chaps"
-	item_path = /obj/item/clothing/accessory/chaps
-
 /*
 *	ARMBANDS
 */

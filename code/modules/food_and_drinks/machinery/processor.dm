@@ -224,26 +224,22 @@
 /obj/machinery/processor/slime/process()
 	if(processing)
 		return
-	var/list/mob/living/basic/slime/picked_slimes
-	/// We pick up a number of slimes equal to the rating of the matter bin
-	var/slimes_picked = 0
+	var/mob/living/basic/slime/picked_slime
 	for(var/mob/living/basic/slime/slime in range(1,src))
 		if(!CanReach(slime)) //don't take slimes behind glass panes or somesuch; also makes it ignore slimes inside the processor
 			continue
 		if(slime.stat)
-			var/datum/food_processor_process/recipe = PROCESSOR_SELECT_RECIPE(slime)
-			if(!recipe)
-				continue
-			LAZYADD(picked_slimes, slime)
-			slimes_picked += 1
-		if(slimes_picked >= rating_amount)
+			picked_slime = slime
 			break
-	if(!LAZYLEN(picked_slimes))
+	if(!picked_slime)
 		return
-	visible_message(span_notice("[jointext(picked_slimes, ", ")] [LAZYLEN(picked_slimes) > 1 ? "are" : "is"] sucked into [src]."))
-	for(var/mob/living/basic/slime/slime_to_add in picked_slimes)
-		LAZYADD(processor_contents, slime_to_add)
-		slime_to_add.forceMove(src)
+	var/datum/food_processor_process/recipe = PROCESSOR_SELECT_RECIPE(picked_slime)
+	if (!recipe)
+		return
+
+	visible_message(span_notice("[picked_slime] is sucked into [src]."))
+	LAZYADD(processor_contents, picked_slime)
+	picked_slime.forceMove(src)
 
 /obj/machinery/processor/slime/process_food(datum/food_processor_process/recipe, atom/movable/what)
 	var/mob/living/basic/slime/processed_slime = what

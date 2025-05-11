@@ -107,9 +107,9 @@ const DnaConsoleAdvancedInjectors = (props) => {
       <Box mt={2}>
         <Button.Input
           minWidth="200px"
-          buttonText="Create new injector"
+          content="Create new injector"
           disabled={advInjectors.length >= maxAdvInjectors}
-          onCommit={(value) =>
+          onCommit={(e, value) =>
             act('new_adv_inj', {
               name: value,
             })

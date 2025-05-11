@@ -49,7 +49,8 @@
 	proximity_datum.parent_nifsoft = WEAKREF(src)
 
 /datum/nifsoft/soul_poem/Destroy()
-	QDEL_NULL(proximity_datum)
+	qdel(proximity_datum)
+	proximity_datum = null
 
 	return ..()
 

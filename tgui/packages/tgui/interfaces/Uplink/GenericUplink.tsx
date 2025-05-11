@@ -79,9 +79,8 @@ export const GenericUplink = (props: GenericUplinkProps) => {
               autoFocus
               value={searchText}
               placeholder="Search..."
-              onChange={setSearchText}
+              onInput={(e, value) => setSearchText(value)}
               fluid
-              expensive
             />
           </Stack.Item>
           <Stack.Item grow>

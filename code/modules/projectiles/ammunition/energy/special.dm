@@ -50,15 +50,15 @@
 	select_name = "goddamn meteor"
 	newtonian_force = 3
 
-/obj/item/ammo_casing/energy/scatter
-	projectile_type = /obj/projectile/beam/disabler/scatter
-	select_name = "scatter"
-	pellets = 10
-	variance = 10
+/obj/item/ammo_casing/energy/net
+	projectile_type = /obj/projectile/energy/net
+	select_name = "netting"
+	pellets = 6
+	variance = 40
 	harmful = FALSE
 
-/obj/item/ammo_casing/energy/snare
-	projectile_type = /obj/projectile/energy/snare
+/obj/item/ammo_casing/energy/trap
+	projectile_type = /obj/projectile/energy/trap
 	select_name = "snare"
 	harmful = FALSE
 

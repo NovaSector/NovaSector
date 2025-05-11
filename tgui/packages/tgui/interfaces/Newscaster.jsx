@@ -105,15 +105,15 @@ const NewscasterChannelCreation = (props) => {
               />
             </Box>
             <TextArea
+              fluid
               height="40px"
               width="240px"
               backgroundColor="black"
               textColor="white"
               maxLength={42}
-              expensive
-              onChange={(value) =>
+              onChange={(e, name) =>
                 act('setChannelName', {
-                  channeltext: value,
+                  channeltext: name,
                 })
               }
             >
@@ -123,15 +123,15 @@ const NewscasterChannelCreation = (props) => {
           <Stack.Item>
             <Box pb={1}>Enter channel description here:</Box>
             <TextArea
+              fluid
               height="150px"
               width="240px"
               backgroundColor="black"
               textColor="white"
               maxLength={512}
-              expensive
-              onChange={(value) =>
+              onChange={(e, desc) =>
                 act('setChannelDesc', {
-                  channeldesc: value,
+                  channeldesc: desc,
                 })
               }
             >
@@ -216,15 +216,15 @@ const NewscasterCommentCreation = (props) => {
             />
           </Box>
           <TextArea
+            fluid
             height="120px"
             width="240px"
             backgroundColor="black"
             textColor="white"
             maxLength={512}
-            expensive
-            onChange={(value) =>
+            onChange={(e, comment) =>
               act('setCommentBody', {
-                commenttext: value,
+                commenttext: comment,
               })
             }
           >

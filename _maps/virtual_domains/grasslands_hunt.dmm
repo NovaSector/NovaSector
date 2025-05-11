@@ -560,12 +560,9 @@
 /turf/open/floor/grass,
 /area/virtual_domain/fullbright)
 "Dk" = (
-/obj/effect/turf_decal/weather/dirt{
-	dir = 9
-	},
 /obj/effect/landmark/bitrunning/loot_signal,
-/turf/open/floor/grass,
-/area/virtual_domain/fullbright)
+/turf/template_noop,
+/area/virtual_domain/safehouse)
 "DM" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -2479,7 +2476,7 @@ PX
 PX
 PX
 PX
-Dk
+wq
 Lx
 Lx
 Lx
@@ -2558,7 +2555,7 @@ YF
 bd
 fm
 Lx
-Lx
+Dk
 Lx
 od
 Lx

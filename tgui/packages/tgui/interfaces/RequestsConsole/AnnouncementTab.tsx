@@ -15,7 +15,7 @@ export const AnnouncementTab = (props) => {
         height={20}
         maxLength={1025}
         value={messageText}
-        onChange={setMessageText}
+        onChange={(_, value) => setMessageText(value)}
         placeholder="Type your announcement..."
       />
       <Section>

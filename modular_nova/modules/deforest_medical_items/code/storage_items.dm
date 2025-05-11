@@ -5,8 +5,10 @@
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	custom_price = PAYCHECK_CREW * 1.5
-	spawn_count = 7
-	spawn_type = /obj/item/reagent_containers/applicator/pill/amollin
+
+/obj/item/storage/pill_bottle/painkiller/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/reagent_containers/applicator/pill/amollin(src)
 
 /obj/item/reagent_containers/applicator/pill/amollin
 	name = "amollin pill"
@@ -25,19 +27,16 @@
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	w_class = WEIGHT_CLASS_TINY // this is fine because we hard limit what can go in this thing
-	storage_type = /datum/storage/alifil_pills
-	spawn_count  = 5
-	spawn_type = /obj/item/reagent_containers/applicator/pill/prescription_stimulant
 
-/datum/storage/alifil_pills
-	max_slots = 5
-	open_sound = 'sound/items/handling/pill_bottle_open.ogg'
-	open_sound_vary = FALSE
-
-/datum/storage/alifil_pills/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+/obj/item/storage/pill_bottle/prescription_stimulant/Initialize(mapload)
 	. = ..()
 	// Make sure we can only hold alifil pills since this is nested inside a symptom support kit
-	set_holdable(/obj/item/reagent_containers/applicator/pill/prescription_stimulant)
+	atom_storage.max_slots = 5
+	atom_storage.set_holdable(/obj/item/reagent_containers/applicator/pill/prescription_stimulant)
+
+/obj/item/storage/pill_bottle/prescription_stimulant/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/reagent_containers/applicator/pill/prescription_stimulant(src)
 
 /obj/item/reagent_containers/applicator/pill/prescription_stimulant
 	name = "alifil pill"
@@ -62,14 +61,11 @@
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
 	custom_price = PAYCHECK_COMMAND * 3
-	storage_type = /datum/storage/civil_defence
 
-/datum/storage/civil_defence
-	max_slots = 4
-
-/datum/storage/civil_defence/New()
+/obj/item/storage/medkit/civil_defense/Initialize(mapload)
 	. = ..()
-	set_holdable(list(
+	atom_storage.max_slots = 4
+	atom_storage.set_holdable(list(
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/storage/pill_bottle/prescription_stimulant,
 		/obj/item/food/cheese/firm_cheese_slice, //It's not called a cheese kit for nothing.
@@ -89,7 +85,6 @@
 
 /obj/item/storage/medkit/civil_defense/thunderdome
 	/// List of random medpens we can pick from
-	storage_type = /datum/storage/civil_defence/dome
 	var/list/random_medpen_options = list(
 		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye,
@@ -105,8 +100,10 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi,
 	)
-/datum/storage/civil_defence/dome
-	max_slots = 6
+
+/obj/item/storage/medkit/civil_defense/thunderdome/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 6
 
 /obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
 	for(var/pens in 1 to 6)
@@ -173,10 +170,10 @@
 	worn_icon_state = "frontier"
 	pickup_sound = 'sound/items/handling/cloth/cloth_pickup1.ogg'
 	drop_sound = 'sound/items/handling/cloth/cloth_drop1.ogg'
-	storage_type = /datum/storage/medkit/combat
 
-/datum/storage/medkit/combat
-	max_specific_storage = WEIGHT_CLASS_NORMAL
+/obj/item/storage/medkit/combat_surgeon/Initialize(mapload)
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/combat_surgeon/stocked
 

@@ -180,7 +180,7 @@ const CrimeDisplay = ({ item }: { item: Crime }) => {
               fluid
               maxLength={25}
               onEscape={() => setEditing(false)}
-              onEnter={(value) => {
+              onEnter={(event, value) => {
                 setEditing(false);
                 act('edit_crime', {
                   crew_ref: crew_ref,
@@ -195,7 +195,7 @@ const CrimeDisplay = ({ item }: { item: Crime }) => {
               maxLength={1025}
               mt={1}
               onEscape={() => setEditing(false)}
-              onEnter={(value) => {
+              onEnter={(event, value) => {
                 setEditing(false);
                 act('edit_crime', {
                   crew_ref: crew_ref,
@@ -227,13 +227,12 @@ const CrimeAuthor = (props) => {
     'selectedTab',
     SECURETAB.Crimes,
   );
-  const [crimeFineIsValid, setCrimeFineIsValid] = useState(true);
 
   const nameMeetsReqs = crimeName?.length > 2;
 
   /** Sends form to backend */
   const createCrime = () => {
-    if (!crimeName || !crimeFineIsValid) return;
+    if (!crimeName) return;
     act('add_crime', {
       crew_ref: crew_ref,
       details: crimeDetails,
@@ -258,7 +257,7 @@ const CrimeAuthor = (props) => {
         <Input
           fluid
           maxLength={25}
-          onChange={setCrimeName}
+          onChange={(_, value) => setCrimeName(value)}
           placeholder="Brief overview"
         />
       </Stack.Item>
@@ -268,7 +267,7 @@ const CrimeAuthor = (props) => {
           fluid
           height={4}
           maxLength={1025}
-          onChange={setCrimeDetails}
+          onChange={(_, value) => setCrimeDetails(value)}
           placeholder="Type some details..."
         />
       </Stack.Item>
@@ -278,19 +277,17 @@ const CrimeAuthor = (props) => {
           fluid
           value={crimeFine}
           maxValue={1000}
-          onChange={setCrimeFine}
-          onValidationChange={setCrimeFineIsValid}
+          onChange={(_, value) => setCrimeFine(value)}
         />
       </Stack.Item>
       <Stack.Item>
         <Button.Confirm
-          disabled={!nameMeetsReqs || !crimeFineIsValid}
+          content="Create"
+          disabled={!nameMeetsReqs}
           icon="plus"
           onClick={createCrime}
           tooltip={!nameMeetsReqs ? 'Name must be at least 3 characters.' : ''}
-        >
-          Create
-        </Button.Confirm>
+        />
       </Stack.Item>
     </Stack>
   );

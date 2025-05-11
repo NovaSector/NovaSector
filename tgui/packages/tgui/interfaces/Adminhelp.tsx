@@ -44,16 +44,16 @@ export const Adminhelp = (props) => {
             <TextArea
               autoFocus
               height="100%"
-              fluid
+              value={ahelpMessage}
               placeholder="Admin help"
-              onChange={setAhelpMessage}
+              onChange={(e, value) => setAhelpMessage(value)}
             />
           </Stack.Item>
           {urgentAhelpEnabled && adminCount <= 0 && (
             <Stack.Item>
               <NoticeBox info>
                 {urgentAhelpPromptMessage}
-                {currentlyInputting ? (
+                {(currentlyInputting && (
                   <Box
                     mt={1}
                     width="100%"
@@ -68,7 +68,7 @@ export const Adminhelp = (props) => {
                       placeholder="Confirmation Prompt"
                       autoFocus
                       fluid
-                      onChange={(value) => {
+                      onChange={(e, value) => {
                         if (value === confirmationText) {
                           setRequestForAdmin(true);
                         }
@@ -76,7 +76,7 @@ export const Adminhelp = (props) => {
                       }}
                     />
                   </Box>
-                ) : (
+                )) || (
                   <Button
                     mt={1}
                     onClick={() => {
@@ -107,6 +107,7 @@ export const Adminhelp = (props) => {
             <Button
               color="good"
               fluid
+              content="Submit"
               textAlign="center"
               onClick={() =>
                 act('ahelp', {
@@ -114,9 +115,7 @@ export const Adminhelp = (props) => {
                   message: ahelpMessage,
                 })
               }
-            >
-              Submit
-            </Button>
+            />
           </Stack.Item>
         </Stack>
       </Window.Content>

@@ -62,40 +62,99 @@
 /obj/item/storage/belt/holster
 	desc = "A rather plain but still cool looking holster that can hold a handgun, and some ammo."
 
-/datum/storage/holster
-	max_slots = 3
+/obj/item/storage/belt/holster/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 3
+	atom_storage.max_total_storage = 16
+	atom_storage.set_holdable(list(
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/ammo_box/c38, // Revolver speedloaders.
+		/obj/item/ammo_box/a357,
+		/obj/item/ammo_box/strilka310,
+		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/disabler,
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/dueling,
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
+		/obj/item/gun/energy/laser/captain,
+		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+	))
 
 /obj/item/storage/belt/holster/detective
 	name = "detective's holster"
 	desc = "A holster able to carry handguns and extra ammo, thanks to an additional hand-sewn pouch. WARNING: Badasses only."
 
-/datum/storage/holster/detective
-	max_slots = 4
+/obj/item/storage/belt/holster/detective/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 4
+	atom_storage.set_holdable(list(
+		/obj/item/gun/ballistic/automatic/pistol,
+		/obj/item/ammo_box/magazine, // Just magazine, because the sec-belt can hold these aswell
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/ammo_box/c38, // Revolver speedloaders.
+		/obj/item/ammo_box/a357,
+		/obj/item/ammo_box/strilka310,
+		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/disabler,
+		/obj/item/gun/ballistic/revolver,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/dueling,
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
+		/obj/item/gun/energy/laser/captain,
+		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+	))
+
+/obj/item/storage/belt/holster/energy/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 2
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.set_holdable(list(
+		/obj/item/gun/energy/e_gun/mini,
+		/obj/item/gun/energy/disabler,
+		/obj/item/gun/energy/dueling,
+		/obj/item/food/grown/banana,
+		/obj/item/gun/energy/laser/thermal,
+		/obj/item/gun/energy/recharge/ebow,
+		/obj/item/gun/energy/laser/captain,
+		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_marksman,
+		/obj/item/gun/ballistic/automatic/pistol/plasma_thrower,
+		/obj/item/ammo_box/magazine/recharge/plasma_battery,
+		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
+	))
+
 
 ///Enables you to quickdraw weapons from security holsters
-/datum/storage/holster/open_storage(mob/to_show, can_reach_target)
+/datum/storage/security/open_storage(datum/source, mob/user)
 	var/atom/resolve_parent = parent
 	if(!resolve_parent)
 		return
-	if(isobserver(to_show))
-		show_contents(to_show)
+	if(isobserver(user))
+		show_contents(user)
 		return
 
-	if(!to_show.CanReach(resolve_parent))
-		resolve_parent.balloon_alert(to_show, "can't reach!")
+	if(!user.CanReach(resolve_parent))
+		resolve_parent.balloon_alert(user, "can't reach!")
 		return FALSE
 
-	if(!isliving(to_show) || to_show.incapacitated)
+	if(!isliving(user) || user.incapacitated)
 		return FALSE
 
 	var/obj/item/gun/gun_to_draw = locate() in real_location
 	if(!gun_to_draw)
 		return ..()
-	resolve_parent.add_fingerprint(to_show)
-	attempt_remove(gun_to_draw, get_turf(to_show))
+	resolve_parent.add_fingerprint(user)
+	attempt_remove(gun_to_draw, get_turf(user))
 	playsound(resolve_parent, 'modular_nova/modules/sec_haul/sound/holsterout.ogg', 50, TRUE, -5)
-	INVOKE_ASYNC(to_show, TYPE_PROC_REF(/mob, put_in_hands), gun_to_draw)
-	to_show.visible_message(span_warning("[to_show] draws [gun_to_draw] from [resolve_parent]!"), span_notice("You draw [gun_to_draw] from [resolve_parent]."))
+	INVOKE_ASYNC(user, TYPE_PROC_REF(/mob, put_in_hands), gun_to_draw)
+	user.visible_message(span_warning("[user] draws [gun_to_draw] from [resolve_parent]!"), span_notice("You draw [gun_to_draw] from [resolve_parent]."))
 
 /*
 * GLASSES

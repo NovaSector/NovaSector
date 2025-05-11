@@ -146,7 +146,6 @@ const CitationManager = (props) => {
   const { crew_ref } = foundRecord;
 
   const [paying, setPaying] = useState(5);
-  const [payingIsValid, setPayingIsValid] = useState(true);
 
   return (
     <Collapsible
@@ -177,12 +176,11 @@ const CitationManager = (props) => {
             <RestrictedInput
               maxValue={fine}
               minValue={5}
-              onChange={setPaying}
+              onChange={(event, value) => setPaying(value)}
               value={paying}
-              onValidationChange={setPayingIsValid}
             />
             <Button.Confirm
-              disabled={!payingIsValid}
+              content="Pay"
               onClick={() =>
                 act('pay', {
                   amount: paying,
@@ -190,9 +188,7 @@ const CitationManager = (props) => {
                   fine_ref: fine_ref,
                 })
               }
-            >
-              Pay
-            </Button.Confirm>
+            />
           </LabeledList.Item>
         )}
       </LabeledList>

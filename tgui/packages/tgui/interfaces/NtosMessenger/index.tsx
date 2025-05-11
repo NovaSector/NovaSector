@@ -255,7 +255,7 @@ const ContactsScreen = (props: any) => {
               width="220px"
               placeholder="Search by name or job..."
               value={searchUser}
-              onChange={setSearchUser}
+              onInput={(_, value) => setSearchUser(value)}
             />
           </Stack>
         </Section>
@@ -340,7 +340,7 @@ const SendToAllSection = (props) => {
   const { data, act } = useBackend<NtosMessengerData>();
   const { on_spam_cooldown } = data;
 
-  const [message, setMessage] = useState('');
+  const [message, setmessage] = useState('');
 
   return (
     <>
@@ -357,7 +357,7 @@ const SendToAllSection = (props) => {
               tooltip={on_spam_cooldown && 'Wait before sending more messages!'}
               onClick={() => {
                 act('PDA_sendEveryone', { message: message });
-                setMessage('');
+                setmessage('');
               }}
             >
               Send
@@ -370,11 +370,7 @@ const SendToAllSection = (props) => {
           height={6}
           value={message}
           placeholder="Send message to everyone..."
-          onChange={setMessage}
-          selfClear
-          onEnter={() => {
-            act('PDA_sendEveryone', { message: message });
-          }}
+          onChange={(event, value: string) => setmessage(value)}
         />
       </Section>
     </>

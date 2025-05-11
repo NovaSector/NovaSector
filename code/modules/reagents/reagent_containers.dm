@@ -126,7 +126,7 @@
 
 	return ..()
 
-/// Tries to splash the target, called when right-clicking with a reagent container.
+/// Tries to splash the target. Used on both right-click and normal click when in combat mode.
 /obj/item/reagent_containers/proc/try_splash(mob/user, atom/target)
 	if (!spillable)
 		return FALSE
@@ -161,6 +161,11 @@
 
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 		reagent_text += "[reagent] ([num2text(reagent.volume)]),"
+
+	var/mob/thrown_by = thrownby?.resolve()
+	if(isturf(target) && reagents.reagent_list.len && thrown_by)
+		log_combat(thrown_by, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
+		message_admins("[ADMIN_LOOKUPFLW(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
 
 	reagents.expose(target, TOUCH)
 	log_combat(user, target, "splashed", reagent_text)
@@ -201,21 +206,22 @@
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum, do_splash = TRUE)
 	. = ..()
 	if(do_splash)
-		SplashReagents(hit_atom, throwingdatum)
+		SplashReagents(hit_atom, TRUE)
 
-/obj/item/reagent_containers/proc/bartender_check(atom/target, mob/thrown_by)
+/obj/item/reagent_containers/proc/bartender_check(atom/target)
 	. = FALSE
+	var/mob/thrown_by = thrownby?.resolve()
 	if(target.CanPass(src, get_dir(target, src)) && thrown_by && HAS_TRAIT(thrown_by, TRAIT_BOOZE_SLIDER))
 		. = TRUE
 
-/obj/item/reagent_containers/proc/SplashReagents(atom/target, datum/thrownthing/throwingdatum, override_spillable = FALSE)
+/obj/item/reagent_containers/proc/SplashReagents(atom/target, thrown = FALSE, override_spillable = FALSE)
 	if(!reagents || !reagents.total_volume || (!spillable && !override_spillable))
 		return
-	var/mob/thrown_by = throwingdatum.get_thrower()
+	var/mob/thrown_by = thrownby?.resolve()
 
 	if(ismob(target) && target.reagents)
 		var/splash_multiplier = 1
-		if(throwingdatum)
+		if(thrown)
 			splash_multiplier *= (rand(5,10) * 0.1) //Not all of it makes contact with the target
 		var/mob/M = target
 		var/turf/target_turf = get_turf(target)
@@ -231,7 +237,7 @@
 		reagents.expose(target_turf, TOUCH, (1 - splash_multiplier)) // 1 - splash_multiplier because it's what didn't hit the target
 		target_turf.add_liquid_from_reagents(reagents, reagent_multiplier = (1 - splash_multiplier)) // NOVA EDIT ADDITION - liquid spills (molotov buff) (huge)
 
-	else if(bartender_check(target, thrown_by) && throwingdatum)
+	else if(bartender_check(target) && thrown)
 		visible_message(span_notice("[src] lands onto \the [target] without spilling a single drop."))
 		return
 

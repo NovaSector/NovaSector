@@ -123,7 +123,11 @@ export const RecordPrint = (props) => {
       <Stack color="label" fill vertical>
         <Stack.Item>
           <Box>Enter a Header:</Box>
-          <Input onChange={setHeader} maxLength={7} value={header} />
+          <Input
+            onChange={(event, value) => setHeader(value)}
+            maxLength={7}
+            value={header}
+          />
           <Button
             icon="sync"
             onClick={() => clearField('header')}
@@ -132,7 +136,12 @@ export const RecordPrint = (props) => {
         </Stack.Item>
         <Stack.Item>
           <Box>Enter an Alias:</Box>
-          <Input onChange={setAlias} maxLength={42} value={alias} width="55%" />
+          <Input
+            onChange={(event, value) => setAlias(value)}
+            maxLength={42}
+            value={alias}
+            width="55%"
+          />
           <Button
             icon="sync"
             onClick={() => clearField('alias')}
@@ -146,7 +155,7 @@ export const RecordPrint = (props) => {
               <Input
                 fluid
                 maxLength={150}
-                onChange={setDescription}
+                onChange={(event, value) => setDescription(value)}
                 value={description}
               />
             </Stack.Item>

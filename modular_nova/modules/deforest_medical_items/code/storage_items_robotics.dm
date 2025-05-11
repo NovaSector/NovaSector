@@ -10,9 +10,8 @@
 	worn_icon_state = "frontier"
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
-	storage_type = /datum/storage/medkit/robotic_repair
 
-/datum/storage/medkit/robotic_repair/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+/obj/item/storage/medkit/robotic_repair/Initialize(mapload)
 	. = ..()
 	var/static/list/list_of_everything_mechanical_medkits_can_hold = list_of_everything_medkits_can_hold + list(
 		/obj/item/stack/cable_coil,
@@ -26,10 +25,11 @@
 		/obj/item/clothing/glasses/welding,
 	)
 
-	set_holdable(
+	atom_storage.set_holdable(
 		can_hold_list = list_of_everything_mechanical_medkits_can_hold,
 		exception_hold_list = /obj/item/clothing/head/utility/welding,
 	)
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/robotic_repair/stocked
 
@@ -48,12 +48,12 @@
 	desc = "An industrial-strength plastic box filled with supplies for repairing synthetics from critical damage. \
 		This one has extra storage on the sides for even more equipment than the standard medkit model."
 	icon_state = "synth_medkit_super"
-	storage_type = /datum/storage/medkit/robotic_repair/premium
 
-/datum/storage/medkit/robotic_repair/premium
-	max_specific_storage = WEIGHT_CLASS_NORMAL
-	max_slots = 12
-	max_total_storage = 12 * WEIGHT_CLASS_NORMAL
+/obj/item/storage/medkit/robotic_repair/preemo/Initialize(mapload)
+	. = ..()
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_slots = 12
+	atom_storage.max_total_storage = 12 * WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/robotic_repair/preemo/stocked
 

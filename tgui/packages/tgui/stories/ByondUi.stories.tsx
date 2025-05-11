@@ -54,7 +54,12 @@ function Story() {
           </Button>
         }
       >
-        <TextArea fluid height="10em" onChange={setCode}>
+        <TextArea
+          as="textarea"
+          width="100%"
+          height="10em"
+          onChange={(event, value) => setCode(value)}
+        >
           {code}
         </TextArea>
       </Section>
