@@ -4,7 +4,8 @@
 	retool_icon = 'modular_nova/modules/ahabs_spear/icons/ahabs_spear.dmi'
 	retool_icon_state = "crusher_ahab"
 	retool_inhand_icon = "crusher_ahab"
-	retool_projectile_icon = "ahabprojectile"
+	retool_projectile_icon = 'modular_nova/modules/ahabs_spear/icons/projectiles.dmi'
+	retool_projectile_icon_state = "ahabprojectile"
 	retool_lefthand_file = 'modular_nova/modules/ahabs_spear/icons/l_hand_ahab.dmi'
 	retool_righthand_file = 'modular_nova/modules/ahabs_spear/icons/r_hand_ahab.dmi'
 	retool_worn_file = 'modular_nova/modules/ahabs_spear/icons/back.dmi'
@@ -14,7 +15,6 @@
 	name = "Ahab's harpoon retool kit"
 	desc = "A toolkit for changing the crusher's appearance without affecting the device's function. This one will make it look like Ahab's harpoon, the weapon of legends."
 	icon = 'modular_nova/modules/ahabs_spear/icons/ahabs_spear.dmi'
-	retool_projectile_icon_file = 'modular_nova/modules/ahabs_spear/icons/projectiles.dmi'
 	icon_state = "ahab_retool"
 	forced_skin = /datum/crusher_skin/ahabs_harpoon
 
