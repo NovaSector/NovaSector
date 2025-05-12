@@ -90,10 +90,6 @@
 	icon_state = "abandoned_sci"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/station/science/zoo
-	name = "\improper Science Public Zoo"
-	icon_state = "cytology"
-
 /*
 * Ordnance Areas
 */

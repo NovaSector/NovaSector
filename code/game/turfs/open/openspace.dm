@@ -210,6 +210,3 @@
 
 /turf/open/openspace/telecomms
 	initial_gas_mix = TCOMMS_ATMOS
-
-/turf/open/openspace/coldroom
-	initial_gas_mix = KITCHEN_COLDROOM_ATMOS
