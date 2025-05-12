@@ -8,6 +8,7 @@
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	supports_variations_flags = NONE
 	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
 
 /obj/item/clothing/under/costume/cybersleek/long
 	name = "long modern coat"

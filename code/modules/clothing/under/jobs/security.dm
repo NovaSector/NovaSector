@@ -287,3 +287,4 @@
 	icon_state = "aerostatic_suit"
 	inhand_icon_state = null
 	can_adjust = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
