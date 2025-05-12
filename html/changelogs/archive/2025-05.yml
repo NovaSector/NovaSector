@@ -342,3 +342,142 @@
   unit0016:
   - rscadd: Weighted D20s are now available in the loadout! They're not guaranteed
       winners, but skew results fairly heavily.
+2025-05-10:
+  Neocloudy:
+  - qol: You can now toggle being able to speak a language in your preferences, so
+      you can understand a language but not be able to speak it.
+  OrbisAnima:
+  - bugfix: Fixed a cargo exploit with goody cases, no longer they will be used as
+      cheap bluespace bags knock offs.
+  - bugfix: Ideally reduces the amount of instances where items are lost when ordering
+      things that have multiple cargo items.
+  - rscadd: Donk Co is happy to present to its Imports offers the new and completly
+      SafeVendor Beacon. Capable of delivering in an instant up to two vendors of
+      the consumer choice (of a highly curated list!), this product allows the consumer
+      to bring Capitalism anywhere!
+  - rscadd: Donk Co is now endorsing the legal bitrunning competitions, providing
+      their virtual products as free samples on the orderable relaxation disks, order
+      yours today! (Adds 3 new vendors to the relax vendor machine beacon for bitrunning,
+      Good fun, Disguises and Clothing!)
+  - code_imp: Makes both the new and bitrunning vendor beacons to respect preferences,
+      the beacons start without lushwish machines and only adds them when a user with
+      such preferences enabled (and the server) has erp enabled. If you start with
+      one spawned in your hand, drop it and grab it again for it to update!
+2025-05-12:
+  00-Steven:
+  - bugfix: NTos file manager program actually shows the program names, instead of
+      the
+  - qol: Egg boxes can hold chocolate eggs, boiled eggs, and surprise eggs
+  1393F:
+  - qol: Pluoxium, an oxygen substitute, will no longer be scrubbed when setting air
+      alarms to contaminated.
+  Absolucy:
+  - qol: Ghost notifications will now use the real names of mobs when something happens
+      (i.e no more "Unknown has completed an ascension ritual!")
+  Aliceee2ch:
+  - bugfix: huge fix of various mapping mistakes on Catwalk station
+  - map: small additions for Catwalk station (such as missed buttons, shutters and
+      few decals)
+  Bisar:
+  - qol: Bluespace light replacer no longer has a range limit.
+  - image: Animations have been added to inserting/removing items from machines, and
+      to inserting things into containers that are not on your person.
+  EuSouAFazer:
+  - bugfix: Catwalk's tcomms machines are no longer scattered around
+  - map: Catwalk's AI sat now has a brand new laundromat and office
+  - rscadd: Adds CatwalkStation
+  - code_imp: Multi-Z maps now can toggle on or off having grappling hooks in people's
+      bags
+  Goat:
+  - bugfix: Barometers now properly report if the weather is dangerous or not.
+  Goat-Real:
+  - balance: Ice whelps' fire breath attack has slightly more delay. (0.5 -> 0.6 second
+      startup, 0.75 -> 0.85 decisecond for the speed the fire moves per tile.)
+  Hardly:
+  - image: fixed refitted shoredress wetsuit to be consistent with the standard body
+      type
+  Holoo-1:
+  - bugfix: fixed ampcheck in smes room computer, some overlapping cables and cameras
+      on CatwalkStation. Also replaced bridges with pumps in atmos
+  Jacquerel:
+  - balance: Most biological mobs are now slowed by taking stamina damage, and can
+      be stunned. Mechanical mobs, mining mobs, and several other special kinds (chiefly
+      those invoked by antagonists) are unaffected. If this seems to effect any mob
+      it probably shouldn't, please report it as a bug.
+  - map: Adds some bots to Catwalkstation
+  - balance: The negative effects of a mansus-corrupted liver can be suppressed with
+      holy water, like the other corrupt organs.
+  - balance: The supermatter will react negatively to being fed nuclear fissile materials
+  - balance: Regal Rats can now grab mice out of disposal bins, and no longer spawn
+      them with the Riot ability.
+  - balance: The Riot ability no longer needs to be used once for each slightly different
+      kind of mob in your radius.
+  - balance: The Regal Rat Domain ability is now toggled on and off.
+  - balance: Several kinds of mob will immediately start following you once tamed.
+  - balance: Rats, hostile frogs, and evil snails can be created via gold slime reaction.
+  JohnFulpWillard:
+  - spellcheck: Updated bruh moments.
+  Krysonism:
+  - rscadd: Added a new type of reagent container; the jerrycan.
+  - rscadd: Added some prefilled jerrycans to maint loot.
+  - balance: Botany nutrients now come in bulk packaging.
+  L1nd:
+  - balance: spiders can't wrap megafauna
+  - bugfix: nonhuman spider cocoons looks accordingly
+  LemonInTheDark:
+  - refactor: Reworked a bit of how smoothing functions on the backend. Nothing should
+      change, so if it does please yell at me
+  Maurukas:
+  - rscdel: Remove an m1911 magazine from a surface ruin
+  Maximal08:
+  - bugfix: Fixing the arrow display when using the multitool
+  Melbert:
+  - balance: If you're staggered, and try to walk down stairs, you'll instead fall
+      down the stairs (stunning and causing damage).
+  - balance: Hard crit and dead people will also roll down the stairs.
+  Pepsilawn:
+  - bugfix: Fixes bins and chutes that did not have a trunk, and adds a maplint for
+      it.
+  Redbert:
+  - bugfix: Fixes issue that causes hypernob reaction to sometimes not work
+  Rhials:
+  - bugfix: Immovable rods self-delete at the icebox world border.
+  SmArtKar:
+  - bugfix: Fixed explorer masks going invisible when you put on a goliath hood
+  - qol: Improved
+  - bugfix: Riggings and toolbelts no longer render through the goliath cloak when
+      worn in your suit slot.
+  - bugfix: Fixed a disposals loop on Catwalk's bridge
+  TealSeer:
+  - bugfix: fixed the photocopier silently failing if you can't pay the fee
+  - bugfix: roundstart photocopiers should no longer be empty on some maps
+  Y0SH1M4S73R:
+  - bugfix: Shuttle blueprints don't error out when opening them while on non-custom
+      shuttles.
+  - bugfix: Custom shuttles calculate their engine count correctly, no longer lagging
+      behind by one engine (un)installation.
+  - bugfix: Custom shuttle docking consoles are no longer blocked by where the linked
+      shuttle currently is.
+  - qol: Shuttle blueprints now show you how large a shuttle frame is, along with
+      any issues preventing you from building or expanding a shuttle using said frame.
+  necromanceranne:
+  - rscadd: Adds the Exosuit Ablative Insulation armor booster module. Protects the
+      mech from energy-based attacks and its wires from EMPs (only the wires, not
+      the mech). However, the armor booster makes the mech weaker to ballistic and
+      melee weapons.
+  - rscadd: The Dark Gygax and Mauler now come pre-packaged with a special version
+      that has no weakness to ballistic and melee weapons.
+  - bugfix: Caps how much eyeblur can be caused by things like projectiles.
+  - bugfix: The tesla cannon now fires actually visible bolts.
+  rageguy505:
+  - bugfix: Hop's office on catwalk now has working disposals and removes a floating
+      camera console from the bridge.
+  - bugfix: carpenter and claw hammer can now test for brain health.
+  throwawayuseless:
+  - rscadd: Robotic voiceboxes now grant Encoded Audio Language. Techpriests and circuit
+      nerds, rejoice!
+  - balance: Massively reduce the MMI component message cooldown.
+  - rscadd: Revolutionaries are now weakened by grenadine. Because the pomegranate
+      antioxidants stop free radicals.
+  vinylspiders:
+  - bugfix: stops snails from clogging up CI

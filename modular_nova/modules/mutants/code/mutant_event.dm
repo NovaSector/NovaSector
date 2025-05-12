@@ -24,7 +24,7 @@
 			break
 		if(try_to_mutant_infect(iterating_human, TRUE))
 			infectees++
-			notify_ghosts("[iterating_human] has been infected by the HNZ-1 pathogen!",
+			notify_ghosts("[iterating_human.real_name] has been infected by the HNZ-1 pathogen!",
 				source = iterating_human,
 			)
 
