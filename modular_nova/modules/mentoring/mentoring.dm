@@ -81,7 +81,7 @@
 				level_name = "master"
 
 	if(taught_skill)
-		. += span_notice("This book can teach you to become a(n) [level_name] [initial(taught_skill.title)].")
+		. += span_notice("This book can teach you to become \a [level_name] [initial(taught_skill.title)].")
 
 	if(taught_language)
 		. += span_notice("This book can teach you to become fluent in [initial(taught_language.name)].")
@@ -89,10 +89,13 @@
 	if(teach_sign)
 		. += span_notice("This book can teach you sign language.")
 
+	if(!(taught_skill || taught_language || teach_sign))
+		. += span_notice("Pondering about yet to be filled pages can give you insights in <b>Language skill<b>.")
+
 	. += span_notice("Using a pen will allow you to impart your knowledge about language or skills to the book!")
 
 	if(limit_uses)
-		. += span_warning("This book can only be used [allowed_uses] more time(s)!")
+		. += span_warning("This book can only be used [allowed_uses] more time\s!")
 
 /// will lower the use by one (if allowed) and check if it should be destroyed
 /obj/item/mentoring_book/proc/check_limit(mob/user)
@@ -229,11 +232,11 @@
 				var/current_lang = user.mind?.get_skill_level(/datum/skill/language)
 				var/datum/language_holder/lang_holder = user.get_language_holder()
 				var/list/language_list = list()
-				if(current_lang >= SKILL_LEVEL_MASTER)
-					language_list += lang_holder.understood_languages
+				for(var/datum/language/language as anything in lang_holder.understood_languages)
+					language_list += initial(language.name)
 
 				if(user.GetComponent(/datum/component/sign_language))
-					language_list += list("/datum/language/sign_language")
+					language_list += list("Galactic Standard Sign Language")
 
 				if(length(language_list) < 1 || current_lang < SKILL_LEVEL_MASTER)
 					to_chat(user, span_warning("You are not a master at languages, and therefore cannot write books teaching languages."))
@@ -250,21 +253,33 @@
 
 				to_chat(user, span_notice("You finish writing inside the book about your language."))
 				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
-				if(language_choice == "/datum/language/sign_language")
+				if(language_choice == "Galactic Standard Sign Language")
 					teach_sign = TRUE
 
 				else
-					taught_language = language_choice
+					taught_language = GLOB.language_types_by_name[language_choice]
 					author_level = current_lang - 1
 
 				return ITEM_INTERACT_SUCCESS
 
 			if("Skills")
-				var/skill_choice = tgui_input_list(user, "Which skill would you like to write about?", "Skill Selection", user.mind?.known_skills)
-				if(isnull(skill_choice))
+				var/list/our_skills = list()
+				for(var/datum/skill/skill as anything in user.mind?.known_skills)
+					var/level = user.mind?.get_skill_level(skill)
+					if(level < SKILL_LEVEL_APPRENTICE)
+						continue
+					our_skills[initial(skill.name)] = skill
+
+				if(!length(our_skills))
+					to_chat(user, span_warning("You don't know any skills to write about!"))
 					return ITEM_INTERACT_BLOCKING
 
-				var/skill_level = user.mind?.get_skill_level(skill_choice)
+				var/skill_choice = tgui_input_list(user, "Which skill would you like to write about?", "Skill Selection", our_skills)
+				if(isnull(skill_choice))
+					to_chat(user, span_notice("You decide against writing."))
+					return ITEM_INTERACT_BLOCKING
+
+				var/skill_level = user.mind?.get_skill_level(our_skills[skill_choice])
 				if(skill_level < SKILL_LEVEL_APPRENTICE)
 					to_chat(user, span_warning("You are not skilled enough to write about this skill!"))
 					return ITEM_INTERACT_BLOCKING
@@ -275,7 +290,7 @@
 
 				to_chat(user, span_notice("You finish writing inside the book about your skill."))
 				playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
-				taught_skill = skill_choice
+				taught_skill = our_skills[skill_choice]
 				author_level = skill_level - 1
 				return ITEM_INTERACT_SUCCESS
 
