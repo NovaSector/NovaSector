@@ -965,7 +965,7 @@
 
 /datum/loadout_item/gloves/kaynite2
 	name = "MercTac Glove"
-	item_path = /obj/item/clothing/gloves/merctac_gloves
+	item_path = /obj/item/clothing/gloves/merctac_glove
 	ckeywhitelist = list("kaynite")
 
 /datum/loadout_item/under/pants/kaynite3
