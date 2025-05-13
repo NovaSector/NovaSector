@@ -1,37 +1,104 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aq" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
+"a" = (
+/turf/closed/wall/r_wall,
+/area/station/hallway/secondary/entry)
+"b" = (
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/pale/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"c" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"d" = (
+/obj/structure/railing{
+	dir = 6
+	},
+/obj/effect/turf_decal/siding/brown{
+	dir = 6
+	},
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark_blue,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"ar" = (
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/ferny/style_random,
-/turf/open/floor/grass,
+"e" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/vending/coffee,
+/turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
-"bB" = (
+"f" = (
+/obj/machinery/door/airlock/external{
+	name = "Arrival Airlock";
+	space_dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"g" = (
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 1;
+	height = 13;
+	shuttle_id = "ferry_home";
+	name = "arrivals";
+	roundstart_template = null;
+	width = 5
+	},
+/turf/open/space/basic,
+/area/space)
+"h" = (
+/turf/open/space/basic,
+/area/space)
+"i" = (
+/obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/pale/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/ferny/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/landmark/start/hangover,
+/obj/structure/cable,
 /turf/open/floor/grass,
 /area/station/hallway/secondary/entry)
-"bC" = (
+"j" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"k" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"l" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/spawner/random/entertainment/arcade{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
-"bD" = (
+"m" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -44,7 +111,78 @@
 /obj/effect/turf_decal/tile/dark_blue,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"cL" = (
+"n" = (
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"o" = (
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"p" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"q" = (
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"r" = (
+/obj/machinery/door/airlock/external{
+	name = "Arrival Airlock";
+	space_dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"s" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"t" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"u" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/dark_blue{
 	dir = 1
@@ -58,7 +196,89 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"ep" = (
+"v" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/siding/brown/corner,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"w" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/pale/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"x" = (
+/obj/structure/railing{
+	dir = 10
+	},
+/obj/effect/turf_decal/siding/brown{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"y" = (
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/cable,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"z" = (
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"A" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"B" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/entertainment/arcade{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"C" = (
+/obj/structure/flora/bush/pale/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"D" = (
+/obj/structure/flora/bush/pale/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/ferny/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"E" = (
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/cable,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"F" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
@@ -71,57 +291,7 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"ir" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"jI" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/spawner/random/vending/colavend,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/entry)
-"kE" = (
-/obj/structure/flora/bush/pale/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"lf" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"mj" = (
-/obj/machinery/door/airlock/external{
-	name = "Arrival Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
-"mo" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/spawner/random/entertainment/arcade{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/entry)
-"mD" = (
+"G" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/ferny/style_random,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -131,19 +301,12 @@
 	},
 /turf/open/floor/grass,
 /area/station/hallway/secondary/entry)
-"mH" = (
-/obj/docking_port/stationary{
-	dir = 2;
-	dwidth = 1;
-	height = 13;
-	shuttle_id = "arrivals_stationary";
-	name = "arrivals";
-	roundstart_template = null;
-	width = 5
-	},
-/turf/template_noop,
-/area/space)
-"ql" = (
+"H" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/ferny/style_random,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"I" = (
 /obj/structure/railing{
 	dir = 8
 	},
@@ -159,15 +322,107 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"qQ" = (
-/obj/structure/flora/bush/ferny/style_random,
+"J" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"K" = (
+/obj/effect/turf_decal/delivery,
+/obj/structure/table,
+/obj/effect/spawner/random/food_or_drink,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"L" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"M" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"N" = (
+/obj/structure/flora/bush/pale/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"O" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"P" = (
+/obj/machinery/door/airlock/external{
+	name = "Arrival Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
+"Q" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/dark_blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark_blue,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/station/hallway/secondary/entry)
+"R" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/grass,
 /area/station/hallway/secondary/entry)
-"rQ" = (
+"S" = (
+/obj/structure/flora/bush/pale/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"T" = (
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/pale/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"U" = (
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/floor/grass,
+/area/station/hallway/secondary/entry)
+"V" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/vending/colavend,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
+"W" = (
 /obj/structure/railing/corner{
 	dir = 8
 	},
@@ -182,164 +437,7 @@
 /obj/effect/turf_decal/tile/dark_blue,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"sh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"sP" = (
-/obj/structure/railing{
-	dir = 6
-	},
-/obj/effect/turf_decal/siding/brown{
-	dir = 6
-	},
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"tX" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"wr" = (
-/obj/structure/flora/bush/pale/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/effect/landmark/start/hangover,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"xs" = (
-/turf/open/space/basic,
-/area/space)
-"yg" = (
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"yk" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/table,
-/obj/effect/spawner/random/entertainment/cigarette_pack,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/entry)
-"yM" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"Bo" = (
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/pale/style_random,
-/obj/structure/flora/bush/flowers_br/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"Bs" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"Em" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/table,
-/obj/effect/spawner/random/food_or_drink,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/entry)
-"FZ" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/spawner/random/vending/snackvend,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/entry)
-"Ge" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"GT" = (
-/turf/template_noop,
-/area/template_noop)
-"Hd" = (
-/obj/machinery/door/airlock/external{
-	name = "Arrival Airlock";
-	space_dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
-"HL" = (
-/obj/machinery/door/airlock/external{
-	name = "Arrival Airlock"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
-"It" = (
-/obj/structure/flora/bush/ferny/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/light/floor,
-/obj/machinery/camera/autoname/directional/south,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"IG" = (
-/obj/structure/flora/bush/ferny/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/ferny/style_random,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"Jn" = (
-/turf/closed/wall/r_wall,
-/area/station/hallway/secondary/entry)
-"LF" = (
+"X" = (
 /obj/structure/railing{
 	dir = 4
 	},
@@ -355,300 +453,199 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
-"LP" = (
-/obj/structure/railing/corner,
-/obj/effect/turf_decal/siding/brown/corner,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"LU" = (
-/obj/structure/flora/bush/pale/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"Oq" = (
-/obj/structure/flora/bush/ferny/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/pale/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"OJ" = (
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
-"PQ" = (
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/flowers_br/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"QN" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
-"Ti" = (
-/obj/structure/flora/bush/flowers_br/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"Tt" = (
-/obj/structure/railing{
-	dir = 10
-	},
-/obj/effect/turf_decal/siding/brown{
-	dir = 10
-	},
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"TG" = (
-/obj/structure/flora/bush/flowers_br/style_random,
-/obj/structure/flora/bush/pale/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"TJ" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/vending/coffee,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/entry)
-"Uy" = (
-/obj/structure/flora/bush/flowers_br/style_random,
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"Vf" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"Wm" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/turf_decal/tile/dark_blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/dark_blue,
-/obj/effect/turf_decal/stripes/corner,
-/turf/open/floor/iron/white,
-/area/station/hallway/secondary/entry)
-"YZ" = (
-/obj/structure/flora/bush/fullgrass/style_random,
-/obj/structure/flora/bush/pale/style_random,
-/obj/structure/cable,
-/turf/open/floor/grass,
-/area/station/hallway/secondary/entry)
-"Zp" = (
+"Y" = (
 /obj/machinery/door/airlock/external{
-	name = "Arrival Airlock";
-	space_dir = 4
+	name = "Arrival Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
+"Z" = (
+/obj/effect/turf_decal/delivery,
+/obj/structure/table,
+/obj/effect/spawner/random/entertainment/cigarette_pack,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/entry)
 
 (1,1,1) = {"
-yg
-ir
-Wm
-Bs
-bD
-bD
-bD
-tX
-tX
-tX
+q
+O
+p
+Q
+m
+m
+m
+M
+M
+M
 "}
 (2,1,1) = {"
-yg
-Wm
-yM
-FZ
-yk
-TJ
-QN
-HL
-QN
-bC
+q
+p
+A
+J
+Z
+e
+L
+P
+L
+B
 "}
 (3,1,1) = {"
-LP
-LF
-Jn
-Jn
-QN
-Jn
-QN
-OJ
-QN
-Jn
+v
+X
+a
+a
+L
+a
+L
+z
+L
+a
 "}
 (4,1,1) = {"
-sP
-TG
-QN
-GT
-GT
-GT
-QN
-Zp
-QN
-GT
+d
+T
+L
+h
+h
+h
+L
+f
+L
+h
 "}
 (5,1,1) = {"
-ar
-kE
-QN
-GT
-GT
-GT
-GT
-GT
-GT
-GT
+H
+N
+L
+h
+h
+h
+h
+h
+h
+h
 "}
 (6,1,1) = {"
-Ti
-Oq
-QN
-GT
-GT
-GT
-GT
-GT
-GT
-GT
+U
+b
+L
+h
+h
+h
+h
+h
+h
+h
 "}
 (7,1,1) = {"
-wr
-PQ
-QN
-GT
-GT
-GT
-GT
-GT
-GT
-GT
+C
+R
+L
+h
+h
+h
+h
+h
+h
+h
 "}
 (8,1,1) = {"
-Bo
-It
-Jn
-xs
-GT
-GT
-GT
-GT
-GT
-GT
+w
+n
+a
+h
+h
+h
+h
+h
+h
+h
 "}
 (9,1,1) = {"
-Uy
-bB
-QN
-GT
-GT
-GT
-GT
-GT
-GT
-GT
+y
+D
+L
+h
+h
+h
+h
+h
+h
+h
 "}
 (10,1,1) = {"
-IG
-LU
-QN
-GT
-GT
-mH
-GT
-GT
-GT
-GT
+E
+S
+L
+h
+h
+g
+h
+h
+h
+h
 "}
 (11,1,1) = {"
-YZ
-qQ
-QN
-GT
-GT
-GT
-GT
-GT
-GT
-GT
+i
+o
+L
+h
+h
+h
+h
+h
+h
+h
 "}
 (12,1,1) = {"
-Tt
-mD
-QN
-GT
-GT
-GT
-QN
-Hd
-QN
-GT
+x
+G
+L
+h
+h
+h
+L
+r
+L
+h
 "}
 (13,1,1) = {"
-rQ
-ql
-Jn
-Jn
-QN
-Jn
-QN
-OJ
-QN
-Jn
+W
+I
+a
+a
+L
+a
+L
+z
+L
+a
 "}
 (14,1,1) = {"
-Vf
-cL
-ep
-jI
-Em
-TJ
-QN
-mj
-QN
-mo
+j
+u
+F
+V
+K
+e
+L
+Y
+L
+l
 "}
 (15,1,1) = {"
-Vf
-lf
-Ge
-sh
-aq
-aq
-aq
-aq
-aq
-aq
+j
+c
+k
+s
+t
+t
+t
+t
+t
+t
 "}
