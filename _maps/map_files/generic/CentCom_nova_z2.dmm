@@ -470,6 +470,13 @@
 	},
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
+"ajA" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin4window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "ajK" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "basalt3"
@@ -4422,16 +4429,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/machinery/button/door/directional/east{
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	name = "Door Lock";
-	id = "interlinkdorm3";
-	pixel_y = -8
-	},
-/obj/machinery/light_switch/directional/east{
-	pixel_y = 6
-	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room3)
 "bsO" = (
@@ -4491,7 +4488,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "bxz" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -4502,6 +4498,9 @@
 	pixel_x = -32
 	},
 /obj/machinery/light/directional/west,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room4)
 "bxC" = (
@@ -5902,16 +5901,6 @@
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
-	},
-/obj/machinery/button/door/directional/east{
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	name = "Door Lock";
-	id = "interlinkdorm4";
-	pixel_y = -8
-	},
-/obj/machinery/light_switch/directional/east{
-	pixel_y = 6
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room4)
@@ -9300,12 +9289,26 @@
 "kip" = (
 /obj/structure/table/glass,
 /obj/item/flashlight/lamp/green{
-	pixel_x = -8;
-	pixel_y = 8
+	pixel_x = 8;
+	pixel_y = 4
 	},
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
+	},
+/obj/machinery/light_switch/directional/north,
+/obj/machinery/button/door/directional/north{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	name = "Door Lock";
+	id = "interlinkdorm1";
+	pixel_x = -10
+	},
+/obj/machinery/button/polarizer{
+	pixel_x = 10;
+	pixel_y = 24;
+	id = "ilinkcabin1window";
+	name = "Window Polarization"
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room1)
@@ -9743,9 +9746,23 @@
 	dir = 1
 	},
 /obj/structure/table/glass,
+/obj/machinery/light_switch/directional/north,
 /obj/item/flashlight/lamp/green{
-	pixel_x = 8;
-	pixel_y = 8
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/machinery/button/door/directional/north{
+	id = "interlinkdorm5";
+	name = "Door Lock";
+	specialfunctions = 4;
+	normaldoorcontrol = 1;
+	pixel_x = 10
+	},
+/obj/machinery/button/polarizer{
+	pixel_x = -10;
+	pixel_y = 24;
+	id = "ilinkcabin5window";
+	name = "Window Polarization"
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room5)
@@ -10339,6 +10356,13 @@
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/floor/plating,
 /area/centcom/interlink)
+"lPV" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin2window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "lQB" = (
 /obj/structure/bed/double{
 	dir = 8
@@ -10856,13 +10880,27 @@
 /area/centcom/holding/cafepark)
 "mFT" = (
 /obj/structure/table/glass,
-/obj/item/flashlight/lamp/green{
-	pixel_x = -8;
-	pixel_y = 8
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
+	},
+/obj/machinery/light_switch/directional/north,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/machinery/button/door/directional/north{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	name = "Door Lock";
+	id = "interlinkdorm4";
+	pixel_x = -10
+	},
+/obj/machinery/button/polarizer{
+	pixel_x = 10;
+	pixel_y = 24;
+	id = "ilinkcabin4window";
+	name = "Window Polarization"
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room4)
@@ -12082,7 +12120,9 @@
 	},
 /area/centcom/holding/cafepark)
 "oGJ" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -12562,12 +12602,26 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"piX" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin1window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "pji" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white/smooth_large,
+/area/centcom/interlink)
+"pjP" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin3window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
 /area/centcom/interlink)
 "pkJ" = (
 /obj/structure/fans/tiny/invisible,
@@ -12698,7 +12752,6 @@
 	},
 /area/centcom/holding/cafepark)
 "puD" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -12709,6 +12762,9 @@
 	pixel_x = -32
 	},
 /obj/machinery/light/directional/west,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room3)
 "puP" = (
@@ -12782,13 +12838,27 @@
 /area/centcom/holding/cafedorms)
 "pAP" = (
 /obj/structure/table/glass,
-/obj/item/flashlight/lamp/green{
-	pixel_x = -8;
-	pixel_y = 8
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
+	},
+/obj/machinery/light_switch/directional/north,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/machinery/button/door/directional/north{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	name = "Door Lock";
+	id = "interlinkdorm3";
+	pixel_x = -10
+	},
+/obj/machinery/button/polarizer{
+	pixel_x = 10;
+	pixel_y = 24;
+	id = "ilinkcabin3window";
+	name = "Window Polarization"
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room3)
@@ -13352,6 +13422,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
+"qoW" = (
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin5window"
+	},
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "qpu" = (
 /obj/effect/turf_decal/sand,
 /obj/structure/closet/crate/bin,
@@ -14343,13 +14420,27 @@
 /area/centcom/interlink)
 "rSc" = (
 /obj/structure/table/glass,
-/obj/item/flashlight/lamp/green{
-	pixel_x = -8;
-	pixel_y = 8
-	},
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
+	},
+/obj/machinery/light_switch/directional/north,
+/obj/machinery/button/door/directional/north{
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	name = "Door Lock";
+	id = "interlinkdorm2";
+	pixel_x = -10
+	},
+/obj/item/flashlight/lamp/green{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/machinery/button/polarizer{
+	pixel_x = 10;
+	pixel_y = 24;
+	id = "ilinkcabin2window";
+	name = "Window Polarization"
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room2)
@@ -14430,10 +14521,12 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light/directional/east,
 /obj/structure/sign/painting/library{
 	pixel_x = 32
+	},
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room5)
@@ -15456,16 +15549,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/machinery/button/door/directional/east{
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	name = "Door Lock";
-	id = "interlinkdorm1";
-	pixel_y = -8
-	},
-/obj/machinery/light_switch/directional/east{
-	pixel_y = 6
-	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room1)
 "tAf" = (
@@ -15881,7 +15964,6 @@
 /turf/open/floor/iron/showroomfloor,
 /area/centcom/interlink)
 "udQ" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -15892,6 +15974,9 @@
 	pixel_x = -32
 	},
 /obj/machinery/light/directional/west,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	anchored = 1
+	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room2)
 "uew" = (
@@ -16708,6 +16793,12 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
+"vEe" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/flowers_pp/style_2,
+/obj/structure/window/fulltile,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "vEs" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/spacevine{
@@ -17807,16 +17898,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/machinery/button/door/directional/east{
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
-	name = "Door Lock";
-	id = "interlinkdorm2";
-	pixel_y = -8
-	},
-/obj/machinery/light_switch/directional/east{
-	pixel_y = 6
-	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room2)
 "xxv" = (
@@ -18208,16 +18289,6 @@
 	dir = 8
 	},
 /obj/structure/dresser,
-/obj/machinery/button/door/directional/west{
-	id = "interlinkdorm5";
-	name = "Door Lock";
-	specialfunctions = 4;
-	normaldoorcontrol = 1;
-	pixel_y = -8
-	},
-/obj/machinery/light_switch/directional/west{
-	pixel_y = 6
-	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room5)
 "ykt" = (
@@ -26768,25 +26839,25 @@ wTk
 wTk
 wTk
 wTk
-wTk
+ajA
 qyP
 wTk
 wTk
 wTk
 wTk
-wTk
+pjP
 amr
 wTk
 wTk
 wTk
 wTk
-wTk
+lPV
 kia
 wTk
 wTk
 wTk
 wTk
-wTk
+piX
 xOm
 wTk
 wTk
@@ -27796,7 +27867,7 @@ wTk
 wTk
 wTk
 wTk
-wTk
+qoW
 oKg
 wTk
 wTk
@@ -27814,7 +27885,7 @@ oHR
 wTk
 wTk
 wTk
-fzr
+vEe
 qRx
 vTN
 wTk
