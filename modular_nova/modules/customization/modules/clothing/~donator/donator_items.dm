@@ -508,7 +508,7 @@
 
 // Kaynite Donor Item
 /obj/item/storage/backpack/merctac_backpack
-	name = "Xplore Go! Bag"
+	name = "Xplore Go! bag"
 	desc = "A versatile, single strap backpack from the survival outfitter Xplore. A 20 litre pack coupled with a detachable thermal water bottle and O2 cannister, for trekking amongst the stars."
 	icon_state = "xplore_go_bag"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/back.dmi'
