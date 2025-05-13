@@ -10,7 +10,8 @@ GLOBAL_LIST_INIT(skill_choices, init_skill_choices())
 /datum/quirk/skilled
 	name = "Skilled"
 	desc = "Before working on this station you honed your skill to a level far above that of an average spaceman. Now you can use your knowledge for the greater good. Or just boast about it"
-	icon = FA_ICON_GLASSES
+	medical_record_text = "Patient keep stating the fact they are a top prefessional even if it is not related to a checkup."
+	icon = FA_ICON_USER_PLUS
 	value = 4
 	gain_text = span_notice("You feel professional.")
 	lose_text = span_notice("You no longer feel professional.")
@@ -24,7 +25,7 @@ GLOBAL_LIST_INIT(skill_choices, init_skill_choices())
 	var/datum/mind/holder_mind = quirk_holder.mind
 
 	var/our_skill = client_source?.prefs?.read_preference(/datum/preference/choiced/skilled)
-	holder_mind.adjust_experience(GLOB.skill_choices[our_skill], SKILL_EXP_LIST[SKILLED_QUIRK_SKILL_LEVEL])
+	holder_mind?.adjust_experience(GLOB.skill_choices[our_skill], SKILL_EXP_LIST[SKILLED_QUIRK_SKILL_LEVEL])
 
 /datum/preference/choiced/skilled
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
