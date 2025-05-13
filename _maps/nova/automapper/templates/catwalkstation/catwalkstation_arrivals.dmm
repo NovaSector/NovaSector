@@ -55,16 +55,16 @@
 	dir = 2;
 	dwidth = 1;
 	height = 13;
-	shuttle_id = "arrivals_stationary";
+	shuttle_id = "ferry_home";
 	name = "arrivals";
 	roundstart_template = null;
 	width = 5
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/space)
 "h" = (
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space)
 "i" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/pale/style_random,
@@ -286,6 +286,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark_blue,
+/obj/machinery/computer/shuttle/arrivals/recall{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
 "G" = (
