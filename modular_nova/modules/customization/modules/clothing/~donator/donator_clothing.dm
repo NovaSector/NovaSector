@@ -2374,7 +2374,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/hooded/merctac_hoodie_armored
 	name = "MercTac Armored Hoodie"
-	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
+	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. \
+		A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, \
+		coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
 	icon_state = "merctac_hoodie_alt"
 	worn_icon_state = "merctac_hoodie_alt"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
