@@ -2403,7 +2403,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	flags_inv = HIDEHAIR|HIDEEARS
 
 /obj/item/clothing/gloves/merctac_gloves
-	name = "MercTac Glove"
+	name = "MercTac glove"
 	desc = "A singular fingerless glove in coyote tan, padded over the palms and knuckles for support."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
