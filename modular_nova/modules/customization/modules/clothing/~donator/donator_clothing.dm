@@ -2406,7 +2406,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "merctac_gloves"
 
 /obj/item/clothing/under/pants/merctac_pants
-	name = "MercTac Pants"
+	name = "MercTac pants"
 	desc = "Surplus military battle dress, coupled with insertable kneepads and woven with highly durable cordura fabric."
 	icon_state = "merctac_pants"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
