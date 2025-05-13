@@ -2440,3 +2440,4 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		/obj/item/clothing/suit/hooded/merctac_hoodie = 1,
 	)
 	category = CAT_CLOTHING
+
