@@ -1,0 +1,4 @@
+author: "thetaro"
+delete-after: True
+changes:
+  - balance: "put the SKS back to 0.5x damage mult, because it turns out nanotrasen actually hates when crew can buy a strong gun off an illegal market."
