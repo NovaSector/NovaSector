@@ -470,13 +470,6 @@
 	},
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
-"ajA" = (
-/obj/structure/window/fulltile{
-	polarizer_id_on_spawn = "ilinkcabin4window"
-	},
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
-/area/centcom/interlink)
 "ajK" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "basalt3"
@@ -1147,6 +1140,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"arb" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/flowers_pp/style_2,
+/obj/structure/window/fulltile,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "arh" = (
 /turf/open/floor/iron/dark,
 /area/centcom/holding/cafe)
@@ -7338,6 +7337,13 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room4)
+"gCv" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin2window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "gCQ" = (
 /obj/structure/chair/sofa/corp,
 /obj/effect/turf_decal/stripes/line,
@@ -8645,6 +8651,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
+"iXe" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin4window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "iXp" = (
 /obj/structure/flora/tree/jungle/small/style_5,
 /obj/effect/light_emitter/interlink,
@@ -8865,12 +8878,11 @@
 /turf/open/floor/iron/edge,
 /area/centcom/interlink)
 "jqm" = (
-/obj/machinery/door/airlock/security{
-	name = "Interlink Security Processing"
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin5window"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/security/general,
-/obj/machinery/door/poddoor/shuttledock/interlink,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/grass,
 /area/centcom/interlink)
 "jtc" = (
 /obj/structure/railing,
@@ -10356,13 +10368,6 @@
 /obj/effect/spawner/structure/window/reinforced/indestructible,
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"lPV" = (
-/obj/structure/window/fulltile{
-	polarizer_id_on_spawn = "ilinkcabin2window"
-	},
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
-/area/centcom/interlink)
 "lQB" = (
 /obj/structure/bed/double{
 	dir = 8
@@ -10512,6 +10517,13 @@
 "mcW" = (
 /turf/open/floor/carpet/red,
 /area/centcom/interlink/dorm_rooms/room3)
+"mde" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin1window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "mdx" = (
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 4
@@ -12602,26 +12614,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
-"piX" = (
-/obj/structure/window/fulltile{
-	polarizer_id_on_spawn = "ilinkcabin1window"
-	},
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
-/area/centcom/interlink)
 "pji" = (
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 4
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white/smooth_large,
-/area/centcom/interlink)
-"pjP" = (
-/obj/structure/window/fulltile{
-	polarizer_id_on_spawn = "ilinkcabin3window"
-	},
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
 /area/centcom/interlink)
 "pkJ" = (
 /obj/structure/fans/tiny/invisible,
@@ -13422,13 +13420,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
-"qoW" = (
-/obj/structure/flora/bush/flowers_pp/style_random,
-/obj/structure/window/fulltile{
-	polarizer_id_on_spawn = "ilinkcabin5window"
-	},
-/turf/open/floor/grass,
-/area/centcom/interlink)
 "qpu" = (
 /obj/effect/turf_decal/sand,
 /obj/structure/closet/crate/bin,
@@ -15027,9 +15018,14 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/interlink)
 "sKa" = (
-/turf/closed/indestructible/fakedoor{
-	name = "Interlink Detention Center"
+/obj/machinery/door/airlock/security{
+	name = "Interlink Security Processing"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/machinery/door/poddoor/shutters/window/indestructible/roundend{
+	id = "ilinkeorgshutter"
+	},
+/turf/open/floor/iron/dark,
 /area/centcom/interlink)
 "sKP" = (
 /obj/effect/turf_decal/bot,
@@ -16793,12 +16789,6 @@
 	icon_state = "darkfull"
 	},
 /area/centcom/holding/cafepark)
-"vEe" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/bush/flowers_pp/style_2,
-/obj/structure/window/fulltile,
-/turf/open/floor/grass,
-/area/centcom/interlink)
 "vEs" = (
 /obj/structure/fans/tiny/invisible,
 /obj/structure/spacevine{
@@ -17301,6 +17291,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/centcom/holding/cafe)
+"wwi" = (
+/obj/structure/window/fulltile{
+	polarizer_id_on_spawn = "ilinkcabin3window"
+	},
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/interlink)
 "wwq" = (
 /obj/structure/table/wood,
 /obj/structure/disposalpipe/segment,
@@ -26839,25 +26836,25 @@ wTk
 wTk
 wTk
 wTk
-ajA
+iXe
 qyP
 wTk
 wTk
 wTk
 wTk
-pjP
+wwi
 amr
 wTk
 wTk
 wTk
 wTk
-lPV
+gCv
 kia
 wTk
 wTk
 wTk
 wTk
-piX
+mde
 xOm
 wTk
 wTk
@@ -27867,7 +27864,7 @@ wTk
 wTk
 wTk
 wTk
-qoW
+jqm
 oKg
 wTk
 wTk
@@ -27885,7 +27882,7 @@ oHR
 wTk
 wTk
 wTk
-vEe
+arb
 qRx
 vTN
 wTk
@@ -44850,7 +44847,7 @@ sKa
 aXG
 aXG
 aXG
-jqm
+acL
 aTO
 igl
 aTO
