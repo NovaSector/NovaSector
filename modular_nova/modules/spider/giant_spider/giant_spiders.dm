@@ -4,7 +4,7 @@
  */
 
 /mob/living/basic/spider/giant/webslinger
-	name = "webslinger spider"
+	name = "webslinger dread spider"
 	desc = "Furry and white, it makes you shudder to look at it. Sharp green eyes are all that can be seen..."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "webslinger"
@@ -65,7 +65,7 @@
  * Far more squishier than all other types, it is an ambush predator meant to bite and run while the Teslium works its way into them.
  */
 /mob/living/basic/spider/giant/voltaic
-	name = "voltaic spider"
+	name = "voltaic dread spider"
 	desc = "Chitinous and yellow with electrical arcs running across its carapace, it makes you shudder to look at it. This one has effervescent yellow eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "voltaic"
@@ -101,7 +101,7 @@
  * A behemoth of a spider, doing both high damage but mid-level health. Front line commander.
  */
 /mob/living/basic/spider/giant/pit
-	name = "pit spider"
+	name = "pit dread spider"
 	desc = "Furry and brown with an orange top, its massive jaws strike fear in you and also sometimes into walls. This one has bright orange eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "pit"
@@ -148,7 +148,7 @@
  * A fat armored cute spider, completely utility focused and to soak damage for the weaker variants.
  */
 /mob/living/basic/spider/giant/ogre
-	name = "ogre spider"
+	name = "ogre dread spider"
 	desc = "Furry, brown, and fat. While kind of cute its size horrifies you. This one has dark purple eyes and seems heavily armored."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "ogre"
@@ -213,7 +213,7 @@
  */
 
 /mob/living/basic/spider/giant/carrier
-	name = "carrier spider"
+	name = "carrier dread spider"
 	desc = "Chitinous with a sickly green and red carapace, it makes you shudder to look at it. This one has sharp neon eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "carrier"
@@ -259,7 +259,7 @@
  */
 
 /mob/living/basic/spider/giant/baron
-	name = "baron spider"
+	name = "baron dread spider"
 	desc = "This girthy spider seems to exist in a rage-filled state, if it moves its many eyes follow."
 	icon = 'modular_nova/modules/spider/icons/64x64_spider.dmi'
 	icon_state = "baron"
