@@ -2425,16 +2425,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH
 
-/datum/armor/merctac_armor_plate
-	melee = 35
-	bullet = 30
-	laser = 30
-	energy = 40
-	bomb = 25
-	fire = 50
-	acid = 50
-	wound = 10
-
 /datum/crafting_recipe/merctac_armored_hoodie
 	name = "MercTac Armored Hoodie"
 	result = /obj/item/clothing/suit/hooded/merctac_hoodie_armored
