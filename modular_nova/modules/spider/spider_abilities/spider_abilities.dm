@@ -263,3 +263,33 @@
 
 	return TRUE
 
+/*
+* What if we taught spiders how to fish for people?
+*/
+// the cooldown
+/datum/action/cooldown/spell/pointed/projectile/webhook
+	name = "hooked web"
+	desc = "Launch at your prey to pull them in closer."
+	button_icon = 'modular_nova/modules/spider/icons/abilities.dmi'
+	button_icon_state = "webhook"
+	background_icon_state = "bg_alien"
+	overlay_icon_state = "bg_alien_border"
+
+	cooldown_time = 30 SECONDS
+	spell_requirements = NONE
+
+	active_msg = "You prepare to throw a webbed hook at your target!"
+	cast_range = 8
+	projectile_type = /obj/projectile/hook/web
+
+// webhook projectile, keeps every but subtypes the icons
+/obj/projectile/hook/web
+	name = "webhook"
+	icon_state = "webhook"
+	icon = 'modular_nova/modules/spider/icons/abilities.dmi'
+	chain_icon = 'modular_nova/modules/spider/icons/abilities.dmi'
+
+// Baron's
+/datum/action/cooldown/spell/pointed/projectile/webhook/greater
+	name = "enhanced hooked web"
+	cooldown_time = 10 SECONDS

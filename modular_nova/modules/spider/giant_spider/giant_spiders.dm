@@ -31,6 +31,7 @@
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
 		/datum/action/cooldown/mob_cooldown/web_effigy,
+		/datum/action/cooldown/spell/pointed/projectile/webhook,
 	)
 
 /mob/living/basic/spider/giant/webslinger/Initialize(mapload)
@@ -301,9 +302,9 @@
 		/datum/action/cooldown/mob_cooldown/charge/triple_charge,
 		/datum/action/cooldown/mob_cooldown/watcher_gaze,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints/baron = BB_ARACHNID_RESTRAIN,
+		/datum/action/cooldown/spell/pointed/projectile/webhook/greater,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
-		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_spikes,
 		/datum/action/cooldown/mob_cooldown/lay_web/sealer,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_reflector,
