@@ -2390,7 +2390,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	heat_protection = CHEST|ARM_LEFT
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
-	armor_type = /datum/armor/merctac_armor_plate
+	armor_type = /obj/item/clothing/suit/armor/vest/alt/sec::armor_type
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/merctac_hood
