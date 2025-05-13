@@ -2413,7 +2413,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 
 /obj/item/clothing/mask/merctac_mask
-	name = "Gambit's Mask"
+	name = "Gambit's mask"
 	desc = "A custom mask for the frontier mercenary known as Gambit. Off-putting in the light, menacing in the dark."
 	icon_state = "gambits_mask"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
