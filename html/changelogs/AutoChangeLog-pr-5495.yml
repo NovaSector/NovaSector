@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - bugfix: "catwalkStation will now help crew in arrivals arrive at arrivals to avoid arriving at arrivals in the incorrect arrival shuttle that's destined for arrivals"
