@@ -1,0 +1,4 @@
+author: "Hardly"
+delete-after: True
+changes:
+  - bugfix: "Removed Emo Long now that TG's Long Emo uses the same sprites."
