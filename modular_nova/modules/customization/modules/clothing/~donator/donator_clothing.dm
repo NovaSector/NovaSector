@@ -2390,7 +2390,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/merctac_hood
-	name = "MercTac Hood"
+	name = "MercTac hood"
 	desc = "Lined with synthetic fleece for maximum comfort."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
