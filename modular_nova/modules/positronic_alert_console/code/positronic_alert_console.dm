@@ -32,7 +32,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/posialert, 28)
 
 /obj/machinery/posialert/Destroy()
 	QDEL_NULL(radio)
-	. = ..()
+	return ..()
 
 /obj/machinery/posialert/attack_hand(mob/living/user, list/modifiers)
 	. = ..()

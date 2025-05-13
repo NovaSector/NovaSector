@@ -348,7 +348,7 @@
 
 /obj/structure/filler/Destroy()
 	parent = null
-	. = ..()
+	return ..()
 
 
 
