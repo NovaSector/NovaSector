@@ -481,3 +481,7 @@
       antioxidants stop free radicals.
   vinylspiders:
   - bugfix: stops snails from clogging up CI
+2025-05-13:
+  Iajret:
+  - qol: Mentoring books no longer give a choices in dream maker language, but rather
+      in a normal human language. No more datum/skill/gaming as a writing option.
