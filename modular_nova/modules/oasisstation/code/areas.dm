@@ -132,3 +132,12 @@
 
 /area/station/ai_monitored/command/storage/eva/shuttle
 	name = "\improper Shuttle Parts Storage"
+
+/area/sandplanet/solars
+	name = "\improper Outdoor Solar Array"
+
+/area/sandplanet/medical
+	name = "\improper Outdoor Solar Array"
+
+/area/sandplanet/science
+	name = "\improper Outdoor Solar Array"
