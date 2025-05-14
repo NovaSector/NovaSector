@@ -4,7 +4,7 @@
 	name = "Blood Steal"
 	desc = "A high-performance, impact-resistant drive that can be used to upload a loaded NIFSoft to the user's NIF. <br> \
 	An overly long beginning of an elaborate name stamped into its side, and what seemed to be a beginning of a patent number, were scratched off. \
-	Instead, a label is suck on its side, reading 'Blood Steal'."
+	Instead, a label is stuck on its side, reading 'Blood Steal'."
 	icon_state = "hc_mil_disk"
 	loaded_nifsoft = /datum/nifsoft/blood_steal
 

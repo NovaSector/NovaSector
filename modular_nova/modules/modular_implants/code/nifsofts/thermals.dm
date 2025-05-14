@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/mil_grade/thermal
 	name = "Thermal Lens"
 	loaded_nifsoft = /datum/nifsoft/hud/thermal
+	icon_state = "contract_mil_disk"
 
 /datum/nifsoft/hud/thermal
 	name = "Thermal Lens"

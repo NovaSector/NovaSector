@@ -8291,7 +8291,6 @@
 #include "modular_nova\modules\modular_implants\code\nifsofts\hivemind.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\huds.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\hypnosis.dm"
-#include "modular_nova\modules\modular_implants\code\nifsofts\infiltrator_summoner.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\money_sense.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\prop_summoner.dm"
 #include "modular_nova\modules\modular_implants\code\nifsofts\scryer.dm"

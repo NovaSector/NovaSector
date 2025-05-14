@@ -72,7 +72,7 @@
 
 /datum/market_item/weapon/ultranif
 	name = "Blood Steal NIFsoft"
-	desc = "Reverse-engineered nanite template."
+	desc = "Reverse-engineered nanite template smuggled through so many customs and bounty hunters you're lucky to even see one. Won't go for cheap - it took us too much to get them."
 	item = /obj/item/disk/nifsoft_uploader/mil_grade/blood_steal
 	price_min = CARGO_CRATE_VALUE * 12
 	price_max = CARGO_CRATE_VALUE * 24
