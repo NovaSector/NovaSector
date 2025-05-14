@@ -2420,7 +2420,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	flags_cover = MASKCOVERSMOUTH
 
 /datum/crafting_recipe/merctac_armored_hoodie
-	name = "MercTac Armored Hoodie"
+	name = "MercTac armored hoodie"
 	result = /obj/item/clothing/suit/hooded/merctac_hoodie/armored
 	time = 1 SECONDS
 	reqs = list(
