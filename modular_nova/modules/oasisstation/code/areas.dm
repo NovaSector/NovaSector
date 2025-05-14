@@ -129,3 +129,6 @@
 
 /area/station/command/heads_quarters/nt_rep/private
 	name = "\improper Nanotrasen Consultant's Quarters"
+
+/area/station/ai_monitored/command/storage/eva/shuttle
+	name = "\improper Shuttle Parts Storage"
