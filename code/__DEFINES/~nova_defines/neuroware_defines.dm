@@ -17,7 +17,7 @@
 ///Zeng-Hu Pharmaceuticals: Beneficial, medical, and performance enhancing chips.
 #define NEUROWARE_ZENGHU (1<<7)
 
-///Allow neuroware status effect to remove itself when program_count reaches 0
+///Add neuroware status effect and allow it to remove itself when program_count reaches 0
 #define NEUROWARE_METABOLIZE_HELPER(path) ##path/on_mob_metabolize(mob/living/affected_mob) {\
 	ASSERT(ispath(path, /datum/reagent), "NEUROWARE_METABOLIZE_HELPER() was passed an invalid typepath! ([path]). It needs to be a typepath derived from /datum/reagent."); \
 	. = ..(); \
