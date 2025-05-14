@@ -9,21 +9,21 @@
 	/// The config type to use for greyscaled worn sprites for characters with a muzzle sprite accessory. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_muzzled
 
-	/// Monkey
+	// Monkey
 
 	/// Icon file for mob worn overlays, if the user is a monkey.
 	var/icon/worn_icon_monkey
 	/// The config type to use for greyscale worn sprites for monkeys. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_monkey
 
-	/// Teshari
+	// Teshari
 
 	/// Icon file for mob worn overlays, if the user is a teshari.
 	var/icon/worn_icon_teshari
 	/// The config type to use for greyscaled worn sprites for Teshari characters. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_teshari
 
-	/// Vox
+	// Vox
 
 	/// Icon file for mob worn overlays, if the user is a vox.
 	var/icon/worn_icon_vox
@@ -34,7 +34,7 @@
 	/// The config type to use for greyscaled worn sprites for vox primalis characters. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_better_vox
 
-	/// Taurs
+	// Taurs
 
 	/// Icon file for mob worn overlays, for characters with a snake taur sprite accessory.
 	var/worn_icon_taur_snake
