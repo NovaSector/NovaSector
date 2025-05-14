@@ -2374,24 +2374,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
 	hood_up_affix = ""
 
-/obj/item/clothing/suit/hooded/merctac_hoodie_armored
+/obj/item/clothing/suit/hooded/merctac_hoodie/armored
 	name = "MercTac armored hoodie"
 	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. \
 		A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, \
 		coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
 	icon_state = "merctac_hoodie_alt"
 	worn_icon_state = "merctac_hoodie_alt"
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
-	inhand_icon_state = null
-	body_parts_covered = CHEST|ARM_LEFT
 	cold_protection = CHEST|ARM_LEFT
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
 	heat_protection = CHEST|ARM_LEFT
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
-	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
 	armor_type = /obj/item/clothing/suit/armor/vest/alt/sec::armor_type
-	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/merctac_hood
 	name = "MercTac hood"
@@ -2427,7 +2421,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /datum/crafting_recipe/merctac_armored_hoodie
 	name = "MercTac Armored Hoodie"
-	result = /obj/item/clothing/suit/hooded/merctac_hoodie_armored
+	result = /obj/item/clothing/suit/hooded/merctac_hoodie/armored
 	time = 1 SECONDS
 	reqs = list(
 		/obj/item/clothing/suit/armor/vest/alt/sec = 1,
