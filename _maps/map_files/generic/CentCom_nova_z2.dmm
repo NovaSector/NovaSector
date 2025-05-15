@@ -12191,7 +12191,7 @@
 "oOM" = (
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/structure/table/reinforced/rglass,
-/obj/item/storage/medkit,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/iron/freezer,
 /area/centcom/interlink)
 "oOS" = (
@@ -15284,16 +15284,6 @@
 	icon_state = "white"
 	},
 /area/centcom/holding/cafepark)
-"tgf" = (
-/obj/effect/turf_decal/trimline/white/filled/line{
-	dir = 8
-	},
-/obj/machinery/light/directional/west,
-/obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/floor/iron/edge{
-	dir = 4
-	},
-/area/centcom/interlink)
 "tgP" = (
 /obj/structure/wall_torch/spawns_lit,
 /turf/open/misc/dirt/planet,
@@ -27108,7 +27098,7 @@ tsM
 tsM
 xMX
 eGH
-tgf
+qya
 tsM
 tsM
 tsM
