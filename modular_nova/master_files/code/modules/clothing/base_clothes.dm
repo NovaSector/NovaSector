@@ -5,7 +5,7 @@
 	/// The config type to use for greyscaled worn sprites for digitigrade characters. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_digi
 	/// Icon file for mob worn overlays, for characters with a muzzle sprite accessory.
-	var/worn_icon_muzzled
+	var/icon/worn_icon_muzzled
 	/// The config type to use for greyscaled worn sprites for characters with a muzzle sprite accessory. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_muzzled
 
@@ -37,11 +37,11 @@
 	// Taurs
 
 	/// Icon file for mob worn overlays, for characters with a snake taur sprite accessory.
-	var/worn_icon_taur_snake
+	var/icon/worn_icon_taur_snake
 	/// Icon file for mob worn overlays, for characters with a paw'd taur sprite accessory.
-	var/worn_icon_taur_paw
+	var/icon/worn_icon_taur_paw
 	/// Icon file for mob worn overlays, for characters with a hoof'd taur sprite accessory.
-	var/worn_icon_taur_hoof
+	var/icon/worn_icon_taur_hoof
 	///  The config type to use for greyscaled worn sprites for characters using taur snake sprite accessory. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn_taur_snake
 	///  The config type to use for greyscaled worn sprites for characters using taur paws sprite accessory. Both this and greyscale_colors must be assigned to work.
