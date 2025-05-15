@@ -104,10 +104,34 @@
 */
 
 /area/station/commons/changingroom
-	name = "Changing Room"
+	name = "\improper Changing Room"
+
+/area/station/commons/mall
+	name = "\improper Station Mall"
+
+/area/station/commons/mall/shop1
+	name = "\improper Shop 1"
+
+/area/station/commons/mall/shop2
+	name = "\improper Shop 2"
+
+/area/station/commons/mall/shop3
+	name = "\improper Shop 3"
+
+/area/station/commons/mall/shop4
+	name = "\improper Shop 4"
+
+/area/station/commons/mall/shop5
+	name = "\improper Shop 5"
+
+/area/station/commons/mall/shop6
+	name = "\improper Shop 6"
+
+
+
 
 /area/station/commons/shipyardhall
-	name = "Changing Room"
+	name = "\improper Shipyard Hall"
 
 /area/station/commons/dorms/orbital/room1
 	name = "\improper Orbital Dorms Room 1"
