@@ -55,7 +55,7 @@
 	dir = 2;
 	dwidth = 1;
 	height = 13;
-	shuttle_id = "ferry_home";
+	shuttle_id = "arrivals_stationary";
 	name = "arrivals";
 	roundstart_template = null;
 	width = 5
@@ -289,6 +289,7 @@
 /obj/machinery/computer/shuttle/arrivals/recall{
 	dir = 4
 	},
+/obj/machinery/status_display/shuttle/directional/west,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
 "G" = (
