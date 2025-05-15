@@ -566,7 +566,7 @@
 	snip.weed_rate = weed_rate
 	snip.weed_chance = weed_chance
 	snip.yield = yield
-
+	snip.seed_type = type // NOVA EDIT ADDITION: Simple Tree
 	return snip
 
 /**
