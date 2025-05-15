@@ -50,6 +50,10 @@
 	subcategory = "Donk Co. Merchandise"
 	cost = PAYCHECK_CREW
 
+/datum/armament_entry/company_import/donk/merch/vendors
+	item_type = /obj/item/summon_beacon/vendors
+	cost = PAYCHECK_CREW * 12
+
 /datum/armament_entry/company_import/donk/merch/donk_carpet
 	item_type = /obj/item/stack/tile/carpet/donk/thirty
 
