@@ -210,6 +210,9 @@
 			if(COOLDOWN_FINISHED(src, wood_cooldown))
 				. += span_notice("There are some branches that look ready to cut down with something sharp.")
 
+			if(!graft_one && !graft_two && !graft_three)
+				. += span_notice("You are able to graft samples of other plants to this tree.")
+
 			if(graft_one)
 				. += span_notice("A sample of [graft_one.parent_name] is grafted on.")
 
@@ -228,6 +231,9 @@
 				. += span_notice("There is a tap poking out the side of the tree.")
 				if(COOLDOWN_FINISHED(src, sap_cooldown))
 					. += span_notice("Some sap is leaking out the tap-- collect it!")
+
+			else
+				. += span_notice("You can use a screwdriver to tap this tree.")
 
 /obj/structure/simple_tree/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/secateurs))
