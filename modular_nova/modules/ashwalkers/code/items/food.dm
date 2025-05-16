@@ -23,7 +23,6 @@
 		/datum/reagent/consumable/sugar = 1
 	)
 	result = /obj/item/food/meat/bacon/syrup
-	removed_foodtypes = BREAKFAST
 	category = CAT_MEAT
 
 /obj/item/food/meat/bacon/syrup
