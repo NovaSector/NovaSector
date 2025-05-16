@@ -973,7 +973,7 @@
 	item_path = /obj/item/clothing/under/pants/merctac_pants
 	ckeywhitelist = list("kaynite")
 
-/datum/loadout_item/suit/merctac
+/datum/loadout_item/mask/merctac
 	name = "Gambit's Mask"
 	item_path = /obj/item/clothing/mask/merctac_mask
 	ckeywhitelist = list("kaynite")
