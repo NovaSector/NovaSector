@@ -957,3 +957,29 @@
 	item_path = /obj/item/crusher_trophy/retool_kit/ahab
 	ckeywhitelist = list("tamaya")
 	restricted_roles = list(JOB_SHAFT_MINER)
+
+/datum/loadout_item/suit/merctac
+	name = "MercTac Hoodie"
+	item_path = /obj/item/clothing/suit/hooded/merctac_hoodie
+	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/gloves/merctac
+	name = "MercTac Glove"
+	item_path = /obj/item/clothing/gloves/merctac_glove
+	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/under/miscellaneous/merctac
+	name = "MercTac Pants"
+	item_path = /obj/item/clothing/under/pants/merctac_pants
+	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/suit/merctac
+	name = "Gambit's Mask"
+	item_path = /obj/item/clothing/mask/merctac_mask
+	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/inhand/merctac
+	name = "Xplore Go! Bag"
+	item_path = /obj/item/storage/backpack/merctac_backpack
+	ckeywhitelist = list("kaynite")
+
