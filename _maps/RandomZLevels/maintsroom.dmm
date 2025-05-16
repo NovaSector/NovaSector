@@ -179,10 +179,12 @@
 /obj/effect/light_emitter/fake_outdoors,
 /obj/machinery/conveyor/auto{
 	dir = 4;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/misc/grass/jungle,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "aM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -437,7 +439,9 @@
 	},
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
-/turf/open/floor/sepia,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "bJ" = (
 /obj/machinery/suit_storage_unit/open,
@@ -593,10 +597,12 @@
 /obj/effect/decal/remains/human,
 /obj/machinery/conveyor/auto{
 	dir = 4;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "cx" = (
 /obj/item/ectoplasm/construct,
@@ -2012,6 +2018,11 @@
 /area/awaymission/caves/maintsroom)
 "ht" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	max_integrity = 50000;
+	name = "Hardend conveyer belt"
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "hu" = (
@@ -3009,7 +3020,9 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/science,
-/turf/open/floor/plating,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "le" = (
 /obj/item/reagent_containers/cup/glass/bottle/beer{
@@ -4350,7 +4363,7 @@
 "qr" = (
 /obj/machinery/conveyor/auto{
 	dir = 8;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
 /turf/open/floor/plating,
@@ -6718,11 +6731,11 @@
 /obj/machinery/light/floor,
 /obj/machinery/conveyor/auto{
 	dir = 8;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "Ag" = (
@@ -6970,11 +6983,6 @@
 /obj/machinery/light/red,
 /obj/effect/spawner/random/trash/garbage{
 	spawn_scatter_radius = 1
-	},
-/obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
 	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
@@ -8039,11 +8047,11 @@
 /obj/structure/window/spawner/directional/north,
 /obj/machinery/conveyor/auto{
 	dir = 8;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "EW" = (
@@ -8110,17 +8118,19 @@
 /obj/effect/oneway{
 	dir = 4
 	},
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	max_integrity = 50000;
+	name = "Hardend conveyer belt"
+	},
 /obj/structure/plasticflaps{
 	name = "One direction plastic flaps";
 	desc = "Heavy duty, airtight, plastic flaps. you- A B S O L U T E L Y cannot go back the way you came if you go under these.";
 	max_integrity = 100000
 	},
-/obj/machinery/conveyor/auto{
-	dir = 4;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+/turf/open/floor/engine{
+	slowdown = 2
 	},
-/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fh" = (
 /obj/machinery/recycler{
@@ -8748,8 +8758,8 @@
 "HE" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "HF" = (
@@ -9462,14 +9472,6 @@
 /obj/effect/spawner/random/entertainment/deck,
 /obj/item/storage/medkit/frontier/stocked,
 /turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
-"KC" = (
-/obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
-	},
-/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "KE" = (
 /obj/structure/disposalpipe/segment,
@@ -10235,7 +10237,7 @@
 "Nx" = (
 /obj/machinery/conveyor/auto{
 	dir = 4;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
 /turf/open/floor/plating,
@@ -10251,8 +10253,8 @@
 	dir = 1
 	},
 /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "Nz" = (
@@ -10425,11 +10427,11 @@
 /obj/machinery/door/airlock/science,
 /obj/machinery/conveyor/auto{
 	dir = 8;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "Oa" = (
@@ -10508,11 +10510,6 @@
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Os" = (
-/obj/machinery/conveyor/auto{
-	dir = 8;
-	max_integrity = 2000;
-	name = "Hardend conveyer belt"
-	},
 /obj/machinery/recycler/deathtrap{
 	dir = 4
 	},
@@ -12741,7 +12738,9 @@
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
 /obj/structure/cable,
-/turf/open/floor/plating,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "WV" = (
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
@@ -12990,8 +12989,8 @@
 /obj/machinery/conveyor/auto{
 	dir = 1
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "Ye" = (
@@ -13325,11 +13324,11 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
 /obj/machinery/conveyor/auto{
 	dir = 8;
-	max_integrity = 2000;
+	max_integrity = 50000;
 	name = "Hardend conveyer belt"
 	},
-/turf/open/floor/sepia{
-	slowdown = 10
+/turf/open/floor/engine{
+	slowdown = 2
 	},
 /area/awaymission/caves/maintsroom)
 "ZC" = (
@@ -17356,7 +17355,7 @@ GS
 GS
 tl
 uG
-KC
+zm
 uG
 zE
 GS
@@ -17573,7 +17572,7 @@ GS
 lT
 uG
 YZ
-KC
+zm
 uG
 uN
 uG
@@ -17790,7 +17789,7 @@ GS
 SF
 uG
 uG
-KC
+zm
 uG
 uG
 jd
@@ -18224,7 +18223,7 @@ GS
 jd
 uG
 Yz
-KC
+zm
 Yz
 uG
 uG
@@ -18441,7 +18440,7 @@ GS
 lT
 uG
 Yz
-KC
+zm
 Yz
 EU
 lT
@@ -18658,7 +18657,7 @@ GS
 lT
 uG
 Yz
-KC
+zm
 Yz
 uG
 uG
@@ -18875,7 +18874,7 @@ GS
 GS
 GS
 GS
-KC
+zm
 GS
 GS
 GS
@@ -28892,7 +28891,7 @@ uG
 uG
 uG
 uG
-Nx
+uG
 jf
 CE
 jf
@@ -29109,7 +29108,7 @@ DA
 DA
 pK
 DA
-Nx
+uG
 jf
 CE
 jf
