@@ -1,0 +1,4 @@
+author: "dmnaru"
+delete-after: True
+changes:
+  - bugfix: "fixed 2 donor items not showing up correctly in the loadout"
