@@ -7380,6 +7380,7 @@
 #include "modular_nova\modules\autotransfer\code\transfer_vote.dm"
 #include "modular_nova\modules\awaymissions_nova\code\gateway_key.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic.dm"
+#include "modular_nova\modules\awaymissions_nova\Maintsroom\maintsrooms.dm"
 #include "modular_nova\modules\awaymissions_nova\mothership_astrum\abductor_ai.dm"
 #include "modular_nova\modules\awaymissions_nova\mothership_astrum\area.dm"
 #include "modular_nova\modules\awaymissions_nova\mothership_astrum\fluff.dm"
