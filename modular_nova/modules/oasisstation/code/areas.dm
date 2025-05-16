@@ -127,9 +127,6 @@
 /area/station/commons/mall/shop6
 	name = "\improper Shop 6"
 
-
-
-
 /area/station/commons/shipyardhall
 	name = "\improper Shipyard Hall"
 
@@ -161,7 +158,23 @@
 	name = "\improper Outdoor Solar Array"
 
 /area/sandplanet/medical
-	name = "\improper Outdoor Solar Array"
+	name = "\improper Medbay Courtyard"
 
 /area/sandplanet/science
-	name = "\improper Outdoor Solar Array"
+	name = "\improper Ordinance Exterior"
+
+/area/station/maintenance/abandon_air_traffic
+	name = "\improper Abandoned Air Traffic Control"
+/area/station/maintenance/abandon_arrivals
+	name = "\improper Abandoned Arrivals"
+/area/station/maintenance/abandon_hangar
+	name = "\improper Abandoned Hangar"
+
+/area/station/maintenance/abandon_fuel_storage
+	name = "\improper Abandoned Fuel Storage"
+
+/area/station/maintenance/abandon_luxury_bathroom
+	name = "\improper Abandoned Luxury Bathroom"
+
+/area/station/maintenance/abandon_night_club
+	name = "\improper Abandoned Night Club"
