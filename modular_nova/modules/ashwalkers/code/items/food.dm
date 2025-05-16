@@ -22,7 +22,7 @@
 		/datum/reagent/consumable/salt = 1,
 		/datum/reagent/consumable/sugar = 1
 	)
-	result = /obj/item/food/korta_wellington
+	result = /obj/item/food/meat/bacon/syrup
 	removed_foodtypes = BREAKFAST
 	category = CAT_MEAT
 
