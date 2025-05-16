@@ -9944,7 +9944,7 @@
 /turf/open/floor/carpet,
 /area/awaymission/caves/maintsroom)
 "Mr" = (
-/obj/effect/baseturf_helper/beach,
+/obj/effect/baseturf_helper/beach/sand,
 /turf/closed/indestructible/reinforced,
 /area/awaymission/caves/maintsroom)
 "Ms" = (
