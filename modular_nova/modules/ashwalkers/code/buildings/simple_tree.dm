@@ -35,9 +35,10 @@
 	desc = "A very nondescript fruit from a tree-- you have to wonder where it came from."
 	icon = 'modular_nova/modules/ashwalkers/icons/plant.dmi'
 	icon_state = "treefruit"
+	bite_consumption = 10
 	food_reagents = list(
-		/datum/reagent/consumable/nutriment = 10,
-		/datum/reagent/consumable/nutriment/vitamin = 6,
+		/datum/reagent/consumable/nutriment = 5,
+		/datum/reagent/consumable/nutriment/vitamin = 3,
 	)
 	tastes = list("sugary" = 1, "tart" = 1, "bitter" = 1)
 	foodtypes = FRUIT
@@ -332,7 +333,7 @@
 		var/turf/user_turf = get_turf(user)
 		for(var/iteration in 1 to rand(1, 2))
 			var/obj/item/food/tree_fruit/spawned_fruit = new /obj/item/food/tree_fruit(user_turf)
-			for(var/datum/reagent/adding_reagents in grafted_reagents)
+			for(var/adding_reagents in grafted_reagents)
 				spawned_fruit.reagents.add_reagent(adding_reagents, 5)
 
 		return
@@ -471,15 +472,15 @@
 /obj/structure/simple_tree/proc/update_graft_reagents()
 	grafted_reagents = list() // have to reset it first of course
 	if(graft_one)
-		for(var/adding_reagent_one in graft_one.stored_seed)
+		for(var/adding_reagent_one in graft_one.stored_seed.reagents_add)
 			grafted_reagents.Add(adding_reagent_one)
 
 	if(graft_two)
-		for(var/adding_reagent_two in graft_two.stored_seed)
+		for(var/adding_reagent_two in graft_two.stored_seed.reagents_add)
 			grafted_reagents.Add(adding_reagent_two)
 
 	if(graft_three)
-		for(var/adding_reagent_three in graft_three.stored_seed)
+		for(var/adding_reagent_three in graft_three.stored_seed.reagents_add)
 			grafted_reagents.Add(adding_reagent_three)
 
 /// changes the graft; who did it, which graft, what graft, where to move, and what to say
