@@ -25,6 +25,9 @@
 	item_type = /obj/item/gps
 	cost = PAYCHECK_CREW
 
+/datum/armament_entry/company_import/kahraman/basic/pda
+	item_type = /obj/item/modular_computer/pda
+
 // Occupational health and safety? Never heard of her.
 
 /datum/armament_entry/company_import/kahraman/ppe
