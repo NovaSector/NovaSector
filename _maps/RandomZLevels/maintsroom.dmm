@@ -437,10 +437,8 @@
 	},
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
-/obj/structure/window/reinforced/plasma/spawner/directional/west{
-	max_integrity = 50000;
-	name = "Anti cheese window";
-	dir = 4
+/obj/structure/window/reinforced/plasma/spawner/directional/east{
+	max_integrity = 50000
 	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
@@ -941,6 +939,11 @@
 /obj/item/toy/plush/snakeplushie,
 /obj/item/storage/fancy/cigarettes/cigpack_robust,
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"dI" = (
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "dK" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
@@ -1867,6 +1870,11 @@
 "gS" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"gT" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "gV" = (
 /obj/machinery/door/window/left/directional/north{
@@ -5347,6 +5355,10 @@
 /obj/structure/table/wood,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"ur" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
 "us" = (
 /obj/structure/sign/flag{
 	name = "Terragov Marine Corp Flag";
@@ -5835,6 +5847,10 @@
 /obj/effect/mob_spawn/corpse/human/bartender,
 /obj/structure/closet/body_bag,
 /turf/open/floor/engine/cult,
+/area/awaymission/caves/maintsroom)
+"wv" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "ww" = (
 /obj/structure/rack,
@@ -9781,6 +9797,11 @@
 /obj/machinery/hydroponics/soil/fake_turf,
 /turf/closed/indestructible/reinforced,
 /area/awaymission/caves/maintsroom)
+"LF" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
 "LG" = (
 /turf/open/floor/iron/chapel{
 	dir = 8
@@ -10228,6 +10249,11 @@
 "Nt" = (
 /obj/item/food/snowcones/clown,
 /turf/open/floor/fake_snow,
+/area/awaymission/caves/maintsroom)
+"Nu" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "Nv" = (
 /mob/living/simple_animal/bot/secbot/ed209{
@@ -11954,6 +11980,11 @@
 	name = "C.H.E.R.U.B."
 	},
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"Ub" = (
+/obj/machinery/porta_turret/syndicate/energy/heavy,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "Uc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -30382,12 +30413,12 @@ GS
 BB
 jf
 zm
-zm
+BL
 bI
-zm
-zm
-zm
-zm
+gT
+ur
+ur
+Nu
 ju
 WV
 YW
@@ -30599,7 +30630,7 @@ GS
 BB
 jf
 zm
-zm
+BL
 Ny
 HE
 HE
@@ -30816,13 +30847,13 @@ GS
 DZ
 jf
 cG
-zm
+BL
 ZB
-zm
-zm
-zm
-zm
-cG
+LF
+wv
+wv
+wv
+Ub
 jf
 jf
 jf
@@ -31033,9 +31064,9 @@ dC
 bu
 jf
 VK
-zm
+BL
 ZB
-zm
+ju
 zm
 zm
 zm
@@ -31250,9 +31281,9 @@ rJ
 GS
 jf
 zm
-zm
+BL
 ZB
-zm
+ju
 zm
 zm
 cG
@@ -31467,9 +31498,9 @@ Bk
 Ie
 jf
 zm
-zm
+BL
 ZB
-zm
+ju
 jf
 jf
 jf
@@ -31684,9 +31715,9 @@ uG
 Ua
 jf
 zm
-zm
+BL
 ZB
-zm
+ju
 zm
 jf
 NQ
@@ -31901,9 +31932,9 @@ uG
 cb
 jf
 cG
-zm
+BL
 ZB
-zm
+ju
 cG
 jf
 UK
@@ -32118,9 +32149,9 @@ db
 zr
 jf
 zm
-TQ
+dI
 Ae
-zm
+ju
 zm
 jf
 NQ
