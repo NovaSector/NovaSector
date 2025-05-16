@@ -1,6 +1,10 @@
 /obj/item/graft
-	/// the type of seed the graft is from
-	var/seed_type
+	/// a stored version of the seed
+	var/obj/item/seeds/stored_seed
+
+/obj/item/graft/Destroy()
+	QDEL_NULL(stored_seed)
+	return ..()
 
 /obj/structure/flora/ash/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(src, /obj/structure/flora/ash/cacti))
@@ -86,7 +90,7 @@
 	var/obj/item/graft/graft_two
 	/// the third graft on the tree
 	var/obj/item/graft/graft_three
-	/// the list of juiced reagents from the grafted plants
+	/// the list of reagents from the grafted plants
 	var/list/grafted_reagents = list()
 	/// the cooldown for being able to harvest some fruits
 	COOLDOWN_DECLARE(harvest_cooldown)
@@ -467,19 +471,16 @@
 /obj/structure/simple_tree/proc/update_graft_reagents()
 	grafted_reagents = list() // have to reset it first of course
 	if(graft_one)
-		var/obj/item/seeds/seed_one = initial(graft_one.seed_type)
-		for(var/adding_reagent_one in seed_one.reagents_add)
-			grafted_reagents += adding_reagent_one
+		for(var/adding_reagent_one in graft_one.stored_seed)
+			grafted_reagents.Add(adding_reagent_one)
 
 	if(graft_two)
-		var/obj/item/seeds/seed_two = initial(graft_two.seed_type)
-		for(var/adding_reagent_two in seed_two.reagents_add)
-			grafted_reagents += adding_reagent_two
+		for(var/adding_reagent_two in graft_two.stored_seed)
+			grafted_reagents.Add(adding_reagent_two)
 
 	if(graft_three)
-		var/obj/item/seeds/seed_three = initial(graft_three.seed_type)
-		for(var/adding_reagent_three in seed_three.reagents_add)
-			grafted_reagents += adding_reagent_three
+		for(var/adding_reagent_three in graft_three.stored_seed)
+			grafted_reagents.Add(adding_reagent_three)
 
 /// changes the graft; who did it, which graft, what graft, where to move, and what to say
 /obj/structure/simple_tree/proc/change_graft(mob/living/user, var/graft_number, var/obj/item/graft_item, var/graft_location, var/graft_message)
