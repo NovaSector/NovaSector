@@ -159,9 +159,3 @@
 /datum/loadout_item/head/wig
 	name = "Natural Wig"
 	item_path = /obj/item/clothing/head/wig/natural
-	additional_displayed_text = list("Hair Color")
-
-/datum/loadout_item/head/cone_of_shame
-	name = "Cone of Shame"
-	item_path = /obj/item/clothing/head/cone_of_shame
-

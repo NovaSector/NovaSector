@@ -162,13 +162,13 @@
 					floorlight.pixel_z = 32
 				if (SOUTH)
 					floorlight.pixel_w = 0
-					floorlight.pixel_y = -32
+					floorlight.pixel_z = -32
 				if (EAST)
 					floorlight.pixel_w = 32
-					floorlight.pixel_y = 0
+					floorlight.pixel_z = 0
 				if (WEST)
-					floorlight.pixel_z = -32
-					floorlight.pixel_y = 0
+					floorlight.pixel_w = -32
+					floorlight.pixel_z = 0
 			. += floorlight
 
 //STATION AIRLOCKS
@@ -181,15 +181,15 @@
 
 /obj/machinery/door/airlock/security
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/security.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_sec
 
-/obj/machinery/door/airlock/security/old
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/security2.dmi'
-	assemblytype = /obj/structure/door_assembly/door_assembly_sec/old
-
-/obj/machinery/door/airlock/security/old/glass
+/obj/machinery/door/airlock/security/glass
 	opacity = FALSE
 	glass = TRUE
 	normal_integrity = 400
+
+/obj/machinery/door/airlock/security/blue
+	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/securityblue.dmi'
 
 /obj/machinery/door/airlock/engineering
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/engineering.dmi'
@@ -423,6 +423,10 @@
 	return
 
 //ASSEMBLYS
+/obj/structure/door_assembly
+	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/public.dmi'
+	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/overlays.dmi'
+
 /obj/structure/door_assembly/door_assembly_public
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station2/glass.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station2/overlays.dmi'
@@ -433,8 +437,8 @@
 /obj/structure/door_assembly/door_assembly_sec
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/security.dmi'
 
-/obj/structure/door_assembly/door_assembly_sec/old
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/security2.dmi'
+/obj/structure/door_assembly/door_assembly_sec/blue
+	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/securityblue.dmi'
 
 /obj/structure/door_assembly/door_assembly_eng
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/engineering.dmi'
@@ -485,7 +489,6 @@
 /obj/structure/door_assembly/door_assembly_vault
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/vault/vault.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/vault/overlays.dmi'
-
 
 /obj/structure/door_assembly/door_assembly_centcom
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/centcom/centcom.dmi'
@@ -591,7 +594,3 @@
 
 /obj/structure/door_assembly/door_assembly_hydro
 	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/botany.dmi'
-
-/obj/structure/door_assembly/
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/public.dmi'
-	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/station/overlays.dmi'

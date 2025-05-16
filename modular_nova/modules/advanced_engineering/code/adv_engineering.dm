@@ -39,7 +39,7 @@
 
 /obj/item/storage/box/rcd_ammo
 	name = "industrial RCD matter box"
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon = 'modular_nova/modules/aesthetics/storage/icons/storage.dmi'
 	desc = "A durable box with refill cartridges for an industrial RCD."
 	icon_state = "engibox"
 	illustration = "rcd"

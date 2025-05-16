@@ -345,7 +345,7 @@
 
 	if(client)
 		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
-		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences))
+		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences) && user.client.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
 			. += span_info("ERP Status: [span_revenboldnotice(erp_status_pref)]")
 
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))

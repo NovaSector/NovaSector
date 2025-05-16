@@ -1,6 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useState } from 'react';
 import {
+  Box,
   Button,
   Divider,
   Icon,
@@ -30,7 +31,8 @@ const formatURLs = (text) => {
       <a
         style={{
           color: '#0591e3',
-          'text-decoration': 'none',
+          textDecoration: 'none',
+          borderBottom: 'solid 1.25px',
         }}
         href={url}
       >
@@ -176,6 +178,8 @@ export const NovaCharacterDirectory = (props) => {
 
 const ViewCharacter = (props) => {
   const { overlay, updateOverlay, assignedView } = props;
+  const [oocNotesIndex, setOocNotesIndex] = useState('SFW');
+  const [flavorTextIndex, setFlavorTextIndex] = useState('SFW');
 
   return (
     <Stack fill>
@@ -200,8 +204,33 @@ const ViewCharacter = (props) => {
               fill
               title="Flavor Text:"
               preserveWhitespace
+              buttons={
+                <>
+                  <Button
+                    selected={flavorTextIndex === 'SFW'}
+                    bold={flavorTextIndex === 'SFW'}
+                    onClick={() => setFlavorTextIndex('SFW')}
+                    width="150px"
+                    textAlign="center"
+                  >
+                    SFW
+                  </Button>
+                  <Button
+                    selected={flavorTextIndex === 'NSFW'}
+                    disabled={!overlay.flavor_text_nsfw}
+                    bold={flavorTextIndex === 'NSFW'}
+                    onClick={() => setFlavorTextIndex('NSFW')}
+                    width="150px"
+                    textAlign="center"
+                  >
+                    NSFW
+                  </Button>
+                </>
+              }
             >
-              {formatURLs(overlay.flavor_text)}
+              {flavorTextIndex === 'SFW' && formatURLs(overlay.flavor_text)}
+              {flavorTextIndex === 'NSFW' &&
+                formatURLs(overlay.flavor_text_nsfw)}
             </Section>
           </Stack.Item>
           <Stack.Item grow>
@@ -213,9 +242,34 @@ const ViewCharacter = (props) => {
                   scrollable
                   title="OOC Notes"
                   preserveWhitespace
+                  buttons={
+                    <>
+                      <Button
+                        selected={oocNotesIndex === 'SFW'}
+                        bold={oocNotesIndex === 'SFW'}
+                        onClick={() => setOocNotesIndex('SFW')}
+                        width="100px"
+                        textAlign="center"
+                      >
+                        SFW
+                      </Button>
+                      <Button
+                        selected={oocNotesIndex === 'NSFW'}
+                        bold={oocNotesIndex === 'NSFW'}
+                        disabled={
+                          overlay.erp === 'No' && !overlay.ooc_notes_nsfw
+                        }
+                        onClick={() => setOocNotesIndex('NSFW')}
+                        width="100px"
+                        textAlign="center"
+                      >
+                        NSFW
+                      </Button>
+                    </>
+                  }
                 >
                   {!!overlay.veteran_status && (
-                    <Stack.Item>
+                    <Stack.Item mb="30px">
                       <span
                         style={{
                           color: 'gold',
@@ -224,30 +278,37 @@ const ViewCharacter = (props) => {
                       >
                         Player is a Veteran.
                       </span>
-                      {'\n\n'}
                     </Stack.Item>
                   )}
-                  <LabeledList>
-                    <LabeledList.Item label="Attraction">
-                      {overlay.attraction}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Gender">
-                      {overlay.gender}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="ERP">
-                      {overlay.erp}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Vore">
-                      {overlay.vore}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Hypnosis">
-                      {overlay.hypno}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Noncon">
-                      {overlay.noncon}
-                    </LabeledList.Item>
-                  </LabeledList>
-                  &nbsp; {formatURLs(overlay.ooc_notes)}
+                  {oocNotesIndex === 'NSFW' && (
+                    <>
+                      <LabeledList>
+                        <LabeledList.Item label="Attraction">
+                          {overlay.attraction}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Gender">
+                          {overlay.gender}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="ERP">
+                          {overlay.erp}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Vore">
+                          {overlay.vore}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Hypnosis">
+                          {overlay.hypno}
+                        </LabeledList.Item>
+                        <LabeledList.Item label="Noncon">
+                          {overlay.noncon}
+                        </LabeledList.Item>
+                      </LabeledList>
+                      <Box mt="6px" />
+                      {formatURLs(overlay.ooc_notes_nsfw)}
+                    </>
+                  )}
+                  {oocNotesIndex === 'SFW' && (
+                    <>{formatURLs(overlay.ooc_notes)}</>
+                  )}
                 </Section>
               </Stack.Item>
               <Stack.Item grow>
@@ -356,9 +417,8 @@ const CharacterDirectoryList = (props) => {
         <Stack.Item>
           <Input
             placeholder="Search name..."
-            onInput={(e, value) => {
-              updateSearchTerm(value);
-            }}
+            onChange={updateSearchTerm}
+            expensive
             value={searchTerm}
             mb={2}
           />
@@ -517,10 +577,7 @@ const SortButton = ({ id, sortId, sortOrder, onClick, children }) => (
     >
       {children}
       {sortId === id && (
-        <Icon
-          name={sortOrder === 'asc' ? 'sort-up' : 'sort-down'}
-          ml="0.25rem;"
-        />
+        <Icon name={sortOrder === 'asc' ? 'sort-up' : 'sort-down'} ml={0.75} />
       )}
     </Button>
   </Table.Cell>

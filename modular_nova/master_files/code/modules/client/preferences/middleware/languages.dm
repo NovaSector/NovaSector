@@ -26,8 +26,10 @@
 	/// A associative list of language names to their typepath
 	var/static/list/name_to_language = list()
 	action_delegations = list(
-		"give_language" = PROC_REF(give_language),
-		"remove_language" = PROC_REF(remove_language),
+		"speak_language" = PROC_REF(speak_language),
+		"understand_language" = PROC_REF(understand_language),
+		"forget_speak_language" = PROC_REF(forget_speak_language),
+		"forget_understand_language" = PROC_REF(forget_understand_language)
 	)
 
 /datum/preference_middleware/languages/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
@@ -56,8 +58,6 @@
 
 	qdel(lang_holder)
 	qdel(species)
-
-	return ..()
 
 /datum/preference_middleware/languages/get_ui_data(mob/user)
 	if(length(name_to_language) != length(GLOB.all_languages))
@@ -89,7 +89,8 @@
 			selected_languages += list(list(
 				"description" = language.desc,
 				"name" = language.name,
-				"icon" = sanitize_css_class_name(language.name)
+				"icon" = sanitize_css_class_name(language.name),
+				"speaking" = !!(preferences.languages[language.type] == LANGUAGE_SPOKEN),
 			))
 		else
 			unselected_languages += list(list(
@@ -114,35 +115,55 @@
 		name_to_language[language.name] = language_name
 
 /**
- * Proc that gives a language to a character, granted that they don't already have too many
- * of them, based on their maximum amount of languages.
- *
- * Arguments:
- * * params - List of parameters, given to us by the `act()` method from TGUI. Needs to
- * contain a value under `"language_name"`.
+ * Proc that gives understanding and speaking capabilities of a language to a character,
+ * granted that they don't already have too many of them, based on their maximum amount of languages.
  *
  * Returns TRUE all the time, to ensure that the UI is updated.
  */
-/datum/preference_middleware/languages/proc/give_language(list/params)
+/datum/preference_middleware/languages/proc/speak_language(list/params, mob/user)
 	var/language_name = params["language_name"]
-	var/max_languages = preferences.all_quirks.Find(TRAIT_LINGUIST) ? MAX_LANGUAGES_LINGUIST : MAX_LANGUAGES_NORMAL
 
-	if(preferences.languages && preferences.languages.len == max_languages) // too many languages
+	var/max_languages = preferences.all_quirks.Find(TRAIT_LINGUIST) ? MAX_LANGUAGES_LINGUIST : MAX_LANGUAGES_NORMAL
+	if(preferences.languages && !(name_to_language[language_name] in preferences.languages) && preferences.languages.len == max_languages) // this is a new language and we're at the limit
+		to_chat(user, span_warning("You have too many languages learned!"))
 		return TRUE
 
 	preferences.languages[name_to_language[language_name]] = LANGUAGE_SPOKEN
 	return TRUE
 
 /**
- * Proc that removes a language from a character.
- *
- * Arguments:
- * * params - List of parameters, given to us by the `act()` method from TGUI. Needs to
- * contain a value under `"language_name"`.
+ * Proc that gives understanding capabilities only of a language to a character,
+ * granted that they don't already have too many of them, based on their maximum amount of languages.
  *
  * Returns TRUE all the time, to ensure that the UI is updated.
  */
-/datum/preference_middleware/languages/proc/remove_language(list/params)
+/datum/preference_middleware/languages/proc/understand_language(list/params, mob/user)
+	var/language_name = params["language_name"]
+
+	var/max_languages = preferences.all_quirks.Find(TRAIT_LINGUIST) ? MAX_LANGUAGES_LINGUIST : MAX_LANGUAGES_NORMAL
+	if(preferences.languages && !(name_to_language[language_name] in preferences.languages) && preferences.languages.len == max_languages) // this is a new language and we're at the limit
+		to_chat(user, span_warning("You have too many languages learned!"))
+		return TRUE
+
+	preferences.languages[name_to_language[language_name]] = LANGUAGE_UNDERSTOOD
+	return TRUE
+
+/**
+ * Proc that takes away speaking capabilities of a language from a character.
+ *
+ * Returns TRUE all the time, to ensure that the UI is updated.
+ */
+/datum/preference_middleware/languages/proc/forget_speak_language(list/params, mob/user)
+	var/language_name = params["language_name"]
+	preferences.languages[name_to_language[language_name]] = LANGUAGE_UNDERSTOOD
+	return TRUE
+
+/**
+ * Proc that takes away speaking and understanding capabilities of a language from a character.
+ *
+ * Returns TRUE all the time, to ensure that the UI is updated.
+ */
+/datum/preference_middleware/languages/proc/forget_understand_language(list/params, mob/user)
 	var/language_name = params["language_name"]
 	preferences.languages -= name_to_language[language_name]
 	return TRUE

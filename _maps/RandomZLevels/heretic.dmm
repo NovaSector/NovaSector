@@ -113,6 +113,10 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"cm" = (
+/obj/structure/signpost,
+/turf/open/water/beach,
+/area/awaymission/beach/heretic)
 "cs" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
@@ -162,15 +166,6 @@
 	},
 /obj/effect/turf_decal/weather/sand{
 	dir = 5
-	},
-/turf/open/floor/plating,
-/area/awaymission/beach/heretic)
-"dv" = (
-/obj/structure/ladder,
-/mob/living/simple_animal/hostile/devourdem{
-	faction = list("heretics","hostile");
-	maxHealth = 500;
-	health = 500
 	},
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
@@ -395,6 +390,10 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/beach/heretic)
+"gC" = (
+/mob/living/basic/cult/engorge/devourdem,
+/turf/open/floor/plating,
+/area/awaymission/beach/heretic)
 "gN" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/misc/beach/sand,
@@ -403,6 +402,10 @@
 /obj/structure/flora/bush/jungle/c/style_random,
 /obj/structure/spacevine,
 /turf/open/misc/grass/jungle/station,
+/area/awaymission/beach/heretic)
+"gT" = (
+/obj/structure/ladder,
+/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "gX" = (
 /obj/machinery/light/small/directional/west,
@@ -540,7 +543,7 @@
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
 "iu" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled/end,
+/obj/effect/turf_decal/trimline/red/filled/end,
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
 "iw" = (
@@ -808,6 +811,19 @@
 /obj/machinery/washing_machine,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"nO" = (
+/obj/structure/closet/ammunitionlocker,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/advanced/s12gauge/buckshot,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/sniper_rounds,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/open/floor/plating,
+/area/awaymission/beach/heretic)
 "nR" = (
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
@@ -909,7 +925,7 @@
 /turf/open/misc/beach/sand,
 /area/awaymission/beach/heretic)
 "pr" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled,
+/obj/effect/turf_decal/trimline/red/filled,
 /obj/structure/rack/shelf,
 /obj/item/mecha_ammo/missiles_srm{
 	pixel_y = 3;
@@ -1236,7 +1252,7 @@
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
 "un" = (
-/obj/effect/turf_decal/trimline/red/real_red/line,
+/obj/effect/turf_decal/trimline/red/line,
 /turf/closed/wall/mineral/iron,
 /area/awaymission/beach/heretic)
 "ur" = (
@@ -1322,12 +1338,16 @@
 /obj/item/seeds/wheat,
 /turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
+"vH" = (
+/obj/structure/signpost/exit,
+/turf/open/water/beach,
+/area/awaymission/beach/heretic)
 "vI" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
 "vL" = (
-/obj/effect/turf_decal/trimline/red/real_red/arrow_ccw,
+/obj/effect/turf_decal/trimline/red/arrow_ccw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
 	pixel_y = 8;
 	pixel_x = -15;
@@ -1387,19 +1407,6 @@
 	dir = 10
 	},
 /turf/open/water/beach,
-/area/awaymission/beach/heretic)
-"wS" = (
-/obj/structure/closet/ammunitionlocker,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/advanced/s12gauge/buckshot/marine,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/sniper_rounds,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/turf/open/floor/plating,
 /area/awaymission/beach/heretic)
 "wZ" = (
 /obj/item/stack/sheet/mineral/sandstone,
@@ -1791,7 +1798,7 @@
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
 "DP" = (
-/obj/effect/turf_decal/trimline/red/real_red/filled,
+/obj/effect/turf_decal/trimline/red/filled,
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
 "DT" = (
@@ -1865,7 +1872,7 @@
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
 "EJ" = (
-/obj/effect/turf_decal/trimline/red/real_red/arrow_cw,
+/obj/effect/turf_decal/trimline/red/arrow_cw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
 	pixel_y = 9;
 	pixel_x = 15;
@@ -2581,6 +2588,10 @@
 	dir = 4
 	},
 /turf/open/floor/carpet,
+/area/awaymission/beach/heretic)
+"OZ" = (
+/obj/structure/signpost/salvation,
+/turf/open/misc/grass/jungle/station,
 /area/awaymission/beach/heretic)
 "Pe" = (
 /obj/effect/turf_decal/siding/blue{
@@ -3354,9 +3365,9 @@ Ir
 "}
 (2,1,1) = {"
 Ir
+vH
 RM
-RM
-RM
+cm
 RM
 RM
 RM
@@ -5019,7 +5030,7 @@ We
 We
 We
 Xk
-Io
+OZ
 sa
 sa
 Ir
@@ -9459,9 +9470,9 @@ Ie
 Ie
 ey
 cs
-dv
+gT
 Kx
-gv
+gC
 hs
 uT
 ey
@@ -9610,7 +9621,7 @@ Ie
 Ie
 Ie
 ey
-wS
+nO
 Xc
 Xc
 NX

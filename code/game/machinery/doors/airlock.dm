@@ -527,7 +527,7 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
-/* NOVA EDIT - MOVED TO AIRLOCK.DM IN AESTHETICS MODULE
+/* NOVA EDIT REMOVAL - AESTHETICS - OVERWRITTEN IN modular_nova/modules/aesthetics/airlock/code/airlock.dm
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 
@@ -1030,7 +1030,7 @@
 	update_appearance()
 	return TRUE
 
-/obj/machinery/door/airlock/attackby(obj/item/C, mob/user, params)
+/obj/machinery/door/airlock/attackby(obj/item/C, mob/user, list/modifiers)
 	if(!HAS_SILICON_ACCESS(user))
 		if(isElectrified() && (C.obj_flags & CONDUCTS_ELECTRICITY) && shock(user, 75))
 			return

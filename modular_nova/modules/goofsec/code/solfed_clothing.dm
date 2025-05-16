@@ -11,7 +11,7 @@
 	worn_icon_state = "peacekeeper"
 	armor_type = /datum/armor/clothing_under/rank_security
 	inhand_icon_state = null
-	has_sensor = SENSOR_COORDS
+	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
 // EMT jumpsuit
@@ -26,7 +26,7 @@
 	worn_icon_state = "emt"
 	armor_type = /datum/armor/clothing_under/rank_medical
 	inhand_icon_state = null
-	has_sensor = SENSOR_COORDS
+	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
 // Solfed flak jacket, for marshals
