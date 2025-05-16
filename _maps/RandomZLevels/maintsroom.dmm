@@ -9943,6 +9943,10 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/caves/maintsroom)
+"Mr" = (
+/obj/effect/baseturf_helper/beach,
+/turf/closed/indestructible/reinforced,
+/area/awaymission/caves/maintsroom)
 "Ms" = (
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
@@ -38237,7 +38241,7 @@ jf
 jf
 "}
 (115,1,1) = {"
-jf
+Mr
 jf
 jf
 jf
