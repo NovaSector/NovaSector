@@ -180,7 +180,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 4;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
@@ -437,6 +437,11 @@
 	},
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
 /obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/structure/window/reinforced/plasma/spawner/directional/west{
+	max_integrity = 50000;
+	name = "Anti cheese window";
+	dir = 4
+	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "bJ" = (
@@ -594,7 +599,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 4;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -1296,7 +1301,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 10;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -1598,7 +1603,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 6;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -3008,7 +3013,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/science/glass,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "le" = (
@@ -4351,7 +4356,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -6719,7 +6724,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/sepia{
 	slowdown = 10
@@ -6974,7 +6979,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
@@ -8040,7 +8045,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/sepia{
 	slowdown = 10
@@ -8118,7 +8123,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 4;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -8748,6 +8753,11 @@
 "HE" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	max_integrity = 2000;
+	name = "Hardened conveyer belt"
+	},
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -9449,7 +9459,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 1;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -9467,7 +9477,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
@@ -10240,7 +10250,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 4;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -10251,10 +10261,12 @@
 	name = "Anti cheese window"
 	},
 /obj/machinery/light/floor,
-/obj/machinery/conveyor/auto{
-	dir = 1
-	},
 /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	max_integrity = 2000;
+	name = "Hardened conveyer belt"
+	},
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -10426,12 +10438,12 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/science,
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
+/obj/machinery/door/airlock/science/glass,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
@@ -10515,7 +10527,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /obj/machinery/recycler/deathtrap{
 	dir = 4
@@ -11504,7 +11516,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 1;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -12988,16 +13000,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"Yd" = (
-/obj/structure/window/reinforced/plasma/spawner/directional/west,
-/obj/structure/window/reinforced/plasma/spawner/directional/east,
-/obj/machinery/conveyor/auto{
-	dir = 1
-	},
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
-/area/awaymission/caves/maintsroom)
 "Ye" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -13071,7 +13073,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 5;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -13330,7 +13332,7 @@
 /obj/machinery/conveyor/auto{
 	dir = 8;
 	max_integrity = 2000;
-	name = "Hardend conveyer belt"
+	name = "Hardened conveyer belt"
 	},
 /turf/open/floor/sepia{
 	slowdown = 10
@@ -30180,7 +30182,7 @@ zm
 zm
 do
 jf
-dr
+NQ
 NQ
 NQ
 Vl
@@ -30599,9 +30601,9 @@ jf
 zm
 zm
 Ny
-Yd
-Yd
-Yd
+HE
+HE
+HE
 HE
 kM
 jf
@@ -31267,7 +31269,7 @@ pc
 NQ
 gC
 NQ
-Xp
+UK
 NQ
 NQ
 Lc
@@ -31704,7 +31706,7 @@ NQ
 NQ
 NQ
 Iz
-pj
+Ey
 NQ
 kP
 NQ
@@ -32130,7 +32132,7 @@ kP
 pF
 NQ
 NQ
-pj
+Ey
 VF
 kP
 NQ
