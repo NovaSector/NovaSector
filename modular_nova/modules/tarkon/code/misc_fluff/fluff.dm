@@ -133,17 +133,17 @@
 /obj/item/paper/fluff/ruins/tarkon/cargosafe
 	name = "paper - 'Cargo safe note'"
 	default_raw_text = "Hey... Director wasn't happy about bumping their head on the table trying to check funding, so we moved it into the warehouse. ,\
-	 <br> Check in the owlcove by the air alarm, make sure to paint the tiling when you're finished. ,\
-	 <br> P.S: 50 credits if you can write the code down"
+		<br> Check in the owlcove by the air alarm, make sure to paint the tiling when you're finished. ,\
+		<br> P.S: 50 credits if you can write the code down"
 
 /obj/item/paper/fluff/ruins/tarkon/sop
 	name = "paper - 'Tarkon Security S.O.P'"
 	default_raw_text = "Hey there, lawman. As you might be aware, We dont have full faculties to hold prisoners for long-term storage... ,\
 		Atleast not without some governments throwing a shit-fit. So, Here's what we do. <br><br> If someone is tresspassing, We ask where they come from. ,\
-		 Apparently there's a nearby station, So... Chances are they're from there. Aslong as you dont have to shoot them, You only hold them for questioning. <br> ,\
-		 <br> If it's one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
-		  void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. ,\
-		  You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
+		Apparently there's a nearby station, So... Chances are they're from there. Aslong as you dont have to shoot them, You only hold them for questioning. <br> ,\
+		<br> If it's one of our own, Well... You'll officially be on Warden duty and have to feed them. Tough shit. You can always ask them if they want thrown to the ,\
+		void with whatever they're offered, Just be warned you're on note for anything of major importance. <br><br> Lastly, You aren't to hold people that aren't wanting to be on the port. ,\
+		You may take any and every measure to make sure they dont come back if they are let out, Including dropping them in space or at the nearest station."
 
 /obj/item/paper/fluff/ruins/tarkon/arcs
 	name = "paper - 'Tarkon Industries' Advanced Resonance Control System'"

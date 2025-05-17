@@ -48,24 +48,24 @@
 
 /// Procs used to add the emissive layer (the runes) to the weapons.
 /obj/item/kinetic_crusher/proc/add_runic_glow()
-    return emissive_appearance(
-        'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi',
-        "[icon_state]-emissive",
-        src,
-        alpha = src.alpha
-    )
+	return emissive_appearance(
+		'modular_nova/modules/tribal_extended/icons/tribal_crushers.dmi',
+		"[icon_state]-emissive",
+		src,
+		alpha = src.alpha
+	)
 
 /obj/item/kinetic_crusher/runic_greatsword/update_overlays()
-    . = ..()
-    . += add_runic_glow()
+	. = ..()
+	. += add_runic_glow()
 
 /obj/item/kinetic_crusher/runic_greataxe/update_overlays()
-    . = ..()
-    . += add_runic_glow()
+	. = ..()
+	. += add_runic_glow()
 
 /obj/item/kinetic_crusher/spear/runic_spear/update_overlays()
-    . = ..()
-    . += add_runic_glow()
+	. = ..()
+	. += add_runic_glow()
 
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()

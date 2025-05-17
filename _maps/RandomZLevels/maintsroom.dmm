@@ -5808,7 +5808,6 @@
 /area/awaymission/caves/maintsroom)
 "wl" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/structure/grille,
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "wm" = (

@@ -29,7 +29,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 		make the NT20 powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/automatic/nt20/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
 /obj/item/gun/ballistic/automatic/nt20/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \

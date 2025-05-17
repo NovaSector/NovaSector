@@ -111,7 +111,7 @@
 	qdel(src)
 
 /// when given a message and an amount of time, requires the user to stand still while receiving the message
-/obj/item/mentoring_book/proc/timed_sentence(mob/user, var/sent_message, var/time_amount)
+/obj/item/mentoring_book/proc/timed_sentence(user, sent_message, time_amount)
 	to_chat(user, span_notice(sent_message))
 	playsound(src, SFX_PAGE_TURN, 30, TRUE)
 	if(!do_after(user, time_amount, target = src))

@@ -318,7 +318,7 @@ Greyscaled medals
 
 If someone could make it be able to track individual roles as well like for blueshield, I want it to track blueshield time only, that would be awesome!
 I plan/hope to have thee medals be given on spawn as a "opt-in" for on spawn but also unlock themselves in the loadouts menu, not sure how hard that would be though
-I plan to many more medals be time based like role/department based so people can show their dedications, and also having more unique situational medals that centcomm can issue, and so we have more medals to play with, as the department medals that could be rewarded are very very limiting
+I plan to many more medals be time based like role/department based so people can show their dedications, and also having more unique situational medals that centcom can issue, and so we have more medals to play with, as the department medals that could be rewarded are very very limiting
 Note for Contributors/Maintainers, I did what I could to keep things robust and allow for as much customization as possible!, feel free to do what you can for your own accessories!
 
 */
@@ -427,7 +427,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ptpin"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcomm
+/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcom
 	name = "\improper Central Command neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ccpin"

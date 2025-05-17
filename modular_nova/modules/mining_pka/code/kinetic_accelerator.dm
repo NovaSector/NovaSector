@@ -64,7 +64,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/repeater)
 	max_mod_capacity = 65
 
-/obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater/Initialize()
+/obj/item/gun/energy/recharge/kinetic_accelerator/variant/repeater/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, 0.2 SECONDS)
 

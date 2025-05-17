@@ -8,7 +8,7 @@
 /obj/item/organ/cyberimp/sensory_enhancer
 	name = "\improper Qani-Laaca sensory computer"
 	desc = "An experimental implant replacing the spine of organics. When activated, it can give a temporary boost to mental processing speed, \
-		Which many users percieve as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
+		Which many users perceive as a slowing of time and quickening of their ability to act. Due to its nature, it is incompatible with \
 		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "sandy"

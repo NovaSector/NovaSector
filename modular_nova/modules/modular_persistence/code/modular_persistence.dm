@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	return returned_list
 
 /// Saves the held persistence data to where it needs to go.
-/datum/modular_persistence/proc/save_data(var/ckey)
+/datum/modular_persistence/proc/save_data(ckey)
 	var/obj/item/organ/brain/our_brain = owner_brain?.resolve()
 	if(!our_brain)
 		owner_brain = null
@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 	return TRUE
 
 /// Saves the persistence data for the owner.
-/mob/living/carbon/human/proc/save_individual_persistence(var/ckey)
+/mob/living/carbon/human/proc/save_individual_persistence(ckey)
 	var/obj/item/organ/brain/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
 
 	return brain?.modular_persistence?.save_data(ckey)
