@@ -2360,8 +2360,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/under/ecologist
 	name = "ecologist's garb"
-	desc = "A mix of clothing pieces given to NanoTrasen Ecology Specialists. Worn over plain clothes is a white gambeson with a breast \
-		guard on the left side. Moving down is a collection of several belts, most prominently an orange one holding a several \
+	desc = "A mix of clothing pieces given to Nanotrasen Ecology Specialists. Worn over plain clothes is a white gambeson with a breast \
+		guard on the left side. Moving down is a collection of several belts, most prominently an orange one holding several \
 		small pouches and a cage for some endemic life, empty for now it seems. Just below that, a pair of blue chaps."
 	icon_state = "ecologist_under"
 	worn_icon_state = "ecologist_under"
@@ -2381,10 +2381,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/hooded/ecologist
 	name = "ecologist's coat"
-	desc = "A fine leather coat for NanoTrasen Ecology Specialists. \
-		The leather has been dyed green and has patches of orange fabric sewn into the coat, \
-		it seems like there was at one point additional armor padding the coat, though it has since been removed, \
-		it could probably (Not) stop a Drake's bite still however."
+	desc = "A fine leather coat for Nanotrasen Ecology Specialists. \
+		The leather has been dyed green and has patches of orange fabric sewn into the coat. \
+		It seems like there was at one point additional armor padding the coat, though it has since been removed; \
+		it most certainly won't stop a Drake's bite now."
 	icon_state = "ecologist_coat"
 	worn_icon_state = "ecologist_coat"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
@@ -2405,8 +2405,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/gloves/ecologist
 	name = "ecologist's gloves"
-	desc = "A pair of leather gloves for NanoTrasen Ecology Specialists, with an experimental \"Slingshot\" \
-		firmly attached to the left glove, though for safety reasons, the rope was removed."
+	desc = "A pair of leather gloves for Nanotrasen Ecology Specialists, with an experimental \"Slingshot\" \
+		firmly attached to the left glove; for safety reasons, the rope has been removed."
 	icon_state = "ecologist_claw"
 	worn_icon_state = "ecologist_claw"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
