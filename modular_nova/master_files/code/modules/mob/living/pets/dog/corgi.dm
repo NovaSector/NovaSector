@@ -192,7 +192,7 @@
 	investigate_log("has been gibbed due to being emagged by [user].", INVESTIGATE_DEATHS)
 	visible_message(span_boldwarning("[user] swipes a card through [target]!"), span_notice("You overload [target]s internal reactor..."))
 
-	notify_ghosts("[user] has shortcircuited [target] to explode in 60 seconds!",
+	notify_ghosts("[user.real_name] has shortcircuited [target] to explode in 60 seconds!",
 		source = target,
 		notify_flags = NOTIFY_CATEGORY_NOFLASH,
 		header = "Borgi Emagged",
