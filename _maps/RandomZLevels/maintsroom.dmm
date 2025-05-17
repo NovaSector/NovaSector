@@ -13274,6 +13274,11 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
+"Zl" = (
+/obj/effect/spawner/random/engineering/canister,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "Zm" = (
 /obj/item/flashlight/lantern,
 /turf/open/floor/iron/chapel{
@@ -23273,7 +23278,7 @@ Xz
 hi
 am
 GS
-uG
+zl
 uG
 GS
 ZP
@@ -27134,7 +27139,7 @@ GS
 lT
 DM
 GS
-TB
+Zl
 Bg
 kK
 dC
