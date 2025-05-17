@@ -1,4 +1,4 @@
-/obj/item/disk/nifsoft_uploader/summoner/service
+/obj/item/disk/nifsoft_uploader/job/summoner/service
 	name = "Grimoire Hestia"
 	loaded_nifsoft = /datum/nifsoft/summoner/job/service
 
