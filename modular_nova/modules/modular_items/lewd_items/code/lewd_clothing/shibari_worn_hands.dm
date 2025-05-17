@@ -1,14 +1,15 @@
 /obj/item/clothing/gloves/shibari_hands
 	name = "shibari arms bondage"
 	desc = "Bondage ropes that cover arms."
-	icon_state = "shibari_arms"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_gloves.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_gloves.dmi'
 	body_parts_covered = NONE
 	//strip_delay = 100
 	breakouttime = 5 SECONDS
 	item_flags = DROPDEL
 
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/gloves/shibari_hands"
+	post_init_icon_state = "shibari_arms"
 	greyscale_config = /datum/greyscale_config/shibari/hands
 	greyscale_config_worn = /datum/greyscale_config/shibari/hands/worn
 	greyscale_colors = "#bd8fcf"

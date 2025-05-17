@@ -39,12 +39,6 @@
 	icon_state = "headdress"
 	supports_variations_flags = NONE
 	armor_type = /datum/armor/ash_headdress
-
-	greyscale_colors = null
-	greyscale_config = null
-	greyscale_config_inhand_left = null
-	greyscale_config_inhand_right = null
-	greyscale_config_worn = null
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_headdress
@@ -74,12 +68,6 @@
 	worn_icon = 'modular_nova/modules/ashwalkers/icons/ashwalker_clothing_mob.dmi'
 	icon_state = "robes"
 	armor_type = /datum/armor/clothing_under/ash_robes
-
-	greyscale_colors = null
-	greyscale_config = null
-	greyscale_config_inhand_left = null
-	greyscale_config_inhand_right = null
-	greyscale_config_worn = null
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_robes
@@ -100,12 +88,6 @@
 	icon_state = "combat_plates"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor_type = /datum/armor/ash_plates
-
-	greyscale_colors = null
-	greyscale_config = null
-	greyscale_config_inhand_left = null
-	greyscale_config_inhand_right = null
-	greyscale_config_worn = null
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /datum/crafting_recipe/ash_recipe/ash_plates

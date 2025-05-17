@@ -301,7 +301,6 @@
 /obj/item/instrument/piano_synth/headphones/catear_headphone
 	name = "Cat-Ear Headphones"
 	desc = "Merch of their Electric Guitarist Demi Galgan from the Singularity Shredders. It's heavily customizable and even comes with a holographic tail!"
-	icon_state = "catear_headphone"
 	worn_icon = 'modular_nova/modules/GAGS/icons/head/catear_headphone.dmi'
 	lefthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
 	righthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
@@ -310,6 +309,9 @@
 	var/catTailToggled = FALSE
 	instrument_range = 1
 	greyscale_colors = "#FFFFFF#FFFFFF"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/instrument/piano_synth/headphones/catear_headphone"
+	post_init_icon_state = "catear_headphone"
 	greyscale_config = /datum/greyscale_config/catear_headphone
 	greyscale_config_worn = /datum/greyscale_config/catear_headphone/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/catear_headphone_inhand_left

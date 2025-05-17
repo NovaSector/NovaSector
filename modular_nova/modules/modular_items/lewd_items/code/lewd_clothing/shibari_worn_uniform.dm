@@ -114,8 +114,10 @@
 /obj/item/clothing/under/shibari/torso
 	name = "shibari ropes"
 	desc = "Nice looking rope bondage."
-	icon_state = "shibari_body"
 
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shibari/torso"
+	post_init_icon_state = "shibari_body"
 	greyscale_config = /datum/greyscale_config/shibari/body
 	greyscale_config_worn = /datum/greyscale_config/shibari/body/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shibari/body/worn/digi
@@ -136,8 +138,10 @@
 /obj/item/clothing/under/shibari/groin
 	name = "crotch rope shibari"
 	desc = "A rope that teases the wearer's genitals."
-	icon_state = "shibari_groin"
 
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shibari/groin"
+	post_init_icon_state = "shibari_groin"
 	greyscale_config = /datum/greyscale_config/shibari/groin
 	greyscale_config_worn = /datum/greyscale_config/shibari/groin/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shibari/groin/worn/digi
@@ -168,8 +172,10 @@
 /obj/item/clothing/under/shibari/full
 	name = "shibari fullbody ropes"
 	desc = "Bondage ropes that cover the whole body."
-	icon_state = "shibari_fullbody"
 
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shibari/full"
+	post_init_icon_state = "shibari_fullbody"
 	greyscale_config = /datum/greyscale_config/shibari/fullbody
 	greyscale_config_worn = /datum/greyscale_config/shibari/fullbody/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/shibari/fullbody/worn/digi

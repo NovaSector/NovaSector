@@ -19,6 +19,9 @@
 /obj/item/clothing/suit/space
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/spacesuit_digi.dmi'
 
+/obj/item/clothing/suit/syndicatefake
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/spacesuit_digi.dmi'
+
 /obj/item/clothing/suit/chaplainsuit
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
 
@@ -26,12 +29,18 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
 
 /obj/item/clothing/suit/chaplainsuit/habit
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/chaplainsuit/habit"
+	post_init_icon_state = "habit"
 	greyscale_config = /datum/greyscale_config/chappy_habit
 	greyscale_config_worn = /datum/greyscale_config/chappy_habit/worn
 	greyscale_colors = "#373548#FFFFFF#D29722"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/chaplainsuit/monkhabit
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/chaplainsuit/monkhabit"
+	post_init_icon_state = "monkfrock"
 	greyscale_config = /datum/greyscale_config/monk_habit
 	greyscale_config_worn = /datum/greyscale_config/monk_habit/worn
 	greyscale_colors = "#8C531A#9C7132"

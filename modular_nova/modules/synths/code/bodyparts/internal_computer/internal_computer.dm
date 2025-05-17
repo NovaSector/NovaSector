@@ -10,6 +10,7 @@
 	max_idle_programs = 3
 
 	max_capacity = 64
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/modular_computer/pda/synth/Initialize(mapload)
 	. = ..()
