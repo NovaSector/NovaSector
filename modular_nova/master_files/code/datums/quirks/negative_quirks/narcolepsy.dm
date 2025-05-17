@@ -10,15 +10,23 @@
 		/obj/item/reagent_containers/cup/soda_cans/space_mountain_wind,
 		/obj/item/storage/pill_bottle/prescription_stimulant,
 	)
+	species_quirks = list(/datum/species/synthetic = /datum/quirk/narcolepsy/synth)
+	var/stim_medication = /obj/item/storage/medkit/civil_defense/comfort/stocked
 
 /datum/quirk/narcolepsy/post_add()
 	. = ..()
 	var/mob/living/carbon/human/user = quirk_holder
 	user.gain_trauma(/datum/brain_trauma/severe/narcolepsy/permanent, TRAUMA_RESILIENCE_ABSOLUTE)
-
-	var/obj/item/storage/medkit/civil_defense/comfort/stocked/stimmies = new()
-	if(quirk_holder.equip_to_slot_if_possible(stimmies, ITEM_SLOT_BACKPACK, qdel_on_fail = TRUE, initial = TRUE, indirect_action = TRUE))
-		to_chat(quirk_holder, span_info("You have been given a company-issued symptom support kit containing mild stimulants to assist in staying awake this shift. Dose responsibly. Consult your allocated care provider if you experience any side-effects."))
+	give_item_to_holder_nova(
+		stim_medication,
+		list(
+			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
+			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
+			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
+			LOCATION_HANDS = ITEM_SLOT_HANDS,
+		),
+		flavour_text = "Contains mild stimulants to assist in staying awake this shift. Dose responsibly. Consult your allocated care provider if you experience any side-effects.",
+	)
 
 /datum/quirk/narcolepsy/remove()
 	. = ..()
@@ -52,3 +60,14 @@
 	else if(drowsy && SPT_PROB(sleep_chance, seconds_per_tick))
 		to_chat(owner, span_warning("You fall asleep."))
 		owner.Sleeping(rand(20 SECONDS, 30 SECONDS))
+
+/datum/quirk/narcolepsy/synth
+	name = "Spurious Interrupt Error"
+	medical_record_text = "Patient is malfunctioning and may involuntarily reboot during normal operation."
+	mail_goodies = list(
+		/obj/item/reagent_containers/cup/glass/coffee,
+		/obj/item/reagent_containers/cup/soda_cans/space_mountain_wind,
+		/obj/item/storage/pill_bottle/prescription_stimulant,
+	)
+	hidden_quirk = TRUE
+	stim_medication = /obj/item/storage/box/flat/neuroware/synaptizine
