@@ -52,6 +52,7 @@
 		target.dropItemToGround(item_in_slot, force = TRUE)
 		force_dropped_items += item_in_slot
 		RegisterSignal(item_in_slot, COMSIG_QDELETING, PROC_REF(dropped_items_cleanup))
+	return target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE)
 
 /datum/quirk/equipping/proc/dropped_items_cleanup(obj/item/source)
 	SIGNAL_HANDLER

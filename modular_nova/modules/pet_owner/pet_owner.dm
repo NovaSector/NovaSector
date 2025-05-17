@@ -49,7 +49,7 @@
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
 	)
-	//NanoTrasen
+	//Nanotrasen
 	give_item_to_holder(
 		space_treat,
 		list(

@@ -1,6 +1,6 @@
 /obj/item/xenoarch/wave_scanner_backpack
 	name = "Alden-Saraspova wave scanner backpack"
-	desc = "Old NanoTrasen wave scanner, designed to search and analyze exotic waves."
+	desc = "Old Nanotrasen wave scanner, designed to search and analyze exotic waves."
 	slot_flags = ITEM_SLOT_BACK
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/tools.dmi'
 	worn_icon = 'modular_nova/modules/xenoarchartifacts/icons/worn.dmi'

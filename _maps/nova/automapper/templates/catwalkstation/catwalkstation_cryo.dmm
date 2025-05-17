@@ -63,10 +63,6 @@
 	},
 /turf/closed/wall,
 /area/station/common/cryopods)
-"y" = (
-/obj/effect/spawner/structure/window,
-/turf/closed/wall,
-/area/station/common/cryopods)
 "B" = (
 /obj/structure/cable,
 /turf/template_noop,
@@ -185,7 +181,7 @@ B
 q
 q
 q
-y
+b
 u
 i
 B

@@ -849,14 +849,14 @@
 	ckeywhitelist = list("centralsmith")
 
 /datum/loadout_item/under/jumpsuit/techpants
-    name = "Techwear Pants"
-    item_path = /obj/item/clothing/under/techpants
-    ckeywhitelist = list("alvcyktor", "snakebittenn")
+	name = "Techwear Pants"
+	item_path = /obj/item/clothing/under/techpants
+	ckeywhitelist = list("alvcyktor", "snakebittenn")
 
 /datum/loadout_item/inhand/drop_pouch
-    name = "Drop Pouch"
-    item_path = /obj/item/storage/backpack/satchel/drop_pouch
-    ckeywhitelist = list("alvcyktor", "snakebittenn")
+	name = "Drop Pouch"
+	item_path = /obj/item/storage/backpack/satchel/drop_pouch
+	ckeywhitelist = list("alvcyktor", "snakebittenn")
 
 /datum/loadout_item/pocket_items/melonseva
 	name = "Sundowner SEVA"

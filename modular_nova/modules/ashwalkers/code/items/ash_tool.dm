@@ -104,7 +104,7 @@
 	. = ..()
 	. += span_notice("In order to be planted, it is required to be on the mining level as well as on basalt.")
 
-/obj/item/ash_seed/proc/harm_user(mob/living/user, var/sent_message, var/damage_amount)
+/obj/item/ash_seed/proc/harm_user(mob/living/user, sent_message, damage_amount)
 	to_chat(user, span_warning(sent_message))
 	user.adjustBruteLoss(damage_amount)
 	if(!do_after(user, 4 SECONDS, target = src))

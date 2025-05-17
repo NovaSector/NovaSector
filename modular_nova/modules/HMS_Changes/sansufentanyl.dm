@@ -63,9 +63,9 @@
 	generate_items_inside(list(
 		/obj/item/reagent_containers/cup/beaker/sansufentanyl_base = 1,
 		/obj/item/reagent_containers/cup/beaker/large/spaceacillin = 1,
-		/obj/item/stack/ore/bluespace_crystal = 15,
 		/obj/item/paper/fluff/sansufentanyl = 1,
 	), src)
+	new /obj/item/stack/ore/bluespace_crystal(src, 15)
 
 /datum/chemical_reaction/randomized/sansufentanyl
 	randomize_req_temperature = FALSE

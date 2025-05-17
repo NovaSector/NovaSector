@@ -126,7 +126,7 @@
 	throw_speed = 4
 	embed_type = /datum/embedding/combat_knife/throwing
 
- // +10 embed chance up from combat knife's 65
+// +10 embed chance up from combat knife's 65
 /datum/embedding/combat_knife/throwing
 	embed_chance = parent_type::embed_chance + 10
 
