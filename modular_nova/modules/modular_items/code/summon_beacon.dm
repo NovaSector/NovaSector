@@ -137,6 +137,9 @@
 	allowed_areas = list(
 		/area/station/engineering/atmos,
 		/area/station/engineering/atmospherics_engine,
+		/area/ruin/space/has_grav/nova/des_two/engineering, //ds2
+		/area/ruin/space/has_grav/port_tarkon/atmos, //tarkon
+		/area/centcom/tdome/arena, //thunderdome
 	)
 
 	selectable_atoms = list(
@@ -145,6 +148,7 @@
 		/obj/machinery/atmospherics/miner/nitrogen,
 		/obj/machinery/atmospherics/miner/oxygen,
 		/obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/atmospherics/miner/water_vapor,
 	)
 
 	area_string = "atmospherics"
@@ -176,7 +180,7 @@
 		/obj/machinery/vending/imported/mothic, // "Nomad Fleet Ration Chit Exchange"
 		/obj/machinery/vending/imported/tiziran, // "Tiziran Imported Delicacies"
 		/obj/machinery/vending/imported/yangyu, // "Fudobenda"
-		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"	
+		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"
 	)
 
 /obj/item/summon_beacon/vendors/equipped(mob/user, slot, initial)
@@ -185,3 +189,52 @@
 		selectable_atoms += /obj/machinery/vending/dorms
 	else
 		selectable_atoms -= /obj/machinery/vending/dorms
+
+/obj/item/summon_beacon/gas_miner/hacked
+	name = "hacked gas miner beacon"
+	desc = parent_type::desc + " It seems the area detector is hardcoded to TRUE. Huh."
+
+	area_string = "any"
+
+	allowed_areas = list(
+		/area,
+	)
+
+/obj/item/summon_beacon/gas_miner/expanded
+	name = "expanded gas miner beacon"
+	desc = parent_type::desc + " This one seems to have its selection expanded."
+
+	selectable_atoms = list(
+		/obj/machinery/atmospherics/miner/carbon_dioxide,
+		/obj/machinery/atmospherics/miner/n2o,
+		/obj/machinery/atmospherics/miner/nitrogen,
+		/obj/machinery/atmospherics/miner/oxygen,
+		/obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/atmospherics/miner/bz,
+		/obj/machinery/atmospherics/miner/water_vapor,
+		/obj/machinery/atmospherics/miner/freon,
+		/obj/machinery/atmospherics/miner/halon,
+		/obj/machinery/atmospherics/miner/healium,
+		/obj/machinery/atmospherics/miner/hydrogen,
+		/obj/machinery/atmospherics/miner/hypernoblium,
+		/obj/machinery/atmospherics/miner/miasma,
+		/obj/machinery/atmospherics/miner/nitrium,
+		/obj/machinery/atmospherics/miner/pluoxium,
+		/obj/machinery/atmospherics/miner/proto_nitrate,
+		/obj/machinery/atmospherics/miner/tritium,
+		/obj/machinery/atmospherics/miner/zauker,
+		/obj/machinery/atmospherics/miner/helium,
+		/obj/machinery/atmospherics/miner/antinoblium,
+	)
+
+/obj/item/summon_beacon/gas_miner/expanded/debug
+	name = "debug gas miner beacon"
+	desc = "You better know what you are doing with this."
+
+	area_string = "any"
+
+	uses = 99
+
+	allowed_areas = list(
+		/area,
+	)
