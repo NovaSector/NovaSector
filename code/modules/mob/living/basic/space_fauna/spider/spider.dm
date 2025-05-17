@@ -148,7 +148,7 @@
 		if(prob(3))
 			grow_as = pick(/mob/living/basic/spider/giant/tarantula, /mob/living/basic/spider/giant/viper, /mob/living/basic/spider/giant/midwife)
 		else
-			grow_as = pick(/mob/living/basic/spider/giant/guard, /mob/living/basic/spider/giant/ambush, /mob/living/basic/spider/giant/hunter, /mob/living/basic/spider/giant/scout, /mob/living/basic/spider/giant/nurse, /mob/living/basic/spider/giant/tangle)
+			grow_as = pick(/mob/living/basic/spider/giant/guard, /mob/living/basic/spider/giant/ambush, /mob/living/basic/spider/giant/hunter, /mob/living/basic/spider/giant/scout, /mob/living/basic/spider/giant/nurse, /mob/living/basic/spider/giant/tangle, /mob/living/basic/spider/giant/webslinger, /mob/living/basic/spider/giant/voltaic, /mob/living/basic/spider/giant/pit, /mob/living/basic/spider/giant/ogre) // NOVA EDIT ORIGINAL: grow_as = pick(/mob/living/basic/spider/giant/guard, /mob/living/basic/spider/giant/ambush, /mob/living/basic/spider/giant/hunter, /mob/living/basic/spider/giant/scout, /mob/living/basic/spider/giant/nurse, /mob/living/basic/spider/giant/tangle)
 
 	var/mob/living/basic/spider/giant/grown = change_mob_type(grow_as, get_turf(src), initial(grow_as.name))
 	ADD_TRAIT(grown, TRAIT_WAS_EVOLVED, REF(src))

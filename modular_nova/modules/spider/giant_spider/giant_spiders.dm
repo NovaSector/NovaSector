@@ -2,8 +2,9 @@
  * ### Webslinger Spider
  * A subtype of the giant spider which is slower, can throw webs to ensnare those pesky bipeds.
  */
+
 /mob/living/basic/spider/giant/webslinger
-	name = "webslinger spider"
+	name = "webslinger dread spider"
 	desc = "Furry and white, it makes you shudder to look at it. Sharp green eyes are all that can be seen..."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "webslinger"
@@ -30,11 +31,12 @@
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
 		/datum/action/cooldown/mob_cooldown/web_effigy,
+		/datum/action/cooldown/spell/pointed/projectile/webhook,
 	)
 
 /mob/living/basic/spider/giant/webslinger/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 	AddComponent(/datum/component/seethrough_mob)
@@ -64,7 +66,7 @@
  * Far more squishier than all other types, it is an ambush predator meant to bite and run while the Teslium works its way into them.
  */
 /mob/living/basic/spider/giant/voltaic
-	name = "voltaic spider"
+	name = "voltaic dread spider"
 	desc = "Chitinous and yellow with electrical arcs running across its carapace, it makes you shudder to look at it. This one has effervescent yellow eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "voltaic"
@@ -83,6 +85,7 @@
 	menu_description = "fast but not sturdy, your bites inject teslium"
 	ai_controller = /datum/ai_controller/basic_controller/voltaic
 	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/ceiling_walk,
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/secrete_acid,
@@ -91,7 +94,7 @@
 
 /mob/living/basic/spider/giant/voltaic/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 /**
@@ -99,7 +102,7 @@
  * A behemoth of a spider, doing both high damage but mid-level health. Front line commander.
  */
 /mob/living/basic/spider/giant/pit
-	name = "pit spider"
+	name = "pit dread spider"
 	desc = "Furry and brown with an orange top, its massive jaws strike fear in you and also sometimes into walls. This one has bright orange eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "pit"
@@ -128,6 +131,7 @@
 	menu_description = "Has the ability to destroy walls and limbs, and to send warnings to the nest."
 	ai_controller = /datum/ai_controller/basic_controller/pit
 	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/ceiling_walk,
 		/datum/action/cooldown/mob_cooldown/wrap,
 		/datum/action/cooldown/mob_cooldown/command_spiders,
 		/datum/action/cooldown/mob_cooldown/charge/basic_charge,
@@ -136,7 +140,7 @@
 	. = ..()
 	var/datum/action/cooldown/mob_cooldown/lay_web/solid_web/web_solid = new(src)
 	web_solid.Grant(src)
-
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddElement(/datum/element/wall_tearer)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
@@ -145,7 +149,7 @@
  * A fat armored cute spider, completely utility focused and to soak damage for the weaker variants.
  */
 /mob/living/basic/spider/giant/ogre
-	name = "ogre spider"
+	name = "ogre dread spider"
 	desc = "Furry, brown, and fat. While kind of cute its size horrifies you. This one has dark purple eyes and seems heavily armored."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "ogre"
@@ -166,7 +170,9 @@
 	menu_description = "Extremely tanky with very poor offense. Able to self-heal and lay reflective silk screens, passages, and traps."
 	ai_controller = /datum/ai_controller/basic_controller/ogre
 	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/ceiling_walk,
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
+		/datum/action/cooldown/mob_cooldown/lay_web/create_totem,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
@@ -179,7 +185,7 @@
 	. = ..()
 
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
-
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddComponent(/datum/component/healing_touch,\
 		heal_brute = 50,\
 		heal_burn = 50,\
@@ -208,7 +214,7 @@
  */
 
 /mob/living/basic/spider/giant/carrier
-	name = "carrier spider"
+	name = "carrier dread spider"
 	desc = "Chitinous with a sickly green and red carapace, it makes you shudder to look at it. This one has sharp neon eyes."
 	icon = 'modular_nova/modules/spider/icons/spider.dmi'
 	icon_state = "carrier"
@@ -221,12 +227,18 @@
 	melee_damage_upper = 15
 	poison_per_bite = 2
 	poison_type = /datum/reagent/spidereggs
+	butcher_results = list(
+		/obj/item/food/meat/slab/spider = 2,
+		/obj/item/food/spiderleg = 8,
+		/mob/living/basic/spider/growing/spiderling = 8,
+		)
 	speed = 3
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS
 	menu_description = "The life of the nest, injects spidereggs that will grow inside the host and burrow out."
 	ai_controller = /datum/ai_controller/basic_controller/carrier
 	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/ceiling_walk,
 		/datum/action/cooldown/mob_cooldown/command_spiders/communication_spiders,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
@@ -238,7 +250,7 @@
 
 /mob/living/basic/spider/giant/carrier/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
 
@@ -248,19 +260,20 @@
  */
 
 /mob/living/basic/spider/giant/baron
-	name = "baron spider"
+	name = "baron dread spider"
 	desc = "This girthy spider seems to exist in a rage-filled state, if it moves its many eyes follow."
 	icon = 'modular_nova/modules/spider/icons/64x64_spider.dmi'
 	icon_state = "baron"
 	icon_living = "baron"
 	icon_dead = "baron_dead"
 	gender = MALE
+	mob_biotypes = MOB_SPECIAL
 	maxHealth = 2000
 	health = 2000
 	obj_damage = 200
 	armour_penetration = 50
-	melee_damage_lower = 10
-	melee_damage_upper = 30
+	melee_damage_lower = 20
+	melee_damage_upper = 40
 	wound_bonus = 30
 	bare_wound_bonus = 60
 	poison_per_bite = 5
@@ -288,13 +301,15 @@
 		/datum/action/cooldown/mob_cooldown/spider_leap,
 		/datum/action/cooldown/mob_cooldown/charge/triple_charge,
 		/datum/action/cooldown/mob_cooldown/watcher_gaze,
-		/datum/action/cooldown/spell/pointed/projectile/web_restraints = BB_ARACHNID_RESTRAIN,
+		/datum/action/cooldown/spell/pointed/projectile/web_restraints/baron = BB_ARACHNID_RESTRAIN,
+		/datum/action/cooldown/spell/pointed/projectile/webhook/greater,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
-		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_spikes,
 		/datum/action/cooldown/mob_cooldown/lay_web/sealer,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_reflector,
+		/datum/action/cooldown/mob_cooldown/ceiling_walk,
+		/datum/action/cooldown/mob_cooldown/lay_web/create_totem,
 	)
 /mob/living/basic/spider/giant/baron/Initialize(mapload)
 	. = ..()
@@ -304,7 +319,7 @@
 	AddElement(/datum/element/wall_tearer)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 	AddComponent(/datum/component/seethrough_mob)
-
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddComponent(/datum/component/healing_touch,\
 		heal_brute = 50,\
 		heal_burn = 50,\
@@ -353,5 +368,5 @@
 
 /mob/living/basic/spider/giant/badnana_spider/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
+	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
