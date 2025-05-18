@@ -45,6 +45,14 @@
 /obj/item/gun/ballistic/shotgun/katyusha/give_manufacturer_examine()
     AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
+/obj/item/gun/ballistic/shotgun/katyusha/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
+		light_overlay = "flight", \
+		overlay_x = 32, \
+		overlay_y = 12, \
+	)
+
 /obj/item/storage/toolbox/guncase/nova/katyusha
 	name = "\improper Nanotrasen Armories \"Katyusha\" gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/shotgun/katyusha
