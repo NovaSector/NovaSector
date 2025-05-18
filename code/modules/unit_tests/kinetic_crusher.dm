@@ -4,7 +4,6 @@
 /datum/unit_test/crusher_projectile/Run()
 	var/mob/living/carbon/human/consistent/attacker = EASY_ALLOCATE()
 	var/obj/item/kinetic_crusher/crusher = EASY_ALLOCATE()
-	crusher.allowed_areas_to_fire = list(/area) // NOVA EDIT ADDITION - Our crushers are limited by default in their area to shoot, so this makes the testing crusher able to shoot anywhere.
 
 	attacker.put_in_active_hand(crusher, forced = TRUE)
 	crusher.attack_self(attacker) // wields the crusher
