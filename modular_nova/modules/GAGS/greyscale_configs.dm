@@ -281,6 +281,11 @@
 	name = "Vape (Worn, Muzzled)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 
+// FACESCARF
+/datum/greyscale_config/facescarf/worn/muzzled
+	name = "Facescarf (Worn, Muzzled)"
+	icon_file = 'icons/mob/clothing/mask.dmi'
+
 // RESPIRATOR
 /datum/greyscale_config/respirator
 	name = "Colourable Respirator"

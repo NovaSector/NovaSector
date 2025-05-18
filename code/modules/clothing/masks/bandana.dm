@@ -228,6 +228,7 @@
 	greyscale_colors = "#eeeeee"
 	greyscale_config = /datum/greyscale_config/facescarf
 	greyscale_config_worn = /datum/greyscale_config/facescarf/worn
+	greyscale_config_worn_muzzled = /datum/greyscale_config/facescarf/worn/muzzled //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_config_inhand_left = /datum/greyscale_config/facescarf/inhands_left
 	greyscale_config_inhand_right = /datum/greyscale_config/facescarf/inhands_right
 	flags_1 = IS_PLAYER_COLORABLE_1
