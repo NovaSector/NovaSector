@@ -91,7 +91,7 @@
 	greyscale_config_inhand_right = /datum/greyscale_config/sneakers_orange/inhand_right
 	flags_1 = NONE
 	var/obj/item/restraints/handcuffs/attached_cuffs
-	greyscale_config_worn_digi = /datum/greyscale_config/sneakers_orange/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/sneakers_orange/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 
 /obj/item/clothing/shoes/sneakers/orange/Initialize(mapload)
 	. = ..()
