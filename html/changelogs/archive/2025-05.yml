@@ -509,3 +509,10 @@
   dmnaru:
   - rscadd: Kaynite donor items
   - bugfix: fixed 2 donor items not showing up correctly in the loadout
+2025-05-18:
+  RealWinterFrost:
+  - code_imp: moved code around the nova modular file "base_clothes.dm" to make it
+      look more cleaner, coherent and keeping everything together.
+  Yobrocharlie:
+  - bugfix: Added one baseturf helper to the maintsroom gateway, nerfed the number
+      of gorillas, added more glass.
