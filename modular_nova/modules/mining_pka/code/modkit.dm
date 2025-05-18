@@ -14,7 +14,7 @@
 	if (mk_count >= max_same)
 		to_chat(user, span_notice("You cannot install more than [max_same] of [name] at the same time!"))
 		return FALSE
-	. = ..()
+	return ..()
 
 /obj/item/borg/upgrade/modkit/damage/modify_projectile(obj/projectile/kinetic/kinetic_projectile)
 	kinetic_projectile.damage += modifier*kinetic_projectile.mod_mult
