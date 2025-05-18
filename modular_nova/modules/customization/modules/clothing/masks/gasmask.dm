@@ -18,6 +18,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	icon_state = "gas_alt2"
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+	dirt_state = "gas_wide_dirt"
 
 /obj/item/clothing/mask/gas/hecu
 	name = "M40 gas mask"

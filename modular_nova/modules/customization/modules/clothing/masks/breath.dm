@@ -9,8 +9,7 @@
 	desc = "Wider eyed and made of an elastic based material, this one seems like it can contort more."
 	icon = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
-	icon_state = "balaclava"
-	inhand_icon_state = "balaclava"
+	icon_state = "balaclava_adj"
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
 	actions_types = list(/datum/action/item_action/toggle)
 
@@ -45,7 +44,7 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	icon_state = "balaclavam"
 	inhand_icon_state = "balaclava"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	visor_flags_inv = HIDEHAIR
 
 /obj/item/clothing/mask/balaclava/threehole/green
