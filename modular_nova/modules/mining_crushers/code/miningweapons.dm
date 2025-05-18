@@ -17,7 +17,7 @@
 	if(!istype(user))
 		return
 #ifndef UNIT_TESTS
-	if (!is_type_in_list(get_area(user), allowed_areas_to_fire))
+	if (!is_type_in_typecache(get_area(user), allowed_areas_to_fire))
 		user.balloon_alert(user, "destabilizer cannot be used here!")
 		return
 #endif
