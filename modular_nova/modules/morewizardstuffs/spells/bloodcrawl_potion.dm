@@ -26,7 +26,7 @@
 		if(feedback)
 			owner.balloon_alert(owner, failure_message)
 		return FALSE
-	. = ..()
+	return ..()
 
 /datum/action/cooldown/spell/jaunt/bloodcrawl/mining
 	name = "Necropolis Blood Crawl"
