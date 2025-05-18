@@ -8,7 +8,7 @@
 /obj/item/borg/upgrade/modkit/install(obj/item/gun/energy/recharge/kinetic_accelerator/KA, mob/user, transfer_to_loc = TRUE)
 	/// Override so we limit the number of cooldown modkits to our value.
 	var/mk_count = 0
-	for (var/obj/item/borg/upgrade/modkit/modkit_aux in KA.modkits)
+	for (var/obj/item/borg/upgrade/modkit/modkit_aux as anything in KA.modkits)
 		if (modkit_aux.type == type)
 			mk_count++
 	if (mk_count >= max_same)
