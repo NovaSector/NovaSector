@@ -11,18 +11,9 @@
 	user.log_message("learned the spell bloodcrawl (Mining) ([new_spell])", LOG_ATTACK, color="orange")
 	qdel(src)
 
-/datum/action/cooldown/spell/jaunt/bloodcrawl
-	/// A list of allowed areas that the spell can be used in
-	var/list/allowed_areas = list(
-		/area,
-	)
-	/// A list of disallowed areas that the spell can't be used in
-	var/list/disallowed_areas = list()
-	/// Custom message we say to the user when they try to cast in the wrong area
-	var/failure_message = "This spell cannot be used in this area!"
-
-/datum/action/cooldown/spell/jaunt/bloodcrawl/can_cast_spell(feedback = TRUE)
-	if (!is_type_in_list(get_area(owner), allowed_areas) || is_type_in_list(get_area(owner), disallowed_areas))
+/datum/action/cooldown/spell/jaunt/bloodcrawl/mining/can_cast_spell(feedback = TRUE)
+	var/owner_area = get_area(owner)
+	if (!is_type_in_typecache(owner_area, allowed_areas) || is_type_in_typecache(owner_area, disallowed_areas))
 		if(feedback)
 			owner.balloon_alert(owner, failure_message)
 		return FALSE
@@ -32,47 +23,42 @@
 	name = "Necropolis Blood Crawl"
 	/// Instant was a bit too much.
 	enter_blood_time = 2 SECONDS
-	failure_message = "This ability can only be used on planetary areas untainted by civilization!"
+	var/failure_message = "This ability can only be used on planetary areas untainted by civilization!"
 	/// special snowflake jaunt type to eject on mining areas.
 	jaunt_type = /obj/effect/dummy/phased_mob/blood/mining
 	/// Mining areas we got.
-	allowed_areas = list(
+	var/static/list/allowed_areas = typecacheof(list(
 			/area/forestplanet,
 			/area/icemoon,
 			/area/lavaland,
 			/area/ocean/generated,
 			/area/ruin,
-	)
-	disallowed_areas = list(
+	))
+	var/static/list/disallowed_areas = typecacheof(list(
 			/area/ruin/interdyne_planetary_base,
 			/area/ruin/unpowered/ash_walkers,
 			/area/ruin/unpowered/primitive_catgirl_den,
-	)
-
-/obj/effect/dummy/phased_mob/blood
-	var/list/allowed_areas = list(
-		/area,
-	)
-	var/list/disallowed_areas = list()
+	))
 
 /obj/effect/dummy/phased_mob/blood/mining/
-	allowed_areas = list(
+	var/static/list/allowed_areas = typecacheof(list(
 			/area/forestplanet,
 			/area/icemoon,
 			/area/lavaland,
 			/area/ocean/generated,
 			/area/ruin,
-	)
-	disallowed_areas = list(
+	))
+	var/static/list/disallowed_areas = typecacheof(list(
 			/area/ruin/interdyne_planetary_base,
 			/area/ruin/unpowered/ash_walkers,
 			/area/ruin/unpowered/primitive_catgirl_den,
-	)
+	))
 
-/obj/effect/dummy/phased_mob/blood/relaymove(mob/living/user, direction)
+/obj/effect/dummy/phased_mob/blood/mining/relaymove(mob/living/user, direction)
 	var/turf/oldloc = loc
 	. = ..()
 	if(loc != oldloc)
-		if (!is_type_in_list(get_area(user), allowed_areas) || is_type_in_list(get_area(user), disallowed_areas))
+		var/user_area = get_area(user)
+		if (!is_type_in_typecache(user_area, allowed_areas) || is_type_in_typecache(user_area, disallowed_areas))
 			user.balloon_alert(user, "You are forcibly ejected!")
 			eject_jaunter(TRUE)
