@@ -1,4 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - code_imp: "moved code around the nova modular file \"base_clothes.dm\" to make it look more cleaner, coherent and keeping everything together."
