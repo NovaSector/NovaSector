@@ -19,6 +19,7 @@
 	if (!is_type_in_list(get_area(user), allowed_areas_to_fire))
 		user.balloon_alert(user, "destabilizer cannot be used in [get_area(user)]!")
 		return
+#endif
 	return ..()
 
 /obj/item/kinetic_crusher/examine(mob/living/user)
