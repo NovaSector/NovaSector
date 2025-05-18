@@ -136,7 +136,7 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm/jager
 	item_type = /obj/item/gun/ballistic/shotgun/katyusha/jager
-	cost = PAYCHECK_COMMAND * 20
+	cost = PAYCHECK_COMMAND * 8
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
@@ -145,7 +145,7 @@
 /* //
 datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23 
+	cost = PAYCHECK_COMMAND * 23
 */ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko

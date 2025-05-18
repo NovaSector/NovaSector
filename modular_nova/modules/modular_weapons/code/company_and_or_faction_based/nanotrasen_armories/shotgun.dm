@@ -59,9 +59,9 @@
 	desc = "A mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'Jäger' by the Solar Federation Marines for its versatility in clearing tight corridors, and special operations in hunting individuals."
 
-	icon_state = "marauder"
-	worn_icon_state = "marauder"
-	inhand_icon_state = "marauder"
+	icon_state = "jager"
+	worn_icon_state = "jager"
+	inhand_icon_state = "jager"
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
