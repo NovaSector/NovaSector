@@ -37,12 +37,12 @@
 	var/dash_num_short = 4
 	var/dash_num_long = 7
 	var/dash_cooldown = 0
-	var/dash_cooldown_time = 4 // cooldown_time * distance:
-	// 4 * 4 = 16 (1.6 seconds)
-	// 4 * 18 = 72 (7.2 seconds)
-	var/phase = 1 //at about 25% hp, they will "die", and then come back with even more attacks
+	var/dash_cooldown_time = 4 /// cooldown_time * distance:
+	/// 4 * 4 = 16 (1.6 seconds)
+	/// 4 * 18 = 72 (7.2 seconds)
+	var/phase = 1 ///at about 25% hp, they will "die", and then come back with even more attacks
 
-/mob/living/simple_animal/hostile/megafauna/claw/phase2 //75% of the health this thing has is here
+/mob/living/simple_animal/hostile/megafauna/claw/phase2 ///75% of the health this thing has is here
 	icon_state = "claw-phase2"
 	icon_living = "claw-phase2"
 	gps_name = "F453C619AE278"
@@ -62,14 +62,14 @@
 	loot = list(/obj/effect/spawner/clawloot)
 	health = 2250
 	maxHealth = 2250
-	shouldnt_move = TRUE //we want to show the transforming animation
+	shouldnt_move = TRUE ///we want to show the transforming animation
 	phase = 2
-	status_flags = CANPUSH | GODMODE //this is so during the animation you cant beat it up
+	status_flags = CANPUSH | GODMODE ///this is so during the animation you cant beat it up
 
 ///LOOT
 /obj/effect/spawner/clawloot/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(spawn_loot)), 5 SECONDS) //this is because it dies violently exploding, so we dont want to destroy the goodies, you know?
+	addtimer(CALLBACK(src, PROC_REF(spawn_loot)), 5 SECONDS) ///this is because it dies violently exploding, so we dont want to destroy the goodies, you know?
 
 /obj/effect/spawner/clawloot/proc/spawn_loot()
 	new /obj/item/gun/energy/pulse/pistol(get_turf(src))
@@ -77,7 +77,7 @@
 
 ///LOOT END
 
-//PHASE ONE
+///PHASE ONE
 /datum/action/innate/megafauna_attack/swift_dash
 	name = "Swift Dash"
 	icon_icon = 'modular_nova/master_files/icons/effects/effects.dmi'
@@ -91,7 +91,7 @@
 	button_icon_state = "plasmasoul"
 	chosen_message = "<span class='colossus'>You will now dash forward for a long distance.</span>"
 	chosen_attack_num = 2
-//PHASE TWO
+///PHASE TWO
 /datum/action/innate/megafauna_attack/emp_pulse
 	name = "Dissonant Shriek"
 	icon_icon = 'modular_nova/master_files/icons/effects/effects.dmi'
@@ -122,7 +122,7 @@
 
 /mob/living/simple_animal/hostile/megafauna/claw/phase2/Initialize()
 	. = ..()
-	flick("claw-phase2_transform",src) //plays the transforming animation
+	flick("claw-phase2_transform",src) ///plays the transforming animation
 	addtimer(CALLBACK(src, PROC_REF(unlock_phase2)), 4.4 SECONDS)
 
 /mob/living/simple_animal/hostile/megafauna/claw/Move()
@@ -135,11 +135,11 @@
 		if(shouldnt_move)
 			return
 		switch(chosen_attack)
-			if(1) //these SHOULDNT fire during phase 2, but if they do have fun with the extra attacks
+			if(1) ///these SHOULDNT fire during phase 2, but if they do have fun with the extra attacks
 				swift_dash(target, dash_num_short, 5)
 			if(2)
 				swift_dash(target, dash_num_long, 15)
-			if(3) //only should fire duing phase 2
+			if(3) ///only should fire duing phase 2
 				emp_pulse()
 			if(4)
 				tentacle(target)
@@ -176,7 +176,7 @@
 		else
 			swift_dash(target, dash_num_short, 5)
 
-/////PROJECTILE SHOOTING
+///PROJECTILE SHOOTING
 /mob/living/simple_animal/hostile/megafauna/claw/proc/shoot_projectile(angle)
 	var/obj/projectile/shot_proj = new projectiletype(get_turf(src))
 	playsound(src, projectilesound, 100, TRUE)
@@ -185,7 +185,7 @@
 	shot_proj.fire(angle)
 
 
-/////DASH ATTACK
+///DASH ATTACK
 /mob/living/simple_animal/hostile/megafauna/claw/proc/swift_dash(target, distance, wait_time)
 	if(dash_cooldown > world.time)
 		return
@@ -193,7 +193,7 @@
 	shouldnt_move = TRUE
 	var/dir_to_target = get_dir(get_turf(src), get_turf(target))
 	var/turf/next_turf = get_step(get_turf(src), dir_to_target)
-	for(var/i in 1 to distance)
+	for(var/turf_distance in 1 to distance)
 		new /obj/effect/temp_visual/cult/sparks(next_turf)
 		next_turf = get_step(next_turf, dir_to_target)
 	addtimer(CALLBACK(src, PROC_REF(swift_dash2), dir_to_target, 0, distance), wait_time)
@@ -211,9 +211,9 @@
 		hit_mob.Knockdown(15)
 		hit_mob.attack_animal(src)
 	addtimer(CALLBACK(src, PROC_REF(swift_dash2), move_dir, (times_ran + 1), distance_run), 0.7)
-/////DASH ATTACK END
+///DASH ATTACK END
 
-/////DISSONANT SHREK
+///DISSONANT SHREK
 /mob/living/simple_animal/hostile/megafauna/claw/proc/emp_pulse()
 	shake_animation(0.5)
 	visible_message("<span class='danger'>[src] stops and shudders for a moment... </span>")
@@ -226,18 +226,18 @@
 	empulse(src, 2, 4)
 	shouldnt_move = FALSE
 
-/////TENTACLE
+///TENTACLE
 /mob/living/simple_animal/hostile/megafauna/claw/proc/tentacle(target)
 	shake_animation(2)
 	projectiletype = /obj/projectile/tentacle
 	projectilesound = 'sound/effects/splat.ogg'
 	Shoot(target)
-/////TENTACLE END
+///TENTACLE END
 
-/////STING ATTACK
+///STING ATTACK
 /mob/living/simple_animal/hostile/megafauna/claw/proc/sting_attack(target)
 	shouldnt_move = TRUE
-	visible_message("<span class='danger'>[src] stops suddenly and spikes apear all over it's body!</span>")
+	visible_message(span_danger("[src] stops suddenly and spikes apear all over it's body!"))
 	icon_state = "claw-phase2_sting_attack"
 	flick("claw-phase2_sting_attack_transform", src)
 	projectiletype = /obj/projectile/claw_projectille
@@ -245,7 +245,7 @@
 	addtimer(CALLBACK(src, PROC_REF(sting_attack2), target), 2 SECONDS)
 
 /mob/living/simple_animal/hostile/megafauna/claw/proc/sting_attack2(target)
-	visible_message("<span class='danger'>[src] shoots all the spikes!</span>")
+	visible_message(span_danger("[src] shoots all the spikes!"))
 	icon_state = "claw-phase2"
 	shoot_projectile(Get_Angle(src,target) + 10)
 	shoot_projectile(Get_Angle(src,target) + 5)
@@ -262,30 +262,30 @@
 	damage_type = BRUTE
 	speed = 4
 
-/////STING ATTACK END
+///STING ATTACK END
 
-/////LIE SPIDER
+///LIE SPIDER
 /mob/living/simple_animal/hostile/megafauna/claw/proc/summon_creatures()
 	shake_animation(20)
-	visible_message("<span class='danger'>[src] shudders violently and starts to split a flesh spider from it's body!</span>")
+	visible_message(span_danger("[src] shudders violently and starts to split a flesh spider from it's body!"))
 	shouldnt_move = TRUE
 	addtimer(CALLBACK(src, PROC_REF(summon_creatures2)), 2 SECONDS)
 
 /mob/living/simple_animal/hostile/megafauna/claw/proc/summon_creatures2()
 	shake_animation(5)
 	var/mob/living/summoned_spider = new /mob/living/simple_animal/hostile/poison/giant_spider/hunter(get_turf(src))
-	visible_message("<span class='danger'>[summoned_spider] violently tears apart from [src]!</span>")
+	visible_message(span_danger("[summoned_spider] violently tears apart from [src]!"))
 	shouldnt_move = FALSE
 
-/////LIE SPIDER END
+///LIE SPIDER END
 
-/////PHASE SHIFT STUFF
+///PHASE SHIFT STUFF
 /mob/living/simple_animal/hostile/megafauna/claw/death()
 	. = ..()
-	on_death() //this is because both stages have unique behavior on death, inlcuding stage one not dying
+	on_death() ///this is because both stages have unique behavior on death, inlcuding stage one not dying
 
 /mob/living/simple_animal/hostile/megafauna/claw/proc/on_death()
-	flick("claw-phase1_transform",src) //woho you won... or did you?
+	flick("claw-phase1_transform",src) ///woho you won... or did you?
 	addtimer(CALLBACK(src, PROC_REF(create_phase2)), 30 SECONDS)
 
 /mob/living/simple_animal/hostile/megafauna/claw/phase2/on_death()
@@ -295,14 +295,14 @@
 	addtimer(CALLBACK(src, PROC_REF(phase2_dramatic), src), 3 SECONDS)
 	return
 
-/mob/living/simple_animal/hostile/megafauna/claw/proc/create_phase2() //this only exists so the timer can callback to this proc
+/mob/living/simple_animal/hostile/megafauna/claw/proc/create_phase2() ///this only exists so the timer can callback to this proc
 	new /mob/living/simple_animal/hostile/megafauna/claw/phase2(get_turf(src))
 
 /mob/living/simple_animal/hostile/megafauna/claw/proc/unlock_phase2()
 	shouldnt_move = FALSE
-	empulse(src, 3, 10) //changling's emp scream, right?
-	explosion(src, 0, 0, 5) //dramatic
-	playsound(src, 'sound/voice/vox/vox_scream_1.ogg', 300, 1, 8, 8) //jumpscare
+	empulse(src, 3, 10) ///changling's emp scream, right?
+	explosion(src, 0, 0, 5) ///dramatic
+	playsound(src, 'sound/voice/vox/vox_scream_1.ogg', 300, 1, 8, 8) ///jumpscare
 	shake_animation(2)
 	new /obj/effect/gibspawner/human(get_turf(src))
 	name = "The CLAW"
@@ -330,86 +330,86 @@
 		chain = firer.Beam(src, icon_state = "tentacle", emissive = FALSE)
 	..()
 
-/obj/projectile/tentacle/proc/reset_throw(mob/living/carbon/human/H)
-	if(H.throw_mode)
-		H.throw_mode_off() //Don't annoy the changeling if he doesn't catch the item
+/obj/projectile/tentacle/proc/reset_throw(mob/living/carbon/human/grabbing_human)
+	if(grabbing_human.throw_mode)
+		grabbing_human.throw_mode_off() ///Don't annoy the changeling if he doesn't catch the item
 
-/obj/projectile/tentacle/proc/tentacle_grab(mob/living/carbon/human/H, mob/living/carbon/C)
-	if(H.Adjacent(C))
-		if(H.get_active_held_item() && !H.get_inactive_held_item())
-			H.swap_hand()
-		if(H.get_active_held_item())
+/obj/projectile/tentacle/proc/tentacle_grab(mob/living/carbon/human/grabbing_human, mob/living/carbon/target_carbon)
+	if(grabbing_human.Adjacent(target_carbon))
+		if(grabbing_human.get_active_held_item() && !grabbing_human.get_inactive_held_item())
+			grabbing_human.swap_hand()
+		if(grabbing_human.get_active_held_item())
 			return
-		C.grabbedby(H)
-		C.grippedby(H, instant = TRUE) //instant aggro grab
+		target_carbon.grabbedby(grabbing_human)
+		target_carbon.grippedby(grabbing_human, instant = TRUE) ///instant aggro grab
 
-/obj/projectile/tentacle/proc/tentacle_stab(mob/living/carbon/human/H, mob/living/carbon/C)
-	if(H.Adjacent(C))
-		for(var/obj/item/I in H.held_items)
-			if(I.get_sharpness())
-				C.visible_message("<span class='danger'>[H] impales [C] with [H.p_their()] [I.name]!</span>", "<span class='userdanger'>[H] impales you with [H.p_their()] [I.name]!</span>")
-				C.apply_damage(I.force, BRUTE, BODY_ZONE_CHEST)
-				H.do_item_attack_animation(C, used_item = I)
-				H.add_mob_blood(C)
-				playsound(get_turf(H),I.hitsound,75,TRUE)
+/obj/projectile/tentacle/proc/tentacle_stab(mob/living/carbon/grabbing_human, mob/living/carbon/target_carbon)
+	if(grabbing_human.Adjacent(target_carbon))
+		for(var/obj/item/item in grabbing_human.held_items)
+			if(item.get_sharpness())
+				target_carbon.visible_message(span_danger("[grabbing_human] impales [target_carbon] with [grabbing_human.p_their()] [item.name]!"), span_danger("<span class='userdanger'>[grabbing_human] impales you with [grabbing_human.p_their()] [item.name]!</span>"))
+				target_carbon.apply_damage(item.force, BRUTE, BODY_ZONE_CHEST)
+				grabbing_human.do_item_attack_animation(target_carbon, used_item = item)
+				grabbing_human.add_mob_blood(target_carbon)
+				playsound(get_turf(grabbing_human), item.hitsound, 75, TRUE)
 				return
 
 /obj/projectile/tentacle/on_hit(atom/target, blocked = FALSE)
-	var/mob/living/carbon/human/H = firer
+	var/mob/living/carbon/human/grabbing_human = firer
 	if(blocked >= 100)
 		return BULLET_ACT_BLOCK
 	if(isitem(target))
-		var/obj/item/I = target
-		if(!I.anchored)
-			to_chat(firer, "<span class='notice'>You pull [I] towards yourself.</span>")
-			H.throw_mode_on()
-			I.throw_at(H, 10, 2)
+		var/obj/item/item = target
+		if(!item.anchored)
+			to_chat(firer, "<span class='notice'>You pull [item] towards yourself.</span>")
+			grabbing_human.throw_mode_on()
+			item.throw_at(grabbing_human, 10, 2)
 			. = BULLET_ACT_HIT
 
 	else if(isliving(target))
-		var/mob/living/L = target
-		if(!L.anchored && !L.throwing)//avoid double hits
-			if(iscarbon(L))
-				var/mob/living/carbon/C = L
+		var/mob/living/target_mob = target
+		if(!target_mob.anchored && !target_mob.throwing)///avoid double hits
+			if(iscarbon(target_mob))
+				var/mob/living/carbon/target_carbon = target_mob
 				var/firer_intent = INTENT_HARM
-				var/mob/M = firer
-				if(istype(M))
-					firer_intent = M.a_intent
+				var/mob/firing_mob = firer
+				if(istype(firing_mob))
+					firer_intent = firing_mob.a_intent
 				switch(firer_intent)
 					if(INTENT_HELP)
-						C.visible_message("<span class='danger'>[L] is pulled by [H]'s tentacle!</span>","<span class='userdanger'>A tentacle grabs you and pulls you towards [H]!</span>")
-						C.throw_at(get_step_towards(H,C), 8, 2)
+						target_carbon.visible_message(span_danger("[target_mob] is pulled by [grabbing_human]'s tentacle!"), span_danger("<span class='userdanger'>A tentacle grabs you and pulls you towards [grabbing_human]!"))
+						target_carbon.throw_at(get_step_towards(grabbing_human,target_carbon), 8, 2)
 						return BULLET_ACT_HIT
 
 					if(INTENT_DISARM)
-						var/obj/item/I = C.get_active_held_item()
-						if(I)
-							if(C.dropItemToGround(I))
-								C.visible_message("<span class='danger'>[I] is yanked off [C]'s hand by [src]!</span>","<span class='userdanger'>A tentacle pulls [I] away from you!</span>")
-								on_hit(I) //grab the item as if you had hit it directly with the tentacle
+						var/obj/item/item = target_carbon.get_active_held_item()
+						if(item)
+							if(target_carbon.dropItemToGround(item))
+								target_carbon.visible_message(span_danger("[item] is yanked off [target_carbon]'s hand by [src]!"), span_danger("A tentacle pulls [target_carbon] away from you!"))
+								on_hit(item) ///grab the item as if you had hit it directly with the tentacle
 								return BULLET_ACT_HIT
 							else
-								to_chat(firer, "<span class='warning'>You can't seem to pry [I] off [C]'s hands!</span>")
+								to_chat(firer, span_danger("You can't seem to pry [item] off [target_carbon]'s hands!"))
 								return BULLET_ACT_BLOCK
 						else
-							to_chat(firer, "<span class='danger'>[C] has nothing in hand to disarm!</span>")
+							to_chat(firer, span_danger("[target_carbon] has nothing in hand to disarm!"))
 							return BULLET_ACT_HIT
 
 					if(INTENT_GRAB)
-						C.visible_message("<span class='danger'>[L] is grabbed by [H]'s tentacle!</span>","<span class='userdanger'>A tentacle grabs you and pulls you towards [H]!</span>")
-						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, PROC_REF(tentacle_grab), H, C))
+						target_carbon.visible_message(span_danger("[target_mob] is grabbed by [grabbing_human]'s tentacle!"), span_danger("A tentacle grabs you and pulls you towards [grabbing_human]!"))
+						target_carbon.throw_at(get_step_towards(grabbing_human,target_carbon), 8, 2, grabbing_human, TRUE, TRUE, callback=CALLBACK(src, PROC_REF(tentacle_grab), grabbing_human, target_carbon))
 						return BULLET_ACT_HIT
 
 					if(INTENT_HARM)
-						C.visible_message("<span class='danger'>[L] is thrown towards [H] by a tentacle!</span>","<span class='userdanger'>A tentacle grabs you and throws you towards [H]!</span>")
-						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, PROC_REF(tentacle_stab), H, C))
+						target_carbon.visible_message(span_danger("[target_mob] is thrown towards [grabbing_human] by a tentacle!"), span_danger("A tentacle grabs you and throws you towards [grabbing_human]!"))
+						target_carbon.throw_at(get_step_towards(grabbing_human,target_carbon), 8, 2, grabbing_human, TRUE, TRUE, callback=CALLBACK(src, PROC_REF(tentacle_stab), grabbing_human, target_carbon))
 						return BULLET_ACT_HIT
 			else
-				L.visible_message("<span class='danger'>[L] is pulled by [H]'s tentacle!</span>","<span class='userdanger'>A tentacle grabs you and pulls you towards [H]!</span>")
-				L.throw_at(get_step_towards(H,L), 8, 2)
+				target_mob.visible_message(span_danger("[target_mob] is pulled by [grabbing_human]'s tentacle!"), span_danger("A tentacle grabs you and pulls you towards [grabb]!"))
+				target_mob.throw_at(get_step_towards(grabbing_human,target_mob), 8, 2)
 				. = BULLET_ACT_HIT
 
 /obj/projectile/tentacle/Destroy()
-	qdel(chain)
+	QDEL_NULL(chain)
 	return ..()
 
