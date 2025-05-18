@@ -4,14 +4,14 @@
 	/// This var is used by retool kits when changing the crusher's projectile appearance
 	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
 	/// This var is used to list the areas where the destabilizer is allowed to shoot.
-	var/list/allowed_areas_to_fire = list(
+	var/static/list/allowed_areas_to_fire = typecacheof(list(
 			/area/forestplanet,
 			/area/icemoon,
 			/area/lavaland,
 			/area/ocean/generated,
 			/area/ruin,
 			/area/mine,
-	)
+	))
 
 /obj/item/kinetic_crusher/fire_kinetic_blast(atom/target, mob/living/user, list/modifiers)
 	if(!istype(user))
