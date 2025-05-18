@@ -18,7 +18,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	obj_flags = UNIQUE_RENAME
-	weapon_weight = WEAPON_MEDIUM
+	weapon_weight = WEAPON_HEAVY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/katyusha
 	spawn_magazine_type = /obj/item/ammo_box/magazine/katyusha/buckshot
 
