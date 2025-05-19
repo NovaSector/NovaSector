@@ -1586,6 +1586,7 @@ NOVA EDIT REMOVAL END */
 	return TRUE
 
 /mob/living/proc/update_stamina()
+	SEND_SIGNAL(src, COMSIG_LIVING_STAMINA_UPDATE)
 	update_stamina_hud()
 
 /mob/living/carbon/alien/update_stamina()
@@ -3166,4 +3167,5 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 /// Setter for changing a mob's blood type
 /mob/living/proc/set_blood_type(datum/blood_type/new_blood_type, update_cached_blood_dna_info)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_LIVING_CHANGED_BLOOD_TYPE, new_blood_type, update_cached_blood_dna_info)
