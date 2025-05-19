@@ -40,10 +40,10 @@
 		to_chat(user, span_warning("You must undo [src] in order to push it into a hat!"))
 		return FALSE
 	//NOVA EDIT ADDITION START: BANDANA HATS FOR MUTANTS
-	if(slot_flags & ITEM_SLOT_HEAD)
-		supports_variations_flags = NONE
-	if(slot_flags & ITEM_SLOT_MASK)
+	if(slot_flags & ITEM_SLOT_HEAD) // we are turning from a mask to a hat
 		supports_variations_flags = initial(supports_variations_flags)
+	if(slot_flags & ITEM_SLOT_MASK)
+		supports_variations_flags = NONE
 	//NOVA EDIT ADDITION END
 	return ..()
 
