@@ -505,3 +505,17 @@
   - bugfix: catwalk - arrivals now has the shuttle timer display.
   - map: After a lengthy Unfair Dismissal lawsuit, Breaks-the-PRs has been rehired
       with some fresh new workspaces.
+2025-05-17:
+  dmnaru:
+  - rscadd: Kaynite donor items
+  - bugfix: fixed 2 donor items not showing up correctly in the loadout
+2025-05-18:
+  RealWinterFrost:
+  - code_imp: moved code around the nova modular file "base_clothes.dm" to make it
+      look more cleaner, coherent and keeping everything together.
+  Yobrocharlie:
+  - bugfix: Added one baseturf helper to the maintsroom gateway, nerfed the number
+      of gorillas, added more glass.
+2025-05-19:
+  FlufflesTheDog:
+  - rscadd: Added donator ecologist outfit
