@@ -281,10 +281,23 @@
 	name = "Vape (Worn, Muzzled)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 
+// BANDANA
+/datum/greyscale_config/bandana/worn/muzzled
+	name = "Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+
+/datum/greyscale_config/bandana/striped/worn/muzzled
+	name = "Striped Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+
+/datum/greyscale_config/bandana/skull/worn/muzzled
+	name = "Skull Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+
 // FACESCARF
 /datum/greyscale_config/facescarf/worn/muzzled
 	name = "Facescarf (Worn, Muzzled)"
-	icon_file = 'icons/mob/clothing/mask.dmi'
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 
 // RESPIRATOR
 /datum/greyscale_config/respirator
