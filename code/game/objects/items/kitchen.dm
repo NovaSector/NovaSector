@@ -237,7 +237,7 @@
 	filled_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 	. += filled_overlay
 
-/obj/item/kitchen/spoon/attack(mob/living/target_mob, mob/living/user, list/modifiers)
+/obj/item/kitchen/spoon/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!target_mob.reagents || reagents.total_volume <= 0)
 		return  ..()
 
@@ -271,7 +271,7 @@
 	reagents.trans_to(target_mob, spoon_sip_size, methods = INGEST)
 	return TRUE
 
-/obj/item/kitchen/spoon/pre_attack(atom/attacked_atom, mob/living/user, list/modifiers)
+/obj/item/kitchen/spoon/pre_attack(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return
@@ -291,7 +291,7 @@
 		attacked_atom.balloon_alert(user, "it's full!")
 	return TRUE
 
-/obj/item/kitchen/spoon/pre_attack_secondary(atom/attacked_atom, mob/living/user, list/modifiers)
+/obj/item/kitchen/spoon/pre_attack_secondary(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return

@@ -56,7 +56,7 @@
 		QDEL_NULL(inserted_battery)
 	return ..()
 
-/obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/xenoarch/particles_battery))
 		if(!inserted_battery)
 			if(user.transferItemToLoc(attacking_item, src))
