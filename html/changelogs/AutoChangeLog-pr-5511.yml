@@ -1,0 +1,4 @@
+author: "Gboster-0"
+delete-after: True
+changes:
+  - qol: "artifact scanners will now prioritize scanning artifacts over the light fixtures next to the scanner"
