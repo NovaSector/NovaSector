@@ -481,3 +481,41 @@
       antioxidants stop free radicals.
   vinylspiders:
   - bugfix: stops snails from clogging up CI
+2025-05-13:
+  Iajret:
+  - qol: Mentoring books no longer give a choices in dream maker language, but rather
+      in a normal human language. No more datum/skill/gaming as a writing option.
+2025-05-14:
+  Hardly:
+  - bugfix: Removed Emo Long now that TG's Long Emo uses the same sprites.
+  Rengan:
+  - server: The crimes are now logging in the database.
+  Yobrocharlie:
+  - rscadd: Added new gateway destination
+  Zergspower:
+  - bugfix: catwalkStation will now help crew in arrivals arrive at arrivals to avoid
+      arriving at arrivals in the incorrect arrival shuttle that's destined for arrivals
+  sqnztb:
+  - bugfix: automapper fixes for the catwalk ntrep office and cryo
+  thetaro:
+  - balance: put the SKS back to 0.5x damage mult, because it turns out nanotrasen
+      actually hates when crew can buy a strong gun off an illegal market.
+2025-05-16:
+  sqnztb:
+  - bugfix: catwalk - arrivals now has the shuttle timer display.
+  - map: After a lengthy Unfair Dismissal lawsuit, Breaks-the-PRs has been rehired
+      with some fresh new workspaces.
+2025-05-17:
+  dmnaru:
+  - rscadd: Kaynite donor items
+  - bugfix: fixed 2 donor items not showing up correctly in the loadout
+2025-05-18:
+  RealWinterFrost:
+  - code_imp: moved code around the nova modular file "base_clothes.dm" to make it
+      look more cleaner, coherent and keeping everything together.
+  Yobrocharlie:
+  - bugfix: Added one baseturf helper to the maintsroom gateway, nerfed the number
+      of gorillas, added more glass.
+2025-05-19:
+  FlufflesTheDog:
+  - rscadd: Added donator ecologist outfit
