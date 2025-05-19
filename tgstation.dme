@@ -6856,6 +6856,7 @@
 #include "modular_nova\master_files\code\game\machinery\status_display.dm"
 #include "modular_nova\master_files\code\game\machinery\suit_storage.dm"
 #include "modular_nova\master_files\code\game\machinery\syndiepad.dm"
+#include "modular_nova\master_files\code\game\machinery\computer\communications.dm"
 #include "modular_nova\master_files\code\game\machinery\doors\door.dm"
 #include "modular_nova\master_files\code\game\machinery\doors\firedoor.dm"
 #include "modular_nova\master_files\code\game\objects\items.dm"
