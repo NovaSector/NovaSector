@@ -97,7 +97,7 @@
 		if(!owned_scanner)
 			results = "Error communicating with scanner."
 			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 25, FALSE)
-		else if(!scanned_object || get_turf(scanned_object) != get_turf(owned_scanner))
+		else if(QDELETED(scanned_object) || get_turf(scanned_object) != get_turf(owned_scanner))
 			results = "Unable to locate scanned object. Ensure it was not moved in the process."
 			playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
 		else
@@ -138,36 +138,41 @@
 		playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)
 		if(!owned_scanner)
 			reconnect_scanner()
-		if(owned_scanner)
-			var/turf/scanner_turf = get_turf(owned_scanner)
-			scanned_object = locate(/obj/machinery/artifact) in scanner_turf // if we detect an artifact, just skip everything else.
-			if(!scanned_object)
-				for(var/obj/being_scanned in scanner_turf)
-					if(being_scanned == owned_scanner)
-						continue
-					if(being_scanned.invisibility)
-						continue
+		if(!owned_scanner)
+			say("Error communicating with scanner!")
+			return
 
-					scanned_object = being_scanned
-					break
+		var/turf/scanner_turf = get_turf(owned_scanner)
+		scanned_object = locate(/obj/machinery/artifact) in scanner_turf // if we detect an artifact, just skip everything else.
+		if(!scanned_object)
+			for(var/obj/being_scanned in scanner_turf)
+				if(being_scanned == owned_scanner)
+					continue
+				if(being_scanned.invisibility)
+					continue
+				if(HAS_TRAIT(being_scanned, TRAIT_UNDERFLOOR))
+					continue
 
-			var/obj/machinery/artifact/possible_artifact = scanned_object
-			if(istype(possible_artifact))
-				if(possible_artifact.being_used)
-					say("Cannot scan. Too much interference.")
-					playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
-					return
-				else
-					possible_artifact.being_used = 1
+				scanned_object = being_scanned
+				break
 
-			if(scanned_object)
-				scan_in_progress = 1
-				scan_completion_time = world.time + scan_duration
-				say("Scanning begun.")
-				owned_scanner.icon_state = "xenoarch_scanner_scanning"
-				flick("xenoarch_console_working", src)
+		var/obj/machinery/artifact/possible_artifact = scanned_object
+		if(istype(possible_artifact))
+			if(possible_artifact.being_used)
+				say("Cannot scan. Too much interference.")
+				playsound(src, 'sound/machines/buzz/buzz-two.ogg', 25, FALSE)
+				return
 			else
-				say("Unable to isolate scan target.")
+				possible_artifact.being_used = 1
+
+		if(scanned_object)
+			scan_in_progress = 1
+			scan_completion_time = world.time + scan_duration
+			say("Scanning begun.")
+			owned_scanner.icon_state = "xenoarch_scanner_scanning"
+			flick("xenoarch_console_working", src)
+		else
+			say("Unable to isolate scan target.")
 
 	if(href_list["halt_scan"])
 		playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)
