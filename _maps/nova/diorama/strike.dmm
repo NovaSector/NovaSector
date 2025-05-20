@@ -7,6 +7,15 @@
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/iron/textured_large,
 /area/centcom/interlink)
+"f" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/paper{
+	name = "I quit - build your own damn diorama"
+	},
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "g" = (
 /obj/item/multitool{
 	pixel_x = 12;
@@ -38,20 +47,6 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"k" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/floor/plating,
-/area/centcom/interlink)
-"l" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "n" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -61,11 +56,9 @@
 /area/centcom/interlink)
 "q" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 9
 	},
-/obj/item/paper{
-	name = "I quit - build your own damn diorama"
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "r" = (
@@ -84,7 +77,7 @@
 /area/template_noop)
 "u" = (
 /obj/structure/disposalpipe/segment{
-	dir = 9
+	dir = 6
 	},
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
@@ -170,6 +163,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/centcom/interlink)
+"T" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "U" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
@@ -210,16 +210,16 @@ i
 a
 "}
 (2,1,1) = {"
-u
-g
 q
+g
+f
 U
 j
 h
 a
 "}
 (3,1,1) = {"
-k
+u
 B
 B
 j
@@ -228,7 +228,7 @@ h
 s
 "}
 (4,1,1) = {"
-l
+T
 P
 A
 x
