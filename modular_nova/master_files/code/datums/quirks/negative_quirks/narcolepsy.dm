@@ -20,10 +20,10 @@
 	give_item_to_holder_nova(
 		stim_medication,
 		list(
-			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
-			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
-			LOCATION_HANDS = ITEM_SLOT_HANDS,
+			LOCATION_LPOCKET,
+			LOCATION_RPOCKET,
+			LOCATION_BACKPACK,
+			LOCATION_HANDS,
 		),
 		flavour_text = "Contains mild stimulants to assist in staying awake this shift. Dose responsibly. Consult your allocated care provider if you experience any side-effects.",
 	)

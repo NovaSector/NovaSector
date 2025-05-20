@@ -1,9 +1,9 @@
 /obj/item/storage/lockbox/Initialize(mapload)
 	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY*16 //Assuming full case+manifest
-	atom_storage.max_slots = 16 //See above
-	atom_storage.can_hold = typecacheof(list(
+	atom_storage.max_specific_storage = WEIGHT_CLASS_TINY //This is to stop people from using the storage inside the lockboxes.
+	atom_storage.max_total_storage = WEIGHT_CLASS_BULKY*35 //Assuming full case+manifest
+	atom_storage.max_slots = 35 //This is to avoid some instances of lost in shipment. In theory before hitting the limit you get a crate.
+	atom_storage.set_holdable(list(
 		/obj/item/paper,
 	))
 
