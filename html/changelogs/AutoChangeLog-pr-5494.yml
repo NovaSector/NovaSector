@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - rscadd: "Added SKILLED quirk that allows you to start with expert level for a skill of your choosing."
