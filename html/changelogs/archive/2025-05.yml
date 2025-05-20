@@ -519,3 +519,9 @@
 2025-05-19:
   FlufflesTheDog:
   - rscadd: Added donator ecologist outfit
+2025-05-20:
+  Arceniu:
+  - image: blast helmet now has a toggled icon
+  Gboster-0:
+  - qol: artifact scanners will now prioritize scanning artifacts over the light fixtures
+      next to the scanner
