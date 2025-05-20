@@ -324,16 +324,13 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 */
 // Awardable medals
 /obj/item/clothing/accessory/medal/nova
-	name = "medal of honors"
-	desc = "awarded by members of central command, this medal is a commendation for individuals with the highest honors."
-	icon_state = "debugmedal"
+	name = "debug medal"
+	desc = "You shouldn't have this, make a bug report!"
+	icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283#257283"
-	greyscale_config = /datum/greyscale_config/nova_medal
-	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
 
 // DS-2/Syndicate Medals
 /obj/item/clothing/accessory/medal/nova/syndicate
@@ -341,8 +338,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	desc = "A medal dedicated to true syndicate agents for robustness in many fields"
 	icon_state = "medal_robust"
 	greyscale_colors = "#a50021#ffff66#990000#ffffff"
-	greyscale_config = /datum/greyscale_config/syndi_medal
-	greyscale_config_worn = /datum/greyscale_config/syndi_medal/worn
+	greyscale_config = /datum/greyscale_config/medals/syndicate
+	greyscale_config_worn = /datum/greyscale_config/medals/syndicate/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
@@ -371,158 +368,152 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	desc = "A medal dedicated to those whom prove themselvese as capable counter-communications specialists"
 	icon_state = "medal_comms"
 
-// Accesory Medals (Medals that are accessories, Added acc_medal so people wont get confused)
+// Accessory Medals (Medals that are accessories - separate so that equipping doesn't try to "award" them)
 /obj/item/clothing/accessory/nova/acc_medal
-	name = "medal of colors"
-	desc = "A canvas covered in many colors this medal has no meaning to it. But artists claim meaning is present, perhaps only those who've enlightened themselves may find the truth"
-	icon_state = "debugmedal"
+	name = "debug medal"
+	desc = "You shouldn't have this, make a bug report!"
+	icon_state = null
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
-	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6#757283#257283"
-	greyscale_config = /datum/greyscale_config/nova_medal
-	greyscale_config_worn = /datum/greyscale_config/nova_medal/worn
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins
+// Neckpins
+/obj/item/clothing/accessory/nova/acc_medal/neckpin
 	name = "\improper NT company neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ntpin"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#FFFFFF#CCCED1"
-	greyscale_config = /datum/greyscale_config/specialpins
-	greyscale_config_worn = /datum/greyscale_config/specialpins/worn
+	greyscale_config = /datum/greyscale_config/medals/neckpins
+	greyscale_config_worn = /datum/greyscale_config/medals/neckpins/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/syndicate
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/syndicate
 	name = "\improper Syndicate neckpin"
 	desc = "A pin specially dedicated to show loyalty to the Syndicate!"
 	icon_state = "syndipin"
 	greyscale_colors = "#262626#9c0000"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed911
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed911
 	name = "\improper Solfed 911 neckpin"
 	desc = "A pin specially dedicated to show loyalty to your federation!"
 	icon_state = "911pin"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed811
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed811
 	name = "\improper Solfed 811 neckpin"
 	desc = "A pin specially dedicated to show loyalty to your federation!"
 	icon_state = "811pin"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed
 	name = "\improper Solfed neckpin"
 	desc = "A pin specially dedicated to show loyalty to your federation!"
 	icon_state = "sfpin"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/interdyne
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/interdyne
 	name = "\improper Interdyne neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ippin"
 	greyscale_colors = "#FFFFFF#3aba1e"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/porttarkon
 	name = "\improper Port Tarkon neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ptpin"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcomm
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcomm
 	name = "\improper Central Command neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
 	icon_state = "ccpin"
 
-// All special heart medals
-/obj/item/clothing/accessory/nova/acc_medal/specheart
-	name = "special heart medal"
-	desc = "A regular everyday medal."
-	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/specheart
-	greyscale_config_worn = /datum/greyscale_config/specheart/worn
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/specheart/arrow_ribbon
-	icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/specheart/hollow_ribbon
-	icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/specheart/bars_ribbon
-	icon_state = "medalbars"
-// All regular heart medals
-/obj/item/clothing/accessory/nova/acc_medal/regheart
+// Heart medals
+/obj/item/clothing/accessory/nova/acc_medal/heart
 	name = "heart medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/regheart
-	greyscale_config_worn = /datum/greyscale_config/regheart/worn
+	greyscale_config = /datum/greyscale_config/medals/heart
+	greyscale_config_worn = /datum/greyscale_config/medals/heart/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/regheart/arrow_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/heart/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/regheart/hollow_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/heart/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/regheart/bars_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/heart/bars_ribbon
 	icon_state = "medalbars"
-// All hollow shields medals
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield
+
+// Special heart medals
+/obj/item/clothing/accessory/nova/acc_medal/heart_special
+	name = "special heart medal"
+	desc = "A regular everyday medal."
+	icon_state = "ccmedal"
+	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
+	greyscale_config = /datum/greyscale_config/medals/heart_special
+	greyscale_config_worn = /datum/greyscale_config/medals/heart_special/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+/obj/item/clothing/accessory/nova/acc_medal/heart_special/arrow_ribbon
+	icon_state = "medalarrow"
+
+/obj/item/clothing/accessory/nova/acc_medal/heart_special/hollow_ribbon
+	icon_state = "medalhollow"
+
+/obj/item/clothing/accessory/nova/acc_medal/heart_special/bars_ribbon
+	icon_state = "medalbars"
+
+// Hollow shield medals
+/obj/item/clothing/accessory/nova/acc_medal/shield_hollow
 	name = "hollowed shield medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/hollowshield
-	greyscale_config_worn = /datum/greyscale_config/hollowshield/worn
+	greyscale_config = /datum/greyscale_config/medals/shield_hollow
+	greyscale_config_worn = /datum/greyscale_config/medals/shield_hollow/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield/arrow_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/shield_hollow/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield/hollow_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/shield_hollow/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/hollowshield/bars_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bars_ribbon
 	icon_state = "medalbars"
 
 // Bar medals
-/obj/item/clothing/accessory/nova/acc_medal/bbar
+/obj/item/clothing/accessory/nova/acc_medal/bar
 	name = "bar medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/blankbar
-	greyscale_config_worn = /datum/greyscale_config/blankbar/worn
+	greyscale_config = /datum/greyscale_config/medals/bar
+	greyscale_config_worn = /datum/greyscale_config/medals/bar/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/bbar/arrow_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/bar/arrow_ribbon
 	icon_state = "medalarrow"
 
-/obj/item/clothing/accessory/nova/acc_medal/bbar/hollow_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/bar/hollow_ribbon
 	icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/bbar/bars_ribbon
+/obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon
 	icon_state = "medalbars"
 
-// Regular Crown
+// Crown medals
 /obj/item/clothing/accessory/nova/acc_medal/crown
 	name = "crown medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/crown
-	greyscale_config_worn = /datum/greyscale_config/crown/worn
+	greyscale_config = /datum/greyscale_config/medals/crown
+	greyscale_config_worn = /datum/greyscale_config/medals/crown/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
@@ -535,13 +526,12 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/crown/bars_ribbon
 	icon_state = "medalbars"
 
-// Hollow crown
+// Hollow crown medals
 /obj/item/clothing/accessory/nova/acc_medal/crown/hollow
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
-	greyscale_config = /datum/greyscale_config/hollowcrown
-	greyscale_config_worn = /datum/greyscale_config/hollowcrown/worn
+	greyscale_config = /datum/greyscale_config/medals/crown_hollow
+	greyscale_config_worn = /datum/greyscale_config/medals/crown_hollow/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
@@ -554,20 +544,14 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon
 	icon_state = "medalbars"
 
-// Hollow Circle medals
-
-
-	icon_state = "medalbars"
-
 // Circle medals
 /obj/item/clothing/accessory/nova/acc_medal/circle
 	name = "circle medal"
 	desc = "A regular everyday medal."
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/circle
-	greyscale_config_worn = /datum/greyscale_config/circle/worn
+	greyscale_config = /datum/greyscale_config/medals/circle
+	greyscale_config_worn = /datum/greyscale_config/medals/circle/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
@@ -580,14 +564,12 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/circle/bars_ribbon
 	icon_state = "medalbars"
 
-/// Hollow Circle Variant
+/// Hollow circle medals
 /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
-
 	icon_state = "ccmedal"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	greyscale_config = /datum/greyscale_config/hollowcircle
-	greyscale_config_worn = /datum/greyscale_config/hollowcircle/worn
+	greyscale_config = /datum/greyscale_config/medals/circle_hollow
+	greyscale_config_worn = /datum/greyscale_config/medals/circle_hollow/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
@@ -598,17 +580,16 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "medalhollow"
 
 /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bars_ribbon
-
+	icon_state = "medalbars"
 
 // Glow necklaces
 /obj/item/clothing/accessory/nova/acc_medal/glowbar
 	name = "glowbar necklace"
 	desc = "A regular everyday medal."
 	icon_state = "necklace"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff"
-	greyscale_config = /datum/greyscale_config/glowbar
-	greyscale_config_worn = /datum/greyscale_config/glowbar/worn
+	greyscale_config = /datum/greyscale_config/medals/glowbar
+	greyscale_config_worn = /datum/greyscale_config/medals/glowbar/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
@@ -616,22 +597,20 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	name = "glowbarcrystal necklace"
 	desc = "A regular everyday medal."
 	icon_state = "necklace"
-	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	greyscale_colors = "#ff99ff"
-	greyscale_config = /datum/greyscale_config/glowcrystal
-	greyscale_config_worn = /datum/greyscale_config/glowcrystal/worn
+	greyscale_config = /datum/greyscale_config/medals/glowcrystal
+	greyscale_config_worn = /datum/greyscale_config/medals/glowcrystal/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
 // Rank pins
 /obj/item/clothing/accessory/nova/acc_medal/rankpin
 	name = "Rank Pin"
-	// Filler Desc: Change Later (Other maintainers/contributors feel free to leave suggestions!)
-	desc = "A pin showing off your rank"
+	desc = "A pin used to display accomplishments, advancements, or otherwise earned recognition."
 	icon_state = "rank1"
 	greyscale_colors = "#FFFFFF"
-	greyscale_config = /datum/greyscale_config/rankpin
-	greyscale_config_worn = /datum/greyscale_config/rankpin/worn
+	greyscale_config = /datum/greyscale_config/medals/rank_pins
+	greyscale_config_worn = /datum/greyscale_config/medals/rank_pins/worn
 
 /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt1
 	icon_state = "rank2"
@@ -639,17 +618,14 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
 	icon_state = "rank3"
 
-/*
-Ribbon Accessories
-*/
-
+// Ribbons
 /obj/item/clothing/accessory/nova/ribbon
 	name = "ribbon"
 	desc = "A normal everyday ribbon."
 	icon_state = "ribbon1"
 	greyscale_colors = "#ffffff#664200#fff700"
-	greyscale_config = /datum/greyscale_config/color_ribbon
-	greyscale_config_worn = /datum/greyscale_config/color_ribbon/worn
+	greyscale_config = /datum/greyscale_config/medals/color_ribbon
+	greyscale_config_worn = /datum/greyscale_config/medals/color_ribbon/worn
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -672,14 +648,14 @@ Ribbon Accessories
 /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
 	icon_state = "ribbon7"
 
-// flat ribbons
+// Flat (military) ribbons
 /obj/item/clothing/accessory/nova/military_ribbon
 	name = "military ribbon"
 	desc = "An average military ribbon"
 	icon_state = "ribbon1"
 	greyscale_colors = "#ff0000#04ff00#0008ff"
-	greyscale_config = /datum/greyscale_config/military_ribbon
-	greyscale_config_worn = /datum/greyscale_config/military_ribbon/worn
+	greyscale_config = /datum/greyscale_config/medals/military_ribbon
+	greyscale_config_worn = /datum/greyscale_config/medals/military_ribbon/worn
 
 /obj/item/clothing/accessory/nova/military_ribbon/alt1
 	icon_state = "ribbon2"
