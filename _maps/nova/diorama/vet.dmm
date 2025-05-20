@@ -1,8 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/spider/stickyweb,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_one_access = list("medical")
+	},
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "c" = (
@@ -11,6 +14,9 @@
 	},
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/effect/turf_decal/siding/blue/end{
+	dir = 1
+	},
 /turf/open/floor/iron/white/textured,
 /area/centcom/interlink)
 "d" = (
@@ -23,8 +29,8 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "h" = (
-/mob/living/basic/pet/cat/kitten,
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/bed/dogbed,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
@@ -40,6 +46,10 @@
 	pixel_y = 10
 	},
 /obj/machinery/light/floor,
+/obj/item/queen_bee{
+	pixel_y = 5;
+	pixel_x = 8
+	},
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "n" = (
@@ -48,15 +58,18 @@
 /area/centcom/interlink)
 "o" = (
 /obj/structure/bed/dogbed,
-/mob/living/basic/pet/dog/corgi/narsie,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/mob/living/basic/pet/cat/breadcat,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "r" = (
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "t" = (
+/obj/effect/turf_decal/siding/blue{
+	dir = 8
+	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -74,33 +87,53 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "x" = (
-/mob/living/basic/pet/cat,
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/mob/living/basic/pet/cat{
+	name = "Mr. Spoon"
+	},
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_one_access = list("medical")
+	},
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "y" = (
-/mob/living/basic/pet/cat/fennec,
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/mob/living/basic/pet/cat/fennec{
+	name = "Ear Bud"
+	},
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_one_access = list("medical")
+	},
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "z" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/effect/turf_decal/siding/blue{
+	dir = 8
+	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
 /area/centcom/interlink)
 "A" = (
 /obj/structure/bed/dogbed,
-/mob/living/basic/pet/cat/breadcat,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/spider/stickyweb,
+/mob/living/basic/spider/giant/ogre{
+	ai_controller = /datum/ai_controller/basic_controller/giant_spider/pest;
+	name = "Pantry";
+	faction = list("neutral");
+	real_name = "Pantry"
+	},
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "B" = (
 /obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/blue{
+	dir = 8
+	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -120,8 +153,10 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "F" = (
-/obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_one_access = list("medical")
+	},
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "I" = (
@@ -132,6 +167,9 @@
 /area/centcom/interlink)
 "J" = (
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/effect/turf_decal/siding/blue{
+	dir = 8
+	},
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -142,7 +180,9 @@
 /turf/open/floor/iron/white/textured,
 /area/centcom/interlink)
 "O" = (
-/mob/living/basic/pet/cat/tabby,
+/mob/living/basic/pet/cat/tabby{
+	name = "Cheddar Cheese"
+	},
 /obj/structure/bed/dogbed,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
@@ -159,6 +199,9 @@
 /obj/structure/bed/dogbed,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/mob/living/basic/pet/dog/corgi/puppy/slime{
+	name = "Pink"
+	},
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 
@@ -167,7 +210,7 @@ I
 o
 O
 Y
-Y
+h
 A
 d
 "}
@@ -175,7 +218,7 @@ d
 x
 F
 F
-h
+F
 y
 a
 d

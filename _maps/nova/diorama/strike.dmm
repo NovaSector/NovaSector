@@ -47,7 +47,7 @@
 /area/centcom/interlink)
 "q" = (
 /obj/structure/disposalpipe/segment{
-	dir = 6
+	dir = 9
 	},
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
@@ -103,20 +103,13 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"y" = (
+"A" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/item/paper{
 	name = "I quit - build your own damn diorama"
 	},
-/turf/open/floor/plating,
-/area/centcom/interlink)
-"A" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "B" = (
@@ -152,6 +145,13 @@
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/iron/textured_large,
 /area/centcom/interlink)
+"L" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/centcom/interlink)
 "P" = (
 /obj/item/stack/cable_coil/thirty{
 	pixel_y = -7;
@@ -161,6 +161,13 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/centcom/interlink)
+"T" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "U" = (
@@ -180,13 +187,6 @@
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"X" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/floor/plating,
-/area/centcom/interlink)
 "Y" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -197,6 +197,9 @@
 "Z" = (
 /obj/machinery/disposal/bin,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/open/floor/iron/textured_large,
 /area/centcom/interlink)
 
@@ -210,16 +213,16 @@ i
 a
 "}
 (2,1,1) = {"
-X
+q
 g
-y
+A
 U
 j
 h
 a
 "}
 (3,1,1) = {"
-q
+T
 B
 B
 j
@@ -230,7 +233,7 @@ s
 (4,1,1) = {"
 u
 P
-A
+L
 x
 w
 K
