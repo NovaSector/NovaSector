@@ -26,7 +26,6 @@
 
 /obj/structure/window/reinforced/fulltile/ice
 
-
 //Pod objects indy edition
 
 //Window
