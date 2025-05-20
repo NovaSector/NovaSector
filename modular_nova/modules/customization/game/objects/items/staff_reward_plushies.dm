@@ -49,7 +49,7 @@
         "mrrp",
         "sniff",
         "woof",
-        )
+        )///Sound effects for squeaking the plushie
     squeak_override = list(
         'modular_nova/modules/emotes/sound/voice/bork.ogg' = 2,
         'modular_nova/modules/emotes/sound/voice/mrrp.ogg' = 1,
@@ -59,7 +59,7 @@
         'modular_nova/modules/emotes/sound/emotes/blush.ogg' = 1,
         'sound/effects/magic/charge.ogg' = 1,
         'sound/effects/supermatter.ogg' = 1,
-        )
+        )///What the Plushie replies when used on another person
     var/responses = list(
         "Ball.",
         "Ball!",
@@ -85,12 +85,12 @@
     )
     COOLDOWN_DECLARE(parsec_cooldown)
 
-/obj/item/toy/plush/nova/staff/parsec/attackby()
+/obj/item/toy/plush/nova/staff/parsec/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
     . = ..()
     if(!COOLDOWN_FINISHED(src, parsec_cooldown))
         return
     say(pick(responses))
-    COOLDOWN_START(src, parsec_cooldown, 2 SECONDS)
+    COOLDOWN_START(src, parsec_cooldown, 3 SECONDS)
 
 /obj/item/toy/plush/nova/staff/parsec/attack()
     . = ..()
@@ -142,12 +142,12 @@
 	)
 	COOLDOWN_DECLARE(akinshi_cooldown)
 
-/obj/item/toy/plush/nova/staff/akinshi/attackby()
+/obj/item/toy/plush/nova/staff/akinshi/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, akinshi_cooldown))
 		return
 	say(pick(responses))
-	COOLDOWN_START(src, akinshi_cooldown, 2 SECONDS)
+	COOLDOWN_START(src, akinshi_cooldown, 3 SECONDS)
 
 /obj/item/toy/plush/nova/staff/akinshi/attack()
 	. = ..()
