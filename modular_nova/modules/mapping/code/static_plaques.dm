@@ -33,9 +33,6 @@
 	desc = "Spinward Sector Station SS-13\n'Box' Class Outpost (Revision 2.3: 'Journey')\nCommissioned 19/04/2561\n'Unbroken Champion'"
 
 /// diorama plaques
-/obj/structure/sign/plaques/kiddie/diorama
-	name = "\improper diorama plaque"
-	desc = "Hey you shouldnt see this."
 // Ash
 /obj/structure/sign/plaques/kiddie/diorama/ash
 	name = "Ashlands Diorama"

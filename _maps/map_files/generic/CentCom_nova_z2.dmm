@@ -4832,10 +4832,8 @@
 /turf/open/floor/iron/large,
 /area/centcom/interlink)
 "bWw" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "bWy" = (
@@ -9859,9 +9857,7 @@
 /turf/open/floor/fakebasalt,
 /area/centcom/holding/cafepark)
 "kZF" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "kZK" = (
@@ -10741,9 +10737,7 @@
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "mwC" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "mwV" = (
@@ -13630,9 +13624,7 @@
 /turf/open/floor/carpet/blue,
 /area/centcom/interlink)
 "qEu" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "qER" = (
@@ -16143,12 +16135,8 @@
 /turf/open/floor/carpet/cyan,
 /area/centcom/holding/cafe)
 "ulQ" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "ulU" = (
@@ -16362,7 +16350,7 @@
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
 "uIp" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "uIE" = (
@@ -16723,10 +16711,8 @@
 /turf/open/floor/wood,
 /area/centcom/holding/cafe)
 "vvh" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "vxh" = (
@@ -17914,12 +17900,8 @@
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
 "xtQ" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "xuk" = (

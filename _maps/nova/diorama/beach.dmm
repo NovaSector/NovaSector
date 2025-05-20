@@ -7,19 +7,15 @@
 	pixel_y = -6;
 	pixel_x = -6
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "d" = (
 /obj/structure/flora/tree/palm/style_2,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "h" = (
@@ -33,10 +29,8 @@
 /obj/structure/flora/bush/stalky/style_random{
 	pixel_x = -7
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/beach/coast{
 	dir = 8
 	},
@@ -59,8 +53,8 @@
 	},
 /area/centcom/interlink)
 "l" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/misc/beach/coast/corner{
 	dir = 4
 	},
@@ -75,28 +69,22 @@
 	pixel_x = 12;
 	pixel_y = -4
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "o" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "p" = (
 /obj/structure/flora/tree/palm,
 /obj/structure/flora/bush/fullgrass/style_3,
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "r" = (
@@ -129,29 +117,21 @@
 /turf/template_noop,
 /area/template_noop)
 "x" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/beach/coast/corner{
 	dir = 4
 	},
 /area/centcom/interlink)
 "y" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/beach/coast/corner,
 /area/centcom/interlink)
 "B" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "C" = (
@@ -174,21 +154,17 @@
 	pixel_y = 11;
 	pixel_x = 5
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "I" = (
 /obj/structure/flora/tree/palm/style_2{
 	pixel_x = -5
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "J" = (
@@ -199,26 +175,22 @@
 /area/centcom/interlink)
 "K" = (
 /obj/structure/fluff/beach_umbrella,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "M" = (
 /obj/structure/flora/bush/grassy,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/beach/coast/corner{
 	dir = 8
 	},
 /area/centcom/interlink)
 "N" = (
 /obj/structure/flora/coconuts,
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/misc/beach/coast/corner{
 	dir = 8
 	},
@@ -235,10 +207,8 @@
 /obj/effect/turf_decal/weather/sand{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/carpet/cyan,
 /area/centcom/interlink)
 "T" = (
@@ -247,17 +217,13 @@
 /area/centcom/interlink)
 "W" = (
 /obj/structure/flora/rock/pile/style_2,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/beach/sand,
 /area/centcom/interlink)
 "Y" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/beach/coast/corner{
 	dir = 1
 	},

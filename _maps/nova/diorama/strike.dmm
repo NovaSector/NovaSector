@@ -3,11 +3,9 @@
 /turf/template_noop,
 /area/template_noop)
 "c" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/turf/open/floor/plating,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/iron/textured_large,
 /area/centcom/interlink)
 "g" = (
 /obj/item/multitool{
@@ -17,20 +15,21 @@
 /obj/item/clothing/gloves/chief_engineer{
 	pixel_y = -7
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "h" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "i" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "j" = (
@@ -39,28 +38,41 @@
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"n" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
+"k" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
+"l" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/floor/plating,
+/area/centcom/interlink)
+"n" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "q" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/item/paper{
 	name = "I quit - build your own damn diorama"
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "r" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "s" = (
@@ -71,18 +83,17 @@
 /turf/template_noop,
 /area/template_noop)
 "u" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 9
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "v" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
+/obj/structure/disposalpipe/junction{
+	dir = 4
 	},
-/obj/structure/disposalpipe/junction/flip{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "w" = (
@@ -90,11 +101,21 @@
 	pixel_y = -12;
 	pixel_x = -10
 	},
+/obj/item/stack/tile/iron/fifty{
+	pixel_y = 10;
+	pixel_x = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "x" = (
 /obj/item/storage/toolbox/emergency/old{
 	pixel_y = -5
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -102,49 +123,41 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "B" = (
-/obj/structure/disposalpipe/junction/flip{
-	dir = 8
-	},
+/obj/structure/disposalpipe/rotator,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "C" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "E" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "H" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "K" = (
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 1
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8
-	},
-/turf/open/floor/plating,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/iron/textured_large,
 /area/centcom/interlink)
 "P" = (
 /obj/item/stack/cable_coil/thirty{
@@ -152,7 +165,14 @@
 	pixel_x = -7
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 6
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/centcom/interlink)
+"U" = (
+/obj/structure/disposalpipe/junction{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -160,19 +180,24 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "W" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 6
 	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "Y" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
+/obj/structure/disposalpipe/segment{
+	dir = 10
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
+/area/centcom/interlink)
+"Z" = (
+/obj/machinery/disposal/bin,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/floor/iron/textured_large,
 /area/centcom/interlink)
 
 (1,1,1) = {"
@@ -187,15 +212,15 @@ a
 (2,1,1) = {"
 u
 g
-A
-B
+q
+U
 j
 h
 a
 "}
 (3,1,1) = {"
-u
-q
+k
+B
 B
 j
 V
@@ -203,12 +228,12 @@ h
 s
 "}
 (4,1,1) = {"
-u
+l
 P
-K
+A
 x
 w
-h
+K
 a
 "}
 (5,1,1) = {"
@@ -216,7 +241,7 @@ E
 r
 n
 Y
-Y
+Z
 c
 a
 "}

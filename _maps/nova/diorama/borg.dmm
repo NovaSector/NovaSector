@@ -8,22 +8,18 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "b" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/machinery/conveyor{
 	dir = 5
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "d" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/machinery/conveyor{
 	dir = 5
 	},
 /mob/living/silicon/robot/model/janitor,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "f" = (
@@ -35,26 +31,20 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "j" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/item/conveyor_switch_construct,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/catwalk_floor/iron,
 /area/centcom/interlink)
 "k" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/ai_core,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "l" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/structure/rack,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "n" = (
@@ -75,49 +65,37 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/centcom/interlink)
 "r" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/machinery/mechpad,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "s" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/structure/table,
 /obj/structure/cable,
 /obj/item/storage/belt/utility/full/inducer,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "t" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/catwalk_floor/iron,
 /area/centcom/interlink)
 "x" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "y" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/structure/table,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "z" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/rack,
 /obj/item/mod/control/pre_equipped/responsory/janitor{
 	anchored = 1
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "B" = (
@@ -142,32 +120,26 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "F" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/machinery/conveyor{
 	dir = 1
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "I" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/machinery/conveyor{
 	dir = 1
 	},
 /mob/living/silicon/robot/nocell,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "K" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/machinery/conveyor/auto/inverted{
 	dir = 10
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "L" = (
@@ -178,11 +150,9 @@
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "S" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/machinery/recharge_station,
 /obj/structure/cable,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "T" = (
@@ -194,17 +164,15 @@
 /turf/template_noop,
 /area/template_noop)
 "X" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/machinery/conveyor{
 	dir = 1
 	},
 /mob/living/silicon/robot/nocell,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 "Y" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/plating,
 /area/centcom/interlink)
 

@@ -1,41 +1,31 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "c" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/structure/closet/secure_closet/medical2{
 	name = "vet closet"
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/iron/white/textured,
 /area/centcom/interlink)
 "d" = (
 /turf/template_noop,
 /area/template_noop)
 "f" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/table/reinforced/rglass,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "h" = (
 /mob/living/basic/pet/cat/kitten,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "j" = (
@@ -53,20 +43,14 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "n" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/iron/white/textured,
 /area/centcom/interlink)
 "o" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/bed/dogbed,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /mob/living/basic/pet/dog/corgi/narsie,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "r" = (
@@ -80,10 +64,8 @@
 "u" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/surgery_tray/full,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/structure/window/reinforced/tinted/frosted/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "v" = (
@@ -92,37 +74,29 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "x" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /mob/living/basic/pet/cat,
 /obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "y" = (
 /mob/living/basic/pet/cat/fennec,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "z" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
 /area/centcom/interlink)
 "A" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/bed/dogbed,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /mob/living/basic/pet/cat/breadcat,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "B" = (
@@ -132,7 +106,6 @@
 	},
 /area/centcom/interlink)
 "D" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
 /obj/structure/window/reinforced/tinted/frosted/spawner/directional/west,
 /obj/structure/table/reinforced/rglass,
 /obj/item/pet_carrier{
@@ -143,49 +116,36 @@
 	pixel_y = 1;
 	pixel_x = 10
 	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/floor/iron/white/smooth_large,
 /area/centcom/interlink)
 "F" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "I" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/bed/dogbed,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "J" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
 /area/centcom/interlink)
 "K" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/table/optable,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/floor/iron/white/textured,
 /area/centcom/interlink)
 "O" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /mob/living/basic/pet/cat/tabby,
 /obj/structure/bed/dogbed,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "P" = (
@@ -196,13 +156,9 @@
 /turf/template_noop,
 /area/template_noop)
 "Y" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/bed/dogbed,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 

@@ -33,3 +33,5 @@
 /obj/structure/window/reinforced/survival_pod/indestructible
 	name = "strong pod window"
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/indestructible/spawner, 0)

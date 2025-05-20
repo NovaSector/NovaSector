@@ -4,21 +4,17 @@
 /turf/open/misc/dirt/jungle/dark,
 /area/centcom/interlink)
 "b" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "e" = (
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "h" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
 /obj/structure/flora/grass/jungle/a/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "j" = (
@@ -33,10 +29,8 @@
 /turf/template_noop,
 /area/template_noop)
 "l" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/flora/rock/pile/jungle/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "m" = (
@@ -45,25 +39,19 @@
 /turf/open/misc/dirt/jungle/dark,
 /area/centcom/interlink)
 "p" = (
-/obj/structure/window/reinforced/survival_pod/indestructible,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "q" = (
 /turf/template_noop,
 /area/template_noop)
 "u" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "x" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/flora/tree/jungle/style_random,
 /turf/open/misc/dirt/jungle/dark,
 /area/centcom/interlink)
@@ -72,9 +60,7 @@
 /turf/open/misc/dirt/jungle/dark,
 /area/centcom/interlink)
 "z" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /turf/open/misc/dirt/jungle/dark,
 /area/centcom/interlink)
 "D" = (
@@ -83,48 +69,34 @@
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "F" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
 /obj/structure/flora/grass/jungle/a/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "G" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "J" = (
 /turf/open/water/jungle,
 /area/centcom/interlink)
 "K" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 4
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "O" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 "Q" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 8
-	},
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
 /obj/structure/flora/tree/jungle/small/style_random,
 /turf/open/misc/dirt/jungle/dark,
 /area/centcom/interlink)
 "X" = (
-/obj/structure/window/reinforced/survival_pod/indestructible{
-	dir = 1
-	},
 /obj/structure/flora/bush/jungle/c/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/misc/grass/jungle/station,
 /area/centcom/interlink)
 
