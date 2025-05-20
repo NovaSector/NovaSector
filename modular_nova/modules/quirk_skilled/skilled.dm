@@ -1,10 +1,16 @@
 /// Level xp we give or remove with this quirk
 #define SKILLED_QUIRK_SKILL_LEVEL SKILL_LEVEL_EXPERT
+/// Skills we dont want to be selectable for our quirk
+#define SKILLED_QUIRK_SKILLS_BLACKLIST list( \
+	/datum/skill/language, \
+)
 GLOBAL_LIST_INIT(skill_choices, init_skill_choices())
 
 /proc/init_skill_choices()
 	. = list()
 	for (var/datum/skill/skill as anything in subtypesof(/datum/skill))
+		if(skill in SKILLED_QUIRK_SKILLS_BLACKLIST)
+			continue
 		.[initial(skill.name)] = skill
 
 /datum/quirk/skilled
@@ -48,3 +54,4 @@ GLOBAL_LIST_INIT(skill_choices, init_skill_choices())
 	return
 
 #undef SKILLED_QUIRK_SKILL_LEVEL
+#undef SKILLED_QUIRK_SKILLS_BLACKLIST
