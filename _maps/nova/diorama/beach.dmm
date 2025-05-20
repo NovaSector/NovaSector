@@ -123,7 +123,9 @@
 /area/centcom/interlink)
 "u" = (
 /obj/modular_map_connector,
-/obj/structure/sign/plaques/kiddie/diorama/beach,
+/obj/structure/sign/plaques/kiddie/diorama/beach{
+	pixel_y = 8
+	},
 /turf/template_noop,
 /area/template_noop)
 "x" = (

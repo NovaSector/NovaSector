@@ -190,7 +190,9 @@
 /area/centcom/interlink)
 "P" = (
 /obj/modular_map_connector,
-/obj/structure/sign/plaques/kiddie/diorama/vet,
+/obj/structure/sign/plaques/kiddie/diorama/vet{
+	pixel_y = 8
+	},
 /turf/template_noop,
 /area/template_noop)
 "Y" = (

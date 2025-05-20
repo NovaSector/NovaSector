@@ -26,6 +26,11 @@
 /mob/living/silicon/robot/model/janitor,
 /turf/open/floor/plating,
 /area/centcom/interlink)
+"f" = (
+/obj/machinery/light/floor,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron,
+/area/centcom/interlink)
 "h" = (
 /turf/open/floor/plating,
 /area/centcom/interlink)
@@ -61,9 +66,14 @@
 /area/centcom/interlink)
 "p" = (
 /obj/modular_map_connector,
-/obj/structure/sign/plaques/kiddie/diorama/borg,
+/obj/structure/sign/plaques/kiddie/diorama/borg{
+	pixel_y = 8
+	},
 /turf/template_noop,
 /area/template_noop)
+"q" = (
+/turf/open/floor/catwalk_floor/iron,
+/area/centcom/interlink)
 "r" = (
 /obj/structure/window/reinforced/survival_pod/indestructible{
 	dir = 1
@@ -167,11 +177,6 @@
 /mob/living/silicon/robot/nocell,
 /turf/open/floor/plating,
 /area/centcom/interlink)
-"M" = (
-/obj/machinery/light/floor,
-/obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron,
-/area/centcom/interlink)
 "S" = (
 /obj/structure/window/reinforced/survival_pod/indestructible{
 	dir = 1
@@ -188,9 +193,6 @@
 "V" = (
 /turf/template_noop,
 /area/template_noop)
-"W" = (
-/turf/open/floor/catwalk_floor/iron,
-/area/centcom/interlink)
 "X" = (
 /obj/structure/window/reinforced/survival_pod/indestructible{
 	dir = 8
@@ -219,8 +221,8 @@ V
 y
 a
 L
-W
-W
+q
+q
 j
 V
 "}
@@ -228,7 +230,7 @@ V
 S
 T
 D
-M
+f
 B
 s
 p
@@ -237,7 +239,7 @@ p
 y
 C
 n
-W
+q
 h
 Y
 V

@@ -65,7 +65,9 @@
 /area/centcom/interlink)
 "s" = (
 /obj/modular_map_connector,
-/obj/structure/sign/plaques/kiddie/diorama/strike,
+/obj/structure/sign/plaques/kiddie/diorama/strike{
+	pixel_y = 8
+	},
 /turf/template_noop,
 /area/template_noop)
 "u" = (

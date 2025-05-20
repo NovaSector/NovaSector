@@ -39,7 +39,9 @@
 /area/centcom/interlink)
 "l" = (
 /obj/modular_map_connector,
-/obj/structure/sign/plaques/kiddie/diorama/ice,
+/obj/structure/sign/plaques/kiddie/diorama/ice{
+	pixel_y = 8
+	},
 /turf/template_noop,
 /area/template_noop)
 "m" = (
