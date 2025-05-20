@@ -15,11 +15,6 @@
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/holofloor/snow,
 /area/centcom/interlink)
-"h" = (
-/obj/effect/light_emitter/interlink,
-/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
-/turf/open/floor/holofloor/snow,
-/area/centcom/interlink)
 "j" = (
 /obj/effect/light_emitter/interlink,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
@@ -65,6 +60,11 @@
 /obj/structure/flora/grass/both/style_random,
 /obj/effect/light_emitter/interlink,
 /obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/floor/holofloor/snow,
+/area/centcom/interlink)
+"z" = (
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
 /turf/open/floor/holofloor/snow,
 /area/centcom/interlink)
 "E" = (
@@ -144,7 +144,7 @@ Y
 a
 "}
 (2,1,1) = {"
-h
+z
 m
 q
 d
@@ -162,7 +162,7 @@ y
 l
 "}
 (4,1,1) = {"
-h
+z
 d
 q
 m
