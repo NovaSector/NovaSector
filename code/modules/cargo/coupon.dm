@@ -117,7 +117,7 @@
 		return ..()
 	if(discount_pct_off == COUPON_OMEN)
 		to_chat(user, span_warning("\The [O] validates the coupon as authentic, but refuses to accept it..."))
-		O.say("Coupon fulfillment already in progress...")
+		attacked_obj.say("Coupon fulfillment already in progress...")
 		return
 
 	inserted_console = O
