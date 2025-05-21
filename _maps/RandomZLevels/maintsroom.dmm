@@ -3089,7 +3089,6 @@
 /turf/open/floor/holofloor/pure_white,
 /area/awaymission/caves/maintsroom)
 "lt" = (
-/obj/structure/closet/gimmick/tacticool,
 /obj/item/clothing/under/syndicate/nova/tactical,
 /obj/item/clothing/shoes/jackboots,
 /obj/effect/spawner/random/weapon/black_market_trader,
@@ -3098,6 +3097,7 @@
 /obj/item/clothing/head/helmet/swat,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/storage/backpack/security,
+/obj/structure/closet,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "lu" = (
