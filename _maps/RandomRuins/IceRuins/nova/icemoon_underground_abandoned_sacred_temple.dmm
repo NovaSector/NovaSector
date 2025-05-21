@@ -54,7 +54,7 @@
 "cu" = (
 /obj/structure/table/wood,
 /obj/item/soap/homemade,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
