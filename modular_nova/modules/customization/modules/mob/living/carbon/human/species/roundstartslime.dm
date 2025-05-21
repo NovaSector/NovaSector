@@ -269,15 +269,15 @@
 	)
 	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
-		balloon_alert(user, "brain is not a viable candidate for repair!")
+		user.balloon_alert("This brain is not a viable candidate for repair!")
 		return TRUE
 
 	brainmob.grab_ghost()
 	if(isnull(brainmob.stored_dna))
-		balloon_alert(user, "brain does not contain any dna!")
+		user.balloon_alert("This brain does not contain any dna!")
 		return TRUE
 	if(isnull(brainmob.client))
-		balloon_alert(user, "brain does not contain a mind!")
+		user.balloon_alert("This brain does not contain a mind!")
 		return TRUE
 	regenerate()
 	return TRUE
@@ -389,19 +389,19 @@
 
 /datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
 	if(ishuman(owner))
-		var/mob/living/carbon/human/slime = owner
-		for(var/obj/item/slime_items in slime.get_equipped_items(INCLUDE_ACCESSORIES | INCLUDE_HELD))
-			slime_items.wash(CLEAN_WASH)
-			slime.wash(CLEAN_WASH)
-		if((slime.wear_suit?.body_parts_covered | slime.w_uniform?.body_parts_covered | slime.shoes?.body_parts_covered) & FEET)
+		var/mob/living/carbon/human/slime_person = owner
+
+		slime_person.wash(CLEAN_WASH) // Wash ourselves and all uncovered clothing
+
+		if((slime_person.wear_suit?.body_parts_covered | slime_person.w_uniform?.body_parts_covered | slime_person.shoes?.body_parts_covered) & FEET)
 			return
 		else
-			var/turf/open/open_turf = get_turf(slime)
+			var/turf/open/open_turf = get_turf(slime_person)
 			if(istype(open_turf))
 				open_turf.wash(CLEAN_WASH)
 				return TRUE
 			if(SPT_PROB(5, seconds_per_tick))
-				slime.adjust_nutrition((rand(5,25)))
+				slime_person.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
