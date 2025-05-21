@@ -429,7 +429,6 @@
 /area/awaymission/beach/heretic)
 "hi" = (
 /obj/effect/spawner/structure/window,
-/obj/structure/grille,
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
 "hl" = (
