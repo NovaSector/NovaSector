@@ -33,10 +33,16 @@
 	desc = "Spinward Sector Station SS-13\n'Box' Class Outpost (Revision 2.3: 'Journey')\nCommissioned 19/04/2561\n'Unbroken Champion'"
 
 /// diorama plaques
+/obj/structure/sign/plaques/kiddie/diorama
+	name = "A standard Diorama Plaque"
+	desc = "Write what you want here."
+	icon = 'modular_nova/master_files/icons/obj/floorplaque.dmi'
+	icon_state ="floorplaque"
+
 // Ash
 /obj/structure/sign/plaques/kiddie/diorama/ash
 	name = "Ashlands Diorama"
-	desc = "A representation of."
+	desc = "A representation of the ashen wastes."
 
 // Beach
 /obj/structure/sign/plaques/kiddie/diorama/beach
