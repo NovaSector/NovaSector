@@ -106,7 +106,7 @@
 /obj/item/storage/toolbox/emergency/turret/nri/PopulateContents()
 	return null
 
-/obj/item/storage/toolbox/emergency/turret/nri/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/storage/toolbox/emergency/turret/nri/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH && user.combat_mode)
 		user.visible_message(span_danger("[user] bashes [src] with [attacking_item]!"), \
 			span_danger("You bash [src] with [attacking_item]!"), null, COMBAT_MESSAGE_RANGE)

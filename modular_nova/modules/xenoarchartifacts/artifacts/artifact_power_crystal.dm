@@ -23,20 +23,20 @@
 				"It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
 				"It's mesmerizing to behold.")
 
-/obj/machinery/power/crystal/attackby(obj/item/attack_item, mob/user)
-	if(default_unfasten_wrench(user, attack_item))
+/obj/machinery/power/crystal/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_unfasten_wrench(user, attacking_item))
 		anchored ? connect_to_network() : disconnect_from_network()
 		update_crystal()
 		return
 
-	if(attack_item.tool_behaviour == TOOL_WIRECUTTER) // If we want to remove the wiring
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER) // If we want to remove the wiring
 		if(wired)
 			user.visible_message(
 				span_notice("[user] starts cutting off the wiring of the [src]."),
 				span_notice("You start cutting off the wiring of the [src]."),
 				blind_message = span_hear("You hear cutting nearby."),
 			)
-			if(attack_item.use_tool(src, user, 20, volume = 50))
+			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				user.visible_message(
 					span_notice("[user] cuts off the wiring of the [src]."),
 					span_notice("You cut off the wiring of the [src]."),
@@ -49,9 +49,9 @@
 			to_chat(user, span_red("There is currently no wiring on the [src]."))
 			return
 
-	if(istype(attack_item, /obj/item/stack/cable_coil)) // If we want to put the wiring
+	if(istype(attacking_item, /obj/item/stack/cable_coil)) // If we want to put the wiring
 		if(!wired)
-			var/obj/item/stack/cable_coil/our_cable_coil = attack_item
+			var/obj/item/stack/cable_coil/our_cable_coil = attacking_item
 			if(!our_cable_coil.use(2))
 				to_chat(user, span_red("There's not enough wire to finish the task."))
 				return
@@ -59,7 +59,7 @@
 				span_notice("[user] starts putting the wiring all over the [src]."),
 				span_notice("You start putting the wiring all over the [src]."),
 			)
-			if(attack_item.use_tool(src, user, 20, volume = 50))
+			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				user.visible_message(
 					span_notice("[user] puts the wiring all over the [src]."),
 					span_notice("You put the wiring all over the [src]."),

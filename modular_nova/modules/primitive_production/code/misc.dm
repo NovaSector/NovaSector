@@ -1,6 +1,6 @@
-/obj/item/shard/attackby(obj/item/item, mob/user, params)
+/obj/item/shard/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	//xenoarch hammer, forging hammer, etc.
-	if(item.tool_behaviour == TOOL_HAMMER)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER)
 		var/added_color
 		switch(src.type)
 			if(/obj/item/shard)

@@ -24,13 +24,13 @@
 			. += span_notice("There is \a [cell] loaded in the chamber.") //Shows what cells are currently inside of the gun
 
 /// Handles insertion of weapon cells
-/obj/item/gun/energy/cell_loaded/attackby(obj/item/weaponcell/used_cell, mob/user)
-	if(is_type_in_list(used_cell, allowed_cells)) // Checks allowed_cells to see if the gun is able to load the cells.
+/obj/item/gun/energy/cell_loaded/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(is_type_in_list(attacking_item, allowed_cells)) // Checks allowed_cells to see if the gun is able to load the cells.
 		if(installedcells.len >= maxcells) //Prevents the user from loading any cells past the maximum cell allowance
 			to_chat(user, span_notice("[src] is full, take a cell out to make room."))
 			return
 
-		var/obj/item/weaponcell/cell = used_cell
+		var/obj/item/weaponcell/cell = attacking_item
 		if(!user.transferItemToLoc(cell, src))
 			return
 

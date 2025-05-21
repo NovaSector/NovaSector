@@ -13,8 +13,7 @@
 	if(!mapload)
 		return
 
-/obj/structure/rack/gunrack/attackby(obj/item/attacking_item, mob/living/user, params)
-	var/list/modifiers = params2list(params)
+/obj/structure/rack/gunrack/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH && LAZYACCESS(modifiers, RIGHT_CLICK))
 		attacking_item.play_tool_sound(src)
 		deconstruct(TRUE)

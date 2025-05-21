@@ -124,7 +124,7 @@
 	. = ..()
 	atom_storage?.show_contents(user)
 
-/obj/vehicle/ridden/rail_cart/attackby(obj/item/attacking_item, mob/user, params)
+/obj/vehicle/ridden/rail_cart/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/stack/ore/glass))
 		var/obj/item/stack/ore/glass/use_item = attacking_item
 		if(has_sand || !use_item.use(10))

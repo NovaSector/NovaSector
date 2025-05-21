@@ -460,7 +460,7 @@
 
 	return ..()
 
-/obj/machinery/ammo_workbench/attackby(obj/item/attacking_item, mob/user, params)
+/obj/machinery/ammo_workbench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]_t", initial(icon_state), attacking_item))
 		return
 	if(default_deconstruction_crowbar(attacking_item))
@@ -468,7 +468,7 @@
 	if(Insert_Item(attacking_item, user))
 		return TRUE
 	if(loaded_module && istype(attacking_item, /obj/item/ammo_workbench_reboot))
-		loaded_module.item_interaction(user, attacking_item, params)
+		loaded_module.item_interaction(user, attacking_item, modifiers)
 		return TRUE
 	else
 		return ..()

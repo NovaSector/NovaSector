@@ -125,9 +125,9 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 	light_range = 3
 	light_color = COLOR_VIVID_YELLOW
 
-/obj/effect/decal/cleanable/cargo_mark/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/cargo_teleporter))
-		to_chat(user, span_notice("You remove [src] using [W]."))
+/obj/effect/decal/cleanable/cargo_mark/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/cargo_teleporter))
+		to_chat(user, span_notice("You remove [src] using [attacking_item]."))
 		playsound(src, 'sound/machines/click.ogg', 50)
 		qdel(src)
 		return

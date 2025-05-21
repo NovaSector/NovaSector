@@ -97,13 +97,13 @@
 	to_chat(user, span_danger("You crack the holobadge security checks."))
 	return TRUE
 
-/obj/item/clothing/accessory/badge/holo/attackby(obj/item/object as obj, mob/user as mob)
-	if(istype(object, /obj/item/card/id))
+/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/card/id))
 
 		var/obj/item/card/id/id_card = null
 
-		if(istype(object, /obj/item/card/id))
-			id_card = object
+		if(istype(attacking_item, /obj/item/card/id))
+			id_card = attacking_item
 
 		if((ACCESS_SECURITY in id_card.access) || (obj_flags & EMAGGED))
 			to_chat(user, "You imprint your ID details onto the badge.")

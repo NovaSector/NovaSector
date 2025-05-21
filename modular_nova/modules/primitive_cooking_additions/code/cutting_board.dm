@@ -105,7 +105,7 @@
 	qdel(processed_thing)
 	update_appearance()
 
-/obj/item/cutting_board/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/cutting_board/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(user.combat_mode)
 		return ..()
 

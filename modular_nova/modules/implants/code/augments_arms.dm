@@ -104,8 +104,8 @@
 		attack_verb_continuous = KNIFE_ATTACK_VERB_CONTINUOUS
 		attack_verb_simple = KNIFE_ATTACK_VERB_SIMPLE
 
-/obj/item/knife/razor_claws/attackby(obj/item/stone, mob/user, param)
-	if(!istype(stone, /obj/item/scratching_stone))
+/obj/item/knife/razor_claws/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/scratching_stone))
 		return ..()
 
 	knife_force = ENHANCED_KNIFE_FORCE
@@ -119,9 +119,9 @@
 
 	name = "enhanced razor claws"
 	desc += span_warning("\n\nThese have undergone a special honing process; they'll kill people even faster than they used to.")
-	user.visible_message(span_warning("[user] sharpens [src], [stone] disintegrating!"), span_warning("You sharpen [src], making it much more deadly than before, but [stone] disintegrates under the stress."))
+	user.visible_message(span_warning("[user] sharpens [src], [attacking_item] disintegrating!"), span_warning("You sharpen [src], making it much more deadly than before, but [attacking_item] disintegrates under the stress."))
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
-	qdel(stone)
+	qdel(attacking_item)
 	return ..()
 
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws

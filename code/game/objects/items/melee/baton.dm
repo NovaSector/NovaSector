@@ -208,7 +208,7 @@
 /obj/item/melee/baton/proc/finalize_baton_attack(mob/living/target, mob/living/user, list/modifiers)
 	PROTECTED_PROC(TRUE)
 	COOLDOWN_START(src, cooldown_check, cooldown)
-	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user, modifiers, in_attack_chain) // NOVA EDIT ADDITION
+	SEND_SIGNAL(src, COMSIG_PRE_BATON_FINALIZE_ATTACK, target, user, modifiers) // NOVA EDIT ADDITION
 	if(on_stun_sound)
 		playsound(src, on_stun_sound, on_stun_volume, TRUE, -1)
 	if(baton_effect(target, user, modifiers) && user)
