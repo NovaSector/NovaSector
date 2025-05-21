@@ -1057,7 +1057,7 @@
 	SIGNAL_HANDLER
 	wash(clean_types)
 
-/obj/item/bodypart/wash(clean_types, updating_clothing)
+/obj/item/bodypart/wash(clean_types)
 	. = ..()
 
 	// always add the original dna to the organ after it's washed

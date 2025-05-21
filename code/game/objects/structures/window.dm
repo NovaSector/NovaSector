@@ -373,7 +373,7 @@
 	else
 		set_opacity(initial(opacity))
 
-/obj/structure/window/wash(clean_types, updating_clothing)
+/obj/structure/window/wash(clean_types)
 	. = ..()
 	if(!(clean_types & CLEAN_SCRUB))
 		return
@@ -382,7 +382,7 @@
 	for(var/atom/movable/cleanables as anything in src)
 		if(cleanables == src)
 			continue
-		if(!cleanables.wash(clean_types, updating_clothing))
+		if(!cleanables.wash(clean_types))
 			continue
 		vis_contents -= cleanables
 	bloodied = FALSE

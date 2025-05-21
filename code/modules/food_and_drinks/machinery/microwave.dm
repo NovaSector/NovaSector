@@ -545,7 +545,7 @@
 		if("examine")
 			examine(user)
 
-/obj/machinery/microwave/wash(clean_types, updating_clothing)
+/obj/machinery/microwave/wash(clean_types)
 	. = ..()
 	if(operating || !(clean_types & CLEAN_SCRUB))
 		return .

@@ -1253,18 +1253,14 @@
 	if(mob_mood.sanity < SANITY_UNSTABLE)
 		return TRUE
 
-/mob/living/carbon/wash(clean_types, updating_clothing = TRUE) // NOVA EDIT CHANGE - ORIGINAL: /mob/living/carbon/wash(clean_types, updating_clothing)
+/mob/living/carbon/wash(clean_types)
 	. = ..()
-	/// Bitflag for what clothing to update at the end
-	var/slots_to_update
-
 	// Wash equipped stuff that cannot be covered
 	for(var/obj/item/held_thing in held_items)
-		if(held_thing.wash(clean_types, updating_clothing = FALSE))
-			slots_to_update |= ITEM_SLOT_HANDS // NOVA EDIT ADDITION
+		if(held_thing.wash(clean_types))
 			. = TRUE
 
-	/// Check and wash stuff that isn't covered
+	// Check and wash stuff that isn't covered
 	var/covered = check_covered_slots()
 	for(var/obj/item/worn as anything in get_equipped_items())
 		var/slot = get_slot_by_item(worn)
@@ -1273,14 +1269,7 @@
 			continue
 		if(!(covered & slot))
 			// /obj/item/wash() already updates our clothing slot
-	// NOVA EDIT CHANGE START - ORIGINAL: var/was_washed = worn.wash(clean_types, updating_clothing = FALSE)
-			var/was_washed = worn.wash(clean_types, updating_clothing = FALSE)
-			if(was_washed)
-				slots_to_update |= slot
-				. = TRUE
-	if(slots_to_update)
-		update_clothing(slots_to_update)
-	// NOVA EDIT CHANGE END
+			. ||= worn.wash(clean_types)
 
 /// if any of our bodyparts are bleeding
 /mob/living/carbon/proc/is_bleeding()

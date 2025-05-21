@@ -34,7 +34,7 @@
 	siemens_coefficient = reset_fantasy_variable("siemens_coefficient", siemens_coefficient)
 	return ..()
 
-/obj/item/clothing/gloves/wash(clean_types, updating_clothing)
+/obj/item/clothing/gloves/wash(clean_types)
 	. = ..()
 	if((clean_types & CLEAN_TYPE_BLOOD) && transfer_blood > 0)
 		transfer_blood = 0
