@@ -21,4 +21,4 @@
 		it is regarded widely as uncomfortable, and extremely violent to use, but has gotten the job done."
 
 /obj/item/gun/ballistic/shotgun/katyusha/shitzu/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_GORLEX)

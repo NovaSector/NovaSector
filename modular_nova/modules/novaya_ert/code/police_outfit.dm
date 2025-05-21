@@ -19,7 +19,7 @@
 	icon_state = "cloak_police"
 
 // Just some extra police equipment
-/obj/item/clothing/neck/cloak/colonial/nri_police/Initialize()
+/obj/item/clothing/neck/cloak/colonial/nri_police/Initialize(mapload)
 	allowed += list(
 		/obj/item/restraints/handcuffs,
 		/obj/item/ammo_box,
@@ -95,7 +95,7 @@
 	resistance_flags = FLAMMABLE
 	dog_fashion = null
 
-/obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize()
+/obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize(mapload)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 	allowed += list(
 		/obj/item/camera,
