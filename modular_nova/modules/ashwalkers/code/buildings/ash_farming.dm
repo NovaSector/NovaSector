@@ -41,6 +41,7 @@
 
 		locate_tree = new(get_turf(atom_parent))
 		user.mind?.adjust_experience(/datum/skill/primitive, 5)
+		locate_tree.pixel_y = (pixel_shift[2] - 8)
 		locate_tree.layer = atom_parent.layer + 0.01
 		if(ismovable(atom_parent))
 			var/atom/movable/movable_parent = atom_parent

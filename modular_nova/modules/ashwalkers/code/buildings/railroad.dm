@@ -134,13 +134,16 @@
 		if(has_sand || !tool.use(10))
 			return ..()
 
-		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 16))
+		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 24))
 		update_overlays()
 		has_sand = TRUE
 		max_drivers = 0
 		max_occupants = 0
-		atom_storage?.remove_all(get_turf(src))
-		QDEL_NULL(atom_storage)
+		atom_storage.remove_all(get_turf(src))
+		atom_storage.click_alt_open = FALSE
+		atom_storage.insert_on_attack = FALSE
+		atom_storage.attack_hand_interact = FALSE
+		atom_storage.locked = STORAGE_FULLY_LOCKED
 		return ITEM_INTERACT_SUCCESS
 
 	if(tool.tool_behaviour == TOOL_SHOVEL)
@@ -148,6 +151,10 @@
 			return ..()
 
 		QDEL_NULL(connected_farm)
+		atom_storage?.click_alt_open = TRUE
+		atom_storage?.insert_on_attack = TRUE
+		atom_storage?.attack_hand_interact = TRUE
+		atom_storage.locked = STORAGE_NOT_LOCKED
 		update_overlays()
 		has_sand = FALSE
 		AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)

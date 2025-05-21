@@ -57,7 +57,6 @@
 	icon_state = "seedling"
 
 	pixel_x = -32
-	pixel_y = 8
 	anchored = TRUE
 	density = TRUE
 	layer = FLY_LAYER
@@ -84,13 +83,8 @@
 	/// the cooldown for being able to safely remove some branches from the tree for wood
 	COOLDOWN_DECLARE(wood_cooldown)
 
-	//I wasn't smart enough to find the index... so this is the work around instead of a list
-	/// the first graft on the tree
-	var/obj/item/graft/graft_one
-	/// the second graft on the tree
-	var/obj/item/graft/graft_two
-	/// the third graft on the tree
-	var/obj/item/graft/graft_three
+	/// the list of grafts on the tree
+	var/list/graft_list = list()
 	/// the list of reagents from the grafted plants
 	var/list/grafted_reagents = list()
 	/// the cooldown for being able to harvest some fruits
@@ -124,9 +118,7 @@
 
 /obj/structure/simple_tree/Destroy(force)
 	QDEL_NULL(tree_bee)
-	QDEL_NULL(graft_one)
-	QDEL_NULL(graft_two)
-	QDEL_NULL(graft_three)
+	QDEL_NULL(graft_list)
 	attached_atom = null
 	if(processing_tree)
 		STOP_PROCESSING(SSobj, src)
@@ -156,14 +148,8 @@
 		if(COOLDOWN_FINISHED(src, honeycomb_cooldown))
 			add_overlay("honeyready")
 
-	if(graft_one)
-		add_overlay("grafted1")
-
-	if(graft_two)
-		add_overlay("grafted2")
-
-	if(graft_three)
-		add_overlay("grafted3")
+	for(var/graft_iterate in 1 to length(graft_list))
+		add_overlay("grafted[graft_iterate]")
 
 /obj/structure/simple_tree/update_icon_state()
 	switch(tree_stage)
@@ -210,17 +196,11 @@
 			if(COOLDOWN_FINISHED(src, wood_cooldown))
 				. += span_notice("There are some branches that look ready to cut down with something sharp.")
 
-			if(!graft_one && !graft_two && !graft_three)
+			if(!length(graft_list) >= 1)
 				. += span_notice("You are able to graft samples of other plants to this tree.")
 
-			if(graft_one)
-				. += span_notice("A sample of [graft_one.parent_name] is grafted on.")
-
-			if(graft_two)
-				. += span_notice("A sample of [graft_two.parent_name] is grafted on.")
-
-			if(graft_three)
-				. += span_notice("A sample of [graft_three.parent_name] is grafted on.")
+			for(var/obj/item/graft/grafted_items in graft_list)
+				. += span_notice("A sample of [grafted_items.parent_name] is grafted on.")
 
 			if(tree_bee)
 				. += span_notice("A big queen bee can be seen flying around the tree.")
@@ -240,7 +220,19 @@
 		if(tree_stage < TREE_STAGE_THREE)
 			return ITEM_INTERACT_BLOCKING
 
-		remove_graft(user, tool)
+		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
+		if(!do_after(user, 10 SECONDS * skill_modifier, target = src))
+			to_chat(user, span_warning("You decide against removing the grafts!"))
+			return ITEM_INTERACT_BLOCKING
+
+		for(var/obj/item/graft/target_grafts in graft_list)
+			target_grafts.forceMove(get_turf(user))
+			user.mind?.adjust_experience(/datum/skill/primitive, 5)
+			graft_list -= target_grafts
+
+		update_graft_reagents()
+		update_appearance(UPDATE_OVERLAYS)
+		to_chat(user, span_notice("You decide to remove the grafts from [src]."))
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/queen_bee))
@@ -307,17 +299,18 @@
 			return ITEM_INTERACT_BLOCKING
 
 		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
-		if(!graft_one)
-			change_graft(user, 1, tool_graft, src, "You successfully graft the [tool_graft.parent_name] graft onto [src].")
-			return ITEM_INTERACT_SUCCESS
 
-		if(!graft_two)
-			change_graft(user, 2, tool_graft, src, "You successfully graft the [tool_graft.parent_name] graft onto [src].")
-			return ITEM_INTERACT_SUCCESS
+		if(length(graft_list) >= 3)
+			to_chat(user, span_warning("[src] is already full of grafts!"))
+			return ITEM_INTERACT_BLOCKING
 
-		if(!graft_three)
-			change_graft(user, 3, tool_graft, src, "You successfully graft the [tool_graft.parent_name] graft onto [src].")
-			return ITEM_INTERACT_SUCCESS
+		tool_graft.forceMove(src)
+		graft_list += tool_graft
+		to_chat(user, span_notice("You successfully graft the [tool_graft.parent_name] graft onto [src]."))
+		update_graft_reagents()
+		user.mind?.adjust_experience(/datum/skill/primitive, 5)
+		update_appearance(UPDATE_OVERLAYS)
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
@@ -477,77 +470,9 @@
 /// updates the reagents that will be inserted into the product
 /obj/structure/simple_tree/proc/update_graft_reagents()
 	grafted_reagents = list() // have to reset it first of course
-	if(graft_one)
-		for(var/adding_reagent_one in graft_one.stored_seed.reagents_add)
-			grafted_reagents.Add(adding_reagent_one)
-
-	if(graft_two)
-		for(var/adding_reagent_two in graft_two.stored_seed.reagents_add)
-			grafted_reagents.Add(adding_reagent_two)
-
-	if(graft_three)
-		for(var/adding_reagent_three in graft_three.stored_seed.reagents_add)
-			grafted_reagents.Add(adding_reagent_three)
-
-/// changes the graft; who did it, which graft, what graft, where to move, and what to say
-/obj/structure/simple_tree/proc/change_graft(mob/living/user, var/graft_number, var/obj/item/graft_item, var/graft_location, var/graft_message)
-	switch(graft_number)
-		if(1)
-			if(isnull(graft_item))
-				graft_one.forceMove(graft_location)
-
-			else
-				graft_item.forceMove(graft_location)
-
-			graft_one = graft_item
-
-		if(2)
-			if(isnull(graft_item))
-				graft_two.forceMove(graft_location)
-
-			else
-				graft_item.forceMove(graft_location)
-
-			graft_two = graft_item
-
-		if(3)
-			if(isnull(graft_item))
-				graft_three.forceMove(graft_location)
-
-			else
-				graft_item.forceMove(graft_location)
-
-			graft_three = graft_item
-
-	to_chat(user, span_notice(graft_message))
-	update_graft_reagents()
-	user.mind?.adjust_experience(/datum/skill/primitive, 5)
-	update_appearance(UPDATE_OVERLAYS)
-	return
-
-/// attempts to remove a graft (if possible) from the tree
-/obj/structure/simple_tree/proc/remove_graft(mob/living/user)
-	if(isnull(graft_one) && isnull(graft_two) && isnull(graft_three))
-		to_chat(user, span_warning("There are no grafts on [src]."))
-		return
-
-	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
-	if(!do_after(user, 5 SECONDS * skill_modifier, target = src))
-		to_chat(user, span_warning("You have decided against removing a graft."))
-		return
-
-	playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
-	if(graft_one)
-		change_graft(user, 1, null, get_turf(user), "You have successfully removed the graft.")
-		return
-
-	if(graft_two)
-		change_graft(user, 2, null, get_turf(user), "You have successfully removed the graft.")
-		return
-
-	if(graft_three)
-		change_graft(user, 3, null, get_turf(user), "You have successfully removed the graft.")
-		return
+	for(var/obj/item/graft/grafted_item in graft_list)
+		for(var/adding_reagent in grafted_item.stored_seed.reagents_add)
+			grafted_reagents.Add(adding_reagent)
 
 /// adjusts the trees health, clamped from 0 to the max health; if 0, will qdel the tree
 /obj/structure/simple_tree/proc/adjust_health(var/damage_number)
