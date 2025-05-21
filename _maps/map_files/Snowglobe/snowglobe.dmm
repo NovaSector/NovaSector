@@ -59197,7 +59197,7 @@
 /area/station/engineering/atmos/hallway)
 "pSV" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/cup/glass/coffee/colonial{
