@@ -1,0 +1,5 @@
+author: "dmnaru"
+delete-after: True
+changes:
+  - rscadd: "Added holstering onto merctac armored hoodie variant to mirror the sec vest"
+  - image: "Minor sprite changes to kaynite's donor items"
