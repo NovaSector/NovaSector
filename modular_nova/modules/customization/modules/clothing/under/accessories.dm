@@ -442,10 +442,10 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon"
 	post_init_icon_state = "ptpin"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcomm
+/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcom
 	name = "\improper Central Command neckpin"
 	desc = "A pin specially dedicated to show loyalty to your company!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcomm"
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/specialpins/centcom"
 	post_init_icon_state = "ccpin"
 
 // All special heart medals
