@@ -392,8 +392,13 @@
 		var/mob/living/carbon/human/slime_person = owner
 		var/slots_to_update
 
-		// Wash all uncovered clothing
+		// Clean ourselves and our clothing
 		slime_person.wash(CLEAN_WASH)
+		for(var/obj/item/item_to_clean as anything in (slime_person.get_equipped_items(INCLUDE_ACCESSORIES | INCLUDE_HELD)))
+			if(!length(item_to_clean.forensics?.blood_DNA))
+				continue
+			if(item_to_clean.wash(CLEAN_WASH, updating_clothing = FALSE))
+				slots_to_update |= item_to_clean.slot_flags
 		if(slots_to_update)
 			slime_person.update_clothing(slots_to_update)
 

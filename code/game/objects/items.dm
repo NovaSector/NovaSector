@@ -1468,7 +1468,7 @@
 		current_action.build_all_button_icons(update_flags, force)
 
 // Update icons if this is being carried by a mob
-/obj/item/wash(clean_types, updating_clothing = TRUE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/wash(clean_types, updating_clothing)
+/obj/item/wash(clean_types, updating_clothing) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/wash(clean_types, updating_clothing)
 	. = ..()
 	if(!.) // we don't need mob updates when the item was already clean
 		return

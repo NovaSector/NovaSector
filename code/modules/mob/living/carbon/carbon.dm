@@ -1278,7 +1278,7 @@
 			if(was_washed)
 				slots_to_update |= slot
 				. = TRUE
-	if(slots_to_update && updating_clothing)
+	if(slots_to_update)
 		update_clothing(slots_to_update)
 	// NOVA EDIT CHANGE END
 
