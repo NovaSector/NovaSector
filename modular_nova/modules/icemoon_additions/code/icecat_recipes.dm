@@ -142,46 +142,46 @@
 
 // Hearthkin exclusive object to make their special lungs.
 /obj/item/frozen_breath
-    name = "Frozen Breath"
-    desc = "A strange brew, it smells minty and is extremely cold to the touch. It is rumored that a cold-hearted witch managed to make this, to mend the breath of her kindred."
-    icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
-    icon_state = "frozenbreath"
-    throwforce = 0
-    w_class = WEIGHT_CLASS_TINY
+	name = "Frozen Breath"
+	desc = "A strange brew, it smells minty and is extremely cold to the touch. It is rumored that a cold-hearted witch managed to make this, to mend the breath of her kindred."
+	icon = 'modular_nova/modules/primitive_catgirls/icons/objects.dmi'
+	icon_state = "frozenbreath"
+	throwforce = 0
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/frozen_breath/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-    if (!is_species(user, /datum/species/human/felinid/primitive))
-        to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
-        return
+	if (!is_species(user, /datum/species/human/felinid/primitive))
+		to_chat(user, span_warning("You have no idea how to use this freezing concoction."))
+		return
 
-    if(istype(interacting_with, /obj/item/organ/lungs))
-        var/obj/item/organ/lungs/target_lungs = interacting_with
-        if(IS_ROBOTIC_ORGAN(target_lungs))
-            user.balloon_alert(user, "The lungs have to be organic!")
-            return
-        var/location = get_turf(target_lungs)
-        playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)
-        user.visible_message(span_notice("[user] pours a strange blue liquid over the set of lungs. The flesh starts glistening in a strange cyan light, transforming before your very eyes!"),
-            span_notice("Recalling the instructions for the lung transfiguration ritual, you pour the liquid over the flesh of the organ. Soon, the lungs glow in a mute cyan light, before they turn dim and change form before your very eyes!"))
-        var/obj/item/organ/lungs/icebox_adapted/new_lungs = new(location)
-        new_lungs.damage = target_lungs.damage
-        qdel(target_lungs)
-        qdel(src)
+	if(istype(interacting_with, /obj/item/organ/lungs))
+		var/obj/item/organ/lungs/target_lungs = interacting_with
+		if(IS_ROBOTIC_ORGAN(target_lungs))
+			user.balloon_alert(user, "lungs must be organic!")
+			return
+		var/location = get_turf(target_lungs)
+		playsound(location, 'sound/effects/slosh.ogg', 25, TRUE)
+		user.visible_message(span_notice("[user] pours a strange blue liquid over the set of lungs. The flesh starts glistening in a strange cyan light, transforming before your very eyes!"),
+			span_notice("Recalling the instructions for the lung transfiguration ritual, you pour the liquid over the flesh of the organ. Soon, the lungs glow in a mute cyan light, before they turn dim and change form before your very eyes!"))
+		var/obj/item/organ/lungs/icebox_adapted/new_lungs = new(location)
+		new_lungs.damage = target_lungs.damage
+		qdel(target_lungs)
+		qdel(src)
 
 /obj/item/frozen_breath/examine(mob/user)
-    . = ..()
-    if(is_species(user, /datum/species/human/felinid/primitive))
-        . += span_info("Using this on a pair of organic lungs transforms them into hardy lungs. This will remove any other special features from the old lungs, if there were any.")
+	. = ..()
+	if(is_species(user, /datum/species/human/felinid/primitive))
+		. += span_info("Using this on a pair of organic lungs transforms them into hardy lungs. This will remove any other special features from the old lungs, if there were any.")
 
 /datum/crafting_recipe/frozen_breath
-    name = "Frozen Breath"
-    category = CAT_MISC
-    //recipe given to icecats as part of their spawner/team setting
-    crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
+	name = "Frozen Breath"
+	category = CAT_MISC
+	//recipe given to icecats as part of their spawner/team setting
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
-    reqs = list(
-        /datum/reagent/consumable/frostoil = 50,
-        /datum/reagent/medicine/c2/synthflesh = 50,
-    )
+	reqs = list(
+		/datum/reagent/consumable/frostoil = 50,
+		/datum/reagent/medicine/c2/synthflesh = 50,
+	)
 
-    result = /obj/item/frozen_breath
+	result = /obj/item/frozen_breath

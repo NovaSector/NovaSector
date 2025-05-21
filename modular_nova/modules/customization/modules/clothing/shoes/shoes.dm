@@ -141,7 +141,7 @@
 	icon_state = "duckboots"
 	fastening_type = SHOES_LACED
 
-/obj/item/clothing/shoes/jackboots/duckboots/Initialize()
+/obj/item/clothing/shoes/jackboots/duckboots/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, "It has a small <b>[span_red("red five pointed star")]</b> stamped onto the heel, and <b>[span_red("DIRIGO")]</b> etched under the soles.")
 

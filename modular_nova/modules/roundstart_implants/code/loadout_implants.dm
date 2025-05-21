@@ -72,7 +72,7 @@
 /obj/item/organ/cyberimp/arm/civilian_barstaff
 	name = "waitstaff implant"
 	desc = "The galactic service industry demands only the finest from its (underpaid) employees, leading to the development of this sordid piece of technology which substitutes a user's organic arm for a food storage space and an integrated chamois cleaning cloth. Why?"
-	items_to_create = list(/obj/item/storage/bag/tray/integrated, /obj/item/reagent_containers/cup/rag/integrated)
+	items_to_create = list(/obj/item/storage/bag/tray/integrated, /obj/item/rag/integrated)
 
 /obj/item/organ/cyberimp/arm/civilian_lighter
 	name = "thumbtip lighter implant"
