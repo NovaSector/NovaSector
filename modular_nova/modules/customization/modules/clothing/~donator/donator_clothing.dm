@@ -2481,3 +2481,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	)
 	category = CAT_CLOTHING
 
+/obj/item/clothing/suit/hooded/merctac_hoodie/armored/Initialize(mapload)
+	. = ..()
+	allowed = GLOB.security_vest_allowed
+
