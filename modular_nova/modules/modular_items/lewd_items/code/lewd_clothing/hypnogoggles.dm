@@ -63,6 +63,6 @@
 		return
 	switch(rand(1, 2))
 		if(1)
-			to_chat(wearer, span_hypnophrase("<i>...[lowertext(codephrase)]...</i>"))
+			to_chat(wearer, span_hypnophrase("<i>...[LOWER_TEXT(codephrase)]...</i>"))
 		if(2)
 			new /datum/hallucination/chat(wearer, TRUE, FALSE, span_hypnophrase("[codephrase]"))
