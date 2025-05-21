@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(skill_choices, init_skill_choices())
 
 /datum/quirk/skilled
 	name = "Skilled"
-	desc = "Before working on this station you honed your skill to a level far above that of an average spaceman. Now you can use your knowledge for the greater good. Or just boast about it"
+	desc = "Before working on this station you honed your skill to a level far above that of an average spaceman. Now you can use your knowledge for the greater good. Or just boast about it."
 	medical_record_text = "Patient keeps stating the fact they are a top professional even if it is not related to a checkup."
 	icon = FA_ICON_USER_PLUS
 	value = 4
