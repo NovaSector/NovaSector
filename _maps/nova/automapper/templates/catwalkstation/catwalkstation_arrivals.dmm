@@ -60,11 +60,11 @@
 	roundstart_template = null;
 	width = 5
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/space)
 "h" = (
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space)
 "i" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/pale/style_random,
@@ -286,6 +286,10 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/dark_blue,
+/obj/machinery/computer/shuttle/arrivals/recall{
+	dir = 4
+	},
+/obj/machinery/status_display/shuttle/directional/west,
 /turf/open/floor/iron/white,
 /area/station/hallway/secondary/entry)
 "G" = (
