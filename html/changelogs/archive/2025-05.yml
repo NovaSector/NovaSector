@@ -707,3 +707,10 @@
   - qol: Add CI map linter for window and electrified grille spawners
   - map: Fix many duplicate windows, walls, and grilles spawning together or inside
       each other on a bunch of maps.
+2025-05-22:
+  FlufflesTheDog:
+  - bugfix: Loadout and integrated damp rags are now actually rags
+  dmnaru:
+  - rscadd: Added holstering onto merctac armored hoodie variant to mirror the sec
+      vest
+  - image: Minor sprite changes to kaynite's donor items
