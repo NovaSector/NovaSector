@@ -119,7 +119,7 @@
 
 /obj/structure/simple_tree/Destroy(force)
 	QDEL_NULL(tree_bee)
-	QDEL_NULL(graft_list)
+	graft_list.Cut()
 	attached_atom = null
 	if(processing_tree)
 		STOP_PROCESSING(SSobj, src)
