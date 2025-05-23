@@ -257,9 +257,6 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if(tool.get_sharpness()) //doing this after the knife because assumedly, knives are sharp!
-		if(tree_stage < TREE_STAGE_THREE)
-			return ITEM_INTERACT_BLOCKING
-
 		attempt_woodmaking(user)
 		return ITEM_INTERACT_SUCCESS
 
