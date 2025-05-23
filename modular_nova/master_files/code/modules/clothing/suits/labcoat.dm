@@ -99,8 +99,8 @@
 	equip_delay_other = 8
 
 /obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/examine_tags(mob/user)
-    . = ..()
-    .["surgical"] = "Does not block surgery on covered bodyparts."
+	. = ..()
+	.["surgical"] = "Does not block surgery on covered bodyparts."
 	// Same note as /obj/item/clothing/mask/muzzle/breath
 
 /obj/item/clothing/suit/toggle/labcoat/roboticist //Overwrite the TG Roboticist labcoat to Black and Red (not the Interdyne labcoat though)
