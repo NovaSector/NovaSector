@@ -36,6 +36,7 @@
 	icon = 'modular_nova/modules/ashwalkers/icons/plant.dmi'
 	icon_state = "treefruit"
 	bite_consumption = 10
+	max_volume = 100
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
