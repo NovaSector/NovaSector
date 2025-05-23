@@ -1,5 +1,5 @@
 /datum/design/hospital_gown
-	name = "Hospital Gown"
+	name = "Surgical Gown"
 	id = "hospital_gown"
 	build_type = PROTOLATHE
 	materials = list(

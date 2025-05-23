@@ -90,7 +90,7 @@
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
 /obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown //Intended to keep patients modest while still allowing for surgeries
-	name = "hospital gown"
+	name = "surgical gown"
 	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
 	icon_state = "hgown"
 	toggle_noun = "drapes"
