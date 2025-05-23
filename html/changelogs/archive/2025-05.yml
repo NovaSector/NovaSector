@@ -714,3 +714,6 @@
   - rscadd: Added holstering onto merctac armored hoodie variant to mirror the sec
       vest
   - image: Minor sprite changes to kaynite's donor items
+2025-05-23:
+  Yobrocharlie:
+  - bugfix: chamenos ghost role doesnt get a deathsquad modsuit anymore
