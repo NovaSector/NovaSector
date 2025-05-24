@@ -281,7 +281,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 		// Current status
 		if (sensor_mode >= SENSOR_LIVING)
-			entry["life_status"] = tracked_living_mob.stat
+				entry["is_dnr"] = tracked_human.get_dnr()
 
 		// Damage
 		if (sensor_mode >= SENSOR_VITALS)
