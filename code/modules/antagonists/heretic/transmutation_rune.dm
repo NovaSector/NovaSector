@@ -218,9 +218,9 @@
 		set_greyscale(colors = list(path_colour))
 
 /obj/effect/temp_visual/drawing_heretic_rune
-	duration = 30 SECONDS
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "transmutation_rune"
+	duration = 30 SECONDS
 	pixel_x = -30
 	pixel_y = 18
 	pixel_z = -48

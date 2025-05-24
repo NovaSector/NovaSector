@@ -110,7 +110,7 @@
 
 /obj/item/clothing/glasses/hud/ar/proc/reset_vars()
 	worn_icon = initial(worn_icon)
-	icon_state = initial(icon_state)
+	icon_state = initial(post_init_icon_state) || initial(icon_state)
 	flash_protect = initial(flash_protect)
 	tint = initial(tint)
 	color_cutoffs = initial(color_cutoffs)

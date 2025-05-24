@@ -1,3 +1,36 @@
+
+// Supported TG Masks
+/obj/item/clothing/mask/bandana
+	greyscale_config_worn_muzzled = /datum/greyscale_config/bandana/worn/muzzled
+	greyscale_config_worn_vox = /datum/greyscale_config/bandana/worn/vox
+
+/obj/item/clothing/mask/bandana/striped
+	greyscale_config_worn_muzzled = /datum/greyscale_config/bandana/striped/worn/muzzled
+	greyscale_config_worn_vox = /datum/greyscale_config/bandana/striped/worn/vox
+
+/obj/item/clothing/mask/bandana/skull
+	greyscale_config_worn_muzzled = /datum/greyscale_config/bandana/skull/worn/muzzled
+	greyscale_config_worn_vox = /datum/greyscale_config/bandana/skull/worn/vox
+
+/obj/item/clothing/mask/muzzle/tape
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION | CLOTHING_SNOUTED_VOX_VARIATION
+	greyscale_config_worn_muzzled = /datum/greyscale_config/tape_piece/worn/muzzled
+	greyscale_config_worn_vox = /datum/greyscale_config/tape_piece/worn/vox
+
+/obj/item/clothing/mask/muzzle/tape/pointy
+	greyscale_config_worn_muzzled = /datum/greyscale_config/tape_piece/worn/muzzled
+	greyscale_config_worn_vox = /datum/greyscale_config/tape_piece/worn/vox
+
+/obj/item/clothing/mask/cigarette
+	supports_variations_flags = CLOTHING_SNOUTED_VOX_VARIATION
+
+/obj/item/vape
+	worn_icon_vox = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	supports_variations_flags = CLOTHING_SNOUTED_VOX_VARIATION
+	greyscale_config_worn_vox = /datum/greyscale_config/vape/worn/vox
+
+// Modular masks
+
 /obj/item/clothing/mask/breath/vox
 	desc = "A close-fitting mask that can be connected to an air supply. This one's got an easily accessible feeding port to be more suitable for the Vox crewmembers."
 	name = "vox breath mask"
@@ -84,10 +117,12 @@
 	icon_state = "ringgag"
 
 /obj/item/clothing/mask/surgical/greyscale
-	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#AAE4DB"
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/surgical/greyscale"
+	post_init_icon_state = "sterile"
 	greyscale_config = /datum/greyscale_config/sterile_mask
 	greyscale_config_worn = /datum/greyscale_config/sterile_mask/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/sterile_mask/worn/snouted

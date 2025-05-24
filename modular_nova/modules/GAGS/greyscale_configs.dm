@@ -276,10 +276,43 @@
 	name = "Colourable Clown Mask (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/clown_mask/clown_mask_worn.json'
 
-// VAPE
-/datum/greyscale_config/vape/worn/muzzled
-	name = "Vape (Worn, Muzzled)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+/datum/greyscale_config/bandana/worn/muzzled
+	name = "Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+	json_config = 'code/datums/greyscale/json_configs/bandana.json'
+
+/datum/greyscale_config/bandana/worn/vox
+	name = "Bandana (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	json_config = 'code/datums/greyscale/json_configs/bandana.json'
+
+/datum/greyscale_config/bandana/striped/worn/muzzled
+	name = "Striped Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/bandana/striped/worn/vox
+	name = "Striped Bandana (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/bandana/skull/worn/muzzled
+	name = "Skull Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/bandana/skull/worn/vox
+	name = "Skull Bandana (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/tape_piece/worn/muzzled
+	name = "Tape Piece (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/tape_piece/worn/vox
+	name = "Tape Piece (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/vape/worn/vox
+	name = "Vape (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 
 // RESPIRATOR
 /datum/greyscale_config/respirator
@@ -1825,6 +1858,9 @@ TREK
 	name = "Jester Shoes (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
+/datum/greyscale_config/glow_shoes/worn/digi
+	name = "Glow Shoes (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 /*
 *	Belts

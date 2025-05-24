@@ -25,6 +25,8 @@
 		"Buff" = "hypovial-buff",
 		"Custom" = "hypovial-custom",
 	)
+	/// The original icon file where our overlays reside.
+	var/original_icon = 'modular_nova/modules/hyposprays/icons/vials.dmi'
 
 /obj/item/reagent_containers/cup/vial/Initialize(mapload)
 	. = ..()
@@ -41,7 +43,7 @@
 /obj/item/reagent_containers/cup/vial/click_ctrl_shift(mob/user)
 	current_skin = null
 	icon_state = initial(icon_state)
-	icon = initial(icon)
+	icon = original_icon
 	greyscale_colors = null
 	reskin_obj(user)
 
