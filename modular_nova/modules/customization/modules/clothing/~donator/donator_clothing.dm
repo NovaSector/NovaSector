@@ -2126,6 +2126,34 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	. = ..()
 	inhand_icon_state = src::inhand_icon_state // Don't have a precision variant for this, just always use base
 
+/obj/item/clothing/suit/brownbattlecoat/elysiancoat
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	name = "Bovinæ Overcoat"
+	desc = "A <b>tall, slate-grey</b> overcoat of <b><u>handwoven ferro-silk</u></b>, its fabric <b>dense</b> yet <u>fluid</u>.<br>Weighted for the sweep of a nobleman’s stride, yet tough enough to turn a blade’s kiss.<br>The cut is <b>severe</b>, <b>militaristic</b>, but softened by the palace tailors’ touch:<br><b>silver-threaded seams</b> trace the contours like veins of starlight<br>high stand-collar is stiffened with <b>blackened whalebone</b>,<br>framing the wearer’s jaw like a portrait of old conquests."
+	special_desc = "<center>The cuffs bear <i><u>subtle, frayed embroidery</u></i> - a crest now unpicked, the ghost of a <i><u>dead prince’s vanity</u></i>.<br>The inner lining is <i><u>smoky stormcloud satin</i></u>, a flash of regal defiance when the wind catches it mid-stride.<br><i><u>No insignia, no braid</i></u>, just the <u><i>impeccable drape of inherited power</i></u>, and the faint scent of <i>gun oil and lemons</i> clinging to the wool.<br>On a closer inspection, you see the initials <i><u>G. Bovinæ</u></i> stitched in the inner pocket.<br><br><i><b>The Coat of a Man who's not Easily Forgotten.</b></i></center>"
+	icon_state = "elysiancoat"
+	base_icon_state = "elysiancoat"
+	strip_delay = 200 //Heavy coat. Fumble to remove
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+/obj/item/clothing/suit/brownbattlecoat/elysiancoat/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon) // Open and close buttons
+
+/obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
+	name = "The <i><b>Noble Swashbuckler</i></b> Suit"
+	desc = "A suit tailored for a man who dines in ballrooms and vanishes into alleyways. The red tie is a warning for the walking red-flag the wearer is. Smells like wood and a lemon-y cologne."
+	special_desc = "<center><b><u>White Button-Down:</b></u> <i><u>Undoubtly Crisp</i></u>, the cuffs are <i><u>double-stitched</i></u> to withstand grappling. The collar stays impeccably upright, hiding a thin, monogrammed wire (for garrotes or lockpicks) sewn into the seam.<br><b><u>Black Dress Pants:</b></u> Tailored for <i><u>motion, not restraint</i></u>. Sharp creases like a dueling saber’s edge, reinforced at the inner thigh for concealed holsters or knives. The fabric is <i><u>matte military wool</i></u>, durable enough for a back-alley brawl but refined enough for a nobleman’s dinner.<br><b><u>Black Vest:</b></u> <i><u>Slim-cut and unadorned</i></u>, save for a single hidden pocket over the heart; Large enough for a handkerchief or a bloodstained love letter.<br><b><u>Crimson Tie:</b></u> Red under artificial lights, blackout dark in the void, knotted in a <i><u>half-Windsor</i></u>, tight enough to strangle with, if pulled taut. The underside bears a <i><u>faded family crest</i></u>, embroidered in thread that glows under UV.</center>"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "bovinesignature"
+	inhand_icon_state = "bovinesignature"
+	can_adjust = TRUE
+
 // donator reward for ignari
 /obj/item/clothing/under/rem
 	name = "\improper M.I.A. limiter"
