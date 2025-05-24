@@ -107,10 +107,13 @@
 // Create Effigy
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem
 	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
-	cooldown_time = 2 MINUTES
+	cooldown_time = 6 MINUTES
 	name = "Plant Totem"
 	desc = "Plant a Spider Totem to spread webs."
 	button_icon_state = "spider_effigy"
+
+/datum/action/cooldown/mob_cooldown/lay_web/create_totem/baron
+	cooldown_time = 3 MINUTES
 
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem/obstructed_by_other_web()
 	return !!(locate(/obj/structure/spider/stickyweb/sealed/reflector) in get_turf(owner))
@@ -182,6 +185,10 @@
 	smoothing_flags = NONE
 	smoothing_groups = NONE
 	canSmoothWith = NONE
+	density = TRUE
+	light_range = 1
+	light_color = COLOR_RED_LIGHT
+	light_power = 0.5
 	///the minimum time it takes for another weed to spread from this one
 	var/minimum_growtime = 5 SECONDS
 	///the maximum time it takes for another weed to spread from this one
@@ -197,9 +204,9 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-// we do this in LateInitialize() because weeds on the same loc may not be done initializing yet (as in create_and_destroy)
+// we do this in LateInitialize() because webs on the same loc may not be done initializing yet (as in create_and_destroy)
 /obj/structure/spider/stickyweb/alive/spider_effigy/LateInitialize()
-	//destroy any non-spider_effigy weeds on turf
+	//destroy any non-spider_effigy webs on turf
 	var/obj/structure/spider/stickyweb/alive/check_web = locate(/obj/structure/spider/stickyweb/alive) in loc
 	if(check_web && check_web != src)
 		qdel(check_web)
@@ -212,9 +219,9 @@
 
 // apply trauma to those within a few blocks who break the effigy.
 /obj/structure/spider/stickyweb/alive/spider_effigy/Destroy()
-	for(var/mob/living/carbon/carbon_target in view(4,src))
+	for(var/mob/living/carbon/carbon_target in view(2,src))
 		carbon_target.gain_trauma(/datum/brain_trauma/magic/spider)
-		visible_message(span_bolddanger("The spider totem screeches as it breaks, piercing your mind!"))
+		visible_message(span_userdanger("The spider totem screeches as it breaks, piercing your mind! You can't trust your mind!"))
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -240,9 +247,9 @@
 	shared_cooldown = NONE
 	click_to_activate = FALSE
 	/// The alpha we go to when sneaking.
-	var/sneak_alpha = 125
+	var/sneak_alpha = 135
 	/// How long does it take to play our various animation stages
-	var/animation_time = 0.5 SECONDS
+	var/animation_time = 1.5 SECONDS
 
 
 // add the element that makes them walk on the ceiling
@@ -275,7 +282,7 @@
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
 
-	cooldown_time = 30 SECONDS
+	cooldown_time = 3 MINUTES
 	spell_requirements = NONE
 
 	active_msg = "You prepare to throw a webbed hook at your target!"
@@ -292,4 +299,4 @@
 // Baron's
 /datum/action/cooldown/spell/pointed/projectile/webhook/greater
 	name = "enhanced hooked web"
-	cooldown_time = 10 SECONDS
+	cooldown_time = 1 MINUTES
