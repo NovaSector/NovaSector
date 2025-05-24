@@ -89,14 +89,19 @@
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
-/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown //Intended to keep patients modest while still allowing for surgeries
-	name = "hospital gown"
+/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown //Intended to keep patients modest while still allowing for surgeries
+	name = "surgical gown"
 	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
 	icon_state = "hgown"
 	toggle_noun = "drapes"
 	body_parts_covered = NONE //Allows surgeries despite wearing it; hiding genitals is handled in /datum/sprite_accessory/genital/is_hidden() (Only place it'd work sadly)
 	armor_type = /datum/armor/none
 	equip_delay_other = 8
+
+/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/examine_tags(mob/user)
+	. = ..()
+	.["surgical"] = "Does not block surgery on covered bodyparts."
+	// Same note as /obj/item/clothing/mask/muzzle/breath
 
 /obj/item/clothing/suit/toggle/labcoat/roboticist //Overwrite the TG Roboticist labcoat to Black and Red (not the Interdyne labcoat though)
 	greyscale_colors = "#2D2D33#88242D#88242D#88242D"

@@ -38,7 +38,7 @@
 
 /obj/item/hairbrush/switchblade/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
+	AddElement(/datum/element/update_icon_updates_onmob)
 
 ///This is called when you transform it
 /obj/item/hairbrush/switchblade/attack_self(mob/user, modifiers)
@@ -505,3 +505,13 @@
 /obj/item/clothing/head/cone_of_shame/update_icon_state()
 	worn_icon_state = "[base_icon_state]_[toggle_state]"
 	return ..()
+
+// Kaynite Donor Item
+/obj/item/storage/backpack/merctac_backpack
+	name = "\improper Xplore Go! bag"
+	desc = "A versatile, single strap backpack from the survival outfitter Xplore. A 20 litre pack coupled with a detachable thermal water bottle and O2 cannister, for trekking amongst the stars."
+	icon_state = "xplore_go_bag"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/back.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/back.dmi'
+	inhand_icon_state = "backpack"
+
