@@ -13,7 +13,7 @@
 
 /obj/item/hairbrush/attack(mob/target, mob/user)
 	if(target.stat == DEAD)
-		to_chat(usr, span_warning("There isn't much point brushing someone who can't appreciate it!"))
+		to_chat(user, span_warning("There isn't much point brushing someone who can't appreciate it!"))
 		return
 	brush(target, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -36,28 +36,36 @@
 
 		// Combat mode gives one brute damage.
 		if(user.combat_mode)
-			human_target.visible_message(span_warning("[usr] scrapes the bristles uncomfortably over [human_target]'s scalp."), span_warning("You scrape the bristles uncomfortably over [human_target]'s scalp."))
+			human_target.visible_message(span_warning("[user] scrapes the bristles uncomfortably over [human_target]'s scalp."), span_warning("You scrape the bristles uncomfortably over [human_target]'s scalp."))
 			head.receive_damage(1)
 			return
 
-		// Brush their hair
+		// Brush their hair or tail
 		if(human_target == user)
+			if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && !isnull(human_target.get_organ_by_type(/obj/item/organ/tail)))
+				human_target.visible_message(span_notice("[user] brushes [user.p_their()] tail!"), span_notice("You brush your tail."))
+				human_target.add_mood_event("brushed", /datum/mood_event/brushed/tail/self)
+				return
 			if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Skinhead")
-				human_target.visible_message(span_notice("[usr] brushes [usr.p_their()] head!"), span_notice("You brush your head."))
+				human_target.visible_message(span_notice("[user] brushes [user.p_their()] head!"), span_notice("You brush your head."))
 			else
-				human_target.visible_message(span_notice("[usr] brushes [usr.p_their()] hair!"), span_notice("You brush your hair."))
+				human_target.visible_message(span_notice("[user] brushes [user.p_their()] hair!"), span_notice("You brush your hair."))
 			human_target.add_mood_event("brushed", /datum/mood_event/brushed/self)
 		else
+			if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && !isnull(human_target.get_organ_by_type(/obj/item/organ/tail)))
+				human_target.visible_message(span_notice("[user] brushes [human_target]'s tail!"), span_notice("You brush [human_target]'s tail."))
+				human_target.add_mood_event("brushed", /datum/mood_event/brushed/tail)
+				return
 			if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Skinhead")
-				user.visible_message(span_notice("[usr] brushes [human_target]'s head!"), span_notice("You brush [human_target]'s head."), ignored_mobs=list(human_target))
-				human_target.show_message(span_notice("[usr] brushes your head!"), MSG_VISUAL)
+				user.visible_message(span_notice("[user] brushes [human_target]'s head!"), span_notice("You brush [human_target]'s head."), ignored_mobs=list(human_target))
+				human_target.show_message(span_notice("[user] brushes your head!"), MSG_VISUAL)
 			else
-				user.visible_message(span_notice("[usr] brushes [human_target]'s hair!"), span_notice("You brush [human_target]'s hair."), ignored_mobs=list(human_target))
-				human_target.show_message(span_notice("[usr] brushes your hair!"), MSG_VISUAL)
+				user.visible_message(span_notice("[user] brushes [human_target]'s hair!"), span_notice("You brush [human_target]'s hair."), ignored_mobs=list(human_target))
+				human_target.show_message(span_notice("[user] brushes your hair!"), MSG_VISUAL)
 			human_target.add_mood_event("brushed", /datum/mood_event/brushed, user)
 
 	else if(istype(target, /mob/living/basic/pet))
-		if(!do_after(usr, brush_speed, target))
+		if(!do_after(user, brush_speed, target))
 			return
 		to_chat(user, span_notice("[target] closes [target.p_their()] eyes as you brush [target.p_them()]!"))
 		var/mob/living/living_user = user
