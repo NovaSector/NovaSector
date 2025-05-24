@@ -6,6 +6,7 @@
 /mob/living/basic/mining/gutlunch
 	name = "gutlunch"
 	desc = "A scavenger that eats raw ores, often found alongside ash walkers. Produces a thick, nutritious milk."
+	combat_mode = FALSE
 	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "gutlunch"
 	icon_living = "gutlunch"

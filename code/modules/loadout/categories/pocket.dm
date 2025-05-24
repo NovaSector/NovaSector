@@ -64,8 +64,6 @@
 /datum/loadout_item/pocket_items/plush/lizard_random
 	name = "Plush (Lizard, Random)"
 	can_be_greyscale = DONT_GREYSCALE
-	ui_icon = 'icons/obj/fluff/previews.dmi'
-	ui_icon_state = "plushie_lizard_random"
 	item_path = /obj/item/toy/plush/lizard_plushie
 
 /datum/loadout_item/pocket_items/plush/moth

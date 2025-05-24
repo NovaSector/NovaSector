@@ -81,7 +81,7 @@
 				/obj/item/clothing/under/suit/nova/pencil/black_really = 3,
 				/obj/item/clothing/under/suit/nova/pencil/charcoal = 3,
 				/obj/item/clothing/under/suit/nova/pencil/navy = 3,
-				/obj/item/clothing/under/suit/nova/pencil/burgandy = 3,
+				/obj/item/clothing/under/suit/nova/pencil/burgundy = 3,
 				/obj/item/clothing/under/suit/nova/pencil/checkered = 3,
 				/obj/item/clothing/under/suit/nova/pencil/tan = 3,
 				/obj/item/clothing/under/suit/nova/pencil/green = 3,

@@ -7742,7 +7742,6 @@
 #include "modular_nova\modules\customization\modules\client\augment\organs.dm"
 #include "modular_nova\modules\customization\modules\client\augment\species_limbs.dm"
 #include "modular_nova\modules\customization\modules\clothing\accessories.dm"
-#include "modular_nova\modules\customization\modules\clothing\toggle_base.dm"
 #include "modular_nova\modules\customization\modules\clothing\glasses\glasses.dm"
 #include "modular_nova\modules\customization\modules\clothing\glasses\hud.dm"
 #include "modular_nova\modules\customization\modules\clothing\hands\hands.dm"
