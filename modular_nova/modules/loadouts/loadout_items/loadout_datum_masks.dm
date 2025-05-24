@@ -61,7 +61,7 @@
 
 /datum/loadout_item/mask/balaclavaadj
 	name = "Adjustable Balaclava"
-	item_path = /obj/item/clothing/mask/balaclavaadjust
+	item_path = /obj/item/clothing/mask/balaclava/adjustable
 
 /datum/loadout_item/mask/balaclavathree
 	name = "Three-Hole Balaclava (Black)"

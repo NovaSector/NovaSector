@@ -383,7 +383,7 @@
 	desc = "A secure crate to keep all your personal belongings in.";
 	anchored = 1
 	},
-/obj/item/clothing/mask/balaclavaadjust,
+/obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
@@ -845,7 +845,7 @@
 	anchored = 1
 	},
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
-/obj/item/clothing/mask/balaclavaadjust,
+/obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/clothing/head/helmet/nri_police,
 /obj/item/clothing/suit/armor/vest/nri_police,
@@ -1031,7 +1031,7 @@
 	},
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/security/sunglasses/peacekeeper,
-/obj/item/clothing/mask/balaclavaadjust,
+/obj/item/clothing/mask/balaclava/adjustable,
 /obj/item/storage/belt/military/cin_surplus/marine,
 /obj/item/clothing/head/helmet/nri_police,
 /obj/item/clothing/suit/armor/vest/nri_police,

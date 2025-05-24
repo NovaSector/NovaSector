@@ -58,5 +58,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
 	icon_state = "seva"
+	dirt_state = "gas_wide_dirt"
 	resistance_flags = FIRE_PROOF
 	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDEEYES|HIDEEARS|HIDEHAIR|HIDESNOUT

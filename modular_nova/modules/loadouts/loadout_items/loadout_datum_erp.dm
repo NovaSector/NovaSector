@@ -145,11 +145,11 @@
 
 /datum/loadout_item/erp/ballgag
 	name = "Ball Gag"
-	item_path = /obj/item/clothing/mask/ballgag
+	item_path = /obj/item/clothing/mask/muzzle/ballgag
 
 /datum/loadout_item/erp/ballgag/choking
 	name = "Phallic Ball Gag"
-	item_path = /obj/item/clothing/mask/ballgag/choking
+	item_path = /obj/item/clothing/mask/muzzle/ballgag/choking
 
 /datum/loadout_item/erp/muzzle_ring
 	name = "Ring Gag"

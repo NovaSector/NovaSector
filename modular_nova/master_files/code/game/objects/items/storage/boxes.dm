@@ -17,6 +17,6 @@
 	new /obj/item/clothing/sextoy/buttplug(src)
 	new /obj/item/stack/shibari_rope/full(src)
 	new /obj/item/spanking_pad(src)
-	new /obj/item/clothing/mask/ballgag(src)
+	new /obj/item/clothing/mask/muzzle/ballgag(src)
 	new /obj/item/clothing/suit/straight_jacket/shackles(src)
 	new /obj/item/clothing/glasses/blindfold/dorms(src)

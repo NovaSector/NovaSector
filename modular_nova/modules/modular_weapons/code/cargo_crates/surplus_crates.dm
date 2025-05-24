@@ -34,7 +34,7 @@
 		/obj/item/clothing/neck/cloak/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/head/hats/colonial/nri_police = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/mask/gas/nri_police = ITEM_WEIGHT_CLOTHING,
-		/obj/item/clothing/mask/balaclavaadjust = ITEM_WEIGHT_CLOTHING,
+		/obj/item/clothing/mask/balaclava/adjustable = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/gloves/tackler/combat = ITEM_WEIGHT_CLOTHING,
 		/obj/item/clothing/shoes/jackboots = ITEM_WEIGHT_CLOTHING,
 		// Armors
