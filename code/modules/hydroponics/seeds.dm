@@ -567,6 +567,7 @@
 	snip.weed_chance = weed_chance
 	snip.yield = yield
 
+	snip.stored_seed = new type(snip) //NOVA EDIT ADDITION
 	return snip
 
 /**
