@@ -36,9 +36,9 @@ SUBSYSTEM_DEF(atoms)
 	init_start_time = world.time
 	setupGenetics() //to set the mutations' sequence
 
-	set_tracked_initalized(INITIALIZATION_INNEW_REGULAR, "base state") // This gets overidden immediately in InitializeAtoms
+	initialized = INITIALIZATION_INNEW_MAPLOAD
 	InitializeAtoms()
-	base_initialized = INITIALIZATION_INNEW_REGULAR // Backup in case the base state is removed for some reason
+	initialized = INITIALIZATION_INNEW_REGULAR
 
 	return SS_INIT_SUCCESS
 
@@ -159,8 +159,9 @@ SUBSYSTEM_DEF(atoms)
 			initialized_state.Cut(i, i+1)
 			break
 
-	if(!length(initialized_state)) // Something caused atom initialization to happen before SSatoms, revert to type def
+	if(!length(initialized_state))
 		initialized = base_initialized
+		base_initialized = INITIALIZATION_INNEW_REGULAR
 		return
 
 	initialized = initialized_state[length(initialized_state)][2]

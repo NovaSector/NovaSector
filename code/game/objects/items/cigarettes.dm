@@ -982,7 +982,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	worn_icon_state = "vape_worn"
 	greyscale_config = /datum/greyscale_config/vape
 	greyscale_config_worn = /datum/greyscale_config/vape/worn
-	greyscale_config_worn_muzzled = /datum/greyscale_config/vape/worn/muzzled //NOVA EDIT ADDITION
 	greyscale_colors = "#2e2e2e"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_TINY
