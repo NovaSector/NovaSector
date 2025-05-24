@@ -1003,12 +1003,12 @@
 	item_path = /obj/item/storage/backpack/merctac_backpack
 	ckeywhitelist = list("kaynite")
 
-/datum/loadout_item/suit/brownbattlecoat/elysiancoat
+/datum/loadout_item/suit/elysiancoat
 	name = "Bovinæ Overcoat"
 	item_path = /obj/item/clothing/suit/brownbattlecoat/elysiancoat
 	ckeywhitelist = list("courierasy")
 
-/datum/loadout_item/under/rank/civilian/curator/treasure_hunter/noble_enforcer
+/datum/loadout_item/under/noble_enforcer
 	name = "Swashbuckler Suit"
 	item_path = /obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
 	ckeywhitelist = list("courierasy")
