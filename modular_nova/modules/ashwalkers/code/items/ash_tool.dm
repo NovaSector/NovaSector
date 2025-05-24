@@ -10,6 +10,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_screwdriver
 	name = "Ash Screwdriver"
@@ -26,6 +27,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_cutters
 	name = "Ash Wirecutters"
@@ -42,6 +44,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_wrench
 	name = "Ash Wrench"
@@ -58,6 +61,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 
 /datum/crafting_recipe/ash_recipe/ash_crowbar
 	name = "Ash Crowbar"
@@ -75,6 +79,7 @@
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_config_worn = null
+	post_init_icon_state = null
 	toolspeed = 4
 
 /datum/crafting_recipe/ash_recipe/ash_chisel

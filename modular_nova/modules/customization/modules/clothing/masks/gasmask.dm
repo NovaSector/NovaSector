@@ -51,10 +51,12 @@
 /obj/item/clothing/mask/gas/clown_colourable
 	name = "colourable clown mask"
 	desc = "The face of pure evil, now multicoloured."
-	icon_state = "gags_mask"
 	clothing_flags = MASKINTERNALS
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/clown_colourable"
+	post_init_icon_state = "gags_mask"
 	greyscale_config = /datum/greyscale_config/clown_mask
 	greyscale_config_worn = /datum/greyscale_config/clown_mask/worn
 	greyscale_colors = "#FFFFFF#F20018#0000FF#00CC00"
@@ -74,9 +76,7 @@
 /obj/item/clothing/mask/gas/respirator
 	name = "half mask respirator"
 	desc = "A half mask respirator that's really just a standard gas mask with the glass taken off."
-	icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/masks.dmi'
-	icon_state = "respirator"
 	inhand_icon_state = "sechailer"
 	w_class = WEIGHT_CLASS_SMALL
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
@@ -84,6 +84,9 @@
 	flags_cover = MASKCOVERSMOUTH
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#2E3333"
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/respirator"
+	post_init_icon_state = "respirator"
 	greyscale_config = /datum/greyscale_config/respirator
 	greyscale_config_worn = /datum/greyscale_config/respirator/worn
 	//NIGHTMARE NIGHTMARE NIGHTMARE
