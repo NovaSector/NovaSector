@@ -736,10 +736,6 @@
 	},
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
-"cS" = (
-/obj/machinery/telecomms/relay/preset/mining,
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
 "cX" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/wood,
@@ -11759,10 +11755,6 @@
 /obj/item/organ/heart/rat,
 /obj/structure/trash_pile,
 /turf/open/floor/plating/rust,
-/area/awaymission/caves/maintsroom)
-"Tt" = (
-/obj/machinery/telecomms/relay/preset/station,
-/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Tu" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -28156,9 +28148,9 @@ GS
 BB
 GS
 lT
-uG
-cS
-Tt
+jU
+jU
+jU
 GS
 qD
 qD
