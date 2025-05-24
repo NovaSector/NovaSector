@@ -9,7 +9,7 @@
 	description = ""
 	keybind_signal = COMSIG_KB_MOB_STOPPULLING_DOWN
 
-/datum/keybinding/mob/stop_pulling/down(client/user, turf/target)
+/datum/keybinding/mob/stop_pulling/down(client/user)
 	. = ..()
 	if(.)
 		return
@@ -27,7 +27,7 @@
 	description = ""
 	keybind_signal = COMSIG_KB_MOB_SWAPHANDS_DOWN
 
-/datum/keybinding/mob/swap_hands/down(client/user, turf/target)
+/datum/keybinding/mob/swap_hands/down(client/user)
 	. = ..()
 	if(.)
 		return
@@ -42,7 +42,7 @@
 	description = "Uses whatever item you have inhand"
 	keybind_signal = COMSIG_KB_MOB_ACTIVATEINHAND_DOWN
 
-/datum/keybinding/mob/activate_inhand/down(client/user, turf/target)
+/datum/keybinding/mob/activate_inhand/down(client/user)
 	. = ..()
 	if(.)
 		return
@@ -57,7 +57,7 @@
 	description = ""
 	keybind_signal = COMSIG_KB_MOB_DROPITEM_DOWN
 
-/datum/keybinding/mob/drop_item/down(client/user, turf/target)
+/datum/keybinding/mob/drop_item/down(client/user)
 	. = ..()
 	if(.)
 		return
@@ -71,7 +71,7 @@
 		user.mob.dropItemToGround(I)
 	return TRUE
 
-/datum/keybinding/mob/target/down(client/user, turf/target)
+/datum/keybinding/mob/target/down(client/user)
 	. = ..()
 	if(.)
 		return .
@@ -180,13 +180,13 @@
 	description = "Prevents you from moving"
 	keybind_signal = COMSIG_KB_MOB_BLOCKMOVEMENT_DOWN
 
-/datum/keybinding/mob/prevent_movement/down(client/user, turf/target)
+/datum/keybinding/mob/prevent_movement/down(client/user)
 	. = ..()
 	if(.)
 		return
 	user.movement_locked = TRUE
 
-/datum/keybinding/mob/prevent_movement/up(client/user, turf/target)
+/datum/keybinding/mob/prevent_movement/up(client/user)
 	. = ..()
 	if(.)
 		return
