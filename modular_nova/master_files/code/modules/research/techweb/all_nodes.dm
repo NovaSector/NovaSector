@@ -98,7 +98,7 @@
 
 /datum/techweb_node/medbay_equip/New()
 	design_ids += list(
-		"hospital_gown",
+		"surgical_gown",
 		"anesthetic_machine",
 		"smartdartgun",
 		"cone_of_shame",
