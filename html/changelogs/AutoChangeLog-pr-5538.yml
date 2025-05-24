@@ -1,0 +1,4 @@
+author: "Gboster-0"
+delete-after: True
+changes:
+  - bugfix: "Slimes will no longer have a chance to move when being put in BZ enviroments via the xenobiology console"
