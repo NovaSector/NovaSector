@@ -2151,7 +2151,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "bovinesignature"
-	inhand_icon_state = "bovinesignature"
 	can_adjust = TRUE
 
 // donator reward for ignari
