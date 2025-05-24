@@ -15,7 +15,7 @@
 	post_init_icon_state = "shibari_stand"
 	greyscale_config = /datum/greyscale_config/shibari_stand
 	greyscale_colors = "#bd8fcf"
-	flags_1 = parent_type::flags_1 & NO_NEW_GAGS_PREVIEW_1
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 	///obviously, this is for doing things to the currentmob
 	var/mob/living/carbon/human/current_mob = null
