@@ -58,7 +58,7 @@ Potential future ideas:
 	post_init_icon_state = "medal"
 	greyscale_config = /datum/greyscale_config/medals/bar
 	greyscale_config_worn = /datum/greyscale_config/medals/bar/worn
-	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff#282733"
+	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 

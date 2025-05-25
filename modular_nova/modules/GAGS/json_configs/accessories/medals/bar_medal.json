@@ -67,12 +67,6 @@
 			"icon_state": "bar_h",
 			"blend_mode": "overlay",
 			"color_ids": [ 5 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "bar_h_2",
-			"blend_mode": "overlay",
-			"color_ids": [ 6 ]
 		}
 	],
 	"medal_bar_ribbon": [
@@ -105,12 +99,6 @@
 			"icon_state": "blank",
 			"blend_mode": "overlay",
 			"color_ids": [ 5 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "blank",
-			"blend_mode": "overlay",
-			"color_ids": [ 6 ]
 		}
 	]
 }
