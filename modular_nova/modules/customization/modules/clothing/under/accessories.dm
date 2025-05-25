@@ -418,22 +418,3 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
 	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_twotone"
 	post_init_icon_state = "ribbon7"
-
-// Flat (military) ribbons
-/obj/item/clothing/accessory/nova/military_ribbon
-	name = "military ribbon"
-	desc = "An average military ribbon"
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon"
-	post_init_icon_state = "ribbon1"
-	greyscale_config = /datum/greyscale_config/medals/military_ribbon
-	greyscale_config_worn = /datum/greyscale_config/medals/military_ribbon/worn
-	greyscale_colors = "#ff0000#04ff00#0008ff"
-
-/obj/item/clothing/accessory/nova/military_ribbon/alt1
-	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon/alt1"
-	icon_state = "ribbon2"
-
-/obj/item/clothing/accessory/nova/military_ribbon/alt2
-	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon/alt2"
-	post_init_icon_state = "ribbon3"
