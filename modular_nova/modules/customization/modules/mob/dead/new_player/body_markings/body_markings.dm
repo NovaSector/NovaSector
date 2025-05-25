@@ -570,14 +570,14 @@
 	icon_state = "plain"
 	affected_bodyparts = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
 
-/datum/body_marking/secondary/upper
+/datum/body_marking/secondary/upper_limb
 	name = "Upper Limb"
-	icon_state = "upper"
+	icon_state = "upper_limb"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
 
-/datum/body_marking/secondary/lower
+/datum/body_marking/secondary/lower_limb
 	name = "Lower Limb"
-	icon_state = "lower"
+	icon_state = "lower_limb"
 	affected_bodyparts = ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
 
 /datum/body_marking/tertiary
