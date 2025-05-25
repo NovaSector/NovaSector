@@ -730,6 +730,9 @@
   Gboster-0:
   - bugfix: Slimes will no longer have a chance to move when being put in BZ enviroments
       via the xenobiology console
+  OrbisAnima:
+  - balance: Colossus death bolts (the ones that destroy structures) range were reduced
+      from 50 to 40 tiles.
   OrionTheFox:
   - qol: 'renamed the hospital gown to surgical gown, and added an examine-tag: as
       a ''Surgical'' item, it does not block surgery on covered bodyparts!'
