@@ -1,0 +1,7 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - image: "Added a fluff sprite accessory called insectoid"
+  - image: "Added 'six nips' chest sprite accessory"
+  - image: "Added 'claw tips' sprite accessory for the legs"
+  - image: "Added 'upper limb' and 'lower limb' sprite accessory for limbs"
