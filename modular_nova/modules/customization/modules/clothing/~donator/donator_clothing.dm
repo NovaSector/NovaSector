@@ -2130,8 +2130,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	name = "Bovinæ Overcoat"
-	desc = "A <b>tall, slate-grey</b> overcoat of <b><u>handwoven ferro-silk</u></b>, its fabric <b>dense</b> yet <u>fluid</u>.<br>Weighted for the sweep of a nobleman’s stride, yet tough enough to turn a blade’s kiss.<br>The cut is <b>severe</b>, <b>militaristic</b>, but softened by the palace tailors’ touch:<br><b>silver-threaded seams</b> trace the contours like veins of starlight<br>high stand-collar is stiffened with <b>blackened whalebone</b>,<br>framing the wearer’s jaw like a portrait of old conquests."
-	special_desc = "<center>The cuffs bear <i><u>subtle, frayed embroidery</u></i> - a crest now unpicked, the ghost of a <i><u>dead prince’s vanity</u></i>.<br>The inner lining is <i><u>smoky stormcloud satin</i></u>, a flash of regal defiance when the wind catches it mid-stride.<br><i><u>No insignia, no braid</i></u>, just the <u><i>impeccable drape of inherited power</i></u>, and the faint scent of <i>gun oil and lemons</i> clinging to the wool.<br>On a closer inspection, you see the initials <i><u>G. Bovinæ</u></i> stitched in the inner pocket.<br><br><i><b>The Coat of a Man who's not Easily Forgotten.</b></i></center>"
+	desc = "A <b>tall, slate-grey</b> overcoat of <b><u>handwoven ferro-silk</u></b>, its fabric <b>dense</b> yet <u>fluid</u>.<br>Weighted for the sweep of a nobleman's stride, \
+		yet tough enough to turn a blade's kiss.<br>The cut is <b>severe</b>, <b>militaristic</b>, but softened by the palace tailors' touch:<br><b>silver-threaded seams</b> trace \
+		the contours like veins of starlight<br>high stand-collar is stiffened with <b>blackened whalebone</b>,<br>framing the wearer's jaw like a portrait of old conquests."
+	special_desc = "<center>The cuffs bear <i><u>subtle, frayed embroidery</u></i> - a crest now unpicked, the ghost of a <i><u>dead prince's vanity</u></i>.<br>The inner lining \
+		is <i><u>smoky stormcloud satin</i></u>, a flash of regal defiance when the wind catches it mid-stride.<br><i><u>No insignia, no braid</i></u>, just the <u><i>impeccable \
+		drape of inherited power</i></u>, and the faint scent of <i>gun oil and lemons</i> clinging to the wool.<br>On a closer inspection, you see the initials <i><u>G. Bovinæ</u></i> \
+		stitched in the inner pocket.<br><br><i><b>The Coat of a Man who's not Easily Forgotten.</b></i></center>"
 	icon_state = "elysiancoat"
 	base_icon_state = "elysiancoat"
 	strip_delay = 200 //Heavy coat. Fumble to remove
