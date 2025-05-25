@@ -379,75 +379,7 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	post_init_icon_state = "medal_comms"
 
 // Accessory Medals (Medals that are accessories - separate so that equipping doesn't try to "award" them)
-/obj/item/clothing/accessory/nova/acc_medal
-	name = "debug medal"
-	desc = "You shouldn't have this, make a bug report!"
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal"
-	post_init_icon_state = "medalbars"
-	greyscale_config = /datum/greyscale_config/medals
-	greyscale_config_worn = /datum/greyscale_config/medals
-	greyscale_colors = "#FF00DC#080808#FF00DC#080808#FF00DC"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-	flags_1 = IS_PLAYER_COLORABLE_1
 
-// Neckpins
-/obj/item/clothing/accessory/nova/acc_medal/neckpin
-	name = "\improper NT company neckpin"
-	desc = "A pin specially dedicated to show loyalty to your company!"
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin"
-	post_init_icon_state = "ntpin"
-	greyscale_config = /datum/greyscale_config/medals/neckpins
-	greyscale_config_worn = /datum/greyscale_config/medals/neckpins/worn
-	greyscale_colors = "#FFFFFF#CCCED1"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/syndicate
-	name = "\improper Syndicate neckpin"
-	desc = "A pin specially dedicated to show loyalty to the Syndicate!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/syndicate"
-	post_init_icon_state = "syndipin"
-	greyscale_colors = "#262626#9c0000"
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed911
-	name = "\improper Solfed 911 neckpin"
-	desc = "A pin specially dedicated to show loyalty to your federation!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed911"
-	post_init_icon_state = "911pin"
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed811
-	name = "\improper Solfed 811 neckpin"
-	desc = "A pin specially dedicated to show loyalty to your federation!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed811"
-	post_init_icon_state = "811pin"
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed
-	name = "\improper Solfed neckpin"
-	desc = "A pin specially dedicated to show loyalty to your federation!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed"
-	post_init_icon_state = "sfpin"
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/interdyne
-	name = "\improper Interdyne neckpin"
-	desc = "A pin specially dedicated to show loyalty to your company!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/interdyne"
-	post_init_icon_state = "ippin"
-	greyscale_colors = "#FFFFFF#3aba1e"
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/porttarkon
-	name = "\improper Port Tarkon neckpin"
-	desc = "A pin specially dedicated to show loyalty to your company!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/porttarkon"
-	post_init_icon_state = "ptpin"
-
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcomm
-	name = "\improper Central Command neckpin"
-	desc = "A pin specially dedicated to show loyalty to your company!"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcomm"
-	post_init_icon_state = "ccpin"
 
 // Heart medals
 /obj/item/clothing/accessory/nova/acc_medal/heart
