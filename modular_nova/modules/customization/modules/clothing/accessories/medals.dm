@@ -22,7 +22,7 @@ Potential future ideas:
 	desc = "You shouldn't have this, make a bug report!"
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/medal/nova"
-	post_init_icon_state = "barmedal_barribbon" //Makes a pink-black error icon
+	post_init_icon_state = "medal_bar_ribbon" //Makes a pink-black error icon
 	greyscale_config = /datum/greyscale_config/medals
 	greyscale_config_worn = /datum/greyscale_config/medals
 	greyscale_colors = "#FF00DC#000000#FF00DC#000000#000000#000000"
@@ -39,7 +39,7 @@ Potential future ideas:
 	post_init_icon_state = "medal_robust"
 	greyscale_config = /datum/greyscale_config/medals/syndicate
 	greyscale_config_worn = /datum/greyscale_config/medals/syndicate/worn
-	greyscale_colors = "#990000#ffff66#990000#a50021#ffffff"
+	greyscale_colors = "#990000#ffff66#990000#ffffff"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/espionage
 	name = "syndicate medal of espionage"
@@ -82,7 +82,7 @@ Potential future ideas:
 	desc = "You shouldn't have this, make a bug report!"
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal"
-	post_init_icon_state = "barmedal_barribbon" //Makes a pink-black error icon
+	post_init_icon_state = "medal_bar_ribbon" //Makes a pink-black error icon
 	greyscale_config = /datum/greyscale_config/medals
 	greyscale_config_worn = /datum/greyscale_config/medals
 	greyscale_colors = "#FF00DC#000000#FF00DC#000000#000000#000000"
@@ -98,7 +98,7 @@ Potential future ideas:
 	desc = "A regular everyday medal."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield"
-	post_init_icon_state = "ccmedal"
+	post_init_icon_state = "medal"
 	greyscale_config = /datum/greyscale_config/medals/shield
 	greyscale_config_worn = /datum/greyscale_config/medals/shield/worn
 	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
