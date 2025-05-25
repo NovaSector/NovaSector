@@ -209,11 +209,11 @@
 
 /datum/loadout_item/accessory/rankpin2
 	name = "Rankpin (Bar)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt1
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/bar
 
 /datum/loadout_item/accessory/rankpin3
-	name = "Rankpin (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
+	name = "Rankpin (Double Bars)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/two_bar
 
 /*
 *

@@ -187,6 +187,26 @@ Potential future ideas:
 	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
 	greyscale_colors = "#ff99ff"
 
+/*
+// Rank pins
+*/
+/obj/item/clothing/accessory/nova/acc_medal/rankpin
+	name = "Rank Pin"
+	desc = "A pin used to display accomplishments, advancements, or otherwise earned recognition."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin"
+	post_init_icon_state = "star"
+	greyscale_config = /datum/greyscale_config/medals/rank_pins
+	greyscale_config_worn = /datum/greyscale_config/medals/rank_pins/worn
+	greyscale_colors = "#FFFFFF"
+
+/obj/item/clothing/accessory/nova/acc_medal/rankpin/bar
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin/bar"
+	post_init_icon_state = "bar"
+
+/obj/item/clothing/accessory/nova/acc_medal/rankpin/two_bar
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin/two_bar"
+	post_init_icon_state = "two_bar"
 
 /*
 // Neckpins

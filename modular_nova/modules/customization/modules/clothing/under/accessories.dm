@@ -381,29 +381,6 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 // Accessory Medals (Medals that are accessories - separate so that equipping doesn't try to "award" them)
 
 
-
-
-// Glow necklaces
-
-// Rank pins
-/obj/item/clothing/accessory/nova/acc_medal/rankpin
-	name = "Rank Pin"
-	desc = "A pin used to display accomplishments, advancements, or otherwise earned recognition."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin"
-	post_init_icon_state = "rank1"
-	greyscale_config = /datum/greyscale_config/medals/rank_pins
-	greyscale_config_worn = /datum/greyscale_config/medals/rank_pins/worn
-	greyscale_colors = "#FFFFFF"
-
-/obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt1
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt1"
-	post_init_icon_state = "rank2"
-
-/obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2"
-	post_init_icon_state = "rank3"
-
 // Ribbons
 /obj/item/clothing/accessory/nova/ribbon
 	name = "ribbon"
