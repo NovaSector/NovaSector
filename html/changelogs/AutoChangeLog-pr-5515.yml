@@ -1,9 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - rscadd: "All balaclavas now show mutant ears! (They can still be hidden using IC > Show/Hide Mutant Parts as usual)"
-  - bugfix: "Snouted-variant gasmask icons now get the expected overlay when dirtied after blocking pepperspray"
-  - rscdel: "Removed a few barely-used or unused items"
-  - qol: "made the Adjustable Balaclava slightly more user-friendly when adjusting"
-  - image: "Resprited almost every single snouted-variant of masks!"
-  - image: "Removed a lot of HOPEFULLY redundant icons. Please report any issues!"
