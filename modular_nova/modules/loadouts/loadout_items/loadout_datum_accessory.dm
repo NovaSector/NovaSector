@@ -128,24 +128,45 @@
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/arrow_ribbon
 
 /datum/loadout_item/accessory/hshield2
-	name = "Shield Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/hollow_ribbon
+	name = "Shield Medal (Bars-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bar_ribbon
 
 /datum/loadout_item/accessory/hshield3
-	name = "Shield Medal (Bars-Ribbon)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bars_ribbon
+	name = "Shield Medal (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/hollow_ribbon
 
 /datum/loadout_item/accessory/bbar1
 	name = "Bar Medal"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar
 
 /datum/loadout_item/accessory/bbar2
+	name = "Bar Medal (Bars-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon
+
+/datum/loadout_item/accessory/bbar3
 	name = "Bar Medal (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/hollow
 
-/datum/loadout_item/accessory/bbar3
-	name = "Bar Medal (Bars-Ribbon)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon
+/datum/loadout_item/accessory/circle1
+	name = "Circle Medal"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle
+
+/datum/loadout_item/accessory/circle2
+	name = "Circle Medal (Bars-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon
+
+/datum/loadout_item/accessory/circle3
+	name = "Circle Medal (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
+
+/datum/loadout_item/accessory/circle4
+	name = "Circle Medal (Hollow, Bars-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bar_ribbon
+
+
+
+
+
 
 
 /datum/loadout_item/accessory/sheart1
@@ -158,7 +179,7 @@
 
 /datum/loadout_item/accessory/sheart3
 	name = "Special Heart Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart_special/bars_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart_special/bar_ribbon
 
 /datum/loadout_item/accessory/heart1
 	name = "Heart Medal (Arrow)"
@@ -170,7 +191,7 @@
 
 /datum/loadout_item/accessory/heart3
 	name = "Heart Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/bars_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon
 
 /datum/loadout_item/accessory/crown1
 	name = "Crown Medal (Arrow)"
@@ -182,7 +203,7 @@
 
 /datum/loadout_item/accessory/crown3
 	name = "Crown Medal (Bar)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/bars_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon
 
 /datum/loadout_item/accessory/hcrown1
 	name = "Hollow Crown Medal (Arrow)"
@@ -194,31 +215,7 @@
 
 /datum/loadout_item/accessory/hcrown3
 	name = "Hollow Crown Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon
-
-/datum/loadout_item/accessory/hcircle1
-	name = "Hollow Circle Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/arrow_ribbon
-
-/datum/loadout_item/accessory/hcircle2
-	name = "Hollow Circle Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/hollow_ribbon
-
-/datum/loadout_item/accessory/hcircle3
-	name = "Hollow Circle Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bars_ribbon
-
-/datum/loadout_item/accessory/circle1
-	name = "Circle Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/arrow_ribbon
-
-/datum/loadout_item/accessory/circle2
-	name = "Circle Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow_ribbon
-
-/datum/loadout_item/accessory/circle3
-	name = "Circle Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bars_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
 
 /datum/loadout_item/accessory/glowneck1
 	name = "Glowbar necklace"

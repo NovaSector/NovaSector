@@ -479,53 +479,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon"
 	post_init_icon_state = "medalbars"
 
-// Circle medals
-/obj/item/clothing/accessory/nova/acc_medal/circle
-	name = "circle medal"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/circle
-	greyscale_config_worn = /datum/greyscale_config/medals/circle/worn
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/circle/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/circle/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/bars_ribbon"
 	post_init_icon_state = "medalbars"
 
-/// Hollow circle medals
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/circle_hollow
-	greyscale_config_worn = /datum/greyscale_config/medals/circle_hollow/worn
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bars_ribbon"
-	post_init_icon_state = "medalbars"
 
 // Glow necklaces
 /obj/item/clothing/accessory/nova/acc_medal/glowbar
