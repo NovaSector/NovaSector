@@ -2160,6 +2160,14 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/bar_medal.json'
 
 //Medals
+/datum/greyscale_config/medals/shield
+	name = "Shield Medal"
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/shield_medal.json'
+
+/datum/greyscale_config/medals/shield/worn
+	name = "Shield Medal (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
 /datum/greyscale_config/medals/bar
 	name = "Bar Medal"
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/bar_medal.json'
@@ -2230,14 +2238,6 @@ TREK
 
 /datum/greyscale_config/medals/heart_special/worn
 	name = "Special Heart Medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-
-/datum/greyscale_config/medals/shield
-	name = "Hollow Shield Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/shieldhollow_medal.json'
-
-/datum/greyscale_config/medals/shield/worn
-	name = "Hollow Shield Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 /datum/greyscale_config/medals/syndicate
