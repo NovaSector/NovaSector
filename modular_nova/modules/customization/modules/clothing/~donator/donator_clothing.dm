@@ -2129,7 +2129,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/brownbattlecoat/elysiancoat
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
-	name = "Bovinæ Overcoat"
+	name = "Bovinæ overcoat"
 	desc = "A <b>tall, slate-grey</b> overcoat of <b><u>handwoven ferro-silk</u></b>, its fabric <b>dense</b> yet <u>fluid</u>.<br>Weighted for the sweep of a nobleman's stride, \
 		yet tough enough to turn a blade's kiss.<br>The cut is <b>severe</b>, <b>militaristic</b>, but softened by the palace tailors' touch:<br><b>silver-threaded seams</b> trace \
 		the contours like veins of starlight<br>high stand-collar is stiffened with <b>blackened whalebone</b>,<br>framing the wearer's jaw like a portrait of old conquests."
