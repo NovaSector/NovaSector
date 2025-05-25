@@ -2160,6 +2160,14 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/bar_medal.json'
 
 //Medals
+/datum/greyscale_config/medals/syndicate
+	name = "Syndicate Medal"
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/syndicate.json'
+
+/datum/greyscale_config/medals/syndicate/worn
+	name = "Syndicate Medal (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
 /datum/greyscale_config/medals/shield
 	name = "Shield Medal"
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/shield_medal.json'
@@ -2206,18 +2214,6 @@ TREK
 
 /datum/greyscale_config/medals/glow/worn
 	name = "Glow Medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-
-
-
-
-
-/datum/greyscale_config/medals/syndicate
-	name = "Syndicate Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/syndicate.json'
-
-/datum/greyscale_config/medals/syndicate/worn
-	name = "Syndicate Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 //Pins

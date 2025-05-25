@@ -30,6 +30,46 @@ Potential future ideas:
 	attachment_slot = NONE
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+// DS-2/Syndicate Medals
+/obj/item/clothing/accessory/medal/nova/syndicate
+	name = "syndicate medal of Robustness"
+	desc = "A medal dedicated to true syndicate agents for robustness in many fields"
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate"
+	post_init_icon_state = "medal_robust"
+	greyscale_config = /datum/greyscale_config/medals/syndicate
+	greyscale_config_worn = /datum/greyscale_config/medals/syndicate/worn
+	greyscale_colors = "#990000#ffff66#990000#a50021#ffffff"
+
+/obj/item/clothing/accessory/medal/nova/syndicate/espionage
+	name = "syndicate medal of Espionage"
+	desc = "A medal dedicated to those who have proven themselves capable at covert operations."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/espionage"
+	post_init_icon_state = "medal_espi"
+
+/obj/item/clothing/accessory/medal/nova/syndicate/interrogation
+	name = "syndicate medal of Interrogation"
+	desc = "A medal dedicated to those who have proven themselves capable at interrogating even the most resilient members of an enemy corporation"
+	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/interrogation"
+	post_init_icon_state = "medal_inter"
+
+/obj/item/clothing/accessory/medal/nova/syndicate/intelligence
+	name = "syndicate medal of Intelligence"
+	desc = "A medaobj/item/clothing/accessory/medal/nova/syndicate/intelligence"
+	post_init_icon_state = "medal_intel"
+
+/obj/item/clothing/accessory/medal/nova/syndicate/diligence
+	name = "syndicate medal of Diligence"
+	desc = "A medal dedicated to those who"
+	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/diligence"
+	post_init_icon_state = "medal_dili"
+
+/obj/item/clothing/accessory/medal/nova/syndicate/communications
+	name = "syndicate medal of Communication"
+	desc = "A medal dedicated to those whom prove themselvese as capable counter-communications specialists"
+	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/communications"
+	post_init_icon_state = "medal_comms"
+
 /*
 // ACCESSORY MEDALS
 // These ones are purely cosmetic attachments
@@ -285,3 +325,42 @@ Potential future ideas:
 	icon_state = "/obj/item/clothing/accessory/nova/military_ribbon/three"
 	post_init_icon_state = "ribbon3"
 
+/*
+// Ribbons
+*/
+/obj/item/clothing/accessory/nova/ribbon
+	name = "ribbon"
+	desc = "A normal everyday ribbon."
+	greyscale_colors = "#ffffff#664200#fff700"
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon"
+	post_init_icon_state = "ribbon1"
+	greyscale_config = /datum/greyscale_config/medals/color_ribbon
+	greyscale_config_worn = /datum/greyscale_config/medals/color_ribbon/worn
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_slash
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_slash"
+	post_init_icon_state = "ribbon2"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_arrup
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_arrup"
+	post_init_icon_state = "ribbon3"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_line
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_line"
+	post_init_icon_state = "ribbon4"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_dual
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_dual"
+	post_init_icon_state = "ribbon5"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_flat
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_flat"
+	post_init_icon_state = "ribbon6"
+
+/obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
+	icon_state = "/obj/item/clothing/accessory/nova/ribbon/ribbon_twotone"
+	post_init_icon_state = "ribbon7"
