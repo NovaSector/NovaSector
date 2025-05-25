@@ -381,55 +381,6 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 // Accessory Medals (Medals that are accessories - separate so that equipping doesn't try to "award" them)
 
 
-// Heart medals
-/obj/item/clothing/accessory/nova/acc_medal/heart
-	name = "heart medal"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/heart
-	greyscale_config_worn = /datum/greyscale_config/medals/heart/worn
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/heart/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/heart/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/heart/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/bars_ribbon"
-	post_init_icon_state = "medalbars"
-
-// Special heart medals
-/obj/item/clothing/accessory/nova/acc_medal/heart_special
-	name = "special heart medal"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart_special"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/heart_special
-	greyscale_config_worn = /datum/greyscale_config/medals/heart_special/worn
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/heart_special/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart_special/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/heart_special/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart_special/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/heart_special/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart_special/bars_ribbon"
-	post_init_icon_state = "medalbars"
 
 // Crown medals
 /obj/item/clothing/accessory/nova/acc_medal/crown
@@ -452,8 +403,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow_ribbon"
 	post_init_icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/crown/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/bars_ribbon"
+/obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon"
 	post_init_icon_state = "medalbars"
 
 // Hollow crown medals
@@ -475,10 +426,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/hollow_ribbon"
 	post_init_icon_state = "medalhollow"
 
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon"
-	post_init_icon_state = "medalbars"
-
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon"
 	post_init_icon_state = "medalbars"
 
 

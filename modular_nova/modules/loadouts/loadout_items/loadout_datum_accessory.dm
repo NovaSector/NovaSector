@@ -128,7 +128,7 @@
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/arrow_ribbon
 
 /datum/loadout_item/accessory/hshield2
-	name = "Shield Medal (Bars-Ribbon)"
+	name = "Shield Medal (Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bar_ribbon
 
 /datum/loadout_item/accessory/hshield3
@@ -140,7 +140,7 @@
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar
 
 /datum/loadout_item/accessory/bbar2
-	name = "Bar Medal (Bars-Ribbon)"
+	name = "Bar Medal (Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon
 
 /datum/loadout_item/accessory/bbar3
@@ -152,7 +152,7 @@
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle
 
 /datum/loadout_item/accessory/circle2
-	name = "Circle Medal (Bars-Ribbon)"
+	name = "Circle Medal (Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon
 
 /datum/loadout_item/accessory/circle3
@@ -160,38 +160,34 @@
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
 
 /datum/loadout_item/accessory/circle4
-	name = "Circle Medal (Hollow, Bars-Ribbon)"
+	name = "Circle Medal (Hollow, Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bar_ribbon
 
-
-
-
-
-
-
-/datum/loadout_item/accessory/sheart1
-	name = "Special Heart Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart_special/arrow_ribbon
-
-/datum/loadout_item/accessory/sheart2
-	name = "Special Heart Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart_special/hollow_ribbon
-
-/datum/loadout_item/accessory/sheart3
-	name = "Special Heart Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart_special/bar_ribbon
-
 /datum/loadout_item/accessory/heart1
-	name = "Heart Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/arrow_ribbon
+	name = "Heart Medal"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart
 
 /datum/loadout_item/accessory/heart2
-	name = "Heart Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/hollow_ribbon
+	name = "Heart Medal (Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon
 
 /datum/loadout_item/accessory/heart3
-	name = "Heart Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon
+	name = "Heart Medal (Special)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/special
+
+/datum/loadout_item/accessory/heart4
+	name = "Heart Medal (Special, Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/special/bar_ribbon
+
+
+
+
+
+
+
+
+
+
 
 /datum/loadout_item/accessory/crown1
 	name = "Crown Medal (Arrow)"

@@ -62,13 +62,13 @@ Potential future ideas:
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/shield/hollow
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield/hollow"
-	post_init_icon_state = "medal_hollow"
-
 /obj/item/clothing/accessory/nova/acc_medal/shield/bar_ribbon
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield/bar_ribbon"
 	post_init_icon_state = "medal_bar_ribbon"
+
+/obj/item/clothing/accessory/nova/acc_medal/shield/hollow
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield/hollow"
+	post_init_icon_state = "medal_hollow"
 
 /*
 // Bar Medals
@@ -85,13 +85,13 @@ Potential future ideas:
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/bar/hollow
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/hollow"
-	post_init_icon_state = "medal_hollow"
-
 /obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon"
 	post_init_icon_state = "medal_bar_ribbon"
+
+/obj/item/clothing/accessory/nova/acc_medal/bar/hollow
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/hollow"
+	post_init_icon_state = "medal_hollow"
 
 /*
 // Circle Medals
@@ -120,28 +120,34 @@ Potential future ideas:
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bar_ribbon"
 	post_init_icon_state = "medal_hollow_bar_ribbon"
 
-/// Hollow circle medals
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
+/*
+// Heart Medals
+*/
+/obj/item/clothing/accessory/nova/acc_medal/heart
+	name = "heart medal"
+	desc = "A regular everyday medal."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow"
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart"
 	post_init_icon_state = "medal"
-	greyscale_config = /datum/greyscale_config/medals/circle_hollow
-	greyscale_config_worn = /datum/greyscale_config/medals/circle_hollow/worn
+	greyscale_config = /datum/greyscale_config/medals/heart
+	greyscale_config_worn = /datum/greyscale_config/medals/heart/worn
+	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
+/obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon"
+	post_init_icon_state = "medal_bar_ribbon"
 
-/obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
+/obj/item/clothing/accessory/nova/acc_medal/heart/special
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/special"
+	post_init_icon_state = "medal_special"
 
-/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bar_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bar_ribbon"
-	post_init_icon_state = "medalbars"
+/obj/item/clothing/accessory/nova/acc_medal/heart/special/bar_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/special/bar_ribbon"
+	post_init_icon_state = "medal_special_bar_ribbon"
+
+
 
 
 /*

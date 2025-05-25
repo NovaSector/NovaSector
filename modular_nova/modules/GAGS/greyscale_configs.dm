@@ -2184,12 +2184,12 @@ TREK
 	name = "Circle Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
-/datum/greyscale_config/medals/circle_hollow
-	name = "Hollow Circle Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/circlehollow_medal.json'
+/datum/greyscale_config/medals/heart
+	name = "Heart Medal"
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/heart_medal.json'
 
-/datum/greyscale_config/medals/circle_hollow/worn
-	name = "Hollow Circle Medal (Worn)"
+/datum/greyscale_config/medals/heart/worn
+	name = "Heart Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 /datum/greyscale_config/medals/crown
@@ -2222,22 +2222,6 @@ TREK
 
 /datum/greyscale_config/medals/glowcrystal/worn
 	name = "Glowcrystal Medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-
-/datum/greyscale_config/medals/heart
-	name = "Heart Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/heart_medal.json'
-
-/datum/greyscale_config/medals/heart/worn
-	name = "Heart Medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-
-/datum/greyscale_config/medals/heart_special
-	name = "Special Heart Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/heartspecial_medal.json'
-
-/datum/greyscale_config/medals/heart_special/worn
-	name = "Special Heart Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 /datum/greyscale_config/medals/syndicate
