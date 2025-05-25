@@ -59,8 +59,7 @@
 		{
 			"type": "icon_state",
 			"icon_state": "blank",
-			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"blend_mode": "overlay"
 		}
 	],
 	"medal_special": [
@@ -123,8 +122,7 @@
 		{
 			"type": "icon_state",
 			"icon_state": "blank",
-			"blend_mode": "overlay",
-			"color_ids": [ 5 ]
+			"blend_mode": "overlay"
 		}
 	]
 }
