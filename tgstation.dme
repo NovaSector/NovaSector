@@ -6990,7 +6990,6 @@
 #include "modular_nova\master_files\code\modules\client\preferences\quirks\unsteady.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\species_features\digitigrade_legs.dm"
 #include "modular_nova\master_files\code\modules\client\preferences\species_features\generate_side_shots.dm"
-#include "modular_nova\master_files\code\modules\clothing\anthro_clothes.dm"
 #include "modular_nova\master_files\code\modules\clothing\base_clothes.dm"
 #include "modular_nova\master_files\code\modules\clothing\chameleon.dm"
 #include "modular_nova\master_files\code\modules\clothing\clothing.dm"

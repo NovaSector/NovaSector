@@ -1,4 +1,4 @@
-/obj/item/clothing/mask/ballgag
+/obj/item/clothing/mask/muzzle/ballgag
 	name = "ball gag"
 	desc = "Prevents the wearer from speaking."
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
@@ -14,11 +14,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	flags_cover = MASKCOVERSMOUTH
 
-/obj/item/clothing/mask/gas/ballgag/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/muffles_speech)
-
-/obj/item/clothing/mask/ballgag/choking
+/obj/item/clothing/mask/muzzle/ballgag/choking
 	name = "phallic ball gag"
 	desc = "Prevents the wearer from speaking, as well as making breathing harder."
 	worn_icon_state = "ballgag"
@@ -32,3 +28,11 @@
 		"Large" = "chokegag_large",
 	)
 	obj_flags = INFINITE_RESKIN
+
+/obj/item/clothing/mask/muzzle/ring
+	name = "ring gag"
+	desc = "A mouth wrap seemingly designed to hold the mouth open."
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_masks.dmi'
+	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks.dmi'
+	worn_icon_muzzled = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks_muzzled.dmi'
+	icon_state = "ringgag"

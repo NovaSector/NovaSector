@@ -276,6 +276,7 @@
 	name = "Colourable Clown Mask (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/clown_mask/clown_mask_worn.json'
 
+// BANDANA
 /datum/greyscale_config/bandana/worn/muzzled
 	name = "Bandana (Worn, Muzzled)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
@@ -306,6 +307,12 @@
 	name = "Tape Piece (Worn, Muzzled)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
 
+// FACESCARF
+/datum/greyscale_config/facescarf/worn/muzzled
+	name = "Facescarf (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+// Duct Tape
 /datum/greyscale_config/tape_piece/worn/vox
 	name = "Tape Piece (Worn, Vox)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'

@@ -316,7 +316,7 @@
 	post_init_icon_state = "buttondown_slacks"
 	greyscale_config = /datum/greyscale_config/buttondown_slacks
 	greyscale_config_worn = /datum/greyscale_config/buttondown_slacks/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -332,7 +332,7 @@
 	post_init_icon_state = "buttondown_shorts"
 	greyscale_config = /datum/greyscale_config/buttondown_shorts
 	greyscale_config_worn = /datum/greyscale_config/buttondown_shorts/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_shorts/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_shorts/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
@@ -375,7 +375,7 @@
 	can_adjust = FALSE
 	greyscale_config = /datum/greyscale_config/football_suit
 	greyscale_config_worn = /datum/greyscale_config/football_suit/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/football_suit/worn/digi //NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/football_suit/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	greyscale_colors = "#D74722"
 	flags_1 = IS_PLAYER_COLORABLE_1
 

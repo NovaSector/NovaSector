@@ -1,4 +1,5 @@
-//NOVA EDIT ADDITION - DigiGreyscale
+//NOVA EDIT ADDITION - Mutant Greyscale
+//(The above comment is here so the file is caught in sorting later, please ignore that it's not really an edit)
 /obj/item/clothing/shoes/sneakers
 	greyscale_config_worn_digi = /datum/greyscale_config/sneakers/worn/digi
 
