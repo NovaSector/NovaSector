@@ -125,15 +125,15 @@
 */
 /datum/loadout_item/accessory/hshield1
 	name = "Shield Medal"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/arrow_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield
 
 /datum/loadout_item/accessory/hshield2
 	name = "Shield Medal (Bar-Ribbon)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bar_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield/bar_ribbon
 
 /datum/loadout_item/accessory/hshield3
 	name = "Shield Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/hollow_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield/hollow
 
 /datum/loadout_item/accessory/bbar1
 	name = "Bar Medal"
