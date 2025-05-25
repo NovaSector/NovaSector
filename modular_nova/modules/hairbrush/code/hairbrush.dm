@@ -14,7 +14,7 @@
 /obj/item/hairbrush/attack(mob/target, mob/user)
 	if(target.stat == DEAD)
 		to_chat(user, span_warning("There isn't much point brushing someone who can't appreciate it!"))
-		return
+		return COMPONENT_CANCEL_ATTACK_CHAIN
 	brush(target, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
