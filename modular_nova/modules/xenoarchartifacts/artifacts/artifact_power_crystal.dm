@@ -20,8 +20,8 @@
 	icon_custom_crystal = pick("artifact_11", "artifact_12", "artifact_13")
 	icon_state = icon_custom_crystal
 	desc = pick("It shines faintly as it catches the light.", "It appears to have a faint inner glow.",
-                "It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
-                "It's mesmerizing to behold.")
+				"It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
+				"It's mesmerizing to behold.")
 
 /obj/machinery/power/crystal/attackby(obj/item/attack_item, mob/user)
 	if(default_unfasten_wrench(user, attack_item))

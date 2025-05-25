@@ -3,10 +3,11 @@
 	name = "choker"
 	desc = "A little ring of cloth with a locking buckle sequestered on the back. Stylish - just \
 		only under very specific conditions."
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
-	icon_state = "thin_choker"
 	greyscale_colors = "#2d2d33"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/collar"
+	post_init_icon_state = "thin_choker"
 	greyscale_config = /datum/greyscale_config/thin_collar
 	greyscale_config_worn = /datum/greyscale_config/thin_collar/worn
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
@@ -22,12 +23,33 @@
 	/// Is the lock busted?
 	var/broken_lock = FALSE
 
+/datum/storage/collar
+	max_slots = 1
+	max_specific_storage = WEIGHT_CLASS_SMALL
+	do_rustle = FALSE
+	attack_hand_interact = FALSE
+
+/datum/storage/collar/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+	. = ..()
+	if(length(holdables))
+		set_holdable(holdables)
+		return
+
+	set_holdable(list(
+		/obj/item/food/cookie,
+	))
+
+/datum/storage/collar/key/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+	holdables = list(
+		/obj/item/food/cookie,
+		/obj/item/key/collar,
+	)
+	return ..()
+
 /obj/item/clothing/neck/collar/Initialize(mapload)
 	. = ..()
 	// First; create our internal matching key
-	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(/obj/item/key/collar)
-
+	create_storage(storage_type = /datum/storage/collar/key)
 	if(!key_path)
 		return
 	var/obj/item/key/collar/key = new key_path(src)

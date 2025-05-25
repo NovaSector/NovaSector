@@ -254,7 +254,7 @@ function QuirkPopper(props: QuirkPopperProps) {
                     serverData,
                     randomBodyEnabled,
                   )}
-                  maxHeight="160px" // NOVA EDIT CHANGE - ORIGINAL: 100px
+                  maxHeight="250px" // NOVA EDIT CHANGE - ORIGINAL: 100px
                 />
               </Stack.Item>
             </Stack>
@@ -426,7 +426,8 @@ export function QuirksPage(props) {
               placeholder="Search quirks..."
               width="200px"
               value={searchQuery}
-              onInput={(text, value) => setSearchQuery(value)}
+              onChange={setSearchQuery}
+              expensive
             />
           </Stack.Item>
           <Stack.Item grow className="PreferencesMenu__Quirks__QuirkList">

@@ -67,20 +67,19 @@
 
 		to_chat(select_mob, span_boldwarning("A target has died, the curse has been lifted!"))
 
-	Destroy()
+	qdel(src)
 
 /datum/component/ash_cursed/proc/do_move()
 	SIGNAL_HANDLER
 
 	var/turf/human_turf = get_turf(human_target)
 	if(!is_mining_level(human_turf.z))
-		Destroy()
 		for(var/mob/select_mob in GLOB.player_list)
 			if(!is_species(select_mob, /datum/species/lizard/ashwalker))
 				continue
 
 			to_chat(select_mob, span_boldwarning("A target has fled from the land, breaking the curse!"))
-
+		qdel(src)
 		return
 
 	if(prob(75))

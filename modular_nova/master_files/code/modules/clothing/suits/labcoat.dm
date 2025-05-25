@@ -18,7 +18,9 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy
 	name = "Greyscale Fancy Labcoat"
 	desc = "Throughout the test of determination, many have sought after such a fancy labcoat, one that was filled with many colors and wears."
-	icon_state = "fancy_labcoat"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy"
+	post_init_icon_state = "fancy_labcoat"
 	greyscale_config = /datum/greyscale_config/fancy_labcoat
 	greyscale_config_worn = /datum/greyscale_config/fancy_labcoat/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/fancy_labcoat/worn/teshari
@@ -29,6 +31,7 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd
 	name = "research directors labcoat"
 	desc = "A Nanotrasen standard labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd"
 	greyscale_colors = "#620B73#EEEEEE"
 	gets_cropped_on_taurs = FALSE
 	body_parts_covered = CHEST|ARMS|LEGS
@@ -43,30 +46,35 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular
 	name = "researcher's labcoat"
 	desc = "A Nanotrasen standard labcoat for researchers in the scientific field."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular"
 	greyscale_colors = "#EEEEEE#B347A1"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
 	name = "sleeveless buttoned coat"
 	desc = "A fashionable jacket bearing the La Lune insignia on the inside. It appears similar to a labcoat in design and materials, though the tag warns against it being a replacement for such."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/lalunevest"
 	icon_state = "labcoat_lalunevest"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist
 	name = "pharmacist's labcoat"
 	desc = "A standard labcoat for chemistry which protects the wearer from acid spills."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist"
 	greyscale_colors = "#EEEEEE#E6935C"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist
 	name = "geneticist's labcoat"
 	desc = "A standard labcoat for geneticist."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy/geneticist"
 	greyscale_colors = "#EEEEEE#7497C0"
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist
 	name = "roboticist's labcoat"
 	desc = "A standard labcoat for roboticist."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy/roboticist"
 	greyscale_colors = "#2F2E31#A52F29"
 	gets_cropped_on_taurs = FALSE
 
@@ -89,8 +97,8 @@
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
-/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown //Intended to keep patients modest while still allowing for surgeries
-	name = "hospital gown"
+/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown //Intended to keep patients modest while still allowing for surgeries
+	name = "surgical gown"
 	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
 	icon_state = "hgown"
 	toggle_noun = "drapes"
@@ -98,13 +106,21 @@
 	armor_type = /datum/armor/none
 	equip_delay_other = 8
 
+/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown/examine_tags(mob/user)
+	. = ..()
+	.["surgical"] = "Does not block surgery on covered bodyparts."
+	// Same note as /obj/item/clothing/mask/muzzle/breath
+
 /obj/item/clothing/suit/toggle/labcoat/roboticist //Overwrite the TG Roboticist labcoat to Black and Red (not the Interdyne labcoat though)
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/roboticist"
 	greyscale_colors = "#2D2D33#88242D#88242D#88242D"
 
 /obj/item/clothing/suit/toggle/labcoat/medical //Renamed version of the Genetics labcoat for more generic medical purposes; just a subtype of /labcoat/ for the TG files
 	name = "medical labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a blue stripe on the shoulder."
-	icon_state = "labcoat_job"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/medical"
+	post_init_icon_state = "labcoat_job"
 	greyscale_config = /datum/greyscale_config/labcoat
 	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
 	greyscale_colors = "#EEEEEE#4A77A1#4A77A1#7095C2"

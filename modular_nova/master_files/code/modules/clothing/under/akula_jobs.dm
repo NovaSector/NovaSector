@@ -32,16 +32,14 @@
 	update_appearance()
 
 /obj/item/clothing/under/akula_wetsuit/Destroy()
-	. = ..()
 	var/mob/user = loc
 	if(!istype(user))
-		return
+		return ..()
 
 	if(tail_overlay)
 		user.cut_overlay(tail_overlay)
 		tail_overlay = null
-
-	qdel(GetComponent(/datum/component/wetsuit))
+	return ..()
 
 /obj/item/clothing/under/akula_wetsuit/equipped(mob/user, slot)
 	. = ..()
@@ -143,7 +141,7 @@
 
 /obj/item/clothing/under/akula_wetsuit/job/science
 	name = "science Shoredress wetsuit"
-	desc = "The 'Science'-Type Shoredress is yet another model commissioned by NanoTrasen. This suit has been adapted from 'Ordnance'-Type Shoredresses \
+	desc = "The 'Science'-Type Shoredress is yet another model commissioned by Nanotrasen. This suit has been adapted from 'Ordnance'-Type Shoredresses \
 		used in the New Principalities predominantly by mining teams. \n\
 		It is made of a special polymer that provides some minor protection against explosives \
 		such as abandoned naval or land-based mines, and features an inbuilt external sterilization field to protect against biohazards typically found in strange places."
@@ -157,7 +155,7 @@
 
 /obj/item/clothing/under/akula_wetsuit/job/medical
 	name = "medical Shoredress wetsuit"
-	desc = "The 'Medical'-Type Shoredress is yet another model commissioned by NanoTrasen. This suit has been adapted from exploration \
+	desc = "The 'Medical'-Type Shoredress is yet another model commissioned by Nanotrasen. This suit has been adapted from exploration \
 		Shoredresses meant for use in murky or even outright toxic environments, being predominantly composed of self-sterilizing polymers with \
 		a system able to filter out all sorts of hazardous particles in the air or water including fumes, smoke, allergens, or ocean-bound toxins. \n\
 		This has made it convenient for the Company's medical division, let alone the plush interior to allow for greater comfortable standing hours."
@@ -181,14 +179,13 @@
 
 /obj/item/clothing/under/akula_wetsuit/job/command
 	name = "command Shoredress wetsuit"
-	desc = "The 'Command'-Type Shoredress is yet another model commissioned by NanoTrasen; but the origins of this wetsuit lie in designs belonging to, \
+	desc = "The 'Command'-Type Shoredress is yet another model commissioned by Nanotrasen; but the origins of this wetsuit lie in designs belonging to, \
 			typically, high-ranking officials and managers in the Old Principalities. \n\
 			The bright luminescent panels on the arms have been further set apart by similar paneling on the chest, meant to ensure the wearer looks distinct both in the water, on land, and even on camera. \n\
 			The temperature systems have been upgraded, as well as the choice to use more comfortable fabrics in the construction."
 	icon_state = "command"
 	base_icon_state = "command"
 	armor_type = /datum/armor/clothing_under/rank_security
-
 
 /obj/item/clothing/head/helmet/space/akula_wetsuit
 	name = "\improper Shoredress helm"
@@ -222,15 +219,15 @@
 	update_appearance()
 
 /obj/item/clothing/head/helmet/space/akula_wetsuit/Destroy()
-	. = ..()
 	var/mob/user = loc
 	if(attached_hat)
 		attached_hat.forceMove(drop_location())
+		attached_hat = null
 
 	if(!istype(user))
-		return
+		return ..()
 
-	qdel(GetComponent(/datum/component/wetsuit))
+	return ..()
 
 // Wearing hats inside the wetworks helmet
 /obj/item/clothing/head/helmet/space/akula_wetsuit/examine()
