@@ -17,6 +17,7 @@
 	design_ids += list(
 		"hypovial",
 	)
+	return ..()
 
 /// Large hypovials
 /datum/design/hypovial/large
