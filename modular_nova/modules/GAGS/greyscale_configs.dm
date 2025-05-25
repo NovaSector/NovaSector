@@ -2200,29 +2200,17 @@ TREK
 	name = "Crown Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
-/datum/greyscale_config/medals/crown_hollow
-	name = "Hollow Crown Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/crownhollow_medal.json'
+/datum/greyscale_config/medals/glow
+	name = "Glow Medal"
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/glow_medal.json'
 
-/datum/greyscale_config/medals/crown_hollow/worn
-	name = "Hollow Crown Medal (Worn)"
+/datum/greyscale_config/medals/glow/worn
+	name = "Glow Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
-/datum/greyscale_config/medals/glowbar
-	name = "Glowbar Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/glowbar_medal.json'
 
-/datum/greyscale_config/medals/glowbar/worn
-	name = "Glowbar Medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
-/datum/greyscale_config/medals/glowcrystal
-	name = "Glowcrystal Medal"
-	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/glowcrystal_medal.json'
 
-/datum/greyscale_config/medals/glowcrystal/worn
-	name = "Glowcrystal Medal (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 /datum/greyscale_config/medals/syndicate
 	name = "Syndicate Medal"

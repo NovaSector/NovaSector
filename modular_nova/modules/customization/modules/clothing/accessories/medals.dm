@@ -59,8 +59,6 @@ Potential future ideas:
 	greyscale_config = /datum/greyscale_config/medals/shield
 	greyscale_config_worn = /datum/greyscale_config/medals/shield/worn
 	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
 
 /obj/item/clothing/accessory/nova/acc_medal/shield/bar_ribbon
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield/bar_ribbon"
@@ -82,8 +80,6 @@ Potential future ideas:
 	greyscale_config = /datum/greyscale_config/medals/bar
 	greyscale_config_worn = /datum/greyscale_config/medals/bar/worn
 	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
 
 /obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon"
@@ -105,8 +101,6 @@ Potential future ideas:
 	greyscale_config = /datum/greyscale_config/medals/circle
 	greyscale_config_worn = /datum/greyscale_config/medals/circle/worn
 	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
 
 /obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon"
@@ -132,8 +126,6 @@ Potential future ideas:
 	greyscale_config = /datum/greyscale_config/medals/heart
 	greyscale_config_worn = /datum/greyscale_config/medals/heart/worn
 	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
 
 /obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon"
@@ -147,7 +139,53 @@ Potential future ideas:
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/heart/special/bar_ribbon"
 	post_init_icon_state = "medal_special_bar_ribbon"
 
+/*
+// Crown Medals
+*/
+/obj/item/clothing/accessory/nova/acc_medal/crown
+	name = "crown medal"
+	desc = "A regular everyday medal."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown"
+	post_init_icon_state = "medal"
+	greyscale_config = /datum/greyscale_config/medals/crown
+	greyscale_config_worn = /datum/greyscale_config/medals/crown/worn
+	greyscale_colors = "#9900cc#ffffff#9900cc#ff99ff#ffffff"
 
+/obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon"
+	post_init_icon_state = "medal_bar_ribbon"
+
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow"
+	post_init_icon_state = "medal_hollow"
+
+/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon"
+	post_init_icon_state = "medal_hollow_bar_ribbon"
+
+/*
+// Special Medals
+*/
+/obj/item/clothing/accessory/nova/acc_medal/glowbar
+	name = "glowbar necklace"
+	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowbar"
+	post_init_icon_state = "bar"
+	greyscale_config = /datum/greyscale_config/medals/glow
+	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
+	greyscale_colors = "#ff99ff"
+
+/obj/item/clothing/accessory/nova/acc_medal/glowcrystal
+	name = "glowcrystal necklace"
+	desc = "A glowing rock strung from a necklace, a token of gratitude similar to a medal."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowcrystal"
+	post_init_icon_state = "crystal"
+	greyscale_config = /datum/greyscale_config/medals/glow
+	greyscale_config_worn = /datum/greyscale_config/medals/glow/worn
+	greyscale_colors = "#ff99ff"
 
 
 /*

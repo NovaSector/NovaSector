@@ -382,79 +382,8 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 
 
 
-// Crown medals
-/obj/item/clothing/accessory/nova/acc_medal/crown
-	name = "crown medal"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/crown
-	greyscale_config_worn = /datum/greyscale_config/medals/crown/worn
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/crown/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon"
-	post_init_icon_state = "medalbars"
-
-// Hollow crown medals
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff#ff99ff"
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/crown_hollow
-	greyscale_config_worn = /datum/greyscale_config/medals/crown_hollow/worn
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon"
-	post_init_icon_state = "medalbars"
-
 
 // Glow necklaces
-/obj/item/clothing/accessory/nova/acc_medal/glowbar
-	name = "glowbar necklace"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowbar"
-	post_init_icon_state = "necklace"
-	greyscale_config = /datum/greyscale_config/medals/glowbar
-	greyscale_config_worn = /datum/greyscale_config/medals/glowbar/worn
-	greyscale_colors = "#ff99ff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/glowcrystal
-	name = "glowbarcrystal necklace"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/glowcrystal"
-	post_init_icon_state = "necklace"
-	greyscale_config = /datum/greyscale_config/medals/glowcrystal
-	greyscale_config_worn = /datum/greyscale_config/medals/glowcrystal/worn
-	greyscale_colors = "#ff99ff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
 
 // Rank pins
 /obj/item/clothing/accessory/nova/acc_medal/rankpin

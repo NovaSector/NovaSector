@@ -179,38 +179,20 @@
 	name = "Heart Medal (Special, Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/special/bar_ribbon
 
-
-
-
-
-
-
-
-
-
-
 /datum/loadout_item/accessory/crown1
-	name = "Crown Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/arrow_ribbon
+	name = "Crown Medal"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown
 
 /datum/loadout_item/accessory/crown2
-	name = "Crown Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow_ribbon
-
-/datum/loadout_item/accessory/crown3
-	name = "Crown Medal (Bar)"
+	name = "Crown Medal (Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon
 
-/datum/loadout_item/accessory/hcrown1
-	name = "Hollow Crown Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/arrow_ribbon
+/datum/loadout_item/accessory/crown3
+	name = "Crown Medal (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow
 
-/datum/loadout_item/accessory/hcrown2
-	name = "Hollow Crown Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/hollow_ribbon
-
-/datum/loadout_item/accessory/hcrown3
-	name = "Hollow Crown Medal (Bars)"
+/datum/loadout_item/accessory/crown3
+	name = "Crown Medal (Hollow, Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
 
 /datum/loadout_item/accessory/glowneck1
