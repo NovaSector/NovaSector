@@ -2232,11 +2232,11 @@ TREK
 	name = "Special Heart Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
-/datum/greyscale_config/medals/shield_hollow
+/datum/greyscale_config/medals/shield
 	name = "Hollow Shield Medal"
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/shieldhollow_medal.json'
 
-/datum/greyscale_config/medals/shield_hollow/worn
+/datum/greyscale_config/medals/shield/worn
 	name = "Hollow Shield Medal (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 

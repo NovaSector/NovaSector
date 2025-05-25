@@ -123,6 +123,31 @@
 * Accessory Medals
 *
 */
+/datum/loadout_item/accessory/hshield1
+	name = "Shield Medal"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/arrow_ribbon
+
+/datum/loadout_item/accessory/hshield2
+	name = "Shield Medal (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/hollow_ribbon
+
+/datum/loadout_item/accessory/hshield3
+	name = "Shield Medal (Bars-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bars_ribbon
+
+/datum/loadout_item/accessory/bbar1
+	name = "Bar Medal"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar
+
+/datum/loadout_item/accessory/bbar2
+	name = "Bar Medal (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/hollow
+
+/datum/loadout_item/accessory/bbar3
+	name = "Bar Medal (Bars-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon
+
+
 /datum/loadout_item/accessory/sheart1
 	name = "Special Heart Medal (Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart_special/arrow_ribbon
@@ -146,30 +171,6 @@
 /datum/loadout_item/accessory/heart3
 	name = "Heart Medal (Bars)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/bars_ribbon
-
-/datum/loadout_item/accessory/hshield1
-	name = "Hollow Shield Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/arrow_ribbon
-
-/datum/loadout_item/accessory/hshield2
-	name = "Hollow Shield Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/hollow_ribbon
-
-/datum/loadout_item/accessory/hshield3
-	name = "Hollow Shield Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bars_ribbon
-
-/datum/loadout_item/accessory/bbar1
-	name = "Blank Bar Medal"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar
-
-/datum/loadout_item/accessory/bbar2
-	name = "Blank Bar Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/hollow
-
-/datum/loadout_item/accessory/bbar3
-	name = "Blank Bar Medal (Bars-Ribbon)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon
 
 /datum/loadout_item/accessory/crown1
 	name = "Crown Medal (Arrow)"

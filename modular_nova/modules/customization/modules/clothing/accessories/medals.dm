@@ -48,6 +48,29 @@ Potential future ideas:
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
+// Shield Medals
+*/
+/obj/item/clothing/accessory/nova/acc_medal/shield
+	name = "shield medal"
+	desc = "A regular everyday medal."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield"
+	post_init_icon_state = "ccmedal"
+	greyscale_config = /datum/greyscale_config/medals/shield
+	greyscale_config_worn = /datum/greyscale_config/medals/shield/worn
+	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
+	minimize_when_attached = TRUE
+	attachment_slot = NONE
+
+/obj/item/clothing/accessory/nova/acc_medal/shield/hollow
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield/hollow"
+	post_init_icon_state = "medal_hollow"
+
+/obj/item/clothing/accessory/nova/acc_medal/shield/bars_ribbon
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield/bars_ribbon"
+	post_init_icon_state = "medal_bar_ribbon"
+
+/*
 // Bar Medals
 */
 /obj/item/clothing/accessory/nova/acc_medal/bar
