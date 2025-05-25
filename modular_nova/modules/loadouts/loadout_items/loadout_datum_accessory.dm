@@ -246,8 +246,8 @@
 */
 
 /datum/loadout_item/accessory/ccpin
-	name = "Centcomm Neckpin"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcomm
+	name = "CentCom Neckpin"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
 	restricted_roles = list(JOB_NT_REP, JOB_CAPTAIN, JOB_BLUESHIELD)
 
 /datum/loadout_item/accessory/ntpin

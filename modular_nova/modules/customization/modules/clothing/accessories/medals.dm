@@ -86,9 +86,9 @@ Potential future ideas:
 	minimize_when_attached = TRUE
 	attachment_slot = NONE
 
-/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcomm
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
 	name = "\improper Central Command neckpin"
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcomm"
+	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom"
 	post_init_icon_state = "ccpin"
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed
