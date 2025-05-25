@@ -32,7 +32,7 @@ Potential future ideas:
 
 // DS-2/Syndicate Medals
 /obj/item/clothing/accessory/medal/nova/syndicate
-	name = "syndicate medal of Robustness"
+	name = "syndicate medal of robustness"
 	desc = "A medal dedicated to true syndicate agents for robustness in many fields"
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate"
@@ -42,31 +42,34 @@ Potential future ideas:
 	greyscale_colors = "#990000#ffff66#990000#a50021#ffffff"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/espionage
-	name = "syndicate medal of Espionage"
+	name = "syndicate medal of espionage"
 	desc = "A medal dedicated to those who have proven themselves capable at covert operations."
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/espionage"
 	post_init_icon_state = "medal_espi"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/interrogation
-	name = "syndicate medal of Interrogation"
-	desc = "A medal dedicated to those who have proven themselves capable at interrogating even the most resilient members of an enemy corporation"
+	name = "syndicate medal of interrogation"
+	desc = "A medal dedicated to those who have proven themselves capable at interrogating even the most resilient members of an enemy corporation."
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/interrogation"
 	post_init_icon_state = "medal_inter"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/intelligence
-	name = "syndicate medal of Intelligence"
-	desc = "A medaobj/item/clothing/accessory/medal/nova/syndicate/intelligence"
+	name = "syndicate medal of intelligence"
+	desc = "A medal dedicated to agents of particular talent at both gathering information on competetors (in ways both subtle and overt) and protecting \
+	their own employers' confidentiality."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/intelligence"
 	post_init_icon_state = "medal_intel"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/diligence
-	name = "syndicate medal of Diligence"
-	desc = "A medal dedicated to those who"
+	name = "syndicate medal of diligence"
+	desc = "A medal dedicated to a rarer agent, one who doesn't rush in; this is for agents who, through patient observation and strategizing, seize the \
+	perfect moment to act. Like our emblematic snake, they wait to strike until the enemy shows their throat, and deliver the perfect killing blow."
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/diligence"
 	post_init_icon_state = "medal_dili"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/communications
-	name = "syndicate medal of Communication"
-	desc = "A medal dedicated to those whom prove themselvese as capable counter-communications specialists"
+	name = "syndicate medal of communication"
+	desc = "A medal dedicated to those whom have proven themselves as capable counter-communications specialists."
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/communications"
 	post_init_icon_state = "medal_comms"
 
@@ -231,7 +234,7 @@ Potential future ideas:
 // Rank pins
 */
 /obj/item/clothing/accessory/nova/acc_medal/rankpin
-	name = "Rank Pin"
+	name = "rank pin"
 	desc = "A pin used to display accomplishments, advancements, or otherwise earned recognition."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/rankpin"
