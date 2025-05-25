@@ -8152,7 +8152,6 @@
 #include "modular_nova\modules\knives\knives.dm"
 #include "modular_nova\modules\lathe_medipens\code\autolathe_designs.dm"
 #include "modular_nova\modules\lathe_medipens\code\hypospray.dm"
-#include "modular_nova\modules\lathe_medipens\code\medbay_nodes.dm"
 #include "modular_nova\modules\layer_shift\code\mob_movement.dm"
 #include "modular_nova\modules\liquids\code\drains.dm"
 #include "modular_nova\modules\liquids\code\height_floors.dm"
