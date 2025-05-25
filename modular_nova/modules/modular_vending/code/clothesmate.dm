@@ -22,8 +22,8 @@
 				/obj/item/clothing/head/standalone_hood = 5,
 				/obj/item/clothing/head/small_bow = 5,
 				/obj/item/clothing/head/large_bow = 5,
-				/obj/item/clothing/head/back_bow = 5,
-				/obj/item/clothing/head/sweet_bow = 5,
+				/obj/item/clothing/head/large_bow/back_bow = 5,
+				/obj/item/clothing/head/large_bow/sweet_bow = 5,
 			),
 		),
 
