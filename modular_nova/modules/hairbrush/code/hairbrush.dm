@@ -73,10 +73,11 @@
 
 		// Self brushing
 		if(human_target == user)
-			human_target.visible_message(span_notice("[user] brushes [user.p_their()] [brush_target]!"), span_notice("You brush your [brush_target]."))
 			if(HAS_TRAIT(user, TRAIT_SELF_AWARE)) //Do they have self awareness? If so, give them the better moodlet.
-				human_target.add_mood_event("brushed", /datum/mood_event/brushed, brush_target)
+				human_target.visible_message(span_notice("[user] brushes [user.p_their()] [brush_target]!"), span_notice("You expertly brush your [brush_target]."))
+				human_target.add_mood_event("brushed", /datum/mood_event/brushed/self/expert, brush_target)
 			else
+				human_target.visible_message(span_notice("[user] brushes [user.p_their()] [brush_target]!"), span_notice("You brush your [brush_target]."))
 				human_target.add_mood_event("brushed", /datum/mood_event/brushed/self, brush_target)
 		else // Brushing others
 			user.visible_message(span_notice("[user] brushes [human_target]'s [brush_target]!"), span_notice("You brush [human_target]'s [brush_target]."), ignored_mobs=list(human_target))

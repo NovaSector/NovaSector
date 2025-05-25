@@ -13,6 +13,13 @@
 /datum/mood_event/brushed/self/add_effects(brush_target)
 	description = "I brushed my [brush_target] recently!"
 
+/datum/mood_event/brushed/self/expert // For those with self-awareness trait
+	description = "I expertly brushed myself recently!"
+	mood_change = 3		// Unless you know what you're doing
+
+/datum/mood_event/brushed/self/expert/add_effects(brush_target)
+	description = "I expertly brushed my [brush_target] recently, that felt great!"
+
 /datum/mood_event/brushed/pet/add_effects(mob/brushed_pet)
 	description = "I brushed [brushed_pet] recently, they're so cute!"
 
