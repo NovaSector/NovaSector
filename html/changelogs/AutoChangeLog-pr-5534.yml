@@ -1,4 +1,0 @@
-author: "Alexi-6410"
-delete-after: True
-changes:
-  - bugfix: "A single erroneous pixel has been removed from half-bob."
