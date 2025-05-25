@@ -2147,7 +2147,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
 	name = "The <i><b>Noble Swashbuckler</i></b> Suit"
 	desc = "A suit tailored for a man who dines in ballrooms and vanishes into alleyways. The red tie is a warning for the walking red-flag the wearer is. Smells like wood and a lemon-y cologne."
-	special_desc = "<center><b><u>White Button-Down:</b></u> <i><u>Undoubtly Crisp</i></u>, the cuffs are <i><u>double-stitched</i></u> to withstand grappling. The collar stays impeccably upright, hiding a thin, monogrammed wire (for garrotes or lockpicks) sewn into the seam.<br><b><u>Black Dress Pants:</b></u> Tailored for <i><u>motion, not restraint</i></u>. Sharp creases like a dueling saber’s edge, reinforced at the inner thigh for concealed holsters or knives. The fabric is <i><u>matte military wool</i></u>, durable enough for a back-alley brawl but refined enough for a nobleman’s dinner.<br><b><u>Black Vest:</b></u> <i><u>Slim-cut and unadorned</i></u>, save for a single hidden pocket over the heart; Large enough for a handkerchief or a bloodstained love letter.<br><b><u>Crimson Tie:</b></u> Red under artificial lights, blackout dark in the void, knotted in a <i><u>half-Windsor</i></u>, tight enough to strangle with, if pulled taut. The underside bears a <i><u>faded family crest</i></u>, embroidered in thread that glows under UV.</center>"
+	special_desc = "<center><b><u>White Button-Down:</b></u> <i><u>Undoubtly Crisp</i></u>, the cuffs are <i><u>double-stitched</i></u> to withstand grappling. The collar stays impeccably upright, \
+		hiding a thin, monogrammed wire (for garrotes or lockpicks) sewn into the seam.<br><b><u>Black Dress Pants:</b></u> Tailored for <i><u>motion, not restraint</i></u>. \
+		Sharp creases like a dueling saber's edge, reinforced at the inner thigh for concealed holsters or knives. The fabric is <i><u>matte military wool</i></u>, durable enough \
+		for a back-alley brawl but refined enough for a nobleman's dinner.<br><b><u>Black Vest:</b></u> <i><u>Slim-cut and unadorned</i></u>, save for a single hidden pocket over the heart; \
+		Large enough for a handkerchief or a bloodstained love letter.<br><b><u>Crimson Tie:</b></u> Red under artificial lights, blackout dark in the void, knotted in a <i><u>half-Windsor</i></u>, \
+		tight enough to strangle with, if pulled taut. The underside bears a <i><u>faded family crest</i></u>, embroidered in thread that glows under UV.</center>"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "bovinesignature"
