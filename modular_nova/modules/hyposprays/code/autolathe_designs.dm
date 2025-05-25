@@ -44,12 +44,6 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/chem_synthesis/New()
-	design_ids += list(
-		"large_hypovial",
-		"hypokit",
-		"hypomkii",
-	)
 	return ..()
 
 /// Hyposprays
