@@ -2150,7 +2150,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	AddComponent(/datum/component/toggle_icon) // Open and close buttons
 
 /obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
-	name = "The <i><b>Noble Swashbuckler</i></b> Suit"
+	name = "\proper the <i><b>Noble Swashbuckler</i></b> Suit"
 	desc = "A suit tailored for a man who dines in ballrooms and vanishes into alleyways. The red tie is a warning for the walking red-flag the wearer is. Smells like wood and a lemon-y cologne."
 	special_desc = "<center><b><u>White Button-Down:</b></u> <i><u>Undoubtly Crisp</i></u>, the cuffs are <i><u>double-stitched</i></u> to withstand grappling. The collar stays impeccably upright, \
 		hiding a thin, monogrammed wire (for garrotes or lockpicks) sewn into the seam.<br><b><u>Black Dress Pants:</b></u> Tailored for <i><u>motion, not restraint</i></u>. \
