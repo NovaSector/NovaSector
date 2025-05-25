@@ -456,30 +456,6 @@ Note for Contributors/Maintainers, I did what I could to keep things robust and 
 	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bars_ribbon"
 	post_init_icon_state = "medalbars"
 
-// Bar medals
-/obj/item/clothing/accessory/nova/acc_medal/bar
-	name = "bar medal"
-	desc = "A regular everyday medal."
-	icon = 'icons/map_icons/clothing/accessory.dmi'
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar"
-	post_init_icon_state = "ccmedal"
-	greyscale_config = /datum/greyscale_config/medals/bar
-	greyscale_config_worn = /datum/greyscale_config/medals/bar/worn
-	greyscale_colors = "#ff99ff#ffffff#9900cc#ffffff"
-	minimize_when_attached = TRUE
-	attachment_slot = NONE
-
-/obj/item/clothing/accessory/nova/acc_medal/bar/arrow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/arrow_ribbon"
-	post_init_icon_state = "medalarrow"
-
-/obj/item/clothing/accessory/nova/acc_medal/bar/hollow_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/hollow_ribbon"
-	post_init_icon_state = "medalhollow"
-
-/obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon
-	icon_state = "/obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon"
-	post_init_icon_state = "medalbars"
 
 // Crown medals
 /obj/item/clothing/accessory/nova/acc_medal/crown

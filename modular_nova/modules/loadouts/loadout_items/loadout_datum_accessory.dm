@@ -160,15 +160,15 @@
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield_hollow/bars_ribbon
 
 /datum/loadout_item/accessory/bbar1
-	name = "Blank Bar Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/arrow_ribbon
+	name = "Blank Bar Medal"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar
 
 /datum/loadout_item/accessory/bbar2
 	name = "Blank Bar Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/hollow_ribbon
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/hollow
 
 /datum/loadout_item/accessory/bbar3
-	name = "Blank Bar Medal (Bar)"
+	name = "Blank Bar Medal (Bars-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bars_ribbon
 
 /datum/loadout_item/accessory/crown1
