@@ -22,9 +22,7 @@
 		"legs" = list("Normal Legs", FALSE),
 		"wings" = list("None", FALSE),
 		"taur" = list("None", FALSE),
-		"fluff" = list("None", FALSE),
 		"horns" = list("None", FALSE),
-		"moth_antennae" = list("None", FALSE),
 	)
 
 /datum/species/humanoid/get_species_description()
