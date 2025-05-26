@@ -213,7 +213,7 @@
 
 	selectable_atoms = list(
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = /obj/machinery/atmospherics/miner/carbon_dioxide,
-		/obj/machinery/portable_atmospherics/canister/n2o = /obj/machinery/atmospherics/miner/n2o,
+		/obj/machinery/portable_atmospherics/canister/nitrous_oxide = /obj/machinery/atmospherics/miner/n2o,
 		/obj/machinery/portable_atmospherics/canister/nitrogen = /obj/machinery/atmospherics/miner/nitrogen,
 		/obj/machinery/portable_atmospherics/canister/oxygen = /obj/machinery/atmospherics/miner/oxygen,
 		/obj/machinery/portable_atmospherics/canister/plasma = /obj/machinery/atmospherics/miner/plasma,
@@ -223,7 +223,7 @@
 		/obj/machinery/portable_atmospherics/canister/halon = /obj/machinery/atmospherics/miner/halon,
 		/obj/machinery/portable_atmospherics/canister/healium = /obj/machinery/atmospherics/miner/healium,
 		/obj/machinery/portable_atmospherics/canister/hydrogen = /obj/machinery/atmospherics/miner/hydrogen,
-		/obj/machinery/portable_atmospherics/canister/hypernoblium = /obj/machinery/atmospherics/miner/hypernoblium,
+		/obj/machinery/portable_atmospherics/canister = /obj/machinery/atmospherics/miner/hypernoblium,
 		/obj/machinery/portable_atmospherics/canister/miasma = /obj/machinery/atmospherics/miner/miasma,
 		/obj/machinery/portable_atmospherics/canister/nitrium = /obj/machinery/atmospherics/miner/nitrium,
 		/obj/machinery/portable_atmospherics/canister/pluoxium = /obj/machinery/atmospherics/miner/pluoxium,
