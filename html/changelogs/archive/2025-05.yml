@@ -752,6 +752,10 @@
       you can see GAGS as they actually appear ingame while mapping or viewing the
       loadout menu.
 2025-05-26:
+  Iajret:
+  - qol: gas miner beacon now show canisters of different gases as choice options
+  OrionTheFox:
+  - code_imp: Did a lot of sorting on the modular Medals. Please report any issues!
   Yobrocharlie:
   - rscdel: a few shocktraps from the maintsroom, and the telecomms
   carpotoxin:
