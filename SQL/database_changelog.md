@@ -157,6 +157,7 @@ WHERE NOT EXISTS (
     WHERE s.ckey = p.ckey
 )
 ```
+
 -----------------------------------------------------
 Version 5.31, 3 May 2025, by Atlanta-Ned
 Adds a `manifest` table.
