@@ -8,5 +8,4 @@
 	melee_damage_upper = 50
 	attack_verb_continuous = "lashes out at"
 	attack_verb_simple = "lash out at"
-	armor =
-	
+	damage_coeff = list(BRUTE = 50, BURN = 95, TOX = 95, STAMINA = 95, OXY = 95)
