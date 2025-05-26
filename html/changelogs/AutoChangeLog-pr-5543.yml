@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - qol: "gas miner beacon now show canisters of different gases as choice options"
