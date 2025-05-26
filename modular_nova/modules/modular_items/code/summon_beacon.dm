@@ -223,7 +223,7 @@
 		/obj/machinery/portable_atmospherics/canister/halon = /obj/machinery/atmospherics/miner/halon,
 		/obj/machinery/portable_atmospherics/canister/healium = /obj/machinery/atmospherics/miner/healium,
 		/obj/machinery/portable_atmospherics/canister/hydrogen = /obj/machinery/atmospherics/miner/hydrogen,
-		/obj/machinery/portable_atmospherics/canister = /obj/machinery/atmospherics/miner/hypernoblium,
+		/obj/machinery/portable_atmospherics/canister/nob = /obj/machinery/atmospherics/miner/hypernoblium,
 		/obj/machinery/portable_atmospherics/canister/miasma = /obj/machinery/atmospherics/miner/miasma,
 		/obj/machinery/portable_atmospherics/canister/nitrium = /obj/machinery/atmospherics/miner/nitrium,
 		/obj/machinery/portable_atmospherics/canister/pluoxium = /obj/machinery/atmospherics/miner/pluoxium,
