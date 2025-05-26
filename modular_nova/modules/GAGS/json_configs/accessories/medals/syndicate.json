@@ -28,7 +28,7 @@
 			"type": "icon_state",
 			"icon_state": "shield_eagle",
 			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
+			"color_ids": [ 5 ]
 		}
 	],
 	"medal_espi": [
@@ -52,9 +52,15 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "paper",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "paper",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
 		}
 	],
 	"medal_inter": [
@@ -78,9 +84,15 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "bar_h",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bar_h",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
 		}
 	],
 	"medal_intel": [
@@ -104,9 +116,15 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "paper",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "paper",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
 		}
 	],
 	"medal_dili": [
@@ -130,9 +148,15 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "bar",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bar",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
 		}
 	],
 	"medal_comms": [
@@ -156,9 +180,15 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "paper",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "paper",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
 		}
 	]
 }

@@ -18,7 +18,8 @@
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
-	],	"ribbon2": [
+	],
+	"ribbon2": [
 		{
 			"type": "icon_state",
 			"icon_state": "ribbonbase_1",
@@ -37,7 +38,8 @@
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
-	],	"ribbon3": [
+	],
+	"ribbon3": [
 		{
 			"type": "icon_state",
 			"icon_state": "ribbonbase_1",
@@ -56,7 +58,8 @@
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
-	],	"ribbon4": [
+	],
+	"ribbon4": [
 		{
 			"type": "icon_state",
 			"icon_state": "ribbonbase_1",
@@ -75,7 +78,8 @@
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
-	],	"ribbon5": [
+	],
+	"ribbon5": [
 		{
 			"type": "icon_state",
 			"icon_state": "ribbonbase_1",
@@ -94,7 +98,8 @@
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
-	],	"ribbon6": [
+	],
+	"ribbon6": [
 		{
 			"type": "icon_state",
 			"icon_state": "ribbonbase_1",
@@ -113,7 +118,8 @@
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		}
-	],	"ribbon7": [
+	],
+	"ribbon7": [
 		{
 			"type": "icon_state",
 			"icon_state": "ribbonbase_1",

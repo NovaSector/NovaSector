@@ -16,7 +16,8 @@
 			"icon_state": "blank",
 			"blend_mode": "overlay"
 		}
-	],	"ribbon2": [
+	],
+	"ribbon2": [
 		{
 			"type": "icon_state",
 			"icon_state": "2tone_1",
@@ -34,7 +35,8 @@
 			"icon_state": "blank",
 			"blend_mode": "overlay"
 		}
-	],	"ribbon3": [
+	],
+	"ribbon3": [
 		{
 			"type": "icon_state",
 			"icon_state": "3tone_1",

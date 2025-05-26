@@ -39,26 +39,6 @@
 			"color_ids": [ 1 ]
 		}
 	],
-	"shieldpin": [
-		{
-			"type": "icon_state",
-			"icon_state": "pin_border",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pin_back",
-			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pinshield",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		}
-	],
 	"sfpin": [
 		{
 			"type": "icon_state",
@@ -115,6 +95,26 @@
 		{
 			"type": "icon_state",
 			"icon_state": "pin811",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	],
+	"shieldpin": [
+		{
+			"type": "icon_state",
+			"icon_state": "pin_border",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "pin_back",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "pinshield",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		}
