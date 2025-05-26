@@ -2,46 +2,18 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.34 (5.31 for /tg/);; The query to update the schema revision table is:
+The latest database version is 5.33 (5.31 for /tg/);; The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 34);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 33);
 ```
 or
 
 ```sql
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 34);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 33);
 ```
 In any query remember to add a prefix to the table names if you use one.
 
------------------------------------------------------
-Version 5.30, 3 May 2025, by Atlanta-Ned
-Adds a `manifest` table.
-
-```sql
-CREATE TABLE `manifest` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server_ip` int(10) unsigned NOT NULL,
-  `server_port` smallint(5) NOT NULL,
-  `round_id` int(11) NOT NULL,
-  `ckey` text NOT NULL,
-  `character` text NOT NULL,
-  `job` text NOT NULL,
-  `special` text DEFAULT NULL,
-  `latejoin` tinyint(1) NOT NULL DEFAULT 0,
-  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-```
-
------------------------------------------------------
-Version 5.30, 1 May 2025, by Rengan
-Adds `crime_desc` field to the `citation` table to save the description of the crime.
-
-```sql
-ALTER TABLE `citation`
-ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
-```
 -----------------------------------------------------
 Version 5.32, 27 April 2025, by GoldenAlpharex
 Two major changes (nova_schema.sql):
@@ -184,6 +156,34 @@ WHERE NOT EXISTS (
     FROM stickyban s
     WHERE s.ckey = p.ckey
 )
+```
+-----------------------------------------------------
+Version 5.31, 3 May 2025, by Atlanta-Ned
+Adds a `manifest` table.
+
+```sql
+CREATE TABLE `manifest` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `server_ip` int(10) unsigned NOT NULL,
+  `server_port` smallint(5) NOT NULL,
+  `round_id` int(11) NOT NULL,
+  `ckey` text NOT NULL,
+  `character` text NOT NULL,
+  `job` text NOT NULL,
+  `special` text DEFAULT NULL,
+  `latejoin` tinyint(1) NOT NULL DEFAULT 0,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+-----------------------------------------------------
+Version 5.30, 1 May 2025, by Rengan
+Adds `crime_desc` field to the `citation` table to save the description of the crime.
+
+```sql
+ALTER TABLE `citation`
+ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
 ```
 -----------------------------------------------------
 Version 5.31, 4 February 2024, by Tiviplus
