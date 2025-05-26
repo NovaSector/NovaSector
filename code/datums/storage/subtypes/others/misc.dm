@@ -27,9 +27,10 @@
 		/obj/item/cautery,
 		/obj/item/circular_saw,
 		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown, // NOVA EDIT ADDITION
+		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown, // NOVA EDIT ADDITION
 		/obj/item/hemostat,
 		/obj/item/razor,
+		/obj/item/reagent_containers/medigel/sterilizine,
 		/obj/item/retractor,
 		/obj/item/scalpel,
 		/obj/item/stack/medical/bone_gel,

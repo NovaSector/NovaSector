@@ -47,8 +47,8 @@
 
 // UN-LIMITED WATERRRRRRR
 /obj/machinery/shower/infinite/process(seconds_per_tick)
-    . = ..()
-    if(actually_on)
-        reagents.add_reagent(reagent_id, reagents.maximum_volume - reagents.total_volume)
+	. = ..()
+	if(actually_on)
+		reagents.add_reagent(reagent_id, reagents.maximum_volume - reagents.total_volume)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower/infinite, (-16))
