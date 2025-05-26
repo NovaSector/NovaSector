@@ -23,7 +23,7 @@ obj/item/fireproof_spray
 		to_chat(user, span_warning("[clothing] is already fireproof, you don't want to waste the spray!"))
 		return ITEM_INTERACT_BLOCKING
 	if(clothing.get_armor_rating(BULLET) > 1 || clothing.get_armor_rating(ENERGY) > 1) //checks for armour so you can't fireproof armour and sidestep blue xenobio potions
-		to_chat(user, span_warning("The spray won't work on this, the armoured plates "))
+		to_chat(user, span_warning("[clothing] is lined with armoured plates so the spray won't work on this, said armour prevent the solution from adhering correctly! You smartly don't waste the spray."))
 		return ITEM_INTERACT_BLOCKING
 	to_chat(user, span_notice("You spray all over [clothing], ensuring it won't burn too much."))
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
@@ -31,12 +31,6 @@ obj/item/fireproof_spray
 	clothing.resistance_flags |= FIRE_PROOF
 	uses --
 	return ITEM_INTERACT_BLOCKING
-
-/obj/item/fireproof_spray/add_item_context(datum/source, list/context, atom/target, mob/living/user) // adds context to the top of the screen, which is always nice
-	. = ..()
-	if(!user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS|SILENT_ADJACENCY))
-		return .
-	context[SCREENTIP_CONTEXT_LMB] = "Coat with Fireproof Spray"
 
 /obj/item/fireproof_spray/examine(mob/user) //shows uses back to the user when examined
 	. = ..()
