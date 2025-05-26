@@ -69,12 +69,12 @@
 	var/list/options = list()
 	for(var/iterating_choice in selectable_atoms)
 		var/obj/icon_object = iterating_choice
-		var/choice_icon = icon_object.greyscale_config ? SSgreyscale.GetColoredIconByType(icon_object.greyscale_config, icon_object.greyscale_colors) : initial(icon_object.icon)
+		var/choice_icon = icon_object.greyscale_config ? SSgreyscale.GetColoredIconByType(icon_object.greyscale_config, icon_object.greyscale_colors) : icon_object::icon
 		var/datum/radial_menu_choice/option = new
 		var/obj/our_object = selectable_atoms[iterating_choice]
-		option.image = image(icon = choice_icon, icon_state = initial(icon_object.icon_state))
-		option.name = our_object ? initial(our_object.name) : initial(icon_object.name)
-		option.info = span_boldnotice("[selectable_atoms[iterating_choice] ? initial(our_object.desc) : initial(icon_object.desc)]")
+		option.image = image(icon = choice_icon, icon_state = icon_object::post_init_icon_state || icon_object::icon_state)
+		option.name = our_object ? our_object::name : icon_object::name
+		option.info = span_boldnotice("[selectable_atoms[iterating_choice] ? our_object::desc : icon_object::desc]")
 
 		options[icon_object] = option
 
