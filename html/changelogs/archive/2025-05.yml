@@ -730,6 +730,9 @@
   Gboster-0:
   - bugfix: Slimes will no longer have a chance to move when being put in BZ enviroments
       via the xenobiology console
+  OrbisAnima:
+  - balance: Colossus death bolts (the ones that destroy structures) range were reduced
+      from 50 to 40 tiles.
   OrionTheFox:
   - qol: 'renamed the hospital gown to surgical gown, and added an examine-tag: as
       a ''Surgical'' item, it does not block surgery on covered bodyparts!'
@@ -748,3 +751,11 @@
   - refactor: preview icons for greyscale items are now automatically generated, meaning
       you can see GAGS as they actually appear ingame while mapping or viewing the
       loadout menu.
+2025-05-26:
+  Yobrocharlie:
+  - rscdel: a few shocktraps from the maintsroom, and the telecomms
+  carpotoxin:
+  - image: Added a fluff sprite accessory called insectoid
+  - image: Added 'six nips' chest sprite accessory
+  - image: Added 'claw tips' sprite accessory for the legs
+  - image: Added 'upper limb' and 'lower limb' sprite accessory for limbs
