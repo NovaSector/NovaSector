@@ -51,7 +51,7 @@
 	icon_state = "nri_police"
 	inhand_icon_state = "swat"
 	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
-	visor_flags_inv = 0
+	visor_flags_inv = NONE
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 

@@ -73,6 +73,7 @@
 	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/rank/prisoner/skirt
+	greyscale_config_worn_digi = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	gets_cropped_on_taurs = FALSE
 
@@ -213,12 +214,14 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/color
+	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/suit/waiter
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/prisoner
+	greyscale_config_worn_digi = /datum/greyscale_config/jumpsuit/prison/worn/digi
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/security/officer

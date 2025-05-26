@@ -717,3 +717,45 @@
 2025-05-23:
   Yobrocharlie:
   - bugfix: chamenos ghost role doesnt get a deathsquad modsuit anymore
+2025-05-25:
+  A.C.M.O.:
+  - rscadd: Added a new science techweb node, Auto-Injecting Medipen Syringes.
+  - rscadd: Added a universal medipen and a low-pressure universal medipen to medical
+      protolathes.
+  - rscadd: Added empty medipens to medical lathe for Epinephrine, Atropine, Oxandrolone,
+      Salicylic Acid, Salbutamol, and Pentetic Acid.
+  - bugfix: Fixed a bug that caused the Medipen Refiller to only refill up to 10u.
+  Alexi-6410:
+  - bugfix: A single erroneous pixel has been removed from half-bob.
+  Gboster-0:
+  - bugfix: Slimes will no longer have a chance to move when being put in BZ enviroments
+      via the xenobiology console
+  OrbisAnima:
+  - balance: Colossus death bolts (the ones that destroy structures) range were reduced
+      from 50 to 40 tiles.
+  OrionTheFox:
+  - qol: 'renamed the hospital gown to surgical gown, and added an examine-tag: as
+      a ''Surgical'' item, it does not block surgery on covered bodyparts!'
+  - rscadd: All balaclavas now show mutant ears! (They can still be hidden using IC
+      > Show/Hide Mutant Parts as usual)
+  - bugfix: Snouted-variant gasmask icons now get the expected overlay when dirtied
+      after blocking pepperspray
+  - rscdel: Removed a few barely-used or unused items
+  - qol: made the Adjustable Balaclava slightly more user-friendly when adjusting
+  - image: Resprited almost every single snouted-variant of masks!
+  - image: Removed a lot of HOPEFULLY redundant icons. Please report any issues!
+  TimErmolt:
+  - bugfix: Raptoral cybernetic heads now have the correct eyes sprite, and also retain
+      the eye color selected in character setup.
+  vinylspiders:
+  - refactor: preview icons for greyscale items are now automatically generated, meaning
+      you can see GAGS as they actually appear ingame while mapping or viewing the
+      loadout menu.
+2025-05-26:
+  Yobrocharlie:
+  - rscdel: a few shocktraps from the maintsroom, and the telecomms
+  carpotoxin:
+  - image: Added a fluff sprite accessory called insectoid
+  - image: Added 'six nips' chest sprite accessory
+  - image: Added 'claw tips' sprite accessory for the legs
+  - image: Added 'upper limb' and 'lower limb' sprite accessory for limbs

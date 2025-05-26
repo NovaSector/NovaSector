@@ -238,20 +238,22 @@
 /datum/greyscale_config/back_bow
 	name = "Back Bow"
 	icon_file = 'modular_nova/modules/GAGS/icons/bow.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/head/back_bow.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/large_bow.json'
 
 /datum/greyscale_config/back_bow/worn
 	name = "Back Bow (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/bow_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/back_bow.json'
 
 /datum/greyscale_config/sweet_bow
 	name = "Sweet Bow"
 	icon_file = 'modular_nova/modules/GAGS/icons/bow.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/head/sweet_bow.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/large_bow.json'
 
 /datum/greyscale_config/sweet_bow/worn
 	name = "Sweet Bow (Worn)"
 	icon_file = 'modular_nova/modules/GAGS/icons/bow_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/head/sweet_bow.json'
 
 /datum/greyscale_config/small_bow
 	name = "Small Bow"
@@ -276,10 +278,50 @@
 	name = "Colourable Clown Mask (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/clown_mask/clown_mask_worn.json'
 
-// VAPE
-/datum/greyscale_config/vape/worn/muzzled
-	name = "Vape (Worn, Muzzled)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+// BANDANA
+/datum/greyscale_config/bandana/worn/muzzled
+	name = "Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+	json_config = 'code/datums/greyscale/json_configs/bandana.json'
+
+/datum/greyscale_config/bandana/worn/vox
+	name = "Bandana (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+	json_config = 'code/datums/greyscale/json_configs/bandana.json'
+
+/datum/greyscale_config/bandana/striped/worn/muzzled
+	name = "Striped Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/bandana/striped/worn/vox
+	name = "Striped Bandana (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/bandana/skull/worn/muzzled
+	name = "Skull Bandana (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/bandana/skull/worn/vox
+	name = "Skull Bandana (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/tape_piece/worn/muzzled
+	name = "Tape Piece (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+// FACESCARF
+/datum/greyscale_config/facescarf/worn/muzzled
+	name = "Facescarf (Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+// Duct Tape
+/datum/greyscale_config/tape_piece/worn/vox
+	name = "Tape Piece (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/vape/worn/vox
+	name = "Vape (Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
 
 // RESPIRATOR
 /datum/greyscale_config/respirator
@@ -1825,6 +1867,9 @@ TREK
 	name = "Jester Shoes (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
+/datum/greyscale_config/glow_shoes/worn/digi
+	name = "Glow Shoes (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 /*
 *	Belts
