@@ -1,34 +1,8 @@
 {
-	"ccmedal": [
+	"medal": [
 		{
 			"type": "icon_state",
-			"icon_state": "cc_1",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "cc_2",
-			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "cc_3",
-			"blend_mode": "overlay",
-			"color_ids": [ 3 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "bbar",
-			"blend_mode": "overlay",
-			"color_ids": [ 4 ]
-		}
-	],
-	"medalarrow": [
-		{
-			"type": "icon_state",
-			"icon_state": "ribbon_arrow_1",
+			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
@@ -46,61 +20,83 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "bbar",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
-		}
-	],
-	"medalhollow": [
+		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbonarrow_hollow_1",
+			"icon_state": "bar",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "blank",
+			"blend_mode": "overlay"
+		}
+	],
+	"medal_bar_ribbon": [
+		{
+			"type": "icon_state",
+			"icon_state": "ribbon_bars",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbonarrow_hollow_2",
+			"icon_state": "ribbon_bars_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "thevoid",
+			"icon_state": "ribbon_bars_3",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "bbar",
+			"icon_state": "bar",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
-		}
-	],
-	"medalbars": [
+		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbonbars_1",
+			"icon_state": "blank",
+			"blend_mode": "overlay"
+		}
+	],
+	"medal_hollow": [
+		{
+			"type": "icon_state",
+			"icon_state": "ribbon_arrow",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "ribbonbars_2",
+			"icon_state": "ribbon_arrow_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "thevoid",
+			"icon_state": "ribbon_arrow_3",
 			"blend_mode": "overlay",
 			"color_ids": [ 3 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "bbar",
+			"icon_state": "ribbon_arrow_4",
 			"blend_mode": "overlay",
 			"color_ids": [ 4 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bar_h",
+			"blend_mode": "overlay",
+			"color_ids": [ 5 ]
 		}
 	]
 }
