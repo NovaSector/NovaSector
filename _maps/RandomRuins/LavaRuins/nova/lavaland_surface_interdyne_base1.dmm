@@ -2974,7 +2974,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /turf/open/floor/wood/tile,
 /area/ruin/interdyne_planetary_base/serv/bar)
 "zB" = (

@@ -1,174 +1,142 @@
 {
-	"ntpin": [
+	"ribbon1": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinnt",
+			"icon_state": "ribbon_arrdown",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
-	],	"ccpin": [
+	],
+	"ribbon2": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pincc",
+			"icon_state": "ribbon_slash",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
-	],	"shieldpin": [
+	],
+	"ribbon3": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinshield",
+			"icon_state": "ribbon_arrup",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
-	],	"sfpin": [
+	],
+	"ribbon4": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinsf",
+			"icon_state": "ribbon_line",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
-	],	"911pin": [
+	],
+	"ribbon5": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pin911",
+			"icon_state": "ribbon_dual",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
-	],	"811pin": [
+	],
+	"ribbon6": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pin811",
+			"icon_state": "ribbon_flat",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
-	],	"syndipin": [
+	],
+	"ribbon7": [
 		{
 			"type": "icon_state",
-			"icon_state": "pinborder",
+			"icon_state": "ribbonbase_1",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinbg",
+			"icon_state": "ribbonbase_2",
 			"blend_mode": "overlay",
 			"color_ids": [ 2 ]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "pinsynd",
+			"icon_state": "ribbon_twotone",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		}
-	],	"ippin": [
-		{
-			"type": "icon_state",
-			"icon_state": "pinborder",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pinbg",
-			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pinip",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		}
-	],	"ptpin": [
-		{
-			"type": "icon_state",
-			"icon_state": "pinborder",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pinbg",
-			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "pinpt",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [ 3 ]
 		}
 	]
 }
