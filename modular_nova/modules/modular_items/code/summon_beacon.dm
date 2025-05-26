@@ -155,7 +155,7 @@
 		/obj/machinery/portable_atmospherics/canister/nitrogen = /obj/machinery/atmospherics/miner/nitrogen,
 		/obj/machinery/portable_atmospherics/canister/oxygen = /obj/machinery/atmospherics/miner/oxygen,
 		/obj/machinery/portable_atmospherics/canister/plasma = /obj/machinery/atmospherics/miner/plasma,
-    /obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner//water_vapor,
+		/obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner/water_vapor,
 	)
 
 	area_string = "atmospherics"
@@ -212,26 +212,26 @@
 	desc = parent_type::desc + " This one seems to have its selection expanded."
 
 	selectable_atoms = list(
-		/obj/machinery/atmospherics/miner/carbon_dioxide,
-		/obj/machinery/atmospherics/miner/n2o,
-		/obj/machinery/atmospherics/miner/nitrogen,
-		/obj/machinery/atmospherics/miner/oxygen,
-		/obj/machinery/atmospherics/miner/plasma,
-		/obj/machinery/atmospherics/miner/bz,
-		/obj/machinery/atmospherics/miner/water_vapor,
-		/obj/machinery/atmospherics/miner/freon,
-		/obj/machinery/atmospherics/miner/halon,
-		/obj/machinery/atmospherics/miner/healium,
-		/obj/machinery/atmospherics/miner/hydrogen,
-		/obj/machinery/atmospherics/miner/hypernoblium,
-		/obj/machinery/atmospherics/miner/miasma,
-		/obj/machinery/atmospherics/miner/nitrium,
-		/obj/machinery/atmospherics/miner/pluoxium,
-		/obj/machinery/atmospherics/miner/proto_nitrate,
-		/obj/machinery/atmospherics/miner/tritium,
-		/obj/machinery/atmospherics/miner/zauker,
-		/obj/machinery/atmospherics/miner/helium,
-		/obj/machinery/atmospherics/miner/antinoblium,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = /obj/machinery/atmospherics/miner/carbon_dioxide,
+		/obj/machinery/portable_atmospherics/canister/n2o = /obj/machinery/atmospherics/miner/n2o,
+		/obj/machinery/portable_atmospherics/canister/nitrogen = /obj/machinery/atmospherics/miner/nitrogen,
+		/obj/machinery/portable_atmospherics/canister/oxygen = /obj/machinery/atmospherics/miner/oxygen,
+		/obj/machinery/portable_atmospherics/canister/plasma = /obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/portable_atmospherics/canister/bz = /obj/machinery/atmospherics/miner/bz,
+		/obj/machinery/portable_atmospherics/canister/water_vapor = /obj/machinery/atmospherics/miner/water_vapor,
+		/obj/machinery/portable_atmospherics/canister/freon = /obj/machinery/atmospherics/miner/freon,
+		/obj/machinery/portable_atmospherics/canister/halon = /obj/machinery/atmospherics/miner/halon,
+		/obj/machinery/portable_atmospherics/canister/healium = /obj/machinery/atmospherics/miner/healium,
+		/obj/machinery/portable_atmospherics/canister/hydrogen = /obj/machinery/atmospherics/miner/hydrogen,
+		/obj/machinery/portable_atmospherics/canister/hypernoblium = /obj/machinery/atmospherics/miner/hypernoblium,
+		/obj/machinery/portable_atmospherics/canister/miasma = /obj/machinery/atmospherics/miner/miasma,
+		/obj/machinery/portable_atmospherics/canister/nitrium = /obj/machinery/atmospherics/miner/nitrium,
+		/obj/machinery/portable_atmospherics/canister/pluoxium = /obj/machinery/atmospherics/miner/pluoxium,
+		/obj/machinery/portable_atmospherics/canister/proto_nitrate = /obj/machinery/atmospherics/miner/proto_nitrate,
+		/obj/machinery/portable_atmospherics/canister/tritium = /obj/machinery/atmospherics/miner/tritium,
+		/obj/machinery/portable_atmospherics/canister/zauker = /obj/machinery/atmospherics/miner/zauker,
+		/obj/machinery/portable_atmospherics/canister/helium = /obj/machinery/atmospherics/miner/helium,
+		/obj/machinery/portable_atmospherics/canister/antinoblium = /obj/machinery/atmospherics/miner/antinoblium,
 	)
 
 /obj/item/summon_beacon/gas_miner/expanded/debug
