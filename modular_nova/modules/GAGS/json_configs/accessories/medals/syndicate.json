@@ -58,7 +58,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "paper",
+			"icon_state": "circle_alt",
 			"blend_mode": "overlay",
 			"color_ids": [ 5 ]
 		}

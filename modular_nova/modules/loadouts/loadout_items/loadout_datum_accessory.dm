@@ -154,6 +154,11 @@
 	name = "Medal - Circle (Bar-Ribbon)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon
 
+/datum/loadout_item/accessory/medal/circle_alt
+	name = "Medal - Circle (Alt)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal
+	//This is actually the default setup for our medals!
+
 /datum/loadout_item/accessory/medal/circle_h
 	name = "Medal - Circle (Hollow)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
