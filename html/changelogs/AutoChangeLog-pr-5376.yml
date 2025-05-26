@@ -1,6 +1,0 @@
-author: "OrbisAnima"
-delete-after: True
-changes:
-  - rscadd: "Donk Co is happy to present to its Imports offers the new and completly SafeVendor Beacon. Capable of delivering in an instant up to two vendors of the consumer choice (of a highly curated list!), this product allows the consumer to bring Capitalism anywhere!"
-  - rscadd: "Donk Co is now endorsing the legal bitrunning competitions, providing their virtual products as free samples on the orderable relaxation disks, order yours today! (Adds 3 new vendors to the relax vendor machine beacon for bitrunning, Good fun, Disguises and Clothing!)"
-  - code_imp: "Makes both the new and bitrunning vendor beacons to respect preferences, the beacons start without lushwish machines and only adds them when a user with such preferences enabled (and the server) has erp enabled. If you start with one spawned in your hand, drop it and grab it again for it to update!"
