@@ -1,0 +1,4 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - code_imp: "Did a lot of sorting on the modular Medals. Please report any issues!"
