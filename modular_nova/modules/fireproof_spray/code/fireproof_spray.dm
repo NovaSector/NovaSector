@@ -38,8 +38,3 @@ obj/item/fireproof_spray
 		. += "It has [(uses)] use\s left."
 	else
 		. += "It is empty."
-
-/* if(clothing.get_armor_rating(WOUND) != 5 || clothing.get_armor_rating(BIO) != 10)
-    to_chat(user, span_warning("Failed because WOUND = [clothing.get_armor_rating(WOUND)] and BIO = [clothing.get_armor_rating(BIO)]"))
-    return ITEM_INTERACT_BLOCKING
- */
