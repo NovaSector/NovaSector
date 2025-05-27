@@ -15,10 +15,6 @@
 	var/hardware_flag = PROGRAM_CONSOLE
 	/// Amount of programs that can be ran at once
 	var/max_idle_programs = 4
-	/// NOVA ADDITION START
-	// Does this console have an exception for TRAIT_CHUNKYFINGERS havers?
-	var/big_hands_exception = FALSE
-	/// NOVA ADDTION END
 
 	///Icon state when the computer is turned off.
 	var/icon_state_unpowered = "console-off"
