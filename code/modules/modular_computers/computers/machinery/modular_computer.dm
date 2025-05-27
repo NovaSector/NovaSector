@@ -16,6 +16,7 @@
 	/// Amount of programs that can be ran at once
 	var/max_idle_programs = 4
 
+
 	///Icon state when the computer is turned off.
 	var/icon_state_unpowered = "console-off"
 	///Icon state when the computer is turned on.
