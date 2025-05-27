@@ -96,7 +96,7 @@
 
 // Baron's snare
 /datum/action/cooldown/spell/pointed/projectile/web_restraints/baron
-	name = "baron web restraint"
+	name = "Baron Web Restraint"
 	cooldown_time = 5 SECONDS
 	projectile_type = /obj/projectile/webslinger_snare
 
@@ -106,10 +106,10 @@
  */
 // Create Effigy
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem
-	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
-	cooldown_time = 6 MINUTES
 	name = "Plant Totem"
 	desc = "Plant a Spider Totem to spread webs."
+	button_icon = 'modular_nova/modules/spider/icons/spider.dmi'
+	cooldown_time = 6 MINUTES
 	button_icon_state = "spider_effigy"
 
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem/baron
@@ -121,12 +121,9 @@
 /datum/action/cooldown/mob_cooldown/lay_web/create_totem/plant_web(turf/target_turf, obj/structure/spider/stickyweb/existing_web)
 	new /obj/structure/spider/stickyweb/alive/spider_effigy(target_turf)
 
-// let's piggy back on resin to avoid having to remake everything below it.
-#define EFFIGYRANGE 3
-
 // base web structure subtype, we wanna keep the web functions but make it so they can spread
 /obj/structure/spider/stickyweb/alive
-	var/spider_effigy_range = EFFIGYRANGE
+	var/spider_effigy_range = 3
 	///the parent node that will determine if we grow or die
 	var/obj/structure/spider/stickyweb/alive/spider_effigy/parent_node
 	///the list of turfs that the weeds will not be able to grow over
@@ -234,8 +231,6 @@
 	for(var/obj/structure/spider/stickyweb/alive/growing_web in range(spider_effigy_range, src))
 		growing_web.try_expand()
 
-#undef EFFIGYRANGE
-
 /*
 * Ceiling Climb - Let's the spider crawl up the wall and be extra menacing by being on the ceiling
 */
@@ -255,14 +250,12 @@
 // add the element that makes them walk on the ceiling
 /datum/action/cooldown/mob_cooldown/ceiling_walk/Activate(atom/target)
 	if(HAS_TRAIT(owner, TRAIT_SNEAK))
-		animate(owner, alpha = initial(owner.alpha), time = animation_time, delay = animation_time)
 		owner.balloon_alert(owner, "you flop down off the ceiling")
 		owner.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 		owner.density = TRUE
 		REMOVE_TRAIT(owner, TRAIT_SNEAK, ACTION_TRAIT)
 
 	else
-		animate(owner, alpha = sneak_alpha, time = animation_time, delay = animation_time)
 		owner.balloon_alert(owner, "you skitter up the wall")
 		owner.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 		owner.density = FALSE // if we're on the ceiling...
