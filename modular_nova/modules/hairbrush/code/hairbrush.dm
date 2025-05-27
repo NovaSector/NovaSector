@@ -49,7 +49,7 @@
 				brush_target = "beard"
 			else
 				brush_target = "chin"
-		if(location == BODY_ZONE_PRECISE_GROIN)
+		else if(location == BODY_ZONE_PRECISE_GROIN)
 			if(!isnull(human_target.get_organ_by_type(/obj/item/organ/tail)))
 				brush_target = "tail"
 			else
