@@ -1,4 +1,4 @@
-obj/item/fireproof_spray
+/obj/item/fireproof_spray
 	name = "fireproof spray"
 	desc = "A miraculous (lead free!) spray mix that will fireproof any article of clothing. A warning label denotes it won't work for prolonged extreme temperatures."
 	icon = 'modular_nova/modules/fireproof_spray/icons/fireproof_spray.dmi'
