@@ -24,7 +24,7 @@
 		to_chat(user, span_warning("[clothing] is already fireproof, you don't want to waste the spray!"))
 		return ITEM_INTERACT_BLOCKING
 	if(clothing.get_armor_rating(BULLET) > 1 || clothing.get_armor_rating(ENERGY) > 1) //checks for armour so you can't fireproof armour and sidestep blue xenobio potions
-		to_chat(user, span_warning("[clothing] is lined with armoured plates so the spray won't work on this, said armour prevent the solution from adhering correctly! You smartly don't waste the spray."))
+		to_chat(user, span_warning("[clothing] is lined with armored plates so the spray won't work on this, said armor prevents the solution from adhering correctly! You smartly don't waste the spray."))
 		return ITEM_INTERACT_BLOCKING
 	to_chat(user, span_notice("You spray all over [clothing], ensuring it won't burn too much."))
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
