@@ -28,7 +28,7 @@
 		return ITEM_INTERACT_BLOCKING
 	to_chat(user, span_notice("You spray all over [clothing], ensuring it won't burn too much."))
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
-	clothing.name = "fireproofed [clothing.name]"
+	clothing.name = "fireproofed [initial(clothing.name)]"
 	clothing.resistance_flags |= FIRE_PROOF
 	uses --
 	return ITEM_INTERACT_BLOCKING
