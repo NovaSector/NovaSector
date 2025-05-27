@@ -65,7 +65,7 @@
 	for (var/mob/living/candidate in view(pound_distance, owner))
 		if(candidate == owner || candidate.faction_check_atom(owner))
 			continue
-		owner.visible_message(span_boldwarning("The Baron raises their abdomen high up into the air!"))
+		owner.balloon_alert_to_viewers(span_boldwarning("Raises their abdomen high up into the air!"))
 
 /// Slam it into the ground
 /datum/action/cooldown/mob_cooldown/abdomen_pound/proc/ground_pound()

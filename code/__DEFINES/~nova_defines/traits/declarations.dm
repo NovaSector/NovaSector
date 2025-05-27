@@ -170,7 +170,5 @@
 
 /// Trait given while using /datum/action/cooldown/mob_cooldown/abdoment_pound
 #define TRAIT_ABDOMEN_POUND "abdoment_pound"
-/// Trait given while tired after using /datum/action/cooldown/mob_cooldown/abdoment_pound
-#define TRAIT_ABDOMEN_POUND_TIRED "abdoment_pound_tired"
 
 // END TRAIT DEFINES

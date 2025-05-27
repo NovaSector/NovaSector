@@ -246,20 +246,22 @@
 	/// How long does it take to play our various animation stages
 	var/animation_time = 1.5 SECONDS
 
-
 // add the element that makes them walk on the ceiling
 /datum/action/cooldown/mob_cooldown/ceiling_walk/Activate(atom/target)
 	if(HAS_TRAIT(owner, TRAIT_SNEAK))
+
 		owner.balloon_alert(owner, "you flop down off the ceiling")
 		owner.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 		owner.density = TRUE
 		REMOVE_TRAIT(owner, TRAIT_SNEAK, ACTION_TRAIT)
+		animate(owner, alpha = initial(owner.alpha), time = animation_time, delay = animation_time, flags = ANIMATION_PARALLEL)
 
 	else
 		owner.balloon_alert(owner, "you skitter up the wall")
 		owner.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
 		owner.density = FALSE // if we're on the ceiling...
 		ADD_TRAIT(owner, TRAIT_SNEAK, ACTION_TRAIT)
+		animate(owner, alpha = sneak_alpha, time = animation_time, delay = animation_time, flags = ANIMATION_PARALLEL)
 
 	return TRUE
 

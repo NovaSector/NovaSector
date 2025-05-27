@@ -158,7 +158,7 @@
 	gender = FEMALE
 	maxHealth = 600 // hah fat
 	health = 600
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0, OXY = 1)
 	poison_per_bite = 1.5
 	poison_type = /datum/reagent/toxin/viperspider
 	melee_damage_lower = 5
@@ -231,7 +231,7 @@
 		/obj/item/food/meat/slab/spider = 2,
 		/obj/item/food/spiderleg = 8,
 		/mob/living/basic/spider/growing/spiderling = 8,
-		)
+	)
 	speed = 2.5
 	gold_core_spawnable = NO_SPAWN
 	sight = SEE_TURFS

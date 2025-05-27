@@ -7,7 +7,7 @@
 	scan_desc = "extra-sensory paranoia"
 	gain_text = span_warning("You feel like something wants to kill you...")
 	lose_text = span_notice("You no longer feel many eyes on your back.")
-	resilience = TRAUMA_RESILIENCE_SURGERY
+	resilience = TRAUMA_RESILIENCE_BASIC
 	/// The image holder var for the very real spider
 	var/obj/effect/client_image_holder/spider_phantom/spider
 	/// we only want to start panicing if the spider's getting closer
@@ -37,14 +37,15 @@
 		return
 
 	// Not even nullspace can keep the spider from haunting you
-	if(!spider || !spider.loc || spider.z != owner.z)
-		qdel(spider)
+	if(isnull(spider) || !spider.loc || spider.z != owner.z)
+		if(!QDELETED(spider))
+			qdel(spider)
 		create_spider()
 
 	if(get_dist(owner, spider) <= 1)
 		playsound(owner, 'sound/effects/magic/demon_attack1.ogg', 50)
 		owner.visible_message(span_warning("[owner] is torn apart by invisible teeth!"), span_userdanger("Ghostly teeth tear your body apart!"))
-		owner.take_bodypart_damage(rand(20, 50), wound_bonus=CANT_WOUND)
+		owner.take_bodypart_damage(rand(20, 50), wound_bonus = CANT_WOUND)
 	else if(SPT_PROB(30, seconds_per_tick))
 		spider.forceMove(get_step_towards(spider, owner))
 	if(get_dist(owner, spider) <= 8)
@@ -56,7 +57,7 @@
 		if(close_spider)
 			owner.stop_sound_channel(CHANNEL_HEARTBEAT)
 			close_spider = FALSE
-	..()
+	return ..()
 
 // the Image holder, which in this case is just a spider icon - it isn't real and cant hurt you (or can it)
 /obj/effect/client_image_holder/spider_phantom
