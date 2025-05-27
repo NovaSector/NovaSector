@@ -20,7 +20,7 @@
 	if(!istype(clothing))
 		to_chat(user, span_warning("The spray only works on clothing!"))
 		return ITEM_INTERACT_BLOCKING
-	if(clothing.resistance_flags == FIRE_PROOF) // checks if the item already has the flag so you can't waste the spray
+	if(clothing.resistance_flags & FIRE_PROOF) // checks if the item already has the flag so you can't waste the spray
 		to_chat(user, span_warning("[clothing] is already fireproof, you don't want to waste the spray!"))
 		return ITEM_INTERACT_BLOCKING
 	if(clothing.get_armor_rating(BULLET) > 1 || clothing.get_armor_rating(ENERGY) > 1) //checks for armour so you can't fireproof armour and sidestep blue xenobio potions
