@@ -1,11 +1,23 @@
 ///this could cause serious trouble if this thing ever got station side, thankfully i dont think we have anybody psychotic or stupid enough to try something like that.
 /mob/living/basic/mining/legion/houndoftindalos
+	name = "Hound of Tindalos"
+	desc = "It looks vaguely like a dog- if said was put through a wood chipper then what was left was made into fine strands and then re-assembled in the vague shape of the dog while having the color of a rainbow."
+	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
+	icon_state = "legion" ///these are just placeholder sprites until i can get a real sprite made or ported from CDDA
+	icon_living = "legion"
+	icon_dead = "legion"
+	icon_gib = "syndicate_gib"
+	basic_mob_flags = DEL_ON_DEATH
 	speed = 6
 	maxHealth = 45
 	health = 45
 	obj_damage = 50
 	melee_damage_lower = 50
 	melee_damage_upper = 50
+	faction = list(FACTION_NETHER)
 	attack_verb_continuous = "lashes out at"
 	attack_verb_simple = "lash out at"
 	damage_coeff = list(BRUTE = 50, BURN = 95, TOX = 95, STAMINA = 95, OXY = 95)
+	death_message = "Contorts for a moment before folding in on itself- letting something else come out in the process."
+	var/brood_type = /mob/living/basic/space_fauna/netherworld/creature
+	var/corpse_type = /code/modules/mob/living/basic/space_fauna/netherworld/migo
