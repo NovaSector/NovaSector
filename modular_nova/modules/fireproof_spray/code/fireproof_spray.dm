@@ -38,4 +38,4 @@
 	if(uses > 0)
 		. += span_notice("It has [(uses)] use\s left.")
 	else
-		. += "It is empty."
+		. += span_warning("It is empty.")
