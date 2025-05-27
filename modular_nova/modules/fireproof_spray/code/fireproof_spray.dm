@@ -6,6 +6,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
 	icon_state = "fireproof_spray"
 	resistance_flags = FIRE_PROOF
+	/// the number of uses left in the spray
 	var/uses = 2
 
 /obj/item/fireproof_spray/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
