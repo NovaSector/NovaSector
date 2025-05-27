@@ -19,5 +19,5 @@
 	attack_verb_simple = "lash out at"
 	damage_coeff = list(BRUTE = 50, BURN = 95, TOX = 95, STAMINA = 95, OXY = 95)
 	death_message = "Contorts for a moment before folding in on itself- letting something else come out in the process."
-	brood_type = /mob/living/basic/space_fauna/netherworld/creature
-	corpse_type = /code/modules/mob/living/basic/space_fauna/netherworld/migo
+	brood_type = novasector/code/mob/living/basic/space_fauna/netherworld/creature
+	corpse_type = novasector/code/mob/living/basic/space_fauna/netherworld/migo
