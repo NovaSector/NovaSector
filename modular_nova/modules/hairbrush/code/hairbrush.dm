@@ -41,7 +41,7 @@
 				brush_target = "head"
 			else
 				brush_target = "hair"
-		if(location == BODY_ZONE_PRECISE_MOUTH)
+		else if(location == BODY_ZONE_PRECISE_MOUTH)
 			if(human_target.is_mouth_covered())
 				to_chat(user, span_warning("You can't brush [human_target]'s facial hair while [human_target.p_their()] mouth is covered!"))
 				return
