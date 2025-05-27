@@ -7,6 +7,7 @@
 	starting_programs = list(
 		/datum/computer_file/program/crew_self_serve,
 	)
+	big_hands_exception = TRUE // This console should always be accessable to players
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/modular_computer/preset/time_clock, 28)
 
