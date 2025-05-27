@@ -31,7 +31,7 @@
 	clothing.name = "fireproofed [initial(clothing.name)]"
 	clothing.resistance_flags |= FIRE_PROOF
 	uses --
-	return ITEM_INTERACT_BLOCKING
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/fireproof_spray/examine(mob/user) //shows uses back to the user when examined
 	. = ..()
