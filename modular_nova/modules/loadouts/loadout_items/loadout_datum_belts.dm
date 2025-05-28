@@ -24,6 +24,19 @@
 *	ITEMS BELOW HERE
 */
 
+/datum/loadout_item/belts/thigh_satchel
+	name = "Thigh Satchel"
+	item_path = /obj/item/storage/belt/thigh_satchel
+
+/datum/loadout_item/belts/lantern
+	name = "Lantern"
+	item_path = /obj/item/flashlight/lantern
+
+/datum/loadout_item/belts/candle_box
+	name = "Candle Box"
+	item_path = /obj/item/storage/fancy/candle_box
+
+// FANNYPACKS
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Fannypack (Black)"
 	item_path = /obj/item/storage/belt/fannypack/black
@@ -68,45 +81,34 @@
 	name = "Fannypack (White)"
 	item_path = /obj/item/storage/belt/fannypack/white
 
-/datum/loadout_item/belts/thigh_satchel
-	name = "Thigh Satchel"
-	item_path = /obj/item/storage/belt/thigh_satchel
-
-/datum/loadout_item/belts/lantern
-	name = "Lantern"
-	item_path = /obj/item/flashlight/lantern
-
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box
-
 // HOLSTERS
-
 /datum/loadout_item/belts/holster_shoulders
 	name = "Holster (Shoulder)"
 	item_path = /obj/item/storage/belt/holster
 
 /datum/loadout_item/belts/holster_cowboy
-	name = "Holster (Thigh)"
+	name = "Holster (Thigh, Colorable)"
 	item_path = /obj/item/storage/belt/holster/thigh
 
-// RIGS/WEBBING (for military larpers)
-
+// CHEST RIGS/WEBBING
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "Chest Rig - CIN Surplus (Standard)"
+	name = "Chest Rig - CIN Surplus (Colorable)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
 	name = "Chest Rig - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
 	name = "Chest Rig - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
 	name = "Chest Rig - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/expeditionary_chestrig_belt
 	name = "Chest Rig - Expeditionary Corps"
@@ -115,4 +117,3 @@
 /datum/loadout_item/belts/frontier_chestrig
 	name = "Chest Rig - Frontier"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
-

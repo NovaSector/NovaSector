@@ -60,7 +60,7 @@
 	item_path = /obj/item/toy/plush/shark
 
 /datum/loadout_item/toys/plush/lizard_greyscale
-	name = "Greyscale Lizard Plushie"
+	name = "Lizard Plushie (Colorable)"
 	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
 
 /datum/loadout_item/toys/plush/moth
@@ -216,7 +216,7 @@
 	item_path = /obj/item/toy/plush/nova/donator/seaduplush
 
 /datum/loadout_item/toys/plush/lizzyplush
-	name = "Odd Yoga lizzy Plushie"
+	name = "Odd Yoga Lizzy Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/lizzyplush
 
 /datum/loadout_item/toys/plush/mechanic_fox
@@ -312,19 +312,19 @@
 	item_path = /obj/item/storage/card_binder
 
 /datum/loadout_item/toys/card_deck
-	name = "Playing Card Deck"
+	name = "Card Deck - Standard"
 	item_path = /obj/item/toy/cards/deck
 
 /datum/loadout_item/toys/kotahi_deck
-	name = "Kotahi Deck"
+	name = "Card Deck - Kotahi"
 	item_path = /obj/item/toy/cards/deck/kotahi
 
 /datum/loadout_item/toys/wizoff_deck
-	name = "Wizoff Deck"
+	name = "Card Deck - Wizoff"
 	item_path = /obj/item/toy/cards/deck/wizoff
 
 /datum/loadout_item/toys/tarot
-	name = "Tarot Card Deck"
+	name = "Card Deck - Tarot"
 	item_path = /obj/item/toy/cards/deck/tarot
 
 /*
@@ -453,19 +453,19 @@
 	item_path = /obj/item/toy/katana
 
 /datum/loadout_item/toys/red_laser
-	name = "Red Laser Pointer"
+	name = "Laser Pointer (Red)"
 	item_path = /obj/item/laser_pointer/limited/red
 
 /datum/loadout_item/toys/green_laser
-	name = "Green Laser Pointer"
+	name = "Laser Pointer (Green)"
 	item_path = /obj/item/laser_pointer/limited/green
 
 /datum/loadout_item/toys/blue_laser
-	name = "Blue Laser Pointer"
+	name = "Laser Pointer (Blue)"
 	item_path = /obj/item/laser_pointer/limited/blue
 
 /datum/loadout_item/toys/purple_laser
-	name = "Purple Laser Pointer"
+	name = "Laser Pointer (Purple)"
 	item_path = /obj/item/laser_pointer/limited/purple
 
 /datum/loadout_item/toys/dog_bone

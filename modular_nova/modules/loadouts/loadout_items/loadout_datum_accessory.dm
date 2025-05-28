@@ -31,7 +31,7 @@
 	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
 
 /datum/loadout_item/accessory/chaps
-	name = "Chaps"
+	name = "Chaps (Colorable)"
 	item_path = /obj/item/clothing/accessory/chaps
 
 /datum/loadout_item/accessory/colonial_webbing
