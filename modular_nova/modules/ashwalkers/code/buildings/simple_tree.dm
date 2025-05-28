@@ -473,7 +473,7 @@
 			grafted_reagents.Add(adding_reagent)
 
 /// adjusts the trees health, clamped from 0 to the max health; if 0, will qdel the tree
-/obj/structure/simple_tree/proc/adjust_health(var/damage_number)
+/obj/structure/simple_tree/proc/adjust_health(damage_number)
 	tree_current_health = clamp(tree_current_health + damage_number, 0, tree_max_health)
 	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
 	if(tree_current_health == 0)
