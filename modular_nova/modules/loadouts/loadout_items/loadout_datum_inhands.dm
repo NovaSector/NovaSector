@@ -26,32 +26,24 @@
 	name = "Cane"
 	item_path = /obj/item/cane
 
+/datum/loadout_item/inhand/cane/white
+	name = "Cane - White"
+	item_path = /obj/item/cane/white
+
 /datum/loadout_item/inhand/cane/crutch
 	name = "Crutch"
 	item_path = /obj/item/cane/crutch
 
-/datum/loadout_item/inhand/cane/white
-	name = "White Cane"
-	item_path = /obj/item/cane/white
-
-/datum/loadout_item/inhand/briefcase
-	name = "Briefcase"
-	item_path = /obj/item/storage/briefcase
-
-/datum/loadout_item/inhand/briefcase_secure
-	name = "Secure Briefcase"
-	item_path = /obj/item/storage/briefcase/secure
-
 /datum/loadout_item/inhand/guncase_large
-	name = "Black Empty Gun Case (Large)"
+	name = "Empty Gun Case (Black, Large)"
 	item_path = /obj/item/storage/toolbox/guncase/nova/empty
 
 /datum/loadout_item/inhand/guncase_large/yellow
-	name = "Yellow Empty Gun Case (Large)"
+	name = "Empty Gun Case (Yellow, Large)"
 	item_path = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 
 /datum/loadout_item/inhand/guncase_small
-	name = "Black Empty Gun Case (Small)"
+	name = "Empty Gun Case (Black, Small)"
 	item_path = /obj/item/storage/toolbox/guncase/nova/pistol/empty
 
 /datum/loadout_item/inhand/skub
@@ -68,63 +60,63 @@
 	blacklisted_roles = list(JOB_PRISONER)
 
 /datum/loadout_item/inhand/bouquet_mixed
-	name = "Mixed Bouquet"
+	name = "Bouquet - Mixed"
 	item_path = /obj/item/bouquet
 
 /datum/loadout_item/inhand/bouquet_sunflower
-	name = "Sunflower Bouquet"
+	name = "Bouquet - Sunflower"
 	item_path = /obj/item/bouquet/sunflower
 
 /datum/loadout_item/inhand/bouquet_poppy
-	name = "Poppy Bouquet"
+	name = "Bouquet - Poppy"
 	item_path = /obj/item/bouquet/poppy
 
 /datum/loadout_item/inhand/bouquet_rose
-	name = "Rose Bouquet"
+	name = "Bouquet - Rose"
 	item_path = /obj/item/bouquet/rose
 
 /datum/loadout_item/inhand/flag_nt
-	name = "Folded Nanotrasen Flag"
+	name = "Flag - Nanotrasen"
 	item_path = /obj/item/sign/flag/nanotrasen
 
 /datum/loadout_item/inhand/flag_agurk
-	name = "Folded Kingdom Of Agurkrral Flag"
+	name = "Flag - Kingdom Of Agurkrral"
 	item_path = /obj/item/sign/flag/ssc
 
 /datum/loadout_item/inhand/flag_solfed
-	name = "Folded Sol Federation Flag"
+	name = "Flag - Sol Federation"
 	item_path = /obj/item/sign/flag/terragov
 
 /datum/loadout_item/inhand/flag_moghes
-	name = "Folded Republic Of Northern Moghes Flag"
+	name = "Flag - Republic Of Northern Moghes"
 	item_path = /obj/item/sign/flag/tizira
 
 /datum/loadout_item/inhand/flag_mothic
-	name = "Folded Grand Nomad Fleet Flag"
+	name = "Flag - Grand Nomad Fleet"
 	item_path = /obj/item/sign/flag/mothic
 
 /datum/loadout_item/inhand/flag_teshari
-	name = "Folded Teshari League For Self-Determination Flag"
+	name = "Flag - Teshari League For Self-Determination"
 	item_path = /obj/item/sign/flag/mars
 
 /datum/loadout_item/inhand/flag_nri
-	name = "Folded Novaya Rossiyskaya Imperiya Flag"
+	name = "Flag - Novaya Rossiyskaya Imperiya"
 	item_path = /obj/item/sign/flag/nri
 
 /datum/loadout_item/inhand/flag_azulea
-	name = "Folded Azulea Flag"
+	name = "Flag - Azulea"
 	item_path = /obj/item/sign/flag/azulea
 
 /datum/loadout_item/inhand/saddlebags
-	name = "saddlebags"
+	name = "Saddlebags"
 	item_path = /obj/item/storage/backpack/saddlebags
 
 /datum/loadout_item/inhand/saddle // these should be in the other category but apparantly those are "pocket" loadout items so idk?
-	name = "riding saddle (leather)"
+	name = "Riding Saddle (leather)"
 	item_path = /obj/item/riding_saddle/leather
 
 /datum/loadout_item/inhand/saddle_blue
-	name = "riding saddle (blue)"
+	name = "Riding Saddle (blue)"
 	item_path = /obj/item/riding_saddle/leather/blue
 
 /datum/loadout_item/inhand/pet
@@ -143,46 +135,55 @@ SPECIES RESTRICTED
 	name = "Envirosuit Kit: Orange"
 	item_path = /obj/item/storage/box/envirosuit
 	restricted_species = list(SPECIES_PLASMAMAN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_black
 	name = "Envirosuit Kit: Black"
 	item_path = /obj/item/storage/box/envirosuit/black
 	restricted_species = list(SPECIES_PLASMAMAN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_white
 	name = "Envirosuit Kit: White"
 	item_path = /obj/item/storage/box/envirosuit/white
 	restricted_species = list(SPECIES_PLASMAMAN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_khaki
 	name = "Envirosuit Kit: Khaki"
 	item_path = /obj/item/storage/box/envirosuit/khaki
 	restricted_species = list(SPECIES_PLASMAMAN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_slacks
 	name = "Envirosuit Kit: Formal Enviroslacks"
 	item_path = /obj/item/storage/box/envirosuit/slacks
 	restricted_species = list(SPECIES_PLASMAMAN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_prototype
 	name = "Envirosuit Kit: Protoype"
 	item_path = /obj/item/storage/box/envirosuit/prototype
 	restricted_species = list(SPECIES_PLASMAMAN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_security
 	name = "Alternate Envirosuit Kit: Security Officer"
 	item_path = /obj/item/storage/box/envirosuit/security
 	restricted_species = list(SPECIES_PLASMAMAN)
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_security_warden
 	name = "Alternate Envirosuit Kit: Warden"
 	item_path = /obj/item/storage/box/envirosuit/security_warden
 	restricted_species = list(SPECIES_PLASMAMAN)
 	restricted_roles = list(JOB_WARDEN)
+	group = "Species-Restricted"
 
 /datum/loadout_item/inhand/envirokit_head_of_security
 	name = "Alternate Envirosuit Kit: Head of Security"
 	item_path = /obj/item/storage/box/envirosuit/security_hos
 	restricted_species = list(SPECIES_PLASMAMAN)
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
+	group = "Species-Restricted"
