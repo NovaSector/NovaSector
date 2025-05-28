@@ -460,8 +460,7 @@
 
 	fertilizer_amount = 0
 	tree_stage = clamp(tree_stage + 1, TREE_STAGE_ONE, TREE_STAGE_THREE)
-	update_icon_state()
-	update_appearance(UPDATE_OVERLAYS)
+	update_appearance(UPDATE_ICON)
 	tree_current_health = tree_max_health
 	playsound(src, SFX_TREE_CHOP, 50, vary = FALSE)
 
