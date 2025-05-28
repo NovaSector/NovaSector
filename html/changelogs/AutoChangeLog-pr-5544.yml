@@ -1,7 +1,0 @@
-author: "Hardly"
-delete-after: True
-changes:
-  - rscadd: "Added beard and tail brushing interaction for the hairbrush"
-  - bugfix: "Fixed hairbrush's left handed inhand sprites"
-  - refactor: "Refactored hairbrushing code"
-  - sound: "Added brushing sounds"

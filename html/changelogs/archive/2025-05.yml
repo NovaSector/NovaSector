@@ -763,3 +763,18 @@
   - image: Added 'six nips' chest sprite accessory
   - image: Added 'claw tips' sprite accessory for the legs
   - image: Added 'upper limb' and 'lower limb' sprite accessory for limbs
+2025-05-28:
+  Hardly:
+  - rscadd: Added beard and tail brushing interaction for the hairbrush
+  - bugfix: Fixed hairbrush's left handed inhand sprites
+  - refactor: Refactored hairbrushing code
+  - sound: Added brushing sounds
+  Jedi-Toothpaste:
+  - rscadd: 'New Item: Fireproof spray! Check your local import section for more...'
+  carpotoxin:
+  - bugfix: You can clock out of work even when wearing insulated gloves or having
+      the big hands quirk
+  step1123:
+  - rscadd: New torso augment to augments+ in character editor
+  - bugfix: fixed said torso sprite so that it can be used with regular hands(It used
+      to have a gap of air)
