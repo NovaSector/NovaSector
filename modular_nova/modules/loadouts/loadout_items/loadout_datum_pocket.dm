@@ -14,69 +14,20 @@
 *	ITEMS BELOW HERE
 */
 
-/*
-*	GUM
-*/
-
-/datum/loadout_item/pocket_items/gum_pack
-	name = "Pack of Gum"
-	item_path = /obj/item/storage/box/gum
-
-/datum/loadout_item/pocket_items/gum_pack_nicotine
-	name = "Pack of Nicotine Gum"
-	item_path = /obj/item/storage/box/gum/nicotine
-
-/datum/loadout_item/pocket_items/gum_pack_hp
-	name = "Pack of HP+ Gum"
-	item_path = /obj/item/storage/box/gum/happiness
-
-/*
-*	LIPSTICK
-*/
-
-/datum/loadout_item/pocket_items/lipstick_green
-	name = "Green Lipstick"
-	item_path = /obj/item/lipstick/green
-
-/datum/loadout_item/pocket_items/lipstick_white
-	name = "White Lipstick"
-	item_path = /obj/item/lipstick/white
-
-/datum/loadout_item/pocket_items/lipstick_blue
-	name = "Blue Lipstick"
-	item_path = /obj/item/lipstick/blue
-
-/datum/loadout_item/pocket_items/lipstick_black
-	name = "Black Lipstick"
-	item_path = /obj/item/lipstick/black
-
-/datum/loadout_item/pocket_items/lipstick_jade
-	name = "Jade Lipstick"
-	item_path = /obj/item/lipstick/jade
-
-/datum/loadout_item/pocket_items/lipstick_purple
-	name = "Purple Lipstick"
-	item_path = /obj/item/lipstick/purple
-
-/*
-*	MISC
-*/
-
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
 	item_path = /obj/item/rag
-
-/datum/loadout_item/pocket_items/razor
-	name = "Razor"
-	item_path = /obj/item/razor
 
 /datum/loadout_item/pocket_items/matches
 	name = "Matchbox"
 	item_path = /obj/item/storage/box/matches
 
 /datum/loadout_item/pocket_items/cheaplighter
-	name = "Cheap Lighter"
+	name = "Lighter - Cheap"
 	item_path = /obj/item/lighter/greyscale
+
+/datum/loadout_item/pocket_items/lighter
+	name = "Lighter - Zippo" //TG overwrite of name to sort
 
 /datum/loadout_item/pocket_items/ttsdevice
 	name = "Text-to-Speech Device"
@@ -99,11 +50,11 @@
 	item_path = /obj/item/cigarette/cigar
 
 /datum/loadout_item/pocket_items/multipen
-	name = "Multicolored Pen"
+	name = "Pen - Multicolored"
 	item_path = /obj/item/pen/fourcolor
 
 /datum/loadout_item/pocket_items/fountainpen
-	name = "Fancy Pen"
+	name = "Pen - Fancy"
 	item_path = /obj/item/pen/fountain
 
 /datum/loadout_item/pocket_items/modular_laptop
@@ -111,15 +62,15 @@
 	item_path = /obj/item/modular_computer/laptop/preset/civilian/closed
 
 /datum/loadout_item/pocket_items/ringbox_gold
-	name = "Gold Ring Box"
+	name = "Ring Box - Gold"
 	item_path = /obj/item/storage/fancy/ringbox
 
 /datum/loadout_item/pocket_items/ringbox_silver
-	name = "Silver Ring Box"
+	name = "Ring Box - Silver"
 	item_path = /obj/item/storage/fancy/ringbox/silver
 
 /datum/loadout_item/pocket_items/ringbox_diamond
-	name = "Diamond Ring Box"
+	name = "Ring Box - Diamond"
 	item_path = /obj/item/storage/fancy/ringbox/diamond
 
 /datum/loadout_item/pocket_items/tapeplayer
@@ -127,16 +78,12 @@
 	item_path = /obj/item/taperecorder
 
 /datum/loadout_item/pocket_items/tape
-	name = "Spare Cassette Tape"
+	name = "Universal Recorder Tape"
 	item_path = /obj/item/tape/random
 
 /datum/loadout_item/pocket_items/newspaper
 	name = "Newspaper"
 	item_path = /obj/item/newspaper
-
-/datum/loadout_item/pocket_items/hhmirror
-	name = "Handheld Mirror"
-	item_path = /obj/item/hhmirror
 
 /datum/loadout_item/pocket_items/cross
 	name = "Ornate Cross"
@@ -145,18 +92,137 @@
 /datum/loadout_item/pocket_items/folder
 	name = "Folder"
 	item_path = /obj/item/folder
+/*
+*	GUM
+*/
+
+/datum/loadout_item/pocket_items/gum_pack
+	name = "Pack of Gum"
+	item_path = /obj/item/storage/box/gum
+
+/datum/loadout_item/pocket_items/gum_pack_nicotine
+	name = "Pack of Nicotine Gum"
+	item_path = /obj/item/storage/box/gum/nicotine
+
+/datum/loadout_item/pocket_items/gum_pack_hp
+	name = "Pack of HP+ Gum"
+	item_path = /obj/item/storage/box/gum/happiness
 
 /*
-*	UTILITY
+*	COSMETICS
 */
+
+/datum/loadout_item/pocket_items/razor
+	name = "Razor"
+	item_path = /obj/item/razor
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/hhmirror
+	name = "Handheld Mirror"
+	item_path = /obj/item/hhmirror
+	group = "Cosmetics"
 
 /datum/loadout_item/pocket_items/hairbrush
 	name = "Hairbrush"
 	item_path = /obj/item/hairbrush
+	group = "Cosmetics"
 
 /datum/loadout_item/pocket_items/comb
 	name = "Comb"
 	item_path = /obj/item/hairbrush/comb
+	group = "Cosmetics"
+
+// LIPSTICK
+/datum/loadout_item/pocket_items/dye
+	group = "Cosmetics" //TG overwrite to add group
+
+/datum/loadout_item/pocket_items/lipstick
+	group = "Cosmetics" //TG overwrite to add group
+
+/datum/loadout_item/pocket_items/lipstick_green
+	name = "Lipstick (Green)"
+	item_path = /obj/item/lipstick/green
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/lipstick_white
+	name = "Lipstick (White)"
+	item_path = /obj/item/lipstick/white
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/lipstick_blue
+	name = "Lipstick (Blue)"
+	item_path = /obj/item/lipstick/blue
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/lipstick_black
+	name = "Lipstick (Black)"
+	item_path = /obj/item/lipstick/black
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/lipstick_jade
+	name = "Lipstick (Jade)"
+	item_path = /obj/item/lipstick/jade
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/lipstick_purple
+	name = "Lipstick (Purple)"
+	item_path = /obj/item/lipstick/purple
+	group = "Cosmetics"
+
+// FRAGRANCES
+/datum/loadout_item/pocket_items/fragrance_cologne
+	name = "Cologne Bottle"
+	item_path = /obj/item/perfume/cologne
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_wood
+	name = "Perfume - Wood"
+	item_path = /obj/item/perfume/wood
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_rose
+	name = "Perfume - Rose"
+	item_path = /obj/item/perfume/rose
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_jasmine
+	name = "Perfume - Jasmine"
+	item_path = /obj/item/perfume/jasmine
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_mint
+	name = "Perfume - Mint"
+	item_path = /obj/item/perfume/mint
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_vanilla
+	name = "Perfume - Vanilla"
+	item_path = /obj/item/perfume/vanilla
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_pear
+	name = "Perfume - Pear"
+	item_path = /obj/item/perfume/pear
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_strawberry
+	name = "Perfume - Strawberry"
+	item_path = /obj/item/perfume/strawberry
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_cherry
+	name = "Perfume - Cherry"
+	item_path = /obj/item/perfume/cherry
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/fragrance_amber
+	name = "Perfume - Amber"
+	item_path = /obj/item/perfume/amber
+	group = "Cosmetics"
+
+/*
+*	UTILITY
+*/
 
 /datum/loadout_item/pocket_items/moth_mre
 	name = "Mothic Rations Pack"
@@ -207,11 +273,11 @@
 	item_path = /obj/item/storage/box/ingredients/wildcard
 
 /datum/loadout_item/pocket_items/six_beer
-	name = "Beer Six-Pack"
+	name = "Six-Pack - Beer"
 	item_path = /obj/item/storage/cans/sixbeer
 
 /datum/loadout_item/pocket_items/six_soda
-	name = "Soda Six-Pack"
+	name = "Six-Pack - Soda"
 	item_path = /obj/item/storage/cans/sixsoda
 
 /datum/loadout_item/pocket_items/power_cell
@@ -231,68 +297,24 @@
 	item_path = /obj/item/binoculars
 
 /datum/loadout_item/pocket_items/drugs_happy
-	name = "Happy Pills"
+	name = "Pills - Happy"
 	item_path = /obj/item/storage/pill_bottle/happy
 
 /datum/loadout_item/pocket_items/drugs_lsd
-	name = "Mindbreaker Pills"
+	name = "Pills - Mindbreaker"
 	item_path = /obj/item/storage/pill_bottle/lsd
 
 /datum/loadout_item/pocket_items/drugs_weed
-	name = "Cannabis Seeds"
+	name = "Seeds - Cannabis"
 	item_path = /obj/item/seeds/cannabis
 
 /datum/loadout_item/pocket_items/drugs_reishi
-	name = "Reishi Seeds"
+	name = "Seeds - Reishi"
 	item_path = /obj/item/seeds/reishi
 
 /datum/loadout_item/pocket_items/drugs_liberty
-	name = "Liberty Cap Seeds"
+	name = "Seeds - Liberty Cap"
 	item_path = /obj/item/seeds/liberty
-
-/*
-*	FRAGRANCES
-*/
-
-/datum/loadout_item/pocket_items/fragrance_cologne
-	name = "Cologne Bottle"
-	item_path = /obj/item/perfume/cologne
-
-/datum/loadout_item/pocket_items/fragrance_wood
-	name = "Wood Perfume"
-	item_path = /obj/item/perfume/wood
-
-/datum/loadout_item/pocket_items/fragrance_rose
-	name = "Rose Perfume"
-	item_path = /obj/item/perfume/rose
-
-/datum/loadout_item/pocket_items/fragrance_jasmine
-	name = "Jasmine Perfume"
-	item_path = /obj/item/perfume/jasmine
-
-/datum/loadout_item/pocket_items/fragrance_mint
-	name = "Mint Perfume"
-	item_path = /obj/item/perfume/mint
-
-/datum/loadout_item/pocket_items/fragrance_vanilla
-	name = "Vanilla Perfume"
-	item_path = /obj/item/perfume/vanilla
-
-/datum/loadout_item/pocket_items/fragrance_pear
-	name = "Pear Perfume"
-	item_path = /obj/item/perfume/pear
-
-/datum/loadout_item/pocket_items/fragrance_strawberry
-	name = "Strawberry Perfume"
-	item_path = /obj/item/perfume/strawberry
-
-/datum/loadout_item/pocket_items/fragrance_cherry
-	name = "Cherry Perfume"
-	item_path = /obj/item/perfume/cherry
-
-/datum/loadout_item/pocket_items/fragrance_amber
-	name = "Amber Perfume"
-	item_path = /obj/item/perfume/amber
 
 /*
 JOB SPECIFIC MISCELLANY
