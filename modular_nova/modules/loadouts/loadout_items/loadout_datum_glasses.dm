@@ -42,16 +42,16 @@
 	item_path = /obj/item/clothing/glasses/regular/modern
 
 /datum/loadout_item/glasses/kim
-	name = "Glasses - Binoclard" //TG name overwrite to sort
+	name = "Glasses - Binoclard" //TG overwrite of name to sort
 
 /datum/loadout_item/glasses/circle_glasses
-	name = "Glasses - Circle" //TG name overwrite to sort
+	name = "Glasses - Circle" //TG overwrite of name to sort
 
 /datum/loadout_item/glasses/hipster_glasses
-	name = "Glasses - Hipster" //TG name overwrite to sort
+	name = "Glasses - Hipster" //TG overwrite of name to sort
 
 /datum/loadout_item/glasses/jamjar_glasses
-	name = "Glasses - Jamjar" //TG name overwrite to sort
+	name = "Glasses - Jamjar" //TG overwrite of name to sort
 /*
 *	COSMETIC GLASSES
 */
