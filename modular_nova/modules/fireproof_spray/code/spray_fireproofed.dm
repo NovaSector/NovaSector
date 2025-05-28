@@ -86,9 +86,8 @@
 		return
 
 	// Reset the cooling down period with each fire_act() if we're not cooled down yet.
-	if(cooling_down)
-		if(!COOLDOWN_FINISHED(src, cool_off_cd))
-			COOLDOWN_START(src, cool_off_cd, cooling_off_time)
+	if(cooling_down && !COOLDOWN_FINISHED(src, cool_off_cd))
+		COOLDOWN_START(src, cool_off_cd, cooling_off_time)
 
 /// When the fire immunity reaches its limit
 /datum/component/spray_fireproofed/proc/end_fire_immunity()
