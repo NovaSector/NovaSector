@@ -10344,10 +10344,6 @@
 /obj/machinery/light/floor,
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
-"NH" = (
-/obj/machinery/camera/xray/directional/north,
-/turf/open/lava/smooth/basketball,
-/area/awaymission/caves/maintsroom)
 "NI" = (
 /obj/structure/trash_pile,
 /obj/structure/disposalpipe/segment{
@@ -18179,7 +18175,7 @@ jf
 jf
 jf
 jf
-NH
+ov
 ov
 ov
 ov
@@ -20786,7 +20782,7 @@ jf
 wQ
 wQ
 wQ
-uG
+SF
 uG
 uG
 uG
