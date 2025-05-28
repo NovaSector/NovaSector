@@ -1,4 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - qol: "renamed the hospital gown to surgical gown, and added an examine-tag: as a 'Surgical' item, it does not block surgery on covered bodyparts!"

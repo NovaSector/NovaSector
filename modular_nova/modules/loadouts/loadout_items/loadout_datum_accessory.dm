@@ -21,11 +21,6 @@
 	else
 		outfit.accessory = item_path
 
-
-/datum/loadout_item/accessory/ribbon
-	name = "Ribbon"
-	item_path = /obj/item/clothing/accessory/medal/ribbon
-
 /datum/loadout_item/accessory/wetmaker
 	name = "Stardress hydro-vaporizer"
 	item_path = /obj/item/clothing/accessory/vaporizer
@@ -123,182 +118,164 @@
 * Accessory Medals
 *
 */
-/datum/loadout_item/accessory/sheart1
-	name = "Special Heart Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/specheart/arrow_ribbon
+/datum/loadout_item/accessory/medal
+	abstract_type = /datum/loadout_item/accessory/medal
+	group = "Medals"
 
-/datum/loadout_item/accessory/sheart2
-	name = "Special Heart Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/specheart/hollow_ribbon
+/datum/loadout_item/accessory/medal/shield
+	name = "Medal - Shield"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield
 
-/datum/loadout_item/accessory/sheart3
-	name = "Special Heart Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/specheart/bars_ribbon
+/datum/loadout_item/accessory/medal/shield_br
+	name = "Medal - Shield (Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield/bar_ribbon
 
-/datum/loadout_item/accessory/heart1
-	name = "Heart Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/regheart/arrow_ribbon
+/datum/loadout_item/accessory/medal/shield_h
+	name = "Medal - Shield (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/shield/hollow
 
-/datum/loadout_item/accessory/heart2
-	name = "Heart Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/regheart/hollow_ribbon
+/datum/loadout_item/accessory/medal/bar
+	name = "Medal - Bar"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar
 
-/datum/loadout_item/accessory/heart3
-	name = "Heart Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/regheart/bars_ribbon
+/datum/loadout_item/accessory/medal/bar_br
+	name = "Medal - Bar (Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/bar_ribbon
 
-/datum/loadout_item/accessory/hshield1
-	name = "Hollow Shield Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowshield/arrow_ribbon
+/datum/loadout_item/accessory/medal/bar_h
+	name = "Medal - Bar (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/bar/hollow
 
-/datum/loadout_item/accessory/hshield2
-	name = "Hollow Shield Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowshield/hollow_ribbon
+/datum/loadout_item/accessory/medal/circle
+	name = "Medal - Circle"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle
 
-/datum/loadout_item/accessory/hshield3
-	name = "Hollow Shield Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/hollowshield/bars_ribbon
+/datum/loadout_item/accessory/medal/circle_br
+	name = "Medal - Circle (Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bar_ribbon
 
-/datum/loadout_item/accessory/bbar1
-	name = "Blank Bar Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bbar/arrow_ribbon
+/datum/loadout_item/accessory/medal/circle_alt
+	name = "Medal - Circle (Alt)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal
+	//This is actually the default setup for our medals!
 
-/datum/loadout_item/accessory/bbar2
-	name = "Blank Bar Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bbar/hollow_ribbon
+/datum/loadout_item/accessory/medal/circle_h
+	name = "Medal - Circle (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow
 
-/datum/loadout_item/accessory/bbar3
-	name = "Blank Bar Medal (Bar)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/bbar/bars_ribbon
+/datum/loadout_item/accessory/medal/circle_h_br
+	name = "Medal - Circle (Hollow, Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bar_ribbon
 
-/datum/loadout_item/accessory/crown1
-	name = "Crown Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/arrow_ribbon
+/datum/loadout_item/accessory/medal/heart
+	name = "Medal - Heart"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart
 
-/datum/loadout_item/accessory/crown2
-	name = "Crown Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow_ribbon
+/datum/loadout_item/accessory/medal/heart_br
+	name = "Medal - Heart (Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/bar_ribbon
 
-/datum/loadout_item/accessory/crown3
-	name = "Crown Medal (Bar)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/bars_ribbon
+/datum/loadout_item/accessory/medal/heart_s
+	name = "Medal - Heart (Special)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/special
 
-/datum/loadout_item/accessory/hcrown1
-	name = "Hollow Crown Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/arrow_ribbon
+/datum/loadout_item/accessory/medal/heart_s_br
+	name = "Medal - Heart (Special, Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/heart/special/bar_ribbon
 
-/datum/loadout_item/accessory/hcrown2
-	name = "Hollow Crown Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/hollow_ribbon
+/datum/loadout_item/accessory/medal/crown
+	name = "Medal - Crown"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown
 
-/datum/loadout_item/accessory/hcrown3
-	name = "Hollow Crown Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bars_ribbon
+/datum/loadout_item/accessory/medal/crown_br
+	name = "Medal - Crown (Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/bar_ribbon
 
-/datum/loadout_item/accessory/hcircle1
-	name = "Hollow Circle Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/arrow_ribbon
+/datum/loadout_item/accessory/medal/crown_h
+	name = "Medal - Crown (Hollow)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow
 
-/datum/loadout_item/accessory/hcircle2
-	name = "Hollow Circle Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/hollow_ribbon
+/datum/loadout_item/accessory/medal/crown_h_br
+	name = "Medal - Crown (Hollow, Bar-Ribbon)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/crown/hollow/bar_ribbon
 
-/datum/loadout_item/accessory/hcircle3
-	name = "Hollow Circle Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow/bars_ribbon
-
-/datum/loadout_item/accessory/circle1
-	name = "Circle Medal (Arrow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/arrow_ribbon
-
-/datum/loadout_item/accessory/circle2
-	name = "Circle Medal (Hollow)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/hollow_ribbon
-
-/datum/loadout_item/accessory/circle3
-	name = "Circle Medal (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/circle/bars_ribbon
-
-/datum/loadout_item/accessory/glowneck1
+/datum/loadout_item/accessory/medal/glow_bar
 	name = "Glowbar necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowbar
 
-/datum/loadout_item/accessory/glowneck2
+/datum/loadout_item/accessory/medal/glow_crystal
 	name = "Glowcrystal necklace"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/glowcrystal
 
-/datum/loadout_item/accessory/rankpin1
+/datum/loadout_item/accessory/medal/rankpin_star
 	name = "Rankpin (Star)"
 	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin
 
-/datum/loadout_item/accessory/rankpin2
+/datum/loadout_item/accessory/medal/rankpin_bar
 	name = "Rankpin (Bar)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt1
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/bar
 
-/datum/loadout_item/accessory/rankpin3
-	name = "Rankpin (Bars)"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/rankpinalt2
+/datum/loadout_item/accessory/medal/rankpin_twobar
+	name = "Rankpin (Double Bars)"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/rankpin/two_bar
 
 /*
-*
 * Special Pins
-*
 */
 
-/datum/loadout_item/accessory/ccpin
-	name = "Centcom Neckpin"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins/centcom
+/datum/loadout_item/accessory/medal/cc_pin
+	name = "Neckpin - CentCom"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/centcom
 	restricted_roles = list(JOB_NT_REP, JOB_CAPTAIN, JOB_BLUESHIELD)
 
-/datum/loadout_item/accessory/ntpin
-	name = "Nanotrasen Neckpin"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins
+/datum/loadout_item/accessory/medal/nt_pin
+	name = "Neckpin - Nanotrasen"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin
 
-/datum/loadout_item/accessory/porttarkon
-	name = "Port Tarkon Neckpin"
-	item_path = /obj/item/clothing/accessory/nova/acc_medal/specialpins/porttarkon
+/datum/loadout_item/accessory/medal/pt_pin
+	name = "Neckpin - Port Tarkon"
+	item_path = /obj/item/clothing/accessory/nova/acc_medal/neckpin/porttarkon
 
 /*
-*
 * Ribbons
-*
 */
-/datum/loadout_item/accessory/ribbon1
+
+/datum/loadout_item/accessory/medal/ribbon_mil
+	name = "Ribbon - Military (1 Color)"
+	item_path = /obj/item/clothing/accessory/nova/military_ribbon
+
+/datum/loadout_item/accessory/medal/ribbon_mil_2
+	name = "Ribbon - Military (2 Color)"
+	item_path = /obj/item/clothing/accessory/nova/military_ribbon/two
+
+/datum/loadout_item/accessory/medal/ribbon_mil_3
+	name = "Ribbon - Military (3 Color)"
+	item_path = /obj/item/clothing/accessory/nova/military_ribbon/three
+
+/datum/loadout_item/accessory/medal/ribbon
 	name = "Ribbon (Down Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon
 
-/datum/loadout_item/accessory/ribbon2
+/datum/loadout_item/accessory/medal/ribbon2
 	name = "Ribbon (Slash)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_slash
 
-/datum/loadout_item/accessory/ribbon3
+/datum/loadout_item/accessory/medal/ribbon3
 	name = "Ribbon (Up Arrow)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_arrup
 
-/datum/loadout_item/accessory/ribbon4
+/datum/loadout_item/accessory/medal/ribbon4
 	name = "Ribbon (Line)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_line
 
-/datum/loadout_item/accessory/ribbon5
+/datum/loadout_item/accessory/medal/ribbon5
 	name = "Ribbon (Dual)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_dual
 
-/datum/loadout_item/accessory/ribbon6
+/datum/loadout_item/accessory/medal/ribbon6
 	name = "Ribbon (Flat)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_flat
 
-/datum/loadout_item/accessory/ribbon7
+/datum/loadout_item/accessory/medal/ribbon7
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
-
-/datum/loadout_item/accessory/ribbonmilitary1
-	name = "Military Ribbon (1 Color)"
-	item_path = /obj/item/clothing/accessory/nova/military_ribbon
-
-/datum/loadout_item/accessory/ribbonmilitary1
-	name = "Military Ribbon (2 Color)"
-	item_path = /obj/item/clothing/accessory/nova/military_ribbon/alt1
-
-/datum/loadout_item/accessory/ribbonmilitary1
-	name = "Military Ribbon (3 Color)"
-	item_path = /obj/item/clothing/accessory/nova/military_ribbon/alt2

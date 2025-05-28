@@ -281,6 +281,17 @@
 
 /datum/techweb_node/chem_synthesis/New()
 	design_ids += list(
+		"hypokit",
+		"hypomkii",
+		"large_hypovial",
+		"medipen_atropine",
+		"medipen_epinephrine",
+		"medipen_oxandrolone",
+		"medipen_penacid",
+		"medipen_salacid",
+		"medipen_salbutamol",
+		"medipen_universal",
+		"medipen_universal_lowpressure",
 		"plumbing_eng",
 	)
 	return ..()
