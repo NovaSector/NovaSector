@@ -24,9 +24,8 @@
 		stack_trace("Tried to add /datum/component/spray_firepoofed to an item ([clothing_parent.type]) that was already fireproof!")
 		return COMPONENT_INCOMPATIBLE
 
-	if(fire_immunity_time == -1) // permanent
+	if(immunity_time == -1) // permanent
 		add_fireproofing()
-		UnregisterFromParent(redundant = TRUE)
 		return COMPONENT_REDUNDANT
 
 	fire_immunity_time = immunity_time
@@ -47,15 +46,12 @@
 
 	add_fireproofing()
 
-/datum/component/spray_fireproofed/UnregisterFromParent(redundant)
+/datum/component/spray_fireproofed/UnregisterFromParent()
 	UnregisterSignal(parent, list(
 		COMSIG_ATOM_PRE_FIRE_ACT,
 		COMSIG_ATOM_EXAMINE,
 	))
-	var/obj/item/clothing/clothing_parent = parent
-	if(!redundant && !QDELETED(clothing_parent))
-		clothing_parent.resistance_flags &= ~FIRE_PROOF
-		clothing_parent.name = replacetext(clothing_parent.name, "fireproofed ", "")
+	remove_fireproofing()
 
 // Keep check if the cooling down period has stopped, so we aren't reliant on fire_act() doing that for us.
 /datum/component/spray_fireproofed/process(seconds_per_tick)
@@ -65,10 +61,18 @@
 	cooling_down = FALSE
 	STOP_PROCESSING(SSburning, src)
 
+/// Makes the item fireproof
 /datum/component/spray_fireproofed/proc/add_fireproofing()
 	var/obj/item/clothing/clothing_parent = parent
 	clothing_parent.resistance_flags |= FIRE_PROOF
 	clothing_parent.name = "fireproofed " + clothing_parent.name
+
+/// Un-makes the item fireproof
+/datum/component/spray_fireproofed/proc/add_fireproofing()
+	var/obj/item/clothing/clothing_parent = parent
+	if(!QDELETED(clothing_parent))
+		clothing_parent.resistance_flags &= ~FIRE_PROOF
+		clothing_parent.name = replacetext(clothing_parent.name, "fireproofed ", "")
 
 /// Alerts any examiners that the parent is fireproofed
 /datum/component/spray_fireproofed/proc/on_examine(atom/source, mob/user, list/examine_list)
