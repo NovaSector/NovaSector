@@ -35,7 +35,7 @@
 	if(!QDELETED(parent))
 		var/obj/item/clothing/clothing_parent = parent
 		var/mob/parent_loc = clothing_parent.loc
-		if(istype(parent_loc))
+		if(!force && istype(parent_loc))
 			parent_loc.balloon_alert(parent_loc, "fireproof spray wears off of [parent]!")
 	deltimer(fire_immunity_timer)
 	return ..()
