@@ -375,7 +375,7 @@
 	update_appearance(UPDATE_OVERLAYS)
 
 /// applying fertilizer to the tree; who did it, with what, how long, how much use, how much give, and whether you've forced it (bypasses the usage)
-/obj/structure/simple_tree/proc/do_fertilizer(mob/user, obj/item/tool, var/use_time = 2 SECONDS, var/use_amount = 1, var/given_amount = 1, var/forced_fertilizer = FALSE)
+/obj/structure/simple_tree/proc/do_fertilizer(mob/user, obj/item/tool, use_time = 2 SECONDS, use_amount = 1, given_amount = 1, forced_fertilizer = FALSE)
 	playsound(src, 'sound/effects/shovel_dig.ogg', 50, TRUE)
 	if(!forced_fertilizer)
 		if(!tool.use(use_amount))
