@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - bugfix: "You can clock out of work even when wearing insulated gloves or having the big hands quirk"
