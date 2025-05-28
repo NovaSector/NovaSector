@@ -1,8 +1,5 @@
-/*
-*	LOADOUT ITEM DATUMS FOR THE ACCESSORY SLOT
-*/
+// LOADOUT ITEM DATUMS FOR THE ACCESSORY SLOT
 
-/// Accessory Items (Moves overrided items to backpack)
 /datum/loadout_category/accessories
 	category_ui_icon = FA_ICON_ID_BADGE
 	tab_order = /datum/loadout_category/undersuit::tab_order + 1
@@ -21,6 +18,10 @@
 	else
 		outfit.accessory = item_path
 
+/*
+*	ITEMS BELOW HERE
+*/
+
 /datum/loadout_item/accessory/wetmaker
 	name = "Stardress hydro-vaporizer"
 	item_path = /obj/item/clothing/accessory/vaporizer
@@ -32,6 +33,10 @@
 /datum/loadout_item/accessory/chaps
 	name = "Chaps"
 	item_path = /obj/item/clothing/accessory/chaps
+
+/datum/loadout_item/accessory/colonial_webbing
+	name = "Slim Colonial Webbing"
+	item_path = /obj/item/clothing/accessory/colonial_webbing
 
 /*
 *	ARMBANDS

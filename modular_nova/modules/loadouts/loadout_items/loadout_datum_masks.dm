@@ -1,12 +1,11 @@
+// LOADOUT ITEM DATUMS FOR THE MASK SLOT
+
 /datum/loadout_category/face
 	category_name = "Face"
 	category_ui_icon = FA_ICON_MASK
 	type_to_generate = /datum/loadout_item/mask
 	tab_order = /datum/loadout_category/glasses::tab_order + 1
 
-/*
-*	LOADOUT ITEM DATUMS FOR THE MASK SLOT
-*/
 /datum/loadout_item/mask
 	abstract_type = /datum/loadout_item/mask
 
@@ -22,6 +21,10 @@
 		outfit.mask = item_path
 	else
 		outfit.mask = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
 *	BANDANAS

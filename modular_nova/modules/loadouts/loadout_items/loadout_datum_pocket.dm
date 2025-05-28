@@ -1,3 +1,5 @@
+// LOADOUT ITEM DATUMS FOR THE POCKET SLOTS
+
 /datum/loadout_category/pocket
 	tab_order = /datum/loadout_category/toys::tab_order + 1
 
@@ -7,6 +9,10 @@
 /datum/loadout_item/pocket_items/wallet/get_item_information()
 	. = ..()
 	.[FA_ICON_BOX] = "Auto-Filled"
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
 *	GUM

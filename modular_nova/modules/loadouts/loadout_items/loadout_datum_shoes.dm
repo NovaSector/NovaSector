@@ -1,9 +1,8 @@
+// LOADOUT ITEM DATUMS FOR THE SHOES SLOT
+
 /datum/loadout_category/shoes
 	tab_order = /datum/loadout_category/hands::tab_order + 1
 
-/*
-*	LOADOUT ITEM DATUMS FOR THE SHOE SLOT
-*/
 /datum/loadout_item/shoes
 	abstract_type = /datum/loadout_item/shoes
 
@@ -19,6 +18,10 @@
 		outfit.shoes = item_path
 	else
 		outfit.shoes = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
 *	JACKBOOTS

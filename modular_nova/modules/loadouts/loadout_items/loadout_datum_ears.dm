@@ -4,10 +4,6 @@
 	type_to_generate = /datum/loadout_item/ears
 	tab_order = /datum/loadout_category/face::tab_order + 1
 
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE EAR SLOT
-*/
 /datum/loadout_item/ears
 	abstract_type = /datum/loadout_item/ears
 
@@ -23,6 +19,10 @@
 		outfit.ears = item_path
 	else
 		outfit.ears = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /datum/loadout_item/ears/headphones
 	name = "Headphones"

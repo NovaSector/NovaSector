@@ -1,4 +1,4 @@
-// LOADOUT ITEM DATUMS FOR THE EYE SLOT
+// LOADOUT ITEM DATUMS FOR THE EYES SLOT
 
 /datum/loadout_item/glasses/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.glasses))
@@ -24,6 +24,10 @@
 		|| equipped_glasses.invis_view \
 		|| !isnull(equipped_glasses.color_cutoffs))
 		equipper.update_sight()
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
  *	PRESCRIPTION GLASSES

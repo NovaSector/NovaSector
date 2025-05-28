@@ -1,3 +1,5 @@
+// LOADOUT ITEM DATUMS FOR GOODIE ITEMS (PUT INTO THE BACKPACK)
+
 /datum/loadout_category/toys
 	category_name = "Toys"
 	category_ui_icon = FA_ICON_TROPHY
@@ -28,6 +30,10 @@
 
 /datum/loadout_item/toys
 	abstract_type = /datum/loadout_item/toys
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
 *	PLUSHIES

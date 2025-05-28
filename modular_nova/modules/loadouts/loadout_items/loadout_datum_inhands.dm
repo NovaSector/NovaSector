@@ -1,4 +1,5 @@
-// LOADOUT ITEM DATUMS FOR BOTH HAND SLOTS
+// LOADOUT ITEM DATUMS FOR BOTH IN-HANDS SLOTS
+
 /datum/loadout_category/inhands
 	tab_order = /datum/loadout_category/shoes::tab_order + 1
 
@@ -16,6 +17,10 @@
 		if(outfit.l_hand)
 			LAZYADD(outfit.backpack_contents, outfit.l_hand)
 		outfit.l_hand = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /datum/loadout_item/inhand/cane
 	name = "Cane"

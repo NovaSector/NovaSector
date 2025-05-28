@@ -1,4 +1,5 @@
 // LOADOUT ITEM DATUMS FOR THE NECK SLOT
+
 /datum/loadout_category/neck
 	tab_order = /datum/loadout_category/ears::tab_order + 1
 
@@ -15,6 +16,9 @@
 	else
 		outfit.neck = item_path
 
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
 *	SCARVES

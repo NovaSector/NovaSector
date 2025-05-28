@@ -1,6 +1,4 @@
-/*
-*	LOADOUT ITEM DATUMS FOR THE HAND SLOT
-*/
+// LOADOUT ITEM DATUMS FOR THE HANDS SLOT
 
 /datum/loadout_category/hands
 	category_name = "Hands"
@@ -23,6 +21,10 @@
 		outfit.gloves = item_path
 	else
 		outfit.gloves = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /datum/loadout_item/gloves/fingerless
 	name = "Fingerless Gloves"

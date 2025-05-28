@@ -1,13 +1,11 @@
+// LOADOUT ITEM DATUMS FOR THE BELT SLOT
+
 /datum/loadout_category/belt
 	category_name = "Belt"
 	category_ui_icon = FA_ICON_SCREWDRIVER_WRENCH
 	type_to_generate = /datum/loadout_item/belts
 	tab_order = /datum/loadout_category/accessories::tab_order + 1
 
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE BELT SLOT
-*/
 /datum/loadout_item/belts
 	abstract_type = /datum/loadout_item/belts
 
@@ -21,6 +19,10 @@
 			LAZYADD(outfit.backpack_contents, outfit.belt)
 
 	outfit.belt = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Black Fannypack"

@@ -14,6 +14,10 @@
 		outfit.head = item_path
 
 /*
+*	ITEMS BELOW HERE
+*/
+
+/*
 *	BEANIES
 */
 
