@@ -357,7 +357,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /// tapping the tree, to allow for drainage of sap; who, with what, tapping or untapping, how long, and if forced
-/obj/structure/simple_tree/proc/tap_tree(mob/user, obj/item/tool, var/tapping_direction = TRUE, var/use_time = 4 SECONDS, var/forced_tool = FALSE)
+/obj/structure/simple_tree/proc/tap_tree(mob/user, obj/item/tool, tapping_direction = TRUE, use_time = 4 SECONDS, forced_tool = FALSE)
 	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
 	if(!forced_tool)
 		to_chat(user, span_notice("You begin to use [tool] on [src]..."))
