@@ -467,7 +467,7 @@
 
 /// updates the reagents that will be inserted into the product
 /obj/structure/simple_tree/proc/update_graft_reagents()
-	grafted_reagents = list() // have to reset it first of course
+	grafted_reagents.Cut() // have to reset it first of course
 	for(var/obj/item/graft/grafted_item in graft_list)
 		for(var/adding_reagent in grafted_item.stored_seed.reagents_add)
 			grafted_reagents.Add(adding_reagent)
