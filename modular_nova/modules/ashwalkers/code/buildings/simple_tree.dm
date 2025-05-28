@@ -1,6 +1,6 @@
 /obj/item/graft
 	/// Reagent list of the grafted seed, associative list of reagent types to reagent rate (see /datum/plant_gene/reagent)
-	var/list/datum/reagent/reagents_add
+	var/list/reagents_add
 
 /obj/structure/flora/ash/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(src, /obj/structure/flora/ash/cacti))
@@ -213,10 +213,22 @@
 				. += span_notice("You can use a screwdriver to tap this tree.")
 
 /obj/structure/simple_tree/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(istype(tool, /obj/item/secateurs))
-		if(tree_stage < TREE_STAGE_THREE)
-			return ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/stack/worm_fertilizer))
+		do_fertilizer(user, tool)
+		return ITEM_INTERACT_SUCCESS
 
+	if(tool.tool_behaviour == TOOL_KNIFE)
+		attempt_honeycomb(user)
+		return ITEM_INTERACT_SUCCESS
+
+	if(tool.get_sharpness()) //doing this after the knife because assumedly, knives are sharp!
+		attempt_woodmaking(user)
+		return ITEM_INTERACT_SUCCESS
+
+	if(tree_stage < TREE_STAGE_THREE)
+		return ..()
+
+	if(istype(tool, /obj/item/secateurs))
 		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 10 SECONDS * skill_modifier, target = src))
 			to_chat(user, span_warning("You decide against removing the grafts!"))
@@ -233,9 +245,6 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/queen_bee))
-		if(tree_stage < TREE_STAGE_THREE)
-			return ITEM_INTERACT_BLOCKING
-
 		if(tree_bee)
 			to_chat(user, span_warning("There is already a queen bee!"))
 			return ITEM_INTERACT_BLOCKING
@@ -246,21 +255,7 @@
 		update_appearance(UPDATE_OVERLAYS)
 		return ITEM_INTERACT_SUCCESS
 
-	if(tool.tool_behaviour == TOOL_KNIFE)
-		if(tree_stage < TREE_STAGE_THREE)
-			return ITEM_INTERACT_BLOCKING
-
-		attempt_honeycomb(user)
-		return ITEM_INTERACT_SUCCESS
-
-	if(tool.get_sharpness()) //doing this after the knife because assumedly, knives are sharp!
-		attempt_woodmaking(user)
-		return ITEM_INTERACT_SUCCESS
-
 	if(is_reagent_container(tool))
-		if(tree_stage < TREE_STAGE_THREE)
-			return ITEM_INTERACT_BLOCKING
-
 		if(!COOLDOWN_FINISHED(src, sap_cooldown))
 			to_chat(user, span_warning("[src] has recently been tapped!"))
 			return ITEM_INTERACT_BLOCKING
@@ -276,14 +271,7 @@
 			to_chat(user, span_warning("[tool] is unable to be filled further!"))
 			return ITEM_INTERACT_BLOCKING
 
-	if(istype(tool, /obj/item/stack/worm_fertilizer))
-		do_fertilizer(user, tool)
-		return ITEM_INTERACT_SUCCESS
-
 	if(istype(tool, /obj/item/graft))
-		if(tree_stage < TREE_STAGE_THREE)
-			return ITEM_INTERACT_BLOCKING
-
 		var/obj/item/graft/tool_graft = tool
 		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
 		to_chat(user, span_notice("You begin to graft the [tool_graft.parent_name] graft onto [src]."))
@@ -387,8 +375,10 @@
 
 /// attempts to spawn a log, or damages it if it cannot
 /obj/structure/simple_tree/proc/attempt_woodmaking(mob/user)
-	if(!COOLDOWN_FINISHED(src, wood_cooldown))
+	if(!COOLDOWN_FINISHED(src, wood_cooldown) || tree_stage < TREE_STAGE_THREE)
 		adjust_health(-50)
+		to_chat(user, span_warning("You damage [src] trying to harvest something!"))
+		return
 
 	COOLDOWN_START(src, wood_cooldown, 1 MINUTES)
 	update_appearance(UPDATE_OVERLAYS)
@@ -404,6 +394,11 @@
 
 /// attempts to spawn a honeycomb
 /obj/structure/simple_tree/proc/attempt_honeycomb(mob/user)
+	if(tree_stage < TREE_STAGE_THREE)
+		adjust_health(-10)
+		to_chat(user, span_warning("You damage [src] trying to harvest something!"))
+		return
+
 	playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
 	if(!tree_bee || !COOLDOWN_FINISHED(src, honeycomb_cooldown))
 		to_chat(user, span_warning("There is nothing to harvest from [src]!"))
@@ -463,7 +458,7 @@
 /obj/structure/simple_tree/proc/update_graft_reagents()
 	grafted_reagents.Cut() // have to reset it first of course
 	for(var/obj/item/graft/grafted_item in graft_list)
-		for(var/adding_reagent in grafted_item.stored_seed.reagents_add)
+		for(var/adding_reagent in grafted_item.reagents_add)
 			grafted_reagents.Add(adding_reagent)
 
 /// adjusts the trees health, clamped from 0 to the max health; if 0, will qdel the tree
@@ -472,7 +467,6 @@
 	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
 	if(tree_current_health == 0)
 		new /obj/item/stack/sheet/mineral/wood(get_turf(src), tree_stage * 3)
-
 		qdel(src)
 
 #undef TREE_STAGE_ONE
