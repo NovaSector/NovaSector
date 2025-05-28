@@ -3,15 +3,15 @@
 	desc = "Spawns a random object, mob, or structure for the maintsrooms awaymission."
 	loot = list(
     	/turf/closed/wall/r_wall = 30,
-    	/turf/open/floor/white = 40,
-    	/obj/structure/table/reinforced = 20,
-    	/mob/living/basic/mining/legion/houndoftindalos = 0.2,
-    	/mob/living/basic/blankbody/shaggoth = 0.2,
-    	/obj/effect/spawner/random/environmentally_safe_anomaly/immobile = 2,
-    	/obj/effect/decal/remains/human = 1,
-    	/obj/effect/decal/remains/robot = 1,
-    	/obj/effect/decal/remains/xeno = 1,
-    	/obj/structure/fluff/clockwork/clockgolem_remains = 1,
+    	/turf/open/floor/white = 36,
+    	/obj/structure/table/reinforced = 22,
+    	/mob/living/basic/mining/legion/houndoftindalos = 2,
+    	/mob/living/basic/blankbody/shaggoth = 2,
+    	/obj/effect/spawner/random/environmentally_safe_anomaly/immobile = 3,
+    	/obj/effect/decal/remains/human = 0.5,
+    	/obj/effect/decal/remains/robot = 0.4,
+    	/obj/effect/decal/remains/xeno = 0.4,
+    	/obj/structure/fluff/clockwork/clockgolem_remains = 0.4,
     	/obj/item/stack/sheet/mineral/zaukerite = 0.1,
     	/obj/item/stack/sheet/mineral/uranium = 0.1,
     	/obj/item/stack/sheet/mineral/silver = 0.1,
@@ -41,5 +41,5 @@
     	/obj/item/grenade/gas_crystal/nitrous_oxide_crystal = 0.1,
     	/obj/item/grenade/gas_crystal/healium_crystal = 0.1,
     	/obj/item/grenade/gas_crystal/crystal_foam = 0.1,
-    	/obj/item/raw_anomaly_core/vortex = 0.5
+    	/obj/item/raw_anomaly_core/vortex = 0.3
 	)
