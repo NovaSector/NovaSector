@@ -1,10 +1,6 @@
 /obj/item/graft
-	/// a stored version of the seed
-	var/obj/item/seeds/stored_seed
-
-/obj/item/graft/Destroy()
-	QDEL_NULL(stored_seed)
-	return ..()
+	/// Reagent list of the grafted seed, associative list of reagent types to reagent rate (see /datum/plant_gene/reagent)
+	var/list/datum/reagent/reagents_add
 
 /obj/structure/flora/ash/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(src, /obj/structure/flora/ash/cacti))
