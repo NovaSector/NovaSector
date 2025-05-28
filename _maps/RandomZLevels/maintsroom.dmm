@@ -1390,6 +1390,12 @@
 	dir = 4
 	},
 /area/awaymission/caves/maintsroom)
+"fp" = (
+/obj/structure/barricade/sandbags,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
+/area/awaymission/caves/maintsroom)
 "fr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister,
@@ -4025,7 +4031,9 @@
 /area/awaymission/caves/maintsroom)
 "pa" = (
 /obj/effect/gibspawner/robot,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "pb" = (
 /obj/effect/rune/wall,
@@ -4197,7 +4205,9 @@
 /obj/structure/signpost/salvation{
 	name = "Mercy"
 	},
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "pK" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
@@ -4925,6 +4935,10 @@
 /obj/structure/broken_flooring/singular/directional/east,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"sS" = (
+/obj/effect/baseturf_helper/beach/black,
+/turf/open/floor/white,
+/area/awaymission/caves/maintsroom/deeper)
 "sT" = (
 /obj/effect/spawner/random/trash/graffiti,
 /turf/open/floor/plating,
@@ -5741,6 +5755,12 @@
 /obj/machinery/door/airlock/bathroom,
 /obj/effect/mapping_helpers/airlock/access/any/service/janitor,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"wc" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "wd" = (
 /obj/effect/turf_decal/weather/snow,
@@ -7608,7 +7628,9 @@
 /area/awaymission/caves/maintsroom)
 "Dq" = (
 /obj/effect/mob_spawn/corpse/human/wizard/black,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "Dr" = (
 /obj/item/restraints/handcuffs/clockwork,
@@ -8242,6 +8264,12 @@
 /obj/item/gun/ballistic/rifle/lionhunter/clockwork,
 /obj/effect/mob_spawn/corpse/human/clock_cultist/support,
 /turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
+"FK" = (
+/obj/effect/spawner/random/trash/graffiti,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "FL" = (
 /obj/structure/table,
@@ -10401,7 +10429,9 @@
 	id = "Horrificdescent.";
 	height = 2
 	},
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "NZ" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -11294,7 +11324,9 @@
 /area/awaymission/caves/maintsroom)
 "RG" = (
 /obj/effect/mapping_helpers/engraving,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "RH" = (
 /obj/effect/mapping_helpers/burnt_floor,
@@ -11684,6 +11716,14 @@
 /mob/living/basic/statue/mannequin/suspicious,
 /turf/open/floor/black,
 /area/awaymission/caves/maintsroom)
+"Tg" = (
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
+/turf/open/floor/engine{
+	slowdown = 2
+	},
+/area/awaymission/caves/maintsroom)
 "Th" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating,
@@ -12044,7 +12084,9 @@
 /area/awaymission/caves/maintsroom)
 "UC" = (
 /obj/effect/mob_spawn/corpse/human/clown,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "UD" = (
 /obj/machinery/light/directional/north,
@@ -12922,7 +12964,9 @@
 /area/awaymission/caves/maintsroom)
 "XT" = (
 /obj/effect/mob_spawn/corpse/human/skeleton,
-/turf/open/floor/iron/smooth,
+/turf/open/floor/engine{
+	slowdown = 2
+	},
 /area/awaymission/caves/maintsroom)
 "XU" = (
 /obj/effect/decal/cleanable/dirt,
@@ -44696,12 +44740,12 @@ AK
 jf
 pp
 xc
-pp
-pp
-pp
-va
-pp
-pp
+CE
+CE
+CE
+fp
+CE
+CE
 UC
 RG
 pp
@@ -44913,14 +44957,14 @@ AK
 jf
 va
 pp
-pp
-pp
+CE
+CE
 Dq
-pp
-Kt
-pp
-pp
-pp
+CE
+FK
+CE
+CE
+CE
 va
 jf
 AK
@@ -45130,14 +45174,14 @@ AK
 KY
 Jq
 va
-Kt
-pp
+FK
+CE
 pJ
-pp
-pp
+CE
+CE
 NY
-pp
-va
+CE
+fp
 Jq
 KY
 AK
@@ -45347,14 +45391,14 @@ AK
 jf
 Qg
 YH
-pp
-pp
-pp
-Kt
-pp
-pp
-pp
-YH
+CE
+CE
+CE
+FK
+CE
+CE
+CE
+Tg
 Pj
 jf
 AK
@@ -45564,14 +45608,14 @@ AK
 jf
 Kt
 pp
-pp
+CE
 pa
 XT
-Za
-pp
+wc
+CE
 RG
-pp
-Kt
+CE
+FK
 pp
 jf
 AK
@@ -49926,7 +49970,7 @@ wH
 "}
 (169,1,1) = {"
 wH
-AK
+sS
 AK
 AK
 AK
