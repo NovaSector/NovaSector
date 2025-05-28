@@ -600,7 +600,7 @@
 
 /datum/loadout_item/under/jumpsuit/bubbly_clown
 	name = "Bubbly Clown Dress"
-	item_path = /obj/item/clothing/under/bubbly_clown/skirt
+	item_path = /obj/item/clothing/under/bubbly_clown_skirt
 	restricted_roles = list(JOB_CLOWN)
 	ckeywhitelist = list("boisterousbeebz", "aether217")
 
@@ -1002,4 +1002,14 @@
 	name = "Xplore Go! Bag"
 	item_path = /obj/item/storage/backpack/merctac_backpack
 	ckeywhitelist = list("kaynite")
+
+/datum/loadout_item/suit/elysiancoat
+	name = "Bovinæ Overcoat"
+	item_path = /obj/item/clothing/suit/brownbattlecoat/elysiancoat
+	ckeywhitelist = list("courierasy")
+
+/datum/loadout_item/under/noble_enforcer
+	name = "Swashbuckler Suit"
+	item_path = /obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
+	ckeywhitelist = list("courierasy")
 
