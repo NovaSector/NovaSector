@@ -23,11 +23,11 @@
 */
 
 /datum/loadout_item/accessory/wetmaker
-	name = "Stardress hydro-vaporizer"
+	name = "Stardress Hydro-Vaporizer"
 	item_path = /obj/item/clothing/accessory/vaporizer
 
 /datum/loadout_item/accessory/maidcorset_tactical
-	name = "tactical maid apron"
+	name = "Maid Apron - Tactical"
 	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
 
 /datum/loadout_item/accessory/chaps
@@ -43,27 +43,31 @@
 */
 
 /datum/loadout_item/accessory/armband_medblue
-	name = "Blue-White Armband"
+	name = "Armband (Blue-White)"
 	item_path = /obj/item/clothing/accessory/armband/medblue/nonsec
 
 /datum/loadout_item/accessory/armband_med
-	name = "White Armband"
+	name = "Armband (White)"
 	item_path = /obj/item/clothing/accessory/armband/med/nonsec
 
 /datum/loadout_item/accessory/armband_cargo
-	name = "Brown Armband"
+	name = "Armband (Brown)"
 	item_path = /obj/item/clothing/accessory/armband/cargo/nonsec
 
 /datum/loadout_item/accessory/armband_engineering
-	name = "Orange Armband"
+	name = "Armband (Orange)"
 	item_path = /obj/item/clothing/accessory/armband/engine/nonsec
 
+/datum/loadout_item/accessory/armband_science
+	name = "Armband (Purple)"
+	item_path = /obj/item/clothing/accessory/armband/science/nonsec
+
 /datum/loadout_item/accessory/armband_security_nonsec
-	name = "Red Armband"
+	name = "Armband (Red)"
 	item_path = /obj/item/clothing/accessory/armband/nonsec
 
 /datum/loadout_item/accessory/armband_security
-	name = "Security Deputy Armband"
+	name = "Armband - Security Deputy"
 	item_path = /obj/item/clothing/accessory/armband/deputy
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
 
@@ -73,7 +77,7 @@
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/accessory/holobadge/blue
-	name = "Blue Holobadge"
+	name = "Holobadge (Blue)"
 	item_path = /obj/item/clothing/accessory/badge/holo/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
@@ -81,10 +85,6 @@
 	name = "Holobadge with Lanyard"
 	item_path = /obj/item/clothing/accessory/badge/holo/cord
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-
-/datum/loadout_item/accessory/armband_science
-	name = "Purple Armband"
-	item_path = /obj/item/clothing/accessory/armband/science/nonsec
 
 /datum/loadout_item/accessory/green_pin
 	name = "Green Pin"
