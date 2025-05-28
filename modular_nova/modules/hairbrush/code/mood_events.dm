@@ -4,7 +4,7 @@
 	timeout = 4 MINUTES
 
 /datum/mood_event/brushed/add_effects(mob/brusher, brush_target)
-	description = "[brusher? brusher.name : "I"] brushed my [brush_target] recently, that felt great!"
+	description = "[brusher == owner ? "I" : brusher.name] brushed my [brush_target] recently, that felt great!"
 
 /datum/mood_event/brushed/self
 	description = "I brushed myself recently!"
