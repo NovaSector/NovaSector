@@ -25,47 +25,47 @@
 */
 
 /datum/loadout_item/belts/fanny_pack_black
-	name = "Black Fannypack"
+	name = "Fannypack (Black)"
 	item_path = /obj/item/storage/belt/fannypack/black
 
 /datum/loadout_item/belts/fanny_pack_blue
-	name = "Blue Fannypack"
+	name = "Fannypack (Blue)"
 	item_path = /obj/item/storage/belt/fannypack/blue
 
 /datum/loadout_item/belts/fanny_pack_brown
-	name = "Brown Fannypack"
+	name = "Fannypack (Brown)"
 	item_path = /obj/item/storage/belt/fannypack
 
 /datum/loadout_item/belts/fanny_pack_cyan
-	name = "Cyan Fannypack"
+	name = "Fannypack (Cyan)"
 	item_path = /obj/item/storage/belt/fannypack/cyan
 
 /datum/loadout_item/belts/fanny_pack_green
-	name = "Green Fannypack"
+	name = "Fannypack (Green)"
 	item_path = /obj/item/storage/belt/fannypack/green
 
 /datum/loadout_item/belts/fanny_pack_orange
-	name = "Orange Fannypack"
+	name = "Fannypack (Orange)"
 	item_path = /obj/item/storage/belt/fannypack/orange
 
 /datum/loadout_item/belts/fanny_pack_pink
-	name = "Pink Fannypack"
+	name = "Fannypack (Pink)"
 	item_path = /obj/item/storage/belt/fannypack/pink
 
 /datum/loadout_item/belts/fanny_pack_purple
-	name = "Purple Fannypack"
+	name = "Fannypack (Purple)"
 	item_path = /obj/item/storage/belt/fannypack/purple
 
 /datum/loadout_item/belts/fanny_pack_red
-	name = "Red Fannypack"
+	name = "Fannypack (Red)"
 	item_path = /obj/item/storage/belt/fannypack/red
 
 /datum/loadout_item/belts/fanny_pack_yellow
-	name = "Yellow Fannypack"
+	name = "Fannypack (Yellow)"
 	item_path = /obj/item/storage/belt/fannypack/yellow
 
 /datum/loadout_item/belts/fanny_pack_white
-	name = "White Fannypack"
+	name = "Fannypack (White)"
 	item_path = /obj/item/storage/belt/fannypack/white
 
 /datum/loadout_item/belts/thigh_satchel
@@ -93,26 +93,26 @@
 // RIGS/WEBBING (for military larpers)
 
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "CIN Surplus Chest Rig (Standard)"
+	name = "Chest Rig - CIN Surplus (Standard)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "CIN Surplus Chest Rig (Desert)"
+	name = "Chest Rig - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "CIN Surplus Chest Rig (Forest)"
+	name = "Chest Rig - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "CIN Surplus Chest Rig (Marine)"
+	name = "Chest Rig - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
 
 /datum/loadout_item/belts/expeditionary_chestrig_belt
-	name = "Expeditionary Chest Rig/Webbing Belt"
+	name = "Chest Rig - Expeditionary Corps"
 	item_path = /obj/item/storage/belt/military/expeditionary_corps
 
 /datum/loadout_item/belts/frontier_chestrig
-	name = "Frontier Chest Rig"
+	name = "Chest Rig - Frontier"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
 
