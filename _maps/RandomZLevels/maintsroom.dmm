@@ -4937,6 +4937,7 @@
 /area/awaymission/caves/maintsroom)
 "sS" = (
 /obj/effect/baseturf_helper/beach/black,
+/obj/effect/spawner/random/maintsrooms,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "sT" = (
@@ -6775,6 +6776,7 @@
 /area/awaymission/caves/maintsroom)
 "Ao" = (
 /obj/effect/decal/remains/human,
+/obj/effect/spawner/random/maintsrooms,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "Ap" = (
@@ -6891,6 +6893,7 @@
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "AK" = (
+/obj/effect/spawner/random/maintsrooms,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "AL" = (
@@ -9263,6 +9266,7 @@
 /area/awaymission/caves/maintsroom)
 "JQ" = (
 /obj/effect/decal/remains/robot,
+/obj/effect/spawner/random/maintsrooms,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "JS" = (
@@ -10385,6 +10389,7 @@
 /area/awaymission/caves/maintsroom)
 "NO" = (
 /obj/effect/decal/remains/xeno,
+/obj/effect/spawner/random/maintsrooms,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "NQ" = (
@@ -12003,6 +12008,7 @@
 /area/awaymission/caves/maintsroom)
 "Uo" = (
 /obj/effect/decal/remains/xeno/larva,
+/obj/effect/spawner/random/maintsrooms,
 /turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "Up" = (
