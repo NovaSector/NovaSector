@@ -6,6 +6,6 @@
         /turf/open/floor/white = 60,
         /obj/structure/table/reinforced = 10,
         /mob/living/basic/mining/legion/houndoftindalos = 5,
-        shaggoth = 5,
+        /mob/living/basic/blankbody/shaggoth = 5,
         /obj/effect/spawner/random/environmentally_safe_anomaly/immobile = 10,
     )
