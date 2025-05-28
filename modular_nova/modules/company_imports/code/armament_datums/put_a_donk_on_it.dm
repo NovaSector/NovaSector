@@ -36,11 +36,15 @@
 	item_type = /obj/item/storage/box/donkpockets/donkpocketteriyaki
 
 /datum/armament_entry/company_import/donk/pet_food
-	subcategory = "Pet Food"
+	subcategory = "Pet Treats"
 	cost = PAYCHECK_CREW * 2
 
 /datum/armament_entry/company_import/donk/pet_food/void
 	item_type = /obj/item/pet_food/pet_space_treat
+
+/datum/armament_entry/company_import/donk/pet_food/lazarus_injector
+	item_type = /obj/item/lazarus_injector
+	cost = PAYCHECK_CREW * 10
 
 // Random donk toy items, fake jumpsuits, balloons, so on
 
