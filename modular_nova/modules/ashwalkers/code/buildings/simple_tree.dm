@@ -404,8 +404,7 @@
 
 	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
 	user.mind?.adjust_experience(/datum/skill/primitive, 10)
-	var/obj/item/stack/sheet/mineral/wood/spawned_wood = new /obj/item/stack/sheet/mineral/wood(get_turf(user))
-	spawned_wood.amount = 4
+	new /obj/item/stack/sheet/mineral/wood(get_turf(user), 4)
 
 /// attempts to spawn a honeycomb
 /obj/structure/simple_tree/proc/attempt_honeycomb(mob/user)
