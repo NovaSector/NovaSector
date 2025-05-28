@@ -193,7 +193,7 @@
 			if(COOLDOWN_FINISHED(src, wood_cooldown))
 				. += span_notice("There are some branches that look ready to cut down with something sharp.")
 
-			if(!length(graft_list) >= 1)
+			if(length(graft_list) < 3)
 				. += span_notice("You are able to graft samples of other plants to this tree.")
 
 			for(var/obj/item/graft/grafted_items in graft_list)
