@@ -8103,6 +8103,7 @@
 /obj/machinery/conveyor/auto/hardened{
 	dir = 4
 	},
+/obj/machinery/scanner_gate/luxury_shuttle,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Fh" = (
@@ -10420,6 +10421,7 @@
 /obj/machinery/conveyor/auto/hardened{
 	dir = 8
 	},
+/obj/machinery/scanner_gate/luxury_shuttle,
 /turf/open/floor/sepia{
 	slowdown = 10
 	},
