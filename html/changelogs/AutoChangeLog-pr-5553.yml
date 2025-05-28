@@ -1,0 +1,5 @@
+author: "step1123"
+delete-after: True
+changes:
+  - rscadd: "New torso augment to augments+ in character editor"
+  - bugfix: "fixed said torso sprite so that it can be used with regular hands(It used to have a gap of air)"
