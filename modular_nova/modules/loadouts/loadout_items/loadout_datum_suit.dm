@@ -543,9 +543,9 @@
 /*
 *	HOODIES
 */
+
 /datum/loadout_item/suit/hoodie
 	abstract_type = /datum/loadout_item/suit/hoodie
-
 
 /datum/loadout_item/suit/hoodie/greyscale
 	name = "Greyscale Hoodie"

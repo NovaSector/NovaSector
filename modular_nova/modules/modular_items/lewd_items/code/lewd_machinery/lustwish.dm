@@ -89,8 +89,8 @@
 				/obj/item/stack/shibari_rope/glow/full = 10,
 
 				//clothing facial/head
-				/obj/item/clothing/mask/ballgag = 8,
-				/obj/item/clothing/mask/ballgag/choking = 8,
+				/obj/item/clothing/mask/muzzle/ballgag = 8,
+				/obj/item/clothing/mask/muzzle/ballgag/choking = 8,
 				/obj/item/clothing/mask/muzzle/ring = 4,
 				/obj/item/clothing/head/deprivation_helmet = 5,
 				/obj/item/clothing/glasses/blindfold/dorms = 5,
