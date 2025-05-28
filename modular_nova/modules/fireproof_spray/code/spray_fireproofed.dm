@@ -68,7 +68,7 @@
 	clothing_parent.name = "fireproofed " + clothing_parent.name
 
 /// Un-makes the item fireproof
-/datum/component/spray_fireproofed/proc/add_fireproofing()
+/datum/component/spray_fireproofed/proc/remove_fireproofing()
 	var/obj/item/clothing/clothing_parent = parent
 	if(!QDELETED(clothing_parent))
 		clothing_parent.resistance_flags &= ~FIRE_PROOF
