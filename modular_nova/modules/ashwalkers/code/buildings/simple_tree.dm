@@ -477,8 +477,8 @@
 	tree_current_health = clamp(tree_current_health + damage_number, 0, tree_max_health)
 	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
 	if(tree_current_health == 0)
-		var/obj/item/stack/sheet/mineral/wood/spawned_wood = new /obj/item/stack/sheet/mineral/wood(get_turf(src))
-		spawned_wood.amount = tree_stage * 3
+		new /obj/item/stack/sheet/mineral/wood(get_turf(src), tree_stage * 3)
+
 		qdel(src)
 
 #undef TREE_STAGE_ONE
