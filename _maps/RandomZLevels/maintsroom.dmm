@@ -3254,7 +3254,7 @@
 /area/awaymission/caves/maintsroom)
 "mj" = (
 /obj/item/paper{
-	default_raw_text = "Jim Norton's Quebecois Coffee.         You see, in 2265 the Quebecois had finally had enough of Canada's shit, and went to the one place that wasn't corrupted by Canuckistan.Je vais au seul endroit qui n'a pas ??? corrompu par les Canadiens ... ESPACE.";
+	default_raw_text = "The fallowing area has xenomorphs in it- do NOT under ANY circumstances break those turrets- otherwise, the xenomorphs inside COULD GET OUT";
 	name = "Xenomorph Warning";
 	pixel_x = -4;
 	pixel_y = 6
@@ -10237,7 +10237,6 @@
 	name = "Anti cheese window"
 	},
 /obj/machinery/light/floor,
-/obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
 /obj/machinery/conveyor/auto/hardened{
 	dir = 8
 	},
