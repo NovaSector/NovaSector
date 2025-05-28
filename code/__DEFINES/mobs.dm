@@ -442,7 +442,7 @@
 #define OFFSET_HAIR "hair" // NOVA EDIT - addition - Akulas
 
 //MINOR TWEAKS/MISC
-#define AGE_MIN	18 //youngest a character can be //NOVA EDIT CHANGE - ORIGINAL: #define AGE_MIN 17 //youngest a character can be
+#define AGE_MIN 18 //youngest a character can be
 #define AGE_MAX 100 //oldest a character can be //NOVA EDIT CHANGE - Increase max character age to 100 - ORIGINAL: #define AGE_MAX 85 //oldest a character can be
 #define AGE_CHRONO_MAX 400 //NOVA EDIT ADDITION - Chronological age
 #define AGE_MINOR 20 //legal age of space drinking and smoking
@@ -1043,3 +1043,11 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 /// Distance which you can see someone's ID card
 /// Short enough that you can inspect over tables (bartender checking age)
 #define ID_EXAMINE_DISTANCE 3
+
+GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
+	/datum/pet_command/idle,
+	/datum/pet_command/free,
+	/datum/pet_command/protect_owner,
+	/datum/pet_command/follow,
+	/datum/pet_command/attack/mouse
+))
