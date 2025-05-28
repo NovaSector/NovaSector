@@ -5,7 +5,7 @@
 /datum/component/spray_fireproofed
 	// How much fire protection we have left before we wear off.
 	var/spray_health = 1000
-	/// The amount of time the item can be in fire safely
+	/// The amount of time the item can be in fire safely. -1 makes it permanent.
 	var/fire_immunity_time
 	/// The time it takes for the item to 'cool off' aka be able to grant fire resistance again
 	var/cooling_off_time
@@ -24,6 +24,11 @@
 		stack_trace("Tried to add /datum/component/spray_firepoofed to an item ([clothing_parent.type]) that was already fireproof!")
 		return COMPONENT_INCOMPATIBLE
 
+	if(fire_immunity_time == -1) // permanent
+		add_fireproofing()
+		UnregisterFromParent(redundant = TRUE)
+		return COMPONENT_REDUNDANT
+
 	fire_immunity_time = immunity_time
 	cooling_off_time = cooloff_time
 
@@ -40,17 +45,15 @@
 	RegisterSignal(parent, COMSIG_ATOM_PRE_FIRE_ACT, PROC_REF(on_pre_fire_act))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
-	var/obj/item/clothing/clothing_parent = parent
-	clothing_parent.resistance_flags |= FIRE_PROOF
-	clothing_parent.name = "fireproofed " + clothing_parent.name
+	add_fireproofing()
 
-/datum/component/spray_fireproofed/UnregisterFromParent()
+/datum/component/spray_fireproofed/UnregisterFromParent(redundant)
 	UnregisterSignal(parent, list(
 		COMSIG_ATOM_PRE_FIRE_ACT,
 		COMSIG_ATOM_EXAMINE,
 	))
 	var/obj/item/clothing/clothing_parent = parent
-	if(!QDELETED(clothing_parent))
+	if(!redundant && !QDELETED(clothing_parent))
 		clothing_parent.resistance_flags &= ~FIRE_PROOF
 		clothing_parent.name = replacetext(clothing_parent.name, "fireproofed ", "")
 
@@ -61,6 +64,11 @@
 
 	cooling_down = FALSE
 	STOP_PROCESSING(SSburning, src)
+
+/datum/component/spray_fireproofed/proc/add_fireproofing()
+	var/obj/item/clothing/clothing_parent = parent
+	clothing_parent.resistance_flags |= FIRE_PROOF
+	clothing_parent.name = "fireproofed " + clothing_parent.name
 
 /// Alerts any examiners that the parent is fireproofed
 /datum/component/spray_fireproofed/proc/on_examine(atom/source, mob/user, list/examine_list)

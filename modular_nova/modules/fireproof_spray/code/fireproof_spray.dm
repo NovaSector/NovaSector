@@ -28,7 +28,7 @@
 		return ITEM_INTERACT_BLOCKING
 	to_chat(user, span_notice("You spray all over [clothing], ensuring it won't burn too much."))
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
-	clothing.AddComponent(/datum/component/spray_fireproofed)
+	clothing.AddComponent(/datum/component/spray_fireproofed, immunity_time = HAS_TRAIT_FROM(clothing, TRAIT_ITEM_OBJECTIVE_BLOCKED, "Loadout") ? -1 : 60 SECONDS) // loadout items get permanent immunity
 	uses --
 	return ITEM_INTERACT_SUCCESS
 
