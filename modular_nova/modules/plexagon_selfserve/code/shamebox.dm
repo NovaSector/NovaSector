@@ -77,3 +77,6 @@
 	usr.visible_message(span_notice("[usr] activates the lockbox mechanism, releasing its contents before vanishing in a puff of bluespace smoke!"))
 	associated_card = null
 	qdel(src)
+
+/obj/item/storage/lockbox/timeclock/toggle_locked(mob/living/user)
+	return
