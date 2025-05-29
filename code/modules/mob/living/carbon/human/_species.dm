@@ -540,9 +540,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
-	update_body_markings(species_human)
-	*/
-//NOVA EDIT REMOVAL END
+	*/ // NOVA EDIT REMOVAL END
 
 //This exists so sprite accessories can still be per-layer without having to include that layer's
 //number in their sprite name, which causes issues when those numbers change.
@@ -629,7 +627,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// Anything that's small or smaller can fit into a pocket by default
 		if((slot & (ITEM_SLOT_RPOCKET|ITEM_SLOT_LPOCKET)) && I.w_class <= POCKET_WEIGHT_CLASS)
 			excused = TRUE
-		else if(slot & (ITEM_SLOT_SUITSTORE|ITEM_SLOT_BACKPACK|ITEM_SLOT_BELTPACK|ITEM_SLOT_HANDS))
+		else if(slot & (ITEM_SLOT_SUITSTORE|ITEM_SLOT_HANDS))
 			excused = TRUE
 		if(!excused)
 			return FALSE
@@ -666,16 +664,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
-
 			if(!H.w_uniform && !HAS_TRAIT(H, TRAIT_NO_JUMPSUIT) && (!O || IS_ORGANIC_LIMB(O)))
 				if(!disable_warning)
 					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(ITEM_SLOT_BELTPACK)
-			if(H.belt && H.belt.atom_storage?.can_insert(I, H, messages = TRUE, force = indirect_action ? STORAGE_SOFT_LOCKED : STORAGE_NOT_LOCKED))
-				return TRUE
-			return FALSE
 		if(ITEM_SLOT_EYES)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
@@ -756,11 +749,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(H.num_legs < 2)
 				return FALSE
 			return TRUE
-		if(ITEM_SLOT_BACKPACK)
-			if(H.back && H.back.atom_storage?.can_insert(I, H, messages = TRUE, force = indirect_action ? STORAGE_SOFT_LOCKED : STORAGE_NOT_LOCKED))
-				return TRUE
-			return FALSE
-
 	return FALSE //Unsupported slot
 
 /datum/species/proc/equip_delay_self_check(obj/item/I, mob/living/carbon/human/H, bypass_equip_delay_self)
@@ -2110,27 +2098,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/add_body_markings(mob/living/carbon/human/hooman)
 	for(var/markings_type in body_markings) //loop through possible species markings
 		var/datum/bodypart_overlay/simple/body_marking/markings = new markings_type() // made to die... mostly because we cant use initial on lists but its convenient and organized
-		var/accessory_name = hooman.dna.features[markings.dna_feature_key] //get the accessory name from dna
-		var/datum/sprite_accessory/moth_markings/accessory = markings.get_accessory(accessory_name) //get the actual datum
-
-		if(isnull(accessory))
-			CRASH("Value: [accessory_name] did not have a corresponding sprite accessory!")
-
+		var/accessory_name = hooman.dna.features[markings.dna_feature_key] || body_markings[markings_type] //get the accessory name from dna
 		for(var/obj/item/bodypart/part as anything in markings.applies_to) //check through our limbs
 			var/obj/item/bodypart/people_part = hooman.get_bodypart(initial(part.body_zone)) // and see if we have a compatible marking for that limb
-
-			if(!people_part)
+			if(isnull(people_part))
 				continue
 
-			var/datum/bodypart_overlay/simple/body_marking/overlay = new markings_type ()
-
-			// Tell the overlay what it should look like
-			overlay.icon = accessory.icon
-			overlay.icon_state = accessory.icon_state
-			overlay.use_gender = accessory.gender_specific
-			overlay.draw_color = accessory.color_src ? hooman.dna.features["mcolor"] : null
-
+			var/datum/bodypart_overlay/simple/body_marking/overlay = new markings_type()
+			overlay.set_appearance(accessory_name, hooman.dna.features["mcolor"])
 			people_part.add_bodypart_overlay(overlay)
+
+		qdel(markings)
 
 /// Remove body markings
 /datum/species/proc/remove_body_markings(mob/living/carbon/human/hooman)
@@ -2138,19 +2116,17 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		for(var/datum/bodypart_overlay/simple/body_marking/marking in part.bodypart_overlays)
 			part.remove_bodypart_overlay(marking)
 
-/// Update the overlays if necessary
-/datum/species/proc/update_body_markings(mob/living/carbon/human/hooman)
-	if(HAS_TRAIT(hooman, TRAIT_INVISIBLE_MAN))
-		remove_body_markings(hooman)
-		return
+/**
+ * Calculates the expected height values for this species
+ *
+ * Return a height value corresponding to a specific height filter
+ * Return null to just use the mob's base height
+ */
+/datum/species/proc/update_species_heights(mob/living/carbon/human/holder)
+	if(HAS_TRAIT(holder, TRAIT_DWARF))
+		return HUMAN_HEIGHT_DWARF
 
-	var/needs_update = FALSE
-	for(var/datum/bodypart_overlay/simple/body_marking/marking as anything in body_markings)
-		if(initial(marking.dna_feature_key) == body_markings[marking]) // dna is same as our species (sort of mini-cache), so no update needed
-			continue
-		needs_update = TRUE
-		break
+	if(HAS_TRAIT(holder, TRAIT_TOO_TALL))
+		return HUMAN_HEIGHT_TALLEST
 
-	if(needs_update)
-		remove_body_markings(hooman)
-		add_body_markings(hooman)
+	return null

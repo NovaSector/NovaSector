@@ -91,3 +91,12 @@
 
 /// Whenever a baton successfully executes its nonlethal attack. WARNING HORRIBLE FUCKING CODE THIS IS ASS AAAAAAAAAAAAH
 #define COMSIG_PRE_BATON_FINALIZE_ATTACK "pre_baton_finalize_attack"
+
+/// Signal sent when a mob tries to de-prone
+#define COMSIG_MOVABLE_REMOVE_PRONE_STATE "living_remove_prone_state"
+
+/// Whenever the round ends
+#define COMSIG_TICKER_ROUND_ENDED "ticker_round_ended"
+
+///from base of atom/fire_act(): (exposed_temperature, exposed_volume)
+#define COMSIG_ATOM_PRE_FIRE_ACT "atom_fire_act"
