@@ -4971,6 +4971,10 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
+"qS" = (
+/obj/machinery/door/puzzle/keycard/blue_required,
+/turf/open/floor/black,
+/area/awaymission/caves/maintsroom)
 "qT" = (
 /obj/machinery/door/airlock{
 	name = "Room 2"
@@ -10217,6 +10221,10 @@
 /obj/effect/turf_decal/weather/snow,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/awaymission/caves/maintsroom)
+"Jy" = (
+/obj/machinery/scanner_gate/luxury_shuttle,
+/turf/open/floor/black,
+/area/awaymission/caves/maintsroom)
 "Jz" = (
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /turf/open/misc/asteroid/basalt,
@@ -14938,6 +14946,10 @@
 /obj/item/construction/rcd,
 /obj/item/clothing/under/syndicate/nova/enclave/real/officer,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"ZN" = (
+/mob/living/basic/trader/gundealer,
+/turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "ZO" = (
 /obj/machinery/door/airlock/maintenance,
@@ -37835,13 +37847,13 @@ kd
 kd
 kd
 kd
+qS
 kd
 kd
 kd
 kd
 kd
-kd
-kd
+Jy
 kd
 kd
 wH
@@ -38052,13 +38064,13 @@ kd
 kd
 kd
 kd
+qS
 kd
 kd
 kd
 kd
 kd
-kd
-kd
+Jy
 kd
 kw
 wH
@@ -38074,7 +38086,7 @@ jf
 jf
 jf
 jf
-pp
+ZN
 pp
 pp
 pp
@@ -38269,13 +38281,13 @@ kd
 kd
 kd
 kd
+qS
 kd
 kd
 kd
 kd
 kd
-kd
-kd
+Jy
 kd
 kd
 wH
