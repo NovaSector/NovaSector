@@ -134,7 +134,3 @@
  * Arguments:
  * * say_text - (String) a define that matches the key of a entry in say_phrases
  */
-/datum/trader_data/proc/return_trader_phrase(say_text)
-	if(!length(say_phrases[say_text]))
-		return
-	return pick(say_phrases[say_text])
