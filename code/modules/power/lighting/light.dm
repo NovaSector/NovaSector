@@ -220,7 +220,7 @@
 	update(instant = TRUE, play_sound = FALSE) //NOVA EDIT CHANGE - ORIGINAL: update()
 
 // update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // NOVA EDIT CHANGE
+/obj/machinery/light/proc/update(trigger = TRUE, instant = FALSE, play_sound = TRUE) // NOVA EDIT CHANGE - ORIGINAL: /obj/machinery/light/proc/update(trigger = TRUE)
 	switch(status)
 		if(LIGHT_BROKEN,LIGHT_BURNED,LIGHT_EMPTY)
 			on = FALSE
@@ -547,25 +547,24 @@
 		)
 	return TRUE
 
-
 /obj/machinery/light/proc/flicker(amount = rand(10, 20))
 	set waitfor = FALSE
 	if(flickering)
 		return
 	flickering = TRUE
 	if(on && status == LIGHT_OK)
+		. = TRUE //did we actually flicker? Send this now because we expect immediate response, before sleeping.
 		for(var/i in 1 to amount)
 			if(status != LIGHT_OK || !has_power())
 				break
 			on = !on
-			update(FALSE, TRUE) //NOVA EDIT CHANGE
+			update(FALSE, instant = TRUE) //NOVA EDIT CHANGE - ORIGINAL: update(FALSE)
 			sleep(rand(5, 15))
 		if(has_power())
 			on = (status == LIGHT_OK)
 		else
 			on = FALSE
-		update(FALSE, TRUE) // NOVA EDIT CHANGE
-		. = TRUE //did we actually flicker?
+		update(FALSE, instant = TRUE) // NOVA EDIT CHANGE - ORIGINAL: update(FALSE)
 	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
