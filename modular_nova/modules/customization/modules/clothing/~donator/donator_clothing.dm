@@ -424,8 +424,6 @@
 	. = ..()
 	. += span_notice("Alt-click [src] to adjust it.")
 
-/obj/item/clothing/mask/gas/nightlight/alldono //different itempath so regular donators can have it, too
-
 // Donation reward for Farsighted Nightlight
 /obj/item/clothing/mask/gas/nightlight/fir22
 	name = "\improper FIR-22 full-face rebreather"
