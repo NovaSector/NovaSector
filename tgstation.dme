@@ -8792,6 +8792,7 @@
 #include "modular_nova\modules\quirk_heavyset\heavyset.dm"
 #include "modular_nova\modules\quirk_skilled\skilled.dm"
 #include "modular_nova\modules\quirk_unsteady\unsteady.dm"
+#include "modular_nova\modules\quirk_masquerade\masquerade.dm"
 #include "modular_nova\modules\radiosound\code\radio.dm"
 #include "modular_nova\modules\RBMK2\code\reactor.dm"
 #include "modular_nova\modules\RBMK2\code\reactor_acts.dm"
