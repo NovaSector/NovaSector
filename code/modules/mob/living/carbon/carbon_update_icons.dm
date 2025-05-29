@@ -487,11 +487,12 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS, ., standing, draw_target, isinhands, icon_file, mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: SEND_SIGNAL(src, COMSIG_ITEM_GET_SEPARATE_WORN_OVERLAYS, ., standing, draw_target, isinhands, icon_file)
 
 ///Checks to see if any bodyparts need to be redrawn, then does so. update_limb_data = TRUE redraws the limbs to conform to the owner.
+///Returns an integer representing the number of limbs that were updated.
 /mob/living/carbon/proc/update_body_parts(update_limb_data)
 	update_damage_overlays()
 	update_wound_overlays()
 	var/list/needs_update = list()
-	var/limb_count_update = FALSE
+	var/limb_count_update = 0
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
 		limb.update_limb(is_creating = update_limb_data) //Update limb actually doesn't do much, get_limb_icon is the cpu eater.
 
@@ -501,13 +502,15 @@
 		if(icon_render_keys[limb.body_zone] != old_key) //If the keys match, that means the limb doesn't need to be redrawn
 			needs_update += limb
 
+	limb_count_update += length(needs_update)
 	var/list/missing_bodyparts = get_missing_limbs()
 	if(((dna ? dna.species.max_bodypart_count : BODYPARTS_DEFAULT_MAXIMUM) - icon_render_keys.len) != missing_bodyparts.len) //Checks to see if the target gained or lost any limbs.
-		limb_count_update = TRUE
+		limb_count_update += 1
 		for(var/missing_limb in missing_bodyparts)
 			icon_render_keys -= missing_limb //Removes dismembered limbs from the key list
 
-	if(!needs_update.len && !limb_count_update)
+	. = limb_count_update
+	if(!.)
 		return
 
 	//GENERATE NEW LIMBS
@@ -519,7 +522,6 @@
 			limb_icon_cache[icon_render_keys[limb.body_zone]] = bodypart_icon //Caches the icon with the bodypart key, as it is new
 		else
 			new_limbs += limb_icon_cache[icon_render_keys[limb.body_zone]] //Pulls existing sprites from the cache
-
 
 	remove_overlay(BODYPARTS_LAYER)
 
@@ -558,7 +560,7 @@
 		. += "-[jointext(overlay.generate_icon_cache(), "-")]"
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
-		. += "-[human_owner.get_mob_height()]"
+		. += "-[human_owner.mob_height]"
 	return .
 
 ///Generates a cache key specifically for husks
@@ -571,7 +573,7 @@
 	. += "-[body_zone]"
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
-		. += "-[human_owner.get_mob_height()]"
+		. += "-[human_owner.mob_height]"
 	return .
 
 /obj/item/bodypart/head/generate_icon_key()
@@ -621,7 +623,7 @@ GLOBAL_LIST_EMPTY(masked_leg_icons_cache)
  * * limb_overlay - The limb image being masked, not necessarily the original limb image as it could be an overlay on top of it
  * Returns the list of masked images, or `null` if the limb_overlay didn't exist
  */
-/obj/item/bodypart/leg/proc/generate_masked_leg(mutable_appearance/limb_overlay)
+/obj/item/bodypart/leg/proc/generate_masked_leg(image/limb_overlay)
 	RETURN_TYPE(/list)
 	if(!limb_overlay)
 		return
@@ -647,11 +649,11 @@ GLOBAL_LIST_EMPTY(masked_leg_icons_cache)
 	new_leg_icon_lower = GLOB.masked_leg_icons_cache[icon_cache_key][2]
 
 	//this could break layering in oddjob cases, but i'm sure it will work fine most of the time... right?
-	var/mutable_appearance/new_leg_appearance = new(limb_overlay)
+	var/image/new_leg_appearance = new(limb_overlay)
 	new_leg_appearance.icon = new_leg_icon
 	new_leg_appearance.layer = -BODYPARTS_LAYER
 	. += new_leg_appearance
-	var/mutable_appearance/new_leg_appearance_lower = new(limb_overlay)
+	var/image/new_leg_appearance_lower = new(limb_overlay)
 	new_leg_appearance_lower.icon = new_leg_icon_lower
 	new_leg_appearance_lower.layer = -BODYPARTS_LOW_LAYER
 	. += new_leg_appearance_lower

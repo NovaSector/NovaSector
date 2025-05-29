@@ -16844,6 +16844,16 @@
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation)
+"eyN" = (
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/junction,
+/turf/open/floor/iron/white,
+/area/station/medical/office)
 "eyR" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/siding/dark{
@@ -30448,6 +30458,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/bridge)
+"igq" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/carpet/blue,
+/area/station/medical/office)
 "igr" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -58919,6 +58935,9 @@
 /area/station/engineering/engine_smes)
 "pOi" = (
 /obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/open/floor/carpet/blue,
 /area/station/medical/office)
 "pOn" = (
@@ -59178,7 +59197,7 @@
 /area/station/engineering/atmos/hallway)
 "pSV" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/cup/glass/coffee/colonial{
@@ -63812,7 +63831,7 @@
 /obj/effect/turf_decal/trimline/dark_green/line{
 	dir = 9
 	},
-/obj/machinery/time_clock/directional/west,
+/obj/machinery/modular_computer/preset/time_clock/directional/west,
 /obj/structure/sign/poster/timeclock_psa/directional/north,
 /turf/open/floor/iron/corner,
 /area/station/common/cryopods)
@@ -69795,6 +69814,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/commons/toilet/restrooms)
+"sMS" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/carpet/blue,
+/area/station/medical/office)
 "sMT" = (
 /obj/effect/turf_decal/trimline/purple/filled/warning{
 	dir = 4
@@ -74863,7 +74888,7 @@
 /area/station/hallway/secondary/entry)
 "uem" = (
 /obj/machinery/door/airlock/multi_tile/public/glass{
-	name = "News Room"
+	name = "Quiet Room"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/wood/tile,
@@ -80008,6 +80033,12 @@
 	dir = 8
 	},
 /area/station/commons/lounge)
+"vzG" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/carpet/blue,
+/area/station/medical/office)
 "vzI" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 6
@@ -267183,7 +267214,7 @@ vmu
 lCH
 aQi
 lyV
-lyV
+sMS
 lyV
 edE
 hZe
@@ -267439,8 +267470,8 @@ tJb
 nuP
 tbF
 lyV
-lyV
-lyV
+igq
+vzG
 lyV
 lyV
 bOy
@@ -267696,7 +267727,7 @@ lwa
 uva
 ykr
 qKN
-qKN
+eyN
 uAi
 qKN
 qKN

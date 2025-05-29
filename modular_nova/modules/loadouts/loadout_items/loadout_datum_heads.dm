@@ -272,7 +272,7 @@
 
 /datum/loadout_item/head/back_bow
 	name = "Colourable Back Bow"
-	item_path = /obj/item/clothing/head/back_bow
+	item_path = /obj/item/clothing/head/large_bow/back_bow
 
 /datum/loadout_item/head/small_bow
 	name = "Colourable Small Bow"
@@ -280,7 +280,7 @@
 
 /datum/loadout_item/head/sweet_bow
 	name = "Colourable Sweet bow"
-	item_path = /obj/item/clothing/head/sweet_bow
+	item_path = /obj/item/clothing/head/large_bow/sweet_bow
 
 /datum/loadout_item/head/maid_headband
 	name = "Colourable Maid Headband"

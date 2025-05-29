@@ -224,6 +224,7 @@ SUBSYSTEM_DEF(ticker)
 				toggle_dooc(TRUE)
 				declare_completion(force_ending)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
+				SEND_SIGNAL(src, COMSIG_TICKER_ROUND_ENDED) // NOVA EDIT ADDITION
 
 /// Checks if the round should be ending, called every ticker tick
 /datum/controller/subsystem/ticker/proc/check_finished()

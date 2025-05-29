@@ -121,6 +121,9 @@
 	 */
 	var/datum/component/shell/shell
 
+	/// This is where our overlays reside
+	var/overlays_icon = 'icons/obj/machines/computer.dmi'
+
 /datum/armor/item_modular_computer
 	bullet = 20
 	laser = 20
@@ -319,6 +322,7 @@
 		computer_id_slot.forceMove(drop_location())
 
 	computer_id_slot = null
+	SEND_SIGNAL(src, COMSIG_MODULAR_COMPUTER_REMOVED_ID, computer_id_slot, user) // NOVA EDIT ADDITION - Signal on ID removal
 
 	if(!silent && !isnull(user))
 		to_chat(user, span_notice("You remove the card from the card slot."))
@@ -443,15 +447,11 @@
 
 /obj/item/modular_computer/update_overlays()
 	. = ..()
-	var/init_icon = initial(icon)
-	if(!init_icon)
-		return
-
 	if(enabled)
-		. += active_program ? mutable_appearance(init_icon, active_program.program_open_overlay) : mutable_appearance(init_icon, icon_state_menu)
+		. += active_program ? mutable_appearance(overlays_icon, active_program.program_open_overlay) : mutable_appearance(overlays_icon, icon_state_menu)
 	if(atom_integrity <= integrity_failure * max_integrity)
-		. += mutable_appearance(init_icon, "bsod")
-		. += mutable_appearance(init_icon, "broken")
+		. += mutable_appearance(overlays_icon, "bsod")
+		. += mutable_appearance(overlays_icon, "broken")
 
 /obj/item/modular_computer/Exited(atom/movable/gone, direction)
 	if(internal_cell == gone)
@@ -901,6 +901,7 @@
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "inserted paper")
 	qdel(new_paper)
+	playsound(src, 'sound/machines/computer/paper_insert.ogg', 40, vary = TRUE)
 	stored_paper++
 	return ITEM_INTERACT_SUCCESS
 
@@ -917,6 +918,7 @@
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "inserted paper")
 	to_chat(user, span_notice("Added in [papers_added] new sheets. You now have [stored_paper] / [max_paper] printing paper stored."))
+	playsound(src, 'sound/machines/computer/paper_insert.ogg', 40, vary = TRUE)
 	bin.update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
