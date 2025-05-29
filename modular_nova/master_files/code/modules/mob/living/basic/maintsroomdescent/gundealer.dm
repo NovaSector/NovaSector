@@ -1,6 +1,6 @@
 /mob/living/basic/trader/gundealer
 	name = "Trader"
-	desc = "A shadowie figure offering some of the strongest armaments from here to terra."
+	desc = "A shadowie figure offering some of the strongest armaments from here to terra- if you have the INSANE dough to offer."
 	unique_name = FALSE
 	icon = 'icons/mob/simple/simple_human.dmi'
 	maxHealth = 200
@@ -20,12 +20,10 @@
 	ai_controller = /datum/ai_controller/basic_controller/trader
 	sell_sound = 'sound/effects/cashregister.ogg'
 	currency_name = "credits"
-	var/spawner_path = /obj/effect/mob_spawn/corpse/human/cyber_police
-	var/species_path = /datum/species/human
-	var/loot = list(/obj/effect/mob_spawn/corpse/human/charredskeleton)
-	var/ranged_attack_casing = /obj/item/ammo_casing/c10mm
-	var/ranged_attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
-	var/held_weapon_visual = /obj/item/gun/ballistic/automatic/pistol
-
-	///Type path for the trader datum to use for retrieving the traders wares, speech, etc
-	var/trader_data_path = /datum/trader_data
+	spawner_path = /obj/effect/mob_spawn/corpse/human/cyber_police
+	species_path = /datum/species/human
+	loot = list(/obj/effect/mob_spawn/corpse/human/charredskeleton)
+	ranged_attack_casing = /obj/item/ammo_casing/c10mm
+	ranged_attack_sound = 'sound/items/weapons/gun/pistol/shot.ogg'
+	held_weapon_visual = /obj/item/gun/ballistic/automatic/pistol
+	trader_data_path = /datum/trader_data/gundealer
