@@ -188,7 +188,7 @@
 
 	var/list/held_contents = human_user.get_contents()
 	if(!held_contents)
-		CRASH("Lockbox secure items: no items found on [id_card.registered_name]. that's probably incorrect!")
+		CRASH("Lockbox secure items: no items found on [id_card.registered_name]. That's probably incorrect!")
 
 	var/list/shamebox_items = list()
 	for(var/obj/item/found_item in held_contents)
