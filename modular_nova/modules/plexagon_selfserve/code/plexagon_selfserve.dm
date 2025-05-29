@@ -46,7 +46,7 @@
 
 /// Clocks out the currently inserted ID Card
 /datum/computer_file/program/crew_self_serve/proc/clock_out(obj/item/card/id/id_card)
-	if(!id_card)
+	if(!istype(id_card))
 		return FALSE
 
 	var/important = is_job_important(id_card)
@@ -81,7 +81,7 @@
 
 /// Clocks the currently inserted ID Card back in
 /datum/computer_file/program/crew_self_serve/proc/clock_in(obj/item/card/id/id_card)
-	if(!id_card)
+	if(!istype(id_card))
 		return FALSE
 
 	if(id_cooldown_check(id_card))
@@ -115,7 +115,7 @@
 
 /// Is the job of the inserted ID being worked by a job that in an important department? If so, this proc will return TRUE.
 /datum/computer_file/program/crew_self_serve/proc/is_job_important(obj/item/card/id/id_card)
-	if(!id_card)
+	if(!istype(id_card))
 		return FALSE
 
 	var/datum/id_trim/job/current_trim = id_card.trim
@@ -127,7 +127,7 @@
 
 /// Is the inserted ID on cooldown? return -1 if invalid ID, 0 if ID is not on cooldown, and remaining time until cooldown ends otherwise.
 /datum/computer_file/program/crew_self_serve/proc/id_cooldown_check(obj/item/card/id/id_card)
-	if(!id_card)
+	if(!istype(id_card))
 		return PUNCH_ID_INVALID
 
 	var/datum/component/off_duty_timer/id_component = id_card.GetComponent(/datum/component/off_duty_timer)
@@ -156,7 +156,7 @@
 
 /// Is the inserted ID locked from clocking in? returns TRUE if the ID is locked
 /datum/computer_file/program/crew_self_serve/proc/id_locked_check(obj/item/card/id/id_card)
-	if(!id_card)
+	if(!istype(id_card))
 		return FALSE
 
 	var/datum/component/off_duty_timer/id_component = id_card.GetComponent(/datum/component/off_duty_timer)
@@ -170,7 +170,7 @@
 
 /// Is the inserted ID off-duty? Returns true if the ID is off-duty
 /datum/computer_file/program/crew_self_serve/proc/off_duty_check(obj/item/card/id/auth_card)
-	if(!auth_card)
+	if(!istype(auth_card))
 		return FALSE
 
 	var/datum/component/off_duty_timer/id_component = auth_card.GetComponent(/datum/component/off_duty_timer)
