@@ -5049,7 +5049,7 @@
 /area/awaymission/caves/maintsroom)
 "qC" = (
 /obj/structure/flora/tree/pine/xmas,
-/turf/open/misc/asteroid/snow,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "qD" = (
 /turf/open/water/hot_spring/cafe,
@@ -6146,7 +6146,7 @@
 /area/awaymission/caves/maintsroom)
 "ui" = (
 /obj/machinery/light/directional/north,
-/turf/open/misc/asteroid/snow,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "uj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -12564,9 +12564,6 @@
 "Ql" = (
 /obj/machinery/vending/medical,
 /turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
-"Qm" = (
-/turf/open/misc/asteroid/snow,
 /area/awaymission/caves/maintsroom)
 "Qn" = (
 /obj/structure/closet/cabinet,
@@ -19635,7 +19632,7 @@ Ws
 Yt
 vf
 oN
-Qm
+DT
 oc
 DT
 oc
