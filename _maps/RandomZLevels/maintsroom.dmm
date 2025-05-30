@@ -6368,12 +6368,6 @@
 	dir = 4
 	},
 /area/awaymission/caves/maintsroom)
-"uW" = (
-/obj/effect/oneway{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
 "uX" = (
 /obj/item/robot_model/security,
 /obj/structure/closet/crate/engineering/electrical,
@@ -7424,12 +7418,6 @@
 /obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"yJ" = (
-/obj/effect/oneway{
-	dir = 1
-	},
-/turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
 "yK" = (
 /obj/item/food/cheese/firm_cheese,
 /obj/structure/closet/crate/goldcrate,
@@ -8460,12 +8448,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "BZ" = (
-/obj/item/gun/ballistic/automatic/miecz{
-	anchored = 1
-	},
-/obj/structure/rack,
-/obj/machinery/light/floor,
-/turf/open/floor/iron/smooth,
+/turf/closed/indestructible/fakedoor,
 /area/awaymission/caves/maintsroom)
 "Ca" = (
 /obj/vehicle/sealed/mecha/gygax,
@@ -9184,15 +9167,6 @@
 /area/awaymission/caves/maintsroom)
 "EH" = (
 /obj/machinery/research/anomaly_refinery,
-/turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
-"EI" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
-/obj/effect/oneway{
-	dir = 1
-	},
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "EJ" = (
@@ -12537,6 +12511,7 @@
 /area/awaymission/caves/maintsroom)
 "Qf" = (
 /mob/living/basic/trader/deathsquadtrader,
+/obj/structure/railing/unbreakable,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Qg" = (
@@ -13226,12 +13201,6 @@
 "Si" = (
 /obj/structure/sink/directional/north,
 /turf/open/floor/iron/white,
-/area/awaymission/caves/maintsroom)
-"Sj" = (
-/obj/effect/oneway{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "Sk" = (
 /mob/living/basic/cult/ghost{
@@ -15403,6 +15372,7 @@
 /area/awaymission/caves/maintsroom)
 "ZN" = (
 /mob/living/basic/trader/gundealer,
+/obj/structure/railing/unbreakable,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "ZO" = (
@@ -38541,7 +38511,7 @@ jf
 jf
 ng
 ZN
-Sj
+pp
 pp
 pp
 pp
@@ -38975,7 +38945,7 @@ jf
 jf
 jf
 ss
-BZ
+ou
 zK
 qz
 dH
@@ -39192,7 +39162,7 @@ jf
 jf
 jf
 jf
-jf
+BZ
 jf
 jf
 jf
@@ -43858,10 +43828,10 @@ vf
 vf
 xC
 ms
-gM
+vf
 Qf
-yJ
-uW
+vf
+vf
 vf
 vf
 xC
@@ -44077,9 +44047,9 @@ xC
 gx
 vf
 Vj
-gM
+vf
 iU
-EI
+vr
 vf
 GH
 AK

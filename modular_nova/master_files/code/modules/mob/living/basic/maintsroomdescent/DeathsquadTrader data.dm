@@ -65,7 +65,7 @@
 			"Hey, you got some raw anomalies hand over those useless things to me I'll give you some credits for it, deal?",
 		),
 		BUY_PHRASE = list(
-			"Use those anomalies well!",
+			"Use my stuff well!",
 		),
 		NO_CASH_PHRASE = list(
 			"Look bro, these prices for the anomalies is high- sure, but it needs to be so i can profit refining them takes some time.",
