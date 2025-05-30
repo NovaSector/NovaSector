@@ -248,11 +248,11 @@
 
 /datum/armament_entry/company_import/deforest/cyber_implants/razorwire
 	name = "Razorwire Spool Implant"
-	item_type = /obj/item/organ/cyberimp/arm/razorwire
+	item_type = /obj/item/organ/cyberimp/arm/toolkit/razorwire
 
 /datum/armament_entry/company_import/deforest/cyber_implants/shell_launcher
 	name = "Shell Launch System Implant"
-	item_type = /obj/item/organ/cyberimp/arm/shell_launcher
+	item_type = /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 
 /datum/armament_entry/company_import/deforest/cyber_implants/sandy
 	name = "Qani-Laaca Sensory Computer Implant"
