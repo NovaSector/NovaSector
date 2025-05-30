@@ -1,6 +1,6 @@
 /mob/living/basic/blankbody/shaggoth
 	name = "Shaggoth"
-	desc = "This looks human enough, but its flesh has an ashy texture, and it's face is featureless save an eerie smile."
+	desc = "It was a terrible, indescribable thing vaster than any subway train—a shapeless congeries of protoplasmic bubbles, faintly self-luminous, and with myriads of temporary eyes forming and un-forming as pustules of greenish light all over the tunnel-filling front that bore down upon us, crushing the frantic penguins and slithering over the glistening floor that it and its kind had swept so evilly free of all litter."
 	icon_state = "blank-body"
 	icon_living = "blank-body"
 	icon_dead = "blank-dead"
@@ -9,4 +9,6 @@
 	obj_damage = 100
 	melee_damage_lower = 95
 	melee_damage_upper = 95
-	speed = 0.1
+	speed = 20'
+
+///Credit to wikepedia for giving me this description, this quote is taken from HP lovecrafts, "at the mountain of madness"
