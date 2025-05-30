@@ -326,11 +326,6 @@
 /obj/effect/spawner/random/decoration/showcase,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"bg" = (
-/mob/living/basic/mining/watcher/icewing,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/water,
-/area/awaymission/caves/maintsroom)
 "bh" = (
 /obj/structure/spider/stickyweb,
 /mob/living/basic/spider/giant/webslinger,
@@ -487,9 +482,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "bI" = (
-/obj/structure/flora/tree/pine/style_random,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/snow/indestructible/planet,
+/obj/structure/table/reinforced,
+/obj/item/organ/alien/plasmavessel/roundstart,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "bJ" = (
 /obj/machinery/suit_storage_unit/open,
@@ -626,14 +621,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
-"cn" = (
-/obj/machinery/porta_turret/syndicate/energy/heavy{
-	scan_range = 16;
-	throw_range = 16;
-	name = "Enhanced heavy"
-	},
-/turf/open/floor/sepia,
-/area/awaymission/caves/maintsroom)
 "co" = (
 /obj/item/toy/reality_pierce,
 /obj/effect/heretic_rune,
@@ -754,7 +741,11 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "cG" = (
-/obj/structure/table,
+/obj/machinery/porta_turret/syndicate/energy/heavy{
+	scan_range = 16;
+	throw_range = 16;
+	name = "Enhanced heavy"
+	},
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "cH" = (
@@ -947,11 +938,9 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "dr" = (
-/obj/structure/table/reinforced,
-/obj/item/organ/alien/neurotoxin,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/obj/structure/flora/tree/pine/style_random,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "ds" = (
 /obj/item/storage/toolbox/ammobox/full/sakhno,
@@ -1049,11 +1038,9 @@
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "dI" = (
-/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
-/obj/machinery/door/airlock/science,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/mob/living/basic/mining/ice_demon,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "dK" = (
 /obj/structure/sign/warning/biohazard/directional/north,
@@ -1173,7 +1160,7 @@
 /area/awaymission/caves/maintsroom)
 "dX" = (
 /mob/living/basic/mining/watcher/icewing,
-/turf/open/water,
+/turf/open/misc/ice/smooth,
 /area/awaymission/caves/maintsroom)
 "dY" = (
 /obj/structure/frame/machine/secured,
@@ -2025,6 +2012,11 @@
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
+"gD" = (
+/obj/item/book/granter/action/spell/summon_cheese,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "gE" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -2148,8 +2140,11 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "gT" = (
+/obj/structure/railing{
+	dir = 8
+	},
 /obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/stone,
+/turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "gU" = (
 /mob/living/basic/blankbody/shaggoth,
@@ -2532,6 +2527,13 @@
 "ii" = (
 /turf/open/misc/grass/jungle,
 /area/awaymission/caves/maintsroom)
+"ij" = (
+/mob/living/basic/flesh_spider{
+	faction = list("hostile","cult")
+	},
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/basalt,
+/area/awaymission/caves/maintsroom)
 "ik" = (
 /obj/machinery/door/airlock/freezer{
 	critical_machine = 1;
@@ -2853,6 +2855,13 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
+"js" = (
+/obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
+/obj/machinery/door/airlock/science,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
+/area/awaymission/caves/maintsroom)
 "jt" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -3006,11 +3015,6 @@
 /obj/item/stack/cannonball/trashball/four,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"jO" = (
-/mob/living/basic/mining/ice_whelp,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/snow/indestructible/planet,
-/area/awaymission/caves/maintsroom)
 "jP" = (
 /obj/machinery/light/floor,
 /obj/structure/table/reinforced,
@@ -3072,7 +3076,7 @@
 "kb" = (
 /obj/structure/barricade/wooden,
 /obj/structure/sign/warning/secure_area,
-/turf/open/water,
+/turf/open/misc/ice/smooth,
 /area/awaymission/caves/maintsroom)
 "kc" = (
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -3337,7 +3341,7 @@
 /area/awaymission/caves/maintsroom)
 "kM" = (
 /obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/snow/indestructible/planet,
+/turf/open/misc/ice/smooth,
 /area/awaymission/caves/maintsroom)
 "kN" = (
 /obj/machinery/door/poddoor/shutters/window/indestructible,
@@ -3505,6 +3509,11 @@
 "ll" = (
 /mob/living/basic/clockwork_marauder,
 /turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
+"lm" = (
+/mob/living/basic/mining/ice_whelp,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "ln" = (
 /obj/machinery/computer/mech_bay_power_console{
@@ -3689,14 +3698,6 @@
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
 /turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
-"lY" = (
-/obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/beaker/large,
-/obj/item/weldingtool/experimental,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
 /area/awaymission/caves/maintsroom)
 "lZ" = (
 /obj/machinery/door/airlock/freezer{
@@ -3901,9 +3902,10 @@
 	},
 /area/awaymission/caves/maintsroom)
 "mD" = (
-/obj/structure/flora/rock/pile/icy,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/basalt,
+/obj/structure/table/reinforced,
+/obj/item/organ/alien/resinspinner/roundstart,
+/obj/item/organ/alien/hivenode,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "mE" = (
 /obj/structure/closet/lasertag/red,
@@ -4015,6 +4017,13 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"mX" = (
+/obj/structure/table/reinforced,
+/obj/item/organ/alien/neurotoxin,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "mY" = (
 /obj/structure/bed/dogbed,
@@ -4343,7 +4352,7 @@
 /area/awaymission/caves/maintsroom)
 "oc" = (
 /obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/basalt,
+/turf/open/misc/asteroid/snow/indestructible/planet,
 /area/awaymission/caves/maintsroom)
 "od" = (
 /obj/effect/spawner/random/trash/moisture_trap,
@@ -4385,10 +4394,6 @@
 /obj/machinery/light/floor,
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
-/area/awaymission/caves/maintsroom)
-"ol" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "om" = (
 /obj/machinery/light/directional/north,
@@ -4890,11 +4895,6 @@
 /obj/item/canvas/drawingtablet,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
-"pX" = (
-/obj/structure/table/reinforced,
-/obj/item/forging/tongs,
-/turf/open/floor/sepia,
-/area/awaymission/caves/maintsroom)
 "pY" = (
 /obj/machinery/hydroponics/soil/fake_turf,
 /obj/structure/flora/bush/reed/style_random,
@@ -4983,8 +4983,13 @@
 	},
 /area/awaymission/caves/maintsroom)
 "qm" = (
-/obj/effect/spawner/structure/window/reinforced/indestructible,
-/turf/open/floor/sepia,
+/mob/living/basic/trooper/syndicate/ranged/smg/pilot{
+	environment_smash = 0;
+	name = "SUPER AMERICAN";
+	desc = "America, FUCK YEA, comin agian to save the mother fuckin day yeah! AMERICA FUCK YEAH! freedom is the only way yeah! Terrorists your game is through, because now you have to answer to- AMERICA, FUCK YEA!";
+	health = 400
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "qn" = (
 /obj/structure/fluff/divine/convertaltar,
@@ -5552,6 +5557,12 @@
 /obj/machinery/door/poddoor/shutters,
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
+"sn" = (
+/mob/living/basic/flesh_spider{
+	faction = list("hostile","cult")
+	},
+/turf/open/misc/asteroid/basalt,
+/area/awaymission/caves/maintsroom)
 "so" = (
 /obj/machinery/light/directional/north,
 /obj/structure/sign/poster/contraband/soviet_propaganda/directional/north,
@@ -5889,11 +5900,6 @@
 /obj/machinery/camera/xray/directional/north,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
-"tp" = (
-/obj/structure/alien/weeds/creature,
-/obj/machinery/light/directional/west,
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
 "tq" = (
 /obj/effect/spawner/random/trash/box,
 /turf/open/floor/plating,
@@ -5967,6 +5973,11 @@
 /area/awaymission/caves/maintsroom)
 "tB" = (
 /turf/open/floor/circuit/red/off,
+/area/awaymission/caves/maintsroom)
+"tC" = (
+/obj/structure/flora/rock/pile/style_random,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "tD" = (
 /obj/item/mining_scanner,
@@ -6208,8 +6219,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "ur" = (
-/obj/structure/sign/poster/contraband/lusty_xenomorph/directional/east,
-/turf/open/floor/sepia,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "us" = (
 /obj/structure/sign/flag{
@@ -6310,6 +6321,14 @@
 /obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/iron/dark/corner{
 	dir = 4
+	},
+/area/awaymission/caves/maintsroom)
+"uI" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/beaker/large,
+/obj/item/weldingtool/experimental,
+/turf/open/floor/sepia{
+	slowdown = 10
 	},
 /area/awaymission/caves/maintsroom)
 "uL" = (
@@ -6571,11 +6590,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"vH" = (
-/mob/living/basic/mining/ice_demon,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/snow/indestructible/planet,
-/area/awaymission/caves/maintsroom)
 "vI" = (
 /obj/item/grown/bananapeel{
 	name = "The banana peel that kills you if you slip on it."
@@ -6780,15 +6794,14 @@
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "wv" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/water,
+/obj/structure/table/optable,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "ww" = (
-/obj/structure/railing{
-	dir = 8
+/obj/structure/chair/comfy{
+	dir = 4
 	},
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/basalt,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "wx" = (
 /obj/structure/alien/weeds,
@@ -7131,6 +7144,10 @@
 /area/awaymission/caves/maintsroom)
 "xD" = (
 /turf/open/floor/holofloor/beach/water,
+/area/awaymission/caves/maintsroom)
+"xE" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "xG" = (
 /turf/open/lava/smooth/weak,
@@ -7518,6 +7535,11 @@
 	slowdown = 10
 	},
 /area/awaymission/caves/maintsroom)
+"zd" = (
+/obj/structure/alien/weeds/creature,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "ze" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/mob_spawn/corpse/human/assistant/brainrot_infection,
@@ -7864,11 +7886,6 @@
 /obj/machinery/oven/range_frontier,
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
-"Aq" = (
-/obj/item/book/granter/action/spell/summonitem,
-/obj/structure/fans/tiny/invisible,
-/turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
 "Ar" = (
 /obj/machinery/door/airlock{
 	name = "Maintenance"
@@ -7966,6 +7983,12 @@
 /obj/effect/spawner/random/medical/surgery_tool,
 /obj/item/boulder/artifact,
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"AF" = (
+/mob/living/basic/flesh_spider{
+	faction = list("hostile","cult")
+	},
+/turf/open/indestructible/meat,
 /area/awaymission/caves/maintsroom)
 "AG" = (
 /obj/structure/flora/mushroom,
@@ -8226,6 +8249,9 @@
 /obj/item/kirbyplants/random,
 /obj/structure/light_construct/small/directional/east,
 /turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"Bs" = (
+/turf/open/misc/ice/smooth,
 /area/awaymission/caves/maintsroom)
 "Bt" = (
 /turf/open/misc/grass/jungle/station,
@@ -8543,10 +8569,6 @@
 /area/awaymission/caves/maintsroom)
 "Cu" = (
 /turf/open/floor/iron/white,
-/area/awaymission/caves/maintsroom)
-"Cw" = (
-/obj/structure/table/optable,
-/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "Cx" = (
 /obj/effect/turf_decal/trimline/red/line,
@@ -10372,11 +10394,6 @@
 	dir = 4
 	},
 /area/awaymission/caves/maintsroom)
-"IK" = (
-/obj/item/surgery_tray/full,
-/obj/structure/table,
-/turf/open/floor/sepia,
-/area/awaymission/caves/maintsroom)
 "IL" = (
 /obj/structure/safe/floor,
 /obj/item/gun/energy/laser/musket,
@@ -11128,11 +11145,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
-"Lq" = (
-/obj/item/book/granter/action/spell/summon_cheese,
-/obj/structure/fans/tiny/invisible,
-/turf/open/floor/wood,
-/area/awaymission/caves/maintsroom)
 "Lr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -11231,8 +11243,8 @@
 /turf/closed/indestructible/reinforced,
 /area/awaymission/caves/maintsroom)
 "LF" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/ice/smooth,
+/obj/structure/sign/poster/contraband/lusty_xenomorph/directional/east,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "LG" = (
 /turf/open/floor/iron/chapel{
@@ -11757,10 +11769,9 @@
 /turf/open/floor/fake_snow,
 /area/awaymission/caves/maintsroom)
 "Nu" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/sepia{
-	slowdown = 10
-	},
+/obj/structure/flora/rock/pile/icy,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "Nv" = (
 /mob/living/simple_animal/bot/secbot/ed209{
@@ -11862,6 +11873,11 @@
 "NG" = (
 /obj/machinery/light/floor,
 /turf/open/floor/bronze/filled,
+/area/awaymission/caves/maintsroom)
+"NH" = (
+/obj/structure/table/reinforced,
+/obj/item/forging/tongs,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "NI" = (
 /obj/structure/trash_pile,
@@ -12330,13 +12346,8 @@
 /turf/open/floor/iron/vaporwave,
 /area/awaymission/caves/maintsroom)
 "Pr" = (
-/mob/living/basic/trooper/syndicate/ranged/smg/pilot{
-	environment_smash = 0;
-	name = "SUPER AMERICAN";
-	desc = "AmericaAmerica[Chorus]America, fuck yeah!Comin' again to save the motherfuckin' day, yeahAmerica (Fuck yeah!)Freedom is the only way, yeah[Verse 1]Terrorists, your game is through'Cause now you have to answer toAmerica (Fuck yeah!)So lick my butt and suck on my ballsAmerica (Fuck yeah!)What you gonna do when we come for you now?[Bridge]It's the dream that we all shareIt's the hope for tomorrow(Fuck yeah!)[Verse 2]McDonald's (Fuck yeah!)Walmart (Fuck yeah!)The Gap (Fuck yeah!)Baseball (Fuck yeah!)NFL (Fuck yeah!)Rock and roll (Fuck yeah!)The Internet (Fuck yeah!)Slavery (Fuck yeah!)You might also likeEndless FashionLil Uzi VertToughQuavo & Lana Del ReyHabitsEminem & White Gold[Interlude](Fuck yeah!)[Guitar Solo][Verse 3]Starbucks (Fuck yeah!)Disney World (Fuck yeah!)Porno (Fuck yeah!)Valium (Fuck yeah!)Reeboks (Fuck yeah!)Fake tits (Fuck yeah!)Sushi (Fuck yeah!)Taco Bell (Fuck yeah!)Rodeos (Fuck yeah!)Bed, Bath & Beyond (Fuck yeah, fuck yeah!)Liberty (Fuck yeah!)Wax lips (Fuck yeah!)The Alamo (Fuck yeah!)Band-aids (Fuck yeah!)Las Vegas (Fuck yeah!)Christmas (Fuck yeah!)Immigrants (Fuck yeah!)Popeye (Fuck yeah!)Democrats (Fuck yeah!)Republicans (Fuck yeah, fuck yeah)SportsmanshipBooks";
-	health = 400
-	},
-/turf/open/floor/plating,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/stone,
 /area/awaymission/caves/maintsroom)
 "Ps" = (
 /obj/effect/mob_spawn/ghost_role/human/maintsroom,
@@ -12532,10 +12543,9 @@
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "Qc" = (
-/obj/effect/spawner/random/maintsrooms,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/white,
-/area/awaymission/caves/maintsroom/deeper)
+/obj/effect/spawner/structure/window/reinforced/indestructible,
+/turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
 "Qd" = (
 /obj/machinery/light/floor,
 /obj/structure/toilet{
@@ -13095,11 +13105,10 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "RL" = (
-/obj/structure/chair/comfy{
-	dir = 4
-	},
-/turf/open/floor/sepia,
-/area/awaymission/caves/maintsroom)
+/obj/effect/spawner/random/maintsrooms,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/white,
+/area/awaymission/caves/maintsroom/deeper)
 "RM" = (
 /obj/structure/closet/wardrobe/grey,
 /turf/open/floor/plating,
@@ -13706,6 +13715,11 @@
 /obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
+"TR" = (
+/mob/living/basic/mining/watcher/icewing,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/misc/ice/smooth,
+/area/awaymission/caves/maintsroom)
 "TS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/holopad,
@@ -13759,9 +13773,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Ub" = (
-/obj/structure/table/reinforced,
-/obj/item/organ/alien/plasmavessel/roundstart,
-/turf/open/floor/sepia,
+/obj/item/book/granter/action/spell/summonitem,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Uc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -13951,12 +13965,6 @@
 /area/awaymission/caves/maintsroom)
 "UL" = (
 /obj/machinery/light/floor,
-/turf/open/floor/sepia,
-/area/awaymission/caves/maintsroom)
-"UN" = (
-/obj/structure/table/reinforced,
-/obj/item/organ/alien/resinspinner/roundstart,
-/obj/item/organ/alien/hivenode,
 /turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "UO" = (
@@ -15080,6 +15088,11 @@
 /obj/item/ectoplasm/construct,
 /turf/open/floor/iron/chapel,
 /area/awaymission/caves/maintsroom)
+"YJ" = (
+/obj/item/surgery_tray/full,
+/obj/structure/table,
+/turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
 "YK" = (
 /obj/structure/mounted_gun/canister_gatling,
 /turf/open/floor/wood,
@@ -15145,9 +15158,10 @@
 /turf/open/floor/wood/parquet,
 /area/awaymission/caves/maintsroom)
 "YW" = (
-/obj/structure/flora/rock/pile/style_random,
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/misc/asteroid/basalt,
+/obj/structure/table/reinforced,
+/turf/open/floor/sepia{
+	slowdown = 10
+	},
 /area/awaymission/caves/maintsroom)
 "YX" = (
 /obj/structure/disposalpipe/segment{
@@ -15195,6 +15209,10 @@
 /obj/machinery/light/small/directional/south,
 /obj/structure/alien/weeds,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"Zg" = (
+/obj/structure/table,
+/turf/open/floor/sepia,
 /area/awaymission/caves/maintsroom)
 "Zh" = (
 /obj/effect/turf_decal/trimline/blue/line{
@@ -16386,20 +16404,20 @@ DT
 DT
 DT
 DT
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 kb
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 sR
 DT
@@ -16420,9 +16438,9 @@ DT
 DT
 DT
 DT
-di
-di
-Ya
+Bs
+Bs
+ov
 ov
 ov
 ov
@@ -16601,45 +16619,45 @@ jf
 DT
 DT
 DT
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 dX
-di
+Bs
 Gt
 Gt
-wv
-di
-wv
-di
-wv
-di
 kM
-DT
+Bs
 kM
-DT
+Bs
 kM
+Bs
+oc
 DT
-bI
+oc
 DT
-kM
+oc
 DT
-kM
+dr
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
+DT
+oc
+DT
+oc
 iV
-wv
-di
-wv
-di
-Ya
+kM
+Bs
+kM
+Bs
+ov
 ov
 ov
 ov
@@ -16816,25 +16834,25 @@ jf
 jf
 jf
 DT
-di
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 Gt
 Gt
 Gt
 Gt
 Gt
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -16852,10 +16870,10 @@ DT
 DT
 DT
 DT
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 jf
@@ -16892,15 +16910,15 @@ Ho
 Ho
 Ho
 Ho
-ww
+gT
 bY
-ww
+gT
 mc
-ww
+gT
 mc
-ww
+gT
 mc
-ww
+gT
 iq
 ov
 ov
@@ -17032,48 +17050,48 @@ jf
 jf
 jf
 jf
-di
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 Gt
 Gt
 Gt
 Gt
 Gt
-DT
-wv
-di
-wv
-di
-wv
 DT
 kM
-DT
+Bs
+kM
+Bs
 kM
 DT
-kM
+oc
+DT
+oc
+DT
+oc
 sR
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 iV
-wv
-di
-wv
-di
-wv
-di
 kM
+Bs
+kM
+Bs
+kM
+Bs
+oc
 DT
 jf
 LS
@@ -17249,12 +17267,12 @@ jf
 jf
 jf
 jf
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 rf
 Gt
@@ -17264,12 +17282,12 @@ Gt
 Gt
 DT
 DT
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -17283,12 +17301,12 @@ DT
 DT
 DT
 DT
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -17324,19 +17342,19 @@ GS
 DP
 DP
 DP
-oc
+ur
 Ya
-YW
+tC
 Ya
-oc
+ur
 Ya
 tI
 Ya
-oc
+ur
+sn
+ur
 Ya
-oc
-Ya
-oc
+ij
 Ya
 ov
 ov
@@ -17466,11 +17484,11 @@ jf
 jf
 jf
 jf
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 Gt
@@ -17479,35 +17497,35 @@ Gt
 Gt
 Gt
 DT
-kM
-DT
-wv
-di
-bg
-di
-wv
-di
-wv
+oc
 DT
 kM
-DT
+Bs
+TR
+Bs
+kM
+Bs
 kM
 DT
-bI
+oc
+DT
+oc
+DT
+dr
+DT
+oc
+DT
+dr
 DT
 kM
-DT
-bI
-DT
-wv
-di
-wv
-di
-wv
-di
-wv
-DT
+Bs
 kM
+Bs
+kM
+Bs
+kM
+DT
+oc
 sR
 jf
 LS
@@ -17683,9 +17701,9 @@ jf
 jf
 jf
 jf
-di
-di
-di
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -17698,15 +17716,15 @@ DT
 DT
 DT
 DT
-di
-di
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -17715,13 +17733,13 @@ DT
 DT
 DT
 DT
-di
-di
-di
+Bs
+Bs
+Bs
 dX
-di
-di
-di
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -17758,7 +17776,7 @@ GS
 DP
 DP
 Ya
-oc
+ur
 Ya
 tI
 Ya
@@ -17768,11 +17786,11 @@ bB
 bB
 tI
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 ov
 ov
 ov
@@ -17911,37 +17929,37 @@ Gt
 Gt
 Gt
 DT
+oc
+DT
+oc
+DT
+oc
+Bs
+kM
+Bs
+kM
+Bs
+kM
+Bs
+kM
+Bs
 kM
 DT
-kM
+oc
+DT
+oc
 DT
 kM
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-DT
+Bs
+kM
+Bs
+kM
+Bs
 kM
 DT
-kM
+oc
 DT
-wv
-di
-wv
-di
-wv
-di
-LF
-DT
-kM
-DT
-bI
+dr
 DT
 jf
 LS
@@ -18133,27 +18151,27 @@ iV
 DT
 DT
 DT
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 sR
 DT
@@ -18190,23 +18208,23 @@ Xp
 RO
 gL
 Ya
-YW
+tC
 Ya
 tI
 bB
 bB
 bB
 bB
+AF
 bB
 bB
 bB
-bB
-bB
+AF
 tI
 Ya
 tI
 Ya
-mD
+Nu
 Ya
 ov
 ov
@@ -18345,37 +18363,37 @@ Gt
 Gt
 DT
 DT
-kM
+oc
 DT
-kM
+oc
 DT
+oc
+Bs
 kM
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-di
-wv
+Bs
+kM
+Bs
+kM
+Bs
+kM
+Bs
+kM
+Bs
+kM
 dX
-wv
-di
-wv
-di
-wv
-di
-wv
-DT
+kM
+Bs
+kM
+Bs
+kM
+Bs
 kM
 DT
-kM
+oc
 DT
-kM
+oc
+DT
+oc
 DT
 jf
 LS
@@ -18568,23 +18586,23 @@ DT
 DT
 iV
 DT
-di
-di
-di
+Bs
+Bs
+Bs
 dX
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 jf
@@ -18624,7 +18642,7 @@ tY
 RO
 GS
 Ya
-oc
+ur
 tI
 bB
 bB
@@ -18640,9 +18658,9 @@ bB
 Ya
 bB
 bB
-oc
+ur
 Ya
-oc
+ur
 Ya
 ov
 ov
@@ -18777,33 +18795,33 @@ Gt
 Gt
 Gt
 DT
-kM
+oc
 yc
-kM
+oc
+DT
+oc
+DT
+oc
 DT
 kM
-DT
+Bs
 kM
-DT
-wv
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-di
-wv
-di
+Bs
 kM
-DT
+Bs
 kM
-DT
+Bs
 kM
+Bs
+kM
+Bs
+kM
+Bs
+oc
+DT
+oc
+DT
+oc
 jf
 LS
 LS
@@ -18859,7 +18877,7 @@ bB
 bB
 Ya
 Ya
-Ya
+sn
 Ya
 Ya
 ov
@@ -19003,15 +19021,15 @@ DT
 DT
 DT
 DT
-di
-di
-di
-di
-di
-di
-di
-di
-di
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
+Bs
 DT
 DT
 DT
@@ -19058,7 +19076,7 @@ GS
 GS
 GS
 Ya
-oc
+ur
 Ya
 bB
 bB
@@ -19076,9 +19094,9 @@ bB
 bB
 tI
 Ya
-oc
+ur
 lW
-oc
+ur
 Ya
 ov
 ov
@@ -19209,35 +19227,35 @@ oN
 Gt
 Gt
 DT
-kM
+oc
 DT
-bI
+dr
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 sR
-kM
+oc
 DT
-kM
+oc
 DT
-vH
+dI
 jf
 LS
 jf
@@ -19492,7 +19510,7 @@ tY
 Xp
 GS
 Ya
-oc
+ur
 Ya
 bB
 bB
@@ -19505,14 +19523,14 @@ bB
 bB
 bB
 bB
-bB
+AF
 bB
 bB
 wR
 tI
-oc
+ur
 Ya
-oc
+ur
 Ya
 ov
 ov
@@ -19643,35 +19661,35 @@ Yt
 vf
 oN
 Qm
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-bI
+dr
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 jf
 LS
 jf
@@ -19926,7 +19944,7 @@ tY
 eR
 gL
 Ya
-oc
+ur
 tI
 tI
 bB
@@ -19944,9 +19962,9 @@ bB
 bB
 bB
 tI
-oc
+ur
 Ya
-oc
+ur
 GE
 Ya
 ov
@@ -20077,35 +20095,35 @@ CW
 vf
 oN
 oN
-kM
+oc
 DT
-kM
+oc
 DT
-jO
+lm
 DT
-kM
+oc
 DT
-bI
+dr
 sR
-kM
+oc
 DT
-kM
+oc
 DT
-bI
+dr
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-bI
+dr
 DT
-kM
+oc
 DT
-kM
+oc
 iV
-kM
+oc
 DT
-kM
+oc
 jf
 LS
 jf
@@ -20151,7 +20169,7 @@ bB
 bB
 bB
 bB
-bB
+AF
 rD
 bB
 bB
@@ -20162,7 +20180,7 @@ tI
 bB
 Ya
 Ya
-Ya
+sn
 Ya
 Ya
 lW
@@ -20360,7 +20378,7 @@ tY
 RO
 GS
 Ya
-oc
+ur
 Ya
 Ya
 bB
@@ -20378,11 +20396,11 @@ bB
 kL
 bB
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 ov
 ov
 ov
@@ -20511,35 +20529,35 @@ vf
 tu
 tu
 xg
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 iV
-kM
+oc
 DT
-kM
+oc
 iV
-kM
+oc
 DT
-kM
+oc
 DT
-vH
+dI
 DT
-kM
+oc
 DT
-kM
+oc
 iV
-kM
+oc
 DT
-kM
+oc
 DT
-kM
+oc
 jf
 LS
 LS
@@ -20812,11 +20830,11 @@ bB
 bB
 bB
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
 ov
 ov
@@ -21016,7 +21034,7 @@ jf
 jf
 tI
 bB
-bB
+AF
 bB
 bB
 bB
@@ -21242,15 +21260,15 @@ bB
 bB
 bB
 bB
-bB
+AF
 bB
 wR
 tI
-oc
+ur
 Ya
-oc
-Ya
-oc
+ur
+sn
+ur
 Ya
 ov
 ov
@@ -21680,11 +21698,11 @@ bB
 wR
 tI
 tI
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ij
 Ya
 Ya
 ov
@@ -22114,13 +22132,13 @@ bB
 bB
 tI
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 ov
 ov
 ov
@@ -22330,7 +22348,7 @@ bB
 wR
 bB
 Ya
-Ya
+sn
 Ya
 Ya
 Ya
@@ -22546,15 +22564,15 @@ tI
 bB
 bB
 tI
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
 Pp
 Ya
-oc
+ur
 jf
 jf
 jf
@@ -22978,17 +22996,17 @@ jf
 jf
 jf
 tI
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
-oc
+ur
 Ya
 Ya
 Ya
-oc
+ur
 jf
 jf
 jf
@@ -23762,7 +23780,7 @@ jf
 Jp
 Jp
 Jp
-gT
+Pr
 Jp
 Jp
 Jp
@@ -25281,7 +25299,7 @@ jf
 Jp
 Jp
 Jp
-gT
+Pr
 Jp
 Jp
 Jp
@@ -31525,7 +31543,7 @@ Li
 jf
 do
 zm
-ur
+LF
 zm
 TZ
 zm
@@ -32382,7 +32400,7 @@ sB
 GS
 BB
 jf
-IK
+YJ
 BL
 zm
 zm
@@ -32599,21 +32617,21 @@ sB
 GS
 BB
 jf
-Cw
+wv
 zm
 Ny
 zc
-dr
+mX
 HE
-Nu
+YW
 zc
 jf
 yx
 wI
-RL
-RL
-RL
-RL
+ww
+ww
+ww
+ww
 TQ
 Jf
 jf
@@ -32816,7 +32834,7 @@ sB
 GS
 DZ
 jf
-cG
+Zg
 zm
 zc
 zm
@@ -32827,10 +32845,10 @@ zm
 jf
 jf
 jf
-qm
-qm
-qm
-qm
+Qc
+Qc
+Qc
+Qc
 jf
 jf
 jf
@@ -33035,11 +33053,11 @@ bu
 jf
 VK
 zm
-lY
-UN
-pX
-ol
-Ub
+uI
+mD
+NH
+xE
+bI
 zm
 jf
 NQ
@@ -33469,7 +33487,7 @@ Ie
 jf
 jf
 jf
-dI
+js
 jf
 jf
 jf
@@ -33901,11 +33919,11 @@ uG
 uG
 cb
 jf
-cn
+cG
 ju
 ZB
 ju
-cn
+cG
 jf
 UK
 NQ
@@ -35769,13 +35787,13 @@ wU
 GS
 sk
 sk
-tp
+zd
 sk
 Ot
-tp
+zd
 sX
 Ot
-tp
+zd
 sk
 Rz
 sk
@@ -36872,7 +36890,7 @@ fO
 QL
 GS
 uG
-uG
+qm
 um
 Af
 DQ
@@ -37089,7 +37107,7 @@ dC
 bu
 GS
 uG
-Pr
+uG
 GS
 nP
 GS
@@ -42231,13 +42249,13 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
-Qc
+RL
 AK
 AK
-Qc
+RL
 AK
 wQ
 IP
@@ -42445,7 +42463,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -42661,7 +42679,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -42674,7 +42692,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -43089,10 +43107,10 @@ pp
 bw
 wQ
 AK
-Qc
+RL
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -43542,7 +43560,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -43878,9 +43896,9 @@ xC
 sK
 AK
 AK
-Qc
+RL
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44029,9 +44047,9 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
-Lq
+gD
 AK
 AK
 AK
@@ -44101,9 +44119,9 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44167,7 +44185,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44193,7 +44211,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44248,7 +44266,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44322,12 +44340,12 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
-Qc
+RL
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44460,7 +44478,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44528,7 +44546,7 @@ vf
 xC
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44565,7 +44583,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44817,7 +44835,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44844,7 +44862,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44899,7 +44917,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44981,7 +44999,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -44995,7 +45013,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45003,7 +45021,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45108,8 +45126,8 @@ AK
 AK
 AK
 AK
-Qc
-Qc
+RL
+RL
 AK
 AK
 AK
@@ -45178,7 +45196,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45200,7 +45218,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45224,7 +45242,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45249,7 +45267,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45323,7 +45341,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45426,7 +45444,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45443,7 +45461,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45464,7 +45482,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45550,7 +45568,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45636,7 +45654,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45712,7 +45730,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45858,7 +45876,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -45970,7 +45988,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46044,7 +46062,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46072,7 +46090,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46113,7 +46131,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46145,7 +46163,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46202,7 +46220,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46311,7 +46329,7 @@ jf
 jf
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46401,7 +46419,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46508,7 +46526,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46578,7 +46596,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46693,7 +46711,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -46945,7 +46963,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 jf
 va
@@ -47049,7 +47067,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47071,7 +47089,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47179,7 +47197,7 @@ Jq
 KY
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47228,7 +47246,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47342,7 +47360,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47479,7 +47497,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47693,7 +47711,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47879,7 +47897,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -47939,7 +47957,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48123,7 +48141,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48208,7 +48226,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48313,7 +48331,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48336,7 +48354,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48550,7 +48568,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48591,7 +48609,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48746,7 +48764,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48765,7 +48783,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48857,7 +48875,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -48980,7 +48998,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49194,7 +49212,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49243,7 +49261,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49409,7 +49427,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49618,11 +49636,11 @@ HR
 wQ
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49722,7 +49740,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49894,7 +49912,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -49929,13 +49947,13 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
-Qc
+RL
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -50137,24 +50155,24 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
-Qc
-AK
-AK
-AK
-Qc
+RL
 AK
 AK
 AK
+RL
 AK
 AK
 AK
 AK
 AK
 AK
-Aq
+AK
+AK
+AK
+Ub
 AK
 AK
 AK
@@ -50545,7 +50563,7 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -50565,10 +50583,10 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -50770,15 +50788,15 @@ AK
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
@@ -50983,7 +51001,7 @@ Gg
 AK
 AK
 AK
-Qc
+RL
 AK
 AK
 AK
