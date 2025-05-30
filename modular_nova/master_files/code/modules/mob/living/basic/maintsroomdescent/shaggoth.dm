@@ -9,6 +9,6 @@
 	obj_damage = 100
 	melee_damage_lower = 95
 	melee_damage_upper = 95
-	speed = 20'
+	speed = 20
 
 ///Credit to wikepedia for giving me this description, this quote is taken from HP lovecrafts, "at the mountain of madness"
