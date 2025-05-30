@@ -925,7 +925,7 @@
 	name = "service guard's garments"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the service guard."
 
-/obj/item/storage/bag/garment/science_guard/PopulateContents()
+/obj/item/storage/bag/garment/service_guard/PopulateContents()
 	generate_items_inside(list(
 		/obj/item/radio/headset/headset_srv = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
