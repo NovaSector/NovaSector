@@ -23444,6 +23444,13 @@
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
+"isx" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/blue/half/contrasted,
+/obj/structure/window/reinforced/spawner/directional/south,
+/mob/living/simple_animal/hostile/megafauna/colossus,
+/turf/open/floor/iron/dark,
+/area/station/command/bridge)
 "isA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -96420,7 +96427,7 @@ dsQ
 sAz
 fMf
 ifE
-dMY
+isx
 gIO
 itr
 qNV
