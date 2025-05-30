@@ -8,5 +8,3 @@
 	mob_trait = TRAIT_MASQUERADE_FOOD
 	icon = FA_ICON_MASKS_THEATER
 	quirk_flags = QUIRK_HUMAN_ONLY
-
-//ported from Bubber, original quirk made by StrangeWeirdKitten
