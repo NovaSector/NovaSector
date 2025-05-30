@@ -21,3 +21,12 @@
 	death_message = "Contorts for a moment before folding in on itself- letting something else come out in the process."
 	brood_type = /mob/living/basic/creature
 	corpse_type = /mob/living/basic/migo
+	ai_controller = /datum/ai_controller/basic_controller/legion/houndoftindalos
+
+/datum/ai_controller/basic_controller/legion/houndoftindalos
+    blackboard = list(
+        BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+        BB_TARGET_MINIMUM_STAT = HARD_CRIT,
+        BB_AGGRO_RANGE = 5,
+        BB_BASIC_MOB_FLEE_DISTANCE = 6,
+    )
