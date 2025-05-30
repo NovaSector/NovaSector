@@ -778,3 +778,6 @@
   - rscadd: New torso augment to augments+ in character editor
   - bugfix: fixed said torso sprite so that it can be used with regular hands(It used
       to have a gap of air)
+2025-05-30:
+  OrbisAnima:
+  - rscadd: Allows kisses to be parried or boosted by anyone.
