@@ -269,7 +269,6 @@
 	QDEL_NULL(fake_alert_ref)
 	QDEL_NULL(health_doll_ref)
 
-
 ///Nicotine
 /datum/addiction/nicotine
 	name = "nicotine"
