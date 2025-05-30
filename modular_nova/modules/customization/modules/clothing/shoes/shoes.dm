@@ -25,10 +25,11 @@
 	icon_state = "bluecuffs"
 
 /obj/item/clothing/shoes/cowboy/laced/recolorable
-	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
-	icon_state = "cowboy_greyscale"
 	greyscale_colors = "#412e22#daeeee"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/cowboy/laced/recolorable"
+	post_init_icon_state = "cowboy_greyscale"
 	greyscale_config = /datum/greyscale_config/cowboy_boots
 	greyscale_config_worn = /datum/greyscale_config/cowboy_boots/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/cowboy_boots/worn/digi
@@ -37,9 +38,10 @@
 /obj/item/clothing/shoes/high_heels
 	name = "high heels"
 	desc = "A fancy pair of high heels. Won't compensate for your below average height that much."
-	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
-	icon_state = "heels"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/high_heels"
+	post_init_icon_state = "heels"
 	greyscale_config = /datum/greyscale_config/heels
 	greyscale_config_worn = /datum/greyscale_config/heels/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/heels/worn/digi
@@ -53,10 +55,11 @@
 /obj/item/clothing/shoes/fancy_heels
 	name = "fancy heels"
 	desc = "A pair of fancy high heels that are much smaller on your feet."
-	icon = MODULAR_SHOES_ICON
 	worn_icon = MODULAR_SHOES_WORN_ICON
-	icon_state = "fancyheels"
 	greyscale_colors = "#FFFFFF"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/fancy_heels"
+	post_init_icon_state = "fancyheels"
 	greyscale_config = /datum/greyscale_config/fancyheels
 	greyscale_config_worn = /datum/greyscale_config/fancyheels/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/fancyheels/worn/digi
@@ -92,7 +95,9 @@
 /obj/item/clothing/shoes/wraps/cloth
 	name = "cloth foot wraps"
 	desc = "Boxer tape or bandages wrapped like a mummy, all left up to the choice of the wearer."
-	icon_state = "clothwrap"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/wraps/cloth"
+	post_init_icon_state = "clothwrap"
 	greyscale_config = /datum/greyscale_config/clothwraps
 	greyscale_config_worn = /datum/greyscale_config/clothwraps/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/clothwraps/worn/digi
@@ -103,7 +108,9 @@
 /obj/item/clothing/shoes/wraps/colourable
 	name = "colourable foot wraps"
 	desc = "Ankle coverings. These ones have a customisable colour design."
-	icon_state = "legwrap"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/wraps/colourable"
+	post_init_icon_state = "legwrap"
 	greyscale_config = /datum/greyscale_config/legwraps
 	greyscale_config_worn = /datum/greyscale_config/legwraps/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/legwraps/worn/digi
@@ -141,7 +148,7 @@
 	icon_state = "duckboots"
 	fastening_type = SHOES_LACED
 
-/obj/item/clothing/shoes/jackboots/duckboots/Initialize()
+/obj/item/clothing/shoes/jackboots/duckboots/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, "It has a small <b>[span_red("red five pointed star")]</b> stamped onto the heel, and <b>[span_red("DIRIGO")]</b> etched under the soles.")
 
@@ -149,8 +156,10 @@
 /obj/item/clothing/shoes/winterboots/christmas
 	name = "red christmas boots"
 	desc = "A pair of fluffy red christmas boots!"
-	icon_state = "christmas_boots"
 	greyscale_colors = "#cc0f0f#c4c2c2"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/winterboots/christmas"
+	post_init_icon_state = "christmas_boots"
 	greyscale_config = /datum/greyscale_config/boots/christmasboots
 	greyscale_config_worn = /datum/greyscale_config/boots/christmasboots/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/boots/christmasboots/worn/digi
@@ -170,32 +179,32 @@
 
 //Modular overide to give jackboots laces
 /obj/item/clothing/shoes/jackboots
-	fastening_type = SHOES_STRAPS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/combat
-	fastening_type = SHOES_STRAPS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/workboots
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/russian
-	fastening_type = SHOES_STRAPS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/winterboots
-	fastening_type = SHOES_STRAPS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/shoes/sneakers
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"
 	desc = "These don't seem to come pre-polished, how saddening."
-	icon = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/shoes/shoes_teshari.dmi'
-	icon_state = "laceups"
 	greyscale_colors = "#383631"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/colorable_laceups"
+	post_init_icon_state = "laceups"
 	greyscale_config = /datum/greyscale_config/laceup
 	greyscale_config_worn = /datum/greyscale_config/laceup/worn
 	greyscale_config_worn_teshari = /datum/greyscale_config/laceup/worn/teshari
@@ -206,11 +215,12 @@
 /obj/item/clothing/shoes/colorable_sandals
 	name = "sandals"
 	desc = "Rumor has it that wearing these with socks puts you on a no entry list in several sectors."
-	icon = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/shoes/shoes_teshari.dmi'
-	icon_state = "sandals"
 	greyscale_colors = "#383631"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/colorable_sandals"
+	post_init_icon_state = "sandals"
 	greyscale_config = /datum/greyscale_config/sandals
 	greyscale_config_worn = /datum/greyscale_config/sandals/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/sandals/worn/digi
@@ -220,11 +230,12 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/jackboots/recolorable
-	icon = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
 	worn_icon = 'modular_nova/modules/GAGS/icons/shoes/shoes.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/shoes/shoes_teshari.dmi'
-	icon_state = "boots"
 	greyscale_colors = "#383631"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/jackboots/recolorable"
+	post_init_icon_state = "boots"
 	greyscale_config = /datum/greyscale_config/boots
 	greyscale_config_worn = /datum/greyscale_config/boots/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/boots/worn/digi
@@ -236,7 +247,9 @@
 /obj/item/clothing/shoes/wraps/cloth
 	name = "cloth foot wraps"
 	desc = "Boxer tape or bandages wrapped like a mummy, all left up to the choice of the wearer."
-	icon_state = "clothwrap"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/wraps/cloth"
+	post_init_icon_state = "clothwrap"
 	greyscale_config = /datum/greyscale_config/clothwraps
 	greyscale_config_worn = /datum/greyscale_config/clothwraps/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/clothwraps/worn/digi

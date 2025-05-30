@@ -1,0 +1,5 @@
+author: "wivernshy"
+delete-after: True
+changes:
+  - rscadd: "Some hemophages have learned to blend in better with the new \"Masquerade\" quirk, allowing them to consume food and drink as normal."
+  - qol: "Blood tomatoes are appropriately BLOODY now, making them a viable food source for hemophages."
