@@ -1011,6 +1011,13 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"dD" = (
+/obj/structure/chair/comfy/brown{
+	dir = 4
+	},
+/mob/living/basic/trader/mrbones,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "dE" = (
 /obj/item/wallframe/firecloset{
 	pixel_x = -31
@@ -2322,6 +2329,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"hy" = (
+/mob/living/basic/trader/deathsquadtrader,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "hz" = (
 /obj/item/cigbutt/cigarbutt,
 /obj/effect/decal/cleanable/oil,
@@ -2422,6 +2433,12 @@
 "hO" = (
 /obj/structure/sign/poster/ripped/directional/south,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"hQ" = (
+/obj/structure/chair/comfy/brown{
+	dir = 4
+	},
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "hS" = (
 /mob/living/basic/construct/proteon{
@@ -3594,6 +3611,10 @@
 "lH" = (
 /obj/structure/alien/resin/wall,
 /obj/structure/alien/weeds,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"lI" = (
+/obj/machinery/vending/imported/tiziran,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "lJ" = (
@@ -8417,6 +8438,10 @@
 "Cl" = (
 /turf/open/floor/iron/dark/smooth_edge,
 /area/awaymission/caves/maintsroom)
+"Cm" = (
+/obj/machinery/vending/imported/mothic,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "Cp" = (
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/wood,
@@ -9472,6 +9497,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"FQ" = (
+/obj/machinery/vending/medical,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "FR" = (
 /obj/effect/light_emitter/fake_outdoors,
 /turf/closed/wall/mineral/sandstone,
@@ -9927,6 +9956,10 @@
 /obj/item/food/cheese/wedge,
 /obj/structure/closet/crate/goldcrate,
 /turf/open/floor/mineral/gold,
+/area/awaymission/caves/maintsroom)
+"Ht" = (
+/obj/machinery/vending/imported/nt,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Hv" = (
 /obj/machinery/door/airlock/bronze/clock,
@@ -43067,10 +43100,10 @@ vf
 xC
 gx
 vf
-gx
+Ht
 vf
-vf
-vf
+hQ
+hQ
 vf
 xC
 AK
@@ -43284,10 +43317,10 @@ vf
 xC
 gx
 vf
+lI
+vf
 gx
-vf
-vf
-vf
+gx
 vf
 xC
 AK
@@ -43503,8 +43536,8 @@ gx
 vf
 gx
 vf
-vf
-vf
+jI
+jI
 vf
 GH
 AK
@@ -43718,7 +43751,7 @@ vf
 xC
 gx
 vf
-vf
+hy
 vf
 vf
 vf
@@ -43937,8 +43970,8 @@ gx
 vf
 gx
 vf
-vf
-vf
+dD
+hQ
 vf
 GH
 AK
@@ -44152,10 +44185,10 @@ vf
 xC
 gx
 vf
+Cm
+vf
 gx
-vf
-vf
-vf
+gx
 vf
 xC
 AK
@@ -44369,10 +44402,10 @@ gM
 OZ
 gM
 vf
-gx
+FQ
 vf
-vf
-vf
+jI
+jI
 vf
 xC
 AK
