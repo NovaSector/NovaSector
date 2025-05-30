@@ -1,0 +1,4 @@
+author: "Tractor-Maam"
+delete-after: True
+changes:
+  - bugfix: "Brings back the nicotine relief threshold so smoking can satisfy it once again."
