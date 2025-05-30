@@ -10,6 +10,6 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	ears = /obj/item/radio/headset/headset_cent/alt
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
-	head = /obj/item/clothing/head/helmet/marine
+	head = /obj/item/clothing/head/helmet/space/beret
 	back = /obj/item/mod/control/pre_equipped/apocryphal
 	id = /obj/item/card/id/advanced/black/deathsquad

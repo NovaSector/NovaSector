@@ -2087,6 +2087,10 @@
 /obj/structure/spacevine,
 /turf/open/misc/grass/jungle/planet,
 /area/awaymission/caves/maintsroom)
+"gM" = (
+/obj/effect/oneway,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "gN" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave,
@@ -9725,6 +9729,7 @@
 "GH" = (
 /obj/structure/fans/tiny,
 /obj/structure/mineral_door/wood,
+/obj/machinery/scanner_gate/luxury_shuttle,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "GI" = (
@@ -12127,6 +12132,11 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/smooth,
+/area/awaymission/caves/maintsroom)
+"OZ" = (
+/obj/structure/mineral_door/wood,
+/obj/effect/oneway,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "Pa" = (
 /obj/structure/cable,
@@ -43055,7 +43065,7 @@ vf
 vf
 vf
 xC
-vf
+gx
 vf
 gx
 vf
@@ -43272,7 +43282,7 @@ vf
 vf
 vf
 xC
-vf
+gx
 vf
 gx
 vf
@@ -43489,7 +43499,7 @@ vf
 vf
 vf
 xC
-vf
+gx
 vf
 gx
 vf
@@ -43706,7 +43716,7 @@ vf
 vf
 vf
 xC
-vf
+gx
 vf
 vf
 vf
@@ -43923,7 +43933,7 @@ vf
 vf
 vf
 xC
-vf
+gx
 vf
 gx
 vf
@@ -44140,7 +44150,7 @@ vf
 vf
 vf
 xC
-vf
+gx
 vf
 gx
 vf
@@ -44355,9 +44365,9 @@ AK
 xC
 vf
 vf
-vf
-vf
-vf
+gM
+OZ
+gM
 vf
 gx
 vf
