@@ -922,7 +922,7 @@
 	), src)
 
 /obj/item/storage/bag/garment/service_guard
-	name = "service guard's garments"
+	name = "\proper the service guard's garments"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the service guard."
 
 /obj/item/storage/bag/garment/service_guard/PopulateContents()

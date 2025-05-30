@@ -48,7 +48,7 @@
 	new /obj/item/storage/bag/garment/orderly(src)
 
 /obj/structure/closet/secure_closet/security/service
-	name = "\proper service guard's locker"
+	name = "\proper the service guard's locker"
 	req_access = list(ACCESS_BRIG_ENTRANCE, ACCESS_SERVICE)
 	icon_state = "cabinet"
 	icon = 'icons/obj/storage/closet.dmi'
