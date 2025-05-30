@@ -24,9 +24,9 @@
 	ai_controller = /datum/ai_controller/basic_controller/legion/houndoftindalos
 
 /datum/ai_controller/basic_controller/legion/houndoftindalos
-    blackboard = list(
-        BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
-        BB_TARGET_MINIMUM_STAT = HARD_CRIT,
-        BB_AGGRO_RANGE = 5,
-        BB_BASIC_MOB_FLEE_DISTANCE = 6,
-    )
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
+		BB_AGGRO_RANGE = 5,
+		BB_BASIC_MOB_FLEE_DISTANCE = 6,
+	)
