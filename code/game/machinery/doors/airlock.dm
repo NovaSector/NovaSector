@@ -2548,6 +2548,7 @@
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
 	set_density(FALSE)
 	operating = FALSE
+	update_appearance()
 	return TRUE
 
 /obj/machinery/door/airlock/instant/close(forced = DEFAULT_DOOR_CHECKS, force_crush = FALSE)
@@ -2555,7 +2556,13 @@
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, forced)
 	set_density(TRUE)
 	operating = FALSE
+	update_appearance()
 	return TRUE
+
+/obj/machinery/door/airlock/instant/glass
+	opacity = FALSE
+	glass = TRUE
+
 // NOVA EDIT REMOVAL START - moved to code/__DEFINES/~nova_defines/airlock.dm
 /*
 #undef AIRLOCK_SECURITY_NONE

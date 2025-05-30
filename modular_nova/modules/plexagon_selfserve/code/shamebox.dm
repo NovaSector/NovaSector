@@ -9,23 +9,21 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_ALL_PERSONAL_LOCKERS)
 	/// The ID card associated with the box
-	var/obj/item/card/id/associated_card
+	var/datum/weakref/associated_card
 	/// A display formatted list of the locked contents
 	var/locked_contents = null
-	item_flags = ABSTRACT | DROPDEL
 
 /obj/item/storage/lockbox/timeclock/Initialize(mapload, obj/item/card/id/crew_id)
 	. = ..()
-	if(!isnull(loc))
-		return INITIALIZE_HINT_QDEL // These should never be spawned in realspace
+	if(!istype(crew_id) || QDELETED(crew_id))
+		return INITIALIZE_HINT_QDEL
 	atom_storage.allow_big_nesting = TRUE
 	atom_storage.max_slots = 99
 	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	atom_storage.max_total_storage = 99
-	if(!isnull(crew_id) || !istype(crew_id))
-		associated_card = crew_id
-	if(associated_card?.registered_name)
-		name = "[initial(name)] - [associated_card.registered_name]"
+	associated_card = WEAKREF(crew_id)
+	if(crew_id.registered_name)
+		name = "[initial(name)] - [crew_id.registered_name]"
 
 /obj/item/storage/lockbox/timeclock/examine(mob/user)
 	. = ..()
@@ -56,7 +54,12 @@
 	if(check_access_list(access_card.GetAccess()))
 		release_contents()
 		return TRUE
-	if(access_card != associated_card)
+
+	var/obj/item/card/id/allowed_card = associated_card?.resolve()
+	if(isnull(allowed_card))
+		associated_card = null
+		return FALSE
+	if(access_card != allowed_card)
 		return FALSE
 
 	var/datum/id_trim/job/current_trim = access_card.trim
@@ -74,3 +77,6 @@
 	usr.visible_message(span_notice("[usr] activates the lockbox mechanism, releasing its contents before vanishing in a puff of bluespace smoke!"))
 	associated_card = null
 	qdel(src)
+
+/obj/item/storage/lockbox/timeclock/toggle_locked(mob/living/user)
+	return
