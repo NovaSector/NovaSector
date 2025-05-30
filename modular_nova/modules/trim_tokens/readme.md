@@ -20,8 +20,6 @@ Adds some TrimTokens, that allow for some one-use rapid trim modification that u
 
 ### Included files that are not contained in this module:
 
-
-
-
 ### Credits:
+
 Code: GoldenAlpharex
