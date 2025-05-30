@@ -551,6 +551,11 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"bW" = (
+/obj/structure/table/wood,
+/obj/machinery/chem_dispenser/drinks/fullupgrade,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "bY" = (
 /obj/structure/railing{
 	dir = 8
@@ -3783,6 +3788,10 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"ms" = (
+/obj/machinery/deepfryer,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "mt" = (
 /obj/item/popsicle_stick{
 	pixel_x = -4;
@@ -4423,7 +4432,7 @@
 /area/awaymission/caves/maintsroom)
 "ox" = (
 /obj/structure/table/wood,
-/obj/machinery/chem_dispenser/drinks/beer,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "oz" = (
@@ -5559,6 +5568,10 @@
 	anchored = 1
 	},
 /turf/open/floor/iron/smooth,
+/area/awaymission/caves/maintsroom)
+"st" = (
+/obj/machinery/chem_master/fullupgrade,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "su" = (
 /obj/structure/bed/maint,
@@ -8124,6 +8137,10 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/caves/maintsroom)
+"Bm" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "Bn" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood,
@@ -8341,6 +8358,10 @@
 /obj/item/food/cheese/curd_cheese,
 /obj/structure/closet/crate/goldcrate,
 /turf/open/floor/mineral/gold,
+/area/awaymission/caves/maintsroom)
+"BR" = (
+/obj/structure/sink,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "BS" = (
 /obj/effect/turf_decal/stripes/line{
@@ -9059,6 +9080,11 @@
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
+"Ex" = (
+/obj/structure/table/wood,
+/obj/structure/towel_bin,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "Ey" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /obj/effect/light_emitter/fake_outdoors,
@@ -9105,6 +9131,10 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"EH" = (
+/obj/machinery/research/anomaly_refinery,
+/turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "EI" = (
 /obj/item/wallframe/painting/eldritch/vines,
@@ -10859,6 +10889,11 @@
 /obj/structure/fluff/tram_rail,
 /turf/open/misc/asteroid,
 /area/awaymission/caves/maintsroom)
+"KO" = (
+/obj/item/bedsheet,
+/obj/structure/bed,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
 "KQ" = (
 /obj/structure/plasticflaps/opaque,
 /obj/machinery/door/window/left/directional/north{
@@ -12439,6 +12474,14 @@
 /area/awaymission/caves/maintsroom)
 "PZ" = (
 /turf/open/floor/white,
+/area/awaymission/caves/maintsroom)
+"Qa" = (
+/obj/structure/curtain,
+/obj/machinery/shower/directional/south,
+/obj/structure/fans/tiny,
+/obj/structure/window/spawner/directional/east,
+/obj/structure/window/spawner/directional/west,
+/turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "Qc" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
@@ -14978,6 +15021,18 @@
 /area/awaymission/caves/maintsroom)
 "YK" = (
 /obj/structure/mounted_gun/canister_gatling,
+/turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"YL" = (
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/plasmaman/full,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/tank/internals/oxygen/red,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "YM" = (
@@ -43099,11 +43154,11 @@ AK
 AK
 AK
 xC
-vf
-vf
-vf
+EH
+YL
+Ex
 xC
-gx
+bW
 vf
 Aa
 vf
@@ -43533,11 +43588,11 @@ AK
 AK
 AK
 xC
-vf
+Bm
 vf
 vf
 xC
-gx
+st
 vf
 gx
 vf
@@ -43750,11 +43805,11 @@ AK
 AK
 AK
 xC
-vf
+BR
 vf
 vf
 xC
-gx
+ms
 vf
 Qf
 vf
@@ -43967,7 +44022,7 @@ AK
 AK
 AK
 xC
-vf
+Qa
 vf
 vf
 xC
@@ -44401,7 +44456,7 @@ AK
 AK
 AK
 xC
-vf
+KO
 vf
 gM
 OZ
