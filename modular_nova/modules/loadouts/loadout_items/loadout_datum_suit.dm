@@ -1,12 +1,10 @@
+// LOADOUT ITEM DATUMS FOR THE SUIT SLOT
+
 /datum/loadout_category/suit
 	category_name = "Suit"
 	category_ui_icon = FA_ICON_VEST
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/neck::tab_order + 1
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE (EXO/OUTER)SUIT SLOT
-*/
 
 /datum/loadout_item/suit
 	abstract_type = /datum/loadout_item/suit
@@ -22,6 +20,10 @@
 		outfit.suit = item_path
 	else
 		outfit.suit = item_path
+
+/*
+*	ITEMS BELOW HERE
+*/
 
 /*
 *	WINTER COATS
