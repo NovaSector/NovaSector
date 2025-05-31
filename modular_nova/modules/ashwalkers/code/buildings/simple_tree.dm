@@ -97,17 +97,19 @@
 	/// how much current health the tree has
 	var/tree_current_health = 100
 
-/obj/structure/simple_tree/Initialize(mapload)
+/obj/structure/simple_tree/Initialize(mapload, atom/attaching_atom)
 	. = ..()
 	if(processing_tree)
 		START_PROCESSING(SSobj, src)
 
-/// used to setup once some variables have been set
-/obj/structure/simple_tree/proc/late_setup()
-	if(!ismovable(attached_atom))
-		return
+	if(attaching_atom)
+		attached_atom = attaching_atom
+		if(!ismovable(attached_atom))
+			return
 
-	RegisterSignal(attached_atom, COMSIG_MOVABLE_MOVED, PROC_REF(move_tree))
+		var/atom/movable/moving_atom = attached_atom
+		src.glide_size = moving_atom.glide_size
+		RegisterSignal(attached_atom, COMSIG_MOVABLE_MOVED, PROC_REF(move_tree))
 
 /// used when the attached atom somehow moves
 /obj/structure/simple_tree/proc/move_tree()
