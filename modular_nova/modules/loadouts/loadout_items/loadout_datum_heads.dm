@@ -308,11 +308,6 @@
 /datum/loadout_item/head/rastafarian
 	group = "Costumes" //TG overwrite to add group
 
-/datum/loadout_item/head/tmc
-	name = "TMC Hat"
-	item_path = /obj/item/clothing/head/costume/tmc
-	group = "Costumes"
-
 /datum/loadout_item/head/deckers
 	name = "Deckers Hat"
 	item_path = /obj/item/clothing/head/costume/deckers
