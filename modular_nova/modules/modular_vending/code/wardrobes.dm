@@ -82,7 +82,7 @@
 	products_nova = list(
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
-		/obj/item/clothing/suit/toggle/labcoat/nova/regular = 3,
+		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular = 3,
 		/obj/item/clothing/suit/toggle/jacket/nova/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)
