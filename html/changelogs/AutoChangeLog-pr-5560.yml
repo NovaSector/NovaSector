@@ -1,4 +1,0 @@
-author: "FlufflesTheDog"
-delete-after: True
-changes:
-  - bugfix: "Clocking out via PDA app now properly spawns lockboxes with restricted items"

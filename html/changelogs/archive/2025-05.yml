@@ -781,3 +781,252 @@
 2025-05-30:
   OrbisAnima:
   - rscadd: Allows kisses to be parried or boosted by anyone.
+2025-05-31:
+  00-Steven:
+  - qol: Added screentips for shredding gauze into cloth
+  - bugfix: The medical notes input box actually takes up the full window, instead
+      of only half of it.
+  - qol: Added screentips for inserting cash into and recolouring ID cards.
+  - qol: Added screentips for copying access directly from a card using a chameleon
+      ID card.
+  - qol: Added screentips for setting prisoner ID sentence time.
+  - qol: Added screentips for forging cardboard ID cards.
+  - balance: Egg boxes' storage UI is now 6 slots wide, such that it contains an even
+      dozen slots when full.
+  - balance: The storage UIs for heart-shaped chocolate boxes, pickle jars, and rolling
+      paper packs are now 4, 5, and 5 slots wide respectively, such that they fill
+      the whole storage UI when full.
+  - balance: Fryish and its fried snack cousins can now be stored in nugget boxes.
+  - bugfix: Pickle jars can actually hold the ten pickles they spawn with.
+  - bugfix: Fertile egg boxes, coffee condiment displays, and coffee cart racks have
+      the right amount of slots.
+  - bugfix: Coffee cart racks spawn with the sprite for holding 1 cartridge like they
+      do, rather than looking like they're holding 4 cartridges.
+  - bugfix: Lidless coffee cups from the impressa coffeemaker or somesuch no longer
+      take two clicks to put a lid on them.
+  - qol: Added screentips for toggling coffee cup lids.
+  - balance: You can now examine things through advanced camera consoles.
+  - balance: You can now examine things while in a holopad call.
+  - balance: You can now examine things while looking up or down.
+  - code_imp: Refactored holochip merging. Please report any issues.
+  - qol: Holochips now have usage screentips.
+  - balance: Nugget boxes work as stasis fish cases for Fryish and Fritterish.
+  - bugfix: NTNRC chat input actually works.
+  1393F:
+  - bugfix: The advanced roasting stick can once again roast sausages on singularities
+      from a few tiles away!
+  Absolucy:
+  - bugfix: Firelocks now skip checking uninitialized turfs, which caused errors with
+      the holodeck.
+  - bugfix: Prosopagnosia no longer allows you to somehow recognize people in infiltrator
+      modsuits.
+  Aliceee2ch:
+  - bugfix: Now the telecomm hub does not turn on with a multitool after EMP
+  - bugfix: Now if you are not near the console the disk will drop in its place instead
+      of your location
+  - map: Minor Catwalk fixes
+  - bugfix: Lockboxes now correctly use the closed icon_state when first spawned
+  Arturlang:
+  - balance: Full heals no longer replace all organs, though they still replace any
+      hazardous organs and re-add missing ones and heal the rest.
+  Ben10Omintrix:
+  - rscadd: snails are now growable from cytology. u can swab snails or watering cans
+      for samples
+  - rscadd: added stoats to the game
+  Bisar:
+  - bugfix: Atmos machines should no longer remove labels when you adjust their settings.
+  - bugfix: The name input for the character preferences should be functional again.
+  Cirrial:
+  - rscadd: Gorillas can now throw things and offer items to players.
+  - refactor: Moved throwing and offering item code to be based on living mobs, not
+      just carbon mobs.
+  Ezel:
+  - bugfix: Adds missing dragnet beacon to catwalk
+  - bugfix: Adds missing HoS office authenication device.
+  - balance: Chem/Xeno/Custodial Nukie Keycard lowered to 5
+  - balance: Ordnance Nukie Keycard increased to 30
+  - map: Gives CE/CMO/RD their proper camera monitors
+  - map: Medbay Camera's is now its own proper network
+  - map: Removes a camera from Prison maintenance and Security closet
+  - map: Disables AI control on Prison Maintenance Door
+  - bugfix: Minisat Camera's now use the proper network
+  - bugfix: Engine Camera's now use the proper network
+  FlufflesTheDog:
+  - bugfix: Clocking out via PDA app now properly spawns lockboxes with restricted
+      items
+  Ghommie:
+  - bugfix: Stickmen summoned by the papier-mache robe are once again hostile.
+  Goat:
+  - bugfix: Strongarm implant no longer gives the text about being broken when you
+      use your empty hand.
+  - code_imp: Toolset arms are now a subtype of arm implants instead of all arm implants
+      being treated like toolset arms.
+  Hardly:
+  - image: resprited the modern hairstyle to look modern
+  Holoo-1:
+  - bugfix: fixed camera static not being drawn for AI in multicamera mode. Also fixes
+      secondary AI cameras not existing and gives them their AI name
+  JohnFulpWillard:
+  - bugfix: Toy Cicatrix, Toy Gigas and the Codex Cicatrix itself all now fits on
+      bookshelves.
+  KnigTheThrasher:
+  - bugfix: fixed toxic mold spiders not despawning after death.
+  Krysonism:
+  - rscadd: Added the ability to create a spore print seed by using paper on mushrooms.
+  - bugfix: fixed bungo pits not inheriting genes and stats from the fruit.
+  LT3:
+  - image: Tram information plate is mounted properly on the wall again
+  Melbert:
+  - rscadd: Silicons get a HUD animation when they perish.
+  - rscadd: Adding Space Cleaner or Water to a rag will consume it as you clean to
+      keep the rag fresher for longer.
+  - rscadd: You can spray a rag with a spray bottle directly to transfer reagents
+      over.
+  - bugfix: Cargorilla is back
+  - admin: VV stops you from offering control of a ghost to ghosts
+  NamelessFairy:
+  - qol: Inspecting a hand of cards now tells you what cards you can see in it.
+  - bugfix: Adding cards to a hand no longer automatically flips them.
+  OnlineGirlfriend:
+  - image: update sprite for Screwdriver (drink)
+  - rscadd: horse and unicorn plushies
+  OrbisAnima:
+  - rscadd: To future proof and in case we get long rounds, all limited fishing items
+      regenerate after 30 minutes if they dont have a regeneration time.
+  - rscadd: Skeleton keys, Tendril chests, Runite can be found in Lava and Plasma
+      lakes now, although they are rare!
+  - balance: Explosions and NPC's no longer nets you uniques from fishing... Fish
+      if you want them!
+  Pickle-Coding:
+  - rscadd: Antinoblium converts other gases into antinoblium when above 20 Kelvin.
+  - balance: Firelocks close when they detect antinoblium.
+  - balance: Antinoblium irradiates people upon skin contact.
+  Retrino:
+  - qol: more sinks available near surgical areas to wash your gross little hands
+  - qol: moved some xenobiology equipment downstairs on icebox
+  SmArtKar:
+  - rscadd: Colorblind people can no longer see wire colors
+  - bugfix: Fixed eyecharts not considering people with monochromacy colorblind
+  - bugfix: Fixed cultists, blood brothers and headrevs sometimes not getting their
+      roundstart items
+  - bugfix: Fixed ampersands in TM titles breaking the in-game issue report button
+  - balance: Neruwhine can no longer roll voidwalker traumas.
+  - bugfix: Fixed the planetary gravity damage status effect not clearing itself when
+      you lose the voided trauma.
+  - bugfix: Fixed space suit helmets slowing you down
+  Sothanforax:
+  - rscadd: Added the ability to jam your coworkers into washing machines
+  Sprite by Crumpaloo, commissioned by me!:
+  - rscadd: Adds a jumbo monkey plushie, go feed it bananas!
+  SyncIt21:
+  - bugfix: recycler won't spit out indestructible items if its indirectly stored
+      on the mob
+  - bugfix: fixes runtimes with splashing reagents
+  TealSeer:
+  - bugfix: fixed being able to add seemingly infinite refined bluespace crystals
+      to pipe bombs
+  - refactor: /obj/item/stack/split_stack no longer tries to move the stack into the
+      user's hands, use /obj/item/stack/split_n_take for that
+  - bugfix: fixed express consoles taking your money and sending nothing when you
+      ordered goodies
+  TheRealSpriteMan1337:
+  - spellcheck: Makes the computer and machine frame building tips consistent, decapitalizes
+      the improvised chem heater's name and change its description.
+  TiviPlus:
+  - bugfix: fixed a runtime error with the escape menu
+  Tostah:
+  - rscadd: Adds 2u sanguarite to atropens
+  Tractor-Maam:
+  - bugfix: Brings back the nicotine relief threshold so smoking can satisfy it once
+      again.
+  Y0SH1M4S73R:
+  - bugfix: Shuttle flight control computers will show you when the linked shuttle
+      cannot move.
+  - bugfix: The MOD soul core no longer tells you there's no charge source while worn.
+  - rscadd: Advanced camera consoles now have usb ports. Connected circuits can get
+      the position the camera is viewing, get the location of targeted entities, and
+      provide the console with actions that the user can activate.
+  - spellcheck: Stations in the Spinward Sector have reported malfunctioning AIs swearing
+      fealty to the dead god Ratvar.
+  Zergspower:
+  - qol: cyborg circuit upgrade can now handle cells as well, reduction in borg related
+      rage from building APC's down by 400%
+  - bugfix: fixes borg inducers instantly depleting their cells, moves the inducer
+      cell act to be to an internal cell to compensate for power differences
+  carpotoxin:
+  - rscadd: Adds Narcolepsy as a -8 negative quirk!
+  - refactor: Slightly adjusts the logic of the narcolepsy trauma
+  - balance: The narcolepsy trauma its symptoms can now be softened by being caffeinated,
+      and modafinil or synaptizine suppress it entirely
+  improvedname:
+  - balance: Splits surgery dufflebag into two items the dufflebag itself and the
+      medkit
+  jlsnow301:
+  - bugfix: Tgui inputs have been tweaked again to fix issues and seem more responsive.
+  - bugfix: The produce console's layout has been adjusted a bit for an improved ordering
+      experience.
+  - bugfix: Fixed unwrapped tgui bluescreen text
+  mc-oofert:
+  - bugfix: removed a camera from the deathmatch meta brig map, disciple of pete has
+      low-range signalers, deathmatch bolt of possession deals brain damage instead,
+      split personality may not roll in deathmatch
+  moocowswag:
+  - bugfix: conveyors now remember what they should be doing after losing and regaining
+      power.
+  - rscadd: Adds modular shield cables, greatly enabling shield generator setups to
+      be more flexible within a room.
+  - rscadd: Spray painting or coloring the modular shield generator now has it color
+      its shields on next activation.
+  - qol: Modular shield machines now automatically attempt to connect to something
+      on initialize and on being rotated via wrench, making it easy to use for maps
+      and helps reduce confusion.
+  - image: Modular shield cable sprites that adapt to orientation and make the whole
+      system look cleaner
+  necromanceranne:
+  - bugfix: The BR-38 no longer has a completely unintended accuracy malus built in.
+  - bugfix: If an energy weapon is indestructible, so is the cell within the weapon.
+  - bugfix: Cells inside of energy guns are bomb proof so as to not brick a gun that
+      somehow survives being bombed.
+  - balance: Swimming is no longer so hyper lethal, and also benefits from athletics
+      boosters.
+  - balance: By default, swimming through deep water does a somewhat low but mounting
+      quantity of stamina damage. Reduced by athletics skill and athletics boosters.
+  - balance: Your total carried equipment weight (and their slowdowns, if any) contribute
+      to your stamina loss while swimming. If you fell into deep water, best start
+      stripping items.
+  - balance: Floating is slightly less lethal, especially if you are starting to drown.
+  - bugfix: Fixes a runtime caused by the exercised status effect.
+  san7890:
+  - qol: Some mob suicides now have a message that shows to blind people or people
+      that didn't actually witness the suicide, pretty cool.
+  sqnztb:
+  - rscadd: 'New holiday for May 22: Goth Day.'
+  throwawayuseless:
+  - rscadd: Reflex Hammer, used to test your kneejerk reflex. Print one now, from
+      your local lathe!
+  - balance: Nooartrium no longer applies its side effects at double speed.
+  - bugfix: Plasma now contributes to the fuel gauge of rigged welders, making them
+      less extremely obvious.
+  - rscadd: New chemistry catalysts! Combine phenol, unstable mutagen, and plasma
+      in a 1:3:1 competitive reaction, similar to tempomyocin and purity tester. Adding
+      stable plasma to either of the two precursors will create the new catalysts,
+      one regulating pH, and the other temperature. If you're having trouble getting
+      the one you want, you can optionally add gold to the beaker as the competitive
+      reaction progresses, which will cause the pH precursor to form more quickly.
+  - bugfix: Wavelength is now the main factor in how long your microlaser takes to
+      activate, rather than intensity for some reason.
+  timothymtorres:
+  - code_imp: Properly document circuitboard vars
+  - bugfix: Fix shuttle engines built from a circuit board having it's `anchored`
+      state not matching the correct `engine_state`. This would consider the engine
+      to be anchored already when it was not and allow someone to weld it despite
+      it being able to be dragged and moved around.
+  - qol: '`map_export` admin verb can now save atmos for turfs and air canisters'
+  vinylspiders:
+  - qol: Slimes will no longer have a chance to move when being put in BZ enviroments
+      via the xenobiology console
+  wivernshy:
+  - rscadd: Some hemophages have learned to blend in better with the new "Masquerade"
+      quirk, allowing them to consume food and drink as normal.
+  - qol: Blood tomatoes are appropriately BLOODY now, making them a viable food source
+      for hemophages.
