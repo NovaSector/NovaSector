@@ -2,7 +2,7 @@
  * Directional Reagent Dispeners (Modular)
  */
 
- // Potable Water Cooler
+// Potable Water Cooler
 
 /obj/structure/reagent_dispensers/water_cooler/directional/north
 	pixel_y = 16

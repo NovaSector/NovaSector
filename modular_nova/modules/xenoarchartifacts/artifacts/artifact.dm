@@ -294,7 +294,7 @@
 	if(istype(attack_item, /obj/item/xenoarch/core_sampler))
 		var/obj/item/xenoarch/core_sampler/sampler = attack_item
 		if(sampler.used)
-			balloon_alert(user, "This sampler was already used!")
+			balloon_alert(user, "sampler already used!")
 			return
 		sampler.sample = src
 		sampler.used = TRUE

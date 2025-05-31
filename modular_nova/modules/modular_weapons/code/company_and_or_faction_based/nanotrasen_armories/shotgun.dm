@@ -43,7 +43,7 @@
 		make the Katyusha powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
 
 /obj/item/storage/toolbox/guncase/nova/katyusha
 	name = "\improper Nanotrasen Armories \"Katyusha\" gunset"
@@ -72,4 +72,4 @@
 		makes the Jäger powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)
