@@ -5,7 +5,7 @@
 	worn_icon_muzzled = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks_muzzled.dmi'
 	greyscale_colors = "#383840#dc7ef4"
 	icon = 'icons/map_icons/clothing/mask.dmi'
-	icon_state = "/obj/item/clothing/mask/ballgag"
+	icon_state = "/obj/item/clothing/mask/muzzle/ballgag"
 	post_init_icon_state = "ballgag"
 	greyscale_config = /datum/greyscale_config/ball_gag
 	greyscale_config_worn = /datum/greyscale_config/ball_gag/worn
@@ -19,7 +19,7 @@
 	desc = "Prevents the wearer from speaking, as well as making breathing harder."
 	worn_icon_state = "ballgag"
 	icon = 'icons/map_icons/clothing/mask.dmi'
-	icon_state = "/obj/item/clothing/mask/ballgag/choking"
+	icon_state = "/obj/item/clothing/mask/muzzle/ballgag/choking"
 	post_init_icon_state = "chokegag_small"
 	greyscale_config = /datum/greyscale_config/ball_gag/choke_gag
 	unique_reskin = list(
