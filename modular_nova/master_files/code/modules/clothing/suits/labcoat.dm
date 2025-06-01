@@ -50,6 +50,10 @@
 	greyscale_colors = "#EEEEEE#B347A1"
 	gets_cropped_on_taurs = FALSE
 
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/xeno
+
 /obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
 	name = "sleeveless buttoned coat"
 	desc = "A fashionable jacket bearing the La Lune insignia on the inside. It appears similar to a labcoat in design and materials, though the tag warns against it being a replacement for such."
@@ -81,10 +85,6 @@
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/pharmacist/Initialize(mapload)
 	. = ..()
 	allowed += /obj/item/storage/bag/chemistry
-
-/obj/item/clothing/suit/toggle/labcoat/nova/regular/Initialize(mapload)
-	. = ..()
-	allowed += /obj/item/storage/bag/xeno
 
 /obj/item/clothing/suit/toggle/labcoat/nova/highvis
 	name = "high vis labcoat"
