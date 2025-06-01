@@ -124,7 +124,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	var/datum/record/locked/lockfile = new(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type.name,
+		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
@@ -142,14 +142,14 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 	new /datum/record/crew(
 		age = person.age,
 		chrono_age = person.chrono_age, // NOVA EDIT ADDITION - Chronological age
-		blood_type = record_dna.blood_type.name,
+		blood_type = person.get_bloodtype()?.name || "UNKNOWN",
 		character_appearance = character_appearance,
 		dna_string = record_dna.unique_enzymes,
 		fingerprint = md5(record_dna.unique_identity),
 		gender = person_gender,
 		initial_rank = assignment,
 		name = person.real_name,
-		rank = chosen_assignment, // NOVA EDIT - Alt job titles - ORIGINAL: rank = assignment,
+		rank = chosen_assignment, // NOVA EDIT CHANGE - Alt job titles - ORIGINAL: rank = assignment,
 		species = record_dna.species.name,
 		trim = assignment,
 		// Crew specific
