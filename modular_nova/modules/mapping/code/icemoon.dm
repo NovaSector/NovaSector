@@ -95,7 +95,7 @@
 
     . = ..()
 
-///declaration for the Frozenwake ruin, the rest can be found in modular_nova\modules\mapping\code\frozenwake.dm
+//declaration for the Frozenwake ruin, the rest can be found in modular_nova\modules\mapping\code\frozenwake.dm
 /datum/map_template/ruin/icemoon/underground/nova/frozenwake
 	name = "frozenwake"
 	id = "frozenwake"

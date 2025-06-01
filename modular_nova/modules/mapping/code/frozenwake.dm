@@ -1,4 +1,6 @@
+/// the controller and logic behind the frozenwake puzzle
 var/global/datum/frozenwake_puzzle/frozenwake_puzzle_controller = new()
+/// the stasis target, which is the reward
 var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
@@ -109,9 +111,11 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	. = ..()
 	stasis_target = src
 
-///Used to check the progression of the puzzle.
+//Used to check the progression of the puzzle.
 /datum/frozenwake_puzzle
+	/// what the expected order to solve the puzzle
 	var/list/expected_order = list("dreamer", "circle", "betrayer", "fall")
+	/// what has currently been selected to compare to the expected_order
 	var/list/current_sequence = list()
 
 ///Compares the puzzle expected_order to current_sequence
@@ -149,17 +153,17 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		qdel(stasis_target)
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
-///what happen when you touch a statue.
+//what happen when you touch a statue.
 /obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
 	frozenwake_puzzle_controller.register_click(puzzle_id)
 	to_chat(user, "You touch the statue. The stone hums softly.")
 
-///Initializing the glow for the steles.
+//Initializing the glow for the steles.
 /obj/structure/statue/hearthkin/frozenwake/stele/Initialize(mapload)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
 
-///Adding the glowing runes overlay to the steles.
+//Adding the glowing runes overlay to the steles.
 /obj/structure/statue/hearthkin/frozenwake/stele/update_overlays()
     . = ..()
     . += add_runic_glow()
@@ -176,6 +180,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 /mob/living/basic/ghost/swarm/frozenwake
 	name = "runebound echo"
 	desc = "A pale figure drifts silently through the frostbound halls. Faint, furred ears and a trailing tail mark it as once Hearthkin, though its steps follow a path long forgotten."
+	/// list of sayings that the echo can choose from
 	var/emotional_damage = list(
 		"The oath... it was broken...",
 		"He was light. We let it die.",
@@ -215,25 +220,26 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 		"I want to go home... but I don’t remember where it is.",
 	)
 
-///Initialize the ghosts speaking loop.
+//Initialize the ghosts speaking loop.
 /mob/living/basic/ghost/swarm/frozenwake/Initialize()
 	. = ..()
 	start_quote_loop()
 
 ///Ghost speaking loop, hopefully not too spammy.
 /mob/living/basic/ghost/swarm/frozenwake/proc/start_quote_loop()
-	/// Delay the first line randomly to desync mobs
+	// Delay the first line randomly to desync mobs
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(100, 300)) // 10-30 seconds
 
+/// at a chance, allows the echo to say something from emotional_damage
 /mob/living/basic/ghost/swarm/frozenwake/proc/speak_emotion()
 	if(prob(40)) // 40% chance to speak when timer triggers
 		var/message = pick(emotional_damage)
 		say(message, language = /datum/language/primitive_catgirl)
 
-	/// Re-add the timer with a random interval to keep them from being predictable
+	// Re-add the timer with a random interval to keep them from being predictable
 	addtimer(CALLBACK(src, .proc/speak_emotion), rand(200, 600)) // 20-60 seconds
 
-///Make sure the ref to the ice pillar is removed if the item is deleted.
+//Make sure the ref to the ice pillar is removed if the item is deleted.
 /obj/structure/ice_stasis/frozenwake/Destroy()
 	if (stasis_target == src)
 		stasis_target = null
