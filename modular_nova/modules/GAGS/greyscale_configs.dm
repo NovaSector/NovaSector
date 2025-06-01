@@ -1043,7 +1043,7 @@
 	json_config = 'modular_nova/modules/GAGS/json_configs/dagger_mantle/dagger_mantle.json'
 
 /datum/greyscale_config/dagger_mantle/worn
-	name = "'Dagger' Designer Mantle (worn)"
+	name = "'Dagger' Designer Mantle (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/dagger_mantle/dagger_mantle_worn.json'
 
 /*
