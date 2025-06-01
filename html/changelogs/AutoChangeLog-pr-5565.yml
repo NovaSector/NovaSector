@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "fixes ball gags' GAGS preview in the loadout menu showing up as an error"
