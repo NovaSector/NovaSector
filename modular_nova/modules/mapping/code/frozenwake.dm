@@ -107,7 +107,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	resistance_flags = INDESTRUCTIBLE
 	anchored = TRUE
 
-/obj/structure/ice_stasis/frozenwake/Initialize()
+/obj/structure/ice_stasis/frozenwake/Initialize(mapload)
 	. = ..()
 	stasis_target = src
 
@@ -170,12 +170,12 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 ///selecting the correct file for the glow.
 /obj/structure/statue/hearthkin/frozenwake/stele/proc/add_runic_glow()
-    return emissive_appearance(
-        'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi',
-        "[icon_state]-emissive",
-        src,
-        alpha = src.alpha
-    )
+	return emissive_appearance(
+		'modular_nova/modules/primitive_catgirls/icons/gods_statue.dmi',
+		"[icon_state]-emissive",
+		src,
+		alpha = src.alpha
+	)
 
 /mob/living/basic/ghost/swarm/frozenwake
 	name = "runebound echo"
@@ -221,7 +221,7 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	)
 
 //Initialize the ghosts speaking loop.
-/mob/living/basic/ghost/swarm/frozenwake/Initialize()
+/mob/living/basic/ghost/swarm/frozenwake/Initialize(mapload)
 	. = ..()
 	start_quote_loop()
 
