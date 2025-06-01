@@ -201,7 +201,7 @@
 
 /datum/sprite_accessory/hair/nova/fluffball
 	name = "Fluffball"
-	icon_state = "fluffball"
+	icon_state = "hair_fluffball"
 
 /datum/sprite_accessory/hair/nova/fluffy_short
 	name = "Fluffy Short"
