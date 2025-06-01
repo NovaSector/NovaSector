@@ -1,0 +1,4 @@
+author: "LotusLadno"
+delete-after: True
+changes:
+  - bugfix: "fixed sprites augment+, moving hands 1 pixel up"
