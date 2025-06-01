@@ -165,8 +165,8 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 //Adding the glowing runes overlay to the steles.
 /obj/structure/statue/hearthkin/frozenwake/stele/update_overlays()
-    . = ..()
-    . += add_runic_glow()
+	. = ..()
+	. += add_runic_glow()
 
 ///selecting the correct file for the glow.
 /obj/structure/statue/hearthkin/frozenwake/stele/proc/add_runic_glow()
