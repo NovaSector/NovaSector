@@ -18,7 +18,7 @@ In any query remember to add a prefix to the table names if you use one.
 
 ---
 
-Version 5.30, 3 May 2025, by Atlanta-Ned
+Version 5.33, 3 May 2025, by Atlanta-Ned
 Adds a `manifest` table.
 
 ```sql
@@ -39,7 +39,7 @@ CREATE TABLE `manifest` (
 
 ---
 
-Version 5.30, 1 May 2025, by Rengan
+Version 5.32, 1 May 2025, by Rengan
 Adds `crime_desc` field to the `citation` table to save the description of the crime.
 
 ```sql
@@ -49,7 +49,7 @@ ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
 
 ---
 
-Version 5.29, 4 February 2024, by Tiviplus
+Version 5.31, 4 February 2024, by Tiviplus
 Fixed admin rank table flags being capped at 16 in the DB instead of 24 (byond max)
 
 ```sql
@@ -61,7 +61,7 @@ ALTER TABLE `admin_ranks`
 
 ---
 
-Version 5.28, 1 November 2024, by Ghommie
+Version 5.30, 1 November 2024, by Ghommie
 Added `fish_progress` as the first 'progress' subtype of 'datum/award/scores'
 
 ```sql
