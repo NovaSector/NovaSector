@@ -50,7 +50,7 @@
 	greyscale_colors = "#EEEEEE#B347A1"
 	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/suit/toggle/labcoat/nova/regular/Initialize(mapload)
+/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular/Initialize(mapload)
 	. = ..()
 	allowed += /obj/item/storage/bag/xeno
 
