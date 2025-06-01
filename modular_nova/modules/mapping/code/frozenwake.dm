@@ -1,5 +1,5 @@
 /// the controller and logic behind the frozenwake puzzle
-var/global/datum/frozenwake_puzzle/frozenwake_puzzle_controller = new()
+var/global/datum/frozenwake_puzzle/frozenwake_puzzle_controller = new
 /// the stasis target, which is the reward
 var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
