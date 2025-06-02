@@ -264,7 +264,7 @@
 	if(!(clean_types & CLEAN_TYPE_BLOOD) || last_blood_state == BLOOD_STATE_NOT_BLOODY)
 		return NONE
 
-	reset_bloody_shoes()
+	total_bloodiness = 0
 	var/obj/item/clothing/shoes/parent_shoes = parent
 	if(!istype(parent_shoes)) // if we are wearing shoes, wash() will already be calling update_worn_shoes() so we don't have to do it twice
 		update_icon()

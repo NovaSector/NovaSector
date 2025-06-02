@@ -127,7 +127,7 @@
 	..()
 	shatter(M)
 
-/obj/item/light/attack_atom(obj/O, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/item/light/attack_atom(obj/attacked_obj, mob/living/user, list/modifiers, list/attack_modifiers)
 	..()
 	shatter(attacked_obj)
 
