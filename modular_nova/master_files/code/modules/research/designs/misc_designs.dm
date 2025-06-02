@@ -71,6 +71,6 @@
 	)
 	build_path = /obj/item/gas_filter/vox
 	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS_EQUIPMENT,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS_EQUIPMENT
 	)
 	departmental_flags = ALL
