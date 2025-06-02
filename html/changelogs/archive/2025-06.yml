@@ -1,0 +1,8 @@
+2025-06-02:
+  LotusLadno:
+  - bugfix: fixed sprites augment+, moving hands 1 pixel up
+  OrionTheFox:
+  - bugfix: fixed a broken labcoat appearing in the SciDrobe
+  - image: resprited the 'Dagger' Designer Mantle
+  vinylspiders:
+  - bugfix: fixes ball gags' GAGS preview in the loadout menu showing up as an error
