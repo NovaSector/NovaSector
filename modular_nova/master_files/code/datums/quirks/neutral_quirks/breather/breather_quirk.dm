@@ -17,7 +17,7 @@
 	var/obj/item/clothing/accessory/breathing/target_tag = new(get_turf(quirk_holder))
 	target_tag.breath_type = breath_type
 
-	give_item_to_holder(target_tag, list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_BACKPACK,	LOCATION_HANDS))
+	give_item_to_holder(target_tag, list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_BACKPACK, LOCATION_HANDS))
 	give_item_to_holder(breathing_tank,
 		list(
 			LOCATION_LPOCKET,

@@ -17,7 +17,7 @@
 	// set lung vars
 	target_lungs.safe_oxygen_min = 0 //Dont need oxygen
 	target_lungs.safe_oxygen_max = 2 //But it is quite toxic
-	target_lungs.safe_plasma_min = 4 //default of plasmana's plasma tank
+	target_lungs.safe_plasma_min = 4 //default of plasmaman's plasma tank
 	target_lungs.safe_plasma_max = 0
 	target_lungs.oxy_damage_type = TOX
 	target_lungs.oxy_breath_dam_min = 6
