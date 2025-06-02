@@ -47,6 +47,8 @@
 	sound_environment = SOUND_ENVIRONMENT_QUARRY
 	mood_bonus = -5
 	mood_message = "The weight of loss clings to the air. Every step feels like an echo of mourning."
+	var/frozenwake_stasis_target = null
+	var/datum/frozenwake_puzzle/frozenwake_puzzle_controller = new
 
 /area/ruin/unpowered/luna
 	name = "\improper Unregistered Structure"

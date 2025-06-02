@@ -1,8 +1,3 @@
-/// the controller and logic behind the frozenwake puzzle
-var/global/datum/frozenwake_puzzle/frozenwake_puzzle_controller = new
-/// the stasis target, which is the reward
-var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
-
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/frozenwake/
 	name = "ancient parchment"
 	desc = "A note written in Ættmál."
@@ -107,9 +102,18 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	resistance_flags = INDESTRUCTIBLE
 	anchored = TRUE
 
+///Proc used to check if get_area returns the frozenwake puzzle area.
+/proc/get_frozenwake_puzzle_area(atom/location)
+	var/area/area_check = get_area(location)
+	if (istype(area_check, /area/ruin/unpowered/frozenwake))
+		return area_check
+	return null
+
 /obj/structure/ice_stasis/frozenwake/Initialize(mapload)
 	. = ..()
-	stasis_target = src
+	var/area/ruin/unpowered/frozenwake/puzzle_area = get_frozenwake_puzzle_area(src)
+	if (puzzle_area)
+		puzzle_area.frozenwake_stasis_target = src
 
 //Used to check the progression of the puzzle.
 /datum/frozenwake_puzzle
@@ -130,14 +134,19 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	return TRUE
 
 ///adds the last clicked statue to the current_sequence. Keeps only the last 4 stored.
-/datum/frozenwake_puzzle/proc/register_click(statue_id)
+/datum/frozenwake_puzzle/proc/register_click(statue_id, puzzle_area)
+	if (!istype(puzzle_area, /area/ruin/unpowered/frozenwake))
+		return
+	var/area/ruin/unpowered/frozenwake/frozenwake_area = puzzle_area
+
 	current_sequence += statue_id
 
 	if(length(current_sequence) > length(expected_order))
 		current_sequence.Cut(1, 2) // Keep last inputs
 
 	if(lists_match(current_sequence, expected_order))
-		trigger_success()
+		trigger_success(frozenwake_area)
+
 
 
 /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi
@@ -145,18 +154,28 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 	desc = "This greatsword pulses faintly with emberlight. Its edge is inscribed in Hearthkin runes — a blade meant not for war, but remembrance. It feels warm in your grasp, like a forgotten promise."
 
 ///Breaks the ice and drops the sword if puzzle completed.
-/datum/frozenwake_puzzle/proc/trigger_success()
-	if(stasis_target)
-		var/turf/reward_loc = get_turf(stasis_target)
-		for(var/mob/emoted in view(7, reward_loc))
+/datum/frozenwake_puzzle/proc/trigger_success(success_area)
+	if (!istype(success_area, /area/ruin/unpowered/frozenwake))
+		return
+
+	var/area/ruin/unpowered/frozenwake/frozenwake_area = success_area
+
+	if (frozenwake_area.frozenwake_stasis_target)
+		var/turf/reward_loc = get_turf(frozenwake_area.frozenwake_stasis_target)
+		for (var/mob/emoted in view(7, reward_loc))
 			to_chat(emoted, span_notice("The ice cracks with a deep groan... and shatters!"))
-		qdel(stasis_target)
+		qdel(frozenwake_area.frozenwake_stasis_target)
 		new /obj/item/kinetic_crusher/runic_greatsword/vidrhefjandi(reward_loc)
 
 //what happen when you touch a statue.
 /obj/structure/statue/hearthkin/frozenwake/puzzle/attack_hand(mob/user)
-	frozenwake_puzzle_controller.register_click(puzzle_id)
-	to_chat(user, "You touch the statue. The stone hums softly.")
+	var/area/ruin/unpowered/frozenwake/puzzle_area = get_frozenwake_puzzle_area(src)
+	if (puzzle_area)
+		puzzle_area.frozenwake_puzzle_controller.register_click(puzzle_id, puzzle_area)
+		to_chat(user, "You touch the statue. The stone hums softly.")
+	else
+		to_chat(user, "DEBUG: Statue outside of puzzle area.")
+
 
 //Initializing the glow for the steles.
 /obj/structure/statue/hearthkin/frozenwake/stele/Initialize(mapload)
@@ -241,6 +260,8 @@ var/global/obj/structure/ice_stasis/frozenwake/stasis_target = null
 
 //Make sure the ref to the ice pillar is removed if the item is deleted.
 /obj/structure/ice_stasis/frozenwake/Destroy()
-	if (stasis_target == src)
-		stasis_target = null
+	var/area/ruin/unpowered/frozenwake/puzzle_area = get_frozenwake_puzzle_area(src)
+	if (puzzle_area)
+		if (puzzle_area.frozenwake_stasis_target == src)
+			puzzle_area.frozenwake_stasis_target = null
 	return ..()
