@@ -49,8 +49,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 			add_low_oxy(target_lungs)
 
 /datum/quirk/adapted_lungs/proc/add_cold(obj/item/organ/lungs/target_lungs)
-	target_lungs.icon = 'modular_nova/modules/organs/icons/lungs.dmi'
-	target_lungs.icon_state = "lungs_cold"
 	target_lungs.cold_message = "a slightly painful, though bearable, cold sensation"
 	target_lungs.cold_level_1_threshold = 208
 	target_lungs.cold_level_2_threshold = 200
@@ -70,8 +68,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	target_lungs.heat_damage_type = BURN
 
 /datum/quirk/adapted_lungs/proc/add_hot(obj/item/organ/lungs/target_lungs)
-	target_lungs.icon = 'modular_nova/modules/organs/icons/lungs.dmi'
-	target_lungs.icon_state = "lungs_heat"
 	target_lungs.cold_message = "the freezing cold with every breath you take"
 	target_lungs.cold_level_1_threshold = 248
 	target_lungs.cold_level_2_threshold = 220
@@ -91,8 +87,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	target_lungs.heat_damage_type = BURN
 
 /datum/quirk/adapted_lungs/proc/add_toxic(obj/item/organ/lungs/target_lungs)
-	target_lungs.icon = 'modular_nova/modules/organs/icons/lungs.dmi'
-	target_lungs.icon_state = "lungs_toxin"
 	target_lungs.safe_plasma_max = 27
 	target_lungs.safe_co2_max = 27
 
@@ -115,8 +109,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	target_lungs.heat_damage_type = BURN
 
 /datum/quirk/adapted_lungs/proc/add_low_oxy(obj/item/organ/lungs/target_lungs)
-	target_lungs.icon = 'modular_nova/modules/organs/icons/lungs.dmi'
-	target_lungs.icon_state = "lungs_toxin"
 	target_lungs.safe_oxygen_min = 5
 
 	target_lungs.hot_message = "the searing heat with every breath you take"
