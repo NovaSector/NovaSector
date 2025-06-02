@@ -162,8 +162,3 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 
 /datum/preference/choiced/adapted_lungs/apply_to_human(mob/living/carbon/human/target, value)
 	return
-
-
-
-
-
