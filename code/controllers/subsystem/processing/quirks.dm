@@ -43,6 +43,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/echolocation, /datum/quirk/monochromatic),
 	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted, /datum/quirk/item_quirk/deafness),
 	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
+	list(/datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/water_breather),
 	//NOVA EDIT ADDITION END
 ))
 
