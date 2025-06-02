@@ -30,7 +30,7 @@
 		return
 	// flavor
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
-	target_lungs.AddElement(/datum/element/noticable_organ, "%PRONOUN_Theyve a set of gills on %PRONOUN_their neck.", BODY_ZONE_PRECISE_MOUTH)
+	target_lungs.AddElement(/datum/element/noticable_organ, "%PRONOUN_Theyve got a set of gills on %PRONOUN_their neck.", BODY_ZONE_PRECISE_MOUTH)
 	target_lungs.AddComponent(/datum/component/bubble_icon_override, "fish", BUBBLE_ICON_PRIORITY_ORGAN)
 	// add the gills overlay
 	var/obj/item/bodypart/chest/target_chest = quirk_holder.get_bodypart(BODY_ZONE_CHEST)
