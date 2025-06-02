@@ -8,6 +8,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 /datum/quirk/adapted_lungs
 	name = "Adapted Lungs"
 	desc = "Your lungs have adapted to be resistant to certain atmospheric conditions, at the cost of being more vulnerable to others."
+	medical_record_text = "Patient has abnormal lungs." // this gets overwritten
 	icon = FA_ICON_WIND
 	value = 2
 	/// the choice of lungs the player has selected
@@ -21,6 +22,10 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	desired_lungs = GLOB.possible_adapted_lungs[client_source?.prefs?.read_preference(/datum/preference/choiced/adapted_lungs)]
 	if(isnull(desired_lungs))  //Client gone or they chose random
 		desired_lungs = GLOB.possible_adapted_lungs[pick(GLOB.possible_adapted_lungs)]
+
+	medical_record_text = "Patient has lungs adapted to [desired_lungs] environments."
+	gain_text = "<span class='notice'>Your lungs are adapted to [desired_lungs] environments."
+	lose_text = "<span class='danger'>Your lungs are no longer adapted to [desired_lungs] environments."
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
 	var/mob/living/carbon/owner = quirk_holder
@@ -42,11 +47,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 			add_toxic(target_lungs)
 		if("low oxygen")
 			add_low_oxy(target_lungs)
-
-/datum/quirk/adapted_lungs/post_add()
-	medical_record_text = "Patient has lungs adapted to [desired_lungs] environments."
-	gain_text = "<span class='notice'>Your lungs are adapted to [desired_lungs] environments."
-	lose_text = "<span class='danger'>Your lungs are no longer adapted to [desired_lungs] environments."
 
 /datum/quirk/adapted_lungs/proc/add_cold(obj/item/organ/lungs/target_lungs)
 	target_lungs.icon = 'modular_nova/modules/organs/icons/lungs.dmi'
