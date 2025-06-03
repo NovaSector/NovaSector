@@ -253,7 +253,6 @@
 	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
-
 /**
  * ### Baron Spider
  * The big bad spider, rarely to be used but designed to inflect major casuality/damage.
