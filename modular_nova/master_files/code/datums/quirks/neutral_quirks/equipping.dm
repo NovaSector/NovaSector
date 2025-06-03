@@ -43,14 +43,16 @@
 
 /datum/quirk/equipping/proc/force_equip_item(mob/living/carbon/target, obj/item/item, slot, check_nodrop = TRUE, check_item = TRUE)
 	var/obj/item/item_in_slot = target.get_item_by_slot(slot)
-	if (check_item && item_in_slot)
+	if (!check_item)
+		if (target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE) || target.equip_to_storage(item, slot, indirect_action = TRUE))
+			return TRUE
+	else if (item_in_slot)
 		if (check_nodrop && HAS_TRAIT(item_in_slot, TRAIT_NODROP))
 			return FALSE
 		target.dropItemToGround(item_in_slot, force = TRUE)
 		force_dropped_items += item_in_slot
 		RegisterSignal(item_in_slot, COMSIG_QDELETING, PROC_REF(dropped_items_cleanup))
-
-	return target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE) // this should never not work tbh
+	return target.equip_to_slot_if_possible(item, slot, disable_warning = TRUE)
 
 /datum/quirk/equipping/proc/dropped_items_cleanup(obj/item/source)
 	SIGNAL_HANDLER

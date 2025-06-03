@@ -1,10 +1,11 @@
 /obj/item/clothing/glasses/hypno
 	name = "hypnotic goggles"
 	desc = "An all-in-one mnemonic impression repeater and vision tinter, used to entrance the wearer with a programmed phrase. Foam inserts, to boot."
-	icon_state = "hypnogoggles"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_eyes.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_eyes.dmi'
 	greyscale_colors = "#383840#dc7ef4"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/hypno"
+	post_init_icon_state = "hypnogoggles"
 	greyscale_config = /datum/greyscale_config/hypnogoggles
 	greyscale_config_worn = /datum/greyscale_config/hypnogoggles/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -63,6 +64,6 @@
 		return
 	switch(rand(1, 2))
 		if(1)
-			to_chat(wearer, span_hypnophrase("<i>...[lowertext(codephrase)]...</i>"))
+			to_chat(wearer, span_hypnophrase("<i>...[LOWER_TEXT(codephrase)]...</i>"))
 		if(2)
 			new /datum/hallucination/chat(wearer, TRUE, FALSE, span_hypnophrase("[codephrase]"))

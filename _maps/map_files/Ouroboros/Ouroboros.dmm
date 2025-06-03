@@ -5481,7 +5481,7 @@
 	pixel_y = 6;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 12;
 	pixel_x = 4
 	},
@@ -27918,7 +27918,7 @@
 /obj/item/kitchen/rollingpin{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4;
 	pixel_x = 5
 	},
@@ -30648,7 +30648,7 @@
 /obj/item/plate{
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_x = -13;
 	pixel_y = 4
 	},
@@ -33028,7 +33028,7 @@
 	dir = 8
 	},
 /obj/structure/table/glass,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 12;
 	pixel_x = 4
 	},
@@ -37215,7 +37215,7 @@
 	pixel_x = -10;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 10;
 	pixel_x = 7
 	},
@@ -75821,7 +75821,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /obj/structure/table/wood/poker,
@@ -78663,7 +78663,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /turf/open/floor/iron/dark/smooth_large,

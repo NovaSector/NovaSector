@@ -16,6 +16,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/modular_computer/preset/time_clock, 2
 
 /obj/machinery/modular_computer/preset/time_clock/proc/setup_starting_software()
 	var/datum/computer_file/program/crew_self_serve/punch_clock = cpu.find_file_by_name("plexagonselfserve")
+	cpu.allow_chunky = TRUE // everyone should be able to use the punch clock
 	cpu.active_program = punch_clock
 	punch_clock.register_signals()
 	set_light(light_strength)
