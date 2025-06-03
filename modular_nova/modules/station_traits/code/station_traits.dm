@@ -24,3 +24,6 @@
 
 /datum/station_trait/skub
 	weight = 0
+
+/datum/station_trait/job/human_ai
+	weight = 3
