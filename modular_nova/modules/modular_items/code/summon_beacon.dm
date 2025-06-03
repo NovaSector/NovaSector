@@ -89,7 +89,7 @@
 		return FALSE
 	if(!target_area)
 		return FALSE
-	if(!(is_type_in_list(target_area, allowed_areas) || (target_area.GetComponent(/datum/component/custom_area) && allow_custom_areas)))
+	if(!(is_type_in_list(target_area, allowed_areas) || (allow_custom_areas && target_area.GetComponent(/datum/component/custom_area))))
 		return FALSE
 	return TRUE
 
