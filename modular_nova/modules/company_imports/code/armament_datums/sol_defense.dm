@@ -14,6 +14,10 @@
 /datum/armament_entry/company_import/sol_defense/clothing/emt
 	item_type = /obj/item/clothing/under/sol_emt
 
+/datum/armament_entry/company_import/sol_defense/clothing/hecu_mask
+	item_type = /obj/item/clothing/mask/gas/hecu
+	cost = PAYCHECK_COMMAND
+
 // Armor vests for protecting against bullets
 
 /datum/armament_entry/company_import/sol_defense/armor
