@@ -1,0 +1,4 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - bugfix: "fixes a bug that prevented you from picking up adamantine with tongs"
