@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - rscadd: "Gas miners can now be called in custom areas"
