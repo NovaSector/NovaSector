@@ -3,6 +3,7 @@
 
 /datum/vote/transfer_vote
 	name = "Transfer"
+	display_statistics = FALSE
 	default_choices = list(
 		CHOICE_TRANSFER,
 		CHOICE_CONTINUE,
