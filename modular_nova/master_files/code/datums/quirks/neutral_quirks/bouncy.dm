@@ -7,7 +7,10 @@
 	value = 0
 	icon = FA_ICON_TURN_UP
 
-/datum/quirk/bouncy/add()
-	. = ..()
+/datum/quirk/bouncy/add(client/client_source)
 	var/mob/living/carbon/human/user = quirk_holder
 	user.AddElementTrait(TRAIT_WADDLING, QUIRK_TRAIT, /datum/element/waddling)
+
+/datum/quirk/bouncy/remove()
+	var/mob/living/carbon/human/user = quirk_holder
+	REMOVE_TRAIT(user, TRAIT_WADDLING, QUIRK_TRAIT)
