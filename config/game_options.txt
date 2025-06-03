@@ -139,20 +139,15 @@ ALLOW_LATEJOIN_ANTAGONISTS
 ## Uncomment to enable dynamic ruleset config file.
 DYNAMIC_CONFIG_ENABLED
 
+## Uncomment to enable event editing config file.
+#EVENTS_CONFIG_ENABLED
+
 ## RANDOM EVENTS ###
 ## Comment this out to disable random events during the round.
 ALLOW_RANDOM_EVENTS
 
 ## Uncomment this to disable station traits.
 #FORBID_STATION_TRAITS
-
-## Multiplier for earliest start time of dangerous events.
-## Set to 0 to make dangerous events available from round start.
-EVENTS_MIN_TIME_MUL 1
-
-## Multiplier for minimal player count (players = alive non-AFK humans) for dangerous events to start.
-## Set to 0 to make dangerous events available for all populations.
-EVENTS_MIN_PLAYERS_MUL 1
 
 ## The lower bound, in deciseconds, for how soon another random event can be scheduled.
 ## Defaults to 1500 deciseconds or 2.5 minutes
@@ -181,7 +176,7 @@ ALLOW_AI_MULTICAM
 ## AWAY MISSIONS ###
 
 ## Uncomment to load one of the missions from awaymissionconfig.txt or away_missions/ at roundstart.
-ROUNDSTART_AWAY
+#ROUNDSTART_AWAY
 
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 ## 600 is one minute.
@@ -414,6 +409,7 @@ ROUNDSTART_RACES teshari
 ROUNDSTART_RACES hemophage
 ROUNDSTART_RACES vox_primalis
 ROUNDSTART_RACES abductorweak
+ROUNDSTART_RACES kobold
 
 ##-------------------------------------------------------------------------------------------
 
@@ -480,7 +476,7 @@ BOMBCAP 20
 ## a less lootfilled or smaller or less round effecting ruin costs less to
 ## spawn, while the converse is true. Alter this number to affect the amount
 ## of ruins.
-LAVALAND_BUDGET 60
+LAVALAND_BUDGET 0
 
 ## Ice Moon Budget
 ICEMOON_BUDGET 90
@@ -489,7 +485,7 @@ ICEMOON_BUDGET 90
 OCEAN_BUDGET 60
 
 ## Space Ruin Budget
-Space_Budget 16
+Space_Budget 0
 
 ## Time in ds from when a player latejoins till the arrival shuttle docks at the station
 ## Must be at least 30. At least 55 recommended to be visually/aurally appropriate
@@ -503,7 +499,7 @@ ARRIVALS_SHUTTLE_DOCK_WINDOW 55
 
 ## How many wirechewing rodents you want to spawn on exposed maintenance wires at the start of the round. You may wish to set this to 0 if you're testing powernets.
 
-MICE_ROUNDSTART 10
+MICE_ROUNDSTART 0
 
 ## If the percentage of players alive (doesn't count conversions) drops below this threshold the emergency shuttle will be forcefully called (provided it can be)
 #EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.2
@@ -598,3 +594,23 @@ RANDOM_LOOT_WEIGHT_MODIFIER 1
 ## Custom shuttle spam prevention. Changine these numbers allows you to change the maxsize and amount of custom shuttles.
 MAX_SHUTTLE_COUNT 6
 MAX_SHUTTLE_SIZE 300
+
+### Spy config
+## Changes refresh period between bounties - in deciseconds
+SPY_BOUNTY_REFRESH_TIMER 7200
+## Changes amount of easy bounties offered at once. Limit = 8
+SPY_BOUNTY_MAX_EASY 4
+## Changes amount of medium bounties offered at once. Limit = 6
+SPY_BOUNTY_MAX_MEDIUM 2
+## Changes amount of hard bounties offered at once. Limit = 4
+SPY_BOUNTY_MAX_HARD 2
+## Changes amount of refreshes necessary per each hard bounty
+## 1 = A hard bounty is added per refresh (until the max)
+## 0.5 = A hard bounty is added every 2 refreshes (until the max).
+SPY_BOUNTY_HARD_BOUNTIES_PER_REFRESH 1
+## Easy bounties grant uplink rewards that cost this much TC (or lower).
+## Also functions as the lower end for medium bounties.
+SPY_EASY_REWARD_TC_THRESHOLD 5
+## Hard bounties grant uplink rewards that cost this much TC (or higher).
+## Also functions as the upper end for medium bounties.
+SPY_HARD_REWARD_TC_THRESHOLD 15

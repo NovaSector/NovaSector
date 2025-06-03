@@ -531,8 +531,8 @@
 	switch(translation)
 		if(BREAST_SIZE_FLATCHESTED)
 			size_description = " They are small and flat, however."
-		if(BREAST_SIZE_BEYOND_MEASUREMENT)
-			size_description = " Their size is enormous, you estimate they're around [genital_size] inches in diameter."
+		if(BREAST_SIZE_HUGE, BREAST_SIZE_GIGANTIC, BREAST_SIZE_ENORMOUS, BREAST_SIZE_MASSIVE, BREAST_SIZE_IMPOSSIBLE, BREAST_SIZE_BEYOND_MEASUREMENT)
+			size_description = "They are beyond the concept of cup-sizes, you estimate they're around [genital_size] inches in diameter."
 		else
 			size_description = " You estimate they are [translation]-cups."
 	returned_string += size_description
@@ -634,12 +634,12 @@
 
 	if(gen_vis_trans[picked_visibility] == GENITAL_LAYER_NORMAL || gen_vis_trans[picked_visibility] == GENITAL_LAYER_HIGH)
 		picked_organ.layer_mode = gen_vis_trans[picked_visibility]
-		balloon_alert(src, "set layering to [lowertext(picked_visibility)]")
+		balloon_alert(src, "set layering to [LOWER_TEXT(picked_visibility)]")
 		update_body()
 		return
 
 	picked_organ.visibility_preference = gen_vis_trans[picked_visibility]
-	balloon_alert(src, "set to [lowertext(picked_visibility)]")
+	balloon_alert(src, "set to [LOWER_TEXT(picked_visibility)]")
 	update_body()
 
 
@@ -678,5 +678,5 @@
 
 	picked_organ.aroused = gen_arous_trans[picked_arousal]
 	picked_organ.update_sprite_suffix()
-	balloon_alert(src, "set to [lowertext(picked_arousal)]")
+	balloon_alert(src, "set to [LOWER_TEXT(picked_arousal)]")
 	update_body()

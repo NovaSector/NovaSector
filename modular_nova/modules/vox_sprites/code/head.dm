@@ -4,7 +4,7 @@
 /obj/item/clothing/head/collectable/flatcap
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
-/obj/item/clothing/head/frenchberet
+/obj/item/clothing/head/beret/frenchberet
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
 /obj/item/clothing/head/flatcap
@@ -64,7 +64,7 @@
 /obj/item/clothing/head/flatcap
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
-/obj/item/clothing/head/frenchberet
+/obj/item/clothing/head/beret/frenchberet
 	greyscale_config_worn_vox = /datum/greyscale_config/beret/worn/vox
 
 /obj/item/clothing/head/beret/sec/navywarden/syndicate
@@ -73,14 +73,11 @@
 /obj/item/clothing/head/nanotrasen_consultant/beret
 	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge/worn/vox
 
-/obj/item/clothing/head/beret/sec/peacekeeper/armadyne
+/obj/item/clothing/head/beret/sec/armadyne
 	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge_fancy/worn/vox
 
-/obj/item/clothing/head/beret/sec/peacekeeper
+/obj/item/clothing/head/beret/sec/nova
 	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge/worn/vox
-
-/obj/item/clothing/head/beret/sec/peacekeeper/white
-	greyscale_config_worn_vox = null
 
 /obj/item/clothing/head/beret/sec/navywarden/peacekeeper
 	greyscale_config_worn_vox = /datum/greyscale_config/beret_badge_fancy/worn/vox

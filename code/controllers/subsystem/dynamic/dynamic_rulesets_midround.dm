@@ -877,7 +877,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(obsessed)] has been made Obsessed by the midround ruleset.")
 	log_game("[key_name(obsessed)] was made Obsessed by the midround ruleset.")
 	notify_ghosts(
-		"[obsessed] has developed an obsession with someone!",
+		"[obsessed.real_name] has developed an obsession with someone!",
 		source = obsessed,
 		header = "Love Can Bloom",
 	)
@@ -975,6 +975,7 @@
 		if (!opt_in_disabled && player.mind?.get_effective_opt_in_level() < OPT_IN_YES_ROUND_REMOVE)
 			continue
 		// NOVA EDIT ADDITION END
+		possible_targets += player
 
 	if(possible_targets.len)
 		return pick(possible_targets)

@@ -226,10 +226,16 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/holopad/examine(mob/user)
 	. = ..()
-	if(isAI(user))
-		. += span_notice("The status display reads: Current projection range: <b>[holo_range]</b> units. Use :h to speak through the projection. Right-click to project or cancel a projection. Alt-click to hangup all active and incomming calls. Ctrl-click to end projection without jumping to your last location.")
-	else if(in_range(user, src) || isobserver(user))
+	if(isAI(user) || in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Current projection range: <b>[holo_range]</b> units.")
+
+	if(!isAI(user))
+		return
+
+	. += span_info("Use :[/datum/saymode/holopad::key] to speak through the projection.")
+	. += span_info("Right-click to project or cancel a projection.")
+	. += span_info("Alt-click to hangup all active and incomming calls.")
+	. += span_info("Ctrl-click to end projection without jumping to your last location.")
 
 /obj/machinery/holopad/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -252,24 +258,24 @@ Possible to do for anyone motivated enough:
 	if(record_mode)
 		record_stop()
 
-/obj/machinery/holopad/attackby(obj/item/P, mob/user, params)
-	if(default_deconstruction_screwdriver(user, "holopad_open", "holopad0", P))
+/obj/machinery/holopad/attackby(obj/item/item, mob/user, list/modifiers)
+	if(default_deconstruction_screwdriver(user, "holopad_open", "holopad0", item))
 		return
 
-	if(default_pry_open(P, close_after_pry = TRUE, closed_density = FALSE))
+	if(default_pry_open(item, close_after_pry = TRUE, closed_density = FALSE))
 		return
 
-	if(default_deconstruction_crowbar(P))
+	if(default_deconstruction_crowbar(item))
 		return
 
-	if(istype(P,/obj/item/disk/holodisk))
+	if(istype(item, /obj/item/disk/holodisk))
 		if(disk)
 			to_chat(user,span_warning("There's already a disk inside [src]!"))
 			return
-		if (!user.transferItemToLoc(P,src))
+		if (!user.transferItemToLoc(item, src))
 			return
-		to_chat(user,span_notice("You insert [P] into [src]."))
-		disk = P
+		to_chat(user,span_notice("You insert [item] into [src]."))
+		disk = item
 		return
 
 	return ..()
@@ -551,15 +557,14 @@ Possible to do for anyone motivated enough:
 
 		if(AI)
 			AI.eyeobj.setLoc(get_turf(src)) //ensure the AI camera moves to the holopad
-			hologram.Impersonation = AI //NOVA EDIT -- ADDITION -- Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
+			hologram.Impersonation = AI //NOVA EDIT ADDITION - Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
 		else //make it like real life
 			hologram.Impersonation = user
-		//Hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. //NOVA EDIT -- Customization; Making holograms clickable/examinable
+		//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // NOVA EDIT REMOVAL - Making holograms clickable/examinable
 		hologram.layer = FLY_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 		SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 		hologram.set_anchored(TRUE)//So space wind cannot drag it.
-		//hologram.name = "[user.name] (Hologram)"//If someone decides to right click. // ORIGINAL
-		hologram.name = user.name //NOVA EDIT -- Make the name exact, so that the double-emotes are less jarring in the chat
+		hologram.name = user.name //NOVA EDIT CHANGE - Make the name exact, so that the double-emotes are less jarring in the chat - ORIGINAL: hologram.name = "[user.name] (Hologram)"//If someone decides to right click.
 		set_holo(user, hologram)
 
 		set_holo(user, hologram)
@@ -624,9 +629,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return TRUE
 
 /obj/machinery/holopad/proc/clear_holo(datum/owner)
-	if(!disk || !disk.record)
-		return FALSE
-
 	qdel(masters[owner])
 	unset_holo(owner)
 	return TRUE
@@ -745,7 +747,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 	var/datum/language_holder/holder = hologram.get_language_holder()
 	holder.selected_language = record.language
-	hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
+	//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // NOVA EDIT REMOVAL - Making holograms clickable/examinable
 	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 	hologram.set_anchored(TRUE)//So space wind cannot drag it.
@@ -869,6 +871,10 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	initial_language_holder = /datum/language_holder/universal
 	var/mob/living/Impersonation
 	var/datum/holocall/HC
+
+/obj/effect/overlay/holo_pad_hologram/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/holographic_nature)
 
 /obj/effect/overlay/holo_pad_hologram/Destroy()
 	Impersonation = null

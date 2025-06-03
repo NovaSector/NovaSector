@@ -31,15 +31,11 @@
 	desc = "A sleek, sturdy box used to hold an emergency spacesuit."
 	icon_state = "syndiebox"
 	illustration = "syndiesuit"
+	storage_type = /datum/storage/box/syndicate_space
 
-/obj/item/storage/box/syndie_kit/space_suit/Initialize(mapload)
-	. = ..()
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.max_slots = 2
-	atom_storage.set_holdable(list(
-		/obj/item/clothing/head/helmet/space/syndicate,
-		/obj/item/clothing/suit/space/syndicate,
-		))
+/datum/storage/box/syndicate_space
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	max_slots = 2
 
 /obj/item/storage/box/syndie_kit/space_suit/PopulateContents()
 	switch(pick(list("red", "green", "dgreen", "blue", "orange", "black")))
@@ -66,7 +62,7 @@
 /obj/item/clothing/suit/jacket/det_suit/noir/armoured
 	armor_type = /datum/armor/heister
 
-/obj/item/clothing/head/frenchberet/armoured
+/obj/item/clothing/head/beret/frenchberet/armoured
 	armor_type = /datum/armor/cosmetic_sec
 
 /obj/item/clothing/under/suit/black/armoured
@@ -83,7 +79,7 @@
 	name = "gunman clothing bundle"
 	desc = "A box filled with armored and stylish clothing for the aspiring gunmans."
 
-/obj/item/clothing/suit/jacket/trenchcoat/gunman
+/obj/item/clothing/suit/jacket/leather_trenchcoat/gunman
 	name = "leather overcoat"
 	desc = "An armored leather overcoat, intended as the go-to wear for any aspiring gunman."
 	body_parts_covered = CHEST|GROIN|ARMS

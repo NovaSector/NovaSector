@@ -61,9 +61,6 @@
 /datum/action/item_action/toggle_voice_box
 	name = "Toggle Voice Box"
 
-/datum/action/item_action/toggle_human_head
-	name = "Toggle Human Head"
-
 /datum/action/item_action/toggle_helmet
 	name = "Toggle Helmet"
 
@@ -115,11 +112,6 @@
 
 /datum/action/item_action/call_link
 	name = "Call MODlink"
-
-// NOVA EDIT ADDITION START
-/datum/action/item_action/toggle_hide_face
-	name = "Toggle Face Hiding"
-// NOVA EDIT ADDITION END
 
 /datum/action/item_action/toggle_wearable_hud
 	name = "Toggle Wearable HUD"

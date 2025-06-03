@@ -263,6 +263,7 @@
 		"xenoarch_particles_battery",
 		"xenoarch_artifact_stabilizer",
 	)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/xenoarch_storage
 	id = TECHWEB_NODE_XENOARCH_STORAGE
@@ -274,6 +275,7 @@
 		"xenoarch_bag",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/xenoarch_machines
 	id = TECHWEB_NODE_XENOARCH_MACHINES
@@ -290,6 +292,7 @@
 		"radiocarbon spectrometer",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/adv_xenoarch
 	id = TECHWEB_NODE_XENOARCH_ADVANCED
@@ -306,6 +309,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/experiment/scanning/points/xenoarch
 	name = "Advanced Xenoarchaeology Tools"

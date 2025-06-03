@@ -1,7 +1,7 @@
 /obj/machinery/cell_charger_multi
 	name = "multi-cell charging rack"
 	desc = "A cell charging rack for multiple batteries."
-	icon = 'modular_nova/modules/aesthetics/cells/cell.dmi'
+	icon = 'modular_nova/modules/aesthetics/cells/icons/cell.dmi'
 	icon_state = "cchargermulti"
 	base_icon_state = "cchargermulti"
 	use_power = IDLE_POWER_USE
@@ -28,8 +28,8 @@
 		var/newlevel = round(charging.percent() * 4 / 100)
 		var/mutable_appearance/charge_overlay = mutable_appearance(icon, "[base_icon_state]-o[newlevel]")
 		var/mutable_appearance/cell_overlay = mutable_appearance(icon, "[base_icon_state]-cell")
-		charge_overlay.pixel_x = 5 * (i - 1)
-		cell_overlay.pixel_x = 5 * (i - 1)
+		charge_overlay.pixel_w = 5 * (i - 1)
+		cell_overlay.pixel_w = 5 * (i - 1)
 		. += new /mutable_appearance(charge_overlay)
 		. += new /mutable_appearance(cell_overlay)
 

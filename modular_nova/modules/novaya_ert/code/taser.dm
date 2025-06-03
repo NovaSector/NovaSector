@@ -13,6 +13,15 @@
 	ammo_x_offset = 2
 	charge_sections = 3
 
+	lore_blurb = "The 'Mírotvůrce' was anticipated to become the main line of defense among colonial populations during the first months of settlement. \
+		The sheer amount of them that were produced and given out to people was overwhelming - which later gave it a status of a self-defense weapon \
+		fit and trustworthy for civilian use. \
+		Among the dedicated militiamen, however, it has been remarked as a weapon with a capacity and voltage \
+		too small to subdue more than one or two people; 'unfit for active duty', despite the high sustainability of its inbuilt crank dynamo."
+
+/obj/item/gun/energy/taser/crank/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
+
 /obj/item/ammo_casing/energy/electrode/crank_taser
 	projectile_type = /obj/projectile/energy/electrode/crank_taser
 
@@ -40,19 +49,3 @@
 		playsound(src, fire_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	else
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
-
-/obj/item/gun/energy/taser/crank/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
-
-/obj/item/gun/energy/taser/crank/examine(mob/user)
-	. = ..()
-	. += span_notice("You can <b>examine closer</b> to learn a little more about this weapon.")
-
-/obj/item/gun/energy/taser/crank/examine_more(mob/user)
-	. = ..()
-
-	. += "The 'Mírotvůrce' was anticipated to become the main line of defense among the colonial population during the first months of settling in. \
-		The sheer amount of them that were produced and given out to people would be overwhelming - later giving it a status of a self-defense weapon \
-		fit and trustworthy for civilian use. Among the dedicated militiamen, however, it has been remarked as a weapon with a capacity and voltage \
-		too small to subdue more than one or two people; 'unfit for active duty', as much as high sustainability helped out."
-

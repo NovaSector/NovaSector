@@ -224,6 +224,7 @@ GLOBAL_LIST_INIT(ai_employers, list(
 	"Spam Virus",
 	"SyndOS",
 	"Unshackled",
+	"Ratvarian Remnant",
 ))
 
 #define UPLINK_THEME_SYNDICATE "syndicate"
@@ -333,9 +334,9 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define MAROON_PROB 30
 
 /// How many telecrystals a normal traitor starts with
-#define TELECRYSTALS_DEFAULT 20
+#define TELECRYSTALS_DEFAULT 35 // NOVA EDIT CHANGE - ORIGINAL: #define TELECRYSTALS_DEFAULT 20
 /// How many telecrystals mapper/admin only "precharged" uplink implant
-#define TELECRYSTALS_PRELOADED_IMPLANT 10
+#define TELECRYSTALS_PRELOADED_IMPLANT 20 // NOVA EDIT CHANGE - ORIGINAL: #define TELECRYSTALS_PRELOADED_IMPLANT 10
 /// The normal cost of an uplink implant; used for calcuating how many
 /// TC to charge someone if they get a free implant through choice or
 /// because they have nothing else that supports an implant.

@@ -61,7 +61,7 @@
 
 /datum/loadout_item/mask/balaclavaadj
 	name = "Adjustable Balaclava"
-	item_path = /obj/item/clothing/mask/balaclavaadjust
+	item_path = /obj/item/clothing/mask/balaclava/adjustable
 
 /datum/loadout_item/mask/balaclavathree
 	name = "Three-Hole Balaclava (Black)"
@@ -99,7 +99,10 @@
 *	JOB-LOCKED
 */
 
-// Ain't a damn thing
+/datum/loadout_item/mask/whistlesec
+	name = "Police Whistle"
+	item_path = /obj/item/clothing/mask/whistle
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /*
 *	MASQUERADE MASKS

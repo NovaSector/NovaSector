@@ -36,7 +36,7 @@
 		for(var/mob/living/silicon/robot/cyborg as anything in ai.connected_robots)
 			if(cyborg.connected_ai && cyborg.lawupdate)
 				cyborg.lawsync()
-	// NOVA EDIT ADDITON END
+	// NOVA EDIT ADDITION END
 
 /mob/living/silicon/proc/set_zeroth_law(law, law_borg, announce = TRUE)
 	laws_sanity_check()

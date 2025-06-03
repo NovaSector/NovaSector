@@ -31,34 +31,34 @@
  * Checks receiver_atom type, tries to discharge it
  *
  * Arguments:
- * * reciever_atmon - what to charge
+ * * receiver_atmon - what to charge
  * * power - how much do we charge
  */
-/datum/artifact_effect/celldrain/proc/try_use_charge(atom/reciever_atmon, power)
-	if(istype(reciever_atmon, /obj/item/stock_parts/power_store))
-		var/obj/item/stock_parts/power_store/cell = reciever_atmon
+/datum/artifact_effect/celldrain/proc/try_use_charge(atom/receiver_atmon, power)
+	if(istype(receiver_atmon, /obj/item/stock_parts/power_store))
+		var/obj/item/stock_parts/power_store/cell = receiver_atmon
 		cell.use(power, TRUE)
-	if(istype(reciever_atmon, /obj/machinery/power/apc))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	if(istype(receiver_atmon, /obj/machinery/power/apc))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.use(power, TRUE)
-	if(istype(reciever_atmon, /obj/machinery/power/smes))
-		var/obj/machinery/power/smes/unlucky = reciever_atmon
+	if(istype(receiver_atmon, /obj/machinery/power/smes))
+		var/obj/machinery/power/smes/unlucky = receiver_atmon
 		unlucky.charge -= power
-	if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	if(istype(receiver_atmon, /obj/item/gun/energy))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.use(power, TRUE)
-	if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	if(istype(receiver_atmon, /obj/item/gun/energy))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.use(power, TRUE)
-	if(istype(reciever_atmon, /obj/item/mod/control))
-		var/obj/item/mod/control/unluckymod = reciever_atmon
+	if(istype(receiver_atmon, /obj/item/mod/control))
+		var/obj/item/mod/control/unluckymod = receiver_atmon
 		for(var/obj/item/mod/core/unluckycore in unluckymod.contents)
 			for(var/obj/item/stock_parts/power_store/cell in unluckycore.contents)
 				cell.use(power, TRUE)
-	if(issilicon(reciever_atmon))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	if(issilicon(receiver_atmon))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.use(power, TRUE)
-		to_chat(reciever_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
+		to_chat(receiver_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
 
 /**
  * Tries to discharge every rechargable item in artifact range

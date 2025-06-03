@@ -251,7 +251,7 @@
 	log_silicon("CYBORG: [key_name(cyborg)] has transformed into the [new_model] model.")
 
 	//NOVA EDIT ADDITION BEGIN - ALTBORGS - Old check for 'dogborg' var no longer necessary, refactored into model_features instead.
-	new_model.update_dogborg()
+	new_model.update_quadborg()
 	new_model.update_tallborg()
 	//NOVA EDIT ADDITION END
 	if(transform)
@@ -863,7 +863,7 @@
 		/obj/item/borg/lollipop,
 		/obj/item/stack/pipe_cleaner_coil/cyborg,
 		/obj/item/chisel,
-		/obj/item/reagent_containers/cup/rag,
+		/obj/item/rag,
 		/obj/item/storage/bag/money,
 	)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)

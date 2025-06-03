@@ -45,7 +45,7 @@
 			rods[nullrod_type] = initial(nullrod_type.menu_description)
 		//special non-nullrod subtyped shit
 		rods[/obj/item/gun/ballistic/bow/divine/with_quiver] = "A divine bow and 10 quivered holy arrows."
-		rods[/obj/item/organ/cyberimp/arm/shard/scythe] = "A shard that implants itself into your arm, \
+		rods[/obj/item/organ/cyberimp/arm/toolkit/shard/scythe] = "A shard that implants itself into your arm, \
 									allowing you to conjure forth a vorpal scythe. \
 									Allows you to behead targets for empowered strikes. \
 									Harms you if you dismiss the scythe without first causing harm to a creature. \
@@ -73,7 +73,7 @@
 	user.visible_message(span_suicide("[user] is killing [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to get closer to god!"))
 	return (BRUTELOSS|FIRELOSS)
 
-/obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, params)
+/obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, list/modifiers)
 	if(!user.mind?.holy_role)
 		return ..()
 	if(!IS_CULTIST(target_mob) || istype(target_mob, /mob/living/carbon/human/cult_ghost))
@@ -189,7 +189,7 @@
 	force = 15
 	menu_description = "An odd sharp blade which provides a low chance of blocking incoming melee attacks and deals a random amount of damage, which can range from almost nothing to very high. Can be worn on the back."
 
-/obj/item/nullrod/claymore/multiverse/melee_attack_chain(mob/user, atom/target, params)
+/obj/item/nullrod/claymore/multiverse/melee_attack_chain(mob/user, atom/target, list/modifiers)
 	var/force_mod = rand(-14, 15)
 	force += force_mod
 	. = ..()
@@ -580,8 +580,9 @@
 /obj/item/nullrod/carp
 	name = "carp-sie plushie"
 	desc = "An adorable stuffed toy that resembles the god of all carp. The teeth look pretty sharp. Activate it to receive the blessing of Carp-Sie."
-	icon = 'icons/obj/toys/plushes.dmi'
-	icon_state = "map_plushie_carp"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/nullrod/carp"
+	post_init_icon_state = "map_plushie_carp"
 	greyscale_config = /datum/greyscale_config/plush_carp
 	greyscale_colors = "#cc99ff#000000"
 	inhand_icon_state = "carp_plushie"
@@ -816,7 +817,7 @@
 	alt_simple = string_list(alt_simple)
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple)
 
-/obj/item/nullrod/nullblade/melee_attack_chain(mob/user, atom/target, params)
+/obj/item/nullrod/nullblade/melee_attack_chain(mob/user, atom/target, list/modifiers)
 	//Track our actual force separately
 	var/old_force = force
 	force = 0
@@ -845,7 +846,7 @@
 	//Reapply our old force.
 	force -= force_diff
 
-/obj/item/nullrod/nullblade/afterattack(atom/target, mob/user, click_parameters)
+/obj/item/nullrod/nullblade/afterattack(atom/target, mob/user, list/modifiers)
 	if(!isliving(target))
 		return
 

@@ -19,6 +19,7 @@
 #define isluminescent(A) (is_species(A, /datum/species/jelly/luminescent))
 #define isprimitivedemihuman(A) (is_species(A, /datum/species/human/felinid/primitive))
 #define isrogue(A) (is_species(A, /datum/species/abductor/abductorweak))
+#define iskobold(A) (is_species(A, /datum/species/monkey/kobold))
 //Antags
 #define ishorrorling(A) (istype(A, /mob/living/simple_animal/hostile/true_changeling))
 #define iscorticalborer(A) (istype(A, /mob/living/basic/cortical_borer))
@@ -31,6 +32,3 @@
 #define isfeline(A) (isfelinid(A) || istajaran(A) || HAS_TRAIT(A, TRAIT_FELINE))
 #define iscanine(A) (isvulpkanin(A) || HAS_TRAIT(A, TRAIT_CANINE))
 #define isavian(A) (isteshari(A) || isvox(A) || isvoxprimalis(A) || HAS_TRAIT(A, TRAIT_AVIAN))
-
-// Xen mobs
-#define isxenmob(A) (istype(A, /mob/living/simple_animal/hostile/blackmesa/xen))

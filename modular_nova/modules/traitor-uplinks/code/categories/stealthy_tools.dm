@@ -16,3 +16,6 @@
 	item = /obj/item/storage/box/syndieshotglasses
 	cost = 2
 	restricted_roles = list(JOB_BARTENDER)
+
+/datum/uplink_item/stealthy_weapons/martialarts
+	cost = 32 // original cost: 17

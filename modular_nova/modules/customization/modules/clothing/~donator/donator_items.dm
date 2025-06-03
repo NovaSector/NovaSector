@@ -38,7 +38,7 @@
 
 /obj/item/hairbrush/switchblade/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
+	AddElement(/datum/element/update_icon_updates_onmob)
 
 ///This is called when you transform it
 /obj/item/hairbrush/switchblade/attack_self(mob/user, modifiers)
@@ -103,9 +103,8 @@
 
 /obj/item/donator/transponder/Destroy()
 	if(sparks)
-		qdel(sparks)
-	sparks = null
-	. = ..()
+		QDEL_NULL(sparks)
+	return ..()
 
 /obj/item/donator/transponder/attack_self(mob/user)
 	if(QDELETED(src) || (next_activate > world.time))
@@ -302,7 +301,6 @@
 /obj/item/instrument/piano_synth/headphones/catear_headphone
 	name = "Cat-Ear Headphones"
 	desc = "Merch of their Electric Guitarist Demi Galgan from the Singularity Shredders. It's heavily customizable and even comes with a holographic tail!"
-	icon_state = "catear_headphone"
 	worn_icon = 'modular_nova/modules/GAGS/icons/head/catear_headphone.dmi'
 	lefthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
 	righthand_file = 'modular_nova/modules/GAGS/icons/head/catear_headphone_inhand.dmi'
@@ -311,6 +309,9 @@
 	var/catTailToggled = FALSE
 	instrument_range = 1
 	greyscale_colors = "#FFFFFF#FFFFFF"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/instrument/piano_synth/headphones/catear_headphone"
+	post_init_icon_state = "catear_headphone"
 	greyscale_config = /datum/greyscale_config/catear_headphone
 	greyscale_config_worn = /datum/greyscale_config/catear_headphone/worn
 	greyscale_config_inhand_left = /datum/greyscale_config/catear_headphone_inhand_left
@@ -443,4 +444,76 @@
 		),
 	))
 	return ..()
+
+/obj/item/clothing/head/cone_of_shame
+	name = "collar cone"
+	desc = "A protective guard used to prevent infections. Its advertisement claims it is: \"used to prevent unnecessary scratching, biting or licking of wounds to better facilitate healing. Works on people and pets alike!\" You question its efficacy, while also feeling a mild sense of shame while wearing it."
+	base_icon_state = "cone"
+	icon_state = "cone"
+	worn_icon_state = "cone_close"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
+	slot_flags = parent_type::slot_flags | ITEM_SLOT_NECK
+	dog_fashion = /datum/dog_fashion/head/cone
+	var/toggle_state = "close"
+
+/obj/item/clothing/head/cone_of_shame/click_alt(mob/user)
+	if(toggle_state == "open")
+		toggle_state = "close"
+	else
+		toggle_state = "open"
+
+	balloon_alert(user, "[toggle_state == "open" ? "opened" : "closed"]")
+	update_icon(UPDATE_ICON_STATE)
+
+	var/mob/living/wearer = loc
+	if(!istype(wearer))
+		return CLICK_ACTION_SUCCESS
+
+	var/equipped_slot = wearer.get_slot_by_item(src)
+	if(equipped_slot & slot_flags)
+		wearer.update_clothing(equipped_slot)
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/cone_of_shame/equipped(mob/living/user, slot)
+	if(slot & slot_flags)
+		update_layer(user)
+		RegisterSignal(user, COMSIG_ATOM_POST_DIR_CHANGE, PROC_REF(on_dir_change))
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame/dropped(mob/user)
+	if(user.get_slot_by_item(src) & slot_flags)
+		UnregisterSignal(user, COMSIG_ATOM_POST_DIR_CHANGE)
+	return ..()
+
+/obj/item/clothing/head/cone_of_shame/proc/on_dir_change(mob/wearer, old_dir, new_dir)
+	SIGNAL_HANDLER
+	var/old_south = old_dir == SOUTH
+	var/new_south = new_dir == SOUTH
+	if(old_south == new_south)
+		return // either still facing south or still not facing south
+	update_layer(wearer)
+
+/obj/item/clothing/head/cone_of_shame/proc/update_layer(mob/wearer)
+	// renders behind hair only when facing exactly south, and above pretty much anything on the head any other direction
+	// diagonals render as east/west first so only need the exact cardinal
+	if(wearer.dir == SOUTH)
+		alternate_worn_layer = HAIR_LAYER + 0.1
+	else
+		alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER - 0.1
+	wearer.update_clothing(wearer.get_slot_by_item(src))
+
+/obj/item/clothing/head/cone_of_shame/update_icon_state()
+	worn_icon_state = "[base_icon_state]_[toggle_state]"
+	return ..()
+
+// Kaynite Donor Item
+/obj/item/storage/backpack/merctac_backpack
+	name = "\improper Xplore Go! bag"
+	desc = "A versatile, single strap backpack from the survival outfitter Xplore. A 20 litre pack coupled with a detachable thermal water bottle and O2 cannister, for trekking amongst the stars."
+	icon_state = "xplore_go_bag"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/back.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/back.dmi'
+	inhand_icon_state = "backpack"
 

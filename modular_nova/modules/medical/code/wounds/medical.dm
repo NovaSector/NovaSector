@@ -19,7 +19,7 @@
 /obj/item/stack/medical/gauze/Destroy()
 	var/mob/living/carbon/previously_gauzed = gauzed_bodypart?.owner
 
-	. = ..()
+	. = ..() // modular
 
 	previously_gauzed?.update_bandage_overlays()
 

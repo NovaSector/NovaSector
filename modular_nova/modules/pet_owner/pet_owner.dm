@@ -45,17 +45,18 @@
 	give_item_to_holder(
 		carrier,
 		list(
-			LOCATION_HANDS = ITEM_SLOT_HANDS
+			LOCATION_HANDS,
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
 	)
+	//Nanotrasen
 	give_item_to_holder(
 		space_treat,
 		list(
-			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
-			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
-			LOCATION_HANDS = ITEM_SLOT_HANDS,
+			LOCATION_LPOCKET,
+			LOCATION_RPOCKET,
+			LOCATION_BACKPACK,
+			LOCATION_HANDS,
 		),
 	)
 
@@ -84,6 +85,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
 	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
+	"Sweater Fox" = /mob/living/basic/pet/fox/docile/sweater,
 	"Frog" = /mob/living/basic/frog,
 	"Giant ant" = /mob/living/basic/ant,
 	"Kitten" = /mob/living/basic/pet/cat/kitten,

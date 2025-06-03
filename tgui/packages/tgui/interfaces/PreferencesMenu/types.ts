@@ -105,6 +105,7 @@ export type Language = {
   description: string;
   name: string;
   icon: string;
+  speaking: boolean;
 };
 
 export type Marking = {
@@ -204,8 +205,9 @@ export type PreferencesMenuData = {
       gender: Gender;
       joblessrole: JoblessRole;
       species: string;
-      loadout_list: LoadoutList;
+      loadout_lists: LoadoutList; // NOVA EDIT CHANGE - Multiple loadout presets - ORIGINAL: loadout_list: LoadoutList;
       job_clothes: BooleanLike;
+      loadout_index: string; // NOVA EDIT ADDITION: Multiple loadout presets
     };
 
     randomization: Record<string, RandomSetting>;
@@ -245,6 +247,7 @@ export type PreferencesMenuData = {
   keybindings: Record<string, string[]>;
   overflow_role: string;
   selected_quirks: string[];
+  species_disallowed_quirks: string[];
 
   antag_bans?: string[];
   antag_days_left?: Record<string, number>;

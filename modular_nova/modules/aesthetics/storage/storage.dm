@@ -1,18 +1,15 @@
-/obj/item/storage/medkit/emergency
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
-
 /obj/item/borg/upgrade/rped
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon = 'modular_nova/modules/aesthetics/storage/icons/storage.dmi'
 	icon_state = "borgrped"
 
 /obj/item/storage/part_replacer
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon = 'modular_nova/modules/aesthetics/storage/icons/storage.dmi'
 
 /obj/item/storage/part_replacer/bluespace
 	icon = 'icons/obj/storage/storage.dmi'
 
 /obj/item/storage/part_replacer/cyborg
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon = 'modular_nova/modules/aesthetics/storage/icons/storage.dmi'
 
 
 
@@ -20,7 +17,7 @@
 // Boxes
 */
 /obj/item/storage/box
-	icon = 'modular_nova/modules/aesthetics/storage/storage.dmi'
+	icon = 'modular_nova/modules/aesthetics/storage/icons/storage.dmi'
 
 /obj/item/storage/box/donkpockets
 	icon = 'icons/obj/storage/box.dmi'
@@ -33,23 +30,6 @@
 
 /obj/item/storage/box/cyber_implants
 	illustration = null //Included in the sprite
-
-/obj/item/storage/box/fishing_hooks
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/fishing_lures
-	icon = 'icons/obj/storage/box.dmi'
-/obj/item/storage/box/fishing_lines
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/fish_debug
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/fish_revival_kit
-	icon = 'icons/obj/storage/box.dmi'
-
-/obj/item/storage/box/aquarium_props
-	icon = 'icons/obj/storage/box.dmi'
 
 /obj/item/storage/box/mothic_rations
 	icon = 'icons/obj/storage/box.dmi'
@@ -68,7 +48,6 @@
 
 /obj/item/storage/box/tiziran_goods
 	icon = 'icons/obj/storage/box.dmi'
-
 
 /*
 // Medical
@@ -168,7 +147,6 @@
 /*
 // Paper Bags
 */
-
 /obj/item/storage/box/papersack
 	/// The modular icon file for the new designs
 	var/modular_additions_icon = 'modular_nova/master_files/icons/obj/storage/paperbag.dmi'

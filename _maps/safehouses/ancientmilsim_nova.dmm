@@ -31,7 +31,7 @@
 /obj/item/clothing/gloves/frontier_colonist,
 /obj/item/radio/headset/headset_faction/bowman,
 /obj/item/storage/pouch/ammo,
-/obj/item/storage/belt/security/webbing/peacekeeper,
+/obj/item/storage/belt/security/webbing/blue,
 /obj/item/clothing/glasses/night,
 /turf/open/floor/iron,
 /area/virtual_domain/safehouse)
@@ -159,7 +159,7 @@
 /obj/item/clothing/gloves/frontier_colonist,
 /obj/item/radio/headset/headset_faction/bowman,
 /obj/item/storage/pouch/ammo,
-/obj/item/storage/belt/security/webbing/peacekeeper,
+/obj/item/storage/belt/security/webbing/blue,
 /obj/item/clothing/glasses/night,
 /turf/open/floor/iron,
 /area/virtual_domain/safehouse)
@@ -248,7 +248,7 @@
 /obj/item/clothing/gloves/frontier_colonist,
 /obj/item/radio/headset/headset_faction/bowman,
 /obj/item/storage/pouch/ammo,
-/obj/item/storage/belt/security/webbing/peacekeeper,
+/obj/item/storage/belt/security/webbing/blue,
 /obj/item/clothing/glasses/night,
 /turf/open/floor/iron,
 /area/virtual_domain/safehouse)
