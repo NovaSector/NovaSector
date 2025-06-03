@@ -12,7 +12,7 @@
 		/obj/effect/decal/remains/robot	=	0.4,
 		/obj/effect/decal/remains/xeno	=	0.4,
 		/obj/structure/fluff/clockwork/clockgolem_remains	=	0.4,
-		/obj/item/raw_anomaly_core/random	=	2
+		/obj/item/raw_anomaly_core/random	=	2,
 		/obj/item/stack/sheet/mineral/zaukerite	=	0.1,
 		/obj/item/stack/sheet/mineral/runite	=	0.1,
 		/obj/item/stack/sheet/mineral/metal_hydrogen	=	0.1,
