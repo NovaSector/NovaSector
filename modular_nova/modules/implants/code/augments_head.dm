@@ -138,7 +138,7 @@
 		/obj/machinery/computer/holodeck,
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
-		/obj/item/organ/cyberimp/arm/armblade,
+		/obj/item/organ/cyberimp/arm/toolkit/armblade,
 	)
 	/// How far away we can hack things
 	var/hack_range = 2

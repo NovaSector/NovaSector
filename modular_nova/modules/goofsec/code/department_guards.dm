@@ -920,3 +920,18 @@
 		/obj/item/clothing/glasses/hud/security = 2,
 		/obj/item/clothing/glasses/hud/gun_permit = 2,
 	), src)
+
+/obj/item/storage/bag/garment/service_guard
+	name = "\proper the service guard's garments"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the service guard."
+
+/obj/item/storage/bag/garment/service_guard/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/radio/headset/headset_srv = 2,
+		/obj/item/clothing/shoes/sneakers/black = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
+		/obj/item/clothing/head/beret/sec/service = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard = 2,
+		/obj/item/clothing/glasses/hud/security = 2,
+	), src)

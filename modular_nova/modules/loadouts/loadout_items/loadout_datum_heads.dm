@@ -214,21 +214,6 @@
 	item_path = /obj/item/clothing/head/large_bow/sweet_bow
 	group = "Miscellaneous"
 
-/datum/loadout_item/head/hair_tie
-	name = "Hair Tie"
-	item_path = /obj/item/clothing/head/hair_tie
-	group = "Miscellaneous"
-
-/datum/loadout_item/head/hair_tie_plastic_beads
-	name = "Hair Tie - Plastic Beads"
-	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
-	group = "Miscellaneous"
-
-/datum/loadout_item/head/hair_tie_scrunchie
-	name = "Hair Tie - Scrunchie"
-	item_path = /obj/item/clothing/head/hair_tie/scrunchie
-	group = "Miscellaneous"
-
 /datum/loadout_item/head/cone_of_shame
 	name = "Cone of Shame"
 	item_path = /obj/item/clothing/head/cone_of_shame
