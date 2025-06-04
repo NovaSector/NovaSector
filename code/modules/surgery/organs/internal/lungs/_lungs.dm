@@ -64,6 +64,7 @@
 	// Vars for N2O/healium induced euphoria, stun, and sleep.
 	var/n2o_euphoria = EUPHORIA_LAST_FLAG
 	var/healium_euphoria = EUPHORIA_LAST_FLAG
+
 	// NOVA ADDITION START
 	var/safe_water_level = 16
 	// NOVA ADDITION END

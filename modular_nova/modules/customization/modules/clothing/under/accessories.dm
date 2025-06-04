@@ -263,11 +263,11 @@
 /obj/item/clothing/accessory/vaporizer
 	name = "\improper Stardress hydro-vaporizer"
 	desc = "An expensive device manufactured for the civilian work-force of the Azulean military power. \
-	Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
-	which can then be used to moisturize the wearer's skin. \n\n\
-	<i>A label on its back warns about the potential dangers of electro-magnetic pulses.</i> \n\
-	<b>ctrl-click</b> in-hand to hide the device while worn. \n\
-	Can also be worn inside of a pocket."
+		Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
+		which can then be used to moisturize the wearer's skin. \n\n\
+		<i>A label on its back warns about the potential dangers of electro-magnetic pulses.</i> \n\
+		<b>ctrl-click</b> in-hand to hide the device while worn. \n\
+		Can also be worn inside of a pocket."
 	icon_state = "wetmaker"
 	base_icon_state = "wetmaker"
 	icon = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'

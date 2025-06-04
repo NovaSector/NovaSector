@@ -3,8 +3,8 @@
 	desc = "You breathe nitrogen, even if you might not normally breathe it. Oxygen is poisonous."
 	alert_text = "Be sure to equip your vaporizer, or you may end up choking to death!"
 	medical_record_text = "Patient can only breathe nitrogen."
-	gain_text = "<span class='danger'>You suddenly have a hard time breathing anything but nitrogen."
-	lose_text = "<span class='notice'>You suddenly feel like you aren't bound to nitrogen anymore."
+	gain_text = span_notice("You suddenly have a hard time breathing anything but nitrogen.")
+	lose_text = span_danger("You suddenly feel like you aren't bound to nitrogen anymore.")
 	value = 0
 	breathing_tank = /obj/item/tank/internals/nitrogen/belt/full
 	breath_type = "nitrogen"

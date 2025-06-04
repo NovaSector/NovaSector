@@ -17,6 +17,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 /datum/quirk/adapted_lungs/add_unique(client/client_source)
 	if(!quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS))
 		to_chat(quirk_holder, span_warning("Your [name] quirk couldn't properly execute due to your species/body lacking a pair of lungs!"))
+		qdel(src)
 		return
 
 	desired_lungs = GLOB.possible_adapted_lungs[client_source?.prefs?.read_preference(/datum/preference/choiced/adapted_lungs)]
@@ -28,7 +29,6 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	lose_text = "<span class='danger'>Your lungs are no longer adapted to [desired_lungs] environments."
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
-	var/mob/living/carbon/owner = quirk_holder
 	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add_late))
 	add_late()
 
@@ -48,6 +48,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 		if("low oxygen")
 			add_low_oxy(target_lungs)
 
+/// lungs which can breathe cold but not hot
 /datum/quirk/adapted_lungs/proc/add_cold(obj/item/organ/lungs/target_lungs)
 	target_lungs.cold_message = "a slightly painful, though bearable, cold sensation"
 	target_lungs.cold_level_1_threshold = 208
@@ -67,6 +68,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	target_lungs.heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	target_lungs.heat_damage_type = BURN
 
+/// lungs which can breathe hot but not cold
 /datum/quirk/adapted_lungs/proc/add_hot(obj/item/organ/lungs/target_lungs)
 	target_lungs.cold_message = "the freezing cold with every breath you take"
 	target_lungs.cold_level_1_threshold = 248
@@ -86,6 +88,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	target_lungs.heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_2
 	target_lungs.heat_damage_type = BURN
 
+/// lungs which can breathe toxic but not hot or cold
 /datum/quirk/adapted_lungs/proc/add_toxic(obj/item/organ/lungs/target_lungs)
 	target_lungs.safe_plasma_max = 27
 	target_lungs.safe_co2_max = 27
@@ -108,6 +111,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	target_lungs.heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	target_lungs.heat_damage_type = BURN
 
+/// lungs which can breathe low oxy but not hot or cold
 /datum/quirk/adapted_lungs/proc/add_low_oxy(obj/item/organ/lungs/target_lungs)
 	target_lungs.safe_oxygen_min = 5
 

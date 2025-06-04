@@ -2,8 +2,8 @@
 	name = "Plasma Breather"
 	desc = "You breathe plasma, even if you might not normally breathe it. Oxygen is poisonous."
 	medical_record_text = "Patient can only breathe plasma."
-	gain_text = "<span class='danger'>You suddenly have a hard time breathing anything but plasma."
-	lose_text = "<span class='notice'>You suddenly feel like you aren't bound to plasma anymore."
+	gain_text = span_notice("You suddenly have a hard time breathing anything but plasma.")
+	lose_text = span_danger("You suddenly feel like you aren't bound to plasma anymore.")
 	icon = FA_ICON_FIRE_FLAME_SIMPLE
 	value = 0
 	breathing_tank = /obj/item/tank/internals/plasmaman/belt/full
