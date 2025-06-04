@@ -7656,6 +7656,7 @@
 #include "modular_nova\modules\company_imports\code\objects\keycard_auth.dm"
 #include "modular_nova\modules\company_imports\code\objects\deforest\filled_organ_boxes.dm"
 #include "modular_nova\modules\company_imports\code\objects\donk\donkfish_box.dm"
+#include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_crates.dm"
 #include "modular_nova\modules\company_imports\code\objects\interdyne\interdyne_kits.dm"
 #include "modular_nova\modules\company_imports\code\objects\jarnsmiour\special_metals.dm"
 #include "modular_nova\modules\company_imports\code\objects\syndicate\syndicate_kits.dm"
