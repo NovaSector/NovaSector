@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - rscadd: "Adds the bouncy quirk which makes your character waddle regardless of clownshoes"
