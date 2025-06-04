@@ -1,6 +1,6 @@
 /datum/armament_entry/company_import/interdyne
 	category = INTERDYNE_NAME
-	offstation = FALSE
+	offstation = TRUE
 
 /datum/armament_entry/company_import/interdyne/solo
 	subcategory = "individual products"
