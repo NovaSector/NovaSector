@@ -128,8 +128,8 @@
 		/obj/item/storage/backpack/satchel/interdyne = 5,
 		/obj/item/storage/backpack/duffelbag/syndie/interdyne = 5,
 		/obj/item/storage/backpack/interdyne = 5,
-		/obj/item/clothing/accessory/nova/acc_medal/specialpins/interdyne = 10,
-    
+		/obj/item/clothing/accessory/nova/acc_medal/neckpin/interdyne = 10,
+
 	)
 	contraband = list(
 		/obj/item/knife/combat = 1,
