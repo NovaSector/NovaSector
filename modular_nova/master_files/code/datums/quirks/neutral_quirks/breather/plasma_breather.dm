@@ -28,3 +28,6 @@
 	target_lungs.breath_lost[/datum/gas/oxygen] = TYPE_PROC_REF(/obj/item/organ/lungs, safe_oxygen)
 	// reflect correct lung flags
 	target_lungs.respiration_type = RESPIRATION_PLASMA
+
+/datum/quirk/item_quirk/breather/plasma_breather/remove()
+	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_PLASMA)

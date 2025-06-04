@@ -36,7 +36,15 @@
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(!target_lungs)
 		return
-	var/mob/living/carbon/user = quirk_holder
-	var/obj/item/organ/lungs/new_lungs = new user.dna.species.mutantlungs
-	new_lungs.Insert(user)
-	qdel(target_lungs)
+	target_lungs.safe_oxygen_min = initial(target_lungs.safe_oxygen_min)
+	target_lungs.safe_oxygen_max = initial(target_lungs.safe_oxygen_max)
+	target_lungs.safe_nitro_min = initial(target_lungs.safe_nitro_min)
+	target_lungs.oxy_damage_type = initial(target_lungs.oxy_damage_type)
+	target_lungs.oxy_breath_dam_min = initial(target_lungs.oxy_breath_dam_min)
+	target_lungs.oxy_breath_dam_max = initial(target_lungs.oxy_breath_dam_max)
+	// update lung procs
+	target_lungs.breathe_always = initial(target_lungs.breathe_always)
+	target_lungs.breath_present = initial(target_lungs.breath_present)
+	target_lungs.breath_lost = initial(target_lungs.breath_lost)
+	// reflect correct lung flags
+	target_lungs.respiration_type = initial(target_lungs.respiration_type)

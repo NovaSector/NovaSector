@@ -27,3 +27,6 @@
 	target_lungs.breath_lost[/datum/gas/oxygen] = TYPE_PROC_REF(/obj/item/organ/lungs, safe_oxygen)
 	// reflect correct lung flags
 	target_lungs.respiration_type = RESPIRATION_N2
+
+/datum/quirk/item_quirk/breather/nitrogen_breather/remove()
+	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_N2O)
