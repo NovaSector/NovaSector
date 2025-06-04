@@ -1,0 +1,6 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - balance: "changed the reward for the language skill-- getting more languages per levelup, and a medal at the end"
+  - balance: "you get more experience from reading books and mentoring books if you are in a good mood and there are bookshelves around you"
+  - rscadd: "you can use a bluespace crystal on a mentoring book to get a random book"
