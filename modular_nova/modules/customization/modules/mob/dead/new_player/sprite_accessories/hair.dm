@@ -199,6 +199,10 @@
 	name = "Long 4"
 	icon_state = "hair_long4"
 
+/datum/sprite_accessory/hair/nova/fluffball
+	name = "Fluffball"
+	icon_state = "hair_fluffball"
+
 /datum/sprite_accessory/hair/nova/fluffy_short
 	name = "Fluffy Short"
 	icon_state = "hair_fluffy_short"
