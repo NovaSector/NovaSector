@@ -27,4 +27,3 @@
 /datum/quirk/item_quirk/breather/water_breather/remove()
 	. = ..()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_WATER)
-

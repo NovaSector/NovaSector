@@ -38,7 +38,6 @@
 		return
 	target_lungs.safe_oxygen_min = initial(target_lungs.safe_oxygen_min)
 	target_lungs.safe_oxygen_max = initial(target_lungs.safe_oxygen_max)
-	target_lungs.safe_nitro_min = initial(target_lungs.safe_nitro_min)
 	target_lungs.oxy_damage_type = initial(target_lungs.oxy_damage_type)
 	target_lungs.oxy_breath_dam_min = initial(target_lungs.oxy_breath_dam_min)
 	target_lungs.oxy_breath_dam_max = initial(target_lungs.oxy_breath_dam_max)

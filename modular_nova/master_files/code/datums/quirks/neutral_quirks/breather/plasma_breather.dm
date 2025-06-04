@@ -31,3 +31,8 @@
 
 /datum/quirk/item_quirk/breather/plasma_breather/remove()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_PLASMA)
+	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(!target_lungs)
+		return
+	target_lungs.safe_plasma_min = initial(target_lungs.safe_plasma_min)
+	target_lungs.safe_plasma_max = initial(target_lungs.safe_plasma_max)
