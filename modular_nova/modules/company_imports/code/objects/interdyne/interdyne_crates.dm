@@ -1,6 +1,6 @@
 /obj/structure/closet/crate/secure/syndicate/interdyne/doctorbox
 	name = "\improper Interdyne Doctor's crate"
-		desc = "Carries 3 Doctor Trauma kits inside allowing for easy popup hospitals"
+	desc = "Carries 3 Doctor Trauma kits inside allowing for easy popup hospitals"
 
 /obj/structure/closet/crate/secure/syndicate/interdyne/doctorbox/PopulateContents()
 	new /obj/item/storage/medkit/tactical/premium/interdyne(src)
