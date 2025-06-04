@@ -14,18 +14,6 @@
 *	ITEMS BELOW HERE
 */
 
-/datum/loadout_item/pocket_items/hair_tie
-	name = "Hair Tie"
-	item_path = /obj/item/clothing/head/hair_tie
-
-/datum/loadout_item/pocket_items/hair_tie_scrunchie
-	name = "Scrunchie"
-	item_path = /obj/item/clothing/head/hair_tie/scrunchie
-
-/datum/loadout_item/pocket_items/hair_tie_plastic_beads
-	name = "Plastic Hair Tie"
-	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
-
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
 	item_path = /obj/item/rag
@@ -142,6 +130,21 @@
 /datum/loadout_item/pocket_items/comb
 	name = "Comb"
 	item_path = /obj/item/hairbrush/comb
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/hair_tie
+	name = "Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/hair_tie_scrunchie
+	name = "Hair Tie - Scrunchie"
+	item_path = /obj/item/clothing/head/hair_tie/scrunchie
+	group = "Cosmetics"
+
+/datum/loadout_item/pocket_items/hair_tie_plastic_beads
+	name = "Hair Tie - Plastic"
+	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
 	group = "Cosmetics"
 
 // LIPSTICK
