@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	lose_text = "<span class='danger'>Your lungs are no longer adapted to [desired_lungs] environments."
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
-	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add_late))
+	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add_late))
 	add_late()
 
 /datum/quirk/adapted_lungs/proc/add_late() // custom proc to run after desired_lungs is set

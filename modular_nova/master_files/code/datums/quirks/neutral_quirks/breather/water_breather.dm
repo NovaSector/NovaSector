@@ -22,7 +22,7 @@
 	// set lung vars
 	target_lungs.safe_oxygen_min = 0
 	// update lung procs
-	target_lungs.breathe_always = list(/datum/gas/water_vapor = "breathe_water")
+	target_lungs.breathe_always[/datum/gas/water_vapor] = TYPE_PROC_REF(/obj/item/organ/lungs, breathe_water)
 	// reflect correct lung flags
 	target_lungs.respiration_type = RESPIRATION_OXYGEN
 
@@ -46,7 +46,7 @@
 		return
 
 	target_lungs.RemoveElement(/datum/element/noticable_organ)
-	qdel(target_lungs.GetComponent(datum/component/bubble_icon_override))
+	qdel(target_lungs.GetComponent(/datum/component/bubble_icon_override))
 	var/obj/item/bodypart/chest/target_chest = quirk_holder.get_bodypart(BODY_ZONE_CHEST)
 	if(target_chest) // just to be sure
 		target_chest.remove_bodypart_overlay(gills_overlay)

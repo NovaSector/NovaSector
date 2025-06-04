@@ -29,5 +29,14 @@
 	)
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
-	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add))
+	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add))
 	return TRUE
+
+/datum/quirk/item_quirk/breather/remove()
+	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(!target_lungs)
+		return
+	var/mob/living/carbon/user = quirk_holder
+	var/obj/item/organ/lungs/new_lungs = new user.dna.species.mutantlungs
+	new_lungs.Insert(user)
+	qdel(target_lungs)
