@@ -6,3 +6,15 @@
   - image: resprited the 'Dagger' Designer Mantle
   vinylspiders:
   - bugfix: fixes ball gags' GAGS preview in the loadout menu showing up as an error
+2025-06-04:
+  Drifter7371:
+  - image: adds a new hairstyle, "Fluffball"
+  Iajret:
+  - rscadd: Gas miners can now be called in custom areas
+  LotusLadno:
+  - rscadd: ordering an M40 gas mask from Sol Defense Supplier
+  carpotoxin:
+  - qol: Moves hair-ties from head to pocket category in loadout, now you can bring
+      a hair tie and a hat to work
+  jjpark-kb:
+  - bugfix: fixes a bug that prevented you from picking up adamantine with tongs
