@@ -26,4 +26,4 @@
 	weight = 0
 
 /datum/station_trait/job/human_ai
-	weight = 3
+	weight = 2
