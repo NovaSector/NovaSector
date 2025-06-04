@@ -1,0 +1,8 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - qol: "Thanks to the lovely nerds at R&D The m64, Katyusha, Jager, and Shitzu now can attach a seclite for more robust riot control!"
+  - balance: "Due to a bureaucracy error with the solfed military prices for the Jager are now set to their correct prices."
+  - balance: "Made the katyusha and all shotguns of its series out of a more robust metal, at the cost of making it heavier. (Katyusha, Jager, Shitzu)"
+  - bugfix: "Fixed naming convention for the jager's icon states fixing bugged behaviours."
+  - spellcheck: "Fixed a missed typo with the magazine for the katyusha from 16 shells to 10, correcting to its actual ammo count."
