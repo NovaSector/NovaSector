@@ -9,7 +9,7 @@
 	breathing_tank = /obj/item/tank/internals/plasmaman/belt/full
 	breath_type = "plasma"
 
-/datum/quirk/item_quirk/breather/plasma_breather/add(client/client_source)
+/datum/quirk/item_quirk/breather/plasma_breather/add_adaptation()
 	// this proc is guaranteed to be called multiple times
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(!target_lungs)
@@ -18,7 +18,7 @@
 	target_lungs.safe_oxygen_min = 0 //Dont need oxygen
 	target_lungs.safe_oxygen_max = 2 //But it is quite toxic
 	target_lungs.safe_plasma_min = 4 //default of plasmaman's plasma tank
-	target_lungs.safe_plasma_max = 0
+	target_lungs.safe_plasma_max = 30
 	target_lungs.oxy_damage_type = TOX
 	target_lungs.oxy_breath_dam_min = 6
 	target_lungs.oxy_breath_dam_max = 20
@@ -30,9 +30,6 @@
 	target_lungs.respiration_type = RESPIRATION_PLASMA
 
 /datum/quirk/item_quirk/breather/plasma_breather/remove()
+	. = ..()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_PLASMA)
-	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
-	if(!target_lungs)
-		return
-	target_lungs.safe_plasma_min = initial(target_lungs.safe_plasma_min)
-	target_lungs.safe_plasma_max = initial(target_lungs.safe_plasma_max)
+	quirk_holder.clear_alert(ALERT_TOO_MUCH_OXYGEN)

@@ -29,21 +29,26 @@
 	)
 
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
-	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add))
+	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gain_organ))
 	return TRUE
 
+/datum/quirk/item_quirk/breather/add(client/client_source)
+	add_adaptation()
+
+/datum/quirk/item_quirk/breather/proc/on_gain_organ()
+	SIGNAL_HANDLER
+	add_adaptation()
+
+///proc for adding the lungs tweaks
+/datum/quirk/item_quirk/breather/proc/add_adaptation()
+	return
+
 /datum/quirk/item_quirk/breather/remove()
+	UnregisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gain_organ))
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(!target_lungs)
 		return
-	target_lungs.safe_oxygen_min = initial(target_lungs.safe_oxygen_min)
-	target_lungs.safe_oxygen_max = initial(target_lungs.safe_oxygen_max)
-	target_lungs.oxy_damage_type = initial(target_lungs.oxy_damage_type)
-	target_lungs.oxy_breath_dam_min = initial(target_lungs.oxy_breath_dam_min)
-	target_lungs.oxy_breath_dam_max = initial(target_lungs.oxy_breath_dam_max)
-	// update lung procs
-	target_lungs.breathe_always = initial(target_lungs.breathe_always)
-	target_lungs.breath_present = initial(target_lungs.breath_present)
-	target_lungs.breath_lost = initial(target_lungs.breath_lost)
-	// reflect correct lung flags
-	target_lungs.respiration_type = initial(target_lungs.respiration_type)
+	var/mob/living/carbon/user = quirk_holder
+	var/obj/item/organ/lungs/new_lungs = SSwardrobe.provide_type(user.dna.species.mutantlungs)
+	qdel(target_lungs)
+	new_lungs.Insert(user, special = TRUE, movement_flags = DELETE_IF_REPLACED)

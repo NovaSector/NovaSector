@@ -302,9 +302,8 @@
 	. = ..()
 	var/obj/item/clothing/under/worn_uniform = w_uniform
 	if(w_uniform)
-		for(var/obj/item/clothing/accessory/vaporizer/vaporizer in worn_uniform.attached_accessories)
-			vaporizer.on_emp()
-			break
+		var/obj/item/clothing/accessory/vaporizer/vaporizer = locate() in worn_uniform.attached_accessories
+		vaporizer?.on_emp()
 
 /obj/item/clothing/accessory/vaporizer/emp_act(severity)
 	. = ..()

@@ -1,8 +1,13 @@
+#define COLD_ADAPTED_LUNGS "cold"
+#define HOT_ADAPTED_LUNGS "hot"
+#define TOX_ADAPTED_LUNGS "toxic"
+#define LOW_O2_ADAPTED_LUNGS "low_oxygen"
+
 GLOBAL_LIST_INIT(possible_adapted_lungs, list(
-	"Cold adapted lungs" = "cold",
-	"Heat adapted lungs" = "hot",
-	"Toxic adapted lungs" = "toxic",
-	"Low-oxygen adapted lungs" = "low oxygen",
+	"Cold adapted lungs" = COLD_ADAPTED_LUNGS,
+	"Heat adapted lungs" = HOT_ADAPTED_LUNGS,
+	"Toxic adapted lungs" = TOX_ADAPTED_LUNGS,
+	"Low-oxygen adapted lungs" = LOW_O2_ADAPTED_LUNGS,
 ))
 
 /datum/quirk/adapted_lungs
@@ -24,29 +29,63 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 	if(isnull(desired_lungs))  //Client gone or they chose random
 		desired_lungs = GLOB.possible_adapted_lungs[pick(GLOB.possible_adapted_lungs)]
 
-	medical_record_text = "Patient has lungs adapted to [desired_lungs] environments."
-	gain_text = "<span class='notice'>Your lungs are adapted to [desired_lungs] environments."
-	lose_text = "<span class='danger'>Your lungs are no longer adapted to [desired_lungs] environments."
-
 	// always update lungs to respect the quirk, even if the organ isn't from roundstart
-	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(add_late))
-	add_late()
+	RegisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gain_organ))
 
-/datum/quirk/adapted_lungs/proc/add_late() // custom proc to run after desired_lungs is set
+/datum/quirk/adapted_lungs/add(client/client_source)
+	add_adaptation()
+
+/datum/quirk/adapted_lungs/proc/on_gain_organ()
+	SIGNAL_HANDLER
+	add_adaptation()
+
+///actually add the lungs tweaks with a switch statement
+/datum/quirk/adapted_lungs/proc/add_adaptation()
 	// this proc is guaranteed to be called multiple times
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(!target_lungs)
 		return
 
 	switch(desired_lungs)
-		if("cold")
+		if(COLD_ADAPTED_LUNGS)
 			add_cold(target_lungs)
-		if("hot")
+		if(HOT_ADAPTED_LUNGS)
 			add_hot(target_lungs)
-		if("toxic")
+		if(TOX_ADAPTED_LUNGS)
 			add_toxic(target_lungs)
-		if("low oxygen")
+		if(LOW_O2_ADAPTED_LUNGS)
 			add_low_oxy(target_lungs)
+
+/datum/quirk/adapted_lungs/post_add()
+	medical_record_text = "Patient has lungs adapted to [desired_lungs] environments."
+	gain_text = span_notice("Your lungs are adapted to [desired_lungs] environments.")
+	lose_text = span_warning("Your lungs are no longer adapted to [desired_lungs] environments.")
+
+/datum/quirk/adapted_lungs/remove()
+	UnregisterSignal(quirk_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gain_organ))
+	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if(!target_lungs)
+		return
+	target_lungs.safe_oxygen_min = initial(target_lungs.safe_oxygen_min)
+	target_lungs.safe_plasma_max = initial(target_lungs.safe_plasma_max)
+	target_lungs.safe_co2_max = initial(target_lungs.safe_co2_max)
+	target_lungs.cold_message = initial(target_lungs.cold_message)
+	target_lungs.cold_level_1_threshold = initial(target_lungs.cold_level_1_threshold)
+	target_lungs.cold_level_2_threshold = initial(target_lungs.cold_level_2_threshold)
+	target_lungs.cold_level_3_threshold = initial(target_lungs.cold_level_3_threshold)
+	target_lungs.cold_level_1_damage = initial(target_lungs.cold_level_1_damage)
+	target_lungs.cold_level_2_damage = initial(target_lungs.cold_level_2_damage)
+	target_lungs.cold_level_3_damage = initial(target_lungs.cold_level_3_damage)
+	target_lungs.cold_damage_type = initial(target_lungs.cold_damage_type)
+
+	target_lungs.hot_message = initial(target_lungs.hot_message)
+	target_lungs.heat_level_1_threshold = initial(target_lungs.heat_level_1_threshold)
+	target_lungs.heat_level_2_threshold = initial(target_lungs.heat_level_2_threshold)
+	target_lungs.heat_level_3_threshold = initial(target_lungs.heat_level_3_threshold)
+	target_lungs.heat_level_1_damage = initial(target_lungs.heat_level_1_damage)
+	target_lungs.heat_level_2_damage = initial(target_lungs.heat_level_2_damage)
+	target_lungs.heat_level_3_damage = initial(target_lungs.heat_level_3_damage)
+	target_lungs.heat_damage_type = initial(target_lungs.heat_damage_type)
 
 /// lungs which can breathe cold but not hot
 /datum/quirk/adapted_lungs/proc/add_cold(obj/item/organ/lungs/target_lungs)
@@ -158,3 +197,8 @@ GLOBAL_LIST_INIT(possible_adapted_lungs, list(
 
 /datum/preference/choiced/adapted_lungs/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+#undef COLD_ADAPTED_LUNGS
+#undef HOT_ADAPTED_LUNGS
+#undef TOX_ADAPTED_LUNGS
+#undef LOW_O2_ADAPTED_LUNGS

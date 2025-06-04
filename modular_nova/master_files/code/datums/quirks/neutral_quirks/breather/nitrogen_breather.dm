@@ -9,7 +9,7 @@
 	breathing_tank = /obj/item/tank/internals/nitrogen/belt/full
 	breath_type = "nitrogen"
 
-/datum/quirk/item_quirk/breather/nitrogen_breather/add(client/client_source)
+/datum/quirk/item_quirk/breather/nitrogen_breather/add_adaptation()
 	// this proc is guaranteed to be called multiple times
 	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
 	if(!target_lungs)
@@ -29,8 +29,6 @@
 	target_lungs.respiration_type = RESPIRATION_N2
 
 /datum/quirk/item_quirk/breather/nitrogen_breather/remove()
+	. = ..()
 	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_N2O)
-	var/obj/item/organ/lungs/target_lungs = quirk_holder.get_organ_slot(ORGAN_SLOT_LUNGS)
-	if(!target_lungs)
-		return
-	target_lungs.safe_nitro_min = initial(target_lungs.safe_nitro_min)
+	quirk_holder.clear_alert(ALERT_TOO_MUCH_OXYGEN)
