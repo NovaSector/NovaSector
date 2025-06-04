@@ -63,15 +63,15 @@
 	item_path = /obj/item/clothing/mask/bandana/red
 
 /datum/loadout_item/mask/bandana
-	name = "Bandana (Colorable)"
+	name = "Bandana  (Colorable)"
 	item_path = /obj/item/clothing/mask/bandana
 
 /datum/loadout_item/mask/bandana_striped
-	name = "Bandana (Colorable, Striped)"
+	name = "Bandana  (Colorable, Striped)"
 	item_path = /obj/item/clothing/mask/bandana/striped
 
 /datum/loadout_item/mask/skull_bandana
-	name = "Bandana (Colorable, Skull)"
+	name = "Bandana  (Colorable, Skull)"
 	item_path = /obj/item/clothing/mask/bandana/skull
 
 /*

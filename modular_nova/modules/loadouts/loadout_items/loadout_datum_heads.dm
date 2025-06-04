@@ -34,7 +34,7 @@
 */
 
 /datum/loadout_item/head/white_beanie
-	name = "Beanie (Colorable)"
+	name = "Beanie  (Colorable)"
 	item_path = /obj/item/clothing/head/beanie
 
 /datum/loadout_item/head/black_beanie
@@ -162,7 +162,7 @@
 	item_path = /obj/item/clothing/head/fedora/brown
 
 /datum/loadout_item/head/greyscale_fedora
-	name = "Fedora (Colorable)"
+	name = "Fedora  (Colorable)"
 	item_path = /obj/item/clothing/head/fedora/greyscale
 
 /*
