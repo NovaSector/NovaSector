@@ -23,12 +23,12 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 
-/obj/item/clothing/suit/armor/sf_hardened/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-
-    hitting_projectile.armour_penetration = 0
-    playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
-
-    return ..()
+/obj/item/clothing/suit/armor/sf_hardened/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
+	if(istype(hitby, /obj/projectile))
+		var/obj/projectile/incoming_projectile = hitby
+		incoming_projectile.armour_penetration = 0
+		playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+	return ..()
 
 /obj/item/clothing/suit/armor/sf_hardened/examine_more(mob/user)
 	. = ..()
@@ -70,12 +70,12 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 
-/obj/item/clothing/head/helmet/toggleable/sf_hardened/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-
-    hitting_projectile.armour_penetration = 0
-    playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
-
-    return ..()
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
+	if(istype(hitby, /obj/projectile))
+		var/obj/projectile/incoming_projectile = hitby
+		incoming_projectile.armour_penetration = 0
+		playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+	return ..()
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/examine_more(mob/user)
 	. = ..()
