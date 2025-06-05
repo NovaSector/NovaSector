@@ -52673,6 +52673,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
