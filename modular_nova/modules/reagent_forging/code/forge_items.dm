@@ -339,3 +339,6 @@ GLOBAL_LIST_INIT(allowed_forging_materials, list(
 	if(obj_flags_nova & ANVIL_REPAIR)
 		forceMove(tool)
 		tool.icon_state = "tong_full"
+
+/obj/item/stack/sheet/mineral/adamantine
+	material_type = /datum/material/adamantine

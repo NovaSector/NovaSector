@@ -10,7 +10,7 @@
 	summonable_items = list(
 		/obj/item/storage/bag/tray/nanite,
 		/obj/item/reagent_containers/cup/glass/shaker/nanite,
-		/obj/item/reagent_containers/cup/rag/nanite,
+		/obj/item/rag/nanite,
 		/obj/item/knife/kitchen/nanite,
 		/obj/item/kitchen/rollingpin/nanite,
 		/obj/item/cultivator/nanite,
@@ -35,7 +35,7 @@
 /obj/item/reagent_containers/cup/glass/shaker/nanite
 	desc = "A polymer shaker to mix drinks in. The hilt of a conjured katana, stretched and widened and encrusted with the remaining Hestian bladesteel."
 
-/obj/item/reagent_containers/cup/rag/nanite
+/obj/item/rag/nanite
 	desc = "For cleaning up messes you did not make. A large-scale simulated filter from a Hestian holocigarette, \
 	it cleans the station as nicely as it cleans your lungs from the simulated Vulgaris."
 

@@ -95,10 +95,6 @@
 	name = "Halfbang ALT"
 	icon_state = "hair_halfbangalt"
 
-/datum/sprite_accessory/hair/nova/emolong
-	name = "Emo Long"
-	icon_state = "hair_emolong"
-
 /datum/sprite_accessory/hair/nova/sleaze
 	name = "Sleaze"
 	icon_state = "hair_sleaze"
@@ -202,6 +198,10 @@
 /datum/sprite_accessory/hair/nova/long4
 	name = "Long 4"
 	icon_state = "hair_long4"
+
+/datum/sprite_accessory/hair/nova/fluffball
+	name = "Fluffball"
+	icon_state = "hair_fluffball"
 
 /datum/sprite_accessory/hair/nova/fluffy_short
 	name = "Fluffy Short"
