@@ -679,6 +679,18 @@
 	name = "Mirrored Half Bob"
 	icon_state = "hair_bob_half_mirrored"
 
+/datum/sprite_accessory/hair/nova/flowerchild
+	name = "Flowerchild"
+	icon_state = "hair_flowerchild"
+
+/datum/sprite_accessory/hair/nova/flowerchild_ponyless
+	name = "Flowerchild (No Ponytail)"
+	icon_state = "hair_flowerchild_ponyless"
+
+/datum/sprite_accessory/hair/nova/flowerchild_ponyful
+	name = "Flowerchild (Ponytail Only)"
+	icon_state = "hair_flowerchild_ponyful"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/nova
