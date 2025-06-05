@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "opfor denial character limit has been increased to 2048"
