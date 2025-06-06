@@ -20,23 +20,24 @@
 /datum/quirk/visitor/post_add()
 	if(!can_run())
 		return
-	if(SSticker.HasRoundStarted())
-		quirk_holder.mind.assigned_role.job_flags &= ~JOB_CREW_MANIFEST //latejoin crew load quirks before manifest injection
-	GLOB.manifest.remove(quirk_holder.real_name) //roundstart crew load quirks after manifest injection
+	//post_add makes sure there is a mind
+	quirk_holder.mind.assigned_role.job_flags &= ~JOB_CREW_MANIFEST
+	GLOB.manifest.remove(quirk_holder.real_name)
 	//update sechud
 	var/mob/living/carbon/human/quirk_human = quirk_holder
 	quirk_human.sec_hud_set_ID()
 
-/datum/quirk/visitor/remove(erase_new = TRUE, return_id = TRUE, inject_into_manifest = TRUE)
-	var/mob/living/carbon/human/quirk_human = quirk_holder
-	if(erase_new)
-		QDEL_NULL(visitor_id)
+/datum/quirk/visitor/remove(inject_into_manifest = TRUE, return_id = TRUE, erase_new = TRUE)
+	quirk_holder.mind.assigned_role.job_flags |= JOB_CREW_MANIFEST
+	if(inject_into_manifest)
+		GLOB.manifest.inject(quirk_holder, quirk_holder.appearance, quirk_holder.client)
 	if(return_id)
+		var/mob/living/carbon/human/quirk_human = quirk_holder
 		old_id.equip_to_best_slot(quirk_human)
 		quirk_human.sec_hud_set_ID()
-	if(inject_into_manifest)
-		GLOB.manifest.inject(quirk_human, quirk_human.appearance, quirk_holder.client)
 	old_id = null //idk if this is necessary
+	if(erase_new)
+		QDEL_NULL(visitor_id)
 
 /datum/quirk/visitor/proc/can_run()
 	if(!istype(quirk_holder.mind.assigned_role, SSjob.get_job_type(/datum/job/assistant)))

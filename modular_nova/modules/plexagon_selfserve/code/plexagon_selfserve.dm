@@ -224,7 +224,6 @@
 			if(!inserted_auth_card)
 				return
 			if(blacklisted_jobs.Find(inserted_auth_card.get_trim_assignment()))
-				computer.balloon_alert(computer, "job can't go off-duty")
 				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 
