@@ -63,13 +63,6 @@
 				/obj/item/storage/backpack/satchel/sec = 4,
 				/obj/item/storage/backpack/duffelbag/sec = 4,
 				/obj/item/storage/backpack/messenger/sec = 4,
-				/obj/item/clothing/suit/armor/vest/armadyne/armor = 4,
-				/obj/item/clothing/shoes/jackboots/armadyne = 4,
-				/obj/item/clothing/under/rank/security/armadyne = 4,
-				/obj/item/clothing/under/rank/security/armadyne/tactical = 4,
-				/obj/item/clothing/head/beret/sec/armadyne = 4,
-				/obj/item/clothing/suit/armor/vest/armadyne/armor = 4,
-				/obj/item/clothing/gloves/color/black/security/armadyne = 4,
 			),
 		),
 
