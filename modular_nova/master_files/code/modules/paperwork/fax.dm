@@ -16,3 +16,13 @@
 /obj/machinery/fax/interdyne/Initialize(mapload)
 	. = ..()
 	special_networks -= "tarkon"
+
+/obj/machinery/fax/tarkon
+	fax_name = "Tarkon Industries";
+	name = "Tarkon Fax Machine";
+	req_access = list("syndicate");
+	syndicate_network = 1
+
+/obj/machinery/fax/tarkon/Initialize(mapload)
+	. = ..()
+	special_networks -= "syndicate"
