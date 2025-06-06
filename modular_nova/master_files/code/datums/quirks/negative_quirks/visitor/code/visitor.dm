@@ -28,7 +28,7 @@
 	quirk_human.sec_hud_set_ID()
 
 /datum/quirk/visitor/remove(inject_into_manifest = FALSE, return_id = FALSE, erase_new = FALSE) //these flags are for VV
-	quirk_holder.mind.assigned_role.job_flags |= JOB_CREW_MANIFEST
+	quirk_holder.mind?.assigned_role.job_flags |= JOB_CREW_MANIFEST
 	if(inject_into_manifest)
 		GLOB.manifest.inject(quirk_holder, quirk_holder.appearance, quirk_holder.client)
 	if(return_id)
