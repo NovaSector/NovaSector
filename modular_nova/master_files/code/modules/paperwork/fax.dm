@@ -14,5 +14,5 @@
 	syndicate_network = 1
 
 /obj/machinery/fax/interdyne/Initialize(mapload)
+	. = ..()
 	special_networks -= "tarkon"
-	return ..()
