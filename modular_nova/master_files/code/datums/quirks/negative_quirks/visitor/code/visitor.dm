@@ -40,10 +40,10 @@
 		QDEL_NULL(visitor_id)
 
 /datum/quirk/visitor/proc/can_run()
-	if(!istype(quirk_holder.mind.assigned_role, SSjob.get_job_type(/datum/job/assistant)))
-		return FALSE
-	else
+	if(istype(quirk_holder.mind?.assigned_role, SSjob.get_job_type(/datum/job/assistant)))
 		return TRUE
+	else
+		return FALSE
 
 /datum/quirk/visitor/proc/get_id()
 	if(istype(quirk_holder.get_item_by_slot(ITEM_SLOT_ID), /obj/item/storage/wallet))
