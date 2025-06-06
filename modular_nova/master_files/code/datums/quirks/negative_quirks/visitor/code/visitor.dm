@@ -57,7 +57,7 @@
 		return
 	old_id = duplicate_object(preserved_id, get_turf(quirk_holder))
 	old_id.moveToNullspace()
-	SSid_access.apply_trim_to_card(old_id, /datum/id_trim/job/assistant, TRUE) //otherwise gets lost when duplicated. don't know why
+	SSid_access.apply_trim_to_card(old_id, /datum/id_trim/job/assistant, FALSE) //otherwise gets lost when duplicated. don't know why
 	old_id.registered_account = SSeconomy.bank_accounts_by_id["[preserved_id.registered_account.account_id]"] //the bank account too
 	old_id.registered_account.bank_cards += old_id
 
@@ -68,7 +68,7 @@
 	new_id.icon = /obj/item/card/id/advanced/visitor::icon
 	new_id.assigned_icon_state = /obj/item/card/id/advanced/visitor::assigned_icon_state
 	new_id.desc = /obj/item/card/id/advanced/visitor::desc
-	SSid_access.apply_trim_to_card(new_id, /datum/id_trim/job/assistant/visitor, FALSE)
+	SSid_access.apply_trim_to_card(new_id, /datum/id_trim/job/assistant/visitor, TRUE)
 	new_id.update_icon()
 	//here's your new id sir or ma'am :)
 	visitor_id = new_id
