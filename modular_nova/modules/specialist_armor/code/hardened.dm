@@ -28,9 +28,9 @@
 
 /obj/item/clothing/suit/armor/sf_hardened/equipped(mob/living/carbon/human/wearer, slot)
 	. = ..()
-	if(!(istype(user) && (slot & ITEM_SLOT_OCLOTHING)))
+	if(!(istype(wearer) && (slot & ITEM_SLOT_OCLOTHING)))
 		return
-	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap)
+	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap))
 
 /obj/item/clothing/suit/armor/sf_hardened/dropped(mob/living/carbon/human/wearer)
 	. = ..()
@@ -93,9 +93,9 @@
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/equipped(mob/living/carbon/human/wearer, slot)
 	. = ..()
-	if(!(istype(user) && (slot & ITEM_SLOT_HEAD)))
+	if(!(istype(wearer) && (slot & ITEM_SLOT_HEAD)))
 		return
-	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap)
+	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap))
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/dropped(mob/living/carbon/human/wearer)
 	. = ..()
@@ -107,10 +107,7 @@
 	SIGNAL_HANDLER
 
 	// dynamic pen-reduction coverage with respect to visor state
-	if(piercing_hit ||
-	(up && !(def_zone in list(BODY_ZONE_HEAD))) ||
-	!(def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH))
-	)
+	if( piercing_hit || (up && !(def_zone in list(BODY_ZONE_HEAD))) || !(def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)) )
 		return
 
 	incoming_projectile.armour_penetration = 0
