@@ -6820,6 +6820,7 @@
 #include "modular_nova\master_files\code\datums\quirks\negative_quirks\nerve_staple.dm"
 #include "modular_nova\master_files\code\datums\quirks\negative_quirks\photophobia.dm"
 #include "modular_nova\master_files\code\datums\quirks\negative_quirks\visitor\code\visitor.dm"
+#include "modular_nova\master_files\code\datums\quirks\negative_quirks\visitor\code\visitor_card.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\bouncy.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\equipping.dm"
 #include "modular_nova\master_files\code\datums\quirks\neutral_quirks\food.dm"

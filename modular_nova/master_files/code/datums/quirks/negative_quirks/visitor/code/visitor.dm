@@ -3,6 +3,7 @@
 	desc = "Whenever you are an assistant, you're given a visitor ID without maintenance access, nor an entry on the crew manifest."
 	icon = FA_ICON_PERSON_CIRCLE_QUESTION
 	value = -2
+	medical_record_text = "Patient is loving every minute aboard this station, Jerry!" //this doesn't actually show up anywhere
 	gain_text = span_notice("As a guest aboard the station, you've been given a special visitor ID!")
 	lose_text = span_danger("Your visitation rights have been revoked...")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
@@ -72,17 +73,3 @@
 	new_id.update_icon()
 	//here's your new id sir or ma'am :)
 	visitor_id = new_id
-
-/obj/item/card/id/advanced/visitor //this exists so agent id's can disguise as it
-	name = "Visitor's ID"
-	icon_state = "visitor"
-	icon = 'modular_nova/master_files/code/datums/quirks/negative_quirks/visitor/icons/card.dmi'
-	assigned_icon_state = null
-	desc = "An ID card to be issued to visitors of the station. Its appearance leaves much to be desired, making it glaringly obvious you weren't worth the beaurocratic effort."
-	trim = /datum/id_trim/job/assistant/visitor
-
-/datum/id_trim/job/assistant/visitor
-	trim_state = "trim_visitor"
-	trim_icon = 'modular_nova/master_files/code/datums/quirks/negative_quirks/visitor/icons/card.dmi'
-	sechud_icon_state = SECHUD_UNKNOWN
-	extra_access = list() //sorry nothing
