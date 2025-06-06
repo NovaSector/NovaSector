@@ -17,6 +17,8 @@
 	program_icon = "id-card"
 	///What trim is applied to inserted IDs?
 	var/target_trim = /datum/id_trim/job/assistant
+	///These jobs can't go off-duty
+	var/list/blacklisted_jobs = list(JOB_ASSISTANT, JOB_PRISONER)
 
 /datum/computer_file/program/crew_self_serve/on_start(mob/living/user)
 	. = ..()
@@ -220,6 +222,10 @@
 	switch(action)
 		if("PRG_change_status")
 			if(!inserted_auth_card)
+				return
+			if(blacklisted_jobs.Find(inserted_auth_card.get_trim_assignment()))
+				computer.balloon_alert(computer, "job can't go off-duty")
+				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 
 			if(off_duty_check(inserted_auth_card))
