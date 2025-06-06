@@ -28,7 +28,7 @@
 
 /obj/item/clothing/suit/armor/sf_hardened/equipped(mob/living/carbon/human/wearer, slot)
 	. = ..()
-	if(!(istype(user) && (slot & ITEM_SLOT_OCLOTHING)
+	if(!(istype(user) && (slot & ITEM_SLOT_OCLOTHING)))
 		return
 	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap)
 
@@ -93,7 +93,7 @@
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/equipped(mob/living/carbon/human/wearer, slot)
 	. = ..()
-	if(!(istype(user) && (slot & ITEM_SLOT_HEAD)
+	if(!(istype(user) && (slot & ITEM_SLOT_HEAD)))
 		return
 	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap)
 
