@@ -28,7 +28,9 @@
 	var/mob/living/carbon/human/quirk_human = quirk_holder
 	quirk_human.sec_hud_set_ID()
 
-/datum/quirk/visitor/remove(inject_into_manifest = FALSE, return_id = FALSE, erase_new = FALSE) //these flags are for VV
+/datum/quirk/visitor/remove(inject_into_manifest = TRUE, return_id = TRUE, erase_new = TRUE) //these flags are for VV
+	if(QDELING(quirk_holder) || istype(quirk_holder, /mob/living/carbon/human/consistent))
+		return
 	quirk_holder.mind?.assigned_role.job_flags |= JOB_CREW_MANIFEST
 	if(inject_into_manifest)
 		GLOB.manifest.inject(quirk_holder, quirk_holder.appearance, quirk_holder.client)
