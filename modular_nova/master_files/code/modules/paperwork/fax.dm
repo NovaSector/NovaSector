@@ -6,3 +6,13 @@
 		interdyne = list(fax_name = "Interdyne Legal Department", fax_id = "interdyne", color = "green", emag_needed = TRUE),
 	)
 	return ..()
+
+/obj/machinery/fax/interdyne
+	fax_name = "Interdyne Pharmaceuticals";
+	name = "Interdyne Fax Machine";
+	req_access = list("syndicate");
+	syndicate_network = 1
+
+/obj/machinery/fax/interdyne/Initialize(mapload)
+	special_networks -= "tarkon"
+	return ..()
