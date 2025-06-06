@@ -1,6 +1,6 @@
 //the card
 /obj/item/card/id/advanced/visitor
-	name = "Visitor's ID"
+	name = "visitor's ID"
 	icon_state = "visitor"
 	icon = 'modular_nova/master_files/code/datums/quirks/negative_quirks/visitor/icons/card.dmi'
 	assigned_icon_state = null
