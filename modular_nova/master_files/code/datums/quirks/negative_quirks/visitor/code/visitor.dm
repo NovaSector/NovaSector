@@ -27,7 +27,7 @@
 	var/mob/living/carbon/human/quirk_human = quirk_holder
 	quirk_human.sec_hud_set_ID()
 
-/datum/quirk/visitor/remove(inject_into_manifest = TRUE, return_id = TRUE, erase_new = TRUE)
+/datum/quirk/visitor/remove(inject_into_manifest = FALSE, return_id = FALSE, erase_new = FALSE) //these flags are for VV
 	quirk_holder.mind.assigned_role.job_flags |= JOB_CREW_MANIFEST
 	if(inject_into_manifest)
 		GLOB.manifest.inject(quirk_holder, quirk_holder.appearance, quirk_holder.client)
@@ -42,10 +42,8 @@
 /datum/quirk/visitor/proc/can_run()
 	if(!istype(quirk_holder.mind.assigned_role, SSjob.get_job_type(/datum/job/assistant)))
 		return FALSE
-	if(istype(quirk_holder.get_item_by_slot(ITEM_SLOT_ID), /obj/item/card/id/advanced) || istype(quirk_holder.get_item_by_slot(ITEM_SLOT_ID), /obj/item/storage/wallet))
-		return TRUE
 	else
-		return FALSE
+		return TRUE
 
 /datum/quirk/visitor/proc/get_id()
 	if(istype(quirk_holder.get_item_by_slot(ITEM_SLOT_ID), /obj/item/storage/wallet))
@@ -55,6 +53,8 @@
 		return quirk_holder.get_item_by_slot(ITEM_SLOT_ID)
 
 /datum/quirk/visitor/proc/preserve_old_id(obj/item/card/id/advanced/preserved_id)
+	if(!preserved_id)
+		return
 	old_id = duplicate_object(preserved_id, get_turf(quirk_holder))
 	old_id.moveToNullspace()
 	SSid_access.apply_trim_to_card(old_id, /datum/id_trim/job/assistant, TRUE) //otherwise gets lost when duplicated. don't know why
@@ -62,6 +62,8 @@
 	old_id.registered_account.bank_cards += old_id
 
 /datum/quirk/visitor/proc/build_new_id(obj/item/card/id/advanced/new_id)
+	if(!new_id)
+		return
 	new_id.icon_state = /obj/item/card/id/advanced/visitor::icon_state
 	new_id.icon = /obj/item/card/id/advanced/visitor::icon
 	new_id.assigned_icon_state = /obj/item/card/id/advanced/visitor::assigned_icon_state
