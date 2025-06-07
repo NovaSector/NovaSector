@@ -38,6 +38,7 @@
 	// Snowflake for Ethereals
 	human.updatehealth()
 	human.updateappearance(mutcolor_update = TRUE)
+
 /**
  * Randomizes a human, but produces someone who looks exceedingly average (by most standards).
  *
