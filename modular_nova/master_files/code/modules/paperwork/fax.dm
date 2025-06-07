@@ -15,7 +15,7 @@
 
 /obj/machinery/fax/interdyne/Initialize(mapload)
 	. = ..()
-	special_networks -= "tarkon"
+	special_networks -= list("tarkon", "syndicate")
 
 /obj/machinery/fax/tarkon
 	fax_name = "Tarkon Industries";
@@ -25,4 +25,4 @@
 
 /obj/machinery/fax/tarkon/Initialize(mapload)
 	. = ..()
-	special_networks -= "syndicate"
+	special_networks -= list("interdyne", "syndicate")
