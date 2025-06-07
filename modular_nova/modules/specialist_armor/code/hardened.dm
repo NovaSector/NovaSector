@@ -30,24 +30,22 @@
 	. = ..()
 	if(!(istype(wearer) && (slot & ITEM_SLOT_OCLOTHING)))
 		return
-	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap))
+	RegisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT, PROC_REF(hit_by_projectile))
 
 /obj/item/clothing/suit/armor/sf_hardened/dropped(mob/living/carbon/human/wearer)
 	. = ..()
 	if(!(src == wearer.wear_suit))
 		return
-	UnregisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT)
+	UnregisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT)
 
-/obj/item/clothing/suit/armor/sf_hardened/proc/reduce_ap(obj/projectile/incoming_projectile, def_zone, piercing_hit, blocked)
+/obj/item/clothing/suit/armor/sf_hardened/proc/hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile, def_zone)
 	SIGNAL_HANDLER
 
-	if(piercing_hit || (def_zone != BODY_ZONE_CHEST))
+	if(def_zone != BODY_ZONE_CHEST)
 		return
 
 	incoming_projectile.armour_penetration = 0
 	playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
-
-	return COMPONENT_BULLET_ACTED
 
 /obj/item/clothing/suit/armor/sf_hardened/examine_more(mob/user)
 	. = ..()
@@ -83,6 +81,7 @@
 	armor_type = /datum/armor/armor_sf_hardened
 	toggle_message = "You extend the visor on"
 	alt_toggle_message = "You retract the visor on"
+	actions_types = list(/datum/action/item_action/toggle)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -95,25 +94,23 @@
 	. = ..()
 	if(!(istype(wearer) && (slot & ITEM_SLOT_HEAD)))
 		return
-	RegisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(reduce_ap))
+	RegisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT, PROC_REF(hit_by_projectile))
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/dropped(mob/living/carbon/human/wearer)
 	. = ..()
 	if(!(src == wearer.head))
 		return
-	UnregisterSignal(wearer, COMSIG_ATOM_PRE_BULLET_ACT)
+	UnregisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT)
 
-/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/reduce_ap(obj/projectile/incoming_projectile, def_zone, piercing_hit, blocked)
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile, def_zone)
 	SIGNAL_HANDLER
 
 	// dynamic pen-reduction coverage with respect to visor state
-	if( piercing_hit || (up && !(def_zone in list(BODY_ZONE_HEAD))) || !(def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)) )
+	if((up && (def_zone != BODY_ZONE_HEAD)) || !(def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)) )
 		return
 
 	incoming_projectile.armour_penetration = 0
 	playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
-
-	return COMPONENT_BULLET_ACTED
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/examine_more(mob/user)
 	. = ..()

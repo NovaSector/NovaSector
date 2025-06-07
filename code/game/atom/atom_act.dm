@@ -85,6 +85,7 @@
  */
 
 /atom/proc/projectile_hit(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE, blocked = null)
+	SEND_SIGNAL(src, COMSIG_ATOM_PROJECTILE_HIT, hitting_projectile, def_zone, piercing_hit, blocked) // NOVA ADDITION EDIT
 	if (isnull(blocked))
 		blocked = check_projectile_armor(def_zone, hitting_projectile)
 	return bullet_act(hitting_projectile, def_zone, piercing_hit, blocked)
