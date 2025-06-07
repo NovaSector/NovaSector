@@ -3,7 +3,7 @@
 	desc = "Whenever you are an assistant, you're given a visitor ID without maintenance access, nor an entry on the crew manifest."
 	icon = FA_ICON_PERSON_CIRCLE_QUESTION
 	value = -2
-	medical_record_text = "Patient is loving every minute aboard this station, Jerry!" //this doesn't actually show up anywhere
+	medical_record_text = "Patient is a guest aboard the station, and has been issued a visitor's ID."
 	gain_text = span_notice("As a guest aboard the station, you've been given a special visitor ID!")
 	lose_text = span_danger("Your visitation rights have been revoked...")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
@@ -17,23 +17,21 @@
 		return
 	preserve_old_id(get_id())
 	build_new_id(get_id())
+	// apply alt-title
+	visitor_id.assignment = client_source.prefs.alt_job_titles[visitor_id.assignment] || visitor_id.assignment
+	visitor_id.update_label()
 
 /datum/quirk/visitor/post_add()
 	if(!can_run())
 		return
-	//post_add makes sure there is a mind
-	quirk_holder.mind.assigned_role.job_flags &= ~JOB_CREW_MANIFEST
-	GLOB.manifest.remove(quirk_holder.real_name)
-	//update sechud
+	tweak_manifest()
 	var/mob/living/carbon/human/quirk_human = quirk_holder
+	quirk_human.mind.assigned_role.job_flags &= ~(JOB_CREW_MANIFEST|JOB_ANNOUNCE_ARRIVAL)
 	quirk_human.sec_hud_set_ID()
 
-/datum/quirk/visitor/remove(inject_into_manifest = TRUE, return_id = TRUE, erase_new = TRUE) //these flags are for VV
+/datum/quirk/visitor/remove(return_id = TRUE, erase_new = TRUE) //these flags are for VV
 	if(QDELING(quirk_holder) || istype(quirk_holder, /mob/living/carbon/human/consistent))
 		return
-	quirk_holder.mind?.assigned_role.job_flags |= JOB_CREW_MANIFEST
-	if(inject_into_manifest)
-		GLOB.manifest.inject(quirk_holder, quirk_holder.appearance, quirk_holder.client)
 	if(return_id)
 		var/mob/living/carbon/human/quirk_human = quirk_holder
 		old_id.equip_to_best_slot(quirk_human)
@@ -43,11 +41,23 @@
 		QDEL_NULL(visitor_id)
 
 /datum/quirk/visitor/proc/can_run()
-	if(istype(quirk_holder.mind?.assigned_role, SSjob.get_job_type(/datum/job/assistant)))
+	if(is_assistant_job(quirk_holder.mind?.assigned_role))
 		return TRUE
 	else
 		return FALSE
 
+//manifest proc
+/datum/quirk/visitor/proc/tweak_manifest()
+	var/datum/record/crew/our_record = find_record(quirk_holder.real_name)
+	if(our_record)
+		//remove the old file, we don't use remove() because we also replace the locked file
+		GLOB.manifest.general -= our_record
+		GLOB.manifest.locked -= our_record
+		qdel(our_record)
+
+	GLOB.manifest.inject_guest(quirk_holder, quirk_holder.client) //add new file
+
+//id procs
 /datum/quirk/visitor/proc/get_id()
 	if(istype(quirk_holder.get_item_by_slot(ITEM_SLOT_ID), /obj/item/storage/wallet))
 		var/obj/item/storage/wallet/wallet = quirk_holder.get_item_by_slot(ITEM_SLOT_ID)
@@ -60,7 +70,7 @@
 		return
 	old_id = duplicate_object(preserved_id, get_turf(quirk_holder))
 	old_id.moveToNullspace()
-	SSid_access.apply_trim_to_card(old_id, /datum/id_trim/job/assistant, FALSE) //otherwise gets lost when duplicated. don't know why
+	SSid_access.apply_trim_to_card(old_id, /datum/id_trim/job/assistant) //otherwise gets lost when duplicated. don't know why
 	old_id.registered_account = SSeconomy.bank_accounts_by_id["[preserved_id.registered_account.account_id]"] //the bank account too
 	old_id.registered_account.bank_cards += old_id
 
@@ -71,7 +81,7 @@
 	new_id.icon = /obj/item/card/id/advanced/visitor::icon
 	new_id.assigned_icon_state = /obj/item/card/id/advanced/visitor::assigned_icon_state
 	new_id.desc = /obj/item/card/id/advanced/visitor::desc
-	SSid_access.apply_trim_to_card(new_id, /datum/id_trim/job/assistant/visitor, TRUE)
+	SSid_access.apply_trim_to_card(new_id, /datum/id_trim/job/assistant/visitor)
 	new_id.update_icon()
 	//here's your new id sir or ma'am :)
 	visitor_id = new_id
