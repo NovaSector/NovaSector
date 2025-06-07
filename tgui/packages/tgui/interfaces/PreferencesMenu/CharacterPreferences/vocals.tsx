@@ -8,6 +8,7 @@ import {
   Section,
   Stack,
 } from 'tgui-core/components';
+
 import { getRandomization, PreferenceList } from './MainPage';
 
 type VocalsProps = {
