@@ -2380,12 +2380,12 @@
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "pN" = (
 /obj/structure/closet,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
-/obj/item/clothing/under/tarkon/cargo,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon,
 /obj/item/storage/backpack/duffelbag/explorer,
 /obj/item/storage/backpack/messenger/explorer,
 /obj/item/storage/backpack/satchel/explorer,
@@ -6730,12 +6730,12 @@
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "Tm" = (
 /obj/structure/closet,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
-/obj/item/clothing/under/tarkon,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
+/obj/item/clothing/under/tarkon/general,
 /obj/item/storage/backpack/messenger/hyd,
 /obj/item/storage/backpack/duffelbag/hydroponics,
 /obj/item/storage/backpack/satchel,
@@ -7288,7 +7288,7 @@
 	pixel_y = 8
 	},
 /obj/effect/spawner/random/entertainment/cigarette_pack,
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/port_tarkon/centerhall)
 "Xo" = (
