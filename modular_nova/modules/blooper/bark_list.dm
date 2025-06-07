@@ -22,7 +22,7 @@
 	id = "coggers"
 	soundpath = 'sound/machines/clockcult/integration_cog_install.ogg'
 
-/datum/blooper/moff/short
+/datum/blooper/moff
 	name = "Moff squeak"
 	id = "moffsqueak"
 	soundpath = 'modular_nova/modules/blooper/voice/bloopers/mothsqueak.ogg'
