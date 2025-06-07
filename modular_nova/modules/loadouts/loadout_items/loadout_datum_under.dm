@@ -1208,11 +1208,11 @@
 	item_path = /obj/item/clothing/under/costume/kimono/purple
 
 /datum/loadout_item/under/formal/azulea_oldblood
-	name = " Oldblood's Royal regalia"
+	name = "Oldblood's Royal regalia"
 	item_path = /obj/item/clothing/under/rank/azulean/old_blood
 
 /datum/loadout_item/under/formal/azulea_oldblood/skirt
-	name = " Oldblood's Royal regalia (Skirt)"
+	name = "Oldblood's Royal regalia (Skirt)"
 	item_path = /obj/item/clothing/under/rank/azulean/old_blood/skirt
 
 /datum/loadout_item/under/formal/azulea_upstart

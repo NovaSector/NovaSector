@@ -73,7 +73,7 @@
 	icon_state = "formal_blue"
 
 /obj/item/clothing/under/rank/security/nova/skirt
-	name = "security jumpskirt"
+	name = "security turtleneck skirt"
 	desc = "A \"tactical\" security uniform with the legs replaced by a skirt."
 	icon_state = "jumpskirt_blue"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -91,7 +91,7 @@
 	)
 
 /obj/item/clothing/under/rank/security/nova/skirt/plain
-	name = "security plain skirt"
+	name = "security jumpskirt"
 	desc = "Plain-shirted uniform commonly worn by Nanotrasen officers, attached with a skirt."
 	icon_state = "plain_skirt_blue"
 	uses_advanced_reskins = TRUE

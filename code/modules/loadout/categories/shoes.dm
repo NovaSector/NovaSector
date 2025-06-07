@@ -10,11 +10,12 @@
 
 /datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.shoes = item_path
-/* // NOVA EDIT REMOVAL START
+
+/* // NOVA EDIT REMOVAL START - Already exists in our loadout
 /datum/loadout_item/shoes/sneakers
 	name = "Sneakers (Colourable)"
 	item_path = /obj/item/clothing/shoes/sneakers
-*/ // NOVA EDIT REMOVAL END
+
 /datum/loadout_item/shoes/sandals_laced
 	name = "Sandals (Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/velcro
@@ -22,6 +23,7 @@
 /datum/loadout_item/shoes/sandals_laced_black
 	name = "Sandals (Black, Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/alt/velcro
+*/ // NOVA EDIT REMOVAL END
 
 /datum/loadout_item/shoes/laceup
 	name = "Shoes (Laceup)"
