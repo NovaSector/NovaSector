@@ -1,12 +1,3 @@
-/// TOO loud for now otherwise good, just needs to be dropped down a couple decibles
-/*
-/datum/blooper/squeaky
-	name = "Squeaky"
-	id = "squeak"
-	soundpath = 'sound/items/toy_squeak/toysqueak1.ogg'
-	maxspeed = 4
-*/
-
 /datum/blooper/synthetic_grunt
 	name = "Synthetic (Grunt)"
 	id = "synthgrunt"

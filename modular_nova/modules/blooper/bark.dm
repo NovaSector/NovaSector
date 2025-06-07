@@ -22,6 +22,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 	target.blooper_pitch = round((BLOOPER_DEFAULT_MINPITCH + BLOOPER_DEFAULT_MAXPITCH) / 2)
 	target.blooper_pitch_range = 0.2
 
+/// Admin verb to globally toggle vocal barks
 /datum/admins/proc/toggleblooper()
 	set category = "Server"
 	set desc = "Toggle the annoying voices."
@@ -31,6 +32,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 	message_admins("[key_name_admin(usr)] toggled Voice Barks.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Voice Bark", "[GLOB.blooper_allowed ? "Enabled" : "Disabled"]")) // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
+/// Globally toggles bloopers on/off
 /proc/toggle_blooper(toggle = null)
 	if(toggle != null)
 		if(toggle != GLOB.blooper_allowed)
@@ -39,7 +41,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 			return
 	else
 		GLOB.blooper_allowed = !GLOB.blooper_allowed
-	to_chat(world, "<span class='oocplain'><B>Vocal barks have been globally [GLOB.blooper_allowed ? "enabled" : "disabled"].</B></span>")
+	to_chat(world, span_oocplain("<B>Vocal barks have been globally [GLOB.blooper_allowed ? "enabled" : "disabled"].</B>"))
 
 /// It's was stoolen from Splurt build >:3 and from fluffySTG!! nyeehehehheee!~
 /datum/blooper
