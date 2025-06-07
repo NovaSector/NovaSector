@@ -2291,12 +2291,8 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
 	},
-/obj/machinery/fax{
-	dir = 1;
-	fax_name = "Interdyne Pharmaceuticals";
-	name = "Interdyne Fax Machine";
-	req_access = list("syndicate");
-	syndicate_network = 1
+/obj/machinery/fax/interdyne{
+	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
