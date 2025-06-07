@@ -124,10 +124,10 @@
 		/obj/item/clothing/shoes/combat = 5,
 		/obj/item/clothing/mask/gas = 5,
 		/obj/item/clothing/suit/hooded/wintercoat/medical/viro/interdyne = 5,
-		/obj/item/storage/backpack/messenger/vir = 5,
-		/obj/item/storage/backpack/satchel/vir = 5,
-		/obj/item/storage/backpack/duffelbag/virology = 5,
-		/obj/item/storage/backpack/virology = 5,
+		/obj/item/storage/backpack/messenger/interdyne = 5,
+		/obj/item/storage/backpack/satchel/interdyne = 5,
+		/obj/item/storage/backpack/duffelbag/syndie/interdyne = 5,
+		/obj/item/storage/backpack/interdyne = 5,
 		/obj/item/clothing/accessory/nova/acc_medal/neckpin/interdyne = 10,
 
 	)
