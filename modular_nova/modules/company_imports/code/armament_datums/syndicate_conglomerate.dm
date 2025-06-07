@@ -8,10 +8,10 @@
 /datum/armament_entry/company_import/syndicate/clothing
 	subcategory = "Clothing"
 	cost = PAYCHECK_CREW * 3
-	cost = PAYCHECK_CREW * 5
 
 /datum/armament_entry/company_import/syndicate/clothing/noslips
 	item_type = /obj/item/clothing/shoes/chameleon/noslip
+	cost = PAYCHECK_CREW * 5
 
 // Syndicate Weapons (conspicuous and non conspicuous)
 /datum/armament_entry/company_import/syndicate/kits
