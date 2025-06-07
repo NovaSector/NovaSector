@@ -38,7 +38,7 @@ type FeatureValueInputProps = {
 
 function getCorrespondingPreferences(
   customization_options: string[],
-  relevant_preferences: Record<string, string>,
+  relevant_preferences: Record<string, string | number | boolean>,
 ) {
   return Object.fromEntries(
     filter(Object.entries(relevant_preferences), ([key, value]) =>
