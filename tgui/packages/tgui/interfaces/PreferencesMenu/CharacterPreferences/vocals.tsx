@@ -1,4 +1,4 @@
-import { binaryInsertWith, sortBy } from 'common/collections';
+import { filter } from 'common/collections';
 import { useState } from 'react';
 import {
   Box,
@@ -12,100 +12,134 @@ import {
   Stack,
   TrackOutsideClicks,
 } from 'tgui-core/components';
-
-import { Name } from '../types';
-import { useServerPrefs } from '../useServerPrefs';
+import { getRandomization, PreferenceList } from './MainPage';
 import { createLogger } from '../../../../tgui-dev-server/logging';
 
 type VocalsProps = {
   handleClose: () => void;
-  handleUpdateName: (nameType: string, value: string) => void;
+  handleUpdateName: (
+    nameType: string,
+    value: string | number | boolean,
+  ) => void;
   vocals: Record<string, string | number | boolean>;
 };
 
+type VocalFeature = {
+  id: string;
+  label: string;
+  description?: string;
+  type: 'string' | 'number' | 'boolean';
+};
+
+const vocalFeatures: VocalFeature[] = [
+  { id: 'voice_type', label: 'Voice Type', type: 'string' },
+  { id: 'blooper_speech', label: 'Blooper Speech', type: 'string' },
+  { id: 'blooper_speech_speed', label: 'Blooper Speed', type: 'number' },
+  { id: 'blooper_speech_pitch', label: 'Blooper Pitch', type: 'number' },
+  { id: 'fallback_to_blooper', label: 'Fallback to Blooper', type: 'boolean' },
+];
+
+type FeatureValueInputProps = {
+  feature: VocalFeature;
+  value: string;
+  onChange: (value: string | number | boolean) => void;
+};
+
+function getCorrespondingPreferences(
+  customization_options: string[],
+  relevant_preferences: Record<string, string>,
+) {
+  return Object.fromEntries(
+    filter(Object.entries(relevant_preferences), ([key, value]) =>
+      customization_options.includes(key),
+    ),
+  );
+}
+
+function FeatureValueInput({
+  feature,
+  value,
+  onChange,
+}: FeatureValueInputProps) {
+  switch (feature.type) {
+    case 'string':
+      const logger = createLogger('fuck');
+      logger.log('value:');
+      logger.log('feature:');
+      return (
+        <Stack.Item>
+          <PreferenceList
+            preferences={getCorrespondingPreferences([value], feature)}
+            randomizations={getRandomization(
+              getCorrespondingPreferences([value], feature),
+              undefined,
+              false,
+            )}
+            maxHeight="160px" // NOVA EDIT CHANGE - ORIGINAL: 100px
+          />
+        </Stack.Item>
+      );
+
+    case 'number':
+      return (
+        <Input
+          type="number"
+          value={String(value)}
+          onChange={(e, val) => {
+            const num = Number(val);
+            if (!isNaN(num)) onChange(num);
+          }}
+          onEnter={(e, val) => {
+            const num = Number(val);
+            if (!isNaN(num)) onChange(num);
+          }}
+          autoSelect
+        />
+      );
+
+    case 'boolean':
+      return (
+        <Button onClick={() => onChange(!value)} width="100%">
+          {value ? 'Yes' : 'No'}
+        </Button>
+      );
+
+    default:
+      return <Box>Unsupported type</Box>;
+  }
+}
+
 export function VocalsInput(props: VocalsProps) {
   const { vocals, handleUpdateName, handleClose } = props;
-  const [currentlyEditing, setCurrentlyEditing] = useState<string | null>(null);
-
-  const getLabel = (key: string) => {
-    switch (key) {
-      case 'voice_type':
-        return 'Voice Type';
-      case 'blooper_speech':
-        return 'Blooper Speech';
-      case 'blooper_speech_speed':
-        return 'Blooper Speed';
-      case 'blooper_speech_pitch':
-        return 'Blooper Pitch';
-      case 'fallback_to_blooper':
-        return 'Fallback to Blooper';
-      default:
-        return key;
-    }
-  };
-
-  const isEditable = (val: any) =>
-    typeof val === 'string' || typeof val === 'number';
 
   return (
     <Modal>
-      <TrackOutsideClicks onOutsideClick={props.handleClose}>
+      <TrackOutsideClicks onOutsideClick={handleClose}>
         <Section
           title="Voice Settings"
           buttons={
-            <Button color="red" onClick={props.handleClose}>
+            <Button color="red" onClick={handleClose}>
               Close
             </Button>
           }
         >
           <LabeledList>
-            {Object.entries(vocals).map(([key, value]) => {
-              const label = getLabel(key);
-              let content;
-
-              if (currentlyEditing === key && isEditable(value)) {
-                content = (
-                  <Input
-                    value={String(value)}
-                    onEnter={(e, val) => {
-                      handleUpdateName(key, val);
-                      setCurrentlyEditing(null);
-                    }}
-                    onChange={(e, val) => handleUpdateName(key, val)}
-                    onEscape={() => setCurrentlyEditing(null)}
-                    autoSelect
-                  />
-                );
-              } else if (typeof value === 'boolean') {
-                content = (
-                  <Button
-                    onClick={() => handleUpdateName(key, String(!value))}
-                    width="100%"
-                  >
-                    {value ? 'Yes' : 'No'}
-                  </Button>
-                );
-              } else {
-                content = (
-                  <Button
-                    onClick={(e) => {
-                      setCurrentlyEditing(key);
-                      e.stopPropagation();
-                    }}
-                    width="100%"
-                  >
-                    <FitText maxFontSize={12} maxWidth={130}>
-                      {String(value)}
-                    </FitText>
-                  </Button>
-                );
-              }
+            {vocalFeatures.map((feature) => {
+              const value = vocals[feature.id];
+              if (value === undefined) return null;
 
               return (
-                <LabeledList.Item key={key} label={label}>
-                  <Stack fill>
-                    <Stack.Item grow>{content}</Stack.Item>
-                  </Stack>
+                <LabeledList.Item
+                  key={feature.id}
+                  label={<Box mt={0.5}>{feature.label}</Box>}
+                  tooltip={feature.description}
+                  verticalAlign="top"
+                >
+                  <FeatureValueInput
+                    feature={feature}
+                    value={value}
+                    onChange={(val) => handleUpdateName(feature.id, val)}
+                  />
                 </LabeledList.Item>
               );
             })}
@@ -118,7 +152,6 @@ export function VocalsInput(props: VocalsProps) {
 
 type VoiceInputProps = {
   openVocalsInput: () => void;
-  handleUpdateName: (nameType: string, value: string) => void;
   vocals: Record<string, string | number | boolean>;
 };
 
@@ -141,7 +174,7 @@ export function VoiceInput(props: VoiceInputProps) {
               color: 'rgba(255, 255, 255, 0.5)',
               fontSize: '17px',
             }}
-            name="fa-comment"
+            name="fa-microphone" // changed from fa-comment to microphone for speaking
           />
         </Stack.Item>
 
