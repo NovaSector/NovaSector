@@ -1,0 +1,147 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/flora/rock/pile/jungle/style_random,
+/turf/open/misc/dirt/jungle/dark,
+/area/centcom/interlink)
+"b" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"e" = (
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"h" = (
+/obj/structure/flora/grass/jungle/a/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"j" = (
+/mob/living/basic/frog,
+/turf/open/water/jungle,
+/area/centcom/interlink)
+"k" = (
+/obj/modular_map_connector,
+/obj/structure/sign/plaques/kiddie/diorama/jungle{
+	pixel_y = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"l" = (
+/obj/structure/flora/rock/pile/jungle/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"m" = (
+/mob/living/basic/frog/rare,
+/obj/structure/flora/bush/jungle/a/style_random,
+/turf/open/misc/dirt/jungle/dark,
+/area/centcom/interlink)
+"p" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"q" = (
+/turf/template_noop,
+/area/template_noop)
+"u" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"x" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/flora/tree/jungle/style_random,
+/turf/open/misc/dirt/jungle/dark,
+/area/centcom/interlink)
+"y" = (
+/obj/structure/flora/tree/jungle/small/style_random,
+/turf/open/misc/dirt/jungle/dark,
+/area/centcom/interlink)
+"z" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/misc/dirt/jungle/dark,
+/area/centcom/interlink)
+"D" = (
+/mob/living/basic/frog,
+/obj/structure/flora/bush/jungle/a/style_random,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"F" = (
+/obj/structure/flora/grass/jungle/a/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"G" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"J" = (
+/turf/open/water/jungle,
+/area/centcom/interlink)
+"K" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"O" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+"Q" = (
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/flora/tree/jungle/small/style_random,
+/turf/open/misc/dirt/jungle/dark,
+/area/centcom/interlink)
+"X" = (
+/obj/structure/flora/bush/jungle/c/style_random,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/misc/grass/jungle/station,
+/area/centcom/interlink)
+
+(1,1,1) = {"
+u
+x
+z
+z
+Q
+h
+q
+"}
+(2,1,1) = {"
+O
+m
+J
+a
+D
+p
+q
+"}
+(3,1,1) = {"
+O
+a
+j
+J
+e
+p
+k
+"}
+(4,1,1) = {"
+X
+y
+J
+j
+J
+p
+q
+"}
+(5,1,1) = {"
+G
+l
+K
+K
+F
+b
+q
+"}

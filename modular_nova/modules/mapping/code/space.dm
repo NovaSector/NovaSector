@@ -172,3 +172,5 @@
 /obj/modular_map_root/port_tarkon
 	config_file = "strings/modular_maps/nova/PortTarkon.toml"
 
+/obj/modular_map_root/interlink
+	config_file = "strings/modular_maps/nova/Interlink.toml"
