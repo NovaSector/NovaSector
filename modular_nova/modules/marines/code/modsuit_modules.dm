@@ -31,3 +31,8 @@
 
 /obj/item/mod/module/smartgun/marines
 	removable = FALSE //no stealing!!
+
+/obj/item/mod/module/welding/noboost
+	removable = FALSE // this prevents any modsuits that this is in from having an armor booster put in them.
+	name = "Welded in welding protection"
+	desc = "Weldeding protection that cant be removed"
