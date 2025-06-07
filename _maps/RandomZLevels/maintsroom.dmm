@@ -2334,7 +2334,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "iG" = (
-/obj/effect/decal/cleanable/robot_debris/down,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/down,
 /obj/item/clothing/under/costume/skeleton,
 /obj/item/clothing/mask/gas/prop,
 /obj/effect/spawner/random/trash/garbage{
@@ -5681,7 +5681,7 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "vN" = (
-/obj/effect/decal/cleanable/robot_debris/up,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/melee/skateboard,
 /obj/effect/spawner/random/trash/garbage{
