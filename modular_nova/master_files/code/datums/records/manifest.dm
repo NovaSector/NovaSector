@@ -27,7 +27,6 @@
 		blood_type = record_dna.blood_type.name,
 		fingerprint = md5(record_dna.unique_identity),
 		name = shorter_name,
-		character_appearance = mutable_appearance(icon = 'icons/effects/random_spawners.dmi', icon_state = "questionmark"),
 		species = record_dna.species.name,
 		major_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MAJOR_DISABILITY, from_scan = TRUE),
 		major_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MAJOR_DISABILITY),
