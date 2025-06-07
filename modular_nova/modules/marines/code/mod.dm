@@ -153,7 +153,7 @@
 	)
 
 /obj/item/mod/control/pre_equipped/marine/noboost
-	theme = /datum/mod_theme/marines/noboost,
+	theme = /datum/mod_theme/marines/noboost
 	applied_cell = /obj/item/stock_parts/power_store/cell/bluespace
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
