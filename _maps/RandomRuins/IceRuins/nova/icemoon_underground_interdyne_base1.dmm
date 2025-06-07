@@ -2293,7 +2293,7 @@
 	},
 /obj/machinery/fax/interdyne{
 	dir = 1
-},
+	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
 "gn" = (
