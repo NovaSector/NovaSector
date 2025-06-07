@@ -6,3 +6,38 @@
   - image: resprited the 'Dagger' Designer Mantle
   vinylspiders:
   - bugfix: fixes ball gags' GAGS preview in the loadout menu showing up as an error
+2025-06-04:
+  Drifter7371:
+  - image: adds a new hairstyle, "Fluffball"
+  Iajret:
+  - rscadd: Gas miners can now be called in custom areas
+  LotusLadno:
+  - rscadd: ordering an M40 gas mask from Sol Defense Supplier
+  carpotoxin:
+  - qol: Moves hair-ties from head to pocket category in loadout, now you can bring
+      a hair tie and a hat to work
+  jjpark-kb:
+  - bugfix: fixes a bug that prevented you from picking up adamantine with tongs
+2025-06-05:
+  RealWinterFrost:
+  - qol: Thanks to the lovely nerds at R&D The m64, Katyusha, Jager, and Shitzu now
+      can attach a seclite for more robust riot control!
+  - balance: Due to a bureaucracy error with the solfed military prices for the Jager
+      are now set to their correct prices.
+  - balance: Made the katyusha and all shotguns of its series out of a more robust
+      metal, at the cost of making it heavier. (Katyusha, Jager, Shitzu)
+  - bugfix: Fixed naming convention for the jager's icon states fixing bugged behaviours.
+  - spellcheck: Fixed a missed typo with the magazine for the katyusha from 16 shells
+      to 10, correcting to its actual ammo count.
+  carpotoxin:
+  - rscadd: Adds the bouncy quirk which makes your character waddle regardless of
+      clownshoes
+  jjpark-kb:
+  - balance: changed the reward for the language skill-- getting more languages per
+      levelup, and a medal at the end
+  - balance: you get more experience from reading books and mentoring books if you
+      are in a good mood and there are bookshelves around you
+  - rscadd: you can use a bluespace crystal on a mentoring book to get a random book
+2025-06-06:
+  vinylspiders:
+  - qol: opfor denial character limit has been increased to 2048

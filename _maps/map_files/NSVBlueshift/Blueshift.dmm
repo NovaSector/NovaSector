@@ -19232,6 +19232,11 @@
 	dir = 1
 	},
 /area/station/security/checkpoint/science/research)
+"dIk" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/closet/secure_closet/security/service,
+/turf/open/floor/iron/dark,
+/area/station/hallway/secondary/service)
 "dIn" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
@@ -125136,9 +125141,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/chapel)
 "xUx" = (
-/obj/structure/closet/crate/hydroponics,
 /obj/machinery/light/directional/west,
 /obj/item/radio/intercom/directional/west,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/iron/checker,
 /area/station/hallway/secondary/service)
 "xUA" = (
@@ -165261,7 +165266,7 @@ pdU
 hAd
 nYM
 qIW
-ooc
+dIk
 hYX
 nlI
 hFC

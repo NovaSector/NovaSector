@@ -1,0 +1,4 @@
+author: "Saukykouko"
+delete-after: True
+changes:
+  - bugfix: "armadyne clothing now works properly with digi legs"
