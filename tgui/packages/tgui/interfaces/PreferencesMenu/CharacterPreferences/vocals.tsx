@@ -33,7 +33,7 @@ const vocalFeatures: VocalFeature[] = [
 
 type FeatureValueInputProps = {
   feature: VocalFeature;
-  value: string;
+  value: string | number | boolean;
 };
 
 function getCorrespondingPreferences(

@@ -608,7 +608,6 @@ export function MainPage(props: MainPageProps) {
             {/* NOVA EDIT ADDITION START */}
             <Stack.Item position="relative">
               <VoiceInput
-                vocals={data.character_preferences.vocals}
                 openVocalsInput={() => {
                   setVocalsInputOpen(true);
                 }}
