@@ -1,9 +1,7 @@
 #define VOICE_TYPE_NONE "None"
 
 /datum/preference/choiced/voice
-	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_NON_CONTEXTUAL on TG
-	/// These will be grouped together on the preferences menu
-	var/group
+	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_NON_CONTEXTUAL, we are relocating it to the voice menu
 
 /datum/preference/choiced/voice/is_accessible(datum/preferences/preferences)
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
@@ -18,16 +16,18 @@
 		return
 	return ..()
 
+/datum/preference/numeric/tts_voice_pitch
+	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_NON_CONTEXTUAL, we are relocating it to the voice menu
+
+/datum/preference/numeric/tts_voice_pitch/is_accessible(datum/preferences/preferences)
+	if(!..(preferences))
+		return
+	return (preferences.read_preference(/datum/preference/choiced/vocals/voice_type) == VOICE_TYPE_TTS)
+
 /datum/preference/choiced/vocals
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_identifier = PREFERENCE_CHARACTER
 	abstract_type = /datum/preference/choiced/vocals
-
-	/// The display name when showing on the "other names" panel
-	var/explanation
-
-	/// These will be grouped together on the preferences menu
-	var/group = "vocals"
 
 /datum/preference/choiced/vocals/voice_type
 	savefile_key = "voice_type"
@@ -82,7 +82,6 @@
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "blooper_speech_speed"
-	var/group = "vocals"
 	minimum = BLOOPER_DEFAULT_MINSPEED
 	maximum = BLOOPER_DEFAULT_MAXSPEED
 	step = 0.01
@@ -104,7 +103,6 @@
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "blooper_speech_pitch"
-	var/group = "vocals"
 	minimum = BLOOPER_DEFAULT_MINPITCH
 	maximum = BLOOPER_DEFAULT_MAXPITCH
 	step = 0.01
@@ -126,7 +124,6 @@
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "blooper_pitch_range"
-	var/group = "vocals"
 	minimum = BLOOPER_DEFAULT_MINVARY
 	maximum = BLOOPER_DEFAULT_MAXVARY
 	step = 0.01

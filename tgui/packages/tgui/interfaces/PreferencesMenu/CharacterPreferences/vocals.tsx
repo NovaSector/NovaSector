@@ -7,7 +7,6 @@ import {
   Modal,
   Section,
   Stack,
-  TrackOutsideClicks,
 } from 'tgui-core/components';
 import { getRandomization, PreferenceList } from './MainPage';
 
@@ -19,11 +18,13 @@ type VocalsProps = {
 type VocalFeature = {
   id: string;
   label: string;
-  type: 'string' | 'number' | 'boolean';
+  type: string;
 };
 
 const vocalFeatures: VocalFeature[] = [
   { id: 'voice_type', label: 'Voice Type', type: 'string' },
+  { id: 'tts_voice', label: 'Voice', type: 'string' },
+  { id: 'tts_voice_pitch', label: 'Voice Pitch Adjustments', type: 'number' },
   { id: 'fallback_to_blooper', label: 'Fallback to Blooper', type: 'boolean' },
   { id: 'blooper_speech', label: 'Blooper Speech', type: 'string' },
   { id: 'blooper_speech_speed', label: 'Blooper Speed', type: 'number' },
@@ -71,48 +72,39 @@ export function VocalsInput(props: VocalsProps) {
 
   return (
     <Modal>
-      <TrackOutsideClicks onOutsideClick={handleClose}>
-        <Box
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          onKeyDown={(e) => {
-            e.stopPropagation();
-          }}
-          style={{
-            minWidth: '280px',
-          }}
+      <Box
+        style={{
+          minWidth: '280px',
+        }}
+      >
+        <Section
+          title="Character Voice"
+          buttons={
+            <Button color="red" onClick={handleClose}>
+              Close
+            </Button>
+          }
         >
-          <Section
-            title="Character Voice"
-            buttons={
-              <Button color="red" onClick={handleClose}>
-                Close
-              </Button>
-            }
-          >
-            <Stack vertical>
-              {vocalFeatures.map((feature) => {
-                const value = vocals[feature.id];
-                if (value === undefined) return null;
+          <Stack vertical>
+            {vocalFeatures.map((feature) => {
+              const value = vocals[feature.id];
+              if (value === undefined) return null;
 
-                return (
-                  <Stack.Item key={feature.id} verticalAlign="top">
-                    <FeatureValueInput feature={feature} value={value} />
-                  </Stack.Item>
-                );
-              })}
-            </Stack>
-          </Section>
-        </Box>
-      </TrackOutsideClicks>
+              return (
+                <Stack.Item key={feature.id} verticalAlign="top">
+                  <FeatureValueInput feature={feature} value={value} />
+                </Stack.Item>
+              );
+            })}
+          </Stack>
+        </Section>
+      </Box>
     </Modal>
   );
 }
 
 type VoiceInputProps = {
   openVocalsInput: () => void;
-  vocals: Record<string, string | number | boolean>;
 };
 
 export function VoiceInput(props: VoiceInputProps) {
