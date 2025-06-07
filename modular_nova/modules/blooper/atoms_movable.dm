@@ -24,7 +24,7 @@
 	var/datum/blooper/base_bloop = GLOB.blooper_list[id]
 	if(isnull(base_bloop))
 		return FALSE
-	blooper = sound(initial(base_bloo.soundpath))
+	blooper = sound(initial(base_bloop.soundpath))
 	blooper_id = id
 	return blooper
 
