@@ -750,7 +750,7 @@
 	user.put_in_hands(new_stack, merge_stacks = FALSE)
 	return new_stack
 
-/obj/item/stack/attackby(obj/item/W, mob/user, list/modifiers)
+/obj/item/stack/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(can_merge(W, inhand = TRUE))
 		var/obj/item/stack/S = W
 		if(merge(S))

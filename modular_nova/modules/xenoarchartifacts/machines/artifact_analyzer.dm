@@ -34,13 +34,13 @@
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/artifact_analyser/attackby(obj/item/used, mob/user, params)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, used))
+/obj/machinery/artifact_analyser/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
 		update_appearance()
 		return
-	if(default_pry_open(used))
+	if(default_pry_open(attacking_item))
 		return
-	if(default_deconstruction_crowbar(used))
+	if(default_deconstruction_crowbar(attacking_item))
 		return
 	return ..()
 

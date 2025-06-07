@@ -194,7 +194,7 @@
 	change_towel_shape(user, LOWER_TEXT(choice))
 
 
-/obj/item/towel/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/towel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 
 	if(!(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.get_sharpness()))

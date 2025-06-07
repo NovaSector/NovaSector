@@ -13,7 +13,7 @@
 	resist_cooldown = CLICK_CD_SLOW
 
 /// Reinforce the breakout time on this, if that's your thing
-/obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return

@@ -86,16 +86,16 @@
 	. += span_notice("<br>[current_research]/[max_research] research available.")
 	. += span_notice("L-Click to insert items or take out all the strange rocks. R-Click to use research points.")
 
-/obj/machinery/xenoarch/researcher/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/storage/bag/xenoarch))
-		for(var/obj/strange_rocks in weapon.contents)
+/obj/machinery/xenoarch/researcher/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
+		for(var/obj/strange_rocks in attacking_item.contents)
 			strange_rocks.forceMove(storage_unit)
 
 		balloon_alert(user, "rocks inserted!")
 		return
 
-	if(is_type_in_list(weapon, accepted_types))
-		weapon.forceMove(storage_unit)
+	if(is_type_in_list(attacking_item, accepted_types))
+		attacking_item.forceMove(storage_unit)
 		balloon_alert(user, "item inserted!")
 		return
 
@@ -166,15 +166,15 @@
 	icon_state = "scanner"
 	circuit = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
 
-/obj/machinery/xenoarch/scanner/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/storage/bag/xenoarch))
-		for(var/obj/item/xenoarch/strange_rock/chosen_rocks in weapon.contents)
+/obj/machinery/xenoarch/scanner/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
+		for(var/obj/item/xenoarch/strange_rock/chosen_rocks in attacking_item.contents)
 			chosen_rocks.get_scanned()
 
 		balloon_alert(user, "scan complete!")
 		return
 
-	if(istype(weapon, /obj/item/xenoarch/strange_rock))
+	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
 		var/obj/item/xenoarch/strange_rock/chosen_rock
 		if(chosen_rock.get_scanned())
 			balloon_alert(user, "scan complete!")
@@ -195,9 +195,9 @@
 	. = ..()
 	. += span_notice("<br>L-Click to remove all items inside [src].")
 
-/obj/machinery/xenoarch/recoverer/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/xenoarch/broken_item))
-		weapon.forceMove(storage_unit)
+/obj/machinery/xenoarch/recoverer/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/xenoarch/broken_item))
+		attacking_item.forceMove(storage_unit)
 		balloon_alert(user, "item inserted!")
 		return
 
@@ -279,16 +279,16 @@
 	. = ..()
 	. += span_notice("<br>L-Click to remove all items inside [src].")
 
-/obj/machinery/xenoarch/digger/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/storage/bag/xenoarch))
-		for(var/obj/strange_rocks in weapon.contents)
+/obj/machinery/xenoarch/digger/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
+		for(var/obj/strange_rocks in attacking_item.contents)
 			strange_rocks.forceMove(storage_unit)
 
 		balloon_alert(user, "rocks inserted!")
 		return
 
-	if(istype(weapon, /obj/item/xenoarch/strange_rock))
-		weapon.forceMove(src)
+	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
+		attacking_item.forceMove(src)
 		balloon_alert(user, "rock inserted!")
 		return
 

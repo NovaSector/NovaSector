@@ -123,11 +123,11 @@
 		SSore_generation.available_boulders -= mine_now //Decouple the boulder from the network. Cant be stolen
 	return
 
-/obj/structure/ore_box/boulder_collector/attackby(obj/item/weapon, mob/user, params)
-	if(istype(weapon, /obj/item/boulder))
-		var/obj/item/boulder/mine_now = weapon
+/obj/structure/ore_box/boulder_collector/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/boulder))
+		var/obj/item/boulder/mine_now = attacking_item
 		SSore_generation.available_boulders -= mine_now
-		user.transferItemToLoc(weapon, src)
+		user.transferItemToLoc(attacking_item, src)
 	else
 		return ..()
 

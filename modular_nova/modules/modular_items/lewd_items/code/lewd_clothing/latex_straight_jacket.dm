@@ -19,7 +19,7 @@
 	breakouttime = 1 SECONDS
 	resist_cooldown = CLICK_CD_SLOW
 
-/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/attackby(obj/item/attacking_item, mob/user, params) //That part allows reinforcing this item with normal straightjacket
+/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers) //That part allows reinforcing this item with normal straightjacket
 	if(!istype(attacking_item, /obj/item/clothing/suit/straight_jacket))
 		return ..()
 	var/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/reinforced/reinforced_jacket = new()
