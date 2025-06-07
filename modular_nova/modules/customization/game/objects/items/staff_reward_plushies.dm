@@ -17,94 +17,98 @@
 	attack_verb_continuous = list(
 		"bounces",
 		"glares",
-		)
+	)
 	attack_verb_simple = list(
 		"bounce",
 		"glare",
-		)
+	)
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 // Staff reward for Moonridden
 /obj/item/toy/plush/nova/staff/parsec
-    name = "Engine Stray"
-    desc = "This loud fuzzy plushie comes with a limited edition Singularity-Squish stressball! It barks, constantly, especially at new people or things. \ It carries that special station smell, with just a hint of plasma. Very pliable and pleasant to squeeze, with just enough bounce. \ Comes with a label warning of the product's flammability, and advises against inserting any object other than the provided stressball into the mouth."
-    icon_state = "plush_parsec"
-    gender = FEMALE
-    attack_verb_continuous = list(
-        "borks",
-        "barks",
-        "wuffs",
-        "wans",
-        "growls",
-        "mrrps",
-        "sniffs",
-        "woofs",
-        )
-    attack_verb_simple = list(
-        "bork",
-        "bark",
-        "wuff",
-        "wan",
-        "growl",
-        "mrrp",
-        "sniff",
-        "woof",
-        )///Sound effects for squeaking the plushie
-    squeak_override = list(
-        'modular_nova/modules/emotes/sound/voice/bork.ogg' = 2,
-        'modular_nova/modules/emotes/sound/voice/mrrp.ogg' = 1,
-        'modular_nova/modules/emotes/sound/voice/bark1.ogg' = 3,
-        'modular_nova/modules/emotes/sound/voice/growl.ogg' = 1,
-        'modular_nova/modules/emotes/sound/voice/awoo.ogg' = 1,
-        'modular_nova/modules/emotes/sound/emotes/blush.ogg' = 1,
-        'sound/effects/magic/charge.ogg' = 1,
-        'sound/effects/supermatter.ogg' = 1,
-        )///What the Plushie replies when used on another person
-    var/responses = list(
-        "Ball.",
-        "Ball!",
-        "+BALL!+",
-        "Ball?",
-        "Ball...",
-        "Bark.",
-        "Bark!",
-        "+BARK!+",
-        "Awooooo!",
-        "Did you know Amollin has sugar in it? Guess how I found out!",
-        "Take a seat before you unwrench that pipe!",
-        "It's not the size of the pipe, it's how you connect it.",
-        "There is never an appropriate time for Zauker!",
-        "Leave the emitters on, I'm sure it's fine.",
-        "NO SLIMES.",
-        "I will bite.",
-        "That Singuloose was not my fault!",
-        "What do you mean I can't keep the rad mold for free tritium?!",
-        "Every pipe counts!",
-        "Come sit on the guard rails with me...",
-        "Have you ever laid down under the emitter firing line?",
-    )
-    COOLDOWN_DECLARE(parsec_cooldown)
+	name = "Engine Stray"
+	desc = "This loud fuzzy plushie comes with a limited edition Singularity-Squish stressball! It barks, constantly, especially at new people or things. \
+		It carries that special station smell, with just a hint of plasma. Very pliable and pleasant to squeeze, with just enough bounce. \
+		Comes with a label warning of the product's flammability, and advises against inserting any object other than the provided stressball into the mouth."
+	icon_state = "plush_parsec"
+	gender = FEMALE
+	attack_verb_continuous = list(
+		"borks",
+		"barks",
+		"wuffs",
+		"wans",
+		"growls",
+		"mrrps",
+		"sniffs",
+		"woofs",
+	)
+	attack_verb_simple = list(
+		"bork",
+		"bark",
+		"wuff",
+		"wan",
+		"growl",
+		"mrrp",
+		"sniff",
+		"woof",
+	)
+	// Sound effects for squeaking the plushie
+	squeak_override = list(
+		'modular_nova/modules/emotes/sound/voice/bork.ogg' = 2,
+		'modular_nova/modules/emotes/sound/voice/mrrp.ogg' = 1,
+		'modular_nova/modules/emotes/sound/voice/bark1.ogg' = 3,
+		'modular_nova/modules/emotes/sound/voice/growl.ogg' = 1,
+		'modular_nova/modules/emotes/sound/voice/awoo.ogg' = 1,
+		'modular_nova/modules/emotes/sound/emotes/blush.ogg' = 1,
+		'sound/effects/magic/charge.ogg' = 1,
+		'sound/effects/supermatter.ogg' = 1,
+	)
+	/// What the Plushie replies when used on another person
+	var/static/list/responses = list(
+		"Ball.",
+		"Ball!",
+		"+BALL!+",
+		"Ball?",
+		"Ball...",
+		"Bark.",
+		"Bark!",
+		"+BARK!+",
+		"Awooooo!",
+		"Did you know Amollin has sugar in it? Guess how I found out!",
+		"Take a seat before you unwrench that pipe!",
+		"It's not the size of the pipe, it's how you connect it.",
+		"There is never an appropriate time for Zauker!",
+		"Leave the emitters on, I'm sure it's fine.",
+		"NO SLIMES.",
+		"I will bite.",
+		"That Singuloose was not my fault!",
+		"What do you mean I can't keep the rad mold for free tritium?!",
+		"Every pipe counts!",
+		"Come sit on the guard rails with me...",
+		"Have you ever laid down under the emitter firing line?",
+	)
+	COOLDOWN_DECLARE(parsec_cooldown)
 
 /obj/item/toy/plush/nova/staff/parsec/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-    . = ..()
-    if(!COOLDOWN_FINISHED(src, parsec_cooldown))
-        return
-    say(pick(responses))
-    COOLDOWN_START(src, parsec_cooldown, 3 SECONDS)
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, parsec_cooldown))
+		return
+	say(pick(responses))
+	COOLDOWN_START(src, parsec_cooldown, 3 SECONDS)
 
-/obj/item/toy/plush/nova/staff/parsec/attack()
-    . = ..()
-    if(!COOLDOWN_FINISHED(src, parsec_cooldown))
-        return
-    say(pick(responses))
+	/obj/item/toy/plush/nova/staff/parsec/attack()
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, parsec_cooldown))
+		return
+	say(pick(responses))
 
 /obj/item/toy/plush/nova/staff/parsec/attack_self(mob/user)
-    . = ..()
-    user.changeNext_move(CLICK_CD_MELEE) // To avoid spam, in some cases (sadly not all of them)
-    var/mob/living/living_user = user
-    if(istype(living_user))
-        living_user.add_mood_event("hug", /datum/mood_event/warmhug/parsec, src)
-    user.visible_message(span_notice("[user] is licked by \the [src]."), span_notice("You get licked by \the [src]."))
+	. = ..()
+	user.changeNext_move(CLICK_CD_MELEE) // To avoid spam, in some cases (sadly not all of them)
+	var/mob/living/living_user = user
+	if(istype(living_user))
+		living_user.add_mood_event("hug", /datum/mood_event/warmhug/parsec, src)
+	user.visible_message(span_notice("[user] is licked by \the [src]."), span_notice("You get licked by \the [src]."))
 
 /datum/mood_event/warmhug/parsec
     description = span_nicegreen("She licked me right on my nose! Awwwh!")
@@ -114,7 +118,7 @@
 /obj/item/toy/plush/nova/staff/akinshi
 	name = "Scary Cat Plushie"
 	desc = "A cat in full sec gear. Tired of everyones shit. \
-	Looks adorable in some ways, but it still cant beat the femboy allegations."
+		Looks adorable in some ways, but it still cant beat the femboy allegations."
 	icon_state = "plush_nik"
 	gender = MALE
 	attack_verb_continuous = list(
@@ -154,8 +158,3 @@
 	if(!COOLDOWN_FINISHED(src, akinshi_cooldown))
 		return
 	say(pick(responses))
-
-//additional stock code pay no attention
-	//special_desc_requirement = EXAMINE_CHECK_JOB
-	//special_desc_jobs = list(JOB_ASSISTANT, JOB_HEAD_OF_SECURITY)
-	//special_desc = "text here."
