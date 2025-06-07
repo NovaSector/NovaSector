@@ -15,116 +15,100 @@ import {
 
 import { Name } from '../types';
 import { useServerPrefs } from '../useServerPrefs';
+import { createLogger } from '../../../../tgui-dev-server/logging';
 
-type NameWithKey = {
-  key: string;
-  name: Name;
-};
-
-function binaryInsertName(
-  collection: NameWithKey[],
-  value: NameWithKey,
-): NameWithKey[] {
-  return binaryInsertWith(collection, value, ({ key }) => key);
-}
-
-function sortNameWithKeyEntries(array: [string, NameWithKey[]][]) {
-  return sortBy(array, ([key]) => key);
-}
-
-type MultiNameProps = {
+type VocalsProps = {
   handleClose: () => void;
   handleUpdateName: (nameType: string, value: string) => void;
-  vocals: Record<string, string>;
+  vocals: Record<string, string | number | boolean>;
 };
 
-export function VocalsInput(props: MultiNameProps) {
-  const { handleUpdateName } = props;
-  const [currentlyEditingName, setCurrentlyEditingName] = useState<
-    string | null
-  >(null);
+export function VocalsInput(props: VocalsProps) {
+  const { vocals, handleUpdateName, handleClose } = props;
+  const [currentlyEditing, setCurrentlyEditing] = useState<string | null>(null);
 
-  const data = useServerPrefs();
-  if (!data) return;
+  const getLabel = (key: string) => {
+    switch (key) {
+      case 'voice_type':
+        return 'Voice Type';
+      case 'blooper_speech':
+        return 'Blooper Speech';
+      case 'blooper_speech_speed':
+        return 'Blooper Speed';
+      case 'blooper_speech_pitch':
+        return 'Blooper Pitch';
+      case 'fallback_to_blooper':
+        return 'Fallback to Blooper';
+      default:
+        return key;
+    }
+  };
 
-  const namesIntoGroups: Record<string, NameWithKey[]> = {};
-
-  for (const [key, name] of Object.entries(data.vocals.types)) {
-    namesIntoGroups[name.group] = binaryInsertName(
-      namesIntoGroups[name.group] || [],
-      {
-        key,
-        name,
-      },
-    );
-  }
-
-  function updateName(key, value) {
-    handleUpdateName(key, value);
-
-    setCurrentlyEditingName(null);
-  }
+  const isEditable = (val: any) =>
+    typeof val === 'string' || typeof val === 'number';
 
   return (
     <Modal>
       <TrackOutsideClicks onOutsideClick={props.handleClose}>
         <Section
+          title="Voice Settings"
           buttons={
             <Button color="red" onClick={props.handleClose}>
               Close
             </Button>
           }
-          title="Alternate names"
         >
           <LabeledList>
-            {sortNameWithKeyEntries(Object.entries(namesIntoGroups)).map(
-              ([_, vocals], index, collection) => (
-                <>
-                  {vocals.map(({ key, name }) => {
-                    let content;
+            {Object.entries(vocals).map(([key, value]) => {
+              const label = getLabel(key);
+              let content;
 
-                    if (currentlyEditingName === key) {
-                      content = (
-                        <Input
-                          autoSelect
-                          onEnter={(e, value) => updateName(key, value)}
-                          onChange={(e, value) => updateName(key, value)}
-                          onEscape={() => {
-                            setCurrentlyEditingName(null);
-                          }}
-                          value={props.vocals[key]}
-                        />
-                      );
-                    } else {
-                      content = (
-                        <Button
-                          width="100%"
-                          onClick={(event) => {
-                            setCurrentlyEditingName(key);
-                            event.cancelBubble = true;
-                            event.stopPropagation();
-                          }}
-                        >
-                          <FitText maxFontSize={12} maxWidth={130}>
-                            {props.vocals[key]}
-                          </FitText>
-                        </Button>
-                      );
-                    }
+              if (currentlyEditing === key && isEditable(value)) {
+                content = (
+                  <Input
+                    value={String(value)}
+                    onEnter={(e, val) => {
+                      handleUpdateName(key, val);
+                      setCurrentlyEditing(null);
+                    }}
+                    onChange={(e, val) => handleUpdateName(key, val)}
+                    onEscape={() => setCurrentlyEditing(null)}
+                    autoSelect
+                  />
+                );
+              } else if (typeof value === 'boolean') {
+                content = (
+                  <Button
+                    onClick={() => handleUpdateName(key, String(!value))}
+                    width="100%"
+                  >
+                    {value ? 'Yes' : 'No'}
+                  </Button>
+                );
+              } else {
+                content = (
+                  <Button
+                    onClick={(e) => {
+                      setCurrentlyEditing(key);
+                      e.stopPropagation();
+                    }}
+                    width="100%"
+                  >
+                    <FitText maxFontSize={12} maxWidth={130}>
+                      {String(value)}
+                    </FitText>
+                  </Button>
+                );
+              }
 
-                    return (
-                      <LabeledList.Item key={key} label={name.explanation}>
-                        <Stack fill>
-                          <Stack.Item grow>{content}</Stack.Item>
-                        </Stack>
-                      </LabeledList.Item>
-                    );
-                  })}
-
-                  {index !== collection.length - 1 && <LabeledList.Divider />}
-                </>
-              ),
-            )}
+              return (
+                <LabeledList.Item key={key} label={label}>
+                  <Stack fill>
+                    <Stack.Item grow>{content}</Stack.Item>
+                  </Stack>
+                </LabeledList.Item>
+              );
+            })}
           </LabeledList>
         </Section>
       </TrackOutsideClicks>
@@ -132,25 +116,19 @@ export function VocalsInput(props: MultiNameProps) {
   );
 }
 
-type NameInputProps = {
-  handleUpdateName: (name: string) => void;
-  name: string;
-  openMultiNameInput: () => void;
+type VoiceInputProps = {
+  openVocalsInput: () => void;
+  handleUpdateName: (nameType: string, value: string) => void;
+  vocals: Record<string, string | number | boolean>;
 };
 
-export function VoiceInput(props: NameInputProps) {
-  const [lastNameBeforeEdit, setLastNameBeforeEdit] = useState<string | null>(
-    null,
-  );
-  const editing = lastNameBeforeEdit === props.name;
-
-  const data = useServerPrefs();
-
+export function VoiceInput(props: VoiceInputProps) {
   return (
     <Button
-      captureKeys={!editing}
-      onClick={() => {
-        setLastNameBeforeEdit(props.name);
+      onClick={(event) => {
+        props.openVocalsInput();
+        event.cancelBubble = true;
+        event.stopPropagation();
       }}
       textAlign="center"
       width="100%"
@@ -163,62 +141,15 @@ export function VoiceInput(props: NameInputProps) {
               color: 'rgba(255, 255, 255, 0.5)',
               fontSize: '17px',
             }}
-            name="bullhorn"
+            name="fa-comment"
           />
         </Stack.Item>
 
-        <Stack.Item grow position="relative">
+        <Stack.Item grow position="relative" mt={0.6}>
           <FitText maxFontSize={16} maxWidth={130}>
-            {props.name}
+            Voice Settings
           </FitText>
-
-          <Box
-            style={{
-              borderBottom: '2px rgba(255, 255, 255, 0.8)',
-              right: '50%',
-              transform: 'translateX(50%)',
-              position: 'absolute',
-              width: '90%',
-              bottom: '-1px',
-            }}
-          />
         </Stack.Item>
-
-        {/* We only know other names when the server tells us */}
-        {data?.vocals && (
-          <Stack.Item>
-            <Button
-              as="span"
-              tooltip="Alternate Names"
-              tooltipPosition="bottom"
-              style={{
-                background: 'rgba(0, 0, 0, 0.7)',
-                position: 'absolute',
-                right: '2px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: '2%',
-              }}
-              onClick={(event) => {
-                props.openMultiNameInput();
-
-                // We're a button inside a button.
-                // Did you know that's against the W3C standard? :)
-                event.cancelBubble = true;
-                event.stopPropagation();
-              }}
-            >
-              <Icon
-                name="ellipsis-v"
-                style={{
-                  position: 'relative',
-                  left: '-1px',
-                  minWidth: '0px',
-                }}
-              />
-            </Button>
-          </Stack.Item>
-        )}
       </Stack>
     </Button>
   );

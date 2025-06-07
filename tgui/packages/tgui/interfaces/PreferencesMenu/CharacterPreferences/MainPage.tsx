@@ -611,10 +611,10 @@ export function MainPage(props: MainPageProps) {
             {/* NOVA EDIT ADDITION START */}
             <Stack.Item position="relative">
               <VoiceInput
-                name={data.character_preferences.names[data.name_to_use]}
+                vocals={data.character_preferences.vocals}
                 handleUpdateName={createSetPreference(act, data.name_to_use)}
-                openMultiNameInput={() => {
-                  setMultiNameInputOpen(true);
+                openVocalsInput={() => {
+                  setVocalsInputOpen(true);
                 }}
               />
             </Stack.Item>
