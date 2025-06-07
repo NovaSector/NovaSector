@@ -74,6 +74,7 @@
 /datum/techweb_node/atmos/New()
 	design_ids += list(
 		"vox_gas_filter",
+		"vaporizer",
 	)
 	return ..()
 
