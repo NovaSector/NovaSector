@@ -153,13 +153,13 @@
 	)
 
 /obj/item/mod/control/pre_equipped/marine/noboost
-	theme = /datum/mod_theme/marines/noboost
+	theme = /datum/mod_theme/marines/noboost,
 	applied_cell = /obj/item/stock_parts/power_store/cell/bluespace
 	applied_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/emp_shield,
 		/obj/item/mod/module/magnetic_harness,
-		/obj/item/mod/module/welding/noboost
+		/obj/item/mod/module/welding/noboost,
 		/obj/item/mod/module/holster,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/jetpack,
