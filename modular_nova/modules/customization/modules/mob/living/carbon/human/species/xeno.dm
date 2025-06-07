@@ -86,14 +86,6 @@
 	regenerate_organs(xeno, src, visual_only = TRUE)
 	xeno.update_body(TRUE)
 
-/datum/species/xeno/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	human_who_gained_species.gib_type = /obj/effect/decal/cleanable/blood/gibs/xeno
-
-/datum/species/xeno/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
-	. = ..()
-	human_who_lost_species.gib_type = initial(human_who_lost_species.gib_type)
-
 ///Xenomorph organs modified to suit roundstart styling
 #define BUILD_DURATION 0.5 SECONDS
 
