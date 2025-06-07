@@ -79,6 +79,25 @@
 /datum/armament_entry/company_import/donk/merch/valid_bloon
 	item_type = /obj/item/toy/balloon/arrest
 
+/datum/armament_entry/company_import/donk/merch/neuroware
+	subcategory = "Donk Co. Neuroware Chips"
+	cost = PAYCHECK_CREW * 0.8 // Equal to the cost of a cheeseburger.
+
+/datum/armament_entry/company_import/donk/merch/neuroware/blastoff
+	item_type = /obj/item/disk/neuroware/blastoff
+
+/datum/armament_entry/company_import/donk/merch/neuroware/mindbreaker
+	item_type = /obj/item/disk/neuroware/mindbreaker
+
+/datum/armament_entry/company_import/donk/merch/neuroware/mushroomhallucinogen
+	item_type = /obj/item/disk/neuroware/mushroomhallucinogen
+
+/datum/armament_entry/company_import/donk/merch/neuroware/space_drugs
+	item_type = /obj/item/disk/neuroware/space_drugs
+
+/datum/armament_entry/company_import/donk/merch/neuroware/thc
+	item_type = /obj/item/disk/neuroware/thc
+
 // Donksoft weapons
 
 /datum/armament_entry/company_import/donk/foamforce
