@@ -1,0 +1,4 @@
+author: "sergeirocks100"
+delete-after: True
+changes:
+  - rscdel: "Blueshift no longer has a superfluous service guard locker in the service break room."
