@@ -22,6 +22,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 	target.blooper_pitch = round((BLOOPER_DEFAULT_MINPITCH + BLOOPER_DEFAULT_MAXPITCH) / 2)
 	target.blooper_pitch_range = 0.2
 
+/// Globally toggle vocal barks
 /datum/admins/proc/toggleblooper()
 	set category = "Server"
 	set desc = "Toggle the annoying voices."
