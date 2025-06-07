@@ -536,12 +536,6 @@ export function MainPage(props: MainPageProps) {
       {vocalsInputOpen && (
         <VocalsInput
           handleClose={() => setVocalsInputOpen(false)}
-          handleUpdateName={(nameType, value) =>
-            act('set_preference', {
-              preference: nameType,
-              value,
-            })
-          }
           vocals={data.character_preferences.vocals}
         />
       )}
@@ -615,7 +609,6 @@ export function MainPage(props: MainPageProps) {
             <Stack.Item position="relative">
               <VoiceInput
                 vocals={data.character_preferences.vocals}
-                handleUpdateName={createSetPreference(act, data.name_to_use)}
                 openVocalsInput={() => {
                   setVocalsInputOpen(true);
                 }}

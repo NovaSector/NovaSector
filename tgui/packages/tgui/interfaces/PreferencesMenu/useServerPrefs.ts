@@ -10,11 +10,6 @@ export const ServerPrefs = createContext<ServerData | undefined>({
   names: {
     types: {},
   },
-  // NOVA EDIT ADDITION START
-  vocals: {
-    types: {},
-  },
-  // NOVA EDIT ADDITION END
   quirks: {
     max_positive_quirks: -1,
     quirk_info: {},

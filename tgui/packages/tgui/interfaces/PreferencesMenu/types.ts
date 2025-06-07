@@ -268,11 +268,6 @@ export type ServerData = {
   names: {
     types: Record<string, Name>;
   };
-  // NOVA EDIT ADDITION START
-  vocals: {
-    types: Record<string, Name>;
-  };
-  // NOVA EDIT ADDITION END
   quirks: QuirkInfo;
   random: {
     randomizable: string[];
