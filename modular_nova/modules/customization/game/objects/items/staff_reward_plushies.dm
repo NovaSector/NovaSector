@@ -116,7 +116,7 @@
 
 /obj/item/toy/plush/nova/akinshi
 	name = "Scary Cat Plushie"
-	desc = "A cat in full sec gear. Tired of everyones shit. \
+	desc = "A cat in full sec gear. Tired of everyone's shit. \
 		Looks adorable in some ways, but it still cant beat the femboy allegations."
 	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
 	icon_state = "plush_nik"
