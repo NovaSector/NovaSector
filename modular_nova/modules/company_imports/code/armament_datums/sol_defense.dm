@@ -89,6 +89,62 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	cost = PAYCHECK_COMMAND * 2
 
+/datum/armament_entry/company_import/sol_defense/case/nanotrasen_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/nanotrasen
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/solfed_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/solfed
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/redcase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/redcase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/redcase
+	item_type = /obj/item/storage/toolbox/guncase/nova/redcase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/bluecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/bluecase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/bluecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/bluecase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/purplecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/purplecase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/purplecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/purplecase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/orangecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/orangecase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/orangecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/orangecase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/greencase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/greencase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/greencase
+	item_type = /obj/item/storage/toolbox/guncase/nova/greencase/empty
+	cost = PAYCHECK_COMMAND * 2
+
 /datum/armament_entry/company_import/sol_defense/sidearm
 	subcategory = "Sidearms"
 	cost = PAYCHECK_COMMAND * 4
