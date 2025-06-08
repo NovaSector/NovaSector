@@ -2283,3 +2283,82 @@ TREK
 	name = "Tarkon Uniform (Worn, Digi)"
 	icon_file = 'modular_nova/modules/tarkon/icons/mob/clothing/uniform_digi.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/tarkon/tarkonuniform_worn.json'
+
+// Solfed Uniform
+
+/datum/greyscale_config/solfedcamo
+	name = "Solfed Camo"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
+
+/datum/greyscale_config/solfedcamo/worn
+	name = "Solfed Camo (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
+
+/datum/greyscale_config/solfedcamo/worn/digi
+	name = "Solfed Camo (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
+
+/datum/greyscale_config/solfedsimplecamo
+	name = "Solfed Simple Camo"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/simplecamo.json'
+
+/datum/greyscale_config/solfedsimplecamo/worn
+	name = "Solfed Simple Camo (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/simplecamo.json'
+
+/datum/greyscale_config/solfedsimplecamo/worn/digi
+	name = "Solfed Simple Camo (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/simplecamo.json'
+
+/datum/greyscale_config/vestcam
+	name = "Solfed Vest Camo"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
+
+/datum/greyscale_config/vestcam/worn
+	name = "Solfed Vest Camo (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
+
+/datum/greyscale_config/vestcam/worn/digi
+	name = "Solfed Vest Camo (Worn, Digi)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
+
+// Solfed Accessories
+
+/datum/greyscale_config/solfedribbons_nostar
+	name = "Solfed Ribbons"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_nostar.json'
+
+/datum/greyscale_config/solfedribbons_nostar/worn
+	name = "Solfed Ribbons (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_nostar.json'
+
+/datum/greyscale_config/solfedribbons
+	name = "Solfed Ribbons"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_star.json'
+
+/datum/greyscale_config/solfedribbons/worn
+	name = "Solfed Ribbons (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_star.json'
+
+/datum/greyscale_config/solfedgoggles
+	name = "Solfed Goggles"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
+
+/datum/greyscale_config/solfedgoggles/worn
+	name = "Solfed Goggles (Worn)"
+	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
