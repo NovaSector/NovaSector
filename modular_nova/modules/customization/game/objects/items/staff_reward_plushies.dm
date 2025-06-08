@@ -5,13 +5,11 @@
 * Please contact Golden if you want your plushie(s) usable on maps.
 */
 
-/obj/item/toy/plush/nova/staff
-	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
-
 // Staff reward for Deadmon
 /obj/item/toy/plush/nova/staff/melon
 	name = "Melon Plushie"
 	desc = "Soft, yet bouncy. The eeriely smiling melon made for the appreciation of melons"
+	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
 	icon_state = "plush_melon"
 	gender = FEMALE
 	attack_verb_continuous = list(
@@ -30,6 +28,7 @@
 	desc = "This loud fuzzy plushie comes with a limited edition Singularity-Squish stressball! It barks, constantly, especially at new people or things. \
 		It carries that special station smell, with just a hint of plasma. Very pliable and pleasant to squeeze, with just enough bounce. \
 		Comes with a label warning of the product's flammability, and advises against inserting any object other than the provided stressball into the mouth."
+	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
 	icon_state = "plush_parsec"
 	gender = FEMALE
 	attack_verb_continuous = list(
@@ -119,6 +118,7 @@
 	name = "Scary Cat Plushie"
 	desc = "A cat in full sec gear. Tired of everyones shit. \
 		Looks adorable in some ways, but it still cant beat the femboy allegations."
+	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
 	icon_state = "plush_nik"
 	gender = MALE
 	attack_verb_continuous = list(
