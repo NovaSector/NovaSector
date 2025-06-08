@@ -5,6 +5,7 @@
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/gunsets.dmi'
 	icon_state = "case_trappiste"
+	worn_icon_state = "yellowcase"
 
 	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/cases_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/cases_righthand.dmi'
