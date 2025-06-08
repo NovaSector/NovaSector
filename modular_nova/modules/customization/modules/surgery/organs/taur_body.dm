@@ -215,9 +215,16 @@
 		TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round((riding_offset_side_y + taur_specific_clothing_y_offsets?[TEXT_WEST]) * scaling_mult, 1)),
 	)
 
+// Toggles the laying down state for a taur-bodied character.
+// It manages the visual changes, layer adjustments, and appplys/removes relevanttraits during the state change
+// This action has a cooldown period upon apply or removal to prevent rapid toggling.
+// Behaviour:
+// Oonly works if the owner is a human with a valid taur body organ. This also can only be triggered if the taur body overlay supports laying down.
+//This prevents laying down if the owner is already resting, IE: Prone. Manages the mob's density and adds in a specific sound if laying within gravity.
+
 /obj/item/organ/taur_body/proc/toggle_laying()
-	set category = "Taur"
-	set name = "Toggle Laying Down"
+	set category = "IC"
+	set name = "(Taur) Toggle Laying Down"
 
 	var/mob/living/carbon/human/owner = src
 	if(!istype(owner))
@@ -246,7 +253,7 @@
 		owner.update_body_parts()
 
 		owner.SetImmobilized(0, TRUE)
-		REMOVE_TRAIT(owner, TRAIT_UNDENSE, TRAIT_SOURCE_TAURLAY)
+		REMOVE_TRAIT(owner, TRAIT_UNDENSE, TRAIT_TAUR_LOAF)
 		to_chat(owner, span_notice("You stand up."))
 	else
 		// And laying back down
@@ -256,7 +263,7 @@
 		owner.update_body_parts()
 
 		owner.Immobilize(INFINITY, TRUE)
-		ADD_TRAIT(owner, TRAIT_UNDENSE, TRAIT_SOURCE_TAURLAY)
+		ADD_TRAIT(owner, TRAIT_UNDENSE, TRAIT_TAUR_LOAF)
 		to_chat(owner, span_notice("You lay down."))
 		if(owner.has_gravity())
 			playsound(owner, "bodyfall", 50, TRUE)

@@ -31,7 +31,7 @@
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
 
-	/// If we can lay down
+	/// If we can lay down. For types with no loaf sprite this should be set to FALSE.
 	var/can_lay_down = FALSE
 	/// The offset we get from laying down. Negative values move us down
 	var/laydown_offset = 0

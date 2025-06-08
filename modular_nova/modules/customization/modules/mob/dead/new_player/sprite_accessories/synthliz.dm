@@ -204,7 +204,7 @@
 	organ_type = /obj/item/organ/taur_body/anthro/synth
 
 /datum/sprite_accessory/taur/synthliz/biglegs/stanced
-	name = "Synthetic Big Legs, Stanced"
+	name = "Synthetic Big Legs (Stanced)"
 	icon_state = "biglegs_stanced"
 
 /datum/sprite_accessory/taur/synthliz/biglegs/bird
@@ -212,5 +212,5 @@
 	icon_state = "biglegs_bird"
 
 /datum/sprite_accessory/taur/synthliz/biglegs/stanced/bird
-	name = "Synthetic Big Legs, Stanced Bird"
+	name = "Synthetic Big Legs, Bird (Stanced)"
 	icon_state = "biglegs_bird_stanced"
