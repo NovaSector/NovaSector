@@ -36652,9 +36652,8 @@
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation)
 "kwl" = (
-/obj/structure/table/wood,
-/obj/item/storage/dice,
 /obj/machinery/light/directional/south,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "kwm" = (
@@ -39090,6 +39089,7 @@
 /obj/structure/table/wood,
 /obj/item/storage/box/rubbershot,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/storage/dice,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "liH" = (
