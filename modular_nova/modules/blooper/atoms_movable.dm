@@ -40,20 +40,24 @@
 		if(!blooper_id || !set_blooper(blooper_id)) //just-in-time blooper generation
 			return
 	volume = min(volume, 100)
-	var/turf/TurfCheck = get_turf(src)
-	for(var/mob/Mobclient in listeners)
-		Mobclient.playsound_local(TurfCheck, vol = volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, sound_to_use = blooper, distance_multiplier = 1)
+	var/turf/our_turf = get_turf(src)
+	for(var/mob/mob_with_client in listeners)
+		if(!mob_with_client.client)
+			return
+		var/user_volume_pref = mob_with_client.client.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) // If we have a client adjust the volume to their prefs before playing the blooper
+		var/scaled_volume = volume * (user_volume_pref / 100)
+		mob_with_client.playsound_local(our_turf, vol = scaled_volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, sound_to_use = blooper, distance_multiplier = 1)
 
 /// Sends blooping sound/data
 /atom/movable/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE, tts_message, list/tts_filter)
 	. = ..()
 	var/list/listeners = get_hearers_in_view(range, source)
 	if(blooper || blooper_id)
-		for(var/mob/Mobclient in listeners)
-			if(!Mobclient.client)
+		for(var/mob/mob_with_client in listeners)
+			if(!mob_with_client.client)
 				continue
-			if(!(Mobclient.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)))
-				listeners -= Mobclient
+			if(!(mob_with_client.client.prefs?.read_preference(/datum/preference/toggle/hear_sound_blooper)))
+				listeners -= mob_with_client
 		var/bloopers = min(round((LAZYLEN(message) / blooper_speed)) + 1, BLOOPER_MAX_BLOOPERS)
 		var/total_delay
 		blooper_current_blooper = world.time //this is juuuuust random enough to reliably be unique every time send_speech() is called, in most scenarios
@@ -87,11 +91,10 @@
 
 /// Plays the blooper sound effect based on the message provided
 /mob/living/proc/play_bloopers(message_raw, message_range, obj/source, list/message_mods = list())
-	blooper_volume = client?.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) //volume scales with your volume slider in game preferences.
 	if(HAS_TRAIT(src, TRAIT_SIGN_LANG) && !HAS_TRAIT(src, TRAIT_MUTE)) //if you can speak and you sign, your hands don't make a bark. Unless you are completely mute, you can have some hand bark.
 		return
 	if(message_mods[WHISPER_MODE])
-		blooper_volume = (client?.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume)*0.5) //Whispered barked are half as loud.
+		blooper_volume *= 0.5 //Whispered barked are half as loud.
 		message_range++
 	var/list/listening = get_hearers_in_view(message_range, source)
 	var/is_yell = (say_test(message_raw) == "2")
