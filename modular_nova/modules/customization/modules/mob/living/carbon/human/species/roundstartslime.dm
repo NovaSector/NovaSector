@@ -333,7 +333,7 @@
 	new_body.bra = "Nude"
 	new_body.undershirt = "Nude" //Which undershirt the player wants
 	new_body.socks = "Nude" //Which socks the player wants
-	brainmob.stored_dna.transfer_identity(new_body, transfer_SE=1)
+	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
 	new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
 	new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
 	new_body.real_name = new_body.dna.real_name
