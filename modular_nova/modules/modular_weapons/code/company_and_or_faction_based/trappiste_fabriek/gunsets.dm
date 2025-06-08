@@ -3,8 +3,8 @@
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case
 	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely. The five square grid of Trappiste Fabriek is displayed prominently on the top."
 	icon_state = "case_trappiste"
-	worn_icon_state = "yellowcase"
-	inhand_icon_state = "yellowcase"
+	worn_icon_state = "carwocase"
+	inhand_icon_state = "carwocase"
 
 // Empty version of the case
 
