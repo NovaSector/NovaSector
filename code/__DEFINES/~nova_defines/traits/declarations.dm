@@ -168,4 +168,7 @@
 /// If a slimeperson is currently protecting themselves from water
 #define TRAIT_SLIME_HYDROPHOBIA "slime_hydrophobia"
 
+//For the hemophage quirk that allows hemophages to eat/drink normal food/drink.
+#define TRAIT_MASQUERADE_FOOD "masquerade_food"
+
 // END TRAIT DEFINES

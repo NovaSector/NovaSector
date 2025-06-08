@@ -13,6 +13,8 @@
 	var/list/allowed_areas = list(
 		/area,
 	)
+	/// If we are allowed to place in custom areas. Custom area represented by having [/datum/component/custom_area].
+	var/allow_custom_areas = TRUE
 
 	/// A list of possible atoms available to spawn. Cen be either regular list or associative list.
 	/// Atoms in keys of assotiative list will be used as variants shown to user, values - actual items to spawn.
@@ -82,13 +84,22 @@
 
 	return options
 
+/obj/item/summon_beacon/proc/area_check(area/target_area, turf/target_turf)
+	if(!target_turf)
+		return FALSE
+	if(!target_area)
+		return FALSE
+	if(!(is_type_in_list(target_area, allowed_areas) || (allow_custom_areas && target_area.GetComponent(/datum/component/custom_area))))
+		return FALSE
+	return TRUE
+
 /obj/item/summon_beacon/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!selected_atom)
 		balloon_alert(user, "no choice selected!")
 		return NONE
 	var/turf/target_turf = get_turf(interacting_with)
 	var/area/target_area = get_area(interacting_with)
-	if(!target_turf || !target_area || !is_type_in_list(target_area, allowed_areas))
+	if(!area_check(target_area, target_turf))
 		balloon_alert(user, "can't call here!")
 		return NONE
 
@@ -134,7 +145,6 @@
 	new /obj/item/summon_beacon/gas_miner(src)
 	new /obj/item/summon_beacon/gas_miner(src)
 
-
 // Actual beacons start here
 
 /obj/item/summon_beacon/gas_miner
@@ -156,6 +166,13 @@
 
 	area_string = "atmospherics"
 	supply_pod_stay = TRUE
+
+/obj/item/summon_beacon/gas_miner/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(. == ITEM_INTERACT_SUCCESS)
+		var/turf/location = get_turf(interacting_with)
+		location.investigate_log("was selected as target to spawn [selected_atom.name] by [user.ckey]", INVESTIGATE_ATMOS)
+		message_admins("[selected_atom.name] was spawned by [user] ([user.ckey]) [ADMIN_JMP(location)].")
 
 /obj/item/summon_beacon/vendors
 	name = "Vendors beacon"
