@@ -141,13 +141,6 @@
 /datum/preference/numeric/blooper_pitch_range/create_default_value()
 	return 0.2
 
-/// Can I use the blooper?
-/datum/preference/toggle/send_sound_blooper
-	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
-	savefile_key = "send_sound_blooper"
-	savefile_identifier = PREFERENCE_PLAYER
-	default_value = TRUE
-
 /// Can I hear everyone else's bloops?
 /datum/preference/toggle/hear_sound_blooper
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
