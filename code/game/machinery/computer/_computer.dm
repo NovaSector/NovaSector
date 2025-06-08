@@ -158,7 +158,7 @@
 
 /obj/machinery/computer/ui_interact(mob/user, datum/tgui/ui)
 	SHOULD_CALL_PARENT(TRUE)
-	//NOVA EDIT ADDITON BEGIN - AESTHETICS
+	//NOVA EDIT ADDITION BEGIN - AESTHETICS
 	if(clicksound && world.time > next_clicksound && isliving(user))
 		next_clicksound = world.time + rand(50, 150)
 		playsound(src, get_sfx_nova(clicksound), clickvol)

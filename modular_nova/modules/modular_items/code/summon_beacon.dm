@@ -14,7 +14,8 @@
 		/area,
 	)
 
-	/// A list of possible atoms available to spawn
+	/// A list of possible atoms available to spawn. Cen be either regular list or associative list.
+	/// Atoms in keys of assotiative list will be used as variants shown to user, values - actual items to spawn.
 	var/list/selectable_atoms = list(
 		/obj/item/summon_beacon,
 	)
@@ -61,15 +62,21 @@
 
 	selected_atom = show_radial_menu(user, src, radial_build, radius = 40, tooltips = TRUE)
 
+	if(selectable_atoms[selected_atom])
+		selected_atom = selectable_atoms[selected_atom]
+
 /obj/item/summon_beacon/proc/get_available_options()
 	var/list/options = list()
 	for(var/iterating_choice in selectable_atoms)
-		var/obj/our_object = iterating_choice
+		var/obj/icon_object = iterating_choice
+		var/choice_icon = icon_object.greyscale_config ? SSgreyscale.GetColoredIconByType(icon_object.greyscale_config, icon_object.greyscale_colors) : icon_object::icon
 		var/datum/radial_menu_choice/option = new
-		option.image = image(icon = initial(our_object.icon), icon_state = initial(our_object.icon_state))
-		option.info = span_boldnotice("[initial(our_object.desc)]")
+		var/obj/our_object = selectable_atoms[iterating_choice]
+		option.image = image(icon = choice_icon, icon_state = icon_object::post_init_icon_state || icon_object::icon_state)
+		option.name = our_object ? our_object::name : icon_object::name
+		option.info = span_boldnotice("[selectable_atoms[iterating_choice] ? our_object::desc : icon_object::desc]")
 
-		options[our_object] = option
+		options[icon_object] = option
 
 	sort_list(options)
 
@@ -140,12 +147,48 @@
 	)
 
 	selectable_atoms = list(
-		/obj/machinery/atmospherics/miner/carbon_dioxide,
-		/obj/machinery/atmospherics/miner/n2o,
-		/obj/machinery/atmospherics/miner/nitrogen,
-		/obj/machinery/atmospherics/miner/oxygen,
-		/obj/machinery/atmospherics/miner/plasma,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = /obj/machinery/atmospherics/miner/carbon_dioxide,
+		/obj/machinery/portable_atmospherics/canister/nitrous_oxide = /obj/machinery/atmospherics/miner/n2o,
+		/obj/machinery/portable_atmospherics/canister/nitrogen = /obj/machinery/atmospherics/miner/nitrogen,
+		/obj/machinery/portable_atmospherics/canister/oxygen = /obj/machinery/atmospherics/miner/oxygen,
+		/obj/machinery/portable_atmospherics/canister/plasma = /obj/machinery/atmospherics/miner/plasma,
 	)
 
 	area_string = "atmospherics"
 	supply_pod_stay = TRUE
+
+/obj/item/summon_beacon/vendors
+	name = "Vendors beacon"
+	desc = "Delivers a Vendor via orbital drop with patented Donk Co. SafeTec Technology!"
+	uses = 2
+
+	selectable_atoms = list(
+		/obj/machinery/vending/assist, // "Part-Mart"
+		/obj/machinery/vending/autodrobe, // "AutoDrobe"
+		/obj/machinery/vending/boozeomat, // "Booze-O-Mat"
+		/obj/machinery/vending/cigarette, // "ShadyCigs Deluxe"
+		/obj/machinery/vending/clothing, // "ClothesMate"
+		/obj/machinery/vending/coffee, // "Solar's Best Hot Drinks"
+		/obj/machinery/vending/cola, // "Robust Softdrinks"
+		/obj/machinery/vending/custom, // "Custom Vendor"
+		/obj/machinery/vending/dinnerware, // "Plasteel Chef's Dinnerware Vendor"
+		/obj/machinery/vending/games, // "Good Clean Fun"
+		/obj/machinery/vending/hydronutrients, // "NutriMax"
+		/obj/machinery/vending/hydroseeds, // "MegaSeed Servitor"
+		/obj/machinery/vending/modularpc, // "Deluxe Silicate Selections"
+		/obj/machinery/vending/snack, // "Getmore Chocolate Corp"
+		/obj/machinery/vending/tool, // "YouTool"
+		/obj/machinery/vending/barbervend, // "Fab-O-Vend"
+		/obj/machinery/vending/imported/nt, // "NT Sustenance Supplier"
+		/obj/machinery/vending/imported/mothic, // "Nomad Fleet Ration Chit Exchange"
+		/obj/machinery/vending/imported/tiziran, // "Tiziran Imported Delicacies"
+		/obj/machinery/vending/imported/yangyu, // "Fudobenda"
+		/obj/machinery/vending/deforest_medvend, // "DeForest Med-Vend"
+	)
+
+/obj/item/summon_beacon/vendors/equipped(mob/user, slot, initial)
+	. = ..()
+	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+		selectable_atoms += /obj/machinery/vending/dorms
+	else
+		selectable_atoms -= /obj/machinery/vending/dorms

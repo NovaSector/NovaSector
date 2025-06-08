@@ -44,6 +44,7 @@
 				/obj/item/spanking_pad = 4,
 				/obj/item/tickle_feather = 8,
 				/obj/item/borg/upgrade/dominatrixmodule = 5,
+				/obj/item/reagent_containers/venom_milker = 5,
 			),
 		),
 		list(
@@ -68,8 +69,6 @@
 				/obj/item/clothing/shoes/ballet_heels = 4,
 				/obj/item/clothing/shoes/latex_socks = 8,
 
-				/obj/item/storage/belt/thigh_satchel = 5,//Leather Belt, holds a lot of tools.
-
 				/obj/item/clothing/head/costume/nova/maid = 5,
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
@@ -90,8 +89,8 @@
 				/obj/item/stack/shibari_rope/glow/full = 10,
 
 				//clothing facial/head
-				/obj/item/clothing/mask/ballgag = 8,
-				/obj/item/clothing/mask/ballgag/choking = 8,
+				/obj/item/clothing/mask/muzzle/ballgag = 8,
+				/obj/item/clothing/mask/muzzle/ballgag/choking = 8,
 				/obj/item/clothing/mask/muzzle/ring = 4,
 				/obj/item/clothing/head/deprivation_helmet = 5,
 				/obj/item/clothing/glasses/blindfold/dorms = 5,

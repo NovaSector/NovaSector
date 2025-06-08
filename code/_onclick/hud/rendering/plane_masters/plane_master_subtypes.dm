@@ -248,6 +248,7 @@
 	documentation = "Holds the main tiling 32x32 sprites of weather. We mask against walls that are on the edge of weather effects."
 	plane = WEATHER_PLANE
 	start_hidden = TRUE
+	critical = PLANE_CRITICAL_DISPLAY
 
 /atom/movable/screen/plane_master/weather/set_home(datum/plane_master_group/home)
 	. = ..()
@@ -314,6 +315,7 @@
 	documentation = "Holds the glowing parts of the main tiling 32x32 sprites of weather."
 	plane = WEATHER_GLOW_PLANE
 	start_hidden = TRUE
+	critical = PLANE_CRITICAL_DISPLAY
 
 /atom/movable/screen/plane_master/weather_glow/set_home(datum/plane_master_group/home)
 	. = ..()
@@ -373,6 +375,11 @@
 
 /atom/movable/screen/plane_master/camera_static/proc/eye_changed(datum/hud/source, atom/old_eye, atom/new_eye)
 	SIGNAL_HANDLER
+
+	if(istype(new_eye, /obj/effect/landmark/ai_multicam_room))
+		if(force_hidden)
+			unhide_plane(source.mymob)
+		return
 
 	if(!iscameramob(new_eye))
 		if(!force_hidden)

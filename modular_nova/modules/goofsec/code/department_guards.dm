@@ -98,27 +98,32 @@
 /obj/item/clothing/head/beret/sec/science
 	name = "science guard beret"
 	desc = "A robust beret with an Erlenmeyer flask emblazoned on it. Uses reinforced fabric to offer sufficient protection."
-	icon_state = "beret_badge"
+	icon_state = "/obj/item/clothing/head/beret/sec/science"
+	post_init_icon_state = "beret_badge"
 	greyscale_colors = "#8D008F#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/medical
 	name = "medical officer beret"
 	desc = "A robust beret with a Medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/medical"
 	greyscale_colors = "#16313D#F2F2F2" //Paramed blue to (mostly) match their vest (as opposed to medical white)
 
 /obj/item/clothing/head/beret/sec/engineering
 	name = "engineer officer beret"
 	desc = "A robust beret with a hazard symbol emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/engineering"
 	greyscale_colors = "#FFBC30#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/cargo
 	name = "cargo officer beret"
 	desc = "A robust beret with a Crate emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/cargo"
 	greyscale_colors = "#c99840#F2F2F2"
 
 /obj/item/clothing/head/beret/sec/service
 	name = "bouncer beret"
 	desc = "A robust beret with a simple badge emblazoned on it. Uses reinforced fabric to offer sufficient protection."
+	icon_state = "/obj/item/clothing/head/beret/sec/service"
 	greyscale_colors = "#5E8F2D#F2F2F2"
 
 /*
@@ -914,4 +919,19 @@
 		/obj/item/clothing/suit/armor/vest/blueshirt/nova/customs_agent = 2,
 		/obj/item/clothing/glasses/hud/security = 2,
 		/obj/item/clothing/glasses/hud/gun_permit = 2,
+	), src)
+
+/obj/item/storage/bag/garment/service_guard
+	name = "\proper the service guard's garments"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the service guard."
+
+/obj/item/storage/bag/garment/service_guard/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/radio/headset/headset_srv = 2,
+		/obj/item/clothing/shoes/sneakers/black = 2,
+		/obj/item/clothing/under/rank/security/officer/blueshirt/nova/bouncer = 2,
+		/obj/item/clothing/head/helmet/blueshirt/nova/guard = 2,
+		/obj/item/clothing/head/beret/sec/service = 2,
+		/obj/item/clothing/suit/armor/vest/blueshirt/nova/guard = 2,
+		/obj/item/clothing/glasses/hud/security = 2,
 	), src)

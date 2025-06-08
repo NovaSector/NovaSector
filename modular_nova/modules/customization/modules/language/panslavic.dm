@@ -18,6 +18,12 @@
 		"ko", "ni", "spa", "va", "ha", "so", "ba", "sve", "ska", "nov", "cha", "nik",
 		"zem", "lya", "kan", "ce", "la", "ri", "јa", "snezh", "ne", "pa", "da", "vi", "ne"
 	)
+	space_chance = 5
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 25
+	additional_syllable_low = 0
+	additional_syllable_high = 0
 	icon_state = "panslavic"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 95

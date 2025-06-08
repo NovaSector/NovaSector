@@ -14,7 +14,7 @@
 
 /obj/item/mind_controller/Initialize(mapload, collar_init)
 	. = ..()
-	src.collar = collar_init
+	collar = collar_init
 
 /obj/item/mind_controller/Destroy(force)
 	collar?.remote = null
@@ -42,12 +42,19 @@
 	/// What the default emoting pattern is set to
 	var/emoting = "Shivers."
 
+/datum/storage/mind_collar
+	max_slots = 1
+	attack_hand_interact = FALSE
+	do_rustle = FALSE
+
+/datum/storage/mind_collar/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+	set_holdable(/obj/item/mind_controller)
+
 /obj/item/clothing/neck/mind_collar/Initialize(mapload)
 	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(/obj/item/mind_controller)
+	create_storage(storage_type = /datum/storage/mind_collar)
 	remote = new /obj/item/mind_controller(src, src)
-	remote.forceMove(src)
 
 /// Makes the controlled person actually perform the emote.
 /obj/item/clothing/neck/mind_collar/proc/emoting_proc()

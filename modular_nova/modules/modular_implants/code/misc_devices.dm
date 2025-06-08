@@ -1,6 +1,6 @@
 ///NIFSoft Remover. This is mostly here so that security and antags have a way to remove NIFSofts from someome
 /obj/item/nifsoft_remover
-	name = "Lopland 'Wrangler' NIF-Cutter"
+	name = "Nanotrasen 'Wrangler' NIF-Cutter"
 	desc = "A small device that lets the user remove NIFSofts from a NIF user"
 	special_desc = "Given the relatively recent and sudden proliferation of NIFs, their use in crime both petty and organized has skyrocketed in recent years. \
 	The existence of nanomachine-based real-time burst communication that cannot be effectively monitored or hacked into has given most PMCs cause enough for concern \
@@ -118,7 +118,7 @@
 		/obj/item/clothing/glasses/phantom,
 		/obj/item/clothing/glasses/salesman, // Now's your chance.
 		/obj/item/clothing/glasses/nice_goggles,
-		/obj/item/clothing/glasses/thin,
+		/obj/item/clothing/glasses/regular/thin,
 		/obj/item/clothing/glasses/biker,
 		/obj/item/clothing/glasses/sunglasses/gar,
 		/obj/item/clothing/glasses/hypno,

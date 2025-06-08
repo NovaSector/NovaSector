@@ -32,7 +32,7 @@
 	REMOVE_TRAIT(src, TRAIT_NO_TRANSFORM, TEMPORARY_TRANSFORMATION_TRAIT)
 	icon = initial(icon)
 	RemoveInvisibility(type)
-	set_species(/datum/species/monkey)
+	set_species(dna.species.monkey_species) // NOVA EDIT CHANGE - ORIGINAL: set_species(/datum/species/monkey)
 	to_chat(src, span_boldnotice("You are now \a [dna.species.name]."))
 	name = LOWER_TEXT(dna.species.name)
 	regenerate_icons()
@@ -144,7 +144,8 @@
 	ADD_TRAIT(src, TRAIT_NO_TRANSFORM, PERMANENT_TRANSFORMATION_TRAIT)
 	var/mob/living/silicon/robot/new_borg = new /mob/living/silicon/robot(loc)
 
-	new_borg.gender = gender
+	if(client)
+		new_borg.set_gender(client)
 	new_borg.SetInvisibility(INVISIBILITY_NONE)
 
 	if(client?.prefs.read_preference(/datum/preference/name/cyborg) != DEFAULT_CYBORG_NAME)

@@ -1,3 +1,14 @@
+/// Examine Panel headshot
+#define EXAMINE_DNA_HEADSHOT "headshot"
+/// Examine Panel flavor text
+#define EXAMINE_DNA_FLAVOR_TEXT "flavor_text"
+/// Examine Panel NSFW flavor text—requires you to click a tab to see
+#define EXAMINE_DNA_FLAVOR_TEXT_NSFW "flavor_text_nsfw"
+/// Examine Panel OOC notes
+#define EXAMINE_DNA_OOC_NOTES "ooc_notes"
+/// Examine Panel NSFW ooc notes—requires you to click a tab to see
+#define EXAMINE_DNA_OOC_NOTES_NSFW "ooc_notes_nsfw"
+
 //We start from 30 to not interfere with TG species defines, should they add more
 /// We're using all three mutcolor features for our skin coloration
 #define MUTCOLOR_MATRIXED	30
@@ -69,14 +80,14 @@
 
 //In inches
 #define PENIS_MIN_GIRTH PENIS_MIN_LENGTH
-#define PENIS_MAX_GIRTH 20
+#define PENIS_MAX_GIRTH 35
 /// for non oversized mobs with a 'normal' body size
 #define PENIS_MAX_GIRTH_NORMAL_SIZED 15
 #define PENIS_DEFAULT_GIRTH 5 // a lil big but not by much
 #define PENIS_MIN_LENGTH 1
-#define PENIS_MAX_LENGTH 36
+#define PENIS_MAX_LENGTH 86
 /// for non oversized mobs with a 'normal' body size
-#define PENIS_MAX_LENGTH_NORMAL_SIZED 20
+#define PENIS_MAX_LENGTH_NORMAL_SIZED 25
 #define PENIS_DEFAULT_LENGTH 6 //still a lil long but not insane
 
 #define TESTICLES_MIN_SIZE 0
@@ -95,7 +106,7 @@
 	"mcolor3" = "#FFFFBB",\
 	"ethcolor" = "#FFCCCC",\
 	"skin_color" = "#FFEEDD",\
-	"flavor_text" = "",\
+	EXAMINE_DNA_FLAVOR_TEXT = "",\
 	"breasts_size" = 1,\
 	"breasts_lactation" = FALSE,\
 	"penis_size" = 13,\
@@ -142,6 +153,7 @@
 #define SPECIES_HEMOPHAGE "hemophage"
 #define SPECIES_FELINE_PRIMITIVE "primitive_felinid"
 #define SPECIES_ABDUCTORWEAK "abductorweak"
+#define SPECIES_KOBOLD "kobold"
 
 #define SPECIES_MUTANT "mutant"
 #define SPECIES_MUTANT_INFECTIOUS "infectious_mutant"

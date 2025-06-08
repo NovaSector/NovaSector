@@ -15,6 +15,7 @@
 	prereq_ids = list(TECHWEB_NODE_SURGERY_TOOLS, TECHWEB_NODE_CYTOLOGY)
 	design_ids = list("rna_vial", "rna_extractor", "rna_recombinator")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 /datum/design/rna_vial
 	name = "Empty RNA vial"

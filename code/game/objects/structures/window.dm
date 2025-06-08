@@ -213,8 +213,7 @@
 		return FALSE
 	to_chat(user, span_notice("You begin repairing [src]..."))
 	if(tool.use_tool(src, user, 4 SECONDS, volume = 50))
-		atom_integrity = max_integrity
-		update_nearby_icons()
+		repair_damage(max_integrity)
 		to_chat(user, span_notice("You repair [src]."))
 	return ITEM_INTERACT_SUCCESS
 
@@ -281,7 +280,7 @@
 
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/window/attackby(obj/item/I, mob/living/user, params)
+/obj/structure/window/attackby(obj/item/I, mob/living/user, list/modifiers)
 	if(!can_be_reached(user))
 		return TRUE //skip the afterattack
 
@@ -323,6 +322,10 @@
 	. = ..()
 	if(.) //received damage
 		update_nearby_icons()
+
+/obj/structure/window/repair_damage(amount)
+	. = ..()
+	update_nearby_icons()
 
 /obj/structure/window/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)
@@ -510,7 +513,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 		return list("delay" = 3 SECONDS, "cost" = 15)
 	return FALSE
 
-/obj/structure/window/reinforced/attackby_secondary(obj/item/tool, mob/user, params)
+/obj/structure/window/reinforced/attackby_secondary(obj/item/tool, mob/user, list/modifiers)
 	if(resistance_flags & INDESTRUCTIBLE)
 		balloon_alert(user, "too resilient!")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -620,7 +623,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/unanchored/spawner,
 	AddElement(/datum/element/rust)
 	set_armor(/datum/armor/none)
 	take_damage(get_integrity() * 0.5)
-	modify_max_integrity(max_integrity * 0.5)
+	modify_max_integrity(initial(max_integrity) * 0.2)
 
 /obj/structure/window/plasma
 	name = "plasma window"
@@ -698,7 +701,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 /obj/structure/window/fulltile
 	name = "full tile window"
 	desc = "A full tile window."
-	icon = 'icons/obj/smooth_structures/window.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/smooth_structures/window.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "window-0"
 	base_icon_state = "window"
 	max_integrity = 100
@@ -719,7 +722,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/plasma/fulltile
-	icon = 'icons/obj/smooth_structures/plasma_window.dmi' //ICON OVERRIDDEN IN NOVA AESTHETICS - SEE MODULE
+	icon = 'icons/obj/smooth_structures/plasma_window.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "plasma_window-0"
 	base_icon_state = "plasma_window"
 	max_integrity = 400
@@ -735,7 +738,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma/fulltile
-	icon = 'icons/obj/smooth_structures/rplasma_window.dmi' // NOVA EDIT ICON OVERRIDDEN IN AESTHETICS
+	icon = 'icons/obj/smooth_structures/rplasma_window.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "rplasma_window-0"
 	base_icon_state = "rplasma_window"
 	state = RWINDOW_SECURE
@@ -755,7 +758,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 /obj/structure/window/reinforced/fulltile
 	name = "full tile reinforced window"
 	desc = "A full tile window that is reinforced with metal rods."
-	icon = 'icons/obj/smooth_structures/reinforced_window.dmi' // NOVA EDIT ICON OVERRIDDEN IN AESTHETICS
+	icon = 'icons/obj/smooth_structures/reinforced_window.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "reinforced_window-0"
 	base_icon_state = "reinforced_window"
 	max_integrity = 150
@@ -778,7 +781,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/tinted/fulltile
-	icon = 'icons/obj/smooth_structures/tinted_window.dmi' // NOVA EDIT ICON OVERRIDDEN IN AESTHETICS
+	icon = 'icons/obj/smooth_structures/tinted_window.dmi' //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
 	icon_state = "tinted_window-0"
 	base_icon_state = "tinted_window"
 	fulltile = TRUE

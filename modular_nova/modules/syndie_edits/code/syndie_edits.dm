@@ -45,9 +45,10 @@
 /obj/item/clothing/head/beret/sec/syndicate
 	name = "brig officer's beret"
 	desc = "A stylish and protective beret, produced and manufactured by Interdyne Pharmaceuticals with help from the Gorlex Marauders."
+	icon_state = "/obj/item/clothing/head/beret/sec/syndicate"
+	post_init_icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	icon_state = "beret_badge"
 	greyscale_colors = "#3F3C40#DB2929"
 
 /obj/item/clothing/mask/gas/syndicate/ds
@@ -63,19 +64,13 @@
 	name = "tactical neck gaiter"
 	desc = "For the agent wanting to keep a low profile whilst concealing their identity. Has a small respirator to be used with internals."
 	unique_death = 'modular_nova/master_files/sound/effects/hacked.ogg'
+	icon_state = "/obj/item/clothing/mask/neck_gaiter/syndicate"
 	greyscale_colors = "#333333"
-
 
 /obj/item/clothing/shoes/combat //TO-DO: Move these overrides out of a syndicate file!
 	icon = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
 	icon_state = "combat"
-
-/obj/item/clothing/gloves/combat
-	icon = 'modular_nova/master_files/icons/obj/clothing/gloves.dmi'
-	worn_icon = 'modular_nova/master_files/icons/mob/clothing/hands.dmi'
-	icon_state = "combat"
-	worn_icon_teshari = TESHARI_HANDS_ICON
 
 // Remove the override for these subtypes
 /obj/item/clothing/gloves/combat/floortile
@@ -238,6 +233,7 @@
 /obj/item/clothing/head/beret/medical/nova/interdyne
 	name = "interdyne beret"
 	desc = "A white and green beret denoting one's allegiance to Interdyne Pharmaceutics."
+	icon_state = "/obj/item/clothing/head/beret/medical/nova/interdyne"
 	greyscale_colors = "#FFFFFF#198019"
 
 /obj/item/clothing/head/hats/syndicate/interdyne_deckofficer_black
@@ -279,7 +275,8 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	worn_icon_teshari = 'modular_nova/master_files/icons/mob/clothing/species/teshari/suit.dmi'
-	current_skin = "ip_officercloak" //prevents reskinning
+	uses_advanced_reskins = FALSE
+	unique_reskin = null
 
 /obj/item/clothing/suit/toggle/labcoat/nova/interdyne_labcoat/black
 	name = "interdyne black labcoat"
@@ -306,6 +303,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/fancy/rd/deckofficer"
 	greyscale_colors = "#FFFFFF#4F8F56"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 

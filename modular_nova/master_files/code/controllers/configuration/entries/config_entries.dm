@@ -74,3 +74,14 @@
 /// Defines whether the server uses the legacy veteran system with veteran_players.txt or the SQL system.
 /datum/config_entry/flag/veteran_legacy_system
 	protection = CONFIG_ENTRY_LOCKED
+
+/// RUIN BUDGETS ///
+/datum/config_entry/number/jungle_budget
+	default = 2
+	integer = FALSE
+	min_val = 0
+
+/datum/config_entry/number/jungle_cave_budget
+	default = 2
+	integer = FALSE
+	min_val = 0

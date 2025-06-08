@@ -92,7 +92,7 @@
 		if (prob(50))
 			new_artifact.update_integrity(10) // It is on the edge of destruction
 		else
-			new_artifact.Destroy()
+			qdel(new_artifact)
 
 /obj/structure/boulder/Destroy() // spawns and destroys artifact immediately
 	if (!stabilised)
@@ -294,7 +294,7 @@
 	if(istype(attack_item, /obj/item/xenoarch/core_sampler))
 		var/obj/item/xenoarch/core_sampler/sampler = attack_item
 		if(sampler.used)
-			balloon_alert(user, "This sampler was already used!")
+			balloon_alert(user, "sampler already used!")
 			return
 		sampler.sample = src
 		sampler.used = TRUE

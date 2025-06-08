@@ -4,6 +4,19 @@
 	quirks_enabled = TRUE // ghost role quirks
 	random_appearance = FALSE // ghost role prefs
 
+/// Maintsroom lost
+
+/obj/effect/mob_spawn/ghost_role/human/maintsroom
+	name = "chamenos"
+	prompt_name = "A being stuck in between two spaces"
+	you_are_text = "You wake up. Your hideout is intact with stuff you gathered yesterday, you are safe but you get a gut feeling that once you leave your hideout you cannot come back. Maybe you should go explore, be wary of the red lights."
+	flavour_text = "You've been stuck in the Maintsrooms for longer than you can remember, and this place has changed you. Is it madness, insanity, or an infection? Or are you an eldritch being, a monster who was born/created/manifested here? Survival will be challenging, and the Maintsrooms are a very hostile environment, so anything surviving here should have a believable reason to."
+	important_text = "YOU ARE NOT HOSTILE YOU SHOULD NOT BE KILLING PEOPLE/CREW IN GENERAL, unless you have admin permission or good IC justification to do so."
+	loadout_enabled = TRUE
+	quirks_enabled = TRUE // ghost role quirks
+	random_appearance = FALSE // ghost role prefs
+	deletes_on_zero_uses_left = TRUE
+
 /// Beach Dome
 
 /obj/effect/mob_spawn/ghost_role/human/beach
@@ -45,7 +58,7 @@
 // OUTFITS
 
 /datum/outfit/lavaland_syndicate/comms
-	uniform = /obj/item/clothing/under/rank/security/nova/utility/redsec/syndicate
+	uniform = /obj/item/clothing/under/rank/security/nova/utility/syndicate
 	ears = /obj/item/radio/headset/interdyne/comms
 
 /datum/outfit/lavaland_syndicate/comms/space
@@ -244,7 +257,7 @@
 /obj/structure/closet/l3closet/interdyne
 	name = "Interdyne level 3 biohazard gear closet"
 
-/obj/structure/closet/l3closet/virology/PopulateContents()
+/obj/structure/closet/l3closet/interdyne/PopulateContents()
 	new /obj/item/storage/bag/bio(src)
 	new /obj/item/clothing/suit/bio_suit/interdyne(src)
 	new /obj/item/clothing/head/bio_hood/interdyne(src)

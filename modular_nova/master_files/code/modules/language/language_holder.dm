@@ -23,8 +23,8 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	language_holder.adjust_languages_to_prefs(new_crewmember.client?.prefs)
 
 /datum/language_holder_adjustor/Destroy()
-	..()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED)
+	return ..()
 
 /datum/language_holder/proc/adjust_languages_to_prefs(datum/preferences/preferences)
 	// no prefs? then don't remove any languages
@@ -36,7 +36,7 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	remove_languages_by_source(list(LANGUAGE_MIND, LANGUAGE_ATOM, LANGUAGE_SPECIES))
 
 	for(var/lang_path in preferences.languages)
-		grant_language(lang_path)
+		grant_language(lang_path, (preferences.languages[lang_path] == LANGUAGE_SPOKEN ? ALL : UNDERSTOOD_LANGUAGE))
 
 	get_selected_language()
 
@@ -58,70 +58,78 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 //************************************************/
 
 /datum/language_holder/machine // SYNTHETIC LIZARD & CO LANGUAGE
-	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
-								/datum/language/machine = list(LANGUAGE_ATOM))
-	spoken_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
-							/datum/language/machine = list(LANGUAGE_ATOM))
+	understood_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+		/datum/language/machine = list(LANGUAGE_ATOM)
+	)
+	spoken_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+		/datum/language/machine = list(LANGUAGE_ATOM)
+	)
 
 /// Modularized the Cyborg and AI language_holder, add here the languages that you want them to be able to speak and understand.
 /datum/language_holder/synthetic
 	understood_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
 		/datum/language/uncommon = list(LANGUAGE_ATOM),
-		/datum/language/machine = list(LANGUAGE_ATOM),
-		/datum/language/draconic = list(LANGUAGE_ATOM),
-		/datum/language/moffic = list(LANGUAGE_ATOM),
-		/datum/language/calcic = list(LANGUAGE_ATOM),
-		/datum/language/voltaic = list(LANGUAGE_ATOM),
-		/datum/language/nekomimetic = list(LANGUAGE_ATOM),
-		/datum/language/gutter = list(LANGUAGE_ATOM),
-		/datum/language/panslavic = list(LANGUAGE_ATOM),
-		/datum/language/skrell = list(LANGUAGE_ATOM),
-		/datum/language/spacer = list(LANGUAGE_ATOM),
-		/datum/language/xerxian = list(LANGUAGE_ATOM),
-		/datum/language/vox = list(LANGUAGE_ATOM),
-		/datum/language/yangyu = list(LANGUAGE_ATOM),
-		/datum/language/schechi = list(LANGUAGE_ATOM),
-		/datum/language/monkey = list(LANGUAGE_ATOM),
-		/datum/language/slime = list(LANGUAGE_ATOM),
-		/datum/language/beachbum = list(LANGUAGE_ATOM),
-		/datum/language/mushroom = list(LANGUAGE_ATOM),
-		/datum/language/shadowtongue = list(LANGUAGE_ATOM),
-		/datum/language/buzzwords = list(LANGUAGE_ATOM),
-		/datum/language/terrum = list(LANGUAGE_ATOM),
-		/datum/language/sylvan = list(LANGUAGE_ATOM),
-		/datum/language/siiktajr = list(LANGUAGE_ATOM),
-		/datum/language/canilunzt = list(LANGUAGE_ATOM),
 		/datum/language/akulan = list(LANGUAGE_ATOM),
+		/datum/language/beachbum = list(LANGUAGE_ATOM),
+		/datum/language/buzzwords = list(LANGUAGE_ATOM),
+		/datum/language/calcic = list(LANGUAGE_ATOM),
+		/datum/language/canilunzt = list(LANGUAGE_ATOM),
+		/datum/language/draconic = list(LANGUAGE_ATOM),
+		/datum/language/gutter = list(LANGUAGE_ATOM),
+		/datum/language/kobold = list(LANGUAGE_ATOM),
+		/datum/language/machine = list(LANGUAGE_ATOM),
+		/datum/language/moffic = list(LANGUAGE_ATOM),
+		/datum/language/monkey = list(LANGUAGE_ATOM),
+		/datum/language/mushroom = list(LANGUAGE_ATOM),
+		/datum/language/nekomimetic = list(LANGUAGE_ATOM),
+		/datum/language/panslavic = list(LANGUAGE_ATOM),
+		/datum/language/schechi = list(LANGUAGE_ATOM),
+		/datum/language/shadowtongue = list(LANGUAGE_ATOM),
+		/datum/language/siiktajr = list(LANGUAGE_ATOM),
+		/datum/language/skrell = list(LANGUAGE_ATOM),
+		/datum/language/slime = list(LANGUAGE_ATOM),
+		/datum/language/spacer = list(LANGUAGE_ATOM),
+		/datum/language/spinwarder = list(LANGUAGE_ATOM),
+		/datum/language/sylvan = list(LANGUAGE_ATOM),
+		/datum/language/terrum = list(LANGUAGE_ATOM),
+		/datum/language/voltaic = list(LANGUAGE_ATOM),
+		/datum/language/vox = list(LANGUAGE_ATOM),
+		/datum/language/xerxian = list(LANGUAGE_ATOM),
+		/datum/language/yangyu = list(LANGUAGE_ATOM),
 	)
 	spoken_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
 		/datum/language/uncommon = list(LANGUAGE_ATOM),
-		/datum/language/machine = list(LANGUAGE_ATOM),
-		/datum/language/draconic = list(LANGUAGE_ATOM),
-		/datum/language/moffic = list(LANGUAGE_ATOM),
-		/datum/language/calcic = list(LANGUAGE_ATOM),
-		/datum/language/voltaic = list(LANGUAGE_ATOM),
-		/datum/language/nekomimetic = list(LANGUAGE_ATOM),
-		/datum/language/gutter = list(LANGUAGE_ATOM),
-		/datum/language/panslavic = list(LANGUAGE_ATOM),
-		/datum/language/skrell = list(LANGUAGE_ATOM),
-		/datum/language/spacer = list(LANGUAGE_ATOM),
-		/datum/language/xerxian = list(LANGUAGE_ATOM),
-		/datum/language/vox = list(LANGUAGE_ATOM),
-		/datum/language/yangyu = list(LANGUAGE_ATOM),
-		/datum/language/schechi = list(LANGUAGE_ATOM),
-		/datum/language/monkey = list(LANGUAGE_ATOM),
-		/datum/language/slime = list(LANGUAGE_ATOM),
-		/datum/language/beachbum = list(LANGUAGE_ATOM),
-		/datum/language/mushroom = list(LANGUAGE_ATOM),
-		/datum/language/shadowtongue = list(LANGUAGE_ATOM),
-		/datum/language/buzzwords = list(LANGUAGE_ATOM),
-		/datum/language/terrum = list(LANGUAGE_ATOM),
-		/datum/language/sylvan = list(LANGUAGE_ATOM),
-		/datum/language/siiktajr = list(LANGUAGE_ATOM),
-		/datum/language/canilunzt = list(LANGUAGE_ATOM),
 		/datum/language/akulan = list(LANGUAGE_ATOM),
+		/datum/language/beachbum = list(LANGUAGE_ATOM),
+		/datum/language/buzzwords = list(LANGUAGE_ATOM),
+		/datum/language/calcic = list(LANGUAGE_ATOM),
+		/datum/language/canilunzt = list(LANGUAGE_ATOM),
+		/datum/language/draconic = list(LANGUAGE_ATOM),
+		/datum/language/gutter = list(LANGUAGE_ATOM),
+		/datum/language/kobold = list(LANGUAGE_ATOM),
+		/datum/language/machine = list(LANGUAGE_ATOM),
+		/datum/language/moffic = list(LANGUAGE_ATOM),
+		/datum/language/monkey = list(LANGUAGE_ATOM),
+		/datum/language/mushroom = list(LANGUAGE_ATOM),
+		/datum/language/nekomimetic = list(LANGUAGE_ATOM),
+		/datum/language/panslavic = list(LANGUAGE_ATOM),
+		/datum/language/schechi = list(LANGUAGE_ATOM),
+		/datum/language/shadowtongue = list(LANGUAGE_ATOM),
+		/datum/language/siiktajr = list(LANGUAGE_ATOM),
+		/datum/language/skrell = list(LANGUAGE_ATOM),
+		/datum/language/slime = list(LANGUAGE_ATOM),
+		/datum/language/spacer = list(LANGUAGE_ATOM),
+		/datum/language/spinwarder = list(LANGUAGE_ATOM),
+		/datum/language/sylvan = list(LANGUAGE_ATOM),
+		/datum/language/terrum = list(LANGUAGE_ATOM),
+		/datum/language/voltaic = list(LANGUAGE_ATOM),
+		/datum/language/vox = list(LANGUAGE_ATOM),
+		/datum/language/xerxian = list(LANGUAGE_ATOM),
+		/datum/language/yangyu = list(LANGUAGE_ATOM),
 	)
 
 /datum/language_holder/drone_nova

@@ -158,6 +158,7 @@ export type FeatureChoicedServerData = {
   choices: string[];
   display_names?: Record<string, string>;
   icons?: Record<string, string>;
+  extra_quirk_data?: Record<string, string>; // NOVA EDIT ADDITION
 };
 
 export type FeatureChoiced = Feature<string, string, FeatureChoicedServerData>;
@@ -253,11 +254,10 @@ export function FeatureShortTextInput(
   return (
     <Input
       disabled={!serverData}
-      width="100%"
+      fluid
       value={value}
       maxLength={serverData?.maximum_length}
-      updateOnPropsChange
-      onChange={(_, value) => handleSetValue(value)}
+      onBlur={handleSetValue}
     />
   );
 }
@@ -274,9 +274,11 @@ export const FeatureTextInput = (
   return (
     <TextArea
       height="100px"
+      fluid
+      expensive
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={(_, value) => handleSetValue(value)}
+      onChange={(value) => handleSetValue(value)}
     />
   );
 };

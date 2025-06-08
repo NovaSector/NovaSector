@@ -32,8 +32,8 @@
 					/obj/item/holosign_creator/privacy,
 
 					// Head / Mask /Neck Items
-					/obj/item/clothing/mask/ballgag,
-					/obj/item/clothing/mask/ballgag/choking,
+					/obj/item/clothing/mask/muzzle/ballgag,
+					/obj/item/clothing/mask/muzzle/ballgag/choking,
 					/obj/item/clothing/mask/muzzle/ring,
 					/obj/item/clothing/head/deprivation_helmet,
 					/obj/item/clothing/glasses/blindfold/dorms,
@@ -51,7 +51,6 @@
 					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag,
 					/obj/item/clothing/neck/mind_collar,
 					/obj/item/clothing/strapon,
-					/obj/item/storage/belt/thigh_satchel,
 
 					//Hand Items
 					/obj/item/clothing/gloves/ball_mittens,
