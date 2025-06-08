@@ -327,7 +327,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/police
 	name = "911 Response: Marshal"
 	back = /obj/item/storage/backpack/satchel
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/solfed
 	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -362,7 +362,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/atmos
 	name = "811 Response: Advanced Atmospherics"
 	back = /obj/item/mod/control/pre_equipped/advanced/atmos
-	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
+	uniform = /obj/item/clothing/under/solfed/emergencyfire
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/atmos
 	mask = /obj/item/clothing/mask/gas/atmos/glass
@@ -437,7 +437,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/emt
 	name = "911 Response: EMT"
 	back = /obj/item/storage/backpack/medic
-	uniform = /obj/item/clothing/under/sol_emt
+	uniform = /obj/item/clothing/under/solfed/emergencymed
 	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/med
 	mask = /obj/item/clothing/mask/gas/alt
@@ -483,7 +483,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/condom_destroyer
 	name = "911 Response: Armed S.W.A.T. Officer"
 	back = /obj/item/storage/backpack
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/solfed
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_solfed/sec
@@ -528,7 +528,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/treason_destroyer
 	name = "911 Response: SolFed Military"
 
-	uniform = /obj/item/clothing/under/sol_peacekeeper
+	uniform = /obj/item/clothing/under/solfed
 	head = /obj/item/clothing/head/helmet/sf_sacrificial
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat

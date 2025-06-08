@@ -29,6 +29,63 @@
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
+// Solfed 911 Marshal Uniform
+
+/obj/item/clothing/under/solfed
+	name = "Solfed Marshals Uniform"
+	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	icon_state = "solpolice"
+	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	worn_icon_state = "solpolice"
+	worn_icon_digi = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+
+	armor_type = /datum/armor/clothing_under/rank_security
+	inhand_icon_state = null
+	has_sensor = HAS_SENSORS
+	random_sensor = FALSE
+
+// Solfed 911 Atmos Uniform
+
+/obj/item/clothing/under/solfed/emergencyfire
+	name = "Solfed Emergency Atmospherics Uniform"
+	desc = "A true Sol Federation emergency response"
+	icon_state = "atmosrescue"
+	armor_type = /datum/armor/clothing_under/atmos_adv
+// Solfed 911 EMT Uniform
+
+/obj/item/clothing/under/solfed/emergencymed
+	name = "Solfed Emergency Medical Personnel Uniform"
+	desc = "A true Sol Federation emergency response"
+	icon_state = "medrescue"
+
+// Federation Officer (Official)
+
+/obj/item/clothing/under/solfed/officer
+	name = "Solfed High-Ranking Official Uniform"
+	desc = "A Uniform worn by high ranking officials of the Sol Federation Armed Forces"
+	icon_state = "solfed_official"
+
+// Federation Enlisted (Non Marine | Official)
+
+/obj/item/clothing/under/solfed/officer_lowrnk
+	name = "Solfed Low-Ranking Uniform"
+	desc = "A Uniform worn by low ranking officials of the Sol Federation Armed Forces"
+	icon_state = "solfed_enl"
+
+// Federation Civil Services Official
+
+/obj/item/clothing/under/solfed/official_civil
+	name = "Solfed Civil Services Uniform"
+	desc = "A uniform worn by officials of the Sol Federation's Civil Services Division"
+	icon_state = "solfed_civil"
+
+// Federation Social Services Official
+
+/obj/item/clothing/under/solfed/official_civil
+	name = "Solfed Social Services Uniform"
+	desc = "A uniform worn by officials of the Sol Federation's Social Services Division"
+	icon_state = "solfed_social"
+
 // Solfed flak jacket, for marshals
 
 /obj/item/clothing/suit/armor/vest/det_suit/sol
@@ -98,37 +155,20 @@
 /obj/item/clothing/glasses/sunglasses/solfed/desert
 	greyscale_colors = "#e8dd9b"
 
-// Solfed 911 Marshal Uniform
-/obj/item/clothing/under/solfed
-	name = "Solfed Marshals Uniform"
-	icon_state = "solfed_camo"
-
-	greyscale_config = /datum/greyscale_config/solfedcamo
-	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
-	greyscale_colors = "#FFFFFF#CCCED1#A5A9B6"
-
-	armor_type = /datum/armor/clothing_under/rank_security
-	inhand_icon_state = null
-	has_sensor = HAS_SENSORS
-	random_sensor = FALSE
-
-/// Marine armor resistances (ERT Grade But Better)
-
+// Marine armor resistances (NT Asset Protection Grade But Sidegrade)
 /datum/armor/clothing_under/code_federal_armor
-	melee = 60
-	fire = 60
-	acid = 60
-	wound = 50
-	bullet = 50
-	laser = 30
-	energy = 30
-	bomb = 40
-
+	melee = 80
+	bullet = 80
+	laser = 70
+	energy = 60
+	bomb = 80
+	bio = 20
+	fire = 50
+	acid = 50
+	wound = 45
 
 // Solfed Marines Standard
 /obj/item/clothing/under/solfed/marines
-
 	name = "Solfed Marines Uniform (Black)"
 	icon_state = "solfed_camo"
 
@@ -136,6 +176,7 @@
 	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
 	greyscale_colors = "#4d4d4d#333333#292929"
+	can_adjust = FALSE
 
 /obj/item/clothing/under/solfed/marines/winter
 	name = "Solfed Marines Uniform (Winter)"
@@ -167,6 +208,7 @@
 	inhand_icon_state = null
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
+	can_adjust = FALSE
 
 /obj/item/clothing/under/solfed/espirator/winter
 	name = "Solfed Espirator Uniform (Winter)"
@@ -183,37 +225,6 @@
 /obj/item/clothing/under/solfed/espirator/ocean
 	name = "Solfed Espirator Uniform (Ocean)"
 	greyscale_colors = "#92a2d2#53638f"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Solfed Void Corps Division
-/obj/item/clothing/under/solfed/void
-
-
-// Solfed 911 Atmos Uniform
-/obj/item/clothing/under/solfed/emergencyfire
-	name = "Solfed Emergency Atmospherics Uniform"
-// Solfed 911 EMT Uniform
-/obj/item/clothing/under/solfed/emergencymed
-	name = "Solfed Emergency Medical Personnel Uniform"
-
-// Federation Officer
-/obj/item/clothing/under/solfed/officer
-
-
 
 /// Solfed Accessories
 
