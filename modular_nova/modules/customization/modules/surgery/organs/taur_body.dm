@@ -215,12 +215,12 @@
 		TEXT_WEST = list(round(riding_offset_side_x * scaling_mult, 1), round((riding_offset_side_y + taur_specific_clothing_y_offsets?[TEXT_WEST]) * scaling_mult, 1)),
 	)
 
-// Toggles the laying down state for a taur-bodied character.
-// It manages the visual changes, layer adjustments, and appplys/removes relevanttraits during the state change
+// Following verb 'toggle_laying' toggles the laying down state for a taur-bodied character.
+// It manages the visual changes, layer adjustments, and appplys/removes relevant traits during the state change.
 // This action has a cooldown period upon apply or removal to prevent rapid toggling.
-// Behaviour:
-// Oonly works if the owner is a human with a valid taur body organ. This also can only be triggered if the taur body overlay supports laying down.
-//This prevents laying down if the owner is already resting, IE: Prone. Manages the mob's density and adds in a specific sound if laying within gravity.
+// Behaviour expectations:
+// Only works if the owner is a human with a valid taur body organ. This also can only be triggered if the taur body overlay supports laying down.
+// This prevents laying down if the owner is already resting, IE: Prone. Manages the mob's density and adds in a specific sound if laying within gravity.
 
 /obj/item/organ/taur_body/proc/toggle_laying()
 	set category = "IC"
