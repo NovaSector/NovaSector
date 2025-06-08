@@ -146,7 +146,7 @@
 	)
 	COOLDOWN_DECLARE(akinshi_cooldown)
 
-/obj/item/toy/plush/nova/staff/akinshi/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+/obj/item/toy/plush/nova/akinshi/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, akinshi_cooldown))
 		return
