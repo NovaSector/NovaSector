@@ -43,7 +43,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 	if(!chambered && empty_indicator) //this is duplicated due to a layering issue with the select fire icon.
 		. += "[icon_state]_empty"
 
-/obj/item/storage/toolbox/guncase/nova/nt20
+/obj/item/storage/toolbox/guncase/nova/ntspecial/nt20
 	name = "\improper Nanotrasen Armories \"NT20\" gunset"
 	weapon_to_spawn = /obj/item/gun/ballistic/automatic/nt20
 	extra_to_spawn = /obj/item/ammo_box/magazine/smgm45

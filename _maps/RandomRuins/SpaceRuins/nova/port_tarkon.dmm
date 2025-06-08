@@ -2095,7 +2095,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/glass/flask/gold,
+/obj/machinery/fax/tarkon,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "os" = (
@@ -3111,9 +3111,7 @@
 /obj/machinery/atmospherics/components/binary/pump/off/general{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/red/fourcorners{
-	color = "#DE3A3A"
-	},
+/obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
 "uC" = (
@@ -4671,7 +4669,12 @@
 "FF" = (
 /obj/structure/table/reinforced,
 /obj/item/stamp/denied,
-/obj/item/stamp/granted,
+/obj/item/stamp/granted{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/cup/glass/flask/gold{
+	pixel_x = -7
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/comms)
 "FG" = (
@@ -6123,9 +6126,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red/fourcorners{
-	color = "#DE3A3A"
-	},
+/obj/effect/turf_decal/tile/red/fourcorners,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/port_tarkon/atmos)
@@ -7581,9 +7582,7 @@
 /area/ruin/space/has_grav/port_tarkon/storage)
 "YY" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/effect/turf_decal/tile/red/fourcorners{
-	color = "#DE3A3A"
-	},
+/obj/effect/turf_decal/tile/red/fourcorners,
 /obj/machinery/computer/atmos_control/tarkon/nitrogen_tank{
 	dir = 4
 	},
