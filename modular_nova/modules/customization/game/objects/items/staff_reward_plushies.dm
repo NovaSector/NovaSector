@@ -8,7 +8,7 @@
 // Staff reward for Deadmon
 /obj/item/toy/plush/nova/melon
 	name = "Melon Plushie"
-	desc = "Soft, yet bouncy. The eeriely smiling melon made for the appreciation of melons"
+	desc = "Soft, yet bouncy. The eerily smiling melon made for the appreciation of melons"
 	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
 	icon_state = "plush_melon"
 	gender = FEMALE
