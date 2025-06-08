@@ -1,0 +1,5 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "selecting robotic voicebox wont make binary as default language"
+  - bugfix: "selecting tongues with inherent languages from augs+ wont give you said languages"
