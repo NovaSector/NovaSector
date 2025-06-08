@@ -143,7 +143,7 @@
 */
 
 /datum/loadout_item/neck/bowtie_black
-	name = "Tie - Bow"
+	name = "Bowtie" //I know this would be nice sorted with the other ties but I need it to usurp joblocked cloaks as the 'first' item
 	item_path = /obj/item/clothing/neck/bowtie
 
 /datum/loadout_item/neck/necktie
@@ -364,7 +364,7 @@
 	group = "Job-Locked"
 
 /datum/loadout_item/neck/mantle_bs
-	name = "Blueshield's Mantle"
+	name = " Blueshield's Mantle"
 	item_path = /obj/item/clothing/neck/mantle/bsmantle
 	restricted_roles = list(JOB_BLUESHIELD)
 	group = "Job-Locked"
@@ -376,13 +376,13 @@
 	group = "Job-Locked"
 
 /datum/loadout_item/neck/mantle_chap
-	name = "Bishop's Cloak"
+	name = " Bishop's Cloak"
 	item_path = /obj/item/clothing/neck/chaplain
 	restricted_roles = list(JOB_CHAPLAIN)
 	group = "Job-Locked"
 
 /datum/loadout_item/neck/mantle_bchap
-	name = "Bishop's Cloak (Black)"
+	name = " Bishop's Cloak (Black)"
 	item_path = /obj/item/clothing/neck/chaplain/black
 	restricted_roles = list(JOB_CHAPLAIN)
 	group = "Job-Locked"
