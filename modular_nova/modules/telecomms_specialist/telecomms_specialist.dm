@@ -54,7 +54,7 @@
 
 	id_trim = /datum/id_trim/job/telecomms_specialist
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/nova/utility/telecomm
-	suit = /obj/item/clothing/suit/toggle/jacket/tcomm
+	suit = /obj/item/clothing/suit/toggle/jacket/nova/tcomm
 	neck = /obj/item/clothing/neck/link_scryer
 	belt = /obj/item/screwdriver
 	ears = /obj/item/radio/headset/headset_eng
@@ -80,6 +80,7 @@
 
 /obj/item/modular_computer/pda/telecomms
 	name = "telecomms PDA"
+	icon_state = "/obj/item/modular_computer/pda/telecomms"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_split
 	greyscale_colors = "#3267B1#3D83E3#D99A2E"
 	starting_programs = list(

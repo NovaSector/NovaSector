@@ -351,10 +351,12 @@
 	return TRUE
 
 /obj/item/mod/module/auto_doc/on_install()
+	. = ..()
 	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_refill))
 	RegisterSignal(mod, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp))
 
-/obj/item/mod/module/auto_doc/on_uninstall(deleting)
+/obj/item/mod/module/auto_doc/on_uninstall(deleting = FALSE)
+	. = ..()
 	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
 	UnregisterSignal(mod, COMSIG_ATOM_EMP_ACT)
 
@@ -365,7 +367,7 @@
 	return NONE
 
 /// With a certain chance, triggers a spontaneous injection of protozine into the user's bloodstream; suit design's rather ancient and prone to mishaps.
-/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob, var/forced)
+/obj/item/mod/module/auto_doc/proc/heal_aftereffects(mob/affected_mob, forced)
 	if(!affected_mob)
 		return
 	var/fault_chance = (reagents.maximum_volume/(reagents.total_volume ? reagents.total_volume : 20))*5 // 5% at max protozine, 20% at low-to-none protozine

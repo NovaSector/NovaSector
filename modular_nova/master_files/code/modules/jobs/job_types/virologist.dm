@@ -64,6 +64,7 @@
 
 /obj/item/modular_computer/pda/viro
 	name = "virology PDA"
+	icon_state = "/obj/item/modular_computer/pda/viro"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#FAFAFA#355FAC#57C451"
 	starting_programs = list(

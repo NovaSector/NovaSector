@@ -363,7 +363,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "811 Response: Advanced Atmospherics"
 	back = /obj/item/mod/control/pre_equipped/advanced/atmos
 	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced
-	shoes = /obj/item/clothing/shoes/jackboots/peacekeeper
+	shoes = /obj/item/clothing/shoes/jackboots
 	ears = /obj/item/radio/headset/headset_solfed/atmos
 	mask = /obj/item/clothing/mask/gas/atmos/glass
 	belt = /obj/item/storage/belt/utility/full/powertools/ircd
@@ -386,11 +386,16 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
+/obj/item/encryptionkey/headset_solfed/headset_solfed
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
+	icon = 'icons/map_icons/items/_item.dmi'
+
 /obj/item/encryptionkey/headset_solfed/atmos
 	name = "\improper SolFed adv. atmos encryption key"
-	icon_state = "cypherkey_medical"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/atmos"
+	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
 
@@ -403,9 +408,10 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /obj/item/encryptionkey/headset_solfed/sec
 	name = "\improper SolFed adv. Security encryption key"
-	icon_state = "cypherkey_medical"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/sec"
+	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
 
@@ -418,9 +424,10 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 
 /obj/item/encryptionkey/headset_solfed/med
 	name = "\improper SolFed adv. Medical encryption key"
-	icon_state = "cypherkey_medical"
 	special_channels = RADIO_SPECIAL_CENTCOM
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
+	icon_state = "/obj/item/encryptionkey/headset_solfed/med"
+	post_init_icon_state = "cypherkey_medical"
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
 

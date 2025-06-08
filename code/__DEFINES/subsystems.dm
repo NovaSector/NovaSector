@@ -20,7 +20,7 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
-#define DB_MINOR_VERSION 31 // NOVA EDIT CHANGE - ORIGINAL: #define DB_MINOR_VERSION 29
+#define DB_MINOR_VERSION 32 // NOVA EDIT CHANGE - ORIGINAL: #define DB_MINOR_VERSION 30
 
 
 //! ## Timing subsystem
@@ -243,6 +243,11 @@
 #define SSMACHINES_APCS_LATE 6
 #define SSMACHINES_MACHINES 7
 #define SSMACHINES_MACHINES_LATE 8
+
+// Weather susbsytem tasks
+#define SSWEATHER_MOBS 1
+#define SSWEATHER_TURFS 2
+#define SSWEATHER_THUNDER 3
 
 // Wardrobe subsystem tasks
 #define SSWARDROBE_STOCK 1

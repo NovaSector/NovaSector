@@ -190,18 +190,6 @@
 *	MISC
 */
 
-/datum/loadout_item/head/hair_tie
-	name = "Hair Tie"
-	item_path = /obj/item/clothing/head/hair_tie
-
-/datum/loadout_item/head/hair_tie_scrunchie
-	name = "Scrunchie"
-	item_path = /obj/item/clothing/head/hair_tie/scrunchie
-
-/datum/loadout_item/head/hair_tie_plastic_beads
-	name = "Colorful Hair tie"
-	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
-
 /datum/loadout_item/head/standalone_hood
 	name = "Recolorable Standalone Hood"
 	item_path = /obj/item/clothing/head/standalone_hood
@@ -272,7 +260,7 @@
 
 /datum/loadout_item/head/back_bow
 	name = "Colourable Back Bow"
-	item_path = /obj/item/clothing/head/back_bow
+	item_path = /obj/item/clothing/head/large_bow/back_bow
 
 /datum/loadout_item/head/small_bow
 	name = "Colourable Small Bow"
@@ -280,7 +268,7 @@
 
 /datum/loadout_item/head/sweet_bow
 	name = "Colourable Sweet bow"
-	item_path = /obj/item/clothing/head/sweet_bow
+	item_path = /obj/item/clothing/head/large_bow/sweet_bow
 
 /datum/loadout_item/head/maid_headband
 	name = "Colourable Maid Headband"
@@ -413,12 +401,18 @@
 /datum/loadout_item/head/maidhead
 	name = "Simple Maid Headband"
 	item_path = /obj/item/clothing/head/costume/nova/maid
-	additional_displayed_text = list("Top of Head")
+
+/datum/loadout_item/head/maidhead/get_item_information()
+	. = ..()
+	.[FA_ICON_HAT_COWBOY] = "Top of Head"
 
 /datum/loadout_item/head/maidhead2
 	name = "Frilly Maid Headband"
 	item_path = /obj/item/clothing/head/costume/maidheadband
-	additional_displayed_text = list("Behind Ears")
+
+/datum/loadout_item/head/maidhead2/get_item_information()
+	. = ..()
+	.[FA_ICON_EAR_DEAF] = "Behind Ears"
 
 /datum/loadout_item/head/wig
 	name = "Wig"
@@ -607,12 +601,7 @@
 
 /datum/loadout_item/head/officerberet
 	name = "Security Officer's Beret"
-	item_path = /obj/item/clothing/head/beret/sec/peacekeeper
-	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
-
-/datum/loadout_item/head/solpolicehelmet
-	name = "Sol Police Helmet"
-	item_path = /obj/item/clothing/head/helmet/sec/sol
+	item_path = /obj/item/clothing/head/beret/sec/nova
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_WARDEN)
 
 /datum/loadout_item/head/officerpatrolcap
@@ -758,9 +747,16 @@
 /datum/loadout_item/head/donator/rainbow_bunch
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/head/donator/rainbow_bunch/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 // Legacy unpaintable cowboy hat because it fits a character better
 /datum/loadout_item/head/cowboyhat_legacy
 	name = "Cowboy Hat (Legacy)"
 	item_path = /obj/item/clothing/head/costume/cowboyhat_old
+
+/datum/loadout_item/head/cone_of_shame
+	name = "Cone of Shame"
+	item_path = /obj/item/clothing/head/cone_of_shame

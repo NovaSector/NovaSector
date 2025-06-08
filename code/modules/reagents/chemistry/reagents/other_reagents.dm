@@ -59,8 +59,11 @@
 
 	if(iscarbon(exposed_mob))
 		var/mob/living/carbon/exposed_carbon = exposed_mob
-		if(exposed_carbon.get_blood_id() == type && ((methods & INJECT) || ((methods & INGEST) && HAS_TRAIT(exposed_carbon, TRAIT_DRINKS_BLOOD))))
-			if(!data || !(data["blood_type"] in get_safe_blood(exposed_carbon.dna.blood_type)))
+		var/datum/blood_type/carbon_blood_type = exposed_carbon.dna.blood_type
+		if(carbon_blood_type.reagent_type == type && ((methods & INJECT) || ((methods & INGEST) && HAS_TRAIT(exposed_carbon, TRAIT_DRINKS_BLOOD))))
+			var/datum/blood_type/recipient_blood_type = exposed_carbon.dna.blood_type
+			var/datum/blood_type/donor_blood_type = data["blood_type"]
+			if(!(donor_blood_type.type_key() in recipient_blood_type.compatible_types))
 				exposed_carbon.reagents.add_reagent(/datum/reagent/toxin, reac_volume * 0.5)
 			else
 				/* NOVA EDIT - Rebalancing blood for Hemophages - ORIGINAL:
@@ -79,12 +82,19 @@
 			if(data["blood_DNA"] && data["blood_type"])
 				exposed_carbon.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
 			else
-				exposed_carbon.add_blood_DNA(list("Non-human DNA" = random_blood_type()))
+				exposed_carbon.add_blood_DNA(list("Non-human DNA" = random_human_blood_type()))
 
 /datum/reagent/blood/on_new(list/data)
 	. = ..()
-	if(istype(data))
-		SetViruses(src, data)
+	if(!istype(data))
+		return
+	SetViruses(src, data)
+	var/datum/blood_type/blood_type = data["blood_type"]
+	if(!blood_type)
+		return
+	var/blood_color = blood_type.get_color()
+	if(blood_color != BLOOD_COLOR_RED) // If the blood is default red, just use the darker red color for the reagent.
+		color = blood_color
 
 /datum/reagent/blood/on_merge(list/mix_data)
 	if(data && mix_data)
@@ -159,7 +169,7 @@
 	if(data["blood_DNA"] && data["blood_type"])
 		exposed_obj.add_blood_DNA(list(data["blood_DNA"] = data["blood_type"]))
 	else
-		exposed_obj.add_blood_DNA(list("Non-human DNA" = random_blood_type()))
+		exposed_obj.add_blood_DNA(list("Non-human DNA" = random_human_blood_type()))
 
 /datum/reagent/blood/get_taste_description(mob/living/taster)
 	if(isnull(taster))
@@ -262,15 +272,14 @@
 
 /datum/reagent/water/expose_turf(turf/open/exposed_turf, reac_volume)
 	. = ..()
+
 	if(!istype(exposed_turf))
 		return
 
-	var/cool_temp = cooling_temperature
-	if(reac_volume >= 5)
-		exposed_turf.MakeSlippery(TURF_WET_WATER, 10 SECONDS, min(reac_volume*1.5 SECONDS, 60 SECONDS))
-
 	for(var/mob/living/basic/slime/exposed_slime in exposed_turf)
 		exposed_slime.apply_water()
+
+	var/cool_temp = cooling_temperature
 
 	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in exposed_turf)
 	if(hotspot && !isspaceturf(exposed_turf))
@@ -279,6 +288,12 @@
 			air.temperature = max(min(air.temperature-(cool_temp*1000), air.temperature/cool_temp),TCMB)
 			air.react(src)
 			qdel(hotspot)
+
+	if(isgroundlessturf(exposed_turf) || isnoslipturf(exposed_turf))
+		return
+
+	if(reac_volume >= 5)
+		exposed_turf.MakeSlippery(TURF_WET_WATER, 10 SECONDS, min(reac_volume*1.5 SECONDS, 60 SECONDS))
 
 /*
  * Water reaction to an object
@@ -1231,11 +1246,6 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	color = "#606060" //pure iron? let's make it violet of course
 	ph = 6
-
-/datum/reagent/iron/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	. = ..()
-	if(affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-		affected_mob.blood_volume += 0.25 * seconds_per_tick
 
 /datum/reagent/gold
 	name = "Gold"
@@ -3106,7 +3116,7 @@
 
 /datum/reagent/ants/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
-	if(!istype(exposed_turf) || isspaceturf(exposed_turf)) // Is the turf valid
+	if(!istype(exposed_turf)) // Is the turf valid
 		return
 	if((reac_volume <= 10)) // Makes sure people don't duplicate ants.
 		return
@@ -3152,13 +3162,14 @@
 	description = "A frothy extract made from fermented kronkus vine pulp.\nHighly bitter due to the presence of a variety of kronkamines."
 	taste_description = "bitterness"
 	color = "#228f63"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 5)
 
-/datum/reagent/kronkus_extract/on_mob_life(mob/living/carbon/kronkus_enjoyer)
+/datum/reagent/kronkus_extract/on_mob_life(mob/living/carbon/kronkus_enjoyer, seconds_per_tick)
 	. = ..()
 	var/need_mob_update
-	need_mob_update = kronkus_enjoyer.adjustOrganLoss(ORGAN_SLOT_HEART, 0.1)
+	need_mob_update = kronkus_enjoyer.adjustOrganLoss(ORGAN_SLOT_HEART, 0.2 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	need_mob_update += kronkus_enjoyer.adjustStaminaLoss(-6, updating_stamina = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH

@@ -109,7 +109,7 @@
 	return FALSE
 
 
-/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname)
+/obj/effect/mob_spawn/ghost_role/human/primitive_catgirl/create(mob/mob_possessor, newname, use_loadout = FALSE)
 	. = ..()
 
 	// We remove their name from there if they come back.
@@ -298,6 +298,10 @@
 		/datum/crafting_recipe/black_pelt_bed,
 		/datum/crafting_recipe/white_pelt_bed,
 		/datum/crafting_recipe/frozen_breath,
+		/datum/crafting_recipe/runic_greatsword,
+		/datum/crafting_recipe/runic_greataxe,
+		/datum/crafting_recipe/runic_spear,
+		/datum/crafting_recipe/hearthkin_ship_fragment_inactive,
 	)
 
 /datum/antagonist/primitive_catgirl/Destroy()

@@ -36,7 +36,7 @@
 
 /datum/sprite_accessory/tails/lizard
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi'
-	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER)
+	recommended_species = list(SPECIES_LIZARD, SPECIES_LIZARD_ASH, SPECIES_MAMMAL, SPECIES_UNATHI, SPECIES_LIZARD_SILVER, SPECIES_KOBOLD, SPECIES_LIZARD)
 	organ_type = /obj/item/organ/tail/lizard
 
 /datum/sprite_accessory/tails/lizard/short/twotone
@@ -272,6 +272,10 @@
 /datum/sprite_accessory/tails/mammal/wagging/otie
 	name = "Otusian"
 	icon_state = "otie"
+
+/datum/sprite_accessory/tails/mammal/wagging/otter
+	name = "Otter"
+	icon_state = "otter"
 
 /datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"

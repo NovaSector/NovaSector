@@ -4,8 +4,9 @@
 /datum/loadout_item/pocket_items/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // these go in the backpack
 	return FALSE
 
-/datum/loadout_item/pocket_items/wallet
-	additional_displayed_text = list("Auto-Filled")
+/datum/loadout_item/pocket_items/wallet/get_item_information()
+	. = ..()
+	.[FA_ICON_BOX] = "Auto-Filled"
 
 /*
 *	GUM
@@ -55,9 +56,21 @@
 *	MISC
 */
 
+/datum/loadout_item/pocket_items/hair_tie
+	name = "Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie
+
+/datum/loadout_item/pocket_items/hair_tie_scrunchie
+	name = "Scrunchie"
+	item_path = /obj/item/clothing/head/hair_tie/scrunchie
+
+/datum/loadout_item/pocket_items/hair_tie_plastic_beads
+	name = "Plastic Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
+
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
-	item_path = /obj/item/reagent_containers/cup/rag
+	item_path = /obj/item/rag
 
 /datum/loadout_item/pocket_items/razor
 	name = "Razor"
@@ -70,10 +83,6 @@
 /datum/loadout_item/pocket_items/cheaplighter
 	name = "Cheap Lighter"
 	item_path = /obj/item/lighter/greyscale
-
-/datum/loadout_item/pocket_items/zippolighter
-	name = "Zippo Lighter"
-	item_path = /obj/item/lighter
 
 /datum/loadout_item/pocket_items/ttsdevice
 	name = "Text-to-Speech Device"
@@ -94,10 +103,6 @@
 /datum/loadout_item/pocket_items/cigar //smoking is bad mkay
 	name = "Cigar"
 	item_path = /obj/item/cigarette/cigar
-
-/datum/loadout_item/pocket_items/flask
-	name = "Flask"
-	item_path = /obj/item/reagent_containers/cup/glass/flask
 
 /datum/loadout_item/pocket_items/multipen
 	name = "Multicolored Pen"
@@ -142,10 +147,6 @@
 /datum/loadout_item/pocket_items/cross
 	name = "Ornate Cross"
 	item_path = /obj/item/crucifix
-
-/datum/loadout_item/pocket_items/clipboard
-	name = "Clipboard"
-	item_path = /obj/item/clipboard
 
 /datum/loadout_item/pocket_items/folder
 	name = "Folder"
@@ -304,18 +305,8 @@ JOB SPECIFIC MISCELLANY
 */
 
 /datum/loadout_item/pocket_items/crusher_sword_kit
-	name = "Crusher Sword Retool Kit"
+	name = "Crusher Retool Kit"
 	item_path = /obj/item/crusher_trophy/retool_kit
-	restricted_roles = list(JOB_SHAFT_MINER) //needs to be in a list or causes tgui errors, tgui continues to amaze
-
-/datum/loadout_item/pocket_items/crusher_harpoon_kit
-	name = "Crusher Harpoon Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/harpoon
-	restricted_roles = list(JOB_SHAFT_MINER)
-
-/datum/loadout_item/pocket_items/crusher_dagger_kit
-	name = "Crusher Dagger Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/dagger
 	restricted_roles = list(JOB_SHAFT_MINER)
 
 /*

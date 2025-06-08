@@ -171,3 +171,9 @@ REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
 
 ## Uncomment to make flashbangs forbidden during green alerts
 #FLASHBANGS_FORBIDDEN_DURING_GREEN
+
+## The ruin budget for SerenityStation's upper z-level.
+JUNGLE_BUDGET 2
+
+## The ruin budget for SerenityStation's lower z-levels.
+JUNGLE_CAVES_BUDGET 2

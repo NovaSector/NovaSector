@@ -39,6 +39,7 @@
 	display_name = "Powerator"
 	description = "We've been saved by it in the past, we should send some power ourselves!"
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
+	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
 	hidden = TRUE
 	experimental = TRUE
 	prereq_ids = list(TECHWEB_NODE_PARTS_ADV)
@@ -49,7 +50,7 @@
 /obj/machinery/powerator
 	name = "powerator"
 	desc = "Beyond the ridiculous name, it is the standard for transporting and selling energy to power networks that require additional sources!"
-	icon = 'modular_nova/modules/powerator/machines.dmi'
+	icon = 'modular_nova/modules/powerator/icons/machines.dmi'
 	icon_state = "powerator"
 
 	density = TRUE

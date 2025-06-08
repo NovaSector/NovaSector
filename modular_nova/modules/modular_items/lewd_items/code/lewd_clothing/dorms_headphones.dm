@@ -1,16 +1,18 @@
 /obj/item/clothing/ears/dorms_headphones
 	name = "padded headphones"
 	desc = "Protects your ears from loud noises - it has a little switch on the right-hand side."
-	icon_state = "kinkphones_off"
 	base_icon_state = "kinkphones"
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_ears.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_ears.dmi'
 	greyscale_colors = "#383840#dc7ef4#dc7ef4"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/ears/dorms_headphones"
+	post_init_icon_state = "kinkphones_off"
 	greyscale_config = /datum/greyscale_config/dorms_headphones
 	greyscale_config_worn = /datum/greyscale_config/dorms_headphones/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 	strip_delay = 15
 	custom_price = PAYCHECK_CREW * 2
+	action_slots = ALL
 	actions_types = list(/datum/action/item_action/toggle_dorms_headphones)
 	/// Are we playing music? Controls icon state and flavor text.
 	var/playing_music = FALSE

@@ -19,8 +19,8 @@ if command -v rg >/dev/null 2>&1; then
 	if [ ! rg -P '' >/dev/null 2>&1 ] ; then
 		pcre2_support=0
 	fi
-	code_files="code/**/**.dm"
-	map_files="_maps/**/**.dmm"
+	code_files="code/**/**.dm modular_nova/**/**.dm"
+	map_files="_maps/**/**.dmm modular_nova/**/**.dmm"
 	shuttle_map_files="_maps/shuttles/**.dmm"
 	code_x_515="code/**/!(__byond_version_compat).dm"
 else
@@ -208,6 +208,13 @@ part "update_icon_updates_onmob element usage"
 if $grep 'AddElement\(/datum/element/update_icon_updates_onmob.+ITEM_SLOT_HANDS' $code_files; then
 	echo
 	echo -e "${RED}ERROR: update_icon_updates_onmob element automatically updates ITEM_SLOT_HANDS, this is redundant and should be removed.${NC}"
+	st=1
+fi;
+
+part "forceMove sanity"
+if $grep 'forceMove\(\s*(\w+\(\)|\w+)\s*,\s*(\w+\(\)|\w+)\s*\)' $code_files; then
+	echo
+	echo -e "${RED}ERROR: forceMove() call with two arguments - this is not how forceMove() is invoked! It's x.forceMove(y), not forceMove(x, y).${NC}"
 	st=1
 fi;
 

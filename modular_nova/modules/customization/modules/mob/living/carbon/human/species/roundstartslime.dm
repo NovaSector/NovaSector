@@ -147,6 +147,7 @@
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
 
 /obj/item/organ/brain/slime/examine()
@@ -268,15 +269,15 @@
 	)
 	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
-		user.balloon_alert("This brain is not a viable candidate for repair!")
+		balloon_alert(user, "brain is not a viable candidate for repair!")
 		return TRUE
 
 	brainmob.grab_ghost()
 	if(isnull(brainmob.stored_dna))
-		user.balloon_alert("This brain does not contain any dna!")
+		balloon_alert(user, "brain does not contain any dna!")
 		return TRUE
 	if(isnull(brainmob.client))
-		user.balloon_alert("This brain does not contain a mind!")
+		balloon_alert(user, "brain does not contain a mind!")
 		return TRUE
 	regenerate()
 	return TRUE
@@ -344,6 +345,8 @@
 			return
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
+		if(slime.health < slime.maxHealth)
+			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
 
 /**

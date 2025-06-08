@@ -3,12 +3,14 @@
 	"map_name": "NebulaStation",
 	"map_path": "map_files/NebulaStation",
 	"map_file": "NebulaStation.dmm",
+	"give_players_hooks": 1,
 	"shuttles": {
 		"cargo": "cargo_nebula",
 		"ferry": "ferry_nebula",
 		"whiteship": "whiteship_tram",
 		"emergency": "emergency_nebula"
 	},
+	"exclude_from_ci": true,
 	"traits": [
 		{
 			"Up": true,

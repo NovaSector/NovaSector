@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(atoms)
 		/datum/controller/subsystem/fluids,
 		/datum/controller/subsystem/mapping,
 		/datum/controller/subsystem/job,
-		/datum/controller/subsystem/automapper,
+		/datum/controller/subsystem/automapper, // NOVA EDIT ADDITION
 	)
 	flags = SS_NO_FIRE
 
@@ -163,6 +163,7 @@ SUBSYSTEM_DEF(atoms)
 		initialized = base_initialized
 		base_initialized = INITIALIZATION_INNEW_REGULAR
 		return
+
 	initialized = initialized_state[length(initialized_state)][2]
 
 /// Returns TRUE if anything is currently being initialized

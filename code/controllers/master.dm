@@ -490,7 +490,8 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 		SS_INIT_NO_MESSAGE,
 	)
 
-	if (subsystem.flags & SS_NO_INIT || subsystem.initialized) //Don't init SSs with the corresponding flag or if they already are initialized
+	if ((subsystem.flags & SS_NO_INIT) || subsystem.initialized) //Don't init SSs with the corresponding flag or if they already are initialized
+		subsystem.initialized = TRUE // set initialized to TRUE, because the value of initialized may still be checked on SS_NO_INIT subsystems as an "is this ready" check
 		return
 
 	current_initializing_subsystem = subsystem
@@ -516,7 +517,6 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 	if(result != SS_INIT_FAILURE)
 		// Some form of success, implicit failure, or the SS in unused.
 		subsystem.initialized = TRUE
-
 		SEND_SIGNAL(subsystem, COMSIG_SUBSYSTEM_POST_INITIALIZE)
 	else
 		// The subsystem officially reports that it failed to init and wishes to be treated as such.

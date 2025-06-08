@@ -18,7 +18,7 @@
 
 /datum/outfit/tarkon
 	name = "default port tarkon outfit"
-	uniform = /obj/item/clothing/under/tarkon
+	uniform = /obj/item/clothing/under/tarkon/general
 	head = /obj/item/clothing/head/utility/welding/hat
 	shoes = /obj/item/clothing/shoes/winterboots
 	gloves = /obj/item/clothing/gloves/combat
@@ -96,7 +96,7 @@
 
 /datum/outfit/tarkon/cargo
 	name = "Port Tarkon Cargo Outfit"
-	uniform = /obj/item/clothing/under/tarkon/cargo
+	uniform = /obj/item/clothing/under/tarkon
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/advanced/tarkon/cargo
 	id_trim = /datum/id_trim/away/tarkon/cargo
@@ -154,7 +154,7 @@
 /datum/outfit/tarkon/sec
 	name = "Port Tarkon Security Outfit"
 	uniform = /obj/item/clothing/under/tarkon/sec
-	glasses = /obj/item/clothing/glasses/hud/security/redsec
+	glasses = /obj/item/clothing/glasses/hud/security
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	neck = /obj/item/clothing/neck/security_cape/tarkon
 	id = /obj/item/card/id/advanced/tarkon/sec

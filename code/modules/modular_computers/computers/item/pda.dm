@@ -1,7 +1,8 @@
 /obj/item/modular_computer/pda
 	name = "pda"
-	icon = 'icons/obj/devices/modular_pda.dmi'
-	icon_state = "pda"
+	icon = 'icons/map_icons/items/pda.dmi'
+	icon_state = "/obj/item/modular_computer/pda"
+	post_init_icon_state = "pda"
 	worn_icon_state = "nothing"
 	base_icon_state = "tablet"
 	greyscale_config = /datum/greyscale_config/tablet
@@ -10,6 +11,8 @@
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	inhand_icon_state = "electronic"
+
+	overlays_icon = 'icons/obj/devices/modular_pda.dmi'
 
 	steel_sheet_cost = 2
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass=SMALL_MATERIAL_AMOUNT, /datum/material/plastic=SMALL_MATERIAL_AMOUNT)
@@ -40,6 +43,7 @@
 		/datum/computer_file/program/nt_pay,
 		/datum/computer_file/program/notepad,
 		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/crew_self_serve, // NOVA EDIT ADDITION - Adds punch clock app to all base tablets
 		/datum/computer_file/program/maintenance/camera, // NOVA EDIT ADDITION - Adds camera to all base tablets
 	)
 	///List of items that can be stored in a PDA
@@ -75,11 +79,11 @@
 /obj/item/modular_computer/pda/update_overlays()
 	. = ..()
 	if(computer_id_slot)
-		. += mutable_appearance(initial(icon), "id_overlay")
+		. += mutable_appearance(overlays_icon, "id_overlay")
 	if(light_on)
-		. += mutable_appearance(initial(icon), "light_overlay")
+		. += mutable_appearance(overlays_icon, "light_overlay")
 	if(inserted_pai)
-		. += mutable_appearance(initial(icon), "pai_inserted")
+		. += mutable_appearance(overlays_icon, "pai_inserted")
 
 /obj/item/modular_computer/pda/interact(mob/user)
 	. = ..()
@@ -99,7 +103,7 @@
 
 	return ..()
 
-/obj/item/modular_computer/pda/pre_attack(atom/target, mob/living/user, params)
+/obj/item/modular_computer/pda/pre_attack(atom/target, mob/living/user, list/modifiers)
 	if(!inserted_disk || !ismachinery(target))
 		return ..()
 
@@ -262,6 +266,7 @@
  */
 /obj/item/modular_computer/pda/nukeops
 	name = "nuclear pda"
+	icon_state = "/obj/item/modular_computer/pda/nukeops"
 	device_theme = PDA_THEME_SYNDICATE
 	comp_light_luminosity = 6.3 //matching a flashlight
 	light_color = COLOR_RED
@@ -281,8 +286,9 @@
 
 /obj/item/modular_computer/pda/syndicate_contract_uplink
 	name = "contractor tablet"
-	device_theme = PDA_THEME_SYNDICATE
+	icon_state = "/obj/item/modular_computer/pda/syndicate_contract_uplink"
 	icon_state_menu = "contractor-assign"
+	device_theme = PDA_THEME_SYNDICATE
 	comp_light_luminosity = 6.3
 	has_pda_programs = FALSE
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
@@ -300,7 +306,9 @@
  */
 /obj/item/modular_computer/pda/silicon
 	name = "modular interface"
+	icon = 'icons/obj/devices/modular_pda.dmi'
 	icon_state = "tablet-silicon"
+	post_init_icon_state = null
 	base_icon_state = "tablet-silicon"
 	greyscale_config = null
 	greyscale_colors = null

@@ -163,6 +163,10 @@
 			hunger_rate = 3 * HUNGER_FACTOR
 		hunger_rate *= hunger_modifier
 		hunger_rate *= human.physiology.hunger_mod
+		// NOVA EDIT ADDITION BEGIN
+		if((human.body_position == LYING_DOWN) || (human.stat == UNCONSCIOUS))
+			hunger_rate *= 0.5
+		// NOVA EDIT ADDITION END
 		human.adjust_nutrition(-hunger_rate * seconds_per_tick)
 
 	var/nutrition = human.nutrition
@@ -385,7 +389,7 @@
 
 /obj/item/organ/stomach/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
-	receiver.hud_used?.hunger?.update_appearance()
+	receiver.hud_used?.hunger?.update_hunger_bar()
 	RegisterSignal(receiver, COMSIG_CARBON_VOMITED, PROC_REF(on_vomit))
 	RegisterSignal(receiver, COMSIG_HUMAN_GOT_PUNCHED, PROC_REF(on_punched))
 
@@ -394,7 +398,7 @@
 		var/mob/living/carbon/human/human_owner = stomach_owner
 		human_owner.clear_alert(ALERT_DISGUST)
 		human_owner.clear_mood_event("disgust")
-	stomach_owner.hud_used?.hunger?.update_appearance()
+	stomach_owner.hud_used?.hunger?.update_hunger_bar()
 	UnregisterSignal(stomach_owner, list(COMSIG_CARBON_VOMITED, COMSIG_HUMAN_GOT_PUNCHED))
 	return ..()
 

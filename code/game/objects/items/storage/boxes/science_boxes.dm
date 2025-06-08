@@ -37,18 +37,15 @@
 	desc = "Drymate brand monkey cubes. Just add water!"
 	icon_state = "monkeycubebox"
 	illustration = null
-	/// Which type of cube are we spawning in this box?
-	var/cube_type = /obj/item/food/monkeycube
 	custom_price = PAYCHECK_CREW * 2
-
-/obj/item/storage/box/monkeycubes/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 7
-	atom_storage.set_holdable(/obj/item/food/monkeycube)
+	storage_type = /datum/storage/box/monkey_cube
+	/// Which type of cube are we spawning in this box?
+	var/cube_type = list(/obj/item/food/monkeycube = 66, /obj/item/food/monkeycube/kobold = 33) // NOVA EDIT ORIGINAL: var/cube_type = /obj/item/food/monkeycube
 
 /obj/item/storage/box/monkeycubes/PopulateContents()
 	for(var/i in 1 to 5)
-		new cube_type(src)
+		var/new_cube_type = islist(cube_type) ? pick_weight(cube_type) : cube_type // NOVA EDIT ADDITION
+		new new_cube_type(src) // NOVA EDIT CHANGE - ORIGINAL: new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
 	desc = "Waffle Corp. brand monkey cubes. Just add water and a dash of subterfuge!"
@@ -59,11 +56,7 @@
 	desc = "Waffle Corp. brand gorilla cubes. Do not taunt."
 	icon_state = "monkeycubebox"
 	illustration = null
-
-/obj/item/storage/box/gorillacubes/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 3
-	atom_storage.set_holdable(/obj/item/food/monkeycube)
+	storage_type = /datum/storage/box/gorilla_cube_box
 
 /obj/item/storage/box/gorillacubes/PopulateContents()
 	for(var/i in 1 to 3)
@@ -112,13 +105,7 @@
 /obj/item/storage/box/stabilized //every single stabilized extract from xenobiology
 	name = "box of stabilized extracts"
 	icon_state = "syndiebox"
-
-/obj/item/storage/box/stabilized/Initialize(mapload)
-	. = ..()
-	atom_storage.allow_big_nesting = TRUE
-	atom_storage.max_slots = 99
-	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
-	atom_storage.max_total_storage = 99
+	storage_type = /datum/storage/box/stabilized
 
 /obj/item/storage/box/stabilized/PopulateContents()
 	var/static/items_inside = list(

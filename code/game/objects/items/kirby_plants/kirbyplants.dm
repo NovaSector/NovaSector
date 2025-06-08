@@ -1,7 +1,6 @@
 /obj/item/kirbyplants
 	name = "potted plant"
-	//icon = 'icons/obj/fluff/flora/plants.dmi' // ORIGINAL
-	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' // NOVA EDIT CHANGE
+	icon = 'icons/obj/fluff/flora/plants.dmi'
 	icon_state = "plant-01"
 	base_icon_state = "plant-01"
 	desc = "A little bit of nature contained in a pot."
@@ -48,8 +47,14 @@
 /obj/item/kirbyplants/update_icon_state()
 	. = ..()
 	icon_state = dead ? "plant-25" : base_icon_state
+	// NOVA EDIT ADDITION START - AESTHETICS
+	if(icon_state in modular_states)
+		icon = 'modular_nova/modules/aesthetics/plants/icons/plants.dmi'
+	else
+		icon = 'icons/obj/fluff/flora/plants.dmi'
+	// NOVA EDIT ADDITION END
 
-/obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, params)
+/obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, list/modifiers)
 	. = ..()
 	if(!dead && trimmable && HAS_TRAIT(user,TRAIT_BONSAI) && isturf(loc) && I.get_sharpness())
 		to_chat(user,span_notice("You start trimming [src]."))
@@ -69,18 +74,20 @@
 		random_plant_states = generate_states()
 	var/current = random_plant_states.Find(icon_state)
 	var/next = WRAP(current+1,1,length(random_plant_states))
-	icon_state = random_plant_states[next]
+	base_icon_state = random_plant_states[next]
+	update_appearance(UPDATE_ICON)
 
 /obj/item/kirbyplants/proc/generate_states()
 	var/list/plant_states = list()
-	for(var/i in 1 to random_state_cap) //NOVA EDIT CHANGE - ORIGINAL: for(var/i in 1 to 24)
+	for(var/i in 1 to 24)
 		var/number
 		if(i < 10)
 			number = "0[i]"
 		else
 			number = "[i]"
 		plant_states += "plant-[number]"
-	plant_states += list("applebush", "monkeyplant") //NOVA EDIT CHANGE - ORIGINAL: plant_states += "applebush"
+	plant_states += "applebush"
+	plant_states += modular_states // NOVA EDIT ADDITION - AESTHETICS - SEE modular_nova\modules\aesthetics\plants\plants.dm
 
 	return plant_states
 
@@ -90,7 +97,7 @@
 
 /obj/item/kirbyplants/random/Initialize(mapload)
 	. = ..()
-	icon = 'modular_nova/modules/aesthetics/plants/plants.dmi' //NOVA EDIT CHANGE - ORIGINAL: icon = 'icons/obj/flora/plants.dmi'
+	icon = 'icons/obj/fluff/flora/plants.dmi'
 	randomize_base_icon_state()
 
 //Handles randomizing the icon during initialize()
@@ -125,14 +132,6 @@
 	base_icon_state = "plant-[rand(26, 29)]"
 	update_appearance(UPDATE_ICON)
 
-//NOVA EDIT ADDITION START
-/obj/item/kirbyplants/monkey
-	name = "monkey plant"
-	desc = "Something that seems to have been made by the Nanotrasen science division, one might call it an abomination. It's heads seem... alive."
-	icon_state = "monkeyplant"
-	trimmable = FALSE
-//NOVA EDIT ADDITION END
-
 /obj/item/kirbyplants/photosynthetic
 	name = "photosynthetic potted plant"
 	desc = "A bioluminescent plant."
@@ -144,8 +143,36 @@
 	name = "Potty the Potted Plant"
 	desc = "A secret agent staffed in the station's bar to protect the mystical cakehat."
 	icon_state = "potty"
+	base_icon_state = "potty"
 	custom_plant_name = TRUE
 	trimmable = FALSE
+	actions_types = list(/datum/action/item_action/toggle_light)
+	action_slots = ALL
+	light_range = 2
+	light_power = 1
+	light_system = OVERLAY_LIGHT
+	light_on = TRUE
+	color = LIGHT_COLOR_DEFAULT
+
+	///Boolean on whether the light is on and flashing.
+	var/light_enabled = TRUE
+
+//this is called by the action type as well
+/obj/item/kirbyplants/potty/attack_self(mob/user)
+	. = ..()
+	if(.)
+		return .
+	light_enabled = !light_enabled
+	set_light_on(light_enabled)
+	update_item_action_buttons()
+	update_appearance(UPDATE_ICON)
+
+/obj/item/kirbyplants/potty/update_overlays()
+	. = ..()
+	if(dead)
+		return .
+	if(light_enabled)
+		. += "[base_icon_state]_light"
 
 /obj/item/kirbyplants/fern
 	name = "neglected fern"
