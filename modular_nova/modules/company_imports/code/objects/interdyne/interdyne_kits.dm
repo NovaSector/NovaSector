@@ -111,9 +111,6 @@
 /// Small Medkits
 */
 
-
-
-
 /obj/item/storage/medkit/tactical/premium/interdyne/small
 	name = "\improper Interdyne Emergency Trauma Kit"
 	desc = "An Interdyne Pharmaceuticals Trauma kit, for immediate first aid in situations where more complex aid may not be available."
