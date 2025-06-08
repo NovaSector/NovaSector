@@ -96,7 +96,7 @@
 	say(pick(responses))
 	COOLDOWN_START(src, parsec_cooldown, 3 SECONDS)
 
-	/obj/item/toy/plush/nova/staff/parsec/attack()
+/obj/item/toy/plush/nova/staff/parsec/attack()
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, parsec_cooldown))
 		return
