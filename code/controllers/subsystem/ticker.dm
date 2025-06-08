@@ -453,10 +453,8 @@ SUBSYSTEM_DEF(ticker)
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
 			if(iskobold(new_player_living))
 				var/mob/living/carbon/human/new_kobold = new_player_living
-				new_kobold.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
-				new_kobold.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
-				new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
-				new_kobold.dna.activate_mutation(/datum/mutation/human/clever)
+				//new_kobold.dna.add_mutation(/datum/mutation/human/race, MUTATION_SOURCE_ACTIVATED) // awful hack but adding mutations breaks char previews
+				//new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUTATION_SOURCE_ACTIVATED)
 			//NOVA EDIT ADDITION END
 		CHECK_TICK
 
