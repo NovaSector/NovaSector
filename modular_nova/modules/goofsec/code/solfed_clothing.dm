@@ -81,7 +81,7 @@
 
 // Federation Social Services Official
 
-/obj/item/clothing/under/solfed/official_civil
+/obj/item/clothing/under/solfed/official_social
 	name = "Solfed Social Services Uniform"
 	desc = "A uniform worn by officials of the Sol Federation's Social Services Division"
 	icon_state = "solfed_social"
@@ -317,3 +317,8 @@
 
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
+
+/obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed
+	name = "Solfed Official Neckpin"
+	desc = "A special golden neckpin to show true loyalty to the federation"
+	greyscale_colors = ""
