@@ -2,10 +2,11 @@
 //SUITS
 /obj/item/clothing/suit/hooded/wintercoat/colourable
 	name = "custom winter coat"
-	icon_state = "winter_coat"
-	icon = null
 	worn_icon_state = null
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/colourable
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/colourable"
+	post_init_icon_state = "winter_coat"
 	greyscale_config = /datum/greyscale_config/winter_coat
 	greyscale_config_worn = /datum/greyscale_config/winter_coat_worn
 	greyscale_colors = "#666666#CCBBAA#0000FF"
@@ -41,7 +42,6 @@
 	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
 
 /obj/item/clothing/head/hooded/winterhood/colourable
-	icon_state = "hood_winter"
 	greyscale_config = /datum/greyscale_config/winter_hood
 	greyscale_config_worn = /datum/greyscale_config/winter_hood/worn
 
@@ -49,7 +49,9 @@
 
 /obj/item/clothing/neck/cloak/colourable
 	name = "colourable cloak"
-	icon_state = "gags_cloak"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable"
+	post_init_icon_state = "gags_cloak"
 	greyscale_config = /datum/greyscale_config/cloak
 	greyscale_config_worn = /datum/greyscale_config/cloak/worn
 	greyscale_colors = "#917A57#4e412e#4e412e"
@@ -57,19 +59,25 @@
 
 /obj/item/clothing/neck/cloak/colourable/veil
 	name = "colourable veil"
-	icon_state = "gags_veil"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable/veil"
+	post_init_icon_state = "gags_veil"
 	greyscale_config = /datum/greyscale_config/cloak/veil
 	greyscale_config_worn = /datum/greyscale_config/cloak/veil/worn
 
 /obj/item/clothing/neck/cloak/colourable/boat
 	name = "colourable boatcloak"
-	icon_state = "gags_boat"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable/boat"
+	post_init_icon_state = "gags_boat"
 	greyscale_config = /datum/greyscale_config/cloak/boat
 	greyscale_config_worn = /datum/greyscale_config/cloak/boat/worn
 
 /obj/item/clothing/neck/cloak/colourable/shroud
 	name = "colourable shroud"
-	icon_state = "gags_shroud"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/colourable/shroud"
+	post_init_icon_state = "gags_shroud"
 	greyscale_config = /datum/greyscale_config/cloak/shroud
 	greyscale_config_worn = /datum/greyscale_config/cloak/shroud/worn
 
@@ -932,6 +940,7 @@
 // Donation Reward for Grand Vegeta
 /obj/item/clothing/shoes/sneakers/mikuleggings
 	name = "starlight singer leggings"
+	post_init_icon_state = null
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_colors = null
@@ -1446,13 +1455,13 @@
 /obj/item/poster/korpstech
 	name = "\improper Empire Enhancements poster"
 	poster_type = /obj/structure/sign/poster/contraband/korpstech
-	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
+	icon = 'modular_nova/modules/aesthetics/posters/icons/contraband.dmi'
 	icon_state = "rolled_poster"
 
 /obj/structure/sign/poster/contraband/korpstech
 	name = "Empire Enhancements"
 	desc = "This poster bears a huge, pink helix on it, with smaller text underneath it that mentions some alleged genetic advancements from a long time ago."
-	icon = 'modular_nova/modules/aesthetics/posters/contraband.dmi'
+	icon = 'modular_nova/modules/aesthetics/posters/icons/contraband.dmi'
 	icon_state = "korpsposter"
 	never_random = TRUE
 
@@ -1623,7 +1632,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 // Donation reward for BoisterousBeebz
 
-/obj/item/clothing/under/bubbly_clown/skirt
+/obj/item/clothing/under/bubbly_clown_skirt
 	name = "bubbly clown dress"
 	desc = "A bright and cheerful clown dress, honk!"
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
@@ -1655,6 +1664,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 // Donation reward for thedragmeme and snailom
 /obj/item/clothing/shoes/fancy_heels/drag
 	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
 	. = ..()
@@ -2103,7 +2113,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 #undef TOASTER_IMPLANT_COOLDOWN
 
 // donator item for Sciamach
-/obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
+/obj/item/organ/cyberimp/arm/toolkit/shard/donator/theurgic_crystal
 	name = "theurgic stone"
 	desc = "An eerie crystalline shard that pulses with theurgic energies. Tendrils of crimson energy seem to dance along its surface."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
@@ -2125,6 +2135,43 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/knife/razor_claws/donator/theurgic_knife/attack_self(mob/user)
 	. = ..()
 	inhand_icon_state = src::inhand_icon_state // Don't have a precision variant for this, just always use base
+
+/obj/item/clothing/suit/brownbattlecoat/elysiancoat
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	name = "Bovinæ overcoat"
+	desc = "A <b>tall, slate-grey</b> overcoat of <b><u>handwoven ferro-silk</u></b>, its fabric <b>dense</b> yet <u>fluid</u>.<br>Weighted for the sweep of a nobleman's stride, \
+		yet tough enough to turn a blade's kiss.<br>The cut is <b>severe</b>, <b>militaristic</b>, but softened by the palace tailors' touch:<br><b>silver-threaded seams</b> trace \
+		the contours like veins of starlight<br>high stand-collar is stiffened with <b>blackened whalebone</b>,<br>framing the wearer's jaw like a portrait of old conquests."
+	special_desc = "<center>The cuffs bear <i><u>subtle, frayed embroidery</u></i> - a crest now unpicked, the ghost of a <i><u>dead prince's vanity</u></i>.<br>The inner lining \
+		is <i><u>smoky stormcloud satin</i></u>, a flash of regal defiance when the wind catches it mid-stride.<br><i><u>No insignia, no braid</i></u>, just the <u><i>impeccable \
+		drape of inherited power</i></u>, and the faint scent of <i>gun oil and lemons</i> clinging to the wool.<br>On a closer inspection, you see the initials <i><u>G. Bovinæ</u></i> \
+		stitched in the inner pocket.<br><br><i><b>The Coat of a Man who's not Easily Forgotten.</b></i></center>"
+	icon_state = "elysiancoat"
+	base_icon_state = "elysiancoat"
+	strip_delay = 200 //Heavy coat. Fumble to remove
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	body_parts_covered = CHEST|GROIN|ARMS
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+/obj/item/clothing/suit/brownbattlecoat/elysiancoat/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon) // Open and close buttons
+
+/obj/item/clothing/under/rank/civilian/curator/treasure_hunter/noble_enforcer
+	name = "\proper the <i><b>Noble Swashbuckler</i></b> Suit"
+	desc = "A suit tailored for a man who dines in ballrooms and vanishes into alleyways. The red tie is a warning for the walking red-flag the wearer is. Smells like wood and a lemon-y cologne."
+	special_desc = "<center><b><u>White Button-Down:</b></u> <i><u>Undoubtly Crisp</i></u>, the cuffs are <i><u>double-stitched</i></u> to withstand grappling. The collar stays impeccably upright, \
+		hiding a thin, monogrammed wire (for garrotes or lockpicks) sewn into the seam.<br><b><u>Black Dress Pants:</b></u> Tailored for <i><u>motion, not restraint</i></u>. \
+		Sharp creases like a dueling saber's edge, reinforced at the inner thigh for concealed holsters or knives. The fabric is <i><u>matte military wool</i></u>, durable enough \
+		for a back-alley brawl but refined enough for a nobleman's dinner.<br><b><u>Black Vest:</b></u> <i><u>Slim-cut and unadorned</i></u>, save for a single hidden pocket over the heart; \
+		Large enough for a handkerchief or a bloodstained love letter.<br><b><u>Crimson Tie:</b></u> Red under artificial lights, blackout dark in the void, knotted in a <i><u>half-Windsor</i></u>, \
+		tight enough to strangle with, if pulled taut. The underside bears a <i><u>faded family crest</i></u>, embroidered in thread that glows under UV.</center>"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	icon_state = "bovinesignature"
+	can_adjust = TRUE
 
 // donator reward for ignari
 /obj/item/clothing/under/rem
@@ -2183,7 +2230,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/replica_parade_jacket
 	name = "replica parade jacket"
 	desc = "Ever see command staff in a fancy parade jacket and think to yourself, \"I want that\" without having to steal it? Here's your chance. Made from the finest synthleather and synthwool, it cost far more than most people care to admit they paid."
-	icon_state = "r_parade_jacket"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/replica_parade_jacket"
+	post_init_icon_state = "r_parade_jacket"
 	greyscale_config = /datum/greyscale_config/replica_parade_jacket
 	greyscale_config_worn = /datum/greyscale_config/replica_parade_jacket/worn
 	greyscale_colors = "#b0c5ff#434343"
@@ -2216,11 +2265,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/suit/chokha
 	name = "\improper Iseurian chokha"
 	desc = "A ceremonial woolen coat sporting a high neck and decorative gunpowder cases on the breast. The label on this one bears the Iseurian Revolutionary flag."
-	icon_state = "chokha"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/chokha"
+	post_init_icon_state = "chokha"
 	greyscale_config = /datum/greyscale_config/chokha
 	greyscale_config_worn = /datum/greyscale_config/chokha/worn
 	greyscale_colors = "#1c1c1c#491618#1c1c1c#491618"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 //donator reward for Desminus
 
@@ -2246,7 +2298,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/clothing/under/pants/half_leotard_cosmiclaer
 	name = "one-sleeved leotard"
 	desc = "A fancy, top-of-the-line leotard that some barbarian lopped one of the arms off of."
-	icon_state = "half_leotard"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/half_leotard_cosmiclaer"
+	post_init_icon_state = "half_leotard"
 	greyscale_config = /datum/greyscale_config/half_leotard
 	greyscale_config_worn = /datum/greyscale_config/half_leotard/worn
 	greyscale_colors = "#80C7D0"
@@ -2357,3 +2411,131 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = CHEST|GROIN|LEGS|FEET
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	icon_state = "dagmardress_c"
+
+/obj/item/clothing/under/ecologist
+	name = "ecologist's garb"
+	desc = "A mix of clothing pieces given to Nanotrasen Ecology Specialists. Worn over plain clothes is a white gambeson with a breast \
+		guard on the left side. Moving down is a collection of several belts, most prominently an orange one holding several \
+		small pouches and a cage for some endemic life, empty for now it seems. Just below that, a pair of blue chaps."
+	icon_state = "ecologist_under"
+	worn_icon_state = "ecologist_under"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/uniform_digi.dmi'
+
+/obj/item/clothing/shoes/ecologist
+	name = "ecologist's boots"
+	desc = "A pair of heavy duty, knee-high boots designed for multiple environments, \
+		complete with steel-toe plating, and several points of connection, such as for cleats, for adaptability sake."
+	icon_state = "ecologist_boots"
+	worn_icon_state = "ecologist_boots"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/feet_digi.dmi'
+
+/obj/item/clothing/suit/hooded/ecologist
+	name = "ecologist's coat"
+	desc = "A fine leather coat for Nanotrasen Ecology Specialists. \
+		The leather has been dyed green and has patches of orange fabric sewn into the coat. \
+		It seems like there was at one point additional armor padding the coat, though it has since been removed; \
+		it most certainly won't stop a Drake's bite now."
+	icon_state = "ecologist_coat"
+	worn_icon_state = "ecologist_coat"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	hoodtype = /obj/item/clothing/head/hooded/ecologist
+	hood_up_affix = ""
+
+/obj/item/clothing/head/hooded/ecologist
+	name = "ecologist's coat hood"
+	desc = "A leather hood attached to the main coat, for some reason the wearer's wearing an explorer gas mask \
+		on top of their head and under the hood instead of on their face.. weirdo."
+	icon_state = "ecologist_hood"
+	worn_icon_state = "ecologist_hood"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/gloves/ecologist
+	name = "ecologist's gloves"
+	desc = "A pair of leather gloves for Nanotrasen Ecology Specialists, with an experimental \"Slingshot\" \
+		firmly attached to the left glove; for safety reasons, the rope has been removed."
+	icon_state = "ecologist_claw"
+	worn_icon_state = "ecologist_claw"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
+// Kaynite Donor Items
+
+/obj/item/clothing/suit/hooded/merctac_hoodie
+	name = "\improper MercTac hoodie"
+	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. \
+		A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, \
+		coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
+	icon_state = "merctac_hoodie"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
+	inhand_icon_state = null
+	body_parts_covered = CHEST|ARM_LEFT
+	hoodtype = /obj/item/clothing/head/hooded/merctac_hood
+	hood_up_affix = ""
+
+/obj/item/clothing/suit/hooded/merctac_hoodie/armored
+	name = "\improper MercTac armored hoodie"
+	desc = "A custom tailored hoodie with rash guard, and a sleeveless option for the opposite arm. \
+		A vest with a traditional steel inserts for the front and back woven with cordura and a breathable mesh padding sits comfortably on the chest, \
+		coupled with traditional molle rigging systems for pouches. Together the pieces create a comfortable, tactical fit."
+	icon_state = "merctac_hoodie_alt"
+	worn_icon_state = "merctac_hoodie_alt"
+	cold_protection = CHEST|ARM_LEFT
+	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
+	heat_protection = CHEST|ARM_LEFT
+	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
+	armor_type = /obj/item/clothing/suit/armor/vest/alt/sec::armor_type
+
+/obj/item/clothing/head/hooded/merctac_hood
+	name = "\improper MercTac hood"
+	desc = "Lined with synthetic fleece for maximum comfort."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
+	icon_state = "merctac_hood"
+	body_parts_covered = HEAD
+	flags_inv = HIDEHAIR|HIDEEARS
+
+/obj/item/clothing/gloves/merctac_glove
+	name = "\improper MercTac glove"
+	desc = "A singular fingerless glove in coyote tan, padded over the palms and knuckles for support."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/gloves.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/hands.dmi'
+	icon_state = "merctac_gloves"
+
+/obj/item/clothing/under/pants/merctac_pants
+	name = "\improper MercTac pants"
+	desc = "Surplus military battle dress, coupled with insertable kneepads and woven with highly durable cordura fabric."
+	icon_state = "merctac_pants"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
+
+/obj/item/clothing/mask/merctac_mask
+	name = "Gambit's mask"
+	desc = "A custom mask for the frontier mercenary known as Gambit. Off-putting in the light, menacing in the dark."
+	icon_state = "gambits_mask"
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/masks.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
+	flags_inv = HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
+	flags_cover = MASKCOVERSMOUTH
+
+/datum/crafting_recipe/merctac_armored_hoodie
+	name = "MercTac armored hoodie"
+	result = /obj/item/clothing/suit/hooded/merctac_hoodie/armored
+	time = 1 SECONDS
+	reqs = list(
+		/obj/item/clothing/suit/armor/vest/alt/sec = 1,
+		/obj/item/clothing/suit/hooded/merctac_hoodie = 1,
+	)
+	category = CAT_CLOTHING
+
+/obj/item/clothing/suit/hooded/merctac_hoodie/armored/Initialize(mapload)
+	. = ..()
+	allowed = GLOB.security_vest_allowed
+

@@ -22,7 +22,9 @@
 /obj/item/clothing/head/costume/nova/flowerpin
 	name = "flower pin"
 	desc = "A small, colourable flower pin"
-	icon_state = "flowerpin"
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/costume/nova/flowerpin"
+	post_init_icon_state = "flowerpin"
 	greyscale_config = /datum/greyscale_config/flowerpin
 	greyscale_config_worn = /datum/greyscale_config/flowerpin/worn
 	greyscale_colors = "#FF0000"
@@ -111,7 +113,9 @@
 /obj/item/clothing/head/maid_headband
 	name = "maid headband"
 	desc = "Just like from one of those Chinese cartoons!"
-	icon_state = "maid_headband"
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/maid_headband"
+	post_init_icon_state = "maid_headband"
 	greyscale_config = /datum/greyscale_config/maid_headband
 	greyscale_config_worn = /datum/greyscale_config/maid_headband/worn
 	greyscale_colors = "#edf9ff"
