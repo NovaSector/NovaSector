@@ -15,11 +15,8 @@
 
 /obj/item/storage/toolbox/guncase/nova/syndicate/pistol
 	name = "small gun case"
-
 	icon_state = "syndicase_s"
-
 	slot_flags = NONE
-
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/toolbox/guncase/nova/syndicate/pistol/empty
@@ -42,11 +39,8 @@
 
 /obj/item/storage/toolbox/guncase/nova/interdyne/pistol
 	name = "small gun case"
-
 	icon_state = "dynecase_s"
-
 	slot_flags = NONE
-
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/toolbox/guncase/nova/interdyne/pistol/empty
