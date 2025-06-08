@@ -2,7 +2,7 @@
 	products_nova = list(
 		/obj/item/radio/headset/headset_med = 3,
 		/obj/item/clothing/gloves/latex/nitrile = 2,
-		/obj/item/clothing/suit/toggle/labcoat/nova/hospitalgown = 5,
+		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown = 5,
 		/obj/item/storage/belt/medbandolier = 2,
 		/obj/item/clothing/under/rank/engineering/engineer/nova/hazard_chem/emt = 2,
 		/obj/item/clothing/under/rank/medical/scrubs/nova/red = 4,
@@ -82,7 +82,7 @@
 	products_nova = list(
 		/obj/item/clothing/under/rank/rnd/scientist/nova/hlscience = 3,
 		/obj/item/clothing/under/rank/rnd/scientist/nova/utility = 3,
-		/obj/item/clothing/suit/toggle/labcoat/nova/regular = 3,
+		/obj/item/clothing/suit/toggle/labcoat/nova/fancy/regular = 3,
 		/obj/item/clothing/suit/toggle/jacket/nova/sci = 3,
 		/obj/item/storage/backpack/messenger/science = 3,
 	)

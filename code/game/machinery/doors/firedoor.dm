@@ -280,11 +280,12 @@
 /obj/machinery/door/firedoor/proc/check_atmos(turf/checked_turf)
 	var/datum/gas_mixture/environment = checked_turf.return_air()
 	if(!environment)
-		stack_trace("We tried to check a gas_mixture that doesn't exist for its firetype, what are you DOING")
-		return
+		CRASH("We tried to check a gas_mixture that doesn't exist for its firetype, what are you DOING")
 
 	var/pressure = environment?.return_pressure() //NOVA EDIT ADDITION - Micro optimisation
 	if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST || pressure > WARNING_HIGH_PRESSURE) //NOVA EDIT CHANGE ADDITION - ORIGINAL: if(environment.temperature >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return FIRELOCK_ALARM_TYPE_HOT
+	if(environment.gases[/datum/gas/antinoblium] && environment.gases[/datum/gas/antinoblium][MOLES] > MINIMUM_MOLE_COUNT)
 		return FIRELOCK_ALARM_TYPE_HOT
 	if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT || pressure < WARNING_LOW_PRESSURE) //NOVA EDIT CHANGE ADDITION - ORIGINAL: if(environment.temperature <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
@@ -298,6 +299,8 @@
 			return
 
 	var/turf/checked_turf = source
+	if(!(checked_turf.flags_1 & INITIALIZED_1)) // uninitialized turfs won't have atmos setup anyways, so check_atmos would just complain and not work
+		return
 	var/result = check_atmos(checked_turf)
 
 	if(result && TURF_SHARES(checked_turf))

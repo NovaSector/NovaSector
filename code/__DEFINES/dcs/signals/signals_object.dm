@@ -179,11 +179,11 @@
 #define COMSIG_ARMOR_PLATED "armor_plated"
 ///Called when an item gets recharged by the ammo powerup
 #define COMSIG_ITEM_RECHARGED "item_recharged"
-///Called when an item is being offered, from [/obj/item/proc/on_offered(mob/living/carbon/offerer)]
+///Called when an item is being offered, from [/obj/item/proc/on_offered(mob/living/offerer)]
 #define COMSIG_ITEM_OFFERING "item_offering"
 	///Interrupts the offer proc
 	#define COMPONENT_OFFER_INTERRUPT (1<<0)
-///Called when an someone tries accepting an offered item, from [/obj/item/proc/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)]
+///Called when an someone tries accepting an offered item, from [/obj/item/proc/on_offer_taken(mob/living/offerer, mob/living/taker)]
 #define COMSIG_ITEM_OFFER_TAKEN "item_offer_taken"
 	///Interrupts the offer acceptance
 	#define COMPONENT_OFFER_TAKE_INTERRUPT (1<<0)
@@ -541,6 +541,9 @@
 /// Sent from /obj/item/update_weight_class(), to its loc. (obj/item/changed_item, old_w_class, new_w_class)
 #define COMSIG_ATOM_CONTENTS_WEIGHT_CLASS_CHANGED "atom_contents_weight_class_changed"
 
+/// Sent from /obj/item/proc/animate_attack() : (atom/movable/attacker, atom/attacked_atom, animation_type, list/image_override, list/animation_override, list/angle_override)
+#define COMSIG_ITEM_ATTACK_ANIMATION "item_attack_animation"
+
 ///Sent from /obj/item/skillchip/on_implant()
 #define COMSIG_SKILLCHIP_IMPLANTED "skillchip_implanted"
 
@@ -588,3 +591,9 @@
 /// Sent from /datum/wires/attach_assembly() : (atom/holder)
 #define COMSIG_ASSEMBLY_PRE_ATTACH "assembly_pre_attach"
 	#define COMPONENT_CANCEL_ATTACH (1<<0)
+
+/// Sent from /obj/item/kinetic_crusher/proc/fire_kinetic_blast() : (atom/target, mob/living/user, obj/projectile/destabilizer/destabilizer)
+#define COMSIG_CRUSHER_FIRED_BLAST "crusher_fired_blast"
+
+/// Sent from /obj/machinert/console/camera_advanced/attack_hand() : (mob/eye/camera/remote/new_camera)
+#define COMSIG_ADVANCED_CAMERA_EYE_CREATED "advanced_camera_eye_created"

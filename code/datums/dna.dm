@@ -161,7 +161,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.default_mutation_genes = default_mutation_genes
 	new_dna.unique_identity = unique_identity
 	new_dna.unique_features = unique_features
-	new_dna.blood_type = blood_type
 	new_dna.features = features.Copy()
 	//NOVA EDIT ADDITION BEGIN - CUSTOMIZATION
 	new_dna.mutant_bodyparts = mutant_bodyparts.Copy()
@@ -170,8 +169,10 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	//NOVA EDIT ADDITION END
 	//if the new DNA has a holder, transform them immediately, otherwise save it
 	if(new_dna.holder)
+		new_dna.holder.set_blood_type(blood_type)
 		new_dna.holder.set_species(species.type, icon_update = 0)
 	else
+		new_dna.blood_type = blood_type
 		new_dna.species = new species.type
 	new_dna.real_name = real_name
 	// Mutations aren't gc managed, but they still aren't templates
@@ -447,23 +448,26 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 //Please use add_mutation or activate_mutation instead
 /datum/dna/proc/force_give(datum/mutation/human/human_mutation)
-	if(holder && human_mutation)
-		if(human_mutation.class == MUT_NORMAL)
-			set_se(1, human_mutation)
-		. = human_mutation.on_acquiring(holder)
-		if(.)
-			qdel(human_mutation)
-		update_instability()
+	if(!holder || !human_mutation)
+		return
+	if(human_mutation.class == MUT_NORMAL)
+		set_se(1, human_mutation)
+	. = human_mutation.on_acquiring(holder)
+	if(!.)
+		qdel(human_mutation)
+		return
+	human_mutation.setup()
+	update_instability()
 
 //Use remove_mutation instead
 /datum/dna/proc/force_lose(datum/mutation/human/human_mutation)
-	if(holder && (human_mutation in mutations))
-		set_se(0, human_mutation)
-		. = human_mutation.on_losing(holder)
-		if(!(human_mutation in mutations))
-			qdel(human_mutation) // qdel mutations on removal
-			update_instability(FALSE)
+	if(!holder || !(human_mutation in mutations))
 		return
+	set_se(0, human_mutation)
+	. = human_mutation.on_losing(holder)
+	if(!(human_mutation in mutations))
+		qdel(human_mutation) // qdel mutations on removal
+		update_instability(FALSE)
 
 /**
  * Checks if two DNAs are practically the same by comparing their most defining features

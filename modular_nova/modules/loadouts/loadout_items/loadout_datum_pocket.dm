@@ -56,9 +56,21 @@
 *	MISC
 */
 
+/datum/loadout_item/pocket_items/hair_tie
+	name = "Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie
+
+/datum/loadout_item/pocket_items/hair_tie_scrunchie
+	name = "Scrunchie"
+	item_path = /obj/item/clothing/head/hair_tie/scrunchie
+
+/datum/loadout_item/pocket_items/hair_tie_plastic_beads
+	name = "Plastic Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
+
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
-	item_path = /obj/item/reagent_containers/cup/rag
+	item_path = /obj/item/rag
 
 /datum/loadout_item/pocket_items/razor
 	name = "Razor"
@@ -293,18 +305,8 @@ JOB SPECIFIC MISCELLANY
 */
 
 /datum/loadout_item/pocket_items/crusher_sword_kit
-	name = "Crusher Sword Retool Kit"
+	name = "Crusher Retool Kit"
 	item_path = /obj/item/crusher_trophy/retool_kit
-	restricted_roles = list(JOB_SHAFT_MINER) //needs to be in a list or causes tgui errors, tgui continues to amaze
-
-/datum/loadout_item/pocket_items/crusher_harpoon_kit
-	name = "Crusher Harpoon Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/harpoon
-	restricted_roles = list(JOB_SHAFT_MINER)
-
-/datum/loadout_item/pocket_items/crusher_dagger_kit
-	name = "Crusher Dagger Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/dagger
 	restricted_roles = list(JOB_SHAFT_MINER)
 
 /*

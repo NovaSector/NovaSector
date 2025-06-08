@@ -27,7 +27,9 @@
 /obj/item/clothing/suit/hooded/hostile_environment
 	name = "H.E.C.K. suit"
 	desc = "Hostile Environment Cross-Kinetic Suit: A suit designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
-	icon_state = "hostile_env"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/hostile_environment"
+	post_init_icon_state = "hostile_env"
 	hoodtype = /obj/item/clothing/head/hooded/hostile_environment
 	armor_type = /datum/armor/hooded_hostile_environment
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -42,7 +44,7 @@
 	greyscale_colors = "#4d4d4d#808080"
 	greyscale_config = /datum/greyscale_config/heck_suit
 	greyscale_config_worn = /datum/greyscale_config/heck_suit/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/heck_suit/worn/digi // NOVA EDIT ADDITION - DigiGreyscale
+	greyscale_config_worn_digi = /datum/greyscale_config/heck_suit/worn/digi //NOVA EDIT ADDITION - Mutant Greyscale
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /datum/armor/hooded_hostile_environment
@@ -74,9 +76,10 @@
 /obj/item/clothing/head/hooded/hostile_environment
 	name = "H.E.C.K. helmet"
 	desc = "Hostile Environment Cross-Kinetic Helmet: A helmet designed to withstand the wide variety of hazards from Lavaland. It wasn't enough for its last owner."
-	icon = 'icons/obj/clothing/head/helmet.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/hostile_environment"
+	post_init_icon_state = "hostile_env"
 	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
-	icon_state = "hostile_env"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor_type = /datum/armor/hooded_hostile_environment
 	cold_protection = HEAD
@@ -91,7 +94,7 @@
 	greyscale_colors = "#4d4d4d#808080#ff3300"
 	greyscale_config = /datum/greyscale_config/heck_helmet
 	greyscale_config_worn = /datum/greyscale_config/heck_helmet/worn
-	greyscale_config_worn_digi = /datum/greyscale_config/heck_helmet/worn/snouted // NOVA EDIT ADDITION - MuzzledGreyscale (Why does this use worn_digi)
+	greyscale_config_worn_digi = /datum/greyscale_config/heck_helmet/worn/snouted //NOVA EDIT ADDITION - Mutant Greyscale
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/hooded/hostile_environment/Initialize(mapload)

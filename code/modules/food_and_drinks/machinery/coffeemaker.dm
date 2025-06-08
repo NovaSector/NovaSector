@@ -486,17 +486,13 @@
 	name = "coffeemaker cartridge rack"
 	desc = "A small rack for storing coffeemaker cartridges."
 	icon = 'icons/obj/food/containers.dmi'
-	icon_state = "coffee_cartrack4"
+	icon_state = "coffee_cartrack1"
 	base_icon_state = "coffee_cartrack"
 	contents_tag = "coffee cartridge"
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 	spawn_type = /obj/item/coffee_cartridge
 	spawn_count = 1
-
-/obj/item/storage/fancy/coffee_cart_rack/Initialize(mapload)
-	. = ..()
-	atom_storage.max_slots = 4
-	atom_storage.set_holdable(/obj/item/coffee_cartridge)
+	storage_type = /datum/storage/coffee_cart_rack
 
 /*
  * impressa coffee maker
