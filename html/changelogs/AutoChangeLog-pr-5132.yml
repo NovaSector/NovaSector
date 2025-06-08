@@ -1,0 +1,6 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - rscadd: "Adds new guncases to \"SOL DEFENSE\" in \"cargo imports\""
+  - image: "Adds new guncase sprites! (Solfed, Interdyne, Nanotrasen, Syndicate, & Multiple colors)"
+  - code_imp: "Changes blueshield's NT20 guncase to be the special NT guncase"
