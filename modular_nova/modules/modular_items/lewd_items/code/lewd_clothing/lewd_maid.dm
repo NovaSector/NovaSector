@@ -99,10 +99,11 @@
 /obj/item/clothing/under/costume/bunnylewd
 	name = "bunny suit"
 	desc = "A pin-up staple."
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_uniform.dmi'
 	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_uniform/lewd_uniform.dmi'
-	icon_state = "bunnysuit"
 	greyscale_colors = "#383840#FFFFFF"
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/bunnylewd"
+	post_init_icon_state = "bunnysuit"
 	greyscale_config = /datum/greyscale_config/bunnysuitlewd
 	greyscale_config_worn = /datum/greyscale_config/bunnysuitlewd/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -114,9 +115,11 @@
 
 /obj/item/clothing/under/costume/bunnylewd/white
 	name = "white bunny suit"
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_uniform.dmi'
 	icon_state = "whitebunnysuit"
 	can_adjust = FALSE
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_config_worn_digi = null
+	post_init_icon_state = null

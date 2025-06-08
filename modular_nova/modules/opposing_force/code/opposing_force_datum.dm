@@ -328,7 +328,7 @@
 		if("deny")
 			if(!check_rights(R_ADMIN))
 				return
-			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this application:", max_length = MAX_NAME_LEN)
+			var/denied_reason = tgui_input_text(usr, "Denial Reason", "Enter a reason for denying this application:", max_length = MAX_MESSAGE_LEN)
 			// Checking to see if the user is spamming the button, async and all.
 			if((status == OPFOR_STATUS_DENIED) || !denied_reason)
 				return
@@ -940,7 +940,7 @@
 
 						if(\
 						!equipment["equipment_parent_category"]|| !(equipment["equipment_parent_category"] in SSopposing_force.equipment_list)\
-						 || !equipment["equipment_parent_type"] || !ispath(text2path(equipment["equipment_parent_type"]), /datum/opposing_force_equipment))
+							|| !equipment["equipment_parent_type"] || !ispath(text2path(equipment["equipment_parent_type"]), /datum/opposing_force_equipment))
 							continue
 
 						// creates a new selected equipment datum using a type gotten from the given equipment type via SSopposing_force.equipment_list

@@ -24,7 +24,7 @@
 		/obj/item/clothing/suit/hooded/wintercoat/nova/syndicate = 5,
 		/obj/item/clothing/head/soft/sec/syndicate = 3,
 		/obj/item/clothing/head/beret/sec/syndicate = 3,
-		/obj/item/clothing/accessory/nova/acc_medal/specialpins/syndicate = 10,
+		/obj/item/clothing/accessory/nova/acc_medal/neckpin/syndicate = 10,
 	)
 	contraband = list(
 		/obj/item/knife/combat = 1,
@@ -128,7 +128,7 @@
 		/obj/item/storage/backpack/satchel/vir = 5,
 		/obj/item/storage/backpack/duffelbag/virology = 5,
 		/obj/item/storage/backpack/virology = 5,
-		/obj/item/clothing/accessory/nova/acc_medal/specialpins/interdyne = 10,
+		/obj/item/clothing/accessory/nova/acc_medal/neckpin/interdyne = 10,
 
 	)
 	contraband = list(

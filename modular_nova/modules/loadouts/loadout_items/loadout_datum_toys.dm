@@ -55,8 +55,7 @@
 
 /datum/loadout_item/toys/plush/lizard_greyscale
 	name = "Greyscale Lizard Plushie"
-	item_path = /obj/item/toy/plush/lizard_plushie
-	can_be_greyscale = TRUE
+	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
 
 /datum/loadout_item/toys/plush/moth
 	name = "Moth Plushie"
@@ -298,6 +297,20 @@
 	name = "Friendly Janiborg Plush"
 	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
 
+//Staff plushies here
+
+/datum/loadout_item/toys/plush/plush_melon
+	name = "Melon Plushie"
+	item_path = /obj/item/toy/plush/nova/melon
+
+/datum/loadout_item/toys/plush/plush_parsec
+	name = "Engie Dog"
+	item_path = /obj/item/toy/plush/nova/parsec
+
+/datum/loadout_item/toys/plush/plush_nik
+	name = "Scary Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/akinshi
+
 /*
 *	CARDS
 */
@@ -373,6 +386,14 @@
 /datum/loadout_item/toys/dice/d20
 	name = "D20"
 	item_path = /obj/item/dice/d20
+
+/datum/loadout_item/toys/dice/d20_weighted_low
+	name = "D20 (Weighted, Low)"
+	item_path = /obj/item/dice/d20/nat1
+
+/datum/loadout_item/toys/dice/d20_weighted_high
+	name = "D20 (Weighted, High)"
+	item_path = /obj/item/dice/d20/nat20
 
 /datum/loadout_item/toys/dice/d100
 	name = "D100"

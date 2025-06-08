@@ -45,17 +45,18 @@
 	give_item_to_holder(
 		carrier,
 		list(
-			LOCATION_HANDS = ITEM_SLOT_HANDS
+			LOCATION_HANDS,
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
 	)
+	//Nanotrasen
 	give_item_to_holder(
 		space_treat,
 		list(
-			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
-			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
-			LOCATION_HANDS = ITEM_SLOT_HANDS,
+			LOCATION_LPOCKET,
+			LOCATION_RPOCKET,
+			LOCATION_BACKPACK,
+			LOCATION_HANDS,
 		),
 	)
 
@@ -101,6 +102,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Sloth" = /mob/living/basic/sloth,
 	"Snake" = /mob/living/basic/snake,
 	"Spider" = /mob/living/basic/spider/maintenance,
+	"Stoat" = /mob/living/basic/stoat,
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Turtle" = /mob/living/basic/turtle,
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
