@@ -534,17 +534,17 @@
 	group = "Species-Unique"
 
 /datum/loadout_item/head/akula_helmet
-	name = "Azulean Shoredress Helmet"
+	name = "Shoredress Helmet"
 	item_path = /obj/item/clothing/head/helmet/space/akula_wetsuit
 	group = "Species-Unique"
 
 /datum/loadout_item/head/azulea_oldblood
-	name = "Azulean Cap - Oldblood Royal"
+	name = "Oldblood's Royal Cap"
 	item_path = /obj/item/clothing/head/hats/caphat/azulean/old_blood
 	group = "Species-Unique"
 
 /datum/loadout_item/head/azulea_upstart
-	name = "Azulean Cap - Upstart Noble"
+	name = "Upstart Noble's Cap"
 	item_path = /obj/item/clothing/head/hats/caphat/azulean/upstart
 	group = "Species-Unique"
 
