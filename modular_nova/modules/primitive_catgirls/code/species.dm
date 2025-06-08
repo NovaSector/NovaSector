@@ -41,8 +41,7 @@
 	var/mob/living/carbon/human/hearthkin = new_primitive
 	if(!istype(hearthkin))
 		return
-	hearthkin.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
-	hearthkin.dna.activate_mutation(/datum/mutation/human/olfaction)
+	hearthkin.dna.add_mutation(/datum/mutation/human/olfaction, MUTATION_SOURCE_ACTIVATED)
 
 	// >mfw I take mutadone and my nose clogs
 	var/datum/mutation/human/olfaction/mutation = locate() in hearthkin.dna.mutations
