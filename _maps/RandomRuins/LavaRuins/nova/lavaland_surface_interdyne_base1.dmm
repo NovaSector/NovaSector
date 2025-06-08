@@ -4549,11 +4549,7 @@
 "LH" = (
 /obj/structure/cable,
 /obj/structure/table,
-/obj/machinery/fax{
-	fax_name = "Interdyne S&R Ship Fax";
-	name = "Interdyne Fax Machine";
-	syndicate_network = 1
-	},
+/obj/machinery/fax/interdyne,
 /turf/open/floor/iron/dark,
 /area/ruin/interdyne_planetary_base/cargo/obs)
 "LJ" = (
