@@ -32,6 +32,23 @@
 /datum/armament_entry/company_import/interdyne/solo/analyzer
 	item_type = /obj/item/healthanalyzer/advanced
 	cost = PAYCHECK_COMMAND / 4
+
+/datum/armament_entry/company_import/interdyne/solo/guncasebig
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/empty
+	cost = PAYCHECK_COMMAND / 2
+
+/datum/armament_entry/company_import/interdyne/solo/guncasesmall
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/pistol/empty
+	cost = PAYCHECK_COMMAND / 2
+
+/datum/armament_entry/company_import/interdyne/solo/guncasebigspec
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/empty
+	cost = PAYCHECK_COMMAND / 2
+
+/datum/armament_entry/company_import/interdyne/solo/guncasesmallspec
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/pistol/empty
+	cost = PAYCHECK_COMMAND / 2
+
 /*
 *** Kits
 */

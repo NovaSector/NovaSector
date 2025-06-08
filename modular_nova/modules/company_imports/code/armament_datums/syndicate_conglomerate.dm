@@ -184,6 +184,13 @@
 /datum/armament_entry/company_import/syndicate/misc/agentid
 	item_type = /obj/item/card/id/advanced/chameleon
 
+/datum/armament_entry/company_import/syndicate/misc/bigsyndicase
+	item_type = /obj/item/storage/toolbox/guncase/nova/syndicate/empty
+	cost = PAYCHECK_COMMAND * 2
+/datum/armament_entry/company_import/syndicate/misc/smlsyndicase
+	item_type = /obj/item/storage/toolbox/guncase/nova/syndicate/pistol/empty
+	cost = PAYCHECK_COMMAND * 2
+
 // Syndicate spacetide gear
 /datum/armament_entry/company_import/syndicate/space
 	subcategory = "Space Gear"
