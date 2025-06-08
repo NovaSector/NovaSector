@@ -6,7 +6,7 @@
 */
 
 // Staff reward for Deadmon
-/obj/item/toy/plush/nova/staff/melon
+/obj/item/toy/plush/nova/melon
 	name = "Melon Plushie"
 	desc = "Soft, yet bouncy. The eeriely smiling melon made for the appreciation of melons"
 	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
@@ -23,7 +23,7 @@
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
 // Staff reward for Moonridden
-/obj/item/toy/plush/nova/staff/parsec
+/obj/item/toy/plush/nova/parsec
 	name = "Engine Stray"
 	desc = "This loud fuzzy plushie comes with a limited edition Singularity-Squish stressball! It barks, constantly, especially at new people or things. \
 		It carries that special station smell, with just a hint of plasma. Very pliable and pleasant to squeeze, with just enough bounce. \
@@ -88,20 +88,20 @@
 	)
 	COOLDOWN_DECLARE(parsec_cooldown)
 
-/obj/item/toy/plush/nova/staff/parsec/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+/obj/item/toy/plush/nova/parsec/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, parsec_cooldown))
 		return
 	say(pick(responses))
 	COOLDOWN_START(src, parsec_cooldown, 3 SECONDS)
 
-/obj/item/toy/plush/nova/staff/parsec/attack()
+/obj/item/toy/plush/nova/parsec/attack()
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, parsec_cooldown))
 		return
 	say(pick(responses))
 
-/obj/item/toy/plush/nova/staff/parsec/attack_self(mob/user)
+/obj/item/toy/plush/nova/parsec/attack_self(mob/user)
 	. = ..()
 	user.changeNext_move(CLICK_CD_MELEE) // To avoid spam, in some cases (sadly not all of them)
 	var/mob/living/living_user = user
@@ -114,7 +114,7 @@
 	mood_change = 3
 	timeout = 5 MINUTES
 
-/obj/item/toy/plush/nova/staff/akinshi
+/obj/item/toy/plush/nova/akinshi
 	name = "Scary Cat Plushie"
 	desc = "A cat in full sec gear. Tired of everyones shit. \
 		Looks adorable in some ways, but it still cant beat the femboy allegations."
@@ -153,7 +153,7 @@
 	say(pick(responses))
 	COOLDOWN_START(src, akinshi_cooldown, 3 SECONDS)
 
-/obj/item/toy/plush/nova/staff/akinshi/attack()
+/obj/item/toy/plush/nova/akinshi/attack()
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, akinshi_cooldown))
 		return
