@@ -111,9 +111,9 @@
 	user.visible_message(span_notice("[user] is licked by \the [src]."), span_notice("You get licked by \the [src]."))
 
 /datum/mood_event/warmhug/parsec
-    description = span_nicegreen("She licked me right on my nose! Awwwh!")
-    mood_change = 3
-    timeout = 5 MINUTES
+	description = span_nicegreen("She licked me right on my nose! Awwwh!")
+	mood_change = 3
+	timeout = 5 MINUTES
 
 /obj/item/toy/plush/nova/staff/akinshi
 	name = "Scary Cat Plushie"
