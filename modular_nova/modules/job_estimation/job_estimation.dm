@@ -118,7 +118,7 @@
 			remove_job_estimation(new_player)
 			add_job_estimation(new_player)
 
-/// Updates the mob's job if they change it, either through the occupations tab or through switching their active character while still readied.
+/// Updates the mob's job if they change it through the occupations tab while readied.
 /datum/controller/subsystem/statpanels/proc/on_client_changes_job(mob/dead/new_player/source)
 	SIGNAL_HANDLER
 	update_job_estimation(source)
