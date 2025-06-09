@@ -2294,7 +2294,6 @@ TREK
 /datum/greyscale_config/solfedcamo/worn
 	name = "Solfed Camo (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
 
 /datum/greyscale_config/solfedcamo/worn/digi
 	name = "Solfed Camo (Worn, Digi)"
