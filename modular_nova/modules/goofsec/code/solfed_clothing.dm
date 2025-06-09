@@ -4,10 +4,10 @@
 	name = "sol peacekeeper uniform"
 	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
 		SolFed's various peacekeeping forces, and usually alongside a blue helmet."
-	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "peacekeeper"
-	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
-	worn_icon_digi = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 	worn_icon_state = "peacekeeper"
 	armor_type = /datum/armor/clothing_under/rank_security
 	inhand_icon_state = null
@@ -19,10 +19,10 @@
 /obj/item/clothing/under/sol_emt
 	name = "sol emergency medical uniform"
 	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built with paramedics in mind."
-	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "emt"
-	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
-	worn_icon_digi = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
+	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 	worn_icon_state = "emt"
 	armor_type = /datum/armor/clothing_under/rank_medical
 	inhand_icon_state = null
@@ -33,11 +33,11 @@
 
 /obj/item/clothing/under/solfed
 	name = "\improper Solfed marshal's uniform"
-	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "solpolice"
-	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 	worn_icon_state = "solpolice"
-	worn_icon_digi = 'modular_nova/modules/goofsec/icons/uniforms_worn_digi.dmi'
+	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
 	armor_type = /datum/armor/clothing_under/rank_security
 	inhand_icon_state = null
@@ -137,9 +137,9 @@
 	name = "'Gordyn' flak vest"
 	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
 		too impractical or uneeded."
-	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
+	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "flak"
-	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
+	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 	worn_icon_state = "flak"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -180,7 +180,7 @@
 /// Solfed Goggles
 /obj/item/clothing/glasses/sunglasses/solfed
 	name = "Robust Military Goggles"
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks flashes."
+	desc = "A strangely old technology modernized to be much more robust in the modern day."
 	icon_state = "federal_goggles"
 
 	greyscale_config = /datum/greyscale_config/solfedgoggles
@@ -267,8 +267,8 @@
 /// Solfed Accessories
 
 /obj/item/clothing/accessory/nova/solfedribbon
-	name = "Star Solfed Ribbon"
-	desc = "An average military ribbon /BUT/ with a star."
+	name = "Solfed Rank Ribbon"
+	desc = "An average military ribbon."
 	icon_state = "star_arr_ribbon_1"
 	greyscale_colors = "#FFD700"
 	greyscale_config = /datum/greyscale_config/solfedribbons
