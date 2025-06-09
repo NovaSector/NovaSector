@@ -12,6 +12,15 @@
 	trim_icon = 'modular_nova/master_files/code/datums/quirks/negative_quirks/visitor/icons/card.dmi'
 	sechud_icon_state = SECHUD_UNKNOWN
 
+/obj/item/storage/box/visitor_ids
+	name = "box of spare visitor IDs"
+	desc = "Has so many empty IDs."
+	illustration = "id"
+
+/obj/item/storage/box/visitor_ids/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/card/id/advanced/visitor(src)
+
 //design
 /datum/design/id/visitor
 	name = "Visitation ID Card"
