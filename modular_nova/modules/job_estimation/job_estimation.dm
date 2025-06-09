@@ -52,7 +52,7 @@
 	if(!player_job)
 		return
 
-	var/title = player_job?.title
+	var/title = player_job.title
 	// If the readied player has selected a miscellaneous job (Assistant, or Prisoner), they shouldn't be displayed
 	if(title == JOB_ASSISTANT || title == JOB_PRISONER)
 		return
