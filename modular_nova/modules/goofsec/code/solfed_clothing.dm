@@ -32,7 +32,7 @@
 // Solfed 911 Marshal Uniform
 
 /obj/item/clothing/under/solfed
-	name = "Solfed Marshals Uniform"
+	name = "\improper Solfed marshal's uniform"
 	icon = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
 	icon_state = "solpolice"
 	worn_icon = 'modular_nova/modules/goofsec/icons/uniforms_worn.dmi'
@@ -51,8 +51,8 @@
 	desc = "A true Sol Federation emergency response"
 	icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
+	
 // Solfed 911 EMT Uniform
-
 /obj/item/clothing/under/solfed/emergencymed
 	name = "Solfed Emergency Medical Personnel Uniform"
 	desc = "A true Sol Federation emergency response"
