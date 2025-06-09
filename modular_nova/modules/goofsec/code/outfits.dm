@@ -1,25 +1,81 @@
 /datum/outfit/solfed
-	name = "SolFed Void Corps (Black)"
+	name = "Solfed Official"
 
-	uniform = /obj/item/clothing/under/solfed
-	head = /obj/item/clothing/head/helmet/solfed
-	mask = /obj/item/clothing/mask/gas/alt
+	uniform = /obj/item/clothing/under/solfed/officer
 	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
+	accessory = /obj/item/clothing/accessory/nova/solfedribbon_star
 
 	back = /obj/item/storage/backpack
-	glasses = /obj/item/clothing/glasses/sunglasses/solfed
 	ears = /obj/item/radio/headset/headset_solfed/sec
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/flashlight/seclite
 	id = /obj/item/card/id/advanced/solfed
-	r_hand = /obj/item/gun/ballistic/automatic/sol_rifle
+	r_hand = /obj/item/clipboard
 	backpack_contents = list(
-		/obj/item/storage/box/handcuffs = 1,
-		/obj/item/sacrificial_face_shield = 1,
-		/obj/item/melee/baton/security/loaded = 1,
-		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
+		/obj/item/stamp/solfed,
+		/obj/item/stamp/denied,
+		/obj/item/stamp
+	)
+
+	id_trim = /datum/id_trim/solfed
+
+/datum/outfit/solfed_civil
+	name = "Solfed Civil Worker"
+
+	uniform = /obj/item/clothing/under/solfed/official_civil
+	gloves = /obj/item/clothing/gloves/combat
+	shoes = /obj/item/clothing/shoes/jackboots
+
+	back = /obj/item/storage/backpack
+	ears = /obj/item/radio/headset/headset_solfed/sec
+	r_pocket = /obj/item/flashlight/seclite
+	id = /obj/item/card/id/advanced/solfed
+	r_hand = /obj/item/clipboard
+	backpack_contents = list(
+		/obj/item/stamp/solfed,
+		/obj/item/stamp/denied,
+		/obj/item/stamp
+	)
+
+	id_trim = /datum/id_trim/solfed
+
+/datum/outfit/solfed_social
+	name = "Solfed Official Lowrank"
+
+	uniform = /obj/item/clothing/under/solfed/officer_lowrnk
+	gloves = /obj/item/clothing/gloves/combat
+	shoes = /obj/item/clothing/shoes/jackboots
+
+	back = /obj/item/storage/backpack
+	ears = /obj/item/radio/headset/headset_solfed/sec
+	r_pocket = /obj/item/flashlight/seclite
+	id = /obj/item/card/id/advanced/solfed
+	r_hand = /obj/item/clipboard
+	backpack_contents = list(
+		/obj/item/stamp/solfed,
+		/obj/item/stamp/denied,
+		/obj/item/stamp
+	)
+
+	id_trim = /datum/id_trim/solfed
+
+/datum/outfit/solfed_official_lowrnk
+	name = "Solfed Social Worker"
+
+	uniform = /obj/item/clothing/under/solfed/official_social
+	gloves = /obj/item/clothing/gloves/combat
+	shoes = /obj/item/clothing/shoes/jackboots
+
+	back = /obj/item/storage/backpack
+	ears = /obj/item/radio/headset/headset_solfed/sec
+	r_pocket = /obj/item/flashlight/seclite
+	id = /obj/item/card/id/advanced/solfed
+	r_hand = /obj/item/clipboard
+	backpack_contents = list(
+		/obj/item/stamp/solfed,
+		/obj/item/stamp/denied,
+		/obj/item/stamp
 	)
 
 	id_trim = /datum/id_trim/solfed
