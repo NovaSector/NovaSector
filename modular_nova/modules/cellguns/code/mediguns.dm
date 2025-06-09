@@ -261,7 +261,7 @@
 
 /obj/item/weaponcell/medical/utility/hardlight_gown
 	name = "hardlight gown medicell"
-	desc = "A medicell that creates a hardlight hospital gown on the target."
+	desc = "A medicell that creates a hardlight surgical gown on the target."
 	icon_state = "gown"
 	ammo_type = /obj/item/ammo_casing/energy/medical/utility/gown
 

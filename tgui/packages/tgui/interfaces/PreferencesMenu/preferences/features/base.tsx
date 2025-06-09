@@ -257,7 +257,7 @@ export function FeatureShortTextInput(
       fluid
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={handleSetValue}
+      onBlur={handleSetValue}
     />
   );
 }

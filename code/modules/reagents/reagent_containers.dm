@@ -66,6 +66,7 @@
 		var/list/data = list("viruses"= list(F))
 		reagents.add_reagent(/datum/reagent/blood, disease_amount, data)
 	add_initial_reagents()
+	AddElement(/datum/element/reagents_exposed_on_fire)
 
 /obj/item/reagent_containers/examine(mob/user)
 	. = ..()
@@ -196,10 +197,6 @@
 
 	return ..()
 
-/obj/item/reagent_containers/fire_act(exposed_temperature, exposed_volume)
-	reagents.expose_temperature(exposed_temperature)
-	..()
-
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum, do_splash = TRUE)
 	. = ..()
 	if(do_splash)
@@ -213,7 +210,7 @@
 /obj/item/reagent_containers/proc/SplashReagents(atom/target, datum/thrownthing/throwingdatum, override_spillable = FALSE)
 	if(!reagents || !reagents.total_volume || (!spillable && !override_spillable) || reagent_flags & SMART_CAP)
 		return
-	var/mob/thrown_by = throwingdatum.get_thrower()
+	var/mob/thrown_by = throwingdatum?.get_thrower()
 
 	if(ismob(target) && target.reagents)
 		var/splash_multiplier = 1
@@ -233,7 +230,7 @@
 		reagents.expose(target_turf, TOUCH, (1 - splash_multiplier)) // 1 - splash_multiplier because it's what didn't hit the target
 		target_turf.add_liquid_from_reagents(reagents, reagent_multiplier = (1 - splash_multiplier)) // NOVA EDIT ADDITION - liquid spills (molotov buff) (huge)
 
-	else if(bartender_check(target, thrown_by) && throwingdatum)
+	else if(throwingdatum && bartender_check(target, thrown_by))
 		visible_message(span_notice("[src] lands onto \the [target] without spilling a single drop."))
 		return
 
@@ -262,10 +259,6 @@
 	target.flick_overlay_view(splash_animation, 1.0 SECONDS)
 
 	reagents.clear_reagents()
-
-/obj/item/reagent_containers/microwave_act(obj/machinery/microwave/microwave_source, mob/microwaver, randomize_pixel_offset)
-	reagents.expose_temperature(1000)
-	return ..() | COMPONENT_MICROWAVE_SUCCESS
 
 /// Updates the icon of the container when the reagents change. Eats signal args
 /obj/item/reagent_containers/proc/on_reagent_change(datum/reagents/holder, ...)
