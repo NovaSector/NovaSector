@@ -100,6 +100,3 @@
 
 ///from base of atom/fire_act(): (exposed_temperature, exposed_volume)
 #define COMSIG_ATOM_PRE_FIRE_ACT "atom_fire_act"
-
-///from base of atom/projectile_hit(): (hitting_projectile, def_zone, piercing_hit, blocked)
-#define COMSIG_ATOM_PROJECTILE_HIT "atom_projectile_hit"

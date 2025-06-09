@@ -46,6 +46,7 @@
 
 	incoming_projectile.armour_penetration = 0
 	playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+	return NONE
 
 /obj/item/clothing/suit/armor/sf_hardened/examine_more(mob/user)
 	. = ..()
@@ -100,17 +101,18 @@
 	. = ..()
 	if(!(src == wearer.head))
 		return
-	UnregisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT)
+	UnregisterSignal(wearer, COMSIG_PROJECTILE_PREHIT)
 
-/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile, def_zone)
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile))
 	SIGNAL_HANDLER
 
 	// dynamic pen-reduction coverage with respect to visor state
-	if((up && (def_zone != BODY_ZONE_HEAD)) || !(def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)) )
+	if((up && (incoming_projectile.def_zone != BODY_ZONE_HEAD)) || !(incoming_projectile.def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)) )
 		return
 
 	incoming_projectile.armour_penetration = 0
 	playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+	return NONE
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/examine_more(mob/user)
 	. = ..()
