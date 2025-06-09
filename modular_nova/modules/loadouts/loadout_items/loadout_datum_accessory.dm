@@ -37,7 +37,6 @@
 	name = "Slim Colonial Webbing"
 	item_path = /obj/item/clothing/accessory/colonial_webbing
 
-
 /*
 *	ARMBANDS
 */
