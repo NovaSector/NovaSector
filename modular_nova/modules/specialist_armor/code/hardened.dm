@@ -30,7 +30,7 @@
 	. = ..()
 	if(!(istype(wearer) && (slot & ITEM_SLOT_OCLOTHING)))
 		return
-	RegisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT, PROC_REF(hit_by_projectile))
+	RegisterSignal(wearer, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_wearer_hit_by_projectile))
 
 /obj/item/clothing/suit/armor/sf_hardened/dropped(mob/living/carbon/human/wearer)
 	. = ..()
