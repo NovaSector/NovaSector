@@ -94,11 +94,20 @@
 
 	UnregisterSignal(player, list(COMSIG_JOB_PREF_UPDATED))
 
-/mob/dead/new_player/become_uncliented()
-	SSstatpanels.remove_job_estimation(src)
-
 /// Updates the mob's job if they change it, either through the occupations tab or through switching their active character while still readied.
 /datum/controller/subsystem/statpanels/proc/on_client_changes_job(mob/dead/new_player/source)
 	SIGNAL_HANDLER
 	remove_job_estimation(source)
 	add_job_estimation(source)
+
+// When switching character slots in prefs, make sure we update our job if we're readied
+/datum/preferences/switch_to_slot(new_slot)
+	. = ..()
+	if(!SSticker.HasRoundStarted()) // update the job estimations with their new char
+		var/mob/dead/new_player/new_player = get_mob_by_ckey(parent.ckey)
+		if(new_player?.ready == PLAYER_READY_TO_PLAY)
+			SEND_SIGNAL(new_player, COMSIG_JOB_PREF_UPDATED)
+
+// This gets called both when the client disconnects and when the client is shoved into their spawn mob.
+/mob/dead/new_player/become_uncliented()
+	SSstatpanels.remove_job_estimation(src)

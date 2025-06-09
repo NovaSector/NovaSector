@@ -123,15 +123,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
-			// NOVA EDIT START - Sanitizing preferences
+			// NOVA EDIT ADDITION START - Sanitizing preferences
 			sanitize_languages()
 			sanitize_quirks()
-			if(!SSticker.HasRoundStarted()) // update the job estimations with their new char
-				var/mob/dead/new_player/new_player = get_mob_by_ckey(parent.ckey)
-				if(new_player?.ready == PLAYER_READY_TO_PLAY)
-					SEND_SIGNAL(new_player, COMSIG_JOB_PREF_UPDATED)
-			// NOVA EDIT END
-			return // NOVA EDIT - Don't remove this. Just don't. Nothing is worth forced random characters.
+			// NOVA EDIT ADDITION END - Sanitizing preferences
+			return // Don't remove this. Just don't. Nothing is worth forced random characters. // NOVA EDIT CHANGE - Just adds comment - Original: return
 	//we couldn't load character data so just randomize the character appearance + name
 	randomise_appearance_prefs() //let's create a random character then - rather than a fat, bald and naked man.
 	if(parent)
