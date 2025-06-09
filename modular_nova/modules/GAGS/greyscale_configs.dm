@@ -2332,27 +2332,17 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
 
 // Solfed Accessories
-
-/datum/greyscale_config/solfedribbons_nostar
-	name = "Solfed Ribbons"
-	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_nostar.json'
-
-/datum/greyscale_config/solfedribbons_nostar/worn
-	name = "Solfed Ribbons (Worn)"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_nostar.json'
-
 /datum/greyscale_config/solfedribbons
 	name = "Solfed Ribbons"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_star.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
 
 /datum/greyscale_config/solfedribbons/worn
 	name = "Solfed Ribbons (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks_star.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
 
+// Solfed Goggles Code
 /datum/greyscale_config/solfedgoggles
 	name = "Solfed Goggles"
 	icon_file = 'modular_nova/modules/goofsec/icons/uniforms.dmi'
