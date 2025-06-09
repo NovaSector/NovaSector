@@ -16,9 +16,9 @@
 	SSstatpanels.update_job_estimation(ckey = client.ckey)
 
 /datum/controller/subsystem/statpanels
-	/// The assoc list of job estimations keyed to player ckey
+	/// The assoc list of job estimations keyed to player ref
 	var/list/player_ready_data = list()
-	/// The assoc list of job estimations keyed to player ckey (for command players only)
+	/// The assoc list of job estimations keyed to player ref (for command players only)
 	var/list/command_player_ready_data = list()
 
 /// Returns the list of job estimation strings that get output to the stat panel. First to ready up get listed first. Command roles get displayed before all the rest.
