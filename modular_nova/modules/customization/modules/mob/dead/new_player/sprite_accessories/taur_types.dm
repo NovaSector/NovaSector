@@ -65,7 +65,6 @@
 
 	return FALSE
 
-//Subtype with no loaf sprite needs the 'can_lay_down' variable to be false.
 /datum/sprite_accessory/taur/none
 	name = SPRITE_ACCESSORY_NONE
 	dimension_x = 32
