@@ -103,7 +103,7 @@
 		return
 	UnregisterSignal(wearer, COMSIG_PROJECTILE_PREHIT)
 
-/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile))
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile)
 	SIGNAL_HANDLER
 
 	// dynamic pen-reduction coverage with respect to visor state
