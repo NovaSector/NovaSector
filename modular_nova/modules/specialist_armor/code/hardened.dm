@@ -38,7 +38,7 @@
 		return
 	UnregisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT)
 
-/obj/item/clothing/suit/armor/sf_hardened/proc/hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile, def_zone)
+/obj/item/clothing/suit/armor/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile)
 	SIGNAL_HANDLER
 
 	if(def_zone != BODY_ZONE_CHEST)
