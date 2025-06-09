@@ -41,7 +41,7 @@
 /obj/item/clothing/suit/armor/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile)
 	SIGNAL_HANDLER
 
-	if(def_zone != BODY_ZONE_CHEST)
+	if(incoming_projectile.def_zone != BODY_ZONE_CHEST)
 		return
 
 	incoming_projectile.armour_penetration = 0
