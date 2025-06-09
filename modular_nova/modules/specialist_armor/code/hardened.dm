@@ -94,7 +94,7 @@
 	. = ..()
 	if(!(istype(wearer) && (slot & ITEM_SLOT_HEAD)))
 		return
-	RegisterSignal(wearer, COMSIG_ATOM_PROJECTILE_HIT, PROC_REF(hit_by_projectile))
+	RegisterSignal(wearer, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_wearer_hit_by_projectile))
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/dropped(mob/living/carbon/human/wearer)
 	. = ..()
