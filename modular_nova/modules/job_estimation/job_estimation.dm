@@ -11,6 +11,10 @@
 /datum/preference/toggle/ready_job/apply_to_human(mob/living/carbon/human/target, value, /datum/preferences/preferences)
 	return FALSE
 
+/datum/preference/toggle/ready_job/apply_to_client_updated(client/client, value)
+	. = ..()
+	SSstatpanels.update_job_estimation(ckey = client.ckey)
+
 /datum/controller/subsystem/statpanels
 	/// The assoc list of job estimations keyed to player ckey
 	var/list/player_ready_data = list()
@@ -44,8 +48,8 @@
 	var/datum/preferences/prefs = player.client?.prefs
 	var/datum/job/player_job = prefs?.get_highest_priority_job()
 
-	// If a player does not have preferences (for some reason) or they don't want to be shown on the panel, don't add them
-	if(!player_job || !(prefs.read_preference(/datum/preference/toggle/ready_job)))
+	// If a player does not have preferences (for some reason), don't add them
+	if(!player_job)
 		return
 
 	var/title = player_job?.title
@@ -53,26 +57,31 @@
 	if(title == JOB_ASSISTANT || title == JOB_PRISONER)
 		return
 
-	// If the job the player is selecting has a special name, that name should be displayed in the menu, otherwise it should use the normal name
 	var/display
-	switch(title)
-		if(JOB_AI)
-			display = prefs.read_preference(/datum/preference/name/ai)
-		if(JOB_CLOWN)
-			display = prefs.read_preference(/datum/preference/name/clown)
-		if(JOB_CYBORG)
-			display = prefs.read_preference(/datum/preference/name/cyborg)
-		if(JOB_MIME)
-			display = prefs.read_preference(/datum/preference/name/mime)
-		else
-			display = prefs.read_preference(/datum/preference/name/real_name)
+	// people who have opted out of giving their name will show up as 'a mysterious [job title here]', unless they're command or AI
+	if(!prefs.read_preference(/datum/preference/toggle/ready_job) && !(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND)) && title != JOB_AI)
+		display = "a mysterious"
+	else
+		// If the job the player is selecting has a special name, that name should be displayed in the menu, otherwise it should use the normal name
+		switch(title)
+			if(JOB_AI)
+				display = prefs.read_preference(/datum/preference/name/ai)
+			if(JOB_CLOWN)
+				display = prefs.read_preference(/datum/preference/name/clown)
+			if(JOB_CYBORG)
+				display = prefs.read_preference(/datum/preference/name/cyborg)
+			if(JOB_MIME)
+				display = prefs.read_preference(/datum/preference/name/mime)
+			else
+				display = prefs.read_preference(/datum/preference/name/real_name)
+		display += " as"
 
 	var/player_ref = REF(player)
 	if(isnull(display) || isnull(player_ref))
 		return
 
 	/// The string as it appears in the stat panel
-	var/job_estimation_text = "* [display] as [player.client?.prefs.alt_job_titles?[title] || title]"
+	var/job_estimation_text = "* [display] [player.client?.prefs.alt_job_titles?[title] || title]"
 	// If our player is a member of Command or a Silicon, we want to sort them to the top of the list. Otherwise, just add them to the end of the list.
 	if(player_job.departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND | DEPARTMENT_BITFLAG_SILICON))
 		command_player_ready_data[player_ref] = job_estimation_text
@@ -94,19 +103,30 @@
 
 	UnregisterSignal(player, list(COMSIG_JOB_PREF_UPDATED))
 
+/// Takes a mob or ckey an tries to update the job estimation
+/datum/controller/subsystem/statpanels/proc/update_job_estimation(mob/dead/new_player/player, ckey)
+	if(SSticker.HasRoundStarted())
+		return
+
+	if(player)
+		remove_job_estimation(player)
+		add_job_estimation(player)
+
+	else if(ckey) // if the player is ready, update their job estimation
+		var/mob/dead/new_player/new_player = get_mob_by_ckey(ckey)
+		if(new_player?.ready == PLAYER_READY_TO_PLAY)
+			remove_job_estimation(new_player)
+			add_job_estimation(new_player)
+
 /// Updates the mob's job if they change it, either through the occupations tab or through switching their active character while still readied.
 /datum/controller/subsystem/statpanels/proc/on_client_changes_job(mob/dead/new_player/source)
 	SIGNAL_HANDLER
-	remove_job_estimation(source)
-	add_job_estimation(source)
+	update_job_estimation(source)
 
 // When switching character slots in prefs, make sure we update our job if we're readied
 /datum/preferences/switch_to_slot(new_slot)
 	. = ..()
-	if(!SSticker.HasRoundStarted()) // update the job estimations with their new char
-		var/mob/dead/new_player/new_player = get_mob_by_ckey(parent.ckey)
-		if(new_player?.ready == PLAYER_READY_TO_PLAY)
-			SEND_SIGNAL(new_player, COMSIG_JOB_PREF_UPDATED)
+	SSstatpanels.update_job_estimation(ckey = parent.ckey) // update the job estimations with their new char
 
 // This gets called both when the client disconnects and when the client is shoved into their spawn mob.
 /mob/dead/new_player/become_uncliented()

@@ -1,9 +1,10 @@
 import { CheckboxInput, FeatureToggle } from '../../base';
 
 export const ready_job: FeatureToggle = {
-  name: 'Toggle Job Readying',
+  name: 'Show Name in Job Readying',
   category: 'GAMEPLAY',
   description:
-    'Toggles whether your highest job shows in the pre-game Job Estimation panel.',
+    'Toggles whether your name shows in the pre-game Job Estimation panel. \
+    Note: Command roles and AI will show with your name regardless of this pref.',
   component: CheckboxInput,
 };
