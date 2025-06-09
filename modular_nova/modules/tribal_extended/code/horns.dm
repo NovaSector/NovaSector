@@ -44,7 +44,7 @@
 		return
 	var/bhorn_origin = get_turf(user)
 	if (user.is_mouth_covered())
-		balloon_alert(user, "Something is in the way!")
+		balloon_alert(user, "something is in the way!")
 		return
 	else if (isspaceturf(bhorn_origin))
 		user.visible_message(

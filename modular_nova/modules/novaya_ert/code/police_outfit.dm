@@ -19,7 +19,7 @@
 	icon_state = "cloak_police"
 
 // Just some extra police equipment
-/obj/item/clothing/neck/cloak/colonial/nri_police/Initialize()
+/obj/item/clothing/neck/cloak/colonial/nri_police/Initialize(mapload)
 	allowed += list(
 		/obj/item/restraints/handcuffs,
 		/obj/item/ammo_box,
@@ -51,7 +51,7 @@
 	icon_state = "nri_police"
 	inhand_icon_state = "swat"
 	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
-	visor_flags_inv = 0
+	visor_flags_inv = NONE
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 
@@ -95,7 +95,7 @@
 	resistance_flags = FLAMMABLE
 	dog_fashion = null
 
-/obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize()
+/obj/item/clothing/suit/armor/vest/nri_police_jacket/Initialize(mapload)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 	allowed += list(
 		/obj/item/camera,
