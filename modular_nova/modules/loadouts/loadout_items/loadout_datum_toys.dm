@@ -466,3 +466,17 @@
 /datum/loadout_item/toys/plush/plush_janiborg
 	name = "Friendly Janiborg Plush"
 	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
+
+//Staff plushies below here
+
+/datum/loadout_item/toys/plush/plush_melon
+	name = "Melon Plushie"
+	item_path = /obj/item/toy/plush/nova/melon
+
+/datum/loadout_item/toys/plush/plush_parsec
+	name = "Engie Dog"
+	item_path = /obj/item/toy/plush/nova/parsec
+
+/datum/loadout_item/toys/plush/plush_nik
+	name = "Scary Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/akinshi
