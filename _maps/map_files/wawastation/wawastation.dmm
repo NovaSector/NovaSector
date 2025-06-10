@@ -1155,11 +1155,6 @@
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
-"aub" = (
-/obj/structure/fans/tiny,
-/obj/machinery/door/poddoor/massdriver_ordnance,
-/turf/open/floor/engine,
-/area/station/science/ordnance/testlab)
 "auj" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/engine,
@@ -2786,14 +2781,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/gateway)
-"aVq" = (
-/obj/machinery/computer/scan_consolenew,
-/obj/machinery/light_switch/directional/north,
-/obj/effect/turf_decal/siding/purple,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white/textured,
-/area/station/science/genetics)
 "aVY" = (
 /obj/item/flashlight/flare{
 	icon_state = "flare-on";
@@ -2870,6 +2857,13 @@
 "aYf" = (
 /turf/open/floor/plating,
 /area/station/engineering/storage)
+"aYi" = (
+/obj/machinery/computer/scan_consolenew,
+/obj/item/toy/figure/geneticist{
+	pixel_y = 18
+	},
+/turf/open/floor/iron/white/textured,
+/area/station/science/genetics)
 "aYj" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -2908,13 +2902,6 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
-"aYS" = (
-/obj/machinery/computer/scan_consolenew,
-/obj/item/toy/figure/geneticist{
-	pixel_y = 18
-	},
-/turf/open/floor/iron/white/textured,
-/area/station/science/genetics)
 "aZg" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/effect/turf_decal/stripes/asteroid/line{
@@ -3538,6 +3525,14 @@
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry/minisat)
+"bkH" = (
+/obj/machinery/computer/scan_consolenew,
+/obj/machinery/light_switch/directional/north,
+/obj/effect/turf_decal/siding/purple,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white/textured,
+/area/station/science/genetics)
 "bkW" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -5667,6 +5662,20 @@
 "bZr" = (
 /turf/closed/wall/rock,
 /area/space/nearstation)
+"bZF" = (
+/obj/machinery/computer/scan_consolenew{
+	dir = 1
+	},
+/obj/structure/railing,
+/obj/machinery/door/firedoor/border_only,
+/obj/effect/turf_decal/siding/purple{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured,
+/area/station/science/genetics)
 "bZH" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -10372,15 +10381,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/office)
-"dIo" = (
-/obj/machinery/door/poddoor/massdriver_trash,
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/tile/yellow/opposingcorners,
-/obj/effect/turf_decal/stripes/end{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/maintenance/disposal)
 "dIr" = (
 /obj/effect/mapping_helpers/mail_sorting/science/research,
 /obj/structure/disposalpipe/sorting/mail/flip,
@@ -12065,6 +12065,14 @@
 /obj/machinery/igniter/incinerator_atmos,
 /turf/open/floor/engine/airless,
 /area/station/maintenance/disposal/incinerator)
+"emd" = (
+/obj/machinery/door/poddoor/massdriver_ordnance,
+/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/science/ordnance/testlab)
 "emf" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/north,
@@ -25951,6 +25959,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
+"jgz" = (
+/obj/machinery/door/poddoor/massdriver_chapel,
+/obj/effect/turf_decal/stripes/full,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/funeral)
 "jgA" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/warning/cold_temp,
@@ -36269,12 +36288,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
-"mFb" = (
-/obj/structure/fans/tiny,
-/obj/machinery/door/poddoor/massdriver_chapel,
-/obj/effect/turf_decal/stripes/full,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/funeral)
 "mFe" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -36861,20 +36874,6 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/main)
-"mPl" = (
-/obj/machinery/computer/scan_consolenew{
-	dir = 1
-	},
-/obj/structure/railing,
-/obj/machinery/door/firedoor/border_only,
-/obj/effect/turf_decal/siding/purple{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron/white/textured,
-/area/station/science/genetics)
 "mPv" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/olive,
@@ -42995,6 +42994,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/nuke_storage)
+"oYM" = (
+/obj/machinery/door/poddoor/massdriver_trash,
+/obj/effect/turf_decal/tile/yellow/opposingcorners,
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/obj/machinery/atmos_shield_gen/active,
+/turf/open/floor/engine,
+/area/station/maintenance/disposal)
 "oZb" = (
 /obj/machinery/light/dim/directional/south,
 /obj/structure/disposalpipe/segment{
@@ -81781,7 +81792,7 @@ jtv
 jLv
 mxq
 mxq
-dIo
+oYM
 mxq
 pRM
 pRM
@@ -100346,7 +100357,7 @@ gLK
 azg
 thg
 fUj
-mFb
+jgz
 cLf
 cLf
 cLf
@@ -115971,7 +115982,7 @@ dUc
 dUc
 dUc
 moe
-aub
+emd
 moe
 dUc
 cLf
@@ -174304,7 +174315,7 @@ dES
 fuo
 iXv
 iXv
-mPl
+bZF
 vRA
 vRA
 vRA
@@ -174557,7 +174568,7 @@ fYe
 lJq
 wWE
 obA
-aVq
+bkH
 iXv
 iXv
 iXv
@@ -175071,7 +175082,7 @@ fYe
 lJq
 raz
 obA
-aYS
+aYi
 qfu
 nje
 jXb

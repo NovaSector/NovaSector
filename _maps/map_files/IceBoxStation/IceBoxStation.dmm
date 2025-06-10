@@ -8563,6 +8563,14 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
+"cns" = (
+/obj/machinery/door/poddoor/massdriver_ordnance,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/obj/machinery/atmos_shield_gen/active,
+/turf/open/floor/plating,
+/area/station/science/ordnance/testlab)
 "cnx" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
@@ -18575,11 +18583,6 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/storage/gas)
-"fiU" = (
-/obj/machinery/door/poddoor/massdriver_ordnance,
-/obj/structure/fans/tiny,
-/turf/open/floor/plating,
-/area/station/science/ordnance/testlab)
 "fiY" = (
 /obj/machinery/ntnet_relay,
 /turf/open/floor/circuit/telecomms/mainframe,
@@ -29439,13 +29442,6 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
-"iqW" = (
-/obj/machinery/door/poddoor/massdriver_chapel{
-	dir = 4
-	},
-/obj/structure/fans/tiny,
-/turf/open/floor/plating,
-/area/station/service/chapel)
 "irn" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
@@ -37186,6 +37182,11 @@
 	},
 /turf/open/floor/engine/vacuum,
 /area/station/maintenance/disposal/incinerator)
+"kDe" = (
+/obj/machinery/computer/scan_consolenew,
+/obj/machinery/status_display/evac/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "kDj" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
@@ -37290,6 +37291,17 @@
 /obj/item/stack/cable_coil/five,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
+"kFn" = (
+/obj/effect/turf_decal/stripes/red/box,
+/obj/machinery/door/poddoor/massdriver_trash,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "kFu" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty,
@@ -47066,6 +47078,16 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
+"nwg" = (
+/obj/machinery/door/poddoor/massdriver_chapel{
+	dir = 4
+	},
+/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/service/chapel)
 "nwn" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -52384,12 +52406,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"oPP" = (
-/obj/machinery/computer/scan_consolenew{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/station/science/genetics)
 "oPU" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -64562,12 +64578,6 @@
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/station/security/prison/toilet)
-"slX" = (
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/stripes/red/box,
-/obj/machinery/door/poddoor/massdriver_trash,
-/turf/open/floor/plating,
-/area/station/maintenance/disposal)
 "sma" = (
 /obj/effect/spawner/random/trash/mopbucket,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -66618,6 +66628,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/office)
+"sOM" = (
+/obj/machinery/computer/scan_consolenew{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "sOO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -78204,11 +78220,6 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/station/science/genetics)
-"wnR" = (
-/obj/machinery/computer/scan_consolenew,
-/obj/machinery/status_display/evac/directional/north,
-/turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "wnT" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -170072,7 +170083,7 @@ gjq
 gjq
 scw
 hyj
-slX
+kFn
 oXx
 ceY
 kbq
@@ -264646,7 +264657,7 @@ tlH
 tlH
 nXb
 wrX
-iqW
+nwg
 wrX
 oHH
 oHH
@@ -264931,11 +264942,11 @@ elw
 oOc
 nvY
 qpu
-oPP
+sOM
 gGx
 jxc
 aFt
-oPP
+sOM
 iTJ
 mEJ
 kCz
@@ -265960,7 +265971,7 @@ cRy
 cRy
 qCF
 elw
-wnR
+kDe
 iNn
 jKl
 caC
@@ -267775,7 +267786,7 @@ bln
 bln
 bln
 hyV
-fiU
+cns
 bgx
 vzD
 vzD
