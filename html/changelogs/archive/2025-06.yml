@@ -79,3 +79,11 @@
       break room.
   vinylspiders:
   - bugfix: fixes guncase inhand icon states not showing up
+2025-06-10:
+  dankmemerino147:
+  - bugfix: Sol Defense Imports has uncovered and stopped an embezzlement scheme affecting
+      the quality of its 'Muur' and 'Archangel' hardened armor systems. The product
+      should now more effectively neutralize armor-piercing projectiles.
+  intense-skies:
+  - rscadd: Some taur bodys can now loaf
+  - image: Taur loafing sprites
