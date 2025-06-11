@@ -17,11 +17,11 @@ Includes some new Skyrat-specific custom events.
 
 ### Master file additions
 
-
 ### Included files that are not contained in this module:
 
 - N/A
 
 ### Credits:
+
 LT3
 Discord: lessthanthree#0003 122553868985827329

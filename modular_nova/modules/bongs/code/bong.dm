@@ -34,9 +34,9 @@
 	. = ..()
 	create_reagents(chem_volume, INJECTABLE | NO_REACT)
 
-/obj/item/bong/attackby(obj/item/used_item, mob/user, params)
-	if(istype(used_item, /obj/item/food/grown))
-		var/obj/item/food/grown/grown_item = used_item
+/obj/item/bong/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/food/grown))
+		var/obj/item/food/grown/grown_item = attacking_item
 		if(packed_item)
 			balloon_alert(user, "already packed!")
 			return
@@ -51,19 +51,19 @@
 			reagent_transfer_per_use = reagents.total_volume / max_hits
 		qdel(grown_item)
 
-	else if(istype(used_item, /obj/item/reagent_containers/hash)) //for hash/dabs
+	else if(istype(attacking_item, /obj/item/reagent_containers/hash)) //for hash/dabs
 		if(packed_item)
 			balloon_alert(user, "already packed!")
 			return
-		to_chat(user, span_notice("You stuff [used_item] into [src]."))
+		to_chat(user, span_notice("You stuff [attacking_item] into [src]."))
 		bong_hits = max_hits
 		packed_item = TRUE
-		if(used_item.reagents)
-			used_item.reagents.trans_to(src, used_item.reagents.total_volume, transferred_by = user)
+		if(attacking_item.reagents)
+			attacking_item.reagents.trans_to(src, attacking_item.reagents.total_volume, transferred_by = user)
 			reagent_transfer_per_use = reagents.total_volume / max_hits
-		qdel(used_item)
+		qdel(attacking_item)
 	else
-		var/lighting_text = used_item.ignition_effect(src, user)
+		var/lighting_text = attacking_item.ignition_effect(src, user)
 		if(!lighting_text)
 			return ..()
 		if(bong_hits <= 0)
