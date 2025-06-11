@@ -185,8 +185,8 @@
 	extra_price = PAYCHECK_COMMAND * 2.5
 
 //Changes the settings on the vendor, if the user uses the discount card.
-/obj/machinery/vending/dorms/attackby(obj/item/used_item, mob/living/user, params)
-	if(!istype(used_item, /obj/item/lustwish_discount))
+/obj/machinery/vending/dorms/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/lustwish_discount))
 		return ..()
 
 	user.visible_message(span_boldnotice("Something changes in [src] with a loud clunk."))
