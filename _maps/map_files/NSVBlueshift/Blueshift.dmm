@@ -125143,7 +125143,7 @@
 "xUx" = (
 /obj/machinery/light/directional/west,
 /obj/item/radio/intercom/directional/west,
-/obj/structure/closet/secure_closet/security/service,
+/obj/structure/closet/crate/hydroponics,
 /turf/open/floor/iron/checker,
 /area/station/hallway/secondary/service)
 "xUA" = (
