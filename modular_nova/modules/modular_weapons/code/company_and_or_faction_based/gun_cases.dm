@@ -51,7 +51,7 @@
 	if(weapon_to_spawn)
 		new weapon_to_spawn (src)
 	if(extra_to_spawn)
-		for(var/i in 1 to 3)
+		for(var/iterate in 1 to 3)
 			new extra_to_spawn (src)
 
 // Small case for pistols and whatnot
