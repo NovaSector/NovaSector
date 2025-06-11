@@ -100,6 +100,7 @@
 /datum/id_trim/syndicom/nova/interdyne/shaftminer
 	assignment = "Interdyne Shaft Miner"
 	sechud_icon_state = SECHUD_INTERDYNE_SHAFTMINER
+	department_color = COLOR_CARGO_BROWN
 
 /datum/id_trim/syndicom/nova/interdyne/deckofficer
 	assignment = "Deck Officer"
