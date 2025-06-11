@@ -1,7 +1,7 @@
 # Changes to anything in the _map subfolder
-Map Modification:
+Map Edit:
   - changed-files:
-      - any-glob-to-any-file: "_maps/**"
+      - any-glob-to-any-file: "_maps/*.dmm"
 
 # Changes to a .dmi
 Sprites:
