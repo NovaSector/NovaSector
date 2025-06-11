@@ -1,0 +1,4 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - image: "interdyne has changed the encoding on their IDs no longer appearing as syndicate but instead their updated company identifiers so they may be easily identified on sechuds."
