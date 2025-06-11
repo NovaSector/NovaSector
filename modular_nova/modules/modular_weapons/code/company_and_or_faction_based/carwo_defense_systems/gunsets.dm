@@ -1,18 +1,3 @@
-// Base yellow carwo case
-
-/obj/item/storage/toolbox/guncase/nova/carwo_large_case
-	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely."
-	icon_state = "case_carwo"
-	worn_icon_state = "carwocase"
-	inhand_icon_state = "carwocase"
-
-// Empty version of the case
-
-/obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
-
-/obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty/PopulateContents()
-	return
-
 // Sindano in a box, how innovative!
 
 /obj/item/storage/toolbox/guncase/nova/carwo_large_case/sindano
