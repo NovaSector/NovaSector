@@ -3625,7 +3625,6 @@
 /area/awaymission/caves/maintsroom)
 "lJ" = (
 /obj/structure/alien/weeds/creature,
-/obj/structure/alien/gelpod,
 /obj/effect/mob_spawn/corpse/human/nanotrasenelitesoldier,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -15395,7 +15394,6 @@
 /area/awaymission/caves/maintsroom)
 "ZT" = (
 /obj/structure/spider/stickyweb,
-/obj/effect/mob_spawn/corpse/human/syndicatestormtrooper,
 /obj/structure/spider/cocoon,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -35719,7 +35717,7 @@ wU
 wo
 wU
 GS
-sk
+lJ
 sk
 zd
 sk
@@ -36157,7 +36155,7 @@ sk
 je
 sk
 sk
-lJ
+Rz
 sk
 sk
 Ot
