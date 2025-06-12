@@ -378,4 +378,6 @@
 /obj/effect/mob_spawn/cockroach/Initialize(mapload)
 	if(prob(bloodroach_chance))
 		mob_type = /mob/living/basic/cockroach/bloodroach
-	return ..()
+	. = ..()
+	INVOKE_ASYNC(src, PROC_REF(create))
+	qdel(src)
