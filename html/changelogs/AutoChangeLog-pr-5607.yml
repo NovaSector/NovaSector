@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - qol: "adds lobby job estimations to statpanel, so you can see what jobs others are prioritizing"
