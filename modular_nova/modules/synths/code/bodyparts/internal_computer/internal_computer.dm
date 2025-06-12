@@ -10,6 +10,7 @@
 	max_idle_programs = 3
 
 	max_capacity = 64
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/modular_computer/pda/synth/Initialize(mapload)
 	. = ..()
@@ -147,9 +148,9 @@
 	var/obj/item/organ/brain/synth/robotbrain = targetmachine.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(istype(robotbrain))
 		if(user.zone_selected == BODY_ZONE_PRECISE_EYES)
-			balloon_alert(user, "Establishing SSH login with persocom...")
+			balloon_alert(user, "establishing SSH login with persocom...")
 			if(do_after(user, 5 SECONDS))
-				balloon_alert(user, "Connection established!")
+				balloon_alert(user, "connection established")
 				to_chat(targetmachine, span_notice("[user] establishes an SSH connection between [src] and your persocom emulation."))
 				robotbrain.internal_computer.interact(user)
 			return

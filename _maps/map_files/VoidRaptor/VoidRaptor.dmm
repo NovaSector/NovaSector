@@ -4946,6 +4946,8 @@
 /obj/item/hand_labeler{
 	pixel_y = 9
 	},
+/obj/item/storage/photo_album/bar,
+/obj/item/storage/dice,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "bvt" = (
@@ -13922,7 +13924,7 @@
 	pixel_x = -1;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /obj/machinery/door/firedoor,
@@ -15207,15 +15209,13 @@
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/exit/departure_lounge)
 "esi" = (
-/obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
-/obj/item/storage/photo_album/bar,
-/obj/item/storage/dice,
 /obj/machinery/airalarm/directional/south,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood/tile,
 /area/station/service/bar)
 "esu" = (
@@ -20241,10 +20241,6 @@
 /obj/effect/turf_decal/tile/green/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/hallway/primary/fore)
-"fUk" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/wall,
-/area/station/maintenance/department/medical/central)
 "fUo" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -32348,7 +32344,7 @@
 	pixel_x = -3;
 	pixel_y = 9
 	},
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/entry)
 "jmT" = (
@@ -60404,7 +60400,7 @@
 /obj/item/kitchen/rollingpin{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4
 	},
 /obj/machinery/requests_console/directional/south{
@@ -65763,7 +65759,7 @@
 /obj/structure/desk_bell{
 	pixel_x = 7
 	},
-/obj/item/reagent_containers/cup/rag,
+/obj/item/rag,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/entry)
@@ -108701,7 +108697,7 @@ jqH
 vIY
 xrG
 oQo
-fUk
+hxT
 ttw
 ttw
 cgZ

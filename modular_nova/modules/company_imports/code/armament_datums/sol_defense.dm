@@ -14,6 +14,10 @@
 /datum/armament_entry/company_import/sol_defense/clothing/emt
 	item_type = /obj/item/clothing/under/sol_emt
 
+/datum/armament_entry/company_import/sol_defense/clothing/hecu_mask
+	item_type = /obj/item/clothing/mask/gas/hecu
+	cost = PAYCHECK_COMMAND
+
 // Armor vests for protecting against bullets
 
 /datum/armament_entry/company_import/sol_defense/armor
@@ -85,6 +89,62 @@
 	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
 	cost = PAYCHECK_COMMAND * 2
 
+/datum/armament_entry/company_import/sol_defense/case/nanotrasen_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/nanotrasen
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/solfed_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/solfed
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/redcase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/redcase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/redcase
+	item_type = /obj/item/storage/toolbox/guncase/nova/redcase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/bluecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/bluecase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/bluecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/bluecase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/purplecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/purplecase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/purplecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/purplecase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/orangecase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/orangecase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/orangecase
+	item_type = /obj/item/storage/toolbox/guncase/nova/orangecase/empty
+	cost = PAYCHECK_COMMAND * 2
+
+/datum/armament_entry/company_import/sol_defense/case/greencase_pistol
+	item_type = /obj/item/storage/toolbox/guncase/nova/greencase/pistol/empty
+	cost = PAYCHECK_COMMAND
+
+/datum/armament_entry/company_import/sol_defense/case/greencase
+	item_type = /obj/item/storage/toolbox/guncase/nova/greencase/empty
+	cost = PAYCHECK_COMMAND * 2
+
 /datum/armament_entry/company_import/sol_defense/sidearm
 	subcategory = "Sidearms"
 	cost = PAYCHECK_COMMAND * 4
@@ -136,7 +196,7 @@
 
 /datum/armament_entry/company_import/sol_defense/longarm/jager
 	item_type = /obj/item/gun/ballistic/shotgun/katyusha/jager
-	cost = PAYCHECK_COMMAND * 20
+	cost = PAYCHECK_COMMAND * 12
 
 /datum/armament_entry/company_import/sol_defense/longarm/infanterie
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
@@ -145,7 +205,7 @@
 /* //
 datum/armament_entry/company_import/sol_defense/longarm/outomaties
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	cost = PAYCHECK_COMMAND * 23 
+	cost = PAYCHECK_COMMAND * 23
 */ //Commented out due to a severe lack of balance regarding it.
 
 /datum/armament_entry/company_import/sol_defense/longarm/kiboko

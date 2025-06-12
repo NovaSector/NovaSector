@@ -89,8 +89,8 @@
 				/obj/item/stack/shibari_rope/glow/full = 10,
 
 				//clothing facial/head
-				/obj/item/clothing/mask/ballgag = 8,
-				/obj/item/clothing/mask/ballgag/choking = 8,
+				/obj/item/clothing/mask/muzzle/ballgag = 8,
+				/obj/item/clothing/mask/muzzle/ballgag/choking = 8,
 				/obj/item/clothing/mask/muzzle/ring = 4,
 				/obj/item/clothing/head/deprivation_helmet = 5,
 				/obj/item/clothing/glasses/blindfold/dorms = 5,
@@ -185,8 +185,8 @@
 	extra_price = PAYCHECK_COMMAND * 2.5
 
 //Changes the settings on the vendor, if the user uses the discount card.
-/obj/machinery/vending/dorms/attackby(obj/item/used_item, mob/living/user, params)
-	if(!istype(used_item, /obj/item/lustwish_discount))
+/obj/machinery/vending/dorms/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/lustwish_discount))
 		return ..()
 
 	user.visible_message(span_boldnotice("Something changes in [src] with a loud clunk."))

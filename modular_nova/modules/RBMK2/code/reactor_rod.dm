@@ -60,8 +60,8 @@
 	. += span_notice("A sticker on its side says <b>MAX SAFE PRESSURE: [siunit_pressure(pressure_limit, 0)]; MAX SAFE TEMPERATURE: [siunit(temperature_limit, "K", 0)]</b>.")
 
 // Prevents putting the reactor rod on a TTV.
-/obj/item/transfer_valve/attackby(obj/item/item, mob/user, params)
-	if(istype(item, /obj/item/tank/rbmk2_rod))
-		to_chat(user, span_warning("[item] doesn't fit!"))
+/obj/item/transfer_valve/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/tank/rbmk2_rod))
+		to_chat(user, span_warning("[attacking_item] doesn't fit!"))
 		return
 	return ..()
