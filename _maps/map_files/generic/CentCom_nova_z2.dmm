@@ -9136,7 +9136,7 @@
 /turf/open/floor/wood,
 /area/centcom/interlink/dorm_rooms/room1)
 "jSO" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/red/full,
 /turf/open/floor/iron/dark/smooth_large,

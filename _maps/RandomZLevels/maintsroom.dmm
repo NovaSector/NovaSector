@@ -4953,7 +4953,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "sW" = (
-/obj/machinery/photocopier,
+/obj/machinery/photocopier/prebuilt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/grimy,
