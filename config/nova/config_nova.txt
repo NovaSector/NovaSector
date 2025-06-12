@@ -185,6 +185,7 @@ SHOW_JOB_ESTIMATION
 ## Highly recommended, as it allows the whitelist to be modified using the "whitelist <ckey>" command
 ## through the TGS bot, as well as the "Add Whitelist" verb in-game, rather than requiring the manual
 ## modification of the "whitelist.txt" configuration file.
+## NOTE: This does not replace USEWHITELIST in config.txt. Both flags must be enabled if you want to use this feature.
 #SQL_WHITELIST
 
 ## Message that gets displayed to non-whitelisted players when they try to join the server
