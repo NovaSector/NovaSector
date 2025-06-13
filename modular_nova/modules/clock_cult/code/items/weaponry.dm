@@ -208,7 +208,7 @@
 	update_icon()
 
 
-/obj/item/gun/ballistic/bow/clockwork/attackby(obj/item/I, mob/user, params)
+/obj/item/gun/ballistic/bow/clockwork/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	return
 
 

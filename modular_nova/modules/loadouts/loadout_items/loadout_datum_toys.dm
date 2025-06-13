@@ -311,6 +311,10 @@
 	name = "Scary Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/akinshi
 
+/datum/loadout_item/toys/plush/plush_skaag
+	name = "Skaag Plushie"
+	item_path = /obj/item/toy/plush/nova/skaag
+
 /*
 *	CARDS
 */

@@ -6,7 +6,7 @@ MODULE ID: HEIGHT_SCALING
 
 Allows people to change their characters height using tg's height framework
 
-### TG Proc Changes: 
+### TG Proc Changes:
 
 - N/A
 
@@ -23,4 +23,5 @@ Allows people to change their characters height using tg's height framework
 - N/A
 
 ### Credits:
+
 Niko - Original code

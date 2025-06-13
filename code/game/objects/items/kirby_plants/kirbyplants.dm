@@ -54,7 +54,7 @@
 		icon = 'icons/obj/fluff/flora/plants.dmi'
 	// NOVA EDIT ADDITION END
 
-/obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, list/modifiers)
+/obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(!dead && trimmable && HAS_TRAIT(user,TRAIT_BONSAI) && isturf(loc) && I.get_sharpness())
 		to_chat(user,span_notice("You start trimming [src]."))
