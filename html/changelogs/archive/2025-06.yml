@@ -79,3 +79,85 @@
       break room.
   vinylspiders:
   - bugfix: fixes guncase inhand icon states not showing up
+2025-06-10:
+  dankmemerino147:
+  - bugfix: Sol Defense Imports has uncovered and stopped an embezzlement scheme affecting
+      the quality of its 'Muur' and 'Archangel' hardened armor systems. The product
+      should now more effectively neutralize armor-piercing projectiles.
+  intense-skies:
+  - rscadd: Some taur bodys can now loaf
+  - image: Taur loafing sprites
+2025-06-12:
+  00-Steven:
+  - refactor: Refactored the folder/biscuit interaction chain. Please report any issues.
+  - bugfix: Picking up paper into a folder/biscuit by clicking on the paper with it
+      is now less prone to inventory jank.
+  - qol: Picking up paper into a folder/biscuit now plays the pickup animation, consistent
+      with inserting it otherwise.
+  - qol: Folders and biscuit cards now have screentips.
+  - sound: Inserting paper into a folder now plays the pickup/drop sounds, consistent
+      with taking it out.
+  BigAganoo:
+  - rscadd: Adds Skaag to your loadout. Plushmaxx today!
+  Ezel/Improvedname, Toriate, JohnFulpWillard:
+  - rscadd: Re-added the Dragoon Tomb lair, now has a Skybulge spear and Drachen armor.
+  - balance: Ice whelps now spit out cold fire.
+  JohnFulpWillard:
+  - spellcheck: The header for RD consoles now says what type of points it's counting.
+  - qol: Info buttons previously at the top right of your screen (Changelog, wiki,
+      forums) is now in the Escape menu.
+  - qol: Fullscreen is now a preferences and will follow you through rounds.
+  - rscadd: Added a 'Ghost settings' button, taking the spot of the pAI candidate
+      button and replacing the "Ghost" tab of the Stat panel. This button contains
+      buttons pertinent to your time as an Observer.
+  - rscadd: Added a new sleep HUD element when you're resting.
+  - rscadd: Xenos' HUD looks a little closer to human ones, with the rest button on
+      the right side.
+  - qol: Added a new accessibility setting for users who get inconsistent double clicks.
+  Melbert:
+  - bugfix: You (can't) baton furniture
+  - refactor: Batons have been refactored again. Baton stuns now properly count as
+      an attack, when before it was a nothing. Report any oddities, particularly in
+      regards to harmbatonning vs normal batonning.
+  - refactor: The method of adjusting item damage mid-attack has been refactored -
+      some affected items include the Nullblade and knives. Report any strange happenings
+      with damage numbers.
+  - refactor: A few objects have been moved to the new interaction chain - records
+      consoles, mawed crucible, alien weeds and space vines, hedges, restaurant portals,  and
+      some mobs - to name a few.
+  - bugfix: Spears only deal bonus damage against secure lockers, not all closet types
+      (including crates)
+  RealWinterFrost:
+  - image: interdyne has changed the encoding on their IDs no longer appearing as
+      syndicate but instead their updated company identifiers so they may be easily
+      identified on sechuds.
+  Rhials:
+  - spellcheck: Diamond material statue names are no longer punctuated.
+  carlarctg:
+  - code_imp: Adds support for PVP Bitrunning Domains
+  carpotoxin:
+  - image: A new set of harpy wings, fluffy! (incl. top version)
+  hry-gh:
+  - bugfix: fixes the ominous black squares appearing over tgui windows, sometimes
+  necromanceranne:
+  - balance: Projectiles that have armour penetration, or can pass straight through
+      structures, can potentially hit a pilot inside of a mech.
+  - map: Opens up sections of Nebulastation's medical department to allow for greater
+      visibility into and out of medical.
+  - rscadd: Felinids, when sufficiently manic and starving, will sometimes take a
+      chunk out of their fellow spessman. With their teeth.
+  - balance: Carp-infused mutants have pointy teeth.
+  - balance: Melee weapons with sufficient armour penetration can potentially overpenetrate
+      and hit the pilot if you attack it while in combat mode.
+  ocan4214:
+  - bugfix: fixed Civilian Bounty Terminal not filling rest of the window when opened
+      first time.
+  throwawayuseless:
+  - bugfix: Binders and The Book Of Babel now fit on bookshelves.
+  timothymtorres:
+  - bugfix: Fix `map_export` admin verb not blacklisting `obj/effects`
+  - bugfix: Fix map linter conditional rule crashing
+  - qol: Replace hardcoded atmos values for virtual domain turfs
+  vinylspiders:
+  - qol: adds lobby job estimations to statpanel, so you can see what jobs others
+      are prioritizing
