@@ -18,7 +18,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	obj_flags = UNIQUE_RENAME
-	weapon_weight = WEAPON_MEDIUM
+	weapon_weight = WEAPON_HEAVY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/katyusha
 	spawn_magazine_type = /obj/item/ammo_box/magazine/katyusha/buckshot
 
@@ -43,7 +43,15 @@
 		make the Katyusha powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_NANOTRASEN)
+
+/obj/item/gun/ballistic/shotgun/katyusha/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
+		light_overlay = "flight", \
+		overlay_x = 32, \
+		overlay_y = 12, \
+	)
 
 /obj/item/storage/toolbox/guncase/nova/katyusha
 	name = "\improper Nanotrasen Armories \"Katyusha\" gunset"
@@ -59,9 +67,9 @@
 	desc = "A mag-fed shotgun for combat in narrow corridors, \
 		nicknamed 'Jäger' by the Solar Federation Marines for its versatility in clearing tight corridors, and special operations in hunting individuals."
 
-	icon_state = "marauder"
-	worn_icon_state = "marauder"
-	inhand_icon_state = "marauder"
+	icon_state = "jager"
+	worn_icon_state = "jager"
+	inhand_icon_state = "jager"
 
 	accepted_magazine_type = /obj/item/ammo_box/magazine/jager
 	spawn_magazine_type = /obj/item/ammo_box/magazine/jager/rubbershot
@@ -72,4 +80,4 @@
 		makes the Jäger powerful, reliable, accurate, and shockingly comfortable to fire."
 
 /obj/item/gun/ballistic/shotgun/katyusha/jager/give_manufacturer_examine()
-    AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SOLFED)

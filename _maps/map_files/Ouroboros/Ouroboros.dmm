@@ -5481,7 +5481,7 @@
 	pixel_y = 6;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 12;
 	pixel_x = 4
 	},
@@ -15816,20 +15816,14 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/item/storage/cans/sixbeer,
-/obj/structure/closet/cabinet{
-	name = "\proper bouncer's cabinet"
-	},
 /obj/machinery/requests_console/auto_name/directional/south,
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
-/obj/item/storage/belt/utility,
-/obj/item/clothing/under/misc/bouncer,
-/obj/item/clothing/mask/whistle,
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood/large,
 /area/station/security/checkpoint/service)
 "eDD" = (
@@ -26306,7 +26300,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "hJp" = (
-/obj/structure/altar_of_gods,
+/obj/structure/altar/of_gods,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -27918,7 +27912,7 @@
 /obj/item/kitchen/rollingpin{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 4;
 	pixel_x = 5
 	},
@@ -30648,7 +30642,7 @@
 /obj/item/plate{
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_x = -13;
 	pixel_y = 4
 	},
@@ -33028,7 +33022,7 @@
 	dir = 8
 	},
 /obj/structure/table/glass,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 12;
 	pixel_x = 4
 	},
@@ -37215,7 +37209,7 @@
 	pixel_x = -10;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 10;
 	pixel_x = 7
 	},
@@ -75821,7 +75815,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /obj/structure/table/wood/poker,
@@ -78663,7 +78657,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /turf/open/floor/iron/dark/smooth_large,

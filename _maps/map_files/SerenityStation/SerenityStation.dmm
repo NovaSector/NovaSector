@@ -7129,7 +7129,7 @@
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /turf/open/floor/iron/dark,
@@ -18396,7 +18396,7 @@
 /obj/effect/turf_decal/trimline/purple/corner{
 	dir = 1
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -35961,7 +35961,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
-/obj/structure/altar_of_gods,
+/obj/structure/altar/of_gods,
 /obj/item/book/bible,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
@@ -36652,9 +36652,8 @@
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation)
 "kwl" = (
-/obj/structure/table/wood,
-/obj/item/storage/dice,
 /obj/machinery/light/directional/south,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "kwm" = (
@@ -39090,6 +39089,7 @@
 /obj/structure/table/wood,
 /obj/item/storage/box/rubbershot,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/storage/dice,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "liH" = (
@@ -41770,7 +41770,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /turf/open/floor/iron/dark,
@@ -44754,7 +44754,7 @@
 "mPc" = (
 /obj/structure/cable,
 /obj/structure/table,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/cup/glass/waterbottle{
@@ -66975,7 +66975,7 @@
 	pixel_x = -4;
 	pixel_y = 7
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_y = 3
 	},
 /turf/open/floor/iron,

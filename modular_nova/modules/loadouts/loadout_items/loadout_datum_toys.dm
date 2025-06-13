@@ -55,8 +55,7 @@
 
 /datum/loadout_item/toys/plush/lizard_greyscale
 	name = "Greyscale Lizard Plushie"
-	item_path = /obj/item/toy/plush/lizard_plushie
-	can_be_greyscale = TRUE
+	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
 
 /datum/loadout_item/toys/plush/moth
 	name = "Moth Plushie"
@@ -297,6 +296,24 @@
 /datum/loadout_item/toys/plush/plush_janiborg
 	name = "Friendly Janiborg Plush"
 	item_path = /obj/item/toy/plush/nova/donator/plush_janiborg
+
+//Staff plushies here
+
+/datum/loadout_item/toys/plush/plush_melon
+	name = "Melon Plushie"
+	item_path = /obj/item/toy/plush/nova/melon
+
+/datum/loadout_item/toys/plush/plush_parsec
+	name = "Engie Dog"
+	item_path = /obj/item/toy/plush/nova/parsec
+
+/datum/loadout_item/toys/plush/plush_nik
+	name = "Scary Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/akinshi
+
+/datum/loadout_item/toys/plush/plush_skaag
+	name = "Skaag Plushie"
+	item_path = /obj/item/toy/plush/nova/skaag
 
 /*
 *	CARDS

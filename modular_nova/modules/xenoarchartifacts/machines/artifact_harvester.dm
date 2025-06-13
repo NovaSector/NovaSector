@@ -35,23 +35,23 @@
 		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/artifact_harvester/attackby(obj/I, mob/user)
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
+/obj/machinery/artifact_harvester/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attacking_item))
 		update_appearance()
 		return
-	if(default_pry_open(I))
+	if(default_pry_open(attacking_item))
 		return
-	if(default_deconstruction_crowbar(I))
+	if(default_deconstruction_crowbar(attacking_item))
 		return
-	if(istype(I, /obj/item/xenoarch/particles_battery))
-		if(!inserted_battery && user.transferItemToLoc(I, src))
+	if(istype(attacking_item, /obj/item/xenoarch/particles_battery))
+		if(!inserted_battery && user.transferItemToLoc(attacking_item, src))
 			user.visible_message(
-				span_notice("[user] inserts [I] into [src]."),
-				span_notice("You insert [I] into [src]."),
+				span_notice("[user] inserts [attacking_item] into [src]."),
+				span_notice("You insert [attacking_item] into [src]."),
 				blind_message = span_hear("You hear click."),
 			)
 			playsound(src, 'sound/machines/crate/crate_open.ogg', 30, 10)
-			src.inserted_battery = I
+			src.inserted_battery = attacking_item
 			icon_state = "harvester_battery"
 			ui_interact(user)
 		else
