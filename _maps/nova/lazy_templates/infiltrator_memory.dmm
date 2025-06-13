@@ -1,23 +1,42 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/space/basic,
-/area/space)
-"p" = (
-/turf/open/indestructible,
-/area/space)
-"s" = (
-/turf/closed/indestructible/reinforced,
-/area/space)
-"u" = (
+/turf/open/floor/iron/dark,
+/area/infiltrator_memory)
+"h" = (
+/turf/open/floor/iron/dark,
+/area/infiltrator_memory/landing_pad)
+"n" = (
 /obj/effect/landmark/start/lone_infil,
-/turf/open/indestructible,
-/area/space)
-"y" = (
-/obj/item/flashlight/lamp/bananalamp,
-/turf/open/indestructible,
-/area/space)
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/iron/dark,
+/area/infiltrator_memory)
+"p" = (
+/obj/docking_port/stationary{
+	dir = 2;
+	roundstart_template = /datum/map_template/shuttle/lone_infil/default;
+	shuttle_id = "lone_infil";
+	width = 9;
+	height = 5;
+	dwidth = 4;
+	name = "Landing Pad"
+	},
+/turf/open/floor/iron/dark,
+/area/infiltrator_memory/landing_pad)
+"D" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/iron/dark,
+/area/infiltrator_memory)
+"Z" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/iron/dark,
+/area/infiltrator_memory/landing_pad)
 
 (1,1,1) = {"
+a
+a
+a
+a
+a
 a
 a
 a
@@ -60,10 +79,16 @@ a
 a
 a
 a
+a
+a
+a
+a
+a
 "}
 (3,1,1) = {"
 a
 a
+D
 a
 a
 a
@@ -72,16 +97,20 @@ a
 a
 a
 a
+D
 a
 a
 a
 a
 a
-a
-a
-a
-a
-a
+h
+h
+h
+h
+h
+Z
+h
+h
 "}
 (4,1,1) = {"
 a
@@ -101,9 +130,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (5,1,1) = {"
 a
@@ -123,9 +157,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (6,1,1) = {"
 a
@@ -145,9 +184,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (7,1,1) = {"
 a
@@ -156,6 +200,7 @@ a
 a
 a
 a
+D
 a
 a
 a
@@ -166,10 +211,14 @@ a
 a
 a
 a
-a
-a
-a
-a
+h
+Z
+h
+h
+h
+h
+h
+h
 "}
 (8,1,1) = {"
 a
@@ -179,19 +228,24 @@ a
 a
 a
 a
-s
-s
-s
-s
-s
-s
+a
+a
+a
+a
+D
 a
 a
 a
 a
 a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (9,1,1) = {"
 a
@@ -201,12 +255,6 @@ a
 a
 a
 a
-s
-p
-p
-p
-p
-s
 a
 a
 a
@@ -214,6 +262,17 @@ a
 a
 a
 a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (10,1,1) = {"
 a
@@ -223,12 +282,6 @@ a
 a
 a
 a
-s
-p
-y
-p
-p
-s
 a
 a
 a
@@ -236,6 +289,17 @@ a
 a
 a
 a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (11,1,1) = {"
 a
@@ -245,12 +309,6 @@ a
 a
 a
 a
-s
-p
-p
-u
-p
-s
 a
 a
 a
@@ -258,6 +316,17 @@ a
 a
 a
 a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (12,1,1) = {"
 a
@@ -267,12 +336,6 @@ a
 a
 a
 a
-s
-p
-p
-p
-p
-s
 a
 a
 a
@@ -280,28 +343,44 @@ a
 a
 a
 a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (13,1,1) = {"
 a
 a
+D
+a
+a
+a
+D
+a
+a
+a
+a
+n
 a
 a
 a
 a
 a
-s
-s
-s
-s
-s
-s
-a
-a
-a
-a
-a
-a
-a
+Z
+h
+p
+h
+h
+Z
+h
+h
 "}
 (14,1,1) = {"
 a
@@ -321,9 +400,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (15,1,1) = {"
 a
@@ -343,9 +427,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (16,1,1) = {"
 a
@@ -365,9 +454,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (17,1,1) = {"
 a
@@ -387,9 +481,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (18,1,1) = {"
 a
@@ -409,9 +508,14 @@ a
 a
 a
 a
-a
-a
-a
+h
+h
+h
+h
+h
+h
+h
+h
 "}
 (19,1,1) = {"
 a
@@ -425,6 +529,22 @@ a
 a
 a
 a
+D
+a
+a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
+"}
+(20,1,1) = {"
 a
 a
 a
@@ -432,10 +552,139 @@ a
 a
 a
 a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+h
+Z
+h
+h
+h
+h
+h
+h
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+h
+h
+"}
+(24,1,1) = {"
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+D
 a
 a
 "}
-(20,1,1) = {"
+(25,1,1) = {"
+a
+a
+a
+a
+a
 a
 a
 a

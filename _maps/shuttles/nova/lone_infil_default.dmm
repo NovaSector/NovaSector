@@ -1,0 +1,166 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cZ" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 6
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"dc" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"ie" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"qe" = (
+/obj/machinery/computer/shuttle/lone_infil{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"qu" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/lone_infil)
+"qQ" = (
+/obj/machinery/computer/security/telescreen{
+	dir = 4;
+	network = list("lone_infil_shuttle");
+	pixel_x = 32
+	},
+/obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"tO" = (
+/obj/machinery/button/door/directional/west{
+	id = "caravansyndicate1_bolt";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	req_access = list("syndicate");
+	specialfunctions = 4
+	},
+/obj/machinery/turretid{
+	ailock = 1;
+	desc = "A specially designed set of turret controls. Looks to be covered in protective casing to prevent AI interfacing.";
+	icon_state = "control_kill";
+	lethal = 1;
+	name = "Shuttle turret control";
+	req_access = list("syndicate");
+	pixel_x = 32;
+	control_area = /area/shuttle/lone_infil
+	},
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"vf" = (
+/obj/machinery/porta_turret/syndicate{
+	dir = 5
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"Jv" = (
+/turf/template_noop,
+/area/template_noop)
+"Nn" = (
+/obj/structure/table/reinforced/plastitaniumglass,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"UZ" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"Ve" = (
+/obj/machinery/camera/xray/directional/west{
+	c_tag = "External View";
+	network = list("lone_infil_shuttle");
+	pixel_x = 32
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/lone_infil)
+"Yi" = (
+/obj/machinery/door/airlock/hatch{
+	id_tag = "caravansyndicate1_bolt";
+	name = "External Airlock";
+	normalspeed = 0
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/docking_port/mobile/lone_infil{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/lone_infil)
+"YY" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/structure/closet/generic/wall/empty{
+	pixel_x = 32
+	},
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/machinery/light/floor,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/mapping_helpers/apc/full_charge,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+
+(1,1,1) = {"
+Jv
+Jv
+UZ
+qu
+Yi
+qu
+UZ
+Jv
+Jv
+"}
+(2,1,1) = {"
+Jv
+UZ
+qQ
+tO
+dc
+YY
+Nn
+UZ
+Jv
+"}
+(3,1,1) = {"
+ie
+qu
+qu
+qu
+qe
+qu
+qu
+qu
+ie
+"}
+(4,1,1) = {"
+qu
+ie
+Jv
+vf
+Ve
+cZ
+Jv
+ie
+qu
+"}
+(5,1,1) = {"
+ie
+Jv
+Jv
+Jv
+Jv
+Jv
+Jv
+Jv
+ie
+"}
