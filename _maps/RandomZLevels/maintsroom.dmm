@@ -10495,8 +10495,6 @@
 /area/awaymission/caves/maintsroom)
 "Oq" = (
 /obj/structure/safe/floor,
-/obj/item/robot_model/syndicate_medical,
-/obj/item/robot_model/ninja/ninja_medical,
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Os" = (

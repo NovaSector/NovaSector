@@ -427,7 +427,6 @@
 		/obj/item/borg/apparatus/sheet_manipulator,
 		/obj/item/stack/rods/cyborg,
 		/obj/item/lightreplacer, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
-		/obj/item/stack/tile/iron/base/cyborg,
 		/obj/item/construction/rtd/borg,
 		/obj/item/stack/cable_coil,
 	)
@@ -793,7 +792,7 @@
 /obj/item/robot_model/peacekeeper/do_transform_animation()
 	..()
 	to_chat(loc, span_userdanger("Under Safeguard, you are an enforcer of the PEACE and preventer of HARM. \
-	You are not a security member and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.")) // NOVA EDIT CHANGE - Changes 1st sentence verbiage off ASIMOV/HUMAN Focus - ORIGINAL: "Under ASIMOV, you are an enforcer of the PEACE and preventer of HUMAN HARM."
+		You are not a security member and you are expected to follow orders and prevent harm above all else. Space law means nothing to you.")) // NOVA EDIT CHANGE - Changes 1st sentence verbiage off ASIMOV/HUMAN Focus - ORIGINAL: "Under ASIMOV, you are an enforcer of the PEACE and preventer of HUMAN HARM."
 
 /obj/item/robot_model/security
 	name = "Security"

@@ -232,6 +232,7 @@
 /turf/open/floor/engine/insulation
 	name = "hyper-insulated floor"
 	desc = "Sturdy and completely heat-proof."
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "insulation"
 	thermal_conductivity = 0
 	floor_tile = /obj/item/stack/sheet/mineral/plastitanium

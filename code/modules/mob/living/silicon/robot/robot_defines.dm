@@ -161,7 +161,9 @@
 
 /mob/living/silicon/robot/model/Initialize(mapload)
 	. = ..()
+#ifndef UNIT_TESTS // NOVA EDIT ADDITION - race condition
 	INVOKE_ASYNC(model, TYPE_PROC_REF(/obj/item/robot_model, transform_to), set_model, TRUE)
+#endif // NOVA EDIT ADDITION
 
 /mob/living/silicon/robot/model/clown
 	set_model = /obj/item/robot_model/clown
