@@ -59,7 +59,7 @@
 		/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset = 1,
 		/obj/item/mod/module/surgical_processor/preloaded = 1,
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
-		/obj/item/storage/box/evilmeds = 1,
+		/obj/item/storage/box/evilmeds/interdyne = 1,
 		/obj/item/clothing/glasses/hud/health/night/science = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
 	)
@@ -197,11 +197,11 @@
 		return
 	var/static/list/items_inside = list(
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
-		/obj/item/reagent_containers/cup/beaker/meta/sal_acid = 1,
-		/obj/item/reagent_containers/cup/beaker/meta/salbutamol = 1,
-		/obj/item/reagent_containers/cup/beaker/meta/oxandrolone = 1,
-		/obj/item/reagent_containers/cup/beaker/meta/pen_acid = 1,
-		/obj/item/reagent_containers/cup/beaker/meta/rezadone = 1,
+		/obj/item/reagent_containers/cup/beaker/sal_acid = 1,
+		/obj/item/reagent_containers/cup/beaker/salbutamol = 1,
+		/obj/item/reagent_containers/cup/beaker/oxandrolone = 1,
+		/obj/item/reagent_containers/cup/beaker/pen_acid = 1,
+		/obj/item/reagent_containers/cup/beaker/rezadone = 1,
 	)
 	generate_items_inside(items_inside,src)
 
@@ -219,3 +219,48 @@
 	new /obj/item/clothing/gloves/combat/maid(src)
 	new /obj/item/clothing/accessory/maidcorset/syndicate(src)
 
+/obj/item/storage/box/evilmeds/interdyne
+	name = "box of Interdyne Medicines"
+	desc = "Contains a large number of beakers filled with premium medical supplies. Straight from Interdyne Pharmaceutics!"
+	icon_state = "syndiebox"
+	illustration = "beaker"
+
+/obj/item/storage/box/evilmeds/interdyne/PopulateContents()
+	var/static/list/items_inside = list(
+		/obj/item/reagent_containers/cup/beaker/omnizine = 1,
+		/obj/item/reagent_containers/cup/beaker/sal_acid = 1,
+		/obj/item/reagent_containers/cup/beaker/oxandrolone = 1,
+		/obj/item/reagent_containers/cup/beaker/pen_acid = 1,
+		/obj/item/reagent_containers/cup/beaker/atropine = 1,
+		/obj/item/reagent_containers/cup/beaker/salbutamol = 1,
+		/obj/item/reagent_containers/cup/beaker/rezadone = 1,
+	)
+	generate_items_inside(items_inside, src)
+
+/obj/item/reagent_containers/cup/beaker/omnizine
+	name = "Omnizine Beaker"
+	list_reagents = list(/datum/reagent/medicine/omnizine = 60)
+
+/obj/item/reagent_containers/cup/beaker/sal_acid
+	name = "Salicylic-Acid Beaker"
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 60)
+
+/obj/item/reagent_containers/cup/beaker/oxandrolone
+	name = "Oxandrolone Beaker"
+	list_reagents = list(/datum/reagent/medicine/oxandrolone = 60)
+
+/obj/item/reagent_containers/cup/beaker/pen_acid
+	name = "Pentetic Acid Beaker"
+	list_reagents = list(/datum/reagent/medicine/pen_acid = 60)
+
+/obj/item/reagent_containers/cup/beaker/atropine
+	name = "Atropine Beaker"
+	list_reagents = list(/datum/reagent/medicine/atropine = 60)
+
+/obj/item/reagent_containers/cup/beaker/salbutamol
+	name = "Salbutamol Beaker"
+	list_reagents = list(/datum/reagent/medicine/salbutamol = 60)
+
+/obj/item/reagent_containers/cup/beaker/rezadone
+	name = "Rezadone Beaker"
+	list_reagents = list(/datum/reagent/medicine/rezadone = 60)
