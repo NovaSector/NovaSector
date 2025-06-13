@@ -3,32 +3,6 @@
 	var/acts_as_if_wielded
 	/// This var is used by retool kits when changing the crusher's projectile appearance
 	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
-	/// This var is used to list the areas where the destabilizer is allowed to shoot.
-	var/static/list/allowed_areas_to_fire = typecacheof(list(
-			/area/forestplanet,
-			/area/icemoon,
-			/area/lavaland,
-			/area/ocean/generated,
-			/area/ruin,
-			/area/mine,
-	))
-
-/obj/item/kinetic_crusher/fire_kinetic_blast(atom/target, mob/living/user, list/modifiers)
-	if(!istype(user))
-		return
-#ifndef UNIT_TESTS
-	var/user_area = get_area(user)
-	if (!is_type_in_typecache(user_area, allowed_areas_to_fire))
-		user.balloon_alert(user, "destabilizer cannot be used here!")
-		return
-#endif
-	return ..()
-
-/obj/item/kinetic_crusher/examine(mob/living/user)
-	. = ..()
-	. += span_notice("The destabilizer only works on planetary surfaces, and specially stabilized mining areas.")
-	. += span_notice("The destabilizer can be enhanced by pushing it from behind while using a style meter, this will increase the \
-					destablization power and make backstab count from any direction.")
 
 /obj/item/kinetic_crusher/machete
 	icon = 'modular_nova/modules/mining_crushers/icons/items_and_weapons.dmi'
