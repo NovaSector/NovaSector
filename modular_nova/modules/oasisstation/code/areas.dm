@@ -178,3 +178,18 @@
 
 /area/station/maintenance/abandon_night_club
 	name = "\improper Abandoned Night Club"
+
+/area/station/engineering/thermogenerator
+	name = "\improper Thermogenerator Room"
+
+/area/station/maintenance/thermogenerator/observation
+	name = "\improper Thermogenerator Observation"
+
+/area/station/maintenance/thermogenerator/cold
+	name = "\improper Cold Chamber Control"
+
+/area/station/maintenance/thermogenerator/burn
+	name = "\improper Burn Chamber Control"
+
+/area/station/engineering/bioelectric
+	name = "\improper Bioelectric Generator Room"
