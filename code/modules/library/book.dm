@@ -90,7 +90,7 @@
 
 	user.add_mood_event("book_nerd", /datum/mood_event/book_nerd)
 	user.mind.book_titles_read[starting_title] = TRUE
-	user.mind?.adjust_experience(/datum/skill/language, 10) // NOVA EDIT ADDITION - you'd need to read 150 books to get to legendary...
+	user.mind?.adjust_experience(/datum/skill/language, check_reading_exp(user)) // NOVA EDIT ADDITION - you'd need to read 150 books to get to legendary...
 
 /obj/item/book/attack_self(mob/user)
 	if(!can_read_book(user))
@@ -99,7 +99,7 @@
 	user.visible_message(span_notice("[user] opens a book titled \"[book_data.title]\" and begins reading intently."))
 	display_content(user)
 
-/obj/item/book/attackby(obj/item/attacking_item, mob/living/user, list/modifiers)
+/obj/item/book/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(IS_WRITING_UTENSIL(attacking_item))
 		if(!user.can_perform_action(src) || !user.can_write(attacking_item))
 			return

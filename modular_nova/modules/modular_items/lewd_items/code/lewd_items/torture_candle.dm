@@ -62,8 +62,8 @@
 	icon_state = "[base_icon_state]_[current_color]_[lit ? "lit" : "off"]"
 	inhand_icon_state = "[base_icon_state]_[current_color]_[lit ? "lit" : "off"]"
 
-/obj/item/bdsm_candle/attackby(obj/item/object, mob/user, params)
-	var/msg = object.ignition_effect(src, user)
+/obj/item/bdsm_candle/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	var/msg = attacking_item.ignition_effect(src, user)
 	update_brightness()
 	if(msg)
 		light(msg)

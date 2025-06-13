@@ -129,9 +129,10 @@
 	. = ..()
 	atom_storage?.show_contents(user)
 
-/obj/vehicle/ridden/rail_cart/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(istype(tool, /obj/item/stack/ore/glass))
-		if(has_sand || !tool.use(10))
+/obj/vehicle/ridden/rail_cart/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/use_item = attacking_item
+		if(has_sand || !use_item.use(10))
 			return ..()
 
 		connected_farm = AddComponent(/datum/component/simple_farm, TRUE, TRUE, list(0, 24))
