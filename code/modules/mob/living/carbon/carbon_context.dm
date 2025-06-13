@@ -23,7 +23,6 @@
 		if (backpack && backpack.GetComponent(/datum/component/accessable_storage))
 			context[SCREENTIP_CONTEXT_ALT_LMB] = "Open storage"
 		// NOVA ADDITION END
-
 	if (human_user != src)
 		context[SCREENTIP_CONTEXT_RMB] = "Shove"
 
