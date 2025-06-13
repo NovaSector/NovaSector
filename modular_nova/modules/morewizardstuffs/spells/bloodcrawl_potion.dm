@@ -15,7 +15,7 @@
 	var/owner_area = get_area(owner)
 	if (!is_type_in_typecache(owner_area, allowed_areas) || is_type_in_typecache(owner_area, disallowed_areas))
 		if(feedback)
-			owner.balloon_alert(owner, failure_message)
+			to_chat(owner, failure_message)
 		return FALSE
 	return ..()
 
@@ -60,5 +60,5 @@
 	if(loc != oldloc)
 		var/user_area = get_area(user)
 		if (!is_type_in_typecache(user_area, allowed_areas) || is_type_in_typecache(user_area, disallowed_areas))
-			user.balloon_alert(user, "You are forcibly ejected!")
+			to_chat(user, "You are forcibly ejected!")
 			eject_jaunter(TRUE)
