@@ -116,6 +116,7 @@
 	desc = "A segment of meat seasoned with nakati spice and dehydrated. Makes for a tasty, chewy snack."
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "spiced_jerky"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
 		/datum/reagent/consumable/nutriment/protein = 6
@@ -130,6 +131,7 @@
 	desc = "Meat and cabbage seasoned with nakati spice and wrapped tightly in flattened piru bread. Simple, light, delicious."
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "sirisai_wrap"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
 		/datum/reagent/consumable/nutriment/protein = 6,
@@ -162,6 +164,7 @@
 	desc = "Spiced meat mixed with finely sliced piru pasta and minced chili all drizzled in piru jelly sauce, just the perfect balance of spicy and sweet."
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "kiri_curry"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -179,6 +182,7 @@
 	desc = "Piru flatbread grilled until crispy and topped with meat, chopped muli pods, and tomato sauce. Looks similar to a pizza, but way more purple and blue. Can be sliced!"
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "sirisai_flatbread"
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 24,
 		/datum/reagent/consumable/nutriment/protein = 16,
@@ -244,6 +248,7 @@
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "stewed_muli"
 	trash_type = /obj/item/reagent_containers/cup/bowl
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
 		/datum/reagent/consumable/nutriment/protein = 8,
@@ -260,6 +265,7 @@
 	desc = "A cooked muli pod, now stuffed with meat, minced kiri fruit, and chili. Chewy sweet and spicy all in one!"
 	icon = 'modular_nova/master_files/icons/obj/food/irnbru.dmi'
 	icon_state = "stuffed_muli_pod"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
 		/datum/reagent/consumable/nutriment/protein = 4,
