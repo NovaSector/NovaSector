@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `donators`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `donators` (
   `email` VARCHAR(320) NOT NULL,
-  `total_donated` DECIMAL(6,2) NOT NULL,
+  `total_donated` DECIMAL(7,2) NOT NULL,
   `ckey` VARCHAR(32) NULL DEFAULT NULL,
   `donation_donator_slots` int(4) NOT NULL DEFAULT '0',
   `bonus_donator_slots` int(4) NOT NULL DEFAULT '0',
@@ -102,11 +102,13 @@ DROP TABLE IF EXISTS `donations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `donations` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `email` VARCHAR(320) NOT NULL,
   `donation_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `amount` DECIMAL(6,2) NOT NULL,
-	`donation_type` ENUM('Donation', 'Subscription', 'Shop Order') NOT NULL DEFAULT 'Donation',
-  PRIMARY KEY (`email`, `donation_date`)
+  `donation_type` ENUM('Donation', 'Subscription', 'Shop Order') NOT NULL DEFAULT 'Donation',
+  INDEX(`email`),
+  INDEX(`donation_date`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
