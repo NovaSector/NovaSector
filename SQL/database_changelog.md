@@ -71,7 +71,7 @@ CREATE TABLE `donations` (
   `amount` DECIMAL(6,2) NOT NULL,
   `donation_type` ENUM('Donation', 'Subscription', 'Shop Order') NOT NULL DEFAULT 'Donation',
   INDEX(`email`),
-  INDEX(`donation_date`),
+  INDEX(`donation_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
