@@ -147,7 +147,7 @@
 		atom_storage.locked = STORAGE_FULLY_LOCKED
 		return ITEM_INTERACT_SUCCESS
 
-	if(tool.tool_behaviour == TOOL_SHOVEL)
+	if(use_item.tool_behaviour == TOOL_SHOVEL)
 		if(!connected_farm)
 			return ..()
 
