@@ -2614,7 +2614,7 @@
 /turf/open/floor/carpet,
 /area/station/medical/patients_rooms)
 "aBl" = (
-/obj/structure/altar_of_gods,
+/obj/structure/altar/of_gods,
 /obj/structure/railing{
 	dir = 4
 	},
