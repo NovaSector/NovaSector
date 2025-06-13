@@ -59,7 +59,6 @@
 	icon_state = "blueshieldsoft"
 	soft_type = "blueshield"
 	inhand_icon_state = "greyscale_softcap"
-	greyscale_colors = "#3A4E7D#DEB63D"
 	armor_type = /datum/armor/cosmetic_sec
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
