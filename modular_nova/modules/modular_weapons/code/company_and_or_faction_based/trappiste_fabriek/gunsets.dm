@@ -2,13 +2,9 @@
 
 /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case
 	desc = "A thick yellow gun case with foam inserts laid out to fit a weapon, magazines, and gear securely. The five square grid of Trappiste Fabriek is displayed prominently on the top."
-
-	icon = 'modular_nova/modules/modular_weapons/icons/obj/gunsets.dmi'
 	icon_state = "case_trappiste"
-
-	lefthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/modular_weapons/icons/mob/inhands/cases_righthand.dmi'
-	inhand_icon_state = "yellowcase"
+	worn_icon_state = "carwocase"
+	inhand_icon_state = "carwocase"
 
 // Empty version of the case
 
