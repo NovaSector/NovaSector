@@ -31,6 +31,11 @@
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
 
+	/// If we can lay down. For types with no loaf sprite this should be set to FALSE.
+	var/can_lay_down = FALSE
+	/// The offset we get from laying down. Negative values move us down
+	var/laydown_offset = 0
+
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
 	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 	if (taur_body?.hide_self)
@@ -60,7 +65,6 @@
 
 	return FALSE
 
-
 /datum/sprite_accessory/taur/none
 	name = SPRITE_ACCESSORY_NONE
 	dimension_x = 32
@@ -75,11 +79,14 @@
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
 	color_src = USE_ONE_COLOR
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/cow/spotted
 	name = "Cow (Spotted)"
 	icon_state = "cow_spotted"
 	color_src = USE_MATRIXED_COLORS
+	can_lay_down = FALSE
 
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
@@ -87,20 +94,27 @@
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
 	organ_type = /obj/item/organ/taur_body/horselike/deer
+	can_lay_down = TRUE
+	laydown_offset = -4
 
 /datum/sprite_accessory/taur/drake
 	name = "Drake"
 	icon_state = "drake"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/drake/old
 	name = "Drake (Old)"
 	icon_state = "drake_old"
+	can_lay_down = FALSE
 
 /datum/sprite_accessory/taur/tarantula
 	name = "Tarantula"
 	icon_state = "tarantula"
 	organ_type = /obj/item/organ/taur_body/spider
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/drider
 	name = "Drider"
@@ -117,6 +131,8 @@
 	icon_state = "horse"
 	taur_mode = STYLE_TAUR_HOOF
 	alt_taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/naga
 	name = "Naga"
@@ -138,6 +154,8 @@
 	name = "Otie"
 	icon_state = "otie"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -4
 
 /datum/sprite_accessory/taur/pede
 	name = "Scolipede"
@@ -161,11 +179,15 @@
 	name = "Canine"
 	icon_state = "canine"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -3
 
 /datum/sprite_accessory/taur/feline
 	name = "Feline"
 	icon_state = "feline"
 	taur_mode = STYLE_TAUR_PAW
+	can_lay_down = TRUE
+	laydown_offset = -4
 
 /datum/sprite_accessory/taur/goop
 	name = "Goop"

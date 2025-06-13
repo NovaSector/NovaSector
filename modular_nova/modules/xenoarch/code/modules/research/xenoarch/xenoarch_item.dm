@@ -10,7 +10,7 @@
 	magnified_number = rand(1,8)
 	icon_state = "useless[magnified_number]"
 
-/obj/item/xenoarch/useless_relic/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/xenoarch/useless_relic/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/glassblowing/magnifying_glass))
 		if(istype(src, /obj/item/xenoarch/useless_relic/magnified))
 			balloon_alert(user, "already magnified!")

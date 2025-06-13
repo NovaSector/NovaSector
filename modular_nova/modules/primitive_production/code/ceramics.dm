@@ -26,9 +26,9 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	. = ..()
 	. += GLOB.clay_recipes
 
-/obj/structure/water_source/puddle/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_item = O
+/obj/structure/water_source/puddle/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_item = attacking_item
 		if(!glass_item.use(1))
 			return
 
@@ -38,9 +38,9 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 	return ..()
 
-/turf/open/water/attackby(obj/item/C, mob/user, params)
-	if(istype(C, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_item = C
+/turf/open/water/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_item = attacking_item
 		if(!glass_item.use(1))
 			return
 
@@ -50,15 +50,15 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 
 	return ..()
 
-/obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
-	if(istype(O, /obj/item/stack/ore/glass))
+/obj/structure/sink/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/stack/ore/glass))
 		if(dispensedreagent != /datum/reagent/water)
 			return
 
 		if(reagents.total_volume <= 0)
 			return
 
-		var/obj/item/stack/ore/glass/glass_item = O
+		var/obj/item/stack/ore/glass/glass_item = attacking_item
 		if(!glass_item.use(1))
 			return
 
@@ -72,7 +72,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	var/forge_item
 
-/obj/item/ceramic/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/ceramic/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/toy/crayon))
 		var/obj/item/toy/crayon/crayon_item = attacking_item
 		if(!forge_item || !crayon_item.paint_color)
@@ -257,7 +257,7 @@ GLOBAL_LIST_INIT(clay_recipes, list ( \
 		"You stop the throwing wheel, admiring your new creation...",
 	)
 
-/obj/structure/throwing_wheel/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/structure/throwing_wheel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/stack/clay))
 		if(has_clay)
 			return

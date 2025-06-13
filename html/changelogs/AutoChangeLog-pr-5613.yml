@@ -1,0 +1,5 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - bugfix: "Fixes the interaction-chain of accessible storage (search panel won't show up when opening someone's saddle-bags)"
+  - qol: "A screentip will show up when you can access someone's storage"
