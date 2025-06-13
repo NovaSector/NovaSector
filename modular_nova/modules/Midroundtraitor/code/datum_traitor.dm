@@ -1,26 +1,59 @@
+//map
+/datum/lazy_template/infiltrator_memory
+	key = LAZY_TEMPLATE_KEY_INFIL_MEMORY
+	map_dir = "_maps/nova/lazy_templates"
+	map_name = "infiltrator_memory"
+
+//map spawn landmark
+/obj/effect/landmark/start/lone_infil/Initialize(mapload)
+	..()
+	GLOB.lone_infil_start += loc
+	return INITIALIZE_HINT_QDEL
+
+//antag job
+/datum/job/lone_infiltrator
+	title = ROLE_LONE_INFILTRATOR
+
+//antag
 /datum/antagonist/traitor/lone_infiltrator
 	name = "Lone Infiltrator"
-	var/infil_outfit = /datum/outfit/syndicateinfiltrator
-	preview_outfit = /datum/outfit/lone_infiltrator_preview
 	job_rank = ROLE_LONE_INFILTRATOR
+	roundend_category = "Infiltrators"
+	preview_outfit = /datum/outfit/lone_infiltrator_preview
+	give_uplink = FALSE
+	///The turf inside the lazy_template marked as this antag's spawn
+	var/turf/spawnpoint
 
 /datum/antagonist/traitor/lone_infiltrator/on_gain()
-	var/mob/living/carbon/human/current = owner.current
-	current.equipOutfit(infil_outfit)
-	var/chosen_name = generate_random_name_species_based(current.gender, TRUE, species_type = current.dna.species.type)
-	current.fully_replace_character_name(current.real_name, chosen_name)
+	equip_guy()
+	move_to_spawnpoint()
 	return ..()
+
+/datum/antagonist/traitor/lone_infiltrator/proc/equip_guy()
+	var/mob/living/carbon/human/lone_infil = owner.current
+	lone_infil.equipOutfit(/datum/outfit/lone_infiltrator)
+	return
+
+/datum/antagonist/traitor/lone_infiltrator/proc/set_spawnpoint(infil_number)
+	spawnpoint = GLOB.lone_infil_start[infil_number]
+
+/datum/antagonist/traitor/lone_infiltrator/proc/move_to_spawnpoint()
+	owner.current.forceMove(spawnpoint)
+
+//outfits
+/datum/outfit/lone_infiltrator
+	name = "Syndicate Operative - Infiltrator"
+
+	uniform = /obj/item/clothing/under/syndicate
+	shoes = /obj/item/clothing/shoes/combat
+	gloves =  /obj/item/clothing/gloves/combat
+	ears = /obj/item/radio/headset/syndicate/alt
+	id = /obj/item/card/id/advanced/chameleon
+	id_trim = /datum/id_trim/chameleon/operative
+
+/datum/outfit/lone_infiltrator/post_equip(mob/living/carbon/human/equipped)
+	equipped.faction |= ROLE_SYNDICATE
+	SSquirks.AssignQuirks(equipped, equipped.client, TRUE, TRUE, null, FALSE, equipped)
 
 /datum/outfit/lone_infiltrator_preview
 	name = "Lone Infiltrator (Preview only)"
-
-	back = /obj/item/mod/control/pre_equipped/empty/syndicate
-	uniform = /obj/item/clothing/under/syndicate
-	l_hand = /obj/item/shield/energy
-	r_hand = /obj/item/gun/ballistic/automatic/c20r
-
-/datum/outfit/lone_infiltrator_preview/post_equip(mob/living/carbon/human/equipped_person, visualsOnly)
-	var/obj/item/mod/module/armor_booster/booster = locate() in equipped_person.back
-	booster.activate()
-	var/obj/item/shield/energy/e_shield = locate() in equipped_person.contents
-	e_shield.icon_state = "[initial(e_shield.icon_state)]_on"

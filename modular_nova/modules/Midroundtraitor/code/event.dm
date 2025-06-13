@@ -23,57 +23,36 @@
 	weight = 4 //Slightly less common than normal midround traitors.
 	cost = 4 //But also slightly more costly.
 	minimum_players = 10
-	var/list/spawn_locs = list()
-
-/datum/dynamic_ruleset/midround/from_ghosts/lone_infiltrator/execute()
-	for(var/obj/effect/landmark/carpspawn/carp in GLOB.landmarks_list)
-		spawn_locs += carp.loc
-	if(!length(spawn_locs))
-		message_admins("No valid spawn locations found, aborting...")
-		return MAP_ERROR
-	return ..()
+	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_INFIL_MEMORY)
+	///Amount of infiltrators spawned in the round
+	var/infil_number = 1
 
 /datum/dynamic_ruleset/midround/from_ghosts/lone_infiltrator/generate_ruleset_body(mob/applicant)
+	var/mob/living/carbon/human/new_character = make_body(applicant)
+	new_character.client.prefs.safe_transfer_prefs_to(new_character)
+	new_character.dna.update_dna_identity()
+	new_character.regenerate_icons()
+	new_character.dna.species.pre_equip_species_outfit(null, new_character)
 	var/datum/mind/player_mind = new /datum/mind(applicant.key)
-
-	var/mob/living/carbon/human/operative = new(pick(spawn_locs))
-	applicant.client.prefs.safe_transfer_prefs_to(operative)
-	operative.dna.update_dna_identity()
-	operative.dna.species.pre_equip_species_outfit(null, operative)
-	operative.regenerate_icons()
-	SSquirks.AssignQuirks(operative, applicant.client, TRUE, TRUE, null, FALSE, operative)
-	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/lone_operative))
-	player_mind.special_role = "Lone Infiltrator"
 	player_mind.active = TRUE
-	player_mind.transfer_to(operative)
-	player_mind.add_antag_datum(/datum/antagonist/traitor/lone_infiltrator)
 
-	message_admins("[ADMIN_LOOKUPFLW(operative)] has been made into lone infiltrator by midround ruleset.")
-	log_game("[key_name(operative)] was spawned as a lone infiltrator by midround ruleset.")
-	return operative
+	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into lone infiltrator by midround ruleset.")
+	log_game("[key_name(new_character)] was spawned as a lone infiltrator by midround ruleset.")
+	return new_character
 
-//OUTFIT//
-/datum/outfit/syndicateinfiltrator
-	name = "Syndicate Operative - Infiltrator"
+/datum/dynamic_ruleset/midround/from_ghosts/lone_infiltrator/finish_setup(mob/new_character, index)
+	. = ..()
+	new_character.mind.special_role = ROLE_SYNDICATE
+	new_character.mind.set_assigned_role(SSjob.get_job_type(/datum/job/lone_infiltrator))
 
-	uniform = /obj/item/clothing/under/syndicate
-	shoes = /obj/item/clothing/shoes/combat
-	gloves =  /obj/item/clothing/gloves/combat
-	ears = /obj/item/radio/headset/syndicate/alt
-	id = /obj/item/card/id/advanced/chameleon
-	glasses = /obj/item/clothing/glasses/night
-	mask = /obj/item/clothing/mask/gas/syndicate
-	back = /obj/item/mod/control/pre_equipped/nuclear/chameleon
-	r_pocket = /obj/item/tank/internals/emergency_oxygen/engi
-	internals_slot = ITEM_SLOT_RPOCKET
-	belt = /obj/item/storage/belt/military
-	backpack_contents = list(/obj/item/storage/box/survival/syndie=1,\
-		/obj/item/tank/jetpack/oxygen/harness=1,\
-		/obj/item/gun/ballistic/automatic/pistol=1,\
-		/obj/item/knife/combat/survival)
-
-	id_trim = /datum/id_trim/chameleon/operative
-
-/datum/outfit/syndicateinfiltrator/post_equip(mob/living/carbon/human/H)
-	H.faction |= ROLE_SYNDICATE
-	H.update_icons()
+/datum/dynamic_ruleset/midround/from_ghosts/lone_infiltrator/setup_role(datum/antagonist/traitor/lone_infiltrator/role)
+	//get our number
+	for(var/datum/dynamic_ruleset/midround/from_ghosts/lone_infiltrator/ruleset as anything in SSdynamic.executed_rules)
+		infil_number++
+	//load the map, if its the first time running don't force
+	if(infil_number == 1)
+		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_INFIL_MEMORY)
+	else
+		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_INFIL_MEMORY, TRUE)
+	//set our spawnpoint
+	role.set_spawnpoint(infil_number)
