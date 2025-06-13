@@ -35961,7 +35961,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
-/obj/structure/altar_of_gods,
+/obj/structure/altar/of_gods,
 /obj/item/book/bible,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
