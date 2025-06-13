@@ -14,7 +14,6 @@
 /obj/docking_port/stationary{
 	dir = 2;
 	roundstart_template = /datum/map_template/shuttle/lone_infil/default;
-	shuttle_id = "lone_infil";
 	width = 9;
 	height = 5;
 	dwidth = 4;

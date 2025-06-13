@@ -8213,6 +8213,7 @@
 #include "modular_nova\modules\lone_infiltrator\code\lone_infil_dynamic.dm"
 #include "modular_nova\modules\lone_infiltrator\code\lone_infil_map.dm"
 #include "modular_nova\modules\lone_infiltrator\code\lone_infil_outfit.dm"
+#include "modular_nova\modules\lone_infiltrator\code\lone_infil_voucher_list.dm"
 #include "modular_nova\modules\lorecaster\code\archive_viewer.dm"
 #include "modular_nova\modules\lorecaster\code\config.dm"
 #include "modular_nova\modules\lorecaster\code\story_manager.dm"

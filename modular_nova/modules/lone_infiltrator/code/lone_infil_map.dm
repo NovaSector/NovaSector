@@ -1,3 +1,10 @@
+//voucher redeemers
+/obj/machinery/computer/voucher_redeemer
+
+/obj/machinery/computer/voucher_redeemer/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/voucher_redeemer, /obj/item/paper/paperslip/corporate/syndicate, /datum/voucher_set/lone_infil)
+
 //shuttle
 /datum/map_template/shuttle/lone_infil
 	port_id = "lone_infil"

@@ -1,6 +1,27 @@
+//item vouchers
+/obj/item/paper/paperslip/corporate/syndicate
+	name = "item voucher"
+	desc = "A plastic card used to redeem equipment, this one is blank."
+	icon_state = "voucher_blank"
+	icon = 'modular_nova/modules/lone_infiltrator/icons/voucher.dmi'
+	show_written_words = FALSE
+
+//mannequin presets
+/obj/structure/mannequin/plastic/lone_infil_memory //abstract type
+
+/obj/structure/mannequin/plastic/lone_infil_memory/maid
+	starting_items = list(
+		/obj/item/clothing/head/costume/maidheadband/syndicate,
+		/obj/item/clothing/under/syndicate/nova/maid,
+		/obj/item/clothing/gloves/combat/maid,
+		/obj/item/clothing/shoes/laceup,
+		)
+
 //outfits
 /datum/outfit/lone_infiltrator
 	name = "Syndicate Operative - Infiltrator"
+
+	r_hand = /obj/item/paper/paperslip/corporate/syndicate
 
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/combat

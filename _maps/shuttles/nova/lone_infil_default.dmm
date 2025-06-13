@@ -1,7 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "cZ" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 6
+/obj/machinery/camera/xray/directional/south{
+	pixel_y = 32;
+	c_tag = "External View Port-Side";
+	network = list("lone_infil_shuttle")
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
@@ -10,54 +12,67 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/turf_decal/box/red/corners,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "ie" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
+"nT" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/lone_infil)
 "qe" = (
 /obj/machinery/computer/shuttle/lone_infil{
 	dir = 8
 	},
+/obj/structure/cable,
+/obj/effect/turf_decal/delivery/red,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "qu" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/lone_infil)
 "qQ" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil,
+/obj/effect/turf_decal/delivery/red,
+/obj/machinery/light/small/red/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/lone_infil)
+"tO" = (
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
 /obj/machinery/computer/security/telescreen{
 	dir = 4;
 	network = list("lone_infil_shuttle");
 	pixel_x = 32
 	},
-/obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil,
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
-"tO" = (
-/obj/machinery/button/door/directional/west{
-	id = "caravansyndicate1_bolt";
-	name = "External Bolt Control";
-	normaldoorcontrol = 1;
-	req_access = list("syndicate");
-	specialfunctions = 4
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
 	},
-/obj/machinery/turretid{
-	ailock = 1;
-	desc = "A specially designed set of turret controls. Looks to be covered in protective casing to prevent AI interfacing.";
-	icon_state = "control_kill";
-	lethal = 1;
-	name = "Shuttle turret control";
-	req_access = list("syndicate");
-	pixel_x = 32;
-	control_area = /area/shuttle/lone_infil
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
 	},
-/obj/structure/cable,
-/obj/machinery/light/floor,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "vf" = (
-/obj/machinery/porta_turret/syndicate{
-	dir = 5
+/obj/machinery/camera/xray/directional/north{
+	pixel_y = -32;
+	network = list("lone_infil_shuttle");
+	c_tag = "External View Starboard-Side"
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
@@ -66,6 +81,10 @@
 /area/template_noop)
 "Nn" = (
 /obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/cable,
+/obj/machinery/recharger,
+/obj/effect/turf_decal/bot_red,
+/obj/machinery/light/small/red/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "UZ" = (
@@ -75,16 +94,17 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "Ve" = (
-/obj/machinery/camera/xray/directional/west{
-	c_tag = "External View";
-	network = list("lone_infil_shuttle");
-	pixel_x = 32
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 4;
+	id = "lone_infil_shutter"
 	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/turf/open/floor/plating,
 /area/shuttle/lone_infil)
 "Yi" = (
 /obj/machinery/door/airlock/hatch{
-	id_tag = "caravansyndicate1_bolt";
+	id_tag = "lone_infil_bolt";
 	name = "External Airlock";
 	normalspeed = 0
 	},
@@ -97,48 +117,58 @@
 /area/shuttle/lone_infil)
 "YY" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/machinery/light/floor,
+/obj/machinery/button/door/directional/west{
+	id = "lone_infil_bolt";
+	name = "External Bolt Control";
+	normaldoorcontrol = 1;
+	req_access = list("syndicate");
+	specialfunctions = 4;
+	pixel_y = 8
+	},
+/obj/machinery/button/door/directional/west{
+	id = "lone_infil_shutter";
+	name = "External Shutter Control";
+	req_access = list("syndicate");
+	pixel_y = -10
+	},
 /obj/structure/closet/generic/wall/empty{
 	pixel_x = 32
 	},
-/obj/effect/mapping_helpers/apc/cell_10k,
-/obj/machinery/light/floor,
-/obj/effect/mapping_helpers/apc/cut_AI_wire,
-/obj/effect/mapping_helpers/apc/full_charge,
+/obj/item/crowbar,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 
 (1,1,1) = {"
 Jv
-Jv
-UZ
+ie
+nT
 qu
 Yi
 qu
-UZ
-Jv
+nT
+ie
 Jv
 "}
 (2,1,1) = {"
-Jv
 UZ
+qu
 qQ
 tO
 dc
 YY
 Nn
+qu
 UZ
-Jv
 "}
 (3,1,1) = {"
-ie
+qu
 qu
 qu
 qu
 qe
 qu
-qu
+Ve
 qu
 ie
 "}
@@ -146,15 +176,15 @@ ie
 qu
 ie
 Jv
-vf
+ie
 Ve
-cZ
+ie
 Jv
 ie
 qu
 "}
 (5,1,1) = {"
-ie
+cZ
 Jv
 Jv
 Jv
@@ -162,5 +192,5 @@ Jv
 Jv
 Jv
 Jv
-ie
+vf
 "}
