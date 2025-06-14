@@ -50,7 +50,6 @@
 		overlay.pixel_w = 0
 		overlay.pixel_z = 0
 	// NOVA EDIT ADDITION END
-
 	overlay.pixel_w += offset["x"]
 	overlay.pixel_z += offset["y"]
 
