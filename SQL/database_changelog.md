@@ -2,23 +2,33 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.33 (5.31 for /tg/);; The query to update the schema revision table is:
+The latest database version is 5.34 (5.32 for /tg/);; The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 33);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 34);
 ```
 
 or
 
 ```sql
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 33);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 34);
 ```
 
 In any query remember to add a prefix to the table names if you use one.
 
 ---
 
-Version 5.30, 3 May 2025, by Atlanta-Ned
+Version 5.34, 31 May 2025, by TealSeer
+Change column name of `manifest` table because `character` is a reserved word.
+
+```sql
+ALTER TABLE `manifest`
+	RENAME COLUMN `character` TO `character_name`;
+```
+
+---
+
+Version 5.33, 3 May 2025, by Atlanta-Ned
 Adds a `manifest` table.
 
 ```sql
@@ -39,7 +49,7 @@ CREATE TABLE `manifest` (
 
 ---
 
-Version 5.30, 1 May 2025, by Rengan
+Version 5.32, 1 May 2025, by Rengan
 Adds `crime_desc` field to the `citation` table to save the description of the crime.
 
 ```sql
@@ -49,7 +59,7 @@ ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
 
 ---
 
-Version 5.29, 4 February 2024, by Tiviplus
+Version 5.31, 4 February 2024, by Tiviplus
 Fixed admin rank table flags being capped at 16 in the DB instead of 24 (byond max)
 
 ```sql
@@ -61,7 +71,7 @@ ALTER TABLE `admin_ranks`
 
 ---
 
-Version 5.28, 1 November 2024, by Ghommie
+Version 5.30, 1 November 2024, by Ghommie
 Added `fish_progress` as the first 'progress' subtype of 'datum/award/scores'
 
 ```sql

@@ -58,21 +58,13 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedshoe")
 
-/* //NOVA EDIT REMOVAL BEGIN - DIGI_BLOODSOLE - (Moved to modular_nova/modules/digi_shoeblood/code/modules/clothing/shoes/_shoes.dm)
-/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
+/obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file, mutant_styles = NONE) // NOVA EDIT CHANGE - ORIGINAL: /obj/item/clothing/shoes/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	. = ..()
-	if(isinhands)
+	if (isinhands)
 		return
-	if(GET_ATOM_BLOOD_DNA_LENGTH(src))
-		if(clothing_flags & LARGE_WORN_ICON)
-			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
-			blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
-			. += blood_overlay
-		else
-			var/mutable_appearance/blood_overlay = mutable_appearance('icons/effects/blood.dmi', "shoeblood")
-			blood_overlay.color = get_blood_dna_color(GET_ATOM_BLOOD_DNA(src))
-			. += blood_overlay
-*/ //NOVA EDIT REMOVAL END
+	var/blood_overlay = get_blood_overlay("shoe", mutant_styles) // NOVA EDIT CHANGE - ORIGINAL: var/blood_overlay = get_blood_overlay("shoe")
+	if (blood_overlay)
+		. += blood_overlay
 
 /obj/item/clothing/shoes/examine(mob/user)
 	. = ..()

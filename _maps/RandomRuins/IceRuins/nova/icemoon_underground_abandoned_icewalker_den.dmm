@@ -108,7 +108,7 @@
 /turf/open/misc/dirt/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "dw" = (
-/obj/effect/decal/cleanable/blood/trails{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 4
 	},
 /turf/open/misc/asteroid/snow/icemoon,
@@ -608,7 +608,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "tT" = (
-/obj/effect/decal/cleanable/blood/trails,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/abandoned_hearth)
 "tU" = (
@@ -854,7 +854,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/trails{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 4
 	},
 /turf/open/misc/dirt/icemoon,

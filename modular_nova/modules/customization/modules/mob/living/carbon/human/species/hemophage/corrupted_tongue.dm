@@ -66,8 +66,8 @@
 		hemophage.balloon_alert(hemophage, "needs a living victim!")
 		return FALSE
 
-	if(!victim.blood_volume || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || victim.dna.species.exotic_blood)))
-		hemophage.balloon_alert(hemophage, "[victim] doesn't have blood!")
+	if(!victim.blood_volume || (victim.dna && ((HAS_TRAIT(victim, TRAIT_NOBLOOD)) || (victim.get_blood_reagent() != hemophage.get_blood_reagent()))))
+		hemophage.balloon_alert(hemophage, "[victim] doesn't have suitable blood!")
 		return FALSE
 
 	if(victim.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 0))

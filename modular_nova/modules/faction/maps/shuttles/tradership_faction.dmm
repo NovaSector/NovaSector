@@ -433,7 +433,7 @@
 /area/shuttle/trader/engine)
 "aN" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating,
@@ -2139,7 +2139,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "dr" = (
@@ -2660,12 +2660,12 @@
 /area/shuttle/trader/bar)
 "el" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating,
 /area/shuttle/trader/engine)
 "em" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "fa" = (
