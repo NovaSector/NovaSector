@@ -2,6 +2,7 @@
 	name = "Detached Fastenings"
 	desc = "Various fastening devices are extremely loose and solder has disconnected at multiple points, causing significant jostling of internal components and \
 	noticable limb dysfunction."
+	treat_text_short = "Repair surgically, start with a screwdriver and follow the instructions, use gauze to reduce negative effects."
 	treat_text = "Fastening of bolts and screws by a qualified technician (though bone gel may suffice in the absence of one) followed by re-soldering."
 	examine_desc = "jostles with every move, solder visibly broken"
 	occur_text = "visibly cracks open, solder flying everywhere"
