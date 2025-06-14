@@ -1,1 +1,0 @@
-GLOBAL_LIST_EMPTY(assault_operative_start)
