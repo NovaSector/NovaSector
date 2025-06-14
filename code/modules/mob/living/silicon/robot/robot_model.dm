@@ -60,6 +60,12 @@
 	robot = loc
 	create_storage(storage_type = /datum/storage/cyborg_internal_storage)
 	//src is what we store items visible to borgs, we'll store things in the bot itself otherwise.
+	if(QDELETED(src))
+		stack_trace("Tried to deactivate a module on a qdeleted module during init")
+		return INITIALIZE_HINT_QDEL
+	if(QDELETED(robot))
+		stack_trace("Tried to deactivate a module on a qdeleted borg during init")
+		return INITIALIZE_HINT_QDEL
 	for(var/path in basic_modules)
 		var/obj/item/new_module = new path(robot)
 		basic_modules += new_module
