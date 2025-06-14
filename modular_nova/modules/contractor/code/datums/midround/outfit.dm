@@ -28,6 +28,10 @@
 
 	id_trim = /datum/id_trim/chameleon/contractor
 
+/datum/outfit/contractor/pre_equip(mob/living/carbon/human/user)
+	if(user.jumpsuit_style == PREF_SKIRT)
+		uniform = /obj/item/clothing/under/syndicate/nova/tactical/skirt
+
 /datum/outfit/contractor/post_equip(mob/living/carbon/human/user, visualsOnly)
 	. = ..()
 	if(visualsOnly)
