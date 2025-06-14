@@ -7798,6 +7798,7 @@
 #include "modular_nova\modules\customization\modules\food_and_drinks\~donator\food\donator_foods.dm"
 #include "modular_nova\modules\customization\modules\food_and_drinks\~donator\food\donator_items.dm"
 #include "modular_nova\modules\customization\modules\food_and_drinks\~donator\recipes\donator_recipes.dm"
+#include "modular_nova\modules\customization\modules\hydroponics\plantbag_of_holding.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\bananaspider.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\honeysuckle.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\kiri.dm"
