@@ -626,7 +626,7 @@
 
 /obj/effect/mapping_helpers/turn_off_lights_with_lightswitch/LateInitialize()
 	var/area/needed_area = get_area(src)
-	if(!needed_area.lightswitch)
+	if(!needed_area.lightswitch && !needed_area.light_turned_off_at_spawn) // NOVA EDIT CHANGE - Stops this when RNG turned the light off at roundstart - ORIGINAL: if(!needed_area.lightswitch)
 		stack_trace("[src] at [AREACOORD(src)] [(needed_area.type)] tried to turn lights off but they are already off!")
 	var/obj/machinery/light_switch/light_switch = locate(/obj/machinery/light_switch) in needed_area
 	if(!light_switch)
