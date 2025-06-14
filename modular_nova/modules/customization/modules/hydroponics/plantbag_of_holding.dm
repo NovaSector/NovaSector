@@ -1,14 +1,11 @@
 //
 // Plantbag of Holding - 4x capacity but needs a bluespace core. Or a similar analogue.
 //
-// todo - all the icon stuff
-
-
 /obj/item/storage/bag/plants/bluespace
+	name = "plant bag of holding"
+	desc = "A plant bag that holds a vast amount of botanicals."
 	uses_advanced_reskins = FALSE
 	unique_reskin = null
-	name = "Plant Bag of Holding"
-	desc = "A plant bag that holds a vast amount of botanicals."
 	storage_type = /datum/storage/bag/plants/bluespace
 	icon = 'modular_nova/master_files/icons/obj/storage/plantbag_of_holding.dmi'
 	icon_state = "plantbag_of_holding"
@@ -21,7 +18,7 @@
 
 //Botany can make their own bluespace cores! Sort of.
 /obj/item/botany_bluespace_core
-	name = "Botanical Bluespace Core"
+	name = "botanical bluespace core"
 	desc = "Botany's version of a bluespace core. Plenty of bluespace juice to go around! Let's ignore the fact that it's just a bunch of bluespace bananas wrapped around a tomato with some wire running through them."
 	icon = 'modular_nova/master_files/icons/obj/storage/plantbag_of_holding.dmi'
 	icon_state = "botanical_core"
@@ -37,7 +34,6 @@
 /obj/item/plantbag_of_holding_inert/examine_more(mob/user)
 	. = ..()
 	. += span_smallnoticeital("<i>Surely you don't have to bother science with this, right..?</i>\n")
-
 
 //So while we CAN use a real refined bluespace core, we can also use a goofy botany-only "bluespace core" as well
 /datum/crafting_recipe/botany_bluespace_core
@@ -77,7 +73,7 @@
 	name = "Plant Bag of Holding"
 	id = "plantbag_holding"
 	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace =HALF_SHEET_MATERIAL_AMOUNT)
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*5, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/plantbag_of_holding_inert
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_BOTANY_ADVANCED
