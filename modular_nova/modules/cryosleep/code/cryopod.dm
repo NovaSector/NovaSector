@@ -414,6 +414,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		else
 			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
+	// Borgs will splash the ground with their beaker reagents on qdel, let's make sure this does not happen
+	if(iscyborg(occupant))
+		var/mob/living/silicon/robot/cyborg_occupant = occupant
+		var/obj/item/borg/apparatus/beaker/borg_beaker = (locate() in cyborg_occupant.model.modules) || (locate() in cyborg_occupant.held_items)
+		if(borg_beaker && borg_beaker.stored)
+			var/obj/item/reagent_containers/reagent_container = borg_beaker.stored
+			reagent_container.reagents?.clear_reagents()
+
 	GLOB.joined_player_list -= occupant_ckey
 
 	handle_objectives()
