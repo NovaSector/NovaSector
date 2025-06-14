@@ -1,0 +1,4 @@
+author: "Zergspower"
+delete-after: True
+changes:
+  - rscadd: "diorama rotation to the Interlink"
