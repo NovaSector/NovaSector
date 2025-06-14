@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - rscadd: "Plant Bags of Holding are available with applied bluespace research. They do require a core, though..."

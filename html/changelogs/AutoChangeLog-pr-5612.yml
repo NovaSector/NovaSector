@@ -1,0 +1,7 @@
+author: "OrionTheFox"
+delete-after: True
+changes:
+  - refactor: "refactored some guncase code. Please report any issues, such as overabundance or lack of items in preset cases!"
+  - balance: "you can no longer stack small guncases in large guncases."
+  - bugfix: "fixed some small guncases storing really big items."
+  - image: "fixed a few stray pixels."

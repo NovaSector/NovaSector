@@ -161,3 +161,8 @@
   vinylspiders:
   - qol: adds lobby job estimations to statpanel, so you can see what jobs others
       are prioritizing
+2025-06-14:
+  carpotoxin:
+  - bugfix: Fixes the interaction-chain of accessible storage (search panel won't
+      show up when opening someone's saddle-bags)
+  - qol: A screentip will show up when you can access someone's storage
