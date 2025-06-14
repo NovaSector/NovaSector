@@ -8,13 +8,13 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "dc" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/box/red/corners,
 /obj/effect/turf_decal/box/red/corners{
 	dir = 8
+	},
+/obj/structure/chair/comfy/shuttle/tactical{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
@@ -42,6 +42,8 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil,
 /obj/effect/turf_decal/delivery/red,
 /obj/machinery/light/small/red/directional/north,
+/obj/structure/sign/poster/contraband/icebox_moment/directional/north,
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "tO" = (
@@ -57,9 +59,6 @@
 	network = list("lone_infil_shuttle");
 	pixel_x = 32
 	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
 	},
@@ -69,22 +68,21 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "vf" = (
-/obj/machinery/camera/xray/directional/north{
-	pixel_y = -32;
-	network = list("lone_infil_shuttle");
-	c_tag = "External View Starboard-Side"
-	},
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/obj/structure/sign/warning/directional/west,
+/turf/template_noop,
+/area/template_noop)
 "Jv" = (
 /turf/template_noop,
 /area/template_noop)
 "Nn" = (
-/obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/cable,
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_y = 5
+	},
 /obj/effect/turf_decal/bot_red,
 /obj/machinery/light/small/red/directional/south,
+/obj/structure/sign/flag/syndicate/directional/south,
+/obj/structure/table/reinforced,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "UZ" = (
@@ -113,7 +111,16 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
+/obj/structure/fans/tiny,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/shuttle/lone_infil)
+"YB" = (
+/obj/machinery/camera/xray/directional/north{
+	pixel_y = -32;
+	network = list("lone_infil_shuttle");
+	c_tag = "External View Starboard-Side"
+	},
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "YY" = (
 /obj/structure/cable,
@@ -175,7 +182,7 @@ ie
 (4,1,1) = {"
 qu
 ie
-Jv
+vf
 ie
 Ve
 ie
@@ -192,5 +199,5 @@ Jv
 Jv
 Jv
 Jv
-vf
+YB
 "}

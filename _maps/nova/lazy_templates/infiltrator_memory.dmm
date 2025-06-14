@@ -19,12 +19,15 @@
 	dwidth = 4;
 	name = "Landing Pad"
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/infiltrator_memory/landing_pad)
 "D" = (
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/iron/dark,
 /area/infiltrator_memory)
+"H" = (
+/turf/open/floor/plating,
+/area/infiltrator_memory/landing_pad)
 "Z" = (
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/iron/dark,
@@ -267,10 +270,10 @@ a
 h
 h
 h
-h
-h
-h
-h
+H
+H
+H
+H
 h
 "}
 (10,1,1) = {"
@@ -293,10 +296,10 @@ a
 a
 h
 h
-h
-h
-h
-h
+H
+H
+H
+H
 h
 h
 "}
@@ -320,9 +323,9 @@ a
 a
 h
 h
-h
-h
-h
+H
+H
+H
 h
 h
 h
@@ -347,10 +350,10 @@ a
 a
 h
 h
-h
-h
-h
-h
+H
+H
+H
+H
 h
 h
 "}
@@ -375,8 +378,8 @@ a
 Z
 h
 p
-h
-h
+H
+H
 Z
 h
 h
@@ -401,10 +404,10 @@ a
 a
 h
 h
-h
-h
-h
-h
+H
+H
+H
+H
 h
 h
 "}
@@ -428,9 +431,9 @@ a
 a
 h
 h
-h
-h
-h
+H
+H
+H
 h
 h
 h
@@ -455,10 +458,10 @@ a
 a
 h
 h
-h
-h
-h
-h
+H
+H
+H
+H
 h
 h
 "}
@@ -483,10 +486,10 @@ a
 h
 h
 h
-h
-h
-h
-h
+H
+H
+H
+H
 h
 "}
 (18,1,1) = {"
