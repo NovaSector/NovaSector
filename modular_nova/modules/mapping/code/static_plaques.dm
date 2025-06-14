@@ -71,5 +71,5 @@
 
 // Vet
 /obj/structure/sign/plaques/kiddie/diorama/vet
-	name = "Veteranarian Diorama"
+	name = "Veterinarian Diorama"
 	desc = "A representation of the crew's animal boarding station: while they work, crew will sometimes board their pets in one of these facilities."
