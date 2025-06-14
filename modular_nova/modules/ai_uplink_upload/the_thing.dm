@@ -31,3 +31,9 @@
 	desc += " P.S. External organs such as tails, snouts, etc still work fine."
 	organ_traits += TRAIT_SILICON_EMOTES_ALLOWED
 	return ..()
+
+// https://github.com/NovaSector/NovaSector/issues/5389
+/obj/item/organ/brain/cybernetic/ai/on_mob_insert()
+	. = ..()
+	if(!isnull(owner.ai_controller))
+		QDEL_NULL(owner.ai_controller)
