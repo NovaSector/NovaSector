@@ -46,7 +46,7 @@
 	deflate(TRUE)
 	return ..()
 
-/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item.sharpness)
 		visible_message(span_danger("<b>[user] pierces [src] with [attacking_item]!</b>"))
 		deflate(TRUE)
@@ -167,7 +167,7 @@
 		new structure_type(get_turf(user))
 		qdel(src)
 
-/obj/item/inflatable/attackby(obj/item/attacking_item, mob/user)
+/obj/item/inflatable/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/stack/sticky_tape))
 		return ..()
 	if(!torn)

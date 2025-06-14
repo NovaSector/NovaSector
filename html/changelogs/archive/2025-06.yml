@@ -1,0 +1,168 @@
+2025-06-02:
+  LotusLadno:
+  - bugfix: fixed sprites augment+, moving hands 1 pixel up
+  OrionTheFox:
+  - bugfix: fixed a broken labcoat appearing in the SciDrobe
+  - image: resprited the 'Dagger' Designer Mantle
+  vinylspiders:
+  - bugfix: fixes ball gags' GAGS preview in the loadout menu showing up as an error
+2025-06-04:
+  Drifter7371:
+  - image: adds a new hairstyle, "Fluffball"
+  Iajret:
+  - rscadd: Gas miners can now be called in custom areas
+  LotusLadno:
+  - rscadd: ordering an M40 gas mask from Sol Defense Supplier
+  carpotoxin:
+  - qol: Moves hair-ties from head to pocket category in loadout, now you can bring
+      a hair tie and a hat to work
+  jjpark-kb:
+  - bugfix: fixes a bug that prevented you from picking up adamantine with tongs
+2025-06-05:
+  RealWinterFrost:
+  - qol: Thanks to the lovely nerds at R&D The m64, Katyusha, Jager, and Shitzu now
+      can attach a seclite for more robust riot control!
+  - balance: Due to a bureaucracy error with the solfed military prices for the Jager
+      are now set to their correct prices.
+  - balance: Made the katyusha and all shotguns of its series out of a more robust
+      metal, at the cost of making it heavier. (Katyusha, Jager, Shitzu)
+  - bugfix: Fixed naming convention for the jager's icon states fixing bugged behaviours.
+  - spellcheck: Fixed a missed typo with the magazine for the katyusha from 16 shells
+      to 10, correcting to its actual ammo count.
+  carpotoxin:
+  - rscadd: Adds the bouncy quirk which makes your character waddle regardless of
+      clownshoes
+  jjpark-kb:
+  - balance: changed the reward for the language skill-- getting more languages per
+      levelup, and a medal at the end
+  - balance: you get more experience from reading books and mentoring books if you
+      are in a good mood and there are bookshelves around you
+  - rscadd: you can use a bluespace crystal on a mentoring book to get a random book
+2025-06-06:
+  vinylspiders:
+  - qol: opfor denial character limit has been increased to 2048
+2025-06-07:
+  Alexi-6410:
+  - rscadd: Following NanoTrasen's recent introduction of stoats on station as a viable
+      pest control solution, Central Command has found it fit to relax their customs
+      policy to allow crewmates to bring stoats (rather obtained on station or through
+      the intergalactic pet trade) through customs as part of their progressive Bring-Your-Pet-To-Work
+      initiative.
+  OrionTheFox:
+  - balance: added a 'damaged' marine MODsuit with security-grade armor, a bit less
+      module complexity, and no admin/antag modules. This has replaced the admin-ERT
+      ones currently available in gateways
+  Saukykouko:
+  - bugfix: armadyne clothing now works properly with digi legs
+  avimour:
+  - rscadd: Added Flowerchild and two alts of it.
+  sergeirocks100:
+  - map: Snowglobe, Ouroboros, Void Raptor, Blueshift, and Serenity all now have service
+      guard lockers.
+2025-06-08:
+  Darkinite:
+  - rscadd: Staff plushie master files and items into the game
+  Iajret:
+  - bugfix: selecting robotic voicebox wont make binary as default language
+  - bugfix: selecting tongues with inherent languages from augs+ wont give you said
+      languages
+  RealWinterFrost:
+  - qol: after many galactic cycles and shifts interdyne now has a fax address number
+      for interdyne headquarters to communicate with upper levels of staff instead
+      of remaining isolated.
+  - rscadd: Adds new guncases to "SOL DEFENSE" in "cargo imports"
+  - image: Adds new guncase sprites! (Solfed, Interdyne, Nanotrasen, Syndicate, &
+      Multiple colors)
+  - code_imp: Changes blueshield's NT20 guncase to be the special NT guncase
+  sergeirocks100:
+  - rscdel: Blueshift no longer has a superfluous service guard locker in the service
+      break room.
+  vinylspiders:
+  - bugfix: fixes guncase inhand icon states not showing up
+2025-06-10:
+  dankmemerino147:
+  - bugfix: Sol Defense Imports has uncovered and stopped an embezzlement scheme affecting
+      the quality of its 'Muur' and 'Archangel' hardened armor systems. The product
+      should now more effectively neutralize armor-piercing projectiles.
+  intense-skies:
+  - rscadd: Some taur bodys can now loaf
+  - image: Taur loafing sprites
+2025-06-12:
+  00-Steven:
+  - refactor: Refactored the folder/biscuit interaction chain. Please report any issues.
+  - bugfix: Picking up paper into a folder/biscuit by clicking on the paper with it
+      is now less prone to inventory jank.
+  - qol: Picking up paper into a folder/biscuit now plays the pickup animation, consistent
+      with inserting it otherwise.
+  - qol: Folders and biscuit cards now have screentips.
+  - sound: Inserting paper into a folder now plays the pickup/drop sounds, consistent
+      with taking it out.
+  BigAganoo:
+  - rscadd: Adds Skaag to your loadout. Plushmaxx today!
+  Ezel/Improvedname, Toriate, JohnFulpWillard:
+  - rscadd: Re-added the Dragoon Tomb lair, now has a Skybulge spear and Drachen armor.
+  - balance: Ice whelps now spit out cold fire.
+  JohnFulpWillard:
+  - spellcheck: The header for RD consoles now says what type of points it's counting.
+  - qol: Info buttons previously at the top right of your screen (Changelog, wiki,
+      forums) is now in the Escape menu.
+  - qol: Fullscreen is now a preferences and will follow you through rounds.
+  - rscadd: Added a 'Ghost settings' button, taking the spot of the pAI candidate
+      button and replacing the "Ghost" tab of the Stat panel. This button contains
+      buttons pertinent to your time as an Observer.
+  - rscadd: Added a new sleep HUD element when you're resting.
+  - rscadd: Xenos' HUD looks a little closer to human ones, with the rest button on
+      the right side.
+  - qol: Added a new accessibility setting for users who get inconsistent double clicks.
+  Melbert:
+  - bugfix: You (can't) baton furniture
+  - refactor: Batons have been refactored again. Baton stuns now properly count as
+      an attack, when before it was a nothing. Report any oddities, particularly in
+      regards to harmbatonning vs normal batonning.
+  - refactor: The method of adjusting item damage mid-attack has been refactored -
+      some affected items include the Nullblade and knives. Report any strange happenings
+      with damage numbers.
+  - refactor: A few objects have been moved to the new interaction chain - records
+      consoles, mawed crucible, alien weeds and space vines, hedges, restaurant portals,  and
+      some mobs - to name a few.
+  - bugfix: Spears only deal bonus damage against secure lockers, not all closet types
+      (including crates)
+  RealWinterFrost:
+  - image: interdyne has changed the encoding on their IDs no longer appearing as
+      syndicate but instead their updated company identifiers so they may be easily
+      identified on sechuds.
+  Rhials:
+  - spellcheck: Diamond material statue names are no longer punctuated.
+  carlarctg:
+  - code_imp: Adds support for PVP Bitrunning Domains
+  carpotoxin:
+  - image: A new set of harpy wings, fluffy! (incl. top version)
+  hry-gh:
+  - bugfix: fixes the ominous black squares appearing over tgui windows, sometimes
+  necromanceranne:
+  - balance: Projectiles that have armour penetration, or can pass straight through
+      structures, can potentially hit a pilot inside of a mech.
+  - map: Opens up sections of Nebulastation's medical department to allow for greater
+      visibility into and out of medical.
+  - rscadd: Felinids, when sufficiently manic and starving, will sometimes take a
+      chunk out of their fellow spessman. With their teeth.
+  - balance: Carp-infused mutants have pointy teeth.
+  - balance: Melee weapons with sufficient armour penetration can potentially overpenetrate
+      and hit the pilot if you attack it while in combat mode.
+  ocan4214:
+  - bugfix: fixed Civilian Bounty Terminal not filling rest of the window when opened
+      first time.
+  throwawayuseless:
+  - bugfix: Binders and The Book Of Babel now fit on bookshelves.
+  timothymtorres:
+  - bugfix: Fix `map_export` admin verb not blacklisting `obj/effects`
+  - bugfix: Fix map linter conditional rule crashing
+  - qol: Replace hardcoded atmos values for virtual domain turfs
+  vinylspiders:
+  - qol: adds lobby job estimations to statpanel, so you can see what jobs others
+      are prioritizing
+2025-06-14:
+  carpotoxin:
+  - bugfix: Fixes the interaction-chain of accessible storage (search panel won't
+      show up when opening someone's saddle-bags)
+  - qol: A screentip will show up when you can access someone's storage

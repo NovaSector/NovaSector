@@ -303,11 +303,11 @@
 	return FALSE
 
 // Attack handler for various item
-/obj/structure/chair/milking_machine/attackby(obj/item/used_item, mob/user)
-	if(!istype(used_item, /obj/item/reagent_containers) || (used_item.item_flags & ABSTRACT) || !used_item.is_open_container())
+/obj/structure/chair/milking_machine/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/reagent_containers) || (attacking_item.item_flags & ABSTRACT) || !attacking_item.is_open_container())
 		return ..()
 
-	var/obj/item/reagent_containers/used_container = used_item
+	var/obj/item/reagent_containers/used_container = attacking_item
 	if(!user.transferItemToLoc(used_container, src))
 		return FALSE
 

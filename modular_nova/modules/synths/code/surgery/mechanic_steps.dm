@@ -124,7 +124,7 @@
 
 //add plating
 /datum/surgery_step/add_plating
-	name = "add plating"
+	name = "add plating (5 iron sheets)"
 	implements = list(/obj/item/stack/sheet/iron = 100)
 	time = 2.4 SECONDS
 	var/ironamount = 5

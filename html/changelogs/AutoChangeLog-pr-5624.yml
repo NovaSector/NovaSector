@@ -1,0 +1,6 @@
+author: "scrcr0"
+delete-after: True
+changes:
+  - rscadd: "Added new Blueshield cap. Stylish and flippable."
+  - bugfix: "fixed a couple typos in Blueshield item descriptions."
+  - image: "added sprites for the new Blueshield caps."

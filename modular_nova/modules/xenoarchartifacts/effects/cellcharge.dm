@@ -31,34 +31,34 @@
  * Checks receiver_atom type, tries to recharge it
  *
  * Arguments:
- * * reciever_atmon - what to charge
+ * * receiver_atmon - what to charge
  * * power - how much do we charge
  */
-/datum/artifact_effect/cellcharge/proc/try_give_charge(atom/reciever_atmon, power)
-	if(istype(reciever_atmon, /obj/item/stock_parts/power_store))
-		var/obj/item/stock_parts/power_store/cell = reciever_atmon
+/datum/artifact_effect/cellcharge/proc/try_give_charge(atom/receiver_atmon, power)
+	if(istype(receiver_atmon, /obj/item/stock_parts/power_store))
+		var/obj/item/stock_parts/power_store/cell = receiver_atmon
 		cell.give(power)
-	else if(istype(reciever_atmon, /obj/machinery/power/apc))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	else if(istype(receiver_atmon, /obj/machinery/power/apc))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.give(power)
-	else if(istype(reciever_atmon, /obj/machinery/power/smes))
-		var/obj/item/stock_parts/power_store/lucky = reciever_atmon
+	else if(istype(receiver_atmon, /obj/machinery/power/smes))
+		var/obj/item/stock_parts/power_store/lucky = receiver_atmon
 		lucky.charge += power
-	else if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	else if(istype(receiver_atmon, /obj/item/gun/energy))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.give(power)
-	else if(istype(reciever_atmon, /obj/item/gun/energy))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	else if(istype(receiver_atmon, /obj/item/gun/energy))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.give(power)
-	else if(istype(reciever_atmon, /obj/item/mod/control))
-		var/obj/item/mod/control/luckymod = reciever_atmon
+	else if(istype(receiver_atmon, /obj/item/mod/control))
+		var/obj/item/mod/control/luckymod = receiver_atmon
 		for(var/obj/item/mod/core/luckycore in luckymod.contents)
 			for(var/obj/item/stock_parts/power_store/cell in luckycore.contents)
 				cell.give(power)
-	else if(issilicon(reciever_atmon))
-		for(var/obj/item/stock_parts/power_store/cell in reciever_atmon.contents)
+	else if(issilicon(receiver_atmon))
+		for(var/obj/item/stock_parts/power_store/cell in receiver_atmon.contents)
 			cell.give(power)
-		to_chat(reciever_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
+		to_chat(receiver_atmon, span_warning("SYSTEM ALERT: Energy drain detected!"))
 
 /**
  * Tries to charge every rechargable item in artifact range

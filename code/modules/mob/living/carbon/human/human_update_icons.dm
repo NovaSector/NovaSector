@@ -95,7 +95,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(uniform.flags_inv)
 
-		if(HAS_TRAIT(uniform, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_ICLOTHING))
+		if(HAS_TRAIT(uniform, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_ICLOTHING))
 			return
 
 		var/target_overlay = uniform.icon_state
@@ -229,7 +229,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_GLOVES))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_GLOVES))
 			return
 
 		var/icon_file = 'icons/mob/clothing/hands.dmi'
@@ -289,7 +289,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EYES))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_EYES))
 			return
 
 		var/icon_file = 'icons/mob/clothing/eyes.dmi'
@@ -331,7 +331,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_EARS))
 			return
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
@@ -368,7 +368,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_NECK))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_NECK))
 			return
 
 		var/icon_file = 'icons/mob/clothing/neck.dmi'
@@ -416,7 +416,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_FEET))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_FEET))
 			return
 
 		var/icon_file = DEFAULT_SHOES_FILE
@@ -472,7 +472,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SUITSTORE))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_SUITSTORE))
 			return
 
 		var/mutable_appearance/s_store_overlay = worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = 'icons/mob/clothing/belt_mirror.dmi')
@@ -483,7 +483,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_worn_head(update_obscured = TRUE)
 	remove_overlay(HEAD_LAYER)
-	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK) + 1])
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1]
 		inv.update_icon()
 
@@ -494,7 +494,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_HEAD))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_HEAD))
 			return
 
 		var/icon_file = 'icons/mob/clothing/head/default.dmi'
@@ -539,7 +539,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_BELT))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_BELT))
 			return
 
 		var/icon_file = 'icons/mob/clothing/belt.dmi'
@@ -651,7 +651,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_MASK))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_MASK))
 			return
 
 		var/icon_file = 'icons/mob/clothing/mask.dmi'
@@ -663,7 +663,7 @@ There are several things that need to be remembered:
 			if(species_icon_file)
 				icon_file = species_icon_file
 				mutant_override = TRUE
-		if((icon_file == 'icons/mob/clothing/mask.dmi') && (bodyshape & BODYSHAPE_SNOUTED) && (worn_item.supports_variations_flags & CLOTHING_SNOUTED_VARIATION))
+		if(!mutant_override && (bodyshape & BODYSHAPE_SNOUTED) && (worn_item.supports_variations_flags & CLOTHING_SNOUTED_VARIATION))
 			var/snout_icon_file = worn_item.worn_icon_muzzled || SNOUTED_MASK_FILE
 			if(snout_icon_file && icon_exists(snout_icon_file, RESOLVE_ICON_STATE(worn_item)))
 				icon_file = snout_icon_file

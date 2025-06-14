@@ -54,6 +54,7 @@
 	target.apply_damage(SYNTH_REVIVE_WELD_INTERNALS_DAMAGE, BRUTE, "[target_zone]", wound_bonus = CANT_WOUND)
 
 /datum/surgery_step/add_plating/fullbody
+	name = "add plating (15 iron sheets)"
 	time = 3 SECONDS
 	ironamount = 15
 
