@@ -1,0 +1,10 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - refactor: "Added code to Blood Jaunt so it can use allowed and disallowed areas to it, disallowing its casting and jaunting off when not in the whitelisted areas or in the blacklisted ones."
+  - balance: "Bubblegums Blood Jaunt reward was changed to a Mining subvariant. It has a 2 seconds cast time, and cannot be used in non planetary civilized areas. This means it can only be used in planets and ruins, but not in interdyne or tribal camps."
+  - bugfix: "SEVA outfit cannot be used in the neck again, as this allowed people to be inmune to ash storms and use a different armor underneath."
+  - balance: "Shotgun Damage modkits un-nerfed, they now apply 10 damage extra to each pellet. Shotgun needs to be used with both hands, but not wielded."
+  - balance: "Cooldown PKA Modkits were limited to 3, to prevent cooldown cheese."
+  - balance: "Mob AoE PKA Modkits were limited to 1, to prevent damage cheese."
+  - rscadd: "Kheiral Cuffs were added to the Webbing set for miners, a great starting option in line with the rest!"
