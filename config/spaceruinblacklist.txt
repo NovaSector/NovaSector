@@ -87,6 +87,7 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/waystation.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipdock.dmm
 #_maps/RandomRuins/SpaceRuins/whiteshipruin_box.dmm
+#_maps/RandomRuins/SpaceRuins/dragoontomb.dmm
 
 ##Custom Ruins
 #_maps/RandomRuins/SpaceRuins/nova/alientoollab.dmm

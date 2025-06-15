@@ -11,6 +11,7 @@
 /obj/projectile/bullet/c38/haywire/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
 	empulse(target, 0, emp_radius)
+	new /obj/effect/temp_visual/emp/pulse(get_turf(target))
 
 // .357
 
@@ -25,6 +26,7 @@
 /obj/projectile/bullet/c357/haywire/on_hit(atom/target, blocked, pierce_hit)
 	. = ..()
 	empulse(target, emp_radius, emp_radius)
+	new /obj/effect/temp_visual/emp/pulse(get_turf(target))
 
 // .45
 

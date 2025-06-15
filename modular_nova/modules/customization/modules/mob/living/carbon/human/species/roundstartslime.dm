@@ -122,6 +122,43 @@
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
 
+// CHEMICAL HANDLING
+// Here's where slimes heal off plasma and where they hate drinking water.
+/obj/item/organ/liver/slime/handle_chemical(mob/living/carbon/organ_owner, datum/reagent/chem, seconds_per_tick, times_fired)
+	. = ..()
+	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
+		return
+	// slimes use plasma to fix wounds, and if they have enough blood, organs
+	var/static/list/organs_we_mend = list(
+		ORGAN_SLOT_BRAIN,
+		ORGAN_SLOT_LUNGS,
+		ORGAN_SLOT_LIVER,
+		ORGAN_SLOT_STOMACH,
+		ORGAN_SLOT_EYES,
+		ORGAN_SLOT_EARS,
+	)
+	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
+		for(var/datum/wound/iter_wound as anything in organ_owner.all_wounds)
+			iter_wound.on_xadone(4 * REM * seconds_per_tick)
+			organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if(organ_owner.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
+			organ_owner.adjustOrganLoss(
+			pick(organs_we_mend),
+			- 2 * seconds_per_tick,
+		)
+		if(SPT_PROB(5, seconds_per_tick))
+			to_chat(organ_owner, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
+
+	if(chem.type == /datum/reagent/water)
+		if(HAS_TRAIT(organ_owner, TRAIT_SLIME_HYDROPHOBIA))
+			return
+
+		organ_owner.blood_volume -= 3 * seconds_per_tick
+		organ_owner.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
+		if(SPT_PROB(1, seconds_per_tick))
+			to_chat(organ_owner, span_warning("The water starts to weaken and adulterate your insides!"))
+		return COMSIG_MOB_STOP_REAGENT_TICK
+
 /obj/item/organ/stomach/slime
 	name = "golgi apparatus"
 	zone = BODY_ZONE_CHEST
@@ -269,15 +306,15 @@
 	)
 	item.reagents.clear_reagents() //removes the whole shit
 	if(isnull(brainmob))
-		balloon_alert(user, "brain is not a viable candidate for repair!")
+		user.balloon_alert(user, "brain is not a viable candidate for repair!")
 		return TRUE
 
 	brainmob.grab_ghost()
 	if(isnull(brainmob.stored_dna))
-		balloon_alert(user, "brain does not contain any dna!")
+		user.balloon_alert(user, "brain does not contain any dna!")
 		return TRUE
 	if(isnull(brainmob.client))
-		balloon_alert(user, "brain does not contain a mind!")
+		user.balloon_alert(user, "brain does not contain a mind!")
 		return TRUE
 	regenerate()
 	return TRUE
@@ -348,7 +385,6 @@
 		if(slime.health < slime.maxHealth)
 			new /obj/effect/temp_visual/heal(get_turf(slime), COLOR_EFFECT_HEAL_RED)
 
-
 /**
 * SLIME CLEANING ABILITY -
 * When toggled, slimes clean themselves and their equipment.
@@ -389,19 +425,19 @@
 
 /datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
 	if(ishuman(owner))
-		var/mob/living/carbon/human/slime = owner
-		for(var/obj/item/slime_items in slime.get_equipped_items(INCLUDE_ACCESSORIES | INCLUDE_HELD))
-			slime_items.wash(CLEAN_WASH)
-			slime.wash(CLEAN_WASH)
-		if((slime.wear_suit?.body_parts_covered | slime.w_uniform?.body_parts_covered | slime.shoes?.body_parts_covered) & FEET)
+		var/mob/living/carbon/human/slime_person = owner
+
+		slime_person.wash(CLEAN_WASH) // Wash ourselves and all uncovered clothing
+
+		if((slime_person.wear_suit?.body_parts_covered | slime_person.w_uniform?.body_parts_covered | slime_person.shoes?.body_parts_covered) & FEET)
 			return
 		else
-			var/turf/open/open_turf = get_turf(slime)
+			var/turf/open/open_turf = get_turf(slime_person)
 			if(istype(open_turf))
 				open_turf.wash(CLEAN_WASH)
 				return TRUE
 			if(SPT_PROB(5, seconds_per_tick))
-				slime.adjust_nutrition((rand(5,25)))
+				slime_person.adjust_nutrition((rand(5,25)))
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
@@ -459,44 +495,6 @@
 
 /datum/status_effect/slime_hydrophobia/get_examine_text()
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
-
-// CHEMICAL HANDLING
-// Here's where slimes heal off plasma and where they hate drinking water.
-
-/datum/species/jelly/handle_chemical(datum/reagent/chem, mob/living/carbon/human/slime, seconds_per_tick, times_fired)
-	. = ..()
-	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
-		return
-	// slimes use plasma to fix wounds, and if they have enough blood, organs
-	var/static/list/organs_we_mend = list(
-		ORGAN_SLOT_BRAIN,
-		ORGAN_SLOT_LUNGS,
-		ORGAN_SLOT_LIVER,
-		ORGAN_SLOT_STOMACH,
-		ORGAN_SLOT_EYES,
-		ORGAN_SLOT_EARS,
-	)
-	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
-		for(var/datum/wound/iter_wound as anything in slime.all_wounds)
-			iter_wound.on_xadone(4 * REM * seconds_per_tick)
-			slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(slime.blood_volume > BLOOD_VOLUME_SLIME_SPLIT)
-			slime.adjustOrganLoss(
-			pick(organs_we_mend),
-			- 2 * seconds_per_tick,
-		)
-		if(SPT_PROB(5, seconds_per_tick))
-			to_chat(slime, span_purple("Your body's thirst for plasma is quenched, your inner and outer membrane using it to regenerate."))
-
-	if(chem.type == /datum/reagent/water)
-		if(HAS_TRAIT(slime, TRAIT_SLIME_HYDROPHOBIA))
-			return
-
-		slime.blood_volume -= 3 * seconds_per_tick
-		slime.reagents.remove_reagent(chem.type, min(chem.volume * 0.22, 10))
-		if(SPT_PROB(1, seconds_per_tick))
-			to_chat(slime, span_warning("The water starts to weaken and adulterate your insides!"))
-		return COMSIG_MOB_STOP_REAGENT_CHECK
 
 /datum/species/jelly/get_species_description()
 	return placeholder_description

@@ -729,8 +729,8 @@
 	. = ..()
 	icon_state = "[department_icon_state]_[icon_state]"
 
-/obj/item/melee/baton/security/loaded/departmental/baton_attack(mob/living/target, mob/living/user, modifiers)
-	if(active && !emagged && cooldown_check <= world.time)
+/obj/item/melee/baton/security/loaded/departmental/can_baton(mob/living/target, mob/living/user)
+	if(active && !emagged && COOLDOWN_FINISHED(src, cooldown_check))
 		var/area/current_area = get_area(user)
 		if(!is_type_in_list(current_area, valid_areas))
 			if(non_departmental_uses_left)
@@ -742,11 +742,11 @@
 			else
 				target.visible_message(span_warning("[user] prods [target] with [src]. Luckily, it shut off due to being in the wrong area."), \
 					span_warning("[user] prods you with [src]. Luckily, it shut off due to being in the wrong area."))
-				active = FALSE
+				turn_off()
 				balloon_alert(user, "wrong department")
 				playsound(src, SFX_SPARKS, 75, TRUE, -1)
 				update_appearance()
-				return BATON_ATTACK_DONE
+				return FALSE
 	. = ..()
 
 /obj/item/melee/baton/security/loaded/departmental/attack_self(mob/user)

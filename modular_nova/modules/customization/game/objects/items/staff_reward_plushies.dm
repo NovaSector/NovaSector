@@ -158,3 +158,53 @@
 	if(!COOLDOWN_FINISHED(src, akinshi_cooldown))
 		return
 	say(pick(responses))
+
+/obj/item/toy/plush/nova/skaag
+	name = "softpilled plushmaxxer"
+	desc = "The most annoying thing in the galaxy, now in marketable form."
+	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
+	icon_state = "plush_skaag"
+	gender = FEMALE
+	attack_verb_continuous = list(
+		"Skaags",
+		"attackmaxxes",
+		"bonkcores",
+	)
+	attack_verb_simple = list(
+		"Skaag",
+		"attackmaxx",
+		"bonkcore",
+	)
+	squeak_override = list(
+		'sound/effects/servostep.ogg' = 9,
+		'sound/effects/cartoon_sfx/cartoon_splat.ogg' = 1,
+	)
+	/// What the Plushie replies when used on another person
+	var/static/list/responses = list(
+		"DIE.",
+		"Heh... Hello ladies...",
+		"Where the robohuzz at?",
+		"I am literally the best and everyone is lovepilled at me.",
+		"This is kinda rudemaxxing...",
+		"What did you just put in your pocket, what was that?",
+		"You left your oven on.",
+		"I'm so locked in on plushmaxxing you wouldn't understand.",
+		"This is so tuff...",
+		"My designation isn't Skaag it's actually 'TS-PM0-SM'.",
+		"Hold a magnet up to my monitor PLEASE I begmaxx.",
+		"I AM ATTACKING YOU!",
+		"There's actually a version of this plushie that will gib you if you pet it dude trust me.",
+		"Kooks used me as a computer once.",
+		"I'm blindcore in here.",
+		"Please hit me against prettypilled IPCs.",
+		"You're such a robustcel.",
+		"Dude stooop haha... Stoooop... Haha...",
+	)
+	COOLDOWN_DECLARE(skaag_cooldown)
+
+/obj/item/toy/plush/nova/skaag/attack()
+	. = ..()
+	if(!COOLDOWN_FINISHED(src, skaag_cooldown))
+		return
+	say(pick(responses))
+	COOLDOWN_START(src, skaag_cooldown, 3 SECONDS)
