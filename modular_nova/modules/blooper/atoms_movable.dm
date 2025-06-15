@@ -44,7 +44,7 @@
 	for(var/mob/mob_with_client in listeners)
 		if(!mob_with_client.client)
 			return
-		var/user_volume_pref = mob_with_client.client.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) // If we have a client adjust the volume to their prefs before playing the blooper
+		var/user_volume_pref = mob_with_client.client.prefs.read_preference(/datum/preference/numeric/volume/sound_blooper_volume) // If we have a client adjust the volume to their prefs before playing the blooper
 		var/scaled_volume = volume * (user_volume_pref / 100)
 		mob_with_client.playsound_local(our_turf, vol = scaled_volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, sound_to_use = blooper, distance_multiplier = 1)
 
@@ -116,5 +116,5 @@
 		for(var/blooperinteger in 1 to bloopers)
 			if(total_delay > BLOOPER_MAX_TIME)
 				break
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, blooper), listening, message_range + 1, (blooper_volume * (is_yell ? 2 : 1)), BLOOPER_DO_VARY(blooper_pitch, blooper_pitch_range), blooper_current_blooper), total_delay) //The function is zero on the seventh tile. This makes it a maximum of 1 more.
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, blooper), listening, message_range + 1, (blooper_volume_to_use * (is_yell ? 2 : 1)), BLOOPER_DO_VARY(blooper_pitch, blooper_pitch_range), blooper_current_blooper), total_delay) //The function is zero on the seventh tile. This makes it a maximum of 1 more.
 			total_delay += rand(DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE), DS2TICKS(blooper_speed / BLOOPER_SPEED_BASELINE) + DS2TICKS((blooper_speed / BLOOPER_SPEED_BASELINE) * (is_yell ? 0.5 : 1))) TICKS
