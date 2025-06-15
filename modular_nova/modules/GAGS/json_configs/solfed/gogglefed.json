@@ -1,0 +1,29 @@
+{
+	"federal_goggles": [
+		{
+			"type": "icon_state",
+			"icon_state": "goggles",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "goggles_glass",
+			"blend_mode": "overlay"
+		}
+	],
+	"federal_helmet": [
+		{
+			"type": "icon_state",
+			"icon_state": "helmet",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "helmet_strap",
+			"blend_mode": "overlay"
+		}
+	]
+
+}
