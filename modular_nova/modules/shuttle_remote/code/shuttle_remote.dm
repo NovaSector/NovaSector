@@ -53,17 +53,34 @@
 	if(!can_use(user))
 		return
 
-	var/obj/home = SSshuttle.getDock(shuttle_home_id)
-	var/obj/away = SSshuttle.getDock(shuttle_away_id)
+	var/obj/docking_port/home = SSshuttle.getDock(shuttle_home_id)
+	var/obj/docking_port/away = SSshuttle.getDock(shuttle_away_id)
 	var/obj/docking_port/dock = our_port.get_docked()
-	if(away == dock)
-		switch(tgui_alert(user, "Are you sure you want to call your shuttle to [home.name]?", "Call Shuttle?", list("Yes", "No")))
+
+	var/send_off_text = "Are you sure you want to send off [get_area_name(SSshuttle.getShuttle(our_computer.shuttleId))] to [away.name]?"
+	var/list/send_off_options = list("Yes", "No")
+	var/destination = null
+
+	if(home == dock || ("[our_computer.shuttleId]_custom" == dock.shuttle_id))
+		switch(tgui_alert(user, send_off_text, "Send Off Shuttle?", send_off_options))
 			if("Yes")
-				call_shuttle(user)
-	else if((home == dock) || ("[our_computer.shuttleId]_custom" == dock.shuttle_id))
-		switch(tgui_alert(user, "Are you sure you want to send off your shuttle to [away.name]?", "Send Off Shuttle?", list("Yes", "No")))
+				destination = away.shuttle_id
+	else if(away == dock)
+		send_off_text = "Are you sure you want to call [get_area_name(SSshuttle.getShuttle(our_computer.shuttleId))] to [home.name]?"
+		for(var/list/possible_destinations in our_computer.get_valid_destinations())
+			if(LAZYACCESS(possible_destinations, "id") == "[our_computer.shuttleId]_custom")
+				send_off_text += "\n\nCustom location loaded, try to dock?"
+				send_off_options += "Send to custom"
+				break
+		switch(tgui_alert(user, send_off_text, "Call Shuttle?", send_off_options))
 			if("Yes")
-				send_off_shuttle(user)
+				destination = home.shuttle_id
+			if("Send to custom")
+				destination = "[our_computer.shuttleId]_custom"
+
+	if(!destination)
+		return
+	transit_shuttle(user, destination)
 
 /obj/item/shuttle_remote/click_alt_secondary(mob/user)
 	if(!may_change_docks || !our_computer)
@@ -105,13 +122,9 @@
 		return FALSE
 	return TRUE
 
-/obj/item/shuttle_remote/proc/send_off_shuttle(mob/user)
-	our_computer.send_shuttle(shuttle_away_id, user)
-	our_computer.destination = shuttle_away_id
-
-/obj/item/shuttle_remote/proc/call_shuttle(mob/user)
-	our_computer.send_shuttle(shuttle_home_id, user)
-	our_computer.destination = shuttle_home_id
+/obj/item/shuttle_remote/proc/transit_shuttle(mob/user, destination)
+	our_computer.send_shuttle(destination, user)
+	our_computer.destination = destination
 
 //research
 /datum/design/shuttle_remote
