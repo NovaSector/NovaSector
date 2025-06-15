@@ -1,0 +1,280 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/obj/structure/flora/bush/sparsegrass/style_3{
+	pixel_y = -6;
+	pixel_x = -6
+	},
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"d" = (
+/obj/structure/flora/tree/palm/style_2,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"h" = (
+/obj/structure/flora/bush/stalky/style_random{
+	pixel_y = 6
+	},
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast,
+/area/centcom/interlink)
+"i" = (
+/obj/structure/flora/bush/stalky/style_random{
+	pixel_x = -7
+	},
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/beach/coast{
+	dir = 8
+	},
+/area/centcom/interlink)
+"j" = (
+/obj/item/reagent_containers/cup/glass/bottle/beer/almost_empty{
+	pixel_y = 2;
+	pixel_x = 16
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 6
+	},
+/obj/effect/light_emitter/interlink,
+/turf/open/floor/carpet/cyan,
+/area/centcom/interlink)
+"k" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast{
+	dir = 6
+	},
+/area/centcom/interlink)
+"l" = (
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/misc/beach/coast/corner{
+	dir = 4
+	},
+/area/centcom/interlink)
+"m" = (
+/obj/item/toy/beach_ball,
+/obj/effect/light_emitter/interlink,
+/turf/open/water/beach,
+/area/centcom/interlink)
+"n" = (
+/obj/structure/flora/bush/sparsegrass{
+	pixel_x = 12;
+	pixel_y = -4
+	},
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"o" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"p" = (
+/obj/structure/flora/tree/palm,
+/obj/structure/flora/bush/fullgrass/style_3,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"r" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast{
+	dir = 1
+	},
+/area/centcom/interlink)
+"s" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast{
+	dir = 5
+	},
+/area/centcom/interlink)
+"t" = (
+/obj/structure/flora/bush/reed/style_random{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast{
+	dir = 10
+	},
+/area/centcom/interlink)
+"u" = (
+/obj/modular_map_connector,
+/obj/structure/sign/plaques/kiddie/diorama/beach{
+	pixel_y = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"x" = (
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/beach/coast/corner{
+	dir = 4
+	},
+/area/centcom/interlink)
+"y" = (
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/misc/beach/coast/corner,
+/area/centcom/interlink)
+"B" = (
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"C" = (
+/obj/structure/flora/bush/reed/style_random{
+	pixel_y = 8
+	},
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast{
+	dir = 9
+	},
+/area/centcom/interlink)
+"E" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast{
+	dir = 4
+	},
+/area/centcom/interlink)
+"H" = (
+/obj/structure/flora/bush/grassy/style_4{
+	pixel_y = 11;
+	pixel_x = 5
+	},
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"I" = (
+/obj/structure/flora/tree/palm/style_2{
+	pixel_x = -5
+	},
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"J" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast/corner{
+	dir = 1
+	},
+/area/centcom/interlink)
+"K" = (
+/obj/structure/fluff/beach_umbrella,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"M" = (
+/obj/structure/flora/bush/grassy,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/west,
+/turf/open/misc/beach/coast/corner{
+	dir = 8
+	},
+/area/centcom/interlink)
+"N" = (
+/obj/structure/flora/coconuts,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/south,
+/turf/open/misc/beach/coast/corner{
+	dir = 8
+	},
+/area/centcom/interlink)
+"R" = (
+/obj/item/pillow{
+	pixel_y = 7;
+	pixel_x = -2
+	},
+/obj/item/binoculars{
+	pixel_x = -6;
+	pixel_y = -12
+	},
+/obj/effect/turf_decal/weather/sand{
+	dir = 8
+	},
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/north,
+/turf/open/floor/carpet/cyan,
+/area/centcom/interlink)
+"T" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/water/beach,
+/area/centcom/interlink)
+"W" = (
+/obj/structure/flora/rock/pile/style_2,
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/beach/sand,
+/area/centcom/interlink)
+"Y" = (
+/obj/effect/light_emitter/interlink,
+/obj/structure/window/reinforced/survival_pod/indestructible/spawner/directional/east,
+/turf/open/misc/beach/coast/corner{
+	dir = 1
+	},
+/area/centcom/interlink)
+"Z" = (
+/obj/effect/light_emitter/interlink,
+/turf/open/misc/beach/coast/corner,
+/area/centcom/interlink)
+
+(1,1,1) = {"
+B
+d
+y
+M
+H
+I
+a
+"}
+(2,1,1) = {"
+R
+j
+h
+s
+E
+N
+a
+"}
+(3,1,1) = {"
+K
+Z
+k
+T
+C
+l
+u
+"}
+(4,1,1) = {"
+o
+J
+t
+m
+r
+p
+a
+"}
+(5,1,1) = {"
+n
+W
+Y
+i
+x
+b
+a
+"}

@@ -44,6 +44,7 @@
 		// BLUESHIELD
 		/obj/item/clothing/head/beret/blueshield = 1,
 		/obj/item/clothing/head/beret/blueshield/navy = 1,
+		/obj/item/clothing/head/soft/blueshield = 1,
 		/obj/item/clothing/under/rank/blueshield = 1,
 		/obj/item/clothing/under/rank/blueshield/skirt = 1,
 		/obj/item/clothing/under/rank/blueshield/turtleneck = 1,

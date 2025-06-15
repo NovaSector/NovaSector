@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "borgs will no longer leave the entire contents of their beaker module on the floor when cryoing"
