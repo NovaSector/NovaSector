@@ -44,7 +44,7 @@
 /datum/worn_feature_offset/proc/apply_offset(image/overlay)
 	var/list/offset = get_offset()
 	// NOVA EDIT ADDITION START
-	// TODO" A temporary hack until TG fixes this
+	// TODO A temporary hack until TG fixes this
 	if(feature_key == OFFSET_ACCESSORY)
 		// Reset our applied offset
 		overlay.pixel_w = 0
