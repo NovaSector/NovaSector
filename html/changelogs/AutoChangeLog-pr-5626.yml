@@ -1,5 +1,0 @@
-author: "KnighTheThrasher"
-delete-after: True
-changes:
-  - rscadd: "Added short treat descriptions to synthetic wounds."
-  - qol: "Made ipc revival steps easier to see."
