@@ -6,7 +6,7 @@
 		/datum/surgery_step/open_hatch,
 		/datum/surgery_step/mechanic_unwrench,
 		/datum/surgery_step/prepare_electronics,
-		/datum/surgery_step/finalize_chassis_restoration/restart,
+		/datum/surgery_step/finalize_restart,
 		/datum/surgery_step/mechanic_wrench,
 		/datum/surgery_step/mechanic_close,
 	)
@@ -25,7 +25,7 @@
 		/datum/surgery_step/clamp_bleeders,
 		/datum/surgery_step/incise,
 		/datum/surgery_step/prepare_electronics,
-		/datum/surgery_step/finalize_chassis_restoration/restart,
+		/datum/surgery_step/finalize_restart,
 		/datum/surgery_step/close,
 	)
 	possible_locs = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST)
