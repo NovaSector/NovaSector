@@ -9022,6 +9022,7 @@
 #include "modular_nova\modules\synths\code\surgery\robot_heart_surgery.dm"
 #include "modular_nova\modules\synths\code\surgery\robot_liver_surgery.dm"
 #include "modular_nova\modules\synths\code\surgery\robot_lung_surgery.dm"
+#include "modular_nova\modules\synths\code\surgery\robot_revival.dm"
 #include "modular_nova\modules\synths\code\surgery\robot_stomach_surgery.dm"
 #include "modular_nova\modules\synths\code\surgery\surgery.dm"
 #include "modular_nova\modules\system_shock\code\system_shock_quirk.dm"
