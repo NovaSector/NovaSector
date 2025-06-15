@@ -1,0 +1,5 @@
+author: "GoldenAlpharex"
+delete-after: True
+changes:
+  - config: "The Whitelist system has been refactored to allow for SQL-based whitelisting. You should consider the Panic Bunker method that was currently implemented to be deprecated, and you are HIGHLY encouraged to move to the new SQL whitelist instead."
+  - server: "Updated the nova_schema.sql file with all of the current new tables/triggers/procedures, see details in database_changelog.md."
