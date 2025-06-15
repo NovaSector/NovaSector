@@ -155,7 +155,7 @@
 	savefile_identifier = PREFERENCE_PLAYER
 	minimum = 0
 	maximum = 100
-	step = 5
+	step = 1
 
 /datum/preference/numeric/create_default_value()
 	return 60
