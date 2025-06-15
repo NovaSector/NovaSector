@@ -1,6 +1,3 @@
-#define DAMAGE_AMOUNT 20
-#define SECONDS_PER_TICK SSmobs.wait / 10
-
 ///Checks that synthetic humanoids, humans, and synth-human-hybrids process reagents as expected.
 ///Includes tests for neuroware chip reagents.
 ///Basic Expectations:
@@ -179,6 +176,3 @@
 /datum/unit_test/liver/hybrid_human/Destroy()
 	SSmobs.ignite()
 	return ..()
-
-#undef DAMAGE_AMOUNT
-#undef SECONDS_PER_TICK
