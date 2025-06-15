@@ -6,11 +6,17 @@
 	w_class = WEIGHT_CLASS_SMALL
 	illustration = null
 	foldable_result = null
+	storage_type = /datum/storage/box/neuroware
 
-/obj/item/storage/box/flat/neuroware/Initialize(mapload)
+///Neuroware storage box
+/datum/storage/box/neuroware
+	max_slots = 5
+
+/datum/storage/box/neuroware/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	atom_storage.max_slots = 5
-	atom_storage.set_holdable(/obj/item/disk/neuroware)
+	set_holdable(list(
+		/obj/item/disk/neuroware,
+	))
 
 /obj/item/storage/box/flat/neuroware/happiness
 	name = "neuroware chips (SmileML)"
