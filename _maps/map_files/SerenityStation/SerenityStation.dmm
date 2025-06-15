@@ -68643,7 +68643,7 @@
 /area/station/security/brig)
 "tTx" = (
 /obj/item/radio/intercom/directional/north,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/aft)
