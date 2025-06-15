@@ -69,7 +69,8 @@
 	if(uses <= 0)
 		. += span_notice("It is spent.")
 		return
-	. += span_notice("Its overload safety could be [can_overdose ? "enabled" : "disabled"] with a screwdriver.")
+	if(can_hack)
+		. += span_notice("Its overload safety could be [can_overdose ? "enabled" : "disabled"] with a screwdriver.")
 	. += span_notice("It has [uses] user license[uses > 1 ? "s" : ""] left.")
 
 // Toggle reagent overdose (overload) prevention
@@ -96,7 +97,6 @@
 	if(can_hack && (uses > 0) && istype(held_item, /obj/item/screwdriver))
 		context[SCREENTIP_CONTEXT_LMB] = "[can_overdose ? "Enable" : "Disable"] overload safety"
 		return CONTEXTUAL_SCREENTIP_SET
-	return .
 
 /obj/item/disk/neuroware/attack_self(mob/user, modifiers)
 	if(!try_install(user, user))
@@ -136,6 +136,7 @@
 	if(is_lewd && !(target.client?.prefs.read_preference(/datum/preference/toggle/erp/aphro)))
 		balloon_alert(user, "installation failed!")
 		return
+
 	if(target != user)
 		target.visible_message(
 			span_danger("[user] tries to force [src] into [target]'s [NEURO_SLOT_NAME]!"),
@@ -158,11 +159,13 @@
 	if(length(list_reagents) && !can_overdose && check_overdose(target, list_reagents))
 		balloon_alert(user, "overload prevented!")
 		return
+
 	// Actually perform the installation
 	if(!install(target, user))
 		return
 	target.balloon_alert_to_viewers(success_message)
 	playsound(target, 'sound/machines/pda_button/pda_button1.ogg', 50, TRUE)
+
 	// Implement side-effects from subtypes
 	after_install(target, user)
 
@@ -182,7 +185,7 @@
 	chip_reagents.add_noreact_reagent_list(list_reagents)
 	chip_reagents.trans_to(target, total_units)
 	if(target != user)
-		log_combat(user, target, "added neuroware to", chip_reagents.get_reagent_log_string())
+		log_combat(user, target, "added neuroware to", src, chip_reagents.get_reagent_log_string())
 	return TRUE
 
 #undef CHIP_LABEL_BISHOP
