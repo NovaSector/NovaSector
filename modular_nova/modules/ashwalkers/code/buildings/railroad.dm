@@ -152,10 +152,11 @@
 			return ..()
 
 		QDEL_NULL(connected_farm)
-		atom_storage?.click_alt_open = TRUE
-		atom_storage?.insert_on_attack = TRUE
-		atom_storage?.attack_hand_interact = TRUE
-		atom_storage.locked = STORAGE_NOT_LOCKED
+		if(atom_storage)
+			atom_storage.click_alt_open = TRUE
+			atom_storage.insert_on_attack = TRUE
+			atom_storage.attack_hand_interact = TRUE
+			atom_storage.locked = STORAGE_NOT_LOCKED
 		update_overlays()
 		has_sand = FALSE
 		AddElement(/datum/element/ridable, /datum/component/riding/vehicle/rail_cart)
