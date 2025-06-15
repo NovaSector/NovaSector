@@ -21,7 +21,7 @@
 	uses = 3
 
 /obj/item/disk/neuroware/synaptizine
-	name = "SynapTuner Pro neuroware"
+	name = "\improper SynapTuner Pro neuroware"
 	desc = "A neuroware chip containing SynapTuner Pro, which reduces drowsiness and hallucinations while increasing resistance to stuns. Multi-user license included."
 	icon_state = "/obj/item/disk/neuroware/synaptizine"
 	post_init_icon_state = "chip_zenghu"
@@ -31,7 +31,7 @@
 	uses = 2
 
 /obj/item/disk/neuroware/psicodine
-	name = "Zen-First-Aid neuroware"
+	name = "\improper Zen-First-Aid neuroware"
 	desc = "A neuroware chip containing Zen-First-Aid, an \"emotional first-aid kit\" which suppresses anxiety and mental distress. Multi-user license included."
 	icon_state = "/obj/item/disk/neuroware/psicodine"
 	post_init_icon_state = "chip_zenghu"
@@ -41,7 +41,7 @@
 	uses = 2
 
 /obj/item/disk/neuroware/morphine
-	name = "AnaSynthic neuroware"
+	name = "\improper AnaSynthic neuroware"
 	desc = "A neuroware chip containing AnaSynthic, a general anasthetic program which blocks pain and causes unconsciousness. Multi-user license included."
 	icon_state = "/obj/item/disk/neuroware/morphine"
 	post_init_icon_state = "chip_bishop"
@@ -51,7 +51,7 @@
 	uses = 3
 
 /obj/item/disk/neuroware/lidocaine
-	name = "NGesic neuroware"
+	name = "\improper NGesic neuroware"
 	desc = "A neuroware chip containing NGesic, a \"painkiller\" analgesic program which blocks pain signals. Multi-user license included."
 	icon_state = "/obj/item/disk/neuroware/lidocaine"
 	post_init_icon_state = "chip_bishop"
