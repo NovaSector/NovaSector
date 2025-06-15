@@ -198,10 +198,10 @@ IPINTEL_REJECT_BAD
 # FORUMURL http://tgstation13.org/phpBB/index.php
 
 ## Wiki address
-# WIKIURL http://tgstation13.org/wiki
+# WIKIURL https://wiki.novasector13.com/wiki
 
 ## Rules address
-# RULESURL http://tgstation13.org/wiki/Rules
+# RULESURL https://wiki.novasector13.com/Rules
 
 ## Github address
 # GITHUBURL https://www.github.com/tgstation/tgstation
