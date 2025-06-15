@@ -93,8 +93,9 @@
 /mob/living/proc/play_bloopers(message_raw, message_range, obj/source, list/message_mods = list())
 	if(HAS_TRAIT(src, TRAIT_SIGN_LANG) && !HAS_TRAIT(src, TRAIT_MUTE)) //if you can speak and you sign, your hands don't make a bark. Unless you are completely mute, you can have some hand bark.
 		return
+	var/blooper_volume_to_use = blooper_volume
 	if(message_mods[WHISPER_MODE])
-		blooper_volume *= 0.5 //Whispered barked are half as loud.
+		blooper_volume_to_use *= 0.5 //Whispered barked are half as loud.
 		message_range++
 	var/list/listening = get_hearers_in_view(message_range, source)
 	var/is_yell = (say_test(message_raw) == "2")
