@@ -35,7 +35,7 @@ NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/happiness/synth)
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/drug/thc/synth)
 
 /datum/reagent/drug/pumpup/synth
-	name = "XLR8.EXE"
+	name = "XLR8.exe"
 	chemical_flags = REAGENT_NEUROWARE
 	process_flags = REAGENT_SYNTHETIC
 	self_consuming = TRUE
