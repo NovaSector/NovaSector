@@ -8,6 +8,9 @@
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON
 	possible_destinations = "whiteship_home;"
 	var/static/list/connections = list(COMSIG_TURF_ADDED_TO_SHUTTLE = PROC_REF(on_loc_added_to_shuttle))
+	//NOVA EDIT ADDITION START
+	may_be_remote_controlled = TRUE
+	//NOVA EDIT ADDITION END
 
 /obj/machinery/computer/shuttle/custom_shuttle/on_construction(mob/user)
 	circuit.configure_machine(src)

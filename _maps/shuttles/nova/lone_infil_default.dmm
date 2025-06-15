@@ -26,12 +26,12 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "qe" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/delivery/red,
 /obj/machinery/computer/shuttle/lone_infil{
 	dir = 8
 	},
-/obj/structure/cable,
-/obj/effect/turf_decal/delivery/red,
-/obj/item/infil_shuttle_sender,
+/obj/item/shuttle_remote/lone_infil,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "qu" = (

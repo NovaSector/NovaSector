@@ -24,19 +24,24 @@
 	light_color = COLOR_SOFT_RED
 	req_access = list(ACCESS_SYNDICATE)
 	shuttleId = "lone_infil"
-	possible_destinations = "whiteship_home;lone_infil_home"
-	///do we have a remote control device attached?
-	var/datum/weakref/remote_control
+	possible_destinations = "whiteship_home;lone_infil_home;lone_infil_custom"
+	may_be_remote_controlled = TRUE
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil
 	icon_screen = "syndishuttle"
 	icon_keyboard = "syndie_key"
 	shuttleId = "lone_infil"
 	shuttlePortId = "lone_infil_start"
-	jump_to_ports = list("whiteship_home" = 1, "lone_infil_home" = 1)
+	jump_to_ports = list("whiteship_home" = 1, "lone_infil_home" = 1, "lone_infil_custom" = 1)
 	see_hidden = FALSE
 	lock_override = CAMERA_LOCK_STATION
 	view_range = 4
+
+//shuttle remote
+/obj/item/shuttle_remote/lone_infil
+	icon_state = "nukietalkie"
+	shuttle_away_id = "lone_infil_home"
+	may_change_docks = FALSE
 
 //mobile docking port
 /obj/docking_port/mobile/lone_infil

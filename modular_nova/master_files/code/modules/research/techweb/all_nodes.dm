@@ -303,6 +303,13 @@
 	)
 	return ..()
 
+/////////////////////////shuttle engineering/////////////////////////
+/datum/techweb_node/shuttle_engineering/New()
+	design_ids += list(
+		"shuttle_remote",
+	)
+	return ..()
+
 /////////////////////////robotics tech/////////////////////////
 
 /datum/techweb_node/robotics/New()

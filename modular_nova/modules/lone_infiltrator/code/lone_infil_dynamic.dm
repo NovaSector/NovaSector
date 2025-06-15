@@ -23,7 +23,6 @@
 	weight = 4 //Slightly less common than normal midround traitors.
 	cost = 4 //But also slightly more costly.
 	minimum_players = 10
-	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_INFIL_MEMORY)
 	///Amount of infiltrators spawned in the round
 	var/infil_number = 1
 
