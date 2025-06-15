@@ -9,7 +9,7 @@
 NEUROWARE_METABOLIZE_HELPER(/datum/reagent/medicine/brain_neuroware)
 
 /datum/reagent/medicine/brain_neuroware/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
-	if(prob(10))
+	if(SPT_PROB(5, seconds_per_tick))
 		affected_mob.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
 	return ..()
 
