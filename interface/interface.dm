@@ -67,6 +67,15 @@
 	var/testmerge_data = GLOB.revdata.testmerge
 	var/has_testmerge_data = (length(testmerge_data) != 0)
 
+	// NOVA EDIT ADDITION START
+	var/issue_source_message = "Are you reporting a TG issue, or a Nova issue?"
+	issue_source_message += "<br>If you are unsure whether the problem comes from TG or not, choose 'Nova Issue'."
+	var/issue_source = tg_alert(src, issue_source_message, "Report Issue", "Nova Issue", "TG Issue")
+	if(isnull(issue_source))
+		return
+	if(issue_source == "TG Issue")
+		githuburl = "https://www.github.com/tgstation/tgstation"
+	// NOVA EDIT ADDITION END
 	var/message = "This will open the Github issue reporter in your browser. Are you sure?"
 	if(has_testmerge_data)
 		message += "<br>The following experimental changes are active and are probably the cause of any new or sudden issues you may experience. If possible, please try to find a specific thread for your issue instead of posting to the general issue tracker:<br>"
@@ -88,7 +97,7 @@
 		concatable += ("&round-id=" + GLOB.round_id)
 
 	// Insert testmerges
-	if(has_testmerge_data)
+	if(has_testmerge_data && issue_source != "TG Issue") // NOVA EDIT CHANGE - ORIGINAL: if(has_testmerge_data)
 		var/list/all_tms = list()
 		for(var/entry in testmerge_data)
 			var/datum/tgs_revision_information/test_merge/tm = entry
