@@ -17,6 +17,7 @@
 	Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of artificial neural networks."
 	icon = 'modular_nova/modules/neuroware/icons/neuroware.dmi'
 	icon_state = "chip_generic"
+	post_init_icon_state = "chip_generic"
 	greyscale_config = /datum/greyscale_config/neuroware
 	// Color of circuitboard underlay.
 	greyscale_colors = CIRCUIT_COLOR_GENERIC

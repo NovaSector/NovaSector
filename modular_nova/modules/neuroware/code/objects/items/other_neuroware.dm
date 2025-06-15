@@ -2,7 +2,8 @@
 /obj/item/disk/neuroware/synthesizer
 	name = "blank instruments neuroware"
 	desc = "A neuroware chip containing additional musical instruments to be played via a synthetic humanoid's built-in audio synthesizer."
-	icon_state = "chip_nt"
+	icon_state = "/obj/item/disk/neuroware/synthesizer"
+	post_init_icon_state = "chip_nt"
 	success_message = "instruments upgraded"
 	manufacturer_tag = NEUROWARE_NT
 	can_hack = FALSE
@@ -28,27 +29,32 @@
 	name = "brass & wind instruments neuroware"
 	desc = "A neuroware chip containing wind and brass synthesizer instruments to be played via a synthetic person's built-in audio synthesizer."
 	add_instrument_ids = list("harmonica", "crharmony", "crbrass", "trombone", "saxophone", "crtrumpet", "trombone", "crtrombone")
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/disk/neuroware/synthesizer/guitar
 	name = "guitar & strings instruments neuroware"
 	desc = "A neuroware chip containing guitar and string synthesizer instruments to be played via a synthetic person's built-in audio synthesizer. Includes bonus banjo instrument!"
 	add_instrument_ids = list("banjo", "guitar", "eguitar", "csteelgt", "cnylongt", "ccleangt", "cmutedgt", "violin")
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/disk/neuroware/synthesizer/percussion
 	name = "percussion instruments neuroware"
 	desc = "A neuroware chip containing percussion synthesizer instruments to be played via a synthetic person's built-in audio synthesizer."
 	add_instrument_ids = list("xylophone", "glockenspiel", "crvibr", "sgmmbox", "r3celeste")
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/disk/neuroware/synthesizer/piano
 	name = "piano instruments neuroware"
 	desc = "A neuroware chip containing piano synthesizer instruments to be played via a synthetic person's built-in audio synthesizer."
 	add_instrument_ids = list("piano", "r3grand", "r3harpsi", "crharpsi", "crgrand1", "crbright1", "crichugan", "crihamgan", "crack")
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 ///Neuroware which spawns in maintenance and have random reagent contents
 /obj/item/disk/neuroware/maintenance
 	name = "unlabeled neuroware"
 	desc = "A strange neuroware chip found in the depths of maintenance."
-	icon_state = "chip_generic"
+	icon_state = "/obj/item/disk/neuroware/maintenance"
+	post_init_icon_state = "chip_generic"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	can_hack = FALSE
 	var/static/list/maint_neuroware_names = list(

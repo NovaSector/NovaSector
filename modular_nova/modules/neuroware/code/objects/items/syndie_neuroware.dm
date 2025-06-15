@@ -2,7 +2,8 @@
 /obj/item/disk/neuroware/sleepy
 	name = "suspicious neuroware"
 	desc = "A suspicious looking neuroware chip, it contains unknown programs..."
-	icon_state = "chip_syndie"
+	icon_state = "/obj/item/disk/neuroware/sleepy"
+	post_init_icon_state = "chip_syndie"
 	greyscale_colors = "#474747"
 	list_reagents = list(
 		/datum/reagent/toxin/chloralhydrate/synth = 20,
