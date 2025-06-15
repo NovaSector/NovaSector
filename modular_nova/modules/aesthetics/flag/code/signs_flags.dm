@@ -39,8 +39,8 @@
 	item_flag = /obj/item/sign/flag/nanotrasen
 
 /obj/structure/sign/flag/tizira
-	name = "flag of the Republic of Northern Moghes"
-	desc = "The flag of the Great Republic of Northern Moghes. Depending on who you ask, it represents strength or being an ant in the hive."
+	name = "flag of the Talunan Imperium"
+	desc = "The flag of the Talunan Imperium. Born in the ashes of the Terran War, it represents resilience and bitter ancestral hatred in equal measure."
 	icon_state = "flag_tizira"
 	item_flag = /obj/item/sign/flag/tizira
 
@@ -135,8 +135,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flag/interdyne, 32)
 	sign_path = /obj/structure/sign/flag/terragov
 
 /obj/item/sign/flag/tizira
-	name = "folded flag of the Republic of Northern Moghes"
-	desc = "The folded flag of the Republic of Northern Moghes."
+	name = "folded flag of the Talunan Imperium"
+	desc = "The folded flag of the Talunan Imperium."
 	icon_state = "folded_tizira"
 	sign_path = /obj/structure/sign/flag/tizira
 

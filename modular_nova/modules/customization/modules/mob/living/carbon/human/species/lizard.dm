@@ -16,6 +16,36 @@
 		"wings" = list("None", FALSE),
 	)
 
+/datum/species/lizard/get_species_description()
+	return "The Tizirans, Unathi, and Ashwalkers encountered on the frontier share a common heritage. Each trace their lineage back to the arid aquifer world of Tizira. \
+		The earliest recorded evidence of what would be considered recognizably Tiziran culture dates back around 2200-2400 years before mankind first developed FTL capability."
+
+/datum/species/lizard/get_species_lore()
+	return list(
+		"The Tizirans, an ancient lizard-like species, originated on the desert world of Tizira and developed a complex society rooted in spirituality and nature. \
+			Their history is marked by two major ideologies: the Daysong Way, focused on collective action and unity, and Takuhism, emphasizing personal growth and \
+			harmony with nature. Over centuries, Tiziran society evolved from nomadic clans to an advanced civilization, achieving space travel by the 2360s. However, \
+			internal divisions deepened between the two philosophies, leading to a cultural schism. As the Tizirans began colonizing space, factions broke away, forming \
+			the Unathi and Ashwalkers. This split weakened their unity, ultimately contributing to their vulnerability during the Terran War—a devastating conflict with \
+			humanity that shattered their moon, Atra'Kor, and left their civilization in turmoil.",
+		"During the Terran War, the Tizirans fought a brutal conflict with humanity over territory and survival, which culminated in the destruction of their sacred moon, \
+			Atra'Kor. This event caused massive devastation to their home planet and deeply scarred their society. The war ended with the Sagittarius Accords, which imposed a \
+			demilitarized zone (DMZ) and heavy trade restrictions on the Tizirans, limiting their expansion and influence. In the aftermath, the Tiziran government collapsed, \
+			giving rise to the Talunan Imperium. The Imperium is a more decentralized system, with power divided between the Imperial Throne and local Wards, which handle daily \
+			governance. The Imperium focuses on rebuilding, maintaining a strong military presence, and carefully managing relations with other species—especially their allies, \
+			the Teshari—while remaining distrustful of humanity and other outsiders.",
+		"Having taken up their original charter of making contact with their wayward kin—lost in the great exodus following Tizira's first foray into FTL travel—the Expeditionary \
+			Corps is once again chasing leads on the Ashwalkers and Unathi. Reports of neolithic reptiles living on the magma world of Indecipheres have piqued the interest of the \
+			Expedition, which has set about establishing a presence on the frontier to investigate the matter.",
+		"Talunan flagged vessels are prohibited from crossing the DMZ per the Sagittarius Accords. As a result, there is no official Talunan presence North of their border \
+			with SolFed. Unofficially the joint Tiziro-Teshari arm of the Expeditionary Corps acts to fulfill Talunan objectives in and beyond human space.",
+		"Having taken up their original charter of making contact with their wayward kin which where lost in the great exodus following Tizira's first foray into FTL travel, \
+			the Expeditionary Corps is once again chasing leads on the Ashwalkers and Unathi. Reports of neolithic reptiles living on the magma world of Indecipheres has piqued \
+			the interest of the Expedition, which has set about establishing a presence on the frontier to investigate the matter.",
+			"Apart from their archeological mission, the Corps is also called upon from time to time to transport or otherwise protect Talunan citizens living outside of the \
+			Imperium. Deniable operations to safeguard or extricate Tizirans in what is considered at home to be hostile space are not uncommon.",
+	)
+
 /datum/species/lizard/ashwalker/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
 	default_parts["spines"] = list("None", TRUE)
