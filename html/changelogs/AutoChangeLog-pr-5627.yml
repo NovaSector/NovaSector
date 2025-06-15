@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "Haywire bullets create electromagnetic pulse visual effects for the sake of visual clarity."

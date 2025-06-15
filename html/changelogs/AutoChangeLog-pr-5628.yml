@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - bugfix: "Quirks which give clothing (essential for life) no longer cause midround contractor to spawn with their suit undeployed in space"
