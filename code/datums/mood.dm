@@ -617,7 +617,7 @@
 		mob_parent.apply_status_effect(/datum/status_effect/hallucination/sanity)
 	else
 		mob_parent.remove_status_effect(/datum/status_effect/hallucination/sanity) 
-		*/ // NOVA EDIT REMOVAL END
+	*/ // NOVA EDIT REMOVAL END
 
 	update_mood_icon()
 
