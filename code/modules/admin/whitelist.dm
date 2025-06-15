@@ -1,3 +1,4 @@
+/** NOVA EDIT REMOVAL - Moved to modular for SQL implementation.
 #define WHITELISTFILE "[global.config.directory]/whitelist.txt"
 
 GLOBAL_LIST(whitelist)
@@ -20,3 +21,4 @@ GLOBAL_LIST(whitelist)
 	. = (ckey in GLOB.whitelist)
 
 #undef WHITELISTFILE
+*/ // NOVA EDIT END
