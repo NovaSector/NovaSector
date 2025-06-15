@@ -28,7 +28,38 @@ ALTER TABLE `manifest`
 
 ---
 
-Version 5.34, 27 April 2025, by GoldenAlpharex
+Version 5.34, 3 May 2025, by Atlanta-Ned
+Adds a `manifest` table.
+
+```sql
+CREATE TABLE `manifest` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `server_ip` int(10) unsigned NOT NULL,
+  `server_port` smallint(5) NOT NULL,
+  `round_id` int(11) NOT NULL,
+  `ckey` text NOT NULL,
+  `character` text NOT NULL,
+  `job` text NOT NULL,
+  `special` text DEFAULT NULL,
+  `latejoin` tinyint(1) NOT NULL DEFAULT 0,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+---
+
+Version 5.33, 1 May 2025, by Rengan
+Adds `crime_desc` field to the `citation` table to save the description of the crime.
+
+```sql
+ALTER TABLE `citation`
+ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
+```
+
+---
+
+Version 5.32, 27 April 2025, by GoldenAlpharex
 Two major changes (nova_schema.sql):
 
 - Added three new tables for Donators and general donation information, for integration
@@ -174,37 +205,6 @@ WHERE NOT EXISTS (
     FROM stickyban s
     WHERE s.ckey = p.ckey
 )
-```
-
----
-
-Version 5.33, 3 May 2025, by Atlanta-Ned
-Adds a `manifest` table.
-
-```sql
-CREATE TABLE `manifest` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server_ip` int(10) unsigned NOT NULL,
-  `server_port` smallint(5) NOT NULL,
-  `round_id` int(11) NOT NULL,
-  `ckey` text NOT NULL,
-  `character` text NOT NULL,
-  `job` text NOT NULL,
-  `special` text DEFAULT NULL,
-  `latejoin` tinyint(1) NOT NULL DEFAULT 0,
-  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-```
-
----
-
-Version 5.32, 1 May 2025, by Rengan
-Adds `crime_desc` field to the `citation` table to save the description of the crime.
-
-```sql
-ALTER TABLE `citation`
-ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
 ```
 
 ---
