@@ -291,10 +291,8 @@
 				continue
 			item.post_equip_item(humanc.client?.prefs, humanc)
 		if(iskobold(humanc))
-			humanc.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
-			humanc.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
-			humanc.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
-			humanc.dna.activate_mutation(/datum/mutation/human/clever)
+			//humanc.dna.add_mutation(/datum/mutation/human/race, MUTATION_SOURCE_ACTIVATED) // awful hack but adding mutations breaks char previews
+			//humanc.dna.add_mutation(/datum/mutation/human/clever, MUTATION_SOURCE_ACTIVATED)
 	// NOVA EDIT ADDITION END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)

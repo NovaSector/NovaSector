@@ -50,15 +50,14 @@
 		human_who_gained_species.AddElement(/datum/element/human_biter)
 		return
 	// NOVA EDIT ADDITION END
-	human_who_gained_species.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
-	human_who_gained_species.dna.activate_mutation(/datum/mutation/human/race)
+	human_who_gained_species.dna.add_mutation(/datum/mutation/race, MUTATION_SOURCE_ACTIVATED)
 	human_who_gained_species.AddElement(/datum/element/human_biter)
 	human_who_gained_species.update_mob_height()
 
 /datum/species/monkey/on_species_loss(mob/living/carbon/human/C)
 	. = ..()
 	passtable_off(C, SPECIES_TRAIT)
-	C.dna.remove_mutation(/datum/mutation/human/race)
+	C.dna.remove_mutation(/datum/mutation/race, MUTATION_SOURCE_ACTIVATED)
 	C.RemoveElement(/datum/element/human_biter)
 	C.update_mob_height()
 
