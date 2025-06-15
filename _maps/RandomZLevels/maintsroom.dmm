@@ -6359,8 +6359,9 @@
 	},
 /area/awaymission/caves/maintsroom)
 "uX" = (
-/obj/item/robot_model/security,
 /obj/structure/closet/crate/engineering/electrical,
+/obj/item/gun/medbeam,
+/obj/item/borg/upgrade/syndicate,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "uZ" = (
@@ -12010,8 +12011,7 @@
 /area/awaymission/caves/maintsroom)
 "Oq" = (
 /obj/structure/safe/floor,
-/obj/item/robot_model/syndicate_medical,
-/obj/item/robot_model/ninja/ninja_medical,
+/obj/item/mod/core/ethereal,
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Os" = (
