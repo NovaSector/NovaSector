@@ -202,7 +202,7 @@
 	default_unfasten_wrench(user, tool)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/space_heater/attackby(obj/item/I, mob/user, list/modifiers)
+/obj/machinery/space_heater/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
 	add_fingerprint(user)
 
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
@@ -338,6 +338,18 @@
 	. = ..()
 	QDEL_NULL(beaker)
 
+/obj/machinery/space_heater/improvised_chem_heater/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
+	. = ..()
+	if(!isliving(crafter))
+		return
+	var/mob/living/user = crafter
+	var/obj/item/stock_parts/power_store/cell/cell = (locate() in range(1)) || user.is_holding_item_of_type(/obj/item/stock_parts/power_store/cell)
+	if(!cell)
+		return
+	var/turf/turf = get_turf(cell)
+	forceMove(turf)
+	attackby(cell, user) //puts it into the heater
+
 /obj/machinery/space_heater/improvised_chem_heater/heating_examine()
 	. = ..()
 	// Conducted energy per joule of thermal energy difference in a tick.
@@ -402,7 +414,7 @@
 			. = TRUE
 
 ///Slightly modified to ignore the open_hatch - it's always open, we hacked it.
-/obj/machinery/space_heater/improvised_chem_heater/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/machinery/space_heater/improvised_chem_heater/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	add_fingerprint(user)
 	if(default_deconstruction_crowbar(item))
 		return

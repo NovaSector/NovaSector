@@ -423,3 +423,12 @@
 	name = "Arfel Harpy"
 	icon_state = "arfelharpy_top"
 	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/wings/mammal/harpy_fluffy
+	name = "Harpy (Fluffy)"
+	icon_state = "harpyfluffy"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/wings/mammal/top/harpy_fluffy
+	name = "Harpy (Fluffy, Top)"
+	icon_state = "harpyfluffy_top"

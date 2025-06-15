@@ -110,9 +110,9 @@
 	visible_message("[src] pings, updating its sorting direction!")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 
-/obj/effect/decal/conveyor_sorter/attackby(obj/item/used_item, mob/user, params)
-	if(istype(used_item, /obj/item/conveyor_sorter))
-		var/obj/item/conveyor_sorter/cs_item = used_item
+/obj/effect/decal/conveyor_sorter/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/conveyor_sorter))
+		var/obj/item/conveyor_sorter/cs_item = attacking_item
 		sorting_list = cs_item.current_sort
 		visible_message("[src] pings, updating its sorting list!")
 		playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
