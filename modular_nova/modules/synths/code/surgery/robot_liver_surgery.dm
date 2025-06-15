@@ -29,7 +29,8 @@
 		/datum/surgery_step/saw,
 		/datum/surgery_step/clamp_bleeders,
 		/datum/surgery_step/incise,
-		/datum/surgery_step/hepatectomy,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/reagent_pump/repair,
 		/datum/surgery_step/close,
 	)
 	requires_bodypart_type = BODYTYPE_ORGANIC
