@@ -154,8 +154,11 @@
 	savefile_key = "sound_blooper_volume"
 	savefile_identifier = PREFERENCE_PLAYER
 	minimum = 0
-	maximum = 60
+	maximum = 100
 	step = 5
+
+/datum/preference/numeric/create_default_value()
+	return 60
 
 /datum/preference_middleware/blooper
 	/// Cooldown on requesting a Blooper preview.
