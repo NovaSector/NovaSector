@@ -1,12 +1,11 @@
 /// Synthetic fuel cell Maintenance
 /datum/surgery/fuelcell
 	name = "Fuel Cell Maintenance"
+	desc = "A mechanical surgery procedure designed to repair an android's internal fuel cell."
 	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
-	organ_to_manipulate = ORGAN_SLOT_STOMACH
-	possible_locs = list(BODY_ZONE_CHEST)
-	requires_bodypart_type = BODYTYPE_ROBOTIC
 	steps = list(
 		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/open_hatch,
 		/datum/surgery_step/mechanic_unwrench,
 		/datum/surgery_step/pry_off_plating,
 		/datum/surgery_step/prepare_electronics,
@@ -14,13 +13,27 @@
 		/datum/surgery_step/mechanic_wrench,
 		/datum/surgery_step/mechanic_close,
 	)
-	desc = "A mechanical surgery procedure designed to repair an androids internal fuel cell."
+	target_mobtypes = list(/mob/living/carbon/human)
+	possible_locs = list(BODY_ZONE_CHEST)
+	organ_to_manipulate = ORGAN_SLOT_STOMACH
+	requires_bodypart_type = BODYTYPE_ROBOTIC
+	requires_organ_type = /obj/item/organ/stomach/synth
+	requires_organ_flags = ORGAN_ROBOTIC
+	requires_organ_damage = 10
 
-/datum/surgery/fuelcell/can_start(mob/user, mob/living/carbon/target)
-	var/obj/item/organ/stomach/fuelcell = target.get_organ_slot(ORGAN_SLOT_STOMACH)
-	if(isnull(fuelcell) || !issynthetic(target) || fuelcell.damage < 10)
-		return FALSE
-	return ..()
+// Subtype for synthetic humanoids with organic bodyparts
+/datum/surgery/fuelcell/hybrid
+	steps = list(
+		/datum/surgery_step/incise,
+		/datum/surgery_step/retract_skin,
+		/datum/surgery_step/saw,
+		/datum/surgery_step/clamp_bleeders,
+		/datum/surgery_step/incise,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/fuelcell/repair,
+		/datum/surgery_step/close,
+	)
+	requires_bodypart_type = BODYTYPE_ORGANIC
 
 /datum/surgery_step/fuelcell/repair
 	name = "perform fuel cell maintenance (screwdriver)"
