@@ -176,4 +176,7 @@ REPLACE_SECBELT_FLASHBANGS_WITH_BOLA
 JUNGLE_BUDGET 2
 
 ## The ruin budget for SerenityStation's lower z-levels.
-JUNGLE_CAVES_BUDGET 2
+JUNGLE_CAVE_BUDGET 2
+
+## Comment this out if you do not want to show job estimations in the statpanel before roundstart
+SHOW_JOB_ESTIMATION

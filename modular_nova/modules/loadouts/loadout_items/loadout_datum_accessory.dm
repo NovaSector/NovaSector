@@ -33,6 +33,10 @@
 	name = "Chaps"
 	item_path = /obj/item/clothing/accessory/chaps
 
+/datum/loadout_item/accessory/colonial_webbing
+	name = "Slim Colonial Webbing"
+	item_path = /obj/item/clothing/accessory/colonial_webbing
+
 /*
 *	ARMBANDS
 */

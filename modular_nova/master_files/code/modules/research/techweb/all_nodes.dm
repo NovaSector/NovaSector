@@ -340,3 +340,11 @@
 		"borg_upgrade_surgicaltools",
 	)
 	return ..()
+
+/////////////////////////Applied Bluespace /////////////////////////
+
+/datum/techweb_node/applied_bluespace/New()
+	design_ids += list(
+		"plantbag_holding",
+	)
+	return ..()

@@ -1008,7 +1008,7 @@
 /area/awaymission/beach/heretic)
 "qu" = (
 /obj/machinery/light/very_dim/directional/west,
-/obj/item/mod/control/pre_equipped/marine,
+/obj/item/mod/control/pre_equipped/marine/damaged,
 /obj/machinery/suit_storage_unit/industrial,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
@@ -2512,7 +2512,7 @@
 /area/awaymission/beach/heretic)
 "NX" = (
 /obj/machinery/light/very_dim/directional/east,
-/obj/item/mod/control/pre_equipped/marine,
+/obj/item/mod/control/pre_equipped/marine/damaged,
 /obj/machinery/suit_storage_unit/industrial,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
