@@ -14,7 +14,7 @@
 /obj/item/disk/neuroware
 	name = "neuroware chip"
 	special_desc = "A neuroware chip uploads neurocomputing programs to the user's brain. The recipient must be a synthetic humanoid. \
-	Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of artificial neural networks."
+		Neurocomputing software, also known as neuroware, are programs designed to execute their code within the synaptic connections of artificial neural networks."
 	icon = 'modular_nova/modules/neuroware/icons/neuroware.dmi'
 	icon_state = "chip_generic"
 	post_init_icon_state = "chip_generic"
