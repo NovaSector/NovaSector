@@ -149,15 +149,12 @@
 	default_value = TRUE
 
 /// Can I have a slider to adjust the volume of the barks?
-/datum/preference/numeric/sound_blooper_volume
+/datum/preference/numeric/volume/sound_blooper_volume
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "sound_blooper_volume"
 	savefile_identifier = PREFERENCE_PLAYER
-	minimum = 0
-	maximum = 100
-	step = 1
 
-/datum/preference/numeric/create_default_value()
+/datum/preference/numeric/volume/sound_blooper_volume/create_default_value()
 	return 60
 
 /datum/preference_middleware/blooper
