@@ -7072,7 +7072,7 @@
 /turf/open/floor/engine,
 /area/station/science/ordnance/storage)
 "cfa" = (
-/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
 /obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "Secure Creature Pen";
 	req_access = list("xenobiology")
@@ -14055,7 +14055,7 @@
 /obj/structure/sign/poster/random/directional/east,
 /obj/effect/spawner/random/trash/hobo_squat,
 /obj/effect/decal/cleanable/plastic,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -30272,7 +30272,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "iHX" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
@@ -34071,7 +34071,7 @@
 /area/station/hallway/secondary/command)
 "jIc" = (
 /obj/structure/cable,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/blobstart,
@@ -35612,7 +35612,7 @@
 "kgN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/electrical)
 "kgR" = (
@@ -45008,7 +45008,7 @@
 /turf/open/floor/wood/large,
 /area/station/security/courtroom)
 "mIH" = (
-/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
 /turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "mII" = (
@@ -47089,7 +47089,7 @@
 	},
 /area/station/security/prison/work)
 "nlj" = (
-/obj/effect/decal/cleanable/xenoblood,
+/obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "nll" = (
@@ -62975,7 +62975,7 @@
 	id = "Xtestlab";
 	name = "Test Chamber Blast Door"
 	},
-/obj/effect/decal/cleanable/blood/xtracks,
+/obj/effect/decal/cleanable/blood/tracks/xeno,
 /obj/item/toy/toy_xeno,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -71381,7 +71381,7 @@
 	},
 /area/station/medical/medbay/lobby)
 "tOS" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -79713,7 +79713,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light_switch/directional/south,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/structure/spider/stickyweb,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth,
