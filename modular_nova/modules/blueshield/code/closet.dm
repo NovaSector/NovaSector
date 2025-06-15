@@ -6,6 +6,7 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/nova/blueshield(src)
 	new /obj/item/clothing/head/beret/blueshield(src)
 	new /obj/item/clothing/head/beret/blueshield/navy(src)
+	new /obj/item/clothing/head/soft/blueshield(src)
 	new /obj/item/clothing/under/rank/blueshield(src)
 	new /obj/item/clothing/under/rank/blueshield/skirt(src)
 	new /obj/item/clothing/under/rank/blueshield/turtleneck(src)

@@ -402,7 +402,7 @@
 			if(TPACKC)
 				back = /obj/item/storage/backpack/tinypakc
 			if(GUNCASE)
-				back = /obj/item/storage/toolbox/guncase/nova/empty
+				back = /obj/item/storage/toolbox/guncase/nova
 			// NOVA EDIT ADDITION START
 			else
 				back = backpack //Department backpack

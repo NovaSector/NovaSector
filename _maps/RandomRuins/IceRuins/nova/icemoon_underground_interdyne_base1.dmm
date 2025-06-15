@@ -4611,7 +4611,7 @@
 /area/ruin/interdyne_planetary_base/eng/disp)
 "mc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "md" = (
