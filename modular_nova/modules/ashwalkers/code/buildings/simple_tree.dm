@@ -447,7 +447,7 @@
 			continue
 
 		if(prob(20))
-			balloon_alert_to_viewers("feeling stiffled...")
+			balloon_alert_to_viewers("feeling stiffed...")
 			return
 
 	fertilizer_amount = 0
