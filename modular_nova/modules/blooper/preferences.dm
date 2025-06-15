@@ -153,9 +153,10 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "sound_blooper_volume"
 	savefile_identifier = PREFERENCE_PLAYER
+	maximum = 200
 
 /datum/preference/numeric/volume/sound_blooper_volume/create_default_value()
-	return 60
+	return 100
 
 /datum/preference_middleware/blooper
 	/// Cooldown on requesting a Blooper preview.
