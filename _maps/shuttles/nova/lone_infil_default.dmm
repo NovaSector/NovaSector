@@ -1,18 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cM" = (
+/obj/item/tether_anchor{
+	anchored = 1;
+	pixel_x = -16
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/lone_infil)
 "cZ" = (
 /obj/machinery/camera/xray/directional/south{
 	pixel_y = 32;
 	c_tag = "External View Port-Side";
-	network = list("lone_infil_shuttle")
+	network = list("lone_infil_shuttle");
+	use_power = 1
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "dc" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/box/red/corners,
-/obj/effect/turf_decal/box/red/corners{
-	dir = 8
-	},
 /obj/structure/chair/comfy/shuttle/tactical{
 	dir = 4
 	},
@@ -21,18 +25,13 @@
 "ie" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
-"nT" = (
-/obj/machinery/power/shuttle_engine/propulsion/burst{
-	dir = 8
-	},
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/lone_infil)
 "qe" = (
 /obj/machinery/computer/shuttle/lone_infil{
 	dir = 8
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery/red,
+/obj/item/infil_shuttle_sender,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "qu" = (
@@ -41,14 +40,12 @@
 "qQ" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/light/small/red/directional/north,
 /obj/structure/sign/poster/contraband/icebox_moment/directional/north,
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "tO" = (
 /obj/structure/cable,
-/obj/machinery/light/floor,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/mapping_helpers/apc/full_charge,
 /obj/effect/mapping_helpers/apc/cell_10k,
@@ -65,22 +62,24 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 4
 	},
+/obj/machinery/light/floor{
+	bulb_colour = "#FF3232";
+	use_power = 0
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "vf" = (
-/obj/structure/sign/warning/directional/west,
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/sign/warning/directional/west{
+	pixel_y = -32
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/lone_infil)
 "Jv" = (
 /turf/template_noop,
 /area/template_noop)
 "Nn" = (
 /obj/structure/cable,
-/obj/machinery/recharger{
-	pixel_y = 5
-	},
-/obj/effect/turf_decal/bot_red,
-/obj/machinery/light/small/red/directional/south,
+/obj/machinery/recharger,
 /obj/structure/sign/flag/syndicate/directional/south,
 /obj/structure/table/reinforced,
 /turf/open/floor/mineral/plastitanium,
@@ -104,7 +103,7 @@
 /obj/machinery/door/airlock/hatch{
 	id_tag = "lone_infil_bolt";
 	name = "External Airlock";
-	normalspeed = 0
+	external = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/docking_port/mobile/lone_infil{
@@ -112,19 +111,31 @@
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
+/obj/docking_port/stationary{
+	dir = 4;
+	name = "Deep Space";
+	shuttle_id = "lone_infil_home";
+	dwidth = 4;
+	width = 9;
+	height = 5
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/lone_infil)
 "YB" = (
 /obj/machinery/camera/xray/directional/north{
 	pixel_y = -32;
 	network = list("lone_infil_shuttle");
-	c_tag = "External View Starboard-Side"
+	c_tag = "External View Starboard-Side";
+	use_power = 1
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/lone_infil)
 "YY" = (
 /obj/structure/cable,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor{
+	bulb_colour = "#FF3232";
+	use_power = 0
+	},
 /obj/machinery/button/door/directional/west{
 	id = "lone_infil_bolt";
 	name = "External Bolt Control";
@@ -143,52 +154,56 @@
 	pixel_x = 32
 	},
 /obj/item/crowbar,
+/obj/effect/turf_decal/box/red/corners,
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/lone_infil)
 
 (1,1,1) = {"
 Jv
 ie
-nT
-qu
+UZ
+ie
 Yi
-qu
-nT
+ie
+UZ
 ie
 Jv
 "}
 (2,1,1) = {"
 UZ
-qu
+ie
 qQ
 tO
 dc
 YY
 Nn
-qu
+ie
 UZ
 "}
 (3,1,1) = {"
-qu
-qu
-qu
+ie
+ie
+ie
 qu
 qe
 qu
 Ve
-qu
+ie
 ie
 "}
 (4,1,1) = {"
-qu
-ie
+cM
 vf
+Jv
 ie
 Ve
 ie
 Jv
 ie
-qu
+cM
 "}
 (5,1,1) = {"
 cZ

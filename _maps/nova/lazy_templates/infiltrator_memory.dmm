@@ -1,710 +1,998 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/open/floor/iron/dark,
-/area/infiltrator_memory)
-"h" = (
-/turf/open/floor/iron/dark,
-/area/infiltrator_memory/landing_pad)
-"n" = (
-/obj/effect/landmark/start/lone_infil,
+"ae" = (
 /obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/iron/dark,
-/area/infiltrator_memory)
-"p" = (
-/obj/docking_port/stationary{
-	dir = 2;
-	roundstart_template = /datum/map_template/shuttle/lone_infil/default;
-	width = 9;
-	height = 5;
-	dwidth = 4;
-	name = "Landing Pad"
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"ba" = (
+/obj/structure/sign/warning/docking/directional/east,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"cG" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/docking_port/stationary/lone_infil{
+	dir = 2
 	},
 /turf/open/floor/plating,
-/area/infiltrator_memory/landing_pad)
-"D" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/iron/dark,
-/area/infiltrator_memory)
-"H" = (
+/area/misc/infiltrator_memory/landing_pad)
+"dM" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
-/area/infiltrator_memory/landing_pad)
-"Z" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/iron/dark,
-/area/infiltrator_memory/landing_pad)
+/area/misc/infiltrator_memory/landing_pad)
+"dV" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/infiltrator_memory)
+"ep" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"eS" = (
+/obj/structure/railing/corner/end/unbreakable,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/landmark/start/lone_infil,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/small,
+/area/misc/infiltrator_memory)
+"fI" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"gb" = (
+/turf/open/space,
+/area/space)
+"gk" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"hB" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"hZ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"ih" = (
+/turf/open/floor/catwalk_floor/airless,
+/area/misc/infiltrator_memory)
+"iY" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"kn" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/infiltrator_memory)
+"lq" = (
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/infiltrator_memory)
+"nw" = (
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"nR" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/iron/stairs/old{
+	dir = 1;
+	color = "#7F7F7F";
+	name = "airstair"
+	},
+/area/misc/infiltrator_memory/landing_pad)
+"pg" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/infiltrator_memory)
+"rC" = (
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"sn" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"sF" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"tU" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"ux" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"uZ" = (
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"yb" = (
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"yJ" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/infiltrator_memory)
+"zD" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/infiltrator_memory)
+"Aw" = (
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/infiltrator_memory)
+"Bk" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"Bu" = (
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/infiltrator_memory)
+"Ca" = (
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"Cg" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"Dr" = (
+/turf/open/space/basic,
+/area/space)
+"DF" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"DL" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"FX" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/misc/infiltrator_memory)
+"Hc" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"Hm" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"Hr" = (
+/obj/structure/sign/warning/docking/directional/south,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"If" = (
+/obj/machinery/light/floor,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"Kq" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"KE" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"KS" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"Lo" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"Lz" = (
+/obj/structure/fans/tiny/shield,
+/obj/machinery/door/poddoor/preopen,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"NQ" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"OD" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"OH" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"Pi" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"Pn" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"PY" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"RO" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"SL" = (
+/obj/structure/sign/warning/docking/directional/west,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"SX" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/misc/infiltrator_memory)
+"UJ" = (
+/obj/structure/lattice,
+/turf/open/space,
+/area/space/nearstation)
+"Va" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"Vp" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory)
+"VI" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/infiltrator_memory)
+"Wy" = (
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/infiltrator_memory/landing_pad)
+"WC" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/infiltrator_memory)
+"WE" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"Yt" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
+"ZI" = (
+/obj/effect/turf_decal/stripes/white/corner,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/infiltrator_memory)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+rC
+fI
+nw
+nw
+nw
+nw
+nw
+kn
+Va
+Dr
+Dr
+Dr
+Dr
+Dr
+gb
+Dr
 "}
 (2,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+ae
+nw
+nw
+nw
+nw
+ae
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+rC
+fI
+If
+nw
+nw
+If
+nw
+kn
+sF
+kn
+Dr
+Dr
+gb
+gb
+gb
+Dr
 "}
 (3,1,1) = {"
-a
-a
-D
-a
-a
-a
-a
-a
-a
-a
-a
-D
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-Z
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+rC
+OH
+Pn
+Pn
+Pn
+Pn
+Pn
+Bk
+nw
+kn
+kn
+Dr
+Dr
+gb
+gb
+Dr
 "}
 (4,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+Ca
+Hc
+Hc
+Hc
+Hc
+Hc
+gk
+OH
+Bk
+Hr
+zD
+kn
+UJ
+UJ
+gb
+Dr
 "}
 (5,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+VI
+Aw
+Aw
+Aw
+Aw
+Aw
+yJ
+gk
+OH
+Bk
+SL
+Lz
+ih
+UJ
+gb
+Dr
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+WC
+Aw
+ep
+Pi
+Pi
+Pi
+sn
+Aw
+lq
+gk
+OH
+Bk
+Lz
+ih
+ih
+gb
+Dr
 "}
 (7,1,1) = {"
-a
-a
-a
-a
-a
-a
-D
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-Z
-h
-h
-h
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+VI
+Aw
+ep
+iY
+uZ
+uZ
+uZ
+Cg
+sn
+Aw
+yJ
+gk
+fI
+nw
+Lz
+ih
+gb
+Dr
 "}
 (8,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-D
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Aw
+ep
+Hm
+uZ
+uZ
+uZ
+uZ
+Kq
+NQ
+sn
+Aw
+rC
+fI
+nw
+Lz
+ih
+ih
+Dr
 "}
 (9,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-H
-H
-H
-H
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Aw
+Lo
+DF
+KE
+uZ
+uZ
+uZ
+uZ
+yb
+KS
+Aw
+rC
+fI
+nw
+nw
+Lz
+ih
+Dr
 "}
 (10,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-H
-H
-H
-H
-h
-h
+ae
+nw
+nw
+nw
+nw
+ae
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+eS
+nR
+nR
+cG
+uZ
+uZ
+uZ
+uZ
+uZ
+KS
+dV
+rC
+fI
+nw
+nw
+Lz
+ih
+Dr
 "}
 (11,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-H
-H
-H
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Aw
+ep
+dM
+iY
+uZ
+uZ
+uZ
+uZ
+Wy
+KS
+Aw
+rC
+fI
+nw
+nw
+Lz
+ih
+Dr
 "}
 (12,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-H
-H
-H
-H
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Aw
+Lo
+ux
+uZ
+uZ
+uZ
+uZ
+Kq
+PY
+RO
+Aw
+rC
+fI
+nw
+Lz
+ih
+ih
+Dr
 "}
 (13,1,1) = {"
-a
-a
-D
-a
-a
-a
-D
-a
-a
-a
-a
-n
-a
-a
-a
-a
-a
-Z
-h
-p
-H
-H
-Z
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+FX
+Aw
+Lo
+KE
+uZ
+uZ
+uZ
+DL
+RO
+Aw
+pg
+tU
+fI
+nw
+Lz
+ih
+gb
+Dr
 "}
 (14,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-H
-H
-H
-H
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+SX
+Aw
+Lo
+hZ
+hZ
+hZ
+RO
+Aw
+Bu
+tU
+Vp
+hB
+Lz
+ih
+ih
+Dr
+Dr
 "}
 (15,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-H
-H
-H
-h
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+FX
+Aw
+Aw
+Aw
+Aw
+Aw
+pg
+tU
+Vp
+hB
+ba
+Lz
+ih
+UJ
+Dr
+Dr
 "}
 (16,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-H
-H
-H
-H
-h
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+ZI
+WE
+WE
+WE
+WE
+WE
+tU
+Vp
+hB
+Hr
+zD
+kn
+Va
+Va
+Dr
+Dr
 "}
 (17,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-H
-H
-H
-H
-h
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+rC
+Vp
+OD
+OD
+OD
+OD
+OD
+hB
+nw
+kn
+kn
+gb
+gb
+Dr
+Dr
+Dr
 "}
 (18,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
+ae
+nw
+nw
+nw
+nw
+ae
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+rC
+fI
+If
+nw
+nw
+If
+nw
+kn
+sF
+kn
+Dr
+gb
+gb
+Dr
+Dr
+Dr
 "}
 (19,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-D
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
-"}
-(20,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
-"}
-(21,1,1) = {"
-a
-a
-a
-a
-a
-D
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-Z
-h
-h
-h
-h
-h
-h
-"}
-(22,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
-"}
-(23,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-h
-h
-h
-h
-h
-h
-h
-h
-"}
-(24,1,1) = {"
-a
-a
-D
-a
-a
-a
-a
-a
-a
-a
-a
-D
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-D
-a
-a
-"}
-(25,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+nw
+Yt
+Yt
+Yt
+rC
+fI
+nw
+nw
+nw
+nw
+nw
+kn
+Va
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
+Dr
 "}
