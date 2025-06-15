@@ -2,7 +2,7 @@ https://github.com/Skyrat-SS13/Skyrat-tg/pull/
 
 ## \<Title Here>
 
-Module ID: 
+Module ID:
 
 ### Description:
 

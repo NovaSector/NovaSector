@@ -1,4 +1,7 @@
-// Hardened vests negate any and all projectile armor penetration, in exchange for having mid af bullet armor
+// Hardened armor negates any and all projectile armor penetration, in exchange for a mediocre armor profile
+
+// vests
+
 /datum/armor/armor_sf_hardened
 	melee = ARMOR_LEVEL_WEAK
 	bullet = ARMOR_LEVEL_MID
@@ -23,13 +26,27 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 
-/obj/item/clothing/suit/armor/sf_hardened/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
+/obj/item/clothing/suit/armor/sf_hardened/equipped(mob/living/carbon/human/wearer, slot)
 	. = ..()
+	if(!(istype(wearer) && (slot & ITEM_SLOT_OCLOTHING)))
+		return
+	RegisterSignal(wearer, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_wearer_hit_by_projectile))
 
-	if(istype(hitby, /obj/projectile))
-		var/obj/projectile/incoming_projectile = hitby
-		incoming_projectile.armour_penetration = 0
-		playsound(owner, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+/obj/item/clothing/suit/armor/sf_hardened/dropped(mob/living/carbon/human/wearer)
+	. = ..()
+	if(!(src == wearer.wear_suit))
+		return
+	UnregisterSignal(wearer, COMSIG_PROJECTILE_PREHIT)
+
+/obj/item/clothing/suit/armor/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile)
+	SIGNAL_HANDLER
+
+	if(incoming_projectile.def_zone != BODY_ZONE_CHEST)
+		return
+
+	incoming_projectile.armour_penetration = 0
+	playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+	return NONE
 
 /obj/item/clothing/suit/armor/sf_hardened/examine_more(mob/user)
 	. = ..()
@@ -45,12 +62,14 @@
 
 	return .
 
-/obj/item/clothing/suit/armor/sf_hardened/emt
+/obj/item/clothing/suit/armor/sf_hardened/emt // google "perfidy"
 	name = "'Archangel' hardened armor vest"
 	desc = "A large white breastplate with a lone red stripe, and a semi-flexible mail of dense panels that cover the torso. \
 		While not so incredible at directly stopping bullets, the vest is uniquely suited to cause bullets \
 		to lose much of their armor penetrating energy before any damage can be done."
 	icon_state = "hardened_emt"
+
+// helmets
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened
 	name = "'Muur' enclosed helmet"
@@ -63,6 +82,7 @@
 	armor_type = /datum/armor/armor_sf_hardened
 	toggle_message = "You extend the visor on"
 	alt_toggle_message = "You retract the visor on"
+	actions_types = list(/datum/action/item_action/toggle)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
@@ -71,13 +91,28 @@
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	resistance_flags = FIRE_PROOF
 
-/obj/item/clothing/head/helmet/toggleable/sf_hardened/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/equipped(mob/living/carbon/human/wearer, slot)
 	. = ..()
+	if(!(istype(wearer) && (slot & ITEM_SLOT_HEAD)))
+		return
+	RegisterSignal(wearer, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_wearer_hit_by_projectile))
 
-	if(istype(hitby, /obj/projectile))
-		var/obj/projectile/incoming_projectile = hitby
-		incoming_projectile.armour_penetration = 0
-		playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/dropped(mob/living/carbon/human/wearer)
+	. = ..()
+	if(!(src == wearer.head))
+		return
+	UnregisterSignal(wearer, COMSIG_PROJECTILE_PREHIT)
+
+/obj/item/clothing/head/helmet/toggleable/sf_hardened/proc/on_wearer_hit_by_projectile(mob/living/source, obj/projectile/incoming_projectile)
+	SIGNAL_HANDLER
+
+	// dynamic pen-reduction coverage with respect to visor state
+	if((up && (incoming_projectile.def_zone != BODY_ZONE_HEAD)) || !(incoming_projectile.def_zone in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)) )
+		return
+
+	incoming_projectile.armour_penetration = 0
+	playsound(src, SFX_RICOCHET, BLOCK_SOUND_VOLUME, vary = TRUE)
+	return NONE
 
 /obj/item/clothing/head/helmet/toggleable/sf_hardened/examine_more(mob/user)
 	. = ..()

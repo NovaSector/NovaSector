@@ -478,7 +478,7 @@ trait_name = "Station"
 map_files = ["catwalkstation_armory.dmm"]
 directory = "_maps/nova/automapper/templates/catwalkstation/"
 required_map = "CatwalkStation_2023.dmm"
-coordinates = [69, 129, 2]
+coordinates = [68, 129, 2]
 trait_name = "Station"
 
 #Catwalkstation Barber
