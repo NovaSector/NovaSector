@@ -1,0 +1,6 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - rscadd: "We deployed a bluespace beacon in a Gas Giant made of pure H2O, and now all our gas miners can beam its extracted resources to our stations if needed!"
+  - rscadd: " In preparation for comercialization of the Gas Miners, places such as Tarkon atmos, DS2 engineering and CC Thunderdome can now use Gas miners!"
+  - admin: "Admins get three new debug/event Gas miners to use! Hacked: can be used in any area - Expanded: Can pick any gas! - Debug: Any Area, Any Gas, Any number of times!"

@@ -27,7 +27,7 @@
 	reqs = list(
 		/obj/item/tank/internals/emergency_oxygen = 1,
 		/obj/item/stack/sheet/iron = 6,
-		/obj/item/lighter,
+		/obj/item/lighter = 1,
 	)
 	time = 60
 	category = CAT_MISC
