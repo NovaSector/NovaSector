@@ -8162,6 +8162,8 @@
 #include "modular_nova\modules\kahraman_equipment\code\organic_printer_designs\clothing.dm"
 #include "modular_nova\modules\kahraman_equipment\code\organic_printer_designs\equipment.dm"
 #include "modular_nova\modules\kahraman_equipment\code\organic_printer_designs\resources.dm"
+#include "modular_nova\modules\kinetic_crusher_zones\code\kinetic_crusher.dm"
+#include "modular_nova\modules\kinetic_crusher_zones\code\trophies_fauna.dm"
 #include "modular_nova\modules\knives\knives.dm"
 #include "modular_nova\modules\lathe_medipens\code\autolathe_designs.dm"
 #include "modular_nova\modules\lathe_medipens\code\hypospray.dm"
