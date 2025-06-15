@@ -122,7 +122,7 @@
 	. = ..()
 	healed_mob.reagents.add_reagent_list(grind_results)
 
-// Repairs a selected robotic organ during organ manipulation surgery.
+// Repairs a robotic organs directly, or during organ manipulation surgery.
 // Sprites: [@splat1125](https://github.com/splat1125)
 /obj/item/cybernetic_repair_paste
 	name = "cybernetic repair paste"
@@ -142,18 +142,35 @@
 	else
 		. += span_notice("It is spent.")
 
-/obj/item/cybernetic_repair_paste/attack(mob/living/carbon/human/mob_to_repair, mob/living/user)
+// Attempts to repair a robotic organ via an active organ manipulation surgery.
+/obj/item/cybernetic_repair_paste/attack(mob/living/carbon/human/target_human, mob/living/user)
 	. = ..()
-	if(!ishuman(mob_to_repair))
+	if(!ishuman(target_human))
 		return
-	repair_organ(mob_to_repair, user)
-
-/obj/item/cybernetic_repair_paste/proc/repair_organ(mob/living/carbon/human/mob_to_repair, mob/living/user)
 	if(uses <= 0)
 		balloon_alert(user, "it's been used up!")
 		return
+	var/obj/item/organ/target_organ = select_organ(target_human, user)
+	if(isnull(target_organ))
+		return
+	// Ensure the user didn't move away from the target during the TGUI prompt
+	if(!user.Adjacent(target_human))
+		return
+	if(repair_organ(target_organ, user))
+		to_chat(target_human, span_notice("[user] successfully repairs your [target_organ]"))
+
+// Attempts to directly repair a robotic organ item.
+/obj/item/cybernetic_repair_paste/attack_atom(obj/item/organ/target_organ, mob/living/user, list/modifiers, list/attack_modifiers)
+	. = ..()
+	if(!isorgan(target_organ))
+		return
+	repair_organ(target_organ, user)
+
+///Prompts the user to select a robotic organ in the target mob and returns it.
+///Requires the target to have an active organ manipulation surgery in its "manipulate organs" stage.
+/obj/item/cybernetic_repair_paste/proc/select_organ(mob/living/carbon/human/target_human, mob/living/user)
 	var/datum/surgery/active_operation
-	for(var/datum/surgery/operation as anything in mob_to_repair.surgeries)
+	for(var/datum/surgery/operation as anything in target_human.surgeries)
 		if(operation.location != user.zone_selected)
 			continue
 		if(!istype(operation, /datum/surgery/organ_manipulation))
@@ -167,30 +184,36 @@
 		balloon_alert(user, "requires open surgery!")
 		return
 	var/list/obj/item/organ/cyber_organs = list()
-	for(var/obj/item/organ/organ as anything in mob_to_repair.get_organs_for_zone(user.zone_selected))
+	for(var/obj/item/organ/organ as anything in target_human.get_organs_for_zone(user.zone_selected))
 		if(organ.organ_flags & ORGAN_ROBOTIC)
 			cyber_organs += organ
 	if(!length(cyber_organs))
-		balloon_alert(user, "lacks robotic organ")
+		balloon_alert(user, "lacks robotic organ!")
 		return
 	var/obj/item/organ/chosen_organ = tgui_input_list(user, "Repair which organ?", "Surgery", sort_list(cyber_organs))
-	if(isnull(chosen_organ))
+	return chosen_organ
+
+///Attempts to repair the given robotic organ, and returns TRUE if successful.
+/obj/item/cybernetic_repair_paste/proc/repair_organ(obj/item/organ/target_organ, mob/living/user)
+	if(uses <= 0)
+		balloon_alert(user, "it's been used up!")
 		return
-	if(!do_after(user, 5 SECONDS, mob_to_repair))
-		balloon_alert(user, "repair cancelled")
+	if(target_organ.damage <= NONE)
+		balloon_alert(user, "organ isn't broken!")
 		return
-	if(chosen_organ.damage <= NONE)
-		balloon_alert(user, "organ isn't broken")
+	if(!do_after(user, 5 SECONDS, target_organ))
+		balloon_alert(user, "repair cancelled!")
 		return
 
-	chosen_organ.apply_organ_damage(-repair_amount, required_organ_flag = ORGAN_ROBOTIC)
+	target_organ.apply_organ_damage(-repair_amount, required_organ_flag = ORGAN_ROBOTIC)
 	balloon_alert(user, "organ repaired")
-	to_chat(user, span_notice("You successfully repair [chosen_organ]"))
-	to_chat(mob_to_repair, span_notice("[user] successfully repairs your [chosen_organ]"))
-	if(chosen_organ.damage  > NONE)
-		to_chat(user, "[mob_to_repair]'s [chosen_organ] still has some lasting system damage that can be cleared.")
+	to_chat(user, span_notice("You successfully repair [target_organ]."))
+	if(target_organ.damage  > NONE)
+		to_chat(user, "The [target_organ] still has some lasting system damage that can be cleared.")
 
 	uses -= 1
 	if(uses <= 0)
 		icon_state = "cyberpaste_spent"
 		to_chat(user, "The [src] runs out of gels and stops working.")
+
+	return TRUE
