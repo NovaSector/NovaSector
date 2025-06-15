@@ -91,11 +91,11 @@
 	return
 
 /obj/machinery/power/micro_reactor/update_appearance(updates)
-    . = ..()
-    if(!active)
-        set_light(0)
-        return
-    set_light(2, 3)
+	. = ..()
+	if(!active)
+		set_light(0)
+		return
+	set_light(2, 3)
 
 /obj/machinery/power/micro_reactor/proc/TogglePower()
 	if(active)

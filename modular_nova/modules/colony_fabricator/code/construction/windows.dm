@@ -8,13 +8,13 @@
 	glass_type = /obj/item/stack/sheet/plastic_wall_panel
 	glass_amount = 1
 
-/obj/structure/grille/attackby(obj/item/item_in_question, mob/user, params)
-	if(!istype(item_in_question, /obj/item/stack/sheet/plastic_wall_panel))
+/obj/structure/grille/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/stack/sheet/plastic_wall_panel))
 		return ..()
 
 	if(broken)
 		return
-	var/obj/item/stack/stack_in_question = item_in_question
+	var/obj/item/stack/stack_in_question = attacking_item
 	if(stack_in_question.get_amount() < 1)
 		to_chat(user, span_warning("You need at least one plastic panel for that!"))
 		return

@@ -11,7 +11,7 @@
 
 /datum/wound/burn/robotic/overheat
 	treat_text = "Introduction of a cold environment or lowering of body temperature."
-
+	treat_text_short = "Cool the patient down with low temperature chemicals or put them under a shower."
 	simple_desc = "Metals are overheated, increasing damage taken significantly and raising body temperature!"
 	simple_treat_text = "Ideally <b>cryogenics</b>, but any source of <b>low body temperature</b> can work. <b>Spraying</b> with <b>spray bottles/extinguishers/showers</b> \
 	will quickly cool the limb, but <b>cause damage</b>. <b>Hercuri</b> is <b>especially effective</b> in quick cooling. \

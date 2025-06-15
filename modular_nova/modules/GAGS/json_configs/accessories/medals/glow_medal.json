@@ -1,0 +1,28 @@
+{
+	"bar": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowbar",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"crystal": [
+		{
+			"type": "icon_state",
+			"icon_state": "necklace",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "glowcrystal",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}
