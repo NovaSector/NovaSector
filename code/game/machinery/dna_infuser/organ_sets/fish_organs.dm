@@ -268,7 +268,7 @@
 	food_tastes = list("gross fish" = 1)
 	safe_oxygen_min = 0 //We don't breathe this
 	///The required partial pressure of water_vapor for not suffocating.
-	var/safe_water_level = parent_type::safe_oxygen_min
+//	var/safe_water_level = parent_type::safe_oxygen_min // NOVA EDIT, moved to parent type
 
 	/// Bodypart overlay applied to the chest where the lungs are in
 	var/datum/bodypart_overlay/simple/gills/gills
@@ -305,7 +305,7 @@
 	owner.clear_alert(ALERT_NOT_ENOUGH_WATER)
 
 /// Requires the spaceman to have either water vapor or be wet.
-/obj/item/organ/lungs/fish/proc/breathe_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp, old_water_pp)
+/obj/item/organ/lungs/proc/breathe_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp, old_water_pp) // NOVA EDIT, (yes this is ugly) - old code: /obj/item/organ/lungs/fish/proc/breathe_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp, old_water_pp)
 	var/need_to_breathe = !HAS_TRAIT(src, TRAIT_SPACEBREATHING) && !HAS_TRAIT(breather, TRAIT_IS_WET)
 	if(water_pp < safe_water_level && need_to_breathe)
 		on_low_water(breather, breath, water_pp)
@@ -322,7 +322,7 @@
 		breather.adjustOxyLoss(-5)
 
 /// Called when there isn't enough water to breath
-/obj/item/organ/lungs/fish/proc/on_low_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp)
+/obj/item/organ/lungs/proc/on_low_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp) // NOVA EDIT, (maybe upstream this?) - old code: /obj/item/organ/lungs/fish/proc/on_low_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp)
 	breather.throw_alert(ALERT_NOT_ENOUGH_WATER, /atom/movable/screen/alert/not_enough_water)
 	var/gas_breathed = handle_suffocation(breather, water_pp, safe_water_level, breath.gases[/datum/gas/water_vapor][MOLES])
 	if(water_pp)
