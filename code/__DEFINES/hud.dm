@@ -185,15 +185,15 @@
 #define ui_pai_navigate_menu "SOUTH+1:8,WEST+12:15"
 
 //Ghosts
+#define ui_ghost_soulcatcher "SOUTH:6, CENTER-4:24" // NOVA EDIT ADDITION - Soulcatcher button
 #define ui_ghost_spawners_menu "SOUTH:6,CENTER-3:24"
 #define ui_ghost_orbit "SOUTH:6,CENTER-2:24"
 #define ui_ghost_reenter_corpse "SOUTH:6,CENTER-1:24"
 #define ui_ghost_teleport "SOUTH:6,CENTER:24"
 #define ui_ghost_settings "SOUTH: 6, CENTER+1:24"
 #define ui_ghost_minigames "SOUTH: 6, CENTER+2:24"
-#define ui_ghost_soulcatcher "SOUTH: 6, CENTER+3:24" // NOVA EDIT ADDITION - Soulcatcher button
-#define ui_ghost_language_menu "SOUTH: 6, CENTER+4:24" // NOVA EDIT CHANGE - ORIGINAL: #define ui_ghost_language_menu "SOUTH: 6, CENTER+3:24"
-#define ui_ghost_floor_changer "SOUTH: 6, CENTER+4:8" // NOVA EDIT CHANGE - ORIGINAL: #define ui_ghost_floor_changer "SOUTH: 6, CENTER+3:8"
+#define ui_ghost_language_menu "SOUTH: 6, CENTER+3:24"
+#define ui_ghost_floor_changer "SOUTH: 6, CENTER+3:8"
 
 //Blobbernauts
 #define ui_blobbernaut_overmind_health "EAST-1:28,CENTER+0:19"
