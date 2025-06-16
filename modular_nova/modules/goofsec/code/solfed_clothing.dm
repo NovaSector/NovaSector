@@ -82,7 +82,10 @@
 /obj/item/clothing/head/helmet/solfed
 	name = "Federation Helmet"
 	desc = "A robust solfederation helmet designed with an internal light to provide vision to the brave marines on the front line."
-	icon_state = "federal_helmet"
+
+	icon_state = "icons/map_icons/clothing/head/_head"
+	post_init_icon_state = "federal_helmet"
+	worn_icon_state = "federal_helmet"
 
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 
@@ -289,37 +292,48 @@
 	greyscale_config_worn = /datum/greyscale_config/solfedribbons/worn
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank2
-	icon_state = "star_arr_ribbon_2"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank2"
+	post_init_icon_state = "star_arr_ribbon_2"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank3
-	icon_state = "star_sw_ribbon_1"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank3"
+	post_init_icon_state = "star_sw_ribbon_1"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank4
-	icon_state = "star_sw_ribbon_2"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank4"
+	post_init_icon_state = "star_sw_ribbon_2"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank5
-	icon_state = "star_ribbon_1"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank5"
+	post_init_icon_state = "star_ribbon_1"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank6
-	icon_state = "star_ribbon_2"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank6"
+	post_init_icon_state = "star_ribbon_2"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank7
-	icon_state = "star_ribbon_3"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank7"
+	post_init_icon_state = "star_ribbon_3"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank8
-	icon_state = "arr_ribbon_2"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
+	post_init_icon_state = "arr_ribbon_2"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank9
-	icon_state = "arr_ribbon_3"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank9"
+	post_init_icon_state = "arr_ribbon_3"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank10
-	icon_state = "sw_ribbon_1"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank10"
+	post_init_icon_state = "sw_ribbon_1"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank11
-	icon_state = "sw_ribbon_2"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank11"
+	post_init_icon_state = "sw_ribbon_2"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank12
-	icon_state = "sw_ribbon_3"
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank12"
+	post_init_icon_state = "sw_ribbon_3"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed
 	name = "Solfed Official Neckpin"
