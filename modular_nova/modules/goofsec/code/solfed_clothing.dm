@@ -27,9 +27,9 @@
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
-// Solfed 911 Marshal Uniform
+// SolFed 911 Marshal Uniform
 /obj/item/clothing/under/solfed
-	name = "\improper Solfed marshal's uniform"
+	name = "\improper SolFed marshal's uniform"
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "solpolice"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
@@ -39,14 +39,14 @@
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
-// Solfed 911 Atmos Uniform
+// SolFed 911 Atmos Uniform
 /obj/item/clothing/under/solfed/emergencyfire
 	name = "\improper SolFed emergency atmospherics uniform"
 	desc = "An official Sol Federation emergency response uniform, denoting members of their Station Breach Control teams and protecting them from atmospheric or fire hazards."
 	icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
 
-// Solfed 911 EMT Uniform
+// SolFed 911 EMT Uniform
 /obj/item/clothing/under/solfed/emergencymed
 	name = "\improper SolFed emergency paramedic uniform"
 	desc = "An official Sol Federation emergency response uniform, denoting members of their paramedical Trauma Teams and protecting them from viral or chemical hazards."
@@ -118,7 +118,7 @@
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
-// Solfed flak jacket, for marshals
+// SolFed flak jacket, for marshals
 /obj/item/clothing/suit/armor/vest/det_suit/sol
 	name = "'Gordyn' flak vest"
 	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
@@ -128,7 +128,7 @@
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-// Solfed Heavy Armor for Marines
+// SolFed Heavy Armor for Marines
 /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
 	name = "'Hercules' heavy armor"
 	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' Heavy Armor is the Sol Federation's most versitile and robust heavily armored vest and padding, to protect its marines from the most dangerous of threats in the most alien of environments."
@@ -169,7 +169,7 @@
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
-/// Solfed Goggles
+/// SolFed Goggles
 /obj/item/clothing/glasses/sunglasses/solfed
 	name = "robust military goggles"
 	desc = "A strangely old technology modernized to be much more robust in the modern day."
@@ -204,7 +204,7 @@
 	acid = 50
 	wound = 45
 
-// Solfed Marines Standard
+// SolFed Marines Standard
 /obj/item/clothing/under/solfed/marines
 	name = "\improper SolFed marine uniform"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -230,7 +230,7 @@
 /obj/item/clothing/under/solfed/marines/desert
 	greyscale_colors = "#e8dd9b#d6c76d#afa984"
 
-// Solfed Espirator
+// SolFed Espirator
 /obj/item/clothing/under/solfed/espirator
 	name = "\improper SolFed Espirator uniform"
 	desc = "" //IDK what an Espirator is you've gotta fill this out LOL
@@ -260,7 +260,7 @@
 /obj/item/clothing/under/solfed/espirator/ocean
 	greyscale_colors = "#92a2d2#53638f"
 
-/// Solfed Accessories
+/// SolFed Accessories
 /obj/item/clothing/accessory/nova/solfedribbon
 	name = "\improper SolFed rank ribbon"
 	desc = "An average military ribbon."
