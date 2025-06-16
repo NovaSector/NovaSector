@@ -987,7 +987,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	spawners_menu.ui_interact(src)
 
 /mob/dead/observer/proc/open_minigames_menu()
-	set name = "Minigames Menu"
+	set name = "Minigames Menu" // NOVA EDIT ADDITION
 	if(!client)
 		return
 	if(!isobserver(src))
