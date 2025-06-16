@@ -10,8 +10,8 @@
 // Does not appear in TGUI or the character preferences window.
 /datum/quirk/item_quirk/brainproblems/synth
 	name = "Positronic Cascade Anomaly"
-	gain_text = "<span class='danger'>You feel glitchy.</span>"
-	lose_text = "<span class='notice'>You no longer feel glitchy.</span>"
+	gain_text = span_danger("You feel glitchy.")
+	lose_text = span_notice("You no longer feel glitchy.")
 	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
 	hidden_quirk = TRUE
 
