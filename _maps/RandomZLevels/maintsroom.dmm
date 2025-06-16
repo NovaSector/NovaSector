@@ -3722,7 +3722,7 @@
 /area/awaymission/caves/maintsroom)
 "md" = (
 /obj/structure/fluff/clockwork/alloy_shards/small,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "me" = (
 /obj/structure/chair/sofa/bench,
@@ -4043,7 +4043,7 @@
 /area/awaymission/caves/maintsroom)
 "nc" = (
 /obj/structure/fluff/clockwork/alloy_shards/medium,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "ne" = (
 /obj/structure/rack,
@@ -4666,7 +4666,7 @@
 /area/awaymission/caves/maintsroom)
 "pl" = (
 /obj/structure/fluff/clockwork/alloy_shards,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "pm" = (
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -5763,7 +5763,7 @@
 "sS" = (
 /obj/effect/baseturf_helper/beach/black,
 /obj/effect/spawner/random/maintsrooms,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "sT" = (
 /obj/effect/spawner/random/trash/graffiti,
@@ -7509,7 +7509,7 @@
 /area/awaymission/caves/maintsroom)
 "yW" = (
 /obj/structure/fluff/clockwork/alloy_shards/large,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "yX" = (
 /obj/structure/flora/rock/pile,
@@ -7892,7 +7892,7 @@
 "Ao" = (
 /obj/effect/decal/remains/human,
 /obj/effect/spawner/random/maintsrooms,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "Ap" = (
 /obj/machinery/oven/range_frontier,
@@ -8019,7 +8019,7 @@
 /area/awaymission/caves/maintsroom)
 "AK" = (
 /obj/effect/spawner/random/maintsrooms,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "AL" = (
 /obj/item/food/badrecipe/moldy/bacteria,
@@ -10694,7 +10694,7 @@
 "JQ" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/spawner/random/maintsrooms,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "JS" = (
 /obj/item/stack/sheet/mineral/plasma{
@@ -11907,7 +11907,7 @@
 "NO" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/spawner/random/maintsrooms,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "NP" = (
 /obj/structure/spider/stickyweb/sealed/tough,
@@ -12511,7 +12511,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "PZ" = (
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom)
 "Qa" = (
 /obj/structure/curtain,
@@ -13090,7 +13090,7 @@
 "RL" = (
 /obj/effect/spawner/random/maintsrooms,
 /obj/effect/light_emitter/fake_outdoors,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "RM" = (
 /obj/structure/closet/wardrobe/grey,
@@ -13808,7 +13808,7 @@
 "Uo" = (
 /obj/effect/decal/remains/xeno/larva,
 /obj/effect/spawner/random/maintsrooms,
-/turf/open/space/basic,
+/turf/open/floor/white,
 /area/awaymission/caves/maintsroom/deeper)
 "Up" = (
 /obj/item/restraints/handcuffs/cable/zipties/used,
