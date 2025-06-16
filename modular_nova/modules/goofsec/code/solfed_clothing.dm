@@ -1,5 +1,4 @@
 // Peacekeeper jumpsuit
-
 /obj/item/clothing/under/sol_peacekeeper
 	name = "sol peacekeeper uniform"
 	desc = "A military-grade uniform with military grade comfort (none at all), often seen on \
@@ -15,7 +14,6 @@
 	random_sensor = FALSE
 
 // EMT jumpsuit
-
 /obj/item/clothing/under/sol_emt
 	name = "sol emergency medical uniform"
 	desc = "A copy of SolFed's peacekeeping uniform, recolored and re-built with paramedics in mind."
@@ -30,7 +28,6 @@
 	random_sensor = FALSE
 
 // Solfed 911 Marshal Uniform
-
 /obj/item/clothing/under/solfed
 	name = "\improper Solfed marshal's uniform"
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
@@ -45,7 +42,6 @@
 	random_sensor = FALSE
 
 // Solfed 911 Atmos Uniform
-
 /obj/item/clothing/under/solfed/emergencyfire
 	name = "\improper Solfed Emergency Atmospherics Uniform"
 	desc = "A true Sol Federation emergency response"
@@ -106,7 +102,7 @@
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	clothing_flags = SNUG_FIT
 
-	// Default state for the light
+	/// Default state for the light
 	var/on = FALSE
 
 // Toggle state for the helmet light
@@ -144,7 +140,9 @@
 	name = "'Hercules' Heavy Armor"
 	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' Heavy Armor is the Sol Federation's most versitile and robust heavily armored vest and padding, to protect its marines from the most dangerous of threats in and around hostile."
 
-	icon_state = "fedvest"
+	icon_state = "icons/map_icons/clothing/suit/_suit"
+	post_init_icon_state = "fedvest"
+
 	worn_icon_state = "fedvest"
 	worn_icon_digi = "fedvest"
 
@@ -225,6 +223,9 @@
 	icon_state = "/obj/item/clothing/under/solfed/marines"
 	post_init_icon_state = "solfed_camo"
 
+	worn_icon_state = "solfed_camo"
+	worn_icon_digi = "solfed_camo"
+
 	greyscale_config = /datum/greyscale_config/solfedcamo
 	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
@@ -249,6 +250,9 @@
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/espirator"
 	post_init_icon_state = "solfed_camo"
+
+	worn_icon_state = "solfed_camo"
+	worn_icon_digi = "solfed_camo"
 
 	greyscale_config = /datum/greyscale_config/solfedsimplecamo
 	greyscale_config_worn = /datum/greyscale_config/solfedsimplecamo/worn
