@@ -535,7 +535,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /datum/outfit/request_911/treason_destroyer
 	name = "911 Response: SolFed Military"
 
-	uniform = /obj/item/clothing/under/solfed
+	uniform = /obj/item/clothing/under/solfed/marines
 	head = /obj/item/clothing/head/helmet/solfed
 	mask = /obj/item/clothing/mask/gas/alt
 	gloves = /obj/item/clothing/gloves/combat
