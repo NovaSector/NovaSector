@@ -778,6 +778,14 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
+"cN" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/iron/stairs{
+	dir = 4
+	},
+/area/awaymission/caves/maintsroom)
 "cO" = (
 /obj/machinery/light/red,
 /obj/structure/flora/mushroom/blue,
@@ -3475,6 +3483,13 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/pod/dark,
 /area/awaymission/caves/maintsroom)
+"li" = (
+/obj/effect/spawner/random/structure/girder,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "lj" = (
 /obj/structure/spacevine,
 /obj/item/melee/chainofcommand/tailwhip/kitty,
@@ -3593,6 +3608,7 @@
 /area/awaymission/caves/maintsroom)
 "lE" = (
 /obj/machinery/scanner_gate/luxury_shuttle,
+/obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "lF" = (
@@ -5532,6 +5548,9 @@
 	id = "Cowboyescape.";
 	height = 1
 	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
 /turf/open/floor/iron/stairs{
 	dir = 4
 	},
@@ -5651,6 +5670,9 @@
 /area/awaymission/caves/maintsroom)
 "sE" = (
 /obj/effect/decal/remains/human,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
 /turf/open/floor/iron/stairs{
 	dir = 4
 	},
@@ -6132,6 +6154,9 @@
 /area/awaymission/caves/maintsroom)
 "uh" = (
 /obj/structure/falsewall/reinforced,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "ui" = (
@@ -6148,6 +6173,13 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/poster/official/build/directional/north,
 /turf/open/floor/iron,
+/area/awaymission/caves/maintsroom)
+"ul" = (
+/obj/structure/trash_pile,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "um" = (
 /obj/machinery/door/airlock/maintenance,
@@ -6663,6 +6695,12 @@
 /obj/structure/spider/stickyweb,
 /obj/effect/mob_spawn/corpse/human/syndicatecommando,
 /obj/structure/spider/cocoon,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"wa" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "wb" = (
@@ -12854,6 +12892,12 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
+"Rj" = (
+/obj/structure/signpost/salvation{
+	name = "Mercy"
+	},
+/turf/open/floor/carpet/green,
+/area/awaymission/caves/maintsroom)
 "Rk" = (
 /obj/structure/sign/poster/abductor/ayylian/directional/west,
 /turf/open/floor/plating/abductor,
@@ -13571,6 +13615,12 @@
 "TD" = (
 /obj/structure/falsewall/wood,
 /turf/open/floor/wood,
+/area/awaymission/caves/maintsroom)
+"TE" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 9
+	},
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "TF" = (
 /obj/machinery/light/floor,
@@ -14861,6 +14911,15 @@
 /area/awaymission/caves/maintsroom)
 "Yg" = (
 /obj/structure/holosign/barrier/engineering,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
+"Yh" = (
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Yi" = (
@@ -18646,8 +18705,8 @@ ED
 bO
 uG
 GS
-uG
-GS
+TE
+cc
 lE
 PD
 MX
@@ -18863,7 +18922,7 @@ qt
 ED
 jd
 GS
-uG
+wa
 jf
 jf
 jf
@@ -19080,7 +19139,7 @@ ED
 pT
 uG
 GS
-uG
+wa
 GS
 GS
 ae
@@ -19297,7 +19356,7 @@ ED
 uG
 bO
 GS
-YZ
+Yh
 GS
 GS
 ae
@@ -19514,7 +19573,7 @@ GS
 wh
 GS
 GS
-uG
+wa
 GS
 ae
 ae
@@ -22740,7 +22799,7 @@ GN
 GN
 wQ
 wQ
-HW
+cN
 wQ
 Az
 GS
@@ -22957,7 +23016,7 @@ fJ
 fJ
 wQ
 wQ
-HW
+cN
 wQ
 Pu
 GS
@@ -23174,7 +23233,7 @@ gZ
 ek
 wQ
 wQ
-HW
+cN
 wQ
 dA
 GS
@@ -23391,7 +23450,7 @@ GN
 GN
 wQ
 wQ
-HW
+cN
 wQ
 xH
 GS
@@ -23608,7 +23667,7 @@ wQ
 wQ
 wQ
 wQ
-HW
+cN
 wQ
 xH
 GS
@@ -23825,7 +23884,7 @@ wQ
 wQ
 wQ
 wQ
-HW
+cN
 wQ
 xH
 Fe
@@ -24042,7 +24101,7 @@ zm
 zm
 ad
 wQ
-HW
+cN
 wQ
 wQ
 wQ
@@ -24259,7 +24318,7 @@ zm
 zm
 ad
 wQ
-HW
+cN
 wQ
 wQ
 FL
@@ -24476,7 +24535,7 @@ zm
 zm
 pW
 wQ
-HW
+cN
 wQ
 wQ
 mi
@@ -24693,7 +24752,7 @@ zm
 zm
 zm
 wQ
-HW
+cN
 wQ
 wQ
 jr
@@ -24910,7 +24969,7 @@ qG
 nf
 it
 wQ
-HW
+cN
 wQ
 QO
 UW
@@ -24945,7 +25004,7 @@ jd
 GS
 to
 aR
-fj
+Rj
 fj
 fj
 Gv
@@ -25127,7 +25186,7 @@ GS
 GS
 GS
 wQ
-HW
+cN
 wQ
 tA
 Wk
@@ -25344,7 +25403,7 @@ zm
 zm
 zm
 wQ
-HW
+cN
 wQ
 uk
 Wk
@@ -25561,7 +25620,7 @@ zm
 vX
 zm
 wQ
-HW
+cN
 wQ
 wQ
 jt
@@ -25778,7 +25837,7 @@ zm
 zm
 zm
 wQ
-HW
+cN
 wQ
 wQ
 UW
@@ -25995,7 +26054,7 @@ zm
 jE
 zm
 wQ
-HW
+cN
 wQ
 wQ
 Xq
@@ -26429,7 +26488,7 @@ GS
 GS
 GS
 GS
-lT
+ul
 uG
 wQ
 wQ
@@ -26646,7 +26705,7 @@ DO
 KA
 MS
 GS
-Mz
+li
 Mz
 Mz
 wQ
@@ -26863,7 +26922,7 @@ iZ
 iZ
 qk
 GS
-uG
+wa
 uG
 uG
 kV
