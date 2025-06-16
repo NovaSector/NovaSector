@@ -7151,7 +7151,7 @@
 #include "modular_nova\master_files\code\modules\mob\living\living.dm"
 #include "modular_nova\master_files\code\modules\mob\living\living_defines.dm"
 #include "modular_nova\master_files\code\modules\mob\living\living_movement.dm"
-#include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\Deathsquad corpse.dm"
+#include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\Deathsquad_corpse.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\DeathsquadTrader data.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\DeathsquadTrader.dm"
 #include "modular_nova\master_files\code\modules\mob\living\basic\maintsroomdescent\gundealer.dm"
