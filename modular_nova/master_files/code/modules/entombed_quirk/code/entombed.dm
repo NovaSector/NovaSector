@@ -91,6 +91,10 @@
 		modsuit.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
 		modsuit.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
 
+	else if(modsuit.skin == "tarkon") // Another special case
+		modsuit.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
+		modsuit.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
+
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
 		modsuit.name = modsuit_name
@@ -110,6 +114,10 @@
 		if(modsuit.skin == "colonist") // That special case again. If more Nova modsuit skins ever get added, we may want to refactor this quirk to use the mod_theme's variants list instead of hardcoded strings.
 			part.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
 			part.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
+
+		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
+			part.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
+			part.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
 
 	install_racial_features()
 
@@ -185,6 +193,7 @@
 		"Prototype",
 		"Security",
 		"Colonist",
+		"Tarkon",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()

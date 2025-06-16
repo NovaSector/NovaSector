@@ -26,7 +26,7 @@
 
 /datum/wound/electrical_damage
 	name = "Electrical (Wires) Wound"
-
+	treat_text_short = "Replace wiring until it's fixed, or use wirecutters." //no need to add this to pierce as its a subtype
 	simple_treat_text = "<b>Replacing</b> of broken wiring, or <b>repairing</b> via a wirecutter. <b>Bandaging</b> binds the wiring and reduces intensity buildup, \
 	as does <b>firmly grasping</b> the limb - both the victim and someone else can do this. <b>Roboticists/Engineers</b> get a bonus to treatment, as do <b>diagnostic HUDs</b>."
 	homemade_treat_text = "<b>Sutures</b> can repair the wiring at reduced efficiency, as can <b>retractors</b>. In a pinch, <b>high temperatures</b> can repair the wiring!"
