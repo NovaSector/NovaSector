@@ -1,6 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/structure/falsewall,
 /obj/structure/safe/floor,
 /obj/item/gun/energy/e_gun/nuclear/rainbow,
 /turf/open/floor/iron/dark/textured,
@@ -4393,6 +4392,11 @@
 /obj/machinery/light/floor,
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/misc/grass/jungle,
+/area/awaymission/caves/maintsroom)
+"ol" = (
+/obj/structure/spacevine,
+/obj/item/seeds/replicapod,
+/turf/open/misc/grass/jungle/planet,
 /area/awaymission/caves/maintsroom)
 "om" = (
 /obj/machinery/light/directional/north,
@@ -9844,6 +9848,10 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
+"GK" = (
+/obj/machinery/camera/xray/directional/east,
+/turf/open/misc/asteroid/basalt,
+/area/awaymission/caves/maintsroom)
 "GL" = (
 /obj/effect/spawner/random/trash/botanical_waste,
 /turf/open/floor/plating,
@@ -13929,6 +13937,10 @@
 "UL" = (
 /obj/machinery/light/floor,
 /turf/open/floor/sepia,
+/area/awaymission/caves/maintsroom)
+"UM" = (
+/obj/machinery/camera/xray/directional/north,
+/turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "UO" = (
 /obj/effect/turf_decal/trimline/red/corner,
@@ -18824,7 +18836,7 @@ jf
 Xp
 Xp
 XH
-Xp
+ol
 Xp
 GS
 Xp
@@ -20567,7 +20579,7 @@ Xp
 Xp
 Xp
 GS
-Ya
+GK
 Ya
 Ya
 tI
@@ -23619,7 +23631,7 @@ jf
 LS
 jf
 jf
-Ya
+UM
 Ya
 Ya
 rw
