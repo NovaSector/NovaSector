@@ -33,78 +33,69 @@
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "solpolice"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-	worn_icon_state = "solpolice"
 	worn_icon_digi = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
-
-	armor_type = /datum/armor/clothing_under/rank_security
 	inhand_icon_state = null
+	armor_type = /datum/armor/clothing_under/rank_security
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
 
 // Solfed 911 Atmos Uniform
 /obj/item/clothing/under/solfed/emergencyfire
-	name = "\improper Solfed Emergency Atmospherics Uniform"
-	desc = "A true Sol Federation emergency response"
+	name = "\improper Solfed emergency atmospherics uniform"
+	desc = "An official Sol Federation emergency response uniform, denoting members of their Station Breach Control teams and protecting them from atmospheric or fire hazards."
 	icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
 
 // Solfed 911 EMT Uniform
 /obj/item/clothing/under/solfed/emergencymed
-	name = "\improper Solfed Emergency Medical Personnel Uniform"
-	desc = "A true Sol Federation emergency response"
+	name = "\improper Solfed emergency paramedic uniform"
+	desc = "An official Sol Federation emergency response uniform, denoting members of their paramedical Trauma Teams and protecting them from viral or chemical hazards."
 	icon_state = "medrescue"
 
 // Federation Officer (Official)
 /obj/item/clothing/under/solfed/officer
-	name = "\improper Solfed High-Ranking Official Uniform"
-	desc = "A Uniform worn by high ranking officials of the Sol Federation Armed Forces"
+	name = "\improper Solfed high-ranking official uniform"
+	desc = "A uniform worn by high ranking officials of the Sol Federation Armed Forces."
 	icon_state = "solfed_official"
 
 // Federation Enlisted (Non Marine | Official)
 /obj/item/clothing/under/solfed/officer_lowrnk
-	name = "\improper Solfed Low-Ranking Uniform"
-	desc = "A Uniform worn by low ranking officials of the Sol Federation Armed Forces"
+	name = "\improper Solfed low-ranking official uniform"
+	desc = "A uniform worn by low ranking officials of the Sol Federation Armed Forces."
 	icon_state = "solfed_enl"
 
 // Federation Civil Services Official
 /obj/item/clothing/under/solfed/official_civil
-	name = "\improper Solfed Civil Services Uniform"
-	desc = "A uniform worn by officials of the Sol Federation's Civil Services Division"
+	name = "\improper Solfed civil services uniform"
+	desc = "A uniform worn by officials of the Sol Federation's Civil Services Division."
 	icon_state = "solfed_civil"
 
 // Federation Social Services Official
 /obj/item/clothing/under/solfed/official_social
-	name = "\improper Solfed Social Services Uniform"
-	desc = "A uniform worn by officials of the Sol Federation's Social Services Division"
+	name = "\improper Solfed social services uniform"
+	desc = "A uniform worn by officials of the Sol Federation's Social Services Division."
 	icon_state = "solfed_social"
 
 // Sol Federation Combat Helmet
 /obj/item/clothing/head/helmet/solfed
-	name = "Federation Helmet"
-	desc = "A robust solfederation helmet designed with an internal light to provide vision to the brave marines on the front line."
-
+	name = "\improper SolFed helmet"
+	desc = "A robust Sol Federation helmet designed with an integrated light to provide vision to the brave marines on the front line."
 	icon_state = "icons/map_icons/clothing/head/_head"
 	post_init_icon_state = "federal_helmet"
 	worn_icon_state = "federal_helmet"
-
 	actions_types = list(/datum/action/item_action/toggle_helmet_light)
-
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 	light_power = 1
 	light_color = "#fff9f3"
 	light_on = FALSE
-
 	armor_type = /datum/armor/clothing_under/code_federal_armor
-
 	greyscale_config = /datum/greyscale_config/solfedgoggles
 	greyscale_config_worn = /datum/greyscale_config/solfedgoggles/worn
 	greyscale_colors = "#808080"
-
 	unique_reskin = null
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	clothing_flags = SNUG_FIT
-
 	/// Default state for the light
 	var/on = FALSE
 
@@ -135,22 +126,17 @@
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "flak"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
-	worn_icon_state = "flak"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 // Solfed Heavy Armor for Marines
 /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
-	name = "'Hercules' Heavy Armor"
-	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' Heavy Armor is the Sol Federation's most versitile and robust heavily armored vest and padding, to protect its marines from the most dangerous of threats in and around hostile."
-
+	name = "'Hercules' heavy armor"
+	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' Heavy Armor is the Sol Federation's most versitile and robust heavily armored vest and padding, to protect its marines from the most dangerous of threats in the most alien of environments."
 	icon_state = "icons/map_icons/clothing/suit/_suit"
 	post_init_icon_state = "fedvest"
-
 	worn_icon_state = "fedvest"
 	worn_icon_digi = "fedvest"
-
 	armor_type = /datum/armor/clothing_under/code_federal_armor
-
 	greyscale_config = /datum/greyscale_config/vestcam
 	greyscale_config_worn = /datum/greyscale_config/vestcam/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/vestcam/worn/digi
@@ -170,7 +156,7 @@
 	greyscale_colors = "#008000"
 
 /obj/item/clothing/neck/mantle/solfed
-	name = "Sol Federation Mantle"
+	name = "\improper Sol Federation mantle"
 	desc = "A mantle made with state of the art light up lining to allow easy spotting of downed solfed personnel in hostile environments. It also looks nice to wear"
 	icon = 'modular_nova/modules/goofsec/icons/obj/neck.dmi'
 	icon_state = "recovermantle"
@@ -185,14 +171,13 @@
 
 /// Solfed Goggles
 /obj/item/clothing/glasses/sunglasses/solfed
-	name = "Robust Military Goggles"
+	name = "robust military goggles"
 	desc = "A strangely old technology modernized to be much more robust in the modern day."
 	icon_state = "/obj/item/clothing/glasses/sunglasses/solfed"
 	post_init_icon_state = "federal_goggles"
 	greyscale_config = /datum/greyscale_config/solfedgoggles
 	greyscale_config_worn = /datum/greyscale_config/solfedgoggles/worn
 	greyscale_colors = "#4d4d4d"
-
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 
 /obj/item/clothing/glasses/sunglasses/solfed/winter
@@ -221,14 +206,12 @@
 
 // Solfed Marines Standard
 /obj/item/clothing/under/solfed/marines
-	name = "Solfed Marines Uniform (Black)"
+	name = "\improper Solfed marine uniform"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/marines"
 	post_init_icon_state = "solfed_camo"
-
 	worn_icon_state = "solfed_camo"
 	worn_icon_digi = "solfed_camo"
-
 	greyscale_config = /datum/greyscale_config/solfedcamo
 	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
@@ -249,19 +232,17 @@
 
 // Solfed Espirator
 /obj/item/clothing/under/solfed/espirator
-	name = "Solfed Espirator Uniform"
+	name = "\improper Solfed Espirator uniform"
+	desc = "" //IDK what an Espirator is you've gotta fill this out LOL
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/espirator"
 	post_init_icon_state = "solfed_camo"
-
 	worn_icon_state = "solfed_camo"
 	worn_icon_digi = "solfed_camo"
-
 	greyscale_config = /datum/greyscale_config/solfedsimplecamo
 	greyscale_config_worn = /datum/greyscale_config/solfedsimplecamo/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/solfedsimplecamo/worn/digi
 	greyscale_colors = "#808080#333333"
-
 	inhand_icon_state = null
 	has_sensor = HAS_SENSORS
 	random_sensor = FALSE
@@ -280,9 +261,8 @@
 	greyscale_colors = "#92a2d2#53638f"
 
 /// Solfed Accessories
-
 /obj/item/clothing/accessory/nova/solfedribbon
-	name = "Solfed Rank Ribbon"
+	name = "\improper Solfed rank ribbon"
 	desc = "An average military ribbon."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon"
@@ -336,6 +316,6 @@
 	post_init_icon_state = "sw_ribbon_3"
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
-	name = "Solfed Official Neckpin"
-	desc = "A special golden neckpin to show true loyalty to the federation"
+	name = "\improper Solfed Official neckpin"
+	desc = "A special golden neckpin to show true loyalty to the Federation."
 	greyscale_colors = "#ffff66#0099ff"
