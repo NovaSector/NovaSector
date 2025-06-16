@@ -2,15 +2,15 @@
 
 import { Antagonist, Category } from '../base';
 
-const LoneInfiltrator: Antagonist = {
-  key: 'loneinfiltrator',
-  name: 'Lone Infiltrator',
+const Infiltrator: Antagonist = {
+  key: 'infiltrator',
+  name: 'Infiltrator',
   description: [
-    `A midround traitor that can spawn near the station, equipped with
-    a Syndicate Modsuit and equipment befitting a station boarder.
-    Float onto the station and complete your objectives.`,
+    `A midround traitor who begins inside their Syndicate armoury,
+    Equip your gear, board your shuttle and complete your objectives.
+    Unlike round-start and late-join traitors, you do not get an uplink.`,
   ],
   category: Category.Midround,
 };
 
-export default LoneInfiltrator;
+export default Infiltrator;

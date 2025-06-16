@@ -1,8 +1,8 @@
 /obj/item/shuttle_remote
 	name = "shuttle remote"
 	desc = "A remote to send away or call a shuttle."
-	icon = 'icons/obj/devices/remote.dmi'
-	icon_state = "shuttleremote"
+	icon = 'icons/obj/devices/voice.dmi'
+	icon_state = "walkietalkie"
 	w_class = WEIGHT_CLASS_SMALL
 	///if the docks may be changed
 	var/may_change_docks = TRUE
@@ -81,6 +81,9 @@
 
 	if(!destination || !can_use(user))
 		return
+	if(!our_port.canDock(SSshuttle.getDock(destination)))
+		balloon_alert(user, "destination occupied!")
+		return
 	transit_shuttle(user, destination)
 
 /obj/item/shuttle_remote/click_alt_secondary(mob/user)
@@ -123,15 +126,21 @@
 	if(our_port.mode != SHUTTLE_IDLE)
 		balloon_alert(user, "engines recharging!")
 		return FALSE
-	if(!our_port.canDock(SSshuttle.getDock(shuttle_home_id)))
-		balloon_alert(user, "home dock occupied!")
-		return FALSE
-	if(!our_port.canDock(SSshuttle.getDock(shuttle_away_id)))
-		balloon_alert(user, "away dock occupied!")
-		return FALSE
 	return TRUE
 
 /obj/item/shuttle_remote/proc/transit_shuttle(mob/user, destination)
 	var/obj/machinery/computer/shuttle/our_computer = computer_ref?.resolve()
 	our_computer.send_shuttle(destination, user)
 	our_computer.destination = destination
+
+//research
+/datum/design/shuttle_remote
+	name = "Shuttle Remote Control"
+	desc = "A remote which can send away or try to dock shuttles once linked to a navigation console."
+	id = "shuttle_remote"
+	build_path = /obj/item/shuttle_remote
+	materials = list(/datum/material/gold = SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING

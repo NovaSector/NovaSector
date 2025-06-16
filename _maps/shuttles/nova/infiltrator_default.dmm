@@ -5,7 +5,7 @@
 	pixel_x = -16
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "cZ" = (
 /obj/machinery/camera/xray/directional/south{
 	pixel_y = 32;
@@ -14,36 +14,36 @@
 	use_power = 1
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "dc" = (
 /obj/structure/cable,
 /obj/structure/chair/comfy/shuttle/tactical{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "ie" = (
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "qe" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/computer/shuttle/lone_infil{
+/obj/machinery/computer/shuttle/infiltrator{
 	dir = 8
 	},
-/obj/item/shuttle_remote/lone_infil,
+/obj/item/shuttle_remote/infiltrator,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "qu" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "qQ" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/lone_infil,
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/sign/poster/contraband/icebox_moment/directional/north,
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/computer/camera_advanced/shuttle_docker/infiltrator,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "tO" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -67,13 +67,13 @@
 	use_power = 0
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "vf" = (
 /obj/structure/sign/warning/directional/west{
 	pixel_y = -32
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "Jv" = (
 /turf/template_noop,
 /area/template_noop)
@@ -83,13 +83,13 @@
 /obj/structure/sign/flag/syndicate/directional/south,
 /obj/structure/table/reinforced,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "UZ" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "Ve" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
@@ -98,7 +98,7 @@
 	id = "lone_infil_shutter"
 	},
 /turf/open/floor/plating,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "Yi" = (
 /obj/machinery/door/airlock/hatch{
 	id_tag = "lone_infil_bolt";
@@ -106,21 +106,21 @@
 	external = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/docking_port/mobile/lone_infil{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
 /obj/docking_port/stationary{
 	dir = 4;
 	name = "Deep Space";
-	shuttle_id = "lone_infil_home";
+	shuttle_id = "infiltrator_home";
 	dwidth = 4;
 	width = 9;
 	height = 5
 	},
+/obj/docking_port/mobile/infiltrator{
+	dir = 4
+	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "YB" = (
 /obj/machinery/camera/xray/directional/north{
 	pixel_y = -32;
@@ -129,7 +129,7 @@
 	use_power = 1
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 "YY" = (
 /obj/structure/cable,
 /obj/machinery/light/floor{
@@ -159,7 +159,7 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/lone_infil)
+/area/shuttle/infiltrator)
 
 (1,1,1) = {"
 Jv
