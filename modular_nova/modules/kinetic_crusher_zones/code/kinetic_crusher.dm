@@ -2,6 +2,7 @@
 
 /obj/item/kinetic_crusher
 	var/trophies_enabled = FALSE
+	var/previous_trophies_enabled = FALSE
 
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()
@@ -22,14 +23,10 @@
 	if(old_turf.z != new_turf.z)
 		update_trophies_enabled()
 
-		// Provide chat feedback to holder if it's a mob
-		var/atom/holder = loc
-		if(ishuman(holder))
-			to_chat(holder, "[src.name]: Trophies [trophies_enabled ? "enabled" : "disabled"] based on current z-level.")
-		else if(ismob(holder))
-			to_chat(holder, "[src.name]: Trophies [trophies_enabled ? "enabled" : "disabled"].")
-
 /obj/item/kinetic_crusher/proc/update_trophies_enabled()
+	// Store the previous state
+	previous_trophies_enabled = trophies_enabled
+
 	// Get the actual turf we're on
 	var/turf/current_turf = get_turf(src)
 	if(!current_turf)
@@ -43,6 +40,12 @@
 		trophies_enabled = TRUE
 	else
 		trophies_enabled = FALSE
+
+	// Only show balloon alert if the state actually changed
+	if(trophies_enabled != previous_trophies_enabled)
+		var/atom/holder = loc
+		if(ismob(holder))
+			balloon_alert(holder, "trophies [trophies_enabled ? "enabled" : "disabled"]")
 
 	// Debug output
 	world.log << "[src.name] trophies_enabled = [trophies_enabled] at z-level [current_turf.z] (trait check: [ZTRAIT_LAVA_RUINS in level?.traits])"
