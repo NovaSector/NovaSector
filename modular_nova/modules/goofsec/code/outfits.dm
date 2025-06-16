@@ -1,5 +1,5 @@
 /datum/outfit/solfed
-	name = "Solfed Official"
+	name = "SolFed Official"
 
 	uniform = /obj/item/clothing/under/solfed/officer
 	gloves = /obj/item/clothing/gloves/combat
@@ -22,7 +22,7 @@
 	id_trim = /datum/id_trim/solfed/official
 
 /datum/outfit/solfed_official_lowrnk
-	name = "Solfed Official Low Rank"
+	name = "SolFed Official Low Rank"
 
 	uniform = /obj/item/clothing/under/solfed/officer_lowrnk
 	gloves = /obj/item/clothing/gloves/combat
@@ -44,7 +44,7 @@
 	id_trim = /datum/id_trim/solfed/official
 
 /datum/outfit/solfed_civil
-	name = "Solfed Civil Services Worker"
+	name = "SolFed Civil Services Worker"
 
 	uniform = /obj/item/clothing/under/solfed/official_civil
 	gloves = /obj/item/clothing/gloves/combat
@@ -66,7 +66,7 @@
 	id_trim = /datum/id_trim/solfed/official
 
 /datum/outfit/solfed_social
-	name = "Solfed Official Social Worker"
+	name = "SolFed Official Social Worker"
 
 	uniform = /obj/item/clothing/under/solfed/official_social
 	gloves = /obj/item/clothing/gloves/combat
