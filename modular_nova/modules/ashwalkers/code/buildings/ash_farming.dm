@@ -265,6 +265,11 @@
  * a simple proc to forcemove the plant on top of the movable atom its attached to
  */
 /obj/structure/simple_farm/proc/move_plant()
+	SIGNAL_HANDLER
+
+	if(QDELETED(attached_atom))
+		return
+
 	forceMove(get_turf(attached_atom))
 
 /**

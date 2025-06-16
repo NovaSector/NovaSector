@@ -76,6 +76,8 @@
 	var/tapped_tree = FALSE
 	/// the cooldown for collecting sap from the tree
 	COOLDOWN_DECLARE(sap_cooldown)
+	/// what the tree will produce from the tap
+	var/tapped_reagent = /datum/reagent/consumable/sap
 
 	/// the cooldown for being able to safely remove some branches from the tree for wood
 	COOLDOWN_DECLARE(wood_cooldown)
@@ -113,6 +115,11 @@
 
 /// used when the attached atom somehow moves
 /obj/structure/simple_tree/proc/move_tree()
+	SIGNAL_HANDLER
+
+	if(QDELETED(attached_atom))
+		return
+
 	forceMove(get_turf(attached_atom))
 
 /obj/structure/simple_tree/Destroy(force)
@@ -267,7 +274,7 @@
 		var/obj/item/reagent_containers/container_tool = tool
 		if(container_tool.is_refillable())
 			if(!container_tool.reagents.holder_full())
-				container_tool.reagents.add_reagent(/datum/reagent/consumable/sap, 10)
+				container_tool.reagents.add_reagent(tapped_reagent, 10)
 				return ITEM_INTERACT_SUCCESS
 
 			to_chat(user, span_warning("[tool] is unable to be filled further!"))
