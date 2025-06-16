@@ -542,6 +542,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
+	neck = /obj/item/clothing/neck/mantle/solfed
 
 	back = /obj/item/storage/backpack
 	glasses = /obj/item/clothing/glasses/sunglasses/solfed

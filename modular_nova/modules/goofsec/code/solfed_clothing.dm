@@ -335,7 +335,7 @@
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank12"
 	post_init_icon_state = "sw_ribbon_3"
 
-/obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed
+/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 	name = "Solfed Official Neckpin"
 	desc = "A special golden neckpin to show true loyalty to the federation"
-	greyscale_colors = ""
+	greyscale_colors = "#ffff66#0099ff"

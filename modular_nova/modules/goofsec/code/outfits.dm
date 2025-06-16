@@ -6,6 +6,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	accessory = /obj/item/clothing/accessory/nova/solfedribbon
 
+	neck = /obj/item/clothing/neck/mantle/solfed
 	back = /obj/item/storage/backpack
 	ears = /obj/item/radio/headset/headset_solfed/sec
 	l_pocket = /obj/item/restraints/handcuffs
@@ -26,7 +27,9 @@
 	uniform = /obj/item/clothing/under/solfed/officer_lowrnk
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/jackboots
+	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 
+	neck = /obj/item/clothing/neck/mantle/solfed
 	back = /obj/item/storage/backpack
 	ears = /obj/item/radio/headset/headset_solfed/sec
 	r_pocket = /obj/item/flashlight/seclite
@@ -46,7 +49,9 @@
 	uniform = /obj/item/clothing/under/solfed/official_civil
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/jackboots
+	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 
+	neck = /obj/item/clothing/neck/mantle/solfed
 	back = /obj/item/storage/backpack
 	ears = /obj/item/radio/headset/headset_solfed/sec
 	r_pocket = /obj/item/flashlight/seclite
@@ -66,7 +71,9 @@
 	uniform = /obj/item/clothing/under/solfed/official_social
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/jackboots
+	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 
+	neck = /obj/item/clothing/neck/mantle/solfed
 	back = /obj/item/storage/backpack
 	ears = /obj/item/radio/headset/headset_solfed/sec
 	r_pocket = /obj/item/flashlight/seclite
