@@ -82,67 +82,67 @@
 	subcategory = "Weapon Cases"
 
 /datum/armament_entry/company_import/sol_defense/case/trappiste
-	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/trappiste_small_case
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/carwo
-	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/carwo_large_case
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/nanotrasen_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/nanotrasen
-	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/ntcase
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/solfed_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/solfed
-	item_type = /obj/item/storage/toolbox/guncase/nova/solfed/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/solfed
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/redcase_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/redcase/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/red/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/redcase
-	item_type = /obj/item/storage/toolbox/guncase/nova/redcase/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/red
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/bluecase_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/bluecase/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/blue/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/bluecase
-	item_type = /obj/item/storage/toolbox/guncase/nova/bluecase/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/blue
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/purplecase_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/purplecase/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/purple/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/purplecase
-	item_type = /obj/item/storage/toolbox/guncase/nova/purplecase/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/purple
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/orangecase_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/orangecase/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/orange/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/orangecase
-	item_type = /obj/item/storage/toolbox/guncase/nova/orangecase/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/orange
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/case/greencase_pistol
-	item_type = /obj/item/storage/toolbox/guncase/nova/greencase/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/green/pistol
 	cost = PAYCHECK_COMMAND
 
 /datum/armament_entry/company_import/sol_defense/case/greencase
-	item_type = /obj/item/storage/toolbox/guncase/nova/greencase/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/green
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/sol_defense/sidearm

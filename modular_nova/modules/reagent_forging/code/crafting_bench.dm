@@ -148,7 +148,7 @@
 	QDEL_NULL(selected_recipe)
 	current_hits_to_completion = 0
 
-/obj/structure/reagent_crafting_bench/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/reagent_crafting_bench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(in_use)
 		balloon_alert(user, "already in use")
 		return

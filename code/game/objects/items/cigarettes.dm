@@ -341,7 +341,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	user.visible_message(span_suicide("[user] is huffing [src] as quickly as [user.p_they()] can! It looks like [user.p_theyre()] trying to give [user.p_them()]self cancer."))
 	return (TOXLOSS|OXYLOSS)
 
-/obj/item/cigarette/attackby(obj/item/W, mob/user, list/modifiers)
+/obj/item/cigarette/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(lit)
 		return ..()
 
@@ -653,6 +653,35 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/cigarette/robust
 	desc = "A Robust brand cigarette."
 
+/obj/item/cigarette/greytide
+	name = "grey mainthol"
+	desc = "Made by hand, has a funky smell."
+	chem_volume = 60
+	lung_harm = 2.5
+	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/consumable/menthol = 6, /datum/reagent/medicine/oculine = 1)
+	/// Weighted list of random reagents to add
+	var/static/list/possible_reagents = list(
+		/datum/reagent/toxin/fentanyl = 2,
+		/datum/reagent/glitter = 2,
+		/datum/reagent/drug/aranesp = 2,
+		/datum/reagent/consumable/laughter = 2,
+		/datum/reagent/medicine/insulin = 2,
+		/datum/reagent/drug/maint/powder = 2,
+		/datum/reagent/drug/maint/sludge = 2,
+		/datum/reagent/toxin/staminatoxin = 2,
+		/datum/reagent/toxin/leadacetate = 2,
+		/datum/reagent/drug/space_drugs = 2,
+		/datum/reagent/drug/pumpup = 2,
+		/datum/reagent/drug/kronkaine = 2,
+		/datum/reagent/consumable/mintextract = 2,
+		/datum/reagent/pax = 1,
+	)
+
+/obj/item/cigarette/greytide/Initialize(mapload)
+	. = ..()
+	if(prob(40))
+		reagents.add_reagent(pick_weight(possible_reagents), rand(10, 15))
+
 /obj/item/cigarette/robustgold
 	desc = "A Robust Gold brand cigarette."
 	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/gold = 3) // Just enough to taste a hint of expensive metal.
@@ -788,6 +817,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A manky old roach, or for non-stoners, a used rollup."
 	icon_state = "roach"
 
+/obj/item/cigbutt/greycigbutt
+	name = "butt"
+	desc = "It's low tide, now."
+	icon_state = "cigbutt"
+
 /obj/item/cigbutt/roach/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5)
@@ -913,7 +947,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(cig_smoke)
 
-/obj/item/cigarette/pipe/attackby(obj/item/thing, mob/user, list/modifiers)
+/obj/item/cigarette/pipe/attackby(obj/item/thing, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(thing, /obj/item/food/grown))
 		return ..()
 
@@ -967,7 +1001,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/rollingpaper/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/customizable_reagent_holder, /obj/item/cigarette/rollie, CUSTOM_INGREDIENT_ICON_NOCHANGE, ingredient_type=CUSTOM_INGREDIENT_TYPE_DRYABLE, max_ingredients=2)
+	AddComponent(/datum/component/ingredients_holder, /obj/item/cigarette/rollie, CUSTOM_INGREDIENT_ICON_NOCHANGE, ingredient_type=CUSTOM_INGREDIENT_TYPE_DRYABLE, max_ingredients=2)
 
 
 ///////////////
@@ -1193,9 +1227,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flags_1 = NONE
 
 /obj/item/vape/black
-	icon_state = "/obj/item/vape/black"
 	greyscale_colors = "#2e2e2e"
-	flags_1 = NONE
+	flags_1 = NO_NEW_GAGS_PREVIEW_1 // same color as basetype
 
 /obj/item/vape/white
 	icon_state = "/obj/item/vape/white"

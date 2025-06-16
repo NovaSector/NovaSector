@@ -33,7 +33,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/kobold,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/kobold,
 	)
-	exotic_bloodtype = "L"
+	exotic_bloodtype = BLOOD_TYPE_LIZARD
 	payday_modifier = 1.35
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
