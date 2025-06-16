@@ -41,44 +41,44 @@
 
 // Solfed 911 Atmos Uniform
 /obj/item/clothing/under/solfed/emergencyfire
-	name = "\improper Solfed emergency atmospherics uniform"
+	name = "\improper SolFed emergency atmospherics uniform"
 	desc = "An official Sol Federation emergency response uniform, denoting members of their Station Breach Control teams and protecting them from atmospheric or fire hazards."
 	icon_state = "atmosrescue"
 	armor_type = /datum/armor/clothing_under/atmos_adv
 
 // Solfed 911 EMT Uniform
 /obj/item/clothing/under/solfed/emergencymed
-	name = "\improper Solfed emergency paramedic uniform"
+	name = "\improper SolFed emergency paramedic uniform"
 	desc = "An official Sol Federation emergency response uniform, denoting members of their paramedical Trauma Teams and protecting them from viral or chemical hazards."
 	icon_state = "medrescue"
 
 // Federation Officer (Official)
 /obj/item/clothing/under/solfed/officer
-	name = "\improper Solfed high-ranking official uniform"
+	name = "\improper SolFed high-ranking official uniform"
 	desc = "A uniform worn by high ranking officials of the Sol Federation Armed Forces."
 	icon_state = "solfed_official"
 
 // Federation Enlisted (Non Marine | Official)
 /obj/item/clothing/under/solfed/officer_lowrnk
-	name = "\improper Solfed low-ranking official uniform"
+	name = "\improper SolFed low-ranking official uniform"
 	desc = "A uniform worn by low ranking officials of the Sol Federation Armed Forces."
 	icon_state = "solfed_enl"
 
 // Federation Civil Services Official
 /obj/item/clothing/under/solfed/official_civil
-	name = "\improper Solfed civil services uniform"
+	name = "\improper SolFed civil services uniform"
 	desc = "A uniform worn by officials of the Sol Federation's Civil Services Division."
 	icon_state = "solfed_civil"
 
 // Federation Social Services Official
 /obj/item/clothing/under/solfed/official_social
-	name = "\improper Solfed social services uniform"
+	name = "\improper SolFed social services uniform"
 	desc = "A uniform worn by officials of the Sol Federation's Social Services Division."
 	icon_state = "solfed_social"
 
 // Sol Federation Combat Helmet
 /obj/item/clothing/head/helmet/solfed
-	name = "\improper SolFed helmet"
+	name = "\improper SolFed Combat helmet"
 	desc = "A robust Sol Federation helmet designed with an integrated light to provide vision to the brave marines on the front line."
 	icon_state = "icons/map_icons/clothing/head/_head"
 	post_init_icon_state = "federal_helmet"
@@ -206,7 +206,7 @@
 
 // Solfed Marines Standard
 /obj/item/clothing/under/solfed/marines
-	name = "\improper Solfed marine uniform"
+	name = "\improper SolFed marine uniform"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/marines"
 	post_init_icon_state = "solfed_camo"
@@ -232,7 +232,7 @@
 
 // Solfed Espirator
 /obj/item/clothing/under/solfed/espirator
-	name = "\improper Solfed Espirator uniform"
+	name = "\improper SolFed Espirator uniform"
 	desc = "" //IDK what an Espirator is you've gotta fill this out LOL
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/espirator"
@@ -262,7 +262,7 @@
 
 /// Solfed Accessories
 /obj/item/clothing/accessory/nova/solfedribbon
-	name = "\improper Solfed rank ribbon"
+	name = "\improper SolFed rank ribbon"
 	desc = "An average military ribbon."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon"
@@ -316,6 +316,6 @@
 	post_init_icon_state = "sw_ribbon_3"
 
 /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
-	name = "\improper Solfed Official neckpin"
+	name = "\improper SolFed Official neckpin"
 	desc = "A special golden neckpin to show true loyalty to the Federation."
 	greyscale_colors = "#ffff66#0099ff"
