@@ -29,7 +29,7 @@
 	requires_bodypart_type = BODYTYPE_ORGANIC
 
 /datum/surgery_step/fix_robot_brain
-	name = "fix brain"
+	name = "fix brain (multitool or hemostat)"
 	implements = list(
 		TOOL_MULTITOOL = 95,
 		TOOL_HEMOSTAT = 35,
