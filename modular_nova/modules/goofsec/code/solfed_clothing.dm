@@ -277,6 +277,7 @@
 /obj/item/clothing/accessory/nova/solfedribbon
 	name = "Solfed Rank Ribbon"
 	desc = "An average military ribbon."
+	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon"
 	post_init_icon_state = "star_arr_ribbon_1"
 	greyscale_colors = "#FFD700"
@@ -286,34 +287,34 @@
 /obj/item/clothing/accessory/nova/solfedribbon/rank2
 	icon_state = "star_arr_ribbon_2"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank3
+/obj/item/clothing/accessory/nova/solfedribbon/rank3
 	icon_state = "star_sw_ribbon_1"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank4
+/obj/item/clothing/accessory/nova/solfedribbon/rank4
 	icon_state = "star_sw_ribbon_2"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank5
+/obj/item/clothing/accessory/nova/solfedribbon/rank5
 	icon_state = "star_ribbon_1"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank6
+/obj/item/clothing/accessory/nova/solfedribbon/rank6
 	icon_state = "star_ribbon_2"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank7
+/obj/item/clothing/accessory/nova/solfedribbon/rank7
 	icon_state = "star_ribbon_3"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank8
+/obj/item/clothing/accessory/nova/solfedribbon/rank8
 	icon_state = "arr_ribbon_2"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank9
+/obj/item/clothing/accessory/nova/solfedribbon/rank9
 	icon_state = "arr_ribbon_3"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank10
+/obj/item/clothing/accessory/nova/solfedribbon/rank10
 	icon_state = "sw_ribbon_1"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank11
+/obj/item/clothing/accessory/nova/solfedribbon/rank11
 	icon_state = "sw_ribbon_2"
 
-/obj/item/clothing/accessory/nova/solfedribbons/rank12
+/obj/item/clothing/accessory/nova/solfedribbon/rank12
 	icon_state = "sw_ribbon_3"
 
 /obj/item/clothing/accessory/nova/acc_medal/specialpins/solfed
