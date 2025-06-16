@@ -385,13 +385,6 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 
 	joining_soul.join_soulcatcher()
 
-/mob/dead/observer/verb/open_ghost_settings()
-	set name = "Open Ghost Settings"
-	set category = "Ghost"
-	set desc = "Open the new Ghost menu, this is here temporarily to help acclimate people to the lack of a ghost tab."
-
-	GLOB.ghost_menu.ui_interact(usr)
-
 /atom/movable/screen/ghost/enter_soulcatcher
 	name = "Enter Soulcatcher"
 	icon = 'modular_nova/master_files/icons/hud/screen_ghost.dmi'
