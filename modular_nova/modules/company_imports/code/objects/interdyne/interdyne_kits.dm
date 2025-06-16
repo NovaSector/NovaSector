@@ -4,7 +4,7 @@
 
 /datum/storage/medkit/tactical/interdyne
 	max_slots = 14
-	max_total_storage = 16
+	max_total_storage = 16 * WEIGHT_CLASS_SMALL
 	max_specific_storage = WEIGHT_CLASS_SMALL
 
 /datum/storage/medkit/tactical/interdyne/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
@@ -12,8 +12,8 @@
 	return ..()
 
 /datum/storage/medkit/tactical/interdyne/medium
-	max_slots = 7
-	max_total_storage = 12
+	max_slots = 14
+	max_total_storage = 12 * WEIGHT_CLASS_SMALL
 	max_specific_storage = WEIGHT_CLASS_SMALL
 
 /datum/storage/medkit/tactical/interdyne/medium/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
@@ -22,7 +22,7 @@
 
 /datum/storage/medkit/tactical/interdyne/small
 	max_slots = 7
-	max_total_storage = 10
+	max_total_storage = 10 * WEIGHT_CLASS_TINY
 	max_specific_storage = WEIGHT_CLASS_TINY
 
 /datum/storage/medkit/tactical/interdyne/small/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
@@ -55,12 +55,12 @@
 		/obj/item/reagent_containers/applicator/patch/libital = 2,
 		/obj/item/reagent_containers/applicator/patch/aiuri = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/gauze = 2,
-		/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset = 1,
-		/obj/item/mod/module/surgical_processor/preloaded = 1,
+		/obj/item/stack/medical/gauze = 1,
+		/obj/item/scalpel/advanced = 1,
+		/obj/item/retractor/advanced = 1,
+		/obj/item/cautery/advanced = 1,
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
 		/obj/item/storage/box/evilmeds/interdyne = 1,
-		/obj/item/clothing/glasses/hud/health/night/science = 1,
 		/obj/item/defibrillator/compact/combat/loaded/interdyne = 1,
 	)
 	generate_items_inside(items_inside,src)
@@ -197,11 +197,12 @@
 		return
 	var/static/list/items_inside = list(
 		/obj/item/reagent_containers/hypospray/combat/empty = 1,
-		/obj/item/reagent_containers/cup/beaker/sal_acid = 1,
-		/obj/item/reagent_containers/cup/beaker/salbutamol = 1,
-		/obj/item/reagent_containers/cup/beaker/oxandrolone = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_oxytox = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 1,
 		/obj/item/reagent_containers/cup/beaker/pen_acid = 1,
 		/obj/item/reagent_containers/cup/beaker/rezadone = 1,
+		/obj/item/reagent_containers/cup/beaker/atropine = 1,
 	)
 	generate_items_inside(items_inside,src)
 
@@ -227,13 +228,14 @@
 
 /obj/item/storage/box/evilmeds/interdyne/PopulateContents()
 	var/static/list/items_inside = list(
-		/obj/item/reagent_containers/cup/beaker/omnizine = 1,
-		/obj/item/reagent_containers/cup/beaker/sal_acid = 1,
-		/obj/item/reagent_containers/cup/beaker/oxandrolone = 1,
+		/obj/item/reagent_containers/cup/beaker/god_blood = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_burnmix = 1,
 		/obj/item/reagent_containers/cup/beaker/pen_acid = 1,
 		/obj/item/reagent_containers/cup/beaker/atropine = 1,
-		/obj/item/reagent_containers/cup/beaker/salbutamol = 1,
-		/obj/item/reagent_containers/cup/beaker/rezadone = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_oxytox = 1,
+		/obj/item/reagent_containers/cup/beaker/rezadone/less = 1,
+		/obj/item/paper/fluff/interdyne/medicines = 1,
 	)
 	generate_items_inside(items_inside, src)
 
@@ -244,6 +246,18 @@
 /obj/item/reagent_containers/cup/beaker/sal_acid
 	name = "Salicylic-Acid Beaker"
 	list_reagents = list(/datum/reagent/medicine/sal_acid = 60)
+
+/obj/item/reagent_containers/cup/beaker/dyne_brutemix
+	name = "Sal-Acid/Lib Beaker (BRUTE)"
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 30, /datum/reagent/medicine/c2/libital = 30)
+
+/obj/item/reagent_containers/cup/beaker/dyne_burnmix
+	name = "Lent/Oxan Beaker (BRUTE)"
+	list_reagents = list(/datum/reagent/medicine/c2/lenturi = 30, /datum/reagent/medicine/oxandrolone = 30)
+
+/obj/item/reagent_containers/cup/beaker/dyne_oxytox
+	name = "Con/Seiv Beaker (OXY/TOX)"
+	list_reagents = list(/datum/reagent/medicine/c2/convermol = 30, /datum/reagent/medicine/c2/seiver = 30)
 
 /obj/item/reagent_containers/cup/beaker/oxandrolone
 	name = "Oxandrolone Beaker"
@@ -261,6 +275,19 @@
 	name = "Salbutamol Beaker"
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 60)
 
-/obj/item/reagent_containers/cup/beaker/rezadone
+/obj/item/reagent_containers/cup/beaker/rezadone/less
 	name = "Rezadone Beaker"
 	list_reagents = list(/datum/reagent/medicine/rezadone = 60)
+
+/obj/item/reagent_containers/cup/beaker/rezadone/less
+	list_reagents = list(/datum/reagent/medicine/rezadone = 30)
+
+/obj/item/reagent_containers/cup/beaker/god_blood
+	name = "God's Blood Beaker"
+	list_reagents = list(/datum/reagent/medicine/omnizine/godblood = 30)
+
+/obj/item/paper/fluff/interdyne/medicines
+	name = "Note From Corporate"
+	default_raw_text = {"Please rememember to heat up your siever oxy/tox mix for maximum effectiveness elsewise we may have a lawsuit.
+
+	Interdyne leadership is not to be held responsible for the malpractice of the individual doctor."}
