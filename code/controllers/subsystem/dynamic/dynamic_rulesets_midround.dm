@@ -145,7 +145,7 @@
 		question = "Looking for volunteers to become [span_notice(antag_flag)] for [span_danger(name)]",
 		check_jobban = antag_flag_override,
 		role = antag_flag || antag_flag_override,
-		poll_time = 30 SECONDS,
+		poll_time = 5 SECONDS,
 		alert_pic = signup_item_path,
 		role_name_text = antag_flag,
 	)

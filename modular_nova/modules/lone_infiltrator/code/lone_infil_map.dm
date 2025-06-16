@@ -46,9 +46,9 @@
 //mobile docking port
 /obj/docking_port/mobile/lone_infil
 	name = "infiltrator shuttle"
-	callTime = 10 SECONDS
+	callTime = 5 SECONDS
 	ignitionTime = 5 SECONDS
-	rechargeTime = 30 SECONDS
+	rechargeTime = 5 SECONDS
 	shuttle_id = "lone_infil"
 	movement_force = list("KNOCKDOWN"=3,"THROW"=0)
 	preferred_direction = EAST
@@ -71,7 +71,6 @@
 /obj/docking_port/stationary/lone_infil
 	name = "Launchpad no. 09"
 	shuttle_id = "lone_infil"
-	roundstart_template = /datum/map_template/shuttle/lone_infil/default
 	delete_after = TRUE
 	hidden = TRUE
 	width = 9

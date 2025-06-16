@@ -30,7 +30,7 @@
 	var/static/list/dumb_rev_heads = list()
 	//NOVA EDIT ADDITION START
 	///the remote control device linked - shuttle remote
-	var/datum/weakref/remote_control
+	var/datum/weakref/remote_ref
 	var/may_be_remote_controlled = FALSE
 	//NOVA EDIT ADDITION END
 	/// Authorization request cooldown to prevent request spam to admin staff
