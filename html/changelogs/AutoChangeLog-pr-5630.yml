@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - image: "The crewside Sindano is now tan and not black, the evil Sindano is now black and not tan."
+  - image: "The evil Sol autorifle (only used in deathmatch crates) is now actually a black Sol rifle and not using the Sol marksman rifle sprite, erroneously."

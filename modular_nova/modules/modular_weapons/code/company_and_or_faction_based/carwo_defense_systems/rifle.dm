@@ -120,7 +120,7 @@
 // Machinegun based on the base Sol rifle
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
-	name = "\improper Qarad Light Machinegun"
+	name = "\improper Qarad Light Machine Gun"
 	desc = "A hefty machine gun chambered in .40 Sol Long, commonly seen in the hands of SolFed military types. Accepts any standard SolFed rifle magazine."
 
 	icon_state = "qarad"
@@ -143,19 +143,29 @@
 		was replaced with a heavier, heat-resistant assembly with quick-change support. \
 		These modifications, combined with a battle rifle platform not meant to be used \
 		much in full-auto to begin with, made for a relatively unwieldy weapon.<br><br>\
-		A machinegun, however, is still a machinegun, no matter how hard it is to keep on target."
+		A machine gun, however, is still a machine gun, no matter how hard it is to keep on target."
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun/no_mag
 	spawnwithmagazine = FALSE
 
-// Evil version of the rifle (nothing different it's just black)
+// Evil version of the rifles (nothing different it's just black)
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil
-	desc = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
+	desc = parent_type::desc + " This one is painted in a tacticool black."
 
 	icon_state = "infanterie_evil"
 	worn_icon_state = "infanterie_evil"
 	inhand_icon_state = "infanterie_evil"
 
 /obj/item/gun/ballistic/automatic/sol_rifle/evil/no_mag
+	spawnwithmagazine = FALSE
+
+/obj/item/gun/ballistic/automatic/sol_rifle/marksman/evil
+	desc = parent_type::desc + " This one is painted in a tacticool black."
+
+	icon_state = "elite_evil"
+	worn_icon_state = "elite_evil"
+	inhand_icon_state = "elite_evil"
+
+/obj/item/gun/ballistic/automatic/sol_rifle/marksman/evil/no_mag
 	spawnwithmagazine = FALSE
