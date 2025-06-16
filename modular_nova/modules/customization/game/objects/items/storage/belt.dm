@@ -41,3 +41,12 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
 	worn_icon_state = "mailbelt_leather"
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
+
+/obj/item/storage/belt/medical/interdyne
+	name = "Interdyne Medical Belt"
+	desc = "A small black and green medical belt signifying the medical company 'Interdyne Pharmaceuticals' on it."
+	icon = 'modular_nova/master_files/icons/obj/clothing/belts.dmi'
+	icon_state = "dyne_med"
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/belt.dmi'
+	worn_icon_state = "dyne_med"
+	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
