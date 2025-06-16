@@ -1,6 +1,8 @@
 /datum/armament_entry/company_import/interdyne
 	category = INTERDYNE_NAME
 	offstation = TRUE
+	// Defines what is the default cost. (If a subcategory cost is not defined it will assume this value)
+	cost = PAYCHECK_COMMAND * 5
 
 /datum/armament_entry/company_import/interdyne/solo
 	subcategory = "individual products"
@@ -34,19 +36,19 @@
 	cost = PAYCHECK_COMMAND / 4
 
 /datum/armament_entry/company_import/interdyne/solo/guncasebig
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne
 	cost = PAYCHECK_COMMAND / 2
 
 /datum/armament_entry/company_import/interdyne/solo/guncasesmall
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdyne/pistol
 	cost = PAYCHECK_COMMAND / 2
 
 /datum/armament_entry/company_import/interdyne/solo/guncasebigspec
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec
 	cost = PAYCHECK_COMMAND / 2
 
 /datum/armament_entry/company_import/interdyne/solo/guncasesmallspec
-	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/interdynespec/pistol
 	cost = PAYCHECK_COMMAND / 2
 
 /*
