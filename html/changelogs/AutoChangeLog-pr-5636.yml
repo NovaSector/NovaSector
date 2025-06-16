@@ -1,0 +1,5 @@
+author: "LovliestPlant"
+delete-after: True
+changes:
+  - rscadd: "Updates species description and lore text for lizards."
+  - image: "Adds flag sprite for the Talunan Imperium."
