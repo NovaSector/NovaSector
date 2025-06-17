@@ -83,6 +83,13 @@
 	using = new /atom/movable/screen/ghost/minigames_menu(null, src)
 	using.screen_loc = ui_ghost_minigames
 	static_inventory += using
+	// NOVA EDIT ADDITION START - Soulcatcher button
+
+	using = new /atom/movable/screen/ghost/join_soulcatcher(null, src)
+	using.screen_loc = ui_ghost_soulcatcher
+	static_inventory += using
+
+	// NOVA EDIT ADDITION END
 
 	using = new /atom/movable/screen/language_menu(null, src)
 	using.screen_loc = ui_ghost_language_menu
