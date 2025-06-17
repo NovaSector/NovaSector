@@ -23,7 +23,7 @@
 	return
 
 /datum/antagonist/traitor/infiltrator/proc/set_spawnpoint(infil_number)
-	spawnpoint = GLOB.infiltrator_start[infil_number]
+	spawnpoint = GLOB.traitor_start[infil_number]
 
 /datum/antagonist/traitor/infiltrator/proc/move_to_spawnpoint()
 	owner.current.forceMove(spawnpoint)

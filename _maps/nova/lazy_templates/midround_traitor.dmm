@@ -1,0 +1,1643 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bD" = (
+/turf/open/openspace,
+/area/misc/syndicate_armoury)
+"ce" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"dv" = (
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"dz" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"eJ" = (
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"gl" = (
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"hp" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/misc/syndicate_armoury)
+"hy" = (
+/obj/structure/fake_stairs/directional/west{
+	color = "#7F7F7F";
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"iC" = (
+/obj/machinery/light/floor,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"jk" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/syndicate_armoury)
+"jm" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"kq" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"kw" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"kx" = (
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"lQ" = (
+/obj/structure/stairs/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"ml" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"mz" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/holosign/barrier/engineering,
+/obj/docking_port/stationary/traitor{
+	dir = 2
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"mR" = (
+/obj/structure/lattice,
+/turf/open/space,
+/area/space/nearstation)
+"mW" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"nA" = (
+/obj/structure/railing/corner/unbreakable,
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"nG" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"nT" = (
+/obj/structure/sign/warning/docking/directional/south,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"od" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"og" = (
+/obj/item/paper/paperslip/corporate/syndicate,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury)
+"oS" = (
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/syndicate_armoury)
+"pc" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/corner,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"pt" = (
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"pv" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"pw" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/syndicate_armoury)
+"qi" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/structure/fake_stairs/directional/south{
+	color = "#7F7F7F";
+	name = "airstair"
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"qr" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"rz" = (
+/turf/open/space,
+/area/space)
+"se" = (
+/obj/structure/railing/corner/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"un" = (
+/obj/structure/railing/corner/end/unbreakable,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/iron/dark/small,
+/area/misc/syndicate_armoury)
+"ur" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"uA" = (
+/obj/structure/fans/tiny/shield,
+/obj/machinery/door/poddoor/preopen,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"wx" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/syndicate_armoury)
+"wA" = (
+/obj/structure/railing/corner/end{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"wP" = (
+/obj/structure/fake_stairs/directional/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"xt" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"xA" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"zf" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 9
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"zo" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"zu" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"zJ" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Bt" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Dw" = (
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/syndicate_armoury)
+"DC" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"DL" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"DO" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/syndicate_armoury)
+"DP" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/syndicate_armoury)
+"EI" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"Fh" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"Ge" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"HS" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Io" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"KI" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
+	},
+/area/misc/syndicate_armoury)
+"KV" = (
+/obj/structure/fluff/big_chain{
+	pixel_y = 14
+	},
+/turf/open/floor/plating/reinforced,
+/area/misc/syndicate_armoury)
+"KY" = (
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"LF" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Mk" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"Nd" = (
+/turf/open/floor/iron/dark/small,
+/area/misc/syndicate_armoury)
+"Ne" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/syndicate_armoury)
+"Nw" = (
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"NS" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Of" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"Om" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"OU" = (
+/obj/machinery/light/floor,
+/obj/effect/landmark/start/midround_traitor,
+/turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury)
+"Pa" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Pe" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Pp" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/syndicate_armoury)
+"Qk" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Qx" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"RA" = (
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"RH" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/syndicate_armoury)
+"RJ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"RR" = (
+/obj/structure/sign/warning/docking/directional/west,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"RX" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Sm" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/vg_decals/numbers/zero,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Su" = (
+/obj/structure/sign/warning/docking/directional/east,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Sw" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"TP" = (
+/turf/open/space/basic,
+/area/space)
+"Uf" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"UL" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"UW" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"Vn" = (
+/obj/effect/turf_decal/siding/dark/end{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"VE" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"Wb" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"XY" = (
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/syndicate_armoury)
+"Yb" = (
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+"ZL" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
+"ZV" = (
+/obj/structure/stairs/west{
+	color = "#7F7F7F";
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury)
+
+(1,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+VE
+TP
+TP
+TP
+TP
+TP
+rz
+TP
+"}
+(2,1,1) = {"
+pt
+pt
+pt
+KV
+pt
+UW
+HS
+HS
+HS
+ml
+pt
+pt
+pt
+pt
+pt
+KV
+pt
+Ne
+DL
+Ne
+TP
+TP
+rz
+rz
+rz
+TP
+"}
+(3,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+LF
+Nd
+Nd
+Nd
+Pe
+HS
+HS
+HS
+HS
+HS
+HS
+HS
+ml
+pt
+Ne
+Ne
+TP
+TP
+rz
+rz
+TP
+"}
+(4,1,1) = {"
+pt
+pt
+pt
+Yb
+pt
+LF
+Nd
+og
+Nd
+nG
+Fh
+Fh
+Fh
+Fh
+Fh
+Fh
+Mk
+pv
+ml
+nT
+wx
+Ne
+mR
+mR
+rz
+TP
+"}
+(5,1,1) = {"
+pt
+pt
+nA
+KY
+KY
+se
+Nd
+Nd
+Nd
+Of
+DO
+XY
+XY
+XY
+XY
+XY
+RH
+Mk
+pv
+ml
+RR
+uA
+XY
+mR
+rz
+TP
+"}
+(6,1,1) = {"
+pt
+pt
+qr
+pt
+pt
+DC
+xA
+Of
+Of
+Pp
+XY
+od
+Pa
+Pa
+Pa
+xA
+XY
+oS
+Mk
+pv
+ml
+uA
+XY
+XY
+rz
+TP
+"}
+(7,1,1) = {"
+pt
+pt
+qr
+bD
+bD
+mW
+LF
+Of
+DO
+XY
+od
+Qx
+pt
+pt
+pt
+NS
+xA
+XY
+RH
+Mk
+jm
+pt
+uA
+XY
+rz
+TP
+"}
+(8,1,1) = {"
+pt
+pt
+qr
+hy
+hy
+ur
+ce
+Of
+XY
+od
+Ge
+pt
+pt
+pt
+pt
+Nw
+Sm
+xA
+XY
+gl
+jm
+pt
+uA
+XY
+XY
+TP
+"}
+(9,1,1) = {"
+pt
+pt
+qr
+Of
+Of
+Om
+Of
+Of
+XY
+pv
+Uf
+ml
+pt
+pt
+pt
+pt
+eJ
+LF
+XY
+gl
+jm
+pt
+pt
+uA
+XY
+TP
+"}
+(10,1,1) = {"
+pt
+pt
+qr
+Of
+dz
+Of
+Of
+Of
+un
+qi
+qi
+mz
+pt
+iC
+pt
+pt
+pt
+LF
+jk
+gl
+jm
+pt
+pt
+uA
+XY
+TP
+"}
+(11,1,1) = {"
+pt
+pt
+qr
+Of
+Of
+ZL
+Of
+Of
+XY
+od
+RJ
+Qx
+pt
+pt
+pt
+pt
+kx
+LF
+XY
+gl
+jm
+pt
+pt
+uA
+XY
+TP
+"}
+(12,1,1) = {"
+pt
+pt
+qr
+wP
+wP
+UL
+xA
+Of
+XY
+pv
+kq
+pt
+pt
+pt
+pt
+Nw
+xt
+ce
+XY
+gl
+jm
+pt
+uA
+XY
+XY
+TP
+"}
+(13,1,1) = {"
+pt
+pt
+qr
+bD
+bD
+mW
+LF
+Of
+hp
+XY
+pv
+ml
+pt
+pt
+pt
+UW
+ce
+XY
+pw
+zf
+jm
+pt
+uA
+XY
+rz
+TP
+"}
+(14,1,1) = {"
+pt
+pt
+qr
+pt
+pt
+Qk
+ce
+Of
+Of
+KI
+XY
+pv
+HS
+HS
+HS
+ce
+XY
+Dw
+zf
+od
+Qx
+uA
+XY
+XY
+TP
+TP
+"}
+(15,1,1) = {"
+pt
+pt
+Sw
+Wb
+Wb
+zo
+Nd
+Nd
+Nd
+Of
+hp
+XY
+XY
+XY
+XY
+XY
+pw
+zf
+od
+Qx
+Su
+uA
+XY
+mR
+TP
+TP
+"}
+(16,1,1) = {"
+pt
+pt
+pt
+Yb
+pt
+LF
+Nd
+OU
+Nd
+Vn
+EI
+EI
+EI
+EI
+EI
+EI
+zf
+od
+Qx
+nT
+wx
+Ne
+VE
+VE
+TP
+TP
+"}
+(17,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+LF
+Nd
+Nd
+Nd
+Io
+Pa
+Pa
+Pa
+Pa
+Pa
+Pa
+Pa
+Qx
+pt
+Ne
+Ne
+rz
+rz
+TP
+TP
+TP
+"}
+(18,1,1) = {"
+pt
+pt
+pt
+KV
+pt
+NS
+Pa
+Pa
+Pa
+Qx
+pt
+pt
+pt
+pt
+pt
+KV
+pt
+Ne
+DL
+Ne
+TP
+rz
+rz
+TP
+TP
+TP
+"}
+(19,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+
+(1,1,2) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+VE
+TP
+TP
+TP
+TP
+TP
+rz
+TP
+"}
+(2,1,2) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+DL
+Ne
+TP
+TP
+rz
+rz
+rz
+TP
+"}
+(3,1,2) = {"
+pt
+pt
+pt
+Yb
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+TP
+TP
+rz
+rz
+TP
+"}
+(4,1,2) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+wx
+Ne
+mR
+VE
+rz
+TP
+"}
+(5,1,2) = {"
+pt
+pt
+wA
+pt
+pt
+RX
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+VE
+rz
+TP
+"}
+(6,1,2) = {"
+pt
+pt
+qr
+hy
+hy
+dv
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+rz
+TP
+"}
+(7,1,2) = {"
+pt
+Yb
+qr
+ZV
+ZV
+dv
+pt
+Yb
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+DL
+rz
+TP
+"}
+(8,1,2) = {"
+pt
+pt
+qr
+hy
+hy
+dv
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+TP
+"}
+(9,1,2) = {"
+pt
+pt
+kw
+wx
+wx
+Bt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+TP
+"}
+(10,1,2) = {"
+pt
+pt
+LF
+wx
+DP
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+TP
+"}
+(11,1,2) = {"
+pt
+pt
+pc
+wx
+wx
+zu
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+TP
+"}
+(12,1,2) = {"
+pt
+pt
+qr
+wP
+wP
+dv
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+TP
+"}
+(13,1,2) = {"
+pt
+Yb
+qr
+lQ
+lQ
+dv
+pt
+Yb
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+DL
+rz
+TP
+"}
+(14,1,2) = {"
+pt
+pt
+qr
+wP
+wP
+dv
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+TP
+TP
+"}
+(15,1,2) = {"
+pt
+pt
+zJ
+pt
+pt
+RA
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+VE
+TP
+TP
+"}
+(16,1,2) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+wx
+Ne
+VE
+VE
+TP
+TP
+"}
+(17,1,2) = {"
+pt
+pt
+pt
+Yb
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+Ne
+rz
+rz
+TP
+TP
+TP
+"}
+(18,1,2) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+DL
+Ne
+TP
+rz
+rz
+TP
+TP
+TP
+"}
+(19,1,2) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+Ne
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}

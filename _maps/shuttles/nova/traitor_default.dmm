@@ -5,45 +5,45 @@
 	pixel_x = -16
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "cZ" = (
 /obj/machinery/camera/xray/directional/south{
 	pixel_y = 32;
 	c_tag = "External View Port-Side";
 	network = list("lone_infil_shuttle");
-	use_power = 1
+	use_power = 0
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "dc" = (
 /obj/structure/cable,
 /obj/structure/chair/comfy/shuttle/tactical{
 	dir = 4
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/turf/open/floor/circuit/red,
+/area/shuttle/traitor)
 "ie" = (
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "qe" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/computer/shuttle/infiltrator{
+/obj/machinery/computer/shuttle/traitor{
 	dir = 8
 	},
-/obj/item/shuttle_remote/infiltrator,
+/obj/item/shuttle_remote/traitor,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "qu" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "qQ" = (
 /obj/effect/turf_decal/delivery/red,
 /obj/structure/sign/poster/contraband/icebox_moment/directional/north,
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/machinery/computer/camera_advanced/shuttle_docker/infiltrator,
+/obj/machinery/computer/camera_advanced/shuttle_docker/traitor,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "tO" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -62,18 +62,14 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 4
 	},
-/obj/machinery/light/floor{
-	bulb_colour = "#FF3232";
-	use_power = 0
-	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "vf" = (
 /obj/structure/sign/warning/directional/west{
 	pixel_y = -32
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "Jv" = (
 /turf/template_noop,
 /area/template_noop)
@@ -83,13 +79,13 @@
 /obj/structure/sign/flag/syndicate/directional/south,
 /obj/structure/table/reinforced,
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "UZ" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst{
 	dir = 8
 	},
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "Ve" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/structure/cable,
@@ -98,7 +94,7 @@
 	id = "lone_infil_shutter"
 	},
 /turf/open/floor/plating,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "Yi" = (
 /obj/machinery/door/airlock/hatch{
 	id_tag = "lone_infil_bolt";
@@ -111,31 +107,27 @@
 /obj/docking_port/stationary{
 	dir = 4;
 	name = "Deep Space";
-	shuttle_id = "infiltrator_home";
+	shuttle_id = "traitor_home";
 	dwidth = 4;
 	width = 9;
 	height = 5
 	},
-/obj/docking_port/mobile/infiltrator{
+/obj/docking_port/mobile/traitor{
 	dir = 4
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 "YB" = (
 /obj/machinery/camera/xray/directional/north{
 	pixel_y = -32;
 	network = list("lone_infil_shuttle");
 	c_tag = "External View Starboard-Side";
-	use_power = 1
-	},
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/infiltrator)
-"YY" = (
-/obj/structure/cable,
-/obj/machinery/light/floor{
-	bulb_colour = "#FF3232";
 	use_power = 0
 	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/traitor)
+"YY" = (
+/obj/structure/cable,
 /obj/machinery/button/door/directional/west{
 	id = "lone_infil_bolt";
 	name = "External Bolt Control";
@@ -159,7 +151,7 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/shuttle/infiltrator)
+/area/shuttle/traitor)
 
 (1,1,1) = {"
 Jv

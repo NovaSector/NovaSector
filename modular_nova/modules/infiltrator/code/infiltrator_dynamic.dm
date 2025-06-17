@@ -1,5 +1,5 @@
 /datum/dynamic_ruleset/midround/from_ghosts/infiltrator
-	name = "Midround Traitors"
+	name = "Midround Operative"
 	antag_datum = /datum/antagonist/traitor/infiltrator
 	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
 	antag_flag = ROLE_INFILTRATOR
@@ -29,9 +29,6 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/infiltrator/generate_ruleset_body(mob/applicant)
 	var/mob/living/carbon/human/new_character = make_body(applicant)
-	new_character.client.prefs.safe_transfer_prefs_to(new_character)
-	new_character.dna.update_dna_identity()
-	new_character.regenerate_icons()
 	new_character.dna.species.pre_equip_species_outfit(null, new_character)
 	var/datum/mind/player_mind = new /datum/mind(applicant.key)
 	player_mind.active = TRUE
@@ -51,9 +48,9 @@
 		infil_number++
 	//load the map, if its the first time running don't force
 	if(infil_number == 1)
-		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_INFIL_MEMORY)
+		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR)
 	else
-		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_INFIL_MEMORY, TRUE)
+		SSmapping.lazy_load_template(LAZY_TEMPLATE_KEY_MIDROUND_TRAITOR, TRUE)
 	//load the shuttle, we don't trust lazy_load with this
 	load_shuttle(infil_number)
 	//set our spawnpoint
@@ -63,16 +60,17 @@
 	var/is_first = FALSE
 	if(infil_number == 1)
 		is_first = TRUE
-	var/datum/map_template/shuttle/infiltrator/infil_shuttle = SSmapping.shuttle_templates["infiltrator_default"]
+	var/datum/map_template/shuttle/infiltrator/infil_shuttle = SSmapping.shuttle_templates["traitor_default"]
 	var/x = rand(TRANSITIONEDGE,world.maxx - TRANSITIONEDGE - infil_shuttle.width)
 	var/y = rand(TRANSITIONEDGE,world.maxy - TRANSITIONEDGE - infil_shuttle.height)
 	var/z = SSmapping.empty_space.z_value
 	var/turf/turf = locate(x,y,z)
 	if(!turf)
-		CRASH("[src] found no turf to load in")
+		CRASH("[src] found no turf to load its shuttle in")
 	if(!infil_shuttle.load(turf))
 		CRASH("Loading [infil_shuttle] failed!")
-	var/obj/docking_port/mobile/mobile_port = is_first ? SSshuttle.getShuttle("infiltrator") : SSshuttle.getShuttle("infiltrator_[infil_number]")
-	mobile_port.destination = is_first ? SSshuttle.getDock("infiltrator") : SSshuttle.getDock("infiltrator_[infil_number]")
+	//dock at our port
+	var/obj/docking_port/mobile/mobile_port = is_first ? SSshuttle.getShuttle("traitor") : SSshuttle.getShuttle("traitor_[infil_number]")
+	mobile_port.destination = is_first ? SSshuttle.getDock("traitor") : SSshuttle.getDock("traitor_[infil_number]")
 	mobile_port.mode = SHUTTLE_IGNITING
 	mobile_port.setTimer(mobile_port.ignitionTime)

@@ -136,7 +136,7 @@ GLOBAL_LIST_EMPTY(emergencyresponseteamspawn)
 GLOBAL_LIST_EMPTY(ruin_landmarks)
 GLOBAL_LIST_EMPTY(bar_areas)
 // NOVA ADDITIONS START
-GLOBAL_LIST_EMPTY(infiltrator_start)
+GLOBAL_LIST_EMPTY(traitor_start)
 // NOVA ADDITIONS END
 
 /// List of all the maps that have been cached for /proc/load_map
