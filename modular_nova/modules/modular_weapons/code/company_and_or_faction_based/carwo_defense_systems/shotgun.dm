@@ -113,7 +113,7 @@
 	/// Amped damage multiplier of the shotgun.
 	var/amped_damage_mult = 1.5
 	/// Amped projectile speed multiplier of the shotgun.
-	var/amped_speed_mult = 2
+	var/amped_speed_mult = 1.5
 	/// Amped fire delay of the shotgun.
 	var/amped_fire_delay = 2 SECONDS
 	actions_types = list(/datum/action/item_action/toggle_shotgun_barrel)
