@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "adds an 'Enter Soulcatcher' button for the ghosts in addition to the verb. ghost tab is no more, TG removed it, you can still use the verbs in chat though as well as the buttons on the bottom of the screen."
