@@ -85,7 +85,9 @@
 		// Apply base penalty
 		pkc.charge_time += bonus_value
 		current_user = user
-		RegisterSignal(pkc, COMSIG_MOVABLE_MOVED, PROC_REF(on_crusher_moved))
+		RegisterSignal(pkc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_crusher_z_changed))
+		if(ismob(pkc.loc))
+			RegisterSignal(pkc.loc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_crusher_z_changed))
 		check_and_update_bonus(pkc, user)
 
 /obj/item/crusher_trophy/legion_skull/remove_from(obj/item/kinetic_crusher/pkc, mob/living/user)
@@ -96,12 +98,16 @@
 	. = ..()
 	if(.)
 		pkc.charge_time -= bonus_value
-		UnregisterSignal(pkc, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(pkc, COMSIG_MOVABLE_Z_CHANGED)
+		if(ismob(pkc.loc))
+			UnregisterSignal(pkc.loc, COMSIG_MOVABLE_Z_CHANGED)
 		current_user = null
 
-/obj/item/crusher_trophy/legion_skull/proc/on_crusher_moved(datum/source, atom/old_loc, atom/new_loc)
+/obj/item/crusher_trophy/legion_skull/proc/on_crusher_z_changed(datum/source, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
-	check_and_update_bonus(source, current_user)
+	var/obj/item/kinetic_crusher/pkc = loc
+	if(pkc)
+		check_and_update_bonus(pkc, current_user)
 
 /obj/item/crusher_trophy/legion_skull/proc/check_and_update_bonus(obj/item/kinetic_crusher/pkc, mob/living/user)
 	var/should_have_bonus = pkc.trophies_enabled

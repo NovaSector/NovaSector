@@ -21,6 +21,11 @@
 /obj/item/crusher_trophy/vortex_talisman
 	fauna_trophy = TRUE
 
+/obj/item/crusher_trophy/gladiator
+	fauna_trophy = TRUE
+	var/bonus_applied = FALSE
+	var/mob/living/current_user
+
 //blood-drunk hunter
 /obj/item/crusher_trophy/miner_eye/on_mark_detonation(mob/living/target, mob/living/user)
 	var/obj/item/kinetic_crusher/crusher = loc
@@ -41,7 +46,7 @@
 	if(!.)
 		return
 	current_user = user
-	RegisterSignal(pkc, COMSIG_MOVABLE_MOVED, PROC_REF(on_crusher_moved))
+	RegisterSignal(pkc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_crusher_moved))
 	check_and_update_bonuses(pkc, user)
 
 /obj/item/crusher_trophy/demon_claws/remove_from(obj/item/kinetic_crusher/pkc, mob/living/user)
@@ -50,7 +55,7 @@
 		pkc.detonation_damage -= bonus_value * 0.8
 		pkc.update_wielding()
 		stat_bonuses_applied = FALSE
-	UnregisterSignal(pkc, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(pkc, COMSIG_MOVABLE_Z_CHANGED)
 	current_user = null
 	. = ..()
 
@@ -100,5 +105,45 @@
 	if(!crusher?.trophies_enabled)
 		return
 	. = ..()
+
+//gladiator
+/obj/item/crusher_trophy/gladiator/add_to(obj/item/kinetic_crusher/incomingchance, mob/living/user)
+	. = ..()
+	if(.)
+		current_user = user
+		RegisterSignal(incomingchance, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_crusher_z_changed))
+		if (ismob(incomingchance.loc))
+			RegisterSignal(incomingchance.loc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_crusher_z_changed))
+		check_and_update_bonus(incomingchance)
+
+/obj/item/crusher_trophy/gladiator/remove_from(obj/item/kinetic_crusher/incomingchance, mob/living/user)
+	if (bonus_applied)
+		incomingchance.block_chance -= bonus_value
+		bonus_applied = FALSE
+
+	. = ..()
+	if(.)
+		UnregisterSignal(incomingchance, COMSIG_MOVABLE_Z_CHANGED)
+		if (ismob(incomingchance.loc))
+			UnregisterSignal(incomingchance.loc, COMSIG_MOVABLE_Z_CHANGED)
+		current_user = null
+
+/obj/item/crusher_trophy/gladiator/proc/on_crusher_z_changed(datum/source, turf/old_turf, turf/new_turf)
+	SIGNAL_HANDLER
+	var/obj/item/kinetic_crusher/incomingchance = loc
+	if (incomingchance)
+		check_and_update_bonus(incomingchance)
+
+/obj/item/crusher_trophy/gladiator/proc/check_and_update_bonus(obj/item/kinetic_crusher/incomingchance)
+	var/should_apply = incomingchance.trophies_enabled
+
+	if (should_apply && !bonus_applied)
+		incomingchance.block_chance += bonus_value
+		bonus_applied = TRUE
+
+	else if (!should_apply && bonus_applied)
+		incomingchance.block_chance -= bonus_value
+		bonus_applied = FALSE
+
 
 // ICE WASTES TROPHIES
