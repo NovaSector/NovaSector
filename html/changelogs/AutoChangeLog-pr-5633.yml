@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - qol: "you can now report a bug directly to tg through the in game bug report. please only do this if you're sure it's an upstream bug!"
