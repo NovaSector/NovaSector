@@ -2,7 +2,7 @@
  * Contains crusher trophies you can obtain from regular fauna
  */
 
- // Marks this trophy as a fauna trophy so it triggers the lore messages when entering the mining z-level. Cosmetic trophies won't activate this
+// Marks this trophy as a fauna trophy so it triggers the lore messages when entering the mining z-level. Cosmetic trophies won't activate this
 /obj/item/crusher_trophy
 	var/fauna_trophy = FALSE
 
