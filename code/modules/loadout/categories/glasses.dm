@@ -62,7 +62,7 @@
 */ // NOVA EDIT REMOVAL END
 
 /datum/loadout_item/glasses/kim
-	name = "Binoclard Glasses"
+	name = "Thin Glasses"
 	item_path = /obj/item/clothing/glasses/regular/kim
 
 /datum/loadout_item/glasses/monocle
