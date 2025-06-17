@@ -276,6 +276,8 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 		/obj/effect/bug_moving,
 		//The abstract grown item expects a seed, but doesn't have one
 		/obj/item/food/grown,
+		///this item spawns walls and floor tiles which the test cannot take care of
+		/obj/effect/spawner/random/maintsrooms
 		///Single use case holder atom requiring a user
 		/atom/movable/looking_holder
 	)
