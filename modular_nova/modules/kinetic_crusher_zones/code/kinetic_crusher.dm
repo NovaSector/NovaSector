@@ -35,17 +35,30 @@
 
 	var/datum/space_level/level = SSmapping.z_list[current_turf.z]
 
-	// Check if the current z-level has the ZTRAIT_LAVA_RUINS trait (lavaland)
+	// Check if the current z-level has the ZTRAIT_LAVA_RUINS trait
 	if(level && (ZTRAIT_LAVA_RUINS in level.traits))
 		trophies_enabled = TRUE
 	else
 		trophies_enabled = FALSE
 
-	// Only show balloon alert if the state actually changed
+	// Only show messages if the state actually changed
 	if(trophies_enabled != previous_trophies_enabled)
 		var/atom/holder = loc
 		if(ismob(holder))
-			balloon_alert(holder, "trophies [trophies_enabled ? "enabled" : "disabled"]")
+			balloon_alert(holder, "trophies [trophies_enabled ? "active" : "inactive"]")
 
-	// Debug output
+			// Check if any fauna trophies are attached
+			var/has_fauna_trophy = FALSE
+			for(var/obj/item/crusher_trophy/trophy in trophies)
+				if(trophy.fauna_trophy)
+					has_fauna_trophy = TRUE
+					break
+
+			if(has_fauna_trophy)
+				if(trophies_enabled)
+					to_chat(holder, span_notice("The hostile resonance of Indecipheres feeds power through your crusher and its trophies."))
+				else
+					to_chat(holder, span_warning("The resonance fades from your crusher's trophies as you leave the atmosphere of Indecipheres behind."))
+
+	// Debug output, if one wants to investigate
 	world.log << "[src.name] trophies_enabled = [trophies_enabled] at z-level [current_turf.z] (trait check: [ZTRAIT_LAVA_RUINS in level?.traits])"
