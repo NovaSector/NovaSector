@@ -74,7 +74,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/storage/backpack/duffelbag/syndie/interdyne
-	name = "\improper Interdyne Duffelbag"
+	name = "\improper Interdyne duffelbag"
 	desc = "A sleek black and green bag with high vis handles."
 	icon_state = "duffel-dyne"
 	worn_icon_state = "duffel-dyne"
