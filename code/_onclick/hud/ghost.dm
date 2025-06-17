@@ -85,7 +85,7 @@
 	static_inventory += using
 	// NOVA EDIT ADDITION START - Soulcatcher button
 
-	using = new /atom/movable/screen/ghost/enter_soulcatcher(null, src)
+	using = new /atom/movable/screen/ghost/join_soulcatcher(null, src)
 	using.screen_loc = ui_ghost_soulcatcher
 	static_inventory += using
 
