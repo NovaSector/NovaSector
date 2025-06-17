@@ -7413,7 +7413,6 @@
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\black_floor_helper.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\hardened_conveyer.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\maintsrooms.dm"
-#include "modular_nova\modules\awaymissions_nova\Maintsroom\Spawner.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\spawner_maintsroom.dm"
 #include "modular_nova\modules\awaymissions_nova\mothership_astrum\abductor_ai.dm"
 #include "modular_nova\modules\awaymissions_nova\mothership_astrum\area.dm"
