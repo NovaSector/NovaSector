@@ -1,0 +1,6 @@
+author: "jjpark-kb"
+delete-after: True
+changes:
+  - rscadd: "added plantable/growable trees-- find them by using sharp objects on already harvested lavaland flora. They also can be tapped with a screwdriver, will naturally get bees over time, can be harvested for wood over time, and will accept grafts onto them"
+  - bugfix: "fixed the railroads not changing their image to connect"
+  - bugfix: "fixed the plant tank and rail cart not being plantable"
