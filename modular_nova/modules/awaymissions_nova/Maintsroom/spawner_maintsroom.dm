@@ -33,7 +33,7 @@
 /// number count for myself
 /// 0
 /obj/effect/spawner/random/maintsrooms/make_item(spawn_loc, type_path_to_make)
-    if(isturf(type_path_to_make))
-    	return spawn_loc.place_on_top(type_path_to_make)
-    else
-        return ..()
+	if(isturf(type_path_to_make))
+		return spawn_loc.place_on_top(type_path_to_make)
+	else
+		return ..()
