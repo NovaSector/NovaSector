@@ -510,3 +510,46 @@
       see details in database_changelog.md.
   OrionTheFox:
   - balance: you can once again stick small guncases in large guncase backpacks
+2025-06-17:
+  Absolucy:
+  - bugfix: The lobby art properly fades out during roundstart, latejoin, and server
+      restart again.
+  Ghommie:
+  - bugfix: Sundered blade ritual shouldn't delete more than one sheet of silver or
+      titanium.
+  Hatterhat:
+  - image: The crewside Sindano is now tan and not black, the evil Sindano is now
+      black and not tan.
+  - image: The evil Sol autorifle (only used in deathmatch crates) is now actually
+      a black Sol rifle and not using the Sol marksman rifle sprite, erroneously.
+  - balance: Further developments to the BR-38 program allowed the designers to expand
+      the magazines to 30 rounds (up from 28) and harden the rail system to at least
+      prevent degradation for one magazine's worth of fire (30 rounds). Maintenance,
+      however, remains an issue.
+  Justice12354:
+  - bugfix: henchmen jumpsuit no longer turns pink and black when u try to adjust
+      it (you can't adjust it now)
+  LovliestPlant:
+  - rscadd: Updates species description and lore text for lizards.
+  - image: Adds flag sprite for the Talunan Imperium.
+  MiraHell:
+  - bugfix: Empty revolvers can now be reloaded
+  SmArtKar:
+  - bugfix: Fixed holobarriers going invisible after being spraypainted
+  - bugfix: Fixed some edge cases where antagonist datums would "stick" and not get
+      removed if your body got destroyed.
+  - bugfix: Plasmamen no longer should get perpetually stuck ablaze in rare edge case
+      scenarios
+  - bugfix: Plasmamen need to wear gloves once again
+  - code_imp: Updated plasmamen limb tracking/effects to be more performant
+  - qol: Cyborgs can right-click their stored omnitools to pull out a specific tool
+      instead of having to use it in-hand after selecting it to do so.
+  Y0SH1M4S73R:
+  - bugfix: You can no longer deploy flatpacks in places that aren't turfs.
+  necromanceranne:
+  - qol: Eldritch paintings no longer inflict brain traumas on you that need surgery
+      to remove. Instead, they inflict a status effect that can be protected from
+      and removed using large doses of holy water.
+  plsleavemealon:
+  - rscadd: Adds new morbid themed tools for the coroners enjoyment. Coroners now
+      perform autopsies slightly faster.
