@@ -1,6 +1,6 @@
 /datum/quirk/visitor
 	name = "Visitor ID"
-	desc = "Whenever you are an assistant, you're given a visitor ID without maintenance access, nor an entry on the crew manifest."
+	desc = "As assistant, you're given a visitor ID with limited background information. Your records will be sparse and require filling out during the shift."
 	icon = FA_ICON_PERSON_CIRCLE_QUESTION
 	value = -2
 	medical_record_text = "Patient is a guest aboard the station, and has been issued a visitor's ID."
