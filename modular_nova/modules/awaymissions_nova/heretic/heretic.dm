@@ -4,3 +4,9 @@
 	requires_power = TRUE
 	static_lighting = TRUE
 
+/area/station/maintenance/hereticlabroom
+	name = "Heretic Lab"
+	icon_state = "away2"
+	requires_power = TRUE
+	static_lighting = TRUE
+	area_flags = NOTELEPORT
