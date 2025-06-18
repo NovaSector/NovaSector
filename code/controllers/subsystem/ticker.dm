@@ -457,6 +457,7 @@ SUBSYSTEM_DEF(ticker)
 				new_kobold.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
 				new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
 				new_kobold.dna.activate_mutation(/datum/mutation/human/clever)
+				new_kobold.update_mob_height()
 			//NOVA EDIT ADDITION END
 		CHECK_TICK
 

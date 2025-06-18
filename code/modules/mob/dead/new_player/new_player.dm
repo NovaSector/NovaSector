@@ -295,6 +295,7 @@
 			humanc.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
 			humanc.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
 			humanc.dna.activate_mutation(/datum/mutation/human/clever)
+			humanc.update_mob_height()
 	// NOVA EDIT ADDITION END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)

@@ -72,6 +72,13 @@
 // In those cases, please override this proc as well as special()
 // TODO: refactor create() and special() so that this is no longer necessary
 /obj/effect/mob_spawn/ghost_role/proc/post_transfer_prefs(mob/living/new_spawn)
+	if(iskobold(new_spawn))
+		var/mob/living/carbon/human/new_kobold = new_player_living
+		new_kobold.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
+		new_kobold.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
+		new_kobold.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
+		new_kobold.dna.activate_mutation(/datum/mutation/human/clever)
+		new_kobold.update_mob_height()
 	return
 
 
