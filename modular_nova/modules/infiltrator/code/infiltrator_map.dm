@@ -13,7 +13,7 @@
 
 /datum/map_template/shuttle/traitor/default
 	suffix = "default"
-	name = "traitor shuttle (Default)"
+	name = "infiltrator's shuttle (Default)"
 	has_ceiling = TRUE
 	ceiling_turf = /turf/open/floor/plating/reinforced
 
@@ -24,15 +24,31 @@
 	light_color = COLOR_SOFT_RED
 	req_access = list(ACCESS_SYNDICATE)
 	shuttleId = "traitor"
-	possible_destinations = "whiteship_home;traitor_home;traitor_custom"
+	possible_destinations = "whiteship_home;whiteship_lavaland;traitor_home;traitor_custom"
 	may_be_remote_controlled = TRUE
+
+/obj/machinery/computer/shuttle/traitor/send_shuttle(dest_id, mob/user)
+	. = ..()
+	if(. != "success")
+		return
+	var/obj/docking_port/mobile/mobile_dock = SSshuttle.getShuttle(shuttleId)
+	var/obj/docking_port/stationary/transit_dock
+	for(var/obj/docking_port/stationary/transit/stationary_dock in SSshuttle.stationary_docking_ports)
+		if(stationary_dock.owner == mobile_dock)
+			transit_dock = stationary_dock
+			break
+	// make the shuttle travel in a random dir each time, because its cool
+	var/random_dir = pick(GLOB.cardinals)
+	mobile_dock.preferred_direction = random_dir
+	mobile_dock.port_direction = turn(random_dir, ROTATION_CLOCKWISE)
+	transit_dock.setDir(random_dir)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/traitor
 	icon_screen = "syndishuttle"
 	icon_keyboard = "syndie_key"
 	shuttleId = "traitor"
 	shuttlePortId = "traitor_custom"
-	jump_to_ports = list("whiteship_home" = 1, "traitor_home" = 1, "traitor_custom" = 1)
+	jump_to_ports = list("whiteship_home" = 1, "whiteship_lavaland" = 1, "traitor_home" = 1, "traitor_custom" = 1)
 	see_hidden = FALSE
 	lock_override = CAMERA_LOCK_STATION
 	view_range = 4
@@ -50,6 +66,8 @@
 	rechargeTime = 30 SECONDS
 	shuttle_id = "traitor"
 	movement_force = list("KNOCKDOWN"=3,"THROW"=0)
+	preferred_direction = EAST
+	port_direction = SOUTH
 
 //area
 /area/shuttle/traitor
@@ -86,6 +104,9 @@
 	name = "Syndicate Armoury"
 	area_flags = NOTELEPORT | HIDDEN_AREA
 	default_gravity = STANDARD_GRAVITY
-	requires_power = FALSE
+	sound_environment = SOUND_ENVIRONMENT_ROOM
 	ambient_buzz = null
+
+/area/misc/syndicate_armoury/hangar
+	name = "Launchpad no. 09"
 	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM

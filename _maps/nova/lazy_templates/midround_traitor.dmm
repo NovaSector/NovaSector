@@ -1,39 +1,205 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aE" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"aL" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"bj" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"bs" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
 "bD" = (
 /turf/open/openspace,
+/area/misc/syndicate_armoury/hangar)
+"bH" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
+"bJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/syndicate_armoury/hangar)
 "ce" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"dv" = (
-/obj/structure/railing/unbreakable{
-	dir = 1
-	},
+/area/misc/syndicate_armoury/hangar)
+"ch" = (
+/obj/structure/rack,
+/obj/item/analyzer,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"dz" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/iron/dark/smooth_large,
-/area/misc/syndicate_armoury)
-"eJ" = (
-/obj/effect/turf_decal/vg_decals/numbers/nine,
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"gl" = (
-/obj/effect/turf_decal/stripes/white/line,
-/turf/open/floor/iron/dark/smooth_large,
-/area/misc/syndicate_armoury)
-"hp" = (
+/area/misc/syndicate_armoury/hangar)
+"cD" = (
 /obj/structure/marker_beacon/burgundy{
 	pixel_x = -8;
 	pixel_y = -8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
+/area/misc/syndicate_armoury/hangar)
+"cV" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/dark/side,
+/area/misc/syndicate_armoury)
+"dl" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"dv" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"dz" = (
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"el" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"ex" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/unbreakable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"eJ" = (
+/obj/effect/turf_decal/vg_decals/numbers/nine,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"eR" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/syndicate_armoury/hangar)
+"eW" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"eZ" = (
+/obj/machinery/door/airlock/medical{
+	name = "Medical Bay"
+	},
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/iron,
+/area/misc/syndicate_armoury)
+"fd" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/syndicate_armoury)
+"fp" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"fu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"fP" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"gl" = (
+/obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"hp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/syndicate_armoury/hangar)
+"hv" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering"
+	},
+/turf/open/floor/iron,
 /area/misc/syndicate_armoury)
 "hy" = (
 /obj/structure/fake_stairs/directional/west{
@@ -42,37 +208,84 @@
 	},
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury)
+"iy" = (
+/obj/effect/turf_decal/nova_decals/syndicate/top/right,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury)
 "iC" = (
-/obj/machinery/light/floor,
+/obj/item/flashlight/glowstick/red{
+	start_on = 1
+	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "jk" = (
-/obj/effect/light_emitter/thunderdome,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_dark,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "jm" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"jF" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/unbreakable,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"kf" = (
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"kl" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
 "kq" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
 /obj/effect/turf_decal/vg_decals/numbers/nine,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "kw" = (
-/obj/effect/turf_decal/siding/dark,
-/obj/structure/railing/corner{
-	dir = 8
+/obj/structure/railing/unbreakable{
+	dir = 1
 	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "kx" = (
 /obj/effect/turf_decal/vg_decals/numbers/zero,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"kF" = (
+/obj/effect/turf_decal/stripes/red/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"lc" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
 /area/misc/syndicate_armoury)
 "lQ" = (
 /obj/structure/stairs/east{
@@ -81,12 +294,44 @@
 	},
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury)
+"lU" = (
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 4
+	},
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/cell_5k,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "ml" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
+/obj/structure/fluff/fake_camera{
+	dir = 10
+	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"mr" = (
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/syndicate_armoury/hangar)
 "mz" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -96,82 +341,163 @@
 	dir = 2
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "mR" = (
 /obj/structure/lattice,
 /turf/open/space,
 /area/space/nearstation)
 "mW" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/obj/structure/railing/unbreakable{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"nA" = (
 /obj/structure/railing/corner/unbreakable,
 /obj/effect/turf_decal/siding/dark/corner,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/full_charge,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cut_AI_wire,
+/obj/effect/turf_decal/siding/dark_red/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"ni" = (
+/obj/structure/fluff/fake_camera{
+	dir = 5
+	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"nq" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 10
+	},
 /area/misc/syndicate_armoury)
+"nA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
 "nG" = (
 /obj/effect/turf_decal/siding/dark/end{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"nI" = (
+/obj/structure/railing/corner/end/unbreakable,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/small,
+/area/misc/syndicate_armoury/hangar)
 "nT" = (
 /obj/structure/sign/warning/docking/directional/south,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "od" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
 	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"of" = (
+/obj/structure/fake_stairs/directional/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
 /area/misc/syndicate_armoury)
 "og" = (
 /obj/item/paper/paperslip/corporate/syndicate,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury/hangar)
+"op" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
+"oq" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/misc/syndicate_armoury/hangar)
+"oK" = (
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/grunge{
+	name = "Air Control"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "oS" = (
-/obj/effect/turf_decal/stripes/white/corner{
-	dir = 8
+/obj/structure/railing/unbreakable{
+	dir = 1
 	},
-/obj/structure/marker_beacon/bronze{
-	pixel_x = 8;
-	pixel_y = 8
+/obj/effect/turf_decal/siding/dark_red,
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
 	},
-/turf/open/floor/iron/dark/textured_corner{
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"pc" = (
+/obj/effect/turf_decal/siding/dark/corner{
 	dir = 4
 	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
-"pc" = (
-/obj/effect/turf_decal/siding/dark,
-/obj/structure/railing/corner,
-/turf/open/floor/plating,
+"pi" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
 /area/misc/syndicate_armoury)
 "pt" = (
+/obj/structure/fluff/fake_camera,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "pv" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "pw" = (
-/obj/structure/marker_beacon/burgundy{
-	pixel_x = -8;
-	pixel_y = 8
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
 	},
-/obj/effect/turf_decal/stripes/white/corner,
-/turf/open/floor/iron/dark/textured_corner{
-	dir = 1
+/obj/structure/railing/corner/unbreakable{
+	dir = 8
 	},
-/area/misc/syndicate_armoury)
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/effect/turf_decal/siding/dark_red/corner,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"pH" = (
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
+/area/misc/syndicate_armoury/hangar)
 "qi" = (
 /obj/structure/railing/unbreakable{
 	dir = 8
@@ -183,55 +509,155 @@
 	color = "#7F7F7F";
 	name = "airstair"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"qj" = (
+/obj/effect/turf_decal/nova_decals/syndicate/bottom/middle,
+/turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
-"qr" = (
+"qk" = (
 /obj/effect/turf_decal/siding/dark,
 /obj/structure/railing/unbreakable,
+/obj/structure/fluff/fake_camera{
+	dir = 1
+	},
+/obj/machinery/airlock_controller{
+	pixel_y = 32;
+	use_power = 0
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury/hangar)
+"qn" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"qr" = (
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"rs" = (
+/obj/structure/railing/unbreakable,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury/hangar)
+"ru" = (
+/obj/machinery/light/floor,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury/hangar)
 "rz" = (
 /turf/open/space,
 /area/space)
-"se" = (
-/obj/structure/railing/corner/unbreakable{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/dark,
-/obj/effect/turf_decal/siding/dark/corner{
+"sc" = (
+/obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"un" = (
-/obj/structure/railing/corner/end/unbreakable,
-/obj/structure/railing/corner/end/flip/unbreakable,
-/obj/effect/light_emitter/thunderdome,
-/turf/open/floor/iron/dark/small,
-/area/misc/syndicate_armoury)
-"ur" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 5
-	},
-/obj/structure/railing/unbreakable{
+/area/misc/syndicate_armoury/hangar)
+"se" = (
+/obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
+"ss" = (
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner,
+/area/misc/syndicate_armoury/hangar)
+"su" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"ty" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/side{
+	dir = 4
+	},
+/area/misc/syndicate_armoury)
+"un" = (
+/turf/closed/indestructible/fakedoor/blast_door{
+	name = "Launchpad no. 08"
+	},
+/area/misc/syndicate_armoury/hangar)
+"ur" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/openspace
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/syndicate_armoury/hangar)
 "uA" = (
 /obj/structure/fans/tiny/shield,
 /obj/machinery/door/poddoor/preopen,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"uJ" = (
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"vg" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury/hangar)
 "wx" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/misc/syndicate_armoury)
 "wA" = (
-/obj/structure/railing/corner/end{
-	dir = 4
-	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"wC" = (
+/obj/structure/sign/warning/electric_shock/directional/west,
+/obj/structure/table,
+/turf/open/floor/iron,
 /area/misc/syndicate_armoury)
 "wP" = (
 /obj/structure/fake_stairs/directional/east{
@@ -240,99 +666,203 @@
 	},
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury)
+"xs" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "xt" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/effect/turf_decal/vg_decals/numbers/nine,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"xw" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
 "xA" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 10
 	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"yr" = (
+/turf/open/floor/iron,
+/area/misc/syndicate_armoury)
+"yC" = (
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 6
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"yU" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "zf" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 9
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/syndicate_armoury)
-"zo" = (
-/obj/effect/turf_decal/siding/dark/corner{
-	dir = 1
-	},
-/obj/structure/railing/corner/unbreakable{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/dark,
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"zu" = (
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"zJ" = (
-/obj/structure/railing/corner/end/flip{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"Bt" = (
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"Dw" = (
-/obj/effect/turf_decal/stripes/white/corner,
-/obj/structure/marker_beacon/bronze{
+/area/misc/syndicate_armoury/hangar)
+"zl" = (
+/obj/structure/marker_beacon/burgundy{
 	pixel_x = -8;
 	pixel_y = 8
 	},
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
+/area/misc/syndicate_armoury/hangar)
+"zo" = (
+/obj/structure/fluff/broken_canister_frame,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"zu" = (
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
-"DC" = (
+"zJ" = (
+/obj/effect/turf_decal/stripes/red/line{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"Au" = (
+/obj/structure/fake_stairs/directional/west{
+	color = "#7F7F7F";
+	dir = 4
+	},
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
+/area/misc/syndicate_armoury)
+"Be" = (
+/obj/structure/fake_stairs/directional/east{
+	color = "#7F7F7F";
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Bt" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"By" = (
+/obj/effect/turf_decal/nova_decals/syndicate/bottom/left,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury)
+"BV" = (
+/obj/structure/sign/departments/medbay/alt/directional/east,
+/turf/open/floor/iron,
+/area/misc/syndicate_armoury)
+"CW" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Dw" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
 /obj/structure/railing/unbreakable{
 	dir = 1
 	},
-/obj/effect/turf_decal/siding/dark/corner{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/obj/effect/turf_decal/siding/dark_red,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"DC" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "DL" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury)
 "DO" = (
-/obj/structure/marker_beacon/burgundy{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/open/floor/iron/dark/textured_corner,
+/obj/effect/turf_decal/nova_decals/syndicate/middle/middle,
+/turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
 "DP" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
+"EF" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "EI" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"EV" = (
+/turf/closed/indestructible/fakedoor/maintenance{
+	name = "Maintenance"
+	},
+/area/misc/syndicate_armoury/hangar)
 "Fh" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"FP" = (
+/obj/effect/turf_decal/nova_decals/syndicate/middle/left,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury)
+"Gc" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "Ge" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -340,13 +870,79 @@
 	},
 /obj/effect/turf_decal/vg_decals/numbers/zero,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"GY" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Hg" = (
+/obj/effect/turf_decal/stripes/red/corner{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"Hp" = (
+/obj/structure/sign/directions/medical/directional/east,
+/obj/structure/table,
+/obj/item/storage/box/bandages,
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron,
+/area/misc/syndicate_armoury)
+"HH" = (
+/obj/effect/turf_decal/stripes/red/corner{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"HN" = (
+/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
+/obj/machinery/door/window/brigdoor/left/directional/south,
+/obj/machinery/light/small/directional/west,
+/obj/structure/sign/directions/engineering/directional/west,
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
 /area/misc/syndicate_armoury)
 "HS" = (
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"HX" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury/hangar)
+"Ie" = (
+/obj/effect/turf_decal/nova_decals/syndicate/bottom/right,
+/turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
+"Ig" = (
+/obj/structure/railing/unbreakable,
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "Io" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
@@ -355,125 +951,270 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"KI" = (
-/obj/structure/marker_beacon/bronze{
-	pixel_x = -8;
-	pixel_y = -8
-	},
-/turf/open/floor/iron/dark/textured_corner{
+/area/misc/syndicate_armoury/hangar)
+"Iz" = (
+/obj/structure/railing/unbreakable{
 	dir = 8
 	},
-/area/misc/syndicate_armoury)
-"KV" = (
-/obj/structure/fluff/big_chain{
-	pixel_y = 14
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
-/turf/open/floor/plating/reinforced,
-/area/misc/syndicate_armoury)
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"IJ" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/syndicate_armoury/hangar)
+"IW" = (
+/obj/machinery/light/small/red/dim/directional/west,
+/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Jh" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"Kq" = (
+/obj/structure/sign/warning/electric_shock/directional/west,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Kz" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"KI" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"KO" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"KV" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
 "KY" = (
 /obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/stand_clear{
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "LF" = (
 /obj/effect/turf_decal/siding/dark,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"LQ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "Mk" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 5
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
+"Nc" = (
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
 "Nd" = (
 /turf/open/floor/iron/dark/small,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Ne" = (
 /turf/closed/wall/r_wall/syndicate,
 /area/misc/syndicate_armoury)
 "Nw" = (
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Nz" = (
+/turf/cordon,
+/area/misc/cordon)
+"NN" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/closet/crate/preopen,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/turf/open/floor/iron/dark/side,
 /area/misc/syndicate_armoury)
 "NS" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"Of" = (
-/turf/open/floor/iron/dark/smooth_large,
-/area/misc/syndicate_armoury)
-"Om" = (
-/obj/structure/railing/corner/end/unbreakable{
+/area/misc/syndicate_armoury/hangar)
+"Od" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"Of" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"Og" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/end/flip/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Oi" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"Om" = (
+/obj/effect/turf_decal/stripes/red/line,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "OU" = (
 /obj/machinery/light/floor,
 /obj/effect/landmark/start/midround_traitor,
 /turf/open/floor/iron/dark,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Pa" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing/unbreakable{
+	dir = 4
+	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Pe" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Pp" = (
-/obj/structure/marker_beacon/bronze{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/open/floor/iron/dark/textured_corner,
+/obj/effect/turf_decal/stripes/red/corner,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"PQ" = (
+/obj/effect/turf_decal/nova_decals/syndicate/top/middle,
+/turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
 "Qk" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
+/turf/closed/indestructible/fakedoor/blast_door{
+	name = "Launchpad no. 10"
 	},
-/obj/structure/railing/unbreakable{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/dark/corner,
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Qx" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
 	},
+/obj/structure/fluff/fake_camera{
+	dir = 6
+	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"QU" = (
+/obj/effect/turf_decal/nova_decals/syndicate/top/left,
+/turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
-"RA" = (
-/obj/structure/railing/corner/end{
+"QX" = (
+/obj/effect/turf_decal/caution{
+	dir = 8
+	},
+/obj/structure/railing/unbreakable{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"RA" = (
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "RH" = (
-/obj/structure/marker_beacon/burgundy{
-	pixel_x = 8;
-	pixel_y = 8
-	},
-/obj/effect/turf_decal/stripes/white/corner{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/textured_corner{
+/obj/structure/railing/corner/unbreakable{
 	dir = 4
 	},
-/area/misc/syndicate_armoury)
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 10
+	},
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "RJ" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
@@ -481,16 +1222,30 @@
 /obj/effect/turf_decal/vg_decals/numbers/zero,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"RN" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/side,
 /area/misc/syndicate_armoury)
 "RR" = (
 /obj/structure/sign/warning/docking/directional/west,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"RX" = (
-/obj/structure/railing/corner/end/flip{
-	dir = 4
-	},
+/area/misc/syndicate_armoury/hangar)
+"RV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/structure/cable,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"RX" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "Sm" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -498,23 +1253,67 @@
 	},
 /obj/effect/turf_decal/vg_decals/numbers/zero,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Su" = (
 /obj/structure/sign/warning/docking/directional/east,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "Sw" = (
+/obj/machinery/light/floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury/hangar)
+"SF" = (
+/obj/structure/cable/multilayer/multiz,
+/obj/machinery/door/window/brigdoor/right/directional/south,
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
+/area/misc/syndicate_armoury)
+"Th" = (
+/obj/effect/turf_decal/stripes/white/corner,
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 1
+	},
+/area/misc/syndicate_armoury/hangar)
+"Tp" = (
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
-/obj/structure/railing/corner/unbreakable{
+/obj/structure/railing/corner/end/flip/unbreakable{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/syndicate_access,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "TP" = (
 /turf/open/space/basic,
 /area/space)
+"Ub" = (
+/obj/effect/turf_decal/stripes/white/corner{
+	dir = 8
+	},
+/obj/structure/marker_beacon/bronze{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 4
+	},
+/area/misc/syndicate_armoury/hangar)
 "Uf" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -522,52 +1321,185 @@
 /obj/effect/turf_decal/vg_decals/numbers/nine,
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "UL" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 9
+/obj/structure/marker_beacon/bronze{
+	pixel_x = -8;
+	pixel_y = -8
 	},
-/obj/structure/railing/unbreakable{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_corner{
+	dir = 8
 	},
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
+/area/misc/syndicate_armoury/hangar)
 "UW" = (
+/obj/structure/railing/corner/end/unbreakable,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
 /obj/effect/turf_decal/siding/dark/corner,
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Vg" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
 /area/misc/syndicate_armoury)
 "Vn" = (
 /obj/effect/turf_decal/siding/dark/end{
 	dir = 8
 	},
 /turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"VB" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/power/smes/super/full,
+/turf/open/floor/plating{
+	baseturf = /turf/open/floor/plating
+	},
 /area/misc/syndicate_armoury)
 "VE" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"VU" = (
+/obj/structure/sign/warning/fire/directional/east,
+/obj/machinery/portable_atmospherics/canister,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"VZ" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 6
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
 "Wb" = (
-/obj/structure/railing/unbreakable{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/dark{
-	dir = 8
+	dir = 1
+	},
+/obj/structure/railing/unbreakable{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_red,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"WF" = (
+/obj/structure/railing/unbreakable,
+/obj/effect/turf_decal/siding/dark_red{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury/hangar)
+"WO" = (
+/obj/structure/fake_stairs/directional/west{
+	color = "#7F7F7F";
+	dir = 4
 	},
 /turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"XY" = (
-/turf/open/floor/catwalk_floor/iron_dark,
-/area/misc/syndicate_armoury)
-"Yb" = (
-/obj/effect/light_emitter/fake_outdoors,
-/turf/open/floor/plating,
-/area/misc/syndicate_armoury)
-"ZL" = (
+/area/misc/syndicate_armoury/hangar)
+"Xj" = (
 /obj/structure/railing/corner/end/flip/unbreakable{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"Xt" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/syndicate_armoury/hangar)
+"XY" = (
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/misc/syndicate_armoury/hangar)
+"Yb" = (
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
+"Yc" = (
+/obj/effect/baseturf_helper{
+	baseturf = /turf/open/floor/plating
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/misc/syndicate_armoury)
+"Yn" = (
+/obj/effect/turf_decal/nova_decals/syndicate/middle/right,
+/turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury)
+"Ys" = (
+/obj/machinery/light/small/red/dim/directional/east,
+/obj/structure/rack/shelf,
+/obj/item/tank/internals/emergency_oxygen/engi/empty,
+/obj/item/tank/internals/emergency_oxygen/engi/empty,
+/obj/item/tank/internals/emergency_oxygen/engi/empty,
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"Yv" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/railing/corner/end/flip/unbreakable,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/misc/syndicate_armoury/hangar)
+"YC" = (
+/obj/structure/chair,
+/turf/open/floor/iron,
+/area/misc/syndicate_armoury)
+"YW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"Zk" = (
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner/end/unbreakable{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"Zq" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury/hangar)
+"ZL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/dark,
+/area/misc/syndicate_armoury/hangar)
 "ZV" = (
 /obj/structure/stairs/west{
 	color = "#7F7F7F";
@@ -577,24 +1509,52 @@
 /area/misc/syndicate_armoury)
 
 (1,1,1) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
+ur
+oq
+EV
+oq
+oq
+un
+un
+un
+un
+un
+un
+un
+un
+un
+un
+oq
+oq
+VE
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(2,1,1) = {"
+oq
+IW
+fu
+Kq
+kf
+KV
+fP
+su
+fP
+GY
+kf
+kf
+kf
+kf
+kf
+kf
+oq
+IJ
 VE
 TP
 TP
@@ -604,111 +1564,111 @@ TP
 rz
 TP
 "}
-(2,1,1) = {"
-pt
-pt
-pt
-KV
-pt
+(3,1,1) = {"
+oq
+pH
+RV
+kf
+kf
 UW
 HS
+Iz
 HS
-HS
-ml
-pt
-pt
-pt
-pt
-pt
+Og
 KV
-pt
-Ne
-DL
-Ne
+fP
+su
+fP
+GY
+kf
+ni
+IJ
+el
+oq
 TP
 TP
 rz
-rz
-rz
-TP
-"}
-(3,1,1) = {"
-pt
-pt
-pt
-pt
-pt
-LF
-Nd
-Nd
-Nd
-Pe
-HS
-HS
-HS
-HS
-HS
-HS
-HS
-ml
-pt
-Ne
-Ne
-TP
-TP
 rz
 rz
 TP
 "}
 (4,1,1) = {"
-pt
-pt
-pt
-Yb
-pt
-LF
+oq
+ch
+nA
+kf
+kf
+Kz
+Nd
+Nd
+Nd
+Pe
+ex
+HS
+KY
+HS
+dv
+sc
+sc
+ml
+kf
+oq
+oq
+TP
+TP
+rz
+rz
+TP
+"}
+(5,1,1) = {"
+oq
+uJ
+nA
+kf
+kf
+Kz
 Nd
 og
 Nd
 nG
 Fh
+Jh
 Fh
 Fh
 Fh
-Fh
-Fh
+Zq
 Mk
 pv
-ml
+aL
 nT
-wx
-Ne
+IJ
+oq
 mR
 mR
 rz
 TP
 "}
-(5,1,1) = {"
-pt
-pt
-nA
-KY
-KY
-se
+(6,1,1) = {"
+oq
+mW
+qr
+qr
+RH
+Kz
 Nd
 Nd
 Nd
 Of
-DO
-XY
-XY
-XY
-XY
-XY
-RH
+eR
+jk
+jk
+ru
+jk
+jk
+mr
 Mk
 pv
-ml
+aL
 RR
 uA
 XY
@@ -716,279 +1676,279 @@ mR
 rz
 TP
 "}
-(6,1,1) = {"
-pt
-pt
-qr
-pt
-pt
-DC
-xA
-Of
-Of
-Pp
-XY
-od
-Pa
-Pa
-Pa
-xA
-XY
-oS
-Mk
-pv
-ml
-uA
-XY
-XY
-rz
-TP
-"}
 (7,1,1) = {"
-pt
-pt
-qr
-bD
-bD
-mW
-LF
-Of
-DO
-XY
-od
-Qx
-pt
-pt
-pt
+oq
+DC
+kf
+kf
+Dw
 NS
 xA
-XY
-RH
+Of
+Of
+ss
+jk
+od
+bj
+bj
+bj
+xA
+jk
+Ub
 Mk
-jm
-pt
+pv
+aL
 uA
+XY
 XY
 rz
 TP
 "}
 (8,1,1) = {"
-pt
-pt
-qr
-hy
-hy
-ur
-ce
+oq
+eW
+bD
+bD
+Dw
+kf
+Kz
 Of
-XY
-od
-Ge
-pt
-pt
-pt
-pt
-Nw
-Sm
-xA
-XY
-gl
-jm
-pt
-uA
-XY
-XY
-TP
-"}
-(9,1,1) = {"
-pt
-pt
-qr
-Of
-Of
-Om
-Of
-Of
-XY
-pv
-Uf
-ml
-pt
-pt
-pt
-pt
-eJ
-LF
-XY
-gl
-jm
-pt
-pt
-uA
-XY
-TP
-"}
-(10,1,1) = {"
-pt
-pt
-qr
-Of
-dz
-Of
-Of
-Of
-un
-qi
-qi
-mz
-pt
-iC
-pt
-pt
-pt
-LF
+eR
 jk
-gl
-jm
-pt
-pt
-uA
-XY
-TP
-"}
-(11,1,1) = {"
-pt
-pt
-qr
-Of
-Of
-ZL
-Of
-Of
-XY
 od
-RJ
-Qx
-pt
-pt
-pt
-pt
-kx
-LF
-XY
-gl
-jm
-pt
-pt
-uA
-XY
-TP
-"}
-(12,1,1) = {"
-pt
-pt
-qr
-wP
-wP
-UL
+xw
+kf
+kf
+kf
+NS
 xA
-Of
-XY
-pv
-kq
-pt
-pt
-pt
-pt
-Nw
-xt
-ce
-XY
-gl
+jk
+mr
+Mk
 jm
-pt
-uA
-XY
-XY
-TP
-"}
-(13,1,1) = {"
-pt
-pt
-qr
-bD
-bD
-mW
-LF
-Of
-hp
-XY
-pv
-ml
-pt
-pt
-pt
-UW
-ce
-XY
-pw
-zf
-jm
-pt
+kf
 uA
 XY
 rz
 TP
 "}
-(14,1,1) = {"
-pt
-pt
-qr
-pt
-pt
-Qk
+(9,1,1) = {"
+oq
+WF
+WO
+WO
+oS
+sc
 ce
 Of
-Of
-KI
+jk
+od
+Ge
+kf
+kf
+kf
+kf
+Nw
+Sm
+xA
+jk
+gl
+jm
+kf
+uA
 XY
+XY
+TP
+"}
+(10,1,1) = {"
+oK
+rs
+Of
+Of
+dz
+Of
+Of
+Of
+jk
 pv
-HS
-HS
-HS
-ce
+Uf
+aL
+kf
+kf
+kf
+kf
+eJ
+Kz
+jk
+gl
+jm
+kf
+kf
+uA
 XY
-Dw
+TP
+"}
+(11,1,1) = {"
+oq
+qk
+Of
+Of
+Xt
+ZL
+bJ
+YW
+nI
+qi
+qi
+mz
+kf
+iC
+kf
+kf
+kf
+LF
+HX
+gl
+jm
+kf
+kf
+uA
+XY
+TP
+"}
+(12,1,1) = {"
+oK
+vg
+Of
+Of
+Xj
+Of
+Of
+Of
+hp
+od
+RJ
+xw
+kf
+kf
+kf
+kf
+kx
+Kz
+jk
+gl
+jm
+kf
+kf
+uA
+XY
+TP
+"}
+(13,1,1) = {"
+oq
+Ig
+Be
+Be
+kw
+bj
+xA
+Of
+hp
+pv
+kq
+kf
+kf
+kf
+kf
+Nw
+xt
+ce
+jk
+gl
+jm
+kf
+uA
+XY
+XY
+TP
+"}
+(14,1,1) = {"
+oq
+eW
+bD
+bD
+Wb
+kf
+Kz
+Of
+cD
+hp
+pv
+aL
+kf
+kf
+kf
+fp
+ce
+jk
+zl
+zf
+jm
+kf
+uA
+XY
+rz
+TP
+"}
+(15,1,1) = {"
+oq
+DC
+kf
+kf
+Wb
+fp
+ce
+Of
+Of
+UL
+hp
+pv
+sc
+sc
+sc
+ce
+jk
+Th
 zf
 od
-Qx
+xw
 uA
 XY
 XY
 TP
 TP
 "}
-(15,1,1) = {"
-pt
-pt
-Sw
-Wb
-Wb
-zo
+(16,1,1) = {"
+oq
+pw
+EF
+EF
+VZ
+Kz
 Nd
 Nd
 Nd
 Of
+cD
 hp
-XY
-XY
-XY
-XY
-XY
-pw
+bJ
+Sw
+jk
+jk
+zl
 zf
 od
-Qx
+xw
 Su
 uA
 XY
@@ -996,84 +1956,56 @@ mR
 TP
 TP
 "}
-(16,1,1) = {"
-pt
-pt
-pt
-Yb
-pt
-LF
+(17,1,1) = {"
+oq
+yC
+kf
+kf
+kf
+Kz
 Nd
 OU
 Nd
 Vn
-EI
-EI
-EI
-EI
-EI
+Oi
+Od
+Oi
+Oi
+Oi
 EI
 zf
 od
-Qx
+xw
 nT
-wx
-Ne
+IJ
+oq
 VE
 VE
-TP
-TP
-"}
-(17,1,1) = {"
-pt
-pt
-pt
-pt
-pt
-LF
-Nd
-Nd
-Nd
-Io
-Pa
-Pa
-Pa
-Pa
-Pa
-Pa
-Pa
-Qx
-pt
-Ne
-Ne
-rz
-rz
-TP
 TP
 TP
 "}
 (18,1,1) = {"
-pt
-pt
-pt
-KV
-pt
-NS
+oq
+kf
+kf
+kf
+kf
+Kz
+Nd
+Nd
+Nd
+Io
+Yv
 Pa
+qn
 Pa
-Pa
+bs
+bj
+bj
 Qx
-pt
-pt
-pt
-pt
-pt
-KV
-pt
-Ne
-DL
-Ne
-TP
+kf
+oq
+oq
 rz
 rz
 TP
@@ -1081,24 +2013,80 @@ TP
 TP
 "}
 (19,1,1) = {"
+oq
+zo
+kf
+kf
+kf
+dl
+Pa
+CW
+Pa
+KO
+jF
+kl
+QX
+kl
+Nc
+kf
 pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
+IJ
+el
+oq
+TP
+rz
+rz
+TP
+TP
+TP
+"}
+(20,1,1) = {"
+oq
+Ys
+kf
+VU
+KI
+jF
+kl
+aE
+kl
+Nc
+kf
+kf
+kf
+kf
+kf
+kf
+oq
+IJ
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(21,1,1) = {"
+IJ
+oq
+EV
+oq
+oq
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+Qk
+oq
+oq
+VE
 VE
 TP
 TP
@@ -1110,24 +2098,52 @@ TP
 "}
 
 (1,1,2) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
+Yc
 Ne
+hv
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+VE
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(2,1,2) = {"
+Ne
+HN
+yr
+wC
+NN
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+wx
 VE
 TP
 TP
@@ -1137,476 +2153,448 @@ TP
 rz
 TP
 "}
-(2,1,2) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
+(3,1,2) = {"
 Ne
+SF
+Vg
+Vg
+RN
+Bt
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wx
 DL
 Ne
 TP
 TP
 rz
-rz
-rz
-TP
-"}
-(3,1,2) = {"
-pt
-pt
-pt
-Yb
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
-Ne
-TP
-TP
 rz
 rz
 TP
 "}
 (4,1,2) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-wx
 Ne
+VB
+ty
+fd
+lc
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+Ne
+TP
+TP
+rz
+rz
+TP
+"}
+(5,1,2) = {"
+Ne
+xs
+Bt
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wx
+wx
 mR
 VE
 rz
 TP
 "}
-(5,1,2) = {"
-pt
-pt
-wA
-pt
-pt
-RX
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
-Ne
-VE
-rz
-TP
-"}
 (6,1,2) = {"
-pt
-pt
-qr
-hy
-hy
-dv
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
 Ne
+lU
+bH
+bH
+Gc
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
 Ne
+wx
+VE
 rz
 TP
 "}
 (7,1,2) = {"
-pt
-Yb
-qr
-ZV
-ZV
-dv
-pt
-Yb
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-DL
+Ne
+yU
+Au
+Au
+LQ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+wx
 rz
 TP
 "}
 (8,1,2) = {"
-pt
-pt
-qr
-hy
-hy
-dv
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
 Ne
-Ne
-TP
-"}
-(9,1,2) = {"
-pt
-pt
-kw
-wx
-wx
-Bt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
-TP
-"}
-(10,1,2) = {"
-pt
-pt
-LF
-wx
-DP
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
-TP
-"}
-(11,1,2) = {"
-pt
-pt
-pc
-wx
-wx
-zu
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
-TP
-"}
-(12,1,2) = {"
-pt
-pt
-qr
-wP
-wP
-dv
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-Ne
-Ne
-TP
-"}
-(13,1,2) = {"
-pt
 Yb
-qr
-lQ
-lQ
-dv
-pt
-Yb
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
+ZV
+ZV
+LQ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
 DL
 rz
 TP
 "}
-(14,1,2) = {"
-pt
-pt
-qr
-wP
-wP
-dv
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
+(9,1,2) = {"
+Ne
+yU
+hy
+hy
+RA
+wA
+wA
+wA
+wA
+wA
+wA
+Pp
+zu
+zu
+zu
+Hg
+wA
+wA
+wA
+wA
+wA
+wA
+wA
 Ne
 Ne
 TP
+"}
+(10,1,2) = {"
+Ne
+Ne
+wx
+wx
+DP
+wA
+wA
+wA
+wA
+wA
+wA
+Om
+QU
+FP
+By
+se
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+TP
+"}
+(11,1,2) = {"
+Nz
+Nz
+Nz
+wx
+op
+wA
+wA
+wA
+wA
+wA
+wA
+Om
+PQ
+DO
+qj
+se
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+TP
+"}
+(12,1,2) = {"
+Ne
+Ne
+wx
+wx
+pc
+wA
+wA
+wA
+wA
+wA
+wA
+Om
+iy
+Yn
+Ie
+se
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+TP
+"}
+(13,1,2) = {"
+Ne
+yU
+wP
+wP
+RA
+wA
+wA
+wA
+wA
+wA
+wA
+kF
+zJ
+zJ
+zJ
+HH
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+Ne
+TP
+"}
+(14,1,2) = {"
+Ne
+Yb
+lQ
+lQ
+LQ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+DL
+rz
 TP
 "}
 (15,1,2) = {"
-pt
-pt
-zJ
-pt
-pt
-RA
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
 Ne
+yU
+of
+of
+LQ
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
 Ne
-VE
+wx
 TP
 TP
 "}
 (16,1,2) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-wx
 Ne
-VE
+Tp
+RX
+RX
+Zk
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+wx
 VE
 TP
 TP
 "}
 (17,1,2) = {"
-pt
-pt
-pt
-Yb
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
 Ne
-Ne
-rz
-rz
-TP
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wx
+wx
+VE
+VE
 TP
 TP
 "}
 (18,1,2) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
 Ne
-DL
+pi
+pi
+pi
+nq
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
 Ne
-TP
+Ne
 rz
 rz
 TP
@@ -1614,24 +2602,80 @@ TP
 TP
 "}
 (19,1,2) = {"
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
-pt
 Ne
+YC
+yr
+yr
+cV
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wx
+DL
+Ne
+TP
+rz
+rz
+TP
+TP
+TP
+"}
+(20,1,2) = {"
+Ne
+Hp
+yr
+BV
+cV
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+wA
+Ne
+wx
+VE
+TP
+TP
+TP
+TP
+TP
+TP
+TP
+"}
+(21,1,2) = {"
+wx
+Ne
+eZ
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+Ne
+VE
 VE
 TP
 TP

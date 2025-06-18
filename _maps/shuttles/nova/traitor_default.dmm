@@ -13,7 +13,7 @@
 	network = list("lone_infil_shuttle");
 	use_power = 0
 	},
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/traitor)
 "dc" = (
 /obj/structure/cable,
@@ -124,7 +124,7 @@
 	c_tag = "External View Starboard-Side";
 	use_power = 0
 	},
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/traitor)
 "YY" = (
 /obj/structure/cable,
