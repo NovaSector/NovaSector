@@ -4,7 +4,7 @@
 	requires_power = TRUE
 	static_lighting = TRUE
 
-/area/station/maintenance/hereticlabroom
+/area/station/maintenance/heretic_laboratoy
 	name = "Heretic Lab"
 	icon_state = "away2"
 	requires_power = TRUE
