@@ -73,6 +73,8 @@
 		/obj/item/wrench/medical,
 		/obj/item/knife/ritual,
 		/obj/item/flesh_shears,
+		/obj/item/blood_scanner,
+		/obj/item/reflexhammer,
 		// NOVA EDIT ADDITION START
 		/obj/item/clothing/suit/toggle/labcoat/nova/surgical_gown,
 		/obj/item/hypospray/mkii,

@@ -1733,7 +1733,7 @@
 "gB" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins{
 	name = "You shouldnt be here";
-	bare_wound_bonus = 100;
+	exposed_wound_bonus = 100;
 	wound_bonus = 100;
 	melee_damage_upper = 50;
 	health = 2000
@@ -5479,7 +5479,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "uX" = (
-/obj/item/robot_model/security,
+/obj/item/gun/medbeam,
 /obj/structure/closet/crate/engineering/electrical,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
