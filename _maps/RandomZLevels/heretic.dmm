@@ -285,7 +285,6 @@
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
 "ga" = (
-/obj/structure/thermoplastic,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/machinery/computer/tram_controls{
 	dir = 8;
@@ -293,6 +292,8 @@
 	density = 0;
 	specific_transport_id = "heretic_1"
 	},
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "gb" = (
@@ -458,7 +459,8 @@
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
-/obj/structure/thermoplastic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "iu" = (
@@ -475,8 +477,9 @@
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
 "iS" = (
-/obj/structure/thermoplastic,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "iW" = (
@@ -556,12 +559,13 @@
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
-/obj/structure/thermoplastic,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/chair/sofa/bench/tram/solo{
 	dir = 4
 	},
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "kg" = (
@@ -852,12 +856,13 @@
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
-/obj/structure/thermoplastic,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/chair/sofa/bench/tram/solo{
 	dir = 8
 	},
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "pv" = (
@@ -1170,7 +1175,8 @@
 /area/space)
 "ug" = (
 /obj/structure/fluff/tram_rail,
-/obj/structure/thermoplastic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "un" = (
@@ -1197,12 +1203,13 @@
 /area/station/maintenance/heretic_laboratory)
 "uH" = (
 /obj/structure/fluff/tram_rail,
-/obj/structure/thermoplastic,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/chair/sofa/bench/tram/solo{
 	dir = 8
 	},
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "uJ" = (
@@ -1256,7 +1263,8 @@
 "vF" = (
 /obj/effect/landmark/transport/nav_beacon/tram/nav/heretic,
 /obj/effect/landmark/transport/nav_beacon/tram/platform/heretic/middle,
-/obj/structure/thermoplastic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "vI" = (
@@ -1723,7 +1731,8 @@
 /area/station/maintenance/heretic_laboratory)
 "Fr" = (
 /obj/structure/fluff/tram_rail/anchor,
-/obj/structure/thermoplastic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "Fs" = (
@@ -1978,8 +1987,9 @@
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
 "Kp" = (
-/obj/structure/thermoplastic,
 /obj/effect/landmark/transport/transport_id/heretic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "Kx" = (
@@ -2311,12 +2321,13 @@
 /area/awaymission/beach/heretic)
 "QO" = (
 /obj/structure/fluff/tram_rail,
-/obj/structure/thermoplastic,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /obj/structure/chair/sofa/bench/tram/solo{
 	dir = 4
 	},
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "Re" = (
@@ -2498,7 +2509,8 @@
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
 "UL" = (
-/obj/structure/thermoplastic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "UN" = (
@@ -2534,7 +2546,8 @@
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
 	},
-/obj/structure/thermoplastic,
+/obj/structure/transport/linear/tram,
+/obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "VI" = (
@@ -2738,8 +2751,6 @@
 "YS" = (
 /obj/effect/landmark/transport/nav_beacon/tram/platform/heretic/right,
 /obj/effect/turf_decal/delivery,
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "YW" = (
