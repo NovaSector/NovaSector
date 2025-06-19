@@ -5479,7 +5479,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "uX" = (
-/obj/item/robot_model/security,
+/obj/item/gun/medbeam,
 /obj/structure/closet/crate/engineering/electrical,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
