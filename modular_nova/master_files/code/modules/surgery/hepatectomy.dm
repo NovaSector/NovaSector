@@ -1,5 +1,5 @@
-/datum/surgery/coronary_bypass
+/datum/surgery/hepatectomy
 	requires_organ_flags = ORGAN_ORGANIC
 
-/datum/surgery/coronary_bypass/mechanic
+/datum/surgery/hepatectomy/mechanic
 	requires_organ_flags = ORGAN_ROBOTIC
