@@ -173,7 +173,7 @@
 		/obj/item/clothing/suit/armor/centcom_formal/nt_consultant = 1,
 		/obj/item/clothing/gloves/combat/naval/nanotrasen_consultant = 1,
 		/obj/item/clothing/under/rank/centcom/officer = 1,
-		/obj/item/clothing/under/rank/centcom/officer/skirt = 1,
+		/obj/item/clothing/under/rank/centcom/officer_skirt = 1,
 	)
 
 	access_lists["[ACCESS_COMMAND]"] = list(
