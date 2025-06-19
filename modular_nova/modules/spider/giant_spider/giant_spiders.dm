@@ -116,7 +116,7 @@
 	maximum_survivable_temperature = 1100
 	unsuitable_cold_damage = 0
 	wound_bonus = 25
-	bare_wound_bonus = 50
+	exposed_wound_bonus = 50
 	sharpness = SHARP_EDGED
 	obj_damage = 60
 	web_speed = 0.25
@@ -262,7 +262,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 30
 	wound_bonus = 30
-	bare_wound_bonus = 60
+	exposed_wound_bonus = 60
 	poison_per_bite = 5
 	poison_type = /datum/reagent/toxin/viperspider
 	speed = 3
