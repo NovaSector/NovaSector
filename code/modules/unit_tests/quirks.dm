@@ -8,10 +8,6 @@
 		if (initial(quirk_type.abstract_parent_type) == quirk_type)
 			continue
 
-		// NOVA EDIT ADDITION START
-		if(quirk_type::hidden_quirk)
-			continue
-		// NOVA EDIT ADDITION END
 		var/icon = initial(quirk_type.icon)
 
 		if (isnull(icon))
