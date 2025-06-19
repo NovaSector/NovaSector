@@ -1,0 +1,5 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Renames the binoclard glasses in loadout to be binoclard glasses and not thin glasses."
+  - image: "Adds a transparent alternate skin of the modern glasses, which has more transparency than the basic modern glasses. Access these via alt-click!"
