@@ -21,5 +21,5 @@
 	name = "Sensory Processing Fault"
 	medical_record_text = "Patient is malfunctioning in a manner similar to Reality Dissociation Syndrome and experiences vivid hallucinations, and may have trouble speaking."
 	mail_goodies = list(/obj/item/storage/box/flat/neuroware/mindbreaker)
-	hidden_quirk = TRUE
 	insanity_medication = /obj/item/storage/box/flat/neuroware/mindbreaker
+	abstract_parent_type = /datum/quirk/insanity/synth

@@ -12,5 +12,5 @@
 		/obj/item/disk/neuroware/pumpup,
 		/obj/item/disk/neuroware/synaptizine,
 	)
-	hidden_quirk = TRUE
 	stim_medication = /obj/item/storage/box/flat/neuroware/synaptizine
+	abstract_parent_type = /datum/quirk/item_quirk/narcolepsy/synth

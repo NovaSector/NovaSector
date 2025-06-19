@@ -13,7 +13,7 @@
 	gain_text = span_danger("You feel glitchy.")
 	lose_text = span_notice("You no longer feel glitchy.")
 	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
-	hidden_quirk = TRUE
+	abstract_parent_type = /datum/quirk/item_quirk/brainproblems/synth
 
 // Adds custom medical flavortext for synthetic brains.
 /datum/quirk/item_quirk/brainproblems/synth/add()
