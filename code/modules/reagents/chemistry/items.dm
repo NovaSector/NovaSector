@@ -130,7 +130,7 @@
 		if(istype(reagent, /datum/reagent/blood))
 			if(reagent.data && istype(reagent.data["blood_type"], /datum/blood_type))
 				var/datum/blood_type/bt = reagent.data["blood_type"]
-				blood_info = " ([bt.name])"
+				blood_info = " (type: [bt.name])"
 			else
 				blood_info = " (blood type unknown)"
 		if(reagent.purity < reagent.inverse_chem_val && reagent.inverse_chem)
