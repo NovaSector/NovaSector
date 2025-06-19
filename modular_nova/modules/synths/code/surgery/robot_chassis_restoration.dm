@@ -22,9 +22,9 @@
 	requires_organ_flags = ORGAN_ROBOTIC
 
 /datum/surgery/chassis_restoration/can_start(mob/user, mob/living/carbon/target)
-	if(!..() || target.stat != DEAD)
+	. = ..()
+	if(target.stat != DEAD)
 		return FALSE
-	return .
 
 /datum/surgery_step/pry_off_plating/fullbody
 	time = 1.4 SECONDS
