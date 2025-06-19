@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - qol: "kobolds and other dexterity-lacking mobs may use cryopods as long as they have hands"
-  - bugfix: "kobolds are no longer slendermen"
