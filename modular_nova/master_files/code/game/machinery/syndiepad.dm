@@ -183,24 +183,24 @@
 
 // Tarkon Pad
 /obj/item/circuitboard/machine/syndiepad/tarkon
-	name = "\improper Tarkon deepspace sales pad"
+	name = "Tarkon Deepspace Sales Pad"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/piratepad/syndiepad/tarkon
 
 /obj/machinery/piratepad/syndiepad/tarkon
-	name = "Tarkon Deepspace Sales Pad"
+	name = "\improper Tarkon deepspace sales pad"
 	desc = "A standard Tarkon telepad repurposed to \
-	send any (non-living) object to an distant off-sector \
-	for processing. No returns!"
+		send any (non-living) object to an distant off-sector \
+		for processing. No returns!"
 
 	circuit = /obj/item/circuitboard/machine/syndiepad/tarkon
 
 /obj/item/circuitboard/computer/syndiepad/tarkon
-	name = "\improper Tarkon deepspace sales terminal"
+	name = "Tarkon Deepspace Sales Terminal"
 	build_path = /obj/machinery/computer/piratepad_control/syndiepad/tarkon
 
 /obj/machinery/computer/piratepad_control/syndiepad/tarkon
-	name = "Tarkon Deepspace Sales Terminal"
+	name = "\improper Tarkon deepspace sales terminal"
 	desc = "A modified civilian console with an elaborate relay to other authorized facilities for selling goods."
 	status_report = "Ready for delivery."
 	icon_screen = "civ_bounty"
