@@ -81,14 +81,14 @@
 						if("lava")
 							to_chat(holder, span_notice("The hostile resonance of Indecipheres feeds power through your crusher and its trophies."))
 						if("ice_underground")
-							to_chat(holder, span_notice("The corruption of Indecipheres runs deeper in the caves, its resonance flowing through your crusher and its trophies."))
+							to_chat(holder, span_notice("The corruption of Freyja runs deeper in the caves, its resonance flowing through your crusher and its trophies."))
 				else
 					// Use the previous environment type for leaving messages
 					switch(previous_env)
 						if("lava")
 							to_chat(holder, span_warning("The resonance fades from your crusher's trophies as you leave the atmosphere of Indecipheres behind."))
 						if("ice_underground")
-							to_chat(holder, span_warning("The deep corruption fades from your crusher's trophies as you ascend from the frozen depths."))
+							to_chat(holder, span_warning("The deep corruption fades from your crusher's trophies as you ascend from the frozen depths of Freyja."))
 
 	// Debug output, if one wants to investigate
 	var/list/found_traits = list()
