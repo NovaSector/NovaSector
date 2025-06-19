@@ -26,6 +26,9 @@
 	var/bonus_applied = FALSE
 	var/mob/living/current_user
 
+/obj/item/crusher_trophy/ice_block_talisman
+	fauna_trophy = TRUE
+
 //blood-drunk hunter
 /obj/item/crusher_trophy/miner_eye/on_mark_detonation(mob/living/target, mob/living/user)
 	var/obj/item/kinetic_crusher/crusher = loc
@@ -147,3 +150,10 @@
 
 
 // ICE WASTES TROPHIES
+
+//iceblock talisman
+/obj/item/crusher_trophy/ice_block_talisman/on_mark_detonation(mob/living/target, mob/living/user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+	. = ..()

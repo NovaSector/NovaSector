@@ -34,6 +34,16 @@
 /obj/item/crusher_trophy/lobster_claw
 	fauna_trophy = TRUE
 
+/obj/item/crusher_trophy/wolf_ear
+	fauna_trophy = TRUE
+
+
+/obj/item/crusher_trophy/ice_demon_cube
+	fauna_trophy = TRUE
+
+/obj/item/crusher_trophy/bear_paw
+	fauna_trophy = TRUE
+
 //watcher wing
 /obj/item/crusher_trophy/watcher_wing/on_mark_detonation(mob/living/target, mob/living/user)
 	var/obj/item/kinetic_crusher/crusher = loc
@@ -151,3 +161,28 @@
 // ICE WASTES TROPHIES
 
 
+// demonic watcher
+/obj/item/crusher_trophy/ice_demon_cube/on_mark_detonation(mob/living/target, mob/living/user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+
+	. = ..()
+	if(isnull(target) || !COOLDOWN_FINISHED(src, summon_cooldown))
+		return
+
+// Wolf
+/obj/item/crusher_trophy/wolf_ear/on_mark_detonation(mob/living/target, mob/living/user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+
+	. = ..()
+
+// Polar bear
+/obj/item/crusher_trophy/bear_paw/on_mark_detonation(mob/living/target, mob/living/user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+
+	. = ..()
