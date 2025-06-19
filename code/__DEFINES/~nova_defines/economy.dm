@@ -8,4 +8,3 @@
 // Relevant budget for Interdyne!
 #define ACCOUNT_INT "IP"
 #define ACCOUNT_INT_NAME "Interdyne Pharmaceuticals Budget"
-

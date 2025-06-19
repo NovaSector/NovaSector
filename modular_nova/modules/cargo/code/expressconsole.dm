@@ -5,15 +5,18 @@
 
 /obj/machinery/computer/cargo/express/interdyne
 	name = "\improper Interdyne express supply console"
-	desc = "A standard NT express console, hacked by Gorlex Industries to use \
-	their own experimental \"1100mm Rail Cannon\", made to be extra robust to prevent \
-	being emagged by the Syndicate cadets of the SSV Dauntless."
+	desc = "A standard Interdyne console"
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_INT
 	contraband = TRUE
 
-	var/static/list/allowed_categories = list(
+	var/list/allowed_categories
+
+	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
+/obj/machinery/computer/cargo/express/interdyne/Initialize(mapload)
+	var/static/list/categories = list(
 		NAKAMURA_ENGINEERING_MODSUITS_NAME,
 		BLACKSTEEL_FOUNDATION_NAME,
 		NRI_SURPLUS_COMPANY_NAME,
@@ -24,9 +27,12 @@
 		SOL_DEFENSE_DEFENSE_NAME,
 		MICROSTAR_ENERGY_NAME,
 		VITEZSTVI_AMMO_NAME,
+		INTERDYNE_NAME,
 	)
+	allowed_categories += categories
+	return ..()
 
-	pod_type = /obj/structure/closet/supplypod/bluespacepod
+
 
 /obj/machinery/computer/cargo/express/interdyne/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(user)
@@ -88,3 +94,11 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+
+/obj/machinery/computer/cargo/express/interdyne/syndicate/Initialize(mapload)
+	var/static/list/categories = list(
+		SYNDICATE_NAME,
+	)
+	allowed_categories += categories
+	return ..()
+
