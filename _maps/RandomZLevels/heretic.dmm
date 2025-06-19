@@ -55,6 +55,10 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
+"ba" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "bb" = (
 /obj/machinery/computer/records/security{
 	dir = 4
@@ -477,9 +481,10 @@
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
 "iS" = (
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
+/obj/machinery/transport/tram_controller/heretic_tram_controller,
+/obj/structure/tram,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "iW" = (
@@ -494,6 +499,16 @@
 	icon_state = "p";
 	pixel_x = -8;
 	pixel_y = 1
+	},
+/turf/open/floor/engine,
+/area/station/maintenance/heretic_laboratory)
+"je" = (
+/obj/structure/fluff/tram_rail,
+/obj/effect/turf_decal/delivery,
+/obj/effect/decal/remains/human,
+/obj/structure/reagent_dispensers/fueltank/large{
+	max_integrity = 1;
+	name = "Extremely fragile high capacity fuel tank"
 	},
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
@@ -803,6 +818,7 @@
 "pd" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
+/obj/machinery/light/directional/north,
 /turf/open/floor/wood,
 /area/station/maintenance/heretic_laboratory)
 "pi" = (
@@ -869,6 +885,15 @@
 /mob/living/basic/heretic_summon/raw_prophet/ruins,
 /turf/open/floor/wood,
 /area/space)
+"pw" = (
+/obj/structure/fluff/tram_rail,
+/obj/effect/turf_decal/delivery,
+/obj/structure/reagent_dispensers/fueltank/large{
+	max_integrity = 1;
+	name = "Extremely fragile high capacity fuel tank"
+	},
+/turf/open/floor/engine,
+/area/station/maintenance/heretic_laboratory)
 "pB" = (
 /obj/structure/railing{
 	dir = 5
@@ -926,6 +951,17 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"qI" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/effect/turf_decal/delivery,
+/obj/structure/reagent_dispensers/fueltank/large{
+	max_integrity = 1;
+	name = "Extremely fragile high capacity fuel tank"
+	},
+/turf/open/floor/engine,
+/area/station/maintenance/heretic_laboratory)
 "qM" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -989,6 +1025,10 @@
 	},
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
+"rF" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "rN" = (
 /obj/structure/rack,
 /turf/open/floor/carpet/royalblack,
@@ -1042,6 +1082,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/item/flashlight/lantern/on,
 /turf/open/floor/black,
 /area/awaymission/caves/heretic_laboratory_clean)
 "se" = (
@@ -1755,6 +1796,10 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"Gg" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "Gh" = (
 /turf/closed/wall/mineral/iron,
 /area/space)
@@ -2739,6 +2784,7 @@
 	pixel_y = 4
 	},
 /obj/item/storage/medkit/regular,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
 "YP" = (
@@ -11470,11 +11516,11 @@ nI
 nI
 nI
 vN
-ay
+rF
 wz
 cL
 aw
-ay
+rF
 vN
 bZ
 bZ
@@ -29982,7 +30028,7 @@ gd
 xQ
 xQ
 vN
-ay
+ba
 ay
 aU
 ay
@@ -32038,7 +32084,7 @@ gd
 xQ
 xQ
 vN
-mo
+Js
 mo
 mo
 mo
@@ -38198,7 +38244,7 @@ nI
 nI
 hs
 ay
-ay
+rF
 wz
 cL
 aw
@@ -40768,11 +40814,11 @@ nI
 nI
 nI
 hs
-ay
+Gg
 wz
 Pa
 aw
-ay
+Gg
 hs
 nI
 nI
@@ -41282,11 +41328,11 @@ nI
 nI
 hs
 ay
-ay
+rF
 wz
 cL
 eU
-ay
+rF
 ay
 hs
 nI
@@ -55163,7 +55209,7 @@ ay
 Ec
 mG
 Mu
-Kn
+je
 ma
 ay
 hs
@@ -55675,7 +55721,7 @@ nI
 hs
 ay
 ay
-nJ
+mG
 tf
 GV
 ay
@@ -55932,7 +55978,7 @@ nI
 hs
 ay
 vN
-jf
+qI
 YS
 Xm
 vN
@@ -56448,7 +56494,7 @@ ay
 ay
 mG
 Mu
-GV
+pw
 ay
 ay
 hs

@@ -23,6 +23,9 @@
 	platform_code = HERETIC_STARBOARD
 	tgui_icons = list("Ordnance" = "bullseye", "Office" = "user", "Dormitories" = "bed")
 
+/obj/machinery/transport/tram_controller/heretic_tram_controller
+	configured_transport_id = HERETIC_LINE_1
+
 /obj/item/keycard/hereticgateway
 	name = "Secure storage keycard"
 	desc = "A keycard that simply states, 'only under exteme circumstances'."
