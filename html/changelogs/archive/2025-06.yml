@@ -568,3 +568,8 @@
   - qol: adds an 'Enter Soulcatcher' button for the ghosts in addition to the verb.
       ghost tab is no more, TG removed it, you can still use the verbs in chat though
       as well as the buttons on the bottom of the screen.
+2025-06-19:
+  vinylspiders:
+  - qol: kobolds and other dexterity-lacking mobs may use cryopods as long as they
+      have hands
+  - bugfix: kobolds are no longer slendermen
