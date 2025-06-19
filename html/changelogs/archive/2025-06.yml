@@ -553,3 +553,23 @@
   plsleavemealon:
   - rscadd: Adds new morbid themed tools for the coroners enjoyment. Coroners now
       perform autopsies slightly faster.
+2025-06-18:
+  jjpark-kb:
+  - rscadd: added plantable/growable trees-- find them by using sharp objects on already
+      harvested lavaland flora. They also can be tapped with a screwdriver, will naturally
+      get bees over time, can be harvested for wood over time, and will accept grafts
+      onto them
+  - bugfix: fixed the railroads not changing their image to connect
+  - bugfix: fixed the plant tank and rail cart not being plantable
+  vinylspiders:
+  - qol: you can now report a bug directly to tg through the in game bug report. please
+      only do this if you're sure it's an upstream bug!
+  - bugfix: fixes wiki manuals not loading properly
+  - qol: adds an 'Enter Soulcatcher' button for the ghosts in addition to the verb.
+      ghost tab is no more, TG removed it, you can still use the verbs in chat though
+      as well as the buttons on the bottom of the screen.
+2025-06-19:
+  vinylspiders:
+  - qol: kobolds and other dexterity-lacking mobs may use cryopods as long as they
+      have hands
+  - bugfix: kobolds are no longer slendermen
