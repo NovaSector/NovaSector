@@ -1,7 +1,12 @@
 /mob/living/silicon/Login()
 	if(mind)
 		mind?.remove_antags_for_borging()
-	if(SStts.tts_enabled && client?.prefs.read_preference(/datum/preference/choiced/vocals/voice_type) == VOICE_TYPE_TTS)
+	// NOVA EDIT ADDITION START
+	if(client?.prefs.read_preference(/datum/preference/choiced/vocals/voice_type) != VOICE_TYPE_TTS)
+		voice = TTS_VOICE_NONE
+		return ..()
+	// NOVA EDIT ADDITION END
+	if(SStts.tts_enabled)
 		var/voice_to_use = client?.prefs.read_preference(/datum/preference/choiced/voice)
 		var/pitch_to_use = client?.prefs.read_preference(/datum/preference/numeric/tts_voice_pitch)
 		if(voice_to_use)

@@ -17,7 +17,7 @@
 		value = pick(SStts.available_speakers) // As a failsafe
 
 	if(preferences.read_preference(/datum/preference/choiced/vocals/voice_type) != VOICE_TYPE_TTS)
-		return
+		target.voice = TTS_VOICE_NONE
 
 	target.voice = value == TTS_VOICE_NONE ? "" : value
 
