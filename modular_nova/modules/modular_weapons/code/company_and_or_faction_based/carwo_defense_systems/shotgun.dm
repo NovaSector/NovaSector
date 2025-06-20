@@ -105,7 +105,7 @@
 	/// Is this shotgun amped? Used instead of toggling a fire selector. Amped Kolbens switch from semi-auto to manual action, gain increased accuracy, and improved damage.
 	var/amped = FALSE
 	// Base damage multiplier of the shotgun.
-	var/base_damage_mult = 1.2
+	var/base_damage_mult = 1.35
 	/// Base projectile speed multiplier of the shotgun.
 	var/base_speed_mult = 1
 	/// Base fire delay of the shotgun.
