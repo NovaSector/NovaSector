@@ -1,7 +1,7 @@
 /mob/living/silicon/Login()
 	if(mind)
 		mind?.remove_antags_for_borging()
-	if(SStts.tts_enabled)
+	if(SStts.tts_enabled && client?.prefs.read_preference(/datum/preference/choiced/vocals/voice_type) == VOICE_TYPE_TTS)
 		var/voice_to_use = client?.prefs.read_preference(/datum/preference/choiced/voice)
 		var/pitch_to_use = client?.prefs.read_preference(/datum/preference/numeric/tts_voice_pitch)
 		if(voice_to_use)
