@@ -1,0 +1,5 @@
+author: "RealWinterFrost"
+delete-after: True
+changes:
+  - rscadd: "Added new tarkon express console to tarkon industries"
+  - map: "Added new tarkon express console pad, sales pad, and budget card to their base."
