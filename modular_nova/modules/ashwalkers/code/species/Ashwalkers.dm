@@ -219,7 +219,7 @@
 	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 	wound_bonus = 0
-	bare_wound_bonus = 0
+	exposed_wound_bonus = 0
 	armour_penetration = 5
 
 	/// how many trophies we have consumed
@@ -290,7 +290,7 @@
 			force += 5
 			armour_penetration += 5
 			wound_bonus += 2
-			bare_wound_bonus += 2
+			exposed_wound_bonus += 2
 
 		else if(consumed_trophies == (max_trophies + 1)) //just so you aren't spammed...
 			to_chat(user, span_warning("[src] can no longer grow stronger!"))

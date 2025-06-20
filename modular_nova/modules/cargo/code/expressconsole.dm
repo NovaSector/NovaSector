@@ -88,3 +88,16 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/syndicate
 	req_access = list(ACCESS_SYNDICATE)
 	cargo_account = ACCOUNT_DS2
+
+// Tarkon Industries console
+/obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+	name = "Tarkon Express Supply Console"
+	build_path = /obj/machinery/computer/cargo/express/interdyne/tarkon
+	contraband = TRUE
+
+/obj/machinery/computer/cargo/express/interdyne/tarkon
+	name = "\improper Tarkon express supply console"
+	desc = "A standard Tarkon console."
+	circuit = /obj/item/circuitboard/computer/cargo/express/interdyne/tarkon
+	req_access = list(ACCESS_TARKON)
+	cargo_account = ACCOUNT_TI
