@@ -8593,6 +8593,7 @@
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\rifle.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\shotgun.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\submachinegun.dm"
+#include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\toggle_actions.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\grenade.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\pistol.dm"
 #include "modular_nova\modules\modular_weapons\code\company_and_or_faction_based\carwo_defense_systems\ammo\rifle.dm"
