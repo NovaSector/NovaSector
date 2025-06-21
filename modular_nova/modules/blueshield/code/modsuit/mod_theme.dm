@@ -54,7 +54,7 @@
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
-		), "lightweight" = list(
+		), "souless" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/blueshield/icons/praetorian.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/blueshield/icons/worn_praetorian.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -89,7 +89,7 @@
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
 		),
-		"artifcial" = list(
+		"artificial" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/modules/blueshield/icons/praetorian.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/blueshield/icons/worn_praetorian.dmi',
 			/obj/item/clothing/head/mod = list(
