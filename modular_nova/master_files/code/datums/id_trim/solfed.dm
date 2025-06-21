@@ -37,6 +37,10 @@
 	assignment = "SolFed Liasion"
 	sechud_icon_state = SECHUD_SOLFED_LIASON
 
+/datum/id_trim/solfed/official
+	assignment = "SolFed Official"
+	sechud_icon_state = SECHUD_SOLFED_LIASON
+
 /datum/id_trim/space_police // Overrides the normal /tg/ ERTSEC Icon, these guys aren't NT!
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	trim_state = "trim_spacepolice"
