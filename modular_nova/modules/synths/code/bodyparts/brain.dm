@@ -25,6 +25,16 @@
 	if(HAS_TRAIT(human_brain_owner, TRAIT_REVIVES_BY_HEALING) && human_brain_owner.health > SYNTH_BRAIN_WAKE_THRESHOLD)
 		human_brain_owner.revive(FALSE)
 
+/obj/item/organ/brain/synth/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+	// Ensure all neuroware is removed if the brain is removed
+	var/datum/status_effect/neuroware/neuro_status = organ_owner.has_status_effect(/datum/status_effect/neuroware)
+	if(isnull(neuro_status))
+		return
+	for(var/datum/reagent/reagent as anything in organ_owner.reagents.reagent_list)
+		if(reagent.chemical_flags & REAGENT_NEUROWARE)
+			organ_owner.reagents.remove_reagent(reagent)
+
 /obj/item/organ/brain/synth/emp_act(severity) // EMP act against the posi, keep the cap far below the organ health
 	. = ..()
 

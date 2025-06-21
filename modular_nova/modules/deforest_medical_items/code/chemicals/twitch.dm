@@ -32,7 +32,7 @@
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 20)
-	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
+	process_flags = REAGENT_ORGANIC
 	/// How much time has the drug been in them?
 	var/constant_dose_time = 0
 	/// What type of span class do we change heard speech to?
