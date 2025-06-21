@@ -139,7 +139,6 @@
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
 		/obj/item/organ/cyberimp/arm/toolkit/armblade,
-		/obj/machinery/fishing_portal_generator,
 	)
 	/// How far away we can hack things
 	var/hack_range = 2

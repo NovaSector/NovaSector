@@ -89,6 +89,9 @@
 	UnregisterSignal(our_guy, COMSIG_MOVABLE_HEAR)
 	if(overdosed)
 		UnregisterSignal(our_guy, COMSIG_ATOM_PRE_BULLET_ACT)
+	UnregisterSignal(our_guy, COMSIG_ATOM_WAS_ATTACKED)
+	UnregisterSignal(our_guy, COMSIG_ATOM_PREHITBY)
+	our_guy.RemoveElement(/datum/element/relay_attackers)
 
 	if(constant_dose_time < CONSTANT_DOSE_SAFE_LIMIT) // Anything less than this and you'll come out fiiiine, aside from a big hit of stamina damage
 		if(!(our_guy.mob_biotypes & MOB_ROBOTIC))
@@ -138,7 +141,7 @@
 		our_guy.visible_message(span_warning("[our_guy] is thrown off-balance by [attacker], staggering them badly!"),
 		span_warning("Being struck by [attacker] in such close range while TWitched staggers you!"),
 		span_warning("You hear the sound of someone being hit by something up close, and a subsequent loss of footing."))
-		our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 12 SECONDS)
+		our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, STAGGERED_SLOWDOWN_LENGTH * 4) // staggers for +6 seconds, caps at 12
 
 /// Signal sent by COMSIG_ATOM_PREHITBY (from being hit with a thrown item). If someone hits you with a thrown, apply a stagger.
 /datum/reagent/drug/twitch/proc/on_hitby(atom/target, atom/movable/hit_atom, datum/thrownthing/throwingdatum)
@@ -154,7 +157,7 @@
 	our_guy.visible_message(span_warning("[our_guy] is thrown off-balance by [hit_atom], staggering them!"),
 	span_warning("Being struck by [hit_atom] while TWitched staggers you!"),
 	span_warning("You hear the sound of someone being hit by something, and a subsequent loss of footing."))
-	our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 12 SECONDS)
+	our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, STAGGERED_SLOWDOWN_LENGTH * 2) // staggers for +3 seconds, caps at 6
 
 /// Leaves an afterimage behind the mob when they move
 /datum/reagent/drug/twitch/proc/on_movement(mob/living/carbon/our_guy, atom/old_loc)
