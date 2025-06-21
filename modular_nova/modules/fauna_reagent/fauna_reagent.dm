@@ -69,3 +69,6 @@
 		if(istype(reagents_within, /datum/reagent/medicine))
 			adjust_health(-1)
 			reagents?.remove_reagent(reagents_within.type, 0.5)
+
+/mob/living/basic/cockroach
+	reagent_health = FALSE // required for the bugspray interaction
