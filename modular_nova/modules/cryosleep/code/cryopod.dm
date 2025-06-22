@@ -148,7 +148,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
-	interaction_flags_mouse_drop = NEED_DEXTERITY | NEED_HANDS
+	interaction_flags_mouse_drop = FORBID_TELEKINESIS_REACH
 
 	var/open_icon_state = "cryopod-open"
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player

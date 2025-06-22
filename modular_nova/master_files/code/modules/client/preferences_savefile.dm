@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 14
+#define MODULAR_SAVEFILE_VERSION_MAX 15
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -20,6 +20,7 @@
 #define VERSION_LOADOUT_PRESETS 12
 #define VERSION_EMO_LONG_REMOVAL 13
 #define VERSION_TOOLKIT_IMPLANTS 14
+#define VERSION_VOCAL_BARKS 15
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -309,6 +310,11 @@
 	if(current_version < VERSION_TOOLKIT_IMPLANTS)
 		migrate_toolset_implants(save_data)
 
+	if(current_version < VERSION_VOCAL_BARKS)
+		var/current_tts_voice = save_data["tts_voice"]
+		if(current_tts_voice != TTS_VOICE_NONE && current_tts_voice != "invalid") // make sure we don't turn off TTS for people who have it on
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/vocals/voice_type], "Text-to-speech")
+
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
 		to_chat(parent, boxed_message(span_redtext("CRITICAL FAILURE IN PREFERENCE MIGRATION, REPORT THIS IMMEDIATELY.")))
@@ -414,3 +420,5 @@
 #undef VERSION_CAT_EARS_DUPES
 #undef VERSION_LOADOUT_PRESETS
 #undef VERSION_EMO_LONG_REMOVAL
+#undef VERSION_TOOLKIT_IMPLANTS
+#undef VERSION_VOCAL_BARKS
