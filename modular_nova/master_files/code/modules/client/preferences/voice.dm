@@ -1,3 +1,14 @@
+
+/datum/preference/choiced/voice
+	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_NON_CONTEXTUAL, we are relocating it to the voice menu
+
+/datum/preference/choiced/voice/is_accessible(datum/preferences/preferences)
+	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
+	if(voice_type_pref != VOICE_TYPE_TTS)
+		return FALSE
+
+	return ..(preferences)
+
 /datum/preference/choiced/voice/init_possible_values()
 	if(SStts.tts_enabled)
 		return list(TTS_VOICE_NONE) + SStts.available_speakers
