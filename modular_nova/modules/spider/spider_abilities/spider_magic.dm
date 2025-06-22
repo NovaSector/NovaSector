@@ -46,7 +46,7 @@
 		playsound(owner, 'sound/effects/magic/demon_attack1.ogg', 50)
 		owner.visible_message(span_warning("[owner] is torn apart by invisible teeth!"), span_userdanger("Ghostly teeth tear your body apart!"))
 		owner.take_bodypart_damage(rand(20, 50), wound_bonus = CANT_WOUND)
-	else if(SPT_PROB(30, seconds_per_tick))
+	else if(SPT_PROB(7.5, seconds_per_tick))
 		spider.forceMove(get_step_towards(spider, owner))
 	if(get_dist(owner, spider) <= 8)
 		if(!close_spider)
