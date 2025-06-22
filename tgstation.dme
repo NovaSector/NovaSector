@@ -8788,7 +8788,7 @@
 #include "modular_nova\modules\player_ranks\code\player_rank_controller\_player_rank_controller.dm"
 #include "modular_nova\modules\player_ranks\code\player_rank_controller\donator_controller.dm"
 #include "modular_nova\modules\player_ranks\code\player_rank_controller\mentor_controller.dm"
-#include "modular_nova\modules\player_ranks\code\player_rank_controller\star_controller.dm"
+#include "modular_nova\modules\player_ranks\code\player_rank_controller\nova_star_controller.dm"
 #include "modular_nova\modules\player_ranks\code\subsystem\player_ranks.dm"
 #include "modular_nova\modules\plexagon_selfserve\code\plexagon_selfserve.dm"
 #include "modular_nova\modules\plexagon_selfserve\code\shamebox.dm"

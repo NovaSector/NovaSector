@@ -1,6 +1,6 @@
 /// The list of all star players.
-GLOBAL_LIST_EMPTY(star_list)
-GLOBAL_PROTECT(star_list)
+GLOBAL_LIST_EMPTY(nova_star_list)
+GLOBAL_PROTECT(nova_star_list)
 
 
 /datum/player_rank_controller/nova_star
@@ -19,21 +19,21 @@ GLOBAL_PROTECT(star_list)
 	ckey = ckey(ckey)
 
 	// Associative list for extra SPEED!
-	GLOB.star_list[ckey] = TRUE
+	GLOB.nova_star_list[ckey] = TRUE
 
 
 /datum/player_rank_controller/nova_star/remove_player(ckey)
 	if(IsAdminAdvancedProcCall())
 		return
 
-	GLOB.star_list -= ckey
+	GLOB.nova_star_list -= ckey
 
 
 /datum/player_rank_controller/nova_star/get_ckeys_for_legacy_save()
 	if(IsAdminAdvancedProcCall())
 		return
 
-	return GLOB.star_list
+	return GLOB.nova_star_list
 
 
 /datum/player_rank_controller/nova_star/should_use_legacy_system()
@@ -44,4 +44,4 @@ GLOBAL_PROTECT(star_list)
 	if(IsAdminAdvancedProcCall())
 		return
 
-	GLOB.star_list = list()
+	GLOB.nova_star_list = list()

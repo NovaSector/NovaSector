@@ -92,7 +92,7 @@ SUBSYSTEM_DEF(player_ranks)
 	if(!istype(user))
 		CRASH("Invalid user type provided to is_nova_star(), expected 'client' and obtained '[user ? user.type : "null"]'.")
 
-	if(GLOB.star_list[user.ckey])
+	if(GLOB.nova_star_list[user.ckey])
 		return TRUE
 
 	if(admin_bypass && is_admin(user))
