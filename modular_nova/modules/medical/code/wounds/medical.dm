@@ -18,10 +18,9 @@
 
 /obj/item/stack/medical/gauze/Destroy()
 	var/mob/living/carbon/previously_gauzed = gauzed_bodypart?.owner
-
-	. = ..() // modular
-
-	previously_gauzed?.update_bandage_overlays()
+	if(previously_gauzed && !QDELETED(previously_gauzed))
+		previously_gauzed.update_bandage_overlays()
+	return ..()
 
 /**
  * rip_off() called when someone rips it off

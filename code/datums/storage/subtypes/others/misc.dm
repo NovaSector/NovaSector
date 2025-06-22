@@ -37,6 +37,7 @@
 		/obj/item/stack/sticky_tape/surgical,
 		/obj/item/surgical_drapes,
 		/obj/item/surgicaldrill,
+		/obj/item/blood_scanner,
 	))
 
 ///Organ box
@@ -183,6 +184,7 @@
 			// NOVA EDIT ADDITION BEGIN
 			/obj/item/condom_pack,
 			/obj/item/gbp_punchcard,
+			/obj/item/disk/neuroware,
 			// NOVA EDIT ADDITION END
 			/obj/item/stack/spacecash,
 			/obj/item/holochip,
@@ -275,3 +277,10 @@
 /datum/storage/toiletbong/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(/obj/item/food)
+
+/// Carved Books
+/datum/storage/carved_book
+	max_slots = 1
+
+/datum/storage/carved_book/bible
+	max_specific_storage = WEIGHT_CLASS_SMALL

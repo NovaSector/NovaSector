@@ -44,7 +44,7 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 	attack_verb_continuous = list("chops", "slices", "cuts", "reaps")
 	attack_verb_simple = list("chop", "slice", "cut", "reap")
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	/*What state is our scythe in?
 
 	If it is SCYTHE_WEAK, it will harm our reaper on being sheathed.
@@ -89,7 +89,7 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 	)
 	AddElement(/datum/element/bane, mob_biotypes = MOB_PLANT, damage_multiplier = 0.5, requires_combat_mode = FALSE) //less good at killing revenants, much better at killing plants
 
-/obj/item/vorpalscythe/attack(mob/living/target, mob/living/user, list/modifiers)
+/obj/item/vorpalscythe/attack(mob/living/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(ismonkey(target) && !target.mind) //Don't empower from hitting monkeys. Hit a corgi or something, I don't know.
 		return ..()
 

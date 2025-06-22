@@ -14,12 +14,11 @@
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT
-	action_slots = ALL
 	force = 10
 	throwforce = 7
 	demolition_mod = 0.25
 	wound_bonus = 15
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb_continuous = list("flogs", "whips", "lashes", "disciplines")
 	attack_verb_simple = list("flog", "whip", "lash", "discipline")
@@ -83,7 +82,7 @@
 	hitsound = 'sound/items/weapons/rapierhit.ogg'
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 	wound_bonus = 10
-	bare_wound_bonus = 25
+	exposed_wound_bonus = 25
 
 /obj/item/melee/sabre/Initialize(mapload)
 	. = ..()
@@ -196,7 +195,7 @@
 	hitsound = 'sound/items/weapons/rapierhit.ogg'
 	custom_materials = null
 	wound_bonus = 5
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 
 /obj/item/melee/parsnip_sabre/Initialize(mapload)
 	. = ..()
@@ -243,7 +242,7 @@
 		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword
 	return ..()
 
-/obj/item/melee/beesword/afterattack(atom/target, mob/user, list/modifiers)
+/obj/item/melee/beesword/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
 		carbon_target.reagents.add_reagent(/datum/reagent/toxin, 4)
@@ -292,7 +291,7 @@
 		if(!isspaceturf(turf))
 			consume_turf(turf)
 
-/obj/item/melee/supermatter_sword/pre_attack(atom/target, mob/living/user, list/modifiers)
+/obj/item/melee/supermatter_sword/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
 	if(.)
 		return .
@@ -386,7 +385,7 @@
 	attack_verb_simple = list("flog", "whip", "lash", "discipline")
 	hitsound = 'sound/items/weapons/whip.ogg'
 
-/obj/item/melee/curator_whip/afterattack(atom/target, mob/user, list/modifiers)
+/obj/item/melee/curator_whip/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		human_target.drop_all_held_items()

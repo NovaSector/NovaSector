@@ -3,7 +3,7 @@
 #define KNIFE_ATTACK_VERB_CONTINUOUS list("slashes", "tears", "slices", "tears", "lacerates", "rips", "dices", "cuts", "rends")
 #define KNIFE_ATTACK_VERB_SIMPLE list("slash", "tear", "slice", "tear", "lacerate", "rip", "dice", "cut", "rend")
 #define KNIFE_SHARPNESS SHARP_EDGED
-#define KNIFE_BARE_WOUND_BONUS 15
+#define KNIFE_EXPOSED_WOUND_BONUS 15
 #define CUTTER_HITSOUND 'sound/items/tools/wirecutter.ogg'
 #define CUTTER_USESOUND 'sound/items/tools/wirecutter.ogg'
 #define CUTTER_ATTACK_VERB_CONTINUOUS list("bashes", "batters", "bludgeons", "thrashes", "whacks")
@@ -70,7 +70,7 @@
 	var/knife_wound_bonus = 5
 	var/cutter_force = CUTTER_FORCE
 	var/cutter_wound_bonus = CUTTER_WOUND_BONUS
-	var/cutter_bare_wound_bonus = CUTTER_WOUND_BONUS
+	var/cutter_exposed_wound_bonus = CUTTER_WOUND_BONUS
 	var/toggle_sound = 'sound/items/tools/change_drill.ogg'
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 1
@@ -84,7 +84,7 @@
 		inhand_icon_state = "precision_[src::inhand_icon_state]"
 		force = cutter_force
 		wound_bonus = cutter_wound_bonus
-		bare_wound_bonus = cutter_bare_wound_bonus
+		exposed_wound_bonus = cutter_exposed_wound_bonus
 		sharpness = NONE
 		hitsound = CUTTER_HITSOUND
 		usesound = CUTTER_USESOUND
@@ -98,14 +98,14 @@
 		force = knife_force
 		sharpness = KNIFE_SHARPNESS
 		wound_bonus = knife_wound_bonus
-		bare_wound_bonus = KNIFE_BARE_WOUND_BONUS
+		exposed_wound_bonus = KNIFE_EXPOSED_WOUND_BONUS
 		hitsound = KNIFE_HITSOUND
 		usesound = KNIFE_USESOUND
 		attack_verb_continuous = KNIFE_ATTACK_VERB_CONTINUOUS
 		attack_verb_simple = KNIFE_ATTACK_VERB_SIMPLE
 
-/obj/item/knife/razor_claws/attackby(obj/item/stone, mob/user, param)
-	if(!istype(stone, /obj/item/scratching_stone))
+/obj/item/knife/razor_claws/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(!istype(attacking_item, /obj/item/scratching_stone))
 		return ..()
 
 	knife_force = ENHANCED_KNIFE_FORCE
@@ -119,9 +119,9 @@
 
 	name = "enhanced razor claws"
 	desc += span_warning("\n\nThese have undergone a special honing process; they'll kill people even faster than they used to.")
-	user.visible_message(span_warning("[user] sharpens [src], [stone] disintegrating!"), span_warning("You sharpen [src], making it much more deadly than before, but [stone] disintegrates under the stress."))
+	user.visible_message(span_warning("[user] sharpens [src], [attacking_item] disintegrating!"), span_warning("You sharpen [src], making it much more deadly than before, but [attacking_item] disintegrates under the stress."))
 	playsound(src, 'sound/items/unsheath.ogg', 25, TRUE)
-	qdel(stone)
+	qdel(attacking_item)
 	return ..()
 
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws
@@ -317,7 +317,7 @@
 	force = 20
 	demolition_mod = 0.25 // This thing sucks at destroying stuff
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 	weak_against_armour = TRUE
 	reach = 2
 	hitsound = 'sound/items/weapons/whip.ogg'
@@ -418,7 +418,7 @@
 #undef KNIFE_ATTACK_VERB_CONTINUOUS
 #undef KNIFE_ATTACK_VERB_SIMPLE
 #undef KNIFE_SHARPNESS
-#undef KNIFE_BARE_WOUND_BONUS
+#undef KNIFE_EXPOSED_WOUND_BONUS
 #undef CUTTER_HITSOUND
 #undef CUTTER_USESOUND
 #undef CUTTER_ATTACK_VERB_CONTINUOUS

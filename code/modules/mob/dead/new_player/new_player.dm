@@ -290,11 +290,6 @@
 			if (item.restricted_roles && length(item.restricted_roles) && !(job.title in item.restricted_roles))
 				continue
 			item.post_equip_item(humanc.client?.prefs, humanc)
-		if(iskobold(humanc))
-			humanc.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
-			humanc.dna.activate_mutation(/datum/mutation/human/race) // awful hack but adding mutations breaks char previews
-			humanc.dna.add_mutation(/datum/mutation/human/clever, MUT_NORMAL)
-			humanc.dna.activate_mutation(/datum/mutation/human/clever)
 	// NOVA EDIT ADDITION END
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
@@ -344,10 +339,6 @@
 /mob/dead/new_player/proc/ViewManifest()
 	if(!client)
 		return
-	if(world.time < client.crew_manifest_delay)
-		return
-	client.crew_manifest_delay = world.time + (1 SECONDS)
-
 	GLOB.manifest.ui_interact(src)
 
 /mob/dead/new_player/Move()

@@ -78,9 +78,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	. = ..()
 	open_options_menu(user)
 
-/obj/machinery/health_station/attackby(obj/item/weapon, mob/living/carbon/user)
+/obj/machinery/health_station/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(refill_pen(weapon, user))
+	if(refill_pen(attacking_item, user))
 		return COMPONENT_NO_AFTERATTACK
 	return NONE
 

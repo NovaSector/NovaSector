@@ -83,10 +83,6 @@
 	name = "Pocket Protector (Filled)"
 	item_path = /obj/item/clothing/accessory/pocketprotector/full
 
-/datum/loadout_item/accessory/colonial_webbing
-	name = "Slim Colonial Webbing"
-	item_path = /obj/item/clothing/accessory/colonial_webbing
-
 /datum/loadout_item/accessory/pride
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride

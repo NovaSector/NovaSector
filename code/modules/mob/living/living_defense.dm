@@ -127,7 +127,7 @@
 		def_zone = def_zone,
 		blocked = min(ARMOR_MAX_BLOCK, armor_check),  //cap damage reduction at 90%
 		wound_bonus = proj.wound_bonus,
-		bare_wound_bonus = proj.bare_wound_bonus,
+		exposed_wound_bonus = proj.exposed_wound_bonus,
 		sharpness = proj.sharpness,
 		attack_direction = get_dir(proj.starting, src),
 		attacking_item = proj,
@@ -271,14 +271,6 @@
 	if(thrown_by)
 		return log_combat(thrown_by, src, "threw and hit", thrown_item)
 	return log_combat(thrown_item, src, "hit ")
-
-/mob/living/proc/create_splatter(splatter_dir)
-	// NOVA EDIT ADDITION START - Custom blood types
-	if(get_blood_id() == /datum/reagent/toxin/acid)
-		new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(loc, splatter_dir)
-		return
-	// NOVA EDIT ADDITION END
-	new /obj/effect/temp_visual/dir_setting/bloodsplatter(get_turf(src), splatter_dir)
 
 ///The core of catching thrown items, which non-carbons cannot without the help of items or abilities yet, as they've no throw mode.
 /mob/living/proc/try_catch_item(obj/item/item, skip_throw_mode_check = FALSE, try_offhand = FALSE)
@@ -448,7 +440,7 @@
 		def_zone = user.zone_selected,
 		blocked = armor_block,
 		wound_bonus = user.wound_bonus,
-		bare_wound_bonus = user.bare_wound_bonus,
+		exposed_wound_bonus = user.exposed_wound_bonus,
 		sharpness = user.sharpness,
 		attack_direction = get_dir(user, src),
 	)

@@ -78,6 +78,16 @@
 	acid = 50
 	wound = 20
 
+/datum/mod_theme/marines/damaged //'worn down' nerfed version - better than sec, worse than captain
+	desc = "Developed by Nanotrasen in collaboration with multiple high-profile contractors, \
+	this specialized suit was made for high-intensity combat. This one, however, has lost quite \
+	a bit of intended functionality over the time it's been abandoned."
+	armor_type = /datum/armor/mod_theme_security //less armor
+	atom_flags = NONE //not explosion proof
+	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT //not 100% fireproof
+	slowdown_deployed = 0.5 //has a slowdown (equal to sec MOD)
+	complexity_max = DEFAULT_MAX_COMPLEXITY + 2 //just below antag MODs rather than on-par with admin ones
+
 /obj/item/mod/control/pre_equipped/marine
 	theme = /datum/mod_theme/marines
 	applied_cell = /obj/item/stock_parts/power_store/cell/bluespace
@@ -117,4 +127,24 @@
 	default_pins = list(
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/smartgun/marines,
+	)
+
+/obj/item/mod/control/pre_equipped/marine/damaged //'worn down' version, with less armor and no ERT/antag modules
+	theme = /datum/mod_theme/marines/damaged
+	applied_cell = /obj/item/stock_parts/power_store/cell/hyper
+	//removed modules: noslip, powerkick, megaphone
+	applied_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/emp_shield,
+		/obj/item/mod/module/magnetic_harness,
+		/obj/item/mod/module/holster,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/springlock/contractor,
+		/obj/item/mod/module/dna_lock, //in lieu of req_access
+		/obj/item/mod/module/visor/sechud, //for identifying teammates also in suits
+	)
+	default_pins = list(
+		/obj/item/mod/module/holster,
+		/obj/item/mod/module/jetpack,
 	)

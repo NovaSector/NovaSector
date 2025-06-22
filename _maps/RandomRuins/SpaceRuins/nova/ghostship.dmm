@@ -61,7 +61,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
 "gw" = (
-/obj/effect/decal/cleanable/robot_debris/limb{
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb{
 	pixel_y = -7
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -176,7 +176,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
 "kh" = (
-/obj/effect/decal/cleanable/robot_debris/limb,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fakelattice/passthru,
 /turf/open/floor/plating,
@@ -201,7 +201,7 @@
 	pixel_x = -5;
 	pixel_y = -3
 	},
-/obj/effect/decal/cleanable/robot_debris,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fakelattice/passthru,
 /obj/machinery/light/small/red/directional/north,
@@ -294,7 +294,7 @@
 /area/ruin/space/unpowered)
 "rp" = (
 /obj/structure/cable,
-/obj/effect/decal/cleanable/robot_debris/limb,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fakelattice/passthru,
 /turf/open/floor/plating,
@@ -372,17 +372,17 @@
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
 "wH" = (
-/obj/effect/decal/cleanable/robot_debris/limb,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
 "wN" = (
-/obj/effect/decal/cleanable/robot_debris/limb{
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb{
 	pixel_x = -16;
 	pixel_y = -9
 	},
-/obj/effect/decal/cleanable/robot_debris,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
@@ -542,7 +542,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
 "Iy" = (
-/obj/effect/decal/cleanable/robot_debris/limb,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
@@ -635,7 +635,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)
 "MQ" = (
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/space/unpowered)

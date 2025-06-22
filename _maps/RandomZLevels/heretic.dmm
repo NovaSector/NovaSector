@@ -1008,7 +1008,7 @@
 /area/awaymission/beach/heretic)
 "qu" = (
 /obj/machinery/light/very_dim/directional/west,
-/obj/item/mod/control/pre_equipped/marine,
+/obj/item/mod/control/pre_equipped/marine/damaged,
 /obj/machinery/suit_storage_unit/industrial,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
@@ -1177,7 +1177,7 @@
 "tq" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins{
 	name = "You shouldnt be here";
-	bare_wound_bonus = 100;
+	exposed_wound_bonus = 100;
 	wound_bonus = 100;
 	melee_damage_upper = 50;
 	health = 2000
@@ -2512,7 +2512,7 @@
 /area/awaymission/beach/heretic)
 "NX" = (
 /obj/machinery/light/very_dim/directional/east,
-/obj/item/mod/control/pre_equipped/marine,
+/obj/item/mod/control/pre_equipped/marine/damaged,
 /obj/machinery/suit_storage_unit/industrial,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
