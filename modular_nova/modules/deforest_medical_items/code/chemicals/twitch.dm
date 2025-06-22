@@ -157,7 +157,7 @@
 	our_guy.visible_message(span_warning("[our_guy] is thrown off-balance by [hit_atom], staggering them!"),
 	span_warning("Being struck by [hit_atom] while TWitched staggers you!"),
 	span_warning("You hear the sound of someone being hit by something, and a subsequent loss of footing."))
-	our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, STAGGERED_SLOWDOWN_LENGTH * 2) // staggers for +3 seconds, caps at 6
+	our_guy.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, STAGGERED_SLOWDOWN_LENGTH) // staggers for +3 seconds, caps at 3
 
 /// Leaves an afterimage behind the mob when they move
 /datum/reagent/drug/twitch/proc/on_movement(mob/living/carbon/our_guy, atom/old_loc)
