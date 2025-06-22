@@ -199,12 +199,9 @@
 	)
 
 /// Prevents you from healing other spiders spiders, or from healing when on fire
-/mob/living/basic/spider/giant/ogre/proc/can_mend(mob/living/source, mob/living/target)
+/mob/living/basic/spider/giant/ogre/proc/can_mend(mob/living/source)
 	if (on_fire)
 		balloon_alert(src, "can't heal while on fire!")
-		return FALSE
-	if(target != source)
-		balloon_alert(src, "you can only heal yourself!")
 		return FALSE
 	return TRUE
 
@@ -330,7 +327,7 @@
 		complete_text = "%SOURCE% wraps the wounds of %TARGET%.",\
 	)
 
-/mob/living/basic/spider/giant/baron/proc/can_mend(mob/living/source, mob/living/target)
+/mob/living/basic/spider/giant/baron/proc/can_mend(mob/living/source)
 	if (on_fire)
 		balloon_alert(src, "can't heal while on fire!")
 		return FALSE
