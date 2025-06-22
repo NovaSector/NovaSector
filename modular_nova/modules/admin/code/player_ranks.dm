@@ -4,7 +4,7 @@
 ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage who has the special player ranks while the server is running.", ADMIN_CATEGORY_MAIN)
 	usr.client?.holder.manage_player_ranks()
 
-/// Proc for admins to change people's "player" ranks (donator, mentor, star, etc.)
+/// Proc for admins to change people's "player" ranks (donator, mentor, nova star, etc.)
 /datum/admins/proc/manage_player_ranks()
 	if(IsAdminAdvancedProcCall())
 		return
