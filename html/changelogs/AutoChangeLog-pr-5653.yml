@@ -1,0 +1,4 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - rscdel: "Removed the OPFOR action button, press escape to OPFOR!"
