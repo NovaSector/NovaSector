@@ -522,7 +522,7 @@
 	REMOVE_TRAIT(target, TRAIT_RECENTLY_TREATED, ANALYZER_TRAIT)
 	return TRUE
 
-/proc/chemscan(mob/living/user, mob/living/target)
+/proc/chemscan(mob/living/user, mob/living/target, reagent_types_to_check = null)
 	if(user.incapacitated)
 		return
 
@@ -530,14 +530,33 @@
 		var/list/render_list = list() //The master list of readouts, including reagents in the blood/stomach, addictions, quirks, etc.
 		var/list/render_block = list() //A second block of readout strings. If this ends up empty after checking stomach/blood contents, we give the "empty" header.
 
+		// NOVA EDIT ADDITION BEGIN - Neuroware
+		var/list/neuroware_list = list()
+		// NOVA EDIT ADDITION END
 		// Blood reagents
 		if(target.reagents.reagent_list.len)
 			for(var/r in target.reagents.reagent_list)
 				var/datum/reagent/reagent = r
+				// NOVA EDIT ADDITION BEGIN - Neuroware
+				if(reagent.chemical_flags & REAGENT_NEUROWARE)
+					neuroware_list += "<span class='notice ml-2'>[reagent.name] - [round(reagent.volume, 0.001)]GQ[reagent.overdosed ? "</span> - [span_bolddanger("OVERLOADING")]" : ".</span>"]<br>"
+				// NOVA EDIT ADDITION END
 				if(reagent.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
 					continue
+				if(reagent_types_to_check)
+					if(!istype(reagent, reagent_types_to_check))
+						continue
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 
+		// NOVA EDIT ADDITION BEGIN - Neuroware
+		if(!length(neuroware_list))
+			var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+			if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
+				render_list += "<span class='notice ml-1'>Subject contains no neuroware in their brain.</span><br>"
+		else
+			render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
+			render_list += jointext(neuroware_list + "<br>", "")
+		// NOVA EDIT ADDITION END
 		if(!length(render_block)) //If no VISIBLY DISPLAYED reagents are present, we report as if there is nothing.
 			render_list += "<span class='notice ml-1'>Subject contains no reagents in their [LOWER_TEXT(target.get_bloodtype()?.get_blood_name()) || "blood"]stream.</span><br>"
 		else
@@ -553,6 +572,9 @@
 					var/datum/reagent/bit = bile
 					if(bit.chemical_flags & REAGENT_INVISIBLE)
 						continue
+					if(reagent_types_to_check)
+						if(!istype(bit, reagent_types_to_check))
+							continue
 					if(!belly.food_reagents[bit.type])
 						render_block += "<span class='notice ml-2'>[round(bit.volume, 0.001)] units of [bit.name][bit.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 					else
