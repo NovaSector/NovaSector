@@ -48,7 +48,7 @@ export function ExaminePanel(props) {
     custom_species,
     custom_species_lore,
     headshot,
-    veteran_status,
+    star_status,
     ideal_antag_optin_status,
     current_antag_optin_status,
     opt_in_colors,
@@ -163,7 +163,7 @@ export function ExaminePanel(props) {
                         </>
                       }
                     >
-                      {!!veteran_status && (
+                      {!!star_status && (
                         <Stack.Item mb="30px">
                           <span
                             style={{
@@ -171,7 +171,7 @@ export function ExaminePanel(props) {
                               fontWeight: 'bold',
                             }}
                           >
-                            Player is a Veteran.
+                            Nova Star! ⭐
                           </span>
                         </Stack.Item>
                       )}

@@ -1,2 +1,2 @@
 /datum/species/snail
-	veteran_only = TRUE
+	stars_only = TRUE
