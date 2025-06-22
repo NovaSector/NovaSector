@@ -185,7 +185,7 @@
 	. = ..()
 
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
-	add_traits(list( TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
+	add_traits(list(TRAIT_SIGHT_BYPASS, TRAIT_STRONG_GRABBER, INNATE_TRAIT))
 	AddComponent(/datum/component/healing_touch,\
 		heal_brute = 50,\
 		heal_burn = 50,\
