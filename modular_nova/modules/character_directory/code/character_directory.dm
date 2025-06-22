@@ -249,7 +249,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 		character_ad = READ_PREFS(mob, text/character_ad) || ""
 		ooc_notes = READ_PREFS(mob, text/ooc_notes) || ""
 		ooc_notes_nsfw = READ_PREFS(mob, text/ooc_notes_nsfw) || ""
-		star_status = mob.client && SSplayer_ranks.is_star(mob.client, admin_bypass = FALSE)
+		star_status = mob.client && SSplayer_ranks.is_nova_star(mob.client, admin_bypass = FALSE)
 		// And finally, we want to get the mob's name, taking into account disguised names.
 		name = mob.real_name ? mob.name : mob.real_name
 

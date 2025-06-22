@@ -4,12 +4,12 @@ GLOBAL_PROTECT(star_list)
 
 
 /datum/player_rank_controller/nova_star
-	rank_title = "nova star"
+	rank_title = "nova_star"
 
 
 /datum/player_rank_controller/nova_star/New()
 	. = ..()
-	legacy_file_path = "[global.config.directory]/nova/star_players.txt"
+	legacy_file_path = "[global.config.directory]/nova/nova_star_players.txt"
 
 
 /datum/player_rank_controller/nova_star/add_player(ckey)
@@ -37,7 +37,7 @@ GLOBAL_PROTECT(star_list)
 
 
 /datum/player_rank_controller/nova_star/should_use_legacy_system()
-	return CONFIG_GET(flag/star_legacy_system)
+	return CONFIG_GET(flag/nova_star_legacy_system)
 
 
 /datum/player_rank_controller/nova_star/clear_existing_rank_data()

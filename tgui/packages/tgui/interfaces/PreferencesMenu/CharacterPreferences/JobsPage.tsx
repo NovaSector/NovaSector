@@ -234,7 +234,7 @@ function JobRow(props: JobRowProps) {
       </Stack>
     );
     // NOVA EDIT START
-  } else if (job.star && !data.is_star) {
+  } else if (job.nova_star && !data.is_nova_star) {
     rightSide = (
       <Stack align="center" height="100%" pr={1}>
         <Stack.Item grow textAlign="right">

@@ -169,7 +169,7 @@
 		return JOB_UNAVAILABLE_LANGUAGE
 	if(job.has_banned_quirk(client.prefs))
 		return JOB_UNAVAILABLE_QUIRK
-	if(job.stars_only && !SSplayer_ranks.is_star(client))
+	if(job.nova_stars_only && !SSplayer_ranks.is_nova_star(client))
 		return JOB_NOT_NOVA_STAR
 	if(job.has_banned_species(client.prefs))
 		return JOB_UNAVAILABLE_SPECIES

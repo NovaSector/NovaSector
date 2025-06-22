@@ -356,7 +356,7 @@ export function QuirksPage(props) {
       }
     }
     // NOVA EDIT START - Nova star quirks
-    if (quirk.stars_only && !data.is_star) {
+    if (quirk.nova_stars_only && !data.is_nova_star) {
       return 'You need to be a Nova star to select this quirk, apply today!';
     }
     // NOVA EDIT END

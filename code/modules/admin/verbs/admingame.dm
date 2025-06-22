@@ -36,7 +36,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mo
 		if(SSplayer_ranks.is_mentor(player.client, admin_bypass = FALSE))
 			player_ranks += "Mentor"
 
-		if(SSplayer_ranks.is_star(player.client, admin_bypass = FALSE))
+		if(SSplayer_ranks.is_nova_star(player.client, admin_bypass = FALSE))
 			player_ranks += "Nova Star"
 
 		body += "<br><br><b>Player Ranks: </b>[length(player_ranks) ? player_ranks.Join(", ") : "None"]"

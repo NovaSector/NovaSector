@@ -164,7 +164,7 @@ export function ExaminePanel(props) {
                       }
                     >
                       {!!star_status && (
-                        <Stack.Item mb="30px">
+                        <Stack.Item mb="8px">
                           <span
                             style={{
                               color: 'gold',

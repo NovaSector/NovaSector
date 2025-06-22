@@ -290,12 +290,12 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
           <Stack.Item>
             <Box height="calc(100vh - 170px)" overflowY="auto" pr={3}>
               {species.map(([speciesKey, species]) => {
-                // NOVA EDIT START - Nova star only species
+                // NOVA EDIT START - Nova star-only species
                 let speciesPage = (
                   <Button
                     key={speciesKey}
                     onClick={() => {
-                      if (species.stars_only && !data.is_star) {
+                      if (species.nova_stars_only && !data.is_nova_star) {
                         return;
                       }
                       setSpecies(speciesKey);
@@ -316,7 +316,7 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     />
                   </Button>
                 );
-                if (species.stars_only && !data.is_star) {
+                if (species.nova_stars_only && !data.is_nova_star) {
                   let tooltipContent =
                     species.name +
                     ' - You need to be a Nova star to select this race, apply today!';

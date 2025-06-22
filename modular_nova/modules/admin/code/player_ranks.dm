@@ -1,5 +1,5 @@
 /// The list of the available special player ranks
-#define NOVA_PLAYER_RANKS list("Donator", "Mentor", "Nova Star")
+#define NOVA_PLAYER_RANKS list("Donator", "Mentor", "Nova_Star")
 
 ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage who has the special player ranks while the server is running.", ADMIN_CATEGORY_MAIN)
 	usr.client?.holder.manage_player_ranks()

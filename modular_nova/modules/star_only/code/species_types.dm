@@ -1,2 +1,2 @@
 /datum/species/snail
-	stars_only = TRUE
+	nova_stars_only = TRUE
