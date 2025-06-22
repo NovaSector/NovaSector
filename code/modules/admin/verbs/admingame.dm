@@ -37,7 +37,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mo
 			player_ranks += "Mentor"
 
 		if(SSplayer_ranks.is_nova_star(player.client, admin_bypass = FALSE))
-			player_ranks += "Nova Star"
+			player_ranks += "Nova_Star"
 
 		body += "<br><br><b>Player Ranks: </b>[length(player_ranks) ? player_ranks.Join(", ") : "None"]"
 		// NOVA EDIT ADDITION END
