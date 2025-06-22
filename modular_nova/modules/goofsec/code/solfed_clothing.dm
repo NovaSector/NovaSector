@@ -90,8 +90,8 @@
 	light_color = "#fff9f3"
 	light_on = FALSE
 	armor_type = /datum/armor/clothing_under/code_federal_armor
-	greyscale_config = /datum/greyscale_config/solfedgoggles
-	greyscale_config_worn = /datum/greyscale_config/solfedgoggles/worn
+	greyscale_config = /datum/greyscale_config/solfed_goggles
+	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 	greyscale_colors = "#808080"
 	unique_reskin = null
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
@@ -122,7 +122,7 @@
 /obj/item/clothing/suit/armor/vest/det_suit/sol
 	name = "'Gordyn' flak vest"
 	desc = "A light armored jacket common on SolFed personnel who need armor, but find a full vest \
-		too impractical or uneeded."
+		too impractical or unneeded."
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "flak"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
@@ -130,8 +130,9 @@
 
 // SolFed Heavy Armor for Marines
 /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
-	name = "'Hercules' heavy armor"
-	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' Heavy Armor is the Sol Federation's most versitile and robust heavily armored vest and padding, to protect its marines from the most dangerous of threats in the most alien of environments."
+	name = "\improper 'Hercules' heavy armor"
+	desc = "Through space, snow, oceans, painful hills and terrain, the 'Hercules' heavy armor is the Sol Federation's most versatile and robust heavily armored vest and padding, \
+		to protect its marines from the most dangerous of threats in the most alien of environments."
 	icon_state = "icons/map_icons/clothing/suit/_suit"
 	post_init_icon_state = "fedvest"
 	worn_icon_state = "fedvest"
@@ -157,7 +158,7 @@
 
 /obj/item/clothing/neck/mantle/solfed
 	name = "\improper Sol Federation mantle"
-	desc = "A mantle made with state of the art light up lining to allow easy spotting of downed solfed personnel in hostile environments. It also looks nice to wear"
+	desc = "A mantle made with state of the art light up lining to allow easy spotting of downed Solfed personnel in hostile environments. It also looks nice to wear."
 	icon = 'modular_nova/modules/goofsec/icons/obj/neck.dmi'
 	icon_state = "recovermantle"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/neck.dmi'
@@ -175,8 +176,8 @@
 	desc = "A strangely old technology modernized to be much more robust in the modern day."
 	icon_state = "/obj/item/clothing/glasses/sunglasses/solfed"
 	post_init_icon_state = "federal_goggles"
-	greyscale_config = /datum/greyscale_config/solfedgoggles
-	greyscale_config_worn = /datum/greyscale_config/solfedgoggles/worn
+	greyscale_config = /datum/greyscale_config/solfed_goggles
+	greyscale_config_worn = /datum/greyscale_config/solfed_goggles/worn
 	greyscale_colors = "#4d4d4d"
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 

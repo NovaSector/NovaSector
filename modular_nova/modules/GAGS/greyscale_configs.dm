@@ -2270,7 +2270,7 @@ TREK
 // Solfed Uniform
 
 /datum/greyscale_config/solfedcamo
-	name = "Solfed Camo"
+	name = "SolFed Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
 
@@ -2322,12 +2322,12 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
 
 // Solfed Goggles Code
-/datum/greyscale_config/solfedgoggles
+/datum/greyscale_config/solfed_goggles
 	name = "Solfed Goggles"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
 
-/datum/greyscale_config/solfedgoggles/worn
+/datum/greyscale_config/solfed_goggles/worn
 	name = "Solfed Goggles (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
