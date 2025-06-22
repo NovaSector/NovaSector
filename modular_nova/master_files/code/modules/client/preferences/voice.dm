@@ -15,6 +15,7 @@
 /datum/preference/choiced/voice/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	if(preferences.read_preference(/datum/preference/choiced/vocals/voice_type) != VOICE_TYPE_TTS)
 		target.voice = TTS_VOICE_NONE
+		return
 	if(SStts.tts_enabled && !(value in cached_values))
 		value = pick(SStts.available_speakers) // As a failsafe
 
