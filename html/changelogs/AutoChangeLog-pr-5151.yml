@@ -1,4 +1,0 @@
-author: "realwinterfrost, vinylspiders"
-delete-after: True
-changes:
-  - rscadd: "added new accessibility feature vocal barks as an alternative to TTS, porting it from bubberstation/fluffy-stg with our own implementation--accessible through the Voice Settings menu"
