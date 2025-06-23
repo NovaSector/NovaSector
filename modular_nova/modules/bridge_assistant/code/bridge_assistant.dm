@@ -48,7 +48,6 @@
 
 	uniform = /obj/item/clothing/under/rank/civilian/lawyer/greensuit
 	neck = /obj/item/clothing/neck/bowtie/green
-	glasses = /obj/item/clothing/glasses/sunglasses
 	ears = /obj/item/radio/headset/headset_cent/bridge_officer
 	shoes = /obj/item/clothing/shoes/laceup
 	belt = /obj/item/modular_computer/pda/bridge_assistant
