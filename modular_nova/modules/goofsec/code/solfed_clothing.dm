@@ -145,6 +145,18 @@
 	greyscale_colors = "#4d4d4d"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+// Marine armor resistances (NT Asset Protection Grade But Sidegrade)
+/datum/armor/clothing_under/code_federal_armor
+	melee = 80
+	bullet = 80
+	laser = 70
+	energy = 60
+	bomb = 80
+	bio = 20
+	fire = 50
+	acid = 50
+	wound = 45
+
 /obj/item/clothing/suit/armor/vest/det_suit/sol/marine/desert
 	greyscale_colors = "#e0dab7"
 
@@ -194,18 +206,6 @@
 /obj/item/clothing/glasses/sunglasses/solfed/desert
 	greyscale_colors = "#e8dd9b"
 
-// Marine armor resistances (NT Asset Protection Grade But Sidegrade)
-/datum/armor/clothing_under/code_federal_armor
-	melee = 80
-	bullet = 80
-	laser = 70
-	energy = 60
-	bomb = 80
-	bio = 20
-	fire = 50
-	acid = 50
-	wound = 45
-
 // SolFed Marines Standard
 /obj/item/clothing/under/solfed/marines
 	name = "\improper SolFed marine uniform"
@@ -235,7 +235,7 @@
 // SolFed Espirator
 /obj/item/clothing/under/solfed/espirator
 	name = "\improper SolFed Espirator uniform"
-	desc = "" //IDK what an Espirator is you've gotta fill this out LOL
+	desc = "A Camoflague for the solfed armed forces, designed, tailored, and put into action for the solfed espirators." //IDK what an Espirator is you've gotta fill this out LOL
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/espirator"
 	post_init_icon_state = "solfed_camo"
@@ -272,6 +272,7 @@
 	greyscale_colors = "#FFD700"
 	greyscale_config = /datum/greyscale_config/solfedribbons
 	greyscale_config_worn = /datum/greyscale_config/solfedribbons/worn
+	minimize_when_attached = TRUE
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank2
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank2"
