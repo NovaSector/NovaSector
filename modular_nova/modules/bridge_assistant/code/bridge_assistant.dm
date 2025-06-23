@@ -70,7 +70,7 @@
 	name = "green buttondown suit"
 	worn_icon = 'icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/civilian/lawyer/bluesuit"
+	icon_state = "/obj/item/clothing/under/rank/civilian/lawyer/greensuit"
 	post_init_icon_state = "buttondown_slacks"
 	greyscale_config = /datum/greyscale_config/buttondown_slacks
 	greyscale_config_worn = /datum/greyscale_config/buttondown_slacks/worn
@@ -82,7 +82,7 @@
 /obj/item/clothing/under/rank/civilian/lawyer/greensuit/skirt
 	name = "green buttondown suitskirt"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/rank/civilian/lawyer/bluesuit/skirt"
+	icon_state = "/obj/item/clothing/under/rank/civilian/lawyer/greensuit/skirt"
 	post_init_icon_state = "buttondown_skirt"
 	greyscale_config = /datum/greyscale_config/buttondown_skirt
 	greyscale_config_worn = /datum/greyscale_config/buttondown_skirt/worn
@@ -125,7 +125,7 @@
 	name = "\proper the bridge officer's encryption key"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SERVICE = 1)
 	icon = 'icons/map_icons/items/_item.dmi'
-	icon_state = "/obj/item/encryptionkey/heads/blueshield"
+	icon_state = "/obj/item/encryptionkey/heads/bridge_officer"
 	post_init_icon_state = "cypherkey_centcom"
 	greyscale_config = /datum/greyscale_config/encryptionkey_centcom
 	greyscale_colors = "#1D571E#dca01b"
