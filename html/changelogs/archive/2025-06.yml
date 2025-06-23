@@ -752,3 +752,28 @@
   - bugfix: fixed a issue on my donator items.
   bigbakedbean:
   - rscadd: commdrobe now has cc turtlenecks
+2025-06-23:
+  Hatterhat:
+  - balance: TWitch users can be attacked in melee range (including firing a gun at
+      them) to stagger them for 6 seconds, maxing out at 12 seconds, or have a damaging
+      item thrown at them to stagger them for 3 seconds, maxing out at 6 seconds.
+  - balance: Staggered and/or legcuffed TWitch users can no longer dodge bullets.
+      This doesn't stop the rest of the TWitch effects, though (speed, reduced clickdelay,
+      etc.).
+  Zergspower:
+  - rscadd: All  non-TG spiders sans Webslinger can now crawl on the ceiling, insert
+      'right behind you' memes
+  - rscadd: Spider Totem - will lay webs in an area similar to resin weeds. Killing
+      it up close however may haunt you for a while.
+  - rscadd: Spider Trauma - killing the spider totem will shatter your mind, causing
+      you to hallucinate a spider coming after you
+  - rscadd: Spider Fishing - you may want to avoid getting too close to a spider off
+      webs, it might just snatch you to get closer
+  - balance: Baron has been made a bit stronger, bigger bite and faster webbing
+  - qol: Butchering the Carrier spider will now make you second guess if you have
+      arachnophobia or not
+  - bugfix: cult AI mobs work again now that their brain has returned
+  realwinterfrost, vinylspiders:
+  - rscadd: added new accessibility feature vocal barks as an alternative to TTS,
+      porting it from bubberstation/fluffy-stg with our own implementation--accessible
+      through the Voice Settings menu
