@@ -5,7 +5,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Captain, and in non-Bridge related situations the other heads"
+	supervisors = "the Nanotrasen Consultant, the Captain and all the other heads of command."
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BRIDGE_ASSISTANT"
 	veteran_only = TRUE
