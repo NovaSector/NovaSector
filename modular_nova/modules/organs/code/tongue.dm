@@ -111,6 +111,7 @@
 	taste_sensitivity = 20
 	liked_foodtypes = NONE
 	disliked_foodtypes = NONE
+	toxic_foodtypes = NONE
 
 /obj/item/organ/tongue/vox
 	name = "vox tongue"

@@ -126,3 +126,18 @@
 			user.balloon_alert(user, "fully charged")
 			break
 
+/datum/design/synth_charger
+	name = "Charging Cord Implant"
+	desc = "An internal power cord for synthetic use only. Requires connection the synthetic fuel cell to function."
+	id = "synth_charger"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/power_cord
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE

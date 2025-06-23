@@ -1177,7 +1177,7 @@
 "tq" = (
 /mob/living/basic/heretic_summon/raw_prophet/ruins{
 	name = "You shouldnt be here";
-	bare_wound_bonus = 100;
+	exposed_wound_bonus = 100;
 	wound_bonus = 100;
 	melee_damage_upper = 50;
 	health = 2000
