@@ -11,7 +11,7 @@ const BASEICONS = {
   'Bit Avatar': 'code',
   Bitrunner: 'gamepad',
   Botanist: 'seedling',
-  'Bridge Assistant': 'building-shield',
+  'Bridge Officer': 'building-shield', // NOVA EDIT
   Captain: 'crown',
   'Cargo Gorilla': 'paw',
   'Cargo Technician': 'box',
