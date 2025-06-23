@@ -30,6 +30,7 @@
 // SolFed 911 Marshal Uniform
 /obj/item/clothing/under/solfed
 	name = "\improper SolFed marshal's uniform"
+	desc = "A modernization of the SolFed's peacekeeping uniform, modernized and refurbished to feel fashionable yet functional in its new modern setting, tailored for federal personnel."
 	icon = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	icon_state = "solpolice"
 	worn_icon = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
