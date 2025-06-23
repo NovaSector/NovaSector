@@ -18,7 +18,7 @@
 	if(isnull(target_organ))
 		return FALSE
 	// Ensure organ is where it's needed
-	if(target_organ.zone != location)
+	if(!(target_organ.zone in possible_locs))
 		return FALSE
 	// Ensure organ has the required amount of damage
 	if(!isnull(requires_organ_damage) && target_organ.damage < requires_organ_damage)
