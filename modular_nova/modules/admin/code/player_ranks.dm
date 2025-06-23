@@ -1,5 +1,5 @@
 /// The list of the available special player ranks
-#define NOVA_PLAYER_RANKS list("Donator", "Mentor", "Nova_Star")
+#define NOVA_PLAYER_RANKS list("Donator", "Mentor", "Nova Star")
 
 ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage who has the special player ranks while the server is running.", ADMIN_CATEGORY_MAIN)
 	usr.client?.holder.manage_player_ranks()
@@ -33,7 +33,7 @@ ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage wh
 	if(!(group in NOVA_PLAYER_RANKS))
 		CRASH("[key_name(usr)] attempted to add someone to an invalid \"[group]\" group.")
 
-	var/group_title = LOWER_TEXT(group)
+	var/group_title = LOWER_TEXT(replacetext(group, " ", "_"))
 
 	var/list/choices = list("Add", "Remove")
 	switch(tgui_alert(usr, "What would you like to do?", "Manage [group]s", choices))
