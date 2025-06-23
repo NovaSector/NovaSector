@@ -23,6 +23,7 @@
 	icon_state = "hyperboard"
 	base_icon_state = "hyperboard"
 	fail_message = span_notice("The compact AI circuit buzzes quietly, and the cyan lights fade away. Perhaps you could try again?")
+
 /obj/item/mmi/posibrain/circuit/limaengine
 	name = "compact liquid-engine circuit"
 	desc = "A compact circuit, perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
