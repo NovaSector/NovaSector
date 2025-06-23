@@ -232,12 +232,12 @@
 /obj/item/clothing/under/solfed/marines/desert
 	greyscale_colors = "#e8dd9b#d6c76d#afa984"
 
-// SolFed Espirator
-/obj/item/clothing/under/solfed/espirator
-	name = "\improper SolFed Espirator uniform"
-	desc = "A Camoflague for the solfed armed forces, designed, tailored, and put into action for the solfed espirators." //IDK what an Espirator is you've gotta fill this out LOL
+// SolFed Espatier
+/obj/item/clothing/under/solfed/espatier
+	name = "\improper SolFed Espatier uniform"
+	desc = "A camouflage uniform for members of the SolFed Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. They additionally fill the role of simple space-borne infantry, earning the nickname of \"Space Marines\" from many spacers."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
-	icon_state = "/obj/item/clothing/under/solfed/espirator"
+	icon_state = "/obj/item/clothing/under/solfed/espatier"
 	post_init_icon_state = "solfed_camo"
 	worn_icon_state = "solfed_camo"
 	worn_icon_digi = "solfed_camo"
@@ -250,16 +250,16 @@
 	random_sensor = FALSE
 	can_adjust = FALSE
 
-/obj/item/clothing/under/solfed/espirator/winter
+/obj/item/clothing/under/solfed/espatier/winter
 	greyscale_colors = "#ffffff#c0c0c0"
 
-/obj/item/clothing/under/solfed/espirator/forest
+/obj/item/clothing/under/solfed/espatier/forest
 	greyscale_colors = "#7fc57f#008000"
 
-/obj/item/clothing/under/solfed/espirator/desert
+/obj/item/clothing/under/solfed/espatier/desert
 	greyscale_colors = "#e8dd9b#888157"
 
-/obj/item/clothing/under/solfed/espirator/ocean
+/obj/item/clothing/under/solfed/espatier/ocean
 	greyscale_colors = "#92a2d2#53638f"
 
 /// SolFed Accessories
