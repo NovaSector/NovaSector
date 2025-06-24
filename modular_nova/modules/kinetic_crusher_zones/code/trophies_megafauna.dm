@@ -13,7 +13,6 @@
 /obj/item/crusher_trophy/demon_claws
 	fauna_trophy = TRUE
 	var/stat_bonuses_applied = FALSE
-	var/mob/living/current_user
 
 /obj/item/crusher_trophy/blaster_tubes
 	fauna_trophy = TRUE
@@ -48,7 +47,6 @@
 	. = ..()
 	if(!.)
 		return
-	current_user = user
 	RegisterSignal(pkc, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_crusher_moved))
 	check_and_update_bonuses(pkc, user)
 
@@ -59,12 +57,17 @@
 		pkc.update_wielding()
 		stat_bonuses_applied = FALSE
 	UnregisterSignal(pkc, COMSIG_MOVABLE_Z_CHANGED)
-	current_user = null
 	. = ..()
 
 /obj/item/crusher_trophy/demon_claws/proc/on_crusher_moved(datum/source, atom/old_loc, atom/new_loc)
 	SIGNAL_HANDLER
-	check_and_update_bonuses(source, current_user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(QDELETED(crusher))
+		return
+
+	var/mob/living/crusher_user = crusher.loc
+	if(istype(crusher_user))
+		check_and_update_bonuses(source, crusher_user)
 
 /obj/item/crusher_trophy/demon_claws/proc/check_and_update_bonuses(obj/item/kinetic_crusher/pkc, mob/living/user)
 	var/should_have_bonuses = pkc.trophies_enabled

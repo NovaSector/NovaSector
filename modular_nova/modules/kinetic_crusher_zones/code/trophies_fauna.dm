@@ -37,7 +37,6 @@
 /obj/item/crusher_trophy/wolf_ear
 	fauna_trophy = TRUE
 
-
 /obj/item/crusher_trophy/ice_demon_cube
 	fauna_trophy = TRUE
 
@@ -50,7 +49,8 @@
 	if(!crusher?.trophies_enabled)
 		return
 
-	. = ..()
+	return ..()
+	
 //magmawing watcher
 /obj/item/crusher_trophy/blaster_tubes/magma_wing/on_projectile_fire(obj/projectile/destabilizer/marker, mob/living/user)
 	var/obj/item/kinetic_crusher/crusher = loc
@@ -137,9 +137,7 @@
 	if(!crusher?.trophies_enabled)
 		return
 
-	. = ..()
-	//ability itself handles cooldowns
-	ability.InterceptClickOn(user, null, target)
+	return ..()
 
 /obj/item/crusher_trophy/bileworm_spewlet/on_projectile_hit_mineral(turf/closed/mineral, mob/living/user)
 	var/obj/item/kinetic_crusher/crusher = loc
