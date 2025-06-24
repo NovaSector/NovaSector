@@ -42,22 +42,13 @@
 		previous_environment_type = null
 		return
 
-	var/datum/space_level/level = SSmapping.z_list[current_turf.z]
-
-	// Check if the current z-level has lava ruins or ice ruins underground traits
-	var/static/list/valid_traits = list(ZTRAIT_LAVA_RUINS, ZTRAIT_ICE_RUINS_UNDERGROUND)
-	var/active_environment_type = null
-	trophies_enabled = FALSE
-	if(level && level.traits)
-		for(var/trait in valid_traits)
-			if(trait in level.traits)
-				trophies_enabled = TRUE
-				// Determine environment type for lore messages
-				if(trait == ZTRAIT_LAVA_RUINS)
-					active_environment_type = "lava"
-				else if(trait == ZTRAIT_ICE_RUINS_UNDERGROUND)
-					active_environment_type = "ice_underground"
-				break
+	// Determine environment type for lore messages
+	if(SSmapping.level_trait(new_turf.z, ZTRAIT_ICE_RUINS_UNDERGROUND))
+		trophies_enabled = TRUE
+		active_environment_type = "ice_underground"
+	else if(SSmapping.level_trait(new_turf.z, ZTRAIT_LAVA_RUINS))
+		trophies_enabled = TRUE
+		active_environment_type = "lava"
 
 	// Update the stored environment type
 	previous_environment_type = active_environment_type
