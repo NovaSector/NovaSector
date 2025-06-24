@@ -9,34 +9,16 @@
 	update_trophies_enabled()
 	// Listen for z-level changes only
 	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_level_change))
-	// Also register for when we're picked up/dropped to catch container movement (traits can't be stored so no cheesing the trophies)
-	RegisterSignal(src, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipment_change))
-	RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(on_equipment_change))
 
 /obj/item/kinetic_crusher/proc/on_z_level_change(datum/source, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
-	update_trophies_enabled()
+	update_trophies_enabled(new_turf)
 
-/obj/item/kinetic_crusher/proc/on_equipment_change(datum/source)
-	SIGNAL_HANDLER
-	// When we're equipped/dropped, we might need to listen to our new container's movement
-	var/atom/holder = loc
-	if(ismob(holder))
-		// Register to the mob's z-level changes
-		RegisterSignal(holder, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_container_z_change), TRUE)
-	else
-		// Clean up any old mob signals
-		UnregisterSignal(src, COMSIG_MOVABLE_Z_CHANGED)
-
-/obj/item/kinetic_crusher/proc/on_container_z_change(datum/source, turf/old_turf, turf/new_turf)
-	SIGNAL_HANDLER
-	update_trophies_enabled()
-
-/obj/item/kinetic_crusher/proc/update_trophies_enabled()
+/obj/item/kinetic_crusher/proc/update_trophies_enabled(turf/new_turf)
 	previous_trophies_enabled = trophies_enabled
 	var/previous_env = previous_environment_type
 
-	var/turf/current_turf = get_turf(src)
+	var/turf/current_turf = new_turf
 	if(!current_turf)
 		trophies_enabled = FALSE
 		previous_environment_type = null
