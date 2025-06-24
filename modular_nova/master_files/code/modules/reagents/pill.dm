@@ -59,7 +59,7 @@
 /obj/item/reagent_containers/applicator/pill/style/gummy/slugcat/white
 	icon_state = "slug-white"
 
-/obj/item/reagent_containers/applicator/pill/style/gummy/slugcat/white
+/obj/item/reagent_containers/applicator/pill/style/gummy/slugcat/rainbow
 	icon_state = "slug-rainbow"
 
 /obj/item/reagent_containers/applicator/pill/style/gummy/fish
@@ -86,5 +86,5 @@
 /obj/item/reagent_containers/applicator/pill/style/gummy/fish/white
 	icon_state = "fish-white"
 
-/obj/item/reagent_containers/applicator/pill/style/gummy/fish/white
+/obj/item/reagent_containers/applicator/pill/style/gummy/fish/rainbow
 	icon_state = "fish-rainbow"
