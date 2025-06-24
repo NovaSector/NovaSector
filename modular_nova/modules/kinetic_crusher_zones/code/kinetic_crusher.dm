@@ -3,10 +3,8 @@
 /obj/item/kinetic_crusher
 	/// Whether the current zone allows trophies to be active
 	var/trophies_enabled = FALSE
-
 	/// Stores the previous state of whether trophies were enabled
 	var/previous_trophies_enabled = FALSE
-
 	/// The last known environment type ("lava" or "ice_underground"), used for message consistency
 	var/previous_environment_type = null
 
