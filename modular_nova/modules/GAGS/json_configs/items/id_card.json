@@ -2,21 +2,31 @@
 	"id_card": [
 		{
 			"type": "icon_state",
+			"icon_state": "lanyard",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
 			"icon_state": "card",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "trim",
+			"icon_state": "card2",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "strip",
+			"icon_state": "trim",
 			"blend_mode": "overlay",
 			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "strip-nomod",
+			"blend_mode": "overlay"
 		}
 	]
 }
