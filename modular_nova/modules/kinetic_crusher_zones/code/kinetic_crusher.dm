@@ -1,7 +1,13 @@
 // Modular kinetic crusher zone restrictions
+
 /obj/item/kinetic_crusher
+	/// Whether the current zone allows trophies to be active
 	var/trophies_enabled = FALSE
+
+	/// Stores the previous state of whether trophies were enabled
 	var/previous_trophies_enabled = FALSE
+
+	/// The last known environment type ("lava" or "ice_underground"), used for message consistency
 	var/previous_environment_type = null
 
 /obj/item/kinetic_crusher/Initialize(mapload)
@@ -9,10 +15,18 @@
 	update_trophies_enabled()
 	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_level_change))
 
+/// Called when the crusher changes z-levels; updates trophy zone state
 /obj/item/kinetic_crusher/proc/on_z_level_change(datum/source, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
 	update_trophies_enabled(new_turf)
 
+/// Calls `check_and_update_bonus()` on any attached trophies that support it
+/obj/item/kinetic_crusher/proc/update_all_trophy_bonuses()
+	for (var/obj/item/crusher_trophy/trophy in src.trophies)
+		if (hascall(trophy, "check_and_update_bonus"))
+			call(trophy, "check_and_update_bonus")(src, loc)
+
+/// Updates whether trophies are active based on current z-level traits; handles lore messages and bonus updates
 /obj/item/kinetic_crusher/proc/update_trophies_enabled(turf/new_turf)
 	previous_trophies_enabled = trophies_enabled
 	var/previous_env = previous_environment_type
@@ -41,6 +55,8 @@
 	if(trophies_enabled == previous_trophies_enabled)
 		return
 
+	update_all_trophy_bonuses()
+
 	var/atom/holder = loc
 	if(!ismob(holder))
 		return
@@ -50,8 +66,8 @@
 
 	// Check if any fauna trophies are attached
 	var/has_fauna_trophy = FALSE
-	for(var/obj/item/crusher_trophy/trophy in trophies)
-		if(trophy.fauna_trophy)
+	for (var/obj/item/crusher_trophy/trophy in trophies)
+		if (trophy.trophy_triggers_lore)
 			has_fauna_trophy = TRUE
 			break
 

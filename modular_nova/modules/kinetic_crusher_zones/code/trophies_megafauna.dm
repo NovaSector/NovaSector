@@ -1,32 +1,34 @@
 /*!
  * Contains crusher trophies you can obtain from megafauna
  */
-// Marks this trophy as a fauna trophy so it triggers the lore messages when entering the mining z-level. Cosmetic trophies won't activate this
+
+// Marks this trophy as triggering lore messages when entering a special mining z-level
 /obj/item/crusher_trophy
+
 // LAVALAND TROPHIES
 /obj/item/crusher_trophy/miner_eye
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 
 /obj/item/crusher_trophy/tail_spike
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 
 /obj/item/crusher_trophy/demon_claws
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 	var/stat_bonuses_applied = FALSE
 
 /obj/item/crusher_trophy/blaster_tubes
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 
 /obj/item/crusher_trophy/vortex_talisman
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 
 /obj/item/crusher_trophy/gladiator
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 	var/bonus_applied = FALSE
 	var/mob/living/current_user
 
 /obj/item/crusher_trophy/ice_block_talisman
-	fauna_trophy = TRUE
+	trophy_triggers_lore = TRUE
 
 //blood-drunk hunter
 /obj/item/crusher_trophy/miner_eye/on_mark_detonation(mob/living/target, mob/living/user)
@@ -150,7 +152,6 @@
 	else if (!should_apply && bonus_applied)
 		incomingchance.block_chance -= bonus_value
 		bonus_applied = FALSE
-
 
 // ICE WASTES TROPHIES
 
