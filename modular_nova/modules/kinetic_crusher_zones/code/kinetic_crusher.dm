@@ -32,7 +32,7 @@
 	SIGNAL_HANDLER
 	update_trophies_enabled()
 
-/obj/item/kinetic_crusher/proc/update_trophies_enabled()
+/obj/item/kinetic_crusher/proc/update_trophies_enabled(datum/source, turf/old_turf, turf/new_turf)
 	previous_trophies_enabled = trophies_enabled
 	var/previous_env = previous_environment_type
 
