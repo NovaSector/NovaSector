@@ -145,3 +145,32 @@
 		return
 
 	. = ..()
+
+// ICE WASTES TROPHIES
+
+// demonic watcher
+/obj/item/crusher_trophy/ice_demon_cube/on_mark_detonation(mob/living/target, mob/living/user)
+	if(isnull(target) || !COOLDOWN_FINISHED(src, summon_cooldown))
+		return
+
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+
+	. = ..()
+
+// Wolf
+/obj/item/crusher_trophy/wolf_ear/on_mark_detonation(mob/living/target, mob/living/user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+
+	. = ..()
+
+// Polar bear
+/obj/item/crusher_trophy/bear_paw/on_mark_detonation(mob/living/target, mob/living/user)
+	var/obj/item/kinetic_crusher/crusher = loc
+	if(!crusher?.trophies_enabled)
+		return
+
+	. = ..()
