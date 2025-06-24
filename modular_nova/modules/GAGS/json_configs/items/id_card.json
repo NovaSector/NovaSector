@@ -25,6 +25,12 @@
 		},
 		{
 			"type": "icon_state",
+			"icon_state": "roleblock",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		},
+		{
+			"type": "icon_state",
 			"icon_state": "strip-nomod",
 			"blend_mode": "overlay"
 		}
