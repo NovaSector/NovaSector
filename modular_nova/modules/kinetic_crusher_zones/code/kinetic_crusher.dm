@@ -15,7 +15,7 @@
 
 /obj/item/kinetic_crusher/proc/on_z_level_change(datum/source, turf/old_turf, turf/new_turf)
 	SIGNAL_HANDLER
-	update_trophies_enabled()
+	update_trophies_enabled(source, old_turf, new_turf)
 
 /obj/item/kinetic_crusher/proc/on_equipment_change(datum/source)
 	SIGNAL_HANDLER
@@ -81,10 +81,3 @@
 						if("ice_underground")
 							to_chat(holder, span_warning("The deep corruption fades from your crusher's trophies as you ascend from the frozen depths of Freyja."))
 
-	// Debug output, if one wants to investigate
-	var/list/found_traits = list()
-	if(level && level.traits)
-		for(var/trait in valid_traits)
-			if(trait in level.traits)
-				found_traits += trait
-	world.log << "[src.name] trophies_enabled = [trophies_enabled] at z-level [current_turf.z] (found traits: [found_traits.len ? found_traits.Join(", ") : "none"]) (level exists: [!!level]) (level.traits: [level?.traits?.len || 0] traits)"
