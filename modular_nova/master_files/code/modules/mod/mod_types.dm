@@ -21,8 +21,8 @@
 		/obj/item/mod/module/stamp,
 	)
 
-/obj/item/mod/control/pre_equipped/syndicate/deepspace
+/obj/item/mod/control/pre_equipped/deepspace
 	theme = /datum/mod_theme/deepspace
 
-/obj/item/mod/control/pre_equipped/elite/deepspace_admiral
+/obj/item/mod/control/pre_equipped/deepspace_admiral
 	theme = /datum/mod_theme/deepspace_admiral

@@ -11,6 +11,10 @@
 	slot_flags = ITEM_SLOT_BELT
 	inbuilt_modules = list(/obj/item/mod/module/storage/civilian)
 
+
+/// FOR MODSUIT DIGI SKINS GO TO THIS FILE!
+// modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi
+
 /datum/mod_theme/deepspace
 	name = "covert"
 	desc = "A suit designed by Gorlex Marauders, offering armor ruled illegal in most of Spinward Stellar."
@@ -21,7 +25,7 @@
 		ablative shield module to provide resistance against conventional energy firearms. \
 		A small tag hangs off of it reading; 'Property of the Gorlex Marauders, with assistance from Cybersun Industries. \
 		All rights reserved, tampering with suit will void warranty."
-	default_skin = "syndicate"
+	default_skin = "covert"
 	armor_type = /datum/armor/mod_theme_syndicate
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 3
@@ -39,7 +43,7 @@
 		/obj/item/shield/energy,
 	)
 	variants = list(
-		"syndicate" = list(
+		"covert" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
