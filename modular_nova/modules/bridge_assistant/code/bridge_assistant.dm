@@ -18,10 +18,9 @@
 	bounty_types = CIV_JOB_DRINK
 
 	display_order = JOB_DISPLAY_ORDER_BRIDGE_ASSISTANT
-	department_for_prefs = /datum/job_department/service
+	department_for_prefs = /datum/job_department/command
 	departments_list = list(
 		/datum/job_department/command,
-		/datum/job_department/service,
 	)
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
@@ -51,13 +50,6 @@
 	ears = /obj/item/radio/headset/headset_cent/bridge_officer
 	shoes = /obj/item/clothing/shoes/laceup
 	belt = /obj/item/modular_computer/pda/bridge_assistant
-	r_pocket = /obj/item/pen/edagger/bridge_assistant
-	l_pocket = /obj/item/clipboard
-
-/datum/outfit/job/bridge_assistant/pre_equip(mob/living/carbon/human/user, visuals_only = FALSE)
-	. = ..()
-	if(rand(0, 100) == 0)
-		neck = /obj/item/clothing/neck/bowtie/rainbow
 
 /datum/outfit/job/bridge_assistant/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
@@ -95,14 +87,6 @@
 /obj/item/clothing/neck/bowtie/green
 	name = "green bow tie"
 	greyscale_colors = "#70b46e"
-
-//edagger
-/obj/item/pen/edagger/bridge_assistant
-	icon = 'modular_nova/modules/bridge_assistant/icons/edagger.dmi'
-	dart_insert_icon = 'modular_nova/modules/bridge_assistant/icons/edagger.dmi'
-	lefthand_icon = 'modular_nova/modules/bridge_assistant/icons/edagger_lefthand.dmi'
-	righthand_icon = 'modular_nova/modules/bridge_assistant/icons/edagger_righthand.dmi'
-	light_color = "#82fa8c"
 
 //trim
 /datum/id_trim/job/bridge_assistant
