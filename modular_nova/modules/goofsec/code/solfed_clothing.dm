@@ -235,7 +235,8 @@
 // SolFed Espatier
 /obj/item/clothing/under/solfed/espatier
 	name = "\improper SolFed Espatier uniform"
-	desc = "A camouflage uniform for members of the SolFed Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. They additionally fill the role of simple space-borne infantry, earning the nickname of \"Space Marines\" from many spacers."
+	desc = "A camouflage uniform for members of the SolFed Espatier Corps, typically serving as Starfleet (SFSF) and Space Guard (SFSG) shipboard security. \
+		They additionally fill the role of simple space-borne infantry, earning the nickname of \"Space Marines\" from many spacers."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/solfed/espatier"
 	post_init_icon_state = "solfed_camo"
