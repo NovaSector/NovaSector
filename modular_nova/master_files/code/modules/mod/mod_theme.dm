@@ -17,14 +17,8 @@
 
 /datum/mod_theme/deepspace
 	name = "deepspace"
-	desc = "A suit designed by Gorlex Marauders, offering armor ruled illegal in most of Spinward Stellar."
-	extended_desc = "An advanced combat suit adorned in a sinister crimson red color scheme, produced and manufactured \
-		for special mercenary operations. The build is a streamlined layering consisting of shaped Plasteel, \
-		and composite ceramic, while the under suit is lined with a lightweight Kevlar and durathread hybrid weave \
-		to provide ample protection to the user where the plating doesn't, with an illegal onboard electric powered \
-		ablative shield module to provide resistance against conventional energy firearms. \
-		A small tag hangs off of it reading; 'Property of the Gorlex Marauders, with assistance from Cybersun Industries. \
-		All rights reserved, tampering with suit will void warranty."
+	desc = "A deep-space modsuit suit made by the Syndicate Conglomerate, offering bulkier armor and versatility than the sttandard deep-space modsuit."
+	extended_desc = "Better Description Needed"
 	default_skin = "deepspace"
 	armor_type = /datum/armor/mod_theme_syndicate
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
@@ -111,7 +105,7 @@
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
-		), "enforcer" = list( /// FINISH THIS MOD'S SPRITES
+		), "enforcer" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -145,7 +139,7 @@
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
-		),"cybersun" = list( /// FINISH THIS MOD'S SPRITES
+		),"cybersun" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
@@ -184,13 +178,8 @@
 
 /datum/mod_theme/deepspace_admiral
 	name = "admiral"
-	desc = "An elite suit upgraded by Cybersun Industries, offering upgraded armor values."
-	extended_desc = "An evolution of the syndicate suit, featuring a bulkier build and a matte black color scheme, \
-		this suit is only produced for high ranking Syndicate officers and elite strike teams. \
-		It comes built with a secondary layering of ceramic and Kevlar into the plating providing it with \
-		exceptionally better protection along with fire and acid proofing. A small tag hangs off of it reading; \
-		'Property of the Gorlex Marauders, with assistance from Cybersun Industries. \
-		All rights reserved, tampering with suit will void life expectancy.'"
+	desc = "An elite deep-space modsuit suit upgraded by Syndicate Conglomerate, offering bulkier armor and versatility than the sttandard deep-space modsuit."
+	extended_desc = "Better Description Needed"
 	default_skin = "elite"
 	armor_type = /datum/armor/mod_theme_elite
 	resistance_flags = FIRE_PROOF|ACID_PROOF
