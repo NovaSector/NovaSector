@@ -24,6 +24,10 @@
 	///What sound does our consumption play on consuming from the container?
 	var/consumption_sound = 'sound/items/drink.ogg'
 
+/obj/item/reagent_containers/cup/Initialize(mapload, vol)
+	. = ..()
+	AddElement(/datum/element/reagents_item_heatable)
+
 /obj/item/reagent_containers/cup/examine(mob/user)
 	. = ..()
 	if(drink_type)
@@ -173,7 +177,7 @@
 
 	return NONE
 
-/obj/item/reagent_containers/cup/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/reagent_containers/cup/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	var/hotness = attacking_item.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
@@ -412,7 +416,7 @@
 
 // NOVA EDIT CHANGE START - LIQUIDS
 /* Original
-/obj/item/reagent_containers/cup/bucket/attackby(obj/O, mob/user, params)
+/obj/item/reagent_containers/cup/bucket/attackby(obj/O, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(O, /obj/item/mop))
 		if(reagents.total_volume < 1)
 			user.balloon_alert(user, "empty!")
@@ -422,9 +426,9 @@
 			playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 		return
 */
-/obj/item/reagent_containers/cup/bucket/attackby(obj/mop, mob/living/user, params)
+/obj/item/reagent_containers/cup/bucket/attackby(obj/mop, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(mop, /obj/item/mop))
-		var/is_right_clicking = LAZYACCESS(params2list(params), RIGHT_CLICK)
+		var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
 		if(is_right_clicking)
 			if(mop.reagents.total_volume == 0)
 				user.balloon_alert(user, "mop is dry!")

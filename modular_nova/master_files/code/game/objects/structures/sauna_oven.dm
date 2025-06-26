@@ -50,16 +50,16 @@
 	..()
 	icon_state = "[lit ? "sauna_oven_on" : initial(icon_state)]"
 
-/obj/structure/sauna_oven/attackby(obj/item/used_item, mob/user)
-	if(used_item.tool_behaviour == TOOL_WRENCH)
+/obj/structure/sauna_oven/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		balloon_alert(user, "deconstructing...")
-		if(used_item.use_tool(src, user, 60, volume = 50))
+		if(attacking_item.use_tool(src, user, 60, volume = 50))
 			balloon_alert(user, "deconstructed")
 			new /obj/item/stack/sheet/mineral/wood(get_turf(src), 30)
 			qdel(src)
 
-	else if(istype(used_item, /obj/item/reagent_containers))
-		var/obj/item/reagent_containers/reagent_container = used_item
+	else if(istype(attacking_item, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/reagent_container = attacking_item
 		if(!reagent_container.is_open_container())
 			return ..()
 		if(reagent_container.reagents.has_reagent(/datum/reagent/water))
@@ -71,8 +71,8 @@
 		else
 			balloon_alert(user, "no water!")
 
-	else if(istype(used_item, /obj/item/stack/sheet/mineral/wood))
-		var/obj/item/stack/sheet/mineral/wood/wood = used_item
+	else if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood))
+		var/obj/item/stack/sheet/mineral/wood/wood = attacking_item
 		if(fuel_amount > SAUNA_MAXIMUM_FUEL)
 			balloon_alert(user, "it's full!")
 			return
@@ -81,19 +81,19 @@
 		user.visible_message(span_notice("[user] tosses some \
 			wood into [src]."), span_notice("You add \
 			some fuel to [src]."))
-	else if(istype(used_item, /obj/item/paper_bin))
-		var/obj/item/paper_bin/paper_bin = used_item
-		user.visible_message(span_notice("[user] throws [used_item] into \
-			[src]."), span_notice("You add [used_item] to [src].\
+	else if(istype(attacking_item, /obj/item/paper_bin))
+		var/obj/item/paper_bin/paper_bin = attacking_item
+		user.visible_message(span_notice("[user] throws [attacking_item] into \
+			[src]."), span_notice("You add [attacking_item] to [src].\
 			"))
 		fuel_amount += SAUNA_PAPER_FUEL * paper_bin.total_paper
 		qdel(paper_bin)
-	else if(istype(used_item, /obj/item/paper))
-		user.visible_message(span_notice("[user] throws [used_item] into \
-			[src]."), span_notice("You throw [used_item] into [src].\
+	else if(istype(attacking_item, /obj/item/paper))
+		user.visible_message(span_notice("[user] throws [attacking_item] into \
+			[src]."), span_notice("You throw [attacking_item] into [src].\
 			"))
 		fuel_amount += SAUNA_PAPER_FUEL
-		qdel(used_item)
+		qdel(attacking_item)
 	return ..()
 
 /obj/structure/sauna_oven/process()

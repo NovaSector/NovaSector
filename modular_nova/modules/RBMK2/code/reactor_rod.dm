@@ -25,11 +25,19 @@
 	fire = 90
 	acid = 50
 
+// Single crate orderable fuel rod, also used in the preloaded RBMK
 /obj/item/tank/rbmk2_rod/preloaded/populate_gas()
 	air_contents.assert_gas(/datum/gas/tritium)
 	air_contents.assert_gas(/datum/gas/nitrogen)
 	air_contents.gases[/datum/gas/tritium][MOLES] = 80
 	air_contents.gases[/datum/gas/nitrogen][MOLES] = 10
+
+// RBMK rod for the prepacked RBMK crate
+/obj/item/tank/rbmk2_rod/random_tritium/populate_gas()
+	air_contents.assert_gas(/datum/gas/tritium)
+	air_contents.assert_gas(/datum/gas/nitrogen)
+	air_contents.gases[/datum/gas/tritium][MOLES] = rand(2, 7)
+	air_contents.gases[/datum/gas/nitrogen][MOLES] = 58
 
 /obj/item/tank/rbmk2_rod/atom_destruction(damage_flag)
 	if(!loc || !istype(loc, /obj/machinery/power/rbmk2))
@@ -52,8 +60,8 @@
 	. += span_notice("A sticker on its side says <b>MAX SAFE PRESSURE: [siunit_pressure(pressure_limit, 0)]; MAX SAFE TEMPERATURE: [siunit(temperature_limit, "K", 0)]</b>.")
 
 // Prevents putting the reactor rod on a TTV.
-/obj/item/transfer_valve/attackby(obj/item/item, mob/user, params)
-	if(istype(item, /obj/item/tank/rbmk2_rod))
-		to_chat(user, span_warning("[item] doesn't fit!"))
+/obj/item/transfer_valve/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/tank/rbmk2_rod))
+		to_chat(user, span_warning("[attacking_item] doesn't fit!"))
 		return
 	return ..()

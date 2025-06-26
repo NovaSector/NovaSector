@@ -1,7 +1,7 @@
 /obj/item/kinetic_crusher
 	/// This var is used to imitate being weilded if it's one handed
 	var/acts_as_if_wielded
-	/// AHABS_SPEAR Module Change - This var is used by retool kits when changing the crusher's projectile appearance
+	/// This var is used by retool kits when changing the crusher's projectile appearance
 	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
 
 /obj/item/kinetic_crusher/machete

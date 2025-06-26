@@ -44,17 +44,28 @@
 
 /obj/item/clothing/head/beret/blueshield
 	name = "blueshield's beret"
-	desc = "A blue beret made of durathread with a genuine golden badge, denoting its owner as a Blueshield Lieuteneant. It seems to be padded with nano-kevlar, making it tougher than standard reinforced berets."
+	desc = "A blue beret made of durathread with a genuine golden badge, denoting its owner as a Blueshield Lieutenant. It seems to be padded with nano-kevlar, making it tougher than standard reinforced berets."
+	icon_state = "/obj/item/clothing/head/beret/blueshield"
+	post_init_icon_state = "beret_badge_police"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#3A4E7D#DEB63D"
-	icon_state = "beret_badge_police"
+	armor_type = /datum/armor/cosmetic_sec
+	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/head/soft/blueshield
+	name = "blueshield's cap"
+	desc = "A navy-blue baseball cap made of durathread with a genuine golden badge, denoting its owner as a Blueshield Lieutenant. It seems to be padded with nano-kevlar, making it tougher than standard caps."
+	icon_state = "blueshieldsoft"
+	soft_type = "blueshield"
+	inhand_icon_state = "greyscale_softcap"
 	armor_type = /datum/armor/cosmetic_sec
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/head/beret/blueshield/navy
 	name = "navy blueshield's beret"
-	desc = "A navy-blue beret made of durathread with a silver badge, denoting its owner as a Blueshield Lieuteneant. It seems to be padded with nano-kevlar, making it tougher than standard reinforced berets."
+	desc = "A navy-blue beret made of durathread with a silver badge, denoting its owner as a Blueshield Lieutenant. It seems to be padded with nano-kevlar, making it tougher than standard reinforced berets."
+	icon_state = "/obj/item/clothing/head/beret/blueshield/navy"
 	greyscale_colors = "#3C485A#BBBBBB"
 
 /obj/item/storage/backpack/blueshield

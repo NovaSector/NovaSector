@@ -298,6 +298,10 @@
 		/datum/crafting_recipe/black_pelt_bed,
 		/datum/crafting_recipe/white_pelt_bed,
 		/datum/crafting_recipe/frozen_breath,
+		/datum/crafting_recipe/runic_greatsword,
+		/datum/crafting_recipe/runic_greataxe,
+		/datum/crafting_recipe/runic_spear,
+		/datum/crafting_recipe/hearthkin_ship_fragment_inactive,
 	)
 
 /datum/antagonist/primitive_catgirl/Destroy()

@@ -8,7 +8,7 @@ Adds in a green sleeper-like cryosleep machine, to allow people who wish to stop
 
 ### TG Proc Changes:
 
- - ADDITION: /code/game/machinery/announcement_system.dm > /obj/machinery/announcement_system/proc/announce()
+- ADDITION: /code/game/machinery/announcement_system.dm > /obj/machinery/announcement_system/proc/announce()
 
 ### Defines:
 

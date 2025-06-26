@@ -33,6 +33,8 @@
 
 /datum/antagonist/ashwalker/on_removal()
 	. = ..()
+	if(!owner.current)
+		return
 	UnregisterSignal(owner.current, COMSIG_MOB_EXAMINATE)
 	// if(!(FACTION_NEUTRAL in owner.current.faction)) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual
 		// owner.current.faction.Add(FACTION_NEUTRAL) //NOVA EDIT REMOVAL - Keeping Neutral and moving the rest to a ritual

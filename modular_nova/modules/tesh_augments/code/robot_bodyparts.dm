@@ -7,10 +7,10 @@
 #define ROBOTIC_HEAVY_BURN_MSG "smoldering"
 
 /*
- The damage modifiers here are modified to stay in line with teshari
- Although I'm not sure if it's redundant, better safe than sorry.
+	The damage modifiers here are modified to stay in line with teshari
+	Although I'm not sure if it's redundant, better safe than sorry.
 
- Addendum: the limbs lack "limb_id = SPECIES_TESHARI". if this becomes a problem, just put those in xoxo -aKhro
+	Addendum: the limbs lack "limb_id = SPECIES_TESHARI". if this becomes a problem, just put those in xoxo -aKhro
  */
 
 #define TESHARI_PUNCH_LOW 2
@@ -97,7 +97,8 @@
 	brute_modifier = 1
 	burn_modifier = 0.9
 
-	head_flags = HEAD_EYESPRITES
+	head_flags = HEAD_EYESPRITES|HEAD_EYECOLOR
+	eyes_icon = 'modular_nova/modules/organs/icons/teshari_eyes.dmi'
 
 // teshari_ surplus
 

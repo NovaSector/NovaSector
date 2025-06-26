@@ -261,7 +261,7 @@
 	return finish_preview_icon(icon)
 
 /datum/antagonist/heretic/farewell()
-	if(!silent)
+	if(!silent && owner.current)
 		to_chat(owner.current, span_userdanger("Your mind begins to flare as the otherwordly knowledge escapes your grasp!"))
 	return ..()
 
@@ -280,9 +280,10 @@
 	return ..()
 
 /datum/antagonist/heretic/on_removal()
-	for(var/knowledge_index in researched_knowledge)
-		var/datum/heretic_knowledge/knowledge = researched_knowledge[knowledge_index]
-		knowledge.on_lose(owner.current, src)
+	if(owner.current)
+		for(var/knowledge_index in researched_knowledge)
+			var/datum/heretic_knowledge/knowledge = researched_knowledge[knowledge_index]
+			knowledge.on_lose(owner.current, src)
 
 	QDEL_LIST_ASSOC_VAL(researched_knowledge)
 	return ..()
@@ -360,7 +361,7 @@
  * and have mansus grasp active in their offhand,
  * they're able to draw a transmutation rune.
  */
-/datum/antagonist/heretic/proc/on_item_use(mob/living/source, atom/target, obj/item/weapon, click_parameters)
+/datum/antagonist/heretic/proc/on_item_use(mob/living/source, atom/target, obj/item/weapon, list/modifiers)
 	SIGNAL_HANDLER
 	if(!is_type_in_typecache(weapon, scribing_tools))
 		return NONE

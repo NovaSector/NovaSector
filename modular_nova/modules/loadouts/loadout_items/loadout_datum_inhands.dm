@@ -39,15 +39,15 @@
 
 /datum/loadout_item/inhand/guncase_large
 	name = "Black Empty Gun Case (Large)"
-	item_path = /obj/item/storage/toolbox/guncase/nova/empty
+	item_path = /obj/item/storage/toolbox/guncase/nova
 
 /datum/loadout_item/inhand/guncase_large/yellow
 	name = "Yellow Empty Gun Case (Large)"
-	item_path = /obj/item/storage/toolbox/guncase/nova/carwo_large_case/empty
+	item_path = /obj/item/storage/toolbox/guncase/nova/carwo_large_case
 
 /datum/loadout_item/inhand/guncase_small
 	name = "Black Empty Gun Case (Small)"
-	item_path = /obj/item/storage/toolbox/guncase/nova/pistol/empty
+	item_path = /obj/item/storage/toolbox/guncase/nova/pistol
 
 /datum/loadout_item/inhand/skub
 	name = "Skub"
@@ -77,12 +77,6 @@
 /datum/loadout_item/inhand/bouquet_rose
 	name = "Rose Bouquet"
 	item_path = /obj/item/bouquet/rose
-
-/*
-/datum/loadout_item/inhand/smokingpipe
-	name = "Smoking Pipe"
-	item_path = /obj/item/cigarette/pipe
-*/
 
 /datum/loadout_item/inhand/flag_nt
 	name = "Folded Nanotrasen Flag"

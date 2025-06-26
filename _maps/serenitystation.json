@@ -3,6 +3,7 @@
 	"map_name": "SerenityStation",
 	"map_path": "map_files/SerenityStation",
 	"map_file": "SerenityStation.dmm",
+	"exclude_from_ci": false,
 	"planetary": 1,
 	"height_autosetup": 0,
 	"allow_space_when_planetary": 1,
@@ -17,6 +18,8 @@
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/dirt/forest",
+			"Jungle Cave Ruins": true,
+			"Jungle Ruins": true,
 			"No Parallax": true,
 			"Up": true
 		},
@@ -24,6 +27,7 @@
 			"Linkage": null,
 			"Gravity": true,
 			"Baseturf": "/turf/open/openspace/forest",
+			"Jungle Ruins": true,
 			"No Parallax": true,
 			"Weather_Rainstorm": true,
 			"Down": true
@@ -34,5 +38,6 @@
 			"No Parallax": false
 		}
 	],
-	"minetype": "lavaland"
+	"minetype": "lavaland",
+	"blacklist_file": "jungleruinblacklist.txt"
 }

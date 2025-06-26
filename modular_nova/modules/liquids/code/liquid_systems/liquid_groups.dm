@@ -71,10 +71,9 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 
 /datum/liquid_group/Destroy()
 	SSliquids.active_groups -= src
-	for(var/t in members)
-		var/turf/T = t
-		T.lgroup = null
-	members = null
+	for(var/turf/turf as anything in members)
+		turf.lgroup = null
+	members.Cut()
 	return ..()
 
 /datum/liquid_group/proc/check_adjacency(turf/T)

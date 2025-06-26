@@ -1,4 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - bugfix: "NT has sliiiightly tweaked the sensitivity of the Delamination Suppression System. It should no longer go off when there's a delamination in the range of 50,000 kilometers, instead only working around 500 meters."

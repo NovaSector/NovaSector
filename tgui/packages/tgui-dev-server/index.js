@@ -7,15 +7,11 @@
 import { reloadByondCache } from './reloader.js';
 import { createCompiler } from './webpack.js';
 
-const noHot = process.argv.includes('--no-hot');
 const noTmp = process.argv.includes('--no-tmp');
 const reloadOnce = process.argv.includes('--reload');
 
 async function setupServer() {
   const compiler = await createCompiler({
-    mode: 'development',
-    hot: !noHot,
-    devServer: true,
     useTmpFolder: !noTmp,
   });
 

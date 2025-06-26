@@ -302,28 +302,28 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/artifact/attackby(obj/item/attack_item, mob/living/user)
-	if(istype(attack_item, /obj/item/reagent_containers))
-		if(attack_item.reagents.has_reagent(/datum/reagent/hydrogen, 1) || attack_item.reagents.has_reagent(/datum/reagent/water, 1))
+/obj/machinery/artifact/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/reagent_containers))
+		if(attacking_item.reagents.has_reagent(/datum/reagent/hydrogen, 1) || attacking_item.reagents.has_reagent(/datum/reagent/water, 1))
 			try_toggle_effects(TRIGGER_WATER)
-		else if(attack_item.reagents.has_reagent(/datum/reagent/toxin/acid, 1, check_subtypes = TRUE))
+		else if(attacking_item.reagents.has_reagent(/datum/reagent/toxin/acid, 1, check_subtypes = TRUE))
 			try_toggle_effects(TRIGGER_ACID)
-		else if(check_for_volatile(attack_item))
+		else if(check_for_volatile(attacking_item))
 			try_toggle_effects(TRIGGER_VOLATILE)
-		else if(attack_item.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || attack_item.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
+		else if(attacking_item.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || attacking_item.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
 			try_toggle_effects(TRIGGER_TOXIN)
 	else
-		if(istype(attack_item, /obj/item/melee/baton))
-			var/obj/item/melee/baton/Batong = attack_item
+		if(istype(attacking_item, /obj/item/melee/baton))
+			var/obj/item/melee/baton/Batong = attacking_item
 			if(Batong.active)
 				try_toggle_effects(TRIGGER_ENERGY)
-		else if(istype(attack_item, /obj/item/melee/energy))
+		else if(istype(attacking_item, /obj/item/melee/energy))
 			try_toggle_effects(TRIGGER_ENERGY)
-		else if (istype(attack_item, /obj/item/xenoarch/handheld_scanner))
-			var/obj/item/xenoarch/handheld_scanner/scanner = attack_item
+		else if (istype(attacking_item, /obj/item/xenoarch/handheld_scanner))
+			var/obj/item/xenoarch/handheld_scanner/scanner = attacking_item
 			get_scan(user, scanner)
 	if(first_effect?.trigger == TRIGGER_HEAT || secondary_effect?.trigger == TRIGGER_HEAT)
-		if(attack_item.get_temperature() > 700)
+		if(attacking_item.get_temperature() > 700)
 			try_toggle_effects(TRIGGER_HEAT)
 			return
 	return ..()

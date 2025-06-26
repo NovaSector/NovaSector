@@ -163,15 +163,16 @@
 /obj/item/organ/tail/fish
 	name = "fish tail"
 	desc = "A severed tail from some sort of marine creature... or a fish-infused spaceman. It's smooth, faintly wet and definitely not flopping."
-	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
-	icon_state = "fish_tail"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/organ/tail/fish"
+	post_init_icon_state = "fish_tail"
 	greyscale_config = /datum/greyscale_config/fish_tail
 	greyscale_colors = FISH_ORGAN_COLOR
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/fish
 	dna_block = DNA_FISH_TAIL_BLOCK
 	wag_flags = NONE
-	organ_traits = list(TRAIT_FLOPPING)
+	organ_traits = list(TRAIT_FLOPPING, TRAIT_SWIMMER)
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	// Fishlike reagents, you could serve it raw like fish
@@ -260,7 +261,8 @@
 	desc = "Fish DNA infused on what once was a normal pair of lungs that now require spacemen to breathe water vapor, or keep themselves covered in water."
 	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
 	icon_state = "gills"
-
+	breath_noise = "the dribbling of water"
+	organ_traits = list(TRAIT_NODROWN)
 	// Seafood instead of meat, because it's a fish organ. Additionally gross for being gills
 	foodtype_flags = RAW | SEAFOOD | GORE | GROSS
 	food_tastes = list("gross fish" = 1)
@@ -304,7 +306,7 @@
 
 /// Requires the spaceman to have either water vapor or be wet.
 /obj/item/organ/lungs/fish/proc/breathe_water(mob/living/carbon/breather, datum/gas_mixture/breath, water_pp, old_water_pp)
-	var/need_to_breathe = !HAS_TRAIT(src, TRAIT_SPACEBREATHING) && !HAS_TRAIT(breather, TRAIT_IS_WET)
+	var/need_to_breathe = !HAS_TRAIT(breather, TRAIT_NO_BREATHLESS_DAMAGE) && !HAS_TRAIT(breather, TRAIT_IS_WET)
 	if(water_pp < safe_water_level && need_to_breathe)
 		on_low_water(breather, breath, water_pp)
 		return
@@ -381,8 +383,9 @@
 /obj/item/organ/stomach/fish
 	name = "mutated fish-stomach"
 	desc = "Fish DNA infused into a stomach now permeated by the faint smell of salt and slightly putrefied fish."
-	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
-	icon_state = "stomach"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/organ/stomach/fish"
+	post_init_icon_state = "stomach"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = FISH_COLORS
 
@@ -430,8 +433,9 @@
 /obj/item/organ/liver/fish
 	name = "mutated fish-liver"
 	desc = "Fish DNA infused into a stomach that now uses tetrodotoxin as regenerative material. It also processes alcohol quite well."
-	icon = 'icons/obj/medical/organs/infuser_organs.dmi'
-	icon_state = "liver"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/organ/liver/fish"
+	post_init_icon_state = "liver"
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = FISH_COLORS
 

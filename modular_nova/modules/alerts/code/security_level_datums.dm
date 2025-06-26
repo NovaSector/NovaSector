@@ -81,7 +81,7 @@
 /**
  * Epsilon
  *
- * Centcomm Emergency Intervention
+ * Centcom Emergency Intervention
  */
 
 /datum/security_level/epsilon

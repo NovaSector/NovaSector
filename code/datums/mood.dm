@@ -611,11 +611,13 @@
 			mob_parent.add_actionspeed_modifier(/datum/actionspeed_modifier/high_sanity)
 			sanity_level = SANITY_LEVEL_GREAT
 
+	/* // NOVA EDIT REMOVAL START - Removes low-sanity hallucinations for now. TODO: Rebalance them to be less annoying.
 	// Crazy or insane = add some uncommon hallucinations
 	if(sanity_level >= SANITY_LEVEL_CRAZY)
 		mob_parent.apply_status_effect(/datum/status_effect/hallucination/sanity)
 	else
 		mob_parent.remove_status_effect(/datum/status_effect/hallucination/sanity)
+	*/ // NOVA EDIT REMOVAL END
 
 	update_mood_icon()
 

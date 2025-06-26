@@ -79,16 +79,16 @@
 	purchase_path = /obj/item/bitrunning_disk/item/tier0
 	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, a robotic repair kit, or an empty colonial first-aid pouch."
 
-/obj/item/bitrunning_disk/item/tierlewd
+/obj/item/bitrunning_disk/item/tierrelax
 	name = "bitrunning gear: relaxation"
 	selectable_items = list(
-		/obj/item/summon_beacon/lustwish,
+		/obj/item/summon_beacon/relax,
 		/obj/item/storage/box/nif_ghost_box,
 		/obj/item/storage/box/syndie_kit/chameleon/ghostcafe,
 		/obj/item/survivalcapsule/luxury,
 	)
 
-/obj/item/summon_beacon/lustwish
+/obj/item/summon_beacon/relax
 	name = "relaxation machine beacon"
 	icon_state = "sb_delivery"
 	desc = "Once a vending machine is selected, delivers it to the target location."
@@ -102,21 +102,47 @@
 	)
 
 	selectable_atoms = list(
-		/obj/machinery/vending/dorms/bitrunning,
+		/obj/machinery/vending/autodrobe/bitrunning, // "AutoDrobe"
+		/obj/machinery/vending/games/bitrunning, // "Good Clean Fun"
+		/obj/machinery/vending/clothing/bitrunning, // "ClothesMate"
 	)
 
 	area_string = "virtual domains"
 	supply_pod_stay = FALSE
+
+/obj/item/summon_beacon/relax/equipped(mob/user, slot, initial)
+	. = ..()
+	if (!CONFIG_GET(flag/disable_erp_preferences) && user?.client?.prefs.read_preference(/datum/preference/toggle/master_erp_preferences))
+		selectable_atoms += /obj/machinery/vending/dorms/bitrunning
+	else
+		selectable_atoms -= /obj/machinery/vending/dorms/bitrunning
+
+// Be warned, ye who dares to optimize the following bit of code, Initialize is required for vendors to be all_products_free = TRUE, for the code designed for circuits actually resets the value on iniitialize otherwise. be warned and do not spend hours debugging as your predecesors had.
 
 /obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
 	. = ..()
 	all_products_free = TRUE
 	onstation = FALSE
 
-/datum/orderable_item/bitrunning_tech/item_tierlewd
+/obj/machinery/vending/autodrobe/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
+
+/obj/machinery/vending/games/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
+
+/obj/machinery/vending/clothing/bitrunning/Initialize(mapload)
+	. = ..()
+	all_products_free = TRUE
+	onstation = FALSE
+
+/datum/orderable_item/bitrunning_tech/item_tierrelax
 	cost_per_order = 250
-	purchase_path = /obj/item/bitrunning_disk/item/tierlewd
-	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon, a quick-booting NIF package, a luxury survival capsule, or a set of chameleon clothing."
+	purchase_path = /obj/item/bitrunning_disk/item/tierrelax
+	desc = "This disk contains a program that lets you equip a delivery beacon of vending machines aimed to help to relax, a quick-booting NIF package, a luxury survival capsule, or a set of chameleon clothing."
 
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
