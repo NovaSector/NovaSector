@@ -30,7 +30,7 @@
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/chameleon,
 	)
-		default_pins = list(
+	default_pins = list(
 		/obj/item/mod/module/armor_booster,
 		/obj/item/mod/module/jetpack/advanced,
 		/obj/item/mod/module/jump_jet,
