@@ -26,6 +26,19 @@
 			name = "Interface Rejection Syndrome"
 		if(/obj/item/organ/brain/synth/circuit)
 			name = "Processor Firmware Bug"
+		if(/obj/item/organ/brain/synth/circuit/hyperboard)
+			name = "Processor Firmware Bug"
+		if(/obj/item/organ/brain/synth/circuit/limaengine)
+			name = "Liquid Core Instability Anomaly"
+		if(/obj/item/organ/brain/synth/circuit/disk)
+			name = "Short-circuited Hardware"
+		if(/obj/item/organ/brain/synth/circuit/neuroboard)
+			name = "Neural System Malfunction"
+		if(/obj/item/organ/brain/synth/circuit/condensed)
+			name = "Crystal Destabilization"
+		if(/obj/item/organ/brain/synth/circuit/cyberdeck)
+			name = "System Destabilization"
+
 	medical_record_text = "Patient has a malfunction in their [synth_brain.name] that is slowly causing brain death."
 
 // Synthetics get liquid_solder with Brain Tumor instead of mannitol.
