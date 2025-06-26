@@ -102,6 +102,8 @@
 /datum/mod_theme/marines
 	hardlight_theme = COSMIC_BLUE
 
+/datum/mod_theme/deepspace
+	hardlight_theme = EXTRASHIELD_GREEN
 
 // Debug
 /datum/mod_theme/debug

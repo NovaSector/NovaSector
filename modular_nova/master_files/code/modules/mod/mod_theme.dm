@@ -16,7 +16,7 @@
 // modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi
 
 /datum/mod_theme/deepspace
-	name = "covert"
+	name = "deepspace"
 	desc = "A suit designed by Gorlex Marauders, offering armor ruled illegal in most of Spinward Stellar."
 	extended_desc = "An advanced combat suit adorned in a sinister crimson red color scheme, produced and manufactured \
 		for special mercenary operations. The build is a streamlined layering consisting of shaped Plasteel, \
@@ -25,7 +25,7 @@
 		ablative shield module to provide resistance against conventional energy firearms. \
 		A small tag hangs off of it reading; 'Property of the Gorlex Marauders, with assistance from Cybersun Industries. \
 		All rights reserved, tampering with suit will void warranty."
-	default_skin = "covert"
+	default_skin = "deepspace"
 	armor_type = /datum/armor/mod_theme_syndicate
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 3
@@ -43,7 +43,7 @@
 		/obj/item/shield/energy,
 	)
 	variants = list(
-		"covert" = list(
+		"deepspace" = list(
 			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
 			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
