@@ -76,32 +76,37 @@
 
 /obj/item/organ/brain/synth/circuit/hyperboard
 	name = "compact hyperboard circuit"
-	desc = "A compact and extremely complex circuit, made with more advanced technologies at least visually, but its perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact and extremely complex circuit, made with more advanced technologies at least visually, but its perfectly dimensioned to fit in \
+		the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crew members."
 	icon_state = "hyperboard-occupied"
 
 /obj/item/organ/brain/synth/circuit/limaengine
 	name = "compact lima-engine circuit"
-	desc = "A compact and extremely complex ciruit, seeming to have a tube of fluid that holds its electricity and yet it defies the laws of gravity, but the weight of the board keeps it down... it seems perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact and extremely complex circuit, seeming to have a tube of fluid that holds its electricity and yet it defies the laws of gravity, but the weight of the board keeps it down... \
+		it seems perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crew members."
 	icon_state = "limaengine-occupied"
 
 /obj/item/organ/brain/synth/circuit/disk
 	name = "compact ai braindisk circuit"
-	desc = "A compact and rather ancient disk, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact and rather ancient disk, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crew members."
 	icon_state = "diskbrain-occupied"
 
 /obj/item/organ/brain/synth/circuit/neuroboard
 	name = "compact neuroboard circuit"
-	desc = "A compact and extremely complex circuit it seems to have an overhelming amount of processing power and yet its perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact and extremely complex circuit. It seems to have an overwhelming amount of processing power and yet its perfectly dimensioned to fit \
+		in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crew members."
 	icon_state = "neuroboard-occupied"
 
 /obj/item/organ/brain/synth/circuit/condensed
 	name = "compact hypercrystal"
-	desc = "A compact and extremely complex crystal it has no visibly soderings or circuits of any kind yet its perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A compact and extremely complex crystal it has no visibly solderings or circuits of any kind yet its perfectly dimensioned to fit in \
+		the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crew members."
 	icon_state = "condensed-occupied"
 
 /obj/item/organ/brain/synth/circuit/cyberdeck
 	name = "compact advanced cyberdeck"
-	desc = "A strange black, smooth complex device, it feels like a solid chunk off metal but yet it seems as if its, perfectly dimensioned to fit in the same slot as a synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crewmembers."
+	desc = "A strange black, smooth complex device, it feels like a solid chunk off metal but yet it seems as if its, perfectly dimensioned to fit in the same slot as a \
+		synthetic-compatible positronic brain. It is usually slotted into the chest of synthetic crew members."
 	icon_state = "cyberdeck-occupied"
 
 /obj/item/organ/brain/synth/mmi

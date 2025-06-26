@@ -31,7 +31,7 @@
 		if(/obj/item/organ/brain/synth/circuit/limaengine)
 			name = "Liquid Core Instability Anomaly"
 		if(/obj/item/organ/brain/synth/circuit/disk)
-			name = "Shortcircuited Hardward"
+			name = "Short-circuited Hardware"
 		if(/obj/item/organ/brain/synth/circuit/neuroboard)
 			name = "Neural System Malfunction"
 		if(/obj/item/organ/brain/synth/circuit/condensed)
