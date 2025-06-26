@@ -4,7 +4,7 @@
  * Lavaland's "Hard Mode" option for players, requiring melee attacks (backstabs even better),
  * but allowing you to upgrade it with trophies gained from fighting lavaland monsters, making it
  * a good tradeoff and a decent playstyle. This item overhauls all the crushers, merging them into one item
- which allows them to choose one of the variants.
+ * which allows them to choose one of the variants.
  */
 /obj/item/crusher_conversion_kit
 	name = "crusher conversion kit"
@@ -22,7 +22,7 @@
 		/obj/item/kinetic_crusher/hammer = "Heavy hitter. Deals flat damage, but knocks back foes.",
 		/obj/item/kinetic_crusher/claw = "Deadly backstabs. The weakest of the five from any other angle."
 )
-/obj/item/crusher_conversion_kit/Initialize()
+/obj/item/crusher_conversion_kit/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/subtype_picker, subtype2descriptions, CALLBACK(src, PROC_REF(on_crusher_conversion)))
 /// Handles post-conversion behavior when the kit becomes a crusher, such as effects or custom logic.
