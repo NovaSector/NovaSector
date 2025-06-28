@@ -26,6 +26,9 @@
 		return
 
 	for(var/datum/reagent/reagents_within as anything in reagents.reagent_list)
+		if(handle_fauna_chemical(reagents_within, seconds_per_tick, times_fired))
+			continue
+
 		if(istype(reagents_within, /datum/reagent/toxin))
 			var/datum/reagent/toxin/toxin_reagent = reagents_within
 			var/toxin_damage = round(toxin_reagent.toxpwr)
@@ -59,6 +62,9 @@
 		return
 
 	for(var/datum/reagent/reagents_within as anything in reagents.reagent_list)
+		if(handle_fauna_chemical(reagents_within, seconds_per_tick, times_fired))
+			continue
+
 		if(istype(reagents_within, /datum/reagent/toxin))
 			var/datum/reagent/toxin/toxin_reagent = reagents_within
 			var/toxin_damage = round(toxin_reagent.toxpwr)
@@ -70,5 +76,8 @@
 			adjust_health(-1)
 			reagents?.remove_reagent(reagents_within.type, 0.5)
 
-/mob/living/basic/cockroach
-	reagent_health = FALSE // required for the bugspray interaction
+/// Allows snowflake reagent handling, such as cockroaches dying *specifically* to pestkiller's special interact.
+/// Return TRUE if this reagent shouldn't do anything to the mob.
+/mob/living/proc/handle_fauna_chemical(datum/reagent/chem, seconds_per_tick, times_fired)
+	if((mob_biotypes & MOB_BUG) && istype(chem, /datum/reagent/toxin/pestkiller))
+		return TRUE
