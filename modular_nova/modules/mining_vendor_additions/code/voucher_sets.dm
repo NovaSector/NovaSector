@@ -3,7 +3,7 @@
 	set_items += /obj/item/kheiral_cuffs
 
 /datum/voucher_set/mining/crusher_kit
-	icon = 'modular_nova/modules/crusher_conversion_kit/icons/obj/conversionkit.dmi'
+	icon = 'modular_nova/modules/mining_crushers/icons/conversionkit.dmi'
 	icon_state = "crusherkit"
 	description = "Contains a crusher conversion kit and a pocket fire extinguisher. The conversion kit will transform into a proto-kinetic crusher variant of one's choice, giving a versatile melee mining tool capable both of mining and fighting local fauna. It is difficult to use effectively for anyone but most skilled and/or suicidal miners."
 	set_items = list(

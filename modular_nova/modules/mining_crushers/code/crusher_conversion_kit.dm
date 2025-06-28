@@ -9,10 +9,10 @@
 /obj/item/crusher_conversion_kit
 	name = "crusher conversion kit"
 	desc = "A tool designed to adapt to a shaft miner's needs. Upon activation, this kit allows the user to select and transform the base kit into one of several kinetic crusher variants. Use in hand to activate."
-	icon = 'modular_nova/modules/crusher_conversion_kit/icons/obj/conversionkit.dmi'
+	icon = 'modular_nova/modules/mining_crushers/icons/conversionkit.dmi'
 	icon_state = "crusherkit"
-	lefthand_file = 'modular_nova/modules/crusher_conversion_kit/icons/mob/inhands/kit_lefthand.dmi'
-	righthand_file = 'modular_nova/modules/crusher_conversion_kit/icons/mob/inhands/kit_righthand.dmi'
+	lefthand_file = 'modular_nova/modules/mining_crushers/icons/kit_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/mining_crushers/icons/kit_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 /// Tooltips for the crusher variants shown in the selection UI
 	var/list/subtype2descriptions = list(
