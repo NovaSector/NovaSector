@@ -21,8 +21,7 @@
 /// Calls `check_and_update_bonus()` on any attached trophies that support it
 /obj/item/kinetic_crusher/proc/update_all_trophy_bonuses()
 	for (var/obj/item/crusher_trophy/trophy in src.trophies)
-		if (hascall(trophy, "check_and_update_bonus"))
-			call(trophy, "check_and_update_bonus")(src, loc)
+		trophy.check_and_update_bonus(src)
 
 /// Updates whether trophies are active based on current z-level traits; handles lore messages and bonus updates
 /obj/item/kinetic_crusher/proc/update_trophies_enabled(turf/new_turf)
@@ -84,6 +83,3 @@
 				to_chat(holder, span_warning("The resonance fades from your crusher's trophies as you leave the atmosphere of Indecipheres behind."))
 			if("ice_underground")
 				to_chat(holder, span_warning("The deep corruption fades from your crusher's trophies as you ascend from the frozen depths of Freyja."))
-
-	// Debug output
-	world.log << "[src.name] trophies_enabled = [trophies_enabled] at z-level [current_turf.z] (env: [active_environment_type || "none"])"
