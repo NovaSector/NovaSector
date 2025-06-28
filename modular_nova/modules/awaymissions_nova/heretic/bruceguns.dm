@@ -36,13 +36,10 @@
 	name ="20x138mm bullet"
 	speed = 3.5
 	range = 400 // Enough to travel from one corner of the Z to the opposite corner and then some.
-	damage = 150
+	damage = 200
 	paralyze = 100
 	dismemberment = 50
 	catastropic_dismemberment = TRUE
 	armour_penetration = 50
 	ignore_range_hit_prone_targets = TRUE
-	///Determines object damage.
-	object_damage = 200
-	///Determines how much additional damage the round does to mechs.
-	mecha_damage = 15
+
