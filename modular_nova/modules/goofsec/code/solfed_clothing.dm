@@ -119,6 +119,18 @@
 /obj/item/clothing/head/helmet/solfed/attack_self(mob/living/user)
 	toggle_helmet_light(user)
 
+/obj/item/clothing/head/helmet/solfed/corpsman
+	name = "\improper SolFed Corpsman Combat Helmet"
+	greyscale_colors = "#1dd2ff"
+
+/obj/item/clothing/head/helmet/solfed/engineer
+	name = "\improper SolFed Engineer Combat Helmet"
+	greyscale_colors = "#ff1d1d"
+
+/obj/item/clothing/head/helmet/solfed/squadlead
+	name = "\improper SolFed Squad Leader Combat Helmet"
+	greyscale_colors = "#ffe81d"
+
 // SolFed flak jacket, for marshals
 /obj/item/clothing/suit/armor/vest/det_suit/sol
 	name = "'Gordyn' flak vest"
@@ -301,21 +313,25 @@
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank8
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
-	post_init_icon_state = "arr_ribbon_2"
+	post_init_icon_state = "arr_ribbon_1"
 
 /obj/item/clothing/accessory/nova/solfedribbon/rank9
+	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank8"
+	post_init_icon_state = "arr_ribbon_2"
+
+/obj/item/clothing/accessory/nova/solfedribbon/rank10
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank9"
 	post_init_icon_state = "arr_ribbon_3"
 
-/obj/item/clothing/accessory/nova/solfedribbon/rank10
+/obj/item/clothing/accessory/nova/solfedribbon/rank11
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank10"
 	post_init_icon_state = "sw_ribbon_1"
 
-/obj/item/clothing/accessory/nova/solfedribbon/rank11
+/obj/item/clothing/accessory/nova/solfedribbon/rank12
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank11"
 	post_init_icon_state = "sw_ribbon_2"
 
-/obj/item/clothing/accessory/nova/solfedribbon/rank12
+/obj/item/clothing/accessory/nova/solfedribbon/rank13
 	icon_state = "/obj/item/clothing/accessory/nova/solfedribbon/rank12"
 	post_init_icon_state = "sw_ribbon_3"
 
@@ -323,3 +339,50 @@
 	name = "\improper SolFed Official neckpin"
 	desc = "A special golden neckpin to show true loyalty to the Federation."
 	greyscale_colors = "#ffff66#0099ff"
+
+/obj/machinery/vending/access/solfed
+	name = "\improper Command Outfitting Station"
+	desc = "A vending machine for specialised clothing for members of Command."
+	product_ads = "File paperwork in style!;It's red so you can't see the blood!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
+	icon = 'modular_nova/modules/command_vendor/icons/vending.dmi'
+	icon_state = "solfeddrobe"
+	icon_deny = "solfeddrobe-deny"
+	light_mask = "wardrobe-light-mask"
+	vend_reply = "Thank you for using the CommDrobe!"
+	auto_build_products = TRUE
+	payment_department = null
+	onstation = FALSE
+	shut_up = TRUE
+
+	refill_canister = /obj/item/vending_refill/wardrobe/solfed_wardrobe
+	light_color = COLOR_BRIGHT_BLUE
+
+/obj/item/vending_refill/wardrobe/solfed_wardrobe
+	machine_name = "SolfedDrobe"
+
+/obj/machinery/vending/access/solfed/build_access_list(list/access_lists)
+	access_lists["[ACCESS_CENT_CAPTAIN]"] = list(
+		// Solfed has CC and station AA but this is the highest access possible so no one but feds can get it. Hopefully
+		/obj/item/clothing/accessory/nova/solfedribbon = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank2 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank3 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank4 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank5 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank6 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank7 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank8 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank9 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank10 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank11 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank12 = 4,
+		/obj/item/clothing/accessory/nova/solfedribbon/rank13 = 4,
+		/obj/item/clothing/under/solfed/officer = 4,
+		/obj/item/clothing/under/solfed/officer_lowrnk = 4,
+		/obj/item/clothing/under/solfed/official_civil = 4,
+		/obj/item/clothing/under/solfed/official_social = 4,
+		/obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official = 8,
+
+		/obj/item/storage/box/flashbangs = 2,
+		/obj/item/storage/box/handcuffs = 4,
+		/obj/item/storage/box/nri_flares = 16,
+	)
