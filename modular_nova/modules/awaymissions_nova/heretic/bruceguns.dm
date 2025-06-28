@@ -2,26 +2,30 @@
 	name = "M60 Machine Gun"
 	desc = "A heavily modified gun based off of an already insanely heavily modified gun- this m60, pey say, is not a real m60 machine gun but instead it appears to be a heavily modified l6 saw modified to accept the insane ammo type of .50"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/mmg_box
-	projectile_damage_multiplier = 2
+	projectile_damage_multiplier = 2.5
+	recoil = 1
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/lahti
 	name = "Lahiti L-39"
-	desc = "The lahiti L-39, now manufactured in space with better materials making it more portable and reliable- still loaded in the same massive cartridge, this thing was made to go through a tank and come out the other end- imagine what it could do to an exosuit."
-	icon = 'modular_nova\modules\awaymissions_nova\heretic\lahtil39.dmi'
+	desc = "The lahiti L-39, now manufactured in space with better materials making it more portable and reliable- still loaded in the same massive cartridge, this thing was made to go through a tank and come out the other end- imagine what it could do to an exosuit, theres also a completely useless sight which is totally obstructed by the magazine."
+	icon = 'modular_nova/modules/awaymissions_nova/heretic/lahtil39.dmi'
+	icon_state = "lahtil"
+	inhand_icon_state = "lahtil"
 	mag_display = FALSE
-	recoil = 10
+	recoil = 15
 	fire_sound_volume = 200
 	w_class = WEIGHT_CLASS_BULKY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/lahtimagazine
 	fire_delay = 8 SECONDS
+	slowdown = 2
 
 /obj/item/ammo_box/magazine/lahtimagazine
-	name = "anti-materiel sniper rounds (.50 BMG)"
+	name = "lahti sniper rounds (20x138mm)"
 	desc = "A 20x138mm magazine suitable ammo for anti kaiju-rifles."
 	icon_state = ".50mag"
 	base_icon_state = ".50mag"
 	ammo_type = /obj/item/ammo_casing/mm20x138
-	max_ammo = 8
+	max_ammo = 9
 	caliber = CALIBER_50BMG
 
 /obj/item/ammo_casing/mm20x138
@@ -42,4 +46,3 @@
 	catastropic_dismemberment = TRUE
 	armour_penetration = 50
 	ignore_range_hit_prone_targets = TRUE
-

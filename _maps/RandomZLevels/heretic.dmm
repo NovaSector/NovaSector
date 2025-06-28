@@ -1310,9 +1310,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
-	},
-/turf/open/floor/wood,
-/area/awaymission/beach/heretic)
 "to" = (
 /obj/structure/fence,
 /obj/effect/light_emitter,
@@ -2823,6 +2820,8 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"Sd" = (
+)
 "Sg" = (
 /obj/structure/rack,
 /obj/machinery/light/directional/north,
@@ -33396,13 +33395,13 @@ LX
 CS
 vj
 Fs
-ti
+Sd
 pX
 Yc
 CS
 vj
 Fs
-ti
+Sd
 pX
 Yc
 CS
@@ -33910,13 +33909,13 @@ LX
 CS
 vj
 po
-ti
+Sd
 xn
 Yc
 CS
 vj
 po
-ti
+Sd
 xn
 Yc
 CS
@@ -34424,13 +34423,13 @@ Dv
 CS
 vj
 hf
-ti
+Sd
 Fx
 Yc
 CS
 vj
 hf
-ti
+Sd
 Fx
 Yc
 CS
@@ -34938,13 +34937,13 @@ Dv
 CS
 vj
 So
-ti
+Sd
 Fx
 Yc
 CS
 vj
 So
-ti
+Sd
 Fx
 Yc
 CS
@@ -36480,13 +36479,13 @@ Dv
 CS
 vj
 LM
-ti
+Sd
 Fx
 Yc
 CS
 vj
 LM
-ti
+Sd
 Fx
 Yc
 CS
@@ -36994,13 +36993,13 @@ LX
 CS
 vj
 PS
-ti
+Sd
 Fx
 Yc
 CS
 vj
 PS
-ti
+Sd
 Fx
 Yc
 CS
@@ -38022,13 +38021,13 @@ LX
 CS
 vj
 po
-ti
+Sd
 Fx
 Yc
 CS
 vj
 po
-ti
+Sd
 Fx
 Yc
 CS
@@ -39800,7 +39799,7 @@ nT
 nT
 nT
 nT
-tk
+Sd
 Re
 Re
 NX
