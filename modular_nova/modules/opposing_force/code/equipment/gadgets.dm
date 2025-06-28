@@ -112,6 +112,11 @@
 	description = "A pen filled with sleeping agents. Will knock a victim out after a moment."
 	item_type = /obj/item/pen/sleepy
 
+/datum/opposing_force_equipment/gadget_stealth/sleepy_neuroware
+	name = "Ransomware Neuroware Chip"
+	description = "A neuroware chip filled with ransomware viruses. Will knock a victim out after a moment."
+	item_type = /obj/item/disk/neuroware/sleepy
+
 /datum/opposing_force_equipment/gadget_stealth/carp
 	name = "Dehydrated Spacecarp"
 	description = "A spacecarp plushie which turns into the real deal when wet."

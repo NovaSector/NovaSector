@@ -1310,17 +1310,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
-"ti" = (
-/obj/structure/fluff/bus/passable,
-/obj/effect/light_emitter,
-/turf/open/floor/iron/dark/airless,
-/area/awaymission/beach/heretic)
-"tk" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
 	},
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)

@@ -82,7 +82,7 @@
 	force = 15
 	throwforce = 15
 	wound_bonus = 5
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	embed_type = /datum/embedding/combat_knife/weak
 	tool_behaviour = TOOL_KNIFE
 	attack_verb_continuous = list("glances", "slices", "strikes")
