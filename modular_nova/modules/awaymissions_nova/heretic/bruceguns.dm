@@ -20,19 +20,19 @@
 	desc = "A 20x138mm magazine suitable ammo for anti kaiju-rifles."
 	icon_state = ".50mag"
 	base_icon_state = ".50mag"
-	ammo_type = /obj/item/ammo_casing/20mm
+	ammo_type = /obj/item/ammo_casing/20x138
 	max_ammo = 8
 	caliber = CALIBER_50BMG
 
-/obj/item/ammo_casing/20mm
+/obj/item/ammo_casing/20x138
 	name = "20x138mm bullet casing"
 	desc = "A 20x138mm bullet casing."
 	caliber = CALIBER_50BMG
-	projectile_type = /obj/projectile/bullet/20mm
+	projectile_type = /obj/projectile/bullet/20x138
 	icon_state = ".50"
 	newtonian_force = 1.5
 
-/obj/projectile/bullet/20mm
+/obj/projectile/bullet/20x138
 	name ="20x138mm bullet"
 	speed = 3.5
 	range = 400 // Enough to travel from one corner of the Z to the opposite corner and then some.
