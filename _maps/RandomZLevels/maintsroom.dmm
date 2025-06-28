@@ -9814,7 +9814,7 @@
 	pixel_x = 10;
 	anchored = 1
 	},
-/obj/item/storage/backpack/duffelbag/syndie/ammo/mech{
+/obj/item/storage/backpack/duffelbag/syndie/ammo/darkgygax{
 	anchored = 1
 	},
 /turf/open/floor/iron/diagonal,
