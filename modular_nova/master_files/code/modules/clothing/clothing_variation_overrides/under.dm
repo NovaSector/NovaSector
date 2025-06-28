@@ -229,3 +229,15 @@
 
 /obj/item/clothing/under/rank/medical/scrubs
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/dress/striped
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/dress/skirt/plaid
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/civilian/clown/jester
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/under/rank/civilian/clown/jesteralt
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

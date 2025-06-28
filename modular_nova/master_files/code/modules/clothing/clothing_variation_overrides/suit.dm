@@ -204,6 +204,9 @@
 /obj/item/clothing/suit/armor/riot
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
+/obj/item/clothing/suit/hooded/explorer
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
 //Chaplain Suits
 //TG neglected to sort between legged and robed, so we'll have to just manually set each one
 /obj/item/clothing/suit/chaplainsuit/armor/studentuni
