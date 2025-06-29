@@ -97,30 +97,30 @@
 /obj/item/organ/eyes/jelly
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 /obj/item/organ/eyes/roundstartslime
 	name = "photosensitive eyespots"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 /obj/item/organ/ears/jelly
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 /obj/item/organ/tongue/jelly
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 /obj/item/organ/lungs/slime
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 /obj/item/organ/liver/slime
 	name = "endoplasmic reticulum"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 // CHEMICAL HANDLING
 // Here's where slimes heal off plasma and where they hate drinking water.
@@ -162,7 +162,7 @@
 /obj/item/organ/stomach/slime
 	name = "golgi apparatus"
 	zone = BODY_ZONE_CHEST
-	organ_flags = ORGAN_UNREMOVABLE
+	organ_flags = ORGAN_ORGANIC | ORGAN_UNREMOVABLE
 
 /obj/item/organ/brain/slime
 	name = "core"
