@@ -7,6 +7,24 @@
 	sechud_icon_state = SECHUD_SOLFED
 	threat_modifier = -5 // Solfed Count as a police force
 
+/// Lets be real if the ERT variant of these guys are coming, ya'll are cooked
+/datum/id_trim/solfed/espatier
+	assignment = "Solfed Espatier"
+	threat_modifier = -10 // This counts as military intervention
+
+/datum/id_trim/solfed/espatier/New()
+	. = ..()
+	access = SSid_access.get_region_access_list(list(REGION_CENTCOM, REGION_ALL_STATION))
+
+/// This is the Soft ERT variant of the solfed Officials
+/datum/id_trim/solfed/official
+	assignment = "Solfed Official"
+	sechud_icon_state = SECHUD_SOLFED_LIASON
+
+/datum/id_trim/solfed/official/New()
+	. = ..()
+	access = SSid_access.get_region_access_list(list(REGION_ALL_STATION))
+
 /datum/id_trim/solfed/atmos/New()
 	. = ..()
 	access = list(
@@ -35,10 +53,6 @@
 
 /datum/id_trim/solfed/liasion
 	assignment = "SolFed Liasion"
-	sechud_icon_state = SECHUD_SOLFED_LIASON
-
-/datum/id_trim/solfed/official
-	assignment = "SolFed Official"
 	sechud_icon_state = SECHUD_SOLFED_LIASON
 
 /datum/id_trim/space_police // Overrides the normal /tg/ ERTSEC Icon, these guys aren't NT!
