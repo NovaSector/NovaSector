@@ -5,7 +5,17 @@
 	priority = PREFERENCE_PRIORITY_NAMES // Apply after species, cause that's super important.
 
 /datum/preference/choiced/brain_type/init_possible_values()
-	return list(ORGAN_PREF_POSI_BRAIN, ORGAN_PREF_MMI_BRAIN, ORGAN_PREF_CIRCUIT_BRAIN)
+	return list(
+		ORGAN_PREF_POSI_BRAIN,
+		ORGAN_PREF_MMI_BRAIN,
+		ORGAN_PREF_CIRCUIT_BRAIN,
+		ORGAN_PREF_HYPERBOARD_BRAIN,
+		ORGAN_PREF_LIMAENGINE_BRAIN,
+		ORGAN_PREF_DISKBRAIN_BRAIN,
+		ORGAN_PREF_NEUROBOARD_BRAIN,
+		ORGAN_PREF_CONDENSED_BRAIN,
+		ORGAN_PREF_CYBERDECK_BRAIN,
+	)
 
 /datum/preference/choiced/brain_type/create_default_value()
 	return ORGAN_PREF_POSI_BRAIN
