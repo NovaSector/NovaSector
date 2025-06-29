@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - bugfix: "Roaches now die properly to bugspray (having a few seconds of life before flipping over dramatically and not exploding into paste)."
