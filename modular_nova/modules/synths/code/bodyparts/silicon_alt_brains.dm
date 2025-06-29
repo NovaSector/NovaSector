@@ -17,6 +17,74 @@
 	new_mob_message = span_notice("The compact AI circuit chimes quietly.")
 	recharge_message = span_warning("The compact AI circuit isn't ready to activate again yet! Give it some time to recharge.")
 
+/obj/item/mmi/posibrain/circuit/hyperboard
+	name = "compact hyperboard circuit"
+	desc = "An advanced compact circuit... at least it looks advanced, however it's perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
+	icon_state = "hyperboard"
+	base_icon_state = "hyperboard"
+	fail_message = span_notice("The compact AI circuit buzzes quietly, and the cyan lights fade away. Perhaps you could try again?")
+
+/obj/item/mmi/posibrain/circuit/limaengine
+	name = "compact liquid-engine circuit"
+	desc = "A compact circuit, perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
+	icon_state = "limaengine"
+	base_icon_state = "limaengine"
+
+	begin_activation_message = span_notice("You carefully locate the manual activation switch, pulsing the liquid core. It seems as if it has starting the boot process.")
+	success_message = span_notice("The liquid core comes to life, its fluids like a lava lamp defying gravity. Success!")
+	fail_message = span_notice("The liquid becomes cold, losing its life, as it just coldly floats about... Perhaps give it another pulse.")
+	new_mob_message = span_notice("The liquid core pulses itself seeming to come to life all on its own...")
+	recharge_message = span_warning("The liquid core is not properly stable enough to pulse again, give it time to cool.")
+
+/obj/item/mmi/posibrain/circuit/disk
+	name = "compact ai braindisk circuit"
+	desc = "A compact circuit, perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
+	icon_state = "diskbrain"
+	base_icon_state = "diskbrain"
+
+	begin_activation_message = span_notice("You carefully locate the manual activation switch and start the disk's boot process.")
+	success_message = span_notice("The disk pings to life with a smile displayed on it. Success!")
+	fail_message = span_notice("The disk's display slowly turns off fading to its idle background... perhaps give it another try?")
+	new_mob_message = span_notice("The disk display boots up with a happy smile... at least you hope it is...")
+	recharge_message = span_warning("The disk is too hot right now, give it some time to cool.")
+
+/obj/item/mmi/posibrain/circuit/neuroboard
+	name = "compact neuroboard circuit"
+	desc = "A compact circuit, perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
+	icon_state = "neuroboard"
+	base_icon_state = "neuroboard"
+
+	begin_activation_message = span_notice("You carefully locate the manual activation switch and start the compact neural circuit's boot process.")
+	fail_message = span_notice("The neural AI circuit buzzes quietly, and the golden lights fade away. Perhaps you could try again?")
+	new_mob_message = span_notice("The neural AI circuit chimes quietly, booting to life.")
+	recharge_message = span_warning("The neural AI circuit isn't ready to activate again yet! Give it some time to recharge.")
+
+/obj/item/mmi/posibrain/circuit/condensed
+	name = "condensed crystalline AI brain"
+	desc = "A whole artificial brain in a crystal, made through advanced crystallization and possibly witchcraft, still requires electricity to function. Try not to touch the crystal, instead \
+		hold it by the handles. Oddly enough it is perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
+	icon_state = "condensed"
+	base_icon_state = "condensed"
+
+	begin_activation_message = span_notice("You carefully shake the crystal activating it... it seems to be booting... at least... you hope it is...")
+	success_message = span_notice("The crystal pulses consistently and rhythmically. Success!")
+	fail_message = span_notice("The light in the crystal fades, as it ceases its rhythmic pulsing... Perhaps give it another shake?")
+	new_mob_message = span_notice("The crystal rumbles to life seeming to have jumpstarted itself...")
+	recharge_message = span_warning("The crystal is too fragile right now to be activated, give it some time to lose its built up charge.")
+
+/obj/item/mmi/posibrain/circuit/cyberdeck
+	name = "advanced cyberdeck"
+	desc = "A whole artificial brain in a crystal, through advanced crystallization, still requires electricity to function. try not to touch the crystal, hold it by the handles instead. \
+		It's perfectly dimensioned to fit in the same slot as a cyborg's positronic brain."
+	icon_state = "cyberdeck"
+	base_icon_state = "cyberdeck"
+
+	begin_activation_message = span_notice("You carefully tap the cyberdeck activating it... it seems to be booting... at least... you hope it is...")
+	success_message = span_notice("The the deck brightens its lights, flashing its strange symbols and indicators. Success!")
+	fail_message = span_notice("The lights from the cyberdeck fade back into its seamless material... Perhaps give it another tap?")
+	new_mob_message = span_notice("The cyberdeck comes to life lacking any intervention... seeming to be active.")
+	recharge_message = span_warning("The cyberdeck is... doing something... you don't really know what its doing, its just best you give it a bit time to relax.")
+
 // CODE THAT ACTUALLY APPLIES THE BRAINS.
 // See modular_nova/master_files/code/modules/client/preferences/brain.dm for Synth/IPC application.
 
@@ -31,6 +99,24 @@
 
 		if(ORGAN_PREF_CIRCUIT_BRAIN)
 			return is_cyborg ? /obj/item/mmi/posibrain/circuit : /obj/item/organ/brain/synth/circuit
+
+		if(ORGAN_PREF_HYPERBOARD_BRAIN)
+			return is_cyborg ? /obj/item/mmi/posibrain/circuit/hyperboard : /obj/item/organ/brain/synth/circuit/hyperboard
+
+		if(ORGAN_PREF_LIMAENGINE_BRAIN)
+			return is_cyborg ? /obj/item/mmi/posibrain/circuit/limaengine : /obj/item/organ/brain/synth/circuit/limaengine
+
+		if(ORGAN_PREF_DISKBRAIN_BRAIN)
+			return is_cyborg ? /obj/item/mmi/posibrain/circuit/disk : /obj/item/organ/brain/synth/circuit/disk
+
+		if(ORGAN_PREF_NEUROBOARD_BRAIN)
+			return is_cyborg ? /obj/item/mmi/posibrain/circuit/neuroboard : /obj/item/organ/brain/synth/circuit/neuroboard
+
+		if(ORGAN_PREF_CONDENSED_BRAIN)
+			return is_cyborg ? /obj/item/mmi/posibrain/circuit/condensed : /obj/item/organ/brain/synth/circuit/condensed
+
+		if(ORGAN_PREF_CYBERDECK_BRAIN)
+			return is_cyborg ? /obj/item/mmi/posibrain/circuit/cyberdeck : /obj/item/organ/brain/synth/circuit/cyberdeck
 
 /mob/living/silicon/robot/Initialize(mapload)
 	. = ..()
