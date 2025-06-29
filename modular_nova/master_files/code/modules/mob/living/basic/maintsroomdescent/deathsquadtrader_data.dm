@@ -53,7 +53,7 @@
 	///The speech data of the trader
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(
-			"I dont want any of that crap your showing me, come back when you have some raw anomalies for me.",
+			"I don't want any of that crap you're showing me. Come back when you have some raw anomalies for me.",
 		),
 		ITEM_SELLING_CANCELED_PHRASE = list(
 			"I'll be here- im stuck here.",
