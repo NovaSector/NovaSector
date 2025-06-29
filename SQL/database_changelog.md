@@ -2,23 +2,33 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.33 (5.31 for /tg/);; The query to update the schema revision table is:
+The latest database version is 5.35 (5.32 for /tg/);; The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 33);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 35);
 ```
 
 or
 
 ```sql
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 33);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 35);
 ```
 
 In any query remember to add a prefix to the table names if you use one.
 
 ---
 
-Version 5.30, 3 May 2025, by Atlanta-Ned
+Version 5.35, 31 May 2025, by TealSeer
+Change column name of `manifest` table because `character` is a reserved word.
+
+```sql
+ALTER TABLE `manifest`
+	RENAME COLUMN `character` TO `character_name`;
+```
+
+---
+
+Version 5.34, 3 May 2025, by Atlanta-Ned
 Adds a `manifest` table.
 
 ```sql
@@ -39,7 +49,7 @@ CREATE TABLE `manifest` (
 
 ---
 
-Version 5.30, 1 May 2025, by Rengan
+Version 5.33, 1 May 2025, by Rengan
 Adds `crime_desc` field to the `citation` table to save the description of the crime.
 
 ```sql
@@ -49,7 +59,157 @@ ADD COLUMN `crime_desc` TEXT NULL DEFAULT NULL AFTER `crime`;
 
 ---
 
-Version 5.29, 4 February 2024, by Tiviplus
+Version 5.32, 27 April 2025, by GoldenAlpharex
+Two major changes (nova_schema.sql):
+
+- Added three new tables for Donators and general donation information, for integration
+  with your donation system of choice (to be handled externally).
+- Added a new `whitelist` table, for a SQL-based whitelist, as opposed to the
+  panic bunker mess we were using before as a whitelist. See below for a migration
+  query to have all of the current whitelisted players of your server added to the
+  whitelist (it's entirely based on the `player` table).
+
+One minor change:
+
+- Added a new `update_ckey` procedure, to make it easier to update a player's ckey
+  in the database for database admins (and in the future, so that it could even be
+  used through an admin verb in-game, perhaps!).
+  It's used like this: `update_ckey(old_ckey, new_ckey);`
+
+```sql
+--
+-- Table structure for table `donators`.
+--
+DROP TABLE IF EXISTS `donators`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `donators` (
+  `email` VARCHAR(320) NOT NULL,
+  `total_donated` DECIMAL(7,2) NOT NULL,
+  `ckey` VARCHAR(32) NULL DEFAULT NULL,
+  `donation_donator_slots` int(4) NOT NULL DEFAULT '0',
+  `bonus_donator_slots` int(4) NOT NULL DEFAULT '0',
+  `total_donator_slots` int(4) NOT NULL DEFAULT '0',
+  `used_donator_slots` int(4) NOT NULL DEFAULT '0',
+  `first_donation_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_donation_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `donations`.
+--
+DROP TABLE IF EXISTS `donations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `donations` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `email` VARCHAR(320) NOT NULL,
+  `donation_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `amount` DECIMAL(6,2) NOT NULL,
+  `donation_type` ENUM('Donation', 'Subscription', 'Shop Order') NOT NULL DEFAULT 'Donation',
+  INDEX(`email`),
+  INDEX(`donation_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `donation_manipulation_log`.
+--
+DROP TABLE IF EXISTS `donation_manipulation_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `donation_manipulation_log` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `action` ENUM('USED SLOTS', 'LINKED CKEY', 'ADDED SLOTS') NOT NULL DEFAULT 'USED SLOTS',
+  `admin_ckey` VARCHAR(32) NOT NULL,
+  `donator_email` VARCHAR(320) NOT NULL,
+  `donator_ckey` VARCHAR(32) NULL DEFAULT NULL,
+  `amount` int(4) NULL DEFAULT NULL,
+  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Trigger structure for trigger `update_donator_from_donation`.
+--
+DROP TRIGGER IF EXISTS `update_donator_from_donation`;
+DELIMITER //
+CREATE TRIGGER `update_donator_from_donation`
+AFTER INSERT ON `donations`
+FOR EACH ROW
+BEGIN
+ INSERT INTO `donators` (email, total_donated, first_donation_date) VALUES (NEW.email, NEW.amount, NEW.donation_date)
+ ON DUPLICATE KEY UPDATE total_donated = total_donated + NEW.amount, last_donation_date = NEW.donation_date;
+ UPDATE `donators` SET donation_donator_slots = total_donated DIV 15, total_donator_slots = donation_donator_slots + bonus_donator_slots WHERE email = NEW.email;
+END; //
+DELIMITER ;
+
+--
+-- Table structure for table `whitelist`.
+--
+DROP TABLE IF EXISTS `whitelist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `whitelist` (
+  `ckey` VARCHAR(32) NOT NULL,
+  `date_added` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `revoked` BOOLEAN NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (`ckey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS `update_ckey`;
+CREATE PROCEDURE `update_ckey`(
+	IN `old_ckey` VARCHAR(32),
+	IN `new_ckey` VARCHAR(32)
+)
+SQL SECURITY INVOKER
+BEGIN
+	UPDATE IGNORE `achievements` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `admin` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `ban` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `library` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `messages` SET targetckey = new_ckey WHERE targetckey= old_ckey;
+	UPDATE IGNORE `player_rank` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `role_time` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `tutorial_completions` SET ckey = new_ckey WHERE ckey = old_ckey;
+	UPDATE IGNORE `whitelist` SET ckey = new_ckey WHERE ckey = old_ckey;
+END
+$$
+
+DELIMITER ;
+
+/*!40101 SET character_set_client = @saved_cs_client */;
+```
+
+Whitelist migration SQL query (the `WHERE` clause is not needed, but was used
+on Nova to not add stickybanned ckeys to the whitelist):
+
+```sql
+INSERT INTO whitelist (ckey, date_added)
+SELECT p.ckey, p.firstseen
+FROM player p
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM stickyban s
+    WHERE s.ckey = p.ckey
+)
+```
+
+---
+
+Version 5.31, 4 February 2024, by Tiviplus
 Fixed admin rank table flags being capped at 16 in the DB instead of 24 (byond max)
 
 ```sql
@@ -61,7 +221,7 @@ ALTER TABLE `admin_ranks`
 
 ---
 
-Version 5.28, 1 November 2024, by Ghommie
+Version 5.30, 1 November 2024, by Ghommie
 Added `fish_progress` as the first 'progress' subtype of 'datum/award/scores'
 
 ```sql

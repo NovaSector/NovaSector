@@ -138,6 +138,7 @@
 #include "confusion.dm"
 #include "connect_loc.dm"
 #include "container_sanity.dm"
+#include "crafting.dm"
 #include "crayons.dm"
 #include "create_and_destroy.dm"
 #include "damp_rag.dm"
@@ -321,6 +322,7 @@
 #include "worn_icons.dm"
 // NOVA EDIT START
 #include "~nova\automapper.dm"
+#include "~nova\liver.dm"
 #include "~nova\opposing_force.dm"
 // NOVA EDIT END
 // END_INCLUDE

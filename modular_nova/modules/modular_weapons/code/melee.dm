@@ -13,7 +13,7 @@
 /obj/item/melee/sabre
 	force = 20 // Original: 15
 	wound_bonus = 5 // Original: 10
-	bare_wound_bonus = 20 // Original: 25 Both down slightly, to make up for the damage buff, since it'd get a bit wacky ontop of the armor pen.
+	exposed_wound_bonus = 20 // Original: 25 Both down slightly, to make up for the damage buff, since it'd get a bit wacky ontop of the armor pen.
 
 /obj/item/melee/sabre/cargo
 	name = "authentic shamshir sabre"
@@ -47,4 +47,4 @@
 	target.apply_damage(stamina_damage_per_jousting_tile * usable_charge, STAMINA)
 
 /obj/item/melee/baton/nunchaku
-	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw 
+	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw

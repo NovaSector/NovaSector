@@ -198,7 +198,7 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum
 	name = "magnum blockshot"
 	damage = 10
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 	armour_penetration = 5
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/magnum/Initialize(mapload)
@@ -241,7 +241,7 @@
 	icon_state = "flechette"
 	damage = 6
 	wound_bonus = 0
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	sharpness = SHARP_EDGED //Did you knew flechettes fly sideways into people
 
 /obj/projectile/bullet/pellet/shotgun_buckshot/flechette_nova/Initialize(mapload)
@@ -270,7 +270,7 @@
 	damage_falloff_tile = -0.1
 	stamina_falloff_tile = -0.1
 	wound_bonus = -5
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 	wound_falloff_tile = 0
 	sharpness = NONE
 	ricochets_max = 5
