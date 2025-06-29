@@ -50,7 +50,7 @@
 	pixel_x = 4
 	},
 /obj/item/stamp/denied,
-/obj/structure/table/wood/fancy/royalblue,
+/obj/structure/table,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "cR" = (
@@ -113,6 +113,10 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
+/area/shuttle/solfed)
+"hX" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "ir" = (
 /obj/structure/bed{
@@ -195,12 +199,8 @@
 /obj/structure/marker_beacon,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/solfed)
-"sa" = (
-/obj/structure/filingcabinet/chestdrawer,
-/turf/open/floor/carpet/neon/simple/cyan/nodots,
-/area/shuttle/solfed)
 "sn" = (
-/obj/structure/table/wood/fancy/royalblue,
+/obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "sE" = (
@@ -236,7 +236,7 @@
 /obj/item/reagent_containers/cup/coffeepot/bluespace,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed)
-"uZ" = (
+"uM" = (
 /obj/machinery/computer/records/security{
 	dir = 1
 	},
@@ -250,7 +250,7 @@
 /obj/item/stamp/granted{
 	pixel_x = 8
 	},
-/obj/structure/table/wood/fancy/royalblue,
+/obj/structure/table,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "vD" = (
@@ -300,12 +300,6 @@
 	},
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
-"zI" = (
-/obj/machinery/computer/records/medical{
-	dir = 1
-	},
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed)
 "AP" = (
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
@@ -333,10 +327,6 @@
 	dir = 8
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/carpet/neon/simple/cyan/nodots,
-/area/shuttle/solfed)
-"Ez" = (
-/obj/structure/filingcabinet,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "Fk" = (
@@ -389,6 +379,12 @@
 	},
 /obj/machinery/door/airlock/external/glass,
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed)
+"NC" = (
+/obj/machinery/computer/records/medical{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed)
 "Oz" = (
 /obj/effect/landmark/ert_shuttle_spawn,
@@ -454,8 +450,8 @@
 /turf/template_noop,
 /area/template_noop)
 "WS" = (
-/obj/structure/table/wood/fancy/royalblue,
 /obj/item/flashlight/lamp,
+/obj/structure/table,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "Ye" = (
@@ -576,7 +572,7 @@ UL
 nD
 kO
 ir
-sn
+Ye
 ir
 kO
 "}
@@ -599,7 +595,7 @@ xd
 "}
 (8,1,1) = {"
 xd
-Ez
+hX
 AP
 DZ
 kO
@@ -616,7 +612,7 @@ xd
 "}
 (9,1,1) = {"
 kO
-sa
+sn
 AP
 AP
 Zu
@@ -701,7 +697,7 @@ kO
 "}
 (14,1,1) = {"
 kO
-sa
+sn
 AP
 AP
 Zu
@@ -718,7 +714,7 @@ kO
 "}
 (15,1,1) = {"
 xd
-Ez
+hX
 AP
 DZ
 kO
@@ -760,10 +756,10 @@ wA
 kk
 mr
 kk
-uZ
+uM
 kO
 bd
-sn
+Ye
 bd
 kO
 "}
@@ -777,7 +773,7 @@ qx
 es
 fv
 kk
-zI
+NC
 kO
 kO
 kO

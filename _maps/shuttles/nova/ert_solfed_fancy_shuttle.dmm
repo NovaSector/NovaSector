@@ -35,7 +35,6 @@
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/fancy)
 "bI" = (
-/obj/structure/table,
 /obj/item/folder/red{
 	pixel_x = -3
 	},
@@ -47,11 +46,11 @@
 	pixel_x = 4
 	},
 /obj/item/stamp/denied,
+/obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "bN" = (
-/obj/machinery/light/floor,
-/obj/structure/table,
+/obj/structure/filingcabinet/chestdrawer,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "cm" = (
@@ -117,8 +116,8 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/solfed/fancy)
 "im" = (
-/obj/structure/table,
 /obj/item/flashlight/lamp,
+/obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "ir" = (
@@ -135,7 +134,7 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/solfed/fancy)
 "kb" = (
-/obj/structure/table,
+/obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "kk" = (
@@ -240,7 +239,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
 "vl" = (
-/obj/structure/table,
 /obj/item/stamp/solfed,
 /obj/item/stamp/void{
 	pixel_x = -7
@@ -248,6 +246,7 @@
 /obj/item/stamp/granted{
 	pixel_x = 8
 	},
+/obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "vD" = (
@@ -302,8 +301,8 @@
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "Ay" = (
-/obj/structure/table,
 /obj/machinery/light/floor,
+/obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "Hp" = (
@@ -422,6 +421,10 @@
 "VT" = (
 /turf/template_noop,
 /area/template_noop)
+"WK" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/shuttle/solfed/fancy)
 "WO" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
@@ -540,13 +543,13 @@ Nb
 nD
 aX
 ir
-sn
+kb
 ir
 aX
 "}
 (7,1,1) = {"
 xd
-ne
+kb
 yR
 ne
 aX
@@ -556,14 +559,14 @@ yH
 eO
 pI
 aX
-ne
+sn
 ne
 sn
 xd
 "}
 (8,1,1) = {"
 xd
-ne
+WK
 ne
 cm
 aX
@@ -580,7 +583,7 @@ xd
 "}
 (9,1,1) = {"
 aX
-ne
+bN
 ne
 ne
 Zu
@@ -603,7 +606,7 @@ aX
 aX
 OP
 hj
-bN
+Ay
 xq
 QO
 aX
@@ -665,7 +668,7 @@ aX
 "}
 (14,1,1) = {"
 aX
-ne
+bN
 ne
 ne
 Zu
@@ -682,7 +685,7 @@ aX
 "}
 (15,1,1) = {"
 xd
-ne
+WK
 ne
 cm
 aX
@@ -699,7 +702,7 @@ xd
 "}
 (16,1,1) = {"
 xd
-ne
+kb
 UA
 ne
 aX
@@ -709,7 +712,7 @@ sE
 bE
 wG
 aX
-ne
+sn
 ne
 sn
 xd
@@ -727,7 +730,7 @@ kk
 kk
 aX
 bd
-sn
+kb
 bd
 aX
 "}

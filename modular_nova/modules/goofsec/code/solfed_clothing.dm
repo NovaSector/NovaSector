@@ -351,7 +351,6 @@
 	vend_reply = "Thank you for using the CommDrobe!"
 	auto_build_products = TRUE
 	payment_department = null
-	onstation = FALSE
 	shut_up = TRUE
 
 	refill_canister = /obj/item/vending_refill/wardrobe/solfed_wardrobe
