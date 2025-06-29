@@ -629,9 +629,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/trauma)
 "OS" = (
-/obj/machinery/vending/wallmed/directional/north{
-	all_products_free = TRUE
-	},
+/obj/machinery/vending/wallmed/directional/north,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
 	dir = 10
 	},

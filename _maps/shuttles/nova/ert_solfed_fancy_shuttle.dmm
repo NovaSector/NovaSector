@@ -62,9 +62,7 @@
 /turf/open/floor/iron/white/textured,
 /area/shuttle/solfed/fancy)
 "cX" = (
-/obj/machinery/vending/wallmed/directional/north{
-	all_products_free = TRUE
-	},
+/obj/machinery/vending/wallmed/directional/north,
 /obj/machinery/griddle,
 /turf/open/floor/iron/white/textured,
 /area/shuttle/solfed/fancy)
