@@ -11,7 +11,6 @@
 	///The initial products that the trader offers
 	/// one crew paycheck is 50 credits
 	initial_products = list(
-		/obj/vehicle/sealed/mecha/marauder/mauler/loaded = list(PAYCHECK_CREW * 40000000, INFINITY, "These things are twice the price of a main battle tank- kind of worse than a tank but- they are actually sold on the open market!"),
 		/obj/item/gun/ballistic/automatic/ar/modular/m44a = list(PAYCHECK_CREW * 4000, INFINITY),
 		/obj/item/ammo_box/magazine/m44a = list(PAYCHECK_CREW * 200, INFINITY),
 		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted = list(PAYCHECK_CREW * 12000, INFINITY),
@@ -77,7 +76,7 @@
 	///The speech data of the trader
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(
-			"Im not a fan of any of the gear your showing, come back when you have something i want.",
+			"I'm not a fan of any of the gear you're showing. Come back when you have something I want.",
 		),
 		ITEM_SELLING_CANCELED_PHRASE = list(
 			"I'll be here.",
@@ -86,51 +85,44 @@
 			"Thanks, ill make a good turn around on this.",
 		),
 		INTERESTED_PHRASE = list(
-			"Hey, you've got a gun that interests me, I'd like to buy it, I'll give you some credits for it, deal?",
+			"Hey, you've got a gun that interests me. I would like to buy it, I will give you some credits for it.",
 		),
 		BUY_PHRASE = list(
 			"Use those tools well, their serial numbers are scrubbed.",
 		),
 		NO_CASH_PHRASE = list(
-			"Look man- i know these prices are really fucking high but the conversion rate of credits to any real money is a hundred to one, these are just the prices i got to charge to stay profitable.",
+			"Look man- I know these prices are really high but the conversion rate of credits to any real money is a hundred to one. These are just the prices I got to charge to stay profitable.",
 		),
 		NO_STOCK_PHRASE = list(
-			"Somebody else came through and bought that gun earlier, come back a different cycle- when everything resets here.",
+			"Somebody else came through and bought that gun earlier. Come back a different cycle- when everything resets here and after I have gotten a chance to restock.",
 		),
 		NOT_WILLING_TO_BUY_PHRASE = list(
-			"I don't want to buy that gun right now buddy, come back a different cycle.",
+			"I don't want to buy that gun right now buddy. Come back a different cycle.",
 		),
 		ITEM_IS_WORTHLESS_PHRASE = list(
-			"This gun is dogshit, take that fucking dooky elsewhere, I dont shoot guns much myself but- i know the prices of guns in the main systems and thats not worth much.",
+			"This gun is dogshit, take that fucking donksoft toy elsewhere. I dont shoot guns much myself but- i know the prices of guns in the main systems and thats just not worth much.",
 		),
 		TRADER_HAS_ENOUGH_ITEM_PHRASE = list(
-			"Are you guys trying to flood the market and cause fucking inflation? I cant buy anymore of that right now.",
+			"Are you guys trying to flood the market and cause inflation? I cant buy anymore of that right now.",
 		),
 		TRADER_LORE_PHRASE = list(
-			"Heya buddy- you made your way here- somehow, from what i know from what ive seen that ladder has many many MANY entrances but youll leave the same way you came in, I come here to do deals every cycle and i make a killing with it- although the low stability gets to me sometimes.",
-			"How did i get here? Well- there is this wall in my- area... that never seems right, walking through it brings me here, i tried to climb that ladder a few times and i saw what was on the other side, and decided it was not my time but this place allowed me to quit my deadend job and peddle weapons instead.",
+			"Heya buddy- you made your way here- somehow. From what I have seen that ladder has many many MANY entrances but you will leave the same way you came in. I come here to do deals every cycle and I make a killing with it. Although the low stability gets to my mind sometimes.",
+			"How did I get here? Well- there is this wall that i know that never seems right. Walking through said wall brings me here, I climb that ladder a few times and I saw what was on the other side. After that I decided it was not my time to venture out of this room, but this place allowed me to quit my deadend job and peddle weapons instead.",
 		),
 		TRADER_NOT_BUYING_ANYTHING = list(
-			"I'm not buying anythhing else today if i peddle away too many weapons the cops get suspicious- well, the ones who i DONT pay off get suspicious and THATS a real problem.",
+			"I'm not buying anythhing else today if I peddle away too many weapons the cops get suspicious- well, the ones who I DONT pay off get suspicious and THATS a real problem.",
 		),
 		TRADER_NOT_SELLING_ANYTHING = list(
-			"I have sold everything i brought with me through the veil today buddy, i can only go through twice every cycle once in once out so come back next cycle when everything resets for mroe guns.",
+			"I have sold everything I brought with me through the veil today buddy, I can only go through twice every cycle one time in one time out so come back next cycle when everything in this place resets itself for more.",
 		),
 		TRADER_BATTLE_START_PHRASE = list(
-			"Time to begin to take directly from the source.",
+			"Time to take directly from the source.",
 		),
 		TRADER_BATTLE_END_PHRASE = list(
-			"now THAT is some free produce!",
+			"Now THAT is some free produce!",
 		),
 		TRADER_SHOP_OPENING_PHRASE = list(
-			"Welcome to my tool store, i sell tools for any situation- but you seem to be from the stations and uh- your going to be, paying, a lot of credits heh... sorry but the conversion rate of credits to dollars is a hundred to one.",
+			"Welcome to my tool store, I sell tools for any situation- but you seem to be from the stations and uh. Your going to be paying, a lot of credits heh. Sorry that the conversion rate of credits to dollars is a hundred to one.",
 		),
 	)
 
-/**
- * Depending on the passed parameter/override, returns a randomly picked string out of a list
- *
- * Do note when overriding this argument, you will need to ensure pick(the list) doesn't get supplied with a list of zero length
- * Arguments:
- * * say_text - (String) a define that matches the key of a entry in say_phrases
- */

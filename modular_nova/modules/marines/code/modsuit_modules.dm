@@ -34,5 +34,5 @@
 
 /obj/item/mod/module/welding/noboost
 	removable = FALSE // this prevents any modsuits that this is in from having an armor booster put in them.
-	name = "Welded in welding protection"
-	desc = "Weldeding protection that cant be removed"
+	name = "Unremovable welding protection"
+	desc = "Weldeding protection that cannot be removed. This prevents any modsuit that has this from having an armor booster put in said modsuit."

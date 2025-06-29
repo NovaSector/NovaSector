@@ -110,9 +110,7 @@
 "aw" = (
 /obj/structure/rack,
 /obj/item/storage/toolbox/guncase/soviet,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "ax" = (
 /obj/structure/chair/sofa/bench/right{
@@ -1709,9 +1707,7 @@
 /area/awaymission/caves/maintsroom)
 "fE" = (
 /obj/machinery/vending/sovietsoda,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "fG" = (
 /obj/machinery/door/poddoor/shutters{
@@ -1743,9 +1739,7 @@
 "fL" = (
 /obj/machinery/light/directional/west,
 /mob/living/basic/trooper/russian/ranged,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "fM" = (
 /obj/structure/extinguisher_cabinet,
@@ -1872,11 +1866,8 @@
 /area/awaymission/caves/maintsroom)
 "gj" = (
 /obj/item/clothing/under/costume/lobster,
-/obj/item/clothing/head/costume/lobsterhat{
-	name = "Voltarian lobster costume";
-	desc = "a funny abnormal looking lobster costume. (OOC: Yes its a reference, specifically with PAGSM, and no im not referencing that one lady- you know who im talking about, sierra is infinitely better than any other mod character FIGHT ME.)"
-	},
 /obj/structure/table/reinforced/plasmarglass,
+/obj/item/clothing/head/costume/lobsterhat,
 /turf/open/floor/mineral/titanium/purple,
 /area/awaymission/caves/maintsroom)
 "gk" = (
@@ -2172,12 +2163,7 @@
 	dir = 8
 	},
 /obj/structure/safe/floor,
-/obj/item/paper/carbon{
-	icon_state = "rare_pepe";
-	inhand_icon_state = "rare_pepe";
-	worn_icon_state = "rare_pepe";
-	name = "Rare pepe"
-	},
+/obj/item/paper/carbon/rare_pepe,
 /turf/open/floor/engine{
 	slowdown = 2
 	},
@@ -2267,9 +2253,7 @@
 /area/awaymission/caves/maintsroom)
 "hn" = (
 /mob/living/basic/trooper/russian,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "ho" = (
 /obj/machinery/door/airlock/maintenance,
@@ -2315,9 +2299,7 @@
 /area/awaymission/caves/maintsroom)
 "hw" = (
 /mob/living/basic/bear/russian,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "hx" = (
 /obj/structure/bed/maint,
@@ -3238,9 +3220,7 @@
 /obj/item/reagent_containers/cup/glass/bottle/vodka/badminka{
 	pixel_x = 5
 	},
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "ky" = (
 /obj/machinery/camera/xray/directional/north,
@@ -3334,11 +3314,8 @@
 /turf/open/water,
 /area/awaymission/caves/maintsroom)
 "kN" = (
-/obj/machinery/door/poddoor/shutters/window/indestructible,
-/obj/structure/sign/flag{
-	name = "Terragov Marine Corp Flag";
-	desc = "This flag has the emblem of the TGMC on it. (Yes i know its blank shut up)"
-	},
+/obj/machinery/door/poddoor/shutters/window/indestructible/maints_armory,
+/obj/structure/sign/flag/terragov/terragov_marines,
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "kO" = (
@@ -4266,9 +4243,7 @@
 /area/awaymission/caves/maintsroom)
 "nP" = (
 /obj/machinery/door/airlock/maintenance,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "nQ" = (
 /obj/effect/turf_decal/trimline/blue/line{
@@ -4764,9 +4739,7 @@
 "pz" = (
 /obj/machinery/light/directional/west,
 /mob/living/basic/bear/russian,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "pA" = (
 /obj/effect/mob_spawn/corpse/human,
@@ -4785,9 +4758,7 @@
 "pD" = (
 /obj/machinery/light/directional/south,
 /obj/structure/sign/poster/contraband/soviet_propaganda/directional/south,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "pE" = (
 /obj/item/food/sandwich/cheese,
@@ -4981,17 +4952,10 @@
 /area/awaymission/caves/maintsroom)
 "ql" = (
 /obj/effect/decal/hammerandsickle,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "qm" = (
-/mob/living/basic/trooper/syndicate/ranged/smg/pilot{
-	environment_smash = 0;
-	name = "SUPER AMERICAN";
-	desc = "America, FUCK YEA, comin agian to save the mother fuckin day yeah! AMERICA FUCK YEAH! freedom is the only way yeah! Terrorists your game is through, because now you have to answer to- AMERICA, FUCK YEA!";
-	health = 400
-	},
+/mob/living/basic/trooper/syndicate/ranged/smg/pilot/super_american,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "qn" = (
@@ -5071,9 +5035,7 @@
 "qF" = (
 /mob/living/basic/bear/russian,
 /obj/structure/sign/poster/contraband/communist_state/directional/east,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "qG" = (
 /obj/item/kirbyplants/organic/plant10,
@@ -5116,11 +5078,7 @@
 /turf/open/misc/asteroid/forest/mushroom/blue,
 /area/awaymission/caves/maintsroom)
 "qO" = (
-/obj/structure/showcase/mecha/marauder{
-	desc = "A combat mech  standing proud and tall in near pristine condition, this would make for an amazing joyride... IF YOU COULD GET THESE SHUTTERS OPEN.";
-	icon_state = "seraph";
-	name = "Commanding combat mech"
-	},
+/obj/structure/showcase/mecha/marauder/fakeout/command,
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "qP" = (
@@ -5566,9 +5524,7 @@
 "so" = (
 /obj/machinery/light/directional/north,
 /obj/structure/sign/poster/contraband/soviet_propaganda/directional/north,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "sp" = (
 /obj/structure/disposalpipe/segment{
@@ -5705,11 +5661,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "sK" = (
-/obj/machinery/porta_turret/syndicate/shuttle{
-	faction = list("neutral","Deathsquad");
-	name = "Bar defense turret";
-	max_integrity = 1000
-	},
+/obj/machinery/porta_turret/syndicate/shuttle/bar_defense,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "sL" = (
@@ -6190,9 +6142,7 @@
 /obj/structure/barricade/wooden/crude,
 /obj/structure/barricade/wooden,
 /obj/effect/mapping_helpers/airlock/welded,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "un" = (
 /obj/item/storage/medkit/robotic_repair/preemo/stocked,
@@ -6236,10 +6186,7 @@
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
 "us" = (
-/obj/structure/sign/flag{
-	name = "Terragov Marine Corp Flag";
-	desc = "This flag has the emblem of the TGMC on it. (Yes i know its blank shut up)"
-	},
+/obj/structure/sign/flag/terragov/terragov_marines,
 /turf/closed/indestructible/reinforced,
 /area/awaymission/caves/maintsroom)
 "ut" = (
@@ -6298,12 +6245,8 @@
 /obj/item/clothing/suit/armor/heavy/adamantine,
 /obj/item/clothing/head/helmet/chaplain/bland,
 /obj/item/dnainjector/hulkmut,
-/obj/item/shield/buckler/reagent_weapon/pavise{
-	block_chance = 65;
-	name = "Stalwart Defense";
-	slowdown = 4
-	},
 /obj/item/nullrod/vibro/talking/chainsword,
+/obj/item/shield/buckler/reagent_weapon/pavise/stalwart_defense,
 /turf/open/floor/engine{
 	slowdown = 2
 	},
@@ -6528,10 +6471,7 @@
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "vv" = (
-/obj/structure/showcase/mecha/marauder{
-	name = "combat mech";
-	desc = "A combat mech  standing proud and tall in near pristine condition, this would make for an amazing joyride... IF YOU COULD GET THESE SHUTTERS OPEN."
-	},
+/obj/structure/showcase/mecha/marauder/fakeout,
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "vw" = (
@@ -6697,8 +6637,8 @@
 /area/awaymission/caves/maintsroom)
 "vZ" = (
 /obj/structure/spider/stickyweb,
-/obj/effect/mob_spawn/corpse/human/syndicatecommando,
 /obj/structure/spider/cocoon,
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "wa" = (
@@ -6872,10 +6812,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "wH" = (
-/turf/closed/indestructible/oldshuttle{
-	name = "Pure white";
-	desc = "You feel as if you are looking out at an impossibly large horizion, in the distance you can see marble white pillars in a formal and organizied pattern and they go up, and up, and up until the point where you have to look almost straight up to see some of the ones closest to you, and looking down the hallway you can see onto further than you thought a mere mortal could."
-	},
+/turf/closed/indestructible/oldshuttle/pure_white,
 /area/awaymission/caves/maintsroom)
 "wI" = (
 /obj/structure/sign/poster/contraband/random/directional/east,
@@ -6949,9 +6886,7 @@
 /obj/item/clothing/under/costume/soviet,
 /obj/item/clothing/suit/costume/soviet,
 /obj/item/storage/toolbox/ammobox/full/sakhno,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "wU" = (
 /obj/item/grown/bananapeel,
@@ -7602,10 +7537,7 @@
 /turf/open/misc/asteroid,
 /area/awaymission/caves/maintsroom)
 "zq" = (
-/obj/machinery/door/poddoor/shutters/window/indestructible{
-	name = "Armory";
-	desc = "A shutter with a thick see-through polycarbonate window, you get the feeling that breaking into here will not be worth your time."
-	},
+/obj/machinery/door/poddoor/shutters/window/indestructible/maints_armory,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "zr" = (
@@ -7833,9 +7765,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "Af" = (
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "Ag" = (
 /obj/structure/window/spawner/directional/west,
@@ -8265,9 +8195,7 @@
 /obj/item/reagent_containers/cup/glass/bottle/vodka/badminka,
 /obj/item/reagent_containers/cup/glass/bottle/vodka/badminka,
 /obj/item/reagent_containers/cup/glass/bottle/vodka/badminka,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "Bw" = (
 /obj/machinery/light/directional/east,
@@ -8337,10 +8265,7 @@
 /turf/open/floor/iron/white,
 /area/awaymission/caves/maintsroom)
 "BG" = (
-/obj/structure/sign/flag{
-	name = "The flag of the warden emblem";
-	desc = "This flag has an image of the warden nation on it, because this is in an ooc spot this a full blown reference to foxhole and my own loyalty to one of the games faction, that being the wardens, this is also a direct fuck you to any colonial players who might look at this. (not really tho its just a game oomfie) oh and also the warden navy rules the waves."
-	},
+/obj/structure/sign/flag/wardens,
 /turf/closed/indestructible/reinforced,
 /area/awaymission/caves/maintsroom)
 "BH" = (
@@ -8487,22 +8412,12 @@
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "Cb" = (
-/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim{
-	faction = list("hostile","cult");
-	name = "anti-personel turret";
-	desc = "A repurposed point defense turret usually used to stop heavy projectiles or large missiles coming for small ships- imagine what it would do to you."
-	},
+/obj/machinery/porta_turret/syndicate/nri_raider/ancient_milsim/garrison_turret,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "Cc" = (
-/mob/living/basic/trooper/nanotrasen/ranged/elite{
-	health = 2000;
-	name = "Seargent Crowlie";
-	desc = "He stands looking out at the water of this fake domed beach, he stands completely still- that is until he hears you to which he imeediatly takes up a combative stance and starts opening fire.";
-	loot = list(/obj/item/keycard/blue);
-	maxHealth = 2000
-	},
 /obj/effect/light_emitter/fake_outdoors,
+/mob/living/basic/trooper/nanotrasen/ranged/elite/seargent_crowlie,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/maintsroom)
 "Cd" = (
@@ -8516,7 +8431,7 @@
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "Ch" = (
-/obj/machinery/door/poddoor/shutters/window/indestructible,
+/obj/machinery/door/poddoor/shutters/window/indestructible/maints_armory,
 /turf/open/floor/iron/diagonal,
 /area/awaymission/caves/maintsroom)
 "Ci" = (
@@ -8613,9 +8528,7 @@
 /area/awaymission/caves/maintsroom)
 "CH" = (
 /obj/structure/sign/poster/contraband/soviet_propaganda/directional/south,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "CI" = (
 /obj/item/clothing/suit/clockwork/speed,
@@ -8951,9 +8864,7 @@
 /area/awaymission/caves/maintsroom)
 "DQ" = (
 /obj/structure/sign/poster/contraband/communist_state/directional/east,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "DR" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -9575,11 +9486,7 @@
 /obj/item/storage/belt/military,
 /obj/item/clothing/shoes/combat,
 /obj/item/radio/headset,
-/obj/item/storage/backpack/industrial/frontier_colonist{
-	name = "Military Backpack";
-	desc = "A rugged backpack often used by settlers and explorers. It's fireproof, this one has military ensignia on it.";
-	storage_type = /datum/storage/duffel
-	},
+/obj/item/storage/backpack/industrial/frontier_colonist/military_grade_backpack,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "FP" = (
@@ -10345,10 +10252,7 @@
 /turf/open/misc/asteroid/forest/mushroom/blue,
 /area/awaymission/caves/maintsroom)
 "IF" = (
-/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
-	name = "Thats all for now folks!";
-	desc = "You hear laughter and applause as if a show just ended all around you, then you start to hear Well meet again by vera lynn start to play, you get a sense like you got off easy and maybe shouldnt come back."
-	},
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed/maints_finale,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "IG" = (
@@ -11120,9 +11024,7 @@
 /obj/structure/railing{
 	dir = 9
 	},
-/mob/living/basic/trooper/syndicate/ranged/smg/anthro{
-	name = "Syndicate Vietnamese ambush moth"
-	},
+/mob/living/basic/trooper/syndicate/ranged/smg/anthro/ambush_moth,
 /obj/structure/flora/bush/large/style_random,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -12099,9 +12001,7 @@
 /area/awaymission/caves/maintsroom)
 "Oy" = (
 /obj/structure/sign/poster/contraband/soviet_propaganda/directional/north,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "Oz" = (
 /obj/structure/spider/stickyweb,
@@ -12283,9 +12183,7 @@
 /area/awaymission/caves/maintsroom)
 "Ph" = (
 /mob/living/basic/trooper/russian/ranged,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "Pj" = (
 /obj/structure/closet/crate/trashcart/filled,
@@ -12398,6 +12296,7 @@
 /obj/item/clothing/head/helmet/marine/security,
 /obj/item/clothing/head/helmet/marine,
 /obj/item/clothing/suit/armor/vest/marine,
+/obj/item/clothing/suit/armor/vest/marine/security,
 /turf/open/floor/asphalt,
 /area/awaymission/caves/maintsroom)
 "PD" = (
@@ -12577,7 +12476,7 @@
 /obj/item/clothing/head/frontier_colonist_helmet,
 /obj/item/clothing/suit/frontier_colonist_flak,
 /obj/item/clothing/under/frontier_colonist,
-/obj/item/storage/backpack/industrial/frontier_colonist,
+/obj/item/storage/backpack/industrial/frontier_colonist/military_grade_backpack,
 /obj/item/radio/headset/headset_frontier_colonist,
 /obj/item/storage/belt/utility/frontier_colonist,
 /obj/item/clothing/gloves/combat/peacekeeper,
@@ -13593,9 +13492,7 @@
 "Ty" = (
 /obj/machinery/light/directional/east,
 /obj/structure/sign/poster/contraband/communist_state/directional/east,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "Tz" = (
 /obj/structure/table,
@@ -14386,9 +14283,7 @@
 "Wn" = (
 /obj/machinery/hydroponics/constructable/fullupgrade,
 /obj/item/seeds/potato,
-/turf/open/floor/mineral/plastitanium/red{
-	name = "soviet floor"
-	},
+/turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/caves/maintsroom)
 "Wo" = (
 /obj/structure/rack,
@@ -25968,7 +25863,7 @@ Xx
 LT
 EZ
 Rf
-Cc
+Rf
 Rf
 Rf
 Rf
@@ -26186,7 +26081,7 @@ LT
 EZ
 Rf
 Rf
-Rf
+Cc
 Rf
 Rf
 Rf
@@ -35983,7 +35878,7 @@ jf
 LS
 jf
 GS
-vZ
+ZT
 Wx
 Wx
 GS
@@ -36417,7 +36312,7 @@ jf
 LS
 jf
 GS
-ZT
+vZ
 Wx
 ET
 GS
