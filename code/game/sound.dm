@@ -206,6 +206,7 @@
 /proc/get_sfx(soundin)
 	if(!istext(soundin))
 		return soundin
+<<<<<<< HEAD
 	soundin = get_sfx_nova(soundin) // NOVA EDIT ADDITION - This overrides the default sound effects too, so use it to modularly change a sound effect output.
 	switch(soundin)
 		if(SFX_SHATTER)
@@ -869,3 +870,7 @@
 		if(SFX_REGEN_MESH_DROP)
 			soundin = 'sound/items/regenerative_mesh/regen_mesh_drop1.ogg'
 	return soundin
+=======
+	var/datum/sound_effect/sfx = GLOB.sfx_datum_by_key[soundin]
+	return sfx?.return_sfx() || soundin
+>>>>>>> 68535c4c50c (Datumize sound keys into sound_effect_datums  (#91850))
