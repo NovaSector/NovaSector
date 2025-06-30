@@ -40,15 +40,6 @@
 //TG's icons only have a dress.dmi, but that means it's not ABC-sorted to be beside shorts_pants_shirts.dmi. So it's skirts_dresses for us.
 
 /*
- *	TG DIGI VERSION DRESSES
- */
-/obj/item/clothing/under/dress/striped
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/under/dress/skirt/plaid
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/*
  *	Skirts
  */
 
