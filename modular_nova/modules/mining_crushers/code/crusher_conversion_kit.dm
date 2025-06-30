@@ -22,6 +22,7 @@
 		/obj/item/kinetic_crusher/hammer = "Heavy hitter. Deals flat damage, but knocks back foes.",
 		/obj/item/kinetic_crusher/claw = "Deadly backstabs. The weakest of the five from any other angle.",
 	)
+
 /obj/item/crusher_conversion_kit/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/subtype_picker, subtype2descriptions, CALLBACK(src, PROC_REF(on_crusher_conversion)))
