@@ -43,9 +43,6 @@
 /turf/open/floor/iron/white/textured_half,
 /area/shuttle/solfed/espatier/trauma)
 "bG" = (
-/obj/structure/closet/emcloset/wall{
-	pixel_y = -32
-	},
 /obj/structure/closet/crate/freezer/blood{
 	anchored = 1
 	},
@@ -388,10 +385,6 @@
 "xD" = (
 /obj/item/gps/computer/space/solfed/medical,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier/trauma)
-"xE" = (
-/obj/machinery/light/floor,
-/turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/solfed/espatier/trauma)
 "yk" = (
 /obj/machinery/cryo_cell,
@@ -779,9 +772,7 @@
 	},
 /area/shuttle/solfed/espatier/trauma)
 "Xx" = (
-/obj/structure/closet/firecloset/wall{
-	pixel_y = -32
-	},
+/obj/machinery/light/floor,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/solfed/espatier/trauma)
 "XF" = (
@@ -925,7 +916,7 @@ ms
 Zk
 Ks
 Zk
-Xx
+Wa
 gD
 ov
 nl
@@ -1047,7 +1038,7 @@ Wa
 Vr
 gD
 CM
-xE
+Xx
 sQ
 Md
 "}

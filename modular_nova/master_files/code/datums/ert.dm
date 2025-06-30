@@ -80,8 +80,8 @@
 
 /// Forces the crew to be oops all corpsmans! (medics/doctors)
 /datum/ert/solfed/espatier/medical/corpsman_only
-		roles = list(/datum/antagonist/ert/solfed/espatier/corpsman)
+	roles = list(/datum/antagonist/ert/solfed/espatier/corpsman)
 
 /// Solfed Officals shuttle, but more fancy.
 /datum/ert/solfed/fancy
-	ert_template = /datum/map_template/shuttle/ert/solfed_transport/fancy
+	ert_template = /datum/map_template/shuttle/ert/solfed/fancy
