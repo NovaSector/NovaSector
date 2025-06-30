@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(nova_wood_recipes, list(
 // Cardboard
 
 GLOBAL_LIST_INIT(nova_cardboard_recipes, list(
-	new/datum/stack_recipe("flat box", /obj/item/storage/box/flat, crafting_flags = NONE, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("coffee tray", /obj/item/storage/box/coffee_tray, 1, category = CAT_CONTAINERS),
 ))
 
 /obj/item/stack/sheet/cardboard/get_main_recipes()
