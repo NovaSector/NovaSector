@@ -181,7 +181,7 @@
 	name = "\improper SolFed grand encryption key"
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
 	icon_state = "/obj/item/encryptionkey/headset_solfed/squadleader"
-	post_init_icon_state = "cypherkey_espitator"
+	post_init_icon_state = "cypherkey_syndicate"
 	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
 	greyscale_colors = "#ebebeb#2b2793"
 
