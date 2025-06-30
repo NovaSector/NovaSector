@@ -14,17 +14,18 @@
 	lefthand_file = 'modular_nova/modules/mining_crushers/icons/kit_lefthand.dmi'
 	righthand_file = 'modular_nova/modules/mining_crushers/icons/kit_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
-/// Tooltips for the crusher variants shown in the selection UI
+	/// Tooltips for the crusher variants shown in the selection UI
 	var/list/subtype2descriptions = list(
 		/obj/item/kinetic_crusher = "Tools of the trade. Versatile, reliable.",
 		/obj/item/kinetic_crusher/machete = "Compact, with a faster recharge. Sacrifices power for butchering speed.",
 		/obj/item/kinetic_crusher/spear = "Long, two meter reach. Ideal for spacing. Too large for armor slots. Deals less damage.",
 		/obj/item/kinetic_crusher/hammer = "Heavy hitter. Deals flat damage, but knocks back foes.",
-		/obj/item/kinetic_crusher/claw = "Deadly backstabs. The weakest of the five from any other angle."
-)
+		/obj/item/kinetic_crusher/claw = "Deadly backstabs. The weakest of the five from any other angle.",
+	)
 /obj/item/crusher_conversion_kit/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/subtype_picker, subtype2descriptions, CALLBACK(src, PROC_REF(on_crusher_conversion)))
+
 /// Handles post-conversion behavior when the kit becomes a crusher, such as effects or custom logic.
 /obj/item/crusher_conversion_kit/proc/on_crusher_conversion(obj/item/kinetic_crusher/tool, mob/living/picker)
 	if (!tool || !ismob(picker))
