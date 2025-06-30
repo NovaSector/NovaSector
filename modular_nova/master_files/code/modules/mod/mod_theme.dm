@@ -607,10 +607,10 @@
 	)
 	variants = list(
 		"marine" = list(
-			MOD_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/wornmod.dmi',
-			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod_worn_mutant.dmi',
-			MOD_SNOUT_ICON_OVERRIDE = 'modular_nova/modules/marines/icons/mod_worn_mutant.dmi',
+			MOD_ICON_OVERRIDE = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi',
+			MOD_DIGITIGRADE_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi',
+			MOD_SNOUT_ICON_OVERRIDE = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing_mutant.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = SNUG_FIT,

@@ -8317,7 +8317,6 @@
 #include "modular_nova\modules\mapping\voidraptor\code\mob.dm"
 #include "modular_nova\modules\mapping\voidraptor\code\shuttles.dm"
 #include "modular_nova\modules\marines\code\gear.dm"
-#include "modular_nova\modules\marines\code\mod.dm"
 #include "modular_nova\modules\marines\code\modsuit_modules.dm"
 #include "modular_nova\modules\marines\code\smartgun.dm"
 #include "modular_nova\modules\mauling_melees\mauling_element.dm"
