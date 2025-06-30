@@ -177,25 +177,6 @@
 	worn_icon = MODULAR_SHOES_WORN_ICON
 	icon_state = "pink_clown_shoes"
 
-//Modular overide to give jackboots laces
-/obj/item/clothing/shoes/jackboots
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/combat
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/workboots
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/russian
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/winterboots
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/shoes/sneakers
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"
 	desc = "These don't seem to come pre-polished, how saddening."

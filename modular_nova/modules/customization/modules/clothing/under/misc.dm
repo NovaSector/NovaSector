@@ -1,15 +1,3 @@
-/obj/item/clothing/under/ethereal_tunic
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
-
-/obj/item/clothing/under/trek/q
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
-
-/obj/item/clothing/under/rank/civilian/clown/jester
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/under/rank/civilian/clown/jesteralt
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
 /obj/item/clothing/under/misc/bluetracksuit
 	name = "blue tracksuit"
 	desc = "Found on a dead homeless man squatting in an alleyway, the classic design has been mass produced to bring terror to the galaxy."
