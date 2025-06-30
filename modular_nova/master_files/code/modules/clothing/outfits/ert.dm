@@ -53,13 +53,9 @@
 	gloves = /obj/item/clothing/gloves/combat
 	suit = /obj/item/clothing/suit/armor/vest/det_suit/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
-	belt = /obj/item/storage/belt/military
+	belt = /obj/item/storage/belt/military/solfed
 	neck = /obj/item/clothing/neck/mantle/solfed
 	accessory = null
-	belt_contents = list (
-		/obj/item/ammo_box/magazine/c40sol_rifle/standard = 4,
-		/obj/item/melee/baton/security/loaded = 1,
-		)
 
 	back = /obj/item/storage/backpack
 	glasses = /obj/item/clothing/glasses/sunglasses/solfed
@@ -82,15 +78,6 @@
 	name = "SolFed Espatier Engineer"
 	head = /obj/item/clothing/head/helmet/solfed/engineer
 	belt = /obj/item/storage/belt/utility/full/powertools
-	belt_contents = list(
-		/obj/item/screwdriver/power = 1,
-		/obj/item/crowbar/power = 1,
-		/obj/item/weldingtool/electric = 1,
-		/obj/item/multitool = 1,
-		/obj/item/holosign_creator/atmos = 1,
-		/obj/item/extinguisher/mini = 1,
-		/obj/item/stack/cable_coil = 1,
-	)
 	mask = /obj/item/clothing/mask/gas/welding/up
 	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
 	backpack_contents = list(
@@ -197,3 +184,12 @@
 	post_init_icon_state = "cypherkey_espitator"
 	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
 	greyscale_colors = "#ebebeb#2b2793"
+
+/obj/item/storage/belt/military/solfed
+
+/obj/item/storage/belt/military/solfed/PopulateContents()
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/ammo_box/magazine/c40sol_rifle/standard(src)
+	new /obj/item/melee/baton/security/loaded(src)
