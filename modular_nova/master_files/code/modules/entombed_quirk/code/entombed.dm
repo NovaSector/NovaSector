@@ -92,8 +92,8 @@
 		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	else if(modsuit.skin == "tarkon") // Another special case
-		modsuit.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
-		modsuit.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
+		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
@@ -116,8 +116,8 @@
 			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
-			part.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
-			part.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
+			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	install_racial_features()
 
