@@ -48,7 +48,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // Magmawing watcher
@@ -56,7 +55,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // Icewing watcher
@@ -64,7 +62,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return  ..()
 
 // Goliath tentacle
@@ -72,7 +69,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // Brimdemon fang
@@ -80,7 +76,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // Legion skull
@@ -91,15 +86,16 @@
 		check_and_update_bonus(pkc)
 
 /obj/item/crusher_trophy/legion_skull/remove_from(obj/item/kinetic_crusher/pkc, mob/living/user)
-	if(bonus_currently_applied)
+	if(bonus_currently_applied) // Undo dynamic environment bonus if applied.
 		pkc.charge_time += bonus_value
 		bonus_currently_applied = FALSE
-	. = ..()
+	. = ..() // Parent remove_from re-applies static bonus (there's no other way to do this)
 	if(.)
-		pkc.charge_time -= bonus_value
+		pkc.charge_time -= bonus_value // Neutralize static bonus again to leave crusher unchanged
 
+/// Manages the special environment-dependent bonus for this trophy.
 /obj/item/crusher_trophy/legion_skull/check_and_update_bonus(obj/item/kinetic_crusher/target_crusher)
-	var/should_have_bonus = target_crusher.trophies_enabled
+	var/should_have_bonus = target_crusher.trophies_enabled //Applies or removes the environment-based bonus depending on trophy state(regarding the trophy's cooldown)
 
 	if(should_have_bonus && !bonus_currently_applied)
 		target_crusher.charge_time -= bonus_value
@@ -113,7 +109,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 /obj/item/crusher_trophy/bileworm_spewlet/on_projectile_hit_mineral(turf/closed/mineral, mob/living/user)
@@ -121,7 +116,6 @@
 	if(!crusher?.trophies_enabled)
 		// Can't break a large amount of rocks with the spewlet on station like tram
 		return
-
 	for(var/turf/closed/mineral/mineral_turf in RANGE_TURFS(1, mineral) - mineral)
 		mineral_turf.gets_drilled(user, 1)
 
@@ -130,20 +124,15 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // ICE WASTES TROPHIES
 
 // demonic watcher
 /obj/item/crusher_trophy/ice_demon_cube/on_mark_detonation(mob/living/target, mob/living/user)
-	if(isnull(target) || !COOLDOWN_FINISHED(src, summon_cooldown))
-		return
-
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // Wolf
@@ -151,7 +140,6 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()
 
 // Polar bear
@@ -159,5 +147,4 @@
 	var/obj/item/kinetic_crusher/crusher = loc
 	if(!crusher?.trophies_enabled)
 		return
-
 	return ..()

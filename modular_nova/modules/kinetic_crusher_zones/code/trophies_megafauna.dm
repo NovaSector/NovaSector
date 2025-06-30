@@ -52,7 +52,7 @@
 	. = ..()
 	if(!.)
 		return
-	check_and_update_bonus(pkc, user)
+	check_and_update_bonus(pkc)
 
 /// Removes stat bonuses from demon claws.
 /obj/item/crusher_trophy/demon_claws/remove_from(obj/item/kinetic_crusher/pkc, mob/living/user)
@@ -65,7 +65,7 @@
 
 /// Determines whether the demon claws should apply their stat bonuses.
 /obj/item/crusher_trophy/demon_claws/check_and_update_bonus(obj/item/kinetic_crusher/target_crusher)
-	var/should_have_bonuses = target_crusher.trophies_enabled
+	var/should_have_bonuses = target_crusher.trophies_enabled //Whether the bonuses apply (heal, bonus damage,) when something is hit/detonated by the crusher.
 	if(should_have_bonuses && !stat_bonuses_applied)
 		target_crusher.force_wielded += bonus_value * 0.2
 		target_crusher.detonation_damage += bonus_value * 0.8

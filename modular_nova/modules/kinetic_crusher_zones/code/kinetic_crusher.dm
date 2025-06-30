@@ -10,7 +10,8 @@
 
 /obj/item/kinetic_crusher/Initialize(mapload)
 	. = ..()
-	update_trophies_enabled()
+	if(mapload)
+		on_z_level_change(null, null, get_turf(src))
 	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_level_change))
 
 /// Called when the crusher changes z-levels; updates trophy zone state
