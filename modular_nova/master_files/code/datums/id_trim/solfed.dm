@@ -9,7 +9,7 @@
 
 /// Lets be real if the ERT variant of these guys are coming, ya'll are cooked
 /datum/id_trim/solfed/espatier
-	assignment = "Solfed Espatier"
+	assignment = "SolFed Espatier"
 	threat_modifier = -10 // This counts as military intervention
 
 /datum/id_trim/solfed/espatier/New()
@@ -18,7 +18,7 @@
 
 /// This is the Soft ERT variant of the solfed Officials
 /datum/id_trim/solfed/official
-	assignment = "Solfed Official"
+	assignment = "SolFed Official"
 	sechud_icon_state = SECHUD_SOLFED_LIASON
 
 /datum/id_trim/solfed/official/New()

@@ -23,7 +23,7 @@
 	rename_team = "SolFed Officials"
 	teamsize = 5
 	code = "FEDERAL"
-	mission = "Audit the station, write reports, and look for any federation violations"
+	mission = "Audit the station, write reports, and look for any violations of Federal regulations."
 	polldesc = "a Sol Federation Official"
 
 /datum/ert/solfed/espatier
@@ -36,7 +36,7 @@
 	rename_team = "SolFed Espatier Detachment"
 	teamsize = 6
 	code = "FEDERAL"
-	mission = "Rescue survivors, Bring order to chaos, Glory to the federation."
+	mission = "Rescue survivors, and bring order to chaos. Glory to the Federation."
 	polldesc = "a Sol Federation Espatier"
 
 
@@ -77,5 +77,5 @@
 /// Solfed Officals shuttle, but more fancy.
 /datum/ert/solfed/fancy
 	roles = list(/datum/antagonist/ert/solfed/espatier, /datum/antagonist/ert/solfed/espatier/corpsman, /datum/antagonist/ert/solfed/espatier/engineer)
-	leader_role = /datum/antagonist/ert/solfed/espatier/
+	leader_role = /datum/antagonist/ert/solfed/espatier/leader
 	ert_template = /datum/map_template/shuttle/ert/solfed_transport/fancy
