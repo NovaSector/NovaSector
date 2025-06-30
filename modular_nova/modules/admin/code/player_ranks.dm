@@ -38,7 +38,7 @@ ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage wh
 	var/list/choices = list("Add", "Remove")
 	switch(tgui_alert(usr, "What would you like to do?", "Manage [group]s", choices))
 		if("Add")
-			var/name = input(usr, "Please enter the CKEY (case-insensitive) of the person you would like to make a [group_title]:", "Add a [group_title]") as null|text
+			var/name = input(usr, "Please enter the CKEY (case-insensitive) of the person you would like to make a [group]:", "Add a [group]") as null|text
 			if(!name)
 				return
 
@@ -52,12 +52,12 @@ ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage wh
 			if(!success)
 				return
 
-			message_admins("[key_name(usr)] has granted [group_title] status to [player_to_be].")
-			log_admin_private("[key_name(usr)] has granted [group_title] status to [player_to_be].")
+			message_admins("[key_name(usr)] has granted [group] status to [player_to_be].")
+			log_admin_private("[key_name(usr)] has granted [group] status to [player_to_be].")
 
 
 		if("Remove")
-			var/name = input(usr, "Please enter the CKEY (case-insensitive) of the person you would like to no longer be a [group_title]:", "Remove a [group_title]") as null|text
+			var/name = input(usr, "Please enter the CKEY (case-insensitive) of the person you would like to no longer be a [group]:", "Remove a [group]") as null|text
 			if(!name)
 				return
 
@@ -71,8 +71,8 @@ ADMIN_VERB(manage_player_ranks, R_PERMISSIONS, "Manage Player Ranks", "Manage wh
 			if(!success)
 				return
 
-			message_admins("[key_name(usr)] has revoked [group_title] status from [player_that_was].")
-			log_admin_private("[key_name(usr)] has revoked [group_title] status from [player_that_was].")
+			message_admins("[key_name(usr)] has revoked [group] status from [player_that_was].")
+			log_admin_private("[key_name(usr)] has revoked [group] status from [player_that_was].")
 
 		else
 			return
