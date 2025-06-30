@@ -13,6 +13,13 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed)
+"aK" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed)
 "bd" = (
 /obj/structure/bed,
 /obj/item/bedsheet/cosmos,
@@ -61,6 +68,7 @@
 "cX" = (
 /obj/machinery/vending/wallmed/directional/north,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed)
 "dM" = (
@@ -216,6 +224,7 @@
 /obj/item/coffee_cartridge/fancy,
 /obj/item/coffee_cartridge/fancy,
 /obj/effect/turf_decal/siding/wideplating/dark/corner,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed)
 "tf" = (
@@ -393,8 +402,17 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed)
+"Ru" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed)
 "Sf" = (
 /obj/item/gps/computer/space/solfed/official,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed)
+"SO" = (
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed)
 "TL" = (
@@ -440,6 +458,7 @@
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 4
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed)
 "VT" = (
@@ -514,7 +533,7 @@ cX
 Vn
 Vn
 Vn
-kk
+SO
 kO
 hG
 hG
@@ -680,11 +699,11 @@ kO
 kO
 kO
 kO
-Jy
+Ru
 AP
 Ej
 AP
-tf
+aK
 kO
 kO
 kO

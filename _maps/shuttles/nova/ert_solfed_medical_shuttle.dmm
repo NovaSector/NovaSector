@@ -74,6 +74,7 @@
 /area/shuttle/solfed/espatier/trauma)
 "ew" = (
 /obj/machinery/computer/operating,
+/obj/machinery/light/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/solfed/espatier/trauma)
 "eK" = (
@@ -222,6 +223,7 @@
 "ms" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
+/obj/machinery/light/directional/north,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/solfed/espatier/trauma)
 "mE" = (
@@ -309,6 +311,10 @@
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/trauma)
+"qx" = (
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "sx" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/turf_decal/bot_white,
@@ -350,6 +356,7 @@
 /obj/machinery/computer/operating{
 	dir = 1
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/solfed/espatier/trauma)
 "vW" = (
@@ -772,7 +779,7 @@
 	},
 /area/shuttle/solfed/espatier/trauma)
 "Xx" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/directional/south,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/shuttle/solfed/espatier/trauma)
 "XF" = (
@@ -916,7 +923,7 @@ ms
 Zk
 Ks
 Zk
-Wa
+Xx
 gD
 ov
 nl
@@ -1038,7 +1045,7 @@ Wa
 Vr
 gD
 CM
-Xx
+qx
 sQ
 Md
 "}

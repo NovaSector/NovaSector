@@ -153,6 +153,10 @@
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
+"ka" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
 "kb" = (
 /obj/machinery/door/airlock/security,
 /turf/open/floor/iron/dark/textured_large,
@@ -233,11 +237,6 @@
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
-"on" = (
-/obj/machinery/status_display/evac/directional/west,
-/obj/item/gps/computer/space/solfed/armory,
-/turf/open/floor/iron/smooth_half,
-/area/shuttle/solfed/espatier/defcon)
 "oY" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -253,7 +252,12 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /obj/machinery/status_display/evac/directional/south,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"pW" = (
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/solfed/espatier/defcon)
 "qx" = (
 /obj/structure/table/reinforced,
@@ -290,6 +294,7 @@
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/landmark/ert_shuttle_spawn,
 /obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
 "uA" = (
@@ -370,10 +375,6 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/defcon)
-"yC" = (
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/espatier/defcon)
 "yH" = (
 /obj/structure/table,
 /obj/effect/spawner/random/entertainment/deck,
@@ -403,6 +404,11 @@
 /obj/item/mounted_machine_gun_folded,
 /obj/item/stack/sheet/mineral/sandbags/fifty,
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Ag" = (
+/obj/machinery/status_display/evac/directional/west,
+/obj/item/gps/computer/space/solfed/armory,
+/turf/open/floor/iron/smooth_half,
 /area/shuttle/solfed/espatier/defcon)
 "AP" = (
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -517,6 +523,7 @@
 /obj/structure/table/reinforced,
 /obj/item/mounted_machine_gun_folded,
 /obj/item/stack/sheet/mineral/sandbags/fifty,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
 "OV" = (
@@ -554,6 +561,7 @@
 	pixel_y = 4
 	},
 /obj/effect/spawner/random/armory/barrier_grenades/six,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
 "Sf" = (
@@ -709,7 +717,7 @@ rB
 aE
 aE
 aE
-yC
+pW
 aE
 aE
 QG
@@ -724,7 +732,7 @@ qS
 (6,1,1) = {"
 aE
 WS
-on
+Ag
 bN
 aE
 KZ
@@ -886,7 +894,7 @@ UJ
 UJ
 aE
 aE
-eO
+ka
 Oz
 eO
 UJ

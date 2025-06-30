@@ -130,6 +130,7 @@
 	pixel_y = 32
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier)
 "gD" = (
@@ -204,6 +205,7 @@
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/landmark/ert_shuttle_spawn,
 /obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier)
 "mE" = (
@@ -445,6 +447,7 @@
 	pixel_y = -32
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier)
 "FX" = (
@@ -688,6 +691,7 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /obj/machinery/status_display/evac/directional/south,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier)
 "XF" = (
