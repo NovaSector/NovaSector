@@ -15,7 +15,7 @@
 	righthand_file = 'modular_nova/modules/mining_crushers/icons/kit_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	/// Tooltips for the crusher variants shown in the selection UI
-	var/list/subtype2descriptions = list(
+	var/static/list/subtype2descriptions = list(
 		/obj/item/kinetic_crusher = "Tools of the trade. Versatile, reliable.",
 		/obj/item/kinetic_crusher/machete = "Compact, with a faster recharge. Sacrifices power for butchering speed.",
 		/obj/item/kinetic_crusher/spear = "Long, two meter reach. Ideal for spacing. Too large for armor slots. Deals less damage.",
