@@ -26,9 +26,9 @@
 	. = ..()
 	AddComponent(/datum/component/subtype_picker, subtype2descriptions, CALLBACK(src, PROC_REF(on_crusher_conversion)))
 /// Handles post-conversion behavior when the kit becomes a crusher, such as effects or custom logic.
-/obj/item/crusher_conversion_kit/proc/on_crusher_conversion(obj/item/kinetic_crusher/C, mob/living/picker)
-	if (!C || !ismob(picker))
+/obj/item/crusher_conversion_kit/proc/on_crusher_conversion(obj/item/kinetic_crusher/tool, mob/living/picker)
+	if (!tool || !ismob(picker))
 		return
-	picker.put_in_hands(C)
-	if (hascall(C, "on_variant_switch"))
-		call(C, "on_variant_switch")(picker)
+	
+	picker.put_in_hands(tool)
+	tool.on_variant_switch(picker)
