@@ -333,13 +333,13 @@
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed)
 "GW" = (
-/obj/machinery/computer/shuttle/solfed_transport/official{
+/obj/machinery/computer/shuttle/solfed/official{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed)
 "Hp" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/official{
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/official{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,

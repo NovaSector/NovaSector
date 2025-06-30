@@ -149,6 +149,10 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
+"iB" = (
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/defcon)
 "jA" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/dark/textured_large,
@@ -331,7 +335,7 @@
 	dir = 4
 	},
 /obj/docking_port/mobile{
-	shuttle_id = "solfed_defcon_shuttle";
+	shuttle_id = "solfed_armory_shuttle";
 	launch_status = 0;
 	name = "Solfed Transport";
 	preferred_direction = 4;
@@ -431,7 +435,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
 "GW" = (
-/obj/machinery/computer/shuttle/solfed_transport/defcon{
+/obj/machinery/computer/shuttle/solfed/armory{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
@@ -446,7 +450,7 @@
 	},
 /area/shuttle/solfed/espatier/defcon)
 "Hp" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/defcon{
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/armory{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
@@ -484,6 +488,11 @@
 /obj/structure/sign/flag/terragov/directional/west,
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Mh" = (
+/obj/machinery/status_display/evac/directional/west,
+/obj/item/gps/computer/space/solfed/armory,
+/turf/open/floor/iron/smooth_half,
 /area/shuttle/solfed/espatier/defcon)
 "Nb" = (
 /obj/machinery/atmos_shield_gen/active{
@@ -550,7 +559,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
 "Sf" = (
-/obj/item/gps/computer/space/solfed/defcon,
+/obj/item/gps/computer/space/solfed/armory,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/defcon)
 "Sn" = (
@@ -702,7 +711,7 @@ rB
 aE
 aE
 aE
-aE
+iB
 aE
 aE
 QG
@@ -717,7 +726,7 @@ qS
 (6,1,1) = {"
 aE
 WS
-vl
+Mh
 bN
 aE
 KZ

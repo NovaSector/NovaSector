@@ -18,7 +18,7 @@
 
 	notify_players = FALSE
 	opendoors = FALSE
-	ert_template = /datum/map_template/shuttle/ert/solfed_transport/official
+	ert_template = /datum/map_template/shuttle/ert/solfed/official
 
 	rename_team = "SolFed Officials"
 	teamsize = 5
@@ -30,7 +30,7 @@
 	roles = list(/datum/antagonist/ert/solfed/espatier, /datum/antagonist/ert/solfed/espatier/corpsman, /datum/antagonist/ert/solfed/espatier/engineer)
 	leader_role = /datum/antagonist/ert/solfed/espatier/leader
 
-	ert_template = /datum/map_template/shuttle/ert/solfed_transport
+	ert_template = /datum/map_template/shuttle/ert/solfed
 
 	notify_players = TRUE
 	rename_team = "SolFed Espatier Detachment"
@@ -42,40 +42,46 @@
 
 /// A variant of spawning, they spawn with a smaller more assaultlike ship, with no compartments (no medical compartment, engineering, atmos, just what they have on their back)
 /datum/ert/solfed/espatier/assault
-	ert_template = /datum/map_template/shuttle/ert/solfed_transport/defcon
+	ert_template = /datum/map_template/shuttle/ert/solfed/assault
 
 /// Corpsman only spawn
-/datum/ert/solfed/espatier/assault/corpsman
+/datum/ert/solfed/espatier/assault/corpsman_only
 	roles = list(/datum/antagonist/ert/solfed/espatier)
 	polldesc = "a Sol Federation Truama Team"
 
 /// Rifleman only spawn
-/datum/ert/solfed/espatier/assault/rifleman
+/datum/ert/solfed/espatier/assault/rifleman_only
 	roles = list(/datum/antagonist/ert/solfed/espatier/corpsman)
 	polldesc = "a Sol Federation Rifleman"
 
 /// Engineering only spawn
-/datum/ert/solfed/espatier/assault/engineering
+/datum/ert/solfed/espatier/assault/engineering_only
 	roles = list(/datum/antagonist/ert/solfed/espatier/engineer)
 
 /// A variant of spawning, they basically spawn with the mobile garrison/armory.
 /datum/ert/solfed/espatier/defcon
-	ert_template = /datum/map_template/shuttle/ert/solfed_transport/defcon
+	ert_template = /datum/map_template/shuttle/ert/solfed/armory
 
 /// Forces the true helljumpers (basically all infantry, no medics)
 /datum/ert/solfed/espatier/defcon/helljumper
 	roles = list(/datum/antagonist/ert/solfed/espatier)
 
 /// A variant of spawning, they basically spawn with the mobile Hospital.
-/datum/ert/solfed/espatier/kayava
-	ert_template = /datum/map_template/shuttle/ert/solfed_transport/kayava
+/datum/ert/solfed/espatier/medical
+	ert_template = /datum/map_template/shuttle/ert/solfed/medical
+
+/// A variant of spawning, they basically spawn with the mobile Engineering Bay.
+/datum/ert/solfed/espatier/engineer
+	ert_template = /datum/map_template/shuttle/ert/solfed/engineer
+
+/// Forces this shuttle type to be engineering only
+/datum/ert/solfed/espatier/engineer/engineering_only
+	roles = list(/datum/antagonist/ert/solfed/espatier/engineer)
 
 /// Forces the crew to be oops all corpsmans! (medics/doctors)
-/datum/ert/solfed/espatier/kayava/trauma
+/datum/ert/solfed/espatier/medical/corpsman_only
 		roles = list(/datum/antagonist/ert/solfed/espatier/corpsman)
 
 /// Solfed Officals shuttle, but more fancy.
 /datum/ert/solfed/fancy
-	roles = list(/datum/antagonist/ert/solfed/espatier, /datum/antagonist/ert/solfed/espatier/corpsman, /datum/antagonist/ert/solfed/espatier/engineer)
-	leader_role = /datum/antagonist/ert/solfed/espatier/leader
 	ert_template = /datum/map_template/shuttle/ert/solfed_transport/fancy

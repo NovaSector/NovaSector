@@ -239,31 +239,31 @@
 /*----- End of SerenityStation Shuttle Code -----*/
 
 /*----- SOLFED VESSEL Shuttle Code -----*/
-/datum/map_template/shuttle/ert/solfed_transport
+/datum/map_template/shuttle/ert/solfed
 	prefix = "_maps/shuttles/nova/"
-	suffix = "solfed_espirator_shuttle"
+	suffix = "solfed_general_shuttle"
 	name = "EAS(I)-6224 Tansport Shuttle"
 
-/obj/machinery/computer/shuttle/solfed_transport
-	name = "EAS(I)-6224 Driver Control"
-	desc = "Used to control the Tarkon Driver."
-	circuit = /obj/item/circuitboard/computer/solfed_transport
-	shuttleId = "solfed_espirator_shuttle"
-	possible_destinations = "espirator_shuttle_custom;espirator_shuttle_home;whiteship_home;syndicate_nw"
+/obj/machinery/computer/shuttle/solfed
+	name = "EAS(I)-6224 Control Console"
+	desc = "Used to control the EAS(I)-6224."
+	circuit = /obj/item/circuitboard/computer/solfed
+	shuttleId = "solfed_general_shuttle"
+	possible_destinations = "solfed_general_custom;solfed_general_home;whiteship_home;syndicate_nw"
 	req_access = list(ACCESS_CENT_GENERAL)
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed
 	name = "EAS(I)-6224 Driver Navigation Computer"
 	desc = "The Navigation console for the EAS(I)-6224 Driver."
-	shuttleId = "solfed_espirator_shuttle"
+	shuttleId = "solfed_general_shuttle"
 	lock_override = CAMERA_LOCK_STATION
-	shuttlePortId = "espirator_shuttle_custom"
+	shuttlePortId = "solfed_general_custom"
 	jump_to_ports = list( "whiteship_home" = 1, "syndicate_nw" = 1, )
 	view_range = 12
 
-/obj/item/circuitboard/computer/solfed_transport
+/obj/item/circuitboard/computer/solfed
 	name = "EAS(I)-6224 Driver Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/solfed_transport
+	build_path = /obj/machinery/computer/shuttle/solfed
 
 /obj/item/gps/computer/space/solfed
 	name = "Solfed GPS Transponder"
@@ -274,136 +274,163 @@
 /*----- End of SOLFED VESSEL Shuttle Code -----*/
 
 /*----- SOLFED INFANTRY VESSEL Shuttle Code -----*/
-/datum/map_template/shuttle/ert/solfed_transport/defcon
+/datum/map_template/shuttle/ert/solfed/armory
 	prefix = "_maps/shuttles/nova/"
-	suffix = "solfed_defcon_shuttle"
+	suffix = "solfed_armory_shuttle"
 	name = "EAS(I)-2271 Tansport Shuttle"
 
-/obj/machinery/computer/shuttle/solfed_transport/defcon
-	name = "EAS(I)-2271 Driver Control"
+/obj/machinery/computer/shuttle/solfed/armory
+	name = "EAS(I)-2271 Control Console"
 	desc = "Used to control the EAS(I)-2271."
-	circuit = /obj/item/circuitboard/computer/solfed_transport/defcon
-	shuttleId = "solfed_defcon_shuttle"
-	possible_destinations = "solfed_defcon_custom;whiteship_home"
+	circuit = /obj/item/circuitboard/computer/solfed/armory
+	shuttleId = "solfed_armory_shuttle"
+	possible_destinations = "solfed_armory_custom;whiteship_home"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/defcon
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/armory
 	name = "EAS(I)-2271 Driver Navigation Computer"
 	desc = "The Navigation console for the EAS(I)-2271."
-	shuttleId = "solfed_defcon_shuttle"
-	shuttlePortId = "solfed_defcon_custom"
+	shuttleId = "solfed_armory_shuttle"
+	shuttlePortId = "solfed_armory_custom"
 
-/obj/item/circuitboard/computer/solfed_transport/defcon
+/obj/item/circuitboard/computer/solfed/armory
 	name = "EAS(I)-2271 Driver Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/solfed_transport/defcon
+	build_path = /obj/machinery/computer/shuttle/solfed/armory
 
-/obj/item/gps/computer/space/solfed/defcon
+/obj/item/gps/computer/space/solfed/armory
 	gpstag = "*SF - EAS(I)-2271"
 /*----- End of SOLFED INFANTRY VESSEL Shuttle Code -----*/
 
 /*----- SOLFED HOSPITAL VESSEL Shuttle Code -----*/
-/datum/map_template/shuttle/ert/solfed_transport/kayava
+/datum/map_template/shuttle/ert/solfed/medical
 	prefix = "_maps/shuttles/nova/"
-	suffix = "solfed_kayava_shuttle"
+	suffix = "solfed_medical_shuttle"
 	name = "EAS(H)-1457 Medical Transport Shuttle"
 
-/obj/machinery/computer/shuttle/solfed_transport/kayava
+/obj/machinery/computer/shuttle/solfed/medical
 	name = "EAS(H)-1457 Control"
 	desc = "Used to control the EAS(H)-1457."
-	circuit = /obj/item/circuitboard/computer/solfed_transport/kayava
-	shuttleId = "solfed_kayava_shuttle"
-	possible_destinations = "solfed_kayava_shuttle_custom;whiteship_home"
+	circuit = /obj/item/circuitboard/computer/solfed/medical
+	shuttleId = "solfed_medical_shuttle"
+	possible_destinations = "solfed_medical_shuttle_custom;whiteship_home"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/kayava
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/medical
 	name = "EAS(H)-1457 Navigation Computer"
 	desc = "The Navigation console for the EAS(H)-1457."
-	shuttleId = "solfed_kayava_shuttle"
-	shuttlePortId = "solfed_kayava_shuttle_custom"
+	shuttleId = "solfed_medical_shuttle"
+	shuttlePortId = "solfed_medical_shuttle_custom"
 
-/obj/item/circuitboard/computer/solfed_transport/kayava
+/obj/item/circuitboard/computer/solfed/medical
 	name = "EAS(H)-1457 Driver Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/solfed_transport/kayava
+	build_path = /obj/machinery/computer/shuttle/solfed/medical
 
-/obj/item/gps/computer/space/solfed/kayava
+/obj/item/gps/computer/space/solfed/medical
 	gpstag = "*SF - EAS(H)-1457"
 /*----- End of SOLFED HOSPITAL VESSEL Shuttle Code -----*/
 
 /*----- SOLFED HOSPITAL ASSAULT Shuttle Code -----*/
-/datum/map_template/shuttle/ert/solfed_transport/assault
+/datum/map_template/shuttle/ert/solfed/assault
 	prefix = "_maps/shuttles/nova/"
 	suffix = "solfed_assault_shuttle"
 	name = "EAS(L)-9921 Assault Transport Shuttle"
 
-/obj/machinery/computer/shuttle/solfed_transport/assault
+/obj/machinery/computer/shuttle/solfed/assault
 	name = "EAS(L)-9921 Control"
 	desc = "Used to control the EAS(L)-9921."
-	circuit = /obj/item/circuitboard/computer/solfed_transport/assault
+	circuit = /obj/item/circuitboard/computer/solfed/assault
 	shuttleId = "solfed_assault_shuttle"
 	possible_destinations = "solfed_assault_shuttle_custom;whiteship_home"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/assault
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/assault
 	name = "EAS(L)-9921 Navigation Computer"
 	desc = "The Navigation console for the EAS(L)-9921."
 	shuttleId = "solfed_assault_shuttle"
 	shuttlePortId = "solfed_assault_shuttle_custom"
 
-/obj/item/circuitboard/computer/solfed_transport/assault
+/obj/item/circuitboard/computer/solfed/assault
 	name = "EAS(L)-9921 Driver Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/solfed_transport/assault
+	build_path = /obj/machinery/computer/shuttle/solfed/assault
 
 /obj/item/gps/computer/space/solfed/assault
 	gpstag = "*SF - EAS(L)-9921"
 /*----- End of SOLFED ASSAULT VESSEL Shuttle Code -----*/
 
 /*----- SOLFED OFFICIALS VESSEL Shuttle Code -----*/
-/datum/map_template/shuttle/ert/solfed_transport/official
+/datum/map_template/shuttle/ert/solfed/official
 	prefix = "_maps/shuttles/nova/"
 	suffix = "solfed_official_shuttle"
 	name = "SFTS-3329 Transport Shuttle"
 
-/obj/machinery/computer/shuttle/solfed_transport/official
+/obj/machinery/computer/shuttle/solfed/official
 	name = "SFTS-3329 Control"
 	desc = "Used to control the SFTS-3329."
-	circuit = /obj/item/circuitboard/computer/solfed_transport/official
+	circuit = /obj/item/circuitboard/computer/solfed/official
 	shuttleId = "solfed_official_shuttle"
 	possible_destinations = "solfed_official_custom;whiteship_home"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/official
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/official
 	name = "SFTS-3329 Navigation Computer"
 	desc = "The Navigation console for the SFTS-3329."
 	shuttleId = "solfed_official_shuttle"
 	shuttlePortId = "solfed_official_custom"
 
-/obj/item/circuitboard/computer/solfed_transport/official
+/obj/item/circuitboard/computer/solfed/official
 	name = "SFTS-3329 Driver Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/solfed_transport/official
+	build_path = /obj/machinery/computer/shuttle/solfed/official
 
 /obj/item/gps/computer/space/solfed/official
 	gpstag = "*SF - SFTS-3329"
 /*----- End of OFFICIALS HOSPITAL VESSEL Shuttle Code -----*/
 
 /*----- SOLFED FANCY VESSEL Shuttle Code -----*/
-/datum/map_template/shuttle/ert/solfed_transport/fancy
+/datum/map_template/shuttle/ert/solfed/fancy
 	prefix = "_maps/shuttles/nova/"
 	suffix = "solfed_fancy_shuttle"
 	name = "SFTS-1221 Transport Shuttle."
 
-/obj/machinery/computer/shuttle/solfed_transport/fancy
+/obj/machinery/computer/shuttle/solfed/fancy
 	name = "SFTS-1221 Control"
 	desc = "Used to control the SFTS-1221."
-	circuit = /obj/item/circuitboard/computer/solfed_transport/fancy
+	circuit = /obj/item/circuitboard/computer/solfed/fancy
 	shuttleId = "solfed_fancy_shuttle"
 	possible_destinations = "solfed_fancy_shuttle_custom;whiteship_home"
 
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport/fancy
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/fancy
 	name = "SFTS-1221 Navigation Computer"
 	desc = "The Navigation console for the SFTS-1221."
 	shuttleId = "solfed_fancy_shuttle"
 	shuttlePortId = "solfed_fancy_shuttle_custom"
 
-/obj/item/circuitboard/computer/solfed_transport/fancy
+/obj/item/circuitboard/computer/solfed/fancy
 	name = "SFTS-1221 Driver Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/solfed_transport/fancy
+	build_path = /obj/machinery/computer/shuttle/solfed/fancy
 
 /obj/item/gps/computer/space/solfed/fancy
 	gpstag = "*SF - SFTS-1221"
 /*----- End of FANCY VESSEL Shuttle Code -----*/
+
+/*----- SOLFED ENGINEERING VESSEL Shuttle Code -----*/
+/datum/map_template/shuttle/ert/solfed/engineer
+	prefix = "_maps/shuttles/nova/"
+	suffix = "solfed_engineer_shuttle"
+	name = "EAS(E)-3921 Transport Shuttle."
+
+/obj/machinery/computer/shuttle/solfed/engineer
+	name = "EAS(E)-3921 Control"
+	desc = "Used to control the EAS(E)-3921"
+	circuit = /obj/item/circuitboard/computer/solfed/engineer
+	shuttleId = "solfed_engineer_shuttle"
+	possible_destinations = "solfed_engineer_shuttle_custom;whiteship_home"
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/engineer
+	name = "EAS(E)-3921 Navigation Computer"
+	desc = "The Navigation console for the EAS(E)-3921."
+	shuttleId = "solfed_engineer_shuttle"
+	shuttlePortId = "solfed_engineer_shuttle_custom"
+
+/obj/item/circuitboard/computer/solfed/engineer
+	name = "EAS(E)-3921 Driver Control Console (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/solfed/engineer
+
+/obj/item/gps/computer/space/solfed/engineer
+	gpstag = "*SF - EAS(E)-3921"
+/*----- End of ENGINEERING VESSEL Shuttle Code -----*/

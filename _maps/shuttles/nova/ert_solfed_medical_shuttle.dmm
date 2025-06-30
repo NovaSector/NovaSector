@@ -1,25 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aC" = (
-/obj/machinery/computer/shuttle/solfed_transport{
+/obj/machinery/computer/shuttle/solfed/medical{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "bk" = (
-/obj/machinery/computer/records/medical{
+/obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "bm" = (
 /obj/structure/rack/shelf,
-/obj/item/storage/medkit/toxin{
-	pixel_y = 6
-	},
-/obj/item/storage/medkit/o2,
-/obj/effect/turf_decal/bot_white,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
+/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "br" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/glasses/meson/night,
@@ -35,24 +34,30 @@
 /obj/item/clothing/glasses/hud/health/night/meson,
 /obj/item/clothing/glasses/hud/health/night/meson,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "bC" = (
-/obj/structure/closet/emcloset,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
-"bG" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
+/obj/machinery/atmospherics/components/trinary/filter/atmos/flipped/co2,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 4
 	},
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
-"df" = (
-/obj/effect/turf_decal/stripes/white/line,
-/obj/item/defibrillator/loaded,
-/obj/structure/closet/crate/freezer/blood,
+/turf/open/floor/iron/white/textured_half,
+/area/shuttle/solfed/espatier/trauma)
+"bG" = (
+/obj/structure/closet/emcloset/wall{
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/freezer/blood{
+	anchored = 1
+	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"df" = (
+/obj/structure/table/reinforced/rglass,
+/obj/item/storage/box/beakers/variety,
+/obj/item/storage/box/beakers/variety,
+/obj/item/storage/box/beakers/variety,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/trauma)
 "dU" = (
 /obj/machinery/atmos_shield_gen/active{
 	dir = 8
@@ -61,7 +66,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "ei" = (
 /obj/machinery/light/floor,
 /obj/structure/chair/comfy/shuttle{
@@ -69,33 +74,28 @@
 	},
 /obj/effect/landmark/ert_shuttle_brief_spawn,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "ew" = (
-/obj/structure/closet/firecloset/wall{
-	pixel_y = 32
-	},
-/obj/structure/chair/comfy/shuttle,
-/obj/structure/sign/flag/terragov/directional/east,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/computer/operating,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "eK" = (
 /obj/machinery/vending/wallmed/directional/west,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/hidden{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "eL" = (
 /obj/effect/spawner/random/entertainment/arcade{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "eN" = (
-/obj/structure/table,
-/obj/effect/spawner/random/entertainment/deck,
-/obj/effect/spawner/random/entertainment/dice,
 /obj/machinery/light/floor,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/turf/open/floor/iron/white/textured_half,
+/area/shuttle/solfed/espatier/trauma)
 "eU" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -108,7 +108,14 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"fd" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/trauma)
 "fV" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/table/reinforced/rglass,
@@ -123,18 +130,14 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/effect/spawner/random/entertainment/plushie_delux,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "gb" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/structure/closet/emcloset/wall{
-	pixel_y = 32
-	},
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/stasis,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "gD" = (
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "gE" = (
 /obj/machinery/atmos_shield_gen/active{
 	dir = 1
@@ -144,55 +147,70 @@
 	name = "Assault Doors"
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "gZ" = (
-/obj/structure/closet/crate/bin,
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
-"hf" = (
+/obj/machinery/chem_master,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
-"hX" = (
-/obj/structure/table,
-/obj/effect/spawner/random/entertainment/dice,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
-"iP" = (
-/obj/structure/table/optable,
-/obj/machinery/anesthetic_machine,
+/area/shuttle/solfed/espatier/trauma)
+"hf" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 5
+	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"hX" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 6
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/shuttle/solfed/espatier/trauma)
+"iP" = (
+/obj/structure/table/reinforced/rglass,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/trauma)
 "iY" = (
 /turf/open/floor/iron/smooth_edge{
 	dir = 1
 	},
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "jv" = (
+/obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/medical/glass{
-	name = "Shuttle Medbay"
+	name = "Shuttle Chemistry"
 	},
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/obj/effect/mapping_helpers/airlock/access/all/medical/chemistry,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/trauma)
 "jN" = (
 /obj/structure/rack/shelf,
-/obj/item/storage/medkit/brute{
-	pixel_y = 6
+/obj/item/storage/medkit/emergency,
+/obj/item/storage/medkit/emergency{
+	pixel_x = 5;
+	pixel_y = 8
 	},
-/obj/item/storage/medkit/fire,
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/light/directional/west,
+/obj/item/storage/medkit/emergency{
+	pixel_y = 3;
+	pixel_x = 3
+	},
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "kA" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "lm" = (
-/obj/machinery/light/floor,
+/obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "lU" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -201,18 +219,21 @@
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"mf" = (
+/obj/machinery/chem_dispenser,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "ms" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/effect/landmark/ert_shuttle_spawn,
 /obj/machinery/status_display/evac/directional/north,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "mE" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/machinery/vending/access/solfed,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "mX" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -224,32 +245,39 @@
 /obj/structure/sign/flag/terragov/directional/south,
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "nl" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/smooth_half,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "no" = (
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "nT" = (
 /obj/structure/closet/emcloset,
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"nZ" = (
+/obj/structure/table/optable,
+/obj/item/defibrillator/loaded,
+/obj/machinery/defibrillator_mount/charging{
+	pixel_y = 32
+	},
+/obj/machinery/anesthetic_machine,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "os" = (
-/obj/structure/closet/firecloset/wall{
-	pixel_y = -32
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/command/glass{
+	name = "Cockpit"
 	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/structure/sign/flag/terragov/directional/east,
-/obj/effect/landmark/ert_shuttle_spawn,
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "ov" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/turf_decal/box/white/corners{
@@ -260,12 +288,12 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "oN" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "oV" = (
 /obj/machinery/atmos_shield_gen/active{
 	dir = 4
@@ -274,29 +302,33 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "pp" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /obj/effect/landmark/ert_shuttle_brief_spawn,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "pr" = (
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "sx" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "sF" = (
-/obj/machinery/stasis{
-	dir = 1
+/obj/machinery/light/floor,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 4
 	},
-/turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/trauma)
 "sP" = (
 /obj/machinery/atmos_shield_gen/active,
 /obj/machinery/door/poddoor{
@@ -304,27 +336,33 @@
 	name = "Assault Doors"
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "sQ" = (
-/obj/machinery/sleeper,
+/obj/structure/closet/crate/freezer/blood,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/trauma)
+"sY" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/hidden{
+	dir = 4
+	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "vR" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "vT" = (
 /obj/machinery/computer/operating{
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "vW" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/box,
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "wh" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -335,48 +373,57 @@
 /obj/effect/turf_decal/box/white/corners,
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "xj" = (
-/obj/machinery/computer/message_monitor{
-	dir = 4
+/obj/machinery/status_display/evac/directional/south,
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/brute{
+	pixel_y = 6
 	},
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/item/storage/medkit/brute{
+	pixel_y = 6
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "xD" = (
-/obj/item/gps/computer/space/solfed,
+/obj/item/gps/computer/space/solfed/medical,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "yk" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/cryo_cell,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "yD" = (
-/obj/machinery/computer/camera_advanced{
-	dir = 1
+/obj/structure/closet/crate/freezer{
+	anchored = 1
 	},
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/item/tank/internals/anesthetic,
+/obj/item/tank/internals/anesthetic,
+/obj/item/tank/internals/anesthetic,
+/obj/item/tank/internals/anesthetic,
+/turf/open/floor/iron/white/textured_half,
+/area/shuttle/solfed/espatier/trauma)
 "zL" = (
 /obj/machinery/computer/atmos_alert{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Af" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
 /obj/structure/sign/flag/terragov/directional/west,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "AQ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Shuttle Engineering"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Bt" = (
 /turf/template_noop,
 /area/template_noop)
@@ -388,37 +435,40 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Ca" = (
-/obj/structure/table,
-/obj/effect/spawner/random/entertainment/deck,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/hidden{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured_half,
+/area/shuttle/solfed/espatier/trauma)
 "Cd" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/solfed_transport{
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/medical{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Cn" = (
 /obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium/red,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "CM" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/tank/internals/anesthetic,
-/obj/item/tank/internals/anesthetic{
-	pixel_y = 3
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/mechanical{
+	pixel_y = 6
 	},
-/obj/effect/turf_decal/box/white/corners{
-	dir = 8
-	},
-/obj/effect/turf_decal/box/white/corners,
+/obj/item/storage/medkit/mechanical,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"CQ" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/shuttle/solfed/espatier/trauma)
 "Dc" = (
 /turf/open/floor/mineral/plastitanium/red,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Dt" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/vending/wallmed/directional/north,
@@ -430,31 +480,25 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "DA" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/landmark/ert_shuttle_brief_spawn,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "DZ" = (
 /turf/open/floor/iron/smooth,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "ER" = (
-/obj/structure/chair/comfy/shuttle{
+/turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/obj/structure/closet/emcloset/wall{
-	pixel_y = -32
-	},
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "FX" = (
-/obj/structure/chair/comfy/shuttle,
 /obj/structure/sign/flag/terragov/directional/west,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/cryo_cell,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "Gl" = (
 /obj/machinery/button/door/directional/west{
 	id = "SolfedShipDoor";
@@ -464,26 +508,36 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/terragov/directional/north,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 5
+	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Hr" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "HM" = (
-/obj/machinery/computer/crew{
-	dir = 4
+/obj/structure/rack/shelf,
+/obj/item/storage/medkit/o2,
+/obj/item/storage/medkit/toxin{
+	pixel_y = 6
 	},
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/item/storage/medkit/o2,
+/obj/item/storage/medkit/toxin{
+	pixel_y = 6
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "HV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/catwalk_floor/iron_smooth,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Jb" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Jp" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/landmark/ert_shuttle_spawn,
@@ -492,21 +546,26 @@
 	},
 /obj/effect/turf_decal/box/white/corners,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"Km" = (
+/obj/machinery/holopad,
+/turf/open/floor/iron/white/textured,
+/area/shuttle/solfed/espatier/trauma)
 "Ks" = (
-/obj/structure/table,
-/obj/effect/spawner/random/entertainment/deck,
 /obj/machinery/light/floor,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/atmospherics/pipe/layer_manifold/cyan{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured_half,
+/area/shuttle/solfed/espatier/trauma)
 "Kt" = (
 /obj/machinery/atmos_shield_gen/active{
 	dir = 4
 	},
 /obj/docking_port/mobile{
-	shuttle_id = "solfed_espirator_shuttle";
+	shuttle_id = "solfed_medical_shuttle";
 	launch_status = 0;
-	name = "Solfed Transport";
+	name = "Solfed Hospital Shuttle";
 	preferred_direction = 4;
 	port_direction = 4
 	},
@@ -514,7 +573,7 @@
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "KG" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -527,7 +586,7 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "KN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -536,10 +595,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "KP" = (
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "LG" = (
 /obj/machinery/vending/wallmed/directional/south,
 /obj/structure/chair/comfy/shuttle{
@@ -553,40 +612,52 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Md" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Nk" = (
 /obj/effect/turf_decal/box,
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "NC" = (
-/obj/machinery/door/airlock/public/glass{
-	name = "Shuttle Seating Area"
-	},
 /obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Shuttle Medbay"
+	},
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "OS" = (
 /obj/machinery/vending/wallmed/directional/north,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 10
+	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Pk" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Pl" = (
 /obj/machinery/status_display/evac/directional/west,
 /turf/open/floor/iron/smooth_half,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Pw" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"PA" = (
+/obj/structure/table/optable,
+/obj/item/defibrillator/loaded,
+/obj/machinery/defibrillator_mount/charging{
+	pixel_y = -32
+	},
+/obj/machinery/anesthetic_machine,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "QM" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/turf_decal/box/white/corners,
@@ -595,7 +666,7 @@
 	},
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "QQ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -604,10 +675,14 @@
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"Re" = (
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "Ru" = (
 /turf/open/floor/iron/smooth_edge,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Rz" = (
 /obj/machinery/button/door/directional/west{
 	id = "SolfedShipDoor";
@@ -616,37 +691,60 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "RY" = (
 /obj/structure/marker_beacon,
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"So" = (
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 9
+	},
+/obj/structure/closet/crate/freezer/blood{
+	anchored = 1
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
+"TL" = (
+/obj/machinery/atmospherics/components/unary/passive_vent,
+/turf/open/floor/plating,
+/area/shuttle/solfed/espatier/trauma)
 "Vi" = (
 /obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Vr" = (
 /obj/structure/table/reinforced/rglass,
 /obj/effect/spawner/surgery_tray/full{
 	pixel_y = 8
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "VP" = (
-/obj/machinery/computer/camera_advanced{
-	dir = 4
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/loading_area/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 6
 	},
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Wa" = (
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Wk" = (
 /turf/open/floor/iron/smooth_half,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Wu" = (
 /obj/structure/sign/flag/terragov/directional/north,
 /obj/structure/chair/comfy/shuttle,
@@ -656,42 +754,38 @@
 /obj/effect/turf_decal/box/white/corners,
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Wv" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/command/glass{
-	name = "Cockpit"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/command/general,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/turf/open/floor/iron/white/textured_half,
+/area/shuttle/solfed/espatier/trauma)
 "WD" = (
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/public/glass{
-	name = "Shuttle Seating Area"
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/airlock/medical/glass{
+	name = "Shuttle Medbay"
 	},
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "WG" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/effect/landmark/ert_shuttle_brief_spawn,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/obj/machinery/chem_heater,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/trauma)
 "Xt" = (
 /turf/open/floor/iron/smooth_half{
 	dir = 1
 	},
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
 "Xx" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
+/obj/structure/closet/firecloset/wall{
+	pixel_y = -32
 	},
-/obj/effect/landmark/ert_shuttle_spawn,
-/obj/machinery/status_display/evac/directional/south,
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier)
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 "XF" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical{
@@ -699,14 +793,27 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"XM" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
+	dir = 1
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/trauma)
 "XW" = (
 /obj/machinery/door/poddoor{
 	id = "SolfedShipDoor";
 	name = "Assault Doors"
 	},
 /turf/open/floor/plating/airless,
-/area/shuttle/solfed/espatier)
+/area/shuttle/solfed/espatier/trauma)
+"Zk" = (
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
+	dir = 8
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/shuttle/solfed/espatier/trauma)
 
 (1,1,1) = {"
 Bt
@@ -729,12 +836,12 @@ Bt
 Bt
 Bt
 Bt
-Bt
-gD
+TL
+XM
 Gl
 QQ
 KN
-QQ
+VP
 Rz
 gD
 Bt
@@ -749,10 +856,10 @@ BI
 BI
 gD
 OS
+CQ
+hX
 HV
-HV
-HV
-KP
+fd
 gD
 BI
 BI
@@ -767,7 +874,7 @@ lU
 gD
 Pw
 XF
-vR
+sF
 sx
 sx
 gD
@@ -801,7 +908,7 @@ no
 gD
 FX
 eK
-KP
+bC
 hf
 Af
 gD
@@ -817,9 +924,9 @@ nl
 KG
 gD
 ms
-hf
+Zk
 Ks
-hf
+Zk
 Xx
 gD
 ov
@@ -834,9 +941,9 @@ Ru
 wh
 gD
 yk
-hf
+sY
 Ca
-hf
+So
 bG
 gD
 QM
@@ -850,11 +957,11 @@ Xt
 DZ
 Xt
 NC
-KP
-KP
-KP
-KP
-KP
+ER
+ER
+Km
+ER
+ER
 NC
 Xt
 DZ
@@ -863,15 +970,15 @@ dU
 "}
 (10,1,1) = {"
 Md
-bC
+nT
 Wk
 LG
 gD
-yk
-hf
-hX
-hf
-bG
+HM
+Wa
+Wv
+Wa
+xj
 gD
 Dt
 Wk
@@ -885,10 +992,10 @@ nl
 wh
 gD
 gb
-hf
+Wa
 eN
-hf
-ER
+Wa
+gb
 gD
 Jp
 nl
@@ -902,10 +1009,10 @@ AQ
 Md
 gD
 ew
-hf
-KP
-hf
-os
+lm
+yD
+lm
+vT
 gD
 Md
 jv
@@ -918,11 +1025,11 @@ br
 Wk
 eL
 gD
-gD
-Md
+nZ
+Wa
 Wv
-Md
-gD
+Wa
+PA
 gD
 jN
 Wa
@@ -935,15 +1042,15 @@ fV
 Wk
 Hr
 gD
-VP
-xj
-KP
-HM
-bk
+Vr
+Wa
+Wv
+Wa
+Vr
 gD
 CM
-Wa
-df
+Re
+sQ
 Md
 "}
 (15,1,1) = {"
@@ -952,15 +1059,15 @@ vW
 Cn
 vW
 gD
-Jb
-WG
-vR
-KP
-WG
+gD
+Md
+os
+Md
+gD
 gD
 sQ
-lm
-Vr
+Wa
+sQ
 Md
 "}
 (16,1,1) = {"
@@ -971,12 +1078,12 @@ Nk
 gD
 xD
 KP
-oN
-KP
+vR
+DA
 Vi
 gD
-sF
-Wa
+df
+bk
 iP
 Md
 "}
@@ -988,13 +1095,13 @@ Nk
 gD
 mE
 KP
+oN
 KP
-DA
-yD
+zL
 gD
 gZ
-Wa
-vT
+mf
+WG
 gD
 "}
 (18,1,1) = {"
@@ -1007,7 +1114,7 @@ Jb
 pp
 ei
 Jb
-zL
+Jb
 gD
 gD
 Md
