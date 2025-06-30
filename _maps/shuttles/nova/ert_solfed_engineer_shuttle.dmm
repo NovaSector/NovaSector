@@ -5,6 +5,11 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
+"bk" = (
+/obj/machinery/light/floor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/engineer)
 "bm" = (
 /obj/machinery/power/port_gen/pacman/super,
 /turf/open/floor/iron/smooth_large,
@@ -38,6 +43,10 @@
 /obj/item/clothing/glasses/meson/engine,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
+"df" = (
+/obj/machinery/atmospherics/components/tank/oxygen,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/engineer)
 "dU" = (
 /obj/machinery/atmos_shield_gen/active{
 	dir = 8
@@ -56,14 +65,6 @@
 	},
 /obj/effect/landmark/ert_shuttle_brief_spawn,
 /turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier/engineer)
-"ew" = (
-/obj/machinery/autolathe,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier/engineer)
-"eK" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/solfed/espatier/engineer)
 "eL" = (
 /obj/effect/spawner/random/entertainment/arcade{
@@ -127,6 +128,9 @@
 /obj/machinery/rnd/production/protolathe/department/engineering,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
+"gD" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/engineer)
 "gE" = (
 /obj/machinery/atmos_shield_gen/active{
 	dir = 1
@@ -139,7 +143,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/solfed/espatier/engineer)
 "gZ" = (
-/obj/machinery/atmospherics/components/tank/oxygen,
+/obj/machinery/power/portagrav,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "hf" = (
@@ -205,16 +209,11 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
-"lm" = (
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier/engineer)
 "lU" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
-/obj/structure/window/reinforced/plasma/spawner/directional/north{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/plating/airless,
 /area/shuttle/solfed/espatier/engineer)
 "mf" = (
@@ -244,7 +243,6 @@
 /area/shuttle/solfed/espatier/engineer)
 "nl" = (
 /obj/machinery/light/floor,
-/obj/structure/cable,
 /turf/open/floor/iron/smooth_half,
 /area/shuttle/solfed/espatier/engineer)
 "no" = (
@@ -256,6 +254,10 @@
 /obj/structure/closet/emcloset,
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/engineer)
+"nZ" = (
+/obj/structure/cable,
+/turf/open/floor/iron/smooth_half,
 /area/shuttle/solfed/espatier/engineer)
 "os" = (
 /obj/effect/turf_decal/delivery/white,
@@ -336,7 +338,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "vT" = (
-/obj/machinery/power/portagrav,
+/obj/machinery/autolathe,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "vW" = (
@@ -462,9 +464,10 @@
 /obj/effect/landmark/ert_shuttle_brief_spawn,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
-"DZ" = (
-/obj/machinery/light/floor,
-/turf/open/floor/iron/smooth_half,
+"ER" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/solfed/espatier/engineer)
 "FX" = (
 /obj/machinery/suit_storage_unit/engine,
@@ -491,6 +494,24 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
+"HV" = (
+/obj/structure/table,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 7
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 7
+	},
+/obj/item/stack/sheet/plasmarglass/fifty,
+/obj/item/stack/sheet/plasmarglass/fifty,
+/obj/item/stack/sheet/plasteel/fifty,
+/obj/item/stack/sheet/plasteel/fifty,
+/obj/item/stack/sheet/plastitaniumglass/fifty,
+/obj/item/stack/sheet/plastitaniumglass/fifty,
+/obj/item/stack/sheet/rglass/fifty,
+/obj/item/clothing/glasses/meson/engine,
+/turf/open/floor/iron/smooth,
+/area/shuttle/solfed/espatier/engineer)
 "Jb" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/smooth_large,
@@ -504,14 +525,10 @@
 /obj/effect/turf_decal/box/white/corners,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/engineer)
-"Km" = (
-/obj/structure/closet/crate/secure/engineering,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier/engineer)
 "Ks" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/floor,
 /obj/structure/cable,
-/turf/open/floor/catwalk_floor/iron_smooth,
+/turf/open/floor/iron/smooth_half,
 /area/shuttle/solfed/espatier/engineer)
 "Kt" = (
 /obj/machinery/atmos_shield_gen/active{
@@ -555,24 +572,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
-"KP" = (
-/obj/structure/table,
-/obj/item/stack/sheet/iron/fifty{
-	pixel_x = 7
-	},
-/obj/item/stack/sheet/iron/fifty{
-	pixel_x = 7
-	},
-/obj/item/stack/sheet/plasmarglass/fifty,
-/obj/item/stack/sheet/plasmarglass/fifty,
-/obj/item/stack/sheet/plasteel/fifty,
-/obj/item/stack/sheet/plasteel/fifty,
-/obj/item/stack/sheet/plastitaniumglass/fifty,
-/obj/item/stack/sheet/plastitaniumglass/fifty,
-/obj/item/stack/sheet/rglass/fifty,
-/obj/item/clothing/glasses/meson/engine,
-/turf/open/floor/iron/smooth,
-/area/shuttle/solfed/espatier/engineer)
 "LG" = (
 /obj/machinery/vending/wallmed/directional/south,
 /obj/structure/chair/comfy/shuttle{
@@ -597,11 +596,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/engineer)
 "NC" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/engineering/glass,
+/obj/machinery/light/floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/solfed/espatier/engineer)
 "OS" = (
 /obj/machinery/vending/wallmed/directional/north,
@@ -620,10 +617,6 @@
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
-"PA" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/solfed/espatier/engineer)
 "QM" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/turf_decal/box/white/corners,
@@ -634,9 +627,13 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/engineer)
 "QQ" = (
-/obj/machinery/light/floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/catwalk_floor/iron_smooth,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/loading_area/red{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "Ru" = (
 /turf/open/floor/iron/smooth_edge,
@@ -685,22 +682,18 @@
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "VP" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/loading_area/red{
-	dir = 8
-	},
+/obj/structure/closet/crate/secure/engineering,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "Wa" = (
-/obj/machinery/light/floor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply,
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible{
+	dir = 8
+	},
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "Wk" = (
-/obj/structure/cable,
-/turf/open/floor/iron/smooth_half,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/solfed/espatier/engineer)
 "Wu" = (
 /obj/structure/sign/flag/terragov/directional/north,
@@ -714,6 +707,13 @@
 /area/shuttle/solfed/espatier/engineer)
 "Wv" = (
 /turf/open/floor/iron/smooth,
+/area/shuttle/solfed/espatier/engineer)
+"WD" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/engineering/glass,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/engineer)
 "WG" = (
 /obj/structure/closet/crate/rcd,
@@ -760,9 +760,7 @@
 	},
 /area/shuttle/solfed/espatier/engineer)
 "Xx" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible{
-	dir = 8
-	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
 "XF" = (
@@ -773,9 +771,6 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/solfed/espatier/engineer)
-"XM" = (
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/espatier/engineer)
 "XW" = (
 /obj/machinery/door/poddoor{
 	id = "SolfedShipDoor";
@@ -785,19 +780,22 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/solfed/espatier/engineer)
+"Zk" = (
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/engineer)
 
 (1,1,1) = {"
 Bt
 Bt
 Bt
 Bt
-XM
-XM
+gD
+gD
 sP
 XW
 gE
-XM
-XM
+gD
+gD
 Bt
 Bt
 Bt
@@ -808,13 +806,13 @@ Bt
 Bt
 Bt
 TL
-XM
+gD
 Gl
-VP
+QQ
 KN
-VP
+QQ
 Rz
-XM
+gD
 Bt
 Bt
 Bt
@@ -825,13 +823,13 @@ Bt
 RY
 BI
 BI
-XM
+gD
 OS
 CQ
 hX
 CQ
 fd
-XM
+gD
 BI
 BI
 Pk
@@ -839,84 +837,84 @@ Bt
 "}
 (4,1,1) = {"
 Bt
-XM
+gD
 lU
 lU
-XM
+gD
 Pw
 XF
 sF
 sx
 sx
-XM
+gD
 lU
 lU
-XM
+gD
 Bt
 "}
 (5,1,1) = {"
 RY
-XM
-XM
-XM
-XM
-XM
-XM
-NC
-XM
-XM
-XM
-XM
-XM
-XM
+gD
+gD
+gD
+gD
+gD
+gD
+WD
+gD
+gD
+gD
+gD
+gD
+gD
 Pk
 "}
 (6,1,1) = {"
-XM
+gD
 ov
 Pl
 no
-XM
+gD
 FX
 FX
-Ks
+ER
 hf
 Af
-XM
+gD
 no
 Pl
 eU
-XM
+gD
 "}
 (7,1,1) = {"
-XM
+gD
 Wu
-DZ
+nl
 KG
-XM
+gD
 ms
-lm
-Ks
-lm
-PA
-XM
+Zk
+ER
+Zk
+Xx
+gD
 ov
-DZ
+nl
 mX
-XM
+gD
 "}
 (8,1,1) = {"
 oV
 Xt
 Ru
 wh
-XM
+gD
 yk
 yk
-Ks
+ER
 So
 bG
-XM
+gD
 QM
 iY
 Xt
@@ -924,104 +922,104 @@ Kt
 "}
 (9,1,1) = {"
 dU
-Ks
-Ks
-Ks
-NC
-Ks
-Ks
-Ks
-Ks
-Ks
-NC
-Ks
-Ks
-Ks
+ER
+ER
+ER
+WD
+ER
+ER
+ER
+ER
+ER
+WD
+ER
+ER
+ER
 dU
 "}
 (10,1,1) = {"
 Md
 nT
-Wk
+nZ
 LG
-XM
+gD
 HM
-lm
-KP
-lm
+Zk
+HV
+Zk
 xj
-XM
+gD
 Dt
-eK
+Wk
 nT
 Md
 "}
 (11,1,1) = {"
-XM
+gD
 pr
-nl
+Ks
 wh
-XM
+gD
 gb
-lm
+Zk
 eN
-lm
+Zk
 gb
-XM
+gD
 Jp
-QQ
+NC
 pr
-XM
+gD
 "}
 (12,1,1) = {"
 RY
 Md
 AQ
 Md
-XM
-ew
-lm
+gD
+vT
+Zk
 yD
-lm
-ew
-XM
+Zk
+vT
+gD
 Md
 jv
 Md
 Pk
 "}
 (13,1,1) = {"
-XM
+gD
 br
-Wk
+nZ
 eL
-XM
+gD
 ms
-lm
+Zk
 Wv
-lm
-PA
-XM
-jN
+Zk
 Xx
+gD
+jN
+Wa
 bm
-XM
+gD
 "}
 (14,1,1) = {"
 Md
 fV
-DZ
+nl
 Hr
-XM
+gD
 Vr
-lm
+Zk
 Wv
-lm
+Zk
 Vr
-XM
+gD
 CM
-Wa
-vT
+bk
+gZ
 Md
 "}
 (15,1,1) = {"
@@ -1029,14 +1027,14 @@ Md
 Nk
 Cn
 vW
-XM
-XM
+gD
+gD
 Md
 os
 Md
-XM
-XM
-Km
+gD
+gD
+VP
 mf
 sQ
 Md
@@ -1046,50 +1044,50 @@ Md
 Nk
 Dc
 vW
-XM
+gD
 xD
-lm
+Zk
 vR
 DA
 Vi
-XM
-gZ
-Wa
+gD
+df
+bk
 iP
 Md
 "}
 (17,1,1) = {"
-XM
+gD
 Nk
 Cn
 vW
-XM
+gD
 mE
-lm
+Zk
 oN
-lm
+Zk
 zL
-XM
-gZ
+gD
+df
 mf
 WG
-XM
+gD
 "}
 (18,1,1) = {"
 RY
-XM
+gD
 Md
-XM
-XM
+gD
+gD
 Jb
 pp
 ei
 Jb
 Jb
-XM
-XM
+gD
+gD
 Md
-XM
+gD
 Pk
 "}
 (19,1,1) = {"
@@ -1101,9 +1099,9 @@ Md
 aC
 kA
 Cd
-XM
+gD
 Md
-XM
+gD
 Bt
 Bt
 Bt
@@ -1114,11 +1112,11 @@ Bt
 Bt
 Bt
 Bt
-XM
+gD
 Md
 Md
 Md
-XM
+gD
 Bt
 Bt
 Bt

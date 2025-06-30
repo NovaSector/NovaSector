@@ -149,10 +149,6 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
-"iB" = (
-/obj/item/ammo_box/magazine/c40sol_rifle/standard,
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/espatier/defcon)
 "jA" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron/dark/textured_large,
@@ -237,6 +233,11 @@
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/espatier/defcon)
+"on" = (
+/obj/machinery/status_display/evac/directional/west,
+/obj/item/gps/computer/space/solfed/armory,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/solfed/espatier/defcon)
 "oY" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -314,9 +315,7 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
-/obj/structure/window/reinforced/plasma/spawner/directional/north{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/plating/airless,
 /area/shuttle/solfed/espatier/defcon)
 "wA" = (
@@ -370,6 +369,10 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"yC" = (
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/solfed/espatier/defcon)
 "yH" = (
 /obj/structure/table,
@@ -488,11 +491,6 @@
 /obj/structure/sign/flag/terragov/directional/west,
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/espatier/defcon)
-"Mh" = (
-/obj/machinery/status_display/evac/directional/west,
-/obj/item/gps/computer/space/solfed/armory,
-/turf/open/floor/iron/smooth_half,
 /area/shuttle/solfed/espatier/defcon)
 "Nb" = (
 /obj/machinery/atmos_shield_gen/active{
@@ -711,7 +709,7 @@ rB
 aE
 aE
 aE
-iB
+yC
 aE
 aE
 QG
@@ -726,7 +724,7 @@ qS
 (6,1,1) = {"
 aE
 WS
-Mh
+on
 bN
 aE
 KZ
