@@ -85,7 +85,7 @@
 	belt_contents = list(
 		/obj/item/screwdriver/power = 1,
 		/obj/item/crowbar/power = 1,
-		/obj/item/weldingtool/electric = 1, // NOVA EDIT - original: new /obj/item/weldingtool/experimental(src)
+		/obj/item/weldingtool/electric = 1,
 		/obj/item/multitool = 1,
 		/obj/item/holosign_creator/atmos = 1,
 		/obj/item/extinguisher/mini = 1,
