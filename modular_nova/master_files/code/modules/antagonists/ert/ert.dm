@@ -13,21 +13,6 @@
 	outfit = /datum/outfit/centcom/asset_protection
 	role = "Officer"
 
-/datum/antagonist/ert/solfed/espatier
-	name = "SolFed Espatier"
-	outfit = /datum/outfit/solfed/espatier
-	role = "Rifleman"
-
-/datum/antagonist/ert/solfed/espatier/engineer
-	name = "SolFed Espatier Engineer"
-	outfit = /datum/outfit/solfed/espatier/engineer
-	role = "Engineer"
-
-/datum/antagonist/ert/solfed/espatier/corpsman
-	name = "SolFed Espatier Corpsman"
-	outfit = /datum/outfit/solfed/espatier/corpsman
-	role = "Corpsman"
-
 /datum/antagonist/ert/solfed
 	name = "SolFed Auditor"
 	outfit = /datum/outfit/solfed/lowrank
@@ -45,10 +30,26 @@
 	name = "Lead SolFed Auditor"
 	outfit = /datum/outfit/solfed
 	role = "Lead Auditor"
+	leader = TRUE
+
+/datum/antagonist/ert/solfed/espatier
+	name = "SolFed Espatier"
+	outfit = /datum/outfit/solfed/espatier
+	role = "Rifleman"
 
 /datum/antagonist/ert/solfed/espatier/New()
 	. = ..()
 	name_source = GLOB.last_names
+
+/datum/antagonist/ert/solfed/espatier/engineer
+	name = "SolFed Espatier Engineer"
+	outfit = /datum/outfit/solfed/espatier/engineer
+	role = "Engineer"
+
+/datum/antagonist/ert/solfed/espatier/corpsman
+	name = "SolFed Espatier Corpsman"
+	outfit = /datum/outfit/solfed/espatier/corpsman
+	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/espatier/leader
 	name = "SolFed Espatier Squad Leader"

@@ -59,11 +59,11 @@
 	roles = list(/datum/antagonist/ert/solfed/espatier/engineer)
 
 /// A variant of spawning, they basically spawn with the mobile garrison/armory.
-/datum/ert/solfed/espatier/defcon
+/datum/ert/solfed/espatier/armory
 	ert_template = /datum/map_template/shuttle/ert/solfed/armory
 
 /// Forces the true helljumpers (basically all infantry, no medics)
-/datum/ert/solfed/espatier/defcon/helljumper
+/datum/ert/solfed/espatier/armory/rifleman_only
 	roles = list(/datum/antagonist/ert/solfed/espatier)
 
 /// A variant of spawning, they basically spawn with the mobile Hospital.
