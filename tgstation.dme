@@ -7492,8 +7492,6 @@
 #include "modular_nova\modules\blueshield\code\landmarks.dm"
 #include "modular_nova\modules\blueshield\code\devices\crew.dm"
 #include "modular_nova\modules\blueshield\code\devices\sensor_device.dm"
-#include "modular_nova\modules\blueshield\code\modsuit\mod_theme.dm"
-#include "modular_nova\modules\blueshield\code\modsuit\mod_type.dm"
 #include "modular_nova\modules\bluespace_miner\code\bluespace_miner.dm"
 #include "modular_nova\modules\bodyparts\code\_mutant_bodyparts.dm"
 #include "modular_nova\modules\bodyparts\code\akula_bodyparts.dm"
