@@ -17,6 +17,7 @@
 	name = "SolFed Auditor"
 	outfit = /datum/outfit/solfed/lowrank
 	role = "Auditor"
+	suicide_cry = "FOR THE FEDERATION!!!!"
 
 /datum/antagonist/ert/solfed/social
 	outfit = /datum/outfit/solfed/social
@@ -72,6 +73,3 @@
 
 	missiondesc += "<span class='warningplain'><BR><B>Your Mission</B> : [ert_team.mission.explanation_text]</span>"
 	to_chat(owner,missiondesc)
-
-/datum/antagonist/ert/solfed
-	suicide_cry = "FOR THE FEDERATION!!!!"
