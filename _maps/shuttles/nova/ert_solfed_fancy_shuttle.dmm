@@ -66,6 +66,13 @@
 /obj/machinery/griddle,
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
+"dC" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/fancy)
 "dM" = (
 /obj/effect/turf_decal/siding/wideplating/dark/corner{
 	dir = 4
@@ -91,6 +98,17 @@
 /obj/effect/landmark/ert_shuttle_spawn,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
+"eZ" = (
+/obj/structure/sink/kitchen/directional/east,
+/turf/open/floor/iron/white/diagonal,
+/area/shuttle/solfed/fancy)
+"fb" = (
+/obj/structure/mirror/directional/north,
+/obj/structure/sink/directional/south,
+/turf/open/floor/iron/white/textured_corner{
+	dir = 8
+	},
+/area/shuttle/solfed/fancy)
 "fv" = (
 /obj/machinery/light/floor,
 /obj/structure/chair/comfy/shuttle{
@@ -98,6 +116,19 @@
 	},
 /obj/effect/landmark/ert_shuttle_brief_spawn,
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/fancy)
+"gg" = (
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/structure/closet/secure_closet/wall{
+	pixel_x = 32
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
+/area/shuttle/solfed/fancy)
+"gS" = (
+/obj/structure/closet/secure_closet/wall{
+	pixel_x = 32
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "hj" = (
 /obj/structure/chair/office,
@@ -131,16 +162,17 @@
 /obj/structure/marker_beacon,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/solfed/fancy)
-"iX" = (
-/obj/structure/curtain,
-/turf/open/floor/iron/white/smooth_half,
-/area/shuttle/solfed/fancy)
 "kb" = (
 /obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "kk" = (
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/fancy)
+"kr" = (
+/turf/open/floor/iron/white/textured_corner{
+	dir = 1
+	},
 /area/shuttle/solfed/fancy)
 "kO" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
@@ -152,12 +184,6 @@
 /obj/machinery/deepfryer,
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
-"lP" = (
-/obj/structure/closet/secure_closet/wall{
-	pixel_x = 32
-	},
-/turf/open/floor/carpet/neon/simple/cyan/nodots,
-/area/shuttle/solfed/fancy)
 "mq" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave,
@@ -166,6 +192,10 @@
 "mr" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/fancy)
+"mF" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/white/smooth_half,
 /area/shuttle/solfed/fancy)
 "mQ" = (
 /obj/structure/sign/flag/terragov/directional/north,
@@ -179,6 +209,7 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
 	},
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
 "oY" = (
@@ -196,14 +227,13 @@
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
+"pB" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/fancy)
 "pI" = (
 /obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/fancy)
-"pS" = (
-/turf/open/floor/iron/white/smooth_half{
-	dir = 1
-	},
 /area/shuttle/solfed/fancy)
 "qx" = (
 /obj/structure/table/reinforced,
@@ -212,13 +242,6 @@
 "qS" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/closed/wall/mineral/plastitanium,
-/area/shuttle/solfed/fancy)
-"rc" = (
-/obj/effect/landmark/ert_shuttle_spawn,
-/obj/structure/closet/secure_closet/wall{
-	pixel_x = 32
-	},
-/turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "rB" = (
 /obj/machinery/atmos_shield_gen/active{
@@ -248,10 +271,7 @@
 /obj/effect/turf_decal/siding/wideplating/dark/corner,
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
-"tx" = (
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/fancy)
-"tK" = (
+"tw" = (
 /obj/structure/toilet{
 	dir = 4
 	},
@@ -259,12 +279,8 @@
 	dir = 4
 	},
 /area/shuttle/solfed/fancy)
-"uk" = (
-/obj/structure/mirror/directional/north,
-/obj/structure/sink/directional/south,
-/turf/open/floor/iron/white/textured_corner{
-	dir = 8
-	},
+"tx" = (
+/turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
 "us" = (
 /obj/machinery/status_display/evac/directional/north,
@@ -318,11 +334,6 @@
 "xw" = (
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
-"yB" = (
-/obj/machinery/shower/infinite/directional/south,
-/obj/structure/curtain,
-/turf/open/floor/iron/white/textured_corner,
-/area/shuttle/solfed/fancy)
 "yH" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/textured_large,
@@ -338,27 +349,33 @@
 /obj/structure/drain,
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
-"zZ" = (
-/obj/machinery/light/directional/north,
-/obj/structure/closet/secure_closet/wall{
-	pixel_y = 32
-	},
-/turf/open/floor/carpet/neon/simple/cyan/nodots,
-/area/shuttle/solfed/fancy)
 "Ay" = (
 /obj/machinery/light/floor,
 /obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
-"Cm" = (
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron/white/smooth_half,
+"CJ" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/fancy)
+"GO" = (
+/obj/machinery/shower/infinite/directional/south,
+/obj/structure/curtain,
+/turf/open/floor/iron/white/textured_corner,
 /area/shuttle/solfed/fancy)
 "Hp" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 8
 	},
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/fancy)
+"HQ" = (
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/structure/closet/secure_closet/wall{
+	pixel_x = -32
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "HS" = (
 /obj/structure/sign/flag/terragov/directional/east,
@@ -367,16 +384,14 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
-"Iy" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/public{
-	name = "Shuttle Bathroom"
-	},
-/turf/open/floor/iron/dark/textured_large,
-/area/shuttle/solfed/fancy)
 "JC" = (
 /obj/machinery/oven/range,
 /turf/open/floor/iron/white/diagonal,
+/area/shuttle/solfed/fancy)
+"JN" = (
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
 /area/shuttle/solfed/fancy)
 "Kk" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/solfed/fancy{
@@ -397,12 +412,8 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 4
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/white/diagonal,
-/area/shuttle/solfed/fancy)
-"Ms" = (
-/turf/open/floor/iron/white/textured_corner{
-	dir = 1
-	},
 /area/shuttle/solfed/fancy)
 "Nb" = (
 /obj/structure/table/wood,
@@ -411,8 +422,18 @@
 	},
 /turf/open/floor/iron/white/diagonal,
 /area/shuttle/solfed/fancy)
+"OK" = (
+/turf/open/floor/iron/white/smooth_half,
+/area/shuttle/solfed/fancy)
 "OP" = (
 /obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/fancy)
+"Pc" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/public{
+	name = "Shuttle Bathroom"
+	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
 "PW" = (
@@ -432,12 +453,13 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
-"RH" = (
-/turf/open/floor/iron/white/smooth_half,
-/area/shuttle/solfed/fancy)
 "Sf" = (
 /obj/item/gps/computer/space/solfed/fancy,
 /turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/fancy)
+"Sh" = (
+/obj/structure/curtain,
+/turf/open/floor/iron/white/smooth_half,
 /area/shuttle/solfed/fancy)
 "TO" = (
 /obj/structure/table/wood,
@@ -448,6 +470,12 @@
 /obj/item/reagent_containers/cup/glass/drinkingglass,
 /obj/item/reagent_containers/cup/glass/drinkingglass,
 /turf/open/floor/iron/white/diagonal,
+/area/shuttle/solfed/fancy)
+"Ua" = (
+/obj/structure/closet/secure_closet/wall{
+	pixel_x = -32
+	},
+/turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "Ur" = (
 /obj/machinery/computer/shuttle/solfed/fancy{
@@ -495,12 +523,11 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/solfed/fancy)
-"Xf" = (
-/obj/structure/sink/kitchen/directional/east,
-/turf/open/floor/iron/white/diagonal,
-/area/shuttle/solfed/fancy)
 "Yf" = (
 /obj/machinery/light/directional/north,
+/obj/structure/closet/secure_closet/wall{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/neon/simple/cyan/nodots,
 /area/shuttle/solfed/fancy)
 "YI" = (
@@ -537,7 +564,7 @@ VT
 VT
 aX
 mQ
-Xf
+eZ
 oY
 mq
 YI
@@ -600,9 +627,9 @@ qS
 "}
 (6,1,1) = {"
 aX
-yB
-pS
-tK
+GO
+JN
+tw
 aX
 KZ
 TO
@@ -617,9 +644,9 @@ aX
 "}
 (7,1,1) = {"
 aX
-iX
+Sh
 yR
-RH
+OK
 aX
 us
 eO
@@ -634,9 +661,9 @@ xd
 "}
 (8,1,1) = {"
 aX
-RH
+OK
 xw
-Cm
+mF
 aX
 sY
 WO
@@ -644,25 +671,25 @@ WO
 WO
 dM
 aX
-zZ
+Yf
 ne
 ne
 xd
 "}
 (9,1,1) = {"
 aX
-uk
-pS
-Ms
-Iy
+fb
+JN
+kr
+Pc
 OP
 ne
 PW
 ne
 QO
 Zu
-lP
-rc
+gS
+gg
 bd
 aX
 "}
@@ -703,7 +730,7 @@ UL
 (12,1,1) = {"
 rB
 tx
-tx
+pB
 tx
 rB
 OP
@@ -713,7 +740,7 @@ xq
 QO
 rB
 tx
-tx
+pB
 tx
 rB
 "}
@@ -723,11 +750,11 @@ aX
 aX
 aX
 aX
-OP
+CJ
 ne
 eP
 ne
-QO
+dC
 aX
 aX
 aX
@@ -746,8 +773,8 @@ kO
 kO
 KG
 Zu
-ne
-sn
+Ua
+HQ
 ir
 aX
 "}
