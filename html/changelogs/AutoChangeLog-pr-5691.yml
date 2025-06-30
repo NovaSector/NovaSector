@@ -1,6 +1,0 @@
-author: "Floofies"
-delete-after: True
-changes:
-  - qol: "Changed the Hemophage species Tumor heart organ to be unremovable via surgery."
-  - qol: "Allowed Hemophage species to spawn with lungs."
-  - bugfix: "Fixed surgeries for Hemophage and Slimeperson species organs."
