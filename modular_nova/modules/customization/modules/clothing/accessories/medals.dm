@@ -36,6 +36,7 @@ Potential future ideas:
 	desc = "A medal dedicated to true syndicate agents for robustness in many fields."
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate"
 	post_init_icon_state = "medal_robust"
+	medaltype = "medal-silver"
 
 /obj/item/clothing/accessory/medal/nova/syndicate/espionage
 	name = "syndicate medal of espionage"
@@ -69,11 +70,63 @@ Potential future ideas:
 	icon_state = "/obj/item/clothing/accessory/medal/nova/syndicate/communications"
 	post_init_icon_state = "medal_comms"
 
+// Interdyne Medals
+
+/obj/item/clothing/accessory/medal/nova/interdyne
+	name = "medal of interdyne mastery"
+	desc = "A medal dedicated to true members of Interdyne Pharmaceuticals for their robustness in many fields."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne"
+	post_init_icon_state = "medal_robust"
+	greyscale_colors = "#66ff66#008000#66ff66#292929#ffffff"
+	greyscale_config = /datum/greyscale_config/medals/interdyne
+	greyscale_config_worn = /datum/greyscale_config/medals/interdyne/worn
+	medaltype = "medal-silver"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/profit
+	name = "medal of monetary commitment"
+	desc = "A medal dedicated to the profit driven, to those who provide the most profit, those who hoard their gold and riches. to some its only a number, to some its everything... please make sure the recipient doesn't try to sell the medal."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/profit"
+	post_init_icon_state = "medal_money"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/excellency
+	name = "medal of interdyne excellency"
+	desc = "A medal dedicated to those who have proven themselves, going above and beyond the call of duty for Interdyne Pharmaceuticals."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/excellency"
+	post_init_icon_state = "medal_skill"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/services
+	name = "medal of corporate service"
+	desc = "A medal dedicated to those whom boost the morale, provide, and give aid to others within and outside the company, to some its only a drink, to some its an escape, and its service workers that keep them happy."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/services"
+	post_init_icon_state = "medal_service"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/engineering
+	name = "medal of engineering excellency"
+	desc = "A medal dedicated to those who scream in the quiet hours, keeping the facility up and running, exploring new ideas and theories through engineering, proving themselves for the engineers they are."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/engineering"
+	post_init_icon_state = "medal_engineering"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/search_rescue
+	name = "medal of rescue diligence"
+	desc = "A medal dedicated to those whom have proven themselves as true search and rescuers, refusing to give up no matter the circumstances or threat that posed against them."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/search_rescue"
+	post_init_icon_state = "medal_rescue"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/xenobio
+	name = "medal of xenobiological discovery"
+	desc = "A medal dedicated to those whom show their greatest knowledge and go above and beyond the possibilities with xenobiology."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/xenobio"
+	post_init_icon_state = "medal_xeno"
+
+/obj/item/clothing/accessory/medal/nova/interdyne/chemistry
+	name = "medal of scientific innovation"
+	desc = "A medal dedicated to those whom show their greatest knowledge and go above and beyond the possibilities with chemistry."
+	icon_state = "/obj/item/clothing/accessory/medal/nova/interdyne/chemistry"
+	post_init_icon_state = "medal_chem"
 /*
 // ACCESSORY MEDALS
 // These ones are purely cosmetic attachments
 */
-
 /obj/item/clothing/accessory/nova/acc_medal
 	name = "circle medal"
 	desc = "You shouldn't have this, make a bug report!"
