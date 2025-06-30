@@ -154,6 +154,12 @@
 	ID.update_label()
 	..()
 
+/obj/item/radio/headset/headset_solfed/officials
+	name = "\improper SolFed Officials Headset"
+	icon_state = "com_headset"
+	worn_icon_state = "com_headset"
+	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
+
 /obj/item/radio/headset/headset_solfed/espatier
 	name = "\improper SolFed Espatier headset"
 	desc = "A headset used by the Solar Federation espatiers."
@@ -176,10 +182,9 @@
 	keyslot = /obj/item/encryptionkey/headset_solfed/squadleader
 
 /obj/item/encryptionkey/headset_solfed/squadleader
-	name = "\improper SolFed espatier Squadleader encryption key"
-	special_channels = RADIO_SPECIAL_CENTCOM
+	name = "\improper SolFed grand encryption key"
 	channels = list(RADIO_CHANNEL_SOLFED = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
-	icon_state = "/obj/item/encryptionkey/headset_solfed/atmos"
-	post_init_icon_state = "cypherkey_medical"
-	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	icon_state = "/obj/item/encryptionkey/headset_solfed/squadleader"
+	post_init_icon_state = "cypherkey_espitator"
+	greyscale_config = /datum/greyscale_config/encryptionkey_syndicate
 	greyscale_colors = "#ebebeb#2b2793"

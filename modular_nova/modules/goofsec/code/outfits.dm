@@ -6,7 +6,7 @@
 	accessory = /obj/item/clothing/accessory/nova/solfedribbon
 	neck = /obj/item/clothing/neck/mantle/solfed
 	back = /obj/item/storage/backpack
-	ears = /obj/item/radio/headset/headset_solfed/sec
+	ears = /obj/item/radio/headset/headset_solfed/officials
 	l_pocket = /obj/item/restraints/handcuffs
 	r_pocket = /obj/item/flashlight/seclite
 	id = /obj/item/card/id/advanced/solfed
