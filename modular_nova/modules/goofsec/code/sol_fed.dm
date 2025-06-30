@@ -403,7 +403,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	name = "\improper SolFed adv. Security headset"
 	desc = "A headset used by the Solar Federation response teams."
 	icon_state = "med_headset"
-	keyslot = /obj/item/encryptionkey/headset_solfed/atmos
+	keyslot = /obj/item/encryptionkey/headset_solfed/sec
 	radio_talk_sound = 'modular_nova/modules/radiosound/sound/radio/security.ogg'
 
 /obj/item/encryptionkey/headset_solfed/sec
