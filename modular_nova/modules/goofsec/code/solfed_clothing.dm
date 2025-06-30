@@ -341,9 +341,9 @@
 	greyscale_colors = "#ffff66#0099ff"
 
 /obj/machinery/vending/access/solfed
-	name = "\improper Command Outfitting Station"
-	desc = "A vending machine for specialised clothing for members of Command."
-	product_ads = "File paperwork in style!;It's red so you can't see the blood!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!"
+	name = "\improper Solfed Outfitting Station"
+	desc = "A vending machine for specialised clothing for members of the Federation."
+	product_ads = "File paperwork in style!;Glory To the Federation!;You have the right to be fashionable!;Now you can be the fashion police you always wanted to be!;Remember Its not a crime to be fashionable!"
 	icon = 'modular_nova/modules/command_vendor/icons/vending.dmi'
 	icon_state = "solfeddrobe"
 	icon_deny = "solfeddrobe-deny"
