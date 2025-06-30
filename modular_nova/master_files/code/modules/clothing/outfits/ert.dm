@@ -82,6 +82,15 @@
 	name = "SolFed Espatier Engineer"
 	head = /obj/item/clothing/head/helmet/solfed/engineer
 	belt = /obj/item/storage/belt/utility/full/powertools
+	belt_contents = list(
+		/obj/item/screwdriver/power = 1,
+		/obj/item/crowbar/power = 1,
+		/obj/item/weldingtool/electric = 1, // NOVA EDIT - original: new /obj/item/weldingtool/experimental(src)
+		/obj/item/multitool = 1,
+		/obj/item/holosign_creator/atmos = 1,
+		/obj/item/extinguisher/mini = 1,
+		/obj/item/stack/cable_coil = 1,
+	)
 	mask = /obj/item/clothing/mask/gas/welding/up
 	ears = /obj/item/radio/headset/headset_solfed/espatier/engineer
 	backpack_contents = list(
