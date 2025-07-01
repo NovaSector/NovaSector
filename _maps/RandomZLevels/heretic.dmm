@@ -53,7 +53,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "aM" = (
 /obj/structure/fluff/bus/dense,
 /turf/open/floor/asphalt,
@@ -93,11 +93,8 @@
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
 "bq" = (
-/obj/structure/fluff/tram_rail{
-	dir = 1
-	},
-/turf/open/misc/asteroid,
-/area/space)
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "bt" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "hoodbottom"
@@ -120,6 +117,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"bH" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "bN" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -130,7 +136,7 @@
 /area/station/maintenance/heretic_laboratory)
 "bZ" = (
 /turf/closed/mineral/asteroid/has_air,
-/area/space)
+/area/awaymission/caves/heretic_laboratory_clean)
 "cb" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "p";
@@ -163,6 +169,11 @@
 /obj/structure/closet/secure_closet/freezer/fridge/open,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"cw" = (
+/obj/item/bedsheet/black,
+/obj/structure/bed,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "cy" = (
 /obj/structure/table,
 /obj/item/healthanalyzer,
@@ -210,6 +221,10 @@
 /area/station/maintenance/heretic_laboratory)
 "dh" = (
 /turf/closed/indestructible/rock,
+/area/station/maintenance/heretic_laboratory)
+"dl" = (
+/obj/item/stack/sheet/mineral/sandbags,
+/turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/heretic_laboratory)
 "do" = (
 /obj/machinery/door/airlock,
@@ -291,6 +306,11 @@
 /obj/structure/filingcabinet,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"eE" = (
+/obj/structure/chair/sofa/bench,
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "eH" = (
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/delivery,
@@ -363,9 +383,10 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "fX" = (
 /obj/item/stack/cable_coil/thirty,
+/obj/effect/mob_spawn/corpse/human/russian/ranged/officer,
 /turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/heretic_laboratory)
 "ga" = (
@@ -398,6 +419,12 @@
 /obj/effect/heretic_rune/big,
 /turf/open/floor/plating,
 /area/space)
+"gm" = (
+/obj/machinery/door/airlock{
+	name = "Personal Dorm"
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "gp" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/iron/white/textured_large,
@@ -413,6 +440,13 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
+/area/station/maintenance/heretic_laboratory)
+"gv" = (
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/east,
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/grass/jungle,
 /area/station/maintenance/heretic_laboratory)
 "gw" = (
 /obj/effect/turf_decal/stripes/line{
@@ -475,7 +509,7 @@
 /area/awaymission/beach/heretic)
 "hg" = (
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "hi" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
@@ -488,6 +522,10 @@
 /obj/item/stack/medical/gauze,
 /obj/item/stack/medical/mesh,
 /turf/open/floor/iron/dark,
+/area/station/maintenance/heretic_laboratory)
+"hp" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/small,
 /area/station/maintenance/heretic_laboratory)
 "hr" = (
 /obj/structure/table/reinforced,
@@ -554,6 +592,15 @@
 	},
 /turf/open/floor/wood,
 /area/space)
+"hX" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "hY" = (
 /turf/open/floor/iron/shuttle,
 /area/space)
@@ -583,6 +630,13 @@
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
+"in" = (
+/obj/structure/window/spawner/directional/west,
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/grass/jungle,
+/area/station/maintenance/heretic_laboratory)
 "iu" = (
 /obj/machinery/light/floor,
 /turf/closed/wall/mineral/titanium,
@@ -609,7 +663,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "iJ" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Freezer"
@@ -618,7 +672,6 @@
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
-/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/freezer,
 /area/station/maintenance/heretic_laboratory)
 "iL" = (
@@ -636,7 +689,7 @@
 	name = "Bruce's gun rack"
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "iO" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
@@ -764,6 +817,12 @@
 	},
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
+"kk" = (
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/north,
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/grass/jungle,
+/area/station/maintenance/heretic_laboratory)
 "kl" = (
 /obj/effect/light_emitter,
 /turf/open/floor/plating,
@@ -781,6 +840,11 @@
 /obj/structure/chair/comfy/shuttle/tactical,
 /turf/open/floor/mineral/plastitanium,
 /area/space)
+"kB" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/mob/living/basic/faithless,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "kD" = (
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
@@ -793,6 +857,11 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"kH" = (
+/obj/structure/chair/sofa/bench/right,
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "kI" = (
 /obj/structure/railing{
 	dir = 10
@@ -811,7 +880,7 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "kW" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Grocery Store";
@@ -825,6 +894,10 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"lt" = (
+/obj/item/gun/ballistic/rifle/boltaction,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "lv" = (
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
@@ -917,6 +990,16 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
 /area/station/maintenance/heretic_laboratory)
+"mI" = (
+/mob/living/basic/heretic_summon/raw_prophet,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
+"mO" = (
+/obj/structure/chair/plastic,
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "mR" = (
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
@@ -940,7 +1023,7 @@
 /area/awaymission/beach/heretic)
 "nb" = (
 /turf/closed/wall,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "nj" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/coal/ten,
@@ -977,7 +1060,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "nL" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
@@ -1027,7 +1110,7 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "oc" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "General Store";
@@ -1067,6 +1150,13 @@
 /obj/machinery/pdapainter,
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
+"oN" = (
+/obj/item/kirbyplants/random,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "oS" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -1083,6 +1173,15 @@
 /obj/item/flashlight/lamp,
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood,
+/area/station/maintenance/heretic_laboratory)
+"pf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/item/mop/advanced,
+/obj/effect/spawner/random/structure/closet_empty,
+/obj/item/reagent_containers/cup/bucket,
+/turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
 "pi" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1221,6 +1320,10 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"qA" = (
+/obj/machinery/door/puzzle/keycard/hereticgateway,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "qI" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -1363,7 +1466,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "sd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -1496,6 +1599,10 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"tL" = (
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "tM" = (
 /obj/structure/chair/stool/directional/south,
 /turf/open/floor/wood,
@@ -1509,6 +1616,13 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
+"tS" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "tZ" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
@@ -1569,6 +1683,9 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"uz" = (
+/turf/open/floor/iron/small,
+/area/space)
 "uC" = (
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
@@ -1707,6 +1824,10 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"we" = (
+/obj/effect/temp_visual/drawing_heretic_rune,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "wf" = (
 /turf/closed/wall/mineral/titanium,
 /area/awaymission/beach/heretic)
@@ -1740,6 +1861,12 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
+/area/station/maintenance/heretic_laboratory)
+"wC" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/iron/small,
 /area/station/maintenance/heretic_laboratory)
 "wF" = (
 /obj/item/clothing/suit/armor/riot,
@@ -1785,6 +1912,29 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"wY" = (
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "d";
+	pixel_x = -15;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "a";
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "n";
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "g";
+	pixel_x = 16;
+	pixel_y = 3
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "xe" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/royalblack,
@@ -1834,6 +1984,12 @@
 "xB" = (
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
+"xC" = (
+/obj/item/storage/toolbox/ammobox/strilka310,
+/obj/item/storage/toolbox/ammobox/strilka310,
+/obj/structure/closet/crate/secure/weapon,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "xE" = (
 /obj/effect/turf_decal/sand/plating{
 	light_range = 2
@@ -1869,6 +2025,12 @@
 "xQ" = (
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"xS" = (
+/obj/structure/window/fulltile,
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/turf/open/floor/grass,
+/area/station/maintenance/heretic_laboratory)
 "xY" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -1893,7 +2055,7 @@
 /obj/structure/fluff/tram_rail,
 /obj/structure/thermoplastic/light,
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "yx" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
 /turf/open/floor/iron/dark,
@@ -1916,10 +2078,18 @@
 /obj/machinery/telecomms/hub,
 /turf/open/floor/mineral/plastitanium,
 /area/space)
+"yF" = (
+/obj/item/binoculars,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "yG" = (
 /obj/structure/closet/athletic_mixed,
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"yO" = (
+/obj/structure/chair/plastic,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "yQ" = (
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/turf_decal/siding/blue/corner{
@@ -1938,6 +2108,11 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
+"zc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/gun/ballistic/rifle/boltaction/prime,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "zh" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -1946,7 +2121,7 @@
 	dir = 1
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "zk" = (
 /obj/effect/mapping_helpers/dead_body_placer,
 /turf/open/floor/iron/dark,
@@ -1971,6 +2146,10 @@
 /obj/machinery/light/floor,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
+"zS" = (
+/obj/structure/chair/sofa/bench,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "zZ" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "frontwallbottom"
@@ -1982,6 +2161,12 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"Af" = (
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/grass/jungle,
+/area/station/maintenance/heretic_laboratory)
 "Ag" = (
 /obj/structure/dresser,
 /turf/open/floor/wood,
@@ -2030,6 +2215,15 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/heretic_laboratory)
+"AP" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/machinery/deployable_turret/hmg{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "AS" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -2057,12 +2251,23 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
 /area/awaymission/beach/heretic)
+"Br" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "Bs" = (
 /obj/structure/fluff/bus/passable{
 	icon_state = "topdoor"
 	},
 /turf/open/floor/iron/dark/airless,
 /area/awaymission/beach/heretic)
+"Bv" = (
+/obj/structure/chair/plastic{
+	dir = 1
+	},
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "By" = (
 /obj/machinery/iv_drip,
 /turf/open/floor/iron/dark,
@@ -2153,7 +2358,7 @@
 	desc = "Before you slumped in a chair stands an absolute giant of a man, wearing state of the art Nanotrasen equipment- besides his gun, a well, WELL, used laser gun in his hand- despite the far better armaments besides him he chose this weapon to be the last one he held- or, is still holding, the laser gun blinks- its out of juice but still flickering  with light to indicate that fact- this is in spite of the fact of the thick layer of dust on it so thick that the light from the laser gun is almost muffled as if being viewed through a piece of paper, normally one of these guns can only maintain to flicker like this for a day- but this one has been flickering for significantly longer, The man himself sitting in the chair is easily two men in size, his armor is custom modified to fit his bulky frame but also- with an immense amount of extra padding, one might mistake that modsuit he's wearing for just an entire mech. This man, this bulk of a man, seems to be in some kind of induced coma from his suit, there are no obvious massive wounds- but there are dozens through the weak points of his modsuit, it seems like he bled out from all of these small cuts around him despite his struggle and his suit is now barely keeping him alive long enough for him to recover- now all he needs, is to be woken up, or maybe he needs more time to heal, either way you think being the first thing this giant sees when they wake up might be a bad idea."
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "Dt" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
@@ -2205,6 +2410,10 @@
 "Ec" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
+"El" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/small,
 /area/station/maintenance/heretic_laboratory)
 "Em" = (
 /obj/structure/chair/wood{
@@ -2289,7 +2498,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "ES" = (
 /obj/effect/turf_decal/sand/plating{
 	light_range = 2
@@ -2306,7 +2515,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "Fe" = (
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -2338,7 +2547,7 @@
 	},
 /obj/structure/thermoplastic/light,
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "Fx" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "frontwallbottom"
@@ -2356,6 +2565,15 @@
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
+"FW" = (
+/obj/item/bedsheet/black{
+	dir = 4
+	},
+/obj/structure/bed{
+	dir = 4
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "FX" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 8
@@ -2380,6 +2598,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/maintenance/heretic_laboratory)
+"Gv" = (
+/obj/effect/spawner/random/vending/colavend,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "Gw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/light/directional/north,
@@ -2392,6 +2615,16 @@
 /obj/item/gun/energy/modular_laser_rifle/carbine,
 /turf/open/floor/pod/dark,
 /area/awaymission/beach/heretic)
+"GH" = (
+/obj/structure/chair/sofa/bench{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/mob/living/basic/heretic_summon/raw_prophet,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "GJ" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -2455,6 +2688,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"Hs" = (
+/obj/structure/chair/sofa/bench/left,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "Hx" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2474,6 +2711,13 @@
 /obj/structure/table,
 /turf/open/floor/wood,
 /area/space)
+"HU" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/item/stack/sheet/mineral/sandbags,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "HW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -2702,10 +2946,18 @@
 "KS" = (
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"Lc" = (
+/obj/structure/chair/sofa/bench{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "Lh" = (
-/obj/structure/fluff/tram_rail,
-/turf/open/misc/asteroid,
-/area/space)
+/turf/closed/indestructible/rock,
+/area/awaymission/caves/heretic_laboratory_clean)
 "Li" = (
 /obj/structure/fluff/bus/passable{
 	icon_state = "wheredahoodat"
@@ -2820,13 +3072,13 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "MP" = (
 /obj/structure/fluff/tram_rail,
 /obj/structure/thermoplastic/light,
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "MR" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 4
@@ -2855,6 +3107,13 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"Nq" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "Ns" = (
 /obj/machinery/light/directional/south,
 /obj/effect/visible_heretic_influence,
@@ -2893,7 +3152,7 @@
 	},
 /obj/structure/thermoplastic/light,
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "OK" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty{
@@ -2917,6 +3176,7 @@
 /area/space)
 "OS" = (
 /obj/effect/temp_visual/drawing_heretic_rune,
+/obj/item/gun/ballistic/rifle/boltaction,
 /turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/heretic_laboratory)
 "OU" = (
@@ -2992,6 +3252,13 @@
 "PL" = (
 /turf/closed/wall/mineral/wood/nonmetal,
 /area/station/maintenance/heretic_laboratory)
+"PN" = (
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/west,
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/grass/jungle,
+/area/station/maintenance/heretic_laboratory)
 "PP" = (
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/marine,
@@ -3014,6 +3281,13 @@
 	},
 /turf/open/floor/iron/dark/airless,
 /area/awaymission/beach/heretic)
+"PX" = (
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/east,
+/obj/structure/flora/bush/jungle/c/style_random,
+/turf/open/misc/grass/jungle,
+/area/station/maintenance/heretic_laboratory)
 "Qd" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 4
@@ -3148,7 +3422,10 @@
 /turf/open/floor/wood,
 /area/awaymission/beach/heretic)
 "Sd" = (
-)
+/obj/structure/dresser,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "Sg" = (
 /obj/structure/rack,
 /obj/machinery/light/directional/north,
@@ -3293,6 +3570,19 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
+"UF" = (
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "e";
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "r";
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "UL" = (
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
@@ -3425,6 +3715,10 @@
 	},
 /turf/open/floor/iron/shuttle,
 /area/space)
+"WA" = (
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "WD" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -3547,6 +3841,12 @@
 /obj/machinery/deployable_turret/hmg,
 /turf/open/floor/iron/shuttle,
 /area/space)
+"XS" = (
+/obj/structure/chair/plastic{
+	dir = 1
+	},
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "XU" = (
 /obj/machinery/computer/operating,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -3586,11 +3886,23 @@
 /obj/machinery/vending/wardrobe/medi_wardrobe,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"Yn" = (
+/obj/effect/decal/cleanable/glass/plastitanium,
+/obj/effect/mob_spawn/corpse/human/russian/ranged/trooper,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "Yo" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
 /turf/open/floor/iron,
+/area/station/maintenance/heretic_laboratory)
+"Yr" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/mop_bucket/janitorialcart,
+/turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
 "Yt" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3624,7 +3936,7 @@
 /obj/structure/fluff/tram_rail/anchor,
 /obj/structure/fluff/tram_rail,
 /turf/open/misc/asteroid,
-/area/space)
+/area/station/maintenance/heretic_laboratory)
 "YP" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -3697,6 +4009,10 @@
 /obj/effect/turf_decal/trimline/red/filled,
 /turf/open/floor/iron/shuttle,
 /area/space)
+"ZS" = (
+/obj/effect/mob_spawn/corpse/human/russian/ranged/trooper,
+/turf/open/floor/mineral/plastitanium,
+/area/station/maintenance/heretic_laboratory)
 "ZY" = (
 /obj/machinery/mech_bay_recharge_port,
 /turf/open/floor/mineral/plastitanium,
@@ -3877,87 +4193,87 @@ Jp
 Jp
 Jp
 Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
 "}
 (2,1,1) = {"
 Jp
@@ -4134,87 +4450,87 @@ Jp
 Jp
 Jp
 Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
-Jp
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
 "}
 (3,1,1) = {"
 Jp
@@ -4385,93 +4701,93 @@ nI
 nI
 nI
 nI
-hs
+vN
 hg
-bq
+WV
+GW
+hg
+vN
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 Lh
-hg
-hs
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-Jp
-Jp
+Lh
 "}
 (4,1,1) = {"
 Jp
@@ -4642,93 +4958,93 @@ nI
 nI
 nI
 nI
-hs
+vN
 hg
-bq
+WV
+GW
+hg
+vN
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 Lh
-hg
-hs
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-Jp
-Jp
+Lh
 "}
 (5,1,1) = {"
 Jp
@@ -4899,12 +5215,12 @@ nI
 nI
 nI
 nI
-hs
+vN
 nb
 zh
 YG
 nb
-hs
+vN
 bZ
 bZ
 bZ
@@ -4984,8 +5300,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (6,1,1) = {"
 Jp
@@ -5156,93 +5472,93 @@ nI
 nI
 nI
 nI
-hs
+vN
 hg
-bq
+WV
+GW
+hg
+vN
+bZ
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+zk
+zk
+xQ
+zk
+zk
+zk
+zk
+zk
+zk
+xQ
+xQ
+vN
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 Lh
-hg
-hs
-bZ
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-zk
-zk
-xQ
-zk
-zk
-zk
-zk
-zk
-zk
-xQ
-xQ
-vN
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-Jp
-Jp
+Lh
 "}
 (7,1,1) = {"
 Jp
@@ -5413,12 +5729,12 @@ nI
 nI
 nI
 nI
-hs
+vN
 hg
-bq
-Lh
+WV
+GW
 hg
-hs
+vN
 bZ
 vN
 rA
@@ -5437,7 +5753,7 @@ yX
 yX
 yX
 yX
-yX
+kB
 yX
 yX
 yX
@@ -5498,8 +5814,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (8,1,1) = {"
 Jp
@@ -5670,12 +5986,12 @@ nI
 nI
 nI
 nI
-hs
+vN
 nb
 zh
 YG
 nb
-hs
+vN
 bZ
 vN
 sx
@@ -5704,7 +6020,7 @@ vN
 vN
 vN
 vN
-cC
+Yr
 yo
 yo
 yo
@@ -5714,7 +6030,7 @@ yo
 yo
 yo
 yo
-HW
+pf
 vN
 bZ
 bZ
@@ -5755,8 +6071,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (9,1,1) = {"
 Jp
@@ -5927,23 +6243,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 nK
 iE
 EX
 nK
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 xQ
@@ -6012,8 +6328,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (10,1,1) = {"
 Jp
@@ -6184,23 +6500,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 ML
 kU
 nW
 ML
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 xQ
@@ -6269,8 +6585,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (11,1,1) = {"
 Jp
@@ -6441,23 +6757,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 nb
 iL
 Dk
 nb
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 Qd
@@ -6526,8 +6842,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (12,1,1) = {"
 Jp
@@ -6698,23 +7014,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 hg
 Fw
 MP
 hg
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -6783,8 +7099,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (13,1,1) = {"
 Jp
@@ -6955,23 +7271,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 nK
 fW
 ER
 nK
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -7040,8 +7356,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (14,1,1) = {"
 Jp
@@ -7212,23 +7528,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 nb
 Oh
 yu
 nb
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -7297,8 +7613,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (15,1,1) = {"
 Jp
@@ -7469,23 +7785,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 hg
 aL
 sc
 hg
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 vN
 zF
@@ -7554,8 +7870,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (16,1,1) = {"
 Jp
@@ -7726,23 +8042,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 ML
 kU
 nW
 ML
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -7811,8 +8127,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (17,1,1) = {"
 Jp
@@ -7983,23 +8299,23 @@ nI
 nI
 nI
 nI
-ue
+KB
 nb
 zh
 YG
 nb
-ue
+KB
 bZ
 vN
 sx
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -8068,8 +8384,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (18,1,1) = {"
 Jp
@@ -8250,13 +8566,13 @@ vN
 vN
 JU
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -8325,8 +8641,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (19,1,1) = {"
 Jp
@@ -8507,13 +8823,13 @@ uq
 aE
 Mo
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 vN
 zF
@@ -8582,8 +8898,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (20,1,1) = {"
 Jp
@@ -8764,13 +9080,13 @@ aE
 Cv
 JO
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 hr
 wz
@@ -8839,8 +9155,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (21,1,1) = {"
 Jp
@@ -9021,13 +9337,13 @@ vT
 cq
 JO
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -9096,8 +9412,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (22,1,1) = {"
 Jp
@@ -9278,13 +9594,13 @@ aE
 sj
 JO
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -9353,8 +9669,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (23,1,1) = {"
 Jp
@@ -9535,13 +9851,13 @@ aE
 cq
 JO
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 vN
 zF
@@ -9610,8 +9926,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (24,1,1) = {"
 Jp
@@ -9792,13 +10108,13 @@ aE
 Cv
 lX
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -9867,8 +10183,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (25,1,1) = {"
 Jp
@@ -10049,13 +10365,13 @@ aE
 aE
 Aq
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -10124,8 +10440,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (26,1,1) = {"
 Jp
@@ -10298,7 +10614,7 @@ nI
 vN
 aE
 aE
-jj
+Yn
 uq
 aE
 aE
@@ -10306,13 +10622,13 @@ uq
 mV
 JO
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -10381,8 +10697,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (27,1,1) = {"
 Jp
@@ -10555,21 +10871,21 @@ nI
 vN
 aE
 aE
-aE
-aE
+lt
+ZS
 mV
 xY
 zo
 zo
 Fe
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 vN
 zF
@@ -10638,8 +10954,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (28,1,1) = {"
 Jp
@@ -10797,18 +11113,18 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
 vN
 aE
 Yt
@@ -10816,17 +11132,17 @@ aE
 OS
 fX
 Mo
-aE
+wY
 aE
 JM
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -10895,8 +11211,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (29,1,1) = {"
 Jp
@@ -11054,36 +11370,36 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+FW
+bq
+vN
+FW
+bq
+vN
+FW
+bq
+vN
+FW
+bq
 vN
 aE
 aE
 sj
 pY
-mV
-JO
-aE
+zc
+AP
+UF
 pc
 ZY
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -11152,8 +11468,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (30,1,1) = {"
 Jp
@@ -11311,36 +11627,36 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+Sd
+bq
+vN
+Sd
+bq
+vN
+Sd
+bq
+vN
+Sd
+bq
 vN
 aE
 aE
-aE
-aE
-aE
-JO
-aE
-aE
+xC
+xC
+dl
+HU
+dl
+yF
 cF
 vN
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -11409,8 +11725,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (31,1,1) = {"
 Jp
@@ -11568,18 +11884,18 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+vN
+gm
+vN
+vN
+gm
+vN
+vN
+gm
+vN
+vN
+gm
 vN
 vN
 vN
@@ -11591,10 +11907,10 @@ oi
 vN
 vN
 vN
-nI
-nI
-nI
-nI
+vN
+vN
+vN
+vN
 nI
 nI
 nI
@@ -11666,8 +11982,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (32,1,1) = {"
 Jp
@@ -11825,33 +12141,33 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+bq
+wC
+bq
+bq
+bq
+bq
+bq
+tL
+bq
+vN
 nI
 nI
 nI
@@ -11923,8 +12239,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (33,1,1) = {"
 Jp
@@ -12082,33 +12398,33 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+bq
+hp
+bq
+bq
+bq
+bq
+bq
+hp
+bq
+bq
+bq
+bq
+tL
+bq
+tL
+bq
+wC
+tL
+bq
+tL
+bq
+bq
+tL
+bq
+vN
 nI
 nI
 nI
@@ -12180,8 +12496,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (34,1,1) = {"
 Jp
@@ -12339,33 +12655,33 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+vN
+gm
+vN
+vN
+gm
+vN
+vN
+gm
+vN
+vN
+gm
+vN
+mI
+bq
+in
+Gv
+bq
+oN
+xS
+El
+bq
+Gv
+PN
+bq
+Br
+vN
 nI
 nI
 nI
@@ -12437,8 +12753,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (35,1,1) = {"
 Jp
@@ -12596,33 +12912,33 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+Sd
+bq
+vN
+Sd
+bq
+vN
+Sd
+bq
+vN
+Sd
+bq
+vN
+bq
+bq
+Af
+mO
+tL
+hX
+xS
+kH
+bq
+XS
+kk
+bq
+tL
+vN
 nI
 nI
 nI
@@ -12694,8 +13010,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (36,1,1) = {"
 Jp
@@ -12853,33 +13169,33 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+cw
+bq
+vN
+cw
+bq
+vN
+cw
+bq
+vN
+cw
+bq
+vN
+bq
+tL
+Af
+yO
+we
+Lc
+xS
+eE
+we
+Bv
+kk
+tL
+bq
+vN
 nI
 nI
 nI
@@ -12951,8 +13267,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (37,1,1) = {"
 Jp
@@ -13110,33 +13426,33 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+vN
+bq
+bq
+Af
+yO
+tL
+GH
+xS
+zS
+bq
+XS
+kk
+bq
+bq
+vN
 nI
 nI
 nI
@@ -13208,8 +13524,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (38,1,1) = {"
 Jp
@@ -13379,21 +13695,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+mI
+bq
+Af
+Gv
+bq
+Lc
+xS
+zS
+tL
+Gv
+kk
+tL
+Br
+vN
 nI
 nI
 nI
@@ -13465,8 +13781,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (39,1,1) = {"
 Jp
@@ -13636,21 +13952,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+we
+Af
+yO
+tL
+Lc
+xS
+zS
+bq
+XS
+kk
+we
+tL
+vN
 nI
 nI
 nI
@@ -13722,8 +14038,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (40,1,1) = {"
 Jp
@@ -13893,21 +14209,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+tL
+Af
+yO
+bq
+Lc
+xS
+zS
+bq
+XS
+kk
+tL
+bq
+vN
 nI
 nI
 nI
@@ -13979,8 +14295,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (41,1,1) = {"
 Jp
@@ -14150,21 +14466,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+bq
+Af
+yO
+tL
+bH
+xS
+Hs
+tL
+XS
+kk
+bq
+tL
+vN
 nI
 nI
 nI
@@ -14236,8 +14552,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (42,1,1) = {"
 Jp
@@ -14407,21 +14723,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+mI
+bq
+gv
+Gv
+bq
+oN
+xS
+El
+bq
+Gv
+PX
+bq
+Br
+vN
 nI
 nI
 nI
@@ -14493,8 +14809,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (43,1,1) = {"
 Jp
@@ -14664,21 +14980,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+tL
+bq
+bq
+we
+tS
+bq
+bq
+we
+bq
+tL
+bq
+tL
+vN
 nI
 nI
 nI
@@ -14750,8 +15066,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (44,1,1) = {"
 Jp
@@ -14921,21 +15237,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+bq
+bq
+bq
+bq
+bq
+wC
+bq
+bq
+tL
+bq
+bq
+bq
+bq
+vN
 nI
 nI
 nI
@@ -15007,8 +15323,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (45,1,1) = {"
 Jp
@@ -15178,21 +15494,21 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+vN
+vN
+vN
+vN
+vN
+vN
+Nq
+vN
+WA
+vN
+vN
+vN
+vN
+vN
+vN
 nI
 nI
 nI
@@ -15264,8 +15580,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (46,1,1) = {"
 Jp
@@ -15440,16 +15756,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -15521,8 +15837,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (47,1,1) = {"
 Jp
@@ -15697,16 +16013,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -15778,8 +16094,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (48,1,1) = {"
 Jp
@@ -15954,16 +16270,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -16035,8 +16351,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (49,1,1) = {"
 Jp
@@ -16211,16 +16527,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -16292,8 +16608,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (50,1,1) = {"
 Jp
@@ -16468,16 +16784,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -16549,8 +16865,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (51,1,1) = {"
 Jp
@@ -16725,11 +17041,11 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -16806,8 +17122,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (52,1,1) = {"
 Jp
@@ -16982,16 +17298,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -17063,8 +17379,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (53,1,1) = {"
 Jp
@@ -17239,16 +17555,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -17320,8 +17636,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (54,1,1) = {"
 Jp
@@ -17496,16 +17812,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -17577,8 +17893,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (55,1,1) = {"
 Jp
@@ -17753,16 +18069,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -17834,8 +18150,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (56,1,1) = {"
 Jp
@@ -18010,16 +18326,16 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -18091,8 +18407,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (57,1,1) = {"
 Jp
@@ -18267,11 +18583,11 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -18348,8 +18664,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (58,1,1) = {"
 Jp
@@ -18524,11 +18840,11 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -18605,8 +18921,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (59,1,1) = {"
 Jp
@@ -18781,11 +19097,11 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
-nI
-nI
+uz
+uz
+uz
+uz
+uz
 nI
 nI
 nI
@@ -18862,8 +19178,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (60,1,1) = {"
 Jp
@@ -19119,8 +19435,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (61,1,1) = {"
 Jp
@@ -19376,8 +19692,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (62,1,1) = {"
 Jp
@@ -19613,7 +19929,7 @@ jX
 Yv
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -19633,8 +19949,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (63,1,1) = {"
 Jp
@@ -19869,8 +20185,8 @@ jX
 jX
 Yv
 bZ
-hs
-hs
+xl
+xl
 bZ
 bZ
 bZ
@@ -19890,8 +20206,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (64,1,1) = {"
 Jp
@@ -20125,14 +20441,14 @@ jX
 jX
 jX
 Yv
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
 bZ
 bZ
 bZ
@@ -20147,8 +20463,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (65,1,1) = {"
 Jp
@@ -20383,8 +20699,8 @@ jX
 jX
 Yv
 bZ
-hs
-hs
+xl
+xl
 bZ
 bZ
 bZ
@@ -20404,8 +20720,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (66,1,1) = {"
 Jp
@@ -20641,7 +20957,7 @@ jX
 Yv
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -20661,8 +20977,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (67,1,1) = {"
 Jp
@@ -20918,8 +21234,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (68,1,1) = {"
 Jp
@@ -21175,8 +21491,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (69,1,1) = {"
 Jp
@@ -21432,8 +21748,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (70,1,1) = {"
 Jp
@@ -21689,8 +22005,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (71,1,1) = {"
 Jp
@@ -21946,8 +22262,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (72,1,1) = {"
 Jp
@@ -22203,8 +22519,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (73,1,1) = {"
 Jp
@@ -22460,8 +22776,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (74,1,1) = {"
 Jp
@@ -22717,8 +23033,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (75,1,1) = {"
 Jp
@@ -22974,8 +23290,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (76,1,1) = {"
 Jp
@@ -23231,8 +23547,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (77,1,1) = {"
 Jp
@@ -23488,8 +23804,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (78,1,1) = {"
 Jp
@@ -23745,8 +24061,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (79,1,1) = {"
 Jp
@@ -24002,8 +24318,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (80,1,1) = {"
 Jp
@@ -24259,8 +24575,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (81,1,1) = {"
 Jp
@@ -24516,8 +24832,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (82,1,1) = {"
 Jp
@@ -24773,8 +25089,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (83,1,1) = {"
 Jp
@@ -25030,8 +25346,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (84,1,1) = {"
 Jp
@@ -25287,8 +25603,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (85,1,1) = {"
 Jp
@@ -25544,8 +25860,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (86,1,1) = {"
 Jp
@@ -25801,8 +26117,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (87,1,1) = {"
 Jp
@@ -26058,8 +26374,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (88,1,1) = {"
 Jp
@@ -26315,8 +26631,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (89,1,1) = {"
 Jp
@@ -26572,8 +26888,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (90,1,1) = {"
 Jp
@@ -26829,8 +27145,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (91,1,1) = {"
 Jp
@@ -27086,8 +27402,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (92,1,1) = {"
 Jp
@@ -27343,8 +27659,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (93,1,1) = {"
 Jp
@@ -27600,8 +27916,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (94,1,1) = {"
 Jp
@@ -27820,7 +28136,7 @@ bZ
 bZ
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -27857,8 +28173,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (95,1,1) = {"
 Jp
@@ -28076,9 +28392,9 @@ bZ
 bZ
 bZ
 bZ
-hs
-hs
-hs
+xl
+xl
+xl
 bZ
 bZ
 bZ
@@ -28114,8 +28430,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (96,1,1) = {"
 Jp
@@ -28332,11 +28648,11 @@ bZ
 bZ
 bZ
 bZ
-hs
-hs
-hs
-hs
-hs
+xl
+xl
+xl
+xl
+xl
 bZ
 bZ
 bZ
@@ -28371,8 +28687,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (97,1,1) = {"
 Jp
@@ -28591,7 +28907,7 @@ bZ
 bZ
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -28628,8 +28944,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (98,1,1) = {"
 Jp
@@ -28848,7 +29164,7 @@ LZ
 bZ
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -28885,8 +29201,8 @@ bZ
 bZ
 bZ
 bZ
-Jp
-Jp
+Lh
+Lh
 "}
 (99,1,1) = {"
 Jp
@@ -29105,7 +29421,7 @@ LZ
 bZ
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -29362,7 +29678,7 @@ LZ
 bZ
 bZ
 bZ
-hs
+xl
 bZ
 bZ
 bZ
@@ -33757,13 +34073,13 @@ LX
 CS
 vj
 Fs
-Sd
+Lv
 pX
 Yc
 CS
 vj
 Fs
-Sd
+Lv
 pX
 Yc
 CS
@@ -34271,13 +34587,13 @@ LX
 CS
 vj
 po
-Sd
+Lv
 xn
 Yc
 CS
 vj
 po
-Sd
+Lv
 xn
 Yc
 CS
@@ -34785,13 +35101,13 @@ Dv
 CS
 vj
 hf
-Sd
+Lv
 Fx
 Yc
 CS
 vj
 hf
-Sd
+Lv
 Fx
 Yc
 CS
@@ -35299,13 +35615,13 @@ Dv
 CS
 vj
 So
-Sd
+Lv
 Fx
 Yc
 CS
 vj
 So
-Sd
+Lv
 Fx
 Yc
 CS
@@ -35791,7 +36107,7 @@ PF
 gb
 Bi
 Sm
-xB
+kl
 xB
 kl
 Ql
@@ -36841,13 +37157,13 @@ Dv
 CS
 vj
 LM
-Sd
+Lv
 Fx
 Yc
 CS
 vj
 LM
-Sd
+Lv
 Fx
 Yc
 CS
@@ -37355,13 +37671,13 @@ LX
 CS
 vj
 PS
-Sd
+Lv
 Fx
 Yc
 CS
 vj
 PS
-Sd
+Lv
 Fx
 Yc
 CS
@@ -38383,13 +38699,13 @@ LX
 CS
 vj
 po
-Sd
+Lv
 Fx
 Yc
 CS
 vj
 po
-Sd
+Lv
 Fx
 Yc
 CS
@@ -40161,7 +40477,7 @@ nT
 nT
 nT
 nT
-Sd
+PC
 Re
 Re
 NX
@@ -58631,9 +58947,9 @@ nI
 vN
 vN
 vN
-vN
-vN
-vN
+qA
+qA
+qA
 vN
 vN
 vN
@@ -58888,9 +59204,9 @@ nI
 nI
 nI
 nI
-nI
-nI
-nI
+UX
+UX
+UX
 nI
 nI
 nI
