@@ -23,8 +23,8 @@ In the `player_rank` table, renames the `rank` value `veteran` to `nova_star`.
 
 ```sql
 UPDATE player_rank
-SET rank = `nova_star`
-WHERE rank = `veteran`;
+SET rank = 'nova_star'
+WHERE rank = 'veteran';
 ```
 
 ---
