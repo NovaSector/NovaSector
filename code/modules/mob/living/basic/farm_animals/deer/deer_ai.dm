@@ -12,13 +12,13 @@
 		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
 		/datum/ai_planning_subtree/flee_target,
 		/datum/ai_planning_subtree/rest_at_home,
-		/datum/ai_planning_subtree/play_with_friends,
+		//datum/ai_planning_subtree/play_with_friends,
 		/datum/ai_planning_subtree/find_and_hunt_target/mark_territory,
 		/datum/ai_planning_subtree/find_and_hunt_target/graze,
-		/datum/ai_planning_subtree/find_and_hunt_target/drink_water,
+		//datum/ai_planning_subtree/find_and_hunt_target/drink_water,
 	)
 
-
+/*
 ///subtree to go around drinking water
 /datum/ai_planning_subtree/find_and_hunt_target/drink_water
 	target_key = BB_DEER_WATER_TARGET
@@ -37,7 +37,7 @@
 /datum/ai_behavior/hunt_target/drink_water/target_caught(mob/living/hunter, atom/hunted)
 	var/static/list/possible_emotes = list("drinks the water!", "dances in the water!", "splashes around happily!")
 	hunter.manual_emote(pick(possible_emotes))
-
+*/
 
 ///subtree to go around grazing
 /datum/ai_planning_subtree/find_and_hunt_target/graze
@@ -58,7 +58,7 @@
 	var/static/list/possible_emotes = list("eats the grass!", "munches down the grass!", "chews on the grass!")
 	hunter.manual_emote(pick(possible_emotes))
 
-
+/*
 ///subtree to go around playing with other deers
 /datum/ai_planning_subtree/play_with_friends
 
@@ -88,7 +88,7 @@
 		return FALSE
 	deer.ai_controller?.set_blackboard_key(BB_DEER_PLAYFRIEND, source)
 	return can_see(source, deer, radius)
-
+*/
 
 ///subtree to mark trees as territories
 /datum/ai_planning_subtree/find_and_hunt_target/mark_territory
