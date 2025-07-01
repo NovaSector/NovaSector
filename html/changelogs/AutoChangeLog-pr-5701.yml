@@ -1,0 +1,4 @@
+author: "BasilTamaya"
+delete-after: True
+changes:
+  - bugfix: "missing icon sprites, as well as updating icon sprites for the crusher conversion kit. Now faithful to the original sprite."
