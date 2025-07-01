@@ -791,7 +791,119 @@
   - bugfix: Roaches now die properly to bugspray (having a few seconds of life before
       flipping over dramatically and not exploding into paste).
 2025-06-30:
+  Aliceee2ch:
+  - map: removed medsci headset from MetaStation and CatwalkStation. Added one more
+      on DeltaStation and IceBox instead.
+  - bugfix: Fixed things forgotten in walls of Catwalk Station
+  Ben10Omintrix:
+  - bugfix: 50 minebots no longer crash the server
+  DATA-xPUNGED:
+  - qol: "With Nanotrasen's brand new Auto-Seats\u2122, late crew members will now\
+      \ automatically unbuckle from their seats when the arrival shuttle arrives at\
+      \ the destination!"
+  - bugfix: Leaving your seat too early on a shuttle with a knockdown force will now
+      properly immobilize and knockdown you as intended.
+  EnterTheJake:
+  - rscdel: Flying mobs no longer have 3x worse damage slowdown
   Floofies:
   - qol: Changed the Hemophage species Tumor heart organ to be unremovable via surgery.
   - qol: Allowed Hemophage species to spawn with lungs.
   - bugfix: Fixed surgeries for Hemophage and Slimeperson species organs.
+  Iamgoofball:
+  - admin: Makes mushroom people available to admins via config.
+  Jacquerel:
+  - balance: Many kinds of mob will now more aggressively attempt to escape being
+      confined or restricted by obstacles such as chairs, lockers, or human arms.
+  JohnFulpWillard:
+  - rscadd: 'Added a new halloween species: Spirits, a species without legs and instead
+      floats.'
+  - rscadd: 'Added a new magic mirror species: Ghosts, like spirits but with the ability
+      to become incorporeal, traversing through solid wall.'
+  - bugfix: Mobs unable to use storage items now can't use storage items.
+  - bugfix: Mobs unable to use items can now not open airlocks & closets
+  - bugfix: Mobs unable to pick items up can no longer pick items up and immediately
+      drop, moving one tile at a time.
+  - bugfix: Mobs with intentional missing limbs (Alien larva) no longer show their
+      limbs as missing on examine (again)
+  - bugfix: Golems' pref page had a missing icon, it now has one.
+  - bugfix: Borgs can't put their models in other storage items.
+  - bugfix: Observers can no longer finalize unfinished canvas paintings.
+  KazooBard:
+  - bugfix: Rust Spirit -> Rust Walker in ghost poll menu
+  Kocma-san:
+  - bugfix: The explorer suit and some syndicate uniforms now has a proper icons.
+  Krysonism:
+  - image: The perceptomatrix helmet has a new anomalous look.
+  Melbert:
+  - bugfix: Glass shards from colliding with vendors or glass table hurt you again.
+  - bugfix: AIs can open windoors
+  - bugfix: Mechas can open airlocks
+  - bugfix: Handcuffed people can open public airlocks
+  - bugfix: Telekinesis can open public airlocks
+  - rscadd: If a cable is destroyed by an explosion, all rooms within 64-100 (it's
+      a probability) tiles AND which are connected to the same powernet as the split
+      cable will have their lights flicker 1-3 times.
+  - balance: Cable integrity has been reduced from 300 to 50
+  - balance: Cables have an innate 75% bomb resistance while under floor tiles
+  - rscadd: Fire alarms now has wires
+  - rscadd: Fire alarm trigger on damage now scales based on damage dealt, rather
+      than being a flat 33%
+  - qol: Fire alarm screentips
+  - refactor: Refactored fire alarms de/assembly, report any oddities
+  Rhials:
+  - qol: When the ticker announces the end of a round on another server, it will include
+      the shuttle call reason if the shuttle is hijacked.
+  - qol: Supermatter hallucinatory anomalies no longer spawn decoys.
+  Sealed101:
+  - bugfix: fixed being able to anchor multiple solar panel assemblies on a single
+      tile (or any dense tile for that matter)
+  - bugfix: fixed solar trackers not absorbing the assembly upon construction, leading
+      to assembly duplication
+  - qol: solar assemblies can be wrenched on catwalks
+  - bugfix: killed the impostor infinite pizza
+  - bugfix: the One True infinite pizza no longer gets stuck on a single pizza type
+      if the pizza conjured by the box gets sliced
+  - bugfix: the cargo pizza order now pre-slices the pizza, because that's what all
+      pizza places have been doing since the dawn of time and our favorite supplier
+      PizzNTe has been forcefully convinced to not break this sacred tradition
+  - bugfix: fixed certain pirate spawners having broken Jump to/Spawn buttons in the
+      ghost spawners menu (greytide, space IRS, Interdyne)
+  SmArtKar:
+  - bugfix: Flatpacked vendors start empty to prevent duping
+  - rscadd: Fish infusion now gives you scales, and tail color if you hit certain
+      thresholds
+  SyncIt21:
+  - bugfix: plumbing reaction chamber UI is scrollable again
+  TealSeer:
+  - server: TGS deployments should no longer fail to install unzip
+  - bugfix: fixed egalitarian station mode missing airlocks that use req_one_access
+  TheBoondock:
+  - qol: being blackout drunk will stop your liver from being hurt from alcohol for
+      the duration of it
+  Y0SH1M4S73R:
+  - sound: Clown Operatives will now broadcast their declarations of war with a fitting
+      auditory cue.
+  amylizzle:
+  - code_imp: removes an unnecessary static def in a unit test
+  carpotoxin:
+  - bugfix: Fixed narcolepsy's odds to put you to sleep scaling infinitely
+  grungussuss:
+  - bugfix: fixed malf ais not being able to dominate mechs
+  - bugfix: borgs can no longer smell
+  - bugfix: fixed dunking giving you a permanent offset
+  - spellcheck: fixes some examine text typos
+  - qol: you can now click on objects in the game when the lobby art starts to fade
+  - qol: fasten pipes now has a nicer look to it in visible text message
+  - bugfix: the message for putting dental implants in is now correct
+  jlsnow301:
+  - bugfix: Fixed a bluescreen in the cooking menu.
+  kittysmooch:
+  - rscadd: 'Lit smokables now act as a weak lightsource.
+
+      :cl:'
+  necromanceranne:
+  - qol: Nuclear Operatives can now purchase support bags for their specific kind
+      of mech; Dark Gygax or Mauler. No need to buy useless amoo just to get a toolbelt!
+  - bugfix: Phazon fire punches now properly deal damage, rather than make a funny
+      fire special effect and doing literally nothing at all.
+  - bugfix: Projectiles can once again embed targets that are armoured.
