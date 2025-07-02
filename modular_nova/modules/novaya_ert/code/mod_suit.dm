@@ -303,7 +303,7 @@
 
 /obj/effect/spawner/random/voskhod_refit
 	name = "converted MODskhod spaner"
-	icon = 'modular_nova/modules/novaya_ert/icons/mod.dmi'
+	icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "voskhod-chestplate-sealed"
 	spawn_all_loot = TRUE
 	spawn_loot_count = 1
