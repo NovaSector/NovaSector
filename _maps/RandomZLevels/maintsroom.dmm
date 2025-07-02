@@ -8381,10 +8381,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
-"BT" = (
-/obj/effect/mob_spawn/ghost_role/spider,
-/turf/open/floor/plating,
-/area/awaymission/caves/maintsroom)
 "BU" = (
 /obj/machinery/atmospherics/components/trinary/filter/flipped{
 	dir = 4
@@ -33945,7 +33941,7 @@ Se
 Ka
 vf
 GS
-BT
+uG
 uG
 uG
 GS
@@ -35894,7 +35890,7 @@ sk
 sk
 sk
 Ot
-sk
+sX
 sk
 Ot
 sk
@@ -36114,12 +36110,12 @@ Rz
 sk
 sk
 Ot
-sk
+sX
 sk
 Ot
 sk
 sk
-sk
+sX
 Ot
 kD
 GS
@@ -36332,7 +36328,7 @@ sk
 sk
 Rz
 sk
-sk
+sX
 Ot
 sk
 sX
