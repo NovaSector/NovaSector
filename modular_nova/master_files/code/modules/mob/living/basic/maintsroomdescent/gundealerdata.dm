@@ -11,13 +11,13 @@
 	///The initial products that the trader offers
 	/// one crew paycheck is 50 credits
 	initial_products = list(
-		/obj/item/gun/ballistic/automatic/ar/modular/m44a = list(PAYCHECK_CREW * 4000, INFINITY),
+		/obj/item/gun/ballistic/automatic/ar/modular/m44a = list(PAYCHECK_CREW * 20000, INFINITY),
 		/obj/item/ammo_box/magazine/m44a = list(PAYCHECK_CREW * 200, INFINITY),
-		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted = list(PAYCHECK_CREW * 12000, INFINITY),
-		/obj/item/ammo_box/magazine/m7mm = list(PAYCHECK_CREW * 600, INFINITY),
+		/obj/item/gun/ballistic/automatic/sol_rifle/machinegun(PAYCHECK_CREW * 1200, INFINITY),
+		/obj/item/ammo_box/magazine/c40sol_rifle/standard = list(PAYCHECK_CREW * 60, INFINITY),
 		/obj/item/gun/ballistic/automatic/lanca = list(PAYCHECK_CREW * 500, INFINITY),
 		/obj/item/ammo_box/magazine/lanca = list(PAYCHECK_CREW * 10, INFINITY),
-		/obj/item/gun/ballistic/automatic/m90/unrestricted = list(PAYCHECK_CREW * 1000, INFINITY),
+		/obj/item/gun/ballistic/automatic/m90/unrestricted = list(PAYCHECK_CREW * 5000, INFINITY),
 		/obj/item/ammo_box/magazine/m223 = list(PAYCHECK_CREW * 12, INFINITY),
 		/obj/item/gun/ballistic/automatic/napad = list(PAYCHECK_CREW * 400, INFINITY),
 		/obj/item/ammo_box/magazine/napad = list(PAYCHECK_CREW * 2, INFINITY),
@@ -27,10 +27,19 @@
 		/obj/item/ammo_box/magazine/m50 = list(PAYCHECK_CREW * 10, INFINITY),
 		/obj/item/gun/ballistic/automatic/sol_smg = list(PAYCHECK_CREW * 200, INFINITY),
 		/obj/item/ammo_box/magazine/c35sol_pistol/stendo = list(PAYCHECK_CREW * 10, INFINITY),
-		/obj/item/gun/ballistic/rifle/sniper_rifle = list(PAYCHECK_CREW * 3000, INFINITY),
-		/obj/item/ammo_box/magazine/sniper_rounds = list(PAYCHECK_CREW * 150, INFINITY),
-		/obj/item/gun/ballistic/rocketlauncher/unrestricted = list(PAYCHECK_CREW * 16000, INFINITY),
-		/obj/item/ammo_box/rocket = list(PAYCHECK_CREW * 10000, INFINITY),
+		/obj/item/gun/ballistic/rifle/boltaction/prime = list(PAYCHECK_CREW * 300, INFINITY),
+		/obj/item/storage/toolbox/ammobox/strilka310 = list(PAYCHECK_CREW * 50, INFINITY),
+		/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted = list(PAYCHECK_CREW * 1000, INFINITY),
+		/obj/item/ammo_box/a40mm = list(PAYCHECK_CREW * 1000, INFINITY),
+		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted = list(PAYCHECK_CREW * 3000, INFINITY),
+		/obj/item/ammo_box/magazine/m12g/empty = list(PAYCHECK_CREW * 500, INFINITY),
+		/obj/item/gun/ballistic/shotgun/katyusha/jager = list(PAYCHECK_CREW * 2000, INFINITY),
+		/obj/item/ammo_box/magazine/jager/large = list(PAYCHECK_CREW * 50, INFINITY),
+		/obj/item/gun/ballistic/automatic/nt20 = list(PAYCHECK_CREW * 2000, INFINITY),
+		/obj/item/ammo_box/magazine/smgm45 = list(PAYCHECK_CREW * 10, INFINITY),
+		/obj/item/gun/ballistic/revolver/golden = list(PAYCHECK_CREW * 800, INFINITY),
+		/obj/item/ammo_box/a357 = list(PAYCHECK_CREW * 800, INFINITY),
+
 	)
 	///The initial products that the trader buys
 	initial_wanteds = list(
