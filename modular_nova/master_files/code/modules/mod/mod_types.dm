@@ -1,6 +1,3 @@
-/obj/item/mod
-	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
 /obj/item/mod/control/pre_equipped/nuclear/chameleon
 	req_access = null
 	applied_modules = list(
