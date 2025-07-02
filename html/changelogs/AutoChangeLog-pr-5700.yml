@@ -1,4 +1,0 @@
-author: "Jureiia"
-delete-after: True
-changes:
-  - rscadd: "Collars are now able to be hidden beneath suits, coats and jackets. Alt+Right Click to toggle!"

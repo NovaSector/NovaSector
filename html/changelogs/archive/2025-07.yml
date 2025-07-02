@@ -1,0 +1,7 @@
+2025-07-02:
+  BasilTamaya:
+  - bugfix: missing icon sprites, as well as updating icon sprites for the crusher
+      conversion kit. Now faithful to the original sprite.
+  Jureiia:
+  - rscadd: Collars are now able to be hidden beneath suits, coats and jackets. Alt+Right
+      Click to toggle!
