@@ -32,4 +32,4 @@
 	<li>X  X  +  X  X  X  X  X  X  X</li> \
 	<li>X  X  X  X  X  X  X  X  X  X</li> \
 	<li>X  X  X  X  X  X  X  X  X  X</li> \
-	<li>X  X  X  X  X  X  X  X  X  X</li> \
+	<li>X  X  X  X  X  X  X  X  X  X</li>"
