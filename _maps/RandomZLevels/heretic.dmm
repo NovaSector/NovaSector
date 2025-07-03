@@ -701,10 +701,6 @@
 	},
 /turf/open/misc/asteroid,
 /area/station/maintenance/heretic_laboratory)
-"iN" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
 "iO" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
@@ -1227,6 +1223,15 @@
 /obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"pg" = (
+/obj/effect/decal/cleanable/crayon{
+	icon_state = "p";
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "pi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen,
@@ -1299,6 +1304,11 @@
 	name = "Extremely fragile high capacity fuel tank"
 	},
 /turf/open/floor/engine,
+/area/station/maintenance/heretic_laboratory)
+"px" = (
+/obj/effect/decal/remains/xeno,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
 "pB" = (
 /obj/structure/railing{
@@ -1572,6 +1582,10 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"sG" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory_clean)
 "sJ" = (
 /obj/structure/table,
 /obj/item/storage/medkit/brute{
@@ -1983,6 +1997,10 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/heretic_laboratory)
+"wZ" = (
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory_clean)
 "xe" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/royalblack,
@@ -2465,6 +2483,13 @@
 	},
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"Es" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/heretic_laboratory)
 "Ew" = (
 /obj/structure/closet/ammunitionlocker,
 /obj/item/ammo_box/advanced/s12gauge/buckshot,
@@ -2720,6 +2745,10 @@
 /area/awaymission/beach/heretic)
 "Hl" = (
 /obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
+"Hp" = (
+/obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
 "Hr" = (
@@ -3096,6 +3125,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"MB" = (
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory_clean)
 "MD" = (
 /obj/machinery/door/airlock/medical{
 	name = "Surgery B"
@@ -3114,6 +3146,10 @@
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/dark,
 /area/awaymission/beach/heretic)
+"MI" = (
+/obj/item/wrench/makeshift,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "ML" = (
 /obj/effect/oneway{
 	dir = 4
@@ -3348,6 +3384,10 @@
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
 /area/station/maintenance/heretic_laboratory)
+"Qb" = (
+/obj/structure/safe/floor,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory_clean)
 "Qd" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 4
@@ -3569,6 +3609,12 @@
 /obj/machinery/door/airlock/medical/glass,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/heretic_laboratory)
+"Te" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "Tk" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/combat{
@@ -3603,6 +3649,7 @@
 /area/space)
 "TO" = (
 /obj/effect/decal/remains/robot,
+/obj/machinery/light/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
 "TT" = (
@@ -3723,6 +3770,11 @@
 	},
 /turf/open/floor/carpet/green,
 /area/awaymission/beach/heretic)
+"Wc" = (
+/obj/effect/decal/remains/human,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "Wd" = (
 /turf/open/floor/iron/checker,
 /area/station/maintenance/heretic_laboratory)
@@ -11986,9 +12038,9 @@ vN
 vN
 vN
 vN
-nI
-nI
-nI
+bZ
+bZ
+bZ
 vN
 vN
 zF
@@ -12243,9 +12295,9 @@ bq
 bq
 bq
 vN
-nI
-nI
-nI
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -12500,9 +12552,9 @@ bq
 bq
 bq
 vN
-nI
-nI
-nI
+bZ
+bZ
+bZ
 vN
 xQ
 wz
@@ -12757,9 +12809,9 @@ PN
 bq
 Br
 vN
-nI
-nI
-nI
+bZ
+bZ
+bZ
 vN
 Sh
 wz
@@ -13014,9 +13066,9 @@ kk
 bq
 bq
 vN
-nI
-nI
-nI
+bZ
+bZ
+bZ
 vN
 vN
 zF
@@ -13271,10 +13323,10 @@ kk
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -13528,10 +13580,10 @@ kk
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -13785,10 +13837,10 @@ kk
 bq
 Br
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -14042,10 +14094,10 @@ kk
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 zF
 cL
@@ -14299,10 +14351,10 @@ kk
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -14556,10 +14608,10 @@ kk
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -14813,10 +14865,10 @@ PX
 bq
 Br
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -15070,10 +15122,10 @@ bq
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 zF
 cL
@@ -15327,10 +15379,10 @@ bq
 bq
 bq
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -15584,10 +15636,10 @@ vN
 vN
 vN
 vN
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -15841,10 +15893,10 @@ UX
 UX
 gx
 hs
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 wz
 cL
@@ -16098,10 +16150,10 @@ lH
 UX
 Ya
 hs
-nI
-nI
-nI
-nI
+bZ
+bZ
+bZ
+bZ
 vN
 zF
 cL
@@ -16358,7 +16410,7 @@ hs
 hs
 hs
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -16615,7 +16667,7 @@ Vr
 uz
 uz
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -16872,7 +16924,7 @@ Bv
 uz
 uz
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -17129,7 +17181,7 @@ Bv
 uz
 uz
 hs
-nI
+bZ
 vN
 zF
 cL
@@ -17386,7 +17438,7 @@ Bv
 uz
 GH
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -17643,7 +17695,7 @@ Bv
 uz
 uz
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -17900,7 +17952,7 @@ Bv
 uz
 uz
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -18157,7 +18209,7 @@ Bv
 uz
 uz
 hs
-nI
+bZ
 vN
 zF
 cL
@@ -18414,7 +18466,7 @@ hs
 hs
 eE
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -18671,7 +18723,7 @@ jS
 YN
 we
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -18928,7 +18980,7 @@ we
 we
 we
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -19185,7 +19237,7 @@ we
 we
 we
 hs
-nI
+bZ
 vN
 zF
 cL
@@ -19442,7 +19494,7 @@ pe
 vu
 vu
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -19699,7 +19751,7 @@ hs
 hs
 hs
 hs
-nI
+bZ
 vN
 wz
 cL
@@ -29213,7 +29265,7 @@ vN
 wz
 cL
 aw
-gd
+Es
 xQ
 xQ
 vN
@@ -30241,7 +30293,7 @@ vN
 wz
 cL
 aw
-gd
+Es
 xQ
 xQ
 fF
@@ -31269,7 +31321,7 @@ vN
 wz
 cL
 aw
-gd
+Es
 xQ
 xQ
 vN
@@ -32297,7 +32349,7 @@ vN
 il
 vF
 ug
-gd
+Es
 xQ
 xQ
 fx
@@ -33325,7 +33377,7 @@ vN
 wz
 cL
 aw
-gd
+Es
 xQ
 xQ
 vN
@@ -34353,7 +34405,7 @@ vN
 wz
 cL
 aw
-gd
+Es
 xQ
 xQ
 do
@@ -35381,7 +35433,7 @@ vN
 wz
 cL
 aw
-gd
+Es
 xQ
 xQ
 vN
@@ -38722,18 +38774,18 @@ vN
 zF
 cL
 JG
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-bZ
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
 bZ
 bZ
 bZ
@@ -38979,18 +39031,18 @@ ay
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+xl
 bZ
 bZ
 bZ
@@ -39236,18 +39288,18 @@ ay
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -39493,18 +39545,18 @@ rF
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+Qb
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -39750,18 +39802,18 @@ vN
 zF
 cL
 JG
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -40007,18 +40059,18 @@ vN
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -40264,18 +40316,18 @@ vN
 wz
 uC
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -40521,18 +40573,18 @@ vN
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -40778,18 +40830,18 @@ vN
 zF
 cL
 JG
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -41035,18 +41087,18 @@ vN
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+MB
+wZ
+xl
 bZ
 bZ
 bZ
@@ -41292,18 +41344,18 @@ vN
 wz
 cL
 aw
-vN
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-vN
-bZ
+xl
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+xl
 bZ
 bZ
 bZ
@@ -41549,18 +41601,18 @@ vN
 wz
 cL
 aw
-vN
-vN
-vN
-iN
-vN
-vN
-vN
-vN
-vN
-vN
-vN
-bZ
+xl
+xl
+xl
+sG
+xl
+xl
+xl
+xl
+xl
+xl
+xl
+xl
 bZ
 bZ
 bZ
@@ -41809,7 +41861,7 @@ JG
 vN
 vN
 vN
-ay
+MI
 vN
 nI
 nI
@@ -43601,11 +43653,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 wz
 cL
 aw
-ay
+rF
 ay
 vN
 ay
@@ -44629,11 +44681,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 wz
 cL
 aw
-cb
+pg
 ay
 vN
 ay
@@ -45657,11 +45709,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 Nf
 cL
 aw
-ay
+rF
 ay
 vN
 ay
@@ -46685,11 +46737,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 mG
 Mu
 eH
-ay
+rF
 ay
 vN
 ay
@@ -47713,11 +47765,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 wz
 mR
 aw
-ay
+rF
 ay
 vN
 ay
@@ -48741,11 +48793,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 mG
 Mu
 eH
-ay
+rF
 ay
 vN
 ay
@@ -49769,11 +49821,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 wz
 cL
 rT
-ay
+rF
 ay
 vN
 ay
@@ -50797,11 +50849,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 jV
 mR
 aw
-cb
+pg
 ay
 vN
 ay
@@ -52853,7 +52905,7 @@ nI
 nI
 vN
 ay
-ay
+rF
 jF
 Mu
 eH
@@ -53881,11 +53933,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 jF
 gr
 Kn
-tP
+Te
 ay
 vN
 ay
@@ -54909,11 +54961,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 jY
 gr
 eH
-ay
+rF
 ay
 vN
 ay
@@ -55937,11 +55989,11 @@ nI
 nI
 vN
 ay
-gz
+px
 Zf
 gr
 Fi
-ma
+Wc
 ay
 vN
 ay
@@ -56965,11 +57017,11 @@ nI
 nI
 vN
 ay
-ay
+rF
 mG
 tf
 GV
-ay
+rF
 ay
 vN
 ay
@@ -58764,11 +58816,11 @@ nI
 nI
 vN
 ay
+rF
 ay
 ay
 ay
-ay
-ay
+rF
 ay
 vN
 ay
@@ -59023,7 +59075,7 @@ vN
 vN
 vN
 vN
-iN
+Hp
 vN
 vN
 vN
