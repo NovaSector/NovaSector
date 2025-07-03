@@ -64,12 +64,7 @@
 /datum/opposing_force_equipment/ranged/shitzu
 	name = "Shitzu Shotgun"
 	description = "A modified magfed shotgun gun, designated 'Shitzu'."
-	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/shitzu
-
-/obj/item/storage/toolbox/guncase/nova/opfor/shitzu/PopulateContents()
-	new /obj/item/gun/ballistic/shotgun/katyusha/shitzu(src)
-	new /obj/item/ammo_box/magazine/shitzu/milspec(src)
-	new /obj/item/ammo_box/magazine/shitzu/milspec(src)
+	item_type = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
 
 /datum/opposing_force_equipment/ranged/hook_shotgun
 	name = "Hook Modified Sawn-off Shotgun"
