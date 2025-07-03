@@ -75,3 +75,6 @@
 
 /obj/item/ammo_box/magazine/shitzu/milspec
 	ammo_type = /obj/item/ammo_casing/shotgun/milspec
+
+/obj/item/ammo_box/magazine/shitzu/milspec_buckshot
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot/milspec

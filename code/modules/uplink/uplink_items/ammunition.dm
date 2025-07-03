@@ -55,3 +55,17 @@
 	cost = 4
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY) //nukies get their own version
 	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
+
+/datum/uplink_item/ammo/shitzu
+	name = "12 Gauge 'Shitzu' Milspec Buckshot"
+	desc = "A proper drum of ammunition primed and ready, loaded in a beautiful 12 gauge drum designed for the shitzu shotgun."
+	item = /obj/item/ammo_box/magazine/shitzu/milspec_buckshot
+	cost = 4
+	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
+
+/datum/uplink_item/ammo/shitzu_slug
+	name = "12 Gauge 'Shitzu' Milspec Slug"
+	desc = "A proper drum of ammunition primed and ready, loaded in a beautiful 12 gauge drum designed for the shitzu shotgun."
+	item = /obj/item/ammo_box/magazine/shitzu/milspec
+	cost = 4
+	uplink_item_flags = SYNDIE_TRIPS_CONTRABAND
