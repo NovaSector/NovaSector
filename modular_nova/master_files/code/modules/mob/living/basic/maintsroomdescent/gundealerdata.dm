@@ -11,8 +11,6 @@
 	///The initial products that the trader offers
 	/// one crew paycheck is 50 credits
 	initial_products = list(
-		/obj/item/gun/ballistic/automatic/ar/modular/m44a = list(PAYCHECK_CREW * 20000, INFINITY),
-		/obj/item/ammo_box/magazine/m44a = list(PAYCHECK_CREW * 200, INFINITY),
 		/obj/item/gun/ballistic/automatic/sol_rifle/machinegun = list(PAYCHECK_CREW * 1200, INFINITY),
 		/obj/item/ammo_box/magazine/c40sol_rifle/standard = list(PAYCHECK_CREW * 60, INFINITY),
 		/obj/item/gun/ballistic/automatic/lanca = list(PAYCHECK_CREW * 500, INFINITY),
