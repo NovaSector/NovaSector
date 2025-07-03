@@ -356,6 +356,11 @@
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron/checker,
 /area/station/maintenance/heretic_laboratory)
+"fz" = (
+/obj/structure/table,
+/obj/item/paper/fluff/awaymissions/heretic/floorsafe,
+/turf/open/floor/iron/cafeteria,
+/area/space)
 "fD" = (
 /obj/machinery/telecomms/processor,
 /turf/open/floor/mineral/plastitanium,
@@ -19491,7 +19496,7 @@ xD
 mT
 mO
 pe
-vu
+fz
 vu
 hs
 bZ
