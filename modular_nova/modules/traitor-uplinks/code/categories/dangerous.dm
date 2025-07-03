@@ -85,4 +85,6 @@
 	item = /obj/item/storage/toolbox/guncase/nova/syndicate/shitzu
 	cost = 10
 	surplus = 12
+	limited_stock = 1
+	uplink_item_flags = SYNDIE_ILLEGAL_TECH | SYNDIE_TRIPS_CONTRABAND
 	population_minimum = TRAITOR_POPULATION_LOWPOP
