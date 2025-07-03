@@ -25,23 +25,3 @@
 
 /obj/machinery/transport/tram_controller/heretic_tram_controller
 	configured_transport_id = HERETIC_LINE_1
-
-/obj/item/keycard/hereticgateway0
-	name = "Secure storage keycard"
-	desc = "A keycard that simply states, 'only under exteme circumstances'."
-	color = "#000000"
-	puzzle_id = "heretic_gateway0"
-
-/obj/machinery/door/puzzle/keycard/hereticgateway0
-	name = "secure airlock"
-	puzzle_id = "heretic_gateway0"
-
-/obj/item/keycard/hereticgateway1
-	name = "Secure storage keycard"
-	desc = "A keycard that simply states, 'only under exteme circumstances'."
-	color = "#000000"
-	puzzle_id = "heretic_gateway1"
-
-/obj/machinery/door/puzzle/keycard/hereticgateway1
-	name = "secure airlock"
-	puzzle_id = "heretic_gateway1"

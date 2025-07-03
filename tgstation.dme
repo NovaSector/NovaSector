@@ -7423,6 +7423,7 @@
 #include "modular_nova\modules\awaymissions_nova\heretic\bruceguns.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\cbrn.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic.dm"
+#include "modular_nova\modules\awaymissions_nova\heretic\heretic_gateway_misc.dm"
 #include "modular_nova\modules\awaymissions_nova\heretic\heretic_gateway_tram.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\hardened conveyer.dm"
 #include "modular_nova\modules\awaymissions_nova\Maintsroom\maintsrooms.dm"
