@@ -2782,6 +2782,12 @@
 /obj/structure/falsewall,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
+"jj" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/v8_engine,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "jk" = (
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 6
@@ -4466,6 +4472,8 @@
 /obj/item/implanter/storage,
 /obj/item/implantcase/freedom,
 /obj/item/toy/crayon/spraycan/infinite,
+/obj/item/clothing/suit/hooded/cultrobes/void,
+/obj/item/clothing/suit/hooded/cultrobes/void,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "oD" = (
@@ -6245,7 +6253,6 @@
 /obj/item/clothing/suit/armor/heavy/adamantine,
 /obj/item/clothing/head/helmet/chaplain/bland,
 /obj/item/dnainjector/hulkmut,
-/obj/item/nullrod/vibro/talking/chainsword,
 /obj/item/shield/buckler/reagent_weapon/pavise/stalwart_defense,
 /turf/open/floor/engine{
 	slowdown = 2
@@ -8609,7 +8616,7 @@
 "CX" = (
 /obj/effect/rune/apocalypse,
 /mob/living/basic/cult/magic/elite/fireball{
-	death_loot = list(/obj/item/melee/cultblade/haunted);
+	death_loot = list(/obj/item/sharpener/cult);
 	ai_controller = /datum/ai_controller/basic_controller/skeleton
 	},
 /turf/open/floor/engine/cult,
@@ -10382,8 +10389,6 @@
 "Je" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/suit/hooded/cultrobes,
-/obj/item/clothing/suit/hooded/cultrobes/eldritch,
-/obj/item/clothing/suit/hooded/cultrobes/eldritch,
 /obj/item/clothing/suit/hooded/cultrobes,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -11955,6 +11960,7 @@
 /area/awaymission/caves/maintsroom)
 "Oq" = (
 /obj/structure/safe/floor,
+/obj/item/borg/upgrade/transform/clown,
 /turf/open/floor/circuit/red,
 /area/awaymission/caves/maintsroom)
 "Os" = (
@@ -11974,6 +11980,7 @@
 /obj/item/book/granter/sign_language,
 /obj/item/flashlight/lamp/green,
 /obj/item/multitool,
+/obj/item/storage/toolbox/syndicate,
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
@@ -15182,7 +15189,9 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Zq" = (
-/mob/living/simple_animal/hostile/megafauna/clockwork_defender,
+/mob/living/simple_animal/hostile/megafauna/clockwork_defender{
+	loot = list(/obj/item/nullrod/vibro/talking/chainsword)
+	},
 /turf/open/floor/bronze/filled,
 /area/awaymission/caves/maintsroom)
 "Zr" = (
@@ -36430,7 +36439,7 @@ kY
 GS
 hx
 kY
-ue
+jj
 Yl
 tU
 QA

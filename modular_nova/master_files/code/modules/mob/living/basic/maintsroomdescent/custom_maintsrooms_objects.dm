@@ -1,6 +1,6 @@
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed/maints_finale
 	name = "Thats all for now folks!"
-	desc = "You hear laughter and applause as if you were in an audience of people, then you start to hear 'Well Meet Again' by Vera Lynn start to play."
+	desc = "You get a feeling as if you just finished one grand final act, and that now the curtains are closing."
 
 /turf/closed/indestructible/oldshuttle/pure_white
 	name = "Pure white"
