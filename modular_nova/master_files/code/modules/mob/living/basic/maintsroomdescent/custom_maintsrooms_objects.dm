@@ -57,7 +57,7 @@
 	max_integrity = 2000
 
 /obj/item/paper/carbon/rare_pepe
-	name = "Rare pepe"
-	desc = "A poster depicting the common meme of pepe the frog, how tasteless"
+	name = "Strange Anthropomorphic Frog Poster"
+	desc = "A poster of a strange looking frog, its grinning."
 	icon = 'modular_nova/modules/clock_cult/icons/clockwork_objects.dmi'
 	icon_state = "rare_pepe"
