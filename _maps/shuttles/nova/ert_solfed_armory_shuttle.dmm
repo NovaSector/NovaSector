@@ -1,0 +1,986 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aE" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/defcon)
+"aX" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/glasses/meson/night,
+/obj/item/clothing/glasses/meson/night,
+/obj/item/clothing/glasses/meson/night,
+/obj/item/clothing/glasses/meson/night,
+/obj/item/clothing/glasses/hud/security/night,
+/obj/item/clothing/glasses/hud/security/night,
+/obj/item/clothing/glasses/hud/security/night,
+/obj/item/clothing/glasses/hud/security/night,
+/obj/item/clothing/glasses/hud/health/night/meson,
+/obj/item/clothing/glasses/hud/health/night/meson,
+/obj/item/clothing/glasses/hud/health/night/meson,
+/obj/item/clothing/glasses/hud/health/night/meson,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"bd" = (
+/turf/open/floor/iron/smooth_half{
+	dir = 1
+	},
+/area/shuttle/solfed/espatier/defcon)
+"by" = (
+/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/door/poddoor{
+	id = "SolfedShipDoor";
+	name = "Assault Doors"
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/solfed/espatier/defcon)
+"bE" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/landmark/ert_shuttle_brief_spawn,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"bI" = (
+/obj/effect/turf_decal/box,
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"bN" = (
+/obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"cR" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"cX" = (
+/obj/machinery/vending/wallmed/directional/north,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"dM" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"es" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/landmark/ert_shuttle_brief_spawn,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"ex" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/obj/machinery/door/poddoor{
+	id = "SolfedShipDoor";
+	name = "Assault Doors"
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/solfed/espatier/defcon)
+"eO" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"eP" = (
+/obj/structure/sign/flag/terragov/directional/north,
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"fv" = (
+/obj/machinery/light/floor,
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/landmark/ert_shuttle_brief_spawn,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"fF" = (
+/obj/effect/turf_decal/bot_white,
+/obj/structure/table/reinforced/rglass,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = 7
+	},
+/obj/item/stack/sheet/glass/fifty{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/item/stack/sheet/glass/fifty,
+/obj/effect/spawner/random/entertainment/plushie_delux,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"hj" = (
+/obj/effect/spawner/random/entertainment/arcade{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"hG" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/solfed/espatier/defcon)
+"ir" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"iz" = (
+/obj/structure/closet/emcloset,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"jA" = (
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"ka" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"kb" = (
+/obj/machinery/door/airlock/security,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"kk" = (
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"kO" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/vending/wallmed/directional/north,
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"lO" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/command/glass{
+	name = "Cockpit"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"mq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/loading_area/red{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"mr" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"mQ" = (
+/obj/machinery/button/door/directional/west{
+	id = "SolfedShipDoor";
+	name = "Vessel Aft Doors"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/structure/sign/flag/terragov/directional/north,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"mV" = (
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/mmg_box,
+/obj/item/ammo_box/magazine/mmg_box{
+	pixel_y = 2;
+	pixel_x = 2
+	},
+/obj/item/ammo_box/magazine/mmg_box{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/ammo_box/magazine/mmg_box{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"ne" = (
+/turf/open/floor/iron/smooth_edge,
+/area/shuttle/solfed/espatier/defcon)
+"nD" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/sign/flag/terragov/directional/west,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"oY" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/caution/stand_clear{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"pI" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/machinery/status_display/evac/directional/south,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"pW" = (
+/obj/item/ammo_box/magazine/c40sol_rifle/standard,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/defcon)
+"qx" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"qS" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/defcon)
+"rB" = (
+/obj/structure/marker_beacon,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/solfed/espatier/defcon)
+"sn" = (
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
+/area/shuttle/solfed/espatier/defcon)
+"sE" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"sY" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"tx" = (
+/obj/structure/closet/firecloset/full,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"us" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"uA" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"uY" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"vl" = (
+/obj/machinery/status_display/evac/directional/west,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/solfed/espatier/defcon)
+"vD" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/plating/airless,
+/area/shuttle/solfed/espatier/defcon)
+"wA" = (
+/obj/machinery/status_display/evac/directional/north,
+/obj/machinery/vending/access/solfed,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"wG" = (
+/obj/machinery/computer/camera_advanced{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"xd" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 4
+	},
+/obj/docking_port/mobile{
+	shuttle_id = "solfed_armory_shuttle";
+	launch_status = 0;
+	name = "Solfed Transport";
+	preferred_direction = 4;
+	port_direction = 4
+	},
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/iron/smooth_half{
+	dir = 1
+	},
+/area/shuttle/solfed/espatier/defcon)
+"xh" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/nri_flares,
+/obj/item/storage/box/nri_flares{
+	pixel_y = 2;
+	pixel_x = 2
+	},
+/obj/item/storage/box/nri_flares{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"xq" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"xw" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"yH" = (
+/obj/structure/table,
+/obj/effect/spawner/random/entertainment/deck,
+/obj/machinery/light/floor,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"yI" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"yR" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/solfed/espatier/defcon)
+"zh" = (
+/obj/structure/sign/flag/terragov/directional/east,
+/obj/structure/table/reinforced,
+/obj/item/mounted_machine_gun_folded,
+/obj/item/stack/sheet/mineral/sandbags/fifty,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Ag" = (
+/obj/machinery/status_display/evac/directional/west,
+/obj/item/gps/computer/space/solfed/armory,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/solfed/espatier/defcon)
+"AP" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/box,
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Bk" = (
+/obj/machinery/vending/wallmed/directional/south,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Ej" = (
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/solfed/espatier/defcon)
+"GL" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"GW" = (
+/obj/machinery/computer/shuttle/solfed/armory{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"GZ" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/iron/smooth_half{
+	dir = 1
+	},
+/area/shuttle/solfed/espatier/defcon)
+"Hp" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/solfed/armory{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"HS" = (
+/turf/open/floor/iron/smooth,
+/area/shuttle/solfed/espatier/defcon)
+"JC" = (
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"Kk" = (
+/turf/open/floor/iron/smooth_edge{
+	dir = 1
+	},
+/area/shuttle/solfed/espatier/defcon)
+"KG" = (
+/obj/structure/sign/flag/terragov/directional/east,
+/obj/structure/table/reinforced,
+/obj/item/gun/grenadelauncher,
+/obj/item/gun/grenadelauncher{
+	pixel_y = 6
+	},
+/obj/item/grenade/smokebomb,
+/obj/item/grenade/smokebomb{
+	pixel_x = 6
+	},
+/obj/item/grenade/smokebomb{
+	pixel_x = -7
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"KZ" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/structure/sign/flag/terragov/directional/west,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Nb" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/iron/smooth_half{
+	dir = 1
+	},
+/area/shuttle/solfed/espatier/defcon)
+"Oz" = (
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/solfed/espatier/defcon)
+"OG" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"OP" = (
+/obj/structure/table/reinforced,
+/obj/item/mounted_machine_gun_folded,
+/obj/item/stack/sheet/mineral/sandbags/fifty,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"OV" = (
+/obj/machinery/ammo_workbench/unlocked,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"PW" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners,
+/obj/structure/sign/flag/terragov/directional/south,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"QG" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/public/glass{
+	name = "Shuttle Seating Area"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"QO" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/storage/box/flashbangs{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/effect/spawner/random/armory/barrier_grenades/six,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Sf" = (
+/obj/item/gps/computer/space/solfed/armory,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"Sn" = (
+/obj/structure/rack/gunrack,
+/obj/effect/spawner/random/armory/e_gun,
+/obj/item/stack/sheet/mineral/sandbags/fifty,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"TL" = (
+/obj/machinery/door/poddoor{
+	id = "SolfedShipDoor";
+	name = "Assault Doors"
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/solfed/espatier/defcon)
+"TO" = (
+/obj/machinery/vending/wallmed/directional/west,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Ur" = (
+/obj/machinery/computer/camera_advanced{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"UA" = (
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/solfed/espatier/defcon)
+"UJ" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/shuttle/solfed/espatier/defcon)
+"UL" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Shuttle Engineering"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"Vn" = (
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/shuttle/solfed/espatier/defcon)
+"VT" = (
+/turf/template_noop,
+/area/template_noop)
+"WO" = (
+/obj/structure/table,
+/obj/effect/spawner/random/entertainment/deck,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"WS" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+"YI" = (
+/obj/machinery/button/door/directional/west{
+	id = "SolfedShipDoor";
+	name = "Vessel Aft Doors"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/solfed/espatier/defcon)
+"Zu" = (
+/obj/machinery/door/airlock/public/glass{
+	name = "Shuttle Seating Area"
+	},
+/obj/effect/turf_decal/delivery/white,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/solfed/espatier/defcon)
+
+(1,1,1) = {"
+VT
+VT
+VT
+VT
+aE
+aE
+by
+TL
+ex
+aE
+aE
+VT
+VT
+VT
+VT
+"}
+(2,1,1) = {"
+VT
+VT
+VT
+VT
+aE
+mQ
+mq
+oY
+mq
+YI
+aE
+VT
+VT
+VT
+VT
+"}
+(3,1,1) = {"
+VT
+rB
+hG
+hG
+aE
+cX
+Vn
+Vn
+Vn
+kk
+aE
+hG
+hG
+qS
+VT
+"}
+(4,1,1) = {"
+VT
+aE
+vD
+vD
+aE
+JC
+xw
+mr
+cR
+cR
+aE
+vD
+vD
+aE
+VT
+"}
+(5,1,1) = {"
+rB
+aE
+aE
+aE
+pW
+aE
+aE
+QG
+aE
+aE
+aE
+aE
+aE
+aE
+qS
+"}
+(6,1,1) = {"
+aE
+WS
+Ag
+bN
+aE
+KZ
+TO
+kk
+eO
+nD
+aE
+bN
+vl
+ir
+aE
+"}
+(7,1,1) = {"
+aE
+eP
+yR
+yI
+aE
+us
+eO
+yH
+eO
+pI
+aE
+WS
+yR
+PW
+aE
+"}
+(8,1,1) = {"
+GZ
+bd
+ne
+uY
+aE
+sY
+eO
+WO
+eO
+dM
+aE
+GL
+Kk
+bd
+xd
+"}
+(9,1,1) = {"
+Nb
+bd
+HS
+bd
+Zu
+kk
+kk
+kk
+kk
+kk
+Zu
+bd
+HS
+bd
+Nb
+"}
+(10,1,1) = {"
+UJ
+uA
+Oz
+Bk
+aE
+eO
+eO
+eO
+eO
+eO
+aE
+kO
+Oz
+iz
+UJ
+"}
+(11,1,1) = {"
+aE
+tx
+yR
+uY
+aE
+aE
+xq
+kb
+xq
+aE
+aE
+OG
+yR
+tx
+aE
+"}
+(12,1,1) = {"
+rB
+UJ
+UL
+UJ
+aE
+mV
+eO
+eO
+eO
+xh
+aE
+aE
+lO
+aE
+qS
+"}
+(13,1,1) = {"
+aE
+aX
+Oz
+hj
+aE
+OP
+eO
+eO
+eO
+QO
+aE
+eO
+Oz
+eO
+aE
+"}
+(14,1,1) = {"
+UJ
+fF
+Oz
+jA
+aE
+zh
+eO
+Sn
+OV
+KG
+aE
+eO
+Oz
+eO
+UJ
+"}
+(15,1,1) = {"
+UJ
+AP
+Ej
+AP
+aE
+aE
+UJ
+UJ
+UJ
+aE
+aE
+ka
+Oz
+eO
+UJ
+"}
+(16,1,1) = {"
+UJ
+bI
+UA
+bI
+aE
+Sf
+kk
+sE
+bE
+wG
+aE
+eO
+Oz
+eO
+UJ
+"}
+(17,1,1) = {"
+aE
+bI
+UA
+bI
+aE
+wA
+kk
+mr
+kk
+kk
+lO
+bd
+sn
+eO
+aE
+"}
+(18,1,1) = {"
+rB
+aE
+UJ
+aE
+aE
+qx
+es
+fv
+kk
+kk
+aE
+aE
+UJ
+aE
+qS
+"}
+(19,1,1) = {"
+VT
+VT
+VT
+VT
+UJ
+GW
+Ur
+Hp
+aE
+UJ
+aE
+VT
+VT
+VT
+VT
+"}
+(20,1,1) = {"
+VT
+VT
+VT
+VT
+aE
+UJ
+UJ
+UJ
+aE
+VT
+VT
+VT
+VT
+VT
+VT
+"}
