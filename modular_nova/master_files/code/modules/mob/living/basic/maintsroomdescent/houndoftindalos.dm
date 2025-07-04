@@ -9,15 +9,14 @@
 	icon_gib = "syndicate_gib"
 	basic_mob_flags = DEL_ON_DEATH
 	speed = 6
-	maxHealth = 45
-	health = 45
+	maxHealth = 5
+	health = 5
 	obj_damage = 50
 	melee_damage_lower = 50
 	melee_damage_upper = 50
 	faction = list(FACTION_NETHER)
 	attack_verb_continuous = "lashes out at"
 	attack_verb_simple = "lash out at"
-	damage_coeff = list(BRUTE = 50, BURN = 95, TOX = 95, STAMINA = 95, OXY = 95)
 	death_message = "Contorts for a moment before folding in on itself- letting something else come out in the process."
 	brood_type = /mob/living/basic/creature
 	corpse_type = /mob/living/basic/migo

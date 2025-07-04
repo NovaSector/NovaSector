@@ -2,11 +2,11 @@
 	name = "random maintsrooms spawn"
 	desc = "Spawns a random object, mob, or structure for the maintsrooms awaymission."
 	loot = list(
-		/turf/closed/wall/r_wall = 30,
-		/turf/open/floor/white = 36,
-		/obj/structure/table/reinforced = 22,
-		/mob/living/basic/mining/legion/houndoftindalos = 2,
-		/mob/living/basic/blankbody/shaggoth = 2,
+		/turf/closed/wall/r_wall = 31,
+		/turf/open/floor/white = 37,
+		/obj/structure/table/reinforced = 23,
+		/mob/living/basic/mining/legion/houndoftindalos = 0.5,
+		/mob/living/basic/blankbody/shaggoth = 0.5,
 		/obj/effect/spawner/random/environmentally_safe_anomaly/immobile = 3,
 		/obj/effect/decal/remains/human = 0.5,
 		/obj/effect/decal/remains/robot = 0.4,
@@ -30,7 +30,7 @@
 		/obj/item/hypernoblium_crystal = 0.1,
 	)
 
-/// number count for myself
+/// number count for myself, this is the remaining amount until the sum is 100
 /// 0
 /obj/effect/spawner/random/maintsrooms/make_item(spawn_loc, type_path_to_make)
 	if(ispath(type_path_to_make, /turf) && isturf(spawn_loc))
