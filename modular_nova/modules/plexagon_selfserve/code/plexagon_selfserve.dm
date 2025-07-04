@@ -17,6 +17,8 @@
 	program_icon = "id-card"
 	///What trim is applied to inserted IDs?
 	var/target_trim = /datum/id_trim/job/assistant
+	///These job datums can't go off-duty
+	var/list/blacklisted_jobs = list(/datum/job/assistant, /datum/job/prisoner)
 
 /datum/computer_file/program/crew_self_serve/on_start(mob/living/user)
 	. = ..()
@@ -217,9 +219,18 @@
 /datum/computer_file/program/crew_self_serve/ui_act(action, params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	var/obj/item/card/id/inserted_auth_card = computer.computer_id_slot
+	var/mob/living/carbon/human/human_user = usr
+	var/datum/mind/user_mind = usr.mind
+	if(!user_mind || !human_user || !inserted_auth_card)
+		return
+
 	switch(action)
 		if("PRG_change_status")
 			if(!inserted_auth_card)
+				return
+
+			if(blacklisted_jobs.Find(user_mind.assigned_role.type))
+				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 
 			if(off_duty_check(inserted_auth_card))
@@ -229,9 +240,7 @@
 				if(!clock_in(inserted_auth_card))
 					return
 
-				var/datum/mind/user_mind = usr.mind
-				if(user_mind)
-					user_mind.clocked_out_of_job = FALSE
+				user_mind.clocked_out_of_job = FALSE
 
 				computer.update_static_data_for_all_viewers()
 				playsound(computer, 'sound/machines/ping.ogg', 50, FALSE)
@@ -240,13 +249,8 @@
 				if(!clock_out(inserted_auth_card))
 					return
 
-				var/mob/living/carbon/human/human_user = usr
-				if(human_user)
-					secure_items(human_user, inserted_auth_card, eligible_items = SELF_SERVE_RETURN_ITEMS)
-
-				var/datum/mind/user_mind = usr.mind
-				if(user_mind)
-					user_mind.clocked_out_of_job = TRUE
+				secure_items(human_user, inserted_auth_card, eligible_items = SELF_SERVE_RETURN_ITEMS)
+				user_mind.clocked_out_of_job = TRUE
 
 				computer.update_static_data_for_all_viewers()
 				playsound(computer, 'sound/machines/ping.ogg', 50, FALSE)
@@ -255,9 +259,7 @@
 			return TRUE
 
 		if("PRG_eject_id")
-			var/mob/living/carbon/human/human_user = usr
-			if(human_user)
-				computer.RemoveID(human_user, silent = TRUE)
+			computer.RemoveID(human_user, silent = TRUE)
 
 			return TRUE
 
