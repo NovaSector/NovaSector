@@ -1,6 +1,6 @@
 /mob/living/basic/trader/deathsquadtrader
 	name = "Asset protection officer"
-	desc = "holy SHIT is that a DEATHSQUAD OFFICER?."
+	desc = "holy SHIT is that a DEATHSQUAD OFFICER?"
 	unique_name = FALSE
 	icon = 'icons/mob/simple/simple_human.dmi'
 	maxHealth = 2000
