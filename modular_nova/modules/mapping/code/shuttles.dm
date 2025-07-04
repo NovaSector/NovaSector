@@ -388,7 +388,7 @@
 	name = "SFTS-1221 Transport Shuttle."
 
 /obj/machinery/computer/shuttle/solfed/fancy
-	name = "SFTS-1221 Control"
+	name = "\improper SFTS-1221 control console"
 	desc = "Used to control the SFTS-1221."
 	circuit = /obj/item/circuitboard/computer/solfed/fancy
 	shuttleId = "solfed_fancy_shuttle"
