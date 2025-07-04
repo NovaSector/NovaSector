@@ -29,8 +29,6 @@
 		/obj/item/storage/toolbox/ammobox/strilka310 = list(PAYCHECK_CREW * 50, INFINITY),
 		/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted = list(PAYCHECK_CREW * 1000, INFINITY),
 		/obj/item/ammo_box/a40mm = list(PAYCHECK_CREW * 1000, INFINITY),
-		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted = list(PAYCHECK_CREW * 3000, INFINITY),
-		/obj/item/ammo_box/magazine/m12g/empty = list(PAYCHECK_CREW * 500, INFINITY),
 		/obj/item/gun/ballistic/shotgun/katyusha/jager = list(PAYCHECK_CREW * 2000, INFINITY),
 		/obj/item/ammo_box/magazine/jager/large = list(PAYCHECK_CREW * 50, INFINITY),
 		/obj/item/gun/ballistic/automatic/nt20 = list(PAYCHECK_CREW * 2000, INFINITY),
