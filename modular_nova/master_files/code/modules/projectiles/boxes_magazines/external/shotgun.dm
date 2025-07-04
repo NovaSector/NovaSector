@@ -43,7 +43,7 @@
 	base_icon_state = "jager_mag"
 	ammo_type = /obj/item/ammo_casing/shotgun
 	caliber = CALIBER_SHOTGUN
-	max_ammo = 7
+	max_ammo = 4
 
 /obj/item/ammo_box/magazine/jager/rubbershot
 	ammo_type = /obj/item/ammo_casing/shotgun/rubbershot
@@ -53,7 +53,7 @@
 	desc = "A magazine of shotgun shells, suitable for the 'Jager' combat shotgun."
 	icon_state = "jager_mag_large"
 	base_icon_state = "jager_mag_large"
-	max_ammo = 9
+	max_ammo = 7
 
 /obj/item/ammo_box/magazine/jager/large/empty
 	start_empty = TRUE
@@ -75,3 +75,6 @@
 
 /obj/item/ammo_box/magazine/shitzu/milspec
 	ammo_type = /obj/item/ammo_casing/shotgun/milspec
+
+/obj/item/ammo_box/magazine/shitzu/milspec_buckshot
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot/milspec
