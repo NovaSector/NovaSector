@@ -5,3 +5,12 @@
   Jureiia:
   - rscadd: Collars are now able to be hidden beneath suits, coats and jackets. Alt+Right
       Click to toggle!
+2025-07-04:
+  OrionTheFox:
+  - qol: 'Sorted the following Loadout groups: Head, Inhands, Masks.'
+  - rscadd: Added Bandana (Colorable), Bandana (Colorable, Stripe), and Thin Bandana
+      to the Loadout
+  - rscdel: Removed "Commercial FIR-36 Half-Face Rebreather" from the Loadout (use
+      the normal "FIR-36 Half-Face Rebreather")
+  - qol: 'Sorted the following Loadout groups: Accessory, Belt, Ears, Glasses, Gloves.'
+  - bugfix: fixed the Military Ribbon not being player-colorable.
