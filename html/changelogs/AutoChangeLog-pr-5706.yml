@@ -1,0 +1,4 @@
+author: "KnighTheThrasher"
+delete-after: True
+changes:
+  - bugfix: "Blacklisted Masquerade quirk from non-hemophages"
