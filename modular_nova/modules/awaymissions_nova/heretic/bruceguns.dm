@@ -55,9 +55,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	inhand_icon_state = "m90"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/p90_mag
-	burst_delay = 0
+	burst_delay = 2
+	burst_fire_selection = 1
+	burst_size = 10
+	firing_burst = 1
 	can_suppress = FALSE
-	burst_size = 3
 	mag_display = FALSE
 	mag_display_ammo = FALSE
 	empty_indicator = TRUE
@@ -85,3 +87,14 @@
 	range = 30
 	damage = 10
 	armour_penetration = 50
+
+obj/item/gun/energy/shrink_ray/one_shot
+	name = "shrink ray blaster"
+	desc = "This is a piece of frightening alien tech that enhances the magnetic pull of atoms in a localized space to temporarily make an object shrink. \
+			That or it's just space magic. Either way, it shrinks stuff, This one is jurry rigged to work with a non alien cell. It still recharges though."
+	ammo_type = list(/obj/item/ammo_casing/energy/shrink/worse)
+
+/obj/item/ammo_casing/energy/shrink/worse
+	projectile_type = /obj/projectile/magic/shrink/alien
+	select_name = "shrink ray"
+	e_cost = LASER_SHOTS(1, STANDARD_CELL_CHARGE)

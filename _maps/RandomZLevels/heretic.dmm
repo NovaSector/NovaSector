@@ -2375,6 +2375,15 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
+"rG" = (
+/obj/machinery/door/airlock/highsecurity{
+	max_integrity = 10000;
+	normal_integrity = 10000
+	},
+/obj/effect/mapping_helpers/airlock/access/all/cent_com,
+/obj/machinery/door/puzzle/keycard/hereticgateway2,
+/turf/open/floor/iron/small,
+/area/station/maintenance/heretic_laboratory)
 "rN" = (
 /obj/structure/rack,
 /turf/open/floor/carpet/royalblack,
@@ -3089,6 +3098,10 @@
 	pixel_x = 24
 	},
 /turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory_clean)
+"xd" = (
+/obj/item/keycard/hereticgateway2,
+/turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory_clean)
 "xe" = (
 /obj/machinery/light/directional/west,
@@ -3827,6 +3840,9 @@
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
+"Ee" = (
+/turf/closed/wall/r_wall/syndicate,
+/area/station/maintenance/heretic_laboratory)
 "Ei" = (
 /obj/structure/flora/bush/jungle/b/style_random,
 /obj/effect/decal/cleanable/blood/tracks/xeno{
@@ -4156,6 +4172,11 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
+"GM" = (
+/obj/machinery/door/airlock/virology,
+/obj/machinery/door/puzzle/keycard/hereticgateway2,
+/turf/open/floor/iron,
+/area/awaymission/caves/heretic_laboratory_clean)
 "GN" = (
 /obj/machinery/light/floor,
 /obj/item/slimepotion/slime/mutator,
@@ -4303,6 +4324,10 @@
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/highsecurity{
+	max_integrity = 10000;
+	normal_integrity = 10000
+	},
 /turf/open/floor/iron/small,
 /area/station/maintenance/heretic_laboratory)
 "HM" = (
@@ -5426,9 +5451,7 @@
 "Qz" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
-/obj/item/gun/magic/staff/shrink{
-	anchored = 1
-	},
+/obj/item/gun/energy/shrink_ray/one_shot,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "QB" = (
@@ -6066,9 +6089,9 @@
 /obj/item/clothing/shoes/combat/swat,
 /obj/item/clothing/gloves/combat,
 /obj/item/clothing/mask/gas/atmos/glass,
-/obj/item/clothing/glasses/meson/engine/atmos_imaging,
 /obj/item/clothing/suit/utility/radiation/cbrnsuit,
 /obj/item/clothing/head/utility/radiation/cbrnhood,
+/obj/item/clothing/glasses/meson,
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Wo" = (
@@ -20116,8 +20139,8 @@ vu
 vu
 vu
 xl
-Gl
-Gl
+GM
+GM
 xl
 xl
 xl
@@ -20382,7 +20405,7 @@ FY
 FY
 FY
 FY
-FY
+xd
 FY
 FY
 FY
@@ -22697,11 +22720,11 @@ KB
 KB
 KB
 KB
-PV
+rG
 KB
 KB
 KB
-PV
+rG
 KB
 KB
 KB
@@ -50484,7 +50507,7 @@ Ei
 fr
 fr
 bZ
-KB
+Ee
 ay
 KB
 zF
@@ -50741,7 +50764,7 @@ QB
 Xa
 qn
 OM
-KB
+Ee
 ay
 ay
 hi
@@ -50998,7 +51021,7 @@ FG
 fr
 BM
 Xq
-KB
+Ee
 ay
 ay
 mG
@@ -51255,7 +51278,7 @@ fr
 fr
 bZ
 bZ
-KB
+Ee
 ay
 rF
 mG
