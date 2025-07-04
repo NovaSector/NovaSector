@@ -85,13 +85,3 @@
 	range = 30
 	damage = 10
 	armour_penetration = 50
-
-/obj/item/storage/box/lethalshot/p90
-	name = "p90 magazines (Lethal)"
-	desc = "A re-used lethal shotgun shell box, now holding 5.7x28mm magazines."
-	icon_state = "lethalshot_box"
-	illustration = null
-
-/obj/item/storage/box/lethalshot/p90/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/ammo_box/magazine/p90_mag(src)
