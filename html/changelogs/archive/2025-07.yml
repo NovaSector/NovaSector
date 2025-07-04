@@ -6,6 +6,15 @@
   - rscadd: Collars are now able to be hidden beneath suits, coats and jackets. Alt+Right
       Click to toggle!
 2025-07-04:
+  Crumpaloo:
+  - image: adds wagging animation for the Succubus Spade Tail
+  Hatterhat:
+  - rscadd: 'Thanks to a recent load-bearing equipment surplus sale, corporate pre-shift
+      requisitions vendors (read: the loadout menu) are now stocking more load-bearing
+      equipment pieces (read: webbing accessories, functionally identical to the one
+      that already existed).'
+  KnighTheThrasher:
+  - bugfix: Blacklisted Masquerade quirk from non-hemophages
   OrionTheFox:
   - qol: 'Sorted the following Loadout groups: Head, Inhands, Masks.'
   - rscadd: Added Bandana (Colorable), Bandana (Colorable, Stripe), and Thin Bandana
