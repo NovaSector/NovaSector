@@ -174,7 +174,7 @@ type TabProps = {
 // NOVA EDIT ADDITION START - Expanded loadout framework
 const FilterItemList = (items: LoadoutItem[]) => {
   const { data } = useBackend<LoadoutManagerData>();
-  const { is_donator, is_veteran, erp_pref } = data;
+  const { is_donator, is_nova_star, erp_pref } = data;
   const ckey = data.ckey;
 
   return items.filter((item: LoadoutItem) => {
@@ -184,7 +184,7 @@ const FilterItemList = (items: LoadoutItem[]) => {
     if (item.donator_only && !is_donator) {
       return false;
     }
-    if (item.veteran_only && !is_veteran) {
+    if (item.nova_stars_only && !is_nova_star) {
       return false;
     }
     if (item.erp_item && !erp_pref) {
