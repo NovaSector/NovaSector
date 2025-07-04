@@ -46,3 +46,52 @@
 	catastropic_dismemberment = TRUE
 	armour_penetration = 50
 	ignore_range_hit_prone_targets = TRUE
+
+/obj/item/gun/ballistic/automatic/wt550/p90
+	name = "\improper FN P90"
+	desc = "The FN P90 is a fast fire rate personal defense weapon, the bullets it shoots are small but what it lacks in damage it more than picks up for in penetration and fire rate."
+	icon = 'modular_nova/modules/awaymissions_nova/heretic/p90.dmi'
+	icon_state = "p90"
+	w_class = WEIGHT_CLASS_NORMAL
+	inhand_icon_state = "m90"
+	accepted_magazine_type = /obj/item/ammo_box/magazine/p90_mag
+	burst_delay = 0
+	can_suppress = FALSE
+	burst_size = 3
+	mag_display = FALSE
+	mag_display_ammo = FALSE
+	empty_indicator = TRUE
+
+/obj/item/ammo_box/magazine/p90_mag
+	name = "p90 toploader magazine"
+	desc = "A 5.7x28mm magazine."
+	icon_state = "46x30mmt-20"
+	base_icon_state = "46x30mmt-20"
+	ammo_type = /obj/item/ammo_casing/mm57x28
+	max_ammo = 50
+	caliber = CALIBER_46X30MM
+
+/obj/item/ammo_casing/mm57x28
+	name = "5.7x28mm bullet casing"
+	desc = "A 5.7x28mmmm bullet casing."
+	caliber = CALIBER_46X30MM
+	projectile_type = /obj/projectile/bullet/mm57x28
+	icon_state = "ammo"
+	newtonian_force = 0.1
+
+/obj/projectile/bullet/mm57x28
+	name ="5.7x28mm bullet"
+	speed = 3.5
+	range = 30
+	damage = 10
+	armour_penetration = 50
+
+/obj/item/storage/box/lethalshot/p90
+	name = "p90 magazines (Lethal)"
+	desc = "A re-used lethal shotgun shell box, now holding 5.7x28mm magazines."
+	icon_state = "lethalshot_box"
+	illustration = null
+
+/obj/item/storage/box/lethalshot/p90/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_box/magazine/p90_mag(src)
