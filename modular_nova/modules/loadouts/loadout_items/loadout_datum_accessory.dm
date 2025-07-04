@@ -29,10 +29,6 @@
 	name = "Maid Apron - Tactical"
 	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
 
-/datum/loadout_item/accessory/colonial_webbing
-	name = "Slim Colonial Webbing"
-	item_path = /obj/item/clothing/accessory/colonial_webbing
-
 /datum/loadout_item/accessory/wetmaker
 	name = "Stardress Hydro-Vaporizer"
 	item_path = /obj/item/clothing/accessory/vaporizer
@@ -283,3 +279,30 @@
 /datum/loadout_item/accessory/medal/ribbon7
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
+
+/*
+* Webbings
+*/
+
+/datum/loadout_item/accessory/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/clothing/accessory/webbing
+
+/datum/loadout_item/accessory/colonial_webbing
+	name = "Webbing - Colonial"
+	item_path = /obj/item/clothing/accessory/webbing/colonial
+
+/datum/loadout_item/accessory/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/clothing/accessory/webbing/vest
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/accessory/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/clothing/accessory/webbing/pouch
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/accessory/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/clothing/accessory/webbing/pilot
+	can_be_reskinned = TRUE
