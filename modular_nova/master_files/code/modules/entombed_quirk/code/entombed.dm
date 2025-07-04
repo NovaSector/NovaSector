@@ -88,12 +88,12 @@
 	modsuit.skin = LOWER_TEXT(modsuit_skin)
 
 	if(modsuit.skin == "colonist") // special case here, because the icon files for the colonist module are different from the tg ones.
-		modsuit.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
-		modsuit.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
+		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	else if(modsuit.skin == "tarkon") // Another special case
-		modsuit.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
-		modsuit.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
+		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
@@ -112,12 +112,12 @@
 		part.name = "[modsuit.theme.name] [initial(part.name)]"
 		part.desc = "[initial(part.desc)] [modsuit.theme.desc]"
 		if(modsuit.skin == "colonist") // That special case again. If more Nova modsuit skins ever get added, we may want to refactor this quirk to use the mod_theme's variants list instead of hardcoded strings.
-			part.icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod.dmi'
-			part.worn_icon = 'modular_nova/modules/kahraman_equipment/icons/modsuits/mod_worn.dmi'
+			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
-			part.icon = 'modular_nova/modules/tarkon/icons/obj/clothing/mod.dmi'
-			part.worn_icon = 'modular_nova/modules/tarkon/icons/mob/clothing/mod.dmi'
+			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	install_racial_features()
 
