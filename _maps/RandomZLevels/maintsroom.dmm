@@ -10314,16 +10314,17 @@
 /area/awaymission/caves/maintsroom)
 "IP" = (
 /obj/structure/closet/crate/secure/weapon,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/ammo_box/magazine/m223,
-/obj/item/gun/ballistic/automatic/ar,
-/obj/item/gun/ballistic/automatic/ar/modular,
+/obj/item/gun/ballistic/automatic/proto/unrestricted,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/minigunpack,
+/obj/item/gun/ballistic/automatic/proto/unrestricted,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/ammo_box/magazine/smgm9mm,
+/obj/item/ammo_box/magazine/smgm9mm,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
 "IR" = (
