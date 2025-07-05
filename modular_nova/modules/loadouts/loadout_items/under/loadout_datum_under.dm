@@ -581,6 +581,10 @@
 	name = "Long Colourable Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/long
 
+/datum/loadout_item/under/miscellaneous/mini_skirt
+	name = "Colourable Mini Skirt"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/mini_skirt
+
 /datum/loadout_item/under/miscellaneous/loincloth
 	name = "Loincloth"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/loincloth

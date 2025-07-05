@@ -1426,6 +1426,15 @@
 	name = "Giant Scarf (Heart, Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/mini_skirt
+	name = "Mini Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/mini_skirt.json'
+
+/datum/greyscale_config/mini_skirt/worn
+	name = "Mini Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 // KILT
 // COSTUMES
 

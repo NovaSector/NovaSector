@@ -91,6 +91,7 @@
 				/obj/item/clothing/under/suit/nova/helltaker/skirt = 3,
 				/obj/item/clothing/under/dress/skirt/nova/medium = 5,
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
+				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf/arrow = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf/bones = 5,
