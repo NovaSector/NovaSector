@@ -1428,7 +1428,7 @@
 
 /datum/greyscale_config/mini_skirt
 	name = "Mini Skirt"
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/mini_skirt.json'
 
 /datum/greyscale_config/mini_skirt/worn
