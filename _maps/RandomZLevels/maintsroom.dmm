@@ -2339,6 +2339,7 @@
 	name = "Old Dorms"
 	},
 /obj/structure/alien/weeds,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "hD" = (
@@ -5200,10 +5201,6 @@
 	},
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/maintsroom)
-"rc" = (
-/obj/item/pickaxe,
-/turf/open/misc/asteroid,
-/area/awaymission/caves/maintsroom)
 "rd" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -5486,16 +5483,6 @@
 /mob/living/basic/spider/giant/nurse,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
-"sh" = (
-/obj/effect/spawner/random/trash/graffiti{
-	pixel_x = 32;
-	spawn_loot_chance = 50
-	},
-/obj/item/reagent_containers/cup/glass/bottle/beer{
-	pixel_x = 8
-	},
-/turf/open/floor/iron,
-/area/awaymission/caves/maintsroom)
 "si" = (
 /obj/machinery/hydroponics/soil/fake_turf,
 /obj/structure/flora/bush/large/style_random,
@@ -5698,7 +5685,6 @@
 /area/awaymission/caves/maintsroom)
 "sN" = (
 /obj/structure/rack,
-/obj/item/storage/toolbox/emergency,
 /turf/open/misc/asteroid,
 /area/awaymission/caves/maintsroom)
 "sO" = (
@@ -5913,6 +5899,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "ty" = (
@@ -6347,7 +6334,7 @@
 "uX" = (
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/gun/medbeam,
-/obj/item/borg/upgrade/syndicate,
+/obj/item/borg/upgrade/transform/syndicatejack,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "uZ" = (
@@ -8589,6 +8576,7 @@
 "CU" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "CV" = (
@@ -11908,6 +11896,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/iron/grimy,
 /area/awaymission/caves/maintsroom)
 "Oh" = (
@@ -13054,7 +13043,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "RV" = (
-/obj/effect/mine/explosive,
+/obj/effect/mine/explosive/light/ancient_milsim,
 /turf/open/floor/wood,
 /area/awaymission/caves/maintsroom)
 "RW" = (
@@ -13499,7 +13488,6 @@
 /area/awaymission/caves/maintsroom)
 "Tz" = (
 /obj/structure/table,
-/obj/item/shovel,
 /obj/structure/alien/weeds,
 /turf/open/misc/asteroid,
 /area/awaymission/caves/maintsroom)
@@ -36640,7 +36628,7 @@ eV
 dF
 fQ
 sQ
-sh
+iF
 fW
 ym
 JZ
@@ -37718,7 +37706,7 @@ QA
 QA
 QA
 QA
-rc
+PB
 pM
 Dt
 ob
