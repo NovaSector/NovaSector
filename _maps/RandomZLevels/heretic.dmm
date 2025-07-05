@@ -10,9 +10,9 @@
 /turf/open/floor/mineral/uranium,
 /area/awaymission/beach/heretic)
 "ai" = (
-/obj/machinery/door/window/left/directional/north,
 /obj/effect/turf_decal/caution/stand_clear,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/machinery/door/puzzle/keycard/hereticgateway1,
 /turf/open/floor/iron/small,
 /area/station/maintenance/heretic_laboratory)
 "ak" = (
@@ -445,9 +445,7 @@
 "dy" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
-/obj/item/gun/magic/midas_hand{
-	anchored = 1
-	},
+/obj/item/gun/magic/midas_hand,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "dA" = (
@@ -722,6 +720,7 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Dorms"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron,
 /area/station/maintenance/heretic_laboratory)
 "fH" = (
@@ -1385,7 +1384,7 @@
 /area/station/maintenance/heretic_laboratory)
 "jg" = (
 /obj/machinery/door/airlock/highsecurity,
-/obj/effect/mapping_helpers/airlock/access/all/away/general,
+/obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron,
 /area/station/maintenance/heretic_laboratory)
 "jj" = (
@@ -2470,6 +2469,13 @@
 	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
+"qC" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/machinery/door/puzzle/keycard/hereticgateway1,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "qD" = (
 /obj/machinery/suit_storage_unit/open,
 /obj/item/mod/control/pre_equipped/blueshield/bruce{
@@ -3026,6 +3032,7 @@
 /obj/machinery/door/airlock{
 	name = "Personal Dorm"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/wood,
 /area/station/maintenance/heretic_laboratory)
 "uM" = (
@@ -4548,6 +4555,16 @@
 /obj/effect/mob_spawn/corpse/human/wizard/red,
 /turf/open/misc/beach/sand,
 /area/awaymission/caves/heretic_laboratory_clean)
+"FP" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/machinery/door/puzzle/keycard/hereticgateway1,
+/turf/open/floor/plating,
+/area/station/maintenance/heretic_laboratory)
 "FR" = (
 /obj/machinery/recharge_station,
 /turf/open/floor/iron/small,
@@ -5460,6 +5477,11 @@
 /area/awaymission/beach/heretic)
 "LZ" = (
 /turf/closed/mineral/asteroid/has_air,
+/area/station/maintenance/heretic_laboratory)
+"Ma" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/effect/mapping_helpers/airlock/access/all/security,
+/turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
 "Mb" = (
 /obj/structure/disposalpipe/segment,
@@ -7305,6 +7327,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/station/maintenance/heretic_laboratory)
+"Zn" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/oneway,
+/turf/open/floor/iron/small,
+/area/awaymission/caves/heretic_laboratory_clean)
 "Zo" = (
 /obj/effect/gibspawner,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -12976,7 +13003,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -13177,7 +13204,7 @@ vG
 vG
 vG
 vG
-vG
+Ry
 vG
 vG
 vG
@@ -13233,7 +13260,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -13472,8 +13499,8 @@ KB
 KB
 KB
 KB
-WV
-GW
+kU
+nW
 KB
 KB
 aE
@@ -13490,7 +13517,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -13747,7 +13774,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -14004,7 +14031,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -14261,7 +14288,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -14518,7 +14545,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -14775,7 +14802,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -15032,7 +15059,7 @@ KB
 hs
 hs
 hs
-Kb
+Zn
 Cd
 nZ
 Cd
@@ -33807,7 +33834,7 @@ xQ
 xQ
 KB
 KB
-RM
+Ma
 KB
 KB
 vN
@@ -63097,9 +63124,9 @@ bZ
 bZ
 bZ
 KB
-yZ
-Av
-yZ
+qC
+FP
+qC
 KB
 bZ
 bZ
