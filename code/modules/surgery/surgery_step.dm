@@ -144,8 +144,8 @@
 	fail_prob += target_modifiers[FAIL_PROB_INDEX]
 	modded_time *= target_modifiers[SPEED_MOD_INDEX]
 
-	fail_prob = min(max(0, modded_time - (time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)),99)//if modded_time > time * modifier, then fail_prob = modded_time - time*modifier. starts at 0, caps at 99
-	modded_time = min(modded_time, time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)//also if that, then cap modded_time at time*modifier
+	fail_prob = min(max(0, fail_prob),99) // clamp fail_prob between 0 and 99
+	modded_time = min(modded_time, time * SURGERY_SLOWDOWN_CAP_MULTIPLIER)// cap modded_time at time*modifier
 
 	// NOVA EDIT REMOVAL START - Cyborgs are no longer immune to surgery speedups.
 	if(iscyborg(user))//any immunities to surgery slowdown should go in this check.
