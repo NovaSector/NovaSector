@@ -1434,7 +1434,6 @@
 /datum/greyscale_config/mini_skirt/worn
 	name = "Mini Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
-	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 // KILT
 // COSTUMES
