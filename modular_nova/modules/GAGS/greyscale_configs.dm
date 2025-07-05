@@ -2160,6 +2160,14 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/bar_medal.json'
 
 //Medals
+/datum/greyscale_config/medals/interdyne
+	name = "Interdyne Medal"
+	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/interdyne.json'
+
+/datum/greyscale_config/medals/interdyne/worn
+	name = "Interdyne Medal (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
+
 /datum/greyscale_config/medals/syndicate
 	name = "Syndicate Medal"
 	json_config = 'modular_nova/modules/GAGS/json_configs/accessories/medals/syndicate.json'
