@@ -194,3 +194,7 @@
 	ears.actions_types -= list(hearing_action.type)
 	ears.remove_item_action(hearing_action.type)
 	hearing_action.Remove(quirk_holder)
+	//restore dmg multiplier of our current ears
+	//we could have any subtype at this point so just take that one's initial value
+	//as opposed to making a copy at the start of the player's round (what if they transplant it, etc)
+	ears.damage_multiplier = initial(ears.damage_multiplier)
