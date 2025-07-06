@@ -182,7 +182,7 @@
 
 /datum/quirk/sensitive_hearing/add_unique()
 	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-	//add action
+
 	hearing_action = new
 	ears.actions_types += list(hearing_action.type)
 	ears.add_item_action(hearing_action.type)
@@ -190,7 +190,11 @@
 
 /datum/quirk/sensitive_hearing/remove()
 	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-	//remove action
+	if(!ears)
+		return
+	if(!LAZYFIND(ears.actions_types, hearing_action.type))
+		return
+
 	ears.actions_types -= list(hearing_action.type)
 	ears.remove_item_action(hearing_action.type)
 	hearing_action.Remove(quirk_holder)
