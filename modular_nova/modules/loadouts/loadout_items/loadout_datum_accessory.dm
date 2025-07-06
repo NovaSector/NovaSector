@@ -1,12 +1,8 @@
-/*
-*	LOADOUT ITEM DATUMS FOR THE ACCESSORY SLOT
-*/
+// LOADOUT ITEM DATUMS FOR THE ACCESSORY SLOT
 
-/// Accessory Items (Moves overrided items to backpack)
 /datum/loadout_category/accessories
 	category_ui_icon = FA_ICON_ID_BADGE
 	tab_order = /datum/loadout_category/undersuit::tab_order + 1
-
 
 /datum/loadout_item/accessory/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.accessory))
@@ -21,50 +17,58 @@
 	else
 		outfit.accessory = item_path
 
-/datum/loadout_item/accessory/wetmaker
-	name = "Stardress hydro-vaporizer"
-	item_path = /obj/item/clothing/accessory/vaporizer
-
-/datum/loadout_item/accessory/maidcorset_tactical
-	name = "tactical maid apron"
-	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
+/*
+*	ITEMS BELOW HERE
+*/
 
 /datum/loadout_item/accessory/chaps
 	name = "Chaps"
 	item_path = /obj/item/clothing/accessory/chaps
 
-/datum/loadout_item/accessory/colonial_webbing
-	name = "Slim Colonial Webbing"
-	item_path = /obj/item/clothing/accessory/colonial_webbing
+/datum/loadout_item/accessory/maidcorset_tactical
+	name = "Maid Apron - Tactical"
+	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
+
+/datum/loadout_item/accessory/wetmaker
+	name = "Stardress Hydro-Vaporizer"
+	item_path = /obj/item/clothing/accessory/vaporizer
 
 /*
 *	ARMBANDS
 */
 
 /datum/loadout_item/accessory/armband_medblue
-	name = "Blue-White Armband"
+	name = "Armband (Blue-White)"
 	item_path = /obj/item/clothing/accessory/armband/medblue/nonsec
 
-/datum/loadout_item/accessory/armband_med
-	name = "White Armband"
-	item_path = /obj/item/clothing/accessory/armband/med/nonsec
-
 /datum/loadout_item/accessory/armband_cargo
-	name = "Brown Armband"
+	name = "Armband (Brown)"
 	item_path = /obj/item/clothing/accessory/armband/cargo/nonsec
 
 /datum/loadout_item/accessory/armband_engineering
-	name = "Orange Armband"
+	name = "Armband (Orange)"
 	item_path = /obj/item/clothing/accessory/armband/engine/nonsec
 
+/datum/loadout_item/accessory/armband_science
+	name = "Armband (Purple)"
+	item_path = /obj/item/clothing/accessory/armband/science/nonsec
+
 /datum/loadout_item/accessory/armband_security_nonsec
-	name = "Red Armband"
+	name = "Armband (Red)"
 	item_path = /obj/item/clothing/accessory/armband/nonsec
 
+/datum/loadout_item/accessory/armband_med
+	name = "Armband (White)"
+	item_path = /obj/item/clothing/accessory/armband/med/nonsec
+
 /datum/loadout_item/accessory/armband_security
-	name = "Security Deputy Armband"
+	name = "Armband - Security Deputy"
 	item_path = /obj/item/clothing/accessory/armband/deputy
 	restricted_roles = list(JOB_HEAD_OF_SECURITY, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_CORRECTIONS_OFFICER)
+
+/datum/loadout_item/accessory/green_pin
+	name = "Green \"Newbie\" Pin"
+	item_path = /obj/item/clothing/accessory/green_pin
 
 /datum/loadout_item/accessory/holobadge
 	name = "Holobadge"
@@ -72,22 +76,14 @@
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/accessory/holobadge/blue
-	name = "Blue Holobadge"
+	name = "Holobadge (Blue)"
 	item_path = /obj/item/clothing/accessory/badge/holo/blue
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
 
 /datum/loadout_item/accessory/holobadge/lanyard
-	name = "Holobadge with Lanyard"
+	name = "Holobadge (Lanyard)"
 	item_path = /obj/item/clothing/accessory/badge/holo/cord
 	restricted_roles = list(JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_HEAD_OF_SECURITY)
-
-/datum/loadout_item/accessory/armband_science
-	name = "Purple Armband"
-	item_path = /obj/item/clothing/accessory/armband/science/nonsec
-
-/datum/loadout_item/accessory/green_pin
-	name = "Green Pin"
-	item_path = /obj/item/clothing/accessory/green_pin
 
 /*
 *	ARMOURLESS
@@ -283,3 +279,30 @@
 /datum/loadout_item/accessory/medal/ribbon7
 	name = "Ribbon (Two-Tone)"
 	item_path = /obj/item/clothing/accessory/nova/ribbon/ribbon_twotone
+
+/*
+* Webbings
+*/
+
+/datum/loadout_item/accessory/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/clothing/accessory/webbing
+
+/datum/loadout_item/accessory/colonial_webbing
+	name = "Webbing - Colonial"
+	item_path = /obj/item/clothing/accessory/webbing/colonial
+
+/datum/loadout_item/accessory/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/clothing/accessory/webbing/vest
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/accessory/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/clothing/accessory/webbing/pouch
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/accessory/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/clothing/accessory/webbing/pilot
+	can_be_reskinned = TRUE

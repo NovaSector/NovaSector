@@ -4,17 +4,42 @@
 	desc = "You have a lethal condition in your brain that is slowly destroying it. Better bring some mannitol!"
 	medical_record_text = "Patient has a lethal condition in their brain that is slowly causing brain death."
 	icon = FA_ICON_BRAIN
+	species_quirks = list(/datum/species/synthetic = /datum/quirk/item_quirk/brainproblems/synth)
 
-// If brainproblems is added to a synth, this detours to the brainproblems/synth quirk.
-/datum/quirk/item_quirk/brainproblems/add(client/client_source)
-	if(issynthetic(quirk_holder))
-		name = "Positronic Cascade Anomaly"
-		desc = "Your positronic brain is slowly corrupting itself due to a cascading anomaly. Better bring some liquid solder!"
-		gain_text = span_danger("You feel glitchy.")
-		lose_text = span_notice("You no longer feel glitchy.")
-		medical_record_text = "Patient has a cascading anomaly in their brain that is slowly causing brain death."
-		mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
-	return ..()
+// Override of Brain Tumor quirk for species with artificial brains.
+// Does not appear in TGUI or the character preferences window.
+/datum/quirk/item_quirk/brainproblems/synth
+	name = "Positronic Cascade Anomaly"
+	gain_text = span_danger("You feel glitchy.")
+	lose_text = span_notice("You no longer feel glitchy.")
+	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
+	abstract_parent_type = /datum/quirk/item_quirk/brainproblems/synth
+
+// Adds custom medical flavortext for synthetic brains.
+/datum/quirk/item_quirk/brainproblems/synth/add()
+	. = ..()
+	var/obj/item/organ/brain/synth/synth_brain = quirk_holder.get_organ_slot(ORGAN_SLOT_BRAIN)
+	switch(synth_brain.type)
+		if(/obj/item/organ/brain/synth)
+			name = "Positronic Cascade Anomaly"
+		if(/obj/item/organ/brain/synth/mmi)
+			name = "Interface Rejection Syndrome"
+		if(/obj/item/organ/brain/synth/circuit)
+			name = "Processor Firmware Bug"
+		if(/obj/item/organ/brain/synth/circuit/hyperboard)
+			name = "Processor Firmware Bug"
+		if(/obj/item/organ/brain/synth/circuit/limaengine)
+			name = "Liquid Core Instability Anomaly"
+		if(/obj/item/organ/brain/synth/circuit/disk)
+			name = "Short-circuited Hardware"
+		if(/obj/item/organ/brain/synth/circuit/neuroboard)
+			name = "Neural System Malfunction"
+		if(/obj/item/organ/brain/synth/circuit/condensed)
+			name = "Crystal Destabilization"
+		if(/obj/item/organ/brain/synth/circuit/cyberdeck)
+			name = "System Destabilization"
+
+	medical_record_text = "Patient has a malfunction in their [synth_brain.name] that is slowly causing brain death."
 
 // Synthetics get liquid_solder with Brain Tumor instead of mannitol.
 /datum/quirk/item_quirk/brainproblems/add_unique(client/client_source)

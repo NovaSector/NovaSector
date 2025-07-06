@@ -578,17 +578,14 @@
 			return FALSE
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+		/* NOVA EDIT REMOVAL BEGIN - Allow CPR without lungs
 		if(isnull(human_lungs))
 			balloon_alert(src, "you don't have lungs!")
 			return FALSE
-		// NOVA EDIT ADDITION - Disable CPR for synth heatsink
-		if(istype(human_lungs, /obj/item/organ/lungs/synth))
-			balloon_alert(src, "you don't have lungs!")
-			return FALSE
-		// NOVA EDIT ADDITION END
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
 			return FALSE
+		*/// NOVA EDIT REMOVAL END
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
 						span_notice("You try to perform CPR on [target.name]... Hold still!"))
@@ -607,13 +604,25 @@
 			add_mood_event("saved_life", /datum/mood_event/saved_life)
 		log_combat(src, target, "CPRed")
 
+		/* NOVA EDIT REMOVAL BEGIN - Allow CPR without lungs
 		if (HAS_TRAIT(target, TRAIT_NOBREATH))
 			to_chat(target, span_unconscious("You feel a breath of fresh air... which is a sensation you don't recognise..."))
 		else if (!target.get_organ_slot(ORGAN_SLOT_LUNGS))
 			to_chat(target, span_unconscious("You feel a breath of fresh air... but you don't feel any better..."))
+		*/// NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDTION BEGIN - Allow CPR without lungs
+		var/can_breathe = TRUE // If FALSE, then chest compressions are the only option
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth) || (human_lungs.organ_flags & ORGAN_FAILING))
+			can_breathe = FALSE
+		if(issynthetic(target)) // Synthetic humanoids don't benefit from CPR
+			to_chat(target, span_unconscious("You feel someone pushing down onto your chest, but you don't feel any better..."))
+		else if(!can_breathe || (HAS_TRAIT(target, TRAIT_NOBREATH) || !target.get_organ_slot(ORGAN_SLOT_LUNGS)))
+			to_chat(target, span_unconscious("You feel someone pushing down onto your chest..."))
+			target.adjustOxyLoss(-min(target.getOxyLoss(), 5))
+		// NOVA EDIT ADDITION END
 		else
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
-			to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
+			to_chat(target, span_unconscious("You feel someone pushing on your chest, and fresh air inside your lungs... It feels good...")) // NOVA EDIT CHANGE - Original: to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
 
 		if (target.health <= target.crit_threshold)
 			if (!panicking)
@@ -749,7 +758,8 @@
 	// Updates the health bar, also sends signal
 	. = ..()
 	// Handles changing limb colors and stuff
-	hud_used.healthdoll?.update_appearance()
+	if(!(living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		hud_used.healthdoll?.update_appearance()
 
 /mob/living/carbon/human/fully_heal(heal_flags = HEAL_ALL)
 	if(heal_flags & HEAL_NEGATIVE_MUTATIONS)
@@ -1059,10 +1069,8 @@
 	var/health_deficiency = max((maxHealth - health), staminaloss)
 	if(health_deficiency >= 40)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)
-		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying, TRUE, multiplicative_slowdown = health_deficiency / 25)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
-		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
 
 /mob/living/carbon/human/is_bleeding()
 	if(HAS_TRAIT(src, TRAIT_NOBLOOD))
@@ -1212,6 +1220,12 @@
 
 /mob/living/carbon/human/species/lizard/silverscale
 	race = /datum/species/lizard/silverscale
+
+/mob/living/carbon/human/species/spirit
+	race = /datum/species/spirit
+
+/mob/living/carbon/human/species/ghost
+	race = /datum/species/spirit/ghost
 
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal

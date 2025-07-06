@@ -1,5 +1,5 @@
 /obj/item/organ/stomach/synth
-	name = "synthetic bio-reactor"
+	name = "synthetic fuel cell"
 	icon = 'modular_nova/master_files/icons/obj/surgery.dmi'
 	icon_state = "stomach-ipc"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -8,7 +8,7 @@
 	maxHealth = 1 * STANDARD_ORGAN_THRESHOLD
 	zone = "chest"
 	slot = "stomach"
-	desc = "A specialised mini reactor, for synthetic use only. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
+	desc = "A mini electrochemical reactor, for synthetic use only. Converts the chemical energy of a fuel into electricity to power synthetic bodies. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 
 /obj/item/organ/stomach/synth/emp_act(severity)
@@ -32,8 +32,8 @@
 			to_chat(owner, span_warning("Alert: Minor battery discharge!"))
 
 /datum/design/synth_stomach
-	name = "Synthetic Bio-Reactor"
-	desc = "A specialised mini reactor, for synthetic use only. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
+	name = "Synthetic Fuel Cell"
+	desc = "A mini electrochemical reactor, for synthetic use only. Converts the chemical energy of a fuel into electricity to power synthetic bodies. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
 	id = "synth_stomach"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS

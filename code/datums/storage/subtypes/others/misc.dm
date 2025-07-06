@@ -184,6 +184,7 @@
 			// NOVA EDIT ADDITION BEGIN
 			/obj/item/condom_pack,
 			/obj/item/gbp_punchcard,
+			/obj/item/disk/neuroware,
 			// NOVA EDIT ADDITION END
 			/obj/item/stack/spacecash,
 			/obj/item/holochip,
