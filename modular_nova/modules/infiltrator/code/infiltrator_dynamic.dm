@@ -63,7 +63,11 @@
 	var/datum/map_template/shuttle/infiltrator/infil_shuttle = SSmapping.shuttle_templates["traitor_default"]
 	var/x = rand(TRANSITIONEDGE,world.maxx - TRANSITIONEDGE - infil_shuttle.width)
 	var/y = rand(TRANSITIONEDGE,world.maxy - TRANSITIONEDGE - infil_shuttle.height)
-	var/z = SSmapping.empty_space.z_value
+	var/z
+	if(SSmapping.empty_space)
+		z = SSmapping.empty_space.z_value
+	else
+		z = 1
 	var/turf/turf = locate(x,y,z)
 	if(!turf)
 		CRASH("[src] found no turf to load its shuttle in")
