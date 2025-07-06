@@ -1115,24 +1115,24 @@
 /area/awaymission/beach/heretic)
 "hR" = (
 /obj/structure/rack,
-/obj/item/storage/medkit/tactical/premium{
-	pixel_x = 6;
+/obj/item/storage/medkit/civil_defense{
+	pixel_x = -7;
+	pixel_y = -5;
+	anchored = 1
+	},
+/obj/item/storage/medkit/civil_defense{
+	pixel_x = 9;
 	pixel_y = 7;
 	anchored = 1
 	},
-/obj/item/storage/medkit/civil_defense/stocked{
-	pixel_x = -10;
-	pixel_y = -5;
-	anchored = 1
-	},
-/obj/item/storage/medkit/civil_defense/stocked{
-	pixel_x = 5;
-	pixel_y = -5;
-	anchored = 1
-	},
-/obj/item/storage/medkit/tactical/ntrauma{
-	pixel_x = -8;
+/obj/item/storage/medkit/civil_defense{
+	pixel_x = -7;
 	pixel_y = 8;
+	anchored = 1
+	},
+/obj/item/storage/medkit/civil_defense{
+	pixel_x = 9;
+	pixel_y = -5;
 	anchored = 1
 	},
 /turf/open/floor/iron/small,
