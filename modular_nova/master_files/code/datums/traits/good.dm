@@ -173,35 +173,24 @@
 	desc = "You can hear even the quietest of sounds, but you're more vulnerable to hearing damage as a result. NOTE: This is a direct downgrade for Teshari!"
 	icon = FA_ICON_HEADPHONES_SIMPLE
 	value = 6
+	mob_trait = TRAIT_SENSITIVE_HEARING
 	gain_text = span_notice("You could hear a pin drop from 10 feet away.")
 	lose_text = span_danger("Your hearing feels less sensitive.")
 	medical_record_text = "Patient scored very highly in hearing tests."
+	/// Teshari hearing is an action, so here is its holder
+	var/datum/action/cooldown/spell/teshari_hearing/hearing_action
 
-	var/obj/item/organ/ears/old_ears // The mob's original ears, just in case.
-	var/obj/item/organ/ears/sensitive/sensitive_ears = new /obj/item/organ/ears/sensitive // The replacement ears.
-
-/datum/quirk/sensitive_hearing/post_add()
-	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
-	old_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-
-	if(!isnull(old_ears))
-		old_ears.Remove(carbon_quirk_holder, special = TRUE)
-		old_ears.moveToNullspace()
-		STOP_PROCESSING(SSobj, old_ears)
-
-	sensitive_ears.Insert(carbon_quirk_holder, special = TRUE)
+/datum/quirk/sensitive_hearing/add_unique()
+	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	//add action
+	hearing_action = new
+	ears.actions_types += list(hearing_action.type)
+	ears.add_item_action(hearing_action.type)
+	hearing_action.Grant(quirk_holder)
 
 /datum/quirk/sensitive_hearing/remove()
-	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
-	var/obj/item/organ/ears/current_ears = carbon_quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
-
-	if(isnull(old_ears)) // Make new generic ears if the original ones are missing
-		old_ears = new /obj/item/organ/ears
-
-	// Return the original ears.
-	if(!isnull(current_ears))
-		current_ears.Remove(carbon_quirk_holder, special = TRUE)
-		qdel(current_ears)
-
-	old_ears.Insert(carbon_quirk_holder, special = TRUE)
-	old_ears = null
+	var/obj/item/organ/ears/ears = quirk_holder.get_organ_slot(ORGAN_SLOT_EARS)
+	//remove action
+	ears.actions_types -= list(hearing_action.type)
+	ears.remove_item_action(hearing_action.type)
+	hearing_action.Remove(quirk_holder)
