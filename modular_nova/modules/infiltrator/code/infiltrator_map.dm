@@ -55,6 +55,7 @@
 
 //shuttle remote
 /obj/item/shuttle_remote/traitor
+	icon = 'icons/obj/devices/voice.dmi'
 	icon_state = "nukietalkie"
 	shuttle_away_id = "traitor_home"
 

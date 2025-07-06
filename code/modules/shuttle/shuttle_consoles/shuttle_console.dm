@@ -28,11 +28,10 @@
 	var/locked = FALSE
 	/// List of head revs who have already clicked through the warning about not using the console
 	var/static/list/dumb_rev_heads = list()
-	//NOVA EDIT ADDITION START
-	///the remote control device linked - shuttle remote
+	///the remote control device linked
 	var/datum/weakref/remote_ref
+	///may this console be remote controlled?
 	var/may_be_remote_controlled = FALSE
-	//NOVA EDIT ADDITION END
 	/// Authorization request cooldown to prevent request spam to admin staff
 	COOLDOWN_DECLARE(request_cooldown)
 

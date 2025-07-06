@@ -3,10 +3,8 @@
 	shuttleId = ""
 	possible_destinations = "whiteship_home;"
 	circuit = /obj/item/circuitboard/computer/shuttle/flight_control
-	var/static/list/connections = list(COMSIG_TURF_ADDED_TO_SHUTTLE = PROC_REF(on_loc_added_to_shuttle))
-	//NOVA EDIT ADDITION START
 	may_be_remote_controlled = TRUE
-	//NOVA EDIT ADDITION END
+	var/static/list/connections = list(COMSIG_TURF_ADDED_TO_SHUTTLE = PROC_REF(on_loc_added_to_shuttle))
 
 /obj/machinery/computer/shuttle/custom_shuttle/on_construction(mob/user, from_flatpack = FALSE)
 	circuit.configure_machine(src)
