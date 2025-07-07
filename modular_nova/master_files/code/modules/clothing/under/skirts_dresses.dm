@@ -40,15 +40,6 @@
 //TG's icons only have a dress.dmi, but that means it's not ABC-sorted to be beside shorts_pants_shirts.dmi. So it's skirts_dresses for us.
 
 /*
- *	TG DIGI VERSION DRESSES
- */
-/obj/item/clothing/under/dress/striped
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/under/dress/skirt/plaid
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/*
  *	Skirts
  */
 
@@ -147,6 +138,18 @@
 	greyscale_colors = "#3a3c45"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	alternate_worn_layer = ABOVE_SHOES_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/nova/mini_skirt
+	name = "mini skirt"
+	desc = "A hiked up miniskirt, perfect for showing off those legs or cute new socks!"
+	body_parts_covered = GROIN
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/mini_skirt"
+	post_init_icon_state = "mini_skirt"
+	greyscale_config = /datum/greyscale_config/mini_skirt
+	greyscale_config_worn = /datum/greyscale_config/mini_skirt/worn
+	greyscale_colors = "#898989#1c1c1c#a21278#eeeeee"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
