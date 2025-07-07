@@ -1,3 +1,5 @@
+// LOADOUT ITEM DATUMS FOR TOY ITEMS, PLACED DIRECTLY INTO THE BACKPACK
+
 /datum/loadout_category/toys
 	category_name = "Toys"
 	category_ui_icon = FA_ICON_TROPHY
@@ -29,12 +31,89 @@
 /datum/loadout_item/toys
 	abstract_type = /datum/loadout_item/toys
 
+/datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
+	return FALSE
+
+/*
+*	ITEMS BELOW HERE
+*/
+
+/datum/loadout_item/toys/crayons
+	//Extra space forces the "Toys" Group to the top
+	name = " Box of Crayons"
+	item_path = /obj/item/storage/crayons
+
+/datum/loadout_item/toys/cat_toy
+	name = "Cat Toy"
+	item_path = /obj/item/toy/cattoy
+
+/datum/loadout_item/toys/dog_bone
+	name = "Jumbo Dog Bone"
+	item_path = /obj/item/dog_bone
+
+/datum/loadout_item/toys/red_laser
+	name = "Laser Pointer (Red)"
+	item_path = /obj/item/laser_pointer/limited/red
+
+/datum/loadout_item/toys/green_laser
+	name = "Laser Pointer (Green)"
+	item_path = /obj/item/laser_pointer/limited/green
+
+/datum/loadout_item/toys/blue_laser
+	name = "Laser Pointer (Blue)"
+	item_path = /obj/item/laser_pointer/limited/blue
+
+/datum/loadout_item/toys/purple_laser
+	name = "Laser Pointer (Purple)"
+	item_path = /obj/item/laser_pointer/limited/purple
+
+/datum/loadout_item/toys/eightball
+	name = "Magic Eightball"
+	item_path = /obj/item/toy/eightball
+
+/datum/loadout_item/toys/spray_can
+	name = "Spray Can"
+	item_path = /obj/item/toy/crayon/spraycan
+
+/datum/loadout_item/toys/toykatana
+	name = "Toy Katana"
+	item_path = /obj/item/toy/katana
+
+/*
+*	TENNIS BALLS
+*/
+
+/datum/loadout_item/toys/tennis
+	name = "Tennis Ball (Classic)"
+	item_path = /obj/item/toy/tennis
+
+/datum/loadout_item/toys/tennisred
+	name = "Tennis Ball (Red)"
+	item_path = /obj/item/toy/tennis/red
+
+/datum/loadout_item/toys/tennisyellow
+	name = "Tennis Ball (Yellow)"
+	item_path = /obj/item/toy/tennis/yellow
+
+/datum/loadout_item/toys/tennisgreen
+	name = "Tennis Ball (Green)"
+	item_path = /obj/item/toy/tennis/green
+
+/datum/loadout_item/toys/tenniscyan
+	name = "Tennis Ball (Cyan)"
+	item_path = /obj/item/toy/tennis/cyan
+
+/datum/loadout_item/toys/tennisblue
+	name = "Tennis Ball (Blue)"
+	item_path = /obj/item/toy/tennis/blue
+
+/datum/loadout_item/toys/tennispurple
+	name = "Tennis Ball (Purple)"
+	item_path = /obj/item/toy/tennis/purple
+
 /*
 *	PLUSHIES
 */
-
-/datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
-	return FALSE
 
 /datum/loadout_item/toys/plush
 	group = "Plushies"
@@ -324,20 +403,20 @@
 	item_path = /obj/item/storage/card_binder
 
 /datum/loadout_item/toys/card_deck
-	name = "Playing Card Deck"
+	name = "Card Deck"
 	item_path = /obj/item/toy/cards/deck
 
 /datum/loadout_item/toys/kotahi_deck
-	name = "Kotahi Deck"
+	name = "Card Deck - Kotahi"
 	item_path = /obj/item/toy/cards/deck/kotahi
 
-/datum/loadout_item/toys/wizoff_deck
-	name = "Wizoff Deck"
-	item_path = /obj/item/toy/cards/deck/wizoff
-
 /datum/loadout_item/toys/tarot
-	name = "Tarot Card Deck"
+	name = "Card Deck - Tarot"
 	item_path = /obj/item/toy/cards/deck/tarot
+
+/datum/loadout_item/toys/wizoff_deck
+	name = "Card Deck - Wizoff"
+	item_path = /obj/item/toy/cards/deck/wizoff
 
 /*
 *	DICE
@@ -406,80 +485,3 @@
 /datum/loadout_item/toys/dice/d00
 	name = "D00"
 	item_path = /obj/item/dice/d00
-
-
-/*
-*	TENNIS BALLS
-*/
-
-/datum/loadout_item/toys/tennis
-	name = "Tennis Ball (Classic)"
-	item_path = /obj/item/toy/tennis
-
-/datum/loadout_item/toys/tennisred
-	name = "Tennis Ball (Red)"
-	item_path = /obj/item/toy/tennis/red
-
-/datum/loadout_item/toys/tennisyellow
-	name = "Tennis Ball (Yellow)"
-	item_path = /obj/item/toy/tennis/yellow
-
-/datum/loadout_item/toys/tennisgreen
-	name = "Tennis Ball (Green)"
-	item_path = /obj/item/toy/tennis/green
-
-/datum/loadout_item/toys/tenniscyan
-	name = "Tennis Ball (Cyan)"
-	item_path = /obj/item/toy/tennis/cyan
-
-/datum/loadout_item/toys/tennisblue
-	name = "Tennis Ball (Blue)"
-	item_path = /obj/item/toy/tennis/blue
-
-/datum/loadout_item/toys/tennispurple
-	name = "Tennis Ball (Purple)"
-	item_path = /obj/item/toy/tennis/purple
-
-/*
-*	MISC
-*/
-
-/datum/loadout_item/toys/cat_toy
-	name = "Cat Toy"
-	item_path = /obj/item/toy/cattoy
-
-/datum/loadout_item/toys/crayons
-	name = "Box of Crayons"
-	item_path = /obj/item/storage/crayons
-
-/datum/loadout_item/toys/spray_can
-	name = "Spray Can"
-	item_path = /obj/item/toy/crayon/spraycan
-
-/datum/loadout_item/toys/eightball
-	name = "Magic Eightball"
-	item_path = /obj/item/toy/eightball
-
-/datum/loadout_item/toys/toykatana
-	name = "Toy Katana"
-	item_path = /obj/item/toy/katana
-
-/datum/loadout_item/toys/red_laser
-	name = "Red Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/red
-
-/datum/loadout_item/toys/green_laser
-	name = "Green Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/green
-
-/datum/loadout_item/toys/blue_laser
-	name = "Blue Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/blue
-
-/datum/loadout_item/toys/purple_laser
-	name = "Purple Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/purple
-
-/datum/loadout_item/toys/dog_bone
-	name = "Jumbo Dog Bone"
-	item_path = /obj/item/dog_bone
