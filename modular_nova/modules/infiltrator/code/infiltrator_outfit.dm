@@ -18,6 +18,7 @@
 		)
 
 /obj/structure/mannequin/plastic/infiltrator_memory/loadout
+	/// The client of the antag who signed up for the ghost roll
 	var/client/antag_client
 
 /obj/structure/mannequin/plastic/infiltrator_memory/loadout/Initialize(mapload)
@@ -33,6 +34,8 @@
 	var/list/loadout_entries = antag_client.prefs.read_preference(/datum/preference/loadout)
 	var/list/selected_loadout = loadout_entries[antag_client.prefs.read_preference(/datum/preference/loadout_index)]
 	var/list/loadout_datums = antag_client.get_loadout_datums()
+	if(!loadout_datums.len)
+		return
 	//create our list of items
 	for(var/datum/loadout_item/datum as anything in loadout_datums)
 		LAZYADD(starting_items, datum.item_path)
@@ -60,7 +63,6 @@
 
 				starting_items -= item
 				break
-
 	//display the physique our player has
 	var/mob/living/carbon/human/user = antag_client.mob
 	body_type = user.physique
