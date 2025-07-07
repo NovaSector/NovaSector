@@ -217,10 +217,6 @@
 /datum/loadout_item/neck/necktie
 	name = "Tie  (Colorable)"
 
-/datum/loadout_item/neck/bowtie_black
-	name = "Tie  - Bow"
-	item_path = /obj/item/clothing/neck/bowtie
-
 /datum/loadout_item/neck/necktie_black
 	name = "Tie (Black)"
 	item_path = /obj/item/clothing/neck/tie/black
@@ -232,6 +228,10 @@
 /datum/loadout_item/neck/necktie_red
 	name = "Tie (Red)"
 	item_path = /obj/item/clothing/neck/tie/red
+
+/datum/loadout_item/neck/bowtie_black
+	name = "Tie - Bow"
+	item_path = /obj/item/clothing/neck/bowtie
 
 /datum/loadout_item/neck/discoproper
 	name = "Tie - Horrible"
