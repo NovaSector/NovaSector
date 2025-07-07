@@ -130,7 +130,7 @@
 	else
 		to_chat(affected_human, span_notice("You need to unfold the bag before inflating it!"))
 
-/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/fold(mob/user, src)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/fold(mob/user)
 	bag_fold = !bag_fold
 	playsound_if_pref(user, 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
 	if(bag_fold == TRUE)

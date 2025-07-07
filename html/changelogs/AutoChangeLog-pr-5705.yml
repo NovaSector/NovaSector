@@ -1,6 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - qol: "Sorted the following Loadout groups: Head, Inhands, Masks."
-  - rscadd: "Added Bandana (Colorable), Bandana (Colorable, Stripe), and Thin Bandana to the Loadout"
-  - rscdel: "Removed \"Commercial FIR-36 Half-Face Rebreather\" from the Loadout (use the normal \"FIR-36 Half-Face Rebreather\")"

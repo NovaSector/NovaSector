@@ -1,5 +1,0 @@
-author: "OrionTheFox"
-delete-after: True
-changes:
-  - qol: "Sorted the following Loadout groups: Accessory, Belt, Ears, Glasses, Gloves."
-  - bugfix: "fixed the Military Ribbon not being player-colorable."
