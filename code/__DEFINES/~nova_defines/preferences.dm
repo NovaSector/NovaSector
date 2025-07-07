@@ -14,6 +14,12 @@
 #define ORGAN_PREF_POSI_BRAIN "Positronic Brain"
 #define ORGAN_PREF_MMI_BRAIN "Man-Machine Interface"
 #define ORGAN_PREF_CIRCUIT_BRAIN "Circuitboard"
+#define ORGAN_PREF_HYPERBOARD_BRAIN "Hyper-board"
+#define ORGAN_PREF_LIMAENGINE_BRAIN "Lima-Engine Board"
+#define ORGAN_PREF_DISKBRAIN_BRAIN "Expanded Disk"
+#define ORGAN_PREF_NEUROBOARD_BRAIN "Neuro-Board"
+#define ORGAN_PREF_CONDENSED_BRAIN "Condensed Crystal Interface"
+#define ORGAN_PREF_CYBERDECK_BRAIN "Advanced Cyberdeck Interface"
 
 // Playtime is tracked in minutes
 /// Have any less hours than listed below and you get access to a pin indicating you're new
