@@ -65,6 +65,14 @@
 	name = "Strange Goat Plushie"
 	item_path = /obj/item/toy/plush/goatplushie
 
+/datum/loadout_item/toys/plush/human
+	name = "Human Plushie"
+	item_path = /obj/item/toy/plush/human
+
+/*
+*	MODULAR
+*/
+
 /datum/loadout_item/toys/plush/sechound
 	name = "Sechound Plushie"
 	item_path = /obj/item/toy/plush/nova/sechound
@@ -97,6 +105,38 @@
 	name = "Deer Plushie"
 	item_path = /obj/item/toy/plush/nova/deer
 
+/datum/loadout_item/toys/plush/fox
+	name = "Fox Plushie"
+	item_path = /obj/item/toy/plush/nova/fox
+
+/datum/loadout_item/toys/plush/ianbastardman
+	name = "Ian Plushie"
+	item_path = /obj/item/toy/plush/nova/ian
+
+/datum/loadout_item/toys/plush/corgiman
+	name = "Corgi Plushie"
+	item_path = /obj/item/toy/plush/nova/ian/small
+
+/datum/loadout_item/toys/plush/corgiwoman
+	name = "Girly Corgi Plushie"
+	item_path = /obj/item/toy/plush/nova/ian/lisa
+
+/datum/loadout_item/toys/plush/cat
+	name = "Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/cat
+
+/datum/loadout_item/toys/plush/tuxcat
+	name = "Tux Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/cat/tux
+
+/datum/loadout_item/toys/plush/whitecat
+	name = "White Cat Plushie"
+	item_path = /obj/item/toy/plush/nova/cat/white
+
+/*
+*	DONATOR
+*/
+
 /datum/loadout_item/toys/plush/fermis
 	name = "Medcat Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/fermis
@@ -104,10 +144,6 @@
 /datum/loadout_item/toys/plush/chen
 	name = "Securicat Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/fermis/chen
-
-/datum/loadout_item/toys/plush/fox
-	name = "Fox Plushie"
-	item_path = /obj/item/toy/plush/nova/fox
 
 /datum/loadout_item/toys/plush/duffmoff
 	name = "Suspicious Moth Plushie"
@@ -140,34 +176,6 @@
 /datum/loadout_item/toys/plush/riffplush
 	name = "Valid Plushie"
 	item_path = /obj/item/toy/plush/nova/donator/riffplush
-
-/datum/loadout_item/toys/plush/ianbastardman
-	name = "Ian Plushie"
-	item_path = /obj/item/toy/plush/nova/ian
-
-/datum/loadout_item/toys/plush/corgiman
-	name = "Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/small
-
-/datum/loadout_item/toys/plush/corgiwoman
-	name = "Girly Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/lisa
-
-/datum/loadout_item/toys/plush/cat
-	name = "Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat
-
-/datum/loadout_item/toys/plush/tuxcat
-	name = "Tux Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/tux
-
-/datum/loadout_item/toys/plush/whitecat
-	name = "White Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/white
-
-/datum/loadout_item/toys/plush/human
-	name = "Human Plushie"
-	item_path = /obj/item/toy/plush/human
 
 /datum/loadout_item/toys/plush/seaduplush
 	name = "Sneed Plushie"
