@@ -1,0 +1,5 @@
+author: "carpotoxin"
+delete-after: True
+changes:
+  - rscadd: "Added the visitor quirk! Join with limited records data and no automatic manifest injection"
+  - qol: "Assistants and prisoners can't clock out anymore. No more 'Off-duty off-duty' crew"
