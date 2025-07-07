@@ -152,7 +152,6 @@
 	greyscale_colors = "#898989#1c1c1c#a21278#eeeeee"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-
 /*
  *	Dresses
  */
