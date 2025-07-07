@@ -1,5 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - balance: "TWitch users can be attacked in melee range (including firing a gun at them) to stagger them for 6 seconds, maxing out at 12 seconds, or have a damaging item thrown at them to stagger them for 3 seconds, maxing out at 6 seconds."
-  - balance: "Staggered and/or legcuffed TWitch users can no longer dodge bullets. This doesn't stop the rest of the TWitch effects, though (speed, reduced clickdelay, etc.)."

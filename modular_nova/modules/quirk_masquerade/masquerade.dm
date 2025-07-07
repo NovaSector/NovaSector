@@ -8,3 +8,10 @@
 	mob_trait = TRAIT_MASQUERADE_FOOD
 	icon = FA_ICON_MASKS_THEATER
 	quirk_flags = QUIRK_HUMAN_ONLY
+
+/datum/quirk/masquerade_food/is_species_appropriate(datum/species/mob_species)
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_DRINKS_BLOOD in species_traits)
+		return TRUE
+	else
+		return FALSE
