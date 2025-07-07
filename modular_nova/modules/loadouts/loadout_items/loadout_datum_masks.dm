@@ -198,7 +198,7 @@
 /*
 *	JOB-LOCKED
 */
-// No group here because it's only one item (groups should be maybe 5+)
+// No group (groups should be ~5+ items)
 
 /datum/loadout_item/mask/whistlesec
 	name = "Police Whistle"
