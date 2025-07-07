@@ -4,22 +4,6 @@
 	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
 	antag_flag = ROLE_INFILTRATOR
 	signup_item_path = /obj/item/clothing/mask/gas/syndicate
-	restricted_roles = list(JOB_CYBORG,
-							JOB_AI,
-							JOB_SECURITY_OFFICER,
-							JOB_WARDEN,
-							JOB_DETECTIVE,
-							JOB_HEAD_OF_SECURITY,
-							JOB_CAPTAIN,
-							JOB_CORRECTIONS_OFFICER,
-							JOB_NT_REP,
-							JOB_BLUESHIELD,
-							JOB_ORDERLY,
-							JOB_BOUNCER,
-							JOB_CUSTOMS_AGENT,
-							JOB_ENGINEERING_GUARD,
-							JOB_SCIENCE_GUARD,
-							)
 	required_candidates = 1
 	weight = 4 //Slightly less common than normal midround traitors.
 	cost = 4 //But also slightly more costly.
@@ -31,16 +15,13 @@
 	var/mob/living/carbon/human/new_character = make_body(applicant)
 	new_character.dna.species.pre_equip_species_outfit(null, new_character)
 	var/datum/mind/player_mind = new /datum/mind(applicant.key)
+	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/infiltrator))
 	player_mind.active = TRUE
 
+	LAZYADDASSOC(SSjob.dynamic_forced_occupations, new_character.client, ROLE_INFILTRATOR)
 	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into an infiltrator by midround ruleset.")
 	log_game("[key_name(new_character)] was spawned as an infiltrator by midround ruleset.")
 	return new_character
-
-/datum/dynamic_ruleset/midround/from_ghosts/infiltrator/finish_setup(mob/new_character, index)
-	. = ..()
-	new_character.mind.special_role = ROLE_SYNDICATE
-	new_character.mind.set_assigned_role(SSjob.get_job_type(/datum/job/infiltrator))
 
 /datum/dynamic_ruleset/midround/from_ghosts/infiltrator/setup_role(datum/antagonist/traitor/infiltrator/role)
 	//get our number
