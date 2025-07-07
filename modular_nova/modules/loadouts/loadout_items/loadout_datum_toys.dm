@@ -143,10 +143,12 @@
 	group = "Dice"
 	abstract_type = /datum/loadout_item/toys/dice
 
-/datum/loadout_item/toys/dice/dice_bag
-	name = "Dice Bag"
-	item_path = /obj/item/storage/dice
+/datum/loadout_item/toys/dice/d00
+	//Extra space forces "Dice" Group above "Plushies"
+	name = " D00"
+	item_path = /obj/item/dice/d00
 
+//I am NOT alphabetizing numbers dawg. It's not actually number order 11 comes before 2
 /datum/loadout_item/toys/dice/d1
 	name = "D1"
 	item_path = /obj/item/dice/d1
@@ -199,6 +201,6 @@
 	name = "D100"
 	item_path = /obj/item/dice/d100
 
-/datum/loadout_item/toys/dice/d00
-	name = "D00"
-	item_path = /obj/item/dice/d00
+/datum/loadout_item/toys/dice/dice_bag
+	name = "Dice Bag"
+	item_path = /obj/item/storage/dice
