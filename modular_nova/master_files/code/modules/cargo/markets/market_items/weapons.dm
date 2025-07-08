@@ -47,8 +47,8 @@
 	name = "WT-550 Ammo Box"
 	desc = "A mass produced ammo box by NT, compatible with WT-550s, contains 6 normal magazines."
 	item = /obj/item/storage/toolbox/ammobox/wt550m9
-	price_min = CARGO_CRATE_VALUE * 0.5
-	price_max = CARGO_CRATE_VALUE * 1
+	price_min = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 3
 	stock_max = 50
 	availability_prob = 100
 
@@ -56,8 +56,8 @@
 	name = "WT-550 AP Ammo Box"
 	desc = "A mass produced ammo box by NT, compatible with WT-550s, contains 6 armor penetrating magazines."
 	item = /obj/item/storage/toolbox/ammobox/wt550m9ap
-	price_min = CARGO_CRATE_VALUE * 1
-	price_max = CARGO_CRATE_VALUE * 2
+	price_min = CARGO_CRATE_VALUE * 3
+	price_max = CARGO_CRATE_VALUE * 4
 	stock_max = 25
 	availability_prob = 100
 
