@@ -241,10 +241,10 @@
 		visible_message(span_danger("[user] slashes at [src]!"), \
 						span_userdanger("[user] slashes at you!"), span_hear("You hear a sickening sound of a slice!"), null, user)
 		to_chat(user, span_danger("You slash at [src]!"))
+		if(dismembering_strike(user, user.zone_selected)) //Dismemberment successful
+			apply_damage(damage, BRUTE, affecting, armor_block)
 		log_combat(user, src, "attacked")
-		if(!dismembering_strike(user, user.zone_selected)) //Dismemberment successful
-			return TRUE
-		apply_damage(damage, BRUTE, affecting, armor_block)
+		return TRUE
 
 /mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/worm, list/modifiers)
 	. = ..()
@@ -562,7 +562,7 @@
 
 	combined_msg += span_notice("<b>You check yourself for injuries.</b>")
 
-	var/list/missing = GLOB.all_body_zones.Copy()
+	var/list/missing = get_all_limbs()
 
 	for(var/obj/item/bodypart/body_part as anything in bodyparts)
 		missing -= body_part.body_zone

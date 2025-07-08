@@ -3,7 +3,7 @@
  * You can't really use the non-modular version, least you eventually want asinine merge
  * conflicts and/or potentially disastrous issues to arise, so here's your own.
  */
-#define MODULAR_SAVEFILE_VERSION_MAX 13
+#define MODULAR_SAVEFILE_VERSION_MAX 15
 
 #define MODULAR_SAVEFILE_UP_TO_DATE -1
 
@@ -19,6 +19,8 @@
 #define VERSION_CAT_EARS_DUPES 10
 #define VERSION_LOADOUT_PRESETS 12
 #define VERSION_EMO_LONG_REMOVAL 13
+#define VERSION_TOOLKIT_IMPLANTS 14
+#define VERSION_VOCAL_BARKS 15
 
 #define INDEX_UNDERWEAR 1
 #define INDEX_BRA 2
@@ -305,6 +307,13 @@
 		var/current_hair = save_data["hairstyle_name"]
 		if(current_hair == "Emo Long")
 			write_preference(GLOB.preference_entries[/datum/preference/choiced/hairstyle], "Long Emo")
+	if(current_version < VERSION_TOOLKIT_IMPLANTS)
+		migrate_toolset_implants(save_data)
+
+	if(current_version < VERSION_VOCAL_BARKS)
+		var/current_tts_voice = save_data["tts_voice"]
+		if(current_tts_voice != TTS_VOICE_NONE && current_tts_voice != "invalid") // make sure we don't turn off TTS for people who have it on
+			write_preference(GLOB.preference_entries[/datum/preference/choiced/vocals/voice_type], "Text-to-speech")
 
 /datum/preferences/proc/check_migration()
 	if(!tgui_prefs_migration)
@@ -375,7 +384,26 @@
 			augments_sanitized[aug_slot] = aug_entry
 	augments = augments_sanitized
 
+/// Migration for loadout augments, replaces augments with /toolkit versions if the original doesn't exist
+/datum/preferences/proc/migrate_toolset_implants(list/save_data)
+	var/list/save_augments = SANITIZE_LIST(save_data["augments"])
+	if(!length(save_augments))
+		return
+	for(var/augment_name in save_augments)
+		var/augment_path_string = save_augments[augment_name]
+		var/augment_path = GLOB.augment_items[_text2path(augment_path_string)]
+		if(augment_path) // The augment already exists, neat!
+			continue
+		// Saved augment doesn't exist, try the toolkit version
+		augment_path_string = replacetext(augment_path_string, "/cyberimp/arm/", "/cyberimp/arm/toolkit/")
+		augment_path = GLOB.augment_items[_text2path(augment_path_string)]
+		if(augment_path) // Toolkit version exists, save that instead
+			save_augments[augment_name] = augment_path_string
+			continue
+		stack_trace("Attempt to migrate augment item [save_augments[augment_name]] failed!")
+		save_augments -= augment_name
 
+	load_augments(save_augments)
 
 #undef MODULAR_SAVEFILE_VERSION_MAX
 #undef MODULAR_SAVEFILE_UP_TO_DATE
@@ -392,3 +420,5 @@
 #undef VERSION_CAT_EARS_DUPES
 #undef VERSION_LOADOUT_PRESETS
 #undef VERSION_EMO_LONG_REMOVAL
+#undef VERSION_TOOLKIT_IMPLANTS
+#undef VERSION_VOCAL_BARKS

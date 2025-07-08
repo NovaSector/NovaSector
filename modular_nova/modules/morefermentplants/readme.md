@@ -23,5 +23,6 @@ Adds new plant fermentation results for plants that didn't have them
 - N/A
 
 ### Credits:
+
 lyricalpaws - Coding
 ambrosia - Original bounty

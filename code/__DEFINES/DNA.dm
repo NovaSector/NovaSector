@@ -145,6 +145,8 @@
 #define CHROMOSOME_NONE 1
 #define CHROMOSOME_USED 2
 
+#define MUTATION_COEFFICIENT_UNMODIFIABLE -1
+
 //used for mob's genetic gender (mainly just for pronouns, members of sexed species with plural gender refer to their physique for the actual sprites, which is not genetic)
 #define GENDERS 4
 #define G_MALE 1
@@ -185,10 +187,8 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_XENO_RESINSPINNER,
 	ORGAN_SLOT_XENO_ACIDGLAND,
 	ORGAN_SLOT_XENO_NEUROTOXINGLAND,
-	ORGAN_SLOT_XENO_EGGSAC,))
-
-//Defines for Golem Species IDs
-#define SPECIES_GOLEM "golem"
+	ORGAN_SLOT_XENO_EGGSAC,
+))
 
 // Defines for used in creating "perks" for the species preference pages.
 /// A key that designates UI icon displayed on the perk.

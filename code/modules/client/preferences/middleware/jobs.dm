@@ -25,6 +25,10 @@
 		return FALSE
 
 	preferences.character_preview_view?.update_body()
+	// NOVA EDIT ADDITION START
+	if(!SSticker.HasRoundStarted())
+		SEND_SIGNAL(user, COMSIG_JOB_PREF_UPDATED)
+	// NOVA EDIT ADDITION END
 
 	return TRUE
 
@@ -42,6 +46,8 @@
 		return FALSE
 
 	preferences.alt_job_titles[job_title] = new_job_title
+	if(!SSticker.HasRoundStarted())
+		SEND_SIGNAL(user, COMSIG_JOB_PREF_UPDATED)
 
 	return TRUE
 // NOVA EDIT ADDITION END

@@ -59,7 +59,7 @@
 	damage = 70
 	armour_penetration = 50
 	wound_bonus = 15 // Toned back down, as it's getting alot more damage.
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	demolition_mod = 1.8
 	/// How much damage we add to things that are weak to this bullet
 	var/anti_materiel_damage_addition = 30

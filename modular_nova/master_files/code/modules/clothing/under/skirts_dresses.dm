@@ -11,21 +11,33 @@
 /obj/item/clothing/under/dress/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	post_init_icon_state = null // we do not want to be inheriting this from the parent type and override our icon_state with theirs
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+
+// These base types should never exist in game
+/obj/item/clothing/under/dress/nova/Initialize(mapload)
+	. = ..()
+	if(type == /obj/item/clothing/under/dress/nova)
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/clothing/under/dress/skirt/nova	//Just so they can stay under TG's skirts in case code needs subtypes of them (also SDMM dropdown looks nicer like this)
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	icon_state = null
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+
+// These base types should never exist in game
+/obj/item/clothing/under/dress/skirt/nova/Initialize(mapload)
+	. = ..()
+	if(type == /obj/item/clothing/under/dress/skirt/nova)
+		return INITIALIZE_HINT_QDEL
 
 //TG's icons only have a dress.dmi, but that means it's not ABC-sorted to be beside shorts_pants_shirts.dmi. So it's skirts_dresses for us.
-
-/*
- *	TG DIGI VERSION DRESSES
- */
-/obj/item/clothing/under/dress/striped
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-
-/obj/item/clothing/under/dress/skirt/plaid
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /*
  *	Skirts
@@ -36,9 +48,6 @@
 	desc = "Formal skirt."
 	icon_state = "skirt_swept"
 	body_parts_covered = GROIN
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 	name = "red bra and striped skirt"
@@ -47,9 +56,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/red_skirt
 	name = "red bra and skirt"
@@ -58,9 +64,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/black_skirt
 	name = "black bra and skirt"
@@ -69,14 +72,13 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = TRUE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
 
 /obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit //Essentially the same as the Turtleneck Skirt but with a different texture
 	name = "cableknit skirt"
 	desc = "A casual turtleneck skirt, with a cableknit pattern."
-	icon_state = "turtleskirt_knit"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit"
+	post_init_icon_state = "turtleskirt_knit"
 	custom_price = PAYCHECK_CREW
 	greyscale_config = /datum/greyscale_config/turtleskirt_knit
 	greyscale_config_worn = /datum/greyscale_config/turtleskirt_knit/worn
@@ -88,9 +90,11 @@
 /obj/item/clothing/under/dress/skirt/nova/jean
 	name = "jean skirt"
 	desc = "Technically, is there much difference between these and jorts? It's just one big hole instead of two. Does that make this a jirt?"
-	icon_state = "jean_skirt"
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/jean"
+	post_init_icon_state = "jean_skirt"
 	greyscale_config = /datum/greyscale_config/jean_skirt
 	greyscale_config_worn = /datum/greyscale_config/jean_skirt/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/jean_skirt/worn/digi
@@ -100,8 +104,10 @@
 /obj/item/clothing/under/dress/skirt/nova/lone_skirt
 	name = "skirt"
 	desc = "Just a skirt! Hope you have a tanktop to wear with this."
-	icon_state = "lone_skirt"
 	body_parts_covered = GROIN
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/lone_skirt"
+	post_init_icon_state = "lone_skirt"
 	greyscale_config = /datum/greyscale_config/lone_skirt
 	greyscale_config_worn = /datum/greyscale_config/lone_skirt/worn
 	greyscale_colors = "#5f534a"
@@ -110,8 +116,10 @@
 /obj/item/clothing/under/dress/skirt/nova/medium
 	name = "medium skirt"
 	desc = "An appealing medium-length skirt. Top not included."
-	icon_state = "medium_skirt"
 	body_parts_covered = GROIN
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/medium"
+	post_init_icon_state = "medium_skirt"
 	greyscale_config = /datum/greyscale_config/medium_skirt
 	greyscale_config_worn = /datum/greyscale_config/medium_skirt/worn
 	greyscale_colors = "#3a3c45"
@@ -121,13 +129,27 @@
 /obj/item/clothing/under/dress/skirt/nova/long
 	name = "long skirt"
 	desc = "An appealing long skirt. At this point does it qualify as a dress?"
-	icon_state = "long_skirt"
 	body_parts_covered = GROIN|LEGS
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/long"
+	post_init_icon_state = "long_skirt"
 	greyscale_config = /datum/greyscale_config/long_skirt
 	greyscale_config_worn = /datum/greyscale_config/long_skirt/worn
 	greyscale_colors = "#3a3c45"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	alternate_worn_layer = ABOVE_SHOES_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/nova/mini_skirt
+	name = "mini skirt"
+	desc = "A hiked up miniskirt, perfect for showing off those legs or cute new socks!"
+	body_parts_covered = GROIN
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/mini_skirt"
+	post_init_icon_state = "mini_skirt"
+	greyscale_config = /datum/greyscale_config/mini_skirt
+	greyscale_config_worn = /datum/greyscale_config/mini_skirt/worn
+	greyscale_colors = "#898989#1c1c1c#a21278#eeeeee"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /*
@@ -137,7 +159,9 @@
 /obj/item/clothing/under/dress/nova/short_dress
 	name = "short dress"
 	desc = "An extremely short dress with a lovely sash and flower - only for those with good self-confidence."
-	icon_state = "short_dress"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/short_dress"
+	post_init_icon_state = "short_dress"
 	greyscale_config = /datum/greyscale_config/short_dress
 	greyscale_config_worn = /datum/greyscale_config/short_dress/worn
 	greyscale_colors = "#ff3636#363030"
@@ -171,8 +195,10 @@
 /obj/item/clothing/under/dress/nova/strapless
 	name = "strapless dress"
 	desc = "Typical formal wear with no straps, instead opting to be tied at the waist. Most likely will need constant adjustments."
-	icon_state = "dress_strapless"
 	body_parts_covered = CHEST|GROIN|LEGS
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/strapless"
+	post_init_icon_state = "dress_strapless"
 	greyscale_config = /datum/greyscale_config/strapless_dress
 	greyscale_config_worn = /datum/greyscale_config/strapless_dress/worn
 	greyscale_colors = "#cc0000#5f5f5f"
@@ -181,8 +207,10 @@
 /obj/item/clothing/under/dress/nova/pentagram
 	name = "pentagram strapped dress"
 	desc = "A soft dress with straps designed to rest as a pentragram. Isn't this against NT's whole \"Authorized Religion\" stuff?"
-	icon_state = "dress_pentagram"
 	body_parts_covered = CHEST|GROIN|LEGS
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/pentagram"
+	post_init_icon_state = "dress_pentagram"
 	greyscale_config = /datum/greyscale_config/pentagram_dress
 	greyscale_config_worn = /datum/greyscale_config/pentagram_dress/worn
 	greyscale_colors = "#403c46"
@@ -197,9 +225,10 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/dress/wedding_dress
-	icon_state = "wedding_dress"
-	icon = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/wedding_dress"
+	post_init_icon_state = "wedding_dress"
 	greyscale_config = /datum/greyscale_config/wedding_dress
 	greyscale_config_worn = /datum/greyscale_config/wedding_dress/worn
 	greyscale_colors = "#FFFFFF"
@@ -211,16 +240,20 @@
 /obj/item/clothing/under/dress/wedding_dress/ribbon
 	name = "wedding dress with ribbon"
 	desc = "A luxurious gown for once-in-a-lifetime occasions. Now with a cute ribbon, because you deserve it!"
-	icon_state = "wedding_dress_with_ribbon"
 	greyscale_colors = "#FFFFFF#FF0000"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/wedding_dress/ribbon"
+	post_init_icon_state = "wedding_dress_with_ribbon"
 	greyscale_config = /datum/greyscale_config/wedding_dress_ribbon
 	greyscale_config_worn = /datum/greyscale_config/wedding_dress_ribbon/worn
 
 /obj/item/clothing/under/dress/nova/giant_scarf
 	name = "giant scarf"
 	desc = "An absurdly massive scarf, worn as the main article of clothing over the body. Ironically, not very suitable for the cold."
-	icon_state = "giant_scarf"
 	body_parts_covered = CHEST|GROIN|LEGS
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf"
+	post_init_icon_state = "giant_scarf"
 	greyscale_config = /datum/greyscale_config/giant_scarf
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/worn
 	greyscale_colors = "#EEEEEE"
@@ -228,61 +261,71 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/nova/giant_scarf/crystal
-	icon_state = "giant_scarf_crystal"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/crystal"
+	post_init_icon_state = "giant_scarf_crystal"
 	greyscale_config = /datum/greyscale_config/giant_scarf/crystal
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/crystal/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/stripe
-	icon_state = "giant_scarf_stripe"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/stripe"
+	post_init_icon_state = "giant_scarf_stripe"
 	greyscale_config = /datum/greyscale_config/giant_scarf/stripe
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/stripe/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/two_tone
-	icon_state = "giant_scarf_twotone"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/two_tone"
+	post_init_icon_state = "giant_scarf_twotone"
 	greyscale_config = /datum/greyscale_config/giant_scarf/two_tone
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/two_tone/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/arrow
-	icon_state = "giant_scarf_arrow"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/arrow"
+	post_init_icon_state = "giant_scarf_arrow"
 	greyscale_config = /datum/greyscale_config/giant_scarf/arrow
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/arrow/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/fancy
-	icon_state = "giant_scarf_fancy"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/fancy"
+	post_init_icon_state = "giant_scarf_fancy"
 	greyscale_config = /datum/greyscale_config/giant_scarf/fancy
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/fancy/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/sepharim
-	icon_state = "giant_scarf_sepharim"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/sepharim"
+	post_init_icon_state = "giant_scarf_sepharim"
 	greyscale_config = /datum/greyscale_config/giant_scarf/sepharim
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/sepharim/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/bones
-	icon_state = "giant_scarf_bones"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/bones"
+	post_init_icon_state = "giant_scarf_bones"
 	greyscale_config = /datum/greyscale_config/giant_scarf/bones
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/bones/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/lines
-	icon_state = "giant_scarf_lines"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/lines"
+	post_init_icon_state = "giant_scarf_lines"
 	greyscale_config = /datum/greyscale_config/giant_scarf/lines
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/lines/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/runes
-	icon_state = "giant_scarf_runes"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/runes"
+	post_init_icon_state = "giant_scarf_runes"
 	greyscale_config = /datum/greyscale_config/giant_scarf/runes
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/runes/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
 
 /obj/item/clothing/under/dress/nova/giant_scarf/heart
-	icon_state = "giant_scarf_heart"
+	icon_state = "/obj/item/clothing/under/dress/nova/giant_scarf/heart"
+	post_init_icon_state = "giant_scarf_heart"
 	greyscale_config = /datum/greyscale_config/giant_scarf/heart
 	greyscale_config_worn = /datum/greyscale_config/giant_scarf/heart/worn
 	greyscale_colors = "#EEEEEE#bbbbbb"
@@ -293,7 +336,9 @@
 /obj/item/clothing/under/dress/skirt/nova/loincloth
 	name = "loincloth"
 	desc = "A simple elegant cloth, to use wrapped around your waist and groin."
-	icon_state = "loincloth"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/loincloth"
+	post_init_icon_state = "loincloth"
 	greyscale_config = /datum/greyscale_config/loincloth
 	greyscale_config_worn = /datum/greyscale_config/loincloth/worn
 	greyscale_colors = "#413069"
@@ -305,6 +350,7 @@
 /obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt
 	name = "shorter loincloth"
 	desc = "A simple elegant cloth, to use wrapped around your waist and groin. This one uses a shorter cloth."
-	icon_state = "loincloth_alt"
+	icon_state = "/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt"
+	post_init_icon_state = "loincloth_alt"
 	greyscale_config = /datum/greyscale_config/loincloth_alt
 	greyscale_config_worn = /datum/greyscale_config/loincloth_alt/worn

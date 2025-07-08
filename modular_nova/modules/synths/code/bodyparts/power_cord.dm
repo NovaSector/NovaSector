@@ -1,4 +1,4 @@
-/obj/item/organ/cyberimp/arm/power_cord
+/obj/item/organ/cyberimp/arm/toolkit/power_cord
 	name = "charging implant"
 	desc = "An internal power cord. Useful if you run on elecricity. Not so much otherwise."
 	items_to_create = list(/obj/item/synth_powercord)
@@ -86,7 +86,7 @@
 	var/minimum_cell_charge = target_apc ? SYNTH_APC_MINIMUM_PERCENT : 0
 
 	if(!target_cell || target_cell.percent() < minimum_cell_charge)
-		user.balloon_alert(user, "APC charge low!")
+		user.balloon_alert(user, "apc charge low!")
 		return
 	var/wait = SSmachines.wait / (1 SECONDS)
 	var/energy_needed
@@ -94,7 +94,7 @@
 		// Check if the charge level of the cell is below the minimum.
 		// Prevents synths from overloading the cell.
 		if(target_cell.percent() < minimum_cell_charge)
-			user.balloon_alert(user, "APC charge low!")
+			user.balloon_alert(user, "apc charge low!")
 			break
 
 		// Attempt to drain charge from the cell.
@@ -126,3 +126,18 @@
 			user.balloon_alert(user, "fully charged")
 			break
 
+/datum/design/synth_charger
+	name = "Charging Cord Implant"
+	desc = "An internal power cord for synthetic use only. Requires connection the synthetic fuel cell to function."
+	id = "synth_charger"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 4 SECONDS
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/power_cord
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_ORGANS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE

@@ -129,7 +129,7 @@
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
 	wound_bonus = -15
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	reach = 2
 	sharpness = SHARP_POINTY
 
@@ -226,7 +226,7 @@
 	. += span_notice("Using a hammer on [src] will repair its damage!")
 	. += span_notice("This weapon seems twice as effective when used on beasts and monsters.")
 
-/obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/shield/buckler/reagent_weapon/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(atom_integrity >= max_integrity)
 		return ..()
 	if(istype(attacking_item, /obj/item/forging/hammer))
@@ -295,7 +295,7 @@
 	AddElement(/datum/element/bane, mob_biotypes = MOB_BEAST, damage_multiplier = FAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 	AddElement(/datum/element/bane, target_type = /mob/living/simple_animal/hostile/megafauna, damage_multiplier = MEGAFAUNA_MULTIPLIER, requires_combat_mode = FALSE)
 
-/obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/ammo_casing/arrow/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	var/spawned_item
 	if(istype(attacking_item, /obj/item/stack/sheet/sinew))
 		spawned_item = /obj/item/ammo_casing/arrow/ash

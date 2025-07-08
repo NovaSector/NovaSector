@@ -101,7 +101,7 @@
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/shotgun/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(isammocasing(tool))
 		if(istype(tool, underbarrel.magazine.ammo_type))
-			underbarrel.attackby(tool, user, list2params(modifiers))
+			underbarrel.attackby(tool, user, modifiers)
 			underbarrel.attack_self(user)
 		return ITEM_INTERACT_BLOCKING
 	return ..()
@@ -131,7 +131,7 @@
 /obj/item/gun/ballistic/automatic/ar/modular/m44a/grenadelauncher/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(isammocasing(tool))
 		if(istype(tool, underbarrel.magazine.ammo_type))
-			underbarrel.attackby(tool, user, list2params(modifiers))
+			underbarrel.attackby(tool, user, modifiers)
 			underbarrel.attack_self(user)
 		return ITEM_INTERACT_BLOCKING
 	return ..()

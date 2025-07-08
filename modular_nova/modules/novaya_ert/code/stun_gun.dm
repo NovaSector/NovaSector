@@ -37,14 +37,10 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ZCM)
 
-/obj/item/melee/baton/security/stun_gun/get_wait_description()
-	return span_danger("The stun gun is still charging!")
 
-/obj/item/melee/baton/security/stun_gun/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
+/obj/item/melee/baton/security/stun_gun/baton_effect(mob/living/target, mob/living/user, list/modifiers, stun_override)
 	if(!deductcharge(cell_hit_cost))
 		return FALSE
-	target.visible_message(span_danger("[user] stuns [target] with [src]!"),
-		span_userdanger("[user] stuns you with [src]!"))
 	target.set_jitter_if_lower(5 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_confusion_if_lower(4 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
 	target.set_stutter_if_lower(3 SECONDS* (HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) ? 0.5 : 1))
@@ -86,7 +82,7 @@
 	force = 15
 	throwforce = 15
 	wound_bonus = 5
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	embed_type = /datum/embedding/combat_knife/weak
 	tool_behaviour = TOOL_KNIFE
 	attack_verb_continuous = list("glances", "slices", "strikes")

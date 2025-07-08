@@ -1619,7 +1619,7 @@
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_x = -4;
 	pixel_y = 3
 	},
@@ -2291,12 +2291,8 @@
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 8
 	},
-/obj/machinery/fax{
-	dir = 1;
-	fax_name = "Interdyne Pharmaceuticals";
-	name = "Interdyne Fax Machine";
-	req_access = list("syndicate");
-	syndicate_network = 1
+/obj/machinery/fax/interdyne{
+	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/interdyne_planetary_base/med)
@@ -4615,7 +4611,7 @@
 /area/ruin/interdyne_planetary_base/eng/disp)
 "mc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating/reinforced,
 /area/ruin/interdyne_planetary_base/eng/disp)
 "md" = (
@@ -5392,7 +5388,7 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_x = -4;
 	pixel_y = 3
 	},

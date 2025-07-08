@@ -56,9 +56,21 @@
 *	MISC
 */
 
+/datum/loadout_item/pocket_items/hair_tie
+	name = "Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie
+
+/datum/loadout_item/pocket_items/hair_tie_scrunchie
+	name = "Scrunchie"
+	item_path = /obj/item/clothing/head/hair_tie/scrunchie
+
+/datum/loadout_item/pocket_items/hair_tie_plastic_beads
+	name = "Plastic Hair Tie"
+	item_path = /obj/item/clothing/head/hair_tie/plastic_beads
+
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
-	item_path = /obj/item/reagent_containers/cup/rag
+	item_path = /obj/item/rag
 
 /datum/loadout_item/pocket_items/razor
 	name = "Razor"
@@ -243,6 +255,18 @@
 /datum/loadout_item/pocket_items/drugs_liberty
 	name = "Liberty Cap Seeds"
 	item_path = /obj/item/seeds/liberty
+
+/datum/loadout_item/pocket_items/neuroware_spacedrugs
+	name = "Neuroware Chips Box (Kaleido)"
+	item_path = /obj/item/storage/box/flat/neuroware/space_drugs
+
+/datum/loadout_item/pocket_items/neuroware_thc
+	name = "Neuroware Chips Box (Mr.Stoned)"
+	item_path = /obj/item/storage/box/flat/neuroware/thc
+
+/datum/loadout_item/pocket_items/neuroware_mindbreaker
+	name = "Neuroware Chips Box (PosiBlaster64)"
+	item_path = /obj/item/storage/box/flat/neuroware/mindbreaker
 
 /*
 *	FRAGRANCES

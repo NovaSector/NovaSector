@@ -36,7 +36,6 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	GLOB.human_list += src
-	SSopposing_force.give_opfor_button(src) //NOVA EDIT - OPFOR SYSTEM
 	ADD_TRAIT(src, TRAIT_CAN_MOUNT_HUMANS, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_CAN_MOUNT_CYBORGS, INNATE_TRAIT)
 
@@ -127,7 +126,7 @@
 		if(istype(id, /obj/item/card/id/advanced/chameleon))
 			id_gender ||= gender
 			id_species ||= dna.species.name
-			id_blood_type ||= dna.blood_type
+			id_blood_type ||= get_bloodtype()
 
 		if(istype(id, /obj/item/card/id/advanced))
 			var/obj/item/card/id/advanced/advancedID = id
@@ -579,17 +578,14 @@
 			return FALSE
 
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
+		/* NOVA EDIT REMOVAL BEGIN - Allow CPR without lungs
 		if(isnull(human_lungs))
 			balloon_alert(src, "you don't have lungs!")
 			return FALSE
-		// NOVA EDIT ADDITION - Disable CPR for synth heatsink
-		if(istype(human_lungs, /obj/item/organ/lungs/synth))
-			balloon_alert(src, "you don't have lungs!")
-			return FALSE
-		// NOVA EDIT ADDITION END
 		if(human_lungs.organ_flags & ORGAN_FAILING)
 			balloon_alert(src, "your lungs are too damaged!")
 			return FALSE
+		*/// NOVA EDIT REMOVAL END
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
 						span_notice("You try to perform CPR on [target.name]... Hold still!"))
@@ -608,13 +604,25 @@
 			add_mood_event("saved_life", /datum/mood_event/saved_life)
 		log_combat(src, target, "CPRed")
 
+		/* NOVA EDIT REMOVAL BEGIN - Allow CPR without lungs
 		if (HAS_TRAIT(target, TRAIT_NOBREATH))
 			to_chat(target, span_unconscious("You feel a breath of fresh air... which is a sensation you don't recognise..."))
 		else if (!target.get_organ_slot(ORGAN_SLOT_LUNGS))
 			to_chat(target, span_unconscious("You feel a breath of fresh air... but you don't feel any better..."))
+		*/// NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDTION BEGIN - Allow CPR without lungs
+		var/can_breathe = TRUE // If FALSE, then chest compressions are the only option
+		if(isnull(human_lungs) || istype(human_lungs, /obj/item/organ/lungs/synth) || (human_lungs.organ_flags & ORGAN_FAILING))
+			can_breathe = FALSE
+		if(issynthetic(target)) // Synthetic humanoids don't benefit from CPR
+			to_chat(target, span_unconscious("You feel someone pushing down onto your chest, but you don't feel any better..."))
+		else if(!can_breathe || (HAS_TRAIT(target, TRAIT_NOBREATH) || !target.get_organ_slot(ORGAN_SLOT_LUNGS)))
+			to_chat(target, span_unconscious("You feel someone pushing down onto your chest..."))
+			target.adjustOxyLoss(-min(target.getOxyLoss(), 5))
+		// NOVA EDIT ADDITION END
 		else
 			target.adjustOxyLoss(-min(target.getOxyLoss(), 7))
-			to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
+			to_chat(target, span_unconscious("You feel someone pushing on your chest, and fresh air inside your lungs... It feels good...")) // NOVA EDIT CHANGE - Original: to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
 
 		if (target.health <= target.crit_threshold)
 			if (!panicking)
@@ -645,8 +653,7 @@
 		return FALSE
 
 	if(gloves)
-		if(gloves.wash(clean_types))
-			update_worn_gloves()
+		gloves.wash(clean_types)
 	else if((clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0)
 		blood_in_hands = 0
 		update_worn_gloves()
@@ -674,13 +681,13 @@
 /mob/living/carbon/human/wash(clean_types)
 	. = ..()
 	if(!is_mouth_covered() && clean_lips())
-		. = TRUE
+		. |= COMPONENT_CLEANED
 
 	// Wash hands if exposed
 	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(check_covered_slots() & ITEM_SLOT_GLOVES))
 		blood_in_hands = 0
 		update_worn_gloves()
-		. = TRUE
+		. |= COMPONENT_CLEANED
 
 //Turns a mob black, flashes a skeleton overlay
 //Just like a cartoon!
@@ -751,7 +758,8 @@
 	// Updates the health bar, also sends signal
 	. = ..()
 	// Handles changing limb colors and stuff
-	hud_used.healthdoll?.update_appearance()
+	if(!(living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
+		hud_used.healthdoll?.update_appearance()
 
 /mob/living/carbon/human/fully_heal(heal_flags = HEAL_ALL)
 	if(heal_flags & HEAL_NEGATIVE_MUTATIONS)
@@ -1056,21 +1064,13 @@
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/reagent_check(datum/reagent/chem, seconds_per_tick, times_fired)
-	. = ..()
-	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
-		return
-	return dna.species.handle_chemical(chem, src, seconds_per_tick, times_fired)
-
 /mob/living/carbon/human/updatehealth()
 	. = ..()
 	var/health_deficiency = max((maxHealth - health), staminaloss)
 	if(health_deficiency >= 40)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown, TRUE, multiplicative_slowdown = health_deficiency / 75)
-		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying, TRUE, multiplicative_slowdown = health_deficiency / 25)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown)
-		remove_movespeed_modifier(/datum/movespeed_modifier/damage_slowdown_flying)
 
 /mob/living/carbon/human/is_bleeding()
 	if(HAS_TRAIT(src, TRAIT_NOBLOOD))
@@ -1164,7 +1164,7 @@
 
 	add_traits(list(TRAIT_NO_DNA_SCRAMBLE, TRAIT_BADDNA, TRAIT_BORN_MONKEY), SPECIES_TRAIT)
 
-/mob/living/carbon/human/proc/is_atmos_sealed(additional_flags = null, check_hands = FALSE, alt_flags = FALSE)
+/mob/living/carbon/human/proc/is_atmos_sealed(additional_flags = null, check_hands = FALSE)
 	var/chest_covered = FALSE
 	var/head_covered = FALSE
 	var/hands_covered = FALSE
@@ -1172,11 +1172,9 @@
 		// We don't really have space-proof gloves, so even if we're checking them we ignore the flags
 		if ((equipped.body_parts_covered & HANDS) && num_hands >= default_num_hands)
 			hands_covered = TRUE
-		if (!alt_flags && !isnull(additional_flags) && !(equipped.clothing_flags & additional_flags))
-			continue
-		if ((equipped.clothing_flags & (STOPSPRESSUREDAMAGE | (alt_flags ? additional_flags : NONE))) && (equipped.body_parts_covered & CHEST))
+		if ((equipped.clothing_flags & (STOPSPRESSUREDAMAGE | additional_flags)) && (equipped.body_parts_covered & CHEST))
 			chest_covered = TRUE
-		if ((equipped.clothing_flags & (STOPSPRESSUREDAMAGE | (alt_flags ? additional_flags : NONE))) && (equipped.body_parts_covered & HEAD))
+		if ((equipped.clothing_flags & (STOPSPRESSUREDAMAGE | additional_flags)) && (equipped.body_parts_covered & HEAD))
 			head_covered = TRUE
 	if (!chest_covered)
 		return FALSE
@@ -1222,6 +1220,12 @@
 
 /mob/living/carbon/human/species/lizard/silverscale
 	race = /datum/species/lizard/silverscale
+
+/mob/living/carbon/human/species/spirit
+	race = /datum/species/spirit
+
+/mob/living/carbon/human/species/ghost
+	race = /datum/species/spirit/ghost
 
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal

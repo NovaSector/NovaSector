@@ -28,11 +28,7 @@
 	variable = TRUE
 
 /datum/movespeed_modifier/damage_slowdown
-	blacklisted_movetypes = FLOATING|FLYING
-	variable = TRUE
-
-/datum/movespeed_modifier/damage_slowdown_flying
-	movetypes = FLYING
+	blacklisted_movetypes = FLOATING
 	variable = TRUE
 
 /// Movespeed modifier applied by worn equipment.
@@ -179,10 +175,15 @@
 /datum/movespeed_modifier/magic_ties
 	multiplicative_slowdown = 0.5
 
-///speed bonus given by the fish tail organ when inside water.
+///Speed bonus given by the fish tail organ when inside water.
 /datum/movespeed_modifier/fish_on_water
 	blacklisted_movetypes = MOVETYPES_NOT_TOUCHING_GROUND
 	multiplicative_slowdown = - /turf/open/water::slowdown
+
+///Slowdown for swimming on deep water tiles
+/datum/movespeed_modifier/swimming_deep
+	blacklisted_movetypes = MOVETYPES_NOT_TOUCHING_GROUND
+	multiplicative_slowdown = 7
 
 /datum/movespeed_modifier/tail_dragger
 	multiplicative_slowdown = 4

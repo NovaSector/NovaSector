@@ -14,7 +14,7 @@
 /obj/machinery/button/door/indestructible/ancient_milsim/screwdriver_act()
 	return
 
-/obj/machinery/button/door/indestructible/ancient_milsim/attackby()
+/obj/machinery/button/door/indestructible/ancient_milsim/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	return
 
 /obj/machinery/button/door/indestructible/ancient_milsim/emag_act()

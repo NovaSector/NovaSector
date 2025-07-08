@@ -18,10 +18,20 @@
 		if (get_bodypart(human_user.zone_selected)?.get_modified_bleed_rate())
 			context[SCREENTIP_CONTEXT_CTRL_LMB] = "Grab limb"
 
+		// NOVA EDIT ADDITION START
+		var/obj/item/storage/backpack/backpack = human_user.get_item_by_slot(ITEM_SLOT_BACK)
+		if (backpack && backpack.GetComponent(/datum/component/accessable_storage))
+			context[SCREENTIP_CONTEXT_ALT_LMB] = "Open storage"
+		// NOVA EDIT ADDITION END
 	if (human_user != src)
 		context[SCREENTIP_CONTEXT_RMB] = "Shove"
 
 		if (!human_user.combat_mode)
+			// NOVA EDIT ADDITION START
+			var/obj/item/storage/backpack/backpack = get_item_by_slot(ITEM_SLOT_BACK)
+			if (backpack && backpack.GetComponent(/datum/component/accessable_storage))
+				context[SCREENTIP_CONTEXT_ALT_LMB] = "Open storage"
+			// NOVA EDIT ADDITION END
 			if (body_position == STANDING_UP)
 				if(check_zone(user.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD))
 					context[SCREENTIP_CONTEXT_LMB] = "Headpat"
