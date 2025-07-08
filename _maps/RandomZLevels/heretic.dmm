@@ -6786,9 +6786,6 @@
 /turf/closed/mineral/earth_like,
 /area/station/maintenance/heretic_laboratory)
 "Wl" = (
-/obj/structure/closet/crate/secure/radiation{
-	name = "cbrn gear crate"
-	},
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced,
 /obj/item/clothing/shoes/combat/swat,
 /obj/item/clothing/gloves/combat,
@@ -6796,6 +6793,7 @@
 /obj/item/clothing/suit/utility/radiation/cbrnsuit,
 /obj/item/clothing/head/utility/radiation/cbrnhood,
 /obj/item/clothing/glasses/meson,
+/obj/structure/closet/crate,
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Wo" = (
