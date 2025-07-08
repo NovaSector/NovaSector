@@ -1,6 +1,6 @@
 /datum/quirk
-	/// Is this quirk restricted to veteran players only?
-	var/veteran_only = FALSE
+	/// Is this quirk restricted to nova stars?
+	var/nova_stars_only = FALSE
 	/// Is this quirk hidden from TGUI / the character preferences window?
 	var/hidden_quirk = FALSE
 	/// A list which associates Species Datums with Quirk Datums.
