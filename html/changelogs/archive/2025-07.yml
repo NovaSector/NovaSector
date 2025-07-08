@@ -1,0 +1,50 @@
+2025-07-02:
+  BasilTamaya:
+  - bugfix: missing icon sprites, as well as updating icon sprites for the crusher
+      conversion kit. Now faithful to the original sprite.
+  Jureiia:
+  - rscadd: Collars are now able to be hidden beneath suits, coats and jackets. Alt+Right
+      Click to toggle!
+2025-07-04:
+  Crumpaloo:
+  - image: adds wagging animation for the Succubus Spade Tail
+  Hatterhat:
+  - rscadd: 'Thanks to a recent load-bearing equipment surplus sale, corporate pre-shift
+      requisitions vendors (read: the loadout menu) are now stocking more load-bearing
+      equipment pieces (read: webbing accessories, functionally identical to the one
+      that already existed).'
+  KnighTheThrasher:
+  - bugfix: Blacklisted Masquerade quirk from non-hemophages
+  OrionTheFox:
+  - qol: 'Sorted the following Loadout groups: Head, Inhands, Masks.'
+  - rscadd: Added Bandana (Colorable), Bandana (Colorable, Stripe), and Thin Bandana
+      to the Loadout
+  - rscdel: Removed "Commercial FIR-36 Half-Face Rebreather" from the Loadout (use
+      the normal "FIR-36 Half-Face Rebreather")
+  - qol: 'Sorted the following Loadout groups: Accessory, Belt, Ears, Glasses, Gloves.'
+  - bugfix: fixed the Military Ribbon not being player-colorable.
+2025-07-07:
+  Jureiia:
+  - rscadd: Added a recolourable version of the security miniskirt for everyone!
+  Kocma-san:
+  - code_imp: Removes useless 5 characters from modular_nova\modules\modular_items\lewd_items\code\lewd_clothing\kinky_sleepbag.dm
+2025-07-08:
+  Iajret:
+  - bugfix: fixed delta and meta arrivals piping and airlocks
+  MrSunabouzu:
+  - rscadd: Added a secondary shuttle dock to snowglobe.
+  RealWinterFrost:
+  - balance: Reduced jager mag size from 7-> 4
+  - balance: Reduced Large Jager Mag size from  9 -> 7
+  - balance: Increased price of jager from 1200cr -> 1600cr
+  - rscadd: Added OPFOR variant of Jager to antag uplinks, nicknamed 'Shitzu'
+  - rscadd: Added Purchasable ammunition in Antag panel for Shitzu Shotgun.
+  bigbakedbean:
+  - bugfix: expeditionary medkit fix
+  carpotoxin:
+  - rscadd: Added the visitor quirk! Join with limited records data and no automatic
+      manifest injection
+  - qol: Assistants and prisoners can't clock out anymore. No more 'Off-duty off-duty'
+      crew
+  twilightwanderer:
+  - bugfix: The vox sounds of the AI's superior annonces are playing again
