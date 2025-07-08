@@ -31,13 +31,13 @@
 	. = ..()
 	if(. != "success")
 		return
+	// make the shuttle travel in a random dir each time, because its cool
 	var/obj/docking_port/mobile/mobile_dock = SSshuttle.getShuttle(shuttleId)
 	var/obj/docking_port/stationary/transit_dock
 	for(var/obj/docking_port/stationary/transit/stationary_dock in SSshuttle.stationary_docking_ports)
 		if(stationary_dock.owner == mobile_dock)
 			transit_dock = stationary_dock
 			break
-	// make the shuttle travel in a random dir each time, because its cool
 	var/random_dir = pick(GLOB.cardinals)
 	mobile_dock.preferred_direction = random_dir
 	mobile_dock.port_direction = turn(random_dir, ROTATION_CLOCKWISE)
@@ -61,7 +61,7 @@
 
 /obj/item/shuttle_remote/traitor/Initialize(mapload)
 	. = ..()
-	//planetary maps use "ferry_home" instead of "whiteship_home"
+	//planetary maps use "ferry_home" instead of "whiteship_home" for their arrivals dock
 	if(SSmapping.is_planetary())
 		shuttle_home_id = "ferry_home"
 

@@ -1,27 +1,41 @@
-/obj/effect/mapping_helpers/airlock_note_placer/infiltrator_antag
+//note on airlock mapping helper for midround antag, writes antag character's name on the note
+/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor
+	note_path = /obj/item/paper/fluff/midround_traitor
 	var/instance = 1
-	note_path = /obj/item/paper/fluff/infiltrator_left_note
 
-/obj/effect/mapping_helpers/airlock_note_placer/infiltrator_antag/LateInitialize()
-	var/turf/turf = get_turf(src)
-	if(locate(/obj/machinery/door/airlock) in turf)
-		var/obj/machinery/door/airlock/found_airlock = locate(/obj/machinery/door/airlock) in turf
-		var/obj/item/paper/fluff/infiltrator_left_note/note = new note_path(src)
-		note.write_note(get_mob())
-		found_airlock.note = note
-		note.forceMove(found_airlock)
-		found_airlock.update_appearance()
+/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor/LateInitialize()
+	var/obj/machinery/door/airlock/found_airlock = locate(/obj/machinery/door/airlock) in loc
+	if(isnull(found_airlock))
+		var/area/target_area = get_area(src)
+		log_mapping("[src] failed to find a machine at [AREACOORD(src)] ([target_area.type]).")
 		qdel(src)
 		return
-	log_mapping("[src] at [AREACOORD(src)] could not find an airlock on current turf, cannot place paper note.")
+	var/obj/item/paper/fluff/midround_traitor/note = new note_path(src)
+	note.write_note(get_mob())
+	found_airlock.note = note
+	note.forceMove(found_airlock)
+	found_airlock.update_appearance()
 	qdel(src)
 
-/obj/effect/mapping_helpers/airlock_note_placer/infiltrator_antag/proc/get_mob()
+/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor/proc/get_mob()
 	for(var/datum/antagonist/traitor/infiltrator/antag in GLOB.antagonists)
 		if(antag.owner.current && (antag.infil_number == instance))
 			return antag.owner.current
 		instance++
 
+//the note
+/obj/item/paper/fluff/midround_traitor/proc/write_note(mob/infiltrator)
+	var/first_name
+	if(is_mononym(infiltrator.name))
+		first_name = infiltrator.name
+	else
+		first_name = "[first_name(infiltrator.name)]"
+	//add it to the note
+	add_raw_text("[first_name],")
+	add_raw_text("Hi.")
+
+
+//mannequin mapping helper
 /obj/effect/mapping_helpers/mannequin
 	desc = "Abstract type, don't use!"
 	var/obj/structure/mannequin/mannequin
@@ -38,6 +52,7 @@
 	mannequin = target
 	return ..()
 
+//loadout mannequin
 /obj/effect/mapping_helpers/mannequin/loadout_spawner
 	desc = "When given a client with the 'get_client()' proc, will give that client's loadout to a mannequin sharing the same turf."
 	late = TRUE
@@ -73,7 +88,7 @@
 			var/list/item_details = selected_loadout[item]
 			if(initial(item.slot_flags) & slot_flag)
 				//found a match lets spawn it
-				var/obj/item/clothing/item_to_give = new item(src)
+				var/obj/item/clothing/item_to_give = new item(mannequin)
 				mannequin.worn_items["[slot_flag]"] = item_to_give
 				//apply the custom details
 				if(item_details[INFO_GREYSCALE])
@@ -94,10 +109,11 @@
 	mannequin.icon_state = "mannequin_[mannequin.material]_[mannequin.body_type == FEMALE ? "female" : "male"]"
 	LAZYNULL(mannequin.starting_items) //dump what we couldn't add
 
-/obj/effect/mapping_helpers/mannequin/loadout_spawner/infiltrator_antag
+//the midround antag's mannequin mapping helper
+/obj/effect/mapping_helpers/mannequin/loadout_spawner/midround_traitor
 	var/instance = 1
 
-/obj/effect/mapping_helpers/mannequin/loadout_spawner/infiltrator_antag/get_client()
+/obj/effect/mapping_helpers/mannequin/loadout_spawner/midround_traitor/get_client()
 	for(var/datum/antagonist/traitor/infiltrator/antag in GLOB.antagonists)
 		if(antag.owner.current.client && (antag.infil_number == instance))
 			return antag.owner.current.client

@@ -98,7 +98,8 @@
 "Yi" = (
 /obj/machinery/door/airlock/hatch{
 	id_tag = "lone_infil_bolt";
-	name = "External Airlock"
+	name = "External Airlock";
+	external = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/structure/cable,

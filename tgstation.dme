@@ -8186,7 +8186,6 @@
 #include "modular_nova\modules\infiltrator\code\infiltrator_map.dm"
 #include "modular_nova\modules\infiltrator\code\infiltrator_mapping_helpers.dm"
 #include "modular_nova\modules\infiltrator\code\infiltrator_outfit.dm"
-#include "modular_nova\modules\infiltrator\code\infiltrator_paper_premade.dm"
 #include "modular_nova\modules\infiltrator\code\infiltrator_voucher_list.dm"
 #include "modular_nova\modules\inflatables\code\inflatable.dm"
 #include "modular_nova\modules\interaction_menu\code\interaction_component.dm"

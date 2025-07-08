@@ -128,10 +128,34 @@
 	},
 /turf/open/floor/iron/dark,
 /area/misc/syndicate_armoury/hangar)
+"dD" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/machinery/digital_clock/directional/south{
+	pixel_y = -32
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 8
+	},
+/area/misc/syndicate_armoury)
 "el" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury/hangar)
+"eu" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/structure/table,
+/obj/structure/sign/poster/contraband/dolphin/directional/east,
+/obj/effect/spawner/random/entertainment/lighter{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "ex" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -151,6 +175,7 @@
 /obj/structure/drain,
 /obj/machinery/shower/directional/east,
 /obj/item/soap/syndie,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/misc/syndicate_armoury)
 "eR" = (
@@ -210,6 +235,14 @@
 	},
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury/hangar)
+"gi" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Armoury Secure Storage"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
 "gl" = (
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/dark/smooth_large,
@@ -326,6 +359,7 @@
 	pixel_x = 9;
 	pixel_y = 2
 	},
+/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
 /turf/open/floor/iron/grimy,
 /area/misc/syndicate_armoury)
 "kd" = (
@@ -338,7 +372,6 @@
 	pixel_x = 12;
 	zipped_up = 0
 	},
-/obj/structure/sign/poster/contraband/cybersun_six_hundred/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/parquet,
 /area/misc/syndicate_armoury)
@@ -391,6 +424,9 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
+/obj/machinery/digital_clock/directional/south{
+	pixel_y = -32
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -421,7 +457,6 @@
 /obj/effect/mapping_helpers/apc/syndicate_access,
 /obj/effect/mapping_helpers/apc/full_charge,
 /obj/effect/mapping_helpers/apc/cut_AI_wire,
-/obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
 "lZ" = (
@@ -468,8 +503,10 @@
 /area/misc/syndicate_armoury/hangar)
 "mK" = (
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/machinery/door/airlock/grunge{
+	name = "Armoury"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "mR" = (
@@ -566,7 +603,9 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/misc/syndicate_armoury/hangar)
 "ow" = (
-/obj/effect/mapping_helpers/wall_dent/impact,
+/obj/effect/turf_decal/siding/dark,
+/obj/structure/railing/unbreakable,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
 "oK" = (
@@ -575,7 +614,7 @@
 	name = "Air Control"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/leader,
-/turf/open/floor/mineral/plastitanium/red,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury/hangar)
 "oM" = (
 /obj/machinery/door/airlock/grunge{
@@ -724,6 +763,23 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury/hangar)
+"rj" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/item/storage/fancy/coffee_cart_rack{
+	pixel_x = 8
+	},
+/obj/item/coffee_cartridge{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/cup/glass/coffee_cup{
+	pixel_x = -4;
+	pixel_y = 13
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "rs" = (
 /obj/structure/railing/unbreakable,
 /obj/effect/turf_decal/siding/dark,
@@ -796,9 +852,10 @@
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury/hangar)
 "sU" = (
-/obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/door/window/brigdoor/right/directional/east,
 /obj/machinery/door/window/brigdoor/left/directional/west,
+/obj/structure/table/reinforced,
+/obj/machinery/dish_drive/bullet,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "ty" = (
@@ -815,6 +872,7 @@
 /area/misc/syndicate_armoury)
 "tC" = (
 /obj/effect/turf_decal/tile/dark_red,
+/obj/machinery/vending/games,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "ub" = (
@@ -890,6 +948,7 @@
 "wC" = (
 /obj/structure/sign/warning/electric_shock/directional/west,
 /obj/structure/table,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/misc/syndicate_armoury)
 "wH" = (
@@ -904,7 +963,8 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "wK" = (
-/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/dark_red,
+/obj/machinery/skill_station/plasmaglass,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "wL" = (
@@ -954,7 +1014,14 @@
 	dir = 1
 	},
 /obj/structure/rack/shelf,
-/obj/item/storage/box/survival,
+/obj/item/storage/fancy/cigarettes/cigpack_syndicate{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/obj/item/storage/box/survival{
+	pixel_x = 3;
+	pixel_y = -3
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "xZ" = (
@@ -1014,6 +1081,12 @@
 /obj/effect/turf_decal/siding/dark_red,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
+"zB" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/right/directional/south,
+/obj/machinery/door/window/right/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/misc/syndicate_armoury)
 "zJ" = (
 /obj/structure/mannequin/infiltrator_memory/maid{
 	anchored = 1
@@ -1024,7 +1097,8 @@
 /area/misc/syndicate_armoury)
 "zT" = (
 /obj/machinery/door/airlock/multi_tile/metal{
-	dir = 4
+	dir = 4;
+	name = "Robotics"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
@@ -1143,6 +1217,8 @@
 /obj/effect/turf_decal/tile/dark_red{
 	dir = 8
 	},
+/obj/structure/closet/crate/bin,
+/obj/structure/sign/warning/yes_smoking/circle/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "Er" = (
@@ -1159,6 +1235,10 @@
 	dir = 9
 	},
 /turf/open/floor/mineral/plastitanium/red,
+/area/misc/syndicate_armoury)
+"Ev" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "ED" = (
 /obj/structure/bed{
@@ -1249,9 +1329,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "GS" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	name = "Dormroom no. 09"
+	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock_note_placer/infiltrator_antag,
+/obj/effect/mapping_helpers/airlock_note_placer/midround_traitor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "GY" = (
@@ -1283,6 +1365,7 @@
 /obj/structure/table,
 /obj/item/storage/box/bandages,
 /obj/machinery/light/small/directional/east,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/misc/syndicate_armoury)
 "HC" = (
@@ -1304,6 +1387,7 @@
 /obj/machinery/door/window/brigdoor/left/directional/south,
 /obj/machinery/light/small/directional/west,
 /obj/structure/sign/directions/engineering/directional/west,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/catwalk_floor/iron,
 /area/misc/syndicate_armoury)
 "HS" = (
@@ -1565,7 +1649,7 @@
 	dir = 8;
 	anchored = 1
 	},
-/obj/effect/mapping_helpers/mannequin/loadout_spawner/infiltrator_antag,
+/obj/effect/mapping_helpers/mannequin/loadout_spawner/midround_traitor,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "Oz" = (
@@ -1627,6 +1711,25 @@
 /obj/effect/turf_decal/nova_decals/syndicate/top/middle,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
+"PR" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/digital_clock/directional/west{
+	pixel_x = -32
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
+"Qf" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/machinery/coffeemaker,
+/obj/structure/sign/poster/contraband/donk_co/directional/west,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "Qj" = (
 /obj/machinery/smartfridge/organ,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1645,6 +1748,13 @@
 	},
 /turf/open/floor/plating,
 /area/misc/syndicate_armoury/hangar)
+"Qy" = (
+/obj/effect/turf_decal/tile/dark_red{
+	dir = 8
+	},
+/obj/machinery/vending/cigarette/syndicate,
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "QD" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1745,6 +1855,7 @@
 "SF" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/machinery/door/window/brigdoor/right/directional/south,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/catwalk_floor/iron,
 /area/misc/syndicate_armoury)
 "Th" = (
@@ -1769,7 +1880,6 @@
 	},
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
-/obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium/red,
 /area/misc/syndicate_armoury)
 "TP" = (
@@ -1844,6 +1954,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/power/smes/super/full,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/catwalk_floor/iron,
 /area/misc/syndicate_armoury)
 "VC" = (
@@ -1857,8 +1968,18 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"VI" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/structure/cable,
+/obj/machinery/digital_clock/directional/east{
+	pixel_x = 32
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/misc/syndicate_armoury)
 "VQ" = (
-/obj/machinery/door/airlock/medical/glass,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Surgery Room"
+	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/iron/white,
 /area/misc/syndicate_armoury)
@@ -1908,6 +2029,7 @@
 /area/misc/syndicate_armoury/hangar)
 "Wg" = (
 /obj/structure/sign/poster/contraband/little_fruits/directional/south,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/white/small,
 /area/misc/syndicate_armoury)
 "Wo" = (
@@ -1922,8 +2044,15 @@
 /area/misc/syndicate_armoury)
 "Wu" = (
 /obj/structure/table,
-/obj/structure/towel_bin,
+/obj/structure/towel_bin{
+	pixel_y = 10;
+	pixel_x = 4
+	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/head/hair_tie/syndicate{
+	pixel_x = -7;
+	pixel_y = 2
+	},
 /turf/open/floor/iron/white/small,
 /area/misc/syndicate_armoury)
 "WF" = (
@@ -1935,6 +2064,7 @@
 	},
 /obj/machinery/light/small/directional/west,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/warning/yes_smoking/circle/directional/west,
 /turf/open/floor/iron/grimy,
 /area/misc/syndicate_armoury)
 "WO" = (
@@ -1949,6 +2079,11 @@
 /obj/structure/sign/poster/contraband/blood_geometer/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/grimy,
+/area/misc/syndicate_armoury)
+"Xi" = (
+/obj/effect/turf_decal/tile/dark_red,
+/obj/structure/sign/warning/no_smoking/circle/directional/south,
+/turf/open/floor/mineral/plastitanium,
 /area/misc/syndicate_armoury)
 "Xj" = (
 /obj/structure/railing/corner/end/flip/unbreakable{
@@ -1990,7 +2125,9 @@
 /turf/closed/indestructible/syndicate/nodiagonal,
 /area/misc/syndicate_armoury)
 "Yh" = (
-/obj/structure/table/reinforced/plastitaniumglass,
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/left/directional/south,
+/obj/machinery/door/window/left/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "Yn" = (
@@ -2085,7 +2222,9 @@
 "Zw" = (
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/machinery/door/airlock/medical/glass,
+/obj/machinery/door/airlock/medical/glass{
+	name = "Implant Laboratorium"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/misc/syndicate_armoury)
 "ZF" = (
@@ -2770,10 +2909,10 @@ SF
 Vg
 yr
 yr
-Yh
+zB
 DC
 DC
-ow
+DC
 vx
 DC
 DC
@@ -2826,8 +2965,8 @@ xs
 VC
 hx
 hx
-hx
-Eb
+PR
+Qf
 Ne
 DC
 DC
@@ -2855,7 +2994,7 @@ Er
 Er
 Gc
 Bt
-Eb
+rj
 Ne
 Ne
 Gn
@@ -2896,7 +3035,7 @@ wA
 Ne
 Ne
 wx
-Gn
+gi
 Ne
 wx
 Ne
@@ -2911,7 +3050,7 @@ ZV
 ZV
 LQ
 Bt
-Eb
+Qy
 Ne
 Yr
 uz
@@ -2926,7 +3065,7 @@ Ne
 Ne
 wA
 wA
-wK
+wA
 wA
 DL
 rz
@@ -2934,7 +3073,7 @@ TP
 "}
 (9,1,2) = {"
 fr
-yU
+ow
 hy
 hy
 RA
@@ -3006,7 +3145,7 @@ ul
 yF
 VW
 se
-wA
+Ev
 Ne
 Ne
 Ne
@@ -3046,7 +3185,7 @@ TP
 "}
 (13,1,2) = {"
 fr
-yU
+ow
 wP
 wP
 Et
@@ -3107,7 +3246,7 @@ wP
 wP
 LQ
 Bt
-tC
+Xi
 Ne
 Ad
 QU
@@ -3135,7 +3274,7 @@ pG
 pG
 Zk
 Bt
-tC
+wK
 Ne
 Ne
 Zw
@@ -3162,8 +3301,8 @@ DC
 Wq
 Wq
 Wq
-Wq
-tC
+VI
+eu
 Ne
 Ig
 Ig
@@ -3189,7 +3328,7 @@ fr
 pi
 QD
 pi
-pi
+dD
 Ne
 Ne
 Ne
@@ -3246,7 +3385,7 @@ Hp
 Vg
 BV
 yr
-Yh
+zB
 Ig
 Ig
 Ig

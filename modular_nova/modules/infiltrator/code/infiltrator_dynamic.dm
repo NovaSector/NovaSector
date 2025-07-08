@@ -14,9 +14,6 @@
 /datum/dynamic_ruleset/midround/from_ghosts/infiltrator/generate_ruleset_body(mob/applicant)
 	//generate body
 	var/mob/living/carbon/human/new_character = make_body(applicant)
-	var/client/player_client = new_character.client
-	if(player_client)
-		SSquirks.AssignQuirks(new_character, new_character.client)
 	new_character.Sleeping(7 SECONDS)
 	//outfit
 	new_character.dna.species.pre_equip_species_outfit(null, new_character)
@@ -25,6 +22,10 @@
 	pyjamas.uniform = coinflip ? /obj/item/clothing/under/misc/pj/red : /obj/item/clothing/under/misc/pj/blue
 	pyjamas.head = coinflip ? /obj/item/clothing/head/costume/nightcap/red : /obj/item/clothing/head/costume/nightcap/blue
 	new_character.equipOutfit(pyjamas)
+	//client
+	var/client/player_client = new_character.client
+	if(player_client)
+		SSquirks.AssignQuirks(new_character, new_character.client)
 	//mind
 	var/datum/mind/player_mind = new /datum/mind(applicant.key)
 	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/infiltrator))
