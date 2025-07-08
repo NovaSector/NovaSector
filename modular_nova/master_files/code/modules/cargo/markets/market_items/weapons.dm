@@ -36,7 +36,7 @@
 
 /datum/market_item/weapon/wt550
 	name = "WT-550 Autorifle"
-	desc = "A mass produced autorifle by NT, now outdated compared to modern guns, Nanotrasen has decided to dump their suplus into backmarkets."
+	desc = "A mass produced autorifle by NT, now outdated compared to modern guns, Nanotrasen has decided to dump their surplus into backmarkets."
 	item = /obj/item/gun/ballistic/automatic/wt550
 	price_min = CARGO_CRATE_VALUE * 1.5
 	price_max = CARGO_CRATE_VALUE * 2
@@ -45,8 +45,8 @@
 
 /datum/market_item/weapon/wt550m9
 	name = "WT-550 Ammo Box"
-	desc = "A mass produced ammo box by NT, compatible with WT-550's, contains 6 normal magazines."
-	item = /obj/item/gun/ballistic/automatic/wt550
+	desc = "A mass produced ammo box by NT, compatible with WT-550s, contains 6 normal magazines."
+	item = /obj/item/storage/toolbox/ammobox/wt550m9
 	price_min = CARGO_CRATE_VALUE * 0.5
 	price_max = CARGO_CRATE_VALUE * 1
 	stock_max = 50
@@ -54,8 +54,8 @@
 
 /datum/market_item/weapon/wt550m9ap
 	name = "WT-550 AP Ammo Box"
-	desc = "A mass produced ammo box by NT, compatible with WT-550's, contains 6 armor penetrating magazines."
-	item = /obj/item/gun/ballistic/automatic/wt550
+	desc = "A mass produced ammo box by NT, compatible with WT-550s, contains 6 armor penetrating magazines."
+	item = /obj/item/storage/toolbox/ammobox/wt550m9ap
 	price_min = CARGO_CRATE_VALUE * 1
 	price_max = CARGO_CRATE_VALUE * 2
 	stock_max = 25
