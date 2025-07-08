@@ -28,3 +28,13 @@
   - rscadd: Added a recolourable version of the security miniskirt for everyone!
   Kocma-san:
   - code_imp: Removes useless 5 characters from modular_nova\modules\modular_items\lewd_items\code\lewd_clothing\kinky_sleepbag.dm
+2025-07-08:
+  Iajret:
+  - bugfix: fixed delta and meta arrivals piping and airlocks
+  MrSunabouzu:
+  - rscadd: Added a secondary shuttle dock to snowglobe.
+  carpotoxin:
+  - rscadd: Added the visitor quirk! Join with limited records data and no automatic
+      manifest injection
+  - qol: Assistants and prisoners can't clock out anymore. No more 'Off-duty off-duty'
+      crew
