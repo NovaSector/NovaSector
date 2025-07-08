@@ -19,3 +19,8 @@
 
 /obj/machinery/suit_storage_unit/industrial/hauler
 	mod_type = /obj/item/mod/control/pre_equipped/prototype/hauler
+
+/obj/machinery/suit_storage_unit/interdyne/nerfed
+	mask_type = /obj/item/clothing/mask/neck_gaiter
+	storage_type = /obj/item/tank/internals/oxygen
+	mod_type = /obj/item/mod/control/pre_equipped/interdyne/nerfed

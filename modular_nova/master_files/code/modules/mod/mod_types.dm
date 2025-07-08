@@ -213,3 +213,17 @@
 		/obj/item/mod/module/quick_carry,
 		/obj/item/mod/module/holster,
 	)
+
+/obj/item/mod/control/pre_equipped/interdyne/nerfed
+	theme = /datum/mod_theme/interdyne
+	starting_frequency = MODLINK_FREQ_SYNDICATE
+	applied_cell = /obj/item/stock_parts/power_store/cell/super
+	applied_modules = list(
+		/obj/item/mod/module/defibrillator,
+		/obj/item/mod/module/injector,
+		/obj/item/mod/module/surgical_processor/preloaded,
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/tether,
+		/obj/item/mod/module/thread_ripper,
+	)
+
