@@ -1,8 +1,0 @@
-author: "RealWinterFrost"
-delete-after: True
-changes:
-  - balance: "Reduced jager mag size from 7-> 4"
-  - balance: "Reduced Large Jager Mag size from  9 -> 7"
-  - balance: "Increased price of jager from 1200cr -> 1600cr"
-  - rscadd: "Added OPFOR variant of Jager to antag uplinks, nicknamed 'Shitzu'"
-  - rscadd: "Added Purchasable ammunition in Antag panel for Shitzu Shotgun."
