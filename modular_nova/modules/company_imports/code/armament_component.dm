@@ -76,7 +76,7 @@
 
 	if(console_state == CARGO_CONSOLE)
 		var/obj/machinery/computer/cargo/console = parent
-		if(!console.requestonly || console.contraband)
+		if(console.obj_flags & EMAGGED)
 			cant_buy_restricted = FALSE
 
 	else if((console_state == IRN_CONSOLE) && id_card?.registered_account)
