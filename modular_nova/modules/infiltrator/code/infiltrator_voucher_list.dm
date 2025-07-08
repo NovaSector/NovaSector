@@ -1,3 +1,11 @@
+//item vouchers
+/obj/item/paper/paperslip/corporate/syndicate
+	name = "item voucher"
+	desc = "A plastic card used to redeem equipment, this one is blank."
+	icon_state = "voucher_blank"
+	icon = 'modular_nova/modules/infiltrator/icons/voucher.dmi'
+	show_written_words = FALSE
+
 /datum/voucher_set/traitor //abstract type
 
 
