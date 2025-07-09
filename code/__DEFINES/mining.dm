@@ -70,7 +70,7 @@
 /// The number of points a miner gets for discovering a vent, multiplied by BOULDER_SIZE when completing a wave defense minus the discovery bonus.
 #define MINER_POINT_MULTIPLIER 150 // NOVA EDIT: ORIGINAL #define MINER_POINT_MULTIPLIER 100
 /// The multiplier that gets applied for automatically generated mining points.
-#define MINING_POINT_MACHINE_MULTIPLIER 0.5 // NOVA EDIT: ORIGINAL #define MINING_POINT_MACHINE_MULTIPLIER 0.8 - To scale point generation for a longer round
+#define MINING_POINT_MACHINE_MULTIPLIER 0.6 // NOVA EDIT: ORIGINAL #define MINING_POINT_MACHINE_MULTIPLIER 0.8 - To scale point generation for a longer round
 
 //String defines to use with CaveGenerator presets for what ore breakdown to use.
 #define OREGEN_PRESET_LAVALAND "lavaland"
