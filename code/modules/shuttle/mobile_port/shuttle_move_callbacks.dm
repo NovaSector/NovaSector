@@ -340,7 +340,7 @@ All ShuttleMove procs go here
 		// NOVA EDIT ADDITION START - Ensures that the unbuckling only happens when its leaving hyperspace not entering
 		if (!istype(oldT, /turf/open/space/transit) || istype(buckled, /obj/vehicle/ridden/wheelchair))
 		// NOVA EDIT ADDITION END
-		buckled.user_unbuckle_mob(src, src)
+			buckled.user_unbuckle_mob(src, src)
 		return
 	if(knockdown > 0)
 		if(buckled)
