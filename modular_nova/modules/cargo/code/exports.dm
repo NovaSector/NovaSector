@@ -13,9 +13,6 @@
 /datum/export/stack/sandstone
     cost = 0
 
-/datum/export/stack/ammonia_crystals
-    cost = 0
-
 /datum/export/stack/pizza
     cost = 0
 
@@ -41,12 +38,6 @@
     cost = 0
 
 /datum/export/material/runite
-    cost = 0
-
-/datum/export/material/hot_ice
-    cost = 0
-
-/datum/export/material/metal_hydrogen
     cost = 0
 
 /datum/export/material/market/diamond
