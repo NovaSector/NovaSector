@@ -4,7 +4,7 @@
 	flora_spawn_chance = 25
 	smoothing_iterations = 15
 
-	mob_spawn_chance = 1.5
+	mob_spawn_chance = 0.75
 
 	weighted_mob_spawn_list = list(
 		/mob/living/basic/deer/mining = 50,
