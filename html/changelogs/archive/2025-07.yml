@@ -33,8 +33,18 @@
   - bugfix: fixed delta and meta arrivals piping and airlocks
   MrSunabouzu:
   - rscadd: Added a secondary shuttle dock to snowglobe.
+  RealWinterFrost:
+  - balance: Reduced jager mag size from 7-> 4
+  - balance: Reduced Large Jager Mag size from  9 -> 7
+  - balance: Increased price of jager from 1200cr -> 1600cr
+  - rscadd: Added OPFOR variant of Jager to antag uplinks, nicknamed 'Shitzu'
+  - rscadd: Added Purchasable ammunition in Antag panel for Shitzu Shotgun.
+  bigbakedbean:
+  - bugfix: expeditionary medkit fix
   carpotoxin:
   - rscadd: Added the visitor quirk! Join with limited records data and no automatic
       manifest injection
   - qol: Assistants and prisoners can't clock out anymore. No more 'Off-duty off-duty'
       crew
+  twilightwanderer:
+  - bugfix: The vox sounds of the AI's superior annonces are playing again
