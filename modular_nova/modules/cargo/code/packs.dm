@@ -410,6 +410,9 @@
 	cost = CARGO_CRATE_VALUE * 6 // 1200 credits
 	contains = list(/obj/item/gravity_harness)
 
+/datum/supply_pack/misc/commandkeys
+	hidden = TRUE
+
 /*
 *	FOOD
 */

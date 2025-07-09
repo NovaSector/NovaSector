@@ -66,7 +66,6 @@
 				)
 	crate_type = /obj/structure/closet/crate/wooden
 
-/* Nova edit 
 /datum/supply_pack/misc/commandkeys
 	name = "Command Encryption Key Crate"
 	desc = "A pack of encryption keys that give access to the command radio network. \
@@ -78,7 +77,6 @@
 	contains = list(/obj/item/encryptionkey/headset_com = 3)
 	crate_type = /obj/structure/closet/crate/secure/centcom
 	crate_name = "command encryption key crate"
-*/
 
 /datum/supply_pack/misc/exploration_drone
 	name = "Exploration Drone"
