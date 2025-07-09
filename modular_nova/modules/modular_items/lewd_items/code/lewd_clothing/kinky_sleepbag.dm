@@ -66,7 +66,7 @@
 
 		if(TRUE)
 			if(bag_state == "deflated")
-				fold()
+				fold(user)
 				to_chat(user, span_notice("The sleeping bag now is [bag_fold? "folded." : "unfolded."]"))
 				update_icon()
 				update_icon_state()
