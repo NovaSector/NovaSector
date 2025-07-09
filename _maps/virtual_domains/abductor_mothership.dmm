@@ -445,10 +445,6 @@
 	},
 /turf/open/floor/plating/abductor,
 /area/virtual_domain)
-"fN" = (
-/mob/living/basic/trooper/abductor/nova/melee/armored,
-/turf/open/floor/mineral/abductor,
-/area/virtual_domain)
 "fZ" = (
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
@@ -579,6 +575,7 @@
 	networks = list("abdumainring");
 	name = "Abductor Camera: Center Ring"
 	},
+/obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "iy" = (
@@ -1006,12 +1003,6 @@
 	name = "Abductor Camera: Center Ring"
 	},
 /turf/open/floor/plating/abductor,
-/area/virtual_domain)
-"pa" = (
-/obj/machinery/light/small/red/dim{
-	dir = 1
-	},
-/turf/open/floor/mineral/abductor,
 /area/virtual_domain)
 "pi" = (
 /obj/structure/table/abductor,
@@ -1462,10 +1453,6 @@
 /obj/effect/landmark/bitrunning/cache_spawn,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"wY" = (
-/mob/living/basic/trooper/abductor/nova/melee,
-/turf/open/floor/mineral/abductor,
-/area/virtual_domain)
 "xp" = (
 /obj/machinery/oven/range_frontier,
 /turf/open/floor/plating/abductor,
@@ -1704,13 +1691,7 @@
 /turf/open/floor/mineral/abductor,
 /area/virtual_domain)
 "Bq" = (
-/obj/structure/closet/abductor,
-/obj/item/clothing/under/abductor{
-	pixel_x = 0;
-	pixel_y = -1
-	},
-/obj/item/pillow,
-/obj/item/radio/headset/abductor,
+/obj/structure/bed/abductor,
 /obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
@@ -2012,7 +1993,6 @@
 /obj/item/food/peanuts/random,
 /obj/item/food/peanuts/random,
 /obj/item/food/peanuts/random,
-/obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "Hn" = (
@@ -2083,7 +2063,6 @@
 /area/virtual_domain)
 "Iz" = (
 /obj/structure/closet/abductor,
-/obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
 "IF" = (
@@ -4084,7 +4063,7 @@ XL
 XL
 pI
 qc
-zQ
+XL
 ja
 cZ
 sH
@@ -5010,7 +4989,7 @@ zB
 pI
 hk
 bq
-Ib
+dw
 pI
 pI
 pI
@@ -5080,7 +5059,7 @@ qN
 qN
 zO
 pI
-pa
+bq
 bq
 zp
 lC
@@ -5895,7 +5874,7 @@ hi
 fZ
 ev
 pI
-Bq
+uv
 QM
 XL
 yM
@@ -5967,7 +5946,7 @@ pI
 fZ
 fZ
 pI
-BE
+Bq
 XL
 ig
 pI
@@ -6937,7 +6916,7 @@ KX
 KX
 pI
 EH
-fZ
+aN
 pI
 XL
 uo
@@ -7176,7 +7155,7 @@ fZ
 bp
 JR
 Nu
-wY
+bq
 bq
 JR
 ZF
@@ -7249,7 +7228,7 @@ Fr
 JR
 ft
 bq
-fN
+bq
 JR
 bq
 bq
@@ -7270,7 +7249,7 @@ Og
 QK
 Vh
 Vh
-QK
+XL
 pI
 lK
 ev
@@ -7832,7 +7811,7 @@ XL
 XL
 XL
 XL
-QK
+XL
 XL
 XL
 pI
