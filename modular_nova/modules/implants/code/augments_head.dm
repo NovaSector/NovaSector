@@ -135,6 +135,7 @@
 		/obj/machinery/satellite/meteor_shield,
 		/obj/machinery/computer/communications,
 		/obj/machinery/computer/arcade,
+		/obj/machinery/computer/cargo,
 		/obj/machinery/computer/holodeck,
 		/obj/machinery/computer/emergency_shuttle,
 		/obj/machinery/recycler,
