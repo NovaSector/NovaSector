@@ -1,0 +1,5 @@
+author: "Jedi-Toothpaste"
+delete-after: True
+changes:
+  - rscadd: "New rolled down tops for the departmental utility jumpsuits!"
+  - bugfix: "Fixed missing alt sprite for medical utility on non-digi users"
