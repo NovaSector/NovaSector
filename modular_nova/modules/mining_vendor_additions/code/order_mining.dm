@@ -10,6 +10,9 @@
 	purchase_path = /obj/item/storage/medkit/robotic_repair/stocked
 	cost_per_order = 650 // I set this at this slightly-higher-than-normal value because the robot medkits heal brute, burn, and have a coagulent equivalent in them
 
+/datum/orderable_item/consumables/space_cash
+	category_index = "disabled"
+
 /datum/orderable_item/interdyne
 	category_index = CATEGORY_INTERDYNE
 
