@@ -38,9 +38,9 @@
 	name = "WT-550 Autorifle"
 	desc = "A mass produced autorifle by NT, now outdated compared to modern guns, Nanotrasen has decided to dump their surplus into backmarkets."
 	item = /obj/item/gun/ballistic/automatic/wt550
-	price_min = CARGO_CRATE_VALUE * 1.5
-	price_max = CARGO_CRATE_VALUE * 2
-	stock_max = 40
+	price_min = CARGO_CRATE_VALUE * 2
+	price_max = CARGO_CRATE_VALUE * 3
+	stock_max = 10
 	availability_prob = 100
 
 /datum/market_item/weapon/wt550m9
@@ -49,7 +49,7 @@
 	item = /obj/item/storage/toolbox/ammobox/wt550m9
 	price_min = CARGO_CRATE_VALUE * 2
 	price_max = CARGO_CRATE_VALUE * 3
-	stock_max = 50
+	stock_max = 8
 	availability_prob = 100
 
 /datum/market_item/weapon/wt550m9ap
@@ -58,7 +58,7 @@
 	item = /obj/item/storage/toolbox/ammobox/wt550m9ap
 	price_min = CARGO_CRATE_VALUE * 3
 	price_max = CARGO_CRATE_VALUE * 4
-	stock_max = 25
+	stock_max = 6
 	availability_prob = 100
 
 /datum/market_item/weapon/Assasin_kit
