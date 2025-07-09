@@ -8243,6 +8243,7 @@
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_shoes.dm"
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_suit.dm"
 #include "modular_nova\modules\loadouts\loadout_items\loadout_datum_toys.dm"
+#include "modular_nova\modules\loadouts\loadout_items\loadout_datum_toys_plushies.dm"
 #include "modular_nova\modules\loadouts\loadout_items\pizzabox.dm"
 #include "modular_nova\modules\loadouts\loadout_items\donator\personal\donator_personal.dm"
 #include "modular_nova\modules\loadouts\loadout_items\under\donator.dm"

@@ -48,3 +48,11 @@
       crew
   twilightwanderer:
   - bugfix: The vox sounds of the AI's superior annonces are playing again
+2025-07-09:
+  BigAganoo:
+  - rscadd: Added 7 new voice barks to character preferences.
+  Jedi-Toothpaste:
+  - rscadd: New rolled down tops for the departmental utility jumpsuits!
+  - bugfix: Fixed missing alt sprite for medical utility on non-digi users
+  OrionTheFox:
+  - qol: 'Sorted the following Loadout groups: Neck, Other, Toys.'
