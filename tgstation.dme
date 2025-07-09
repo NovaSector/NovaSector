@@ -7460,6 +7460,8 @@
 #include "modular_nova\modules\bitrunning\code\server.dm"
 #include "modular_nova\modules\bitrunning\code\spells.dm"
 #include "modular_nova\modules\bitrunning\code\telecomms.dm"
+#include "modular_nova\modules\bitrunning\code\virtual_domains\abductor_mothership\rewards.dm"
+#include "modular_nova\modules\bitrunning\code\virtual_domains\abductor_mothership\virtual_domain.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\area.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\choice_beacon.dm"
 #include "modular_nova\modules\bitrunning\code\virtual_domains\ancient_milsim\disk.dm"

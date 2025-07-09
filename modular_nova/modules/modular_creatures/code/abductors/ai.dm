@@ -5,7 +5,7 @@
 		BB_REINFORCEMENTS_EMOTE = "raises up its hand, motioning wildly towards itself!",
 	)
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target/huge_range,
+		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/attack_obstacle_in_path/trooper,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
@@ -22,7 +22,7 @@
 
 /datum/ai_controller/basic_controller/trooper/calls_reinforcements/abductors/ranged
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target/huge_range, // if you can see them
+		/datum/ai_planning_subtree/simple_find_target, // if you can see them
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/serious,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,
@@ -30,7 +30,7 @@
 
 /datum/ai_controller/basic_controller/trooper/calls_reinforcements/abductors/serious/ranged
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target/huge_range,
+		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/serious,
 		/datum/ai_planning_subtree/travel_to_point/and_clear_target/reinforce,
@@ -44,7 +44,7 @@
 	)
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target/huge_range,
+		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/call_reinforcements,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper/serious,
 	)
