@@ -136,7 +136,7 @@
 	name = "\improper Emergency Ration Side: Granola Bar"
 	desc = "A classic, honey and oat granola bar."
 	icon_state = "foodpack_ration_granola"
-	tastes = list("honey" = 1 "oats" = 1)
+	tastes = list("honey" = 1, "oats" = 1)
 	foodtypes = VEGETABLES
 
 /obj/item/reagent_containers/condiment/pack/peanut_butter // This didn't already exist, for some reason.
