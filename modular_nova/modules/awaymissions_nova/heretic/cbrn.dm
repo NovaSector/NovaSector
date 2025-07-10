@@ -3,7 +3,7 @@
 	desc = "A hood with radiation protective properties along with acidic and biological protective properties. The label reads, 'Made with thin lead sheets, please do not consume.'"
 	armor_type = /datum/armor/utility_radiation/cbrn
 
-/obj/item/clothing/head/utility/radiation/cbrn/Initialize(mapload)
+/obj/item/clothing/head/utility/radiation/cbrnhood/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/radiation_protected_clothing)
 
@@ -25,6 +25,6 @@
 	slowdown = 0
 	armor_type = /datum/armor/utility_radiation/cbrn
 
-/obj/item/clothing/suit/utility/radiation/cbrn/Initialize(mapload)
+/obj/item/clothing/suit/utility/radiation/cbrnsuit/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/radiation_protected_clothing)
