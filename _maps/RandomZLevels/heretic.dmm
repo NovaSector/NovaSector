@@ -1376,6 +1376,13 @@
 /obj/effect/decal/cleanable/glass/plastitanium,
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/heretic_laboratory)
+"jq" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory)
 "js" = (
 /obj/machinery/door/airlock{
 	name = "Showers"
@@ -1859,8 +1866,9 @@
 /turf/open/water/jungle,
 /area/awaymission/beach/heretic)
 "mN" = (
-/obj/effect/baseturf_helper/reinforced_plating,
-/turf/closed/indestructible/rock,
+/obj/structure/fluff/tram_rail/anchor,
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
 "mO" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
@@ -2072,6 +2080,15 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
+"oe" = (
+/obj/effect/turf_decal/delivery,
+/obj/item/stack/sheet/mineral/wood,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory)
 "oi" = (
 /obj/machinery/door/puzzle/keycard/hereticgateway0,
 /obj/machinery/door/airlock/highsecurity{
@@ -2981,6 +2998,13 @@
 "uz" = (
 /turf/closed/wall/mineral/uranium,
 /area/awaymission/caves/heretic_laboratory_clean)
+"uA" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory)
 "uC" = (
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
@@ -3055,6 +3079,13 @@
 /obj/item/gun/energy/disabler/smoothbore/prime,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
+"vb" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory)
 "vj" = (
 /obj/structure/fluff/bus/dense,
 /obj/effect/light_emitter,
@@ -3980,6 +4011,10 @@
 /obj/item/weldingtool/hugetank,
 /turf/open/misc/grass/jungle/planet,
 /area/awaymission/beach/heretic)
+"BU" = (
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory)
 "BV" = (
 /turf/open/floor/pod/light,
 /area/awaymission/beach/heretic)
@@ -4058,6 +4093,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
+/area/awaymission/caves/heretic_laboratory)
+"Cy" = (
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory)
 "Cz" = (
 /obj/effect/turf_decal/siding/wood{
@@ -5327,7 +5366,7 @@
 	},
 /area/awaymission/caves/heretic_laboratory_clean)
 "La" = (
-/obj/effect/baseturf_helper/asteroid,
+/obj/effect/baseturf_helper/beach/sand,
 /turf/closed/indestructible/rock,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Lb" = (
@@ -5468,6 +5507,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /obj/effect/decal/remains/robot,
+/obj/structure/holosign/barrier/atmos/tram,
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
 "Mh" = (
@@ -5506,6 +5546,14 @@
 /obj/structure/dresser,
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
+"Mr" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/effect/turf_decal/delivery,
+/obj/structure/holosign/barrier/atmos/tram,
+/turf/open/floor/engine,
+/area/awaymission/caves/heretic_laboratory)
 "Mu" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -6568,6 +6616,10 @@
 	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
+"Un" = (
+/obj/effect/baseturf_helper/beach/sand,
+/turf/open/floor/plating,
+/area/awaymission/caves/heretic_laboratory)
 "Up" = (
 /obj/machinery/vending/security,
 /turf/open/floor/iron/small,
@@ -16309,9 +16361,9 @@ nZ
 xl
 KB
 vN
-zF
-cL
-JG
+vb
+BU
+mN
 xl
 xl
 xl
@@ -31729,9 +31781,9 @@ bq
 KB
 bZ
 KB
-zF
-cL
-JG
+vb
+BU
+mN
 vN
 KB
 KB
@@ -35607,7 +35659,7 @@ tZ
 ay
 ay
 KB
-mN
+dh
 LX
 ZZ
 nT
@@ -38925,9 +38977,9 @@ bZ
 bZ
 bZ
 KB
-zF
-cL
-JG
+vb
+BU
+mN
 vN
 KB
 KB
@@ -45093,9 +45145,9 @@ bZ
 bZ
 KB
 KB
-zF
-xd
-JG
+vb
+jq
+mN
 KB
 KB
 KB
@@ -56656,13 +56708,13 @@ bZ
 bZ
 bZ
 KB
-ay
-ay
-mG
-gr
+Cy
+Cy
+Mr
+oe
 Mg
-ay
-ay
+Cy
+Cy
 KB
 ay
 KB
@@ -61796,7 +61848,7 @@ bZ
 bZ
 bZ
 KB
-ay
+Un
 ay
 ay
 sx
@@ -62312,9 +62364,9 @@ bZ
 KB
 KB
 KB
-ay
-sx
-ay
+Cy
+uA
+Cy
 KB
 Hp
 KB
@@ -62574,7 +62626,7 @@ sx
 ay
 KB
 ay
-ay
+Cy
 ay
 KB
 bZ
@@ -64111,9 +64163,9 @@ KB
 KB
 KB
 KB
-ay
-sx
-ay
+Cy
+uA
+Cy
 KB
 bZ
 bZ
