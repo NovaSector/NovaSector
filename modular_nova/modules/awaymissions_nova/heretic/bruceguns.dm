@@ -11,6 +11,7 @@
 	icon = 'modular_nova/modules/awaymissions_nova/heretic/lahtil39.dmi'
 	icon_state = "lahtil"
 	inhand_icon_state = "sniper"
+	worn_icon_state = "sniper"
 	mag_display = FALSE
 	recoil = 15
 	fire_sound_volume = 200
