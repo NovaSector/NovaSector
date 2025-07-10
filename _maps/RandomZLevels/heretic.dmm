@@ -729,7 +729,6 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "fI" = (
-/obj/effect/mapping_helpers/airlock/access/all/supply,
 /obj/machinery/door/puzzle/keycard/hereticgateway1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -822,10 +821,6 @@
 /mob/living/basic/cult/engorge/devourdem,
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory_clean)
-"gj" = (
-/obj/effect/mapping_helpers/airlock/access/all/admin/captain,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory)
 "gm" = (
 /obj/machinery/door/airlock{
 	name = "Personal Dorm"
@@ -1671,10 +1666,6 @@
 /obj/item/stack/sheet/cardboard/fifty,
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory_clean)
-"lf" = (
-/obj/effect/mapping_helpers/airlock/access/all/admin/captain,
-/turf/open/floor/iron/small,
-/area/awaymission/caves/heretic_laboratory_clean)
 "lj" = (
 /obj/structure/table/wood,
 /obj/item/book/manual/wiki/medicine,
@@ -2426,7 +2417,6 @@
 /turf/open/misc/grass/jungle/planet,
 /area/awaymission/beach/heretic)
 "qr" = (
-/obj/effect/mapping_helpers/airlock/access/all/security,
 /obj/machinery/door/puzzle/keycard/hereticgateway1,
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory)
@@ -4173,7 +4163,6 @@
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Dj" = (
-/obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /obj/machinery/door/puzzle/keycard/hereticgateway2,
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -24485,7 +24474,7 @@ KB
 KB
 KB
 KB
-gj
+bq
 Dg
 KB
 KB
@@ -26790,7 +26779,7 @@ bZ
 xl
 xl
 xl
-lf
+hs
 GZ
 xl
 xl
@@ -26803,7 +26792,7 @@ pJ
 Le
 hs
 hs
-lf
+hs
 hs
 KU
 kM
