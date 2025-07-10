@@ -3535,7 +3535,9 @@
 /area/awaymission/beach/heretic)
 "yd" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/lahtimagazine,
+/obj/item/ammo_box/magazine/lahtimagazine{
+	anchored = 1
+	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "yk" = (
@@ -4981,8 +4983,10 @@
 /area/station/maintenance/heretic_laboratory)
 "II" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/mmg_box,
 /obj/machinery/light/directional/east,
+/obj/item/ammo_box/magazine/mmg_box{
+	anchored = 1
+	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "IJ" = (
@@ -4992,7 +4996,9 @@
 /area/awaymission/beach/heretic)
 "IK" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/mmg_box,
+/obj/item/ammo_box/magazine/mmg_box{
+	anchored = 1
+	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "IL" = (
@@ -6511,6 +6517,10 @@
 /obj/structure/curtain,
 /turf/open/floor/iron/white,
 /area/awaymission/caves/heretic_laboratory_clean)
+"TL" = (
+/obj/structure/chair/plastic,
+/turf/open/floor/iron/small,
+/area/awaymission/caves/heretic_laboratory_clean)
 "TO" = (
 /obj/effect/decal/remains/robot,
 /obj/machinery/light/directional/east,
@@ -7155,8 +7165,10 @@
 /area/station/maintenance/heretic_laboratory)
 "Yu" = (
 /obj/structure/table,
-/obj/item/ammo_box/magazine/lahtimagazine,
 /obj/machinery/light/directional/east,
+/obj/item/ammo_box/magazine/lahtimagazine{
+	anchored = 1
+	},
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
 "Yv" = (
@@ -13987,7 +13999,7 @@ mV
 JO
 KB
 hs
-hs
+TL
 hs
 Zn
 Cd
@@ -52276,7 +52288,7 @@ fr
 fr
 fr
 na
-SM
+fr
 fr
 FG
 fr
@@ -52788,7 +52800,7 @@ na
 fr
 FG
 fr
-fr
+SM
 fr
 fr
 fr
