@@ -970,7 +970,7 @@
 	pixel_z = 17;
 	anchored = 1
 	},
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "hg" = (
 /turf/open/misc/asteroid,
@@ -1166,7 +1166,7 @@
 /obj/structure/fluff/bus/passable,
 /obj/item/reagent_containers/condiment/saltshaker,
 /obj/effect/light_emitter,
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "ie" = (
 /obj/item/bedsheet/black/double{
@@ -2234,7 +2234,7 @@
 /area/awaymission/beach/heretic)
 "po" = (
 /obj/structure/fluff/bus/passable/seat,
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "pr" = (
 /obj/structure/safe/floor{
@@ -2376,7 +2376,7 @@
 	icon_state = "topdoor"
 	},
 /obj/effect/light_emitter,
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "qc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -3925,7 +3925,7 @@
 /obj/structure/fluff/bus/passable{
 	icon_state = "topdoor"
 	},
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "Bt" = (
 /obj/item/ammo_casing/b50cal{
@@ -4475,7 +4475,7 @@
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory)
 "Fs" = (
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "Fw" = (
 /obj/structure/fluff/tram_rail{
@@ -5378,7 +5378,7 @@
 /area/awaymission/caves/heretic_laboratory)
 "Lv" = (
 /obj/structure/fluff/bus/passable,
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "Lw" = (
 /obj/structure/table,
@@ -5420,7 +5420,7 @@
 	pixel_z = 17;
 	anchored = 1
 	},
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "LN" = (
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
@@ -5999,7 +5999,7 @@
 	pixel_x = 1;
 	anchored = 1
 	},
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "PU" = (
 /obj/machinery/door/airlock{
@@ -6347,7 +6347,7 @@
 	pixel_z = 17;
 	anchored = 1
 	},
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "Sq" = (
 /obj/item/keycard/hereticgateway0,
@@ -6420,7 +6420,7 @@
 "SX" = (
 /obj/structure/fluff/bus/passable,
 /obj/item/reagent_containers/condiment/saltshaker,
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "SY" = (
 /obj/structure/railing{
@@ -7087,7 +7087,7 @@
 	pixel_z = 16;
 	anchored = 1
 	},
-/turf/open/floor/iron/dark/airless,
+/turf/open/floor/iron/dark,
 /area/awaymission/beach/heretic)
 "XY" = (
 /obj/item/bedsheet/black/double{
