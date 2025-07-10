@@ -78,7 +78,8 @@
 	desc = "A 5.7x28mmmm bullet casing."
 	caliber = CALIBER_46X30MM
 	projectile_type = /obj/projectile/bullet/mm57x28
-	icon_state = "ammo"
+	icon_state = "s-casing"
+	base_icon_state = "ammo"
 	newtonian_force = 0.1
 
 /obj/projectile/bullet/mm57x28
