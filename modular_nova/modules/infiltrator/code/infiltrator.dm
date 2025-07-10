@@ -1,7 +1,3 @@
-//antag job
-/datum/job/infiltrator
-	title = ROLE_INFILTRATOR
-
 //antag
 /datum/antagonist/traitor/infiltrator
 	name = "Infiltrator"
@@ -9,13 +5,28 @@
 	roundend_category = "Infiltrators"
 	preview_outfit = /datum/outfit/infiltrator_preview
 	give_uplink = FALSE
-	///Identifying number of the traitor
+	/// Identifying number of the traitor
 	var/infil_number
-	///The turf inside the lazy_template marked as this antag's spawn
+	/// The turf inside the lazy_template marked as this antag's spawn
 	var/turf/spawnpoint
 
 /datum/outfit/infiltrator_preview
 	name = "Infiltrator (Preview only)"
+
+/datum/antagonist/traitor/infiltrator/apply_innate_effects(mob/living/mob_override)
+	. = ..()
+	var/mob/living/owner_mob = mob_override || owner.current
+	var/datum/language_holder/holder = owner_mob.get_language_holder()
+	holder.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
+	owner_mob.faction |= ROLE_SYNDICATE
+	owner_mob.faction &= FACTION_NEUTRAL
+
+/datum/antagonist/traitor/infiltrator/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/owner_mob = mob_override || owner.current
+	if(owner_mob)
+		owner_mob.remove_language(/datum/language/codespeak, source = LANGUAGE_MIND)
+		owner_mob.faction &= ROLE_SYNDICATE
+		owner_mob.faction |= FACTION_NEUTRAL
 
 /datum/antagonist/traitor/infiltrator/on_gain()
 	. = ..()
@@ -67,3 +78,16 @@
 	owner.current.setDir(SOUTH)
 	bed.buckle_mob(owner.current)
 	bedsheet.coverup(owner.current)
+
+//antag job
+/datum/job/infiltrator
+	title = ROLE_INFILTRATOR
+	plasmaman_outfit = /datum/outfit/infiltrator_plasmaman
+
+/datum/outfit/infiltrator_plasmaman
+	name = "Infiltrator (Plasmaman)"
+	head = /obj/item/clothing/head/helmet/space/plasmaman/syndie
+	uniform = /obj/item/clothing/under/plasmaman/syndicate
+	gloves = /obj/item/clothing/gloves/color/plasmaman/black
+	belt = /obj/item/tank/internals/plasmaman/belt/full
+	internals_slot = ITEM_SLOT_BELT

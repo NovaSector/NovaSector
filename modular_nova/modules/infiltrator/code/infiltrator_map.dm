@@ -1,10 +1,3 @@
-//voucher redeemers
-/obj/machinery/computer/voucher_redeemer
-
-/obj/machinery/computer/voucher_redeemer/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/voucher_redeemer, /obj/item/paper/paperslip/corporate/syndicate, /datum/voucher_set/traitor)
-
 //shuttle
 /datum/map_template/shuttle/traitor
 	port_id = "traitor"
@@ -31,7 +24,7 @@
 	. = ..()
 	if(. != "success")
 		return
-	// make the shuttle travel in a random dir each time, because its cool
+	//make the shuttle travel in a random dir each time, because its cool 😎
 	var/obj/docking_port/mobile/mobile_dock = SSshuttle.getShuttle(shuttleId)
 	var/obj/docking_port/stationary/transit_dock
 	for(var/obj/docking_port/stationary/transit/stationary_dock in SSshuttle.stationary_docking_ports)
@@ -89,11 +82,79 @@
 	map_dir = "_maps/nova/lazy_templates"
 	map_name = "midround_traitor"
 
+//pet
+/mob/living/basic/carp/pet/clover
+	name = "Clover"
+	real_name = "Clover"
+	icon = 'modular_nova/modules/infiltrator/icons/carp.dmi'
+	icon_state = "clover"
+	icon_dead = "clover_dead"
+	icon_gib = "clover_gib"
+	icon_living = "clover"
+	gender = MALE
+	maxHealth = 300 //you said carps were stronger on nova-sector
+	health = 300
+	desc = "A bright green carp tamed by one of the operatives on rotation at bay no. 09. \n\
+	Has been here a long, long time. Petting him brings good luck, you'll need it."
+	faction = list(ROLE_SYNDICATE)
+	regenerate_colour = COLOR_HEALING_CYAN
+	greyscale_config = NONE
+
+/mob/living/basic/carp/pet/clover/Initialize(mapload)
+	. = ..()
+	//for sentience potion
+	var/datum/language_holder/holder = get_language_holder()
+	holder.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
+	holder.selected_language = /datum/language/codespeak
+
+//items to unlock some research for their equipment machinery
+/obj/item/disk/mecha_part_fabricator
+	var/list/nodes_to_unlock = list()
+
+/obj/item/disk/mecha_part_fabricator/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!istype(interacting_with, /obj/machinery/mecha_part_fabricator))
+		return NONE
+	if(!nodes_to_unlock.len)
+		return NONE
+	var/obj/machinery/mecha_part_fabricator/fabricator = interacting_with
+	for(var/techweb_node in nodes_to_unlock)
+		var/datum/techweb_node/modsuit_node = SSresearch.techweb_nodes[techweb_node]
+		for(var/id in modsuit_node.design_ids)
+			var/datum/design/design = SSresearch.techweb_design_by_id(id)
+			fabricator.illegal_local_designs |= design //i like the broken english on this var. we'll have it hold more than just illegal designs, because its useful like that
+
+	fabricator.update_menu_tech()
+	qdel(src)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/item/disk/mecha_part_fabricator/modmodule_data
+	name = "MODsuit module data disk"
+	desc = "A disk which contains MODsuit module print-recipes, which can be downloaded by an exosuit fabricator if inserted."
+	icon_state = "datadisk5"
+	nodes_to_unlock = list(
+		TECHWEB_NODE_MOD_SUIT,
+		TECHWEB_NODE_MOD_EQUIP,
+		TECHWEB_NODE_MOD_ENGI,
+		TECHWEB_NODE_MOD_ENGI_ADV,
+		TECHWEB_NODE_MOD_SECURITY,
+	)
+
+/obj/item/disk/mecha_part_fabricator/mechaparts_data
+	name = "mecha parts module data disk"
+	desc = "A disk which contains mech tool print-recipes, which can be downloaded by an exosuit fabricator if inserted."
+	icon_state = "datadisk0"
+	layer = MOB_LAYER //a little hacky, but this is so the mech it spawns with doesn't obscure it
+	nodes_to_unlock = list(
+		TECHWEB_NODE_MECH_ASSEMBLY,
+		TECHWEB_NODE_MECH_EQUIPMENT,
+		TECHWEB_NODE_MECH_COMBAT,
+	)
+
 //stationary docking port
 /obj/docking_port/stationary/traitor
 	name = "Launchpad no. 09"
 	shuttle_id = "traitor"
-	delete_after = TRUE
+	delete_after = TRUE //no return
 	hidden = TRUE
 	width = 9
 	height = 5
@@ -107,13 +168,45 @@
 	return INITIALIZE_HINT_QDEL
 
 //areas
-/area/misc/syndicate_armoury
-	name = "Syndicate Armoury"
+/area/misc/operative_barracks
+	name = "Aft Operative Barracks"
+	requires_power = FALSE
 	area_flags = NOTELEPORT | HIDDEN_AREA
 	default_gravity = STANDARD_GRAVITY
-	sound_environment = SOUND_ENVIRONMENT_ROOM
 	ambient_buzz = null
 
-/area/misc/syndicate_armoury/hangar
-	name = "Launchpad no. 09"
+/area/misc/operative_barracks/armoury
+	name = "Armoury no. 09"
+	sound_environment = SOUND_ENVIRONMENT_LIVINGROOM
+
+/area/misc/operative_barracks/armoury/secure
+	name = "Armoury Secure Storage"
+	sound_environment = SOUND_ENVIRONMENT_PADDED_CELL
+
+/area/misc/operative_barracks/robotics
+	name = "Robotics Laboratorium no. 09"
+	sound_environment = SOUND_ENVIRONMENT_ROOM
+
+/area/misc/operative_barracks/medbay
+	name = "Implant Laboratorium no. 09"
+	sound_environment = SOUND_ENVIRONMENT_BATHROOM
+
+/area/misc/operative_barracks/medbay/surgery
+	name = "Surgery Room"
+	sound_environment = SOUND_ENVIRONMENT_PADDED_CELL
+
+/area/misc/operative_barracks/mission_briefing
+	name = "Mission Briefing no. 09"
 	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM
+
+/area/misc/operative_barracks/dorm
+	name = "Dormroom no. 09"
+	sound_environment = SOUND_ENVIRONMENT_ROOM
+
+/area/misc/operative_barracks/dorm/bathroom
+	name = "Bathroom"
+	sound_environment = SOUND_ENVIRONMENT_BATHROOM
+
+/area/misc/operative_barracks/hangar
+	name = "Launchpad no. 09"
+	sound_environment = SOUND_ENVIRONMENT_HANGAR

@@ -15,21 +15,21 @@
 	//generate body
 	var/mob/living/carbon/human/new_character = make_body(applicant)
 	new_character.Sleeping(7 SECONDS)
+	//mind
+	var/datum/mind/player_mind = new /datum/mind(applicant.key)
+	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/infiltrator))
+	player_mind.active = TRUE
 	//outfit
-	new_character.dna.species.pre_equip_species_outfit(null, new_character)
+	new_character.dna.species.pre_equip_species_outfit(player_mind.assigned_role, new_character)
 	var/datum/outfit/pyjamas = new /datum/outfit
 	var/coinflip = rand(0,1)
 	pyjamas.uniform = coinflip ? /obj/item/clothing/under/misc/pj/red : /obj/item/clothing/under/misc/pj/blue
 	pyjamas.head = coinflip ? /obj/item/clothing/head/costume/nightcap/red : /obj/item/clothing/head/costume/nightcap/blue
 	new_character.equipOutfit(pyjamas)
-	//client
+	//quirks
 	var/client/player_client = new_character.client
 	if(player_client)
 		SSquirks.AssignQuirks(new_character, new_character.client)
-	//mind
-	var/datum/mind/player_mind = new /datum/mind(applicant.key)
-	player_mind.set_assigned_role(SSjob.get_job_type(/datum/job/infiltrator))
-	player_mind.active = TRUE
 	//logging
 	message_admins("[ADMIN_LOOKUPFLW(new_character)] has been made into an infiltrator by midround ruleset.")
 	log_game("[key_name(new_character)] was spawned as an infiltrator by midround ruleset.")
@@ -38,8 +38,6 @@
 /datum/dynamic_ruleset/midround/from_ghosts/infiltrator/finish_setup(mob/new_character, index)
 	for(var/datum/dynamic_ruleset/midround/from_ghosts/infiltrator/ruleset in SSdynamic.executed_rules)
 		infil_number++
-	new_character.faction |= ROLE_SYNDICATE
-	new_character.faction &= FACTION_NEUTRAL
 	return ..()
 
 /datum/dynamic_ruleset/midround/from_ghosts/infiltrator/setup_role(datum/antagonist/traitor/infiltrator/role)
