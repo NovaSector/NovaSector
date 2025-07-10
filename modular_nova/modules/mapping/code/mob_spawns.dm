@@ -66,7 +66,7 @@
 	quirks_enabled = TRUE
 	random_appearance = FALSE
 	computer_area = /area/ruin/space/has_grav/nova/des_two/service/dorms
-	spawner_job_path = /datum/job/ds2
+	spawner_job_path = /datum/job/ghost_role/ds2
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/prisoner
 	name = "Syndicate Prisoner"
@@ -78,7 +78,7 @@
 	icon_state = "sleeper_s"
 	computer_area = /area/ruin/space/has_grav/nova/des_two/security/prison
 	outfit = /datum/outfit/ds2/prisoner
-	spawner_job_path = /datum/job/ds2
+	spawner_job_path = /datum/job/ds2/prisoner
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
 	name = "Syndicate Operative"
@@ -90,7 +90,7 @@
 	important_text = "You are not an antagonist. Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
-	spawner_job_path = /datum/job/ds2
+	spawner_job_path = /datum/job/ghost_role/ds2
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command
@@ -103,7 +103,7 @@
 	important_text = "Keep yourself to the same standards as Command Policy. You are not an antagonist and must Adminhelp before antagonizing station crew."
 	outfit = /datum/outfit/ds2/syndicate_command
 	computer_area = /area/ruin/space/has_grav/nova/des_two/halls
-	spawner_job_path = /datum/job/ds2
+	spawner_job_path = /datum/job/ds2/command
 	loadout_enabled = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/special(mob/living/new_spawn)
@@ -122,15 +122,18 @@
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/enginetech
 	outfit = /datum/outfit/ds2/syndicate/enginetech
+	spawner_job_path = /datum/job/ds2/engineer
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/researcher
 	outfit = /datum/outfit/ds2/syndicate/researcher
+	spawner_job_path = /datum/job/ds2/science
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/stationmed
 	outfit = /datum/outfit/ds2/syndicate/stationmed
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate/brigoff
 	outfit = /datum/outfit/ds2/syndicate/brigoff
+	spawner_job_path = /datum/job/ds2/enforce
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate_command/masteratarms
 	outfit = /datum/outfit/ds2/syndicate_command/masteratarms

@@ -6,7 +6,7 @@
 #define ACCOUNT_DS2_NAME "Syndicate Budget"
 
 // Relevant budget for Interdyne!
-#define ACCOUNT_INT "IP"
+#define ACCOUNT_INT "INT"
 #define ACCOUNT_INT_NAME "Interdyne Pharmaceuticals Budget"
 
 // Relevant budget for Tarkon!
