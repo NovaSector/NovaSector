@@ -171,7 +171,7 @@
  * @param bounty_rolls the number of bounties to be selected from.
  * @param assistant_failsafe Do we guarentee one assistant bounty per generated list? Used for non-assistant jobs to give an easier alternative to that job's default bounties.
  */
-/obj/machinery/computer/piratepad_control/civilian/proc/generate_bounty_list(bounty_types, bounty_rolls = 3, assistant_failsafe = TRUE)
+/obj/machinery/computer/piratepad_control/civilian/proc/generate_bounty_list(bounty_types, bounty_rolls = 25, assistant_failsafe = TRUE)
 	var/list/rolling_list = list()
 	if(assistant_failsafe)
 		rolling_list += random_bounty(CIV_JOB_BASIC)

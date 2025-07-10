@@ -1,5 +1,5 @@
 /// How many jobs have bounties, minus the random civ bounties. PLEASE INCREASE THIS NUMBER AS MORE DEPTS ARE ADDED TO BOUNTIES.
-#define MAXIMUM_BOUNTY_JOBS 14
+#define MAXIMUM_BOUNTY_JOBS 23 //  NOVA EDIT, ORIGINAL: MAXIMUM_BOUNTY_JOBS 14
 
 /datum/bounty
 	var/name
@@ -79,11 +79,29 @@
 				chosen_type = pick(subtypesof(/datum/bounty/item/atmospherics))
 			if(CIV_JOB_BITRUN)
 				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			//NOVA ADDITION - GHOST BOUNTIES
+			if(DS2_JOB_ENFORCER)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(DS2_JOB_ENGINEER)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(DS2_JOB_SERVICE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(DS2_JOB_MECHANICAL)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(DS2_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(DYNE_JOB_MINING)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(DYNE_JOB_SCIENCE)
+				chosen_type = pick(subtypesof(/datum/bounty/item/medical))
+			if(TARKON_JOB_CREW)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
+			if(TARKON_JOB_COMMAND)
+				chosen_type = pick(subtypesof(/datum/bounty/item/bitrunning))
 		bounty_ref = new chosen_type
 		if(bounty_ref.can_get())
 			bounty_succeeded = TRUE
 		else
 			qdel(bounty_ref)
 	return bounty_ref
-
 #undef MAXIMUM_BOUNTY_JOBS
