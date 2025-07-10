@@ -4,7 +4,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ah" = (
 /obj/structure/statue/uranium/nuke,
 /turf/open/floor/mineral/uranium,
@@ -14,13 +14,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/door/puzzle/keycard/hereticgateway1,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ak" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "am" = (
 /obj/machinery/door/airlock/highsecurity{
 	max_integrity = 10000;
@@ -75,33 +75,33 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aw" = (
 /obj/structure/fluff/tram_rail,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ay" = (
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aA" = (
 /obj/structure/table,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aE" = (
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aF" = (
 /obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aJ" = (
 /obj/machinery/light/floor,
 /obj/item/organ/heart/gland/quantum,
@@ -123,7 +123,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aM" = (
 /obj/structure/fluff/bus/dense,
 /turf/open/floor/asphalt,
@@ -140,7 +140,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aR" = (
 /obj/machinery/power/rtg/lavaland,
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
@@ -152,7 +152,7 @@
 	anchored = 1
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "aW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder{
@@ -164,11 +164,11 @@
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ba" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bb" = (
 /obj/machinery/computer/records/security{
 	dir = 4
@@ -186,10 +186,10 @@
 "bi" = (
 /obj/effect/landmark/transport/nav_beacon/tram/platform/heretic/left,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bq" = (
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "br" = (
 /obj/item/bedsheet/black/double{
 	dir = 4;
@@ -211,7 +211,7 @@
 "bu" = (
 /mob/living/basic/trooper/nanotrasen/peaceful,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "by" = (
 /obj/structure/fence,
 /turf/open/misc/grass/jungle/station,
@@ -221,13 +221,13 @@
 /obj/item/binoculars,
 /obj/item/binoculars,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bG" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bH" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 1
@@ -238,14 +238,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bI" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
 	chamber_id = "classifiedo2";
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bN" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -257,16 +257,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bR" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/structure/cable,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "bZ" = (
 /turf/closed/mineral/asteroid/has_air,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -277,7 +277,7 @@
 	pixel_y = 1
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ce" = (
 /obj/effect/turf_decal/siding/blue/corner,
 /turf/open/floor/carpet/royalblack,
@@ -285,13 +285,13 @@
 "ci" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cj" = (
 /mob/living/basic/heretic_summon/stalker,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ck" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -314,7 +314,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cs" = (
 /obj/machinery/quantum_server,
 /turf/open/floor/mineral/plastitanium,
@@ -327,7 +327,7 @@
 /obj/item/bedsheet/black,
 /obj/structure/bed,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cy" = (
 /obj/structure/table,
 /obj/item/healthanalyzer,
@@ -335,34 +335,34 @@
 /obj/item/stack/medical/gauze,
 /obj/item/stack/medical/gauze,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/mecha_wreckage/ripley/mk2,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cL" = (
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cN" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cQ" = (
 /turf/closed/wall/rock,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cR" = (
 /obj/machinery/shower{
 	dir = 1
@@ -376,21 +376,21 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/structure/dresser,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cV" = (
 /obj/structure/frame/machine/secured,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "cX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "db" = (
 /obj/machinery/vending/games,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dd" = (
 /obj/effect/spawner/random/trash/cigbutt,
 /turf/open/misc/beach/sand,
@@ -406,16 +406,16 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dh" = (
 /turf/closed/indestructible/rock,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dj" = (
 /mob/living/basic/construct/proteon,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dk" = (
 /obj/machinery/teleport/station{
 	name = "Forcefield generator"
@@ -425,18 +425,18 @@
 "dl" = (
 /obj/item/stack/sheet/mineral/sandbags,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dm" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored{
 	chamber_id = "classifiedn2";
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "do" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dw" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/small,
@@ -456,7 +456,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/supply,
 /turf/open/indestructible/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dF" = (
 /obj/machinery/light/very_dim/directional/east,
 /obj/machinery/suit_storage_unit/industrial,
@@ -471,7 +471,7 @@
 	},
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dO" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/small,
@@ -500,12 +500,12 @@
 	},
 /obj/effect/spawner/surgery_tray/full,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dW" = (
 /obj/machinery/atmospherics/miner/nitrogen,
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "dX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -530,7 +530,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "eh" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/wood,
@@ -554,13 +554,13 @@
 "ep" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ev" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/closed/indestructible/syndicate,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ey" = (
 /obj/structure/railing{
 	dir = 9
@@ -597,13 +597,13 @@
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "eJ" = (
 /obj/effect/turf_decal/tile/brown/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "eK" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood,
@@ -612,7 +612,7 @@
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "eY" = (
 /obj/machinery/light/floor,
 /obj/item/organ/heart/gland/blood,
@@ -659,7 +659,7 @@
 "fq" = (
 /obj/machinery/vending/hotdog,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fr" = (
 /turf/open/misc/grass/jungle/planet,
 /area/awaymission/beach/heretic)
@@ -680,12 +680,12 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fx" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron/checker,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fz" = (
 /obj/structure/table,
 /obj/item/paper/fluff/awaymissions/heretic/floorsafe,
@@ -700,11 +700,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fB" = (
 /obj/structure/closet/secure_closet/security/sec,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fD" = (
 /obj/machinery/telecomms/processor,
 /turf/open/floor/mineral/plastitanium,
@@ -721,7 +721,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fH" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
@@ -734,7 +734,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fJ" = (
 /obj/machinery/light/small/directional/south,
 /obj/item/kirbyplants/random,
@@ -760,7 +760,7 @@
 /area/awaymission/beach/heretic)
 "fQ" = (
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fW" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
@@ -770,12 +770,12 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fX" = (
 /obj/item/stack/cable_coil/thirty,
 /obj/effect/mob_spawn/corpse/human/russian/ranged/officer,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "fZ" = (
 /obj/structure/flora/tree/jungle/style_random,
 /turf/open/misc/grass/jungle/planet,
@@ -791,7 +791,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gb" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/machinery/door/window/right/directional/west,
@@ -802,7 +802,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gg" = (
 /obj/item/nuke_core,
 /obj/item/coin/uranium,
@@ -825,14 +825,14 @@
 "gj" = (
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gm" = (
 /obj/machinery/door/airlock{
 	name = "Personal Dorm"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gp" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/iron/white/textured_large,
@@ -843,7 +843,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gr" = (
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
@@ -851,14 +851,14 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gv" = (
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -869,7 +869,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gx" = (
 /obj/structure/mop_bucket,
 /obj/effect/spawner/random/trash/bucket,
@@ -879,7 +879,7 @@
 /obj/effect/spawner/random/trash/janitor_supplies,
 /obj/structure/closet/generic,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gy" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/structure/holosign/barrier/atmos/sturdy,
@@ -888,7 +888,7 @@
 "gz" = (
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gA" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/green,
@@ -898,7 +898,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gC" = (
 /obj/structure/table,
 /obj/machinery/recharger,
@@ -929,7 +929,7 @@
 	},
 /obj/structure/door_assembly/door_assembly_highsecurity,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "gT" = (
 /obj/machinery/computer/crew{
 	dir = 4
@@ -942,7 +942,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hb" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/carpet/royalblack,
@@ -979,14 +979,14 @@
 /area/awaymission/beach/heretic)
 "hg" = (
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hi" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hk" = (
 /turf/open/misc/beach/coast{
 	dir = 4
@@ -997,11 +997,11 @@
 /obj/item/stack/medical/gauze,
 /obj/item/stack/medical/mesh,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hp" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hq" = (
 /obj/structure/flora/tree/palm/style_random,
 /obj/structure/flora/coconuts,
@@ -1017,7 +1017,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hs" = (
 /turf/open/floor/iron/small,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -1037,7 +1037,7 @@
 "hw" = (
 /obj/machinery/vending/imported/nt,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hB" = (
 /mob/living/basic/crab,
 /turf/open/misc/beach/sand,
@@ -1085,7 +1085,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hK" = (
 /obj/structure/table/wood/fancy,
 /obj/item/plate/oven_tray,
@@ -1139,7 +1139,7 @@
 "hU" = (
 /obj/machinery/autolathe,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hV" = (
 /obj/machinery/door/airlock/wood{
 	name = "Beach Bar"
@@ -1156,7 +1156,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "hY" = (
 /turf/open/floor/iron/shuttle,
 /area/awaymission/beach/heretic)
@@ -1166,7 +1166,7 @@
 	},
 /obj/structure/plasticflaps,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "id" = (
 /obj/structure/fluff/bus/passable,
 /obj/item/reagent_containers/condiment/saltshaker,
@@ -1186,7 +1186,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ig" = (
 /obj/structure/fluff/bus/passable{
 	icon_state = "bottomdoor"
@@ -1205,7 +1205,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "im" = (
 /obj/item/mop/advanced,
 /obj/structure/closet,
@@ -1221,7 +1221,7 @@
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "is" = (
 /obj/effect/oneway{
 	dir = 4
@@ -1236,7 +1236,7 @@
 /obj/machinery/power/apc/worn_out/directional/north,
 /obj/structure/cable,
 /turf/open/misc/grass/jungle/station,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iw" = (
 /obj/effect/turf_decal/trimline/red/filled/end,
 /turf/open/floor/iron/shuttle,
@@ -1246,7 +1246,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iC" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
@@ -1257,7 +1257,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iE" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
@@ -1266,7 +1266,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iF" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/iron/small,
@@ -1275,7 +1275,7 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/structure/closet/cabinet,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iJ" = (
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medical Freezer"
@@ -1286,7 +1286,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical,
 /turf/open/floor/iron/freezer,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iL" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -1302,24 +1302,24 @@
 	name = "Bruce's gun rack"
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iO" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iP" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iS" = (
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /obj/machinery/transport/tram_controller/heretic_tram_controller,
 /obj/structure/tram,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "iU" = (
 /obj/item/bedsheet{
 	pixel_x = 19;
@@ -1354,7 +1354,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "je" = (
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/delivery,
@@ -1364,37 +1364,37 @@
 	name = "Extremely fragile high capacity fuel tank"
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jf" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jg" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jj" = (
 /obj/effect/decal/cleanable/glass/plastitanium,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "js" = (
 /obj/machinery/door/airlock{
 	name = "Showers"
 	},
 /turf/open/floor/iron/freezer,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ju" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jx" = (
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jy" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -1439,7 +1439,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jG" = (
 /obj/effect/mob_spawn/corpse/human,
 /turf/open/floor/plating,
@@ -1447,7 +1447,7 @@
 "jP" = (
 /obj/structure/barricade/sandbags,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jQ" = (
 /turf/open/floor/iron/white/textured_large,
 /area/awaymission/beach/heretic)
@@ -1460,14 +1460,14 @@
 "jT" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jV" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
 /obj/effect/decal/remains/robot,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jX" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/water/deep_beach,
@@ -1479,10 +1479,10 @@
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/remains/robot,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "jZ" = (
 /turf/open/floor/iron/freezer,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kc" = (
 /obj/machinery/power/rtg/lavaland,
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
@@ -1501,19 +1501,19 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kg" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kk" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/north,
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kl" = (
 /obj/effect/light_emitter,
 /turf/open/floor/plating,
@@ -1531,7 +1531,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ko" = (
 /obj/item/stack/sheet/mineral/uranium,
 /obj/item/nuke_core,
@@ -1558,13 +1558,13 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /mob/living/basic/faithless,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kC" = (
 /obj/machinery/air_sensor{
 	chamber_id = "classifiedo2"
 	},
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kD" = (
 /turf/open/floor/carpet/royalblack,
 /area/awaymission/beach/heretic)
@@ -1580,7 +1580,7 @@
 "kH" = (
 /obj/structure/chair/sofa/bench/right,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kI" = (
 /obj/structure/railing{
 	dir = 10
@@ -1624,11 +1624,11 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "kW" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Grocery Store";
@@ -1687,33 +1687,33 @@
 "lo" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ls" = (
 /obj/machinery/vending/sustenance,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lt" = (
 /obj/item/gun/ballistic/rifle/boltaction,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lv" = (
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lx" = (
 /mob/living/basic/construct/juggernaut,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/pink/visible{
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lD" = (
 /obj/item/bedsheet/black,
 /obj/structure/bed,
@@ -1722,16 +1722,16 @@
 /obj/item/organ/brain,
 /obj/item/organ/ears,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lH" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/effect/mapping_helpers/damaged_window,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lI" = (
 /obj/machinery/vending/imported/mothic,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lL" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/bananalamp,
@@ -1740,19 +1740,19 @@
 "lO" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lY" = (
 /obj/structure/bed/double,
 /obj/effect/spawner/random/bedsheet/double,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "lZ" = (
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 4
@@ -1762,7 +1762,7 @@
 "ma" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mc" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1789,7 +1789,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mi" = (
 /obj/machinery/chem_master/condimaster{
 	desc = "Looks like a knock-off chem-master. Perhaps useful for separating liquids when mixing drinks precisely. Also dispenses condiments.";
@@ -1797,7 +1797,7 @@
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mj" = (
 /obj/structure/fence/door,
 /turf/open/misc/grass/jungle/station,
@@ -1809,13 +1809,13 @@
 /area/awaymission/beach/heretic)
 "mo" = (
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mq" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mt" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/carpet,
@@ -1836,18 +1836,18 @@
 "mE" = (
 /obj/structure/bodycontainer/morgue/beeper_off,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mF" = (
 /obj/machinery/vending/drugs,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mG" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1855,11 +1855,11 @@
 /obj/structure/curtain,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mI" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mJ" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/small,
@@ -1870,7 +1870,7 @@
 "mN" = (
 /obj/effect/baseturf_helper/reinforced_plating,
 /turf/closed/indestructible/rock,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mO" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/open/floor/iron/cafeteria,
@@ -1881,14 +1881,14 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mS" = (
 /obj/structure/toilet{
 	dir = 4
 	},
 /obj/structure/curtain,
 /turf/open/floor/iron/freezer,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mT" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/iron/cafeteria,
@@ -1896,7 +1896,7 @@
 "mV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mW" = (
 /obj/structure/flora/rock/pile/jungle/large/style_random,
 /turf/open/misc/grass/jungle/planet,
@@ -1909,7 +1909,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "mZ" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/medkit/toxin,
@@ -1922,7 +1922,7 @@
 /area/awaymission/beach/heretic)
 "nb" = (
 /turf/closed/wall,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nd" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/iron,
@@ -1952,7 +1952,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nB" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -1972,11 +1972,11 @@
 	dir = 9
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nG" = (
 /obj/structure/dresser,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nI" = (
 /turf/open/water/deep_beach,
 /area/awaymission/beach/heretic)
@@ -1988,13 +1988,13 @@
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nK" = (
 /obj/effect/oneway{
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nL" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/plating,
@@ -2011,7 +2011,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nO" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/north,
@@ -2063,7 +2063,7 @@
 	dir = 4
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "nZ" = (
 /obj/machinery/conveyor/auto/hardened{
 	dir = 8
@@ -2089,7 +2089,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/supply,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "oj" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
@@ -2103,7 +2103,7 @@
 	},
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "om" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/south,
@@ -2149,7 +2149,7 @@
 /obj/structure/rack,
 /obj/item/gun/energy/disabler/smg,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "oC" = (
 /obj/machinery/pdapainter,
 /turf/open/floor/carpet/royalblack,
@@ -2160,7 +2160,7 @@
 	name = "Bar"
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "oN" = (
 /obj/item/kirbyplants/random,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -2169,7 +2169,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "oS" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2182,7 +2182,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pa" = (
 /obj/item/stack/sheet/runed_metal/five,
 /turf/open/misc/beach/sand,
@@ -2195,13 +2195,13 @@
 /obj/effect/decal/cleanable/glass/plastitanium,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pd" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pe" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/machinery/light/directional/east,
@@ -2215,7 +2215,7 @@
 /obj/effect/spawner/random/structure/closet_empty,
 /obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pg" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "p";
@@ -2224,12 +2224,12 @@
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pm" = (
 /obj/structure/chair/wood{
 	dir = 1
@@ -2273,7 +2273,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pv" = (
 /turf/open/misc/beach/coast{
 	dir = 1
@@ -2287,12 +2287,12 @@
 	name = "Extremely fragile high capacity fuel tank"
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "px" = (
 /obj/effect/decal/remains/xeno,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pB" = (
 /obj/structure/railing{
 	dir = 5
@@ -2333,7 +2333,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/effect/gibspawner/generic/animal,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pJ" = (
 /mob/living/basic/bot/cleanbot,
 /turf/open/floor/iron/small,
@@ -2343,26 +2343,26 @@
 /obj/structure/table,
 /obj/item/storage/toolbox/emergency,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pO" = (
 /obj/effect/mapping_helpers/airlock/access/all/supply,
 /obj/machinery/door/airlock/service,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pP" = (
 /obj/machinery/computer/atmos_control/noreconnect{
 	atmos_chambers = list("classifiedn2"="Nitrogen Supply");
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pQ" = (
 /obj/machinery/computer/atmos_control/noreconnect{
 	atmos_chambers = list("classifiedo2"="Oxygen Supply");
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "pU" = (
 /obj/structure/falsewall/plastitanium,
 /turf/open/floor/iron/small,
@@ -2379,7 +2379,7 @@
 /obj/item/stack/sheet/iron/five,
 /obj/item/stack/cable_coil/thirty,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qb" = (
 /obj/structure/fluff/bus/passable{
 	icon_state = "topdoor"
@@ -2392,7 +2392,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qg" = (
 /obj/item/clothing/glasses/meson,
 /turf/open/floor/black,
@@ -2402,14 +2402,14 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ql" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored{
 	chamber_id = "classifiedn2";
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qn" = (
 /obj/effect/decal/cleanable/blood/tracks/xeno,
 /turf/open/misc/grass/jungle/planet,
@@ -2419,7 +2419,7 @@
 	pixel_y = 18
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qq" = (
 /obj/structure/flora/bush/jungle/b/style_random,
 /obj/structure/flora/grass/jungle/a/style_random,
@@ -2429,12 +2429,12 @@
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /obj/machinery/door/puzzle/keycard/hereticgateway1,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qt" = (
 /obj/machinery/power/stirling_generator,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qu" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood,
@@ -2442,7 +2442,7 @@
 "qv" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qA" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/tile/blue/opposingcorners,
@@ -2457,7 +2457,7 @@
 /obj/structure/barricade/wooden/crude,
 /obj/machinery/door/puzzle/keycard/hereticgateway1,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qD" = (
 /obj/machinery/suit_storage_unit/open,
 /obj/item/mod/control/pre_equipped/blueshield/bruce{
@@ -2472,7 +2472,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qI" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -2483,13 +2483,13 @@
 	name = "Extremely fragile high capacity fuel tank"
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qM" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "qO" = (
 /obj/structure/bed/double,
 /obj/item/bedsheet/green/double,
@@ -2577,7 +2577,7 @@
 	dir = 9
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "rB" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/medkit/brute,
@@ -2593,7 +2593,7 @@
 "rF" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "rG" = (
 /obj/machinery/door/airlock/highsecurity{
 	max_integrity = 10000;
@@ -2602,7 +2602,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/cent_com,
 /obj/machinery/door/puzzle/keycard/hereticgateway2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "rM" = (
 /obj/structure/fluff/beach_umbrella/syndi,
 /turf/open/misc/beach/sand,
@@ -2630,7 +2630,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "rT" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "p";
@@ -2639,7 +2639,7 @@
 	},
 /obj/structure/fluff/tram_rail,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "rU" = (
 /obj/structure/window/spawner/directional/east,
 /obj/structure/window/spawner/directional/south,
@@ -2682,7 +2682,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sd" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2696,17 +2696,17 @@
 "sf" = (
 /obj/machinery/vending/donksofttoyvendor,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sg" = (
 /obj/structure/disposalpipe/junction/flip{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sj" = (
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sk" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
@@ -2716,7 +2716,7 @@
 	pixel_x = -12
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sp" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
@@ -2731,7 +2731,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sw" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/misc/asteroid,
@@ -2741,7 +2741,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sy" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -2761,11 +2761,11 @@
 "sD" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sF" = (
 /obj/machinery/vending/medical,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sG" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
@@ -2778,7 +2778,7 @@
 	},
 /obj/item/storage/medkit/brute,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "sL" = (
 /obj/structure/flora/grass/jungle/a/style_random,
 /obj/item/seeds/replicapod,
@@ -2795,7 +2795,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tb" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2817,7 +2817,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tg" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2850,7 +2850,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -2865,7 +2865,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tD" = (
 /obj/structure/railing{
 	dir = 4
@@ -2892,16 +2892,16 @@
 "tL" = (
 /obj/effect/gibspawner/human,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tM" = (
 /obj/structure/chair/stool/directional/south,
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tP" = (
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tQ" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/wood,
@@ -2913,7 +2913,7 @@
 "tS" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "tY" = (
 /obj/item/binoculars,
 /turf/open/floor/black,
@@ -2921,7 +2921,7 @@
 "tZ" = (
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ue" = (
 /obj/structure/flora/coconuts,
 /turf/open/misc/beach/sand,
@@ -2931,7 +2931,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uh" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
@@ -2941,13 +2941,13 @@
 	dir = 5
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "um" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "un" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2962,11 +2962,11 @@
 	dir = 8
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "us" = (
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle/planet,
@@ -2976,7 +2976,7 @@
 /obj/structure/mirror/directional/east,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/freezer,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uu" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2987,14 +2987,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/indestructible/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uz" = (
 /turf/closed/wall/mineral/uranium,
 /area/awaymission/caves/heretic_laboratory_clean)
 "uC" = (
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uH" = (
 /obj/structure/fluff/tram_rail,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
@@ -3005,21 +3005,21 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uJ" = (
 /obj/machinery/door/airlock{
 	name = "Personal Dorm"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uM" = (
 /obj/structure/table/glass,
 /obj/item/storage/medkit/regular,
 /obj/item/stack/medical/gauze,
 /obj/item/stack/medical/suture,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uN" = (
 /obj/machinery/light/floor,
 /obj/item/slimepotion/lovepotion,
@@ -3036,7 +3036,7 @@
 "uS" = (
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uT" = (
 /obj/structure/railing{
 	dir = 8
@@ -3058,7 +3058,7 @@
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "uX" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
@@ -3073,12 +3073,12 @@
 "vm" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vo" = (
 /obj/structure/cable,
 /obj/machinery/power/floodlight,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vr" = (
 /obj/effect/mapping_helpers/airlock/access/all/cent_com,
 /obj/machinery/door/airlock/highsecurity{
@@ -3086,11 +3086,11 @@
 	normal_integrity = 10000
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vt" = (
 /obj/machinery/vending/medical,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vu" = (
 /turf/open/floor/plating,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -3100,7 +3100,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vw" = (
 /obj/effect/decal/cleanable/blood/tracks/xeno{
 	dir = 8
@@ -3123,7 +3123,7 @@
 "vB" = (
 /obj/structure/closet/l3closet,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vE" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -3138,7 +3138,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vG" = (
 /obj/effect/oneway{
 	dir = 8
@@ -3162,12 +3162,12 @@
 /area/awaymission/beach/heretic)
 "vN" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vO" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vR" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -3184,7 +3184,7 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/gibspawner/human,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vU" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "p";
@@ -3195,12 +3195,12 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "vY" = (
 /obj/effect/decal/cleanable/glass/plastitanium,
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wc" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white/textured_large,
@@ -3217,7 +3217,7 @@
 "wl" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wm" = (
 /obj/item/broken_bottle,
 /turf/open/misc/beach/sand,
@@ -3230,7 +3230,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ws" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -3243,7 +3243,7 @@
 "wt" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wu" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
@@ -3256,7 +3256,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wC" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -3264,7 +3264,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wF" = (
 /obj/item/clothing/suit/armor/riot,
 /obj/item/clothing/head/helmet/toggleable/riot,
@@ -3275,7 +3275,7 @@
 /obj/structure/table/glass,
 /obj/item/storage/medkit/regular,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wJ" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "j";
@@ -3294,7 +3294,7 @@
 	},
 /obj/structure/fluff/tram_rail,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wL" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/transport/tram{
@@ -3302,7 +3302,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wN" = (
 /obj/effect/oneway{
 	dir = 1
@@ -3328,7 +3328,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wY" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "d";
@@ -3351,7 +3351,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "wZ" = (
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/engine,
@@ -3367,7 +3367,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xe" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/carpet/royalblack,
@@ -3413,7 +3413,7 @@
 	},
 /obj/item/wrench/medical,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xz" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/pool/cobble,
@@ -3426,7 +3426,7 @@
 /obj/item/storage/toolbox/ammobox/strilka310,
 /obj/structure/closet/crate/secure/weapon,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xD" = (
 /obj/machinery/deepfryer,
 /turf/open/floor/iron/cafeteria,
@@ -3445,7 +3445,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xH" = (
 /obj/effect/turf_decal/trimline/red/filled,
 /obj/structure/rack/shelf,
@@ -3475,7 +3475,7 @@
 "xJ" = (
 /obj/machinery/door/poddoor/shutters/indestructible,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xM" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "d";
@@ -3500,7 +3500,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xO" = (
 /obj/machinery/light/floor,
 /obj/item/organ/heart/gland/access,
@@ -3509,18 +3509,18 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "xQ" = (
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xS" = (
 /obj/structure/window/fulltile,
 /obj/structure/flora/bush/ferny/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xW" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "xY" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -3528,7 +3528,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yc" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/plating,
@@ -3548,7 +3548,7 @@
 "yo" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yp" = (
 /obj/structure/table,
 /turf/open/floor/wood,
@@ -3558,7 +3558,7 @@
 /obj/structure/fluff/tram_rail,
 /obj/structure/thermoplastic/light,
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yw" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
@@ -3568,7 +3568,7 @@
 "yx" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yz" = (
 /obj/item/stack/ore/uranium,
 /obj/item/nuke_core,
@@ -3586,7 +3586,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yD" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -3603,7 +3603,7 @@
 "yF" = (
 /obj/item/binoculars,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yG" = (
 /obj/structure/closet/athletic_mixed,
 /turf/open/floor/iron/white/textured_large,
@@ -3612,11 +3612,11 @@
 /obj/machinery/door/airlock/service,
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yO" = (
 /obj/structure/chair/plastic,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yQ" = (
 /obj/effect/turf_decal/siding/blue,
 /obj/effect/turf_decal/siding/blue/corner{
@@ -3640,13 +3640,13 @@
 "yX" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "yZ" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zb" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3657,7 +3657,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/gun/ballistic/rifle/boltaction/prime,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ze" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -3702,7 +3702,7 @@
 	dir = 1
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zk" = (
 /mob/living/basic/trooper/nanotrasen/peaceful,
 /turf/open/floor/plating,
@@ -3710,13 +3710,13 @@
 "zl" = (
 /obj/structure/falsewall/plastitanium,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zo" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zu" = (
 /obj/item/reagent_containers/cup/soda_cans/space_mountain_wind{
 	pixel_x = -17;
@@ -3733,7 +3733,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zI" = (
 /obj/machinery/light/floor,
 /turf/open/floor/plating,
@@ -3744,11 +3744,11 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zS" = (
 /obj/structure/chair/sofa/bench,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "zT" = (
 /obj/structure/table/wood/fancy,
 /turf/open/floor/wood,
@@ -3767,17 +3767,17 @@
 "Ae" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Af" = (
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/south,
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ag" = (
 /obj/structure/dresser,
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ai" = (
 /obj/item/seeds/nettle/death,
 /turf/open/misc/grass/jungle/planet,
@@ -3787,7 +3787,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ap" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "hoodbottom"
@@ -3800,7 +3800,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Av" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/barricade/wooden,
@@ -3809,14 +3809,14 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Aw" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ax" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
@@ -3829,7 +3829,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Az" = (
 /obj/effect/oneway,
 /turf/open/lava,
@@ -3844,7 +3844,7 @@
 "AD" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "AG" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light/directional/east,
@@ -3870,7 +3870,7 @@
 "AO" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "AP" = (
 /obj/structure/chair/plastic,
 /obj/effect/turf_decal/tile/blue/opposingcorners,
@@ -3920,7 +3920,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Bq" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3930,7 +3930,7 @@
 "Br" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Bs" = (
 /obj/structure/fluff/bus/passable{
 	icon_state = "topdoor"
@@ -3972,12 +3972,12 @@
 "By" = (
 /obj/machinery/iv_drip,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "BB" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "BE" = (
 /obj/machinery/teleport/station{
 	name = "Forcefield generator"
@@ -4002,7 +4002,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/supply,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "BX" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -4018,7 +4018,7 @@
 "BZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Cd" = (
 /turf/open/floor/plating/airless,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -4040,7 +4040,7 @@
 "Cm" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Co" = (
 /turf/open/misc/beach/coast{
 	dir = 1
@@ -4058,17 +4058,17 @@
 	},
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Cv" = (
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Cx" = (
 /mob/living/basic/heretic_summon/maid_in_the_mirror,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Cz" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -4079,11 +4079,11 @@
 "CA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "CB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/pink/visible,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "CC" = (
 /obj/structure/railing{
 	dir = 6
@@ -4099,16 +4099,16 @@
 /obj/structure/fluff/shower_drain,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "CJ" = (
 /obj/structure/closet/crate/freezer/blood,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "CQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "CS" = (
 /turf/open/floor/asphalt,
 /area/awaymission/beach/heretic)
@@ -4120,7 +4120,7 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/structure/closet/secure_closet/bar,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "CW" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
@@ -4160,14 +4160,14 @@
 /obj/structure/bed/double,
 /obj/item/bedsheet/hos/double,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Dg" = (
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /obj/machinery/door/airlock/multi_tile/metal{
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Di" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/iron/small,
@@ -4197,14 +4197,14 @@
 	desc = "Before you slumped in a chair stands an absolute giant of a man, wearing state of the art Nanotrasen equipment- besides his gun, a well, WELL, used laser gun in his hand- despite the far better armaments besides him he chose this weapon to be the last one he held- or, is still holding, the laser gun blinks- its out of juice but still flickering  with light to indicate that fact- this is in spite of the fact of the thick layer of dust on it so thick that the light from the laser gun is almost muffled as if being viewed through a piece of paper, normally one of these guns can only maintain to flicker like this for a day- but this one has been flickering for significantly longer, The man himself sitting in the chair is easily two men in size, his armor is custom modified to fit his bulky frame but also- with an immense amount of extra padding, one might mistake that modsuit he's wearing for just an entire mech. This man, this bulk of a man, seems to be in some kind of induced coma from his suit, there are no obvious massive wounds- but there are dozens through the weak points of his modsuit, it seems like he bled out from all of these small cuts around him despite his struggle and his suit is now barely keeping him alive long enough for him to recover- now all he needs, is to be woken up, or maybe he needs more time to heal, either way you think being the first thing this giant sees when they wake up might be a bad idea."
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Dp" = (
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Dr" = (
 /obj/structure/chair/plastic,
 /obj/effect/turf_decal/tile/blue/opposingcorners,
@@ -4221,7 +4221,7 @@
 /obj/item/blood_filter,
 /obj/item/clothing/gloves/latex/nitrile,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Du" = (
 /obj/structure/table,
 /obj/item/pizzabox/meat,
@@ -4245,7 +4245,7 @@
 /obj/item/stack/medical/mesh,
 /obj/item/stack/medical/suture,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "DC" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light/directional/west,
@@ -4265,11 +4265,11 @@
 	dir = 6
 	},
 /turf/closed/indestructible/syndicate,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "DT" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "DU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4277,7 +4277,7 @@
 	dir = 6
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "DX" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -4297,14 +4297,14 @@
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ec" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ee" = (
 /turf/closed/wall/r_wall/syndicate,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ei" = (
 /obj/structure/flora/bush/jungle/b/style_random,
 /obj/effect/decal/cleanable/blood/tracks/xeno{
@@ -4315,7 +4315,7 @@
 "El" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Em" = (
 /obj/structure/chair/wood{
 	dir = 1
@@ -4334,7 +4334,7 @@
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ew" = (
 /obj/structure/closet/ammunitionlocker,
 /turf/open/floor/plating,
@@ -4346,7 +4346,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ey" = (
 /obj/effect/oneway{
 	dir = 4
@@ -4402,7 +4402,7 @@
 	pixel_y = 10
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "EP" = (
 /obj/machinery/deployable_turret/hmg,
 /obj/structure/railing{
@@ -4419,7 +4419,7 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ER" = (
 /obj/structure/fluff/tram_rail,
 /obj/structure/thermoplastic/light,
@@ -4427,7 +4427,7 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ES" = (
 /obj/machinery/shower{
 	pixel_y = 15
@@ -4441,14 +4441,14 @@
 	dir = 8
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fe" = (
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fh" = (
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/structure/rack/gunrack,
@@ -4456,13 +4456,13 @@
 /obj/item/gun/ballistic/shotgun/riot,
 /obj/item/gun/ballistic/shotgun/riot,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fi" = (
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/remains/robot,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fl" = (
 /turf/open/misc/beach/coast/corner{
 	dir = 1
@@ -4478,13 +4478,13 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "Fq" = (
 /turf/open/misc/grass/jungle/station,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fr" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fs" = (
 /turf/open/floor/iron/dark/airless,
 /area/awaymission/beach/heretic)
@@ -4494,7 +4494,7 @@
 	},
 /obj/structure/thermoplastic/light,
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Fx" = (
 /obj/structure/fluff/bus/dense{
 	icon_state = "frontwallbottom"
@@ -4510,7 +4510,7 @@
 "FD" = (
 /obj/structure/table,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "FF" = (
 /obj/machinery/light/very_dim/directional/east,
 /obj/structure/chair/comfy/shuttle/tactical,
@@ -4542,11 +4542,11 @@
 	},
 /obj/machinery/door/puzzle/keycard/hereticgateway1,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "FR" = (
 /obj/machinery/recharge_station,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "FT" = (
 /obj/structure/toilet{
 	dir = 1
@@ -4556,7 +4556,7 @@
 "FU" = (
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "FW" = (
 /obj/item/bedsheet/black{
 	dir = 4
@@ -4565,13 +4565,13 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "FX" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "FY" = (
 /turf/open/floor/iron,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -4583,16 +4583,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gb" = (
 /obj/effect/spawner/random/maintenance,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gg" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gh" = (
 /turf/closed/wall/mineral/iron,
 /area/awaymission/beach/heretic)
@@ -4600,13 +4600,13 @@
 /obj/structure/mirror/directional/west,
 /obj/structure/sink/directional/east,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gj" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gl" = (
 /obj/machinery/door/airlock/virology,
 /turf/open/floor/iron,
@@ -4641,16 +4641,16 @@
 /obj/effect/spawner/random/vending/colavend,
 /obj/machinery/light/floor,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Gz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "GC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4688,7 +4688,7 @@
 "GP" = (
 /obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "GR" = (
 /obj/effect/turf_decal/trimline/red/arrow_cw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
@@ -4711,11 +4711,11 @@
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "GW" = (
 /obj/structure/fluff/tram_rail,
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "GZ" = (
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /obj/machinery/door/airlock/multi_tile/metal{
@@ -4725,7 +4725,7 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "Hb" = (
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4761,7 +4761,7 @@
 "Hl" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hn" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/effect/mapping_helpers/airlock/access/all/service,
@@ -4769,26 +4769,26 @@
 	name = "Bar"
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hp" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hq" = (
 /obj/item/stack/rods,
 /obj/item/stack/rods,
 /obj/item/stack/sheet/iron,
 /obj/item/stack/sheet/iron,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hs" = (
 /obj/structure/chair/sofa/bench/left,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Hv" = (
 /obj/structure/table,
 /obj/machinery/light/floor,
@@ -4819,13 +4819,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HG" = (
 /obj/machinery/air_sensor{
 	chamber_id = "classifiedn2"
 	},
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HH" = (
 /turf/open/floor/mineral/uranium,
 /area/awaymission/beach/heretic)
@@ -4838,7 +4838,7 @@
 	normal_integrity = 10000
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HM" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/misc/grass/jungle/station,
@@ -4855,12 +4855,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HR" = (
 /obj/machinery/door/airlock/hatch,
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HU" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -4869,7 +4869,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HV" = (
 /turf/open/misc/beach/coast/corner{
 	dir = 4
@@ -4880,12 +4880,12 @@
 	dir = 9
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "HX" = (
 /obj/structure/closet/cabinet,
 /obj/item/card/id/away/deep_storage,
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ia" = (
 /obj/effect/light_emitter,
 /mob/living/basic/heretic_summon/stalker,
@@ -4897,7 +4897,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ie" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -4910,7 +4910,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ij" = (
 /obj/item/reagent_containers/cup/soda_cans/starkist{
 	pixel_y = 16;
@@ -4945,7 +4945,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Iz" = (
 /obj/item/storage/bag/plants/bluespace,
 /turf/open/misc/grass/jungle/planet,
@@ -4974,13 +4974,13 @@
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "IG" = (
 /mob/living/basic/heretic_summon/raw_prophet,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "II" = (
 /obj/structure/table,
 /obj/machinery/light/directional/east,
@@ -5004,7 +5004,7 @@
 "IL" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "IP" = (
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -5014,7 +5014,7 @@
 /obj/machinery/door/window/right/directional/east,
 /obj/structure/curtain,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "IS" = (
 /obj/machinery/griddle,
 /turf/open/floor/iron/cafeteria,
@@ -5026,7 +5026,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "IX" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
@@ -5035,7 +5035,7 @@
 /obj/item/stack/sheet/mineral/wood,
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "IZ" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -5065,7 +5065,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ji" = (
 /obj/structure/flora/tree/palm{
 	pixel_y = 31
@@ -5077,7 +5077,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Jq" = (
 /obj/structure/fence/corner,
 /turf/open/misc/grass/jungle/station,
@@ -5085,11 +5085,11 @@
 "Js" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Jt" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Jv" = (
 /turf/open/floor/black,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -5117,7 +5117,7 @@
 "JG" = (
 /obj/structure/fluff/tram_rail/anchor,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JH" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white,
@@ -5132,7 +5132,7 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JN" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "j";
@@ -5150,13 +5150,13 @@
 	pixel_y = 1
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JO" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JS" = (
 /obj/structure/table/reinforced,
 /obj/structure/displaycase/forsale/kitchen{
@@ -5165,31 +5165,31 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JU" = (
 /obj/structure/falsewall/plastitanium,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/drinks/fullupgrade,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "JY" = (
 /obj/structure/table,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ka" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Kb" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron/small,
@@ -5203,11 +5203,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Kj" = (
 /obj/machinery/blackbox_recorder,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Kk" = (
 /obj/machinery/computer/camera_advanced{
 	dir = 1
@@ -5226,13 +5226,13 @@
 "Km" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Kn" = (
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/remains/human,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ko" = (
 /obj/structure/curtain,
 /obj/machinery/shower{
@@ -5245,19 +5245,19 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Kq" = (
 /obj/machinery/stasis{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ks" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Kx" = (
 /obj/structure/closet,
 /obj/item/grenade/c4,
@@ -5274,13 +5274,13 @@
 /area/awaymission/beach/heretic)
 "KB" = (
 /turf/closed/indestructible/syndicate,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "KD" = (
 /obj/machinery/door/airlock/medical,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/effect/mapping_helpers/airlock/access/all/medical,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "KE" = (
 /obj/structure/table,
 /obj/effect/turf_decal/siding/wood{
@@ -5310,7 +5310,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "KO" = (
 /obj/machinery/computer/communications{
 	dir = 1
@@ -5321,11 +5321,11 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "KR" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "KS" = (
 /turf/open/floor/carpet,
 /area/awaymission/beach/heretic)
@@ -5359,7 +5359,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Le" = (
 /obj/structure/table,
 /turf/open/floor/iron/small,
@@ -5386,7 +5386,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Lv" = (
 /obj/structure/fluff/bus/passable,
 /turf/open/floor/iron/dark/airless,
@@ -5397,7 +5397,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Lx" = (
 /obj/machinery/mass_driver/feeder{
 	dir = 4
@@ -5412,19 +5412,19 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "LI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/pink/visible{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/bridge_pipe/green/visible,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "LL" = (
 /obj/structure/bed/double,
 /obj/effect/spawner/random/bedsheet/double,
 /turf/open/floor/wood,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "LM" = (
 /obj/structure/fluff/bus/passable/seat,
 /obj/item/toy/plush/pkplush{
@@ -5440,7 +5440,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "LU" = (
 /obj/item/bedsheet/black/double{
 	pixel_x = 0;
@@ -5454,12 +5454,12 @@
 /area/awaymission/beach/heretic)
 "LZ" = (
 /turf/closed/mineral/asteroid/has_air,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ma" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Mb" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/sand/plating,
@@ -5473,14 +5473,14 @@
 /obj/structure/fluff/tram_rail/end,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Mg" = (
 /obj/structure/fluff/tram_rail,
 /obj/effect/turf_decal/delivery,
 /obj/item/stack/sheet/mineral/wood,
 /obj/effect/decal/remains/robot,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Mh" = (
 /obj/machinery/conveyor/auto/hardened{
 	dir = 8
@@ -5499,7 +5499,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Mn" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -5512,7 +5512,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Mq" = (
 /obj/structure/dresser,
 /turf/open/floor/carpet,
@@ -5523,7 +5523,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Mw" = (
 /obj/item/stack/ore/uranium,
 /turf/open/water/jungle,
@@ -5534,7 +5534,7 @@
 	id = "crematoriumChapel"
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "MB" = (
 /turf/open/floor/engine,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -5552,7 +5552,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ME" = (
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/dark,
@@ -5560,19 +5560,19 @@
 "MI" = (
 /obj/item/wrench/makeshift,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ML" = (
 /obj/effect/oneway{
 	dir = 4
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "MP" = (
 /obj/structure/fluff/tram_rail,
 /obj/structure/thermoplastic/light,
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "MR" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 4
@@ -5582,7 +5582,7 @@
 "MS" = (
 /obj/machinery/vending/donksnack,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "MV" = (
 /obj/machinery/conveyor/auto/hardened{
 	dir = 4
@@ -5602,19 +5602,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Nb" = (
 /obj/effect/mapping_helpers/airlock/access/all/security,
 /obj/machinery/door/airlock/security{
 	name = "Armory"
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Nc" = (
 /obj/machinery/light/directional/east,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ne" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/carpet,
@@ -5625,7 +5625,7 @@
 	},
 /obj/effect/turf_decal/vg_decals/no,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ni" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
@@ -5635,14 +5635,14 @@
 "Nj" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Nm" = (
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/structure/chair/office/tactical{
 	dir = 8
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Np" = (
 /obj/effect/decal/cleanable/blood/tracks/xeno,
 /turf/open/floor/mineral/uranium,
@@ -5656,7 +5656,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ns" = (
 /obj/machinery/light/directional/south,
 /obj/effect/visible_heretic_influence,
@@ -5667,7 +5667,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Nu" = (
 /obj/structure/bed/double,
 /obj/item/bedsheet/double,
@@ -5687,7 +5687,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "NN" = (
 /obj/machinery/mounted_machine_gun{
 	dir = 1;
@@ -5706,7 +5706,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "NX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -5738,7 +5738,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Oh" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -5748,13 +5748,13 @@
 	},
 /obj/structure/thermoplastic/light,
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Oi" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Oq" = (
 /obj/item/seeds/organ_tree,
 /turf/open/misc/grass/jungle/planet,
@@ -5765,7 +5765,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ow" = (
 /obj/structure/flora/grass/jungle/a/style_random,
 /turf/open/misc/grass/jungle/planet,
@@ -5773,12 +5773,12 @@
 "OB" = (
 /obj/machinery/vending/imported/tiziran,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "OG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "OJ" = (
 /obj/machinery/teleport/station{
 	name = "Forcefield generator"
@@ -5797,7 +5797,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "OM" = (
 /obj/item/clothing/mask/gas/welding/up,
 /obj/effect/decal/cleanable/blood/tracks/xeno,
@@ -5818,7 +5818,7 @@
 /obj/machinery/vending/boozeomat,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "OR" = (
 /obj/structure/table/wood,
 /obj/structure/curtain/cloth,
@@ -5828,7 +5828,7 @@
 /obj/effect/temp_visual/drawing_heretic_rune,
 /obj/item/gun/ballistic/rifle/boltaction,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "OU" = (
 /obj/machinery/power/rtg/debug{
 	power_gen = 2000000;
@@ -5836,7 +5836,7 @@
 	},
 /obj/structure/cable,
 /turf/open/misc/grass/jungle/station,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "OW" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
@@ -5847,7 +5847,7 @@
 /obj/machinery/door/airlock/medical,
 /obj/effect/mapping_helpers/airlock/access/all/medical,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Pa" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "j";
@@ -5868,7 +5868,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Pc" = (
 /obj/effect/blessing,
 /turf/open/floor/iron/small,
@@ -5883,7 +5883,7 @@
 "Pj" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Pm" = (
 /obj/effect/landmark/awaystart/heretic,
 /turf/open/floor/pod/light,
@@ -5910,7 +5910,7 @@
 /obj/structure/barricade/wooden/crude,
 /obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Py" = (
 /turf/open/floor/carpet/blue,
 /area/awaymission/beach/heretic)
@@ -5929,7 +5929,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "PF" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -5948,7 +5948,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "PK" = (
 /obj/machinery/door/airlock/titanium,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -5956,14 +5956,14 @@
 /area/awaymission/beach/heretic)
 "PL" = (
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "PN" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/west,
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "PP" = (
 /obj/structure/flora/tree/palm/style_random,
 /obj/structure/flora/coconuts,
@@ -6020,7 +6020,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "PV" = (
 /obj/machinery/door/airlock/highsecurity{
 	max_integrity = 10000;
@@ -6028,14 +6028,14 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/cent_com,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "PX" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/window/spawner/directional/north,
 /obj/structure/window/spawner/directional/east,
 /obj/structure/flora/bush/jungle/c/style_random,
 /turf/open/misc/grass/jungle,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Qb" = (
 /obj/structure/safe/floor,
 /obj/item/keycard/hereticgateway1,
@@ -6046,7 +6046,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Qf" = (
 /obj/effect/turf_decal/sand,
 /obj/effect/turf_decal/weather/sand{
@@ -6061,11 +6061,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Qj" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Qk" = (
 /obj/item/bedsheet/black/double{
 	dir = 4;
@@ -6088,14 +6088,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Qn" = (
 /obj/effect/mapping_helpers/airlock/access/all/supply,
 /obj/machinery/door/airlock/service,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Qo" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed,
@@ -6126,12 +6126,12 @@
 "QF" = (
 /obj/structure/fluff/tram_rail/end,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "QG" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "QI" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -6157,7 +6157,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "QO" = (
 /obj/structure/fluff/tram_rail,
 /obj/structure/window/reinforced/survival_pod/spawner/directional/south,
@@ -6168,7 +6168,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "QP" = (
 /mob/living/simple_animal/hostile/plantmutant,
 /turf/open/misc/grass/jungle/planet,
@@ -6184,7 +6184,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Rb" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6209,7 +6209,7 @@
 	},
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Rs" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /obj/effect/decal/cleanable/blood/tracks/xeno{
@@ -6223,7 +6223,7 @@
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Rw" = (
 /obj/effect/decal/cleanable/blood/tracks/xeno{
 	dir = 9
@@ -6252,7 +6252,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "RH" = (
 /obj/item/fishing_rod,
 /obj/structure/closet/crate/trashcart,
@@ -6266,12 +6266,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/grass,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "RM" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "RR" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1
@@ -6279,13 +6279,13 @@
 /obj/effect/turf_decal/delivery,
 /obj/effect/gibspawner/human/bodypartless,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "RS" = (
 /obj/machinery/shower/directional/east,
 /obj/structure/fluff/shower_drain,
 /obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "RT" = (
 /obj/structure/table/wood/fancy,
 /obj/item/knife/combat,
@@ -6296,12 +6296,12 @@
 /obj/machinery/light/directional/east,
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "RY" = (
 /obj/structure/table,
 /obj/effect/spawner/random/exotic/tool,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Sc" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/light/small/directional/north,
@@ -6312,7 +6312,7 @@
 /obj/structure/dresser,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Sg" = (
 /obj/structure/rack,
 /obj/machinery/light/directional/north,
@@ -6325,19 +6325,19 @@
 "Sh" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Sk" = (
 /obj/structure/fluff/tram_rail,
 /obj/effect/decal/remains/human,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Sl" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Sm" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -6373,7 +6373,7 @@
 /obj/structure/table,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Sv" = (
 /turf/open/misc/grass/jungle/planet,
 /area/awaymission/caves/heretic_laboratory_clean)
@@ -6382,7 +6382,7 @@
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "SF" = (
 /obj/structure/closet/body_bag/bluespace,
 /turf/open/misc/grass/jungle/planet,
@@ -6390,7 +6390,7 @@
 "SG" = (
 /obj/machinery/vending/engivend,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "SI" = (
 /obj/machinery/light/floor,
 /turf/open/floor/wood,
@@ -6410,20 +6410,20 @@
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "SP" = (
 /obj/effect/turf_decal/tile/brown/opposingcorners,
 /obj/structure/chair/stool/bar/directional/north,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "SR" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ST" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "SW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/cafeteria,
@@ -6451,13 +6451,13 @@
 /obj/machinery/door/airlock/medical/glass,
 /obj/effect/mapping_helpers/airlock/access/all/medical,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Te" = (
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ti" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -6479,7 +6479,7 @@
 /obj/item/clothing/mask/gas,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Tl" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -6497,13 +6497,13 @@
 "TB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "TD" = (
 /mob/living/basic/construct/wraith,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "TI" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -6525,7 +6525,7 @@
 /obj/effect/decal/remains/robot,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "TR" = (
 /obj/machinery/conveyor/auto/hardened{
 	dir = 4
@@ -6543,7 +6543,7 @@
 	dir = 4
 	},
 /turf/closed/indestructible/syndicate,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "TX" = (
 /obj/structure/holosign/barrier/atmos/sturdy,
 /obj/machinery/conveyor/auto/hardened{
@@ -6582,7 +6582,7 @@
 "Up" = (
 /obj/machinery/vending/security,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Uq" = (
 /obj/machinery/shower{
 	pixel_y = 15
@@ -6598,7 +6598,7 @@
 /obj/item/kirbyplants/fern,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UA" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/west,
@@ -6610,7 +6610,7 @@
 	},
 /obj/machinery/autolathe,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UD" = (
 /obj/machinery/teleport/station{
 	name = "Forcefield generator"
@@ -6623,7 +6623,7 @@
 /obj/structure/rack,
 /obj/effect/spawner/random/armory/disablers,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UF" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "e";
@@ -6636,34 +6636,34 @@
 	pixel_y = 3
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UG" = (
 /obj/machinery/vending/modularpc,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UL" = (
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UN" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Telecomms"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UO" = (
 /obj/machinery/computer/atmos_alert{
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UQ" = (
 /obj/machinery/atmospherics/miner/oxygen,
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating/airless,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "US" = (
 /obj/structure/closet/radiation,
 /turf/open/floor/mineral/uranium,
@@ -6677,12 +6677,12 @@
 "UX" = (
 /mob/living/basic/heretic_summon/stalker,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "UY" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /mob/living/basic/trooper/nanotrasen/ranged/smg/peaceful,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Vi" = (
 /obj/effect/turf_decal/tile/brown/opposingcorners,
 /obj/machinery/light/directional/south,
@@ -6690,11 +6690,11 @@
 	dir = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Vj" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Vr" = (
 /obj/machinery/door/window/right/directional/north,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -6702,12 +6702,12 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "Vt" = (
 /turf/open/indestructible/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Vy" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Vz" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/remains/xeno,
@@ -6715,7 +6715,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "VB" = (
 /obj/structure/table,
 /obj/item/radio{
@@ -6723,7 +6723,7 @@
 	},
 /obj/item/radio,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "VC" = (
 /obj/structure/fluff/tram_rail/anchor{
 	dir = 1
@@ -6731,7 +6731,7 @@
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic/light,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "VF" = (
 /obj/machinery/conveyor/auto/hardened{
 	dir = 8
@@ -6768,7 +6768,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "VZ" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -6779,10 +6779,10 @@
 /obj/effect/decal/remains/human,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Wd" = (
 /turf/open/floor/iron/checker,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Wg" = (
 /obj/effect/oneway{
 	dir = 8
@@ -6794,7 +6794,7 @@
 /area/awaymission/caves/heretic_laboratory_clean)
 "Wj" = (
 /turf/closed/mineral/earth_like,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Wl" = (
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/nova/utility/advanced,
 /obj/item/clothing/shoes/combat/swat,
@@ -6834,11 +6834,11 @@
 	pixel_y = 6
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Wx" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Wy" = (
 /obj/effect/decal/cleanable/crayon{
 	icon_state = "j";
@@ -6859,7 +6859,7 @@
 	dir = 1
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Wz" = (
 /obj/effect/turf_decal/trimline/red/arrow_ccw,
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack{
@@ -6874,7 +6874,7 @@
 /obj/machinery/door/airlock/hatch,
 /obj/effect/mapping_helpers/airlock/access/all/service,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "WD" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -6888,7 +6888,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "WE" = (
 /obj/machinery/conveyor/auto/hardened{
 	dir = 8
@@ -6915,11 +6915,11 @@
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "WO" = (
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "WQ" = (
 /mob/living/basic/heretic_summon/star_gazer{
 	desc = "A creature that has been tasked to watch over the stars, Now its tasked with watching its cell decay."
@@ -6938,11 +6938,11 @@
 	dir = 1
 	},
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "WY" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xa" = (
 /obj/structure/flora/bush/jungle/a/style_random,
 /obj/effect/decal/cleanable/blood/tracks/xeno,
@@ -6962,30 +6962,30 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xe" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xm" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xn" = (
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xo" = (
 /obj/structure/table,
 /obj/item/storage/medkit/toxin{
@@ -6995,7 +6995,7 @@
 /obj/item/storage/medkit/toxin,
 /obj/item/storage/pill_bottle/multiver,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xq" = (
 /obj/item/wrench,
 /turf/open/misc/grass/jungle/planet,
@@ -7005,20 +7005,20 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xu" = (
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xv" = (
 /obj/effect/turf_decal/tile/brown/opposingcorners,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Xx" = (
 /obj/machinery/shower/directional/south,
 /obj/structure/drain,
 /obj/structure/curtain,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "XB" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/cup/beaker/cryoxadone{
@@ -7034,7 +7034,7 @@
 	pixel_y = 6
 	},
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "XE" = (
 /obj/effect/visible_heretic_influence,
 /turf/open/floor/wood,
@@ -7056,7 +7056,7 @@
 	pixel_y = -9
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "XQ" = (
 /obj/structure/railing{
 	dir = 10
@@ -7073,14 +7073,14 @@
 	dir = 1
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "XU" = (
 /obj/machinery/computer/operating,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "XV" = (
 /obj/structure/fluff/bus/passable/seat/driver,
 /obj/item/toy/plush/moth{
@@ -7112,12 +7112,12 @@
 /obj/structure/fluff/tram_rail/anchor,
 /obj/item/stack/sheet/mineral/wood,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ya" = (
 /obj/structure/mop_bucket/janitorialcart,
 /obj/item/reagent_containers/cup/bucket/wooden,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Yc" = (
 /obj/effect/light_emitter,
 /turf/open/floor/asphalt,
@@ -7125,7 +7125,7 @@
 "Ye" = (
 /obj/machinery/vending/wardrobe/medi_wardrobe,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Ym" = (
 /obj/structure/table,
 /obj/item/gun/ballistic/automatic/sniper_rifle/lahti{
@@ -7139,30 +7139,30 @@
 /obj/effect/decal/cleanable/glass/plastitanium,
 /obj/effect/mob_spawn/corpse/human/russian/ranged/trooper,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Yo" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Yq" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Yr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
 /obj/structure/mop_bucket/janitorialcart,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Yt" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Yu" = (
 /obj/structure/table,
 /obj/machinery/light/directional/east,
@@ -7197,12 +7197,12 @@
 /obj/item/storage/medkit/regular,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "YG" = (
 /obj/structure/fluff/tram_rail/anchor,
 /obj/structure/fluff/tram_rail,
 /turf/open/misc/asteroid,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "YN" = (
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/cafeteria,
@@ -7211,7 +7211,7 @@
 /obj/effect/turf_decal/tile/dark_red/opposingcorners,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "YP" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -7230,7 +7230,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "YW" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -7252,7 +7252,7 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zc" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
@@ -7274,7 +7274,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/remains/human,
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zg" = (
 /turf/open/misc/beach/coast{
 	dir = 6
@@ -7284,19 +7284,19 @@
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zj" = (
 /obj/machinery/shower/directional/east,
 /obj/item/soap,
 /turf/open/floor/iron/freezer,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zn" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/effect/oneway,
@@ -7308,32 +7308,32 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zs" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos/o2{
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zv" = (
 /obj/machinery/shower/directional/north,
 /obj/structure/drain,
 /obj/structure/curtain,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zw" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "Zy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZD" = (
 /obj/machinery/vending/wardrobe/sec_wardrobe,
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZG" = (
 /obj/item/weldingtool/hugetank,
 /obj/item/clothing/head/utility/welding,
@@ -7349,7 +7349,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZM" = (
 /obj/machinery/computer/telecomms/monitor{
 	dir = 1
@@ -7360,7 +7360,7 @@
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/mapping_helpers/airlock/access/all/away/general,
 /turf/open/floor/iron/dark,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZP" = (
 /obj/effect/turf_decal/trimline/red/filled,
 /turf/open/floor/iron/shuttle,
@@ -7372,13 +7372,13 @@
 	pixel_y = 4
 	},
 /turf/open/floor/iron/small,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZS" = (
 /obj/effect/mob_spawn/corpse/human/russian/ranged/trooper,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZV" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -7389,7 +7389,7 @@
 "ZY" = (
 /obj/machinery/mech_bay_recharge_port,
 /turf/open/floor/mineral/plastitanium,
-/area/station/maintenance/heretic_laboratory)
+/area/awaymission/caves/heretic_laboratory)
 "ZZ" = (
 /turf/closed/mineral/asteroid/has_air,
 /area/awaymission/beach/heretic)
@@ -11919,12 +11919,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
 KB
 hg
 aL
@@ -12176,12 +12176,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
 KB
 ML
 kU
@@ -12433,12 +12433,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
 KB
 nb
 zh
@@ -12690,12 +12690,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
 KB
 hg
 WV
@@ -12947,12 +12947,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
 KB
 hg
 WV
@@ -13204,12 +13204,12 @@ bZ
 bZ
 bZ
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
 KB
 nb
 zh
