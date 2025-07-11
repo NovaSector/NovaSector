@@ -1938,6 +1938,9 @@
 /obj/item/inducer{
 	pixel_y = -4
 	},
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "qj" = (
@@ -3824,7 +3827,7 @@
 /area/ruin/interdyne_planetary_base)
 "Fh" = (
 /obj/structure/cable,
-/obj/machinery/power/micro_reactor,
+/obj/machinery/power/micro_reactor/bapgm,
 /turf/open/floor/engine,
 /area/ruin/interdyne_planetary_base/eng)
 "Fj" = (
