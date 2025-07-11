@@ -39599,7 +39599,10 @@
 	linked_elevator_id = "publicElevator"
 	},
 /obj/machinery/light/directional/north,
-/obj/machinery/door/window/elevator/left/directional/west,
+/obj/machinery/door/window/elevator/left/directional/west{
+	transport_linked_id = "publicElevator";
+	elevator_mode = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "hES" = (
@@ -87711,7 +87714,10 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/obj/machinery/door/window/elevator/right/directional/west,
+/obj/machinery/door/window/elevator/right/directional/west{
+	transport_linked_id = "publicElevator";
+	elevator_mode = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "qOZ" = (
@@ -109007,7 +109013,10 @@
 	linked_elevator_id = "publicElevator"
 	},
 /obj/machinery/light/directional/north,
-/obj/machinery/door/window/elevator/right/directional/east,
+/obj/machinery/door/window/elevator/right/directional/east{
+	transport_linked_id = "publicElevator";
+	elevator_mode = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "uQl" = (
