@@ -2661,9 +2661,6 @@
 /obj/item/construction/rcd,
 /obj/item/t_scanner,
 /obj/structure/closet/crate/secure/engineering,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/eng)
 "hk" = (
@@ -7503,6 +7500,9 @@
 /obj/structure/rack/gunrack,
 /obj/item/ammo_workbench_reboot,
 /obj/item/ammo_workbench_module/lethal_super/evil,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "WQ" = (

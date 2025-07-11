@@ -1938,9 +1938,6 @@
 /obj/item/inducer{
 	pixel_y = -4
 	},
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
-/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/iron/diagonal,
 /area/ruin/interdyne_planetary_base/eng)
 "qj" = (
@@ -5945,6 +5942,9 @@
 /area/ruin/interdyne_planetary_base/cargo)
 "Wf" = (
 /obj/structure/rack/gunrack,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
+/obj/item/circuitboard/machine/powerator/interdyne,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/ruin/interdyne_planetary_base/main/vault)
 "Wk" = (
