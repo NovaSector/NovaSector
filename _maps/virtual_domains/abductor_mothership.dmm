@@ -492,10 +492,6 @@
 /obj/effect/mob_spawn/corpse/human/bitrunner,
 /turf/open/floor/plating/abductor2,
 /area/virtual_domain)
-"hf" = (
-/obj/structure/closet/crate/secure/bitrunning/encrypted,
-/turf/open/floor/plating/abductor2,
-/area/virtual_domain)
 "hi" = (
 /obj/machinery/door/airlock/abductor,
 /turf/open/floor/plating/abductor2,
@@ -7188,7 +7184,7 @@ KX
 pI
 pI
 VP
-hf
+fZ
 pI
 bH
 jJ
