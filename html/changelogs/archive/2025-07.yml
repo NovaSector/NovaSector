@@ -56,3 +56,7 @@
   - bugfix: Fixed missing alt sprite for medical utility on non-digi users
   OrionTheFox:
   - qol: 'Sorted the following Loadout groups: Neck, Other, Toys.'
+2025-07-11:
+  SomeRandomOwl:
+  - bugfix: You no longer get unbuckled from the arrival shuttle mid-flight, Remember
+      to buckle your seat-belts.
