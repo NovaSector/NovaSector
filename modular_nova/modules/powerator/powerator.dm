@@ -181,6 +181,7 @@
 	var/money_ratio = round(current_power * divide_ratio)
 	// cut in half if we have a second account
 	if(credits_account_2)
+		money_ratio *= 0.5
 		var/datum/bank_account/secondary_account = SSeconomy.get_dep_account(credits_account_2)
 		secondary_account.adjust_money(money_ratio)
 	primary_account.adjust_money(money_ratio)
